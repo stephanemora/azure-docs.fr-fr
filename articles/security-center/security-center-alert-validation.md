@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/15/2020
+ms.date: 02/17/2021
 ms.author: memildin
-ms.openlocfilehash: 598c13b0434a364e73471b53c82663b94fb42f4e
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 3bdc0af2ea581954cb5edd2c7d00d286f814506c
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97560099"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100633595"
 ---
 # <a name="alert-validation-in-azure-security-center"></a>Validation des alertes dans Azure Security Center
 Ce document est conçu pour vous apprendre à vérifier si votre système est correctement configuré pour les alertes dans Azure Security Center.
@@ -36,11 +36,6 @@ Utilisez des exemples d’alertes pour :
 
 - évaluer la valeur et les fonctionnalités d’Azure Defender ;
 - valider les configurations que vous avez effectuées pour vos alertes de sécurité (telles que les intégrations SIEM, l’automatisation des flux de travail et les notifications par e-mail).
-
-> [!NOTE]
-> Cette procédure requiert l’utilisation de la nouvelle expérience d’alertes (en préversion) disponible dans la bannière en haut de la page **Alertes de sécurité**.
->
-> :::image type="content" source="media/security-center-managing-and-responding-alerts/preview-alerts-experience-banner.png" alt-text="Bannière avec un lien vers la nouvelle expérience d’alertes en préversion":::
 
 Pour créer des exemples d’alertes :
 

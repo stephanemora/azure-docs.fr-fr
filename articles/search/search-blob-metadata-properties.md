@@ -1,33 +1,33 @@
 ---
 title: Propriétés des métadonnées de contenu
 titleSuffix: Azure Cognitive Search
-description: Les propriétés de métadonnées des blobs peuvent fournir du contenu aux champs d’un index de recherche ou des informations qui renseignent sur le comportement de l’indexation au moment de l’exécution. Cet article répertorie les propriétés de métadonnées prises en charge dans Recherche cognitive Azure.
+description: Les propriétés des métadonnées de documents peuvent fournir du contenu aux champs d’un index de recherche, ou des informations qui renseignent sur le comportement de l’indexation au moment de l’exécution. Cet article répertorie les propriétés de métadonnées prises en charge dans Recherche cognitive Azure.
 manager: nitinme
 author: MarkHeff
 ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/03/2021
-ms.openlocfilehash: 79443785dbd8619e22358631c9c36a3da4ef2e84
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.date: 02/22/2021
+ms.openlocfilehash: cbb35f596a1d32816d1a73b462bf590d9dde0d52
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99477284"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101668416"
 ---
-# <a name="content-metadata-properties-used-in-blob-indexing-in-azure-cognitive-search"></a>Propriétés des métadonnées de contenu utilisées dans l’indexation de blobs dans Recherche cognitive Azure
+# <a name="content-metadata-properties-used-in-azure-cognitive-search"></a>Propriétés des métadonnées de contenu utilisées dans la Recherche cognitive Azure
 
-Les blobs peuvent contenir différents contenus, et un grand nombre de ces types de contenu ont des propriétés de métadonnées qui peuvent être utiles dans l’indexation de blobs. Tout comme vous pouvez créer des champs de recherche pour les propriétés standard des blobs comme **`metadata_storage_name`** , vous pouvez créer des champs pour les propriétés de métadonnées spécifiques à un format de document.
+SharePoint Online et le stockage Blob Azure peuvent présenter différents contenus ; bon nombre de ces types de contenu disposent de propriétés de métadonnées pouvant être utiles dans l’indexation. Tout comme vous pouvez créer des champs de recherche pour les propriétés standard des blobs comme **`metadata_storage_name`** , vous pouvez créer des champs pour les propriétés de métadonnées spécifiques à un format de document.
 
 ## <a name="supported-document-formats"></a>Formats de document pris en charge
 
-Recherche cognitive prend en charge l’indexation de blobs pour les formats de document suivants :
+La Recherche cognitive prend en charge l’indexation d’objets blob et l’indexation de documents SharePoint Online pour les formats de document suivants :
 
 [!INCLUDE [search-blob-data-sources](../../includes/search-blob-data-sources.md)]
 
 ## <a name="properties-by-document-format"></a>Propriétés par format de document
 
-Le tableau ci-après récapitule le traitement appliqué pour chaque format de document et décrit les propriétés de métadonnées extraites par un indexeur de blobs.
+Le tableau ci-après récapitule le traitement appliqué pour chaque format de document, il décrit les propriétés de métadonnées extraites par un indexeur d’objets blob et l’indexeur SharePoint Online.
 
 | Format de document/type de contenu | Métadonnées extraites | Détails du traitement |
 | --- | --- | --- |
@@ -62,3 +62,4 @@ Le tableau ci-après récapitule le traitement appliqué pour chaque format de d
 * [Indexeurs dans Recherche cognitive Azure](search-indexer-overview.md)
 * [Comprendre les blobs avec l’intelligence artificielle](search-blob-ai-integration.md)
 * [Vue d’ensemble de l’indexation de blobs](search-blob-storage-integration.md)
+* [Indexation de SharePoint Online](search-howto-index-sharepoint-online.md)

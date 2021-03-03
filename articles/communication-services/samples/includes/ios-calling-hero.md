@@ -10,12 +10,12 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 618efc8d2c3784a487c302661f35d5a284c68178
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.openlocfilehash: 7d39decaa6376c614e48b65ad2fc1b3043aa0a3c
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99475645"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101682446"
 ---
 [!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
 
@@ -74,8 +74,8 @@ Créez et exécutez l’exemple dans XCode.
 Avec une configuration supplémentaire, cet exemple prend en charge la connexion à un point de terminaison **Azure Active Directory** (Azure AD) protégé, qui requiert une connexion de l’utilisateur pour que l’application puisse récupérer un jeton Azure Communication Services. Consultez les étapes ci-dessous :
 
 1. Activez l’authentification Azure Active Directory dans votre application.  
-   - [Inscrire votre application sous Azure Active Directory (en utilisant les paramètres de plateforme iOS/macOS)](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-ios) 
-    - [Configurer votre application App Service ou Azure Functions pour utiliser une connexion Azure AD](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad)
+   - [Inscrire votre application sous Azure Active Directory (en utilisant les paramètres de plateforme iOS/macOS)](../../../active-directory/develop/tutorial-v2-ios.md) 
+    - [Configurer votre application App Service ou Azure Functions pour utiliser une connexion Azure AD](../../../app-service/configure-authentication-provider-aad.md)
 2. Accédez à la page de vue d’ensemble de l’application inscrite sous Azure Active Directory > Inscriptions des applications. Notez les valeurs de `Application (client) ID`, `Directory (tenant) ID`, `Application ID URI`
 
 :::image type="content" source="../media/calling/aad-overview.png" alt-text="Configuration d’Azure Active Directory dans le portail Azure.":::

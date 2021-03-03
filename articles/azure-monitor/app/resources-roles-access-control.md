@@ -4,12 +4,12 @@ description: Propriétaires, collaborateurs et lecteurs des perspectives de votr
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: cd1e69ecd121380353ad6400d473d572b7b7bb3e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4254170ad100b634439cc846dc381e305ae71d1f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89076682"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100589591"
 ---
 # <a name="resources-roles-and-access-control-in-application-insights"></a>Contrôle d’accès, rôles et ressources dans Application Insights
 
@@ -76,7 +76,7 @@ Le cas échéant, le lien est établi vers la documentation de référence offic
 | [Lecteur](../../role-based-access-control/built-in-roles.md#reader) |Peut afficher les éléments, mais ne peut rien modifier. |
 | [Débogueur de capture instantanée d’Application Insights](../../role-based-access-control/built-in-roles.md#application-insights-snapshot-debugger) | Autorise l’utilisateur à utiliser les fonctionnalités du débogueur de capture instantanée d’Application Insights. Remarquez que ce rôle n’est pas inclus dans les rôles de propriétaire et de contributeur. |
 | Contributeur de gestion des mises en production de déploiement Azure Service | Rôle de contributeur pour le déploiement de services via le déploiement Azure Service. |
-| [Videur de données](../../role-based-access-control/built-in-roles.md#data-purger) | Rôle spécial pour le vidage des données personnelles. Consultez notre [guide pour les données personnelles](../platform/personal-data-mgmt.md) pour plus d’informations.   |
+| [Videur de données](../../role-based-access-control/built-in-roles.md#data-purger) | Rôle spécial pour le vidage des données personnelles. Consultez notre [guide pour les données personnelles](../logs/personal-data-mgmt.md) pour plus d’informations.   |
 | Administrateur ExpressRoute | Peut créer, supprimer et gérer des itinéraires express.|
 | [Contributeur Log Analytics](../../role-based-access-control/built-in-roles.md#log-analytics-contributor) | Peut lire toutes les données de surveillance et modifier les paramètres de surveillance. La modification des paramètres de supervision inclut l’ajout de l’extension de machine virtuelle aux machines virtuelles, la lecture des clés de comptes de stockage permettant de configurer la collection de journaux d’activité du stockage Azure, la création et la configuration de comptes Automation, l’ajout de solutions et la configuration de diagnostics Azure sur toutes les ressources Azure.  |
 | [Lecteur Log Analytics](../../role-based-access-control/built-in-roles.md#log-analytics-reader) | Peut afficher et rechercher toutes les données de surveillance, ainsi qu’afficher les paramètres de surveillance, notamment la configuration des diagnostics Azure sur toutes les ressources Azure. |

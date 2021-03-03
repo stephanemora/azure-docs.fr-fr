@@ -4,12 +4,12 @@ description: Supervisez les compteurs d’événements .NET/.NET Core système e
 ms.topic: conceptual
 ms.date: 09/20/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a9af36f3c81ee52b41a8eed875c1a286b95bf838
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: d1ae0937c25a68798acd87fe8b2a0a54aa765b35
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91803641"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579534"
 ---
 # <a name="eventcounters-introduction"></a>Présentation des compteurs d’événements
 
@@ -88,14 +88,14 @@ Une approche similaire peut également être utilisée pour le kit de développe
 
 ## <a name="event-counters-in-metric-explorer"></a>Compteurs d’événements dans Metric Explorer
 
-Pour voir les métriques de compteur d’événements dans [Metric Explorer](../platform/metrics-charts.md), sélectionnez une ressource Application Insights, puis choisissez des métriques basées sur un journal comme espace de noms de métrique. Ainsi, les métriques de compteur d’événements s’affichent sous Catégorie personnalisée.
+Pour voir les métriques de compteur d’événements dans [Metric Explorer](../essentials/metrics-charts.md), sélectionnez une ressource Application Insights, puis choisissez des métriques basées sur un journal comme espace de noms de métrique. Ainsi, les métriques de compteur d’événements s’affichent sous Catégorie personnalisée.
 
 > [!div class="mx-imgBorder"]
 > ![Compteurs d’événements signalés dans Application Insights Metrics Explorer](./media/event-counters/metrics-explorer-counter-list.png)
 
 ## <a name="event-counters-in-analytics"></a>Compteurs d’événements dans Analytics
 
-Vous pouvez également rechercher et afficher des rapports de compteurs d’événements dans [Analytics](../log-query/log-query-overview.md), dans la table **customMetrics**.
+Vous pouvez également rechercher et afficher des rapports de compteurs d’événements dans [Analytics](../logs/log-query-overview.md), dans la table **customMetrics**.
 
 Par exemple, exécutez la requête suivante pour voir quels compteurs sont collectés et disponibles pour la requête :
 
@@ -121,7 +121,7 @@ customMetrics
 Comme les autres données de télémétrie, **customMetrics** possède également une colonne `cloud_RoleInstance` qui indique l’identité de l’instance de serveur hôte sur lequel votre application est en cours d’exécution. La requête ci-dessus montre la valeur de compteur par instance et peut servir à comparer les performances des différentes instances de serveur.
 
 ## <a name="alerts"></a>Alertes
-À l’instar d’autres métriques, vous pouvez [définir une alerte](../platform/alerts-log.md) pour vous avertir si un compteur d’événements dépasse une limite que vous spécifiez. Ouvrez le volet Alertes et cliquez sur Ajouter une alerte.
+À l’instar d’autres métriques, vous pouvez [définir une alerte](../alerts/alerts-log.md) pour vous avertir si un compteur d’événements dépasse une limite que vous spécifiez. Ouvrez le volet Alertes et cliquez sur Ajouter une alerte.
 
 ## <a name="frequently-asked-questions"></a>Forum aux questions
 

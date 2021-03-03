@@ -9,16 +9,14 @@ ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 80fdedb29f70c961431c987558a42d5fa46dfa7d
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 1a28ca967404bf6a5329f8d590a8f1f4f8715407
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98760806"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101657024"
 ---
 # <a name="get-started-with-the-group-chat-hero-sample"></a>Bien démarrer avec l’exemple de bannière de conversation de groupe
-
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 <!----
 > [!WARNING]
@@ -36,13 +34,13 @@ Dans ce guide de démarrage rapide, vous allez découvrir comment fonctionne l�
 
 ## <a name="overview"></a>Vue d’ensemble
 
-L’exemple comporte à la fois une application côté client et une application côté serveur. L’**application côté client** est une application web React/Redux qui utilise le framework d’interface utilisateur Fluent de Microsoft. Cette application envoie des requêtes à une **application côté serveur** ASP.NET Core qui aide l’application côté client à se connecter à Azure. 
+L’exemple comporte à la fois une application côté client et une application côté serveur. L’**application côté client** est une application web React/Redux qui utilise le framework d’interface utilisateur Fluent de Microsoft. Cette application envoie des requêtes à une **application côté serveur** ASP.NET Core qui aide l’application côté client à se connecter à Azure.
 
 Voici à quoi ressemble l’exemple :
 
 :::image type="content" source="./media/chat/landing-page.png" alt-text="Capture d’écran montrant la page d’arrivée de l’exemple d’application.":::
 
-Lorsque vous appuyez sur le bouton « Start a Chat » (Démarrer une conversation), l’application web récupère un jeton d’accès utilisateur à partir de l’application côté serveur. Ce jeton est ensuite utilisé pour connecter l’application cliente à Azure Communication Services. Une fois le jeton récupéré, vous êtes invité à spécifier votre nom et l’emoji qui vous représentera durant la conversation. 
+Lorsque vous appuyez sur le bouton « Start a Chat » (Démarrer une conversation), l’application web récupère un jeton d’accès utilisateur à partir de l’application côté serveur. Ce jeton est ensuite utilisé pour connecter l’application cliente à Azure Communication Services. Une fois le jeton récupéré, vous êtes invité à spécifier votre nom et l’emoji qui vous représentera durant la conversation.
 
 :::image type="content" source="./media/chat/pre-chat.png" alt-text="Capture d’écran montrant l’écran de préconversation de l’application.":::
 
@@ -54,7 +52,7 @@ Composants de l’écran principal de conversation :
 
 - **Zone de conversation principale** : il s’agit de l’expérience de conversation de base où les utilisateurs peuvent envoyer et recevoir des messages. Pour envoyer des messages, vous pouvez utiliser la zone d’entrée et appuyer sur Entrée (ou utiliser le bouton d’envoi). Les messages de conversation reçus sont catégorisés par l’expéditeur avec le nom et l’emoji corrects. Deux types de notifications s’affichent dans la zone de conversation : 1) notifications de frappe lorsqu’un utilisateur frappe au clavier et 2) notifications d’envoi et de lecture pour les messages.
 - **En-tête**: c’est ici que l’utilisateur verra le titre du fil de conversation et les commandes permettant de choisir entre les barres latérales des participants et des paramètres. Y figure également un bouton permettant de quitter la session de conversation.
-- **Barre latérale** : c’est ici que les informations sur les participants et les paramètres sont affichées, en fonction de l’option choisie à l’aide des commandes de l’en-tête. La barre latérale des participants contient une liste des participants à la conversation et un lien pour inviter des participants à la session de conversation. La barre latérale des paramètres vous permet de configurer le titre du fil de conversation. 
+- **Barre latérale** : c’est ici que les informations sur les participants et les paramètres sont affichées, en fonction de l’option choisie à l’aide des commandes de l’en-tête. La barre latérale des participants contient une liste des participants à la conversation et un lien pour inviter des participants à la session de conversation. La barre latérale des paramètres vous permet de configurer le titre du fil de conversation.
 
 Vous trouverez ci-dessous des informations supplémentaires sur les prérequis et les étapes à suivre pour configurer l’exemple.
 
@@ -104,7 +102,7 @@ Si vous voulez nettoyer et supprimer un abonnement Communication Services, vous 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
->[!div class="nextstepaction"] 
+>[!div class="nextstepaction"]
 >[Télécharger l’exemple à partir de GitHub](https://github.com/Azure-Samples/communication-services-web-chat-hero)
 
 Pour plus d’informations, consultez les articles suivants :

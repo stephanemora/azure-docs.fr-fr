@@ -7,16 +7,16 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 06/06/2020
 ms.author: surmb
-ms.openlocfilehash: be629d9f8441ad40fe15f005f4aeb0ec5565a7ec
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 9faa3a284aa7151880526c1ee70cfadc3dbf3089
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96437063"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576110"
 ---
 # <a name="metrics-for-application-gateway"></a>Métriques pour Application Gateway
 
-Application Gateway publie des points de données, appelés métriques, sur [Azure Monitor](../azure-monitor/overview.md) pour les performances de vos instances Application Gateway et principales. Ces métriques sont des valeurs numériques dans un ensemble ordonné de données chronologiques qui décrivent certains aspects de votre passerelle d’application à un moment donné. Si des requêtes transitent par Application Gateway, les métriques sont mesurées et envoyées par intervalles de 60 secondes. Si aucune requête ne passe par Application Gateway ou s’il n’y a aucune donnée pour une métrique, la métrique n’est pas signalée. Pour plus d’informations, voir [Mesures Azure Monitor](../azure-monitor/platform/data-platform-metrics.md).
+Application Gateway publie des points de données, appelés métriques, sur [Azure Monitor](../azure-monitor/overview.md) pour les performances de vos instances Application Gateway et principales. Ces métriques sont des valeurs numériques dans un ensemble ordonné de données chronologiques qui décrivent certains aspects de votre passerelle d’application à un moment donné. Si des requêtes transitent par Application Gateway, les métriques sont mesurées et envoyées par intervalles de 60 secondes. Si aucune requête ne passe par Application Gateway ou s’il n’y a aucune donnée pour une métrique, la métrique n’est pas signalée. Pour plus d’informations, voir [Mesures Azure Monitor](../azure-monitor/essentials/data-platform-metrics.md).
 
 ## <a name="metrics-supported-by-application-gateway-v2-sku"></a>Métriques prises en charge par le SKU Application Gateway v2
 
@@ -200,7 +200,7 @@ Dans l’image suivante, consultez un exemple avec trois métriques affichées p
 
 :::image type="content" source="media/application-gateway-diagnostics/figure5.png" alt-text="Affichage des métriques." lightbox="media/application-gateway-diagnostics/figure5-lb.png":::
 
-Pour afficher une liste actuelle des métriques, consultez [Mesures prises en charge avec Azure Monitor](../azure-monitor/platform/metrics-supported.md).
+Pour afficher une liste actuelle des métriques, consultez [Mesures prises en charge avec Azure Monitor](../azure-monitor/essentials/metrics-supported.md).
 
 ### <a name="alert-rules-on-metrics"></a>Règles d’alerte sur les métriques
 
@@ -230,9 +230,9 @@ Une liste d’alertes apparaît une fois que vous avez créé une alerte Métriq
 
 ![Liste d’alertes et de règles][9]
 
-Pour en savoir plus sur les notifications d’alerte, consultez [Réception de notifications d’alerte](../azure-monitor/platform/alerts-overview.md).
+Pour en savoir plus sur les notifications d’alerte, consultez [Réception de notifications d’alerte](../azure-monitor/alerts/alerts-overview.md).
 
-Pour en savoir plus sur les webhooks et sur la façon de les utiliser avec des alertes, consultez [Configurer un webhook sur une alerte de métrique Azure](../azure-monitor/platform/alerts-webhooks.md).
+Pour en savoir plus sur les webhooks et sur la façon de les utiliser avec des alertes, consultez [Configurer un webhook sur une alerte de métrique Azure](../azure-monitor/alerts/alerts-webhooks.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

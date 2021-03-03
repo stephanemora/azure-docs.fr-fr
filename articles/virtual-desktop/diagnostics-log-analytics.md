@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 5d8b696b175c4ef841eef1a51f1d357d1781cba7
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 37990cc4322717f090c7a35c62512ba0e1a04293
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95018288"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576152"
 ---
 # <a name="use-log-analytics-for-the-diagnostics-feature"></a>Utiliser Log Analytics pour la fonctionnalité de diagnostic
 
@@ -39,23 +39,23 @@ Les connexions qui n’atteignent pas Windows Virtual Desktop ne figureront pas 
 Azure Monitor vous permet d’analyser les données Windows Virtual Desktop et de consulter les compteurs de performances des machines virtuelles, le tout au sein du même outil. Cet article met l’accent sur l’activation des diagnostics pour votre environnement Windows Virtual Desktop.
 
 >[!NOTE]
->Pour savoir comment superviser vos machines virtuelles dans Azure, consultez [Supervision de machines virtuelles Azure avec Azure Monitor](../azure-monitor/insights/monitor-vm-azure.md). Veillez également à [passer en revue les seuils des compteurs de performances](../virtual-desktop/virtual-desktop-fall-2019/deploy-diagnostics.md#windows-performance-counter-thresholds) pour mieux comprendre votre expérience utilisateur sur l’hôte de session.
+>Pour savoir comment superviser vos machines virtuelles dans Azure, consultez [Supervision de machines virtuelles Azure avec Azure Monitor](../azure-monitor/vm/monitor-vm-azure.md). Veillez également à [passer en revue les seuils des compteurs de performances](../virtual-desktop/virtual-desktop-fall-2019/deploy-diagnostics.md#windows-performance-counter-thresholds) pour mieux comprendre votre expérience utilisateur sur l’hôte de session.
 
 ## <a name="before-you-get-started"></a>Avant de commencer
 
 Avant de pouvoir utiliser Log Analytics, vous devez créer un espace de travail. Pour ce faire, suivez les instructions de l’un des deux articles suivants :
 
-- Si vous préférez utiliser le portail Azure, consultez [Créer un espace de travail Log Analytics dans le portail Azure](../azure-monitor/learn/quick-create-workspace.md).
-- Si vous préférez PowerShell, consultez [Créer un espace de travail Log Analytics avec PowerShell](../azure-monitor/platform/powershell-workspace-configuration.md).
+- Si vous préférez utiliser le portail Azure, consultez [Créer un espace de travail Log Analytics dans le portail Azure](../azure-monitor/logs/quick-create-workspace.md).
+- Si vous préférez PowerShell, consultez [Créer un espace de travail Log Analytics avec PowerShell](../azure-monitor/logs/powershell-workspace-configuration.md).
 
-Après avoir créé votre espace de travail, suivez les instructions de la section [Connecter des ordinateurs Windows à Azure Monitor](../azure-monitor/platform/log-analytics-agent.md#workspace-id-and-key) pour obtenir les informations suivantes :
+Après avoir créé votre espace de travail, suivez les instructions de la section [Connecter des ordinateurs Windows à Azure Monitor](../azure-monitor/agents/log-analytics-agent.md#workspace-id-and-key) pour obtenir les informations suivantes :
 
 - L’ID de l’espace de travail
 - La clé primaire de votre espace de travail
 
 Ces informations vous seront nécessaires plus loin dans le processus de configuration.
 
-Veillez à passer en revue la gestion des autorisations pour Azure Monitor afin d’activer l’accès aux données pour les personnes qui supervisent et gèrent votre environnement Windows Virtual Desktop. Pour plus d’informations, consultez [Prise en main des rôles, des autorisations et de la sécurité dans Azure Monitor](../azure-monitor/platform/roles-permissions-security.md).
+Veillez à passer en revue la gestion des autorisations pour Azure Monitor afin d’activer l’accès aux données pour les personnes qui supervisent et gèrent votre environnement Windows Virtual Desktop. Pour plus d’informations, consultez [Prise en main des rôles, des autorisations et de la sécurité dans Azure Monitor](../azure-monitor/roles-permissions-security.md).
 
 ## <a name="push-diagnostics-data-to-your-workspace"></a>Envoyer (push) les données de diagnostic à votre espace de travail
 
@@ -73,7 +73,7 @@ Pour configurer Log Analytics pour un nouvel objet :
 
     Les options affichées dans la page Paramètres de diagnostic varient selon le type d’objet que vous modifiez.
 
-    Par exemple, quand vous activez les diagnostics pour un groupe d’applications, vous voyez les options permettant de configurer les points de contrôle, les erreurs et la gestion. Dans le cas des espaces de travail, ces catégories configurent un flux pour suivre le moment auquel les utilisateurs s’abonnent à la liste des applications. Pour en savoir plus sur les paramètres de diagnostic, consultez [Créer un paramètre de diagnostic pour collecter les journaux et les métriques des ressources dans Azure](../azure-monitor/platform/diagnostic-settings.md).
+    Par exemple, quand vous activez les diagnostics pour un groupe d’applications, vous voyez les options permettant de configurer les points de contrôle, les erreurs et la gestion. Dans le cas des espaces de travail, ces catégories configurent un flux pour suivre le moment auquel les utilisateurs s’abonnent à la liste des applications. Pour en savoir plus sur les paramètres de diagnostic, consultez [Créer un paramètre de diagnostic pour collecter les journaux et les métriques des ressources dans Azure](../azure-monitor/essentials/diagnostic-settings.md).
 
      >[!IMPORTANT]
      >N’oubliez pas d’activer les diagnostics pour chaque objet Azure Resource Manager que vous souhaitez superviser. Les données sont disponibles pour les activités une fois les diagnostics activés. La première configuration peut prendre quelques heures.
@@ -83,7 +83,7 @@ Pour configurer Log Analytics pour un nouvel objet :
 6. Sélectionnez **Enregistrer**.
 
 >[!NOTE]
->Log Analytics vous donne la possibilité d’effectuer un streaming des données vers [Event Hubs](../event-hubs/event-hubs-about.md) ou de les archiver dans un compte de stockage. Pour en savoir plus sur cette fonctionnalité, consultez [Envoyer en streaming des données de supervision Azure vers un hub d’événements](../azure-monitor/platform/stream-monitoring-data-event-hubs.md) et [Archiver des journaux de ressource Azure dans un compte de stockage](../azure-monitor/platform/resource-logs.md#send-to-azure-storage).
+>Log Analytics vous donne la possibilité d’effectuer un streaming des données vers [Event Hubs](../event-hubs/event-hubs-about.md) ou de les archiver dans un compte de stockage. Pour en savoir plus sur cette fonctionnalité, consultez [Envoyer en streaming des données de supervision Azure vers un hub d’événements](../azure-monitor/essentials/stream-monitoring-data-event-hubs.md) et [Archiver des journaux de ressource Azure dans un compte de stockage](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage).
 
 ## <a name="how-to-access-log-analytics"></a>Comment accéder à Log Analytics
 
@@ -134,9 +134,9 @@ Accédez à des exemples de requêtes par le biais de l’interface utilisateur 
 1. Sélectionnez **Windows Virtual Desktop** pour examiner les requêtes disponibles.
 1. Sélectionnez **Exécuter** pour exécuter la requête sélectionnée.
 
-Pour plus d’informations sur l’interface de l’exemple de requête, consultez [Requêtes enregistrées dans Azure Monitor Log Analytics](../azure-monitor/log-query/example-queries.md).
+Pour plus d’informations sur l’interface de l’exemple de requête, consultez [Requêtes enregistrées dans Azure Monitor Log Analytics](../azure-monitor/logs/example-queries.md).
 
-La liste de requêtes suivante vous permet de consulter les informations ou les problèmes de connexion pour un seul utilisateur. Vous pouvez exécuter ces requêtes dans l’[éditeur de requête Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md#write-a-query). Pour chaque requête, remplacez `userupn` par l’UPN de l’utilisateur que vous souhaitez rechercher.
+La liste de requêtes suivante vous permet de consulter les informations ou les problèmes de connexion pour un seul utilisateur. Vous pouvez exécuter ces requêtes dans l’[éditeur de requête Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md#write-a-query). Pour chaque requête, remplacez `userupn` par l’UPN de l’utilisateur que vous souhaitez rechercher.
 
 
 Pour rechercher toutes les connexions d’un seul utilisateur :

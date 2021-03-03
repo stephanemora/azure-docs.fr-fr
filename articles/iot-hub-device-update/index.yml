@@ -1,0 +1,76 @@
+### YamlMime:Landing
+title: Documentation sur la mise à jour d’appareil pour IoT Hub
+summary: La mise à jour d’appareil pour IoT Hub est un service qui vous permet de déployer des mises à jour par voie hertzienne (OTA) sur vos appareils IoT.
+metadata:
+  title: Documentation sur la mise à jour d’appareil pour IoT Hub
+  description: La mise à jour d’appareil pour IoT Hub est un service qui vous permet de déployer des mises à jour par voie hertzienne (OTA) sur vos appareils IoT.
+  services: iot-hub
+  ms.service: iot-hub
+  ms.topic: landing-page
+  author: philmea
+  ms.author: philmea
+  manager: philmea
+  ms.date: 2/17/2021
+  ms.openlocfilehash: 2b47f8b51cf4150659c1d5b8ed1dc145997252ef
+  ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 03/02/2021
+  ms.locfileid: "101677945"
+landingContent:
+- title: À propos de la mise à jour d’appareil
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Qu’est-ce que la mise à jour d’appareil pour IoT Hub ?
+      url: understand-device-update.md
+  - linkListType: concept
+    links:
+    - text: Utilisation du Plug-and-Play par la mise à jour d’appareil
+      url: device-update-plug-and-play.md
+    - text: Comprendre l’authentification et l’autorisation de mise à jour d’appareil
+      url: device-update-control-access.md
+    - text: Comprendre l’agent de mise à jour d’appareil
+      url: device-update-agent-overview.md
+    - text: Comprendre l’importation de mise à jour d’appareil
+      url: import-concepts.md
+    - text: Comprendre les groupes de mise à jour d’appareil
+      url: device-update-groups.md
+- title: Explorer avec les tutoriels
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Mise à jour d’appareil sur Raspberry Pi
+      url: device-update-raspberry-pi.md
+  - linkListType: tutorial
+    links:
+    - text: Mise à jour d’appareil sur un simulateur
+      url: device-update-simulator.md
+  - linkListType: tutorial
+    links:
+    - text: Mise à jour d’appareil sur l’agent de package Ubuntu Server 18.04 x64
+      url: device-update-ubuntu-agent.md
+- title: En savoir plus sur la mise à jour des appareils
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Créer un compte de mise à jour d’appareil
+      url: create-device-update-account.md
+  - linkListType: how-to-guide
+    links:
+    - text: Importer une mise à jour
+      url: import-update.md
+  - linkListType: how-to-guide
+    links:
+    - text: Créer un groupe de mise à jour
+      url: create-update-group.md
+  - linkListType: how-to-guide
+    links:
+    - text: Déployer une mise à jour
+      url: deploy-update.md
+- title: Guide du développeur
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Générer, exécuter et modifier l’agent de mise à jour d’appareil
+      url: device-update-agent-provisioning.md

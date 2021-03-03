@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d7d9ed8fa695c636e7aaf36fd034babb4de012d9
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 32a9c26bb9e89cf4057cc753b02ad3c006d0bae6
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98784678"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595068"
 ---
 # <a name="capacity-planning-and-scaling-for-azure-service-fabric"></a>Planification et mise à l’échelle de la capacité pour Azure Service Fabric
 
@@ -26,7 +26,7 @@ L’utilisation de la mise à l’échelle automatique via des groupes de machin
 
 * le déploiement de vos modèles Resource Manager avec une capacité appropriée déclarée ne prend pas en charge votre cas d’utilisation.
      
-   Outre la mise à l’échelle manuelle, vous pouvez configurer un [pipeline d’intégration et livraison continue dans les Services Azure DevOps à l’aide de projets de déploiement de groupe de ressources Azure](../azure-resource-manager/templates/add-template-to-azure-pipelines.md). Ce pipeline est couramment déclenché par une application logique qui utilise des métriques de performances de machine virtuelle interrogées depuis l’[API REST Azure Monitor](../azure-monitor/platform/rest-api-walkthrough.md). Le pipeline met automatiquement à l’échelle les mesures souhaitées de manière efficace, tout en optimisant les modèles Resource Manager.
+   Outre la mise à l’échelle manuelle, vous pouvez configurer un [pipeline d’intégration et livraison continue dans les Services Azure DevOps à l’aide de projets de déploiement de groupe de ressources Azure](../azure-resource-manager/templates/add-template-to-azure-pipelines.md). Ce pipeline est couramment déclenché par une application logique qui utilise des métriques de performances de machine virtuelle interrogées depuis l’[API REST Azure Monitor](../azure-monitor/essentials/rest-api-walkthrough.md). Le pipeline met automatiquement à l’échelle les mesures souhaitées de manière efficace, tout en optimisant les modèles Resource Manager.
 * Vous devez mettre à l’échelle horizontale uniquement un nœud de groupe de machines virtuelles identiques à la fois.
    
    Pour effectuer un scale-out de trois nœuds ou plus à la fois, vous devez [effectuer le scale-out d’un cluster Service Fabric en ajoutant un groupe de machines virtuelles identiques](virtual-machine-scale-set-scale-node-type-scale-out.md). Il est plus sûr d’effectuer un scale-in et un scale-out de groupe de machines virtuelles identiques à l’horizontale, un nœud à la fois.

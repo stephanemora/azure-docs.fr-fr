@@ -3,12 +3,12 @@ title: Migrer une ressource Azure Monitor Application Insights classique vers un
 description: En savoir plus sur les étapes requises pour mettre à niveau votre Azure Monitor Application Insights ressource classique vers le nouveau modèle basé sur l’espace de travail.
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 5316bf5b919fe8b24ea1dd601214df62aa034f37
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 5791abe33dee2e62aadb00ae1024338e1e44a900
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98945112"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100584252"
 ---
 # <a name="migrate-to-workspace-based-application-insights-resources"></a>Migrer vers des ressources de Application Insights basées sur un espace de travail
 
@@ -22,21 +22,21 @@ Les ressources basées sur l’espace de travail activent le contrôle d’accè
 
 Les Application Insights basées sur l’espace de travail vous permettent de tirer profit de toutes les dernières fonctionnalités d’Azure Monitor et Log Analytics, y compris :
 
-* [Les clés gérées par le client (CMK)](../platform/customer-managed-keys.md) fournissent un chiffrement au repos pour vos données avec des clés de chiffrement auxquelles vous seul avez accès.
-* [Azure Private Link](../platform/private-link-security.md) vous permet de lier en toute sécurité les services PaaS Azure à votre réseau virtuel à l’aide de points de terminaison privés.
+* [Les clés gérées par le client (CMK)](../logs/customer-managed-keys.md) fournissent un chiffrement au repos pour vos données avec des clés de chiffrement auxquelles vous seul avez accès.
+* [Azure Private Link](../logs/private-link-security.md) vous permet de lier en toute sécurité les services PaaS Azure à votre réseau virtuel à l’aide de points de terminaison privés.
 * [BYOS (apportez votre propre stockage) pour Profiler et Débogueur de capture instantanée](./profiler-bring-your-own-storage.md) vous offre un contrôle total sur la stratégie de chiffrement au repos, la stratégie de gestion de la durée de vie et l’accès réseau pour toutes les données associées à Application Insights Profiler et Débogueur de capture instantanée. 
-* [Les niveaux de réservation de capacité](../platform/manage-cost-storage.md#pricing-model) vous permettent d’économiser jusqu’à 25% par rapport au tarif du paiement à l’utilisation. 
+* Les [niveaux de réservation de capacité](../logs/manage-cost-storage.md#pricing-model) vous permettent d’économiser jusqu’à 25 % par rapport au tarif du paiement à l’utilisation. 
 * Ingestion plus rapide des données via l’ingestion de diffusion en continu Log Analytics.
 
 ## <a name="migration-process"></a>Processus de migration
 
 Lorsque vous migrez vers une ressource basée sur un espace de travail, aucune donnée n’est transférée du stockage de votre ressource classique vers le nouveau stockage basé sur l’espace de travail. En revanche, choisir de migrer modifiera l’emplacement où les nouvelles données seront écrites vers un espace de travail Log Analytics tout en préservant l’accès à vos données de ressource classiques. 
 
-Vos données de ressource classiques seront conservées et soumises aux paramètres de rétention de votre ressource Application Insights classique. Toutes les nouvelles données ingérées après migration seront soumises aux [paramètres de rétention](../platform/manage-cost-storage.md#change-the-data-retention-period) de l’espace de travail Log Analytics associé, qui prend également en charge [différents paramètres de rétention par type de données](../platform/manage-cost-storage.md#retention-by-data-type).
+Vos données de ressource classiques seront conservées et soumises aux paramètres de rétention de votre ressource Application Insights classique. Toutes les nouvelles données ingérées après migration seront soumises aux [paramètres de rétention](../logs/manage-cost-storage.md#change-the-data-retention-period) de l’espace de travail Log Analytics associé, qui prend également en charge [différents paramètres de rétention par type de données](../logs/manage-cost-storage.md#retention-by-data-type).
 Le processus de migration est **permanent et ne peut pas être inversé**. Une fois que vous migrez une ressource vers une Application Insights basée sur un espace de travail, cette dernière reste toujours une ressource basée sur un espace de travail. Toutefois, une fois la migration effectuée, vous pouvez modifier l’espace de travail cible aussi souvent que nécessaire. 
 
 > [!NOTE]
-> L’ingestion et la conservation des données pour les ressources Application Insights basées sur un espace de travail sont [facturées dans l’espace de travail Log Analytics](../platform/manage-cost-storage.md) où se trouvent les données. Si vous avez sélectionné une conservation des données supérieure à 90 jours pour les données ingérées dans la ressource Application Insights classique avant la migration, la conservation des données continuera d’être facturée via cette ressource Application Insights. [En savoir plus]( ./pricing.md#workspace-based-application-insights) sur la facturation des ressources Application Insights basées sur un espace de travail.
+> L’ingestion et la conservation des données pour les ressources Application Insights basées sur un espace de travail sont [facturées dans l’espace de travail Log Analytics](../logs/manage-cost-storage.md) où se trouvent les données. Si vous avez sélectionné une conservation des données supérieure à 90 jours pour les données ingérées dans la ressource Application Insights classique avant la migration, la conservation des données continuera d’être facturée via cette ressource Application Insights. [En savoir plus]( ./pricing.md#workspace-based-application-insights) sur la facturation des ressources Application Insights basées sur un espace de travail.
 
 Si vous n’avez pas besoin de migrer une ressource existante et que vous souhaitez plutôt créer une ressource de Application Insights basée sur un espace de travail, utilisez le [Guide de création de ressources basé sur l’espace de travail](create-workspace-resource.md).
 
@@ -44,12 +44,12 @@ Si vous n’avez pas besoin de migrer une ressource existante et que vous souhai
 
 - Un espace de travail Log Analytics avec le mode de contrôle d’accès défini sur le **`use resource or workspace permissions`** paramètre. 
 
-    - Les ressources de Application Insights basées sur l’espace de travail ne sont pas compatibles avec les espaces de travail définis sur le  **paramètre dédié `workspace based permissions`** . Pour en savoir plus sur le contrôle d’accès de l’espace de travail Log Analytics, consultez le [Guide Log Analytics pour configurer le mode de contrôle d’accès](../platform/manage-access.md#configure-access-control-mode)
+    - Les ressources de Application Insights basées sur l’espace de travail ne sont pas compatibles avec les espaces de travail définis sur le  **paramètre dédié `workspace based permissions`** . Pour en savoir plus sur le contrôle d’accès de l’espace de travail Log Analytics, consultez le [Guide Log Analytics pour configurer le mode de contrôle d’accès](../logs/manage-access.md#configure-access-control-mode)
 
-    - Si vous ne disposez pas déjà d’un espace de travail Log Analytics, [consultez la documentation relative à la création d’un espace de travail Log Analytics](../learn/quick-create-workspace.md).
+    - Si vous ne disposez pas déjà d’un espace de travail Log Analytics, [consultez la documentation relative à la création d’un espace de travail Log Analytics](../logs/quick-create-workspace.md).
     
 - L’exportation continue n’est pas prise en charge pour les ressources basées sur l’espace de travail et doit être désactivée.
-Une fois la migration terminée, vous pouvez utiliser [les paramètres de diagnostic](../platform/diagnostic-settings.md) pour configurer l’archivage des données sur un compte de stockage ou la diffusion en continu vers Azure Event Hub.  
+Une fois la migration terminée, vous pouvez utiliser [les paramètres de diagnostic](../essentials/diagnostic-settings.md) pour configurer l’archivage des données sur un compte de stockage ou la diffusion en continu vers Azure Event Hub.  
 
 - Vérifiez vos paramètres de rétention actuels sous **Général** >  **Utilisation et coûts estimés** > **Rétention des données** pour votre espace de travail Log Analytics. Ce paramètre aura un impact sur la durée de stockage des nouvelles données ingérées une fois que vous avez migré vos ressources Application Insights. Si vous stockez actuellement des données Application Insights pendant une durée supérieure à la valeur par défaut de 90 jours et que vous souhaitez conserver cette période de rétention supérieure, vous devrez peut-être ajuster les paramètres de rétention de votre espace de travail.
 
@@ -209,7 +209,7 @@ Dans le volet des ressources Application Insights, sélectionnez **Propriétés*
 
 **Message d’erreur :** *L’espace de travail sélectionné est configuré avec le mode d’accès basé sur l’espace de travail. Certaines fonctionnalités APM peuvent être affectées. Sélectionnez un autre espace de travail ou autorisez l’accès en fonction des ressources dans les paramètres de l’espace de travail. Vous pouvez remplacer cette erreur à l’aide de l’interface CLI.* 
 
-Pour que votre ressource de Application Insights basée sur l’espace de travail fonctionne correctement, vous devez modifier le mode de contrôle d’accès de votre espace de travail Log Analytics cible en définissant le paramètre des  **autorisations de ressource ou d’espace de travail**. Ce paramètre se trouve dans l’interface utilisateur de l’espace de travail Log Analytics sous **Propriétés** > **Mode de contrôle d’accès**. Pour obtenir des instructions détaillées, consultez le [Guide Log Analytics pour configurer le mode de contrôle d’accès](../platform/manage-access.md#configure-access-control-mode). Si votre mode de contrôle d’accès est défini sur le paramètre exclusif **Exiger des autorisations d’espace de travail**, la migration via l’expérience de migration du portail reste bloquée.
+Pour que votre ressource de Application Insights basée sur l’espace de travail fonctionne correctement, vous devez modifier le mode de contrôle d’accès de votre espace de travail Log Analytics cible en définissant le paramètre des  **autorisations de ressource ou d’espace de travail**. Ce paramètre se trouve dans l’interface utilisateur de l’espace de travail Log Analytics sous **Propriétés** > **Mode de contrôle d’accès**. Pour obtenir des instructions détaillées, consultez le [Guide Log Analytics pour configurer le mode de contrôle d’accès](../logs/manage-access.md#configure-access-control-mode). Si votre mode de contrôle d’accès est défini sur le paramètre exclusif **Exiger des autorisations d’espace de travail**, la migration via l’expérience de migration du portail reste bloquée.
 
 Si vous ne pouvez pas modifier le mode de contrôle d’accès pour des raisons de sécurité pour votre espace de travail cible actuel, nous vous recommandons de créer un espace de travail Log Analytics à utiliser pour la migration. 
 
@@ -229,7 +229,7 @@ La fonctionnalité héritée d’exportation continue n’est pas prise en charg
 
 - Une fois que vous avez sélectionné désactiver, vous pouvez revenir à l’interface utilisateur de migration. Si la page modifier l’exportation continue vous invite à indiquer que vos paramètres ne seront pas enregistrés, vous pouvez sélectionner OK pour cette invite, car elle ne concerne pas la désactivation ou l’activation de l’exportation continue.
 
-- Une fois que vous avez correctement migré votre ressource Application Insights vers l’espace de travail, vous pouvez utiliser les paramètres de diagnostic pour remplacer les fonctionnalités que l’exportation continue a utilisées. Sélectionnez **Paramètres de diagnostic** > **ajoutez des paramètres de diagnostic** à partir de votre ressource Application Insights. Vous pouvez sélectionner toutes les tables ou un sous-ensemble de tables à archiver dans un compte de stockage ou à transmettre en continu à un Event Hub Azure. Pour obtenir des instructions détaillées sur les paramètres de diagnostic, reportez-vous au [Guide des paramètres de diagnostic Azure Monitor](../platform/diagnostic-settings.md).
+- Une fois que vous avez correctement migré votre ressource Application Insights vers l’espace de travail, vous pouvez utiliser les paramètres de diagnostic pour remplacer les fonctionnalités que l’exportation continue a utilisées. Sélectionnez **Paramètres de diagnostic** > **ajoutez des paramètres de diagnostic** à partir de votre ressource Application Insights. Vous pouvez sélectionner toutes les tables ou un sous-ensemble de tables à archiver dans un compte de stockage ou à transmettre en continu à un Event Hub Azure. Pour obtenir des instructions détaillées sur les paramètres de diagnostic, reportez-vous au [Guide des paramètres de diagnostic Azure Monitor](../essentials/diagnostic-settings.md).
 
 ### <a name="retention-settings"></a>Paramètres de rétention
 
@@ -241,5 +241,5 @@ Vous pouvez vérifier vos paramètres de rétention actuels pour Log Analytics s
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Exploration des mesures](../platform/metrics-charts.md)
-* [Écriture de requêtes Analytics](../log-query/log-query-overview.md)
+* [Exploration des mesures](../essentials/metrics-charts.md)
+* [Écriture de requêtes Analytics](../logs/log-query-overview.md)

@@ -6,12 +6,12 @@ ms.date: 11/22/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 115e1ec347cdcd80904b47a0c8798206360d0dad
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: cdad5a0ec158f216a63ae7e1e2abc10d2841b3bc
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131778"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593729"
 ---
 # <a name="quickstart-get-started-with-application-insights-in-a-java-web-project"></a>Démarrage rapide : Prise en main d'Application Insights dans un projet web Java
 
@@ -168,7 +168,7 @@ Cliquez sur un type de demande spécifique pour afficher les instances individue
 ![Explorer un exemple de vue spécifique](./media/java-get-started/007-instance.png)
 
 ### <a name="analytics-powerful-query-language"></a>Analytics : Tirez parti d’un puissant langage de requête.
-En accumulant toujours plus de données, vous pouvez exécuter des requêtes à la fois pour agréger les données et pour rechercher des instances individuelles.  [Analytics](../log-query/log-query-overview.md) est un outil puissant qui permet non seulement de comprendre les performances et l’utilisation, mais également d’effectuer des diagnostics.
+En accumulant toujours plus de données, vous pouvez exécuter des requêtes à la fois pour agréger les données et pour rechercher des instances individuelles.  [Analytics](../logs/log-query-overview.md) est un outil puissant qui permet non seulement de comprendre les performances et l’utilisation, mais également d’effectuer des diagnostics.
 
 ![Exemple d’Analytics](./media/java-get-started/0025.png)
 
@@ -292,7 +292,7 @@ Application Insights peut tester votre site web à intervalles réguliers pour v
 * [Surveillance des compteurs de performances Unix](java-collectd.md)
 * Ajoutez [la surveillance à vos pages web](javascript.md) pour surveiller le temps de chargement des pages, les appels AJAX et les exceptions du navigateur.
 * Écrivez [télémétrie personnalisée](./api-custom-events-metrics.md) pour suivre l’utilisation sur le navigateur ou le serveur.
-* Utilisez [Analytics](../log-query/log-query-overview.md) pour des requêtes puissantes sur les données de télémétrie de votre application
+* Utilisez [Analytics](../logs/log-query-overview.md) pour des requêtes puissantes sur les données de télémétrie de votre application
 * Pour plus d’informations, consultez [Azure pour les développeurs Java](/java/azure).
 
 <!--Link references-->
@@ -302,5 +302,5 @@ Application Insights peut tester votre site web à intervalles réguliers pour v
 [availability]: ./monitor-web-app-availability.md
 [diagnostic]: ./diagnostic-search.md
 [javalogs]: java-trace-logs.md
-[metrics]: ../platform/metrics-charts.md
+[metrics]: ../essentials/metrics-charts.md
 [usage]: javascript.md

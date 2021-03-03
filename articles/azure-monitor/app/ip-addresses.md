@@ -3,12 +3,12 @@ title: Adresses IP utilisées par Azure Monitor
 description: Exceptions de pare-feu de serveur requises par Application Insights
 ms.topic: conceptual
 ms.date: 01/27/2020
-ms.openlocfilehash: 0e7028c59b4588ac23424a63f4e3ce240391dfb8
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 72f825630ec94b5c32a949a4395c431318afa87f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99220800"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100584111"
 ---
 # <a name="ip-addresses-used-by-azure-monitor"></a>Adresses IP utilisées par Azure Monitor
 [Azure Monitor](../overview.md) utilise un certain nombre d’adresses IP. Azure Monitor est constitué de métriques de plateforme de base et d’un journal, en plus de Log Analytics et d’Application Insights. Vous devrez peut-être connaître ces adresses si l’application ou l’infrastructure que vous supervisez est hébergée derrière un pare-feu.
@@ -254,21 +254,21 @@ La gestion des modifications apportées aux adresses IP sources peut prendre bea
    1. Ajoutez le nom du groupe de ressources, puis entrez les *Détails de l’instance*.
    1. Cliquez sur **Vérifier + créer**, puis sur *Créer*.
    
-   :::image type="content" source="../platform/media/action-groups/action-group-create-security-group.png" alt-text="Exemple de création d’un groupe de sécurité réseau."border="true":::
+   :::image type="content" source="../alerts/media/action-groups/action-group-create-security-group.png" alt-text="Exemple de création d’un groupe de sécurité réseau."border="true":::
 
 3. Accédez à un Groupe de ressources, puis cliquez sur le *groupe de sécurité réseau* que vous avez créé.
 
     1. Sélectionnez *Règles de sécurité de trafic entrant*.
     1. Cliquez sur **Ajouter**.
     
-    :::image type="content" source="../platform/media/action-groups/action-group-add-service-tag.png" alt-text="Exemple d’ajout d’étiquette de service."border="true":::
+    :::image type="content" source="../alerts/media/action-groups/action-group-add-service-tag.png" alt-text="Exemple d’ajout d’étiquette de service."border="true":::
 
 4. Une nouvelle fenêtre s’ouvre dans le volet de droite.
     1.  Sélectionnez Source : **Étiquette de service**
     1.  Étiquette de service source : **ActionGroup**
     1.  Cliquez sur **Add**.
     
-    :::image type="content" source="../platform/media/action-groups/action-group-service-tag.png" alt-text="Exemple d’ajout d’étiquette de service."border="true":::
+    :::image type="content" source="../alerts/media/action-groups/action-group-service-tag.png" alt-text="Exemple d’ajout d’étiquette de service."border="true":::
 
 
 ## <a name="profiler"></a>Profileur

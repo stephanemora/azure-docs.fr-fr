@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.author: lazinnat
 author: lazinnat
 ms.date: 06/12/2019
-ms.openlocfilehash: bff846b4b64778d5e40ea7f08f88faf3dde81d9e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 55263d3c742d18cf03303f96f08fb9aa370c7af8
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91371607"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592057"
 ---
 # <a name="view-definition-artifact-in-azure-managed-applications"></a>Artefact de définition de vue dans les applications managées Azure
 
@@ -137,7 +137,7 @@ Lorsque vous fournissez cette vue dans **viewDefinition.json**, elle remplace la
 
 `"kind": "Metrics"`
 
-La vue Métriques vous permet de collecter et d'agréger les données de vos ressources d’application managée dans [Métriques Azure Monitor](../../azure-monitor/platform/data-platform-metrics.md).
+La vue Métriques vous permet de collecter et d'agréger les données de vos ressources d’application managée dans [Métriques Azure Monitor](../../azure-monitor/essentials/data-platform-metrics.md).
 
 ```json
 {
@@ -176,7 +176,7 @@ La vue Métriques vous permet de collecter et d'agréger les données de vos res
 |---------|---------|---------|
 |displayName|Oui|Titre affiché du graphique.|
 |chartType|Non|Visualisation à utiliser pour ce graphique. Graphique en courbes utilisé par défaut. Types de graphiques pris en charge : `Bar, Line, Area, Scatter`.|
-|Mesures|Oui|Tableau de métriques à tracer sur ce graphique. Pour en savoir plus sur les métriques prises en charge dans le portail Azure, consultez [Métriques prises en charge avec Azure Monitor](../../azure-monitor/platform/metrics-supported.md)|
+|Mesures|Oui|Tableau de métriques à tracer sur ce graphique. Pour en savoir plus sur les métriques prises en charge dans le portail Azure, consultez [Métriques prises en charge avec Azure Monitor](../../azure-monitor/essentials/metrics-supported.md)|
 
 ### <a name="metric"></a>Métrique
 

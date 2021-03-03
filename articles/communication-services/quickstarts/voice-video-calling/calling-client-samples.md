@@ -10,16 +10,14 @@ ms.date: 03/18/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-web-ios-android
-ms.openlocfilehash: 1e5b0e88c4a84e27d662b2f2c4b39b14538af92a
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: e99af324e02e81e4b6888ee0e054ef466df899c1
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126794"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101661536"
 ---
 # <a name="quickstart-use-the-communication-services-calling-client-library"></a>Démarrage rapide : Utiliser la bibliothèque de client Appel Communication Services
-
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 Commencez avec Azure Communication Services en utilisant la bibliothèque de client Appel Communication Services pour ajouter des appels vocaux et vidéo à votre application.
 
@@ -37,7 +35,7 @@ Commencez avec Azure Communication Services en utilisant la bibliothèque de cli
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Si vous voulez nettoyer et supprimer un abonnement Communication Services, vous pouvez supprimer la ressource ou le groupe de ressources. La suppression du groupe de ressources efface également les autres ressources qui y sont associées. Découvrez-en plus sur le [nettoyage des ressources](../create-communication-resource.md#clean-up-resources).
+Si vous voulez nettoyer et supprimer un abonnement Communication Services, vous pouvez supprimer la ressource ou le groupe de ressources. La suppression du groupe de ressources efface également les autres ressources qui y sont associées. Apprenez-en davantage sur le [nettoyage des ressources](../create-communication-resource.md#clean-up-resources).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

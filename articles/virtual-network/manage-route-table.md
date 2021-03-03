@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/19/2020
 ms.author: kumud
-ms.openlocfilehash: a8c38f4e84a6a653c3a4d887c82340409fc363af
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 642a9a9f798492d85ee2a9784a1fe5ad4f854d58
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98220590"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574119"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Créer, modifier ou supprimer une table de routage
 
@@ -85,7 +85,7 @@ Accédez au [portail Azure](https://portal.azure.com) pour gérer votre réseau 
 
 Pour en savoir plus sur les paramètres Azure communs, consultez les informations suivantes :
 
-- [Journal d’activité](../azure-monitor/platform/platform-logs-overview.md)
+- [Journal d’activité](../azure-monitor/essentials/platform-logs-overview.md)
 - [Contrôle d’accès (IAM)](../role-based-access-control/overview.md)
 - [Balises](../azure-resource-manager/management/tag-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Verrous](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)

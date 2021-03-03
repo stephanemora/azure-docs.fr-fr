@@ -11,17 +11,17 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 04a3fa79a6940a5b7a4bb98d08aa8be48a442903
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: eb7dcb9a384360d698c49a97f649bf75588d94f7
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98728598"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574226"
 ---
 # <a name="azure-synapse-analytics--workload-management-portal-monitoring"></a>Azure Synapse Analytics – Supervision du portail de gestion des charges de travail
 
 Cet article explique comment surveiller l’utilisation des ressources et l’activité des requêtes des [groupes de charge de travail](sql-data-warehouse-workload-isolation.md#workload-groups).
-Pour plus d’informations sur la configuration d’Azure Metrics Explorer, consultez l’article [Prise en main d’Azure Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).  Pour plus d’informations sur la supervision de la consommation des ressources système, consultez la section [Utilisation des ressources](sql-data-warehouse-concept-resource-utilization-query-activity.md#resource-utilization) dans la documentation Supervision d’Azure Synapse Analytics.
+Pour plus d’informations sur la configuration d’Azure Metrics Explorer, consultez l’article [Prise en main d’Azure Metrics Explorer](../../azure-monitor/essentials/metrics-getting-started.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).  Pour plus d’informations sur la supervision de la consommation des ressources système, consultez la section [Utilisation des ressources](sql-data-warehouse-concept-resource-utilization-query-activity.md#resource-utilization) dans la documentation Supervision d’Azure Synapse Analytics.
 Il existe deux catégories différentes de mesures de groupe de charge de travail fournies pour la surveillance de la gestion des charges de travail : l’allocation des ressources et l’activité des requêtes.  Ces mesures peuvent être fractionnées et filtrées par groupe de charge de travail.  Les mesures peuvent être fractionnées et filtrées selon qu’elles sont définies par le système (groupes de charge de travail de la classe ressources) ou définis par l’utilisateur (créées par l’utilisateur avec la syntaxe [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)).
 
 ## <a name="workload-management-metric-definitions"></a>Définitions de mesures de gestion de la charge de travail

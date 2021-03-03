@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 02/02/2021
+ms.date: 02/22/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: af2c848fe06d9ebc44443bdcce61af0c8de08b2d
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 2270ff360c7bb923555c9b4ffb0c35ccd4382d0e
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99536999"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101647487"
 ---
 # <a name="authentication-methods-in-azure-active-directory---oath-tokens"></a>Méthodes d’authentification dans Azure Active Directory – Jetons OATH
 
@@ -29,15 +29,13 @@ L’application Authenticator génère automatiquement des codes lorsqu’elle e
 
 Certains jetons matériels TOTP OATH sont programmables, ce qui signifie qu’ils ne sont pas fournis avec une clé secrète ou une valeur de départ préprogrammée. Ces jetons matériels programmables peuvent être configurés à l’aide de la clé secrète ou de la valeur initiale obtenue à partir du flux d’installation du jeton logiciel. Les clients peuvent acheter ces jetons auprès du fournisseur de leur choix et utiliser la clé secrète ou la valeur initiale dans le processus d’installation de leur fournisseur.
 
-## <a name="oath-hardware-tokens-preview"></a>Jetons matériels OATH (version préliminaire)
+## <a name="oath-hardware-tokens"></a>Jetons matériels OATH
 
 Azure AD prend en charge l’utilisation de jetons OATH-TOTP SHA-1 qui actualisent les codes toutes les 30 ou 60 secondes. Les clients peuvent acheter ces jetons auprès du fournisseur de leur choix.
 
 Les jetons matériels OATH TOTP sont généralement fournis avec une clé secrète, ou valeur initiale, préprogrammée dans le jeton. Ces clés doivent être entrées dans Azure AD comme décrit dans les étapes suivantes. Les clés secrètes sont limitées à 128 caractères et cette limite peut ne pas être compatible avec tous les jetons. La clé secrète ne peut contenir que les caractères *a à z* ou *A à Z* et les chiffres *2 à 7*, et doit être encodée en *Base32*.
 
 Vous pouvez également configurer des jetons matériels OATH TOTP programmables qui peuvent être réamorcés avec Azure AD dans le processus d’installation des jetons logiciels.
-
-Les jetons matériels OATH sont pris en charge dans le cadre d’une préversion publique. Pour plus d’informations sur les préversions, consultez [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ![Chargement des jetons OATH dans le panneau de jetons OATH MFA](media/concept-authentication-methods/mfa-server-oath-tokens-azure-ad.png)
 

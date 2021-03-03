@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.custom: sqldbrb=1
 ms.date: 06/03/2020
-ms.openlocfilehash: f4da14c1fbdaf71018e62b0f97e288a66edef5c8
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: f5c176db4f679c79bb42c6ceb46b3588e9440874
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677286"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100572223"
 ---
 # <a name="sql-database-audit-log-format"></a>Format des journaux d’audit SQL Database
 
@@ -42,7 +42,7 @@ Les événements d’audit sont écrits dans l’espace de noms et le hub d’é
 
 ### <a name="log-analytics"></a>Log Analytics
 
-Les événements d’audit sont écrits dans l’espace de travail Log Analytics défini pendant la configuration de l’audit, dans la table `AzureDiagnostics` avec la catégorie `SQLSecurityAuditEvents`. Pour plus d’informations sur le langage et les commandes de recherche Log Analytics, consultez [Référence sur les recherches Log Analytics](../../azure-monitor/log-query/log-query-overview.md).
+Les événements d’audit sont écrits dans l’espace de travail Log Analytics défini pendant la configuration de l’audit, dans la table `AzureDiagnostics` avec la catégorie `SQLSecurityAuditEvents`. Pour plus d’informations sur le langage et les commandes de recherche Log Analytics, consultez [Référence sur les recherches Log Analytics](../../azure-monitor/logs/log-query-overview.md).
 
 ## <a name="audit-log-fields"></a><a id="subheading-1"></a>Champs de journal d’audit
 

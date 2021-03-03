@@ -10,15 +10,13 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 61b3b3abace5c7a1cd846c1e3c1e7ac166efd5c7
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.openlocfilehash: eb420a8d5242cb6a122e7f7062e457b64f1fb5db
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99475646"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101682433"
 ---
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
 L’**exemple de bannière d’appel de groupe** Azure Communication Services illustre comment la bibliothèque de client web Appel Communication Services peut être utilisée pour créer une expérience d’appel de groupe.
 
 Dans ce guide de démarrage rapide, vous allez découvrir comment fonctionne l’exemple avant de l’exécuter sur votre ordinateur local. Ensuite, vous le déploierez sur Azure à l’aide de vos propres ressources Azure Communication Services.
@@ -29,7 +27,7 @@ Vous trouverez le code finalisé pour ce guide de démarrage rapide sur [GitHub]
 
 ## <a name="overview"></a>Vue d’ensemble
 
-L’exemple comporte à la fois une application côté client et une application côté serveur. L’**application côté client** est une application web React/Redux qui utilise le framework d’interface utilisateur Fluent de Microsoft. Cette application envoie des requêtes à une **application côté serveur** ASP.NET Core qui aide l’application côté client à se connecter à Azure. 
+L’exemple comporte à la fois une application côté client et une application côté serveur. L’**application côté client** est une application web React/Redux qui utilise le framework d’interface utilisateur Fluent de Microsoft. Cette application envoie des requêtes à une **application côté serveur** ASP.NET Core qui aide l’application côté client à se connecter à Azure.
 
 Voici à quoi ressemble l’exemple :
 
@@ -91,7 +89,7 @@ Si vous voulez nettoyer et supprimer un abonnement Communication Services, vous 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
->[!div class="nextstepaction"] 
+>[!div class="nextstepaction"]
 >[Télécharger l’exemple à partir de GitHub](https://github.com/Azure-Samples/communication-services-web-calling-hero)
 
 Pour plus d’informations, consultez les articles suivants :

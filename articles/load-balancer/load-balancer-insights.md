@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/27/2020
 ms.author: errobin
-ms.openlocfilehash: 88c287c4aa87b4df41bfe6bbc1992262b21d07aa
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 190a9e431dedfb0f0fe6077e903174f253f5c773
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98232758"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100589104"
 ---
 # <a name="using-insights-to-monitor-and-configure-your-azure-load-balancer"></a>Utilisation des Insights pour surveiller et configurer votre Azure Load Balancer
 
@@ -40,7 +40,7 @@ Pour Standard Load Balancer, les ressources de votre pool principal suivent un c
 
 ## <a name="metrics-dashboard"></a>Tableau de bord des métriques
 
-Dans le panneau Insights de votre équilibreur de charge, vous pouvez sélectionner l’option Mesures plus détaillées pour afficher un [classeur Azure Monitor](../azure-monitor/platform/workbooks-overview.md) préconfiguré contenant des représentations visuelles des mesures en rapport avec des aspects spécifiques de votre équilibreur de charge. Ce tableau de bord présente l’état de l’équilibreur de charge et des liens vers la documentation relative en haut de la page.
+Dans le panneau Insights de votre équilibreur de charge, vous pouvez sélectionner l’option Mesures plus détaillées pour afficher un [classeur Azure Monitor](../azure-monitor/visualize/workbooks-overview.md) préconfiguré contenant des représentations visuelles des mesures en rapport avec des aspects spécifiques de votre équilibreur de charge. Ce tableau de bord présente l’état de l’équilibreur de charge et des liens vers la documentation relative en haut de la page.
 
 Dans un premier temps, l’onglet Vue d’ensemble s’affiche. Vous pouvez parcourir les différents onglets disponibles, dont chacun contient des représentations visuelles relatives à un aspect spécifique de votre équilibreur de charge. Des conseils explicites sont disponibles pour chacun d’eux dans le tableau de bord, en bas de chaque onglet.
 
@@ -80,4 +80,4 @@ L’onglet Définitions de métriques contient toutes les informations présent�
 * Passez en revue le tableau de bord et n’hésitez pas à fournir des suggestions d’améliorations à l’aide du lien ci-dessous
 * [Passez en revue la documentation sur les métriques pour vérifier que vous comprenez bien comment est calculée chacune d’elles](./load-balancer-standard-diagnostics.md#multi-dimensional-metrics)
 * [Créer des moniteurs de connexion pour votre équilibreur de charge](../network-watcher/connection-monitor.md)
-* [Créez vos propres classeurs](../azure-monitor/platform/workbooks-overview.md). Inspirez-vous des éléments disponibles en cliquant sur le bouton Modifier de votre tableau de bord de métriques détaillé
+* [Créez vos propres classeurs](../azure-monitor/visualize/workbooks-overview.md). Inspirez-vous des éléments disponibles en cliquant sur le bouton Modifier de votre tableau de bord de métriques détaillé

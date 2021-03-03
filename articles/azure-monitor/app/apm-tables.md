@@ -3,16 +3,16 @@ title: Schéma de ressource Azure Monitor Application Insights basé sur un espa
 description: Découvrez la nouvelle structure des tableaux et le nouveau schéma des ressources basées sur l'espace de travail Azure Monitor Application Insights.
 ms.topic: conceptual
 ms.date: 05/09/2020
-ms.openlocfilehash: e63d4a680ad76ccd6895aed53f3276a5775b1226
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: ef9d22cd2b45679928ee54778b2a521ea9ecab03
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100385963"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575602"
 ---
 # <a name="workspace-based-resource-changes"></a>Modifications des ressources basées sur un espace de travail
 
-Avant l’introduction de [ressources d’Application Insights basées sur un espace de travail](create-workspace-resource.md), les données Application Insights étaient stockées séparément des autres données de journal dans Azure Monitor. Ces deux services sont basés sur Azure Data Explorer et utilisent le même langage de requête Kusto (KQL). Cela est décrit dans [les journaux de Azure Monitor](../platform/data-platform-logs.md).
+Avant l’introduction de [ressources d’Application Insights basées sur un espace de travail](create-workspace-resource.md), les données Application Insights étaient stockées séparément des autres données de journal dans Azure Monitor. Ces deux services sont basés sur Azure Data Explorer et utilisent le même langage de requête Kusto (KQL). Cela est décrit dans [les journaux de Azure Monitor](../logs/data-platform-logs.md).
 
 Les données de ressources Application Insights basées sur l’espace de travail sont stockées dans un espace de travail Log Analytics avec d’autres données d’analyse et données d’application. Cela simplifie votre configuration en vous permettant d’analyser plus facilement des données sur plusieurs solutions et de tirer parti des fonctionnalités des espaces de travail.
 
@@ -52,7 +52,7 @@ Table héritée : availability
 |client_IP|string|ClientIP|string|
 |client_Model|string|ClientModel|string|
 |client_OS|string|ClientOS|string|
-|par client_StateOrProvince|string|ClientStateOrProvince|string|
+|client_StateOrProvince|string|ClientStateOrProvince|string|
 |client_Type|string|ClientType|string|
 |cloud_RoleInstance|string|AppRoleInstance|string|
 |cloud_RoleName|string|AppRoleName|string|
@@ -464,6 +464,6 @@ Table héritée : traces
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Exploration des mesures](../platform/metrics-charts.md)
-* [Écriture de requêtes Analytics](../log-query/log-query-overview.md)
+* [Exploration des mesures](../essentials/metrics-charts.md)
+* [Écriture de requêtes Analytics](../logs/log-query-overview.md)
 

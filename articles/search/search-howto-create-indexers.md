@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/28/2021
-ms.openlocfilehash: 5381c12253f3f301099d469639cc75e390ebceff
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 596eca0d73ffc4a590fae9b346658a2c31a1d68c
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100360956"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101676477"
 ---
 # <a name="creating-indexers-in-azure-cognitive-search"></a>Création d’indexeurs dans Recherche cognitive Azure
 
@@ -155,7 +155,7 @@ La façon dont un indexeur prend en charge la détection des modifications varie
 
 Pour les charges d’indexation volumineuses, un indexeur effectue également le suivi du dernier document traité par le bais d’une « limite supérieure » interne. Le marqueur n’est jamais exposé dans l’API, mais en interne, l’indexeur garde une trace de l’endroit où il s’est arrêté. Lorsque l’indexation reprend, par le biais d’une exécution planifiée ou d’un appel à la demande, l’indexeur fait référence à la limite supérieure afin de pouvoir reprendre là où il s’était arrêté.
 
-Si vous devez effacer la limite supérieure pour réindexer entièrement, vous pouvez utiliser l’option [Réinitialiser l’indexeur](https://docs.microsoft.com/rest/api/searchservice/reset-indexer). Pour une réindexation plus sélective, utilisez [Réinitialiser les compétences](https://docs.microsoft.com/rest/api/searchservice/preview-api/reset-skills) ou [Réinitialiser les documents](https://docs.microsoft.com/rest/api/searchservice/preview-api/reset-documents). Grâce aux API de réinitialisation, vous pouvez effacer l’état interne, ainsi que vider le cache si vous avez activé l’[enrichissement incrémentiel](search-howto-incremental-index.md). Pour plus d’informations et une comparaison de chaque option de réinitialisation, consultez [Exécuter ou réinitialiser des indexeurs, des compétences et des documents](search-howto-run-reset-indexers.md).
+Si vous devez effacer la limite supérieure pour réindexer entièrement, vous pouvez utiliser l’option [Réinitialiser l’indexeur](/rest/api/searchservice/reset-indexer). Pour une réindexation plus sélective, utilisez [Réinitialiser les compétences](/rest/api/searchservice/preview-api/reset-skills) ou [Réinitialiser les documents](/rest/api/searchservice/preview-api/reset-documents). Grâce aux API de réinitialisation, vous pouvez effacer l’état interne, ainsi que vider le cache si vous avez activé l’[enrichissement incrémentiel](search-howto-incremental-index.md). Pour plus d’informations et une comparaison de chaque option de réinitialisation, consultez [Exécuter ou réinitialiser des indexeurs, des compétences et des documents](search-howto-run-reset-indexers.md).
 
 ## <a name="know-your-data"></a>Connaître vos données
 
@@ -165,7 +165,7 @@ Pour aplatir les données relationnelles dans un ensemble de lignes, vous devez 
 
 En plus des données aplaties, il est important d’extraire uniquement les données interrogeables. Les données interrogeables sont alphanumériques. Recherche cognitive ne peut pas effectuer de recherche dans des données binaires dans n’importe quel format, bien que le service puisse extraire et déduire des descriptions de texte de fichiers images (voir [Enrichissement par IA](cognitive-search-concept-intro.md)) pour créer du contenu pouvant faire l’objet d’une recherche. De même, grâce à l’enrichissement par IA, les grands textes peuvent être analysés par des modèles de langage naturel pour trouver la structure ou les informations pertinentes, générant ainsi un nouveau contenu que vous pouvez ajouter à un document de recherche.
 
-Étant donné que les indexeurs ne corrigent pas les problèmes de données, d’autres formes de nettoyage ou de manipulation des données peuvent être nécessaires. Pour plus d’informations, reportez-vous à la documentation de votre [produit de base de données Azure](/azure/?product=databases).
+Étant donné que les indexeurs ne corrigent pas les problèmes de données, d’autres formes de nettoyage ou de manipulation des données peuvent être nécessaires. Pour plus d’informations, reportez-vous à la documentation de votre [produit de base de données Azure](../index.yml?product=databases).
 
 ## <a name="know-your-index"></a>Connaître votre index
 

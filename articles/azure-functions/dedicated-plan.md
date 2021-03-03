@@ -3,12 +3,12 @@ title: Hébergement dédié Azure Functions
 description: Découvrez les avantages de l’exécution d’Azure Functions sur un plan d’hébergement App Service dédié.
 ms.topic: conceptual
 ms.date: 10/29/2020
-ms.openlocfilehash: 0ebf83aa919d91f161b247539ae20873242a8ed8
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 0ee32d4c4a7d33664da88b133a1f7011fc09f298
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97937469"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591054"
 ---
 # <a name="dedicated-hosting-plans-for-azure-functions"></a>Plans d’hébergement dédiés pour Azure Functions
 
@@ -33,7 +33,7 @@ Même lorsque le paramètre Always On est activé, le délai d’exécution des 
 
 ## <a name="scaling"></a>Mise à l'échelle
 
-À l’aide d’un plan App Service, vous pouvez effectuer manuellement un scale-out en ajoutant des instances de machine virtuelle supplémentaires. Vous pouvez également activer la mise à l’échelle automatique, bien que celle-ci soit plus lente que la mise à l’échelle élastique du plan Premium. Pour plus d’informations, consultez [Mettre à l’échelle le nombre d’instances manuellement ou automatiquement](../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json). Vous pouvez également effectuer une montée en puissance en choisissant un autre plan App Service. Pour plus d’informations, consultez [Faire monter en puissance une application web dans Azure](../app-service/manage-scale-up.md). 
+À l’aide d’un plan App Service, vous pouvez effectuer manuellement un scale-out en ajoutant des instances de machine virtuelle supplémentaires. Vous pouvez également activer la mise à l’échelle automatique, bien que celle-ci soit plus lente que la mise à l’échelle élastique du plan Premium. Pour plus d’informations, consultez [Mettre à l’échelle le nombre d’instances manuellement ou automatiquement](../azure-monitor/autoscale/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json). Vous pouvez également effectuer une montée en puissance en choisissant un autre plan App Service. Pour plus d’informations, consultez [Faire monter en puissance une application web dans Azure](../app-service/manage-scale-up.md). 
 
 > [!NOTE] 
 > Lorsque vous exécutez des fonctions JavaScript (Node.js) dans un plan App Service, vous devez choisir un plan qui comporte moins de processeurs virtuels. Pour plus d’informations, consultez [Choisir des plans App Service à cœur unique](functions-reference-node.md#choose-single-vcpu-app-service-plans). 

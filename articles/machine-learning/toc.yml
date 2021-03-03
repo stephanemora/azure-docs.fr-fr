@@ -321,11 +321,14 @@
             - name: Créer des jeux de données avec des étiquettes
               displayName: 'data, labels, torchvision'
               href: how-to-use-labeled-dataset.md
-        - name: Obtenir des données
+        - name: Obtenir et préparer les données
           items:
             - name: Ingestion des données avec Azure Data Factory
               displayName: 'data, ingestion, adf'
               href: how-to-data-ingest-adf.md
+            - name: Préparation des données avec Azure Synapse
+              displayName: 'data, data prep, spark, spark pool, cluster, spark cluster,dataset, datastore'
+              href: how-to-data-prep-synapse-spark-pool.md
             - name: DevOps pour l’ingestion de données
               displayName: 'data, ingestion, devops'
               href: how-to-cicd-data-ingestion.md
@@ -337,6 +340,9 @@
             - name: Se connecter au stockage Azure (Python)
               displayName: 'blob, get, fileshare, access, mount, download, data lake, datastore'
               href: how-to-access-data.md
+            - name: Accès aux données en fonction de l’identité pour le stockage
+              displayName: 'blob, access, data lake, datastore, managed identity'
+              href: how-to-identity-based-data-access.md
             - name: Obtenir des données à partir d’une banque de données (Python)
               displayName: 'data, data set, register, access data'
               href: how-to-create-register-datasets.md
@@ -385,8 +391,8 @@
             - name: Activer les journaux d’activité
               displayName: 'troubleshoot, log, files, tracing'
               href: how-to-track-experiments.md
-            - name: Afficher les journaux d’activité
-              displayName: 'troubleshoot, log, files, tracing'
+            - name: Afficher les journaux et les métriques pour les exécutions
+              displayName: 'troubleshoot, log, files, tracing, metrics'
               href: how-to-monitor-view-training-logs.md
             - name: Visualiser les exécutions avec TensorBoard
               displayName: 'log, monitor, metrics'
@@ -531,6 +537,8 @@
           href: how-to-move-data-in-out-of-pipelines.md
         - name: Déployer des pipelines ML (Python)
           href: how-to-deploy-pipelines.md
+        - name: Utiliser des pools Azure Synapse Apache Spark dans un pipeline ML (Python)
+          href: how-to-use-synapsesparkstep.md
         - name: Déclencher un pipeline
           href: how-to-trigger-published-pipeline.md
         - name: Concepteur (glisser-déposer)

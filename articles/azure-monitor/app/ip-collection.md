@@ -4,12 +4,12 @@ description: Compréhension de la gestion des adresses IP et de la géolocalisat
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 3a8969d5d0df2fdacf78815c6f47c7c6bfa73a37
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 91b3aa07720e39aa8aeeceb9c35e38205e7d7c76
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100521915"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100584069"
 ---
 # <a name="geolocation-and-ip-address-handling"></a>Gestion de la géolocalisation et des adresses IP
 
@@ -30,7 +30,7 @@ Ce comportement est conçu afin d’éviter la collecte inutile de données pers
 
 Bien que le comportement par défaut consiste à ne pas collecter d’adresses IP, nous offrons toujours la possibilité de remplacer ce comportement. Toutefois, nous vous recommandons de vérifier que la collecte n’enfreint pas les exigences en matière de conformité ou les réglementations locales. 
 
-Pour en savoir plus sur la gestion des données personnelles dans Application Insights, consultez les [conseils relatifs aux données personnelles](../platform/personal-data-mgmt.md).
+Pour en savoir plus sur la gestion des données personnelles dans Application Insights, consultez les [conseils relatifs aux données personnelles](../logs/personal-data-mgmt.md).
 
 ## <a name="storing-ip-address-data"></a>Stockage de données d’adresses IP
 
@@ -245,6 +245,6 @@ Si vous testez localhost et que la valeur de `customDimensions_client-ip` est `:
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* En savoir plus sur la [collecte de données personnelles](../platform/personal-data-mgmt.md) dans Application Insights.
+* En savoir plus sur la [collecte de données personnelles](../logs/personal-data-mgmt.md) dans Application Insights.
 
 * En savoir plus sur le fonctionnement de la [collecte d’adresses IP](https://apmtips.com/posts/2016-07-05-client-ip-address/) dans Application Insights. (Cet article est un billet de blog externe plus ancien écrit par l’un de nos ingénieurs. Il a été écrit avant le comportement par défaut actuel où l’adresse IP est enregistrée en tant que `0.0.0.0`, mais il examine plus en détail les mécanismes de `ClientIpHeaderTelemetryInitializer` intégré.)

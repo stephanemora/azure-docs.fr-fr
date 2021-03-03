@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 06/24/2020
+ms.date: 03/02/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9afb5a078d5359ed236b44c0a6712985bf8c305
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: d07aa283c40a54ba02faa13b07e466e519bd68ae
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99257183"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101649419"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>Fédération directe avec AD FS et des fournisseurs tiers pour les utilisateurs invités (version préliminaire)
 
@@ -26,9 +26,7 @@ ms.locfileid: "99257183"
 
 Cet article décrit comment configurer la fédération directe avec une autre organisation pour la collaboration B2B. Vous pouvez configurer la fédération directe avec n’importe quelle organisation dont le fournisseur d’identité (IdP) prend en charge le protocole SAML 2.0 ou WS-Fed.
 Lorsque vous configurez la fédération directe avec un fournisseur d’identité partenaire, les nouveaux utilisateurs invités de ce domaine peuvent utiliser leur propre compte professionnel géré par le fournisseur d’identité pour se connecter à votre locataire Azure AD et commencer à travailler avec vous. Il n’est pas nécessaire pour l’utilisateur invité de créer un compte Azure AD séparé.
-> [!NOTE]
-> Vos utilisateurs invités de fédération directe doivent se connecter à l’aide d’un lien incluant le contexte du locataire (par exemple, `https://myapps.microsoft.com/?tenantid=<tenant id>` ou `https://portal.azure.com/<tenant id>`, ou dans le cas d’un domaine vérifié, `https://myapps.microsoft.com/\<verified domain>.onmicrosoft.com`). Liens directs aux applications et ressources fonctionnent également tant qu’ils incluent le contexte client. Les utilisateurs de la fédération directe ne peuvent actuellement pas se connecter à l’aide de points de terminaison communs qui n’ont aucun contexte locataire. Par exemple, l’utilisation de `https://myapps.microsoft.com`, `https://portal.azure.com`, ou `https://teams.microsoft.com` entraîne une erreur.
- 
+
 ## <a name="when-is-a-guest-user-authenticated-with-direct-federation"></a>Quand un utilisateur invité est-il authentifié avec la fédération directe ?
 Après avoir configuré la fédération directe avec une organisation, tous les utilisateurs invités que vous invitez seront authentifiés à l’aide de la fédération directe. Il est important de noter que configurer la fédération directe ne change pas la méthode d’authentification pour les utilisateurs invités qui ont déjà utilisé une invitation de votre part. Voici quelques exemples :
  - Si les utilisateurs invités ont déjà utilisé des invitations provenant de vous, et que vous avez par la suite configuré la fédération directe avec leur organisation, ces utilisateurs invités continueront à utiliser la même méthode d’authentification qu’ils ont utilisée avant que vous ne configuriez la fédération directe.
@@ -42,10 +40,28 @@ La fédération directe est liée aux espaces de noms domaine, par exemple conto
 ## <a name="end-user-experience"></a>Expérience de l’utilisateur final 
 Avec la fédération directe, les utilisateurs invités se connectent à votre client Azure AD à l’aide de leur propre compte professionnel. Lorsqu’ils accèdent à des ressources partagées et qu’ils sont invités à se connecter, les utilisateurs de la fédération directe sont redirigés vers leur fournisseur d’identité. Après s’être connectés, ils sont renvoyés vers Azure AD pour accéder aux ressources. Les jetons d’actualisation des utilisateurs de la fédération directe sont valides pendant 12 heures, qui est la [durée par défaut de transfert d’un jeton d’actualisation](../develop/active-directory-configurable-token-lifetimes.md#exceptions) dans Azure AD. Si le fournisseur d’identité fédéré dispose de l’authentification unique, l’utilisateur en profitera et ne verra aucune invite de connexion après son authentification initiale.
 
+## <a name="sign-in-endpoints"></a>Points de terminaison de connexion
+
+Les utilisateurs invités de la fédération directe peuvent désormais se connecter à vos applications multilocataires ou à vos applications principales Microsoft à l’aide d’un [point de terminaison commun](redemption-experience.md#redemption-and-sign-in-through-a-common-endpoint) (en d’autres termes, une URL d’application générale qui n’inclut pas le contexte de votre locataire). Voici des exemples de points de terminaison courants :
+
+- `https://teams.microsoft.com`
+- `https://myapps.microsoft.com`
+- `https://portal.azure.com`
+
+Durant le processus de connexion, l’utilisateur invité choisit **Options de connexion**, puis sélectionne **Sign in to an organization** (Se connecter à une organisation). L’utilisateur tape ensuite le nom de votre organisation et poursuit le processus de connexion à l’aide de ses propres informations d’identification.
+
+Les utilisateurs invités de la fédération directe peuvent également se servir des points de terminaison d’application qui incluent les informations de votre locataire, par exemple :
+
+  * `https://myapps.microsoft.com/?tenantid=<your tenant ID>`
+  * `https://myapps.microsoft.com/<your verified domain>.onmicrosoft.com`
+  * `https://portal.azure.com/<your tenant ID>`
+
+Vous pouvez également fournir aux utilisateurs invités de la fédération directe un lien direct vers une application ou une ressource en incluant les informations de votre locataire, par exemple `https://myapps.microsoft.com/signin/Twitter/<application ID?tenantId=<your tenant ID>`.
+
 ## <a name="limitations"></a>Limites
 
 ### <a name="dns-verified-domains-in-azure-ad"></a>Domaines vérifiés par DNS dans Azure AD
-Le domaine avec lequel vous voulez vous fédérer ne doit ***pas** _ être vérifié par le système DNS dans Azure AD. Vous êtes autorisé à configurer la fédération directe avec des locataires Azure AD non managés (vérifiés par e-mail ou « viraux »), car ils ne sont pas vérifiés par le système DNS.
+Le domaine avec lequel vous voulez vous fédérer ne doit ***pas*** être vérifié par le système DNS dans Azure AD. Vous êtes autorisé à configurer la fédération directe avec des locataires Azure AD non managés (vérifiés par e-mail ou « viraux »), car ils ne sont pas vérifiés par le système DNS.
 
 ### <a name="authentication-url"></a>URL d’authentification
 La fédération directe est uniquement autorisée pour les stratégies où le domaine de l’URL d’authentification correspond au domaine cible, ou lorsque l’URL d’authentification correspond à l’un de ces fournisseurs d’identité autorisés (cette liste est susceptible de changer) :
@@ -60,7 +76,7 @@ La fédération directe est uniquement autorisée pour les stratégies où le do
 -   federation.exostar.com
 -   federation.exostartest.com
 
-Par exemple, lorsque vous configurez la fédération directe pour _*fabrikam.com**, l'URL d'authentification `https://fabrikam.com/adfs` transmet la validation. Un ordinateur hôte dans le même domaine passe également, par exemple `https://sts.fabrikam.com/adfs`. Toutefois, l’URL d’authentification `https://fabrikamconglomerate.com/adfs` ou `https://fabrikam.com.uk/adfs` pour le même domaine ne passera pas.
+Par exemple, lorsque vous configurez la fédération directe pour **fabrikam.com**, l’URL d’authentification `https://fabrikam.com/adfs` transmet la validation. Un ordinateur hôte dans le même domaine passe également, par exemple `https://sts.fabrikam.com/adfs`. Toutefois, l’URL d’authentification `https://fabrikamconglomerate.com/adfs` ou `https://fabrikam.com.uk/adfs` pour le même domaine ne passera pas.
 
 ### <a name="signing-certificate-renewal"></a>Renouvellement du certificat de signature
 Si vous spécifiez l’URL de métadonnées dans les paramètres du fournisseur d’identité, Azure AD renouvelle automatiquement le certificat de signature à son expiration. Toutefois, si le certificat pivote avant le délai d’expiration pour une raison quelconque, ou si vous ne fournissez pas une URL de métadonnées, Azure AD ne pourra pas le renouveler. Dans ce cas, vous devez mettre à jour le certificat de signature manuellement.
@@ -147,7 +163,7 @@ Ensuite, vous allez configurer la fédération avec le fournisseur d’identité
 
 1. Accédez au [portail Azure](https://portal.azure.com/). Sélectionnez **Azure Active Directory** dans le volet de gauche. 
 2. Sélectionnez **Identités externes** > **Tous les fournisseurs d’identité**.
-3. Sélectionnez ensuite **Nouvel IdP SAML/WS-Fed**.
+3. Sélectionnez **Nouvel IdP SAML/WS-Fed**.
 
     ![Capture d’écran montrant le bouton pour ajouter un nouveau fournisseur d’identité SAML ou WS-Fed](media/direct-federation/new-saml-wsfed-idp.png)
 

@@ -5,12 +5,12 @@ ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 345d0d31528f7bdc40be4400e783ad5be45df72f
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: b4a255235b2c6d772ab9a05dffacd4574ddd3280
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930558"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100584191"
 ---
 # <a name="custom-metric-collection-in-net-and-net-core"></a>Collecte de métriques personnalisées dans .NET et .NET Core
 
@@ -109,7 +109,7 @@ Si nous examinons notre ressource Application Insights dans l’expérience Jour
 > [!NOTE]
 > L’élément de télémétrie brut ne contenait pas de champ ou de propriété de somme explicite. Une fois ingéré, nous en créons un pour vous. En l’occurrence, la propriété `value` et `valueSum` représentent la même chose.
 
-Vous pouvez également accéder à vos données de télémétrie de métriques personnalisées dans la section [_Métriques_](../platform/metrics-charts.md) du portail, à la fois en tant que [métriques basées sur un journal et métriques personnalisées](pre-aggregated-metrics-log-metrics.md). (La capture d’écran ci-dessous montre un exemple de métriques basées sur un journal.) ![Vue de Metrics Explorer](./media/get-metric/metrics-explorer.png)
+Vous pouvez également accéder à vos données de télémétrie de métriques personnalisées dans la section [_Métriques_](../essentials/metrics-charts.md) du portail, à la fois en tant que [métriques basées sur un journal et métriques personnalisées](pre-aggregated-metrics-log-metrics.md). (La capture d’écran ci-dessous montre un exemple de métriques basées sur un journal.) ![Vue de Metrics Explorer](./media/get-metric/metrics-explorer.png)
 
 ### <a name="caching-metric-reference-for-high-throughput-usage"></a>Mise en cache de référence de métrique pour une utilisation à débit élevé
 
@@ -302,6 +302,6 @@ SeverityLevel.Error);
 
 * [En savoir plus](./worker-service.md) sur la supervision des applications de service Worker.
 * En savoir plus sur [les métriques basées sur les journaux et les métriques pré-agrégées](./pre-aggregated-metrics-log-metrics.md).
-* [Metric Explorer](../platform/metrics-getting-started.md)
+* [Metric Explorer](../essentials/metrics-getting-started.md)
 * Guide pratique pour activer Application Insights pour les [applications ASP.NET Core](asp-net-core.md)
 * Guide pratique pour activer Application Insights pour les [applications ASP.NET](asp-net.md)

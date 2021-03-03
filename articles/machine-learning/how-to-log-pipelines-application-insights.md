@@ -10,12 +10,12 @@ ms.subservice: core
 ms.date: 08/11/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: e451e55a9a73022f9c90ba4adae91b520840481e
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 58e604eccaca4630a235f4ae83724df20d6b1e26
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880757"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592516"
 ---
 # <a name="collect-machine-learning-pipeline-log-files-in-application-insights-for-alerts-and-debugging"></a>Collecter les fichiers journaux de pipeline de Machine Learning dans Application Insights pour les alertes et le débogage
 
@@ -164,6 +164,6 @@ Certaines des requêtes ci-dessous utilisent « customDimensions.Level ». Ces
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Une fois que vous avez des journaux dans votre instance Application Insights, vous pouvez les utiliser pour définir des [alertes Azure Monitor](../azure-monitor/platform/alerts-overview.md#what-you-can-alert-on) en fonction des résultats de la requête.
+Une fois que vous avez des journaux dans votre instance Application Insights, vous pouvez les utiliser pour définir des [alertes Azure Monitor](../azure-monitor/alerts/alerts-overview.md#what-you-can-alert-on) en fonction des résultats de la requête.
 
-Vous pouvez également ajouter des résultats de requêtes à un [tableau de bord Azure](../azure-monitor/learn/tutorial-app-dashboards.md#add-logs-query) pour obtenir des informations supplémentaires.
+Vous pouvez également ajouter des résultats de requêtes à un [tableau de bord Azure](../azure-monitor/app/tutorial-app-dashboards.md#add-logs-query) pour obtenir des informations supplémentaires.

@@ -8,16 +8,14 @@ ms.author: nmurav
 ms.date: 01/03/2012
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 4655a20ddd419993f5a73ec54420abec96d32a62
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: d682524ae3ff5b82233a69959a309a7495e30bed
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100546174"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101658061"
 ---
 # <a name="tutorial-prepare-a-web-app-for-azure-communication-services-nodejs"></a>Tutoriel : Préparer une application web pour Azure Communication Services (Node.js)
-
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 Azure Communication Services vous permet d’ajouter des communications en temps réel à vos applications. Dans ce tutoriel, vous allez apprendre à configurer une application web qui prend en charge Azure Communication Services. C’est un tutoriel d’introduction qui aidera les développeurs débutants à bien démarrer avec les communications en temps réel.
 
@@ -38,12 +36,12 @@ Dans ce tutoriel, vous allez apprendre à :
 - [Visual Studio Code](https://code.visualstudio.com/) : nous l’utiliserons pour modifier le code dans votre environnement de développement local.
 - [webpack](https://webpack.js.org/) : nous l’utiliserons pour créer un bundle de votre code et l’héberger localement.
 - [Node.JS](https://nodejs.org/en/) : nous l’utiliserons pour installer et gérer les dépendances, telles que les bibliothèques clientes d’Azure Communication Services et le webpack.
-- [nvm et npm](https://docs.microsoft.com/windows/nodejs/setup-on-windows) pour la gestion de versions.
-- L’[extension Stockage Azure](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage) pour Visual Studio Code. Cette extension est nécessaire pour publier votre application dans Stockage Azure. [En savoir plus sur l’hébergement de sites web statiques dans le service Stockage Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website)
+- [nvm et npm](/windows/nodejs/setup-on-windows) pour la gestion de versions.
+- L’[extension Stockage Azure](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage) pour Visual Studio Code. Cette extension est nécessaire pour publier votre application dans Stockage Azure. [En savoir plus sur l’hébergement de sites web statiques dans le service Stockage Azure](../../storage/blobs/storage-blob-static-website.md)
 - L’[extension Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice). Cette extension vous permet de déployer des sites web (comme avec l’extension précédente), mais avec l’option de configurer l’intégration continue et la livraison continue (CI/CD) entièrement managées.
 - L’[extension Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions), qui vous permet de créer vos propres applications serverless. Par exemple, vous pouvez héberger votre application d’authentification dans Azure Functions.
 - Une chaîne de connexion et une ressource Communication Services actives. [Créer une ressource Communication Services](../quickstarts/create-communication-resource.md)
-- Un jeton d’accès utilisateur. Pour obtenir des instructions, consultez le [guide de démarrage rapide avec les jetons d’accès](https://docs.microsoft.com/azure/communication-services/quickstarts/access-tokens?pivots=programming-language-javascript) ou le [tutoriel sur les services approuvés](https://docs.microsoft.com/azure/communication-services/tutorials/trusted-service-tutorial).
+- Un jeton d’accès utilisateur. Pour obtenir des instructions, consultez le [guide de démarrage rapide avec les jetons d’accès](../quickstarts/access-tokens.md?pivots=programming-language-javascript) ou le [tutoriel sur les services approuvés](./trusted-service-tutorial.md).
 
 
 ## <a name="configure-your-development-environment"></a>Configurer votre environnement de développement
@@ -57,7 +55,7 @@ Votre environnement de développement local sera configuré de la façon suivant
 
 Nous utiliserons Node.js pour télécharger et installer les diverses dépendances dont nous avons besoin pour notre application côté client. Nous l’utiliserons pour générer les fichiers statiques qui seront ensuite hébergés dans Azure. Vous n’avez donc pas à vous soucier de sa configuration sur votre serveur.
 
-Les développeurs Windows peuvent suivre [ce tutoriel NodeJS](https://docs.microsoft.com/windows/nodejs/setup-on-windows) pour configurer Node, nvm et npm. 
+Les développeurs Windows peuvent suivre [ce tutoriel NodeJS](/windows/nodejs/setup-on-windows) pour configurer Node, nvm et npm.
 
 Nous avons testé ce tutoriel à l’aide de LTS version 12.20.0. Après avoir installé nvm, exécutez la commande PowerShell suivante pour déployer la version que vous souhaitez utiliser :
 
@@ -161,7 +159,7 @@ module.exports ={
     output: {
         filename:'app.js',
         path: path.resolve(__dirname, 'dist'),
-    }     
+    }
 }
 ```
 
@@ -218,7 +216,7 @@ Votre fichier doit maintenant ressembler à ceci :
 }
 ```
 
-Vous avez ajouté la commande qui peut être utilisée à partir de npm. 
+Vous avez ajouté la commande qui peut être utilisée à partir de npm.
 
 :::image type="content" source="./media/step-one-pic-12.png" alt-text="Modification de package.json":::
 
@@ -279,13 +277,13 @@ npm run build:dev
 La console indique l’emplacement d’exécution du serveur. Par défaut, il s’agit de `http://localhost:8080`. La commande build:dev est la commande que nous avons précédemment ajoutée au fichier `package.json`.
 
  :::image type="content" source="./media/step-one-pic-16.png" alt-text="Démarrage d’un serveur de développement":::
- 
+
  Accédez à l’adresse dans votre navigateur. Vous voyez normalement la page et l’alerte, qui ont été configurées lors des étapes précédentes.
- 
+
   :::image type="content" source="./media/step-one-pic-17.png" alt-text="Page HTML":::
-  
- 
-Durant l’exécution du serveur, vous pouvez modifier le code, et le serveur et la page HTML se rechargent automatiquement. 
+
+
+Durant l’exécution du serveur, vous pouvez modifier le code, et le serveur et la page HTML se rechargent automatiquement.
 
 Ensuite, accédez au fichier `app.js` dans Visual Studio Code et supprimez `alert('Hello world alert!');`. Enregistrez votre fichier et vérifiez que l’alerte ne s’affiche plus dans votre navigateur.
 
@@ -323,11 +321,11 @@ const { merge } = require('webpack-merge');
  ```
 
 Notez que cette configuration sera fusionnée avec webpack.common.js (où nous avons spécifié le fichier d’entrée et où les résultats seront stockés) et qu’elle définira le mode sur « production ».
- 
+
 Dans `package.json`, ajoutez le code suivant :
 
 ```JavaScript
-"build:prod": "webpack --config webpack.prod.js" 
+"build:prod": "webpack --config webpack.prod.js"
 ```
 
 Ce fichier doit se présenter comme suit :
@@ -341,14 +339,14 @@ Ce fichier doit se présenter comme suit :
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:dev": "webpack-dev-server --config webpack.dev.js",
-    "build:prod": "webpack --config webpack.prod.js" 
+    "build:prod": "webpack --config webpack.prod.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@azure/communication-calling": "^1.0.0-beta.3",
-    "@azure/communication-common": "^1.0.0-beta.3"
+    "@azure/communication-calling": "^1.0.0-beta.6",
+    "@azure/communication-common": "^1.0.0"
   },
   "devDependencies": {
     "webpack": "^4.42.0",
@@ -368,13 +366,13 @@ Dans le terminal, exécutez :
 npm run build:prod
 ```
 
-La commande crée un dossier `dist` ainsi qu’un fichier statique `app.js` prêt pour la production. 
+La commande crée un dossier `dist` ainsi qu’un fichier statique `app.js` prêt pour la production.
 
  :::image type="content" source="./media/step-one-pic-21.png" alt-text="Build de production":::
- 
- 
+
+
 ### <a name="deploy-your-app-to-azure-storage"></a>Déployer votre application sur Stockage Azure
- 
+
 Copiez `index.html` et `app.css` dans le dossier `dist`.
 
 Dans le dossier `dist`, créez un fichier et nommez-le `404.html`. Copiez le code ci-dessous dans ce nouveau fichier :
@@ -399,45 +397,45 @@ Enregistrez le fichier (Ctrl+S).
 Cliquez avec le bouton droit et sélectionnez Deploy to Static Website via Azure Storage (Déployer sur un site web statique via Stockage Azure).
 
 :::image type="content" source="./media/step-one-pic-22.png" alt-text="Commencer le déploiement sur Azure":::
- 
+
 Dans le champ `Select subscription`, sélectionnez « Sign in to Azure » (Se connecter à Azure), ou bien « Create a Free Azure Account » (Créer un compte Azure gratuit) si vous n’avez pas encore créé d’abonnement
- 
+
 :::image type="content" source="./media/step-one-pic-23.png" alt-text="Se connecter à Azure":::
- 
+
 Sélectionnez `Create new Storage Account` > `Advanced` :
 
  :::image type="content" source="./media/step-one-pic-24.png" alt-text="Création du groupe Compte de stockage":::
- 
+
  Indiquez le nom du groupe de stockage :
- 
+
  :::image type="content" source="./media/step-one-pic-25.png" alt-text="Attribution d’un nom au compte":::
- 
+
 Créez un groupe de ressources si nécessaire :
- 
+
   :::image type="content" source="./media/step-one-pic-26.png" alt-text="Création d’un groupe":::
-  
+
   Répondez « Yes » (Oui) à la question «Would you like to enable static website hosting ? » (Voulez-vous activer l’hébergement de sites web statiques ?)
-  
+
   :::image type="content" source="./media/step-one-pic-27.png" alt-text="Sélection de l’option permettant d’activer l’hébergement de sites web statiques":::
-  
+
 Acceptez le nom de fichier par défaut dans « Enter the index document name » (Entrer le nom du document d’index), car nous avons créé le fichier `index.html`.
 
-Tapez `404.html` dans « Enter the 404 error document path » (Entrer le chemin du document d’erreur 404).  
-  
-Sélectionnez l’emplacement de l’application. Cet emplacement définit le processeur multimédia qui sera utilisé dans votre prochaine application d’appel (Calling) dans les appels de groupe. 
+Tapez `404.html` dans « Enter the 404 error document path » (Entrer le chemin du document d’erreur 404).
+
+Sélectionnez l’emplacement de l’application. Cet emplacement définit le processeur multimédia qui sera utilisé dans votre prochaine application d’appel (Calling) dans les appels de groupe.
 
 Azure Communication Services sélectionne le processeur multimédia en fonction de l’emplacement de l’application.
 
 :::image type="content" source="./media/step-one-pic-28.png" alt-text="Sélection d’un emplacement":::
-  
-Attendez la fin de la création de la ressource et de votre site web. 
- 
+
+Attendez la fin de la création de la ressource et de votre site web.
+
 Cliquez sur « Browse to website » (Accéder au site web) :
 
 :::image type="content" source="./media/step-one-pic-29.png" alt-text="Déploiement terminé":::
- 
+
 À partir des outils de développement de votre navigateur, vous pouvez inspecter la source et examiner le fichier que nous avons préparé pour la production.
- 
+
 :::image type="content" source="./media/step-one-pic-30.png" alt-text="Site web":::
 
 Accédez au [portail Azure](https://portal.azure.com/#home), sélectionnez votre groupe de ressources, sélectionnez l’application que vous avez créée, puis accédez à `Settings` > `Static website`. Vous voyez que les sites web statiques sont activés. Notez également le point de terminaison principal, le document d’index et le chemin des fichiers de document d’erreur.
@@ -448,7 +446,7 @@ Sous « Service BLOB », sélectionnez « Conteneurs » pour voir les deux c
 
 :::image type="content" source="./media/step-one-pic-32.png" alt-text="Configuration du conteneur":::
 
-Si vous accédez à `$web`, vous voyez les fichiers que vous avez créés dans Visual Studio et déployés sur Azure. 
+Si vous accédez à `$web`, vous voyez les fichiers que vous avez créés dans Visual Studio et déployés sur Azure.
 
 :::image type="content" source="./media/step-one-pic-33.png" alt-text="Déploiement":::
 

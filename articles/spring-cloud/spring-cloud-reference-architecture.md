@@ -1,17 +1,17 @@
 ---
-ms.date: 01/19/2021
+ms.date: 02/16/2021
 ms.topic: reference-architecture
 author: kriation
 title: Architecture de référence Azure Spring Cloud
 ms.author: akaleshian
 ms.service: spring-cloud
 description: Cette architecture de référence est une base qui utilise une conception hub-and-spoke typique des entreprises pour l’utilisation d’Azure Spring Cloud.
-ms.openlocfilehash: 8376cbb2a0f1a7c082b9fdb1c6d606236e162600
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 7d069e67e5161135b309aee3dc9c6ac921105623
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100416604"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100634360"
 ---
 # <a name="azure-spring-cloud-reference-architecture"></a>Architecture de référence Azure Spring Cloud
 

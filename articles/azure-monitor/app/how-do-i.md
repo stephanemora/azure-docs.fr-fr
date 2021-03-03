@@ -3,12 +3,12 @@ title: Comment... dans Azure Application Insights | Microsoft Docs
 description: FAQ dans Application Insights
 ms.topic: conceptual
 ms.date: 04/04/2017
-ms.openlocfilehash: 134089f4df8f80147182835ca8746322c1de7e50
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 74a4d7ee65dccead132cfcebd9bf8c0de9b761a5
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87319250"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100584161"
 ---
 # <a name="how-do-i--in-application-insights"></a>Comment ... dans Application Insights ?
 ## <a name="get-an-email-when-"></a>Recevoir un message électronique quand...
@@ -16,7 +16,7 @@ ms.locfileid: "87319250"
 Définissez un [test web de disponibilité](./monitor-web-app-availability.md).
 
 ### <a name="email-if-my-site-is-overloaded"></a>Envoyer un message électronique si mon site est surchargé
-Définissez une [alerte](../platform/alerts-log.md) sur le **Temps de réponse du serveur**. Un seuil compris entre 1 et 2 secondes doit fonctionner.
+Définissez une [alerte](../alerts/alerts-log.md) sur le **Temps de réponse du serveur**. Un seuil compris entre 1 et 2 secondes doit fonctionner.
 
 ![Capture d’écran montrant comment définir une alerte sur le temps de réponse du serveur.](./media/how-do-i/030-server.png)
 
@@ -26,10 +26,10 @@ Si vous voulez définir une alerte sur les **Exceptions du serveur**, vous devre
 
 ### <a name="email-on-exceptions"></a>Envoyer un message électronique en cas d’exceptions
 1. [Configurer la surveillance des exceptions](./asp-net-exceptions.md)
-2. [Définir une alerte](../platform/alerts-log.md) sur la métrique Nombre d’exceptions
+2. [Définir une alerte](../alerts/alerts-log.md) sur la métrique Nombre d’exceptions
 
 ### <a name="email-on-an-event-in-my-app"></a>Envoyer un message électronique en réponse à un événement dans mon application
-Supposons que vous vouliez recevoir un e-mail quand un événement spécifique se produit. Application Insights ne fournit pas directement cette fonctionnalité, mais peut [envoyer une alerte quand une métrique dépasse un seuil](../platform/alerts-log.md).
+Supposons que vous vouliez recevoir un e-mail quand un événement spécifique se produit. Application Insights ne fournit pas directement cette fonctionnalité, mais peut [envoyer une alerte quand une métrique dépasse un seuil](../alerts/alerts-log.md).
 
 Les alertes peuvent être définies sur des [métriques personnalisées](./api-custom-events-metrics.md#trackmetric), et non sur des événements personnalisés. Écrivez du code pour augmenter une métrique quand l’événement se produit :
 
@@ -51,7 +51,7 @@ Les alertes ayant deux états, vous devez envoyer une valeur faible quand vous c
 telemetry.TrackMetric("Alarm", 0.5);
 ```
 
-Créez un graphique dans [Metrics Explorer](../platform/metrics-charts.md) pour afficher votre alarme :
+Créez un graphique dans [Metrics Explorer](../essentials/metrics-charts.md) pour afficher votre alarme :
 
 ![Capture d’écran montrant comment créer un graphe dans Metrics Explorer pour afficher l’alarme.](./media/how-do-i/010-alarm.png)
 
@@ -71,11 +71,11 @@ Vous recevrez des messages électroniques quand la métrique est supérieure et 
 * Étant donné que les messages électroniques sont envoyés à la fois pour les états « alerte » et « intègre », vous devrez peut-être remplacer votre événement à déclenchement unique par une condition à deux états. Par exemple, au lieu d’un événement « tâche terminée », définissez une condition « tâche en cours », pour laquelle vous obtenez des messages électroniques au début et à la fin d’une tâche.
 
 ### <a name="set-up-alerts-automatically"></a>Configurer automatiquement des alertes
-[Utiliser PowerShell pour créer des alertes](../platform/alerts-log.md)
+[Utiliser PowerShell pour créer des alertes](../alerts/alerts-log.md)
 
 ## <a name="use-powershell-to-manage-application-insights"></a>Utiliser PowerShell pour gérer Application Insights
 * [Créer des ressources](./create-new-resource.md#creating-a-resource-automatically)
-* [Créer des alertes](../platform/alerts-log.md)
+* [Créer des alertes](../alerts/alerts-log.md)
 
 ## <a name="separate-telemetry-from-different-versions"></a>Télémétrie distincte des différentes versions
 
@@ -88,7 +88,7 @@ Vous recevrez des messages électroniques quand la métrique est supérieure et 
 
 ## <a name="visualize-data"></a>Visualiser les données
 #### <a name="dashboard-with-metrics-from-multiple-apps"></a>Tableau de bord avec des métriques de plusieurs applications
-* Dans [Metrics Explorer](../platform/metrics-charts.md), personnalisez votre graphique et enregistrez-le comme favori. Épinglez-le au tableau de bord Azure.
+* Dans [Metrics Explorer](../essentials/metrics-charts.md), personnalisez votre graphique et enregistrez-le comme favori. Épinglez-le au tableau de bord Azure.
 
 #### <a name="dashboard-with-data-from-other-sources-and-application-insights"></a>Tableau de bord avec des données provenant d’autres sources et d’Application Insights
 * [Exportez la télémétrie dans Power BI](./export-power-bi.md).
@@ -165,6 +165,6 @@ Parmi les métriques que vous pouvez afficher dans Metrics Explorer, il existe u
 * **Serveur Unix** - [installer collectd](./java-collectd.md)
 
 ### <a name="to-display-more-performance-counters"></a>Pour afficher davantage de compteurs de performances
-* Tout d’abord, [ajoutez un nouveau graphique](../platform/metrics-charts.md) et vérifiez si le compteur se trouve dans le jeu de base que nous offrons.
+* Tout d’abord, [ajoutez un nouveau graphique](../essentials/metrics-charts.md) et vérifiez si le compteur se trouve dans le jeu de base que nous offrons.
 * Dans le cas contraire, [ajoutez le compteur au jeu collecté par le module de compteur de performances](./performance-counters.md).
 

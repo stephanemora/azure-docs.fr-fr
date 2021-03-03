@@ -3,16 +3,16 @@ title: Superviser des événements planifiés pour vos machines virtuelles dans 
 description: Découvrez comment surveiller vos machines virtuelles Azure pour les événements planifiés.
 author: mysarn
 ms.service: virtual-machines
-ms.subservice: monitoring
+ms.subservice: scheduled-events
 ms.date: 08/20/2019
 ms.author: sarn
 ms.topic: how-to
-ms.openlocfilehash: e3e44019d09927ff700e74b713a1b02136fedbc1
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 866522da162d22621bd37bf9d2f2fa6838206e17
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98702268"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101674696"
 ---
 # <a name="monitor-scheduled-events-for-your-azure-vms"></a>Superviser des événements planifiés pour vos machines virtuelles Azure
 
@@ -25,7 +25,7 @@ Dans cet article, nous allons vous montrer comment vous pouvez utiliser des év�
 
 Scheduled Events est disponible dans le cadre d’[Azure Instance Metadata Service](instance-metadata-service.md), qui est disponible sur chaque machine virtuelle Azure. Les clients peuvent écrire l’automatisation pour interroger le point de terminaison de leurs machines virtuelles afin de rechercher les notifications de maintenance planifiées et d’appliquer des mesures d’atténuation comme l’enregistrement de l’état et la mise hors connexion de la machine virtuelle. Nous vous conseillons de créer une automatisation pour enregistrer les événements planifiés afin de disposer d’un journal d’audit des événements de maintenance Azure. 
 
-Dans cet article, nous allons vous guider tout au long de la capture des événements de maintenance planifiés dans Log Analytics. Ensuite, nous allons déclencher des actions de notification de base, comme l’envoi d’un e-mail à votre équipe et l’obtention d’une vue historique de tous les événements qui ont affecté vos machines virtuelles. Pour l’agrégation et l’automatisation des événements, nous allons utiliser [Log Analytics](../../azure-monitor/learn/quick-create-workspace.md), mais vous pouvez utiliser n’importe quelle solution de surveillance pour collecter ces journaux et déclencher l’automatisation.
+Dans cet article, nous allons vous guider tout au long de la capture des événements de maintenance planifiés dans Log Analytics. Ensuite, nous allons déclencher des actions de notification de base, comme l’envoi d’un e-mail à votre équipe et l’obtention d’une vue historique de tous les événements qui ont affecté vos machines virtuelles. Pour l’agrégation et l’automatisation des événements, nous allons utiliser [Log Analytics](../../azure-monitor/logs/quick-create-workspace.md), mais vous pouvez utiliser n’importe quelle solution de surveillance pour collecter ces journaux et déclencher l’automatisation.
 
 ![Diagramme montrant le cycle de vie des événements](./media/notifications/events.png)
 
@@ -35,7 +35,7 @@ Pour cet exemple, vous devez créer une [machine virtuelle Windows dans un group
 
 Ne supprimez pas le groupe de ressources à la fin du tutoriel.
 
-Vous devrez également [créer un espace de travail Log Analytics](../../azure-monitor/learn/quick-create-workspace.md) que nous utiliserons pour agréger les informations à partir des machines virtuelles dans le groupe à haute disponibilité.
+Vous devrez également [créer un espace de travail Log Analytics](../../azure-monitor/logs/quick-create-workspace.md) que nous utiliserons pour agréger les informations à partir des machines virtuelles dans le groupe à haute disponibilité.
 
 ## <a name="set-up-the-environment"></a>Configurer l’environnement
 
@@ -132,7 +132,7 @@ Cette opération installe l’[agent Microsoft Monitoring](../extensions/oms-win
 ## <a name="creating-an-alert-rule-with-azure-monitor"></a>Création d’une règle d’alerte avec Azure Monitor 
 
 
-Une fois les événements envoyés à Log Analytics, vous pouvez exécuter la [requête](../../azure-monitor/log-query/log-analytics-tutorial.md) suivante pour rechercher les événements planifiés.
+Une fois les événements envoyés à Log Analytics, vous pouvez exécuter la [requête](../../azure-monitor/logs/log-analytics-tutorial.md) suivante pour rechercher les événements planifiés.
 
 1. En haut de la page, sélectionnez **Journaux** et collez le code suivant dans la zone de texte :
 

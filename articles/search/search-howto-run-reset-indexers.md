@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/09/2021
-ms.openlocfilehash: 06f9d336bb04aa26cea4ebcdae1cfd045e1c2a1b
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: bf8a4e51e23f438265af706914a6bc73ec30f64d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100361245"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101667669"
 ---
 # <a name="how-to-run-or-reset-indexers-skills-or-documents"></a>Comment exécuter ou réinitialiser des indexeurs, des compétences ou des documents
 
@@ -101,7 +101,7 @@ Si aucune compétence n’est spécifiée, la totalité de l’ensemble de comp�
 > [!IMPORTANT] 
 > [Réinitialiser les documents](/rest/api/searchservice/preview-api/reset-documents) est en préversion publique, disponible uniquement via l’API REST de préversion. Les fonctionnalités d’évaluation sont proposées telles quelles, dans le cadre de [Conditions d’utilisation supplémentaires](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-L’[API Réinitialiser les documents](https://docs.microsoft.com/rest/api/searchservice/preview-api/reset-documents) accepte une liste de clés de document afin que vous puissiez actualiser des documents spécifiques. S’ils sont spécifiés, les paramètres de réinitialisation deviennent le seul déterminant de ce qui est traité, quelles que soient les autres modifications apportées aux données sous-jacentes. Par exemple, si 20 blobs ont été ajoutés ou mis à jour depuis la dernière exécution de l’indexeur, mais que vous ne réinitialisez qu’un seul document, seul celui-ci sera traité.
+L’[API Réinitialiser les documents](/rest/api/searchservice/preview-api/reset-documents) accepte une liste de clés de document afin que vous puissiez actualiser des documents spécifiques. S’ils sont spécifiés, les paramètres de réinitialisation deviennent le seul déterminant de ce qui est traité, quelles que soient les autres modifications apportées aux données sous-jacentes. Par exemple, si 20 blobs ont été ajoutés ou mis à jour depuis la dernière exécution de l’indexeur, mais que vous ne réinitialisez qu’un seul document, seul celui-ci sera traité.
 
 Pour chaque document, tous les champs de ce document de recherche sont actualisés avec les valeurs de la source de données. Vous ne pouvez pas choisir les champs à actualiser. 
 

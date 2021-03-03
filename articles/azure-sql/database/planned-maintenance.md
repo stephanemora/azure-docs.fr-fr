@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: aamalvea
 ms.author: aamalvea
 ms.reviewer: sstein
-ms.date: 08/25/2020
-ms.openlocfilehash: 3f87f47f652f71a57796d1cacd047b0448b49b7c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 1/21/2021
+ms.openlocfilehash: d38ac9731959cf9a23052753b09c9e7819846705
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91333033"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101664115"
 ---
 # <a name="plan-for-azure-maintenance-events-in-azure-sql-database-and-azure-sql-managed-instance"></a>Planifier les événements de maintenance Azure dans Azure SQL Database et Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -45,7 +45,12 @@ Toute application de production cliente qui se connecte à un service de base de
 
 Si votre base de données subit des échecs de connexion, examinez la fenêtre [Resource Health](../../service-health/resource-health-overview.md#get-started) dans le [portail Azure](https://portal.azure.com) pour connaître l’état actuel. La section Health History (Historique d’intégrité) contient le motif du temps d’arrêt pour chaque événement (le cas échéant).
 
+## <a name="maintenance-window-feature"></a>Fonctionnalité de fenêtre de maintenance
+
+La fonctionnalité de fenêtre de maintenance permet de configurer des planifications de fenêtre de maintenance prévisibles pour les bases de données Azure SQL et les instances managées SQL éligibles. Pour plus d’informations, consultez [Fenêtre de maintenance](maintenance-window.md).
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 - En savoir plus sur [Resource Health](resource-health-to-troubleshoot-connectivity.md) pour Azure SQL Database et Azure SQL Managed Instance.
 - Pour plus d’informations sur la logique de nouvelle tentative, consultez [Logique de nouvelle tentative pour les erreurs temporaires](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors).
+- Configurez les planifications de fenêtre de maintenance avec la fonctionnalité [Fenêtre de maintenance](maintenance-window.md).

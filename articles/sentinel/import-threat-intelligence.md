@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2020
 ms.author: yelevin
-ms.openlocfilehash: 5bf94d7c5889bb5a743655d65e48f021e91e01b7
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 0b2a6088effc735076d56ba83dd85135392147b8
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807137"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574995"
 ---
 # <a name="import-threat-intelligence-into-azure-sentinel"></a>Importer le renseignement sur les menaces dans Azure Sentinel
 
@@ -419,7 +419,7 @@ Examinons comment trouver le classeur Threat Intelligence fourni dans Azure Sent
 
     :::image type="content" source="media/import-threat-intelligence/threat-intel-bar-chart.png" alt-text="Graphique à barres":::
 
-Les classeurs fournissent des tableaux de bord interactifs puissants qui vous donnent des insights de tous les aspects d’Azure Sentinel. Il y a beaucoup de choses que vous pouvez faire avec des classeurs, et même si les modèles fournis constituent un excellent point de départ, vous voudrez probablement aller plus loin en personnalisant ces modèles, ou en créant des tableaux de bord qui combinent de nombreuses sources de données différentes pour vous permettre de visualiser vos données de manière unique. Étant donné que les classeurs Azure Sentinel sont basés sur des classeurs Azure Monitor, une documentation complète et de nombreux autres modèles sont déjà disponibles. Cet article est idéal pour découvrir comment [Créer des rapports interactifs avec les classeurs Azure Monitor](../azure-monitor/platform/workbooks-overview.md). 
+Les classeurs fournissent des tableaux de bord interactifs puissants qui vous donnent des insights de tous les aspects d’Azure Sentinel. Il y a beaucoup de choses que vous pouvez faire avec des classeurs, et même si les modèles fournis constituent un excellent point de départ, vous voudrez probablement aller plus loin en personnalisant ces modèles, ou en créant des tableaux de bord qui combinent de nombreuses sources de données différentes pour vous permettre de visualiser vos données de manière unique. Étant donné que les classeurs Azure Sentinel sont basés sur des classeurs Azure Monitor, une documentation complète et de nombreux autres modèles sont déjà disponibles. Cet article est idéal pour découvrir comment [Créer des rapports interactifs avec les classeurs Azure Monitor](../azure-monitor/visualize/workbooks-overview.md). 
 
 Il existe également une vaste communauté de [classeurs Azure Monitor sur GitHub](https://github.com/microsoft/Application-Insights-Workbooks) où vous pouvez télécharger des modèles supplémentaires et partager vos propres modèles.
 

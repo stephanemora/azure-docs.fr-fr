@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 01/14/2021
 ms.author: alsin
-ms.openlocfilehash: 13388bf289c1d10a2e7da04a4dd5d26be109535e
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: df5133ad4bb3155afdc9d43e595591d9cfda4ea0
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98697740"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101644440"
 ---
 # <a name="troubleshoot-common-automanage-onboarding-errors"></a>Résoudre les erreurs courantes liées à l’intégration d’Automanage
 Automanage peut échouer à intégrer un ordinateur sur le service. Ce document explique comment résoudre les échecs de déploiement, partage quelques raisons courantes pour lesquelles les déploiements peuvent échouer et décrit les étapes suivantes possibles d’atténuation.
@@ -37,7 +37,7 @@ Si vous ne voyez aucun échec de déploiement dans le groupe de ressources ou l�
 Error |  Limitation des risques
 :-----|:-------------|
 Erreur d’autorisations insuffisantes pour le compte Automanage | Cela peut se produire si vous avez récemment déplacé un abonnement contenant un nouveau compte Automanage dans un nouveau locataire. Les étapes de résolution sont accessibles [ici](./repair-automanage-account.md).
-La région de l’espace de travail ne correspond pas aux spécifications du mappage des régions | Automanage n’a pas pu intégrer votre machine, mais l’espace de travail Log Analytics auquel la machine est actuellement liée n’est pas mappé à une région Automation prise en charge. Assurez-vous que votre compte Automation et votre espace de travail Log Analytics existants se trouvent dans un [mappage de régions pris en charge](https://docs.microsoft.com/azure/automation/how-to/region-mappings).
+La région de l’espace de travail ne correspond pas aux spécifications du mappage des régions | Automanage n’a pas pu intégrer votre machine, mais l’espace de travail Log Analytics auquel la machine est actuellement liée n’est pas mappé à une région Automation prise en charge. Assurez-vous que votre compte Automation et votre espace de travail Log Analytics existants se trouvent dans un [mappage de régions pris en charge](../automation/how-to/region-mappings.md).
 « L’attribution a échoué ; aucune information supplémentaire n’est disponible. » | Ouvrez un cas auprès du support Microsoft Azure.
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -46,4 +46,3 @@ La région de l’espace de travail ne correspond pas aux spécifications du map
 
 > [!div class="nextstepaction"]
 > [Activer le service Automanage pour machines virtuelles dans le portail Azure](quick-create-virtual-machines-portal.md)
-

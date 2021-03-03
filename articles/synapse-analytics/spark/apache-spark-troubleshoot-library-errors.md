@@ -8,12 +8,12 @@ ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: conceptual
 ms.date: 01/04/2021
-ms.openlocfilehash: 60ea97ea2df271f867febec3fa0f0826a18dbbbf
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: e812fa47d35889a9cf8c671a4df6034812272a6a
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100416491"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101670626"
 ---
 # <a name="troubleshoot-library-installation-errors"></a>Résoudre les erreurs d’installation de bibliothèque 
 Pour que vos applications disposent d’un code tiers ou généré en local, vous pouvez installer une bibliothèque sur l’un de vos pools Apache Spark serverless. Les packages répertoriés dans le fichier requirements.txt sont téléchargés à partir de PyPi au démarrage du pool. Ce fichier de configuration requise est utilisé chaque fois qu’une instance Spark est créée à partir de ce pool Spark. Une fois qu’une bibliothèque est installée pour un pool Spark, elle est disponible pour toutes les sessions utilisant le même pool. 
@@ -54,7 +54,7 @@ df = spark.createDataFrame(data=data2,schema=schema)
 df.write.csv("abfss://<<ENTER NAME OF FILE SYSTEM>>@<<ENTER NAME OF PRIMARY STORAGE ACCOUNT>>.dfs.core.windows.net/validate_permissions.csv")
 
 ```
-Si une erreur s’affiche, vous ne disposez probablement pas des autorisations requises. Pour découvrir comment obtenir les autorisations requises, consultez ce document: [Attribuez des autorisations Contributeur aux données Blob du stockage ou Propriétaire des données Blob du stockage](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal#assign-an-azure-built-in-role).
+Si une erreur s’affiche, vous ne disposez probablement pas des autorisations requises. Pour découvrir comment obtenir les autorisations requises, consultez ce document: [Attribuez des autorisations Contributeur aux données Blob du stockage ou Propriétaire des données Blob du stockage](../../storage/common/storage-auth-aad-rbac-portal.md#assign-an-azure-built-in-role).
 
 En outre, si vous exécutez un pipeline, le fichier MSI de l’espace de travail doit également posséder des autorisations Propriétaire des données Blob du stockage ou Contributeur aux données Blob du stockage. Pour apprendre à accorder cette autorisation à l’identité de votre espace de travail, consultez : [Octroyez des autorisations à une identité managée de l’espace de travail](../security/how-to-grant-workspace-managed-identity-permissions.md).
 
@@ -98,4 +98,3 @@ Pour recréer l’environnement et valider vos mises à jour :
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Afficher les bibliothèques par défaut : [Prise en charge des versions d’Apache Spark](apache-spark-version-support.md)
-

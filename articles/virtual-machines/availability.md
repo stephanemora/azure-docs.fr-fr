@@ -5,13 +5,13 @@ author: cynthn
 ms.author: cynthn
 ms.service: virtual-machines
 ms.topic: conceptual
-ms.date: 05/10/2019
-ms.openlocfilehash: a0ea9a0871dd57088473999b28553258ff210038
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.date: 02/18/2021
+ms.openlocfilehash: 6601cd31cf6e332bf292cd887b498a92946d8af7
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628762"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101668297"
 ---
 # <a name="availability-options-for-virtual-machines-in-azure"></a>Options de disponibilité pour les machines virtuelles dans Azure
 
@@ -52,6 +52,10 @@ Les groupes identiques de machines virtuelles Azure vous permettent de créer et
 **Domaines d’erreur et domaines de mise à jour**
 
 Les groupes de machines virtuelles identiques simplifient la conception pour la haute disponibilité en alignant les domaines d’erreur et les domaines de mise à jour. Vous avez uniquement à définir le nombre de domaines d’erreur pour le groupe identique. Le nombre de domaines d’erreur disponibles pour les groupes identiques peut varier selon la région. Consultez [Gérer la disponibilité des machines virtuelles dans Azure](./manage-availability.md).
+
+**Modes d’orchestration pour les groupes identiques**
+
+Les modes d’orchestration de groupes de machines virtuelles identiques vous permettent de mieux contrôler la façon dont les instances de machine virtuelle sont gérées par le groupe identique. Vous pouvez activer un mode d’orchestration Uniform ou Flexible sur votre groupe identique. Le mode d’orchestration Uniform est optimisé pour les charges de travail sans état à grande échelle avec des instances identiques. Le mode d’orchestration Flexible (préversion) est destiné à la haute disponibilité à grande échelle avec un ou plusieurs types de machine virtuelle. Apprenez-en davantage sur ces [modes d’orchestration](./virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md) et sur la manière de les activer.
 
 
 ## <a name="availability-sets"></a>Groupes à haute disponibilité

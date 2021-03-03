@@ -7,12 +7,12 @@ ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.custom: contperf-fy21q1
 ms.date: 06/18/2020
-ms.openlocfilehash: 56c7ad49fc9af3ca4f30aa5309623c31e9db7385
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 93d881419c4854b8e46608e150b55072267e0347
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98011116"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574412"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-resource-logs"></a>Résoudre les problèmes liés à Azure Stream Analytics à l’aide des journaux de ressources
 
@@ -24,9 +24,9 @@ Il est vivement recommandé d’activer les journaux de ressources pour tous les
 
 Stream Analytics fournit deux types de journaux d’activité :
 
-* Les [journaux d’activité](../azure-monitor/platform/platform-logs-overview.md) (activés en permanence) fournissent des détails sur les opérations effectuées sur les travaux.
+* Les [journaux d’activité](../azure-monitor/essentials/platform-logs-overview.md) (activés en permanence) fournissent des détails sur les opérations effectuées sur les travaux.
 
-* Les [journaux de ressources](../azure-monitor/platform/platform-logs-overview.md) (configurables) offrent des informations plus détaillées sur tous les événements liés à un travail. Les journaux de ressources enregistrent les événements entre le moment où le travail est créé et celui où le travail est supprimé. Ils consignent les événements qui se produisent lorsque le travail est mis à jour et lors de son exécution.
+* Les [journaux de ressources](../azure-monitor/essentials/platform-logs-overview.md) (configurables) offrent des informations plus détaillées sur tous les événements liés à un travail. Les journaux de ressources enregistrent les événements entre le moment où le travail est créé et celui où le travail est supprimé. Ils consignent les événements qui se produisent lorsque le travail est mis à jour et lors de son exécution.
 
 > [!NOTE]
 > Vous pouvez utiliser des services, tels que Stockage Azure, Azure Event Hubs et les journaux Azure Monitor pour analyser les données non conformes. Les frais qui vous seront facturés varient selon le modèle de tarification de chaque service.

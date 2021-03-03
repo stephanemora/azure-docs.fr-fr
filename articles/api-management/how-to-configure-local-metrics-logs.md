@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/01/2021
 ms.author: apimpm
-ms.openlocfilehash: e34c25b2e3bfa845e258dc5d9699497d7ffcb004
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 2b66663c9ee8033bcb12bfac57964ea0eafecdac
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99526668"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594175"
 ---
 # <a name="configure-local-metrics-and-logs-for-azure-api-management-self-hosted-gateway"></a>Configurer des métriques et journaux locaux pour la passerelle auto-hébergée de Gestion des API Azure
 
@@ -204,7 +204,7 @@ La passerelle auto-hébergée génère des journaux dans `stdout` et `stderr` pa
 kubectl logs <pod-name>
 ```
 
-Si votre passerelle auto-hébergée est déployée dans Azure Kubernetes Service, vous pouvez activer [Azure Monitor pour conteneurs](../azure-monitor/insights/container-insights-overview.md) afin de collecter `stdout` et `stderr` à partir de vos charges de travail et d’afficher les journaux dans Log Analytics. 
+Si votre passerelle auto-hébergée est déployée dans Azure Kubernetes Service, vous pouvez activer [Azure Monitor pour conteneurs](../azure-monitor/containers/container-insights-overview.md) afin de collecter `stdout` et `stderr` à partir de vos charges de travail et d’afficher les journaux dans Log Analytics. 
 
 La passerelle auto-hébergée prend également en charge un certain nombre de protocoles, notamment `localsyslog`, `rfc5424` et `journal`. Le tableau ci-dessous récapitule toutes les options prises en charge. 
 

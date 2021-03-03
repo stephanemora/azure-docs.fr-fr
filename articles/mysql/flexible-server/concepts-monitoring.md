@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/21/2020
-ms.openlocfilehash: 5fe1d5a5a472b47abd364a89d1a65f1249c67c0d
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: c2883a2ddba9a322c09a318aa9f232de5f4704b4
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92538661"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595150"
 ---
 # <a name="monitor-azure-database-for-mysql-flexible-servers-with-built-in-metrics"></a>Superviser les serveurs flexibles Azure Database pour MySQL à l’aide des métriques intégrées
 
@@ -24,9 +24,9 @@ Dans cet article, vous allez découvrir les différentes métriques disponibles 
 
 ## <a name="available-metrics"></a>Métriques disponibles
 
-Le serveur flexible Azure Database pour MySQL propose diverses métriques pour mieux comprendre comment votre charge de travail s’exécute . Sur la base de ces données, vous pouvez appréhender l’impact sur votre serveur et vos applications. Par exemple, sur un serveur flexible, vous pouvez superviser le **pourcentage de processeur hôte** , les **connexions actives** , le **pourcentage d’E/S** et le **pourcentage de mémoire hôte** pour identifier les éventuels impacts sur les performances. À partir de là, vous pouvez éventuellement optimiser votre charge de travail, la mettre à l’échelle verticalement en modifiant les niveaux de calcul ou la mettre à l’échelle horizontalement à l’aide d’un réplica en lecture.
+Le serveur flexible Azure Database pour MySQL propose diverses métriques pour mieux comprendre comment votre charge de travail s’exécute . Sur la base de ces données, vous pouvez appréhender l’impact sur votre serveur et vos applications. Par exemple, sur un serveur flexible, vous pouvez superviser le **pourcentage de processeur hôte**, les **connexions actives**, le **pourcentage d’E/S** et le **pourcentage de mémoire hôte** pour identifier les éventuels impacts sur les performances. À partir de là, vous pouvez éventuellement optimiser votre charge de travail, la mettre à l’échelle verticalement en modifiant les niveaux de calcul ou la mettre à l’échelle horizontalement à l’aide d’un réplica en lecture.
 
-Toutes les métriques Azure présentent une fréquence d’une minute et chaque métrique fournit 30 jours d’historique. Vous pouvez configurer des alertes basées sur les métriques. Pour obtenir des instructions pas à pas, consultez [Guide pratique pour configurer des alertes](./how-to-alert-on-metric.md). Les autres tâches incluent la configuration d’actions automatisées, l’exécution d’analyses avancées et l’archivage de l’historique. Pour plus d’informations, consultez [Vue d’ensemble des mesures dans Microsoft Azure](../../azure-monitor/platform/data-platform.md).
+Toutes les métriques Azure présentent une fréquence d’une minute et chaque métrique fournit 30 jours d’historique. Vous pouvez configurer des alertes basées sur les métriques. Pour obtenir des instructions pas à pas, consultez [Guide pratique pour configurer des alertes](./how-to-alert-on-metric.md). Les autres tâches incluent la configuration d’actions automatisées, l’exécution d’analyses avancées et l’archivage de l’historique. Pour plus d’informations, consultez [Vue d’ensemble des mesures dans Microsoft Azure](../../azure-monitor/data-platform.md).
 
 ### <a name="list-of-metrics"></a>Liste des métriques
 Ces métriques sont disponibles pour Azure Database pour MySQL :

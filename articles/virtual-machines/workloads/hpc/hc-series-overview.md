@@ -3,17 +3,17 @@ title: Vue d’ensemble des machines virtuelles série HC - Machine virtuelles A
 description: En savoir plus sur la prise en charge de la préversion de la taille de machine virtuelle série HC dans Azure.
 author: vermagit
 ms.service: virtual-machines
-ms.subservice: workloads
+ms.subservice: hpc
 ms.topic: article
 ms.date: 08/19/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: b9fe978da9accd28ea0e538f458325f10c9c5d8d
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.openlocfilehash: 746c7ec91c888d9a55722c00f8765915d0043a98
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97831888"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101666071"
 ---
 # <a name="hc-series-virtual-machine-overview"></a>Vue d’ensemble des machines virtuelles série HC
 
@@ -41,8 +41,8 @@ Le diagramme suivant illustre la répartition des cœurs réservés pour l’hyp
 | UC                              | Intel Xeon Platinum 8168         |
 | Fréquence de l’UC (non AVX)          | 3,7 GHz (simple cœur) 2,7-3,4 GHz (tous les cœurs) |
 | Mémoire                           | 8 Go/cœur (352 total)            |
-| Disque local                       | SSD de 700 Go                       |
-| Infiniband                       | EDR Mellanox ConnectX-5 de 100 Gbits   |
+| Disque local                       | -SSD de 700 Go                       |
+| Infiniband                       | 100 Gbits EDR Mellanox ConnectX-5   |
 | Réseau                          | 50 Gbits Ethernet (40 Gbits utilisables) SmartNIC Azure 2ème gén.    |
 
 ## <a name="software-specifications"></a>Spécifications logicielles
@@ -54,7 +54,7 @@ Le diagramme suivant illustre la répartition des cœurs réservés pour l’hyp
 | Frameworks supplémentaires       | Unified Communication X, libfabric, PGAS |
 | Prise en charge de Stockage Azure       | Disques Standard et Premium (maximum 4 disques) |
 | Prise en charge du système d’exploitation pour SRIOV RDMA   | CentOS/RHEL 7.6+, SLES 12 SP4+, WinServer 2016+  |
-| Prise en charge de l’orchestrateur        | CycleCloud, Batch  |
+| Prise en charge d’Orchestrator        | CycleCloud, Batch  |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

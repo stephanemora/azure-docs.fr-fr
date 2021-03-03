@@ -5,23 +5,27 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 05/11/2020
+ms.date: 03/02/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 53d2369e93052ef28191dd1862034c1aaa488add
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: a9e7ec5569dd0de3b0535c3b0e3b3304848a5207
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97355594"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101653315"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Ajouter Google comme fournisseur d’identité pour les utilisateurs invités B2B
 
-En configurant la fédération avec Google, vous pouvez autoriser les utilisateurs invités à se connecter à vos applications et ressources partagées avec leur propre compte Gmail, sans avoir besoin de créer un compte Microsoft. 
+En configurant la fédération avec Google, vous pouvez autoriser les utilisateurs invités à se connecter à vos applications et ressources partagées avec leur propre compte Gmail, sans avoir besoin de créer un compte Microsoft.
+
+Une fois que vous avez ajouté Google aux options de connexion de votre application, dans la page **Connexion**, l’utilisateur doit simplement entrer l’adresse e-mail dont il se sert pour se connecter à Google, ou sélectionner **Options de connexion** et choisir **Se connecter avec Google**. Dans les deux cas, il est redirigé vers la page de connexion de Google pour s’authentifier.
+
+![Options de connexion pour les utilisateurs Google](media/google-federation/sign-in-with-google-overview.png)
 
 > [!NOTE]
 > La fédération Google est conçue spécialement pour les utilisateurs Gmail. Pour fédérer avec les domaines G Suite, utilisez la [fédération directe](direct-federation.md).
@@ -30,13 +34,33 @@ En configurant la fédération avec Google, vous pouvez autoriser les utilisateu
 > **À compter du 4 janvier 2021**, Google [déconseille la prise en charge de la connexion WebView](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). Si vous utilisez la fédération Google ou l’inscription en libre-service avec Gmail, [testez la compatibilité de vos applications métier natives](google-federation.md#deprecation-of-webview-sign-in-support).
 
 ## <a name="what-is-the-experience-for-the-google-user"></a>Quelle est l’expérience de l’utilisateur Google ?
-Lorsque vous envoyez une invitation à des utilisateurs de Google Gmail, les utilisateurs invités doivent accéder à vos applications ou ressources partagées à l’aide d’un lien qui inclut le contexte locataire. Son expérience varie selon qu’il est ou non déjà connecté à Google :
-  - Les utilisateurs invités qui ne sont pas connectés à Google seront invités à le faire.
-  - Les utilisateurs invités déjà connectés à Google seront invités à choisir le compte qu’ils souhaitent utiliser. Il doit choisir le compte que vous avez utilisé pour l’inviter.
+
+Quand un utilisateur Google accepte votre invitation, son expérience varie selon qu’il est déjà connecté à Google :
+
+- Les utilisateurs invités qui ne sont pas connectés à Google seront invités à le faire.
+- Les utilisateurs invités déjà connectés à Google seront invités à choisir le compte qu’ils souhaitent utiliser. Il doit choisir le compte que vous avez utilisé pour l’inviter.
 
 Les utilisateurs invités qui voient une erreur « header too long » (en-tête trop long) peuvent effacer leurs cookies ou ouvrir une fenêtre privée ou incognito, puis essayer de se reconnecter.
 
 ![Capture d’écran montrant la page de connexion Google.](media/google-federation/google-sign-in.png)
+
+## <a name="sign-in-endpoints"></a>Points de terminaison de connexion
+
+Les utilisateurs invités Google peuvent désormais se connecter à vos applications multilocataires ou à vos applications principales Microsoft à l’aide d’un [point de terminaison commun](redemption-experience.md#redemption-and-sign-in-through-a-common-endpoint) (en d’autres termes, une URL d’application générale qui n’inclut pas le contexte de votre locataire). Voici des exemples de points de terminaison courants :
+
+- `https://teams.microsoft.com`
+- `https://myapps.microsoft.com`
+- `https://portal.azure.com`
+
+Durant le processus de connexion, l’utilisateur invité choisit **Options de connexion**, puis sélectionne **Sign in to an organization** (Se connecter à une organisation). L’utilisateur tape ensuite le nom de votre organisation et poursuit le processus de connexion à l’aide de ses informations d’identification Google.
+
+Les utilisateurs invités Google peuvent également se servir des points de terminaison d’application qui incluent les informations de votre locataire, par exemple :
+
+  * `https://myapps.microsoft.com/?tenantid=<your tenant ID>`
+  * `https://myapps.microsoft.com/<your verified domain>.onmicrosoft.com`
+  * `https://portal.azure.com/<your tenant ID>`
+
+Vous pouvez également fournir aux utilisateurs invités Google un lien direct vers une application ou une ressource en incluant les informations de votre locataire, par exemple `https://myapps.microsoft.com/signin/Twitter/<application ID?tenantId=<your tenant ID>`.
 
 ## <a name="deprecation-of-webview-sign-in-support"></a>Prise en charge de la connexion WebView déconseillée
 
@@ -66,23 +90,13 @@ Nous continuons à tester différentes plateformes et différents scénarios. Ce
    - Si votre application Windows utilise la connexion WebView incorporée ou WebAccountManager (WAM) sur une version antérieure de Windows, passez à la dernière version de Windows.
    - Modifiez vos applications de façon à utiliser le navigateur système pour la connexion. Pour plus d’informations, consultez [Interface utilisateur incorporée ou Web System](../develop/msal-net-web-browsers.md#embedded-vs-system-web-ui) dans la documentation de MSAL.NET.  
 
-## <a name="sign-in-endpoints"></a>Points de terminaison de connexion
 
-Teams prend entièrement en charge les utilisateurs invités Google sur tous les appareils. Les utilisateurs de Google peuvent se connecter à Teams à partir d’un point de terminaison commun, comme `https://teams.microsoft.com`.
-
-Les points de terminaison communs d’autres applications ne prennent pas forcément en charge les utilisateurs Google. Les utilisateurs invités Google doivent se connecter à l’aide d’un lien comportant les informations de votre locataire. Voici quelques exemples :
-  * `https://myapps.microsoft.com/?tenantid=<your tenant ID>`
-  * `https://portal.azure.com/<your tenant ID>`
-  * `https://myapps.microsoft.com/<your verified domain>.onmicrosoft.com`
-
-   S’ils essaient d’utiliser un lien comme `https://myapps.microsoft.com` ou `https://portal.azure.com`, les utilisateurs invités Google obtiendront une erreur.
-
-Vous pouvez également fournir aux utilisateurs invités Google un lien direct vers une application ou une ressource, à condition qu’il comprenne les informations de votre locataire. Par exemple, `https://myapps.microsoft.com/signin/Twitter/<application ID?tenantId=<your tenant ID>`. 
 ## <a name="step-1-configure-a-google-developer-project"></a>Étape 1 : Configurer un projet de développeur Google
 Commencez par créer un projet dans la console des développeurs Google pour obtenir un ID client et une clé secrète client que vous pourrez ajouter plus tard à Azure Active Directory (Azure AD). 
 1. Accédez aux API Google à l’adresse https://console.developers.google.com et connectez-vous avec votre compte Google. Nous vous recommandons d’utiliser un compte Google d’équipe partagé.
 2. Acceptez les conditions d’utilisation du service si vous y êtes invité.
-3. Créer un projet : Dans le tableau de bord, sélectionnez **Créer un projet**, donnez un nom au projet (par exemple **Azure AD B2B**), puis sélectionnez **Créer** : 
+3. Créez un projet : Dans le coin supérieur gauche de la page, sélectionnez la liste des projets, puis dans la page **Sélectionner un projet**, sélectionnez **Nouveau projet**.
+4. Dans la page **Nouveau projet**, attribuez un nom au projet (par exemple **Azure AD B2B**), puis sélectionnez **Créer**: 
    
    ![Capture d’écran montrant une page Nouveau projet.](media/google-federation/google-new-project.png)
 

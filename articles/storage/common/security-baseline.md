@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: f6825fee4cfb78ab54d782cd4d942bb994bedae9
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: b484873f6c118c49712cbcd66eeb6a63d8aa05f6
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98195719"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591552"
 ---
 # <a name="azure-security-baseline-for-azure-storage"></a>Base de référence de sécurité Azure pour Stockage Azure
 
@@ -158,7 +158,7 @@ Vous pouvez également utiliser des définitions de stratégie intégrées assoc
 
 - [Guide pratique pour configurer et gérer Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
-- [Guide pratique pour créer des alertes dans Azure Monitor](../../azure-monitor/platform/alerts-activity-log.md)
+- [Guide pratique pour créer des alertes dans Azure Monitor](../../azure-monitor/alerts/alerts-activity-log.md)
 
 **Supervision d’Azure Security Center** : Oui
 
@@ -180,7 +180,7 @@ Vous pouvez également utiliser des définitions de stratégie intégrées assoc
 
 **Aide** : Ingérez des journaux par le biais d’Azure Monitor pour agréger les données de sécurité générées par les appareils de point de terminaison, les ressources réseau et d’autres systèmes de sécurité. Dans Azure Monitor, utilisez des espaces de travail Log Analytics pour interroger et effectuer l’analytique, puis utilisez les comptes de stockage Azure pour le stockage à long terme/d’archivage, éventuellement avec des fonctionnalités de sécurité telles que le stockage immuable et les conservations de rétention appliquées.
 
-- [Guide pratique pour collecter des journaux et des métriques de plateforme avec Azure Monitor](../../azure-monitor/platform/diagnostic-settings.md)
+- [Guide pratique pour collecter des journaux et des métriques de plateforme avec Azure Monitor](../../azure-monitor/essentials/diagnostic-settings.md)
 
 **Supervision d’Azure Security Center** : actuellement non disponible
 
@@ -210,7 +210,7 @@ Vous pouvez également utiliser des définitions de stratégie intégrées assoc
 
 - [Guide pratique pour configurer la stratégie de conservation des journaux de compte de Stockage Azure](./storage-monitor-storage-account.md#configure-logging)
 
-- [Modification de la période de conservation des données dans Log Analytics](../../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Modification de la période de conservation des données dans Log Analytics](../../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Supervision d’Azure Security Center** : actuellement non disponible
 
@@ -238,7 +238,7 @@ En outre, activez Advanced Threat Protection pour votre compte Stockage Azure. L
 
 - [Guide pratique pour gérer les alertes dans Azure Security Center](../../security-center/security-center-managing-and-responding-alerts.md)
 
-- [Guide pratique pour générer une alerte sur des données de journal Log Analytics](../../azure-monitor/learn/tutorial-response.md)
+- [Guide pratique pour générer une alerte sur des données de journal Log Analytics](../../azure-monitor/alerts/tutorial-response.md)
 
 - [Journalisation Azure Storage Analytics](./storage-analytics-logging.md)
 
@@ -362,7 +362,7 @@ Vous pouvez également activer JIT (Juste-à-temps)/JEA (Just-Enough-Access) à 
 
 - [Présentation des détections de risques Azure AD](../../active-directory/identity-protection/overview-identity-protection.md)
 
-- [Configuration des groupes d’actions pour générer des alertes et des notifications personnalisées](../../azure-monitor/platform/action-groups.md)
+- [Configuration des groupes d’actions pour générer des alertes et des notifications personnalisées](../../azure-monitor/alerts/action-groups.md)
 
 **Supervision d’Azure Security Center** : Oui
 
@@ -572,7 +572,7 @@ Utilisez également les stratégies de point de terminaison de service de résea
 
 **Aide** : Utilisez Azure Monitor avec le journal d’activité Azure pour créer des alertes qui se déclenchent lorsque des modifications sont apportées à des ressources de compte de stockage. Vous pouvez également activer la journalisation de Stockage Azure pour suivre la façon dont chaque demande effectuée auprès de Stockage Azure a été autorisée. Les journaux indiquent si une demande a été faite anonymement, en utilisant un jeton OAuth 2.0, avec une clé partagée ou avec une signature d’accès partagé. Utilisez également Azure Monitor pour vous alerter des accès anonymes aux comptes de stockage à l’aide de la condition d’authentification anonyme.
 
-- [Guide pratique pour créer des alertes sur les événements du journal d’activité Azure](../../azure-monitor/platform/alerts-activity-log.md)
+- [Guide pratique pour créer des alertes sur les événements du journal d’activité Azure](../../azure-monitor/alerts/alerts-activity-log.md)
 
 - [Journalisation Azure Storage Analytics](./storage-analytics-logging.md)
 

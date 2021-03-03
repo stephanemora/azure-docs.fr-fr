@@ -3,18 +3,18 @@ title: Créer des alertes Azure Advisor pour les nouvelles suggestions à l’ai
 description: Créer des alertes Azure Advisor pour les nouvelles recommandations
 ms.topic: article
 ms.date: 09/09/2019
-ms.openlocfilehash: 837f12a12e532902ee76e345afa430f758f79c10
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3c51479821914ef34edcd13d8708344169f17aae
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90973662"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590112"
 ---
 # <a name="create-azure-advisor-alerts-on-new-recommendations-using-the-azure-portal"></a>Créer des alertes Azure Advisor pour les nouvelles suggestions à l’aide du Portail Azure 
 
 Cet article explique comment configurer une alerte pour les nouvelles suggestions à partir d’Azure Advisor à l’aide du Portail Azure. 
 
-Chaque fois qu’Azure Advisor détecte une nouvelle recommandation pour l’une de vos ressources, un événement est stocké dans le [journal d’activité Azure](../azure-monitor/platform/platform-logs-overview.md). Vous pouvez configurer des alertes pour ces événements à partir d’Azure Advisor en utilisant une expérience de création d’alertes spécifique aux recommandations. Vous pouvez sélectionner un abonnement et éventuellement un groupe de ressources afin de spécifier les ressources pour lesquelles vous souhaitez recevoir des alertes. 
+Chaque fois qu’Azure Advisor détecte une nouvelle recommandation pour l’une de vos ressources, un événement est stocké dans le [journal d’activité Azure](../azure-monitor/essentials/platform-logs-overview.md). Vous pouvez configurer des alertes pour ces événements à partir d’Azure Advisor en utilisant une expérience de création d’alertes spécifique aux recommandations. Vous pouvez sélectionner un abonnement et éventuellement un groupe de ressources afin de spécifier les ressources pour lesquelles vous souhaitez recevoir des alertes. 
 
 Vous pouvez également déterminer les types de recommandations à l’aide des propriétés suivantes :
 
@@ -27,7 +27,7 @@ Vous pouvez également configurer l’action à entreprendre lorsqu’une alerte
 * La sélection d’un groupe d’actions existant
 * La création d’un nouveau groupe d’actions
 
-Pour en savoir plus sur les groupes d’actions, consultez [Créer et gérer des groupes d’actions](../azure-monitor/platform/action-groups.md).
+Pour en savoir plus sur les groupes d’actions, consultez [Créer et gérer des groupes d’actions](../azure-monitor/alerts/action-groups.md).
 
 > [!NOTE] 
 > Les alertes Advisor sont actuellement disponibles uniquement pour les recommandations relatives à la haute disponibilité, aux performances et aux coûts. Les recommandations de sécurité ne sont pas prises en charge. 
@@ -57,7 +57,7 @@ Pour en savoir plus sur les groupes d’actions, consultez [Créer et gérer des
 
     ![Groupe d’actions d’alerte Advisor](./media/advisor-alerts/create6.png)
 
-7. Dans la section relative aux **groupes d’actions**, sélectionnez **Ajouter existant** pour utiliser un groupe d’actions que vous avez déjà créé ou sélectionnez **Créer nouveau** pour configurer un nouveau [groupe d’actions](../azure-monitor/platform/action-groups.md). 
+7. Dans la section relative aux **groupes d’actions**, sélectionnez **Ajouter existant** pour utiliser un groupe d’actions que vous avez déjà créé ou sélectionnez **Créer nouveau** pour configurer un nouveau [groupe d’actions](../azure-monitor/alerts/action-groups.md). 
 
     ![Alerte Advisor - Ajouter existant](./media/advisor-alerts/create7.png)
 
@@ -187,11 +187,11 @@ Voici quelques-uns des autres champs importants que vous pouvez utiliser :
 
 1. Dans le **portail**, sélectionnez **Azure Advisor**.
 
-    :::image type="content" source="./media/advisor-alerts/create1.png" alt-text="Capture d’écran de la section Détails de l’alerte.":::
+    :::image type="content" source="./media/advisor-alerts/create1.png" alt-text="Capture d’écran du menu du Portail Azure montrant Azure Advisor sélectionné.":::
 
 2. Dans la section **Surveillance** du menu de gauche, sélectionnez **Alertes**.
 
-    :::image type="content" source="./media/advisor-alerts/create2.png" alt-text="Capture d’écran de la section Détails de l’alerte.":::
+    :::image type="content" source="./media/advisor-alerts/create2.png" alt-text="Capture d’écran du menu du Portail Azure montrant les alertes sélectionnées.":::
 
 3. Pour modifier une alerte, cliquez sur le nom de l’alerte pour ouvrir l’alerte, puis modifiez les champs de votre choix.
 
@@ -199,5 +199,5 @@ Voici quelques-uns des autres champs importants que vous pouvez utiliser :
  
 
 ## <a name="next-steps"></a>Étapes suivantes
-- Obtenir une [vue d’ensemble des alertes du journal d’activité](../azure-monitor/platform/alerts-overview.md) et découvrir comment recevoir des alertes.
-- En savoir plus sur les [groupes d’actions](../azure-monitor/platform/action-groups.md).
+- Obtenir une [vue d’ensemble des alertes du journal d’activité](../azure-monitor/alerts/alerts-overview.md) et découvrir comment recevoir des alertes.
+- En savoir plus sur les [groupes d’actions](../azure-monitor/alerts/action-groups.md).

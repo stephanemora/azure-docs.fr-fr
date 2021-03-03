@@ -6,12 +6,12 @@ author: renatosalas
 ms.author: regutier
 ms.date: 01/14/2021
 ms.reviewer: mbullwin
-ms.openlocfilehash: f82432c1dd8c66e8ce845831ff35d534a34e3e04
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 9c3ff91cbfb6423099040a6ea46eeb66f5461f48
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202536"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100589668"
 ---
 # <a name="configure-bring-your-own-storage-byos-for-application-insights-profiler-and-snapshot-debugger"></a>Configurer BYOS (Bring Your Own Storage) pour Application Insights Profiler et le Débogueur de capture instantanée
 
@@ -21,9 +21,9 @@ Lorsque vous utilisez Application Insights Profiler ou le Débogueur de capture 
 Avec Bring Your Own Storage, ces artefacts sont téléchargés dans un compte de stockage que vous contrôlez. Cela signifie que vous contrôlez la stratégie de chiffrement au repos, la stratégie de gestion de la durée de vie et l’accès réseau. Toutefois, vous êtes responsable des coûts associés à ce compte de stockage.
 
 > [!NOTE]
-> Si vous activez Azure Private Link, vous devez disposer du BYOS. Pour plus d’informations sur Azure Private Link sur Application Insights, consultez la [documentation](../platform/private-link-security.md).
+> Si vous activez Azure Private Link, vous devez disposer du BYOS. Pour plus d’informations sur Azure Private Link sur Application Insights, consultez la [documentation](../logs/private-link-security.md).
 >
-> Si vous activez les Customer-Managed Keys, vous devez disposer du BYOS. Pour plus d’informations sur Customer-Managed Keys pour Application Insights, consultez la [documentation](../platform/customer-managed-keys.md).
+> Si vous activez les Customer-Managed Keys, vous devez disposer du BYOS. Pour plus d’informations sur Customer-Managed Keys pour Application Insights, consultez la [documentation](../logs/customer-managed-keys.md).
 
 ## <a name="how-will-my-storage-account-be-accessed"></a>Comment accéder à mon compte de stockage ?
 1. Les agents s’exécutant sur vos machines virtuelles ou App Service chargent les artefacts (profils, instantanés et symboles) dans les conteneurs blob de votre compte. Ce processus implique de contacter le service Application Insights Profiler ou Débogueur de capture instantanée pour obtenir un jeton SAS (signature d’accès partagé) à un nouveau blob dans votre compte de stockage.

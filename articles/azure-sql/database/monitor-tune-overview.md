@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: wiassaf, sstein
 ms.date: 09/30/2020
-ms.openlocfilehash: 3d28cf1a89ff455cfbed26aad234607ec8cd7e63
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 6b56da68b10bc40304097fbe9eeaf200d422b663
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96490565"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592688"
 ---
 # <a name="monitoring-and-performance-tuning-in-azure-sql-database-and-azure-sql-managed-instance"></a>Supervision et réglage des performances dans Azure SQL Database et Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -99,11 +99,11 @@ Vous configurez les paramètres de diagnostic pour diffuser en continu des caté
 
 ### <a name="log-analytics-workspace-in-azure-monitor"></a>Espace de travail Log Analytics dans Azure Monitor
 
-Vous pouvez diffuser en continu des journaux de métriques et de ressources vers un [espace de travail Log Analytics dans Azure Monitor](../../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace). Les données diffusées en continu ici peuvent être utilisées par [SQL Analytics](../../azure-monitor/insights/azure-sql.md), une solution de surveillance cloud uniquement permettant une surveillance intelligente de vos bases de données, avec des rapports de performances, des alertes et des recommandations d’atténuation. Les données diffusées en continu vers un espace de travail Log Analytics peuvent être analysées avec d’autres données de surveillance collectées, ce qui vous permet également d’exploiter d’autres fonctionnalités Azure Monitor, notamment les alertes et les visualisations.
+Vous pouvez diffuser en continu des journaux de métriques et de ressources vers un [espace de travail Log Analytics dans Azure Monitor](../../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace). Les données diffusées en continu ici peuvent être utilisées par [SQL Analytics](../../azure-monitor/insights/azure-sql.md), une solution de surveillance cloud uniquement permettant une surveillance intelligente de vos bases de données, avec des rapports de performances, des alertes et des recommandations d’atténuation. Les données diffusées en continu vers un espace de travail Log Analytics peuvent être analysées avec d’autres données de surveillance collectées, ce qui vous permet également d’exploiter d’autres fonctionnalités Azure Monitor, notamment les alertes et les visualisations.
 
 ### <a name="azure-event-hubs"></a>Hubs d'événements Azure
 
-Vous pouvez diffuser en continu des journaux de métriques et de ressources vers [Azure Event Hubs](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs). Diffusez en continu des données télémétriques vers des hubs d’événements pour fournir les fonctionnalités suivantes :
+Vous pouvez diffuser en continu des journaux de métriques et de ressources vers [Azure Event Hubs](../../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs). Diffusez en continu des données télémétriques vers des hubs d’événements pour fournir les fonctionnalités suivantes :
 
 - **Streaming des journaux vers des systèmes de journalisation et de télémétrie tiers**
 
@@ -117,7 +117,7 @@ Vous pouvez diffuser en continu des journaux de métriques et de ressources vers
 
 ### <a name="azure-storage"></a>Stockage Azure
 
-Diffusez en continu des journaux de métriques et de ressources vers le [Stockage Azure](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage). Utilisez le Stockage Azure pour archiver de vastes quantités de données télémétriques de diagnostics pour une fraction du coût des deux options de streaming précédentes.
+Diffusez en continu des journaux de métriques et de ressources vers le [Stockage Azure](../../azure-monitor/essentials/resource-logs.md#send-to-azure-storage). Utilisez le Stockage Azure pour archiver de vastes quantités de données télémétriques de diagnostics pour une fraction du coût des deux options de streaming précédentes.
 
 ## <a name="use-extended-events"></a>Utiliser des événements étendus 
 

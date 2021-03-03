@@ -13,12 +13,12 @@ ms.date: 11/15/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: marsma, aragra, lenalepa, sureshja
-ms.openlocfilehash: 4afffb558b9cbf53a762b1b2bb1ce544e554feaf
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: a0543905f41abc9c21327159d63f7adaa5b025dc
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100103887"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101645889"
 ---
 # <a name="how-to-remove-an-application-registered-with-the-microsoft-identity-platform"></a>Guide pratique pour supprimer une application inscrite à l’aide de la plateforme d’identités Microsoft
 
@@ -36,6 +36,9 @@ Dans les sections suivantes, vous allez apprendre à :
 ## <a name="remove-an-application-authored-by-you-or-your-organization"></a>Supprimer une application créée par vous ou votre organisation
 
 Les applications que vous ou votre organisation avez enregistrées sont représentées par un objet d’application et un objet de principal de service au sein de votre locataire. Pour plus d’informations, voir [Objets principal du service et application](./app-objects-and-service-principals.md).
+
+> [!NOTE]
+> La suppression d’une application entraîne également la suppression de son objet de principal de service dans le répertoire de base de l’application. Pour les applications multilocataires, les objets de principal de service situés dans les autres répertoires ne sont pas supprimés.
 
 Pour supprimer une application, vous devez être listé en tant que propriétaire de l’application ou disposer de privilèges d’administrateur.
 

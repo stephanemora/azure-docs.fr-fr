@@ -6,34 +6,33 @@ ms.author: thweiss
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 11/30/2020
+ms.date: 02/11/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6dd95fc8fd0ab0099ac7404d4ca4e4b1851f650f
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 8a16ecd2ee6ed939b2afd0e51e9cf531e419c8af
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97359604"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101656395"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>Sécuriser l’accès aux données dans Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-Cet article fournit une vue d’ensemble de la sécurisation de l’accès aux données stockées dans [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
+Cet article fournit une vue d’ensemble du contrôle d’accès aux données dans Azure Cosmos DB.
 
-Azure Cosmos DB utilise deux types de clés pour authentifier les utilisateurs et permettre d’accéder à ses données et à ses ressources. 
+Azure Cosmos DB offre trois moyens de contrôler l’accès à vos données.
 
-|Type de clé|Ressources|
+| Type de contrôle d’accès | Caractéristiques |
 |---|---|
-|[Clés primaires](#primary-keys) |Utilisées pour les ressources d’administration : comptes de base de données, bases de données, utilisateurs et autorisations|
-|[Jetons de ressource](#resource-tokens)|Utilisés pour les ressources de l’application : conteneurs, documents, pièces jointes, procédures stockées, déclencheurs et fonctions définies par l’utilisateur|
+| [Clés primaires](#primary-keys) | Secret partagé autorisant toutes les opérations de gestion ou de données. Il offre des variantes en lecture-écriture et en lecture seule. |
+| [Contrôle d’accès en fonction du rôle](#rbac) (préversion) | Modèle d’autorisation précis basé sur les rôles, utilisant les identités Azure Active Directory (AAD) pour l’authentification. |
+| [Jetons de ressource](#resource-tokens)| Modèle d’autorisation précis basé sur les autorisations et les utilisateurs natifs d’Azure Cosmos DB. |
 
-<a id="primary-keys"></a>
+## <a name="primary-keys"></a><a id="primary-keys"></a> Clés principales
 
-## <a name="primary-keys"></a>Clés primaires
+Les clés primaires donnent accès à toutes les ressources administratives du compte de base de données. Chaque compte comporte deux clés primaires : une clé primaire et une clé secondaire. L’objectif de ces paires de clés est de vous permettre de regénérer ou de permuter les clés, ce qui offre un accès permanent à votre compte et à vos données. Pour en savoir plus sur les clés primaires, consultez l’article [Sécurité des bases de données](database-security.md#primary-keys).
 
-Les clés primaires donnent accès à toutes les ressources administratives du compte de base de données. Chaque compte comporte deux clés primaires : une clé primaire et une clé secondaire. L’objectif de ces paires de clés est de pouvoir régénérer ou restaurer des clés tout en fournissant un accès permanent à votre compte et à vos données. Pour en savoir plus sur les clés primaires, consultez l’article [Sécurité des bases de données](database-security.md#primary-keys).
-
-### <a name="key-rotation"></a>Rotation des clés<a id="key-rotation"></a>
+### <a name="key-rotation"></a><a id="key-rotation"></a> Rotation des clés
 
 Le processus de renouvellement de la clé primaire est simple. 
 
@@ -64,7 +63,23 @@ L’exemple de code suivant montre comment utiliser une clé primaire et un poin
 
 :::code language="python" source="~/cosmosdb-python-sdk/sdk/cosmos/azure-cosmos/samples/access_cosmos_with_resource_token.py" id="configureConnectivity":::
 
-## <a name="resource-tokens"></a>Jetons de ressource <a id="resource-tokens"></a>
+## <a name="role-based-access-control-preview"></a><a id="rbac"></a> Contrôle d’accès en fonction du rôle (préversion)
+
+Azure Cosmos DB expose un système de contrôle d’accès en fonction du rôle (RBAC) intégré, qui vous permet :
+
+- D’authentifier vos demandes de données avec une identité Azure Active Directory (AAD).
+- D’autoriser vos demandes de données avec un modèle d’autorisation précis basé sur les rôles.
+
+Le contrôle RBAC d’Azure Cosmos DB est la méthode de contrôle d’accès idéale dans les situations où :
+
+- Vous ne voulez pas utiliser un secret partagé comme la clé principale et vous préférez vous appuyer sur un mécanisme d’authentification basé sur des jetons.
+- Vous voulez utiliser des identités Azure AD pour authentifier vos demandes.
+- Vous avez besoin d’un modèle d’autorisation précis pour limiter rigoureusement les opérations de base de données que vos identités sont autorisées à effectuer.
+- Vous voulez matérialiser vos stratégies de contrôle d’accès en tant que « rôles » que vous pouvez affecter à plusieurs identités.
+
+Pour plus d’informations sur le contrôle RBAC d’Azure Cosmos DB, consultez [Configurer le contrôle d’accès en fonction du rôle pour votre compte Azure Cosmos DB](how-to-setup-rbac.md).
+
+## <a name="resource-tokens"></a><a id="resource-tokens"></a> Jetons de ressource
 
 Les jetons de ressource fournissent un accès aux ressources d’application au sein d’une base de données. Jetons de ressource :
 
@@ -97,7 +112,7 @@ La gestion et la génération des jetons de ressource sont prises en charge par 
 
 Pour obtenir un exemple de service de niveau intermédiaire utilisé pour générer ou répartir les jetons de ressource, consultez [l’application ResourceTokenBroker](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/master/samples/xamarin/UserItems/ResourceTokenBroker/ResourceTokenBroker/Controllers).
 
-## <a name="users"></a>Utilisateurs<a id="users"></a>
+### <a name="users"></a>Utilisateurs<a id="users"></a>
 
 Les utilisateurs d’Azure Cosmos DB sont associés à une base de données Cosmos.  Chaque base de données peut contenir zéro, un ou plusieurs utilisateurs Azure Cosmos DB. L’exemple de code suivant indique comment créer un utilisateur Cosmos DB à l’aide du [Kit de développement logiciel (SDK) Azure Cosmos DB .NET v3](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/UserManagement).
 
@@ -111,7 +126,7 @@ User user = await database.CreateUserAsync("User 1");
 > [!NOTE]
 > Chaque utilisateur Cosmos DB dispose d’une méthode ReadAsync() qui permet de récupérer la liste des [autorisations](#permissions) qui lui sont associées.
 
-## <a name="permissions"></a>Autorisations<a id="permissions"></a>
+### <a name="permissions"></a>Autorisations<a id="permissions"></a>
 
 Une ressource d’autorisation est associée à un utilisateur et attribuée au conteneur ainsi qu’au niveau de la clé de partition. Chaque utilisateur peut contenir zéro, une ou plusieurs autorisations. Une ressource d’autorisation donne accès à un jeton de sécurité dont l’utilisateur a besoin lorsqu’il tente d’accéder à un conteneur ou à des données spécifiques dans une clé de partition spécifique. Il existe deux niveaux d’accès disponibles qui peuvent être fournis par une ressource d’autorisation :
 
@@ -127,7 +142,7 @@ Si les [journaux de diagnostic sur les demandes de plan de données](cosmosdb-mo
 
 * **resourceTokenPermissionMode** : cette propriété indique le mode d’autorisation que vous avez défini lors de la création du jeton de ressource. Elle peut avoir différentes valeurs, notamment « all » et « read ».
 
-### <a name="code-sample-to-create-permission"></a>Exemple de code pour créer une autorisation
+#### <a name="code-sample-to-create-permission"></a>Exemple de code pour créer une autorisation
 
 L’exemple de code suivant indique comment créer une ressource d’autorisation, lire le jeton de ressource de la ressource d’autorisation et associer les autorisations à [l’utilisateur](#users) créé ci-dessus.
 
@@ -142,7 +157,7 @@ user.CreatePermissionAsync(
         resourcePartitionKey: new PartitionKey("012345")));
 ```
 
-### <a name="code-sample-to-read-permission-for-user"></a>Exemple de code pour l’autorisation de lecture de l’utilisateur
+#### <a name="code-sample-to-read-permission-for-user"></a>Exemple de code pour l’autorisation de lecture de l’utilisateur
 
 L’extrait de code suivant indique comment récupérer l’autorisation associée à l’utilisateur créé ci-dessus et instancier un nouveau CosmosClient au nom de l’utilisateur, limité à une clé de partition unique.
 
@@ -152,6 +167,15 @@ PermissionProperties permissionProperties = await user.GetPermission("permission
 
 CosmosClient client = new CosmosClient(accountEndpoint: "MyEndpoint", authKeyOrResourceToken: permissionProperties.Token);
 ```
+
+## <a name="differences-between-rbac-and-resource-tokens"></a>Différences entre le contrôle RBAC et les jetons de ressource
+
+| Objet | RBAC | Jetons de ressource |
+|--|--|--|
+| Authentification  | Avec Azure Active Directory (Azure AD). | Basé sur les utilisateurs Azure Cosmos DB natifs<br>L’intégration des jetons de ressource à Azure AD demande plus de travail pour établir un pont entre les identités Azure AD et les utilisateurs Azure Cosmos DB. |
+| Autorisation | Basée sur les rôles : les définitions de rôle mappent les actions autorisées et peuvent être affectées à plusieurs identités. | Basée sur les autorisations : pour chaque utilisateur Azure Cosmos DB, vous devez affecter des autorisations d’accès aux données. |
+| Étendue des jetons | Un jeton AAD contient l’identité du demandeur. Cette identité est comparée à toutes les définitions de rôles affectées pour accorder l’autorisation. | Un jeton de ressource contient l’autorisation accordée à un utilisateur Azure Cosmos DB spécifique sur une ressource Azure Cosmos DB spécifique. Les demandes d’autorisation sur différentes ressources peuvent nécessiter différents jetons. |
+| Actualisation des jetons | Le jeton AAD est actualisé automatiquement par les kits SDK Azure Cosmos DB quand il expire. | L’actualisation du jeton de ressource n’est pas prise en charge. Quand un jeton de ressource expire, un nouveau jeton doit être émis. |
 
 ## <a name="add-users-and-assign-roles"></a>Ajouter des utilisateurs et attribuer des rôles
 

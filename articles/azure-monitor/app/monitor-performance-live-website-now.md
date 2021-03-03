@@ -4,12 +4,12 @@ description: Analysez les performances d'un site web sans le redéployer. Foncti
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 53dbcc341fdd4bc194d34d40cdd2a975df496376
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 79e14c171adde89c43c5ea82a60db39133157293
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186301"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576436"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Instrumenter des applications web au runtime avec jonction sans code Application Insights
 
@@ -93,7 +93,7 @@ Voici quelques étapes à suivre pour vérifier que votre installation a réussi
 
 - Vérifiez que le fichier applicationinsights.config est présent dans le répertoire de l'application cible et contient votre iKey.
 
-- Si vous pensez qu’il manque des données, vous pouvez exécuter une requête dans [Analytics](../log-query/log-analytics-tutorial.md) pour lister tous les rôles cloud qui envoient actuellement des données de télémétrie.
+- Si vous pensez qu’il manque des données, vous pouvez exécuter une requête dans [Analytics](../logs/log-analytics-tutorial.md) pour lister tous les rôles cloud qui envoient actuellement des données de télémétrie.
   ```Kusto
   union * | summarize count() by cloud_RoleName, cloud_RoleInstance
   ```
@@ -320,9 +320,9 @@ Pour les applications déjà instrumentées au moment de la compilation :
 
 Affichez vos données de télémétrie :
 
-* [Explorez les mesures](../platform/metrics-charts.md) pour surveiller les performances et l’utilisation
+* [Explorez les mesures](../essentials/metrics-charts.md) pour surveiller les performances et l’utilisation
 * [Effectuez des recherches dans les événements et les journaux][diagnostic] pour diagnostiquer les problèmes
-* [Utilisez la fonctionnalité Analytics](../log-query/log-query-overview.md) pour des requêtes plus élaborées
+* [Utilisez la fonctionnalité Analytics](../logs/log-query-overview.md) pour des requêtes plus élaborées
 
 Ajoutez des données de télémétrie :
 

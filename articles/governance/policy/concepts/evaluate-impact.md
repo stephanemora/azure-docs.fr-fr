@@ -3,12 +3,12 @@ title: Évaluer l’impact d’une nouvelle définition Azure Policy
 description: Découvrez le processus à suivre quand vous introduisez une nouvelle définition de stratégie dans votre environnement Azure.
 ms.date: 10/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9d73d703c38dce1335a471bfad9171d8b30a83c5
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: cf52d25aa846388bc387430913a733d5206df82e
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873865"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590809"
 ---
 # <a name="evaluate-the-impact-of-a-new-azure-policy-definition"></a>Évaluer l’impact d’une nouvelle définition Azure Policy
 
@@ -63,7 +63,7 @@ Toute modification apportée à l’étendue (niveau ou exclusions) doit être e
 
 ## <a name="monitor-your-policy-and-compliance"></a>Superviser la stratégie et la conformité
 
-L’implémentation et l’attribution de votre définition de stratégie ne constituent pas les dernières étapes. Supervisez continuellement le niveau de [conformité](../how-to/get-compliance-data.md) des ressources par rapport à votre nouvelle définition de stratégie, et configurez des [alertes et des notifications Azure Monitor](../../../azure-monitor/platform/alerts-overview.md) pour les appareils non conformes qui sont détectés. Il est également recommandé de planifier l’évaluation de la définition de stratégie et des attributions associées pour vérifier que la définition de stratégie répond aux exigences de conformité et à la stratégie d’entreprise. Les stratégies doivent être supprimées lorsque vous n’en avez plus besoin. Les stratégies doivent également être mises à jour de temps en temps, à mesure que les ressources Azure sous-jacentes évoluent et que de nouvelles propriétés et fonctionnalités leur sont ajoutées.
+L’implémentation et l’attribution de votre définition de stratégie ne constituent pas les dernières étapes. Supervisez continuellement le niveau de [conformité](../how-to/get-compliance-data.md) des ressources par rapport à votre nouvelle définition de stratégie, et configurez des [alertes et des notifications Azure Monitor](../../../azure-monitor/alerts/alerts-overview.md) pour les appareils non conformes qui sont détectés. Il est également recommandé de planifier l’évaluation de la définition de stratégie et des attributions associées pour vérifier que la définition de stratégie répond aux exigences de conformité et à la stratégie d’entreprise. Les stratégies doivent être supprimées lorsque vous n’en avez plus besoin. Les stratégies doivent également être mises à jour de temps en temps, à mesure que les ressources Azure sous-jacentes évoluent et que de nouvelles propriétés et fonctionnalités leur sont ajoutées.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

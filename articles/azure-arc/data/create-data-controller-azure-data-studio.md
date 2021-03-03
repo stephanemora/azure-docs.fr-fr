@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 12/09/2020
 ms.topic: how-to
-ms.openlocfilehash: 22ad2d65710a3fc149f5a83fb511244ac3be2203
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 2b35abf7f318d4db6166dd48c4f7bd35aaf4d98a
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98733237"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101644406"
 ---
 # <a name="create-data-controller-in-azure-data-studio"></a>Créer un contrôleur de données dans Azure Data Studio
 
@@ -49,7 +49,7 @@ Suivez ces étapes pour créer un contrôleur de données Azure Arc en utilisant
    
    L’emplacement Azure sélectionné ici est l’emplacement dans Azure où les *métadonnées* sur le contrôleur de données et les instances de base de données qu’il gère seront stockées. Les instances de contrôleur de données et de base de données seront créées sur votre cluster Kubernetes, où qu’il soit.
 
-10. Sélectionnez le mode de connectivité approprié. En savoir plus sur les [modes de connectivité](https://docs.microsoft.com/azure/azure-arc/data/connectivity). Cliquez sur **Suivant**.
+10. Sélectionnez le mode de connectivité approprié. En savoir plus sur les [modes de connectivité](./connectivity.md). Cliquez sur **Suivant**.
 
     Si vous sélectionnez le mode de connectivité directe, les informations d’identification du principal de service sont requises, comme décrit dans [Créer un principal de service](upload-metrics-and-logs-to-azure-monitor.md#create-service-principal).
 
@@ -68,7 +68,7 @@ Suivez ces étapes pour créer un contrôleur de données Azure Arc en utilisant
 
 ## <a name="monitoring-the-creation-status"></a>Surveillance de l’état de la création
 
-La création du contrôleur prend plusieurs minutes. Vous pouvez superviser la progression dans une autre fenêtre de terminal avec les commandes suivantes :
+La création du contrôleur prend plusieurs minutes. Vous pouvez surveiller la progression dans une autre fenêtre du terminal à l’aide des commandes suivantes :
 
 > [!NOTE]
 >  Les exemples de commandes ci-dessous supposent que vous avez créé un contrôleur de données et un espace de noms Kubernetes avec le nom « arc ».  Si vous avez utilisé un autre nom pour le contrôleur de données/espace de noms, vous pouvez remplacer « arc » par ce nom.

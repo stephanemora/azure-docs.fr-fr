@@ -9,12 +9,12 @@ ms.date: 01/27/2021
 ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 5e08af509487188245b0fad9ba2d0f490944868f
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 17a2d04fd6519dfdaf3c97c4ef56e87e162c9e9c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100371785"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591570"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurer des pare-feux et des réseaux virtuels dans Stockage Azure
 
@@ -62,7 +62,7 @@ Vous pouvez gérer les règles d’accès réseau par défaut pour les comptes d
 
 #### <a name="portal"></a>[Portail](#tab/azure-portal)
 
-1. Accédez au compte de stockage que vous voulez sécuriser.
+1. Accédez au compte de stockage à sécuriser.
 
 2. Sélectionnez le menu des paramètres appelé **Mise en réseau**.
 
@@ -149,7 +149,7 @@ Vous pouvez gérer les règles de réseau virtuel pour les comptes de stockage v
 
 #### <a name="portal"></a>[Portail](#tab/azure-portal)
 
-1. Accédez au compte de stockage que vous voulez sécuriser.
+1. Accédez au compte de stockage à sécuriser.
 
 2. Sélectionnez le menu des paramètres appelé **Mise en réseau**.
 
@@ -275,7 +275,7 @@ Vous pouvez gérer les règles de réseau IP pour les comptes de stockage via le
 
 #### <a name="portal"></a>[Portail](#tab/azure-portal)
 
-1. Accédez au compte de stockage que vous voulez sécuriser.
+1. Accédez au compte de stockage à sécuriser.
 
 2. Sélectionnez le menu des paramètres appelé **Mise en réseau**.
 
@@ -567,7 +567,7 @@ Les ressources de certains services, **quand ils sont inscrits dans votre abonne
 | Azure File Sync          | Microsoft.StorageSync      | Vous permet de transformer votre serveur de fichiers local en cache pour les partages de fichiers Azure. Autoriser la synchronisation sur plusieurs sites, une récupération d’urgence rapide et une sauvegarde sur le cloud. [En savoir plus](../files/storage-sync-files-planning.md) |
 | Azure HDInsight          | Microsoft.HDInsight        | Approvisionnez le contenu initial du système de fichiers par défaut pour un nouveau cluster HDInsight. [Plus d’informations](../../hdinsight/hdinsight-hadoop-use-blob-storage.md) |
 | Azure Import/Export      | Microsoft.ImportExport     | Permet l’importation de données dans le stockage Azure et l’exportation de données à partir du stockage Azure avec le service Import/Export du stockage Azure. [Plus d’informations](../../import-export/storage-import-export-service.md)  |
-| Azure Monitor            | Microsoft.Insights         | Autorise l’écriture de données de supervision dans un compte de stockage sécurisé, à savoir les journaux de ressources, les journaux de connexion et d’audit Azure Active Directory et les journaux Microsoft Intune. [Plus d’informations](../../azure-monitor/platform/roles-permissions-security.md) |
+| Azure Monitor            | Microsoft.Insights         | Autorise l’écriture de données de supervision dans un compte de stockage sécurisé, à savoir les journaux de ressources, les journaux de connexion et d’audit Azure Active Directory et les journaux Microsoft Intune. [Plus d’informations](../../azure-monitor/roles-permissions-security.md) |
 | Mise en réseau Azure         | Microsoft.Network          | Stockez et analysez les journaux du trafic réseau, notamment celui qui transite par les services Network Watcher et Traffic Analytics. [Plus d’informations](../../network-watcher/network-watcher-nsg-flow-logging-overview.md) |
 | Azure Site Recovery      | Microsoft.SiteRecovery     | Activez la réplication pour la reprise d’activité des machines virtuelles Azure IaaS lors de l’utilisation de comptes de stockage de cache avec pare-feu activé, de stockage source ou de stockage cible.  [Plus d’informations](../../site-recovery/azure-to-azure-tutorial-enable-replication.md) |
 

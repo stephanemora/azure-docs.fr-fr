@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
 ms.author: yegu
-ms.openlocfilehash: d9c8f5dd8b2647756087ce6f36ff3a25b2aaaadc
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 2005b24e9a5692adda8c8e3a5100a6450c67663c
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100387969"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101653845"
 ---
 # <a name="high-availability-for-azure-cache-for-redis"></a>Haute disponibilité pour Azure Cache pour Redis
 
@@ -23,7 +23,7 @@ Azure Cache pour Redis implémente la haute disponibilité en utilisant plusieur
 | ------------------- | ------- | ------- | :------: | :---: | :---: |
 | [Réplication standard](#standard-replication)| Configuration répliquée à deux nœuds dans un centre de données avec basculement automatique | 99,9 % |✔|✔|-|
 | [Redondance de zone](#zone-redundancy) | Configuration répliquée à plusieurs nœuds dans les zones de disponibilité, avec basculement automatique | 99,95 % (niveau Premium), 99,99 % (niveaux Entreprise) |-|PRÉVERSION|PRÉVERSION|
-| [Géoréplication](#geo-replication) | Instances de cache liées dans deux régions, avec basculement contrôlé par l’utilisateur | 99,9 % (niveau Premium, région unique) |-|✔|-|
+| [Géoréplication](#geo-replication) | Instances de cache liées dans deux régions, avec basculement contrôlé par l’utilisateur | 99,999 % (niveau Entreprise) |-|✔|-|
 
 ## <a name="standard-replication"></a>Réplication standard
 
@@ -66,7 +66,7 @@ Azure Cache pour Redis distribue les nœuds dans un cache redondant interzone de
 
 Un cache redondant interzone assure le basculement automatique. Lorsque le nœud principal actuel n’est pas disponible, l’un des réplicas prend le relais. Le temps de réponse du cache de votre application peut être plus long si le nouveau nœud principal se trouve dans une autre zone de disponibilité. Les zones de disponibilité se trouvent à des endroits différents. Passer d’une zone de disponibilité à une autre modifie la distance physique entre les emplacements où votre application et votre cache sont hébergés. Cette modification a un impact sur les latences réseau aller-retour entre votre application et le cache. La latence supplémentaire devrait se situer dans une fourchette acceptable pour la plupart des applications. Nous vous recommandons de tester votre application pour vous assurer qu’elle peut fonctionner correctement avec un cache redondant interzone.
 
-### <a name="enterprise-and-enterprise-flash-tiers"></a>Niveaux Entreprise et Enterprise Flash
+### <a name="enterprise-tiers"></a>Niveaux Entreprise
 
 Un cache dans l’un ou l’autre des niveaux Entreprise s’exécute sur un cluster Redis Entreprise. Il nécessite un nombre impair de nœuds de serveur à tout moment pour former un quorum. Par défaut, il est composé de trois nœuds, chacun hébergé sur une machine virtuelle dédiée. Un cache Entreprise a deux *nœuds de données* de taille identique et un *nœud de quorum* plus petit. Un cache Enterprise Flash comporte trois nœuds de données de même taille. Le cluster Entreprise divise les données Redis en partitions internes. Chaque partition possède un *principal* et au moins un *réplica*. Chaque nœud de données contient une ou plusieurs partitions. Le cluster Entreprise s’assure que le principal et les réplicas de n’importe quelle partition ne sont jamais colocalisés sur le même nœud de données. Les partitions répliquent les données de manière asynchrone des principaux vers leurs réplicas correspondants.
 
@@ -74,9 +74,27 @@ Lorsqu’un nœud de données devient indisponible ou qu’un fractionnement du 
 
 ## <a name="geo-replication"></a>Géoréplication
 
-La [géoréplication](cache-how-to-geo-replication.md) est un mécanisme de liaison de deux instances Azure Cache pour Redis, couvrant généralement deux régions Azure. Un cache est choisi comme cache lié principal et l'autre comme cache lié secondaire. Seul le cache lié principal accepte les demandes de lecture et d’écriture. Les données écrites dans le cache principal sont répliquées dans le cache lié secondaire. Le cache lié secondaire peut être utilisé pour traiter les requêtes de lecture. Le transfert de données entre les instances de cache principal et secondaire est sécurisé par TLS.
+La [géoréplication](cache-how-to-geo-replication.md) est un mécanisme de liaison de deux (ou plus) instances Azure Cache pour Redis, couvrant généralement deux régions Azure. 
 
-La géoréplication est conçue principalement pour la récupération d’urgence. Elle vous donne la possibilité de sauvegarder les données de votre cache dans une autre région. Par défaut, votre application écrit et lit dans la région primaire. Elle peut éventuellement être configurée pour lire dans la région secondaire. La géoréplication n’assure pas de basculement automatique en raison de problèmes liés à l’ajout de latence réseau entre les régions si le reste de votre application reste dans la région primaire. Vous devrez gérer et lancer le basculement en dissociant le cache secondaire. Celui-ci sera alors promu en devenant la nouvelle instance principale.
+### <a name="premium-tier"></a>Niveau Premium
+
+>[!NOTE]
+>Dans le niveau Premium, la géoréplication est conçue principalement pour la reprise d’activité.
+>
+>
+
+Deux instances de cache de niveau Premium peuvent être connectées via la [géoréplication](cache-how-to-geo-replication.md), ce qui vous permet de sauvegarder vos données de cache dans une autre région. Une fois les deux instances liées, une instance est désignée comme le cache lié principal et l’autre comme le cache lié secondaire. Seul le cache lié principal accepte les demandes de lecture et d’écriture. Les données écrites dans le cache principal sont répliquées dans le cache lié secondaire. Une application accède au cache via des points de terminaison distincts pour le cache principal et le cache secondaire. Si elle est déployée dans plusieurs régions Azure, l’application doit envoyer toutes les demandes d’écriture au cache principal. Elle pourra lire les données aussi bien dans le cache principal que dans le cache secondaire. En général, il est préférable que les instances de calcul de votre application lisent les données des caches les plus proches afin de réduire la durée de latence. Le transfert de données entre les deux instances de cache est sécurisé par TLS.
+
+La géoréplication n’assure pas de basculement automatique en raison de problèmes liés au délai d’aller-retour réseau entre les régions, si le reste de votre application reste dans la région primaire. Vous devrez gérer et lancer le basculement en dissociant le cache secondaire. Celui-ci sera alors promu en devenant la nouvelle instance principale.
+
+### <a name="enterprise-tiers"></a>Niveaux Entreprise
+
+>[!NOTE]
+>Cette option est disponible en préversion.
+>
+>
+
+Les niveaux Entreprise prennent en charge une forme plus avancée de géoréplication, appelée [géoréplication active](cache-how-to-active-geo-replication.md). Tirant parti des types de données répliqués sans conflit, le logiciel Redis Enterprise prend en charge les écritures sur plusieurs instances de cache, et s’occupe de la fusion des modifications et de la résolution des conflits si nécessaire. Vous pouvez joindre deux (ou plus) instances de cache de niveau Entreprise situées dans différentes régions Azure afin de former un cache géorépliqué actif. Une application qui utilise ce type de cache peut lire et écrire des données dans les instances de cache géodistribuées via les points de terminaison correspondants. Elle doit utiliser les caches les plus proches de chaque instance de calcul, afin de réduire le temps de latence. L’application doit également superviser les instances de cache et basculer vers une autre région si l’une des instances devient indisponible. Pour plus d’informations sur le fonctionnement de la géoréplication active, consultez [Géodistribution active-active (CRDT)](https://redislabs.com/redis-enterprise/technology/active-active-geo-distribution/).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

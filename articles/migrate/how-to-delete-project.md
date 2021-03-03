@@ -6,12 +6,12 @@ ms.author: panshar
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 10/22/2019
-ms.openlocfilehash: face3d02ee72d1e05c6c08330dae4fffc2fd0e0b
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: bfb4db5d3ebf69f9c7f552c175d33a8b817d1562
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96754247"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595144"
 ---
 # <a name="delete-an-azure-migrate-project"></a>Supprimer un projet Azure Migrate
 
@@ -27,7 +27,7 @@ Avant de supprimer un projet :
     - L’espace de travail n’est pas supprimé automatiquement. Supprimez-le manuellement.
     - Vérifiez la fonction d’un espace de travail avant de le supprimer. Le même espace de travail Log Analytics peut être utilisé dans plusieurs scénarios.
     - Avant de supprimer le projet, vous disposez d’un lien vers l’espace de travail dans **Azure Migrate - Serveurs** > **Azure Migrate - Server Assessment**, sous **Espace de travail OMS**.
-    - Pour supprimer un espace de travail après la suppression d’un projet, recherchez l’espace de travail dans le groupe de ressources approprié, puis suivez [ces instructions](../azure-monitor/platform/delete-workspace.md).
+    - Pour supprimer un espace de travail après la suppression d’un projet, recherchez l’espace de travail dans le groupe de ressources approprié, puis suivez [ces instructions](../azure-monitor/logs/delete-workspace.md).
 
 
 ## <a name="delete-a-project"></a>Supprimer un projet

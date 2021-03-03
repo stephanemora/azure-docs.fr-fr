@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 08a919338789a02d50cbb6976ee50b214cb0d612
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: d081754616b40a21b3b842758844eb13e2752569
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100416494"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101650955"
 ---
 # <a name="securing-standalone-managed-service-accounts"></a>Sécurisation de comptes de service géré autonomes
 
@@ -44,7 +44,7 @@ Les sMSA offrent une plus grande sécurité que les comptes d’utilisateur util
 
    * Le nom DNS de l’ordinateur hôte a été modifié.
 
-   * Lors de l’ajout ou de la suppression d’un paramètre supplémentaire sam-accountname ou dns-hostname à l’aide de [PowerShell](https://docs.microsoft.com/powershell/module/addsadministration/set-adserviceaccount?view=win10-ps)
+   * Lors de l’ajout ou de la suppression d’un paramètre supplémentaire sam-accountname ou dns-hostname à l’aide de [PowerShell](/powershell/module/addsadministration/set-adserviceaccount?view=win10-ps)
 
 ## <a name="when-to-use-smsas"></a>Quand l’utiliser des sMSA
 
@@ -53,7 +53,7 @@ Les sMSA peuvent simplifier les tâches de gestion et de sécurité. Utilisez de
 > [!NOTE] 
 > Bien que vous puissiez utiliser des sMSA pour plusieurs services, nous recommandons que chaque service ait sa propre identité à des fins d’audit. 
 
-Si le créateur du logiciel ne peut pas vous indiquer s’il peut utiliser un MSA, vous devez tester votre application. Pour ce faire, créez un environnement de test et assurez-vous qu’il peut accéder à toutes les ressources requises. Pour obtenir des instructions pas à pas, consultez [Créer et installer un sMSA](https://docs.microsoft.com/archive/blogs/askds/managed-service-accounts-understanding-implementing-best-practices-and-troubleshooting).
+Si le créateur du logiciel ne peut pas vous indiquer s’il peut utiliser un MSA, vous devez tester votre application. Pour ce faire, créez un environnement de test et assurez-vous qu’il peut accéder à toutes les ressources requises. Pour obtenir des instructions pas à pas, consultez [Créer et installer un sMSA](/archive/blogs/askds/managed-service-accounts-understanding-implementing-best-practices-and-troubleshooting).
 
 ### <a name="assess-security-posture-of-smsas"></a>Évaluer la posture de sécurité de sMSA
 
@@ -112,7 +112,7 @@ Vous pouvez utiliser les cmdlets PowerShell Active Directory suivantes pour gér
 
 ## <a name="move-to-smsas"></a>Passer à des sMSA
 
-Si un service d’application prend en charge les sMSA, mais pas les gMSA, et qu’il utilise actuellement un compte d’utilisateur ou un compte d’ordinateur pour le contexte de sécurité, [créez et installez un sMSA](https://docs.microsoft.com/archive/blogs/askds/managed-service-accounts-understanding-implementing-best-practices-and-troubleshooting) sur le serveur. 
+Si un service d’application prend en charge les sMSA, mais pas les gMSA, et qu’il utilise actuellement un compte d’utilisateur ou un compte d’ordinateur pour le contexte de sécurité, [créez et installez un sMSA](/archive/blogs/askds/managed-service-accounts-understanding-implementing-best-practices-and-troubleshooting) sur le serveur. 
 
 Dans l’idéal, déplacez les ressources vers Azure et utilisez des identités managées Azure ou des principaux de service.
 
@@ -133,4 +133,3 @@ Consultez les articles suivants sur la sécurisation des comptes de service :
 
 * [Administrer les comptes de service locaux](service-accounts-govern-on-premises.md)
 
- 

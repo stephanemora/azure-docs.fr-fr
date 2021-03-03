@@ -9,12 +9,12 @@ ms.topic: reference
 ms.service: azure-monitor
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: ba8a82ed1113bfb3e71560ca9a6c713602df21f2
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 95f20737b044140fe12ea939e71cd2397cb4826d
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97590645"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576698"
 ---
 # <a name="azure-queue-storage-monitoring-data-reference"></a>Informations de référence sur les données de supervision du service Stockage File d’attente Azure
 
@@ -36,7 +36,7 @@ Stockage Azure fournit les mesures de capacité suivantes dans Azure Monitor.
 
 #### <a name="queue-storage-metrics"></a>Métriques du Stockage File d’attente
 
-Ce tableau montre des [métriques du Stockage File d’attente](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountsqueueservices).
+Ce tableau montre des [métriques du Stockage File d’attente](../../azure-monitor/essentials/metrics-supported.md#microsoftstoragestorageaccountsqueueservices).
 
 | Métrique | Description |
 | ------------------- | ----------------- |
@@ -80,4 +80,4 @@ Le tableau suivant liste les propriétés des journaux de ressources de stockage
 ## <a name="see-also"></a>Voir aussi
 
 - Pour obtenir une description de la supervision du Stockage File d’attente Azure, consultez [Supervision du service Stockage File d’attente Azure](monitor-queue-storage.md).
-- Pour plus d’informations sur le monitoring des ressources Azure, voir [Monitoring des ressources Azure avec Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md).
+- Pour plus d’informations sur le monitoring des ressources Azure, voir [Monitoring des ressources Azure avec Azure Monitor](../../azure-monitor/essentials/monitor-azure-resource.md).

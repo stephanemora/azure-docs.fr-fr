@@ -13,12 +13,12 @@ ms.reviewer: ''
 ms.date: 11/30/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 90b2cd4521613a7b449598f0d097a7ec1c2958c6
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: a834d4d30c40b618b1601a7f8901c68143ef4912
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98724540"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101648515"
 ---
 # <a name="resilience-through-monitoring-and-analytics"></a>Résilience par la surveillance et l’analytique
 
@@ -49,7 +49,7 @@ Par exemple, suivez les métriques suivantes, car une baisse soudaine de l’une
 
    - **Période précédente** : Créez des graphiques temporels pour montrer les changements dans le nombre total de requêtes et le taux de réussite (%) au cours d’une période précédente à des fins de référence, par exemple la semaine dernière.
 
-- **Alertes** : L’utilisation de Log Analytics définit des [alertes](../../azure-monitor/platform/alerts-log.md) qui se déclenchent en cas de changement soudain des indicateurs clés. Ces changements peuvent avoir un impact négatif sur les SLO. Les alertes utilisent diverses formes de méthode de notification, notamment les e-mails, les SMS et les webhooks. Commencez par définir un critère qui sert de seuil de déclenchement de l’alerte. Par exemple :
+- **Alertes** : L’utilisation de Log Analytics définit des [alertes](../../azure-monitor/alerts/alerts-log.md) qui se déclenchent en cas de changement soudain des indicateurs clés. Ces changements peuvent avoir un impact négatif sur les SLO. Les alertes utilisent diverses formes de méthode de notification, notamment les e-mails, les SMS et les webhooks. Commencez par définir un critère qui sert de seuil de déclenchement de l’alerte. Par exemple :
   - Alerte sur une chute soudaine du nombre total de requêtes : Déclenchez une alerte lorsque le nombre total de requêtes chute brusquement. Par exemple, en cas de baisse de 25 % du nombre total de requêtes par rapport à la période précédente, déclenchez une alerte.  
   - Alerte sur une chute significative du taux de réussite (%) : Déclenchez une alerte lorsque le taux de réussite de la stratégie sélectionnée chute de manière significative.
   - Lors de la réception d’une alerte, résolvez le problème à l’aide de [Log Analytics](../reports-monitoring/howto-install-use-log-analytics-views.md), d’[Application Insights](../../active-directory-b2c/troubleshoot-with-application-insights.md) et de l’[extension VS Code](https://marketplace.visualstudio.com/items?itemName=AzureADB2CTools.aadb2c) pour Azure AD B2C. Après avoir résolu le problème et déployé une application ou une stratégie mise à jour, il continue à surveiller les indicateurs clés jusqu’à ce qu’ils reviennent à la normale.
@@ -57,7 +57,7 @@ Par exemple, suivez les métriques suivantes, car une baisse soudaine de l’une
 - **Alertes de service** : Utilisez les [alertes de niveau de service Azure AD B2C](../../service-health/service-health-overview.md) pour être informé des problèmes de service, de la maintenance planifiée, de l’avis d’intégrité et de l’avis de sécurité.
 
 - **Création de rapports** : [En utilisant Log Analytics](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md), créez des rapports qui vous aideront à mieux comprendre les insights des utilisateurs, les défis techniques et les possibilités de croissance.
-  - **Tableau de bord d’intégrité** : Créez des [tableaux de bord personnalisés à l’aide de la fonctionnalité Tableau de bord Azure](../../azure-monitor/learn/tutorial-app-dashboards.md), qui prend en charge l’ajout de graphiques à l’aide de requêtes Log Analytics. Par exemple, identifiez le modèle de connexions réussies et ayant échouées, les raisons de l’échec et la télémétrie concernant les appareils utilisés pour effectuer les requêtes.
+  - **Tableau de bord d’intégrité** : Créez des [tableaux de bord personnalisés à l’aide de la fonctionnalité Tableau de bord Azure](../../azure-monitor/app/tutorial-app-dashboards.md), qui prend en charge l’ajout de graphiques à l’aide de requêtes Log Analytics. Par exemple, identifiez le modèle de connexions réussies et ayant échouées, les raisons de l’échec et la télémétrie concernant les appareils utilisés pour effectuer les requêtes.
   - **Abandon des parcours Azure AD B2C** : Utilisez le [classeur](https://github.com/azure-ad-b2c/siem#list-of-abandon-journeys) pour suivre la liste des parcours Azure AD B2C abandonnés où l’utilisateur a commencé le parcours de connexion ou d’inscription, mais ne l’a jamais terminé. Il fournit des informations sur l’ID de stratégie et la décomposition des étapes effectuées par l’utilisateur avant d’abandonner le parcours.
   - **Classeurs de surveillance Azure AD B2C** : Utilisez les [classeurs de surveillance](https://github.com/azure-ad-b2c/siem), qui comprennent le tableau de bord Azure AD B2C, les opérations d’authentification multifacteur (AMF), le rapport d’accès conditionnel et les journaux de recherche par correlationId afin d’obtenir de meilleures informations sur l’intégrité de votre environnement Azure AD B2C.
   

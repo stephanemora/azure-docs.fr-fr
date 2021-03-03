@@ -7,21 +7,18 @@ manager: celestedg
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 05/06/2020
+ms.date: 03/02/2021
 ms.author: mimart
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7cddb40a6a43c38079906699d9fa4865c4daf558
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: a199c207e8ea35f1471df9bfd0c4134551b9995f
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94837088"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101653488"
 ---
-# <a name="language-customization-in-azure-active-directory-preview"></a>Personnalisation de la langue dans Azure Active Directory (préversion)
-
-> [!NOTE]
-> L’inscription en libre-service est une fonctionnalité en préversion publique d’Azure Active Directory. Pour plus d’informations sur les préversions, consultez [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="language-customization-in-azure-active-directory"></a>Personnalisation de la langue dans Azure Active Directory
 
 La personnalisation de la langue dans Azure Active Directory (Azure AD) permet à votre flux utilisateur de prendre en charge plusieurs langues pour répondre aux besoins de votre utilisateur. Microsoft fournit les traductions pour [36 langues](#supported-languages). Même si votre expérience n’est disponible que dans une seule langue, vous pouvez personnaliser les noms d’attributs dans la page de la collection d’attributs.
 
@@ -39,7 +36,7 @@ La personnalisation de la langue vous permet de personnaliser les chaînes de vo
 1. Connectez-vous au [Portail Azure](https://portal.azure.com) en tant qu’administrateur Azure AD.
 2. Sous **Services Azure**, sélectionnez **Azure Active Directory**.
 3. Dans le menu de gauche, sélectionnez **Identités externes**.
-4. Sélectionnez **Flux utilisateur (préversion)** .
+4. Sélectionnez **Flux d’utilisateurs**.
 3. Sélectionnez le flux utilisateur pour lequel vous souhaitez activer les traductions.
 4. Sélectionnez **Langues**.
 5. Dans la page **Langues** du flux utilisateur, sélectionnez une langue que vous souhaitez personnaliser.

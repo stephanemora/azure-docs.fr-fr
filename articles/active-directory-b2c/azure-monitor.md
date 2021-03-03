@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.author: mimart
 ms.subservice: B2C
 ms.date: 01/29/2021
-ms.openlocfilehash: e44a029c61db5a22513387772c2b0d7a3e4d1a40
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 712a933276393890bf017a2517196031306233ad
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99219228"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100573004"
 ---
 # <a name="monitor-azure-ad-b2c-with-azure-monitor"></a>Superviser Azure AD B2C avec Azure Monitor
 
@@ -25,7 +25,7 @@ Utilisez Azure Monitor pour router les journaux de connexion et d’[audit](view
 Vous pouvez router des événements de journal vers :
 
 * Un [compte de stockage](../storage/blobs/storage-blobs-introduction.md) Azure.
-* Un [espace de travail Log Analytics](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace) (pour analyser les données, créer des tableaux de bord et générer des alertes sur des événements spécifiques).
+* Un [espace de travail Log Analytics](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace) (pour analyser les données, créer des tableaux de bord et générer des alertes sur des événements spécifiques).
 * Un [hub d’événements](../event-hubs/event-hubs-about.md) Azure (pour les intégrer à vos instances Splunk et Sumo Logic).
 
 ![Azure Monitor](./media/azure-monitor/azure-monitor-flow.png)
@@ -38,7 +38,7 @@ Dans cet article, vous allez apprendre à transférer les journaux vers un espac
 
 ## <a name="deployment-overview"></a>Vue d’ensemble du déploiement
 
-Azure AD B2C tire parti de la [supervision Azure Active Directory](../active-directory/reports-monitoring/overview-monitoring.md). Pour activer les *Paramètres de diagnostic* dans Azure Active Directory au sein de votre locataire Azure AD B2C, vous utilisez [Azure Lighthouse](../lighthouse/concepts/azure-delegated-resource-management.md) pour [déléguer une ressource](../lighthouse/concepts/azure-delegated-resource-management.md), ce qui permet à votre Azure AD B2C (le **Fournisseur de services**) de gérer une ressource Azure AD (le **Client**). Une fois que vous avez terminé la procédure de cet article, vous avez accès au groupe de ressources *azure-ad-b2c-monitor* qui contient l’[espace de travail Log Analytics](../azure-monitor/learn/quick-create-workspace.md) dans votre portail **Azure AD B2C**. Vous pouvez également transférer les journaux d’Azure AD B2C vers votre espace de travail Log Analytics.
+Azure AD B2C tire parti de la [supervision Azure Active Directory](../active-directory/reports-monitoring/overview-monitoring.md). Pour activer les *Paramètres de diagnostic* dans Azure Active Directory au sein de votre locataire Azure AD B2C, vous utilisez [Azure Lighthouse](../lighthouse/concepts/azure-delegated-resource-management.md) pour [déléguer une ressource](../lighthouse/concepts/azure-delegated-resource-management.md), ce qui permet à votre Azure AD B2C (le **Fournisseur de services**) de gérer une ressource Azure AD (le **Client**). Une fois que vous avez terminé la procédure de cet article, vous avez accès au groupe de ressources *azure-ad-b2c-monitor* qui contient l’[espace de travail Log Analytics](../azure-monitor/logs/quick-create-workspace.md) dans votre portail **Azure AD B2C**. Vous pouvez également transférer les journaux d’Azure AD B2C vers votre espace de travail Log Analytics.
 
 Pendant ce déploiement, vous allez autoriser un utilisateur ou un groupe de votre annuaire Azure AD B2C à configurer l’instance de l’espace de travail Log Analytics au sein du locataire qui contient votre abonnement Azure. Pour créer l’autorisation, vous déployez un modèle [Azure Resource Manager](../azure-resource-manager/index.yml) sur votre locataire Azure AD contenant l’abonnement.
 
@@ -62,7 +62,7 @@ Un **espace de travail Log Analytics** est un environnement unique pour les donn
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Sélectionnez l’icône **Annuaire et abonnement** dans la barre d’outils du portail, puis sélectionnez l’annuaire qui contient votre **locataire Azure AD**.
-1. [Créez un espace de travail Log Analytics](../azure-monitor/learn/quick-create-workspace.md). Cet exemple utilise un espace de travail Log Analytics nommé *AzureAdB2C*, dans un groupe de ressources nommé *azure-ad-b2c-monitor*.
+1. [Créez un espace de travail Log Analytics](../azure-monitor/logs/quick-create-workspace.md). Cet exemple utilise un espace de travail Log Analytics nommé *AzureAdB2C*, dans un groupe de ressources nommé *azure-ad-b2c-monitor*.
 
 ## <a name="3-delegate-resource-management"></a>3. Gestion des ressources déléguées
 
@@ -144,9 +144,9 @@ Une fois que vous avez déployé le modèle et patienté quelques minutes pour q
 
 Les paramètres de diagnostic définissent où les journaux et les métriques d’une ressource doivent être envoyés. Les destinations possibles sont les suivantes :
 
-- [Compte Azure Storage](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
-- Solutions [Event Hub](../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs)
-- [Espace de travail Log Analytics](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace)
+- [Compte Azure Storage](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage)
+- Solutions [Event Hub](../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs)
+- [Espace de travail Log Analytics](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace)
 
 Dans cet exemple, nous utilisons l’espace de travail Log Analytics pour créer un tableau de bord.
 
@@ -171,7 +171,7 @@ Pour configurer les paramètres de supervision des journaux d’activité Azure 
 1. Sélectionnez **Enregistrer**.
 
 > [!NOTE]
-> Il peut falloir jusqu’à 15 minutes après l’émission d’un événement pour qu’il [s’affiche dans un espace de travail Log Analytics](../azure-monitor/platform/data-ingestion-time.md). En outre, apprenez-en davantage sur les [latences de création de rapports Active Directory](../active-directory/reports-monitoring/reference-reports-latencies.md), qui peuvent avoir un impact sur l’obsolescence des données et jouer un rôle important dans la création de rapports.
+> Il peut falloir jusqu’à 15 minutes après l’émission d’un événement pour qu’il [s’affiche dans un espace de travail Log Analytics](../azure-monitor/logs/data-ingestion-time.md). En outre, apprenez-en davantage sur les [latences de création de rapports Active Directory](../active-directory/reports-monitoring/reference-reports-latencies.md), qui peuvent avoir un impact sur l’obsolescence des données et jouer un rôle important dans la création de rapports.
 
 Si vous voyez le message d’erreur « Pour configurer les paramètres de diagnostic de manière à utiliser Azure Monitor pour votre annuaire Azure AD B2C, vous devez configurer la gestion des ressources déléguées », vérifiez que vous vous connectez avec un utilisateur membre du [groupe de sécurité](#32-select-a-security-group) et [sélectionnez votre abonnement](#4-select-your-subscription).
 
@@ -181,7 +181,7 @@ Vous pouvez maintenant configurer votre espace de travail Log Analytics pour vis
 
 ### <a name="61-create-a-query"></a>6.1 Créer une requête
 
-Les requêtes de journal vous aident à tirer pleinement parti de la valeur des données collectées dans les journaux Azure Monitor. Un puissant langage de requête vous permet de joindre des données provenant de plusieurs tables, d’agréger des jeux de données volumineux et d’effectuer des opérations complexes avec un minimum de code. Vous pouvez répondre à pratiquement n’importe quelle question et effectuer n’importe quelle analyse tant que les données de soutien ont été collectées et que vous comprenez comment construire la bonne requête. Pour plus d’informations, voir [Bien démarrer avec les requêtes de journal dans Azure Monitor](../azure-monitor/log-query/get-started-queries.md).
+Les requêtes de journal vous aident à tirer pleinement parti de la valeur des données collectées dans les journaux Azure Monitor. Un puissant langage de requête vous permet de joindre des données provenant de plusieurs tables, d’agréger des jeux de données volumineux et d’effectuer des opérations complexes avec un minimum de code. Vous pouvez répondre à pratiquement n’importe quelle question et effectuer n’importe quelle analyse tant que les données de soutien ont été collectées et que vous comprenez comment construire la bonne requête. Pour plus d’informations, voir [Bien démarrer avec les requêtes de journal dans Azure Monitor](../azure-monitor/logs/get-started-queries.md).
 
 1. Dans l’**espace de travail Log Analytics**, sélectionnez **Journaux**.
 1. Dans l’éditeur de requête, collez la requête [Langage de requête Kusto](/azure/data-explorer/kusto/query/) suivante. Cette requête affiche l’utilisation de la stratégie par opération au cours des x derniers jours. La durée par défaut est définie sur 90 jours (90j). Notez que la requête est axée uniquement sur l’opération dans laquelle un jeton/code est émis par la stratégie.
@@ -228,7 +228,7 @@ Pour obtenir d’autres exemples, consultez le [référentiel GitHub SIEM](https
 
 ### <a name="62-create-a-workbook"></a>6.2 Créer un classeur
 
-Les classeurs fournissent un canevas flexible pour l’analyse des données et la création de rapports visuels enrichis au sein du portail Azure. Ils vous permettent d’exploiter plusieurs sources de données à travers l’écosystème Azure et de les combiner dans des expériences interactives unifiées. Pour plus d’informations, consultez [Classeurs Azure Monitor](../azure-monitor/platform/workbooks-overview.md).
+Les classeurs fournissent un canevas flexible pour l’analyse des données et la création de rapports visuels enrichis au sein du portail Azure. Ils vous permettent d’exploiter plusieurs sources de données à travers l’écosystème Azure et de les combiner dans des expériences interactives unifiées. Pour plus d’informations, consultez [Classeurs Azure Monitor](../azure-monitor/visualize/workbooks-overview.md).
 
 Suivez les instructions ci-dessous pour créer un classeur à l’aide d’un modèle de la galerie JSON. Ce classeur fournit un tableau de bord **Insights utilisateur** et **Authentification** pour le locataire Azure AD B2C.
 
@@ -259,10 +259,10 @@ Le classeur affiche des rapports sous la forme d’un tableau de bord.
 
 ## <a name="create-alerts"></a>Créez des alertes
 
-Les alertes sont créées par des règles d’alerte dans Azure Monitor et peuvent exécuter automatiquement des requêtes enregistrées ou des recherches personnalisées dans les journaux à intervalles réguliers. Vous pouvez créer des alertes sur la base de métriques de performances spécifiques ou quand certains événements sont créés, quand un événement fait défaut ou quand un certain nombre d’événements sont créés dans une fenêtre de temps donnée. Par exemple, les alertes peuvent permettre de vous avertir lorsque le nombre moyen de connexions dépasse un certain seuil. Pour plus d’informations, consultez [Créer des alertes](../azure-monitor/learn/tutorial-response.md).
+Les alertes sont créées par des règles d’alerte dans Azure Monitor et peuvent exécuter automatiquement des requêtes enregistrées ou des recherches personnalisées dans les journaux à intervalles réguliers. Vous pouvez créer des alertes sur la base de métriques de performances spécifiques ou quand certains événements sont créés, quand un événement fait défaut ou quand un certain nombre d’événements sont créés dans une fenêtre de temps donnée. Par exemple, les alertes peuvent permettre de vous avertir lorsque le nombre moyen de connexions dépasse un certain seuil. Pour plus d’informations, consultez [Créer des alertes](../azure-monitor/alerts/tutorial-response.md).
 
 
-Suivez les instructions ci-dessous pour créer une alerte Azure, qui enverra une [notification par courrier électronique](../azure-monitor/platform/action-groups.md#configure-notifications) lors de chaque baisse de 25 % du **Nombre total de demandes** par rapport à la période précédente. L’alerte s’exécute toutes les 5 minutes et recherche la baisse dans la fenêtre des 24 dernières heures. Les alertes sont créées à l’aide du langage de requête Kusto.
+Suivez les instructions ci-dessous pour créer une alerte Azure, qui enverra une [notification par courrier électronique](../azure-monitor/alerts/action-groups.md#configure-notifications) lors de chaque baisse de 25 % du **Nombre total de demandes** par rapport à la période précédente. L’alerte s’exécute toutes les 5 minutes et recherche la baisse dans la fenêtre des 24 dernières heures. Les alertes sont créées à l’aide du langage de requête Kusto.
 
 
 1. Dans l’**espace de travail Log Analytics**, sélectionnez **Journaux**. 
@@ -296,7 +296,7 @@ Une fois l’alerte créée, accédez à l’**espace de travail Log Analytics**
 
 ### <a name="configure-action-groups"></a>Configurer des groupes actions
 
-Les alertes Azure Monitor et Service Health utilisent des groupes d’actions pour avertir les utilisateurs qu’une alerte a été déclenchée. Vous pouvez y inclure l’envoi d'un appel vocal, d'un SMS ou d'un e-mail ; ou le déclenchement de différents types d'actions automatisées. Consultez l’aide dans [Créer et gérer des groupes d’actions dans le portail Azure](../azure-monitor/platform/action-groups.md)
+Les alertes Azure Monitor et Service Health utilisent des groupes d’actions pour avertir les utilisateurs qu’une alerte a été déclenchée. Vous pouvez y inclure l’envoi d'un appel vocal, d'un SMS ou d'un e-mail ; ou le déclenchement de différents types d'actions automatisées. Consultez l’aide dans [Créer et gérer des groupes d’actions dans le portail Azure](../azure-monitor/alerts/action-groups.md)
 
 Voici un exemple d’e-mail de notification d’alerte. 
 
@@ -306,7 +306,7 @@ Voici un exemple d’e-mail de notification d’alerte.
 
 Pour intégrer plusieurs journaux de locataire Azure AD B2C au même espace de travail Log Analytics (ou compte de stockage Azure ou Event Hub), vous avez besoin de déploiements distincts avec des valeurs **Nom d’offre MSP** différentes. Vérifiez que votre espace de travail Log Analytics se trouve dans le même groupe de ressources que celui que vous avez configuré dans [Créer ou choisir un groupe de ressources](#1-create-or-choose-resource-group).
 
-Si vous travaillez avec plusieurs espaces de travail Log Analytics, utilisez [Requête inter-espaces de travail](../azure-monitor/log-query/cross-workspace-query.md) pour créer des requêtes qui fonctionnent sur plusieurs espaces de travail. Par exemple, la requête suivante effectue une jointure de deux journaux d’audit de différents locataires en fonction de la même catégorie (par exemple, Authentification) :
+Si vous travaillez avec plusieurs espaces de travail Log Analytics, utilisez [Requête inter-espaces de travail](../azure-monitor/logs/cross-workspace-query.md) pour créer des requêtes qui fonctionnent sur plusieurs espaces de travail. Par exemple, la requête suivante effectue une jointure de deux journaux d’audit de différents locataires en fonction de la même catégorie (par exemple, Authentification) :
 
 ```kusto
 workspace("AD-B2C-TENANT1").AuditLogs
@@ -316,12 +316,12 @@ workspace("AD-B2C-TENANT1").AuditLogs
 
 ## <a name="change-the-data-retention-period"></a>Changer la période de rétention des données
 
-Les journaux Azure Monitor sont conçus pour la mise à l’échelle et la prise en charge de la collecte, de l’indexation et du stockage de quantités importantes de données quotidiennes provenant de toute source de votre entreprise ou déployées dans Azure. Par défaut, les journaux sont conservés pendant 30 jours, mais la durée de rétention peut être augmentée jusqu’à deux ans. Apprenez à [Gérer l’utilisation et les coûts avec les journaux Azure Monitor](../azure-monitor/platform/manage-cost-storage.md). Après avoir sélectionné le niveau tarifaire, vous pouvez [Modifier la période de conservation des données](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period).
+Les journaux Azure Monitor sont conçus pour la mise à l’échelle et la prise en charge de la collecte, de l’indexation et du stockage de quantités importantes de données quotidiennes provenant de toute source de votre entreprise ou déployées dans Azure. Par défaut, les journaux sont conservés pendant 30 jours, mais la durée de rétention peut être augmentée jusqu’à deux ans. Apprenez à [Gérer l’utilisation et les coûts avec les journaux Azure Monitor](../azure-monitor/logs/manage-cost-storage.md). Après avoir sélectionné le niveau tarifaire, vous pouvez [Modifier la période de conservation des données](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour plus d’exemples, consultez la [Galerie SIEM](https://aka.ms/b2csiem) Azure AD B2C. 
 
-* Pour plus d’informations sur l’ajout et la configuration de paramètres de diagnostic dans Azure Monitor, consultez le [Tutoriel : Collecter et analyser des journaux de ressources à partir d’une ressource Azure](../azure-monitor/insights/monitor-azure-resource.md).
+* Pour plus d’informations sur l’ajout et la configuration de paramètres de diagnostic dans Azure Monitor, consultez le [Tutoriel : Collecter et analyser des journaux de ressources à partir d’une ressource Azure](../azure-monitor/essentials/monitor-azure-resource.md).
 
 * Pour plus d’informations sur le streaming des journaux Azure AD vers un hub d’événements, consultez le [Tutoriel : Envoyer les journaux Azure Active Directory vers un hub d’événements Azure](../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md).

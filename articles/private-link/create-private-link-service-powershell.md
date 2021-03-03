@@ -4,15 +4,15 @@ description: Découvrez comment créer un service Azure Private Link à l’aide
 services: private-link
 author: asudbring
 ms.service: private-link
-ms.topic: how-to
+ms.topic: quickstart
 ms.date: 01/24/2021
 ms.author: allensu
-ms.openlocfilehash: d48903a05a4e9b530dcd3e83e0c14c37dcc74797
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 4780bc573796581438b8d331b1d1d9421a65414f
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98757523"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653242"
 ---
 # <a name="create-a-private-link-service-using-azure-powershell"></a>Créer un service Private Link à l’aide d’Azure PowerShell
 
@@ -178,7 +178,7 @@ Votre service de liaison privée est créé et peut recevoir du trafic. Si vous 
 
 ## <a name="create-private-endpoint"></a>Créer un point de terminaison privé
 
-Dans cette section, vous allez mapper le service de liaison privée à un point de terminaison privé. Un réseau virtuel contient le point de terminaison privé pour le service de liaison privée. Ce réseau virtuel contient les ressources qui auront accès à votre service de liaison privée.
+Dans cette section, vous allez mapper le service de liaison privée sur un point de terminaison privé. Un réseau virtuel contient le point de terminaison privé pour le service de liaison privée. Ce réseau virtuel contient les ressources qui auront accès à votre service de liaison privée.
 
 ### <a name="create-private-endpoint-virtual-network"></a>Créer un réseau virtuel de point de terminaison privé
 

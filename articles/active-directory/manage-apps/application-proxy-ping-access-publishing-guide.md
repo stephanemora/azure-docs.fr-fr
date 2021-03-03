@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/24/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 128e053016faf3ed2a9c53ad21f35a13f3ac1265
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 4abef9c848a32d9fa6a34eabe407c4d10f913797
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258165"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101643794"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Authentification basée sur l’en-tête pour une authentification unique avec le proxy d’application et PingAccess
 
@@ -175,7 +175,8 @@ Pour collecter ces informations :
 Les revendications facultatives vous permettent d’ajouter des revendications standard mais non incluses par défaut qu’ont tous les utilisateurs et locataires. Vous pouvez configurer des revendications facultatives pour votre application en modifiant le manifeste de l’application. Pour plus d’informations, consultez l’article [Manifeste d’application Azure Active Directory](../develop/reference-app-manifest.md)
 
 Exemple d’insertion d’adresse e-mail dans l’élément access_token que PingAccess consommera :
-```
+
+```json
     "optionalClaims": {
         "idToken": [],
         "accessToken": [

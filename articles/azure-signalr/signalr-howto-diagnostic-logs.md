@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: wanl
-ms.openlocfilehash: 5ad40ca051677ced0c6d8b5c35e8563272ff598f
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 5650ff0e039d1e9211b8d0013726e101efdfab78
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183972"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100572259"
 ---
 # <a name="resource-logs-for-azure-signalr-service"></a>Journaux de ressources pour Azure SignalR Service
 
@@ -20,8 +20,8 @@ Ce didacticiel décrit les journaux des ressources pour Azure SignalR Service, a
 ## <a name="prerequisites"></a>Prérequis
 Pour activer les journaux de ressources, vous avez besoin d’un emplacement pour stocker vos données de journal. Ce tutoriel utilise Stockage Azure et Log Analytics.
 
-* [Stockage Azure](../azure-monitor/platform/resource-logs.md#send-to-azure-storage) – Conserve les journaux de ressources pour l’audit de stratégie, l’analyse statique ou la sauvegarde.
-* [Log Analytics](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace) – Outil analytique et de recherche dans les journaux flexible qui permet d’analyser les journaux bruts générés par une ressource Azure.
+* [Stockage Azure](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage) – Conserve les journaux de ressources pour l’audit de stratégie, l’analyse statique ou la sauvegarde.
+* [Log Analytics](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace) – Outil analytique et de recherche dans les journaux flexible qui permet d’analyser les journaux bruts générés par une ressource Azure.
 
 ## <a name="set-up-resource-logs-for-an-azure-signalr-service"></a>Configurer des journaux de ressources pour Azure SignalR Service
 
@@ -50,7 +50,7 @@ Les journaux de ressources sont désactivés par défaut. Pour activer les journ
 
 Les nouveaux paramètres prennent effet au bout de 10 minutes environ. Après cela, les journaux d’activité apparaissent dans la cible d’archivage configurée, dans le volet **Journaux de diagnostic**.
 
-Pour plus d’informations sur la configuration des diagnostics, consultez la [vue d’ensemble des journaux de ressources Azure](../azure-monitor/platform/platform-logs-overview.md).
+Pour plus d’informations sur la configuration des diagnostics, consultez la [vue d’ensemble des journaux de ressources Azure](../azure-monitor/essentials/platform-logs-overview.md).
 
 ### <a name="resource-logs-categories"></a>Catégories de journaux de ressources
 
@@ -122,7 +122,7 @@ Pour afficher les journaux de ressources, procédez comme suit :
 
     ![Élément de menu Log Analytics](./media/signalr-tutorial-diagnostic-logs/log-analytics-menu-item.png)
 
-2. Entrez `SignalRServiceDiagnosticLogs`, puis sélectionnez l’intervalle de temps pour interroger les journaux de ressources. Pour une requête avancée, voir [Bien démarrer avec Log Analytics dans Azure Monitor](../azure-monitor/log-query/log-analytics-tutorial.md)
+2. Entrez `SignalRServiceDiagnosticLogs`, puis sélectionnez l’intervalle de temps pour interroger les journaux de ressources. Pour une requête avancée, voir [Bien démarrer avec Log Analytics dans Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md)
 
     ![Journal des requêtes dans Log Analytics](./media/signalr-tutorial-diagnostic-logs/query-log-in-log-analytics.png)
 

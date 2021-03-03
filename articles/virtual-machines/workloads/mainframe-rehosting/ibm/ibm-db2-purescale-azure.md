@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 11/09/2018
 ms.author: edprice
-ms.openlocfilehash: 711c1ba49ad0f347d30f2c8c40352ed95c1fd057
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 29150f229f1bd6adbbe6a335fdb91a44f3a2345b
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99221450"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101675686"
 ---
 # <a name="ibm-db2-purescale-on-azure"></a>IBM DB2 pureScale sur Azure
 
@@ -27,7 +27,7 @@ Les entreprises ont longtemps utilisé des plateformes traditionnelles de systè
 
 Un client d’entreprise a récemment migré son environnement IBM DB2 s’exécutant sur z/OS vers IBM DB2 pureScale sur Azure. La solution de cluster de bases de données Db2 pureScale fournit haute disponibilité et scalabilité sur les systèmes d’exploitation Linux. Le client a exécuté Db2 avec succès en tant qu’instance autonome, avec montée en puissance sur une machine virtuelle unique dans un système à grande échelle sur Azure avant d’installer Db2 pureScale. 
 
-Quoique différent de l’environnement d’origine, IBM DB2 pureScale sur Linux offre des fonctionnalité de haute disponibilité et d’évolutivité similaires à IBM DB2 pour z/OS exécuté dans une configuration Parallel Sysplex sur un ordinateur central. Dans ce scénario, le cluster est connecté via iSCSI à un cluster de stockage partagé. Nous avons utilisé le système de fichiers GlusterFS, qui est un système de fichiers distribué, scalable, gratuit et open source, optimisé spécialement pour le stockage cloud. Toutefois, IBM ne prend plus en charge cette solution. Pour continuer à bénéficier de la prise en charge d’IBM, vous devez utiliser un système de fichiers compatible iSCSI pris en charge. Microsoft offre l’option d’espaces de stockage direct
+Quoique différent de l’environnement d’origine, IBM DB2 pureScale sur Linux offre des fonctionnalité de haute disponibilité et d’évolutivité similaires à IBM DB2 pour z/OS exécuté dans une configuration Parallel Sysplex sur un ordinateur central. Dans ce scénario, le cluster est connecté via iSCSI à un cluster de stockage partagé. Nous avons utilisé le système de fichiers GlusterFS, qui est un système de fichiers distribué, scalable, gratuit et open source, optimisé spécialement pour le stockage cloud. Toutefois, IBM ne prend plus en charge cette solution. Pour continuer à bénéficier de la prise en charge d'IBM, vous devez utiliser un système de fichiers compatible iSCSI pris en charge. Microsoft offre l’option d’espaces de stockage direct
 
 Cet article décrit l’architecture utilisée pour cette migration Azure. Le client a utilisé Red Hat Linux 7.4 pour tester la configuration. Cette version est disponible sur Azure Marketplace. Avant de choisir une distribution Linux, veillez à vérifier les versions actuellement prises en charge. Pour plus d’informations, consultez la documentation relative à [IBM DB2 pureScale](https://www.ibm.com/support/knowledgecenter/SSEPGG) et [GlusterFS](https://docs.gluster.org/en/latest/).
 
@@ -44,7 +44,7 @@ Pour vous aider à choisir la meilleure architecture DB2 pureScale pour votre en
 
 Pour prendre en charge la haute disponibilité et l’évolutivité sur Azure, vous pouvez utiliser une architecture de données partagées scale-out pour DB2 pureScale. La migration du client a utilisé l’exemple d’architecture suivant.
 
-![DB2 PureScale sur des machines virtuelles Azure montrant le stockage et la mise en réseau](media/pureScaleArchitecture.png "Db2 pureScale sur des machines virtuelles Azure montrant le stockage et la mise en réseau")
+![Db2 pureScale sur des machines virtuelles Azure montrant le stockage et la mise en réseau](media/pureScaleArchitecture.png "Db2 pureScale sur des machines virtuelles Azure montrant le stockage et la mise en réseau")
 
 
 Le diagramme illustre les couches logiques nécessaires à un cluster DB2 pureScale. Ces couches incluent des machines virtuelles pour un client, pour la gestion, pour la mise en cache, pour le moteur de base de données et pour le stockage partagé. 
@@ -96,9 +96,9 @@ Un grand cluster DB2 pureScale peut nécessiter 200 téraoctets (To) ou plus de
 
 IBM recommande une mise en réseau InfiniBand pour tous les membres d’un cluster DB2 pureScale. DB2 pureScale utilise également l’accès direct à la mémoire à distance (RDMA), le cas échéant, pour les installations de mise en cache.
 
-Pendant l’installation, vous créez un [groupe de ressources](https://docs.microsoft.com/azure/azure-resource-manager/management/overview) Azure pour contenir toutes les machines virtuelles. En règle générale, vous regroupez les ressources en fonction de leur durée de vie et de qui va les gérer. Les machines virtuelles dans cette architecture nécessitent une [mise en réseau accélérée](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/). Il s’agit d’une fonctionnalité Azure qui fournit une latence du réseau cohérente et très faible par le biais d’une virtualisation des E/S sur une racine unique (SR-IOV) à une machine virtuelle.
+Pendant l’installation, vous créez un [groupe de ressources](../../../../azure-resource-manager/management/overview.md) Azure pour contenir toutes les machines virtuelles. En règle générale, vous regroupez les ressources en fonction de leur durée de vie et de qui va les gérer. Les machines virtuelles dans cette architecture nécessitent une [mise en réseau accélérée](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/). Il s’agit d’une fonctionnalité Azure qui fournit une latence du réseau cohérente et très faible par le biais d’une virtualisation des E/S sur une racine unique (SR-IOV) à une machine virtuelle.
 
-Chaque machine virtuelle est déployée dans un réseau virtuel qui comporte des sous-réseaux : principal, frontal Gluster FS (gfsfe), back-end Gluster FS (bfsbe), DB2 pureScale (db2be) et frontal DB2 pureScale (db2fe). Le script d’installation crée également les [cartes réseau](https://docs.microsoft.com/azure/virtual-machines/windows/multiple-nics) principales sur les machines virtuelles dans le sous-réseau principal.
+Chaque machine virtuelle est déployée dans un réseau virtuel qui comporte des sous-réseaux : principal, frontal Gluster FS (gfsfe), back-end Gluster FS (bfsbe), DB2 pureScale (db2be) et frontal DB2 pureScale (db2fe). Le script d’installation crée également les [cartes réseau](../../../windows/multiple-nics.md) principales sur les machines virtuelles dans le sous-réseau principal.
 
 Utilisez des [groupes de sécurité réseau](../../../../virtual-network/virtual-network-vnet-plan-design-arm.md) pour limiter le trafic réseau au sein du réseau virtuel et pour isoler les sous-réseaux.
 

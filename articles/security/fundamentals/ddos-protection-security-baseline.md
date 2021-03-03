@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: b4b2a3bf8c9a3a2e2ec7f1b22785a037f8dedc60
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 21ae8986761483658f5ac4254e4bb378e0bc4ba9
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98873958"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575061"
 ---
 # <a name="azure-security-baseline-for-azure-ddos-protection-standard"></a>Base de référence de sécurité Azure pour Azure DDoS Protection Standard
 
@@ -26,7 +26,7 @@ Cette base de référence de sécurité applique les conseils du [benchmark de s
 
 **Aide** : activez les paramètres de diagnostic des journaux d’activité Azure et envoyez les journaux vers un espace de travail Log Analytics, Event Hub ou un compte de stockage Azure pour archivage. Les journaux d’activité fournissent des insights sur les opérations qui ont été effectuées sur vos plans Azure DDoS Protection au niveau du plan de contrôle. À l’aide des données des journaux d’activité Azure, vous pouvez déterminer les éléments « qui, quand et quoi » pour toutes les opérations d’écriture (PUT, POST, DELETE) effectuées au niveau du plan de contrôle pour vos instances Azure DDoS Protection.
 
-- [Guide pratique pour activer les paramètres de diagnostic du journal d’activité Azure](../../azure-monitor/platform/activity-log.md)
+- [Guide pratique pour activer les paramètres de diagnostic du journal d’activité Azure](../../azure-monitor/essentials/activity-log.md)
 
 **Supervision d’Azure Security Center** : Oui
 
@@ -40,7 +40,7 @@ activez les paramètres de diagnostic des journaux d’activité Azure et envoye
 
 - [Afficher et configurer la journalisation des diagnostics DDoS](../../ddos-protection/diagnostic-logging.md)
 
-- [Guide pratique pour activer les paramètres de diagnostic du journal d’activité Azure](../../azure-monitor/platform/activity-log.md)
+- [Guide pratique pour activer les paramètres de diagnostic du journal d’activité Azure](../../azure-monitor/essentials/activity-log.md)
 
 **Supervision d’Azure Security Center** : Oui
 
@@ -50,7 +50,7 @@ activez les paramètres de diagnostic des journaux d’activité Azure et envoye
 
 **Aide** : Dans Azure Monitor, définissez la période de conservation des journaux pour les espaces de travail Log Analytics associés à vos plans Azure DDoS Protection conformément aux réglementations de conformité de votre organisation.
 
-- [Guide pratique pour définir les paramètres de conservation des journaux](../../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Guide pratique pour définir les paramètres de conservation des journaux](../../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -62,9 +62,9 @@ activez les paramètres de diagnostic des journaux d’activité Azure et envoye
 
 - [Informations sur l’accès à la télémétrie, aux journaux et à l’analytique des attaques pour le service Azure DDoS Protection Standard](../../ddos-protection/telemetry.md)
 
-- [Guide pratique pour activer les paramètres de diagnostic du journal d’activité Azure](../../azure-monitor/platform/activity-log.md)
+- [Guide pratique pour activer les paramètres de diagnostic du journal d’activité Azure](../../azure-monitor/essentials/activity-log.md)
 
-- [Collecte et analyse des journaux d’activité Azure dans l’espace de travail Log Analytics dans Azure Monitor](../../azure-monitor/platform/activity-log.md)
+- [Collecte et analyse des journaux d’activité Azure dans l’espace de travail Log Analytics dans Azure Monitor](../../azure-monitor/essentials/activity-log.md)
 
 **Supervision d’Azure Security Center** : Oui
 
@@ -80,7 +80,7 @@ Intégrez un espace de travail Log Analytics à Azure Sentinel, car cela fournit
 
 - [Guide pratique pour intégrer Azure Sentinel](../../sentinel/quickstart-onboard.md)
 
-- [Créer, afficher et gérer des alertes de journal à l’aide d’Azure Monitor](../../azure-monitor/platform/alerts-log.md)
+- [Créer, afficher et gérer des alertes de journal à l’aide d’Azure Monitor](../../azure-monitor/alerts/alerts-log.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -192,7 +192,7 @@ Utilisez également la détection de risque Azure AD pour visualiser les alertes
 
 - [Procédure de configuration des emplacements nommés Azure AD](../../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -244,7 +244,7 @@ Vous pouvez simplifier ce processus en créant des paramètres de diagnostic pou
 
 - [Guide pratique pour intégrer Azure Sentinel](../../sentinel/quickstart-onboard.md)
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -276,7 +276,7 @@ Vous pouvez simplifier ce processus en créant des paramètres de diagnostic pou
 
 **Aide** : utilisez Azure Monitor avec le journal d’activité Azure pour créer des alertes quand des modifications sont apportées aux plans Azure DDoS Protection ainsi qu’à d’autres ressources critiques ou connexes.
 
-- [Guide pratique pour créer des alertes sur les événements du journal d’activité Azure](../../azure-monitor/platform/alerts-activity-log.md)
+- [Guide pratique pour créer des alertes sur les événements du journal d’activité Azure](../../azure-monitor/alerts/alerts-activity-log.md)
 
 **Supervision d’Azure Security Center** : Oui
 
@@ -504,7 +504,7 @@ Testez vos hypothèses sur la façon dont vos services répondent à une attaque
 
 - [Publication du NIST : Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities](https://csrc.nist.gov/publications/detail/sp/800-84/final)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 

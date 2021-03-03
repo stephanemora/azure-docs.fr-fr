@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 7/13/2020
-ms.openlocfilehash: f8840d5115cb552ed203705d37f8c692b3418947
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: ca3cc2873fbc6db72b10c80daecddf1471e30ff4
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492333"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577063"
 ---
 # <a name="logs-in-azure-database-for-postgresql---hyperscale-citus"></a>Journaux dans Azure Database pour PostgreSQL - Hyperscale (Citus)
 
@@ -34,5 +34,5 @@ Choisissez un nom pour les nouveaux paramètres de diagnostic, puis cochez la ca
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Bien démarrer avec les requêtes Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)
+- [Bien démarrer avec les requêtes Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md)
 - En savoir plus sur les [hubs d’événements Azure](../event-hubs/event-hubs-about.md)

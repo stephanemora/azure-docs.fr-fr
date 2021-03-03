@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 3b6cb195f44bf6c868402481480d9b10802c4d59
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 8e2af73be0fc887b132f523133159472ce1d1f98
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965667"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570978"
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Utiliser une capture de paquets pour effectuer une surveillance proactive du réseau avec des alertes et Azure Functions
 
@@ -332,7 +332,7 @@ L’exemple suivant correspond à du code PowerShell qui peut être utilisé dan
 
     ![Copie de l’URL de la fonction][2]
 
-Si vous avez besoin de propriétés personnalisées dans la charge utile de la demande POST du webhook, consultez l’article [Configurer un webhook sur une alerte de métrique Azure](../azure-monitor/platform/alerts-webhooks.md).
+Si vous avez besoin de propriétés personnalisées dans la charge utile de la demande POST du webhook, consultez l’article [Configurer un webhook sur une alerte de métrique Azure](../azure-monitor/alerts/alerts-webhooks.md).
 
 ## <a name="configure-an-alert-on-a-vm"></a>Configurer une alerte sur une machine virtuelle
 
@@ -340,7 +340,7 @@ Des alertes peuvent être configurées pour informer qu’une mesure spécifique
 
 ### <a name="create-the-alert-rule"></a>Créer la règle d’alerte
 
-Accédez à une machine virtuelle existante, puis ajoutez une règle d’alerte. Pour accéder à une documentation plus détaillée sur la configuration des alertes, consultez l’article [Créer des alertes dans Azure Monitor pour les services Azure - Portail Azure](../azure-monitor/platform/alerts-classic-portal.md). Entrez les valeurs suivantes dans le panneau **Règle d’alerte**, puis sélectionnez **OK**.
+Accédez à une machine virtuelle existante, puis ajoutez une règle d’alerte. Pour accéder à une documentation plus détaillée sur la configuration des alertes, consultez l’article [Créer des alertes dans Azure Monitor pour les services Azure - Portail Azure](../azure-monitor/alerts/alerts-classic-portal.md). Entrez les valeurs suivantes dans le panneau **Règle d’alerte**, puis sélectionnez **OK**.
 
   |**Paramètre** | **Valeur** | **Détails** |
   |---|---|---|

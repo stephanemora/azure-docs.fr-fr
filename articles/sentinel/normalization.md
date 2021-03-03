@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: yelevin
-ms.openlocfilehash: 3d9e436d636fbd5414367efb0e122748a8e9e2cb
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 35b3f4fe5703e9ce902553f992dfa44cea7db78f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100390808"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570449"
 ---
 # <a name="normalization-in-azure-sentinel"></a>Normalisation dans Azure Sentinel
 
@@ -147,7 +147,7 @@ Une fois la fonction modifiée, cliquez à nouveau sur Enregistrer et utilisez l
 
 JSON, XML et CSV sont particulièrement pratiques pour l’analyse au moment de la requête. Azure Sentinel offre des fonctions d’analyse intégrées pour JSON, XML et CSV, ainsi qu’un outil d’analyse JSON.  Pour plus d’informations, consultez [Utilisation de champs JSON dans Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/tip-easily-use-json-fields-in-sentinel/ba-p/768747) (blog). 
 
-En savoir plus sur les [requêtes enregistrées](../azure-monitor/log-query/example-queries.md) (implémentation de l’analyseur de temps de requête) dans Log Analytics.
+En savoir plus sur les [requêtes enregistrées](../azure-monitor/logs/example-queries.md) (implémentation de l’analyseur de temps de requête) dans Log Analytics.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

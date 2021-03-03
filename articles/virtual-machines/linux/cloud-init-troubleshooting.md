@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 07/06/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 6412036e3f16e2efb3bbf6669f6a31e9dc6e3584
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a18899ffc6b19be6226d9e0a3efd9a9519434601
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89434637"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101666226"
 ---
 # <a name="troubleshooting-vm-provisioning-with-cloud-init"></a>Résoudre les problèmes d’approvisionnement des machines virtuelles avec cloud-init
 
@@ -58,7 +58,7 @@ Pendant que la machine virtuelle est en cours d’exécution, vous aurez besoin 
 
 - [Console série](../troubleshooting/serial-console-grub-single-user-mode.md)
 
-- [Activez les diagnostics de démarrage](./tutorial-monitor.md#enable-boot-diagnostics) avant de créer la machine virtuelle, puis les [afficher](./tutorial-monitor.md#view-boot-diagnostics) au cours du démarrage.
+- [Activez les diagnostics de démarrage](/previous-versions/azure/virtual-machines/linux/tutorial-monitor#enable-boot-diagnostics) avant de créer la machine virtuelle, puis les [afficher](/previous-versions/azure/virtual-machines/linux/tutorial-monitor#view-boot-diagnostics) au cours du démarrage.
 
 - [Exécutez la commande AZ VM Repair](../troubleshooting/repair-linux-vm-using-azure-virtual-machine-repair-commands.md) pour attacher et monter le disque du système d’exploitation, ce qui vous permet de collecter ces journaux :
 ```bash
@@ -133,4 +133,4 @@ Toutes les défaillances dans cloud-init entraînent un échec d’approvisionne
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si vous ne pouvez toujours pas isoler la raison pour laquelle cloud-init n’a pas exécuté la configuration, vous devez examiner de plus près ce qui se passe dans chaque étape cloud-init, et quand les modules s’exécutent. Pour plus d’informations, consultez [Exploration approfondie de cloud-init](./cloud-init-deep-dive.md). 
+Si vous ne pouvez toujours pas isoler la raison pour laquelle cloud-init n’a pas exécuté la configuration, vous devez examiner de plus près ce qui se passe dans chaque étape cloud-init, et quand les modules s’exécutent. Pour plus d’informations, consultez [Exploration approfondie de cloud-init](./cloud-init-deep-dive.md).

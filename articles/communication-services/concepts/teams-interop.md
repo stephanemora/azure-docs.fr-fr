@@ -9,16 +9,17 @@ ms.author: chpalm
 ms.date: 10/10/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 34d2a18d2e556b7eb9916d058c4d80fe0956ba55
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: d369e976ab1ba4e33f5eb21edb92054678f9040f
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100554749"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101655732"
 ---
 # <a name="teams-interoperability"></a>Interopérabilité de Teams
 
-[!INCLUDE [Private Preview Notice](../includes/private-preview-include.md)]
+> [!IMPORTANT]
+> Pour activer/désactiver l’[interopérabilité des locataires Teams](../concepts/teams-interop.md), remplissez [ce formulaire](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR21ouQM6BHtHiripswZoZsdURDQ5SUNQTElKR0VZU0VUU1hMOTBBMVhESS4u).
 
 Azure Communication Services peut être utilisé pour créer des expériences de réunion personnalisées qui interagissent avec Microsoft Teams. Les utilisateurs de vos solutions Communication Services peuvent interagir avec des participants Teams via l’audio, la vidéo, la conversation et le partage d’écran.
 
@@ -34,11 +35,11 @@ L’architecture générale de ce cas d’usage se présente comme suit :
 
 ![Architecture de l’interopérabilité de Teams](./media/call-flows/teams-interop.png)
 
-Tandis que certaines fonctionnalités de réunion de Teams comme la main levée, le mode Ensemble et les salles pour petit groupe sont disponibles seulement pour les utilisateurs Teams, votre application personnalisée a accès aux principales fonctionnalités audio, vidéo, conversation et partage d’écran de la réunion.
+Tandis que certaines fonctionnalités de réunion de Teams comme la main levée, le mode Ensemble et les salles pour petit groupe sont disponibles seulement pour les utilisateurs Teams, votre application personnalisée a accès aux principales fonctionnalités audio, vidéo, conversation et partage d’écran de la réunion. La conversation de réunion sera accessible à votre utilisateur d’application personnalisée pendant l’appel. Il ne pourra pas envoyer ou recevoir de messages avant de rejoindre ou de quitter l’appel. 
 
 Quand un utilisateur Communication Services rejoint la réunion Teams, le nom complet fourni par le biais de la bibliothèque de client Calling est présenté aux utilisateurs Teams. Sinon, l’utilisateur Communication Services est traité comme un utilisateur anonyme dans Teams.  Votre application personnalisée doit envisager l’authentification des utilisateurs et d’autres mesures de sécurité pour protéger les réunions Teams. Pensez à ce que cela implique en terme de sécurité si vous autorisez les utilisateurs anonymes à rejoindre des réunions et utilisez le [Guide sur la sécurité de Teams](/microsoftteams/teams-security-guide#addressing-threats-to-teams-meetings) pour configurer les fonctionnalités disponibles pour les utilisateurs anonymes.
 
-L’interopérabilité entre Communication Services et Teams est actuellement en préversion privée. Quand elle sera en disponibilité générale, les utilisateurs Communication Services sont traités comme des « utilisateurs avec accès externe ». Pour plus d’informations sur l’accès externe, consultez [Appeler, converser et collaborer avec des personnes extérieures à votre organisation dans Microsoft Teams](https://docs.microsoft.com/microsoftteams/communicate-with-users-from-other-organizations).
+L’interopérabilité entre Communication Services et Teams est actuellement en préversion privée. Quand elle sera en disponibilité générale, les utilisateurs Communication Services sont traités comme des « utilisateurs avec accès externe ». Pour plus d’informations sur l’accès externe, consultez [Appeler, converser et collaborer avec des personnes extérieures à votre organisation dans Microsoft Teams](/microsoftteams/communicate-with-users-from-other-organizations).
 
 Les utilisateurs Communication Services peuvent rejoindre les réunions Teams planifiées tant que les participations anonymes sont autorisées dans les [paramètres de la réunion](/microsoftteams/meeting-settings-in-teams).
 

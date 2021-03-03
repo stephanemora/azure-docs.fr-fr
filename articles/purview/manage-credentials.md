@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 02/11/2021
-ms.openlocfilehash: 9ffc450294f186b77cc7a6c44c10eecf266161d3
-ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
+ms.openlocfilehash: 1857eab485e8651c05959f82cf11e69b6353c575
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100526689"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101673514"
 ---
 # <a name="credentials-for-source-authentication-in-azure-purview"></a>Informations d'identification pour l'authentification des sources dans Azure Purview
 
@@ -85,8 +85,9 @@ Ces types d’informations d’identification sont pris en charge dans Purview 
 - Principal de service : vous ajoutez la **clé du principal de service** comme secret dans le coffre de clés.
 - Authentification SQL : vous ajoutez le **mot de passe** comme secret dans le coffre de clés.
 - Clé de compte : vous ajoutez la **clé de compte** comme secret dans le coffre de clés.
+- ARN du rôle : pour une source de données Amazon S3, ajoutez votre **ARN du rôle** dans AWS. 
 
-Pour plus d’informations, consultez [Ajouter un secret au coffre de clés](../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault).
+Pour plus d’informations, consultez [Ajouter un secret au coffre de clés](../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault) et [Créer un rôle AWS pour portée](register-scan-amazon-s3.md#create-a-new-aws-role-for-purview).
 
 Après avoir stocké vos secrets dans le coffre de clés :
 

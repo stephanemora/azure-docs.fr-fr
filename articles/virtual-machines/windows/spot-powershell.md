@@ -3,17 +3,18 @@ title: Utiliser PowerShell pour déployer des machines virtuelles Azure Spot
 description: Découvrez comment utiliser Azure PowerShell afin de déployer des machines virtuelles Azure Spot pour réaliser des économies sur les coûts.
 author: cynthn
 ms.service: virtual-machines
+ms.subservice: spot
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 06/26/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: 3554068d75d2581411dd89a1dc876984710bc439
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: b7a4dc65a3f9285c27b4bf34f65244c37aaf850c
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100557168"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101672134"
 ---
 # <a name="deploy-azure-spot-virtual-machines-using-azure-powershell"></a>Déployer des machines virtuelles Azure Spot à l’aide d’Azure PowerShell
 

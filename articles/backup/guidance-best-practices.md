@@ -3,12 +3,12 @@ title: Aide et bonnes pratiques
 description: Découvrez les meilleures pratiques et des conseils pour la sauvegarde de la charge de travail Cloud et locale dans le Cloud
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: 7b65556d8dd9b5b12e8da25055f6e39732c83afd
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 0b3f70061be4d158ae717a97779d6ab0445f5858
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258759"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593338"
 ---
 # <a name="backup-cloud-and-on-premises-workloads-to-cloud"></a>Sauvegardez des charges de travail Cloud et locales vers le Cloud
 
@@ -238,9 +238,9 @@ En tant qu’administrateur ou utilisateur de sauvegarde, vous devez être en me
   * identification des tendances clés à différents niveaux de granularité.
 
 * De plus :
-  * Vous pouvez envoyer des données (par exemple, des travaux, des stratégies, etc.) à l’espace de travail **Log Analytics**. Cela permet d’activer les fonctionnalités des journaux d’Azure Monitor pour permettre la corrélation des données avec d’autres données d’analyse collectées par Azure Monitor, consolider les entrées de journal à partir de plusieurs abonnements et clients Azure en un seul emplacement pour l’analyse ensemble, utiliser des requêtes de journal pour effectuer une analyse complexe et obtenir des informations détaillées sur les entrées de journal. [En savoir plus ici](../azure-monitor/platform/activity-log.md#send-to-log-analytics-workspace).
-  * Vous pouvez envoyer des données au hub d’événements pour envoyer des entrées en dehors d’Azure, par exemple à une solution SIEM (Security Information and Event Management) tierce ou autre solution log analytics. [En savoir plus ici](../azure-monitor/platform/activity-log.md#send-to-azure-event-hubs).
-  * Envoyez le journal d’activité à un compte de stockage Azure si vous souhaitez conserver vos données de journal plus de 90 jours à des fins d’audit, d’analyse statique ou de sauvegarde. Si vous devez conserver vos événements pendant 90 jours ou moins, il est inutile de configurer l’archivage sur un compte de stockage, puisque les événements du journal d’activité sont conservés dans la plateforme Azure pendant 90 jours. [Plus d’informations](../azure-monitor/platform/activity-log.md#send-to--azure-storage)
+  * Vous pouvez envoyer des données (par exemple, des travaux, des stratégies, etc.) à l’espace de travail **Log Analytics**. Cela permet d’activer les fonctionnalités des journaux d’Azure Monitor pour permettre la corrélation des données avec d’autres données d’analyse collectées par Azure Monitor, consolider les entrées de journal à partir de plusieurs abonnements et clients Azure en un seul emplacement pour l’analyse ensemble, utiliser des requêtes de journal pour effectuer une analyse complexe et obtenir des informations détaillées sur les entrées de journal. [En savoir plus ici](../azure-monitor/essentials/activity-log.md#send-to-log-analytics-workspace).
+  * Vous pouvez envoyer des données au hub d’événements pour envoyer des entrées en dehors d’Azure, par exemple à une solution SIEM (Security Information and Event Management) tierce ou autre solution log analytics. [En savoir plus ici](../azure-monitor/essentials/activity-log.md#send-to-azure-event-hubs).
+  * Envoyez le journal d’activité à un compte de stockage Azure si vous souhaitez conserver vos données de journal plus de 90 jours à des fins d’audit, d’analyse statique ou de sauvegarde. Si vous devez conserver vos événements pendant 90 jours ou moins, il est inutile de configurer l’archivage sur un compte de stockage, puisque les événements du journal d’activité sont conservés dans la plateforme Azure pendant 90 jours. [Plus d’informations](../azure-monitor/essentials/activity-log.md#send-to--azure-storage)
 
 ### <a name="alerting"></a>Génération d’alertes
 

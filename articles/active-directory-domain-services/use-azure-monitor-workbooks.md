@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: justinha
-ms.openlocfilehash: 3067388265fb69b916fe0e179cb896401b7c2dc4
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 9a126fe4676f340fb45677382a3aeeed79291f0b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96618159"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574210"
 ---
 # <a name="review-security-audit-events-in-azure-active-directory-domain-services-using-azure-monitor-workbooks"></a>Examiner les événements d’audit de sécurité dans Azure Active Directory Domain Services à l’aide d’Azure Monitor Workbooks
 
@@ -46,7 +46,7 @@ Azure AD DS comprend les deux modèles de classeurs suivants :
 * Rapport Vue d’ensemble de la sécurité
 * Rapport d’activité de compte
 
-Pour plus d’informations sur la modification et la gestion des classeurs, consultez [Vue d’ensemble des classeurs Azure Monitor](../azure-monitor/platform/workbooks-overview.md).
+Pour plus d’informations sur la modification et la gestion des classeurs, consultez [Vue d’ensemble des classeurs Azure Monitor](../azure-monitor/visualize/workbooks-overview.md).
 
 ## <a name="use-the-security-overview-report-workbook"></a>Utiliser le classeur de rapport Vue d’ensemble de la sécurité
 

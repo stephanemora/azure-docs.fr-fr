@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 02/01/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 82af70547d20509c48f1e07bbc7610fc666a6da1
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 8b3ce2c195dc2fa3dd703306e731aa5b807b78b1
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100393052"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100648601"
 ---
 # <a name="manage-permissions-to-restore-an-azure-cosmos-db-account"></a>Gérer les autorisations de restauration d’un compte Azure Cosmos DB
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -61,7 +61,7 @@ Les autorisations suivantes sont requises pour effectuer les différentes activi
 |Autorisation  |Impact  |Étendue minimale  |Étendue maximale  |
 |---------|---------|---------|---------|
 |`Microsoft.Resources/deployments/validate/action`, `Microsoft.Resources/deployments/write` | Ces autorisations sont requises pour le déploiement du modèle ARM afin de créer le compte restauré. Consultez l’exemple d’autorisation [RestorableAction](#custom-restorable-action) ci-dessous pour savoir comment définir ce rôle. | Non applicable | Non applicable  |
-|Microsoft.DocumentDB/databaseAccounts/write | Cette autorisation est requise pour restaurer un compte dans un groupe de ressources. | Groupe de ressources sous lequel le compte restauré est créé. | Abonnement sous lequel le compte restauré est créé. |
+|`Microsoft.DocumentDB/databaseAccounts/write` | Cette autorisation est requise pour restaurer un compte dans un groupe de ressources. | Groupe de ressources sous lequel le compte restauré est créé. | Abonnement sous lequel le compte restauré est créé. |
 |`Microsoft.DocumentDB/locations/restorableDatabaseAccounts/restore/action` |Cette autorisation est requise sur l’étendue du compte de base de données restaurable source pour permettre l’exécution d’actions de restauration sur celle-ci.  | Ressource *RestorableDatabaseAccount* appartenant au compte source en cours de restauration. Cette valeur est également fournie par la propriété `ID` de la ressource de compte de base de données restaurable. Un exemple de compte pouvant être restauré est */subscriptions/subscriptionId/providers/Microsoft.DocumentDB/locations/regionName/restorableDatabaseAccounts/<guid-id_instance>* . | Abonnement contenant le compte de base de données restaurable. Le groupe de ressources ne peut pas être choisi comme étendue.  |
 |`Microsoft.DocumentDB/locations/restorableDatabaseAccounts/read` |Cette autorisation est requise sur l’étendue du compte de base de données restaurable source pour répertorier les comptes de base de données qui peuvent être restaurés.  | Ressource *RestorableDatabaseAccount* appartenant au compte source en cours de restauration. Cette valeur est également fournie par la propriété `ID` de la ressource de compte de base de données restaurable. Un exemple de compte pouvant être restauré est */subscriptions/subscriptionId/providers/Microsoft.DocumentDB/locations/regionName/restorableDatabaseAccounts/<guid-id_instance>* .| Abonnement contenant le compte de base de données restaurable. Le groupe de ressources ne peut pas être choisi comme étendue.  |
 |`Microsoft.DocumentDB/locations/restorableDatabaseAccounts/*/read` | Cette autorisation est requise sur l’étendue du compte restaurable source pour permettre la lecture des ressources restaurables telles que la liste des bases de données et des conteneurs pour un compte restaurable.  | Ressource *RestorableDatabaseAccount* appartenant au compte source en cours de restauration. Cette valeur est également fournie par la propriété `ID` de la ressource de compte de base de données restaurable. Un exemple de compte pouvant être restauré est */subscriptions/subscriptionId/providers/Microsoft.DocumentDB/locations/regionName/restorableDatabaseAccounts/<guid-id_instance>* .| Abonnement contenant le compte de base de données restaurable. Le groupe de ressources ne peut pas être choisi comme étendue. |

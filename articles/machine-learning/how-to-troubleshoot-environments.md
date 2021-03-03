@@ -10,12 +10,12 @@ ms.author: sagopal
 ms.date: 12/3/2020
 ms.topic: troubleshooting
 ms.custom: devx-track-python
-ms.openlocfilehash: 7ddd5dec87a122a0b36fee17b5434c8a49dcf434
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 5b2f62e8e04bddadc7068eb75405bcf1568f5713
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881633"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101657296"
 ---
 # <a name="troubleshoot-environment-image-builds"></a>Résoudre les problèmes liés à la génération d’images d’environnement
 
@@ -153,8 +153,8 @@ Consultez les scénarios suivants pour résoudre d’éventuels échecs côté s
 
 Problèmes possibles :
 - Le nom du chemin d'accès au registre de conteneurs n’est peut-être pas résolu correctement. Vérifiez que les noms d’images utilisent des doubles barres obliques et que la direction des barres obliques sur les hôtes Linux et Windows est correcte.
-- Si un registre de conteneurs situé derrière un réseau virtuel utilise un point de terminaison privé dans [une région non prise en charge](/azure/private-link/private-link-overview#availability), configurez le registre de conteneurs à l’aide du point de terminaison de service (accès public) du portail et réessayez.
-- Une fois que vous avez placé le registre de conteneurs derrière un réseau virtuel, exécutez le [modèle Azure Resource Manager](/azure/machine-learning/how-to-enable-virtual-network#azure-container-registry) pour que l’espace de travail puisse communiquer avec l’instance de registre de conteneurs.
+- Si un registre de conteneurs situé derrière un réseau virtuel utilise un point de terminaison privé dans [une région non prise en charge](../private-link/private-link-overview.md#availability), configurez le registre de conteneurs à l’aide du point de terminaison de service (accès public) du portail et réessayez.
+- Une fois que vous avez placé le registre de conteneurs derrière un réseau virtuel, exécutez le [modèle Azure Resource Manager](./how-to-network-security-overview.md) pour que l’espace de travail puisse communiquer avec l’instance de registre de conteneurs.
 
 ### <a name="you-get-a-401-error-from-a-workspace-container-registry"></a>Vous recevez une erreur 401 d’un registre de conteneurs d’espace de travail
 
@@ -166,7 +166,7 @@ Quand une génération d’image est en cours, conda est verrouillé par le clie
 
 ### <a name="your-custom-docker-image-isnt-in-the-registry"></a>Votre image Docker personnalisée ne figure pas dans le registre
 
-Vérifiez si l’[étiquette correcte](/azure/machine-learning/how-to-use-environments#create-an-environment) est utilisée et que `user_managed_dependencies = True`. `Environment.python.user_managed_dependencies = True` désactive conda et utilise les packages installés de l’utilisateur.
+Vérifiez si l’[étiquette correcte](./how-to-use-environments.md#create-an-environment) est utilisée et que `user_managed_dependencies = True`. `Environment.python.user_managed_dependencies = True` désactive conda et utilise les packages installés de l’utilisateur.
 
 ### <a name="you-get-one-of-the-following-common-virtual-network-issues"></a>Vous recevez l’un des problèmes de réseau virtuel courants suivants
 
@@ -184,9 +184,9 @@ Vérifiez si l’[étiquette correcte](/azure/machine-learning/how-to-use-enviro
 
 ### <a name="you-cant-run-experiments-when-storage-has-network-security-enabled"></a>Vous ne pouvez pas exécuter des expériences lorsque la sécurité réseau est activée pour le stockage
 
-Si vous utilisez les images Docker par défaut et activez les dépendances gérées par l’utilisateur, utilisez les [étiquettes de service](/azure/machine-learning/how-to-enable-virtual-network) MicrosoftContainerRegistry et AzureFrontDoor.FirstParty pour mettre en liste verte Azure Container Registry et ses dépendances.
+Si vous utilisez les images Docker par défaut et activez les dépendances gérées par l’utilisateur, utilisez les [étiquettes de service](./how-to-network-security-overview.md) MicrosoftContainerRegistry et AzureFrontDoor.FirstParty pour mettre en liste verte Azure Container Registry et ses dépendances.
 
- Pour plus d'informations, consultez [Activation de réseaux virtuels](/azure/machine-learning/how-to-enable-virtual-network#azure-container-registry).
+ Pour plus d'informations, consultez [Activation de réseaux virtuels](./how-to-network-security-overview.md).
 
 ### <a name="you-need-to-create-an-icm"></a>Vous devez créer un ICM
 

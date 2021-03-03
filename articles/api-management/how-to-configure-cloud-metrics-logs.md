@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 04/30/2020
 ms.author: apimpm
-ms.openlocfilehash: 3bbfd167e89ae1b5f9b7de1df5fd1cb72c720cb6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c420c62e6f8f09a2b29398590cdb4ad410e5d296
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86254524"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574053"
 ---
 # <a name="configure-cloud-metrics-and-logs-for-azure-api-management-self-hosted-gateway"></a>Configurer les journaux et les métriques cloud pour la passerelle auto-hébergée de la Gestion des API Azure
 
@@ -51,7 +51,7 @@ La passerelle auto-hébergée émet les métriques suivantes via Azure Monitor 
 
 | Métrique  | Description |
 | ------------- | ------------- |
-| Demandes  | Nombre de requêtes d’API au cours d’une période donnée |
+| Demandes  | Nombre de demandes API au cours de la période |
 | Durée des requêtes de passerelle | Nombre de millisecondes entre le moment où la passerelle a reçu la requête et celui où la réponse complète a été envoyée |
 | Durée des requêtes back-end | Nombre de millisecondes consacrées à l’ensemble des E/S du serveur principal (connexion, envoi et réception d’octets)  |
 
@@ -59,7 +59,7 @@ La passerelle auto-hébergée émet les métriques suivantes via Azure Monitor 
 
 La passerelle auto-hébergée n’envoie pas de [journaux de diagnostic](./api-management-howto-use-azure-monitor.md#activity-logs) vers le cloud. Toutefois, il est possible de [configurer et de conserver des journaux localement](how-to-configure-local-metrics-logs.md), à l’endroit où la passerelle auto-hébergée est déployée. 
 
-Si une passerelle est déployée dans [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/), vous pouvez activer [Azure Monitor pour les conteneurs](../azure-monitor/insights/container-insights-overview.md) afin de collecter des journaux à partir de vos conteneurs et les afficher dans Log Analytics. 
+Si une passerelle est déployée dans [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/), vous pouvez activer [Azure Monitor pour les conteneurs](../azure-monitor/containers/container-insights-overview.md) afin de collecter des journaux à partir de vos conteneurs et les afficher dans Log Analytics. 
 
 
 ## <a name="next-steps"></a>Étapes suivantes

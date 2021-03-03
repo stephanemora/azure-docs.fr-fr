@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 9763835142e66bbbce51cd5c863dff87f261c270
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: bfbd93cc3d4e67c8a96a1413221fdd7190c4f0b6
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060158"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100572623"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Bonnes pratiques et guide de résolution des problèmes pour les applications Node sur Azure App Service
 
@@ -140,7 +140,7 @@ let keepaliveAgent = new Agent({
 
 #### <a name="my-node-application-is-consuming-too-much-cpu"></a>Mon application node consomme trop de ressources processeur
 
-Azure App Service vous enverra peut-être une recommandation sur votre portail concernant le niveau de consommation processeur considéré comme élevé. Vous pouvez également configurer des analyses pour surveiller certaines [métriques](web-sites-monitor.md). Lorsque vous vérifiez l’utilisation de l’UC sur le [tableau de bord du portail Azure](../azure-monitor/platform/metrics-charts.md), vérifiez les valeurs MAX de l’UC afin d’éviter de passer à côté des pics de valeur.
+Azure App Service vous enverra peut-être une recommandation sur votre portail concernant le niveau de consommation processeur considéré comme élevé. Vous pouvez également configurer des analyses pour surveiller certaines [métriques](web-sites-monitor.md). Lorsque vous vérifiez l’utilisation de l’UC sur le [tableau de bord du portail Azure](../azure-monitor/essentials/metrics-charts.md), vérifiez les valeurs MAX de l’UC afin d’éviter de passer à côté des pics de valeur.
 Si vous pensez que votre application node consomme trop de ressources processeur, et que vous ne savez pas pourquoi, vous pouvez en rechercher la cause en la profilant.
 
 #### <a name="profiling-your-node-application-on-azure-app-service-with-v8-profiler"></a>Profilage de votre application node sur Azure App Service à l’aide de V8-Profiler
@@ -213,7 +213,7 @@ Vous pouvez voir que 95 % du temps a été consommé par la fonction WriteConsol
 
 ### <a name="my-node-application-is-consuming-too-much-memory"></a>Mon application node consomme trop de mémoire
 
-Si votre application consomme trop de mémoire, votre portail affiche une notification d’Azure App Service indiquant une consommation de mémoire élevée. Vous pouvez configurer des analyses pour surveiller certaines [métriques](web-sites-monitor.md). Lorsque vous vérifiez l’utilisation de la mémoire sur le [tableau de bord du portail Azure](../azure-monitor/platform/metrics-charts.md), vérifiez les valeurs MAX de la mémoire afin d’éviter de passer à côté des pics de valeur.
+Si votre application consomme trop de mémoire, votre portail affiche une notification d’Azure App Service indiquant une consommation de mémoire élevée. Vous pouvez configurer des analyses pour surveiller certaines [métriques](web-sites-monitor.md). Lorsque vous vérifiez l’utilisation de la mémoire sur le [tableau de bord du portail Azure](../azure-monitor/essentials/metrics-charts.md), vérifiez les valeurs MAX de la mémoire afin d’éviter de passer à côté des pics de valeur.
 
 #### <a name="leak-detection-and-heap-diff-for-nodejs"></a>Détection des fuites et procédure de Heap Diff pour node.js
 

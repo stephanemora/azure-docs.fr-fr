@@ -6,15 +6,15 @@ ms.service: virtual-machines
 ms.subservice: automanage
 ms.workload: infrastructure
 ms.topic: conceptual
-ms.date: 09/04/2020
+ms.date: 02/23/2021
 ms.author: deanwe
 ms.custom: references_regions
-ms.openlocfilehash: 7772d57937393da1c48fa2658818d8a1a2b28a1f
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 1d3b2174df5dd83852ce120ec6693ae187a3e795
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99550782"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101643516"
 ---
 # <a name="azure-automanage-for-virtual-machines"></a>Azure Automanage pour machines virtuelles
 
@@ -28,27 +28,47 @@ Cet article contient des informations sur le service Azure Automanage pour machi
 
 ## <a name="overview"></a>Vue d’ensemble
 
-Azure Automanage pour machines virtuelles est un service qui élimine la nécessité de découvrir, de savoir comment intégrer et de configurer certains services Azure susceptibles de tirer parti de votre machine virtuelle. Ces services contribuent à améliorer la fiabilité, la sécurité et la gestion des machines virtuelles, et sont considérés comme des services conformes aux meilleures pratiques Azure, tels [Azure Update Management](../automation/update-management/overview.md) et [Sauvegarde Azure](../backup/backup-overview.md).
+Azure Automanage pour machines virtuelles est un service qui élimine la nécessité de découvrir, de savoir comment intégrer et de configurer certains services Azure susceptibles de tirer parti de votre machine virtuelle. Ces services sont considérés comme des services liés aux bonnes pratiques Azure. Ils contribuent à améliorer la fiabilité, la sécurité et la gestion des machines virtuelles. Voici des exemples de services : [Azure Update Management](../automation/update-management/overview.md) et [Sauvegarde Azure](../backup/backup-overview.md).
 
-Une fois vos machines virtuelles intégrées au service Azure Automanage, celui-ci configure automatiquement les paramètres recommandés pour chaque service conformément aux meilleures pratiques. Les meilleures pratiques sont distinctes pour chaque service. Par exemple, dans Sauvegarde Azure, la meilleure pratique peut être de sauvegarder la machine virtuelle quotidiennement et de respecter une période de rétention de six mois.
+Une fois vos machines virtuelles intégrées avec Azure Automanage, chaque service lié aux bonnes pratiques est configuré selon ses paramètres recommandés. Les meilleures pratiques sont distinctes pour chaque service. Par exemple, dans Sauvegarde Azure, la meilleure pratique peut être de sauvegarder la machine virtuelle quotidiennement et de respecter une période de rétention de six mois.
 
-Le service Azure Automanage surveille également automatiquement la dérive et la corrige en cas de détection. Cela signifie que, si votre machine virtuelle est intégrée au service Azure Automanage, nous allons non seulement la configurer conformément aux meilleures pratiques Azure, mais aussi la surveiller en veillant à ce qu’elle reste conforme à ces meilleures pratiques tout au long de son cycle de vie. Si votre machine virtuelle dérive ou dévie de ces pratiques, nous la corrigeons et la remettons dans l’état souhaité.
-
-Enfin, l’interface est incroyablement simple.
-
+Le service Azure Automanage surveille également automatiquement la dérive et la corrige en cas de détection. Cela signifie que, si votre machine virtuelle est intégrée au service Azure Automanage, nous allons non seulement la configurer conformément aux meilleures pratiques Azure, mais aussi la surveiller en veillant à ce qu’elle reste conforme à ces meilleures pratiques tout au long de son cycle de vie. Si votre machine virtuelle dévie ou s’écarte de ces bonnes pratiques (par exemple, si un service est débarqué), nous le corrigeons et nous ramenons votre machine à l’état souhaité.
 
 ## <a name="prerequisites"></a>Prérequis
 
 Il existe plusieurs conditions préalables à prendre en compte avant d’essayer d’activer le service Azure Automanage sur vos machines virtuelles.
 
-- Les machines virtuelles concernées doivent être exclusivement Windows Server.
-- Les machines virtuelles doivent se trouver dans une région prise en charge (voir paragraphe ci-dessous).
-- L’utilisateur doit disposer des autorisations appropriées (voir paragraphe ci-dessous).
+- [Versions de Windows Server](automanage-windows-server.md#supported-windows-server-versions) et [Distributions Linux](automanage-linux.md#supported-linux-distributions-and-versions) prises en charge
+- Les machines virtuelles doivent se trouver dans une région prise en charge (voir ci-dessous)
+- L’utilisateur doit disposer des autorisations appropriées (voir ci-dessous)
 - Automanage ne prend pas en charge les abonnements sandbox à ce stade
 
-Il est également important de noter que le service Automanage ne prend en charge que des machines virtuelles Windows situées dans les régions suivantes : Europe Ouest, USA Est, USA Ouest 2, Canada Centre, USA Centre-Ouest, Japon Est.
+### <a name="supported-regions"></a>Régions prises en charge
+Automanage prend uniquement en charge les machines virtuelles situées dans les régions suivantes :
+* Europe Ouest
+* Europe Nord
+* USA Centre
+* USA Est
+* USA Est 2
+* USA Ouest
+* USA Ouest 2
+* Centre du Canada
+* Centre-USA Ouest
+* États-Unis - partie centrale méridionale
+* Japon Est
+* Sud du Royaume-Uni
+* Australie Est
+* Australie Sud-Est
 
-Vous devez disposer du rôle **Contributeur** sur le groupe de ressources contenant vos machines virtuelles pour activer Automanage sur ces dernières à l’aide d’un compte Automanage existant. Si vous activez Automanage avec un nouveau compte Automanage, vous devez disposer des autorisations suivantes sur votre abonnement : Rôles **Propriétaire** ou **Contributeur**, ainsi que **Administrateur de l’accès utilisateur**.
+### <a name="required-rbac-permissions"></a>Autorisations RBAC nécessaires
+Votre compte nécessite des rôles RBAC légèrement différents selon que vous activez ou non Automanage avec un nouveau compte Automanage.
+
+Si vous activez Automanage avec un nouveau compte Automanage :
+* Rôle **Propriétaire** pour les abonnements contenant vos machines virtuelles, _**ou**_
+* Rôles **Contributeur** et **Administrateur de l’accès utilisateur** pour les abonnements contenant vos machines virtuelles
+
+Si vous activez Automanage avec un compte Automanage existant :
+* Rôle **Contributeur** pour le groupe de ressources contenant vos machines virtuelles
 
 > [!NOTE]
 > Si vous souhaitez utiliser Automanage sur une machine virtuelle qui est connectée à un espace de travail dans un autre abonnement, vous devez disposer des autorisations décrites ci-dessus pour chaque abonnement.
@@ -57,11 +77,13 @@ Vous devez disposer du rôle **Contributeur** sur le groupe de ressources conten
 
 :::image type="content" source="media\automanage-virtual-machines\intelligently-onboard-services.png" alt-text="Services intégrés de manière intelligente.":::
 
-Pour obtenir la liste complète des services Azure participant, ainsi que leurs profils de configuration pris en charge, consultez [Meilleures pratiques d’Azure Automanage pour machines virtuelles](virtual-machines-best-practices.md).
+Pour obtenir la liste complète des services Azure concernés ainsi que leur environnement pris en charge, consultez :
+- [Automanage pour Linux](automanage-linux.md)
+- [Automanage pour Windows Server](automanage-windows-server.md)
 
  Nous vous intégrerons automatiquement à ces services participant. Ils sont essentiels pour notre livre blanc sur les meilleures pratiques, que vous pouvez trouver dans notre [Cloud Adoption Framework](/azure/cloud-adoption-framework/manage/azure-server-management).
 
-Pour tous ces services, nous les intégrons automatiquement, les configurons, surveillons leur dérive et corrigeons toute dérive détectée.
+Pour tous ces services, nous les intégrons et les configurons automatiquement, surveillons leur dérive et corrigeons toute dérive détectée.
 
 
 ## <a name="enabling-automanage-for-vms-in-azure-portal"></a>Activation du service Automanage pour machines virtuelles dans le portail Azure
@@ -70,33 +92,37 @@ Dans le portail Azure, vous pouvez activer le service Automanage sur une machine
 
 Si c’est la première fois que vous activez le service Automanage pour votre machine virtuelle, vous pouvez rechercher dans le portail Azure **Automanage – Meilleures pratiques pour les machines virtuelles Azure**. Cliquez sur **Activer sur une machine virtuelle existante**, sélectionnez les machines virtuelles que vous souhaitez intégrer, puis cliquez sur **Sélectionner** et **Activer**.
 
-La seule situation dans laquelle vous pourriez être amené à interagir avec cette machine virtuelle pour gérer ces services serait si nous tentions de corriger votre machine virtuelle sans succès. Quand nous parvenons à corriger correctement votre machine virtuelle, nous rétablissons sa conformité sans même vous en informer.
+La seule situation dans laquelle vous pourriez être amené à interagir avec cette machine virtuelle pour gérer ces services serait si nous tentions de corriger votre machine virtuelle sans succès. Quand nous parvenons à corriger correctement votre machine virtuelle, nous rétablissons sa conformité sans même vous en informer. Pour plus d’informations, consultez [État des machines virtuelles](#status-of-vms).
 
 
-## <a name="configuration-profiles"></a>Profils de configuration
+## <a name="environment-configuration"></a>Configuration de l’environnement
 
-Lorsque vous activez le service Automanage pour votre machine virtuelle, un profil de configuration est requis. Les profils de configuration constituent le fondement de ce service. Ils définissent précisément les services auxquels nous intégrons vos machines et, dans une certaine mesure, la configuration de ces services.
+Quand vous activez Automanage pour votre machine virtuelle, un environnement est nécessaire. Les environnements constituent le fondement de ce service. Ils définissent les services que nous intégrons sur vos machines et, dans une certaine mesure, la configuration de ces services.
 
-### <a name="default-configuration-profiles"></a>Profils de configuration par défaut
+### <a name="default-environments"></a>Environnements par défaut
 
-Deux profils de configuration sont actuellement disponibles.
+Deux environnements sont disponibles.
 
-- Le profil de configuration **Meilleures pratiques pour les machines virtuelles Azure – Dev/Test** est conçu pour les machines de développement/test.
-- Le profil de configuration **Meilleures pratiques pour les machines virtuelles Azure – Production** est destiné à la production.
+- L’environnement **Dev/Test** est conçu pour les machines de dev/test.
+- L’environnement **Production** est destiné à la production.
 
 La raison de cette différentiation est que certains services sont recommandés en fonction de la charge de travail en cours d’exécution. Par exemple, sur une machine de Production, nous vous intégrons automatiquement au service Sauvegarde Azure. En revanche, pour une machine de Dev/Test, un service de sauvegarde occasionnerait un coût inutile, car les machines de Dev/Test ont généralement une moindre incidence sur l’activité.
 
-### <a name="customizing-a-configuration-profile-using-preferences"></a>Personnalisation d’un profil de configuration à l’aide de préférences
+### <a name="customizing-an-environment-using-preferences"></a>Personnalisation d’un environnement à l’aide des préférences
 
-En plus des services standard auxquels nous vous intégrons, nous vous permettons de configurer un sous-ensemble de préférences. Ces préférences sont autorisées au sein d’un éventail d’options de configuration qui ne transgressent pas nos meilleures pratiques. Par exemple, dans le cas du service Sauvegarde Azure, nous vous autorisons à définir la fréquence de la sauvegarde et le jour de la semaine où elle se produit. En revanche, nous ne vous permettons *pas* de désactiver complètement le service Sauvegarde Azure.
-
-> [!NOTE]
-> Dans le profil de configuration de Dev/Test, nous ne sauvegardons pas du tout la machine virtuelle.
-
-Vous pouvez ajuster les paramètres d’un profil de configuration par défaut par le biais des préférences. Découvrez comment créer une préférence [ici](virtual-machines-custom-preferences.md).
+En plus des services standard auxquels nous vous intégrons, nous vous permettons de configurer un sous-ensemble de préférences. Ces préférences sont autorisées au sein d’un éventail d’options de configuration. Par exemple, dans le cas du service Sauvegarde Azure, nous vous autorisons à définir la fréquence de la sauvegarde et le jour de la semaine où elle se produit.
 
 > [!NOTE]
-> Vous ne pouvez pas modifier le profil de configuration sur votre machine virtuelle tant que le service Automanage est activé. Vous devez désactiver le service Automanage pour cette machine virtuelle, puis le réactiver avec le profil de configuration et les préférences souhaités.
+> Dans l’environnement Dev/Test, nous ne sauvegardons pas du tout la machine virtuelle.
+
+Vous pouvez modifier les paramètres d’un environnement par défaut via les préférences. Découvrez comment créer une préférence [ici](virtual-machines-custom-preferences.md).
+
+> [!NOTE]
+> Vous ne pouvez pas changer la configuration de l’environnement sur votre machine virtuelle quand Automanage est activé. Vous devez désactiver Automanage pour cette machine virtuelle, puis réactiver Automanage avec l’environnement et les préférences souhaités.
+
+Pour obtenir la liste complète des services Azure concernés et pour savoir s’ils prennent en charge les préférences, consultez :
+- [Automanage pour Linux](automanage-windows-server.md)
+- [Automanage pour Windows Server](automanage-windows-server.md)
 
 
 ## <a name="automanage-account"></a>Compte Automanage
@@ -123,7 +149,7 @@ Dans le portail Azure, accédez à la page **Automanage – Meilleurs pratiques 
 
 :::image type="content" source="media\automanage-virtual-machines\configured-status.png" alt-text="Liste des machines virtuelles configurées.":::
 
-Pour chaque machine virtuelle répertoriée, les informations suivantes s’affichent : Nom, Profil de configuration, Préférence de configuration, État, Compte, Abonnement et Groupe de ressources.
+Pour chaque machine virtuelle listée, les détails suivants sont affichés : nom, environnement, préférence de configuration, état, système d’exploitation, compte, abonnement et groupe de ressources.
 
 La colonne **État** peut afficher les états suivants :
 - *En cours* : la machine virtuelle vient d’être activée et est en cours de configuration.
@@ -156,7 +182,7 @@ Tout d’abord, nous n’annulons l’intégration de la machine virtuelle à l�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Cet article vous a expliqué que le service Automanage pour machines virtuelles vous évite d’avoir à connaître, intégrer et configurer les meilleures pratiques pour les services Azure. En outre, si une machine que vous avez intégrée au service Automanage pour machines virtuelles dérive des profils de configuration définis, nous rétablissons automatiquement la conformité.
+Cet article vous a expliqué que le service Automanage pour machines virtuelles vous évite d’avoir à connaître, intégrer et configurer les meilleures pratiques pour les services Azure. De plus, si une machine que vous avez intégrée à Automanage pour machines virtuelles dévie de la configuration de l’environnement, nous la remettons automatiquement en conformité.
 
 Essayez d’activer le service Automanage pour machines virtuelles dans le portail Azure.
 

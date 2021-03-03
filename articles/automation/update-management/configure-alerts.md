@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 10/19/2020
 ms.topic: conceptual
-ms.openlocfilehash: 150269dd2cc6a25a507f03c7d6b47544a89da12a
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 74207fe088034ff8d102fb2254d8ab78a6d57671
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92221596"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579692"
 ---
 # <a name="how-to-create-alerts-for-update-management"></a>Guide pratique pour créer des alertes pour Update Management
 
@@ -18,7 +18,7 @@ Les alertes dans Azure vous informent de façon proactive des résultats des tra
 
 ## <a name="available-metrics"></a>Métriques disponibles
 
-Azure Automation crée deux métriques de plateforme distinctes relatives à Update Management, collectées et transférées à Azure Monitor. Ces métriques peuvent être utilisées à des fins d’analyse avec [Metrics Explorer](../../azure-monitor/platform/metrics-charts.md) et pour les alertes avec une [règle d’alerte de métriques](../../azure-monitor/platform/alerts-metric.md).
+Azure Automation crée deux métriques de plateforme distinctes relatives à Update Management, collectées et transférées à Azure Monitor. Ces métriques peuvent être utilisées à des fins d’analyse avec [Metrics Explorer](../../azure-monitor/essentials/metrics-charts.md) et pour les alertes avec une [règle d’alerte de métriques](../../azure-monitor/alerts/alerts-metric.md).
 
 Les deux métriques émises sont les suivantes :
 
@@ -34,7 +34,7 @@ Quand elles sont utilisées pour les alertes, les deux métriques prennent en ch
 
 ## <a name="create-alert"></a>Créer une alerte
 
-Effectuez les étapes ci-dessous pour configurer des alertes afin de vous informer de l’état d’un déploiement de mises à jour. Si vous débutez avec les alertes Azure, consultez [Vue d’ensemble des alertes Azure](../../azure-monitor/platform/alerts-overview.md).
+Effectuez les étapes ci-dessous pour configurer des alertes afin de vous informer de l’état d’un déploiement de mises à jour. Si vous débutez avec les alertes Azure, consultez [Vue d’ensemble des alertes Azure](../../azure-monitor/alerts/alerts-overview.md).
 
 1. Dans votre compte Automation, sélectionnez **Alertes** sous **Supervision**, puis sélectionnez **Nouvelle règle d’alerte**.
 
@@ -62,7 +62,7 @@ Effectuez les étapes ci-dessous pour configurer des alertes afin de vous inform
 
 ## <a name="configure-action-groups-for-your-alerts"></a>Configurer des groupes d’actions pour vos alertes
 
-Une fois vos alertes configurées, vous pouvez configurer un groupe d’actions à exécuter quand plusieurs alertes sont déclenchées. Les actions peuvent inclure les notifications par e-mail, les runbooks, les webhooks et bien plus encore. Pour en savoir plus sur les groupes d’actions, consultez [Créer et gérer des groupes d’actions](../../azure-monitor/platform/action-groups.md).
+Une fois vos alertes configurées, vous pouvez configurer un groupe d’actions à exécuter quand plusieurs alertes sont déclenchées. Les actions peuvent inclure les notifications par e-mail, les runbooks, les webhooks et bien plus encore. Pour en savoir plus sur les groupes d’actions, consultez [Créer et gérer des groupes d’actions](../../azure-monitor/alerts/action-groups.md).
 
 1. Sélectionnez une alerte, puis sélectionnez **Créer** sous **Groupes d’actions**.
 
@@ -86,8 +86,8 @@ Une fois vos alertes configurées, vous pouvez configurer un groupe d’actions 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* En savoir plus sur les [alertes dans Azure Monitor](../../azure-monitor/platform/alerts-overview.md).
+* En savoir plus sur les [alertes dans Azure Monitor](../../azure-monitor/alerts/alerts-overview.md).
 
-* Découvrez les [requêtes de journal](../../azure-monitor/log-query/log-query-overview.md) pour récupérer et analyser les données d’un espace de travail Log Analytics.
+* Découvrez les [requêtes de journal](../../azure-monitor/logs/log-query-overview.md) pour récupérer et analyser les données d’un espace de travail Log Analytics.
 
-* [Gérer l’utilisation et les coûts avec les Journaux Azure Monitor](../../azure-monitor/platform/manage-cost-storage.md) décrit comment contrôler vos coûts en modifiant la période de conservation des données, et comment analyser l’utilisation de vos données et recevoir des alertes concernant ses dernières.
+* Gérer [l’utilisation et les coûts à l’aide des Journaux de Azure Monitor](../../azure-monitor/logs/manage-cost-storage.md) décrit comment contrôler vos coûts en modifiant la période de conservation des données, et comment analyser et alerter sur l’utilisation de vos données.

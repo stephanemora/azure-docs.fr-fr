@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 12/01/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 1818dc558ba45e318b71e1443556cc48feaede8b
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 1453d43707a3680380e553fe69d738b27fe5ae3a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100367671"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571359"
 ---
 # <a name="troubleshoot-azure-monitor-for-windows-virtual-desktop-preview"></a>Résolution des problèmes liés à Azure Monitor pour Windows Virtual Desktop (préversion)
 
@@ -26,9 +26,9 @@ Si le classeur de configuration ne fonctionne pas correctement pour automatiser 
 
 - Pour activer manuellement les diagnostics ou accéder à l’espace de travail Log Analytics, consultez [Envoi de diagnostics Windows Virtual Desktop à Log Analytics](diagnostics-log-analytics.md).
 - Pour installer manuellement l’extension Log Analytics sur un hôte, consultez [Extension de machine virtuelle Log Analytics pour Windows](../virtual-machines/extensions/oms-windows.md).
-- Pour configurer un nouvel espace de travail Log Analytics, consultez [Création d’un espace de travail Log Analytics sur le Portail Azure](../azure-monitor/learn/quick-create-workspace.md).
-- Pour ajouter ou supprimer des compteurs de performances, consultez [Configuration des compteurs de performances](../azure-monitor/platform/data-sources-performance-counters.md).
-- Pour configurer des événements pour un espace de travail Log Analytics, consultez [Collecte de sources de données du journal des événements Windows avec l’agent Log Analytics](../azure-monitor/platform/data-sources-windows-events.md).
+- Pour configurer un nouvel espace de travail Log Analytics, consultez [Création d’un espace de travail Log Analytics sur le Portail Azure](../azure-monitor/logs/quick-create-workspace.md).
+- Pour ajouter ou supprimer des compteurs de performances, consultez [Configuration des compteurs de performances](../azure-monitor/agents/data-sources-performance-counters.md).
+- Pour configurer des événements pour un espace de travail Log Analytics, consultez [Collecte de sources de données du journal des événements Windows avec l’agent Log Analytics](../azure-monitor/agents/data-sources-windows-events.md).
 
 ## <a name="my-data-isnt-displaying-properly"></a>Mes données ne s’affichent pas correctement
 
@@ -44,7 +44,7 @@ Si vos données ne s'affichent pas correctement, vérifiez votre configuration, 
 
 - Vous devrez peut-être ouvrir les ports sortants dans le pare-feu de votre serveur pour autoriser Azure Monitor à envoyer des données au portail ; voir [Ports sortants](https://docs.microsoft.com/azure/azure-monitor/app/ip-addresses). 
 
-- Vous ne voyez pas les données relatives aux activités récentes ? Patientez 15 minutes et actualisez le flux. Azure Monitor présente une période de latence de 15 minutes pour le remplissage des données de journal. Pour plus d’informations, consultez [Durée d’ingestion des données de journal dans Azure Monitor](../azure-monitor/platform/data-ingestion-time.md).
+- Vous ne voyez pas les données relatives aux activités récentes ? Patientez 15 minutes et actualisez le flux. Azure Monitor présente une période de latence de 15 minutes pour le remplissage des données de journal. Pour plus d’informations, consultez [Durée d’ingestion des données de journal dans Azure Monitor](../azure-monitor/logs/data-ingestion-time.md).
 
 S’il ne manque aucune information, mais que les données ne s’affichent toujours pas correctement, il peut y avoir un problème dans la requête ou les sources de données. Passez en revue nos problèmes connus et limitations. 
 
@@ -52,7 +52,7 @@ S’il ne manque aucune information, mais que les données ne s’affichent touj
 
 Azure Monitor pour Windows Virtual Desktop utilise des classeurs Azure Monitor. Les classeurs vous permettent d’enregistrer une copie du modèle de classeur Windows Virtual Desktop et d’effectuer vos propres personnalisations.
 
-Par défaut, les modèles de classeur personnalisés n'adoptent pas automatiquement les mises à jour du groupe de produits. Pour plus d’informations, consultez [Résolution des problèmes liés aux insights issus des classeurs](../azure-monitor/insights/troubleshoot-workbooks.md) et [Vue d’ensemble des classeurs](../azure-monitor/platform/workbooks-overview.md).
+Par défaut, les modèles de classeur personnalisés n'adoptent pas automatiquement les mises à jour du groupe de produits. Pour plus d’informations, consultez [Résolution des problèmes liés aux insights issus des classeurs](../azure-monitor/insights/troubleshoot-workbooks.md) et [Vue d’ensemble des classeurs](../azure-monitor/visualize/workbooks-overview.md).
 
 ## <a name="i-cant-interpret-the-data"></a>Je ne parviens pas à interpréter les données
 

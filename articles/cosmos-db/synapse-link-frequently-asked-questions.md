@@ -6,12 +6,12 @@ ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/30/2020
-ms.openlocfilehash: cef5f178ea879ba98df90da36ec9c4b639dd100a
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: 885aab68c769c0705994bad34bee6aaa4fdc3f3d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99627771"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101658467"
 ---
 # <a name="frequently-asked-questions-about-azure-synapse-link-for-azure-cosmos-db"></a>Foire aux questions sur Azure Synapse Link pour Azure Cosmos DB
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -67,6 +67,12 @@ Oui, le magasin analytique peut être activé sur les conteneurs avec un débit 
 ### <a name="is-there-any-effect-on-azure-cosmos-db-transactional-store-provisioned-rus"></a>Existe-t-il un effet sur les RU approvisionnées pour le magasin transactionnel Azure Cosmos DB ?
 
 Azure Cosmos DB garantit l’isolation des performances entre les charges de travail transactionnelles et analytiques. L’activation du magasin analytique sur un conteneur n’a pas d’impact sur les RU/s configurées sur le magasin transactionnel Azure Cosmos DB. Les transactions (lecture et écriture) et les coûts de stockage du magasin analytique sont facturées séparément. Pour plus d’informations, consultez la [tarification du magasin analytique Azure Cosmos DB](analytical-store-introduction.md#analytical-store-pricing).
+
+### <a name="can-i-restrict-access-to-azure-cosmos-db-analytical-store"></a>Puis-je restreindre l’accès au magasin analytique Azure Cosmos DB ?
+
+Oui, vous pouvez configurer un [point de terminaison privé managé](analytical-store-private-endpoints.md) et limiter l’accès réseau du magasin analytique au réseau virtuel managé d’Azure Synapse. Les points de terminaison privés managés établissent une liaison privée avec votre magasin analytique. Ce point de terminaison privé limite également l’accès en écriture au magasin transactionnel, parmi d’autres services de données Azure.
+
+Vous pouvez ajouter des points de terminaison privés de magasin transactionnel et de magasin analytique au même compte Azure Cosmos DB dans un espace de travail Azure Synapse Analytics. Si vous voulez seulement exécuter des requêtes analytiques, vous pouvez mapper seulement le point de terminaison privé analytique.
 
 ### <a name="are-delete-and-update-operations-on-the-transactional-store-reflected-in-the-analytical-store"></a>Les opérations de suppression et de mise à jour sur le magasin transactionnel sont-elles reflétées dans le magasin analytique ?
 

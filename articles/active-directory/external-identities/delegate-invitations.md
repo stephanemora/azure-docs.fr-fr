@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 02/12/2021
+ms.date: 03/02/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68ed67afc949b3a67936f20a098bca8b6906a598
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 747fa3005930414832878757664f4787157302d5
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100365546"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101645821"
 ---
 # <a name="enable-b2b-external-collaboration-and-manage-who-can-invite-guests"></a>Permettre une collaboration B2B externe et gérer les utilisateurs autorisés à en inviter d’autres
 
@@ -78,11 +78,11 @@ Par défaut, tous les utilisateurs, notamment les invités, peuvent inviter des 
    >
    >![Choix de la fonctionnalité Envoi d’un code à usage unique par e-mail](media/delegate-invitations/enable-email-otp-opted-in.png)
 
-7. Sous **Activer l'inscription libre-service d'invité via des flux utilisateur (préversion)** , sélectionnez **Oui** si vous souhaitez pouvoir créer des flux d’utilisateurs permettant aux utilisateurs de s’inscrire à des applications. Pour plus d’informations sur ce paramètre, consultez [Ajouter un flux d’utilisateur d’inscription en libre-service à une application (préversion)](self-service-sign-up-user-flow.md).
+7. Sous **Activer l’inscription en libre-service d’invité via des flux utilisateur**, sélectionnez **Oui** si vous souhaitez pouvoir créer des flux d’utilisateurs pour permettre aux utilisateurs de s’inscrire auprès des applications. Pour plus d’informations sur ce paramètre, consultez [Ajouter un flux d’utilisateurs d’inscription en libre-service à une application](self-service-sign-up-user-flow.md).
 
     ![Paramètre d’inscription en libre-service via des flux d’utilisateurs](./media/delegate-invitations/self-service-sign-up-setting.png)
 
-7. Sous **Restrictions de collaboration**, choisissez d’autoriser ou de refuser des invitations dans les domaines que vous spécifiez. Pour plus d’informations, consultez [Autoriser ou bloquer des invitations aux utilisateurs B2B à partir d’organisations spécifiques](allow-deny-list.md).
+7. Sous **Restrictions de collaboration**, vous pouvez choisir d’autoriser ou de refuser les invitations aux domaines que vous spécifiez. Vous pouvez notamment entrer des noms de domaine spécifiques dans les zones de texte. Pour plusieurs domaines, entrez chaque domaine sur une nouvelle ligne. Pour plus d’informations, consultez [Autoriser ou bloquer des invitations aux utilisateurs B2B à partir d’organisations spécifiques](allow-deny-list.md).
 
     ![Paramètres des restrictions de collaboration](./media/delegate-invitations/collaboration-restrictions.png)
 ## <a name="assign-the-guest-inviter-role-to-a-user"></a>Affecter le rôle Inviteur d’invités à un utilisateur

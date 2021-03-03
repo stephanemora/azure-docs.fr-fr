@@ -15,12 +15,12 @@ ms.date: 08/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1fa195fd8d40c6b67a9c446f0b2320fe47d75259
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 29c0ae8ec210356f6027a46ed01f2a7126ea4a49
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99092664"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101644729"
 ---
 # <a name="azure-active-directory-connect-faq"></a>FAQ Azure Active Directory Connect
 
@@ -201,7 +201,7 @@ Selon la taille de l’environnement, le processus peut prendre quelques heures.
 **Q : J’ai reçu un e-mail indiquant que ma mise à niveau automatique ne fonctionne plus et que je dois installer la nouvelle version. Pourquoi dois-je effectuer cette opération ?**  
 L’année dernière, nous avons publié une version d’Azure AD Connect qui, dans certaines circonstances, désactivait la fonctionnalité de mise à niveau automatique sur votre serveur. Nous avons résolu le problème dans Azure AD Connect version 1.1.750.0. Si vous êtes touché par le problème, vous pouvez résoudre l’erreur en exécutant un script PowerShell afin de réparer la mise à niveau automatique ou passer manuellement à la dernière version d’Azure AD Connect. 
 
-Pour exécuter le script PowerShell, [téléchargez le script PowerShell](https://aka.ms/repairaadconnect) et exécutez-le sur votre serveur Azure AD Connect dans une fenêtre PowerShell d’administration. Pour savoir comment exécuter le script, [regardez cette courte vidéo](https://aka.ms/repairaadcau).
+Pour exécuter le script PowerShell, [téléchargez le script PowerShell](/samples/browse/?redirectedfrom=TechNet-Gallery) et exécutez-le sur votre serveur Azure AD Connect dans une fenêtre PowerShell d’administration. Pour savoir comment exécuter le script, [regardez cette courte vidéo](https://aka.ms/repairaadcau).
 
 Pour effectuer manuellement la mise à niveau, vous devez télécharger et exécuter la dernière version du fichier AADConnect.msi.
  

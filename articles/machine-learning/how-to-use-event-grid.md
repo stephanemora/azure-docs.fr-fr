@@ -11,12 +11,12 @@ ms.author: shipatel
 author: shivp950
 ms.reviewer: larryfr
 ms.date: 05/11/2020
-ms.openlocfilehash: 1fd177273c9dafb04add64d8a8bfef1d81cc65d0
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 06b871d29c26241c38be27c4ace8ab7461834fd1
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93319310"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101655715"
 ---
 # <a name="trigger-applications-processes-or-cicd-workflows-based-on-azure-machine-learning-events-preview"></a>Déclenchement des applications, des processus et des workflows CI/CD en fonction d’événements Azure Machine Learning (préversion)
 
@@ -29,9 +29,6 @@ Quand utiliser Event Grid pour les actions pilotées par des événements :
 * Utiliser une fonction Azure après l’inscription d’un modèle
 * Événements de diffusion en continu d’Azure Machine Learning sur divers points de terminaison
 * Déclencher un pipeline ML quand une dérive est détectée
-
-> [!NOTE] 
-> Actuellement, les événements runStatusChanged se déclenchent uniquement lorsque l’état d’exécution est **échec**
 
 ## <a name="prerequisites"></a>Prérequis
 Pour utiliser Event Grid, vous devez avoir un accès contributeur ou propriétaire à l’espace de travail Azure Machine Learning pour lequel vous allez créer des événements.
@@ -67,14 +64,14 @@ Les abonnements pour les événements Azure Machine Learning sont protégés par
 
 1. Accédez au Portail Azure, sélectionnez un nouvel abonnement ou un abonnement existant. 
 
-1. Sélectionnez l’onglet Filtres et faites défiler jusqu’à Filtres avancés. Pour les champs **Clé** et **Valeur** , fournissez les types de propriété par lesquels vous souhaitez filtrer. Ici, vous pouvez voir que l’événement se déclenche uniquement lorsque le type d’exécution est une exécution de pipeline ou une exécution d’étape de pipeline.  
+1. Sélectionnez l’onglet Filtres et faites défiler jusqu’à Filtres avancés. Pour les champs **Clé** et **Valeur**, fournissez les types de propriété par lesquels vous souhaitez filtrer. Ici, vous pouvez voir que l’événement se déclenche uniquement lorsque le type d’exécution est une exécution de pipeline ou une exécution d’étape de pipeline.  
 
     :::image type="content" source="media/how-to-use-event-grid/select-event-filters.png" alt-text="Filtrer les événements":::
 
 
 + **Filtrer par type d’événement :** Un abonnement aux événements peut spécifier un ou plusieurs types d’événements Azure Machine Learning.
 
-+ **Filtrer par sujet d’événement :** Azure Event Grid prend en charge les filtres de sujet reposant sur les correspondances __commence par__ et __se termine par__ , afin que les événements dont l’objet correspond soient remis à l’abonné. Des événements d’apprentissage automatique différents ont un format de sujet différent.
++ **Filtrer par sujet d’événement :** Azure Event Grid prend en charge les filtres de sujet reposant sur les correspondances __commence par__ et __se termine par__, afin que les événements dont l’objet correspond soient remis à l’abonné. Des événements d’apprentissage automatique différents ont un format de sujet différent.
 
   | Type d'événement | Format du sujet | Exemple de sujet |
   | ---------- | ----------- | ----------- |
@@ -120,7 +117,7 @@ Azure Event Grid permet aux clients de créer des gestionnaires de messages déc
 
     ![select-events-in-workspace.png](./media/how-to-use-event-grid/select-event.png)
 
-1. Sélectionnez le type d’événement à consommer. Par exemple, la capture d’écran suivante a sélectionné __Modèle inscrit__ , __Modèle déployé__ , __Exécution terminée__ et __Dérive de jeu de données détectée__ :
+1. Sélectionnez le type d’événement à consommer. Par exemple, la capture d’écran suivante a sélectionné __Modèle inscrit__, __Modèle déployé__, __Exécution terminée__ et __Dérive de jeu de données détectée__ :
 
     ![add-event-type](./media/how-to-use-event-grid/add-event-type-updated.png)
 

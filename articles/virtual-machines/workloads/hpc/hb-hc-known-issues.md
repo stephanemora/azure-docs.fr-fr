@@ -3,17 +3,17 @@ title: Résolution des problèmes connus avec les machines virtuelles HPC et GPU
 description: Découvrez comment résoudre les problèmes connus liés aux tailles des machines virtuelles HPC et GPU dans Azure.
 author: vermagit
 ms.service: virtual-machines
-ms.subservice: workloads
+ms.subservice: hpc
 ms.topic: article
 ms.date: 1/19/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 777c78047ec9bf195c5e0c823aa0edfb287b3998
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 83f9778da91cebb651d98e2e85748cda7435230a
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98598322"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101674669"
 ---
 # <a name="known-issues-with-h-series-and-n-series-vms"></a>Problèmes connus avec les machines virtuelles des séries H et N
 

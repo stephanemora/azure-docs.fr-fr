@@ -10,12 +10,12 @@ ms.author: lazzeri
 author: FrancescaLazzeri
 ms.date: 01/14/2020
 ms.custom: contperf-fy21q1,contperfq1
-ms.openlocfilehash: 61305e4f9ba45cb7c13a96bee9d1aab81108bb4d
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 48de06d28442b4d05cd3a7ab287732c0999e434c
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98220692"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659696"
 ---
 # <a name="deep-learning-vs-machine-learning-in-azure-machine-learning"></a>Apprentissage profond et apprentissage automatique dans Azure Machine Learning
 
@@ -130,4 +130,4 @@ Les articles suivants présentent des options supplémentaires pour l’utilisat
 
 - [Classifier des chiffres manuscrits à l’aide d’un estimateur TensorFlow et de Keras](./how-to-train-keras.md?WT.mc_id=docs-article-lazzeri)
 
-- [Classifier des chiffres manuscrits à l’aide d’un modèle Chainer](./how-to-set-up-training-targets.md)
+- [Classifier des chiffres manuscrits à l’aide d’un modèle Chainer](./how-to-set-up-training-targets.md?WT.mc_id=docs-article-lazzeri)

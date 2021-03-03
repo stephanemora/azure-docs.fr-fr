@@ -3,12 +3,12 @@ title: 'Guide pratique pour concevoir votre déploiement Application Insights :
 description: Télémétrie directe de différentes ressources pour les tampons de développement, de test et de production.
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: 49e9b8920af7333e0d95e23e6e5cf0828d448609
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 3964cddcf27a4b2c7397b508ccb3cc8928bd04ad
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95536351"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100589526"
 ---
 # <a name="how-many-application-insights-resources-should-i-deploy"></a>Combien de ressources Application Insights déployer
 
@@ -86,7 +86,7 @@ Vous avez besoin des clés d’instrumentation de toutes les ressources auxquell
 ## <a name="filter-on-build-number"></a>Filtrer sur le numéro de build
 Quand vous publiez une nouvelle version de votre application, vous voulez pouvoir distinguer la télémétrie des différentes builds.
 
-Vous pouvez définir la propriété Version de l’application pour filtrer les résultats de [recherche](../../azure-monitor/app/diagnostic-search.md) et de [Metrics Explorer](../../azure-monitor/platform/metrics-charts.md).
+Vous pouvez définir la propriété Version de l’application pour filtrer les résultats de [recherche](../../azure-monitor/app/diagnostic-search.md) et de [Metrics Explorer](../../azure-monitor/essentials/metrics-charts.md).
 
 Il existe plusieurs méthodes de définition de la propriété Version de l’application.
 
@@ -132,7 +132,7 @@ Pour vérifier la version de l’application, assurez-vous que `buildinfo.config
 </PropertyGroup>
 ```
 
-Quand il détient les informations de version, le module web Application Insights ajoute automatiquement la **version de l’application** en tant que propriété à chaque élément de télémétrie. Cela vous permet de filtrer par version lorsque vous effectuez des [recherches de diagnostic](../../azure-monitor/app/diagnostic-search.md) ou que vous [explorez les métriques](../../azure-monitor/platform/metrics-charts.md).
+Quand il détient les informations de version, le module web Application Insights ajoute automatiquement la **version de l’application** en tant que propriété à chaque élément de télémétrie. Cela vous permet de filtrer par version lorsque vous effectuez des [recherches de diagnostic](../../azure-monitor/app/diagnostic-search.md) ou que vous [explorez les métriques](../../azure-monitor/essentials/metrics-charts.md).
 
 Toutefois, notez que le numéro de version de build est uniquement généré par Microsoft Build Engine, et non par la build de développement dans Visual Studio.
 

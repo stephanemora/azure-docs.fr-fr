@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/26/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: c3e2245ae47504e058921c532ed40a220e95423d
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: bf91c0a6e533acb326fe815c3e3c1088c959a603
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98197572"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576718"
 ---
 # <a name="azure-security-baseline-for-site-recovery"></a>Ligne de base de la sécurité Azure pour Site Recovery
 
@@ -66,9 +66,9 @@ Vous pouvez utiliser Azure PowerShell ou Azure CLI pour rechercher des ressource
 
 **Conseils** : surveillez les modifications apportées aux configurations de ressources réseau en lien avec le service Site Recovery à l’aide des journaux des activités Azure. Créez des alertes dans Azure Monitor pour être informé de la modification de ressources réseau critiques du service Site Recovery.
 
-- [Afficher et récupérer les événements du journal d’activité Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Afficher et récupérer les événements du journal d’activité Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Créer, afficher et gérer des alertes de journal d’activité à l’aide d’Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [Créer, afficher et gérer des alertes de journal d’activité à l’aide d’Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -86,7 +86,7 @@ Utilisez les données du journal des activités Azure pour déterminer « le qu
 
 Ingérez les journaux du service Site Recovery dans Azure Monitor afin d’agréger les données de sécurité générées. Dans Azure Monitor, utilisez des espaces de travail Log Analytics pour interroger et effectuer l’analytique, et utilisez des comptes de stockage pour le stockage à long terme ou l’archivage. Vous pouvez également activer et intégrer des données dans Azure Sentinel ou une tierce solution de gestion des informations de sécurité et des événements (Security Information and Event Management, SIEM).
 
-- [Guide pratique pour activer les paramètres de diagnostic du journal d’activité Azure](../azure-monitor/platform/activity-log.md)
+- [Guide pratique pour activer les paramètres de diagnostic du journal d’activité Azure](../azure-monitor/essentials/activity-log.md)
 
 - [Superviser Site Recovery avec les journaux Azure Monitor](monitor-log-analytics.md)
 
@@ -104,7 +104,7 @@ Utilisez les données du journal des activités Azure pour déterminer « le qu
 
 Ingérez les journaux du service Site Recovery avec Azure Monitor afin d’agréger les données de sécurité générées. Dans Azure Monitor, utilisez des espaces de travail Log Analytics pour interroger et effectuer l’analytique, et utilisez des comptes de stockage pour le stockage à long terme et l’archivage. Activez et intégrez des données à Azure Sentinel ou à une solution SIEM tierce.
 
-- [Guide pratique pour activer les paramètres de diagnostic du journal d’activité Azure](../azure-monitor/platform/activity-log.md)
+- [Guide pratique pour activer les paramètres de diagnostic du journal d’activité Azure](../azure-monitor/essentials/activity-log.md)
 
 - [Superviser Site Recovery avec les journaux Azure Monitor](monitor-log-analytics.md)
 
@@ -118,7 +118,7 @@ Ingérez les journaux du service Site Recovery avec Azure Monitor afin d’agré
 
 **Conseils** : définissez une période de rétention des journaux pour les espaces de travail Log Analytics associés à vos coffres Recovery Services, en utilisant Azure Monitor conformément aux réglementations de conformité de votre organisation. 
 
-- [Guide pratique pour définir les paramètres de conservation des journaux](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Guide pratique pour définir les paramètres de conservation des journaux](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -132,9 +132,9 @@ Exécuter des requêtes dans Log Analytics pour rechercher des termes, identifie
 
 - [Surveiller Site Recovery](site-recovery-monitor-and-troubleshoot.md)
 
-- [Guide pratique pour activer les paramètres de diagnostic du journal d’activité Azure](../azure-monitor/platform/activity-log.md)
+- [Guide pratique pour activer les paramètres de diagnostic du journal d’activité Azure](../azure-monitor/essentials/activity-log.md)
 
-- [Collecte et analyse des journaux d’activité Azure dans l’espace de travail Log Analytics dans Azure Monitor](../azure-monitor/platform/activity-log.md)
+- [Collecte et analyse des journaux d’activité Azure dans l’espace de travail Log Analytics dans Azure Monitor](../azure-monitor/essentials/activity-log.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -150,7 +150,7 @@ Visualisez et interrogez les résultats du journal, et configurez des alertes po
 
 - [Guide pratique pour intégrer Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Créer, afficher et gérer des alertes de journal à l’aide d’Azure Monitor](../azure-monitor/platform/alerts-log.md)
+- [Créer, afficher et gérer des alertes de journal à l’aide d’Azure Monitor](../azure-monitor/alerts/alerts-log.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -224,7 +224,7 @@ Créez un processus pour effectuer le suivi des identités et du contrôle d’a
 
 - [Stations de travail d’accès privilégié](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
-- [Planifier un déploiement informatique d'Azure AD Multi-Factor Authentication](../active-directory/authentication/howto-mfa-getstarted.md)
+- [Planifier un déploiement d'Azure AD Multi-Factor Authentication basé sur le cloud](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -413,7 +413,7 @@ Seul le client a accès à la clé de chiffrement lors de l’utilisation d’un
 ### <a name="49-log-and-alert-on-changes-to-critical-azure-resources"></a>4.9 : Consigner et alerter les modifications apportées aux ressources Azure critiques
 
 **Conseils** : utilisez Azure Monitor avec les journaux des activités Azure pour créer des alertes lorsque des modifications sont apportées à des ressources critiques. Ces ressources peuvent inclure des instances de production de coffres Recovery Services, des ressources du service Site Recovery et des ressources associées.
-- [Guide pratique pour créer des alertes sur les événements du journal d’activité Azure](../azure-monitor/platform/alerts-activity-log.md)
+- [Guide pratique pour créer des alertes sur les événements du journal d’activité Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 

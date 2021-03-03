@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.date: 04/06/2018
 ms.author: johnkem
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: c981214c69653b3a4a687a861cb348f3587def7c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 06c614d57002c7944d88df123d06ac63d04b288f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89078756"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591152"
 ---
 # <a name="azure-diagnostics-extension-for-windows-vms"></a>Extension Diagnostics Azure pour machines virtuelles Windows
 
@@ -22,7 +22,7 @@ ms.locfileid: "89078756"
 
 L’extension de machine virtuelle Diagnostics Azure vous permet de collecter des données de surveillance, comme des compteurs de performances et des journaux d’événements, à partir de votre machine virtuelle Windows. Vous pouvez définir de façon granulaire les données à collecter et leur emplacement de destination, par exemple un compte Stockage Azure ou un hub d’événements Azure. Vous pouvez également utiliser ces données pour générer des graphiques dans le portail Azure ou créer des alertes de métrique.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 ### <a name="operating-system"></a>Système d’exploitation
 
@@ -34,7 +34,7 @@ L’extension Diagnostics Azure nécessite que la machine virtuelle cible soit c
 
 ## <a name="extension-schema"></a>Schéma d’extensions
 
-[Le schéma et les valeurs de propriété de l’extension Diagnostics Azure sont décrits dans ce document.](../../azure-monitor/platform/diagnostics-extension-schema-windows.md)
+[Le schéma et les valeurs de propriété de l’extension Diagnostics Azure sont décrits dans ce document.](../../azure-monitor/agents/diagnostics-extension-schema-windows.md)
 
 ## <a name="template-deployment"></a>Déploiement de modèle
 
@@ -81,12 +81,12 @@ Vous pouvez récupérer les données sur l’état des déploiements d’extensi
 az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 ```
 
-Pour plus d’informations sur la résolution des problèmes liés à l’extension Diagnostics Azure, [consultez cet article](../../azure-monitor/platform/diagnostics-extension-troubleshooting.md).
+Pour plus d’informations sur la résolution des problèmes liés à l’extension Diagnostics Azure, [consultez cet article](../../azure-monitor/agents/diagnostics-extension-troubleshooting.md).
 
 ### <a name="support"></a>Support
 
 Si vous avez besoin d’une aide supplémentaire à quelque étape que ce soit dans cet article, vous pouvez contacter les experts Azure sur les [forums MSDN Azure et Stack Overflow](https://azure.microsoft.com/support/forums/). Vous pouvez également signaler un incident au support Azure. Accédez au [site du support Azure](https://azure.microsoft.com/support/options/) , puis cliquez sur Obtenir un support. Pour plus d’informations sur l’utilisation du support Azure, lisez le [FAQ du support Microsoft Azure](https://azure.microsoft.com/support/faq/).
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [En savoir plus sur l’extension Diagnostics Azure](../../azure-monitor/platform/diagnostics-extension-overview.md)
-* [Examinez le schéma et les versions de l’extension](../../azure-monitor/platform/diagnostics-extension-schema-windows.md)
+* [En savoir plus sur l’extension Diagnostics Azure](../../azure-monitor/agents/diagnostics-extension-overview.md)
+* [Examinez le schéma et les versions de l’extension](../../azure-monitor/agents/diagnostics-extension-schema-windows.md)

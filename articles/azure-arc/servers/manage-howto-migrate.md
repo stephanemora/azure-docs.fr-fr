@@ -3,12 +3,12 @@ title: Guide pratique pour migrer des serveurs avec Azure Arc entre différentes
 description: Découvrez comment migrer un serveur avec Azure Arc d’une région à une autre.
 ms.date: 02/10/2021
 ms.topic: conceptual
-ms.openlocfilehash: d4e0f1e41e928ab489f7c2c167eea31785d9bc21
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 251a347205d93af715add52db293d8000438df44
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100416584"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101650173"
 ---
 # <a name="how-to-migrate-azure-arc-enabled-servers-across-regions"></a>Guide pratique pour migrer des serveurs avec Azure Arc entre différentes régions
 
@@ -36,4 +36,4 @@ Pour migrer un serveur avec Azure Arc d’une région Azure vers une autre, vous
 
 * Pour plus d’informations sur la résolution des problèmes, consultez le [guide Résoudre les problèmes de l’agent Connected Machine](troubleshoot-agent-onboard.md).
 
-* Apprenez à gérer votre machine à l’aide d’[Azure Policy](../../governance/policy/overview.md), par exemple pour la [configuration invité](../../governance/policy/concepts/guest-configuration.md) des machines virtuelles, pour vérifier que l’ordinateur crée des rapports sur l’espace de travail Log Analytics prévu, pour activer la supervision avec la stratégie [Azure Monitor avec des machines virtuelles](../../azure-monitor/insights/vminsights-enable-policy.md) et bien plus encore.
+* Apprenez à gérer votre machine à l’aide d’[Azure Policy](../../governance/policy/overview.md), par exemple pour la [configuration invité](../../governance/policy/concepts/guest-configuration.md) des machines virtuelles, pour vérifier que l’ordinateur crée des rapports sur l’espace de travail Log Analytics prévu, pour activer la supervision avec la stratégie [Azure Monitor avec des machines virtuelles](../../azure-monitor/vm/vminsights-enable-policy.md) et bien plus encore.

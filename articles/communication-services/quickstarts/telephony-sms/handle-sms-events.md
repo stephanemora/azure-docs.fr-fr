@@ -9,26 +9,25 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: d6409c005e006372f55e77aeb4d977e6b1c45832
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: b3bdbef5680561d60ab4db6ee42033553e691ed3
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96936271"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101660121"
 ---
 # <a name="quickstart-handle-sms-events"></a>Démarrage rapide : Gérer les événements SMS
 
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 [!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 
-Commencez avec Azure Communication Services en utilisant Azure Event Grid pour gérer les événements SMS Communication Services. 
+Commencez avec Azure Communication Services en utilisant Azure Event Grid pour gérer les événements SMS Communication Services.
 
 ## <a name="about-azure-event-grid"></a>À propos d’Azure Event Grid
 
 [Azure Event Grid](../../../event-grid/overview.md) est un service d’événement cloud. Dans cet article, vous allez apprendre à vous abonner à des [événements de service de communication](../../concepts/event-handling.md) et à déclencher un événement pour voir le résultat. En règle générale, vous envoyez des événements à un point de terminaison qui traite les données d’événement et entreprend des actions. Dans cet article, nous allons envoyer les événements à une application web qui collecte et affiche les messages.
 
 ## <a name="prerequisites"></a>Prérequis
-- Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
+- Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Une ressource Azure Communication Services. Pour plus d’informations, consultez le guide de démarrage rapide [Créer une ressource Azure Communication](../create-communication-resource.md).
 - Un numéro de téléphone permettant de recevoir des SMS. [Obtenez un numéro de téléphone](./get-phone-number.md).
 
@@ -44,13 +43,13 @@ Dans le portail Azure :
 2. Sélectionnez l’abonnement que vous utilisez pour Event Grid.
 3. Dans le menu de gauche, sous **Paramètres**, sélectionnez **Fournisseurs de ressources**.
 4. Recherchez **Microsoft.EventGrid**.
-5. Si l’inscription n’est pas encore faite, sélectionnez **S’inscrire**. 
+5. Si l’inscription n’est pas encore faite, sélectionnez **S’inscrire**.
 
 L’inscription peut prendre un certain temps. Sélectionnez **Actualiser** pour mettre à jour l’état. Lorsque l’**état** est **Inscrit**, vous êtes prêt à continuer.
 
 ### <a name="event-grid-viewer-deployment"></a>Déploiement de la visionneuse Event Grid
 
-Pour ce guide de démarrage rapide, nous allons utiliser l’[exemple de la visionneuse Event Grid](/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/) pour voir les événements en quasi-temps réel. Cela offre à l’utilisateur l’expérience d’un flux en temps réel. De plus, la charge utile de chaque événement doit également être disponible pour inspection.  
+Pour ce guide de démarrage rapide, nous allons utiliser l’[exemple de la visionneuse Event Grid](/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/) pour voir les événements en quasi-temps réel. Cela offre à l’utilisateur l’expérience d’un flux en temps réel. De plus, la charge utile de chaque événement doit également être disponible pour inspection.
 
 ## <a name="subscribe-to-the-sms-events-using-web-hooks"></a>S’abonner aux événements SMS à l’aide de webhooks
 
@@ -62,7 +61,7 @@ Appuyez sur **Ajouter un abonnement à un événement** pour accéder à l’Ass
 
 Dans la page **Créer un abonnement aux événements**, entrez un **nom** pour l’abonnement aux événements.
 
-Vous pouvez vous abonner à des événements spécifiques pour indiquer à Event Grid les événements SMS que vous voulez suivre, et où les envoyer. Dans le menu déroulant, sélectionnez les événements auxquels vous voulez vous abonner. Pour les SMS, vous avez le choix entre `SMS Received` et `SMS Delivery Report Received`. 
+Vous pouvez vous abonner à des événements spécifiques pour indiquer à Event Grid les événements SMS que vous voulez suivre, et où les envoyer. Dans le menu déroulant, sélectionnez les événements auxquels vous voulez vous abonner. Pour les SMS, vous avez le choix entre `SMS Received` et `SMS Delivery Report Received`.
 
 Si vous êtes invité à fournir un **Nom de rubrique système**, n’hésitez pas à fournir une chaîne unique. Ce champ n’a aucun impact sur votre expérience et est utilisé à des fins de télémétrie interne.
 
@@ -70,7 +69,7 @@ Consultez la liste complète des [événements pris en charge par Azure Communic
 
 :::image type="content" source="./media/handle-sms-events/select-events-create-eventsub.png" alt-text="Capture d’écran montrant les types d’événements SMS Received (SMS reçu) et SMS Delivery Report Received (Rapport de remise de SMS reçu) sélectionnés.":::
 
-Sélectionnez **Webhook** pour **Type de point de terminaison**. 
+Sélectionnez **Webhook** pour **Type de point de terminaison**.
 
 :::image type="content" source="./media/handle-sms-events/select-events-create-linkwebhook.png" alt-text="Capture d’écran montrant le champ Type de point de terminaison défini sur Webhook.":::
 
@@ -111,7 +110,7 @@ Si vous voulez nettoyer et supprimer un abonnement Communication Services, vous 
 
 Dans ce guide de démarrage rapide, vous avez appris comment consommer des événements SMS. Vous pouvez recevoir des messages SMS en créant un abonnement Event Grid.
 
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
 > [Envoyer un SMS](../telephony-sms/send.md)
 
 Vous voudrez peut-être aussi :

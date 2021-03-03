@@ -7,12 +7,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 317c02fe03a56ea3cd3a98b00f8a0080b3917108
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 67e7765a1f46c2be5790c11687e06ea624702b9b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88930279"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100589571"
 ---
 # <a name="profile-live-azure-service-fabric-applications-with-application-insights"></a>Profiler des applications Azure Service Fabric en production avec Application Insights
 
@@ -29,7 +29,7 @@ Pour configurer votre environnement, effectuez les actions suivantes :
 
 1. Le profileur prend en charge .NET Framework et .NET Core. Si vous utilisez .NET Framework, vérifiez que vous utilisez [.NET Framework 4.6.1](/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) ou une version ultérieure. Il vous suffit de vérifier que le système d’exploitation déployé est `Windows Server 2012 R2` ou une version ultérieure. Le profileur prend en charge .NET Core 2.1 et applications plus récentes.
 
-1. Recherchez l'extension [Diagnostics Azure](../platform/diagnostics-extension-overview.md) dans le fichier du modèle de déploiement.
+1. Recherchez l'extension [Diagnostics Azure](../agents/diagnostics-extension-overview.md) dans le fichier du modèle de déploiement.
 
 1. Ajoutez la section `SinksConfig` suivante comme élément enfant de `WadCfg`. Remplacez la valeur de propriété `ApplicationInsightsProfiler` par votre propre clé d’instrumentation Application Insights :  
 

@@ -6,12 +6,12 @@ author: vgorbenko
 ms.author: vitalyg
 ms.date: 09/18/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 9b93ac774dffb837d93853353e83b8da4ab4d8d4
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: c419411b0956cdc42055f0e97a47fc8e4ddb38c9
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027157"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100589743"
 ---
 # <a name="log-based-and-pre-aggregated-metrics-in-application-insights"></a>Métriques basées sur le journal et pré-agrégées dans Application Insights
 
@@ -30,12 +30,12 @@ Dans le même temps, la collecte d'un ensemble complet d'événements peut s'av�
 
 ## <a name="pre-aggregated-metrics"></a>Métriques pré-agrégées
 
-Outre les métriques basées sur le journal, fin 2018, l'équipe Application Insights a publié une préversion publique des métriques stockées dans un référentiel spécialisé optimisé pour les séries chronologiques. Les nouvelles métriques ne sont plus conservées sous la forme d’événements individuels avec un grand nombre de propriétés. À la place, elles sont stockées sous la forme de séries chronologiques pré-agrégées et seulement avec les principales dimensions. Les métriques sont ainsi de meilleure qualité au moment de la requête : l’extraction des données s’effectue beaucoup plus rapidement et nécessite moins de puissance de calcul. Cela rend possible de nouveaux scénarios comme [la génération d’alertes quasiment en temps réel sur les dimensions des métriques](../platform/alerts-metric-near-real-time.md), des [tableaux de bord](./overview-dashboard.md) plus réactifs et bien plus encore.
+Outre les métriques basées sur le journal, fin 2018, l'équipe Application Insights a publié une préversion publique des métriques stockées dans un référentiel spécialisé optimisé pour les séries chronologiques. Les nouvelles métriques ne sont plus conservées sous la forme d’événements individuels avec un grand nombre de propriétés. À la place, elles sont stockées sous la forme de séries chronologiques pré-agrégées et seulement avec les principales dimensions. Les métriques sont ainsi de meilleure qualité au moment de la requête : l’extraction des données s’effectue beaucoup plus rapidement et nécessite moins de puissance de calcul. Cela rend possible de nouveaux scénarios comme [la génération d’alertes quasiment en temps réel sur les dimensions des métriques](../alerts/alerts-metric-near-real-time.md), des [tableaux de bord](./overview-dashboard.md) plus réactifs et bien plus encore.
 
 > [!IMPORTANT]
 > Les métriques basées sur le journal et pré-agrégées coexistent dans Application Insights. Pour différencier les deux, dans l'expérience utilisateur Application Insights, les métriques pré-agrégées sont maintenant appelées « Métriques standard (préversion) », tandis que les métriques traditionnelles des événements ont été renommées « Métriques basées sur le journal ».
 
-Les kits de développement logiciel les plus récents (SDK [Application Insights 2.7](https://www.nuget.org/packages/Microsoft.ApplicationInsights/2.7.2) ou version ultérieure pour .NET) pré-agrègent les métriques pendant la collecte. Cela s'applique aux [métriques standard envoyées par défaut](../platform/metrics-supported.md#microsoftinsightscomponents) afin que la précision ne soit pas affectée par l'échantillonnage ou le filtrage. Cela s'applique également aux métriques personnalisées envoyées à l'aide de [GetMetric](./api-custom-events-metrics.md#getmetric), ce qui permet de réduire l'ingestion de données et les coûts.
+Les kits de développement logiciel les plus récents (SDK [Application Insights 2.7](https://www.nuget.org/packages/Microsoft.ApplicationInsights/2.7.2) ou version ultérieure pour .NET) pré-agrègent les métriques pendant la collecte. Cela s'applique aux [métriques standard envoyées par défaut](../essentials/metrics-supported.md#microsoftinsightscomponents) afin que la précision ne soit pas affectée par l'échantillonnage ou le filtrage. Cela s'applique également aux métriques personnalisées envoyées à l'aide de [GetMetric](./api-custom-events-metrics.md#getmetric), ce qui permet de réduire l'ingestion de données et les coûts.
 
 Lorsque les SDK n'implémentent pas la pré-agrégation (ce qui est le cas avec les anciennes versions des SDK Application Insights ou pour l'instrumentation du navigateur), le serveur principal d'Application Insights continue à renseigner les nouvelles métriques en agrégeant les événements reçus par le point de terminaison de collecte des événements d'Application Insights. Ainsi, même si vous ne bénéficiez pas de la réduction du volume de données transmises sur le réseau, vous pouvez utiliser les métriques pré-agrégées et profiter de performances et d'une prise en charge améliorées de la génération d'alertes dimensionnelles quasiment en temps réel avec des kits de développement logiciel (SDK) qui ne pré-agrègent pas les métriques pendant la collecte.
 
@@ -81,7 +81,7 @@ La collecte des dimensions des métriques personnalisées est désactivée par d
 
 ## <a name="creating-charts-and-exploring-log-based-and-standard-pre-aggregated-metrics"></a>Création de graphiques et exploration des métriques pré-agrégées standard et basées sur le journal
 
-Utilisez [Azure Monitor Metrics Explorer](../platform/metrics-getting-started.md) pour tracer des graphiques à partir des métriques pré-agrégées et basées sur le journal et créez des tableaux de bord avec des graphiques. Après avoir sélectionné la ressource Application Insights souhaitée, utilisez le sélecteur d’espace de noms pour basculer entre les métriques standard (préversion) et basées sur le journal, ou sélectionnez un espace de noms de métrique personnalisée :
+Utilisez [Azure Monitor Metrics Explorer](../essentials/metrics-getting-started.md) pour tracer des graphiques à partir des métriques pré-agrégées et basées sur le journal et créez des tableaux de bord avec des graphiques. Après avoir sélectionné la ressource Application Insights souhaitée, utilisez le sélecteur d’espace de noms pour basculer entre les métriques standard (préversion) et basées sur le journal, ou sélectionnez un espace de noms de métrique personnalisée :
 
 ![Espace de noms de la métrique](./media/pre-aggregated-metrics-log-metrics/002-metric-namespace.png)
 
@@ -93,5 +93,5 @@ La sélection de l'option [Activer la génération d'alertes sur les dimensions 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Génération d’alertes quasiment en temps réel](../platform/alerts-metric-near-real-time.md)
+* [Génération d’alertes quasiment en temps réel](../alerts/alerts-metric-near-real-time.md)
 * [GetMetric et TrackValue](./api-custom-events-metrics.md#getmetric)

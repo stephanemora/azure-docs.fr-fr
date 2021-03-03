@@ -3,21 +3,21 @@ title: Superviser les ressources déléguées à grande échelle
 description: Découvrez comment utiliser efficacement les journaux Azure Monitor de manière scalable sur les locataires de clients que vous gérez.
 ms.date: 02/11/2021
 ms.topic: how-to
-ms.openlocfilehash: f3a789c855f7b05d24cdacd0fb31ee7d6d3e188b
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: aadd14bb3e4aad61fb2afc0735b5714deedfe301
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100379231"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593123"
 ---
 # <a name="monitor-delegated-resources-at-scale"></a>Superviser les ressources déléguées à grande échelle
 
 En tant que fournisseur de services, vous avez peut-être intégré les locataires de plusieurs clients à [Azure Lighthouse](../overview.md). Azure Lighthouse permet aux fournisseurs de services d’effectuer des opérations à grande échelle sur plusieurs locataires à la fois, améliorant ainsi l’efficacité des tâches de gestion.
 
-Cette rubrique vous montre comment utiliser les [Journaux Azure Monitor](../../azure-monitor/platform/data-platform-logs.md) de manière scalable sur les locataires de clients que vous gérez. Bien que nous fassions référence aux fournisseurs de services et aux clients dans cette rubrique, ces instructions s’appliquent également aux [entreprises utilisant Azure Lighthouse pour gérer plusieurs locataires](../concepts/enterprise.md).
+Cette rubrique vous montre comment utiliser les [Journaux Azure Monitor](../../azure-monitor/logs/data-platform-logs.md) de manière scalable sur les locataires de clients que vous gérez. Bien que nous fassions référence aux fournisseurs de services et aux clients dans cette rubrique, ces instructions s’appliquent également aux [entreprises utilisant Azure Lighthouse pour gérer plusieurs locataires](../concepts/enterprise.md).
 
 > [!NOTE]
-> Assurez-vous que les utilisateurs de vos locataires gestionnaires disposent des [rôles nécessaires pour la gestion des espaces de travail Log Analytics](../../azure-monitor/platform/manage-access.md#manage-access-using-azure-permissions) sur vos abonnements client délégués.
+> Assurez-vous que les utilisateurs de vos locataires gestionnaires disposent des [rôles nécessaires pour la gestion des espaces de travail Log Analytics](../../azure-monitor/logs/manage-access.md#manage-access-using-azure-permissions) sur vos abonnements client délégués.
 
 ## <a name="create-log-analytics-workspaces"></a>Créer des espaces de travail Log Analytics
 
@@ -28,7 +28,7 @@ Nous vous recommandons de créer ces espaces de travail directement dans les loc
 > [!TIP]
 > Tout compte Automation utilisé pour accéder aux données d’un espace de travail Log Analytics doit être créé dans le même locataire que l’espace de travail.
 
-Vous pouvez créer un espace de travail Log Analytics à l’aide du [portail Azure](../../azure-monitor/learn/quick-create-workspace.md), d’[Azure CLI](../../azure-monitor/learn/quick-create-workspace-cli.md) ou d’[Azure PowerShell](../../azure-monitor/platform/powershell-workspace-configuration.md).
+Vous pouvez créer un espace de travail Log Analytics à l’aide du [portail Azure](../../azure-monitor/logs/quick-create-workspace.md), d’[Azure CLI](../../azure-monitor/logs/quick-create-workspace-cli.md) ou d’[Azure PowerShell](../../azure-monitor/logs/powershell-workspace-configuration.md).
 
 > [!IMPORTANT]
 > Même si tous les espaces de travail sont créés dans le locataire client, le fournisseur de ressources Microsoft.Insights doit également être inscrit sur un abonnement dans le locataire gestionnaire.
@@ -43,11 +43,11 @@ Une fois que vous avez déterminé les stratégies à déployer, vous pouvez [le
 
 ## <a name="analyze-the-gathered-data"></a>Analyser les données collectées
 
-Une fois que vous avez déployé vos stratégies, les données sont journalisées dans les espaces de travail Log Analytics que vous avez créés dans chaque locataire de client. Pour obtenir des insights sur tous les clients managés, vous pouvez utiliser des outils tels que les [classeurs Azure Monitor](../../azure-monitor/platform/workbooks-overview.md) afin de collecter et d’analyser des informations provenant de plusieurs sources de données.
+Une fois que vous avez déployé vos stratégies, les données sont journalisées dans les espaces de travail Log Analytics que vous avez créés dans chaque locataire de client. Pour obtenir des insights sur tous les clients managés, vous pouvez utiliser des outils tels que les [classeurs Azure Monitor](../../azure-monitor/visualize/workbooks-overview.md) afin de collecter et d’analyser des informations provenant de plusieurs sources de données.
 
 ## <a name="view-alerts-across-customers"></a>Afficher les alertes entre les clients
 
-Vous pouvez afficher les [alertes](../../azure-monitor/platform/alerts-overview.md) pour les abonnements délégués dans les locataires client que vous gérez.
+Vous pouvez afficher les [alertes](../../azure-monitor/alerts/alerts-overview.md) pour les abonnements délégués dans les locataires client que vous gérez.
 
 À partir de votre locataire gérant, vous pouvez [créer, afficher et gérer des alertes de journal d’activité](../../azure-monitor/platform/alerts-activity-log.md) dans le portail Azure ou via des API et des outils de gestion.
 

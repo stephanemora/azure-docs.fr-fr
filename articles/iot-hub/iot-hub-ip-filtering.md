@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/19/2020
 ms.author: jlian
-ms.openlocfilehash: c6544e8ac00744602476207a89567aea5afe5b1d
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 6f83421d4ee56d56875e13ffbdd8ac9dbbf4b6bb
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98632363"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101656361"
 ---
 # <a name="use-ip-filters"></a>Utiliser des filtres IP
 
@@ -20,7 +20,7 @@ La sécurité est un aspect important de toute solution IoT basée sur Azure IoT
 
 ## <a name="when-to-use"></a>Quand l’utiliser
 
-Utilisez le filtre IP pour recevoir le trafic uniquement à partir d’une plage spécifiée d’adresses IP et refuser tout le reste. Par exemple, vous utilisez votre hub IoT avec [Azure Express Route](https://azure.microsoft.com/documentation/articles/expressroute-faqs/#supported-services) pour créer des connexions privées entre un hub IoT et votre infrastructure locale.
+Utilisez le filtre IP pour recevoir le trafic uniquement à partir d’une plage spécifiée d’adresses IP et refuser tout le reste. Par exemple, vous utilisez votre hub IoT avec [Azure Express Route](../expressroute/expressroute-faqs.md#supported-services) pour créer des connexions privées entre un hub IoT et votre infrastructure locale.
 
 ## <a name="default-setting"></a>Paramètre par défaut
 
@@ -164,7 +164,7 @@ $iothubResource | Set-AzResource -Force
 ## <a name="update-ip-filter-rules-using-rest"></a>Mettre à jour les règles de filtrage IP à l'aide de REST
 
 
-Vous pouvez également récupérer et modifier les filtres IP de votre hub IoT via le point de terminaison REST du fournisseur de ressources Azure. Reportez-vous à `properties.networkRuleSets` dans la [méthode createorupdate](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate).
+Vous pouvez également récupérer et modifier les filtres IP de votre hub IoT via le point de terminaison REST du fournisseur de ressources Azure. Reportez-vous à `properties.networkRuleSets` dans la [méthode createorupdate](/rest/api/iothub/iothubresource/createorupdate).
 
 ## <a name="ip-filter-classic-retirement"></a>Mise hors service du filtre IP (classique)
 
@@ -174,7 +174,7 @@ Le filtre IP classique a été mis hors service. Pour en savoir plus, consultez
 
 Pour explorer davantage les capacités de IoT Hub, consultez :
 
-* [Métriques d’IoT Hub](iot-hub-metrics.md)
+* [Métriques d’IoT Hub](./monitor-iot-hub.md)
 * [Prise en charge par IoT Hub des réseaux virtuels avec Private Link et Managed Identity](virtual-network-support.md)
 * [Gestion de l’accès réseau public pour votre hub IoT](iot-hub-public-network-access.md)
 * [Superviser avec IoT Hub](monitor-iot-hub.md)

@@ -10,19 +10,19 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 02/05/2021
 ms.author: akjosh
-ms.openlocfilehash: ebc4867f0ce16657c550b3d33d76fccdb41cef54
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 741db5ea10847e2fe6711e7ca01d65efb1f09dea
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99980641"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101667314"
 ---
 # <a name="use-linux-diagnostic-extension-40-to-monitor-metrics-and-logs"></a>Utiliser l’extension de diagnostic Linux 4.0 pour superviser les métriques et les journaux
 
 Ce document décrit la version 4.0 et les versions ultérieures de l’extension de diagnostic Linux.
 
 > [!IMPORTANT]
-> Pour plus d’informations sur la version 3, consultez [ce document](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-linux-v3). Pour plus d’informations sur la version 2.3 et les versions antérieures, consultez [ce document](/previous-versions/azure/virtual-machines/linux/classic/diagnostic-extension-v2).
+> Pour plus d’informations sur la version 3, consultez [ce document](./diagnostics-linux-v3.md). Pour plus d’informations sur la version 2.3 et les versions antérieures, consultez [ce document](/previous-versions/azure/virtual-machines/linux/classic/diagnostic-extension-v2).
 
 ## <a name="introduction"></a>Introduction
 
@@ -108,7 +108,7 @@ L’exécutable python2 doit avoir un alias pour *python*. Voici une méthode qu
 L’exemple de configuration téléchargé dans ces exemples collecte un ensemble de données standard et les envoie au Stockage Table. L’URL de l’exemple de configuration et son contenu sont susceptibles d’être modifiés. Dans la plupart des cas, vous devez télécharger une copie du fichier JSON des paramètres du portail et la personnaliser selon vos besoins, puis utiliser des modèles ou une automatisation de votre propre version du fichier de configuration plutôt que de télécharger cette URL à chaque fois.
 
 > [!NOTE]
-> Pour activer le nouveau récepteur Azure Monitor, l’identité affectée par le système doit être attribuée pour les machines virtuelles pour la génération de jetons d’authentification MSI. Cette opération peut être effectuée lors de la création de la machine virtuelle ou après la création de celle-ci. Étapes d’activation de l’identité affectée par le système par le biais du portail, de l’interface CLI, de PowerShell et du gestionnaire des ressources.  sont répertorié(e)s en détail [ici](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm). 
+> Pour activer le nouveau récepteur Azure Monitor, l’identité affectée par le système doit être attribuée pour les machines virtuelles pour la génération de jetons d’authentification MSI. Cette opération peut être effectuée lors de la création de la machine virtuelle ou après la création de celle-ci. Étapes d’activation de l’identité affectée par le système par le biais du portail, de l’interface CLI, de PowerShell et du gestionnaire des ressources.  sont répertorié(e)s en détail [ici](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md). 
 
 #### <a name="azure-cli-sample"></a>Exemple Azure CLI
 
@@ -490,7 +490,7 @@ Exemples : `LinuxSyslog20170410` et `LinuxSyslog20170609`.
 Cette section facultative contrôle l’activation de l’envoi de métriques au récepteur Azure Monitor en plus du compte de stockage et du panneau des métriques invitées par défaut.
 
 > [!NOTE]
-> Cela nécessite l’activation de l’identité attribuée par le système sur les machines virtuelles/VMSS. Pour ce faire, vous pouvez utiliser le portail, l’interface CLI, PowerShell et le gestionnaire des ressources. Les étapes sont répertorié(e)s en détail [ici](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm). Les étapes permettant d’activer cette procédure sont également répertoriées dans les exemples d’installation pour l’interface CLI AZ, PowerShell, etc., repris ci-dessus. 
+> Cela nécessite l’activation de l’identité attribuée par le système sur les machines virtuelles/VMSS. Pour ce faire, vous pouvez utiliser le portail, l’interface CLI, PowerShell et le gestionnaire des ressources. Les étapes sont répertorié(e)s en détail [ici](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md). Les étapes permettant d’activer cette procédure sont également répertoriées dans les exemples d’installation pour l’interface CLI AZ, PowerShell, etc., repris ci-dessus. 
 
 ```json
   "sinksConfig": {
@@ -827,6 +827,6 @@ Consultez la [documentation EventHubs](../../event-hubs/event-hubs-about.md) app
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Créez des alertes de métrique dans [Azure Monitor](../../azure-monitor/platform/alerts-classic-portal.md) pour les métriques que vous collectez.
-* Créez [des graphiques de surveillance](../../azure-monitor/platform/data-platform.md) pour vos métriques.
+* Créez des alertes de métrique dans [Azure Monitor](../../azure-monitor/alerts/alerts-classic-portal.md) pour les métriques que vous collectez.
+* Créez [des graphiques de surveillance](../../azure-monitor/data-platform.md) pour vos métriques.
 * Découvrez comment [créer un groupe de machines virtuelles identiques](../linux/tutorial-create-vmss.md) en utilisant vos métriques pour contrôler la mise à l’échelle automatique.

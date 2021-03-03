@@ -11,12 +11,12 @@ ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: traitement de données automatisé, traitement de documents, entrée de données automatisée, traitement des formulaires
-ms.openlocfilehash: 2d3a37165994a8c7ff9d46ac24e63b7f58404ce3
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 95bbc33035ca99a64242274570be5c9263029aef
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99584564"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101094369"
 ---
 # <a name="what-is-form-recognizer"></a>Qu’est-ce que Form Recognizer ?
 
@@ -27,26 +27,27 @@ Azure Form Recognizer est un service cognitif qui vous permet de créer des logi
 Form Recognizer est constitué de modèles de traitement de documents personnalisés, de modèles prédéfinis de factures, de reçus et de cartes de visite, et du modèle de disposition. Vous pouvez appeler les modèles Form Recognizer au moyen d’une API REST ou de SDK de bibliothèque de client, afin d’en réduire la complexité et de l’intégrer à votre workflow ou application.
 
 Form Recognizer est composé des services suivants :
+
 * **[API Disposition](#layout-api)**  : extrayez du texte, des marques de sélection et des structures de tableaux ainsi que les coordonnées de leurs rectangles englobants dans des documents.
 * **[Modèles personnalisés](#custom-models)**  : extrayez du texte, des paires clé/valeur, des marques de sélection et les données de tableaux dans vos formulaires. Ces modèles étant entraînés avec vos propres données, ils sont adaptés à vos formulaires.
 * **[Modèles prédéfinis](#prebuilt-models)**  : extrayez les données de types de formulaires uniques à l’aide de modèles prédéfinis. Les modèles prédéfinis suivants sont disponibles actuellement :
-    * [Factures](./concept-invoices.md)
-    * [Reçus](./concept-receipts.md)
-    * [Cartes de visite](./concept-business-cards.md)
-
+  * [Factures](./concept-invoices.md)
+  * [Reçus](./concept-receipts.md)
+  * [Cartes de visite](./concept-business-cards.md)
 
 ## <a name="try-it-out"></a>Faire un essai
 
 Pour tester le service Form Recognizer, accédez à l’outil d’exemple d’interface utilisateur en ligne :
-
-
-# <a name="v20"></a>[v2.0](#tab/v2-0)
-> [!div class="nextstepaction"]
-> [Essayer Form Recognizer](https://fott.azurewebsites.net/)
-
+<!-- markdownlint-disable MD025 -->
 # <a name="v21-preview"></a>[v2.1 (préversion)](#tab/v2-1)
+
 > [!div class="nextstepaction"]
 > [Essayer Form Recognizer](https://fott-preview.azurewebsites.net/)
+
+# <a name="v20"></a>[v2.0](#tab/v2-0)
+
+> [!div class="nextstepaction"]
+> [Essayer Form Recognizer](https://fott.azurewebsites.net/)
 
 ---
 
@@ -137,12 +138,11 @@ Vous allez utiliser les API suivantes pour entraîner des modèles et extraire d
 | **Analyser le reçu** | Analysez un document de reçu pour en extraire les informations clés et d’autres textes.|
 | **Analyser la carte de visite** | Analysez une carte de visite pour extraire du texte et des informations clés.|
 
+# <a name="v21-preview"></a>[v2.1 (préversion)](#tab/v2-1)
+Explorez la [documentation de référence sur l’API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeWithCustomForm) pour en savoir plus. Si vous êtes familiarisé avec une version précédente de l’API, consultez l’article [Nouveautés](./whats-new.md) pour en savoir plus sur les modifications récentes.
 
 # <a name="v20"></a>[v2.0](#tab/v2-0)
 Explorez la [documentation de référence sur l’API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) pour en savoir plus. Si vous êtes familiarisé avec une version précédente de l’API, consultez l’article [Nouveautés](./whats-new.md) pour en savoir plus sur les modifications récentes.
-
-# <a name="v21"></a>[v2.1](#tab/v2-1)
-Explorez la [documentation de référence sur l’API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeWithCustomForm) pour en savoir plus. Si vous êtes familiarisé avec une version précédente de l’API, consultez l’article [Nouveautés](./whats-new.md) pour en savoir plus sur les modifications récentes.
 
 ---
 

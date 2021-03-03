@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 01/20/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 430629f94695f0689422434c8d80fe4e1876e5dd
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 94e7ae93d05ae8ee35028882e14d8da74814d833
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98900019"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101650224"
 ---
 # <a name="tutorial-configure-ping-identity-with-azure-active-directory-b2c-for-secure-hybrid-access"></a>Tutoriel : Configurer Ping Identity avec Azure Active Directory B2C pour un accès hybride sécurisé
 
@@ -80,7 +80,7 @@ Avant de commencer, vérifiez que vous disposez des éléments suivants :
 
 - Un abonnement Azure. Si vous n’en avez pas, créez un [compte gratuit](https://azure.microsoft.com/free/).
 
-- Un [locataire Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant) lié à votre abonnement Azure.
+- Un [locataire Azure AD B2C](./tutorial-create-tenant.md) lié à votre abonnement Azure.
 
 - PingAccess et PingFederate déployés dans des conteneurs Docker ou directement sur des machines virtuelles Azure.
 
@@ -107,7 +107,7 @@ Pour respecter cette convention, effectuez la mise à jour de l’émetteur Azur
 
 ![Image montrant les paramètres de jeton](./media/partner-ping/token-setting.png)
 
-Dans les stratégies avancées, la configuration peut être effectuée à l’aide de l’élément de métadonnées **IssuanceClaimPattern** avec la valeur **AuthorityWithTfp** dans le [profil technique de l’émetteur de jetons JWT](https://docs.microsoft.com/azure/active-directory-b2c/jwt-issuer-technical-profile).
+Dans les stratégies avancées, la configuration peut être effectuée à l’aide de l’élément de métadonnées **IssuanceClaimPattern** avec la valeur **AuthorityWithTfp** dans le [profil technique de l’émetteur de jetons JWT](./jwt-issuer-technical-profile.md).
 
 ## <a name="configure-pingaccesspingfederate"></a>Configurer PingAccess/PingFederate
 
@@ -160,7 +160,7 @@ Procédez comme suit pour créer une session web :
 
 7. Dans le champ **Clé secrète client**, entrez la **clé** que vous avez générée pour l’application dans Azure AD.
 
-8. Facultatif : vous pouvez créer et utiliser des revendications personnalisées avec l’API Microsoft Graph. Si vous choisissez de le faire, sélectionnez **Avancé** et désélectionnez les options **Demander un profil** et **Actualiser les attributs utilisateur**. Pour plus d’informations sur l’utilisation des revendications personnalisées, consultez [Utiliser une revendication personnalisée](https://docs.microsoft.com/azure/active-directory/application-proxy-ping-access#optional---use-a-custom-claim).
+8. Facultatif : vous pouvez créer et utiliser des revendications personnalisées avec l’API Microsoft Graph. Si vous choisissez de le faire, sélectionnez **Avancé** et désélectionnez les options **Demander un profil** et **Actualiser les attributs utilisateur**. Pour plus d’informations sur l’utilisation des revendications personnalisées, consultez [Utiliser une revendication personnalisée](../active-directory/manage-apps/application-proxy-configure-single-sign-on-with-headers.md).
 
 9. Sélectionnez **Enregistrer**.
 
@@ -265,6 +265,6 @@ Configurez la stratégie d’authentification de PingFederate pour fédérer sur
 
 Pour plus d’informations, consultez les articles suivants
 
-- [Stratégies personnalisées dans Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Stratégies personnalisées dans Azure AD B2C](./custom-policy-overview.md)
 
-- [Bien démarrer avec les stratégies personnalisées dans Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Bien démarrer avec les stratégies personnalisées dans Azure AD B2C](./custom-policy-get-started.md?tabs=applications)

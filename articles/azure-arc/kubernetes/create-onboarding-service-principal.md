@@ -1,5 +1,5 @@
 ---
-title: Créer un principal de service d’intégration compatible avec Azure Arc (préversion)
+title: Créer un principal de service d’intégration pour Kubernetes avec Azure Arc
 services: azure-arc
 ms.service: azure-arc
 ms.date: 02/09/2021
@@ -8,20 +8,20 @@ author: mlearned
 ms.author: mlearned
 description: 'Créer un principal de service d’intégration compatible avec Azure Arc '
 keywords: Kubernetes, Arc, Azure, conteneurs
-ms.openlocfilehash: 8772cf7634d9a833af120784e3e7868b41d202c4
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: bda088bdae5c866493718db94c9a2da89cada8c9
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100390485"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101650344"
 ---
-# <a name="create-an-azure-arc-enabled-onboarding-service-principal-preview"></a>Créer un principal de service d’intégration compatible avec Azure Arc (préversion)
+# <a name="create-an-onboarding-service-principal-for-azure-arc-enabled-kubernetes"></a>Créer un principal de service d’intégration pour Kubernetes avec Azure Arc
 
 ## <a name="overview"></a>Vue d’ensemble
 
-Vous pouvez intégrer des clusters Kubernetes à Azure Arc en utilisant des principaux de service avec des attributions de rôles à privilèges limités. Cette fonctionnalité est utile dans les pipelines d’intégration et de déploiement continus (CI/CD) comme Azure Pipelines et GitHub Actions.
+Vous pouvez connecter des clusters Kubernetes à Azure Arc à l’aide de principaux de service ayant des attributions de rôles à privilèges limités. Cette fonctionnalité est utile dans les pipelines d’intégration et de déploiement continus (CI/CD) comme Azure Pipelines et GitHub Actions.
 
-Parcourez les étapes suivantes pour apprendre à utiliser des principaux de service pour l’intégration de clusters Kubernetes à Azure Arc.
+Suivez les étapes ci-dessous afin d’apprendre à utiliser les principaux de service pour connecter des clusters Kubernetes à Azure Arc.
 
 ## <a name="create-a-new-service-principal"></a>Création d’un principal de service
 
@@ -49,12 +49,12 @@ Attribuez le rôle « Kubernetes Cluster - Azure Arc Onboarding » au principa
 
 Étant donné les capacités limitées, les clients peuvent facilement réutiliser ce principal pour intégrer plusieurs clusters.
 
-Vous pouvez limiter encore les autorisations en transmettant l’argument `--scope` approprié lors de l’affectation du rôle. Cela permet aux clients de limiter l’inscription des clusters. Les scénarios suivants sont pris en charge par différents paramètres `--scope` :
+Vous pouvez limiter encore les autorisations en transmettant l’argument `--scope` approprié lors de l’affectation du rôle. Cela permet aux administrateurs de restreindre l’inscription du cluster à l’étendue de l’abonnement ou du groupe de ressources. Les scénarios suivants sont pris en charge par différents paramètres `--scope` :
 
 | Ressource  | Argument `scope`| Résultat |
 | ------------- | ------------- | ------------- |
-| Abonnement | `--scope /subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333` | Le principal du service peut inscrire n’importe quel cluster dans un groupe de ressources existant au sein de l’abonnement donné. |
-| Groupe de ressources | `--scope /subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`  | Le principal du service peut __uniquement__ inscrire les clusters dans le groupe de ressources `myGroup`. |
+| Abonnement | `--scope /subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333` | Le principal de service peut inscrire le cluster dans n’importe quel groupe de ressources sous cet abonnement. |
+| Groupe de ressources | `--scope /subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`  | Le principal de service peut __uniquement__ inscrire les clusters dans le groupe de ressources `myGroup`. |
 
 ```console
 az role assignment create \

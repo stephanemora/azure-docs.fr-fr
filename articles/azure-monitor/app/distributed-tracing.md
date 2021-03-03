@@ -7,12 +7,12 @@ author: nikmd23
 ms.author: nimolnar
 ms.date: 09/17/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 2ee41fc9066aa4cf4775d4998b7e809e45519512
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: a47b41a8b7f4e18be58c32c97cf279b9229f26da
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96904310"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579521"
 ---
 # <a name="what-is-distributed-tracing"></a>Présentation du traçage distribué
 
@@ -37,7 +37,7 @@ Les agents et/ou kits de développement logiciel (SDK) Application Insights pour
 * [.NET](asp-net.md)
 * [.NET Core](asp-net-core.md)
 * [Java](./java-in-process-agent.md)
-* [Node.JS](../learn/nodejs-quick-start.md)
+* [Node.JS](../app/nodejs-quick-start.md)
 * [JavaScript](./javascript.md)
 * [Python](opencensus-python.md)
 
@@ -57,5 +57,5 @@ Le site web OpenCensus fournit de la documentation de référence sur l’API po
 
 * [Guide d’utilisation Python et OpenCensus](https://opencensus.io/api/python/trace/usage.html)
 * [Plan de l’application](./app-map.md)
-* [Analyse des performances de bout en bout](../learn/tutorial-performance.md)
+* [Analyse des performances de bout en bout](../app/tutorial-performance.md)
 

@@ -3,12 +3,12 @@ title: Afficher des métriques Azure Event Grid et définir des alertes
 description: Cet article explique comment utiliser le portail Azure pour afficher des métriques des rubriques et abonnements de Azure Event Grid, et créer des alertes sur ces éléments.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 518d34d39e6fbecc408fe9a44d899fe4745d60d0
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 8f8d7e15475ce74dc1af55dc7f6116d5d8b79cc8
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96008954"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577412"
 ---
 # <a name="monitor-event-grid-message-delivery"></a>Surveiller la remise des messages Event Grid 
 Cet article explique comment utiliser le portail pour afficher des métriques des rubriques et abonnements Event Grid et créer des alertes sur ces éléments. 
@@ -52,7 +52,7 @@ Vous pouvez créer des graphiques avec des métriques prises en charge à l’ai
 
 :::image type="content" source="./media/monitor-event-delivery/topics-metrics-page.png" alt-text="Rubrique - Page des métriques":::
 
-Pour plus d’informations sur les métriques, consultez [Métriques dans Azure Monitor](../azure-monitor/platform/data-platform-metrics.md)
+Pour plus d’informations sur les métriques, consultez [Métriques dans Azure Monitor](../azure-monitor/essentials/data-platform-metrics.md)
 
 Par exemple, consultez le graphique des métriques pour la métrique **Événements publiés**.
 
@@ -91,7 +91,7 @@ Vous pouvez créer des graphiques avec des métriques prises en charge à l’ai
 
 :::image type="content" source="./media/monitor-event-delivery/system-topic-metrics-page.png" alt-text="Rubrique système - Page des métriques":::
 
-Pour plus d’informations sur les métriques, consultez [Métriques dans Azure Monitor](../azure-monitor/platform/data-platform-metrics.md)
+Pour plus d’informations sur les métriques, consultez [Métriques dans Azure Monitor](../azure-monitor/essentials/data-platform-metrics.md)
 
 
 ## <a name="next-steps"></a>Étapes suivantes

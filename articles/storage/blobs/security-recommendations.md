@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/13/2021
 ms.author: tamram
 ms.custom: security-recommendations
-ms.openlocfilehash: 05fdf681b7cdc3b8145a30041e261eece420e560
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 5653b59ed29495334079e932fb305fd4ba10475c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878085"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592353"
 ---
 # <a name="security-recommendations-for-blob-storage"></a>Recommandations de sécurité pour Stockage Blob
 
@@ -71,7 +71,7 @@ Azure Security Center analyse périodiquement l’état de sécurité de vos res
 | Recommandation | Commentaires | Security Center |
 |-|----|--|
 | Suivre les autorisations des demandes | Activez la journalisation de Stockage Azure pour suivre comment chaque demande effectuée auprès de Stockage Azure était autorisée. Les journaux indiquent si une demande a été faite anonymement, en utilisant un jeton OAuth 2.0, avec une clé partagée ou avec une signature d’accès partagé. Pour plus d’informations, consultez [Supervision du Stockage Blob Azure avec Azure Monitor](monitor-blob-storage.md) ou [Journalisation analytique du Stockage Azure avec la supervision classique](../common/storage-analytics-logging.md). | - |
-| Configurer des alertes dans Azure Monitor | Configurez des alertes de journaux pour évaluer les journaux de ressources à chaque fréquence définie et déclencher une alerte en fonction des résultats. Pour plus d’informations, consultez [Alertes de journal dans Azure Monitor](../../azure-monitor/platform/alerts-unified-log.md). | - |
+| Configurer des alertes dans Azure Monitor | Configurez des alertes de journaux pour évaluer les journaux de ressources à chaque fréquence définie et déclencher une alerte en fonction des résultats. Pour plus d’informations, consultez [Alertes de journal dans Azure Monitor](../../azure-monitor/alerts/alerts-unified-log.md). | - |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

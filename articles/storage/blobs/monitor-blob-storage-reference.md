@@ -9,12 +9,12 @@ ms.date: 10/02/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: subject-monitoring
-ms.openlocfilehash: 6dd53358b67eef481948d3349afc07086ea26fcd
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: b37586f66106e33b2a8dad034a6e7c131484be73
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99584904"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571628"
 ---
 # <a name="azure-blob-storage-monitoring-data-reference"></a>Informations de référence sur les données de supervision du Stockage blob Azure
 
@@ -36,7 +36,7 @@ Stockage Azure fournit les mesures de capacité suivantes dans Azure Monitor.
 
 #### <a name="blob-storage"></a>Stockage d'objets blob
 
-Ce tableau montre des [métriques de Stockage Blob](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountsblobservices).
+Ce tableau montre des [métriques de Stockage Blob](../../azure-monitor/essentials/metrics-supported.md#microsoftstoragestorageaccountsblobservices).
 
 | Métrique | Description |
 | ------------------- | ----------------- |
@@ -176,4 +176,4 @@ Le tableau suivant liste les propriétés des journaux de ressources de stockage
 ## <a name="see-also"></a>Voir aussi
 
 - Consultez [Supervision du stockage Azure](monitor-blob-storage.md) pour obtenir une description de la supervision du stockage Azure.
-- Pour plus d’informations sur le monitoring des ressources Azure, voir [Monitoring des ressources Azure avec Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md).
+- Pour plus d’informations sur le monitoring des ressources Azure, voir [Monitoring des ressources Azure avec Azure Monitor](../../azure-monitor/essentials/monitor-azure-resource.md).
