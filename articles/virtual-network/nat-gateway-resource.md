@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/28/2021
 ms.author: allensu
-ms.openlocfilehash: 5c1f52fda2edfa0a03caa72fcd7fa8dc02d0a607
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 5c70c575464d82f714022291406418cdd1ca0f8d
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954662"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102094964"
 ---
 # <a name="designing-virtual-networks-with-nat-gateway-resources"></a>Conception de réseaux virtuels avec des ressources de passerelle NAT
 
@@ -224,7 +224,7 @@ Même si le scénario semble fonctionner, son modèle d’intégrité et son mod
 >La propriété de zones d’une ressource de passerelle NAT n’est pas mutable.  Redéployez la ressource de passerelle NAT avec la préférence régionale ou de zone souhaitée.
 
 >[!NOTE] 
->Les adresses IP ne sont pas par elles-mêmes redondantes dans une zone, si aucune zone n’est spécifiée.  Le front-end d’un service [Standard Load Balancer est redondant dans une zone](../load-balancer/load-balancer-standard-availability-zones.md#frontend) si aucune adresse IP n’est créée dans une zone spécifique.  Cela ne s’applique pas au service NAT.  Seul l’isolement régional ou de zone est pris en charge.
+>Les adresses IP ne sont pas par elles-mêmes redondantes dans une zone, si aucune zone n’est spécifiée.  Le front-end d’un service [Standard Load Balancer est redondant dans une zone](../load-balancer/load-balancer-standard-availability-zones.md) si aucune adresse IP n’est créée dans une zone spécifique.  Cela ne s’applique pas au service NAT.  Seul l’isolement régional ou de zone est pris en charge.
 
 ## <a name="performance"></a>Performances
 
@@ -350,20 +350,3 @@ Nous aimerions savoir comment nous pouvons améliorer le service. Il vous manque
 * Découvrez le [service NAT de réseau virtuel](nat-overview.md).
 * Découvrez les [métriques et les alertes pour les ressources de passerelle NAT](nat-metrics.md).
 * Découvrez la [résolution des problèmes liés aux ressources de passerelle NAT](troubleshoot-nat.md).
-* Tutoriel de validation de NAT Gateway
-  - [Azure CLI](tutorial-create-validate-nat-gateway-cli.md)
-  - [PowerShell](tutorial-create-validate-nat-gateway-powershell.md)
-  - [Portail](tutorial-create-validate-nat-gateway-portal.md)
-* Démarrage rapide du déploiement d’une ressource de passerelle NAT
-  - [Azure CLI](./quickstart-create-nat-gateway-cli.md)
-  - [PowerShell](./quickstart-create-nat-gateway-powershell.md)
-  - [Portail](./quickstart-create-nat-gateway-portal.md)
-  - [Modèle](./quickstart-create-nat-gateway-template.md)
-* Découvrir l’API de ressource de passerelle NAT
-  - [REST API](/rest/api/virtualnetwork/natgateways)
-  - [Azure CLI](/cli/azure/network/nat/gateway)
-  - [PowerShell](/powershell/module/az.network/new-aznatgateway)
-* Découvrez les [zones de disponibilité](../availability-zones/az-overview.md).
-* Découvrez l’[équilibreur de charge standard](../load-balancer/load-balancer-overview.md).
-* Découvrez les [zones de disponibilité et l’équilibreur de charge standard](../load-balancer/load-balancer-standard-availability-zones.md).
-* [Utilisez UserVoice pour nous faire part des prochains développements dont vous aimeriez bénéficier concernant le service NAT de réseau virtuel](https://aka.ms/natuservoice).

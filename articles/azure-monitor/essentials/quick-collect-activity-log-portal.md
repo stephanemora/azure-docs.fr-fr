@@ -1,17 +1,16 @@
 ---
 title: Envoyer le journal d’activité Azure à un espace de travail Log Analytics à l’aide du portail Azure
 description: Utilisez le portail Azure pour créer un espace de travail Log Analytics et un paramètre de diagnostic afin d’envoyer le journal d’activité aux journaux Azure Monitor.
-ms.subservice: logs
 ms.topic: quickstart
 author: bwren
 ms.author: bwren
 ms.date: 06/25/2020
-ms.openlocfilehash: 1316512badd69b545e39a47ea5da3ca6a0902482
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: fec1f4f3ae13f6c9ed5fdd7ffbcd143e5c5e5f52
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101734279"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102033246"
 ---
 # <a name="send-azure-activity-log-to-log-analytics-workspace-using-azure-portal"></a>Envoyer le journal d’activité Azure à un espace de travail Log Analytics à l’aide du portail Azure
 Le journal d’activité est un journal de plateforme dans Azure qui fournit des insights de tous les événements de niveau abonnement. Les informations qu’il contient indiquent par exemple à quel moment une ressource a été modifiée ou une machine virtuelle a été démarrée. Vous pouvez afficher le journal d’activité dans le portail Azure ou récupérer des entrées avec PowerShell et l’interface CLI. Ce guide de démarrage rapide montre comment utiliser le portail Azure pour créer un espace de travail Log Analytics et un paramètre de diagnostic afin d’envoyer le journal d’activité aux journaux Azure Monitor, où vous pouvez l’analyser à l’aide de [requêtes de journal](../logs/log-query-overview.md) et activer d’autres fonctionnalités comme les [alertes de journal](../alerts/alerts-log-query.md) et les [classeurs](../visualize/workbooks-overview.md). 

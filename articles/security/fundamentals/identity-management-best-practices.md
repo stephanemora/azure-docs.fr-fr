@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: b609d8389504eb10dd35a5ab74b0c198d3da57a6
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: f69fe97c33a17ade39f67078d5b035dac4d0bfaf
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99090490"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102034164"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Meilleures pratiques en matière de sécurité du contrôle d’accès et de la gestion des identités Azure
 
@@ -102,7 +102,7 @@ Les organisations qui n’intègrent pas leur identité locale avec leur identit
 > Vous devez choisir dans quels répertoires les comptes critiques résideront, et si la station de travail d’administrateur utilisée sera gérée par de nouveaux service cloud ou par des processus existants. L’utilisation de processus d’administration et d’approvisionnement d’identités existants peut réduire certains risques, mais également présenter un risque de compromission d’un compte local par un attaquant et de passage dans le cloud. Vous souhaiterez peut-être utiliser une stratégie différente pour différents rôles (par exemple, administrateur IT vs administrateur d’unité). Vous avez le choix entre deux options. La première option consiste à créer des comptes Azure AD qui ne sont pas synchronisées avec votre instance Active Directory locale. Reliez votre station de travail d’administrateur à Azure AD. L’administration et l’application de correctifs sont possibles avec Microsoft Intune. La seconde option consiste à utiliser des comptes d’administrateur existants en synchronisant avec votre instance Active Directory locale. Utilisez des stations de travail existantes dans votre domaine Active Directory pour l’administration et la sécurité.
 
 ## <a name="manage-connected-tenants"></a>Gérer les locataires connectés
-Votre organisation de sécurité a besoin de visibilité pour évaluer les risques et déterminer si les stratégies de votre organisation et les exigences réglementaires sont respectées. Vous devez vous assurer que votre organisation de sécurité a une visibilité de tous les abonnements connectés à votre environnement de production et à votre réseau (via [Azure ExpressRoute](../../expressroute/expressroute-introduction.md) ou [VPN site à site](../../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)). Un [Administrateur général](../../active-directory/roles/permissions-reference.md#global-administrator-permissions) dans Azure AD peut élever ses privilèges d’accès au rôle d’[Administrateur d’accès utilisateur](../../role-based-access-control/built-in-roles.md#user-access-administrator) et voir tous les abonnements et groupes managés connectés à votre environnement.
+Votre organisation de sécurité a besoin de visibilité pour évaluer les risques et déterminer si les stratégies de votre organisation et les exigences réglementaires sont respectées. Vous devez vous assurer que votre organisation de sécurité a une visibilité de tous les abonnements connectés à votre environnement de production et à votre réseau (via [Azure ExpressRoute](../../expressroute/expressroute-introduction.md) ou [VPN site à site](../../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)). Un [Administrateur général](../../active-directory/roles/permissions-reference.md#global-administrator) dans Azure AD peut élever ses privilèges d’accès au rôle d’[Administrateur d’accès utilisateur](../../role-based-access-control/built-in-roles.md#user-access-administrator) et voir tous les abonnements et groupes managés connectés à votre environnement.
 
 Voir [Élever les privilèges d’accès pour gérer tous les abonnements et groupes d’administration Azure](../../role-based-access-control/elevate-access-global-admin.md) pour vous assurer que vous et votre groupe de sécurité pouvez afficher tous les abonnements ou groupes d’administration connectés à votre environnement. Vous devez supprimer ces privilèges d’accès élevés une fois que vous avez évalué les risques.
 

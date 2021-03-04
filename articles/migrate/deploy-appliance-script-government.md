@@ -6,12 +6,12 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 04/16/2020
-ms.openlocfilehash: f31211c4448ad5bbe8d839b2ec86b0b61970f568
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 6778c8e5e1e4fa83d34141fd13ba21d483ab76e9
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96752190"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102041346"
 ---
 # <a name="set-up-an-appliance-in-azure-government"></a>Configurer une appliance dans Azure Government 
 
@@ -196,6 +196,6 @@ Vérifiez que l'appliance peut se connecter aux URL Azure des [clouds du secteur
 
 Après avoir déployé l'appliance, vous devez la configurer pour la première fois et l'inscrire auprès du projet Azure Migrate.
 
-- Configurez l’appliance pour [VMware](how-to-set-up-appliance-vmware.md#configure-the-appliance).
+- Configurez l’appliance pour [VMware](how-to-set-up-appliance-vmware.md#4-configure-the-appliance).
 - Configurez l’appliance pour [Hyper-V](how-to-set-up-appliance-hyper-v.md#configure-the-appliance).
 - Configurez l’appliance pour les [serveurs physiques](how-to-set-up-appliance-physical.md).
