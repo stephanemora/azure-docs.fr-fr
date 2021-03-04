@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/27/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: ecbf07c1a85c708d4117c83bca546cd8bd6ccd2b
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: b37277c660562721273ff9ae86dd677ee7ac7d55
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100546072"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102049999"
 ---
 # <a name="connect-function-apps-in-azure-for-processing-data"></a>Connecter des applications de fonction dans Azure pour le traitement des données
 
@@ -65,7 +65,7 @@ Sélectionnez avec le bouton droit votre projet, puis sélectionnez _Gérer les 
 * `Azure.DigitalTwins.Core`
 * `Azure.Identity`
 * `System.Net.Http`
-* `Azure.Core`
+* `Azure.Core.Pipeline`
 
 **Option 2. Ajouter des packages à l’aide de `dotnet`l’outil en ligne de commande :**
 
@@ -75,7 +75,7 @@ Vous pouvez également utiliser les commandes `dotnet add` suivantes dans un out
 dotnet add package Azure.DigitalTwins.Core
 dotnet add package Azure.Identity
 dotnet add package System.Net.Http
-dotnet add package Azure.Core
+dotnet add package Azure.Core.Pipeline
 ```
 
 Ensuite, dans votre Explorateur de solutions Visual Studio, ouvrez le fichier _Function1.cs_ dans lequel se trouve l’exemple de code, et ajoutez les instructions `using` suivantes à votre fonction. 

@@ -2,13 +2,13 @@
 title: Conformité avec Azure Policy
 description: Attribuer des stratégies intégrées dans Azure Policy pour auditer la conformité de vos registres de conteneurs Azure
 ms.topic: article
-ms.date: 06/11/2020
-ms.openlocfilehash: 26c56616bcc411063d0ebfda28ba1e6fdf44c7fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/01/2021
+ms.openlocfilehash: 3f6809698171950060b54257a365889242f4636e
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89291011"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050577"
 ---
 # <a name="audit-compliance-of-azure-container-registries-using-azure-policy"></a>Auditer la conformité des registres de conteneurs Azure à l’aide d’Azure Policy
 
@@ -22,7 +22,7 @@ L’utilisation d’Azure Policy est gratuite.
 
 Les définitions de stratégies intégrées suivantes sont spécifiques à Azure Container Registry :
 
-[!INCLUDE [azure-policy-reference-policies-container-registry](../../includes/policy/reference/bycat/policies-container-registry.md)]
+[!INCLUDE [azure-policy-reference-rp-containerreg](../../includes/policy/reference/byrp/microsoft.containerregistry.md)]
 
 Voir aussi la définition de stratégie réseau intégrée : [Container Registry doit utiliser un point de terminaison de service de réseau virtuel.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc4857be7-912a-4c75-87e6-e30292bcdf78)
 

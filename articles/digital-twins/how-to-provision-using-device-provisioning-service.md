@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/1/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 924397c9c81d2a38ae74b95a8f7133ced8bde0d4
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 24dac044982d59e93da17ee75190f378d5e3cdea
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101736540"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050917"
 ---
 # <a name="auto-manage-devices-in-azure-digital-twins-using-device-provisioning-service-dps"></a>Gérer automatiquement les appareils dans Azure Digital représentations à l’aide du service Device Provisioning (DPS)
 
@@ -85,7 +85,7 @@ Dans votre projet d’application de fonction, ajoutez une nouvelle fonction. Aj
 
 Dans le fichier de code de fonction nouvellement créé, collez le code suivant.
 
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIotHub_allocate.cs":::
+:::code language="csharp" source="~/digital-twins-docs-samples-dps/functions/DpsAdtAllocationFunc.cs":::
 
 Enregistrez le fichier, puis republiez votre application de fonction. Pour obtenir des instructions sur la publication de l’application de fonction, consultez la section [*Publier l’application*](tutorial-end-to-end.md#publish-the-app) du didacticiel de bout en bout.
 
@@ -182,7 +182,7 @@ Cette fonction utilisera l’événement du cycle de vie de l’appareil IoT Hub
 
 Dans votre application de fonction publiée, ajoutez une nouvelle classe de fonction de type *Déclencheur Event Hub* et collez le code ci-dessous.
 
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIotHub_delete.cs":::
+:::code language="csharp" source="~/digital-twins-docs-samples-dps/functions/DeleteDeviceInTwinFunc.cs":::
 
 Enregistrez le projet, puis publiez de nouveau l’application de fonction. Pour obtenir des instructions sur la publication de l’application de fonction, consultez la section [*Publier l’application*](tutorial-end-to-end.md#publish-the-app) du didacticiel de bout en bout.
 
@@ -223,7 +223,7 @@ Pour déclencher le processus de mise hors service, vous devez supprimer manuell
 
 Dans la [première moitié de cet article](#auto-provision-device-using-device-provisioning-service), vous avez créé un appareil dans IoT Hub et sa représentation numérique correspondante. 
 
-À présent, accédez à l’IoT Hub et supprimez cet appareil (vous pouvez le faire avec une [commande Azure CLI](/cli/azure/ext/azure-iot/iot/hub/module-identity?view=azure-cli-latest#ext_azure_iot_az_iot_hub_module_identity_delete) ou dans le [portail Azure](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Devices%2FIotHubs)). 
+À présent, accédez à l’IoT Hub et supprimez cet appareil (vous pouvez le faire avec une [commande Azure CLI](/cli/azure/ext/azure-iot/iot/hub/module-identity?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_iot_hub_module_identity_delete) ou dans le [portail Azure](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Devices%2FIotHubs)). 
 
 L’appareil est automatiquement supprimé d’Azure Digital Twins. 
 

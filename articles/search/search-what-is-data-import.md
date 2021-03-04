@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/05/2020
-ms.openlocfilehash: b57d55e91918ba612ad42acd5e6059ae0dbd0090
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: aa44a27fa5bf6b7b4ea649e1a9b9a69ef8cd78d3
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422448"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102049319"
 ---
 # <a name="data-import-overview---azure-cognitive-search"></a>Vue d’ensemble de l’importation des données - Recherche cognitive Azure
 
@@ -63,7 +63,7 @@ Dans le kit de développement logiciel (SDK) .NET, empaquetez vos données dans 
 
 Deux méthodes permettent d’effectuer une [recherche dans un index à l’aide de l’API REST](/rest/api/searchservice/Search-Documents). L’une consiste à émettre une requête HTTP POST, dans laquelle vos paramètres de requête sont définis dans un objet JSON contenu dans le corps de la requête. L’autre consiste à émettre une requête HTTP GET, dans laquelle vos paramètres de requête seront définis à l’intérieur de l’URL de requête. Notez que les limites en matière de taille des paramètres de requête sont [plus souples](/rest/api/searchservice/Search-Documents) pour la méthode POST que pour la méthode GET. Pour cette raison, nous vous recommandons d’utiliser POST, à moins que la situation justifie l’utilisation de GET.
 
-Pour POST et GET, vous devez fournir votre *nom de service* , *nom d’index* et une *version de l’API* dans l’URL de la demande. 
+Pour POST et GET, vous devez fournir votre *nom de service*, *nom d’index* et une *version de l’API* dans l’URL de la demande. 
 
 Pour la méthode GET, vous renseignez les paramètres de requête au niveau de la *chaîne de requête* à la fin de l’URL. Voici le format URL à utiliser :
 
@@ -75,12 +75,14 @@ La méthode POST suit un format identique, mais seule `api-version` dans les par
 
 ## <a name="pulling-data-into-an-index"></a>Extraction de données dans un index
 
-Le modèle d’extraction analyse une source de données prise en charge et charge automatiquement les données dans votre index. Dans Recherche cognitive Azure, cette fonctionnalité est implémentée via des *indexeurs* , actuellement disponibles pour ces plateformes :
+Le modèle d’extraction analyse une source de données prise en charge et charge automatiquement les données dans votre index. Dans Recherche cognitive Azure, cette fonctionnalité est implémentée via des *indexeurs*, actuellement disponibles pour ces plateformes :
 
 + [Stockage Blob](search-howto-indexing-azure-blob-storage.md)
 + [Stockage Table](search-howto-indexing-azure-tables.md)
 + [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 + [Azure SQL Database, SQL Managed Instance et SQL Server sur des machines virtuelles Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
++ [SharePoint Online (préversion)](search-howto-index-sharepoint-online.md)
++ [Azure Data Lake Storage Gen2 (préversion)](search-howto-index-azure-data-lake-storage.md)
 
 Les indexeurs connectent un index à une source de données (généralement une table, une vue ou une structure équivalente) et mappent les champs source aux champs équivalents de l’index. Pendant l’exécution, l’ensemble de lignes est automatiquement transformé en JSON et chargé dans l’index spécifié. Tous les indexeurs prennent en charge la planification de sorte que vous puissiez spécifier la fréquence à laquelle les données sont à actualiser. La plupart des indexeurs fournissent le suivi des modifications si la source de données le prend en charge. En suivant les modifications et les suppressions effectuées dans les documents existants, et en reconnaissant les nouveaux documents, les indexeurs suppriment la nécessité de gérer activement les données de votre index.
 
