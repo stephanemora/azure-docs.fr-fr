@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/02/2021
-ms.openlocfilehash: a03707133b384f7717a624e810d0f7a41267969d
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 596113f9fcb7326010090e67b3a52ca03faa25d0
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101670888"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102041975"
 ---
 # <a name="preview-features-in-azure-cognitive-search"></a>Fonctionnalités d’évaluation dans Recherche cognitive Azure
 
@@ -25,7 +25,7 @@ Les fonctionnalités d’évaluation qui passent en disponibilité générale so
 |---------|------------------|-------------|---------------|
 | [**Recherche sémantique**](semantic-search-overview.md) | Pertinence (scoring) | Un algorithme de classement sémantique, un type de requête et une réponse de requête. | [API REST Recherche 2020-06-30-Preview](/rest/api/searchservice/) |
 | [**Vérificateur d’orthographe**](cognitive-search-aml-skill.md) | Requête | Correction orthographique facultative des entrées de terme de requête pour les requêtes simples, complètes et sémantiques. | [API REST Recherche 2020-06-30-Preview](/rest/api/searchservice/) |
-| Indexeur SharePoint Online | Source de données d’indexeur | Nouvelle source de données pour l’indexation de contenu SharePoint basée sur un indexeur. | [API REST Recherche 2020-06-30-Preview](/rest/api/searchservice/) |
+| [**Indexeur SharePoint Online**](search-howto-index-sharepoint-online.md) | Source de données d’indexeur | Nouvelle source de données pour l’indexation de contenu SharePoint basée sur un indexeur. | [API REST Recherche 2020-06-30-Preview](/rest/api/searchservice/) |
 | [**Compétence Azure Machine Learning (AML)**](cognitive-search-aml-skill.md) | Enrichissement de l’IA| Nouveau type de compétence permettant d'intégrer un point de terminaison d'inférence à partir d'Azure Machine Learning. Pour bien démarrer, suivez [ce tutoriel](cognitive-search-tutorial-aml-custom-skill.md). | Utilisez l'[API REST Recherche 2020-06-30-Preview](/rest/api/searchservice/) ou 2019-05-06-Preview. Également disponible sur le portail, dans la conception de compétences, si les services Recherche cognitive et Azure ML sont déployés sur le même abonnement. |
 | [**Paramètre featuresMode**](/rest/api/searchservice/preview-api/search-documents#query-parameters) | Pertinence (scoring) | Expansion du score de pertinence pour inclure des détails : score de similarité par champ, fréquence de terme par champ, et nombre de jetons uniques correspondants par champ. Vous pouvez consommer ces points de données dans des [solutions de scoring personnalisées](https://github.com/Azure-Samples/search-ranking-tutorial). | Ajoutez ce paramètre de requête à l’aide de [Recherche dans des documents (REST)](/rest/api/searchservice/preview-api/search-documents) avec api-version=2020-06-30-Preview ou 2019-05-06-Preview. |
 | [**Sessions de débogage**](cognitive-search-debug-session.md) | Portail, enrichissement par IA (ensemble de compétences) | Éditeur d’ensemble de compétences dans la session utilisé pour examiner et résoudre les problèmes liés aux ensembles de compétences. Les correctifs appliqués au cours d’une session de débogage peuvent être enregistrés dans un ensemble de compétences dans le service. | Portail uniquement, à l’aide des liens en milieu de page Vue d’ensemble pour ouvrir une session de débogage. |

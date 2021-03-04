@@ -6,12 +6,12 @@ author: vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.date: 04/16/2020
-ms.openlocfilehash: 38db1e68adde21d0e566256e9393f6fa4fc58824
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: abf34a5ea83e74b0bd2a074108c5ef1014941093
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96753788"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102041329"
 ---
 # <a name="set-up-an-appliance-with-a-script"></a>Configurer une appliance avec un script
 
@@ -136,5 +136,5 @@ Vérifiez que l’appliance peut se connecter aux URL Azure pour le cloud [publi
 
 Après avoir déployé l'appliance, vous devez la configurer pour la première fois et l'inscrire auprès du projet Azure Migrate.
 
-- Configurez l’appliance pour [VMware](how-to-set-up-appliance-vmware.md#configure-the-appliance).
+- Configurez l’appliance pour [VMware](how-to-set-up-appliance-vmware.md#4-configure-the-appliance).
 - Configurez l’appliance pour [Hyper-V](how-to-set-up-appliance-hyper-v.md#configure-the-appliance).

@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/14/2020
-ms.openlocfilehash: 7277ad060c57b44d633054c4fc4d29d151bd7192
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.date: 03/03/2021
+ms.openlocfilehash: 234a0137f0a9487a56b3e0343eaea375d2f9a1af
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400809"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102043012"
 ---
 # <a name="querying-in-azure-cognitive-search"></a>Interrogation dans Recherche cognitive Azure
 
@@ -84,8 +84,8 @@ Vous pouvez également avoir besoin de filtres pour appeler un formulaire de req
 
 | Filtrer un scénario | Description |
 |-----------------|-------------|
-| Filtres de plage | Dans Recherche cognitive Azure, les requêtes de plage sont créées à l’aide du paramètre de filtre. Pour plus d’informations et d’exemples, consultez [Exemple de filtre de plage](search-query-simple-examples.md#example-4-range-filters). |
-| Recherche sur la localisation | Si un champ pouvant faire l’objet d’une recherche est de [type EDM.GeographyPoint](/rest/api/searchservice/supported-data-types), vous pouvez créer une expression de filtre « rechercher à proximité » ou des contrôles de recherche basés sur une carte. Les champs qui définissent la recherche basée sur la localisation contiennent des coordonnées. Pour plus d’informations et pour obtenir un exemple, consultez [Exemple de recherche sur la localisation](search-query-simple-examples.md#example-5-geo-search). |
+| Filtres de plage | Dans Recherche cognitive Azure, les requêtes de plage sont créées à l’aide du paramètre de filtre. Pour plus d’informations et d’exemples, consultez [Exemple de filtre de plage](search-query-simple-examples.md#example-5-range-filters). |
+| Recherche sur la localisation | Si un champ pouvant faire l’objet d’une recherche est de [type EDM.GeographyPoint](/rest/api/searchservice/supported-data-types), vous pouvez créer une expression de filtre « rechercher à proximité » ou des contrôles de recherche basés sur une carte. Les champs qui définissent la recherche basée sur la localisation contiennent des coordonnées. Pour plus d’informations et pour obtenir un exemple, consultez [Exemple de recherche sur la localisation](search-query-simple-examples.md#example-6-geo-search). |
 | Navigation à facettes | Une structure de navigation à facettes devient instrumentale dans une navigation définie par l’utilisateur lorsque vous appelez un filtre en réponse à un événement `onclick` sur une facette. Par conséquent, les facettes et les filtres vont de pair. Si vous ajoutez une navigation à facettes, vous aurez besoin de filtres pour compléter l’expérience. Pour plus d’informations, consultez [Comment créer un filtre de facette](search-filters-facets.md). |
 
 > [!NOTE]
@@ -101,12 +101,12 @@ Un formulaire de requête avancé dépend de l’analyseur Lucene complet et d�
 
 | Type de requête | Usage | Exemples et informations complémentaires |
 |------------|--------|------------------------------|
-| [Recherche par champ](query-lucene-syntax.md#bkmk_fields) | Paramètre **`search`** , **`queryType=full`**  | Crée une expression de requête composite ciblant un champ unique. <br/>[Exemple de recherche par champ](search-query-lucene-examples.md#example-2-fielded-search) |
-| [recherche approximative](query-lucene-syntax.md#bkmk_fuzzy) | Paramètre **`search`** , **`queryType=full`** | Recherche les termes ayant une construction ou une orthographe similaire. <br/>[Exemple de recherche approximative](search-query-lucene-examples.md#example-3-fuzzy-search) |
-| [recherche de proximité](query-lucene-syntax.md#bkmk_proximity) | Paramètre **`search`** , **`queryType=full`** | Recherche les termes proches les uns des autres dans un document. <br/>[Exemple de recherche de proximité](search-query-lucene-examples.md#example-4-proximity-search) |
-| [promotion de termes](query-lucene-syntax.md#bkmk_termboost) | Paramètre **`search`** , **`queryType=full`** | Élève le rang d’un document qui contient le terme de promotion, par rapport aux documents qui ne contiennent pas ce terme. <br/>[Exemple de promotion de termes](search-query-lucene-examples.md#example-5-term-boosting) |
-| [recherche d’expression régulière](query-lucene-syntax.md#bkmk_regex) | Paramètre **`search`** , **`queryType=full`** | Exécute la recherche à partir du contenu d’une expression régulière. <br/>[Exemple de recherche d’expression régulière](search-query-lucene-examples.md#example-6-regex) |
-|  [recherche par préfixe ou caractères génériques](query-lucene-syntax.md#bkmk_wildcard) | Paramètre **`search`** avec **_`~`_* ou **`?`** , **`queryType=full`**| Exécute la recherche à partir d’un préfixe et d’un tilde (`~`) ou d’un caractère unique (`?`). <br/>[Exemple de recherche par caractères génériques](search-query-lucene-examples.md#example-7-wildcard-search) |
+| [Recherche par champ](query-lucene-syntax.md#bkmk_fields) | Paramètre **`search`** , **`queryType=full`**  | Crée une expression de requête composite ciblant un champ unique. <br/>[Exemple de recherche par champ](search-query-lucene-examples.md#example-1-fielded-search) |
+| [recherche approximative](query-lucene-syntax.md#bkmk_fuzzy) | Paramètre **`search`** , **`queryType=full`** | Recherche les termes ayant une construction ou une orthographe similaire. <br/>[Exemple de recherche approximative](search-query-lucene-examples.md#example-2-fuzzy-search) |
+| [recherche de proximité](query-lucene-syntax.md#bkmk_proximity) | Paramètre **`search`** , **`queryType=full`** | Recherche les termes proches les uns des autres dans un document. <br/>[Exemple de recherche de proximité](search-query-lucene-examples.md#example-3-proximity-search) |
+| [promotion de termes](query-lucene-syntax.md#bkmk_termboost) | Paramètre **`search`** , **`queryType=full`** | Élève le rang d’un document qui contient le terme de promotion, par rapport aux documents qui ne contiennent pas ce terme. <br/>[Exemple de promotion de termes](search-query-lucene-examples.md#example-4-term-boosting) |
+| [recherche d’expression régulière](query-lucene-syntax.md#bkmk_regex) | Paramètre **`search`** , **`queryType=full`** | Exécute la recherche à partir du contenu d’une expression régulière. <br/>[Exemple de recherche d’expression régulière](search-query-lucene-examples.md#example-5-regex) |
+|  [recherche par préfixe ou caractères génériques](query-lucene-syntax.md#bkmk_wildcard) | Paramètre **`search`** avec **_`~`_* ou **`?`** , **`queryType=full`**| Exécute la recherche à partir d’un préfixe et d’un tilde (`~`) ou d’un caractère unique (`?`). <br/>[Exemple de recherche par caractères génériques](search-query-lucene-examples.md#example-6-wildcard-search) |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

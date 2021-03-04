@@ -2,13 +2,13 @@
 title: Configurations recommandées pour les clients Apache Kafka – Azure Event Hubs
 description: Cet article fournit des configurations Apache Kafka recommandées pour les clients qui interagissent avec Azure Event Hubs pour Apache Kafka.
 ms.topic: reference
-ms.date: 01/07/2021
-ms.openlocfilehash: 713900a3cc7e2b9f6f176edb21455faa577098d6
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.date: 03/03/2021
+ms.openlocfilehash: be009aae41b2cb26ab02fdbe14bc4e18311ad235
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98028826"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102042349"
 ---
 # <a name="recommended-configurations-for-apache-kafka-clients"></a>Configurations recommandées pour les clients Apache Kafka
 Voici les configurations recommandées pour l’utilisation d’Azure Event Hubs à partir d’applications clientes Apache Kafka. 
@@ -33,7 +33,6 @@ Propriété | Valeurs recommandées | Plage autorisée | Notes
 `metadata.max.idle.ms` | 180000 | > 5000 | Contrôle la durée pendant laquelle le producteur met en cache les métadonnées pour une rubrique inactive. Si le temps écoulé depuis la dernière production d’une rubrique dépasse la durée d’inactivité des métadonnées, les métadonnées de la rubrique sont oubliées et l’accès suivant à celles-ci force une demande d’extraction des métadonnées.
 `linger.ms` | > 0 | | Pour les scénarios à haut débit, la valeur de linger doit être égale à la valeur tolérable la plus élevée pour tirer parti du traitement par lot.
 `delivery.timeout.ms` | | | Définissez la valeur en fonction de la formule (`request.timeout.ms` + `linger.ms`) * `retries`.
-`enable.idempotence` | false | | Idempotence actuellement non prise en charge.
 `compression.type` | `none` | | Compression actuellement non prise en charge.
 
 ### <a name="consumer-configurations-only"></a>Configurations de consommateur uniquement.
@@ -62,7 +61,6 @@ Propriété | Valeurs recommandées | Plage autorisée | Notes
 `retries` | > 0 | | La valeur par défaut est 2. Nous vous conseillons de conserver cette valeur. 
 `request.timeout.ms` | 30000 60000 | > 20000| La valeur de EH en interne sera au minimum de 20 000 ms par défaut.  La valeur par défaut de `librdkafka` est 5000, ce qui peut être problématique. *Si des demandes avec des valeurs de délai d’expiration inférieures sont acceptées, le comportement du client n’est pas garanti.*
 `partitioner` | `consistent_random` | Consultez la documentation de librdkafka | `consistent_random` est la valeur par défaut et la meilleure.  Dans la plupart des cas, les clés vides et NULL sont gérées de façon idéale.
-`enable.idempotence` | false | | Idempotence actuellement non prise en charge.
 `compression.codec` | `none` || Compression actuellement non prise en charge.
 
 ### <a name="consumer-configurations-only"></a>Configurations de consommateur uniquement.

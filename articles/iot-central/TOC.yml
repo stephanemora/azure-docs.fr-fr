@@ -133,15 +133,15 @@
       href: core/overview-iot-central-solution-builder.md
     - name: Présentation des modèles d’application
       href: core/concepts-app-templates.md
-    - name: Modèles d’application par secteur d’activité
+    - name: Modèles d’applications par secteur
       items:
         - name: Commerce
           items:
             - name: Vue d’ensemble
               href: retail/overview-iot-central-retail.md
-            - name: Architecture de l’analytique en magasin pour le paiement
+            - name: Analytique dans le magasin - Paiement
               href: retail/store-analytics-architecture.md
-            - name: Architecture de la gestion intelligente des stocks
+            - name: Architecture du modèle d’application de gestion intelligente des stocks
               href: retail/architecture-smart-inventory-management.md
             - name: Architecture logistique connectée
               href: retail/architecture-connected-logistics.md
@@ -163,7 +163,7 @@
           items:
             - name: Vue d’ensemble
               href: government/overview-iot-central-government.md
-            - name: Architecture de la surveillance des déchets connectés
+            - name: Architecture de surveillance des déchets connectés
               href: government/concepts-connectedwastemanagement-architecture.md
             - name: Architecture du suivi de la consommation d’eau
               href: government/concepts-waterconsumptionmonitoring-architecture.md
@@ -183,6 +183,8 @@
       href: core/concepts-telemetry-properties-commands.md
     - name: Se connecter aux appareils IoT Edge
       href: core/concepts-iot-edge.md
+    - name: Meilleures pratiques
+      href: core/concepts-best-practices.md
 - name: Guides pratiques
   items:
     - name: Développer et connecter des appareils
@@ -231,7 +233,7 @@
           href: core/howto-create-custom-analytics.md
         - name: Visualiser vos données dans Power BI
           href: core/howto-connect-powerbi.md
-        - name: "Connecter votre application avec Dynamics\_365 Field Services"
+        - name: "Connecter votre application Azure IoT Central avec Dynamics\_365 for Field Service"
           href: government/how-to-configure-connected-field-services.md
     - name: Gestion de vos appareils
       items:
