@@ -25,8 +25,12 @@
       href: tutorial-respond-threats-playbook.md
 - name: Concepts
   items:
-    - name: Affecter des autorisations à l’aide de rôles
-      href: roles.md
+    - name: Gérer l’accès
+      items:
+        - name: Autorisations dans Azure Sentinel
+          href: roles.md
+        - name: Gérer l’accès par ressource
+          href: resource-context-rbac.md
     - name: Détection avancée des attaques en plusieurs étapes
       href: fusion.md
     - name: Apporter votre propre plateforme de machine learning
@@ -248,6 +252,8 @@
       href: create-incidents-from-alerts.md
     - name: Mieux gérer votre SOC avec des métriques d’incident
       href: manage-soc-with-incident-metrics.md
+    - name: Auditer les requêtes et les activités Azure Sentinel
+      href: audit-sentinel-data.md
     - name: Chasse
       href: hunting.md
       items:
@@ -259,6 +265,8 @@
           href: livestream.md
     - name: Supprimer Azure Sentinel
       href: offboard.md
+    - name: Implémenter un contrôle RBAC avancé
+      items: null
 - name: Informations de référence
   items:
     - name: Rôles RBAC Azure
@@ -293,8 +301,8 @@
   items:
     - name: Ressources utiles
       href: resources.md
-    - name: 'Blog Azure sur la sécurité, la confidentialité et la conformité'
-      href: /archive/blogs/azuresecurity/
+    - name: Blog Azure Sentinel
+      href: 'https://techcommunity.microsoft.com/t5/azure-sentinel/bg-p/AzureSentinelBlog'
     - name: Disponibilité régionale
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=azure-sentinel'
     - name: Tarifs

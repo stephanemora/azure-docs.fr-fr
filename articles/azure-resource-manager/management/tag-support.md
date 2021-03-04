@@ -3,12 +3,12 @@ title: Prise en charge des étiquettes pour les ressources
 description: Indique les types de ressources Azure qui prennent en charge les étiquettes. Fournit des détails pour tous les services Azure.
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: 12a57577241e3b2206aab9c3badb29502e7b0301
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: b1f9e61b409c395a13cc6a18d21d17530f38ac7e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97656969"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101722889"
 ---
 # <a name="tag-support-for-azure-resources"></a>Prise en charge des étiquettes pour les ressources Azure
 Cet article indique si un type de ressource prend en charge les [étiquettes](tag-resources.md). La colonne intitulée **Prend en charge les balises** indique si le type de ressource a une propriété pour la balise. La colonne intitulée **Balise dans le rapport des coûts** indique si ce type de ressource transmet la balise au rapport des coûts. Vous pouvez afficher les coûts à l’aide d’étiquettes dans l’[analyse Azure Cost Management](../../cost-management-billing/costs/group-filter.md) et les [données de facturation et d’utilisation quotidienne Azure](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md).
@@ -845,7 +845,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | ReservationRecommendations | Non | Non |
 > | ReservationSummaries | Non | Non |
 > | ReservationTransactions | Non | Non |
-> | Étiquettes | Non | Non |
+> | Balises | Non | Non |
 > | tenants | Non | Non |
 > | Termes | Non | Non |
 > | UsageDetails | Non | Non |
@@ -1565,6 +1565,9 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | workspaces / models / versions | Non | Non |
 > | workspaces / onlineEndpoints | Oui | Oui |
 > | workspaces / onlineEndpoints / deployments | Oui | Oui |
+ 
+> [!NOTE]
+> Les étiquettes d’espace de travail ne se propagent pas aux clusters de calcul et aux instances de calcul. 
 
 ## <a name="microsoftmaintenance"></a>Microsoft.Maintenance
 
@@ -2262,6 +2265,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | managedInstances / keys | Non | Non |
 > | managedInstances / restorableDroppedDatabases / backupShortTermRetentionPolicies | Non | Non |
 > | managedInstances / vulnerabilityAssessments | Non | Non |
+> | longtermRetentionManagedInstance / longtermRetentionDatabase / longtermRetentionBackup | Non | Non |
 > | servers | Oui | Oui |
 > | servers / administrators | Non | Non |
 > | servers / communicationLinks | Non | Non |
@@ -2272,6 +2276,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | servers / restorableDroppedDatabases | Non | Non |
 > | servers / serviceobjectives | Non | Non |
 > | servers / tdeCertificates | Non | Non |
+> | longtermRetentionServer / longtermRetentionDatabase / longtermRetentionBackup | Non | Non |
 > | virtualClusters | Non | Non |
 
 <a id="sqlnote"></a>

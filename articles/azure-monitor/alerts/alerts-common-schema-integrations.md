@@ -2,14 +2,13 @@
 title: Comment intégrer le schéma d’alerte courant à Logic Apps
 description: Découvrez comment créer une application logique qui s’appuie sur le schéma d’alerte courant pour gérer toutes vos alertes.
 ms.topic: conceptual
-ms.subservice: alerts
 ms.date: 05/27/2019
-ms.openlocfilehash: 4824c5ab1826260ee1eb3639712d7138c7c85bfe
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 459ac43a6260e046befbe58d3531bac494903d51
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101738665"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102038337"
 ---
 # <a name="how-to-integrate-the-common-alert-schema-with-logic-apps"></a>Comment intégrer le schéma d’alerte courant à Logic Apps
 

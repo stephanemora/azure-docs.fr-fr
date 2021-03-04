@@ -1,6 +1,6 @@
 - name: Windows Virtual Desktop
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: "Qu’est-ce que Windows Virtual Desktop\_?"
       href: overview.md
@@ -66,6 +66,8 @@
           href: create-profile-container-adds.md
         - name: Utiliser Azure Files et AD DS
           href: create-file-share.md
+        - name: Installer Office avec des conteneurs d’application FSLogix
+          href: fslogix-office-app-rule-editor.md
     - name: Configurer les paramètres d’un pool d’hôtes
       items:
         - name: Propriétés RDP
@@ -104,6 +106,8 @@
           href: app-attach-image-prep.md
         - name: Configurer un partage de fichiers
           href: app-attach-file-share.md
+        - name: Configurer l’outil MSIXMGR
+          href: app-attach-msixmgr.md
     - name: Utiliser Microsoft Teams
       href: teams-on-wvd.md
     - name: "Configurer l’authentification multifacteur Azure\_AD"
