@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: tutorial
 ms.date: 01/11/2021
 ms.author: duau
-ms.openlocfilehash: f780c8c2f932b612ee42e13906f72983b324eefd
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.openlocfilehash: 11a4798c0cb3bc010bbdbae1fcb709951c67781a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98108532"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101721902"
 ---
 # <a name="tutorial-create-and-modify-peering-for-an-expressroute-circuit-using-the-azure-portal"></a>Tutoriel : Créer et modifier une homologation pour un circuit ExpressRoute à l’aide du portail Azure
 
@@ -75,14 +75,17 @@ Cette section explique comment créer, obtenir, mettre à jour et supprimer la c
 
 2. Configurez le peering Microsoft pour le circuit. Avant de poursuivre, assurez-vous de disposer des informations suivantes.
 
-   * Paire de sous-réseaux /30 dont vous êtes propriétaire et inscrite dans un registre RIR/IRR. Il doit s’agir de préfixes IPv4 publics valides. Un sous-réseau sera utilisé pour le lien principal, tandis que l’autre sera utilisé pour le lien secondaire. À partir de chacun de ces sous-réseaux, vous allez attribuer la première adresse IP utilisable à votre routeur. Microsoft utilise la deuxième IP utilisable pour son routeur.
-   * Un ID VLAN valide pour établir ce peering. Assurez-vous qu'aucun autre peering sur le circuit n'utilise le même ID VLAN. Le lien principal et le lien secondaire doivent utiliser le même ID VLAN.
+   * Paire de sous-réseaux dont vous êtes propriétaire et inscrite dans un registre RIR/IRR. Un sous-réseau sera utilisé pour le lien principal, tandis que l’autre sera utilisé pour le lien secondaire. À partir de chacun de ces sous-réseaux, vous allez attribuer la première adresse IP utilisable à votre routeur. Microsoft utilise la deuxième IP utilisable pour son routeur. Trois options s’offrent à vous pour cette paire de sous-réseaux :
+       * IPv4 : deux/30 sous-réseaux. Il doit s’agir de préfixes IPv4 publics valides.
+       * IPv6 : deux/126 sous-réseaux. Il doit s’agir de préfixes IPv6 publics valides.
+       * Les deux : deux/30 sous-réseaux et deux/126 sous-réseaux.
+   * Un ID VLAN valide pour établir ce peering. Assurez-vous qu'aucun autre peering sur le circuit n'utilise le même ID VLAN. Vous devez utiliser le même ID VLAN pour le lien principal et pour le lien secondaire.
    * Un numéro AS pour le peering. Vous pouvez utiliser des numéros à 2 et 4 octets.
    * Préfixes publiés : vous fournissez la liste de tous les préfixes que vous prévoyez de publier sur la session BGP. Seuls les préfixes d'adresses IP publiques sont acceptés. Si vous prévoyez d’envoyer un jeu de préfixes, vous pouvez envoyer une liste séparée par des virgules. Ces préfixes doivent être enregistrés en votre nom dans un registre RIR / IRR.
    * **Facultatif -** ASN du client : si vous publiez des préfixes non inscrits avec le numéro AS d’homologation, vous pouvez spécifier le numéro AS avec lequel ils sont inscrits.
    * Nom du registre de routage : Vous pouvez spécifier les registres RIR/IRR sur lesquels le numéro AS et les préfixes sont inscrits.
    * **Facultatif :** un hachage MD5 si vous choisissez d’en utiliser un.
-3. Vous pouvez sélectionner le peering que vous souhaitez configurer comme indiqué dans l’exemple suivant. Sélectionnez la ligne de peering Microsoft.
+1. Vous pouvez sélectionner le peering que vous souhaitez configurer comme indiqué dans l’exemple suivant. Sélectionnez la ligne de peering Microsoft.
 
    :::image type="content" source="./media/expressroute-howto-routing-portal-resource-manager/select-microsoft-peering.png" alt-text="Sélectionner la ligne de Peering Microsoft":::
 
@@ -120,6 +123,11 @@ Sélectionnez la ligne du peering que vous souhaitez modifier, puis modifiez les
 
 Cette section explique comment créer, obtenir, mettre à jour et supprimer la configuration de peering privé Azure pour un circuit ExpressRoute.
 
+> [!IMPORTANT]
+> La prise en charge du protocole IPv6 pour le peering privé est actuellement en **préversion publique**. Si vous souhaitez connecter votre réseau virtuel à un circuit ExpressRoute avec un peering privée IPv6 configuré, assurez-vous que votre réseau virtuel est en double pile et respecte les recommandations décrites [ici](https://docs.microsoft.com/azure/virtual-network/ipv6-overview).
+> 
+> 
+
 ### <a name="to-create-azure-private-peering"></a>Pour créer un peering privé Azure
 
 1. Configurer le circuit ExpressRoute. Assurez-vous que le circuit est entièrement approvisionné par le fournisseur de connectivité avant de continuer. 
@@ -136,8 +144,11 @@ Cette section explique comment créer, obtenir, mettre à jour et supprimer la c
 
 2. Configurez le peering privé Azure pour le circuit. Avant de passer aux étapes suivantes, assurez-vous de disposer des éléments suivants :
 
-   * Une paire de sous-réseaux /30 dont vous êtes propriétaire. Un sous-réseau sera utilisé pour le lien principal, tandis que l’autre sera utilisé pour le lien secondaire. À partir de chacun de ces sous-réseaux, vous allez attribuer la première adresse IP utilisable à votre routeur. Microsoft utilise la deuxième IP utilisable pour son routeur.
-   * Un ID VLAN valide pour établir ce peering. Assurez-vous qu'aucun autre peering sur le circuit n'utilise le même ID VLAN. Le lien principal et le lien secondaire doivent utiliser le même ID VLAN.
+   * Paire de sous-réseaux qui ne font pas partie de l’espace d’adressage réservé aux réseaux virtuels. Un sous-réseau sera utilisé pour le lien principal, tandis que l’autre sera utilisé pour le lien secondaire. À partir de chacun de ces sous-réseaux, vous allez attribuer la première adresse IP utilisable à votre routeur. Microsoft utilise la deuxième IP utilisable pour son routeur. Trois options s’offrent à vous pour cette paire de sous-réseaux :
+       * IPv4 : deux/30 sous-réseaux.
+       * IPv6 : deux/126 sous-réseaux.
+       * Les deux : deux/30 sous-réseaux et deux/126 sous-réseaux.
+   * Un ID VLAN valide pour établir ce peering. Assurez-vous qu'aucun autre peering sur le circuit n'utilise le même ID VLAN. Vous devez utiliser le même ID VLAN pour le lien principal et pour le lien secondaire.
    * Un numéro AS pour le peering. Vous pouvez utiliser des numéros à 2 et 4 octets. Vous pouvez utiliser un numéro AS privé pour ce peering, sauf pour les numéros 65515 à 65520 (inclus).
    * Vous devez publier les itinéraires à partir de votre routeur de périphérie local vers Azure via BGP quand vous configurez l’homologation privée.
    * **Facultatif :** un hachage MD5 si vous choisissez d’en utiliser un.

@@ -239,13 +239,13 @@
         - name: Gérer des certificats
           items:
             - name: Configuration requise
-              href: azure-stack-edge-j-series-certificate-requirements.md
+              href: azure-stack-edge-gpu-certificate-requirements.md
             - name: Apporter votre propre
-              href: azure-stack-edge-j-series-manage-certificates.md
+              href: azure-stack-edge-gpu-manage-certificates.md
             - name: Créer via l’outil Azure Stack Readiness Checker
-              href: azure-stack-edge-j-series-create-certificates-tool.md
+              href: azure-stack-edge-gpu-create-certificates-tool.md
             - name: Résoudre les erreurs de certificat
-              href: azure-stack-edge-j-series-certificate-troubleshooting.md
+              href: azure-stack-edge-gpu-certificate-troubleshooting.md
         - name: Gérer le computing en périphérie
           href: azure-stack-edge-j-series-manage-compute.md
         - name: Gérer le registre de conteneurs en périphérie
@@ -272,6 +272,8 @@
               href: azure-stack-edge-gpu-connect-powershell-interface.md
             - name: Appliquer des mises à jour
               href: azure-stack-edge-gpu-install-update.md
+            - name: 'Réinitialiser, réactiver l’appareil'
+              href: azure-stack-edge-reset-reactivate-device.md
             - name: Retourner l’appareil
               href: azure-stack-edge-return-device.md
             - name: Remplacer l’appareil

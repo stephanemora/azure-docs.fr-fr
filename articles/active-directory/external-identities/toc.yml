@@ -86,8 +86,10 @@
               href: add-user-without-invite.md
             - name: Personnaliser les invitations à l’aide d’une API
               href: customize-invitation-api.md
-        - name: Fédérer avec des fournisseurs d’identité externes
+        - name: Fournisseurs d’identité
           items:
+            - name: Compte Microsoft (version préliminaire)
+              href: microsoft-account.md
             - name: Fédération des services Google
               href: google-federation.md
             - name: Fédération Facebook

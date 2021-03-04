@@ -51,6 +51,9 @@
         - name: Avec OVMS via l’extension HTTP
           displayName: 'intel, OpenVINO'
           href: use-intel-openvino-tutorial.md
+        - name: Avec OV DL Streamer via l’extension gRPC
+          displayName: 'intel, OpenVINO DL Streamer'
+          href: use-intel-grpc-vas-tutorial.md
         - name: Utiliser Custom Vision
           href: custom-vision-tutorial.md
         - name: Utiliser l’analyse spatiale
@@ -90,6 +93,8 @@
       href: create-custom-azure-resource-manager-role-how-to.md
     - name: Déployer sur un appareil IoT Edge
       href: deploy-iot-edge-device.md
+    - name: Déployer sur IoT Edge pour Linux sur Windows
+      href: deploy-iot-edge-linux-on-windows.md
     - name: Surveillance et journalisation
       href: monitoring-logging.md
     - name: Lecture d’un enregistrement

@@ -1,17 +1,16 @@
 ---
 title: Surveiller l’intégrité d’un espace de travail Log Analytics dans Azure Monitor
 description: Décrit comment surveiller l’intégrité de votre espace de travail Log Analytics à l’aide des données du tableau Opération.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/20/2020
-ms.openlocfilehash: 09df1c2ecb94089f23a88dd36c5343bb4cf2feea
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 9eda0acc15badfe7bb2e754d887786aa990d6e24
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101710938"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102034963"
 ---
 # <a name="monitor-health-of-log-analytics-workspace-in-azure-monitor"></a>Surveiller l’intégrité d’un espace de travail Log Analytics dans Azure Monitor
 Pour maintenir les performances et la disponibilité de votre espace de travail Log Analytics dans Azure Monitor, vous devez être en mesure de détecter de façon proactive les problèmes qui surviennent. Cet article décrit comment surveiller l’intégrité de votre espace de travail Log Analytics à l’aide des données du tableau [Opération](/azure/azure-monitor/reference/tables/operation). Ce tableau, qui figure dans tous les espaces de travail Log Analytics, présente les erreurs et les avertissements qui surviennent dans votre espace de travail. Nous vous conseillons de consulter ces données régulièrement et de créer des alertes pour être informé en amont des incidents importants survenus dans votre espace de travail.

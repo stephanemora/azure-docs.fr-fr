@@ -150,8 +150,10 @@
           href: disable-user-sign-in-portal.md
         - name: Configurer le provisionnement d’applications en libre-service
           href: manage-self-service-access.md
-        - name: Découverte du domaine d’accueil
+        - name: Forcer l’accélération automatique via la stratégie de découverte du domaine d’accueil
           href: configure-authentication-for-federated-users-portal.md
+        - name: Empêcher l’accélération automatique de la connexion à l’aide de la stratégie de découverte du domaine d’accueil
+          href: prevent-domain-hints-with-home-realm-discovery.md
     - name: "Migrer la gestion des identités vers Azure\_AD"
       items:
         - name: Ressources de migration

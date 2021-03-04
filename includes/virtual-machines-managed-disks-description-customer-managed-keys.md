@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 06/05/2020
+ms.date: 03/02/2021
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: ba50def51bcea4f477bea5cecbe5b1ed0409b01a
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 52b9bee1d43c0f136889a6a54277d4bb45dd4a45
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98792324"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750782"
 ---
 Vous pouvez choisir de gérer le chiffrement au niveau de chaque disque managé, avec vos propres clés. Le chiffrement côté serveur pour les disques managés avec des clés gérées par le client offre une expérience intégrée avec Azure Key Vault. Vous pouvez importer [vos clés RSA](../articles/key-vault/keys/hsm-protected-keys.md) vers votre Key Vault ou générer de nouvelles clés RSA dans Azure Key Vault. 
 
@@ -43,3 +43,7 @@ La liste suivante décrit le diagramme plus en détail :
 1. Pour la lecture ou l’écriture de données, les disques managés envoient des demandes à Azure Key Vault pour chiffrer (envelopper) et déchiffrer (désenvelopper) la clé de chiffrement des données, afin d’effectuer le chiffrement et le déchiffrement des données. 
 
 Pour révoquer l’accès aux clés managées par le client, consultez [Azure Key Vault PowerShell](/powershell/module/azurerm.keyvault/) et [Azure Key Vault CLI](/cli/azure/keyvault). La révocation de l’accès bloque efficacement l’accès à toutes les données dans le compte de stockage, car la clé de chiffrement n’est pas accessible au Stockage Azure.
+
+#### <a name="automatic-key-rotation-of-customer-managed-keys-preview"></a>Rotation automatique des clés gérées par le client (version préliminaire)
+
+Vous pouvez activer la rotation automatique des clés vers la dernière version de la clé. Un disque fait référence à une clé via son jeu de chiffrement de disque. Lorsque vous activez la rotation automatique pour un jeu de chiffrement de disque, le système met automatiquement à jour tous les disques managés, les captures instantanées et les images référençant le jeu de chiffrement de disque pour utiliser la nouvelle version de la clé dans un délai d’une heure. La fonctionnalité est actuellement disponible en version préliminaire dans un nombre limité de régions. Pour en savoir plus sur la disponibilité régionale, consultez la section [Régions prises en charge](#supported-regions).

@@ -4,12 +4,12 @@ description: Fournit un récapitulatif des limitations et des paramètres de pri
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: 1752e6687cd4dda72ee330c489a4642ae32f8219
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: 2536ae0d33767de5ad53740407622e67c582cc37
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99820770"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710666"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Tableau de prise en charge pour la sauvegarde de machines virtuelles Azure
 
@@ -43,7 +43,7 @@ Sauvegarder des disques managés après l’activation d’un verrou de groupe d
 Modifier la stratégie de sauvegarde pour une machine virtuelle | Pris en charge.<br/><br/> La machine virtuelle est sauvegardée selon la planification et les paramètres de conservation de la nouvelle stratégie. Si les paramètres de conservation sont étendus, les points de récupération existants sont marqués et conservés. S’ils sont réduits, les points de récupération existants sont nettoyés lors de la prochaine tâche de nettoyage et ils sont finalement supprimés.
 Annuler un travail de sauvegarde| Pris en charge pendant le processus de capture instantanée.<br/><br/> Non pris en charge quand l’instantané est transféré vers le coffre.
 Sauvegarder la machine virtuelle vers une autre région ou un autre abonnement |Non pris en charge.<br><br>Pour réussir la sauvegarde, les machines virtuelles doivent se trouver dans le même abonnement que le coffre de la sauvegarde.
-Sauvegardes par jour (via l’extension de machine virtuelle Azure) | Une sauvegarde planifiée par jour.<br/><br/>Le service Sauvegarde Azure prend en charge jusqu’à neuf sauvegardes à la demande par jour, mais Microsoft recommande d’effectuer au maximum quatre sauvegardes quotidiennes à la demande afin de garantir des performances optimales.
+Sauvegardes par jour (via l’extension de machine virtuelle Azure) | Une sauvegarde planifiée par jour.<br/><br/>Le service Sauvegarde Azure prend en charge jusqu’à trois sauvegardes à la demande par jour et une sauvegarde planifiée supplémentaire.
 Sauvegardes par jour (via l’agent MARS) | Trois sauvegardes planifiées par jour.
 Sauvegardes par jour (via DPM/MABS) | Deux sauvegardes planifiées par jour.
 Sauvegarde mensuelle/annuelle| Non pris en charge lors de la sauvegarde avec l’extension de machine virtuelle Azure. Seules les sauvegardes quotidiennes et hebdomadaires sont prises en charge.<br/><br/> Vous pouvez configurer la stratégie pour conserver des sauvegardes quotidiennes/hebdomadaires pour une période de conservation mensuelle/annuelle.
@@ -115,6 +115,7 @@ Restauration de fichiers provenant de comptes de stockage avec des restrictions 
 Restauration de fichiers sur des machines virtuelles avec des espaces de stockage Windows | Restauration non prise en charge sur la même machine virtuelle.<br/><br/> Au lieu de cela, restaurez les fichiers sur une machine virtuelle compatible.
 Restaurer des fichiers sur une machine virtuelle Linux avec des baies LVM/RAID | Restauration non prise en charge sur la même machine virtuelle.<br/><br/> Restaurer sur une machine virtuelle compatible.
 Restaurer des fichiers avec des paramètres réseau spéciaux | Restauration non prise en charge sur la même machine virtuelle. <br/><br/> Restaurer sur une machine virtuelle compatible.
+Restaurer des fichiers à partir d’un disque partagé, d’un lecteur temporaire, d’un disque dédupliqué, d’un disque Ultra et d’un disque avec accélérateur d’écriture activé | Restauration non prise en charge, <br/><br/>consultez la section [Prise en charge du stockage des machines virtuelles Azure](#vm-storage-support).
 
 ## <a name="support-for-vm-management"></a>Prise en charge de la gestion des machines virtuelles
 
@@ -144,12 +145,12 @@ Sauvegarder des machines virtuelles déployées à partir de la [Place de march�
 Sauvegarder des machines virtuelles déployées à partir d’une image personnalisée (tiers) |Pris en charge.<br/><br/> La machine virtuelle doit exécuter un système d’exploitation pris en charge.<br/><br/> Lors de la récupération de fichiers sur la machine virtuelle, vous pouvez restaurer seulement sur un système d’exploitation compatible (pas un système d’exploitation antérieur ou ultérieur).
 Sauvegarder des machines virtuelles migrées vers Azure| Pris en charge.<br/><br/> Pour sauvegarder la machine virtuelle, l’agent de machine virtuelle doit être installé sur la machine migrée.
 Cohérence multimachine virtuelle de la sauvegarde | La Sauvegarde Azure ne fournit pas la cohérence des données et des applications sur plusieurs machines virtuelles.
-Sauvegarde avec les [Paramètres de diagnostic](../azure-monitor/platform/platform-logs-overview.md)  | Non prise en charge. <br/><br/> Si la restauration de la machine virtuelle Azure avec les paramètres de diagnostic est déclenchée à l’aide de l’option [Créer](backup-azure-arm-restore-vms.md#create-a-vm), la restauration échoue.
+Sauvegarde avec les [Paramètres de diagnostic](../azure-monitor/essentials/platform-logs-overview.md)  | Non prise en charge. <br/><br/> Si la restauration de la machine virtuelle Azure avec les paramètres de diagnostic est déclenchée à l’aide de l’option [Créer](backup-azure-arm-restore-vms.md#create-a-vm), la restauration échoue.
 Restauration des machines virtuelles épinglées par zone | Prise en charge (pour une machine virtuelle sauvegardée après janvier 2019 et pour laquelle les [zones de disponibilité](https://azure.microsoft.com/global-infrastructure/availability-zones/) sont disponibles).<br/><br/>Nous prenons actuellement en charge la restauration dans la même zone que celle épinglée dans des machines virtuelles. Toutefois, si la zone n’est pas disponible en raison d’une panne, la restauration échoue.
 Machines virtuelles de deuxième génération | Prise en charge <br> Sauvegarde Azure prend en charge la sauvegarde et la restauration des [machines virtuelles de deuxième génération](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/). Lorsque ces machines virtuelles sont restaurées à partir du point de récupération, elles sont restaurées sous la forme de [machines virtuelles de deuxième génération](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/).
 Sauvegarde des machines virtuelles Azure avec des verrous | Non pris en charge pour les machines virtuelles non managées. <br><br> Pris en charge pour les machines virtuelles managées.
 [Machines virtuelles Spot](../virtual-machines/spot-vms.md) | Non prise en charge. La sauvegarde Azure restaure les machines virtuelles Sport en tant que machines virtuelles Azure classiques.
-[Azure Dedicated Host](https://docs.microsoft.com/azure/virtual-machines/dedicated-hosts) | Prise en charge
+[Azure Dedicated Host](../virtual-machines/dedicated-hosts.md) | Prise en charge
 Configuration des espaces de stockage Windows des machines virtuelles Azure autonomes | Prise en charge
 
 ## <a name="vm-storage-support"></a>Prise en charge du stockage des machines virtuelles
@@ -168,7 +169,7 @@ Redimensionner un disque sur une machine virtuelle protégée | Pris en charge.
 Stockage partagé| La sauvegarde des machines virtuelles à l’aide d’un volume partagé de cluster (CSV) ou d’un serveur de fichiers avec montée en puissance parallèle n’est pas prise en charge. En effet, il existe un risque d’échec pour les enregistreurs de volumes partagés de cluster lors de la sauvegarde. Lors de la restauration, les disques contenant des volumes partagés de cluster risquent de ne pas apparaître.
 [Disques partagés](../virtual-machines/disks-shared-enable.md) | Non pris en charge.
 Disques SSD Ultra | Non pris en charge. Pour plus d’informations, consultez ces [limitations](selective-disk-backup-restore.md#limitations).
-[Disques temporaires](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview#temporary-disk) | Les disques temporaires ne sont pas sauvegardés par Sauvegarde Azure.
+[Disques temporaires](../virtual-machines/managed-disks-overview.md#temporary-disk) | Les disques temporaires ne sont pas sauvegardés par Sauvegarde Azure.
 
 ## <a name="vm-network-support"></a>Prise en charge des réseaux de machines virtuelles
 

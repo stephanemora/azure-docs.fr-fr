@@ -5,6 +5,8 @@
   items:
     - name: "Qu’est-ce que Azure Communication Services\_?"
       href: overview.md
+    - name: Options d’aide et de support
+      href: support.md
 - name: Démarrages rapides
   expanded: true
   items:

@@ -6,7 +6,7 @@
   items:
     - name: "Qu’est-ce que Data Science Virtual Machine (DSVM)\_?"
       href: overview.md
-    - name: Outils inclus dans Data Science Virtual Machine
+    - name: Outils dans Data Science Virtual Machine
       href: tools-included.md
 - name: Démarrages rapides
   expanded: true

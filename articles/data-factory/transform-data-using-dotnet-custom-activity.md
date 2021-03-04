@@ -7,12 +7,12 @@ ms.author: abnarain
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/26/2018
-ms.openlocfilehash: ec1e7c77c44cf1969e472a6e7288d1af5d6640e1
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 64588d5968df635c3bb017bd1ff1d10951968f32
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100374794"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101724946"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Utilisation des activités personnalisées dans un pipeline Azure Data Factory
 
@@ -35,6 +35,9 @@ Consultez les articles suivants si vous ne connaissez pas le service Azure Batch
 * [Présentation de base d’Azure Batch](../batch/batch-technical-overview.md) pour une vue d’ensemble du service Azure Batch.
 * Applet de commande [New-AzBatchAccount](/powershell/module/az.batch/New-azBatchAccount) pour créer un compte Azure Batch (ou) [Portail Azure](../batch/batch-account-create-portal.md) pour créer le compte Azure Batch à l’aide du portail Azure. Pour obtenir des instructions détaillées sur l’utilisation de la cmdlet, voir [Utilisation de PowerShell pour gérer un compte Azure Batch](/archive/blogs/windowshpc/using-azure-powershell-to-manage-azure-batch-account).
 * Applet de commande [New-AzBatchPool](/powershell/module/az.batch/New-AzBatchPool) pour créer un pool Azure Batch.
+
+> [!IMPORTANT]
+> Lors de la création d’un pool Azure Batch, ‘VirtualMachineConfiguration’ doit être utilisé et NON ‘CloudServiceConfiguration’. Pour plus d’informations, consultez la section [Conseils de migration du pool Azure Batch](../batch/batch-pool-cloud-service-to-virtual-machine-configuration.md). 
 
 ## <a name="azure-batch-linked-service"></a>Service lié Azure Batch
 
@@ -298,7 +301,7 @@ Activity Error section:
 Si vous souhaitez consommer le contenu de stdout.txt dans des activités en aval, vous pouvez obtenir le chemin du fichier stdout.txt dans l’expression « \@activity(’MyCustomActivity’).output.outputs[0] ».
 
 > [!IMPORTANT]
-> - Les fichiers activity.json, linkedServices.json et datasets.json sont stockés dans le dossier d’exécution de la tâche de traitement par lots. Pour cet exemple, les fichiers activity.json, linkedServices.json et datasets.json sont stockés dans le chemin d’accès `"https://adfv2storage.blob.core.windows.net/adfjobs/\<GUID>/runtime/"`. Si nécessaire, vous devez les nettoyer séparément.
+> - Les fichiers activity.json, linkedServices.json et datasets.json sont stockés dans le dossier d’exécution de la tâche de traitement par lots. Pour cet exemple, les fichiers activity.json, linkedServices.json et datasets.json sont stockés dans le chemin d’accès `https://adfv2storage.blob.core.windows.net/adfjobs/<GUID>/runtime/`. Si nécessaire, vous devez les nettoyer séparément.
 > - Pour les services liés qui utilisent le runtime d’intégration auto-hébergé, les informations sensibles comme les clés ou les mots de passe sont chiffrées par le runtime d’intégration auto-hébergé pour faire en sorte que les informations d’identification restent dans l’environnement de réseau privé défini par le client. Certains champs sensibles peuvent manquer lorsqu’ils sont référencés par votre code d’application personnalisé de cette façon. Au besoin, utilisez SecureString dans extendedProperties au lieu d’utiliser une référence de service lié.
 
 ## <a name="pass-outputs-to-another-activity"></a>Passer les sorties à une autre activité

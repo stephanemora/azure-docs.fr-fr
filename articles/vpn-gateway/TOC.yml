@@ -85,7 +85,7 @@
               href: create-routebased-vpn-gateway-cli.md
         - name: Vérifier une connexion de passerelle VPN
           href: vpn-gateway-verify-connection-resource-manager.md
-        - name: Réinitialiser une passerelle VPN
+        - name: Réinitialiser une passerelle ou une connexion VPN
           href: reset-gateway.md
         - name: Supprimer une passerelle VPN
           items:
@@ -177,6 +177,10 @@
               href: about-vpn-profile-download.md
             - name: Intune - Déployer un profil de client VPN
               href: vpn-profile-intune.md
+        - name: Plusieurs types d’authentification
+          items:
+            - name: Portail Azure
+              href: howto-point-to-site-multi-auth.md
         - name: OpenVPN
           items:
             - name: Configurer un type de tunnel OpenVPN
@@ -205,6 +209,8 @@
               href: vpn-gateway-bgp-resource-manager-ps.md
             - name: Azure CLI
               href: bgp-how-to-cli.md
+        - name: Diagnostics BGP
+          href: bgp-diagnostics.md
         - name: Configurer un tunneling forcé
           items:
             - name: Azure PowerShell

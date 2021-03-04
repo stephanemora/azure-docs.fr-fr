@@ -8,12 +8,12 @@ ms.author: manoskow
 ms.date: 10/23/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 88ad060c1ba28285051a91bd928a2a7116dff1ce
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: ef1c4d87be39b6af90ed07cba9249cca4cf8bd6a
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96937540"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102036025"
 ---
 # <a name="troubleshooting-in-azure-communication-services"></a>Résolution des problèmes dans Azure Communication Services
 
@@ -21,12 +21,7 @@ Ce document vous aide à résoudre les problèmes que vous pouvez rencontrer dan
 
 ## <a name="getting-help"></a>Obtenir de l’aide
 
-Nous encourageons les développeurs à poser des questions, à suggérer des fonctionnalités et à signaler des problèmes dans le [dépôt GitHub](https://github.com/Azure/communication) Communication Services. Vous pouvez également consulter les forums suivants :
-
-* [Microsoft Q&A](/answers/questions/topics/single/101418.html)
-* [Stackoverflow](https://stackoverflow.com/questions/tagged/azure+communication)
-
-En fonction du [plan de support](https://azure.microsoft.com/support/plans/) de votre abonnement Azure, vous pouvoir avoir la possibilité d’envoyer un ticket de support directement par le biais du [portail Azure](https://azure.microsoft.com/support/create-ticket/).
+Nous encourageons les développeurs à poser des questions, à suggérer des fonctionnalités et à signaler des problèmes. Pour cela, nous mettons à disposition une [page d’aide et de support dédiée](../support.md) qui liste les options de support.
 
 Pour vous aider à résoudre certains types de problèmes, vous pouvez être invité à fournir les informations suivantes :
 
@@ -107,7 +102,6 @@ Log.d(call.getCallId())
 ```
 ---
 
-
 ## <a name="access-your-sms-message-id"></a>Accéder à votre ID de message SMS
 
 Pour les problèmes liés aux SMS, vous pouvez recueillir l’ID de message à partir de l’objet de réponse.
@@ -130,9 +124,6 @@ console.log(result); // your message ID will be in the result
 ---
 
 ## <a name="enable-and-access-call-logs"></a>Activer et accéder aux journaux des appels
-
-
-
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -166,7 +157,6 @@ Sur Android Studio, accédez à l’Explorateur de fichiers de l’appareil en s
 
 ---
 
-
 ## <a name="calling-client-library-error-codes"></a>Code d’erreur de la bibliothèque de client d’appel
 
 La bibliothèque de client d’appel Azure Communication Services utilise les codes d’erreur suivants pour vous aider à résoudre les problèmes d’appel. Ces codes d’erreur sont exposés via la propriété `call.callEndReason` à l’issue d’un appel.
@@ -184,7 +174,6 @@ La bibliothèque de client d’appel Azure Communication Services utilise les co
 | 490, 491, 496, 487, 498 | Problèmes de réseau de point de terminaison local. | Vérifiez votre réseau. |
 | 500, 503, 504 | Erreur d’infrastructure Communication Services. | Soumettez une demande de support via le portail Azure. |
 | 603 | Appel global refusé par le participant Communication Services distant | Comportement attendu. |
-
 
 ## <a name="related-information"></a>Informations connexes
 - [Journaux et diagnostics](logging-and-diagnostics.md)

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: trbye
-ms.openlocfilehash: 8546201d21e68fbcf1e519c8fe9ba0de1dc38a96
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: f7e29fab542db79b22a9ace7371bc22d3526ac33
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100367977"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710496"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Préparer des données pour Custom Speech
 
@@ -58,12 +58,14 @@ Les fichiers doivent être regroupées par type dans un jeu de données et charg
 > Pour commencer rapidement, vous pouvez utiliser des exemples de données. Consultez ce dépôt GitHub pour un <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/sampledata/customspeech" target="_target">exemple de données Custom Speech <span class="docon docon-navigate-external x-hidden-focus"></span></a>
 
 > [!NOTE]
-> Tous les modèles de base ne prennent pas en charge l’audio. Si un modèle de base ne le prend pas en charge, le service vocal utilise uniquement le texte des transcriptions et ignore l’audio. Pour obtenir la liste des modèles de base prenant en charge l’entraînement avec des données audio, consultez les informations relatives à la [prise en charge des langues](language-support.md#speech-to-text).
+> Tous les modèles de base ne prennent pas en charge l’audio. Si un modèle de base ne le prend pas en charge, le service vocal utilise uniquement le texte des transcriptions et ignore l’audio. Pour obtenir la liste des modèles de base prenant en charge l’entraînement avec des données audio, consultez les informations relatives à la [prise en charge des langues](language-support.md#speech-to-text). Même si un modèle de base prend en charge l’apprentissage avec des données audio, il est possible que le service n’utilise qu’une partie de l’audio. Il utilisera néanmoins toutes les transcriptions.
 
 > [!NOTE]
 > Si vous changez le modèle de base utilisé pour l’entraînement et si vous avez du contenu audio dans le jeu de données d’entraînement, vérifiez *toujours* si le nouveau modèle de base sélectionné [prend en charge l’entraînement avec des données audio](language-support.md#speech-to-text). Si le modèle de base utilisé jusqu’à maintenant ne prend pas en charge l’entraînement avec des données audio, et si le jeu de données d’entraînement contient de l’audio, le temps d’entraînement du nouveau modèle de base va **considérablement** augmenter. Il peut facilement passer de plusieurs heures à plusieurs jours, voire davantage. Cela est particulièrement vrai si votre abonnement au service Speech ne se situe **pas** dans une [région disposant du matériel dédié](custom-speech-overview.md#set-up-your-azure-account) à l’entraînement.
 >
 > Si vous êtes confronté au problème décrit dans le paragraphe ci-dessus, vous pouvez rapidement faire baisser le temps d’entraînement en réduisant la quantité du contenu audio dans le jeu de données, ou en supprimant complètement le contenu audio pour ne garder que le texte. Cette dernière option est fortement recommandée si votre abonnement au service Speech ne se situe **pas** dans une [région disposant du matériel dédié](custom-speech-overview.md#set-up-your-azure-account) à l’entraînement.
+>
+> Dans les régions avec un matériel dédié pour l’apprentissage, le service Speech utilise jusqu’à 20 heures d’audio pour l’apprentissage. Dans d’autres régions, il n’utilise que jusqu’à 8 heures d’audio.
 
 ## <a name="upload-data"></a>Charger des données
 
@@ -127,7 +129,7 @@ Les fichiers audio peuvent avoir un silence au début et à la fin de l’enregi
 > [!NOTE]
 > Lors du chargement de données de formation et de test, la taille du fichier .zip ne peut pas dépasser 2 Go. Vous ne pouvez effectuer des tests qu’à partir d’un *seul* jeu de données : veillez donc à ce que sa taille de fichier reste appropriée. De plus, chaque fichier d’entraînement ne peut pas dépasser 60 secondes. Dans le cas contraire, il génère une erreur.
 
-Pour résoudre les problèmes comme la suppression ou la substitution de mots, une quantité importante de données est nécessaire pour améliorer la reconnaissance. En règle générale, il est recommandé de fournir des transcriptions mot par mot pour environ 10 à 20 heures de contenu audio. Les transcriptions de tous les fichiers WAV doivent se trouver dans un seul fichier en texte brut. Chaque ligne du fichier de transcription doit contenir le nom d’un des fichiers audio, suivi de la transcription correspondante. Le nom de fichier et la transcription doivent être séparés par une tabulation (\t).
+Pour résoudre les problèmes comme la suppression ou la substitution de mots, une quantité importante de données est nécessaire pour améliorer la reconnaissance. En règle générale, il est recommandé de fournir des transcriptions mot par mot pour environ 1 à 20 heures d’audio. Toutefois, même 30 minutes peuvent contribuer à améliorer les résultats de la reconnaissance. Les transcriptions de tous les fichiers WAV doivent se trouver dans un seul fichier en texte brut. Chaque ligne du fichier de transcription doit contenir le nom d’un des fichiers audio, suivi de la transcription correspondante. Le nom de fichier et la transcription doivent être séparés par une tabulation (\t).
 
 Par exemple :
 

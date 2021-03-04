@@ -49,14 +49,16 @@
       href: how-to-configure-https-custom-domain.md
     - name: Association de routes
       href: how-to-configure-route.md
+    - name: Configurer un ensemble de règles
+      href: how-to-configure-rule-set.md
     - name: Configurer des en-têtes de sécurité avec un ensemble de règles
       href: how-to-add-security-headers.md
     - name: Vidage du cache
       href: how-to-cache-purge.md
     - name: Compression
       href: how-to-compression.md
-    - name: Activer Azure Private Link
-      href: how-to-enable-private-link.md
+    - name: Activer Private Link sur une application web
+      href: how-to-enable-private-link-web-app.md
     - name: Journalisation
       href: how-to-logs.md
     - name: Supervision et alertes

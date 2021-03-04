@@ -1,0 +1,45 @@
+### YamlMime:Landing
+title: Documentation Azure Object Anchors
+summary: Object Anchors peut être utilisé pour détecter un objet dans le monde physique et estimer sa valeur 6-DDL à partir d’un modèle 3D de cet objet.
+metadata:
+  title: Documentation Azure Object Anchors
+  description: Utilisez Object Anchors pour détecter un objet dans le monde physique et estimer sa valeur 6-DDL à partir d’un modèle 3D de cet objet.
+  services: azure-object-anchors
+  ms.service: azure-object-anchors
+  ms.topic: landing-page
+  author: craigktreasure
+  ms.author: crtreasu
+  ms.date: 04/01/2020
+  ms.openlocfilehash: 84ef8d771f4471c11dd77422444a5be98d5c8212
+  ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 03/03/2021
+  ms.locfileid: "101742689"
+landingContent:
+- title: À propos d’Azure Object Anchors
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Qu’est-ce que Azure Object Anchors ?
+      url: overview.md
+    - text: Consulter les notes de publication sur GitHub
+      url: https://github.com/Azure/azure-object-anchors/releases
+- title: Découvrir les concepts clés
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Vue d'ensemble du kit de développement logiciel (SDK)
+      url: ./concepts/sdk-overview.md
+- title: Démarrages rapides
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Conversion de modèle
+      url: ./quickstarts/get-started-model-conversion.md
+    - text: Unity HoloLens
+      url: ./quickstarts/get-started-unity-hololens.md
+    - text: Unity HoloLens avec MRTK
+      url: ./quickstarts/get-started-unity-hololens-mrtk.md
+    - text: HoloLens DirectX
+      url: ./quickstarts/get-started-hololens-directx.md

@@ -8,12 +8,12 @@ ms.date: 10/23/2020
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 3c07d64fd046766521e030b6ee1b88a590246e24
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: 123be57566a31d9831bfd0172373d571be2bf294
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99226167"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102035167"
 ---
 # <a name="quickstart-deploy-your-first-azure-spring-cloud-application"></a>Démarrage rapide : Déployer votre première application Azure Spring Cloud
 
@@ -242,7 +242,7 @@ La procédure suivante génère et déploie le projet que vous avez créé préc
 1. Créez une application dans votre instance Azure Spring Cloud avec un point de terminaison public attribué. Utilisez le nom d’application « hello-world » que vous avez spécifié dans *appsettings.json*.
 
    ```console
-   az spring-cloud app create -n hello-world -s <service instance name> -g <resource group name> --is-public --runtime-version NetCore_31
+   az spring-cloud app create -n hello-world -s <service instance name> -g <resource group name> --assign-endpoint --runtime-version NetCore_31
    ```
 
 1. Déployez le fichier *.zip* dans l’application.
@@ -416,7 +416,7 @@ La procédure suivante génère et déploie l’application en utilisant Azure C
 1. Créez l’application avec un point de terminaison public affecté :
 
     ```azurecli
-    az spring-cloud app create -n hellospring -s <service instance name> -g <resource group name> --is-public true
+    az spring-cloud app create -n hellospring -s <service instance name> -g <resource group name> --assign-endpoint true
     ```
 
 1. Déployez le fichier Jar pour l’application (`target\hellospring-0.0.1-SNAPSHOT.jar` sur Windows) :

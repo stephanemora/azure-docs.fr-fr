@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/10/2021
 ms.author: duau
-ms.openlocfilehash: c686902ed23e0f1a94bc9548d0a876ecbbce8f31
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 5fedb9d09e61540d0ee8a1fe21fbd25f31390f5d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100377871"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101742447"
 ---
 # <a name="expressroute-connectivity-partners-and-peering-locations"></a>Partenaires de connectivité ExpressRoute et localisations de peering
 
@@ -43,8 +43,8 @@ Le tableau ci-dessous fournit une carte des régions Azure vers des emplacements
 | **Région géopolitique** | **Régions Azure** | **Emplacements ExpressRoute** |
 | --- | --- | --- |
 | **Secteur public australien** |Australie Centre, Australie Centre 2 |Canberra, Canberra2 |
-| **Europe** | France Centre, France Sud, Allemagne Nord, Allemagne Centre-Ouest, Europe Nord, Norvège Est, Norvège Ouest, Suisse Nord, Suisse Ouest, Royaume-Uni Ouest, Royaume-Uni Sud, Europe Ouest |Amsterdam, Amsterdam2, Berlin, Copenhague, Dublin, Francfort, Genève, Londres, Londres2, Marseille, Milan, Newport(Pays de Galles), Oslo, Paris, Stavanger, Stockholm, Zurich |
-| **Amérique du Nord** |USA Est, USA Ouest, USA Est 2, USA Ouest 2, USA Centre, USA Centre Sud, USA Centre Nord, USA Centre-Ouest, Canada Centre, Canada Est |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Angeles, Los Angeles2, Miami, Minneapolis, Montréal, New York, Phoenix, Québec, Querétaro(Mexique), Quincy, San Antonio, Seattle, Silicon Valley, Silicon Valley2, Toronto, Vancouver, Washington DC, Washington DC2 |
+| **Europe** | France Centre, France Sud, Allemagne Nord, Allemagne Centre-Ouest, Europe Nord, Norvège Est, Norvège Ouest, Suisse Nord, Suisse Ouest, Royaume-Uni Ouest, Royaume-Uni Sud, Europe Ouest |Amsterdam, Amsterdam2, Berlin, Copenhague, Dublin, Francfort, Francfort2, Genève, Londres, Londres2, Madrid, Marseille, Milan, Newport(Pays de Galles), Oslo, Paris, Stavanger, Stockholm, Zurich |
+| **Amérique du Nord** |USA Est, USA Ouest, USA Est 2, USA Ouest 2, USA Centre, USA Centre Sud, USA Centre Nord, USA Centre-Ouest, Canada Centre, Canada Est |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Angeles, Los Angeles2, Miami, Minneapolis, Montréal, New York, Phoenix, Québec, Querétaro(Mexique), Quincy, San Antonio, Seattle, Silicon Valley, Silicon Valley2, Toronto, Toronto2, Vancouver, Washington DC, Washington DC2 |
 | **Asie** | Asie Est, Asie Sud-Est | Bangkok, Hong Kong (R.A.S.), Hong Kong2, Jakarta, Kuala Lumpur, Singapour, Singapour2, Taipei |
 | **Inde** | Inde Ouest, Inde Centre, Inde Sud |Chennai, Chennai2, Mumbai, Mumbai2 |
 | **Japon** | Japon Ouest, Japon Est |Osaka, Tokyo, Tokyo2 |
@@ -52,7 +52,7 @@ Le tableau ci-dessous fournit une carte des régions Azure vers des emplacements
 | **Corée du Sud** | Centre de la Corée, Corée du Sud |Busan, Séoul|
 | **Émirats Arabes Unis** | Émirats arabes unis Centre, Émirats arabes unis Nord | Dubaï, Dubaï2 |
 | **Afrique du Sud** | Afrique du Sud Ouest, Afrique du Sud Nord |Le Cap, Johannesburg |
-| **Amérique du Sud** | Brésil Sud |Bogota, Sao Paulo |
+| **Amérique du Sud** | Brésil Sud |Bogota, Rio de Janeiro, São Paulo |
 
 
 ## <a name="regions-and-geopolitical-boundaries-for-national-clouds"></a>Régions et limites géopolitiques pour les clouds nationaux
@@ -105,7 +105,7 @@ Le tableau suivant présente les emplacements, en fonction de chaque fournisseur
 | **du datamena** |Prise en charge |Prise en charge | Dubaï2 |
 | **eir** |Prise en charge |Prise en charge |Dublin|
 | **[Communications globales EPSILON](https://www.epsilontel.com/solutions/direct-cloud-connect)** |Prise en charge |Prise en charge |Singapour, Singapour2 |
-| **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** |Prise en charge |Prise en charge |Amsterdam, Amsterdam2, Atlanta, Berlin, Canberra2, Chicago, Dallas, Dubaï2, Dublin, Francfort, Genève, Hong Kong (R.A.S), Londres, Londres2, Los Angeles, Los Angeles2, Melbourne, Miami, Milan, New York, Osaka, Paris, Sao Paulo, Seattle, Séoul, Silicon Valley, Singapour, Stockholm, Sydney, Tokyo, Toronto, Washington DC, Zurich |
+| **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** |Prise en charge |Prise en charge |Amsterdam, Amsterdam2, Atlanta, Berlin, Bogota, Canberra2, Chicago, Dallas, Dubaï2, Dublin, Francfort, Francfort2, Genève, Hong Kong (R.A.S), Londres, Londres2, Los Angeles, Los Angeles2, Melbourne, Miami, Milan, New York, Osaka, Paris, Rio de Janeiro, São Paulo, Seattle, Séoul, Silicon Valley, Singapour, Stockholm, Sydney, Tokyo, Toronto, Washington DC, Zurich |
 | **Etisalat UAE** |Prise en charge |Prise en charge |Dubaï|
 | **[euNetworks](https://eunetworks.com/services/solutions/cloud-connect/microsoft-azure-expressroute/)** |Prise en charge |Prise en charge |Amsterdam, Amsterdam2, Dublin, Francfort, Londres |
 | **[FarEasTone](https://www.fetnet.net/corporate/en/Enterprise.html)** |Prise en charge |Prise en charge |Taipei|
@@ -133,7 +133,7 @@ Le tableau suivant présente les emplacements, en fonction de chaque fournisseur
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Prise en charge |Prise en charge |Amsterdam, Chicago, Dallas, Londres, Newport (Pays de Galles), Sao Paulo, Seattle, Silicon Valley, Singapour, Washington DC |
 | **LG CNS** |Prise en charge |Prise en charge |Busan, Séoul |
 | **[Liquid Telecom](https://www.liquidtelecom.com/products-and-services/cloud.html)** |Prise en charge |Prise en charge |Le Cap, Johannesburg |
-| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Prise en charge |Prise en charge |Amsterdam, Atlanta, Auckland, Chicago, Dallas, Denver, Dubaï2, Dublin, Francfort, Genève, Hong Kong, Hong Kong2, Las Vegas, Londres, Londres2, Los Angeles, Melbourne, Miami, Minneapolis, Montréal, New York, Osaka, Oslo, Perth, Québec, San Antonio, Seattle, Silicon Valley, Singapour, Singapour2, Stavanger, Stockholm, Sydney, Sydney2, Tokyo, Tokyo2, Toronto, Vancouver, Washington DC, Washington DC2, Zurich |
+| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Prise en charge |Prise en charge |Amsterdam, Atlanta, Auckland, Chennai, Chicago, Dallas, Denver, Dubaï2, Dublin, Francfort, Genève, Hong Kong, Hong Kong2, Las Vegas, Londres, Londres2, Los Angeles, Melbourne, Miami, Minneapolis, Montréal, New York, Osaka, Oslo, Paris, Perth, Québec, San Antonio, Seattle, Silicon Valley, Singapour, Singapour2, Stavanger, Stockholm, Sydney, Sydney2, Tokyo, Tokyo2, Toronto, Vancouver, Washington DC, Washington DC2, Zurich |
 | **[MTN](https://www.mtnbusiness.co.za/en/Cloud-Solutions/Pages/microsoft-express-route.aspx)** |Prise en charge |Prise en charge |London |
 | **[Neutrona Networks](https://www.neutrona.com/index.php/azure-expressroute/)** |Prise en charge |Prise en charge |Dallas, Los Angeles, Miami, Sao Paulo, Washington DC |
 | **[Next Generation Data](https://vantage-dc-cardiff.co.uk/)** |Prise en charge |Prise en charge |Newport (Nouvelle-Galles du Sud) |
@@ -149,6 +149,7 @@ Le tableau suivant présente les emplacements, en fonction de chaque fournisseur
 | **[Orixcom](https://www.orixcom.com/cloud-solutions/)** | Prise en charge | Prise en charge | Dubaï2 |
 | **[PacketFabric](https://www.packetfabric.com/cloud-connectivity/microsoft-azure)** |Prise en charge |Prise en charge |Chicago, Las Vegas, Silicon Valley, Washington DC |
 | **[PCCW Global Limited](https://consoleconnect.com/clouds/#azureRegions)** |Prise en charge |Prise en charge |Chicago, Hong Kong (R.A.S), Hong Kong2, Londres, Singapour2 |
+| **[REANNZ](https://www.reannz.co.nz/products-and-services/cloud-connect/)** | Prise en charge | Prise en charge | Auckland |
 | **[Retelit](https://www.retelit.it/EN/Home.aspx)** | Prise en charge | Prise en charge | Milan | 
 | **[Sejong Telecom](https://www.sejongtelecom.net/en/pages/service/cloud_ms)** |Prise en charge |Prise en charge |Séoul |
 | **[SES](https://www.ses.com/networks/signature-solutions/signature-cloud/ses-and-azure-expressroute)** | Prise en charge |Prise en charge | Londres2, Washington DC |

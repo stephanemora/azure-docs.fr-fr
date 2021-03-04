@@ -1,14 +1,14 @@
 ---
 title: Gérer les espaces de travail Azure Sentinel à grande échelle
 description: Apprenez à gérer efficacement Azure Sentinel sur les ressources client déléguées.
-ms.date: 09/30/2020
+ms.date: 03/02/2021
 ms.topic: how-to
-ms.openlocfilehash: 91e2f875aa2fc067420c0c6eda4e7dd56bd2b088
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 009edaefe021dedb5d9a40a8cc3bac2c2974ae10
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424093"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702519"
 ---
 # <a name="manage-azure-sentinel-workspaces-at-scale"></a>Gérer les espaces de travail Azure Sentinel à grande échelle
 
@@ -80,9 +80,9 @@ Créez et enregistrez des requêtes d’analytique des journaux d’activité po
 
 Vous pouvez utiliser l’automatisation pour gérer plusieurs espaces de travail Azure Sentinel et configurer des [requêtes de chasse](../../sentinel/hunting.md), des playbooks et des classeurs. Pour plus d’informations, consultez l’article [Gestion inter-espaces de travail à l’aide de l’automatisation](../../sentinel/extend-sentinel-across-workspaces-tenants.md#cross-workspace-management-using-automation).
 
-## <a name="manage-security-of-office-365-environments"></a>Gérer la sécurité des environnements Office 365
+## <a name="monitor-security-of-office-365-environments"></a>Analyser la sécurité des environnements Office 365
 
-Utilisez Azure Lighthouse conjointement avec Azure Sentinel pour gérer la sécurité des environnements Office 365 entre les locataires. Tout d’abord, [les connecteurs de données Office 365 doivent être activés dans le client géré](../../sentinel/connect-office-365.md) afin que les informations sur les activités des utilisateurs et des administrateurs dans Exchange et SharePoint (y compris OneDrive) puissent être ingérées dans un espace de travail Azure Sentinel au sein du locataire géré. Cela comprend des détails sur des actions telles que le téléchargement de fichiers, les demandes d’accès envoyées, les changements apportés aux événements de groupe et les opérations de boîtes aux lettres, ainsi que des informations sur les utilisateurs qui ont effectué les actions. Les [alertes DLP Office 365](https://techcommunity.microsoft.com/t5/azure-sentinel/ingest-office-365-dlp-events-into-azure-sentinel/ba-p/1031820) sont également prises en charge dans le cadre du connecteur Office 365 intégré.
+Utilisez Azure Lighthouse conjointement avec Azure Sentinel pour analyser la sécurité des environnements Office 365 entre les locataires. Tout d’abord, [les connecteurs de données Office 365 doivent être activés dans le client géré](../../sentinel/connect-office-365.md) afin que les informations sur les activités des utilisateurs et des administrateurs dans Exchange et SharePoint (y compris OneDrive) puissent être ingérées dans un espace de travail Azure Sentinel au sein du locataire géré. Cela comprend des détails sur des actions telles que le téléchargement de fichiers, les demandes d’accès envoyées, les changements apportés aux événements de groupe et les opérations de boîtes aux lettres, ainsi que des informations sur les utilisateurs qui ont effectué les actions. Les [alertes DLP Office 365](https://techcommunity.microsoft.com/t5/azure-sentinel/ingest-office-365-dlp-events-into-azure-sentinel/ba-p/1031820) sont également prises en charge dans le cadre du connecteur Office 365 intégré.
 
 Vous pouvez activer le [connecteur Microsoft Cloud App Security (MCAS)](../../sentinel/connect-cloud-app-security.md) pour diffuser en continu des alertes et des journaux Cloud Discovery dans Azure Sentinel. Cela vous permet de bénéficier d’une visibilité accrue sur vos applications et de fonctionnalités d’analytique sophistiquées pour identifier et combattre les cybermenaces et de contrôler le déplacement des données. Les journaux d’activité pour MCAS peuvent être [utilisés à l’aide du format CEF (Common Event format)](https://techcommunity.microsoft.com/t5/azure-sentinel/ingest-box-com-activity-events-via-microsoft-cloud-app-security/ba-p/1072849).
 

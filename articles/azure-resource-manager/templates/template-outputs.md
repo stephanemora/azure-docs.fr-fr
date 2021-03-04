@@ -1,37 +1,95 @@
 ---
 title: Sorties dans des modèles
-description: Explique comment définir des valeurs de sortie dans un modèle Azure Resource Manager (ARM).
+description: Explique comment définir des valeurs de sortie dans un modèle Azure Resource Manager (ARM) et un fichier Bicep.
 ms.topic: conceptual
-ms.date: 11/24/2020
-ms.openlocfilehash: f8f13b6caf063cea79dc71775fb936f406a3ee6c
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.date: 02/19/2021
+ms.openlocfilehash: 91feb1a0b653e4b6e96e38df57f87af27e4676f5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97964012"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703832"
 ---
 # <a name="outputs-in-arm-templates"></a>Sorties dans les modèles ARM
 
-Cet article explique comment définir des valeurs de sortie dans un modèle Azure Resource Manager (ARM). Vous utilisez `outputs` quand vous devez renvoyer des valeurs à partir des ressources déployées.
+Cet article explique comment définir des valeurs de sortie dans un modèle Azure Resource Manager (ARM) et un fichier Bicep. Vous utilisez des sorties quand vous devez retourner des valeurs à partir des ressources déployées.
 
-Le format de chaque valeur de sortie doit correspondre à l’un des [types de données](template-syntax.md#data-types).
+Le format de chaque valeur de sortie doit résoudre l’un des [types de données](template-syntax.md#data-types).
+
+[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
 
 ## <a name="define-output-values"></a>Définir des valeurs de sortie
 
-L’exemple suivant montre comment retourner l’ID de ressource d’une adresse IP publique :
+L’exemple suivant montre comment renvoyer une propriété à partir d’une ressource déployée.
+
+# <a name="json"></a>[JSON](#tab/json)
+
+Pour JSON, ajoutez la section `outputs` au modèle. La valeur de sortie obtient le nom de domaine complet pour une adresse IP publique.
 
 ```json
 "outputs": {
-  "resourceID": {
-    "type": "string",
-    "value": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_name'))]"
-  }
+  "hostname": {
+      "type": "string",
+      "value": "[reference(resourceId('Microsoft.Network/publicIPAddresses', variables('publicIPAddressName'))).dnsSettings.fqdn]"
+    },
 }
 ```
 
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+Pour Bicep, utilisez le mot clé `output`.
+
+Dans l’exemple suivant, `publicIP` est l’identificateur d’une adresse IP publique déployée dans le fichier Bicep. La valeur de sortie obtient le nom de domaine complet pour l’adresse IP publique.
+
+```bicep
+output hostname string = publicIP.properties.dnsSettings.fqdn
+```
+
+---
+
+Si vous avez besoin de générer une propriété dont le nom comporte un trait d’union, utilisez des crochets autour du nom au lieu de la notation par points. Par exemple, utilisez `['property-name']` au lieu de `.property-name`.
+
+# <a name="json"></a>[JSON](#tab/json)
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "variables": {
+        "user": {
+            "user-name": "Test Person"
+        }
+    },
+    "resources": [
+    ],
+    "outputs": {
+        "nameResult": {
+            "type": "string",
+            "value": "[variables('user')['user-name']]"
+        }
+    }
+}
+```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+var user = {
+  'user-name': 'Test Person'
+}
+
+output stringOutput string = user['user-name']
+```
+
+---
+
 ## <a name="conditional-output"></a>Sortie conditionnelle
 
-Dans la section `outputs`, vous pouvez renvoyer une valeur de manière conditionnelle. En général, vous utilisez `condition` dans `outputs` quand vous avez [déployé de manière conditionnelle](conditional-resource-deployment.md) une ressource. L’exemple suivant montre comment retourner de façon conditionnelle l’ID de ressource pour une adresse IP publique si une nouvelle a été déployée :
+Vous pouvez renvoyer une valeur de manière conditionnelle. En général, vous utilisez une sortie conditionnelle quand vous avez [déployé de manière conditionnelle](conditional-resource-deployment.md) une ressource. L’exemple suivant montre comment retourner de façon conditionnelle l’ID de ressource pour une adresse IP publique si une nouvelle a été déployée :
+
+# <a name="json"></a>[JSON](#tab/json)
+
+Dans JSON, ajoutez l’élément `condition` pour définir si la sortie est renvoyée.
 
 ```json
 "outputs": {
@@ -43,11 +101,42 @@ Dans la section `outputs`, vous pouvez renvoyer une valeur de manière condition
 }
 ```
 
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+Pour spécifier une sortie conditionnelle dans Bicep, utilisez l'opérateur `?`. L’exemple suivant renvoie une URL de point de terminaison ou une chaîne vide en fonction d’une condition.
+
+```bicep
+param deployStorage bool = true
+param storageName string
+param location string = resourceGroup().location
+
+resource sa 'Microsoft.Storage/storageAccounts@2019-06-01' = if (deployStorage) {
+  name: storageName
+  location: location
+  kind: 'StorageV2'
+  sku:{
+    name:'Standard_LRS'
+    tier: 'Standard'
+  }
+  properties: {
+    accessTier: 'Hot'
+  }
+}
+
+output endpoint string = deployStorage ? sa.properties.primaryEndpoints.blob : ''
+```
+
+---
+
 Pour obtenir un exemple simple de sortie conditionnelle, consultez [Modèle de sortie conditionnelle](https://github.com/bmoore-msft/AzureRM-Samples/blob/master/conditional-output/azuredeploy.json).
 
 ## <a name="dynamic-number-of-outputs"></a>Nombre dynamique de sorties
 
-Dans certains scénarios, vous ne connaissez pas le nombre d’instances d’une valeur que vous devez retourner lors de la création du modèle. Vous pouvez retourner un nombre variable de valeurs à l’aide de l’élément `copy`.
+Dans certains scénarios, vous ne connaissez pas le nombre d’instances d’une valeur que vous devez retourner lors de la création du modèle. Vous pouvez renvoyer un nombre variable de valeurs en utilisant une sortie itérative.
+
+# <a name="json"></a>[JSON](#tab/json)
+
+Dans JSON, ajoutez l'élément `copy` pour itérer une sortie.
 
 ```json
 "outputs": {
@@ -61,17 +150,21 @@ Dans certains scénarios, vous ne connaissez pas le nombre d’instances d’une
 }
 ```
 
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+La sortie itérative n’est pas disponible actuellement pour Bicep.
+
+---
+
 Pour plus d’informations, voir [Itération de sorties dans des modèles ARM](copy-outputs.md).
 
 ## <a name="linked-templates"></a>Modèles liés
 
-Pour récupérer la valeur de sortie à partir d’un modèle lié, utilisez la fonction [reference](template-functions-resource.md#reference) dans le modèle parent. La syntaxe dans le modèle parent est la suivante :
+Dans les modèles JSON, vous pouvez déployer des modèles associés à l’aide de [modèles liés](linked-templates.md). Pour récupérer la valeur de sortie à partir d’un modèle lié, utilisez la fonction [reference](template-functions-resource.md#reference) dans le modèle parent. La syntaxe dans le modèle parent est la suivante :
 
 ```json
 "[reference('<deploymentName>').outputs.<propertyName>.value]"
 ```
-
-Lors de l’obtention d’une propriété de sortie à partir d’un modèle lié, le nom de propriété ne peut pas inclure de tiret.
 
 L’exemple suivant montre comment définir l’adresse IP sur un équilibreur de charge en récupérant une valeur à partir d’un modèle lié.
 
@@ -81,7 +174,49 @@ L’exemple suivant montre comment définir l’adresse IP sur un équilibreur d
 }
 ```
 
+Si le nom de la propriété comporte un trait d’union, utilisez des crochets autour du nom au lieu de la notation par points.
+
+```json
+"publicIPAddress": {
+  "id": "[reference('linkedTemplate').outputs['resource-ID'].value]"
+}
+```
+
 Vous ne pouvez pas utiliser la fonction `reference` dans la section de sortie d’un [modèle imbriqué](linked-templates.md#nested-template). Pour renvoyer les valeurs d’une ressource déployée dans un modèle imbriqué, convertissez votre modèle imbriqué en modèle lié.
+
+Le [modèle d’adresse IP publique](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) crée une adresse IP publique et génère en sortie l’ID de ressource. Le [modèle d’équilibreur de charge](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) est lié au modèle précédent. Utilise l’ID de ressource dans la sortie durant la création de l’équilibreur de charge.
+
+## <a name="modules"></a>Modules
+
+Dans les fichiers Bicep, vous pouvez déployer des modèles associés en utilisant des modules. Pour récupérer une valeur de sortie à partir d’un module, utilisez la syntaxe suivante :
+
+```bicep
+<module-name>.outputs.<property-name>
+```
+
+L’exemple suivant montre comment définir l’adresse IP sur un équilibreur de charge en récupérant une valeur à partir d’un module. Le nom du module est `publicIP`.
+
+```bicep
+publicIPAddress: {
+  id: publicIP.outputs.resourceID
+}
+```
+
+## <a name="example-template"></a>Exemple de modèle
+
+Le modèle suivant ne déploie aucune ressource. Il montre quelques façons de renvoyer des sorties de différents types.
+
+# <a name="json"></a>[JSON](#tab/json)
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/outputs.json":::
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+Bicep ne prend pas en charge les boucles pour le moment.
+
+:::code language="bicep" source="~/resourcemanager-templates/azure-resource-manager/outputs.bicep":::
+
+---
 
 ## <a name="get-output-values"></a>Obtenir des valeurs de sortie
 
@@ -107,16 +242,6 @@ az deployment group show \
 ```
 
 ---
-
-## <a name="example-templates"></a>Exemples de modèles
-
-Les exemples suivants illustrent des scénarios d’utilisation de sorties.
-
-|Modèle  |Description  |
-|---------|---------|
-|[Copie de variables](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) | Crée des variables complexes et génère ces valeurs. Ne déploie aucune ressource. |
-|[Adresse IP publique](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) | Crée une adresse IP publique et génère l’ID de ressource. |
-|[Équilibreur de charge](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) | Est lié au modèle précédent. Utilise l’ID de ressource dans la sortie durant la création de l’équilibreur de charge. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -12,12 +12,12 @@ ms.date: 8/11/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: f3bf9ffeb8da8e877a27ab8758572b2c8277146d
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: ce4917f968ef1664a1d41f4eaff162df116bda4f
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99090313"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102035082"
 ---
 # <a name="signing-key-rollover-in-the-microsoft-identity-platform"></a>Substitution de clé de signature dans la plateforme d’identités Microsoft
 Cet article explique ce que vous devez savoir sur les clés publiques utilisées par la plateforme d’identités Microsoft pour la signature des jetons de sécurité. Il est important de noter que ces clés sont substituées régulièrement, voire immédiatement en cas d’urgence. Toutes les applications qui utilisent la plateforme d’identités Microsoft doivent être en mesure de gérer par programme le processus de substitution de clé. En lisant cet article, vous allez comprendre le fonctionnement des clés, savoir comment évaluer l’impact de la substitution de votre application et comment mettre à jour votre application ou établir un processus périodique de substitution manuelle de clé pour gérer la substitution de clé si nécessaire.
@@ -297,7 +297,7 @@ Si vous avez créé une application sur WIF v1.0, aucun mécanisme n’est prév
 
 Instructions d’utilisation de FedUtil pour mettre à jour votre configuration :
 
-1. Vérifiez que le SDK WIF v1.0 est  installé sur votre ordinateur de développement pour Visual Studio 2008 ou 2010. Dans le cas contraire, vous pouvez [le télécharger ici](https://www.softpedia.com/get/Programming/Other-Programming-Files/Windows-Identity-Foundation-SDK.shtml).
+1. Vérifiez que le SDK WIF v1.0 est  installé sur votre ordinateur de développement pour Visual Studio 2008 ou 2010. Dans le cas contraire, vous pouvez [le télécharger ici](https://www.microsoft.com/download/details.aspx?id=17331).
 2. Dans Visual Studio, ouvrez la solution, puis cliquez avec le bouton droit sur le projet applicable et sélectionnez **Update federation metadata**(Mettre à jour les métadonnées de fédération). Si cette option n’est pas disponible, cela signifie que l’outil FedUtil et/ou le SDK WIF v1.0 n’a pas été installé.
 3. À l’invite, sélectionnez **Mettre à jour** pour mettre à jour vos métadonnées de fédération. Si vous avez accès à l’environnement serveur sur lequel l’application est hébergée, vous pouvez éventuellement utiliser le [planificateur de mise à jour automatique des métadonnées](/previous-versions/windows-identity-foundation/ee517272(v=msdn.10))de FedUtil.
 4. Cliquez sur **Terminer** pour terminer le processus de mise à jour.

@@ -77,6 +77,8 @@ items:
                 href: manage-data-sources.md
               - name: Vue d’ensemble des connecteurs Purview
                 href: purview-connector-overview.md
+              - name: "Azure\_Multiple\_Source"
+                href: register-scan-azure-multiple-sources.md
               - name: Stockage Blob Azure
                 href: register-scan-azure-blob-storage-source.md
                 displayName: Register and scan azure blob storage
@@ -102,8 +104,16 @@ items:
                 href: register-scan-azure-synapse-analytics.md
               - name: Serveur SQL local
                 href: register-scan-on-premises-sql-server.md
+              - name: Oracle
+                href: register-scan-oracle-source.md
               - name: "Locataire Power\_BI - Portail"
                 href: register-scan-power-bi-tenant.md
+              - name: SAP ECC
+                href: register-scan-sapecc-source.md
+              - name: SAP S/4HANA
+                href: register-scan-saps4hana-source.md
+              - name: Teradata
+                href: register-scan-teradata-source.md
               - name: Amazon S3
                 href: register-scan-amazon-s3.md
       - name: Glossaire métier
@@ -113,6 +123,10 @@ items:
           - name: Gérer les modèles de terme
             href: how-to-manage-term-templates.md
           - name: Modifier en bloc des éléments pour affecter des termes de glossaire
+            href: how-to-bulk-edit-assets.md
+      - name: Modifier en bloc
+        items:
+          - name: Modifier en bloc les ressources pour étiqueter les annotations et les contacts
             href: how-to-bulk-edit-assets.md
       - name: Classer
         items:
@@ -158,3 +172,5 @@ items:
     items:
       - name: Classifications prises en charge
         href: supported-classifications.md
+      - name: Guide de déploiement de la fonction ABAP
+        href: abap-functions-deployment-guide.md

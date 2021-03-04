@@ -40,8 +40,18 @@
           href: 'https://azure.microsoft.com/resources/samples/?service=hdinsight'
     - name: Concepts
       items:
-        - name: Composants Apache sur HDInsight
-          href: ./hdinsight-component-versioning.md
+        - name: Versions
+          items:
+            - name: Présentation des versions
+              href: ./hdinsight-overview-versioning.md
+            - name: Versions HDInsight
+              href: ./hdinsight-component-versioning.md
+            - name: HDInsight version 4.0
+              href: ./hdinsight-40-component-versioning.md
+            - name: HDInsight version 3.6
+              href: ./hdinsight-36-component-versioning.md
+            - name: Versions HDInsight mises hors service
+              href: ./hdinsight-retired-versions.md
         - name: Pack Sécurité Entreprise
           href: ./enterprise-security-package.md
         - name: Notes de publication de Hortonworks
@@ -650,7 +660,7 @@
             - name: Utiliser Apache Kafka avec IoT Hub
               href: ./kafka/apache-kafka-connector-iot-hub.md
             - name: Confluent Schema Registry
-              href: ./kafka/schema-registry.md
+              href: ./kafka/apache-kafka-producer-consumer-api.md
             - name: Créer des pipelines de streaming
               items:
                 - name: 'Apache Spark, Apache Kafka et Azure Cosmos DB'
@@ -817,6 +827,10 @@
               href: ./interactive-query/apache-hive-query-odbc-driver-powershell.md
         - name: Gérer
           items:
+            - name: Copier des tables Hive dans des comptes de stockage
+              href: ./interactive-query/hive-migration-across-storage-accounts.md
+            - name: Migrer le metastore Hive par défaut vers le metastore externe sur Azure HDInsight
+              href: ./interactive-query/hive-default-metastore-export-import.md
             - name: "Migrer des charges de travail Hive vers HDInsight\_4.0"
               href: ./interactive-query/apache-hive-migrate-workloads.md
             - name: Optimiser les requêtes Apache Hive

@@ -9,20 +9,18 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 8b63ce25d6839e8672027240099859dc7aad96c5
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 0dbd1770030eeee8768c0b610171f5f27456ed70
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94886071"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101656225"
 ---
 # <a name="client-and-server-architecture"></a>Architecture client et serveur
 
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
-
 <!--
 > [!WARNING]
-> This document is under construction and needs the following items to be addressed: 
+> This document is under construction and needs the following items to be addressed:
 > - Need to add security best practices for token management here
 > - Reference docs:
 > - https://docs.microsoft.com/windows/security/threat-protection/security-policy-settings/create-a-token-object
@@ -56,11 +54,11 @@ De nombreux scénarios sont mieux servis avec les applications natives. Azure Co
 La communication sur le système téléphonique peut augmenter considérablement la portée de votre application. Pour prendre en charge les services vocaux et de SMS sur le RTPC, Azure Communication Services vous aide à [obtenir des numéros de téléphone](../quickstarts/telephony-sms/get-phone-number.md) directement à partir du portail Azure ou à l’aide des API REST et des bibliothèques de client. Une fois les numéros de téléphone acquis, ils peuvent être utilisés pour atteindre les clients à l’aide d’appels sur le RTPC et de SMS dans les scénarios entrants et sortants. Vous trouverez un exemple de flux d’architecture ci-dessous :
 
 > [!Note]
-> Pendant la préversion publique, l’obtention de numéros de téléphone américains est disponible pour les clients dont les adresses de facturation se trouvent aux États-Unis et au Canada. 
+> Pendant la préversion publique, l’obtention de numéros de téléphone américains est disponible pour les clients dont les adresses de facturation se trouvent aux États-Unis et au Canada.
 
 :::image type="content" source="../media/scenarios/archdiagram-pstn.png" alt-text="Diagramme montrant l’architecture du RTPC dans Communication Services.":::
 
-Pour plus d’informations sur les solutions de RTPC et de SMS, consultez [Planifier votre solution RTPC et votre solution SMS](../concepts/telephony-sms/plan-solution.md)
+Pour plus d’informations sur les numéros de téléphone RTC, consultez [Types de numéro de téléphone](../concepts/telephony-sms/plan-solution.md).
 
 ## <a name="humans-communicating-with-bots-and-other-services"></a>Êtres humains communiquant avec des robots et d’autres services
 
@@ -83,7 +81,7 @@ Vous souhaiterez peut-être échanger des données arbitraires entre utilisateur
 Pour plus d’informations, consultez les articles suivants :
 
 - En savoir plus sur l’[authentification](../concepts/authentication.md)
-- En savoir plus sur les [solutions RTPC et SMS](../concepts/telephony-sms/plan-solution.md)
+- En savoir plus sur les [types de numéro de téléphone](../concepts/telephony-sms/plan-solution.md)
 
 - [Ajouter Chat à votre application](../quickstarts/chat/get-started.md)
 - [Ajouter l’appel vocal à votre application](../quickstarts/voice-video-calling/getting-started-with-calling.md)

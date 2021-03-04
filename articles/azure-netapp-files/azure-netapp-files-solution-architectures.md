@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/16/2021
+ms.date: 02/25/2021
 ms.author: b-juche
-ms.openlocfilehash: e9e7451e411ed9160eace0a60c65b5b74bf8f750
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 756cadd42e8cda557a90c39e2412f5d4f3290835
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100559465"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101741206"
 ---
 # <a name="solution-architectures-using-azure-netapp-files"></a>Architectures de solution avec Azure NetApp Files
 Cet article fournit des références aux meilleures pratiques pouvant vous aider à comprendre les architectures de solution pour l’utilisation d’Azure NetApp Files.  
@@ -86,6 +86,7 @@ Cette section fournit des références pour les Solutions SAP sur Azure.
 ### <a name="sap-iq-nls"></a>SAP IQ-NLS
 
 *   [Déploiement de la solution de haute disponibilité SAP IQ-NLS avec Azure NetApp Files sur SUSE Linux Enterprise Server](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/deploy-sap-iq-nls-ha-solution-using-azure-netapp-files-on-suse/ba-p/1651172#.X2tDfpNzBh4.linkedin)
+* [Comment gérer une licence SAP IQ dans un scénario HA](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/how-to-manage-sap-iq-license-in-ha-scenario/ba-p/2052583)
 
 ### <a name="sap-tech-community-and-blog-posts"></a>Billets de blog et communauté SAP Tech 
 
@@ -94,8 +95,8 @@ Cette section fournit des références pour les Solutions SAP sur Azure.
 * [Azure NetApp Files : déchargement de sauvegardes SAP HANA avec Cloud Sync](https://blog.netapp.com/azure-netapp-files-sap-hana)
 * [Accélérez vos copies système SAP HANA à l’aide d’Azure NetApp Files](https://blog.netapp.com/sap-hana-faster-using-azure-netapp-files/)
 * [Cloud Volumes ONTAP et Azure NetApp Files : migration du système SAP HANA facilitée](https://blog.netapp.com/cloud-volumes-ontap-and-azure-netapp-files-sap-hana-system-migration-made-easy/)
-* [Décisions architecturales pour optimiser les investissements ANF dans l’architecture de Scale-out HANA N+M - Partie 1 - Microsoft Tech Community](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/architectural-decisions-to-maximize-anf-investment-in-hana-n-m/ba-p/2078737)
-* [Décisions architecturales pour optimiser les investissements ANF dans l’architecture de Scale-out HANA N+M - Partie 2 - Microsoft Tech Community](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/architectural-decisions-to-maximize-anf-investment-in-hana-n-m/ba-p/2117130)
+* [Décisions architecturales pour optimiser les investissements ANF dans l’architecture de Scale-out HANA N+M - Partie 1](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/architectural-decisions-to-maximize-anf-investment-in-hana-n-m/ba-p/2078737)
+* [Décisions architecturales pour optimiser les investissements ANF dans l’architecture de Scale-out HANA N+M - Partie 2](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/architectural-decisions-to-maximize-anf-investment-in-hana-n-m/ba-p/2117130)
 
 ## <a name="azure-vmware-solutions"></a>Azure VMware Solution
 

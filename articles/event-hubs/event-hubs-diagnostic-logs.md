@@ -2,13 +2,13 @@
 title: Configurer des journaux de diagnostic - Azure Event Hubs | Microsoft Docs
 description: Découvrez comment configurer les journaux d’activité et de diagnostic pour Event Hubs dans Azure.
 ms.topic: article
-ms.date: 10/27/2020
-ms.openlocfilehash: dc5cbea31583a4e8126897b2dcda63b216438e1b
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.date: 02/25/2021
+ms.openlocfilehash: 538ff86f1ef4c06bb5400af3fbd2394134aa17f3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100573172"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101742532"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Configurer les journaux de diagnostic pour un Event Hub Azure.
 
@@ -207,7 +207,7 @@ Le code JSON de l’événement de connexion de réseau virtuel Event Hubs compr
 | `Count` | Nombre d’occurrences de l’action donnée |
 | `ResourceId` | ID de ressource Azure Resource Manager. |
 
-Les journaux de réseau virtuel ne sont générés que si l’espace de noms autorise l’accès provenant des **réseaux sélectionnés** ou **d’adresses IP spécifiques** (règles de filtre d’adresse IP). Si vous souhaitez obtenir des journaux de réseau virtuel pour suivre l'adresse IP des clients qui se connectent à l'espace de noms Event Hubs sans pour autant restreindre l'accès à votre espace de noms à l'aide de ces fonctionnalités, vous pouvez appliquer la solution de contournement suivante : activez le filtrage d’adresse IP et ajoutez la plage IPv4 adressable totale (1.0.0.0/1-255.0.0.0/1). Event Hubs ne prend pas en charge les plages IPv6. 
+Les journaux de réseau virtuel ne sont générés que si l’espace de noms autorise l’accès provenant des **réseaux sélectionnés** ou **d’adresses IP spécifiques** (règles de filtre d’adresse IP). Si vous souhaitez obtenir des journaux de réseau virtuel pour suivre l'adresse IP des clients qui se connectent à l'espace de noms Event Hubs sans pour autant restreindre l'accès à votre espace de noms à l'aide de ces fonctionnalités, vous pouvez appliquer la solution de contournement suivante : [Activez le filtrage IP](event-hubs-ip-filtering.md) et ajoutez la plage IPv4 adressable totale (1.0.0.0/1-255.0.0.0/1). Le filtrage IP Event Hubs ne prend pas en charge les plages IPv6. Notez que vous pouvez voir des adresses de point de terminaison privées au format IPv6 dans le journal. 
 
 ### <a name="example"></a>Exemple
 

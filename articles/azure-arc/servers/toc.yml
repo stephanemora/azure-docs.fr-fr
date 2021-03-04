@@ -31,6 +31,8 @@
       items:
         - name: Vue d’ensemble de l’agent Machine connectée
           href: agent-overview.md
+        - name: Planifier le déploiement à grande échelle
+          href: plan-at-scale-deployment.md
         - name: Connecter des ordinateurs à Azure Arc depuis le portail Azure
           href: onboard-portal.md
         - name: Connecter des ordinateurs à grande échelle avec un principal de service

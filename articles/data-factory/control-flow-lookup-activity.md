@@ -5,28 +5,32 @@ author: linda33wj
 ms.author: jingwang
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 10/14/2020
-ms.openlocfilehash: 5f46e2871aa0017f0a4b33df04a8ae9058c59e17
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 02/25/2021
+ms.openlocfilehash: 4b2fb49899b6a676520fe0912dd122dd72cce023
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100385470"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101712910"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Activité de recherche dans Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-L’activité Lookup peut récupérer un jeu de données à partir de n’importe quelle source de données compatible Azure Data Factory. Utilisez-la dans le scénario suivant :
-- Déterminez de manière dynamique sur quels objets intervenir dans une activité ultérieure, au lieu de coder en dur le nom d’objet. Les fichiers et les tables constituent quelques exemples d’objet.
+L’activité Lookup peut récupérer un jeu de données à partir de n’importe quelle source de données compatible Azure Data Factory. vous pouvez l’utiliser pour déterminer de manière dynamique sur quels objets intervenir dans une activité ultérieure, au lieu de coder en dur le nom d’objet. Les fichiers et les tables constituent quelques exemples d’objet.
 
-L’activité Lookup lit et retourne le contenu d’une table ou d’un fichier de configuration. Elle retourne également le résultat de l’exécution d’une requête ou d’une procédure stockée. La sortie de l’activité Lookup peut être utilisée dans une activité de transformation ou de copie ultérieure s’il s’agit d’une valeur singleton. La sortie peut être utilisée dans une activité ForEach, s’il s’agit d’un tableau d’attributs.
+L’activité Lookup lit et retourne le contenu d’une table ou d’un fichier de configuration. Elle retourne également le résultat de l’exécution d’une requête ou d’une procédure stockée. La sortie peut être une valeur singleton ou un tableau d’attributs, qui peut être consommé dans des activités ultérieures de copie, de transformation ou de flux de contrôle comme l’activité ForEach.
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 
-Les sources de données suivantes sont prises en charge pour l’activité Lookup. 
+Notez les points suivants :
 
-L’activité de recherche peut retourner jusqu’à 5 000 lignes ; si le jeu de résultats contient plus d’enregistrements, les 5 000 premières lignes sont retournées. La sortie de l’activité de recherche prend en charge une taille maximale d’environ 4 Mo ; l’activité échoue si la taille dépasse la limite. Actuellement, la durée la plus longue pour l’activité Lookup avant l’expiration du délai d’attente est de 24 heures.
+- L’activité de recherche peut retourner jusqu’à **5 000 lignes** ; si le jeu de résultats contient plus d’enregistrements, les 5 000 premières lignes sont retournées.
+- La sortie de l’activité de recherche prend en charge une taille jusqu’à **4 Mo** ; l’activité échoue si la taille dépasse cette limite. 
+- La durée la plus longue pour l’activité de recherche avant l’expiration du délai d’attente est de **24 heures**.
+- Lorsque vous utilisez une requête ou une procédure stockée pour rechercher des données, veillez à retourner un jeu de résultats unique et exact. Dans le cas contraire, l’activité de recherche échoue.
+
+Les sources de données suivantes sont prises en charge pour l’activité Lookup. 
 
 [!INCLUDE [data-factory-v2-supported-data-stores](../../includes/data-factory-v2-supported-data-stores-for-lookup-activity.md)]
 
@@ -381,7 +385,7 @@ Voici quelques limitations de l’activité de recherche et des suggestions de s
 
 | Limitation | Solution de contournement |
 |---|---|
-| L’activité de recherche a un maximum de 5 000 lignes et une taille maximale de 2 Mo. | Concevoir un pipeline sur deux niveaux où le pipeline externe itère sur un pipeline interne, qui récupère les données ne dépassant pas le nombre maximal de lignes ou la taille de conception. |
+| L’activité de recherche a un maximum de 5 000 lignes et une taille maximale de 4 Mo. | Concevoir un pipeline sur deux niveaux où le pipeline externe itère sur un pipeline interne, qui récupère les données ne dépassant pas le nombre maximal de lignes ou la taille de conception. |
 | | |
 
 ## <a name="next-steps"></a>Étapes suivantes

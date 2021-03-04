@@ -3,12 +3,12 @@ title: Livraison sécurisée de webhooks à l’aide d’Azure AD dans Azure Eve
 description: Décrit comment livrer des événements aux points de terminaison HTTPS protégés par Azure Active Directory à l’aide d’Azure Event Grid
 ms.topic: how-to
 ms.date: 02/03/2021
-ms.openlocfilehash: b01f0342e185883c4d1552800ab9bdb30cea3040
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: be38edfb4edfee5b3a3b42d7b1c5a44c9d72ceef
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99549150"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102035443"
 ---
 # <a name="publish-events-to-azure-active-directory-protected-endpoints"></a>Publier des événements sur des points de terminaison protégés par Azure Active Directory
 
@@ -26,7 +26,7 @@ Commencez par créer une application Azure AD pour votre point de terminaison pr
 Cette section explique comment activer Event Grid pour utiliser votre application Azure AD. 
 
 > [!NOTE]
-> Pour exécuter ce script, vous devez être membre du [rôle d’administrateur de l’application Azure AD](../active-directory/roles/permissions-reference.md#available-roles).
+> Pour exécuter ce script, vous devez être membre du [rôle d’administrateur de l’application Azure AD](../active-directory/roles/permissions-reference.md#all-roles).
 
 ### <a name="connect-to-your-azure-tenant"></a>Se connecter au locataire Azure
 Tout d’abord, connectez-vous à votre locataire Azure à l’aide de la commande `Connect-AzureAD`. 

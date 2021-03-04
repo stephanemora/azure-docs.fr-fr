@@ -6,12 +6,12 @@ ms.author: cynthn
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/18/2021
-ms.openlocfilehash: 6601cd31cf6e332bf292cd887b498a92946d8af7
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: c336c1632cf206cdf2bf7151dc191c4de5ef820d
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101668297"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102036926"
 ---
 # <a name="availability-options-for-virtual-machines-in-azure"></a>Options de disponibilité pour les machines virtuelles dans Azure
 
@@ -55,7 +55,7 @@ Les groupes de machines virtuelles identiques simplifient la conception pour la 
 
 **Modes d’orchestration pour les groupes identiques**
 
-Les modes d’orchestration de groupes de machines virtuelles identiques vous permettent de mieux contrôler la façon dont les instances de machine virtuelle sont gérées par le groupe identique. Vous pouvez activer un mode d’orchestration Uniform ou Flexible sur votre groupe identique. Le mode d’orchestration Uniform est optimisé pour les charges de travail sans état à grande échelle avec des instances identiques. Le mode d’orchestration Flexible (préversion) est destiné à la haute disponibilité à grande échelle avec un ou plusieurs types de machine virtuelle. Apprenez-en davantage sur ces [modes d’orchestration](./virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md) et sur la manière de les activer.
+Les modes d’orchestration de groupes de machines virtuelles identiques vous permettent de mieux contrôler la façon dont les instances de machine virtuelle sont gérées par le groupe identique. Vous pouvez activer un mode d’orchestration Uniform ou Flexible sur votre groupe identique. Le mode d’orchestration Uniform est optimisé pour les charges de travail sans état à grande échelle avec des instances identiques. Le mode d’orchestration Flexible (préversion) est destiné à la haute disponibilité à grande échelle avec un ou plusieurs types de machine virtuelle. Apprenez-en davantage sur ces [modes d’orchestration](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md) et sur la manière de les activer.
 
 
 ## <a name="availability-sets"></a>Groupes à haute disponibilité

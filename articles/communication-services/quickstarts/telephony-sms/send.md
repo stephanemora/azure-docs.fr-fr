@@ -11,20 +11,20 @@ ms.topic: overview
 ms.service: azure-communication-services
 ms.custom: tracking-python, devx-track-js
 zone_pivot_groups: acs-js-csharp-java-python
-ms.openlocfilehash: 60c51de4e4549649c681c961c6ddc1acdb12e698
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 061a7787183918aaee529b686c1478cd4d4b396b
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94659690"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101661594"
 ---
 # <a name="quickstart-send-an-sms-message"></a>Démarrage rapide : Envoi d’un SMS
 
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+[!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 
 > [!IMPORTANT]
 > Les messages SMS peuvent être envoyés et reçus sur des numéros de téléphone situés aux États-Unis. Les numéros de téléphone appartenant à d’autres zones géographiques ne sont pas pris en charge pour les SMS Communication Services.
-> Pour plus d’informations, consultez **[Planifier votre solution de téléphonie et SMS](../../concepts/telephony-sms/plan-solution.md)** .
+> Pour plus d’informations, consultez **[Types de numéro de téléphone](../../concepts/telephony-sms/plan-solution.md)** .
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Send SMS with .NET client library](./includes/send-sms-net.md)]
@@ -58,7 +58,7 @@ Dans ce guide de démarrage rapide, vous avez appris à envoyer des SMS avec Azu
 > [S’abonner aux événements SMS](./handle-sms-events.md)
 
 > [!div class="nextstepaction"]
-> [Planifier votre solution RTC](../../concepts/telephony-sms/plan-solution.md)
+> [Types de numéro de téléphone](../../concepts/telephony-sms/plan-solution.md)
 
 > [!div class="nextstepaction"]
 > [En savoir plus sur les SMS](../../concepts/telephony-sms/concepts.md)

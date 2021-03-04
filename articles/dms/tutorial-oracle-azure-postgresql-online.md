@@ -12,14 +12,17 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 01/24/2020
-ms.openlocfilehash: df789161bb9db8d49f069992600b5fcb4f78dd03
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 09bcc85c0640bf0061ec0c872161cbc9afe51da6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96006540"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101742124"
 ---
 # <a name="tutorial-migrate-oracle-to-azure-database-for-postgresql-online-using-dms-preview"></a>Tutoriel : Migrer Oracle vers Azure Database pour PostgreSQL en ligne à l’aide de DMS (préversion)
+
+> [!IMPORTANT]
+> Le scénario de migration « Oracle vers Azure Database pour PostgreSQL » (actuellement en préversion) ne sera plus disponible après le 1er mai 2021. Nous continuerons à assurer un support via des outils alternatifs (tels que Ora2pg) et fournissons la meilleure expérience de migration pour les migrations d’Oracle vers PostgreSQL. Pour connaître les meilleures pratiques en matière de migration, consultez [Guide de migration d’Oracle vers Azure Database pour PostgreSQL] (https://aka.ms/OracletoPGguide). 
 
 Vous pouvez utiliser Azure Database Migration Service pour migrer les bases de données Oracle hébergées localement ou sur des machines virtuelles vers [Azure Database pour PostgreSQL](../postgresql/index.yml) avec un temps d’arrêt minimal. En d’autres termes, vous pouvez effectuer la migration avec un temps d’arrêt minimal de l’application. Dans ce tutoriel, vous allez migrer l’exemple de base de données **HR** à partir d’une instance locale ou sur machines virtuelles d’Oracle 11g vers Azure Database pour PostgreSQL à l’aide de l’activité de migration en ligne dans Azure Database Migration Service.
 
@@ -63,7 +66,7 @@ Pour suivre ce didacticiel, vous devez effectuer les opérations suivantes :
   >
   > Cette configuration est nécessaire car Azure Database Migration Service ne dispose pas d’une connectivité Internet.
 
-* Vérifiez que les règles du groupe de sécurité réseau de votre réseau virtuel ne bloquent pas les ports suivants pour les communications entrantes vers Azure Database Migration Service : 443, 53, 9354, 445, 12000. Pour plus d’informations sur le filtrage du trafic de groupe de sécurité réseau de réseau virtuel, consultez l’article [Filtrer le trafic avec les groupes de sécurité réseau](../virtual-network/virtual-network-vnet-plan-design-arm.md).
+* Vérifiez que vos règles de groupe de sécurité réseau de réseau virtuel (NSG) ne bloquent pas le port de sortie 443 de ServiceTag pour ServiceBus, Storage et AzureMonitor. Pour plus d’informations sur le filtrage du trafic de groupe de sécurité réseau de réseau virtuel, consultez l’article [Filtrer le trafic avec les groupes de sécurité réseau](../virtual-network/virtual-network-vnet-plan-design-arm.md).
 * Configurez votre [pare-feu Windows pour accéder au moteur de base de données](/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 * Ouvrez votre pare-feu Windows pour permettre à Azure Database Migration Service d’accéder au serveur Oracle source. Par défaut, il s’agit du port TCP 1521.
 * Lorsque vous utilisez une appliance de pare-feu devant vos bases de données sources, vous devrez peut-être ajouter des règles de pare-feu pour permettre à Azure Database Migration Service d’accéder aux bases de données sources pour la migration.

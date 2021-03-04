@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: c9a5be358c40c3411115d8c2ee3f9471c68771b8
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 1ee631e3e4a13a18bb61ee6237ff67a49f663179
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576208"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101693898"
 ---
 # <a name="control-storage-account-access-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Contrôler l’accès au compte de stockage pour le pool SQL serverless dans Azure Synapse Analytics
 
@@ -122,7 +122,7 @@ Suivez ces étapes pour configurer le pare-feu de votre compte de stockage et aj
     Connect-AzAccount
     ```
 4. Définissez les variables dans PowerShell : 
-    - Nom du groupe de ressources - vous pouvez le trouver dans le portail Azure dans la vue d’ensemble de l’espace de travail Synapse.
+    - Nom du groupe de ressources : vous pouvez le trouver dans le portail Azure dans la vue d’ensemble du compte de stockage.
     - Nom du compte - nom du compte de stockage protégé par les règles de pare-feu.
     - ID de locataire - vous pouvez le trouver dans le portail Azure dans Azure Active Directory dans les informations du locataire.
     - Nom de l’espace de travail – Nom de l’espace de travail Synapse.
@@ -192,16 +192,14 @@ Pour utiliser des informations d’identification, un utilisateur doit disposer 
 GRANT REFERENCES ON CREDENTIAL::[storage_credential] TO [specific_user];
 ```
 
-Pour rendre l’expérience de pass-through Azure AD plus fluide, tous les utilisateurs auront, par défaut, le droit d’utiliser les informations d’identification `UserIdentity`.
-
 ## <a name="server-scoped-credential"></a>Informations d’identification incluses dans l’étendue du serveur
 
-Les informations d’identification incluses dans l’étendue du serveur sont utilisées lorsque la connexion SQL appelle la fonction `OPENROWSET` sans le paramètre `DATA_SOURCE` pour lire des fichiers sur un compte de stockage. Le nom des informations d’identification incluses dans l’étendue du serveur **doit** correspondre à l’URL du stockage Azure. Les informations d’identification sont ajoutées par l’exécution de [CREATE CREDENTIAL](/sql/t-sql/statements/create-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). Vous devez fournir un argument CREDENTIAL NAME. Il doit correspondre à une partie du chemin ou au chemin complet des données situées dans le stockage (voir ci-dessous).
+Les informations d’identification incluses dans l’étendue du serveur sont utilisées lorsque la connexion SQL appelle la fonction `OPENROWSET` sans le paramètre `DATA_SOURCE` pour lire des fichiers sur un compte de stockage. Le nom des informations d’identification incluses dans l’étendue du serveur **doit** correspondre à l’URL du stockage Azure (éventuellement suivi par un nom de conteneur). Les informations d’identification sont ajoutées par l’exécution de [CREATE CREDENTIAL](/sql/t-sql/statements/create-credential-transact-sql?view=azure-sqldw-latest&preserve-view=true). Vous devez fournir un argument CREDENTIAL NAME.
 
 > [!NOTE]
 > L’argument `FOR CRYPTOGRAPHIC PROVIDER` n’est pas pris en charge.
 
-Le nom des INFORMATIONS D’IDENTIFICATION au niveau du serveur doit correspondre au chemin d’accès complet au compte de stockage (et éventuellement au conteneur) dans le format suivant : `<prefix>://<storage_account_path>/<storage_path>`. Les chemins d’accès de compte de stockage sont décrits dans le tableau suivant :
+Le nom des INFORMATIONS D’IDENTIFICATION au niveau du serveur doit correspondre au chemin d’accès complet au compte de stockage (et éventuellement au conteneur) dans le format suivant : `<prefix>://<storage_account_path>[/<container_name>]`. Les chemins d’accès de compte de stockage sont décrits dans le tableau suivant :
 
 | Source de données externe       | Préfixe | Chemin de compte de stockage                                |
 | -------------------------- | ------ | --------------------------------------------------- |
@@ -224,11 +222,13 @@ Le script suivant crée des informations d’identification au niveau du serveur
 Remplacez <*mystorageaccountname*> par le nom de votre compte de stockage, et <*mystorageaccountcontainername* par le nom du conteneur :
 
 ```sql
-CREATE CREDENTIAL [https://<storage_account>.dfs.core.windows.net/<container>]
+CREATE CREDENTIAL [https://<mystorageaccountname>.dfs.core.windows.net/<mystorageaccountcontainername>]
 WITH IDENTITY='SHARED ACCESS SIGNATURE'
 , SECRET = 'sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-04-18T20:42:12Z&st=2019-04-18T12:42:12Z&spr=https&sig=lQHczNvrk1KoYLCpFdSsMANd0ef9BrIPBNJ3VYEIq78%3D';
 GO
 ```
+
+Si vous le souhaitez, vous pouvez utiliser uniquement l’URL de base du compte de stockage, sans nom de conteneur.
 
 ### <a name="managed-identity"></a>[Identité gérée](#tab/managed-identity)
 
@@ -238,6 +238,8 @@ Le script suivant crée des informations d’identification au niveau du serveur
 CREATE CREDENTIAL [https://<storage_account>.dfs.core.windows.net/<container>]
 WITH IDENTITY='Managed Identity'
 ```
+
+Si vous le souhaitez, vous pouvez utiliser uniquement l’URL de base du compte de stockage, sans nom de conteneur.
 
 ### <a name="public-access"></a>[Accès public](#tab/public-access)
 

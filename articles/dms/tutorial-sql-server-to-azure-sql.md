@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 01/03/2021
-ms.openlocfilehash: 23bc476c0d4fd90e19428d52b1468d090ffe2a1b
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: b02572f8f6f6531afba9e24af1d2eab53f5cb6ad
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99820787"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101742107"
 ---
 # <a name="tutorial-migrate-sql-server-to-azure-sql-database-offline-using-dms"></a>Tutoriel : Migrer SQL Server vers Azure SQL Database hors connexion à l’aide de DMS
 
@@ -33,10 +33,6 @@ Vous apprendrez à :
 > - Créer un projet de migration en utilisant Azure Database Migration Service.
 > - Exécuter la migration.
 > - Surveiller la migration.
-
-[!INCLUDE [online-offline](../../includes/database-migration-service-offline-online.md)]
-
-Cet article explique le processus de migration hors connexion entre SQL Server et une base de données Azure SQL Database. Pour une migration en ligne, consultez [Migrer SQL Server vers Azure SQL Database en ligne à l’aide de DMS](tutorial-sql-server-azure-sql-online.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -63,7 +59,7 @@ Pour suivre ce didacticiel, vous devez effectuer les opérations suivantes :
     >
     >En l'absence de connectivité de site à site entre le réseau local et Azure, ou si la bande passante de la connectivité de site à site est limitée, vous pouvez utiliser Azure Database Migration Service en mode hybride (préversion). Le mode hybride utilise un Worker de migration local et une instance d'Azure Database Migration Service exécutée dans le cloud. Pour créer une instance d'Azure Database Migration Service en mode hybride, consultez l'article [Créer une instance d'Azure Database Migration Service en mode hybride à l'aide du portail Azure](./quickstart-create-data-migration-service-hybrid-portal.md).
 
-- Vérifiez que les règles de sécurité de trafic sortant définies pour le groupe de sécurité réseau de votre réseau virtuel ne bloquent pas les ports de communication suivants qui sont exigés par Azure Database Migration Service : 443, 53, 9354, 445, 12000. Pour plus d’informations sur le filtrage du trafic de groupe de sécurité réseau de réseau virtuel Azure, consultez l’article [Filtrer le trafic réseau avec les groupes de sécurité réseau](../virtual-network/virtual-network-vnet-plan-design-arm.md).
+- Vérifiez que vos règles de sécurité de sortie du groupe de sécurité réseau de réseau virtuel ne bloquent pas le port de sortie 443 de ServiceTag pour ServiceBus, Storage et AzureMonitor. Pour plus d’informations sur le filtrage du trafic de groupe de sécurité réseau de réseau virtuel Azure, consultez l’article [Filtrer le trafic réseau avec les groupes de sécurité réseau](../virtual-network/virtual-network-vnet-plan-design-arm.md).
 - Configurez votre [pare-feu Windows pour accéder au moteur de base de données](/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 - Ouvrez votre pare-feu Windows pour permettre à Azure Database Migration Service d'accéder à l'instance source de SQL Server via le port TCP 1433 (par défaut). Si votre instance par défaut écoute sur un autre port, ajoutez ce dernier au pare-feu.
 - Si vous exécutez plusieurs instances nommées de SQL Server avec des ports dynamiques, vous pouvez activer le service SQL Browser et autoriser l’accès au port UDP 1434 à travers vos pare-feu, de sorte qu’Azure Database Migration Service puisse se connecter à une instance nommée sur votre serveur source.
@@ -275,7 +271,5 @@ Une fois le service créé, recherchez-le dans le portail Azure, ouvrez-le, puis
 
 ### <a name="additional-resources"></a>Ressources supplémentaires
 
-- Labo pratique [Migration de SQL à l'aide d'Azure Data Migration Service](https://www.microsoft.com/handsonlabs/SelfPacedLabs/?storyGuid=3b671509-c3cd-4495-8e8f-354acfa09587).
-- Pour plus d’informations sur les limitations et problèmes connus concernant les migrations en ligne vers Azure SQL Database, consultez l’article sur les [problèmes connus et solutions de contournement des migrations en ligne Azure SQL Database](known-issues-azure-sql-online.md).
 - Pour plus d’informations sur Azure Database Migration Service, consultez l’article [Qu’est-ce qu’Azure Database Migration Service ?](./dms-overview.md).
 - Pour plus d’informations sur Azure SQL Database, consultez l’article [Qu’est-ce que le service Azure SQL Database ?](../azure-sql/database/sql-database-paas-overview.md).

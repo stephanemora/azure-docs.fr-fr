@@ -121,10 +121,14 @@
           href: add-sign-up-and-sign-in-policy.md
         - name: Stratégie de connexion
           href: add-sign-in-policy.md
-        - name: Stratégie de réinitialisation de mot de passe
-          href: add-password-reset-policy.md
-        - name: Stratégie de changement de mot de passe
-          href: add-password-change-policy.md
+        - name: Stratégies de réinitialisation de mot de passe
+          items:
+            - name: Réinitialisation de mot de passe libre-service
+              href: add-password-reset-policy.md
+            - name: Modification de mot de passe en libre-service
+              href: add-password-change-policy.md
+            - name: Forcer la réinitialisation du mot de passe
+              href: force-password-reset.md
         - name: Stratégie de modification de profil
           href: add-profile-editing-policy.md
         - name: Stratégie d’informations d’identification de mot de passe du propriétaire de ressource
@@ -520,4 +524,4 @@
       href: ../active-directory/fundamentals/active-directory-troubleshooting-support-howto.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
       displayName: technical
     - name: Vidéos
-      href: 'https://azure.microsoft.com/documentation/videos/index/?services=active-directory-b2c'
+      href: azure-ad-external-identities-videos.md

@@ -448,12 +448,14 @@
           href: how-to-managed-cluster-vmss-extension.md
         - name: Configurer votre cluster managé
           href: how-to-managed-cluster-configuration.md
+        - name: Ajouter des règles NSG et autres options réseau de cluster managé
+          href: how-to-managed-cluster-networking.md
         - name: "Déployer des applications de cluster managé avec un modèle\_ARM"
           href: how-to-managed-cluster-app-deployment-template.md
-        - name: Configurer un cluster managé avec une identité managée
-          href: how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md
         - name: Activer le chiffrement de disque pour des nœuds de cluster managés
           href: how-to-enable-managed-cluster-disk-encryption.md
+        - name: Utiliser une identité managée pour les nœuds de clusters managés
+          href: how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md
     - name: Planifier et préparer
       items:
         - name: Planifier la capacité d’un cluster

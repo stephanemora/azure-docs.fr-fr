@@ -10,19 +10,19 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 4d3781c7a3894429cb5daccb334655543e3eea01
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 18282bbe902599c471775a853704e459ea44bac1
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100551883"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101661642"
 ---
 ## <a name="prerequisites"></a>Prérequis
 Avant de commencer, assurez-vous de :
 
-- Créer un compte Azure avec un abonnement actif. Pour plus d’informations, consultez [Créer un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
+- Créer un compte Azure avec un abonnement actif. Pour plus d’informations, consultez [Créer un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Installer les versions Active LTS et Maintenance LTS de [Node.js](https://nodejs.org/en/download/) (versions 8.11.1 et 10.14.1 recommandées).
-- Créer une ressource Azure Communication Services. Pour plus d’informations, consultez [Créer une ressource Azure Communication](../../create-communication-resource.md). Vous devrez **enregistrer le point de terminaison de votre ressource** pour ce guide de démarrage rapide.
+- Créer une ressource Azure Communication Services. Pour plus d’informations, consultez [Créer des ressources Azure Communication Services](../../create-communication-resource.md). Vous devrez **enregistrer le point de terminaison de votre ressource** pour ce guide de démarrage rapide.
 - Créez *trois* utilisateurs ACS et émettez pour eux un jeton d’accès utilisateur [Jeton d’accès utilisateur](../../access-tokens.md). Veillez à définir l’étendue sur **chat** (conversation) et **prenez note de la chaîne du jeton et de la chaîne userId**. La démonstration complète crée un fil avec deux participants initiaux, puis ajoute un troisième participant au fil.
 
 ## <a name="setting-up"></a>Configuration
@@ -34,7 +34,7 @@ Pour commencer, ouvrez votre terminal ou votre fenêtre Commande pour créer un 
 ```console
 mkdir chat-quickstart && cd chat-quickstart
 ```
-   
+
 Exécutez `npm init -y` pour créer un fichier **package.json** avec les paramètres par défaut.
 
 ```console
@@ -48,7 +48,7 @@ Utilisez la commande `npm install` pour installer les bibliothèques de client C
 ```console
 npm install @azure/communication-common --save
 
-npm install @azure/communication-administration --save
+npm install @azure/communication-identity --save
 
 npm install @azure/communication-signaling --save
 
@@ -86,26 +86,9 @@ Créez un fichier dans le répertoire racine de votre projet sous le nom **clien
 
 ### <a name="create-a-chat-client"></a>Créer un client de conversation
 
-Pour créer un client de conversation dans votre application web, vous allez utiliser le **point de terminaison** Communication Services ainsi que le **jeton d’accès** qui a été généré au cours des étapes prérequises. 
+Pour créer un client de conversation dans votre application web, vous allez utiliser le **point de terminaison** Communication Services, ainsi que le **jeton d’accès** qui a été généré au cours des étapes prérequises.
 
-Les jetons d’accès utilisateur vous permettent de créer des applications clientes qui s’authentifient directement auprès d’Azure Communication Services.
-
-##### <a name="server-vs-client-side"></a>Côté serveur et côté client
-
-Nous vous recommandons de générer des jetons d’accès en utilisant un composant côté serveur qui les passe à l’application cliente. Dans ce scénario, le côté serveur est responsable de la création et de la gestion des utilisateurs, et de l’émission de leurs jetons. Le côté client peut ensuite recevoir des jetons d’accès du service et les utiliser pour authentifier les bibliothèques de client Azure Communication Services.
-
-Les jetons peuvent également être émis côté client en utilisant la bibliothèque Azure Communication Administration pour JavaScript. Dans ce scénario, le côté client doit avoir connaissance des utilisateurs pour émettre leurs jetons.
-
-Consultez la documentation suivante pour plus d’informations sur l’[Architecture client et serveur](../../../concepts/client-and-server-architecture.md)
-
-Dans le diagramme ci-dessous, l’application côté client reçoit un jeton d’accès d’un niveau de service approuvé. L’application utilise ensuite le jeton pour authentifier les bibliothèques Communication Services. Une fois qu’elles sont authentifiées, l’application peut utiliser les bibliothèques Communication Services côté client pour effectuer des opérations comme une conversation avec d’autres utilisateurs.
-
-:::image type="content" source="../../../media/scenarios/archdiagram-access.png" alt-text="Diagramme montrant l’architecture des jetons d’accès utilisateur.":::
-
-##### <a name="instructions"></a>Instructions
-Cette démonstration ne couvre pas la création d’un niveau de service pour votre application de conversation. 
-
-Si vous n’avez pas généré d’utilisateurs et leurs jetons, effectuez les instructions suivantes pour le faire : [Jeton d’accès utilisateur](../../access-tokens.md). N’oubliez pas de définir l’étendue sur « chat » et non pas sur « voip ».
+Les jetons d’accès utilisateur vous permettent de créer des applications clientes qui s’authentifient directement auprès d’Azure Communication Services. Ce guide de démarrage rapide n’aborde pas la création d’un niveau de service pour gérer les jetons de votre application de conversation. Consultez [Concepts relatifs aux conversations](../../../concepts/chat/concepts.md) pour en savoir plus sur l’architecture des conversations, et consultez [Jetons d’accès utilisateur](../../access-tokens.md) pour en savoir plus sur les jetons d’accès.
 
 Dans **client.js**, utilisez le point de terminaison et le jeton d’accès dans le code ci-dessous pour ajouter une fonctionnalité de conversation en utilisant la bibliothèque de client Azure Communication Chat pour JavaScript.
 
@@ -139,7 +122,7 @@ Dans la console d’outils de développement de votre navigateur, vous devez voi
 Azure Communication Chat client created!
 ```
 
-## <a name="object-model"></a>Modèle objet 
+## <a name="object-model"></a>Modèle objet
 Les classes et interfaces suivantes gèrent quelques-unes des principales fonctionnalités de la bibliothèque de client Azure Communication Services Chat pour JavaScript.
 
 | Nom                                   | Description                                                                                                                                                                           |
@@ -154,7 +137,7 @@ Utilisez la méthode `createThread` pour créer un fil de conversation.
 
 `createThreadRequest` est utilisé pour décrire la demande de fil :
 
-- Utilisez `topic` pour attribuer un sujet à cette conversation ; le sujet peut être mis à jour après que le fil de conversation a été créé à l’aide de la fonction `UpdateThread`. 
+- Utilisez `topic` pour attribuer un sujet à cette conversation. Les sujets peuvent être mis à jour après la création du thread de conversation à l’aide de la fonction `UpdateThread`.
 - Utilisez `participants` pour lister les participants à ajouter au fil de conversation.
 
 Une fois résolue, la méthode `createChatThread` retourne une `CreateChatThreadResponse`. Ce modèle contient une propriété `chatThread` où vous pouvez accéder à l’`id` du fil nouvellement créé. Vous pouvez ensuite utiliser l’`id` pour obtenir une instance de `ChatThreadClient`. Le `ChatThreadClient` peut ensuite être utilisé pour effectuer une opération dans le fil, comme envoyer des messages ou lister les participants.
@@ -220,7 +203,7 @@ Utilisez la méthode `sendMessage` pour envoyer un message de conversation au fi
 
 `sendMessageOptions` décrit les champs facultatifs de la demande de message de conversation :
 
-- Utilisez `priority` pour spécifier le niveau de priorité du message de conversation, par exemple « Normal » ou « High » (Élevé) ; cette propriété peut être utilisée pour que l’indicateur d’interface utilisateur attire l’attention de l’utilisateur destinataire sur le message ou pour exécuter une logique métier personnalisée.   
+- Utilisez `priority` pour spécifier le niveau de priorité du message de conversation, par exemple « Normal » ou « Élevé ». Cette propriété peut être utilisée pour afficher un indicateur d’interface destiné à attirer l’attention de l’utilisateur destinataire de votre application sur le message, ou pour exécuter une logique métier personnalisée.
 - Utilisez `senderDisplayName` pour spécifier le nom d’affichage de l’expéditeur ;
 
 La réponse `sendChatMessageResult` contient un ID, qui est l’ID unique de ce message.
@@ -263,7 +246,7 @@ chatClient.on("chatMessageReceived", (e) => {
 Ajoutez ce code à la place du commentaire `<RECEIVE A CHAT MESSAGE FROM A CHAT THREAD>` dans **client.js**.
 Si vous actualisez l’onglet du navigateur, la console doit présenter un message `Notification chatMessageReceived` ;
 
-Vous pouvez aussi récupérer les messages de conversation en interrogeant la méthode `listMessages` selon des intervalles définis. 
+Vous pouvez aussi récupérer les messages de conversation en interrogeant la méthode `listMessages` selon des intervalles définis.
 
 ```JavaScript
 

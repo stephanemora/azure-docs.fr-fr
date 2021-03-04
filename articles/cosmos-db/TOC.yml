@@ -818,6 +818,8 @@
               href: enable-notebooks.md
             - name: Importer des notebooks à partir de GitHub
               href: import-github-notebooks.md
+            - name: Publier les notebooks dans la galerie
+              href: publish-notebook-gallery.md
             - name: Utiliser les commandes de notebook Python intégrées
               href: use-python-notebook-features-and-commands.md
             - name: Utiliser les commandes de notebook C# intégrées

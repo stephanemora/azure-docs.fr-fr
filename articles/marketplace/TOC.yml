@@ -47,12 +47,19 @@
       items:
         - name: Vos avantages sur la Place de marché
           href: gtm-your-marketplace-benefits.md
-        - name: Engagement en tant que partenaire de co-vente
-          href: marketplace-co-sell.md
-        - name: Option Co-vente de l'Espace partenaires
-          href: commercial-marketplace-co-sell.md
-        - name: Migrer des solutions de co-vente à partir de OCP GTM
-          href: co-sell-solution-migration.md
+          items: null
+        - name: Co-vendre avec Microsoft
+          items:
+            - name: Vue d’ensemble de la co-vente
+              href: marketplace-co-sell.md
+            - name: Exigences en matière de co-vente
+              href: co-sell-requirements.md
+            - name: Configurer la co-vente
+              href: commercial-marketplace-co-sell.md
+            - name: Vérifier le statut de la co-vente
+              href: co-sell-status.md
+            - name: Migrer des solutions de co-vente à partir de OCP GTM
+              href: co-sell-solution-migration.md
         - name: Revendre via des partenaires CSP
           href: cloud-solution-providers.md
         - name: Guide d’intégration du programme Connect
@@ -203,6 +210,8 @@
           href: partner-center-portal/azure-iot-edge-module-creation.md
         - name: Préparer les ressources techniques du module Azure IoT Edge
           href: partner-center-portal/create-iot-edge-module-asset.md
+        - name: Liste de vérification de précertification
+          href: iot-edge-checklist.md
     - name: Offres de services managés
       items:
         - name: Planifier une offre de service managé
@@ -395,6 +404,8 @@
       href: commercial-marketplace-co-sell-countries.md
     - name: Codes d'état de co-vente
       href: commercial-marketplace-co-sell-states.md
+    - name: Diagramme de l’architecture de référence
+      href: reference-architecture-diagram.md
     - name: Catégories et sous-catégories
       href: categories.md
     - name: Balises HTML prises en charge

@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 06/08/2020
-ms.openlocfilehash: 979f40e13aab71f02a316e4ddf60306170166845
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 543fb7474c0a9efc41667945c89489054a44d657
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96753924"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101724487"
 ---
 # <a name="prepare-on-premises-machines-for-migration-to-azure"></a>Préparer des ordinateurs locaux à une migration vers Azure
 
@@ -35,7 +35,7 @@ Le tableau récapitule les limites qui s’appliquent à la détection, à l’�
 
 **Scénario** | **Projet** | **Détection/évaluation** | **Migration**
 --- | --- | --- | ---
-**Machines virtuelles VMware** | Détectez et évaluez jusqu’à 35 000 machines virtuelles dans un même projet Azure Migrate. | Détectez jusqu’à 10 000 machines virtuelles VMware avec une seule [appliance Azure Migrate](common-questions-appliance.md) pour VMware. | **Migration sans agent** : vous pouvez répliquer simultanément un maximum de 300 machines virtuelles. Pour de meilleures performances, nous vous recommandons de créer plusieurs lots de machines virtuelles s’il y a plus de 50 machines au total.<br/><br/> **Migration basée sur un agent** : vous pouvez faire un [scale-out](./agent-based-migration-architecture.md#performance-and-scaling) de l’[appliance de réplication](migrate-replication-appliance.md) pour répliquer un grand nombre de machines virtuelles.<br/><br/> Dans le portail, vous pouvez sélectionner jusqu’à 10 machines à la fois pour la réplication. Pour répliquer davantage de machines, ajoutez-les par lots de 10.
+**Machines virtuelles VMware** | Détectez et évaluez jusqu’à 35 000 machines virtuelles dans un même projet Azure Migrate. | Détectez jusqu’à 10 000 machines virtuelles VMware avec une seule [appliance Azure Migrate](common-questions-appliance.md) pour VMware. | **Migration sans agent** : vous pouvez répliquer simultanément un maximum de 500 machines virtuelles à partir de chaque vCenter Server. **Migration basée sur un agent** : vous pouvez faire un [scale-out](./agent-based-migration-architecture.md#performance-and-scaling) de l’[appliance de réplication](migrate-replication-appliance.md) pour répliquer un grand nombre de machines virtuelles.<br/><br/> Dans le portail, vous pouvez sélectionner jusqu’à 10 machines à la fois pour la réplication. Pour répliquer davantage de machines, ajoutez-les par lots de 10.
 **Machines virtuelles Hyper-V** | Détectez et évaluez jusqu’à 35 000 machines virtuelles dans un même projet Azure Migrate. | Détectez jusqu’à 5 000 machines virtuelles Hyper-V avec une seule appliance Azure Migrate. | Aucune appliance n’est utilisée pour la migration Hyper-V. Au lieu de cela, le fournisseur de réplication Hyper-V s’exécute sur chaque hôte Hyper-V.<br/><br/> La capacité de réplication dépend de plusieurs facteurs de performance tels que l’évolution des machines virtuelles et la bande passante de chargement pour les données de réplication.<br/><br/> Dans le portail, vous pouvez sélectionner jusqu’à 10 machines à la fois pour la réplication. Pour répliquer davantage de machines, ajoutez-les par lots de 10.
 **Machines physiques** | Détectez et évaluez jusqu’à 35 000 machines dans un même projet Azure Migrate. | Détectez jusqu’à 250 serveurs physiques avec une seule appliance Azure Migrate pour les serveurs physiques. | Vous pouvez faire un [scale-out](./agent-based-migration-architecture.md#performance-and-scaling) de l’[appliance de réplication](migrate-replication-appliance.md) pour répliquer un grand nombre de serveurs.<br/><br/> Dans le portail, vous pouvez sélectionner jusqu’à 10 machines à la fois pour la réplication. Pour répliquer davantage de machines, ajoutez-les par lots de 10.
 
@@ -116,7 +116,7 @@ Azure Migrate effectue automatiquement ces actions pour les versions suivantes
 - SUSE Linux Enterprise Server 12 SP1+
 - SUSE Linux Enterprise Server 15 SP1
 - Ubuntu 19.04, 19.10, 18.04LTS, 16.04LTS, 14.04LTS
-- Debian 8, 7
+- Debian 9, 8, 7
 - Oracle Linux 7.7, 7.7-CI
 
 Pour les autres versions, préparez les machines comme cela est résumé dans le tableau.  

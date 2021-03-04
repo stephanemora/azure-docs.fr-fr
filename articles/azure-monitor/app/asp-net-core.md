@@ -4,12 +4,12 @@ description: Superviser la disponibilité, les performances et l’utilisation d
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 04/30/2020
-ms.openlocfilehash: 2f17f4fbed196932ad7a5680338c459740e4d3bd
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: be4cbe5f95fa6901ae4299662750c232d4700a8a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98249106"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711499"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights pour applications ASP.NET Core
 
@@ -29,7 +29,7 @@ Le [SDK Application Insights pour ASP.NET Core](https://nuget.org/packages/Micro
 * **IDE** : Visual Studio, VS Code ou ligne de commande.
 
 > [!NOTE]
-> ASP.NET Core 3. X requiert [Application Insights 2.8.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.8.0) ou version ultérieure.
+> ASP.NET Core 3.1 requiert [Application Insights 2.8.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.8.0) ou version ultérieure.
 
 ## <a name="prerequisites"></a>Prérequis
 

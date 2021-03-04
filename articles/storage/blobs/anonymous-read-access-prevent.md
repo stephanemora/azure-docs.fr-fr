@@ -10,12 +10,12 @@ ms.date: 12/09/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
-ms.openlocfilehash: 179e60a41a9cd6a2277959b3cd31159c796d845d
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 53f29c2b8f7a17ac2a23cc081660e8dcb4b9f387
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96937285"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101701856"
 ---
 # <a name="prevent-anonymous-public-read-access-to-containers-and-blobs"></a>Empêcher l’accès en lecture public anonyme aux conteneurs et aux blobs
 
@@ -35,7 +35,7 @@ Pour que vous compreniez dans quelle mesure l’interdiction de l’accès publi
 
 ### <a name="monitor-anonymous-requests-with-metrics-explorer"></a>Superviser les demandes anonymes avec Metrics Explorer
 
-Pour effectuer le suivi des demandes anonymes adressées à un compte de stockage, utilisez Azure Metrics Explorer dans le portail Azure. Pour plus d’informations sur Metrics Explorer, consultez [Prise en main d’Azure Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md).
+Pour effectuer le suivi des demandes anonymes adressées à un compte de stockage, utilisez Azure Metrics Explorer dans le portail Azure. Pour plus d’informations sur Metrics Explorer, consultez [Prise en main d’Azure Metrics Explorer](../../azure-monitor/essentials/metrics-getting-started.md).
 
 Suivez ces étapes pour créer une métrique qui effectue le suivi des requêtes anonymes :
 
@@ -61,7 +61,7 @@ Une fois que vous avez configuré la métrique, les demandes anonymes commencent
 
 :::image type="content" source="media/anonymous-read-access-prevent/metric-anonymous-blob-requests.png" alt-text="Capture d’écran montrant les demandes anonymes agrégées sur le stockage Blob":::
 
-Vous pouvez également configurer une règle d’alerte pour vous avertir quand un certain nombre de demandes anonymes sont effectuées sur votre compte de stockage. Pour plus d'informations, consultez [Créer, afficher et gérer des alertes de métrique à l'aide d'Azure Monitor](../../azure-monitor/platform/alerts-metric.md).
+Vous pouvez également configurer une règle d’alerte pour vous avertir quand un certain nombre de demandes anonymes sont effectuées sur votre compte de stockage. Pour plus d'informations, consultez [Créer, afficher et gérer des alertes de métrique à l'aide d'Azure Monitor](../../azure-monitor/alerts/alerts-metric.md).
 
 ### <a name="analyze-logs-to-identify-containers-receiving-anonymous-requests"></a>Analyser les journaux pour identifier les conteneurs recevant des demandes anonymes
 
@@ -69,7 +69,7 @@ Les journaux du stockage Azure capturent des détails sur les demandes effectué
 
 Pour journaliser les demandes dans votre compte de stockage Azure afin d’évaluer les demandes anonymes, vous pouvez utiliser la journalisation du stockage Azure dans Azure Monitor (préversion). Pour plus d’informations, consultez [Superviser le stockage Azure](./monitor-blob-storage.md).
 
-La journalisation du stockage Azure dans Azure Monitor prend en charge l’utilisation de requêtes de journal pour analyser les données des journaux. Pour interroger les journaux, vous pouvez utiliser un espace de travail Azure Log Analytics. Pour en savoir plus sur les requêtes de journal, consultez [Tutoriel : Bien démarrer avec les requêtes Log Analytics](../../azure-monitor/log-query/log-analytics-tutorial.md).
+La journalisation du stockage Azure dans Azure Monitor prend en charge l’utilisation de requêtes de journal pour analyser les données des journaux. Pour interroger les journaux, vous pouvez utiliser un espace de travail Azure Log Analytics. Pour en savoir plus sur les requêtes de journal, consultez [Tutoriel : Bien démarrer avec les requêtes Log Analytics](../../azure-monitor/logs/log-analytics-tutorial.md).
 
 > [!NOTE]
 > La préversion de la journalisation Stockage Azure dans Azure Monitor est prise en charge uniquement dans le cloud public Azure. Les clouds du secteur public ne prennent pas en charge la journalisation pour Stockage Azure avec Azure Monitor.
@@ -78,8 +78,7 @@ La journalisation du stockage Azure dans Azure Monitor prend en charge l’utili
 
 Pour journaliser des données de stockage Azure avec Azure Monitor et les analyser avec Azure Log Analytics, vous devez d’abord créer un paramètre de diagnostic qui indique les types de demandes et les services de stockage pour lesquels vous souhaitez journaliser les données. Pour créer un paramètre de diagnostic dans le portail Azure, suivez ces étapes :
 
-1. Inscrivez-vous à la [journalisation de stockage Azure dans Azure Monitor (préversion)](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u).
-1. Créez un espace de travail Log Analytics dans l’abonnement qui contient votre compte de stockage Azure. Une fois que vous avez configuré la journalisation pour votre compte de stockage, les journaux sont disponibles dans l’espace de travail Log Analytics. Pour plus d’informations, consultez [Créer un espace de travail Log Analytics dans le portail Azure](../../azure-monitor/learn/quick-create-workspace.md).
+1. Créez un espace de travail Log Analytics dans l’abonnement qui contient votre compte de stockage Azure. Une fois que vous avez configuré la journalisation pour votre compte de stockage, les journaux sont disponibles dans l’espace de travail Log Analytics. Pour plus d’informations, consultez [Créer un espace de travail Log Analytics dans le portail Azure](../../azure-monitor/logs/quick-create-workspace.md).
 1. Accédez à votre compte de stockage dans le portail Azure.
 1. Dans la section Supervision, Sélectionnez **Paramètres de diagnostic (préversion)** .
 1. Sélectionnez **Blob** pour journaliser les demandes effectuées sur le stockage Blob.
@@ -90,7 +89,7 @@ Pour journaliser des données de stockage Azure avec Azure Monitor et les analys
 
     :::image type="content" source="media/anonymous-read-access-prevent/create-diagnostic-setting-logs.png" alt-text="Capture d’écran montrant comment créer un paramètre de diagnostic pour la journalisation des demandes":::
 
-Une fois le paramètre de diagnostic créé, les demandes adressées au compte de stockage sont journalisées conformément à ce paramètre. Pour plus d’informations, consultez [Créer un paramètre de diagnostic pour collecter les journaux et les métriques des ressources dans Azure](../../azure-monitor/platform/diagnostic-settings.md).
+Une fois le paramètre de diagnostic créé, les demandes adressées au compte de stockage sont journalisées conformément à ce paramètre. Pour plus d’informations, consultez [Créer un paramètre de diagnostic pour collecter les journaux et les métriques des ressources dans Azure](../../azure-monitor/essentials/diagnostic-settings.md).
 
 Pour obtenir des informations de référence sur les champs disponibles dans les journaux de stockage Azure dans Azure Monitor, consultez [Journaux de ressource (préversion)](./monitor-blob-storage-reference.md#resource-logs-preview).
 
@@ -106,7 +105,7 @@ StorageBlobLogs
 | project TimeGenerated, AccountName, AuthenticationType, Uri
 ```
 
-Vous pouvez également configurer une règle d’alerte basée sur cette requête pour vous avertir des demandes anonymes. Pour plus d’informations, consultez [Créer, afficher et gérer des alertes de journal à l’aide d’Azure Monitor](../../azure-monitor/platform/alerts-log.md).
+Vous pouvez également configurer une règle d’alerte basée sur cette requête pour vous avertir des demandes anonymes. Pour plus d’informations, consultez [Créer, afficher et gérer des alertes de journal à l’aide d’Azure Monitor](../../azure-monitor/alerts/alerts-log.md).
 
 ## <a name="remediate-anonymous-public-access"></a>Corriger l’accès public anonyme
 
@@ -290,20 +289,20 @@ L’image suivante montre l’erreur qui se produit si vous tentez de créer un 
 
 ## <a name="permissions-for-allowing-or-disallowing-public-access"></a>Autorisations pour autoriser ou interdire l’accès public
 
-Afin de définir la propriété **AllowBlobPublicAccess** pour le compte de stockage, un utilisateur doit disposer des autorisations nécessaires pour créer et gérer des comptes de stockage. Les rôles de contrôle d’accès en fonction du rôle Azure (Azure RBAC) qui fournissent ces autorisations incluent l’action **Microsoft.Storage/storageAccounts/write** ou **Microsoft.Storage/storageAccounts/\** _. Les rôles intégrés à cette action comprennent :
+Afin de définir la propriété **AllowBlobPublicAccess** pour le compte de stockage, un utilisateur doit disposer des autorisations nécessaires pour créer et gérer des comptes de stockage. Les rôles de contrôle d’accès en fonction du rôle Azure (Azure RBAC) qui fournissent ces autorisations comprennent l’action **Microsoft.Storage/storageAccounts/write** ou l’action ***Microsoft.Storage/storageAccounts/\*** . Parmi les rôles intégrés comportant cette action figurent :
 
 - Le rôle [Propriétaire](../../role-based-access-control/built-in-roles.md#owner) d’Azure Resource Manager
 - Le rôle [Contributeur](../../role-based-access-control/built-in-roles.md#contributor) d’Azure Resource Manager
 - Le rôle [Contributeur de compte de stockage](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
-Ces rôles ne fournissent pas d’accès aux données d’un compte de stockage par le biais d’Azure Active Directory (Azure AD). Toutefois, ils incluent l’action _*Microsoft.Storage/storageAccounts/listkeys/action**, qui accorde l’accès aux clés d’accès du compte. Avec cette autorisation, un utilisateur peut utiliser les clés d’accès du compte pour accéder à toutes les données d’un compte de stockage.
+Ces rôles ne donnent pas accès aux données d’un compte de stockage par le biais d’Azure Active Directory (Azure AD). Toutefois, ils incluent l’action **Microsoft.Storage/storageAccounts/listkeys/action**, qui accorde l’accès aux clés d’accès du compte. Avec cette autorisation, un utilisateur peut utiliser les clés d’accès du compte pour accéder à toutes les données d’un compte de stockage.
 
 Les attributions de rôles doivent être définies au niveau du compte de stockage ou à un niveau supérieur pour permettre à un utilisateur d’autoriser ou d’interdire l’accès public au compte de stockage. Pour plus d’informations sur l’étendue des rôles, consultez [Comprendre l’étendue pour Azure RBAC](../../role-based-access-control/scope-overview.md).
 
-Veillez à limiter l’attribution de ces rôles aux seules personnes qui ont besoin de créer un compte de stockage ou de mettre à jour ses propriétés. Utilisez le principe du moindre privilège pour vous assurer que les utilisateurs disposent des autorisations minimales nécessaires pour accomplir leurs tâches. Pour plus d’informations sur la gestion de l’accès avec Azure RBAC, consultez [Meilleures pratiques pour Azure RBAC](../../role-based-access-control/best-practices.md).
+Veillez à limiter l’attribution de ces rôles aux seules personnes qui ont besoin de créer un compte de stockage ou de mettre à jour ses propriétés. Appliquez le principe des privilèges minimum pour que les utilisateurs disposent des autorisations nécessaires les plus faibles possibles pour accomplir leurs tâches. Pour plus d’informations sur la gestion de l’accès avec Azure RBAC, consultez [Meilleures pratiques pour Azure RBAC](../../role-based-access-control/best-practices.md).
 
 > [!NOTE]
-> Les rôles d’administrateur d’abonnement classique Administrateur de service et Co-administrateur incluent l’équivalent du rôle [Propriétaire](../../role-based-access-control/built-in-roles.md#owner) d’Azure Resource Manager. Le rôle **Propriétaire** comprend toutes les actions, de sorte qu’un utilisateur disposant de l’un de ces rôles d’administration peut également créer et gérer des comptes de stockage. Pour plus d’informations, consultez [Rôles d’administrateur d’abonnement classique, rôles Azure et rôles d’administrateur Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
+> Les rôles d’administrateur d’abonnement classique Administrateur de service et Co-administrateur incluent l’équivalent du rôle [Propriétaire](../../role-based-access-control/built-in-roles.md#owner) d’Azure Resource Manager. Le rôle **Propriétaire** comprend toutes les actions. Par conséquent, un utilisateur disposant de l’un de ces rôles d’administration peut également créer et gérer des comptes de stockage. Pour plus d’informations, consultez [Rôles d’administrateur d’abonnement classique, rôles Azure et rôles d’administrateur Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

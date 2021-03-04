@@ -1,15 +1,14 @@
 ---
 title: Gérer les instances d’alerte dans Azure Monitor
 description: Gestion des instances d’alerte dans Azure
-ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 82905cba5f391365ada13f4e5df5ad139f4c121e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: dc4b62f937e9338051c4018554ec47c94f01a743
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101734806"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102033535"
 ---
 # <a name="manage-alert-instances-with-unified-alerts"></a>Gérer les instances d’alerte avec des alertes unifiées
 

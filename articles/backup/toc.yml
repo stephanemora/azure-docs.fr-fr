@@ -68,6 +68,8 @@
           href: azure-file-share-support-matrix.md
         - name: Matrice de prise en charge de sauvegarde de disques Azure
           href: disk-backup-support-matrix.md
+        - name: Matrice de prise en charge de sauvegarde des objets BLOB Azure
+          href: blob-backup-support-matrix.md
         - name: "Contrôleurs de domaine Active\_Directory"
           href: active-directory-backup-restore.md
         - name: Références SKU Machines virtuelles prises en charge pour Azure Policy
@@ -132,11 +134,13 @@
           href: backup-center-govern-environment.md
         - name: Exécuter des actions
           href: backup-center-actions.md
+        - name: Ressources communautaires
+          href: backup-center-community.md
     - name: Sauvegarde des machines virtuelles Azure
       items:
         - name: Vue d’ensemble
           href: backup-azure-vms-introduction.md
-        - name: Sauvegarde
+        - name: Backup
           items:
             - name: Sauvegarder et restaurer des machines virtuelles Azure avec la restauration instantanée de Sauvegarde Azure
               href: backup-instant-restore-capability.md
@@ -200,7 +204,7 @@
               href: install-mars-agent.md
             - name: Mettre à niveau l’agent MARS
               href: upgrade-mars-agent.md
-        - name: Sauvegarde
+        - name: Backup
           items:
             - name: Sauvegarder les fichiers et dossiers de Windows Server
               href: backup-windows-with-mars-agent.md
@@ -220,17 +224,25 @@
       items:
         - name: Vue d’ensemble
           href: disk-backup-overview.md
-        - name: Sauvegarde
+        - name: Backup
           href: backup-managed-disks.md
         - name: Restaurer
           href: restore-managed-disks.md
+    - name: Sauvegarde des objets BLOB Azure
+      items:
+        - name: Vue d’ensemble
+          href: blob-backup-overview.md
+        - name: Configurer et gérer
+          href: blob-backup-configure-manage.md
+        - name: Restaurer
+          href: blob-restore.md
     - name: Sauvegarde des partages de fichiers Azure
       items:
         - name: Vue d’ensemble
           href: azure-file-share-backup-overview.md
         - name: À partir du portail Azure
           items:
-            - name: Sauvegarde
+            - name: Backup
               href: backup-afs.md
             - name: Restaurer
               href: restore-afs.md
@@ -238,7 +250,7 @@
               href: manage-afs-backup.md
         - name: Avec l’interface de ligne de commande Azure
           items:
-            - name: Sauvegarde
+            - name: Backup
               href: backup-afs-cli.md
             - name: Restaurer
               href: restore-afs-cli.md
@@ -246,7 +258,7 @@
               href: manage-afs-backup-cli.md
         - name: Avec PowerShell
           items:
-            - name: Sauvegarde
+            - name: Backup
               href: backup-azure-afs-automation.md
             - name: Restaurer
               href: restore-afs-powershell.md
@@ -254,7 +266,7 @@
               href: manage-afs-powershell.md
         - name: Avec l’API REST
           items:
-            - name: Sauvegarde
+            - name: Backup
               href: backup-azure-file-share-rest-api.md
             - name: Restaurer
               href: restore-azure-file-share-rest-api.md
@@ -264,7 +276,7 @@
       items:
         - name: Vue d’ensemble
           href: sap-hana-db-about.md
-        - name: Sauvegarde
+        - name: Backup
           href: backup-azure-sap-hana-database.md
         - name: Restaurer
           href: sap-hana-db-restore.md
@@ -437,6 +449,10 @@
           href: ./security-controls-policy.md
         - name: Base de référence de la sécurité
           href: security-baseline.md
+    - name: Niveau d’accès
+      items:
+        - name: Niveau de stockage archive
+          href: archive-tier-support.md
     - name: Dépanner
       items:
         - name: Azure VM
