@@ -4,12 +4,12 @@ description: Le suivi des problèmes de mise à l’échelle automatique Azure u
 ms.topic: conceptual
 ms.date: 11/4/2019
 ms.subservice: autoscale
-ms.openlocfilehash: 8936d1b94082291f5c081c47f8331cc64042896b
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a0fed6c2d06edcb2c9eb8d715feb0ef6c6ade46f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100599257"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711397"
 ---
 # <a name="troubleshooting-azure-autoscale"></a>Résolution des problèmes de mise à l’échelle automatique Azure
  
@@ -24,14 +24,14 @@ Le service de mise à l’échelle automatique vous fournit des métriques et de
   
 ## <a name="autoscale-metrics"></a>Métriques de mise à l’échelle automatique
 
-La mise à l’échelle automatique vous fournit [quatre métriques](../platform/metrics-supported.md#microsoftinsightsautoscalesettings) pour comprendre son fonctionnement. 
+La mise à l’échelle automatique vous fournit [quatre métriques](../essentials/metrics-supported.md#microsoftinsightsautoscalesettings) pour comprendre son fonctionnement. 
 
 - **Valeur de métrique observée** : la valeur de la métrique sur laquelle vous avez choisi d’effectuer l’action de mise à l’échelle, telle qu’elle apparaît ou est calculée par le moteur de mise à l’échelle automatique. Étant donné qu’un seul paramètre de mise à l’échelle automatique peut avoir plusieurs règles et, par conséquent, plusieurs sources de métriques, vous pouvez filtrer en utilisant « Source de métriques » comme dimension.
 - **Seuil de mesure** : le seuil que vous avez défini pour effectuer l’action de mise à l’échelle. Étant donné qu’un seul paramètre de mise à l’échelle automatique peut avoir plusieurs règles et, par conséquent, plusieurs sources de métriques, vous pouvez filtrer en utilisant « Règle de métrique » comme dimension.
 - **Capacité observée** : le nombre d’instances actives de la ressource cible, tel qu’il est vu par le moteur de mise à l’échelle automatique.
 - **Actions de mise à l’échelle initiées** : le nombre d’actions de mise à l’échelle initiées par le moteur de mise à l’échelle automatique. Vous pouvez filtrer par actions de scale-in ou de scale-out.
 
-Vous pouvez utiliser [Metrics Explorer](../platform/metrics-getting-started.md) pour représenter visuellement les métriques ci-dessus dans un même emplacement. Le graphique doit afficher :
+Vous pouvez utiliser [Metrics Explorer](../essentials/metrics-getting-started.md) pour représenter visuellement les métriques ci-dessus dans un même emplacement. Le graphique doit afficher :
 
   - la métrique réelle
   - la métrique affichée/calculée par le moteur de mise à l’échelle automatique
@@ -87,7 +87,7 @@ Le graphique en bas affiche plusieurs valeurs.
  - La **capacité observée** (violet) indique le nombre d’instances vu par le moteur de mise à l’échelle automatique. 
  - Le **seuil de métrique** (vert clair) est défini sur 10. 
 
-S’il existe plusieurs règles d’action de mise à l’échelle, vous pouvez utiliser le fractionnement ou l’option **ajouter un filtre** dans le graphique de l’explorateur de métriques pour examiner la métrique sur une source ou règle spécifique. Pour plus d’informations sur le fractionnement d’un graphique de métriques, consultez [Fonctionnalités avancées des graphiques de métrique - Fractionnement](../platform/metrics-charts.md#apply-splitting)
+S’il existe plusieurs règles d’action de mise à l’échelle, vous pouvez utiliser le fractionnement ou l’option **ajouter un filtre** dans le graphique de l’explorateur de métriques pour examiner la métrique sur une source ou règle spécifique. Pour plus d’informations sur le fractionnement d’un graphique de métriques, consultez [Fonctionnalités avancées des graphiques de métrique - Fractionnement](../essentials/metrics-charts.md#apply-splitting)
 
 ## <a name="example-3---understanding-autoscale-events"></a>Exemple 3 : Comprendre les événements de mise à l’échelle automatique
 
@@ -97,13 +97,13 @@ Dans l’écran de paramètres de mise à l’échelle automatique, accédez à 
 
 ## <a name="autoscale-resource-logs"></a>Journaux de ressources de mise à l’échelle automatique
 
-Comme pour toute autre ressource Azure, le service de mise à l’échelle automatique fournit des [journaux de ressources](../platform/platform-logs-overview.md). Il existe deux catégories de journaux.
+Comme pour toute autre ressource Azure, le service de mise à l’échelle automatique fournit des [journaux de ressources](../essentials/platform-logs-overview.md). Il existe deux catégories de journaux.
 
 - **Évaluations de mise à l’échelle automatique** : le moteur de mise à l’échelle automatique enregistre des entrées de journal pour chaque évaluation de condition unique chaque fois qu’il effectue une vérification.  L’entrée comprend des détails sur les valeurs observées des métriques, les règles évaluées et si l’évaluation a entraîné une action de mise à l’échelle.
 
 - **Actions de mise à l’échelle automatique** : le moteur enregistre les événements d’action de mise à l’échelle initiés par le service de mise à l’échelle automatique et les résultats de ces actions d’échelle (réussite, échec, ainsi que l’ampleur de la mise à l’échelle observée par le service de mise à l’échelle automatique).
 
-Comme pour tout service Azure Monitor pris en charge, vous pouvez utiliser les [Paramètres de diagnostic](../platform/diagnostic-settings.md) pour acheminer ces journaux :
+Comme pour tout service Azure Monitor pris en charge, vous pouvez utiliser les [Paramètres de diagnostic](../essentials/diagnostic-settings.md) pour acheminer ces journaux :
 
 - dans votre espace de travail Log Analytics pour une analyse détaillée
 - dans Event Hubs, puis dans des outils non Azure
@@ -206,4 +206,4 @@ Créez des règles d’alerte pour être informé des actions de mise à l’éc
 Pour plus d’informations, consultez [Journaux de ressource de mise à l’échelle automatique](autoscale-resource-log-schema.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
-Lisez des informations sur les [Meilleures pratiques relatives à la mise à l’échelle automatique](autoscale-best-practices.md). 
+Lisez des informations sur les [Meilleures pratiques relatives à la mise à l’échelle automatique](autoscale-best-practices.md).

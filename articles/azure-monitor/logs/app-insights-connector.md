@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/13/2019
-ms.openlocfilehash: 2e103bb3cce364aeb5c25dcc2b54bf78c6993ca0
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 2dda18232e0cf3afa63a01814e776b90988e0b10
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100599893"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704342"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Solution de gestion Application Insights Connector (déconseillée)
 
@@ -22,7 +22,7 @@ ms.locfileid: "100599893"
 >
 >Les connexions existantes continueront de fonctionner jusqu'au 30 juin 2019.  Une fois le portail OMS déconseillé, il ne sera pas possible de configurer et de supprimer les connexions existantes du portail. Consultez [Suppression du connecteur avec PowerShell](#removing-the-connector-with-powershell) ci-dessous afin d’obtenir un script sur l’utilisation de PowerShell pour supprimer des connexions existantes.
 >
->Pour obtenir des conseils sur l’interrogation de données de journal d’Application Insights pour plusieurs applications, consultez [Unifier plusieurs ressources Application Insights Azure Monitor](../log-query/unify-app-resource-data.md). Pour plus d’informations sur la dépréciation du portail OMS, consultez la page [Migration du portail OMS vers Azure](../platform/oms-portal-transition.md).
+>Pour obtenir des conseils sur l’interrogation de données de journal d’Application Insights pour plusieurs applications, consultez [Unifier plusieurs ressources Application Insights Azure Monitor](./unify-app-resource-data.md). Pour plus d’informations sur la dépréciation du portail OMS, consultez la page [Migration du portail OMS vers Azure](./oms-portal-transition.md).
 >
 > 
 
@@ -318,5 +318,4 @@ ApplicationInsights | summarize by ApplicationName
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Utilisez [Recherche dans les journaux](../log-query/log-query-overview.md) pour afficher des informations détaillées sur vos applications Application Insights.
-
+- Utilisez [Recherche dans les journaux](./log-query-overview.md) pour afficher des informations détaillées sur vos applications Application Insights.

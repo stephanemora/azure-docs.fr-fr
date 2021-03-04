@@ -3,12 +3,12 @@ title: Expériences de la gestion multilocataire
 description: La gestion des ressources déléguées Azure offre une expérience de gestion inter-locataires.
 ms.date: 02/08/2021
 ms.topic: conceptual
-ms.openlocfilehash: 97b28409a7f180ffbf4f8766ee281710d6226019
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 644cac70ef6459a1b0be45e9ab8f2757fafddeed
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100573081"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699247"
 ---
 # <a name="cross-tenant-management-experiences"></a>Expériences de la gestion multilocataire
 
@@ -97,8 +97,8 @@ La plupart des tâches et des services peuvent être exécutés sur des ressourc
 
 - Afficher les alertes pour les abonnements délégués, avec la possibilité d’afficher et d’actualiser des alertes à travers tous les abonnements
 - Afficher les détails du journal d’activité pour des abonnements délégués
-- [Log Analytics](../../azure-monitor/platform/service-providers.md) : Interroger des données à partir d’espaces de travail distants dans plusieurs locataires (notez que les comptes Automation utilisés pour accéder aux données à partir d’espaces de travail de locataires clients doivent être créés dans le même locataire)
-- [Créez, affichez et gérez des alertes de journal d’activité](../../azure-monitor/platform/alerts-activity-log.md) dans des locataires clients
+- [Log Analytics](../../azure-monitor/logs/service-providers.md) : Interroger des données à partir d’espaces de travail distants dans plusieurs locataires (notez que les comptes Automation utilisés pour accéder aux données à partir d’espaces de travail de locataires clients doivent être créés dans le même locataire)
+- [Créez, affichez et gérez des alertes de journal d’activité](../../azure-monitor/alerts/alerts-activity-log.md) dans des locataires clients
 - Créer des alertes dans les locataires du client qui déclenchent une automatisation, par exemple des runbooks Azure Automation ou des fonctions Azure Functions, dans le locataire gérant par le biais de webhooks
 - Créer des [paramètres de diagnostic](../..//azure-monitor/essentials/diagnostic-settings.md) dans les locataires clients pour envoyer les journaux de ressources à des espaces de travail dans le locataire responsable
 - Pour les charges de travail SAP, [surveiller les métriques des solutions SAP avec une vue agrégée sur les locataires clients](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/using-azure-lighthouse-and-azure-monitor-for-sap-solutions-to/ba-p/1537293)

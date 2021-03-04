@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/09/2021
 ms.author: memildin
-ms.openlocfilehash: 4dc9855afe7ed53db120f4dbc6c09ac4db0f58d9
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.openlocfilehash: d5c8ad0c4d9995a36b95ad2e67878f678887bfd2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99988560"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101701975"
 ---
 # <a name="configure-email-notifications-for-security-alerts"></a>Configurer des notifications par e-mail pour les alertes de sécurité 
 
@@ -61,7 +61,7 @@ Vous pouvez envoyer des notifications par e-mail à des individus ou à tous les
 1. Pour appliquer les coordonnées de sécurité à votre abonnement, sélectionnez **Enregistrer**.
 
 ## <a name="customize-the-alerts-email-notifications-through-the-api"></a>Personnaliser les notifications par e-mail des alertes via l’API
-Vous pouvez également gérer vos notifications par e-mail via l’API REST fournie. Pour plus d’informations, consultez la [documentation de l’API SecurityContacts](https://docs.microsoft.com/rest/api/securitycenter/securitycontacts).
+Vous pouvez également gérer vos notifications par e-mail via l’API REST fournie. Pour plus d’informations, consultez la [documentation de l’API SecurityContacts](/rest/api/securitycenter/securitycontacts).
 
 Voici un exemple de corps de requête pour la requête PUT lors de la création d’une configuration de contact de sécurité :
 
