@@ -38,12 +38,6 @@
           href: tutorial-nocode-vision.md
         - name: Créer et déployer une solution de reconnaissance vocale sans code
           href: tutorial-no-code-speech.md
-    - name: Développement avancé
-      items:
-        - name: Tutoriel sur le développement avancé (cloud)
-          href: advanced-development-cloud.md
-        - name: Tutoriel sur le développement avancé (local)
-          href: advanced-development-local.md
 - name: Concepts
   items:
     - name: Azure Percept Audio
@@ -106,5 +100,3 @@
           href: azure-percept-vision-datasheet.md
         - name: Fiche technique Azure Percept Audio
           href: azure-percept-audio-datasheet.md
-- name: Ressources
-  items: null

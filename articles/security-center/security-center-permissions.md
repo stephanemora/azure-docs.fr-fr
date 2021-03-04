@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 12/01/2020
 ms.author: memildin
-ms.openlocfilehash: 668fe1436feeb0888f7d871144da6cb6b8e3864e
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 14ee9f23379a26c1756c622efb7d739f49dd0537
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96922597"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102099180"
 ---
 # <a name="permissions-in-azure-security-center"></a>Autorisations dans Azure Security Center
 
@@ -59,6 +59,5 @@ Cet article vous a expliqué comment Security Center utilise Azure RBAC pour aff
 
 - [Définir des stratégies de sécurité dans Security Center](tutorial-security-policy.md)
 - [Gérer les recommandations de sécurité dans Security Center](security-center-recommendations.md)
-- [Surveiller l’intégrité de la sécurité de vos ressources Azure](security-center-monitoring.md)
 - [Gérer et répondre aux alertes de sécurité dans Security Center](security-center-managing-and-responding-alerts.md)
 - [Surveiller les solutions de sécurité des partenaires](./security-center-partner-integration.md)

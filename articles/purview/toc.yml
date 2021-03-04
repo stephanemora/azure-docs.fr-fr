@@ -122,8 +122,6 @@ items:
             href: how-to-create-import-export-glossary.md
           - name: Gérer les modèles de terme
             href: how-to-manage-term-templates.md
-          - name: Modifier en bloc des éléments pour affecter des termes de glossaire
-            href: how-to-bulk-edit-assets.md
       - name: Modifier en bloc
         items:
           - name: Modifier en bloc les ressources pour étiqueter les annotations et les contacts
@@ -168,6 +166,10 @@ items:
             href: sensitivity-insights.md
           - name: Afficher des insights sur les extensions de fichier
             href: file-extension-insights.md
+      - name: Sécurité et réseau
+        items:
+          - name: Gérer les points de terminaison privés
+            href: catalog-private-link.md
   - name: Informations de référence
     items:
       - name: Classifications prises en charge
