@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 7/14/2020
 ms.author: raynew
-ms.openlocfilehash: 79558bd2c8e9bfec0aff47d254944977d271a762
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 8d748f93337a770e0d565bab79fdfb3625bda70d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97587812"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735520"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Prendre en charge la matrice pour effectuer une récupération d’urgence de machines virtuelles Hyper-V locales vers Azure
 
@@ -96,7 +96,7 @@ Mise en réseau accélérée | Non | Non
 
 **Stockage** | **Hyper-V avec Virtual Machine Manager** | **Hyper-V sans Virtual Machine Manager**
 --- | --- | --- 
-NFS | NA | NA
+NFS | N/D | N/D
 SMB 3.0 | Oui | Oui
 SAN (ISCSI) | Oui | Oui
 Chemins d’accès multiples (MPIO). Testé avec :<br></br> Microsoft DSM, EMC PowerPath 5.7 SP4, EMC PowerPath DSM pour CLARiiON | Oui | Oui
@@ -105,13 +105,13 @@ Chemins d’accès multiples (MPIO). Testé avec :<br></br> Microsoft DSM, EMC P
 
 **Stockage** | **Hyper-V avec Virtual Machine Manager** | **Hyper-V sans Virtual Machine Manager**
 --- | --- | ---
-VMDK | NA | NA
+VMDK | N/D | N/D
 VHD/VHDX | Oui | Oui
 Machine virtuelle de 2e génération | Oui | Oui
 EFI/UEFI<br></br>La machine virtuelle migrée dans Azure est automatiquement convertie en machine virtuelle de démarrage du BIOS. La machine virtuelle doit exécuter Windows Server 2012 ou une version ultérieure uniquement. Le disque du système d’exploitation ne doit pas comporter plus de cinq partitions et la taille du disque du système d’exploitation doit être inférieure à 300 Go.| Oui | Oui
 Disque de cluster partagé | Non | Non
 Disque chiffré | Non | Non
-NFS | NA | NA
+NFS | N/D | N/D
 SMB 3.0 | Non | Non
 RDM | N/D | N/D
 Disque > 1 To | Oui, jusqu’à 4,095 Go | Oui, jusqu’à 4,095 Go
@@ -143,7 +143,7 @@ Stockage Standard | Oui | Oui
 Service d’importation/exportation | Non | Non
 Comptes Stockage Azure avec un pare-feu activé | Oui. Pour le stockage et le cache cibles. | Oui. Pour le stockage et le cache cibles.
 Modifier le compte de stockage | Non. Le compte Stockage Azure cible ne peut pas être modifié une fois la réplication activée. Pour le modifier, désactivez puis réactivez la récupération d’urgence. | Non
-Option de transfert sécurisé | Oui
+Option de transfert sécurisé | Oui | Oui
 
 
 ## <a name="azure-compute-features"></a>Fonctionnalités de Calcul Azure

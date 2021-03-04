@@ -6,19 +6,19 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.subservice: alerts
-ms.openlocfilehash: cfe6aa489bcc771213ec04ca9cddd1267ccf1338
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: cda3af012a83342d5650c542fafdcd6bc36bd8e3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100598994"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717976"
 ---
 # <a name="optimizing-log-alert-queries"></a>Optimisation des requêtes d’alerte de journal
-Cet article explique comment écrire et convertir des requêtes d’[alerte de journal](../platform/alerts-unified-log.md) pour obtenir des performances optimales. Les requêtes optimisées réduisent la latence et la charge des alertes qui s’exécutent fréquemment.
+Cet article explique comment écrire et convertir des requêtes d’[alerte de journal](./alerts-unified-log.md) pour obtenir des performances optimales. Les requêtes optimisées réduisent la latence et la charge des alertes qui s’exécutent fréquemment.
 
 ## <a name="how-to-start-writing-an-alert-log-query"></a>Comment commencer à écrire une requête de journal d’alerte
 
-Les requêtes d’alerte commencent en [interrogeant les données du journal dans Log Analytics](alerts-log.md#create-a-log-alert-rule-with-the-azure-portal) qui indiquent le problème. Vous pouvez utiliser la [rubrique des exemples de requêtes d’alerte](../log-query/example-queries.md) pour comprendre ce que vous pouvez découvrir. Vous pouvez également [commencer à écrire votre propre requête](../log-query/log-analytics-tutorial.md). 
+Les requêtes d’alerte commencent en [interrogeant les données du journal dans Log Analytics](alerts-log.md#create-a-log-alert-rule-with-the-azure-portal) qui indiquent le problème. Vous pouvez utiliser la [rubrique des exemples de requêtes d’alerte](../logs/example-queries.md) pour comprendre ce que vous pouvez découvrir. Vous pouvez également [commencer à écrire votre propre requête](../logs/log-analytics-tutorial.md). 
 
 ### <a name="queries-that-indicate-the-issue-and-not-the-alert"></a>Requêtes qui indiquent le problème et non l’alerte
 
@@ -44,7 +44,7 @@ Il n’est pas nécessaire d’ajouter une logique d’alerte à la requête et 
 L’utilisation de `limit` et `take` dans les requêtes peut augmenter la latence et la charge des alertes, car les résultats ne sont pas cohérents sur la durée. Il est préférable de les utiliser seulement si nécessaire.
 
 ## <a name="log-query-constraints"></a>Journaliser les contraintes de requête
-Les [requêtes de journal dans Azure Monitor](../log-query/log-query-overview.md) commencent par un opérateur de table, [`search`](/azure/kusto/query/searchoperator) ou [`union`](/azure/kusto/query/unionoperator).
+Les [requêtes de journal dans Azure Monitor](../logs/log-query-overview.md) commencent par un opérateur de table, [`search`](/azure/kusto/query/searchoperator) ou [`union`](/azure/kusto/query/unionoperator).
 
 Les requêtes pour les règles d’alerte de journal doivent toujours commencer par une table afin de définir une étendue claire, ce qui améliore à la fois les performances des requêtes et la pertinence des résultats. Les requêtes dans les règles d’alerte s’exécutent fréquemment. Par conséquent, l’utilisation de `search` et `union` peut entraîner une surcharge excessive ajoutant de la latence à l’alerte, car elle nécessite l’analyse de plusieurs tables. Ces opérateurs réduisent également la capacité du service d’alerte à optimiser la requête.
 
@@ -57,7 +57,7 @@ SecurityEvent
 | where EventID == 4624
 ```
 
-Les règles d’alerte de journal utilisant des [requêtes inter-ressources](../log-query/cross-workspace-query.md) ne sont pas affectées par ce changement, car les requêtes inter-ressources utilisent un type d’opérateur `union`, qui limite l’étendue de la requête à des ressources spécifiques. L’exemple suivant serait une requête d’alerte de journal valide :
+Les règles d’alerte de journal utilisant des [requêtes inter-ressources](../logs/cross-workspace-query.md) ne sont pas affectées par ce changement, car les requêtes inter-ressources utilisent un type d’opérateur `union`, qui limite l’étendue de la requête à des ressources spécifiques. L’exemple suivant serait une requête d’alerte de journal valide :
 
 ```Kusto
 union
@@ -67,7 +67,7 @@ workspace('Contoso-workspace1').Perf
 ```
 
 >[!NOTE]
-> Les [requêtes inter-ressources](../log-query/cross-workspace-query.md) sont prises en charge dans la nouvelle [API scheduledQueryRules](/rest/api/monitor/scheduledqueryrules). Si vous utilisez toujours l’[API d’alerte Log Analytics héritée](../platform/api-alerts.md) pour créer des alertes de journal, vous pouvez en apprendre plus [ici](../alerts/alerts-log-api-switch.md) sur le basculement.
+> Les [requêtes inter-ressources](../logs/cross-workspace-query.md) sont prises en charge dans la nouvelle [API scheduledQueryRules](/rest/api/monitor/scheduledqueryrules). Si vous utilisez toujours l’[API d’alerte Log Analytics héritée](./api-alerts.md) pour créer des alertes de journal, vous pouvez en apprendre plus [ici](../alerts/alerts-log-api-switch.md) sur le basculement.
 
 ## <a name="examples"></a>Exemples
 Les exemples suivants incluent des requêtes de journal qui utilisent `search` et `union`, et présentent la procédure permettant de modifier ces requêtes pour les utiliser dans les règles d’alerte.
@@ -217,4 +217,4 @@ SecurityEvent
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Apprenez-en davantage sur les [alertes de journal](alerts-log.md) dans Azure Monitor.
-- Apprenez-en davantage sur les [requêtes de journal](../log-query/log-query-overview.md).
+- Apprenez-en davantage sur les [requêtes de journal](../logs/log-query-overview.md).

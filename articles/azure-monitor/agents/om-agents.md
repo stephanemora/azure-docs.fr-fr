@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2020
-ms.openlocfilehash: f9418b9a4bac9c458c530b246f7400ac067f5623
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 9c20994c27680aaccb68db2ff78deb6b6bf9f8cf
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100599366"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718129"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Connecter Operations Manager à Azure Monitor
 
@@ -40,8 +40,8 @@ Avant de commencer, passez en revue les exigences suivantes.
 * Azure Monitor prend uniquement en charge System Center Operations Manager 2016 ou version ultérieure, Operations Manager 2012 SP1 UR6 ou version ultérieure et Operations Manager 2012 R2 UR2 ou version ultérieure. La prise en charge du proxy a été ajoutée dans Operations Manager 2012 SP1 UR7 et Operations Manager 2012 R2 UR3.
 * L'intégration de System Center Operations Manager 2016 au cloud US Government nécessite une mise à jour du pack d'administration Advisor disponible dans le Correctif cumulatif 2 ou version ultérieure. System Center Operations Manager 2012 R2 nécessite une mise à jour du pack d'administration Advisor disponible dans le Correctif cumulatif 3 ou version ultérieure.
 * Tous les agents Operations Manager doivent répondre aux exigences en matière de prise en charge. Vérifiez que chaque agent est au niveau minimum de mise à jour ; sinon, la communication de l’agent Windows échouera, entraînant des erreurs dans le journal des événements Operations Manager.
-* Un espace de travail Log Analytics. Pour plus d’informations, consultez [Présentation de l’espace de travail Log Analytics](../platform/design-logs-deployment.md).
-* Vous vous authentifiez sur Azure avec un compte qui est membre du [rôle Collaborateur Log Analytics](../platform/manage-access.md#manage-access-using-azure-permissions).
+* Un espace de travail Log Analytics. Pour plus d’informations, consultez [Présentation de l’espace de travail Log Analytics](../logs/design-logs-deployment.md).
+* Vous vous authentifiez sur Azure avec un compte qui est membre du [rôle Collaborateur Log Analytics](../logs/manage-access.md#manage-access-using-azure-permissions).
 
 * Régions prises en charge : seules les régions Azure suivantes sont prises en charge par System Center Operations Manager pour la connexion à un espace de travail Log Analytics :
     - Centre-USA Ouest
@@ -95,7 +95,7 @@ Les informations ci-dessous répertorient les données de configuration de proxy
 
 ### <a name="tls-12-protocol"></a>Protocole TLS 1.2
 
-Pour garantir la sécurité des données en transit vers Azure Monitor, nous vous encourageons vivement à configurer l'agent et le groupe d'administration de façon à utiliser au moins TLS (Transport Layer Security) 1.2. Les versions antérieures de TLS/SSL (Secure Sockets Layer) se sont avérées vulnérables et bien qu’elles fonctionnent encore pour assurer la compatibilité descendante, elles sont **déconseillées**. Pour plus d’informations, passez en revue [Envoi sécurisé de données via TLS 1.2](../platform/data-security.md#sending-data-securely-using-tls-12).
+Pour garantir la sécurité des données en transit vers Azure Monitor, nous vous encourageons vivement à configurer l'agent et le groupe d'administration de façon à utiliser au moins TLS (Transport Layer Security) 1.2. Les versions antérieures de TLS/SSL (Secure Sockets Layer) se sont avérées vulnérables et bien qu’elles fonctionnent encore pour assurer la compatibilité descendante, elles sont **déconseillées**. Pour plus d’informations, passez en revue [Envoi sécurisé de données via TLS 1.2](../logs/data-security.md#sending-data-securely-using-tls-12).
 
 ## <a name="connecting-operations-manager-to-azure-monitor"></a>Connecter Operations Manager à Azure Monitor
 
@@ -345,4 +345,3 @@ Par la suite, pour reconnecter votre groupe d’administration à un espace de t
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour ajouter des fonctionnalités et collecter des données, consultez [Ajouter des solutions Azure Monitor à partir de la Galerie Solutions](../insights/solutions.md).
-

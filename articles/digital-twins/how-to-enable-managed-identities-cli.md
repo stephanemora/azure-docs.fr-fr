@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 02/09/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 32cbe31f95c03f9b0b5eb1a31a28033dce18b112
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 035d782321feb5d467638159fc191f65573b1042
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100473454"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101716123"
 ---
 # <a name="enable-a-managed-identity-for-routing-azure-digital-twins-events-preview-azure-cli"></a>Activer une identité managée pour le routage des événements Azure Digital Twins (préversion) : Azure CLI
 
@@ -87,8 +87,7 @@ Pour plus d’informations sur les points de terminaison, les routes et les type
 
 ### <a name="assign-the-role"></a>Attribuer le rôle
 
->[!NOTE]
-> Cette section doit être effectuée par un utilisateur Azure disposant des autorisations nécessaires pour gérer l’accès utilisateur aux ressources Azure (y compris l’octroi et la délégation d’autorisations). Les rôles communs qui répondent à cette exigence sont *Propriétaire*, *Administrateur de compte* ou la combinaison des rôles *Administrateur de l’accès utilisateur* et *Contributeur*. Pour plus d’informations sur les exigences d’autorisation pour les rôles Azure Digital Twins, consultez [*Guide pratique : Configurer une instance et l’authentification*](how-to-set-up-instance-portal.md#prerequisites-permission-requirements).
+[!INCLUDE [digital-twins-permissions-required.md](../../includes/digital-twins-permissions-required.md)]
 
 Vous pouvez ajouter le paramètre `--scopes` à la commande `az dt create` pour attribuer l’identité à une ou plusieurs étendues ayant le rôle spécifié. Vous pouvez l’effectuer au moment de la création initiale de l’instance, ou plus tard en passant le nom d’une instance qui existe déjà.
 
@@ -102,7 +101,7 @@ Pour plus d’exemples d’attributions de rôles à l’aide de cette commande,
 
 Vous pouvez également utiliser le groupe de commandes [**az role assignment**](/cli/azure/role/assignment?view=azure-cli-latest&preserve-view=true) pour créer et gérer des rôles. Cela permet la prise en charge de scénarios supplémentaires dans lesquels vous ne souhaitez pas regrouper l’attribution de rôle avec la commande create.
 
-## <a name="create-an-endpoint-with-identity-based-authorization"></a>Créer un point de terminaison avec une autorisation basée sur l’identité
+## <a name="create-an-endpoint-with-identity-based-authentication"></a>Créer un point de terminaison avec une authentification basée sur l’identité
 
 Après la configuration d’une identité gérée par le système pour votre instance Azure Digital Twins et l’affectation du ou des rôles appropriés, vous pouvez créer des [points de terminaison](how-to-manage-routes-portal.md#create-an-endpoint-for-azure-digital-twins) Azure Digital Twins capables d’utiliser l’identité pour l’authentification. Cette option est uniquement disponible pour les points de terminaison de type Event Hub et Service Bus (elle n’est pas prise en charge pour Event Grid).
 

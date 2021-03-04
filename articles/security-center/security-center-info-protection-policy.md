@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2020
 ms.author: memildin
-ms.openlocfilehash: 34d2e8116b7b914803d1bb68b350c9aadd78439f
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: ca3a1083b512709ad5ef070b6f5bd0e363baf80b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98792063"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720747"
 ---
 # <a name="sql-information-protection-policy-in-azure-security-center"></a>Stratégie de protection des informations SQL dans Azure Security Center
  
@@ -58,7 +58,7 @@ Chaque façon est affichée dans l’onglet correspondant, ci-dessous.
 Dans la page des **tarifs et des paramètres** de Security Center, sélectionnez **Protection des informations SQL**.
 
 > [!NOTE]
-> Cette option s’affiche uniquement pour les utilisateurs disposant d’autorisations au niveau du locataire. [Accordez-vous des autorisations à l’échelle du locataire](https://docs.microsoft.com/azure/security-center/security-center-management-groups#grant-tenant-wide-permissions-to-yourself).
+> Cette option s’affiche uniquement pour les utilisateurs disposant d’autorisations au niveau du locataire. [Accordez-vous des autorisations à l’échelle du locataire](./security-center-management-groups.md#grant-tenant-wide-permissions-to-yourself).
 
 :::image type="content" source="./media/security-center-info-protection-policy/pricing-settings-link-to-information-protection.png" alt-text="Accès à la stratégie de protection des informations SQL depuis la page des tarifs et des paramètres d’Azure Security Center":::
 

@@ -1,24 +1,24 @@
 ---
 title: Problèmes connus et résolution des problèmes de clés de sécurité FIDO2 hybrides – Azure Active Directory
-description: En savoir plus sur certains problèmes connus et sur les méthodes de résolution des problèmes de connexion par clé de sécurité FIDO2 hybride sans mot de passe en utilisant Azure Active Directory (préversion)
+description: Apprenez-en davantage sur certains problèmes connus et sur les méthodes de résolution des problèmes de connexion par clé de sécurité FIDO2 hybride sans mot de passe en utilisant Azure Active Directory
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
-ms.date: 08/19/2020
+ms.date: 02/22/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea034974e85febcffeb2494d87b666a39e524eb1
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 435b27255ce58a3541d6b0d3a76bdf4080aa3962
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743273"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101648778"
 ---
-# <a name="troubleshooting-for-hybrid-deployments-of-fido2-security-keys-in-azure-ad-preview"></a>Résolution des problèmes liés aux déploiements hybrides de clés de sécurité FIDO2 dans Azure AD (préversion)
+# <a name="troubleshooting-for-hybrid-deployments-of-fido2-security-keys-in-azure-ad"></a>Résolution des problèmes liés aux déploiements hybrides de clés de sécurité FIDO2 dans Azure AD 
 
 Cet article aborde les foires aux questions relatives aux appareils avec jointure hybride Azure AD et à la connexion sans mot de passe aux ressources locales. Grâce à cette fonctionnalité sans mot de passe, vous pouvez activer l’authentification Azure AD sur appareils Windows 10 pour les appareils avec jointure hybride Azure AD utilisant des clés de sécurité FIDO2. Les utilisateurs peuvent se connecter à Windows sur leurs appareils à l’aide d’informations d’identification modernes telles que des clés FIDO2 et accéder à des ressources traditionnelles basées sur Active Directory Domain Services (AD DS) avec une expérience d’authentification unique (SSO) transparente pour leurs ressources locales.
 
@@ -31,10 +31,7 @@ Pour vous familiariser avec les clés de sécurité FIDO2 et l’accès hybride
 
 * [Clés de sécurité sans mot de passe](howto-authentication-passwordless-security-key.md)
 * [Windows 10 sans mot de passe](howto-authentication-passwordless-security-key-windows.md)
-* [Ressources locales sans mot de passe](howto-authentication-passwordless-security-key-on-premises.md)
-
-> [!NOTE]
-> Les clés de sécurité FIDO2 sont une fonctionnalité d’évaluation publique d’Azure Active Directory. Pour plus d’informations sur les préversions, consultez [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+* [En local sans mot de passe](howto-authentication-passwordless-security-key-on-premises.md)
 
 ## <a name="known-issues"></a>Problèmes connus
 

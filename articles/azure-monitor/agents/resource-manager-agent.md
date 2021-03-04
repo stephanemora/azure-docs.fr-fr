@@ -6,15 +6,15 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 11/17/2020
-ms.openlocfilehash: 9f8ad1e9a3c69d4ab629694fb18eab4bce95bb38
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 4d4f9b7caed81f8c01e7e2d7e9f94ec3acf3ba92
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100597371"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737339"
 ---
 # <a name="resource-manager-template-samples-for-agents-in-azure-monitor"></a>Exemples de modèle Resource Manager pour les agents dans Azure Monitor
-Cet article contient des exemples de [modèle Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) permettant de déployer et de configurer l’[agent Log Analytics](../platform/log-analytics-agent.md) et l’[extension de diagnostic](../platform/diagnostics-extension-overview.md) associé pour les machines virtuelles dans Azure Monitor. Chaque exemple comprend un fichier de modèle et un fichier de paramètres avec des exemples de valeurs à fournir au modèle.
+Cet article contient des exemples de [modèle Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) permettant de déployer et de configurer l’[agent Log Analytics](./log-analytics-agent.md) et l’[extension de diagnostic](./diagnostics-extension-overview.md) associé pour les machines virtuelles dans Azure Monitor. Chaque exemple comprend un fichier de modèle et un fichier de paramètres avec des exemples de valeurs à fournir au modèle.
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
@@ -421,7 +421,7 @@ L’exemple suivant installe l’agent Log Analytics sur une machine virtuelle A
 Les exemples de cette section installent l’extension de diagnostic sur des machines virtuelles Windows et Linux dans Azure et la configurent pour la collecte de données.
 
 ### <a name="windows"></a>Windows
-L’exemple suivant active et configure l’extension de diagnostic sur une machine virtuelle Azure Windows. Pour plus d’informations sur la configuration, consultez [Schéma de l’extension de diagnostic Windows](../platform/diagnostics-extension-schema-windows.md).
+L’exemple suivant active et configure l’extension de diagnostic sur une machine virtuelle Azure Windows. Pour plus d’informations sur la configuration, consultez [Schéma de l’extension de diagnostic Windows](./diagnostics-extension-schema-windows.md).
 
 #### <a name="template-file"></a>Fichier de modèle
 
@@ -807,6 +807,6 @@ L’exemple suivant active et configure l’extension de diagnostic sur une mach
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Obtenir d’autres exemples de modèle pour Azure Monitor](../samples/resource-manager-samples.md).
-* [En savoir plus sur l’agent Log Analytics](../platform/log-analytics-agent.md).
-* [En savoir plus sur l’extension de diagnostic](../platform/diagnostics-extension-overview.md).
+* [Obtenir d’autres exemples de modèle pour Azure Monitor](../resource-manager-samples.md).
+* [En savoir plus sur l’agent Log Analytics](./log-analytics-agent.md).
+* [En savoir plus sur l’extension de diagnostic](./diagnostics-extension-overview.md).

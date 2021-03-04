@@ -7,12 +7,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 10/20/2019
-ms.openlocfilehash: 4bade4cfe5bf82aefcc967d86362e27605a005f3
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: 3dbb6ca64451cb60d5a8ec67ecdc528865a4438c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99832179"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719081"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-smart-inventory-management-application-template"></a>Tutoriel : Déployer et découvrir un modèle de gestion intelligente des stocks IoT pour Azure IoT Central
 
@@ -21,7 +21,8 @@ Ce didacticiel vous montre comment prendre en main le déploiement d’un modèl
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
-> Créer une application de gestion intelligente des stocks et parcourir l’application 
+> * Créer une application de gestion intelligente des stocks 
+> * Examiner l’application 
 
 ## <a name="prerequisites"></a>Prérequis
 

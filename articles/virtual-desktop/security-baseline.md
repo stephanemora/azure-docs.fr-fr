@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/25/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 42795e2dda6df24e656c9c06f6a9424bd9e4b5cb
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 393495dabb77a5d177c97d37313433bb00ce5a36
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101092984"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726748"
 ---
 # <a name="azure-security-baseline-for-windows-virtual-desktop"></a>Base de sécurité Azure pour Windows Virtual Desktop
 
@@ -24,7 +24,7 @@ Pour voir comment le service Windows Virtual Desktop est entièrement mappé au 
 
 ## <a name="network-security"></a>Sécurité réseau
 
-*Pour plus d’informations, consultez [Benchmark de sécurité Azure : sécurité réseau](/azure/security/benchmarks/security-controls-v2-network-security).*
+*Pour plus d’informations, consultez [Benchmark de sécurité Azure : sécurité réseau](../security/benchmarks/security-controls-v2-network-security.md).*
 
 ### <a name="ns-1-implement-security-for-internal-traffic"></a>NS-1 : Implémenter la sécurité pour le trafic interne
 
@@ -64,7 +64,7 @@ Pour interconnecter deux réseaux virtuels ou plus dans Azure, utilisez l’appa
 
 - [Vue d’ensemble des VPN Azure](../vpn-gateway/vpn-gateway-about-vpngateways.md) 
 
-- [Peering de réseau virtuel](/azure/virtual-network/virtual-network-peering-overview)
+- [Peering de réseau virtuel](../virtual-network/virtual-network-peering-overview.md)
 
 **Supervision Azure Security Center** : actuellement non disponible
 
@@ -76,9 +76,9 @@ Pour interconnecter deux réseaux virtuels ou plus dans Azure, utilisez l’appa
 
 Windows Virtual Desktop n’est pas destiné à exécuter des applications web et ne nécessite pas de configuration de paramètres supplémentaires ni de déploiement de services réseau supplémentaires pour le protéger des attaques de réseau externe qui ciblent les applications web.
 
-- [Documentation sur le pare-feu Azure](/azure/firewall)
+- [Documentation sur le pare-feu Azure](../firewall/index.yml)
 
-- [Gérer la norme Azure DDoS Protection à l’aide du portail Azure](/azure/virtual-network/manage-ddos-protection) 
+- [Gérer la norme Azure DDoS Protection à l’aide du portail Azure](../ddos-protection/manage-ddos-protection.md) 
 
 - [Recommandations relatives à Azure Security Center](../security-center/recommendations-reference.md#networking-recommendations)
 
@@ -116,7 +116,7 @@ Si vous êtes soumis à une réglementation ou une autre exigence concernant l�
 
 ## <a name="identity-management"></a>Gestion des identités
 
-*Pour plus d’informations, consultez [Benchmark de sécurité Azure : Gestion des identités](/azure/security/benchmarks/security-controls-v2-identity-management).*
+*Pour plus d’informations, consultez [Benchmark de sécurité Azure : Gestion des identités](../security/benchmarks/security-controls-v2-identity-management.md).*
 
 ### <a name="im-1-standardize-azure-active-directory-as-the-central-identity-and-authentication-system"></a>IM-1 : Normaliser Azure Active Directory comme système d’authentification et d’identité central
 
@@ -132,7 +132,7 @@ Azure AD prend en charge les identités externes, qui permettent aux utilisateur
 
 - [Location dans Azure AD](../active-directory/develop/single-and-multi-tenant-apps.md)
 
-- [Utilisez des fournisseurs d'identité externes pour l’application](/azure/active-directory/b2b/identity-providers)
+- [Utilisez des fournisseurs d'identité externes pour l’application](../active-directory/external-identities/identity-providers.md)
 
 - [Qu’est-ce que le degré de sécurisation Identity Secure Score dans Azure AD](../active-directory/fundamentals/identity-secure-score.md)
 
@@ -210,7 +210,7 @@ Ces sources de données peuvent être intégrées avec Azure Monitor, avec Azure
 
 - [Rapports d’activité d’audit dans Azure AD](../active-directory/reports-monitoring/concept-audit-logs.md)
 
-- [Guide pratique pour afficher les connexions risquées Azure AD](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [Guide pratique pour afficher les connexions risquées Azure AD](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Alertes dans le module de protection de renseignement sur les menaces d’Azure Security Center](../security-center/alerts-reference.md)
 
@@ -240,7 +240,7 @@ Par ailleurs, une stratégie de gestion granulaire des sessions d’authentifica
 
 ## <a name="privileged-access"></a>Accès privilégié
 
-*Pour plus d’informations, consultez [Benchmark de sécurité Azure : Accès privilégié](/azure/security/benchmarks/security-controls-v2-privileged-access).*
+*Pour plus d’informations, consultez [Benchmark de sécurité Azure : Accès privilégié](../security/benchmarks/security-controls-v2-privileged-access.md).*
 
 ### <a name="pa-2-restrict-administrative-access-to-business-critical-systems"></a>PA-2 : Limiter l’accès administratif aux systèmes critiques de l’entreprise
 
@@ -286,7 +286,7 @@ Certains services Azure prennent en charge des utilisateurs et des rôles locaux
 
 Vous devez vous assurer que les informations d’identification (telles que le mot de passe, le certificat ou la carte à puce) des comptes d’accès d’urgence restent sécurisées et connues des seules personnes autorisées à les utiliser en cas d’urgence.
 
-- [Gérer des comptes d’accès d’urgence dans Azure AD](/azure/active-directory/users-groups-roles/directory-emergency-access)
+- [Gérer des comptes d’accès d’urgence dans Azure AD](../active-directory/roles/security-emergency-access.md)
 
 **Supervision Azure Security Center** : actuellement non disponible
 
@@ -312,7 +312,7 @@ Utilisez Azure Active Directory (Azure AD), Microsoft Defender Advanced Threat P
 
 - [Comprendre les stations de travail d’accès privilégié](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/) 
 
-- [Déployer une station de travail d’accès privilégié](/azure/active-directory/devices/howto-azure-managed-workstation)
+- [Déployer une station de travail d’accès privilégié](/security/compass/privileged-access-deployment)
 
 **Supervision d’Azure Security Center** : actuellement non disponible
 
@@ -350,7 +350,7 @@ Utilisez en outre des rôles intégrés pour allouer les autorisations et créez
 
 ## <a name="data-protection"></a>Protection des données
 
-*Pour plus d’informations, consultez [Benchmark de sécurité Azure : protection des données](/azure/security/benchmarks/security-controls-v2-data-protection).*
+*Pour plus d’informations, consultez [Benchmark de sécurité Azure : protection des données](../security/benchmarks/security-controls-v2-data-protection.md).*
 
 ### <a name="dp-1-discovery-classify-and-label-sensitive-data"></a>DP-1 : Découvrir, classifier et étiqueter des données sensibles
 
@@ -362,7 +362,7 @@ Vous pouvez utiliser Azure SQL Information Protection pour faciliter la classifi
 
 - [Étiqueter des informations sensibles à l’aide d’Azure Information Protection](/azure/information-protection/what-is-information-protection) 
 
-- [Guide pratique pour implémenter la recherche de données Azure SQL](/azure/sql-database/sql-database-data-discovery-and-classification)
+- [Guide pratique pour implémenter la recherche de données Azure SQL](../azure-sql/database/data-discovery-and-classification-overview.md)
 
 **Supervision Azure Security Center** : actuellement non disponible
 
@@ -396,7 +396,7 @@ Utilisez des solutions de protection contre la perte de données, telles que cel
 
 - [Activer ATP pour Azure SQL](../azure-sql/database/threat-detection-overview.md) 
 
-- [Activer ATP pour Stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection?tabs=azure-security-center)
+- [Activer ATP pour Stockage Azure](../storage/common/azure-defender-storage-configure.md?tabs=azure-security-center)
 
 **Supervision Azure Security Center** : actuellement non disponible
 
@@ -404,7 +404,7 @@ Utilisez des solutions de protection contre la perte de données, telles que cel
 
 ## <a name="asset-management"></a>Gestion des ressources
 
-*Pour plus d’informations, consultez [Benchmark de sécurité Azure : Gestion des ressources](/azure/security/benchmarks/security-controls-v2-asset-management).*
+*Pour plus d’informations, consultez [Benchmark de sécurité Azure : Gestion des ressources](../security/benchmarks/security-controls-v2-asset-management.md).*
 
 ### <a name="am-1-ensure-security-team-has-visibility-into-risks-for-assets"></a>AM-1 : S’assurer que l’équipe de sécurité a une visibilité sur les risques pour les ressources
 
@@ -434,7 +434,7 @@ Utilisez l’inventaire des machines virtuelles Azure pour automatiser la collec
 
 - [Gestion de l’inventaire de sécurité dans Azure Security Center](../security-center/asset-inventory.md) 
 
-- [Guides de décision concernant le nommage et l’étiquetage des ressources](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json)
+- [Guides de décision concernant le nommage et l’étiquetage des ressources](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=%2fazure%2fazure-resource-manager%2fmanagement%2ftoc.json)
 
 - [Guide pratique pour activer l’inventaire des machines virtuelles Azure](../automation/automation-tutorial-installed-software.md)
 
@@ -488,7 +488,7 @@ Il est recommandé que le client crée un processus pour capturer les modificati
 
 ## <a name="logging-and-threat-detection"></a>Journalisation et détection des menaces
 
-*Pour plus d’informations, consultez [Benchmark de sécurité Azure : Journalisation et détection des menaces](/azure/security/benchmarks/security-controls-v2-logging-threat-detection).*
+*Pour plus d’informations, consultez [Benchmark de sécurité Azure : Journalisation et détection des menaces](../security/benchmarks/security-controls-v2-logging-threat-detection.md).*
 
 ### <a name="lt-1-enable-threat-detection-for-azure-resources"></a>LT-1 : Activer la détection des menaces pour les ressources Azure
 
@@ -496,7 +496,7 @@ Il est recommandé que le client crée un processus pour capturer les modificati
 
 Transférez tous les journaux de Windows Virtual Desktop vers votre solution SIEM qui peut être utilisée pour configurer des détections de menaces personnalisées. Veillez à surveiller les différents types de ressources Azure pour identifier les menaces et anomalies potentielles. Concentrez-vous sur l’obtention d’alertes de haute qualité afin de réduire les faux positifs que les analystes doivent trier. Les alertes peuvent provenir de données de journal, d’agents ou d’autres données.
 
-- [Protection contre les menaces dans Azure Security Center](/azure/security-center/threat-protection) 
+- [Protection contre les menaces dans Azure Security Center](../security-center/azure-defender.md) 
 
 - [Guide de référence des alertes de sécurité Azure Security Center](../security-center/alerts-reference.md)
 
@@ -526,7 +526,7 @@ Azure Security Center peut également alerter en cas de certaines activités sus
 
 - [Activer Azure AD Identity Protection](../active-directory/identity-protection/overview-identity-protection.md) 
 
-- [Protection contre les menaces dans Azure Security Center](/azure/security-center/threat-protection)
+- [Protection contre les menaces dans Azure Security Center](../security-center/azure-defender.md)
 
 **Supervision Azure Security Center** : actuellement non disponible
 
@@ -540,7 +540,7 @@ Activez et collectez les journaux de flux et de ressources des groupes de sécur
 
 - [Tutoriel : journaliser le trafic réseau à destination et en provenance d’une machine virtuelle à l’aide du portail Azure](../network-watcher/network-watcher-nsg-flow-logging-portal.md) 
 
-- [Journaux et métriques du pare-feu Azure](/azure/firewall/logs-and-metrics) 
+- [Journaux et métriques du pare-feu Azure](../firewall/logs-and-metrics.md) 
 
 - [Traffic Analytics](../network-watcher/traffic-analytics.md) 
 
@@ -554,9 +554,9 @@ Activez et collectez les journaux de flux et de ressources des groupes de sécur
 
 **Aide** : Les journaux d’activité, qui sont activés automatiquement, contiennent toutes les opérations d’écriture (PUT, POST, DELETE) pour vos ressources Windows Virtual Desktop, à l’exception des opérations de lecture (GET). Les journaux d’activité peuvent être utilisés pour rechercher une erreur lors de la résolution de problèmes ou pour surveiller la manière dont un utilisateur de votre organisation a modifié une ressource.
 
-- [Guide pratique pour collecter des journaux et des métriques de plateforme avec Azure Monitor](../azure-monitor/platform/diagnostic-settings.md) 
+- [Guide pratique pour collecter des journaux et des métriques de plateforme avec Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md) 
 
-- [Présentation de la journalisation et des différents types de journaux dans Azure](../azure-monitor/platform/platform-logs-overview.md)
+- [Présentation de la journalisation et des différents types de journaux dans Azure](../azure-monitor/essentials/platform-logs-overview.md)
 
 **Supervision d’Azure Security Center** : actuellement non disponible
 
@@ -570,7 +570,7 @@ Veillez à intégrer les journaux d’activité Azure dans votre journalisation 
 
 De plus, activez et intégrez les données dans Azure Sentinel ou une solution SIEM (Informations de sécurité et gestion d’événements) tierce. De nombreuses organisations choisissent d’utiliser Azure Sentinel pour les données « chaudes » qui sont utilisées fréquemment et Stockage Azure pour les données « froides » qui sont utilisées moins fréquemment.
 
-- [Guide pratique pour collecter des journaux et des métriques de plateforme avec Azure Monitor](../azure-monitor/platform/diagnostic-settings.md) 
+- [Guide pratique pour collecter des journaux et des métriques de plateforme avec Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md) 
 
 - [Guide pratique pour intégrer Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -580,7 +580,7 @@ De plus, activez et intégrez les données dans Azure Sentinel ou une solution S
 
 ## <a name="incident-response"></a>Réponse aux incidents
 
-*Pour plus d’informations, consultez [Benchmark de sécurité Azure : réponse aux incidents](/azure/security/benchmarks/security-controls-v2-incident-response).*
+*Pour plus d’informations, consultez [Benchmark de sécurité Azure : réponse aux incidents](../security/benchmarks/security-controls-v2-incident-response.md).*
 
 ### <a name="ir-1-preparation--update-incident-response-process-for-azure"></a>IR-1 : Préparation – mettre à jour le processus de réponse aux incidents pour Azure
 
@@ -662,7 +662,7 @@ En outre, marquez les ressources à l’aide d’étiquettes et créez un systè
 
 - [Alertes de sécurité dans le Centre de sécurité Azure](../security-center/security-center-alerts-overview.md)
 
-- [Organisation des ressources Azure à l’aide de catégories](/azure/azure-resource-manager/resource-group-using-tags)
+- [Organisation des ressources Azure à l’aide de catégories](../azure-resource-manager/management/tag-resources.md)
 
 **Supervision Azure Security Center** : actuellement non disponible
 
@@ -684,7 +684,7 @@ En outre, marquez les ressources à l’aide d’étiquettes et créez un systè
 
 ## <a name="posture-and-vulnerability-management"></a>Gestion de la posture et des vulnérabilités
 
-*Pour plus d’informations, consultez [Benchmark de sécurité Azure : Gestion de la posture et des vulnérabilités](/azure/security/benchmarks/security-controls-v2-posture-vulnerability-management).*
+*Pour plus d’informations, consultez [Benchmark de sécurité Azure : Gestion de la posture et des vulnérabilités](../security/benchmarks/security-controls-v2-posture-vulnerability-management.md).*
 
 ### <a name="pv-3-establish-secure-configurations-for-compute-resources"></a>PV-3 : Établir des configurations sécurisées pour des ressources de calcul
 
@@ -710,7 +710,7 @@ Les images de machines virtuelles de la Place de marché Azure publiées par Mic
 
 Azure Security Center peut également analyser les vulnérabilités dans l’image conteneur et effectuer une supervision continue de votre configuration Docker dans des conteneurs, en fonction du benchmark Docker de Center Internet Security. Vous pouvez utiliser la page de recommandations Azure Security Center pour consulter les recommandations et corriger les problèmes.
 
-- [Implémenter les recommandations d'évaluation des vulnérabilités d'Azure Security Center](/azure/security-center/security-center-vulnerability-assessment-recommendations) 
+- [Implémenter les recommandations d'évaluation des vulnérabilités d'Azure Security Center](../security-center/deploy-vulnerability-assessment-vm.md) 
 
 - [Guide pratique pour créer une machine virtuelle Azure à partir d’un modèle ARM](../virtual-machines/windows/ps-template.md) 
 
@@ -730,7 +730,7 @@ Azure Security Center peut également analyser les vulnérabilités dans l’ima
 
 - [Comment configurer Azure RBAC](../role-based-access-control/quickstart-assign-role-user-portal.md) 
 
-- [Présentation de Shared Image Gallery](/azure/virtual-machines/windows/shared-image-galleries)
+- [Présentation de Shared Image Gallery](../virtual-machines/shared-image-galleries.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -748,9 +748,9 @@ Suivez les recommandations d’Azure Security Center relatives à l’évaluatio
 
 Exportez les résultats de l’analyse à intervalles réguliers comme il convient, et comparez les résultats pour vérifier que les vulnérabilités ont été corrigées. Lorsque vous suivez les recommandations de gestion des vulnérabilités proposées par Azure Security Center, vous pouvez pivoter vers le portail de la solution sélectionnée pour afficher les données d’analyse historiques.
 
-- [Implémenter les recommandations d'évaluation des vulnérabilités d'Azure Security Center](/azure/security-center/security-center-vulnerability-assessment-recommendations) 
+- [Implémenter les recommandations d'évaluation des vulnérabilités d'Azure Security Center](../security-center/deploy-vulnerability-assessment-vm.md) 
 
-- [Analyseur de vulnérabilité intégré pour machines virtuelles](/azure/security-center/built-in-vulnerability-assessment) 
+- [Analyseur de vulnérabilité intégré pour machines virtuelles](../security-center/deploy-vulnerability-assessment-vm.md) 
 - [Évaluation des vulnérabilités SQL](../azure-sql/database/sql-vulnerability-assessment.md)
 
 **Supervision d’Azure Security Center** : Non applicable
@@ -765,9 +765,9 @@ Utilisez Azure Automation Update Management ou une solution tierce pour garantir
 
 Utilisez une solution tierce de gestion des correctifs pour les logiciels tiers ou un éditeur de mise à jour System Center pour Configuration Manager.
 
-- [Configurer Update Management pour les machines virtuelles dans Azure](/azure/automation/update-management/overview) 
+- [Configurer Update Management pour les machines virtuelles dans Azure](../automation/update-management/overview.md) 
 
-- [Gestion des mises à jour et des correctifs des machines virtuelles Azure](/azure/automation/update-management/manage-updates-for-vm)
+- [Gestion des mises à jour et des correctifs des machines virtuelles Azure](../automation/update-management/manage-updates-for-vm.md)
 
 - [Configurer Microsoft Endpoint Configuration Manager pour Windows Virtual Desktop](configure-automatic-updates.md)
 
@@ -785,7 +785,7 @@ Utilisez une solution tierce de gestion des correctifs pour les logiciels tiers 
 
 ## <a name="endpoint-security"></a>Sécurité des points de terminaison
 
-*Pour plus d’informations, consultez [Benchmark de sécurité Azure : Sécurité des points de terminaison](/azure/security/benchmarks/security-controls-v2-endpoint-security).*
+*Pour plus d’informations, consultez [Benchmark de sécurité Azure : Sécurité des points de terminaison](../security/benchmarks/security-controls-v2-endpoint-security.md).*
 
 ### <a name="es-1-use-endpoint-detection-and-response-edr"></a>ES-1 : Utiliser la détection de point de terminaison et réponse (EDR)
 
@@ -817,7 +817,7 @@ Microsoft Antimalware pour Azure Cloud Services est le logiciel anti-programme m
 
 - [Guide pratique pour configurer Microsoft Antimalware pour les services cloud et les machines virtuelles](../security/fundamentals/antimalware.md) 
 
-- [Solutions de protection des points de terminaison prises en charge](https://docs.microsoft.com/azure/security-center/security-center-services?tabs=features-windows#supported-endpoint-protection-solutions)
+- [Solutions de protection des points de terminaison prises en charge](../security-center/security-center-services.md?tabs=features-windows#supported-endpoint-protection-solutions-)
 
 **Supervision Azure Security Center** : actuellement non disponible
 
@@ -841,7 +841,7 @@ Par défaut, Microsoft Antimalware installe automatiquement les dernières signa
 
 ## <a name="backup-and-recovery"></a>Sauvegarde et récupération
 
-*Pour plus d’informations, consultez [Benchmark de sécurité Azure : Sauvegarde et récupération](/azure/security/benchmarks/security-controls-v2-backup-recovery).*
+*Pour plus d’informations, consultez [Benchmark de sécurité Azure : Sauvegarde et récupération](../security/benchmarks/security-controls-v2-backup-recovery.md).*
 
 ### <a name="br-1-ensure-regular-automated-backups"></a>BR-1 : Garantir des sauvegardes automatiques régulières
 
@@ -853,9 +853,9 @@ Pour un niveau de redondance plus élevé, vous pouvez activer l’option de sto
 
 - [Continuité d’activité et reprise d’activité à l’échelle de l’entreprise](/azure/cloud-adoption-framework/ready/enterprise-scale/business-continuity-and-disaster-recovery) 
 
-- [Guide pratique pour activer la Sauvegarde Azure](/azure/backup/) 
+- [Guide pratique pour activer la Sauvegarde Azure](../backup/index.yml) 
 
-- [Comment activer la restauration inter-région ?](/azure/backup/backup-azure-arm-restore-vms#cross-region-restore) 
+- [Comment activer la restauration inter-région ?](../backup/backup-azure-arm-restore-vms.md#cross-region-restore) 
 
 - [Configurer un plan de continuité d’activité et la reprise d’activité dans Windows Virtual Desktop](disaster-recovery.md)
 
@@ -873,11 +873,11 @@ Utilisez le contrôle d’accès en fonction du rôle dans Sauvegarde Azure, Azu
 
 Vue d’ensemble des fonctionnalités de sécurité dans Sauvegarde Azure /azure/backup/security-overview 
 
-- [Chiffrement des données de sauvegarde à l’aide de clés gérées par le client](/azure/backup/encryption-at-rest-with-cmk) 
+- [Chiffrement des données de sauvegarde à l’aide de clés gérées par le client](../backup/encryption-at-rest-with-cmk.md) 
 
-- [Guide pratique pour sauvegarder des clés de coffre de clés dans Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0&amp;preserve-view=true)
+- [Guide pratique pour sauvegarder des clés de coffre de clés dans Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?preserve-view=true&view=azurermps-6.13.0)
 
-- [Fonctionnalités de sécurité pour la protection de sauvegardes hybrides contre des attaques](/azure/backup/backup-azure-security-feature#prevent-attacks)
+- [Fonctionnalités de sécurité pour la protection de sauvegardes hybrides contre des attaques](../backup/backup-azure-security-feature.md#prevent-attacks)
 
 **Supervision Azure Security Center** : actuellement non disponible
 
@@ -887,9 +887,9 @@ Vue d’ensemble des fonctionnalités de sécurité dans Sauvegarde Azure /azure
 
 **Aide** : Il est recommandé de valider régulièrement l’intégrité des données sur les supports de sauvegarde en effectuant un processus de restauration des données pour garantir le bon fonctionnement de la sauvegarde.
 
-- [Guide pratique pour récupérer des fichiers à partir d’une sauvegarde de machines virtuelles Azure](/azure/backup/backup-azure-restore-files-from-vm)
+- [Guide pratique pour récupérer des fichiers à partir d’une sauvegarde de machines virtuelles Azure](../backup/backup-azure-restore-files-from-vm.md)
 
-- [Implémentation de la sécurité](/azure/backup/backup-azure-restore-files-from-vm#security-implementations)
+- [Implémentation de la sécurité](../backup/backup-azure-restore-files-from-vm.md#security-implementations)
 
 **Supervision Azure Security Center** : actuellement non disponible
 
@@ -897,7 +897,7 @@ Vue d’ensemble des fonctionnalités de sécurité dans Sauvegarde Azure /azure
 
 ## <a name="governance-and-strategy"></a>Gouvernance et stratégie
 
-*Pour plus d’informations, consultez [Benchmark de sécurité Azure : Gouvernance et stratégie](/azure/security/benchmarks/security-controls-v2-governance-strategy).*
+*Pour plus d’informations, consultez [Benchmark de sécurité Azure : Gouvernance et stratégie](../security/benchmarks/security-controls-v2-governance-strategy.md).*
 
 ### <a name="gs-1-define-asset-management-and-data-protection-strategy"></a>GS-1 : Définir la stratégie de gestion des ressources et de protection des données 
 
@@ -922,15 +922,15 @@ Cette stratégie doit inclure les recommandations, stratégies et normes documen
 -   Normes de chiffrement appropriées
 
 Pour plus d’informations, consultez les références suivantes :
-- [Recommandation d’architecture de sécurité Azure - Stockage, données et chiffrement](https://docs.microsoft.com/azure/architecture/framework/security/storage-data-encryption?toc=/security/compass/toc.json&amp;bc=/security/compass/breadcrumb/toc.json)
+- [Recommandation d’architecture de sécurité Azure - Stockage, données et chiffrement](/azure/architecture/framework/security/storage-data-encryption?bc=%2fsecurity%2fcompass%2fbreadcrumb%2ftoc.json&toc=%2fsecurity%2fcompass%2ftoc.json)
 
 - [Notions de base de la sécurité Azure - Sécurité, chiffrement et stockage des données Azure](../security/fundamentals/encryption-overview.md)
 
-- [Cloud Adoption Framework - Meilleures pratiques en matière de chiffrement et de sécurité des données Azure](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices?toc=/azure/cloud-adoption-framework/toc.json&amp;bc=/azure/cloud-adoption-framework/_bread/toc.json)
+- [Cloud Adoption Framework - Meilleures pratiques en matière de chiffrement et de sécurité des données Azure](../security/fundamentals/data-encryption-best-practices.md?bc=%2fazure%2fcloud-adoption-framework%2f_bread%2ftoc.json&toc=%2fazure%2fcloud-adoption-framework%2ftoc.json)
 
-- [Benchmark de sécurité Azure - Gestion des ressources](/azure/security/benchmarks/security-controls-v2-asset-management)
+- [Benchmark de sécurité Azure - Gestion des ressources](../security/benchmarks/security-controls-v2-asset-management.md)
 
-- [Benchmark de sécurité Azure - Protection des données](/azure/security/benchmarks/security-controls-v2-data-protection)
+- [Benchmark de sécurité Azure - Protection des données](../security/benchmarks/security-controls-v2-data-protection.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -958,7 +958,7 @@ Veillez à ce que la stratégie de segmentation soit implémentée de manière c
 
 **Conseils** : Mesurez et atténuez en permanence les risques liés à vos ressources individuelles et à l’environnement dans lequel elles sont hébergées. Priorisez les ressources à valeur élevée et les surfaces d’attaque hautement exposées, comme les applications publiées, les points d’entrée et de sortie du réseau, les points de terminaison utilisateur et administrateur, etc.
 
-- [Benchmark de sécurité Azure - Gestion de la posture et des vulnérabilités](/azure/security/benchmarks/security-controls-v2-posture-vulnerability-management)
+- [Benchmark de sécurité Azure - Gestion de la posture et des vulnérabilités](../security/benchmarks/security-controls-v2-posture-vulnerability-management.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -999,7 +999,7 @@ Cette stratégie doit inclure les recommandations, stratégies et normes documen
 Pour plus d’informations, consultez les références suivantes :
 - [Meilleures pratiques pour la sécurité Azure 11 – Architecture. Stratégie de sécurité unifiée unique](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
-- [Benchmark de sécurité Azure – Sécurité réseau](/azure/security/benchmarks/security-controls-v2-network-security)
+- [Benchmark de sécurité Azure – Sécurité réseau](../security/benchmarks/security-controls-v2-network-security.md)
 
 - [Vue d’ensemble de la sécurité réseau d’Azure](../security/fundamentals/network-overview.md)
 
@@ -1027,9 +1027,9 @@ Cette stratégie doit inclure les recommandations, stratégies et normes documen
 
 Pour plus d’informations, consultez les références suivantes :
 
-- [Benchmark de sécurité Azure - Gestion des identités](/azure/automation/update-management/overview)
+- [Benchmark de sécurité Azure - Gestion des identités](../automation/update-management/overview.md)
 
-- [Benchmark de sécurité Azure - Accès privilégié](/azure/security/benchmarks/security-controls-v2-privileged-access)
+- [Benchmark de sécurité Azure - Accès privilégié](../security/benchmarks/security-controls-v2-privileged-access.md)
 
 - [Meilleures pratiques pour la sécurité Azure 11 – Architecture. Stratégie de sécurité unifiée unique](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
@@ -1061,9 +1061,9 @@ Cette stratégie doit inclure les recommandations, stratégies et normes documen
 
 Pour plus d’informations, consultez les références suivantes :
 
-- [Benchmark de sécurité Azure - Journalisation et détection des menaces](/azure/security/benchmarks/security-controls-v2-logging-threat-detection)
+- [Benchmark de sécurité Azure - Journalisation et détection des menaces](../security/benchmarks/security-controls-v2-logging-threat-detection.md)
 
-- [Benchmark de sécurité Azure - Réponse aux incidents](/azure/security/benchmarks/security-controls-v2-incident-response)
+- [Benchmark de sécurité Azure - Réponse aux incidents](../security/benchmarks/security-controls-v2-incident-response.md)
 
 - [Meilleures pratiques pour la sécurité Azure 4 - Processus. Mise à jour des processus de réponse aux incidents pour le cloud](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
 
@@ -1077,5 +1077,5 @@ Pour plus d’informations, consultez les références suivantes :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Consultez [Vue d’ensemble d’Azure Security Benchmark V2](/azure/security/benchmarks/overview)
-- En savoir plus sur les [bases de référence de la sécurité Azure](/azure/security/benchmarks/security-baselines-overview)
+- Consultez [Vue d’ensemble d’Azure Security Benchmark V2](../security/benchmarks/overview.md)
+- En savoir plus sur les [bases de référence de la sécurité Azure](../security/benchmarks/security-baselines-overview.md)

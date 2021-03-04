@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 692b52e8ea6a88a119ca98985864cb9e1daa14c3
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 7dacec1521787e55ee4c7fd5f08b9e56d9dd4842
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100595752"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735996"
 ---
 # <a name="azure-security-baseline-for-azure-private-link"></a>Base de référence de sécurité Azure pour Azure Private Link
 
@@ -82,7 +82,7 @@ Activez également les données et intégrez-les à Azure Sentinel ou à une sol
 
 - [Modification de la période de conservation des données dans Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
-- [Guide pratique pour configurer la stratégie de conservation des journaux de compte de Stockage Azure](../storage/common/storage-monitor-storage-account.md#configure-logging)
+- [Guide pratique pour configurer la stratégie de conservation des journaux de compte de Stockage Azure](../storage/common/manage-storage-analytics-logs.md#configure-logging)
 
 **Supervision d’Azure Security Center** : actuellement non disponible
 

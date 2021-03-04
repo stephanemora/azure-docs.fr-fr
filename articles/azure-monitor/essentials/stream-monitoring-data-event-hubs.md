@@ -7,12 +7,12 @@ ms.author: bwren
 ms.topic: conceptual
 ms.date: 07/15/2020
 ms.subservice: ''
-ms.openlocfilehash: e541869d040cc1eead2d295583c42016b64d5edb
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: db8f8628f77ef2a04a7e6d42d6470f254e458e01
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100599025"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708082"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-or-external-partner"></a>Transmettre en continu des données de surveillance Azure à un Event Hub ou à un partenaire externe
 
@@ -58,10 +58,9 @@ Le routage de vos données de supervision vers un hub d’événements avec Azur
 | LogRhythm | Non| Les instructions permettant de configurer LogRhythm pour collecter les journaux à partir d’un Event Hub sont disponibles [ici](https://logrhythm.com/six-tips-for-securing-your-azure-cloud-environment/). 
 |Logz.io | Oui | Pour plus d’informations, consultez [Bien démarrer avec la supervision et la journalisation en utilisant Logz.io pour les applications Java exécutées sur Azure](/azure/developer/java/fundamentals/java-get-started-with-logzio).
 
-D’autres partenaires peuvent également être disponibles. Pour obtenir une liste plus complète de tous les partenaires d’Azure Monitor et de leurs capacités, consultez [Intégrations partenaires d’Azure Monitor](../platform/partners.md).
+D’autres partenaires peuvent également être disponibles. Pour obtenir une liste plus complète de tous les partenaires d’Azure Monitor et de leurs capacités, consultez [Intégrations partenaires d’Azure Monitor](../partners.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Archiver le journal d’activité dans un compte de stockage](./activity-log.md#legacy-collection-methods)
 * [Lire la présentation du journal d’activité Azure](../essentials/platform-logs-overview.md)
 * [Définir une alerte basée sur un événement de journal d’activité](../alerts/alerts-log-webhook.md)
-

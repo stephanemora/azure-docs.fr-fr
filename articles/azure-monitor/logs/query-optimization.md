@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2019
-ms.openlocfilehash: 53f189921a44d63d7e344fb733519661f5b17dc6
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: e7ab83b2b16a1340b354b9333d00c8166b5cfdf9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100600073"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101722957"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Optimiser les requêtes de journal dans Azure Monitor
 Journaux Azure Monitor utilise [Azure Data Explorer (ADX)](/azure/data-explorer/) pour stocker les données de journal et exécuter des requêtes afin d’analyser ces données. Elle crée et gère les clusters ADX, et les optimise pour votre charge de travail de l’analyse des journaux. Quand vous exécutez une requête, elle est optimisée et routée vers le cluster ADX approprié qui stocke les données de l’espace de travail. Journaux Azure Monitor et Azure Data Explorer utilisent de nombreux mécanismes d’optimisation automatique des requêtes. Bien que les optimisations automatiques apportent une amélioration significative, dans certains cas, vous pouvez améliorer considérablement les performances de vos requêtes. Cet article explique les considérations relatives aux performances et plusieurs techniques permettant de les corriger.
@@ -322,7 +322,7 @@ Tous les journaux dans Journaux Azure Monitor sont partitionnés en fonction de 
 
 Une requête sur une période de plus de 15 jours est considérée comme une requête consommant une quantité excessive de ressources. Une requête sur une période de plus de 90 jours est considérée comme une requête abusive et peut être limitée.
 
-L’intervalle de temps peut être défini à l’aide du sélecteur d’intervalle de temps dans l’écran Log Analytics, comme décrit dans [Étendue de requête de journal et intervalle de temps dans la fonctionnalité Log Analytics d’Azure Monitor](../log-query/scope.md#time-range). Il s’agit de la méthode recommandée, car l’intervalle de temps sélectionné est transmis au back-end à l’aide des métadonnées de requête. 
+L’intervalle de temps peut être défini à l’aide du sélecteur d’intervalle de temps dans l’écran Log Analytics, comme décrit dans [Étendue de requête de journal et intervalle de temps dans la fonctionnalité Log Analytics d’Azure Monitor](./scope.md#time-range). Il s’agit de la méthode recommandée, car l’intervalle de temps sélectionné est transmis au back-end à l’aide des métadonnées de requête. 
 
 Une autre méthode consiste à inclure explicitement une condition [where](/azure/kusto/query/whereoperator) sur **TimeGenerated** dans la requête. Vous devez utiliser cette méthode, car elle garantit que l’intervalle de temps est fixe, même quand la requête est utilisée à partir d’une interface différente.
 Vous devez vous assurer que toutes les parties de la requête ont des filtres **TimeGenerated**. Quand une requête a des sous-requêtes qui extraient des données de différentes tables ou de la même table, chacune doit inclure sa propre [where](/azure/kusto/query/whereoperator).

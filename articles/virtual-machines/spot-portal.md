@@ -3,17 +3,18 @@ title: Utiliser le portail pour déployer des machines virtuelles Azure Spot
 description: Découvrez comment utiliser Azure PowerShell pour déployer des machines virtuelles Spot et réaliser des économies sur les coûts.
 author: cynthn
 ms.service: virtual-machines
+ms.subservice: spot
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 09/14/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: 28f21cad2387712fe638067600087ba6adbbfa42
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 42f2078e9781e50712344778a33ce8735b4ce11b
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100554940"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101677342"
 ---
 # <a name="deploy-azure-spot-virtual-machines-using-the-azure-portal"></a>Déployer des machines virtuelles Azure Spot à l’aide du portail Azure
 

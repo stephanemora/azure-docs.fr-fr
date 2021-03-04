@@ -3,12 +3,12 @@ title: Déployer Live Video Analytics sur un appareil IoT Edge - Azure
 description: Cet article répertorie les étapes permettant de déployer Live Video Analytics sur votre appareil IoT Edge. C’est utile si, par exemple, vous disposez d’un accès à un ordinateur local Linux et que vous avez déjà crée un compte Azure Media Services.
 ms.topic: how-to
 ms.date: 09/09/2020
-ms.openlocfilehash: ff5dbc8e643137008aa7819b455adcf97c05bfc9
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 01b98c7a1f4073adcd8dea7cbfbfc57abc3787c1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99491788"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718928"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>Déployer Live Video Analytics sur un appareil IoT Edge
 
@@ -23,7 +23,7 @@ Cet article répertorie les étapes permettant de déployer Live Video Analytics
 * Un appareil x86-64 ou ARM64 exécutant l’un des [systèmes d’exploitation Linux pris en charge](../../iot-edge/support.md#operating-systems)
 * Abonnement Azure dans lequel vous disposez des [privilèges de propriétaire](../../role-based-access-control/built-in-roles.md#owner)
 * [Créer et configurer IoT Hub](../../iot-hub/iot-hub-create-through-portal.md)
-* [Enregistrer un appareil IoT Edge](../../iot-edge/how-to-manual-provision-symmetric-key.md)
+* [Enregistrer un appareil IoT Edge](../../iot-edge/how-to-register-device.md)
 * [Installer le runtime Azure IoT Edge sur des systèmes Linux Debian](../../iot-edge/how-to-install-iot-edge.md)
 * [Créer un compte Azure Media Services](../latest/create-account-howto.md)
 
@@ -61,8 +61,8 @@ Pour obtenir les informations d'identification et accéder aux API Media Service
 Afin d’exécuter le module Live Video Analytics sur IoT Edge, créez un compte d’utilisateur local doté du moins de privilèges possible. Par exemple, exécutez les commandes suivantes sur votre ordinateur Linux :
 
 ```
-sudo groupadd -g 1010 localuser
-sudo adduser --home /home/edgeuser --uid 1010 -gid 1010 edgeuser
+sudo groupadd -g 1010 localusergroup
+sudo useradd --home-dir /home/edgeuser --uid 1010 --gid 1010 lvaedgeuser
 ```
 
 ## <a name="granting-permissions-to-device-storage"></a>Octroi d’autorisations au stockage de l’appareil
@@ -72,15 +72,15 @@ Maintenant que vous avez créé un compte d’utilisateur local,
 * vous aurez besoin d’un dossier local pour stocker les données de configuration de l’application. Créez un dossier et accordez des autorisations d’écriture au compte d’utilisateur local dans ce dossier à l’aide des commandes suivantes :
 
 ```
-sudo mkdir /var/lib/azuremediaservices
-sudo chown -R edgeuser /var/lib/azuremediaservices
+sudo mkdir -p /var/lib/azuremediaservices
+sudo chown -R lvaedgeuser /var/lib/azuremediaservices
 ```
 
 * Vous aurez également besoin d’un dossier pour [enregistrer des vidéos dans un fichier local](event-based-video-recording-concept.md#video-recording-based-on-events-from-other-sources). Utilisez les commandes suivantes pour créer un dossier local pour le même
 
 ```
-sudo mkdir /var/media
-sudo chown -R edgeuser /var/media
+sudo mkdir -p /var/media
+sudo chown -R lvaedgeuser /var/media
 ```
 
 ## <a name="deploy-live-video-analytics-edge-module"></a>module Edge Deploy Live Video Analytics

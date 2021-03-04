@@ -4,25 +4,35 @@ description: Comment mettre à niveau la version de protocole filaire MongoDB po
 author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
-ms.topic: guide
-ms.date: 09/22/2020
+ms.topic: how-to
+ms.date: 03/02/2021
 ms.author: chrande
-ms.openlocfilehash: 9ce444e41d19ece984071d0f62e705a09d5f23c9
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 1818838a68c2712336a3515b2a82b5fdd518d237
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93356448"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101661169"
 ---
-# <a name="upgrade-the-mongodb-wire-protocol-version-of-your-azure-cosmos-dbs-api-for-mongodb-account"></a>Mettre à niveau la version de protocole filaire MongoDB de votre API Azure Cosmos DB pour le compte MongoDB
+# <a name="upgrade-the-api-version-of-your-azure-cosmos-db-api-for-mongodb-account"></a>Mettre à niveau la version de l’API de votre compte API Azure Cosmos DB pour MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
-Cet article décrit comment mettre à niveau la version de protocole filaire de votre API Azure Cosmos DB pour le compte MongoDB. Après la mise à niveau de la version du protocole, vous pouvez utiliser les fonctionnalités les plus récentes de l’API Azure Cosmos DB pour MongoDB. Le processus de mise à niveau n’interrompt pas la disponibilité de votre compte et ne consomme pas de RU/s, et ne réduit à aucun moment la capacité de la base de données. Les index ou données existants ne seront pas affectés par ce processus.
+Cet article décrit comment mettre à niveau la version de l’API de votre compte API Azure Cosmos DB pour MongoDB. Après avoir effectué la mise à niveau, vous pourrez utiliser les fonctionnalités les plus récentes de l’API Azure Cosmos DB pour MongoDB. Le processus de mise à niveau n’interrompt pas la disponibilité de votre compte et ne consomme pas de RU/s, et ne réduit à aucun moment la capacité de la base de données. Les index ou données existants ne seront pas affectés par ce processus. 
+
+Lors de la mise à niveau vers une nouvelle version d’API, mettez à niveau les charges de travail de développement/test avant les charges de travail de production. Il est important de mettre à niveau vos clients vers une version compatible avec la version de l’API vers laquelle vous effectuez la mise à niveau avant de mettre à niveau votre compte API Azure Cosmos DB pour MongoDB.
 
 >[!Note]
-> À ce stade, seuls les comptes éligibles utilisant la version serveur 3.2 peuvent être mis à niveau vers la version 3.6. Si votre compte n’affiche pas l’option de mise à niveau, [entrez un ticket de support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+> Actuellement, seuls les comptes éligibles utilisant la version serveur 3.2 peuvent être mis à niveau vers la version 3.6 ou 4.0. Si votre compte n’affiche pas l’option de mise à niveau, [entrez un ticket de support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-## <a name="upgrading-from-version-32-to-36"></a>Mise à niveau de la version 3.2 à 3.6
+## <a name="upgrading-to-40-or-36"></a>Mise à niveau vers la version 4.0 ou 3.6
+
+### <a name="benefits-of-upgrading-to-version-40"></a>Avantages de la mise à niveau vers la version 4.0
+
+Voici les nouvelles fonctionnalités de la version 4.0 :
+- Prise en charge des transactions multidocuments dans les collections non partitionnées.
+- Nouveaux opérateurs d’agrégation
+- Performances d’analyse améliorées
+- Stockage plus rapide et plus performant
 
 ### <a name="benefits-of-upgrading-to-version-36"></a>Avantages de la mise à niveau vers la version 3.6
 
@@ -38,26 +48,26 @@ Voici les nouvelles fonctionnalités de la version 3.6 :
 
 ### <a name="changes-from-version-32"></a>Modifications par rapport à la version 3.2
 
-- **Les erreurs de RequestRateIsLarge ont été supprimées**. Les requêtes de l’application cliente ne retournent plus 16500 erreurs. Les requêtes reprennent jusqu’à ce qu’elles se terminent ou remplissent le délai.
+- Par défaut, la fonctionnalité [Server Side Retry (SSR)](prevent-rate-limiting-errors.md) est activée, ce qui évite à l’application cliente de retourner des erreurs 16500. Au lieu de cela, les requêtes reprennent jusqu’à ce qu’elles se terminent ou qu’elles expirent au terme du délai de 60 secondes.
 - Le délai d’expiration par requête est de 60 secondes.
 - Les collections MongoDB créées sur la nouvelle version du protocole auront uniquement la propriété `_id` indexée par défaut.
 
-### <a name="action-required"></a>Action requise
+### <a name="action-required-when-upgrading-from-32"></a>Action obligatoire lors de la mise à niveau de la version 3.2
 
-Pour la mise à niveau vers la version 3.6, le suffixe du point de terminaison du compte de base de données sera mis à jour au format suivant :
+Si vous effectuez une mise à niveau à partir de la version 3.2, le suffixe du point de terminaison du compte de base de données sera mis à jour au format suivant :
 
 ```
 <your_database_account_name>.mongo.cosmos.azure.com
 ```
 
-Vous devez remplacer le point de terminaison existant dans vos applications et pilotes qui se connectent à ce compte de base de données. **Seules les connexions qui utilisent le nouveau point de terminaison auront accès aux fonctionnalités de la version 3.6 de MongoDB**. Le point de terminaison précédent doit avoir le suffixe `.documents.azure.com`.
+Si vous effectuez une mise à niveau à partir de la version 3.2, vous devrez remplacer le point de terminaison existant dans vos applications et pilotes qui se connectent à ce compte de base de données. **Seules les connexions qui utilisent le nouveau point de terminaison auront accès aux fonctionnalités fournies dans la nouvelle version de l’API**. Le point de terminaison de la version 3.2 précédente doit avoir le suffixe `.documents.azure.com`.
 
 >[!Note]
 > Le point de terminaison peut être légèrement différent si votre compte se trouve dans un cloud Azure souverain, gouvernemental ou limité.
 
-### <a name="how-to-upgrade"></a>Mise à niveau
+## <a name="how-to-upgrade"></a>Mise à niveau
 
-1. Accédez d’abord au portail Azure et accédez au panneau de vue d’ensemble de votre compte MongoDB via l’API Azure Cosmos DB. Vérifiez que la version de votre serveur est `3.2`. 
+1. À partir du portail Azure, accédez au panneau de vue d’ensemble de votre compte d’API Azure Cosmos DB pour MongoDB. Vérifiez que la version actuelle du serveur correspond à celle que vous voulez.
 
     :::image type="content" source="./media/mongodb-version-upgrade/1.png" alt-text="Portail Azure avec vue d'ensemble du compte MongoDB" border="false":::
 
@@ -65,11 +75,11 @@ Vous devez remplacer le point de terminaison existant dans vos applications et p
 
     :::image type="content" source="./media/mongodb-version-upgrade/2.png" alt-text="Portail Azure avec vue d’ensemble du compte MongoDB avec le panneau des fonctionnalités mis en surbrillance" border="false":::
 
-3. Cliquez sur la ligne `Upgrade to Mongo server version 3.6`. Si vous ne voyez pas cette option, votre compte peut ne pas être éligible pour cette mise à niveau. Créez un [ticket de support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) si c’est le cas.
+3. Cliquez sur la ligne `Upgrade Mongo server version`. Si vous ne voyez pas cette option, votre compte peut ne pas être éligible pour cette mise à niveau. Créez un [ticket de support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) si c’est le cas.
 
     :::image type="content" source="./media/mongodb-version-upgrade/3.png" alt-text="Panneau de fonctionnalités avec options." border="false":::
 
-4. Passez en revue les informations affichées sur cette mise à niveau. Notez que la mise à niveau ne sera effectuée que lorsque vos applications utiliseront le point de terminaison mis à jour, comme indiqué dans cette section. Cliquez sur `Enable` dès que vous êtes prêt à démarrer le processus.
+4. Passez en revue les informations relatives à la mise à niveau. Cliquez sur `Enable` dès que vous êtes prêt à démarrer le processus.
 
     :::image type="content" source="./media/mongodb-version-upgrade/4.png" alt-text="Guide de mise à niveau développé." border="false":::
 
@@ -81,11 +91,21 @@ Vous devez remplacer le point de terminaison existant dans vos applications et p
 
     :::image type="content" source="./media/mongodb-version-upgrade/6.png" alt-text="État du compte mis à niveau." border="false":::
 
-7. **Pour commencer à utiliser la version mise à niveau de votre compte de base de données** , revenez au panneau `Overview` et copiez la nouvelle chaîne de connexion à utiliser dans votre application. Les applications commencent à utiliser la version mise à niveau dès qu’elles se connectent au nouveau point de terminaison. Les connexions existantes ne seront pas interrompues et pourront être mises à jour à votre convenance. Pour garantir une expérience cohérente, toutes vos applications doivent utiliser le nouveau point de terminaison.
+7. 
+    1. Si vous avez effectué une mise à niveau à partir de la version 3.2, revenez au panneau `Overview` et copiez la nouvelle chaîne de connexion à utiliser dans votre application. L’ancienne chaîne de connexion utilisée pour la version 3.2 continuera de fonctionner. Pour garantir une expérience cohérente, toutes vos applications doivent utiliser le nouveau point de terminaison.
+    2. Si vous avez effectué une mise à niveau à partir de la version 3.6, votre chaîne de connexion existante sera mise à niveau vers la version spécifiée et devra continuer à être utilisée.
 
     :::image type="content" source="./media/mongodb-version-upgrade/7.png" alt-text="Nouveau panneau de vue d’ensemble." border="false":::
 
+
+## <a name="how-to-downgrade"></a>Passage à une version antérieure
+Vous pouvez également passer votre compte de la version 4.0 à la version 3.6 en suivant les mêmes étapes que celles décrites dans la section « Mise à niveau ». 
+
+Si vous avez effectué une mise à niveau de la version 3.2 vers la version 4.0 ou 3.6 et que vous souhaitez repasser à votre version 3.2 antérieure, il vous suffit de réutiliser votre chaîne de connexion (3.2) précédente avec l’hôte `accountname.documents.azure.com` qui reste la version active après la mise à niveau de la version 3.2.
+
+
 ## <a name="next-steps"></a>Étapes suivantes
 
+- Découvrez les [fonctionnalités de MongoDB version 4.0](mongodb-feature-support-40.md) prises en charge et non prises en charge.
 - Découvrez les [fonctionnalités prises en charge et non prises en charge de MongoDB version 3.6](mongodb-feature-support-36.md).
 - Pour plus d’informations, consultez [Fonctionnalités de Mongo version 3.6](https://devblogs.microsoft.com/cosmosdb/azure-cosmos-dbs-api-for-mongodb-now-supports-server-version-3-6/)

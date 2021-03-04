@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 01/10/2021
-ms.openlocfilehash: 9d8d37e1b161dfc8344d7ff03bc0093d23f86101
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: fa826e951b9fe34eb27481718b8f026747011e4e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100598568"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717415"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Clé gérée par le client dans Azure Monitor 
 
@@ -25,11 +25,11 @@ Le [chiffrement au repos](../../security/fundamentals/encryption-atrest.md) est 
 
 Azure Monitor veille à ce que toutes les données et requêtes enregistrées soient chiffrées au repos à l’aide de clés gérées par Microsoft (MMK). Azure Monitor fournit également une option de chiffrement à l’aide de votre propre clé qui est stockée dans votre coffre [Azure Key Vault](../../key-vault/general/overview.md), ce qui vous permet de révoquer à tout moment l’accès à vos données. L’utilisation du chiffrement par Azure Monitor est identique à celle du [chiffrement par Stockage Azure](../../storage/common/storage-service-encryption.md#about-azure-storage-encryption).
 
-La clé gérée par le client est fournie sur des [clusters dédiés](../log-query/logs-dedicated-clusters.md) offrant un niveau de protection et un contrôle plus élevés. Les données ingérées dans les clusters dédiés sont chiffrées deux fois : une fois au niveau du service à l’aide de clés gérées par Microsoft ou de clés gérées par le client, et une fois au niveau de l’infrastructure à l’aide de deux algorithmes de chiffrement et de deux clés différents. Le [double chiffrement](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) permet d’éviter un scénario impliquant une possible compromission d’un algorithme ou d’une clé de chiffrement. Dans ce cas, la couche de chiffrement supplémentaire continue de protéger vos données. Le cluster dédié vous permet également de protéger vos données à l’aide du contrôle [Lockbox](#customer-lockbox-preview).
+La clé gérée par le client est fournie sur des [clusters dédiés](./logs-dedicated-clusters.md) offrant un niveau de protection et un contrôle plus élevés. Les données ingérées dans les clusters dédiés sont chiffrées deux fois : une fois au niveau du service à l’aide de clés gérées par Microsoft ou de clés gérées par le client, et une fois au niveau de l’infrastructure à l’aide de deux algorithmes de chiffrement et de deux clés différents. Le [double chiffrement](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) permet d’éviter un scénario impliquant une possible compromission d’un algorithme ou d’une clé de chiffrement. Dans ce cas, la couche de chiffrement supplémentaire continue de protéger vos données. Le cluster dédié vous permet également de protéger vos données à l’aide du contrôle [Lockbox](#customer-lockbox-preview).
 
 Les données ingérées au cours des 14 derniers jours sont également conservées dans le cache à chaud (SSD) afin d’optimiser l’utilisation du moteur de requête. Ces données restent chiffrées avec des clés Microsoft, quelle que soit la configuration de clé gérée par le client, mais votre contrôle sur les données SSD est sujet à une [révocation de clé](#key-revocation). Nous travaillons au chiffrement des données SSD avec une clé gérée par le client pour le premier semestre 2021.
 
-Les clusters dédiés Log Analytics utilisent un [modèle de tarification](../log-query/logs-dedicated-clusters.md#cluster-pricing-model) de réservation de capacité d’au moins 1000 Go/jour.
+Les clusters dédiés Log Analytics utilisent un [modèle de tarification](./logs-dedicated-clusters.md#cluster-pricing-model) de réservation de capacité d’au moins 1000 Go/jour.
 
 ## <a name="how-customer-managed-key-works-in-azure-monitor"></a>Fonctionnement de la clé gérée par le client dans Azure Monitor
 
@@ -145,7 +145,7 @@ Les clusters prennent en charge deux [types d’identités managées](../../acti
 > [!IMPORTANT]
 > Vous ne pouvez pas utiliser une identité managée affectée par l’utilisateur si votre coffre de clés se trouve dans Azure Private Link (réseau virtuel). Dans ce scénario, vous pouvez utiliser une identité managée affectée par le système.
 
-Suivez la procédure illustrée dans l’article sur les [Clusters dédiés](../log-query/logs-dedicated-clusters.md#creating-a-cluster). 
+Suivez la procédure illustrée dans l’article sur les [Clusters dédiés](./logs-dedicated-clusters.md#creating-a-cluster). 
 
 ## <a name="grant-key-vault-permissions"></a>Octroi d’autorisations d’accès au coffre de clés
 
@@ -253,7 +253,7 @@ Une réponse à la requête GET doit ressembler à ceci lorsque la mise à jour 
 
 Pour effectuer cette opération, vous devez disposer des autorisations « écrire » sur votre espace de travail et le cluster, ce qui implique notamment `Microsoft.OperationalInsights/workspaces/write` et `Microsoft.OperationalInsights/clusters/write`.
 
-Suivez la procédure illustrée dans l’article sur les [Clusters dédiés](../log-query/logs-dedicated-clusters.md#link-a-workspace-to-cluster).
+Suivez la procédure illustrée dans l’article sur les [Clusters dédiés](./logs-dedicated-clusters.md#link-a-workspace-to-cluster).
 
 ## <a name="key-revocation"></a>Révocation de la clé
 
@@ -387,7 +387,7 @@ En savoir plus sur [Customer Lockbox pour Microsoft Azure](../../security/fundam
 
 ## <a name="customer-managed-key-operations"></a>Opérations de clés gérées par le client
 
-Une clé gérée par le client est fournie sur un cluster dédié et ces opérations sont mentionnées dans l’[article de cluster dédié](../log-query/logs-dedicated-clusters.md#change-cluster-properties)
+Une clé gérée par le client est fournie sur un cluster dédié et ces opérations sont mentionnées dans l’[article de cluster dédié](./logs-dedicated-clusters.md#change-cluster-properties)
 
 - Obtenir tous les clusters dans un groupe de ressources  
 - Obtenir tous les clusters dans un abonnement
@@ -470,8 +470,8 @@ Une clé gérée par le client est fournie sur un cluster dédié et ces opérat
 
   **Mise à jour d’un cluster**
   -  400 -- Le cluster est en cours de suppression. L’opération asynchrone est en cours. Le cluster doit effectuer cette opération avant l’exécution d’une opération de mise à jour.
-  -  400 -- Les KeyVaultProperties ne sont pas vides, mais leur format est incorrect. Consultez [mise à jour de l’identificateur de la clé](../platform/customer-managed-keys.md#update-cluster-with-key-identifier-details).
-  -  400 -- Échec de validation de la clé dans Key Vault. Peut être dû à un manque d’autorisations ou à l’inexistence de la clé. Vérifiez que vous [avez défini la clé et la stratégie d’accès](../platform/customer-managed-keys.md#grant-key-vault-permissions) dans Key Vault.
+  -  400 -- Les KeyVaultProperties ne sont pas vides, mais leur format est incorrect. Consultez [mise à jour de l’identificateur de la clé](#update-cluster-with-key-identifier-details).
+  -  400 -- Échec de validation de la clé dans Key Vault. Peut être dû à un manque d’autorisations ou à l’inexistence de la clé. Vérifiez que vous [avez défini la clé et la stratégie d’accès](#grant-key-vault-permissions) dans Key Vault.
   -  400 -- La clé n’est pas récupérable. La suppression réversible et la protection contre le vidage doivent être définis pour Key Vault. Consulter la [documentation sur Key Vault](../../key-vault/general/soft-delete-overview.md)
   -  400 -- Impossible d’exécuter une opération pour le moment. Attendez que l’opération asynchrone se termine et réessayez.
   -  400 -- Le cluster est en cours de suppression. Attendez que l’opération asynchrone se termine et réessayez.
@@ -492,5 +492,5 @@ Une clé gérée par le client est fournie sur un cluster dédié et ces opérat
   -  409 -- Opération de liaison ou de dissociation d’espace de travail en cours.
 ## <a name="next-steps"></a>Étapes suivantes
 
-- En savoir plus sur la [facturation des clusters dédiés Log Analytics](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters)
-- En savoir plus sur la [conception appropriée des espaces de travail Log Analytics](../platform/design-logs-deployment.md)
+- En savoir plus sur la [facturation des clusters dédiés Log Analytics](./manage-cost-storage.md#log-analytics-dedicated-clusters)
+- En savoir plus sur la [conception appropriée des espaces de travail Log Analytics](./design-logs-deployment.md)

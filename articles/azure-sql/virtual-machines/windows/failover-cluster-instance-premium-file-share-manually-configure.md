@@ -14,17 +14,17 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/18/2020
 ms.author: mathoma
-ms.openlocfilehash: 2fb9677f0874de1fb715082d58a0e354880e654b
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 86caf39e0d31a41ca454c65311ff2fab52b56f5b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97358069"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691159"
 ---
 # <a name="create-an-fci-with-a-premium-file-share-sql-server-on-azure-vms"></a>Créer un ICF avec un partage de fichiers premium (SQL Server sur les machines virtuelles Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-Cet article explique comment créer une instance de cluster de basculement (ICF) avec SQL Server sur des machines virtuelles (VM) Azure à l’aide d’un [partage de fichiers premium](../../../storage/files/storage-how-to-create-premium-fileshare.md).
+Cet article explique comment créer une instance de cluster de basculement (ICF) avec SQL Server sur des machines virtuelles (VM) Azure à l’aide d’un [partage de fichiers premium](../../../storage/files/storage-how-to-create-file-share.md).
 
 Les partages de fichiers Premium sont des partages de fichiers à faible latence s’appuyant sur des espaces de stockage direct, qui sont entièrement pris en charge pour une utilisation avec une instance de cluster de basculement pour SQL Server 2012 et ultérieur sur Windows Server 2012 et ultérieur. Les partages de fichiers Premium vous offrent une plus grande flexibilité, ce qui vous permet de redimensionner et de mettre à l’échelle un partage de fichiers sans temps d’arrêt.
 
@@ -37,7 +37,7 @@ Avant de suivre les instructions décrites dans cet article, vous devez déjà d
 - Un abonnement Azure.
 - Un compte qui dispose des autorisations nécessaires pour créer des objets sur les machines virtuelles Azure et dans Active Directory.
 - [Deux ou plusieurs machines virtuelles Windows Azure préparées](failover-cluster-instance-prepare-vm.md) dans un [groupe à haute disponibilité](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) ou différentes [zones de disponibilité](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address).
-- Un [partage de fichiers Premium](../../../storage/files/storage-how-to-create-premium-fileshare.md) à utiliser comme lecteur en cluster, en fonction du quota de stockage de votre base de données pour vos fichiers de données.
+- Un [partage de fichiers Premium](../../../storage/files/storage-how-to-create-file-share.md) à utiliser comme lecteur en cluster, en fonction du quota de stockage de votre base de données pour vos fichiers de données.
 - La dernière version de [PowerShell](/powershell/azure/install-az-ps). 
 
 ## <a name="mount-premium-file-share"></a>Monter le partage de fichiers Premium
@@ -145,7 +145,7 @@ Pour plus d’informations, consultez [Cluster de basculement : Objet réseau en
 
 ## <a name="configure-quorum"></a>Configurer un quorum
 
-Configurez la solution de quorum qui répond le mieux aux besoins de votre entreprise. Vous pouvez configurer un [Témoin d’Azure Data Box Disk](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum), un [Témoin Cloud](/windows-server/failover-clustering/deploy-cloud-witness) ou un [Assistant de partage de fichiers](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum). Pour plus d’informations, consultez [Quorum avec les machines virtuelles SQL Server](hadr-cluster-best-practices.md#quorum). 
+Configurez la solution de quorum qui répond le mieux aux besoins de votre entreprise. Vous pouvez configurer un [Témoin de disque](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum), un [Témoin de cloud](/windows-server/failover-clustering/deploy-cloud-witness) ou un [Témoin de partage de fichiers](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum). Pour plus d’informations, consultez [Quorum avec les machines virtuelles SQL Server](hadr-cluster-best-practices.md#quorum). 
 
 
 ## <a name="test-cluster-failover"></a>Tester le basculement de cluster

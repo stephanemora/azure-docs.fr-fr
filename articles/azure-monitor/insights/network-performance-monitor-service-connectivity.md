@@ -1,22 +1,21 @@
 ---
 title: Connectivité de service de la solution Network Performance Monitor - Azure Log Analytics
 description: Utilisez la fonctionnalité Moniteur de connectivité de service dans Network Performance Monitor pour surveiller la connectivité réseau sur n’importe quel point de terminaison ayant un port TCP ouvert.
-ms.subservice: logs
 ms.topic: conceptual
 author: abshamsft
 ms.author: absha
 ms.date: 02/20/2018
-ms.openlocfilehash: a980c0987106a80751a98c48dfc5780708e6f889
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a5b42e61af398e111b2014f3734a0011a4bee778
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100573402"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734160"
 ---
 # <a name="service-connectivity-monitor"></a>Moniteur de connectivité de service
 
 > [!IMPORTANT]
-> À compter du 1er juillet 2021, vous ne pourrez plus ajouter de nouveaux tests dans un espace de travail existant ni activer un nouvel espace de travail dans Network Performance Monitor. Vous pouvez continuer à utiliser les tests créés avant le 1er juillet 2021. Pour réduire l’interruption de service de vos charges de travail actuelles, [migrez vos tests de Network Performance Monitor vers le nouveau Moniteur de connexion](https://docs.microsoft.com/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor) dans Azure Network Watcher avant le 29 février 2024.
+> À compter du 1er juillet 2021, vous ne pourrez plus ajouter de nouveaux tests dans un espace de travail existant ni activer un nouvel espace de travail dans Network Performance Monitor. Vous pouvez continuer à utiliser les tests créés avant le 1er juillet 2021. Pour réduire l’interruption de service de vos charges de travail actuelles, [migrez vos tests de Network Performance Monitor vers le nouveau Moniteur de connexion](../../network-watcher/migrate-to-connection-monitor-from-network-performance-monitor.md) dans Azure Network Watcher avant le 29 février 2024.
 
 Vous pouvez utiliser la fonctionnalité Moniteur de connectivité de service dans [Network Performance Monitor](network-performance-monitor.md) pour surveiller la connectivité réseau à n’importe quel point de terminaison qui a un port TCP ouvert. Ces points de terminaison incluent des sites web, des applications SaaS, des applications PaaS et des bases de données SQL. 
 
@@ -137,4 +136,3 @@ Pour la région US Gov Virginia, seules les URL DOD sont intégrées dans NPM. L
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Rechercher dans les journaux d’activité](../logs/log-query-overview.md) pour afficher des enregistrements de données détaillées sur les performances réseau.
-

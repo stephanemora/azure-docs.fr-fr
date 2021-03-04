@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 12/01/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 1453d43707a3680380e553fe69d738b27fe5ae3a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: c335c1cf7e5319b812345714dbdc6b87ddc4e81b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100571359"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709170"
 ---
 # <a name="troubleshoot-azure-monitor-for-windows-virtual-desktop-preview"></a>Résolution des problèmes liés à Azure Monitor pour Windows Virtual Desktop (préversion)
 
@@ -42,7 +42,7 @@ Si vos données ne s'affichent pas correctement, vérifiez votre configuration, 
     - Accès en lecture aux groupes de ressources de l'abonnement qui contiennent vos hôtes de session Windows Virtual Desktop 
     - Accès en lecture à l’espace de travail Log Analytics
 
-- Vous devrez peut-être ouvrir les ports sortants dans le pare-feu de votre serveur pour autoriser Azure Monitor à envoyer des données au portail ; voir [Ports sortants](https://docs.microsoft.com/azure/azure-monitor/app/ip-addresses). 
+- Vous devrez peut-être ouvrir les ports sortants dans le pare-feu de votre serveur pour autoriser Azure Monitor à envoyer des données au portail ; voir [Ports sortants](../azure-monitor/app/ip-addresses.md). 
 
 - Vous ne voyez pas les données relatives aux activités récentes ? Patientez 15 minutes et actualisez le flux. Azure Monitor présente une période de latence de 15 minutes pour le remplissage des données de journal. Pour plus d’informations, consultez [Durée d’ingestion des données de journal dans Azure Monitor](../azure-monitor/logs/data-ingestion-time.md).
 
@@ -62,8 +62,8 @@ Pour plus d’informations sur les termes liés aux données, consultez le [glos
 
 Si vous souhaitez surveiller d'autres compteurs de performances ou événements, vous pouvez les envoyer à votre espace de travail Log Analytics et les surveiller dans Diagnostics de l'ordinateur hôte : navigateur hôte. 
 
-- Pour ajouter des compteurs de performances, consultez [Configuration des compteurs de performances](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-performance-counters#configuring-performance-counters).
-- Pour ajouter des événements Windows, consultez [Configuration des journaux des événements Windows](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-windows-events#configuring-windows-event-logs).
+- Pour ajouter des compteurs de performances, consultez [Configuration des compteurs de performances](../azure-monitor/agents/data-sources-performance-counters.md#configuring-performance-counters).
+- Pour ajouter des événements Windows, consultez [Configuration des journaux des événements Windows](../azure-monitor/agents/data-sources-windows-events.md#configuring-windows-event-logs).
 
 Il vous manque un point de données pour diagnostiquer un problème ? Envoyez-nous vos commentaires.
 

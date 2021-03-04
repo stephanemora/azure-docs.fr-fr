@@ -7,12 +7,12 @@ author: DaleKoetke
 ms.author: dalek
 ms.date: 2/7/2021
 ms.reviewer: mbullwin
-ms.openlocfilehash: db5506f1f1fcabf3a922115c24aa64e35b888fbd
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 1f19366ac8fd7aedadcca0287540262516ad060c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100573744"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726176"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Gérer l’utilisation et les coûts pour Application Insights
 
@@ -294,7 +294,7 @@ Pour connaître les prix actuels dans votre devise et pour votre région, consul
 
 ### <a name="understanding-billed-usage-on-the-legacy-enterprise-per-node-tier"></a>Comprendre l’utilisation facturée au niveau Entreprise (par nœud) hérité 
 
-Comme décrit plus en détail ci-dessous, le niveau Entreprise (par nœud) hérité combine l’utilisation de toutes les ressources Application Insights dans un abonnement pour calculer le nombre de nœuds et le dépassement de données. En raison de ce processus de combinaison, **l’utilisation de toutes les ressources Application Insights dans un abonnement est signalée par rapport à une seule des ressources**.  Cela permet de concilier l'[utilisation facturée](https://docs.microsoft.com/azure/azure-monitor/app/pricing#viewing-application-insights-usage-on-your-azure-bill) avec l’utilisation que vous observez pour chaque ressource Application Insights très compliquée. 
+Comme décrit plus en détail ci-dessous, le niveau Entreprise (par nœud) hérité combine l’utilisation de toutes les ressources Application Insights dans un abonnement pour calculer le nombre de nœuds et le dépassement de données. En raison de ce processus de combinaison, **l’utilisation de toutes les ressources Application Insights dans un abonnement est signalée par rapport à une seule des ressources**.  Cela permet de concilier l'[utilisation facturée](#viewing-application-insights-usage-on-your-azure-bill) avec l’utilisation que vous observez pour chaque ressource Application Insights très compliquée. 
 
 > [!WARNING]
 > En raison de la complexité du suivi et de la compréhension de l’utilisation des ressources Application Insights au niveau Entreprise (par nœud) hérité, nous vous recommandons vivement d’utiliser le niveau tarifaire actuel du paiement à l’utilisation. 

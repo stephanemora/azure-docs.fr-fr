@@ -4,12 +4,12 @@ description: Dans ce tutoriel, vous allez découvrir comment gérer les bases de
 ms.topic: tutorial
 ms.date: 12/4/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 665dfc64e750f448fc4c1a2d7e18f0cb6552f223
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: e8baf7f2589cd7d9054911516253b49253397871
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100371768"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713284"
 ---
 # <a name="tutorial-manage-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Tutoriel : Gérer des bases de données SAP HANA sur une machine virtuelle Azure à l’aide d’Azure CLI
 
@@ -80,7 +80,7 @@ cb110094-9b15-4c55-ad45-6899200eb8dd  SAPHANA
 
 ## <a name="create-incremental-backup-policy"></a>Créer une stratégie de sauvegarde incrémentielle
 
-Pour créer une stratégie de sauvegarde incrémentielle, exécutez la commande [az backup policy create](https://docs.microsoft.com/cli/azure/backup/policy#az_backup_policy_create) avec les paramètres suivants :
+Pour créer une stratégie de sauvegarde incrémentielle, exécutez la commande [az backup policy create](/cli/azure/backup/policy#az_backup_policy_create) avec les paramètres suivants :
 
 * **--backup-management-type** : charge de travail Azure
 * **--workload-type** : SAPHana
@@ -231,6 +231,7 @@ Exemple JSON (sappolicy.json) :
   "type": "Microsoft.RecoveryServices/vaults/backupPolicies"
 } 
 ```
+
 Une fois la stratégie créée, la sortie de la commande affiche la stratégie JSON que vous avez transmise en tant que paramètre lors de l’exécution de la commande.
 
 Vous pouvez modifier la section suivante de la stratégie pour spécifier la fréquence de sauvegarde souhaitée et la conservation des sauvegardes incrémentielles.

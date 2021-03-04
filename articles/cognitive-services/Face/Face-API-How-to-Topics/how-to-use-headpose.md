@@ -7,15 +7,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: sample
-ms.date: 05/29/2019
+ms.date: 02/23/2021
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: fe9cc44542e97880b076d871dde82f5a02a58957
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cec466fc420e435159e2882d7b39ef6d03eeea7c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88928970"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733480"
 ---
 # <a name="use-the-headpose-attribute"></a>Utiliser l’attribut HeadPose
 
@@ -29,7 +29,7 @@ L’exemple d’application [WPF Visage de Cognitive Services](https://github.co
 
 ### <a name="explore-the-sample-code"></a>Explorer l’exemple de code
 
-Vous pouvez faire pivoter programmatiquement le rectangle de visage à l’aide de l’attribut HeadPose. Si vous spécifiez cet attribut lors de la détection des visages (voir [Guide pratique pour détecter des visages](HowtoDetectFacesinImage.md)), vous serez en mesure de l’interroger plus tard. La méthode suivante à partir de l’application [WPF Visage de Cognitive Services](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/Cognitive-Services-Face-WPF) accepte une liste d’objets **DetectedFace** et retourne une liste d’objets **[Face](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/app-samples/Cognitive-Services-Face-WPF/Sample-WPF/Controls/Face.cs)** . Ici, **Face** est une classe personnalisée qui stocke les données de visage, notamment les coordonnées actualisées du rectangle. De nouvelles valeurs sont calculées pour **top**, **left**, **width** et **height**, et un nouveau champ **FaceAngle** spécifie la rotation.
+Vous pouvez faire pivoter programmatiquement le rectangle de visage à l’aide de l’attribut HeadPose. Si vous spécifiez cet attribut lors de la détection des visages (voir [Guide pratique pour détecter des visages](HowtoDetectFacesinImage.md)), vous serez en mesure de l’interroger plus tard. La méthode suivante à partir de l’application [WPF Visage de Cognitive Services](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/Cognitive-Services-Face-WPF) accepte une liste d’objets **DetectedFace** et retourne une liste d’objets **[Face](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/app-samples/Cognitive-Services-Face-WPF/Sample-WPF/Controls/Face.cs)**. Ici, **Face** est une classe personnalisée qui stocke les données de visage, notamment les coordonnées actualisées du rectangle. De nouvelles valeurs sont calculées pour **top**, **left**, **width** et **height**, et un nouveau champ **FaceAngle** spécifie la rotation.
 
 ```csharp
 /// <summary>

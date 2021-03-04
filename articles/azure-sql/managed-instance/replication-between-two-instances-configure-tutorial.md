@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: ferno
 ms.reviewer: mathoma
 ms.date: 04/28/2020
-ms.openlocfilehash: 67902073b1484835d23566c91cbfae6f1d80d249
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 47ea5ea73c581313f90791ca6d7892ebad3f666b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900457"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690683"
 ---
 # <a name="tutorial-configure-replication-between-two-managed-instances"></a>Tutoriel : Configurer la réplication entre deux instances managées
 
@@ -51,7 +51,7 @@ La configuration de SQL Managed Instance pour fonctionner en tant que base de do
 - L’instance gérée du serveur de publication se trouve sur le même réseau virtuel que le serveur de distribution et l’abonné, ou des [Passerelles VPN](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) ont été configurées entre les réseaux virtuels des trois entités. 
 - La connectivité doit utiliser l’authentification SQL entre les participants de la réplication.
 - Il existe un partage de compte de stockage Azure pour le répertoire de travail de réplication.
-- Le port 445 (TCP sortant) est ouvert dans les règles de sécurité du NSG pour que les instances managées puissent accéder au partage de fichiers Azure.  Si vous rencontrez l’erreur `failed to connect to azure storage \<storage account name> with os error 53`, vous devez ajouter une règle de trafic sortant au groupe de sécurité réseau du sous-réseau SQL Managed Instance approprié.
+- Le port 445 (TCP sortant) est ouvert dans les règles de sécurité du NSG pour que les instances managées puissent accéder au partage de fichiers Azure.  Si vous rencontrez l’erreur `failed to connect to azure storage <storage account name> with os error 53`, vous devez ajouter une règle de trafic sortant au groupe de sécurité réseau du sous-réseau SQL Managed Instance approprié.
 
 ## <a name="1---create-a-resource-group"></a>1 - Créer un groupe de ressources
 

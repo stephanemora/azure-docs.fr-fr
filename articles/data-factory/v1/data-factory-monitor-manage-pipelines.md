@@ -7,12 +7,12 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.openlocfilehash: 486f12c29c473d46e3aff73abe747f8aa5a2ef8d
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: c728654e868bcb8213e6a4039fa1e2e169b0078c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100380404"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576391"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Surveiller et gérer les pipelines Azure Data Factory à l’aide du portail Azure et de PowerShell
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ Cet article décrit comment surveiller, gérer et déboguer vos pipelines à l�
 > L’application de surveillance et gestion favorise la surveillance et la gestion de vos pipelines de données, ainsi que la résolution des problèmes. Pour en savoir plus sur l’utilisation de l’application, consultez [Surveiller et gérer les pipelines Azure Data Factory à l’aide de l’application de surveillance et gestion](data-factory-monitor-manage-app.md). 
 
 > [!IMPORTANT]
-> Azure Data Factory version 1 utilise maintenant la nouvelle [infrastructure d’alertes Azure Monitor](../../azure-monitor/platform/alerts-metric.md). L’ancienne infrastructure d’alertes est déconseillée. Par conséquent, vos alertes existantes configurées pour les fabriques de données version 1 ne fonctionnent plus. Vos alertes existantes pour les fabriques de données v1 ne sont pas migrées automatiquement. Vous devez recréer ces alertes sur la nouvelle infrastructure d’alertes. Connectez-vous au portail et sélectionnez **Surveiller** pour créer des alertes sur les métriques (par exemple les exécutions qui ont échoué ou réussi) pour vos fabriques de données version 1.
+> Azure Data Factory version 1 utilise maintenant la nouvelle [infrastructure d’alertes Azure Monitor](../../azure-monitor/alerts/alerts-metric.md). L’ancienne infrastructure d’alertes est déconseillée. Par conséquent, vos alertes existantes configurées pour les fabriques de données version 1 ne fonctionnent plus. Vos alertes existantes pour les fabriques de données v1 ne sont pas migrées automatiquement. Vous devez recréer ces alertes sur la nouvelle infrastructure d’alertes. Connectez-vous au portail et sélectionnez **Surveiller** pour créer des alertes sur les métriques (par exemple les exécutions qui ont échoué ou réussi) pour vos fabriques de données version 1.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -43,7 +43,7 @@ Cette section décrit également comment une tranche de jeu de données passe d�
 
 ### <a name="navigate-to-your-data-factory"></a>Accédez à votre fabrique de données
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-2. Cliquer sur **Fabriques de données** dans le menu de gauche. Si vous ne voyez pas cette option, cliquez sur **Autres services >** , puis sur **Fabriques de données** dans la catégorie **INTELLIGENCE + ANALYSE**.
+2. Cliquer sur **Fabriques de données** dans le menu de gauche. Si vous ne voyez pas cette option, cliquez sur **Autres services >**, puis sur **Fabriques de données** dans la catégorie **INTELLIGENCE + ANALYSE**.
 
    ![Parcourir tout > Fabriques de données](./media/data-factory-monitor-manage-pipelines/browseall-data-factories.png)
 3. Dans le panneau **Fabriques de données**, sélectionnez la fabrique de données qui vous intéresse.
@@ -131,10 +131,10 @@ Voici la liste des différents états possibles pour les tranches d’un jeu de 
 <td>Ready</td><td>-</td><td>La tranche est prête à être consommée.</td>
 </tr>
 <tr>
-<td>Ignoré</td><td>None</td><td>La tranche n’est pas en cours de traitement.</td>
+<td>Ignoré</td><td>Aucun</td><td>La tranche n’est pas en cours de traitement.</td>
 </tr>
 <tr>
-<td>None</td><td>-</td><td>Tranche qui a été réinitialisée alors qu’elle existait avec un état différent.</td>
+<td>Aucun</td><td>-</td><td>Tranche qui a été réinitialisée alors qu’elle existait avec un état différent.</td>
 </tr>
 </table>
 
@@ -157,7 +157,7 @@ Quand vous avez déployé une fabrique de données et que la période d’activa
 
 ![Schéma d'état](./media/data-factory-monitor-manage-pipelines/state-diagram.png)
 
-Le flux de transition d’état de l’ensemble de données est le suivant dans la fabrique de données : En attente -> En cours/en cours (validation) -> Prêt/Échec.
+Le flux de transition d’états des jeux de données de la fabrique de données est le suivant : En attente -> En cours/En cours (Validation) -> Prête/Échec.
 
 Au départ, la tranche a l’état **En attente**, en attente des conditions requises à respecter avant l’exécution. Ensuite, l’exécution de l’activité commence, et la tranche passe à l’état **En cours**. L’exécution de l’activité peut réussir ou échouer. Selon le résultat de l’exécution, l’état de la tranche est **Prête** ou **Échec**.
 

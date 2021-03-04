@@ -8,16 +8,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: kgremban
-ms.openlocfilehash: dfd819d82f5e35183802e33e5d423cad4de36c38
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 48b646881b12047b28490999a96326f6076af2c1
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461590"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591837"
 ---
 # <a name="migrate-your-iot-hub-from-operations-monitoring-to-azure-monitor-resource-logs"></a>Migrer votre IoT Hub de la surveillance des opérations vers les journaux de ressources Azure Monitor
 
-Les clients qui utilisent la [surveillance des opérations](iot-hub-operations-monitoring.md) pour suivre l’état des opérations dans IoT Hub peuvent migrer ce workflow vers les [journaux de ressources Azure Monitor](../azure-monitor/platform/platform-logs-overview.md), une fonctionnalité d’Azure Monitor. Les journaux de ressources fournissent des informations de diagnostic au niveau des ressources pour de nombreux services Azure.
+Les clients qui utilisent la [surveillance des opérations](iot-hub-operations-monitoring.md) pour suivre l’état des opérations dans IoT Hub peuvent migrer ce workflow vers les [journaux de ressources Azure Monitor](../azure-monitor/essentials/platform-logs-overview.md), une fonctionnalité d’Azure Monitor. Les journaux de ressources fournissent des informations de diagnostic au niveau des ressources pour de nombreux services Azure.
 
 **La fonctionnalité de surveillance des opérations d’IoT Hub est déconseillée** et a été supprimée du portail. Cet article montre les étapes à effectuer pour déplacer vos charges de travail de la surveillance des opérations vers les journaux de ressources Azure Monitor. Pour plus d’informations sur la chronologie de dépréciation, consultez l’article [Surveiller vos solutions Azure IoT avec Azure Monitor et Azure Resource Health](https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health/).
 
@@ -49,9 +49,9 @@ Pour mettre à jour votre IoT Hub dans le portail Azure, commencez par activer u
 
 1. Sélectionnez **Enregistrer** pour enregistrer les paramètres.
 
-Les nouveaux paramètres prennent effet au bout de 10 minutes environ. Après cela, les journaux apparaissent dans la destination configurée. Pour en savoir plus sur la configuration des diagnostics, consultez [Collecter et utiliser des données de journaux à partir de vos ressources Azure](../azure-monitor/platform/platform-logs-overview.md).
+Les nouveaux paramètres prennent effet au bout de 10 minutes environ. Après cela, les journaux apparaissent dans la destination configurée. Pour en savoir plus sur la configuration des diagnostics, consultez [Collecter et utiliser des données de journaux à partir de vos ressources Azure](../azure-monitor/essentials/platform-logs-overview.md).
 
-Pour obtenir des informations plus détaillées sur la procédure de création de paramètres de diagnostic, notamment avec PowerShell et Azure CLI, consultez [Paramètres de diagnostic](../azure-monitor/platform/diagnostic-settings.md) dans la documentation Azure Monitor.
+Pour obtenir des informations plus détaillées sur la procédure de création de paramètres de diagnostic, notamment avec PowerShell et Azure CLI, consultez [Paramètres de diagnostic](../azure-monitor/essentials/diagnostic-settings.md) dans la documentation Azure Monitor.
 
 ### <a name="turn-off-operations-monitoring"></a>Désactiver la surveillance des opérations
 

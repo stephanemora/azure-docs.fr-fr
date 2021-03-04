@@ -6,12 +6,12 @@ ms.author: brjones
 ms.service: notification-hubs
 ms.topic: article
 ms.date: 01/29/2021
-ms.openlocfilehash: b532dca6ceba44a32132bf64b322e1b4764fd5fa
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: b98a04a70062461cec603bea83052c4f1224819e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100416542"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101736234"
 ---
 # <a name="enable-diagnostics-logs-for-notification-hubs"></a>Activer les journaux de diagnostics pour Notification Hubs
 
@@ -141,8 +141,7 @@ Les nouveaux paramètres prennent effet au bout de 10 minutes environ. Les jour
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour en savoir plus sur la configuration des paramètres de diagnostics, consultez :
-* [Vue d’ensemble des journaux de diagnostics Azure](../azure-monitor/platform/platform-logs-overview.md).
+* [Vue d’ensemble des journaux de diagnostics Azure](../azure-monitor/essentials/platform-logs-overview.md).
 
 Pour en savoir plus sur Azure Notification Hubs, consultez :
 * [Présentation d’Azure Notification Hubs](notification-hubs-push-notification-overview.md)
-

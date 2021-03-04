@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 06/21/2018
 ms.author: allensu
-ms.openlocfilehash: ff205069c31d50813a4fad71a3c9e2f8e2462844
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: ccf55e0e3986de8afe23cb646d4df743b576900c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92778125"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101725320"
 ---
 # <a name="using-azure-cdn-with-sas"></a>Utilisation d’Azure CDN avec SAP
 
@@ -52,7 +52,7 @@ Pour plus d’informations sur la définition des paramètres, consultez [Consid
 
 Cette option est la plus simple. Elle utilise un jeton SAP unique, qui est passé d’Azure CDN au serveur d’origine.
  
-1. Sélectionnez un point de terminaison, sélectionnez **Règles de mise en cache** , puis sélectionnez **Mettre en cache chaque URL unique** dans la liste **Mise en cache de chaîne de requête** .
+1. Sélectionnez un point de terminaison, sélectionnez **Règles de mise en cache**, puis sélectionnez **Mettre en cache chaque URL unique** dans la liste **Mise en cache de chaîne de requête**.
 
     ![Règles de mise en cache de CDN](./media/cdn-sas-storage-support/cdn-caching-rules.png)
 
@@ -69,7 +69,7 @@ Cette option est la plus simple. Elle utilise un jeton SAP unique, qui est pass�
 
 ### <a name="option-2-hidden-cdn-sas-token-using-a-rewrite-rule"></a>Option n°2 : Jeton SAP CDN masqué utilisant une règle de réécriture
  
-Cette option est disponible uniquement pour les profils **Azure CDN Premium de Verizon** . Avec cette option, vous pouvez sécuriser le stockage blob sur le serveur d’origine. Vous pouvez utiliser cette option si vous n’avez pas besoin de restrictions d’accès spécifiques pour le fichier, mais que vous voulez empêcher les utilisateurs d’accéder à l’origine du stockage directement afin d’accélérer le temps de déchargement d’Azure CDN. Le jeton SAP, qui est inconnu de l’utilisateur, est nécessaire à quiconque accède aux fichiers dans le conteneur spécifié du serveur d’origine. Toutefois, en raison de la règle de réécriture d’URL, le jeton SAP n’est pas nécessaire sur le point de terminaison CDN.
+Cette option est disponible uniquement pour les profils **Azure CDN Premium de Verizon**. Avec cette option, vous pouvez sécuriser le stockage blob sur le serveur d’origine. Vous pouvez utiliser cette option si vous n’avez pas besoin de restrictions d’accès spécifiques pour le fichier, mais que vous voulez empêcher les utilisateurs d’accéder à l’origine du stockage directement afin d’accélérer le temps de déchargement d’Azure CDN. Le jeton SAP, qui est inconnu de l’utilisateur, est nécessaire à quiconque accède aux fichiers dans le conteneur spécifié du serveur d’origine. Toutefois, en raison de la règle de réécriture d’URL, le jeton SAP n’est pas nécessaire sur le point de terminaison CDN.
  
 1. Utilisez le [moteur de règles](./cdn-verizon-premium-rules-engine.md) pour créer une règle de réécriture d’URL. La propagation de nouvelles règles peut prendre jusqu’à 4 heures.
 
@@ -77,10 +77,10 @@ Cette option est disponible uniquement pour les profils **Azure CDN Premium de V
 
    ![Bouton de moteur de règles de CDN](./media/cdn-sas-storage-support/cdn-rules-engine-btn.png)
 
-   L’exemple de règle de réécriture d’URL suivant utilise un modèle d’expression régulière avec un groupe de capture et un point de terminaison nommé *sasstoragedemo*  :
+   L’exemple de règle de réécriture d’URL suivant utilise un modèle d’expression régulière avec un groupe de capture et un point de terminaison nommé *sasstoragedemo* :
    
    Source :   
-   `(container1\/.*)`
+   `(container1/.*)`
 
 
    Destination :   
@@ -100,7 +100,7 @@ Cette option est disponible uniquement pour les profils **Azure CDN Premium de V
 
 ### <a name="option-3-using-cdn-security-token-authentication-with-a-rewrite-rule"></a>Option 3 : Utilisation de l'authentification de jeton de sécurité de CDN avec une règle de réécriture
 
-Pour utiliser l’authentification de jeton de sécurité d’Azure CDN, vous devez avoir un profil **Azure CDN Premium de Verizon** . Cette option est la plus sécurisée et personnalisable. L’accès du client est basé sur les paramètres de sécurité que vous avez définis sur le jeton de sécurité. Une fois que vous aurez créé et configuré le jeton de sécurité, il sera nécessaire sur toutes les URL de point de terminaison CDN. Toutefois, en raison de la règle de réécriture d’URL, le jeton SAP n’est pas nécessaire sur le point de terminaison CDN. Si le jeton SAP devient non valide, Azure CDN ne peut plus revalider le contenu à partir du serveur d’origine.
+Pour utiliser l’authentification de jeton de sécurité d’Azure CDN, vous devez avoir un profil **Azure CDN Premium de Verizon**. Cette option est la plus sécurisée et personnalisable. L’accès du client est basé sur les paramètres de sécurité que vous avez définis sur le jeton de sécurité. Une fois que vous aurez créé et configuré le jeton de sécurité, il sera nécessaire sur toutes les URL de point de terminaison CDN. Toutefois, en raison de la règle de réécriture d’URL, le jeton SAP n’est pas nécessaire sur le point de terminaison CDN. Si le jeton SAP devient non valide, Azure CDN ne peut plus revalider le contenu à partir du serveur d’origine.
 
 1. [Créez un jeton de sécurité Azure CDN](./cdn-token-auth.md#setting-up-token-authentication) et activez-le à l’aide du moteur de règles pour le point de terminaison de CDN et du chemin où les utilisateurs peuvent accéder au fichier.
 
@@ -116,10 +116,10 @@ Pour utiliser l’authentification de jeton de sécurité d’Azure CDN, vous de
  
 2. Utilisez le [moteur de règles](./cdn-verizon-premium-rules-engine.md) pour créer une règle de réécriture d’URL visant à activer l’accès du jeton SAP à tous les objets blob dans le conteneur. La propagation de nouvelles règles peut prendre jusqu’à 4 heures.
 
-   L’exemple de règle de réécriture d’URL suivant utilise un modèle d’expression régulière avec un groupe de capture et un point de terminaison nommé *sasstoragedemo*  :
+   L’exemple de règle de réécriture d’URL suivant utilise un modèle d’expression régulière avec un groupe de capture et un point de terminaison nommé *sasstoragedemo* :
    
    Source :   
-   `(container1\/.*)`
+   `(container1/.*)`
    
    Destination :   
    ```
@@ -138,7 +138,7 @@ Azure CDN ne peut pas changer son comportement de remise en se basant sur les pa
 | --- | --- |
 | Démarrer | Heure à laquelle Azure CDN peut commencer à accéder au fichier blob. En raison des variations d’horloges (quand un signal d’horloge arrive à des moments différents pour différents composants), vous devez choisir une heure 15 minutes plus tôt si vous souhaitez que la ressource soit disponible immédiatement. |
 | End | Heure après laquelle Azure CDN ne peut plus accéder au fichier blob. Les fichiers précédemment mis en cache sur Azure CDN sont toujours accessibles. Pour contrôler le délai d’expiration de fichier, définissez le délai d’expiration approprié sur le jeton de sécurité Azure CDN ou nettoyez la ressource. |
-| Adresses IP autorisées | facultatif. Si vous utilisez **Azure CDN de Verizon** , vous pouvez affecter à ce paramètre les plages définies dans [Azure CDN from Verizon Edge Server IP Ranges (Plages d’adresses IP de serveur Edge Azure CDN de Verizon)](./cdn-pop-list-api.md). Si vous utilisez **CDN Azure d’Akamai** , vous ne pouvez pas définir le paramètre de plages IP, car les adresses IP ne sont pas statiques.|
+| Adresses IP autorisées | facultatif. Si vous utilisez **Azure CDN de Verizon**, vous pouvez affecter à ce paramètre les plages définies dans [Azure CDN from Verizon Edge Server IP Ranges (Plages d’adresses IP de serveur Edge Azure CDN de Verizon)](./cdn-pop-list-api.md). Si vous utilisez **CDN Azure d’Akamai**, vous ne pouvez pas définir le paramètre de plages IP, car les adresses IP ne sont pas statiques.|
 | Protocoles autorisés | Protocole(s) autorisé(s) pour une requête effectuée avec la SAP de compte. Le paramètre HTTPS est recommandé.|
 
 ## <a name="next-steps"></a>Étapes suivantes

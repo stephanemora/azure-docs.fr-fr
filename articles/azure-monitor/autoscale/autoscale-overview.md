@@ -4,12 +4,12 @@ description: Mise à l’échelle automatique dans Microsoft Azure
 ms.subservice: autoscale
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: bd7c1582cdb4b2b1b72d3f969ad08879d208785f
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 4727d562e21b92e58c8091f1161cf53198ff0b26
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100599267"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726000"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure"></a>Vue d’ensemble de la mise à l’échelle automatique dans Microsoft Azure
 Cet article décrit la mise à l’échelle automatique Microsoft Azure ainsi que ses avantages, et comment commencer à l’utiliser.  
@@ -90,8 +90,8 @@ La mise à l’échelle verticale est différente. Elle conserve le même nombre
 Vous pouvez configurer la mise à l’échelle automatique via
 
 * [Azure portal](autoscale-get-started.md)
-* [PowerShell](../samples/powershell-samples.md#create-and-manage-autoscale-settings)
-* [Interface de ligne de commande interplateforme (CLI)](../samples/cli-samples.md#autoscale)
+* [PowerShell](../powershell-samples.md#create-and-manage-autoscale-settings)
+* [Interface de ligne de commande interplateforme (CLI)](../cli-samples.md#autoscale)
 * [API REST Azure Monitor](/rest/api/monitor/autoscalesettings)
 
 ## <a name="supported-services-for-autoscale"></a>Services pris en charge pour la mise à l’échelle automatique

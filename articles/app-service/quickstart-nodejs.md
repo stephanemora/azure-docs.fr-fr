@@ -7,12 +7,15 @@ ms.date: 08/01/2020
 ms.custom: mvc, devcenter, seodec18
 zone_pivot_groups: app-service-platform-windows-linux
 adobe-target: true
-ms.openlocfilehash: b42abfda863ed38eb3c29004630f905edef075c4
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
+adobe-target-experience: Experience B
+adobe-target-content: ./quickstart-nodejs-uiex
+ms.openlocfilehash: 6c6f0543dcfbecd16ba4176272f928ffd0eb54de
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93359100"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735112"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Créer une application web Node.js dans Azure
 
@@ -59,7 +62,7 @@ Commencez avec Azure App Service en créant une application Node.js/Express loca
 
 Dans cette section, vous déployez votre application Node.js sur Azure à l’aide de VS Code et de l’extension Azure App Service.
 
-1. Dans le terminal, vérifiez que vous vous trouvez dans le dossier *nodejs-docs-hello-world* , puis démarrez Visual Studio Code à l’aide de la commande suivante :
+1. Dans le terminal, vérifiez que vous vous trouvez dans le dossier *nodejs-docs-hello-world*, puis démarrez Visual Studio Code à l’aide de la commande suivante :
 
     ```bash
     code .
@@ -69,7 +72,7 @@ Dans cette section, vous déployez votre application Node.js sur Azure à l’ai
 
     ![Connexion à Azure](media/quickstart-nodejs/sign-in.png)
 
-1. Dans l’explorateur **AZURE APP SERVICE** de VS Code, sélectionnez l’icône représentant une flèche bleue pointant vers le haut pour déployer votre application sur Azure. (Vous pouvez également appeler la même commande à partir de la **palette de commandes** ( **Ctrl**+**Maj**+**P** ) en tapant « déployer sur l’application web » et en choisissant **Azure App Service : Déployer sur l’application web** ).
+1. Dans l’explorateur **AZURE APP SERVICE** de VS Code, sélectionnez l’icône représentant une flèche bleue pointant vers le haut pour déployer votre application sur Azure. (Vous pouvez également appeler la même commande à partir de la **palette de commandes** (**Ctrl**+**Maj**+**P**) en tapant « déployer sur l’application web » et en choisissant **Azure App Service : Déployer sur l’application web**).
 
     :::image type="content" source="media/quickstart-nodejs/deploy.png" alt-text="Capture d’écran d’Azure App Service dans VS Code montrant l’icône de flèche bleue sélectionnée.":::
         
@@ -87,7 +90,7 @@ Dans cette section, vous déployez votre application Node.js sur Azure à l’ai
 1. Si vous ciblez Windows, suivez les invites supplémentaires :
     1. Sélectionnez **Créer un groupe de ressources** et entrez un nom pour le groupe de ressources, par exemple `AppServiceQS-rg`.
     1. Sélectionnez **Windows** comme système d’exploitation.
-    1. Sélectionnez **Créer un plan App Service** , entrez un nom pour le plan (par exemple, `AppServiceQS-plan`), puis sélectionnez le niveau tarifaire **F1 Gratuit**.
+    1. Sélectionnez **Créer un plan App Service**, entrez un nom pour le plan (par exemple, `AppServiceQS-plan`), puis sélectionnez le niveau tarifaire **F1 Gratuit**.
     1. À l’invite Application Insights, choisissez **Ignorer pour le moment**.
     1. Choisissez une région près de chez vous ou à proximité des ressources auxquelles vous souhaitez accéder.
 
@@ -97,13 +100,13 @@ Dans cette section, vous déployez votre application Node.js sur Azure à l’ai
 
     ![Invite concernant la mise à jour de la configuration sur le serveur Linux cible](media/quickstart-nodejs/server-build.png)
 
-1. Sélectionnez **Oui** quand le message suivant s’affiche : **Toujours déployer l’espace de travail "nodejs-docs-hello-world" sur (nom de l’application)"** . Quand vous sélectionnez **Oui** , vous indiquez à VS Code de cibler automatiquement la même application web App Service pour les déploiements suivants.
+1. Sélectionnez **Oui** quand le message suivant s’affiche : **Toujours déployer l’espace de travail "nodejs-docs-hello-world" sur (nom de l’application)"** . Quand vous sélectionnez **Oui**, vous indiquez à VS Code de cibler automatiquement la même application web App Service pour les déploiements suivants.
 
 1. Si vous effectuez le déploiement sur Linux, à l’issue du déploiement, sélectionnez **Parcourir le site Web** dans l’invite pour voir l’application web que vous venez de déployer. Le navigateur doit afficher le message « Hello World! ».
 
 1. Si vous effectuez le déploiement sur Windows, vous devez d’abord définir le numéro de version Node.js pour l’application web :
 
-    1. Dans VS Code, développez le nœud de votre nouveau service d’application, cliquez avec le bouton droit sur **Paramètres de l’application** , puis sélectionnez **Ajouter un nouveau paramètre...**  :
+    1. Dans VS Code, développez le nœud de votre nouveau service d’application, cliquez avec le bouton droit sur **Paramètres de l’application**, puis sélectionnez **Ajouter un nouveau paramètre...**  :
 
         ![Commande d’ajout de paramètre d’application](media/quickstart-nodejs/add-setting.png)
 
@@ -137,7 +140,7 @@ Pour déployer les modifications apportées à cette application, vous pouvez ef
 
 Vous pouvez voir la sortie de journal (appels à `console.log`) à partir de l’application directement dans la fenêtre de sortie de VS Code.
 
-1. Dans l’explorateur **AZURE APP SERVICE** , cliquez avec le bouton droit sur le nœud de l’application, puis choisissez **Commencer le streaming des journaux**.
+1. Dans l’explorateur **AZURE APP SERVICE**, cliquez avec le bouton droit sur le nœud de l’application, puis choisissez **Commencer le streaming des journaux**.
 
     ![Commencer le streaming des journaux](media/quickstart-nodejs/view-logs.png)
 
@@ -263,12 +266,12 @@ Tout d’abord, ouvrez le dossier de votre application dans VS Code.
 code .
 ```
 
-Dans l’explorateur **AZURE APP SERVICE** , sélectionnez l’icône représentant une flèche bleue pointant vers le haut pour déployer votre application sur Azure.
+Dans l’explorateur **AZURE APP SERVICE**, sélectionnez l’icône représentant une flèche bleue pointant vers le haut pour déployer votre application sur Azure.
 
 :::image type="content" source="./media/quickstart-nodejs/deploy.png" alt-text="Capture d’écran du menu Azure App Service dans Visual Studio Code avec la flèche bleue Déployer sélectionnée.":::
 
 > [!TIP]
-> Vous pouvez également effectuer le déploiement à partir de la **palette de commandes** (Ctrl + Maj + P) en tapant « déployer sur l'application web » et en exécutant l’ **Azure App Service : Commande Déployer sur l'application web**.
+> Vous pouvez également effectuer le déploiement à partir de la **palette de commandes** (Ctrl + Maj + P) en tapant « déployer sur l'application web » et en exécutant l’**Azure App Service : Commande Déployer sur l'application web**.
 
 1. Choisissez le répertoire actuellement ouvert, `myExpressApp`.
 
@@ -310,7 +313,7 @@ Vous pouvez déployer les modifications apportées à cette application en utili
 
 Dans cette section, vous allez apprendre à visionner les journaux à partir de l’application App Service en cours d’exécution. Tous les appels à `console.log` dans l’application sont affichés dans la fenêtre de résultats de Visual Studio Code.
 
-Recherchez l’application dans l'explorateur **AZURE APP SERVICE** , cliquez avec le bouton droit de la souris sur l’application, puis choisissez **Afficher les journaux d’activité de diffusion en continu**.
+Recherchez l’application dans l'explorateur **AZURE APP SERVICE**, cliquez avec le bouton droit de la souris sur l’application, puis choisissez **Afficher les journaux d’activité de diffusion en continu**.
 
 La fenêtre de résultats de VS Code s’ouvre avec une connexion au flux de journaux.
 

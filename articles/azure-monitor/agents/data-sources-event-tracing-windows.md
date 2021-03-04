@@ -7,20 +7,20 @@ ms.topic: conceptual
 ms.author: jamesfit
 author: jimmyfit
 ms.date: 01/29/2021
-ms.openlocfilehash: 6239cf48794c74c5dd810fda42476df399300578
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d0ded409d76d0b26a76aebb47b8de8f6143ceba5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100599128"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719897"
 ---
 # <a name="collecting-event-tracing-for-windows-etw-events-for-analysis-azure-monitor-logs"></a>Collecte d’événements ETW (Suivi d’événements pour Windows) pour l’analyse des journaux Azure Monitor
 
-La fonctionnalité *Suivi d’événements pour Windows (ETW)* fournit un mécanisme pour l’instrumentation des applications en mode utilisateur et des pilotes en mode noyau. L’agent Log Analytics est utilisé pour [collecter les événements Windows](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-windows-events) écrits sur les [canaux ETW](https://docs.microsoft.com/windows/win32/wes/eventmanifestschema-channeltype-complextype) administratif et opérationnel. Toutefois, il est parfois nécessaire de capturer et d’analyser d’autres événements, tels que ceux écrits dans le canal d’analyse.  
+La fonctionnalité *Suivi d’événements pour Windows (ETW)* fournit un mécanisme pour l’instrumentation des applications en mode utilisateur et des pilotes en mode noyau. L’agent Log Analytics est utilisé pour [collecter les événements Windows](./data-sources-windows-events.md) écrits sur les [canaux ETW](/windows/win32/wes/eventmanifestschema-channeltype-complextype) administratif et opérationnel. Toutefois, il est parfois nécessaire de capturer et d’analyser d’autres événements, tels que ceux écrits dans le canal d’analyse.  
 
 ## <a name="event-flow"></a>Flux d’événements
 
-Pour collecter avec succès les [événements ETW basés sur un manifeste](https://docs.microsoft.com/windows/win32/etw/about-event-tracing#types-of-providers) pour analyse dans des journaux d’activité Azure Monitor, vous devez utiliser [l’extension de diagnostic Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-overview) pour Windows (WAD). Dans ce scénario, l’extension de diagnostic joue le rôle de consommateur ETW, en écrivant des événements dans Stockage Azure (tables) en tant que magasin intermédiaire. Ici, il est stocké dans une table nommée **WADETWEventTable**. Log Analytics collecte ensuite les données de la table à partir de Stockage Azure, en les présentant sous la forme d’une table nommée **ETWEvent**.
+Pour collecter avec succès les [événements ETW basés sur un manifeste](/windows/win32/etw/about-event-tracing#types-of-providers) pour analyse dans des journaux d’activité Azure Monitor, vous devez utiliser [l’extension de diagnostic Azure](./diagnostics-extension-overview.md) pour Windows (WAD). Dans ce scénario, l’extension de diagnostic joue le rôle de consommateur ETW, en écrivant des événements dans Stockage Azure (tables) en tant que magasin intermédiaire. Ici, il est stocké dans une table nommée **WADETWEventTable**. Log Analytics collecte ensuite les données de la table à partir de Stockage Azure, en les présentant sous la forme d’une table nommée **ETWEvent**.
 
 ![Flux d’événements](./media/data-sources-event-tracing-windows/event-flow.png)
 
@@ -46,7 +46,7 @@ Enregistrez le nom et le GUID du fournisseur d’ETW qui s’aligne sur le journ
 
 ### <a name="step-2-diagnostics-extension"></a>Étape 2 : Extension Diagnostics
 
-Assurez-vous que l’*extension de diagnostic Windows* est [installée](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-windows-install#install-with-azure-portal) sur tous les systèmes sources.
+Assurez-vous que l’*extension de diagnostic Windows* est [installée](./diagnostics-extension-windows-install.md#install-with-azure-portal) sur tous les systèmes sources.
 
 ### <a name="step-3-configure-etw-log-collection"></a>Étape 3 : Configurer la collecte des journaux ETW
 
@@ -58,13 +58,13 @@ Assurez-vous que l’*extension de diagnostic Windows* est [installée](https://
 
 4. Définissez le GUID du fournisseur ou la classe de fournisseur en fonction du fournisseur pour lequel vous configurez la collecte.
 
-5. Définissez le [**niveau de journalisation**](https://docs.microsoft.com/windows/win32/etw/configuring-and-starting-an-event-tracing-session) comme il convient.
+5. Définissez le [**niveau de journalisation**](/windows/win32/etw/configuring-and-starting-an-event-tracing-session) comme il convient.
 
 6. Cliquez sur les points de suspension adjacents au fournisseur fourni, puis cliquez sur **Configurer**.
 
 7. Vérifiez que la **table de destination par défaut** est définie sur **etweventtable**.
 
-8. Définissez un [**filtre de mots clés**](https://docs.microsoft.com/windows/win32/wes/defining-keywords-used-to-classify-types-of-events) si nécessaire.
+8. Définissez un [**filtre de mots clés**](/windows/win32/wes/defining-keywords-used-to-classify-types-of-events) si nécessaire.
 
 9. Enregistrez les paramètres du fournisseur et du journal.
 
@@ -72,8 +72,8 @@ Une fois que les événements correspondants sont générés, vous devriez comme
 
 ### <a name="step-4-configure-log-analytics-storage-account-collection"></a>Étape 4 : Configurer la collecte de comptes de stockage Log Analytics
 
-Suivez [ces instructions](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-logs#collect-logs-from-azure-storage) pour collecter les journaux à partir de Stockage Azure. Une fois configurées, les données d’événement ETW doivent apparaître dans Log Analytics sous la table **ETWEvent**.
+Suivez [ces instructions](/azure/azure-monitor/agents/diagnostics-extension-logs#collect-logs-from-azure-storage) pour collecter les journaux à partir de Stockage Azure. Une fois configurées, les données d’événement ETW doivent apparaître dans Log Analytics sous la table **ETWEvent**.
 
 ## <a name="next-steps"></a>Étapes suivantes
-- Utilisez des [champs personnalisés](https://docs.microsoft.com/azure/azure-monitor/platform/custom-fields) pour créer une structure dans vos événements ETW.
-- Découvrez les [requêtes dans les journaux](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) pour analyser les données collectées à partir de sources de données et de solutions.
+- Utilisez des [champs personnalisés](../logs/custom-fields.md) pour créer une structure dans vos événements ETW.
+- Découvrez les [requêtes dans les journaux](../logs/log-query-overview.md) pour analyser les données collectées à partir de sources de données et de solutions.

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/30/2020
+ms.date: 02/22/2021
 ms.author: baselden
 author: justinha
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24d04c148e8a96e3b1d72c5301f6226df6d9a569
-ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
+ms.openlocfilehash: dc5916cf4277935f6d7d7f453fd4dd76d7909ef2
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100530346"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101651125"
 ---
 # <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Planifier un déploiement d’authentification sans mot de passe dans Azure Active Directory
 
@@ -149,7 +149,7 @@ Il existe trois types de déploiements de connexion sans mot de passe disponible
 
 -    Applications web Azure Active Directory sur un navigateur pris en charge
 -    Appareils Windows 10 joints à Azure Active Directory
--    Appareils Windows 10 joints à Azure Active Directory hybride (préversion)
+-    Appareils Windows 10 joints à Azure Active Directory hybride
      -    Donne accès aux ressources informatiques et locales. Pour plus d’informations sur l’accès aux ressources locales, consultez [Authentification unique auprès de ressources locales à l’aide de clés FIDO2](./howto-authentication-passwordless-security-key-on-premises.md).
 
 Vous devez activer le paramètre **Clés de sécurité FIDO2 compatibles**. Microsoft a annoncé des [partenariats clés avec des fournisseurs de clés FIDO2](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Microsoft-passwordless-partnership-leads-to-innovation-and-great/ba-p/566493).
@@ -193,7 +193,7 @@ L’activation de la connexion Windows 10 au moyen de clés de sécurité FIDO2
 
 #### <a name="enable-on-premises-integration"></a>Activer l’intégration locale
 
-Pour permettre l'accès aux ressources locales, suivez les étapes de la section [Activer la connexion avec clé de sécurité sans mot de passe à des ressources locales (préversion)](howto-authentication-passwordless-security-key-on-premises.md).
+Pour permettre l’accès aux ressources locales, suivez les étapes de la section [Activer la connexion avec clé de sécurité sans mot de passe à des ressources locales](howto-authentication-passwordless-security-key-on-premises.md).
 
 > [!IMPORTANT]
 > Ces étapes doivent également être effectuées pour que tout appareil Azure AD Hybride joint utilise les clés de sécurité FIDO2 pour l'ouverture de session Windows 10.

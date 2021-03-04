@@ -236,7 +236,7 @@
         - name: Superviser (classique)
           items:
             - name: Superviser dans le portail Azure (classique)
-              href: ../common/storage-monitor-storage-account.md??toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+              href: ../common/manage-storage-analytics-logs.md??toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Dépanner
       items:
         - name: Problèmes de latence

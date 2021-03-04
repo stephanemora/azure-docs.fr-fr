@@ -1,17 +1,15 @@
 ---
 title: Simuler des défaillances dans les microservices Azure
 description: Cet article présente les actions de testabilité de Microsoft Azure Service Fabric.
-author: georgewallace
 ms.topic: conceptual
 ms.date: 06/07/2017
-ms.author: gwallace
 ms.custom: devx-track-csharp
-ms.openlocfilehash: aea918f75ad9c8aa58b5201d2fdd967794085438
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: c57f54096a9593f5ab25a5722d3f2d2b9878b511
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100547075"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595018"
 ---
 # <a name="testability-actions"></a>Actions de testabilité
 Pour simuler une infrastructure non fiable, Azure Service Fabric procure aux développeurs, autrement dit à vous, des moyens d’intégrer des défaillances et des transitions d’état réalistes. Elles sont exposées en tant qu’actions de testabilité. Les actions sont les API de bas niveau provoquant l’injection des erreurs, la transition entre les états ou la validation. En combinant ces actions, vous êtes en mesure d’écrire des scénarios de test complets pour vos services.

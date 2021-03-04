@@ -3,12 +3,12 @@ title: Classeur avec les temps d’arrêt, les contrats SLA et les interruptions
 description: Calculez et indiquez le SLA pour les tests web via un seul et même volet pour vos ressources Application Insights et vos abonnements Azure.
 ms.topic: conceptual
 ms.date: 02/8/2021
-ms.openlocfilehash: 884d65d10ab0360957360efa8bf9dc4cac59949b
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.openlocfilehash: d225627a27bffd9088956e5aee37ca543e528d4a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99989172"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714049"
 ---
 # <a name="downtime-sla-and-outages-workbook"></a>Classeur avec les temps d’arrêt, les contrats SLA et les interruptions
 
@@ -51,13 +51,13 @@ L’onglet **Interruptions et temps d’arrêt** contient des informations sur l
 
 ## <a name="edit-the-report"></a>Modifier le rapport
 
-Vous pouvez modifier le rapport comme n’importe quel autre [classeur Azure Monitor](../platform/workbooks-overview.md). Vous pouvez personnaliser les requêtes ou les visualisations en fonction des besoins de votre équipe.
+Vous pouvez modifier le rapport comme n’importe quel autre [classeur Azure Monitor](../visualize/workbooks-overview.md). Vous pouvez personnaliser les requêtes ou les visualisations en fonction des besoins de votre équipe.
 
 :::image type="content" source="./media/sla-report/edit.gif" alt-text=" GIF de la sélection du bouton Modifier pour changer la visualisation en un graphique à secteurs." lightbox="./media/sla-report/edit.gif":::
 
 ### <a name="log-analytics"></a>Log Analytics
 
-Les requêtes peuvent toutes être exécutées dans [Log Analytics](../log-query/log-analytics-overview.md) et être utilisées dans d’autres rapports ou tableaux de bord. Supprimez la restriction du paramètre et réutilisez la requête principale.
+Les requêtes peuvent toutes être exécutées dans [Log Analytics](../logs/log-analytics-overview.md) et être utilisées dans d’autres rapports ou tableaux de bord. Supprimez la restriction du paramètre et réutilisez la requête principale.
 
 :::image type="content" source="./media/sla-report/logs.gif" alt-text=" GIF d’une requête de journal." lightbox="./media/sla-report/logs.gif":::
 
@@ -69,6 +69,6 @@ Le rapport peut être partagé avec vos équipes ou votre direction, ou épingl�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Conseils d’optimisation des requêtes Log Analytics](../log-query/query-optimization.md)
-- Découvrez comment [créer un graphique dans les classeurs](../platform/workbooks-chart-visualizations.md).
+- [Conseils d’optimisation des requêtes Log Analytics](../logs/query-optimization.md)
+- Découvrez comment [créer un graphique dans les classeurs](../visualize/workbooks-chart-visualizations.md).
 - Découvrez comment superviser votre site web avec des [tests de disponibilité](monitor-web-app-availability.md).

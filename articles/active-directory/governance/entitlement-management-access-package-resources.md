@@ -16,12 +16,12 @@ ms.date: 12/14/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82247ae9817e5ff2e26d0862230654021876406b
-ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
+ms.openlocfilehash: 65f69cf492ec3e28d7f4aa86971dc6c91b34bdf5
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99223269"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101644173"
 ---
 # <a name="change-resource-roles-for-an-access-package-in-azure-ad-entitlement-management"></a>Changer les rôles de ressources pour un package d’accès dans la gestion des droits d’utilisation d’Azure Active Directory
 
@@ -144,13 +144,9 @@ Azure AD peut automatiquement donner aux utilisateurs l'accès à un site ShareP
 
 1. Sur la page **Ajouter des rôles de ressources à un package d'accès**, cliquez sur **Sites SharePoint** pour ouvrir le volet Sélectionner les sites SharePoint Online.
 
-    :::image type="content" source="media/entitlement-management-access-package-resources/sharepoint-multigeo-portal.png" alt-text="Package d’accès – Ajouter des rôles de ressources – Sélectionner les sites SharePoint – Vue du portail":::
+    :::image type="content" source="media/entitlement-management-access-package-resources/resource-sharepoint-add.png" alt-text="Package d’accès – Ajouter des rôles de ressources – Sélectionner les sites SharePoint – Vue du portail":::
 
-1. Si les capacités [multigéographiques](https://docs.microsoft.com/microsoft-365/enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-microsoft-365?view=o365-worldwide) sont activées pour SharePoint, sélectionnez l’environnement à partir duquel vous souhaitez sélectionner des sites.
-    
-    :::image type="content" source="media/entitlement-management-access-package-resources/sharepoint-multigeo-select.png" alt-text="Package d’accès – Ajouter des rôles de ressources – Sélectionner des sites multigéographiques SharePoint":::
-
-1. Si les capacités multigéographiques ne sont pas activées, vous n’avez pas besoin de sélectionner un environnement. Sélectionnez les sites SharePoint Online que vous voulez inclure dans le package d'accès.
+1. Sélectionnez les sites SharePoint Online que vous voulez inclure dans le package d'accès.
 
     ![Package d'accès - Ajouter des rôles de ressources - Sélectionner les sites SharePoint Online](./media/entitlement-management-access-package-resources/sharepoint-site-select.png)
 

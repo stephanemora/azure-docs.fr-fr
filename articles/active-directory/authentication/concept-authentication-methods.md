@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/22/2021
+ms.date: 02/22/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: 1459dd41fcdc30a29a5f9f93ec9704083767a342
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 0bbaf5fa4f3404b0e4fdb4dc016b703c58910457
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98725669"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101652077"
 ---
 # <a name="what-authentication-and-verification-methods-are-available-in-azure-active-directory"></a>Quelles sont les méthodes d’authentification et de vérification disponibles dans Microsoft Azure Active Directory ?
 
@@ -42,8 +42,8 @@ Le tableau suivant décrit les considérations relatives à la sécurité pour l
 |--------------------------------|:--------:|:---------:|:------------:|
 | Windows Hello Entreprise     | Élevé     | Élevé      | Élevé         |
 | Application Microsoft Authenticator    | Élevé     | Élevé      | Élevé         |
-| Clés de sécurité FIDO2 (préversion)   | Élevé     | Élevé      | Élevé         |
-| Jetons matériels OATH (version préliminaire) | Moyenne   | Moyenne    | Élevé         |
+| Clé de sécurité FIDO2             | Élevé     | Élevé      | Élevé         |
+| Jetons matériels OATH           | Moyenne   | Moyenne    | Élevé         |
 | Jetons logiciels OATH           | Moyenne   | Moyenne    | Élevé         |
 | SMS                            | Moyenne   | Élevé      | Moyenne       |
 | Voix                          | Moyenne   | Moyenne    | Moyenne       |
@@ -66,9 +66,9 @@ Le tableau suivant décrit quand une méthode d’authentification peut être ut
 | Méthode                         | Authentification principale | Authentification secondaire  |
 |--------------------------------|:----------------------:|:-------------------------:|
 | Windows Hello Entreprise     | Oui                    | MFA                       |
-| Application Microsoft Authenticator    | Oui (préversion)          | Authentification multifacteur et réinitialisation de mot de passe en libre-service              |
-| Clés de sécurité FIDO2 (préversion)   | Oui                    | MFA                       |
-| Jetons matériels OATH (version préliminaire) | Non                     | MFA                       |
+| Application Microsoft Authenticator    | Oui                    | Authentification multifacteur et réinitialisation de mot de passe en libre-service              |
+| Clé de sécurité FIDO2             | Oui                    | MFA                       |
+| Jetons matériels OATH           | Non                     | MFA                       |
 | Jetons logiciels OATH           | Non                     | MFA                       |
 | SMS                            | Oui                    | Authentification multifacteur et réinitialisation de mot de passe en libre-service              |
 | Appel vocal                     | Non                     | Authentification multifacteur et réinitialisation de mot de passe en libre-service              |
@@ -80,8 +80,8 @@ Pour en savoir plus sur le fonctionnement de chaque méthode d’authentificatio
 
 * [Windows Hello Entreprise](/windows/security/identity-protection/hello-for-business/hello-overview)
 * [Application Microsoft Authenticator](concept-authentication-authenticator-app.md)
-* [Clés de sécurité FIDO2 (préversion)](concept-authentication-passwordless.md#fido2-security-keys)
-* [Jetons matériels OATH (version préliminaire)](concept-authentication-oath-tokens.md#oath-hardware-tokens-preview)
+* [Clé de sécurité FIDO2](concept-authentication-passwordless.md#fido2-security-keys)
+* [Jetons matériels OATH](concept-authentication-oath-tokens.md#oath-hardware-tokens)
 * [Jetons logiciels OATH](concept-authentication-oath-tokens.md#oath-software-tokens)
 * [Connexion SMS](howto-authentication-sms-signin.md) et [vérification](concept-authentication-phone-options.md#mobile-phone-verification)
 * [Vérification par appel téléphonique](concept-authentication-phone-options.md)

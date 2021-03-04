@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 10/09/2020
+ms.date: 02/22/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7309d9d32eba5cae350bbe8a1df325dfb2ab0c8
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 7fafeae02bce001d473b0ed916624046a559a795
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96744361"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101648796"
 ---
 # <a name="authentication-methods-in-azure-active-directory---microsoft-authenticator-app"></a>Méthodes d’authentification dans Azure Active Directory - Application Microsoft Authenticator
 
@@ -23,7 +23,7 @@ L’application Microsoft Authenticator fournit un niveau de sécurité supplém
 
 Les utilisateurs peuvent recevoir une notification par le biais de l’application mobile leur permettant d’accepter ou de refuser. Ils peuvent également utiliser l’application Authenticator pour générer un code de vérification OATH pouvant être entré dans une interface de connexion. Si vous activez à la fois la notification et le code de vérification, les utilisateurs s’enregistrant sur l’application Authenticator peuvent utiliser une des deux méthodes pour vérifier leur identité.
 
-Pour utiliser l’application Authenticator dans une invite de connexion au lieu de la combinaison nom d’utilisateur/mot de passe, consultez [Activer la connexion sans mot de passe avec l'application Microsoft Authenticator (préversion)](howto-authentication-passwordless-phone.md).
+Pour utiliser l’application Authenticator dans une invite de connexion au lieu de la combinaison nom d’utilisateur/mot de passe, consultez [Activer la connexion sans mot de passe avec l’application Microsoft Authenticator](howto-authentication-passwordless-phone.md).
 
 > [!NOTE]
 > Les utilisateurs n’ont pas la possibilité d’enregistrer leur application mobile lorsqu’ils activent la réinitialisation de mot de passe en libre-service. En revanche, les utilisateurs peuvent inscrire leur application mobile sur [https://aka.ms/mfasetup](https://aka.ms/mfasetup) ou dans le cadre de l’inscription d’informations de sécurité combinée sur [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo).
@@ -34,7 +34,7 @@ Au lieu d’obtenir une invite de mot de passe après avoir entré un nom d’ut
 
 ![Exemple de connexion dans un navigateur demandant à l’utilisateur d’approuver la connexion](./media/howto-authentication-passwordless-phone/phone-sign-in-microsoft-authenticator-app.png)
 
-Cette méthode d’authentification offre un niveau élevé de sécurité et évite à l’utilisateur de fournir un mot de passe lors de la connexion. La connexion avec le mot de passe à l’aide de l’application Microsoft Authenticator est actuellement disponible en préversion.
+Cette méthode d’authentification offre un niveau élevé de sécurité et évite à l’utilisateur de fournir un mot de passe lors de la connexion. 
 
 Pour commencer à utiliser la connexion sans mot de passe, consultez [Activer la connexion sans mot de passe avec l'application Microsoft Authenticator](howto-authentication-passwordless-phone.md).
 

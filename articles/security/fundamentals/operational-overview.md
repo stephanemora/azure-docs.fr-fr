@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2019
 ms.author: tomsh
-ms.openlocfilehash: c3674b6877438a0dd4fe53569cf6852e872334a7
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: 4bc30fbf342a9bc85b52c9f88ce7ca1df3c36e23
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98693610"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595492"
 ---
 # <a name="azure-operational-security-overview"></a>Vue d’ensemble d’Azure Operational Security
 
@@ -94,7 +94,7 @@ Security Center évalue la configuration de vos ressources pour identifier les v
 >[!Note]
 >Pour plus d’informations sur les rôles et les actions autorisées dans Security Center, consultez [Permissions in Azure Security Center (Autorisations dans Azure Security Center)](../../security-center/security-center-permissions.md).
 
-Security Center utilise Microsoft Monitoring Agent. Il s’agit du même agent que celui utilisé par le service Azure Monitor. Les données collectées par cet agent sont stockées dans un [espace de travail](../../azure-monitor/platform/manage-access.md) Log Analytics associé à votre abonnement Azure ou dans un nouvel espace de travail, selon l’emplacement géographique de la machine virtuelle.
+Security Center utilise Microsoft Monitoring Agent. Il s’agit du même agent que celui utilisé par le service Azure Monitor. Les données collectées par cet agent sont stockées dans un [espace de travail](../../azure-monitor/logs/manage-access.md) Log Analytics associé à votre abonnement Azure ou dans un nouvel espace de travail, selon l’emplacement géographique de la machine virtuelle.
 
 ## <a name="azure-monitor"></a>Azure Monitor
 
@@ -108,23 +108,23 @@ Azure Monitor comprend les composants suivants :
 
 ### <a name="azure-activity-log"></a>Journaux d’activité
 
-Le [journal d’activité Azure](../../azure-monitor/platform/platform-logs-overview.md) fournit des informations sur les opérations qui ont été effectuées sur les ressources de votre abonnement. Il était auparavant appelé « journal d’audit » ou « journal des opérations », car il indique les événements de plan de contrôle concernant vos abonnements.
+Le [journal d’activité Azure](../../azure-monitor/essentials/platform-logs-overview.md) fournit des informations sur les opérations qui ont été effectuées sur les ressources de votre abonnement. Il était auparavant appelé « journal d’audit » ou « journal des opérations », car il indique les événements de plan de contrôle concernant vos abonnements.
 
 ### <a name="azure-diagnostic-logs"></a>Journaux de diagnostic Azure
 
-Les [journaux de diagnostic Azure](../../azure-monitor/platform/platform-logs-overview.md) sont générés par une ressource et fournissent des informations complètes et fréquentes sur le fonctionnement de cette ressource. Le contenu de ces journaux d’activité varie en fonction du type de ressource.
+Les [journaux de diagnostic Azure](../../azure-monitor/essentials/platform-logs-overview.md) sont générés par une ressource et fournissent des informations complètes et fréquentes sur le fonctionnement de cette ressource. Le contenu de ces journaux d’activité varie en fonction du type de ressource.
 
 Les journaux d’activité système des événements Windows sont une catégorie de journaux de diagnostic pour les machines virtuelles. Les journaux d’activité d’objet blob, de table et de file d’attente sont des catégories de journaux de diagnostic pour les comptes de stockage.
 
-Les journaux de diagnostic sont différents du [journal d’activité](../../azure-monitor/platform/platform-logs-overview.md). Le journal d’activité fournit des informations sur les opérations qui ont été effectuées sur les ressources de votre abonnement. Les journaux de diagnostic fournissent des informations détaillées sur les opérations effectuées par votre ressource.
+Les journaux de diagnostic sont différents du [journal d’activité](../../azure-monitor/essentials/platform-logs-overview.md). Le journal d’activité fournit des informations sur les opérations qui ont été effectuées sur les ressources de votre abonnement. Les journaux de diagnostic fournissent des informations détaillées sur les opérations effectuées par votre ressource.
 
 ### <a name="metrics"></a>Mesures
 
-Azure Monitor vous fournit des données de télémétrie qui vous offrent une visibilité sur les performances et l’intégrité de vos charges de travail sur Azure. Les [métriques](../../azure-monitor/platform/data-platform.md) (aussi appelées compteurs de performances) générées par la plupart des ressources Azure sont les données de télémétrie Azure les plus importantes. Azure Monitor propose plusieurs façons de configurer et d’utiliser ces mesures pour l’analyse et le dépannage.
+Azure Monitor vous fournit des données de télémétrie qui vous offrent une visibilité sur les performances et l’intégrité de vos charges de travail sur Azure. Les [métriques](../../azure-monitor/data-platform.md) (aussi appelées compteurs de performances) générées par la plupart des ressources Azure sont les données de télémétrie Azure les plus importantes. Azure Monitor propose plusieurs façons de configurer et d’utiliser ces mesures pour l’analyse et le dépannage.
 
 ### <a name="azure-diagnostics"></a>Diagnostics Azure
 
-Diagnostics Azure autorise la collecte de données de diagnostic sur une application déployée. Vous pouvez utiliser l’extension Diagnostics de différentes sources. Les sources actuellement prises en charge sont les [rôles de service cloud Azure](/visualstudio/azure/vs-azure-tools-configure-roles-for-cloud-service), les [machines virtuelles Azure](/visualstudio/azure/vs-azure-tools-configure-roles-for-cloud-service) exécutant Microsoft Windows et [Azure Service Fabric](../../azure-monitor/platform/diagnostics-extension-overview.md).
+Diagnostics Azure autorise la collecte de données de diagnostic sur une application déployée. Vous pouvez utiliser l’extension Diagnostics de différentes sources. Les sources actuellement prises en charge sont les [rôles de service cloud Azure](/visualstudio/azure/vs-azure-tools-configure-roles-for-cloud-service), les [machines virtuelles Azure](/visualstudio/azure/vs-azure-tools-configure-roles-for-cloud-service) exécutant Microsoft Windows et [Azure Service Fabric](../../azure-monitor/agents/diagnostics-extension-overview.md).
 
 ## <a name="azure-network-watcher"></a>Azure Network Watcher
 

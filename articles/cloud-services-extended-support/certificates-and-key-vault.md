@@ -8,16 +8,16 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 9e69b4e9279f9147c2ee13d42a42aec0c5a15d96
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: d9ff86eeb0e64e7edbad0eeca51b04cabbd191e9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98743922"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101722651"
 ---
 # <a name="use-certificates-with-azure-cloud-services-extended-support"></a>Utiliser des certificats avec Azure Cloud Services (support étendu)
 
-Key Vault est utilisé pour stocker les certificats associés aux services cloud (support étendu). Vous pouvez créer des coffres de clés par le biais du [portail Azure](https://docs.microsoft.com/azure/key-vault/general/quick-create-portal) et de [PowerShell](https://docs.microsoft.com/azure/key-vault/general/quick-create-powershell). Ajoutez les certificats à Key Vault, puis référencez leurs empreintes dans le fichier de configuration de service. Vous devez également octroyer à Key Vault les autorisations appropriées afin que la ressource Cloud Services (support étendu) puisse récupérer les certificats stockés sous forme de secrets à partir de Key Vault.  
+Key Vault est utilisé pour stocker les certificats associés aux services cloud (support étendu). Vous pouvez créer des coffres de clés par le biais du [portail Azure](../key-vault/general/quick-create-portal.md) et de [PowerShell](../key-vault/general/quick-create-powershell.md). Ajoutez les certificats à Key Vault, puis référencez leurs empreintes dans le fichier de configuration de service. Vous devez également octroyer à Key Vault les autorisations appropriées afin que la ressource Cloud Services (support étendu) puisse récupérer les certificats stockés sous forme de secrets à partir de Key Vault.  
 
 ## <a name="upload-a-certificate-to-key-vault"></a>Charger un certificat sur Key Vault 
 

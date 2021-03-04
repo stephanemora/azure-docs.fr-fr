@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: d1f0b0b36c8f0ed5ede7b5c3113207ae3cce10fd
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: f29e6f0de3286b04321207b4c469f34aeaee8ef5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100581243"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737407"
 ---
 # <a name="azure-security-baseline-for-azure-web-application-firewall"></a>Base de référence de sécurité pour Azure Web Application Firewall
 
@@ -164,7 +164,7 @@ Azure Sentinel possède un classeur Azure WAF intégré qui fournit une vue d’
 ### <a name="25-configure-security-log-storage-retention"></a>2.5 : Configurer la conservation du stockage des journaux de sécurité
 
 **Conseils** : Envoyez les journaux d’Azure Web Application Firewall (WAF) à un compte de stockage personnalisé et définissez la stratégie de rétention. Utilisez Azure Monitor pour définir la période de rétention de votre espace de travail Log Analytics en fonction des exigences de conformité de votre organisation.
-- [Configuration de la surveillance d'un compte de stockage](../storage/common/storage-monitor-storage-account.md#configure-logging)
+- [Configuration de la surveillance d'un compte de stockage](../storage/common/manage-storage-analytics-logs.md#configure-logging)
 
 **Supervision d’Azure Security Center** : Non applicable
 

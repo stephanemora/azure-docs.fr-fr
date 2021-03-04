@@ -7,12 +7,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 09/11/2020
-ms.openlocfilehash: a95cacafc5b1d00b1e4d04fd84cdda2de72b6a59
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 4545c3529baf92e2f90d9289ec6828ad9a720e3a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100523003"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738002"
 ---
 # <a name="troubleshoot-mapping-data-flows-in-azure-data-factory"></a>Résoudre les problèmes liés aux flux de données de mappage dans Azure Data Factory
 
@@ -132,7 +132,7 @@ Cet article présente des méthodes couramment employées pour résoudre les pro
  
 - **Message** : Le cluster a rencontré un problème de mémoire insuffisante pendant l’exécution, réessayez en utilisant un runtime d’intégration avec un nombre de cœurs plus élevé et/ou un type de calcul à mémoire optimisée.
 - **Causes** : Le cluster manque de mémoire.
-- **Recommandation** : Les clusters de débogage sont destinés au développement. Exploitez l’échantillonnage des données, le type et la taille de calcul appropriés pour exécuter la charge utile. Consultez le [Guide des performances de flux de données](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-performance) pour optimiser les performances des flux de données.
+- **Recommandation** : Les clusters de débogage sont destinés au développement. Exploitez l’échantillonnage des données, le type et la taille de calcul appropriés pour exécuter la charge utile. Consultez le [Guide des performances de flux de données](./concepts-data-flow-performance.md) pour optimiser les performances des flux de données.
 
 ### <a name="error-code-df-executor-illegalargument"></a>Code d’erreur : DF-Executor-illegalArgument
 - **Message** : Vérifiez que la clé d’accès de votre service lié est correcte.
@@ -182,7 +182,7 @@ Cet article présente des méthodes couramment employées pour résoudre les pro
 
 - **Message** : Une plage non valide est fournie.
 - **Causes** : Indéterminé
-- **Recommandation** : Vérifiez la valeur du paramètre et spécifiez une plage valide par référence : [Propriétés Excel](https://docs.microsoft.com/azure/data-factory/format-excel#dataset-properties).
+- **Recommandation** : Vérifiez la valeur du paramètre et spécifiez une plage valide par référence : [Propriétés Excel](./format-excel.md#dataset-properties).
 
 - **Message** : Un fichier Excel non valide est fourni alors que seuls les fichiers .xlsx et .xls sont pris en charge
 - **Causes** : Indéterminé
@@ -204,7 +204,7 @@ Cet article présente des méthodes couramment employées pour résoudre les pro
 
 ### <a name="error-code-4502"></a>Code d’erreur : 4502
 - **Message** : Des exécutions de MappingDataflow simultanées importantes entraînent des échecs en raison de la limitation sous le runtime d’intégration.
-- **Causes** : Un grand nombre d’exécutions d’activités de dataflow se déroulent simultanément sur le runtime d’intégration. Découvrez-en plus sur les [limites d’Azure Data Factory](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#data-factory-limits).
+- **Causes** : Un grand nombre d’exécutions d’activités de dataflow se déroulent simultanément sur le runtime d’intégration. Découvrez-en plus sur les [limites d’Azure Data Factory](../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits).
 - **Recommandation** : Si vous cherchez à exécuter davantage d’activités de flux de données en parallèle, distribuez-les sur plusieurs runtimes d’intégration.
 
 

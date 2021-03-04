@@ -6,23 +6,23 @@ ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 01/30/2020
-ms.openlocfilehash: 5baa4d4d968adb25b5520ca91149970f5c5578e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 765c15897bd5d435503d3bef07e76a93b148971c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86536264"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596855"
 ---
 # <a name="set-up-azure-monitor-logs-and-collect-diagnostics-data-for-b2b-messages-in-azure-logic-apps"></a>Configurer les journaux Azure Monitor et collecter des données de diagnostic pour des messages B2B dans Azure Logic Apps
 
-Après avoir configuré la communication B2B entre les partenaires commerciaux dans votre compte d’intégration, ces partenaires peuvent échanger des messages à l'aide de protocoles comme AS2, X12 et EDIFACT. Pour vérifier le bon fonctionnement de cette communication, vous pouvez configurer les [journaux Azure Monitor](../azure-monitor/platform/data-platform-logs.md) pour votre compte d’intégration. [Azure Monitor](../azure-monitor/overview.md) vous permet de superviser vos environnements cloud et locaux afin de vous aider à garantir plus facilement leur disponibilité et leurs performances. Les journaux Azure Monitor vous permettent d'enregistrer et de stocker des informations relatives aux données et événements d'exécution, tels que les événements déclencheurs, événements d’exécution et événements d’action dans un [espace de travail Log Analytics](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace). Pour les messages, la journalisation collecte également des informations, notamment :
+Après avoir configuré la communication B2B entre les partenaires commerciaux dans votre compte d’intégration, ces partenaires peuvent échanger des messages à l'aide de protocoles comme AS2, X12 et EDIFACT. Pour vérifier le bon fonctionnement de cette communication, vous pouvez configurer les [journaux Azure Monitor](../azure-monitor/logs/data-platform-logs.md) pour votre compte d’intégration. [Azure Monitor](../azure-monitor/overview.md) vous permet de superviser vos environnements cloud et locaux afin de vous aider à garantir plus facilement leur disponibilité et leurs performances. Les journaux Azure Monitor vous permettent d'enregistrer et de stocker des informations relatives aux données et événements d'exécution, tels que les événements déclencheurs, événements d’exécution et événements d’action dans un [espace de travail Log Analytics](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace). Pour les messages, la journalisation collecte également des informations, notamment :
 
 * Nombre et état des messages
 * État des accusés de réception
 * Corrélations entre les messages et les accusés de réception
 * Descriptions détaillées des erreurs en cas d’échec
 
-Azure Monitor vous permet de créer des [requêtes de journal](../azure-monitor/log-query/log-query-overview.md) pour vous aider à rechercher et à consulter ces informations. Vous pouvez également [utiliser ces données de diagnostic avec d'autres services Azure](../logic-apps/monitor-logic-apps-log-analytics.md#extend-data), tels que Stockage Azure et Azure Event Hubs.
+Azure Monitor vous permet de créer des [requêtes de journal](../azure-monitor/logs/log-query-overview.md) pour vous aider à rechercher et à consulter ces informations. Vous pouvez également [utiliser ces données de diagnostic avec d'autres services Azure](../logic-apps/monitor-logic-apps-log-analytics.md#extend-data), tels que Stockage Azure et Azure Event Hubs.
 
 Pour configurer la journalisation pour votre compte d’intégration, [installez la solution Logic Apps B2B](#install-b2b-solution) dans le portail Azure. Cette solution fournit des informations agrégées pour les événements de message B2B. Ensuite, pour activer la journalisation et créer des requêtes propres à ces informations, configurez les [journaux Azure Monitor](#set-up-resource-logs).
 
@@ -30,9 +30,9 @@ Cet article explique comment activer la journalisation Azure Monitor pour votre 
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
-* Un espace de travail Log Analytics. Si vous n’avez pas d’espace de travail Log Analytics, découvrez [comment créer un espace de travail Log Analytics](../azure-monitor/learn/quick-create-workspace.md).
+* Un espace de travail Log Analytics. Si vous n’avez pas d’espace de travail Log Analytics, découvrez [comment créer un espace de travail Log Analytics](../azure-monitor/logs/quick-create-workspace.md).
 
 * Application logique configurée avec la journalisation Azure Monitor, qui envoie ces informations à un espace de travail Log Analytics. Découvrez [comment configurer les journaux Azure Monitor pour votre application logique](../logic-apps/monitor-logic-apps.md).
 
@@ -52,7 +52,7 @@ Pour suivre les messages B2B liés à votre application logique avec les journau
 
    ![Sélectionnez votre espace de travail Log Analytics.](./media/monitor-b2b-messages-log-analytics/select-log-analytics-workspace.png)
 
-1. Dans le volet Vue d’ensemble, sous **Bien démarrer avec Log Analytics** > **Configurer des solutions de monitoring**, sélectionnez **Afficher les solutions**.
+1. Dans le volet Vue d'ensemble, sous **Bien démarrer avec Log Analytics** > **Configurer des solutions de supervision**, sélectionnez **Afficher les solutions**.
 
    ![Dans le volet Vue d’ensemble, sélectionner « Afficher les solutions ».](./media/monitor-b2b-messages-log-analytics/log-analytics-workspace.png)
 
@@ -163,7 +163,7 @@ Après les exécutions de votre application logique, vous pouvez consulter l'ét
 
    * To search results with prebuilt queries, select **Favorites**.
 
-   * Learn [how to build queries by adding filters](../logic-apps/create-monitoring-tracking-queries.md). Or learn more about [how to find data with log searches in Azure Monitor logs](../azure-monitor/log-query/log-query-overview.md).
+   * Learn [how to build queries by adding filters](../logic-apps/create-monitoring-tracking-queries.md). Or learn more about [how to find data with log searches in Azure Monitor logs](../azure-monitor/logs/log-query-overview.md).
 
    * To change query in the search box, update the query with the columns and values that you want to use as filters.
 -->
@@ -185,7 +185,7 @@ Voici les descriptions de propriété pour chaque message AS2.
 | **Expéditeur** | Partenaire invité spécifié dans **Paramètres de réception**, ou partenaire hôte spécifié dans **Paramètres d’envoi** pour un accord AS2 |
 | **Destinataire** | Partenaire hôte spécifié dans **Paramètres de réception**, ou partenaire invité spécifié dans **Paramètres d’envoi** pour un accord AS2 |
 | **Application logique** | Application logique dans laquelle les actions AS2 sont configurées |
-| **État** | État du message AS2 <br>Success = a reçu ou envoyé un message AS2 valide. Aucun MDN n’est configuré. <br>Success = a reçu ou envoyé un message AS2 valide. MDN est configuré et reçu ou envoyé. <br>Failed = a reçu un message AS2 non valide. Aucun MDN n’est configuré. <br>Pending = a reçu ou envoyé un message AS2 valide. Un MDN est configuré et attendu. |
+| **Statut** | État du message AS2 <br>Success = a reçu ou envoyé un message AS2 valide. Aucun MDN n’est configuré. <br>Success = a reçu ou envoyé un message AS2 valide. MDN est configuré et reçu ou envoyé. <br>Failed = a reçu un message AS2 non valide. Aucun MDN n’est configuré. <br>Pending = a reçu ou envoyé un message AS2 valide. Un MDN est configuré et attendu. |
 | **ACK** | État du message MDN <br>Accepted = a reçu ou envoyé un MDN positif. <br>Pending = en attente de réception ou d’envoi d’un MDN. <br>Rejected = a reçu ou envoyé un MDN négatif. <br>Not Required = aucun MDN n’est configuré dans l’accord. |
 | **Sens** | Direction du message AS2 |
 | **ID de suivi** | ID qui établit la corrélation de l’ensemble des déclencheurs et actions dans une application logique |
@@ -218,7 +218,7 @@ Voici les descriptions de propriété pour chaque message X12.
 | **Expéditeur** | Partenaire invité spécifié dans **Paramètres de réception**, ou partenaire hôte spécifié dans **Paramètres d’envoi** pour un accord X12 |
 | **Destinataire** | Partenaire hôte spécifié dans **Paramètres de réception**, ou partenaire invité spécifié dans **Paramètres d’envoi** pour un accord X12 |
 | **Application logique** | Application logique dans laquelle les actions X12 sont configurées |
-| **État** | État du message X12 <br>Success = a reçu ou envoyé un message X12 valide. Aucun accusé de réception fonctionnel configuré. <br>Success = a reçu ou envoyé un message X12 valide. Accusé de réception fonctionnel configuré et reçu ou envoyé. <br>Failed = a reçu ou envoyé un message X12 non valide. <br>Pending = a reçu ou envoyé un message X12 valide. Accusé de réception fonctionnel configuré et attendu. |
+| **Statut** | État du message X12 <br>Success = a reçu ou envoyé un message X12 valide. Aucun accusé de réception fonctionnel configuré. <br>Success = a reçu ou envoyé un message X12 valide. Accusé de réception fonctionnel configuré et reçu ou envoyé. <br>Failed = a reçu ou envoyé un message X12 non valide. <br>Pending = a reçu ou envoyé un message X12 valide. Accusé de réception fonctionnel configuré et attendu. |
 | **ACK** | État de l’accusé de réception fonctionnel (997) <br>Accepted = a reçu ou envoyé un accusé de réception positif. <br>Rejected = a reçu ou envoyé un accusé de réception négatif. <br>Pending = attendait un accusé de réception fonctionnel mais ne l’a pas reçu. <br>Pending = a généré un accusé de réception fonctionnel mais ne peut pas l’envoyer au partenaire. <br>Not Required = accusé de réception fonctionnel non configuré. |
 | **Sens** | Direction du message X12 |
 | **ID de suivi** | ID qui établit la corrélation de l’ensemble des déclencheurs et actions dans une application logique |
@@ -253,7 +253,7 @@ Voici les descriptions de propriété pour chaque message EDIFACT.
 | **Expéditeur** | Partenaire invité spécifié dans **Paramètres de réception**, ou partenaire hôte spécifié dans **Paramètres d’envoi** pour un accord EDIFACT |
 | **Destinataire** | Partenaire hôte spécifié dans **Paramètres de réception**, ou partenaire invité spécifié dans **Paramètres d’envoi** pour un accord EDIFACT |
 | **Application logique** | Application logique dans laquelle les actions EDIFACT sont configurées |
-| **État** | État du message EDIFACT <br>Success = a reçu ou envoyé un message EDIFACT valide. Aucun accusé de réception fonctionnel configuré. <br>Success = a reçu ou envoyé un message EDIFACT valide. Accusé de réception fonctionnel configuré et reçu ou envoyé. <br>Failed = a reçu ou envoyé un message EDIFACT non valide. <br>Pending = a reçu ou envoyé un message EDIFACT valide. Accusé de réception fonctionnel configuré et attendu. |
+| **Statut** | État du message EDIFACT <br>Success = a reçu ou envoyé un message EDIFACT valide. Aucun accusé de réception fonctionnel configuré. <br>Success = a reçu ou envoyé un message EDIFACT valide. Accusé de réception fonctionnel configuré et reçu ou envoyé. <br>Failed = a reçu ou envoyé un message EDIFACT non valide. <br>Pending = a reçu ou envoyé un message EDIFACT valide. Accusé de réception fonctionnel configuré et attendu. |
 | **ACK** | État de l'accusé de réception fonctionnel (CONTRL) <br>Accepted = a reçu ou envoyé un accusé de réception positif. <br>Rejected = a reçu ou envoyé un accusé de réception négatif. <br>Pending = attendait un accusé de réception fonctionnel mais ne l’a pas reçu. <br>Pending = a généré un accusé de réception fonctionnel mais ne peut pas l’envoyer au partenaire. <br>Not Required = accusé de réception fonctionnel non configuré. |
 | **Sens** | Direction du message EDIFACT |
 | **ID de suivi** | ID qui établit la corrélation de l’ensemble des déclencheurs et actions dans une application logique |

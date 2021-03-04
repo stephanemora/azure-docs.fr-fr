@@ -4,12 +4,12 @@ description: Dans ce tutoriel, vous allez découvrir comment sauvegarder des bas
 ms.topic: tutorial
 ms.date: 12/4/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: f146bed9ee607fe1b1b6062f9fe372fbb9b9ba6a
-ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
+ms.openlocfilehash: ba06ef876f30dc51e04fe7491d491621f5d8e21b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97746743"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710598"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Tutoriel : Sauvegarder des bases de données SAP HANA sur une machine virtuelle Azure à l’aide de l’interface CLI
 
@@ -176,9 +176,7 @@ e0f15dae-7cac-4475-a833-f52c50e5b6c3  saphanaResourceGroup
 La réponse vous donnera le nom du travail. Vous pouvez utiliser ce nom pour effectuer le suivi de l’état du travail à l’aide de l’applet de commande [az backup job show](/cli/azure/backup/job#az-backup-job-show).
 
 >[!NOTE]
->En plus de planifier une sauvegarde complète ou différentielle, vous pouvez également en déclencher une manuellement. Les sauvegardes de journaux sont déclenchées et gérées automatiquement par SAP HANA en interne.
->
-> Les sauvegardes incrémentielles ne sont actuellement pas prises en charge par Sauvegarde Azure.
+>Les sauvegardes de journaux sont déclenchées et gérées automatiquement par SAP HANA en interne.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

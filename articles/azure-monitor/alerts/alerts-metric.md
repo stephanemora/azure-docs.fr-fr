@@ -6,18 +6,18 @@ ms.author: harelbr
 ms.topic: conceptual
 ms.date: 01/11/2021
 ms.subservice: alerts
-ms.openlocfilehash: e3a9810aef356b7acf5ae2522645c14ee445812b
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: bf55d66f7099717079190a538bad8bf777581825
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100598656"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723552"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Créer, afficher et gérer des alertes de métrique à l’aide d’Azure Monitor
 
-Dans Azure Monitor, les alertes de métrique vous avertissent quand l’une de vos métriques dépasse un certain seuil. Les alertes de métrique fonctionnent sur toute une gamme de métriques de plateforme multidimensionnelles, de métriques personnalisées, mais aussi de métriques standard et personnalisées d’Application Insights. Dans cet article, nous allons décrire comment créer, afficher et gérer des règles d’alerte de métrique par le biais du portail Azure et d’Azure CLI. Vous pouvez également créer des règles d’alerte de métrique à l’aide de modèles Azure Resource Manager, qui sont décrits dans [un autre article](../platform/alerts-metric-create-templates.md).
+Dans Azure Monitor, les alertes de métrique vous avertissent quand l’une de vos métriques dépasse un certain seuil. Les alertes de métrique fonctionnent sur toute une gamme de métriques de plateforme multidimensionnelles, de métriques personnalisées, mais aussi de métriques standard et personnalisées d’Application Insights. Dans cet article, nous allons décrire comment créer, afficher et gérer des règles d’alerte de métrique par le biais du portail Azure et d’Azure CLI. Vous pouvez également créer des règles d’alerte de métrique à l’aide de modèles Azure Resource Manager, qui sont décrits dans [un autre article](./alerts-metric-create-templates.md).
 
-Vous pouvez en savoir plus sur le fonctionnement des alertes de métrique dans la [vue d’ensemble des alertes de métrique](../platform/alerts-metric-overview.md).
+Vous pouvez en savoir plus sur le fonctionnement des alertes de métrique dans la [vue d’ensemble des alertes de métrique](./alerts-metric-overview.md).
 
 ## <a name="create-with-azure-portal"></a>Créer avec le Portail Azure
 
@@ -32,7 +32,7 @@ La procédure suivante décrit comment créer une règle d’alerte de métrique
 
 3. Cliquez sur **Sélectionner une cible** dans le volet contextuel qui se charge, puis sélectionnez une ressource cible sur laquelle définir une alerte. Utilisez les listes déroulantes **Abonnement** et **Type de ressource** pour rechercher la ressource à surveiller. Vous pouvez également utiliser la barre de recherche pour rechercher votre ressource.
 
-4. Si la ressource sélectionnée dispose de métriques pour lesquelles vous pouvez créer des alertes, la zone des **signaux disponibles** dans la partie inférieure droite inclura des métriques. Vous pouvez afficher la liste complète des types de ressources pris en charge pour les alertes de métrique dans cet [article](../platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
+4. Si la ressource sélectionnée dispose de métriques pour lesquelles vous pouvez créer des alertes, la zone des **signaux disponibles** dans la partie inférieure droite inclura des métriques. Vous pouvez afficher la liste complète des types de ressources pris en charge pour les alertes de métrique dans cet [article](./alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
 
 5. Une fois que vous avez sélectionné une ressource cible, cliquez sur **Ajouter une condition**.
 
@@ -45,7 +45,7 @@ La procédure suivante décrit comment créer une règle d’alerte de métrique
     - Si la valeur de dimension que vous recherchez n’apparaît pas, cliquez sur « Ajouter une valeur personnalisée » pour ajouter une valeur de dimension personnalisée.
     - Vous pouvez également **Sélectionner toutes les valeurs actuelles et futures** pour les dimensions. Cette option permet de mettre à l’échelle la sélection de manière dynamique en fonction de toutes les valeurs actuelles et futures pour une dimension.
 
-    La règle d’alerte de métrique évaluera la condition pour toutes les combinaisons de valeurs sélectionnées. [En savoir plus sur le fonctionnement de la génération d’alertes sur les métriques multidimensionnelles](../platform/alerts-metric-overview.md).
+    La règle d’alerte de métrique évaluera la condition pour toutes les combinaisons de valeurs sélectionnées. [En savoir plus sur le fonctionnement de la génération d’alertes sur les métriques multidimensionnelles](./alerts-metric-overview.md).
 
 9. Sélectionnez le type de **Seuil**, l’**Opérateur** et le **Type d’agrégation**. Cela permet de déterminer la logique que la règle d’alerte de métrique évaluera.
     - Si vous utilisez un seuil **Statique**, définissez une **Valeur du seuil**. Le graphique de métrique peut aider à déterminer un seuil raisonnable.
@@ -154,8 +154,8 @@ Les règles d’alerte de métrique disposent de cmdlets PowerShell dédiées :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Créer des alertes de métrique à l’aide de modèles Azure Resource Manager](../platform/alerts-metric-create-templates.md)
-- [Comprendre le fonctionnement des alertes de métrique](../platform/alerts-metric-overview.md)
+- [Créer des alertes de métrique à l’aide de modèles Azure Resource Manager](./alerts-metric-create-templates.md)
+- [Comprendre le fonctionnement des alertes de métrique](./alerts-metric-overview.md)
 - [Comprendre le fonctionnement des alertes de métrique avec la condition Seuils dynamiques](../alerts/alerts-dynamic-thresholds.md)
-- [Comprendre le schéma des webhooks pour les alertes de métrique](../platform/alerts-metric-near-real-time.md#payload-schema)
-- [Résolution des problèmes liés aux alertes de métrique](../platform/alerts-troubleshoot-metric.md)
+- [Comprendre le schéma des webhooks pour les alertes de métrique](./alerts-metric-near-real-time.md#payload-schema)
+- [Résolution des problèmes liés aux alertes de métrique](./alerts-troubleshoot-metric.md)

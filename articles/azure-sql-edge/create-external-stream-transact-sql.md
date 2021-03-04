@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 07/27/2020
-ms.openlocfilehash: 92658584030fa83da067eceab391d9bba2f034c0
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 203abe2b6def478dc1747dd4ce638b5b62707612
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93392297"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659220"
 ---
 # <a name="create-external-stream-transact-sql"></a>CREATE EXTERNAL STREAM (Transact-SQL)
 
@@ -94,12 +94,12 @@ WITH  ( <with_options> )
 
 - [DATA_SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql/)
 - [FILE_FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql/)
-- **LOCATION**  : Spécifie le nom des données ou de l’emplacement réels dans la source de données. 
+- **LOCATION** : Spécifie le nom des données ou de l’emplacement réels dans la source de données. 
    - Pour les objets de flux Edge Hub ou Kafka, l’emplacement indique le nom de la rubrique Edge Hub ou Kafka où lire et écrire.
    - Pour les objets de flux SQL (SQL Server, Azure SQL Database ou Azure SQL Edge), l’emplacement indique le nom de la table. Si le flux est créé dans la même base de données et le même schéma que la table de destination, seul le nom de la table suffit. Dans le cas contraire, vous devez indiquer le nom entier de la table (<database_name.schema_name.table_name).
    - Pour un objet de flux Stockage Blob Azure, l’emplacement fait référence au modèle de chemin à utiliser dans le conteneur d’objets blob. Pour plus d’informations sur cette fonctionnalité, consultez (/articles/stream-analytics/stream-analytics-define-outputs.md#blob-storage-and-azure-data-lake-gen2)
 
-- **INPUT_OPTIONS**  : Spécifie les options en tant que paires clé-valeur pour des services comme Kafka, IoT Edge Hub qui font office d’entrées pour les requêtes de streaming
+- **INPUT_OPTIONS** : Spécifie les options en tant que paires clé-valeur pour des services comme Kafka, IoT Edge Hub qui font office d’entrées pour les requêtes de streaming
     - PARTITIONS : Nombre de partitions définies pour une rubrique. Le nombre maximal de partitions utilisables est limité à 32.
       - S’applique aux flux d’entrée Kafka
     - CONSUMER_GROUP : Event Hub et IoT Hub limitent le nombre de lecteurs au sein d'un groupe de consommateurs (à 5). Laissez ce champ vide pour utiliser le groupe de consommateurs « $Default ».
@@ -111,7 +111,7 @@ WITH  ( <with_options> )
     - OUT_OF_ORDER_EVENT_TOLERANCE : Des événements peuvent arriver en désordre après avoir transité de l'entrée vers la requête de streaming. Vous pouvez accepter ces événements tels quels ou choisir de les suspendre pendant une période définie afin de les mettre dans l'ordre souhaité.
       - Réservé pour un usage ultérieur. Ne s’applique pas à Azure SQL Edge.
         
-- **OUTPUT_OPTIONS**  : Spécifie les options en tant que paires clé-valeur pour les services pris en charge correspondant à des entrées de requêtes de streaming 
+- **OUTPUT_OPTIONS** : Spécifie les options en tant que paires clé-valeur pour les services pris en charge correspondant à des entrées de requêtes de streaming 
   - REJECT_POLICY :  DROP | RETRY Spécifie les stratégies en matière de gestion des erreurs de données lorsque des erreurs de conversion de données se produisent. 
     - S’applique à toutes les sorties prises en charge. 
   - MINIMUM_ROWS :  
@@ -162,7 +162,7 @@ WITH
  
 CREATE EXTERNAL FILE FORMAT myFileFormat  
 WITH (  
-   FORMAT_TYPE = 'JSON', 
+   FORMAT_TYPE = JSON, 
 ); 
  
 CREATE EXTERNAL STREAM Stream_A  

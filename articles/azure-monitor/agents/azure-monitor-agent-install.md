@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/17/2020
-ms.openlocfilehash: f0d062766f0a5d58fbcaaa32b1df5a5e40c783b4
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 17c7609afeef8b5129e3bfe252def74b45cb4208
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100598443"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719948"
 ---
 # <a name="install-the-azure-monitor-agent-preview"></a>Installer l’agent Azure Monitor (préversion)
 Cet article présente les différentes options actuellement disponibles pour installer l’[agent Azure Monitor](azure-monitor-agent-overview.md) sur les machines virtuelles Azure et les serveurs Azure Arc, ainsi que les options permettant de créer des [associations avec des règles de collecte de données](data-collection-rule-azure-monitor-agent.md) qui définissent les données que l’agent doit collecter.
@@ -42,7 +42,7 @@ Vous pouvez utiliser des modèles Resource Manager pour installer l’agent Azur
 Obtenez des exemples de modèles pour l’installation de l’agent et la création de l’association à partir des éléments suivants : 
 
 - [Modèle d’installation de l’agent Azure Monitor (Azure et Azure Arc)](../agents/resource-manager-agent.md#azure-monitor-agent-preview) 
-- [Modèle de création d’une association avec une règle de collecte de données](../samples/resource-manager-data-collection-rules.md)
+- [Modèle de création d’une association avec une règle de collecte de données](./resource-manager-data-collection-rules.md)
 
 Installez les modèles à l’aide de [n’importe quelle méthode de déploiement pour les modèles Resource Manager](../../azure-resource-manager/templates/deploy-powershell.md) comme les commandes suivantes.
 

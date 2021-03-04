@@ -42,7 +42,7 @@ Pour protéger vos éléments multimédias au repos, les ressources doivent êtr
 
 ## <a name="storage-account-double-encryption"></a>Double chiffrement du compte de stockage
 
-Les comptes de stockage prennent en charge le double chiffrement, mais la deuxième couche doit être activée explicitement. Pour en savoir plus, consultez [Chiffrement du Stockage Azure pour les données au repos](https://docs.microsoft.com/azure/storage/common/storage-service-encryption#doubly-encrypt-data-with-infrastructure-encryption).  
+Les comptes de stockage prennent en charge le double chiffrement, mais la deuxième couche doit être activée explicitement. Pour en savoir plus, consultez [Chiffrement du Stockage Azure pour les données au repos](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption).  
 
 ## <a name="storage-account-errors"></a>Erreurs relatives au compte de stockage
 

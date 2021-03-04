@@ -9,12 +9,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: egeaney
-ms.openlocfilehash: 6c65f28c040b15aaa2ec8f3425209351e4b60486
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 822a4249b6ed054f36605d0367803da68bab090b
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100524043"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652256"
 ---
 # <a name="custom-vision-encryption-of-data-at-rest"></a>Chiffrement Custom Vision des données au repos
 
@@ -24,15 +24,6 @@ Le service Azure Custom Vision chiffre automatiquement vos données lors de leur
 
 > [!IMPORTANT]
 > Les clés gérées par le client sont des ressources disponibles créées après le 11 mai 2020 uniquement. Pour utiliser une clé gérée par le client (CMK, Customer-Managed Key) avec Custom Vision, vous devez créer une ressource Custom Vision. Une fois la ressource créée, vous pouvez utiliser Azure Key Vault pour configurer votre identité managée.
-
-## <a name="regional-availability"></a>Disponibilité régionale
-
-Les clés gérées par le client sont actuellement disponibles dans les régions suivantes :
-
-* USA Centre Sud
-* USA Ouest 2
-* USA Est
-* Gouvernement américain - Virginie
 
 [!INCLUDE [cognitive-services-cmk](../includes/configure-customer-managed-keys.md)]
 

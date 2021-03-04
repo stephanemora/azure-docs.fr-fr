@@ -9,12 +9,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: lagayhar
-ms.openlocfilehash: 2614117d153b1db50d4487bf4045a63af430f3ac
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: b36dec79e5d60d97c11b9f8c74790527e1bd19fb
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100598857"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731355"
 ---
 # <a name="how-to-use-groups-in-workbooks"></a>Comment utiliser des groupes dans des classeurs
 
@@ -143,5 +143,5 @@ Pour transformer un modèle plus volumineux en plusieurs sous-modèles :
 6. Vous pouvez ensuite modifier l’étape du groupe à charger à partir du modèle et définir le champ ID du modèle sur le classeur/modèle que vous avez créé lors de l’étape 5. Pour travailler avec des ID de classeurs, la source doit être un ID de ressource de classeur partagé. Appuyez sur *Load* (Charger) et le contenu de ce groupe sera maintenant chargé à partir de ce sous-modèle au lieu d’être enregistré dans ce classeur externe.
 
 ## <a name="next-steps"></a>Étapes suivantes
-- [Présentation des classeurs](../platform/workbooks-overview.md)
+- [Présentation des classeurs](./workbooks-overview.md)
 - [Utilisation de JSONPath avec des classeurs](workbooks-jsonpath.md)

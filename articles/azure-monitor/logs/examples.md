@@ -6,17 +6,17 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/16/2020
-ms.openlocfilehash: 213437e68efb27c483c8013d209261408ab9d4ea
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: e2050784d03b1f01e743df9b00916ec286a3e7ef
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100600319"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101736948"
 ---
 # <a name="azure-monitor-log-query-examples"></a>Exemples de requêtes de journal dans Azure Monitor
-Cet article inclut divers exemples de [requêtes](../log-query/log-query-overview.md) utilisant le [langage de requête Kusto](/azure/kusto/query/) pour récupérer différents types de données de journal à partir d'Azure Monitor. Plusieurs méthodes sont utilisées pour consolider et analyser les données. Vous pouvez utiliser ces exemples pour identifier les stratégies qui vous conviennent.  
+Cet article inclut divers exemples de [requêtes](./log-query-overview.md) utilisant le [langage de requête Kusto](/azure/kusto/query/) pour récupérer différents types de données de journal à partir d'Azure Monitor. Plusieurs méthodes sont utilisées pour consolider et analyser les données. Vous pouvez utiliser ces exemples pour identifier les stratégies qui vous conviennent.  
 
-Consultez les [informations de référence sur le langage Kusto](/azure/kusto/query/) pour plus de détails sur les différents mots clés utilisés dans ces exemples. Si vous ne connaissez pas Azure Monitor, lisez une [leçon sur la création de requêtes](../log-query/get-started-queries.md).
+Consultez les [informations de référence sur le langage Kusto](/azure/kusto/query/) pour plus de détails sur les différents mots clés utilisés dans ces exemples. Si vous ne connaissez pas Azure Monitor, lisez une [leçon sur la création de requêtes](./get-started-queries.md).
 
 ## <a name="events"></a>Événements
 
@@ -375,7 +375,7 @@ suspicious_users_that_later_logged_in
 
 ## <a name="usage"></a>Usage
 
-Le type de données `Usage` permet d’assurer le suivi du volume de données ingérées par la solution ou le type de données. Il existe d’autres techniques pour étudier les volumes de données ingérées par [ordinateur](../platform/manage-cost-storage.md#data-volume-by-computer) ou [abonnement, groupe de ressources ou ressource Azure](../platform/manage-cost-storage.md#data-volume-by-azure-resource-resource-group-or-subscription).
+Le type de données `Usage` permet d’assurer le suivi du volume de données ingérées par la solution ou le type de données. Il existe d’autres techniques pour étudier les volumes de données ingérées par [ordinateur](./manage-cost-storage.md#data-volume-by-computer) ou [abonnement, groupe de ressources ou ressource Azure](./manage-cost-storage.md#data-volume-by-azure-resource-resource-group-or-subscription).
 
 #### <a name="data-volume-by-solution"></a>Volume de données par solution
 
@@ -438,4 +438,4 @@ Update
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Reportez-vous aux [informations de référence sur le langage Kusto](/azure/kusto/query) pour en savoir plus.
-- Suivez une [leçon sur l’écriture de requêtes de journal dans Azure Monitor](../log-query/get-started-queries.md).
+- Suivez une [leçon sur l’écriture de requêtes de journal dans Azure Monitor](./get-started-queries.md).

@@ -4,12 +4,12 @@ description: Résume la prise en charge de la récupération d’urgence des mac
 ms.topic: article
 ms.date: 11/29/2020
 ms.author: raynew
-ms.openlocfilehash: 522af9738cac098dcc9e8cb73183c0bd6b3b4902
-ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
+ms.openlocfilehash: 7e9cb2397017c428c3a5251ed0d0c4f9a076c72f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100534671"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735537"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Prendre en charge la matrice de la récupération d’urgence de machines virtuelles Azure entre les régions Azure
 
@@ -258,6 +258,7 @@ Double chiffrement au repos | Prise en charge | En savoir plus sur les régions 
 Azure Disk Encryption (ADE) pour système d’exploitation Windows | Pris en charge pour les machines virtuelles avec des disques managés. | Les machines virtuelles utilisant des disques non managés ne sont pas prises en charge. <br/><br/> Les clés protégées par HSM ne sont pas prises en charge. <br/><br/> Le chiffrement de volumes individuels sur un seul disque n’est pas pris en charge. |
 Azure Disk Encryption (ADE) pour système d’exploitation Linux | Pris en charge pour les machines virtuelles avec des disques managés. | Les machines virtuelles utilisant des disques non managés ne sont pas prises en charge. <br/><br/> Les clés protégées par HSM ne sont pas prises en charge. <br/><br/> Le chiffrement de volumes individuels sur un seul disque n’est pas pris en charge. <br><br> Problème connu avec l’activation de la réplication. [En savoir plus.](./azure-to-azure-troubleshoot-errors.md#enable-protection-failed-as-the-installer-is-unable-to-find-the-root-disk-error-code-151137) |
 Rotation de clé SAS | Non pris en charge | Si la clé SAS pour les comptes de stockage fait l’objet d’une rotation, le client doit désactiver et réactiver la réplication. |
+Mise en cache de l'hôte | Prise en charge
 Ajout à chaud    | Prise en charge | L'activation de la réplication pour un disque de données que vous ajoutez à une machine virtuelle Azure répliquée est prise en charge pour les machines virtuelles utilisant des disques managés. <br/><br/> Un seul disque peut être ajouté à chaud à une machine virtuelle Azure à la fois. L’ajout parallèle de plusieurs disques n’est pas pris en charge. |
 Retrait de disque à chaud    | Non pris en charge | Si vous retirez un disque de données de la machine virtuelle, vous devez désactiver la réplication puis la réactiver pour la machine virtuelle.
 Exclure le disque | Pris en charge. Vous devez utiliser [PowerShell](azure-to-azure-exclude-disks.md) pour configurer. |    Les disques temporaires sont exclus par défaut.

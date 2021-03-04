@@ -2,17 +2,14 @@
 title: Ajuster les quotas et limites dans Azure Data Lake Analytics
 description: Découvrez comment ajuster et augmenter les quotas et limites dans les comptes Azure Data Lake Analytics (ADLA).
 ms.service: data-lake-analytics
-author: omidm1
-ms.author: omidm
-ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 03/15/2018
-ms.openlocfilehash: fd032235f286b5db1930e9c9c6d730b5424aa4eb
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 416b77fd86316acb8098531257e12b591a0ff052
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92220837"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710173"
 ---
 # <a name="adjust-quotas-and-limits-in-azure-data-lake-analytics"></a>Ajuster les quotas et limites dans Azure Data Lake Analytics
 
@@ -52,8 +49,8 @@ Il s’agit du nombre maximal de tâches pouvant s’exécuter simultanément da
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Choisissez un compte ADLA existant.
-3. Cliquez sur **Propriétés** .
-4. Ajustez les valeurs **Nombre maximal d’unités Analytics** , **Nombre maximal de travaux en cours d’exécution** et **Limites d’envoi de travaux** en fonction de vos besoins.
+3. Cliquez sur **Propriétés**.
+4. Ajustez les valeurs **Nombre maximal d’unités Analytics**, **Nombre maximal de travaux en cours d’exécution** et **Limites d’envoi de travaux** en fonction de vos besoins.
 
 ## <a name="increase-maximum-quota-limits"></a>Augmenter les limites de quota maximales
 
@@ -69,11 +66,11 @@ Vous trouverez plus d’informations sur les limites d’Azure dans la [document
 
 3. Sélectionnez votre **Abonnement** (vérifiez qu’il ne s’agit pas d’une version d’essai).
 
-4. Sélectionnez le type de quota **Data Lake Analytics** .
+4. Sélectionnez le type de quota **Data Lake Analytics**.
 
    ![Type de quota de la demande de support Azure Data Lake Analytics](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-support-request-basics.png)
 
-5. Dans la page du problème, expliquez le motif de votre demande d’augmentation de limite. Indiquez pourquoi vous avez besoin de cette capacité supplémentaire dans la zone **Détails** .
+5. Dans la page du problème, expliquez le motif de votre demande d’augmentation de limite. Indiquez pourquoi vous avez besoin de cette capacité supplémentaire dans la zone **Détails**.
 
    ![Détails de la demande de support Azure Data Lake Analytics](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-support-request-details.png)
 

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 02/11/2021
-ms.openlocfilehash: 643645eb3b361cd68def1177ba7e8af89f1963bc
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 838a48aa11a1cb36c3a7d822ce88f58936aa976d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100520754"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734619"
 ---
 # <a name="visualizations-for-application-change-analysis-preview"></a>Visualisations pour Analyse des changements d’application (préversion)
 
@@ -80,13 +80,13 @@ Accédez à l’outil Diagnostiquer et résoudre les problèmes d’une machine 
 
 ## <a name="activity-log-change-history"></a>Journal d’activité - Historique des modifications
 
-La fonctionnalité [Affichage de l’historique des modifications](../platform/activity-log.md#view-change-history) dans le Journal d’activité demande au serveur principal du service Analyse des changements d’application d’obtenir les modifications associées à une opération. L’**historique des modifications** appelait directement [Azure Resource Graph](../../governance/resource-graph/overview.md), mais demandait au serveur principal d’appeler Analyse des changements d’application de sorte que les modifications retournées incluent les modifications au niveau des ressources d’[Azure Resource Graph](../../governance/resource-graph/overview.md), les propriétés de ressource d’[Azure Resource Manager](../../azure-resource-manager/management/overview.md) et les modifications dans l’invité de services PaaS tels que l’application web App Services. Pour que le service Analyse des changements d’application puisse analyser les modifications apportées aux abonnements des utilisateurs, un fournisseur de ressources doit être inscrit. La première fois que vous accédez à l’onglet **Historique des modifications**, l’outil commence automatiquement à inscrire le fournisseur de ressources **Microsoft.ChangeAnalysis**. Une fois inscrit, les modifications d’**Azure Resource Graph** sont immédiatement disponibles et couvrent les 14 derniers jours. Les modifications d’autres sources sont disponibles 4 heures environ après l’intégration de l’abonnement.
+La fonctionnalité [Affichage de l’historique des modifications](../essentials/activity-log.md#view-change-history) dans le Journal d’activité demande au serveur principal du service Analyse des changements d’application d’obtenir les modifications associées à une opération. L’**historique des modifications** appelait directement [Azure Resource Graph](../../governance/resource-graph/overview.md), mais demandait au serveur principal d’appeler Analyse des changements d’application de sorte que les modifications retournées incluent les modifications au niveau des ressources d’[Azure Resource Graph](../../governance/resource-graph/overview.md), les propriétés de ressource d’[Azure Resource Manager](../../azure-resource-manager/management/overview.md) et les modifications dans l’invité de services PaaS tels que l’application web App Services. Pour que le service Analyse des changements d’application puisse analyser les modifications apportées aux abonnements des utilisateurs, un fournisseur de ressources doit être inscrit. La première fois que vous accédez à l’onglet **Historique des modifications**, l’outil commence automatiquement à inscrire le fournisseur de ressources **Microsoft.ChangeAnalysis**. Une fois inscrit, les modifications d’**Azure Resource Graph** sont immédiatement disponibles et couvrent les 14 derniers jours. Les modifications d’autres sources sont disponibles 4 heures environ après l’intégration de l’abonnement.
 
 ![Journal d’activité : Intégration de l’historique des modifications](./media/change-analysis/activity-log-change-history.png)
 
 ## <a name="vm-insights-integration"></a>Intégration de VM Insights
 
-Les utilisateurs disposant de [VM Insights](../insights/vminsights-overview.md) activé peuvent voir ce qui a changé dans leurs machines virtuelles au point d’avoir entraîné des pics dans un graphique de métriques, comme le processeur ou la mémoire. Les données modifiées sont intégrées à la barre de navigation côté VM Insights. L’utilisateur peut voir si des modifications sont apportées à la machine virtuelle, puis sélectionner **Examiner les modifications** pour afficher les détails des modifications dans l’interface utilisateur autonome d’Analyse des changements d’application.
+Les utilisateurs disposant de [VM Insights](../vm/vminsights-overview.md) activé peuvent voir ce qui a changé dans leurs machines virtuelles au point d’avoir entraîné des pics dans un graphique de métriques, comme le processeur ou la mémoire. Les données modifiées sont intégrées à la barre de navigation côté VM Insights. L’utilisateur peut voir si des modifications sont apportées à la machine virtuelle, puis sélectionner **Examiner les modifications** pour afficher les détails des modifications dans l’interface utilisateur autonome d’Analyse des changements d’application.
 
 [![Intégration de VM Insights](./media/change-analysis/vm-insights.png)](./media/change-analysis/vm-insights.png#lightbox)
 

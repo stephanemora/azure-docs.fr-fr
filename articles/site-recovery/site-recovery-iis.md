@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 7a4408b54b663b2cd8abc22772ac1b799ea50de0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 56ac58e47bffc73c7079af043ad567a77e8f3323
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87083767"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735503"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-iis-based-web-application"></a>Configurer la reprise d’activité pour une application web multiniveau basée sur IIS
 
@@ -122,10 +122,10 @@ Chaque site comporte des informations de liaison. Ces informations de liaison in
 
 ![Capture d’écran qui illustre le paramétrage de la liaison TLS/SSL](./media/site-recovery-iis/sslbinding.png)
 
-Si vous avez associé l’adresse IP à un site, mettez à jour toutes les liaisons de site avec la nouvelle adresse IP. Pour modifier les liaisons de site, ajoutez un [script de mise à jour de la couche Web IIS](https://aka.ms/asr-web-tier-update-runbook-classic) après le groupe 3, dans le plan de récupération.
+Si vous avez associé l’adresse IP à un site, mettez à jour toutes les liaisons de site avec la nouvelle adresse IP. Pour modifier les liaisons de site, ajoutez un [script de mise à jour de la couche Web IIS](/samples/browse/?redirectedfrom=TechNet-Gallery) après le groupe 3, dans le plan de récupération.
 
 #### <a name="update-the-load-balancer-ip-address"></a>Mettre à jour l’adresse IP de l’équilibreur de charge
-Si vous avez une machine virtuelle ARR, ajoutez un [script de basculement ARR IIS](https://aka.ms/asr-iis-arrtier-failover-script-classic) après le groupe 4 pour mettre à jour l’adresse IP.
+Si vous avez une machine virtuelle ARR, ajoutez un [script de basculement ARR IIS](/samples/browse/?redirectedfrom=TechNet-Gallery) après le groupe 4 pour mettre à jour l’adresse IP.
 
 #### <a name="tlsssl-certificate-binding-for-an-https-connection"></a>Liaison de certificat TLS/SSL d’une connexion HTTPS
 Le cas échéant, un site web peut posséder un certificat TLS/SSL associé qui garantit une communication sécurisée entre le serveur web et le navigateur de l’utilisateur. Si le site web dispose d’une connexion HTTPS et d’une liaison de site HTTPS associée à l’adresse IP du serveur IIS avec une liaison de certificat TLS/SSL, vous devez ajouter une nouvelle liaison de site pour le certificat avec l’adresse IP de la machine virtuelle IIS après le basculement.

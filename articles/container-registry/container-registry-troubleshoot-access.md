@@ -3,12 +3,12 @@ title: Résoudre des problèmes de réseau avec un registre
 description: Symptômes, causes et résolution de problèmes courants lors de l’accès à un registre de conteneurs Azure dans un réseau virtuel ou derrière un pare-feu
 ms.topic: article
 ms.date: 10/01/2020
-ms.openlocfilehash: cf2f308f782ac7d6011c98afd181b194f2b3e09f
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 75c94d40663a7058dab7ed691183dd578964edcc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99525074"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699604"
 ---
 # <a name="troubleshoot-network-issues-with-registry"></a>Résoudre des problèmes de réseau avec un registre
 
@@ -140,5 +140,5 @@ Si vous ne résolvez pas votre problème ici, consultez les options suivantes.
   * [Résoudre les problèmes de connexion au registre](container-registry-troubleshoot-login.md) 
   * [Résoudre les problèmes de performances de registre](container-registry-troubleshoot-performance.md)
 * Options de [support de la communauté](https://azure.microsoft.com/support/community/)
-* [Microsoft Q&A](https://docs.microsoft.com/answers/products/)
+* [Microsoft Q&A](/answers/products/)
 * [Ouvrir un ticket de support](https://azure.microsoft.com/support/create-ticket/)

@@ -9,12 +9,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: lagayhar
-ms.openlocfilehash: e0be5523cb3846760644d0c81b06d5caa5a35378
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 142853f0d5ed787d0b7aaee1bb118a001f144227
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100599091"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101722923"
 ---
 # <a name="how-to-use-jsonpath-to-transform-json-data-in-workbooks"></a>Comment utiliser JSONPath pour transformer des données JSON dans des classeurs
 
@@ -22,7 +22,7 @@ Les classeurs sont en mesure d’interroger les données de nombreuses sources. 
 
 JSONPath est un langage de requête pour JSON qui est similaire à XPath pour XML. Comme XPath, JSONPath permet l’extraction et la filtration de données à partir de la structure JSON.
 
-À l’aide de la transformation JSONPath, les auteurs de classeurs peuvent convertir JSON en une structure de table. La table peut ensuite être utilisée pour tracer des [visualisations de classeur](../platform/workbooks-overview.md#visualizations).
+À l’aide de la transformation JSONPath, les auteurs de classeurs peuvent convertir JSON en une structure de table. La table peut ensuite être utilisée pour tracer des [visualisations de classeur](./workbooks-overview.md#visualizations).
 
 ## <a name="using-jsonpath"></a>Utilisation de JSONPath
 
@@ -84,5 +84,5 @@ Supposons que nous avons reçu l’objet JSON ci-dessus en tant que représentat
 ![ Modification de l’élément de requête avec la source de données JSON et le format de résultat du chemin JSON](./media/workbooks-jsonpath/query-jsonpath.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
-- [Présentation des classeurs](../platform/workbooks-overview.md)
+- [Présentation des classeurs](./workbooks-overview.md)
 - [Groupes dans les classeurs Azure Monitor](workbooks-groups.md)

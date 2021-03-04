@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: tutorial
 ms.date: 01/04/2021
 ms.author: pafarley
-ms.openlocfilehash: 1780aebc113fa68a9a89cfce9fd67c9b5911fc58
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 6faa612f55b4114b4242c48d43aae9aac8c56582
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98606674"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699995"
 ---
 # <a name="tutorial-extract-form-data-in-bulk-using-azure-data-factory"></a>Tutoriel : Extraire des données de formulaire en bloc avec Azure Data Factory
 
@@ -65,7 +65,7 @@ Le notebook Azure Databricks utilise ensuite les modèles entraînés pour extra
 
 Votre backlog de formulaires peut se trouver dans votre environnement local ou sur un serveur (s)FTP. Ce tutoriel utilise des formulaires situés dans un compte de stockage Azure Data Lake Storage Gen2. Vous pouvez y transférer vos fichiers avec Azure Data Factory, Explorateur Stockage Azure ou AzCopy. Les jeux de données d’entraînement et de scoring peuvent se trouver dans des conteneurs différents, mais les jeux de données d’entraînement de tous les types de formulaires doivent se trouver dans le même conteneur (même s’ils peuvent se trouver dans des dossiers différents).
 
-Pour créer un lac de données, suivez les instructions données dans [Créer un compte de stockage à utiliser avec Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/create-data-lake-storage-account).
+Pour créer un lac de données, suivez les instructions données dans [Créer un compte de stockage à utiliser avec Azure Data Lake Storage Gen2](../../storage/blobs/create-data-lake-storage-account.md).
 
 ## <a name="create-a-parameterization-table"></a>Créer une table de paramétrage
 
@@ -89,7 +89,7 @@ Les champs suivants sont utilisés dans la table :
 
 ### <a name="create-the-table"></a>Créer la table
 
-[Créez une base de données Azure SQL](https://ms.portal.azure.com/#create/Microsoft.SQLDatabase), puis exécutez le script SQL suivant dans l’[éditeur de requête](https://docs.microsoft.com/azure/azure-sql/database/connect-query-portal) pour créer la table nécessaire.
+[Créez une base de données Azure SQL](https://ms.portal.azure.com/#create/Microsoft.SQLDatabase), puis exécutez le script SQL suivant dans l’[éditeur de requête](../../azure-sql/database/connect-query-portal.md) pour créer la table nécessaire.
 
 ```sql
 CREATE TABLE dbo.ParamFormRecogniser(
@@ -142,7 +142,7 @@ Vous allez utiliser Azure Databricks pour stocker et exécuter le code Python qu
 
 ### <a name="create-a-secret-scope-backed-by-azure-key-vault"></a>Créer une étendue de secrets sauvegardée par Azure Key Vault
 
-Pour référencer les secrets dans le coffre de clés Azure que nous avons créé ci-dessus, vous avez besoin de créer une étendue de secrets dans Databricks. Suivez les étapes indiquées sous [Créer une étendue de secrets sauvegardée par Azure Key Vault](https://docs.microsoft.com/azure/databricks/security/secrets/secret-scopes#--create-an-azure-key-vault-backed-secret-scope).
+Pour référencer les secrets dans le coffre de clés Azure que nous avons créé ci-dessus, vous avez besoin de créer une étendue de secrets dans Databricks. Suivez les étapes indiquées sous [Créer une étendue de secrets sauvegardée par Azure Key Vault](/azure/databricks/security/secrets/secret-scopes#--create-an-azure-key-vault-backed-secret-scope).
 
 ### <a name="create-a-databricks-cluster"></a>Créer un cluster Databricks
 
@@ -461,7 +461,7 @@ Nous pouvons maintenant créer un notebook de scoring. Comme pour le notebook d�
 
 ## <a name="automate-training-and-scoring-with-azure-data-factory"></a>Automatiser l’entraînement et le scoring avec Azure Data Factory
 
-La seule étape restante consiste à configurer le service Azure Data Factory (ADF) pour automatiser les processus d’entraînement et de scoring. Tout d’abord, suivez les étapes sous [Créer une fabrique de données](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-portal#create-a-data-factory). Une fois que vous avez créé la ressource ADF, vous devez créer trois pipelines : un pour l’entraînement et deux pour le scoring (comme expliqué ci-dessous).
+La seule étape restante consiste à configurer le service Azure Data Factory (ADF) pour automatiser les processus d’entraînement et de scoring. Tout d’abord, suivez les étapes sous [Créer une fabrique de données](../../data-factory/quickstart-create-data-factory-portal.md#create-a-data-factory). Une fois que vous avez créé la ressource ADF, vous devez créer trois pipelines : un pour l’entraînement et deux pour le scoring (comme expliqué ci-dessous).
 
 ### <a name="training-pipeline"></a>Pipeline d’entraînement
 

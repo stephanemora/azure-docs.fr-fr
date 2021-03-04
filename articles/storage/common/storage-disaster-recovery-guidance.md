@@ -10,12 +10,12 @@ ms.date: 05/05/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 9a4453c29c52f8821643e93584666c3a6a8e6b4c
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: e00e22862121f2f974f9531a9892e32e115d6041
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100379826"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737645"
 ---
 # <a name="disaster-recovery-and-storage-account-failover"></a>Reprise d’activité après sinistre et basculement de compte de stockage
 
@@ -55,7 +55,7 @@ Gardez également à l’esprit ces bonnes pratiques pour maintenir une haute di
 
 - **Disques :** utilisez [Sauvegarde Azure](https://azure.microsoft.com/services/backup/) pour sauvegarder les disques de machine virtuelle utilisés par vos machines virtuelles Azure. Vous pouvez aussi utiliser [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) pour protéger vos machines virtuelles en cas de sinistre régional.
 - **Objets blob de blocs :** activez la [suppression réversible](../blobs/soft-delete-blob-overview.md) pour protéger contre les suppressions et remplacements au niveau objet, ou copiez les objets blob de blocs vers un autre compte de stockage dans une région différente à l’aide d’[AzCopy](./storage-use-azcopy-v10.md), d’[Azure PowerShell](/powershell/module/az.storage/) ou de la [bibliothèque de déplacement de données Azure](storage-use-data-movement-library.md).
-- **Fichiers :** Utilisez le service [Sauvegarde Azure](https://docs.microsoft.com/azure/backup/azure-file-share-backup-overview) pour sauvegarder vos partages de fichiers. Activez également la [suppression réversible](https://docs.microsoft.com/azure/storage/files/storage-files-prevent-file-share-deletion) pour vous protéger des suppressions accidentelles de partages de fichiers. Afin de bénéficier de la géo-redondance lorsque GRS n'est pas disponible, utilisez [AzCopy](./storage-use-azcopy-v10.md) ou [Azure PowerShell](/powershell/module/az.storage/) pour copier vos fichiers sur un autre compte de stockage situé dans une autre région.
+- **Fichiers :** Utilisez le service [Sauvegarde Azure](../../backup/azure-file-share-backup-overview.md) pour sauvegarder vos partages de fichiers. Activez également la [suppression réversible](../files/storage-files-prevent-file-share-deletion.md) pour vous protéger des suppressions accidentelles de partages de fichiers. Afin de bénéficier de la géo-redondance lorsque GRS n'est pas disponible, utilisez [AzCopy](./storage-use-azcopy-v10.md) ou [Azure PowerShell](/powershell/module/az.storage/) pour copier vos fichiers sur un autre compte de stockage situé dans une autre région.
 - [Tables :](./storage-use-azcopy-v10.md) utilisez **AzCopy** pour exporter les données de table vers un autre compte de stockage dans une région différente.
 
 ## <a name="track-outages"></a>Effectuer le suivi des pannes

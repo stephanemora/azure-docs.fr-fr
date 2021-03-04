@@ -14,12 +14,12 @@ ms.subservice: roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ae8dbf6ffd2d827bbcd0fd723f63255d71d47a5
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 9f2fe29ede2bf0f92049d1ae82bae87326057a63
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99090788"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594299"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Sécurisation de l’accès privilégié pour les déploiements hybrides et cloud dans Azure AD
 
@@ -212,7 +212,7 @@ Vous ne devez pas utiliser de comptes Microsoft d’autres programmes, tels que 
 
 #### <a name="monitor-azure-activity"></a>Surveiller l’activité Azure
 
-Le Journal d’activité Azure fournit un historique des événements au niveau de l’abonnement dans Azure. Il fournit des informations indiquant qui a créé, mis à jour et supprimé quelles ressources et quand ces événements se sont produits. Pour plus d’informations, consultez [Audit et réception de notifications relatives à des actions importantes dans votre abonnement Azure](../../azure-monitor/platform/alerts-activity-log.md).
+Le Journal d’activité Azure fournit un historique des événements au niveau de l’abonnement dans Azure. Il fournit des informations indiquant qui a créé, mis à jour et supprimé quelles ressources et quand ces événements se sont produits. Pour plus d’informations, consultez [Audit et réception de notifications relatives à des actions importantes dans votre abonnement Azure](../../azure-monitor/alerts/alerts-activity-log.md).
 
 ### <a name="additional-steps-for-organizations-managing-access-to-other-cloud-apps-via-azure-ad"></a>Étapes supplémentaires pour les organisations gérant l’accès à d’autres applications cloud via Azure AD
 
@@ -359,7 +359,7 @@ L’Étape 4 de la feuille de route doit être implémentée à partir du sixi�
 
 La sécurisation des accès privilégiés est importante pour offrir des assurances en matière de sécurité pour vos ressources d’entreprise. Elle doit cependant d’inscrire dans un programme de sécurité complet qui offre des assurances de sécurité continues. Ce programme doit inclure des éléments tels que les suivants :
 
-* Policy
+* Stratégie
 * Opérations
 * Sécurité des informations
 * Serveurs

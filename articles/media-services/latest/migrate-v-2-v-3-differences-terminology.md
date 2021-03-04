@@ -11,12 +11,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 1/14/2020
 ms.author: inhenkel
-ms.openlocfilehash: a2348e0578b60c59fd7205037bd42d7bb1e84fae
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 6f677c8753f09e146d300186e19217568952b417
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98953697"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101705396"
 ---
 # <a name="terminology-and-entity-changes-between-media-services-v2-and-v3"></a>Changements de terminologie et d’entités entre les versions V2 et V3 d’Azure Media Services
 
@@ -73,7 +73,7 @@ Examinez les conventions d’affectation de noms appliquées aux ressources Medi
 | **Encodage** <!--new row --> |||
 | Débits d’encodage <!--new row --> | Débits mesurés en Kbits/s. Par exemple : 128 (Kbits/s)| Bits par seconde. Par exemple : 128000 (bits/seconde)|
 | Encodage de DRM FairPlay <!--new row --> | Dans Media Services v2, vous pouvez spécifier le vecteur d’initialisation. | Dans Media Services v3, vous ne pouvez pas spécifier le vecteur d’initialisation FairPlay.|
-| Encodeur Premium <!--new row --> | Encodeur Premium et indexeur hérité| L’[Encodeur Premium](https://docs.microsoft.com/azure/media-services/previous/media-services-encode-asset) et les [processeurs Media Analytics](https://docs.microsoft.com/azure/media-services/previous/legacy-components) (indexeur Azure Media Services 2 en préversion, Face Redactor, etc.) ne sont pas accessibles via v3. Nous avons ajouté la prise en charge du mappage de canal audio à l’encodeur Standard.  Consultez [Audio dans la documentation relative au Swagger d’encodage de Media Services](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2020-05-01/Encoding.json).  | Consultez les rubriques sur l’encodage dans l’article relatif à l’[encodage basé sur un scénario](migrate-v-2-v-3-migration-scenario-based-encoding.md) |
+| Encodeur Premium <!--new row --> | Encodeur Premium et indexeur hérité| L’[Encodeur Premium](../previous/media-services-encode-asset.md) et les [processeurs Media Analytics](../previous/legacy-components.md) (indexeur Azure Media Services 2 en préversion, Face Redactor, etc.) ne sont pas accessibles via v3. Nous avons ajouté la prise en charge du mappage de canal audio à l’encodeur Standard.  Consultez [Audio dans la documentation relative au Swagger d’encodage de Media Services](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2020-05-01/Encoding.json).  | Consultez les rubriques sur l’encodage dans l’article relatif à l’[encodage basé sur un scénario](migrate-v-2-v-3-migration-scenario-based-encoding.md) |
 | **Transformations et travaux** <!--new row -->|||
 | HTTPS de traitement basé sur un travail <!--new row --> |<!-- empty -->| Pour un traitement de travail basé sur un fichier, vous pouvez utiliser une URL HTTPS en guise d’entrée. Vous n’avez pas besoin de contenu déjà stocké dans Azure ou de créer des ressources. |
 | Modèles ARM pour les travaux <!--new row --> | Les modèles ARM n’existent pas dans v2. | Vous pouvez utiliser une transformation pour créer des configurations réutilisables, créer des modèles Azure Resource Manager, et isoler des paramètres de traitement entre plusieurs clients ou locataires. |

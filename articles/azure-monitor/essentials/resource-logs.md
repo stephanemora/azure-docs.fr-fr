@@ -7,27 +7,27 @@ ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 3560152ce5e3185e79c7a7ff34e5360f10236980
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: dcd6522c46b6ca35031092c634803267a8486647
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100599029"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731457"
 ---
 # <a name="azure-resource-logs"></a>Journaux de ressources Azure
-Les journaux de ressources Azure sont des [journaux de plateforme](../essentials/platform-logs-overview.md) qui fournissent des insights sur les opérations qui ont été effectuées au sein d’une ressource Azure. Le contenu des journaux de ressources varie en fonction du service Azure et du type de ressource. Les journaux d’activité de ressources ne sont pas collectées par défaut. Vous devez créer un paramètre de diagnostic pour chaque ressource Azure afin d’envoyer ses journaux de ressources vers un espace de travail Log Analytics pour les utiliser avec les [journaux Azure Monitor](../platform/data-platform-logs.md), vers Azure Event Hubs pour les transférer à l’extérieur d’Azure ou vers un stockage Azure à des fins d’archivage.
+Les journaux de ressources Azure sont des [journaux de plateforme](../essentials/platform-logs-overview.md) qui fournissent des insights sur les opérations qui ont été effectuées au sein d’une ressource Azure. Le contenu des journaux de ressources varie en fonction du service Azure et du type de ressource. Les journaux d’activité de ressources ne sont pas collectées par défaut. Vous devez créer un paramètre de diagnostic pour chaque ressource Azure afin d’envoyer ses journaux de ressources vers un espace de travail Log Analytics pour les utiliser avec les [journaux Azure Monitor](../logs/data-platform-logs.md), vers Azure Event Hubs pour les transférer à l’extérieur d’Azure ou vers un stockage Azure à des fins d’archivage.
 
 Consultez [Créer des paramètres de diagnostic pour envoyer des journaux et des métriques de plateforme à différentes destinations](../essentials/diagnostic-settings.md) pour plus d’informations sur la création d’un paramètre de diagnostic et [Déployer Azure Monitor à la bonne échelle à l’aide d’Azure Policy](../deploy-scale.md) pour plus d’informations sur l’utilisation d’Azure Policy pour créer automatiquement un paramètre de diagnostic pour chaque ressource Azure que vous créez.
 
 ## <a name="send-to-log-analytics-workspace"></a>Envoyer à l’espace de travail Log Analytics
- Envoyez des journaux de ressources à un espace de travail Log Analytics pour activer les fonctionnalités des [journaux Azure Monitor](../platform/data-platform-logs.md), qui permettent notamment de :
+ Envoyez des journaux de ressources à un espace de travail Log Analytics pour activer les fonctionnalités des [journaux Azure Monitor](../logs/data-platform-logs.md), qui permettent notamment de :
 
 - Mettre en corrélation les données des journaux de ressources avec d’autres données de supervision collectées par Azure Monitor.
 - Consolider les entrées de journal de plusieurs ressources, abonnements et locataires Azure en un seul endroit pour les analyser ensemble.
 - Utiliser les requêtes de journal pour effectuer des analyses complexes et obtenir des insights profonds sur les données de journal.
 - Utiliser des alertes de journal avec une logique d’alerte complexe.
 
-[Créez un paramètre de diagnostic](../essentials/diagnostic-settings.md) pour envoyer des journaux de ressources à un espace de travail Log Analytics. Ces données sont stockées dans des tables comme décrit dans [Structure des journaux Azure Monitor](../platform/data-platform-logs.md). Les tables utilisées par les journaux de ressources dépendent du type de collection que la ressource utilise :
+[Créez un paramètre de diagnostic](../essentials/diagnostic-settings.md) pour envoyer des journaux de ressources à un espace de travail Log Analytics. Ces données sont stockées dans des tables comme décrit dans [Structure des journaux Azure Monitor](../logs/data-platform-logs.md). Les tables utilisées par les journaux de ressources dépendent du type de collection que la ressource utilise :
 
 - Diagnostics Azure - Toutes les données sont écrites dans la table _AzureDiagnostics_.
 - Spécifique à la ressource - Les données sont écrites dans une table individuelle pour chaque catégorie de la ressource.
@@ -90,7 +90,7 @@ La plupart des ressources Azure écrivent des données dans l’espace de travai
    ![Sélecteur du mode Paramètres de diagnostic](media/resource-logs/diagnostic-settings-mode-selector.png)
 
 > [!NOTE]
-> Consultez [Exemples de modèle Resource Manager pour les paramètres de diagnostic dans Azure Monitor](../samples/resource-manager-diagnostic-settings.md#diagnostic-setting-for-recovery-services-vault) pour un exemple de paramétrage de diagnostic avec un modèle Resource Manager.
+> Consultez [Exemples de modèle Resource Manager pour les paramètres de diagnostic dans Azure Monitor](./resource-manager-diagnostic-settings.md#diagnostic-setting-for-recovery-services-vault) pour un exemple de paramétrage de diagnostic avec un modèle Resource Manager.
 
 
 Vous pouvez modifier un paramètre de diagnostic existant sur le mode Spécifique à la ressource. Dans ce cas, les données déjà collectées sont conservées dans la table _AzureDiagnostics_ jusqu’à leur suppression conformément au paramètre de conservation pour l'espace de travail. Les nouvelles données sont collectées dans la table dédiée. Utilisez l’opérateur [union](/azure/kusto/query/unionoperator) pour interroger les données dans les deux tables.

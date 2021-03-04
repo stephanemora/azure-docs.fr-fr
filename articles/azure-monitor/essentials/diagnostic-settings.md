@@ -7,15 +7,15 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 02/08/2021
 ms.subservice: logs
-ms.openlocfilehash: c7e18250a6f11504aa29d8df190da974499470ab
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: dde18460862eb2ac61ed7e9bbf95d70ecf61496b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100598390"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726017"
 ---
 # <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>Créer des paramètres de diagnostic pour envoyer des journaux et des métriques de plateforme à différentes destinations
-Les [journaux de plateforme](../platform/platform-logs-overview.md) dans Azure, y compris le journal d’activité Azure et les journaux de ressources, fournissent des informations de diagnostic et d’audit détaillées pour les ressources Azure et la plateforme Azure dont elles dépendent. Les [métriques de plateforme](../platform/data-platform-metrics.md) sont collectées par défaut et généralement stockées dans la base de données de métriques Azure Monitor. Cet article fournit des détails sur la création et la configuration de paramètres de diagnostic pour envoyer les journaux de plateforme et les métriques de plateforme vers différentes destinations.
+Les [journaux de plateforme](./platform-logs-overview.md) dans Azure, y compris le journal d’activité Azure et les journaux de ressources, fournissent des informations de diagnostic et d’audit détaillées pour les ressources Azure et la plateforme Azure dont elles dépendent. Les [métriques de plateforme](./data-platform-metrics.md) sont collectées par défaut et généralement stockées dans la base de données de métriques Azure Monitor. Cet article fournit des détails sur la création et la configuration de paramètres de diagnostic pour envoyer les journaux de plateforme et les métriques de plateforme vers différentes destinations.
 
 > [!IMPORTANT]
 > Avant de créer un paramètre de diagnostic pour le journal d’activité, vous devez d’abord désactiver toute configuration héritée. Pour plus d’informations, consultez [Méthodes de collecte héritées](../essentials/activity-log.md#legacy-collection-methods).
@@ -31,13 +31,13 @@ La vidéo suivante vous guide dans l’acheminement des journaux de plateforme a
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4AvVO]
 
 > [!NOTE]
-> Les [métriques de plateforme](../platform/metrics-supported.md) sont envoyées automatiquement vers les [métriques Azure Monitor](../platform/data-platform-metrics.md). Vous pouvez utiliser des paramètres de diagnostic pour envoyer des métriques pour certains services Azure vers des journaux Azure Monitor à des fins d’analyse avec d’autres données de supervision en utilisant des [requêtes de journal](../log-query/log-query-overview.md) dans certaines limites. 
+> Les [métriques de plateforme](./metrics-supported.md) sont envoyées automatiquement vers les [métriques Azure Monitor](./data-platform-metrics.md). Vous pouvez utiliser des paramètres de diagnostic pour envoyer des métriques pour certains services Azure vers des journaux Azure Monitor à des fins d’analyse avec d’autres données de supervision en utilisant des [requêtes de journal](../logs/log-query-overview.md) dans certaines limites. 
 >  
 >  
-> L’envoi de métriques multidimensionnelles via les paramètres de diagnostic n’est pas pris en charge actuellement. Les métriques à plusieurs dimensions sont exportées en tant que métriques dimensionnelles uniques aplaties, puis agrégées dans les valeurs de la dimension. *Par exemple* : la métrique « IOReadBytes » sur un blockchain peut être explorée et représentée sur un graphique par niveau de nœud. Toutefois, lorsque la métrique est exportée par le biais de paramètres de diagnostic, elle représente tous les octets lus pour tous les nœuds. En outre, en raison de limitations internes, certaines métriques ne sont pas exportables vers des journaux Azure Monitor ou Log Analytics. Pour plus d’informations, consultez la [liste des mesures exportables](../platform/metrics-supported-export-diagnostic-settings.md). 
+> L’envoi de métriques multidimensionnelles via les paramètres de diagnostic n’est pas pris en charge actuellement. Les métriques à plusieurs dimensions sont exportées en tant que métriques dimensionnelles uniques aplaties, puis agrégées dans les valeurs de la dimension. *Par exemple* : la métrique « IOReadBytes » sur un blockchain peut être explorée et représentée sur un graphique par niveau de nœud. Toutefois, lorsque la métrique est exportée par le biais de paramètres de diagnostic, elle représente tous les octets lus pour tous les nœuds. En outre, en raison de limitations internes, certaines métriques ne sont pas exportables vers des journaux Azure Monitor ou Log Analytics. Pour plus d’informations, consultez la [liste des mesures exportables](./metrics-supported-export-diagnostic-settings.md). 
 >  
 >  
-> Pour contourner ces limitations pour des mesures spécifiques, nous vous suggérons d’extraire celles-ci manuellement à l’aide de l’[API REST Métriques](/rest/api/monitor/metrics/list) et de les importer dans des journaux Azure Monitor à l’aide de l’[API Collecteur de données d’Azure Monitor](../platform/data-collector-api.md).  
+> Pour contourner ces limitations pour des mesures spécifiques, nous vous suggérons d’extraire celles-ci manuellement à l’aide de l’[API REST Métriques](/rest/api/monitor/metrics/list) et de les importer dans des journaux Azure Monitor à l’aide de l’[API Collecteur de données d’Azure Monitor](../logs/data-collector-api.md).  
 
 
 ## <a name="destinations"></a>Destinations
@@ -45,7 +45,7 @@ Il est possible d’envoyer des journaux et métriques de plateforme aux destina
 
 | Destination | Description |
 |:---|:---|
-| [Espace de travail Log Analytics](../platform/design-logs-deployment.md) | L’envoi de journaux et de métriques vers un espace de travail Log Analytics vous permet de les analyser avec d’autres données de supervision collectées par Azure Monitor à l’aide de requêtes de journal puissantes, ainsi que d’exploiter d’autres fonctionnalités d’Azure Monitor, telles que les alertes et les visualisations. |
+| [Espace de travail Log Analytics](../logs/design-logs-deployment.md) | L’envoi de journaux et de métriques vers un espace de travail Log Analytics vous permet de les analyser avec d’autres données de supervision collectées par Azure Monitor à l’aide de requêtes de journal puissantes, ainsi que d’exploiter d’autres fonctionnalités d’Azure Monitor, telles que les alertes et les visualisations. |
 | [Event Hubs](../../event-hubs/index.yml) | L’envoi de journaux et de métriques à Event Hubs vous permet de transmettre en continu des données à des systèmes externes tels que des solutions SIEM tierces et d’autres solutions d’analytique des journaux d’activité.  |
 | [Compte Azure Storage](../../storage/blobs/index.yml) | L’archivage des journaux et des métriques dans un compte de stockage Azure est utile à des fins d’audit, d’analyse statique ou de sauvegarde. Par rapport aux journaux d’activité Azure Monitor et à l’espace de travail Log Analytics, le stockage Azure est moins onéreux et les journaux peuvent y être conservés indéfiniment.  |
 
@@ -99,7 +99,7 @@ Vous pouvez configurer des paramètres de diagnostic sur le portail Azure à par
 
 4. **Détails des catégories (éléments à acheminer)**  : cochez la case pour chaque catégorie de données que vous voulez envoyer aux destinations spécifiées plus tard. La liste des catégories varie pour chaque service Azure.
 
-     - **AllMetrics** achemine les métriques de plateforme d’une ressource dans le magasin Azure Logs, mais sous forme de journal. Ces métriques sont généralement envoyées uniquement à la base de données de série chronologique des métriques d’Azure Monitor. Les envoyer au magasin Azure Monitor Logs (qui peut faire l’objet d’une recherche via Log Analytics) vous aide à les intégrer dans des requêtes qui effectuent des recherches dans d’autres journaux. Cette option peut ne pas être disponible pour tous les types de ressources. Lorsqu’elle est prise en charge, la catégorie [Métriques prises en charge par Azure Monitor](../platform/metrics-supported.md) répertorie les métriques collectées pour les types de ressources.
+     - **AllMetrics** achemine les métriques de plateforme d’une ressource dans le magasin Azure Logs, mais sous forme de journal. Ces métriques sont généralement envoyées uniquement à la base de données de série chronologique des métriques d’Azure Monitor. Les envoyer au magasin Azure Monitor Logs (qui peut faire l’objet d’une recherche via Log Analytics) vous aide à les intégrer dans des requêtes qui effectuent des recherches dans d’autres journaux. Cette option peut ne pas être disponible pour tous les types de ressources. Lorsqu’elle est prise en charge, la catégorie [Métriques prises en charge par Azure Monitor](./metrics-supported.md) répertorie les métriques collectées pour les types de ressources.
 
        > [!NOTE]
        > Voir la limitation relative à l’acheminement de métriques vers les journaux Azure Monitor, plus haut dans cet article.  
@@ -111,7 +111,7 @@ Vous pouvez configurer des paramètres de diagnostic sur le portail Azure à par
 
       ![Envoyer à Log Analytics ou à Event Hubs](media/diagnostic-settings/send-to-log-analytics-event-hubs.png)
 
-    1. **Log Analytics** : entrez l’abonnement et l’espace de travail.  Si vous n’avez pas d’espace de travail, vous devez [en créer un avant de continuer](../learn/quick-create-workspace.md).
+    1. **Log Analytics** : entrez l’abonnement et l’espace de travail.  Si vous n’avez pas d’espace de travail, vous devez [en créer un avant de continuer](../logs/quick-create-workspace.md).
 
     1. **Event Hubs** : spécifiez les critères suivants :
        - Abonnement auquel appartient l’Event Hub.
@@ -132,14 +132,14 @@ Vous pouvez configurer des paramètres de diagnostic sur le portail Azure à par
 
 6. Cliquez sur **Enregistrer**.
 
-Après quelques instants, le nouveau paramètre apparaît dans la liste des paramètres de cette ressource, et les journaux sont envoyés aux destinations spécifiées au fur et à mesure de la génération de nouvelles données d’événement. Un délai de 15 minutes peut s’écouler entre le moment où un événement est émis et celui où il [s’affiche dans un espace de travail Log Analytics](../platform/data-ingestion-time.md).
+Après quelques instants, le nouveau paramètre apparaît dans la liste des paramètres de cette ressource, et les journaux sont envoyés aux destinations spécifiées au fur et à mesure de la génération de nouvelles données d’événement. Un délai de 15 minutes peut s’écouler entre le moment où un événement est émis et celui où il [s’affiche dans un espace de travail Log Analytics](../logs/data-ingestion-time.md).
 
 ## <a name="create-using-powershell"></a>Créer à l’aide de PowerShell
 
-Pour créer un paramètre de diagnostic avec [Azure PowerShell](../samples/powershell-samples.md), utilisez la cmdlet [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting). Pour obtenir une description des paramètres de celle-ci, consultez sa documentation.
+Pour créer un paramètre de diagnostic avec [Azure PowerShell](../powershell-samples.md), utilisez la cmdlet [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting). Pour obtenir une description des paramètres de celle-ci, consultez sa documentation.
 
 > [!IMPORTANT]
-> Vous ne pouvez pas utiliser cette méthode pour le journal d’activité Azure. Utilisez plutôt la méthode [Créer un paramètre de diagnostic dans Azure Monitor à l’aide d’un modèle Resource Manager](../samples/resource-manager-diagnostic-settings.md) pour créer un modèle Resource Manager et le déployer avec PowerShell.
+> Vous ne pouvez pas utiliser cette méthode pour le journal d’activité Azure. Utilisez plutôt la méthode [Créer un paramètre de diagnostic dans Azure Monitor à l’aide d’un modèle Resource Manager](./resource-manager-diagnostic-settings.md) pour créer un modèle Resource Manager et le déployer avec PowerShell.
 
 Voici un exemple de cmdlet PowerShell permettant de créer un paramètre de diagnostic utilisant les trois destinations.
 
@@ -152,7 +152,7 @@ Set-AzDiagnosticSetting -Name KeyVault-Diagnostics -ResourceId /subscriptions/xx
 Pour créer un paramètre de diagnostic avec [Azure CLI](/cli/azure/monitor), utilisez la commande [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create). Pour une description des paramètres de cette commande, consultez sa documentation.
 
 > [!IMPORTANT]
-> Vous ne pouvez pas utiliser cette méthode pour le journal d’activité Azure. Utilisez plutôt la méthode [Créer un paramètre de diagnostic dans Azure Monitor à l’aide d’un modèle Resource Manager](../samples/resource-manager-diagnostic-settings.md) pour créer un modèle Resource Manager et le déployer avec CLI.
+> Vous ne pouvez pas utiliser cette méthode pour le journal d’activité Azure. Utilisez plutôt la méthode [Créer un paramètre de diagnostic dans Azure Monitor à l’aide d’un modèle Resource Manager](./resource-manager-diagnostic-settings.md) pour créer un modèle Resource Manager et le déployer avec CLI.
 
 Voici un exemple de commande Azure CLI pour créer un paramètre de diagnostic utilisant les trois destinations.
 
@@ -168,7 +168,7 @@ az monitor diagnostic-settings create  \
 ```
 
 ## <a name="create-using-resource-manager-template"></a>Créer à l’aide d’un modèle Resource Manager
-Consultez [Exemples de modèle Resource Manager pour les paramètres de diagnostic dans Azure Monitor](../samples/resource-manager-diagnostic-settings.md) pour créer ou mettre à jour des paramètres de diagnostic avec un modèle Resource Manager.
+Consultez [Exemples de modèle Resource Manager pour les paramètres de diagnostic dans Azure Monitor](./resource-manager-diagnostic-settings.md) pour créer ou mettre à jour des paramètres de diagnostic avec un modèle Resource Manager.
 
 ## <a name="create-using-rest-api"></a>Créer à l’aide de l’API REST
 Pour créer ou mettre à jour des paramètres de diagnostic à l’aide de l’[API REST Azure Monitor](/rest/api/monitor/), voir [Paramètres de diagnostic](/rest/api/monitor/diagnosticsettings).
@@ -197,4 +197,4 @@ Si vous recevez cette erreur, mettez à jour vos déploiements en y remplaçant 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [En savoir plus sur les journaux de la plateforme Azure](../platform/platform-logs-overview.md)
+- [En savoir plus sur les journaux de la plateforme Azure](./platform-logs-overview.md)

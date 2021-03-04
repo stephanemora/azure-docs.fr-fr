@@ -8,12 +8,12 @@ ms.author: nmurav
 ms.date: 12/11/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 1333bd08f8a79969817bcb21aa4580d1994d09ce
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: d2df7255980ca00d405cf80a9fff69ff0511bd17
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99594633"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659305"
 ---
 # <a name="call-flow-topologies"></a>Topologies des flux d’appels
 Cet article décrit les topologies de flux d’appels Azure Communication Services. Si vous êtes un client d’entreprise intégrant Communication Services dans un réseau que vous gérez, vous avez tout intérêt à lire cet article. Pour une présentation des flux d’appels Communication Services, consultez la [documentation conceptuelle sur les flux d’appels](./call-flows.md).
@@ -26,7 +26,7 @@ Avant de passer en revue les topologies de flux d’appels, nous allons définir
 
 Un **réseau client** contient les segments réseau que vous gérez. Cela peut englober les réseaux câblés et sans fil situés dans votre bureau ou entre plusieurs bureaux, centres de données et fournisseurs de services Internet.
 
-Un réseau client est généralement constitué de plusieurs périmètres réseau avec des pare-feu et/ou des serveurs proxy qui appliquent les stratégies de sécurité de votre organisation. Nous vous recommandons de procéder à une [évaluation complète du réseau](https://docs.microsoft.com/microsoftteams/3-envision-evaluate-my-environment) pour optimiser les performances et la qualité de votre solution de communication.
+Un réseau client est généralement constitué de plusieurs périmètres réseau avec des pare-feu et/ou des serveurs proxy qui appliquent les stratégies de sécurité de votre organisation. Nous vous recommandons de procéder à une [évaluation complète du réseau](/microsoftteams/3-envision-evaluate-my-environment) pour optimiser les performances et la qualité de votre solution de communication.
 
 Le **réseau Communication Services** est le segment réseau qui prend en charge Azure Communication Services. Ce réseau est géré par Microsoft et est distribué dans le monde entier avec des périphéries proches de la plupart des réseaux client. Ce réseau est responsable du relais de transport, du traitement multimédia pour les appels de groupe et d’autres composants qui prennent en charge les communications multimédias riches et en temps réel.
 
@@ -199,4 +199,3 @@ Les documents suivants peuvent vous intéresser :
 
 - En savoir plus sur les [types d’appels](../concepts/voice-video-calling/about-call-types.md)
 - En savoir plus sur l’[architecture client-serveur](./client-and-server-architecture.md)
-

@@ -6,12 +6,12 @@ ms.author: tefa
 ms.date: 08/03/2020
 ms.service: signalr
 ms.topic: conceptual
-ms.openlocfilehash: 46d66451bb8f2cd6c5d4448131b5f4842a728fd0
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.openlocfilehash: c561bb507a5178f4a838b370a3da8af9447829f4
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97797391"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101092552"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-azure-signalr-resources"></a>Authentifier une identité managée avec Azure Active Directory pour accéder aux ressources Azure SignalR
 Azure SignalR Service prend en charge l’authentification Azure Active Directory (Azure AD) avec des [identités managées pour ressources Azure](../active-directory/managed-identities-azure-resources/overview.md). Les identités managées pour ressources Azure peuvent autoriser l’accès à des ressources Azure SignalR Service en utilisant les informations d’identification Azure AD d’applications s’exécutant dans des machines virtuelles Azure, des applications de fonction, le service Virtual Machine Scale Sets et d’autres services. En utilisant des identités managées pour ressources Azure et Azure AD Authentication, vous pouvez éviter de stocker des informations d’identification avec les applications qui s’exécutent dans le cloud.
@@ -47,29 +47,29 @@ Une fois ce paramètre activé, une identité de service est créée dans votre 
 
 À présent, attribuez cette identité de service à un rôle dans l’étendue requise dans vos ressources Azure SignalR Service.
 
-## <a name="assign-rbac-roles-using-the-azure-portal"></a>Attribuer des rôles RBAC à l’aide du portail Azure  
-Pour en savoir plus sur la gestion de l’accès aux ressources Azure à l’aide de RBAC et du portail Azure, consultez [cet article](..//role-based-access-control/role-assignments-portal.md). 
+## <a name="assign-azure-roles-using-the-azure-portal"></a>Attribuer des rôles Azure à l’aide du portail Azure  
+Pour en savoir plus sur la gestion de l’accès aux ressources Azure à l’aide d’Azure RBAC et du portail Azure, consultez [cet article](..//role-based-access-control/role-assignments-portal.md). 
 
 Après avoir déterminé l’étendue appropriée pour une attribution de rôle, accédez à cette ressource dans le portail Azure. Affichez les paramètres Contrôle d’accès (IAM) pour la ressource et suivez ces instructions pour gérer les attributions de rôle :
 
-1. Dans le [portail Azure](https://portal.azure.com/), accédez à votre ressource Azure SignalR Service.
-1. Sélectionnez **Contrôle d’accès (IAM)** pour afficher les paramètres de contrôle d’accès à Azure SignalR Service. 
+1. Dans le [portail Azure](https://portal.azure.com/), accédez à votre ressource SignalR.
+1. Sélectionnez **Contrôle d’accès (IAM)** pour afficher les paramètres de contrôle d’accès d’Azure SignalR. 
 1. Sélectionnez l’onglet **Attributions de rôles** pour afficher la liste des attributions de rôles. Sélectionnez le bouton **Ajouter** dans la barre d’outils, puis sélectionnez **Ajouter une attribution de rôle**. 
 
     ![Ajouter un bouton à la barre d’outils](./media/authenticate/role-assignments-add-button.png)
 
 1. Sur la page **Ajouter une attribution de rôle**, procédez comme suit :
-    1. Sélectionnez le **rôle Azure SignalR** que vous souhaitez affecter. 
+    1. Sélectionnez le **rôle Azure SignalR** à attribuer. 
     1. Recherchez le **principal de sécurité** (utilisateur, groupe, principal de service) auquel vous souhaitez attribuer le rôle.
     1. Sélectionnez **Enregistrer** pour enregistrer l’attribution de rôle. 
 
         ![Attribuer un rôle à une application](./media/authenticate/assign-role-to-application.png)
 
-    1. L’identité à laquelle vous avez attribué le rôle apparaît sous ce dernier. Par exemple, l’illustration suivante montre que les applications `signalr-dev` et `signalr-service` se trouvent dans le rôle de serveur d’applications SignalR. 
+    1. L’identité à laquelle vous avez attribué le rôle apparaît sous ce dernier. Par exemple, l’image suivante montre que les applications `signalr-dev` et `signalr-service` se trouvent dans le rôle serveur d’applications SignalR. 
         
         ![Liste d’attributions de rôles](./media/authenticate/role-assignment-list.png)
 
-Vous pouvez suivre des étapes similaires pour attribuer un rôle dans l’étendue d’un groupe de ressources ou d’un abonnement. Une fois que vous avez défini le rôle et son étendue, vous pouvez tester ce comportement à l’aide d’exemples [dans cet emplacement GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac).
+Vous pouvez suivre des étapes similaires pour attribuer un rôle limité à l’étendue d’un groupe de ressources ou d’un abonnement. Une fois que vous avez défini le rôle et son étendue, vous pouvez tester ce comportement à l’aide d’exemples [dans cet emplacement GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac).
 
 ## <a name="samples-code-while-configuring-your-app-server"></a>Exemples de code lors de la configuration de votre serveur d’applications
 

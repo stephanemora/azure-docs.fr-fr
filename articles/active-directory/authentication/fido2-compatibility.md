@@ -11,16 +11,16 @@ author: knicholasa
 manager: martinco
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0a8f96fabdff3543222077f5113b0bd602997b7
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 039dd8b6fa0769b6798630e666bfbf6de48ccf14
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100416485"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101649238"
 ---
 # <a name="browser-support-of-fido2-passwordless-authentication"></a>Prise en charge par navigateur de l’authentification FIDO2 sans mot de passe
 
-Azure Active Directory permet d’utiliser des [clés de sécurité FIDO2](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-passwordless#fido2-security-keys) en tant qu’appareil sans mot de passe. La disponibilité de l’authentification FIDO2 pour les comptes Microsoft a été [annoncée en 2018](https://techcommunity.microsoft.com/t5/identity-standards-blog/all-about-fido2-ctap2-and-webauthn/ba-p/288910). Comme indiqué dans l’annonce, certaines fonctionnalités et extensions facultatives de la spécification FIDO2 CTAP doivent être implémentées pour prendre en charge l’authentification sécurisée avec les comptes Microsoft et Azure Active Directory. Le diagramme suivant montre les navigateurs et les combinaisons de systèmes d’exploitation qui prennent en charge l’authentification sans mot de passe à l’aide des clés d’authentification FIDO2 avec Azure Active Directory.
+Azure Active Directory permet d’utiliser des [clés de sécurité FIDO2](./concept-authentication-passwordless.md#fido2-security-keys) en tant qu’appareil sans mot de passe. La disponibilité de l’authentification FIDO2 pour les comptes Microsoft a été [annoncée en 2018](https://techcommunity.microsoft.com/t5/identity-standards-blog/all-about-fido2-ctap2-and-webauthn/ba-p/288910). Comme indiqué dans l’annonce, certaines fonctionnalités et extensions facultatives de la spécification FIDO2 CTAP doivent être implémentées pour prendre en charge l’authentification sécurisée avec des comptes Microsoft et Azure Active Directory. Le diagramme suivant montre les navigateurs et les combinaisons de systèmes d’exploitation qui prennent en charge l’authentification sans mot de passe à l’aide des clés d’authentification FIDO2 avec Azure Active Directory.
 
 ## <a name="supported-browsers"></a>Navigateurs pris en charge
 
@@ -33,18 +33,32 @@ Ce tableau indique la prise en charge de l’authentification sur Azure Active D
 | **macOS**  | ![Chrome prend en charge USB sur macOS pour les comptes AAD.][y] | ![Chrome ne prend pas en charge NFC sur macOS pour les comptes AAD.][n] | ![Chrome ne prend pas en charge BLE sur macOS pour les comptes AAD.][n] | ![Edge prend en charge USB sur macOS pour les comptes AAD.][y] | ![Edge ne prend pas en charge NFC sur macOS pour les comptes AAD.][n] | ![Edge ne prend pas en charge BLE sur macOS pour les comptes AAD.][n] | ![Firefox ne prend pas en charge USB sur macOS pour les comptes AAD.][n] | ![Firefox ne prend pas en charge NFC sur macOS pour les comptes AAD.][n] | ![Firefox ne prend pas en charge BLE sur macOS pour les comptes AAD.][n] |
 | **Linux**  | ![Chrome prend en charge USB sur Linux pour les comptes AAD.][y] | ![Chrome ne prend pas en charge NFC sur Linux pour les comptes AAD.][n] | ![Chrome ne prend pas en charge BLE sur Linux pour les comptes AAD.][n] | ![Edge ne prend pas en charge USB sur Linux pour les comptes AAD.][n] | ![Edge ne prend pas en charge NFC sur Linux pour les comptes AAD.][n] | ![Edge ne prend pas en charge BLE sur Linux pour les comptes AAD.][n] | ![Firefox ne prend pas en charge USB sur Linux pour les comptes AAD.][n] | ![Firefox ne prend pas en charge NFC sur Linux pour les comptes AAD.][n] | ![Firefox ne prend pas en charge BLE sur Linux pour les comptes AAD.][n] |
 
-## <a name="operating-system-versions-tested"></a>Versions de système d'exploitation testées
+## <a name="unsupported-browsers"></a>Navigateurs non pris en charge
 
-Les informations du tableau ci-dessus ont été testées pour les versions de système d’exploitation suivantes.
+Les combinaisons suivantes de système d’exploitation et de navigateur ne sont pas prises en charge, mais une prise en charge et des tests futurs sont à l’étude. Si vous souhaitez voir la prise en charge d’autres systèmes d’exploitation et navigateurs, faites-le nous savoir à l’aide de l’outil de commentaire sur le produit au bas de la page.
 
-| Système d’exploitation | Dernière version testée |
-| --- | --- |
-| Windows | Windows 10 20H2 1904 |
-| macOS | OS X 11 Big Sur |
-| Linux | Fedora 32 Workstation |
+| Système d’exploitation | Browser |
+| ---- | ---- |
+| iOS | Safari, Brave |
+| macOS | Safari |
+| Android | Chrome |
+| ChromeOS | Chrome |
+
+## <a name="minimum-browser-version"></a>Version minimale du navigateur
+
+Voici la configuration minimale requise pour la version du navigateur. 
+
+| Browser | Version minimale |
+| ---- | ---- |
+| Chrome | 76 |
+| Edge | Windows 10 version 1903<sup>1</sup> |
+| Firefox | Chrome |
+| ChromeOS | 66 |
+
+<sup>1</sup>Toutes les versions du nouveau Microsoft Edge basé sur Chromium prennent en charge Fido2. La prise en charge sur Microsoft Edge hérité a été ajoutée à la version 1903.
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Activer la connexion par clé de sécurité sans mot de passe (préversion)](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-security-key)
+[Activer la connexion par clé de sécurité sans mot de passe (préversion)](./howto-authentication-passwordless-security-key.md)
 
 <!--Image references-->
 [y]: ./media/fido2-compatibility/yes.png

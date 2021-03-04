@@ -3,16 +3,16 @@ title: Vue d’ensemble de l’exemple de blueprint Azure Security Benchmark Fou
 description: Vue d’ensemble et architecture de l’exemple de blueprint Azure Security Benchmark Foundation.
 ms.date: 02/17/2020
 ms.topic: sample
-ms.openlocfilehash: b3b58f2fb603e23e4b188e527fa4fc60f4041a29
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: ed497eff85e07b6a51939907bc751f3b40c99b30
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101095279"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101741869"
 ---
 # <a name="overview-of-the-azure-security-benchmark-foundation-blueprint-sample"></a>Vue d’ensemble de l’exemple de blueprint Azure Security Benchmark Foundation
 
-L’exemple de blueprint Azure Security Benchmark Foundation offre un ensemble de modèles d’infrastructure de base qui vous permettront de créer un environnement Azure sécurisé et conforme. Avec ce blueprint, vous pouvez déployer une architecture cloud qui offre des solutions aux scénarios qui ont des obligations d’accréditation ou de conformité. Cet exemple de blueprint de base est une extension de l’[exemple de blueprint Azure Security Benchmark](../azure-security-benchmark/index.md). Il déploie et configure limites réseau, supervision et autres ressources en phase avec les stratégies et autres garde-fous définis dans le [Benchmark de sécurité Azure](../../../../security/benchmarks/index.yml).
+L’exemple de blueprint Azure Security Benchmark Foundation offre un ensemble de modèles d’infrastructure de base qui vous permettront de créer un environnement Azure sécurisé et conforme. Avec ce blueprint, vous pouvez déployer une architecture cloud qui offre des solutions aux scénarios qui ont des obligations d’accréditation ou de conformité. Cet exemple de blueprint de base est une extension de l’[exemple de blueprint Azure Security Benchmark](../azure-security-benchmark.md). Il déploie et configure limites réseau, supervision et autres ressources en phase avec les stratégies et autres garde-fous définis dans le [Benchmark de sécurité Azure](../../../../security/benchmarks/index.yml).
 
 ## <a name="architecture"></a>Architecture
 
@@ -23,7 +23,7 @@ Le blueprint déploie un réseau virtuel Hub qui contient des ressources commune
 
 Ce blueprint déploie plusieurs services Azure pour fournir une base sécurisée, contrôlée et prête pour être utilisée en entreprise. Cet environnement comporte les éléments suivants :
 
-- Les [journaux Azure Monitor](../../../../azure-monitor/platform/data-platform-logs.md) et un compte de stockage Azure pour s’assurer que les journaux de ressource, les journaux d’activité, les métriques et les flux de trafic des réseaux sont stockés dans un emplacement central pour faciliter l’interrogation, l’analytique, l’archivage et la création d’alertes.
+- Les [journaux Azure Monitor](../../../../azure-monitor/logs/data-platform-logs.md) et un compte de stockage Azure pour s’assurer que les journaux de ressource, les journaux d’activité, les métriques et les flux de trafic des réseaux sont stockés dans un emplacement central pour faciliter l’interrogation, l’analytique, l’archivage et la création d’alertes.
 - [Azure Security Center](../../../../security-center/security-center-introduction.md) (version standard) pour fournir une protection des ressources Azure contre les menaces.
 - [Réseau virtuel Azure](../../../../virtual-network/virtual-networks-overview.md) dans les sous-réseaux Hub pour la connectivité à un réseau local, une pile d’entrées/de sorties pour la connectivité Internet et des sous-réseaux facultatifs pour déployer d’autres services de gestion et d’administration. Le réseau virtuel du Spoke contient des sous-réseaux pour héberger les charges de travail applicatives. D’autres sous-réseaux peuvent être créés après le déploiement si besoin pour prendre en charge les scénarios applicables.
 - Le [Pare-feu Azure](../../../../firewall/overview.md) pour acheminer l’ensemble du trafic Internet sortant et permettre le trafic Internet entrant via un jumpbox. (Les règles de pare-feu par défaut bloquent l’ensemble du trafic Internet entrant et sortant et des règles doivent être configurées après le déploiement, le cas échéant.)

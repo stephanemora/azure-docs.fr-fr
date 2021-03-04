@@ -160,10 +160,10 @@
               href: create-data-source-web-sdk.md
             - name: Ajouter un calque de symboles
               href: map-add-pin.md
-            - name: Ajouter une fenêtre contextuelle
-              href: map-add-popup.md
             - name: Ajouter un calque de bulles
               href: map-add-bubble-layer.md
+            - name: Ajouter une fenêtre contextuelle
+              href: map-add-popup.md
             - name: Ajouter des marqueurs HTML
               href: map-add-custom-html.md
             - name: Ajouter une couche de lignes
@@ -250,14 +250,14 @@
           href: how-to-add-symbol-to-android-map.md
         - name: Ajouter un calque de bulles
           href: map-add-bubble-layer-android.md
-        - name: Ajouter des formes
+        - name: Afficher des informations sur les fonctionnalités
+          href: display-feature-information-android.md
+        - name: Ajouter une couche de lignes
+          href: android-map-add-line-layer.md
+        - name: Ajouter une couche de polygones
           href: how-to-add-shapes-to-android-map.md
         - name: Ajouter une couche de carte thermique
           href: map-add-heat-map-layer-android.md
-        - name: Ajouter une couche de lignes
-          href: android-map-add-line-layer.md
-        - name: Afficher des informations sur les fonctionnalités
-          href: display-feature-information-android.md
         - name: Ajouter un calque de vignettes
           href: how-to-add-tile-layer-android-map.md
         - name: Afficher les données du trafic

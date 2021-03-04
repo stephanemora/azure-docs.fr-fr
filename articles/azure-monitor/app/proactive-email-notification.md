@@ -4,14 +4,14 @@ description: Passez aux destinataires des notifications par défaut depuis la d�
 ms.topic: conceptual
 author: harelbr
 ms.author: harelbr
-ms.date: 03/13/2019
+ms.date: 02/14/2021
 ms.reviewer: mbullwin
-ms.openlocfilehash: 0bf3a95814aadf687efcc27294b760e14f7d45d8
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: fa14f0dd40a30a4750d9bb102d8e67608f958135
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100585637"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734500"
 ---
 # <a name="smart-detection-e-mail-notification-change"></a>Modification des notifications par e-mail de la détection intelligente
 
@@ -27,7 +27,7 @@ Cette modification touchera toutes les règles de détection intelligente, à l�
 
 * les règles de détection intelligente marquées comme étant en préversion, qui à l’heure actuelle ne prennent pas en charge les notifications par e-mail ;
 
-* la règle Anomalies de défaillance, qui commencera à cibler les nouveaux rôles par défaut une fois migrée d’une alerte classique à la plateforme d’alertes unifiée (pour plus d’informations, cliquez [ici](../alerts/monitoring-classic-retirement.md)).
+* la règle Anomalies de défaillance,
 
 ## <a name="how-to-prepare-for-this-change"></a>Préparation à cette modification
 

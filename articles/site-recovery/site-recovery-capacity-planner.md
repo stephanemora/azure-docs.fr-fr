@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: a5764e44db31755110ac99a3e8e8e0984cdf9604
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa96845a2bd2f4659da1155c4f75281268dce76d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87490572"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737713"
 ---
 # <a name="plan-capacity-for-hyper-v-vm-disaster-recovery"></a>Planifier la capacité pour la reprise d’activité de machines virtuelles Hyper-V 
 
@@ -43,7 +43,7 @@ Vous pouvez exécuter l’outil en deux modes :
 
 
 ## <a name="run-the-quick-planner"></a>Exécutez Quick Planner
-1. Téléchargez et ouvrez [Site Azure Site Recovery Capacity Planner](https://aka.ms/asr-capacity-planner-excel). Vous devez exécuter les macros. Lorsque vous y êtes invité, opérez des sélections pour activer la modification et le contenu.
+1. Téléchargez et ouvrez [Site Azure Site Recovery Capacity Planner](/samples/browse/?redirectedfrom=TechNet-Gallery). Vous devez exécuter les macros. Lorsque vous y êtes invité, opérez des sélections pour activer la modification et le contenu.
 
 2. Dans la zone de liste **Sélectionner un type de planificateur**, sélectionnez **Quick Planner** (Planificateur rapide).
 
@@ -81,7 +81,7 @@ Vous pouvez exécuter l’outil en deux modes :
 
 ## <a name="run-the-detailed-planner"></a>Exécuter Detailed Planner
 
-1. Téléchargez et ouvrez [Site Azure Site Recovery Capacity Planner](https://aka.ms/asr-capacity-planner-excel). Vous devez exécuter les macros. Lorsque vous y êtes invité, opérez des sélections pour activer la modification et le contenu.
+1. Téléchargez et ouvrez [Site Azure Site Recovery Capacity Planner](/samples/browse/?redirectedfrom=TechNet-Gallery). Vous devez exécuter les macros. Lorsque vous y êtes invité, opérez des sélections pour activer la modification et le contenu.
 
 2. Dans **Sélectionner un type de planificateur**, sélectionnez **Detailed Planner** dans la liste.
 

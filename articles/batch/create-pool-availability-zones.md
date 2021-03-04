@@ -3,12 +3,12 @@ title: Créer un pool dans des zones de disponibilité
 description: Découvrez comment créer un pool Batch avec une stratégie zonale pour vous protéger contre les défaillances.
 ms.topic: how-to
 ms.date: 01/28/2021
-ms.openlocfilehash: 98109e1b74106bc636eaa715575e4b30ab29f9e2
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 56e718bedf504b8e69598c2d99ab8b889a470b89
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99056822"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101725286"
 ---
 # <a name="create-an-azure-batch-pool-across-availability-zones"></a>Créer un pool Azure Batch dans des zones de disponibilité
 
@@ -22,7 +22,7 @@ Batch maintient la parité avec Azure pour la prise en charge de zones de dispon
 
 Pour que votre pool Batch soit alloué dans les différentes zones de disponibilité, la région Azure dans laquelle le pool est créé doit prendre en charge la référence SKU de machine virtuelle requise dans plusieurs zones. Vous pouvez valider cette exigence en appelant l’[API de liste des références SKU de ressource](/rest/api/compute/resourceskus/list) et vérifier le champ **locationInfo** de [resourceSku](/rest/api/compute/resourceskus/list#resourcesku). Assurez-vous que plus d’une zone est prise en charge pour la référence SKU de machine virtuelle requise.
 
-Pour les [comptes Batch en mode abonnement utilisateur](accounts.md#batch-accounts), assurez-vous que l’abonnement dans lequel vous créez votre pool n’a pas de restriction d’offre de zone sur la référence SKU de machine virtuelle requise. Pour confirmer cela, appelez l’[API de liste des références SKU des ressources](/rest/api/compute/resourceskus/list) et vérifiez [ResourceSkuRestrictions](/rest/api/compute/resourceskus/list#resourceskurestrictions). Si une restriction de zone existe, vous pouvez envoyer un [ticket de support](../azure-portal/supportability/sku-series-unavailable.md) pour supprimer la restriction de zone.
+Pour les [comptes Batch en mode abonnement utilisateur](accounts.md#batch-accounts), assurez-vous que l’abonnement dans lequel vous créez votre pool n’a pas de restriction d’offre de zone sur la référence SKU de machine virtuelle requise. Pour confirmer cela, appelez l’[API de liste des références SKU des ressources](/rest/api/compute/resourceskus/list) et vérifiez [ResourceSkuRestrictions](/rest/api/compute/resourceskus/list#resourceskurestrictions). Si une restriction de zone existe, vous pouvez envoyer un [ticket de support](/troubleshoot/azure/general/region-access-request-process) pour supprimer la restriction de zone.
 
 Notez également que vous ne pouvez pas créer un pool avec une stratégie zonale si la communication entre les nœuds est activée et utilise une [référence SKU de machine virtuelle qui prend en charge InfiniBand](../virtual-machines/workloads/hpc/enable-infiniband.md).
 
@@ -83,4 +83,3 @@ Corps de la demande
 - Apprenez-en davantage sur le [workflow et les ressources principales du service Batch](batch-service-workflow-features.md) telles que les pools, les nœuds, les travaux et les tâches.
 - Apprenez-en davantage sur la [création d’un pool sur un sous-réseau d’un réseau virtuel Azure](batch-virtual-network.md).
 - Découvrez comment [créer un pool Azure Batch sans adresses IP publiques](./batch-pool-no-public-ip-address.md).
-

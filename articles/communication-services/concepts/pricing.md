@@ -9,17 +9,14 @@ ms.author: mikben
 ms.date: 09/29/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 883be25716d94130984baef5e7a1eab80888a2b9
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: bf255837a08a4810321f2f03cb97838e31a7cddc
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100558473"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101657755"
 ---
 # <a name="pricing-scenarios"></a>Scénarios de tarifs
-
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
-
 
 Les tarifs pour Azure Communication Services sont généralement basés sur un modèle de paiement à l’utilisation. Les prix dans les exemples suivants sont fournis à titre indicatif et peuvent ne pas refléter les tarifs Azure les plus récents.
 
@@ -50,7 +47,7 @@ Alice a effectué un appel de groupe avec ses collègues, Bob et Charlie. Alice 
 
 ### <a name="pricing-example-a-user-of-the-communication-services-js-client-library-joins-a-scheduled-microsoft-teams-meeting"></a>Exemple de tarif : Un utilisateur de la bibliothèque de client Communication Services JS rejoint une réunion Microsoft Teams planifiée
 
-Alice est un médecin en réunion avec son patient, Bob. Alice va se joindre à la visite à partir de l’application Teams Desktop. Bob va recevoir un lien pour s’y joindre en utilisant le site web médical du fournisseur, qui se connecte à la réunion en utilisant la bibliothèque de client Communication Services JS. Bob va utiliser son téléphone mobile pour participer à la réunion en utilisant un navigateur web (iPhone avec Safari). Une conversation sera disponible pendant la visite virtuelle. 
+Alice est un médecin en réunion avec son patient, Bob. Alice va se joindre à la visite à partir de l’application Teams Desktop. Bob va recevoir un lien pour s’y joindre en utilisant le site web médical du fournisseur, qui se connecte à la réunion en utilisant la bibliothèque de client Communication Services JS. Bob va utiliser son téléphone mobile pour participer à la réunion en utilisant un navigateur web (iPhone avec Safari). Une conversation sera disponible pendant la visite virtuelle.
 
 - L’appel dure 30 minutes au total.
 - Alice et Bob participent à la totalité de l’appel. Alice active sa vidéo 5 minutes après le démarrage de l’appel et partage son écran pendant 13 minutes. Bob a sa vidéo activée pendant toute la durée de l’appel.
@@ -60,15 +57,15 @@ Alice est un médecin en réunion avec son patient, Bob. Alice va se joindre à 
 **Calculs des coûts**
 
 - 1 participant (Bob) x 30 minutes x 0,004 USD par participant par minute = 0,12 USD [les flux vidéo et audio sont facturés au même tarif]
-- 1 participant (Alice) x 30 minutes x 0,000 USD par participant par minute = 0,0 USD*. 
+- 1 participant (Alice) x 30 minutes x 0,000 USD par participant par minute = 0,0 USD*.
 - 1 participant (Bob) x 3 messages de conversation x 0,0008 USD = 0,0024 USD.
-- 1 participant (Alice) x 5 messages de conversation x 0,000 USD = 0,0 USD. 
+- 1 participant (Alice) x 5 messages de conversation x 0,000 USD = 0,0 USD.
 
 *La participation d’Alice est couverte par sa licence Teams. Votre facture Azure indique pour information les minutes et les messages de conversation que les utilisateurs Teams ont eus avec des utilisateurs Communication Services, mais ces minutes et ces messages provenant du client Teams, ils ne sont pas facturés.
 
-**Coût total de la visite** : 
+**Coût total de la visite** :
 - Utilisateur se joignant en utilisant la bibliothèque de client Communication Services JS : 0,12 USD + 0,0024 USD = 0,1224 USD
-- Utilisateur se joignant à l’application Teams Desktop : 0 USD (couvert par une licence Teams) 
+- Utilisateur se joignant à l’application Teams Desktop : 0 USD (couvert par une licence Teams)
 
 
 ## <a name="chat"></a>Conversation
@@ -79,27 +76,27 @@ Avec Communication Services, vous pouvez améliorer votre application en ajoutan
 
 Il vous est facturé 0,0008 USD pour chaque message de conversation envoyé.
 
-### <a name="pricing-example-chat-between-two-users"></a>Exemple de tarif : Conversation entre deux utilisateurs 
+### <a name="pricing-example-chat-between-two-users"></a>Exemple de tarif : Conversation entre deux utilisateurs
 
 Geeta démarre un fil de conversation avec Emily pour partager une mise à jour et envoie 5 messages. La conversation dure 10 minutes. Geeta et Emily s’envoient chacune 15 messages.
 
-**Calculs des coûts** 
+**Calculs des coûts**
 - Nombre de messages envoyés (5 + 15 + 15) x 0,0008 USD = 0,028 USD
 
-### <a name="pricing-example-group-chat-with-multiple-users"></a>Exemple de tarif : Conversation de groupe avec plusieurs utilisateurs 
+### <a name="pricing-example-group-chat-with-multiple-users"></a>Exemple de tarif : Conversation de groupe avec plusieurs utilisateurs
 
-Charlie démarre un fil de conversation avec ses amis Casey et Jasmine pour planifier des vacances. Ils discutent pendant un certain temps, au cours duquel Charlie, Casey et Jasmine envoient 20, 30 et 18 messages respectivement. Ils se rendent compte que leur amie Rose pourrait avoir envie de partir avec eux, de sorte qu’ils l’ajoutent au fil de conversation et partagent tout l’historique des messages avec elle. 
+Charlie démarre un fil de conversation avec ses amis Casey et Jasmine pour planifier des vacances. Ils discutent pendant un certain temps, au cours duquel Charlie, Casey et Jasmine envoient 20, 30 et 18 messages respectivement. Ils se rendent compte que leur amie Rose pourrait avoir envie de partir avec eux, de sorte qu’ils l’ajoutent au fil de conversation et partagent tout l’historique des messages avec elle.
 
 Rose consulte les messages et s’engage dans la conversation. Entre-temps, Casey reçoit un appel et décide de reprendre la conversation ultérieurement. Charlie, Jasmine et Rose décident des dates du voyage et envoient encore 30, 25 et 35 messages respectivement.
 
-**Calculs des coûts** 
+**Calculs des coûts**
 
 - Nombre de messages envoyés (20 + 30 + 18 + 30 + 25 + 35) x 0,0008 USD = 0,1264 USD
 
 
 ## <a name="telephony-and-sms"></a>Téléphonie et SMS
 
-## <a name="price"></a>Price 
+## <a name="price"></a>Price
 
 Les services de téléphonie sont facturés à la minute, tandis que les SMS sont facturés à l’unité. Les tarifs sont déterminés par le type et le lieu du numéro que vous utilisez ainsi que par la destination de vos appels et SMS.
 

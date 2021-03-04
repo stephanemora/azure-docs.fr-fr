@@ -7,12 +7,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
-ms.openlocfilehash: 8493b75f0d9e0f947996df431d63bfba9abdc9e0
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 9f4f5f82423f0ecb4e810eab2d675e95b8b66763
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100598920"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717160"
 ---
 # <a name="workbook-time-parameters"></a>Paramètres de temps des classeurs
 
@@ -78,5 +78,5 @@ requests
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Commencez](../platform/workbooks-overview.md#visualizations) à en apprendre davantage sur les nombreuses options pour les visualisations enrichies des classeurs.
-* [Contrôlez](../platform/workbooks-access-control.md) et partagez l’accès à vos ressources de classeur.
+* [Commencez](./workbooks-overview.md#visualizations) à en apprendre davantage sur les nombreuses options pour les visualisations enrichies des classeurs.
+* [Contrôlez](./workbooks-access-control.md) et partagez l’accès à vos ressources de classeur.

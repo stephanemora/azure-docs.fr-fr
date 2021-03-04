@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 48501a2796f4d826a20af559058490a14785b53e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0503f6910186b42bf381c662c7942e37c28bfdf0
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84738632"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709510"
 ---
 # <a name="visualize-network-traffic-patterns-to-and-from-your-vms-using-open-source-tools"></a>Visualiser les modèles de trafic réseau depuis et vers les machines virtuelles à l’aide d’outils open source
 
@@ -47,7 +47,7 @@ Vous pouvez directement charger une capture de paquets effectuée par Network Wa
 
 Lorsque vous fournissez un lien vers CapAnalysis, veillez à ajouter un jeton SAP à l’URL de l’objet blob de stockage.  Pour ce faire, accédez à la signature d’accès partagé à partir du compte de stockage, désignez les autorisations accordées et appuyez sur le bouton Générer une signature d’accès partagé pour créer un jeton. Vous pouvez ensuite ajouter le jeton SAP à l’URL de l’objet blob de stockage de la capture de paquets.
 
-L’URL obtenue se présente comme suit : `http:\//storageaccount.blob.core.windows.net/container/location?addSASkeyhere`
+L’URL obtenue se présente comme suit : `http://storageaccount.blob.core.windows.net/container/location?addSASkeyhere`
 
 
 ### <a name="analyzing-packet-captures"></a>Analyse des captures de paquets

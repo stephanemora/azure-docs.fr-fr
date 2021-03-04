@@ -3,17 +3,17 @@ title: Restauration de Disques managés Azure
 description: Découvrez comment restaurer des Disques managés Azure sur le Portail Azure.
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.openlocfilehash: b9c9a22f25a8003151217bec15b618e3c380e67e
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 995217cd17d1e2a16cd7a5f963ee88aa7116d4a7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737374"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703747"
 ---
 # <a name="restore-azure-managed-disks-in-preview"></a>Restauration de Disques managés Azure (préversion)
 
 >[!IMPORTANT]
->La sauvegarde de disque Azure, en préversion sans contrat de niveau de service, n’est pas recommandée pour les charges de travail de production. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Pour connaître la disponibilité par région, consultez la [matrice de prise en charge](disk-backup-support-matrix.md).
+>La sauvegarde de disque Azure, en préversion sans contrat de niveau de service, n’est pas recommandée pour les charges de travail de production. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Pour la disponibilité des régions, consultez la [matrice de prise en charge](disk-backup-support-matrix.md).
 >
 >[Remplissez ce formulaire](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR1vE8L51DIpDmziRt_893LVUNFlEWFJBN09PTDhEMjVHS05UWFkxUlUzUS4u) pour vous inscrire à la préversion.
 
@@ -66,7 +66,7 @@ Voici les prérequis d’une opération de restauration :
     >
     >Lors des sauvegardes planifiées ou d’une opération de sauvegarde à la demande, la Sauvegarde Azure stocke les instantanés incrémentiels de disque dans le groupe de ressources d’instantanés fourni lors de la configuration de la sauvegarde du disque. Elle utilise ces instantanés incrémentiels au cours de l’opération de restauration. Si les instantanés sont déplacés ou supprimés du groupe de ressources d’instantanés ou que les attributions de rôles du coffre Sauvegarde sont révoquées sur le groupe de ressources d’instantanés, l’opération de restauration échoue.
 
-1. Si le disque à sauvegarder est chiffré avec des [clés managées par le client (CMK)](https://docs.microsoft.com/azure/virtual-machines/disks-enable-customer-managed-keys-portal) ou un [chiffrement double reposant sur des clés managées par la plateforme et des clés managées par le client](https://docs.microsoft.com/azure/virtual-machines/disks-enable-double-encryption-at-rest-portal), attribuez l’autorisation de rôle **Lecteur** à l’identité managée du coffre Sauvegarde sur la ressource **Jeu de chiffrement de disque**.
+1. Si le disque à sauvegarder est chiffré avec des [clés managées par le client (CMK)](../virtual-machines/disks-enable-customer-managed-keys-portal.md) ou un [chiffrement double reposant sur des clés managées par la plateforme et des clés managées par le client](../virtual-machines/disks-enable-double-encryption-at-rest-portal.md), attribuez l’autorisation de rôle **Lecteur** à l’identité managée du coffre Sauvegarde sur la ressource **Jeu de chiffrement de disque**.
 
 Une fois les prérequis respectés, procédez comme suit pour effectuer l’opération de restauration.
 

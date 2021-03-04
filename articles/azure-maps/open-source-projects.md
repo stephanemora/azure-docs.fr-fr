@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 16e7f04c62f25e787c3cab44b85a075e1c7d7277
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 8be747d2027291203272a960efe6b26368471a50
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100386745"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735044"
 ---
 # <a name="azure-maps-community---open-source-projects"></a>Projets open source de la communauté Azure Maps
 
@@ -70,9 +70,9 @@ La liste suivante répertorie les projets open source qui étendent les fonction
 
 | Nom du projet | Description |
 |-|-|
-| [Plug-in Cesium Azure Maps](https://github.com/azure-samples/azure-maps-cesium) | Plug-in [Cesium JS](https://cesium.com/cesiumjs/) qui facilite l’intégration de services Azure Maps tels que les [couches de mosaïques](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview) et les [services de géocodage](https://docs.microsoft.com/rest/api/maps/search). |
-| [Plug-in Azure Maps Leaflet](https://github.com/azure-samples/azure-maps-leaflet) | Plug-in JavaScript de [Leaflet](https://leafletjs.com/) qui facilite la superposition des couches de mosaïques à partir des [services de mosaïques Azure Maps](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview). |
- | [Plug-in OpenLayers Azure Maps](https://github.com/azure-samples/azure-maps-openlayers) | Plug-in JavaScript [OpenLayers](https://www.openlayers.org/) qui facilite la superposition des couches de mosaïques à partir des [services de mosaïques Azure Maps](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview). |
+| [Plug-in Cesium Azure Maps](https://github.com/azure-samples/azure-maps-cesium) | Plug-in [Cesium JS](https://cesium.com/cesiumjs/) qui facilite l’intégration de services Azure Maps tels que les [couches de mosaïques](/rest/api/maps/renderv2/getmaptilepreview) et les [services de géocodage](/rest/api/maps/search). |
+| [Plug-in Azure Maps Leaflet](https://github.com/azure-samples/azure-maps-leaflet) | Plug-in JavaScript de [Leaflet](https://leafletjs.com/) qui facilite la superposition des couches de mosaïques à partir des [services de mosaïques Azure Maps](/rest/api/maps/renderv2/getmaptilepreview). |
+ | [Plug-in OpenLayers Azure Maps](https://github.com/azure-samples/azure-maps-openlayers) | Plug-in JavaScript [OpenLayers](https://www.openlayers.org/) qui facilite la superposition des couches de mosaïques à partir des [services de mosaïques Azure Maps](/rest/api/maps/renderv2/getmaptilepreview). |
 
 **Outils et ressources**
 

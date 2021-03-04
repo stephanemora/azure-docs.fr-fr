@@ -6,12 +6,12 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 09/11/2020
-ms.openlocfilehash: 87951c0366090c1ea4eba490d114771e47bf452c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 304c359296c4fbff79dd367facd8bbb98c8903b5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100597255"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731440"
 ---
 # <a name="resource-manager-template-samples-for-diagnostic-settings-in-azure-monitor"></a>Exemples de modèle Resource Manager pour les paramètres de diagnostic dans Azure Monitor
 Cet article contient des exemples de [modèles Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) pour créer des paramètres de diagnostic destinés à une ressource Azure. Chaque exemple comprend un fichier de modèle et un fichier de paramètres avec des exemples de valeurs à fournir au modèle.
@@ -349,7 +349,7 @@ L’exemple suivant crée un paramètre de diagnostic pour une base de données 
 ```
 
 ## <a name="diagnostic-setting-for-recovery-services-vault"></a>Paramètre de diagnostic pour le coffre Recovery Services
-L’exemple suivant crée un paramètre de diagnostic pour un coffre Azure Recovery Services en ajoutant une ressource de type `microsoft.recoveryservices/vaults/providers/diagnosticSettings` au modèle. Cet exemple spécifie le mode de collecte comme décrit dans [Journaux de ressources Azure](../platform/resource-logs.md#send-to-log-analytics-workspace). Spécifiez `Dedicated` ou `AzureDiagnostics` pour la propriété `logAnalyticsDestinationType`.
+L’exemple suivant crée un paramètre de diagnostic pour un coffre Azure Recovery Services en ajoutant une ressource de type `microsoft.recoveryservices/vaults/providers/diagnosticSettings` au modèle. Cet exemple spécifie le mode de collecte comme décrit dans [Journaux de ressources Azure](./resource-logs.md#send-to-log-analytics-workspace). Spécifiez `Dedicated` ou `AzureDiagnostics` pour la propriété `logAnalyticsDestinationType`.
 
 ### <a name="template-file"></a>Fichier de modèle
 
@@ -812,5 +812,5 @@ L’exemple suivant crée un paramètre de diagnostic pour chaque point de termi
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Obtenir d’autres exemples de modèle pour Azure Monitor](../samples/resource-manager-samples.md).
+* [Obtenir d’autres exemples de modèle pour Azure Monitor](../resource-manager-samples.md).
 * [En savoir plus sur les paramètres de diagnostic](../essentials/diagnostic-settings.md).

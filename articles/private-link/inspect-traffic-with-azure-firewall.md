@@ -8,12 +8,12 @@ ms.service: private-link
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: allensu
-ms.openlocfilehash: 7812d0f2e42dfed6cdd661244b77969297093a5d
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 3ed349616ae6456913c19bb073f6e9ea28e7d549
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879171"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575120"
 ---
 # <a name="use-azure-firewall-to-inspect-traffic-destined-to-a-private-endpoint"></a>Utiliser Pare-feu Azure pour inspecter le trafic destiné à un point de terminaison privé
 
@@ -106,7 +106,7 @@ Les mêmes considérations que celles du scénario 2 ci-dessus s’appliquent. 
 * Un abonnement Azure.
 * Un espace de travail Log Analytics.  
 
-Pour créer un espace de travail si vous n’en avez pas dans votre abonnement, consultez [Créer un espace de travail Log Analytics dans le portail Azure](../azure-monitor/learn/quick-create-workspace.md).
+Pour créer un espace de travail si vous n’en avez pas dans votre abonnement, consultez [Créer un espace de travail Log Analytics dans le portail Azure](../azure-monitor/logs/quick-create-workspace.md).
 
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
@@ -454,7 +454,7 @@ Cette règle autorise la communication via le pare-feu que nous avons créé dan
 
 6. Dans **Ajouter une collection de règles d’application**, entrez ou sélectionnez les informations suivantes :
 
-    | Paramètre | Valeur |
+    | Paramètre | Value |
     | ------- | ----- |
     | Nom | Entrez **SQLPrivateEndpoint**. |
     | Priorité | Entrez **100**. |

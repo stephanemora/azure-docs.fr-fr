@@ -6,19 +6,19 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/21/2020
-ms.openlocfilehash: 73496e350a5e40a3945343271b76c6d883991b62
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 9ea33c7dca55e22687bd1db873c281caa1a3c4cb
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100599136"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719931"
 ---
 # <a name="collect-custom-logs-with-log-analytics-agent-in-azure-monitor"></a>Collecter les journaux personnalisés avec l'agent Log Analytics dans Azure Monitor
 
 La source de données Journaux d'activité personnalisés de l'agent Log Analytics disponible dans Azure Monitor vous permet de collecter des événements à partir de fichiers texte sur les ordinateurs Windows et Linux. De nombreuses applications consignent des informations dans des fichiers texte au lieu des services de journalisation standard tels que le Journal des événements Windows ou Syslog. Une fois la collecte terminée, vous pouvez analyser les données dans des champs individuels au sein de vos requêtes ou extraire les données lors de la collecte vers des champs individuels.
 
 > [!IMPORTANT]
-> Cet article traite de la collecte des journaux personnalisés avec l'[agent Log Analytics](../platform/log-analytics-agent.md), qui est un des agents utilisés par Azure Monitor. D'autres agents collectent des données différentes et sont configurés différemment. Pour obtenir la liste des agents disponibles et en savoir plus sur les données qu'ils peuvent collecter, consultez [Vue d'ensemble des agents Azure Monitor](../agents/agents-overview.md).
+> Cet article traite de la collecte des journaux personnalisés avec l'[agent Log Analytics](./log-analytics-agent.md), qui est un des agents utilisés par Azure Monitor. D'autres agents collectent des données différentes et sont configurés différemment. Pour obtenir la liste des agents disponibles et en savoir plus sur les données qu'ils peuvent collecter, consultez [Vue d'ensemble des agents Azure Monitor](../agents/agents-overview.md).
 
 ![Collecte de journaux personnalisés](media/data-sources-custom-logs/overview.png)
 
@@ -105,7 +105,7 @@ Lorsque Azure Monitor commence la collecte du journal personnalisé, ses enregis
 > Si la propriété RawData est manquante dans la requête, vous devrez peut-être fermer et rouvrir votre navigateur.
 
 ### <a name="step-6-parse-the-custom-log-entries"></a>Étape 6. Analyser les entrées du journal personnalisé
-L’entrée de journal est stockée dans une propriété unique appelée **RawData**.  Vous souhaiterez certainement séparer les différents éléments d’information de chaque entrée dans des propriétés distinctes pour chaque enregistrement. Consultez [Parse text data in Azure Monitor](../log-query/parse-text.md) (Analyser les données de texte dans Azure Monitor) pour prendre connaissance des options d’analyse **RawData** dans plusieurs propriétés.
+L’entrée de journal est stockée dans une propriété unique appelée **RawData**.  Vous souhaiterez certainement séparer les différents éléments d’information de chaque entrée dans des propriétés distinctes pour chaque enregistrement. Consultez [Parse text data in Azure Monitor](../logs/parse-text.md) (Analyser les données de texte dans Azure Monitor) pour prendre connaissance des options d’analyse **RawData** dans plusieurs propriétés.
 
 ## <a name="removing-a-custom-log"></a>Suppression d’un journal personnalisé
 Pour supprimer un journal personnalisé que vous avez défini précédemment, procédez comme suit dans le portail Azure.
@@ -116,7 +116,7 @@ Pour supprimer un journal personnalisé que vous avez défini précédemment, pr
 ## <a name="data-collection"></a>Collecte de données
 Azure Monitor collecte les nouvelles entrées de chaque journal personnalisé toutes les 5 minutes environ.  L’agent enregistre sa place dans chaque fichier journal dont il la collecte.  Si l’agent est hors connexion pendant un moment, Azure Monitor collecte les entrées à partir du point d’interruption, même si ces entrées ont été créées lorsque l’agent était hors connexion.
 
-L’entrée de journal est intégralement inscrite dans une propriété unique appelée **RawData**.  Consultez [Parse text data in Azure Monitor](../log-query/parse-text.md) (Analyser les données de texte dans Azure Monitor) pour prendre connaissance des méthodes permettant d’analyser chaque entrée de journal importée dans plusieurs propriétés.
+L’entrée de journal est intégralement inscrite dans une propriété unique appelée **RawData**.  Consultez [Parse text data in Azure Monitor](../logs/parse-text.md) (Analyser les données de texte dans Azure Monitor) pour prendre connaissance des méthodes permettant d’analyser chaque entrée de journal importée dans plusieurs propriétés.
 
 ## <a name="custom-log-record-properties"></a>Propriétés d’enregistrement de journal personnalisé
 Les enregistrements de journal personnalisé sont caractérisés par le nom du journal que vous fournissez et les propriétés dans le tableau suivant.
@@ -125,7 +125,7 @@ Les enregistrements de journal personnalisé sont caractérisés par le nom du j
 |:--- |:--- |
 | TimeGenerated |Date et heure auxquelles l’enregistrement a été collecté par Azure Monitor.  Si le journal utilise un délimiteur basé sur l’heure, il s’agit de l’heure collectée à partir de l’entrée. |
 | SourceSystem |Type d’agent auprès duquel l’enregistrement a été collecté. <br> Ops Manager : Agent Windows. Connexion directe ou System Center Operations Manager <br> Linux – Tous les agents Linux |
-| RawData |Texte complet de l’entrée collectée. Vous souhaiterez probablement [analyser ces données dans des propriétés individuelles](../log-query/parse-text.md). |
+| RawData |Texte complet de l’entrée collectée. Vous souhaiterez probablement [analyser ces données dans des propriétés individuelles](../logs/parse-text.md). |
 | ManagementGroupName |Nom du groupe d’administration pour les agents System Center Operations Manage  Pour les autres agents, il s'agit d’AOI-\<workspace ID\> |
 
 
@@ -171,8 +171,8 @@ Les journaux d’activité personnalisés sont très utiles lorsque vos données
 Lorsque vos données ne peuvent pas être collectées à l’aide des journaux d’activité personnalisés, vous pouvez avoir recours aux stratégies alternatives suivantes :
 
 - Utilisez un script personnalisé ou une autre méthode pour écrire les données dans [Événements Windows](data-sources-windows-events.md) ou [Syslog](data-sources-syslog.md). Elles seront alors collectées par Azure Monitor. 
-- Envoyez directement les données à Azure Monitor à l'aide de l'[API Collecteur de données HTTP](../platform/data-collector-api.md). 
+- Envoyez directement les données à Azure Monitor à l'aide de l'[API Collecteur de données HTTP](../logs/data-collector-api.md). 
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Consultez [Parse text data in Azure Monitor](../log-query/parse-text.md) (Analyser les données de texte dans Azure Monitor) pour prendre connaissance des méthodes permettant d’analyser chaque entrée de journal importée dans plusieurs propriétés.
-* Découvrez les [requêtes dans les journaux](../log-query/log-query-overview.md) pour analyser les données collectées à partir de sources de données et de solutions.
+* Consultez [Parse text data in Azure Monitor](../logs/parse-text.md) (Analyser les données de texte dans Azure Monitor) pour prendre connaissance des méthodes permettant d’analyser chaque entrée de journal importée dans plusieurs propriétés.
+* Découvrez les [requêtes dans les journaux](../logs/log-query-overview.md) pour analyser les données collectées à partir de sources de données et de solutions.

@@ -7,12 +7,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
-ms.openlocfilehash: d064b69f25ada4edf478f9c8b70d7aaad83754a1
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 22078f242ddeb882b39b85769537b9a282741250
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100598469"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101725524"
 ---
 # <a name="workbook-text-parameters"></a>Paramètres texte de classeur
 
@@ -85,5 +85,5 @@ Voici à quoi ressemble le classeur en mode lecture.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Commencez](../platform/workbooks-overview.md#visualizations) à en apprendre davantage sur les nombreuses options pour les visualisations enrichies des classeurs.
-* [Contrôlez](../platform/workbooks-access-control.md) et partagez l’accès à vos ressources de classeur.
+* [Commencez](./workbooks-overview.md#visualizations) à en apprendre davantage sur les nombreuses options pour les visualisations enrichies des classeurs.
+* [Contrôlez](./workbooks-access-control.md) et partagez l’accès à vos ressources de classeur.

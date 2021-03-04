@@ -1,22 +1,21 @@
 ---
 title: FAQ sur la tarification d’Azure Network Performance Monitor | Microsoft Docs
 description: Forum aux questions - Azure Network Performance Monitor
-ms.subservice: logs
 ms.topic: conceptual
 author: agummadi
 ms.author: agummadi
 ms.date: 04/02/2018
-ms.openlocfilehash: 4b9e8a81095a63c667925f8b51d9f9f2aa081f8d
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: 56163d3267a69099cbf6a18266168e9198ea04c6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99832876"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717432"
 ---
 # <a name="pricing-changes-for-azure-network-performance-monitor"></a>Modification de la tarification d’Azure Network Performance Monitor
 
 > [!IMPORTANT]
-> À compter du 1er juillet 2021, vous ne pourrez plus ajouter de nouveaux tests dans un espace de travail existant ni activer un nouvel espace de travail dans Network Performance Monitor. Vous pouvez continuer à utiliser les tests créés avant le 1er juillet 2021. Pour réduire l’interruption de service de vos charges de travail actuelles, [migrez vos tests de Network Performance Monitor vers le nouveau Moniteur de connexion](https://docs.microsoft.com/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor) dans Azure Network Watcher avant le 29 février 2024.
+> À compter du 1er juillet 2021, vous ne pourrez plus ajouter de nouveaux tests dans un espace de travail existant ni activer un nouvel espace de travail dans Network Performance Monitor. Vous pouvez continuer à utiliser les tests créés avant le 1er juillet 2021. Pour réduire l’interruption de service de vos charges de travail actuelles, [migrez vos tests de Network Performance Monitor vers le nouveau Moniteur de connexion](../../network-watcher/migrate-to-connection-monitor-from-network-performance-monitor.md) dans Azure Network Watcher avant le 29 février 2024.
 
 Nous avons pris note de vos commentaires et récemment introduit une [nouvelle expérience de tarification](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) pour différents services de surveillance sur Azure. Cet article présente les modifications de tarification relatives à Azure [Network Performance Monitor](../../networking/network-monitoring-overview.md) (NPM) dans un format de questions/réponses simple à lire.
 

@@ -9,22 +9,20 @@ ms.author: mariusu
 ms.date: 10/15/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: fbd5d3c4489d124014e0d956359f64a8ec9c568a
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: 5752f20cb433a417a684076338214cd2ea80bc8b
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99592787"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101658095"
 ---
 # <a name="get-started-with-the-web-calling-sample"></a>Bien démarrer avec l’exemple d’appel web
 
-L’exemple d’appel web est une application web qui sert de procédure pas à pas pour les différentes fonctionnalités fournies par la bibliothèque de client d’appel web de Communication Services. 
+L’exemple d’appel web est une application web qui sert de procédure pas à pas pour les différentes fonctionnalités fournies par la bibliothèque de client d’appel web de Communication Services.
 
 Cet exemple a été conçu pour les développeurs, et facilite la prise en main de Communication Services. Son interface utilisateur est divisée en plusieurs sections, chacune comportant un bouton « Show code » qui vous permet de copier du code directement à partir de votre navigateur afin de le coller dans votre propre application Communication Services.
 
 ## <a name="get-started-with-the-web-calling-sample"></a>Bien démarrer avec l’exemple d’appel web
-
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 > [!IMPORTANT]
 > [Cet exemple est disponible sur Github](https://github.com/Azure-Samples/communication-services-web-calling-tutorial/).
@@ -36,7 +34,7 @@ Une fois que l’[exemple d’appel web](https://github.com/Azure-Samples/commun
 
 :::image type="content" source="./media/web-calling-tutorial-page-2.png" alt-text="Tutoriel sur l’appel web 2" lightbox="./media/web-calling-tutorial-page-2.png":::
 
-## <a name="user-provisioning-and-sdk-initialization"></a>Provisionnement d’utilisateur et initialisation du kit SDK 
+## <a name="user-provisioning-and-sdk-initialization"></a>Provisionnement d’utilisateur et initialisation du kit SDK
 
 Cliquez sur « Provisioning user and initialize SDK » pour initialiser votre kit SDK à l’aide d’un jeton provisionné par le service de provisionnement de jetons back-end. Ce service back-end se trouve dans `/project/webpack.config.js`.
 
@@ -52,7 +50,7 @@ Vous pouvez maintenant commencer à passer des appels à l’aide de votre resso
 
 Le kit SDK d’appel web Communication Services autorise les appels **1:1**, **1:N** et de **groupe**.
 
-Pour les appels sortants 1:1 ou 1:N, vous pouvez spécifier plusieurs identités utilisateur Communication Services à appeler à l’aide de valeurs séparées par des virgules. Vous pouvez également spécifier des numéros de téléphone traditionnels (RTC) à appeler à l’aide de valeurs séparées par des virgules. 
+Pour les appels sortants 1:1 ou 1:N, vous pouvez spécifier plusieurs identités utilisateur Communication Services à appeler à l’aide de valeurs séparées par des virgules. Vous pouvez également spécifier des numéros de téléphone traditionnels (RTC) à appeler à l’aide de valeurs séparées par des virgules.
 
 Lors de l’appel de numéros de téléphone RTC, spécifiez votre ID d’appelant de substitution. Cliquez sur le bouton « Place call » pour passer un appel sortant :
 
@@ -80,7 +78,7 @@ Cet exemple fournit également des extraits de code pour les fonctionnalités su
 
 ## <a name="next-steps"></a>Étapes suivantes
 
->[!div class="nextstepaction"] 
+>[!div class="nextstepaction"]
 >[Télécharger l’exemple à partir de GitHub](https://github.com/Azure-Samples/communication-services-web-calling-tutorial/)
 
 Pour plus d’informations, consultez les articles suivants :

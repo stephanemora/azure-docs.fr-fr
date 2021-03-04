@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: how-to
 ms.date: 11/10/2020
-ms.openlocfilehash: 96872a067d2414254aec3f212542dadabdf2bd6f
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: d99ec80308152ce9e4870da809acaa25c663d98d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98791739"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101715698"
 ---
 # <a name="how-to-use-postman-to-send-requests-to-the-azure-digital-twins-apis"></a>Comment utiliser Postman pour envoyer des demandes aux API Azure Digital Twins
 
@@ -140,7 +140,7 @@ Pour continuer avec un exemple de requête, cet article utilise l’API de requ�
 1. Vérifiez que les en-têtes affichés pour la demande sous l’onglet *En-têtes* correspondent à ceux décrits dans la documentation de référence. Pour cette demande, plusieurs en-têtes ont été remplis automatiquement. Pour l’API de requête, aucune des options d’en-tête n’étant requise, cette étape est accomplie.
 1. Vérifiez que le corps affiché pour la demande sous l’onglet *Corps* correspond à celui décrit dans la documentation de référence. Pour l’API de requête, un corps JSON est requis pour fournir le texte de la requête. Voici un exemple de corps pour cette demande qui interroge tous les jumeaux numériques dans l’instance :
 
-   :::image type="content" source="media/how-to-use-postman/postman-request-body.png" alt-text="Dans les détails de la nouvelle demande, l’onglet Corps est affiché. Il contient un corps JSON brut avec une requête « SELECT * FROM DIGITALTWINS »."lightbox="media/how-to-use-postman/postman-request-body.png":::
+   :::image type="content" source="media/how-to-use-postman/postman-request-body.png" alt-text="Dans les détails de la nouvelle demande, l’onglet Corps est affiché. Il contient un corps JSON brut avec une requête « SELECT * FROM DIGITALTWINS »." lightbox="media/how-to-use-postman/postman-request-body.png":::
 
    Pour plus d’informations sur la création de requêtes Azure Digital Twins, consultez [*Guide pratique : Interroger le graphique de jumeaux*](how-to-query-graph.md).
 

@@ -1,24 +1,24 @@
 ---
 title: Solutions Oracle sur Microsoft Azure | Microsoft Docs
 description: Découvrez les options possibles pour déployer des applications et des solutions Oracle sur Microsoft Azure, notamment l’exécution complète sur l’infrastructure Azure ou l’utilisation de la connectivité entre clouds avec OCI (Oracle Cloud Infrastructure).
-services: virtual-machines-linux
 documentationcenter: ''
 author: dbakevlar
 tags: azure-resource-management
 ms.assetid: ''
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: oracle
+ms.collection: linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/05/2020
 ms.author: kegorman
-ms.openlocfilehash: d9b032bbd89f8b6d300650ac54567b07ae3307b8
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 971f7c919595f915451faf9266ee3bb18b35087e
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94948389"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101677179"
 ---
 # <a name="overview-of-oracle-applications-and-solutions-on-azure"></a>Vue d’ensemble des applications et des solutions Oracle sur Azure
 
@@ -102,4 +102,4 @@ Le déploiement d’applications Oracle dans Azure est basé sur un modèle « 
 
 * En savoir plus sur [l’interconnexion d’Azure avec OCI](oracle-oci-overview.md).
 
-* Consultez la [session Oracle on Azure overview](https://myignite.techcommunity.microsoft.com/sessions/82915) de la conférence Ignite 2019. 
+* Consultez la [session Oracle on Azure overview](https://www.pluralsight.com/courses/microsoft-ignite-session-57) de la conférence Ignite 2019. 

@@ -7,12 +7,12 @@ ms.author: allensu
 ms.service: load-balancer
 ms.topic: tutorial
 ms.date: 02/10/2021
-ms.openlocfilehash: b1a249bac4a1a46e52bf52eccd56649153eefe8e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 88e400cea764be84521c003a681aa74885dc29ce
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100360922"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101721342"
 ---
 # <a name="tutorial-create-a-cross-region-azure-load-balancer-using-azure-powershell"></a>Tutoriel : Créer un équilibreur de charge Azure inter-régions à l’aide du portail Azure
 
@@ -195,7 +195,7 @@ Set-AzLoadBalancerBackendAddressPool @bepoolcr
 
 Dans cette section, vous allez tester l’équilibreur de charge interrégional. Vous allez vous connecter à l’adresse IP publique dans un navigateur web.  Vous allez arrêter les machines virtuelles dans l’un des pools de back-ends de l’équilibreur de charge régional et observer le basculement.
 
-1. Utilisez [Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress) pour obtenir l’adresse IP publique de l’équilibreur de charge :
+1. Utilisez [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) pour obtenir l’adresse IP publique de l’équilibreur de charge :
 
 ```azurepowershell-interactive
 $ip = @{

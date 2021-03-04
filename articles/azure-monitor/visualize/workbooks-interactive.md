@@ -7,12 +7,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/20/2020
-ms.openlocfilehash: a70f2cff1df5d0f5d1d4a36bbc2a440518ce5ed4
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 2cb284e1978ad6c890835318c51c6095891397cd
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100598954"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723008"
 ---
 # <a name="interactive-workbooks"></a>Classeurs interactifs
 
@@ -188,5 +188,5 @@ Bien que le comportement par défaut consiste à exporter un paramètre sous for
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Commencez](../platform/workbooks-overview.md#visualizations) à en apprendre davantage sur les nombreuses options pour les visualisations enrichies des classeurs.
-* [Contrôlez](../platform/workbooks-access-control.md) et partagez l’accès à vos ressources de classeur.
+* [Commencez](./workbooks-overview.md#visualizations) à en apprendre davantage sur les nombreuses options pour les visualisations enrichies des classeurs.
+* [Contrôlez](./workbooks-access-control.md) et partagez l’accès à vos ressources de classeur.

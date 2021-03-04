@@ -9,16 +9,14 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 666474b7c7b823114b6dee2925ed5f81973e212d
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: ed56d0cf69710173d41c5262e7a3121a0cad1304
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100650930"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101660138"
 ---
 # <a name="calling-client-library-overview"></a>Vue d’ensemble de la bibliothèque cliente d’appel
-
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 Il existe deux familles distinctes de bibliothèques de client Calling, pour les *clients* et pour les *services*. Les bibliothèques de client actuellement disponibles sont destinées à des expériences de l’utilisateur final : les sites web et les applications natives.
 
@@ -28,35 +26,35 @@ Les bibliothèques de client de service ne sont pas encore disponibles et fourni
 
 La liste suivante présente l’ensemble des fonctionnalités actuellement disponibles dans les bibliothèques de client Azure Communication Services Calling.
 
-| Groupe de fonctionnalités | Fonctionnalité                                                                                                          | JS  | Java (Android) | Objective-C (iOS) 
+| Groupe de fonctionnalités | Fonctionnalité                                                                                                          | JS  | Java (Android) | Objective-C (iOS)
 | ----------------- | ------------------------------------------------------------------------------------------------------------------- | ---  | -------------- | -------------
-| Fonctionnalités principales | Passer un appel un-à-un entre deux utilisateurs                                                                           | ✔️   | ✔️            | ✔️  
-|                   | Passer un appel de groupe avec plus de deux utilisateurs (jusqu’à 350 utilisateurs)                                                       | ✔️   | ✔️            | ✔️ 
-|                   | Promouvoir un appel un-à-un avec deux utilisateurs en un appel de groupe avec plus de deux utilisateurs                                 | ✔️   | ✔️            | ✔️ 
-|                   | Rejoindre un appel de groupe après son démarrage                                                                              | ✔️   | ✔️            | ✔️ 
+| Fonctionnalités principales | Passer un appel un-à-un entre deux utilisateurs                                                                           | ✔️   | ✔️            | ✔️
+|                   | Passer un appel de groupe avec plus de deux utilisateurs (jusqu’à 350 utilisateurs)                                                       | ✔️   | ✔️            | ✔️
+|                   | Promouvoir un appel un-à-un avec deux utilisateurs en un appel de groupe avec plus de deux utilisateurs                                 | ✔️   | ✔️            | ✔️
+|                   | Rejoindre un appel de groupe après son démarrage                                                                              | ✔️   | ✔️            | ✔️
 |                   | Inviter un autre participant VoIP à rejoindre un appel de groupe en cours                                                       | ✔️   | ✔️            | ✔️
-|                   | Activer/désactiver la vidéo                                                         | ✔️   | ✔️            | ✔️ 
-|                   | Désactiver/réactiver le micro                                                                                                     | ✔️   | ✔️            | ✔️         
-|                   | Basculer entre les caméras                                                                                              | ✔️   | ✔️            | ✔️           
-|                   | Mettre en attente/reprendre                                                                                                  | ✔️   | ✔️            | ✔️           
-|                   | Intervenant actif                                                                                                      | ✔️   | ✔️            | ✔️           
-|                   | Choisir un intervenant pour les appels                                                                                            | ✔️   | ✔️            | ✔️           
-|                   | Choisir un microphone pour les appels                                                                                         | ✔️   | ✔️            | ✔️           
-|                   | Afficher l’état d’un participant<br/>*Inactif, Médias préliminaires, Connexion, Connecté, En attente, Dans la salle d’attente, Déconnecté*         | ✔️   | ✔️            | ✔️           
-|                   | Afficher l’état d’un appel<br/>*Médias préliminaires, Entrant, Connexion, Sonnerie, Connecté, Attente, Déconnexion, Déconnecté* | ✔️   | ✔️            | ✔️           
-|                   | Montrer si le micro d’un participant est désactivé                                                                                      | ✔️   | ✔️            | ✔️           
-|                   | Afficher la raison pour laquelle un participant a quitté un appel                                                                       | ✔️   | ✔️            | ✔️     
-| Partage d’écran    | Partager la totalité de l’écran dans l’application                                                                 | ✔️   | ❌            | ❌           
-|                   | Partager une application spécifique (à partir de la liste des applications en cours d’exécution)                                                | ✔️   | ❌            | ❌           
-|                   | Partager un onglet de navigateur web à partir de la liste des onglets ouverts                                                                  | ✔️   | ❌            | ❌           
-|                   | Le participant peut visionner le partage d’écran à distance                                                                            | ✔️   | ✔️            | ✔️         
-| Liste            | Lister les participants                                                                                                   | ✔️   | ✔️            | ✔️           
-|                   | Supprimer un participant                                                                                                | ✔️   | ✔️            | ✔️         
-| RTPC              | Passer un appel un-à-un avec un participant RTPC                                                                     | ✔️   | ✔️            | ✔️   
+|                   | Activer/désactiver la vidéo                                                         | ✔️   | ✔️            | ✔️
+|                   | Désactiver/réactiver le micro                                                                                                     | ✔️   | ✔️            | ✔️
+|                   | Basculer entre les caméras                                                                                              | ✔️   | ✔️            | ✔️
+|                   | Mettre en attente/reprendre                                                                                                  | ✔️   | ✔️            | ✔️
+|                   | Intervenant actif                                                                                                      | ✔️   | ✔️            | ✔️
+|                   | Choisir un intervenant pour les appels                                                                                            | ✔️   | ✔️            | ✔️
+|                   | Choisir un microphone pour les appels                                                                                         | ✔️   | ✔️            | ✔️
+|                   | Afficher l’état d’un participant<br/>*Inactif, Médias préliminaires, Connexion, Connecté, En attente, Dans la salle d’attente, Déconnecté*         | ✔️   | ✔️            | ✔️
+|                   | Afficher l’état d’un appel<br/>*Médias préliminaires, Entrant, Connexion, Sonnerie, Connecté, Attente, Déconnexion, Déconnecté* | ✔️   | ✔️            | ✔️
+|                   | Montrer si le micro d’un participant est désactivé                                                                                      | ✔️   | ✔️            | ✔️
+|                   | Afficher la raison pour laquelle un participant a quitté un appel                                                                       | ✔️   | ✔️            | ✔️
+| Partage d’écran    | Partager la totalité de l’écran dans l’application                                                                 | ✔️   | ❌            | ❌
+|                   | Partager une application spécifique (à partir de la liste des applications en cours d’exécution)                                                | ✔️   | ❌            | ❌
+|                   | Partager un onglet de navigateur web à partir de la liste des onglets ouverts                                                                  | ✔️   | ❌            | ❌
+|                   | Le participant peut visionner le partage d’écran à distance                                                                            | ✔️   | ✔️            | ✔️
+| Liste            | Lister les participants                                                                                                   | ✔️   | ✔️            | ✔️
+|                   | Supprimer un participant                                                                                                | ✔️   | ✔️            | ✔️
+| RTPC              | Passer un appel un-à-un avec un participant RTPC                                                                     | ✔️   | ✔️            | ✔️
 |                   | Passer un appel de groupe avec des participants RTPC                                                                           | ✔️   | ✔️            | ✔️
 |                   | Promouvoir un appel un-à-un avec un participant RTPC en appel de groupe                                                 | ✔️   | ✔️            | ✔️
-|                   | Composer un numéro à partir d’un appel de groupe en tant que participant RTPC                                                                    | ✔️   | ✔️            | ✔️   
-| Général           | Tester votre micro, votre haut-parleur et votre caméra avec un service de test audio (disponible en appelant 8:echo123)                   |  ✔️  | ✔️            | ✔️   
+|                   | Composer un numéro à partir d’un appel de groupe en tant que participant RTPC                                                                    | ✔️   | ✔️            | ✔️
+| Général           | Tester votre micro, votre haut-parleur et votre caméra avec un service de test audio (disponible en appelant 8:echo123)                   |  ✔️  | ✔️            | ✔️
 
 ## <a name="javascript-calling-client-library-support-by-os-and-browser"></a>Prise en charge de la bibliothèque de client d’appel JavaScript par système d’exploitation et navigateur
 
@@ -96,7 +94,7 @@ La bibliothèque de client d’appel de Communication Services prend en charge l
 
 |           |Web | Android/iOS|
 |-----------|----|------------|
-|**Nombre de flux sortants qui peuvent être envoyés simultanément** |1 audio/vidéo ou 1 audio/partage d’écran | 1 audio/vidéo | 
+|**Nombre de flux sortants qui peuvent être envoyés simultanément** |1 audio/vidéo ou 1 audio/partage d’écran | 1 audio/vidéo |
 |**Nombre de flux entrants qui peuvent être restitués simultanément** |1 audio/vidéo ou 1 audio/partage d’écran| 6 audio/vidéo ou 1 partage d’écran |
 
 Notez que dans les scénarios de groupe, un flux audio mixte est utilisé pour prendre en charge tous les participants audio.
@@ -107,6 +105,6 @@ Notez que dans les scénarios de groupe, un flux audio mixte est utilisé pour p
 > [Bien démarrer avec les appels](../../quickstarts/voice-video-calling/getting-started-with-calling.md)
 
 Pour plus d’informations, consultez les articles suivants :
-- Se familiariser avec les [flux d’appels](../call-flows.md) généraux 
+- Se familiariser avec les [flux d’appels](../call-flows.md) généraux
 - Découvrir les [types d’appels](../voice-video-calling/about-call-types.md)
 - Découvrir les [types de numéro de téléphone](../telephony-sms/plan-solution.md)

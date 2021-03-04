@@ -6,12 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.subservice: alerts
-ms.openlocfilehash: 55f433786ed9dd40b08bb64395a6bbc50800add4
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: e07abdda805205701a10ca3bf295b7b0d2e71766
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100598995"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718027"
 ---
 # <a name="upgrade-to-the-current-log-alerts-api-from-legacy-log-analytics-alert-api"></a>Mise à niveau vers l'API Alertes de journal actuelle à partir de l'API Alerte héritée de Log Analytics
 
@@ -19,23 +19,23 @@ ms.locfileid: "100598995"
 > Cet article concerne uniquement Azure public (**et non** Azure Government ou le cloud Azure Chine).
 
 > [!NOTE]
-> Une fois qu'un utilisateur choisit de changer de préférence pour adopter l'[API scheduledQueryRules](/rest/api/monitor/scheduledqueryrules) actuelle, il est impossible de revenir à l'ancienne [API Alerte héritée de Log Analytics](../platform/api-alerts.md).
+> Une fois qu'un utilisateur choisit de changer de préférence pour adopter l'[API scheduledQueryRules](/rest/api/monitor/scheduledqueryrules) actuelle, il est impossible de revenir à l'ancienne [API Alerte héritée de Log Analytics](./api-alerts.md).
 
-Autrefois, les utilisateurs utilisaient l'[API Alerte héritée de Log Analytics](../platform/api-alerts.md) pour gérer les règles d'alerte de journal. Les espaces de travail actuels utilisent l'[API ScheduledQueryRules](/rest/api/monitor/scheduledqueryrules). Cet article décrit le processus de basculement de l'API héritée vers l'API actuelle et les avantages de celui-ci.
+Autrefois, les utilisateurs utilisaient l'[API Alerte héritée de Log Analytics](./api-alerts.md) pour gérer les règles d'alerte de journal. Les espaces de travail actuels utilisent l'[API ScheduledQueryRules](/rest/api/monitor/scheduledqueryrules). Cet article décrit le processus de basculement de l'API héritée vers l'API actuelle et les avantages de celui-ci.
 
 ## <a name="benefits"></a>Avantages
 
 - Modèle unique pour la création de règles d'alerte (auparavant, trois modèles distincts étaient nécessaires).
 - API unique pour les espaces de travail Log Analytics ou les ressources Application Insights.
-- [Prise en charge des cmdlets PowerShell](../platform/alerts-log.md#managing-log-alerts-using-powershell).
+- [Prise en charge des cmdlets PowerShell](./alerts-log.md#managing-log-alerts-using-powershell).
 - Alignement des niveaux de gravité avec tous les autres types d'alertes.
-- Possibilité de créer des [alertes de journal inter-espaces de travail](../log-query/cross-workspace-query.md) couvrant différentes ressources externes telles que les espaces de travail Log Analytics ou les ressources Application Insights.
+- Possibilité de créer des [alertes de journal inter-espaces de travail](../logs/cross-workspace-query.md) couvrant différentes ressources externes telles que les espaces de travail Log Analytics ou les ressources Application Insights.
 - Les utilisateurs peuvent spécifier des dimensions pour fractionner les alertes à l'aide du paramètre « Agréger sur ».
 - Les alertes de journal disposent d'une période prolongée allant jusqu'à deux jours de données (celle-ci était auparavant limitée à un jour).
 
 ## <a name="impact"></a>Impact
 
-- Les nouvelles règles doivent toutes être créées/modifiées avec l'API actuelle. Consultez [Exemple d'utilisation via Azure Resource Template](alerts-log-create-templates.md) et [Exemple d'utilisation via PowerShell](../platform/alerts-log.md#managing-log-alerts-using-powershell).
+- Les nouvelles règles doivent toutes être créées/modifiées avec l'API actuelle. Consultez [Exemple d'utilisation via Azure Resource Template](alerts-log-create-templates.md) et [Exemple d'utilisation via PowerShell](./alerts-log.md#managing-log-alerts-using-powershell).
 - Comme les règles deviennent des ressources suivies par Azure Resource Manager dans l'API actuelle et qu'elles doivent être uniques, l'ID de ressource des règles adopte la structure suivante : `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>`. Les noms d'affichage de la règle d'alerte restent inchangés.
 
 ## <a name="process"></a>Process
@@ -104,7 +104,7 @@ Si l'espace de travail Log Analytics n'a pas été basculé, la réponse est :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- En savoir plus sur [Azure Monitor - Alertes de journal](../platform/alerts-unified-log.md).
+- En savoir plus sur [Azure Monitor - Alertes de journal](./alerts-unified-log.md).
 - En savoir plus sur [la gestion de vos alertes de journal à l'aide de l'API](alerts-log-create-templates.md).
-- En savoir plus sur [la gestion des alertes de journal à l'aide de PowerShell](../platform/alerts-log.md#managing-log-alerts-using-powershell).
-- En savoir plus sur l’[expérience Alertes Azure](../platform/alerts-overview.md).
+- En savoir plus sur [la gestion des alertes de journal à l'aide de PowerShell](./alerts-log.md#managing-log-alerts-using-powershell).
+- En savoir plus sur l’[expérience Alertes Azure](./alerts-overview.md).

@@ -3,17 +3,16 @@ title: Installer et configurer l’extension Diagnostics Azure pour Windows (WAD
 description: Découvrez comment installer et configurer l’extension Diagnostics Windows. Vous trouverez également une description de la façon dont les données sont stockées dans un compte de stockage Azure.
 services: azure-monitor
 author: bwren
-ms.subservice: diagnostic-extension
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: bwren
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 865590ce67acee128863a7913aa844b951d07d56
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 174f372f9dbe8dc0449c7f9b9f5b34c6206f92de
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100600368"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708558"
 ---
 # <a name="install-and-configure-windows-azure-diagnostics-extension-wad"></a>Installer et configurer l’extension Diagnostics Azure pour Windows (WAD)
 L’[extension Diagnostics Azure](diagnostics-extension-overview.md) est un agent présent dans Azure Monitor qui collecte des données de supervision dans le système d’exploitation invité, des charges de travail de machines virtuelles Azure et d’autres ressources de calcul. Cet article fournit des détails sur l’installation et la configuration de l’extension de diagnostic Windows et une description de la façon dont les données sont stockées dans un compte Stockage Azure.

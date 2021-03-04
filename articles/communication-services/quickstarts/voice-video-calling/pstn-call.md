@@ -8,17 +8,16 @@ ms.date: 09/11/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-web-ios-android
-ms.openlocfilehash: 692e3a2e64c42702d46c38175a814819c8f539cf
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: d26c089376f5de1ad669ff95a0bf4e96cc8f4682
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91762570"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101660002"
 ---
 # <a name="quickstart-call-to-phone"></a>Démarrage rapide : Appel téléphonique
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
-Découvrez Azure Communication Services en utilisant la bibliothèque de client Communication Services Calling pour ajouter des appels RTCP à votre application. 
+Découvrez Azure Communication Services en utilisant la bibliothèque de client Communication Services Calling pour ajouter des appels RTCP à votre application.
 
 ::: zone pivot="platform-web"
 [!INCLUDE [Calling with JavaScript](./includes/pstn-call-js.md)]
@@ -34,7 +33,7 @@ Découvrez Azure Communication Services en utilisant la bibliothèque de client 
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Si vous voulez nettoyer et supprimer un abonnement Communication Services, vous pouvez supprimer la ressource ou le groupe de ressources. La suppression du groupe de ressources efface également les autres ressources qui y sont associées. Découvrez-en plus sur le [nettoyage des ressources](../create-communication-resource.md#clean-up-resources).
+Si vous voulez nettoyer et supprimer un abonnement Communication Services, vous pouvez supprimer la ressource ou le groupe de ressources. La suppression du groupe de ressources efface également les autres ressources qui y sont associées. Apprenez-en davantage sur le [nettoyage des ressources](../create-communication-resource.md#clean-up-resources).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

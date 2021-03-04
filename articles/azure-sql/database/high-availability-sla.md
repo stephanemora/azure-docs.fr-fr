@@ -12,12 +12,12 @@ author: emlisa
 ms.author: emlisa
 ms.reviewer: sstein, emlisa
 ms.date: 10/28/2020
-ms.openlocfilehash: 53b6b4f5d783029cb53de71fe3c47b8cb2d26968
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: 5e84831798ec1c5f42facb04a25da9d8631b9d04
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99593416"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690581"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Haute disponibilité des services Azure SQL Database et SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -52,7 +52,7 @@ La configuration redondante interzone pour le niveau de service Usage général 
 
 La configuration redondante interzone pour le niveau Usage général contient deux couches :  
 
-- Une couche de données avec état, comprenant les fichiers de base de données (.mdf/.ldf) stockés dans le [partage de fichiers du stockage](../../storage/files/storage-how-to-create-premium-fileshare.md) redondant interzone (ZRS PFS). Avec le [stockage redondant interzone](../../storage/common/storage-redundancy.md), les fichiers de données et les fichiers journaux sont copiés de façon synchrone sur trois zones de disponibilité Azure physiquement isolées.
+- Une couche de données avec état, comprenant les fichiers de base de données (.mdf/.ldf) stockés dans le [partage de fichiers du stockage](../../storage/files/storage-how-to-create-file-share.md) redondant interzone (ZRS PFS). Avec le [stockage redondant interzone](../../storage/common/storage-redundancy.md), les fichiers de données et les fichiers journaux sont copiés de façon synchrone sur trois zones de disponibilité Azure physiquement isolées.
 - Une couche de calcul sans état, qui exécute le processus sqlservr.exe et contient uniquement des données transitoires et mises en cache comme TempDB, les bases de données model sur le SSD attaché, ainsi que le cache du plan, le pool de mémoires tampons et le pool columnstore en mémoire. Ce nœud sans état est géré par Azure Service Fabric qui initialise sqlservr.exe, contrôle l’intégrité du nœud et effectue le basculement vers un autre nœud si nécessaire. Pour les bases de données redondantes interzones à usage général, les nœuds avec une capacité de rechange sont facilement disponibles dans d’autres zones de disponibilité pour le basculement.
 
 La version redondante interzone de l’architecture de haute disponibilité pour le niveau de service à usage général est illustrée dans le diagramme suivant :

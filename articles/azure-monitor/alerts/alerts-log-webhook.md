@@ -7,16 +7,16 @@ services: monitoring
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.subservice: alerts
-ms.openlocfilehash: f90709431ea54a640554b642b96a63c7edac472e
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 19cf900b8e943b4f9ee69a6241ebc7ddb5a3dba6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100599083"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704393"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Actions webhook pour les règles d’alerte de journal
 
-L’[alerte de journal](alerts-log.md) prend en charge la [configuration des groupes d’actions webhook](../platform/action-groups.md#webhook). Dans cet article, nous allons décrire les propriétés disponibles et la manière de configurer un webhook JSON personnalisé.
+L’[alerte de journal](alerts-log.md) prend en charge la [configuration des groupes d’actions webhook](./action-groups.md#webhook). Dans cet article, nous allons décrire les propriétés disponibles et la manière de configurer un webhook JSON personnalisé.
 
 > [!NOTE]
 > Le webhook JSON personnalisé n’est actuellement pas pris en charge dans la version `2020-05-01-preview` de l’API.
@@ -47,7 +47,7 @@ Propriétés de l’action webhook par défaut et noms de paramètres JSON perso
 | *SearchQuery* |#searchquery |Requête de recherche de journal utilisée par la règle d’alerte. |
 | *SearchResults* |"IncludeSearchResults": true|Enregistrements retournés par la requête sous forme de table JSON, limitée aux 1 000 premiers enregistrements. « IncludeSearchResults » : true est ajouté à une définition de webhook JSON personnalisée en tant que propriété de niveau supérieur. |
 | *Dimensions* |« IncludeDimension »" : true|Combinaisons de valeurs de dimensions ayant déclenché une alerte en tant que section JSON. « IncludeDimensions » : true est ajouté à une définition de webhook JSON personnalisée en tant que propriété de niveau supérieur. |
-| *Type d’alerte*| #alerttype | Le type de règle d’alerte de journal configuré en tant que [Mesure de métriques ou Nombre de résultats](../platform/alerts-unified-log.md#measure).|
+| *Type d’alerte*| #alerttype | Le type de règle d’alerte de journal configuré en tant que [Mesure de métriques ou Nombre de résultats](./alerts-unified-log.md#measure).|
 | *WorkspaceID* |#workspaceid |ID de votre espace de travail Log Analytics. |
 | *ID d’application* |#applicationid |ID de votre application Application Insights. |
 | *Identifiant d’abonnement* |#subscriptionid |ID de votre abonnement Azure utilisé. |
@@ -84,7 +84,7 @@ Cette section présente des exemples de charge utile pour les webhooks pour les 
 L’exemple de charge utile suivant est destiné à une action webhook standard utilisée pour les alertes basées sur Log Analytics :
 
 > [!NOTE]
-> La valeur du champ « Gravité » change si vous avez [basculé sur l’API scheduledQueryRules actuelle](../alerts/alerts-log-api-switch.md) à partir de l’[API d’alerte Log Analytique des journaux d’activité héritée](../platform/api-alerts.md).
+> La valeur du champ « Gravité » change si vous avez [basculé sur l’API scheduledQueryRules actuelle](../alerts/alerts-log-api-switch.md) à partir de l’[API d’alerte Log Analytique des journaux d’activité héritée](./api-alerts.md).
 
 ```json
 {
@@ -318,8 +318,8 @@ Voici un exemple de charge utile pour une action de webhook personnalisée pour 
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-- En savoir plus sur les [alertes de journal dans les alertes Azure ](../platform/alerts-unified-log.md).
+- En savoir plus sur les [alertes de journal dans les alertes Azure ](./alerts-unified-log.md).
 - Comprendre comment [gérer les alertes de journal dans Azure](alerts-log.md).
-- Créer et gérer des [groupes d’actions dans Azure](../platform/action-groups.md).
-- En savoir plus sur [Application Insights](../log-query/log-query-overview.md).
-- Découvrez plus en détail les [requêtes dans les journaux](../log-query/log-query-overview.md). 
+- Créer et gérer des [groupes d’actions dans Azure](./action-groups.md).
+- En savoir plus sur [Application Insights](../logs/log-query-overview.md).
+- Découvrez plus en détail les [requêtes dans les journaux](../logs/log-query-overview.md).

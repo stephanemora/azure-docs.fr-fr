@@ -3,17 +3,17 @@ title: Vue d’ensemble des machines virtuelles série HB - Machines virtuelles 
 description: En savoir plus sur la prise en charge de la préversion de la taille de machine virtuelle série HB dans Azure.
 author: vermagit
 ms.service: virtual-machines
-ms.subservice: workloads
+ms.subservice: hpc
 ms.topic: article
 ms.date: 08/19/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 1e37f13bc6e819079c63c583a1eeda12af5e213c
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: b0e8e2e0ee7ce730f6bf00d7e5ef4bd4eae65ce7
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965457"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101666943"
 ---
 # <a name="hb-series-virtual-machines-overview"></a>Vue d’ensemble des machines virtuelles série HB
 

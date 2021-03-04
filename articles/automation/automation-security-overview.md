@@ -4,14 +4,14 @@ description: Cet article fournit une vue d’ensemble de l’authentification de
 keywords: sécurité de l’automatisation ; automation sécurisée ; authentification d’automatisation
 services: automation
 ms.subservice: process-automation
-ms.date: 02/01/2021
+ms.date: 02/26/2021
 ms.topic: conceptual
-ms.openlocfilehash: e3ed14a0845d90a1b9b951dd5175acf6233f8718
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: c559a81b17b92f48b2d51b7c2d26325d6a1b1cca
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99254997"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708898"
 ---
 # <a name="automation-account-authentication-overview"></a>Vue d’ensemble de l’authentification des comptes Automation
 
@@ -44,6 +44,8 @@ Pour en savoir plus sur les modèles de déploiement Azure Resource Manager et C
 >Les abonnements Fournisseur de solutions Azure Cloud (CSP) prennent uniquement en charge le modèle Azure Resource Manager. Les services non-Azure Resource Manager ne sont pas disponibles dans le programme. Lorsque vous utilisez un abonnement CSP, le compte d’identification Azure Classic n’est pas créé, c’est le compte d’identification Azure qui l’est. Pour en savoir plus sur les abonnements CSP, consultez [Services disponibles dans les abonnements CSP](/azure/cloud-solution-provider/overview/azure-csp-available-services).
 
 Lorsque vous créez un compte Automation, le compte d’identification est créé par défaut en même temps. Si vous avez choisi de ne pas le créer avec le compte Automation, vous pouvez le créer à un moment ultérieur. Un compte d’identification Azure Classic est facultatif et est créé séparément si vous devez gérer des ressources classiques.
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RWwtF3]
 
 ### <a name="run-as-account"></a>compte d'identification
 

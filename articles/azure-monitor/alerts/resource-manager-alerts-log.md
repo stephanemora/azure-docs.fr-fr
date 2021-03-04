@@ -6,12 +6,12 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 09/22/2020
-ms.openlocfilehash: 64bdbf1005f0283438777b3bb2ba1d3312b6e140
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 8dac947aea95dc79118032eb0996b6ba14f16363
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100597229"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714106"
 ---
 # <a name="resource-manager-template-samples-for-log-alert-rules-in-azure-monitor"></a>Exemples de modèle Resource Manager pour les règles d’alerte de journal dans Azure Monitor
 Cet article contient des exemples de [modèles Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) pour créer et configurer des alertes de requête de journal dans Azure Monitor. Chaque exemple comprend un fichier de modèle et un fichier de paramètres avec des exemples de valeurs à fournir au modèle.
@@ -479,4 +479,4 @@ L’exemple suivant crée une règle qui peut cibler n’importe quelle ressourc
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Obtenir d’autres exemples de modèle pour Azure Monitor](../resource-manager-samples.md).
-* [En savoir plus sur les règles d’alerte](../platform/alerts-overview.md).
+* [En savoir plus sur les règles d’alerte](./alerts-overview.md).

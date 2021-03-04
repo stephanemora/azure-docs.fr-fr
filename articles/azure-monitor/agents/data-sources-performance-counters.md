@@ -6,18 +6,18 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/21/2020
-ms.openlocfilehash: f885945dfb6910df919038106487db912d87caee
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: c06123b33c7f467e12742cf6180d821e647b5115
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100599004"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711550"
 ---
 # <a name="collect-windows-and-linux-performance-data-sources-with-log-analytics-agent"></a>Collecter des sources de données de performance Windows et Linux avec l’agent Log Analytics
 Les compteurs de performances dans Windows et Linux fournissent des informations sur les performances des composants matériels, systèmes d’exploitation et applications.  Azure Monitor peut non seulement collecter les compteurs de performances des agents Log Analytics à intervalles réguliers pour effectuer une analyse en temps quasi réel, mais aussi agréger les données de performances pour réaliser des analyses à plus long terme et créer des rapports.
 
 > [!IMPORTANT]
-> Cet article traite de la collecte de données de performances avec l’[agent Log Analytics](../platform/log-analytics-agent.md), qui est un des agents utilisés par Azure Monitor. D’autres agents collectent des données différentes et sont configurés différemment. Pour obtenir la liste des agents disponibles et les données qu’ils peuvent collecter, consultez [Vue d’ensemble des agents Azure Monitor](../agents/agents-overview.md).
+> Cet article traite de la collecte de données de performances avec l’[agent Log Analytics](./log-analytics-agent.md), qui est un des agents utilisés par Azure Monitor. D’autres agents collectent des données différentes et sont configurés différemment. Pour obtenir la liste des agents disponibles et les données qu’ils peuvent collecter, consultez [Vue d’ensemble des agents Azure Monitor](../agents/agents-overview.md).
 
 ![Compteurs de performance](media/data-sources-performance-counters/overview.png)
 
@@ -224,5 +224,5 @@ Le tableau suivant fournit plusieurs exemples de requêtes qui extraient des enr
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Collectez des compteurs de performances à partir d’applications Linux](data-sources-linux-applications.md), y compris Apache HTTP Server et MySQL.
-* Découvrez les [requêtes dans les journaux](../log-query/log-query-overview.md) pour analyser les données collectées à partir de sources de données et de solutions.  
-* Exporter les données collectées vers [Power BI](../platform/powerbi.md) à des fins d’analyse et de visualisation.
+* Découvrez les [requêtes dans les journaux](../logs/log-query-overview.md) pour analyser les données collectées à partir de sources de données et de solutions.  
+* Exporter les données collectées vers [Power BI](../visualize/powerbi.md) à des fins d’analyse et de visualisation.

@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 07/03/2019
 ms.author: vitalyg
 ms.subservice: application-insights
-ms.openlocfilehash: 400f239f3e7b736196bf950e81148fa2e39aca96
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: ca19fdfa617b71b1465e4710d8ca52b18c9ebff5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100598422"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731678"
 ---
 # <a name="application-insights-log-based-metrics"></a>Métriques reposant sur un journal d’Application Insights
 
@@ -21,13 +21,13 @@ Les métriques Application Insights reposant sur un journal vous permettent d'an
 * [Les métriques reposant sur le journal](../app/pre-aggregated-metrics-log-metrics.md#log-based-metrics) en arrière-plan sont converties en [requêtes Kusto](/azure/kusto/query/) à partir d'événements stockés.
 * [Les métriques standard](../app/pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics) sont stockées sous forme de séries chronologiques pré-agrégées.
 
-Comme les *métriques standard* sont pré-agrégées pendant la collecte, elles offrent de meilleures performances lors des requêtes. Elles constituent donc un meilleur choix pour les tableaux de bord et les alertes en temps réel. Les *métriques reposant sur un journal* contiennent plus de dimensions, ce qui en fait une meilleure option pour l'analyse des données et les diagnostics ad hoc. Utilisez le [sélecteur d'espace de noms](../platform/metrics-getting-started.md#create-your-first-metric-chart) pour basculer entre les métriques reposant sur un journal et les métriques standard dans [Metrics Explorer](../platform/metrics-getting-started.md).
+Comme les *métriques standard* sont pré-agrégées pendant la collecte, elles offrent de meilleures performances lors des requêtes. Elles constituent donc un meilleur choix pour les tableaux de bord et les alertes en temps réel. Les *métriques reposant sur un journal* contiennent plus de dimensions, ce qui en fait une meilleure option pour l'analyse des données et les diagnostics ad hoc. Utilisez le [sélecteur d'espace de noms](./metrics-getting-started.md#create-your-first-metric-chart) pour basculer entre les métriques reposant sur un journal et les métriques standard dans [Metrics Explorer](./metrics-getting-started.md).
 
 ## <a name="interpret-and-use-queries-from-this-article"></a>Interpréter et utiliser les requêtes de cet article
 
 Cet article énumère les métriques contenant des agrégations et des dimensions prises en charge. Les détails sur les métriques reposant sur un journal incluent les instructions de requête Kusto sous-jacentes. Par commodité, chaque requête utilise des valeurs par défaut pour la granularité temporelle, le type de graphique et parfois la dimension de fractionnement, ce qui simplifie l'utilisation de la requête dans Log Analytics sans aucune modification nécessaire.
 
-Lorsque vous tracez la même métrique dans [Metrics Explorer](../platform/metrics-getting-started.md), il n'y a aucune valeur par défaut : la requête est ajustée dynamiquement en fonction des paramètres de votre graphique :
+Lorsque vous tracez la même métrique dans [Metrics Explorer](./metrics-getting-started.md), il n'y a aucune valeur par défaut : la requête est ajustée dynamiquement en fonction des paramètres de votre graphique :
 
 - La **plage de temps** sélectionnée est convertie en une clause *where timestamp...* qui sélectionne uniquement les événements de la plage de temps sélectionnée. Par exemple, dans un graphique affichant les données des dernières 24 heures, la requête inclut *| where timestamp > ago(24 h)*.
 
@@ -38,7 +38,7 @@ Lorsque vous tracez la même métrique dans [Metrics Explorer](../platform/metri
 - La dimension **Split chart** (Fractionner le graphique) sélectionnée est convertie en une propriété de résumé supplémentaire. Par exemple, si vous fractionnez votre graphique par *emplacement* et que vous le tracez en utilisant une granularité temporelle de 5 minutes, la clause *summarize* est résumée par *... by bin(timestamp, 5 m), location*.
 
 > [!NOTE]
-> Si vous découvrez le langage de requête Kusto, commencez par copier et coller les instructions Kusto dans le volet de requête Log Analytics sans y apporter de modification. Cliquez sur **Exécuter** pour afficher le graphique de base. À mesure que vous assimilez la syntaxe du langage de requête, vous pouvez commencer à apporter de petites modifications et voir l'impact de votre changement. Explorer vos propres données est un excellent moyen de tirer pleinement parti de [Log Analytics](../log-query/log-analytics-tutorial.md)et [Azure Monitor](../overview.md).
+> Si vous découvrez le langage de requête Kusto, commencez par copier et coller les instructions Kusto dans le volet de requête Log Analytics sans y apporter de modification. Cliquez sur **Exécuter** pour afficher le graphique de base. À mesure que vous assimilez la syntaxe du langage de requête, vous pouvez commencer à apporter de petites modifications et voir l'impact de votre changement. Explorer vos propres données est un excellent moyen de tirer pleinement parti de [Log Analytics](../logs/log-analytics-tutorial.md)et [Azure Monitor](../overview.md).
 
 ## <a name="availability-metrics"></a>Métriques de disponibilité
 

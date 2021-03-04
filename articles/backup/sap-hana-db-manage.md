@@ -3,12 +3,12 @@ title: Gérer les bases de données SAP HANA sauvegardées sur des machines virt
 description: Dans cet article, découvrez les tâches courantes de gestion et de supervision des bases de données SAP HANA qui s’exécutent sur des machines virtuelles Azure.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: 4c8dc80c7b48217e40d5325b75752e21174ecaae
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: 54d3341a83873ad3cc50815f04a0b252bb44438e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95811947"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703764"
 ---
 # <a name="manage-and-monitor-backed-up-sap-hana-databases"></a>Gérer et superviser des bases de données SAP HANA sauvegardées
 
@@ -149,8 +149,6 @@ Vous pouvez changer la stratégie sous-jacente d’un élément de sauvegarde SA
 
 >[!NOTE]
 > Toute modification de la période de rétention sera appliquée rétroactivement à tous les anciens points de récupération ainsi qu’aux nouveaux.
->
-> Les stratégies de sauvegarde incrémentielle ne peuvent pas être utilisées pour les bases de données SAP HANA. La sauvegarde incrémentielle n’est actuellement pas prise en charge pour ces bases de données.
 
 ### <a name="modify-policy"></a>Modifier la stratégie
 

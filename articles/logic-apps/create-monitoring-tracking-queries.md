@@ -6,20 +6,20 @@ ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 01/30/2020
-ms.openlocfilehash: d1f575d9d588ccd99523c6b6d5d2ceba6369dc3d
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 5de795811923c965a1473f8d91e3fd654aeef266
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92309912"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574547"
 ---
 # <a name="view-and-create-queries-for-monitoring-and-tracking-in-azure-monitor-logs-for-azure-logic-apps"></a>Afficher et créer des requêtes de surveillance et de suivi dans des journaux Azure Monitor pour Azure Logic Apps
 
-Vous pouvez afficher les requêtes sous-jacentes qui produisent les résultats des [journaux Azure Monitor](../azure-monitor/log-query/log-query-overview.md) et créer des requêtes qui filtrent les résultats en fonction de vos critères spécifiques. Par exemple, vous pouvez rechercher des messages sur la base d’un numéro de contrôle d’échange spécifique. Les requêtes utilisent le [langage de requête Kusto](/azure/data-explorer/kusto/query/) que vous pouvez modifier si vous voulez voir des résultats différents. Pour plus d’informations, voir [Requêtes de journal Azure Monitor](/azure/data-explorer/kusto/query/).
+Vous pouvez afficher les requêtes sous-jacentes qui produisent les résultats des [journaux Azure Monitor](../azure-monitor/logs/log-query-overview.md) et créer des requêtes qui filtrent les résultats en fonction de vos critères spécifiques. Par exemple, vous pouvez rechercher des messages sur la base d’un numéro de contrôle d’échange spécifique. Les requêtes utilisent le [langage de requête Kusto](/azure/data-explorer/kusto/query/) que vous pouvez modifier si vous voulez voir des résultats différents. Pour plus d’informations, voir [Requêtes de journal Azure Monitor](/azure/data-explorer/kusto/query/).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
-* Un espace de travail Log Analytics. Si vous n’avez pas d’espace de travail Log Analytics, découvrez [comment créer un espace de travail Log Analytics](../azure-monitor/learn/quick-create-workspace.md).
+* Un espace de travail Log Analytics. Si vous n’avez pas d’espace de travail Log Analytics, découvrez [comment créer un espace de travail Log Analytics](../azure-monitor/logs/quick-create-workspace.md).
 
 * Application logique configurée avec la journalisation Azure Monitor, qui envoie ces informations à un espace de travail Log Analytics. Découvrez [comment configurer les journaux Azure Monitor pour votre application logique](../logic-apps/monitor-logic-apps.md).
 
@@ -45,7 +45,7 @@ Pour afficher ou modifier la requête qui produit les résultats dans le résum�
 
 ## <a name="create-your-own-query"></a>Créer votre propre requête
 
-Pour rechercher ou filtrer des résultats en fonction de propriétés ou de valeurs spécifiques, vous pouvez créer votre propre requête en partant d’une requête vide ou utiliser une requête existante. Pour plus d’informations, voir [Bien démarrer avec les requêtes de journal dans Azure Monitor](../azure-monitor/log-query/get-started-queries.md).
+Pour rechercher ou filtrer des résultats en fonction de propriétés ou de valeurs spécifiques, vous pouvez créer votre propre requête en partant d’une requête vide ou utiliser une requête existante. Pour plus d’informations, voir [Bien démarrer avec les requêtes de journal dans Azure Monitor](../azure-monitor/logs/get-started-queries.md).
 
 1. Sur le [portail Azure](https://portal.azure.com), recherchez et ouvrez votre espace de travail Log Analytics.
 
@@ -67,4 +67,4 @@ Pour rechercher ou filtrer des résultats en fonction de propriétés ou de vale
 
 * [Schémas de suivi AS2](../logic-apps/logic-apps-track-integration-account-as2-tracking-schemas.md)
 * [Schémas de suivi X12](../logic-apps/logic-apps-track-integration-account-x12-tracking-schema.md)
-* [Schémas de suivi personnalisé](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md)
+* [Schéma de suivi personnalisé](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md)

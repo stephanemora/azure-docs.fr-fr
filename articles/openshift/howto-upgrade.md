@@ -7,12 +7,12 @@ ms.date: 1/10/2021
 author: sakthi-vetrivel
 ms.author: suvetriv
 keywords: aro, openshift, az aro, red hat, cli
-ms.openlocfilehash: 2c2c8607374493aa4e1135bbef0156b9c0b66fa6
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: 742da12bd3a10cd1f541e9c43f654cfe7df04340
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100634973"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720883"
 ---
 # <a name="upgrade-an-azure-red-hat-openshift-aro-cluster"></a>Mettre à niveau un cluster Azure Red Hat OpenShift (ARO)
 
@@ -20,7 +20,7 @@ Une partie du cycle de vie du cluster ARO implique l’exécution de mises à ni
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Pour les besoins de cet article, vous devez utiliser Azure CLI version 2.0.65 ou ultérieure. Exécutez `az --version` pour rechercher votre version actuelle. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Pour les besoins de cet article, vous devez utiliser Azure CLI version 2.0.65 ou ultérieure. Exécutez `az --version` pour rechercher votre version actuelle. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI](/cli/azure/install-azure-cli).
 
 Cet article part du principe que vous disposez de l’accès à un cluster Azure Red Hat OpenShift existant en tant qu’utilisateur avec des privilèges `admin`.
 
@@ -39,4 +39,3 @@ Sélectionnez une version vers laquelle effectuer la mise à jour, puis sélecti
 ## <a name="next-steps"></a>Étapes suivantes
 - [En savoir plus sur la mise à niveau d’un cluster ARO à l’aide de l’interface CLI OC](https://docs.openshift.com/container-platform/4.6/updating/updating-cluster-between-minor.html)
 - Vous trouverez des informations sur les conseils et les mises à jour d’OpenShift Container Platform disponibles dans la [section errata](https://access.redhat.com/downloads/content/290/ver=4.6/rhel---8/4.6.0/x86_64/product-errata) du portail client.
-  

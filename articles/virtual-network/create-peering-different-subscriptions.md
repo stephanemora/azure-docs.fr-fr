@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/09/2019
 ms.author: kumud
-ms.openlocfilehash: 654c883498e724d10104133f99ef1664f72fe09d
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 9f3ea595c3cfacc479deea7b7db7689785e3b520
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98223480"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101694952"
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions-and-azure-active-directory-tenants"></a>Créer un appairage de réseau virtuel – Gestionnaire des ressources, abonnements et locataires Azure Active Directory différents
 
@@ -55,7 +55,7 @@ Les étapes suivantes utilisent des comptes différents pour chaque abonnement. 
     - **Abonnement**: sélectionnez l’abonnement A.
     - **Groupe de ressources** : sélectionnez **Créer** et entrez *myResourceGroupA*.
     - **Emplacement** : *USA Est*
-4. Dans le champ **Rechercher des ressources** située en haut du portail, tapez *myVnetA*. Quand **myVnetA** apparaît dans les résultats de la recherche, sélectionnez cette entrée. 
+4. Dans le champ **Rechercher des ressources** située en haut du portail, tapez *myVnetA*. Quand **myVnetA** apparaît dans les résultats de la recherche, sélectionnez cette entrée.
 5. Dans la liste verticale d’options située à gauche, sélectionnez **Contrôle d’accès (IAM)** .
 6. Sous **myVnetA - Contrôle d’accès (IAM)** , sélectionnez **+ Ajouter une attribution de rôle**.
 7. Dans la zone **Rôle**, sélectionnez **Contributeur de réseaux**.
@@ -99,7 +99,7 @@ Les étapes suivantes utilisent des comptes différents pour chaque abonnement. 
 
 ## <a name="create-peering---azure-cli"></a><a name="cli"></a>Créer un peering - interface de ligne de commande Azure
 
-Ce didacticiel utilise des comptes différents pour chaque abonnement. Si vous utilisez un compte qui a des autorisations pour les deux abonnements, vous pouvez utiliser le même compte pour toutes les étapes, ignorer les étapes de déconnexion d’Azure et supprimer les lignes de script qui créent les affectations de rôle utilisateur. Remplacez UserA@azure.com et UserB@azure.com dans tous les scripts suivants par les noms d’utilisateurs que vous utilisez pour UserA et UserB. 
+Ce didacticiel utilise des comptes différents pour chaque abonnement. Si vous utilisez un compte qui a des autorisations pour les deux abonnements, vous pouvez utiliser le même compte pour toutes les étapes, ignorer les étapes de déconnexion d’Azure et supprimer les lignes de script qui créent les affectations de rôle utilisateur. Remplacez UserA@azure.com et UserB@azure.com dans tous les scripts suivants par les noms d’utilisateurs que vous utilisez pour UserA et UserB.
 
 Les scripts suivants :
 
@@ -165,7 +165,7 @@ Au lieu d’installer l’interface CLI et ses dépendances, vous pouvez utilise
 
 8. Déconnectez UserA d’Azure et connectez-vous à Azure en tant que UserB.
 9. Créez le peering de myVnetB à myVnetA. Copiez le contenu du script à l’étape 6 dans un éditeur de texte sur votre PC. Remplacez `<SubscriptionB-Id>` par l’ID de l’abonnement A, et remplacez tous les A par des B et tous les B par des A. Une fois les modifications effectuées, copiez le script modifié, collez-le dans votre session CLI, puis appuyez sur `Enter`.
-10. Affichez l’état de peering de myVnetB. Copiez le contenu du script à l’étape 7 dans un éditeur de texte sur votre PC. Remplacez A par B dans les noms du groupe de ressources et du réseau virtuel, copiez le script, collez le script modifié dans votre session CLI, puis appuyez sur `Enter`. L’état de peering est **Connecté**. L’état de peering de myVnetA devient **Connecté** une fois que vous avez créé le peering de myVnetB à myVnetA. Vous pouvez reconnecter UserA dans Azure et réeffectuer l’étape 7 pour vérifier l’état de peering de myVnetA. 
+10. Affichez l’état de peering de myVnetB. Copiez le contenu du script à l’étape 7 dans un éditeur de texte sur votre PC. Remplacez A par B dans les noms du groupe de ressources et du réseau virtuel, copiez le script, collez le script modifié dans votre session CLI, puis appuyez sur `Enter`. L’état de peering est **Connecté**. L’état de peering de myVnetA devient **Connecté** une fois que vous avez créé le peering de myVnetB à myVnetA. Vous pouvez reconnecter UserA dans Azure et réeffectuer l’étape 7 pour vérifier l’état de peering de myVnetA.
 
     > [!NOTE]
     > Le peering n’est pas établi tant que l’état de peering n’est pas **Connecté** pour les deux réseaux virtuels.
@@ -181,7 +181,7 @@ Les ressources Azure que vous créez dans un réseau virtuel sont désormais en 
 
 Ce didacticiel utilise des comptes différents pour chaque abonnement. Si vous utilisez un compte qui a des autorisations pour les deux abonnements, vous pouvez utiliser le même compte pour toutes les étapes, ignorer les étapes de déconnexion d’Azure et supprimer les lignes de script qui créent les affectations de rôle utilisateur. Remplacez UserA@azure.com et UserB@azure.com dans tous les scripts suivants par les noms d’utilisateurs que vous utilisez pour UserA et UserB.
 
-1. Vérifiez que vous disposez de la version 1.0.0 ou d’une version ultérieure d’Azure PowerShell. Pour ce faire, exécutez la commande `Get-Module -Name Az`. Nous vous recommandons d’installer la dernière version du module [Az](/powershell/azure/install-az-ps) PowerShell. Si vous débutez dans l’utilisation d’Azure PowerShell, voir [Vue d’ensemble d’Azure PowerShell](/powershell/azure/?toc=%2fazure%2fvirtual-network%2ftoc.json). 
+1. Vérifiez que vous disposez de la version 1.0.0 ou d’une version ultérieure d’Azure PowerShell. Pour ce faire, exécutez la commande `Get-Module -Name Az`. Nous vous recommandons d’installer la dernière version du module [Az](/powershell/azure/install-az-ps) PowerShell. Si vous débutez dans l’utilisation d’Azure PowerShell, voir [Vue d’ensemble d’Azure PowerShell](/powershell/azure/?toc=%2fazure%2fvirtual-network%2ftoc.json).
 2. Démarrez une session PowerShell.
 3. Dans PowerShell, connectez-vous à Azure en tant que UserA en entrant la commande `Connect-AzAccount`. Le compte auquel vous vous connectez doit avoir les autorisations nécessaires pour créer un peering de réseaux virtuels. Pour obtenir une liste d’autorisations, consultez [Autorisations de peering de réseau virtuel](virtual-network-manage-peering.md#permissions).
 4. Créez un groupe de ressources et le réseau virtuel A. Copiez le script suivant dans un éditeur de texte sur votre PC. Remplacez `<SubscriptionA-Id>` par l’ID de l’abonnement A. Si vous ne connaissez pas votre ID d’abonnement, entrez la commande `Get-AzSubscription` pour l’afficher. La valeur de **id** dans la sortie retournée est votre ID d’abonnement. Pour exécuter le script, copiez le script modifié, collez-le dans PowerShell, puis appuyez sur `Enter`.
@@ -276,7 +276,7 @@ Ce didacticiel utilise des comptes différents pour chaque abonnement. Si vous u
    }
    ```
 
-3. Connectez-vous à Azure en tant qu’UtilisateurA et déployez le modèle à l’aide de [portail](../azure-resource-manager/templates/deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-resources-from-custom-template), [PowerShell](../azure-resource-manager/templates/deploy-powershell.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-local-template) ou [Azure CLI](../azure-resource-manager/templates/deploy-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-local-template). Spécifiez le nom de fichier dans lequel vous avez enregistré l’exemple de texte json à l’étape 2.
+3. Connectez-vous à Azure en tant qu’UtilisateurA et déployez le modèle à l’aide de [portail](../azure-resource-manager/templates/deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-resources-from-custom-template), [PowerShell](../azure-resource-manager/templates/deploy-powershell.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-local-template) ou [Azure CLI](../azure-resource-manager/templates/deploy-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-local-template-or-bicep-file). Spécifiez le nom de fichier dans lequel vous avez enregistré l’exemple de texte json à l’étape 2.
 4. Copiez l’exemple json de l’étape 2 dans un fichier sur votre ordinateur et apporter des modifications pour les lignes qui commencent par :
    - **nom** : remplacez *myVnetA/myVnetAToMyVnetB* par *myVnetB/myVnetBToMyVnetA*.
    - **ID** : remplacez `<subscription ID>` par l’ID d’abonnement de UserB et remplacez *myVnetB* par *myVnetA*.

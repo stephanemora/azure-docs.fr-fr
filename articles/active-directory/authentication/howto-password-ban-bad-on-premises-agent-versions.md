@@ -11,18 +11,37 @@ author: justinha
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd9b07f1f7aed479e94e77a5641130cb784dd69e
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 32ad7199360ca0acc8674f7a4e34bd206f8b335f
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96741964"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101648762"
 ---
 # <a name="azure-ad-password-protection-agent-version-history"></a>Historique des versions de l’agent de protection par mot de passe Azure AD
 
+## <a name="121720"></a>1.2.172.0
+
+Date de mise en production : 22 février 2021
+
+Près de deux ans se sont écoulés depuis la mise en production des versions en disponibilité générale des agents locaux de protection par mot de passe Azure AD. Une nouvelle mise à jour est désormais disponible. Consultez les descriptions des modifications ci-dessous. Merci à tous ceux qui nous ont fait part de leurs commentaires sur le produit. 
+
+* Les logiciels de l’agent DC et de l’agent proxy requièrent désormais tous deux que .NET 4.7.2 soit installé.
+  * Si ce n'est pas le cas, téléchargez et exécutez le programme d’installation disponible sur la page [Programme d’installation hors connexion de .NET Framework 4.7.2 pour Windows](https://support.microsoft.com/topic/microsoft-net-framework-4-7-2-offline-installer-for-windows-05a72734-2127-a15d-50cf-daf56d5faec2).
+* Le module PowerShell AzureADPasswordProtection est maintenant également installé par le logiciel de l’agent DC.
+* Deux nouvelles cmdlets PowerShell liées à l’intégrité ont été ajoutées : Test-AzureADPasswordProtectionDCAgent et Test-AzureADPasswordProtectionProxy.
+* La dll de filtre de mot de passe de l’agent DC AzureADPasswordProtection se charge et s’exécute sur des ordinateurs sur lesquels lsass.exe est configuré pour s’exécuter en mode PPL.
+* Résolution d’un bogue dans l’algorithme de mot de passe qui permettait l’acceptation incorrecte de mots de passe interdits de moins de cinq caractères.
+  * Ce bogue n’est applicable que si votre politique locale de longueur minimale de mot de passe AD a d’abord été configurée pour autoriser des mots de passe de moins de cinq caractères.
+* Autres correctifs de bogues mineurs.
+
+Les nouveaux programmes d’installation mettent automatiquement à niveau des versions antérieures du logiciel. Si vous avez installé les logiciels de l’agent DC et de l’agent proxy sur un seul ordinateur (recommandé uniquement pour des environnements de test), vous devez les mettre à niveau en même temps.
+
+Il est possible d’exécuter des versions plus anciennes et plus récentes des logiciels de l’agent DC et de l’agent proxy au sein d’un domaine ou d’une forêt. Toutefois, la meilleure pratique que nous recommandons est de mettre à niveau tous les agents vers la dernière version. Les mises à niveau d’agent peuvent être effectuées dans n’importe quel ordre. Des nouveaux agents DC peuvent communiquer via des agents proxy plus anciens, et des agents DC plus anciens peuvent communiquer via des agents proxy plus récents.
+
 ## <a name="121250"></a>1.2.125.0
 
-Date de publication : 22/03/2019
+Date de mise en production : 22 mars 2019
 
 * Correction de fautes de frappe mineures dans les messages du journal des événements
 * Mise à jour du CLUF vers la version finale mise à la disposition générale
@@ -38,9 +57,9 @@ Date de publication : 13/03/2019
   * La version du logiciel et les données du locataire Azure sont uniquement disponibles pour les proxies et les agents DC exécutant la version 1.2.116.0 ou ultérieure.
   * Les données du locataire Azure peuvent ne peuvent pas être rapportées tant qu'une réinscription (ou un renouvellement) du proxy ou de la forêt n'a pas eu lieu.
 * Le service proxy nécessite maintenant l'installation de .NET 4.7.
-  * .NET 4.7 doit déjà être installé sur les instances de Windows Server entièrement mises à jour. Si ce n'est pas le cas, téléchargez et exécutez le programme d'installation disponible sur la page [Programme d'installation hors connexion de .NET Framework 4.7 pour Windows](https://support.microsoft.com/help/3186497/the-net-framework-4-7-offline-installer-for-windows).
+  * Si ce n'est pas le cas, téléchargez et exécutez le programme d’installation disponible sur la page [Programme d’installation hors connexion de .NET Framework 4.7 pour Windows](https://support.microsoft.com/help/3186497/the-net-framework-4-7-offline-installer-for-windows).
   * Sur les systèmes Server Core, il peut être nécessaire de transmettre l'indicateur /q au programme d'installation de .NET 4.7 pour que l'installation aboutisse.
-* Le service proxy prend désormais en charge la mise à niveau automatique. La mise à niveau automatique utilise le service de mise à jour de l'agent Microsoft Azure AD Connect qui est installé parallèlement au service proxy. La mise à niveau automatique est activée par défaut.
+* Le service proxy prend désormais en charge la mise à niveau automatique. La mise à niveau automatique utilise le service du programme de mise à jour de l’agent Microsoft Azure AD Connect, installé à côté du service proxy. La mise à niveau automatique est activée par défaut.
 * La mise à niveau automatique peut être activée ou désactivée à l'aide de la cmdlet Set-AzureADPasswordProtectionProxyConfiguration. Le paramètre actuel peut être interrogé à l'aide de la cmdlet Get-AzureADPasswordProtectionProxyConfiguration.
 * Le binaire du service d'agent DC a été renommé AzureADPasswordProtectionDCAgent.exe.
 * Le binaire du service proxy a été renommé AzureADPasswordProtectionProxy.exe. Il peut être nécessaire de modifier les règles de pare-feu en conséquence si un pare-feu tiers est utilisé.
@@ -50,15 +69,15 @@ Date de publication : 13/03/2019
 
 ## <a name="12650"></a>1.2.65.0
 
-Date de publication : 1/2/2019
+Date de mise en production : 1er février 2019
 
 Modifications :
 
 * L’agent du contrôleur de domaine et le service proxy sont désormais pris en charge sur noyau du serveur. La configuration requise du système d’exploitation est identique à ce qu’elle était auparavant : Windows Server 2012 pour les agents du contrôleur de domaine et Windows Server 2012 R2 pour les proxys.
 * Les cmdlets Register-AzureADPasswordProtectionProxy et Register-AzureADPasswordProtectionForest prennent désormais en charge les modes d’authentification Azure basés sur le code d’appareil.
-* La cmdlet Get-AzureADPasswordProtectionDCAgent ignore les points de connexion de service altérés ou non valides. Cela résout le bogue qui avait pour effet que les contrôleurs de domaine apparaissaient parfois plusieurs fois dans la sortie.
-* La cmdlet Get-AzureADPasswordProtectionSummaryReport ignore les points de connexion de service altérés ou non valides. Cela résout le bogue qui avait pour effet que les contrôleurs de domaine apparaissaient parfois plusieurs fois dans la sortie.
-* Le module Powershell du proxy est désormais inscrit à partir de %ProgramFiles%\WindowsPowerShell\Modules. La variable d’environnement PSModulePath de la machine n’est plus modifiée.
+* La cmdlet Get-AzureADPasswordProtectionDCAgent ignore les points de connexion de service altérés ou non valides. Cette modification résout le bogue qui avait pour effet que les contrôleurs de domaine apparaissaient parfois plusieurs fois dans la sortie.
+* La cmdlet Get-AzureADPasswordProtectionSummaryReport ignore les points de connexion de service altérés ou non valides. Cette modification résout le bogue qui avait pour effet que les contrôleurs de domaine apparaissaient parfois plusieurs fois dans la sortie.
+* Le module PowerShell du proxy est désormais inscrit à partir de %ProgramFiles%\WindowsPowerShell\Modules. La variable d’environnement PSModulePath de la machine n’est plus modifiée.
 * Une nouvelle cmdlet Get-AzureADPasswordProtectionProxy a été ajoutée pour faciliter la découverte de proxys inscrits dans une forêt ou un domaine.
 * L’agent du contrôleur de domaine utilise un nouveau dossier dans le partage sysvol pour la réplication des stratégies de mot de passe et d’autres fichiers.
 
@@ -79,7 +98,7 @@ Modifications :
 * Chaque agent du contrôleur de domaine supprime régulièrement les points de connexion de service altérés et périmés dans son domaine, pour les points de connexion tant de l’agent du contrôleur de domaine que du service proxy. Les points de connexion tant de l’agent du contrôleur de domaine que du service proxy sont considérés comme périmés si leur indicateur de pulsations date de plus de sept jours.
 * L’agent du contrôleur de domaine renouvelle désormais le certificat de la forêt en fonction des besoins.
 * Le service proxy renouvelle désormais le certificat du proxy en fonction des besoins.
-* Mises à jour de l’algorithme de validation de mot de passe : la liste globale de mots de passe interdits et la liste spécifique du client de mots de passe interdits (si configurée) sont combinées avant les validations de mot de passe. Un mot de passe donné peut désormais être rejeté (échec ou audit uniquement) s’il contient des jetons provenant tant de la liste globale que de la liste spécifique du client. La documentation sur le journal des événements a été mise à jour pour refléter cela. À cet égard, veuillez consulter [Surveiller la protection par mot de passe d’Azure AD](howto-password-ban-bad-on-premises-monitor.md).
+* Mises à jour de l’algorithme de validation de mot de passe : la liste globale de mots de passe interdits et la liste spécifique du client de mots de passe interdits (si configurée) sont combinées avant les validations de mot de passe. Un mot de passe donné peut désormais être rejeté (échec ou audit uniquement) s’il contient des jetons provenant tant de la liste globale que de la liste spécifique du client. La documentation sur le journal des événements a été mise à jour pour refléter cela. Consultez [Surveiller la protection par mot de passe d’Azure AD](howto-password-ban-bad-on-premises-monitor.md).
 * Correctifs de performances et de robustesse
 * Amélioration de la journalisation
 
@@ -88,12 +107,12 @@ Modifications :
 
 ## <a name="12250"></a>1.2.25.0
 
-Date de publication : 01/11/2018
+Date de mise en production : 1er novembre 2018
 
 Correctifs :
 
 * L'agent DC et le service proxy ne devraient plus échouer pour cause d'échecs des certificats de confiance.
-* L'agent DC et le service proxy disposent de correctifs supplémentaires pour les ordinateurs compatibles avec les normes FIPS.
+* L'agent DC et le service proxy disposent de correctifs pour les ordinateurs conformes aux normes FIPS.
 * Le service proxy fonctionnera désormais correctement dans un environnement réseau utilisant uniquement le protocole TLS 1.2.
 * Correctifs mineurs de performances et de robustesse
 * Amélioration de la journalisation
@@ -102,11 +121,11 @@ Modifications :
 
 * Windows Server 2012 R2 est désormais le système d'exploitation minimum requis pour le service proxy. Windows Server 2012 reste le système d'exploitation minimum requis pour le service de l'agent DC.
 * Le service proxy requiert désormais .NET version 4.6.2.
-* L’algorithme de validation de mot de passe utilise une table de normalisation des caractères étendus. Cela peut entraîner le rejet de mots de passe qui étaient acceptés dans les versions précédentes.
+* L’algorithme de validation de mot de passe utilise une table de normalisation des caractères étendus. Cette modification peut entraîner le rejet de mots de passe qui étaient acceptés dans des versions précédentes.
 
 ## <a name="12100"></a>1.2.10.0
 
-Date de publication : 17/08/2018
+Date de mise en production : 17 août 2018
 
 Correctifs :
 
@@ -130,7 +149,7 @@ Correctifs :
 
 ## <a name="11103"></a>1.1.10.3
 
-Date de publication : 15/06/2018
+Date de mise en production : 15 juin 2018
 
 Préversion publique initiale
 

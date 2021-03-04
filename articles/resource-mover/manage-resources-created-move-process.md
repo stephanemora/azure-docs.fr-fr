@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: raynew
-ms.openlocfilehash: 7ad0e73a90e733af0dd752100ebc71908f68181a
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: d3c4c4e86e2461ea1d05af284e724a5a2991f040
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100388479"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101727037"
 ---
 # <a name="manage-resources-created-for-the-vm-move"></a>Gérer les ressources créées pour le déplacement d’une machine virtuelle
 
@@ -24,7 +24,7 @@ Après le déplacement de machines virtuelles entre régions, un certain nombre 
 
 Supprimez manuellement la collection de déplacement et les ressources Site Recovery créées pour le déplacement des machines virtuelles.
 
-1. Examinez les ressources dans le groupe de ressources ```ResourceMoverRG-<sourceregion>-<target-region>```.
+1. Examinez les ressources dans le groupe de ressources ```ResourceMoverRG-<sourceregion>-<target-region>-<metadataRegionShortName>```.
 2. Vérifiez que la machine virtuelle et toutes les autres ressources sources de la collection de déplacement ont été déplacées ou supprimées. Cette vérification permet de s’assurer qu’aucune ressource en attente ne les utilise.
 2. Supprimez ces ressources.
 

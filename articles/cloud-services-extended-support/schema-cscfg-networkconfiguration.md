@@ -8,12 +8,12 @@ author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 13fe83710c94c1ca37f05d59cb91f31aa8ca1bae
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 2650da2579f13ec1588af7a25e5b28908209bc82
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98743961"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101700182"
 ---
 # <a name="azure-cloud-services-extended-support-config-networkconfiguration-schema"></a>Schéma NetworkConfiguration Azure Cloud Services (support étendu)
 
@@ -23,7 +23,7 @@ Vous pouvez consulter les ressources suivantes pour en savoir plus sur les rése
 
 - [Schéma de configuration du service cloud (support étendu)](schema-cscfg-file.md).
 - [Schéma de définition du service cloud (support étendu)](schema-csdef-file.md).
-- [Créez un réseau virtuel](https://docs.microsoft.com/azure/virtual-network/manage-virtual-network).
+- [Créez un réseau virtuel](../virtual-network/manage-virtual-network.md).
 
 ## <a name="networkconfiguration-element"></a>Élément NetworkConfiguration
 L’exemple suivant illustre l’élément `NetworkConfiguration` et ses éléments enfants.

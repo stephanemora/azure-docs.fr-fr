@@ -3,12 +3,12 @@ title: Superviser les ressources déléguées à grande échelle
 description: Découvrez comment utiliser efficacement les journaux Azure Monitor de manière scalable sur les locataires de clients que vous gérez.
 ms.date: 02/11/2021
 ms.topic: how-to
-ms.openlocfilehash: aadd14bb3e4aad61fb2afc0735b5714deedfe301
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 98fd984492276dbdfbc2f8001bca19560764a2a7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100593123"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101742583"
 ---
 # <a name="monitor-delegated-resources-at-scale"></a>Superviser les ressources déléguées à grande échelle
 
@@ -49,7 +49,7 @@ Une fois que vous avez déployé vos stratégies, les données sont journalisée
 
 Vous pouvez afficher les [alertes](../../azure-monitor/alerts/alerts-overview.md) pour les abonnements délégués dans les locataires client que vous gérez.
 
-À partir de votre locataire gérant, vous pouvez [créer, afficher et gérer des alertes de journal d’activité](../../azure-monitor/platform/alerts-activity-log.md) dans le portail Azure ou via des API et des outils de gestion.
+À partir de votre locataire gérant, vous pouvez [créer, afficher et gérer des alertes de journal d’activité](../../azure-monitor/alerts/alerts-activity-log.md) dans le portail Azure ou via des API et des outils de gestion.
 
 Pour actualiser automatiquement les alertes sur plusieurs clients, utilisez une requête [Azure Resource Graph](../../governance/resource-graph/overview.md) pour filtrer les alertes. Vous pouvez épingler la requête à votre tableau de bord et sélectionner tous les clients et abonnements appropriés. Par exemple, la requête ci-dessous affiche les alertes de gravité 0 et 1, qui sont actualisées toutes les 60 minutes.
 

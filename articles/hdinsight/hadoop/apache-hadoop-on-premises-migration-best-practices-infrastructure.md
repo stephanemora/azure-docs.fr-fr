@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
-ms.openlocfilehash: f66e13046a34bddfd27912e23ce51f75006fd9fa
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 309053c2d7a0f9482016f1bd83e0c61dcd31bec5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98932154"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101740662"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>Migrer des clusters Apache Hadoop locaux vers Azure HDInsight - bonnes pratiques sur l’infrastructure
 
@@ -36,7 +36,7 @@ Pour plus d’informations, consultez l’article [Planification de la capacité
 
 ## <a name="use-recommended-virtual-machine-type-for-cluster"></a>Utiliser le type de machine virtuelle recommandé pour les clusters
 
-Consultez [Tailles des machines virtuelles et configuration des nœuds par défaut pour les clusters](../hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters) pour connaître les types de machine virtuelle recommandés pour chaque type de cluster HDInsight.
+Consultez [Tailles des machines virtuelles et configuration des nœuds par défaut pour les clusters](../hdinsight-supported-node-configuration.md) pour connaître les types de machine virtuelle recommandés pour chaque type de cluster HDInsight.
 
 ## <a name="check-hadoop-components-availability-in-hdinsight"></a>Vérifier la disponibilité des composants Hadoop dans HDInsight
 
@@ -73,7 +73,7 @@ Les applications ou composants qui étaient disponibles dans les clusters locaux
 |Palantir|IaaS 
 |Sailpoint|Iaas 
 
-Pour plus d’informations, consultez l’article [Composants Apache Hadoop disponibles avec différentes versions de HDInsight](../hdinsight-component-versioning.md#apache-components-available-with-different-hdinsight-versions)
+Pour plus d’informations, consultez l’article [Composants Apache Hadoop disponibles avec différentes versions de HDInsight](../hdinsight-component-versioning.md)
 
 ## <a name="customize-hdinsight-clusters-using-script-actions"></a>Personnaliser des clusters HDInsight à l’aide d’actions de script
 

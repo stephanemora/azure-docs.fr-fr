@@ -7,13 +7,13 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/30/2020
-ms.openlocfilehash: 7ed1d9db09357b0702188c01a802600ff6350aff
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.date: 02/19/2021
+ms.openlocfilehash: b8754742c572a8dbc1f55c64e47bec640d757d65
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93147264"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101739366"
 ---
 # <a name="lookup-transformation-in-mapping-data-flow"></a>Transformation de recherche dans le flux de données de mappage
 
@@ -38,8 +38,6 @@ Une transformation de recherche est similaire à une jointure externe gauche. To
 **Correspond à :** Visible uniquement si l’option « Correspond à plusieurs lignes » n’est pas sélectionnée. Choisissez s’il faut faire correspondre sur n’importe quelle ligne, sur la première correspondance ou sur la dernière correspondance. Faire correspondre sur n’importe quelle ligne est recommandé, car c’est l’option qui s’exécute le plus rapidement. Si la première ligne ou la dernière ligne est sélectionnée, vous devez spécifier des conditions de tri.
 
 **Conditions de recherche :** Choisissez les colonnes à faire correspondre. Si la condition d’égalité est remplie, les lignes sont considérées comme une correspondance. Pointez et sélectionnez « Colonne calculée » pour extraire une valeur à l’aide du [Langage d’expression des flux de données](data-flow-expression-functions.md).
-
-La transformation de recherche prend uniquement en charge les correspondances d’égalité. Pour personnaliser l’expression de recherche afin d’inclure d’autres opérateurs tels que supérieur à, il est recommandé d’utiliser une [jointure croisée dans la transformation de jointure](data-flow-join.md#custom-cross-join). Avec une jointure croisée, vous éviterez ainsi les erreurs de produit cartésien lors de l’exécution.
 
 Toutes les colonnes des deux flux sont incluses dans les données de sortie. Pour supprimer les colonnes en double ou indésirables, ajoutez une [transformation de sélection](data-flow-select.md) après votre transformation de recherche. Les colonnes peuvent également être supprimées ou renommées dans une transformation de récepteur.
 

@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 12/15/2019
-ms.openlocfilehash: 88138cc1366dcef68aeccf652af05704e72c8e15
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d3c3eff32120438fd891cb32fe98d73424f82b7f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100597245"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734143"
 ---
 # <a name="tutorial-collect-and-analyze-resource-logs-from-an-azure-resource"></a>Tutoriel : Collecter et analyser des journaux de ressources à partir d’une ressource Azure
 
@@ -93,7 +93,7 @@ Les données sont récupérées à partir d’un espace de travail Log Analytics
 
 
 5. Tapez une requête, puis cliquez sur **Exécuter** pour inspecter les résultats. 
-6. Pour obtenir un tutoriel sur l’écriture de requêtes de journal, consultez [Bien démarrer avec les requêtes de journal dans Azure Monitor](../log-query/get-started-queries.md).
+6. Pour obtenir un tutoriel sur l’écriture de requêtes de journal, consultez [Bien démarrer avec les requêtes de journal dans Azure Monitor](../logs/get-started-queries.md).
 
     ![Requête de journal](media/tutorial-resource-logs/log-query-1.png)
 
@@ -104,4 +104,4 @@ Les données sont récupérées à partir d’un espace de travail Log Analytics
 Maintenant que vous avez appris à collecter des journaux de ressources dans un espace de travail Log Analytics, suivez un tutoriel sur l’écriture de requêtes de journal pour analyser ces données.
 
 > [!div class="nextstepaction"]
-> [Bien démarrer avec les requêtes de journal Azure Monitor](../log-query/get-started-queries.md).
+> [Bien démarrer avec les requêtes de journal Azure Monitor](../logs/get-started-queries.md).

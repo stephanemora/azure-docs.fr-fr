@@ -1,17 +1,16 @@
 ---
 title: Ciblage des solutions de supervision dans Azure Monitor | Microsoft Docs
 description: Le ciblage des solutions de supervision vous permet de limiter les solutions de supervision à un ensemble spécifique d'agents.  Cet article décrit comment créer une configuration d’étendue et l’appliquer à une solution.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/27/2017
-ms.openlocfilehash: 5cecf24f4ba086feba5ab87b5752fd665c540dff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb030456eb3b9e3c81fadd8451b5b0526920ba33
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86498676"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728567"
 ---
 # <a name="targeting-monitoring-solutions-in-azure-monitor-preview"></a>Ciblage des solutions de supervision dans Azure Monitor (préversion)
 Lorsque vous ajoutez une solution de supervision à votre abonnement, par défaut, celle-ci est automatiquement déployée sur tous les agents Windows et Linux connectés à votre espace de travail Log Analytics.  Vous pouvez gérer vos coûts et limiter la quantité de données collectées pour une solution en limitant celle-ci à un ensemble spécifique d’agents.  Cet article explique comment utiliser le **ciblage de solution**, une fonctionnalité qui permet d’appliquer une étendue à vos solutions.
@@ -22,13 +21,13 @@ Lorsque vous ajoutez une solution de supervision à votre abonnement, par défau
 Il existe trois étapes au ciblage d’une solution, comme décrit dans les sections suivantes. 
 
 
-### <a name="1-create-a-computer-group"></a>1. Créer un groupe d’ordinateurs
-Vous spécifiez les ordinateurs que vous souhaitez inclure dans une étendue en créant un [groupe d'ordinateurs](../platform/computer-groups.md) dans Azure Monitor.  Le groupe d'ordinateurs peut être basé sur une requête de journal ou importé à partir d'autres sources comme les groupes WSUS ou Active Directory. Comme [décrit ci-dessous](#solutions-and-agents-that-cant-be-targeted), seuls les ordinateurs qui sont directement connectés à Azure Monitor figurent dans l'étendue.
+### <a name="1-create-a-computer-group"></a>Créer un groupe d’ordinateurs
+Vous spécifiez les ordinateurs que vous souhaitez inclure dans une étendue en créant un [groupe d'ordinateurs](../logs/computer-groups.md) dans Azure Monitor.  Le groupe d'ordinateurs peut être basé sur une requête de journal ou importé à partir d'autres sources comme les groupes WSUS ou Active Directory. Comme [décrit ci-dessous](#solutions-and-agents-that-cant-be-targeted), seuls les ordinateurs qui sont directement connectés à Azure Monitor figurent dans l'étendue.
 
 Une fois que le groupe d’ordinateurs est créé dans votre espace de travail, vous devez l’inclure dans une configuration d’étendue qui peut être appliquée à une ou plusieurs solutions.
  
  
-### <a name="2-create-a-scope-configuration"></a>2. Création d’une configuration d’étendue
+### <a name="2-create-a-scope-configuration"></a>Création d’une configuration d’étendue
  Une **configuration d’étendue** inclut un ou plusieurs groupes d’ordinateurs et peut être appliquée à une ou plusieurs solutions. 
  
  Créez une configuration d’étendue à l’aide de la procédure suivante.  
@@ -42,7 +41,7 @@ Une fois que le groupe d’ordinateurs est créé dans votre espace de travail, 
  6. Cliquez sur **OK** pour créer la configuration d’étendue. 
 
 
-### <a name="3-apply-the-scope-configuration-to-a-solution"></a>3. Appliquez la configuration d’étendue à une solution.
+### <a name="3-apply-the-scope-configuration-to-a-solution"></a>Appliquez la configuration d’étendue à une solution.
 Une fois que vous avez une configuration d’étendue, vous pouvez l’appliquer à une ou plusieurs solutions.  Notez qu’une seule configuration d’étendue peut être utilisée avec plusieurs solutions, mais chaque solution ne peut utiliser qu’une seule configuration d’étendue.
 
 Appliquez une configuration d’étendue à l’aide de la procédure suivante.  
@@ -69,4 +68,4 @@ Le ciblage de solution ne peut pas être utilisé avec les solutions suivantes, 
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Découvrez-en plus sur les solutions de supervision, notamment sur les solutions qui peuvent être installées dans votre environnement en consultant [Ajout de solutions de supervision Azure Log Analytics dans votre espace de travail](solutions.md).
-- Découvrez-en plus sur la création de groupes d'ordinateurs en consultant [Groupes d'ordinateurs dans les requêtes de journal Azure Monitor](../platform/computer-groups.md).
+- Découvrez-en plus sur la création de groupes d'ordinateurs en consultant [Groupes d'ordinateurs dans les requêtes de journal Azure Monitor](../logs/computer-groups.md).

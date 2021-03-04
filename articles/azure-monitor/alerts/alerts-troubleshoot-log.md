@@ -6,18 +6,18 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 09/22/2020
-ms.openlocfilehash: b877cba794f97dd4736e30a72d91695774c8e688
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 9352b27002162e08d53bc8166ceddd010be3c8d1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100598637"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738648"
 ---
 # <a name="troubleshoot-log-alerts-in-azure-monitor"></a>Alertes de journal de résolution de problèmes dans Azure Monitor  
 
 Cet article vous explique comment résoudre les problèmes courants avec les alertes de journal dans Azure Monitor. Il propose également des réponses aux problèmes courants liés à la fonctionnalité et à la configuration des alertes de journal.
 
-Les alertes de journal permettent aux utilisateurs d’utiliser une requête [Log Analytics](../log-query/log-analytics-tutorial.md) pour évaluer les journaux de ressources à chaque fréquence définie, et de déclencher une alerte en fonction des résultats. Les règles peuvent déclencher une ou plusieurs actions à l’aide des [groupes d’actions](../platform/action-groups.md). [En savoir plus sur les fonctionnalités et la terminologie des alertes de journal](alerts-unified-log.md).
+Les alertes de journal permettent aux utilisateurs d’utiliser une requête [Log Analytics](../logs/log-analytics-tutorial.md) pour évaluer les journaux de ressources à chaque fréquence définie, et de déclencher une alerte en fonction des résultats. Les règles peuvent déclencher une ou plusieurs actions à l’aide des [groupes d’actions](./action-groups.md). [En savoir plus sur les fonctionnalités et la terminologie des alertes de journal](alerts-unified-log.md).
 
 > [!NOTE]
 > Cet article ne couvre pas les cas où le portail Microsoft Azure affiche une règle d’alerte déclenchée et où une notification n’est pas effectuée via un groupe d'actions associé. Dans de tels cas, reportez-vous aux détails relatifs à la résolution des problèmes [ici](./alerts-troubleshoot.md#action-or-notification-on-my-alert-did-not-work-as-expected).
@@ -26,7 +26,7 @@ Les alertes de journal permettent aux utilisateurs d’utiliser une requête [Lo
 
 ### <a name="data-ingestion-time-for-logs"></a>Durée d’ingestion de données pour les journaux d’activité
 
-Azure Monitor traite des téraoctets de journaux de clients du monde entier, ce qui peut entraîner une [latence dans l’ingestion des journaux](../platform/data-ingestion-time.md).
+Azure Monitor traite des téraoctets de journaux de clients du monde entier, ce qui peut entraîner une [latence dans l’ingestion des journaux](../logs/data-ingestion-time.md).
 
 Les journaux sont des données semi-structurées et, par nature, ont une latence plus importante que les métriques. Si vous rencontrez plus de quatre minutes de retard dans les alertes déclenchées, vous devez envisager d’utiliser des [alertes de métrique](alerts-metric-overview.md). Vous pouvez envoyer des données au magasin de métriques à partir de journaux à l’aide d’[alertes de métrique pour les journaux](alerts-metric-logs.md).
 
@@ -60,7 +60,7 @@ Une [règle d’alerte de journal dans Azure Monitor](./alerts-log.md) configur�
 
 ### <a name="alert-triggered-by-partial-data"></a>Alerte déclenchée par des données partielles
 
-Azure Monitor traite des téraoctets de journaux de clients du monde entier, ce qui peut entraîner une [latence dans l’ingestion des journaux](../platform/data-ingestion-time.md).
+Azure Monitor traite des téraoctets de journaux de clients du monde entier, ce qui peut entraîner une [latence dans l’ingestion des journaux](../logs/data-ingestion-time.md).
 
 Les journaux sont des données semi-structurées et, par nature, ont une latence plus importante que les métriques. Si vous rencontrez de nombreux déclenchements d’alerte par erreur dans les alertes déclenchées, vous devez envisager d’utiliser des [alertes de métrique](alerts-metric-overview.md). Vous pouvez envoyer des données au magasin de métriques à partir de journaux à l’aide d’[alertes de métrique pour les journaux](alerts-metric-logs.md).
 
@@ -87,7 +87,7 @@ SecurityEvent
 
 Il n’est pas nécessaire d’ajouter une logique d’alerte à la requête et cela peut même poser des problèmes. Dans l’exemple ci-dessus, si vous incluez `count` dans votre requête, la valeur générée sera toujours 1, car le service d’alerte exécutera `count` sur `count`.
 
-La requête optimisée est ce que le service d’alerte de journal exécute. Vous pouvez exécuter la requête modifiée dans le [portail](../log-query/log-query-overview.md) ou l’[API](/rest/api/loganalytics/) Log Analytics.
+La requête optimisée est ce que le service d’alerte de journal exécute. Vous pouvez exécuter la requête modifiée dans le [portail](../logs/log-query-overview.md) ou l’[API](/rest/api/loganalytics/) Log Analytics.
 
 Pour les espaces de travail et Application Insights, elle est appelée **Requête à exécuter** dans le volet de conditions. Dans tous les autres types de ressources, sélectionnez **Voir la requête d’alerte finale** sous l’onglet Condition.
 
@@ -108,7 +108,7 @@ Azure Monitor désactive l’alerte de journal après une semaine en cas d’éc
 Lorsqu’une règle d’alerte de journal est créée, la bonne syntaxe de la requête est vérifiée. Cependant, la requête fournie dans la règle d’alerte de journal peut parfois commencer à échouer. Voici quelques raisons courantes :
 
 - Les règles ont été créées via l’API et la validation a été ignorée par l’utilisateur.
-- La requête [s’exécute sur plusieurs ressources](../log-query/cross-workspace-query.md) et une ou plusieurs des ressources ont été supprimées ou déplacées.
+- La requête [s’exécute sur plusieurs ressources](../logs/cross-workspace-query.md) et une ou plusieurs des ressources ont été supprimées ou déplacées.
 - La [requête échoue](https://dev.loganalytics.io/documentation/Using-the-API/Errors), car :
     - La solution de journalisation n’a pas été [déployée sur l’espace de travail](../insights/solutions.md#install-a-monitoring-solution), de sorte que les tables ne sont pas créées.
     - Les données ont cessé d’alimenter une table de la requête depuis plus de 30 jours.
@@ -219,5 +219,5 @@ Si la requête échoue pendant sept jours consécutifs, Azure Monitor désactive
 ## <a name="next-steps"></a>Étapes suivantes
 
 - En savoir plus sur les [alertes de journal dans Azure](./alerts-unified-log.md).
-- En savoir plus sur la [configuration des alertes de journal](../log-query/log-query-overview.md).
-- Découvrez plus en détail les [requêtes dans les journaux](../log-query/log-query-overview.md).
+- En savoir plus sur la [configuration des alertes de journal](../logs/log-query-overview.md).
+- Découvrez plus en détail les [requêtes dans les journaux](../logs/log-query-overview.md).

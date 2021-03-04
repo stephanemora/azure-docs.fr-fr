@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: d914c9b5f96cf502247d40a913ce8ad4651a4a14
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 68a9dd5cb24dda54e867580cf7c1bc869e692833
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100598757"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734415"
 ---
 # <a name="getting-started-with-azure-metrics-explorer"></a>Prise en main d’Azure Metrics Explorer
 
@@ -29,7 +29,7 @@ Azure Monitor Metrics Explorer est un composant du portail Microsoft Azure qui p
 
 Pour créer un graphique de métrique, à partir de votre ressource, groupe de ressources, abonnement ou vue Azure Monitor, ouvrez l’onglet **Métriques** et procédez comme suit :
 
-1. Cliquez sur le bouton « Sélectionner une étendue » pour ouvrir le sélecteur d’étendues de ressources. Ceci vous permettra de sélectionner la ou les ressources pour lesquelles vous souhaitez voir les métriques. La ressource doit être déjà remplie si vous avez ouvert Metrics Explorer à partir du menu de la ressource. Pour savoir comment voir les métriques de plusieurs ressources, [lisez cet article](../platform/metrics-dynamic-scope.md).
+1. Cliquez sur le bouton « Sélectionner une étendue » pour ouvrir le sélecteur d’étendues de ressources. Ceci vous permettra de sélectionner la ou les ressources pour lesquelles vous souhaitez voir les métriques. La ressource doit être déjà remplie si vous avez ouvert Metrics Explorer à partir du menu de la ressource. Pour savoir comment voir les métriques de plusieurs ressources, [lisez cet article](./metrics-dynamic-scope.md).
     > ![Sélectionner une ressource](./media/metrics-getting-started/scope-picker.png)
 
 2. Pour certaines ressources, vous devez choisir un espace de noms. L’espace de noms est simplement une méthode d’organisation des métriques pour que vous puissiez les retrouver facilement. Par exemple, les comptes de stockage ont des espaces de noms distincts pour le stockage des métriques de fichiers, tables, objets Blob et files d’attente. Plusieurs types de ressources n’ont qu’un seul espace de noms.
@@ -72,7 +72,7 @@ Vous pouvez personnaliser le style et le titre du graphique, et modifier les par
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Découvrir les fonctionnalités avancées de Metrics Explorer](../essentials/metrics-charts.md)
-* [Affichage de plusieurs ressources dans Metrics Explorer](../platform/metrics-dynamic-scope.md)
+* [Affichage de plusieurs ressources dans Metrics Explorer](./metrics-dynamic-scope.md)
 * [Résolution des problèmes de Metrics Explorer](metrics-troubleshoot.md)
-* [Consulter la liste des métriques disponibles pour les services Azure](../platform/metrics-supported.md)
+* [Consulter la liste des métriques disponibles pour les services Azure](./metrics-supported.md)
 * [Consulter des exemples de graphiques configurés](../essentials/metric-chart-samples.md)

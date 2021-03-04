@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/14/2021
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 82a8da9d2663b03d89ad0819ec6d918bebaf5f5e
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: d610e79773dabb9942352747f1f032b17730ffca
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99574727"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738750"
 ---
 # <a name="set-up-a-staging-environment-in-azure-spring-cloud"></a>Configurer un environnement intermédiaire dans Azure Spring Cloud
 
@@ -23,7 +23,7 @@ Cet article explique comment configurer un déploiement intermédiaire à l’ai
 ## <a name="prerequisites"></a>Prérequis
 
 * Instance d’Azure Spring Cloud au **niveau tarifaire** *Standard*.
-* [Extension Azure Spring Cloud](https://docs.microsoft.com/cli/azure/azure-cli-extensions-overview) d’Azure CLI.
+* [Extension Azure Spring Cloud](/cli/azure/azure-cli-extensions-overview) d’Azure CLI.
 
 Cet article utilise une application générée à partir de Spring Initializr. Si vous voulez utiliser une autre application pour cet exemple, vous devrez effectuer un changement simple dans une partie publique de l’application afin de différencier votre déploiement intermédiaire de la production.
 

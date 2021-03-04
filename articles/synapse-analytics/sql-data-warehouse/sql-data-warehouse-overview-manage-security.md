@@ -11,12 +11,12 @@ ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 7e2d4b47f8f37a8e6d69a7846b8b0f92247121da
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: ad19c976cceab76d6eb0dbfbea5840d9764bffec
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98685189"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101092952"
 ---
 # <a name="secure-a-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Sécuriser un pool SQL dédié (anciennement SQL DW) dans Azure Synapse Analytics
 
@@ -92,7 +92,7 @@ L’exemple suivant accorde un accès en lecture à un schéma défini par l’u
 GRANT SELECT ON SCHEMA::Test to ApplicationUser
 ```
 
-La gestion des bases de données et serveurs à partir du portail Azure et l'utilisation de l'API Azure Resource Manager sont contrôlées par les attributions de rôle de votre compte d'utilisateur sur le portail. Pour plus d’informations, consultez [Ajouter ou supprimer des attributions de rôles Azure à l’aide du portail Azure](../../role-based-access-control/role-assignments-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+La gestion des bases de données et serveurs à partir du portail Azure et l'utilisation de l'API Azure Resource Manager sont contrôlées par les attributions de rôle de votre compte d'utilisateur sur le portail. Pour plus d’informations, consultez [Attribuer des rôles Azure en utilisant le portail Azure](../../role-based-access-control/role-assignments-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 ## <a name="encryption"></a>Chiffrement
 

@@ -9,16 +9,16 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: bc6632b55ba8fd90317a8b5046a3e84d863bf0ef
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 0c182e1093c29206d27a0e55a46dd9a5607fa6ec
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99221437"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101701703"
 ---
 # <a name="enable-and-manage-azure-storage-analytics-logs-classic"></a>Activation et gestion des journaux Azure Storage Analytics (classique)
 
-[Azure Storage Analytics](storage-analytics.md) fournit des journaux pour les objets blob, les files d’attente et les tables. Vous pouvez utiliser le [Portail Azure](https://portal.azure.com) afin de configurer les journaux à enregistrer pour votre compte. Cet article explique comment activer et gérer les journaux. Pour savoir comment activer les métriques, consultez [Activation et gestion des métriques Azure Storage Analytics (classique)](storage-monitor-storage-account.md).  L’examen et le stockage des données de supervision sur le Portail Azure occasionne des frais. Pour plus d’informations, consultez [Storage Analytics](storage-analytics.md).
+[Azure Storage Analytics](storage-analytics.md) fournit des journaux pour les objets blob, les files d’attente et les tables. Vous pouvez utiliser le [Portail Azure](https://portal.azure.com) afin de configurer les journaux à enregistrer pour votre compte. Cet article explique comment activer et gérer les journaux. Pour savoir comment activer les métriques, consultez [Activation et gestion des métriques Azure Storage Analytics (classique)]().  L’examen et le stockage des données de supervision sur le Portail Azure occasionne des frais. Pour plus d’informations, consultez [Storage Analytics](storage-analytics.md).
 
 > [!NOTE]
 > Nous vous recommandons d’utiliser les journaux Stockage Azure disponibles dans Azure Monitor au lieu des journaux Storage Analytics. Les journaux de stockage Azure dans Azure Monitor sont en préversion publique et sont disponibles pour le test en préversion dans toutes les régions de cloud public. Cette préversion active les journaux des objets blob (qui incluent Azure Data Lake Storage Gen2), les fichiers, les files d’attente et les tables. Pour plus d’informations, consultez l’un des articles suivants :
@@ -191,7 +191,7 @@ Les données de journal peuvent s’accumuler dans votre compte au fil du temps,
 
    * Remplacez la valeur d’espace réservé `<storage-account-name>` par le nom de votre compte de stockage. 
 
-6. Utilisez [Get-AzStorageServiceLoggingProperty](https://docs.microsoft.com/powershell/module/az.storage/get-azstorageserviceloggingproperty) pour afficher la stratégie actuelle de rétention des journaux. L’exemple suivant imprime sur la console la période de rétention des services de stockage Blob et File d’attente.
+6. Utilisez [Get-AzStorageServiceLoggingProperty](/powershell/module/az.storage/get-azstorageserviceloggingproperty) pour afficher la stratégie actuelle de rétention des journaux. L’exemple suivant imprime sur la console la période de rétention des services de stockage Blob et File d’attente.
 
    ```powershell
    Get-AzStorageServiceLoggingProperty -ServiceType Blob, Queue -Context $ctx
@@ -202,7 +202,7 @@ Les données de journal peuvent s’accumuler dans votre compte au fil du temps,
    > [!div class="mx-imgBorder"]
    > ![Stratégie de rétention dans la sortie PowerShell](./media/manage-storage-analytics-logs/retention-period-powershell.png)
 
-7. Utilisez [Set-AzStorageServiceLoggingProperty](https://docs.microsoft.com/powershell/module/az.storage/set-azstorageserviceloggingproperty) pour changer la période de rétention. Dans l’exemple suivant, elle est remplacée par quatre jours.  
+7. Utilisez [Set-AzStorageServiceLoggingProperty](/powershell/module/az.storage/set-azstorageserviceloggingproperty) pour changer la période de rétention. Dans l’exemple suivant, elle est remplacée par quatre jours.  
 
    ```powershell
    Set-AzStorageServiceLoggingProperty -ServiceType Blob, Queue -RetentionDays 4 -Context $ctx
@@ -290,7 +290,6 @@ Lorsque vous avez téléchargé vos données de journal, vous pouvez afficher le
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour plus d’informations sur Storage Analytics, consultez [Storage Analytics](storage-analytics.md) pour Storage Analytics.
-* [Configurez les métriques Storage Analytics](storage-monitor-storage-account.md).
 * Pour plus d’informations sur l’utilisation d’un langage .NET pour configurer la journalisation du stockage, consultez la [référence sur la bibliothèque cliente de stockage](/previous-versions/azure/dn261237(v=azure.100)). 
 * Pour obtenir des informations générales sur la configuration de la journalisation du stockage avec l’API REST, consultez [Activation et configuration de Storage Analytics](/rest/api/storageservices/Enabling-and-Configuring-Storage-Analytics).
 * Pour plus d’informations sur le format des journaux Storage Analytics, consultez [Format des journaux Storage Analytics](/rest/api/storageservices/storage-analytics-log-format).

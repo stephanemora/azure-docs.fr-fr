@@ -4,12 +4,12 @@ description: L’API REST d’alerte Log Analytics vous permet de créer et de
 ms.subservice: logs
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 6c347b7b8ddaac103019e15e32fb5c06219e0064
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 4acb6cdcb544e8774fb60bf1ead1a4a13140024a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100600340"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717806"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Créer et gérer des règles d’alerte dans Log Analytics avec l’API REST 
 
@@ -21,7 +21,7 @@ L’API REST d’alerte Log Analytics vous permet de créer et de gérer des ale
 L’API REST de recherche Log Analytics est un service RESTful qui est accessible par le biais de l’API REST Azure Resource Manager. Ce document présente des exemples montrant comment accéder à l’API à partir d’une ligne de commande PowerShell en utilisant [ARMClient](https://github.com/projectkudu/ARMClient), outil en ligne de commande open source qui simplifie l’appel de l’API Azure Resource Manager. L'utilisation d’ARMClient et de PowerShell est une des nombreuses options vous permettant d’accéder à l'API de recherche Log Analytics. Grâce à ces outils, vous pouvez utiliser l’API Azure Resource Manager RESTful pour effectuer des appels vers les espaces de travail Log Analytics et exécuter en leur sein des commandes de recherche. L'API produira pour vous des résultats de recherche au format JSON, qui vous permet d'utiliser ces résultats, par programme, de différentes manières.
 
 ## <a name="prerequisites"></a>Prérequis
-Actuellement, les alertes peuvent être créées uniquement avec une recherche enregistrée dans Log Analytics.  Vous pouvez consulter l’ [API REST de recherche de journal](../log-query/log-query-overview.md) pour plus d’informations.
+Actuellement, les alertes peuvent être créées uniquement avec une recherche enregistrée dans Log Analytics.  Vous pouvez consulter l’ [API REST de recherche de journal](../logs/log-query-overview.md) pour plus d’informations.
 
 ## <a name="schedules"></a>Planifications
 Une recherche enregistrée peut avoir une ou plusieurs planifications. La planification définit la fréquence à laquelle la recherche est exécutée et l’intervalle de temps pendant lequel les critères sont identifiés.
@@ -387,7 +387,6 @@ armclient put /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Na
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Utilisez l’ [API REST pour effectuer des recherches de journaux](../log-query/log-query-overview.md) dans Log Analytics.
+* Utilisez l’ [API REST pour effectuer des recherches de journaux](../logs/log-query-overview.md) dans Log Analytics.
 * En savoir plus sur les [alertes de journal dans Azure Monitor](./alerts-unified-log.md)
 * Comment [créer, modifier ou gérer des règles d’alerte de journal dans Azure Monitor](./alerts-log.md)
-

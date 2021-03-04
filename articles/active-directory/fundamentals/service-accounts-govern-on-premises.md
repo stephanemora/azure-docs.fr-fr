@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 503d5c5c8d605e56ca510f12cd9c6f5a1f21c0bc
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 88fdfa1f449a0b65861ee09f2e78055a606c99d3
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100416498"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101649204"
 ---
 # <a name="governing-on-premises-service-accounts"></a>Administrer les comptes de service locaux
 
@@ -60,11 +60,11 @@ Utilisez les critères suivants lors de la création d'un compte de service.
 
 Utilisez les paramètres suivants avec les comptes d'utilisateur employés en guise de comptes de service :
 
-* [**Expiration du compte**](https://docs.microsoft.com/powershell/module/activedirectory/set-adaccountexpiration?view=winserver2012-ps) : configurez le compte de service pour qu'il expire automatiquement à une date/heure définie après sa période d'examen, sauf s'il est déterminé qu'il doit continuer.
+* [**Expiration du compte**](/powershell/module/activedirectory/set-adaccountexpiration?view=winserver2012-ps) : configurez le compte de service pour qu'il expire automatiquement à une date/heure définie après sa période d'examen, sauf s'il est déterminé qu'il doit continuer.
 
 *  **LogonWorkstations** : limitez les autorisations d'accès au compte de service. S'il est exécuté localement sur un ordinateur, et s'il a uniquement accès aux ressources de cet ordinateur, empêchez-le de se connecter ailleurs.
 
-* [**Impossible de changer le mot de passe**](https://docs.microsoft.com/powershell/module/addsadministration/set-aduser?view=win10-ps) : empêchez le compte de service de modifier son propre mot de passe en attribuant au paramètre la valeur false.
+* [**Impossible de changer le mot de passe**](/powershell/module/addsadministration/set-aduser?view=win10-ps) : empêchez le compte de service de modifier son propre mot de passe en attribuant au paramètre la valeur false.
 
  
 ## <a name="build-a-lifecycle-management-process"></a>Mettre en place un processus de gestion du cycle de vie
@@ -149,17 +149,17 @@ L'évaluation des risques, une fois réalisée et documentée, peut avoir un imp
 
 Ne créez un compte de service qu'après avoir documenté les informations pertinentes dans votre base de données CMDB et procédé à une évaluation des risques. Les restrictions de compte doivent être alignées sur l'évaluation des risques. Tenez compte des restrictions suivantes, à condition qu'elles soient pertinentes pour votre évaluation :
 
-* [Expiration du compte](https://docs.microsoft.com/powershell/module/activedirectory/set-adaccountexpiration?view=winserver2012-ps)
+* [Expiration du compte](/powershell/module/activedirectory/set-adaccountexpiration?view=winserver2012-ps)
 
-   * Pour tous les comptes d'utilisateur employés en guise de comptes de service, définissez une date de fin d'utilisation réaliste et précise. Définissez cette valeur à l'aide de l'indicateur « Expiration du compte ». Pour plus d'informations, consultez[ Set-ADAccountExpiration](https://docs.microsoft.com/powershell/module/addsadministration/set-adaccountexpiration?view=win10-ps). 
+   * Pour tous les comptes d'utilisateur employés en guise de comptes de service, définissez une date de fin d'utilisation réaliste et précise. Définissez cette valeur à l'aide de l'indicateur « Expiration du compte ». Pour plus d'informations, consultez[ Set-ADAccountExpiration](/powershell/module/addsadministration/set-adaccountexpiration?view=win10-ps). 
 
-* Connexion ([LogonWorkstation](https://docs.microsoft.com/powershell/module/addsadministration/set-aduser?view=win10-ps))
+* Connexion ([LogonWorkstation](/powershell/module/addsadministration/set-aduser?view=win10-ps))
 
-* Exigences en matière de [Stratégie de mot de passe](https://docs.microsoft.com/azure/active-directory-domain-services/password-policy)
+* Exigences en matière de [Stratégie de mot de passe](../../active-directory-domain-services/password-policy.md)
 
-* Création dans un [emplacement UO](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/delegating-administration-of-account-ous-and-resource-ous) qui garantit la gestion uniquement pour les utilisateurs disposant de privilèges
+* Création dans un [emplacement UO](/windows-server/identity/ad-ds/plan/delegating-administration-of-account-ous-and-resource-ous) qui garantit la gestion uniquement pour les utilisateurs disposant de privilèges
 
-* Configuration et collecte d'un audit [qui détecte les modifications](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-directory-service-changes) apportées au compte de service – et à l'[utilisation du compte de service](https://www.manageengine.com/products/active-directory-audit/how-to/audit-kerberos-authentication-events.html).
+* Configuration et collecte d'un audit [qui détecte les modifications](/windows/security/threat-protection/auditing/audit-directory-service-changes) apportées au compte de service – et à l'[utilisation du compte de service](https://www.manageengine.com/products/active-directory-audit/how-to/audit-kerberos-authentication-events.html).
 
 Lorsque vous êtes prêt pour la mise en production, accordez l'accès au compte de service en toute sécurité. 
 
@@ -193,7 +193,7 @@ Après avoir supprimé toutes les autorisations, utilisez ce processus pour supp
 
 3. Supprimez ensuite le compte de service. 
 
-   * Pour les comptes de service gérés, vous pouvez [le désinstaller](https://docs.microsoft.com/powershell/module/activedirectory/uninstall-adserviceaccount?view=winserver2012-ps) à l'aide de PowerShell ou le supprimer manuellement à partir du conteneur du compte.
+   * Pour les comptes de service gérés, vous pouvez [le désinstaller](/powershell/module/activedirectory/uninstall-adserviceaccount?view=winserver2012-ps) à l'aide de PowerShell ou le supprimer manuellement à partir du conteneur du compte.
 
    * Pour les comptes d'ordinateur ou d'utilisateur, vous pouvez supprimer manuellement le compte dans Active Directory.
 
@@ -206,8 +206,8 @@ Consultez les articles suivants sur la sécurisation des comptes de service :
 
 * [Sécuriser les comptes de service gérés autonomes](service-accounts-standalone-managed.md)
 
-* [Sécuriser les comptes d'ordinateur](service-accounts-computer.md)
+* [Sécuriser les comptes d’ordinateur](service-accounts-computer.md)
 
-* [Sécuriser les comptes d'utilisateur](service-accounts-user-on-premises.md)
+* [Sécuriser les comptes d’utilisateur](service-accounts-user-on-premises.md)
 
 * [Administrer les comptes de service locaux](service-accounts-govern-on-premises.md)

@@ -8,12 +8,12 @@ ms.service: web-application-firewall
 ms.date: 12/04/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 2de8a47b841a4a5c82aaeb92419ec3d9714268ea
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 48d4fe254f51dde932f04ef791e1109a0ced07ff
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879425"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101701618"
 ---
 # <a name="what-is-azure-web-application-firewall-on-azure-application-gateway"></a>Présentation du pare-feu d’applications web Azure sur Azure Application Gateway
 
@@ -173,7 +173,7 @@ Avec le classeur des événements de pare-feu WAF Azure intégré, vous pouvez a
 
 #### <a name="azure-monitor-workbook-for-waf"></a>Classeur Azure Monitor pour WAF
 
-Ce classeur permet une visualisation personnalisée des événements WAF pertinents pour la sécurité sur plusieurs panneaux filtrables. Il fonctionne avec tous les types de WAF, y compris Application Gateway, Front Door et CDN, et il peut être filtré en fonction du type de WAF ou d’une instance WAF spécifique. Importez via un modèle ARM ou un modèle de la galerie. Pour déployer ce classeur, consultez [Classeur WAF](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20WAF/Azure%20Monitor%20Workbook).
+Ce classeur permet une visualisation personnalisée des événements WAF pertinents pour la sécurité sur plusieurs panneaux filtrables. Il fonctionne avec tous les types de WAF, y compris Application Gateway, Front Door et CDN, et il peut être filtré en fonction du type de WAF ou d’une instance WAF spécifique. Importez via un modèle ARM ou un modèle de la galerie. Pour déployer ce classeur, consultez [Classeur WAF](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20Firewall/Workbook%20-%20Azure%20Firewall%20Monitor%20Workbook).
 
 #### <a name="logging"></a>Journalisation
 

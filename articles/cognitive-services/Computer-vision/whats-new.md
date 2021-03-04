@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 01/13/2021
 ms.author: pafarley
-ms.openlocfilehash: dbe0b5ac207b361a9584603bbe2d59abd5e5ca4e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 4f5ea68102e98a9abc3e5a0a31d3153bc1bd1663
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100390400"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738223"
 ---
 # <a name="whats-new-in-computer-vision"></a>Nouveautés de Vision par ordinateur
 
@@ -50,8 +50,8 @@ Une nouvelle version du [conteneur d’analyse spatiale](spatial-analysis-contai
 * **Changement cassant** : l’événement *personZoneEvent* a été renommé *personZoneEnterExitEvent*. Cet événement est déclenché par l’opération *personcrossingpolygon* quand une personne entre dans la zone ou la quitte et fournit des informations directionnelles avec le côté numéroté de la zone qui a été franchie.
 * L’URL de la vidéo peut être fournie en tant que « Paramètre privé/obscurci » dans toutes les opérations. L’obscurcissement est actuellement facultatif et ne fonctionne que si `KEY` et `IV` sont fournis en tant que variables d’environnement.
 * L’étalonnage est activé par défaut pour toutes les opérations. Définissez `do_calibration: false` pour le désactiver.
-* Ajout de la prise en charge du réétalonnage automatique (désactivé par défaut) via le paramètre `enable_recalibration`. Pour plus d’informations, consultez [Opérations d’analyse spatiale](https://docs.microsoft.com/azure/cognitive-services/computer-vision/spatial-analysis-operations)
-* Paramètres d’étalonnage de caméra sur `DETECTOR_NODE_CONFIG`. Pour plus d’informations, consultez [Opérations d’analyse spatiale](https://docs.microsoft.com/azure/cognitive-services/computer-vision/spatial-analysis-operations).
+* Ajout de la prise en charge du réétalonnage automatique (désactivé par défaut) via le paramètre `enable_recalibration`. Pour plus d’informations, consultez [Opérations d’analyse spatiale](./spatial-analysis-operations.md)
+* Paramètres d’étalonnage de caméra sur `DETECTOR_NODE_CONFIG`. Pour plus d’informations, consultez [Opérations d’analyse spatiale](./spatial-analysis-operations.md).
 
 
 ## <a name="october-2020"></a>Octobre 2020

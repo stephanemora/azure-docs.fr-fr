@@ -7,12 +7,12 @@ ms.date: 05/11/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 37099b551e004ebfc702dce37c2a1499aa46ff10
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 7c91cd8cbb1a927a88f05fcea603c6a4ed6e1c14
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94950720"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719030"
 ---
 # <a name="how-to-deprovision-devices-that-were-previously-auto-provisioned"></a>Guide pratique pour déprovisionner des appareils auparavant approvisionnés automatiquement 
 
@@ -23,7 +23,7 @@ En règle générale, le déprovisionnement d’un appareil implique deux étape
 1. Désinscrivez l’appareil de votre service d’approvisionnement, afin de prévenir tout approvisionnement automatique futur. Selon que vous souhaitiez révoquer l’accès temporairement ou de manière permanente, vous pouvez avoir intérêt à désactiver ou supprimer une entrée d’inscription. Pour les appareils qui utilisent une attestation X.509, il vous faut désactiver/supprimer une entrée dans la hiérarchie de vos groupes d’inscription existants.  
  
    - Pour découvrir comment désinscrire un appareil, consultez la section [Révoquer l’accès des appareils à votre service de provisionnement dans le portail Azure](how-to-revoke-device-access-portal.md).
-   - Pour découvrir comment révoquer l’accès des appareils par programmation à l’aide de l’un des SDK de service de provisionnement, consultez la page [Manage device enrollments with service SDKs](how-to-manage-enrollments-sdks.md) (Gérer les inscriptions d’appareils avec les SDK du service).
+   - Pour découvrir comment révoquer l’accès des appareils par programmation à l’aide de l’un des SDK de service de provisionnement, consultez la page [Manage device enrollments with service SDKs](./quick-enroll-device-x509-java.md) (Gérer les inscriptions d’appareils avec les SDK du service).
 
 2. Annulez l’inscription de l’appareil à votre instance IoT Hub, afin de prévenir les communications et les transferts de données à l’avenir. Là encore, vous pouvez désactiver temporairement ou supprimer définitivement l’entrée de l’appareil dans le registre des identités pour l’instance IoT Hub où il a été provisionné. Pour en savoir plus sur la désactivation, consultez la section [Disable devices](../iot-hub/iot-hub-devguide-identity-registry.md#disable-devices) (Désactiver les appareils). Consultez la section relative à la gestion des appareils IoT pour votre ressource IoT Hub, dans le [portail Azure](https://portal.azure.com).
 

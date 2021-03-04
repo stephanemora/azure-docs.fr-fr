@@ -5,12 +5,12 @@ services: automation
 ms.date: 02/11/2021
 ms.topic: troubleshooting
 ms.custom: has-adal-ref
-ms.openlocfilehash: 0ae7af848fd3ceb1d5b186a5a326c8fa43a69d24
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 1ff5adf3ec974cc922d73cf5993a78722ca1b591
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100388020"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723807"
 ---
 # <a name="troubleshoot-runbook-issues"></a>Résoudre les problèmes de runbook
 
@@ -160,7 +160,7 @@ Si vous essayez d’accéder à des ressources dans un autre abonnement, suivez 
 
 1. Copiez le nom de l’abonnement.
 
-1. Vous pouvez maintenant utiliser le code de runbook suivant pour tester les autorisations de votre compte Automation sur l’autre abonnement. Remplacez `"\<CertificateThumbprint\>"` par la valeur copiée à l’étape 1. Remplacez `"\<SubscriptionName\>"` par la valeur copiée à l’étape 4.
+1. Vous pouvez maintenant utiliser le code de runbook suivant pour tester les autorisations de votre compte Automation sur l’autre abonnement. Remplacez `<CertificateThumbprint>` par la valeur copiée à l’étape 1. Remplacez `"<SubscriptionName>"` par la valeur copiée à l’étape 4.
 
     ```powershell
     $Conn = Get-AutomationConnection -Name AzureRunAsConnection

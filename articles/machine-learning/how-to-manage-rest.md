@@ -10,12 +10,12 @@ ms.subservice: core
 ms.date: 01/31/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 09a0580adbe6d51e4de811a57ee17203d65a2435
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: bf1d6f5838e467c5f44a0090a4f1a15cd9d4ac77
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93316901"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101692451"
 ---
 # <a name="create-run-and-delete-azure-ml-resources-using-rest"></a>Créer, exécuter et supprimer des ressources Azure ML à l’aide de REST
 
@@ -79,7 +79,7 @@ La réponse doit fournir un jeton d’accès valable pendant une heure :
 Notez le jeton, car vous l’utiliserez pour authentifier toutes les requêtes administratives ultérieures. Pour ce faire, vous devez définir un en-tête d’autorisation dans toutes les requêtes :
 
 ```bash
-curl -h "Authentication: Bearer {your-access-token}" ...more args...
+curl -h "Authorization:Bearer {your-access-token}" ...more args...
 ```
 
 Notez que la valeur commence par la chaîne « Bearer », comprenant une espace unique avant que vous n’ajoutiez le jeton.

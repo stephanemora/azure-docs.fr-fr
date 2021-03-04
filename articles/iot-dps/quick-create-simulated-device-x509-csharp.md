@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: 06f1d34e7d8da9a3ece206fc1ff804accf9454ff
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 7d2a21a30cefbc6e83e48c29d81191323387b8f2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99493852"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101705541"
 ---
 # <a name="quickstart-create-and-provision-an-x509-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>Démarrage rapide : Créer et provisionner un appareil X.509 auprès du service IoT Hub Device Provisioning à l’aide du SDK d’appareil C#
 
@@ -22,7 +22,9 @@ ms.locfileid: "99493852"
 
 Ces étapes vous montrent comment utiliser le code d’appareil des [Exemples Azure IoT pour C#](https://github.com/Azure-Samples/azure-iot-samples-csharp) afin de provisionner un appareil X.509. Dans cet article, vous allez exécuter un exemple de code d’appareil sur votre machine de développement pour vous connecter à un hub IoT à l’aide du service Device Provisioning.
 
-Si vous ne connaissez pas le processus de provisionnement automatique, veuillez consulter la vue d’ensemble de l’[approvisionnement](about-iot-dps.md#provisioning-process). Vérifiez également que vous avez suivi la procédure décrite dans [Configurer le service d’approvisionnement d’appareil IoT Hub avec le portail Azure](./quick-setup-auto-provision.md) avant de continuer. 
+## <a name="prerequisites"></a>Prérequis
+
+Si vous ne connaissez pas le processus de provisionnement automatique, veuillez consulter la vue d’ensemble de l’[approvisionnement](about-iot-dps.md#provisioning-process). Vérifiez également que vous avez suivi la procédure décrite dans [Configurer le service d’approvisionnement d’appareil IoT Hub avec le portail Azure](./quick-setup-auto-provision.md) avant de continuer.
 
 Le service Azure IoT Device Provisioning prend en charge deux types d’inscriptions :
 - [Groupes d’inscription](concepts-service.md#enrollment-group) : utilisés pour inscrire plusieurs appareils connexes.
@@ -48,8 +50,6 @@ Cet article présente les inscriptions individuelles.
     ```bash
     dotnet --info
     ```
-
-
 
 ## <a name="create-a-self-signed-x509-device-certificate"></a>Créer un certificat auto-signé d’appareil X.509
 

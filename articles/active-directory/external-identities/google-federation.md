@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9e7ec5569dd0de3b0535c3b0e3b3304848a5207
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 5a397c17821d16594ccfb48175a8a141cb9f390b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101653315"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687819"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Ajouter Google comme fournisseur d’identité pour les utilisateurs invités B2B
 
@@ -46,13 +46,7 @@ Les utilisateurs invités qui voient une erreur « header too long » (en-têt
 
 ## <a name="sign-in-endpoints"></a>Points de terminaison de connexion
 
-Les utilisateurs invités Google peuvent désormais se connecter à vos applications multilocataires ou à vos applications principales Microsoft à l’aide d’un [point de terminaison commun](redemption-experience.md#redemption-and-sign-in-through-a-common-endpoint) (en d’autres termes, une URL d’application générale qui n’inclut pas le contexte de votre locataire). Voici des exemples de points de terminaison courants :
-
-- `https://teams.microsoft.com`
-- `https://myapps.microsoft.com`
-- `https://portal.azure.com`
-
-Durant le processus de connexion, l’utilisateur invité choisit **Options de connexion**, puis sélectionne **Sign in to an organization** (Se connecter à une organisation). L’utilisateur tape ensuite le nom de votre organisation et poursuit le processus de connexion à l’aide de ses informations d’identification Google.
+Les utilisateurs invités Google peuvent désormais se connecter à vos applications multilocataires ou à vos applications principales Microsoft à l’aide d’un [point de terminaison commun](redemption-experience.md#redemption-and-sign-in-through-a-common-endpoint) (en d’autres termes, une URL d’application générale qui n’inclut pas le contexte de votre locataire). Durant le processus de connexion, l’utilisateur invité choisit **Options de connexion**, puis sélectionne **Sign in to an organization** (Se connecter à une organisation). L’utilisateur tape ensuite le nom de votre organisation et poursuit le processus de connexion à l’aide de ses informations d’identification Google.
 
 Les utilisateurs invités Google peuvent également se servir des points de terminaison d’application qui incluent les informations de votre locataire, par exemple :
 

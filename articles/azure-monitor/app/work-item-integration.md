@@ -3,12 +3,12 @@ title: Intégration d’éléments de travail (préversion)-Application Insights
 description: Découvrez comment créer des éléments de travail dans GitHub ou Azure DevOps avec des données Application Insights incorporées.
 ms.topic: conceptual
 ms.date: 02/9/2021
-ms.openlocfilehash: 0c1d6ffd6a5a39fa49eadc558aa80f365f856df2
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: ba0a67bad3ba47191414d6b406ab6cb4e6b7da78
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100100954"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731916"
 ---
 # <a name="work-item-integration-preview"></a>Intégration d'éléments de travail (préversion)
 
@@ -53,7 +53,7 @@ Pour modifier votre modèle, accédez à l’onglet **Éléments de travail** so
 
 :::image type="content" source="./media/work-item-integration/edit-template.png" alt-text=" Capture d’écran de l’onglet d’un élément de travail avec l’icône de modification en forme de crayon sélectionnée.":::
 
-Sélectionnez Modifier ![icône de modification](./media/work-item-integration/edit-icon.png) en haut pour commencer à modifier le modèle. Les modèles d’élément de travail sont basés sur des [classeurs Azure Monitor](../platform/workbooks-overview.md). Les informations sur l’élément de travail sont générées à l’aide du langage de requête de mot clé. Vous pouvez modifier les requêtes pour ajouter davantage de contexte essentiel à votre équipe. Lorsque vous avez terminé la modification, enregistrez le classeur en sélectionnant Enregistrer ![icône d’enregistrement](./media/work-item-integration/save-icon.png) dans la barre d’outils supérieure.
+Sélectionnez Modifier ![icône de modification](./media/work-item-integration/edit-icon.png) en haut pour commencer à modifier le modèle. Les modèles d’élément de travail sont basés sur des [classeurs Azure Monitor](../visualize/workbooks-overview.md). Les informations sur l’élément de travail sont générées à l’aide du langage de requête de mot clé. Vous pouvez modifier les requêtes pour ajouter davantage de contexte essentiel à votre équipe. Lorsque vous avez terminé la modification, enregistrez le classeur en sélectionnant Enregistrer ![icône d’enregistrement](./media/work-item-integration/save-icon.png) dans la barre d’outils supérieure.
 
 :::image type="content" source="./media/work-item-integration/edit-workbook.png" alt-text=" Capture d’écran du modèle de classeur d’élément de travail en mode d’édition." lightbox="./media/work-item-integration/edit-workbook.png":::
 

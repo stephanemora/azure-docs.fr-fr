@@ -1,36 +1,33 @@
 ---
 title: Connexion par clé de sécurité sans mot de passe pour Windows – Azure Active Directory
-description: Découvrez connexion activer la connexion par clé de sécurité sans mot de passe à Azure Active Directory à l’aide de clés de sécurité FIDO2 (préversion)
+description: Découvrez comment activer la connexion par clé de sécurité sans mot de passe à Azure Active Directory à l’aide de clés de sécurité FIDO2
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 11/24/2020
+ms.date: 02/22/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04a46a691b2f629b64cfe09c22813b05c593af1c
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 190e9c857f1ec9d19eb89493dc4b4a9fb68fac87
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743460"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101653505"
 ---
-# <a name="enable-passwordless-security-key-sign-in-to-windows-10-devices-with-azure-active-directory-preview"></a>Activer la connexion par clé de sécurité sans mot de passe à des appareils Windows 10 à l’aide d’Azure Active Directory (préversion)
+# <a name="enable-passwordless-security-key-sign-in-to-windows-10-devices-with-azure-active-directory"></a>Activer la connexion par clé de sécurité sans mot de passe à des appareils Windows 10 à l’aide d’Azure Active Directory 
 
 Ce document met l’accent sur l’activation de l’authentification sans mot de passe, basée sur une clé de sécurité FIDO2, avec des appareils Windows 10. À la fin de cet article, vous serez en mesure de vous connecter à vos appareils Windows 10 joints à Azure AD et à ceux joints à Azure AD Hybride avec votre compte Azure AD, à l’aide d’une clé de sécurité FIDO2.
-
-> [!NOTE]
-> Les clés de sécurité FIDO2 sont une fonctionnalité d’évaluation publique d’Azure Active Directory. Pour plus d’informations sur les préversions, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="requirements"></a>Spécifications
 
 | Type d’appareil | Appareil joints Azure AD | Appareils joints Azure AD hybrides |
 | --- | --- | --- |
 | [Azure AD Multi-Factor Authentication](howto-mfa-getstarted.md) | X | X |
-| [Inscription d’informations de sécurité combinée – Préversion](concept-registration-mfa-sspr-combined.md) | X | X |
+| [Inscription d’informations de sécurité combinée](concept-registration-mfa-sspr-combined.md) | X | X |
 | [Clés de sécurité FIDO2](concept-authentication-passwordless.md#fido2-security-keys) compatibles | X | X |
 | WebAuthN nécessite Windows 10 version 1903 ou plus | X | X |
 | [Les appareils joints à Azure AD](../devices/concept-azure-ad-join.md) nécessitent Windows 10 version 1909 ou ultérieure | X |   |
@@ -54,9 +51,9 @@ Les scénarios suivants ne sont pas pris en charge :
 - Connexion ou déverrouillage d’un appareil Windows 10 avec une clé de sécurité contenant plusieurs comptes Azure AD. Ce scénario utilise le dernier compte ajouté à la clé de sécurité. WebAuthN permet aux utilisateurs de choisir le compte qu’ils souhaitent utiliser.
 - Déverrouillez un appareil exécutant Windows 10 version 1809. Vous bénéficierez d’une expérience optimale sur Windows 10 version 1903 ou ultérieure.
 
-## <a name="prepare-devices-for-preview"></a>Préparer les appareils pour la préversion
+## <a name="prepare-devices"></a>Préparer les appareils
 
-Les appareils joints à Azure AD avec lesquels vous exécutez des pilotes pendant l’évaluation des fonctionnalités doivent exécuter Windows 10 version 1909 ou ultérieure.
+Les appareils de jointure Azure AD doivent exécuter Windows 10 version 1909 ou ultérieure.
 
 Les appareils de jointure Azure AD Hybride doivent exécuter Windows 10 version 2004 ou ultérieure.
 
@@ -150,13 +147,13 @@ Dans l’exemple ci-dessous, un utilisateur appelé Bala Sandhu a déjà approv
 
 ## <a name="troubleshooting-and-feedback"></a>Résolution des problèmes de commentaires
 
-Si vous souhaitez partager des commentaires ou si vous rencontrez des problèmes lors de l’évaluation de cette fonctionnalité, partagez vos remarques via l’application Hub de commentaires Windows en procédant comme suit :
+Si vous souhaitez partager des commentaires ou si vous rencontrez des problèmes avec cette fonctionnalité, partagez vos remarques via l’application Hub de commentaires Windows en procédant comme suit :
 
 1. Lancez le **concentrateur de commentaires** et assurez-vous que vous êtes connecté.
 1. Classez vos commentaires dans les catégories suivantes avant de les envoyer :
    - Catégorie : Sécurité et confidentialité
    - Sous-catégorie : FIDO
-1. Pour capturer des journaux, utilisez l’option **Recréer mon problème**
+1. Pour capturer des journaux, utilisez l’option **Recréer mon problème**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

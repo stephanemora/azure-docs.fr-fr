@@ -1,29 +1,26 @@
 ---
-title: Connexion par clé de sécurité sans mot de passe à des ressources locales (préversion) – Azure Active Directory
-description: Découvrez comment activer la connexion par clé de sécurité sans mot de passe à des ressources locales en utilisant Azure Active Directory (préversion)
+title: Connexion par clé de sécurité sans mot de passe à des ressources locales – Azure Active Directory
+description: Découvrez comment activer la connexion par clé de sécurité sans mot de passe à des ressources locales en utilisant Azure Active Directory
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 03/09/2020
+ms.date: 02/22/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1459442f7d99d1de88a685eed34493da530c1a4
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: db1b559bb4f6a1f8866116c287df5b814500210b
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743477"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101647470"
 ---
-# <a name="enable-passwordless-security-key-sign-in-to-on-premises-resources-with-azure-active-directory-preview"></a>Activer la connexion par clé de sécurité sans mot de passe à des ressources locales avec Azure Active Directory (préversion)
+# <a name="enable-passwordless-security-key-sign-in-to-on-premises-resources-with-azure-active-directory"></a>Activer la connexion par clé de sécurité sans mot de passe à des ressources locales avec Azure Active Directory 
 
 Ce document se concentre sur l’activation de l’authentification sans mot de passe à des ressources locales pour des environnements composés d’appareils Windows 10 de types **Joint à Azure AD** et **Joint à une version hybride d’Azure AD**. Cette fonctionnalité fournit une authentification unique (SSO) transparente auprès de ressources locales en utilisant des clés de sécurité compatibles Microsoft.
-
-> [!NOTE]
-> Les clés de sécurité FIDO2 sont une fonctionnalité d’évaluation publique d’Azure Active Directory. Pour plus d’informations sur les préversions, consultez [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="sso-to-on-premises-resources-using-fido2-keys"></a>Authentification unique auprès de ressources locales à l’aide de clés FIDO2
 
@@ -42,7 +39,7 @@ Un objet serveur Kerberos Azure AD est créé dans votre Active Directory local,
 
 ## <a name="requirements"></a>Spécifications
 
-Les organisations doivent effectuer les étapes permettant d’[activer la connexion par clé de sécurité sans mot de passe à des appareils Windows 10 (préversion)](howto-authentication-passwordless-security-key.md) avant d’effectuer les étapes décrites dans cet article.
+Les organisations doivent suivre les étapes permettant d’[activer la connexion par clé de sécurité sans mot de passe à des appareils Windows 10](howto-authentication-passwordless-security-key.md) avant de suivre les étapes décrites dans cet article.
 
 Les organisations doivent également présenter la configuration logicielle suivante.
 
@@ -156,13 +153,13 @@ La connexion avec FIDO est bloquée si votre mot de passe a expiré. Le comporte
 
 ## <a name="troubleshooting-and-feedback"></a>Résolution des problèmes de commentaires
 
-Si vous souhaitez partager des commentaires ou si vous rencontrez des problèmes lors de l’évaluation de cette fonctionnalité, partagez vos remarques via l’application Hub de commentaires Windows en procédant comme suit :
+Si vous souhaitez partager des commentaires ou si vous rencontrez des problèmes avec cette fonctionnalité, partagez vos remarques via l’application Hub de commentaires Windows en procédant comme suit :
 
 1. Lancez le **concentrateur de commentaires** et assurez-vous que vous êtes connecté.
 1. Classez vos commentaires dans les catégories suivantes avant de les envoyer :
    - Catégorie : Sécurité et confidentialité
    - Sous-catégorie : FIDO
-1. Pour capturer des journaux, utilisez l’option **Recréer mon problème**
+1. Pour capturer des journaux, utilisez l’option **Recréer mon problème**.
 
 ## <a name="frequently-asked-questions"></a>Forum aux questions
 

@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: pafarley
-ms.openlocfilehash: 875fa2ad5a3a18c0e2582425a6528730234ac8ed
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: adcfef19de5987b9b4c54f6765589f2ae9868c11
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99585073"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101736744"
 ---
 # <a name="form-recognizer-prebuilt-invoice-model"></a>Modèle de facture prédéfini Form Recognizer
 
@@ -41,7 +41,7 @@ Vous aurez besoin d’un abonnement Azure ([créez-en un gratuitement](https://a
 
 ### <a name="input-requirements"></a>Critères des entrées 
 
-[!INCLUDE [input reqs](./includes/input-requirements-receipts.md)]
+[!INCLUDE [input requirements](./includes/input-requirements-receipts.md)]
 
 ## <a name="the-analyze-invoice-operation"></a>Opération d’analyse d’une facture
 
@@ -80,8 +80,8 @@ Le service Invoice extrait le texte, les tables et 26 champs de facture. Voici l
 | CustomerId | string | ID de référence du client | CID-12345 |  |
 | PurchaseOrder | string | Numéro de référence du bon de commande | PO-3333 | |  |
 | InvoiceId | string | ID de cette facture (souvent appelé « numéro de facture ») | INV-100 | |  |
-| InvoiceDate | Date | Date d’émission de la facture | 15/11/2019 | 
-| DueDate | Date | Date d’échéance du paiement de cette facture | 15/12/2019 | 2019-12-15 | 2019-11-15 |
+| InvoiceDate | Date | Date d’émission de la facture | 15/11/2019 | 2019-11-15 |
+| DueDate | Date | Date d’échéance du paiement de cette facture | 15/12/2019 | 2019-12-15 |
 | VendorName | string | Fournisseur qui a créé cette facture | CONTOSO LTD. | |
 | VendorAddress | string | Adresse postale du fournisseur | 123 456th St New York, NY, 10001 | |
 | VendorAddressRecipient | string | Nom associé à l’adresse postale du fournisseur | Siège social de Contoso | |

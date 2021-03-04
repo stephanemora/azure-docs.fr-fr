@@ -1,40 +1,38 @@
 ---
-title: Utiliser Azure Policy pour appliquer des configurations de cluster à grande échelle (préversion)
+title: Utiliser Azure Policy pour appliquer des configurations de cluster à grande échelle
 services: azure-arc
 ms.service: azure-arc
-ms.date: 02/15/2021
+ms.date: 03/02/2021
 ms.topic: article
 author: mlearned
 ms.author: mlearned
 description: Utiliser Azure Policy pour appliquer des configurations de cluster à grande échelle
 keywords: Kubernetes, Arc, Azure, K8s, conteneurs
-ms.openlocfilehash: b80e50cb4823632f054de3b7f9da71392f8578d7
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 7f85050666c383ba49730bd88ce1f26d55607e7a
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100560178"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101652145"
 ---
-# <a name="use-azure-policy-to-apply-cluster-configurations-at-scale-preview"></a>Utiliser Azure Policy pour appliquer des configurations de cluster à grande échelle (préversion)
+# <a name="use-azure-policy-to-apply-cluster-configurations-at-scale"></a>Utiliser Azure Policy pour appliquer des configurations de cluster à grande échelle
 
 ## <a name="overview"></a>Vue d’ensemble
 
-Vous pouvez utiliser Azure Policy pour appliquer à l’une des ressources suivantes l’élément `Microsoft.KubernetesConfiguration/sourceControlConfigurations` spécifique :
-*  ressource `Microsoft.Kubernetes/connectedclusters`.
-* Ressource `Microsoft.ContainerService/managedClusters` compatible avec GitOps. 
+Vous pouvez utiliser Azure Policy pour appliquer des configurations (type de ressource `Microsoft.KubernetesConfiguration/sourceControlConfigurations`) à grande échelle sur des clusters Kubernetes avec Azure Arc (`Microsoft.Kubernetes/connectedclusters`).
 
 Pour utiliser Azure Policy, sélectionnez une définition de stratégie existante et créez une attribution de stratégie. Lors de la création de l’attribution de stratégie :
 1. Définissez l’étendue de l’attribution.
     * L’étendue sera un groupe de ressources ou un abonnement Azure. 
-2. Définissez les paramètres de la configuration `sourceControlConfiguration` qui va être créée. 
+2. Définissez les paramètres de la configuration à créer. 
 
-Une fois l’attribution créée, le moteur Azure Policy identifie toutes les ressources `connectedCluster` ou `managedCluster` qui se trouvent dans l’étendue, et applique la `sourceControlConfiguration` à chacune d’elles.
+Une fois l’affectation créée, le moteur Azure Policy identifie tous les clusters Kubernetes avec Azure Arc situés dans l’étendue et applique la configuration à chaque cluster.
 
-Vous pouvez activer plusieurs référentiels Git comme sources de vérité pour chaque cluster à l’aide de plusieurs attributions de stratégie. Chaque attribution de stratégie est configurée de manière à utiliser un autre référentiel Git, par exemple, un référentiel pour l’opérateur informatique/du cluster central et d’autres référentiels pour les équipes d’applications.
+Vous pouvez créer plusieurs configurations, chacune pointant vers un dépôt Git différent, à l’aide de plusieurs affectations de stratégie. Par exemple, un dépôt pour le service informatique central/l’opérateur de cluster, et d’autres dépôts pour les équipes d’application.
 
-## <a name="prerequisite"></a>Prérequis
+## <a name="prerequisite"></a>Configuration requise
 
-Vérifiez que vous disposez des autorisations `Microsoft.Authorization/policyAssignments/write` sur l’étendue (abonnement ou groupe de ressources) dans laquelle vous allez créer cette attribution de stratégie.
+Vérifiez que vous disposez d’autorisations `Microsoft.Authorization/policyAssignments/write` sur l’étendue (abonnement ou groupe de ressources) où vous allez créer cette affectation de stratégie.
 
 ## <a name="create-a-policy-assignment"></a>Créer une affectation de stratégie
 
@@ -54,24 +52,21 @@ Vérifiez que vous disposez des autorisations `Microsoft.Authorization/policyAss
     * Pour plus d’informations, consultez le [Démarrage rapide Créer une attribution de stratégie](../../governance/policy/assign-policy-portal.md) et l’[article Corriger les ressources non conformes avec Azure Policy](../../governance/policy/how-to/remediate-resources.md).
 1. Sélectionnez **Revoir + créer**.
 
-Une fois l’attribution de stratégie créée, le `sourceControlConfiguration` s’applique aux ressources suivantes situées dans l’étendue de l’affectation :
-* Nouvelles ressources `connectedCluster`.
-* Nouvelles ressources `managedCluster` avec les agents GitOps installés. 
+Une fois l’affectation de stratégie créée, la configuration est appliquée aux nouveaux clusters Kubernetes avec Azure Arc créés dans l’étendue de l’affectation de stratégie.
 
-Pour des clusters existants, vous devrez exécuter manuellement une tâche de correction. Cette tâche nécessite généralement 10 à 20 minutes pour que l’attribution de stratégie prenne effet.
+Pour les clusters existants, vous devez exécuter manuellement une tâche de correction. Cette tâche nécessite généralement 10 à 20 minutes pour que l’attribution de stratégie prenne effet.
 
 ## <a name="verify-a-policy-assignment"></a>Vérifier une attribution de stratégie
 
-1. Dans le portail Azure, accédez à vos ressources `connectedCluster`.
+1. Dans le portail Azure, accédez à l’un de vos clusters Kubernetes avec Azure Arc.
 1. Dans la section **Paramètres** de la barre latérale, sélectionnez **Stratégies**. 
-    * L’expérience utilisateur du cluster AKS n’est pas encore implémentée.
     * Dans la liste des stratégies, vous devriez voir l’attribution de stratégie que vous avez créée ci-dessus, et l’**État de conformité** devrait être *Conforme*.
 1. Dans la section **Paramètres** de la barre latérale, sélectionnez **Configurations**.
-    * Dans la liste des configurations, vous devriez voir la `sourceControlConfiguration` que l’attribution de stratégie a créée.
+    * Dans la liste des configurations, vous devez voir la configuration créée par l’affectation de stratégie.
 1. Utilisez `kubectl` pour interroger le cluster. 
-    * Vous devriez voir l’espace de noms et les artefacts créés par la `sourceControlConfiguration`.
-    * Après au maximum 5 minutes, vous devriez voir dans le cluster les artefacts décrits dans les manifestes du dépôt Cit configuré.
+    * Vous devez voir l’espace de noms et les artefacts créés par les ressources de configuration.
+    * En moins de 5 minutes (en supposant que le cluster dispose d’une connectivité réseau vers Azure), vous devez voir se créer sur le cluster les objets décrits par les manifestes dans le dépôt Git.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Configurer Azure Monitor pour des conteneurs avec des clusters Kubernetes compatibles avec Azure Arc](../../azure-monitor/insights/container-insights-enable-arc-enabled-clusters.md)
+* [Configurer Azure Monitor pour des conteneurs avec des clusters Kubernetes compatibles avec Azure Arc](../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md)

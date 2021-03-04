@@ -9,12 +9,12 @@ ms.date: 09/08/2020
 ms.topic: how-to
 ms.author: nitinme
 author: nitinme
-ms.openlocfilehash: 8a4b86fb8fa5a87283178d957e07617b908e6286
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: aeb84fca47dbf2922f17a3e8931e3158f9ee2cca
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98790899"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101706773"
 ---
 # <a name="sign-in-to-luis-portal"></a>Se connecter au portail LUIS
 
@@ -48,7 +48,7 @@ Cet article va vous aider à prendre en main le portail LUIS et à créer une re
     * **Nom du groupe de ressources Azure** : nom de groupe de ressources personnalisé que vous choisissez dans votre abonnement. Les groupes de ressources vous permettent de regrouper des ressources Azure pour l’accès et la gestion. Si vous n’avez pas de groupe de ressources dans votre abonnement, vous ne serez pas autorisé à en créer un dans le portail LUIS. Accédez au [Portail Azure](https://ms.portal.azure.com/#create/Microsoft.ResourceGroup) pour en créer un, puis cliquez sur LUIS pour continuer le processus de connexion.
     * **Nom de la ressource Azure** : nom personnalisé que vous choisissez, utilisé comme élément de l’URL pour vos transactions de création. Le nom de votre ressource doit contenir uniquement des caractères alphanumériques (`-`) et ne peut pas commencer ni se terminer par `-`. Si d’autres symboles sont inclus dans le nom, la création d’une ressource échoue.
     * **Emplacement** : choisissez de créer vos applications dans l’un des [trois emplacements de création](./luis-reference-regions.md) actuellement pris en charge par LUIS, notamment : USA Ouest, Europe Ouest et Australie Est.
-    * **Niveau tarifaire** : par défaut, le niveau tarifaire de création F0 est sélectionné, car il est recommandé. Créez une [clé gérée par le client](./luis-encryption-of-data-at-rest.md#customer-managed-keys-for-language-understanding) à partir du portail Azure si vous recherchez une couche supplémentaire de sécurité.
+    * **Niveau tarifaire** : par défaut, le niveau tarifaire de création F0 est sélectionné, car il est recommandé. Créez une [clé gérée par le client](./encrypt-data-at-rest.md#customer-managed-keys-for-language-understanding) à partir du portail Azure si vous recherchez une couche supplémentaire de sécurité.
 8. Vous êtes maintenant connecté à LUIS. Vous pouvez dès à présent commencer à créer des applications.
 
 ## <a name="troubleshooting"></a>Dépannage

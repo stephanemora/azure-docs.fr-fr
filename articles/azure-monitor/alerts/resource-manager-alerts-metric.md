@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: sample
 ms.date: 05/18/2020
 ms.subservice: alerts
-ms.openlocfilehash: 9a6c62e91a2d3c600326730b3e6345f97bf6f5f9
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0e928f3890e0d86aff7e4615d6d12e1b53c3b6f5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100597259"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734687"
 ---
 # <a name="resource-manager-template-samples-for-metric-alert-rules-in-azure-monitor"></a>Exemples de modèle Resource Manager pour les règles d’alerte de métrique dans Azure Monitor
 
@@ -3303,6 +3303,5 @@ La configuration supplémentaire du paramètre `pingText` de correspondance de c
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Obtenir d’autres exemples de modèle pour Azure Monitor](../resource-manager-samples.md).
-- [En savoir plus sur les alertes](../platform/alerts-overview.md).
+- [En savoir plus sur les alertes](./alerts-overview.md).
 - [Obtenir un exemple pour créer un groupe d’actions avec un modèle Resource Manager](resource-manager-action-groups.md).
-

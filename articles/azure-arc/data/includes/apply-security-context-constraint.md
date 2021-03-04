@@ -3,14 +3,14 @@ author: MikeRayMSFT
 ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.topic: include
-ms.date: 01/15/2021
+ms.date: 03/02/2021
 ms.author: mikeray
-ms.openlocfilehash: 6c8dbeea83cba306cfb788cf447236088045ffc9
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 0fca43f76b24a08ca96be749f7f2a822b0be2418
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99494008"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687586"
 ---
 Cette section explique comment appliquer une contrainte de contexte de sécurité (SCC). Pour la préversion, ces dernières assouplissent les contraintes de sécurité. 
 
@@ -40,12 +40,6 @@ Cette section explique comment appliquer une contrainte de contexte de sécurit�
    oc adm policy add-scc-to-user arc-data-scc --serviceaccount default --namespace arc
    ```
 
-   > [!NOTE]
-   > RedHat OpenShift 4.5 ou version ultérieure modifie la façon dont la contrainte de contexte de sécurité est appliquée au compte de service.
-   > Utilisez le même espace de noms ici et dans la commande `azdata arc dc create` ci-dessous. Par exemple, `arc`. 
-   > 
-   > Si vous utilisez RedHat OpenShift 4.5 ou une version ultérieure, exécutez : 
-   >
-   >```console
-   >oc create rolebinding arc-data-rbac --clusterrole=system:openshift:scc:arc-data-scc --serviceaccount=arc:default
-   >```
+   ```console
+   oc create rolebinding arc-data-rbac --clusterrole=system:openshift:scc:arc-data-scc --serviceaccount=arc:default
+   ```

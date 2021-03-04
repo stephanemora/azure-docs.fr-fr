@@ -21,7 +21,7 @@
       href: tutorial-configure-ldaps.md
     - name: Configurer la synchronisation de hachage de mot de passe
       href: tutorial-configure-password-hash-sync.md
-    - name: Créer un jeu de réplicas (préversion)
+    - name: Créer un jeu de réplicas
       href: tutorial-create-replica-set.md
     - name: Créer un domaine managé personnalisé
       href: tutorial-create-instance-advanced.md
@@ -43,7 +43,7 @@
       href: administration-concepts.md
     - name: Scénarios de déploiement courants
       href: scenarios.md
-    - name: Jeux de réplicas (préversion)
+    - name: Jeux de réplicas
       href: concepts-replica-sets.md
     - name: Forêts et approbations
       items:

@@ -2,13 +2,13 @@
 title: Copier des applications et des données dans des nœuds de pool
 description: Découvrez comment copier des applications et des données dans des nœuds de pool.
 ms.topic: how-to
-ms.date: 02/10/2021
-ms.openlocfilehash: a5933a1c52e2848b6b414f1750bb24515fb9f28a
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 02/18/2021
+ms.openlocfilehash: 0109171fd78dc11058daa30bf4604bebc1eeb857
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100378500"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703645"
 ---
 # <a name="copy-applications-and-data-to-pool-nodes"></a>Copier des applications et des données dans des nœuds de pool
 
@@ -33,10 +33,6 @@ Si chacun des travaux exécutés sur le pool exécute une application (.exe) qui
 Pour les applications et les données qui doivent être installées sur chaque nœud du pool, vous pouvez utiliser des [packages d’application](batch-application-packages.md). Il n’existe aucune commande d’installation associée à un package d’application, mais vous pouvez utiliser une tâche de démarrage pour exécuter une commande d’installation. Si votre application ne nécessite pas d’installation ou si elle comprend un grand nombre de fichiers, vous pouvez utiliser cette méthode.
 
 Les packages d’application se révèlent utiles en présence d’un grand nombre de fichiers, car ils peuvent combiner de nombreuses références de fichiers en une petite charge utile. Si vous essayez d’inclure plus de 100 fichiers de ressources distincts dans une seule tâche, le service Batch peut rencontrer des limitations système internes pour une tâche unique. Les packages d’application conviennent également si vous avez plusieurs versions différentes de la même application et que vous devez en choisir une.
-
-## <a name="extensions"></a>Extensions
-
-Les [extensions](create-pool-extensions.md) sont de petites applications qui facilitent la configuration et l’installation post-provisionnement sur des nœuds de calcul Batch. Lorsque vous créez un pool, vous pouvez sélectionner une extension prise en charge à installer sur les nœuds de calcul lorsqu’ils sont provisionnés. Après cela, l’extension peut effectuer l’opération prévue.
 
 ## <a name="job-preparation-task-resource-files"></a>Fichiers de ressources de la tâche de préparation du travail
 

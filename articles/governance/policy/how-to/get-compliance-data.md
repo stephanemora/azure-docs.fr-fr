@@ -3,12 +3,12 @@ title: Obtenir les données de conformité de la stratégie
 description: Les évaluations et les effets d’Azure Policy déterminent la conformité. Découvrez comment obtenir des détails sur la conformité de vos ressources Azure.
 ms.date: 10/05/2020
 ms.topic: how-to
-ms.openlocfilehash: 112badce00ec56df0f80c7b51bb4789a414cdcbd
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: 3c1c128b414444c6004f32f3f3173548f81a82e1
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94920234"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577109"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Obtenir les données de conformité des ressources Azure
 
@@ -683,7 +683,7 @@ Trent Baker
 
 ## <a name="azure-monitor-logs"></a>Journaux d’activité Azure Monitor
 
-Si vous avez un [espace de travail Log Analytics](../../../azure-monitor/log-query/log-query-overview.md) dans lequel `AzureActivity` de la [solution Activity Log Analytics](../../../azure-monitor/platform/activity-log.md) est liée à votre abonnement, vous pouvez également afficher les résultats non conformes de l’évaluation des nouvelles ressources et de celles mises à jour en utilisant de simples requêtes Kusto et la table `AzureActivity`. Grâce aux informations des journaux d’activité Azure Monitor, des alertes peuvent être configurées de manière à signaler les problèmes de non-conformité.
+Si vous avez un [espace de travail Log Analytics](../../../azure-monitor/logs/log-query-overview.md) dans lequel `AzureActivity` de la [solution Activity Log Analytics](../../../azure-monitor/essentials/activity-log.md) est liée à votre abonnement, vous pouvez également afficher les résultats non conformes de l’évaluation des nouvelles ressources et de celles mises à jour en utilisant de simples requêtes Kusto et la table `AzureActivity`. Grâce aux informations des journaux d’activité Azure Monitor, des alertes peuvent être configurées de manière à signaler les problèmes de non-conformité.
 
 :::image type="content" source="../media/getting-compliance-data/compliance-loganalytics.png" alt-text="Capture d’écran des journaux Azure Monitor montrant les actions Azure Policy dans la table AzureActivity." border="false":::
 

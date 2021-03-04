@@ -3,12 +3,12 @@ title: À propos du processus de restauration de machine virtuelle Azure
 description: Découvrez comment le service Sauvegarde Azure restaure les machines virtuelles Azure
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: 436859bfb3cee37501e0605465d8e19856a846d6
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 62d1ff7973693f29c77c77fe2ad4fbbb598a5fa4
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98806827"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738410"
 ---
 # <a name="about-azure-vm-restore"></a>À propos de la restauration de machine virtuelle Azure
 
@@ -32,7 +32,7 @@ Cet article décrit la manière dont le [service Sauvegarde Azure](./backup-over
 - **Disponibilité (types de réplication)**  : le service Sauvegarde Azure offre deux types de réplication pour conserver votre stockage/vos données hautement disponibles :
   - Le [stockage localement redondant (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) réplique vos données trois fois (il crée trois copies de vos données) dans une unité d’échelle de stockage d’un centre de données. Toutes les copies des données existent dans la même région. Le stockage LRS est une option à faible coût qui protège vos données contre les défaillances matérielles locales.
   - Le [stockage géoredondant (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage) est l’option de réplication par défaut : c’est l’option recommandée. Le stockage géo-redondant réplique vos données vers une région secondaire, distante de plusieurs centaines de kilomètres de l’emplacement principal des données sources. Le stockage GRS est plus onéreux que le stockage LRS, mais il offre une durabilité des données supérieure, même en cas de panne au niveau régional.
-  - [Le stockage redondant interzone (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage) réplique vos données dans des [zones de disponibilité](../availability-zones/az-overview.md#availability-zones), garantissant ainsi la résidence et la résilience des données dans la même région. Le ZRS n’a pas de temps d’arrêt. Vos charges de travail critiques qui requièrent la [résidence des données](https://azure.microsoft.com/resources/achieving-compliant-data-residency-and-security-with-azure/) et ne doivent pas avoir de temps d’arrêt peuvent être sauvegardées dans le ZRS.
+  - [Le stockage redondant interzone (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage) réplique vos données dans des [zones de disponibilité](../availability-zones/az-overview.md#availability-zones), garantissant ainsi la résidence et la résilience des données dans la même région. Le stockage redondant interzone n’a pas de temps d’arrêt. Vos charges de travail critiques qui requièrent la [résidence des données](https://azure.microsoft.com/resources/achieving-compliant-data-residency-and-security-with-azure/) et ne doivent pas avoir de temps d’arrêt peuvent être sauvegardées dans le ZRS.
 
 - **Restauration entre régions (CRR)**  : Parmi les [options de restauration](./backup-azure-arm-restore-vms.md#restore-options), la restauration inter-régions vous permet de restaurer des machines virtuelles Azure dans une région secondaire, qui est une [région Azure associée](../best-practices-availability-paired-regions.md#what-are-paired-regions). Vous pouvez restaurer vos données dans la région secondaire quand vous le souhaitez, en cas de panne totale ou partielle, ou à tout autre moment de votre choix. 
 
@@ -50,6 +50,6 @@ Cet article décrit la manière dont le [service Sauvegarde Azure](./backup-over
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Forum aux questions sur la restauration de machine virtuelle](https://docs.microsoft.com/azure/backup/backup-azure-vm-backup-faq#restore)
+- [Forum aux questions sur la restauration de machine virtuelle](/azure/backup/backup-azure-vm-backup-faq#restore)
 - [Méthodes de restauration prises en charge](./backup-support-matrix-iaas.md#supported-restore-methods)
 - [Résoudre les problèmes de restauration](./backup-azure-vms-troubleshoot.md#restore)

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 09/16/2019
-ms.openlocfilehash: f0ce969a4ab016d6a036d33a0e9bf027bb580a20
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 69f80856150e461c6edfafdf0aa89de77c4ab0fd
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186216"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100583818"
 ---
 # <a name="deploy-azure-monitor-application-insights-agent-for-on-premises-servers"></a>Déployer Azure Monitor Application Insights Agent pour les serveurs locaux
 
@@ -45,7 +45,7 @@ Application Insights Agent se trouve ici : https://www.powershellgallery.com/pa
 - [Set-ApplicationInsightsMonitoringConfig](./status-monitor-v2-api-reference.md#set-applicationinsightsmonitoringconfig)
 - [Start-ApplicationInsightsMonitoringTrace](./status-monitor-v2-api-reference.md#start-applicationinsightsmonitoringtrace)
 
-## <a name="troubleshooting"></a>Dépannage
+## <a name="troubleshooting"></a>Résolution des problèmes
 - [Dépannage](status-monitor-v2-troubleshoot.md)
 - [Problèmes connus](status-monitor-v2-troubleshoot.md#known-issues)
 
@@ -67,7 +67,7 @@ Chacune de ces options est décrite dans les [instructions détaillées](status-
   - Le cmdlet [Get-ApplicationInsightsMonitoringStatus](./status-monitor-v2-api-reference.md#get-applicationinsightsmonitoringstatus) peut être utilisé pour vérifier que l’activation a réussi.
   - Nous vous recommandons d’utiliser les [métriques en temps réel](./live-stream.md) pour déterminer rapidement si votre application envoie les données de télémétrie.
 
-  - Vous pouvez également utiliser [Log Analytics](../log-query/log-analytics-tutorial.md) pour répertorier tous les rôles de cloud qui envoient des données de télémétrie :
+  - Vous pouvez également utiliser [Log Analytics](../logs/log-analytics-tutorial.md) pour répertorier tous les rôles de cloud qui envoient des données de télémétrie :
       ```Kusto
       union * | summarize count() by cloud_RoleName, cloud_RoleInstance
       ```
@@ -76,9 +76,9 @@ Chacune de ces options est décrite dans les [instructions détaillées](status-
 
 Affichez vos données de télémétrie :
 
-* [Explorez les métriques](../platform/metrics-charts.md) pour surveiller les performances et l’utilisation.
+* [Explorez les métriques](../essentials/metrics-charts.md) pour surveiller les performances et l’utilisation.
 * [Effectuez des recherches dans les événements et les journaux](./diagnostic-search.md) pour diagnostiquer les problèmes.
-* [Utilisez la fonctionnalité Analytics](../log-query/log-query-overview.md) pour des requêtes plus élaborées.
+* [Utilisez la fonctionnalité Analytics](../logs/log-query-overview.md) pour des requêtes plus élaborées.
 * [Créez des tableaux de bord](./overview-dashboard.md).
 
 Ajoutez des données de télémétrie :

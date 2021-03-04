@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/03/2020
 ms.author: jeedes
-ms.openlocfilehash: d9c9ac87e655cf9178d58f04b502f7e781d1fef7
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 402b5a975b3ded8327edcea81b680e9990bac39e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96181405"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101686561"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-spotinst"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Spotinst
 
@@ -171,9 +171,9 @@ L’objectif de cette section est de créer un utilisateur appelé Britta Simon 
 
     ![Capture d’écran affichant la section Add user dans laquelle vous pouvez indiquer les valeurs décrites.](./media/spotinst-tutorial/adduser2.png)
 
-    * Dans la zone de texte **Full Name** (Nom complet), entrez le nom entier d’un utilisateur, par exemple **Britta Simon**.
+    * Dans la zone de texte **Full Name** (Nom complet), entrez le nom entier d’un utilisateur, par exemple `BrittaSimon`.
 
-    * Dans la zone de texte **Email** (E-mail), entrez l’adresse e-mail de l’utilisateur, par exemple `brittasimon\@contoso.com`.
+    * Dans la zone de texte **Email** (E-mail), entrez l’adresse e-mail de l’utilisateur, par exemple `brittasimon@contoso.com`.
 
     * Sélectionnez les détails propres à votre organisation pour **Organization Role (Rôle de l’organisation), Account Role (Rôle de compte) et Accounts (Comptes)**.
 

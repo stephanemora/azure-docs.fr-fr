@@ -214,7 +214,7 @@
         - name: Configurer les journaux de diagnostic
           href: event-hubs-diagnostic-logs.md
         - name: Diffuser des données de diagnostics Azure en continu à l’aide d’Event Hubs
-          href: ../azure-monitor/platform/diagnostics-extension-stream-event-hubs.md
+          href: ../azure-monitor/agents/diagnostics-extension-stream-event-hubs.md
         - name: Mettre à l’échelle automatiquement les unités de débit
           href: event-hubs-auto-inflate.md
         - name: Bibliothèque de gestion des Event Hubs

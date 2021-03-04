@@ -7,15 +7,15 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: bwren
 ms.subservice: metrics
-ms.openlocfilehash: 0ab7d8548494e96b4a7570ef26ccde39456bf690
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0051ec15cafc60af6a0523631f77a9b52294e69c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100598420"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731712"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine"></a>Envoyer des métriques de système d’exploitation invité vers le magasin de métriques d’Azure Monitor à l’aide d’un modèle Azure Resource Manager pour une machine virtuelle Windows
-Les données de performance du système d’exploitation invité des machines virtuelles Azure ne sont pas collectées automatiquement comme d’autres [métriques de la plateforme](../insights/monitor-azure-resource.md#monitoring-data). Installez l’[extension Diagnostics](../agents/diagnostics-extension-overview.md) d’Azure Monitor pour collecter les métriques du système d’exploitation invité dans la base de données de mesures, afin qu’elles soient utilisables avec toutes les fonctionnalités des Métriques Azure Monitor, dont les alertes en quasi temps réel, les graphiques, le routage et l’accès à partir d’une API REST. Cet article décrit le processus permettant d’envoyer les mesures de performances du système d’exploitation invité d’une machine virtuelle Windows à la base de données des métriques à l’aide d’un modèle Resource Manager. 
+Les données de performance du système d’exploitation invité des machines virtuelles Azure ne sont pas collectées automatiquement comme d’autres [métriques de la plateforme](./monitor-azure-resource.md#monitoring-data). Installez l’[extension Diagnostics](../agents/diagnostics-extension-overview.md) d’Azure Monitor pour collecter les métriques du système d’exploitation invité dans la base de données de mesures, afin qu’elles soient utilisables avec toutes les fonctionnalités des Métriques Azure Monitor, dont les alertes en quasi temps réel, les graphiques, le routage et l’accès à partir d’une API REST. Cet article décrit le processus permettant d’envoyer les mesures de performances du système d’exploitation invité d’une machine virtuelle Windows à la base de données des métriques à l’aide d’un modèle Resource Manager. 
 
 > [!NOTE]
 > Pour plus d’informations sur la configuration de l’extension Diagnostics pour collecter les métriques du système d’exploitation invité à l’aide du portail Azure, consultez [Installer et configurer l’extension Diagnostics Azure pour Windows (WAD)](../agents/diagnostics-extension-windows-install.md).
@@ -29,7 +29,7 @@ Si vous découvrez les modèles Resource Manager, obtenez plus d’informations 
 
 - Vous devez avoir installé [Azure PowerShell](/powershell/azure) ou [Azure Cloud Shell](../../cloud-shell/overview.md).
 
-- Votre ressource de machine virtuelle doit se trouver dans une région [ prenant en charge les métriques personnalisées](../platform/metrics-custom-overview.md#supported-regions). 
+- Votre ressource de machine virtuelle doit se trouver dans une région [ prenant en charge les métriques personnalisées](./metrics-custom-overview.md#supported-regions). 
 
 
 ## <a name="set-up-azure-monitor-as-a-data-sink"></a>Configurer Azure Monitor en tant que récepteur de données
@@ -250,7 +250,7 @@ Pour déployer le modèle Resource Manager, vous allez utiliser Azure PowerShell
     New-AzResourceGroup -Name "<Name of Resource Group>" -Location "<Azure Region>"
    ```
    > [!NOTE]
-   > N’oubliez pas d’[utiliser une région Azure dans laquelle les mesures personnalisées sont activées](../platform/metrics-custom-overview.md).
+   > N’oubliez pas d’[utiliser une région Azure dans laquelle les mesures personnalisées sont activées](./metrics-custom-overview.md).
 
 1. Exécutez les commandes suivantes pour déployer la machine virtuelle à l’aide du modèle Resource Manager.
    > [!NOTE]
@@ -285,4 +285,4 @@ Pour déployer le modèle Resource Manager, vous allez utiliser Azure PowerShell
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-- En savoir plus sur les [métriques personnalisées](../platform/metrics-custom-overview.md).
+- En savoir plus sur les [métriques personnalisées](./metrics-custom-overview.md).

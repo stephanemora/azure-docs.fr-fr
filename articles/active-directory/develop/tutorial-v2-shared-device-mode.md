@@ -13,12 +13,12 @@ ms.date: 1/15/2020
 ms.author: hahamil
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 981d3a0c5d01d70625fc0d022318c5bc866f23a0
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 6a173ed4dae9237d8aae991c943817ed70246eea
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95756398"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101649053"
 ---
 # <a name="tutorial-use-shared-device-mode-in-your-android-application"></a>Tutoriel : Utiliser le mode d’appareil partagé dans votre application Android
 
@@ -96,7 +96,7 @@ Utilisez `isSharedDevice()` pour déterminer si une application est en cours d�
 Voici un extrait de code qui montre comment utiliser `isSharedDevice()`.  Il provient de la classe `SingleAccountModeFragment` dans l’exemple d’application :
 
 ```Java
-deviceModeTextView.setText(mSingleAccountApp.isSharedDevice() ?"Shared" :"Non-Shared");
+deviceModeTextView.setText(mSingleAccountApp.isSharedDevice() ? "Shared" : "Non-Shared");
 ```
 
 ### <a name="initialize-the-publicclientapplication-object"></a>Initialiser l’objet PublicClientApplication

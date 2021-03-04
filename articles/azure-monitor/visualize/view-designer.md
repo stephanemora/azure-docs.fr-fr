@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/04/2020
-ms.openlocfilehash: d63627c00f6fd06ba00a9d8a905891238ce94697
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 11a6d21a7a066d331a92453e9aaa876800da0bf4
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100598502"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101700539"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-azure-monitor"></a>Créer des vues personnalisées à l’aide du Concepteur de vues dans Azure Monitor
 Grâce au Concepteur de vues d’Azure Monitor, vous pouvez créer plusieurs vues personnalisées dans le portail Azure qui peuvent vous aider à visualiser les données dans votre espace de travail Log Analytics. Cet article fournit une présentation du Concepteur de vues et des procédures de création et de modification des vues personnalisées.
@@ -38,10 +38,10 @@ Les vues que vous créez avec le Concepteur de vues contiennent les éléments d
 |:--- |:--- |
 | Vignettes | Sont affichées dans la page **Vue d’ensemble** d’Azure Monitor. Chaque vignette affiche une synthèse visuelle de la vue personnalisée qu’elle représente. Chaque type de vignette fournit une visualisation différente de vos enregistrements. Vous sélectionnez une vignette pour afficher une vue personnalisée. |
 | Vue personnalisée | Affichée quand vous sélectionnez une vignette. Chaque vue contient un ou plusieurs composants de visualisation. |
-| Composants de visualisation | Présente une visualisation de données dans l’espace de travail Log Analytics en fonction d’une ou plusieurs [requêtes de journal](../log-query/log-query-overview.md). La plupart des composants incluent un en-tête, qui fournit une visualisation d’ensemble, et une liste, qui montre les premiers résultats. Chaque type de composant produit différentes visualisations des enregistrements dans l’espace de travail Log Analytics. Vous sélectionnez des éléments dans le composant pour effectuer une requête de journal qui fournit des enregistrements détaillés. |
+| Composants de visualisation | Présente une visualisation de données dans l’espace de travail Log Analytics en fonction d’une ou plusieurs [requêtes de journal](../logs/log-query-overview.md). La plupart des composants incluent un en-tête, qui fournit une visualisation d’ensemble, et une liste, qui montre les premiers résultats. Chaque type de composant produit différentes visualisations des enregistrements dans l’espace de travail Log Analytics. Vous sélectionnez des éléments dans le composant pour effectuer une requête de journal qui fournit des enregistrements détaillés. |
 
 ## <a name="required-permissions"></a>Autorisations requises
-Vous avez au minimum besoin d’[autorisations de niveau contributeur](../platform/manage-access.md#manage-access-using-azure-permissions) dans l’espace de travail Log Analytics pour créer ou modifier des vues. Si vous n’avez pas cette autorisation, l’option Concepteur de vues n’apparaît pas dans le menu.
+Vous avez au minimum besoin d’[autorisations de niveau contributeur](../logs/manage-access.md#manage-access-using-azure-permissions) dans l’espace de travail Log Analytics pour créer ou modifier des vues. Si vous n’avez pas cette autorisation, l’option Concepteur de vues n’apparaît pas dans le menu.
 
 
 ## <a name="work-with-an-existing-view"></a>Utiliser une vue existante
@@ -54,7 +54,7 @@ Les options sont décrites dans le tableau suivant :
 | Option | Description |
 |:--|:--|
 | Actualiser   | Actualise la vue avec les données les plus récentes. | 
-| Journaux d’activité      | Ouvre [Log Analytics](../log-query/log-query-overview.md) pour analyser des données avec des requêtes de journal. |
+| Journaux d’activité      | Ouvre [Log Analytics](../logs/log-query-overview.md) pour analyser des données avec des requêtes de journal. |
 | Modifier       | Ouvre la vue dans le Concepteur de vues pour modifier son contenu et sa configuration.  |
 | Clone      | Crée une vue et l’ouvre dans le Concepteur de vues. Le nom de la nouvelle vue est identique à celui de la vue d’origine, avec le mot *Copy* ajouté à la fin. |
 | Plage de dates | Définissez un filtre de date et d’heure pour les données incluses dans la vue. Cette plage de dates est appliquée avant les plages de dates définies dans les requêtes dans la vue.  |

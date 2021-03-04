@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 02/09/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 328bfe57c675d49aa951388e2808fcecfe8da8b5
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: ae0112292994fdcf88e80abff8ab52e5971cb0ed
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100096529"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731083"
 ---
 # <a name="how-to-improve-your-custom-vision-model"></a>Guide pratique pour améliorer votre modèle Custom Vision
 
-Dans ce guide, vous allez découvrir comment améliorer la qualité de votre modèle pour le service Custom Vision. La qualité de votre [classifieur](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) ou [détecteur d’objet](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/get-started-build-detector) dépend de la quantité, de la qualité et de la variété des données étiquetées fournies ainsi que de l’équilibre de l’ensemble du jeu de données. Un bon modèle comporte un jeu de données d’entraînement équilibré, qui est représentatif de ce qui lui sera soumis. Le processus de création d’un tel modèle est itératif ; il est courant d’effectuer plusieurs cycles d’entraînement pour atteindre les résultats attendus.
+Dans ce guide, vous allez découvrir comment améliorer la qualité de votre modèle pour le service Custom Vision. La qualité de votre [classifieur](./getting-started-build-a-classifier.md) ou [détecteur d’objet](./get-started-build-detector.md) dépend de la quantité, de la qualité et de la variété des données étiquetées fournies ainsi que de l’équilibre de l’ensemble du jeu de données. Un bon modèle comporte un jeu de données d’entraînement équilibré, qui est représentatif de ce qui lui sera soumis. Le processus de création d’un tel modèle est itératif ; il est courant d’effectuer plusieurs cycles d’entraînement pour atteindre les résultats attendus.
 
 Voici un modèle général pour vous aider à entraîner un modèle plus précis :
 

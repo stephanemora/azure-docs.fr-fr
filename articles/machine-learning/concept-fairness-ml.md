@@ -10,18 +10,18 @@ ms.author: luquinta
 author: luisquintanilla
 ms.date: 01/26/2021
 ms.custom: responsible-ml
-ms.openlocfilehash: 6daa03728a5f323f6f8b749975d31fbca24d5602
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 276c91ad7fb5b09dbe18d989741f0f54b8b0eb09
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98871500"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659679"
 ---
 # <a name="mitigate-unfairness-in-machine-learning-models-preview"></a>Atténuer la partialité dans les modèles Machine Learning (préversion)
 
 Découvrez l’impartialité dans l’apprentissage automatique et la façon dont le package Python open source [Fairlearn](https://fairlearn.github.io/) peut vous aider à atténuer les problèmes de partialité dans les modèles Machine Learning. Si vous ne faites pas l’effort de comprendre les problèmes de partialité et d’évaluer l’impartialité lors de la création de modèles de Machine Learning, vous pourriez créer des modèles qui produisent des résultats injustes.
 
-Le résumé suivant du [guide de l’utilisateur](https://fairlearn.github.io/master/user_guide/index.html) pour le package open source Fairlearn, décrit comment l’utiliser pour évaluer l’impartialité des systèmes IA que vous générez.  Le package open source Fairlearn peut également fournir des options permettant d’atténuer ou de réduire les problèmes de partialité que vous observez.  Pour activer l’évaluation de l’impartialité de systèmes IA pendant la formation sur Azure Machine Learning, consultez [cette page](how-to-machine-learning-fairness-aml.md) et les [notebooks échantillons](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness).
+Le résumé suivant du [guide de l’utilisateur](https://fairlearn.github.io/main/user_guide/index.html) pour le package open source Fairlearn, décrit comment l’utiliser pour évaluer l’impartialité des systèmes IA que vous générez.  Le package open source Fairlearn peut également fournir des options permettant d’atténuer ou de réduire les problèmes de partialité que vous observez.  Pour activer l’évaluation de l’impartialité de systèmes IA pendant la formation sur Azure Machine Learning, consultez [cette page](how-to-machine-learning-fairness-aml.md) et les [notebooks échantillons](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness).
 
 
 ## <a name="what-is-fairness-in-machine-learning-models"></a>Qu’est-ce que l’impartialité dans les modèles Machine Learning ?
@@ -109,6 +109,6 @@ Le package open source Fairlearn fournit des algorithmes d’atténuation de pos
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez comment utiliser les différents composants en consultant le [GitHub](https://github.com/fairlearn/fairlearn/), le [guide de l’utilisateur](https://fairlearn.github.io/master/user_guide/index.html), les [exemples](https://fairlearn.github.io/master/auto_examples/)et les [exemples de notebooks](https://github.com/fairlearn/fairlearn/tree/master/notebooks) de Fairlearn.
+- Découvrez comment utiliser les différents composants en consultant le [GitHub](https://github.com/fairlearn/fairlearn/), le [guide de l’utilisateur](https://fairlearn.github.io/main/user_guide/index.html), les [exemples](https://fairlearn.github.io/main/auto_examples/index.html)et les [exemples de notebooks](https://github.com/fairlearn/fairlearn/tree/master/notebooks) de Fairlearn.
 - Découvrez [comment](how-to-machine-learning-fairness-aml.md) activer l’évaluation de l’impartialité des modèles de Machine Learning dans Azure Machine Learning.
 - Consultez les [exemples de notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness) pour connaître d’autres scénarios d’évaluation de l’impartialité dans Azure Machine Learning. 

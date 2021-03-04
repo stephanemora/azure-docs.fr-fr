@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 11/17/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: d5bd62dad5be7f6a6df5b6b037e8eeae13ee48e3
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 6c22d1bae4f1d116aa52846880498c7c2a425174
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98887081"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738716"
 ---
 # <a name="expose-applications-to-the-internet-using-application-gateway-and-azure-firewall"></a>Exposer des applications à Internet à l’aide d’Application Gateway et de Pare-feu Azure
 
@@ -20,7 +20,7 @@ Ce document explique comment exposer des applications à Internet à l’aide d�
 
 ## <a name="prerequisites"></a>Prérequis
 
-- [Azure CLI version 2.0.4 ou ultérieure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+- [Azure CLI version 2.0.4 ou ultérieure](/cli/azure/install-azure-cli).
 
 ## <a name="define-variables"></a>Définir des variables
 

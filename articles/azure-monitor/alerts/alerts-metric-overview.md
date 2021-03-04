@@ -4,16 +4,16 @@ description: Obtenez un aperçu des actions possibles avec les alertes de métri
 ms.date: 01/19/2021
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: 989c3b8a50c3e613e67726684f35c6adce9c8b96
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: fc0f41f23f1d9387f806c947ac27e6f31cc0e053
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100598657"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723603"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Comprendre le fonctionnement des alertes de métrique dans Azure Monitor
 
-Les alertes de métrique dans Azure Monitor fonctionnent en complément des métriques multidimensionnelles. Il peut s’agir de [métriques de la plateforme](alerts-metric-near-real-time.md#metrics-and-dimensions-supported), de [métriques personnalisées](../platform/metrics-custom-overview.md), de [journaux d’activité courants d’Azure Monitor convertis en métriques](./alerts-metric-logs.md) et de métriques Application Insights. Les alertes de métrique vérifient à intervalles réguliers que les conditions d’une ou de plusieurs séries chronologiques de métriques sont remplies et vous avertissent quand c’est le cas. Les alertes de métrique sont avec état ; autrement dit, elles envoient uniquement des notifications lorsque l’état change.
+Les alertes de métrique dans Azure Monitor fonctionnent en complément des métriques multidimensionnelles. Il peut s’agir de [métriques de la plateforme](alerts-metric-near-real-time.md#metrics-and-dimensions-supported), de [métriques personnalisées](../essentials/metrics-custom-overview.md), de [journaux d’activité courants d’Azure Monitor convertis en métriques](./alerts-metric-logs.md) et de métriques Application Insights. Les alertes de métrique vérifient à intervalles réguliers que les conditions d’une ou de plusieurs séries chronologiques de métriques sont remplies et vous avertissent quand c’est le cas. Les alertes de métrique sont avec état ; autrement dit, elles envoient uniquement des notifications lorsque l’état change.
 
 ## <a name="how-do-metric-alerts-work"></a>Fonctionnement des alertes de métrique
 
@@ -26,7 +26,7 @@ Supposons que vous avez créé une règle d’alerte de métrique de seuil stati
 - Ressource cible (ressource Azure à surveiller) : myVM
 - Mesure : Percentage CPU
 - Type de condition : statique
-- Type d’agrégation (statistique exécutée sur des valeurs de métriques brutes ; [types d’agrégation pris en charge](../platform/metrics-aggregation-explained.md#aggregation-types) : Minimum, Maximum, Moyenne, Total et Nombre) : Average
+- Type d’agrégation (statistique exécutée sur des valeurs de métriques brutes ; [types d’agrégation pris en charge](../essentials/metrics-aggregation-explained.md#aggregation-types) : Minimum, Maximum, Moyenne, Total et Nombre) : Average
 - Période (fenêtre de vérification des valeurs de métriques) : Au cours des 5 dernières minutes
 - Fréquence (fréquence à laquelle l’alerte de métrique vérifie si les conditions sont remplies) : 1 minute
 - Opérateur : Supérieur à
@@ -43,7 +43,7 @@ Supposons que vous avez créé une règle d’alerte de métrique de seuil dynam
 - Ressource cible (ressource Azure à surveiller) : myVM
 - Mesure : Percentage CPU
 - Type de condition : Dynamique
-- Type d’agrégation (statistique exécutée sur des valeurs de métriques brutes ; [types d’agrégation pris en charge](../platform/metrics-aggregation-explained.md#aggregation-types) : Minimum, Maximum, Moyenne, Total et Nombre) : Average
+- Type d’agrégation (statistique exécutée sur des valeurs de métriques brutes ; [types d’agrégation pris en charge](../essentials/metrics-aggregation-explained.md#aggregation-types) : Minimum, Maximum, Moyenne, Total et Nombre) : Average
 - Période (fenêtre de vérification des valeurs de métriques) : Au cours des 5 dernières minutes
 - Fréquence (fréquence à laquelle l’alerte de métrique vérifie si les conditions sont remplies) : 1 minute
 - Opérateur : Supérieur à
@@ -180,9 +180,8 @@ Vous trouverez la liste complète des types de ressources pris en charge dans ce
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Découvrir comment créer, afficher et gérer des alertes de métrique dans Azure](../alerts/alerts-metric.md)
-- [Découvrir comment créer des alertes dans Azure Monitor Metrics Explorer](../platform/metrics-charts.md#alert-rules)
+- [Découvrir comment créer des alertes dans Azure Monitor Metrics Explorer](../essentials/metrics-charts.md#alert-rules)
 - [Découvrir comment déployer des alertes de métrique à l’aide de modèles Azure Resource Manager](./alerts-metric-create-templates.md)
-- [En savoir plus sur les groupes d’actions](../platform/action-groups.md)
+- [En savoir plus sur les groupes d’actions](./action-groups.md)
 - [En savoir plus sur le type de condition des seuils dynamiques](../alerts/alerts-dynamic-thresholds.md)
 - [En savoir plus sur la résolution des problèmes liés aux alertes de métrique](alerts-troubleshoot-metric.md)
-

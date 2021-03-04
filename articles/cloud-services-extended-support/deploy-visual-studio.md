@@ -9,12 +9,12 @@ ms.workload: azure-vs
 ms.topic: tutorial
 ms.date: 10/5/2020
 ms.author: ghogen
-ms.openlocfilehash: b12f8beeee054e547a6b58750d8482d32ee14453
-ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
+ms.openlocfilehash: 80aa160c53b278137467dba2afa41384c7c4f378
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98747255"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101722668"
 ---
 # <a name="create-and-deploy-a-azure-cloud-service-extended-support-using-visual-studio"></a>Créer et déployer un service cloud Azure (support étendu) à l’aide de Visual Studio
 
@@ -63,7 +63,7 @@ Le projet Azure Visual Studio est associé aux projets de rôle de la solution. 
 - **Fichier de définition de service** : définit les paramètres d’exécution de votre application, notamment les rôles nécessaires, les points de terminaison et la taille de la machine virtuelle.
 - **Fichier de configuration de service** : configure le nombre d’instances d’un rôle exécutées et les valeurs des paramètres définis pour un rôle.
 
-Pour plus d’informations sur ces fichiers, consultez [Configurer des rôles pour un service cloud Azure avec Visual Studio](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-configure-roles-for-cloud-service).
+Pour plus d’informations sur ces fichiers, consultez [Configurer des rôles pour un service cloud Azure avec Visual Studio](/visualstudio/azure/vs-azure-tools-configure-roles-for-cloud-service).
 
 ## <a name="publish-a-cloud-service"></a>Publier un service cloud
 
@@ -75,7 +75,7 @@ Pour plus d’informations sur ces fichiers, consultez [Configurer des rôles po
 
 1. **Compte** : sélectionnez un compte ou **Ajouter un compte** dans la liste déroulante des comptes.
 
-1. **Choisir votre abonnement** : choisissez l’abonnement à utiliser pour votre déploiement. L’abonnement que vous utilisez pour le déploiement de Cloud Services (support étendu) doit disposer des rôles Propriétaire ou Contributeur attribués par le biais du contrôle d’accès en fonction du rôle (RBAC). Si votre abonnement ne dispose d’aucun de ces rôles, consultez [Étapes pour ajouter une attribution de rôle](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-steps) pour en ajouter un avant de continuer.
+1. **Choisir votre abonnement** : choisissez l’abonnement à utiliser pour votre déploiement. L’abonnement que vous utilisez pour le déploiement de Cloud Services (support étendu) doit disposer des rôles Propriétaire ou Contributeur attribués par le biais du contrôle d’accès en fonction du rôle (RBAC). Si votre abonnement ne dispose d’aucun de ces rôles, consultez [Étapes pour ajouter une attribution de rôle](../role-based-access-control/role-assignments-steps.md) pour en ajouter un avant de continuer.
 
 1. Choisissez **Suivant** pour passer à la page **Paramètres**.
 
@@ -105,7 +105,7 @@ Pour plus d’informations sur ces fichiers, consultez [Configurer des rôles po
 
    ![Paramètres de diagnostic](./media/diagnostics-settings.png)
 
-   Les diagnostics vous permettent de résoudre les problèmes liés à un service cloud Azure (ou à une machine virtuelle Azure). Pour en savoir plus sur les diagnostics, consultez [Configuration de Diagnostics pour les services cloud et les machines virtuelles Azure](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines). Pour plus d’informations sur Application Insights, consultez [Présentation d’Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview).
+   Les diagnostics vous permettent de résoudre les problèmes liés à un service cloud Azure (ou à une machine virtuelle Azure). Pour en savoir plus sur les diagnostics, consultez [Configuration de Diagnostics pour les services cloud et les machines virtuelles Azure](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines). Pour plus d’informations sur Application Insights, consultez [Présentation d’Application Insights](../azure-monitor/app/app-insights-overview.md).
 
 1. Cliquez sur **Suivant** pour accéder à la page **Résumé**.
 
@@ -126,4 +126,4 @@ Pour nettoyer les ressources Azure que vous avez créées en suivant ce tutoriel
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Configurez l’intégration continue (CI) à l’aide du bouton **Configurer** sur l’écran **Publier**. Pour plus d’informations, consultez la [documentation Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines).
+Configurez l’intégration continue (CI) à l’aide du bouton **Configurer** sur l’écran **Publier**. Pour plus d’informations, consultez la [documentation Azure Pipelines](/azure/devops/pipelines).

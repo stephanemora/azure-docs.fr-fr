@@ -6,12 +6,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/05/2021
 ms.author: makromer
-ms.openlocfilehash: 3b97f09c2b6f4c5f5352bbaa081e0bcae900ebd5
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 12b640fd97f48e293320593b33ab2fdc54980c0f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807990"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101716293"
 ---
 # <a name="how-a-reservation-discount-is-applied-to-azure-data-factory-data-flows"></a>Comment une remise de réservation est-elle appliquée aux flux de données Azure Data Factory ?
 
@@ -32,7 +32,7 @@ Les exemples suivants montrent comment la remise de capacité de réserve pour f
 - Scénario 1 : Vous achetez une réservation de flux de données ADF pour 1 heure avec 80 cœurs de calcul à mémoire optimisée en entrant 80 comme quantité pour le type de calcul à mémoire optimisée. Vous exécutez un flux de données avec un runtime d’intégration Azure défini sur 144 cœurs à mémoire optimisée pendant une heure. Vous êtes facturé selon la méthode du paiement à l’utilisation pour 64 cœurs d’utilisation du flux de données pendant une heure. Vous bénéficiez de la remise de réservation pour une heure de 80 cœurs d’utilisation à mémoire optimisée.
 - Scénario 2 : Vous achetez une réservation de flux de données ADF pour 1 heure avec 32 cœurs de calcul à usage général en entrant 32 comme quantité pour le type de calcul à usage général. Vous déboguez vos flux de données pendant 1 heure à l’aide des 32 cœurs du runtime d’intégration Azure de calcul à usage général. Vous bénéficiez de la remise de réservation pour cette heure entière d’utilisation.
 
-Pour comprendre et voir l’application de vos réservations Azure dans les rapports de facturation d’utilisation, consultez [Comprendre l’utilisation des réservations Azure](https://docs.microsoft.com/azure/cost-management-billing/reservations/understand-reserved-instance-usage-ea).
+Pour comprendre et voir l’application de vos réservations Azure dans les rapports de facturation d’utilisation, consultez [Comprendre l’utilisation des réservations Azure](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md).
 
 ## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Nous contacter
 
@@ -42,4 +42,4 @@ Si vous avez des questions ou besoin d’aide, [créez une demande de support](h
 
 Pour plus d’informations sur les réservations Azure, consultez l’article suivant :
 
-- [Qu’est-ce qu’une réservation Azure ?](https://docs.microsoft.com/azure/cost-management-billing/reservations/save-compute-costs-reservations)
+- [Qu’est-ce qu’une réservation Azure ?](../cost-management-billing/reservations/save-compute-costs-reservations.md)

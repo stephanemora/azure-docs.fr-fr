@@ -4,14 +4,14 @@ description: Automatiser la gestion et la configuration des règles de détectio
 ms.topic: conceptual
 author: harelbr
 ms.author: harelbr
-ms.date: 06/26/2019
+ms.date: 02/14/2021
 ms.reviewer: mbullwin
-ms.openlocfilehash: 169ad40e32f688ae20a9d02f61db161844b1254a
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: e3a7b71cd8975957754ba014ecc700484c27a6d7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92890511"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726119"
 ---
 # <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>Gérer les règles de détection intelligente d’Application Insights à l’aide de modèles Azure Resource Manager
 
@@ -21,18 +21,18 @@ Cette méthode peut être utilisée lors du déploiement de nouvelles ressources
 ## <a name="smart-detection-rule-configuration"></a>Configuration de règle de détection intelligente
 
 Vous pouvez configurer les paramètres suivants pour une règle de détection intelligente :
-- Si la règle est activée (la valeur par défaut est **true** .)
-- Si les e-mails doivent être envoyés aux utilisateurs associés aux rôles [Lecteur de surveillance](../../role-based-access-control/built-in-roles.md#monitoring-reader) et [Contributeur de surveillance](../../role-based-access-control/built-in-roles.md#monitoring-contributor) de l’abonnement à la suite d’une détection (la valeur par défaut est **true** ).
+- Si la règle est activée (la valeur par défaut est **true**.)
+- Si les e-mails doivent être envoyés aux utilisateurs associés aux rôles [Lecteur de surveillance](../../role-based-access-control/built-in-roles.md#monitoring-reader) et [Contributeur de surveillance](../../role-based-access-control/built-in-roles.md#monitoring-contributor) de l’abonnement à la suite d’une détection (la valeur par défaut est **true**).
 - Les destinataires d’e-mails supplémentaires qui doivent recevoir une notification lorsqu’une détection est trouvée.
-    -  La configuration relative aux e-mails n’est pas disponible pour les règles de détection intelligente indiquant _Préversion_ .
+    -  La configuration relative aux e-mails n’est pas disponible pour les règles de détection intelligente indiquant _Préversion_.
 
-Pour autoriser la configuration des paramètres de règle via Azure Resource Manager, la configuration de règle de détection intelligente est désormais disponible en tant que ressource interne au sein de la ressource Application Insights, nommée **ProactiveDetectionConfigs** .
+Pour autoriser la configuration des paramètres de règle via Azure Resource Manager, la configuration de règle de détection intelligente est désormais disponible en tant que ressource interne au sein de la ressource Application Insights, nommée **ProactiveDetectionConfigs**.
 Pour une flexibilité maximale, chaque règle de détection intelligente peut être configurée avec les paramètres de notification unique.
 
 ## <a name="examples"></a>Exemples
 
 Voici quelques exemples montrant comment configurer les paramètres des règles de détection intelligente à l’aide de modèles Azure Resource Manager.
-Tous les exemples font référence à une ressource Application Insights nommée _« myApplication »_ , et à la « règle de détection intelligente de dépendance longue durée », qui est nommée en interne _« longdependencyduration »_ .
+Tous les exemples font référence à une ressource Application Insights nommée _« myApplication »_, et à la « règle de détection intelligente de dépendance longue durée », qui est nommée en interne _« longdependencyduration »_.
 Assurez-vous de remplacer le nom de la ressource Application Insights et de spécifier le nom interne de règle de détection intelligente pertinente. Consultez le tableau ci-dessous pour obtenir la liste des noms Azure Resource Manager internes correspondants à chaque règle de détection intelligente.
 
 ### <a name="disable-a-smart-detection-rule"></a>Gérer des règles de détection intelligente
@@ -152,7 +152,7 @@ Voici un tableau des noms de règle de détection intelligente tels qu’ils app
 
 ### <a name="failure-anomalies-alert-rule"></a>Règle d’alerte Anomalies des échecs
 
-Ce modèle Azure Resource Manager montre comment configurer une règle d’alerte pour les défaillances avec un niveau de gravité de 2. Cette nouvelle version de la règle d’alerte pour les défaillances fait partie de la nouvelle plateforme d’alertes d’Azure et remplace la version classique qui a été supprimée dans le cadre du [processus de suppression des alertes classiques](https://azure.microsoft.com/updates/classic-alerting-monitoring-retirement/).
+Ce modèle Azure Resource Manager montre comment configurer une règle d’alerte pour les défaillances avec un niveau de gravité de 2.
 
 > [!NOTE]
 > Les Anomalies des échecs sont un service global. par conséquent, l’emplacement de la règle est créé sur l’emplacement global.

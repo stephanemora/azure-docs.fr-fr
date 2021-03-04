@@ -4,15 +4,15 @@ description: Surveillance efficace de vos rôles Web et de travail avec Applicat
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 09/05/2018
-ms.openlocfilehash: ccd863db55ef0ff9f4051947321321c8b01430c4
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 1f9204534fcdfbf7c393eaafdbae62c4c4321f2f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920676"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100573868"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights pour les services cloud Azure
-[Application Insights][start] peut superviser les [applications de service cloud Azure](https://azure.microsoft.com/services/cloud-services/) pour vérifier la disponibilité, les performances, les échecs et l’utilisation en combinant les données des SDK Application Insights avec les données d’[Azure Diagnostics](../platform/diagnostics-extension-overview.md) de vos services cloud. Avec les retours que vous obtenez sur les performances et l’efficacité de votre application dans la nature, vous pouvez prendre des décisions avisées sur la direction de la conception de chaque cycle de développement.
+[Application Insights][start] peut superviser les [applications de service cloud Azure](https://azure.microsoft.com/services/cloud-services/) pour vérifier la disponibilité, les performances, les échecs et l’utilisation en combinant les données des SDK Application Insights avec les données d’[Azure Diagnostics](../agents/diagnostics-extension-overview.md) de vos services cloud. Avec les retours que vous obtenez sur les performances et l’efficacité de votre application dans la nature, vous pouvez prendre des décisions avisées sur la direction de la conception de chaque cycle de développement.
 
 ![Vue d’ensemble du tableau de bord](./media/cloudservices/overview-graphs.png)
 
@@ -32,7 +32,7 @@ Cette option instrumente votre application au moment de l’exécution, ce qui v
 
 Si cette option vous suffit, vous avez terminé. 
 
-Les étapes suivantes sont la [consultation des métriques de votre application](../platform/metrics-charts.md), l’[interrogation de vos données avec Analytics](../log-query/log-query-overview.md). 
+Les étapes suivantes sont la [consultation des métriques de votre application](../essentials/metrics-charts.md), l’[interrogation de vos données avec Analytics](../logs/log-query-overview.md). 
 
 Pour superviser les performances dans le navigateur, vous pouvez configurer des [tests de disponibilité](./monitor-web-app-availability.md) et [ajouter du code à vos pages web](./javascript.md).
 
@@ -95,7 +95,7 @@ Si vous avez décidé d’utiliser une ressource Application Insights distincte 
 
 L’objectif est d’insérer vos clés d’instrumentation Application Insights dans les fichiers nommés *ServiceConfiguration.\*.cscfg*. Voici l’[exemple de code](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/AzureEmailService/ServiceConfiguration.Cloud.cscfg).
 
-Si vous voulez changer le niveau des informations de diagnostics envoyées à Application Insights, [modifiez directement les fichiers *.cscfg*](../platform/diagnostics-extension-to-application-insights.md).
+Si vous voulez changer le niveau des informations de diagnostics envoyées à Application Insights, [modifiez directement les fichiers *.cscfg*](../agents/diagnostics-extension-to-application-insights.md).
 
 ## <a name="install-the-sdk-in-each-project"></a><a name="sdk"></a>Installation du Kit de développement logiciel (SDK) dans chaque projet
 Avec cette option, vous pouvez ajouter une télémétrie métier personnalisée à n’importe quel rôle. L’option permet d’analyser en détail l’utilisation et les performances de votre application.
@@ -167,7 +167,7 @@ Cette étape est uniquement nécessaire si vous voulez capturer des requêtes SQ
 
 1. Ouvrez la ressource Application Insights que vous avez créée.
 
-   Les points de données individuels sont affichés dans [Recherche][diagnostic] et les données agrégées sont affichées dans [Metrics Explorer](../platform/metrics-charts.md).
+   Les points de données individuels sont affichés dans [Recherche][diagnostic] et les données agrégées sont affichées dans [Metrics Explorer](../essentials/metrics-charts.md).
 
 1. Ajoutez plus de données de télémétrie (voir les sections suivantes) et publiez votre application pour obtenir en direct des diagnostics et un retour sur l’utilisation. 
 
@@ -180,17 +180,17 @@ S’il n’y a pas de données, effectuez ce qui suit :
 Pour plus d’informations, consultez la page [Dépannage][qna].
 
 ## <a name="view-azure-diagnostics-events"></a>Voir les événements Diagnostics Azure
-Les informations d’[Azure Diagnostics](../platform/diagnostics-extension-overview.md) sont disponibles dans Application Insights aux emplacements suivants :
+Les informations d’[Azure Diagnostics](../agents/diagnostics-extension-overview.md) sont disponibles dans Application Insights aux emplacements suivants :
 
 * Les compteurs de performances s’affichent comme mesures personnalisées. 
 * Les journaux des événements Windows s’affichent comme traces et événements personnalisés.
 * Les journaux des applications, les journaux d’activité ETW et tous les journaux d’activité d’infrastructure des diagnostics s’affichent comme traces.
 
-Pour voir les compteurs de performances et le nombre d’événements, ouvrez [Metrics Explorer](../platform/metrics-charts.md) et ajoutez le graphique suivant :
+Pour voir les compteurs de performances et le nombre d’événements, ouvrez [Metrics Explorer](../essentials/metrics-charts.md) et ajoutez le graphique suivant :
 
 ![Données Azure Diagnostics](./media/cloudservices/23-wad.png)
 
-Pour rechercher dans les différents journaux de trace envoyés par Azure Diagnostics, utilisez [Recherche](./diagnostic-search.md) ou une [requête Analytics](../log-query/log-analytics-tutorial.md). Par exemple, supposons qu’une exception non prise en charge a provoqué le blocage et le recyclage d’un rôle. Cette information s’affiche dans le canal Application du Journal des événements Windows. Vous pouvez utiliser Recherche pour voir l’erreur du Journal des événements Windows et obtenir la trace complète de l’exception. De cette façon, vous pouvez identifier la cause racine du problème.
+Pour rechercher dans les différents journaux de trace envoyés par Azure Diagnostics, utilisez [Recherche](./diagnostic-search.md) ou une [requête Analytics](../logs/log-analytics-tutorial.md). Par exemple, supposons qu’une exception non prise en charge a provoqué le blocage et le recyclage d’un rôle. Cette information s’affiche dans le canal Application du Journal des événements Windows. Vous pouvez utiliser Recherche pour voir l’erreur du Journal des événements Windows et obtenir la trace complète de l’exception. De cette façon, vous pouvez identifier la cause racine du problème.
 
 ![Recherche de Diagnostics Azure](./media/cloudservices/25-wad.png)
 
@@ -261,7 +261,7 @@ Pour une vue d’ensemble de votre système, vous pouvez rassembler les principa
 
 Si votre système utilise d’autres services Azure, comme Stream Analytics, ajoutez également leurs graphiques de supervision. 
 
-Si vous avez une application mobile cliente, utilisez [App Center](../learn/mobile-center-quickstart.md). Créez des requêtes dans [Analytics](../log-query/log-query-overview.md) pour afficher le nombre d’événements, et épinglez-les au tableau de bord.
+Si vous avez une application mobile cliente, utilisez [App Center](../app/mobile-center-quickstart.md). Créez des requêtes dans [Analytics](../logs/log-query-overview.md) pour afficher le nombre d’événements, et épinglez-les au tableau de bord.
 
 ## <a name="example"></a>Exemple
 [L'exemple](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/Samples/AzureEmailService) analyse un service qui dispose d’un rôle Web et de deux rôles de travail.
@@ -274,7 +274,7 @@ Avez-vous effectué une génération pour .NET 4.6 ? .NET 4.6 n’est pas aut
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Configuration de l’envoi de diagnostics Azure à Application Insights](../platform/diagnostics-extension-to-application-insights.md)
+* [Configuration de l’envoi de diagnostics Azure à Application Insights](../agents/diagnostics-extension-to-application-insights.md)
 * [Créer automatiquement des ressources Application Insights](./powershell.md)
 * [Automatiser les diagnostics Azure](./powershell-azure-diagnostics.md)
 * [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample)

@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: c29e952e22aaccf31c10de8f6e16d240b4660a23
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 4f9cc8321d5d1d19dbcb8294ad6205b01337ee72
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93240713"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101715052"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-mysql---flexible-server-preview"></a>Vue d’ensemble de la continuité d’activité avec Azure Database pour MySQL - Serveur flexible (préversion)
 
@@ -27,7 +27,7 @@ Le tableau ci-dessous illustre les fonctionnalités qu’offre le serveur flexib
 | **Sauvegarde et récupération** | Le serveur flexible effectue automatiquement des sauvegardes quotidiennes de vos fichiers de base de données et sauvegarde en permanence les journaux des transactions. Les sauvegardes peuvent être conservées sur une période comprise entre 1 et 35 jours. Vous pouvez restaurer votre serveur de base de données à n’importe quel point dans le temps au cours de la période de conservation de votre sauvegarde. Le temps de récupération dépend du volume des données à restaurer et du temps d’exécution de la récupération des journaux. Pour plus d’informations, consultez [Concepts – Sauvegarde et restauration](./concepts-backup-restore.md). |Les données de sauvegarde sont conservées dans la région |
 | **Sauvegarde localement redondante** | Les sauvegardes d’un serveur flexible sont stockées de façon automatique et sécurisée dans un stockage localement redondant, au sein d’une région et dans la même zone de disponibilité. Les sauvegardes localement redondantes répliquent les fichiers de données de la sauvegarde serveur trois fois dans un même endroit physique au sein de la région primaire. Le stockage des sauvegardes localement redondantes offre une durabilité des objets d’au moins 99,999999999 % (11 « neuf ») sur une année donnée. Pour plus d’informations, consultez [Concepts – Sauvegarde et restauration](./concepts-backup-restore.md).| Applicable dans toutes les régions |
 | **Haute disponibilité redondante interzone** | Le serveur flexible peut être déployé en mode haute disponibilité, ce qui a pour effet de déployer le serveur principal et le serveur de secours dans deux zones de disponibilité différentes au sein d’une même région. C’est une protection contre les défaillances au niveau de la zone qui permet également de réduire les temps d’arrêt des applications pendant les interruptions planifiées et non planifiées. Les données du serveur principal sont répliquées de façon synchrone sur le réplica de secours. Lors d’un événement de temps d’arrêt, le serveur de base de données est automatiquement basculé vers le réplica de secours. Pour plus d’informations, consultez [Concepts – Haute disponibilité](./concepts-high-availability.md). | Prise en charge dans les niveaux de calcul à usage général et à mémoire optimisée. Disponible uniquement dans les régions où plusieurs zones sont disponibles.|
-| **Partages de fichiers Premium** | Les fichiers de base de données sont stockés dans des partages de fichiers Azure Premium très robustes et fiables qui assurent la redondance des données au moyen de trois copies du réplica, stockées dans une zone de disponibilité à l’aide de fonctionnalités automatiques de récupération de données. Pour plus d’informations, consultez les [Partages de fichiers Premium](../../storage/files/storage-how-to-create-premium-fileshare.md). | Données stockées dans une zone de disponibilité |
+| **Partages de fichiers Premium** | Les fichiers de base de données sont stockés dans des partages de fichiers Azure Premium très robustes et fiables qui assurent la redondance des données au moyen de trois copies du réplica, stockées dans une zone de disponibilité à l’aide de fonctionnalités automatiques de récupération de données. Pour plus d’informations, consultez les [Partages de fichiers Premium](../../storage/files/storage-how-to-create-file-share.md). | Données stockées dans une zone de disponibilité |
 
 > [!IMPORTANT]
 > Aucun temps d’activité ni aucun contrat de niveau de service RTO et RPO ne sont proposés pendant la préversion. Détails fournis dans cette page uniquement à titre d’information et à des fins de planification.
@@ -42,7 +42,7 @@ Voici quelques scénarios de maintenance planifiée qui subissent un temps d’a
 | **Déploiement de nouveaux logiciels (Azure)** | Le déploiement de nouvelles fonctionnalités ou les corrections de bogues se produisent automatiquement dans le cadre de la maintenance planifiée du service, et vous pouvez planifier le moment auquel ces activités se produisent. Pour plus d’informations, consultez la [documentation](https://aka.ms/servicehealthpm) et votre [portail](https://aka.ms/servicehealthpm). |
 | **Mises à niveau de version mineure (Azure)** | Azure Database pour MySQL opère automatiquement la mise à niveau des serveurs de base de données vers la version mineure déterminée par Azure. Cela se produit dans le cadre de la maintenance planifiée du service. L’opération entraîne un bref temps d’arrêt de quelques secondes, et le serveur de base de données est automatiquement redémarré avec la nouvelle version mineure. Pour plus d’informations, consultez la [documentation](../concepts-monitoring.md#planned-maintenance-notification) et votre [portail](https://aka.ms/servicehealthpm).|
 
-Lorsque le serveur flexible est configuré avec la **haute disponibilité redondante interzone** , il effectue d’abord des opérations sur le serveur de secours et ensuite sur le serveur principal, sans basculement. Pour plus d’informations, consultez [Concepts – Haute disponibilité](./concepts-high-availability.md).
+Lorsque le serveur flexible est configuré avec la **haute disponibilité redondante interzone**, il effectue d’abord des opérations sur le serveur de secours et ensuite sur le serveur principal, sans basculement. Pour plus d’informations, consultez [Concepts – Haute disponibilité](./concepts-high-availability.md).
 
 ## <a name="unplanned-downtime-mitigation"></a>Réduction des temps d’arrêt non planifiés
 

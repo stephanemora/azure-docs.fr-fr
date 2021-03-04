@@ -2,13 +2,13 @@
 title: Vue d’ensemble d’AMQP 1.0 dans Azure Service Bus
 description: Découvrez comment Azure Service Bus prend en charge Advance Message Queueing Protocol (AMQP), un protocole standard ouvert.
 ms.topic: article
-ms.date: 11/20/2020
-ms.openlocfilehash: 58c2cc8e9d92fff31a286b6e9bd63b63bee26aee
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.date: 02/17/2021
+ms.openlocfilehash: b2ca126312f5fc3da2a7ff6e20a9ade252f489f1
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98632882"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653881"
 ---
 # <a name="amqp-10-support-in-service-bus"></a>Prise en charge d’AMQP 1.0 dans Service Bus
 Le service cloud Azure Service Bus utilise le[protocole AMQP (Advanced Message Queueing Protocol) 1.0](http://docs.oasis-open.org/amqp/core/v1.0/amqp-core-overview-v1.0.html) comme principal moyen de communication. Microsoft s’est associée à des partenaires du secteur, des clients et des fournisseurs de répartiteurs de messages concurrents, pour développer et faire évoluer les AMQP au cours des dernières années, avec de nouvelles extensions développées au sein de l’[OASIS AMQP Technical Committee](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=amqp). AMQP 1.0 est une norme ISO et CEI ([ISO 19464:20149](https://www.iso.org/standard/64955.html)). 
@@ -84,9 +84,8 @@ Prêt à en savoir plus ? Visitez les liens suivants :
 
 * [Utilisation de Service Bus à partir de .NET avec AMQP]
 * [Utilisation de Service Bus à partir de Java avec AMQP]
-* [Installation d’Apache Qpid Proton-C sur une machine virtuelle Linux Azure]
 
 [0]: ./media/service-bus-amqp-overview/service-bus-amqp-1.png
 [Utilisation de Service Bus à partir de .NET avec AMQP]: service-bus-amqp-dotnet.md
 [Utilisation de Service Bus à partir de Java avec AMQP]: ./service-bus-java-how-to-use-jms-api-amqp.md
-[Installation d’Apache Qpid Proton-C sur une machine virtuelle Linux Azure] ::
+

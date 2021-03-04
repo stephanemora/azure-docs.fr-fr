@@ -4,12 +4,12 @@ description: Fournit un résumé des paramètres de prise en charge et des limit
 ms.topic: conceptual
 ms.date: 01/07/2021
 ms.custom: references_regions
-ms.openlocfilehash: 7d6de863a45bcadd73e847cbf407c13363952151
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 922bd532275cdd6b09df83b0e9d36fdec1da0b47
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99806102"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101707215"
 ---
 # <a name="azure-disk-backup-support-matrix-in-preview"></a>Matrice de prise en charge de la Sauvegarde de disque Azure (en préversion)
 
@@ -58,7 +58,7 @@ D’autres régions seront annoncées quand elles seront disponibles.
 
 - Actuellement (pendant la préversion), l’utilisation de PowerShell et Azure CLI pour configurer la sauvegarde et la restauration des disques n’est pas prise en charge.
 
-- Lors de la configuration de la sauvegarde, le disque à sauvegarder sélectionné et le groupe de ressources d’instantanés dans lequel les captures instantanées doivent être stockées doivent faire partie du même abonnement. Vous ne pouvez pas créer d'instantané incrémentiel pour un disque particulier en dehors de l'abonnement associé à ce disque. Apprenez-en davantage sur les [instantanés incrémentiels](../virtual-machines/windows/disks-incremental-snapshots-portal.md#restrictions) pour les disques managés. Pour plus d’informations sur le choix d’un groupe de ressources d’instantanés, consultez [Configurer une sauvegarde](backup-managed-disks.md#configure-backup).
+- Lors de la configuration de la sauvegarde, le disque à sauvegarder sélectionné et le groupe de ressources d’instantanés dans lequel les captures instantanées doivent être stockées doivent faire partie du même abonnement. Vous ne pouvez pas créer d'instantané incrémentiel pour un disque particulier en dehors de l'abonnement associé à ce disque. Apprenez-en davantage sur les [instantanés incrémentiels](../virtual-machines/disks-incremental-snapshots.md#restrictions) pour les disques managés. Pour plus d’informations sur le choix d’un groupe de ressources d’instantanés, consultez [Configurer une sauvegarde](backup-managed-disks.md#configure-backup).
 
 - Pour le succès des opérations de sauvegarde et de restauration, l’identité managée du coffre Sauvegarde requiert des attributions de rôles. Utilisez uniquement les définitions de rôles fournies dans la documentation. L’utilisation d’autres rôles tels que propriétaire, contributeur, etc., n’est pas prise en charge. Vous pouvez rencontrer des problèmes d’autorisation si vous commencez à configurer des opérations de sauvegarde ou de restauration peu de temps après avoir attribué des rôles. Cela est dû au fait que les attributions de rôles nécessitent quelques minutes pour prendre effet.
 

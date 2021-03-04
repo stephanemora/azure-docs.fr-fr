@@ -8,12 +8,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/29/2020
-ms.openlocfilehash: ee4436d2b8445f2a1d368fb6c76e04d1ec790d98
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 862c6c5253c1bb4481476b67c7cfb203c2568e24
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100600303"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101700573"
 ---
 # <a name="azure-monitor-workbooks-data-sources"></a>Sources de données des classeurs Azure Monitor
 
@@ -34,7 +34,7 @@ Les auteurs de classeurs peuvent interroger plusieurs ressources, ce qui donne u
 
 ## <a name="metrics"></a>Mesures
 
-Les ressources Azure émettent des [métriques](../platform/data-platform-metrics.md) accessibles dans les classeurs, au moyen d’un contrôle spécialisé permettant de spécifier les ressources cibles, les métriques souhaitées et leur agrégation. Ces données peuvent ensuite être tracées dans des graphiques ou des grilles.
+Les ressources Azure émettent des [métriques](../essentials/data-platform-metrics.md) accessibles dans les classeurs, au moyen d’un contrôle spécialisé permettant de spécifier les ressources cibles, les métriques souhaitées et leur agrégation. Ces données peuvent ensuite être tracées dans des graphiques ou des grilles.
 
 ![Capture d’écran de graphiques de métriques de classeur concernant l’utilisation du processeur](./media/workbooks-data-sources/metrics-graph.png)
 
@@ -145,6 +145,6 @@ Ce fournisseur prend en charge [JSONPath](workbooks-jsonpath.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Commencez](../platform/workbooks-overview.md#visualizations) à en apprendre davantage sur les nombreuses options pour les visualisations enrichies des classeurs.
-* [Contrôlez](../platform/workbooks-access-control.md) et partagez l’accès à vos ressources de classeur.
-* [Conseils d’optimisation des requêtes de Log Analytics](../log-query/query-optimization.md)
+* [Commencez](./workbooks-overview.md#visualizations) à en apprendre davantage sur les nombreuses options pour les visualisations enrichies des classeurs.
+* [Contrôlez](./workbooks-access-control.md) et partagez l’accès à vos ressources de classeur.
+* [Conseils d’optimisation des requêtes de Log Analytics](../logs/query-optimization.md)

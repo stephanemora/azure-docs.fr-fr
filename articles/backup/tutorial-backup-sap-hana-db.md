@@ -3,12 +3,12 @@ title: Tutoriel - Sauvegarder des bases de données SAP HANA dans des machines 
 description: Dans ce tutoriel, découvrez comment sauvegarder des bases de données SAP HANA s’exécutant sur une machine virtuelle Azure dans un coffre Recovery Services de Sauvegarde Azure.
 ms.topic: tutorial
 ms.date: 02/24/2020
-ms.openlocfilehash: ede8ebab205e814de3988a2b5c432a21f965eb55
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.openlocfilehash: 5548717b25ea3ec027ba5f588e5e28faafbb5d6f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99987778"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703679"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Tutoriel : Sauvegarder des bases de données SAP HANA dans une machine virtuelle Azure
 
@@ -105,7 +105,7 @@ Les sauvegardes (de fichiers journaux et autres) dans les machines virtuelles Az
 
 Le composant Backint de HANA fournit les « canaux » (un pour la lecture et un pour l’écriture), connectés aux disques sous-jacents où résident les fichiers de base de données, qui sont ensuite lus par le service Sauvegarde Azure et transportés jusqu’au coffre Azure Recovery Services. En plus des contrôles de validation natifs de Backint, le service Sauvegarde Azure effectue une somme de contrôle pour valider les flux. Ces validations permettent de vérifier que les données présentes dans le coffre Azure Recovery Services sont bien fiables et récupérables.
 
-Étant donné que les flux traitent principalement des disques, vous devez comprendre les performances de disque pour évaluer les performances de sauvegarde et de restauration. Consultez [cet article](https://docs.microsoft.com/azure/virtual-machines/disks-performance) pour examiner en détail le débit et les performances des disques dans les machines virtuelles Azure. Ces informations s’appliquent également aux performances de sauvegarde et de restauration.
+Étant donné que les flux traitent principalement des disques, vous devez comprendre les performances de disque pour évaluer les performances de sauvegarde et de restauration. Consultez [cet article](../virtual-machines/disks-performance.md) pour examiner en détail le débit et les performances des disques dans les machines virtuelles Azure. Ces informations s’appliquent également aux performances de sauvegarde et de restauration.
 
 **Le service Sauvegarde Azure tente d’atteindre environ 420 Mbits/s pour les sauvegardes sans fichiers journaux (complètes, différentielles, incrémentielles, etc.) et jusqu’à 100 Mbits/s pour les sauvegardes de fichiers journaux pour HANA**. Comme indiqué ci-dessus, ces vitesses ne sont pas garanties et dépendent des facteurs suivants :
 
@@ -267,8 +267,8 @@ Spécifiez les paramètres de stratégie comme suit :
    ![Stratégie de sauvegarde différentielle](./media/tutorial-backup-sap-hana-db/differential-backup-policy.png)
 
    >[!NOTE]
-   >Les sauvegardes incrémentielles sont désormais disponibles en préversion publique. Vous pouvez choisir une sauvegarde différentielle ou incrémentielle comme sauvegarde quotidienne, mais pas les deux.
-   >
+   >Vous pouvez choisir une sauvegarde différentielle ou incrémentielle comme sauvegarde quotidienne, mais pas les deux.
+
 7. Dans la stratégie **Sauvegarde incrémentielle**, sélectionnez **Activer** pour ouvrir les contrôles de fréquence et de rétention.
     * Vous pouvez déclencher au plus une sauvegarde incrémentielle par jour.
     * Les sauvegardes incrémentielles peuvent être conservées jusqu’à 180 jours. Si vous avez besoin d’une durée de rétention supérieure, vous devez utiliser des sauvegardes complètes.

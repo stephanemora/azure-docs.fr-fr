@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/22/2020
-ms.openlocfilehash: f878d7cf5fdc2eb6538c1192319405dbde098ba6
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a765525b12431c68aa0bba0c0f49c477defff0f0
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100599822"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723212"
 ---
 # <a name="perform-log-query-in-azure-monitor-that-span-across-workspaces-and-apps"></a>Exécuter une requête de journal dans Azure Monitor qui s’étend sur plusieurs espaces de travail et applications
 
@@ -19,7 +19,7 @@ Les journaux Azure Monitor prennent en charge des requêtes sur plusieurs espace
 
 Il existe deux méthodes pour interroger des données stockées dans plusieurs espaces de travail et applications :
 1. Explicitement en spécifiant les détails de l’espace de travail et de l’application. Cette technique est détaillée dans cet article.
-2. Implicitement à l’aide de [requêtes du contexte des ressources](../platform/design-logs-deployment.md#access-mode). Lorsque vous interrogez dans le contexte d’une ressource, d’un groupe de ressources ou d’un abonnement spécifique, les données pertinentes sont extraites de tous les espaces de travail contenant des données pour ces ressources. Les données Application Insights stockées dans des applications ne sont pas extraites.
+2. Implicitement à l’aide de [requêtes du contexte des ressources](./design-logs-deployment.md#access-mode). Lorsque vous interrogez dans le contexte d’une ressource, d’un groupe de ressources ou d’un abonnement spécifique, les données pertinentes sont extraites de tous les espaces de travail contenant des données pour ces ressources. Les données Application Insights stockées dans des applications ne sont pas extraites.
 
 > [!IMPORTANT]
 > Si vous utilisez une [ressource Application Insights basée sur un espace de travail](../app/create-workspace-resource.md), la télémétrie est stockée dans un espace de travail Log Analytics avec toutes les autres données de journal. Utilisez l’expression workspace() pour écrire une requête incluant une application dans plusieurs espaces de travail. En présence de plusieurs applications dans le même espace de travail, vous n’avez pas besoin de requête entre espaces de travail.
@@ -28,12 +28,12 @@ Il existe deux méthodes pour interroger des données stockées dans plusieurs e
 ## <a name="cross-resource-query-limits"></a>Limites de requête inter-ressources 
 
 * Le nombre de ressources Application Insights et d’espaces de travail Log Analytics que vous pouvez inclure dans une seule requête est limité à 100.
-* Les requêtes inter-ressources ne sont pas prises en charge dans le Concepteur de vue. Vous pouvez créer une requête dans Log Analytics et l’épingler au tableau de bord Azure pour [visualiser une requête de journal](../learn/tutorial-logs-dashboards.md). 
+* Les requêtes inter-ressources ne sont pas prises en charge dans le Concepteur de vue. Vous pouvez créer une requête dans Log Analytics et l’épingler au tableau de bord Azure pour [visualiser une requête de journal](../visualize/tutorial-logs-dashboards.md). 
 * Les requêtes de ressources croisées dans les alertes de journal sont uniquement prises en charge dans l’[API scheduledQueryRules](/rest/api/monitor/scheduledqueryrules) actuelle. Si vous utilisez l’API Log Analytics Alerts héritée, vous devez [basculer sur l’API actuelle](../alerts/alerts-log-api-switch.md).
 
 
 ## <a name="querying-across-log-analytics-workspaces-and-from-application-insights"></a>Interrogation de plusieurs espaces de travail Log Analytics à partir d’Application Insights
-Pour référencer un autre espace de travail dans votre requête, utilisez l’identificateur [*workspace*](../logs/workspace-expression.md). Pour une application Application Insights, utilisez l’identificateur [*app*](../log-query/app-expression.md).  
+Pour référencer un autre espace de travail dans votre requête, utilisez l’identificateur [*workspace*](../logs/workspace-expression.md). Pour une application Application Insights, utilisez l’identificateur [*app*](./app-expression.md).  
 
 ### <a name="identifying-workspace-resources"></a>Identification des ressources d’espace de travail
 Les exemples suivants illustrent des requêtes exécutées sur des espaces de travail Log Analytics dans le but de retourner les décomptes synthétiques des journaux d’activité à partir de la table Update d’un espace de travail nommé *contosoretail-it*. 
@@ -107,9 +107,9 @@ union Update, workspace("contosoretail-it").Update, workspace("b459b4u5-912x-46d
 ```
 
 ## <a name="using-cross-resource-query-for-multiple-resources"></a>Utilisation d’une requête multiressource sur plusieurs ressources
-Quand vous utilisez une requête inter-ressources pour mettre en corrélation des données provenant de plusieurs espaces de travail Log Analytics et ressources Application Insights, la requête peut devenir complexe et difficile à gérer. Vous devez tirer parti des [fonctions des requêtes de journal d’Azure Monitor](../log-query/functions.md) pour séparer la logique de la requête de l’étendue des ressources de la requête, simplifiant ainsi la structure de la requête. L’exemple suivant montre comment superviser plusieurs ressources Application Insights et visualiser le nombre de demandes ayant échoué par nom d’application. 
+Quand vous utilisez une requête inter-ressources pour mettre en corrélation des données provenant de plusieurs espaces de travail Log Analytics et ressources Application Insights, la requête peut devenir complexe et difficile à gérer. Vous devez tirer parti des [fonctions des requêtes de journal d’Azure Monitor](./functions.md) pour séparer la logique de la requête de l’étendue des ressources de la requête, simplifiant ainsi la structure de la requête. L’exemple suivant montre comment superviser plusieurs ressources Application Insights et visualiser le nombre de demandes ayant échoué par nom d’application. 
 
-Créez une requête semblable à la suivante qui référence l’étendue des ressources Application Insights. La commande `withsource= SourceApp` ajoute une colonne qui désigne le nom de l’application ayant envoyé le journal. [Enregistrez la requête en tant que fonction](../log-query/functions.md#create-a-function) avec l’alias _applicationsScoping_.
+Créez une requête semblable à la suivante qui référence l’étendue des ressources Application Insights. La commande `withsource= SourceApp` ajoute une colonne qui désigne le nom de l’application ayant envoyé le journal. [Enregistrez la requête en tant que fonction](./functions.md#create-a-function) avec l’alias _applicationsScoping_.
 
 ```Kusto
 // crossResource function that scopes my Application Insights resources
@@ -123,7 +123,7 @@ app('Contoso-app5').requests
 
 
 
-Vous pouvez à présent [utiliser cette fonction](../log-query/functions.md#use-a-function) dans une requête multiressource comme suit. L’alias de fonction _applicationsScoping_ retourne l’union de la table requests à partir de toutes les applications définies. Ensuite, la requête filtre les demandes ayant échoué et permet de visualiser les tendances par application. L’opérateur _parse_ est facultatif dans cet exemple. Il extrait le nom de l’application de la propriété _SourceApp_.
+Vous pouvez à présent [utiliser cette fonction](./functions.md#use-a-function) dans une requête multiressource comme suit. L’alias de fonction _applicationsScoping_ retourne l’union de la table requests à partir de toutes les applications définies. Ensuite, la requête filtre les demandes ayant échoué et permet de visualiser les tendances par application. L’opérateur _parse_ est facultatif dans cet exemple. Il extrait le nom de l’application de la propriété _SourceApp_.
 
 ```Kusto
 applicationsScoping 
@@ -142,5 +142,4 @@ applicationsScoping
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour une vue d’ensemble des requêtes de journal et de la manière dont les données de journal d’Azure Monitor sont structurées, voir [Analyser les données de journal dans Azure Monitor](../log-query/log-query-overview.md).
-
+- Pour une vue d’ensemble des requêtes de journal et de la manière dont les données de journal d’Azure Monitor sont structurées, voir [Analyser les données de journal dans Azure Monitor](./log-query-overview.md).

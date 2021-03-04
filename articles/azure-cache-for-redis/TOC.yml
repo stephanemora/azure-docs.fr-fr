@@ -1,6 +1,6 @@
 - name: Documentation du cache Azure pour Redis
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: À propos du cache Azure pour Redis
       href: cache-overview.md
@@ -100,8 +100,10 @@
           href: cache-private-link.md
         - name: Activer la redondance de zone
           href: cache-how-to-zone-redundancy.md
-        - name: Configurer la géoréplication
+        - name: Configurer la géoréplication OSS
           href: cache-how-to-geo-replication.md
+        - name: Configurer la géoréplication active de l’entreprise
+          href: cache-how-to-active-geo-replication.md
         - name: Enregistrer avec une capacité réservée
           href: cache-reserved-pricing.md
         - name: Migrer vers Azure Cache pour Redis

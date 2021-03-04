@@ -10,12 +10,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: 059b521461969d8148ced90cb3ceffd14a00c4bb
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: b439c5f084c762d3a256806d2e45dab96832bb78
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322257"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101661084"
 ---
 # <a name="what-is-azure-machine-learning-designer"></a>Qu'est-ce que le concepteur Azure Machine Learning ? 
 
@@ -81,7 +81,7 @@ Un module est un algorithme que vous appliquez à vos données. Le concepteur co
 
 Un module peut comporter un ensemble de paramètres utilisables pour configurer les algorithmes internes du module. Quand vous sélectionnez un module dans le canevas, ses paramètres sont affichés dans le volet Propriétés à droite du canevas. Vous pouvez modifier les paramètres figurant dans ce volet pour affiner votre modèle. Vous pouvez définir les ressources de calcul pour des modules individuels dans le concepteur. 
 
-:::image type="content" source="./media/concept-designer/properties.png"alt-text="Propriétés du module":::
+:::image type="content" source="./media/concept-designer/properties.png" alt-text="Propriétés du module":::
 
 
 Pour obtenir de l’aide sur la navigation dans la bibliothèque des algorithmes d’apprentissage automatique disponibles, consultez [Vue d’ensemble des informations de référence relatives aux algorithmes et aux modules](algorithm-module-reference/module-reference.md). Pour obtenir de l’aide sur le choix d’un algorithme, consultez [Aide-mémoire de l’algorithme Machine Learning](algorithm-cheat-sheet.md).

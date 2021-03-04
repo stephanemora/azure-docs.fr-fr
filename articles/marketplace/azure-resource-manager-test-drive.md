@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/19/2020
 ms.author: trkeya
 author: trkeya
-ms.openlocfilehash: fd3fa04d2d7e868476838788dd9cf0e27c07aeca
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 2addf415c39691b4e662f304522a418aa8a778c2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461757"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101730369"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Version d’évaluation Azure Resource Manager
 
@@ -75,7 +75,7 @@ Vous pouvez utiliser n’importe quel nom valide pour vos paramètres ; la vers
 
 | Type de métadonnées   | Type de paramètre  | Description     | Exemple de valeur    |
 |---|---|---|---|
-| **baseuri**     | string          | URI de base de votre package de déploiement| `https:\//\<\..\>.blob.core.windows.net/\<\..\>` |
+| **baseuri**     | string          | URI de base de votre package de déploiement| `https://<..>.blob.core.windows.net/<..>` |
 | **username**    | string          | Nouveau nom d’utilisateur aléatoire.| admin68876      |
 | **mot de passe**    | chaîne sécurisée    | Nouveau mot de passe aléatoire | Lp!ACS\^2kh     |
 | **ID de la session**   | string          | ID de session unique de la version d’évaluation (GUID)    | b8c8693e-5673-449c-badd-257a405a6dee |

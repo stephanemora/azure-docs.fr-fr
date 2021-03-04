@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: duau
-ms.openlocfilehash: f24a4a0d982ff78ca4d6726e950825ed2c784e67
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 0c1273f4a2025658520118ed843d90b3378a129f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98184539"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577887"
 ---
 # <a name="enable-resource-logging-in-azure-traffic-manager"></a>Activation de la journalisation des ressources dans Azure Traffic Manager
 
@@ -64,7 +64,7 @@ Vous pouvez exécuter les commandes qui suivent dans [Azure Cloud Shell](https:/
 
 ## <a name="traffic-manager-log-schema"></a>Schéma des journaux de Traffic Manager
 
-Tous les journaux de ressource disponibles via Azure Monitor partagent un schéma commun de niveau supérieur, avec la flexibilité pour chaque service d’émettre des propriétés uniques pour ses propres événements. Pour voir le schéma général des journaux de ressources, consultez [Services, schémas et catégories pris en charge pour les journaux de ressources Azure](../azure-monitor/platform/resource-logs-schema.md).
+Tous les journaux de ressource disponibles via Azure Monitor partagent un schéma commun de niveau supérieur, avec la flexibilité pour chaque service d’émettre des propriétés uniques pour ses propres événements. Pour voir le schéma général des journaux de ressources, consultez [Services, schémas et catégories pris en charge pour les journaux de ressources Azure](../azure-monitor/essentials/resource-logs-schema.md).
 
 Le tableau suivant inclut le schéma des journaux d’activité propre à la ressource de profil Azure Traffic Manager.
 

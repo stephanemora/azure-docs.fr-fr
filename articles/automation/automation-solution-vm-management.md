@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: a521ca80039b68f93bf7c9d98e51d9846e96e985
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: e58f63b6ed7fb26a4e3b3069773810c5e5b7cdc3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100593839"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101732273"
 ---
 # <a name="startstop-vms-during-off-hours-overview"></a>Vue d’ensemble de Start/Stop VMs during off-hours
 
@@ -39,7 +39,7 @@ Les limitations de la fonctionnalité actuelle sont les suivantes :
 
 - Les runbooks de la fonctionnalité Start/Stop VMs during off-hours fonctionnent avec un [compte d’identification Azure](./automation-security-overview.md#run-as-accounts). Le compte d’identification est la méthode d’authentification recommandée, car elle utilise l’authentification par certificat au lieu d’un mot de passe, susceptible d’expirer ou de changer fréquemment.
 
-- Un [espace de travail Azure Monitor Log Analytics](../azure-monitor/platform/design-logs-deployment.md) qui stocke les journaux des travaux de runbook et les résultats du flux de travaux dans un espace de travail pour interrogation et analyse. Le compte Automation peut être lié à un espace de travail Log Analytics nouveau ou existant, et les deux ressources doivent se trouver dans le même groupe de ressources.
+- Un [espace de travail Azure Monitor Log Analytics](../azure-monitor/logs/design-logs-deployment.md) qui stocke les journaux des travaux de runbook et les résultats du flux de travaux dans un espace de travail pour interrogation et analyse. Le compte Automation peut être lié à un espace de travail Log Analytics nouveau ou existant, et les deux ressources doivent se trouver dans le même groupe de ressources.
 
 Il vous est recommandé d’utiliser un compte Automation distinct pour travailler avec la fonctionnalité Start/Stop VMs during off-hours. Les versions de module Azure sont fréquemment mises à niveau et leurs paramètres peuvent changer. La fonctionnalité n’est pas mise à niveau à la même cadence et il est possible qu’elle ne fonctionne pas avec des versions plus récentes des cmdlets qu’elle utilise. Avant d’importer les modules mis à jour dans vos comptes Automation de production, nous vous recommandons de les importer dans un compte Automation de test afin de vérifier qu’il n’y a aucun problème de compatibilité.
 

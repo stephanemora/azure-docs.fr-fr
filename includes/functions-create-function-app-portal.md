@@ -9,10 +9,10 @@ ms.date: 03/04/2020
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: 9ec5920295117b1726a684bcd08534cd6917f7e5
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/03/2021
 ms.locfileid: "100569785"
 ---
 1. Dans le menu du portail Azure ou dans la page **Accueil**, sélectionnez **Créer une ressource**.
@@ -25,7 +25,7 @@ ms.locfileid: "100569785"
     | ------------ | ---------------- | ----------- |
     | **Abonnement** | Votre abonnement | Abonnement sous lequel est créée cette nouvelle application de fonction. |
     | **[Groupe de ressources](../articles/azure-resource-manager/management/overview.md)** |  *myResourceGroup* | Nom du nouveau groupe de ressources dans lequel créer votre Function App. |
-    | **Nom de l’application de fonction** | Nom global unique | Nom qui identifie votre nouvelle Function App. Les caractères valides sont `a-z` (insensible à la casse), `0-9`et `-`.  |
+    | **Nom de l’application de fonction** | Nom globalement unique | Nom qui identifie votre nouvelle Function App. Les caractères valides sont `a-z` (insensible à la casse), `0-9`et `-`.  |
     |**Publier**| Code | Option permettant de publier des fichiers de code ou un conteneur Docker. |
     | **Pile d’exécution** | Langage préféré | Choisissez un runtime qui prend en charge votre langage de programmation de fonction favori. La modification dans le portail n’est disponible que pour les scripts JavaScript, PowerShell, TypeScript et C#. Les fonctions de la bibliothèque de classes C#, ainsi que les fonctions Java et Python doivent être [développées localement](../articles/azure-functions/functions-develop-local.md#local-development-environments).  |
     |**Version**| Numéro de version | Choisissez la version de votre runtime installé. |

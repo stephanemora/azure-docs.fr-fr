@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/14/2020
 ms.author: riroloff
 ms.subservice: metrics
-ms.openlocfilehash: 23507a01f3ed0015690d9655fde92a875f89c2da
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: a321361a7624f2b9016d6303df63501fd0d7e7c5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101095472"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734466"
 ---
 # <a name="view-multiple-resources-in-the-azure-metrics-explorer"></a>Afficher plusieurs ressources dans Azure Metrics Explorer
 
@@ -88,5 +88,5 @@ Pour épingler votre graphique de ressources multiples à un tableau de bord, co
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Résoudre des problèmes de Metrics Explorer](../essentials/metrics-troubleshoot.md)
-* [Consulter la liste des métriques disponibles pour les services Azure](../platform/metrics-supported.md)
+* [Consulter la liste des métriques disponibles pour les services Azure](./metrics-supported.md)
 * [Consulter des exemples de graphiques configurés](../essentials/metric-chart-samples.md)

@@ -4,12 +4,12 @@ description: Pour comprendre ce que sont les règles d’action dans Azure Monit
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.subservice: alerts
-ms.openlocfilehash: 5fc9b1f75faec7f2be8f9e6126fdacf9697413f6
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 1a837ac9aa94effa021d5395fb4856d1d5df2e90
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100600263"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718146"
 ---
 # <a name="action-rules-preview"></a>Règles d’action (préversion)
 
@@ -209,7 +209,7 @@ Contoso souhaite supprimer les notifications pour toutes les alertes de journal 
 
 ### <a name="scenario-3-action-group-defined-at-a-resource-group"></a>Scénario 3 : Groupe d’actions défini pour un groupe de ressources
 
-Contoso a défini [une alerte de métrique au niveau d’un abonnement](../platform/alerts-metric-overview.md#monitoring-at-scale-using-metric-alerts-in-azure-monitor), mais souhaite définir les actions déclenchées spécifiquement pour des alertes générées depuis le groupe de ressources **ContosoRG**.
+Contoso a défini [une alerte de métrique au niveau d’un abonnement](./alerts-metric-overview.md#monitoring-at-scale-using-metric-alerts-in-azure-monitor), mais souhaite définir les actions déclenchées spécifiquement pour des alertes générées depuis le groupe de ressources **ContosoRG**.
 
 **Solution :** Créer une règle d’action avec :
 * Étendue = **ContosoRG**
@@ -253,11 +253,11 @@ az monitor action-rule delete --resource-group MyResourceGroupName --name MyActi
 
 ## <a name="best-practices"></a>Meilleures pratiques
 
-Les alertes de journal créées avec l’option [nombre de résultats](../platform/alerts-unified-log.md) génèrent une seule instance d’alerte via le résultat de la recherche (qui peut s’étendre sur plusieurs ordinateurs). Dans ce scénario, si une règle d’action utilise le filtre **Contexte de l’alerte (charge utile)**, il agit sur l’instance d’alerte tant qu’il existe une correspondance. Dans le scénario 2, décrit précédemment, si les résultats de la recherche pour l’alerte de journal générée contiennent **Computer-01** et **Computer-02**, la notification entière est supprimée. Aucune notification n’est générée pour **Computer-02**.
+Les alertes de journal créées avec l’option [nombre de résultats](./alerts-unified-log.md) génèrent une seule instance d’alerte via le résultat de la recherche (qui peut s’étendre sur plusieurs ordinateurs). Dans ce scénario, si une règle d’action utilise le filtre **Contexte de l’alerte (charge utile)**, il agit sur l’instance d’alerte tant qu’il existe une correspondance. Dans le scénario 2, décrit précédemment, si les résultats de la recherche pour l’alerte de journal générée contiennent **Computer-01** et **Computer-02**, la notification entière est supprimée. Aucune notification n’est générée pour **Computer-02**.
 
 ![Le diagramme montre les règles d’action et les alertes de journal avec une seule instance d’alerte mise en surbrillance.](media/alerts-action-rules/action-rules-log-alert-number-of-results.png)
 
-Pour utiliser au mieux les alertes de journal avec des règles d’action, créez des alertes de journal avec l’option [mesure de métrique](../platform/alerts-unified-log.md). Des instances d’alerte distinctes sont générées par cette option, en fonction du champ de groupe défini. Ainsi, dans le scénario 2, des instances d’alerte distinctes sont générées pour **Computer-01** et **Computer-02**. En raison de la règle d’action décrite dans le scénario, seule la notification pour **Computer-01** est supprimée. La notification pour **Computer-02** continue à se déclencher normalement.
+Pour utiliser au mieux les alertes de journal avec des règles d’action, créez des alertes de journal avec l’option [mesure de métrique](./alerts-unified-log.md). Des instances d’alerte distinctes sont générées par cette option, en fonction du champ de groupe défini. Ainsi, dans le scénario 2, des instances d’alerte distinctes sont générées pour **Computer-01** et **Computer-02**. En raison de la règle d’action décrite dans le scénario, seule la notification pour **Computer-01** est supprimée. La notification pour **Computer-02** continue à se déclencher normalement.
 
 ![Règles d’action et alertes de journal (nombre de résultats)](media/alerts-action-rules/action-rules-log-alert-metric-measurement.png)
 
@@ -287,7 +287,7 @@ Après avoir défini la ressource cible de la règle d’alerte, vous pouvez aff
 
 ### <a name="can-i-see-the-alerts-that-have-been-suppressed-by-an-action-rule"></a>Puis-je afficher les alertes qui ont été supprimées par une règle d’action ?
 
-Dans la [page Liste des alertes](../platform/alerts-managing-alert-instances.md), vous pouvez choisir une colonne supplémentaire appelée **Statut de suppression**. Si la notification d’une instance d’alerte a été supprimée, elle aura ce statut dans la liste.
+Dans la [page Liste des alertes](./alerts-managing-alert-instances.md), vous pouvez choisir une colonne supplémentaire appelée **Statut de suppression**. Si la notification d’une instance d’alerte a été supprimée, elle aura ce statut dans la liste.
 
 ![Instances d’alerte supprimées](media/alerts-action-rules/action-rules-suppressed-alerts.png)
 
@@ -321,4 +321,4 @@ Pour chaque alerte sur VM1, le groupe d’actions AG1 se déclenche une seule fo
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Plus d’informations sur les alertes dans Azure](../platform/alerts-overview.md)
+- [Plus d’informations sur les alertes dans Azure](./alerts-overview.md)

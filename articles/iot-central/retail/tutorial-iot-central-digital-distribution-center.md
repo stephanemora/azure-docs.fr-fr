@@ -7,12 +7,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 10/20/2019
-ms.openlocfilehash: 9d7c4d2afa8eaf197ec05bcb0aed654153fb8f0d
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: 40b0d7eeb77f165c50c5470e1b5869e240d36534
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99831295"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702689"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-digital-distribution-center-application-template"></a>Tutoriel : Déployer et parcourir un modèle d’application du centre de distribution numérique
 
@@ -21,7 +21,8 @@ Ce didacticiel vous montre comment prendre en main le déploiement d’un modèl
 Ce tutoriel vous montre comment effectuer les opérations suivantes : 
 
 > [!div class="checklist"]
-> Créer une application de centre de distribution numérique et parcourir l’application 
+> * créer une application pour un centre de distribution numérique 
+> * examiner l’application 
 
 ## <a name="prerequisites"></a>Prérequis
 * Aucune configuration requise spécifique n’est requise pour déployer cette application

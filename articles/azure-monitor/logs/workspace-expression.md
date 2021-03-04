@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/10/2018
-ms.openlocfilehash: 9ce9957d348fc9d57ff688408d6aaade67e95465
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 34b1f850b262a0027d3a9cb2e926bcb2c8a49665
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100600048"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710904"
 ---
 # <a name="workspace-expression-in-azure-monitor-log-query"></a>Expression workspace() dans la requête de journal Azure Monitor
 
@@ -64,6 +64,6 @@ union
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Consultez l’article relatif à l’[expression app](../log-query/app-expression.md) pour en savoir plus sur la façon de faire référence à une application Application Insights.
-- Découvrez-en plus sur le stockage des [données Azure Monitor](../log-query/log-query-overview.md).
+- Consultez l’article relatif à l’[expression app](./app-expression.md) pour en savoir plus sur la façon de faire référence à une application Application Insights.
+- Découvrez-en plus sur le stockage des [données Azure Monitor](./log-query-overview.md).
 - Accédez à la documentation complète sur le [langage de requête Kusto](/azure/kusto/query/).

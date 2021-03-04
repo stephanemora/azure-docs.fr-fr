@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 02/01/2021
-ms.openlocfilehash: 62bdafd2dba31d875b0befccca0fb4a0e94f4e79
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: e096e21e7d20c992e18634d684f663f149cc3c55
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100582825"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691244"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Transparent Data Encryption Azure SQL avec une clé managée par le client
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -187,7 +187,7 @@ Attention particulière pour les fichiers journaux : Les fichiers journaux sauve
 
 Même dans les cas où aucune géoredondance n’est configurée pour le serveur, il est fortement recommandé de configurer le serveur pour utiliser deux coffres de clés différents dans deux régions différentes, avec le même matériel de clé. La clé du coffre de clés secondaire dans l’autre région ne doit pas être marquée comme protecteur TDE et n’est même pas autorisée. En cas de panne affectant le coffre de clés principal, et uniquement dans ce cas, le système bascule automatiquement vers l’autre clé liée avec la même empreinte numérique dans le coffre de clés secondaire, le cas échéant. Notez cependant que ce basculement ne se produira pas si le protecteur TDE est inaccessible en raison de droits d’accès révoqués ou parce que la clé ou le coffre de clés est supprimé, car cela peut indiquer que le client voulait intentionnellement empêcher le serveur d’accéder à la clé. Le fait de fournir le même matériel de clé à deux coffres de clés dans différentes régions est possible en créant la clé en dehors du coffre de clés et en l’important dans les deux coffres de clés. 
 
-Vous pouvez également le faire en générant une clé à l’aide du coffre de clés primaire colocalisé dans la même région que le serveur et en clonant la clé dans un coffre de clés situé dans une autre région Azure. Utilisez la cmdlet [Backup-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/Backup-AzKeyVaultKey) pour récupérer la clé au format chiffré depuis le coffre de clés primaire, puis utilisez la cmdlet [Restore-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultkey) et spécifiez un coffre de clés dans la deuxième région pour cloner la clé. Vous pouvez également utiliser le portail Azure pour sauvegarder et restaurer la clé. L’opération de sauvegarde/restauration de clé est autorisée uniquement entre des coffres de clés au sein du même abonnement Azure et de la même [zone géographique Azure](https://azure.microsoft.com/global-infrastructure/geographies/).  
+Vous pouvez également le faire en générant une clé à l’aide du coffre de clés primaire colocalisé dans la même région que le serveur et en clonant la clé dans un coffre de clés situé dans une autre région Azure. Utilisez la cmdlet [Backup-AzKeyVaultKey](/powershell/module/az.keyvault/Backup-AzKeyVaultKey) pour récupérer la clé au format chiffré depuis le coffre de clés primaire, puis utilisez la cmdlet [Restore-AzKeyVaultKey](/powershell/module/az.keyvault/restore-azkeyvaultkey) et spécifiez un coffre de clés dans la deuxième région pour cloner la clé. Vous pouvez également utiliser le portail Azure pour sauvegarder et restaurer la clé. L’opération de sauvegarde/restauration de clé est autorisée uniquement entre des coffres de clés au sein du même abonnement Azure et de la même [zone géographique Azure](https://azure.microsoft.com/global-infrastructure/geographies/).  
 
 ![Haute disponibilité de serveur unique](./media/transparent-data-encryption-byok-overview/customer-managed-tde-with-ha.png)
 

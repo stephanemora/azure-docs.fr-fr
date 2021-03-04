@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 12/03/2019
+ms.date: 02/22/2021
 ms.author: longl
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 016b8bf010f597e963e0901d1ec48486f79bbb35
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: ea6b567d7b48e504d9b79dad568da7170ada5326
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913124"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101706824"
 ---
 # <a name="specify-a-face-recognition-model"></a>Spécifier un modèle de reconnaissance faciale
 
@@ -53,7 +53,7 @@ Lorsque vous utilisez l’API [Face - Detect], attribuez la version du modèle a
 * recognition_03
 
 
-Si vous le souhaitez, vous pouvez spécifier le paramètre _returnRecognitionModel_ (par défaut **false** ) pour indiquer si _recognitionModel_ doit être retourné comme réponse. Ainsi, une URL de requête pour l’API REST [Face - Detect] se présentera comme suit :
+Si vous le souhaitez, vous pouvez spécifier le paramètre _returnRecognitionModel_ (par défaut **false**) pour indiquer si _recognitionModel_ doit être retourné comme réponse. Ainsi, une URL de requête pour l’API REST [Face - Detect] se présentera comme suit :
 
 `https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&returnFaceLandmarks][&returnFaceAttributes][&recognitionModel][&returnRecognitionModel]&subscription-key=<Subscription key>`
 
@@ -68,7 +68,7 @@ var faces = await faceClient.Face.DetectWithUrlAsync(imageUrl, true, true, recog
 
 Le service Visage peut extraire les données de visage d’une image et les associer à un objet **Person** (via l’appel d’API [Add face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b), par exemple), et plusieurs objets **Person** peuvent être stockés ensemble dans un objet **PersonGroup**. Ensuite, un nouveau visage peut être comparé à un objet **PersonGroup** (avec l'appel [Visage - Identifier]), et la personne correspondante dans ce groupe peut être identifiée.
 
-Un objet **PersonGroup** doit avoir un modèle de reconnaissance unique pour toutes les **personnes** , et vous pouvez le spécifier en utilisant le paramètre `recognitionModel` lorsque vous créez le groupe ( [PersonGroup - Créer] ou [LargePersonGroup - Créer]). Si vous ne spécifiez pas ce paramètre, le modèle original `recognition_01` est utilisé. Un groupe utilisera toujours le modèle de reconnaissance avec lequel il a été créé, et de nouveaux visages seront associés à ce modèle lorsqu'ils y seront ajoutés ; ceci ne peut pas être modifié après la création d’un groupe. Pour voir avec quel modèle un objet **PersonGroup** est configuré, utilisez l'API [PersonGroup - Get] avec le jeu de paramètres _returnRecognitionModel_ défini sur **true**.
+Un objet **PersonGroup** doit avoir un modèle de reconnaissance unique pour toutes les **personnes**, et vous pouvez le spécifier en utilisant le paramètre `recognitionModel` lorsque vous créez le groupe ([PersonGroup - Créer] ou [LargePersonGroup - Créer]). Si vous ne spécifiez pas ce paramètre, le modèle original `recognition_01` est utilisé. Un groupe utilisera toujours le modèle de reconnaissance avec lequel il a été créé, et de nouveaux visages seront associés à ce modèle lorsqu'ils y seront ajoutés ; ceci ne peut pas être modifié après la création d’un groupe. Pour voir avec quel modèle un objet **PersonGroup** est configuré, utilisez l'API [PersonGroup - Get] avec le jeu de paramètres _returnRecognitionModel_ défini sur **true**.
 
 Consultez l'exemple de code suivant pour la bibliothèque cliente .NET.
 
@@ -94,7 +94,7 @@ Consultez l'exemple de code suivant pour la bibliothèque cliente .NET.
 await faceClient.FaceList.CreateAsync(faceListId, "My face collection", recognitionModel: "recognition_03");
 ```
 
-Ce code crée une liste de visages appelée `My face collection`, en utilisant le modèle _recognition_03_ pour l’extraction des traits de visage. Lorsque vous recherchez dans cette liste des visages similaires à un nouveau visage détecté, ce visage doit avoir été détecté ( [Face - Detect]) en utilisant le modèle _recognition_03_. Comme dans la section précédente, le modèle doit être cohérent.
+Ce code crée une liste de visages appelée `My face collection`, en utilisant le modèle _recognition_03_ pour l’extraction des traits de visage. Lorsque vous recherchez dans cette liste des visages similaires à un nouveau visage détecté, ce visage doit avoir été détecté ([Face - Detect]) en utilisant le modèle _recognition_03_. Comme dans la section précédente, le modèle doit être cohérent.
 
 Aucun changement n’est apporté à l'API [Face - Find Similar] ; vous spécifiez uniquement la version du modèle lors de la détection.
 
@@ -105,8 +105,8 @@ L’API [Face - Verify] évalue si deux visages appartiennent à la même person
 ## <a name="evaluate-different-models"></a>Évaluer des modèles différents
 
 Si vous souhaitez comparer les performances des différents modèles de reconnaissance sur vos propres données, vous devez :
-1. créer trois objets PersonGroup utilisant respectivement _recognition_01_ , _recognition_02_ et _recognition_03_  ;
-1. utiliser vos données d’image pour détecter les visages et les relier à des **personne** s au sein de ces trois objets **PersonGroup**  ; 
+1. créer trois objets PersonGroup utilisant respectivement _recognition_01_, _recognition_02_ et _recognition_03_ ;
+1. utiliser vos données d’image pour détecter les visages et les relier à des **personne** s au sein de ces trois objets **PersonGroup** ; 
 1. former vos objets PersonGroup à l'aide de l'API PersonGroup - Former ;
 1. effectuer un test avec l’API Face - Identify sur les trois objets **PersonGroup** et comparer les résultats.
 

@@ -1,42 +1,39 @@
 ---
-title: Connexion par clé de sécurité sans mot de passe (préversion) – Azure Active Directory
-description: Activer la connexion par clé de sécurité sans mot de passe à Azure AD à l’aide de clés de sécurité FIDO2 (préversion)
+title: Connexion par clé de sécurité sans mot de passe – Azure Active Directory
+description: Activer la connexion par clé de sécurité sans mot de passe à Azure AD à l’aide de clés de sécurité FIDO2
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 09/14/2020
+ms.date: 02/22/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ac8cf172a13e7198233170634ee4a3954793cd2
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 71a29a2a7e379e253b52813eb7a76f669abbf668
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743426"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101653828"
 ---
-# <a name="enable-passwordless-security-key-sign-in-preview"></a>Activer la connexion par clé de sécurité sans mot de passe (préversion)
+# <a name="enable-passwordless-security-key-sign-in"></a>Activer la connexion par clé de sécurité sans mot de passe 
 
 Pour les entreprises qui utilisent des mots de passe aujourd’hui et qui disposent d’un environnement de PC partagé, les clés de sécurité permettent aux employés de s’authentifier sans entrer de nom d’utilisateur ou de mot de passe. Les clés de sécurité améliorent la productivité des travailleurs et offrent une meilleure sécurité.
 
 Ce document met l’accent sur l’activation de l’authentification sans mot de passe, basée sur une clé de sécurité. À la fin de cet article, vous serez en mesure de vous connecter aux applications web avec votre compte Azure AD, à l’aide d’une clé de sécurité FIDO2.
 
-> [!NOTE]
-> Les clés de sécurité FIDO2 sont une fonctionnalité d’évaluation publique d’Azure Active Directory. Pour plus d’informations sur les préversions, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ## <a name="requirements"></a>Spécifications
 
 - [Azure AD Multi-Factor Authentication](howto-mfa-getstarted.md)
-- Activer la [préversion de l’inscription d’informations de sécurité combinée](concept-registration-mfa-sspr-combined.md)
+- Activer l’[inscription d’informations de sécurité combinée](concept-registration-mfa-sspr-combined.md)
 - [Clés de sécurité FIDO2](concept-authentication-passwordless.md#fido2-security-keys) compatibles
 - WebAuthN nécessite Windows 10 version 1903 ou plus**
 
 Pour utiliser des clés de sécurité pour la connexion aux services et applications web, vous devez disposer d’un navigateur qui prend en charge le protocole WebAuthN. Il s’agit notamment de Microsoft Edge, Chrome, Firefox et Safari.
 
-## <a name="prepare-devices-for-preview"></a>Préparer les appareils pour la préversion
+## <a name="prepare-devices"></a>Préparer les appareils
 
 Pour les appareils joints à Azure AD, la meilleure expérience est sur Windows 10 version 1903 ou ultérieure.
 
@@ -46,12 +43,12 @@ Les appareils de jointure Azure AD Hybride doivent exécuter Windows 10 version
 
 ### <a name="enable-the-combined-registration-experience"></a>Activer l’expérience d’inscription combinée
 
-Les fonctionnalités d’inscription pour les méthodes d’authentification sans mot de passe s’appuient sur la fonctionnalité d'inscription combinée. Suivez les étapes de l’article [Activer l’inscription combinée d’informations de sécurité (préversion)](howto-registration-mfa-sspr-combined.md) pour activer l’inscription combinée.
+Les fonctionnalités d’inscription pour les méthodes d’authentification sans mot de passe s’appuient sur la fonctionnalité d'inscription combinée. Suivez les étapes de l’article [Activer l’inscription d’informations de sécurité combinées](howto-registration-mfa-sspr-combined.md)pour activer l’inscription combinée.
 
 ### <a name="enable-fido2-security-key-method"></a>Activer la méthode de clé de sécurité FIDO2
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-1. Accédez à **Azure Active Directory** > **Sécurité** > **Méthodes d’authentification** > **Stratégie de méthode d’authentification (préversion)** .
+1. Accédez à **Azure Active Directory** > **Sécurité** > **Méthodes d’authentification** > **Stratégie de méthode d’authentification**.
 1. Sous la méthode **Clé de sécurité FIDO2**, choisissez les options suivantes :
    1. **Activer** - Oui ou Non
    1. **Cible** - Tous les utilisateurs ou les utilisateurs sélectionnés
@@ -79,19 +76,19 @@ Dans l’exemple ci-dessous, un utilisateur a déjà approvisionné sa clé de s
 
 ## <a name="troubleshooting-and-feedback"></a>Résolution des problèmes de commentaires
 
-Si vous souhaitez partager des commentaires ou si vous rencontrez des problèmes lors de l’évaluation de cette fonctionnalité, partagez vos remarques via l’application Hub de commentaires Windows en procédant comme suit :
+Si vous souhaitez partager des commentaires ou si vous rencontrez des problèmes avec cette fonctionnalité, partagez vos remarques via l’application Hub de commentaires Windows en procédant comme suit :
 
 1. Lancez le **concentrateur de commentaires** et assurez-vous que vous êtes connecté.
 1. Classez vos commentaires dans les catégories suivantes avant de les envoyer :
    - Catégorie : Sécurité et confidentialité
    - Sous-catégorie : FIDO
-1. Pour capturer des journaux, utilisez l’option **Recréer mon problème**
+1. Pour capturer des journaux, utilisez l’option **Recréer mon problème**.
 
 ## <a name="known-issues"></a>Problèmes connus
 
 ### <a name="security-key-provisioning"></a>Approvisionnement de clé de sécurité
 
-L’approvisionnement et le retrait de clés de sécurité par l’administrateur ne sont pas disponibles dans la préversion publique.
+L’approvisionnement et déprovisionnement de clés de sécurité par l’administrateur ne sont pas disponibles.
 
 ### <a name="upn-changes"></a>Modifications de l’UPN
 

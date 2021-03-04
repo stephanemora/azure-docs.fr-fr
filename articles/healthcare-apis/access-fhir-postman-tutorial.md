@@ -9,12 +9,12 @@ ms.reviewer: dseven
 ms.author: matjazl
 author: matjazl
 ms.date: 02/01/2021
-ms.openlocfilehash: 5771f95da7b63c6c16bb581b84cc28c4b838ec27
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 6c4d63862f4e02f3fd525021921b02cde6d10f61
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99259014"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699332"
 ---
 # <a name="access-azure-api-for-fhir-with-postman"></a>Accéder à l’API Azure pour FHIR avec Postman
 
@@ -24,7 +24,7 @@ Une application cliente accède à une API FHIR par l’intermédiaire d’une [
 
 - Un point de terminaison FHIR dans Azure. Vous pouvez le configurer à l’aide de l’API Azure pour FHIR managée ou du serveur FHIR pour Azure open source. Configurez l’API Azure pour FHIR managée à partir du [portail Azure](fhir-paas-portal-quickstart.md), de [PowerShell](fhir-paas-powershell-quickstart.md) ou d’[Azure CLI](fhir-paas-cli-quickstart.md).
 - Une [application cliente](register-confidential-azure-ad-client-app.md) que vous utiliserez pour accéder au service FHIR.
-- Vous avez accordé des autorisations, par exemple, « Contributeur de données FHIR », à l’application cliente pour accéder au service FHIR. Plus d’informations sur [Configurer le rôle RBAC Azure pour FHIR](https://docs.microsoft.com/azure/healthcare-apis/configure-azure-rbac)
+- Vous avez accordé des autorisations, par exemple, « Contributeur de données FHIR », à l’application cliente pour accéder au service FHIR. Plus d’informations sur [Configurer le rôle RBAC Azure pour FHIR](./configure-azure-rbac.md)
 - Postman installé. Vous pouvez vous le procurer à l’adresse [https://www.getpostman.com](https://www.getpostman.com).
 
 ## <a name="fhir-server-and-authentication-details"></a>Serveur FHIR et informations d’authentification

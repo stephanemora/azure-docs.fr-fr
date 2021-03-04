@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 12/02/2020
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 5ecf9e49887eb584269f724d5199cbfb014351e0
-ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
+ms.openlocfilehash: 0c73d0394486472c2c3c92450aab6a1a0d329cf7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98986851"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101698210"
 ---
 # <a name="customer-responsibilities-for-running-azure-spring-cloud-in-vnet"></a>Responsabilités du client pour l’exécution d’Azure Spring Cloud dans un réseau virtuel
 Ce document comprend des spécifications pour l’utilisation d’Azure Spring Cloud dans un réseau virtuel.
@@ -34,13 +34,13 @@ Voici une liste des conditions requises concernant les ressources pour les servi
 
   | Point de terminaison de destination | Port | Utilisation | Remarque |
   |------|------|------|
-  | *:1194 *ou* [ServiceTag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) – AzureCloud:1194 | UDP:1194 | Gestion sous-jacente des clusters Kubernetes. | |
-  | *:443 *ou* [ServiceTag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) – AzureCloud:443 | TCP:443 | Management des services d'Azure Spring Cloud. | Les informations de l’instance de service « requiredTraffics » peuvent être connues dans la charge utile de la ressource, sous la section « networkProfile ». |
-  | *:9000 *ou* [ServiceTag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) – AzureCloud:9000 | TCP:9000 | Gestion sous-jacente des clusters Kubernetes. |
+  | *:1194 *ou* [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) – AzureCloud:1194 | UDP:1194 | Gestion sous-jacente des clusters Kubernetes. | |
+  | *:443 *ou* [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) – AzureCloud:443 | TCP:443 | Management des services d'Azure Spring Cloud. | Les informations de l’instance de service « requiredTraffics » peuvent être connues dans la charge utile de la ressource, sous la section « networkProfile ». |
+  | *:9000 *ou* [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) – AzureCloud:9000 | TCP:9000 | Gestion sous-jacente des clusters Kubernetes. |
   | *:123 *ou* ntp.ubuntu.com:123 | UDP:123 | Synchronisation de l’heure NTP sur les nœuds Linux. | |
-  | *.azure.io:443 *ou* [ServiceTag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) – AzureContainerRegistry:443 | TCP:443 | Azure Container Registry. | Peut être remplacé par l’activation du [point de terminaison de service d’*Azure Container Registry* dans le réseau virtuel](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview). |
-  | *.core.windows.net:443 et *.core.windows.net:445 *ou* [ServiceTag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) – Storage:443 et Storage:445 | TCP:443, TCP:445 | Stockage Fichier Azure | Peut être remplacé par l’activation du [point de terminaison de service de *Stockage Azure* dans le réseau virtuel](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview). |
-  | *.servicebus.windows.net:443 *ou* [ServiceTag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) – EventHub:443 | TCP:443 | Azure Event Hubs. | Peut être remplacé par l’activation du [point de terminaison de service d’*Azure Event Hubs* dans le réseau virtuel](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview). |
+  | *.azure.io:443 *ou* [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) – AzureContainerRegistry:443 | TCP:443 | Azure Container Registry. | Peut être remplacé par l’activation du [point de terminaison de service d’*Azure Container Registry* dans le réseau virtuel](../virtual-network/virtual-network-service-endpoints-overview.md). |
+  | *.core.windows.net:443 et *.core.windows.net:445 *ou* [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) – Storage:443 et Storage:445 | TCP:443, TCP:445 | Stockage Fichier Azure | Peut être remplacé par l’activation du [point de terminaison de service de *Stockage Azure* dans le réseau virtuel](../virtual-network/virtual-network-service-endpoints-overview.md). |
+  | *.servicebus.windows.net:443 *ou* [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) – EventHub:443 | TCP:443 | Azure Event Hubs. | Peut être remplacé par l’activation du [point de terminaison de service d’*Azure Event Hubs* dans le réseau virtuel](../virtual-network/virtual-network-service-endpoints-overview.md). |
   
 
 ## <a name="azure-spring-cloud-fqdn-requirements--application-rules"></a>Conditions requises/règles d’application concernant le nom de domaine complet d’Azure Spring Cloud
@@ -63,4 +63,4 @@ Pare-feu Azure fournit une balise de nom de domaine complet (FQDN) **AzureKubern
 
 ## <a name="see-also"></a>Voir aussi
 * [Accéder à votre application sur un réseau privé](spring-cloud-access-app-virtual-network.md)
-* [Exposer des applications à l’aide d’Application Gateway et de Pare-feu Azure](spring-cloud-expose-apps-gateway-azure-firewall.md) 
+* [Exposer des applications à l’aide d’Application Gateway et de Pare-feu Azure](spring-cloud-expose-apps-gateway-azure-firewall.md)

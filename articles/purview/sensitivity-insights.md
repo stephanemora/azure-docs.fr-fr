@@ -6,19 +6,19 @@ ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 11/24/2020
-ms.openlocfilehash: dffecb48a8faa869cb3df450cc220e86195bbc87
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.date: 01/17/2021
+ms.openlocfilehash: bb8ac82b2e59ec86db89c7eba0ce607fcfc0ac2d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98199374"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101676557"
 ---
 # <a name="sensitivity-label-insights-about-your-data-in-azure-purview"></a>Insights relatifs aux étiquettes de confidentialité de vos données dans Azure Purview
 
 Ce guide pratique explique comment accéder aux insights relatifs à la sécurité fournis par les étiquettes de confidentialité appliquées à vos données, ainsi que la façon de les consulter et de les filtrer.
 
-Les sources de données prises en charge sont les suivantes : Stockage Blob Azure, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2, SQL Server, Azure SQL Database, Azure SQL Managed Instance.
+Les sources de données prises en charge sont les suivantes : Stockage Blob Azure, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2, SQL Server, Azure SQL Database, Azure SQL Managed Instance, compartiments Amazon S3.
 
 Dans ce guide pratique, vous allez apprendre à effectuer les opérations suivantes :
 
@@ -40,7 +40,7 @@ Avant de commencer à utiliser les insights Purview, assurez-vous d’avoir effe
 
 - [Étendez les étiquettes de confidentialité de Microsoft 365 aux ressources dans Azure Purview](create-sensitivity-label.md), et créez ou sélectionnez les étiquettes que vous souhaitez appliquer à vos données.
 
-- Configurez et terminez une analyse sur les données de test dans chaque source de données
+- Configurez et terminez une analyse sur les données de test dans chaque source de données. Pour plus d’informations, consultez [Gérer des sources de données dans Azure Purview (préversion)](manage-data-sources.md) et [Créer un ensemble de règles d’analyse](create-a-scan-rule-set.md).
 
 - Connecté à Purview avec un compte avec le [rôle de lecteur de données ou conservateur de données](catalog-permissions.md#azure-purviews-pre-defined-data-plane-roles).
 

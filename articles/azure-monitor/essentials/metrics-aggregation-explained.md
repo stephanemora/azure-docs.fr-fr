@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 01/12/2020
 ms.subservice: metrics
-ms.openlocfilehash: c47c316c82d8c510b4446e4335a219f400d476e4
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a88a52163f03d2bffb0c9c4eab53fd814d9554fb
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100598783"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101725864"
 ---
 # <a name="azure-monitor-metrics-metrics-aggregation-and-display-explained"></a>Explication de l’agrégation et de l’affichage des métriques Azure Monitor
 
@@ -101,7 +101,7 @@ Des métriques sont capturées pour chaque ressource. Toutefois, le niveau auque
 
 Dans Metrics Explorer, lorsque vous représentez une métrique sous forme de graphique, vous avez la possibilité de « fractionner » le graphique en fonction d’une dimension.  Le fractionnement d’un graphique vous permet d’examiner les données sous-jacentes pour obtenir plus de détails, et de voir que les données sont représentées sous forme graphique ou qu’elles sont filtrées dans Metrics Explorer.
 
-Par exemple, pour [Microsoft.ApiManagement/service](../platform/metrics-supported.md#microsoftapimanagementservice), *Emplacement* est une dimension qui est définie pour de nombreuses métriques. 
+Par exemple, pour [Microsoft.ApiManagement/service](./metrics-supported.md#microsoftapimanagementservice), *Emplacement* est une dimension qui est définie pour de nombreuses métriques. 
 
 - **Capacité** fait partie de ces métriques. L’utilisation de la dimension *Emplacement* signifie que le système sous-jacent va stocker un enregistrement de métrique pour la capacité de chaque emplacement, plutôt qu’un seul pour la quantité agrégée. Vous pouvez ensuite récupérer ou fractionner ces informations dans un graphique de métriques.  
 
@@ -109,7 +109,7 @@ Par exemple, pour [Microsoft.ApiManagement/service](../platform/metrics-supporte
 
 - L’une des métriques les plus flexibles, **Demandes**, comporte 7 dimensions. 
  
-Pour plus d’informations sur chacune des métriques et sur les dimensions disponibles, consultez l’article Azure Monitor sur les [métriques prises en charge](../platform/metrics-supported.md). De plus, la documentation de chaque type et chaque fournisseur de ressources peut fournir des informations supplémentaires sur les dimensions et sur ce qu’elles permettent de mesurer.
+Pour plus d’informations sur chacune des métriques et sur les dimensions disponibles, consultez l’article Azure Monitor sur les [métriques prises en charge](./metrics-supported.md). De plus, la documentation de chaque type et chaque fournisseur de ressources peut fournir des informations supplémentaires sur les dimensions et sur ce qu’elles permettent de mesurer.
 
 Vous pouvez utiliser à la fois le fractionnement et le filtrage des données pour examiner un problème. Vous trouverez ci-dessous un exemple de graphique présentant la métrique *Moy. disque, octets/écriture* pour un groupe de machines virtuelles au sein d’un groupe de ressources. Avec cette métrique, nous avons un récapitulatif pour toutes les machines virtuelles. Toutefois, nous pourrions vouloir connaître les machines qui sont responsables des pics qui se sont produits aux environs de 6 h 00. S’agit-il d’une seule et même machine ? Combien de machines sont impliquées ?  
 

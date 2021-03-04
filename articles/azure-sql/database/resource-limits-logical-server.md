@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
 ms.date: 02/02/2021
-ms.openlocfilehash: aa18baf9739663c7132a49d3d07434b9d187f02b
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 34613633b6b27fc3387e6a9fa63caf4a194ba963
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100588745"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691227"
 ---
 # <a name="resource-limits-for-azure-sql-database-and-azure-synapse-analytics-servers"></a>Limites de ressources pour les serveurs Azure SQL Database et Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -70,7 +70,7 @@ En cas d’utilisation élevée de l’espace, voici certaines des options d’a
 - Augmenter la taille maximale de la base de données ou du pool élastique, ou ajouter plus de stockage. Consultez [Mise à l’échelle des ressources d’une base de données unique](single-database-scale.md) et [Mise à l'échelle des ressources d’un pool élastique](elastic-pool-scale.md).
 - Si la base de données est dans un pool élastique, vous pouvez également déplacer la base de données en dehors du pool afin que son espace de stockage ne soit pas partagé avec d’autres bases de données.
 - Réduire une base de données afin de récupérer l’espace inutilisé. Pour plus d’informations, consultez [Gérer l’espace des fichiers dans Azure SQL Database](file-space-manage.md).
-- Vérifiez si l'utilisation intensive de l'espace est due à un pic de la taille du magasin PVS (Persistent Version Store). Le magasin PVS fait partie de chaque base de données et est utilisé pour implémenter la [récupération de base de données accélérée](../accelerated-database-recovery.md). Pour déterminer la taille actuelle du magasin PVS, consultez [Résolution des problèmes de PVS](https://docs.microsoft.com/sql/relational-databases/accelerated-database-recovery-management#troubleshooting). Une grande taille de PVS est souvent due à une transaction qui reste ouverte pendant une longue période (plusieurs heures), ce qui empêche le nettoyage des anciennes versions dans le magasin PVS.
+- Vérifiez si l'utilisation intensive de l'espace est due à un pic de la taille du magasin PVS (Persistent Version Store). Le magasin PVS fait partie de chaque base de données et est utilisé pour implémenter la [récupération de base de données accélérée](../accelerated-database-recovery.md). Pour déterminer la taille actuelle du magasin PVS, consultez [Résolution des problèmes de PVS](/sql/relational-databases/accelerated-database-recovery-management#troubleshooting). Une grande taille de PVS est souvent due à une transaction qui reste ouverte pendant une longue période (plusieurs heures), ce qui empêche le nettoyage des anciennes versions dans le magasin PVS.
 
 ### <a name="sessions-and-workers-requests"></a>Sessions et workers (requêtes)
 

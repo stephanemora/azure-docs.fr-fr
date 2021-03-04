@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 971a3063ff86e2a6b7d1b11f72ff0a257f459da0
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d6866361b78656d99888c4df70cc0c92ed096425
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100598407"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737067"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-classic-cloud-services"></a>Envoyer des métriques de système d’exploitation invité au magasin de métriques Azure Monitor pour les services cloud classiques 
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Avec [l’extension Diagnostics](../agents/diagnostics-extension-overview.md) d’Azure Monitor, vous pouvez collecter des métriques et des journaux d’activité à partir du système d’exploitation invité qui est exécuté dans le cadre d’une machine virtuelle, d’un service cloud ou d’un cluster Service Fabric. L’extension peut envoyer des données de télémétrie à de [nombreux emplacements différents](../platform/data-platform.md?toc=/azure/azure-monitor/toc.json).
+Avec [l’extension Diagnostics](../agents/diagnostics-extension-overview.md) d’Azure Monitor, vous pouvez collecter des métriques et des journaux d’activité à partir du système d’exploitation invité qui est exécuté dans le cadre d’une machine virtuelle, d’un service cloud ou d’un cluster Service Fabric. L’extension peut envoyer des données de télémétrie à de [nombreux emplacements différents](../data-platform.md?toc=%2fazure%2fazure-monitor%2ftoc.json).
 
 Cet article décrit le processus permettant d’envoyer au magasin de métriques Azure Monitor les métriques de performances du système d’exploitation invité concernant les services cloud classiques Azure. À partir de la version 1.11 de l’extension Diagnostics, vous pouvez écrire des métriques directement dans le magasin de métriques Azure Monitor, où les métriques standard de la plateforme sont déjà collectées. 
 
@@ -34,7 +34,7 @@ Le processus décrit dans cet article fonctionne uniquement pour les compteurs d
 
 - Vous devez avoir installé [Azure PowerShell](/powershell/azure) ou [Azure Cloud Shell](../../cloud-shell/overview.md).
 
-- Votre service cloud doit se trouver dans une région [ prenant en charge les métriques personnalisées](../platform/metrics-custom-overview.md#supported-regions).
+- Votre service cloud doit se trouver dans une région [ prenant en charge les métriques personnalisées](./metrics-custom-overview.md#supported-regions).
 
 ## <a name="provision-a-cloud-service-and-storage-account"></a>Provisionner un service cloud et un compte de stockage 
 
@@ -191,4 +191,4 @@ Vous pouvez utiliser les fonctionnalités de filtrage et de fractionnement des d
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- En savoir plus sur les [métriques personnalisées](../platform/metrics-custom-overview.md).
+- En savoir plus sur les [métriques personnalisées](./metrics-custom-overview.md).

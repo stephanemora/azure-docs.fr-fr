@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/02/2019
 ms.author: jeedes
-ms.openlocfilehash: dfb18281ad558832e4b06d1c0d24654d351ed01d
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 4209e609420e610b9f3456da26b0afe0bf839d43
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92455185"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101689077"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-corptax"></a>Tutoriel : Intégration d’Azure Active Directory à Corptax
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration de Corptax à Azure AD, vous devez ajouter Cor
 
     ![Bouton Azure Active Directory](common/select_azuread.png)
 
-2. Accédez à **Applications d’entreprise** , puis sélectionnez l’option **Toutes les applications**.
+2. Accédez à **Applications d’entreprise**, puis sélectionnez l’option **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise_applications.png)
 
@@ -61,7 +61,7 @@ Pour configurer l’intégration de Corptax à Azure AD, vous devez ajouter Cor
 
     ![Bouton Nouvelle application](common/add_new_app.png)
 
-4. Dans la zone de recherche, tapez **Corptax** , sélectionnez **Corptax** dans le panneau des résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+4. Dans la zone de recherche, tapez **Corptax**, sélectionnez **Corptax** dans le panneau des résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
     ![Corptax dans la liste des résultats](common/search_new_app.png)
 
@@ -85,37 +85,37 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
 
 Pour configurer l’authentification unique Azure AD avec Corptax, effectuez les étapes suivantes :
 
-1. Dans le [portail Azure](https://portal.azure.com/), sur la page d’intégration de l’application **Corptax** , cliquez sur **Authentification unique**.
+1. Dans le [portail Azure](https://portal.azure.com/), sur la page d’intégration de l’application **Corptax**, cliquez sur **Authentification unique**.
 
     ![Lien Configurer l’authentification unique](common/select_sso.png)
 
-2. Dans la boîte de dialogue **Sélectionner une méthode d’authentification unique** , sélectionnez le mode **SAML/WS-Fed** afin d’activer l’authentification unique.
+2. Dans la boîte de dialogue **Sélectionner une méthode d’authentification unique**, sélectionnez le mode **SAML/WS-Fed** afin d’activer l’authentification unique.
 
     ![Mode de sélection de l’authentification unique](common/select_saml_option.png)
 
-3. Dans la page **Configurer l’authentification unique avec SAML** , cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue **Configuration SAML de base**.
+3. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue **Configuration SAML de base**.
 
     ![Modifier la configuration SAML de base](common/edit_urls.png)
 
-4. Dans la section **Configuration SAML de base** , effectuez les étapes suivantes :
+4. Dans la section **Configuration SAML de base**, effectuez les étapes suivantes :
 
     ![Informations d’authentification unique dans Domaine et URL Corptax](common/sp_intiated.png)
 
-    Dans la zone de texte **URL de connexion** , tapez une URL : `https://asp.corptax.com`
+    Dans la zone de texte **URL de connexion**, tapez une URL : `https://asp.corptax.com`
 
-5. Dans la page **Configurer l’authentification unique avec SAML** , à la section **Certificat de signature SAML** , cliquez sur **Télécharger** pour télécharger le fichier **XML de métadonnées de fédération** , puis enregistrez-le sur votre ordinateur.
+5. Dans la page **Configurer l’authentification unique avec SAML**, à la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le fichier **XML de métadonnées de fédération**, puis enregistrez-le sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/metadataxml.png)
 
 ### <a name="configure-corptax-single-sign-on"></a>Configurer l’authentification unique Corptax
 
-Pour configurer l’authentification unique côté **Corptax** , vous devez envoyer le fichier **XML de métadonnées de fédération** téléchargé à [l’équipe du support technique Corptax](https://connect.corptax.com/). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+Pour configurer l’authentification unique côté **Corptax**, vous devez envoyer le fichier **XML de métadonnées de fédération** téléchargé à [l’équipe du support technique Corptax](https://connect.corptax.com/). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
 
-1. Dans le volet gauche du portail Azure, sélectionnez **Azure Active Directory** , sélectionnez **Utilisateurs** , puis sélectionnez **Tous les utilisateurs**.
+1. Dans le volet gauche du portail Azure, sélectionnez **Azure Active Directory**, sélectionnez **Utilisateurs**, puis sélectionnez **Tous les utilisateurs**.
 
     ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](common/users.png)
 
@@ -127,12 +127,11 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     ![Boîte de dialogue Utilisateur](common/user_properties.png)
 
-    a. Dans le champ **Nom** , entrez **BrittaSimon**.
+    a. Dans le champ **Nom**, entrez **BrittaSimon**.
 
-    b. Dans le champ **Nom d’utilisateur** , saisissez `brittasimon\@yourcompanydomain.extension`  
-    Par exemple : BrittaSimon@contoso.com
+    b. Dans le champ **Nom d’utilisateur**, tapez `brittasimon@<yourcompanydomain.extension>`. Par exemple : `brittasimon@contoso.com`.
 
-    c. Cochez la case **Afficher le mot de passe** , puis notez la valeur affichée dans le champ Mot de passe.
+    c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
     d. Cliquez sur **Créer**.
 
@@ -140,7 +139,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 Dans cette section, vous autorisez Britta Simon à utiliser l’authentification unique Azure en accordant l’accès à Corptax.
 
-1. Dans le portail Azure, sélectionnez **Applications d’entreprise** , **Toutes les applications** , puis **Corptax**.
+1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, **Toutes les applications**, puis **Corptax**.
 
     ![Panneau Applications d’entreprise](common/enterprise_applications.png)
 
@@ -152,15 +151,15 @@ Dans cette section, vous autorisez Britta Simon à utiliser l’authentification
 
     ![Lien « Utilisateurs et groupes »](common/users_groups_blade.png)
 
-4. Cliquez sur le bouton **Ajouter un utilisateur** , puis sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
+4. Cliquez sur le bouton **Ajouter un utilisateur**, puis sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
 
     ![Volet Ajouter une attribution](common/add_assign_user.png)
 
-5. Dans la boîte de dialogue **Utilisateurs et groupes** , sélectionnez **Britta Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
 
-6. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle** , sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+6. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
 
-7. Dans la boîte de dialogue **Ajouter une attribution** , cliquez sur le bouton **Attribuer**.
+7. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
 ### <a name="create-corptax-test-user"></a>Créer un utilisateur de test Corptax
 
@@ -173,7 +172,7 @@ Quand vous cliquez sur la vignette Corptax dans le volet d’accès, vous êtes 
 
 ![image](media/corptax-tutorial/corptaxlogin.png)
 
-Dans la zone de texte **Environnement** , tapez votre environnement approprié. Vous devez normalement être connecté automatiquement à l’application CorpTax pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+Dans la zone de texte **Environnement**, tapez votre environnement approprié. Vous devez normalement être connecté automatiquement à l’application CorpTax pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

@@ -5,12 +5,12 @@ author: grzuber
 ms.topic: article
 ms.date: 05/09/2019
 ms.author: grzuber
-ms.openlocfilehash: 983d45a7a240701fa6441d2d9edeeda16f1ed18b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 400651b240f0518a85b9deb7a7293a77a88b0861
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86256490"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591699"
 ---
 # <a name="diagnose-common-code-package-errors-by-using-service-fabric"></a>Diagnostiquer les erreurs de package de code courantes à l’aide de Service Fabric
 
@@ -58,5 +58,5 @@ Code de sortie | Valeur hexadécimale | Description courte | Cause racine | Corr
 
 * En savoir plus sur le [diagnostic des autres scénarios courants](service-fabric-diagnostics-common-scenarios.md).
 * Obtenez une vue d’ensemble plus détaillée des journaux de Azure Monitor et de ce qu’ils offrent en lisant [Vue d’ensemble Azure Monitor](../azure-monitor/overview.md).
-* Découvrez plus en détail la [création d’alertes](../azure-monitor/platform/alerts-overview.md) dans les journaux Azure Monitor pour faciliter la détection et les diagnostics.
-* Familiarisez-vous avec les fonctionnalités de [requête et de recherche dans les journaux](../azure-monitor/log-query/log-query-overview.md) proposées par Journaux Azure Monitor.
+* Découvrez plus en détail la [création d’alertes](../azure-monitor/alerts/alerts-overview.md) dans les journaux Azure Monitor pour faciliter la détection et les diagnostics.
+* Familiarisez-vous avec les fonctionnalités de [requête et de recherche dans les journaux](../azure-monitor/logs/log-query-overview.md) proposées par Journaux Azure Monitor.

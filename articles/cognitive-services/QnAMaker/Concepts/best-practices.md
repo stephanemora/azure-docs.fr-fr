@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 77d4a1cad4843578419be54465a06e87834dd186
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 90d526a58f4223fc70be5414ce5722238ce2c735
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100104516"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733429"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Bonnes pratiques pour une base de connaissances QnA Maker
 
@@ -18,7 +18,7 @@ Le [cycle de vie du développement d’une base de connaissances](../Concepts/de
 
 ## <a name="extraction"></a>Extraction
 
-Le service QnA Maker améliore en permanence les algorithmes qui extraient des entités QnA à partir du contenu, et étend la liste des formats HTML et des formats de fichiers pris en charge. Suivez les [instructions](../index.yml) d’extraction de données en fonction de votre type de document.
+Le service QnA Maker améliore en permanence les algorithmes qui extraient des entités QnA à partir du contenu, et étend la liste des formats HTML et des formats de fichiers pris en charge. Suivez les [instructions](../Concepts/data-sources-and-content.md) d’extraction de données en fonction de votre type de document.
 
 En général, les pages FAQ doivent être autonomes et ne pas être combinées avec d’autres informations. Les manuels de produits doivent avoir des titres clairs et, si possible, une page d’index.
 

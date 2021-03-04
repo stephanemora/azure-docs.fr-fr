@@ -6,17 +6,17 @@ ms.author: yexu
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 11/09/2020
-ms.openlocfilehash: f2f0b3e452b39cb81f435dbee4a3b0f524b0213d
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 02/18/2021
+ms.openlocfilehash: fda76fd16787c01b9fc35ef63473be215a2c126d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100361143"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101740050"
 ---
 # <a name="incrementally-copy-new-and-changed-files-based-on-lastmodifieddate-by-using-the-copy-data-tool"></a>Copier les fichiers nouveaux et modifiés selon LastModifiedDate à l’aide de l’outil Copier des données de façon incrémentielle
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Dans ce didacticiel, vous utilisez le portail Azure pour créer une fabrique de données. Vous vous servez ensuite de l’outil Copier des données pour créer un pipeline qui copie uniquement et de façon incrémentielle les nouveaux fichiers et les fichiers modifiés du Stockage Blob Azure vers le Stockage Blob Azure. Il utilise `LastModifiedDate` pour déterminer les fichiers à copier.
 
@@ -57,7 +57,7 @@ Préparez votre Stockage Blob pour le tutoriel :
 
    ![Message d’erreur Nom non disponible](./media/doc-common-process/name-not-available-error.png)
 
-   Si vous recevez un message d’erreur concernant la valeur du nom, saisissez un autre nom pour la fabrique de données. Par exemple, utilisez le nom _**votrenom**_ **ADFTutorialDataFactory**. Pour savoir comment nommer les artefacts Data Factory, voir [Data Factory - Règles d’affectation des noms](naming-rules.md).
+   Si vous recevez un message d’erreur concernant la valeur du nom, saisissez un autre nom pour la fabrique de données. Par exemple, utilisez le nom _**votrenom**_**ADFTutorialDataFactory**. Pour savoir comment nommer les artefacts Data Factory, voir [Data Factory - Règles d’affectation des noms](naming-rules.md).
 3. Sous **Abonnement**, sélectionnez l’abonnement Azure dans lequel vous allez créer la fabrique de données.
 4. Sous **Groupe de ressources**, vous avez deux possibilités :
 

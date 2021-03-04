@@ -12,12 +12,12 @@ ms.date: 05/23/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
-ms.openlocfilehash: bce9479d063d091eb4fa68d2452d8a4218d45db9
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: c72a305a7000052be4f11c9c24a76db94de47ace
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99219941"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101650105"
 ---
 # <a name="support-and-help-options-for-developers"></a>Options d’aide et de support pour les développeurs
 
@@ -32,11 +32,11 @@ Que vous implémentiez une nouvelle fonctionnalité dans votre application ou qu
 
 ## <a name="search"></a>Recherche
 
-Si vous avez une question relative au développement, la réponse peut se trouver dans la documentation, dans les [exemples GitHub](https://github.com/azure-samples) ou dans les réponses aux questions posées sur [Microsoft Q&A](https://docs.microsoft.com/answers/products/).
+Si vous avez une question relative au développement, la réponse peut se trouver dans la documentation, dans les [exemples GitHub](https://github.com/azure-samples) ou dans les réponses aux questions posées sur [Microsoft Q&A](/answers/products/).
 
 ### <a name="scoped-search"></a>Recherche étendue
 
-Pour des résultats plus rapides, élargissez votre recherche à [Microsoft Q&A](https://docs.microsoft.com/answers/products/), à la documentation et aux exemples de code en utilisant la requête suivante dans votre moteur de recherche habituel :
+Pour des résultats plus rapides, élargissez votre recherche à [Microsoft Q&A](/answers/products/), à la documentation et aux exemples de code en utilisant la requête suivante dans votre moteur de recherche habituel :
 
 ```
 {Your Search Terms} (site:http://www.docs.microsoft.com/answers/products/ OR site:docs.microsoft.com OR site:github.com/azure-samples OR site:cloudidentity.com OR site:developer.microsoft.com/graph)
@@ -53,24 +53,24 @@ Sachant que *{Your Search Terms}* correspond aux mots clés de votre recherche.
 
 ## <a name="post-a-question-to-microsoft-qa"></a>Publier une question sur Microsoft Q&A
 
-[Microsoft Q&A](https://docs.microsoft.com/answers/products/) est le canal de prédilection pour les questions de développement. Les membres de la communauté des développeurs et de l'équipe Microsoft y apportent directement leur contribution en vous aidant à résoudre vos problèmes.
+[Microsoft Q&A](/answers/products/) est le canal de prédilection pour les questions de développement. Les membres de la communauté des développeurs et de l'équipe Microsoft y apportent directement leur contribution en vous aidant à résoudre vos problèmes.
 
-Si vous ne trouvez pas de réponse à votre question par l’intermédiaire de la recherche, soumettez une nouvelle question sur [Microsoft Q&A](https://docs.microsoft.com/answers/products/). Utilisez l'une des balises suivantes lorsque vous posez une question pour permettre à la communauté d'identifier votre question et d'y répondre plus rapidement :
+Si vous ne trouvez pas de réponse à votre question par l’intermédiaire de la recherche, soumettez une nouvelle question sur [Microsoft Q&A](/answers/products/). Utilisez l'une des balises suivantes lorsque vous posez une question pour permettre à la communauté d'identifier votre question et d'y répondre plus rapidement :
 
 |Composant/zone  | Balises |
 |---------|---------|
-| Bibliothèque ADAL | [[adal]](https://docs.microsoft.com/answers/topics/azure-ad-adal-deprecation.html) |
-| Bibliothèque MSAL     | [[msal]](https://docs.microsoft.com/answers/topics/azure-ad-msal.html) |
-| Intergiciel (middleware) OWIN  | [[azure-active-directory]](https://docs.microsoft.com/answers/topics/azure-active-directory.html) |
-| [Azure B2B](../external-identities/what-is-b2b.md)  | [[azure-ad-b2b]](https://docs.microsoft.com/answers/topics/azure-ad-b2b.html) |
-| [Azure B2C](https://azure.microsoft.com/services/active-directory-b2c/)  | [[azure-ad-b2c]](https://docs.microsoft.com/answers/topics/azure-ad-b2c.html) |
-| [API Microsoft Graph](https://developer.microsoft.com/graph/) | [[azure-ad-graph]](https://docs.microsoft.com/answers/topics/azure-ad-graph.html) |
-| Toute autre zone liée à des sujets sur l’authentification ou les autorisations | [[azure-active-directory]](https://docs.microsoft.com/answers/topics/azure-active-directory.html) |
+| Bibliothèque ADAL | [[adal]](/answers/topics/azure-ad-adal-deprecation.html) |
+| Bibliothèque MSAL     | [[msal]](/answers/topics/azure-ad-msal.html) |
+| Intergiciel (middleware) OWIN  | [[azure-active-directory]](/answers/topics/azure-active-directory.html) |
+| [Azure B2B](../external-identities/what-is-b2b.md)  | [[azure-ad-b2b]](/answers/topics/azure-ad-b2b.html) |
+| [Azure B2C](https://azure.microsoft.com/services/active-directory-b2c/)  | [[azure-ad-b2c]](/answers/topics/azure-ad-b2c.html) |
+| [API Microsoft Graph](https://developer.microsoft.com/graph/) | [[azure-ad-graph]](/answers/topics/azure-ad-graph.html) |
+| Toute autre zone liée à des sujets sur l’authentification ou les autorisations | [[azure-active-directory]](/answers/topics/azure-active-directory.html) |
 
-Les publications suivantes de [Microsoft Q&A](https://docs.microsoft.com/answers/products/) contiennent des conseils sur la formulation des questions et sur l’ajout de code source. Suivez ces recommandations pour que les membres de la communauté étudient votre question et y répondent rapidement :
+Les publications suivantes de [Microsoft Q&A](/answers/products/) contiennent des conseils sur la formulation des questions et sur l’ajout de code source. Suivez ces recommandations pour que les membres de la communauté étudient votre question et y répondent rapidement :
 
-* [Comment poser une bonne question](https://docs.microsoft.com/answers/articles/24951/how-to-write-a-quality-question.html)
-* [Comment créer un exemple minimal, complet et vérifiable](https://docs.microsoft.com/answers/articles/24907/how-to-write-a-quality-answer.html)
+* [Comment poser une bonne question](/answers/articles/24951/how-to-write-a-quality-question.html)
+* [Comment créer un exemple minimal, complet et vérifiable](/answers/articles/24907/how-to-write-a-quality-answer.html)
 
 ## <a name="create-a-github-issue"></a>Créer un problème GitHub
 

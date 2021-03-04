@@ -6,18 +6,18 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 09/08/2020
-ms.openlocfilehash: 6b273b864c8329547ef91eb7063a064e0f5cb77d
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: b1295904f25d38c97578fa6fd6ede4ecd50c0456
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100600332"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728975"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-secure-export"></a>Connecter Azure aux outils ITSM en utilisant l’exportation sécurisée
 
 Cet article explique comment configurer la connexion entre votre service ou produit Gestion des services informatiques (ITSM) à l’aide de l’exportation sécurisée.
 
-L’exportation sécurisée est une version actualisée de [Connecteur de gestion des services informatiques (connecteur ITSMC)](../platform/itsmc-overview.md). Les deux versions vous permettent de créer des éléments de travail dans un outil ITSM lorsque Azure Monitor envoie des alertes. La fonctionnalité comprend des alertes de métriques, des alertes de journaux et des alertes du journal d’activité.
+L’exportation sécurisée est une version actualisée de [Connecteur de gestion des services informatiques (connecteur ITSMC)](./itsmc-overview.md). Les deux versions vous permettent de créer des éléments de travail dans un outil ITSM lorsque Azure Monitor envoie des alertes. La fonctionnalité comprend des alertes de métriques, des alertes de journaux et des alertes du journal d’activité.
 
 ITSMC utilise les informations d’identification de nom d’utilisateur et de mot de passe. L’exportation sécurisée dispose d’une authentification renforcée, car elle utilise Azure Active Directory (Azure AD). Azure AD est le service Microsoft basé sur le cloud qui gère les identités et les accès. Il permet aux utilisateurs de se connecter et d’accéder aux ressources internes ou externes. L’utilisation d’Azure AD avec ITSM donne la possibilité d’identifier les alertes Azure (par l’intermédiaire de l’ID d’application Azure AD) qui ont été envoyées au système externe.
 
@@ -55,4 +55,4 @@ Voici les avantages principaux de l’intégration :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Créer des éléments de travail ITSM à partir des alertes Azure](../platform/itsmc-overview.md)
+* [Créer des éléments de travail ITSM à partir des alertes Azure](./itsmc-overview.md)

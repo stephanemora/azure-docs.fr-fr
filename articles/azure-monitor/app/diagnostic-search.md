@@ -3,18 +3,18 @@ title: Utilisation de la recherche dans Azure Application Insights | Microsoft D
 description: Recherchez et filtrez la télémétrie brute envoyée par votre application web.
 ms.topic: conceptual
 ms.date: 07/30/2019
-ms.openlocfilehash: f87a972b417bf6074de1c10b7a54bd2416f88daa
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: f7c2229a2e497fb052db79d61fcfeff140897798
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187015"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579553"
 ---
 # <a name="using-search-in-application-insights"></a>Utilisation de la recherche dans Application Insights
 
 Recherche (Search) est la fonctionnalité [d’Application Insights](./app-insights-overview.md) qui vous permet de rechercher et d’explorer les éléments de télémétrie, par exemple des pages vues, des exceptions ou des requêtes web. Vous pouvez également afficher le suivi et les événements de journal que vous avez codés.
 
-(Pour les requêtes plus complexes sur vos données, utilisez [Analytics](../log-query/log-analytics-tutorial.md).)
+(Pour les requêtes plus complexes sur vos données, utilisez [Analytics](../logs/log-analytics-tutorial.md).)
 
 ## <a name="where-do-you-see-search"></a>Où voyez-vous Recherche ?
 
@@ -61,7 +61,7 @@ Les types d'événements sont :
 * **Affichage de page** - [Télémétrie envoyée par le client web](./javascript.md) et utilisée pour créer les rapports d’affichage des pages.
 * **Événement personnalisé** : si vous avez inséré des appels vers TrackEvent() pour [surveiller l’utilisation](./api-custom-events-metrics.md), vous pouvez les rechercher ici.
 * **Exception** : [exceptions non interceptées sur le serveur](./asp-net-exceptions.md) et celles que vous enregistrez avec TrackException().
-* **Dépendance** - [Appels de votre application de serveur](./asp-net-dependencies.md) à d’autres services tels que des API REST ou des bases de données, et appels AJAX à partir de votre [code client](./javascript.md).
+* **Dépendance** - [Appels de votre application de serveur ](./asp-net-dependencies.md) à d’autres services tels que des API REST ou des bases de données, et appels AJAX à partir de votre [code client](./javascript.md).
 * **Disponibilité** : résultats des [tests de disponibilité](./monitor-web-app-availability.md).
 
 ## <a name="filter-on-property-values"></a>Filtrer des valeurs de propriétés
@@ -81,7 +81,7 @@ Pour rechercher tous les éléments avec la même valeur de propriété, tapez c
 ## <a name="search-the-data"></a>Recherche dans les données
 
 > [!NOTE]
-> Pour écrire des requêtes plus complexes, ouvrez [**Logs (Analytics)**](../log-query/log-analytics-tutorial.md) à partir du haut du panneau Recherche.
+> Pour écrire des requêtes plus complexes, ouvrez [**Logs (Analytics)**](../logs/log-analytics-tutorial.md) à partir du haut du panneau Recherche.
 >
 
 Vous pouvez rechercher des termes dans une des valeurs des propriétés. Cela est utile si vous avez écrit des [événements personnalisés](./api-custom-events-metrics.md) avec des valeurs de propriété.
@@ -145,7 +145,7 @@ Nous n’enregistrons pas automatiquement les données POST, mais vous pouvez ut
 
 ## <a name="next-steps"></a><a name="add"></a>Étapes suivantes
 
-* [Écrire des requêtes complexes dans Analytics](../log-query/log-analytics-tutorial.md)
+* [Écrire des requêtes complexes dans Analytics](../logs/log-analytics-tutorial.md)
 * [Envoi des journaux d’activité et de la télémétrie personnalisée à Application Insights](./asp-net-trace-logs.md)
 * [Configuration des tests de disponibilité et de réactivité](./monitor-web-app-availability.md)
 * [Dépannage](../faq.md)

@@ -6,18 +6,18 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/21/2020
-ms.openlocfilehash: 2d7406c1e801a07f10342c47e7334e6a12bfd449
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0d9804d088e1f193e0adf1fa26adbbe5d3680097
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100599002"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101729196"
 ---
 # <a name="collect-syslog-data-sources-with-log-analytics-agent"></a>Collecter les sources de données Syslog avec l’agent Log Analytics
 Syslog est un protocole de journalisation d’événements commun à Linux. Les applications envoient les messages qui peuvent être stockés sur l’ordinateur local ou remis à un collecteur Syslog. Lorsque l’agent Log Analytics pour Linux est installé, il configure le démon Syslog local pour qu’il transfère des messages à l’agent. L’agent envoie ensuite le message à Azure Monitor, où un enregistrement correspondant est créé.  
 
 > [!IMPORTANT]
-> Cet article traite de la collecte d’événements Syslog avec l’[agent Log Analytics](../platform/log-analytics-agent.md), qui est un des agents utilisés par Azure Monitor. D’autres agents collectent des données différentes et sont configurés différemment. Pour obtenir la liste des agents disponibles et les données qu’ils peuvent collecter, consultez [Vue d’ensemble des agents Azure Monitor](../agents/agents-overview.md).
+> Cet article traite de la collecte d’événements Syslog avec l’[agent Log Analytics](./log-analytics-agent.md), qui est un des agents utilisés par Azure Monitor. D’autres agents collectent des données différentes et sont configurés différemment. Pour obtenir la liste des agents disponibles et les données qu’ils peuvent collecter, consultez [Vue d’ensemble des agents Azure Monitor](../agents/agents-overview.md).
 
 > [!NOTE]
 > Azure Monitor prend en charge la collecte de messages envoyés par rsyslog ou syslog-ng, sachant que rsyslog est le démon par défaut. Le démon syslog par défaut sur la version 5 de Red Hat Enterprise Linux, CentOS et Oracle Linux (sysklog) ne prend pas en charge la collecte des événements syslog. Pour collecter les données syslog avec cette version de ces distributions, le [démon rsyslog](http://rsyslog.com) doit être installé et configuré à la place de syslog.
@@ -57,7 +57,7 @@ Vous pouvez ajouter une fonctionnalité en commençant par sélectionner l’opt
 Par défaut, toutes les modifications de configuration sont automatiquement transmises à l’ensemble des agents. Si vous souhaitez configurer Syslog manuellement sur chaque agent Linux, désactivez la case *Appliquer la configuration ci-dessous à mes machines*.
 
 ### <a name="configure-syslog-on-linux-agent"></a>Configurer l’agent Syslog sur Linux
-Lorsque [l’agent Log Analytics est installé sur un client Linux](../learn/quick-collect-linux-computer.md), il installe un fichier de configuration syslog par défaut qui définit l’installation et le niveau de gravité des messages qui sont collectés. Vous pouvez modifier ce fichier pour changer la configuration. Le fichier de configuration est différent selon le démon Syslog installé par le client.
+Lorsque [l’agent Log Analytics est installé sur un client Linux](../vm/quick-collect-linux-computer.md), il installe un fichier de configuration syslog par défaut qui définit l’installation et le niveau de gravité des messages qui sont collectés. Vous pouvez modifier ce fichier pour changer la configuration. Le fichier de configuration est différent selon le démon Syslog installé par le client.
 
 > [!NOTE]
 > Si vous modifiez cette configuration, vous devez redémarrer le démon syslog pour que les modifications prennent effet.
@@ -230,7 +230,6 @@ Le tableau suivant fournit plusieurs exemples de requêtes de journaux qui extra
 | Syslog &#124; summarize AggregatedValue = count() by Facility |Nombre d’enregistrements Syslog par installation. |
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Découvrez les [requêtes dans les journaux](../log-query/log-query-overview.md) pour analyser les données collectées à partir de sources de données et de solutions.
-* Utilisez les [Champs personnalisés](./../platform/custom-fields.md) pour analyser les données des enregistrements syslog dans des champs individuels.
-* [Configurez les agents Linux](../learn/quick-collect-linux-computer.md) pour qu’ils collectent d’autres types de données.
-
+* Découvrez les [requêtes dans les journaux](../logs/log-query-overview.md) pour analyser les données collectées à partir de sources de données et de solutions.
+* Utilisez les [Champs personnalisés](../logs/custom-fields.md) pour analyser les données des enregistrements syslog dans des champs individuels.
+* [Configurez les agents Linux](../vm/quick-collect-linux-computer.md) pour qu’ils collectent d’autres types de données.

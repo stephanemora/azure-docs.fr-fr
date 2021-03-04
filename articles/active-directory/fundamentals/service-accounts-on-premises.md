@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 55de24975dadf27293f305611c6ba07522e8aa90
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: a9024bc9fbd460f403db2da8a65af1e9bd2e771b
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100416496"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101645614"
 ---
 # <a name="introduction-to-active-directory-service-accounts"></a>Présentation des comptes de service Active Directory
 
@@ -34,7 +34,7 @@ Selon votre cas d’usage, vous pouvez utiliser un compte de service géré (MSA
 
 ### <a name="group-msa-accounts"></a>Comptes MSA de groupe
 
-Utilisez des [comptes de service géré de groupe](service-accounts-group-managed.md) (gMSA) chaque fois que cela est possible pour les services qui s’exécutent dans votre environnement local. Les gMSA fournissent une solution d’identité unique pour un service s’exécutant sur une batterie de serveurs ou derrière un équilibreur de charge réseau. Ils peuvent également être utilisés pour un service s’exécutant sur un serveur unique. [Les gMSA ont des exigences spécifiques qui doivent être respectées](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/getting-started-with-group-managed-service-accounts).
+Utilisez des [comptes de service géré de groupe](service-accounts-group-managed.md) (gMSA) chaque fois que cela est possible pour les services qui s’exécutent dans votre environnement local. Les gMSA fournissent une solution d’identité unique pour un service s’exécutant sur une batterie de serveurs ou derrière un équilibreur de charge réseau. Ils peuvent également être utilisés pour un service s’exécutant sur un serveur unique. [Les gMSA ont des exigences spécifiques qui doivent être respectées](/windows-server/security/group-managed-service-accounts/getting-started-with-group-managed-service-accounts).
 
 ### <a name="standalone-msa-accounts"></a>Comptes MSA autonomes
 
@@ -138,4 +138,3 @@ Consultez les articles suivants sur la sécurisation des comptes de service :
 
 * [Administrer les comptes de service locaux](service-accounts-govern-on-premises.md)
 
- 

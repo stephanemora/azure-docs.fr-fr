@@ -7,12 +7,12 @@ services: firewall
 ms.topic: how-to
 ms.date: 02/16/2021
 ms.author: victorh
-ms.openlocfilehash: ec8fc4473669b0c056d0b22ff44e5818b87ba3fa
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: fa106fac683619706f4be330ad1c4bff7b56f2dd
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100549425"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101721784"
 ---
 # <a name="deploy-and-configure-azure-firewall-premium-preview"></a>Déployer et configurer le Pare-feu Azure Premium - Préversion
 
@@ -34,7 +34,7 @@ Vous utiliserez un modèle pour déployer un environnement de test doté d’un 
 - sous-réseau Azure Bastion (10.0.20.0/24)
 - sous-réseau de pare-feu (10.0.100.0/24)
 
-Pour des raisons de simplicité, un réseau virtuel central unique est utilisé dans cet environnement de test. À des fins de production, une [topologie hub-and-spoke](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) avec réseaux virtuels appairés est plus courante.
+Pour des raisons de simplicité, un réseau virtuel central unique est utilisé dans cet environnement de test. À des fins de production, une [topologie hub-and-spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) avec réseaux virtuels appairés est plus courante.
 
 :::image type="content" source="media/premium-deploy/premium-topology.png" alt-text="Topologie de réseau virtuel central":::
 

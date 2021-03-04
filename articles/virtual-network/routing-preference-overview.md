@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2021
 ms.author: mnayak
-ms.custom: references_regions
-ms.openlocfilehash: b0235286260910a45523e3236e7ed3a114eaf57f
-ms.sourcegitcommit: 8c93b05c27c7e8a5ba62a4d6fc6fc4d0c3980a21
+ms.openlocfilehash: 56fd9898065dd55b9a56547a775f7f2aa4a56156
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2021
-ms.locfileid: "101577498"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101693728"
 ---
 # <a name="what-is-routing-preference"></a>Qu’est-ce qu’une préférence de routage ?
 
@@ -71,7 +70,7 @@ La différence de prix entre les deux options est reflétée dans la tarificatio
 
 ## <a name="limitations"></a>Limites
 
-* Actuellement, la préférence de routage n’est pas prise en charge dans les régions Australie Centre, Australie Centre2, Canada Est, Brésil Sud, Corée Centre et Corée Sud.
+
 * La préférence de routage est compatible uniquement avec la référence (SKU) standard redondante interzone d’IP publique. La référence (SKU) de base d’adresse IP publique n’est pas prise en charge.
 * La préférence de routage ne prend actuellement en charge que les adresses IP publiques IPv4. Les adresses IP publiques IPv6 ne sont pas prises en charge.
 

@@ -8,10 +8,13 @@
 - name: Concepts
   expanded: true
   items:
-    - name: Machines virtuelles
-      href: automanage-virtual-machines.md
-    - name: Bonnes pratiques pour les machines virtuelles
-      href: virtual-machines-best-practices.md
+    - name: Automanage pour Linux
+      href: automanage-linux.md
+    - name: Automanage pour Windows Server
+      href: automanage-windows-server.md
+      items:
+        - name: Hotpatch pour les nouvelles machines virtuelles
+          href: automanage-hotpatch.md
 - name: Guides pratiques
   expanded: true
   items:

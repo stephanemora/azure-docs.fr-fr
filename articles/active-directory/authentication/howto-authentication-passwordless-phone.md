@@ -1,6 +1,6 @@
 ---
 title: Connexion sans mot de passe avec l’application Microsoft Authenticator - Azure Active Directory
-description: Activer la connexion sans mot de passe pour Azure AD à l’aide de l’application Microsoft Authenticator (préversion)
+description: Activer la connexion sans mot de passe pour Azure AD à l’aide de l’application Microsoft Authenticator
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,14 +11,14 @@ author: justinha
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 62dea67f139857befc7ca24b8b8a105241b5c949
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: 51e6cd7efcd0e851c15975aba5ff9b99c615eb7d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99626153"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101653471"
 ---
-# <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Activer la connexion sans mot de passe avec l'application Microsoft Authenticator (préversion)
+# <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app"></a>Activer la connexion sans mot de passe avec l’application Microsoft Authenticator 
 
 L’application Microsoft Authenticator vous permet de vous connecter à n’importe quel compte Azure AD sans utiliser de mot de passe. Microsoft Authenticator utilise l’authentification par clé pour activer les informations d’identification de l’utilisateur qui sont liées à un appareil, où l’appareil utilise un code confidentiel ou la biométrie. [Windows Hello Entreprise](/windows/security/identity-protection/hello-for-business/hello-identity-verification) utilise une technologie similaire.
 
@@ -40,7 +40,7 @@ Pour utiliser la connexion par téléphone sans mot de passe avec l’applicatio
 - Installation de la dernière version de Microsoft Authenticator sur des appareils exécutant iOS 8.0 ou une version ultérieure, ou Android 6.0 ou une version ultérieure.
 
 > [!NOTE]
-> Si vous avez activé la préversion de la connexion sans mot de passe Microsoft Authenticator en utilisant Azure AD PowerShell, elle a été activée pour l’ensemble de votre répertoire. Si vous activez l’utilisation de cette nouvelle méthode, elle remplace la stratégie PowerShell. Nous vous recommandons d’activer cette fonctionnalité pour tous les utilisateurs de votre locataire par le biais du nouveau menu *Méthodes d’authentification*, sinon les utilisateurs ne figurant pas dans la nouvelle stratégie ne pourront plus se connecter sans mot de passe.
+> Si vous avez activé la connexion sans mot de passe Microsoft Authenticator en utilisant Azure AD PowerShell, elle a été activée pour l’ensemble de votre annuaire. Si vous activez l’utilisation de cette nouvelle méthode, elle remplace la stratégie PowerShell. Nous vous recommandons d’activer cette fonctionnalité pour tous les utilisateurs de votre locataire par le biais du nouveau menu *Méthodes d’authentification*, sinon les utilisateurs ne figurant pas dans la nouvelle stratégie ne pourront plus se connecter sans mot de passe.
 
 ## <a name="enable-passwordless-authentication-methods"></a>Activer les méthodes d’authentification sans mot de passe
 
@@ -58,7 +58,7 @@ Pour activer la méthode d’authentification pour la connexion par téléphone 
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte d’*administrateur général*.
 1. Recherchez et sélectionnez *Azure Active Directory*, puis accédez à **Sécurité** > **Méthodes d’authentification** > **Stratégies**.
-1. Sous **Microsoft Authenticator (préversion)** , choisissez les options suivantes :
+1. Sous **Microsoft Authenticator**, choisissez les options suivantes :
    1. **Activer** - Oui ou Non
    1. **Cible** - Tous les utilisateurs ou les utilisateurs sélectionnés
 1. Chaque groupe ou utilisateur ajouté est activé par défaut pour utiliser Microsoft Authenticator dans les modes de notifications sans mot de passe et push (mode « Tout »). Pour modifier cela, pour chaque ligne :
@@ -104,7 +104,7 @@ Une fois que l’utilisateur a utilisé la connexion par téléphone sans mot de
 
 ## <a name="known-issues"></a>Problèmes connus
 
-Les problèmes connus suivants existent dans l’expérience en préversion actuelle.
+Les problèmes connus suivants existent.
 
 ### <a name="not-seeing-option-for-passwordless-phone-sign-in"></a>Aucune option pour la connexion par téléphone sans mot de passe n’est visible
 

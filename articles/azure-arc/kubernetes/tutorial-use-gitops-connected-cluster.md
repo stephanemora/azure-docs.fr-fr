@@ -7,12 +7,12 @@ ms.service: azure-arc
 ms.topic: tutorial
 ms.date: 03/02/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: 0ff300a90876841e5a25e4e44ffdaecab2eaee95
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: cf079c009e5f6c3ef1ba6f8b22636b9a53b51348
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101658662"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101689230"
 ---
 # <a name="tutorial-deploy-configurations-using-gitops-on-an-azure-arc-enabled-kubernetes-cluster"></a>Tutoriel : Déployer des configurations à l’aide de GitOps sur un cluster Kubernetes avec Azure Arc 
 
@@ -26,7 +26,7 @@ Dans ce tutoriel, vous allez appliquer des configurations à l’aide de GitOps 
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Compte Azure avec un abonnement actif. [Créez un compte gratuitement] (https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Cluster Kubernetes avec Azure Arc connecté.
     - Si vous n’avez pas encore connecté de cluster, consultez notre [guide de démarrage rapide sur la connexion d’un cluster Kubernetes avec Azure Arc](quickstart-connect-cluster.md).
 - Compréhension suffisante des avantages et de l’architecture de cette fonctionnalité. Pour plus d’informations, consultez l’article [Configurations et GitOps - Kubernetes avec Azure Arc](conceptual-configurations.md).
@@ -152,7 +152,7 @@ Personnalisez la configuration avec les paramètres facultatifs suivants :
 | ------------- | ------------- |
 | `--enable-helm-operator`| Commutateur pour activer la prise en charge des déploiements de charts Helm. |
 | `--helm-operator-params` | Valeurs de chart pour l’opérateur Helm (si activé). Par exemple : `--set helm.versions=v3`. |
-| `--helm-operator-version` | Version de chart pour l’opérateur Helm (si activé). Utilisez la version 1.2.0 et ultérieure. Valeur par défaut : '1.2.0'. |
+| `--helm-operator-chart-version` | Version de chart pour l’opérateur Helm (si activé). Utilisez la version 1.2.0 et ultérieure. Valeur par défaut : '1.2.0'. |
 | `--operator-namespace` | Nom de l’espace de noms de l’opérateur. Valeur par défaut : « default ». 23 caractères au maximum. |
 | `--operator-params` | Paramètres de l’opérateur. Doit être entouré d’apostrophes. Par exemple : ```--operator-params='--git-readonly --sync-garbage-collection --git-branch=main'``` 
 

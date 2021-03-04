@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40bfa27dba905cb2e9a363c7739f0a43e7c2afdf
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: ad99c8d319a22f8b5388838b9d537de2f610478a
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100100936"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101650989"
 ---
 # <a name="monitoring-application-sign-in-health-for-resilience"></a>Supervision de l’intégrité de connexion de l’application pour la résilience
 
@@ -51,7 +51,7 @@ Cet article explique comment configurer le classeur d’intégrité de connexion
 
 * Un espace de travail Log Analytics dans votre abonnement Azure pour l’envoi de journaux d’activité aux journaux d’activité Azure Monitor. 
 
-   * Découvrir comment [créer un espace de travail Log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)
+   * Découvrir comment [créer un espace de travail Log Analytics](../../azure-monitor/logs/quick-create-workspace.md)
 
 * Journaux Azure AD intégrés aux journaux Azure Monitor
 
@@ -94,7 +94,7 @@ Utilisez les instructions suivantes pour créer des alertes par e-mail en foncti
 
  Pour configurer la requête sous-jacente et définir des alertes, procédez comme suit. Vous utiliserez l’exemple de requête comme base pour votre configuration. Une explication de la structure de la requête s’affiche à la fin de cette section.
 
-Pour plus d’informations sur la création, l’affichage et la gestion des alertes de journal à l’aide d’Azure Monitor, consultez [Gérer les alertes de journal](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log).
+Pour plus d’informations sur la création, l’affichage et la gestion des alertes de journal à l’aide d’Azure Monitor, consultez [Gérer les alertes de journal](../../azure-monitor/alerts/alerts-log.md).
 
  
 1. Dans le classeur, sélectionnez **Modifier**, puis cliquez sur l’**icône de requête** à droite du graphique.   
@@ -280,10 +280,9 @@ Une fois que vous avez configuré la requête et les alertes, créez des process
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[En savoir plus sur les classeurs](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-use-azure-monitor-workbooks)
+[En savoir plus sur les classeurs](../reports-monitoring/howto-use-azure-monitor-workbooks.md)
 
  
 
  
 
- 

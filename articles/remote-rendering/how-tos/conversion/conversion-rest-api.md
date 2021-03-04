@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/04/2020
 ms.topic: how-to
-ms.openlocfilehash: 4f8ac72e2b598a6c7631d691cc1bfb82cdba7599
-ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
+ms.openlocfilehash: f33e5717cd5556e72d996e7e943867c16805e71b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100530261"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101705175"
 ---
 # <a name="use-the-model-conversion-rest-api"></a>Utiliser l’API REST de conversion de modèle
 
@@ -18,7 +18,7 @@ Le service de [conversion de modèle](model-conversion.md) est contrôlé via un
 
 ## <a name="rest-api-reference"></a>Référence d’API REST
 
-La documentation de référence sur l’API REST de Remote Rendering est disponible [ici](https://docs.microsoft.com/rest/api/mixedreality/2021-01-01preview/remoterendering), et les définitions de Swagger sont disponibles [ici](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mixedreality/data-plane/Microsoft.MixedReality).
+La documentation de référence sur l’API REST de Remote Rendering est disponible [ici](/rest/api/mixedreality/2021-01-01preview/remoterendering), et les définitions de Swagger sont disponibles [ici](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mixedreality/data-plane/Microsoft.MixedReality).
 
 Dans le [dépôt d’exemples ARR](https://github.com/Azure/azure-remote-rendering), dans le dossier *Scripts*, nous fournissons un script PowerShell appelé *Conversion.ps1*, qui illustre l’utilisation de notre service. Le script et sa configuration sont décrits ici : [Exemples de scripts PowerShell](../../samples/powershell-example-scripts.md). Nous fournissons également des kits SDK pour [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/mixedreality/Azure.MixedReality.RemoteRendering), Java et Python.
 

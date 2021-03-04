@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: d62c4b79fcb86080649c542e34b81d3213978604
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 2a3bf022d178fbd0de3ca800e0a560235c3f33b5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100599053"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731491"
 ---
 # <a name="troubleshooting-metrics-charts"></a>Résolution des problèmes liés aux graphiques de métriques
 
@@ -62,7 +62,7 @@ La collecte des métriques de **SE invité** nécessite la configuration de l’
 
 Ce problème peut se produire quand votre tableau de bord a été créé avec une métrique qui a ensuite été dépréciéeet supprimée dans Azure. Pour vérifier si c’est le cas, ouvrez l’onglet **Métriques** de votre ressource et examinez les métriques disponibles dans le sélecteur de métriques. Si aucune métrique n’est affichée, cela signifie que la métrique a été supprimée d’Azure. En règle générale, quand une métrique est déconseillée, une nouvelle métrique, plus efficace, offre une perspective similaire sur l’intégrité des ressources.
 
-**Solution :** Mettez à jour la vignette défaillante en choisissant une autre métrique pour votre graphique sur le tableau de bord. Vous pouvez [consulter une liste des métriques disponibles pour les services Azure](../platform/metrics-supported.md).
+**Solution :** Mettez à jour la vignette défaillante en choisissant une autre métrique pour votre graphique sur le tableau de bord. Vous pouvez [consulter une liste des métriques disponibles pour les services Azure](./metrics-supported.md).
 
 ## <a name="chart-shows-dashed-line"></a>Le graphique affiche une ligne en pointillés.
 
@@ -104,5 +104,5 @@ Par défaut, les métriques de SE invité sont stockées dans le compte de Stock
 
 * [Découvrez comment bien démarrer avec Metrics Explorer](metrics-getting-started.md).
 * [Découvrez les fonctionnalités avancées de Metrics Explorer](../essentials/metrics-charts.md).
-* [Consulter la liste des métriques disponibles pour les services Azure](../platform/metrics-supported.md)
+* [Consulter la liste des métriques disponibles pour les services Azure](./metrics-supported.md)
 * [Consulter des exemples de graphiques configurés](../essentials/metric-chart-samples.md)

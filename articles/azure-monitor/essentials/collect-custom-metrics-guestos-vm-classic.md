@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: ''
-ms.openlocfilehash: 48c7323a630f5c79c7ecb16e26c9ec79ec2014a1
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: f0c97d128837e77325e68ae28161a98938510ff8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100598417"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723280"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metrics-database-for-a-windows-virtual-machine-classic"></a>Envoyer les mesures du système d’exploitation invité à une base de données de mesures Azure Monitor d’une machine virtuelle Windows (classique)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-[L’extension Diagnostics](../agents/diagnostics-extension-overview.md) (également appelée « WAD » ou « Diagnostics ») d’Azure Monitor vous permet de collecter des métriques et des journaux d’activité à partir du système d’exploitation invité qui est exécuté dans le cadre d’une machine virtuelle, d’un service cloud ou d’un cluster Service Fabric. L’extension peut envoyer des données de télémétrie à de [nombreux emplacements différents](../platform/data-platform.md?toc=/azure/azure-monitor/toc.json).
+[L’extension Diagnostics](../agents/diagnostics-extension-overview.md) (également appelée « WAD » ou « Diagnostics ») d’Azure Monitor vous permet de collecter des métriques et des journaux d’activité à partir du système d’exploitation invité qui est exécuté dans le cadre d’une machine virtuelle, d’un service cloud ou d’un cluster Service Fabric. L’extension peut envoyer des données de télémétrie à de [nombreux emplacements différents](../data-platform.md?toc=%2fazure%2fazure-monitor%2ftoc.json).
 
 Cet article décrit le processus permettant d’envoyer les mesures de performances du système d’exploitation invité d’une machine virtuelle Windows (classique) à la base de données des mesures Azure Monitor. À partir de la version 1.11 de l’extension Diagnostics, vous pouvez écrire des métriques directement dans le magasin de métriques Azure Monitor, où les métriques standard de la plateforme sont déjà collectées. 
 
@@ -34,7 +34,7 @@ La procédure décrite dans cet article fonctionne uniquement avec les machines 
 
 - Vous devez avoir installé [Azure PowerShell](/powershell/azure) ou [Azure Cloud Shell](../../cloud-shell/overview.md).
 
-- Votre ressource de machine virtuelle doit se trouver dans une région [ prenant en charge les métriques personnalisées](../platform/metrics-custom-overview.md#supported-regions).
+- Votre ressource de machine virtuelle doit se trouver dans une région [ prenant en charge les métriques personnalisées](./metrics-custom-overview.md#supported-regions).
 
 ## <a name="create-a-classic-virtual-machine-and-storage-account"></a>Créer une machine virtuelle classique et un compte de stockage
 
@@ -203,4 +203,4 @@ Donnez à l’application créée dans « Surveillance de l’éditeur de métri
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-- En savoir plus sur les [métriques personnalisées](../platform/metrics-custom-overview.md).
+- En savoir plus sur les [métriques personnalisées](./metrics-custom-overview.md).

@@ -9,12 +9,12 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: daveba
-ms.openlocfilehash: 53339623ee435362d248b794776681972000173e
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 9de518f53a6054a47a72e40ebe546a32dd48aabe
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258572"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101647270"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Gestion des applications Azure Active Directory : Nouveautés
 
@@ -34,7 +34,7 @@ Nouveautés de la documentation relative à la gestion des applications Azure Ac
 - [Questions fréquentes (FAQ) sur la fonctionnalité Proxy d’application Azure Active Directory](application-proxy-faq.md)
 - [Tutoriel : Ajouter une application locale pour un accès à distance via le proxy d’application d’Azure Active Directory](application-proxy-add-on-premises-application.md)
 - [Travailler avec des serveurs proxy locaux existants](application-proxy-configure-connectors-with-proxy-servers.md)
-- [Développer des applications métier pour Azure Active Directory](developer-guidance-for-integrating-applications.md)
+- [Développer des applications métier pour Azure Active Directory](../develop/v2-overview.md)
 - [Présentation des connecteurs de proxy d’application Azure AD](application-proxy-connectors.md)
 - [Comprendre l’authentification liée](configure-linked-sign-on.md)
 - [Comprendre l’authentification unique par mot de passe](configure-password-single-sign-on-non-gallery-applications.md)

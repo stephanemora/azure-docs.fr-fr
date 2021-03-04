@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2020
 ms.author: allensu
-ms.openlocfilehash: 7a456057bc088264cefb91be9f3e5069b29474a1
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 36937ace82d2bd8d4317f90a375042de10fe719f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100596804"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709816"
 ---
 # <a name="azure-monitor-logs-for-azure-standard-load-balancer"></a>Journaux Azure Monitor pour Azure Standard Load Balancer
 
@@ -74,7 +74,7 @@ La journalisation d’activité est automatiquement activée pour chaque ressour
 
 ## <a name="view-and-analyze-the-activity-log"></a>Afficher et analyser le journal d’activité
 
-Le journal d’activité est généré par défaut. Vous pouvez le configurer pour l’exporter à un niveau d’abonnement [en suivant les instructions de cet article](../azure-monitor/platform/activity-log.md). Pour en savoir plus sur ces journaux, lisez l’article [Afficher les journaux d’activité pour superviser les actions sur les ressources](../azure-resource-manager/management/view-activity-logs.md).
+Le journal d’activité est généré par défaut. Vous pouvez le configurer pour l’exporter à un niveau d’abonnement [en suivant les instructions de cet article](../azure-monitor/essentials/activity-log.md). Pour en savoir plus sur ces journaux, lisez l’article [Afficher les journaux d’activité pour superviser les actions sur les ressources](../azure-resource-manager/management/view-activity-logs.md).
 
 Vous pouvez afficher et analyser les données du journal d’activité en utilisant l’une ou l’autre des méthodes suivantes :
 
@@ -113,4 +113,4 @@ La fonctionnalité d’exportation des métriques sous forme de journaux pour Az
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Examiner les métriques disponibles pour votre équilibreur de charge](./load-balancer-standard-diagnostics.md)
-* [Créer et tester des requêtes en suivant les instructions Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
+* [Créer et tester des requêtes en suivant les instructions Azure Monitor](../azure-monitor/logs/log-query-overview.md)

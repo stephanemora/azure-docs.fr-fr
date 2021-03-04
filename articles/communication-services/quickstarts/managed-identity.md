@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 12/04/2020
 ms.author: gistefan
 ms.reviewer: mikben
-ms.openlocfilehash: 9fd8a17deeb49d836ff5902042bdb88696e29f31
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 7e8d9b56077819fc404d6c2bdc39f9f697224136
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100416599"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101692179"
 ---
 # <a name="use-managed-identities-net"></a>Utiliser des identités managées (.NET)
 
@@ -25,7 +25,7 @@ Ce guide de démarrage rapide vous montre comment autoriser l’accès aux bibli
 ## <a name="prerequisites"></a>Prérequis
 
  - Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free).
- - Une chaîne de connexion et une ressource Communication Services actives. [Créez une ressource Communication Services](https://docs.microsoft.com/azure/communication-services/quickstarts/create-communication-resource?tabs=windows&pivots=platform-azp).
+ - Une chaîne de connexion et une ressource Communication Services actives. [Créez une ressource Communication Services](./create-communication-resource.md?pivots=platform-azp&tabs=windows).
 
 ## <a name="setting-up"></a>Configuration
 
@@ -76,7 +76,7 @@ using Azure.Communication.Configuration;
 using Azure.Communication.Sms;
 ```
 
-Les exemples ci-dessous utilisent [DefaultAzureCredential](https://docs.microsoft.com/dotnet/api/azure.identity.defaultazurecredential). Ces informations d’identification sont appropriées pour les environnements de production et de développement.
+Les exemples ci-dessous utilisent [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential). Ces informations d’identification sont appropriées pour les environnements de production et de développement.
 
 ### <a name="create-an-identity-and-issue-a-token"></a>Créer une identité et émettre un jeton
 
@@ -124,7 +124,7 @@ L’exemple de code suivant montre comment créer un objet client de service ave
 Vous souhaiterez peut-être également :
 
 - [En savoir plus sur le contrôle d’accès en fonction du rôle dans Azure](../../../articles/role-based-access-control/index.yml)
-- [En savoir plus sur la bibliothèque d’identité Azure pour .NET](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme)
+- [En savoir plus sur la bibliothèque d’identité Azure pour .NET](/dotnet/api/overview/azure/identity-readme)
 - [Créer des jetons d’accès utilisateur](../quickstarts/access-tokens.md)
 - [Envoyer un message SMS](../quickstarts/telephony-sms/send.md)
 - [En savoir plus sur les SMS](../concepts/telephony-sms/concepts.md)

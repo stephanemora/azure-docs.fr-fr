@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: d029f033a3c452587dbeeadf69c46cc99f604031
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 58cd69ebe97d9d0965d7e648b0ded012ac71cd0d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99053815"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101646121"
 ---
 # <a name="tutorial-configure-bluejeans-for-automatic-user-provisioning"></a>Configurer BlueJeans pour l’attribution automatique d’utilisateurs
 
@@ -27,7 +27,7 @@ Ce tutoriel décrit les étapes à suivre dans BlueJeans et Azure Active Directo
 > * Créer des utilisateurs dans BlueJeans
 > * Supprimer des utilisateurs dans BlueJeans quand ils n’ont plus besoin d’accès
 > * Conserver les attributs utilisateur synchronisés entre Azure AD et BlueJeans
-> * [Authentification unique](https://docs.microsoft.com/azure/active-directory/saas-apps/bluejeans-tutorial) auprès de BlueJeans (recommandée)
+> * [Authentification unique](./bluejeans-tutorial.md) auprès de BlueJeans (recommandée)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -141,7 +141,7 @@ Cette opération démarre la synchronisation initiale de tous les utilisateurs d
 Une fois que vous avez configuré l’approvisionnement, utilisez les ressources suivantes pour surveiller votre déploiement :
 
 1. Utilisez les [journaux d’approvisionnement](../reports-monitoring/concept-provisioning-logs.md) pour déterminer quels utilisateurs ont été configurés avec succès ou échoué.
-2. Consultez la [barre de progression](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) pour afficher l’état du cycle d’approvisionnement et quand il se termine
+2. Consultez la [barre de progression](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) pour afficher l’état du cycle d’approvisionnement et quand il se termine
 3. Si la configuration de l’approvisionnement semble se trouver dans un état non sain, l’application passe en quarantaine. Pour en savoir plus sur les états de quarantaine, cliquez [ici](../app-provisioning/application-provisioning-quarantine-status.md).  
 
 ## <a name="connector-limitations"></a>Limitations du connecteur

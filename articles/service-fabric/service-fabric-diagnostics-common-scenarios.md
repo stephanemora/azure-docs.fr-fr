@@ -3,12 +3,12 @@ title: Diagnostiquer des scénarios courants avec Azure Service Fabric
 description: Découvrez comment résoudre les problèmes liés aux scénarios de supervision et de diagnostic courants au sein des applications Azure Service Fabric.
 ms.topic: article
 ms.date: 02/25/2019
-ms.openlocfilehash: f92bc02082d8bcd9d917f05c93d3da413f772cd0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3083348948ce97ae9d99098896878d79081a15f0
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86257731"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100580479"
 ---
 # <a name="diagnose-common-scenarios-with-service-fabric"></a>Diagnostiquer des scénarios courants avec Service Fabric
 
@@ -51,7 +51,7 @@ Les solutions de cet article utilisent les outils suivants. Nous vous recommando
 
 ## <a name="how-do-i-create-an-alert-when-a-node-goes-down"></a>Comment créer une alerte quand un nœud est en baisse ?
 
-1. Les événements de nœud sont suivis par votre cluster Service Fabric. Accédez à la ressource de la solution Service Fabric Analytics nommée **ServiceFabric(NameofResourceGroup)** .
+1. Les événements de nœud sont suivis par votre cluster Service Fabric. Accédez à la ressource de la solution Service Fabric Analytics nommée **ServiceFabric(NameofResourceGroup)**.
 2. Cliquez sur le graphe en bas du panneau intitulé « Résumé ».
 
     ![Solution de journaux Azure Monitor](media/service-fabric-diagnostics-common-scenarios/oms-solution-azure-portal.png)
@@ -133,9 +133,9 @@ Consultez ces liens pour obtenir la liste complète des compteurs de performance
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Rechercher des erreurs d’activation du package de code commun](./service-fabric-diagnostics-code-package-errors.md)
-* [Configurer des alertes dans AI](../azure-monitor/platform/alerts-log.md) pour être averti des changements de performances ou d’utilisation
+* [Configurer des alertes dans AI](../azure-monitor/alerts/alerts-log.md) pour être averti des changements de performances ou d’utilisation
 * La [détection intelligente dans Application Insights](../azure-monitor/app/proactive-diagnostics.md) effectue une analyse proactive de la télémétrie envoyée à AI pour vous avertir d’éventuels problèmes de performances
-* Découvrez plus en détail la [création d’alertes](../azure-monitor/platform/alerts-overview.md) dans les journaux Azure Monitor pour faciliter la détection et les diagnostics.
-* Pour les clusters locaux, les journaux Azure Monitor proposent une passerelle (proxy de transfert HTTP) qui peut être utilisée pour envoyer des données aux journaux Azure Monitor. Pour plus d’informations à ce sujet, consultez [Connexion d’ordinateurs aux journaux Azure Monitor sans accès Internet à l’aide de la passerelle Log Analytics](../azure-monitor/platform/gateway.md)
-* Familiarisez-vous avec les fonctionnalités de [requête et de recherche dans les journaux](../azure-monitor/log-query/log-query-overview.md) proposées par Journaux Azure Monitor
+* Découvrez plus en détail la [création d’alertes](../azure-monitor/alerts/alerts-overview.md) dans les journaux Azure Monitor pour faciliter la détection et les diagnostics.
+* Pour les clusters locaux, les journaux Azure Monitor proposent une passerelle (proxy de transfert HTTP) qui peut être utilisée pour envoyer des données aux journaux Azure Monitor. Pour plus d’informations à ce sujet, consultez [Connexion d’ordinateurs aux journaux Azure Monitor sans accès Internet à l’aide de la passerelle Log Analytics](../azure-monitor/agents/gateway.md)
+* Familiarisez-vous avec les fonctionnalités de [requête et de recherche dans les journaux](../azure-monitor/logs/log-query-overview.md) proposées par Journaux Azure Monitor
 * Pour obtenir une présentation plus détaillée des journaux Azure Monitor et de ce qu’ils proposent, lisez [Présentation des journaux Azure Monitor](../azure-monitor/overview.md).

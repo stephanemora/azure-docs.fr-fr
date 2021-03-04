@@ -6,20 +6,20 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/23/2019
-ms.openlocfilehash: 685c54131e4a82950ea64e5374d9e1d260ffabc7
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: f35100d703e56d1fda731aab5e6a96c791c8f0d9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100600025"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713675"
 ---
 # <a name="create-custom-fields-in-a-log-analytics-workspace-in-azure-monitor-preview"></a>Créer des champs personnalisés dans un espace de travail Log Analytics dans Azure Monitor (préversion)
 
 > [!NOTE]
-> Cet article décrit comment analyser les données texte dans un espace de travail Log Analytics au moment de leur collecte. Nous vous recommandons d’analyser les données texte dans un filtre de requête une fois qu’elles ont été collectées en suivant les instructions fournies dans [Analyser les données texte dans Azure Monitor](../log-query/parse-text.md). Cette méthode offre plusieurs avantages par rapport à l’utilisation de champs personnalisés.
+> Cet article décrit comment analyser les données texte dans un espace de travail Log Analytics au moment de leur collecte. Nous vous recommandons d’analyser les données texte dans un filtre de requête une fois qu’elles ont été collectées en suivant les instructions fournies dans [Analyser les données texte dans Azure Monitor](./parse-text.md). Cette méthode offre plusieurs avantages par rapport à l’utilisation de champs personnalisés.
 
 > [!IMPORTANT]
-> Les champs personnalisés augmentent la quantité de données collectées dans l’espace de travail Log Analytics, ce qui peut faire monter vos coûts. Pour plus d'informations, consultez [Gérer l’utilisation et les coûts avec les journaux Azure Monitor](../platform/manage-cost-storage.md#pricing-model).
+> Les champs personnalisés augmentent la quantité de données collectées dans l’espace de travail Log Analytics, ce qui peut faire monter vos coûts. Pour plus d'informations, consultez [Gérer l’utilisation et les coûts avec les journaux Azure Monitor](./manage-cost-storage.md#pricing-model).
 
 La fonction **Champs personnalisés** d’Azure Monitor vous permet de compléter les enregistrements existants dans votre espace de travail Log Analytics en leur ajoutant vos propres champs de recherche.  Les champs personnalisés sont renseignés automatiquement à partir des données extraites d’autres propriétés du même enregistrement.
 
@@ -42,9 +42,9 @@ Les sections suivantes décrivent la procédure de création d’un champ person
 > 
 
 ### <a name="step-1--identify-records-that-will-have-the-custom-field"></a>Étape 1 : identifier les enregistrements qui contiendront le champ personnalisé
-La première étape consiste à identifier les enregistrements qui recevront le champ personnalisé.  Commencez par une [requête de journal standard](../log-query/log-query-overview.md), puis vous sélectionnez l’enregistrement qui va servir de modèle à Azure Monitor.  Lorsque vous indiquez que vous allez extraire des données pour les placer dans un champ personnalisé, l’ **Assistant Extraction de champs** s’ouvre et vous permet d’affiner et de valider les critères.
+La première étape consiste à identifier les enregistrements qui recevront le champ personnalisé.  Commencez par une [requête de journal standard](./log-query-overview.md), puis vous sélectionnez l’enregistrement qui va servir de modèle à Azure Monitor.  Lorsque vous indiquez que vous allez extraire des données pour les placer dans un champ personnalisé, l’ **Assistant Extraction de champs** s’ouvre et vous permet d’affiner et de valider les critères.
 
-1. Accédez **Journaux** et utilisez une [requête pour récupérer les enregistrements](../log-query/log-query-overview.md) qui contiendront le champ personnalisé.
+1. Accédez **Journaux** et utilisez une [requête pour récupérer les enregistrements](./log-query-overview.md) qui contiendront le champ personnalisé.
 2. Sélectionnez l’enregistrement que Log Analytics utilisera comme modèle pour extraire les données à afficher dans le champ personnalisé.  Vous allez identifier les données à extraire de cet enregistrement, données que Log Analytics va utiliser pour déterminer la logique permettant de renseigner le champ personnalisé de tous les enregistrements similaires.
 3. Développez les propriétés de l’enregistrement, cliquez sur l’ellipse à gauche de la propriété en haut de l’enregistrement, puis sélectionnez **Extraire les champs de**.
 4. L’**Assistant Extraction de champs s’ouvre** et l’enregistrement que vous avez sélectionné s’affiche dans la colonne **Exemple principal**.  Le champ personnalisé sera défini pour les enregistrements ayant les mêmes valeurs dans les propriétés sélectionnées.  
@@ -128,6 +128,5 @@ Nous pouvons maintenant utiliser le champ personnalisé comme n’importe quelle
 ![Regrouper par requête](media/custom-fields/query-group.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
-* En savoir plus sur les [requêtes dans les journaux](../log-query/log-query-overview.md) pour générer des requêtes utilisant des champs personnalisés comme critères.
+* En savoir plus sur les [requêtes dans les journaux](./log-query-overview.md) pour générer des requêtes utilisant des champs personnalisés comme critères.
 * Surveillez les [fichiers journaux personnalisés](../agents/data-sources-custom-logs.md) que vous analysez à l’aide de champs personnalisés.
-

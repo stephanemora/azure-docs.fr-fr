@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2018
-ms.openlocfilehash: 7b670cafa4d643e37fae068a4c0033fc97a96ccd
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 074c5dda8ff8d5f837e8ea2a85c183c69421bedb
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100598526"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710870"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-azure-monitor"></a>Guide de référence des composants de visualisation du Concepteur de vues dans Azure Monitor
 Grâce au Concepteur de vues d’Azure Monitor, vous pouvez créer plusieurs vues personnalisées dans le portail Azure qui peuvent vous aider à visualiser les données dans votre espace de travail Log Analytics. Cet article est un guide de référence pour les paramètres des composants de visualisation disponibles dans vos vues personnalisées.
@@ -39,7 +39,7 @@ Les types de vignettes du Concepteur de vues disponibles sont décrites dans le 
 Les sections suivantes décrivent les types de vignettes et leurs propriétés en détail.
 
 > [!NOTE]
-> Les composants des vues sont basés sur des [requêtes de journal](../log-query/log-query-overview.md) dans votre espace de travail Log Analytics. Elles ne prennent pas en charge les [requêtes inter-ressources](../log-query/cross-workspace-query.md) pour récupérer des données d’Application Insights.
+> Les composants des vues sont basés sur des [requêtes de journal](../logs/log-query-overview.md) dans votre espace de travail Log Analytics. Elles ne prennent pas en charge les [requêtes inter-ressources](../logs/cross-workspace-query.md) pour récupérer des données d’Application Insights.
 
 ## <a name="list-of-queries-part"></a>Liste de parties de requêtes
 La liste des parties de requêtes affiche une liste de requêtes de journal. Vous pouvez sélectionner chaque requête pour afficher ses résultats. La vue inclut une requête par défaut, et vous pouvez sélectionner **+ Requête** pour ajouter des requêtes supplémentaires.
@@ -318,7 +318,7 @@ Le séparateur de noms et de valeurs est le délimiteur à caractère unique à 
 Par exemple, imaginez une propriété nommée *Location* incluant des valeurs telles que *Redmond-Building 41* et *Bellevue-Building 12*. Vous pouvez spécifier un tiret (-) comme séparateur de noms et de valeurs, et *City-Building* comme nom. Chaque valeur est alors analysée en deux propriétés respectivement nommées *City* et *Building*.
 
 ### <a name="click-through-navigation"></a><a name="click-through-navigation"></a>Navigation par clic
-La navigation par clic définit l’action à effectuer quand vous cliquez sur un en-tête ou élément de liste dans une vue.  Soit une requête s’ouvre dans le [Log Analytics](../log-query/log-query-overview.md), soit une autre vue apparaît.
+La navigation par clic définit l’action à effectuer quand vous cliquez sur un en-tête ou élément de liste dans une vue.  Soit une requête s’ouvre dans le [Log Analytics](../logs/log-query-overview.md), soit une autre vue apparaît.
 
 Le tableau suivant décrit les paramètres de la navigation par clic.
 
@@ -357,4 +357,4 @@ Le tableau suivant décrit les paramètres pour les seuils :
 | Couleur |Couleur qui indique la valeur de seuil. |
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Découvrez-en plus sur les [requêtes de journal](../log-query/log-query-overview.md) pour prendre en charge les requêtes dans des composants de visualisation.
+* Découvrez-en plus sur les [requêtes de journal](../logs/log-query-overview.md) pour prendre en charge les requêtes dans des composants de visualisation.

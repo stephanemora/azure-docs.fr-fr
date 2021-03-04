@@ -14,12 +14,12 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 07/25/2020
 ms.author: abarora
-ms.openlocfilehash: 553c5081947ad784a8cdae6ad0eb92fc3e2a2c85
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 977982bf1a36b4b85524df2513f2272fe4a8d1bf
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99981857"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101701516"
 ---
 # <a name="tutorial-use-dynamic-configuration-using-push-refresh-in-a-net-core-app"></a>Tutoriel : Utiliser la configuration dynamique avec l’actualisation en mode push dans une application .NET Core
 
@@ -27,7 +27,7 @@ La bibliothèque de client .NET Core App Configuration prend en charge la mise �
 
 1. Modèle par interrogation (polling) : il s’agit du comportement par défaut qui utilise l’interrogation pour détecter des changements de configuration. Quand la valeur mise en cache d’un paramètre expire, l’appel suivant à `TryRefreshAsync` ou à `RefreshAsync` envoie une demande au serveur pour vérifier si la configuration a changé et tire (pull) la configuration mise à jour si nécessaire.
 
-1. Modèle d’envoi (push) : utilise les [événements App Configuration](./concept-app-configuration-event.md) pour détecter des changements de configuration. Une fois App Configuration configuré pour envoyer les événements de changement de paire clé-valeur à Azure Event Grid, l’application peut utiliser ces événements pour optimiser le nombre total de demandes nécessaires pour tenir la configuration à jour. Les applications peuvent s’abonner à ces événements directement à partir d’Event Grid ou par le biais de l’un des [gestionnaires d’événements pris en charge](https://docs.microsoft.com/azure/event-grid/event-handlers) (comme un webhook, une fonction Azure ou une rubrique Service Bus).
+1. Modèle d’envoi (push) : utilise les [événements App Configuration](./concept-app-configuration-event.md) pour détecter des changements de configuration. Une fois App Configuration configuré pour envoyer les événements de changement de paire clé-valeur à Azure Event Grid, l’application peut utiliser ces événements pour optimiser le nombre total de demandes nécessaires pour tenir la configuration à jour. Les applications peuvent s’abonner à ces événements directement à partir d’Event Grid ou par le biais de l’un des [gestionnaires d’événements pris en charge](../event-grid/event-handlers.md) (comme un webhook, une fonction Azure ou une rubrique Service Bus).
 
 Les applications peuvent s’abonner à ces événements directement à partir d’Event Grid ou par le biais d’un webhook, ou encore en transférant les événements à Azure Service Bus. Le SDK Azure Service Bus fournit une API d’inscription de gestionnaire de messages qui simplifie ce processus pour les applications qui n’ont pas de point de terminaison HTTP ou qui ne souhaitent pas interroger constamment la grille d’événements sur les changements.
 
@@ -50,7 +50,7 @@ Pour effectuer ce tutoriel, installez le [kit SDK .NET Core](https://dotnet.micr
 
 ## <a name="set-up-azure-service-bus-topic-and-subscription"></a>Configurer une rubrique et un abonnement Azure Service Bus
 
-Ce tutoriel utilise l’intégration à Service Bus pour Event Grid afin de simplifier la détection des changements de configuration pour les applications qui ne souhaitent pas interroger constamment App Configuration sur les changements. Le SDK Azure Service Bus fournit une API d’inscription de gestionnaire de messages qui peut être utilisée pour mettre à jour la configuration quand des changements sont détectés dans App Configuration. Suivez les étapes dans [Démarrage rapide : Utiliser le portail Azure pour créer une rubrique Service Bus et un abonnement](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal) pour créer un espace de noms, une rubrique et un abonnement Service Bus.
+Ce tutoriel utilise l’intégration à Service Bus pour Event Grid afin de simplifier la détection des changements de configuration pour les applications qui ne souhaitent pas interroger constamment App Configuration sur les changements. Le SDK Azure Service Bus fournit une API d’inscription de gestionnaire de messages qui peut être utilisée pour mettre à jour la configuration quand des changements sont détectés dans App Configuration. Suivez les étapes dans [Démarrage rapide : Utiliser le portail Azure pour créer une rubrique Service Bus et un abonnement](../service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal.md) pour créer un espace de noms, une rubrique et un abonnement Service Bus.
 
 Une fois les ressources créées, ajoutez les variables d’environnement suivantes. Celles-ci permettent d’inscrire un gestionnaire d’événements utilisé pour les changements de configuration dans le code de l’application.
 
@@ -81,7 +81,7 @@ Une fois les ressources créées, ajoutez les variables d’environnement suivan
     ![Abonnements aux événements App Configuration](./media/event-subscription-view.png)
 
 > [!NOTE]
-> Quand vous vous abonnez à des changements de configuration, vous pouvez utiliser un ou plusieurs filtres pour réduire le nombre d’événements envoyés à votre application. Vous pouvez les configurer comme [filtres d’abonnement Event Grid](https://docs.microsoft.com/azure/event-grid/event-filtering) ou comme [filtres d’abonnement Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/topic-filters). Par exemple, vous pouvez utiliser un filtre d’abonnement pour vous abonner uniquement aux événements liés à des changements dans une clé qui commence par une chaîne spécifique.
+> Quand vous vous abonnez à des changements de configuration, vous pouvez utiliser un ou plusieurs filtres pour réduire le nombre d’événements envoyés à votre application. Vous pouvez les configurer comme [filtres d’abonnement Event Grid](../event-grid/event-filtering.md) ou comme [filtres d’abonnement Service Bus](../service-bus-messaging/topic-filters.md). Par exemple, vous pouvez utiliser un filtre d’abonnement pour vous abonner uniquement aux événements liés à des changements dans une clé qui commence par une chaîne spécifique.
 
 ## <a name="register-event-handler-to-reload-data-from-app-configuration"></a>Inscrire un gestionnaire d’événements pour recharger des données à partir d’App Configuration
 
@@ -171,7 +171,7 @@ namespace TestConsole
 }
 ```
 
-La méthode [SetDirty](https://docs.microsoft.com/dotnet/api/microsoft.extensions.configuration.azureappconfiguration.iconfigurationrefresher.setdirty) permet de définir la valeur mise en cache des paires clé-valeur inscrites à l’actualisation comme modifiées (« dirty »). De cette façon, le prochain appel à `RefreshAsync` ou à `TryRefreshAsync` revalide les valeurs mises en cache avec la configuration de l’application et les met à jour si nécessaire.
+La méthode [SetDirty](/dotnet/api/microsoft.extensions.configuration.azureappconfiguration.iconfigurationrefresher.setdirty) permet de définir la valeur mise en cache des paires clé-valeur inscrites à l’actualisation comme modifiées (« dirty »). De cette façon, le prochain appel à `RefreshAsync` ou à `TryRefreshAsync` revalide les valeurs mises en cache avec la configuration de l’application et les met à jour si nécessaire.
 
 Un délai aléatoire est ajouté avant le marquage de la valeur mise en cache comme modifiée pour réduire la limitation potentielle en cas d’actualisation de plusieurs instances en même temps. Le délai maximal par défaut avant le marquage de la valeur mise en cache comme modifiée est de 30 secondes, mais vous pouvez le changer en passant un paramètre `TimeSpan` facultatif à la méthode `SetDirty`.
 

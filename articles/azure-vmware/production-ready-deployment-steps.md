@@ -2,13 +2,13 @@
 title: Planification du déploiement d’Azure VMware Solution
 description: Cet article décrit un workflow de déploiement d’Azure VMware Solution.  Le résultat final est un environnement prêt pour la création et la migration des machines virtuelles.
 ms.topic: tutorial
-ms.date: 10/16/2020
-ms.openlocfilehash: 8b1d69f3f953b43177a3b1d0611b51ca2cfb1a75
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.date: 02/22/2021
+ms.openlocfilehash: f9d49d7ff8109364c9fc1eee4388b30ccc1a61b6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98762856"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733656"
 ---
 # <a name="planning-the-azure-vmware-solution-deployment"></a>Planification du déploiement d’Azure VMware Solution
 
@@ -51,12 +51,6 @@ Identifiez les tailles d’hôtes que vous souhaitez utiliser lors du déploieme
 Définissez le nombre d’hôtes que vous souhaitez déployer dans le cloud privé Azure VMware Solution.  Le nombre minimal d’hôtes est de trois, et la valeur maximale est de 16 par cluster.  Pour plus d’informations, consultez la documentation relative aux [clouds privés et clusters Azure VMware Solution](concepts-private-clouds-clusters.md#clusters).
 
 Vous pouvez toujours étendre le cluster ultérieurement si vous devez aller au-delà du chiffre de déploiement initial.
-
-## <a name="vcenter-admin-password"></a>Mot de passe de l’administrateur du vCenter
-Définissez le mot de passe d'administrateur vCenter.  Pendant le déploiement, vous allez créer un mot de passe d’administrateur vCenter. Le mot de passe est adressé au compte d’administrateur cloudadmin@vsphere.local lors de la build vCenter. Vous l’utiliserez pour vous connecter à vCenter.
-
-## <a name="nsx-t-admin-password"></a>Mot de passe administrateur NSX-T
-Définissez le mot de passe administrateur NSX-T.  Pendant le déploiement, vous allez créer un mot de passe d’administrateur NSX-T. Le mot de passe est attribué à l’utilisateur administrateur dans le compte NSX au cours de la build NSX. Vous l’utiliserez pour vous connecter à NSX-T Manager.
 
 ## <a name="ip-address-segment"></a>Segment d’adresse IP
 

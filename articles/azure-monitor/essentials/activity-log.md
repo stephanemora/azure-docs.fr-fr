@@ -7,17 +7,17 @@ ms.topic: conceptual
 ms.date: 06/12/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 200c4c536df4a3e32b59945ae4ad97d7b770f269
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 38f5743e8a80af1ec824b07833f66ad50d67b91f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100598430"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723297"
 ---
 # <a name="azure-activity-log"></a>Journal d’activité Azure
-Le journal d’activité est un [journal de plateforme](../platform/platform-logs-overview.md) dans Azure qui fournit un aperçu de tous les événements de niveau d’abonnement. Les informations qu’il contient indiquent par exemple à quel moment une ressource a été modifiée ou une machine virtuelle a été démarrée. Vous pouvez afficher le journal d’activité dans le portail Azure ou récupérer des entrées avec PowerShell et l’interface CLI. Pour obtenir des fonctionnalités supplémentaires, vous devez créer un paramètre de diagnostic permettant d’envoyer le journal d’activité aux [journaux d’activité d’Azure Monitor](../platform/data-platform-logs.md), à Azure Event Hubs pour le transférer en dehors d’Azure ou à Stockage Azure à des fins d’archivage. Cet article fournit des détails sur l’affichage du journal d’activité et son envoi vers différentes destinations.
+Le journal d’activité est un [journal de plateforme](./platform-logs-overview.md) dans Azure qui fournit un aperçu de tous les événements de niveau d’abonnement. Les informations qu’il contient indiquent par exemple à quel moment une ressource a été modifiée ou une machine virtuelle a été démarrée. Vous pouvez afficher le journal d’activité dans le portail Azure ou récupérer des entrées avec PowerShell et l’interface CLI. Pour obtenir des fonctionnalités supplémentaires, vous devez créer un paramètre de diagnostic permettant d’envoyer le journal d’activité aux [journaux d’activité d’Azure Monitor](../logs/data-platform-logs.md), à Azure Event Hubs pour le transférer en dehors d’Azure ou à Stockage Azure à des fins d’archivage. Cet article fournit des détails sur l’affichage du journal d’activité et son envoi vers différentes destinations.
 
-Pour plus d’informations sur la création d’un paramètre de diagnostic, consultez [Créer des paramètres de diagnostic pour envoyer des journaux et des métriques de plateforme à différentes destinations](../platform/diagnostic-settings.md).
+Pour plus d’informations sur la création d’un paramètre de diagnostic, consultez [Créer des paramètres de diagnostic pour envoyer des journaux et des métriques de plateforme à différentes destinations](./diagnostic-settings.md).
 
 > [!NOTE]
 > Les entrées du journal d’activité sont générées par le système et ne peuvent pas être modifiées ou supprimées.
@@ -43,13 +43,13 @@ Si des modifications ont été apportées à l’événement, la liste des modif
 ### <a name="other-methods-to-retrieve-activity-log-events"></a>Autres méthodes pour récupérer les événements du journal d’activité
 Vous pouvez également accéder aux événements du journal d’activité à l’aide des méthodes suivantes.
 
-- Utilisez la cmdlet [Get-AzLog](/powershell/module/az.monitor/get-azlog) pour récupérer le journal d’activité à partir de PowerShell. Consultez [Exemples PowerShell Azure Monitor](../samples/powershell-samples.md#retrieve-activity-log).
-- Utilisez [az monitor activity-log](/cli/azure/monitor/activity-log) pour récupérer le journal d’activité à partir de l’interface CLI.  Consultez les [exemples d’interface de ligne de commande Azure Monitor](../samples/cli-samples.md#view-activity-log).
+- Utilisez la cmdlet [Get-AzLog](/powershell/module/az.monitor/get-azlog) pour récupérer le journal d’activité à partir de PowerShell. Consultez [Exemples PowerShell Azure Monitor](../powershell-samples.md#retrieve-activity-log).
+- Utilisez [az monitor activity-log](/cli/azure/monitor/activity-log) pour récupérer le journal d’activité à partir de l’interface CLI.  Consultez les [exemples d’interface de ligne de commande Azure Monitor](../cli-samples.md#view-activity-log).
 - Utilisez l'[API REST Azure Monitor](/rest/api/monitor/) pour récupérer le journal d’activité à partir d’un client REST. 
 
 
 ## <a name="send-to-log-analytics-workspace"></a>Envoyer à l’espace de travail Log Analytics
- Envoyez le journal d’activité à un espace de travail Log Analytics pour activer les fonctionnalités des [journaux d’activité Azure Monitor](../platform/data-platform-logs.md), qui permettent notamment de :
+ Envoyez le journal d’activité à un espace de travail Log Analytics pour activer les fonctionnalités des [journaux d’activité Azure Monitor](../logs/data-platform-logs.md), qui permettent notamment de :
 
 - Mettre en corrélation les données du journal d’activité avec d’autres données d’analyse collectées par Azure Monitor.
 - Consolider les entrées de journal de plusieurs abonnements et locataires Azure en un seul endroit pour les analyser ensemble.
@@ -59,9 +59,9 @@ Vous pouvez également accéder aux événements du journal d’activité à l�
 - Aucuns frais d’ingestion des données pour les données de journal d’activité stockées dans un espace de travail Log Analytics.
 - Aucuns frais de rétention des données pendant 90 jours pour les données de journal d’activité stockées dans un espace de travail Log Analytics.
 
-[Créez un paramètre de diagnostic](../platform/diagnostic-settings.md) pour envoyer le journal d’activité à un espace de travail Log Analytics. Vous pouvez envoyer le journal d’activité d’un abonnement unique vers un maximum de cinq espaces de travail. La collecte des journaux de plusieurs locataires nécessite [Azure Lighthouse](../../lighthouse/index.yml).
+[Créez un paramètre de diagnostic](./diagnostic-settings.md) pour envoyer le journal d’activité à un espace de travail Log Analytics. Vous pouvez envoyer le journal d’activité d’un abonnement unique vers un maximum de cinq espaces de travail. La collecte des journaux de plusieurs locataires nécessite [Azure Lighthouse](../../lighthouse/index.yml).
 
-Les données du journal d’activité d’un espace de travail Log Analytics sont stockées dans une table appelée *AzureActivity* que vous pouvez récupérer à l’aide d’une [requête de journal](../log-query/log-query-overview.md) dans [Log Analytics](../log-query/log-analytics-tutorial.md). La structure de cette table varie selon la [catégorie de l’entrée de journal](activity-log-schema.md). Pour obtenir une description des propriétés de la table, consultez la [référence des données d’Azure Monitor](/azure/azure-monitor/reference/tables/azureactivity).
+Les données du journal d’activité d’un espace de travail Log Analytics sont stockées dans une table appelée *AzureActivity* que vous pouvez récupérer à l’aide d’une [requête de journal](../logs/log-query-overview.md) dans [Log Analytics](../logs/log-analytics-tutorial.md). La structure de cette table varie selon la [catégorie de l’entrée de journal](activity-log-schema.md). Pour obtenir une description des propriétés de la table, consultez la [référence des données d’Azure Monitor](/azure/azure-monitor/reference/tables/azureactivity).
 
 Par exemple, pour afficher le nombre d’enregistrements du journal d’activité pour chaque catégorie, utilisez la requête suivante.
 
@@ -400,6 +400,6 @@ Vous ne pourrez bientôt plus ajouter la solution Activity Log Analytics à votr
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Lire une vue d’ensemble des journaux de plateforme](../platform/platform-logs-overview.md)
+* [Lire une vue d’ensemble des journaux de plateforme](./platform-logs-overview.md)
 * [Examiner le schéma d’événements du journal d’activité](activity-log-schema.md)
-* [Créer un paramètre de diagnostic pour envoyer des journaux d’activité à d’autres destinations](../platform/diagnostic-settings.md)
+* [Créer un paramètre de diagnostic pour envoyer des journaux d’activité à d’autres destinations](./diagnostic-settings.md)

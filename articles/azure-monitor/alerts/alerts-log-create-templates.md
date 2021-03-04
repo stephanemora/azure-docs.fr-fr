@@ -6,18 +6,18 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.subservice: alerts
-ms.openlocfilehash: 6b1403b12c05420c6296cbafd0d4ee0bc02f8dd4
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 665137688a000433a9101a77342fa6f9350d7141
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100599361"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714321"
 ---
 # <a name="create-a-log-alert-with-a-resource-manager-template"></a>Créer une alerte de journal avec un modèle Resource Manager
 
-Les alertes de journal permettent aux utilisateurs d’utiliser une requête [Log Analytics](../log-query/log-analytics-tutorial.md) pour évaluer les journaux de ressources à chaque fréquence définie, et de déclencher une alerte en fonction des résultats. Les règles peuvent déclencher l'exécution d'une ou plusieurs actions à l'aide des [groupes d'actions](../platform/action-groups.md). [En savoir plus sur les fonctionnalités et la terminologie des alertes de journal](../platform/alerts-unified-log.md).
+Les alertes de journal permettent aux utilisateurs d’utiliser une requête [Log Analytics](../logs/log-analytics-tutorial.md) pour évaluer les journaux de ressources à chaque fréquence définie, et de déclencher une alerte en fonction des résultats. Les règles peuvent déclencher l'exécution d'une ou plusieurs actions à l'aide des [groupes d'actions](./action-groups.md). [En savoir plus sur les fonctionnalités et la terminologie des alertes de journal](./alerts-unified-log.md).
 
-Cet article explique comment utiliser un [modèle Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) pour configurer des [alertes de journal](../platform/alerts-unified-log.md) dans Azure Monitor. Les modèles Resource Manager vous permettent de configurer des alertes par programmation de manière cohérente et reproductible dans vos environnements. Les alertes de journal sont créées dans le fournisseur de ressources `Microsoft.Insights/scheduledQueryRules`. Consultez les informations de référence sur l'[API Règles de requêtes planifiées](/rest/api/monitor/scheduledqueryrules/).
+Cet article explique comment utiliser un [modèle Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) pour configurer des [alertes de journal](./alerts-unified-log.md) dans Azure Monitor. Les modèles Resource Manager vous permettent de configurer des alertes par programmation de manière cohérente et reproductible dans vos environnements. Les alertes de journal sont créées dans le fournisseur de ressources `Microsoft.Insights/scheduledQueryRules`. Consultez les informations de référence sur l'[API Règles de requêtes planifiées](/rest/api/monitor/scheduledqueryrules/).
 
 Les étapes de base sont les suivantes :
 
@@ -26,15 +26,15 @@ Les étapes de base sont les suivantes :
 4. Déployez le modèle à l’aide de n’importe quelle méthode de déploiement.
 
 > [!NOTE]
-> Les données de journal d'un [espace de travail Log Analytics](../log-query/log-analytics-tutorial.md) peuvent être envoyées au magasin de métriques Azure Monitor. Les alertes de métriques ont [un comportement différent](../platform/alerts-metric-overview.md), qui peut être plus adapté en fonction des données que vous utilisez. Pour savoir ce que sont les journaux et comment les acheminer vers les bases de données de métriques, voir [Créer des alertes de métriques de journaux d’activité dans Azure Monitor](../platform/alerts-metric-logs.md).
+> Les données de journal d'un [espace de travail Log Analytics](../logs/log-analytics-tutorial.md) peuvent être envoyées au magasin de métriques Azure Monitor. Les alertes de métriques ont [un comportement différent](./alerts-metric-overview.md), qui peut être plus adapté en fonction des données que vous utilisez. Pour savoir ce que sont les journaux et comment les acheminer vers les bases de données de métriques, voir [Créer des alertes de métriques de journaux d’activité dans Azure Monitor](./alerts-metric-logs.md).
 
 > [!NOTE]
-> Les alertes de journal de Log Analytics étaient auparavant gérées à l'aide de l'[API d'alerte Log Analytics](../platform/api-alerts.md) héritée et des modèles hérités des [alertes et recherches Log Analytics enregistrées](../insights/solutions.md). [En savoir plus sur le basculement sur l’API ScheduledQueryRules actuelle](alerts-log-api-switch.md).
+> Les alertes de journal de Log Analytics étaient auparavant gérées à l'aide de l'[API d'alerte Log Analytics](./api-alerts.md) héritée et des modèles hérités des [alertes et recherches Log Analytics enregistrées](../insights/solutions.md). [En savoir plus sur le basculement sur l’API ScheduledQueryRules actuelle](alerts-log-api-switch.md).
 
 
 ## <a name="simple-template-up-to-api-version-2018-04-16"></a>Modèle simple (jusqu'à la version 2018-04-16 de l'API)
 
-Modèle [Création de Règles de requêtes planifiées](/rest/api/monitor/scheduledqueryrules/createorupdate) basé sur l'[alerte de journal Nombre de résultats](../platform/alerts-unified-log.md#count-of-the-results-table-rows) (exemples de données définis en tant que variables) :
+Modèle [Création de Règles de requêtes planifiées](/rest/api/monitor/scheduledqueryrules/createorupdate) basé sur l'[alerte de journal Nombre de résultats](./alerts-unified-log.md#count-of-the-results-table-rows) (exemples de données définis en tant que variables) :
 
 ```json
 {
@@ -109,7 +109,7 @@ Ce code JSON peut être enregistré et déployé à l'aide d'[Azure Resource Man
 
 ## <a name="template-with-cross-resource-query-up-to-api-version-2018-04-16"></a>Modèle avec interrogation inter-ressources (jusqu'à la version 2018-04-16 de l'API)
 
-Modèle [Création de Règles de requêtes planifiées](/rest/api/monitor/scheduledqueryrules/createorupdate) basé sur la [mesure métrique](../platform/alerts-unified-log.md#calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value) avec interrogation [inter-ressources](../log-query/cross-workspace-query.md) (exemples de données définis en tant que variables) :
+Modèle [Création de Règles de requêtes planifiées](/rest/api/monitor/scheduledqueryrules/createorupdate) basé sur la [mesure métrique](./alerts-unified-log.md#calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value) avec interrogation [inter-ressources](../logs/cross-workspace-query.md) (exemples de données définis en tant que variables) :
 
 ```json
 {
@@ -432,7 +432,7 @@ Ce code JSON peut être enregistré et déployé à l'aide d'[Azure Resource Man
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* En savoir plus sur les [alertes de journal](../platform/alerts-unified-log.md)
-* En savoir plus sur la [gestion des alertes de journal](../platform/alerts-log.md)
-* Comprendre les [actions webhook pour les alertes de journal](../platform/alerts-log-webhook.md)
-* Découvrez plus en détail les [requêtes dans les journaux](../log-query/log-query-overview.md).
+* En savoir plus sur les [alertes de journal](./alerts-unified-log.md)
+* En savoir plus sur la [gestion des alertes de journal](./alerts-log.md)
+* Comprendre les [actions webhook pour les alertes de journal](./alerts-log-webhook.md)
+* Découvrez plus en détail les [requêtes dans les journaux](../logs/log-query-overview.md).

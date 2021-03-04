@@ -10,19 +10,19 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2020
 ms.author: sausin
-ms.openlocfilehash: 0f932eed2f1d58e8470a24ea595e21712deb7f03
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 89d7a6f8beb004f57a00dfe75e4cc387c8591b1e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95021896"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101716582"
 ---
 # <a name="custom-commands-encryption-of-data-at-rest"></a>Chiffrement des données au repos des Commandes personnalisées
 
 Le service Commandes personnalisées chiffre automatiquement vos données lors de leur conservation dans le cloud. Le chiffrement du service Commandes personnalisées protège vos données et vous aide à répondre aux engagements de votre entreprise en matière de sécurité et de conformité.
 
 > [!NOTE]
-> Le service Commandes personnalisées n’active pas automatiquement le chiffrement pour les ressources LUIS associées à votre application. Si nécessaire, vous devez activer le chiffrement pour votre ressource LUIS à partir d’[ici](./../LUIS/luis-encryption-of-data-at-rest.md).
+> Le service Commandes personnalisées n’active pas automatiquement le chiffrement pour les ressources LUIS associées à votre application. Si nécessaire, vous devez activer le chiffrement pour votre ressource LUIS à partir d’[ici](../luis/encrypt-data-at-rest.md).
 
 ## <a name="about-cognitive-services-encryption"></a>À propos du chiffrement de Cognitive Services
 Les données sont chiffrées et déchiffrées à l'aide du chiffrement [AES 256 bits](https://en.wikipedia.org/wiki/FIPS_140-2) certifié [FIPS 140-2](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard). Le chiffrement et le déchiffrement sont transparents, ce qui signifie que le chiffrement et l’accès sont gérés automatiquement. Vos données étant sécurisées par défaut, vous n’avez pas besoin de modifier votre code ou vos applications pour tirer parti du chiffrement.

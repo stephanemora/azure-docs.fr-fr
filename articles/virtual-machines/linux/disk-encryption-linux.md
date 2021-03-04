@@ -8,15 +8,14 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 3b6928b759d2349051dbb69258952f2f1ee10a31
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: d32e5c55bbaa7357c1f13200213dbaed19986825
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878136"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101694340"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Scénarios Azure Disk Encryption sur les machines virtuelles Linux
-
 
 Azure Disk Encryption pour machines virtuelles Linux utilise la fonctionnalité DM-Crypt de Linux pour effectuer un chiffrement complet du disque du système d’exploitation et des disques de données. Il assure en outre le chiffrement des disques temporaires lors de l’utilisation de la fonctionnalité EncryptFormatAll.
 
@@ -408,7 +407,6 @@ Azure Disk Encryption ne fonctionne pas pour les scénarios, fonctionnalités et
 - Création d’une image ou d’une capture instantanée d’une machine virtuelle chiffrée et utilisation de celle-ci pour déployer des machines virtuelles supplémentaires.
 - Vidage sur incident du noyau (kdump)
 - Oracle ACFS (ASM Cluster File System).
-- Machines virtuelles Gen2 (consultez : [Prise en charge des machines virtuelles de génération 2 sur Azure](../generation-2.md#generation-1-vs-generation-2-capabilities)).
 - Les disques NVMe des machines virtuelles de la série Lsv2 (cf. [Série Lsv2](../lsv2-series.md)).
 - Une machine virtuelle avec des « points de montage imbriqués », autrement dit, avec plusieurs points de montage dans un même chemin d’accès (par exemple, « /1stmountpoint/data/2stmountpoint »).
 - Machine virtuelle avec un lecteur de données monté sur un dossier du système d’exploitation.
@@ -416,7 +414,6 @@ Azure Disk Encryption ne fonctionne pas pour les scénarios, fonctionnalités et
 - Machines virtuelles de la série M avec des disques Accélérateur d’écriture.
 - Application d’ADE à une machine virtuelle qui possède des disques chiffrés avec un [chiffrement côté serveur avec des clés gérées par le client](../disk-encryption.md) (SSE + CMK). L’application de SSE + CMK à un disque de données sur une machine virtuelle chiffrée avec ADE est également un scénario non pris en charge.
 - Migration d’une machine virtuelle chiffrée par ADE ou n’a **jamais** été chiffrée avec ADE, pour un [chiffrement côté serveur avec clés gérées par le client](../disk-encryption.md).
-- [Tailles de machine virtuelle Azure sans disque temporaire local](../azure-vms-no-temp-disk.md) ; spécifiquement, Dv4, Dsv4, Ev4 et Esv4.
 - Chiffrement des machines virtuelles dans les clusters de basculement.
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -9,12 +9,12 @@ ms.date: 04/01/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c07e161042a497a232cbd5e3f11128893a095381
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 055b89858fde901ab014e409fbe30c3438efce12
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80576744"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101732987"
 ---
 # <a name="how-to-configure-container-create-options-for-iot-edge-modules"></a>Guide pratique pour configurer les options de création de conteneur pour les modules IoT Edge
 
@@ -60,7 +60,7 @@ Si vous utilisez les extensions Azure IoT Tools pour Visual Studio ou Visual Stu
 
 L’une des astuces pour écrire des options de création consiste à utiliser la commande `docker inspect`. Dans le cadre de votre processus de développement, exécutez le module localement à l’aide de `docker run <container name>`. Une fois que le module fonctionne comme vous le souhaitez, exécutez `docker inspect <container name>`. Cette commande génère les détails du module au format JSON. Recherchez les paramètres que vous avez configurés et copiez le JSON. Par exemple :
 
-[ ![Résultats de l’inspection docker edgeHub](./media/how-to-use-create-options/docker-inspect-edgehub-inline-and-expanded.png) ](./media/how-to-use-create-options/docker-inspect-edgehub-inline-and-expanded.png#lightbox)
+[![Résultats de l’inspection docker edgeHub](./media/how-to-use-create-options/docker-inspect-edgehub-inline-and-expanded.png)](./media/how-to-use-create-options/docker-inspect-edgehub-inline-and-expanded.png#lightbox)
 
 ## <a name="common-scenarios"></a>Scénarios courants
 
@@ -131,5 +131,5 @@ Une fois stringifiées pour le manifeste de déploiement final, ces valeurs se p
 
 Pour obtenir plus d’exemples d’options de création en action, consultez les exemples IoT Edge suivants :
 
-* [Custom Vision et Azure IoT Edge sur un Raspberry Pi 3](https://github.com/Azure-Samples/Custom-vision-service-iot-edge-raspberry-pi)
+* [Custom Vision et Azure IoT Edge sur un Raspberry Pi 3](https://github.com/Azure-Samples/custom-vision-service-iot-edge-raspberry-pi)
 * [Exemple de stockage d’objets blob Azure IoT Edge](https://github.com/Azure-Samples/azure-iotedge-blobstorage-sample)

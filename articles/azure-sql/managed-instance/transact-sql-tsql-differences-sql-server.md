@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
 ms.date: 1/12/2021
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: d43f794d6d73e26d791c5a11961470d2131b8951
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: a182ca3ba70b9faa1ba67fdb6c91a4eaf8e766ef
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100378619"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691193"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Différences T-SQL entre SQL Server et Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -277,7 +277,7 @@ Les options suivantes ne peuvent pas être modifiées :
 - `SINGLE_USER`
 - `WITNESS`
 
-Certaines instructions `ALTER DATABASE` (par exemple [SET CONTAINMENT](https://docs.microsoft.com/sql/relational-databases/databases/migrate-to-a-partially-contained-database?#converting-a-database-to-partially-contained-using-transact-sql)) peuvent échouer temporairement, par exemple pendant la sauvegarde automatisée de la base de données ou immédiatement après la création d’une base de données. Dans ce cas, l’instruction `ALTER DATABASE` doit être retentée. Pour plus d’informations sur les messages d’erreur, consultez la section [Notes](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-mi-current&preserve-view=true&tabs=sqlpool#remarks-2).
+Certaines instructions `ALTER DATABASE` (par exemple [SET CONTAINMENT](/sql/relational-databases/databases/migrate-to-a-partially-contained-database#converting-a-database-to-partially-contained-using-transact-sql)) peuvent échouer temporairement, par exemple pendant la sauvegarde automatisée de la base de données ou immédiatement après la création d’une base de données. Dans ce cas, l’instruction `ALTER DATABASE` doit être retentée. Pour plus d’informations sur les messages d’erreur, consultez la section [Notes](/sql/t-sql/statements/alter-database-transact-sql?preserve-view=true&tabs=sqlpool&view=azuresqldb-mi-current#remarks-2).
 
 Pour en savoir plus, consultez [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql-file-and-filegroup-options).
 
@@ -395,12 +395,12 @@ La [recherche sémantique](/sql/relational-databases/search/semantic-search-sql-
 Les serveurs liés dans SQL Managed Instance prennent en charge un nombre limité de cibles :
 
 - Les cibles prises en charge sont SQL Managed Instance, SQL Database, Azure Synapse SQL [serverless](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/) et les pools dédiés, ainsi que les instances SQL Server. 
-- Les transactions accessibles en écriture distribuées sont possibles uniquement parmi les Managed Instances. Pour plus d’informations, consultez [Transactions distribuées](https://docs.microsoft.com/azure/azure-sql/database/elastic-transactions-overview). Toutefois, MS DTC n’est pas pris en charge.
+- Les transactions accessibles en écriture distribuées sont possibles uniquement parmi les Managed Instances. Pour plus d’informations, consultez [Transactions distribuées](../database/elastic-transactions-overview.md). Toutefois, MS DTC n’est pas pris en charge.
 - Les cibles qui ne sont pas prises en charge sont des fichiers, Analysis Services et d’autres SGBDR. Essayez d’utiliser l’importation CSV native à partir du Stockage Blob Azure à l’aide de `BULK INSERT` ou `OPENROWSET` comme alternative pour l’importation de fichiers, ou chargez des fichiers à l’aide d’un [pool SQL serverless dans Azure Synapse Analytics](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/).
 
 Opérations : 
 
-- Les transactions d’écriture [entre instances](https://docs.microsoft.com/azure/azure-sql/database/elastic-transactions-overview) sont prises en charge uniquement pour les Managed Instances.
+- Les transactions d’écriture [entre instances](../database/elastic-transactions-overview.md) sont prises en charge uniquement pour les Managed Instances.
 - `sp_dropserver` est pris en charge pour supprimer un serveur lié. Consultez [sp_dropserver](/sql/relational-databases/system-stored-procedures/sp-dropserver-transact-sql).
 - La fonction `OPENROWSET` peut être utilisée pour exécuter des requêtes uniquement sur des instances SQL Server. Elles peuvent être managées, locales ou dans des machines virtuelles. Consultez [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql).
 - La fonction `OPENDATASOURCE` peut être utilisée pour exécuter des requêtes uniquement sur des instances SQL Server. Elles peuvent être managées, locales ou dans des machines virtuelles. Seules les valeurs `SQLNCLI`, `SQLNCLI11` et `SQLOLEDB` sont prises en charge en tant que fournisseur. par exemple `SELECT * FROM OPENDATASOURCE('SQLNCLI', '...').AdventureWorks2012.HumanResources.Employee`. Consultez [OPENDATASOURCE](/sql/t-sql/functions/opendatasource-transact-sql).

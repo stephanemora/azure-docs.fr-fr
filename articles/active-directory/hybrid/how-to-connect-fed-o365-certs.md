@@ -16,12 +16,12 @@ ms.date: 10/20/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78dcd9d020923251439a05316569b559c19057d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: effdd156858caf5717aac92433e8bc5f4f6147ad
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89661450"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101686867"
 ---
 # <a name="renew-federation-certificates-for-microsoft-365-and-azure-active-directory"></a>Renouveler des certificats de fédération pour Microsoft 365 et Azure Active Directory
 ## <a name="overview"></a>Vue d’ensemble
@@ -157,7 +157,7 @@ En revanche, si **AutoCertificateRollover** est défini sur **True** sans que vo
    >
 3. Examinez les certificats répertoriés dans la sortie de la commande. Si AD FS a généré un nouveau certificat, vous devez voir deux certificats dans la sortie : l’un dont la valeur **IsPrimary** est définie sur **True** et dont la date **NotAfter** correspond à 5 jours, et l’autre avec une valeur **IsPrimary** définie sur **False** et une valeur **NotAfter** correspondant à environ un an après la date du jour.
 4. Si vous ne voyez qu’un seul certificat et que la date **NotAfter** est définie sur 5 jours, vous devez générer un nouveau certificat.
-5. Pour générer un nouveau certificat, exécutez la commande ci-dessous au niveau d’une invite de commande PowerShell : `PS C:\>Update-ADFSCertificate –CertificateType token-signing`.
+5. Pour générer un nouveau certificat, exécutez la commande ci-dessous au niveau d’une invite de commande PowerShell : `PS C:\Update-ADFSCertificate –CertificateType token-signing`.
 6. Vérifiez la mise à jour en réexécutant la commande suivante : PS C:\>Get-ADFSCertificate –CertificateType token-signing
 
 Vous devez alors voir apparaître deux certificats, dont l’un présente une date **NotAfter** correspondant à environ un an après la date du jour et dont la valeur **IsPrimary** est définie sur **False**.

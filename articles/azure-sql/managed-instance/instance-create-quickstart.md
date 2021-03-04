@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: sstein
 ms.date: 1/29/2021
-ms.openlocfilehash: 95b721f12e4818a77f18d01c99a5c6d60b881169
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: d356cad1b4754875574e19be732fdf6481c61e22
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99089651"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691210"
 ---
 # <a name="quickstart-create-an-azure-sql-managed-instance"></a>Démarrage rapide : Créer une instance gérée SQL Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -113,7 +113,7 @@ Si vous n’avez pas d’abonnement Azure, [créez un compte gratuit](https://az
 
 ### <a name="tags"></a>Balises
 
-- Ajoutez des étiquettes aux ressources dans votre modèle Azure Resource Manager (modèle ARM). Les [étiquettes](/azure/azure-resource-manager/management/tag-resources) vous aident à organiser logiquement vos ressources. Les valeurs des étiquettes sont affichées dans les rapports sur les coûts et permettent d’autres activités de gestion par étiquette. 
+- Ajoutez des étiquettes aux ressources dans votre modèle Azure Resource Manager (modèle ARM). Les [étiquettes](../../azure-resource-manager/management/tag-resources.md) vous aident à organiser logiquement vos ressources. Les valeurs des étiquettes sont affichées dans les rapports sur les coûts et permettent d’autres activités de gestion par étiquette. 
 
 - Il est recommandé de définir au moins deux étiquettes pour votre nouvelle instance managée SQL : l’étiquette de propriétaire (Owner) pour identifier la personne qui a créé l’instance, et l’étiquette d’environnement (Environment) pour identifier s’il s’agit d’un système de production, de développement, etc. Pour plus d’informations, consultez [Développer une stratégie de nommage et de catégorisation des ressources Azure](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).
  

@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 53763e62e8d7aa5b77ae451ef6427c1e09bff9f0
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: bb28f415b7d08b4c4430ed90a7ccbfe3a333416d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96742695"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101689043"
 ---
 # <a name="configure-mfa-server-settings"></a>Configurer les paramètres du Serveur MFA
 
@@ -44,7 +44,7 @@ Pour créer un contournement à usage unique, procédez comme suit :
 1. Recherchez et sélectionnez **Azure Active Directory**, puis accédez à **Sécurité** > **MFA** > **Contournement à usage unique**.
 1. Sélectionnez **Ajouter**.
 1. Si nécessaire, sélectionnez le groupe de réplication de ce contournement.
-1. Entrez le nom d’utilisateur sous la forme `username\@domain.com`. Entrez le nombre de secondes pendant lesquelles le contournement se produira ainsi que la raison du contournement.
+1. Entrez le nom d’utilisateur sous la forme `username@domain.com`. Entrez le nombre de secondes pendant lesquelles le contournement se produira ainsi que la raison du contournement.
 1. Sélectionnez **Ajouter**. La limite de temps entre immédiatement en vigueur. L’utilisateur doit se connecter avant que le délai de contournement à usage unique ne soit écoulé.
 
 Vous pouvez également afficher le rapport de contournement à usage unique à partir de cette même fenêtre.

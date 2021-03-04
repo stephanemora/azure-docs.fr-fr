@@ -6,25 +6,25 @@ ms.author: harelbr
 ms.topic: troubleshooting
 ms.date: 01/21/2021
 ms.subservice: alerts
-ms.openlocfilehash: 1908232184218316a1a887f17f2fc8104529a0e7
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 79cc7e1e4b574533fcad4592134109c52897e9ba
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100598643"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737254"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Résolution des problèmes liés aux alertes de métrique dans Azure Monitor 
 
 Cet article décrit les problèmes couramment rencontrés avec les alertes de métrique dans [Azure Monitor](alerts-metric-overview.md) et explique comment y remédier.
 
-Azure Monitor vous avertit de façon proactive lorsque des conditions significatives sont détectées dans vos données de surveillance. Elles permettent d’identifier et de résoudre les problèmes avant que les utilisateurs de votre système ne les remarquent. Pour plus d’informations sur les alertes, consultez [Vue d’ensemble des alertes dans Microsoft Azure](../platform/alerts-overview.md).
+Azure Monitor vous avertit de façon proactive lorsque des conditions significatives sont détectées dans vos données de surveillance. Elles permettent d’identifier et de résoudre les problèmes avant que les utilisateurs de votre système ne les remarquent. Pour plus d’informations sur les alertes, consultez [Vue d’ensemble des alertes dans Microsoft Azure](./alerts-overview.md).
 
 ## <a name="metric-alert-should-have-fired-but-didnt"></a>Une alerte de métrique ne s'est pas déclenchée alors qu'elle aurait dû 
 
 Si vous pensez qu'une alerte de métrique aurait dû se déclencher mais que cela n'a pas été le cas et qu'elle est introuvable sur le portail Azure, procédez comme suit :
 
 1. **Configuration** - Vérifiez la configuration de la règle d'alerte de métrique pour vous assurer qu'elle est correcte :
-    - Vérifiez que les valeurs spécifiées dans les champs **Type d'agrégation**, **Granularité d'agrégation (période)** sont configurées comme prévu. Le paramètre **Type d’agrégation** détermine la manière dont les valeurs de métriques sont agrégées (plus d’informations [ici](../platform/metrics-aggregation-explained.md#aggregation-types)), et le paramètre **Granularité d’agrégation (période)** spécifie jusqu’où l’évaluation doit remonter pour agréger les valeurs de métriques à chaque exécution de la règle d’alerte.
+    - Vérifiez que les valeurs spécifiées dans les champs **Type d'agrégation**, **Granularité d'agrégation (période)** sont configurées comme prévu. Le paramètre **Type d’agrégation** détermine la manière dont les valeurs de métriques sont agrégées (plus d’informations [ici](../essentials/metrics-aggregation-explained.md#aggregation-types)), et le paramètre **Granularité d’agrégation (période)** spécifie jusqu’où l’évaluation doit remonter pour agréger les valeurs de métriques à chaque exécution de la règle d’alerte.
     -  Vérifiez que les paramètres **Valeur de seuil** et **Sensibilité** sont configurés comme prévu.
     - Pour une règle d'alerte qui utilise des seuils dynamiques, vérifiez si certains paramètres avancés sont configurés, car l'option **Nombre de violations** peut filtrer les alertes et l'option **Ignorer les données avant** peut avoir une incidence sur le calcul des seuils.
 
@@ -69,10 +69,10 @@ Si vous pensez que votre alerte de métrique a été déclenchée à tort, la pr
 ## <a name="cant-find-the-metric-to-alert-on---virtual-machines-guest-metrics"></a>Impossible de trouver la métrique sur laquelle porte l’alerte – métriques d’invités de machines virtuelles
 
 Pour le bon fonctionnement des alertes relatives aux métriques du système d’exploitation invité de machines virtuelles (par exemple, la mémoire, l’espace disque), assurez-vous d’avoir installé l’agent requis pour collecter ces données dans Azure Monitor Metrics :
-- [Pour les machines virtuelles Windows](../platform/collect-custom-metrics-guestos-resource-manager-vm.md)
-- [Pour les machines virtuelles Linux](../platform/collect-custom-metrics-linux-telegraf.md)
+- [Pour les machines virtuelles Windows](../essentials/collect-custom-metrics-guestos-resource-manager-vm.md)
+- [Pour les machines virtuelles Linux](../essentials/collect-custom-metrics-linux-telegraf.md)
 
-Pour plus d’informations sur la collecte de données à partir du système d’exploitation invité d’une machine virtuelle, voir [ici](../insights/monitor-vm-azure.md#guest-operating-system).
+Pour plus d’informations sur la collecte de données à partir du système d’exploitation invité d’une machine virtuelle, voir [ici](../vm/monitor-vm-azure.md#guest-operating-system).
 
 > [!NOTE] 
 > Si vous avez configuré les métriques invitées pour qu'elles soient envoyées à un espace de travail Log Analytics, ces métriques apparaissent sous la ressource de l'espace de travail Log Analytics. Elles commencent à afficher les données **uniquement** après la création d'une règle d'alerte qui les supervise. Pour ce faire, suivez les étapes permettant de [configurer une alerte de métrique pour les journaux](./alerts-metric-logs.md#configuring-metric-alert-for-logs).
@@ -84,8 +84,8 @@ Pour plus d’informations sur la collecte de données à partir du système d�
 
 Si vous envisagez de déclencher une alerte sur une métrique spécifique, mais ne la voyez pas au moment de créer une règle d’alerte, vérifiez ce qui suit :
 - Si vous ne voyez aucune métrique pour la ressource, [vérifiez si le type de ressource est pris en charge pour les alertes de métrique](./alerts-metric-near-real-time.md).
-- Si des métriques existent pour la ressource mais qu’une métrique spécifique est introuvable, [vérifiez si cette métrique est disponible](../platform/metrics-supported.md), et si oui, consultez sa description pour savoir si elle est uniquement disponible dans des versions ou éditions spécifiques de la ressource.
-- Si la métrique n’est pas disponible pour la ressource, elle peut être disponible dans les journaux de ressources et peut être supervisée à l’aide d’alertes de journal. Pour plus d’informations, consultez cet article sur la façon [de collecter et d’analyser les journaux des ressources à partir d’une ressources Azure](../learn/tutorial-resource-logs.md).
+- Si des métriques existent pour la ressource mais qu’une métrique spécifique est introuvable, [vérifiez si cette métrique est disponible](../essentials/metrics-supported.md), et si oui, consultez sa description pour savoir si elle est uniquement disponible dans des versions ou éditions spécifiques de la ressource.
+- Si la métrique n’est pas disponible pour la ressource, elle peut être disponible dans les journaux de ressources et peut être supervisée à l’aide d’alertes de journal. Pour plus d’informations, consultez cet article sur la façon [de collecter et d’analyser les journaux des ressources à partir d’une ressources Azure](../essentials/tutorial-resource-logs.md).
 
 ## <a name="cant-find-the-metric-dimension-to-alert-on"></a>Dimension de métrique introuvable pour déclencher l'alerte
 
@@ -211,7 +211,7 @@ Veillez à utiliser les commandes CLI appropriées pour les alertes de métrique
 
 - Si vous recevez une erreur `Metric not found` :
 
-   - Pour une métrique de plateforme : vérifiez que vous utilisez le nom de la **métrique** mentionnée sur [la page des métriques prises en charge par Azure Monitor](../platform/metrics-supported.md) et non le **nom d’affichage de la métrique**.
+   - Pour une métrique de plateforme : vérifiez que vous utilisez le nom de la **métrique** mentionnée sur [la page des métriques prises en charge par Azure Monitor](../essentials/metrics-supported.md) et non le **nom d’affichage de la métrique**.
 
    - Pour une métrique personnalisée : vérifiez que la métrique est déjà émise (vous ne pouvez pas créer de règle d’alerte sur une métrique personnalisée qui n’existe pas encore) et que vous fournissez l’espace de noms de la métrique personnalisée (consultez un exemple de modèle Azure Resource Manager [ici](./alerts-metric-create-templates.md#template-for-a-static-threshold-metric-alert-that-monitors-a-custom-metric))
 

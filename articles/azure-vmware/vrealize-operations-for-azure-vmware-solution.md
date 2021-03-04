@@ -3,12 +3,12 @@ title: Configurer vRealize Operations pour Azure VMware Solution (AVS)
 description: Découvrez comment configurer vRealize Operations pour le cloud privé de votre solution VMware Azure.
 ms.topic: how-to
 ms.date: 01/26/2021
-ms.openlocfilehash: c2470ecde0874b46da1236ca6e99e6b0b3eb990d
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 3d2617f893c34fde6a154f9f93b5bda520c5a91a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880689"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738427"
 ---
 # <a name="set-up-vrealize-operations-for-azure-vmware-solution"></a>Configurer vRealize Operations pour Azure VMware Solution (AVS)
 
@@ -37,7 +37,7 @@ Commencez par passer en revue minutieusement les sections [Avant de commencer](#
 ## <a name="on-premises-vrealize-operations-managing-azure-vmware-solution-deployment"></a>vRealize Operations en local gérant le déploiement d’Azure VMware Solution
 La plupart des clients disposent d’un déploiement local de vRealize Operations pour gérer un ou plusieurs domaines vCenter locaux. Lorsqu’ils approvisionnent un cloud privé Azure VMware Solution, ils se connectent à leur environnement local avec leur cloud privé à l’aide d’une solution Azure ExpressRoute ou VPN de couche 3.  
 
-:::image type="content" source="media/vrealize-operations-manager/vrealize-operations-deployment-option-1.png" alt-text="vRealize Operations en local gérant le déploiement d’Azure VMware Solution"  border="false":::
+:::image type="content" source="media/vrealize-operations-manager/vrealize-operations-deployment-option-1.png" alt-text="vRealize Operations en local gérant le déploiement d’Azure VMware Solution" border="false":::
 
 Pour étendre les fonctionnalités des opérations vRealize au cloud privé Azure VMware Solution, vous créez une [instance d’adaptateur pour les ressources de cloud privé](https://docs.vmware.com/en/vRealize-Operations-Manager/8.1/com.vmware.vcom.config.doc/GUID-640AD750-301E-4D36-8293-1BFEB67E2600.html). Celle-ci collecte des données à partir du cloud privé Azure VMware Solution et les intègre aux opérations vRealize locales. L’instance vRealize Operations Manager locale peut se connecter directement au gestionnaire vCenter et NSX-T sur Azure VMware Solution. Facultativement, vous pouvez déployer un collecteur distant des opérations vRealize sur le cloud privé Azure VMware Solution. Le collecteur compresse et chiffre les données collectées à partir du cloud privé avant qu’elles ne soient envoyées via le réseau VPN ou ExpressRoute à vRealize Operations Manager s’exécutant localement. 
 

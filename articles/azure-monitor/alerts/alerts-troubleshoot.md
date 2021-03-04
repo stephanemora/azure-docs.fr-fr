@@ -6,18 +6,18 @@ ms.author: ofmanor
 ms.topic: reference
 ms.date: 03/16/2020
 ms.subservice: alerts
-ms.openlocfilehash: 3ee29e6c65dcd2b2226dc4dc7844b3b02a571a4f
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d3f8da7e985e62ce0b40c6dddcd137cce8561e59
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100598634"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717857"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-alerts"></a>Résolution des problèmes relatifs aux alertes Azure Monitor
 
 Cet article décrit les problèmes courants liés aux alertes et notifications Azure Monitor.
 
-Azure Monitor vous avertit de façon proactive lorsque des conditions significatives sont détectées dans vos données de surveillance. Elles permettent d’identifier et de résoudre les problèmes avant que les utilisateurs de votre système ne les remarquent. Pour plus d’informations sur les alertes, consultez [Vue d’ensemble des alertes dans Microsoft Azure](../platform/alerts-overview.md).
+Azure Monitor vous avertit de façon proactive lorsque des conditions significatives sont détectées dans vos données de surveillance. Elles permettent d’identifier et de résoudre les problèmes avant que les utilisateurs de votre système ne les remarquent. Pour plus d’informations sur les alertes, consultez [Vue d’ensemble des alertes dans Microsoft Azure](./alerts-overview.md).
 
 Si vous rencontrez un problème lors du déclenchement d’une alerte ou si vous ne parvenez pas à déclencher une alerte, consultez les articles ci-dessous. Vous pouvez consulter les alertes déclenchées dans le portail Azure.
 
@@ -36,7 +36,7 @@ Si vous pouvez voir une alerte déclenchée dans le portail Azure, mais que vous
 
 1. **L’e-mail a-t-il été supprimé par une [règle d’action](../alerts/alerts-action-rules.md)** ?
 
-    Vérifiez en cliquant sur l’alerte déclenchée dans le portail, puis examinez l’onglet Historique à la recherche des [groupes d’actions](../platform/action-groups.md) supprimés :
+    Vérifiez en cliquant sur l’alerte déclenchée dans le portail, puis examinez l’onglet Historique à la recherche des [groupes d’actions](./action-groups.md) supprimés :
 
     ![Historique de suppression des règles d’action d’alerte](media/alerts-troubleshoot/history-action-rule.png)
 
@@ -92,7 +92,7 @@ Si vous pouvez voir une alerte déclenchée dans le portail, mais que vous n’a
 
 1. **L’action a-t-elle été supprimée par une [règle d’action](../alerts/alerts-action-rules.md)?**
 
-    Vérifiez en cliquant sur l’alerte déclenchée dans le portail, puis examinez l’onglet Historique à la recherche des [groupes d’actions](../platform/action-groups.md) supprimés : 
+    Vérifiez en cliquant sur l’alerte déclenchée dans le portail, puis examinez l’onglet Historique à la recherche des [groupes d’actions](./action-groups.md) supprimés : 
 
     ![Historique de suppression des règles d’action d’alerte](media/alerts-troubleshoot/history-action-rule.png)
 
@@ -125,7 +125,7 @@ Si vous pouvez voir une alerte déclenchée dans le portail, mais que son action
 
 1. **L’action a-t-elle été supprimée par une règle d’action ?**
 
-    Vérifiez en cliquant sur l’alerte déclenchée dans le portail, puis examinez l’onglet Historique à la recherche des [groupes d’actions](../platform/action-groups.md) supprimés :
+    Vérifiez en cliquant sur l’alerte déclenchée dans le portail, puis examinez l’onglet Historique à la recherche des [groupes d’actions](./action-groups.md) supprimés :
 
     ![Historique de suppression des règles d’action d’alerte](media/alerts-troubleshoot/history-action-rule.png)
  
@@ -135,7 +135,7 @@ Si vous pouvez voir une alerte déclenchée dans le portail, mais que son action
 
     1. **Les adresses IP source ont-elles été bloquées ?**
     
-       Ajoutez les [adresses IP](../platform/action-groups.md#action-specific-information) à partir desquelles le webhook sera appelé à votre liste d’adresses IP autorisées.
+       Ajoutez les [adresses IP](./action-groups.md#action-specific-information) à partir desquelles le webhook sera appelé à votre liste d’adresses IP autorisées.
 
     1. **Votre point de terminaison webhook fonctionne-t-il correctement ?**
 
@@ -180,12 +180,12 @@ Si vous avez reçu l’alerte, mais pensez que certains de ses champs sont manqu
 
     Vérifiez si le format spécifié au niveau de l’action correspond à ce que vous attendez. Par exemple, vous avez peut-être développé du code qui répond aux alertes (webhook, fonction, application logique, etc.), qui attendait un format, mais plus tard dans l’action, vous ou une autre personne avez spécifié un format différent.  
 
-    Vérifiez également le format de charge utile (JSON) pour [les alertes de journal d’activité](../alerts/activity-log-alerts-webhook.md), pour [les alertes de recherche de journal](../alerts/alerts-log-webhook.md) (à la fois pour Application Insights et Log Analytics), pour [les alertes de métriques](alerts-metric-near-real-time.md#payload-schema), pour [le schéma d’alerte commun](../alerts/alerts-common-schema-definitions.md), et pour les [alertes de métriques classiques](../platform/alerts-webhooks.md) dépréciées.
+    Vérifiez également le format de charge utile (JSON) pour [les alertes de journal d’activité](../alerts/activity-log-alerts-webhook.md), pour [les alertes de recherche de journal](../alerts/alerts-log-webhook.md) (à la fois pour Application Insights et Log Analytics), pour [les alertes de métriques](alerts-metric-near-real-time.md#payload-schema), pour [le schéma d’alerte commun](../alerts/alerts-common-schema-definitions.md), et pour les [alertes de métriques classiques](./alerts-webhooks.md) dépréciées.
 
  
 1. **Alertes de journal d’activité : Les informations sont-elles disponibles dans le journal d’activité ?** 
 
-    [Les alertes du journal d’activité](../platform/activity-log-alerts.md) sont des alertes basées sur des événements écrits dans le journal des activités Azure, par exemple des événements sur la création, la mise à jour ou la suppression de ressources Azure, les événements d’intégrité du service et d’intégrité des ressources, ou les résultats d’Azure Advisor et Azure Policy. Si vous avez reçu une alerte basée sur le journal d’activité, mais que certains champs dont vous avez besoin sont manquants ou incorrects, vérifiez d’abord les événements dans le journal d’activité lui-même. Si la ressource Azure n’a pas écrit les champs que vous recherchez dans son événement du journal d’activité, ces champs ne sont pas inclus dans l’alerte correspondante. 
+    [Les alertes du journal d’activité](./activity-log-alerts.md) sont des alertes basées sur des événements écrits dans le journal des activités Azure, par exemple des événements sur la création, la mise à jour ou la suppression de ressources Azure, les événements d’intégrité du service et d’intégrité des ressources, ou les résultats d’Azure Advisor et Azure Policy. Si vous avez reçu une alerte basée sur le journal d’activité, mais que certains champs dont vous avez besoin sont manquants ou incorrects, vérifiez d’abord les événements dans le journal d’activité lui-même. Si la ressource Azure n’a pas écrit les champs que vous recherchez dans son événement du journal d’activité, ces champs ne sont pas inclus dans l’alerte correspondante. 
 
 ## <a name="action-rule-is-not-working-as-expected"></a>La règle d’action ne fonctionne pas comme prévu 
 
@@ -250,4 +250,4 @@ Si vous avez reçu une erreur lors de la tentative de création, de mise à jour
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Si vous utilisez une alerte de journal, consultez la section [Résolution des alertes de journal](./alerts-troubleshoot-log.md).
-- Revenez au [portail Azure](https://portal.azure.com) pour vérifier si vous avez résolu votre problème avec les conseils ci-dessus 
+- Revenez au [portail Azure](https://portal.azure.com) pour vérifier si vous avez résolu votre problème avec les conseils ci-dessus

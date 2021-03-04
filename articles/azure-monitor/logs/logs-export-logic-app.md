@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/02/2020
-ms.openlocfilehash: 040c487df83c117e177b8a8b0e8fddde8682c67f
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: ae95580a8c192f0815623461fb21ec9ecf52ae26
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100598542"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101700641"
 ---
 # <a name="archive-data-from-log-analytics-workspace-to-azure-storage-using-logic-app"></a>Archiver des données de l’espace de travail Log Analytics dans le Stockage Azure à l’aide d’une application logique
 Cet article décrit une méthode permettant d’utiliser [Azure Logic Apps](../../logic-apps/index.yml) pour interroger des données à partir d’un espace de travail Log Analytics dans Azure Monitor et les envoyer au Stockage Azure. Utilisez ce processus lorsque vous devez exporter vos données de journal Azure Monitor pour des scénarios d’audit et de conformité, ou pour permettre à un autre service de récupérer ces données.  
@@ -118,7 +118,7 @@ AzureActivity
     ResourceId = _ResourceId 
 ```
 
-L’**intervalle de temps** spécifie les enregistrements qui seront inclus dans la requête en fonction de la colonne **TimeGenerated**. Il doit être défini sur une valeur égale ou supérieure à l’intervalle de temps sélectionné dans la requête. Étant donné que cette requête n’utilise pas la colonne **TimeGenerated**, l’option **Définir dans la requête** n’est pas disponible. Consultez [Étendue de requête](../log-query/scope.md) pour plus d’informations sur l’intervalle de temps. 
+L’**intervalle de temps** spécifie les enregistrements qui seront inclus dans la requête en fonction de la colonne **TimeGenerated**. Il doit être défini sur une valeur égale ou supérieure à l’intervalle de temps sélectionné dans la requête. Étant donné que cette requête n’utilise pas la colonne **TimeGenerated**, l’option **Définir dans la requête** n’est pas disponible. Consultez [Étendue de requête](./scope.md) pour plus d’informations sur l’intervalle de temps. 
 
 Sélectionnez **4 dernières heures** pour l’**intervalle de temps**. Cela garantit que tous les enregistrements avec une durée d’ingestion supérieure à **TimeGenerated** sont inclus dans les résultats.
    
@@ -210,6 +210,6 @@ Accédez au menu **Comptes de stockage** dans le portail Azure et sélectionnez 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- En savoir plus sur les [requêtes de journal dans Azure Monitor](../log-query/log-query-overview.md).
+- En savoir plus sur les [requêtes de journal dans Azure Monitor](./log-query-overview.md).
 - Découvrez plus en détail [Logic Apps](../../logic-apps/index.yml).
 - En savoir plus sur [Power Automate](https://flow.microsoft.com).

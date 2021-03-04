@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/23/2020
 ms.author: yuajia
-ms.openlocfilehash: d1f3e59cc88ea9cb30e7eacbd26591e08d71be61
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 58db217ca173acbe0356596de916216c4ab7f241
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100575245"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101715545"
 ---
 # <a name="monitoring-metrics-and-logs-in-azure-front-door"></a>Supervision des journaux et des métriques dans Azure Front Door
 
@@ -25,7 +25,7 @@ Azure Front Door vous permet de superviser les ressources des manières suivante
 - **Métriques**. Azure Front Door dispose actuellement de huit métriques pour afficher les compteurs de performances.
 - **Journaux**. Les journaux d’activité et de diagnostic permettent d’enregistrer ou de consommer les données de performances, d’accès et autres provenant d’une ressource à des fins de supervision.
 
-### <a name="metrics"></a>Mesures
+##  <a name="metrics"></a><a name="metrics"></a>Mesures
 
 Les métriques représentent une fonctionnalité de certaines ressources Azure qui vous permettent de voir les compteurs de performances dans le portail. Les métriques Front Door disponibles sont les suivantes :
 

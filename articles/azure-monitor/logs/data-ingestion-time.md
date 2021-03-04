@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/18/2019
-ms.openlocfilehash: 17d89414a762dd6bf68176b5044787179eb80250
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 501e395cf91630789824cc111614e7150dddaa7c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100598551"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101700607"
 ---
 # <a name="log-data-ingestion-time-in-azure-monitor"></a>Durée d’ingestion de données de journal dans Azure Monitor
 Azure Monitor est un service de données à grande échelle servant des milliers de clients envoyant des téraoctets de données chaque mois à un rythme croissant. Les utilisateurs se demandent souvent quel est le délai nécessaire pour que les données de journal soient disponibles une fois qu’elles ont été collectées. Cet article explique les différents facteurs qui affectent cette latence.
@@ -57,7 +57,7 @@ Certaines solutions ne collectent pas leurs données à partir d’un agent et p
 Reportez-vous à la documentation de chaque solution afin de déterminer sa fréquence de collecte.
 
 ### <a name="pipeline-process-time"></a>Délai du processus de pipeline
-Une fois que les enregistrements de journal sont ingérés dans le pipeline de Azure Monitor (tel qu’il est identifié dans la propriété [_TimeReceived](../platform/log-standard-columns.md#_timereceived)), ils sont écrits dans un stockage temporaire pour garantir l’isolation des locataires et pour vous assurer que les données ne sont pas perdues. Ce processus ajoute généralement 5 à 15 secondes. Certaines solutions de gestion implémentent des algorithmes plus lourds pour agréger les données et dériver des insights à mesure que les données affluent. Par exemple, Network Performance Monitor agrège les données entrantes toutes les 3 minutes, en ajoutant au final une latence de 3 minutes. Un autre processus qui ajoute une latence est le processus qui gère les journaux d’activité personnalisés. Dans certains cas, ce processus peut ajouter quelques minutes de latence aux journaux d’activité qui sont collectés à partir de fichiers par l’agent.
+Une fois que les enregistrements de journal sont ingérés dans le pipeline de Azure Monitor (tel qu’il est identifié dans la propriété [_TimeReceived](./log-standard-columns.md#_timereceived)), ils sont écrits dans un stockage temporaire pour garantir l’isolation des locataires et pour vous assurer que les données ne sont pas perdues. Ce processus ajoute généralement 5 à 15 secondes. Certaines solutions de gestion implémentent des algorithmes plus lourds pour agréger les données et dériver des insights à mesure que les données affluent. Par exemple, Network Performance Monitor agrège les données entrantes toutes les 3 minutes, en ajoutant au final une latence de 3 minutes. Un autre processus qui ajoute une latence est le processus qui gère les journaux d’activité personnalisés. Dans certains cas, ce processus peut ajouter quelques minutes de latence aux journaux d’activité qui sont collectés à partir de fichiers par l’agent.
 
 ### <a name="new-custom-data-types-provisioning"></a>Provisionnement des nouveaux types de données personnalisées
 Quand un type de données personnalisées est créé à partir d’un [journal personnalisé](../agents/data-sources-custom-logs.md) ou de l’[API Collecteur de données](../logs/data-collector-api.md), le système crée un conteneur de stockage dédié. Il s’agit d’une surcharge à usage unique qui se produit uniquement à la première apparition de ce type de données.
@@ -77,8 +77,8 @@ La durée d’ingestion peut varier pour différentes ressources dans différent
 
 | Étape | Propriété ou fonction | Commentaires |
 |:---|:---|:---|
-| Enregistrement créé au niveau de la source de données | [TimeGenerated](../platform/log-standard-columns.md#timegenerated-and-timestamp) <br>Si la source de données ne définit pas cette valeur, elle est définie à la même heure que _TimeReceived. |
-| Enregistrement reçu par le point de terminaison d’ingestion Azure Monitor | [_TimeReceived](../platform/log-standard-columns.md#_timereceived) | |
+| Enregistrement créé au niveau de la source de données | [TimeGenerated](./log-standard-columns.md#timegenerated-and-timestamp) <br>Si la source de données ne définit pas cette valeur, elle est définie à la même heure que _TimeReceived. |
+| Enregistrement reçu par le point de terminaison d’ingestion Azure Monitor | [_TimeReceived](./log-standard-columns.md#_timereceived) | |
 | Enregistrement stocké dans l’espace de travail et disponible pour les requêtes | [ingestion_time()](/azure/kusto/query/ingestiontimefunction) | |
 
 ### <a name="ingestion-latency-delays"></a>Délais de latence d’ingestion

@@ -6,12 +6,12 @@ ms.author: bahusse
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 1/28/2021
-ms.openlocfilehash: 46c7952247babd528b230dfa0e70b0eb47878912
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 7b5223bc08c470a0e8722b76b80473aaa235b51a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99217752"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101727156"
 ---
 # <a name="best-practices-for-optimal-performance-of-your-azure-database-for-mysql---single-server"></a>Meilleures pratiques pour un niveau de performance optimal d’Azure Database pour MySQL – Serveur unique
 
@@ -65,7 +65,7 @@ Nous vous recommandons de tester et de superviser le temps de redémarrage pour 
 Pour enregistrer l'état du pool de tampons au moment de l'arrêt du serveur, définissez le paramètre de serveur `innodb_buffer_pool_dump_at_shutdown` sur `ON`. De même, définissez le paramètre de serveur `innodb_buffer_pool_load_at_startup` sur `ON` pour restaurer l'état du pool de tampons au moment du démarrage du serveur. Vous pouvez contrôler l'impact sur le temps de démarrage/redémarrage en réduisant et en ajustant la valeur du paramètre de serveur `innodb_buffer_pool_dump_pct`. Par défaut, ce paramètre a la valeur `25`.
 
 > [!Note]
-> Les paramètres de warmup du pool de tampons InnoDB sont uniquement pris en charge sur les serveurs de stockage à usage général avec un stockage maximum de 16 To. Découvrez-en plus sur [les options de stockage Azure Database pour MySQL](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage).
+> Les paramètres de warmup du pool de tampons InnoDB sont uniquement pris en charge sur les serveurs de stockage à usage général avec un stockage maximum de 16 To. Découvrez-en plus sur [les options de stockage Azure Database pour MySQL](./concepts-pricing-tiers.md#storage).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -8,20 +8,20 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 482c11395ff5dbbf2dd5bb8100451c3442f2f333
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: cfa5be01a0d36764086c6c9adf97e6cb166d2bb6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98743930"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728159"
 ---
 # <a name="configure-scaling-options-with-azure-cloud-services-extended-support"></a>Configuration des options de mise à l’échelle avec Azure Cloud Services (support étendu) 
 
 Les conditions peuvent être configurées pour permettre le scale-in et le scale-out des déploiements Cloud Services (support étendu). Elles se basent sur l’utilisation du processeur, la charge de disque ou la charge réseau. 
 
 Tenez compte des informations suivantes lorsque vous configurez la mise à l’échelle de vos déploiements Cloud Services :
-- La mise à l’échelle a un impact sur l’utilisation des cœurs. Les grandes instances de rôle consomment plus de cœurs. De plus, la mise à l’échelle doit s’effectuer dans la limite de cœurs de l’abonnement. Pour plus d’informations, consultez [Abonnement Azure et limites, quotas et contraintes de service](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
-- La mise à l’échelle basée sur le seuil de messages de file d’attente est prise en charge. Pour plus d’informations, consultez [Bien démarrer avec Stockage File d’attente Azure](https://docs.microsoft.com/azure/storage/queues/storage-dotnet-how-to-use-queues).
+- La mise à l’échelle a un impact sur l’utilisation des cœurs. Les grandes instances de rôle consomment plus de cœurs. De plus, la mise à l’échelle doit s’effectuer dans la limite de cœurs de l’abonnement. Pour plus d’informations, consultez [Abonnement Azure et limites, quotas et contraintes de service](../azure-resource-manager/management/azure-subscription-service-limits.md).
+- La mise à l’échelle basée sur le seuil de messages de file d’attente est prise en charge. Pour plus d’informations, consultez [Bien démarrer avec Stockage File d’attente Azure](../storage/queues/storage-dotnet-how-to-use-queues.md).
 - Pour garantir la haute disponibilité de vos applications Cloud Service (support étendu), veillez à les déployer avec au moins deux instances de rôle.
 - La mise à l’échelle automatique personnalisée ne peut se produire que si tous les rôles ont l’état **Prêt**.
 
@@ -63,5 +63,5 @@ Tenez compte des informations suivantes lorsque vous configurez la mise à l’�
 
 ## <a name="next-steps"></a>Étapes suivantes 
 - Consultez les [prérequis du déploiement](deploy-prerequisite.md) de Cloud Services (support étendu).
-- Consultez la [FAQ](faq.md) de Cloud Services (support étendu).
-- Déployez une instance Cloud Services (support étendu) avec le [Portail Azure](deploy-portal.md), [PowerShell](deploy-powershell.md), un [modèle](deploy-template.md) ou [Visual Studio](deploy-visual-studio.md).
+- Consultez les [questions fréquentes (FAQ)](faq.md) sur Cloud Services (support étendu).
+- Déployez une instance de Cloud Services (support étendu) avec le [portail Azure](deploy-portal.md), [PowerShell](deploy-powershell.md), un [modèle](deploy-template.md) ou [Visual Studio](deploy-visual-studio.md).

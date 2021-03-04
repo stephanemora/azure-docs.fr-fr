@@ -1,22 +1,21 @@
 ---
 title: Moniteur de performances dans Network Performance Monitor
 description: La fonctionnalité Analyseur de performances de Network Performance Monitor vous permet de surveiller la connectivité réseau entre les différents points de votre réseau. Vous pouvez surveiller les déploiements cloud et les emplacements locaux, plusieurs centres de données ainsi que les filiales et les applications/microservices multiniveaux stratégiques.
-ms.subservice: logs
 ms.topic: conceptual
 author: abshamsft
 ms.author: absha
 ms.date: 02/20/2018
-ms.openlocfilehash: 5335882c11ee6a1a7352ef3dc9822cfa88eda196
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 505584abbe573c94056888b07406437650b09611
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100573509"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728618"
 ---
 # <a name="network-performance-monitor-solution-performance-monitoring"></a>Solution Network Performance Monitor : analyse des performances.
 
 > [!IMPORTANT]
-> À compter du 1er juillet 2021, vous ne pourrez plus ajouter de nouveaux tests dans un espace de travail existant ni activer un nouvel espace de travail dans Network Performance Monitor. Vous pouvez continuer à utiliser les tests créés avant le 1er juillet 2021. Pour réduire l’interruption de service de vos charges de travail actuelles, [migrez vos tests de Network Performance Monitor vers le nouveau Moniteur de connexion](https://docs.microsoft.com/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor) dans Azure Network Watcher avant le 29 février 2024.
+> À compter du 1er juillet 2021, vous ne pourrez plus ajouter de nouveaux tests dans un espace de travail existant ni activer un nouvel espace de travail dans Network Performance Monitor. Vous pouvez continuer à utiliser les tests créés avant le 1er juillet 2021. Pour réduire l’interruption de service de vos charges de travail actuelles, [migrez vos tests de Network Performance Monitor vers le nouveau Moniteur de connexion](../../network-watcher/migrate-to-connection-monitor-from-network-performance-monitor.md) dans Azure Network Watcher avant le 29 février 2024.
 
 La fonctionnalité Analyseur de performances de [Network Performance Monitor](network-performance-monitor.md) vous permet de surveiller la connectivité réseau entre les différents points de votre réseau. Vous pouvez surveiller les déploiements cloud et les emplacements locaux, plusieurs centres de données ainsi que les filiales et les applications/microservices multiniveaux stratégiques. Avec l’Analyseur de performances, vous pouvez détecter les problèmes réseau avant que vos utilisateurs ne se plaignent. Ses principaux avantages vous permettent de : 
 
@@ -132,4 +131,3 @@ Dans l’image suivante, la cause racine des zones à problème dans la section 
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Rechercher dans les journaux d’activité](../logs/log-query-overview.md) pour afficher des enregistrements de données détaillées sur les performances réseau.
-

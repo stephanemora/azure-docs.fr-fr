@@ -3,17 +3,17 @@ title: Configurer des autorisations de service Azure Image Builder à l’aide d
 description: Configurer les exigences pour le service Azure VM Image Builder, y compris les autorisations et les privilèges à l’aide d’Azure CLI
 author: cynthn
 ms.author: danis
-ms.date: 05/06/2020
+ms.date: 03/02/2021
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: image-builder
 ms.collection: linux
-ms.openlocfilehash: accefe6644f8959bb9426a154d4f33e0834fc06c
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: f9b60af2c9fe16f834ce3098266c03afe2b99667
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101674887"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101695428"
 ---
 # <a name="configure-azure-image-builder-service-permissions-using-azure-cli"></a>Configurer des autorisations de service Azure Image Builder à l’aide d’Azure CLI
 
@@ -132,7 +132,7 @@ imageResourceGroup=<Resource group>
 identityName="aibIdentity"
 
 # Use *cURL* to download the a sample JSON description 
-curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json -o aibRoleImageCreation.json
+curl https://raw.githubusercontent.com/azure/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json -o aibRoleImageCreation.json
 
 # Create a unique role name to avoid clashes in the same Azure Active Directory domain
 imageRoleDefName="Azure Image Builder Image Def"$(date +'%s')
@@ -173,7 +173,7 @@ VnetResourceGroup=<Resource group>
 identityName="aibIdentity"
 
 # Use *cURL* to download the a sample JSON description 
-curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleNetworking.json -o aibRoleNetworking.json
+curl https://raw.githubusercontent.com/azure/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleNetworking.json -o aibRoleNetworking.json
 
 # Create a unique role name to avoid clashes in the same domain
 netRoleDefName="Azure Image Builder Network Def"$(date +'%s')
@@ -235,7 +235,7 @@ Remplacez les paramètres d’espaces réservés suivants :
 | \<Storage account container\> | Nom du conteneur de compte de stockage |
 | \<Subscription ID\> | Abonnement Azure |
 
-Pour plus d’informations sur l’utilisation d’une identité managée attribuée par l’utilisateur, consultez la rubrique [Créer une image personnalisée qui utilisera une identité managée attribuée par l’utilisateur Azure pour accéder de façon transparente aux fichiers du Stockage Azure](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage#create-a-custom-image-that-will-use-an-azure-user-assigned-managed-identity-to-seemlessly-access-files-azure-storage). Le Guide de démarrage rapide vous guide dans la création et la configuration de l’identité managée attribuée par l’utilisateur pour accéder à un compte de stockage.
+Pour plus d’informations sur l’utilisation d’une identité managée attribuée par l’utilisateur, consultez la rubrique [Créer une image personnalisée qui utilisera une identité managée attribuée par l’utilisateur Azure pour accéder de façon transparente aux fichiers du Stockage Azure](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-user-assigned-identity). Le Guide de démarrage rapide vous guide dans la création et la configuration de l’identité managée attribuée par l’utilisateur pour accéder à un compte de stockage.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 09/17/2020
 ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 701fe4ffc6147086dde740bfdb2dc7db92508e28
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 327bc687c466a30d4f92810e48dc08f822f752ec
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100380234"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726425"
 ---
 # <a name="tutorial-use-feature-flags-in-an-aspnet-core-app"></a>Tutoriel : Utiliser des indicateurs de fonctionnalités dans une application ASP.NET Core
 
@@ -74,7 +74,7 @@ public class Startup
 ```
 
 
-Si vous utilisez des filtres dans vos indicateurs de fonctionnalités, vous devez inclure l’espace de noms [Microsoft.FeatureManagement.FeatureFilters](/dotnet/api/microsoft.featuremanagement.featurefilters) et ajouter un appel à [AddFeatureFilters](/dotnet/api/microsoft.featuremanagement.ifeaturemanagementbuilder.addfeaturefilter) spécifiant le nom de type du filtre que vous souhaitez utiliser comme type générique de la méthode. Pour plus d’informations sur l’utilisation de filtres de fonctionnalités pour activer et désactiver des fonctionnalités de manière dynamique, consultez [Activer le déploiement échelonné des fonctionnalités pour des audiences ciblées](/azure/azure-app-configuration/howto-targetingfilter-aspnet-core).
+Si vous utilisez des filtres dans vos indicateurs de fonctionnalités, vous devez inclure l’espace de noms [Microsoft.FeatureManagement.FeatureFilters](/dotnet/api/microsoft.featuremanagement.featurefilters) et ajouter un appel à [AddFeatureFilters](/dotnet/api/microsoft.featuremanagement.ifeaturemanagementbuilder.addfeaturefilter) spécifiant le nom de type du filtre que vous souhaitez utiliser comme type générique de la méthode. Pour plus d’informations sur l’utilisation de filtres de fonctionnalités pour activer et désactiver des fonctionnalités de manière dynamique, consultez [Activer le déploiement échelonné des fonctionnalités pour des audiences ciblées](./howto-targetingfilter-aspnet-core.md).
 
 L’exemple suivant montre comment utiliser un filtre de fonctionnalité intégré nommé `PercentageFilter` :
 
@@ -211,14 +211,14 @@ Par convention, la section `FeatureManagement` de ce document JSON est utilisée
 
 * `FeatureA` est défini sur *on*.
 * `FeatureB` est défini sur *off*.
-* `FeatureC` spécifie un filtre nommé `Percentage` avec une propriété `Parameters`. `Percentage` est un filtre configurable. Dans cet exemple, `Percentage` spécifie une probabilité de 50 % que l’indicateur `FeatureC` soit défini sur *on*. Pour obtenir un guide pratique sur l’utilisation des filtres de fonctionnalités, consultez [Utiliser des filtres de fonctionnalités pour activer les indicateurs de fonctionnalités conditionnels](/azure/azure-app-configuration/howto-feature-filters-aspnet-core).
+* `FeatureC` spécifie un filtre nommé `Percentage` avec une propriété `Parameters`. `Percentage` est un filtre configurable. Dans cet exemple, `Percentage` spécifie une probabilité de 50 % que l’indicateur `FeatureC` soit défini sur *on*. Pour obtenir un guide pratique sur l’utilisation des filtres de fonctionnalités, consultez [Utiliser des filtres de fonctionnalités pour activer les indicateurs de fonctionnalités conditionnels](./howto-feature-filters-aspnet-core.md).
 
 
 
 
 ## <a name="use-dependency-injection-to-access-ifeaturemanager"></a>Utiliser l’injection de dépendances pour accéder à IFeatureManager 
 
-Pour certaines opérations, telles que la vérification manuelle des valeurs d’indicateurs de fonctionnalités, vous devez obtenir une instance de [IFeatureManager](https://docs.microsoft.com/dotnet/api/microsoft.featuremanagement.ifeaturemanager?view=azure-dotnet-preview). Dans ASP.NET Core MVC, vous pouvez accéder au gestionnaire de fonctionnalités `IFeatureManager` par le biais de l’injection de dépendances. Dans l’exemple suivant, un argument de type `IFeatureManager` est ajouté à la signature du constructeur d’un contrôleur. Le runtime résout automatiquement la référence et fournit une interface lors de l’appel du constructeur. Si vous utilisez un modèle d’application dans lequel le contrôleur a déjà un ou plusieurs arguments d’injection de dépendances dans le constructeur, par exemple `ILogger`, vous pouvez simplement ajouter `IFeatureManager` comme argument supplémentaire :
+Pour certaines opérations, telles que la vérification manuelle des valeurs d’indicateurs de fonctionnalités, vous devez obtenir une instance de [IFeatureManager](/dotnet/api/microsoft.featuremanagement.ifeaturemanager?view=azure-dotnet-preview). Dans ASP.NET Core MVC, vous pouvez accéder au gestionnaire de fonctionnalités `IFeatureManager` par le biais de l’injection de dépendances. Dans l’exemple suivant, un argument de type `IFeatureManager` est ajouté à la signature du constructeur d’un contrôleur. Le runtime résout automatiquement la référence et fournit une interface lors de l’appel du constructeur. Si vous utilisez un modèle d’application dans lequel le contrôleur a déjà un ou plusieurs arguments d’injection de dépendances dans le constructeur, par exemple `ILogger`, vous pouvez simplement ajouter `IFeatureManager` comme argument supplémentaire :
 
 ### <a name="net-5x"></a>[.NET 5.x](#tab/core5x)
     

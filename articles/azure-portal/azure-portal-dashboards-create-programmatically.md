@@ -3,12 +3,12 @@ title: Créer par programmation des tableaux de bord Azure
 description: Utilisez un tableau de bord du portail Azure comme modèle pour créer par programmation des tableaux de bord Azure. Comprend une référence JSON.
 ms.topic: how-to
 ms.date: 12/4/2020
-ms.openlocfilehash: e69d3f3cea0ff63f94e797047eb10b9583678b1b
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: bd56dc1c729c5aa7a77e79aa3af3366166fdcfea
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96745806"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095176"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Créer par programmation des tableaux de bord Azure
 
@@ -46,7 +46,7 @@ Après avoir configuré le tableau de bord, l’étape suivante consiste à publ
 
 ![partager un tableau de bord](./media/azure-portal-dashboards-create-programmatically/share-command.png)
 
-Si vous sélectionnez **Partager**, vous serez invité à choisir l'abonnement et le groupe de ressources dans lesquels vous souhaitez publier le tableau de bord. Vous devez disposer d'un accès en écriture à l'abonnement et au groupe de ressources que vous choisissez. Pour plus d’informations, consultez [Ajouter ou supprimer des attributions de rôles Azure à l’aide du portail Azure](../role-based-access-control/role-assignments-portal.md).
+Si vous sélectionnez **Partager**, vous serez invité à choisir l'abonnement et le groupe de ressources dans lesquels vous souhaitez publier le tableau de bord. Vous devez disposer d'un accès en écriture à l'abonnement et au groupe de ressources que vous choisissez. Pour plus d’informations, consultez [Attribuer des rôles Azure en utilisant le portail Azure](../role-based-access-control/role-assignments-portal.md).
 
 ![apporter des modifications au partage et à l'accès](./media/azure-portal-dashboards-create-programmatically/sharing-and-access.png)
 

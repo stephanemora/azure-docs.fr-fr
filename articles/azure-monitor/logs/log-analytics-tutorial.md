@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 10/07/2020
-ms.openlocfilehash: 038663a6b8fe015f36f70b7bf13d25accb470903
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a7a6ba395769677fe46ddfff675640f6e15060a0
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100597435"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723178"
 ---
 # <a name="log-analytics-tutorial"></a>Tutoriel Log Analytics
 Log Analytics est un outil du portail Azure permettant de modifier et d’exécuter des requêtes de journal à partir de données collectées par les journaux Azure Monitor et d’analyser leurs résultats de manière interactive. Vous pouvez utiliser des requêtes Log Analytics pour récupérer des enregistrements correspondant à des critères particuliers, identifier des tendances, analyser des modèles et fournir divers insights sur vos données. 
@@ -33,7 +33,7 @@ Ce tutoriel vous guide dans l’interface Log Analytics, présente quelques requ
 Ce tutoriel utilise l’[environnement de démonstration Log Analytics](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade), qui comprend de nombreux exemples de données prenant en charge les exemples de requêtes. Vous pouvez également utiliser votre propre abonnement Azure, mais vous ne disposerez peut-être pas de données dans les mêmes tables.
 
 ## <a name="open-log-analytics"></a>Ouvrir Log Analytics
-Ouvrez l’[environnement de démonstration Log Analytics](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade) ou sélectionnez **Journaux** dans le menu Azure Monitor de votre abonnement. Cela permet de définir un espace de travail Log Analytics comme étendue initiale, ce qui signifie que votre requête sélectionnera parmi toutes les données de cet espace de travail. Si vous sélectionnez **Journaux** dans le menu d’une ressource Azure, l’étendue est définie sur les seuls enregistrements de cette ressource. Pour plus d’informations sur l’étendue, consultez [Étendue de requête de journal](../log-query/scope.md).
+Ouvrez l’[environnement de démonstration Log Analytics](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade) ou sélectionnez **Journaux** dans le menu Azure Monitor de votre abonnement. Cela permet de définir un espace de travail Log Analytics comme étendue initiale, ce qui signifie que votre requête sélectionnera parmi toutes les données de cet espace de travail. Si vous sélectionnez **Journaux** dans le menu d’une ressource Azure, l’étendue est définie sur les seuls enregistrements de cette ressource. Pour plus d’informations sur l’étendue, consultez [Étendue de requête de journal](./scope.md).
 
 Vous pouvez voir l’étendue dans l’angle supérieur gauche de l’écran. Si vous utilisez votre propre environnement, vous verrez une option permettant de sélectionner une autre étendue, mais cette option n’est pas disponible dans l’environnement de démonstration.
 

@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 266862a1691387caf1b1ffa9a47b0e60e84970d8
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 739e1dea23f87403a4aded50d5c9f254a55c64cc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492129"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737611"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Questions fréquentes (FAQ) sur Azure Files
 [Azure Files](storage-files-introduction.md) offre des partages de fichiers pleinement managés dans le cloud qui sont accessibles via le [protocole SMB (Server Message Block)](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) standard et le [protocole NFS (Network File System)](https://en.wikipedia.org/wiki/Network_File_System) (préversion). Vous pouvez monter des partages de fichiers Azure simultanément sur des déploiements cloud ou locaux de Windows, Linux et macOS. Vous pouvez également mettre en cache des partages de fichiers Azure sur des ordinateurs Windows Server à l’aide d’Azure File Sync pour bénéficier d’un accès rapide proche de l’endroit où les données sont utilisées.
@@ -73,7 +73,7 @@ Cet article répond à des questions courantes sur les fonctionnalités d’Azur
 
 * <a id="tier-options"></a>
   **Quels sont les niveaux de stockage pris en charge par Azure Files ?**  
-    Azure Files prend en charge deux niveaux de stockage : Premium et standard. Les partages de fichiers standard sont créés dans les comptes de stockage (GPv1 ou GPv2) à usage général, alors que les partages de fichiers Premium sont créés dans les comptes de stockage FileStorage. Découvrez comment créer des [partages de fichiers standard](storage-how-to-create-file-share.md) et [des partages de fichiers Premium](storage-how-to-create-premium-fileshare.md). 
+    Azure Files prend en charge deux niveaux de stockage : Premium et standard. Les partages de fichiers standard sont créés dans les comptes de stockage (GPv1 ou GPv2) à usage général, alors que les partages de fichiers Premium sont créés dans les comptes de stockage FileStorage. Découvrez comment créer des [partages de fichiers standard](storage-how-to-create-file-share.md) et [des partages de fichiers Premium](./storage-how-to-create-file-share.md). 
     
     > [!NOTE]
     > Vous ne pouvez pas créer de partages de fichiers Azure à partir de comptes de stockage d’objets blob ou de comptes de stockage *Premium* à usage général (GPv1 ou GPv2). Les partages de fichiers Azure standard doivent être créés dans des comptes *standard* à usage général uniquement, et les partages Azure Premium doivent être créés dans des comptes de stockage FileStorage uniquement. Les comptes de stockage *Premium* à usage général (GPv1 et GPv2) sont destinés aux objets blob de pages Premium uniquement. 
@@ -331,7 +331,7 @@ Cet article répond à des questions courantes sur les fonctionnalités d’Azur
 
     Vous pouvez monter le partage de fichiers à l’aide du protocole SMB si le port 445 (TCP sortant) est ouvert et que votre client prend en charge le protocole SMB 3.0 (par exemple si vous utilisez Windows 10 ou Windows Server 2016). Si le port 445 est bloqué par la stratégie de votre organisation ou par votre fournisseur de services Internet, vous pouvez utiliser Azure File Sync pour accéder à votre partage de fichiers Azure.
 
-## <a name="backup"></a>Sauvegarde
+## <a name="backup"></a>Backup
 * <a id="backup-share"></a>
 **Comment faire pour sauvegarder mon partage de fichiers Azure ?**  
     Vous pouvez utiliser des [instantanés de partage](storage-snapshots-files.md) périodiques pour la protection contre les suppressions accidentelles. Vous pouvez aussi utiliser AzCopy, RoboCopy ou un outil de sauvegarde tiers capable de sauvegarder un partage de fichiers monté. Le service Sauvegarde Azure propose une sauvegarde d’Azure Files. En savoir plus sur la [sauvegarder de partages de fichiers Azure par le service Sauvegarde Azure](../../backup/backup-afs.md).

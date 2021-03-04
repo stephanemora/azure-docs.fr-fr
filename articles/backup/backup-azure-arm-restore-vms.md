@@ -4,12 +4,12 @@ description: Restaurer une machine virtuelle Azure à partir d’un point de ré
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: 256998f2e687152bb63c9368af1a56f05bba7672
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: c15b2dc39202c6f8386031bcf055688aa2d279df
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99820566"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101722685"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Comment restaurer des données de machine virtuelle Azure dans le Portail Azure
 
@@ -160,7 +160,7 @@ Si la CRR est activée, vous pouvez afficher les éléments de sauvegarde dans l
 
 L’expérience utilisateur de restauration de la région secondaire est similaire à celle de la région primaire. Quand vous configurez votre restauration dans le panneau Configuration de la restauration, vous êtes invité à fournir uniquement les paramètres de région secondaire.
 
-Actuellement, la région secondaire [RPO](azure-backup-glossary.md#rpo-recovery-point-objective) est jusqu’à 12 heures de la région primaire, même si la réplication du [stockage géo-redondant avec accès en lecture (RA-GRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy#redundancy-in-a-secondary-region) est de 15 minutes.
+Actuellement, la région secondaire [RPO](azure-backup-glossary.md#rpo-recovery-point-objective) est jusqu’à 12 heures de la région primaire, même si la réplication du [stockage géo-redondant avec accès en lecture (RA-GRS)](../storage/common/storage-redundancy.md#redundancy-in-a-secondary-region) est de 15 minutes.
 
 ![Choisir la machine virtuelle à restaurer](./media/backup-azure-arm-restore-vms/sec-restore.png)
 
@@ -179,7 +179,7 @@ Actuellement, la région secondaire [RPO](azure-backup-glossary.md#rpo-recovery-
 >- La fonctionnalité de restauration inter-régions restaure les machines virtuelles Azure compatibles avec CMK (clés gérées par le client), qui ne sont pas sauvegardées dans un coffre Recovery Services avec CMK activé, en tant que machines virtuelles non compatibles CMK dans la région secondaire.
 >- Les rôles Azure nécessaires à la restauration dans la région secondaire sont les mêmes que ceux de la région primaire.
 
-Les [machines virtuelles épinglées à une zone Azure](https://docs.microsoft.com/azure/virtual-machines/windows/create-portal-availability-zone) peuvent être restaurées dans des [zones de disponibilité](https://docs.microsoft.com/azure/availability-zones/az-overview) de la même région.
+Les [machines virtuelles épinglées à une zone Azure](../virtual-machines/windows/create-portal-availability-zone.md) peuvent être restaurées dans des [zones de disponibilité](../availability-zones/az-overview.md) de la même région.
 
 Dans le processus de restauration, l’option **Zone de disponibilité** s’affiche. Vous voyez d’abord votre zone par défaut. Pour choisir une autre zone, choisissez le numéro de la zone de votre choix. Si la zone épinglée n’est pas disponible, vous ne pouvez pas restaurer les données dans une autre zone, car les données sauvegardées ne sont pas répliquées de façon zonale.
 

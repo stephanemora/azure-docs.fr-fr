@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 9503d93afbf14be159e6b982d9be5977717349ac
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: 6b1df49ed0f2c543706d7584a1ade5dc5554a564
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99530936"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750952"
 ---
 Ce tutoriel nécessite les ressources Azure suivantes :
 
@@ -36,10 +36,10 @@ Pour ce guide de démarrage rapide, nous vous recommandons d’utiliser le [scri
     1. **Interface réseau** : permet à une machine virtuelle Azure de communiquer avec des ressources Internet, Azure et autres.
     1. **Connexion bastion** : vous permet de vous connecter à votre machine virtuelle à l’aide de votre navigateur et du portail Azure.
     1. **Adresse IP publique** : permet aux ressources Azure de communiquer avec Internet et les services Azure publics.
-    1. **Réseau virtuel** : permet à de nombreux types de ressources Azure, comme votre machine virtuelle, de communiquer de manière sécurisée entre elles, avec Internet et avec les réseaux locaux. En savoir plus sur les [réseaux virtuels](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
+    1. **Réseau virtuel** : permet à de nombreux types de ressources Azure, comme votre machine virtuelle, de communiquer de manière sécurisée entre elles, avec Internet et avec les réseaux locaux. En savoir plus sur les [réseaux virtuels](../../../../../virtual-network/virtual-networks-overview.md)
     1. **IoT Hub** : fait office de hub de messagerie centralisé pour la communication bidirectionnelle entre votre application IoT, les modules IoT Edge et les appareils qu'il gère.
     1. **Compte Media Services** : facilite la gestion et le streaming du contenu multimédia dans Azure.
-    1. **Compte de stockage** : vous devez disposer d’un compte de stockage principal et vous pouvez avoir n’importe quel nombre de comptes de stockage secondaires associés à votre compte Media Services. Pour plus d'informations, consultez [Comptes de stockage Azure avec comptes Azure Media Services](https://docs.microsoft.com/azure/media-services/latest/storage-account-concept).
+    1. **Compte de stockage** : vous devez disposer d’un compte de stockage principal et vous pouvez avoir n’importe quel nombre de comptes de stockage secondaires associés à votre compte Media Services. Pour plus d'informations, consultez [Comptes de stockage Azure avec comptes Azure Media Services](../../../../latest/storage-account-concept.md).
     1. **Registre de conteneurs** : permet de stocker et de gérer vos images de conteneur Docker privé et les artefacts associés.
 
 1. Une fois le script terminé, sélectionnez les accolades pour exposer la structure des dossiers. Quelques fichiers s’affichent dans le répertoire *~/clouddrive/lva-sample*. L’intérêt de ce guide de démarrage rapide est le suivant :

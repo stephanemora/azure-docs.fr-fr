@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 04/16/2018
 ms.author: srrengar
-ms.openlocfilehash: b91a8a8742a5bdc9454ebcbd8894889084a12a79
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 47017fdb5f1fbaba800e71dea21afe2c39bd91e7
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86258678"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570148"
 ---
 # <a name="performance-monitoring-with-azure-monitor-logs"></a>Analyse des performances avec les journaux Azure Monitor
 
@@ -91,6 +91,6 @@ Maintenant que vous avez ajouté l’agent Log Analytics, accédez au portail Lo
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Collectez les [compteurs de performances](service-fabric-diagnostics-event-generation-perf.md) dont vous avez besoin. Pour configurer l’agent Log Analytics de façon à collecter certains compteurs de performances, voir [Configurer les sources de données](../azure-monitor/platform/agent-data-sources.md#configuring-data-sources).
-* Configurez les journaux Azure Monitor de façon à paramétrer [l’alerte automatisée](../azure-monitor/platform/alerts-overview.md) pour faciliter la détection et les diagnostics.
+* Collectez les [compteurs de performances](service-fabric-diagnostics-event-generation-perf.md) dont vous avez besoin. Pour configurer l’agent Log Analytics de façon à collecter certains compteurs de performances, voir [Configurer les sources de données](../azure-monitor/agents/agent-data-sources.md#configuring-data-sources).
+* Configurez les journaux Azure Monitor de façon à paramétrer [l’alerte automatisée](../azure-monitor/alerts/alerts-overview.md) pour faciliter la détection et les diagnostics.
 * En guise d’alternative, vous pouvez collecter des compteurs de performances via [l’extension Diagnostics Azure et les envoyer à Application Insights](service-fabric-diagnostics-event-aggregation-wad.md#add-the-application-insights-sink-to-the-resource-manager-template)

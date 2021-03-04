@@ -6,12 +6,12 @@ title: Architecture de référence Azure Spring Cloud
 ms.author: akaleshian
 ms.service: spring-cloud
 description: Cette architecture de référence est une base qui utilise une conception hub-and-spoke typique des entreprises pour l’utilisation d’Azure Spring Cloud.
-ms.openlocfilehash: 7d069e67e5161135b309aee3dc9c6ac921105623
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: c87462c8d6ab86299b6202acaa23f93d19240e0e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100634360"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735486"
 ---
 # <a name="azure-spring-cloud-reference-architecture"></a>Architecture de référence Azure Spring Cloud
 
@@ -212,7 +212,7 @@ La liste suivante répertorie les contrôles CIS qui traitent de la sécurité d
 | 6.5 | Vérifie que Network Watcher est défini sur « Activé ». |
 | 6.6 | Vérifie que l’entrée à l’aide d’UDP est restreinte à partir d’Internet. |
 
-Azure Spring Cloud nécessite une gestion du trafic pour permettre les sorties d’Azure lorsque le service est déployé dans un environnement sécurisé. Pour ce faire, vous devez autoriser les règles de réseau et d’application mentionnées dans [Responsabilités du client pour l’exécution d’Azure Spring Cloud dans un réseau virtuel](/azure/spring-cloud/spring-cloud-vnet-customer-responsibilities).
+Azure Spring Cloud nécessite une gestion du trafic pour permettre les sorties d’Azure lorsque le service est déployé dans un environnement sécurisé. Pour ce faire, vous devez autoriser les règles de réseau et d’application mentionnées dans [Responsabilités du client pour l’exécution d’Azure Spring Cloud dans un réseau virtuel](./spring-cloud-vnet-customer-responsibilities.md).
 
 #### <a name="application-security"></a>Sécurité des applications
 
@@ -246,23 +246,23 @@ Ces aspects de la sécurité des applications constituent une base pour l’util
 Explorez cette architecture de référence via les déploiements ARM, Terraform et Azure CLI disponibles dans le référentiel [Architecture de référence Azure Spring Cloud][10].
 
 <!-- Reference links in article -->
-[1]: /azure/spring-cloud/
-[2]: /azure/key-vault/
-[3]: /azure/azure-monitor/
-[4]: /azure/security-center/
+[1]: ./index.yml
+[2]: ../key-vault/index.yml
+[3]: ../azure-monitor/index.yml
+[4]: ../security-center/index.yml
 [5]: /azure/devops/pipelines/
-[6]: /azure/application-gateway/
-[7]: /azure/web-application-firewall/
-[8]: /azure/spring-cloud/spring-cloud-tutorial-config-server/
+[6]: ../application-gateway/index.yml
+[7]: ../web-application-firewall/index.yml
+[8]: ./spring-cloud-tutorial-config-server.md
 [9]: https://steeltoe.io/
 [10]: https://github.com/Azure/azure-spring-cloud-reference-architecture
-[11]: /azure/spring-cloud/spring-cloud-tutorial-deploy-in-azure-virtual-network#virtual-network-requirements
-[12]: /azure/spring-cloud/spring-cloud-vnet-customer-responsibilities#azure-spring-cloud-network-requirements
-[13]: /azure/spring-cloud/spring-cloud-vnet-customer-responsibilities#azure-spring-cloud-fqdn-requirements--application-rules
-[14]: /azure/spring-cloud/spring-cloud-howto-staging-environment
+[11]: ./spring-cloud-tutorial-deploy-in-azure-virtual-network.md#virtual-network-requirements
+[12]: ./spring-cloud-vnet-customer-responsibilities.md#azure-spring-cloud-network-requirements
+[13]: ./spring-cloud-vnet-customer-responsibilities.md#azure-spring-cloud-fqdn-requirements--application-rules
+[14]: ./spring-cloud-howto-staging-environment.md
 [15]: https://devblogs.microsoft.com/java/monitor-applications-and-dependencies-in-azure-spring-cloud/
 [16]: /azure/architecture/framework/
-[17]: /azure/spring-cloud/spring-cloud-tutorial-deploy-in-azure-virtual-network#virtual-network-requirements
+[17]: ./spring-cloud-tutorial-deploy-in-azure-virtual-network.md#virtual-network-requirements
 [18]: https://cloudsecurityalliance.org/
 [19]: https://cloudsecurityalliance.org/research/working-groups/cloud-controls-matrix
 [20]: https://azure.microsoft.com/resources/cis-microsoft-azure-foundations-security-benchmark/

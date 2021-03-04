@@ -9,10 +9,10 @@ ms.date: 09/30/2020
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: 5b537b88052ce4042e346732f3dc63aaec6621cc
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2021
+ms.lasthandoff: 03/03/2021
 ms.locfileid: "100529725"
 ---
 1. Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur le projet et sélectionnez **Publier** puis, dans **Cible**, sélectionnez **Azure**, puis **Suivant**.
@@ -25,7 +25,7 @@ ms.locfileid: "100529725"
 
 1. Créez une instance en utilisant les valeurs spécifiées dans le tableau suivant :
 
-    | Paramètre      | Valeur  | Description                                |
+    | Paramètre      | Value  | Description                                |
     | ------------ |  ------- | -------------------------------------------------- |
     | **Nom** | Nom globalement unique | Nom qui identifie uniquement votre nouvelle application de fonction. Acceptez ce nom ou entrez un nouveau nom. Les caractères valides sont `a-z`, `0-9` et `-`. |
     | **Abonnement** | Votre abonnement | Sélectionnez l’abonnement Azure à utiliser. Acceptez cet abonnement ou sélectionnez-en un nouveau dans la liste déroulante. |

@@ -1,17 +1,16 @@
 ---
 title: Historique des versions des schémas de configuration de l’extension Diagnostics Azure pour Windows (WAD)
 description: Cet article est pertinent concernant la collecte de compteurs de performances dans Azure Virtual Machines, VM Scale Sets, Service Fabric et Cloud Services.
-ms.subservice: diagnostic-extension
 ms.topic: reference
 author: bwren
 ms.author: bwren
 ms.date: 01/29/2020
-ms.openlocfilehash: 3b6dc0e19c181ebf4df2778633f981258023e046
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 57ba1c760fe8919fff95493c5c81da4368894f73
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100599201"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719812"
 ---
 # <a name="windows-azure-diagnostics-extension-wad-configuration-schema-versions-and-history"></a>Historique et versions des schémas de configuration de l’extension Diagnostics Azure pour Windows (WAD)
 Cet article indique l’historique des versions de schéma de l’[extension Diagnostics Azure pour Windows (WAD)](diagnostics-extension-overview.md) fournies dans le cadre du SDK Microsoft Azure.  
@@ -47,7 +46,7 @@ Les différentes versions de Diagnostics Azure utilisent des schémas de configu
 ### <a name="diagnostics-extension-111"></a>Extension Diagnostics 1.11
 Ajout de la prise en charge du récepteur Azure Monitor. Ce récepteur s’applique uniquement aux compteurs de performances. Permet d’envoyer les compteurs de performances collectés sur votre machine virtuelle, groupe de machines virtuelles identiques (VMSS) ou service cloud à Azure Monitor sous la forme de métriques personnalisées. Le récepteur Azure Monitor prend en charge ce qui suit :
 * Récupération de tous les compteurs de performances envoyés à Azure Monitor via les [API de métriques Azure Monitor.](/rest/api/monitor/metrics/list)
-* Génération d’alertes sur l’ensemble des compteurs de performances envoyés à Azure Monitor via la nouvelle [expérience d’alerte unifiée](../platform/alerts-overview.md) dans Azure Monitor.
+* Génération d’alertes sur l’ensemble des compteurs de performances envoyés à Azure Monitor via la nouvelle [expérience d’alerte unifiée](../alerts/alerts-overview.md) dans Azure Monitor.
 * Traitement de l’opérateur générique des compteurs de performances comme dimension « Instance » sur votre métrique. Par exemple, si vous avez collecté le compteur « LogicalDisk(\*)/DiskWrites/sec », vous pouvez filtrer et fractionner sur la dimension « Instance » pour tracer ou générer des alertes sur le nombre d’écritures/s de chaque disque logique (C:, D:, etc.)
 
 Définir Azure Monitor comme nouveau récepteur dans votre configuration d’extension Diagnostics
@@ -190,4 +189,3 @@ Si vous mettez à niveau votre projet du Kit de développement logiciel (SDK) Az
 * **Les diagnostics pour les applications du service cloud peuvent uniquement être configurés au niveau du rôle, pas au niveau de l’instance.**
 * **Chaque fois que vous déployez votre application, la configuration des diagnostics est mise à jour** : cela peut occasionner des problèmes de parité si vous modifiez votre configuration des diagnostics à partir de l’Explorateur de serveurs, puis redéployez votre application.
 * **Dans le Kit de développement logiciel (SDK) Azure 2.5 et les versions ultérieures, les vidages sur incident sont configurés dans le fichier de configuration des diagnostics, pas dans le code** : si vous avez des vidages sur incident configurés dans le code, vous devez transférer la configuration manuellement du code vers le fichier de configuration, car les vidages sur incident ne sont pas transférés durant la migration vers le Kit de développement logiciel (SDK) Azure 2.6.
-

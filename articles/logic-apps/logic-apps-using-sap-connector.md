@@ -9,16 +9,16 @@ ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
 ms.date: 02/01/2021
 tags: connectors
-ms.openlocfilehash: cbbc0edf710b8823c1a36daa66bc01d89acf63da
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: e52c4acb4b59414e89e87bf5a6ee2cfae8207cae
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99575481"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101712451"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Se connecter aux systèmes SAP à partir d’Azure Logic Apps
 
-Cet article explique comment vous pouvez accéder à vos ressources SAP à partir de Logic Apps à l’aide du [connecteur SAP](https://docs.microsoft.com/connectors/sap/).
+Cet article explique comment vous pouvez accéder à vos ressources SAP à partir de Logic Apps à l’aide du [connecteur SAP](/connectors/sap/).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -547,14 +547,14 @@ Pour les versions de la passerelle de données locale d’avril 2020 et version
 
 Si vous utilisez une [passerelle de données locale pour Logic Apps](../logic-apps/logic-apps-gateway-install.md), vous pouvez configurer un fichier journal étendu pour le connecteur SAP. Vous pouvez utiliser votre passerelle de données locale pour rediriger les événements ETW (Suivi d’événements pour Windows) dans des fichiers journaux avec rotation qui sont inclus dans les fichiers .zip de journalisation de votre passerelle. 
 
-Vous pouvez [exporter tous les journaux de configuration et de service de votre passerelle](https://docs.microsoft.com/data-integration/gateway/service-gateway-tshoot#collect-logs-from-the-on-premises-data-gateway-app) vers un fichier .zip à partir des paramètres de l’application de passerelle.
+Vous pouvez [exporter tous les journaux de configuration et de service de votre passerelle](/data-integration/gateway/service-gateway-tshoot#collect-logs-from-the-on-premises-data-gateway-app) vers un fichier .zip à partir des paramètres de l’application de passerelle.
 
 > [!NOTE]
 > La journalisation étendue peut affecter les performances de vos applications logiques quand elle est activée en continu. Il est recommandé de désactiver les fichiers journaux étendus une fois que vous avez terminé l’analyse et le dépannage d’un problème.
 
 #### <a name="capture-etw-events"></a>Capturer des événements ETW
 
-Les utilisateurs avancés peuvent éventuellement capturer des événements ETW directement. Vous pouvez ensuite [consommer vos données dans Diagnostics Azure dans Event Hubs](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-stream-event-hubs) ou [collecter vos données dans les journaux Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-logs). Pour plus d’informations, consultez les [meilleures pratiques pour collecter et stocker des données](https://docs.microsoft.com/azure/architecture/best-practices/monitoring#collecting-and-storing-data). Vous pouvez utiliser [PerfView](https://github.com/Microsoft/perfview/blob/master/README.md) pour travailler avec les fichiers ETL résultants, ou vous pouvez écrire votre propre programme. Cette procédure pas à pas utilise PerfView :
+Les utilisateurs avancés peuvent éventuellement capturer des événements ETW directement. Vous pouvez ensuite [consommer vos données dans Diagnostics Azure dans Event Hubs](../azure-monitor/agents/diagnostics-extension-stream-event-hubs.md) ou [collecter vos données dans les journaux Azure Monitor](/azure/azure-monitor/agents/diagnostics-extension-logs). Pour plus d’informations, consultez les [meilleures pratiques pour collecter et stocker des données](/azure/architecture/best-practices/monitoring#collecting-and-storing-data). Vous pouvez utiliser [PerfView](https://github.com/Microsoft/perfview/blob/master/README.md) pour travailler avec les fichiers ETL résultants, ou vous pouvez écrire votre propre programme. Cette procédure pas à pas utilise PerfView :
 
 1. Dans le menu PerfView, sélectionnez **Collecter** &gt; **Collecter** pour capturer les événements.
 
@@ -1336,7 +1336,7 @@ Pour obtenir des exemples détaillés d’utilisation de l’action Appeler BAPI
 
 ### <a name="send-idoc-action"></a>Action Envoyer IDoc
 
-L’action [Envoyer IDoc (`SendIDoc`)](https://docs.microsoft.com/connectors/sap/#send-idoc-(preview)) envoie le message IDoc à votre serveur SAP.
+L’action [Envoyer IDoc (`SendIDoc`)](/connectors/sap/) envoie le message IDoc à votre serveur SAP.
 
 Vous devez utiliser les paramètres suivants avec votre appel : 
 

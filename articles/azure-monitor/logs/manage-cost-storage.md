@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/31/2021
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: d4ead88fb34d6475dae66d9708d7203eb94eaef1
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 4e711eb70c1fa099dd67b1ec23a0e8014ee11e47
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100599153"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731389"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gérer l’utilisation et les coûts avec les journaux Azure Monitor    
 
@@ -268,7 +268,7 @@ Pour vous aider à démarrer, voici les paramètres que nous recommandons pour l
 - Nom de la règle d'alerte : limite de données quotidienne atteinte
 - Gravité : avertissement (Sev 1)
 
-Une fois que l’alerte est définie et que la limite est atteinte, l’alerte est déclenchée et effectue la réponse définie dans le groupe d’actions. Elle peut informer votre équipe via des e-mails et des SMS ou automatiser des actions à l’aide de Webhooks ou de runbooks Automation, ou [en s’intégrant à une solution ITSM externe](../platform/itsmc-definition.md#create-itsm-work-items-from-azure-alerts). 
+Une fois que l’alerte est définie et que la limite est atteinte, l’alerte est déclenchée et effectue la réponse définie dans le groupe d’actions. Elle peut informer votre équipe via des e-mails et des SMS ou automatiser des actions à l’aide de Webhooks ou de runbooks Automation, ou [en s’intégrant à une solution ITSM externe](../alerts/itsmc-definition.md#create-itsm-work-items-from-azure-alerts). 
 
 ## <a name="troubleshooting-why-usage-is-higher-than-expected"></a>Résolution des problèmes à l’origine d’une utilisation plus importante que prévu
 
@@ -488,8 +488,8 @@ Voici quelques suggestions pour réduire le volume de journaux d’activité col
 | AzureDiagnostics           | Modifiez la [collection de journaux de ressources](../essentials/diagnostic-settings.md#create-in-azure-portal) pour : <br> - Réduire le nombre de journaux d’activité d’envoi de ressources à Log Analytics <br> - Collecter uniquement les journaux d’activité nécessaires |
 | Données de solution d’ordinateurs n’ayant pas besoin de la solution | Utilisez le [ciblage de solution](../insights/solution-targeting.md) pour collecter des données des groupes d’ordinateurs requis uniquement. |
 | Application Insights | Examiner les options pour [https://docs.microsoft.com/azure/azure-monitor/app/pricing#managing-your-data-volume](managing Application Insights data volume) |
-| [SQL Analytics](https://docs.microsoft.com/azure/azure-monitor/insights/azure-sql) | Utilisez [Set-AzSqlServerAudit](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserveraudit) pour ajuster les paramètres d’audit. |
-| Azure Sentinel | Examinez les [sources de données Sentinel](https://docs.microsoft.com/azure/sentinel/connect-data-sources) que vous avez récemment activées en tant que sources de volume de données supplémentaire. |
+| [SQL Analytics](../insights/azure-sql.md) | Utilisez [Set-AzSqlServerAudit](/powershell/module/az.sql/set-azsqlserveraudit) pour ajuster les paramètres d’audit. |
+| Azure Sentinel | Examinez les [sources de données Sentinel](../../sentinel/connect-data-sources.md) que vous avez récemment activées en tant que sources de volume de données supplémentaire. |
 
 ### <a name="getting-nodes-as-billed-in-the-per-node-pricing-tier"></a>Obtention des nœuds facturés au niveau tarifaire Par nœud
 

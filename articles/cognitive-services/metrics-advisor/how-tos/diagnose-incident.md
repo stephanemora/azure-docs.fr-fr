@@ -10,12 +10,12 @@ ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: mbullwin
-ms.openlocfilehash: d1f792859aa5407cfaceda0e3ed1b5c21ee160f0
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: ecbfb2d9acf6c62f95c264a14e306442db25e483
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92043372"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703420"
 ---
 # <a name="how-to-diagnose-an-incident-using-metrics-advisor"></a>Procédure : Diagnostic d’un incident à l’aide de Metrics Advisor
 
@@ -37,17 +37,17 @@ La section **Vue d’ensemble** contient les résultats de la détection, notamm
 
 Les incidents détectés au sein de la métrique et de l’intervalle de temps sélectionnés apparaissent dans la **Liste des incidents**. Il existe des options permettant de filtrer et d’organiser les incidents, par exemple, par gravité. Cliquez sur l’un des incidents pour accéder à la page **Incident** et bénéficier de diagnostics plus poussés.
 
-:::image type="content" source="../media/diagnostics/incident-list.png" alt-text="Hub d’incidents" lightbox="../media/diagnostics/incident-list.png":::
+:::image type="content" source="../media/diagnostics/incident-list.png" alt-text="Liste des incidents" lightbox="../media/diagnostics/incident-list.png":::
 
 La section **Diagnostic** permet d’effectuer une analyse approfondie d’un incident et offre des outils servant à identifier les causes racines.
 
-:::image type="content" source="../media/diagnostics/diagnose-incident.png" alt-text="Hub d’incidents" lightbox="../media/diagnostics/diagnose-incident.png" :::
+:::image type="content" source="../media/diagnostics/diagnose-incident.png" alt-text="Diagnostic d’un incident" lightbox="../media/diagnostics/diagnose-incident.png" :::
 
 ## <a name="root-cause-advice"></a>Conseil cause racine
 
 Lorsqu’un groupe d’anomalies est détecté dans une métrique et provoque un incident, Metrics Advisor tente d’analyser la cause racine de ce dernier. Le **Conseil cause racine** fournit des suggestions automatiques de causes probables de l’incident. Cette fonctionnalité n’est disponible que s’il existe une valeur agrégée dans la dimension. Si la métrique ne comporte pas de dimension, la cause racine sera elle-même. Les causes racines figurent dans le volet droit. Il peut arriver que plusieurs raisons apparaissent. Si le tableau ne contient pas de données, cela signifie que la dimension ne répond pas aux conditions requises pour effectuer l’analyse.
 
-:::image type="content" source="../media/diagnostics/root-cause-advice.png" lightbox="../media/diagnostics/root-cause-advice.png" alt-text="Hub d’incidents":::
+:::image type="content" source="../media/diagnostics/root-cause-advice.png" lightbox="../media/diagnostics/root-cause-advice.png" alt-text="Conseil cause racine":::
 
 
 Lorsque la métrique de la cause racine est fournie avec des dimensions spécifiques, vous pouvez cliquer sur **Accéder à la métrique** pour afficher ses détails.
@@ -60,7 +60,7 @@ L’arborescence de diagnostic rapide permet de diagnostiquer un incident en cou
 
 L’arborescence interactive permet de diagnostiquer les incidents actuels, ainsi que d’autres plus anciens et ceux qui sont associés. Lorsque vous utilisez l’arborescence interactive, cliquez avec le bouton droit sur un nœud pour ouvrir un menu d’actions, dans lequel vous pouvez choisir une dimension pour monter dans la hiérarchie des nœuds racines et une autre pour explorer chaque nœud au niveau du détail. En cliquant sur le bouton Annuler de la liste de dimensions en haut, vous pouvez supprimer le zoom avant et arrière à partir de cette dimension. Cliquez sur un nœud pour le sélectionner et afficher sa série avec celle des incidents actuels dans le graphe.
 
-:::image type="content" source="../media/diagnostics/incident-tree.png" alt-text="Hub d’incidents" lightbox="../media/diagnostics/incident-tree.png" :::
+:::image type="content" source="../media/diagnostics/incident-tree.png" alt-text="Arborescence de l’incident" lightbox="../media/diagnostics/incident-tree.png" :::
 
 ## <a name="anomaly-drill-down"></a>Exploration d’anomalies
 
@@ -68,7 +68,7 @@ Lorsque vous consultez des informations sur les incidents, il peut vous falloir 
 
 Pour utiliser la fonction d’exploration au niveau du détail, cliquez sur l’onglet **Exploration des métriques** dans le **Hub d’incidents**. 
 
-:::image type="content" source="../media/diagnostics/metric-drilling.png" lightbox="../media/diagnostics/metric-drilling.png" alt-text="Hub d’incidents":::
+:::image type="content" source="../media/diagnostics/metric-drilling.png" lightbox="../media/diagnostics/metric-drilling.png" alt-text="Exploration des métriques":::
 
 Le paramètre **Dimensions** est une liste de dimensions pour un incident. Il est possible de sélectionner d’autres valeurs de dimension disponibles pour chacun d’eux. Après modification de la valeur de dimension Le paramètre **Timestamp** permet d’afficher l’incident actuel à différents moments dans le temps.
 
@@ -80,25 +80,25 @@ Il existe deux types d’options d’exploration : **Exploration au niveau du d
 > 1. Pour descendre dans la hiérarchie, vous pouvez explorer les données de différentes valeurs de dimension, à l’exception des dimensions actuellement sélectionnées. 
 > 2. La comparaison horizontale permet d’explorer les données de différentes valeurs de dimension, à l’exception des dimensions Tout.
 
-:::image type="content" source="../media/diagnostics/drill-down-dimension.png"  lightbox="../media/diagnostics/drill-down-dimension.png" alt-text="Hub d’incidents":::
+:::image type="content" source="../media/diagnostics/drill-down-dimension.png" lightbox="../media/diagnostics/drill-down-dimension.png" alt-text="Dimension d’exploration":::
 
 ### <a name="value-comparison-for-different-dimension-values"></a>Comparaison de différentes valeurs de dimension
 
 La deuxième section de l’onglet Exploration au niveau du détail est un tableau présentant des comparaisons pour différentes valeurs de dimension. Il comprend la valeur, la valeur de référence, la valeur de différence et la valeur delta, et indique s’il s’agit d’une anomalie.
  
-:::image type="content" source="../media/diagnostics/drill-down-comparison.png" alt-text="Hub d’incidents" lightbox="../media/diagnostics/drill-down-comparison.png":::
+:::image type="content" source="../media/diagnostics/drill-down-comparison.png" alt-text="Comparaison descendante" lightbox="../media/diagnostics/drill-down-comparison.png":::
 
 
 ### <a name="value-and-expected-value-comparisons-for-different-dimension-value"></a>Comparaisons entre les valeurs et les valeurs attendues pour différentes valeurs de dimension
 
 La troisième section de l’onglet Exploration au niveau du détail est un histogramme comportant les valeurs et les valeurs attendues, pour différentes valeurs de dimension. L’histogramme est trié selon la différence entre la valeur et la valeur attendue. Il est facile de trouver la valeur inattendue présentant l’impact le plus important. Par exemple, dans l’illustration ci-dessus, nous pouvons constater que, à l’exception de la valeur Tout, c’est **US7** qui contribue le plus à l’anomalie.
 
-:::image type="content" source="../media/diagnostics/drill-down-table.png" alt-text="Hub d’incidents" lightbox="../media/diagnostics/drill-down-table.png":::
+:::image type="content" source="../media/diagnostics/drill-down-table.png" alt-text="Tableau d’exploration" lightbox="../media/diagnostics/drill-down-table.png":::
 
 ### <a name="raw-value-visualization"></a>Visualisation de la valeur brute
 La dernière partie de l’onglet Exploration au niveau du détail est un graphique en courbes des valeurs brutes. Ce graphique évite d’avoir à accéder à la page Métrique pour afficher les détails.
 
-:::image type="content" source="../media/diagnostics/drill-down-line-chart.png" alt-text="Hub d’incidents" lightbox="../media/diagnostics/drill-down-line-chart.png":::
+:::image type="content" source="../media/diagnostics/drill-down-line-chart.png" alt-text="Graphique en courbes d’exploration" lightbox="../media/diagnostics/drill-down-line-chart.png":::
 
 ## <a name="view-similar-anomalies-using-time-series-clustering"></a>Affichage d’anomalies similaires à l’aide du clustering de séries chronologiques
 
@@ -109,13 +109,13 @@ Lorsque vous affichez un incident, vous pouvez utiliser l’onglet **Clustering 
 
 Les dimensions disponibles figurent dans la partie supérieure de l’onglet. Vous pouvez effectuer une sélection pour spécifier la série.
 
-:::image type="content" source="../media/diagnostics/series-group.png" lightbox="../media/diagnostics/series-group.png"alt-text="Hub d’incidents":::
+:::image type="content" source="../media/diagnostics/series-group.png" lightbox="../media/diagnostics/series-group.png" alt-text="Groupe de séries":::
 
 ## <a name="compare-time-series"></a>Comparaison de séries chronologiques
 
 Lorsqu’une anomalie est détectée sur une série chronologique spécifique, il est parfois utile de la comparer à d’autres séries dans une seule visualisation. Cliquez sur l’onglet **Outils de comparaison**, puis cliquez sur le bouton bleu **+ Ajouter** . 
 
-:::image type="content" source="../media/diagnostics/add-series.png" alt-text="Hub d’incidents" lightbox="../media/diagnostics/add-series.png":::
+:::image type="content" source="../media/diagnostics/add-series.png" alt-text="Ajout d’une série à comparer" lightbox="../media/diagnostics/add-series.png":::
 
 Sélectionnez une série à partir de votre flux de données. Vous pouvez choisir la même granularité ou non. Sélectionnez les dimensions cibles et chargez la tendance de la série, puis cliquez sur **OK** pour la comparer à une série précédente. Les séries seront regroupées en une seule visualisation. Vous pouvez ajouter d’autres séries pour comparaison afin d’obtenir des insights supplémentaires. Cliquez sur le menu déroulant en haut de l’onglet **Outils de comparaison** pour comparer les données de la série chronologique sur une période décalée.  
 
@@ -133,7 +133,7 @@ Après avoir sélectionné une comparaison décalée, vous pouvez choisir si vou
 
 Il est parfois nécessaire de vérifier les incidents de différentes métriques en même temps ou des incidents associés dans d’autres métriques. Vous trouverez la liste des incidents associés dans la section **Analyse croisée des métriques**. 
 
-:::image type="content" source="../media/graph/metrics-graph-cross-metrics-analysis.png" alt-text="Hub d’incidents":::
+:::image type="content" source="../media/graph/metrics-graph-cross-metrics-analysis.png" alt-text="Incidents associés à plusieurs métriques":::
 
 Pour pouvoir voir les incidents associés à la métrique actuelle, vous devez ajouter une relation entre les métriques. Cliquez sur **Paramètres du graphe de métriques** pour ajouter une relation. Seules les métriques possédant les mêmes noms de dimensions peuvent être associées. Utilisez les paramètres suivants.
 

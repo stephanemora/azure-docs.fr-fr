@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/30/2020
-ms.openlocfilehash: 540ca293afdd7514793b8eec390b4751885859df
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: f2d2670b974555b83ec622b22eb2dae8f3c9899b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100599849"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710976"
 ---
 # <a name="connect-configuration-manager-to-azure-monitor"></a>Connexion de Configuration Manager à Azure Monitor
 Vous pouvez connecter votre environnement Microsoft Endpoint Configuration Manager à Azure Monitor pour synchroniser les données de regroupement d’appareils et faire référence à ces regroupements dans Azure Monitor et Azure Automation.  
@@ -44,7 +44,7 @@ Les étapes suivantes récapitulent les étapes de configuration de l’intégra
 
 ## <a name="grant-configuration-manager-with-permissions-to-log-analytics"></a>Accorder à Configuration Manager les autorisations d’accès à Log Analytics
 
-Dans la procédure suivante, vous attribuez le rôle *Contributeur* dans votre espace de travail Log Analytics à l’application et au principal de service AD que vous avez créés précédemment pour Configuration Manager. Si vous ne disposez pas déjà d’un espace de travail, consultez [Créer un espace de travail dans Azure Monitor](../learn/quick-create-workspace.md) avant de continuer. Cela permet à Configuration Manager de s’authentifier et de se connecter à votre espace de travail Log Analytics.  
+Dans la procédure suivante, vous attribuez le rôle *Contributeur* dans votre espace de travail Log Analytics à l’application et au principal de service AD que vous avez créés précédemment pour Configuration Manager. Si vous ne disposez pas déjà d’un espace de travail, consultez [Créer un espace de travail dans Azure Monitor](./quick-create-workspace.md) avant de continuer. Cela permet à Configuration Manager de s’authentifier et de se connecter à votre espace de travail Log Analytics.  
 
 > [!NOTE]
 > Vous devez spécifier des autorisations dans l’espace de travail Log Analytics pour Configuration Manager. Sinon, vous recevez un message d’erreur quand vous utilisez l’Assistant Configuration dans Configuration Manager.
@@ -148,9 +148,8 @@ Une fois les regroupements importés, vous pouvez voir combien d’ordinateurs a
 
 ![Capture d’écran des paramètres avancés des groupes d’ordinateurs pour SCCM, montrant l’option Importer les appartenances aux regroupements Configuration Manager sélectionnée.](./media/collect-sccm/sccm-computer-groups02.png)
 
-Quand vous cliquez sur l’un deux, l’éditeur de requête de journal s’ouvre, affichant tous les groupes importés ou tous les ordinateurs appartenant à chaque groupe. À l’aide de [Recherche dans les journaux](../log-query/log-query-overview.md), vous pouvez effectuer une analyse approfondie des données d’appartenance au regroupement.
+Quand vous cliquez sur l’un deux, l’éditeur de requête de journal s’ouvre, affichant tous les groupes importés ou tous les ordinateurs appartenant à chaque groupe. À l’aide de [Recherche dans les journaux](./log-query-overview.md), vous pouvez effectuer une analyse approfondie des données d’appartenance au regroupement.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Utilisez [Recherche de journal](../log-query/log-query-overview.md) pour afficher des informations détaillées sur vos données Configuration Manager.
-
+Utilisez [Recherche de journal](./log-query-overview.md) pour afficher des informations détaillées sur vos données Configuration Manager.

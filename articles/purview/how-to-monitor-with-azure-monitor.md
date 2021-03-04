@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 12/03/2020
-ms.openlocfilehash: 22c69288479e0247e499a33c2e818c19f7edb2ae
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 4cb3965d359980856c238cd563ed8b761754660b
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879946"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101667732"
 ---
 # <a name="azure-purview-metrics-in-azure-monitor"></a>Métriques d’Azure Purview dans Azure Monitor
 
@@ -24,7 +24,7 @@ Les administrateurs d’Azure Purview peuvent utiliser Azure Monitor pour suivre
 
 ## <a name="aggregated-metrics"></a>Métriques agrégées
 
-Pour un compte Purview, les métriques sont accessibles à partir du portail Azure. L’accès aux métriques est contrôlé par l’attribution de rôle du compte Purview. Les utilisateurs doivent appartenir au rôle « Lecteur d’analyse » dans Azure Purview pour voir les métriques. Pour en savoir plus sur les niveaux d’accès des rôles, consultez [Autorisations du rôle Lecteur d’analyse](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles).
+Pour un compte Purview, les métriques sont accessibles à partir du portail Azure. L’accès aux métriques est contrôlé par l’attribution de rôle du compte Purview. Les utilisateurs doivent appartenir au rôle « Lecteur d’analyse » dans Azure Purview pour voir les métriques. Pour en savoir plus sur les niveaux d’accès des rôles, consultez [Autorisations du rôle Lecteur d’analyse](../azure-monitor/roles-permissions-security.md#built-in-monitoring-roles).
 
 La personne qui a créé le compte Purview obtient automatiquement les autorisations nécessaires pour consulter les métriques. Si quelqu’un d’autre souhaite voir les métriques, ajoutez-le au rôle **Lecteur d’analyse**, en procédant comme suit :
 
@@ -58,7 +58,7 @@ Les utilisateurs d’Azure Purview peuvent également accéder à la page des m�
 
 ### <a name="available-metrics"></a>Métriques disponibles
 
-Pour vous familiariser avec l’utilisation de la section Métriques dans le portail Azure, lisez au préalable les deux documents suivants : [Prise en main de Metrics Explorer](../azure-monitor/platform/metrics-getting-started.md) et [Fonctionnalités avancées de Metrics Explorer](../azure-monitor/platform/metrics-charts.md).
+Pour vous familiariser avec l’utilisation de la section Métriques dans le portail Azure, lisez au préalable les deux documents suivants : [Prise en main de Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md) et [Fonctionnalités avancées de Metrics Explorer](../azure-monitor/essentials/metrics-charts.md).
 
 Le tableau suivant contient la liste des métriques disponibles à explorer dans le portail Azure :
 
@@ -75,7 +75,7 @@ Les événements de télémétrie bruts sont émis vers Azure Monitor. Les évé
 
 Suivez les étapes pour créer un paramètre de diagnostic pour votre compte Azure Purview.
 
-1. Créez un nouveau paramètre de diagnostic pour collecter les journaux et les métriques de la plateforme en suivant cet article : [Créez des paramètres de diagnostic pour envoyer des journaux et des métriques de plateforme à différentes destinations](../azure-monitor/platform/diagnostic-settings.md). Sélectionnez le compte de stockage Azure comme seule destination.
+1. Créez un nouveau paramètre de diagnostic pour collecter les journaux et les métriques de la plateforme en suivant cet article : [Créez des paramètres de diagnostic pour envoyer des journaux et des métriques de plateforme à différentes destinations](../azure-monitor/essentials/diagnostic-settings.md). Sélectionnez le compte de stockage Azure comme seule destination.
 
    :::image type="content" source="./media/how-to-monitor-with-azure-monitor/step-one-diagnostic-setting.png" alt-text="Capture d’écran montrant la création du journal de diagnostic." lightbox="./media/how-to-monitor-with-azure-monitor/step-one-diagnostic-setting.png":::
 
@@ -83,7 +83,7 @@ Suivez les étapes pour créer un paramètre de diagnostic pour votre compte Azu
 
    :::image type="content" source="./media/how-to-monitor-with-azure-monitor/step-two-diagnostic-setting.png" alt-text="Capture d’écran montrant l’affectation du compte de stockage pour le journal de diagnostic." lightbox="./media/how-to-monitor-with-azure-monitor/step-two-diagnostic-setting.png":::
 
-Attendez jusqu’à 15 minutes avant de commencer à recevoir des journaux dans le compte de stockage nouvellement créé. [Consultez la conservation des données et le schéma des journaux de ressources dans le compte de stockage Azure](../azure-monitor/platform/resource-logs.md#send-to-azure-storage). Une fois les journaux de diagnostic configurés, les événements sont transmis au compte de stockage.
+Attendez jusqu’à 15 minutes avant de commencer à recevoir des journaux dans le compte de stockage nouvellement créé. [Consultez la conservation des données et le schéma des journaux de ressources dans le compte de stockage Azure](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage). Une fois les journaux de diagnostic configurés, les événements sont transmis au compte de stockage.
 
 ### <a name="scanstatuslogevent"></a>ScanStatusLogEvent
 

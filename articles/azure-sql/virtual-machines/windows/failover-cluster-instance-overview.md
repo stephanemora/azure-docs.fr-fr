@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 33be57832d9364b859042cd38349c2437bcfcb18
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: a7735de9763f3924cd6baae6af1258f6448c874e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97358144"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690921"
 ---
 # <a name="failover-cluster-instances-with-sql-server-on-azure-virtual-machines"></a>Instances de cluster de basculement avec SQL Server sur des machines virtuelles Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -47,7 +47,7 @@ Dans les environnements en cluster locaux traditionnels, un cluster de basculeme
 
 SQL Server sur les machines virtuelles Azure offre différentes options en tant que solution de stockage partagé pour un déploiement d’instances SQL Server de cluster de basculement : 
 
-||[Disques partagés Azure](../../../virtual-machines/disks-shared.md)|[Partages de fichiers Premium](../../../storage/files/storage-how-to-create-premium-fileshare.md) |[Espaces de stockage direct (S2D)](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)|
+||[Disques partagés Azure](../../../virtual-machines/disks-shared.md)|[Partages de fichiers Premium](../../../storage/files/storage-how-to-create-file-share.md) |[Espaces de stockage direct (S2D)](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)|
 |---------|---------|---------|---------|
 |**Version de système d’exploitation minimale**| Tous |Windows Server 2012|Windows Server 2016|
 |**Version minimale de SQL Server**|Tous|SQL Server 2012|SQL Server 2016|
@@ -107,7 +107,7 @@ Pour commencer, consultez [Instance de cluster de basculement SQL Server avec es
 
 ### <a name="premium-file-share"></a>Partage de fichiers Premium
 
-[Les partages de fichiers Premium](../../../storage/files/storage-how-to-create-premium-fileshare.md) sont une fonctionnalité d’[Azure Files](../../../storage/files/index.yml). Les partages de fichiers Premium sont des disques SSD sauvegardés et ont une faible latence. Ils sont entièrement pris en charge pour une utilisation avec les instances de cluster de basculement pour SQL Server 2012 ou version ultérieure sur Windows Server 2012 ou version ultérieure. Les partages de fichiers Premium vous offrent une plus grande flexibilité, car vous pouvez redimensionner et mettre à l’échelle un partage de fichiers sans temps d’arrêt.
+[Les partages de fichiers Premium](../../../storage/files/storage-how-to-create-file-share.md) sont une fonctionnalité d’[Azure Files](../../../storage/files/index.yml). Les partages de fichiers Premium sont des disques SSD sauvegardés et ont une faible latence. Ils sont entièrement pris en charge pour une utilisation avec les instances de cluster de basculement pour SQL Server 2012 ou version ultérieure sur Windows Server 2012 ou version ultérieure. Les partages de fichiers Premium vous offrent une plus grande flexibilité, car vous pouvez redimensionner et mettre à l’échelle un partage de fichiers sans temps d’arrêt.
 
 **Systèmes d’exploitation pris en charge** : Windows Server 2012 et ultérieur   
 **Version de SQL pris en charge** : SQL Server 2012 et versions ultérieures   

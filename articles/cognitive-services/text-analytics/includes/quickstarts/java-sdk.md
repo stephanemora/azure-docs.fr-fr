@@ -6,16 +6,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 01/20/2021
+ms.date: 02/09/2021
 ms.custom: devx-track-java
 ms.author: aahi
 ms.reviewer: tasharm, assafi, sumeh
-ms.openlocfilehash: 92b78cae7d1af5dc71509381afd7eaf3f962a8fa
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 4c87dc9f11a6a9780d77b39597e0479ccb6863d8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100514892"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750862"
 ---
 <a name="HOLTop"></a>
 
@@ -26,10 +26,6 @@ ms.locfileid: "100514892"
 # <a name="version-30"></a>[Version 3.0](#tab/version-3)
 
 [Documentation de référence](/java/api/overview/azure/ai-textanalytics-readme) | [Code source de la bibliothèque](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-textanalytics_5.0.0/sdk/textanalytics/azure-ai-textanalytics) | [Package](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.0.0) | [Exemples](https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-textanalytics_5.0.0/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics)
-
-# <a name="version-21"></a>[Version 2.1](#tab/version-2)
-
-Cet article ne décrit que la version 3.x de l’API.
 
 ---
 
@@ -75,11 +71,7 @@ Créez un projet Maven dans l’IDE ou l’environnement de développement de vo
 ```
 
 > [!TIP]
-> Vous voulez voir l’intégralité du fichier de code de démarrage rapide à la fois ? Vous le trouverez [sur GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/TextAnalytics/TextAnalyticsSamples.java), qui contient les exemples de code de ce guide de démarrage rapide. 
-
-# <a name="version-21"></a>[Version 2.1](#tab/version-2)
-
-Cet article ne décrit que la version 3.x de l’API.
+> Vous voulez voir l’intégralité du fichier de code de démarrage rapide à la fois ? Vous le trouverez [sur GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/TextAnalytics/TextAnalyticsSamples.java), qui contient les exemples de code dans ce guide de démarrage rapide. 
 
 ---
 
@@ -136,10 +128,6 @@ public static void main(String[] args) {
         AnalyzeOperationExample(client)
 }
 ```
-
-# <a name="version-21"></a>[Version 2.1](#tab/version-2)
-
-Cet article ne décrit que la version 3.x de l’API.
 
 ---
 
@@ -321,10 +309,6 @@ Recognized document sentiment: positive, positive score: 1.0, neutral score: 0.0
 Recognized sentence sentiment: positive, positive score: 1.0, neutral score: 0.0, negative score: 0.0.
 Recognized sentence sentiment: neutral, positive score: 0.21, neutral score: 0.77, negative score: 0.02.
 ```
-
-# <a name="version-21"></a>[Version 2.1](#tab/version-2)
-
-Cet article ne décrit que la version 3.x de l’API.
 
 ---
 
@@ -570,10 +554,6 @@ Matches:
 Text: BASIC, Score: 0.33
 ```
 
-# <a name="version-21"></a>[Version 2.1](#tab/version-2)
-
-Cet article ne décrit que la version 3.x de l’API.
-
 ---
 
 ## <a name="key-phrase-extraction"></a>Extraction d’expressions clés
@@ -683,9 +663,5 @@ Vous pouvez également utiliser l’opération d’analyse pour détecter les in
 # <a name="version-30"></a>[Version 3.0](#tab/version-3)
 
 Cette fonctionnalité n’est pas disponible dans la version 3.0.
-
-# <a name="version-21"></a>[Version 2.1](#tab/version-2)
-
-Cette fonctionnalité n’est pas disponible dans la version 2.1.
 
 ---

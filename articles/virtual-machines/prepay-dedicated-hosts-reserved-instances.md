@@ -4,16 +4,17 @@ description: Découvrez comment acheter des instances réservées Azure Dedicate
 services: virtual-machines
 author: yashar
 ms.service: virtual-machines
+ms.subservice: dedicated-hosts
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/28/2020
 ms.author: banders
-ms.openlocfilehash: cac7a6dfcd98b9de61fabdb8e43ca1cdfd4023c2
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 1450f03ae72e79daca5a5ae2c04506e6bee5180b
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98598290"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101672273"
 ---
 # <a name="save-costs-with-azure-dedicated-host-reservations"></a>Réduisez les coûts avec les réservations Azure Dedicated Host
 

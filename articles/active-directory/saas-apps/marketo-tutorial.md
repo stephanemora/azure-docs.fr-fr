@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/13/2021
 ms.author: jeedes
-ms.openlocfilehash: f0bf99748363505e362d3c35e53a51be3a03e938
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 433303bf0d51eff3bd3ab37726c9e98e8a766d25
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98728686"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101686952"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-marketo"></a>Didacticiel : Intégration d’Azure Active Directory à Marketo
 
@@ -82,7 +82,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
     a. Dans la zone de texte **Identificateur**, tapez une l’URL : `https://saml.marketo.com/sp`
 
-    b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://login.marketo.com/saml/assertion/\<munchkinid\>`
+    b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://login.marketo.com/saml/assertion/<munchkinid>`
 
     c. Dans la zone de texte **État de relais**, entrez une URL en utilisant le modèle suivant : `https://<munchkinid>.marketo.com/`
 

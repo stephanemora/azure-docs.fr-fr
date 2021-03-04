@@ -6,12 +6,12 @@ ms.topic: article
 author: rboucher
 ms.author: robb
 ms.date: 06/16/2020
-ms.openlocfilehash: e1b6ba22c41e2061acfdf33351619512f9d7f424
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: e421676ab8c44abc3432ab7ac45aecf98c98c304
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100600011"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708031"
 ---
 # <a name="example-queries-in-azure-monitor-log-analytics"></a>Exemples de requêtes dans Azure Monitor Log Analytics
 Log Analytics propose des ensembles d’exemples de requêtes que vous pouvez exécuter de manière autonome ou utiliser comme point de départ pour vos propres requêtes. Cet article décrit des exemples de requêtes et la manière de les utiliser.
@@ -109,5 +109,4 @@ L’explorateur de requêtes pour l’enregistrement et le partage de requêtes 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Prise en main des requêtes KQL](../log-query/get-started-queries.md)
-
+[Prise en main des requêtes KQL](./get-started-queries.md)

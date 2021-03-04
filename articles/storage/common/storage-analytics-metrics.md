@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 8f698aadc24d0dc0691743f1d8dd54c5d5fd287e
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: d900ffa4481ba2b6deb21a8325f3f8def8084f84
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99220954"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714729"
 ---
 # <a name="azure-storage-analytics-metrics-classic"></a>Mesures Azure Storage Analytics (classique)
 
@@ -25,7 +25,7 @@ Le Stockage Azure utilise Storage Analytics pour stocker des mesures qui compren
 - diagnostiquer les problèmes liés aux requêtes envoyées au service de stockage ;
 - améliorer les performances des applications qui utilisent un service.
 
- Les métriques de Storage Analytics sont activées par défaut pour les nouveaux comptes de stockage. Vous pouvez configurer des métriques dans le [portail Azure](https://portal.azure.com/) à l’aide de PowerShell ou d’Azure CLI. Pour obtenir des instructions pas à pas, consultez [Activer et gérer les métriques Azure Storage Analytics (classique)](./storage-monitor-storage-account.md). Vous pouvez également activer Storage Analytics par programmation via l'API REST ou la bibliothèque cliente. Utilisez les opérations Set Service Properties pour activer Storage Analytics pour chaque service.  
+ Les métriques de Storage Analytics sont activées par défaut pour les nouveaux comptes de stockage. Vous pouvez configurer des métriques dans le [portail Azure](https://portal.azure.com/) à l’aide de PowerShell ou d’Azure CLI. Pour obtenir des instructions pas à pas, consultez [Activer et gérer les métriques Azure Storage Analytics (classique)](./manage-storage-analytics-logs.md). Vous pouvez également activer Storage Analytics par programmation via l'API REST ou la bibliothèque cliente. Utilisez les opérations Set Service Properties pour activer Storage Analytics pour chaque service.  
 
 > [!NOTE]
 > Les mesures Storage Analytics sont disponibles pour le stockage d’objets blob Azure, Azure Files, le stockage File d’attente Azure et le stockage de tables Azure.
@@ -69,7 +69,7 @@ Le Stockage Azure utilise Storage Analytics pour stocker des mesures qui compren
  Ces tables sont automatiquement créées lorsque Storage Analytics est activé pour un point de terminaison de service de stockage. Elles sont accessibles via l’espace de noms du compte de stockage, par exemple : `https://<accountname>.table.core.windows.net/Tables("$MetricsTransactionsBlob")`. Les tables de mesures n’apparaissent pas dans une opération de liste et sont accessibles directement via le nom de la table.
 
 ## <a name="metrics-alerts"></a>Alertes liées aux métriques
-Il peut être intéressant de définir des alertes dans le [Portail Azure](https://portal.azure.com), afin d’être averti automatiquement de tout changement important de comportement de vos services de stockage. Pour obtenir des instructions pas à pas, consultez [Créer des alertes de métriques](storage-monitor-storage-account.md#create-metric-alerts).
+Il peut être intéressant de définir des alertes dans le [Portail Azure](https://portal.azure.com), afin d’être averti automatiquement de tout changement important de comportement de vos services de stockage. Pour obtenir des instructions pas à pas, consultez [Créer des alertes de métriques](./manage-storage-analytics-logs.md).
 
 Si vous utilisez un outil Explorateur Stockage pour télécharger ces données de mesures dans un format délimité, vous pouvez utiliser Microsoft Excel pour les analyser. Pour obtenir la liste des outils Explorateur Stockage disponibles, consultez la rubrique relative aux [outils clients du Stockage Azure](./storage-explorers.md).
 

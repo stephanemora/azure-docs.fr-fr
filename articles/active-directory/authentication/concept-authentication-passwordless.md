@@ -1,22 +1,22 @@
 ---
-title: Connexion sans mot de passe à Azure Active Directory (préversion)
+title: Connexion sans mot de passe à Azure Active Directory
 description: Découvrir les options de connexion sans mot de passe à Azure Active Directory à l’aide de clés de sécurité FIDO2 ou de l’application Microsoft Authenticator
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/14/2020
+ms.date: 02/22/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1b82dbe169e01b68e7d4b8a4c243cb72d3a3e8b
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: e36acb5a6a0984b003e4e8deb597bddfc43b064a
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98013003"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101647555"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Options d’authentification sans mot de passe pour Azure Active Directory
 
@@ -62,8 +62,6 @@ Vous pouvez également autoriser le téléphone de votre employé à devenir une
 
 L’application Authenticator transforme n’importe quel téléphone iOS ou Android en informations d’identification fortes et sans mot de passe. Les utilisateurs peuvent se connecter à toute plateforme ou tout navigateur en obtenant une notification sur leur téléphone, en faisant correspondre un numéro affiché sur l’écran à celui affiché sur leur téléphone, puis en utilisant leur leurs données biométriques (toucher ou visage) ou un code confidentiel pour confirmer. Pour plus d’informations sur l’installation, consultez [Télécharger et installer l’application Microsoft Authenticator](../user-help/user-help-auth-app-download-install.md).
 
-La connexion sans mot de passe avec l’application Microsoft Authenticator sur Azure AD est actuellement disponible en préversion. L'utilisation de l'application Microsoft Authenticator comme méthode d'authentification secondaire pour Azure AD Multi-Factor Authentication, la réinitialisation de mot de passe en libre-service (SSPR) ou les jetons logiciels OATH est en GA. Pour plus d’informations sur les préversions, consultez [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 L’authentification sans mot de passe à l’aide de l’application Authenticator suit le même modèle de base que Windows Hello Entreprise. C’est un peu plus compliqué lorsque l’utilisateur a besoin d’être identifié afin qu’Azure AD puisse trouver la version de l’application Microsoft Authenticator en cours d’utilisation :
 
 ![Diagramme décrivant les étapes nécessaires à la connexion de l’utilisateur avec l’application Microsoft Authenticator](./media/concept-authentication-passwordless/authenticator-app-flow.png)
@@ -91,8 +89,6 @@ Les clés de sécurité FIDO2 sont une méthode d’authentification sans mot de
 Les utilisateurs peuvent enregistrer, puis sélectionner une clé de sécurité FIDO2 dans l’interface de connexion en tant que principal moyen d’authentification. Ces clés de sécurité FIDO2 sont généralement des périphériques USB, mais elles peuvent également utiliser les technologies Bluetooth ou NFC. Avec un périphérique matériel gérant l’authentification, la sécurité d’un compte augmente car il n’existe aucun mot de passe qui pourrait être exposé ou deviné.
 
 Les clés de sécurité FIDO2 peuvent être utilisées pour se connecter à leurs appareils Windows 10 joints à Azure AD ou à Azure AD hybride et bénéficier de l’authentification unique sur leurs ressources cloud et locales. Les utilisateurs peuvent également se connecter aux navigateurs pris en charge. Les clés de sécurité FIDO2 constituent une excellente solution pour les entreprises qui sont très sensibles à la sécurité ou ayant des scénarios ou des employés qui ne sont pas prêts à ou capables d’utiliser leur téléphone comme deuxième facteur.
-
-Les clés de sécurité FIDO2 permettant de se connecter à Azure AD sont actuellement disponibles en préversion. Pour plus d’informations sur les préversions, consultez [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ![Connectez-vous à Microsoft Edge avec une clé de sécurité](./media/concept-authentication-passwordless/concept-web-sign-in-security-key.png)
 
@@ -152,15 +148,15 @@ Pour prendre en main les clés de sécurité FIDO2, procédez comme suit :
 > [!div class="nextstepaction"]
 > [Activer la connexion sans mot de passe à l’aide des clés de sécurité FIDO2](howto-authentication-passwordless-security-key.md)
 
-## <a name="what-scenarios-work-with-the-preview"></a>Scénarios fonctionnant avec la préversion
+## <a name="supported-scenarios"></a>Scénarios pris en charge
 
-Les fonctionnalités de connexion sans mot de passe d’Azure AD sont actuellement disponibles en préversion. Les considérations suivantes s'appliquent :
+Les considérations suivantes s'appliquent :
 
 - Les administrateurs peuvent activer des méthodes d’authentification sans mot de passe pour leur locataire
 - Les administrateurs peuvent cibler tous les utilisateurs ou sélectionner des utilisateurs/groupes au sein de leur locataire pour chaque méthode
 - Les utilisateurs finaux peuvent inscrire et gérer ces méthodes d’authentification sans mot de passe sur le portail de leur compte
-- Les utilisateurs finaux peuvent se connecter avec ces méthodes d’authentification sans mot de passe
-   - Application Microsoft Authenticator : fonctionne dans les scénarios où l’authentification Azure AD est utilisée, notamment sur tous les navigateurs, pendant la configuration de Windows 10 (OOBE) et avec les applications mobiles intégrées sur n’importe quel système d’exploitation.
+- Les utilisateurs finaux peuvent se connecter avec les méthodes d’authentification sans mot de passe suivantes :
+   - Application Microsoft Authenticator : fonctionne dans les scénarios où l’authentification Azure AD est utilisée, notamment sur tous les navigateurs, pendant la configuration de Windows 10 et avec les applications mobiles intégrées sur n’importe quel système d’exploitation.
    - Clés de sécurité : Fonctionnent sur l’écran de verrouillage Windows 10 et les navigateurs web pris en charge, comme Microsoft Edge (ancienne et nouvelle version de Edge).
 
 ## <a name="choose-a-passwordless-method"></a>Choix d’une méthode sans mot de passe

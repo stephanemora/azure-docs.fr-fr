@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/19/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: d2162a5c3d88eaae69b3a67456fdc29f19b1a79a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 7a57a39dd72e2330c2adde2b471bca2f9f2e00a7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100599056"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101725847"
 ---
 # <a name="overview-of-azure-platform-logs"></a>Vue d’ensemble des journaux de plateforme Azure
 Les journaux de plateforme fournissent des informations de diagnostic et d’audit détaillées pour les ressources Azure et la plateforme Azure dont elles dépendent. Elles sont générées automatiquement, même si vous devez configurer certains journaux de plateforme à transférer vers une ou plusieurs destinations à des fins de rétention. Cet article fournit une vue d’ensemble des journaux de plateforme, y compris les informations fournies et de la façon dont vous pouvez les configurer pour la collecte et l’analyse.
@@ -22,7 +22,7 @@ Le tableau suivant répertorie les journaux de plateforme spécifiques disponibl
 
 | Journal | Couche | Description |
 |:---|:---|:---|
-| [Journaux de ressources](../platform/resource-logs.md) | Ressources Azure | Fournissent des insights sur les opérations effectuées au sein d’une ressource Azure (le *plan de données*), par exemple l’obtention d’un secret à partir d’un Key Vault ou l’envoi d’une requête à une base de données. Le contenu des journaux de ressources varie en fonction du service Azure et du type de ressource.<br><br>*Les journaux de ressources étaient auparavant appelés journaux de diagnostic.*  |
+| [Journaux de ressources](./resource-logs.md) | Ressources Azure | Fournissent des insights sur les opérations effectuées au sein d’une ressource Azure (le *plan de données*), par exemple l’obtention d’un secret à partir d’un Key Vault ou l’envoi d’une requête à une base de données. Le contenu des journaux de ressources varie en fonction du service Azure et du type de ressource.<br><br>*Les journaux de ressources étaient auparavant appelés journaux de diagnostic.*  |
 | [Journal d’activité](../essentials/activity-log.md) | Abonnement Azure | Fournit des informations sur les opérations effectuées sur chaque ressource Azure dans l’abonnement à partir de l’extérieur (*plan de gestion*) en plus des mises à jour sur des événements Service Health. Avec le journal d’activité, répondez aux questions _quoi_, _qui_ et _quand_ concernant toutes les opérations d’écriture (PUT, POST, DELETE) effectuées sur les ressources dans votre abonnement. Il n’y qu’un seul journal d’activité par abonnement Azure. |
 | [Journaux Azure Active Directory](../../active-directory/reports-monitoring/overview-reports.md) | Locataire Azure |  Contiennent l’historique de l’activité de connexion et la piste d’audit des modifications apportées dans Azure Active Directory pour un locataire particulier.   |
 
@@ -46,7 +46,7 @@ Vous pouvez envoyer des journaux de plateforme à une ou plusieurs des destinati
 
 | Destination | Description |
 |:---|:---|
-| Espace de travail Log Analytics | Analysez les journaux de toutes vos ressources Azure réunies et tirez parti de toutes les fonctionnalités accessibles aux [journaux Azure Monitor](../platform/data-platform-logs.md), notamment les [requêtes de journal](../log-query/log-query-overview.md) et les [alertes de journal](../alerts/alerts-log.md). Épinglez les résultats d’une requête de journal dans un tableau de bord Azure ou incluez-les dans un classeur en tant que rapport interactif. |  |
+| Espace de travail Log Analytics | Analysez les journaux de toutes vos ressources Azure réunies et tirez parti de toutes les fonctionnalités accessibles aux [journaux Azure Monitor](../logs/data-platform-logs.md), notamment les [requêtes de journal](../logs/log-query-overview.md) et les [alertes de journal](../alerts/alerts-log.md). Épinglez les résultats d’une requête de journal dans un tableau de bord Azure ou incluez-les dans un classeur en tant que rapport interactif. |  |
 | Event Hub | Envoyez les données de journal de plateforme à l’extérieur d’Azure, par exemple vers une solution SIEM tierce ou une plateforme de télémétrie personnalisée.
 | Stockage Azure | Archivez les journaux à des fins d’audit ou de sauvegarde. |
 
@@ -61,5 +61,4 @@ Vous pouvez envoyer des journaux de plateforme à une ou plusieurs des destinati
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Découvrir plus en détail le journal d’activité](../essentials/activity-log.md)
-* [Découvrir plus en détail les journaux de ressources](../platform/resource-logs.md)
-
+* [Découvrir plus en détail les journaux de ressources](./resource-logs.md)

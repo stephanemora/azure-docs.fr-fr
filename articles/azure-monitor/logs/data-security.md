@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/11/2020
-ms.openlocfilehash: e8ad1cda8f80b1dbbdd56fb47bbf6c22aff82729
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 128a82fdc9b5a37258b5ca245a63bf52c050db26
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100598743"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713607"
 ---
 # <a name="log-analytics-data-security"></a>Sécurité des données Log Analytics
 Ce document est destiné à fournir des informations propres à Log Analytics, qui est une fonctionnalité d’Azure Monitor, en complément des informations disponibles sur le [Centre de confidentialité Azure](https://www.microsoft.com/en-us/trust-center?rtc=1).  
@@ -183,12 +183,12 @@ Pour accéder à votre espace de travail Log Analytics, vous vous connectez au p
 ## <a name="additional-security-features"></a>Fonctionnalités de sécurité supplémentaires
 Vous pouvez utiliser ces fonctionnalités de sécurité supplémentaires pour renforcer la sécurité de votre environnement Azure Monitor/Log Analytics. Ces fonctionnalités nécessitent une gestion plus poussée de la part de l’administrateur. 
 - [Clés (de sécurité) gérées par le client](../logs/customer-managed-keys.md) : Vous pouvez utiliser des clés gérées par le client pour chiffrer les données envoyées à vos espaces de travail Log Analytics. Cela requiert l’utilisation d’Azure Key Vault. 
-- [Stockage privé/géré par le client](../platform/private-storage.md) : Gérez votre compte de stockage chiffré personnellement et indiquez à Log Analytics de l’utiliser pour stocker les données de surveillance. 
-- [Mise en réseau d’Azure Private Link](../platform/private-link-security.md) : Azure Private Link vous permet de lier en toute sécurité les services PaaS Azure (notamment Azure Monitor) à votre réseau virtuel à l’aide de points de terminaison privés. 
+- [Stockage privé/géré par le client](./private-storage.md) : Gérez votre compte de stockage chiffré personnellement et indiquez à Log Analytics de l’utiliser pour stocker les données de surveillance. 
+- [Mise en réseau d’Azure Private Link](./private-link-security.md) : Azure Private Link vous permet de lier en toute sécurité les services PaaS Azure (notamment Azure Monitor) à votre réseau virtuel à l’aide de points de terminaison privés. 
 - [Azure Customer Lockbox](../../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-preview) : Customer Lockbox pour Microsoft Azure fournit une interface dans laquelle les clients peuvent vérifier et approuver/refuser les demandes d’accès aux données client. Il est utilisé lorsqu’un ingénieur Microsoft doit accéder aux données client dans le cadre d’une demande de support.
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Découvrez comment collecter des données avec Log Analytics pour vos machines virtuelles Azure en suivant les instructions de l’article de [démarrage rapide concernant Azure Virtual Machines](../learn/quick-collect-azurevm.md).  
+* Découvrez comment collecter des données avec Log Analytics pour vos machines virtuelles Azure en suivant les instructions de l’article de [démarrage rapide concernant Azure Virtual Machines](../vm/quick-collect-azurevm.md).  
 
-*  Si vous souhaitez collecter des données à partir d’ordinateurs physiques ou virtuels Windows ou Linux de votre environnement, consultez l’article de [démarrage rapide pour les ordinateurs Linux](../vm/quick-collect-linux-computer.md) ou de [démarrage rapide pour les ordinateurs Windows](../learn/quick-collect-windows-computer.md).
+*  Si vous souhaitez collecter des données à partir d’ordinateurs physiques ou virtuels Windows ou Linux de votre environnement, consultez l’article de [démarrage rapide pour les ordinateurs Linux](../vm/quick-collect-linux-computer.md) ou de [démarrage rapide pour les ordinateurs Windows](../vm/quick-collect-windows-computer.md).

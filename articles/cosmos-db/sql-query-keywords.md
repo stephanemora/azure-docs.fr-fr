@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 01/20/2021
 ms.author: tisande
-ms.openlocfilehash: 09148e65e446d723fbfe7a54602db59ee0739f83
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 4711401172c4a2b224c231db4a773e0c4219d3a7
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98599350"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659832"
 ---
 # <a name="keywords-in-azure-cosmos-db"></a>Mots clés dans Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -113,7 +113,7 @@ SELECT COUNT(1) FROM (SELECT DISTINCT f.lastName FROM f)
 Retourne une valeur booléenne si une chaîne de caractères donnée correspond à un modèle spécifié. Une chaîne peut comprendre des caractères normaux ainsi que des caractères génériques. Vous pouvez écrire des requêtes logiquement équivalentes à l’aide du mot clé `LIKE` ou de la fonction système [RegexMatch](sql-query-regexmatch.md) . Vous observerez la même utilisation de l’index, quel que soit celui que vous choisissez. Par conséquent, vous devez utiliser `LIKE` si vous préférez sa syntaxe aux expressions régulières.
 
 > [!NOTE]
-> Étant donné que `LIKE` pouvez utiliser un index, vous devez [créer un index de plage](indexing-policy.md) pour les propriétés que vous comparez à l’aide de `LIKE`.
+> Étant donné que `LIKE` pouvez utiliser un index, vous devez [créer un index de plage](./index-policy.md) pour les propriétés que vous comparez à l’aide de `LIKE`.
 
 Vous pouvez utiliser les caractères génériques suivants avec LIKE :
 

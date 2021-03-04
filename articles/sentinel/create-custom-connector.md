@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/09/2021
 ms.author: bagol
-ms.openlocfilehash: 90646339ef41d0629a4d1ce8efed4b50427d3b2b
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 25f83088bdc55dbafe7ccf0ff06b0c6595c9ea71
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100416606"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101724351"
 ---
 # <a name="resources-for-creating-azure-sentinel-custom-connectors"></a>Ressources pour la création de connecteurs Azure Sentinel personnalisés
 
@@ -55,9 +55,9 @@ Le tableau suivant compare les détails essentiels de chaque méthode de créati
 
 Si votre source de données livre des événements dans des fichiers, nous vous recommandons d’utiliser l’agent Log Analytics d’Azure Monitor pour créer votre connecteur personnalisé.
 
-- Pour plus d’informations, consultez [Collecte de journaux personnalisés dans Azure Monitor](/azure/azure-monitor/platform/data-sources-custom-logs).
+- Pour plus d’informations, consultez [Collecte de journaux personnalisés dans Azure Monitor](../azure-monitor/agents/data-sources-custom-logs.md).
 
-- Pour découvrir un exemple de cette méthode, consultez [Collecte des sources de données JSON personnalisées à l’aide de l’agent Log Analytics pour Linux dans Azure Monitor](/azure/azure-monitor/platform/data-sources-json).
+- Pour découvrir un exemple de cette méthode, consultez [Collecte des sources de données JSON personnalisées à l’aide de l’agent Log Analytics pour Linux dans Azure Monitor](../azure-monitor/agents/data-sources-json.md).
 
 ## <a name="connect-with-logstash"></a>Se connecter avec Logstash
 
@@ -83,7 +83,7 @@ Pour obtenir des exemples de plug-ins Logstash utiles, consultez :
 
 ## <a name="connect-with-logic-apps"></a>Se connecter avec Logic Apps
 
-Utilisez une [application logique Azure](/azure/logic-apps/) pour créer un connecteur personnalisé serverless pour Azure Sentinel.
+Utilisez une [application logique Azure](../logic-apps/index.yml) pour créer un connecteur personnalisé serverless pour Azure Sentinel.
 
 > [!NOTE]
 > Si la création de connecteurs serverless à l’aide de Logic Apps peut être pratique, l’utilisation de Logic Apps pour vos connecteurs peut s’avérer coûteuse pour des volumes importants de données.
@@ -95,9 +95,9 @@ Utilisez une [application logique Azure](/azure/logic-apps/) pour créer un conn
 
     |Déclencheur  |Description  |
     |---------|---------|
-    |**Tâche récurrente**     |   Par exemple, programmez votre application logique pour récupérer régulièrement des données à partir de fichiers, de bases de données ou d’API externes spécifiques. <br>Pour plus d’informations, consultez [Créer, planifier et exécuter des tâches et des workflows récurrents avec Azure Logic Apps](/azure/connectors/connectors-native-recurrence).      |
-    |**Déclenchement à la demande**     | Exécutez votre application logique à la demande pour la collecte et le test manuels des données. <br>Pour plus d’informations, consultez [Appeler, déclencher ou imbriquer des applications logiques à l’aide de points de terminaison HTTPS](/azure/logic-apps/logic-apps-http-endpoint).        |
-    |**Point de terminaison HTTP/S**     |  Recommandé pour la diffusion en continu et si le système source peut démarrer le transfert de données. <br>Pour plus d’informations, consultez [Appeler des points de terminaison de service via HTTP ou HTTPS](/azure/connectors/connectors-native-http).       |
+    |**Tâche récurrente**     |   Par exemple, programmez votre application logique pour récupérer régulièrement des données à partir de fichiers, de bases de données ou d’API externes spécifiques. <br>Pour plus d’informations, consultez [Créer, planifier et exécuter des tâches et des workflows récurrents avec Azure Logic Apps](../connectors/connectors-native-recurrence.md).      |
+    |**Déclenchement à la demande**     | Exécutez votre application logique à la demande pour la collecte et le test manuels des données. <br>Pour plus d’informations, consultez [Appeler, déclencher ou imbriquer des applications logiques à l’aide de points de terminaison HTTPS](../logic-apps/logic-apps-http-endpoint.md).        |
+    |**Point de terminaison HTTP/S**     |  Recommandé pour la diffusion en continu et si le système source peut démarrer le transfert de données. <br>Pour plus d’informations, consultez [Appeler des points de terminaison de service via HTTP ou HTTPS](../connectors/connectors-native-http.md).       |
     |     |         |
 
 1. **Utilisez l’un des connecteurs Logic Apps qui lisent les informations pour obtenir vos événements**. Par exemple :
@@ -112,9 +112,9 @@ Utilisez une [application logique Azure](/azure/logic-apps/) pour créer un conn
 
 1. **Préparez les informations que vous souhaitez récupérer**.
 
-    Par exemple, utilisez l’[action Analyse JSON](/azure/logic-apps/logic-apps-perform-data-operations#parse-json-action) pour accéder aux propriétés du contenu JSON, ce qui vous permet de sélectionner ces propriétés dans la liste du contenu dynamique lorsque vous spécifiez des entrées pour votre application logique.
+    Par exemple, utilisez l’[action Analyse JSON](../logic-apps/logic-apps-perform-data-operations.md#parse-json-action) pour accéder aux propriétés du contenu JSON, ce qui vous permet de sélectionner ces propriétés dans la liste du contenu dynamique lorsque vous spécifiez des entrées pour votre application logique.
 
-    Pour plus d’informations, consultez [Effectuer des opérations sur les données dans Azure Logic Apps](/azure/logic-apps/logic-apps-perform-data-operations).
+    Pour plus d’informations, consultez [Effectuer des opérations sur les données dans Azure Logic Apps](../logic-apps/logic-apps-perform-data-operations.md).
 
 1. **Écrivez les données dans Log Analytics**.
 
@@ -174,14 +174,14 @@ Vous pouvez diffuser en continu des événements vers Azure Sentinel en utilisan
 
 Bien que l’appel d’un point de terminaison RESTful nécessite directement davantage de programmation, il offre également plus de flexibilité.
 
-Pour plus d’informations, consultez l’[API de collecteur de données Log Analytics](/azure/azure-monitor/platform/data-collector-api), en particulier les exemples suivants :
+Pour plus d’informations, consultez l’[API de collecteur de données Log Analytics](../azure-monitor/logs/data-collector-api.md), en particulier les exemples suivants :
 
-- [C#](https://docs.microsoft.com/azure/azure-monitor/platform/data-collector-api#c-sample)
-- [Python 2](https://docs.microsoft.com/azure/azure-monitor/platform/data-collector-api#python-2-sample)
+- [C#](../azure-monitor/logs/data-collector-api.md#c-sample)
+- [Python 2](../azure-monitor/logs/data-collector-api.md#python-2-sample)
 
 ## <a name="connect-with-azure-functions"></a>Se connecter avec Azure Functions
 
-Utilisez Azure Functions avec une API RESTful et divers langages de codage, tels que [PowerShell](/azure/azure-functions/functions-reference-powershell), pour créer un connecteur personnalisé serverless.
+Utilisez Azure Functions avec une API RESTful et divers langages de codage, tels que [PowerShell](../azure-functions/functions-reference-powershell.md), pour créer un connecteur personnalisé serverless.
 
 Pour voir des exemples de cette méthode, consultez :
 
@@ -189,7 +189,7 @@ Pour voir des exemples de cette méthode, consultez :
 - [Connecter votre Okta Single Sign-On à Azure Sentinel avec Azure Functions](connect-okta-single-sign-on.md)
 - [Connecter votre solution Proofpoint TAP à l’aide d’Azure Functions](connect-proofpoint-tap.md)
 - [Connecter votre solution Qualys VM à Azure Sentinel à l’aide d’Azure Functions](connect-qualys-vm.md)
-- [Ingestion de données aux formats XML, CSV ou autres](/azure/azure-monitor/platform/create-pipeline-datacollector-api#ingesting-xml-csv-or-other-formats-of-data)
+- [Ingestion de données aux formats XML, CSV ou autres](../azure-monitor/logs/create-pipeline-datacollector-api.md#ingesting-xml-csv-or-other-formats-of-data)
 - [Surveiller Zoom avec Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/monitoring-zoom-with-azure-sentinel/ba-p/1341516) (blog)
 - [Déployer une application de fonction permettant de transférer les données de l’API de gestion d’Office 365 dans Azure Sentinel](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/O365%20Data) (communauté GitHub pour Azure Sentinel)
 

@@ -7,20 +7,20 @@ author: bwren
 ms.author: bwren
 ms.date: 10/05/2018
 ms.custom: mvc
-ms.openlocfilehash: e790486758d6a5e3181df01f85e1213cca3fa12d
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 67d03636b118db71502a6245e60f71c94afdddf6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100597366"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101701006"
 ---
 # <a name="respond-to-events-with-azure-monitor-alerts"></a>Répondre aux événements avec les alertes Azure Monitor
-Les alertes dans Azure Monitor identifient des informations importantes dans votre référentiel Log Analytics. Elles sont créées par des règles d’alerte qui exécutent automatiquement des recherches dans les journaux à intervalles réguliers. Si les résultats de la recherche dans les journaux correspondent à des critères particuliers, un enregistrement d’alerte est créé et peut être configuré pour exécuter une réponse automatisée.  Ce didacticiel est la suite du didacticiel [Créer et partager des tableaux de bord de données Log Analytics](../learn/tutorial-logs-dashboards.md).   
+Les alertes dans Azure Monitor identifient des informations importantes dans votre référentiel Log Analytics. Elles sont créées par des règles d’alerte qui exécutent automatiquement des recherches dans les journaux à intervalles réguliers. Si les résultats de la recherche dans les journaux correspondent à des critères particuliers, un enregistrement d’alerte est créé et peut être configuré pour exécuter une réponse automatisée.  Ce didacticiel est la suite du didacticiel [Créer et partager des tableaux de bord de données Log Analytics](../visualize/tutorial-logs-dashboards.md).   
 
 Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
-> * Création d'une règle d'alerte
+> * Créer une règle d'alerte
 > * Configurer un groupe d’action qui envoie une notification par e-mail
 
 Pour effectuer l’exemple de ce didacticiel, vous devez disposer d’une machine virtuelle [connectée à l’espace de travail Log Analytics](../vm/quick-collect-azurevm.md).  
@@ -31,7 +31,7 @@ Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.az
 ## <a name="create-alerts"></a>Créez des alertes
 Les alertes sont créées par des règles d’alerte dans Azure Monitor et peuvent exécuter automatiquement des requêtes enregistrées ou des recherches personnalisées dans les journaux à intervalles réguliers.  Vous pouvez créer des alertes sur la base de métriques de performances spécifiques ou quand certains événements sont créés, quand un événement fait défaut ou quand un certain nombre d’événements sont créés dans une fenêtre de temps donnée.  Par exemple, les alertes peuvent servir à vous avertir que l’utilisation moyenne du processeur dépasse un certain seuil, qu’une mise à jour manquante est détectée, ou qu’un événement est généré en raison de la détection de la non exécution d’un service Windows spécifique ou du démon Linux.  Si les résultats de la recherche répondent à des critères particuliers, une alerte est créée. La règle peut ensuite exécuter automatiquement une ou plusieurs actions, comme vous avertir de l’alerte ou appeler un autre processus de façon proactive. 
 
-Dans l’exemple suivant, vous créez une règle d’alerte de mesure de métrique basée sur la requête *Machines virtuelles Azure - Utilisation des processeurs* enregistrée dans le [tutoriel Visualiser les données](../learn/tutorial-logs-dashboards.md).  Une alerte est créée pour chaque machine virtuelle qui dépasse un seuil de 90 %.  
+Dans l’exemple suivant, vous créez une règle d’alerte de mesure de métrique basée sur la requête *Machines virtuelles Azure - Utilisation des processeurs* enregistrée dans le [tutoriel Visualiser les données](../visualize/tutorial-logs-dashboards.md).  Une alerte est créée pour chaque machine virtuelle qui dépasse un seuil de 90 %.  
 
 1. Dans le portail Azure, cliquez sur **Tous les services**. Dans la liste de ressources, saisissez **Log Analytics**. Au fur et à mesure de la saisie, la liste est filtrée. Sélectionnez **Log Analytics**.
 2. Dans le volet gauche, sélectionnez **Alertes** puis cliquez sur **Nouvelle règle d’alerte** en haut de la page pour créer une nouvelle alerte.<br><br> ![Créer une nouvelle règle d’alerte](./media/tutorial-response/alert-rule-02.png)<br>
@@ -43,7 +43,7 @@ Dans l’exemple suivant, vous créez une règle d’alerte de mesure de métriq
    c. Dans la section Déclencher l’alerte selon, sélectionnez **Violations consécutives** et dans la liste déroulante, sélectionnez **Supérieur à** et entrez la valeur 3.  
    d. Dans la section Évaluation basée sur, modifiez la valeur **période** à **30** minutes. La règle s’exécute toutes les cinq minutes et renvoie les enregistrements qui ont été créés dans les trente minutes précédant l’heure actuelle.  Paramétrer la période de temps sur une durée plus longue compense la latence potentielle des données et garantit que la requête retourne des données pour éviter un faux positif où l’alerte ne se déclenche jamais.  
 6. Cliquez sur **Terminé** pour terminer la règle d’alerte.<br><br> ![Configurer un signal d’alerte](./media/tutorial-response/alert-signal-logic-02.png)<br> 
-7. Passons maintenant à la deuxième étape. Donnez un nom à votre alerte dans le champ **Nom de la règle d’alerte**, tel que **Pourcentage d’UC supérieur à 90 %** .  Spécifiez une **Description** détaillant les spécificités de l’alerte, puis sélectionnez **Critique (gravité 0)** pour la valeur de **Gravité** parmi les options fournies.<br><br> ![Configuration des détails de l’alerte](./media/tutorial-response/alert-signal-logic-04.png)<br>
+7. Passons maintenant à la deuxième étape. Donnez un nom à votre alerte dans le champ **Nom de la règle d’alerte**, tel que **Pourcentage d’UC supérieur à 90 %**.  Spécifiez une **Description** détaillant les spécificités de l’alerte, puis sélectionnez **Critique (gravité 0)** pour la valeur de **Gravité** parmi les options fournies.<br><br> ![Configuration des détails de l’alerte](./media/tutorial-response/alert-signal-logic-04.png)<br>
 8. Pour activer immédiatement la règle d’alerte lors de la création, acceptez la valeur par défaut pour l’option **Activer la règle lors de sa création**.
 9. Pour la troisième et dernière étape, vous spécifiez un **Groupe d’actions**, ce qui garantit que les mêmes actions soient entreprises chaque fois qu’une alerte est déclenchée et peuvent être utilisées pour chaque règle que vous définissez.  Configurez un nouveau groupe d’actions avec les informations suivantes :  
    a. Sélectionnez **Nouveau groupe d’actions** et le volet **Ajouter un groupe action** s’affiche.  
@@ -69,4 +69,4 @@ Dans ce didacticiel, vous avez découvert en quoi les règles d’alerte permett
 Suivez ce lien pour examiner des exemples de scripts Log Analytics prédéfinis.  
 
 > [!div class="nextstepaction"]
-> [Exemples de scripts Log Analytics](../samples/powershell-samples.md)
+> [Exemples de scripts Log Analytics](../powershell-samples.md)

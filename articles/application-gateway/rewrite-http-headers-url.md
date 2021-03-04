@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 07/16/2020
 ms.author: surmb
-ms.openlocfilehash: 93af3183ae9e969d14a35ce4e365d48895ef4e79
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 81eaf95a4918590c6eaa2c17a45e6925a1a67992
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92216672"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726510"
 ---
 # <a name="rewrite-http-headers-and-url-with-application-gateway"></a>Réécrire des en-têtes HTTP et une URL à l’aide d’Application Gateway
 
@@ -60,9 +60,9 @@ Pour savoir comment réécrire une URL avec Application Gateway à l’aide du p
 Les actions de réécriture permettent de spécifier l’URL, les en-têtes de requête ou les en-têtes de réponse que vous souhaitez réécrire ainsi que les nouvelles valeurs correspondantes. La valeur d’une URL, d’un nouvel en-tête ou d’un en-tête existant peut être définie avec les types suivants :
 
 * Texte
-* En-tête de demande. Pour spécifier un en-tête de requête, vous devez utiliser la syntaxe {http_req_*headerName*}.
-* En-tête de réponse. Pour spécifier un en-tête de réponse, vous devez utiliser la syntaxe {http_resp_*headerName*}.
-* Variable de serveur. Pour spécifier une variable de serveur, vous devez utiliser la syntaxe {var_*serverVariable*}. Consultez la liste des variables de serveur prises en charge.
+* En-tête de demande. Pour spécifier un en-tête de requête, vous devez utiliser la syntaxe {http_req_ *headerName*}.
+* En-tête de réponse. Pour spécifier un en-tête de réponse, vous devez utiliser la syntaxe {http_resp_ *headerName*}.
+* Variable de serveur. Pour spécifier une variable de serveur, vous devez utiliser la syntaxe {var_ *serverVariable*}. Consultez la liste des variables de serveur prises en charge.
 * Texte, en-tête de requête, en-tête de réponse et variable de serveur combinés. 
 
 ## <a name="rewrite-conditions"></a>Conditions de réécriture
@@ -100,7 +100,7 @@ Si vous souhaitez utiliser la valeur entière, vous ne devez pas mentionner le n
 
 ## <a name="server-variables"></a>Variables de serveur
 
-Application Gateway utilise des variables de serveur pour stocker des informations utiles sur le serveur, la connexion avec le client et la requête active sur la connexion. L’adresse IP du client et le type de navigateur web sont quelques exemples d’informations stockées. Les variables de serveur changent dynamiquement, par exemple, quand une nouvelle page est chargée ou qu’un formulaire est posté. Vous pouvez utiliser ces variables pour évaluer les conditions de réécriture et réécrire des en-têtes. Pour utiliser la valeur des variables de serveur afin de réécrire des en-têtes, vous devez spécifier ces variables dans la syntaxe {var_*serverVariableName*}.
+Application Gateway utilise des variables de serveur pour stocker des informations utiles sur le serveur, la connexion avec le client et la requête active sur la connexion. L’adresse IP du client et le type de navigateur web sont quelques exemples d’informations stockées. Les variables de serveur changent dynamiquement, par exemple, quand une nouvelle page est chargée ou qu’un formulaire est posté. Vous pouvez utiliser ces variables pour évaluer les conditions de réécriture et réécrire des en-têtes. Pour utiliser la valeur des variables de serveur afin de réécrire des en-têtes, vous devez spécifier ces variables dans la syntaxe {var_ *serverVariableName*}.
 
 Application Gateway prend en charge les variables de serveur suivantes :
 
@@ -114,7 +114,7 @@ Application Gateway prend en charge les variables de serveur suivantes :
 | client_tcp_rtt            | Informations sur la connexion TCP cliente. Disponible sur les systèmes qui prennent en charge l’option de socket TCP_INFO. |
 | client_user               | Quand l’authentification HTTP est utilisée, nom d’utilisateur fourni pour l’authentification. |
 | host                      | Dans cet ordre de priorité : nom d’hôte de la ligne de la requête, nom d’hôte du champ d’en-tête de requête d’hôte ou nom de serveur correspondant à une requête. Exemple : dans la requête `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, la valeur host sera `contoso.com` |
-| cookie_*name*             | Cookie *name*.                                           |
+| cookie_ *name*             | Cookie *name*.                                           |
 | http_method               | Méthode utilisée pour effectuer la requête d’URL. Par exemple, GET ou POST. |
 | HTTP_STATUS               | État de session. Par exemple, 200, 400 ou 403.           |
 | http_version              | Protocole de requête. Généralement, HTTP/1.0, HTTP/1.1 ou HTTP/2.0. |
@@ -164,7 +164,7 @@ Quand une application back-end envoie une réponse de redirection, vous pouvez s
 
 App Service étant un service multilocataire, il utilise l’en-tête d’hôte de la requête pour router celle-ci vers le point de terminaison approprié. Les services d’application ont un nom de domaine par défaut *.azurewebsites.net (par exemple, contoso.azurewebsites.net) qui est différent du nom de domaine de la passerelle d’application (par exemple, contoso.com). Sachant que le nom d’hôte de la requête d’origine du client est le nom de domaine de la passerelle d’application (contoso.com), la passerelle d’application remplace le nom d’hôte par contoso.azurewebsites.net. Ce changement vise à permettre au service d’application de router la requête vers le point de terminaison approprié.
 
-Quand le service d’application envoie une réponse de redirection, il utilise le nom d’hôte qui figure dans l’en-tête d’emplacement de sa réponse, qui est identique à celui situé dans la requête qu’il reçoit de la passerelle d’application. Par conséquent, le client adresse directement la requête à contoso.azurewebsites.net/path2 au lieu de passer par la passerelle d’application (contoso.com/path2). Or, il n’est pas souhaitable de contourner la passerelle d’application.
+Quand le service d’application envoie une réponse de redirection, il utilise le nom d’hôte qui figure dans l’en-tête d’emplacement de sa réponse, qui est identique à celui situé dans la requête qu’il reçoit de la passerelle d’application. Le client adresse donc la demande directement à `contoso.azurewebsites.net/path2` au lieu de passer par la passerelle applicative (`contoso.com/path2`). Or, il n’est pas souhaitable de contourner la passerelle d’application.
 
 Vous pouvez résoudre ce problème en définissant le nom d’hôte de l’en-tête d’emplacement sur le nom de domaine de la passerelle d’application.
 
@@ -211,13 +211,13 @@ Pour les scénarios dans lesquels vous souhaitez choisir le pool de back-ends en
 
 * La troisième règle inclut une condition qui vérifie *category=accessories* dans la variable *query_string* et une action qui réécrit le chemin d’URL vers /*listing3* et pour laquelle l’option **Réévaluer le mappage du chemin** est activée.
 
-:::image type="content" source="./media/rewrite-http-headers-url/url-scenario1-2.png" alt-text="Scénario de réécriture d’URL 1-1.":::
+:::image type="content" source="./media/rewrite-http-headers-url/url-scenario1-2.png" alt-text="Scénario de réécriture d’URL 1-2.":::
 
  
 
 **Étape 2 (b) :** Associez ce jeu de réécritures au chemin par défaut de la règle basée sur le chemin ci-dessus.
 
-:::image type="content" source="./media/rewrite-http-headers-url/url-scenario1-3.png" alt-text="Scénario de réécriture d’URL 1-1.":::
+:::image type="content" source="./media/rewrite-http-headers-url/url-scenario1-3.png" alt-text="Scénario de réécriture d’URL 1-3.":::
 
 À présent, si l’utilisateur demande *contoso.com/listing?category=any*, la chaîne sera mise en correspondance avec le chemin par défaut, car aucun des modèles de chemin du mappage du chemin (/listing1, /listing2, /listing3) ne correspond. Étant donné que vous avez associé le jeu de réécritures ci-dessus à ce chemin, ce jeu de réécritures sera évalué. Étant donné que la chaîne de requête ne correspondra pas à la condition des 3 règles de réécriture de ce jeu de réécritures, aucune action de réécriture n’aura lieu. La requête sera donc routée sans modification vers le back-end associé au chemin par défaut (*GenericList*).
 
@@ -234,11 +234,11 @@ Dans ce cas, Application Gateway peut capturer les paramètres à partir de l’
 
 **Condition** - Si la variable de serveur `uri_path` correspond au modèle `/(.+)/(.+)`
 
-:::image type="content" source="./media/rewrite-http-headers-url/url-scenario2-1.png" alt-text="Scénario de réécriture d’URL 1-1.":::
+:::image type="content" source="./media/rewrite-http-headers-url/url-scenario2-1.png" alt-text="Scénario de réécriture d’URL 2-1.":::
 
 **Action** - Définir le chemin d’URL sur `buy.aspx` et la chaîne de requête sur `category={var_uri_path_1}&product={var_uri_path_2}`
 
-:::image type="content" source="./media/rewrite-http-headers-url/url-scenario2-2.png" alt-text="Scénario de réécriture d’URL 1-1.":::
+:::image type="content" source="./media/rewrite-http-headers-url/url-scenario2-2.png" alt-text="Scénario de réécriture d’URL 2-2.":::
 
 Pour obtenir un guide pas à pas permettant de réaliser le scénario décrit ci-dessus, consultez [Réécriture d’URL avec Azure Application Gateway – Portail Azure](rewrite-url-portal.md).
 
@@ -248,7 +248,7 @@ Dans le cadre d’une réécriture d’URL, Application Gateway réécrit l’UR
 
 Dans le cadre d’une redirection d’URL, Application Gateway envoie une réponse de redirection au client avec la nouvelle URL. Ceci oblige alors le client à renvoyer sa requête à la nouvelle URL fournie dans la redirection. L’URL que l’utilisateur voit dans le navigateur sera mise à jour vers la nouvelle URL.
 
-:::image type="content" source="./media/rewrite-http-headers-url/url-rewrite-vs-redirect.png" alt-text="Scénario de réécriture d’URL 1-1.":::
+:::image type="content" source="./media/rewrite-http-headers-url/url-rewrite-vs-redirect.png" alt-text="Réécriture et redirection":::
 
 ## <a name="limitations"></a>Limites
 

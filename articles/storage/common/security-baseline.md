@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: b484873f6c118c49712cbcd66eeb6a63d8aa05f6
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 5367fbcb88e19253eead58d8f99933fdadc41898
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100591552"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714712"
 ---
 # <a name="azure-security-baseline-for-azure-storage"></a>Base de référence de sécurité Azure pour Stockage Azure
 
@@ -190,7 +190,7 @@ Vous pouvez également utiliser des définitions de stratégie intégrées assoc
 
 **Aide** : Azure Storage Analytics fournit des journaux pour les blobs, les files d’attente et les tables. Vous pouvez utiliser le Portail Azure afin de configurer les journaux à enregistrer pour votre compte. 
 
-- [Configuration de la surveillance de votre compte de stockage Azure](./storage-monitor-storage-account.md#configure-monitoring-for-a-storage-account)
+- [Configuration de la surveillance de votre compte de stockage Azure](./manage-storage-analytics-logs.md)
 
 **Supervision d’Azure Security Center** : actuellement non disponible
 
@@ -208,7 +208,7 @@ Vous pouvez également utiliser des définitions de stratégie intégrées assoc
 
 **Aide** : Lors du stockage de journaux des événements de sécurité dans le compte de stockage Azure ou dans l’espace de travail Log Analytics, vous pouvez définir la stratégie de rétention en fonction des besoins de votre organisation. 
 
-- [Guide pratique pour configurer la stratégie de conservation des journaux de compte de Stockage Azure](./storage-monitor-storage-account.md#configure-logging)
+- [Guide pratique pour configurer la stratégie de conservation des journaux de compte de Stockage Azure](./manage-storage-analytics-logs.md#configure-logging)
 
 - [Modification de la période de conservation des données dans Log Analytics](../../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
@@ -414,7 +414,7 @@ Une façon efficace de réduire le risque d’un accès insoupçonné à un comp
 
 - [Gestion de l’accès en lecture anonyme aux conteneurs et aux objets blob](../blobs/anonymous-read-access-configure.md)
 
-- [Surveiller un compte de stockage dans le portail Azure](./storage-monitor-storage-account.md)
+- [Surveiller un compte de stockage dans le portail Azure](./manage-storage-analytics-logs.md)
 
 - [Gestion des clés d’accès au compte de stockage](./storage-account-keys-manage.md)
 
@@ -432,7 +432,7 @@ Créez des paramètres de diagnostic pour les comptes d’utilisateur Azure Acti
 
 - [Guide pratique pour intégrer des journaux d’activité Azure dans Azure Monitor](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-- [Configuration des alertes de mesures pour les comptes de stockage Azure](./storage-monitor-storage-account.md)
+- [Configuration des alertes de mesures pour les comptes de stockage Azure](./manage-storage-analytics-logs.md)
 
 **Supervision Azure Security Center** : actuellement non disponible
 
@@ -576,7 +576,7 @@ Utilisez également les stratégies de point de terminaison de service de résea
 
 - [Journalisation Azure Storage Analytics](./storage-analytics-logging.md)
 
-- [Configuration des alertes de mesures pour les comptes de stockage Azure](./storage-monitor-storage-account.md)
+- [Configuration des alertes de mesures pour les comptes de stockage Azure](./manage-storage-analytics-logs.md)
 
 **Supervision Azure Security Center** : actuellement non disponible
 

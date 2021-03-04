@@ -6,12 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 04/10/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: f8edeb452f01af88f0305cd0a3e3a2332ec09e4e
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 2c35356951560b11a605334aba4c26dbc38086de
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186947"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100583553"
 ---
 # <a name="application-insights-cohorts"></a>Cohortes Application Insights
 
@@ -28,7 +28,7 @@ Vous pouvez définir une cohorte pour les utilisateurs qui ont testé une nouvel
 > [!NOTE]
 > Une fois créées, les cohortes sont disponibles dans les outils Utilisateurs, Sessions, Événements et Flux d’utilisateurs.
 
-## <a name="example-engaged-users"></a>Exemple : Utilisateurs engagés
+## <a name="example-engaged-users"></a>Exemple : utilisateurs engagés
 
 Votre équipe définit un utilisateur engagé comme une personne qui utilise votre application au moins cinq fois pendant un mois donné. Dans cette section, vous allez définir une cohorte pour ces utilisateurs engagés.
 
@@ -71,7 +71,7 @@ Voici quelques points importants à prendre en considération :
 
 Ces filtres prennent en charge des questions plus sophistiquées qui sont impossibles à exprimer via le Générateur de requêtes. Par exemple _personnes engagées au cours des 28 derniers jours. Quel a été le comportement de ces personnes au cours des 60 derniers jours ?_
 
-## <a name="example-events-cohort"></a>Exemple : Cohorte d’événements
+## <a name="example-events-cohort"></a>Exemple : cohorte d’événements
 
 Vous pouvez également créer des cohortes d’événements. Dans cette section, vous allez définir une cohorte pour ces événements et pour ces pages consultées. Ensuite, vous allez voir comment les utiliser dans d’autres outils. Cette cohorte peut définir un ensemble d’événements que votre équipe considère comme une _utilisation active_, ou un ensemble d’événements liés à une nouvelle fonctionnalité.
 
@@ -131,7 +131,7 @@ Les cohortes et les filtres sont différents. Supposons que vous ayez une cohort
 
 ## <a name="learn-more"></a>En savoir plus
 
-* [Langage de requête Analytics](../log-query/log-analytics-tutorial.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
+* [Langage de requête Analytics](../logs/log-analytics-tutorial.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
 * [Utilisateurs, sessions, événements](usage-segmentation.md)
 * [Flux d’utilisateurs](usage-flows.md)
 * [Vue d’ensemble de l’utilisation](usage-overview.md)

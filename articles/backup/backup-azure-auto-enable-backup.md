@@ -3,18 +3,18 @@ title: Activer automatiquement la sauvegarde lors de la création de machines vi
 description: Article décrivant comment utiliser Azure Policy pour activer automatiquement la sauvegarde de toutes les machines virtuelles créées dans une étendue donnée
 ms.topic: conceptual
 ms.date: 11/08/2019
-ms.openlocfilehash: 7e8195d22f54f29b36549b966322623ed0987d72
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: dfa4364eeaa9f5b60af3f5d6a19aaeb188d4f65e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896865"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101707300"
 ---
 # <a name="auto-enable-backup-on-vm-creation-using-azure-policy"></a>Activer automatiquement la sauvegarde lors de la création de machines virtuelles avec Azure Policy
 
 L’une des principales responsabilités d’un administrateur de sauvegarde ou de conformité dans une organisation est de s’assurer que toutes les machines vitales pour l’entreprise sont sauvegardées avec la rétention appropriée.
 
-Aujourd’hui, Sauvegarde Azure fournit un ensemble de stratégies intégrées (utilisant [Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview)) pour vous aider à vous assurer automatiquement que vos machines virtuelles Azure sont configurées pour la sauvegarde. En fonction de l’organisation de vos ressources et équipes de sauvegarde, vous pouvez utiliser l’une des stratégies suivantes :
+Aujourd’hui, Sauvegarde Azure fournit un ensemble de stratégies intégrées (utilisant [Azure Policy](../governance/policy/overview.md)) pour vous aider à vous assurer automatiquement que vos machines virtuelles Azure sont configurées pour la sauvegarde. En fonction de l’organisation de vos ressources et équipes de sauvegarde, vous pouvez utiliser l’une des stratégies suivantes :
 
 ## <a name="policy-1---configure-backup-on-vms-without-a-given-tag-to-an-existing-recovery-services-vault-in-the-same-location"></a>Stratégie 1 – Configurer une sauvegarde sur des machines virtuelles sans étiquette spécifique vers un coffre Recovery Services existant au même emplacement
 
@@ -29,7 +29,7 @@ Si vous organisez des applications dans des groupes de ressources dédiés et qu
 ## <a name="policy-4---preview-configure-backup-on-vms-with-a-given-tag-to-a-new-recovery-services-vault-with-a-default-policy"></a>Stratégie 4 – [Préversion] Configurer une sauvegarde sur des machines virtuelles avec une étiquette donnée vers un nouveau coffre Recovery Services avec une stratégie par défaut
 Cette stratégie fonctionne de la même façon que la stratégie 3 ci-dessus, à la seule différence que vous pouvez utiliser cette stratégie pour **inclure** dans l’étendue de cette stratégie les machines virtuelles qui contiennent une étiquette spécifique. 
 
-Outre les stratégies précédentes, Sauvegarde Azure fournit également une stratégie [Auditer uniquement](https://docs.microsoft.com/azure/governance/policy/concepts/effects#audit) – **La Sauvegarde Azure doit être activée pour les machines virtuelles**. Cette stratégie identifie les machines virtuelles pour lesquelles la sauvegarde n’est pas activée, mais elle ne configure pas automatiquement les sauvegardes pour ces machines virtuelles. Cela s’avère utile quand vous cherchez uniquement à évaluer la compatibilité générale des machines virtuelles sans envisager d’agir immédiatement.
+Outre les stratégies précédentes, Sauvegarde Azure fournit également une stratégie [Auditer uniquement](../governance/policy/concepts/effects.md#audit) – **La Sauvegarde Azure doit être activée pour les machines virtuelles**. Cette stratégie identifie les machines virtuelles pour lesquelles la sauvegarde n’est pas activée, mais elle ne configure pas automatiquement les sauvegardes pour ces machines virtuelles. Cela s’avère utile quand vous cherchez uniquement à évaluer la compatibilité générale des machines virtuelles sans envisager d’agir immédiatement.
 
 ## <a name="supported-scenarios"></a>Scénarios pris en charge
 

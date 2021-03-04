@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: a2ab63febbb4439e50ef0f7bcc0f9797dc50c62c
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: a9dfd185af012314ddc481b598f181b6760640ec
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99260026"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690938"
 ---
 # <a name="migration-guide-sql-server-to-sql-database"></a>Guide de migration : de SQL Server vers SQL Database
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
@@ -157,8 +157,8 @@ Pour accélérer la migration vers Azure SQL Database, vous devez prendre en com
 |  | Contention de ressources | Recommandation |
 |--|--|--|
 | **Source (généralement en local)** |Le goulot d’étranglement principal au cours de la migration dans la source est dû aux E/S de données et à la latence sur le fichier de données qui doit être analysé avec précaution.  |En fonction des E/S de données et de la latence du fichier de données et selon qu’il s’agit d’une machine virtuelle ou d’un serveur physique, vous devez faire appel à l’administrateur du stockage et explorer les options permettant d’atténuer le goulot d’étranglement. |
-|**Cible (Azure SQL Database)**|Le plus grand facteur limitant est le taux de génération des journaux et la latence du fichier journal. Avec Azure SQL Database, vous pouvez obtenir un taux de génération de journal maximal de 96 Mo/s. | Pour accélérer la migration, effectuer un scale-up de la base de données SQL cible vers le niveau « Critique pour l’entreprise Gen5 8 vcores » pour obtenir le taux maximal de génération de journaux de 96 Mo/s et obtenir une faible latence pour le fichier journal. Le niveau de service [Hyperscale](https://docs.microsoft.com/azure/azure-sql/database/service-tier-hyperscale) fournit un taux de journalisation de 100 Mo/s, quel que soit le niveau de service choisi. |
-|**Réseau** |La bande passante réseau nécessaire est égale au taux maximal d’ingestion des journaux de 96 Mo/s (768 Mo/s). |En fonction de la connectivité réseau entre votre centre de données local et Azure, vérifiez que la bande passante réseau (en général [Azure ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction#bandwidth-options)) prend en charge le taux maximal d’ingestion des journaux. |
+|**Cible (Azure SQL Database)**|Le plus grand facteur limitant est le taux de génération des journaux et la latence du fichier journal. Avec Azure SQL Database, vous pouvez obtenir un taux de génération de journal maximal de 96 Mo/s. | Pour accélérer la migration, effectuer un scale-up de la base de données SQL cible vers le niveau « Critique pour l’entreprise Gen5 8 vcores » pour obtenir le taux maximal de génération de journaux de 96 Mo/s et obtenir une faible latence pour le fichier journal. Le niveau de service [Hyperscale](../../database/service-tier-hyperscale.md) fournit un taux de journalisation de 100 Mo/s, quel que soit le niveau de service choisi. |
+|**Réseau** |La bande passante réseau nécessaire est égale au taux maximal d’ingestion des journaux de 96 Mo/s (768 Mo/s). |En fonction de la connectivité réseau entre votre centre de données local et Azure, vérifiez que la bande passante réseau (en général [Azure ExpressRoute](../../../expressroute/expressroute-introduction.md#bandwidth-options)) prend en charge le taux maximal d’ingestion des journaux. |
 |**Machine virtuelle utilisée pour l’Assistant Migration de données (DMA)** |Le processeur est le principal goulot d’étranglement de la machine virtuelle exécutant l’Assistant Migration de données. |Éléments à prendre en compte pour accélérer la migration des données : </br>- Utiliser des machines virtuelles Azure nécessitant beaucoup de ressources système </br>- Utiliser au moins une machine virtuelle F8s_v2 (8 vCores) pour l’exécution de l’Assistant Migration de données </br>- S’assurer que la machine virtuelle s’exécute dans la même région Azure que la cible |
 |**Azure Database Migration Service (DMS)** |Considérations relatives à la contention des ressources de calcul et aux objets de base de données pour DMS |Utilisez le niveau Premium 4 vCores. DMS s’occupe automatiquement des objets de base de données tels que les clés étrangères, les déclencheurs, les contraintes et les index non cluster et n’a besoin d’aucune intervention manuelle.  |
 

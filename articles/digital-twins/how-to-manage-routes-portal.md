@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 0f705aa61f1fe627dc0c8227242538e01ffce1d5
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: e61d2ff3807b65022d72414615af9fa729359358
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99070836"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101715715"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-portal"></a>Gérer les points de terminaison et les itinéraires dans Azure Digital Twins (portail)
 
@@ -76,7 +76,7 @@ Une fois que vous avez créé les ressources du point de terminaison, vous pouve
 1. Terminez la création de votre point de terminaison en sélectionnant _Enregistrer_.
 
 >[!IMPORTANT]
-> Pour pouvoir utiliser correctement l’authentification basée sur l’identité pour votre point de terminaison, vous devez créer une identité managée pour votre instance en suivant les étapes décrites dans le [*Guide pratique : Activer une identité managée pour les événements de routage (préversion)* ](how-to-enable-managed-identities.md).
+> Pour pouvoir utiliser correctement l’authentification basée sur l’identité pour votre point de terminaison, vous devez créer une identité managée pour votre instance en suivant les étapes décrites dans le [*Guide pratique : Activer une identité managée pour les événements de routage (préversion)*](./how-to-enable-managed-identities-portal.md).
 
 Après avoir créé votre point de terminaison, vous pouvez le vérifier en sélectionnant l’icône de notification dans la barre supérieure du portail Azure : 
 

@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 04/15/2020
-ms.openlocfilehash: 04faaa05cf51f740958238ece0a9a211c43fca41
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: a4512a8f75d59f617058a50846d7578a90b9d062
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98935441"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101675808"
 ---
 # <a name="tutorial-create-an-apache-spark-application-with-intellij-using-a-synapse-workspace"></a>Tutoriel : Créer une application Apache Spark avec IntelliJ en utilisant un espace de travail Synapse
 
@@ -34,7 +34,7 @@ Dans ce tutoriel, vous allez apprendre à :
 ## <a name="prerequisites"></a>Prérequis
 
 - [IntelliJ IDEA version Community](https://www.jetbrains.com/idea/download/download-thanks.html?platform=windows&code=IIC).
-- Plug-in du kit de ressources Azure 3.27.0-2019.2, à installer à partir du [dépôt de plug-ins IntelliJ](/java/azure/intellij/azure-toolkit-for-intellij-installation?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+- Plug-in du kit de ressources Azure 3.27.0-2019.2, à installer à partir du [dépôt de plug-ins IntelliJ](/java/azure/intellij/azure-toolkit-for-intellij-installation)
 - [JDK (version 1.8)](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
 - Plug-in Scala, à installer à partir du [dépôt de plug-ins IntelliJ](../../hdinsight/spark/apache-spark-intellij-tool-plugin.md#install-scala-plugin-for-intellij-idea).
 - Le prérequis suivant concerne seulement les utilisateurs Windows :
@@ -145,7 +145,7 @@ Après avoir créé une application Scala, vous pouvez l’exécuter à distance
     |Main class name|La valeur par défaut est la classe principale du fichier sélectionné. Vous pouvez changer la classe en sélectionnant les points de suspension ( **...** ), puis en choisissant une autre classe.|
     |Configurations du travail|Vous pouvez changer la clé et les valeurs par défaut. Pour plus d’informations, consultez [API REST Apache Livy](http://livy.incubator.apache.org./docs/latest/rest-api.html).|
     |Arguments de ligne de commande|Vous pouvez entrer des arguments séparés par un espace pour la classe main, si nécessaire.|
-    |JAR référencés et fichiers référencés|vous pouvez entrer les chemins des fichiers jar et des fichiers référencés, si vous en avez. Vous pouvez également parcourir les fichiers dans le système de fichiers virtuel Azure, qui ne prend en charge que le cluster ADLS Gen2. Pour plus d’informations, consultez [Configuration Apache Spark]https://spark.apache.org/docs/2.4.5/configuration.html#runtime-environment) et [Guide pratique pour charger des ressources sur un cluster](../../storage/blobs/storage-quickstart-blobs-storage-explorer.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).|
+    |JAR référencés et fichiers référencés|vous pouvez entrer les chemins des fichiers jar et des fichiers référencés, si vous en avez. Vous pouvez également parcourir les fichiers dans le système de fichiers virtuel Azure, qui ne prend en charge que le cluster ADLS Gen2. Pour plus d’informations, consultez [Configuration Apache Spark]https://spark.apache.org/docs/2.4.5/configuration.html#runtime-environment) et [Guide pratique pour charger des ressources sur un cluster](../../storage/blobs/storage-quickstart-blobs-storage-explorer.md).|
     |Stockage des chargements de travaux|Développez pour afficher des options supplémentaires.|
     |Type de stockage|Sélectionnez **Utiliser l’objet blob Azure pour charger** ou **Utiliser le compte de stockage par défaut du cluster pour charger** à partir de la liste déroulante.|
     |Compte de stockage|Entrez votre compte de stockage.|

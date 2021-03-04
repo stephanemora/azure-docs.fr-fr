@@ -1,18 +1,17 @@
 ---
 title: Informations du groupe de ressources Azure Monitor | Microsoft Docs
 description: Comprendre l’intégrité et les performances de vos applications et services distribués au niveau du groupe de ressources avec Azure Monitor
-ms.subservice: ''
 ms.topic: conceptual
 author: NumberByColors
 ms.author: daviste
 ms.date: 09/19/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: bf8ea45f37e421d70a68c4a6e138f5203e92d78f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ab2c56b5e5cfc3dcb7411db27e7faabb2589be6c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87045781"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704325"
 ---
 # <a name="monitor-resource-groups-with-azure-monitor-preview"></a>Surveiller les groupes de ressources avec Azure Monitor (préversion)
 
@@ -46,9 +45,9 @@ La page d’informations sur le groupe de ressources fournit d’autres outils d
 
    |         |          |
    | ---------------- |:-----|
-   | [**Alertes**](../platform/alerts-overview.md)      |  Affichez, créez et gérez vos alertes. |
-   | [**Métriques**](../platform/data-platform.md) | Visualisez et explorez vos données basées sur des métriques.    |
-   | [**Journaux d’activité**](../platform/platform-logs-overview.md) | Événements au niveau abonnement qui se sont produits dans Azure.  |
+   | [**Alertes**](../alerts/alerts-overview.md)      |  Affichez, créez et gérez vos alertes. |
+   | [**Métriques**](../data-platform.md) | Visualisez et explorez vos données basées sur des métriques.    |
+   | [**Journaux d’activité**](../essentials/platform-logs-overview.md) | Événements au niveau abonnement qui se sont produits dans Azure.  |
    | [**Mise en correspondance d’applications**](../app/app-map.md) | Accédez à la topologie de votre application distribuée pour identifier des goulots d’étranglement ou des points de défaillance en lien avec les performances. |
 
 ## <a name="failures-and-performance"></a>Échecs et performances
@@ -105,7 +104,7 @@ Dans ce cas, si vous sélectionnez Modifier, vous verrez que cet ensemble de vis
 
  ![Capture d’écran de l’affichage des performances avec des métriques Azure](./media/resource-group-insights/0012-performance-metrics.png)
 
-## <a name="troubleshooting"></a>Dépannage
+## <a name="troubleshooting"></a>Résolution des problèmes
 
 ### <a name="enabling-access-to-alerts"></a>Activation de l’accès aux alertes
 
@@ -117,6 +116,6 @@ Azure Monitor pour les groupes de ressources s’appuie sur le système Azure Mo
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Classeurs Azure Monitor](../platform/workbooks-overview.md)
+- [Classeurs Azure Monitor](../visualize/workbooks-overview.md)
 - [Azure Resource Health](../../service-health/resource-health-overview.md)
-- [Alertes Azure Monitor](../platform/alerts-overview.md)
+- [Alertes Azure Monitor](../alerts/alerts-overview.md)

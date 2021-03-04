@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99ad0963677b9ef536deacc2122130186afe0726
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 37e41a00c1489d5b7b4822fec8bb4da35e917826
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98016964"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101686459"
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Opérations Azure Active Directory Connect Health
 Cette rubrique décrit les différentes opérations que vous pouvez effectuer à l’aide d’Azure Active Directory (Azure AD) Connect Health.
@@ -46,8 +46,6 @@ Vous pouvez configurer le service Azure AD Connect Health pour qu’il envoie d
 > En cas de problème de traitement des demandes de synchronisation dans notre service principal, ce service envoie un e-mail de notification avec les détails de l’erreur à l’adresse de messagerie du contact administratif de votre locataire. Nous avons reçu des commentaires de clients pour qui, dans certains cas, le volume de ces messages est trop important, ce qui nous permet de modifier la façon dont nous envoyons ces messages. 
 >
 > Au lieu d’envoyer un message pour chaque erreur de synchronisation à chaque fois que cela se produit, nous enverrons une synthèse quotidienne de toutes les erreurs renvoyées par le service principal. Cela permet aux clients de traiter ces erreurs de manière plus efficace et de réduire le nombre de messages d’erreur dupliqués.
->
-> Nous prévoyons de mettre en œuvre cette modification le 15 janvier 2020.
 
 ## <a name="delete-a-server-or-service-instance"></a>Supprimer une instance de serveur ou de service
 

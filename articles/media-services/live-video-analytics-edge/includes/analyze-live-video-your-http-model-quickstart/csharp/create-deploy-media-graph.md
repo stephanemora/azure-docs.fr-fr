@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 374a7dd37c23cdc8391485ec8f87f3427fc61ef1
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 597a617f892ba00af13b4f88cad1eddf00f0d11b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99569602"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750177"
 ---
 ### <a name="examine-and-edit-the-sample-files"></a>Examiner et modifier les exemples de fichiers
 
@@ -68,10 +68,10 @@ Dans le cadre des prérequis, vous avez téléchargé l’exemple de code dans u
         > Les étapes ci-dessus supposent que vous utilisez la machine virtuelle créée par le script d’installation. Si vous utilisez votre propre appareil de périphérie, accédez à cet appareil, puis exécutez les commandes suivantes avec des **droits d'administrateur** pour extraire et stocker l'exemple de fichier vidéo utilisé dans ce guide de démarrage rapide :  
         
         ```
-        mkdir /home/lvaadmin/samples
-        mkdir /home/lvaadmin/samples/input    
-        curl https://lvamedia.blob.core.windows.net/public/camera-300s.mkv > /home/lvaadmin/samples/input/camera-300s.mkv  
-        chown -R lvaadmin /home/lvaadmin/samples/  
+        mkdir /home/lvaedgeuser/samples
+        mkdir /home/lvaedgeuser/samples/input    
+        curl https://lvamedia.blob.core.windows.net/public/camera-300s.mkv > /home/lvaedgeuser/samples/input/camera-300s.mkv  
+        chown -R lvalvaedgeuser:localusergroup /home/lvaedgeuser/samples/  
         ```
         * Module `yolov3`, qui est le modèle de détection d’objet Yolov3 qui applique la vision par ordinateur aux images, et retourne plusieurs classes de types d’objets
  

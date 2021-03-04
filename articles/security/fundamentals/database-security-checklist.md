@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: e9845eaf6d84caad3ddb8c7e615cb72f71c91f3b
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 80455b442bbfb9c8a7d40799b2ddd5fc25460578
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412831"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595582"
 ---
 # <a name="azure-database-security-checklist"></a>Liste de contrôle de la sécurité des bases de données Azure
 
@@ -53,7 +53,7 @@ Nous vous recommandons de lire l’article [Azure Database Security Best Practic
 |<br> Accès à la base de données | <ul><li>[Authentification](../../azure-sql/database/logins-create-manage.md) AD (Azure Active Directory), qui utilise des identités gérées par Azure Active Directory.</li><li>[Autorisation](../../azure-sql/database/logins-create-manage.md), pour accorder aux utilisateurs les privilèges minimum nécessaires.</li></ul> |
 |<br>Accès aux applications| <ul><li>[Sécurité au niveau des lignes](/sql/relational-databases/security/row-level-security) (avec une stratégie de sécurité, tout en limitant l’accès au niveau des lignes selon l’identité des utilisateurs, leur rôle ou le contexte d’exécution).</li><li>[Masquage des données dynamiques](../../azure-sql/database/dynamic-data-masking-overview.md) (avec autorisation et stratégie, limite l’exposition des données sensibles en les masquant pour les utilisateurs sans privilège).</li></ul>|
 |**Surveillance proactive**||  
-| <br>Suivi et détection| <ul><li>L’[audit](../../azure-sql/database/auditing-overview.md) suit les événements de base de données et les écrit dans un journal d’audit ou d’activité dans votre [compte de stockage Azure](../../storage/common/storage-account-create.md).</li><li>Suivi de l’intégrité des bases de données Azure à l’aide des [journaux d’activité Azure Monitor](../../azure-monitor/platform/platform-logs-overview.md).</li><li>La [détection des menaces](../../azure-sql/database/threat-detection-configure.md) permet de détecter les activités base de données anormales indiquant la présence potentielle de menaces de sécurité pour la base de données. </li></ul> |
+| <br>Suivi et détection| <ul><li>L’[audit](../../azure-sql/database/auditing-overview.md) suit les événements de base de données et les écrit dans un journal d’audit ou d’activité dans votre [compte de stockage Azure](../../storage/common/storage-account-create.md).</li><li>Suivi de l’intégrité des bases de données Azure à l’aide des [journaux d’activité Azure Monitor](../../azure-monitor/essentials/platform-logs-overview.md).</li><li>La [détection des menaces](../../azure-sql/database/threat-detection-configure.md) permet de détecter les activités base de données anormales indiquant la présence potentielle de menaces de sécurité pour la base de données. </li></ul> |
 |<br>Azure Security Center| <ul><li>[Supervision des données](../../security-center/security-center-remediate-recommendations.md), avec Azure Security Center comme solution de supervision de la sécurité centralisée pour SQL et d’autres services Azure.</li></ul>|        
 
 ## <a name="conclusion"></a>Conclusion

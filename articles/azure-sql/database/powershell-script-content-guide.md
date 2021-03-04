@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/25/2019
-ms.openlocfilehash: 77220fabc78dd10b4299219ef84c1f6eb32ba82e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7d732f0e42bc5eef8f72a2b9ce2adee28deb9a67
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85987307"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690966"
 ---
 # <a name="azure-powershell-samples-for-azure-sql-database-and-azure-sql-managed-instance"></a>Exemples Azure PowerShell pour Azure SQL Database et Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -68,7 +68,7 @@ Le tableau suivant comprend des liens vers des exemples de scripts Azure PowerS
 |---|---|
 |**Créer et configurer des instances managées**||
 | [Créer et gérer une instance managée](../managed-instance/scripts/create-configure-managed-instance-powershell.md) | Ce script PowerShell montre comment créer et gérer une instance managée à l’aide d’Azure PowerShell. |
-| [Créer et gérer une instance managée à l’aide du modèle Azure Resource Manager](../managed-instance/scripts/create-powershell-azure-resource-manager-template.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Ce script PowerShell montre comment créer et gérer une instance managée à l’aide d’Azure PowerShell et du modèle Azure Resource Manager.|
+| [Créer et gérer une instance managée à l’aide du modèle Azure Resource Manager](../managed-instance/create-template-quickstart.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Ce script PowerShell montre comment créer et gérer une instance managée à l’aide d’Azure PowerShell et du modèle Azure Resource Manager.|
 | [Restaurer une base de données vers une instance managée dans une autre région de zone géographique](../managed-instance/scripts/restore-geo-backup.md) | Ce script PowerShell effectue une sauvegarde d’une base de données et la restaure dans une autre région. Il s’agit d’un scénario de reprise d’activité après sinistre par géorestauration. |
 | **Configurer Transparent Data Encryption**||
 | [Gérer Transparent Data Encryption dans une instance managée à l’aide de votre propre clé Azure Key Vault](../managed-instance/scripts/transparent-data-encryption-byok-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Ce script PowerShell configure Transparent Data Encryption dans le scénario Bring Your Own Key pour Azure SQL Managed Instance, à l’aide d’une clé Azure Key Vault.|

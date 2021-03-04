@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/07/2020
 ms.author: alexeyo
-ms.openlocfilehash: 9b923ba208dd2a5111a59f67401b1e4f080b7187
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: f5566276f4555e2480434e385bf2129f5b8cdd24
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96754162"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699978"
 ---
 # <a name="speech-services-quotas-and-limits"></a>Quotas et limites des services de reconnaissance vocale
 
@@ -104,7 +104,7 @@ Les limites de demandes simultanées pour les modèles **De base** et **Personna
 La valeur existante du paramètre Limite de demandes simultanées n’est **pas visible** via le portail Azure, des outils en ligne de commande ou des demandes d’API. Pour vérifier la valeur existante, créez une demande de support Azure.
 
 >[!NOTE]
->Les [conteneurs Speech](speech-container-howto.md) n’exigent pas d’augmentation de la limite de demandes simultanées, car ils ne sont limités que par les processeurs du matériel sur lequel ils sont hébergés. Toutefois, les conteneurs Speech ont leurs propres limitations de capacité qui doivent être prises en compte. Consultez la question *Pouvez-vous aider à planifier la capacité et à estimer les coûts des conteneurs de reconnaissance vocale locaux ?* qui figure dans la [FAQ sur les conteneurs Speech](speech-container-faq.md).
+>Les [conteneurs Speech](speech-container-howto.md) n’exigent pas d’augmentation de la limite de demandes simultanées, car ils ne sont limités que par les processeurs du matériel sur lequel ils sont hébergés. Toutefois, les conteneurs Speech ont leurs propres limitations de capacité qui doivent être prises en compte. Consultez la question *Pouvez-vous aider à planifier la capacité et à estimer les coûts des conteneurs de reconnaissance vocale locaux ?* qui figure dans la [FAQ sur les conteneurs Speech](./speech-container-howto.md).
 
 #### <a name="have-the-required-information-ready"></a>Munissez-vous des informations requises :
 - Pour le **Modèle de base** :
@@ -205,4 +205,3 @@ Initiez l’augmentation de la limite de demandes simultanées pour votre ressou
   - les informations sur la ressource Azure que vous [collectées avant](#prepare-the-required-information) ; 
   - complétez les informations requises, puis cliquez sur le bouton *Créer* sous l’onglet *Vérifier + créer* ;
   - notez le numéro de demande de support dans les notifications du portail Azure. Vous serez bientôt contacté pour un traitement supplémentaire.
-

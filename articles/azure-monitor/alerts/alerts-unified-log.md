@@ -6,33 +6,33 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.subservice: alerts
-ms.openlocfilehash: 88643663c2f14cb7d8883eb1210bdee07b00eece
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 5e7909725f5e390f4e42a7d62e80f90f897c840f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100598623"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714151"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Alertes de journal dans Azure Monitor
 
 ## <a name="overview"></a>Vue d’ensemble
 
-Les alertes de journal sont l’un des types d’alerte pris en charge dans [Alertes Azure](../platform/alerts-overview.md). Les alertes de journal permettent aux utilisateurs d’utiliser une requête [Log Analytics](../log-query/log-analytics-tutorial.md) pour évaluer les journaux de ressources à chaque fréquence définie, et de déclencher une alerte en fonction des résultats. Les règles peuvent déclencher une ou plusieurs actions à l’aide des [groupes d’actions](../platform/action-groups.md).
+Les alertes de journal sont l’un des types d’alerte pris en charge dans [Alertes Azure](./alerts-overview.md). Les alertes de journal permettent aux utilisateurs d’utiliser une requête [Log Analytics](../logs/log-analytics-tutorial.md) pour évaluer les journaux de ressources à chaque fréquence définie, et de déclencher une alerte en fonction des résultats. Les règles peuvent déclencher une ou plusieurs actions à l’aide des [groupes d’actions](./action-groups.md).
 
 > [!NOTE]
-> Les données de journal d'un [espace de travail Log Analytics](../log-query/log-analytics-tutorial.md) peuvent être envoyées au magasin de métriques Azure Monitor. Les alertes de métriques ont [un comportement différent](alerts-metric-overview.md), qui peut être plus adapté en fonction des données que vous utilisez. Pour savoir ce que sont les journaux et comment les acheminer vers les bases de données de métriques, voir [Créer des alertes de métriques de journaux d’activité dans Azure Monitor](alerts-metric-logs.md).
+> Les données de journal d'un [espace de travail Log Analytics](../logs/log-analytics-tutorial.md) peuvent être envoyées au magasin de métriques Azure Monitor. Les alertes de métriques ont [un comportement différent](alerts-metric-overview.md), qui peut être plus adapté en fonction des données que vous utilisez. Pour savoir ce que sont les journaux et comment les acheminer vers les bases de données de métriques, voir [Créer des alertes de métriques de journaux d’activité dans Azure Monitor](alerts-metric-logs.md).
 
 > [!NOTE]
 > Il n’existe actuellement aucun frais supplémentaire pour la version `2020-05-01-preview` de l’API et les alertes de journal centrées sur les ressources.  La tarification des fonctionnalités en préversion sera annoncée à l’avenir et un avis sera fourni avant le début de la facturation. Si vous choisissez de continuer à utiliser la nouvelle version de l’API et les alertes de journal centrées sur les ressources après la période de notification, vous serez facturé au tarif en vigueur.
 
 ## <a name="prerequisites"></a>Prérequis
 
-Les alertes de journal exécutent des requêtes sur les données Log Analytics. Vous devez d'abord [collecter les données de journal](../platform/resource-logs.md), puis les interroger pour détecter les problèmes. Vous pouvez utiliser la [rubrique d'exemples de requêtes d'alerte](../log-query/example-queries.md) de Log Analytics pour en savoir plus sur ce que vous pouvez découvrir ou [commencer à écrire votre propre requête](../log-query/log-analytics-tutorial.md).
+Les alertes de journal exécutent des requêtes sur les données Log Analytics. Vous devez d'abord [collecter les données de journal](../essentials/resource-logs.md), puis les interroger pour détecter les problèmes. Vous pouvez utiliser la [rubrique d'exemples de requêtes d'alerte](../logs/example-queries.md) de Log Analytics pour en savoir plus sur ce que vous pouvez découvrir ou [commencer à écrire votre propre requête](../logs/log-analytics-tutorial.md).
 
-[Contributeur de surveillance Azure](../platform/roles-permissions-security.md) est un rôle courant qui est nécessaire pour créer, modifier et mettre à jour les alertes de journal. Des droits d'accès et d'exécution de requêtes sont également nécessaires pour les journaux de ressources. Un accès partiel aux journaux de ressources peut faire échouer des requêtes ou renvoyer des résultats partiels. [Découvrez-en plus sur la configuration des alertes de journal dans Azure](./alerts-log.md).
+[Contributeur de surveillance Azure](../roles-permissions-security.md) est un rôle courant qui est nécessaire pour créer, modifier et mettre à jour les alertes de journal. Des droits d'accès et d'exécution de requêtes sont également nécessaires pour les journaux de ressources. Un accès partiel aux journaux de ressources peut faire échouer des requêtes ou renvoyer des résultats partiels. [Découvrez-en plus sur la configuration des alertes de journal dans Azure](./alerts-log.md).
 
 > [!NOTE]
-> Les alertes de journal de Log Analytics étaient auparavant gérées à l'aide de l'[API d'alerte Log Analytics](../platform/api-alerts.md) héritée. [En savoir plus sur le basculement sur l’API ScheduledQueryRules actuelle](../alerts/alerts-log-api-switch.md).
+> Les alertes de journal de Log Analytics étaient auparavant gérées à l'aide de l'[API d'alerte Log Analytics](./api-alerts.md) héritée. [En savoir plus sur le basculement sur l’API ScheduledQueryRules actuelle](../alerts/alerts-log-api-switch.md).
 
 ## <a name="query-evaluation-definition"></a>Définition de l'évaluation des requêtes
 
@@ -44,17 +44,17 @@ La définition des conditions des règles de recherche dans les journaux commenc
 Les sections suivantes décrivent les différents paramètres que vous pouvez utiliser pour définir la logique ci-dessus.
 
 ### <a name="log-query"></a>Requête de journal
-Requête [Log Analytics](../log-query/log-analytics-tutorial.md) utilisée pour évaluer la règle. Les résultats renvoyés par cette requête permettent de déterminer si une alerte doit être déclenchée. La requête peut être étendue à :
+Requête [Log Analytics](../logs/log-analytics-tutorial.md) utilisée pour évaluer la règle. Les résultats renvoyés par cette requête permettent de déterminer si une alerte doit être déclenchée. La requête peut être étendue à :
 
 - Une ressource spécifique, telle qu'une machine virtuelle.
 - Une ressource à grande échelle, comme un abonnement ou un groupe de ressources.
-- Plusieurs ressources à l'aide d'une [requête inter-ressources](../log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights). 
+- Plusieurs ressources à l'aide d'une [requête inter-ressources](../logs/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights). 
  
 > [!IMPORTANT]
 > Des contraintes s'appliquent aux requêtes d'alerte pour garantir des performances optimales et des résultats pertinents. [En savoir plus ici](./alerts-log-query.md).
 
 > [!IMPORTANT]
-> Les requêtes centrées sur les ressources et les [requêtes inter-ressources](../log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) sont uniquement prises en charge à l'aide de l'API SchedulerQueryRules actuelle. Si vous utilisez l'[API d'alerte Log Analytics](../platform/api-alerts.md) héritée, vous devrez opérer un basculement. [En savoir plus sur le basculement](./alerts-log-api-switch.md)
+> Les requêtes centrées sur les ressources et les [requêtes inter-ressources](../logs/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) sont uniquement prises en charge à l'aide de l'API SchedulerQueryRules actuelle. Si vous utilisez l'[API d'alerte Log Analytics](./api-alerts.md) héritée, vous devrez opérer un basculement. [En savoir plus sur le basculement](./alerts-log-api-switch.md)
 
 #### <a name="query-time-range"></a>Intervalle de temps de requête
 
@@ -154,7 +154,7 @@ Par exemple, vous souhaitez analyser les erreurs de plusieurs machines virtuelle
 Cette règle détermine si une machine virtuelle a rencontré des erreurs au cours des 15 dernières minutes. Chaque machine virtuelle est analysée séparément et déclenche des actions individuellement.
 
 > [!NOTE]
-> Fractionner par dimensions d'alerte est uniquement disponible pour l'API scheduledQueryRules actuelle. Si vous utilisez l'[API d'alerte Log Analytics](../platform/api-alerts.md) héritée, vous devrez opérer un basculement. [En savoir plus sur le basculement](./alerts-log-api-switch.md). Les alertes centrées sur les ressources à grande échelle ne sont prises en charge que dans les versions `2020-05-01-preview` et ultérieures de l'API.
+> Fractionner par dimensions d'alerte est uniquement disponible pour l'API scheduledQueryRules actuelle. Si vous utilisez l'[API d'alerte Log Analytics](./api-alerts.md) héritée, vous devrez opérer un basculement. [En savoir plus sur le basculement](./alerts-log-api-switch.md). Les alertes centrées sur les ressources à grande échelle ne sont prises en charge que dans les versions `2020-05-01-preview` et ultérieures de l'API.
 
 ## <a name="alert-logic-definition"></a>Définition de la logique d'alerte
 
@@ -197,17 +197,17 @@ Pour obtenir des informations de tarification, consultez la page [Tarification A
 
 - Alertes de journal sur Application Insights, affichées avec le nom exact de la ressource, ainsi que le groupe de ressources et les propriétés de l'alerte.
 - Alertes de journal sur Log Analytics, affichées avec le nom exact de la ressource ainsi que le groupe de ressources et les propriétés de l'alerte (création avec l'[API scheduledQueryRules](/rest/api/monitor/scheduledqueryrules)).
-- Les alertes de journal créées à partir de l'[API Log Analytics héritée](../platform/api-alerts.md) ne sont pas des [ressources Azure](../../azure-resource-manager/management/overview.md) suivies et ne disposent pas de noms de ressources uniques. Ces alertes sont toujours créées sur `microsoft.insights/scheduledqueryrules` en tant que ressources masquées, avec cette structure de dénomination de ressources `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>`. Les alertes de journal de l'API héritée sont affichées avec le nom de la ressource masquée ci-dessus, ainsi que le groupe de ressources et les propriétés de l'alerte.
+- Les alertes de journal créées à partir de l'[API Log Analytics héritée](./api-alerts.md) ne sont pas des [ressources Azure](../../azure-resource-manager/management/overview.md) suivies et ne disposent pas de noms de ressources uniques. Ces alertes sont toujours créées sur `microsoft.insights/scheduledqueryrules` en tant que ressources masquées, avec cette structure de dénomination de ressources `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>`. Les alertes de journal de l'API héritée sont affichées avec le nom de la ressource masquée ci-dessus, ainsi que le groupe de ressources et les propriétés de l'alerte.
 
 > [!NOTE]
 > Les caractères de ressource non pris en charge, tels que `<, >, %, &, \, ?, /`, sont remplacés par `_` dans les noms des ressources masquées et cela se reflète également dans les informations de facturation.
 
 > [!NOTE]
-> Les alertes de journal de Log Analytics étaient auparavant gérées à l'aide de l'[API d'alerte Log Analytics](../platform/api-alerts.md) héritée et des modèles hérités des [alertes et recherches Log Analytics enregistrées](../insights/solutions.md). [En savoir plus sur le basculement sur l’API ScheduledQueryRules actuelle](../alerts/alerts-log-api-switch.md). Une règle d'alerte doit être gérée à l'aide de l'[API Log Analytics héritée](../platform/api-alerts.md) jusqu'à ce que vous décidiez de basculer et qu'il ne soit plus possible d'utiliser les ressources masquées.
+> Les alertes de journal de Log Analytics étaient auparavant gérées à l'aide de l'[API d'alerte Log Analytics](./api-alerts.md) héritée et des modèles hérités des [alertes et recherches Log Analytics enregistrées](../insights/solutions.md). [En savoir plus sur le basculement sur l’API ScheduledQueryRules actuelle](../alerts/alerts-log-api-switch.md). Une règle d'alerte doit être gérée à l'aide de l'[API Log Analytics héritée](./api-alerts.md) jusqu'à ce que vous décidiez de basculer et qu'il ne soit plus possible d'utiliser les ressources masquées.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * En savoir plus sur la [création d’alertes de journal dans Azure](./alerts-log.md).
 * Comprendre les [webhooks dans les alertes de journal dans Azure](../alerts/alerts-log-webhook.md).
-* En savoir plus sur [Alertes Azure](../platform/alerts-overview.md).
-* En savoir plus sur [Log Analytics](../log-query/log-query-overview.md).
+* En savoir plus sur [Alertes Azure](./alerts-overview.md).
+* En savoir plus sur [Log Analytics](../logs/log-query-overview.md).

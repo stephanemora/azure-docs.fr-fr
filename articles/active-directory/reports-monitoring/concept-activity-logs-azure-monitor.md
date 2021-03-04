@@ -17,12 +17,12 @@ ms.date: 04/09/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8dbf14b1816d367f864cc3a2977497b34111df3f
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 73130c906d4d9f0da51db1b666e8562570cce40f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97586191"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571272"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor"></a>Journaux d’activité Azure Active Directory dans Azure Monitor
 
@@ -126,7 +126,7 @@ Le tableau suivant contient les coûts estimés par mois pour un Event Hub de ba
 
 
 
-Pour connaître les coûts liés à la gestion des journaux d’activité Azure Monitor, consultez [Gérer les coûts en contrôlant le volume et la rétention dans les journaux d’activité Azure Monitor](../../azure-monitor/platform/manage-cost-storage.md).
+Pour connaître les coûts liés à la gestion des journaux d’activité Azure Monitor, consultez [Gérer les coûts en contrôlant le volume et la rétention dans les journaux d’activité Azure Monitor](../../azure-monitor/logs/manage-cost-storage.md).
 
 ## <a name="frequently-asked-questions"></a>Forum aux questions
 
@@ -180,7 +180,7 @@ Cette section répond aux questions fréquemment posées et traitent des problè
 
 **Q : Quels sont les outils SIEM actuellement pris en charge ?** 
 
-**R** : **R** : Actuellement, Azure Monitor est pris en charge par [Splunk](./howto-integrate-activity-logs-with-splunk.md), IBM QRadar, [Sumo Logic](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory), [ArcSight](./howto-integrate-activity-logs-with-arcsight.md), LogRhythm et Logz.io. Pour en savoir plus sur le fonctionnement des connecteurs, consultez la section [Diffuser des données de surveillance Azure vers un Event Hub pour les utiliser dans un outil externe](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
+**R** : **R** : Actuellement, Azure Monitor est pris en charge par [Splunk](./howto-integrate-activity-logs-with-splunk.md), IBM QRadar, [Sumo Logic](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory), [ArcSight](./howto-integrate-activity-logs-with-arcsight.md), LogRhythm et Logz.io. Pour en savoir plus sur le fonctionnement des connecteurs, consultez la section [Diffuser des données de surveillance Azure vers un Event Hub pour les utiliser dans un outil externe](../../azure-monitor/essentials/stream-monitoring-data-event-hubs.md).
 
 ---
 

@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 10/11/2020
 ms.author: erhopf
-ms.openlocfilehash: 01e46ad8d139f2cab2fbb6499dc66c7af5ceb554
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: dbfe4a44f359f8db59ae80e04aae57164d0ccaf7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368761"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101736846"
 ---
 # <a name="azure-cognitive-services-support-and-help-options"></a>Options d’aide et de support Azure Cognitive Services
 
@@ -113,23 +113,34 @@ Si vous envoyez une nouvelle question à Stack Overflow, utilisez un ou plusieur
 
 Pour demander de nouvelles fonctionnalités, publiez-les sur UserVoice. Partagez vos idées pour améliorer le fonctionnement de Cognitive Services et de ses API pour les applications que vous développez. 
 
-| Service                       | URL UserVoice sur Cognitive Services |
-|-------------------------------|---------------|
-| Détecteur d’anomalies              | https://cognitive.uservoice.com/forums/912196-anomaly-detector |
-| Vision par ordinateur               | https://cognitive.uservoice.com/forums/430309-computer-vision |
-| Content Moderator             | https://cognitive.uservoice.com/forums/559960-content-moderator |
-| Vision personnalisée                 | https://cognitive.uservoice.com/forums/598141-custom-vision-service |
-| Face                          | https://cognitive.uservoice.com/forums/430315-face |
-| Form Recognizer               | https://cognitive.uservoice.com/forums/921556-form-recognizer |
-| Ink Recognizer                | https://cognitive.uservoice.com/forums/921559-ink-recognizer |
-| Language Understanding (LUIS) | https://cognitive.uservoice.com/forums/551524-luis |
-| Personalizer                  | https://cognitive.uservoice.com/forums/921562-personalizer |
-| QnA Maker                     | https://cognitive.uservoice.com/forums/578689-qna-maker |
-| Services Speech               | https://cognitive.uservoice.com/forums/912208-speech-service |
-| Custom Speech                 | https://cognitive.uservoice.com/forums/555934-custom-speech-service |
-| Analyse de texte                | https://cognitive.uservoice.com/forums/555922-text-analytics |
-| Convertisseur               | https://cognitive.uservoice.com/forums/558796-translator |
-| Video Indexer                 | https://cognitive.uservoice.com/forums/598144-video-indexer |
+* [Cognitive Services](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395737)
+
+**Vision**
+
+* [Vision par ordinateur](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395743)
+* [Custom Vision](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395743)
+* [Visage](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395743)
+* [Form Recognizer](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395743)
+* [Video Indexer](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395743)
+
+**Langage**
+
+* [Lecteur immersif](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395749)
+* [Language Understanding (LUIS)](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395749)
+* [QnA Maker](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395749)
+* [Analyse de texte](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395749)
+* [Translator](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395749)
+
+**Speech**
+
+* [Service Speech](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395740)
+
+**Décision**
+
+* [Détecteur d’anomalies](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395746) 
+* [Content Moderator](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395746)
+* [Metrics Advisor (préversion)](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395746)
+* [Personalizer](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395746)
 
 ## <a name="stay-informed"></a>Restez informé
 

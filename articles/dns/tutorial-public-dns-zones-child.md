@@ -10,12 +10,12 @@ ms.custom: ''
 ms.workload: infrastructure-services
 ms.date: 7/16/2020
 ms.author: jonbeck
-ms.openlocfilehash: d805fb926131e047572887758b10506e4edd5944
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 1e2eddd821bb7a9d2050913efef3d73b406e32f7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183377"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733208"
 ---
 # <a name="tutorial-creating-a-new-child-dns-zone"></a>Tutoriel : Création d’une zone DNS enfant
 
@@ -81,7 +81,8 @@ Vous pouvez également créer une zone DNS enfant et la déléguer dans la zone 
 1.  Sélectionnez **Suivant : Balises**, puis sur **Suivant : Vérifier + créer**.
 1.  Sous l’onglet **Vérifier + créer**, passez en revue le résumé, corrigez les éventuelles erreurs de validation et sélectionnez **Créer**.
 
-    :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-dns-zone-child-inline.png" alt-text="Capture d’écran de la zone enfant sélectionnée" border="true"  lightbox="./media/dns-delegate-domain-azure-dns/create-dns-zone-child-expanded.png":::
+    :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-dns-zone-child-inline.png" alt-text="Capture d’écran de la zone enfant sélectionnée" border="true" lightbox="./media/dns-delegate-domain-azure-dns/create-dns-zone-child-expanded.png":::
+
 ## <a name="verify-child-dns-zone"></a>Vérifier la zone DNS enfant
 Maintenant, vous avez une nouvelle zone DNS enfant *subdomain.contoso.com* créée. Pour vérifier que la délégation s’est correctement déroulée, vous pouvez vérifier que les enregistrements de serveur de noms (NS) de votre zone enfant se trouvent dans la zone parent, comme décrit ci-dessous.  
 

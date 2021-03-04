@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 06/25/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 96d8c32791bd968dd8740a2d4633496b42e9f3f4
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 26cfdf05847b01d28a8574483acc89cfeced0ffa
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100599251"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717738"
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>Configuration avancée de la mise à l’échelle automatique à l’aide des modèles Resource Manager pour VM Scale Sets
 Vous pouvez diminuer ou augmenter la taille des instances dans VM Scale Sets en fonction de certains seuils de métriques de performances, selon une planification périodique ou à une date donnée. Vous pouvez également configurer des e-mails et des webhooks de notification pour les actions de mise à l’échelle. Cette procédure pas à pas présente un exemple de configuration de ces objets à l’aide d’un modèle Resource Manager sur un groupe de machines virtuelles identiques (VM Scale Set).
@@ -243,9 +243,9 @@ Suivez ces liens pour en savoir plus sur la mise à l’échelle automatique.
 
 [Meilleures pratiques pour la mise à l’échelle automatique d’Azure Insights](autoscale-best-practices.md)
 
-[Gérer les paramètres de mise à l’échelle automatique à l’aide de PowerShell](../samples/powershell-samples.md#create-and-manage-autoscale-settings)
+[Gérer les paramètres de mise à l’échelle automatique à l’aide de PowerShell](../powershell-samples.md#create-and-manage-autoscale-settings)
 
-[Gérer les paramètres de mise à l’échelle automatique à l’aide de la CLI](../samples/cli-samples.md#autoscale)
+[Gérer les paramètres de mise à l’échelle automatique à l’aide de la CLI](../cli-samples.md#autoscale)
 
 [Utilisation d’actions de mise à l’échelle automatique pour envoyer des notifications d’alerte webhook et par courrier électronique dans Azure Insights](autoscale-webhook-email.md)
 

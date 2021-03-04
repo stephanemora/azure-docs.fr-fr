@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 1/25/2021
 ms.author: allensu
-ms.openlocfilehash: 716acec51226e9e4ff47605c3ee2bd9a86be1933
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a514edef1ef1f67fba3efae883ceb46dee249d6e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100588565"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101705498"
 ---
 # <a name="what-is-azure-load-balancer"></a>Qu’est-ce qu’Azure Load Balancer ?
 
@@ -56,7 +56,7 @@ Voici les principaux scénarios que vous pouvez gérer avec Standard Load Balanc
 
 - Activer la prise en charge de l’ **[équilibrage de charge](../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md)** de **[IPv6](../virtual-network/ipv6-overview.md)**
 
-- Standard Load Balancer fournit des métriques multidimensionnelles via [Azure Monitor](../azure-monitor/overview.md).  Ces métriques peuvent être filtrées, regroupées et réparties pour une dimension donnée.  Elles fournissent des analyses en cours et historiques sur les performances et l’intégrité de votre service. [Insights pour Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-insights) offre un tableau de bord préconfiguré avec des visualisations utiles pour ces métriques.  Resource Health est également pris en charge. Pour plus d’informations, consultez **[Diagnostics de Standard Load Balancer](load-balancer-standard-diagnostics.md)** .
+- Standard Load Balancer fournit des métriques multidimensionnelles via [Azure Monitor](../azure-monitor/overview.md).  Ces métriques peuvent être filtrées, regroupées et réparties pour une dimension donnée.  Elles fournissent des analyses en cours et historiques sur les performances et l’intégrité de votre service. [Insights pour Azure Load Balancer](./load-balancer-insights.md) offre un tableau de bord préconfiguré avec des visualisations utiles pour ces métriques.  Resource Health est également pris en charge. Pour plus d’informations, consultez **[Diagnostics de Standard Load Balancer](load-balancer-standard-diagnostics.md)** .
 
 - Équilibrer la charge des services sur **[plusieurs ports, plusieurs adresses IP ou les deux](./load-balancer-multivip-overview.md)**
 

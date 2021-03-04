@@ -4,12 +4,12 @@ description: Découvrez les services pris en charge et le schéma d’événemen
 ms.subservice: logs
 ms.topic: reference
 ms.date: 09/01/2020
-ms.openlocfilehash: b37535b67ed1873c5a492e28e6bf4da8c67c7e5d
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 7c426074bbeb2792f152063d938e867b86dc1f6f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100599032"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717534"
 ---
 # <a name="common-and-service-specific-schema-for-azure-resource-logs"></a>Schémas communs et spécifiques de services pour les journaux de ressources Azure
 
@@ -73,7 +73,7 @@ Le schéma des journaux des ressources varie en fonction de la ressource et de l
 | Front Door | [Journalisation pour Front Door](../../frontdoor/front-door-diagnostics.md) |
 | IoT Hub | [Opérations IoT Hub](../../iot-hub/monitor-iot-hub-reference.md#resource-logs) |
 | Key Vault |[Journalisation d’Azure Key Vault](../../key-vault/general/logging.md) |
-| Kubernetes Service |[Journalisation d’Azure Kubernetes](../../aks/view-master-logs.md#log-event-schema) |
+| Kubernetes Service |[Journalisation d’Azure Kubernetes](../../aks/view-control-plane-logs.md#log-event-schema) |
 | Load Balancer |[Analyse des journaux de l'équilibreur de charge Azure](../../load-balancer/load-balancer-monitor-log.md) |
 | Logic Apps |[Schéma de suivi personnalisé Logic Apps B2B](../../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | Network Security Group |[Analytique des journaux pour les groupes de sécurité réseau (NSG)](../../virtual-network/virtual-network-nsg-manage-log.md) |

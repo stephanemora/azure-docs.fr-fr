@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/21/2020
-ms.openlocfilehash: d38a0ea7307584c25ddec9389feaef7518bcf925
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 1232a0753c988f5a28ebba28f9819aa67ce28603
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100591753"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718741"
 ---
 # <a name="track-database-activity-with-audit-logs-in-azure-database-for-mysql-flexible-server"></a>Suivre l’activité de la base de données avec les journaux d’audit dans le serveur flexible Azure Database pour MySQL
 
@@ -46,7 +46,7 @@ Les autres paramètres que vous pouvez ajuster pour contrôler le comportement d
 | `DCL` | Requêtes telles que « GRANT PERMISSION » |
 | `ADMIN` | Requêtes telles que « SHOW STATUS » |
 | `GENERAL` | Tout dans DML_SELECT, DML_NONSELECT, DML, DDL, DCL et ADMIN |
-| `TABLE_ACCESS` | - Uniquement disponible pour MySQL 5.7 <br> - Instructions de lecture de table, telles que SELECT ou INSERT INTO... SELECT <br> - Instructions de suppression de table, telles que DELETE ou TRUNCATE TABLE <br> - Instructions d’insertion de table, telles que INSERT ou REPLACE <br> - Instructions de mise à jour de table, telles que UPDATE |
+| `TABLE_ACCESS` | - Instructions de lecture de table, telles que SELECT ou INSERT INTO... SELECT <br> - Instructions de suppression de table, telles que DELETE ou TRUNCATE TABLE <br> - Instructions d’insertion de table, telles que INSERT ou REPLACE <br> - Instructions de mise à jour de table, telles que UPDATE |
 
 ## <a name="access-audit-logs"></a>Accéder aux journaux d’audit
 
@@ -72,7 +72,7 @@ Les sections suivantes décrivent la sortie des journaux d’audit MySQL en fonc
 | `OperationName` | `LogEvent` |
 | `LogicalServerName_s` | Nom du serveur |
 | `event_class_s` | `connection_log` |
-| `event_subclass_s` | `CONNECT`, `DISCONNECT`, `CHANGE USER` (uniquement disponible pour MySQL 5.7) |
+| `event_subclass_s` | `CONNECT`, `DISCONNECT`, `CHANGE USER` |
 | `connection_id_d` | ID de connexion unique généré par MySQL |
 | `host_s` | Vide |
 | `ip_s` | Adresse IP du client qui se connecte à MySQL |
@@ -116,7 +116,7 @@ Le schéma ci-dessous s’applique aux types d’événements GENERAL, DML_SELEC
 ### <a name="table-access"></a>Accès à la table
 
 > [!NOTE]
-> Les journaux d’accès à la table sont uniquement des sorties pour MySQL 5.7.<br>Pour `sql_text_s`, le journal est tronqué s’il dépasse 2 048 caractères.
+> Pour `sql_text_s`, le journal est tronqué s’il dépasse 2 048 caractères.
 
 | **Propriété** | **Description** |
 |---|---|

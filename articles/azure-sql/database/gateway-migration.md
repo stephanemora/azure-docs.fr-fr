@@ -10,19 +10,19 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: 8fa61855b5647c1caefd939af17b70c9d08c2f8f
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: eab1ebb3bf66b28bae80fbf16eaf24dbbc63bfb0
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100517822"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690530"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Migration du trafic des bases de données Azure SQL Database vers des passerelles plus récentes
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Comme l’infrastructure Azure évolue, Microsoft actualise régulièrement le matériel, afin de proposer la meilleure expérience client possible. Dans les prochains mois, nous prévoyons d’ajouter des passerelles basées sur des générations de matériel plus récentes, de migrer le trafic vers ces passerelles et de mettre hors service les passerelles basées sur du matériel plus ancien dans certaines régions.  
 
-Les clients seront informés très tôt de toute modification apportée aux passerelles disponibles dans chaque région, par le biais de notifications d’intégrité du service. Les clients peuvent [utiliser le portail Azure pour configurer des alertes de journal d’activité](https://docs.microsoft.com/azure/service-health/alerts-activity-log-service-notifications-portal).
+Les clients seront informés très tôt de toute modification apportée aux passerelles disponibles dans chaque région, par le biais de notifications d’intégrité du service. Les clients peuvent [utiliser le portail Azure pour configurer des alertes de journal d’activité](../../service-health/alerts-activity-log-service-notifications-portal.md).
 
 Les informations les plus récentes seront conservées dans la table [Adresses IP des passerelles Azure SQL Database](connectivity-architecture.md#gateway-ip-addresses).
 

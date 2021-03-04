@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,seoapr2020
 ms.topic: conceptual
 ms.date: 11/20/2019
-ms.openlocfilehash: 13282962886d8682b6056d10f8f0cc5a7f626d60
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 84124f33f6aa02f63c0c47a24bd7d2a71ced2d11
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98946021"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699298"
 ---
 # <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight : Forum aux questions
 
@@ -61,7 +61,7 @@ Oui. Pour installer des composants supplémentaires ou personnaliser la configur
 
 - [Plateforme d’application HDInsight](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/) pour installer des applications.
 
-Pour obtenir la liste des composants pris en charge, consultez [Quels sont les composants et versions d’Apache Hadoop disponibles avec HDInsight ?](./hdinsight-component-versioning.md#apache-components-available-with-different-hdinsight-versions)
+Pour obtenir la liste des composants pris en charge, consultez [Quels sont les composants et versions d’Apache Hadoop disponibles avec HDInsight ?](./hdinsight-component-versioning.md)
 
 ### <a name="can-i-upgrade-the-individual-components-that-are-pre-installed-on-the-cluster"></a>Est-il possible de mettre à niveau chacun des composants qui sont préinstallés sur le cluster ?
 
@@ -234,7 +234,7 @@ Effectuez l’une des actions suivantes :
 
 ### <a name="how-can-i-set-up-auditing-for-my-blob-storage-account"></a>Comment configurer l’audit de mon compte de stockage Blob ?
 
-Pour auditer les comptes de stockage blob, configurez la surveillance en suivant la procédure décrite dans [Surveiller un compte de stockage dans le portail Azure](../storage/common/storage-monitor-storage-account.md). Un journal HDFS-audit fournit uniquement des informations d’audit pour le système de fichiers HDFS local (hdfs://mycluster).  Il n’inclut pas les opérations qui sont effectuées sur le stockage distant.
+Pour auditer les comptes de stockage blob, configurez la surveillance en suivant la procédure décrite dans [Surveiller un compte de stockage dans le portail Azure](../storage/common/manage-storage-analytics-logs.md). Un journal HDFS-audit fournit uniquement des informations d’audit pour le système de fichiers HDFS local (hdfs://mycluster).  Il n’inclut pas les opérations qui sont effectuées sur le stockage distant.
 
 ### <a name="how-can-i-transfer-files-between-a-blob-container-and-an-hdinsight-head-node"></a>Comment transférer des fichiers entre un conteneur d’objets blob et un nœud principal HDInsight ?
 

@@ -3,12 +3,12 @@ title: Accéder à un registre ayant un accès réseau restreint à l’aide du 
 description: Activer une instance de service Azure de confiance pour accéder en toute sécurité à un registre de conteneurs ayant un accès réseau restreint pour tirer (pull) ou envoyer (push) des images
 ms.topic: article
 ms.date: 01/29/2021
-ms.openlocfilehash: 2e6b6ee3736f98f53ebb0aa43d707d42ba4cc058
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 3cc32630ea689891e7ba75163c33bc499a38becd
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99527033"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101716480"
 ---
 # <a name="allow-trusted-services-to-securely-access-a-network-restricted-container-registry-preview"></a>Permettre à des services de confiance d’accéder en toute sécurité à un registre de conteneurs ayant un accès réseau restreint (préversion)
 
@@ -41,7 +41,6 @@ Les instances des services suivants peuvent accéder à un registre de conteneur
 |Service approuvé  |Scénarios d’utilisation pris en charge  |
 |---------|---------|
 |ACR Tasks     | [Accéder à un autre registre à partir d’une tâche ACR](container-registry-tasks-cross-registry-authentication.md)       |
-|Machine Learning | [Déployer](../machine-learning/how-to-deploy-custom-docker-image.md) un modèle ou [effectuer son apprentissage](../machine-learning/how-to-train-with-custom-image.md) dans un espace de travail Machine Learning à l’aide d’une image conteneur Docker personnalisée |
 |Azure Container Registry | [Importer des images à partir d’un registre de conteneurs Azure](container-registry-import-images.md#import-from-an-azure-container-registry-in-the-same-ad-tenant) | 
 
 > [!NOTE]

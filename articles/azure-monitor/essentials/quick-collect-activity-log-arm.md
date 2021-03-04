@@ -7,16 +7,16 @@ ms.custom: subject-armqs, devx-track-azurecli
 author: bwren
 ms.author: bwren
 ms.date: 06/25/2020
-ms.openlocfilehash: 7465127ed9c52941d6c3ccfd40446546f0795455
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: 0a740b4c6c6e89c9a4990651779ea4f0b376c971
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100635470"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734347"
 ---
 # <a name="quickstart-send-azure-activity-log-to-log-analytics-workspace-using-an-arm-template"></a>Démarrage rapide : Envoyer le journal d’activité Azure à un espace de travail Log Analytics à l’aide d’un modèle Resource Manager
 
-Le journal d’activité est un journal de plateforme dans Azure qui fournit un aperçu de tous les événements de niveau d’abonnement. Les informations qu’il contient indiquent par exemple à quel moment une ressource a été modifiée ou une machine virtuelle a été démarrée. Vous pouvez afficher le journal d’activité dans le portail Azure ou récupérer des entrées avec PowerShell et l’interface CLI. Ce guide de démarrage rapide montre comment utiliser des modèles Azure Resource Manager (modèles ARM) pour créer un espace de travail Log Analytics et un paramètre de diagnostic afin d’envoyer le journal d’activité à Journaux Azure Monitor, où vous pouvez l’analyser à l’aide de [requêtes de journal](../log-query/log-query-overview.md) et activer d’autres fonctionnalités telles que les [alertes de journal](../alerts/alerts-log-query.md) et les [classeurs](../visualize/workbooks-overview.md).
+Le journal d’activité est un journal de plateforme dans Azure qui fournit un aperçu de tous les événements de niveau d’abonnement. Les informations qu’il contient indiquent par exemple à quel moment une ressource a été modifiée ou une machine virtuelle a été démarrée. Vous pouvez afficher le journal d’activité dans le portail Azure ou récupérer des entrées avec PowerShell et l’interface CLI. Ce guide de démarrage rapide montre comment utiliser des modèles Azure Resource Manager (modèles ARM) pour créer un espace de travail Log Analytics et un paramètre de diagnostic afin d’envoyer le journal d’activité à Journaux Azure Monitor, où vous pouvez l’analyser à l’aide de [requêtes de journal](../logs/log-query-overview.md) et activer d’autres fonctionnalités telles que les [alertes de journal](../alerts/alerts-log-query.md) et les [classeurs](../visualize/workbooks-overview.md).
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -321,7 +321,7 @@ Remove-AzResourceGroup -Name my-resource-group
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez configuré le journal d’activité à envoyer à un espace de travail Log Analytics. Vous pouvez à présent configurer d’autres données à collecter dans l’espace de travail, où vous pouvez les analyser à l’aide de [requêtes de journal](../log-query/log-query-overview.md) dans Azure Monitor et tirer parti de fonctionnalités telles que les [alertes de journal](../alerts/alerts-log-query.md) et les [classeurs ](../visualize/workbooks-overview.md). Vous devez ensuite collecter les [journaux de ressources](../essentials/resource-logs.md) à partir de vos ressources Azure qui complètent les données du journal d’activité en fournissant des insights sur les opérations qui ont été effectuées au sein de chaque ressource.
+Dans ce guide de démarrage rapide, vous avez configuré le journal d’activité à envoyer à un espace de travail Log Analytics. Vous pouvez à présent configurer d’autres données à collecter dans l’espace de travail, où vous pouvez les analyser à l’aide de [requêtes de journal](../logs/log-query-overview.md) dans Azure Monitor et tirer parti de fonctionnalités telles que les [alertes de journal](../alerts/alerts-log-query.md) et les [classeurs ](../visualize/workbooks-overview.md). Vous devez ensuite collecter les [journaux de ressources](../essentials/resource-logs.md) à partir de vos ressources Azure qui complètent les données du journal d’activité en fournissant des insights sur les opérations qui ont été effectuées au sein de chaque ressource.
 
 > [!div class="nextstepaction"]
 > [Collecter et analyser des journaux de ressources avec Azure Monitor](../essentials/tutorial-resource-logs.md)

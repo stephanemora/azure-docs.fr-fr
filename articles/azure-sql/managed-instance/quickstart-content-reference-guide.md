@@ -12,12 +12,12 @@ author: davidtrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 07/11/2019
-ms.openlocfilehash: 936e4f8f54e92ba90372fff1c9d8dfc1982bbd62
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: c84c81fa81cf4ba9be454eea5782927a09c3252a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96325113"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690955"
 ---
 # <a name="getting-started-with-azure-sql-managed-instance"></a>Bien démarrer avec Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -44,7 +44,7 @@ Dans un premier temps, vous devez créer votre première instance managée SQL a
   > - Vous pouvez également utiliser une connexion ExpressRoute ou de site à site à partir de votre réseau local, mais ces approches sortent du cadre de ces guides de démarrage rapide.
   > - Si vous remplacez la valeur 0 de la période de rétention (rétention illimitée) par une autre valeur, notez que la rétention s’appliquera uniquement aux journaux écrits après la modification de la valeur de rétention (les journaux écrits au cours de la période pendant laquelle la rétention était définie sur illimité sont conservés, même après activation de la rétention).
 
-En guise d’alternative à la création manuelle d’une instance managée SQL, vous pouvez utiliser [PowerShell](scripts/create-configure-managed-instance-powershell.md), [PowerShell avec le modèle Resource Manager](scripts/create-powershell-azure-resource-manager-template.md) ou [Azure CLI](/cli/azure/sql/mi#az-sql-mi-create) pour générer des scripts et automatiser ce processus.
+En guise d’alternative à la création manuelle d’une instance managée SQL, vous pouvez utiliser [PowerShell](scripts/create-configure-managed-instance-powershell.md), [PowerShell avec le modèle Resource Manager](./create-template-quickstart.md) ou [Azure CLI](/cli/azure/sql/mi#az-sql-mi-create) pour générer des scripts et automatiser ce processus.
 
 ### <a name="migrate-your-databases"></a>Migrer vos bases de données
 

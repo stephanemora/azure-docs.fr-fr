@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/20/2020
-ms.openlocfilehash: bef7db19142f0387077af1487230e7891c255aa1
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 09df1c2ecb94089f23a88dd36c5343bb4cf2feea
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100599242"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710938"
 ---
 # <a name="monitor-health-of-log-analytics-workspace-in-azure-monitor"></a>Surveiller l’intégrité d’un espace de travail Log Analytics dans Azure Monitor
 Pour maintenir les performances et la disponibilité de votre espace de travail Log Analytics dans Azure Monitor, vous devez être en mesure de détecter de façon proactive les problèmes qui surviennent. Cet article décrit comment surveiller l’intégrité de votre espace de travail Log Analytics à l’aide des données du tableau [Opération](/azure/azure-monitor/reference/tables/operation). Ce tableau, qui figure dans tous les espaces de travail Log Analytics, présente les erreurs et les avertissements qui surviennent dans votre espace de travail. Nous vous conseillons de consulter ces données régulièrement et de créer des alertes pour être informé en amont des incidents importants survenus dans votre espace de travail.
@@ -58,10 +58,10 @@ Les opérations d’ingestion sont les problèmes qui sont survenus pendant l’
 | Journal personnalisé | Erreur   | Limite de la colonne Champs personnalisés atteinte. | [Limites du service Azure Monitor](../service-limits.md#log-analytics-workspaces) |
 | Journal personnalisé | Erreur   | Échec de l’ingestion des journaux personnalisés. | |
 | Métadonnées. | Erreur | Erreur de configuration détectée. | |
-| Collecte de données | Erreur   | Les données ont été supprimées, car la demande a été créée avant le nombre de jours défini. | [Gérer l’utilisation et les coûts avec les journaux Azure Monitor](../platform/manage-cost-storage.md#alert-when-daily-cap-reached)
+| Collecte de données | Erreur   | Les données ont été supprimées, car la demande a été créée avant le nombre de jours défini. | [Gérer l’utilisation et les coûts avec les journaux Azure Monitor](./manage-cost-storage.md#alert-when-daily-cap-reached)
 | Collecte de données | Informations    | Une configuration de l’ordinateur de collecte est détectée.| |
-| Collecte de données | Informations    | La collecte de données a commencé en raison du changement de jour. | [Gérer l’utilisation et les coûts avec les journaux Azure Monitor](../platform/manage-cost-storage.md#alert-when-daily-cap-reached) |
-| Collecte de données | Avertissement | La collecte de données s’est arrêtée, car la limite quotidienne a été atteinte.| [Gérer l’utilisation et les coûts avec les journaux Azure Monitor](../platform/manage-cost-storage.md#alert-when-daily-cap-reached) |
+| Collecte de données | Informations    | La collecte de données a commencé en raison du changement de jour. | [Gérer l’utilisation et les coûts avec les journaux Azure Monitor](./manage-cost-storage.md#alert-when-daily-cap-reached) |
+| Collecte de données | Avertissement | La collecte de données s’est arrêtée, car la limite quotidienne a été atteinte.| [Gérer l’utilisation et les coûts avec les journaux Azure Monitor](./manage-cost-storage.md#alert-when-daily-cap-reached) |
 | Traitement des données | Erreur   | Format JSON non valide. | [Transmettre des données à Azure Monitor avec l’API Collecteur de données HTTP (préversion publique)](../logs/data-collector-api.md#request-body) | 
 | Traitement des données | Avertissement | La valeur a été tronquée à la taille maximale autorisée. | [Limites du service Azure Monitor](../service-limits.md#log-analytics-workspaces) |
 | Traitement des données | Avertissement | Valeur de champ tronquée en raison de la limite de taille. | [Limites du service Azure Monitor](../service-limits.md#log-analytics-workspaces) | 
@@ -125,4 +125,4 @@ L’exemple suivant crée une alerte Avertissement lorsque la collecte de donné
 ## <a name="next-steps"></a>Étapes suivantes
 
 - En savoir plus sur les [alertes de journal](../alerts/alerts-log.md).
-- [Collectez des données d’audit de requête](../log-query/query-audit.md) pour votre espace de travail.
+- [Collectez des données d’audit de requête](./query-audit.md) pour votre espace de travail.

@@ -12,12 +12,12 @@ ms.date: 02/01/2021
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 35efcd4059ab654178fb87c133a6f64721caf7d2
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.openlocfilehash: 1445e7959906966c58730521123ae03590bef1b3
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99989063"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101652094"
 ---
 # <a name="tutorial-develop-and-plan-provisioning-for-a-scim-endpoint"></a>Tutoriel : Développer et planifier le provisionnement pour un point de terminaison SCIM
 
@@ -882,7 +882,7 @@ Dans l’exemple de code, les requêtes sont authentifiées à l’aide du packa
 
 Un jeton du porteur est également requis pour utiliser les [tests postman](https://github.com/AzureAD/SCIMReferenceCode/wiki/Test-Your-SCIM-Endpoint) fournis et effectuer un débogage local à l’aide de localhost. L’exemple de code utilise des environnements ASP.NET Core pour modifier les options d’authentification pendant la phase de développement et activer l’utilisation d’un jeton autosigné.
 
-Pour plus d’informations sur l’utilisation de plusieurs environnements dans ASP.NET Core, consultez [Utiliser plusieurs environnements dans ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/environments).
+Pour plus d’informations sur l’utilisation de plusieurs environnements dans ASP.NET Core, consultez [Utiliser plusieurs environnements dans ASP.NET Core](/aspnet/core/fundamentals/environments).
 
 Le code suivant impose que les requêtes envoyées à l’un des points de terminaison du service soient authentifiées à l’aide du jeton du porteur signé avec une clé personnalisée :
 

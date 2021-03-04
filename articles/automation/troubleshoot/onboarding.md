@@ -2,15 +2,14 @@
 title: Résoudre les problèmes de déploiement des fonctionnalités Azure Automation
 description: Cet article explique comment résoudre les problèmes de déploiement des fonctionnalités Azure Automation.
 services: automation
-ms.subservice: ''
-ms.date: 06/30/2020
+ms.date: 02/11/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: 41388e46f5204acaa53f376bc05cebf975361dad
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: 43bc367be9ad9bb32f33f94df774acb3e808182a
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100008160"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100651117"
 ---
 # <a name="troubleshoot-feature-deployment-issues"></a>Résoudre les problèmes de déploiement de fonctionnalités
 
@@ -82,7 +81,7 @@ Failed to configure automation account for diagnostic logging
 
 #### <a name="cause"></a>Cause
 
-Cette erreur peut survenir si le niveau tarifaire ne correspond pas au modèle de facturation de l’abonnement. Pour plus d’informations, consultez [Surveiller l’utilisation et l’estimation des coûts dans Azure Monitor](../../azure-monitor/platform/usage-estimated-costs.md).
+Cette erreur peut survenir si le niveau tarifaire ne correspond pas au modèle de facturation de l’abonnement. Pour plus d’informations, consultez [Surveiller l’utilisation et l’estimation des coûts dans Azure Monitor](../../azure-monitor//usage-estimated-costs.md).
 
 #### <a name="resolution"></a>Résolution
 

@@ -7,12 +7,12 @@ ms.date: 01/18/2021
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 3f81ae72af48ec934d1c2c2567ebdd212d8e0499
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 735ad7ad9ded6baded59ab3f08e239d1c8376b74
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98763236"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702723"
 ---
 # <a name="migrate-your-v2-iot-central-application-to-v3"></a>Migrer votre application IoT Central v2 vers v3
 
@@ -104,7 +104,7 @@ Une fois le déplacement terminé, redémarrez tous vos appareils pour vous assu
 Une fois que vous avez vérifié que tout fonctionne comme prévu dans votre nouvelle application v3, supprimez votre ancienne application v2. Cette étape garantit que vous n’êtes pas facturé pour une application que vous n’utilisez plus.
 
 > [!Note]
-> Pour supprimer une application, vous devez disposer des autorisations permettant de supprimer des ressources de l’abonnement Azure que vous avez choisi lors de la création de l’application. Pour en savoir plus, consultez [Utiliser le contrôle d’accès en fonction du rôle pour gérer l’accès aux ressources de votre abonnement Azure](../../active-directory/role-based-access-control-configure.md).
+> Pour supprimer une application, vous devez disposer des autorisations permettant de supprimer des ressources de l’abonnement Azure que vous avez choisi lors de la création de l’application. Pour en savoir plus, consultez [Utiliser le contrôle d’accès en fonction du rôle pour gérer l’accès aux ressources de votre abonnement Azure](../../role-based-access-control/role-assignments-portal.md).
 
 1. Dans votre application v2, sélectionnez l’onglet **Administration** dans le menu.
 2. Sélectionnez **Supprimer** pour supprimer définitivement votre application IoT Central. Cette option supprime définitivement toutes les données associées à cette application.

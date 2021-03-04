@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: roygalMS
 ms.author: roygal
 ms.date: 11/03/2020
-ms.openlocfilehash: 80a508aeb7eff9567bea67cb84350fc2e77551da
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d1db5f5e4164d971dff3ec6b042fa4b0a969e508
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100598547"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704240"
 ---
 # <a name="log-analytics-integration-with-power-bi"></a>Intégration de Log Analytics à Power BI
 
@@ -19,7 +19,7 @@ Cet article se concentre sur les moyens de transmettre des données de Log Analy
 
 ## <a name="background"></a>Arrière-plan 
 
-Les journaux Azure Monitor constituent une plateforme qui fournit une solution complète d’ingestion des journaux. [Azure Monitor Log Analytics](../platform/data-platform.md#) est l’interface qui permet d’interroger ces journaux. Pour plus d’informations sur l’ensemble de la plateforme de données Azure Monitor, y compris Log Analytics, consultez [Plateforme de données Azure Monitor](../platform/data-platform.md). 
+Les journaux Azure Monitor constituent une plateforme qui fournit une solution complète d’ingestion des journaux. [Azure Monitor Log Analytics](../platform/data-platform.md#) est l’interface qui permet d’interroger ces journaux. Pour plus d’informations sur l’ensemble de la plateforme de données Azure Monitor, y compris Log Analytics, consultez [Plateforme de données Azure Monitor](../data-platform.md). 
 
 Microsoft Power BI est une plateforme de visualisation de données de Microsoft. Pour savoir comment démarrer, consultez la [page d’accueil de Power BI](https://powerbi.microsoft.com/). 
 
@@ -82,4 +82,4 @@ Vous trouverez des informations supplémentaires dans [Intégrer Log Analytics e
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Démarrez avec les [requêtes Log Analytics](../log-query/log-query-overview.md).
+Démarrez avec les [requêtes Log Analytics](./log-query-overview.md).

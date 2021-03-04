@@ -7,17 +7,38 @@ author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/08/2020
-ms.openlocfilehash: d16eefc8dd3f693e108e457782dc9d076180ba8e
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.date: 03/02/2021
+ms.openlocfilehash: 72243f896b2cf7dbab61a42514bee634da28d4c6
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100520593"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101676328"
 ---
 # <a name="similarity-and-scoring-in-azure-cognitive-search"></a>Similarité et scoring dans Recherche cognitive Azure
 
-Le scoring consiste à calculer un score de recherche pour chaque élément retourné dans des résultats de recherche pour des requêtes de texte intégral. Le score est un indicateur de la pertinence d'un élément dans le contexte de l'opération de recherche en cours. Plus le score est élevé, plus l'élément est pertinent. Dans des résultats de recherche, les éléments sont classés par ordre décroissant de pertinence, sur la base des résultats de recherche calculés pour chacun d'eux. 
+Cet article décrit les deux algorithmes de classement de similarité dans la Recherche cognitive Azure. Il présente également deux fonctionnalités associées : les *profils de score* (critères pour affiner un score de recherche) et le paramètre *featuresMode* (qui décompresse un score de recherche pour afficher plus de détails). 
+
+Un troisième algorithme de reclassification sémantique est actuellement disponible en préversion publique. Pour plus d’informations, commencez par la [Vue d’ensemble de la recherche sémantique](semantic-search-overview.md).
+
+## <a name="similarity-ranking-algorithms"></a>Algorithmes de classement de similarité
+
+La Recherche cognitive Azure prend en charge deux algorithmes de classement de similarité.
+
+| Algorithm | Score | Disponibilité |
+|-----------|-------|--------------|
+| ClassicSimilarity | @search.score | Utilisé par tous les services de recherche jusqu’au 15 juillet 2020. |
+| BM25Similarity | @search.score | Utilisé par tous les services de recherche créés après le 15 juillet. Les anciens services qui utilisent la version classique par défaut peuvent [s’abonner à BM25](index-ranking-similarity.md). |
+
+Les versions classique et BM25 sont des fonctions de récupération semblables à TF-IDF, utilisant la fréquence des termes (TF, Term Frequency) et la fréquence de document inverse (IDF, Inverse Document Frequency) comme variables pour calculer les scores de pertinence de chaque paire document-requête, ensuite utilisée pour le classement. Si, sur le plan conceptuel, BM25 ressemble à la version classique, elle prend ses racines dans la récupération d’informations probabilistes pour s’améliorer. BM25 propose également des options de personnalisation avancées, comme permettre à l’utilisateur de décider comment la note de pertinence est mise à l’échelle avec la fréquence du terme des termes correspondants.
+
+Le segment vidéo suivant permet d’accéder rapidement à une explication sur les algorithmes de classement en disponibilité générale, utilisés dans la Recherche cognitive Azure. Vous pouvez regarder la vidéo complète pour plus d’informations.
+
+> [!VIDEO https://www.youtube.com/embed/Y_X6USgvB1g?version=3&start=322&end=643]
+
+## <a name="relevance-scoring"></a>Scoring de pertinence
+
+Le scoring consiste à calculer un score de recherche pour chaque élément retourné dans des résultats de recherche pour des requêtes de texte intégral. Le score est un indicateur de la pertinence d’un élément dans le contexte de la requête en cours. Plus le score est élevé, plus l'élément est pertinent. Dans des résultats de recherche, les éléments sont classés par ordre décroissant de pertinence, sur la base des résultats de recherche calculés pour chacun d'eux. Le score est retourné dans la réponse sous la forme « @search.score » sur chaque document.
 
 Par défaut, les 50 premiers sont retournés dans la réponse, mais vous pouvez utiliser le paramètre **$top** pour retourner un nombre inférieur ou supérieur d’éléments (jusqu’à 1000 par réponse) et le paramètre **$skip** pour obtenir le jeu de résultats suivant.
 
@@ -25,16 +46,10 @@ Le score de recherche est calculé sur la base de propriétés statistiques des 
 
 Des valeurs de score de recherche peuvent être répétées dans un jeu de résultats. Quand plusieurs correspondances ont le même score de recherche, le classement des éléments ayant le même score n’est ni défini ni stable. Réexécutez la requête, et vous constaterez peut-être que des éléments changent de position, en particulier si vous utilisez le service gratuit ou un service facturable avec plusieurs réplicas. Si deux éléments ont un score identique, il est impossible de prédire celui qui apparaîtra en première position.
 
-Si vous souhaitez départager des scores identiques, vous pouvez ajouter une clause **$orderby** afin de trier d’abord par score, puis par un autre champ pouvant être trié (par exemple `$orderby=search.score() desc,Rating desc`). Pour plus d’informations, consultez [$orderby](./search-query-odata-orderby.md).
+Si vous souhaitez départager des scores identiques, vous pouvez ajouter une clause **$orderby** afin de trier d’abord par score, puis par un autre champ pouvant être trié (par exemple `$orderby=search.score() desc,Rating desc`). Pour plus d’informations, consultez [$orderby](search-query-odata-orderby.md).
 
 > [!NOTE]
-> Un `@search.score = 1.00` indique un jeu de résultats sans score ou non classé. Le score est uniforme parmi tous les résultats. Des résultats sans score se produisent quand le formulaire de requête est une recherche approximative, des requêtes Regex ou de caractères génériques, ou une expression **$filter**. 
-
-## <a name="scoring-profiles"></a>Profils de score
-
-Vous pouvez personnaliser la façon dont les différents champs sont classés en définissant un *profil de scoring* personnalisé. Les profils de score vous permettent de mieux contrôler le classement d'éléments dans des résultats de recherche. Par exemple, vous pouvez privilégier des éléments en fonction de leur revenu potentiel, promouvoir des éléments plus récents, voire en favoriser d'autres restés trop longtemps en stock. 
-
-Un profil de score fait partie de la définition d'index, composée de champs, fonctions et paramètres pondérés. Pour plus d’informations sur la définition d’un profil de scoring, consultez [Profils de scoring](index-add-scoring-profiles.md).
+> Un `@search.score = 1.00` indique un jeu de résultats sans score ou non classé. Le score est uniforme parmi tous les résultats. Des résultats sans score se produisent quand le formulaire de requête est une recherche approximative, des requêtes Regex ou de caractères génériques, ou une expression **$filter**.
 
 <a name="scoring-statistics"></a>
 
@@ -51,6 +66,7 @@ GET https://[service name].search.windows.net/indexes/[index name]/docs?scoringS
   Content-Type: application/json
   api-key: [admin or query key]  
 ```
+
 L’utilisation de scoringStatistics garantit que toutes les partitions dans le même réplica fournissent les mêmes résultats. Cela dit, plusieurs réplicas peuvent être légèrement différents les uns des autres, car ils sont toujours mis à jour avec les dernières modifications apportées à votre index. Dans certains scénarios, vous souhaiterez peut-être que vos utilisateurs obtiennent des résultats plus cohérents pendant une « session de requête ». Dans de tels scénarios, vous pouvez fournir un `sessionId` dans le cadre de vos requêtes. Le `sessionId` est une chaîne unique que vous créez pour faire référence à une session utilisateur unique.
 
 ```http
@@ -58,20 +74,17 @@ GET https://[service name].search.windows.net/indexes/[index name]/docs?sessionI
   Content-Type: application/json
   api-key: [admin or query key]  
 ```
+
 Tant que le même `sessionId` est utilisé, la méthode de la meilleure tentative possible est utilisée pour cibler le même réplica, ce qui améliore la cohérence des résultats présentés à vos utilisateurs. 
 
 > [!NOTE]
 > La réutilisation des mêmes valeurs `sessionId` à plusieurs reprises peut interférer avec l’équilibrage de la charge des demandes sur les réplicas et nuire aux performances du service de recherche. La valeur utilisée comme sessionId ne peut pas commencer par un caractère « _ ».
 
-## <a name="similarity-ranking-algorithms"></a>Algorithmes de classement de similarité
+## <a name="scoring-profiles"></a>Profils de score
 
-Recherche cognitive Azure prend en charge deux algorithmes de classement de similarité différents : un algorithme de *similarité classique* et l’implémentation officielle de l’algorithme *Okapi BM25* (actuellement en préversion). L’algorithme de similarité classique est l’algorithme par défaut, mais à compter du 15 juillet tous les nouveaux services créés utiliseront le nouvel algorithme BM25. Il s’agira du seul algorithme disponible sur les nouveaux services.
+Vous pouvez personnaliser la façon dont les différents champs sont classés en définissant un *profil de score*. Les profils de score vous permettent de mieux contrôler le classement d'éléments dans des résultats de recherche. Par exemple, vous pouvez privilégier des éléments en fonction de leur revenu potentiel, promouvoir des éléments plus récents, voire en favoriser d'autres restés trop longtemps en stock. 
 
-Pour le moment, vous pouvez spécifier l’algorithme de classement de similarité que vous souhaitez utiliser. Pour plus d’informations, consultez [Algorithme de classement](index-ranking-similarity.md).
-
-Le segment vidéo suivant permet d’accéder rapidement à une explication des algorithmes de classement utilisés dans Recherche cognitive Azure. Vous pouvez regarder la vidéo complète pour plus d’informations.
-
-> [!VIDEO https://www.youtube.com/embed/Y_X6USgvB1g?version=3&start=322&end=643]
+Un profil de score fait partie de la définition d'index, composée de champs, fonctions et paramètres pondérés. Pour plus d’informations sur la définition d’un profil de scoring, consultez [Profils de scoring](index-add-scoring-profiles.md).
 
 <a name="featuresMode-param"></a>
 
@@ -104,7 +117,9 @@ Pour une requête qui cible les champs « Description » et « Titre », une
 
 Vous pouvez utiliser ces points de données dans [des solutions de scoring personnalisées](https://github.com/Azure-Samples/search-ranking-tutorial) ou utiliser les informations pour déboguer des problèmes de pertinence des recherches.
 
-
 ## <a name="see-also"></a>Voir aussi
 
- [Profils de calcul de score](index-add-scoring-profiles.md) [Informations de référence sur les API REST](/rest/api/searchservice/) [API de recherche dans des documents](/rest/api/searchservice/search-documents) [Kit de développement logiciel (SDK) .NET Recherche cognitive Azure](/dotnet/api/overview/azure/search)
++ [Profils de calcul de score](index-add-scoring-profiles.md)
++ [Référence d’API REST](/rest/api/searchservice/)
++ [API de recherche dans des documents](/rest/api/searchservice/search-documents)
++ [Kit de développement logiciel (SDK) de Recherche cognitive Azure .NET](/dotnet/api/overview/azure/search)

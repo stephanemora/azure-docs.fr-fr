@@ -1,17 +1,16 @@
 ---
 title: Surveiller l’état de la réplication Active Directory
 description: Le pack de solution État de la réplication Active Directory surveille régulièrement votre environnement Active Directory pour déterminer si des échecs de réplication se produisent.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/24/2018
-ms.openlocfilehash: c33e9105be1eb080025922ff9e612771a4f021cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c99ad16e119c4262aa6d9d645b2457cdd46061b2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87318077"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101700675"
 ---
 # <a name="monitor-active-directory-replication-status-with-azure-monitor"></a>Surveiller l’état de la réplication Active Directory avec Azure Monitor
 
@@ -34,19 +33,19 @@ Utilisez les informations suivantes pour installer et configurer la solution.
 
 
 ### <a name="install-agents-on-domain-controllers"></a>Installer des agents sur les contrôleurs de domaine
-Vous devez installer des agents sur les contrôleurs de domaine qui sont membres du domaine à évaluer. Sinon, vous devez installer des agents sur les serveurs membres et les configurer de façon à envoyer des données de réplication AD à Azure Monitor. Pour comprendre comment connecter des ordinateurs Windows directement à Azure Monitor, consultez [Connecter des ordinateurs Windows à Azure Monitor](../platform/agent-windows.md). Si votre contrôleur de domaine fait déjà partie d’un environnement System Center Operations Manager existant que vous souhaitez connecter à Azure Monitor, consultez la page [Connecter Operations Manager à Azure Monitor](../platform/om-agents.md).
+Vous devez installer des agents sur les contrôleurs de domaine qui sont membres du domaine à évaluer. Sinon, vous devez installer des agents sur les serveurs membres et les configurer de façon à envoyer des données de réplication AD à Azure Monitor. Pour comprendre comment connecter des ordinateurs Windows directement à Azure Monitor, consultez [Connecter des ordinateurs Windows à Azure Monitor](../agents/agent-windows.md). Si votre contrôleur de domaine fait déjà partie d’un environnement System Center Operations Manager existant que vous souhaitez connecter à Azure Monitor, consultez la page [Connecter Operations Manager à Azure Monitor](../agents/om-agents.md).
 
 ### <a name="enable-non-domain-controller"></a>Activer un contrôleur autre qu’un contrôleur de domaine
 Si vous ne souhaitez pas connecter directement un de vos contrôleurs de domaine à Azure Monitor, vous pouvez utiliser n’importe quel autre ordinateur connecté à Azure Monitor de votre domaine afin de collecter des données pour le pack de solution AD Replication Status et de faire en sorte qu’il les envoie.
 
 1. Vérifiez que l’ordinateur est membre du domaine que vous souhaitez analyser à l’aide de la solution État de la réplication AD.
-2. [Connectez l’ordinateur Windows à Azure Monitor](../platform/om-agents.md) ou [connectez-le à l’aide de votre environnement Operations Manager existant à Azure Monitor](../platform/om-agents.md), s’il n’est pas déjà connecté.
+2. [Connectez l’ordinateur Windows à Azure Monitor](../agents/om-agents.md) ou [connectez-le à l’aide de votre environnement Operations Manager existant à Azure Monitor](../agents/om-agents.md), s’il n’est pas déjà connecté.
 3. Sur cet ordinateur, définissez la clé de Registre suivante :<br>Clé : **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management Groups\<ManagementGroupName>\Solutions\ADReplication**<br>Valeur : **IsTarget**<br>Données de la valeur : **true**
 
    > [!NOTE]
    > Ces changements ne prennent effet qu’une fois que vous avez redémarré le service Microsoft Monitoring Agent (HealthService.exe).
    > ### <a name="install-solution"></a>Installer la solution
-   > Suivez la procédure décrite dans [Installer une solution de supervision ](solutions.md#install-a-monitoring-solution) pour ajouter la solution **Active Directory Replication Status** (État de la réplication Active Directory) à votre espace de travail Log Analytics. Aucune configuration supplémentaire n’est requise.
+   > Suivez la procédure décrite dans [Installer une solution de supervision](solutions.md#install-a-monitoring-solution) pour ajouter la solution **Active Directory Replication Status** (État de la réplication Active Directory) à votre espace de travail Log Analytics. Aucune configuration supplémentaire n’est requise.
 
 
 ## <a name="ad-replication-status-data-collection-details"></a>Détails de la collecte des données pour la solution État de la réplication AD
@@ -110,7 +109,7 @@ Quand vous cliquez sur un élément d’une liste, des informations supplémenta
 
 ![Erreurs de l’état de la réplication AD dans les résultats de la requête](./media/ad-replication-status/oms-ad-replication-search-details.png)
 
-Vous pouvez ensuite affiner le filtrage, modifier la requête de journal, entre autres. Pour plus d’informations sur les requêtes de journal dans Azure Monitor, consultez [Analyser les données de journal dans Azure Monitor](../log-query/log-query-overview.md).
+Vous pouvez ensuite affiner le filtrage, modifier la requête de journal, entre autres. Pour plus d’informations sur les requêtes de journal dans Azure Monitor, consultez [Analyser les données de journal dans Azure Monitor](../logs/log-query-overview.md).
 
 Le champ **HelpLink** affiche l’URL d’une page TechNet contenant des détails supplémentaires sur l’erreur concernée. Vous pouvez copier et coller ce lien dans la fenêtre du navigateur pour afficher des informations sur le dépannage et la résolution de l’erreur.
 
@@ -150,10 +149,10 @@ A : Les autorisations utilisateur normales sur Active Directory sont suffisante
 ## <a name="troubleshoot-data-collection-problems"></a>Résoudre les problèmes de collecte de données
 Pour que le pack de solution AD Replication Status puisse collecter des données, vous devez connecter au moins un contrôleur de domaine à votre espace de travail Log Analytics. Un message indiquant que **les données sont toujours en cours de collecte** s’affiche tant que vous n’avez pas connecté de contrôleur de domaine.
 
-Pour obtenir de l’aide sur la connexion d’un contrôleur de domaine, consultez la documentation [Connecter des ordinateurs Windows à Azure Monitor](../platform/om-agents.md). Ou bien, si votre contrôleur de domaine est déjà connecté à un environnement System Center Operations Manager, vous pouvez consulter la documentation [Connexion de System Center Operations Manager à Azure Monitor](../platform/om-agents.md).
+Pour obtenir de l’aide sur la connexion d’un contrôleur de domaine, consultez la documentation [Connecter des ordinateurs Windows à Azure Monitor](../agents/om-agents.md). Ou bien, si votre contrôleur de domaine est déjà connecté à un environnement System Center Operations Manager, vous pouvez consulter la documentation [Connexion de System Center Operations Manager à Azure Monitor](../agents/om-agents.md).
 
 Si vous ne souhaitez connecter aucun de vos contrôleurs de domaine directement à Azure Monitor ou à System Center Operations Manager, consultez [Activer un contrôleur autre qu’un contrôleur de domaine](#enable-non-domain-controller).
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Utilisez [Requêtes de journal dans Azure Monitor](../log-query/log-query-overview.md) pour afficher des données détaillées sur l’état de la réplication Active Directory.
+* Utilisez [Requêtes de journal dans Azure Monitor](../logs/log-query-overview.md) pour afficher des données détaillées sur l’état de la réplication Active Directory.
 

@@ -3,12 +3,12 @@ title: Points de terminaison privés
 description: Apprenez à créer des points de terminaison privés pour le service Sauvegarde Azure et découvrez les scénarios où l’utilisation des points de terminaison privés contribue à maintenir la sécurité de vos ressources.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: a22da7341e3ebeff29bc784cfff0cc8aeb87fb9b
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 9363aaf45a7c092d8a773a07803c8c1bce1eedd7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100362499"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728210"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Points de terminaison privés pour le service Sauvegarde Azure
 
@@ -170,9 +170,9 @@ Si vous utilisez vos serveurs DNS personnalisés, vous devez créer les zones 
     > Dans le texte ci-dessus, `<geo>` fait référence au code de région (par exemple, *eus* et *ne* pour les régions USA Est et Europe Nord, respectivement). Consultez les listes suivantes pour connaître les codes de régions :
     >
     > - [Tous les clouds publics](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx)
-    > - [Chine](https://docs.microsoft.com/azure/china/resources-developer-guide#check-endpoints-in-azure)
-    > - [Allemagne](https://docs.microsoft.com/azure/germany/germany-developer-guide#endpoint-mapping)
-    > - [Gouvernement des États-Unis](https://docs.microsoft.com/azure/azure-government/documentation-government-developer-guide)
+    > - [Chine](/azure/china/resources-developer-guide#check-endpoints-in-azure)
+    > - [Allemagne](../germany/germany-developer-guide.md#endpoint-mapping)
+    > - [Gouvernement des États-Unis](../azure-government/documentation-government-developer-guide.md)
 
 1. Ensuite, nous devons ajouter les enregistrements DNS requis. Pour afficher les enregistrements qui doivent être ajoutés à la zone DNS de Sauvegarde Azure, accédez au point de terminaison privé que vous avez créé ci-dessus, puis accédez à l’option **Configuration DNS** sous la barre de navigation de gauche.
 

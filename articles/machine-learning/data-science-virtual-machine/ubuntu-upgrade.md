@@ -4,18 +4,17 @@ titleSuffix: Azure Data Science Virtual Machine
 description: Découvrez comment mettre à niveau CentOS et Ubuntu 16.04 vers la dernière version d’Ubuntu 18.04 Data Science Virtual Machine.
 keywords: formation approfondie, IA, outils de science des données, machine virtuelle de science des données, processus de science des données en équipe
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 author: samkemp
 ms.author: samkemp
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.openlocfilehash: 5b98384d4d735f4c124c6af40d6edbff896900ce
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 5b897ff7527d2d60234162ccbdeb08a00260bb1d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93320988"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659458"
 ---
 # <a name="upgrade-your-data-science-virtual-machine-to-ubuntu-1804"></a>Mettre à niveau votre Data Science Virtual Machine vers Ubuntu 18.04
 
@@ -34,11 +33,11 @@ Il existe deux façons d’effectuer cette migration :
 
 ## <a name="snapshot-your-vm-in-case-you-need-to-roll-back"></a>Faites une capture instantanée de votre machine virtuelle au cas où vous devriez effectuer une restauration
 
-Dans le portail Azure, utilisez la barre de recherche pour rechercher la fonctionnalité d’ **instantanés**. 
+Dans le portail Azure, utilisez la barre de recherche pour rechercher la fonctionnalité d’**instantanés**. 
 
 :::image type="content" source="media/ubuntu_upgrade/azure-portal-search-bar.png" alt-text="Capture d’écran montrant le Portail Azure et la barre de recherche, avec **instantanés** mis en surbrillance":::
 
-1. Sélectionnez **Ajouter** , ce qui vous permet d’afficher la page **Créer l’instantané**. Sélectionnez l’abonnement et le groupe de ressources de votre machine virtuelle. Pour **Région** , sélectionnez la région où se trouve le stockage cible. Sélectionnez le disque de stockage DSVM et les options de sauvegarde supplémentaires. Le **HDD standard** est un type de stockage approprié pour ce scénario de sauvegarde.
+1. Sélectionnez **Ajouter**, ce qui vous permet d’afficher la page **Créer l’instantané**. Sélectionnez l’abonnement et le groupe de ressources de votre machine virtuelle. Pour **Région**, sélectionnez la région où se trouve le stockage cible. Sélectionnez le disque de stockage DSVM et les options de sauvegarde supplémentaires. Le **HDD standard** est un type de stockage approprié pour ce scénario de sauvegarde.
 
 :::image type="content" source="media/ubuntu_upgrade/create-snapshot-options.png" alt-text="Capture d’écran montrant les options de création d’un instantané":::
 
@@ -48,7 +47,7 @@ Dans le portail Azure, utilisez la barre de recherche pour rechercher la fonctio
 
 Si vous migrez depuis une ancienne version d’Ubuntu, vous pouvez choisir d’effectuer une migration sur place. Cette migration ne crée pas de nouvelle machine virtuelle et comporte moins d’étapes qu’une migration côte à côte.  Si vous souhaitez effectuer une migration côte à côte parce que vous souhaitez davantage de contrôle ou parce que vous effectuez une migration à partir d’une autre distribution, par exemple CentOS, passez à la section sur la [migration côte à côte](#side-by-side-migration). 
 
-1. Dans le portail Azure, démarrez votre DSVM et connectez-vous à l’aide de SSH. Pour ce faire, sélectionnez **Connecter** et **SSH** , et suivez les instructions de connexion. 
+1. Dans le portail Azure, démarrez votre DSVM et connectez-vous à l’aide de SSH. Pour ce faire, sélectionnez **Connecter** et **SSH**, et suivez les instructions de connexion. 
 
 1. Une fois connecté à une session terminal sur votre DSVM, exécutez la commande de mise à niveau suivante :
 
@@ -65,7 +64,7 @@ Le processus de mise à niveau va prendre un certain temps. Lorsqu’il est term
 
 Une fois que votre machine virtuelle a été mise à niveau et redémarrée, tentez d’y accéder à nouveau par le biais de SSH. L’adresse IP a peut-être été modifiée lors du redémarrage. Vérifiez-la avant d’essayer de vous connecter.
 
-Si vous recevez l’erreur **L’IDENTIFICATION DE L’HÔTE DISTANT A CHANGÉ** , vous devez régénérer vos informations d’identification SSH.
+Si vous recevez l’erreur **L’IDENTIFICATION DE L’HÔTE DISTANT A CHANGÉ**, vous devez régénérer vos informations d’identification SSH.
 
 :::image type="content" source="media/ubuntu_upgrade/remote-host-warning.png" alt-text="Capture d’écran PowerShell montrant l’avertissement de changement d’identification de l’hôte distant":::
 
@@ -103,13 +102,13 @@ Vous pouvez choisir de mettre à niveau les parties du système d’exploitation
 
 Si vous n’avez pas encore créé d’instantané de machine virtuelle comme décrit précédemment, faites-le. 
 
-1. Dans le portail Azure, recherchez **Disques** et sélectionnez **Ajouter** , ce qui ouvre la page **Disque**.
+1. Dans le portail Azure, recherchez **Disques** et sélectionnez **Ajouter**, ce qui ouvre la page **Disque**.
 
 :::image type="content" source="media/ubuntu_upgrade/portal-disks-search.png" alt-text="Capture d’écran du portail Azure montrant la page de recherche des disques et le bouton Ajouter":::
 
-2. Définissez les valeurs **Abonnement** , **Groupe de ressources** et **Région** sur les valeurs de votre instantané de machine virtuelle. Choisissez un **nom** pour le disque à créer.
+2. Définissez les valeurs **Abonnement**, **Groupe de ressources** et **Région** sur les valeurs de votre instantané de machine virtuelle. Choisissez un **nom** pour le disque à créer.
 
-3. Sélectionnez **Type de source** comme **Capture instantanée** et sélectionnez l’instantané de machine virtuelle en tant qu’ **instantané source**. Vérifiez et créez le disque. 
+3. Sélectionnez **Type de source** comme **Capture instantanée** et sélectionnez l’instantané de machine virtuelle en tant qu’**instantané source**. Vérifiez et créez le disque. 
 
 :::image type="content" source="media/ubuntu_upgrade/disk-create-options.png" alt-text="Capture d’écran de la boîte de dialogue de création de disque montrant les options":::
 

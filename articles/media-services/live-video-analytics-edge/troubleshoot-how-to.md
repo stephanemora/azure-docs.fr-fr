@@ -5,12 +5,12 @@ author: IngridAtMicrosoft
 ms.topic: how-to
 ms.author: inhenkel
 ms.date: 12/04/2020
-ms.openlocfilehash: ee5ae7ca8b52d44f21c35df23ef92f61d38fc3c3
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: d766843f58bc2cdd0dcdddfad337b23fefb28768
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99051293"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101698737"
 ---
 # <a name="troubleshoot-live-video-analytics-on-iot-edge"></a>Résoudre les problèmes liés à Live Video Analytics sur IoT Edge
 
@@ -105,7 +105,7 @@ Il se peut également que vous rencontriez des problèmes lors de l’exécution
 * **Le déploiement du modèle a échoué à cause de la violation de stratégie.**
     * Pour résoudre ce problème, contactez votre administrateur informatique pour faire en sorte que le ou les appels à créer une machine virtuelle contournent le blocage de l’authentification SSH. Ce ne sera pas nécessaire, car nous utilisons un réseau Bastion sécurisé qui a besoin d’un nom d’utilisateur et d’un mot de passe pour communiquer avec les ressources Azure. Ces informations d’identification sont stockées dans le fichier **~/clouddrive/lva-sample/vm-edge-device-credentials.txt** dans Cloud Shell, une fois la machine virtuelle créée, déployée et attachée au hub IoT.
 * Le script de configuration ne parvient pas à créer un principal de service ou des ressources Azure.
-    * Pour résoudre ce problème, vérifiez que ni votre abonnement ni le locataire Azure n’ont atteint leurs limites de service maximales. Pour plus d’informations, consultez [Limites et restrictions du service Azure AD](https://docs.microsoft.com/azure/active-directory/enterprise-users/directory-service-limits-restrictions) et [Abonnement Azure et limites, quotas et contraintes du service](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
+    * Pour résoudre ce problème, vérifiez que ni votre abonnement ni le locataire Azure n’ont atteint leurs limites de service maximales. Pour plus d’informations, consultez [Limites et restrictions du service Azure AD](../../active-directory/enterprise-users/directory-service-limits-restrictions.md) et [Abonnement Azure et limites, quotas et contraintes du service](../../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 > [!TIP]
 > Si vous rencontrez des problèmes supplémentaires pour lesquels vous avez besoin d’aide, **[collectez des journaux et soumettez un ticket de support](#collect-logs-for-submitting-a-support-ticket)** . Vous pouvez également nous contacter en nous envoyant un e-mail à l’adresse **[amshelp@microsoft.com](mailto:amshelp@microsoft.com)** .

@@ -5,15 +5,15 @@ author: timsander1
 ms.service: cosmos-db
 ms.topic: troubleshooting
 ms.subservice: cosmosdb-mongo
-ms.date: 10/12/2020
+ms.date: 03/02/2021
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 88ef081c75a64b5cb7517ba6994834b3a64a0e6f
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 5302cb7bb3f4683d200f6f9ea106991bb934fc17
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340887"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659900"
 ---
 # <a name="troubleshoot-query-issues-when-using-the-azure-cosmos-db-api-for-mongodb"></a>Résoudre les problèmes de requête lors de l’utilisation de l’API Azure Cosmos DB pour MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -30,7 +30,7 @@ Si vous réduisez les frais en RU d’une requête, vous diminuez généralement
 Cet article fournit des exemples que vous pouvez recréer à l’aide du [jeu de données nutrition](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json).
 
 > [!NOTE] 
-> Cet article suppose que vous utilisez la version 3,6 de Azure Cosmos DB API « s » pour MongoDB. Certaines requêtes qui fonctionnent mal dans la version 3,2 présentent des améliorations significatives dans la version 3,6. Effectuez une mise à niveau vers la version 3,6 en soumettant une [demande de support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+> Cet article suppose que vous utilisez l’API d’Azure Cosmos DB pour les comptes MongoDB avec la version 3.6 ou ultérieure. Certaines requêtes qui fonctionnent lentement dans la version 3.2 présentent des améliorations significatives dans les versions 3.6 et ultérieures. Effectuez une mise à niveau vers la version 3,6 en soumettant une [demande de support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ## <a name="use-explain-command-to-get-metrics"></a>Utilisez $explain commande pour récupérer les mesures
 

@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 42416b1fc06ff59a68a6f5044b8bcca5dc7f035f
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 1473305d7da57d1216ef05c0b88a0f69d586784b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880184"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728108"
 ---
 # <a name="prerequisites-for-deploying-azure-cloud-services-extended-support"></a>Prérequis du déploiement d’Azure Cloud Services (support étendu)
 
@@ -42,7 +42,7 @@ CloudServices           Microsoft.Compute    Registered
 ## <a name="required-service-configuration-cscfg-file-updates"></a>Mises à jour requises du fichier de configuration de service (.cscfg)
 
 ### <a name="1-virtual-network"></a>1) Réseau virtuel
-Les déploiements d’Azure Cloud Services (support étendu) doivent être dans un réseau virtuel. Vous pouvez créer un réseau virtuel via [Portail Azure](https://docs.microsoft.com/azure/virtual-network/quick-create-portal), [PowerShell](https://docs.microsoft.com/azure/virtual-network/quick-create-powershell), [Azure CLI](https://docs.microsoft.com/azure/virtual-network/quick-create-cli) ou un [modèle ARM](https://docs.microsoft.com/azure/virtual-network/quick-create-template). Le réseau virtuel et les sous-réseaux doivent également être référencés dans le fichier de configuration de service (.cscfg) sous la section [NetworkConfiguration](schema-cscfg-networkconfiguration.md). 
+Les déploiements d’Azure Cloud Services (support étendu) doivent être dans un réseau virtuel. Vous pouvez créer un réseau virtuel via [Portail Azure](../virtual-network/quick-create-portal.md), [PowerShell](../virtual-network/quick-create-powershell.md), [Azure CLI](../virtual-network/quick-create-cli.md) ou un [modèle ARM](../virtual-network/quick-create-template.md). Le réseau virtuel et les sous-réseaux doivent également être référencés dans le fichier de configuration de service (.cscfg) sous la section [NetworkConfiguration](schema-cscfg-networkconfiguration.md). 
 
 Pour les réseaux virtuels appartenant au même groupe de ressources que le service cloud, le fait de référencer uniquement le nom du réseau virtuel dans le fichier de configuration de service (.cscfg) suffit. Si le réseau virtuel et le service cloud se trouvent dans deux groupes de ressources différents, l’ID Azure Resource Manager complet du réseau virtuel doit être spécifié dans le fichier de configuration de service (.cscfg).
  
@@ -103,7 +103,7 @@ Les tailles suivantes sont déconseillées dans Azure Resource Manager. Toutefoi
  Par exemple, `<WorkerRole name="WorkerRole1" vmsize="Medium"` deviendrait `<WorkerRole name="WorkerRole1" vmsize="Standard_A2"`.
  
 > [!NOTE]
-> Pour récupérer la liste des tailles disponibles, consultez [SKU de ressources – Liste](https://docs.microsoft.com/rest/api/compute/resourceskus/list) et appliquez les filtres suivants : <br>
+> Pour récupérer la liste des tailles disponibles, consultez [SKU de ressources – Liste](/rest/api/compute/resourceskus/list) et appliquez les filtres suivants : <br>
 `ResourceType = virtualMachines ` <br>
 `VMDeploymentTypes = PaaS `
 
@@ -120,10 +120,10 @@ Les modules de Bureau à distance et tous les certificats associés doivent êtr
 
 ## <a name="key-vault-creation"></a>Création d’un coffre de clés 
 
-Key Vault est utilisé pour stocker les certificats associés à Azure Cloud Services (support étendu). Ajoutez les certificats à Key Vault, puis référencez leurs empreintes dans le fichier de configuration de service. Vous devez également octroyer à Key Vault les autorisations appropriées afin que la ressource Azure Cloud Services (support étendu) puisse récupérer les certificats stockés sous forme de secrets à partir de Key Vault. Vous pouvez créer un coffre de clés par le biais du [portail Azure](https://docs.microsoft.com/azure/key-vault/general/quick-create-portal) et de [PowerShell](https://docs.microsoft.com/azure/key-vault/general/quick-create-powershell). Le coffre de clés doit être créé dans la même région et le même abonnement que le service cloud. Pour plus d’informations, consultez [Utiliser des certificats avec Azure Cloud Services (support étendu)](certificates-and-key-vault.md).
+Key Vault est utilisé pour stocker les certificats associés à Azure Cloud Services (support étendu). Ajoutez les certificats à Key Vault, puis référencez leurs empreintes dans le fichier de configuration de service. Vous devez également octroyer à Key Vault les autorisations appropriées afin que la ressource Azure Cloud Services (support étendu) puisse récupérer les certificats stockés sous forme de secrets à partir de Key Vault. Vous pouvez créer un coffre de clés par le biais du [portail Azure](../key-vault/general/quick-create-portal.md) et de [PowerShell](../key-vault/general/quick-create-powershell.md). Le coffre de clés doit être créé dans la même région et le même abonnement que le service cloud. Pour plus d’informations, consultez [Utiliser des certificats avec Azure Cloud Services (support étendu)](certificates-and-key-vault.md).
 
 ## <a name="next-steps"></a>Étapes suivantes 
-- Consultez les [prérequis du déploiement](deploy-prerequisite.md) d’Azure Cloud Services (support étendu).
-- Déployez une instance d’Azure Cloud Services (support étendu) avec le [portail Azure](deploy-portal.md), [PowerShell](deploy-powershell.md), un [modèle](deploy-template.md) ou [Visual Studio](deploy-visual-studio.md).
+- Consultez les [prérequis du déploiement](deploy-prerequisite.md) de Cloud Services (support étendu).
+- Déployez une instance Cloud Services (support étendu) avec le [Portail Azure](deploy-portal.md), [PowerShell](deploy-powershell.md), un [modèle](deploy-template.md) ou [Visual Studio](deploy-visual-studio.md).
 - Consultez la [foire aux questions (FAQ)](faq.md) relative à Azure Cloud Services (support étendu).
 - Rendez-vous sur le [référentiel d’exemples d’Azure Cloud Services (support étendu)](https://github.com/Azure-Samples/cloud-services-extended-support).

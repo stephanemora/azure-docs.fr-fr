@@ -5,12 +5,12 @@ author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 01/04/2021
-ms.openlocfilehash: 31a034a7f52efd915b7a07e1abb953a14839892e
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 9cf4caf77d14dd1296276ca48827c170ef265e9b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100598679"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718061"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor"></a>Alertes de métrique avec seuils dynamiques dans Azure Monitor
 
@@ -22,7 +22,7 @@ Nous aimerions beaucoup avoir votre avis, envoyez vos commentaires à <azurealer
 
 ## <a name="why-and-when-is-using-dynamic-condition-type-recommended"></a>Quand et pourquoi l’utilisation d’un type de condition dynamique est-elle recommandée ?
 
-1. **Génération d’alertes évolutive** : les règles d’alerte de seuil dynamique peuvent créer des seuils adaptés à des centaines de séries de métriques à la fois, tout en offrant quand même la même facilité de définition d’une règle d’alerte sur une seule métrique. Elles vous donnent moins d’alertes à créer et à gérer. Vous pouvez utiliser le portail Azure ou l’API Azure Resource Manager pour les créer. L’approche évolutive s’avère particulièrement utile lorsque vous traitez des dimensions de métrique ou plusieurs ressources, comme toutes les ressources d’abonnement.  [Découvrez comment configurer des alertes de métrique avec des seuils dynamiques à l’aide de modèles](../platform/alerts-metric-create-templates.md).
+1. **Génération d’alertes évolutive** : les règles d’alerte de seuil dynamique peuvent créer des seuils adaptés à des centaines de séries de métriques à la fois, tout en offrant quand même la même facilité de définition d’une règle d’alerte sur une seule métrique. Elles vous donnent moins d’alertes à créer et à gérer. Vous pouvez utiliser le portail Azure ou l’API Azure Resource Manager pour les créer. L’approche évolutive s’avère particulièrement utile lorsque vous traitez des dimensions de métrique ou plusieurs ressources, comme toutes les ressources d’abonnement.  [Découvrez comment configurer des alertes de métrique avec des seuils dynamiques à l’aide de modèles](./alerts-metric-create-templates.md).
 
 1. **Reconnaissance intelligente des modèles de métriques** : avec notre technologie de machine learning, nous sommes en mesure de détecter automatiquement des modèles de métriques pour nous adapter à leur évolution au fil du temps, ce qui peut souvent inclure leur saisonnalité (toutes les heures/tous les jours/toutes les semaines). L’adaptation au comportement des métriques au fil du temps et les alertes émises selon les écarts par rapport à un modèle permettent de ne pas avoir à connaître le « bon » seuil de chaque métrique. L’algorithme ML utilisé dans les seuils dynamiques est conçu pour empêcher les seuils bruyants (faible précision) ou larges (faible rappel) qui n’ont pas de modèle attendu.
 
@@ -75,7 +75,7 @@ Pour déclencher une alerte en cas de violation d’un seuil dynamique pendant 2
 
 ## <a name="how-do-you-find-out-why-a-dynamic-thresholds-alert-was-triggered"></a>Comment connaître la raison pour laquelle une alerte de seuil dynamique a été déclenchée ?
 
-Vous pouvez explorer les instances d’alertes déclenchées dans l’affichage des alertes en cliquant sur le lien de l’e-mail ou du SMS, ou dans un navigateur pour afficher les alertes dans le portail Azure. [Découvrez-en plus sur l'affichage des alertes](../platform/alerts-overview.md#alerts-experience).
+Vous pouvez explorer les instances d’alertes déclenchées dans l’affichage des alertes en cliquant sur le lien de l’e-mail ou du SMS, ou dans un navigateur pour afficher les alertes dans le portail Azure. [Découvrez-en plus sur l'affichage des alertes](./alerts-overview.md#alerts-experience).
 
 L’affichage des alertes présente :
 
@@ -188,4 +188,4 @@ Utilisez les informations suivantes pour interpréter le graphique précédent.
 - **Point rouge avec un cercle noir** : montre la première valeur de la métrique située en dehors de la plage autorisée. Il s’agit de la valeur qui déclenche une alerte de métrique et la met dans un état actif.
 - **Points rouges** : indique d’autres valeurs mesurées en dehors de la plage autorisée. Ces valeurs ne déclenchent pas d’autres alertes de métrique, mais l’alerte reste active.
 - **Zone rouge** : indique l’heure à laquelle la valeur de la métrique est sortie de la plage autorisée. L’alerte reste à l’état actif tant que les valeurs mesurées suivantes se trouvent en dehors de la plage autorisée, mais aucune nouvelle alerte n’est déclenchée.
-- **Fin de la zone rouge** : lorsque la ligne bleue revient à l’intérieur des valeurs autorisées, la zone rouge s’arrête et la ligne des valeurs mesurées redevient bleue. L’état de l’alerte de métrique déclenchée au moment du point rouge avec le contour noir est défini sur résolu. 
+- **Fin de la zone rouge** : lorsque la ligne bleue revient à l’intérieur des valeurs autorisées, la zone rouge s’arrête et la ligne des valeurs mesurées redevient bleue. L’état de l’alerte de métrique déclenchée au moment du point rouge avec le contour noir est défini sur résolu.

@@ -5,7 +5,7 @@
     - name: À propos de AKS
       href: intro-kubernetes.md
     - name: Architectures de solution
-      href: /azure/architecture/reference-architectures/containers/aks-start-here?bc=%2fazure%2faks%2fbreadcrumb%2ftoc.json&toc=%2fazure%2faks%2ftoc.json
+      href: /azure/architecture/reference-architectures/containers/aks-start-here?bc=%2fazure%2faks%2fbreadcrumb%2ftoc.json&toc=%2fazure%2faks%2ftoc.json?WT.mc_id=AKSDOCSTOC
 - name: Démarrages rapides
   expanded: true
   items:
@@ -294,14 +294,14 @@
     - name: Surveillance et journalisation
       items:
         - name: Azure Monitor pour des conteneurs
-          href: ../azure-monitor/insights/container-insights-overview.md
+          href: ../azure-monitor/containers/container-insights-overview.md
           maintainContext: true
         - name: Afficher les journaux des composants de plan de contrôle
           href: view-control-plane-logs.md
         - name: Afficher les journaux d’activité Kubelet
           href: kubelet-logs.md
         - name: Consulter les données d’un conteneur en temps réel
-          href: ../azure-monitor/insights/container-insights-livedata-overview.md
+          href: ../azure-monitor/containers/container-insights-livedata-overview.md
           maintainContext: true
     - name: Utiliser des conteneurs Windows Server
       items:
@@ -430,7 +430,7 @@
       href: 'https://github.com/Azure/AKS/projects/1'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-container-service'
-    - name: Videos
+    - name: Vidéos
       href: 'https://azure.microsoft.com/resources/videos/index/?services=container-service&sort=newest'
     - name: Questions fréquentes (FAQ)
       href: faq.md

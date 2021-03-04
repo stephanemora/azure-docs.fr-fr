@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2021
 ms.author: yelevin
-ms.openlocfilehash: 3094d20a921f9aa13e111e7af60955ce934b91db
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: a37abf369d1f34dc8f4a27802dfad88dab79be44
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99566563"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101698431"
 ---
 # <a name="connect-your-imperva-waf-gateway-appliance-to-azure-sentinel"></a>Connecter votre appliance Imperva WAF Gateway à Azure Sentinel
 
@@ -35,7 +35,7 @@ Cet article explique comment connecter votre appliance Imperva WAF Gateway à Az
 
 - Vous devez disposer d’autorisations en lecture et en écriture dans l’espace de travail Azure Sentinel.
 
-- Vous devez disposer d’autorisations de lecture sur les clés partagées pour accéder à l’espace de travail. [En savoir plus sur les clés d’espace de travail](../azure-monitor/platform/log-analytics-agent.md#workspace-id-and-key).
+- Vous devez disposer d’autorisations de lecture sur les clés partagées pour accéder à l’espace de travail. [En savoir plus sur les clés d’espace de travail](../azure-monitor/agents/log-analytics-agent.md#workspace-id-and-key).
 
 ## <a name="send-imperva-waf-gateway-logs-to-azure-sentinel"></a>Envoyer les journaux Imperva WAF Gateway à Azure Sentinel
 

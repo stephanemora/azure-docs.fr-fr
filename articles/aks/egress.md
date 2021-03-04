@@ -5,12 +5,12 @@ description: Découvrez comment créer et utiliser une adresse IP publique stati
 services: container-service
 ms.topic: article
 ms.date: 03/04/2019
-ms.openlocfilehash: 81b99478358ec3d670e8d783fba27603483614ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2eefeecfa550683dafcf66d936837e2a891c4c84
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87563243"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726544"
 ---
 # <a name="use-a-static-public-ip-address-for-egress-traffic-with-a-basic-sku-load-balancer-in-azure-kubernetes-service-aks"></a>Utiliser une IP publique statique pour le trafic de sortie avec un équilibreur de charge de niveau tarifaire *De base* dans Azure Kubernetes Service (AKS)
 
@@ -24,7 +24,7 @@ Cet article suppose que vous utilisez l’équilibreur de charge Azure De base. 
 
 Cet article suppose que vous avez un cluster AKS existant. Si vous avez besoin d’un cluster AKS, consultez le guide de démarrage rapide d’AKS [avec Azure CLI][aks-quickstart-cli]ou avec le [Portail Azure][aks-quickstart-portal].
 
-Azure CLI 2.0.59 (ou une version ultérieure) doit également être installé et configuré. Exécutez  `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez  [Installation d’Azure CLI][install-azure-cli].
+Azure CLI 2.0.59 (ou une version ultérieure) doit également être installé et configuré. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI][install-azure-cli].
 
 > [!IMPORTANT]
 > Cet article utilise l’équilibreur de charge des références SKU *De base* dans un seul pool de nœuds. Cette configuration n’est pas disponible pour les pools de nœuds multiples, car l’équilibreur de charge des références SKU *De base* n’est pas pris en charge dans de tels scénarios. Consultez [Utiliser un équilibreur de charge Standard public dans Azure Kubernetes Service (AKS)][slb] pour plus d’informations sur l’utilisation de l’équilibreur de charge des références SKU *Standard*.
@@ -33,7 +33,7 @@ Azure CLI 2.0.59 (ou une version ultérieure) doit également être installé et
 
 Le trafic sortant provenant d’un cluster AKS suit les [conventions d’Azure Load Balancer][outbound-connections]. Avant la création du premier service Kubernetes de type `LoadBalancer`, les nœuds d’agent d’un cluster AKS ne font partie d’aucun pool d’Azure Load Balancer. Dans cette configuration, les nœuds n’ont pas d’adresse IP publique au niveau de l’instance. Azure translate le flux sortant vers une adresse IP publique source qui n’est pas configurable ou déterministe.
 
-Après la création d’un service Kubernetes de type `LoadBalancer`, les nœuds d’agent sont ajoutés à un pool d’équilibrage de charge Azure. Azure translate le flux sortant vers la première adresse IP publique configurée sur l’équilibreur de charge. Cette adresse IP publique est valide seulement pour la durée de vie de cette ressource. Si vous supprimez le service Load Balancer Kubernetes, l’adresse IP et l’équilibreur de charge associés sont également supprimés. Si vous voulez affecter une adresse IP spécifique ou conserver une adresse IP pour des services Kubernetes redéployés, vous pouvez créer et utiliser une adresse IP publique statique.
+Après la création d’un service Kubernetes de type `LoadBalancer`, les nœuds d’agent sont ajoutés à un pool d’équilibrage de charge Azure. L’équilibreur de charge de base choisit un seul frontend à utiliser pour les flux sortants quand plusieurs frontends d’adresses IP (publiques) sont candidats pour les flux sortants. Cette sélection n’est pas configurable, et vous devez considérer l’algorithme de sélection comme étant aléatoire. Cette adresse IP publique est valide seulement pour la durée de vie de cette ressource. Si vous supprimez le service Load Balancer Kubernetes, l’adresse IP et l’équilibreur de charge associés sont également supprimés. Si vous voulez affecter une adresse IP spécifique ou conserver une adresse IP pour des services Kubernetes redéployés, vous pouvez créer et utiliser une adresse IP publique statique.
 
 ## <a name="create-a-static-public-ip"></a>Créer une adresse IP publique statique
 

@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 8dc07a3aa954a74ba594eb99da1ea3ee59610c9b
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 56d9c621579e19cf2c32562560e40fe42ff3989b
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98678319"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101677509"
 ---
 # <a name="query-json-files-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Interroger des fichiers JSON à l’aide d’un pool SQL serverless dans Azure Synapse Analytics
 
@@ -126,7 +126,7 @@ Les exemples de requêtes lisent les fichiers *json* contenant des documents ave
 
 ### <a name="query-json-files-using-json_value"></a>Interroger des fichiers JSON à l’aide de JSON_VALUE
 
-La requête ci-dessous vous montre comment utiliser [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) pour récupérer des valeurs scalaires (titre, éditeur) dans des document JSON :
+La requête ci-dessous vous montre comment utiliser [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?view=azure-sqldw-latest&preserve-view=true) pour récupérer des valeurs scalaires (titre, éditeur) dans des document JSON :
 
 ```sql
 select
@@ -146,7 +146,7 @@ order by JSON_VALUE(doc, '$.geo_id') desc
 
 ### <a name="query-json-files-using-openjson"></a>Interroger des fichiers JSON à l’aide de OPENJSON
 
-La requête suivante utilise [OPENJSON](/sql/t-sql/functions/openjson-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). Elle récupère les statistiques de la COVID signalées en Serbie :
+La requête suivante utilise [OPENJSON](/sql/t-sql/functions/openjson-transact-sql?view=azure-sqldw-latest&preserve-view=true). Elle récupère les statistiques de la COVID signalées en Serbie :
 
 ```sql
 select

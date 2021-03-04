@@ -11,12 +11,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 1/14/2020
 ms.author: inhenkel
-ms.openlocfilehash: 2fa827bc2841a0bae4c9646c8a70e42dc2b500e3
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: f77a41a172bc868ad056d74d018b50f734286f0f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98898407"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702451"
 ---
 # <a name="feature-gaps-between-azure-media-services-v2-and-v3"></a>Écarts de fonctionnalités entre Azure Media Services v2 et v3
 
@@ -42,7 +42,7 @@ L’API V3 présente les écarts de fonctionnalités suivants par rapport à l�
     - Nous avons ajouté la prise en charge du mappage de canal audio à l’encodeur Standard.  Consultez [Audio dans la documentation relative au Swagger d’encodage de Media Services](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2020-05-01/Encoding.json).
     - Si vous utilisiez des fonctionnalités avancées ou des formats de sortie de produits sous licence tiers, comme MXF ou ProRes, utilisez la solution Azure Partner de Telestream, qui sera transactionnelle d’ici la mise hors service de V2. Vous pouvez également utiliser Imagine Communications ou [Bitmovin](http://bitmovin.com).
 
-- La propriété « groupe à haute disponibilité » sur le point de terminaison de streaming dans V2 n’est plus prise en charge. Consultez l’exemple de projet et les conseils en matière de livraison de [VOD haute disponibilité](https://docs.microsoft.com/azure/media-services/latest/media-services-high-availability-encoding) dans l’API V3.
+- La propriété « groupe à haute disponibilité » sur le point de terminaison de streaming dans V2 n’est plus prise en charge. Consultez l’exemple de projet et les conseils en matière de livraison de [VOD haute disponibilité](./media-services-high-availability-encoding.md) dans l’API V3.
 
 - Dans Media Services V3, vous ne pouvez pas spécifier le système FairPlay IV. Bien qu’il n’ait pas d’impact sur les clients qui utilisent Media Services pour l’empaquetage et la remise de licence, cela peut être problématique lors de l’utilisation d’un système DRM tiers pour fournir les licences FairPlay (mode hybride).
 

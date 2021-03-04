@@ -5,25 +5,25 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: how-to
-ms.date: 01/08/2020
+ms.date: 03/02/2021
 author: timsander1
 ms.author: tisande
 ms.custom: devx-track-js
-ms.openlocfilehash: 34caca47746814046a894494ec43d9b5c977389a
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: 8d19a5dadffdfa26ccb2d84e6dab278ad272c7b0
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060074"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101658044"
 ---
 # <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>Gérer l’indexation dans l’API pour MongoDB d’Azure Cosmos DB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 L’API d’Azure Cosmos DB pour MongoDB tire parti des fonctionnalités de base de gestion des index d’Azure Cosmos DB. Cet article décrit comment ajouter des index à l’aide de l’API d’Azure Cosmos DB pour MongoDB. Vous pouvez également lire une [vue d’ensemble de l’indexation dans Azure Cosmos DB](index-overview.md) qui est pertinente pour toutes les API.
 
-## <a name="indexing-for-mongodb-server-version-36"></a>Indexation pour le serveur MongoDB version 3.6
+## <a name="indexing-for-mongodb-server-version-36-and-higher"></a>Indexation pour le serveur MongoDB versions 3.6 et ultérieures
 
-L’API d’Azure Cosmos DB pour le serveur MongoDB version 3.6 indexe automatiquement le champ `_id`, qui ne peut pas être abandonné. Elle applique automatiquement l’unicité du champ `_id` par clé de partition. Dans l’API d’Azure Cosmos DB pour MongoDB, le partitionnement et l’indexation sont des concepts distincts. Vous n’êtes pas tenu d’indexer votre clé de partition. Toutefois, comme pour toute autre propriété dans votre document, si cette propriété est un filtre courant dans vos requêtes, nous vous recommandons d’indexer la clé de partition.
+L’API Azure Cosmos DB pour le serveur MongoDB versions 3.6 et ultérieures indexe automatiquement le champ `_id`, qui ne peut pas être supprimé. Elle applique automatiquement l’unicité du champ `_id` par clé de partition. Dans l’API d’Azure Cosmos DB pour MongoDB, le partitionnement et l’indexation sont des concepts distincts. Vous n’êtes pas tenu d’indexer votre clé de partition. Toutefois, comme pour toute autre propriété dans votre document, si cette propriété est un filtre courant dans vos requêtes, nous vous recommandons d’indexer la clé de partition.
 
 Pour indexer des champs supplémentaires, appliquez les commandes de gestion d’index MongoDB. Comme dans MongoDB, l’API d’Azure Cosmos DB pour MongoDB indexe automatiquement le champ `_id` uniquement. Cette stratégie d’indexation par défaut est différente de celle de l’API SQL Azure Cosmos DB, qui indexe tous les champs par défaut.
 
@@ -53,9 +53,9 @@ Vous pouvez créer le même index à champ unique sur `name` dans le portail Azu
 
 Une requête utilise plusieurs index monochamps, le cas échéant. Vous pouvez créer jusqu’à 500 index monochamp par conteneur.
 
-### <a name="compound-indexes-mongodb-server-version-36"></a>Index composés (serveur MongoDB version 3.6)
+### <a name="compound-indexes-mongodb-server-version-36"></a>Index composés (serveur MongoDB versions 3.6 et ultérieures)
 
-L’API d’Azure Cosmos DB pour MongoDB prend en charge les index composés pour les comptes qui utilisent le protocole Wire filaire 3.6. Vous pouvez ajouter jusqu’à huit champs dans un index composé. Contrairement à MongoDB, vous devez créer un index composé uniquement si votre requête doit effectuer un tri efficace sur plusieurs champs à la fois. Pour les requêtes avec plusieurs filtres qui n’ont pas besoin de tri, créez plusieurs index monochamp au lieu d’un seul index composé. 
+L’API Azure Cosmos DB pour MongoDB prend en charge les index composés pour les comptes qui utilisent le protocole filaire version 3.6 ou 4.0. Vous pouvez ajouter jusqu’à huit champs dans un index composé. Contrairement à MongoDB, vous devez créer un index composé uniquement si votre requête doit effectuer un tri efficace sur plusieurs champs à la fois. Pour les requêtes avec plusieurs filtres qui n’ont pas besoin de tri, créez plusieurs index monochamp au lieu d’un seul index composé. 
 
 > [!NOTE]
 > Vous ne pouvez pas créer d’index composés sur des tableaux ou des propriétés imbriqués.
@@ -102,30 +102,31 @@ Vous pouvez utiliser des index génériques pour prendre en charge des requêtes
 Voici un exemple de document dans cette collection :
 
 ```json
-  "children": [
-     {
-         "firstName": "Henriette Thaulow",
-         "grade": "5"
-     }
-  ]
+"children": [
+   {
+     "firstName": "Henriette Thaulow",
+     "grade": "5"
+   }
+]
 ```
 
 Voici un autre exemple, cette fois avec un ensemble de propriétés légèrement différent dans `children` :
 
 ```json
-  "children": [
-      {
-        "familyName": "Merriam",
-        "givenName": "Jesse",
-        "pets": [
-            { "givenName": "Goofy" },
-            { "givenName": "Shadow" }
-      },
-      {
-        "familyName": "Merriam",
-        "givenName": "John",
-      }
-  ]
+"children": [
+    {
+     "familyName": "Merriam",
+     "givenName": "Jesse",
+     "pets": [
+         { "givenName": "Goofy" },
+         { "givenName": "Shadow" }
+         ]
+   },
+   {
+     "familyName": "Merriam",
+     "givenName": "John",
+   }
+]
 ```
 
 Dans cette collection, les documents peuvent avoir de nombreuses propriétés possibles. Si vous souhaitez indexer toutes les données dans le tableau `children`, vous avez deux options : créer des index distincts pour chaque propriété individuelle ou créer un seul index générique pour l’ensemble du tableau `children`.
@@ -140,8 +141,8 @@ La commande suivante crée un index générique sur toutes les propriétés dans
 
 Vous pouvez créer les types d’index suivants à l’aide de la syntaxe des caractères génériques :
 
-- Champ unique
-- Géospatial
+* Champ unique
+* Géospatial
 
 ### <a name="indexing-all-properties"></a>Indexation de toutes les propriétés
 
@@ -162,41 +163,45 @@ Les documents contenant de nombreux champs peuvent avoir un coût d’unités de
 
 Les index génériques ne prennent pas en charge les types ou propriétés d’index suivants :
 
-- Composé
-- TTL
-- Unique
+* Composé
+* TTL
+* Unique
 
 **Contrairement à MongoDB**, dans l’API d’Azure Cosmos DB pour MongoDB, vous **ne pouvez pas** utiliser des index génériques pour les opérations suivantes :
 
-- Création d’un index générique incluant plusieurs champs spécifiques
+* Création d’un index générique incluant plusieurs champs spécifiques
 
-`db.coll.createIndex(
-    { "$**" : 1 },
-    { "wildcardProjection " :
-        {
-           "children.givenName" : 1,
-           "children.grade" : 1
-        }
-    }
-)`
+  ```json
+  db.coll.createIndex(
+      { "$**" : 1 },
+      { "wildcardProjection " :
+          {
+             "children.givenName" : 1,
+             "children.grade" : 1
+          }
+      }
+  )
+  ```
 
-- Création d’un index générique excluant plusieurs champs spécifiques
+* Création d’un index générique excluant plusieurs champs spécifiques
 
-`db.coll.createIndex(
-    { "$**" : 1 },
-    { "wildcardProjection" :
-        {
-           "children.givenName" : 0,
-           "children.grade" : 0
-        }
-    }
-)`
+  ```json
+  db.coll.createIndex(
+      { "$**" : 1 },
+      { "wildcardProjection" :
+          {
+             "children.givenName" : 0,
+             "children.grade" : 0
+          }
+      }
+  )
+  ```
 
 Vous pouvez également créer plusieurs index génériques.
 
 ## <a name="index-properties"></a>Propriétés d’index
 
-Les opérations suivantes sont communes pour les comptes desservant la version 3.6 du protocole Wire et les comptes desservant les versions antérieures. Vous pouvez obtenir plus d’informations sur les [index pris en charge et les propriétés indexées](mongodb-feature-support-36.md#indexes-and-index-properties).
+Les opérations suivantes sont communes pour les comptes utilisant la version 4.0 du protocole Wire et les comptes utilisant des versions antérieures. Vous pouvez obtenir plus d’informations sur les [index pris en charge et les propriétés indexées](mongodb-feature-support-40.md#indexes-and-index-properties).
 
 ### <a name="unique-indexes"></a>Index uniques
 
@@ -210,11 +215,11 @@ La commande suivante crée un index unique sur le champ `student_id` :
 ```shell
 globaldb:PRIMARY> db.coll.createIndex( { "student_id" : 1 }, {unique:true} )
 {
-        "_t" : "CreateIndexesResponse",
-        "ok" : 1,
-        "createdCollectionAutomatically" : false,
-        "numIndexesBefore" : 1,
-        "numIndexesAfter" : 4
+    "_t" : "CreateIndexesResponse",
+    "ok" : 1,
+    "createdCollectionAutomatically" : false,
+    "numIndexesBefore" : 1,
+    "numIndexesAfter" : 4
 }
 ```
 
@@ -225,23 +230,23 @@ Les commandes suivantes créent une collection partitionnée ```coll``` (la clé
 ```shell
 globaldb:PRIMARY> db.runCommand({shardCollection: db.coll._fullName, key: { university: "hashed"}});
 {
-        "_t" : "ShardCollectionResponse",
-        "ok" : 1,
-        "collectionsharded" : "test.coll"
+    "_t" : "ShardCollectionResponse",
+    "ok" : 1,
+    "collectionsharded" : "test.coll"
 }
 globaldb:PRIMARY> db.coll.createIndex( { "university" : 1, "student_id" : 1 }, {unique:true});
 {
-        "_t" : "CreateIndexesResponse",
-        "ok" : 1,
-        "createdCollectionAutomatically" : false,
-        "numIndexesBefore" : 3,
-        "numIndexesAfter" : 4
+    "_t" : "CreateIndexesResponse",
+    "ok" : 1,
+    "createdCollectionAutomatically" : false,
+    "numIndexesBefore" : 3,
+    "numIndexesAfter" : 4
 }
 ```
 
 Dans l’exemple précédent, l’omission de la clause ```"university":1``` renvoie une erreur avec le message suivant :
 
-```"cannot create unique index over {student_id : 1.0} with shard key pattern { university : 1.0 }"```
+*Impossible de créer un index unique sur {student_id : 1.0} avec le modèle de clé de partition { university : 1.0 }*
 
 ### <a name="ttl-indexes"></a>Index TTL
 
@@ -260,7 +265,7 @@ La commande précédente supprime tous les documents de la collection ```db.coll
 
 ## <a name="track-index-progress"></a>Suivre la progression de l’index
 
-La version 3.6 de l’API d’Azure Cosmos DB pour MongoDB prend en charge la commande `currentOp()`, laquelle permet de suivre la progression de l’index sur une instance de base de données. Cette commande retourne un document qui contient des informations sur les opérations en cours sur une instance de base de données. Vous utilisez la commande `currentOp` pour effectuer le suivi de toutes les opérations en cours dans MongoDB en mode natif. Dans l’API d’Azure Cosmos DB pour MongoDB, cette commande ne prend en charge que le suivi de l’opération d’index.
+Les versions 3.6 et ultérieures de l’API Azure Cosmos DB pour MongoDB prennent en charge la commande `currentOp()`, laquelle permet de suivre la progression de l’index sur une instance de base de données. Cette commande retourne un document qui contient des informations sur les opérations en cours sur une instance de base de données. Vous utilisez la commande `currentOp` pour effectuer le suivi de toutes les opérations en cours dans MongoDB en mode natif. Dans l’API d’Azure Cosmos DB pour MongoDB, cette commande ne prend en charge que le suivi de l’opération d’index.
 
 Voici quelques exemples qui montrent comment utiliser la commande `currentOp` pour suivre la progression de l’index :
 
@@ -286,7 +291,7 @@ Voici quelques exemples qui montrent comment utiliser la commande `currentOp` po
 
 Les détails de la progression de l’index affichent le pourcentage de progression pour l’opération d’index active. Voici un exemple qui montre le format du document de sortie pour les différentes étapes de la progression de l’index :
 
-- Pour une progression en pourcentage de l’opération d’index sur une collection « foo » et une base de données « bar » est de 60 %, le document de sortie suivant est généré. Le champ `Inprog[0].progress.total` affiche 100 comme pourcentage d’achèvement cible.
+* Pour une progression en pourcentage de l’opération d’index sur une collection « foo » et une base de données « bar » est de 60 %, le document de sortie suivant est généré. Le champ `Inprog[0].progress.total` affiche 100 comme pourcentage d’achèvement cible.
 
    ```json
    {
@@ -310,7 +315,7 @@ Les détails de la progression de l’index affichent le pourcentage de progress
    }
    ```
 
-- Si une opération d’index vient de démarrer sur une collection « foo » et une base de données « bar », le document de sortie peut indiquer une progression de 0 pour cent tant qu’un niveau mesurable n’est pas atteint.
+* Si une opération d’index vient de démarrer sur une collection « foo » et une base de données « bar », le document de sortie peut indiquer une progression de 0 pour cent tant qu’un niveau mesurable n’est pas atteint.
 
    ```json
    {
@@ -334,7 +339,7 @@ Les détails de la progression de l’index affichent le pourcentage de progress
    }
    ```
 
-- Une fois l’opération d’index en cours terminée, le document de sortie indique des opérations `inprog` vides.
+* Une fois l’opération d’index en cours terminée, le document de sortie indique des opérations `inprog` vides.
 
    ```json
    {
@@ -407,26 +412,26 @@ Actuellement, vous pouvez uniquement créer des index uniques lorsque la collect
 
 Les fonctionnalités d’indexation disponibles et les valeurs par défaut sont différentes pour les comptes Azure Cosmos compatibles avec la version 3.2 du protocole filaire MongoDB. Vous pouvez [vérifier la version de votre compte](mongodb-feature-support-36.md#protocol-support) et [mettre à niveau vers la version 3.6](mongodb-version-upgrade.md).
 
-Si vous utilisez la version 3.2, cette section décrit les principales différences avec la version 3.6.
+Si vous utilisez la version 3.2, cette section décrit les principales différences avec les versions 3.6 et ultérieures.
 
 ### <a name="dropping-default-indexes-version-32"></a>Suppression des index par défaut (version 3.2)
 
-Contrairement à la version 3.6 de l’API d’Azure Cosmos DB pour MongoDB, la version 3.2 indexe chaque propriété par défaut. Vous pouvez utiliser la commande suivante pour supprimer ces index par défaut pour une collection (```coll```) :
+Contrairement aux versions 3.6 et ultérieures de l’API Azure Cosmos DB pour MongoDB, la version 3.2 indexe chaque propriété par défaut. Vous pouvez utiliser la commande suivante pour supprimer ces index par défaut pour une collection (```coll```) :
 
 ```JavaScript
 > db.coll.dropIndexes()
 { "_t" : "DropIndexesResponse", "ok" : 1, "nIndexesWas" : 3 }
 ```
 
-Après la suppression des index par défaut, vous pouvez ajouter d’autres index comme vous le feriez dans la version 3.6.
+Après la suppression des index par défaut, vous pouvez ajouter d’autres index comme vous le feriez dans les versions 3.6 et ultérieures.
 
 ### <a name="compound-indexes-version-32"></a>Index composés (version 3.2)
 
-Les index composés comportent des références à plusieurs champs d’un document. Si vous souhaitez créer un index composé, [mettez à niveau vers la version 3.6](mongodb-version-upgrade.md).
+Les index composés comportent des références à plusieurs champs d’un document. Si vous souhaitez créer un index composé, [effectuez une mise à niveau vers la version 3.6 ou 4.0](mongodb-version-upgrade.md).
 
 ### <a name="wildcard-indexes-version-32"></a>Index génériques (version 3.2)
 
-Si vous souhaitez créer un index générique, [mettez à niveau vers la version 3.6](mongodb-version-upgrade.md).
+Si vous souhaitez créer un index générique, [effectuez une mise à niveau vers la version 4.0 ou 3.6](mongodb-version-upgrade.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

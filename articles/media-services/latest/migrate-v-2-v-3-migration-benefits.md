@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: media
 ms.date: 1/14/2020
 ms.author: inhenkel
-ms.openlocfilehash: 70f64813546c66c0f9e3533e09de192315f75600
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: fb3e09cefa7f87fe2eb1e5013854c7965ea9330e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98955069"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101698839"
 ---
 # <a name="step-1---understand-the-benefits-of-migrating-to-media-services-api-v3"></a>Étape 1 : Comprendre les avantages de la migration vers l’API Media Services v3
 
@@ -38,7 +38,7 @@ Des améliorations significatives ont été apportées à Media Services avec la
 | Mises à jour du portail Azure | Le portail Azure a été mis à jour pour inclure la gestion des entités de l’API v3. Les clients peuvent ainsi utiliser le portail pour démarrer un streaming en direct, envoyer des travaux de transformation v3, gérer des stratégies de protection de contenu, des points de terminaison de streaming, accéder à l’API, gérer des comptes de stockage liés et effectuer des tâches de supervision. |
 | **Comptes et stockage** | |
 | Contrôle d’accès en fonction du rôle Azure (RBAC) | Les clients peuvent désormais définir leurs propres rôles et contrôler l’accès à chaque entité dans l’API ARM Media Services. Il est ainsi possible de contrôler l’accès aux ressources par les comptes  AAD. |
-| Identités managées | Les identités managées éliminent la nécessité pour les développeurs de gérer des informations d’identification en fournissant une identité pour la ressource Azure dans Azure AD. Pour plus d’informations sur les identités managées, consultez [ceci](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). |
+| Identités managées | Les identités managées éliminent la nécessité pour les développeurs de gérer des informations d’identification en fournissant une identité pour la ressource Azure dans Azure AD. Pour plus d’informations sur les identités managées, consultez [ceci](../../active-directory/managed-identities-azure-resources/overview.md). |
 | Prise en charge des liaisons privées | Les clients ont accès à des points de terminaison Media Services pour la remise de clés, LiveEvents et StreamingEndpoints par le biais d’un PrivateEndpoint sur leur réseau virtuel. |
 | Prise en charge des [clés gérées par le client](concept-use-customer-managed-keys-byok.md) ou de BYOK (Bring Your Own Key) | Les clients peuvent chiffrer les données de leur compte Media Services à l’aide d’une clé dans leur coffre de clés Azure. |
 | **Éléments multimédias** | |

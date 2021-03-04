@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: b6879d4869604af5232088063a6153a01208e7d0
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 5e5d5370057449d1877c31b249d3fe47fd60bf2a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99259336"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687666"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publier le Bureau à distance avec le proxy d’application Azure AD
 
@@ -57,7 +57,7 @@ Après avoir configuré RDS et le proxy d’application Azure AD pour votre env
 ### <a name="publish-the-rd-host-endpoint"></a>Publication du point de terminaison hôte Bureau à distance
 
 1. [Publiez une nouvelle application de proxy d’application](application-proxy-add-on-premises-application.md) avec les valeurs suivantes :
-   - URL interne : `https://\<rdhost\>.com/`, où `\<rdhost\>` est la racine commune partagée par Site Web Bureau à distance et Passerelle Bureau à distance.
+   - URL interne : `https://<rdhost>.com/`, où `<rdhost>` est la racine commune partagée par Site Web Bureau à distance et Passerelle Bureau à distance.
    - URL externe : Ce champ est automatiquement renseigné en fonction du nom de l’application, mais vous pouvez le modifier. Vos utilisateurs accéderont à cet URL en accédant à RDS.
    - Méthode de préauthentification : Azure Active Directory
    - Traduire l’URL dans les en-têtes : Non
@@ -69,7 +69,7 @@ Après avoir configuré RDS et le proxy d’application Azure AD pour votre env
 
 4. Sélectionnez **Azure Active Directory**, puis **Inscription des applications**. Choisissez votre application dans la liste.
 5. Dans **Gérer**, sélectionnez **Personnalisation**.
-6. Mettez à jour le champ **URL de la page d’accueil** pour pointer vers votre point de terminaison Site Web Bureau à distance (par ex., `https://\<rdhost\>.com/RDWeb`).
+6. Mettez à jour le champ **URL de la page d’accueil** pour pointer vers votre point de terminaison Site Web Bureau à distance (par ex., `https://<rdhost>.com/RDWeb`).
 
 ### <a name="direct-rds-traffic-to-application-proxy"></a>Trafic RDS direct vers le proxy d’application
 

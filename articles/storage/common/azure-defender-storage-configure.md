@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: tamram
 ms.reviewer: ozgun
-ms.openlocfilehash: 0bda32aaab301fe9ed685f0bfd6d4596fab4e5db
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: cdfc54b1eca3b07202148b7099884a04f35939ef
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789010"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101698142"
 ---
 # <a name="configure-azure-defender-for-storage"></a>Configurer Azure Defender pour le stockage
 
@@ -23,7 +23,7 @@ Azure Defender pour le stockage offre une couche supplémentaire de sécurité i
 
 Les alertes de sécurité sont déclenchées lorsque des anomalies se produisent dans l’activité. Ces alertes de sécurité sont intégrées avec [Azure Security Center](https://azure.microsoft.com/services/security-center/) et sont également envoyées par e-mail aux administrateurs d’abonnement, avec les détails des activités suspectes et des recommandations sur la façon d’examiner et de corriger les menaces.
 
-Le service ingère les journaux de ressources des demandes de lecture, d’écriture et de suppression adressées au Stockage Blob et à Azure Files en vue de détecter les menaces. Pour examiner les alertes d’Azure Defender, vous pouvez afficher l’activité de stockage associée à l’aide de la journalisation Storage Analytics. Pour plus d’informations, consultez **Configuration de la journalisation** dans [Surveillance d’un compte de stockage dans le portail Azure](storage-monitor-storage-account.md#configure-logging).
+Le service ingère les journaux de ressources des demandes de lecture, d’écriture et de suppression adressées au Stockage Blob et à Azure Files en vue de détecter les menaces. Pour examiner les alertes d’Azure Defender, vous pouvez afficher l’activité de stockage associée à l’aide de la journalisation Storage Analytics. Pour plus d’informations, consultez **Configuration de la journalisation** dans [Surveillance d’un compte de stockage dans le portail Azure](./manage-storage-analytics-logs.md#configure-logging).
 
 ## <a name="availability"></a>Disponibilité
 
@@ -53,10 +53,10 @@ Vous pouvez configurer Azure Defender pour le stockage de plusieurs façons, qui
 Lorsque vous vous abonnez au niveau Standard dans Azure Security Center, Azure Defender est automatiquement configuré sur tous vos comptes de stockage. Vous pouvez activer ou désactiver Azure Defender pour vos comptes de stockage sous un abonnement spécifique comme suit :
 
 1. Lancez **Azure Security Center** dans le [portail Azure](https://portal.azure.com).
-1. Dans le menu principal, sous **Gestion** , sélectionnez **Tarification et paramètres** .
+1. Dans le menu principal, sous **Gestion**, sélectionnez **Tarification et paramètres**.
 1. Sélectionnez l’abonnement pour lequel vous souhaitez activer ou désactiver Azure Defender.
 1. Sélectionnez **Azure Defender sur** pour activer Azure Defender pour l’abonnement.
-1. Sous **Sélectionner un plan Azure Defender par type de ressource** , recherchez la ligne **Stockage** , puis sélectionnez **Activé** dans la colonne **Plan** .
+1. Sous **Sélectionner un plan Azure Defender par type de ressource**, recherchez la ligne **Stockage**, puis sélectionnez **Activé** dans la colonne **Plan**.
 1. Enregistrez vos modifications.
 
     :::image type="content" source="media/azure-defender-storage-configure/enable-azure-defender-security-center.png" alt-text="Capture d’écran montrant comment activer Azure Defender pour le stockage dans Security Center":::
@@ -66,10 +66,10 @@ Azure Defender est maintenant activé pour tous les comptes de stockage de cet a
 ### <a name="portal"></a>[Portail](#tab/azure-portal)
 
 1. Lancez le [portail Azure](https://portal.azure.com/).
-1. Accédez à votre compte de stockage. Sous **Paramètres** , sélectionnez **Sécurité avancée** .
-1. Sélectionnez **Activer Azure Defender pour le stockage** .
+1. Accédez à votre compte de stockage. Sous **Paramètres**, sélectionnez **Sécurité avancée**.
+1. Sélectionnez **Activer Azure Defender pour le stockage**.
 
-    :::image type="content" source="media/azure-defender-storage-configure/enable-azure-defender-portal.png" alt-text="Capture d’écran montrant comment activer Azure Defender pour le stockage dans Security Center":::
+    :::image type="content" source="media/azure-defender-storage-configure/enable-azure-defender-portal.png" alt-text="Capture d’écran montrant comment activer Azure Defender pour un compte Stockage Azure":::
 
 Azure Defender est maintenant activé pour ce compte de stockage.
 
@@ -81,18 +81,18 @@ Utilisez un modèle Azure Resource Manager pour déployer un compte Stockage Azu
 
 Utilisez Azure Policy pour activer Azure Defender dans les comptes de stockage sous un abonnement ou un groupe de ressources spécifiques.
 
-1. Lancez la page **Azure Policy - Définitions** .
-1. Recherchez la stratégie **Déployer Azure Defender sur les comptes de stockage** .
+1. Lancez la page **Azure Policy - Définitions**.
+1. Recherchez la stratégie **Déployer Azure Defender sur les comptes de stockage**.
 
-    :::image type="content" source="media/azure-defender-storage-configure/storage-atp-policy-definitions.png" alt-text="Capture d’écran montrant comment activer Azure Defender pour le stockage dans Security Center":::
+    :::image type="content" source="media/azure-defender-storage-configure/storage-atp-policy-definitions.png" alt-text="Appliquer la stratégie pour activer Azure Defender pour les comptes de stockage":::
 
 1. Sélectionnez un groupe de ressources ou un abonnement Azure.
 
-    :::image type="content" source="media/azure-defender-storage-configure/storage-atp-policy2.png" alt-text="Capture d’écran montrant comment activer Azure Defender pour le stockage dans Security Center":::
+    :::image type="content" source="media/azure-defender-storage-configure/storage-atp-policy2.png" alt-text="Sélectionner un abonnement ou un groupe de ressources pour l’étendue de la stratégie ":::
 
 1. Attribuez la stratégie.
 
-    :::image type="content" source="media/azure-defender-storage-configure/storage-atp-policy1.png" alt-text="Capture d’écran montrant comment activer Azure Defender pour le stockage dans Security Center":::
+    :::image type="content" source="media/azure-defender-storage-configure/storage-atp-policy1.png" alt-text="Attribuer la stratégie pour activer Azure Defender pour le stockage":::
 
 ### <a name="rest-api"></a>[REST API](#tab/rest-api)
 
@@ -125,11 +125,11 @@ Quand des anomalies d’activité du stockage sont détectées, vous recevez une
 
 L’e-mail fournit également des détails sur les causes possibles et les actions recommandées pour examiner et atténuer la menace potentielle.
 
-:::image type="content" source="media/azure-defender-storage-configure/storage-advanced-threat-protection-alert-email.png" alt-text="Capture d’écran montrant comment activer Azure Defender pour le stockage dans Security Center":::
+:::image type="content" source="media/azure-defender-storage-configure/storage-advanced-threat-protection-alert-email.png" alt-text="E-mail d’alerte Azure Defender pour le stockage":::
 
 Vous pouvez examiner et gérer vos alertes de sécurité actuelles à partir de la [vignette Alertes de sécurité](../../security-center/security-center-managing-and-responding-alerts.md) dans Azure Security Center. Cliquez sur une alerte pour afficher les détails et les actions recommandées pour examiner la menace actuelle et atténuer les menaces futures.
 
-:::image type="content" source="media/azure-defender-storage-configure/storage-advanced-threat-protection-alert.png" alt-text="Capture d’écran montrant comment activer Azure Defender pour le stockage dans Security Center":::
+:::image type="content" source="media/azure-defender-storage-configure/storage-advanced-threat-protection-alert.png" alt-text="Alerte Azure Defender pour le stockage":::
 
 ## <a name="security-alerts"></a>Alertes de sécurité
 

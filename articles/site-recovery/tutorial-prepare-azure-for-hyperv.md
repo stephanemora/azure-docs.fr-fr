@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/14/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: f4f040288574a9ddfc5f7c56878c7f1e795b09a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5ca03336fc60abbb458615e922a2556dd21a79a5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88653849"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101739676"
 ---
 # <a name="prepare-azure-resources-for-hyper-v-disaster-recovery"></a>Préparer les ressources Azure à la reprise d’activité après sinistre pour Hyper-V
 
@@ -56,7 +56,7 @@ Les images des machines répliquées sont conservées dans le stockage Azure. Le
 2. Dans **Créer un compte de stockage** , entrez un nom correspondant au compte.  Le nom que vous choisissez doit être unique dans Azure, comprendre entre 3 et 24 caractères, et contenir uniquement des lettres minuscules et des chiffres. Pour ce tutoriel, utilisez **contosovmsacct1910171607**.
 3. Dans **Modèle de déploiement**, sélectionnez **Resource Manager**.
 4. Dans **Type de compte**, sélectionnez **Stockage (v1 universel)** . Ne sélectionnez pas Stockage Blob.
-5. Dans **Réplication**, sélectionnez la valeur par défaut **Stockage géo-redondant avec accès en lecture** pour la redondance de stockage. Laissez le paramètre Transfert sécurisé requis désactivé.
+5. Dans **Réplication**, sélectionnez la valeur par défaut **Stockage géo-redondant avec accès en lecture** pour la redondance de stockage.
 6. Dans **Performances**, sélectionnez **Standard**. Ensuite, dans **Niveau d’accès**, sélectionnez l’option par défaut **Chaud**.
 7. Dans **Abonnement**, choisissez l’abonnement dans lequel vous souhaitez créer le compte de stockage.
 8. Dans **Groupe de ressources**, entrez un nouveau groupe de ressources. Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées. Pour ce tutoriel, utilisez **ContosoRG**.

@@ -156,7 +156,7 @@
             - name: Kit SDK .NET (C#)
               href: /dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet
             - name: Kit de développement logiciel (SDK) Java
-              href: /azure/developer/java/sdk/
+              href: /java/api/overview/azure/digitaltwins/resourcemanagement?view=azure-java-stable
         - name: Plan de données
           items:
             - name: Kit SDK .NET (C#)

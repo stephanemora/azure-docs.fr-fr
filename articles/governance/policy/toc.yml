@@ -202,7 +202,7 @@
           href: ../../azure-monitor/deploy-scale.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
         - name: Activer Azure Monitor pour machines virtuelles (préversion)
           displayName: 'monitor, insights, log analytics, builtin'
-          href: ../../azure-monitor/insights/vminsights-enable-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
+          href: ../../azure-monitor/vm/vminsights-enable-policy.md?bc=%2fazure%2fgovernance%2fpolicy%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fgovernance%2fpolicy%2ftoc.json
     - name: Intégration du Stockage Azure
       items:
         - name: Auditer TLS avec Azure Policy
@@ -223,7 +223,7 @@
       href: /cli/azure/policy
     - name: Azure PowerShell
       items:
-        - name: Policy
+        - name: Stratégie
           href: /powershell/module/az.resources#policy
         - name: Policy Insights
           href: /powershell/module/az.policyinsights
@@ -249,7 +249,7 @@
           href: /javascript/api/@azure/arm-policyinsights
     - name: Kit SDK Azure pour Python
       items:
-        - name: Policy
+        - name: Stratégie
           href: /python/api/azure-mgmt-resource/azure.mgmt.resource.policy
         - name: Client de stratégie
           href: /python/api/azure-mgmt-resource/azure.mgmt.resource.policyclient
@@ -323,16 +323,6 @@
       items:
         - name: Chaîne YouTube Governance
           href: 'https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ'
-        - name: Vidéos de configuration invité
-          items:
-            - name: Mise en route
-              href: 'https://www.youtube.com/watch?v=mjJw9_EIyHo'
-            - name: Compréhension des initiatives
-              href: 'https://www.youtube.com/watch?v=4JZH3kuG8bI'
-            - name: Attribuer la stratégie
-              href: 'https://www.youtube.com/watch?v=fbZBaxcjA-Y'
-            - name: Tâche de correction
-              href: 'https://www.youtube.com/watch?v=URE4DUYMgmg'
     - name: Feuille de route Azure
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Calculatrice de prix

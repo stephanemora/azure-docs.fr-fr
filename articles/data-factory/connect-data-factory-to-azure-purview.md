@@ -9,12 +9,12 @@ ms.custom:
 - seo-lt-2019
 - references_regions
 ms.date: 12/3/2020
-ms.openlocfilehash: c42eb8cac283ce096c42c9e5d4b7eac9a3e12625
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 44f093f96d0f4653a6fcca94aaa97264c93e3c7d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100364373"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101727938"
 ---
 # <a name="connect-data-factory-to-azure-purview-preview"></a>Connecter Data Factory à Azure Purview (préversion)
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
@@ -40,10 +40,10 @@ Si vous voyez un avertissement dans le portail Azure Data Factory après avoir i
 
 :::image type="content" source="./media/data-factory-purview/register-purview-account-tag.png" alt-text="Capture d’écran des balises lors de l’inscription d’un compte Purview.":::
 
-2. Vérifiez si l’autorisation est accordée pour l’inscription d’un compte Azure Purview dans Data Factory. Voir [Guide pratique pour connecter Azure Data Factory et Azure Purview](https://docs.microsoft.com/azure/purview/how-to-link-azure-data-factory#create-new-data-factory-connection).
+2. Vérifiez si l’autorisation est accordée pour l’inscription d’un compte Azure Purview dans Data Factory. Voir [Guide pratique pour connecter Azure Data Factory et Azure Purview](../purview/how-to-link-azure-data-factory.md#create-new-data-factory-connection).
 
 ### <a name="register-data-factory-in-azure-purview"></a>Inscrire Data Factory dans Azure Purview
-Pour savoir comment inscrire Data Factory dans Azure Purview, consultez [Guide pratique pour connecter Azure Data Factory et Azure Purview](https://docs.microsoft.com/azure/purview/how-to-link-azure-data-factory). 
+Pour savoir comment inscrire Data Factory dans Azure Purview, consultez [Guide pratique pour connecter Azure Data Factory et Azure Purview](../purview/how-to-link-azure-data-factory.md). 
 
 ## <a name="report-lineage-data-to-azure-purview"></a>Rapporter les données de traçabilité à Azure Purview
 Lorsque les clients exécutent une activité Copy, Dataflow ou Exécuter le Package SSIS dans Azure Data Factory, ils peuvent obtenir la relation de dépendance et disposer d’une vue d’ensemble générale de l’intégralité du processus du workflow entre les sources de données et la destination.
