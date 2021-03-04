@@ -25,10 +25,8 @@
       href: tutorial-restrict-network-access-to-resources.md
     - name: Connecter des réseaux virtuels
       href: tutorial-connect-virtual-networks-portal.md
-    - name: Créer une passerelle NAT
-      href: quickstart-create-nat-gateway-portal.md
     - name: Créer et valider une passerelle NAT
-      href: tutorial-create-validate-nat-gateway-portal.md
+      href: tutorial-create-nat-gateway-portal.md
 - name: Exemples
   items:
     - name: Azure CLI
@@ -99,7 +97,7 @@
           href: ipv6-public-ip-address-prefix.md
         - name: Préférence de routage
           href: routing-preference-overview.md
-        - name: Préférence de routage non mesuré
+        - name: Préférence de routage délimitée
           href: routing-preference-unmetered.md
         - name: Base de référence de sécurité pour les adresses IP publiques
           href: public-ip-security-baseline.md
@@ -276,9 +274,9 @@
                       href: configure-routing-preference-virtual-machine-powershell.md
                     - name: Azure CLI
                       href: configure-routing-preference-virtual-machine-cli.md
-                - name: Configurer une préférence de routage mixte pour une VM
+                - name: Configurer la préférence de routage mixte pour une machine virtuelle
                   href: routing-preference-mixed-network-adapter-portal.md
-                - name: Configurer une préférence de routage pour un cluster AKS
+                - name: Configurer la préférence de routage pour un cluster AKS
                   href: routing-preference-azure-kubernetes-service-cli.md
     - name: Sécurité
       items:

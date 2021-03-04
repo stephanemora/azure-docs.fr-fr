@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/16/2021
 ms.author: memildin
-ms.openlocfilehash: 0e1f669b6955d5c5b70f2f29ff39ba5aef0a9a56
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 1ba030ea42d3e865021aa52c651cd72eead9f1a1
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100544814"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102100268"
 ---
 # <a name="feature-coverage-for-machines"></a>Couverture des fonctionnalités pour les machines
 
@@ -117,8 +117,8 @@ Pour plus d’informations sur le moment où les recommandations sont générée
 |[Microsoft Defender pour point de terminaison](harden-docker-hosts.md) (1)|✔|-|
 |[Connecter un compte AWS](quickstart-onboard-aws.md) (1)|-|-|
 |[Connecter des comptes GCP](quickstart-onboard-gcp.md) (1)|-|-|
-|[Exportation continue](continuous-export.md)|✔|✔ (2)|
-|[Automatisation de workflow](workflow-automation.md)|✔ (2)|✔|
+|[Exportation continue](continuous-export.md)|✔|✔|
+|[Automatisation de workflow](workflow-automation.md)|✔|✔|
 |[Règles d’exemption de recommandation](exempt-resource.md)|-|-|
 |[Règles de suppression d’alerte](alerts-suppression-rules.md)|✔|✔|
 |[Notifications par e-mail pour les alertes de sécurité](security-center-provide-security-contact-details.md)|✔|✔|
@@ -130,7 +130,7 @@ Pour plus d’informations sur le moment où les recommandations sont générée
 |[Azure Defender pour Resource Manager](defender-for-resource-manager-introduction.md)|-|-|
 |[Azure Defender pour DNS](defender-for-dns-introduction.md)|-|-|
 |[Azure Defender pour les registres de conteneurs](defender-for-container-registries-introduction.md)|✔ (2)|✔ (2)|
-|[Azure Defender pour Kubernetes](defender-for-kubernetes-introduction.md)|✔ (2)|✔|
+|[Azure Defender pour Kubernetes](defender-for-kubernetes-introduction.md)|✔|✔|
 |[Protection de charge de travail Kubernetes](kubernetes-workload-protections.md)|✔|✔|
 |||
 

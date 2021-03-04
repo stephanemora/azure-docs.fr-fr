@@ -3,17 +3,18 @@ title: Créer une source de données pour les cartes Android | Microsoft Azure M
 description: 'Découvrez comment créer une source de données pour une carte. En savoir plus sur les sources de données utilisées par le kit de développement logiciel (SDK) Android Azure Maps : Sources GeoJSON et mosaïques vectorielles.'
 author: rbrundritt
 ms.author: richbrun
-ms.date: 12/03/2020
+ms.date: 2/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: fc68dc25aad3671a55e5c11cbee094b4027e7070
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+zone_pivot_groups: azure-maps-android
+ms.openlocfilehash: e870134e2ecd431aa3e5c02638120027f0d47df2
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102047670"
+ms.locfileid: "102101458"
 ---
 # <a name="create-a-data-source-android-sdk"></a>Créer une source de données (SDK Android)
 
@@ -25,6 +26,8 @@ Le SDK Android Azure Maps stocke les données dans des sources de données. L’
 ## <a name="geojson-data-source"></a>Source de données GeoJSON
 
 Azure Maps utilise GeoJSON comme l’un de ses principaux modèles de données. GeoJSON est une norme géospatiale ouverte utilisée pour représenter des données géospatiales au format JSON. Classes GeoJSON disponibles dans le SDK Android Azure Maps pour créer et sérialiser facilement des données GeoJSON. Chargez et stockez les données GeoJSON dans la classe `DataSource` et affichez-les à l’aide de couches. Le code suivant illustre la façon dont les objets GeoJSON peuvent être créés dans Azure Maps.
+
+::: zone pivot="programming-language-java-android"
 
 ```java
 /*
@@ -53,7 +56,42 @@ feature.addStringProperty("custom-property", "value");
 source.add(feature);
 ```
 
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+/*
+    Raw GeoJSON feature
+    
+    {
+         "type": "Feature",
+         "geometry": {
+             "type": "Point",
+             "coordinates": [-100, 45]
+         },
+         "properties": {
+             "custom-property": "value"
+         }
+    }
+
+*/
+
+//Create a point feature.
+val feature = Feature.fromGeometry(Point.fromLngLat(-100, 45))
+
+//Add a property to the feature.
+feature.addStringProperty("custom-property", "value")
+
+//Add the feature to the data source.
+source.add(feature)
+```
+
+::: zone-end
+
 Les propriétés peuvent également être d’abord chargées dans un objet JSON, puis transmises à la fonctionnalité lors de sa création, comme indiqué ci-dessous.
+
+::: zone pivot="programming-language-java-android"
 
 ```java
 //Create a JsonObject to store properties for the feature.
@@ -62,6 +100,20 @@ properties.addProperty("custom-property", "value");
 
 Feature feature = Feature.fromGeometry(Point.fromLngLat(-100, 45), properties);
 ```
+
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+//Create a JsonObject to store properties for the feature.
+val properties = JsonObject()
+properties.addProperty("custom-property", "value")
+
+val feature = Feature.fromGeometry(Point.fromLngLat(-100, 45), properties)
+```
+
+::: zone-end
 
 Une fois que vous avez créé une fonctionnalité GeoJSON, vous pouvez ajouter une source de données à la carte via la propriété `sources` de la carte. Le code suivant montre comment créer une `DataSource`, l’ajouter à la carte et y ajouter une fonctionnalité.
 
@@ -75,6 +127,8 @@ source.add(feature);
 ```
 
 Le code suivant montre plusieurs façons de créer une classe Feature, FeatureCollection et des géométries GeoJSON.
+
+::: zone pivot="programming-language-java-android"
 
 ```java
 //GeoJSON Point Geometry
@@ -112,9 +166,53 @@ FeatureCollection featureCollectionFromSingleFeature = FeatureCollection.fromFea
 FeatureCollection featureCollection = FeatureCollection.fromFeatures(listOfFeatures);
 ```
 
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+//GeoJSON Point Geometry
+val point = Point.fromLngLat(LONGITUDE, LATITUDE)
+
+//GeoJSON Point Geometry
+val linestring = LineString.fromLngLats(PointList)
+
+//GeoJSON Polygon Geometry
+val polygon = Polygon.fromLngLats(listOfPointList)
+
+val polygonFromOuterInner = Polygon.fromOuterInner(outerLineStringObject, innerLineStringObject)
+
+//GeoJSON MultiPoint Geometry
+val multiPoint = MultiPoint.fromLngLats(PointList)
+
+//GeoJSON MultiLineString Geometry
+val multiLineStringFromLngLat = MultiLineString.fromLngLats(listOfPointList)
+
+val multiLineString = MultiLineString.fromLineString(singleLineString)
+
+//GeoJSON MultiPolygon Geometry
+val multiPolygon = MultiPolygon.fromLngLats(listOflistOfPointList)
+
+val multiPolygonFromPolygon = MultiPolygon.fromPolygon(polygon)
+
+val multiPolygonFromPolygons = MultiPolygon.fromPolygons(PolygonList)
+
+//GeoJSON Feature
+val pointFeature = Feature.fromGeometry(Point.fromLngLat(LONGITUDE, LATITUDE))
+
+//GeoJSON FeatureCollection 
+val featureCollectionFromSingleFeature = FeatureCollection.fromFeature(pointFeature)
+
+val featureCollection = FeatureCollection.fromFeatures(listOfFeatures)
+```
+
+::: zone-end
+
 ### <a name="serialize-and-deserialize-geojson"></a>Sérialiser et désérialiser des objets GeoJSON
 
 Les classes de collection de fonctionnalités, de fonctionnalités et de géométries ont toutes les méthodes statiques `fromJson()` et `toJson()`, qui aident à la sérialisation. La chaîne JSON valide mise en forme, transmise via la méthode `fromJson()`, crée l’objet de géométrie. Cette méthode `fromJson()` signifie également que vous pouvez utiliser Gson ou d’autres stratégies de sérialisation/désérialisation. Le code suivant montre comment prendre une fonctionnalité GeoJSON convertie et la désérialiser dans la classe Feature, puis la sérialiser de nouveau dans une chaîne GeoJSON.
+
+::: zone pivot="programming-language-java-android"
 
 ```java
 //Take a stringified GeoJSON object.
@@ -136,11 +234,39 @@ Feature feature = Feature.fromJson(GeoJSON_STRING);
 String featureString = feature.toJson();
 ```
 
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+//Take a stringified GeoJSON object.
+val GeoJSON_STRING = ("{"
+        + "      \"type\": \"Feature\","
+        + "      \"geometry\": {"
+        + "            \"type\": \"Point\""
+        + "            \"coordinates\": [-100, 45]"
+        + "      },"
+        + "      \"properties\": {"
+        + "            \"custom-property\": \"value\""
+        + "      },"
+        + "}")
+
+//Deserialize the JSON string into a feature.
+val feature = Feature.fromJson(GeoJSON_STRING)
+
+//Serialize a feature collection to a string.
+val featureString = feature.toJson()
+```
+
+::: zone-end
+
 ### <a name="import-geojson-data-from-web-or-assets-folder"></a>Importer des données GeoJSON à partir d’un dossier web ou de ressources
 
 La plupart des fichiers GeoJSON contiennent une classe FeatureCollection. Lisez les fichiers GeoJSON en tant que chaînes et utilisez la méthode `FeatureCollection.fromJson` pour les désérialiser.
 
 Le code suivant est une classe réutilisable qui permet d’importer des données à partir d’un dossier web ou de ressources locales sous forme de chaîne et de les renvoyer au thread d’interface utilisateur par le biais d’une fonction de rappel.
+
+::: zone pivot="programming-language-java-android"
 
 ```java
 import android.content.Context;
@@ -315,7 +441,78 @@ public class Utils {
 }
 ```
 
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+import android.content.Context
+import android.os.Handler
+import android.os.Looper
+import android.webkit.URLUtil
+import java.net.URL
+import java.util.concurrent.ExecutorService
+import java.util.concurrent.Executors
+
+class Utils {
+    companion object {
+
+        /**
+            * Imports data from a web url or asset file name and returns it to a callback.
+            * @param urlOrFileName A web url or asset file name that points to data to load.
+            * @param context The context of the app.
+            * @param callback The callback function to return the data to.
+            */
+        fun importData(urlOrFileName: String?, context: Context, callback: (String?) -> Unit) {
+            importData(urlOrFileName, context, callback, null)
+        }
+
+        /**
+            * Imports data from a web url or asset file name and returns it to a callback.
+            * @param urlOrFileName A web url or asset file name that points to data to load.
+            * @param context The context of the app.
+            * @param callback The callback function to return the data to.
+            * @param error A callback function to return errors to.
+            */
+        public fun importData(urlOrFileName: String?, context: Context, callback: (String?) -> Unit, error: ((String?) -> Unit)?) {
+            if (urlOrFileName != null && callback != null) {
+                val executor: ExecutorService = Executors.newSingleThreadExecutor()
+                val handler = Handler(Looper.getMainLooper())
+                executor.execute {
+                    var data: String? = null
+                    
+                    try {
+                        data = if (URLUtil.isNetworkUrl(urlOrFileName)) {
+                            URL(urlOrFileName).readText()
+                        } else { //Assume file is in assets folder.
+                            context.assets.open(urlOrFileName).bufferedReader().use{
+                                it.readText()
+                            }
+                        }
+
+                        handler.post {
+                            //Ensure the resulting data string is not null or empty.
+                            if (data != null && !data.isEmpty()) {
+                                callback(data)
+                            } else {
+                                error!!("No data imported.")
+                            }
+                        }
+                    } catch (e: Exception) {
+                        error!!(e.message)
+                    }
+                }
+            }
+        }
+    }
+}
+```
+
+::: zone-end
+
 Le code ci-dessous montre comment utiliser cet utilitaire pour importer des données GeoJSON sous forme de chaîne et les renvoyer au thread d’interface utilisateur par le biais d’un rappel. Dans le rappel, les données de chaîne peuvent être sérialisées dans une collection de fonctionnalités GeoJSON et ajoutées à la source de données. Vous pouvez également mettre à jour la caméra de la carte pour vous concentrer sur les données.
+
+::: zone pivot="programming-language-java-android"
 
 ```java
 //Create a data source and add it to the map.
@@ -344,6 +541,41 @@ Utils.importData("URL_or_FilePath_to_GeoJSON_data",
     });
 ```
 
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+//Create a data source and add it to the map.
+DataSource source = new DataSource();
+map.sources.add(source);
+
+//Import the GeoJSON data and add it to the data source.
+Utils.importData("SamplePoiDataSet.json", this) { 
+    result: String? ->
+        //Parse the data as a GeoJSON Feature Collection.
+            val fc = FeatureCollection.fromJson(result!!)
+
+        //Add the feature collection to the data source.
+        source.add(fc)
+
+        //Optionally, update the maps camera to focus in on the data.
+
+        //Calculate the bounding box of all the data in the Feature Collection.
+        val bbox = MapMath.fromData(fc);
+
+        //Update the maps camera so it is focused on the data.
+        map.setCamera(
+            bounds(bbox),
+
+            //Padding added to account for pixel size of rendered points.
+            padding(20)
+        )
+    }
+```
+
+::: zone-end
+
 ## <a name="vector-tile-source"></a>Source de mosaïque vectorielle
 
 Une source de vignettes vectorielles décrit comment accéder à un calque de vignettes vectorielles. Utilisez la classe `VectorTileSource` pour instancier une source de vignettes vectorielles. Les calques de vignettes vectorielles sont similaires aux calques de vignettes, mais ils ne sont pas identiques. Un calque de vignettes est une image raster. Une couche de vignette vectorielle est un fichier compressé au format **PBF**. Ce fichier compressé contient les données d’une carte vectorielle et un ou plusieurs calques. Le fichier peut être rendu et stylisé sur le client, en fonction du style de chaque calque. Les données d’une mosaïque vectorielle contiennent des caractéristiques géographiques sous forme de points, de lignes et de polygones. Il y a plusieurs avantages à utiliser les calques de vignettes vectorielles au lieu des calques de vignettes raster :
@@ -364,6 +596,8 @@ Azure Maps est conforme à la [spécification Mapbox Vector Tile](https://github
 > Si vous utilisez des vignettes d’images vectorielles ou raster issues du service de rendu Azure Maps avec le kit SDK web, vous pouvez remplacer `atlas.microsoft.com` par l’espace réservé `azmapsdomain.invalid`. Cet espace réservé sera remplacé par le domaine de la carte et ajoutera automatiquement les mêmes informations d’authentification. L’authentification auprès du service de rendu avec Azure Active Directory s’en trouve grandement simplifiée.
 
 Pour afficher les données d’une source de vignette vectorielle sur la carte, connectez la source à l’une des couches de rendu de données. Toutes les couches qui utilisent une source vectorielle doivent spécifier une valeur `sourceLayer` dans les options. Le code suivant charge le service de mosaïque vectorielle Débit de circulation Azure Maps comme source de mosaïque vectorielle, puis l’affiche sur une carte à l’aide d’une couche de lignes. Cette source de vignette vectorielle comporte un seul jeu de données dans la couche source, appelé « Débit de circulation ». Les données de lignes de ce jeu de données possèdent une propriété nommée `traffic_level` qui est utilisée dans ce code pour sélectionner la couleur et mettre à l’échelle la taille des lignes.
+
+::: zone pivot="programming-language-java-android"
 
 ```java
 //Formatted URL to the traffic flow vector tiles, with the maps subscription key appended to it.
@@ -407,6 +641,50 @@ LineLayer layer = new LineLayer(source,
 map.layers.add(layer, "labels");
 ```
 
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+//Formatted URL to the traffic flow vector tiles, with the maps subscription key appended to it.
+val trafficFlowUrl = "https://azmapsdomain.invalid/traffic/flow/tile/pbf?api-version=1.0&style=relative&zoom={z}&x={x}&y={y}"
+
+//Create a vector tile source and add it to the map.
+val source = VectorTileSource(
+    tiles(arrayOf(trafficFlowUrl)),
+    maxSourceZoom(22)
+)
+map.sources.add(source)
+
+//Create a layer for traffic flow lines.
+val layer = LineLayer(
+    source,  //The name of the data layer within the data source to pass into this rendering layer.
+    sourceLayer("Traffic flow"),  //Color the roads based on the traffic_level property.
+    strokeColor(
+        interpolate(
+            linear(),
+            get("traffic_level"),
+            stop(0, color(Color.RED)),
+            stop(0.33, color(Color.YELLOW)),
+            stop(0.66, color(Color.GREEN))
+        )
+    ),  //Scale the width of roads based on the traffic_level property.
+    strokeWidth(
+        interpolate(
+            linear(),
+            get("traffic_level"),
+            stop(0, 6),
+            stop(1, 1)
+        )
+    )
+)
+
+//Add the traffic flow layer below the labels to make the map clearer.
+map.layers.add(layer, "labels")
+```
+
+::: zone-end
+
 ![Carte avec des lignes de route avec un codage à l’aide de couleurs présentant différents niveaux de flux de trafic](media/create-data-source-android-sdk/android-vector-tile-source-line-layer.png)
 
 ## <a name="connecting-a-data-source-to-a-layer"></a>Connexion d’une source de données à un calque
@@ -420,6 +698,8 @@ Les données sont affichées sur la carte à l’aide de calques de rendu. Une s
 - [Calque de polygones](how-to-add-shapes-to-android-map.md) : remplit la zone d’un polygone avec un motif d’image ou une couleur unie.
 
 Le code suivant montre comment créer une source de données, l’ajouter à la carte et la connecter à un calque de bulles. Ensuite, il importe dans la source de données des données de points GeoJSON à partir d’un emplacement distant.
+
+::: zone pivot="programming-language-java-android"
 
 ```java
 //Create a data source and add it to the map.
@@ -452,6 +732,42 @@ Utils.importData("URL_or_FilePath_to_GeoJSON_data",
     });
 ```
 
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+//Create a data source and add it to the map.
+val source = DataSource()
+map.sources.add(source)
+
+//Create a layer that defines how to render points in the data source and add it to the map.
+val layer = BubbleLayer(source)
+map.layers.add(layer)
+
+//Import the geojson data and add it to the data source.
+Utils.importData("URL_or_FilePath_to_GeoJSON_data", this) { 
+    result: String? ->
+        //Parse the data as a GeoJSON Feature Collection.
+        val fc = FeatureCollection.fromJson(result!!)
+    
+        //Add the feature collection to the data source.
+        dataSource.add(fc)
+    
+        //Optionally, update the maps camera to focus in on the data.
+        //Calculate the bounding box of all the data in the Feature Collection.
+        val bbox = MapMath.fromData(fc)
+    
+        //Update the maps camera so it is focused on the data.
+        map.setCamera(
+            bounds(bbox),
+            padding(20)
+        )
+    }
+```
+
+::: zone-end
+
 Il existe des calques de rendu supplémentaires qui ne se connectent pas à ces sources de données, mais qui chargent directement les données pour les rendre.
 
 - [Calque de mosaïque](how-to-add-tile-layer-android-map.md) : superpose un calque de mosaïques raster par-dessus la carte.
@@ -465,6 +781,8 @@ Plusieurs calques peuvent être connectés à une source de données unique. Cet
 Dans la plupart des plateformes de cartographie, vous avez besoin d’un objet polygone, d’un objet ligne et d’une épingle pour chaque position dans le polygone. Quand le polygone est modifié, vous devez alors mettre à jour manuellement la ligne et les épingles, ce qui peut devenir rapidement complexe.
 
 Avec Azure Maps, tout ce dont vous avez besoin est un seul polygone dans une source de données, comme le montre le code ci-dessous.
+
+::: zone pivot="programming-language-java-android"
 
 ```java
 //Create a data source and add it to the map.
@@ -497,10 +815,50 @@ BubbleLayer bubbleLayer = new BubbleLayer(source,
 map.layers.add(new Layer[] { polygonLayer, lineLayer, bubbleLayer });
 ```
 
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+//Create a data source and add it to the map.
+val source = DataSource()
+map.sources.add(source)
+
+//Create a polygon and add it to the data source.
+source.add(Polygon.fromLngLats())
+
+//Create a polygon layer to render the filled in area of the polygon.
+val polygonLayer = PolygonLayer(
+    source,
+    fillColor("rgba(255,165,0,0.2)")
+)
+
+//Create a line layer for greater control of rendering the outline of the polygon.
+val lineLayer = LineLayer(
+    source,
+    strokeColor("orange"),
+    strokeWidth(2f)
+)
+
+//Create a bubble layer to render the vertices of the polygon as scaled circles.
+val bubbleLayer = BubbleLayer(
+    source,
+    bubbleColor("orange"),
+    bubbleRadius(5f),
+    bubbleStrokeColor("white"),
+    bubbleStrokeWidth(2f)
+)
+
+//Add all layers to the map.
+map.layers.add(arrayOf<Layer>(polygonLayer, lineLayer, bubbleLayer))
+```
+
+::: zone-end
+
 > [!TIP]
-> Lorsque vous ajoutez des couches à la carte à l’aide de la méthode `map.layers.add`, l’ID ou l’instance d’une couche existante peut être transmis en tant que second paramètre. Cela permet d’indiquer à la carte d’insérer la nouvelle couche ajoutée en dessous de la couche existante. En plus de transmettre un ID de couche, cette méthode prend également en charge les valeurs suivantes.
+> Lorsque vous ajoutez des couches à la carte à l’aide de la méthode `map.layers.add`, l’ID ou l’instance d’une couche existante peut être transmis en tant que second paramètre. Cela permet d’indiquer à la carte d’insérer la nouvelle couche au-dessous de la couche existante. En plus de transmettre un ID de couche, cette méthode prend en charge les valeurs suivantes.
 >
-> - `"labels"` : insère la nouvelle couche sous les couches d’étiquette de la carte.
+> - `"labels"` : insère la nouvelle couche sous les couches d’étiquettes de la carte.
 > - `"transit"` : insère la nouvelle couche sous les couches de routes et de transit de la carte.
 
 ## <a name="next-steps"></a>Étapes suivantes

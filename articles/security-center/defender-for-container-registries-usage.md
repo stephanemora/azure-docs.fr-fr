@@ -7,12 +7,12 @@ ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: a5d66e43485ec66b6297ef11ed382e8fb82b7cb3
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: ee4992e41e792b570d8937edfe31efb4c651d742
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96014570"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102100727"
 ---
 # <a name="use-azure-defender-for-container-registries-to-scan-your-images-for-vulnerabilities"></a>Analyse des vulnérabilités dans les images avec Azure Defender pour les registres de conteneurs
 
@@ -21,8 +21,6 @@ Cette page explique comment utiliser le scanner de vulnérabilité intégré pou
 Lorsque **Azure Defender pour les registres de conteneurs** est activé, chaque image envoyée au registre est immédiatement analysée, de même que chaque image extraite au cours des 30 derniers jours. 
 
 Lorsque le scanner signale des vulnérabilités à Security Center, ce dernier présente les résultats et les informations connexes sous forme de recommandations. En outre, les résultats incluent des informations connexes, telles que les étapes de correction, les CVE pertinents, les scores CVSS et bien plus encore. Les vulnérabilités identifiées peuvent être affichées pour un ou plusieurs abonnements ou pour un registre en particulier.
-
-[!INCLUDE [Defender for container registries availability info](../../includes/security-center-availability-defender-for-container-registries.md)]
 
 
 ## <a name="identify-vulnerabilities-in-images-in-azure-container-registries"></a>Identification des vulnérabilités dans les images des registres de conteneurs Azure Container Registry 

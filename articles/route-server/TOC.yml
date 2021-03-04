@@ -6,6 +6,8 @@
       href: overview.md
 - name: Démarrages rapides
   items:
+    - name: Configurer un serveur de routage - Portail
+      href: quickstart-configure-route-server-portal.md
     - name: Configurer un serveur de routage – PowerShell
       href: quickstart-configure-route-server-powershell.md
     - name: Configurer un serveur de routage – CLI
