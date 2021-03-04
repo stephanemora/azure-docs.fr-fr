@@ -3,14 +3,14 @@ title: Guide pratique pour interroger des prédictions à l’aide d’un naviga
 description: Dans cet article, utilisez une application LUIS publique disponible pour déterminer l’intention d’un utilisateur à partir du texte conversationnel dans un navigateur.
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: quickstart
 ms.date: 11/30/2020
-ms.openlocfilehash: 6aa681c8ea60cb57ac3e6d143c60cc46bc057719
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: a3bad4ab69f6950f83db9cf1f49cfa4cb7c7b5f0
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96436910"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102040122"
 ---
 # <a name="how-to-query-the-prediction-runtime-with-user-text"></a>Guide pratique pour interroger le runtime de prédiction avec du texte utilisateur
 

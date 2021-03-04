@@ -1,17 +1,16 @@
 ---
 title: Examiner les erreurs à l’aide du tableau de bord d’ITSMC
 description: Découvrez comment utiliser le tableau de bord Connecteur de gestion des services informatiques pour examiner les erreurs.
-ms.subservice: alerts
 ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 01/15/2021
-ms.openlocfilehash: 5cbd501b9ccb408ee23cb5c8ed9cde2689ef79fb
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 5e1acf422abf487edda3e871fa99d07212c59b3a
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100599306"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102039527"
 ---
 # <a name="investigate-errors-by-using-the-itsmc-dashboard"></a>Examiner les erreurs à l’aide du tableau de bord d’ITSMC
 

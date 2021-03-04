@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 03/03/2021
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: a66f0a2de1d8239baffbe53dfb5d6f2dd275d448
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 376c61f6a5ba94492cac26950465c61e3d8fe4ed
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756333"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102038558"
 ---
 # <a name="scenario-a-web-api-that-calls-web-apis"></a>Scénario : Une API web qui appelle des API web
 
@@ -30,9 +30,7 @@ Ce scénario, dans lequel une API web protégée appelle d’autres API web, rep
 ## <a name="overview"></a>Vue d’ensemble
 
 - Un client d’application web, de bureau, mobile ou monopage (non représenté sur le diagramme) appelle une API web protégée et fournit un jeton du porteur JSON Web Token (JWT) dans son en-tête HTTP « Autorisation ».
-- L’API web protégée valide le jeton et utilise la méthode de la bibliothèque d’authentification Microsoft (MSAL) `AcquireTokenOnBehalfOf` pour demander un autre jeton à Azure Active Directory (Azure AD) afin que l’API web protégée puisse appeler une deuxième API web, ou une API web en aval, pour le compte de l’utilisateur.
-- Cette API web protéger peut également appeler `AcquireTokenSilent`ultérieurement afin de demander des jetons pour les autres API en aval pour le compte du même utilisateur. `AcquireTokenSilent` actualise le jeton, si besoin.
-
+- L’API web protégée valide le jeton et utilise la méthode de la bibliothèque d’authentification Microsoft (MSAL) `AcquireTokenOnBehalfOf` pour demander un autre jeton à Azure Active Directory (Azure AD) afin que l’API web protégée puisse appeler une deuxième API web, ou une API web en aval, pour le compte de l’utilisateur. `AcquireTokenOnBehalfOf` actualise le jeton, si besoin.
 ![Diagramme d’une API web appelant une API web](media/scenarios/web-api.svg)
 
 ## <a name="specifics"></a>Spécificités

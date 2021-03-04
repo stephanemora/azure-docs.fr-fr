@@ -387,7 +387,7 @@
           displayName: application
         - name: Bonnes pratiques opérationnelles
           href: concept-operation-excellence-best-practices.md
-    - name: Dépannage
+    - name: Résolution des problèmes
       items:
         - name: Dépannage de la performance des requêtes
           href: howto-troubleshoot-query-performance.md
@@ -413,7 +413,7 @@
         - name: "Qu’est-ce que Serveur flexible\_?"
           href: flexible-server/overview.md
         - name: Versions prises en charge
-          href: flexible-server/concepts-supported-versions.md
+          href: concepts-supported-versions.md
         - name: Calcul et stockage
           href: flexible-server/concepts-compute-storage.md
     - name: Démarrages rapides
