@@ -1,17 +1,16 @@
 ---
 title: Log Analytics dans Azure Monitor propose des ensembles d’exemples de requêtes que vous pouvez exécuter de manière autonome ou utiliser comme point de départ pour vos propres requêtes.
 description: Requêtes que vous pouvez démarrer et modifier en cas de besoin
-ms.subservice: logs
 ms.topic: article
 author: rboucher
 ms.author: robb
 ms.date: 06/16/2020
-ms.openlocfilehash: e421676ab8c44abc3432ab7ac45aecf98c98c304
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: e4f20032febe1c4afe9cb0964c1b448eaa018103
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101708031"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102030849"
 ---
 # <a name="example-queries-in-azure-monitor-log-analytics"></a>Exemples de requêtes dans Azure Monitor Log Analytics
 Log Analytics propose des ensembles d’exemples de requêtes que vous pouvez exécuter de manière autonome ou utiliser comme point de départ pour vos propres requêtes. Cet article décrit des exemples de requêtes et la manière de les utiliser.

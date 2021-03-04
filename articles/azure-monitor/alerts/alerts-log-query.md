@@ -5,13 +5,12 @@ author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.subservice: alerts
-ms.openlocfilehash: cda3af012a83342d5650c542fafdcd6bc36bd8e3
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a7d65d7c65dabde3834458a36b50216878f7cf8d
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101717976"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102031291"
 ---
 # <a name="optimizing-log-alert-queries"></a>Optimisation des requêtes d’alerte de journal
 Cet article explique comment écrire et convertir des requêtes d’[alerte de journal](./alerts-unified-log.md) pour obtenir des performances optimales. Les requêtes optimisées réduisent la latence et la charge des alertes qui s’exécutent fréquemment.

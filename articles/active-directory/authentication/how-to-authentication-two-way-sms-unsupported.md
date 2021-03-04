@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 02/25/2021
+ms.date: 03/02/2021
 ms.author: justinha
 author: rhicock
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e90a6060a9c8202f7f743a0ee433f89b9dc9fdd
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: d25ed1e46823ec6d820addf3944c96c97fcabcb8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101660210"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101689026"
 ---
 # <a name="two-way-sms-unsupported"></a>SMS bidirectionnel non pris en charge
 
@@ -27,7 +27,7 @@ Les notifications par e-mail et les notifications Service Health sur le portail 
 ## <a name="required-actions"></a>Actions requises
 
 1. Activez l’application mobile pour vos utilisateurs si ce n’est déjà fait. Pour plus d’informations, consultez [Activer l’authentification d’application mobile avec un serveur MFA](howto-mfaserver-deploy-mobileapp.md).
-1. Invitez vos utilisateurs finaux à visiter le [portail utilisateur](howto-mfaserver-deploy-userportal.md) de votre serveur MFA pour activer l’application mobile. L’[application Microsoft Authenticator](https://www.microsoft.com/account/authenticator) est l’option de vérification recommandée, car elle est plus sécurisée que les SMS bidirectionnels. Pour plus d’informations, consultez [Il est temps de dire au revoir aux méthodes d’authentification par téléphone](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/it-s-time-to-hang-up-on-phone-transports-for-authentication/ba-p/1751752).
+1. Invitez vos utilisateurs finaux à visiter le [portail utilisateur](howto-mfaserver-deploy-userportal.md) de votre serveur MFA pour activer l’application mobile. L’[application Microsoft Authenticator](https://www.microsoft.com/en-us/account/authenticator) est l’option de vérification recommandée, car elle est plus sécurisée que les SMS bidirectionnels. Pour plus d’informations, consultez [Il est temps de dire au revoir aux méthodes d’authentification par téléphone](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/it-s-time-to-hang-up-on-phone-transports-for-authentication/ba-p/1751752).
 1. Modifiez les paramètres utilisateur pour la méthode d’authentification par défaut de SMS bidirectionnel en application mobile.
 
 ## <a name="faq"></a>Questions fréquentes (FAQ)

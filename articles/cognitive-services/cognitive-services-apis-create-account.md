@@ -7,15 +7,15 @@ author: aahill
 manager: nitinme
 keywords: services cognitifs, intelligence cognitive, solutions cognitives, services ia
 ms.service: cognitive-services
-ms.topic: conceptual
+ms.topic: quickstart
 ms.date: 09/14/2020
 ms.author: aahi
-ms.openlocfilehash: 3fd1d9e708a5f1a500440f20c2947ddfe4bc7460
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 0ad2d0a10b20aa049147d61bd4e8168ea956392c
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368914"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102031920"
 ---
 # <a name="quickstart-create-a-cognitive-services-resource-using-the-azure-portal"></a>Démarrage rapide : Créer un compte Cognitive Services dans le portail Azure
 
@@ -64,9 +64,9 @@ La solution Azure Cognitive Services correspond à des services cloud avec des A
     | [Ink Recognizer](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesInkRecognizer)        |                         | [Analyse de texte](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics)                |  [Metrics Advisor](https://go.microsoft.com/fwlink/?linkid=2142156)                    | [Vérification orthographique Bing](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSpellCheck-v7)   |
     |           |                         | [Translator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation)               |                      | [Suggestion automatique Bing](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingAutosuggest-v7)                       |
 
-    **_
+    ***
 
-3. Dans la page _ *Créer**, renseignez les informations suivantes :
+3. Sur la page **Créer**, renseignez les informations suivantes :
 
     #### <a name="multi-service-resource"></a>[Ressource multiservice](#tab/multiservice)
 
@@ -96,13 +96,13 @@ La solution Azure Cognitive Services correspond à des services cloud avec des A
 
     Cliquez sur **Créer**.
 
-    **_
+    ***
 
 [!INCLUDE [Register Azure resource for subscription](./includes/register-resource-subscription.md)]
 
 ## <a name="get-the-keys-for-your-resource"></a>Obtenir les clés pour votre ressource
 
-1. Une fois votre ressource déployée avec succès, cliquez sur _ *Accéder à la ressource** sous **Étapes suivantes**.
+1. Une fois votre ressource déployée avec succès, cliquez sur **Accéder à la ressource** sous **Étapes suivantes**.
 
     ![Rechercher Cognitive Services](media/cognitive-services-apis-create-account/resource-next-steps.png)
 

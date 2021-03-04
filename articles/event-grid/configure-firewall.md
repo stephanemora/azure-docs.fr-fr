@@ -2,13 +2,13 @@
 title: Configurer le pare-feu IP pour les rubriques ou domaines Azure Event Grid
 description: Cet article explique comment configurer les paramètres de pare-feu pour les rubriques ou domaines Event Grid.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: fd190a13a177b6b6d0f6b0dbcaa35d63dccd93c9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 03/02/2021
+ms.openlocfilehash: 178b9d84ea8b2e0f764f7584526db8dbcf5284f3
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91324159"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102031835"
 ---
 # <a name="configure-ip-firewall-for-azure-event-grid-topics-or-domains"></a>Configurer le pare-feu IP pour les rubriques ou domaines Azure Event Grid 
 Par défaut, la rubrique et le domaine sont accessibles sur Internet tant que la demande s’accompagne d’une authentification et d’une autorisation valides. Avec le pare-feu IP, vous pouvez les limiter à un ensemble d’adresses IPv4 ou de plages d’adresses IPv4 dans la notation [CIDR (Classless InterDomain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). Les serveurs de publication provenant de toute autre adresse IP seront rejetés et recevront une réponse 403 (interdit). Pour plus d’informations sur les fonctionnalités de sécurité réseau prises en charge par Event Grid, consultez [Sécurité réseau pour Event Grid](network-security.md).
@@ -34,19 +34,6 @@ Cette section montre comment utiliser le Portail Azure afin de créer des règle
 ## <a name="use-azure-cli"></a>Utiliser l’interface de ligne de commande Microsoft Azure
 Cette section vous montre comment utiliser les commandes Azure CLI pour créer des rubriques avec des règles IP entrantes. Les étapes présentées dans cette section concernent les rubriques. Vous pouvez utiliser des étapes similaires pour créer des règles IP entrantes pour les **domaines**. 
 
-
-### <a name="prerequisites"></a>Prérequis
-Mettez à jour l’extension Azure Event Grid pour Azure CLI en exécutant la commande suivante : 
-
-```azurecli-interactive
-az extension update -n eventgrid
-```
-
-Si l’extension n’est pas installée, exécutez la commande suivante pour l’installer : 
-
-```azurecli-interactive
-az extension add -n eventgrid
-```
 
 ### <a name="enable-or-disable-public-network-access"></a>Activer ou désactiver l’accès au réseau public
 Par défaut, l’accès au réseau public est activé pour les rubriques et les domaines. Vous pouvez également l’activer ou le désactiver explicitement. Vous pouvez limiter le trafic en configurant des règles de pare-feu IP entrantes. 

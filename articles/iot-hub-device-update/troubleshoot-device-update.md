@@ -6,12 +6,12 @@ ms.author: lichris
 ms.date: 2/17/2021
 ms.topic: troubleshooting
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 6329e93bb5e628d68afbb2700ce0b9e3a2a711ad
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 3c1f60b214397b1f97e0157b5beca32d504102d6
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101678354"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102030628"
 ---
 # <a name="device-update-for-iot-hub-troubleshooting-guide"></a>Guide de dépannage de Device Update pour IoT Hub
 
@@ -46,7 +46,7 @@ _L’actualisation de l’état de conformité de l’appareil peut prendre jusq
 ### <a name="q-my-devices-deployment-status-shows-incompatible-what-should-i-do"></a>Q : L’état du déploiement de mon appareil indique une incompatibilité. Que dois-je faire ?
 _Les propriétés du fabricant et du modèle d’un appareil ciblé peuvent avoir été modifiées après la connexion de l’appareil à IoT Hub, ce qui fait que l’appareil est maintenant considéré comme incompatible avec le contenu de la mise à jour du déploiement actuel._
 
-_Vérifiez l’[interface ADU Core](./device-update-plug-and-play) pour voir le fabricant et le modèle indiqués par votre appareil au service Device Update, et vérifiez s’ils correspondent au fabricant et au modèle que vous avez spécifiés dans le [manifeste d’importation](./import-concepts.md) du contenu de la mise à jour à déployer. Vous pouvez modifier ces propriétés pour un appareil donné en utilisant le [fichier de configuration de Device Update](./device-update-cofiguration-file.md)._
+_Vérifiez l’[interface ADU Core](./device-update-plug-and-play.md) pour voir le fabricant et le modèle indiqués par votre appareil au service Device Update, et vérifiez s’ils correspondent au fabricant et au modèle que vous avez spécifiés dans le [manifeste d’importation](./import-concepts.md) du contenu de la mise à jour à déployer. Vous pouvez modifier ces propriétés pour un appareil donné en utilisant le [fichier de configuration de Device Update](./device-update-configuration-file.md)._
 
 ### <a name="q-i-see-my-deployment-is-in-active-stage-but-none-of-my-devices-are-in-progress-with-the-update-what-should-i-do"></a>Q : Je vois que mon déploiement est dans la phase « Active », mais la mise à jour n’est « En cours » sur aucun de mes appareils. Que dois-je faire ?
 _Vérifiez que la date de début de votre déploiement n’est pas définie sur un moment dans le futur. Quand vous créez un déploiement, à titre de protection, la date de début du déploiement est par défaut le jour qui suit, sauf si vous la changez explicitement. Vous pouvez attendre que la date de début de votre déploiement arrive, ou bien annuler le déploiement en cours et créer un nouveau déploiement avec la date de début souhaitée._

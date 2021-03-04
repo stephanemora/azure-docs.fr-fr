@@ -158,6 +158,8 @@
       href: howto-authentication-temporary-access-pass.md
     - name: Utiliser une authentification par SMS
       href: howto-authentication-sms-signin.md
+    - name: SMS bidirectionnel non pris en charge
+      href: how-to-authentication-two-way-sms-unsupported.md
     - name: Utiliser une connexion par adresse e-mail
       href: howto-authentication-use-email-signin.md
     - name: Valeurs de verrouillage intelligent Azure AD
@@ -173,7 +175,7 @@
               href: active-directory-certificate-based-authentication-ios.md
     - name: Signalement
       items:
-        - name: Utilisation et insights
+        - name: Activité des méthodes d’authentification
           href: howto-authentication-methods-usage-insights.md
         - name: Rapports SSPR
           href: howto-sspr-reporting.md

@@ -1,17 +1,16 @@
 ---
 title: Exemples de requêtes de journal Azure Monitor | Microsoft Docs
 description: Exemples de requêtes de journal Azure Monitor utilisant le langage de requête Kusto.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/16/2020
-ms.openlocfilehash: e2050784d03b1f01e743df9b00916ec286a3e7ef
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 56866d8e255f15a93aaa9133f9cda9de4fdd9fd5
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101736948"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102030798"
 ---
 # <a name="azure-monitor-log-query-examples"></a>Exemples de requêtes de journal dans Azure Monitor
 Cet article inclut divers exemples de [requêtes](./log-query-overview.md) utilisant le [langage de requête Kusto](/azure/kusto/query/) pour récupérer différents types de données de journal à partir d'Azure Monitor. Plusieurs méthodes sont utilisées pour consolider et analyser les données. Vous pouvez utiliser ces exemples pour identifier les stratégies qui vous conviennent.  

@@ -6,13 +6,12 @@ ms.author: robb
 services: azure-monitor
 ms.topic: conceptual
 ms.date: 01/12/2020
-ms.subservice: metrics
-ms.openlocfilehash: a88a52163f03d2bffb0c9c4eab53fd814d9554fb
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: b7e9318ee34836f8fbd2ae7a330134d8174e6a60
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101725864"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102031393"
 ---
 # <a name="azure-monitor-metrics-metrics-aggregation-and-display-explained"></a>Explication de l’agrégation et de l’affichage des métriques Azure Monitor
 

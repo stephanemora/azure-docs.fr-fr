@@ -4,15 +4,14 @@ description: Utilisez Azure Monitor pour effectuer des requêtes inter-produits 
 author: osalzberg
 ms.author: bwren
 ms.reviewer: bwren
-ms.subservice: logs
 ms.topic: conceptual
 ms.date: 12/02/2020
-ms.openlocfilehash: 8bc47eb2a6a22224f4df186136da2c184979ea24
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 1857f0e39cd5d9ddc616eed1db18cd58b98721a4
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100599856"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102031121"
 ---
 # <a name="cross-resource-query-azure-data-explorer-by-using-azure-monitor"></a>Requête inter-ressources Azure Data Explorer à l’aide d’Azure Monitor
 Azure Monitor prend en charge les requêtes inter-services entre Azure Data Explorer, [Application Insights](../app/app-insights-overview.md) et [Log Analytics](../logs/data-platform-logs.md). Vous pouvez ensuite interroger votre cluster Azure Data Explorer à l'aide des outils Log Analytics/Application Insights et y faire référence dans une requête inter-services. L’article montre comment effectuer une requête inter-services.

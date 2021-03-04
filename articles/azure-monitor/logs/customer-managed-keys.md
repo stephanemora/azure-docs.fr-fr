@@ -1,17 +1,16 @@
 ---
 title: Clé gérée par le client dans Azure Monitor
 description: Informations et étapes relatives à la configuration d’une clé gérée par le client pour chiffrer des données dans vos espaces de travail Log Analytics à l’aide d’une clé Azure Key Vault.
-ms.subservice: logs
 ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 01/10/2021
-ms.openlocfilehash: fa826e951b9fe34eb27481718b8f026747011e4e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 9fdaf42f18c320bf841e710b7066451fca24eaae
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101717415"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102030985"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Clé gérée par le client dans Azure Monitor 
 
