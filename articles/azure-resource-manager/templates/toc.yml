@@ -4,6 +4,8 @@
   items:
     - name: "Que sont les modèles ARM\_?"
       href: overview.md
+    - name: Vue d’ensemble de Bicep
+      href: bicep-overview.md
 - name: Démarrages rapides
   items:
     - name: Créer des modèles – Portail
@@ -324,9 +326,7 @@
       href: template-best-practices.md
     - name: Bicep
       items:
-        - name: Vue d’ensemble
-          href: bicep-overview.md
-        - name: Passer de JSON à Bicep
+        - name: Comparatif entre JSON et Bicep
           href: compare-template-syntax.md
     - name: Forum aux questions
       href: frequently-asked-questions.md

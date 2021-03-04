@@ -1,17 +1,16 @@
 ---
 title: Exemples de modèle Resource Manager pour les espaces de travail Log Analytics
 description: Exemples de modèle Azure Resource Manager pour déployer des espaces de travail Log Analytics et configurer des sources de données dans Azure Monitor.
-ms.subservice: logs
 ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2020
-ms.openlocfilehash: a908709e49bed1e07a5fdfecd165c45f8792987c
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 5c1ef7d8de32564e2b1d3b1578fcd72cefde0327
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101725592"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102047143"
 ---
 # <a name="resource-manager-template-samples-for-log-analytics-workspaces-in-azure-monitor"></a>Exemples de modèle Resource Manager pour les espaces de travail Log Analytics dans Azure Monitor
 Cet article contient des exemples de [modèles Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) pour créer et configurer des espace de travail Log Analytics dans Azure Monitor. Chaque exemple comprend un fichier de modèle et un fichier de paramètres avec des exemples de valeurs à fournir au modèle.

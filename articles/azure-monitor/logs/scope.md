@@ -1,17 +1,16 @@
 ---
 title: Étendue de requête de journal dans la fonctionnalité Log Analytics d’Azure Monitor
 description: Décrit l’étendue et l’intervalle de temps pour une requête de journal dans la fonctionnalité Log Analytics d’Azure Monitor.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/09/2020
-ms.openlocfilehash: 892c79d7908903b95a3bbbae2857933d877c7fba
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 43e4e861905352c2818dfb08b8cb442bd70481c1
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100600054"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102047177"
 ---
 # <a name="log-query-scope-and-time-range-in-azure-monitor-log-analytics"></a>Étendue de requête de journal et intervalle de temps dans la fonctionnalité Log Analytics d’Azure Monitor
 Lorsque vous exécutez un [requête de journal](../logs/log-query-overview.md) à l’aide de la fonctionnalité [Log Analytics sur le portail Azure](../logs/log-analytics-tutorial.md), le jeu de données évalué par la requête dépend de l’étendue et de l’intervalle de temps que vous sélectionnez. Cet article décrit l’étendue et l’intervalle de temps, ainsi que la manière de les définir selon vos besoins. Il décrit également le comportement des différents types d’étendues.

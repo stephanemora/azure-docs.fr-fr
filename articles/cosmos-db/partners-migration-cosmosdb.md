@@ -6,12 +6,12 @@ ms.author: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
-ms.openlocfilehash: 7fe0817abfac3070f77303bb0d2d662d18010862
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 66f26cfa14d51a985e2bb420bec294f7ef3a6cd1
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99090467"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102048129"
 ---
 # <a name="azure-cosmos-db-nosql-migration-and-application-development-partners"></a>Partenaires pour le développement d’applications et la migration NoSQL pour solutions Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -31,7 +31,6 @@ De la migration NoSQL au développement d’applications, vous pouvez choisir pa
 | [Capgemini](https://www.capgemini.com/) | Vente au détail (inventaire), IoT, analytique opérationnelle (Spark), développement d’applications | États-Unis, France, Royaume-Uni, Pays-bas, Finlande  |
 | [Cognizant](https://www.cognizant.com/) | IoT, personnalisation, vente au détail (inventaire), analytique opérationnelle (Spark), développement d’applications |États-Unis, Canada, Royaume-Uni, Danemark, Pays-bas, Suisse, Australie, Japon |
 |[Infosys](https://www.infosys.com/)     | Développement d’applications      |    États-Unis    |  
-| [Lagash Systems](https://www.devex.com/organizations/lagash-systems-131346) | IoT, architecture sans serveur, développement d’applications | Argentine, Chili, Colombie, Mexique|
 | [Lambda3 Informatics](https://www.lambda3.com.br/) | Personnalisation en temps réel, inventaire de vente au détail, développement d’applications | Brésil|
 |[Neal Analytics](https://www.nealanalytics.com/)    |     Personnalisation, vente au détail (inventaire), analytique opérationnelle (Spark), développement d’applications  |    États-Unis     |  
 |[Pragmatic Works Software Inc](https://www.pragmaticworks.com/)    |   Migration NoSQL      |   États-Unis      |

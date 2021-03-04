@@ -36,6 +36,8 @@
           items:
             - name: Évaluer les machines virtuelles VMware pour les migrer vers des machines virtuelles Azure
               href: tutorial-assess-vmware-azure-vm.md
+            - name: "Évaluer les instances SQL pour la migration vers Azure\_SQL"
+              href: tutorial-assess-sql.md
             - name: Évaluer les machines virtuelles VMware pour les migrer vers AVS
               href: tutorial-assess-vmware-azure-vmware-solution.md
         - name: Évaluer les machines virtuelles Hyper-V pour les migrer vers Azure
@@ -102,6 +104,8 @@
       items:
         - name: Vue d’ensemble des évaluations (migrer vers des machines virtuelles Azure)
           href: concepts-assessment-calculation.md
+        - name: "Vue d’ensemble des évaluations (migrer vers Azure\_SQL)"
+          href: concepts-azure-sql-assessment-calculation.md
         - name: Vue d’ensemble des évaluations (migrer vers AVS)
           href: concepts-azure-vmware-solution-assessment-calculation.md
         - name: Meilleures pratiques relatives à l’évaluation
@@ -144,8 +148,12 @@
               href: deploy-appliance-script-government.md
         - name: Limiter l’étendue de découverte des machines virtuelles VMware
           href: set-discovery-scope.md
+        - name: Guide pratique pour ajouter des informations d’identification de serveur
+          href: add-server-credentials.md
         - name: Découvrir des applications/rôles/fonctionnalités
           href: how-to-discover-applications.md
+        - name: Découvrir les instances SQL dans un projet existant
+          href: how-to-discover-sql-existing-project.md
         - name: Analyser les dépendances des machines (basées sur agent)
           href: how-to-create-group-machine-dependencies.md
         - name: Analyser les dépendances des machines (sans agent)
@@ -158,6 +166,8 @@
           href: how-to-create-a-group.md
         - name: Créer une évaluation de machine virtuelle Azure
           href: how-to-create-assessment.md
+        - name: "Créer une évaluation Azure\_SQL"
+          href: how-to-create-azure-sql-assessment.md
         - name: Créer une évaluation AVS
           href: how-to-create-azure-vmware-solution-assessment.md
         - name: Accéder à une base de données SQL Server
@@ -176,6 +186,8 @@
       items:
         - name: Ajouter des outils de migration
           href: how-to-migrate.md
+        - name: Répliquer avec ExpressRoute
+          href: replicate-using-expressroute.md
         - name: Préparer les machines à la migration
           href: prepare-for-migration.md
         - name: "Préparer les serveurs Windows\_2003 pour la migration"

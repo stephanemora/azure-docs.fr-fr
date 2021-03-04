@@ -1,18 +1,17 @@
 ---
 title: Exemples PowerShell Azure Monitor
 description: Utilisez PowerShell pour accéder aux fonctionnalités d’Azure Monitor telles que la mise à l’échelle, les alertes, les webhooks et la recherche dans les journaux d’activité.
-ms.subservice: ''
 ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 2/14/2018
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 9f43531e6b81b9bd4a294d70e9b8091463cf507a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 1aa0d44dcb73a925494c0bc4aae43dc93e5a33d0
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100597231"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102047058"
 ---
 # <a name="azure-monitor-powershell-samples"></a>Exemples PowerShell Azure Monitor
 Cet article vous présente des exemples de commandes PowerShell qui vous aideront à accéder rapidement aux fonctions de surveillance Azure Insights.

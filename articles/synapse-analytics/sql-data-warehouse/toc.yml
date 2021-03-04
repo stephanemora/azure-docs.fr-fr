@@ -1,6 +1,6 @@
 - name: Pool SQL dédié (anciennement SQL DW)
   href: sql-data-warehouse-overview-what-is.md
-- name: Basculer vers Azure Synapse
+- name: Passer à Azure Synapse >
   href: ../overview-what-is.md
 - name: Vue d’ensemble
   items:
@@ -106,7 +106,7 @@
               href: ../../azure-sql/database/vnet-service-endpoint-rule-overview.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json
         - name: Authentification
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: sql-data-warehouse-authentication.md
             - name: Azure Active Directory
               href: ../../azure-sql/database/authentication-aad-overview.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json
@@ -140,7 +140,7 @@
           href: sql-data-warehouse-memory-optimizations-for-columnstore-compression.md
     - name: Développement
       items:
-        - name: Vue d'ensemble
+        - name: Vue d’ensemble
           href: sql-data-warehouse-overview-develop.md
         - name: Meilleures pratiques
           href: sql-data-warehouse-best-practices-development.md

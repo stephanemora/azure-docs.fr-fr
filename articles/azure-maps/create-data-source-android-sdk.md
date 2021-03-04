@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 78b0cbbdccc7d6853d4ce2821bf659e888680a5f
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: fc68dc25aad3671a55e5c11cbee094b4027e7070
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98674641"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102047670"
 ---
 # <a name="create-a-data-source-android-sdk"></a>Créer une source de données (SDK Android)
 
@@ -360,14 +360,17 @@ Azure Maps est conforme à la [spécification Mapbox Vector Tile](https://github
 - Débit de circulation : [Documentation](/rest/api/maps/traffic/gettrafficflowtile) | [Détail du format de données](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-flow/vector-flow-tiles)
 - Azure Maps Creator permet également de créer des vignettes vectorielles personnalisées et d’y accéder par le biais du [Rendu de vignette v2](/rest/api/maps/renderv2/getmaptilepreview).
 
+> [!TIP]
+> Si vous utilisez des vignettes d’images vectorielles ou raster issues du service de rendu Azure Maps avec le kit SDK web, vous pouvez remplacer `atlas.microsoft.com` par l’espace réservé `azmapsdomain.invalid`. Cet espace réservé sera remplacé par le domaine de la carte et ajoutera automatiquement les mêmes informations d’authentification. L’authentification auprès du service de rendu avec Azure Active Directory s’en trouve grandement simplifiée.
+
 Pour afficher les données d’une source de vignette vectorielle sur la carte, connectez la source à l’une des couches de rendu de données. Toutes les couches qui utilisent une source vectorielle doivent spécifier une valeur `sourceLayer` dans les options. Le code suivant charge le service de mosaïque vectorielle Débit de circulation Azure Maps comme source de mosaïque vectorielle, puis l’affiche sur une carte à l’aide d’une couche de lignes. Cette source de vignette vectorielle comporte un seul jeu de données dans la couche source, appelé « Débit de circulation ». Les données de lignes de ce jeu de données possèdent une propriété nommée `traffic_level` qui est utilisée dans ce code pour sélectionner la couleur et mettre à l’échelle la taille des lignes.
 
 ```java
 //Formatted URL to the traffic flow vector tiles, with the maps subscription key appended to it.
-String trafficFlowUrl = "https://atlas.microsoft.com/traffic/flow/tile/pbf?api-version=1.0&style=relative&zoom={z}&x={x}&y={y}&subscription-key=" + AzureMaps.getSubscriptionKey();
+String trafficFlowUrl = "https://azmapsdomain.invalid/traffic/flow/tile/pbf?api-version=1.0&style=relative&zoom={z}&x={x}&y={y}";
 
 //Create a vector tile source and add it to the map.
-VectorTileSource source = new VectorTileSource("flowLayer",
+VectorTileSource source = new VectorTileSource(
     tiles(new String[] { trafficFlowUrl }),
     maxSourceZoom(22)
 );
@@ -498,7 +501,7 @@ map.layers.add(new Layer[] { polygonLayer, lineLayer, bubbleLayer });
 > Lorsque vous ajoutez des couches à la carte à l’aide de la méthode `map.layers.add`, l’ID ou l’instance d’une couche existante peut être transmis en tant que second paramètre. Cela permet d’indiquer à la carte d’insérer la nouvelle couche ajoutée en dessous de la couche existante. En plus de transmettre un ID de couche, cette méthode prend également en charge les valeurs suivantes.
 >
 > - `"labels"` : insère la nouvelle couche sous les couches d’étiquette de la carte.
-> - `"transit"` : insère la nouvelle couche sous les couches de route et de transit de la carte.
+> - `"transit"` : insère la nouvelle couche sous les couches de routes et de transit de la carte.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

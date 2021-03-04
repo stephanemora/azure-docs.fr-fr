@@ -1,17 +1,16 @@
 ---
 title: Requêtes d’audit dans les requêtes de journal Azure Monitor
 description: Informations sur les journaux d’audit qui fournissent des données de télémétrie sur les requêtes de journal exécutées dans Azure Monitor.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/03/2020
-ms.openlocfilehash: 70741e91830027e210afce75e93d931d70bdbed1
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 28dfac7de8e73adf577b0a13e5fbd8740b1e3b06
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100599228"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102047415"
 ---
 # <a name="audit-queries-in-azure-monitor-logs-preview"></a>Requêtes d’audit dans les journaux Azure Monitor (préversion)
 Les journaux d’audit des requêtes de journaux fournissent des données de télémétrie sur les requêtes de journal exécutées dans Azure Monitor : par exemple, le moment où la requête a été exécutée, l’utilisateur qui l’a exécutée, l’outil utilisé, le texte de la requête et les statistiques de performances qui décrivent l’exécution de la requête.
