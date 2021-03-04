@@ -7,12 +7,12 @@ ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
 ms.date: 12/07/2020
-ms.openlocfilehash: 84d98eedb3ea6f3faaeaecf832811f9f4c78c7c5
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 445810d5873bb935ded180a969e4612542bde5ed
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880353"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102120179"
 ---
 # <a name="migration-of-co-sell-solutions-from-ocp-gtm-to-the-commercial-marketplace"></a>Migration de solutions de co-vente de GTM OCP vers le marketplace commercial
 
@@ -136,7 +136,7 @@ Pour obtenir des instructions détaillées sur les informations que vous devez f
 
     :::image type="content" source="media/co-sell-migrate/offer-setup.png" alt-text="Onglets de configuration de la vue d’ensemble de l’offre dans Espace partenaires.":::
 
-3. Certaines des informations relatives aux vendeurs Microsoft ont été copiées à partir de la solution GTM OCP. Renseignez les informations requises restantes dans l’onglet **Co-vendre avec Microsoft** pour que votre offre soit prête pour la co-vente. Lorsque vous avez terminé, sélectionnez **Vérifier et publier**. Pour plus d’informations, consultez [Soumettre des documents de co-vente dans Espace partenaires](marketplace-co-sell.md#how-to-submit-co-sell-materials-in-partner-center).
+3. Certaines des informations relatives aux vendeurs Microsoft ont été copiées à partir de la solution GTM OCP. Renseignez les informations requises restantes dans l’onglet **Co-vendre avec Microsoft** pour que votre offre soit prête pour la co-vente. Lorsque vous avez terminé, sélectionnez **Vérifier et publier**. Pour plus d’informations, consultez [Soumettre des documents de co-vente dans Espace partenaires](marketplace-co-sell.md).
 
     :::image type="content" source="media/co-sell-migrate/co-sell-page.png" alt-text="Onglet Co-vente de l’offre dans Espace partenaires.":::
 
@@ -154,5 +154,5 @@ Pour obtenir des instructions détaillées sur les informations que vous devez f
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Revendre via des partenaires CSP](cloud-solution-providers.md)
-- [Soumettre des documents de co-vente dans Espace partenaires](marketplace-co-sell.md#how-to-submit-co-sell-materials-in-partner-center)
+- [Soumettre des documents de co-vente dans Espace partenaires](marketplace-co-sell.md)
 - Consulter ces [FAQ](https://partner.microsoft.com/resources/detail/co-sell-requirements-publish-commercial-marketplace-faq-pdf) (PDF)

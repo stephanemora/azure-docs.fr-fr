@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/07/2020
 ms.author: mlottner
-ms.openlocfilehash: 8191d68f701a3be6a37d8623d2d900f6aa6c1851
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cec28f9290808836ec2dfd334b23fe8c76df03fc
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90930267"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102120060"
 ---
-# <a name="security-module-for-azure-rtos-api-preview"></a>API Module de sécurité pour Azure RTOS (préversion)
+# <a name="security-module-for-azure-rtos-api"></a>API Module de sécurité pour Azure RTOS 
 
 Cette API est conçue pour être utilisée uniquement avec le module de sécurité pour Azure RTOS. Pour obtenir des ressources supplémentaires, consultez le [référentiel GitHub sur le module de sécurité pour Azure RTOS](https://github.com/azure-rtos/azure-iot-preview/releases). 
 

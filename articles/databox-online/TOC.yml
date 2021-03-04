@@ -102,7 +102,7 @@
     - name: Vue d’ensemble
       items:
         - name: "Qu’est-ce qu’Azure Stack Edge Mini R\_?"
-          href: azure-stack-edge-k-series-overview.md
+          href: azure-stack-edge-mini-r-overview.md
     - name: Concepts
       items:
         - name: Lire les informations de sécurité

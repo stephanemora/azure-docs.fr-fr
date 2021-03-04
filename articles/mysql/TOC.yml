@@ -387,7 +387,7 @@
           displayName: application
         - name: Bonnes pratiques opérationnelles
           href: concept-operation-excellence-best-practices.md
-    - name: Résolution des problèmes
+    - name: Dépannage
       items:
         - name: Dépannage de la performance des requêtes
           href: howto-troubleshoot-query-performance.md
@@ -553,6 +553,9 @@
     - name: Migrer des données avec mysqldump ou phpmyadmin
       href: concepts-migrate-dump-restore.md
       displayName: 'migrate, mysqldump'
+    - name: Migrer des données avec dbForge Studio pour MySQL
+      href: concepts-migrate-dbforge-studio-for-mysql.md
+      displayName: 'migrate, dbforge'
     - name: Migrer des données avec MySQL Workbench
       href: concepts-migrate-import-export.md
       displayName: 'import , migrate, export'
