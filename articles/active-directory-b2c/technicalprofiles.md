@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 5eff20ecb1366114ead80877b684ef512742803b
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: bbb0c5617696347b566ba09a481afae4f52379aa
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99805392"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102096035"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
 
@@ -40,8 +40,8 @@ Un profil technique permet les types de scénarios suivants :
 - [OpenID Connect](openid-connect-technical-profile.md) : fédération avec n'importe quel fournisseur d'identité du protocole OpenID Connect.
 - [Facteur de téléphone](phone-factor-technical-profile.md) : prise en charge de l’inscription et de la vérification des numéros de téléphone.
 - [Fournisseur RESTful](restful-technical-profile.md) : appel aux services d'API REST, comme la validation de l'entrée utilisateur, l'enrichissement des données utilisateur ou l'intégration avec les applications métier.
-- [Fournisseur d’identité SAML](saml-identity-provider-technical-profile.md) : fédération avec n’importe quel fournisseur d’identité du protocole SAML.
-- [Émetteur de jeton SAML](saml-issuer-technical-profile.md) : émet un jeton SAML qui est retourné à l’application par partie de confiance.
+- [Fournisseur d’identité SAML](identity-provider-generic-saml.md) : fédération avec n’importe quel fournisseur d’identité du protocole SAML.
+- [Émetteur de jeton SAML](saml-service-provider.md) : émet un jeton SAML qui est retourné à l’application par partie de confiance.
 - [Autodéclaré](self-asserted-technical-profile.md) : interaction avec l’utilisateur. Par exemple, collecter les informations d’identification de l’utilisateur pour se connecter, afficher la page d’inscription ou la réinitialisation du mot de passe.
 - [Gestion des sessions](custom-policy-reference-sso.md) : gère différents types de sessions.
 
@@ -175,9 +175,9 @@ L’exemple suivant illustre l’utilisation des métadonnées relatives au [pro
 
 Pour établir une relation de confiance avec les services auxquels il s’intègre, Azure AD B2C stocke les secrets et les certificats sous forme de [clés de stratégie](policy-keys-overview.md). Au cours de l’exécution du profil technique, Azure AD B2C récupère les clés de chiffrement à partir des clés de stratégie Azure AD B2C. Il utilise ensuite les clés pour établir la relation de confiance et chiffrer ou signer un jeton. Ces approbations sont constituées des éléments suivants :
 
-- Fédération avec les fournisseurs d’identité [OAuth1](oauth1-technical-profile.md#cryptographic-keys), [OAuth2](oauth2-technical-profile.md#cryptographic-keys)et [SAML](saml-identity-provider-technical-profile.md#cryptographic-keys)
+- Fédération avec les fournisseurs d’identité [OAuth1](oauth1-technical-profile.md#cryptographic-keys), [OAuth2](oauth2-technical-profile.md#cryptographic-keys)et [SAML](identity-provider-generic-saml.md)
 - Sécuriser la connexion avec les [services d’API REST](secure-rest-api.md)
-- Signature et chiffrement des jetons [JWT](jwt-issuer-technical-profile.md#cryptographic-keys) et [SAML](saml-issuer-technical-profile.md#cryptographic-keys)
+- Signature et chiffrement des jetons [JWT](jwt-issuer-technical-profile.md#cryptographic-keys) et [SAML](saml-service-provider.md)
 
 L’élément **CryptographicKeys** contient les éléments suivants :
 

@@ -101,9 +101,14 @@
           href: tutorial-register-applications.md
         - name: Inscrire une application monopage (SPA)
           href: tutorial-register-spa.md
-        - name: Inscrire un fournisseur de services SAML
-          href: connect-with-saml-service-providers.md
-          displayName: 'SP, RP, service provider, connect'
+        - name: Application SAML
+          items:
+            - name: Configurer une application SAML
+              href: saml-service-provider.md
+              displayName: 'SP, service provider'
+            - name: Configurer les options d’une application SAML
+              href: saml-service-provider-options.md
+              displayName: 'SP, service provider'
         - name: Inscrire une application Microsoft Graph
           href: microsoft-graph-get-started.md
           displayName: 'migrate, migration, microsoft graph'
@@ -150,6 +155,8 @@
           displayName: 'AD-FS, ADFS'
         - name: Amazon
           href: identity-provider-amazon.md
+        - name: Apple (préversion)
+          href: identity-provider-apple-id.md
         - name: Azure AD (un seul locataire)
           href: identity-provider-azure-ad-single-tenant.md
         - name: Azure AD (plusieurs locataires)
@@ -158,8 +165,14 @@
           href: identity-provider-azure-ad-b2c.md
         - name: Facebook
           href: identity-provider-facebook.md
-        - name: Fournisseur d’identité générique
+        - name: Generic OpenId Connect
           href: identity-provider-generic-openid-connect.md
+        - name: Fournisseur d’identité SAML générique
+          items:
+            - name: Configurer un fournisseur d’identité SAML
+              href: identity-provider-generic-saml.md
+            - name: Configurer les options d’un fournisseur d’identité SAML
+              href: identity-provider-generic-saml-options.md
         - name: GitHub
           href: identity-provider-github.md
         - name: Google
@@ -217,11 +230,11 @@
           href: configure-tokens.md
     - name: Définir des attributs personnalisés
       href: user-flow-custom-attributes.md
-    - name: Protection des identités et accès conditionnel
+    - name: Authentification basée sur les risques
       items:
-        - name: Configurer la protection des identités et l’accès conditionnel
-          href: conditional-access-identity-protection-setup.md
-        - name: Ajouter un accès conditionnel
+        - name: Investiguer les risques avec Identity Protection
+          href: identity-protection-investigate-risk.md
+        - name: Configurer un accès conditionnel
           href: conditional-access-user-flow.md
     - name: Configurer la vérification de l’âge
       href: basic-age-gating.md
@@ -327,9 +340,6 @@
                       href: aad-sspr-technical-profile.md
                     - name: Transformation de revendications
                       href: claims-transformation-technical-profile.md
-                    - name: Accès conditionnel
-                      href: conditional-access-technical-profile.md
-                      displayName: ca
                     - name: Indicateur de jeton d’ID
                       href: id-token-hint.md
                     - name: Émetteur de jeton JWT

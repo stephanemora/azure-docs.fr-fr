@@ -1,17 +1,16 @@
 ---
 title: Présentation de Log Analytics dans Azure Monitor
 description: Décrit Log Analytics, un outil du Portail Azure utilisé pour modifier et exécuter des requêtes de journal pour analyser des données dans des journaux Azure Monitor.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/04/2020
-ms.openlocfilehash: ef8be3d1fd815362971d5ae2beb27edf47766c94
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: d83cc4045f09ed0f704a0d61c6b303406835eb44
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101723161"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102052294"
 ---
 # <a name="overview-of-log-analytics-in-azure-monitor"></a>Présentation de Log Analytics dans Azure Monitor
 Log Analytics est un outil du Portail Azure utilisé pour modifier et exécuter des requêtes de journal avec des données dans des journaux Azure Monitor. Vous pouvez écrire une requête simple qui retourne un jeu d’enregistrements, puis utiliser les fonctionnalités de Log Analytics pour les trier, les filtrer et les analyser. Vous pouvez également écrire une requête plus avancée pour effectuer une analyse statistique et visualiser les résultats dans un graphique afin d’identifier une tendance particulière. Que vous utilisiez les résultats de vos requêtes de manière interactive ou avec d’autres fonctionnalités d’Azure Monitor, comme les alertes de requête de journal ou les classeurs, Log Analytics est l’outil que vous allez utiliser pour les écrire et les tester. 
