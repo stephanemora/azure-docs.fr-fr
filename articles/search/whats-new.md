@@ -6,18 +6,26 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 02/09/2021
+ms.date: 03/02/2021
 ms.custom: references_regions
-ms.openlocfilehash: 6de91d51f3700c25ba1e0f361c948dc8ab338c43
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 606b102b1922d382f479235ffc4c61b68e7db766
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100590555"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101676399"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Nouveauté dans Recherche cognitive Azure
 
-Découvrir les nouveautés du service. Marquez cette page pour rester au fait des nouveautés du service. Consultez la [liste des fonctionnalités en préversion](search-api-preview.md) pour voir les fonctionnalités qui sont en préversion publique.
+Découvrir les nouveautés du service. Marquez cette page pour rester au fait des nouveautés du service. Consultez la [liste des fonctionnalités d’évaluation](search-api-preview.md) pour voir la liste complète des fonctionnalités qui ne sont pas encore en disponibilité générale.
+
+## <a name="march-2021"></a>Mars 2021
+
+|Fonctionnalité&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Description | Disponibilité  |
+|------------------------------|---------------|---------------|
+| [Recherche sémantique](semantic-search-overview.md) | Collection de fonctionnalités de requête qui modifient les résultats de la recherche pour produire des résultats plus pertinents. En modifiant légèrement une demande de recherche, vous pouvez essayer ces fonctionnalités sur des index existants.</br></br>La [requête sémantique](semantic-how-to-query-request.md) est un nouveau type de requête qui tire parti des avancées en matière de traitement en langage naturel pour améliorer le classement, ainsi que pour comprendre l’intention de la requête de fournir des réponses, des légendes et des mises en surbrillance sémantiques.</br></br>Le [classement sémantique et les réponses (réponses, légendes et mises en surbrillance)](semantic-how-to-query-response.md) font référence à l’algorithme qui définit une requête sémantique et à la structure de la réponse. | Préversion publique ([sur demande](https://aka.ms/SemanticSearchPreviewSignup)). </br></br>Utilisez l’API [Search Documents (REST)](/rest/api/searchservice/preview-api/search-documents) (api-version=2020-06-30-Preview) et l’[Explorateur de recherche](search-explorer.md) dans le portail Azure. </br></br>Des restrictions de région et de niveau s’appliquent. |
+| [Vérification orthographique des termes de la requête](speller-how-to-add.md) | Vous pouvez appliquer la vérification orthographique aux termes de la requête avant que ceux-ci ne parviennent au moteur de recherche. L’option `speller` fonctionne avec n’importe quel type de requête (simple, complète ou sémantique). |  Préversion publique, REST uniquement, api-version=2020-06-30-Preview|
+| [Indexeur SharePoint Online](search-howto-index-sharepoint-online.md) | Cet indexeur vous connecte à un site SharePoint Online, ce qui vous permet d’indexer le contenu d’une bibliothèque de documents. | Préversion publique, REST uniquement, api-version=2020-06-30-Preview |
 
 ## <a name="february-2021"></a>Février 2021
 

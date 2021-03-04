@@ -176,7 +176,7 @@
     - name: Signalement
       items:
         - name: Activité des méthodes d’authentification
-          href: howto-authentication-methods-usage-insights.md
+          href: howto-authentication-methods-activity.md
         - name: Rapports SSPR
           href: howto-sspr-reporting.md
         - name: Rapports MFA

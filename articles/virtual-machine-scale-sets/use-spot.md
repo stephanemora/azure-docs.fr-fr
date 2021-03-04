@@ -6,15 +6,15 @@ ms.author: jagaveer
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
 ms.subservice: spot
-ms.date: 03/25/2020
+ms.date: 02/26/2021
 ms.reviewer: cynthn
-ms.custom: jagaveer, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 265f78970f17fe7321db8786c2fb8dd2304bb578
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 33aa553e688b595551c20e8b1432163152865537
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100558673"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101675007"
 ---
 # <a name="azure-spot-virtual-machines-for-virtual-machine-scale-sets"></a>Machines virtuelles Azure Spot et groupes de machines virtuelles identiques 
 
@@ -46,19 +46,38 @@ Les [types d’offres](https://azure.microsoft.com/support/legal/offer-details/)
 -   Contrat Entreprise
 -   Code de l’offre de paiement à l’utilisation 003P
 -   Sponsorisé
-- Pour le fournisseur de services cloud (CSP), contactez votre partenaire.
+- Pour le fournisseur de services cloud (CSP), consultez l’[Espace partenaires](https://docs.microsoft.com/partner-center/azure-plan-get-started) ou contactez directement votre partenaire.
 
 ## <a name="eviction-policy"></a>Stratégie d’éviction
 
-Lorsque vous créez des groupes de machines virtuelles identiques Azure Spot, vous pouvez affecter à la stratégie d’éviction la valeur *Libérer* (par défaut) ou *Supprimer*. 
+Lorsque vous créez un groupe identique à l’aide de machines virtuelles spot Azure, vous pouvez affecter à la stratégie d’éviction la valeur *Libérer* (par défaut) ou *Supprimer*. 
 
 La stratégie *Libérer* affecte à vos instances écartées l’état « arrêté-libéré », ce qui vous permet de redéployer les instances écartées. Toutefois, la réussite de l’allocation n’est pas garantie. Les machines virtuelles libérées sont comptabilisées dans votre quota d’instances de groupe identique, et vos disques sous-jacents vous sont facturés. 
 
-Si vous souhaitez que les instances dans votre groupe de machines virtuelles identiques Azure Spot soient supprimées après avoir été écartées, affectez à la stratégie d’éviction la valeur *supprimer*. Avec cette configuration, vous pouvez créer d’autres machines virtuelles en définissant la propriété du nombre d’instances du groupe identique à une valeur plus grande. Les machines virtuelles évincées sont supprimées en même temps que leurs disques sous-jacents. Vous n’êtes donc pas facturé pour le stockage. Vous pouvez également utiliser la fonctionnalité de mise à l’échelle automatique des groupes identiques pour essayer et compenser automatiquement les machines virtuelles évincées, mais sans garantie de réussite de l’allocation. Nous vous recommandons d’utiliser uniquement la mise à l’échelle automatique des groupes de machines virtuelles identiques Azure Spot lorsque vous définissez la stratégie d’éviction avec suppression pour éviter la facturation de vos disques et le dépassement de vos limites de quota. 
+Si vous souhaitez que les instances soient supprimées après avoir été écartées, affectez à la stratégie d’éviction la valeur *Supprimer*. Avec cette configuration, vous pouvez créer d’autres machines virtuelles en définissant la propriété du nombre d’instances du groupe identique à une valeur plus grande. Les machines virtuelles évincées sont supprimées en même temps que leurs disques sous-jacents. Vous n’êtes donc pas facturé pour le stockage. Vous pouvez également utiliser la fonctionnalité de mise à l’échelle automatique des groupes identiques pour essayer et compenser automatiquement les machines virtuelles évincées, mais sans garantie de réussite de l’allocation. Nous vous recommandons d’utiliser uniquement la mise à l’échelle automatique des groupes de machines virtuelles identiques Azure Spot lorsque vous définissez la stratégie d’éviction avec suppression pour éviter la facturation de vos disques et le dépassement de vos limites de quota. 
 
 Les utilisateurs peuvent s’abonner pour recevoir des notifications dans la machine virtuelle via [Azure Scheduled Events](../virtual-machines/linux/scheduled-events.md). Vous serez ainsi informé si vos machines virtuelles sont en cours d’éviction, et vous aurez 30 secondes pour terminer vos tâches et arrêter la machine virtuelle avant que ne commence l’éviction. 
 
+<a name="bkmk_try"></a>
+## <a name="try--restore-preview"></a>Essayer et restaurer (préversion)
+
+Cette nouvelle fonctionnalité au niveau de la plateforme utilise l’intelligence artificielle pour essayer automatiquement de restaurer les instances de machine virtuelle spot Azure écartées à l’intérieur d’un groupe identique afin de conserver le nombre d’instances cibles. 
+
+> [!IMPORTANT]
+> La fonctionnalité Essayer et restaurer est actuellement en préversion publique.
+> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Avantages de la fonctionnalité Essayer et restaurer :
+- Activé par défaut lors du déploiement d’une machine virtuelle Azure spot dans un groupe identique.
+- Tentatives de restauration des machines virtuelles spot Azure écartées en raison de la capacité.
+- Les machines virtuelles spot Azure restaurées sont censées s’exécuter pendant une durée plus longue, avec une probabilité inférieure d’une capacité d’éviction déclenchée.
+- Améliore la durée de vie d’une machine virtuelle spot Azure, de sorte que les charges de travail s’exécutent pendant une durée plus longue.
+- Aide les groupes de machines virtuelles identiques à maintenir le nombre de cibles pour les machines virtuelles spot Azure, similaire à la fonctionnalité de maintien du nombre de cibles qui existe déjà pour les machines virtuelles avec paiement à l’utilisation.
+
+La fonctionnalité Essayer et restaurer est désactivée dans les groupes identiques qui utilisent la [mise à l’échelle automatique](virtual-machine-scale-sets-autoscale-overview.md). Le nombre de machines virtuelles dans le groupe identique est piloté par les règles de mise à l’échelle automatique.
+
 ## <a name="placement-groups"></a>Groupes de placement
+
 Un groupe de placement est une construction similaire à un groupe à haute disponibilité Azure, avec ses propres domaines d’erreur et domaines de mise à niveau. Par défaut, un groupe identique se compose d’un seul groupe de placement contenant au maximum 100 machines virtuelles. Si la propriété de groupe identique appelée `singlePlacementGroup` est définie sur *false*, le groupe identique peut se composer de plusieurs groupes de placement et présente une plage de 0 à 1 000 machines virtuelles. 
 
 > [!IMPORTANT]
@@ -136,6 +155,24 @@ Ajoutez les propriétés `priority`, `evictionPolicy` et `billingProfile` à la 
 ```
 
 Pour supprimer l’instance après son exclusion, remplacez le paramètre `evictionPolicy` par `Delete`.
+
+
+## <a name="simulate-an-eviction"></a>Simuler une éviction
+
+Vous pouvez [simuler l’éviction](https://docs.microsoft.com/rest/api/compute/virtualmachines/simulateeviction) d’une machine virtuelle spot Azure afin de tester l’efficacité de la réponse de votre application à une éviction soudaine. 
+
+Remplacez les éléments suivants par vos informations : 
+
+- `subscriptionId`
+- `resourceGroupName`
+- `vmName`
+
+
+```rest
+POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}/simulateEviction?api-version=2020-06-01
+```
+
+`Response Code: 204` signifie que l’éviction simulée a réussi. 
 
 ## <a name="faq"></a>Questions fréquentes (FAQ)
 

@@ -1,15 +1,14 @@
 ---
 title: Services et catégories pris en charge des journaux de ressources Azure Monitor
 description: Référence d’Azure Monitor Comprendre les services et le schéma d’événement pris en charge pour les journaux de ressource Azure.
-ms.subservice: logs
 ms.topic: reference
 ms.date: 01/29/2021
-ms.openlocfilehash: 39ff78cd97682096fb284e137868c246dfdd7f14
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 9a04d0f470522dd4689d604756ffd25e70c5d456
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100599035"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102033144"
 ---
 # <a name="supported-categories-for-azure-resource-logs"></a>Catégories prises en charge pour les journaux de ressources Azure
 

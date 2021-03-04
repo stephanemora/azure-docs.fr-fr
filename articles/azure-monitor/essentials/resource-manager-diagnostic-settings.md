@@ -1,17 +1,16 @@
 ---
 title: Exemples de modèle Resource Manager pour les paramètres de diagnostic
 description: Exemples de modèle Azure Resource Manager pour appliquer des paramètres de diagnostic Azure Monitor à une ressource Azure.
-ms.subservice: logs
 ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 09/11/2020
-ms.openlocfilehash: 304c359296c4fbff79dd367facd8bbb98c8903b5
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ec44c54a00c8532ed082b6e5f9e9cb9ce84f64b5
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101731440"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102033025"
 ---
 # <a name="resource-manager-template-samples-for-diagnostic-settings-in-azure-monitor"></a>Exemples de modèle Resource Manager pour les paramètres de diagnostic dans Azure Monitor
 Cet article contient des exemples de [modèles Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) pour créer des paramètres de diagnostic destinés à une ressource Azure. Chaque exemple comprend un fichier de modèle et un fichier de paramètres avec des exemples de valeurs à fournir au modèle.
