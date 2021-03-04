@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 02/08/2021
 ms.author: jingwang
 ms.custom: has-adal-ref
-ms.openlocfilehash: 574c4967c1e45ce1ae2be92d8648d654322e2244
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 9d8f940e3900c00b1c6f6623dfeff2d92ca85aa3
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101727819"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102042432"
 ---
 # <a name="troubleshoot-azure-data-factory-connectors"></a>Résoudre les problèmes liés aux connecteurs dans Azure Data Factory
 
@@ -831,7 +831,7 @@ Cet article explore les façons courantes de résoudre les problèmes liés aux 
 
     Si le contenu de la clé privée provient de votre coffre de clés, le fichier de clé d’origine peut fonctionner si vous le chargez directement dans le service lié SFTP.
 
-    Pour plus d’informations, consultez [Copier des données depuis et vers le serveur SFTP à l’aide d’Azure Data Factory](./connector-sftp.md#using-ssh-public-key-authentication). Le contenu de la clé privée est un contenu de clé privée SSH encodé en base64.
+    Pour plus d’informations, consultez [Copier des données depuis et vers le serveur SFTP à l’aide d’Azure Data Factory](./connector-sftp.md#use-ssh-public-key-authentication). Le contenu de la clé privée est un contenu de clé privée SSH encodé en base64.
 
     Encodez *l’intégralité* du contenu du fichier de clé privée d’origine avec un encodage en base64 et stockez la chaîne encodée dans votre coffre de clés. Le fichier de clé privée d’origine est celui qui peut fonctionner dans le service lié SFTP si vous sélectionnez **Charger** à partir d’un fichier.
 

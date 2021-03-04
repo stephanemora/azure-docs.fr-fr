@@ -10,12 +10,12 @@ metadata:
   author: elqu20
   ms.author: v-elqu
   ms.date: 02/11/2021
-  ms.openlocfilehash: 6c7479b33a78432d5b6aea2c02656e8b250b70c7
-  ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+  ms.openlocfilehash: b979f147c67e8e877b5bb0e9d3dc557317c7aa50
+  ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 03/02/2021
-  ms.locfileid: "101658164"
+  ms.lasthandoff: 03/04/2021
+  ms.locfileid: "102097493"
 landingContent:
 - title: Qu’est-ce qu’Azure Percept ?
   linkLists:
@@ -45,8 +45,22 @@ landingContent:
       url: azure-percept-dk-datasheet.md
     - text: Fiche technique Azure Percept Vision
       url: azure-percept-vision-datasheet.md
+    - text: Dépannage
+      url: troubleshoot-dev-kit.md
+- title: Bien démarrer avec Azure Percept Audio
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Configurer Azure Percept Audio
+      url: quickstart-percept-audio-setup.md
+  - linkListType: reference
+    links:
     - text: Fiche technique Azure Percept Audio
       url: azure-percept-audio-datasheet.md
+    - text: Résolution des problèmes Azure Percept Audio
+      url: troubleshoot-audio-accessory-speech-module.md
+    - text: LED et bouton Azure Percept Audio
+      url: audio-button-led-behavior.md
 - title: Créer un prototype IA de vision sans code
   linkLists:
   - linkListType: tutorial
@@ -63,20 +77,10 @@ landingContent:
       url: how-to-capture-images.md
     - text: Afficher la télémétrie de votre devkit
       url: how-to-view-telemetry.md
-- title: Bien démarrer avec Azure Percept Audio
-  linkLists:
-  - linkListType: quickstart
+  - linkListType: concept
     links:
-    - text: Configurer Azure Percept Audio
-      url: quickstart-percept-audio-setup.md
-  - linkListType: reference
-    links:
-    - text: Fiche technique Azure Percept Audio
-      url: azure-percept-audio-datasheet.md
-    - text: Résolution des problèmes Azure Percept Audio
-      url: troubleshoot-audio-accessory-speech-module.md
-    - text: LED et bouton Azure Percept Audio
-      url: audio-button-led-behavior.md
+    - text: Utilisation de solutions IA
+      url: overview-ai-models.md
 - title: Créer une solution d’assistant vocal sans code
   linkLists:
   - linkListType: tutorial
@@ -85,22 +89,20 @@ landingContent:
       url: tutorial-no-code-speech.md
   - linkListType: how-to-guide
     links:
-    - text: Configurer votre assistant vocal
-      url: how-to-configure-voice-assistant.md
     - text: Gérer votre assistant vocal
       url: how-to-manage-voice-assistant.md
+    - text: Configurer votre Assistant vocal avec IoT Hub
+      url: how-to-configure-voice-assistant.md
 - title: Développement avancé avec Azure Percept
   linkLists:
   - linkListType: overview
     links:
     - text: Vue d’ensemble du développement avancé
       url: overview-advanced-code.md
-  - linkListType: tutorial
+  - linkListType: how-to-guide
     links:
-    - text: Développement avancé à l’aide de services cloud
-      url: advanced-development-cloud.md
-    - text: Développement avancé à l’aide d’outils locaux
-      url: advanced-development-local.md
+    - text: Dev Tools Pack Installer
+      url: dev-tools-installer.md
 - title: Tenir votre DK Azure Percept à jour
   linkLists:
   - linkListType: overview
@@ -109,7 +111,7 @@ landingContent:
       url: overview-update-experience.md
   - linkListType: how-to-guide
     links:
-    - text: Configurer des mises à jour
+    - text: Configurer des mises à jour OTA
       url: how-to-set-up-over-the-air-updates.md
     - text: Mises à jour à distance
       url: how-to-update-over-the-air.md

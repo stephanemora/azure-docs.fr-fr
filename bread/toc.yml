@@ -174,6 +174,9 @@
     - name: Azure Remote Rendering
       tocHref: /azure/remote-rendering/
       topicHref: /azure/remote-rendering/
+    - name: "Azure\_Object\_Understanding"
+      tocHref: /azure/object-understanding/
+      topicHref: /azure/object-understanding/
     - name: Container Registry
       tocHref: /azure/container-registry/
       topicHref: /azure/container-registry/
@@ -209,6 +212,12 @@
       tocHref: /azure/iot-fundamentals/
       topicHref: /azure/iot-fundamentals/
       items:
+        - name: "Azure\_Percept"
+          tocHref: /azure/azure-percept/
+          topicHref: /azure/azure-percept/
+        - name: Device Update pour IoT Hub
+          tocHref: /azure/iot-hub-device-update/
+          topicHref: /azure/iot-hub-device-update/
         - name: IoT Hub
           tocHref: /azure/iot-hub/
           topicHref: /azure/iot-hub/
@@ -257,8 +266,8 @@
       topicHref: /azure/partner-solutions/
       items:
         - name: Apache Kafka pour Confluent Cloud
-          tocHref: /azure/partner-solutions/apache-kafka-confluent-cloud/overview
-          topicHref: /azure/partner-solutions/apache-kafka-confluent-cloud/overview
+          tocHref: /azure/partner-solutions/apache-kafka-confluent-cloud/
+          topicHref: /azure/partner-solutions/apache-kafka-confluent-cloud/
     - name: Service SignalR
       tocHref: /azure/azure-signalr/
       topicHref: /azure/azure-signalr/
@@ -448,6 +457,9 @@
     - name: Cosmos DB
       tocHref: /azure/cosmos-db/
       topicHref: /azure/cosmos-db/
+    - name: "Managed\_Instance pour Apache\_Cassandra"
+      tocHref: /azure/managed-instance-apache-cassandra/
+      topicHref: /azure/managed-instance-apache-cassandra/
     - name: Stockage
       tocHref: /azure/storage/
       topicHref: /azure/storage/
@@ -495,7 +507,7 @@
         - name: Groupes d'administration
           tocHref: /azure/governance/management-groups/
           topicHref: /azure/governance/management-groups/
-        - name: Policy
+        - name: Stratégie
           tocHref: /azure/governance/policy/
           topicHref: /azure/governance/policy/
         - name: Resource Graph
@@ -679,6 +691,9 @@
         - name: Peering Service
           tocHref: /azure/peering-service/
           topicHref: /azure/peering-service/
+        - name: "Route\_Server (version préliminaire)"
+          tocHref: /azure/route-server/
+          topicHref: /azure/route-server/
         - name: Traffic Manager
           tocHref: /azure/traffic-manager/
           topicHref: /azure/traffic-manager/

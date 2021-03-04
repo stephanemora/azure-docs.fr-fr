@@ -1,0 +1,31 @@
+- name: Solutions des partenaires validés Stockage Azure
+  href: /azure/storage/solution-integration
+- name: Partenaires Azure Storage Analytics et Big Data
+  items:
+    - name: Vue d’ensemble des partenaires validés
+      href: .\validated-partners\analytics\partner-overview.md
+  expanded: false
+- name: 'Partenaires Azure Storage Archive, Sauvegarde et BCDR'
+  items:
+    - name: Vue d’ensemble des partenaires validés
+      href: .\validated-partners\backup-archive-disaster-recovery\partner-overview.md
+    - name: Guide de démarrage rapide Commvault
+      href: .\validated-partners\backup-archive-disaster-recovery\commvault\commvault-solution-guide.md
+    - name: Guide de démarrage rapide Veeam
+      href: .\validated-partners\backup-archive-disaster-recovery\veeam\veeam-solution-guide.md
+  expanded: false
+- name: Partenaires de solutions de conteneurs de stockage Azure
+  items:
+    - name: Vue d’ensemble des partenaires validés
+      href: .\validated-partners\container-solutions\partner-overview.md
+  expanded: false
+- name: Partenaires de gestion et de migration de données Stockage Azure
+  items:
+    - name: Vue d’ensemble des partenaires validés
+      href: .\validated-partners\data-management\partner-overview.md
+  expanded: false
+- name: Partenaires de stockage principal et secondaire Stockage Azure
+  items:
+    - name: Vue d’ensemble des partenaires validés
+      href: .\validated-partners\primary-secondary-storage\partner-overview.md
+  expanded: false

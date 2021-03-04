@@ -40,6 +40,8 @@
       href: connected-cache-disconnected-device-update.md
     - name: Configurer le cache connecté Microsoft pour le service Device Update pour IoT Hub
       href: connected-cache-configure.md
+    - name: Schéma lié aux importations et autres informations
+      href: import-schema.md
 - name: Guides pratiques
   items:
     - name: Créer un compte de mise à jour d’appareil
