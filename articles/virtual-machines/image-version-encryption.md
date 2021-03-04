@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 11/3/2020
 ms.author: cynthn
-ms.openlocfilehash: 0f5eb6a2964cdb679c2a83bd9d9b6296e3e962ed
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: f8ea2224020e6fa6c5dae135dc575cc77510efd5
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499286"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102123936"
 ---
 # <a name="preview-use-customer-managed-keys-for-encrypting-images"></a>Aperçu : Utiliser des clés gérées par le client pour le chiffrement d’images
 
@@ -27,7 +27,7 @@ Le chiffrement côté serveur à l’aide de clés gérées par le client utilis
 
 Cet article nécessite que vous disposiez déjà d’un chiffrement de disque défini dans chaque région vers laquelle vous souhaitez répliquer votre image :
 
-- Pour utiliser uniquement une clé gérée par le client, consultez les articles sur l’activation des clés gérées par le client avec un chiffrement côté serveur à l’aide du [portail Azure](./disks-enable-customer-managed-keys-portal.md) ou de [PowerShell](./windows/disks-enable-customer-managed-keys-powershell.md#set-up-your-azure-key-vault-and-diskencryptionset).
+- Pour utiliser uniquement une clé gérée par le client, consultez les articles sur l’activation des clés gérées par le client avec un chiffrement côté serveur à l’aide du [portail Azure](./disks-enable-customer-managed-keys-portal.md) ou de [PowerShell](./windows/disks-enable-customer-managed-keys-powershell.md#set-up-an-azure-key-vault-and-diskencryptionset-without-automatic-key-rotation).
 
 - Pour utiliser des clés gérées par la plateforme et des clés gérées par le client (à des fins de double chiffrement), consultez les articles sur l’activation du double chiffrement au repos à l’aide du [portail Azure](./disks-enable-double-encryption-at-rest-portal.md) ou de [PowerShell](./windows/disks-enable-double-encryption-at-rest-powershell.md).
 

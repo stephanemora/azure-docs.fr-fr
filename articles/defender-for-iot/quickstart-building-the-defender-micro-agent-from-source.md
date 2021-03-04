@@ -1,5 +1,5 @@
 ---
-title: Générer le micro-agent Defender à partir du code source (préversion)
+title: Générer le micro-agent Defender à partir du code source
 titleSuffix: Azure Defender for IoT
 description: Le micro-agent comprend une infrastructure qui peut être utilisée pour personnaliser votre distribution.
 author: shhazam-ms
@@ -8,12 +8,12 @@ ms.author: shhazam
 ms.date: 1/18/2021
 ms.topic: quickstart
 ms.service: azure
-ms.openlocfilehash: 782c14c6feee56c4b19d5a234cb41186d51decb2
-ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
+ms.openlocfilehash: 57360d939ea0cda513732cfbcc35c1d22a899f6c
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99810024"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102124531"
 ---
 # <a name="build-the-defender-micro-agent-from-source-code"></a>Générer le micro-agent Defender à partir du code source
 

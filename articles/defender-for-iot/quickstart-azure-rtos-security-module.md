@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2021
 ms.author: shhazam
-ms.openlocfilehash: a11a8ec2d8eb82950cf0ab55eb6ca1913b41c84a
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: e8e9eae576c330f17cd33d027152d463fe19a82b
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100522935"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102123887"
 ---
-# <a name="quickstart-security-module-for-azure-rtos-preview"></a>Démarrage rapide : Module de sécurité pour Azure RTOS (préversion)
+# <a name="quickstart-security-module-for-azure-rtos"></a>Démarrage rapide : Module de sécurité pour Azure RTOS 
 
 Cet article décrit les prérequis avant de commencer et explique comment activer le module de sécurité pour le service Azure RTOS sur un hub IoT. Si vous n’avez pas de hub IoT, pour commencer, voir [Créer un hub IoT à l’aide du portail Azure](../iot-hub/iot-hub-create-through-portal.md).
 

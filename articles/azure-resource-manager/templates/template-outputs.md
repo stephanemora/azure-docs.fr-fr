@@ -3,18 +3,18 @@ title: Sorties dans des modèles
 description: Explique comment définir des valeurs de sortie dans un modèle Azure Resource Manager (ARM) et un fichier Bicep.
 ms.topic: conceptual
 ms.date: 02/19/2021
-ms.openlocfilehash: 91feb1a0b653e4b6e96e38df57f87af27e4676f5
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 2b6a6afa127bf43102103baadae576233843f00d
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101703832"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102123409"
 ---
 # <a name="outputs-in-arm-templates"></a>Sorties dans les modèles ARM
 
 Cet article explique comment définir des valeurs de sortie dans un modèle Azure Resource Manager (ARM) et un fichier Bicep. Vous utilisez des sorties quand vous devez retourner des valeurs à partir des ressources déployées.
 
-Le format de chaque valeur de sortie doit résoudre l’un des [types de données](template-syntax.md#data-types).
+Le format de chaque valeur de sortie doit résoudre l’un des [types de données](data-types.md).
 
 [!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
 
