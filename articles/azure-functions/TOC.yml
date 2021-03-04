@@ -197,6 +197,9 @@
           href: supported-languages.md
         - name: C# (bibliothèque de classes)
           href: functions-dotnet-class-library.md
+        - name: C# (processus isolé)
+          displayName: '.NET isolated, .NET 5'
+          href: dotnet-isolated-process-guide.md
         - name: Script C# (.csx)
           href: functions-reference-csharp.md
         - name: F#

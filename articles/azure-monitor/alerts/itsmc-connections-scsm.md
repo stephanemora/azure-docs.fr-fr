@@ -1,17 +1,16 @@
 ---
 title: Connecter SCSM avec le connecteur de gestion des services informatiques
 description: Cet article fournit des informations vous indiquant comment connecter SCSM au connecteur de gestion des services informatiques dans Azure Monitor pour surveiller et gérer les éléments de travail ITSM de manière centralisée.
-ms.subservice: logs
 ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 12/21/2020
-ms.openlocfilehash: 32cc45f318e6310ca89f3341add7164a0712f416
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 3f80c42be217d062510c687075cf46b4e7539419
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100599329"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102045341"
 ---
 # <a name="connect-system-center-service-manager-with-it-service-management-connector"></a>Connecter System Center Service Manager au connecteur de gestion des services informatiques
 

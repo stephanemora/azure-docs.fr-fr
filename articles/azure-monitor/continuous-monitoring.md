@@ -1,17 +1,16 @@
 ---
 title: Supervision continue avec Azure Monitor | Microsoft Docs
 description: Décrit les étapes spécifiques de l’utilisation d’Azure Monitor pour activer la supervision continue dans vos workflows.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/12/2018
-ms.openlocfilehash: 0ca6185d829e5941145905e1bc63cc2fb9ac781e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 2fe9d7e4da8950cee2dcb2fbcfb26355ace7285d
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101731644"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102044015"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Supervision continue avec Azure Monitor
 
@@ -36,7 +35,7 @@ Afin d’obtenir l’observabilité sur l’ensemble de votre environnement, vou
 Les applications ne sont fiables que si leur infrastructure sous-jacente l’est. L’activation de la supervision sur l’intégralité de votre infrastructure vous permet d’obtenir l’observabilité totale et de faciliter la découverte d’une cause racine potentielle lors d’un échec. Azure Monitor vous permet de suivre l’intégrité et les performances de votre infrastructure hybride dans son intégralité, y compris de ressources telles que les machines virtuelles, les conteneurs, le stockage et le réseau.
 
 - Vous obtenez automatiquement les [métriques de plateforme, les journaux d’activité et les journaux de diagnostic](agents/data-sources.md) de la plupart de vos ressources Azure, sans aucune configuration.
-- Activez une analyse plus approfondie pour les machines virtuelles avec [VM insights](vm/vminsights-overview.md).
+- Activez une surveillance plus poussée des machines virtuelles avec des [Insights de machine virtuelle](vm/vminsights-overview.md).
 -  Activez une supervision plus approfondie pour les clusters AKS avec [Azure Monitor pour conteneurs](containers/container-insights-overview.md).
 - Ajoutez des [solutions de supervision](./monitor-reference.md) pour différents services et applications de votre environnement.
 
