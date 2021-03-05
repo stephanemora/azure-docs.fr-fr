@@ -2,18 +2,18 @@
 title: Chiffrement côté serveur de disques managés Azure
 description: Le Stockage Azure protège vos données en les chiffrant au repos avant de les rendre persistantes dans des clusters de stockage. Vous pouvez utiliser des clés gérées par le client pour gérer le chiffrement avec vos propres clés, ou vous appuyer sur des clés gérées par Microsoft pour le chiffrement de vos disques managés.
 author: roygara
-ms.date: 10/22/2020
+ms.date: 03/02/2021
 ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: f9152e341ac04209754bbf5f008cd56373967b9f
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: a1fbd536943023d3e6724b9c1638f7a0bd97d847
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101677452"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102036943"
 ---
 # <a name="server-side-encryption-of-azure-disk-storage"></a>Chiffrement côté serveur de stockage sur disque Azure
 
@@ -66,6 +66,8 @@ La rotation automatique des clés est en préversion et n’est disponible que d
 > [!IMPORTANT]
 > Les clés managées par le client s’appuient sur des identités managées pour ressources Azure, une fonctionnalité d’Azure Active Directory (Azure AD). Quand vous configurez des clés gérées par le client, une identité managée est automatiquement affectée à vos ressources à l’arrière plan. Si par la suite vous déplacez l’abonnement, le groupe de ressources ou le disque managé d’un répertoire Azure AD à un autre, l’identité managée associée aux disques gérés n’est pas transférée vers le nouveau locataire, de sorte que les clés gérées par le client peuvent ne plus fonctionner. Pour plus d’informations, consultez [Transfert d’un abonnement entre des répertoires Azure AD](../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).
 
+Pour activer les clés gérées par le client pour les disques managés, consultez nos articles traitant de la façon de les activer à l’aide du [module Azure PowerShell](windows/disks-enable-customer-managed-keys-powershell.md), d’[Azure CLI](linux/disks-enable-customer-managed-keys-cli.md) ou du [portail Azure](disks-enable-customer-managed-keys-portal.md). Pour savoir comment activer les clés gérées par le client avec rotation automatique des clés, consultez [Configurer un coffre de clés Azure et un jeu de chiffrement DiskEncryptionSet avec rotation automatique des clés (préversion)](windows/disks-enable-customer-managed-keys-powershell.md#set-up-an-azure-key-vault-and-diskencryptionset-with-automatic-key-rotation-preview).
+
 ## <a name="encryption-at-host---end-to-end-encryption-for-your-vm-data"></a>Chiffrement à l’hôte : chiffrement de bout en bout pour vos données de machine virtuelle
 
 Lorsque vous activez le chiffrement sur l’hôte, il démarre sur l’hôte de machine virtuelle lui-même, le serveur Azure auquel votre machine virtuelle est allouée. Les données de votre disque temporaire et des caches du système d’exploitation/du disque de données sont stockées sur cet hôte de machine virtuelle. Après l’activation du chiffrement sur l’hôte, toutes ces données sont chiffrées au repos et les flux sont chiffrés dans le service de stockage, où elles sont conservées. En fait, le chiffrement sur l’hôte chiffre vos données de bout en bout. Le chiffrement sur l’hôte n’utilise pas le processeur de votre machine virtuelle et n’a pas d’impact sur ses performances. 
@@ -84,6 +86,8 @@ Les disques temporaires et disques de système d’exploitation éphémères son
 
 [!INCLUDE [virtual-machines-disks-encryption-at-host-suported-sizes](../../includes/virtual-machines-disks-encryption-at-host-suported-sizes.md)]
 
+Pour activer le chiffrement de bout en bout à l’aide du chiffrement sur l’hôte, consultez nos articles traitant de la façon de l’activer à l’aide du [module Azure PowerShell](windows/disks-enable-host-based-encryption-powershell.md), d’[Azure CLI](linux/disks-enable-host-based-encryption-cli.md) et du [portail Azure](disks-enable-host-based-encryption-portal.md).
+
 ## <a name="double-encryption-at-rest"></a>Double chiffrement des données au repos
 
 Les clients sensibles haute sécurité qui sont concernés par les risques associés à un algorithme de chiffrement particulier, une implémentation ou une clé compromise, peuvent désormais choisir une couche supplémentaire de chiffrement à l’aide d’un algorithme/mode de chiffrement différent au niveau de la couche d’infrastructure à l’aide de clés de chiffrement gérées par la plateforme. Cette nouvelle couche peut être appliquée systèmes d’exploitation et disques de données persistants, à des captures instantanées et à des images, qui seront toutes chiffrées au repos avec un double chiffrement.
@@ -91,6 +95,8 @@ Les clients sensibles haute sécurité qui sont concernés par les risques assoc
 ### <a name="supported-regions"></a>Régions prises en charge
 
 Le double chiffrement est disponible dans toutes les régions où les disques managés le sont également.
+
+Pour activer le chiffrement double au repos pour les disques managés, consultez nos articles traitant de la façon de l’activer à l’aide du [module Azure PowerShell](windows/disks-enable-double-encryption-at-rest-powershell.md), d’[Azure CLI](linux/disks-enable-double-encryption-at-rest-cli.md) ou du [portail Azure](disks-enable-double-encryption-at-rest-portal.md).
 
 ## <a name="server-side-encryption-versus-azure-disk-encryption"></a>Chiffrement côté serveur et chiffrement de disque Azure
 

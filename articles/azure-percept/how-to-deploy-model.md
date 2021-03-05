@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/12/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 6e1ed39edfd3c395fbc3e4d26a4aa358d48a1d5b
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 01bd3709050d8a2b57c1bf51920308188546fb31
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101660274"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102035481"
 ---
 # <a name="deploy-a-vision-ai-model-to-your-azure-percept-dk"></a>Déployer un modèle IA de vision sur votre DK Azure Percept
 
@@ -40,13 +40,11 @@ Suivez ce guide pour déployer un modèle IA de vision sur votre DK Azure Percep
 
 1. Dans la page suivante, cliquez sur **Déployer un exemple de modèle** si vous souhaitez déployer l’un des exemples de modèles de vision préentraînés. Si vous souhaitez déployer une [solution de vision sans code personnalisée](./tutorial-nocode-vision.md) existante, cliquez sur **Déployer un projet Custom Vision**.
 
-    :::image type="content" source="./media/how-to-deploy-model/deploy-model.png" alt-text="Liste des appareils Percept.":::
+    :::image type="content" source="./media/how-to-deploy-model/deploy-model.png" alt-text="Choix de modèles pour le déploiement.":::
 
 1. Si vous avez choisi de déployer une solution de vision sans code, sélectionnez votre projet et votre itération de modèle préférée, puis cliquez sur **Déployer**.
 
 1. Si vous avez choisi de déployer un exemple de modèle, sélectionnez le modèle et cliquez sur **Déployer sur l’appareil**.
-
-    :::image type="content" source="./media/how-to-deploy-model/select-sample-model.png" alt-text="Liste des appareils Percept.":::
 
 1. Une fois le déploiement de votre modèle réussi, vous recevez un message d’état dans le coin supérieur droit de votre écran. Pour afficher l’inférence de votre modèle en action, cliquez sur le lien **Afficher le flux** dans le message d’état. Vous pouvez alors voir le flux vidéo RTSP du SoM Vision de votre devkit.
 

@@ -3,16 +3,16 @@ title: Obtenir des Insights à l’aide du Centre de sauvegarde
 description: Découvrez comment analyser des tendances historiques et obtenir des insights plus approfondies sur vos sauvegardes avec le Centre de sauvegarde.
 ms.topic: conceptual
 ms.date: 09/01/2020
-ms.openlocfilehash: 3086224e4dbb1be2ccfadbfcfcb7441b68a5ff6b
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 47158e53e6248b2b9cef4ff6fd6b5da5972786eb
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100592019"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719455"
 ---
-# <a name="obtain-insights-using-backup-center-preview"></a>Obtenir des insights à l’aide du Centre de sauvegarde (préversion)
+# <a name="obtain-insights-using-backup-center"></a>Obtenir des insights à l’aide du Centre de sauvegarde
 
-Pour analyser les tendances historiques et obtenir des insights plus approfondies sur vos sauvegardes, le Centre de sauvegarde fournit une interface pour les [Rapports de sauvegarde (préversion)](configure-reports.md), qui utilise des [journaux Azure Monitor](../azure-monitor/logs/data-platform-logs.md) et des [classeurs Azure](../azure-monitor/visualize/workbooks-overview.md). La solution Rapports de sauvegarde offre les fonctionnalités suivantes :
+Pour analyser les tendances historiques et obtenir des insights plus approfondies sur vos sauvegardes, le Centre de sauvegarde fournit une interface pour les [Rapports de sauvegarde](configure-reports.md), qui utilise des [journaux Azure Monitor](../azure-monitor/logs/data-platform-logs.md) et des [classeurs Azure](../azure-monitor/visualize/workbooks-overview.md). La solution Rapports de sauvegarde offre les fonctionnalités suivantes :
 
 - allocation et prévision du stockage cloud utilisé ;
 
@@ -24,7 +24,7 @@ Pour analyser les tendances historiques et obtenir des insights plus approfondie
 
 ## <a name="supported-scenarios"></a>Scénarios pris en charge
 
-- La solution Rapports de sauvegarde (préversion) n’est actuellement pas disponible pour la sauvegarde du serveur Azure Database pour PostgreSQL.
+- La solution Rapports de sauvegarde n’est actuellement pas disponible pour la sauvegarde du serveur Azure Database pour PostgreSQL.
 
 - Pour obtenir une liste détaillée des scénarios pris en charge et non pris en charge, consultez la [Matrice de prise en charge](backup-center-support-matrix.md).
 
@@ -53,6 +53,8 @@ Voici les affichages disponibles :
 1. **Stratégies** : cet onglet fournit des informations sur toutes les stratégies actives, par exemple le nombre d’éléments associés et le stockage cloud total consommé par les éléments sauvegardés dans le cadre d’une stratégie donnée. [En savoir plus](./configure-reports.md#policies)
 
 1. **Optimiser** : cet onglet vous permet d’obtenir une visibilité sur les opportunités potentielles d’optimisation des coûts pour vos sauvegardes. [En savoir plus](./configure-reports.md#optimize)
+
+1. **Adhésion à la stratégie** : utilisez cet onglet pour obtenir une visibilité sur le fait que chaque instance de sauvegarde a eu au moins une sauvegarde réussie par jour.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

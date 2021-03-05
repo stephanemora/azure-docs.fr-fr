@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/26/2020
+ms.date: 2/18/2021
 ms.author: shhazam
-ms.openlocfilehash: 06cf8b5f35bdebed0ebaa9e6949261d7c0d516f2
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: c224dc3f919471e769717f308aff9ae58630d421
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100522561"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101712757"
 ---
 # <a name="get-started-with-defender-for-iot"></a>Bien démarrer avec Defender pour IoT
 
@@ -69,6 +69,8 @@ Pour vous inscrire :
 1. Sélectionnez **Intégrer un abonnement**.
 1. Sur la page **Tarifs**, sélectionnez un abonnement ou créez-en un, puis ajoutez le nombre d’appareils validés.
 1. Sélectionnez l’onglet **Téléchargez la console de gestion locale** et enregistrez le fichier d’activation téléchargé. Ce fichier contient les appareils validés agrégés que vous avez définis. Il sera chargé dans la console de gestion après la connexion initiale.
+
+Pour plus d’informations sur la manière de désactiver un abonnement, consultez [Désactiver un abonnement](how-to-manage-sensors-on-the-cloud.md#offboard-a-subscription).
 
 ## <a name="3-install-and-set-up-the-on-premises-management-console"></a>3. Installation et configuration de la console de gestion locale
 
@@ -126,8 +128,9 @@ Pour plus d’informations, consultez [Connexion des capteurs à la console de g
 ## <a name="7-populate-azure-sentinel-with-alert-information-optional"></a>7. Remplissage des informations d’alerte dans Azure Sentinel (facultatif)
 
 Envoyez des informations d’alerte à Azure Sentinel en configurant ce dernier. Consultez [Connexion des données de Defender pour IoT à Azure Sentinel](how-to-configure-with-sentinel.md).
-## <a name="next-steps"></a>Étapes suivantes
 
-[Bienvenue sur Azure Defender pour IoT](overview.md)
+## <a name="see-also"></a>Voir aussi
 
-[Architecture de Azure Defender pour IoT](architecture.md)
+- [Bienvenue sur Azure Defender pour IoT](overview.md)
+
+- [Architecture de Azure Defender pour IoT](architecture.md)

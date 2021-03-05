@@ -5,16 +5,16 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/14/2021
+ms.date: 02/24/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: b014f81354b2f7eb2fb06de540f16b08206d583e
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 2acc3d104786be330e3e799ad7bd96d703587581
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98705942"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738988"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Utiliser le service Azure Import/Export pour transférer des données dans le Stockage Blob Azure
 
@@ -62,13 +62,13 @@ Effectuez les étapes suivantes pour préparer les lecteurs.
 
         `WAImportExport Unlock /externalKey:<BitLocker key (base 64 string) copied from journal (*.jrn*) file>`
 
-5. Ouvrez une fenêtre PowerShell ou de ligne de commande avec des privilèges d’administrateur. Pour accéder au répertoire du dossier décompressé, exécutez la commande suivante :
+5. Ouvrez une fenêtre PowerShell ou de ligne de commande avec des privilèges Administrateur. Pour accéder au répertoire du dossier décompressé, exécutez la commande suivante :
 
     `cd C:\WaImportExportV1`
 6. Pour obtenir la clé BitLocker du lecteur, exécutez la commande suivante :
 
     `manage-bde -protectors -get <DriveLetter>:`
-7. Pour préparer le disque, exécutez la commande suivante. **Selon la taille des données, l’opération peut durer plusieurs heures, voire plusieurs jours.**
+7. Pour préparer le disque, exécutez la commande suivante. **Selon la taille des données, l’opération du disque peut durer plusieurs heures, voire plusieurs jours.**
 
     ```powershell
     ./WAImportExport.exe PrepImport /j:<journal file name> /id:session<session number> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /blobtype:<BlockBlob or PageBlob> /skipwrite
@@ -86,13 +86,14 @@ Effectuez les étapes suivantes pour préparer les lecteurs.
     |/bk:     |Clé BitLocker du lecteur. Son mot de passe numérique à partir de la sortie de `manage-bde -protectors -get D:`      |
     |/srcdir:     |Lettre de lecteur du disque à expédier suivie de `:\`. Par exemple : `D:\`.         |
     |/dstdir:     |Nom du conteneur de destination dans le Stockage Azure.         |
-    |/blobtype:     |Cette option spécifie le type d’objets blob vers lequel vous souhaitez importer les données. Pour des objets blob de blocs, il s’agit de `BlockBlob`, et pour des objet blob de pages, `PageBlob`.         |
-    |/skipwrite:     |Option qui spécifie qu’aucune nouvelle donnée ne doit être copiée et que les données existantes sur le disque doivent être préparées.          |
+    |/blobtype:     |Cette option spécifie le type d’objets blob vers lequel vous souhaitez importer les données. Pour des objets blob de blocs, le type de blob est `BlockBlob`, et pour des objet blob de pages, `PageBlob`.         |
+    |/skipwrite:     | Indique qu’aucune nouvelle donnée ne doit être copiée et que les données existantes sur le disque doivent être préparées.          |
     |/enablecontentmd5:     |Lorsqu’elle est activée, cette option garantit que MD5 est calculté et défini comme propriété `Content-md5` sur chaque objet blob. Utilisez cette option uniquement si vous souhaitez utiliser le champ `Content-md5` une fois que les données sont téléchargées vers Azure. <br> Cette option n’affecte pas la vérification d’intégrité des données (ce qui se produit par défaut). Le paramètre augmente le temps nécessaire au chargement des données dans le cloud.          |
 8. Répétez l’étape précédente pour chaque disque à expédier. Un fichier journal avec le nom fourni est créé pour chaque exécution de la ligne de commande.
 
     > [!IMPORTANT]
     > * En plus du fichier journal, un fichier `<Journal file name>_DriveInfo_<Drive serial ID>.xml` est également créé dans le même dossier où se trouve l’outil. Le fichier .xml est utilisé à la place du fichier journal quand vous créez une tâche si le fichier journal est trop volumineux.
+   > * La taille maximale du fichier journal que le portail autorise est de 2 Mo. Si le fichier journal dépasse cette limite, une erreur se produit.
 
 ## <a name="step-2-create-an-import-job"></a>Étape 2 : Créer une tâche d’importation
 
@@ -101,13 +102,13 @@ Effectuez les étapes suivantes pour préparer les lecteurs.
 Effectuez les étapes suivantes pour créer une tâche d’importation dans le portail Azure.
 
 1. Connectez-vous sur https://portal.azure.com/.
-2. Accédez à **Tous les services > Stockage > Tâches d’importation/exportation**.
+2. Recherchez les **tâches d’importation/exportation**.
 
-    ![Accéder à Tâches d’importation/exportation](./media/storage-import-export-data-to-blobs/import-to-blob1.png)
+    ![Rechercher des tâches d’importation/exportation](./media/storage-import-export-data-to-blobs/import-to-blob-1.png)
 
-3. Cliquez sur **Créer une tâche d’importation/exportation**.
+3. Sélectionnez **+Nouveau**.
 
-    ![Cliquez sur Créer une tâche d’importation/exportation](./media/storage-import-export-data-to-blobs/import-to-blob2.png)
+    ![Sélectionner Nouveau pour en créer une ](./media/storage-import-export-data-to-blobs/import-to-blob-2.png)
 
 4. Dans **De base** :
 
@@ -118,7 +119,7 @@ Effectuez les étapes suivantes pour créer une tâche d’importation dans le p
    * Sélectionnez un abonnement.
    * Entrez ou sélectionnez un groupe de ressources.
 
-     ![Créer une tâche d’importation - Étape 1](./media/storage-import-export-data-to-blobs/import-to-blob3.png)
+     ![Créer une tâche d’importation - Étape 1](./media/storage-import-export-data-to-blobs/import-to-blob-3.png)
 
 5. Dans **Détails de la tâche** :
 
@@ -126,25 +127,25 @@ Effectuez les étapes suivantes pour créer une tâche d’importation dans le p
    * Sélectionnez le compte de stockage de destination des données.
    * L’emplacement de remise est automatiquement rempli en fonction de la région du compte de stockage sélectionné.
 
-   ![Créer une tâche d’importation - Étape 2](./media/storage-import-export-data-to-blobs/import-to-blob4.png)
+   ![Créer une tâche d’importation - Étape 2](./media/storage-import-export-data-to-blobs/import-to-blob-4.png)
 
 6. Dans **Informations de réexpédition** :
 
    * Sélectionnez le transporteur dans la liste déroulante. Si vous souhaitez utiliser un autre transporteur que FedEx/DHL, choisissez une option existante dans la liste déroulante. Contactez l’équipe des opérations Azure Data Box à l’adresse `adbops@microsoft.com` pour lui indiquer le nom du transporteur auquel vous envisagez de faire appel.
    * Entrez un numéro de compte de transporteur valide que vous avez créé pour ce transporteur. Microsoft utilise ce compte pour renvoyer les lecteurs une fois la tâche d’importation terminée. Si vous n’avez pas de numéro de compte, créez un compte de transporteur [FedEx](https://www.fedex.com/us/oadr/) ou [DHL](https://www.dhl.com/).
-   * Indiquez le nom d’un contact, le numéro de téléphone, l’e-mail, l’adresse, la ville, le code postal, l’état/la province et le pays/la région, puis vérifiez que ces informations sont complètes et valides.
+   * Indiquez le nom, le numéro de téléphone, l'e-mail, l'adresse, la ville, le code postal, l'état/la province et le pays/la région d'un contact, puis vérifiez que ces informations sont complètes et valides.
 
        > [!TIP]
        > Au lieu de spécifier une adresse de messagerie pour un seul utilisateur, fournissez une adresse de groupe. Cela garantit que vous recevrez des notifications même si un administrateur s’en va.
 
-     ![Créer une tâche d'importation - Étape 3](./media/storage-import-export-data-to-blobs/import-to-blob5.png)
+     ![Créer une tâche d'importation - Étape 3](./media/storage-import-export-data-to-blobs/import-to-blob-5.png)
 
 7. Dans le **Récapitulatif** :
 
    * Passez en revue les informations de tâche dans le récapitulatif. Notez le nom de la tâche et l’adresse du centre de données Azure pour réexpédier les disques à Azure. Ces informations sont utilisées par la suite sur l’étiquette d’expédition.
    * Cliquez sur **OK** pour créer la tâche d’importation.
 
-     ![Créer une tâche d’importation - Étape 4](./media/storage-import-export-data-to-blobs/import-to-blob6.png)
+     ![Créer une tâche d’importation - Étape 4](./media/storage-import-export-data-to-blobs/import-to-blob-6.png)
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -323,7 +324,7 @@ Install-Module -Name Az.ImportExport
 
 ## <a name="step-3-optional-configure-customer-managed-key"></a>Étape 3 (facultative) : Configurer une clé gérée par le client
 
-Ignorez cette étape et passez à l’étape suivante si vous souhaitez utiliser la clé gérée par Microsoft pour protéger vos clés BitLocker pour les lecteurs. Pour configurer votre propre clé afin de protéger la clé BitLocker, suivez les instructions de [Configurer les clés gérées par le client avec Azure Key Vault pour Azure Import/Export dans le portail Azure](storage-import-export-encryption-key-portal.md)
+Ignorez cette étape et passez à l’étape suivante si vous souhaitez utiliser la clé gérée par Microsoft pour protéger vos clés BitLocker pour les lecteurs. Pour configurer votre propre clé afin de protéger la clé BitLocker, suivez les instructions de la section [Configurer les clés gérées par le client avec Azure Key Vault pour Azure Import/Export dans le Portail Azure](storage-import-export-encryption-key-portal.md).
 
 ## <a name="step-4-ship-the-drives"></a>Étape 4 : Expédier les disques
 

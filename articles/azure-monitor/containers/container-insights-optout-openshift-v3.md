@@ -1,14 +1,14 @@
 ---
 title: Comment arrêter la surveillance de votre cluster Azure Red Hat OpenShift v3 | Microsoft Docs
-description: Cet article décrit comment arrêter la surveillance de votre cluster Azure Red Hat OpenShift avec Azure Monitor pour conteneurs.
+description: Cet article décrit comment arrêter la surveillance de votre cluster Azure Red Hat OpenShift avec Container Insights.
 ms.topic: conceptual
 ms.date: 04/24/2020
-ms.openlocfilehash: 7e6ab46940ed29a98b3988c00c92d6c691d6e0f0
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 6a278898942e40d3347791d31a3c38341df01f7c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100600399"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731814"
 ---
 # <a name="how-to-stop-monitoring-your-azure-red-hat-openshift-v3-cluster"></a>Comment arrêter la surveillance de votre cluster Azure Red Hat OpenShift v3
 
@@ -19,9 +19,9 @@ ms.locfileid: "100600399"
 > Les clusters 3.11 existants continueront de fonctionner jusqu’en juin 2022, mais ne seront plus pris en charge après cette date.
 >
 > Suivez ce guide pour [Créer un cluster Azure Red Hat OpenShift 4](../../openshift/tutorial-create-cluster.md).
-> Si vous avez des questions spécifiques, [n’hésitez pas à nous contacter](mailto:aro-feedback@microsoft.com).
+> Si vous avez des questions spécifiques, n’hésitez pas à [nous contacter](mailto:aro-feedback@microsoft.com).
 
-Une fois que vous avez activé la surveillance de votre cluster Azure Red Hat OpenShift 3.x, vous pouvez arrêter la surveillance à l’aide d’Azure Monitor pour conteneurs si vous décidez de ne plus le surveiller. Cet article explique comment procéder à cela en utilisant le modèle Azure Resource Manager fourni.  
+Après avoir activé la surveillance de votre cluster Azure Red Hat OpenShift version 3.x, vous pouvez l'arrêter avec Container Insights si vous décidez de ne plus le surveiller. Cet article explique comment procéder à cela en utilisant le modèle Azure Resource Manager fourni.  
 
 ## <a name="azure-resource-manager-template"></a>Modèle Azure Resource Manager
 
@@ -137,4 +137,4 @@ ProvisioningState       : Succeeded
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si l’espace de travail a été créé uniquement pour prendre en charge la surveillance du cluster et qu’il n’est plus nécessaire, vous devez le supprimer manuellement. Si vous n’êtes pas familiarisé avec la suppression d’un espace de travail, consultez la rubrique [Supprimer un espace de travail Azure Log Analytics](../platform/delete-workspace.md).
+Si l’espace de travail a été créé uniquement pour prendre en charge la surveillance du cluster et qu’il n’est plus nécessaire, vous devez le supprimer manuellement. Si vous n’êtes pas familiarisé avec la suppression d’un espace de travail, consultez la rubrique [Supprimer un espace de travail Azure Log Analytics](../logs/delete-workspace.md).

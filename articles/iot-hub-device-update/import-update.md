@@ -1,17 +1,17 @@
 ---
 title: Guide pratique pour importer une nouvelle mise à jour | Microsoft Docs
 description: Guide pratique pour importer une nouvelle mise à jour dans Device Update pour IoT Hub.
-author: andbrown
+author: andrewbrownmsft
 ms.author: andbrown
 ms.date: 2/11/2021
 ms.topic: how-to
 ms.service: iot-hub-device-update
-ms.openlocfilehash: d8757f3076f784576f95bbdfc30abf578446c776
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: c83221743e0566d783c38c40aaf92111a0cd80f7
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101660312"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102030730"
 ---
 # <a name="import-new-update"></a>Importer une nouvelle mise à jour
 Découvrez comment importer une nouvelle mise à jour dans Device Update pour IoT Hub.
@@ -53,7 +53,7 @@ Découvrez comment importer une nouvelle mise à jour dans Device Update pour Io
     $importManifest | Out-File '.\importManifest.json' -Encoding UTF8
     ```
 
-    À titre d’aide-mémoire, voici quelques exemples de valeurs pour les paramètres ci-dessus. Pour obtenir la documentation complète, consultez le schéma de manifeste d’importation complet ci-dessous.
+    À titre d’aide-mémoire, voici quelques exemples de valeurs pour les paramètres ci-dessus. Vous pouvez également afficher le [schéma complet du manifeste d’importation](import-schema.md) pour plus de détails.
 
     | Paramètre | Description |
     | --------- | ----------- |
@@ -66,19 +66,6 @@ Découvrez comment importer une nouvelle mise à jour dans Device Update pour Io
     | installedCriteria | <ul><li>Spécifier la valeur de SWVersion pour le type de mise à jour `microsoft/swupdate:1`</li><li>Spécifier la valeur recommandée pour le type de mise à jour `microsoft/apt:1`
     | updateFilePath(s) | Chemin du ou des fichiers de mise à jour sur votre ordinateur
 
-    Schéma de manifeste d’importation complet
-
-    | Nom | Type | Description | Restrictions |
-    | --------- | --------- | --------- | --------- |
-    | UpdateId | l'objet `UpdateId` | Identité de la mise à jour. |
-    | UpdateType | string | Type de mise à jour : <ul><li>Spécifiez `microsoft/apt:1` quand vous effectuez une mise à jour basée sur un package à l’aide de l’agent de référence.</li><li>Spécifiez `microsoft/swupdate:1` quand vous effectuez une mise à jour basée sur une image à l’aide de l’agent de référence.</li><li>Spécifiez `microsoft/simulator:1` quand vous utilisez l’exemple de simulateur d’agent.</li><li>Spécifiez un type personnalisé si vous développez un agent personnalisé.</li></ul> | <ul><li>Format : `{provider}/{type}:{typeVersion}`</li><li>Longueur maximale totale de 32 caractères</li></ul> |
-    | InstalledCriteria | string | Chaîne interprétée par l’agent pour déterminer si la mise à jour a été appliquée avec succès :  <ul><li>Spécifiez la **valeur** de SWVersion pour le type de mise à jour `microsoft/swupdate:1`.</li><li>Spécifiez `{name}-{version}` pour le type de mise à jour `microsoft/apt:1`, dont le nom et la version sont obtenus à partir du fichier APT.</li><li>Spécifiez le code de hachage du fichier de mise à jour pour le type de mise à jour `microsoft/simulator:1`.</li><li>Spécifiez une chaîne personnalisée si vous développez un agent personnalisé.</li></ul> | 64 caractères maximum |
-    | Compatibilité | Tableau d’objets `CompatibilityInfo` | Informations de compatibilité de l’appareil compatible avec cette mise à jour. | Maximum de 10 éléments |
-    | CreatedDateTime | date/heure | Date et heure de création de la mise à jour. | Format de date et heure ISO 8601 délimité, en UTC |
-    | ManifestVersion | string | Version du schéma du manifeste d’importation. Spécifiez `2.0`, qui sera compatible avec l’interface `urn:azureiot:AzureDeviceUpdateCore:1` et l’interface `urn:azureiot:AzureDeviceUpdateCore:4`.</li></ul> | Doit être `2.0` |
-    | Fichiers | Tableau d’objets `File` | Mettre à jour les fichiers de charge utile | Maximum de 5 fichiers |
-
-Remarque : Tous les champs sont obligatoires.
 
 ## <a name="review-generated-import-manifest"></a>Examiner le manifeste d’importation généré
 

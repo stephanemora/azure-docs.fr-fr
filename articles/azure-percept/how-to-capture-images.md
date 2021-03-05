@@ -1,20 +1,20 @@
 ---
-title: Déployer un modèle IA de vision sur votre DK Azure Percept
-description: Découvrir comment déployer un modèle IA de vision sur votre DK Azure Percept à partir d’Azure Percept Studio
+title: Capturer des images pour une solution de vision sans code dans Azure Percept Studio
+description: Découvrez comment capturer des images avec votre DK Azure Percept dans Azure Percept Studio pour une solution de vision sans code.
 author: elqu20
 ms.author: v-elqu
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/12/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 5ad263f5ae3b0b8e91de30b620002e33086608b4
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 44bf498af52f4d8a0d880dc1f1d5874d5b444cae
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101660229"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102035532"
 ---
-# <a name="capture-images-for-a-vision-project"></a>Capturer des images pour un projet de vision
+# <a name="capture-images-for-a-vision-project-in-azure-percept-studio"></a>Capturer des images pour un projet de vision dans Azure Percept Studio
 
 Suivez ce guide afin de capturer des images à l’aide du SoM Vision du DK Azure Percept pour un projet de vision existant dans Azure Percept Studio. Si vous n’avez pas encore créé de projet de vision, consultez le [tutoriel pour créer un projet de vision sans code](./tutorial-nocode-vision.md).
 
@@ -56,7 +56,7 @@ Suivez ce guide afin de capturer des images à l’aide du SoM Vision du DK Azur
         1. Sélectionnez le taux d’acquisition d’images de votre choix sous **Taux de capture**.
         1. Sélectionnez le nombre total d’images que vous souhaitez collecter sous **Cible**.
 
-    :::image type="content" source="./media/how-to-capture-images/take-photo.png" alt-text="Page des appareils Percept avec les actions disponibles listées.":::
+    :::image type="content" source="./media/how-to-capture-images/take-photo.png" alt-text="Écran Capture d’image.":::
 
 Toutes les images sont accessibles dans [Custom Vision](https://www.customvision.ai/).
 

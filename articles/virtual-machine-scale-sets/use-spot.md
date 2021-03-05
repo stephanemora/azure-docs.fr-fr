@@ -9,12 +9,12 @@ ms.subservice: spot
 ms.date: 02/26/2021
 ms.reviewer: cynthn
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 33aa553e688b595551c20e8b1432163152865537
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: b20a5bd9c06c3948097389d5439defa219a7931b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101675007"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101694986"
 ---
 # <a name="azure-spot-virtual-machines-for-virtual-machine-scale-sets"></a>Machines virtuelles Azure Spot et groupes de machines virtuelles identiques 
 
@@ -68,13 +68,56 @@ Cette nouvelle fonctionnalité au niveau de la plateforme utilise l’intelligen
 > Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Avantages de la fonctionnalité Essayer et restaurer :
-- Activé par défaut lors du déploiement d’une machine virtuelle Azure spot dans un groupe identique.
 - Tentatives de restauration des machines virtuelles spot Azure écartées en raison de la capacité.
 - Les machines virtuelles spot Azure restaurées sont censées s’exécuter pendant une durée plus longue, avec une probabilité inférieure d’une capacité d’éviction déclenchée.
 - Améliore la durée de vie d’une machine virtuelle spot Azure, de sorte que les charges de travail s’exécutent pendant une durée plus longue.
 - Aide les groupes de machines virtuelles identiques à maintenir le nombre de cibles pour les machines virtuelles spot Azure, similaire à la fonctionnalité de maintien du nombre de cibles qui existe déjà pour les machines virtuelles avec paiement à l’utilisation.
 
 La fonctionnalité Essayer et restaurer est désactivée dans les groupes identiques qui utilisent la [mise à l’échelle automatique](virtual-machine-scale-sets-autoscale-overview.md). Le nombre de machines virtuelles dans le groupe identique est piloté par les règles de mise à l’échelle automatique.
+
+### <a name="register-for-try--restore"></a>S’inscrire pour utiliser la fonctionnalité Essayer et restaurer
+
+Avant de pouvoir utiliser la fonctionnalité Essayer et restaurer, vous devez inscrire votre abonnement à la préversion. L’inscription peut prendre plusieurs minutes. Vous pouvez utiliser Azure CLI ou PowerShell pour inscrire la fonctionnalité.
+
+
+**Utiliser l’interface de ligne de commande 2.0**
+
+Utilisez [az feature register](/cli/azure/feature#az-feature-register) pour activer la préversion pour votre abonnement. 
+
+```azurecli-interactive
+az feature register --namespace Microsoft.Compute --name SpotTryRestore 
+```
+
+L’inscription de la fonctionnalité peut prendre jusqu’à 15 minutes. Pour vérifier l’état de l’inscription : 
+
+```azurecli-interactive
+az feature show --namespace Microsoft.Compute --name SpotTryRestore 
+```
+
+Une fois que la fonctionnalité a été enregistrée pour votre abonnement, effectuez le processus d’inscription en propageant la modification dans le fournisseur de ressources de calcul. 
+
+```azurecli-interactive
+az provider register --namespace Microsoft.Compute 
+```
+**Utiliser PowerShell** 
+
+Utilisez l’applet de commande [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) pour activer la préversion pour votre abonnement. 
+
+```azurepowershell-interactive
+Register-AzProviderFeature -FeatureName SpotTryRestore -ProviderNamespace Microsoft.Compute 
+```
+
+L’inscription de la fonctionnalité peut prendre jusqu’à 15 minutes. Pour vérifier l’état de l’inscription : 
+
+```azurepowershell-interactive
+Get-AzProviderFeature -FeatureName SpotTryRestore -ProviderNamespace Microsoft.Compute 
+```
+
+Une fois que la fonctionnalité a été enregistrée pour votre abonnement, effectuez le processus d’inscription en propageant la modification dans le fournisseur de ressources de calcul. 
+
+```azurepowershell-interactive
+Register-AzResourceProvider -ProviderNamespace Microsoft.Compute 
+```
 
 ## <a name="placement-groups"></a>Groupes de placement
 

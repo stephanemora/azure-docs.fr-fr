@@ -9,12 +9,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/02/2021
-ms.openlocfilehash: ae31b329cbea82ac664af24e42ec58d094b3a7ae
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: e8f7e5451b48066f52a4c1038e58b1efa99951e6
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101660446"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102048593"
 ---
 # <a name="configure-maintenance-window-preview"></a>Configurer la fenêtre de maintenance (préversion)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -275,7 +275,7 @@ Les étapes suivantes définissent la fenêtre de maintenance sur une base de do
 1. Accédez à l’instance managée pour laquelle vous souhaitez définir la fenêtre de maintenance.
 1. Dans le menu **Paramètres**, sélectionnez **Maintenance**, puis sélectionnez la fenêtre de maintenance souhaitée.
 
-   :::image type="content" source="media/maintenance-window-configure/maintenance.png" alt-text="Page Maintenance de base de données SQL":::
+   :::image type="content" source="media/maintenance-window-configure/maintenance-mi.png" alt-text="Page Maintenance de l’instance gérée SQL":::
 
 
 

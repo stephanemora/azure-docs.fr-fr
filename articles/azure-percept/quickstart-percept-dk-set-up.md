@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: quickstart
 ms.date: 02/15/2021
 ms.custom: template-quickstart
-ms.openlocfilehash: 3540204d66bb589c567514f92a9a8acb2159e343
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 77ccf09903b6cff83b52d60d43d0c52533c9c1ad
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101664222"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102041686"
 ---
 # <a name="set-up-your-azure-percept-dk-and-deploy-your-first-ai-model"></a>Configurer votre DK Azure Percept et déployer votre premier modèle IA
 
@@ -173,7 +173,7 @@ Si vous voulez créer un abonnement, effectuez [les étapes suivantes](https://d
 
     :::image type="content" source="./media/quickstart-percept-dk-setup/main-19-0-warning.png" alt-text="Avertissement de déconnexion de l’expérience d’installation."::: 
 
-1. Accédez au portail Azure – Revenez à la fenêtre de l’expérience d’installation et cliquez sur le bouton **Continuer vers le portail Azure** pour commencer à créer vos modèles IA personnalisés dans Azure Percept Studio.
+1. Continuez vers le portail Azure : revenez à la fenêtre de l’expérience d’installation et cliquez sur le bouton **Continuer vers le portail Azure** pour commencer à créer vos modèles IA personnalisés dans Azure Percept Studio.
 
     > [!NOTE]
     > Vérifiez que votre ordinateur hôte n’est plus connecté au point d’accès du devkit dans vos paramètres Wi-Fi et qu’il est maintenant reconnecté à votre Wi-Fi local.
@@ -205,8 +205,6 @@ Si vous voulez créer un abonnement, effectuez [les étapes suivantes](https://d
     
 1. Déployez un nouvel exemple prédéfini sur votre appareil connecté. Sélectionnez un exemple dans la bibliothèque et cliquez sur Déployer sur l’appareil
 
-    :::image type="content" source="./media/quickstart-percept-dk-setup/portal-05-1-select-prebuilt.png" alt-text="Sélectionnez un exemple prédéfini.":::
-    
     :::image type="content" source="./media/quickstart-percept-dk-setup/portal-05-2-select-journey.png" alt-text="Examinez la détection d’objet en action.":::
 
 ## <a name="next-steps"></a>Étapes suivantes
