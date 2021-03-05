@@ -4,14 +4,14 @@ description: Cet article décrit comment ingérer des données de télémétrie 
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
-ms.author: v-umha
+ms.author: v-ummehabiba
 ms.custom: has-adal-ref
-ms.openlocfilehash: 603f14d2076b5b74dde0b92a732f8fe816f6dd10
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: e4182f3718422be3a0aa99c980d33026df4ce9af
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97656782"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102173747"
 ---
 # <a name="ingest-historical-telemetry-data"></a>Ingérer des données de télémétrie historiques
 

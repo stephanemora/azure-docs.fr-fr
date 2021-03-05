@@ -4,13 +4,13 @@ description: Décrit comment gérer des fermes
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
-ms.author: v-umha
-ms.openlocfilehash: dc06f7c75e27d831994b97b97f3d20bb34c3a6c5
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.author: v-ummehabiba
+ms.openlocfilehash: 050b3b4d67eda9b6c9b4621c014e3e6baad34053
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167931"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102173798"
 ---
 # <a name="manage-farms"></a>Gérer des fermes
 
@@ -28,21 +28,21 @@ Utiliser les étapes suivantes :
     ![Capture d’écran de la page « Fermes ».](./media/create-farms-in-azure-farmbeats/create-farm-main-page-1.png)
 
 
-2. Sélectionnez **Create Farm** et renseignez les champs **Name** , **Crops** (Cultures) et **Address** .
+2. Sélectionnez **Create Farm** et renseignez les champs **Name**, **Crops** (Cultures) et **Address**.
 3. Dans le champ obligatoire **Define Farm Boundary** (Définir les limites de la ferme), sélectionnez **Mark on Map** (Marquer sur la carte) ou **Paste GeoJSON code** (Coller le code GeoJSON).
 
 Voici les deux façons de définir les limites d’une ferme :
 
-1. **Mark on Map**  : utilisez l’outil de contrôle de carte pour tracer et marquer les limites de la ferme. Pour marquer les limites, cliquez sur ![Screenshot that shows the pencil icon for drawing boundaries on the map](./media/create-farms-in-azure-farmbeats/pencil-icon-1.png) et tracez les limites exactes.
+1. **Mark on Map** : utilisez l’outil de contrôle de carte pour tracer et marquer les limites de la ferme. Pour marquer les limites, cliquez sur ![Screenshot that shows the pencil icon for drawing boundaries on the map](./media/create-farms-in-azure-farmbeats/pencil-icon-1.png) et tracez les limites exactes.
 
     ![Capture d’écran montrant les limites dessinées sur une carte.](./media/create-farms-in-azure-farmbeats/create-farm-mark-on-map-1.png)
 
-2. **Paste GeoJson Code**  : GeoJSON est un format permettant d’encoder des structures de données géographiques avec JSON (JavaScript Object Notation). Cette option affiche une zone de texte dans laquelle vous pouvez entrer une chaîne GeoJSON pour marquer les limites de la ferme. Vous pouvez également créer du code GeoJSON à partir de GeoJSON.io.
+2. **Paste GeoJson Code** : GeoJSON est un format permettant d’encoder des structures de données géographiques avec JSON (JavaScript Object Notation). Cette option affiche une zone de texte dans laquelle vous pouvez entrer une chaîne GeoJSON pour marquer les limites de la ferme. Vous pouvez également créer du code GeoJSON à partir de GeoJSON.io.
 Aidez-vous des info-bulles pour entrer les informations.
 
     ![Capture d’écran mettant en évidence l’option Coller le code GeoJSON dans l’écran Créer une ferme.](./media/create-farms-in-azure-farmbeats/create-new-farm-1.png)
 
-3.  Sélectionnez **Submit** pour créer une ferme. Une ferme est créée et s’affiche dans la page **Farms** .
+3.  Sélectionnez **Submit** pour créer une ferme. Une ferme est créée et s’affiche dans la page **Farms**.
 
 ## <a name="view-farm"></a>Voir une ferme
 

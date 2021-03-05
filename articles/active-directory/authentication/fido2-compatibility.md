@@ -11,12 +11,12 @@ author: knicholasa
 manager: martinco
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 039dd8b6fa0769b6798630e666bfbf6de48ccf14
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 7e5eb77a27a7c74ad9738a0e1784066a6a859e43
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101649238"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175366"
 ---
 # <a name="browser-support-of-fido2-passwordless-authentication"></a>Prise en charge par navigateur de l’authentification FIDO2 sans mot de passe
 
@@ -26,12 +26,14 @@ Azure Active Directory permet d’utiliser des [clés de sécurité FIDO2](./con
 
 Ce tableau indique la prise en charge de l’authentification sur Azure Active Directory (Azure AD) et sur des comptes Microsoft (MSA). Les comptes Microsoft sont créés par les consommateurs pour des services tels que Xbox, Skype ou Outlook.com. Les types d’appareils pris en charge sont **USB**, **NFC** (Near-Field communication) et **BLE** (Bluetooth Low Energy).
 
-|  | Chrome |  |  | Edge |  |  | Firefox |  |  |
+| Système d’exploitation | Chrome | Chrome  | Chrome | Edge | Edge | Edge | Firefox | Firefox | Firefox |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | | USB | NFC | BLE | USB | NFC | BLE | USB | NFC | BLE |
 | **Windows**  | ![Chrome prend en charge USB sur Windows pour les comptes AAD.][y] | ![Chrome prend en charge NFC sur Windows pour les comptes AAD.][y] | ![Chrome prend en charge BLE sur Windows pour les comptes AAD.][y] | ![Edge prend en charge USB sur Windows pour les comptes AAD.][y] | ![Edge prend en charge NFC sur Windows pour les comptes AAD.][y] | ![Edge prend en charge BLE sur Windows pour les comptes AAD.][y] | ![Firefox prend en charge USB sur Windows pour les comptes AAD.][y] | ![Firefox prend en charge NFC sur Windows pour les comptes AAD.][y] | ![Firefox prend en charge BLE sur Windows pour les comptes AAD.][y] |
 | **macOS**  | ![Chrome prend en charge USB sur macOS pour les comptes AAD.][y] | ![Chrome ne prend pas en charge NFC sur macOS pour les comptes AAD.][n] | ![Chrome ne prend pas en charge BLE sur macOS pour les comptes AAD.][n] | ![Edge prend en charge USB sur macOS pour les comptes AAD.][y] | ![Edge ne prend pas en charge NFC sur macOS pour les comptes AAD.][n] | ![Edge ne prend pas en charge BLE sur macOS pour les comptes AAD.][n] | ![Firefox ne prend pas en charge USB sur macOS pour les comptes AAD.][n] | ![Firefox ne prend pas en charge NFC sur macOS pour les comptes AAD.][n] | ![Firefox ne prend pas en charge BLE sur macOS pour les comptes AAD.][n] |
 | **Linux**  | ![Chrome prend en charge USB sur Linux pour les comptes AAD.][y] | ![Chrome ne prend pas en charge NFC sur Linux pour les comptes AAD.][n] | ![Chrome ne prend pas en charge BLE sur Linux pour les comptes AAD.][n] | ![Edge ne prend pas en charge USB sur Linux pour les comptes AAD.][n] | ![Edge ne prend pas en charge NFC sur Linux pour les comptes AAD.][n] | ![Edge ne prend pas en charge BLE sur Linux pour les comptes AAD.][n] | ![Firefox ne prend pas en charge USB sur Linux pour les comptes AAD.][n] | ![Firefox ne prend pas en charge NFC sur Linux pour les comptes AAD.][n] | ![Firefox ne prend pas en charge BLE sur Linux pour les comptes AAD.][n] |
+
+
 
 ## <a name="unsupported-browsers"></a>Navigateurs non pris en charge
 

@@ -7,12 +7,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 12/28/2020
 ms.author: jgao
-ms.openlocfilehash: 574dcf50111c14f4924f009a74ed6f2ac2bb31e9
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 9d045fb75838ac016f3e9b04cd2519d8a8530a4b
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98733838"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175649"
 ---
 # <a name="use-deployment-scripts-in-arm-templates"></a>Utiliser des scripts de déploiement dans des modèles ARM
 
@@ -141,7 +141,7 @@ Détails des valeurs de propriété :
 - `azPowerShellVersion`/`azCliVersion` : spécifie la version du module à utiliser. Consultez la liste des versions de [Azure PowerShell prises en charge](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list). Consultez la liste des versions de [Azure CLI prises en charge](https://mcr.microsoft.com/v2/azure-cli/tags/list).
 
   >[!IMPORTANT]
-  > Le script de déploiement utilise les images CLI disponibles à partir de Microsoft Container Registry (MCR). Il faut environ un mois pour certifier une image CLI pour le script de déploiement. N’utilisez pas les versions de l’interface CLI qui ont été publiées il y a moins de 30 jours. Pour trouver les dates de publication des images, consultez les [Notes de publication d’Azure CLI](/cli/azure/release-notes-azure-cli?view=azure-cli-latest&preserve-view=true). Si une version non prise en charge est utilisée, le message d’erreur répertorie les versions prises en charge.
+  > Le script de déploiement utilise les images CLI disponibles à partir de Microsoft Container Registry (MCR). Il faut environ un mois pour certifier une image CLI pour le script de déploiement. N’utilisez pas les versions de l’interface CLI qui ont été publiées il y a moins de 30 jours. Pour trouver les dates de publication des images, consultez les [Notes de publication d’Azure CLI](/cli/azure/release-notes-azure-cli). Si une version non prise en charge est utilisée, le message d’erreur répertorie les versions prises en charge.
 
 - `arguments` : Spécifiez les valeurs de paramètre. Les valeurs sont séparées par des espaces.
 
@@ -377,10 +377,10 @@ Timeout             : PT1H
 
 À l’aide de Azure CLI, vous pouvez gérer les scripts de déploiement au niveau de l’abonnement ou de l’étendue du groupe de ressources :
 
-- [supprimer les scripts de déploiement az](/cli/azure/deployment-scripts?view=azure-cli-latest&preserve-view=true#az-deployment-scripts-delete) : Supprimez un script de déploiement.
-- [lister des scripts de déploiement az](/cli/azure/deployment-scripts?view=azure-cli-latest&preserve-view=true#az-deployment-scripts-list) : Listez tous les scripts de déploiement.
-- [montrer les scripts de déploiement az](/cli/azure/deployment-scripts?view=azure-cli-latest&preserve-view=true#az-deployment-scripts-show) : Récupérez un script de déploiement.
-- [journal des scripts de déploiement az](/cli/azure/deployment-scripts?view=azure-cli-lates&preserve-view=truet#az-deployment-scripts-show-log) : Affichez les journaux de script de déploiement.
+- [supprimer les scripts de déploiement az](/cli/azure/deployment-scripts#az-deployment-scripts-delete) : Supprimez un script de déploiement.
+- [lister des scripts de déploiement az](/cli/azure/deployment-scripts#az-deployment-scripts-list) : Listez tous les scripts de déploiement.
+- [montrer les scripts de déploiement az](/cli/azure/deployment-scripts#az-deployment-scripts-show) : Récupérez un script de déploiement.
+- [journal des scripts de déploiement az](/cli/azure/deployment-scripts#az-deployment-scripts-show-log) : Affichez les journaux de script de déploiement.
 
 La sortie de la commande de liste ressemble à ce qui suit :
 

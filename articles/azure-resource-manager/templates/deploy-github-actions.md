@@ -4,12 +4,12 @@ description: Explique comment déployer des modèles Azure Resource Manager (mod
 ms.topic: conceptual
 ms.date: 10/13/2020
 ms.custom: github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: 67d4ac51e3e1f84f6a9acd0fc94d5818355d3954
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 243316b32d5b0cf62f03ae77d8a9fb919743ace1
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98762080"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102172828"
 ---
 # <a name="deploy-arm-templates-by-using-github-actions"></a>Déployer des modèles ARM à l’aide de GitHub Actions
 
@@ -38,7 +38,7 @@ Le fichier comporte deux sections :
 ## <a name="generate-deployment-credentials"></a>Générer les informations d’identification du déploiement
 
 
-Vous pouvez créer un [principal de service](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) à l’aide de la commande [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) dans [Azure CLI](/cli/azure/). Exécutez cette commande en utilisant [Azure Cloud Shell](https://shell.azure.com/) dans le portail Azure ou en sélectionnant le bouton **Essayer**.
+Vous pouvez créer un [principal de service](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) à l’aide de la commande [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) dans [Azure CLI](/cli/azure/). Exécutez cette commande en utilisant [Azure Cloud Shell](https://shell.azure.com/) dans le portail Azure ou en sélectionnant le bouton **Essayer**.
 
 Créez un groupe de ressources si vous n’en avez pas déjà un.
 

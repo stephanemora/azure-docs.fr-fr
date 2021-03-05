@@ -4,13 +4,13 @@ description: Décrit comment générer une carte thermique d’humidité du sol 
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
-ms.author: v-umha
-ms.openlocfilehash: 2887e7c5fd875942c3d19391267ddbb9b73ccfec
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.author: v-ummehabiba
+ms.openlocfilehash: dd8d688355e0f71ce77cdbc6012d788c7b16d825
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92165551"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102173781"
 ---
 # <a name="generate-soil-moisture-heatmap"></a>Générer une carte thermique d’humidité du sol
 
@@ -56,17 +56,17 @@ Après avoir lié votre compte de capteur à Azure FarmBeats, vous devez attribu
 
     ![Capture d’écran montrant l’écran Ajouter des appareils.](./media/get-sensor-data-from-sensor-partner/add-devices-1.png)
 
-4. Sélectionnez **Add Devices** .     
+4. Sélectionnez **Add Devices**.     
 
 ## <a name="generate-soil-moisture-heatmap"></a>Générer une carte thermique d’humidité du sol
 
 Cette étape consiste à créer un travail ou une opération durable qui générera une carte thermique d’humidité du sol pour votre ferme.
 
 1.  Dans la page d’accueil, sélectionnez **Farms** dans le menu de navigation de gauche pour voir la page Farms.
-2.  Sélectionnez **MyFarm** .
-3.  Dans la page **Farm Details** , sélectionnez **Generate Precision Map** (Générer une carte de précision).
+2.  Sélectionnez **MyFarm**.
+3.  Dans la page **Farm Details**, sélectionnez **Generate Precision Map** (Générer une carte de précision).
 4.  Dans le menu déroulant, sélectionnez **Soil Moisture** (Humidité du sol).
-5.  Dans la fenêtre **Soil Moisture** , sélectionnez **This Week** .
+5.  Dans la fenêtre **Soil Moisture**, sélectionnez **This Week**.
 6.  Sous **Select Soil Moisture** **Sensor Measure** (Sélectionner la mesure des capteurs d’humidité du sol), entrez la mesure que vous souhaitez utiliser pour la carte.
     Pour trouver la mesure de capteur, sous **Sensors** (Capteurs), sélectionnez un capteur d’humidité du sol. Sous **Sensor Properties** (Propriétés de capteur), utilisez la valeur **Measure Name** (Nom de la mesure).
 
@@ -83,11 +83,11 @@ Cette étape consiste à créer un travail ou une opération durable qui génér
 
 Utiliser les étapes suivantes :
 
-1. Dans la page **Jobs** , vérifiez l’état du travail créé dans le cadre de la dernière procédure sous **Job Status** .
+1. Dans la page **Jobs**, vérifiez l’état du travail créé dans le cadre de la dernière procédure sous **Job Status**.
 2. Quand le travail présente l’état **Succeeded** (Réussi), cliquez sur **Maps** dans le menu.
 3. Recherchez la carte selon le jour de création en utilisant le format <sol-moisture_MyFarm_AAAA-MM-JJ>.
-4. Sélectionnez une carte dans la colonne **Name** . Une fenêtre indépendante s’affiche avec un aperçu de la carte sélectionnée.
-5. Sélectionnez **Télécharger** . La carte est téléchargée et stockée dans le dossier local de votre ordinateur.
+4. Sélectionnez une carte dans la colonne **Name**. Une fenêtre indépendante s’affiche avec un aperçu de la carte sélectionnée.
+5. Sélectionnez **Télécharger**. La carte est téléchargée et stockée dans le dossier local de votre ordinateur.
 
     ![Projet FarmBeats](./media/get-sensor-data-from-sensor-partner/download-soil-moisture-map-1.png)
 

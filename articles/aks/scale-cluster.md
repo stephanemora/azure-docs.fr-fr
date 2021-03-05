@@ -4,12 +4,12 @@ description: Apprenez à mettre le nombre de nœuds à l'échelle dans un cluste
 services: container-service
 ms.topic: article
 ms.date: 09/16/2020
-ms.openlocfilehash: d5686a74ffe138af51d2319c839a3a5c5887f992
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fdb61bf090351894329c24eb1a3c73d627e622e8
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90902933"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102173764"
 ---
 # <a name="scale-the-node-count-in-an-azure-kubernetes-service-aks-cluster"></a>Mettre le nombre de nœuds à l'échelle dans un cluster Azure Kubernetes Service (AKS)
 
@@ -93,4 +93,4 @@ Dans cet article, vous avez mis à l’échelle un cluster AKS manuellement pour
 [az-aks-show]: /cli/azure/aks#az-aks-show
 [az-aks-scale]: /cli/azure/aks#az-aks-scale
 [cluster-autoscaler]: cluster-autoscaler.md
-[az-aks-nodepool-scale]: /cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-scale&preserve-view=true
+[az-aks-nodepool-scale]: /cli/azure/aks/nodepool#az-aks-nodepool-scale
