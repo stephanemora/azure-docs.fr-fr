@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 01/26/2021
+ms.date: 02/26/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 961e30cf17bf385647f4482c6f767641c6b891af
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 0a57e45b264badffd0305eb6ac5b3c8f7c42adf3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98791676"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101695122"
 ---
 # <a name="tutorial-create-your-first-search-app-using-the-net-sdk"></a>Tutoriel : Créer votre première application de recherche à l’aide du SDK .NET
 
@@ -49,9 +49,11 @@ Un seul appel interroge l’index et retourne les résultats.
 
 ## <a name="overview"></a>Vue d’ensemble
 
-Ce tutoriel utilise un exemple d’index hébergé existant afin que vous puissiez vous concentrer sur la création d’une page de recherche qui collecte une chaîne de requête pour la demande et retourne les résultats. L’index contient des données d’hôtels fictives. Une fois que vous avez une page de base, vous pourrez l’améliorer dans les leçons suivantes pour inclure une pagination, des facettes et une expérience d’auto-complétion.
+Ce didacticiel utilise l’index hotels-sample-index que vous pouvez créer rapidement sur votre propre service de recherche en exécutant les étapes du [Démarrage rapide Importer des données](search-get-started-portal.md). L’index contient des données d’hôtel fictives, disponibles sous la forme d’une source de données intégrée dans chaque service de recherche.
 
-Une version terminée du code de ce tutoriel se trouve dans le projet suivant :
+La première leçon de ce didacticiel crée une page de recherche et une structure de requête de base que vous allez améliorer dans les leçons suivantes pour inclure une pagination, des facettes et une expérience d’autocomplétion.
+
+Une version terminée du code se trouve dans le projet suivant :
 
 * [1-basic-search-page (GitHub)](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v11/1-basic-search-page)
 
@@ -59,7 +61,9 @@ Ce tutoriel a été mis à jour pour utiliser le package Azure.Search.Documents 
 
 ## <a name="prerequisites"></a>Prérequis
 
-Étant donné que vous utilisez un exemple d’index de recherche public hébergé par Microsoft, vous n’avez pas besoin d’un service de recherche ou d’un compte Azure pour ce tutoriel.
+* [Créer](search-create-service-portal.md) ou [trouver un service de recherche existant](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices).
+
+* Créez l’index hotels-sample-index en suivant les instructions fournies dans [Démarrage rapide : Créer un index de recherche](search-get-started-portal.md).
 
 * [Visual Studio](https://visualstudio.microsoft.com/)
 
@@ -103,12 +107,12 @@ Pour créer ce projet à partir de zéro et ainsi mieux connaître les concepts 
 
 Pour cet exemple, vous utilisez des données d’hôtels disponibles publiquement. Ces données sont une collection arbitraire de 50 noms d’hôtels fictifs et de descriptions, créée uniquement à des fins de démonstration. Pour accéder à ces données, spécifiez un nom et une clé API.
 
-1. Ouvrez **appsettings.json** et remplacez les lignes par défaut par les nom et clé suivants. La clé d’API indiquée ici n’est pas un exemple de clé ; c’est *exactement* la clé dont vous avez besoin pour accéder aux données d’hôtels. Votre fichier doit maintenant ressembler à ceci.
+1. Ouvrez le fichier **appsettings.json** et remplacez les lignes par défaut par l’URL du service de recherche (au format `https://<service-name>.search.windows.net` ) et une [clé API d’administration ou de requête](search-security-api-keys.md) de votre service de recherche. Étant donné que vous n’avez pas besoin de créer ou de mettre à jour un index, vous pouvez utiliser la clé de requête pour ce didacticiel.
 
     ```csharp
     {
-        "SearchServiceName": "azs-playground",
-        "SearchServiceQueryApiKey": "EA4510A6219E14888741FCFC19BFBB82"
+        "SearchServiceName": "<YOUR-SEARCH-SERVICE-URI>",
+        "SearchServiceQueryApiKey": "<YOUR-SEARCH-SERVICE-API-KEY>"
     }
     ```
 

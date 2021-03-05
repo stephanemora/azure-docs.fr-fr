@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 303a919cc0afc9b5db49918233f3e5718a896646
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 4461fb6904d51ee8d740b633a2d0028658ac2ced
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148053"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687547"
 ---
 # <a name="scale-up-and-down-an-azure-database-for-postgresql-hyperscale-server-group-using-cli-azdata-or-kubectl"></a>Mettre à l’échelle un groupe de serveurs Azure Database pour PostgreSQL Hyperscale à l’aide de l’interface de ligne de commande (azdata ou kubectl)
 
@@ -180,6 +180,21 @@ Celle-ci affiche la nouvelle définition du groupe de serveurs :
 ## <a name="scale-down-the-server-group"></a>effectuer un scale-down du groupe de serveurs
 
 Pour effectuer un scale-down du groupe de serveurs, vous exécutez la même commande, mais vous définissez des valeurs inférieures pour les paramètres que vous souhaitez modifier. Pour supprimer les demandes et/ou les limites, spécifiez sa valeur en tant que chaîne vide.
+
+## <a name="reset-to-default-values"></a>Réinitialiser les valeurs par défaut
+Pour réinitialiser les valeurs par défaut des paramètres limites/demandes de cœur/mémoire, modifiez-les et transmettez une chaîne au lieu d’une valeur réelle. Par exemple, si vous souhaitez réinitialiser le paramètre de limite de cœur (cl), exécutez les commandes suivantes :
+- Sur un client Linux :
+
+```console
+    azdata arc postgres server edit -n <servergroup name> -cl ""
+```
+
+- Sur un client Windows : 
+ 
+```console
+    azdata arc postgres server edit -n <servergroup name> -cl '""'
+```
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -11,17 +11,17 @@ ms.workload: identity
 ms.date: 07/22/2020
 ms.subservice: app-mgmt
 ms.author: kenwith
-ms.openlocfilehash: a4b029a1397a2522dfaa6eba9c0206dd5a031875
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 6ba622bd52dc13fb0053b61b65529db6e6912611
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258131"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101686714"
 ---
 # <a name="azure-ad-application-proxy-version-release-history"></a>Activation du Proxy d’application Azure AD : Historique de publication des versions
 Cet article répertorie les versions et les fonctionnalités du Proxy d’application Azure Active Directory (Azure AD) qui ont été publiées. L’équipe Azure AD met régulièrement à jour le Proxy d’application avec de nouvelles fonctions et fonctionnalités. Les connecteurs du Proxy d’application sont mis à jour automatiquement lorsqu’une nouvelle version est publiée. 
 
-Nous vous recommandons de veiller à ce que les mises à jour automatiques soient activées pour vos connecteurs afin de vous assurer que vous disposez des dernières fonctionnalités et des correctifs de bogues. Microsoft offre une prise en charge directe de la version la plus récente du connecteur et de la version précédente.
+Nous vous recommandons de veiller à ce que les mises à jour automatiques soient activées pour vos connecteurs afin de vous assurer que vous disposez des dernières fonctionnalités et des correctifs de bogues. Microsoft fournit une prise en charge directe de la version la plus récente du connecteur et de la version précédente.
 
 Voici la liste des ressources connexes :
 
@@ -60,7 +60,7 @@ Télécharger le connecteur de proxy d’application Azure AD |  [Téléchargez 
 
 ### <a name="release-status"></a>État de la version
 
-7 avril 2020 : publiée pour téléchargement
+07 avril 2020 : Disponible au téléchargement. Cette version est disponible uniquement pour l’installation via la page de téléchargement. Une mise à jour automatique de cette version sera publiée ultérieurement.
 
 ### <a name="new-features-and-improvements"></a>Améliorations et nouvelles fonctionnalités
 -   Les connecteurs utilisent uniquement TLS 1.2 pour toutes les connexions. Pour plus d’informations, consultez [Prérequis pour le connecteur](application-proxy-add-on-premises-application.md#prerequisites).

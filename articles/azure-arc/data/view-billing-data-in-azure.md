@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 03/02/2021
 ms.topic: how-to
-ms.openlocfilehash: 9da725c433ad5d6233fd164d256692ca407714fc
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 16546432c8c0a23d5c9dc471fe8c62ced5eca993
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92206450"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687530"
 ---
 # <a name="upload-billing-data-to-azure-and-view-it-in-the-azure-portal"></a>Télécharger des données de facturation dans Azure et les afficher dans le portail Azure
 
@@ -111,8 +111,9 @@ azdata arc dc upload -p usage.json
 
 Pour afficher les données de facturation dans le portail Azure, procédez comme suit :
 
-1. Ouvrez le portail Azure en utilisant l’URL spéciale : [https://aka.ms/arcdata](https://aka.ms/arcdata).
-1. Dans la zone de recherche en haut du type d’écran, tapez **Cost Management** , puis cliquez sur le service Cost Management.
+1. Ouvrez le [portail Azure](https://portal.azure.com).
+1. Dans la zone de recherche en haut du type d’écran, tapez **Cost Management**, puis cliquez sur le service Cost Management.
+1. Sous **Vue d’ensemble de la gestion des coûts**, cliquez sur l’onglet **Gestion des coûts**.
 1. Cliquez sur l’onglet **Analyse des coûts** à gauche.
 1. Cliquez sur le bouton **Coût par ressource** en haut de la vue.
 1. Assurez-vous que l’Étendue est définie sur l’abonnement dans lequel vos ressources de service de données ont été créées.
@@ -126,7 +127,7 @@ Pour afficher les données de facturation dans le portail Azure, procédez comme
 Vous pouvez télécharger les données de synthèse de facturation directement à partir du portail Azure.
 
 1. Dans la vue **Analyse des coûts -> Afficher par type de ressource** que vous avez atteinte en suivant les instructions ci-dessus, cliquez sur le bouton Télécharger en haut.
-1. Choisissez le type de fichier à télécharger (Excel ou CSV), puis cliquez sur le bouton **Télécharger des données** .
+1. Choisissez le type de fichier à télécharger (Excel ou CSV), puis cliquez sur le bouton **Télécharger des données**.
 1. Ouvrez le fichier dans un éditeur approprié en fonction du type de fichier sélectionné.
 
 ## <a name="export-billing-data"></a>Exporter les données de facturation
@@ -136,10 +137,10 @@ Vous pouvez également exporter automatiquement les données d’utilisation et 
 Pour configurer un travail d’exportation de facturation, procédez comme suit :
 
 1. Cliquez **Exportations** à gauche.
-1. Cliquez sur **Add** .
+1. Cliquez sur **Add**.
 1. Entrez un nom et une fréquence d’exportation, puis cliquez sur Suivant.
 1. Choisissez un compte de stockage existant ou créez-en un, puis remplissez le formulaire pour spécifier le compte de stockage, le conteneur et le chemin d’accès du répertoire dans lequel exporter les fichiers de données de facturation, puis cliquez sur Suivant.
-1. Cliquez sur **Créer** .
+1. Cliquez sur **Créer**.
 
 Les fichiers d’exportation des données de facturation seront disponibles dans environ 4 heures, et seront exportés selon la planification que vous avez spécifiée lors de la création du travail d’exportation de la facturation.
 
@@ -150,7 +151,7 @@ Vous pouvez valider les fichiers de données de facturation dans le portail Azur
 > [!IMPORTANT]
 > Après avoir créé le travail d’exportation de facturation, patientez 4 heures avant de passer aux étapes suivantes.
 
-1. Dans la zone de recherche en haut du portail, tapez **Comptes de stockage** , puis cliquez sur **Comptes de stockage** .
+1. Dans la zone de recherche en haut du portail, tapez **Comptes de stockage**, puis cliquez sur **Comptes de stockage**.
 3. Cliquez sur le compte de stockage que vous avez spécifié lors de la création du travail d’exportation de facturation ci-dessus.
 4. Cliquez sur Conteneurs à gauche.
 5. Cliquez sur le conteneur que vous avez spécifié lors de la création du travail d’exportation de facturation ci-dessus.

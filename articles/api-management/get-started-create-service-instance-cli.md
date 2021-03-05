@@ -1,5 +1,5 @@
 ---
-title: Démarrage rapide - Créer une instance Gestion des API Azure avec l’interface CLI (préversion)
+title: Démarrage rapide – Créer une instance Gestion des API Azure avec l’interface CLI
 description: Créez une instance Gestion des API Azure en utilisant l’interface de ligne de commande Azure.
 author: dlepow
 ms.service: api-management
@@ -7,18 +7,18 @@ ms.topic: quickstart
 ms.custom: ''
 ms.date: 09/10/2020
 ms.author: apimpm
-ms.openlocfilehash: 863cb6cd10664e14966898045cb2b1861ef75b9f
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 72d1faac02a21f23d46eb992af1d501bca89e71f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94887448"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688074"
 ---
-# <a name="quickstart-create-a-new-azure-api-management-service-instance-by-using-the-azure-cli-preview"></a>Démarrage rapide : Créer une instance Gestion des API Azure avec l’interface de ligne de commande Azure (préversion)
+# <a name="quickstart-create-a-new-azure-api-management-service-instance-by-using-the-azure-cli"></a>Démarrage rapide : Créer une instance Gestion des API Azure avec l’interface de ligne de commande Azure
 
 Le service Gestion des API Azure (API Management, APIM) permet aux organisations de publier des API pour des développeurs externes, partenaires et internes afin de libérer le potentiel de leurs données et de leurs services. Il offre les compétences essentielles qui garantissent un programme d’API réussi au travers de l’engagement des développeurs, des perspectives commerciales, de l’analytique, de la sécurité et de la protection. APIM vous permet de créer et de gérer des passerelles d’API modernes pour des services back-end existants, où qu’ils soient hébergés. Pour plus d'informations, consultez la [Vue d’ensemble](api-management-key-concepts.md).
 
-Ce guide de démarrage rapide décrit les étapes permettant de créer une instance Gestion des API avec les commandes [az apim](/cli/azure/apim) dans Azure CLI. Les commandes du groupe de commandes `az apim` sont disponibles en préversion et peuvent être changées ou supprimées dans une version ultérieure.
+Ce guide de démarrage rapide décrit les étapes permettant de créer une instance Gestion des API avec les commandes [az apim](/cli/azure/apim) dans Azure CLI.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

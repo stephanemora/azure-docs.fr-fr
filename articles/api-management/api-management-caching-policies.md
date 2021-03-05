@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 4db42d8fa8c676b20b236577ce6646b909df7c3a
-ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
+ms.openlocfilehash: bd3a63db7dd4946a9836b3978992fb544b9ab0ab
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2020
-ms.locfileid: "94638884"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688040"
 ---
 # <a name="api-management-caching-policies"></a>Stratégies de mise en cache dans Gestion des API
 Cette rubrique est une ressource de référence au sujet des stratégies Gestion des API suivantes. Pour plus d'informations sur l'ajout et la configuration des stratégies, consultez la page [Stratégies dans Gestion des API](./api-management-policies.md).
@@ -248,7 +248,7 @@ Cette stratégie peut être utilisée dans les [sections](./api-management-howto
 La stratégie `cache-store-value` effectue le stockage du cache par clé. La clé peut avoir une valeur de chaîne arbitraire ; elle est généralement fournie par le biais d’une expression de stratégie.
 
 > [!NOTE]
-> Cette stratégie avoir une stratégie [Get value from cache](#GetFromCacheByKey) correspondante.
+> L’opération de stockage de la valeur dans le cache que cette stratégie effectue est asynchrone. Il est possible de récupérer la valeur stockée à l’aide de la stratégie [Get value from cache](#GetFromCacheByKey). Toutefois, il se peut que la valeur stockée ne soit pas immédiatement disponible pour la récupération, car l’opération asynchrone qui stocke la valeur dans le cache peut être encore en cours. 
 
 ### <a name="policy-statement"></a>Instruction de la stratégie
 
