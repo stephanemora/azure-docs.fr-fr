@@ -212,6 +212,10 @@
           href: diagnostic-logs.md
         - name: Mesures
           href: metrics.md
+    - name: Cas d'utilisation
+      items:
+        - name: Cas d’utilisation pour les domaines
+          href: event-domains-use-cases.md
 - name: Guides pratiques
   items:
     - name: 'Créer, afficher et gérer des rubriques système'

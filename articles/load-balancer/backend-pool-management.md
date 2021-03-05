@@ -6,14 +6,14 @@ services: load-balancer
 author: asudbring
 ms.service: load-balancer
 ms.topic: how-to
-ms.date: 07/07/2020
+ms.date: 01/28/2021
 ms.author: allensu
-ms.openlocfilehash: e5efbf695b85f474e5d7c84c86809acb2f5a1035
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 65a00cd898ef63dd3194e48ad6dd3fb73a211d6f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99429600"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709867"
 ---
 # <a name="backend-pool-management"></a>Gestion du pool back-end
 Le pool back-end est un composant essentiel de l’équilibreur de charge. Il définit le groupe de ressources qui va servir le trafic pour une règle d’équilibrage de charge donnée.
@@ -255,8 +255,16 @@ Dans les scénarios avec des pools de back-ends préremplis, utilisez l’adress
 
 La gestion de tous les pools back-end s’effectue directement sur l’objet de pool back-end, comme indiqué dans les exemples ci-dessous.
 
-  >[!IMPORTANT] 
-  >Actuellement, cette fonctionnalité est uniquement disponible en tant que version préliminaire. Consultez la [section Limites](#limitations) pour connaître les limites actuelles de cette fonctionnalité.
+### <a name="limitations"></a>Limites
+Un pool de back-ends configuré par adresse IP présente les limites suivantes :
+  * Peut uniquement être utilisé pour des équilibreurs de charge standard
+  * Limite de 100 adresses IP dans le pool de back-ends
+  * Les ressources back-end doivent être dans le même réseau virtuel que celui de l’équilibreur de charge.
+  * Un équilibreur de charge avec un pool de back-ends basé sur IP ne peut pas fonctionner en tant que service Private Link
+  * Cette fonctionnalité n’est actuellement pas prise en charge dans le portail Azure.
+  * Les conteneurs ACI ne sont pas pris en charge par cette fonctionnalité
+  * Vous ne pouvez pas placer des équilibreurs de charge ou des services mis en front-end par les équilibreurs de charge dans le pool de back-ends de l’équilibreur de charge
+  * Les règles NAT de trafic entrant ne peuvent pas être spécifiées par adresse IP
 
 ### <a name="powershell"></a>PowerShell
 Créez un pool back-end :
@@ -517,17 +525,6 @@ Corps de la demande JSON :
   }
 }
 ```
-
-## <a name="limitations"></a>Limites
-Un pool de back-ends configuré par adresse IP présente les limites suivantes :
-  * Équilibreur de charge standard uniquement.
-  * Limite de 100 adresses IP dans le pool de back-ends
-  * Les ressources back-end doivent être dans le même réseau virtuel que celui de l’équilibreur de charge.
-  * Un équilibreur de charge avec un pool de back-ends basé sur IP ne peut pas fonctionner en tant que service Private Link
-  * Cette fonctionnalité n’est actuellement pas prise en charge dans le portail Azure.
-  * Les conteneurs ACI ne sont pas pris en charge par cette fonctionnalité
-  * Vous ne pouvez pas placer des équilibreurs de charge ou des services mis en front-end par les équilibreurs de charge dans le pool de back-ends de l’équilibreur de charge
-  * Les règles NAT de trafic entrant ne peuvent pas être spécifiées par adresse IP
   
 ## <a name="next-steps"></a>Étapes suivantes
 Dans cet article, vous avez découvert la gestion du pool back-end Azure Load Balancer et vous avez appris à configurer un pool back-end par adresse IP et réseau virtuel.

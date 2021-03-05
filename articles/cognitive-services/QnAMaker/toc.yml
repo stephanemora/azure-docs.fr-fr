@@ -8,10 +8,12 @@
       href: whats-new.md
 - name: Démarrages rapides
   items:
-    - name: Créer et interroger une base de connaissances sur le portail QnA Maker
-      href: Quickstarts/create-publish-knowledge-base.md
-    - name: Créer et interroger une base de connaissances avec des bibliothèques de client ou l’API REST
-      href: Quickstarts/quickstart-sdk.md
+    - name: Créer et interroger une base de connaissances
+      items:
+        - name: Portail QnA Maker
+          href: Quickstarts/create-publish-knowledge-base.md
+        - name: Bibliothèques de client ou API REST
+          href: Quickstarts/quickstart-sdk.md
     - name: Interroger une base de connaissances avec des API REST
       href: Quickstarts/get-answer-from-knowledge-base-using-url-tool.md
 - name: Tutoriels
@@ -48,6 +50,8 @@
     - name: Gérer des ressources Azure
       href: How-To/set-up-qnamaker-service-azure.md
       displayName: 'azure, resource, key, upgrade, pricing, tier,'
+    - name: Isolement réseau pour les ressources Azure
+      href: How-To/network-isolation.md
     - name: Gérer l’accès aux ressources QnA Maker
       href: How-To/manage-qna-maker-app.md
     - name: Gérer une base de connaissances
@@ -108,7 +112,7 @@
     - name: Format des tests par lot
       href: reference-tsv-format-batch-testing.md
     - name: Chiffrement
-      href: qna-maker-encryption-of-data-at-rest.md
+      href: encrypt-data-at-rest.md
     - name: Référence sur les API REST
       items:
         - name: "QnA Maker\_4.0"
