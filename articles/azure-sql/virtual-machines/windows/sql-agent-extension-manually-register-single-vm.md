@@ -15,12 +15,12 @@ ms.date: 11/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, contperf-fy21q2
-ms.openlocfilehash: 393d0c69201f87ad7c96bd2f9a1f9f57df512e31
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: 983cdab0c5f5b856537c661c7427a83099f30ed4
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97964522"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102181429"
 ---
 # <a name="register-sql-server-vm-with-sql-iaas-agent-extension"></a>Inscrire une machine virtuelle SQL Server auprès de l’extension SQL IaaS Agent
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -304,7 +304,7 @@ Pour désinscrire votre machine virtuelle SQL Server de l’extension à l’aid
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Pour désinscrire votre machine virtuelle SQL Server de l’extension à l’aide d’Azure CLI, utilisez la commande [az sql vm delete](/cli/azure/sql/vm?view=azure-cli-latest&preserve-view=true#az-sql-vm-delete). Cela supprimera la *ressource* de machine virtuelle SQL Server, mais ne supprimera pas la machine virtuelle. 
+Pour désinscrire votre machine virtuelle SQL Server de l’extension à l’aide d’Azure CLI, utilisez la commande [az sql vm delete](/cli/azure/sql/vm#az-sql-vm-delete). Cela supprimera la *ressource* de machine virtuelle SQL Server, mais ne supprimera pas la machine virtuelle. 
 
 
 ```azurecli-interactive

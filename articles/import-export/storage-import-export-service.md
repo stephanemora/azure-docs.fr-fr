@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/14/2021
+ms.date: 03/04/2021
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 6dd2c7fcef6860cb5a2eaf88d141f8567955ed25
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: b1f1560fc1a00577e1e4b30d922fc7d4cae0ab92
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98705928"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102181835"
 ---
 # <a name="what-is-azure-importexport-service"></a>Qu’est-ce que le service Azure Import/Export ?
 
@@ -79,7 +79,7 @@ Globalement, un travail d’importation comprend les opérations suivantes :
 >
 > Pour les expéditions à l’étranger (en dehors du pays/de la région du centre de données), veuillez partager un compte de transporteur international.
 
- ![Figure 1 : flux d’importation de travail](./media/storage-import-export-service/importjob.png)
+ ![Figure 1 : flux d’importation de travail](./media/storage-import-export-service/import-job.png)
 
 Pour obtenir des instructions pas à pas sur l’importation de données, consultez :
 
@@ -108,7 +108,7 @@ Globalement, un travail d’exportation comprend les opérations suivantes :
 >
 > Pour les expéditions à l’étranger (en dehors du pays/de la région du centre de données), veuillez partager un compte de transporteur international.
   
- ![Figure 2 : flux d’exportation de travail](./media/storage-import-export-service/exportjob.png)
+ ![Figure 2 : flux d’exportation de travail](./media/storage-import-export-service/export-job.png)
 
 Pour obtenir des instructions pas à pas sur l’exportation de données, consultez[Exporter des données à partir d’objets blob Azure](storage-import-export-data-from-blobs.md).
 

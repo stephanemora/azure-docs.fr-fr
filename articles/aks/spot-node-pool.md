@@ -5,12 +5,12 @@ services: container-service
 ms.service: container-service
 ms.topic: article
 ms.date: 10/19/2020
-ms.openlocfilehash: 5fd97560c3a6e41b49beb957c7b8d79369799c21
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 7f838b2a78f1c6993aa247f2944d4f2a9b1e9556
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93078949"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102181123"
 ---
 # <a name="add-a-spot-node-pool-to-an-azure-kubernetes-service-aks-cluster"></a>Ajouter un pool de nœuds spot à un cluster Azure Kubernetes Service (AKS)
 
@@ -37,12 +37,12 @@ Pour les besoins de cet article, vous devez utiliser Azure CLI version 2.14 ou
 Les limitations suivantes s’appliquent lorsque vous créez et gérez les clusters AKS avec un pool de nœuds spot :
 
 * Un pool de nœuds spot ne peut pas être le pool de nœuds par défaut du cluster. Un pool de nœuds spot ne peut être utilisé que pour un pool secondaire.
-* Vous ne pouvez pas mettre à niveau un pool de nœuds spot, car ce type de pool ne peut pas garantir l’isolation et le drainage. Pour effectuer des opérations telles que la mise à niveau de la version Kubernetes, vous devez remplacer votre pool de nœuds spot existant par un nouveau pool. Pour remplacer un pool de nœuds spot, créez un nouveau pool de nœuds spot avec une autre version de Kubernetes, attendez que son état soit *Prêt* , puis supprimez l’ancien pool de nœuds.
+* Vous ne pouvez pas mettre à niveau un pool de nœuds spot, car ce type de pool ne peut pas garantir l’isolation et le drainage. Pour effectuer des opérations telles que la mise à niveau de la version Kubernetes, vous devez remplacer votre pool de nœuds spot existant par un nouveau pool. Pour remplacer un pool de nœuds spot, créez un nouveau pool de nœuds spot avec une autre version de Kubernetes, attendez que son état soit *Prêt*, puis supprimez l’ancien pool de nœuds.
 * Le plan de contrôle et les pools de nœuds ne peuvent pas être mis à niveau en même temps. Vous devez les mettre à niveau séparément, ou supprimer le pool de nœuds spot pour mettre à niveau le plan de contrôle et les pools de nœuds restants en même temps.
 * Un pool de nœuds spot doit utiliser Virtual Machine Scale Sets.
 * Vous ne pouvez pas modifier ScaleSetPriority ou SpotMaxPrice après la création.
 * Lors de la définition de SpotMaxPrice, la valeur doit être -1 ou une valeur positive allant jusqu’à cinq décimales.
-* Un pool de nœuds spot aura l’étiquette *kubernetes.azure.com/scalesetpriority:spot* , la teinte *kubernetes.azure.com/scalesetpriority=spot:NoSchedule* et les pods système auront une anti-affinité.
+* Un pool de nœuds spot aura l’étiquette *kubernetes.azure.com/scalesetpriority:spot*, la teinte *kubernetes.azure.com/scalesetpriority=spot:NoSchedule* et les pods système auront une anti-affinité.
 * Vous devez ajouter une [tolérance correspondante][spot-toleration] pour planifier des charges de travail sur un pool de nœuds spot.
 
 ## <a name="add-a-spot-node-pool-to-an-aks-cluster"></a>Ajouter un pool de nœuds spot à un cluster AKS
@@ -64,12 +64,12 @@ az aks nodepool add \
     --no-wait
 ```
 
-Par défaut, vous créez un pool de nœuds avec un paramètre *priority* de *Regular* dans votre cluster AKS quand vous créez un cluster avec plusieurs pools de nœuds. La commande ci-dessus ajoute un pool de nœuds auxiliaire à un cluster AKS existant avec un paramètre *priority* de *Spot*. Le paramètre *priority* de *Spot* fait du pool de nœuds un pool de nœuds spot. Dans l’exemple ci-dessus, le paramètre *eviction-policy* est défini sur *Delete* , qui est la valeur par défaut. Lorsque vous affectez à [eviction-policy][eviction-policy] la valeur *Delete* , les nœuds du groupe identique sous-jacent du pool de nœuds sont supprimés lorsqu’ils sont éliminés. Vous pouvez également définir la stratégie d’éviction sur *Deallocate*. Lorsque vous définissez la stratégie d’éviction sur *Deallocate* , les nœuds du groupe identique sous-jacent sont définis sur l’état stopped-deallocated lors de l’éviction. Les nœuds dans l’état stopped-deallocated sont comptabilisés dans votre quota de calcul, et peuvent provoquer des problèmes de mise à l’échelle ou de mise à niveau du cluster. Les valeurs de *priority* et de *eviction-policy* ne peuvent être définies que pendant la création du pool de nœuds. Ces valeurs ne peuvent pas être mises à jour ultérieurement.
+Par défaut, vous créez un pool de nœuds avec un paramètre *priority* de *Regular* dans votre cluster AKS quand vous créez un cluster avec plusieurs pools de nœuds. La commande ci-dessus ajoute un pool de nœuds auxiliaire à un cluster AKS existant avec un paramètre *priority* de *Spot*. Le paramètre *priority* de *Spot* fait du pool de nœuds un pool de nœuds spot. Dans l’exemple ci-dessus, le paramètre *eviction-policy* est défini sur *Delete*, qui est la valeur par défaut. Lorsque vous affectez à [eviction-policy][eviction-policy] la valeur *Delete*, les nœuds du groupe identique sous-jacent du pool de nœuds sont supprimés lorsqu’ils sont éliminés. Vous pouvez également définir la stratégie d’éviction sur *Deallocate*. Lorsque vous définissez la stratégie d’éviction sur *Deallocate*, les nœuds du groupe identique sous-jacent sont définis sur l’état stopped-deallocated lors de l’éviction. Les nœuds dans l’état stopped-deallocated sont comptabilisés dans votre quota de calcul, et peuvent provoquer des problèmes de mise à l’échelle ou de mise à niveau du cluster. Les valeurs de *priority* et de *eviction-policy* ne peuvent être définies que pendant la création du pool de nœuds. Ces valeurs ne peuvent pas être mises à jour ultérieurement.
 
 La commande active également la [mise à l’échelle automatique de cluster][cluster-autoscaler], qu’il est recommandée d’utiliser avec des pools de nœuds spot. En fonction des charges de travail en cours d’exécution dans votre cluster, la mise à l’échelle automatique de cluster augmente ou diminue le nombre de nœuds dans le pool de nœuds. Pour les pools de nœuds spot, la mise à l’échelle automatique de cluster augmente le nombre de nœuds après une éviction, si des nœuds supplémentaires sont toujours nécessaires. Si vous modifiez le nombre maximal de nœuds dont un pool de nœuds peut disposer, vous devez également ajuster la valeur de `maxCount` qui est associée à la mise à l’échelle automatique de cluster. Si vous n’utilisez pas de mise à l’échelle automatique de cluster, en cas d’éviction, le pool spot finira par diminuer jusqu’à zéro et nécessitera une opération manuelle pour recevoir des nœuds spot supplémentaires.
 
 > [!Important]
-> Planifiez uniquement les charges de travail sur les pools de nœuds spot capables de gérer les interruptions, tels que les travaux de traitement par lots et les environnements de test. Nous vous recommandons de configurer des [teintes et des tolérances][taints-tolerations] sur votre pool de nœuds spot pour vous assurer que seules les charges de travail pouvant gérer les évictions de nœuds sont planifiées sur un pool de nœuds spot. Par exemple, la commande ci-dessus ajoute par défaut une teinte de *kubernetes.azure.com/scalesetpriority=spot:NoSchedule* , de telle sorte que seuls les pods avec une tolérance correspondante sont planifiés sur ce nœud.
+> Planifiez uniquement les charges de travail sur les pools de nœuds spot capables de gérer les interruptions, tels que les travaux de traitement par lots et les environnements de test. Nous vous recommandons de configurer des [teintes et des tolérances][taints-tolerations] sur votre pool de nœuds spot pour vous assurer que seules les charges de travail pouvant gérer les évictions de nœuds sont planifiées sur un pool de nœuds spot. Par exemple, la commande ci-dessus ajoute par défaut une teinte de *kubernetes.azure.com/scalesetpriority=spot:NoSchedule*, de telle sorte que seuls les pods avec une tolérance correspondante sont planifiés sur ce nœud.
 
 ## <a name="verify-the-spot-node-pool"></a>Vérifier le pool de nœuds spot
 
@@ -113,7 +113,7 @@ Dans cet article, vous avez appris à ajouter un pool de nœuds spot à un clust
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
 [azure-cli-install]: /cli/azure/install-azure-cli
-[az-aks-nodepool-add]: /cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-add
+[az-aks-nodepool-add]: /cli/azure/aks/nodepool#az-aks-nodepool-add
 [cluster-autoscaler]: cluster-autoscaler.md
 [eviction-policy]: ../virtual-machine-scale-sets/use-spot.md#eviction-policy
 [kubernetes-concepts]: concepts-clusters-workloads.md

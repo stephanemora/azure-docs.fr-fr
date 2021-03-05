@@ -9,12 +9,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 02/11/2021
-ms.openlocfilehash: 4012cd83cf2e6fe438792a503731729b57a1425c
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 15cc935457f76fb1d2fe4e8d699db831ebacc357
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100380591"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102181752"
 ---
 # <a name="azure-active-directory-service-principal-with-azure-sql"></a>Principal de service Azure Active Directory avec Azure SQL
 
@@ -72,7 +72,7 @@ Pour permettre la création d’un objet Azure AD dans SQL Database et Azure Sy
     - Pour vérifier si l’identité du serveur est attribuée au serveur, exécutez la commande Get-AzSqlServer.
 
     > [!NOTE]
-    > L’identité du serveur peut également être attribuée à l’aide de commandes CLI. Pour plus d’informations, consultez la page sur les commandes [az sql server create](/cli/azure/sql/server?view=azure-cli-latest#az-sql-server-create&preserve-view=true) et [az sql server update](/cli/azure/sql/server?view=azure-cli-latest#az-sql-server-update&preserve-view=true).
+    > L’identité du serveur peut également être attribuée à l’aide de commandes CLI. Pour plus d’informations, consultez la page sur les commandes [az sql server create](/cli/azure/sql/server#az-sql-server-create) et [az sql server update](/cli/azure/sql/server#az-sql-server-update).
 
 2. Accordez l’autorisation [**Lecteurs de répertoire**](../../active-directory/roles/permissions-reference.md#directory-readers) Azure AD à l’identité du serveur créée ou attribuée au serveur.
     - Pour accorder cette autorisation, suivez la description utilisée pour SQL Managed Instance qui est disponible dans l’article suivant : [Approvisionner un administrateur Azure AD (SQL Managed Instance)](authentication-aad-configure.md?tabs=azure-powershell#provision-azure-ad-admin-sql-managed-instance).
@@ -94,7 +94,7 @@ Pour permettre la création d’un objet Azure AD dans SQL Database et Azure Sy
       - Pour l’erreur ci-dessus, suivez les étapes pour [attribuer une identité au serveur logique Azure SQL](authentication-aad-service-principal-tutorial.md#assign-an-identity-to-the-azure-sql-logical-server) et [attribuer une autorisation Lecteurs de répertoires à l’identité du serveur logique SQL](authentication-aad-service-principal-tutorial.md#assign-directory-readers-permission-to-the-sql-logical-server-identity).
     > [!NOTE]
     > Les messages d’erreur indiqués ci-dessus seront modifiés avant la disponibilité générale de la fonctionnalité afin d’identifier clairement la configuration requise manquante pour la prise en charge des applications Azure AD.
-- La définition de l’application Azure AD en tant qu’administrateur Azure AD pour SQL Managed Instance est prise en charge uniquement à l’aide de la commande CLI et de la commande PowerShell avec [Az.Sql 2.9.0](https://www.powershellgallery.com/packages/Az.Sql/2.9.0) ou version ultérieure. Pour plus d’informations, consultez la page des commandes [az sql mi ad-admin create](/cli/azure/sql/mi/ad-admin?view=azure-cli-latest&preserve-view=true#az-sql-mi-ad-admin-create) et [Set-AzSqlInstanceActiveDirectoryAdministrator](/powershell/module/az.sql/set-azsqlinstanceactivedirectoryadministrator). 
+- La définition de l’application Azure AD en tant qu’administrateur Azure AD pour SQL Managed Instance est prise en charge uniquement à l’aide de la commande CLI et de la commande PowerShell avec [Az.Sql 2.9.0](https://www.powershellgallery.com/packages/Az.Sql/2.9.0) ou version ultérieure. Pour plus d’informations, consultez la page des commandes [az sql mi ad-admin create](/cli/azure/sql/mi/ad-admin#az-sql-mi-ad-admin-create) et [Set-AzSqlInstanceActiveDirectoryAdministrator](/powershell/module/az.sql/set-azsqlinstanceactivedirectoryadministrator). 
     - Si vous souhaitez utiliser le portail Azure pour SQL Managed Instance afin de définir l’administrateur Azure AD, une solution de contournement possible consiste à créer un groupe Azure AD. Ajoutez ensuite le principal du service (application Azure AD) à ce groupe, puis définissez ce groupe en tant qu’administrateur Azure AD pour SQL Managed Instance.
     - La configuration du principal de service (application Azure AD) en tant qu’administrateur Azure AD pour SQL Database et Azure Synapse est prise en charge à l’aide du portail Azure et des commandes [PowerShell](authentication-aad-configure.md?tabs=azure-powershell#powershell-for-sql-database-and-azure-synapse) et [CLI](authentication-aad-configure.md?tabs=azure-cli#powershell-for-sql-database-and-azure-synapse).
 - L’utilisation d’une application Azure AD avec le principal de service d’un autre locataire Azure AD échoue lors de l’accès à l’instance SQL Database ou SQL Managed Instance créée dans un autre locataire. Un principal de service attribué à cette application doit provenir du même locataire que le serveur logique SQL ou que l’instance gérée.

@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: tutorial
 ms.date: 12/31/2020
-ms.openlocfilehash: 2feabda5ea3f0c0748b92de9fcb7ef05abbdcf4c
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 7410fcbc890780281763a91f33525562e9de1853
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98209438"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102182483"
 ---
 # <a name="analyze-with-apache-spark"></a>Analyser avec Apache Spark
 
@@ -33,16 +33,16 @@ Dans ce tutoriel, vous allez découvrir les étapes de base permettant de charge
     from azureml.opendatasets import NycTlcYellow
 
     data = NycTlcYellow()
-    data_df = data.to_spark_dataframe()
+    df = data.to_spark_dataframe()
     # Display 10 rows
-    display(data_df.limit(10))
+    display(df.limit(10))
     ```
 1. Dans le notebook, dans le menu **Attacher à**, choisissez le pool Spark serverless **Spark1** que nous avons créé précédemment.
 1. Sélectionnez **Exécuter** dans la cellule.
 1. Si vous souhaitez simplement voir le schéma du dataframe, exécutez une cellule avec le code suivant :
     ```
 
-    data_df.printSchema()
+    df.printSchema()
     ```
 
 ## <a name="load-the-nyc-taxi-data-into-the-spark-nyctaxi-database"></a>Charger les données NYC Taxi dans la base de données Spark appelée nyctaxi

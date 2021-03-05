@@ -57,8 +57,12 @@
       href: how-to-cache-purge.md
     - name: Compression
       href: how-to-compression.md
-    - name: Activer Private Link sur une application web
-      href: how-to-enable-private-link-web-app.md
+    - name: Activer Azure Private Link
+      items:
+        - name: Se connecter à un compte de stockage
+          href: how-to-enable-private-link-storage-account.md
+        - name: Se connecter à une application web
+          href: how-to-enable-private-link-web-app.md
     - name: Journalisation
       href: how-to-logs.md
     - name: Supervision et alertes
