@@ -4,14 +4,14 @@ description: Cet article décrit l’intégration de partenaire d’imagerie.
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
-ms.author: v-umha
+ms.author: v-ummehabiba
 ms.custom: has-adal-ref
-ms.openlocfilehash: 40e17a9f73d98f24c6c7fbb55ef38cc2bc088861
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 1bc723892e29ccc24a7612cfbe50d4b274cdacdf
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675933"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183792"
 ---
 # <a name="imagery-partner-integration"></a>Intégration de partenaire d’imagerie
 
@@ -26,7 +26,7 @@ FarmBeats offre les possibilités suivantes :
 
 Les informations suivantes expliquent comment récupérer tout type d’imagerie dans le système FarmBeats.
 
-Quand vous sélectionnez la section **Drone Imagery** , une fenêtre indépendante s’ouvre avec une image haute résolution de l’orthophotographie du drone. Vous pouvez accéder au logiciel du partenaire, qui vous permet de planifier les vols de drone et de récupérer les données brutes. Vous l’utiliserez également pour la planification des trajectoires et l’assemblage des images orthophotographiques.
+Quand vous sélectionnez la section **Drone Imagery**, une fenêtre indépendante s’ouvre avec une image haute résolution de l’orthophotographie du drone. Vous pouvez accéder au logiciel du partenaire, qui vous permet de planifier les vols de drone et de récupérer les données brutes. Vous l’utiliserez également pour la planification des trajectoires et l’assemblage des images orthophotographiques.
 
 Les partenaires de drone doivent permettre aux clients de lier leur compte client à leur instance FarmBeats sur Azure.
 
@@ -138,10 +138,10 @@ Une fois que le partenaire dispose d’informations d’identification pour se c
 
 1.  Il crée un type étendu pour les champs suivants en fonction du type de données imagerie à charger :
 
-    - **Source de la scène**  : Par exemple, drone_partner_name
-    - **Type de scène**  : Par exemple, drone
-    - **Type de fichier de scène**  : Par exemple, chlorophyll index
-    - **Type de contenu de fichier de scène**  : Par exemple, image/tiff
+    - **Source de la scène** : Par exemple, drone_partner_name
+    - **Type de scène** : Par exemple, drone
+    - **Type de fichier de scène** : Par exemple, chlorophyll index
+    - **Type de contenu de fichier de scène** : Par exemple, image/tiff
 
 2.  Il appelle l’API /Farms pour obtenir la liste des fermes dans le système Azure FarmBeats.
 3.  Il donne au client la possibilité de choisir une ferme unique dans la liste des fermes.

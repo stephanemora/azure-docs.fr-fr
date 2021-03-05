@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 09/30/2020
-ms.openlocfilehash: c2241d738a43c6891ee4bea0829400fdc51a664b
-ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
+ms.openlocfilehash: 83fc88a57a1cdbec35a8f939a81698799d290d70
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97734230"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183622"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-with-azure-cache-for-redis"></a>Déployer un modèle Machine Learning sur Azure Functions à l’aide d’Azure Cache pour Redis 
 
@@ -26,7 +26,7 @@ Azure Cache pour Redis est extrêmement performant et évolutif : lorsqu’il e
 ## <a name="prerequisites"></a>Prérequis
 * Abonnement Azure : [créez-en un gratuitement](https://azure.microsoft.com/free/).
 * Un espace de travail Azure Machine Learning. Pour plus d’informations, consultez l’article [Créer un espace de travail](../machine-learning/how-to-manage-workspace.md).
-* [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
+* [Azure CLI](/cli/azure/install-azure-cli).
 * Un modèle Machine Learning entraîné inscrit dans votre espace de travail. Si vous n’avez pas de modèle, utilisez le [tutoriel de classification d’image : entraîner un modèle](../machine-learning/tutorial-train-models-with-aml.md) pour entraîner et inscrire un modèle.
 
 > [!IMPORTANT]

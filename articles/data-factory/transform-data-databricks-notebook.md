@@ -6,12 +6,12 @@ author: nabhishek
 ms.author: abnarain
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.openlocfilehash: 486dc2ab3a14917e8c7bdddf8b5b9c6f9da1a1dc
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: fea572c2e75f62b5e7e7b4634e37da348bdcdaf1
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100373995"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183486"
 ---
 # <a name="transform-data-by-running-a-databricks-notebook"></a>Transformer des données en exécutant un bloc-notes Databricks
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -114,10 +114,10 @@ Dans certains cas, il peut être nécessaire de retransmettre certaines valeurs 
 
 1. Dans votre notebook, vous pouvez appeler [dbutils.notebook.exit ("returnValue")](/azure/databricks/notebooks/notebook-workflows#notebook-workflows-exit) et la valeur « returnValue » correspondante sera renvoyée à la fabrique de données.
 
-2. Vous pouvez utiliser la sortie dans la fabrique de données en utilisant une expression telle que `'@activity('databricks notebook activity name').output.runOutput'`.
+2. Vous pouvez utiliser la sortie dans la fabrique de données en utilisant une expression telle que `@{activity('databricks notebook activity name').output.runOutput}`. 
 
    > [!IMPORTANT]
-   > Si vous transmettez un objet JSON, vous pouvez récupérer des valeurs en ajoutant des noms de propriété. Exemple : `'@activity('databricks notebook activity name').output.runOutput.PropertyName'`
+   > Si vous transmettez un objet JSON, vous pouvez récupérer des valeurs en ajoutant des noms de propriété. Exemple : `@{activity('databricks notebook activity name').output.runOutput.PropertyName}`
 
 ## <a name="how-to-upload-a-library-in-databricks"></a>Comment charger une bibliothèque dans Databricks
 
