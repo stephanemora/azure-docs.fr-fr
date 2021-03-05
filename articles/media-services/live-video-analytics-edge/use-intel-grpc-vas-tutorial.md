@@ -5,13 +5,13 @@ ms.topic: tutorial
 ms.date: 02/04/2021
 ms.service: media-services
 ms.author: faneerde
-author: faneerde
-ms.openlocfilehash: 8679e3d2fc2459e5775c525a0d5dadd4ba42ebb0
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+author: fvneerden
+ms.openlocfilehash: 282ab76c34405f19e7f81b2a8069c178b17ee0c1
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101742821"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102124412"
 ---
 # <a name="tutorial-analyze-live-video-by-using-intel-openvino-dl-streamer--edge-ai-extension"></a>Tutoriel : Analyser la vidéo en direct avec Intel OpenVINO™ DL Streamer - Edge IA Extension 
 
@@ -327,7 +327,8 @@ Pour utiliser un modèle différent, vous devez modifier le modèle de déploiem
 "PIPELINE_VERSION=vehicle_attributes_recognition"
 ],
 ```
-> [!TIP] Copiez le modèle et stockez-le sous un nouveau nom pour chaque pipeline possible. De cette façon, vous pouvez basculer entre les modèles en créant un déploiement basé sur l’un d’eux.
+> [!TIP]
+> Copiez le modèle et stockez-le sous un nouveau nom pour chaque pipeline possible. De cette façon, vous pouvez basculer entre les modèles en créant un déploiement basé sur l’un d’eux.
 
 Une fois que vous avez modifié les variables, vous pouvez redéployer le modèle sur l’appareil. Vous pouvez maintenant répéter les étapes ci-dessus pour réexécuter l’exemple de programme avec le nouveau pipeline. Les résultats d’inférence sont similaires (dans le schéma), mais ils présentent plus ou moins d’informations selon le modèle de pipeline que vous avez choisi.
 

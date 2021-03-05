@@ -7,12 +7,12 @@ ms.date: 11/23/2020
 ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, seodec18, contperf-fy21q1
 zone_pivot_groups: app-service-platform-windows-linux
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: e6675dbc4381a3a21e9daa651948af17f1d70d7d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 4e2e34d73bc3048c587d7c0505f4978dd638370a
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101747377"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102180273"
 ---
 # <a name="quickstart-create-an-aspnet-core-web-app-in-azure"></a>Démarrage rapide : Créer une application web ASP.NET Core dans Azure
 
@@ -26,7 +26,7 @@ Une fois que vous avez terminé, vous disposez d’un <abbr title="Conteneur log
 
 ## <a name="1-prepare-your-environment"></a>1. Préparation de votre environnement
 
-- **Procurez-vous un compte Azure** avec un <abbr title="Structure organisationnelle de base dans laquelle vous gérez les ressources dans Azure, généralement associée à une personne ou à un service au sein d’une organisation.">abonnement actif</abbr>. [Créez un compte gratuitement](https://azure.microsoft.com/free/dotnet/).
+- **Procurez-vous un compte Azure** avec un <abbr title="Structure organisationnelle de base dans laquelle vous gérez les ressources dans Azure, généralement associée à une personne ou à un service au sein d’une organisation.">subscription</abbr>. [Créez un compte gratuitement](https://azure.microsoft.com/free/dotnet/).
 - **Installez <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a>** avec la charge de travail **Développement ASP.NET et web**.
 
 <details>
@@ -249,7 +249,7 @@ az login
     ```
     
     <details>
-    <summary>Résolution des problèmes</summary>
+    <summary>Dépannage</summary>
     <ul>
     <li>Si la commande <code>az</code> n’est pas reconnue, vérifiez qu’Azure CLI est installé, comme décrit dans <a href="#1-prepare-your-environment">Préparer votre environnement</a>.</li>
     <li>Remplacez <code>&lt;app-name&gt;</code> par un nom unique sur l’ensemble d’Azure (<em>les caractères valides sont <code>a-z</code>, <code>0-9</code> et <code>-</code></em>). Un bon modèle consiste à utiliser une combinaison du nom de votre société et d’un identificateur d’application.</li>
@@ -266,7 +266,7 @@ az login
     <ul>
     <li>Créer un groupe de ressources par défaut</li>
     <li>Créer un plan App Service par défaut.</li>
-    <li><a href="/cli/azure/webapp?view=azure-cli-latest#az-webapp-create">Créez une application App Service</a> avec le nom spécifié.</li>
+    <li><a href="/cli/azure/webapp#az-webapp-create">Créez une application App Service</a> avec le nom spécifié.</li>
     <li><a href="/azure/app-service/deploy-zip">Déployez les fichiers zip</a> à partir du répertoire de travail actif sur l’application web.</li>
     <li>Lors de son exécution, elle fournit des messages sur la création de ressources, la journalisation et le déploiement du fichier ZIP.</li>
     </ul>
