@@ -1,6 +1,6 @@
 - name: Azure Synapse Analytics
   href: index.yml
-- name: Passer au pool SQL dédié (anciennement SQL DW)
+- name: Passer au pool SQL dédié (anciennement SQL DW) >
   href: ./sql-data-warehouse/sql-data-warehouse-overview-what-is.md
 - name: Vue d’ensemble
   items:
@@ -48,17 +48,19 @@
   items:
     - name: Démarrages rapides
       items:
-        - name: Créer un espace de travail avec le portail Azure
-          href: quickstart-create-workspace.md
-          displayName: quickstart
-        - name: Créer un espace de travail avec Azure CLI
-          href: quickstart-create-workspace-cli.md
-          displayName: quickstart
-        - name: Créer un espace de travail avec Azure PowerShell
-          href: quickstart-create-workspace-powershell.md
-          displayName: quickstart
-        - name: Déployer les mises à niveau avec un modèle
-          href: quickstart-deployment-template-workspaces.md
+        - name: Créer un espace de travail
+          items:
+            - name: Portail Azure
+              href: quickstart-create-workspace.md
+              displayName: quickstart
+            - name: Azure CLI
+              href: quickstart-create-workspace-cli.md
+              displayName: quickstart
+            - name: Azure PowerShell
+              href: quickstart-create-workspace-powershell.md
+              displayName: quickstart
+            - name: Modèle ARM
+              href: quickstart-deployment-template-workspaces.md
           displayName: quickstart
         - name: Lier un espace de travail Power BI
           href: quickstart-power-bi.md
@@ -267,7 +269,7 @@
               href: sql/load-data-overview.md
         - name: Développement
           items:
-            - name: Vue d’ensemble
+            - name: Vue d'ensemble
               href: sql/develop-overview.md
             - name: Meilleures pratiques
               href: sql/develop-best-practices.md
@@ -419,7 +421,7 @@
           items:
             - name: Créer des points de restauration
               href: ./backuprestore/sqlpool-create-restore-point.md
-            - name: "Restaurer un pool\_SQL dédié"
+            - name: Restaurer un pool SQL dédié
               href: ./backuprestore/restore-sql-pool.md
         - name: Gestion et surveillance
           items:
@@ -552,9 +554,9 @@
           href: ./spark/apache-spark-machine-learning-mllib-notebook.md
         - name: Envoyer des définitions de travail Spark
           href: ./spark/apache-spark-job-definitions.md
-        - name: "Connecter et analyser les métriques au niveau de l’application Azure\_Synapse\_Spark"
+        - name: "Connecter et superviser les métriques de niveau application Azure\_Synapse\_Spark"
           href: ./spark/connect-monitor-azure-synapse-spark-application-level-metrics.md
-        - name: "Analyser les métriques au niveau de l’application Apache\_Spark avec Prometheus et Grafana"
+        - name: "Superviser les métriques de niveau application Apache\_Spark avec Prometheus et Grafana"
           href: ./spark/use-prometheus-grafana-to-monitor-apache-spark-application-level-metrics.md
     - name: Concepts
       items:
@@ -586,6 +588,8 @@
               href: ./spark/apache-spark-manage-scala-packages.md
             - name: Résoudre les erreurs d’installation du package Python
               href: ./spark/apache-spark-troubleshoot-library-errors.md
+            - name: Créer un canal privé Conda
+              href: ./spark/apache-spark-custom-conda-channel.md
         - name: Utiliser des notebooks et des outils d’IDE
           items:
             - name: Gérer des notebooks

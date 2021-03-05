@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: how-to
 ms.date: 11/10/2020
-ms.openlocfilehash: d99ec80308152ce9e4870da809acaa25c663d98d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: c6b9cfab4256c72118a65f7fb0c8e672e2082ffe
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101715698"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102199660"
 ---
 # <a name="how-to-use-postman-to-send-requests-to-the-azure-digital-twins-apis"></a>Comment utiliser Postman pour envoyer des demandes aux API Azure Digital Twins
 
@@ -21,7 +21,7 @@ ms.locfileid: "101715698"
 
 Cet article décrit comment configurer le [client REST Postman](https://www.getpostman.com/) pour interagir avec les API Azure Digital Twins en procédant comme suit :
 
-1. Utilisez l’[interface de ligne de commande Azure](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) pour obtenir un jeton du porteur que vous utiliserez pour effectuer des demandes API dans Postman.
+1. Utilisez l’[interface de ligne de commande Azure](/cli/azure/install-azure-cli) pour obtenir un jeton du porteur que vous utiliserez pour effectuer des demandes API dans Postman.
 1. Créez une collection Postman et configurez le client REST Postman afin qu’il utilise votre jeton du porteur pour s’authentifier.
 1. Utilisez le client Postman configuré pour créer et envoyer une demande aux API Azure Digital Twins.
 
@@ -41,9 +41,9 @@ Téléchargez ensuite la version de bureau du client Postman. Accédez à [*www.
 
 À présent que vous avez configuré Postman et votre instance Azure Digital Twins, vous devez obtenir un jeton du porteur que les demandes Postman peuvent utiliser pour autoriser les API Azure Digital Twins.
 
-Il existe plusieurs façons d’obtenir ce jeton. Dans le cadre de cet article, vous allez utiliser l’[interface de ligne de commande Azure](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) pour vous connecter à votre compte Azure et obtenir un jeton de cette façon.
+Il existe plusieurs façons d’obtenir ce jeton. Dans le cadre de cet article, vous allez utiliser l’[interface de ligne de commande Azure](/cli/azure/install-azure-cli) pour vous connecter à votre compte Azure et obtenir un jeton de cette façon.
 
-Si vous disposez d’une interface de ligne de commande Azure [installée localement](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true), vous pouvez démarrer une invite de commandes sur votre ordinateur pour exécuter les commandes suivantes.
+Si vous disposez d’une interface de ligne de commande Azure [installée localement](/cli/azure/install-azure-cli), vous pouvez démarrer une invite de commandes sur votre ordinateur pour exécuter les commandes suivantes.
 Dans le cas contraire, vous pouvez ouvrir une fenêtre [Azure Cloud Shell](https://shell.azure.com) dans votre navigateur et y exécuter les commandes.
 
 1. Tout d’abord, assurez-vous que vous êtes connecté à Azure avec les informations d’identification appropriées, en exécutant la commande suivante :
@@ -52,7 +52,7 @@ Dans le cas contraire, vous pouvez ouvrir une fenêtre [Azure Cloud Shell](https
     az login
     ```
 
-1. Ensuite, utilisez la commande [az account get-access-token](/cli/azure/account?preserve-view=true&view=azure-cli-latest#az_account_get_access_token) pour obtenir un jeton du porteur ayant accès au service Azure Digital Twins.
+1. Ensuite, utilisez la commande [az account get-access-token](/cli/azure/account#az_account_get_access_token) pour obtenir un jeton du porteur ayant accès au service Azure Digital Twins.
 
     ```azurecli-interactive
     az account get-access-token --resource 0b07f429-9f4b-4714-9392-cc5e8e80c8b0

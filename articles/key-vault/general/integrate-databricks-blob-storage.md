@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.service: key-vault
 ms.topic: tutorial
 ms.date: 06/16/2020
-ms.openlocfilehash: ba80d78cbc7d34b1496daffbd489a1d0dbfed8b4
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: fc33b24aac8964d0a8390b4b38c5e1862ed639a8
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93285667"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102198912"
 ---
 # <a name="tutorial-access-azure-blob-storage-using-azure-databricks-and-azure-key-vault"></a>Tutoriel : Accéder au Stockage Blob Azure en utilisant Azure Databricks et Azure Key Vault
 
@@ -29,11 +29,11 @@ Dans ce tutoriel, vous allez apprendre à :
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-Avant de commencer ce tutoriel, installez l’[interface de ligne de commande Azure](/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
+Avant de commencer ce tutoriel, installez l’[interface de ligne de commande Azure](/cli/azure/install-azure-cli-windows).
 
 ## <a name="create-a-storage-account-and-blob-container-with-azure-cli"></a>Créer un compte de stockage et un conteneur d’objets blob avec Azure CLI
 
-Pour pouvoir utiliser des objets blob, vous devez d’abord créer un compte de stockage universel. Si vous n’avez pas de [groupe de ressources](/cli/azure/group?view=azure-cli-latest#az-group-create), créez-en un avant d’exécuter la commande. La commande suivante crée et affiche les métadonnées du conteneur de stockage. Copiez la valeur d’ **ID**.
+Pour pouvoir utiliser des objets blob, vous devez d’abord créer un compte de stockage universel. Si vous n’avez pas de [groupe de ressources](/cli/azure/group#az-group-create), créez-en un avant d’exécuter la commande. La commande suivante crée et affiche les métadonnées du conteneur de stockage. Copiez la valeur d’**ID**.
 
 ```azurecli
 az storage account create --name contosoblobstorage5 --resource-group contosoResourceGroup --location eastus --sku Standard_ZRS --encryption-services blob
@@ -77,7 +77,7 @@ az storage account keys list -g contosoResourceGroup5 -n contosoblobstorage5
 
 ## <a name="create-a-key-vault-and-set-a-secret"></a>Créer un coffre de clés et définir un secret
 
-Vous allez créer un coffre de clés à l’aide de la commande suivante. Cette commande présente aussi les métadonnées du coffre de clés. Copiez la valeur d’ **ID** et de **vaultUri**.
+Vous allez créer un coffre de clés à l’aide de la commande suivante. Cette commande présente aussi les métadonnées du coffre de clés. Copiez la valeur d’**ID** et de **vaultUri**.
 
 ```azurecli
 az keyvault create --name contosoKeyVault10 --resource-group contosoResourceGroup5 --location eastus

@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 7672f4eb4530dbfb5d039b066fe7cf6eaf79e5a7
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 48b22ba913370b27cd01319a14a2a627d7589ce4
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101718639"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102051512"
 ---
 # <a name="security-control-v2-endpoint-security"></a>Contrôle de sécurité V2 : Sécurité des points de terminaison
 
 La fonctionnalité Sécurité des points de terminaison couvre les contrôles de détection de point de terminaison et de réponse. Cela comprend l’utilisation de la détection de point de terminaison et réponse (EDR) et du service anti-programme malveillant pour les points de terminaison dans les environnements Azure.
 
-Pour afficher l’instance Azure Policy intégrée applicable, consultez [Informations sur l’initiative intégrée Conformité réglementaire Azure Security Benchmark : Sécurité des points de terminaison](../../governance/policy/samples/azure-security-benchmark#endpoint-security)
+Pour afficher l’instance Azure Policy intégrée applicable, consultez [Informations sur l’initiative intégrée Conformité réglementaire Azure Security Benchmark : Sécurité des points de terminaison](../../governance/policy/samples/azure-security-benchmark.md#endpoint-security)
 
 ## <a name="es-1-use-endpoint-detection-and-response-edr"></a>ES-1 : Utiliser la détection de point de terminaison et réponse (EDR)
 

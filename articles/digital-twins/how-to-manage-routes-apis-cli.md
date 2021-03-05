@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 11/18/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: d25a429873ccf8b546c0919456c97e64445f184c
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: 40cf83b0ca9e4c794979f2b20ddb73360758abc5
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99071696"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102198538"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Gérer les points de terminaison et les itinéraires dans Azure Digital Twins (API et CLI)
 
@@ -48,7 +48,7 @@ Cette section explique comment créer ces points de terminaison à l’aide de l
 
 ### <a name="create-the-endpoint"></a>Créer le point de terminaison
 
-Une fois que vous avez créé les ressources du point de terminaison, vous pouvez les utiliser pour un point de terminaison Azure Digital Twins. Les exemples suivants montrent comment créer des points de terminaison à l’aide de la commande [az dt endpoint create](/cli/azure/ext/azure-iot/dt/endpoint/create?view=azure-cli-latest&preserve-view=true) pour l’[interface CLI Azure Digital Twins](how-to-use-cli.md). Remplacez les espaces réservés dans les commandes par les informations de vos propres ressources.
+Une fois que vous avez créé les ressources du point de terminaison, vous pouvez les utiliser pour un point de terminaison Azure Digital Twins. Les exemples suivants montrent comment créer des points de terminaison à l’aide de la commande [az dt endpoint create](/cli/azure/ext/azure-iot/dt/endpoint/create) pour l’[interface CLI Azure Digital Twins](how-to-use-cli.md). Remplacez les espaces réservés dans les commandes par les informations de vos propres ressources.
 
 Pour créer un point de terminaison Event Grid :
 
@@ -119,7 +119,7 @@ Suivez les étapes ci-dessous pour configurer ces ressources de stockage dans vo
     
 #### <a name="create-the-dead-letter-endpoint"></a>Créer le point de terminaison de lettres mortes
 
-Pour créer un point de terminaison avec mise en file d’attente de lettres mortes, ajoutez le paramètre de lettre morte suivant à la commande [az dt endpoint create](/cli/azure/ext/azure-iot/dt/endpoint/create?view=azure-cli-latest&preserve-view=true) pour l’[interface CLI Azure Digital Twins](how-to-use-cli.md).
+Pour créer un point de terminaison avec mise en file d’attente de lettres mortes, ajoutez le paramètre de lettre morte suivant à la commande [az dt endpoint create](/cli/azure/ext/azure-iot/dt/endpoint/create) pour l’[interface CLI Azure Digital Twins](how-to-use-cli.md).
 
 La valeur du paramètre représente l’**URI SAS de lettre morte** constitué du nom du compte de stockage, du nom du conteneur et du jeton SAP que vous avez collectés à la [section précédente](#set-up-storage-resources). Ce paramètre crée le point de terminaison avec l’authentification basée sur une clé.
 
@@ -204,7 +204,7 @@ Une définition d’itinéraire peut contenir les éléments suivants :
 
 Un itinéraire doit permettre la sélection de plusieurs notifications et types d’événements. 
 
-Les routes d'événements peuvent être créées à l’aide des API de plan de données [**EventRoutes**](/rest/api/digital-twins/dataplane/eventroutes) ou des commandes CLI [**az dt route**](/cli/azure/ext/azure-iot/dt/route?view=azure-cli-latest&preserve-view=true) Azure Digital Twins. Le reste de cette section décrit le processus de création.
+Les routes d'événements peuvent être créées à l’aide des API de plan de données [**EventRoutes**](/rest/api/digital-twins/dataplane/eventroutes) ou des commandes CLI [**az dt route**](/cli/azure/ext/azure-iot/dt/route) Azure Digital Twins. Le reste de cette section décrit le processus de création.
 
 ### <a name="create-routes-with-the-apis-and-c-sdk"></a>Créer des routes avec les API et le Kit de développement logiciel (SDK) C#
 
@@ -225,7 +225,7 @@ L’exemple de méthode suivant montre comment créer, lister et supprimer une r
 
 ### <a name="create-routes-with-the-cli"></a>Créer des routes avec l’interface CLI
 
-Vous pouvez également gérer les routes à l’aide des commandes [az dt route](/cli/azure/ext/azure-iot/dt/route?view=azure-cli-latest&preserve-view=true) pour l’interface CLI Azure Digital Twins. 
+Vous pouvez également gérer les routes à l’aide des commandes [az dt route](/cli/azure/ext/azure-iot/dt/route) pour l’interface CLI Azure Digital Twins. 
 
 Pour plus d’informations sur l’utilisation de l’interface CLI et sur les commandes disponibles, consultez le [*Tutoriel : utiliser l’interface CLI Azure Digital Twins*](how-to-use-cli.md).
 
