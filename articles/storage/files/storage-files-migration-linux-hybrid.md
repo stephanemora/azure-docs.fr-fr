@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 0ef4faf14ec01a25419fd22ba8c73a8a033b4172
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: f95585237bbee743083b855dd78cc850c4daffe8
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879980"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102202686"
 ---
 # <a name="migrate-from-linux-to-a-hybrid-cloud-deployment-with-azure-file-sync"></a>Migrer de Linux vers un déploiement de cloud hybride avec Azure File Sync
 
@@ -39,7 +39,7 @@ Si vous n’exécutez pas Samba sur votre serveur Linux et que vous souhaitez pl
 * Créez une instance Windows Server 2019 comme machine virtuelle ou comme serveur physique. Windows Server 2012 R2 est la configuration minimale requise. Un cluster de basculement Windows Server est également pris en charge.
 * Approvisionnez ou ajoutez un stockage en attachement direct (DAS). Le stockage attaché au réseau (NAS) n’est pas pris en charge.
 
-  Si vous utilisez la fonctionnalité de [hiérarchisation cloud](storage-sync-cloud-tiering.md) d’Azure File Sync, la quantité de stockage que vous approvisionnez peut être inférieure à celle que vous utilisez actuellement sur votre serveur Samba Linux. Toutefois, lorsque vous copiez vos fichiers de l’espace plus grand du serveur Samba Linux vers le volume plus petit de Windows Server à une étape ultérieure, vous devrez travailler par lots :
+  Si vous utilisez la fonctionnalité de [hiérarchisation cloud](storage-sync-cloud-tiering-overview.md) d’Azure File Sync, la quantité de stockage que vous approvisionnez peut être inférieure à celle que vous utilisez actuellement sur votre serveur Samba Linux. Toutefois, lorsque vous copiez vos fichiers de l’espace plus grand du serveur Samba Linux vers le volume plus petit de Windows Server à une étape ultérieure, vous devrez travailler par lots :
 
   1. Déplacez un ensemble de fichiers qui tiennent sur le disque.
   2. Autorisez la synchronisation des fichiers et la hiérarchisation cloud.
@@ -98,7 +98,7 @@ Exécutez la première copie locale vers votre dossier Windows Server cible :
 
 La commande Robocopy suivante copie les fichiers de votre stockage de votre serveur Samba Linux vers votre dossier cible Windows Server. Le serveur Windows Server va le synchroniser avec les partages de fichiers Azure. 
 
-Si vous avez configuré moins de stockage sur votre instance Windows Server que ce que vos fichiers occupent sur le serveur Samba Linux, cela signifie que vous avez configuré la hiérarchisation cloud. Quand le volume Windows Server local se remplit, la [hiérarchisation cloud](storage-sync-cloud-tiering.md) commence et hiérarchise les fichiers qui ont déjà été correctement synchronisés. La hiérarchisation cloud génère suffisamment d’espace pour poursuivre la copie à partir du serveur Samba Linux. La hiérarchisation cloud effectue une vérification toutes les heures pour déterminer ce qui a été synchronisé et libérer de l’espace disque pour atteindre la stratégie d’un espace de volume libre de 99 %.
+Si vous avez configuré moins de stockage sur votre instance Windows Server que ce que vos fichiers occupent sur le serveur Samba Linux, cela signifie que vous avez configuré la hiérarchisation cloud. Quand le volume Windows Server local se remplit, la [hiérarchisation cloud](storage-sync-cloud-tiering-overview.md) commence et hiérarchise les fichiers qui ont déjà été correctement synchronisés. La hiérarchisation cloud génère suffisamment d’espace pour poursuivre la copie à partir du serveur Samba Linux. La hiérarchisation cloud effectue une vérification toutes les heures pour déterminer ce qui a été synchronisé et libérer de l’espace disque pour atteindre la stratégie d’un espace de volume libre de 99 %.
 
 Il est possible que Robocopy déplace les fichiers plus rapidement que vous ne pouvez les synchroniser dans le cloud et les hiérarchiser localement, ce qui vous amène à manquer d’espace disque local. Dans ce cas, Robocopy échoue. Nous vous recommandons de traiter les partages dans une séquence qui empêche le problème de survenir. Par exemple, envisagez de ne pas démarrer les travaux Robocopy pour tous les partages en même temps. Vous pouvez également envisager de déplacer les partages pour lesquels l’espace libre est actuellement suffisant sur l’instance Windows Server. Si votre travail Robocopy échoue, vous pouvez toujours réexécuter la commande tant que vous utilisez l’option de mise en miroir/vidage suivante :
 

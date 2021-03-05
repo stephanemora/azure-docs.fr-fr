@@ -8,12 +8,12 @@ ms.service: dns
 ms.topic: how-to
 ms.date: 06/18/2019
 ms.author: rohink
-ms.openlocfilehash: 63bd1d01adf66f33a8ee5349f35063473429b007
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: bfc7a851442d6dd70d55c9f00e6d2f18d37e56bf
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94964777"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102203400"
 ---
 # <a name="migrating-legacy-azure-dns-private-zones-to-new-resource-model"></a>Migration des zones privées Azure DNS héritées vers le nouveau modèle de ressource
 
@@ -25,7 +25,7 @@ az account set --subscription <SubscriptionId>
 az network dns zone list --query "[?zoneType=='Private']"
 ```
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Vérifiez que vous avez installé la version la plus récente d’Azure PowerShell. Pour plus d’informations sur Azure PowerShell (Az) et la manière de l’installer, visitez https://docs.microsoft.com/powershell/azure/new-azureps-module-az
 
@@ -108,7 +108,7 @@ Cette étape va supprimer les zones DNS héritées, vous devez donc l’exécute
 
 Si vous avez recours à une automatisation avec des modèles, des scripts PowerShell ou du code personnalisé développé à l’aide d’un SDK, vous devez mettre à jour votre automatisation afin d’utiliser le nouveau modèle de ressource pour les zones DNS privées. Voici les liens vers la nouvelle documentation CLI/PS/SDK des zones DNS privées.
 * [API REST pour les zones privées Azure DNS](/rest/api/dns/privatedns/privatezones)
-* [CLI pour les zones privées Azure DNS](/cli/azure/ext/privatedns/network/private-dns?view=azure-cli-latest)
+* [CLI pour les zones privées Azure DNS](/cli/azure/ext/privatedns/network/private-dns)
 * [PowerShell pour les zones privées Azure DNS](/powershell/module/az.privatedns/?view=azps-2.3.2)
 * [SDK pour les zones privées Azure DNS](/dotnet/api/overview/azure/privatedns/management?view=azure-dotnet-preview)
 

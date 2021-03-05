@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/01/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 0e1ce841f6da8f15bd977437bca6b835a7b0d745
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.openlocfilehash: 9ec1e59a5599ca2e95578eacc1484932956ebf16
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98108736"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102204012"
 ---
 # <a name="how-to-enable-key-vault-logging"></a>Guide pratique pour activer la journalisation de Key Vault
 
@@ -34,7 +34,7 @@ Les commandes de ce guide sont mises en forme pour [Cloud Shell](https://shell.a
 
 La première étape de la configuration de la journalisation des clés consiste à se connecter à l’abonnement contenant le coffre de clés. Cette étape est particulièrement importante si plusieurs abonnements sont associés à votre compte.
 
-Avec Azure CLI, vous pouvez afficher tous vos abonnements à l’aide de la commande [az account list](/cli/azure/account?view=azure-cli-latest#az_account_list), puis vous connecter à l’un d’eux à l’aide de la commande [az account set](/cli/azure/account?view=azure-cli-latest#az_account_set) :
+Avec Azure CLI, vous pouvez afficher tous vos abonnements à l’aide de la commande [az account list](/cli/azure/account#az_account_list), puis vous connecter à l’un d’eux à l’aide de la commande [az account set](/cli/azure/account#az_account_set) :
 
 ```azurecli-interactive
 az account list
@@ -58,7 +58,7 @@ Pour simplifier davantage la gestion, nous allons utiliser le groupe de ressourc
 
 Nous devrons également fournir un nom de compte de stockage. Ce nom doit être unique et comprendre entre 3 et 24 caractères, uniquement des lettres en minuscules et des nombres.  Enfin, nous allons créer un compte de stockage de la référence SKU « Standard_LRS ».
 
-Avec Azure CLI, utilisez la commande [az storage account create](/cli/azure/storage/account?view=azure-cli-latest#az_storage_account_create).
+Avec Azure CLI, utilisez la commande [az storage account create](/cli/azure/storage/account#az_storage_account_create).
 
 ```azurecli-interactive
 az storage account create --name "<your-unique-storage-account-name>" -g "myResourceGroup" --sku "Standard_LRS"
@@ -84,9 +84,9 @@ L’ID du compte de stockage a le format « /subscriptions/<ID de votre abonnem
 
 ## <a name="obtain-your-key-vault-resource-id"></a>Obtenir l’ID de ressource du coffre de clés
 
-Dans le [guide de démarrage rapide pour CLI](quick-create-cli.md) et le [guide de démarrage rapide pour PowerShell](quick-create-powershell.md), vous avez créé une clé avec un nom unique.  Réutilisez ce nom dans les étapes ci-dessous.  Si vous ne vous souvenez pas du nom de votre coffre de clés, vous pouvez utiliser la commande Azure CLI [az keyvault list](/cli/azure/keyvault?view=azure-cli-latest#az_keyvault_list) ou l’applet de commande Azure PowerShell [Get-AzKeyVault](/powershell/module/az.keyvault/get-azkeyvault?view=azps-4.7.0) pour lister les coffres de clés.
+Dans le [guide de démarrage rapide pour CLI](quick-create-cli.md) et le [guide de démarrage rapide pour PowerShell](quick-create-powershell.md), vous avez créé une clé avec un nom unique.  Réutilisez ce nom dans les étapes ci-dessous.  Si vous ne vous souvenez pas du nom de votre coffre de clés, vous pouvez utiliser la commande Azure CLI [az keyvault list](/cli/azure/keyvault#az_keyvault_list) ou l’applet de commande Azure PowerShell [Get-AzKeyVault](/powershell/module/az.keyvault/get-azkeyvault?view=azps-4.7.0) pour lister les coffres de clés.
 
-Utilisez le nom de votre coffre de clés pour trouver son ID de ressource.  Avec Azure CLI, utilisez la commande [az keyvault show](/cli/azure/keyvault?view=azure-cli-latest#az_keyvault_show).
+Utilisez le nom de votre coffre de clés pour trouver son ID de ressource.  Avec Azure CLI, utilisez la commande [az keyvault show](/cli/azure/keyvault#az_keyvault_show).
 
 ```azurecli-interactive
 az keyvault show --name "<your-unique-keyvault-name>"
@@ -102,7 +102,7 @@ L’ID de ressource de votre coffre de clés a le format « /subscriptions/<ID 
 
 ## <a name="enable-logging-using-azure-powershell"></a>Activer la journalisation à l’aide d’Azure PowerShell
 
-Pour activer la journalisation pour Key Vault, nous allons utiliser la commande Azure CLI [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest) ou l’applet de commande [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting?view=azps-4.7.0) ainsi que l’ID du compte de stockage et l’ID de ressource du coffre de clés.
+Pour activer la journalisation pour Key Vault, nous allons utiliser la commande Azure CLI [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings) ou l’applet de commande [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting?view=azps-4.7.0) ainsi que l’ID du compte de stockage et l’ID de ressource du coffre de clés.
 
 ```azurecli-interactive
 az monitor diagnostic-settings create --storage-account "<storage-account-id>" --resource "<key-vault-resource-id>" --name "Key vault logs" --logs '[{"category": "AuditEvent","enabled": true}]' --metrics '[{"category": "AllMetrics","enabled": true}]'
@@ -116,7 +116,7 @@ Set-AzDiagnosticSetting -ResourceId "<key-vault-resource-id>" -StorageAccountId 
 
 Si vous le souhaitez, vous pouvez définir une stratégie de conservation pour vos journaux, afin que les anciens journaux soient automatiquement supprimés après un laps de temps spécifié. Par exemple, vous pouvez définir une stratégie de conservation qui supprime automatiquement les journaux datant de plus de 90 jours.
 
-<!-- With the Azure CLI, use the [az monitor diagnostic-settings update](/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az_monitor_diagnostic_settings_update) command. 
+<!-- With the Azure CLI, use the [az monitor diagnostic-settings update](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_update) command. 
 
 ```azurecli-interactive
 az monitor diagnostic-settings update 
@@ -143,7 +143,7 @@ Set-AzDiagnosticSetting "<key-vault-resource-id>" -StorageAccountId $sa.id -Enab
 
 Les journaux Key Vault sont stockés dans le conteneur « insights-logs-auditevent » du compte de stockage que vous avez fourni. Pour visualiser les journaux, vous devez télécharger des objets blob.
 
-Tout d’abord, obtenez tous les objets blob du conteneur.  Avec Azure CLI, utilisez la commande [az storage blob list](/cli/azure/storage/blob?view=azure-cli-latest#az_storage_blob_list).
+Tout d’abord, obtenez tous les objets blob du conteneur.  Avec Azure CLI, utilisez la commande [az storage blob list](/cli/azure/storage/blob#az_storage_blob_list).
 
 ```azurecli-interactive
 az storage blob list --account-name "<your-unique-storage-account-name>" --container-name "insights-logs-auditevent"
@@ -159,7 +159,7 @@ Comme vous le verrez dans la sortie de la commande Azure CLI ou de l’applet de
 
 Étant donné que vous pouvez utiliser le même compte de stockage pour collecter les journaux de plusieurs ressources, l’ID de ressource complet dans le nom de l’objet blob est utile si vous voulez uniquement accéder aux objets blob dont vous avez besoin ou télécharger ces derniers. Mais avant cela, nous aborderons le téléchargement de tous les objets blob.
 
-Avec Azure CLI, utilisez la commande [az storage blob download](/cli/azure/storage/blob?view=azure-cli-latest#az_storage_blob_download), en lui fournissant les noms des objets blob et le chemin du fichier dans lequel vous souhaitez enregistrer les résultats.
+Avec Azure CLI, utilisez la commande [az storage blob download](/cli/azure/storage/blob#az_storage_blob_download), en lui fournissant les noms des objets blob et le chemin du fichier dans lequel vous souhaitez enregistrer les résultats.
 
 ```azurecli-interactive
 az storage blob download --container-name "insights-logs-auditevent" --file <path-to-file> --name "<blob-name>" --account-name "<your-unique-storage-account-name>"

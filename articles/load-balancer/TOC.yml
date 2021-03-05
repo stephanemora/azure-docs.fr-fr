@@ -39,6 +39,8 @@
           href: tutorial-cross-region-portal.md
         - name: Créer un équilibreur de charge interrégional - PowerShell
           href: tutorial-cross-region-powershell.md
+        - name: "Créer un équilibreur de charge interrégional - Azure\_CLI"
+          href: tutorial-cross-region-cli.md
 - name: Exemples
   items:
     - name: Azure CLI

@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
 ms.author: yegu
-ms.openlocfilehash: 2005b24e9a5692adda8c8e3a5100a6450c67663c
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: ad6696fc4fe2af7047c25a3a9c260d3b12588ee2
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101653845"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102203298"
 ---
 # <a name="high-availability-for-azure-cache-for-redis"></a>Haute disponibilité pour Azure Cache pour Redis
 
@@ -23,7 +23,7 @@ Azure Cache pour Redis implémente la haute disponibilité en utilisant plusieur
 | ------------------- | ------- | ------- | :------: | :---: | :---: |
 | [Réplication standard](#standard-replication)| Configuration répliquée à deux nœuds dans un centre de données avec basculement automatique | 99,9 % |✔|✔|-|
 | [Redondance de zone](#zone-redundancy) | Configuration répliquée à plusieurs nœuds dans les zones de disponibilité, avec basculement automatique | 99,95 % (niveau Premium), 99,99 % (niveaux Entreprise) |-|PRÉVERSION|PRÉVERSION|
-| [Géoréplication](#geo-replication) | Instances de cache liées dans deux régions, avec basculement contrôlé par l’utilisateur | 99,999 % (niveau Entreprise) |-|✔|-|
+| [Géoréplication](#geo-replication) | Instances de cache liées dans deux régions, avec basculement contrôlé par l’utilisateur | 99,999 % (niveau Entreprise) |-|✔|PRÉVERSION|
 
 ## <a name="standard-replication"></a>Réplication standard
 

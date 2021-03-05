@@ -3,20 +3,20 @@ title: Redémarrer la stratégie pour des tâches à exécution unique
 description: Découvrez comment utiliser Azure Container Instances pour exécuter des tâches jusqu’à complétion, telles que des tâches de génération, de test ou de rendu d’image.
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: 336a31a03cdc9dfdfebe79ef47b59ef90053f523
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49280549fa834b82574f81494f1cf44817d8be5d
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88798939"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102203825"
 ---
 # <a name="run-containerized-tasks-with-restart-policies"></a>Exécuter des tâches conteneurisées avec des stratégies de redémarrage
 
 La facilité et la vitesse de déploiement des conteneurs d’Azure Container Instances en font une plateforme incontournable pour les tâches à exécution unique, comme les tâches de génération, de test et de rendu d’image, dans une instance de conteneur.
 
-À l’aide d’une stratégie de redémarrage configurable, vous pouvez spécifier l’arrêt de vos conteneurs lorsque leurs processus sont terminés. Étant donné que les instances de conteneur sont facturées à la seconde, vous êtes facturé uniquement pour les ressources de calcul utilisées au moment où le conteneur qui exécute votre tâche est exécuté.
+Avec une stratégie de redémarrage configurable, vous pouvez spécifier que vos conteneurs doivent s’arrêter quand leurs processus sont terminés. Comme les instances de conteneur sont facturées à la seconde, vous êtes facturé seulement pour les ressources de calcul utilisées au moment où le conteneur qui exécute votre tâche s’exécute.
 
-Les exemples présentés dans cet article utilisent l’interface de ligne de commande Azure. Vous devez disposer d’Azure CLI version 2.0.21 ou ultérieure [en local][azure-cli-install], ou utiliser l’interface de ligne de commande Azure dans [Azure Cloud Shell](../cloud-shell/overview.md).
+Les exemples présentés dans cet article utilisent l’interface de ligne de commande Azure. Vous devez disposer d’Azure CLI version 2.0.21 ou ultérieure [en local][azure-cli-install], ou utiliser l’interface de ligne de commande dans [Azure Cloud Shell](../cloud-shell/overview.md).
 
 ## <a name="container-restart-policy"></a>Stratégie de redémarrage des conteneurs
 
@@ -24,9 +24,9 @@ Lorsque vous créez un [groupe de conteneurs](container-instances-container-grou
 
 | Stratégie de redémarrage   | Description |
 | ---------------- | :---------- |
-| `Always` | Les conteneurs du groupe de conteneurs sont toujours redémarrés. Il s’agit du paramètre appliqué **par défaut** lorsqu’aucune stratégie de redémarrage n’est spécifiée au moment de la création du conteneur. |
+| `Always` | Les conteneurs du groupe de conteneurs sont toujours redémarrés. Il s’agit du paramètre appliqué **par défaut** quand aucune stratégie de redémarrage n’est spécifiée à la création du conteneur. |
 | `Never` | Les conteneurs du groupe de conteneurs ne sont jamais redémarrés. Les conteneurs sont exécutés au maximum une fois. |
-| `OnFailure` | Les conteneurs du groupe de conteneurs sont redémarrés uniquement en cas d’échec des processus qui y sont exécutés (lorsque ceux-ci se terminent par un code de sortie différent de zéro). Les conteneurs sont exécutés au moins une fois. |
+| `OnFailure` | Les conteneurs du groupe de conteneurs sont redémarrés uniquement en cas d’échec des processus qui y sont exécutés (quand ceux-ci se terminent avec un code de sortie différent de zéro). Les conteneurs sont exécutés au moins une fois. |
 
 [!INCLUDE [container-instances-restart-ip](../../includes/container-instances-restart-ip.md)]
 
@@ -46,7 +46,7 @@ az container create \
 
 Pour voir la stratégie de redémarrage à l’œuvre, créez une instance de conteneur à partir de l’image Microsoft [aci-wordcount][aci-wordcount-image], puis spécifiez la stratégie de redémarrage `OnFailure`. Cet exemple de conteneur exécute un script Python qui, par défaut, analyse le texte de [Hamlet](http://shakespeare.mit.edu/hamlet/full.html) de Shakespeare, écrit les 10 mots les plus fréquents dans STDOUT, puis se termine.
 
-Exécutez l’exemple de conteneur avec la commande [az container create][az-container-create] suivante :
+Exécutez l’exemple de conteneur avec la commande [az container create][az-container-create] suivante :
 
 ```azurecli-interactive
 az container create \
@@ -56,7 +56,7 @@ az container create \
     --restart-policy OnFailure
 ```
 
-Azure Container Instances démarre le conteneur, puis l’arrête lorsque l’exécution de son application (ou de son script, dans ce cas) est terminée. Quand Azure Container Instances arrête un conteneur dont la stratégie de redémarrage est `Never` ou `OnFailure`, l’état du conteneur est défini sur **Terminé**. Vous pouvez vérifier l’état du conteneur à l’aide de la commande [az container show][az-container-show] :
+Azure Container Instances démarre le conteneur, puis l’arrête lorsque l’exécution de son application (ou de son script, dans ce cas) est terminée. Quand Azure Container Instances arrête un conteneur dont la stratégie de redémarrage est `Never` ou `OnFailure`, l’état du conteneur est défini sur **Terminé**. Vous pouvez vérifier l’état du conteneur à l’aide de la commande [az container show][az-container-show] :
 
 ```azurecli-interactive
 az container show \
@@ -71,7 +71,7 @@ Exemple de sortie :
 "Terminated"
 ```
 
-Lorsque l’état de l’exemple de conteneur est *Terminé*, vous pouvez voir la sortie de sa tâche en consultant les journaux d’activité du conteneur. Exécutez la commande [az container logs][az-container-logs] pour afficher la sortie du script :
+Lorsque l’état de l’exemple de conteneur est *Terminé*, vous pouvez voir la sortie de sa tâche en consultant les journaux d’activité du conteneur. Exécutez la commande [az container logs][az-container-logs] pour afficher la sortie du script :
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name mycontainer
@@ -104,7 +104,7 @@ Pour plus d’informations sur la conservation de la sortie de vos conteneurs qu
 [aci-wordcount-image]: https://hub.docker.com/_/microsoft-azuredocs-aci-wordcount
 
 <!-- LINKS - Internal -->
-[az-container-create]: /cli/azure/container?view=azure-cli-latest#az-container-create
-[az-container-logs]: /cli/azure/container?view=azure-cli-latest#az-container-logs
-[az-container-show]: /cli/azure/container?view=azure-cli-latest#az-container-show
+[az-container-create]: /cli/azure/container#az-container-create
+[az-container-logs]: /cli/azure/container#az-container-logs
+[az-container-show]: /cli/azure/container#az-container-show
 [azure-cli-install]: /cli/azure/install-azure-cli

@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: how-to
 ms.date: 02/18/2020
 ms.author: allensu
-ms.openlocfilehash: a36b37c1f0118055d931f785f570a10041e2dbfc
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: d5a81a56e6b29bb0cad681876b9476809bd9f3cb
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965695"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102203434"
 ---
 # <a name="how-to-protect-private-dns-zones-and-records"></a>Protéger les zones DNS privées et les enregistrements
 
@@ -36,7 +36,7 @@ La façon la plus simple d’attribuer des autorisations Azure RBAC consiste à 
 
 Ouvrez **Contrôle d’accès (IAM)** pour le groupe de ressources, sélectionnez **Ajouter**, puis sélectionnez le rôle **Collaborateur de zone DNS privée**. Sélectionnez les utilisateurs ou les groupes auxquels accorder des autorisations.
 
-![Azure RBAC au niveau du groupe de ressources via le portail Azure](./media/dns-protect-private-zones-recordsets/rbac1.png)
+![Azure RBAC au niveau groupe de ressources via le portail Azure](./media/dns-protect-private-zones-recordsets/rbac1.png)
 
 Vous pouvez également [accorder des autorisations à l’aide d’Azure PowerShell](../role-based-access-control/role-assignments-powershell.md) :
 
@@ -218,7 +218,7 @@ $rsg = "<resource group name>"
 New-AzResourceLock -LockLevel $lvl -LockName $lnm -ResourceName $rsc -ResourceType $rty -ResourceGroupName $rsg
 ```
 
-La commande équivalente est également [disponible via l’interface de ligne de commande Azure](/cli/azure/lock?view=azure-cli-latest#az-lock-create) :
+La commande équivalente est également [disponible via l’interface de ligne de commande Azure](/cli/azure/lock#az-lock-create) :
 
 ```azurecli-interactive
 # Lock a DNS zone

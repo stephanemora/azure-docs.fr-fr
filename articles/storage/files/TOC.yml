@@ -63,8 +63,16 @@
           href: storage-sync-files-planning.md
         - name: Considérations réseau pour un accès hybride
           href: storage-sync-files-networking-overview.md
-        - name: À propos de la hiérarchisation cloud
-          href: storage-sync-cloud-tiering.md
+        - name: Hiérarchisation cloud
+          items:
+            - name: Vue d’ensemble de la hiérarchisation cloud
+              href: storage-sync-cloud-tiering-overview.md
+            - name: Vue d’ensemble des stratégies de hiérarchisation cloud
+              href: storage-sync-cloud-tiering-policy.md
+            - name: Choisir vos stratégies de hiérarchisation cloud
+              href: storage-sync-choose-cloud-tiering-policies.md
+            - name: Superviser la hiérarchisation cloud
+              href: storage-sync-monitor-cloud-tiering.md
     - name: Performances et mise à l’échelle
       items:
         - name: Performances de SMB Multichannel
@@ -155,6 +163,8 @@
           href: ../common/storage-powershell-independent-clouds.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Initier un basculement de compte
           href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Guide pratique pour gérer les fichiers hiérarchisés
+          href: storage-sync-how-to-manage-tiered-files.md
     - name: Protection de données
       items:
         - name: Activer la suppression réversible
