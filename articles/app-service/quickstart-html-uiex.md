@@ -8,12 +8,12 @@ ms.date: 08/23/2019
 ms.author: msangapu
 ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: e7beae6c1398525faa267e2cec6d9fb7134b6297
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 538d414ce606b944fcea7adbb1c817386e13090e
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101747366"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102178573"
 ---
 # <a name="create-a-static-html-web-app-in-azure"></a>Créer une application web HTML statique dans Azure
 
@@ -49,7 +49,7 @@ az webapp up --location westeurope --name <app_name> --html
 ```
 
 <details>
-<summary>Résolution des problèmes</summary>
+<summary>Dépannage</summary>
 <ul>
 <li>Si la commande <code>az</code> n’est pas reconnue, vérifiez qu’Azure CLI est installé, comme décrit dans <a href="#1-prepare-your-environment">Préparer votre environnement</a>.</li>
 <li>Remplacez <code>&lt;app-name&gt;</code> par un nom unique sur l’ensemble d’Azure (<em>les caractères valides sont <code>a-z</code>, <code>0-9</code> et <code>-</code></em>). Un bon modèle consiste à utiliser une combinaison du nom de votre société et d’un identificateur d’application.</li>
@@ -67,7 +67,7 @@ La commande peut prendre quelques minutes.
 <ul>
 <li>Créer un groupe de ressources par défaut</li>
 <li>Créer un plan App Service par défaut.</li>
-<li><a href="/cli/azure/webapp?view=azure-cli-latest#az-webapp-create">Créez une application App Service</a> avec le nom spécifié.</li>
+<li><a href="/cli/azure/webapp#az-webapp-create">Créez une application App Service</a> avec le nom spécifié.</li>
 <li><a href="/azure/app-service/deploy-zip">Déployez les fichiers zip</a> à partir du répertoire de travail actif sur l’application web.</li>
 <li>Lors de son exécution, elle fournit des messages sur la création de ressources, la journalisation et le déploiement du fichier ZIP.</li>
 </ul>

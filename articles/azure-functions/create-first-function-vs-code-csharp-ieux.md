@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 11/03/2020
 ms.custom: devx-track-csharp
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 69a057f92009fd712d39666be223f1cfd99d73b5
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 2848ce6214d59ba2732dcfc148ccaf9936497f17
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101747371"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102121029"
 ---
 # <a name="quickstart-create-a-c-function-in-azure-using-visual-studio-code"></a>Démarrage rapide : Créer une fonction C# dans Azure à l’aide de Visual Studio Code
 
@@ -23,7 +23,7 @@ ms.locfileid: "101747371"
 > - [TypeScript](create-first-function-vs-code-typescript.md)
 > - [Autres (Go/Rust)](create-first-function-vs-code-other.md)
 
-Dans cet article, vous allez utiliser Visual Studio Code pour créer une fonction basée sur une bibliothèque de classes C# qui répond aux requêtes HTTP. Après avoir testé le code localement, vous le déployez dans l’environnement <abbr title="Environnement informatique de runtime dans lequel tous les détails du serveur sont transparents pour les développeurs d’applications, ce qui simplifie le processus de déploiement et de gestion du code.">serverless</abbr> d’ <abbr title="Service Azure qui fournit un environnement informatique serverless à faible coût pour les applications.">Azure Functions</abbr>.
+Dans cet article, vous allez utiliser Visual Studio Code pour créer une fonction basée sur une bibliothèque de classes C# qui répond aux requêtes HTTP. Après avoir testé le code localement, vous le déployez dans l’environnement <abbr title="Environnement informatique de runtime dans lequel tous les détails du serveur sont transparents pour les développeurs d’applications, ce qui simplifie le processus de déploiement et de gestion du code.">Serverless</abbr> d’ <abbr title="Service Azure qui fournit un environnement informatique serverless à faible coût pour les applications.">Azure Functions</abbr>.
 
 Le fait de suivre ce guide de démarrage rapide entraîne une petite dépense de quelques cents USD tout au plus dans votre compte Azure.
 
@@ -33,7 +33,7 @@ Il existe également une [version basée sur l’interface CLI](create-first-fun
 
 Avant de commencer, veillez à disposer des éléments suivants :
 
-+ Un <abbr title="Profil qui gère les informations de facturation pour l’utilisation d’Azure.">compte Azure</abbr> avec un <abbr title="Structure organisationnelle de base dans laquelle vous gérez les ressources dans Azure, généralement associée à une personne ou à un service au sein d’une organisation.">abonnement</abbr>actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
++ Un <abbr title="Profil qui gère les informations de facturation pour l’utilisation d’Azure.">account</abbr> avec un <abbr title="Structure organisationnelle de base dans laquelle vous gérez les ressources dans Azure, généralement associée à une personne ou à un service au sein d’une organisation.">subscription</abbr>. [Créez un compte gratuitement](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
 + [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) version 3.x.
 
@@ -47,7 +47,7 @@ Avant de commencer, veillez à disposer des éléments suivants :
 
 Dans cette section, vous utilisez Visual Studio Code pour créer un <abbr title="Conteneur logique pour une ou plusieurs fonctions individuelles qui peuvent être déployées et gérées ensemble.">projet Azure Functions</abbr> local en C#. Plus loin dans cet article, vous allez publier votre code de fonction sur Azure.
 
-1. Choisissez l’icône Azure dans la <abbr title="Groupe vertical d’icônes sur le côté gauche de la fenêtre de Visual Studio Code.">barre d’activité</abbr>, puis, dans la zone **Azure : Fonctions**, sélectionnez l’icône **Créer un projet...**
+1. Choisissez l’icône Azure dans la <abbr title="Groupe vertical d’icônes sur le côté gauche de la fenêtre de Visual Studio Code.">Barre d’activité</abbr>, puis, dans la zone **Azure : Fonctions**, sélectionnez l’icône **Créer un projet...**
 
     ![Choisir Créer un projet](./media/functions-create-first-function-vs-code/create-new-project.png)
 
@@ -70,7 +70,7 @@ Dans cette section, vous utilisez Visual Studio Code pour créer un <abbr title=
 
     + **Sélectionner la façon dont vous souhaitez ouvrir votre projet** : Choisissez `Add to workspace`.
 
-1. À l’aide de ces informations, Visual Studio Code génère un projet Azure Functions avec un <abbr title="Type d’événement qui appelle le code de la fonction, par exemple une requête HTTP, un message de file d’attente ou une heure spécifique.">déclencheur</abbr>HTTP. Vous pouvez voir les fichiers de projet locaux dans l’Explorateur. Pour en savoir plus sur les fichiers créés, consultez [Fichiers projet générés](functions-develop-vs-code.md#generated-project-files).
+1. À l’aide de ces informations, Visual Studio Code génère un projet Azure Functions avec un <abbr title="Type d’événement qui appelle le code de la fonction, par exemple une requête HTTP, un message de file d’attente ou une heure spécifique.">déclencheur</abbr>. Vous pouvez voir les fichiers de projet locaux dans l’Explorateur. Pour en savoir plus sur les fichiers créés, consultez [Fichiers projet générés](functions-develop-vs-code.md#generated-project-files).
 
 [!INCLUDE [functions-run-function-test-local-vs-code](../../includes/functions-run-function-test-local-vs-code.md)]
 
@@ -87,7 +87,7 @@ Dans cette section, vous créez une application de fonction et les ressources as
 
 1. Choisissez l’icône Azure dans la barre d’activité, puis dans la zone **Azure : Fonctions**, choisissez le bouton **Déployer sur une application de fonction**.
 
-    ![Publier votre projet sur Azure](./media/functions-create-first-function-vs-code/function-app-publish-project.png)
+    
 
 1. Quand vous y êtes invité, indiquez les informations suivantes :
 
@@ -137,7 +137,7 @@ Dans cette section, vous créez une application de fonction et les ressources as
 
 ## <a name="5-clean-up-resources"></a>5. Nettoyer les ressources
 
-Quand vous passez à l’[étape suivante](#next-steps) et que vous ajoutez une <abbr title="Moyen d’associer une fonction à une file d’attente de stockage, afin qu’elle puisse créer des messages dans la file d’attente.">liaison de sortie de file d’attente Azure Storage</abbr> à votre fonction, vous devez maintenir en place toutes vos ressources pour tirer parti de ce que vous avez déjà fait.
+Quand vous passez à l’[étape suivante](#next-steps) et que vous ajoutez une <abbr title="Moyen d’associer une fonction à une file d’attente de stockage, afin qu’elle puisse créer des messages dans la file d’attente."> Liaison de sortie de file d’attente Azure Storage</abbr> à votre fonction, vous devez maintenir en place toutes vos ressources pour tirer parti de ce que vous avez déjà fait.
 
 Sinon, vous pouvez utiliser les étapes suivantes pour supprimer l’application de fonction et ses ressources connexes afin d’éviter des coûts supplémentaires.
 
@@ -147,7 +147,7 @@ Pour en savoir plus sur les coûts de Functions, consultez [Estimation des coût
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous avez utilisé Visual Studio Code pour créer une application de fonction à l’aide d’une fonction HTTP simple déclenchée via HTTP. Dans le prochain article, vous développez cette fonction en ajoutant une <abbr title="Connexion déclarative entre une fonction et d’autres ressources. Une liaison d’entrée fournit des données à la fonction ; une liaison de sortie fournit des données de la fonction à d’autres ressources.">liaison de sortie</abbr>. Cette liaison écrit la chaîne de la requête HTTP dans un message dans une file d’attente de Stockage File d’attente Azure. 
+Vous avez utilisé Visual Studio Code pour créer une application de fonction à l’aide d’une fonction HTTP simple déclenchée via HTTP. Dans le prochain article, vous développez cette fonction en ajoutant une <abbr title="Connexion déclarative entre une fonction et d’autres ressources. Une liaison d’entrée fournit des données à la fonction ; une liaison de sortie fournit des données de la fonction à d’autres ressources.">binding</abbr>. Cette liaison écrit la chaîne de la requête HTTP dans un message dans une file d’attente de Stockage File d’attente Azure. 
 
 > [!div class="nextstepaction"]
 > [Se connecter à une file d’attente Stockage Azure](functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-csharp)

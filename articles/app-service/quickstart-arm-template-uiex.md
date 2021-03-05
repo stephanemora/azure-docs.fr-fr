@@ -9,12 +9,12 @@ ms.date: 10/16/2020
 ms.custom: subject-armqs, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 6e0368abcca5f0c38a7b143386d666e7908f30b2
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 7437a5208f94b435576b8a38dc65a6e798303a72
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101747737"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102179083"
 ---
 # <a name="quickstart-create-app-service-app-using-an-arm-template"></a>Démarrage rapide : Créer une application App Service à l’aide d’un modèle ARM
 
@@ -118,7 +118,7 @@ az deployment group create --resource-group myResourceGroup \
 ::: zone pivot="platform-linux"
 Exécutez le code ci-dessous pour créer une application Python sur Linux. 
 
-Remplacez <abbr title="Les caractères valides sont `a-z`, `0-9` et `-`.">`<app-name>`</abbr> par un nom d’application global unique.
+Replace <abbr title="Les caractères valides sont `a-z`, `0-9` et `-`.">`<app-name>`</abbr> par un nom d’application global unique.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "southcentralus" &&
@@ -131,9 +131,9 @@ az deployment group create --resource-group myResourceGroup --parameters webAppN
 <summary>Que fait le code ?</summary>
 <p>Les commandes effectuent les actions suivantes :</p>
 <ul>
-<li>Créer un <abbr title="Conteneur logique pour des ressources Azure associées que vous pouvez gérer en tant qu’unité.">groupe de ressource par défaut</abbr>.</li>
-<li>Créer un <abbr title="Plan qui spécifie l’emplacement, la taille et les fonctionnalités de la batterie de serveurs web qui héberge votre application.">plan App Service par défaut</abbr>.</li>
-<li><a href="/cli/azure/webapp?view=azure-cli-latest#az-webapp-create">Créez une <abbr title="Représentation de votre application web, qui contient le code de votre application, les noms d’hôte DNS, les certificats et les ressources associées.">application App Service</abbr></a> avec le nom spécifié.</li>
+<li>Créer un <abbr title="Conteneur logique pour des ressources Azure associées que vous pouvez gérer en tant qu’unité.">resource group</abbr>.</li>
+<li>Créer un <abbr title="Plan qui spécifie l’emplacement, la taille et les fonctionnalités de la batterie de serveurs web qui héberge votre application.">Plan App Service</abbr>.</li>
+<li><a href="/cli/azure/webapp#az-webapp-create">Créez une <abbr title="Représentation de votre application web, qui contient le code de votre application, les noms d’hôte DNS, les certificats et les ressources associées.">application App Service</abbr></a> avec le nom spécifié.</li>
 </ul>
 </details>
 
