@@ -4,12 +4,12 @@ description: Découvrez les procédure d’activation et de configuration de dis
 services: container-service
 ms.topic: article
 ms.date: 07/10/2020
-ms.openlocfilehash: 049c2682a8f61bb658083b0418a4fcf99dc477a5
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: d66b806adb7285e0ce2a21d8fe9254b3dbe89bcb
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900044"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102178845"
 ---
 # <a name="use-azure-ultra-disks-on-azure-kubernetes-service-preview"></a>Utiliser des disques Ultra Azure dans Azure Kubernetes Service (version préliminaire)
 
@@ -48,7 +48,7 @@ az provider register --namespace Microsoft.ContainerService
 
 ### <a name="install-aks-preview-cli-extension"></a>Installer l’extension CLI de préversion d’aks
 
-Pour créer un cluster AKS ou un pool de nœuds pouvant utiliser les disques Ultra, vous avez besoin de la dernière extension CLI *aks-preview* . Installez l’extension Azure CLI *aks-preview* à l’aide de la commande [az extension add][az-extension-add] ou installez toutes les mises à jour disponibles à l’aide de la commande [az extension update][az-extension-update] :
+Pour créer un cluster AKS ou un pool de nœuds pouvant utiliser les disques Ultra, vous avez besoin de la dernière extension CLI *aks-preview*. Installez l’extension Azure CLI *aks-preview* à l’aide de la commande [az extension add][az-extension-add] ou installez toutes les mises à jour disponibles à l’aide de la commande [az extension update][az-extension-update] :
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -117,7 +117,7 @@ parameters:
   diskMbpsReadWrite: "320"   # minimum value: 0.032/GiB
 ```
 
-Créez la classe de stockage avec la commande [kubectl apply][kubectl-apply] et spécifiez votre fichier *azure-ultra-disk-sc.yaml*  :
+Créez la classe de stockage avec la commande [kubectl apply][kubectl-apply] et spécifiez votre fichier *azure-ultra-disk-sc.yaml* :
 
 ```console
 $ kubectl apply -f azure-ultra-disk-sc.yaml
@@ -130,7 +130,7 @@ storageclass.storage.k8s.io/ultra-disk-sc created
 
 Une revendication de volume persistant (PVC) est utilisée pour configurer automatiquement le stockage basé sur une classe de stockage. Dans ce cas, un PVC peut utiliser la classe de stockage créée précédemment pour créer un disque ultra.
 
-Créez un fichier nommé `azure-ultra-disk-pvc.yaml` et copiez-y le manifeste suivant. La revendication demande un disque nommé `ultra-disk`, d’une taille de *1 000 Go* avec un accès *ReadWriteOnce* . La classe de stockage *ultra-disk-sc* est spécifiée en tant que classe de stockage.
+Créez un fichier nommé `azure-ultra-disk-pvc.yaml` et copiez-y le manifeste suivant. La revendication demande un disque nommé `ultra-disk`, d’une taille de *1 000 Go* avec un accès *ReadWriteOnce*. La classe de stockage *ultra-disk-sc* est spécifiée en tant que classe de stockage.
 
 ```yaml
 apiVersion: v1
@@ -146,7 +146,7 @@ spec:
       storage: 1000Gi
 ```
 
-Créez la revendication de volume persistant avec la commande [kubectl apply][kubectl-apply] et spécifiez votre fichier *azure-ultra-disk-pvc.yaml*  :
+Créez la revendication de volume persistant avec la commande [kubectl apply][kubectl-apply] et spécifiez votre fichier *azure-ultra-disk-pvc.yaml* :
 
 ```console
 $ kubectl apply -f azure-ultra-disk-pvc.yaml
@@ -246,8 +246,8 @@ Events:
 [operator-best-practices-storage]: operator-best-practices-storage.md
 [concepts-storage]: concepts-storage.md
 [storage-class-concepts]: concepts-storage.md#storage-classes
-[az-extension-add]: /cli/azure/extension?view=azure-cli-latest#az-extension-add
-[az-extension-update]: /cli/azure/extension?view=azure-cli-latest#az-extension-update
-[az-feature-register]: /cli/azure/feature?view=azure-cli-latest#az-feature-register
-[az-feature-list]: /cli/azure/feature?view=azure-cli-latest#az-feature-list
-[az-provider-register]: /cli/azure/provider?view=azure-cli-latest#az-provider-register
+[az-extension-add]: /cli/azure/extension#az-extension-add
+[az-extension-update]: /cli/azure/extension#az-extension-update
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-feature-list]: /cli/azure/feature#az-feature-list
+[az-provider-register]: /cli/azure/provider#az-provider-register

@@ -4,13 +4,13 @@ description: Cet article explique comment la récupération des données vous pr
 author: uhabiba04
 ms.topic: article
 ms.date: 04/13/2020
-ms.author: v-umha
-ms.openlocfilehash: bdd59d078da1df021b7e23ec858ba7305f72cfa1
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.author: v-ummehabiba
+ms.openlocfilehash: 9ece624546cab1b8b6fab8c19f4401bd050f6267
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164208"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102179882"
 ---
 # <a name="disaster-recovery-for-farmbeats"></a>Récupération d'urgence pour FarmBeats
 
@@ -26,10 +26,10 @@ Les sections suivantes fournissent des informations sur la configuration de la r
 
 ## <a name="enable-data-redundancy"></a>Activer la redondance des données
 
-FarmBeats stocke les données dans les trois services internes suivants d'Azure : **Stockage Azure** , **Cosmos DB** et **Time Series Insights** . Procédez comme suit pour activer la redondance des données de ces services dans une région jumelée Azure :
+FarmBeats stocke les données dans les trois services internes suivants d'Azure : **Stockage Azure**, **Cosmos DB** et **Time Series Insights**. Procédez comme suit pour activer la redondance des données de ces services dans une région jumelée Azure :
 
-1.  **Stockage Azure**  : suivez ces instructions pour activer la redondance des données sur chacun des comptes de stockage de votre déploiement FarmBeats.
-2.  **Azure Cosmos DB**  : suivez ces instructions pour activer la redondance des données sur le compte Cosmos DB de votre déploiement FarmBeats.
+1.  **Stockage Azure** : suivez ces instructions pour activer la redondance des données sur chacun des comptes de stockage de votre déploiement FarmBeats.
+2.  **Azure Cosmos DB** : suivez ces instructions pour activer la redondance des données sur le compte Cosmos DB de votre déploiement FarmBeats.
 3.  **Azure Time Series Insights (TSI)**  : la redondance des données n'est actuellement pas disponible pour TSI. Pour récupérer les données Time Series Insights, accédez à votre capteur/partenaire météo et renvoyez (push) les données vers le déploiement FarmBeats.
 
 ## <a name="restore-service-from-online-backup"></a>Restaurer le service à partir d'une sauvegarde en ligne

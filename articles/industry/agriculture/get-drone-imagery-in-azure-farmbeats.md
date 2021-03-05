@@ -4,13 +4,13 @@ description: Cet article décrit comment obtenir une imagerie par drone auprès 
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
-ms.author: v-umha
-ms.openlocfilehash: 04f0c3c63d00ea49bf43f00f256266599a73d6c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: v-ummehabiba
+ms.openlocfilehash: 18932d2ddb60242b4d7874dddf0349a62cd5c738
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88508802"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102177604"
 ---
 # <a name="get-drone-imagery-from-drone-partners"></a>Obtenir une imagerie par drone auprès des partenaires de drone
 
@@ -35,7 +35,7 @@ Indiquez les informations suivantes au fournisseur d’appareils pour activer l�
  - ID client
  - Clé secrète client
 
-Effectuez les opérations suivantes.
+Procédez comme suit.
 
 1. Téléchargez ce [script](https://aka.ms/farmbeatspartnerscript) et extrayez-le sur votre lecteur local. Le fichier zip contient deux fichiers.
 2. Connectez-vous au [portail Azure](https://portal.azure.com/) et ouvrez Azure Cloud Shell. Cette option est disponible dans la barre d’outils située en haut à droite du portail.

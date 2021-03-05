@@ -1,17 +1,17 @@
 ---
 title: Détection d’anomalies dans Azure Stream Analytics
 description: Cet article décrit comment utiliser Azure Stream Analytics et Azure Machine Learning pour détecter les anomalies.
-author: krishna0815
-ms.author: krishmam
 ms.service: stream-analytics
+author: jasonwhowell
+ms.author: jasonh
 ms.topic: how-to
 ms.date: 06/21/2019
-ms.openlocfilehash: c7cb8e40bc9a8f6664d8286ad368e2613495878b
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 78730b011e508f98779b9e00624882466d6a03a0
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98020296"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102178490"
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Détection d’anomalies dans Azure Stream Analytics
 
@@ -118,7 +118,7 @@ Le niveau de performance de ces modèles dépend de la taille de l’historique,
 * **Charge d'événements** - Plus la **charge d’événements** est importante, plus les modèles sont sollicités, ce qui a une incidence sur la consommation du processeur. Le travail peut être monté en charge moyennant un parallélisme massif, en supposant qu'il soit judicieux, en terme de logique métier, d'utiliser plus de partitions d’entrée.
 * **Partitionnement au niveau de la fonction** - **Le partitionnement au niveau de la fonction** s’effectue avec ```PARTITION BY``` au sein de l’appel de fonction de détection des anomalies. Ce type de partitionnement ajoute une charge, car l'état doit être conservé pour plusieurs modèles en même temps. Le partitionnement au niveau de la fonction est utilisé dans des scénarios tels que le partitionnement au niveau de l'appareil.
 
-### <a name="relationship"></a>Relation
+### <a name="relationship"></a>Relationship
 La taille de l’historique, la durée de la fenêtre et la charge totale d’événements sont associées comme suit :
 
 windowDuration (en ms) = 1000 * historySize / (total d'événements d'entrée par seconde / nombre de partitions d’entrée)

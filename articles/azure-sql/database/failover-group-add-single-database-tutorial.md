@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/19/2019
-ms.openlocfilehash: 8298c673ddc707130d0873f686e1baed3677a46f
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 68fa089713c3dd89b4699011ded7d667bca6f73f
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94593958"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102178069"
 ---
 # <a name="tutorial-add-an-azure-sql-database-to-an-autofailover-group"></a>Tutoriel : Ajouter une base de données Azure SQL Database à un groupe de basculement automatique
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -49,7 +49,7 @@ Pour suivre le tutoriel, vérifiez que les prérequis ci-dessous sont remplis :
 Pour suivre le tutoriel, vérifiez que les prérequis ci-dessous sont remplis :
 
 - Un abonnement Azure. [Créez un compte gratuit](https://azure.microsoft.com/free/) si vous n’en avez pas déjà un.
-- La version la plus récente d’[Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
+- La version la plus récente d’[Azure CLI](/cli/azure/install-azure-cli).
 
 ---
 
@@ -199,7 +199,7 @@ Cette partie du tutoriel utilise les cmdlets Azure CLI suivantes :
 |---|---|
 | [az sql server create](/cli/azure/sql/server#az-sql-server-create) | Crée un serveur qui héberge des bases de données et des pools élastiques. |
 | [az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule) | Crée les règles de pare-feu d’un serveur. |
-| [az sql failover-group create](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-create&preserve-view=true) | Crée un groupe de basculement. |
+| [az sql failover-group create](/cli/azure/sql/failover-group#az-sql-failover-group-create) | Crée un groupe de basculement. |
 
 ---
 
@@ -322,8 +322,8 @@ Cette partie du tutoriel utilise les cmdlets Azure CLI suivantes :
 
 | Commande | Notes |
 |---|---|
-| [az sql failover-group list](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-list&preserve-view=true) | Répertorie les groupes de basculement d’un serveur. |
-| [az sql failover-group set-primary](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-set-primary&preserve-view=true) | Définit le principal du groupe de basculement en basculant toutes les bases de données à partir du serveur principal actuel. |
+| [az sql failover-group list](/cli/azure/sql/failover-group#az-sql-failover-group-list) | Répertorie les groupes de basculement d’un serveur. |
+| [az sql failover-group set-primary](/cli/azure/sql/failover-group#az-sql-failover-group-set-primary) | Définit le principal du groupe de basculement en basculant toutes les bases de données à partir du serveur principal actuel. |
 
 ---
 
@@ -409,14 +409,14 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 
 | Commande | Notes |
 |---|---|
-| [az account set](/cli/azure/account?view=azure-cli-latest#az-account-set&preserve-view=true) | Définit un abonnement en tant qu’abonnement actif. |
+| [az account set](/cli/azure/account#az-account-set) | Définit un abonnement en tant qu’abonnement actif. |
 | [az group create](/cli/azure/group#az-group-create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
 | [az sql server create](/cli/azure/sql/server#az-sql-server-create) | Crée un serveur qui héberge des bases de données uniques et des pools élastiques dans Azure SQL Database. |
 | [az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule) | Crée les règles de pare-feu IP au niveau du serveur dans Azure SQL Database. |
-| [az sql db create](/cli/azure/sql/db?view=azure-cli-latest&preserve-view=true) | Crée une base de données dans Azure SQL Database. |
-| [az sql failover-group create](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-create&preserve-view=true) | Crée un groupe de basculement dans Azure SQL Database. |
-| [az sql failover-group list](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-list&preserve-view=true) | Répertorie les groupes de basculement dans un serveur dans Azure SQL Database. |
-| [az sql failover-group set-primary](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-set-primary&preserve-view=true) | Définit le principal du groupe de basculement en basculant toutes les bases de données à partir du serveur principal actuel. |
+| [az sql db create](/cli/azure/sql/db) | Crée une base de données dans Azure SQL Database. |
+| [az sql failover-group create](/cli/azure/sql/failover-group#az-sql-failover-group-create) | Crée un groupe de basculement dans Azure SQL Database. |
+| [az sql failover-group list](/cli/azure/sql/failover-group#az-sql-failover-group-list) | Répertorie les groupes de basculement dans un serveur dans Azure SQL Database. |
+| [az sql failover-group set-primary](/cli/azure/sql/failover-group#az-sql-failover-group-set-primary) | Définit le principal du groupe de basculement en basculant toutes les bases de données à partir du serveur principal actuel. |
 | [az group delete](/cli/azure/vm/extension#az-vm-extension-set) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
 
 # <a name="the-portal"></a>[Le portail](#tab/azure-portal)

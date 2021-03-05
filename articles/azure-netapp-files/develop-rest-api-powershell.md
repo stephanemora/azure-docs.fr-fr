@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 06/02/2020
 ms.author: b-juche
-ms.openlocfilehash: 72c574779d63a3629ea3c99529686b7d3247fe25
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 2e169bb4f7be8b52657d2caf8f05643875a8348c
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91931204"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102180375"
 ---
 # <a name="develop-for-azure-netapp-files-with-rest-api-using-powershell"></a>Développer pour Azure NetApp Files avec l'API REST à l'aide de PowerShell
 
@@ -34,7 +34,7 @@ La spécification de l’API REST pour Azure NetApp Files est publiée via [GitH
 
 ## <a name="access-the-azure-netapp-files-rest-api"></a>Accéder à l’API REST Azure NetApp Files  
 
-1. Si ce n’est déjà fait, [installez l’interface CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
+1. Si ce n’est déjà fait, [installez l’interface CLI](/cli/azure/install-azure-cli).
 2. Créer un principal de service dans votre Azure Active Directory (Azure AD) :
    1. Vérifiez que vous disposez des [autorisations suffisantes](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
@@ -210,7 +210,7 @@ L’exemple suivant montre comment créer un pool de capacité :
     }
 ```
 
-L'exemple suivant montre comment créer un nouveau volume. (Le protocole par défaut du volume est NFSV3). 
+L’exemple suivant montre comment créer un volume. (Le protocole par défaut du volume est NFSV3). 
 
 ```json
     {

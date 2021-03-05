@@ -7,16 +7,16 @@ ms.service: attestation
 ms.topic: quickstart
 ms.date: 11/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 4fc799c1c6dcaaa3ed4bc41c93bd6b786f51591c
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: ae283785b4d4dc80c6b9b6c3997aaf82c9ff0f2f
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99429243"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102178709"
 ---
 # <a name="quickstart-set-up-azure-attestation-with-azure-cli"></a>Démarrage rapide : Configurer Azure Attestation avec Azure CLI
 
-Démarrez avec [Azure Attestation en utilisant Azure CLI](/cli/azure/ext/attestation/attestation?view=azure-cli-latest).
+Démarrez avec [Azure Attestation en utilisant Azure CLI](/cli/azure/ext/attestation/attestation).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -69,13 +69,13 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Voici les commandes que vous pouvez utiliser pour créer et gérer le fournisseur d’attestation :
 
-1. Exécutez la commande [az attestation create](/cli/azure/ext/attestation/attestation?view=azure-cli-latest#ext_attestation_az_attestation_create) pour créer un fournisseur d’attestation sans exigence de signature de stratégie :
+1. Exécutez la commande [az attestation create](/cli/azure/ext/attestation/attestation#ext_attestation_az_attestation_create) pour créer un fournisseur d’attestation sans exigence de signature de stratégie :
 
    ```azurecli
    az attestation create --name "myattestationprovider" --resource-group "MyResourceGroup" --location westus
    ```
    
-1. Exécutez la commande [az attestation show](/cli/azure/ext/attestation/attestation?view=azure-cli-latest#ext_attestation_az_attestation_show) pour récupérer les propriétés du fournisseur d’attestation, comme les propriétés status et AttestURI :
+1. Exécutez la commande [az attestation show](/cli/azure/ext/attestation/attestation#ext_attestation_az_attestation_show) pour récupérer les propriétés du fournisseur d’attestation, comme les propriétés status et AttestURI :
 
    ```azurecli
    az attestation show --name "myattestationprovider" --resource-group "MyResourceGroup"
@@ -95,7 +95,7 @@ Voici les commandes que vous pouvez utiliser pour créer et gérer le fournisseu
    TagsTable:
    ```
 
-Vous pouvez supprimer un fournisseur d’attestation à l’aide de la commande [az attestation delete](/cli/azure/ext/attestation/attestation?view=azure-cli-latest#ext_attestation_az_attestation_delete) :
+Vous pouvez supprimer un fournisseur d’attestation à l’aide de la commande [az attestation delete](/cli/azure/ext/attestation/attestation#ext_attestation_az_attestation_delete) :
 
 ```azurecli
 az attestation delete --name "myattestationprovider" --resource-group "sample-resource-group"
@@ -105,7 +105,7 @@ az attestation delete --name "myattestationprovider" --resource-group "sample-re
 
 Utilisez les commandes décrites ici pour gérer les stratégies d’un fournisseur d’attestation, un type d’attestation à la fois.
 
-La commande [az attestation policy show](/cli/azure/ext/attestation/attestation/policy?view=azure-cli-latest#ext_attestation_az_attestation_policy_show) retourne la stratégie actuelle pour l’environnement TEE spécifié :
+La commande [az attestation policy show](/cli/azure/ext/attestation/attestation/policy#ext_attestation_az_attestation_policy_show) retourne la stratégie actuelle pour l’environnement TEE spécifié :
 
 ```azurecli
 az attestation policy show --name "myattestationprovider" --resource-group "MyResourceGroup" --attestation-type SGX-IntelSDK
@@ -120,7 +120,7 @@ Les types de TEE suivants sont pris en charge :
 - `SGX-OpenEnclaveSDK`
 - `TPM`
 
-Utilisez la commande [az attestation policy set](/cli/azure/ext/attestation/attestation/policy?view=azure-cli-latest#ext_attestation_az_attestation_policy_set) permettant de définir une nouvelle stratégie pour le type d’attestation spécifié.
+Utilisez la commande [az attestation policy set](/cli/azure/ext/attestation/attestation/policy#ext_attestation_az_attestation_policy_set) permettant de définir une nouvelle stratégie pour le type d’attestation spécifié.
 
 Si vous souhaitez définir la stratégie au format texte pour un genre donné de type d’attestation à l’aide du chemin de fichier :
 
