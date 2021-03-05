@@ -6,12 +6,12 @@ author: lachie83
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: laevenso
-ms.openlocfilehash: bbedb20d9e5c75fd49c08950bbf5d459130206ce
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 25fc021a48e8936f242df35f7485fc59a93bba13
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93125867"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102172798"
 ---
 # <a name="http-application-routing"></a>Routage d’applications HTTP
 
@@ -26,8 +26,8 @@ Lorsque ce module complémentaire est activé, il crée une zone DNS dans votre 
 
 Le module complémentaire déploie deux composants : un [contrôleur d’entrée Kubernetes][ingress] et un contrôleur [DNS externe][external-dns].
 
-- **Contrôleur d’entrée**  : le contrôleur d’entrée est exposé sur Internet à l’aide d’un service Kubernetes de type LoadBalancer. Le contrôleur d’entrée surveille et implémente des [ressources d’entrée Kubernetes][ingress-resource], ce qui crée des routes es points de terminaison d’application.
-- **Contrôleur DNS externe**  : surveille les ressources d’entrée Kubernetes et crée des enregistrements DNS A dans la zone DNS spécifique au cluster.
+- **Contrôleur d’entrée** : le contrôleur d’entrée est exposé sur Internet à l’aide d’un service Kubernetes de type LoadBalancer. Le contrôleur d’entrée surveille et implémente des [ressources d’entrée Kubernetes][ingress-resource], ce qui crée des routes es points de terminaison d’application.
+- **Contrôleur DNS externe** : surveille les ressources d’entrée Kubernetes et crée des enregistrements DNS A dans la zone DNS spécifique au cluster.
 
 ## <a name="deploy-http-routing-cli"></a>Déployer le routage HTTP : Interface de ligne de commande
 
@@ -78,7 +78,7 @@ Si vous utilisez Azure Cloud Shell, `kubectl` est déjà installé. Vous pouvez 
 az aks install-cli
 ```
 
-Pour configurer `kubectl` afin de vous connecter à votre cluster Kubernetes, exécutez la commande [az aks get-credentials][]. L’exemple suivant obtient les informations d’identification du cluster AKS nommé *MyAKSCluster* dans le groupe de ressources *MyResourceGroup*  :
+Pour configurer `kubectl` afin de vous connecter à votre cluster Kubernetes, exécutez la commande [az aks get-credentials][]. L’exemple suivant obtient les informations d’identification du cluster AKS nommé *MyAKSCluster* dans le groupe de ressources *MyResourceGroup* :
 
 ```azurecli
 az aks get-credentials --resource-group MyResourceGroup --name MyAKSCluster
@@ -93,7 +93,7 @@ annotations:
   kubernetes.io/ingress.class: addon-http-application-routing
 ```
 
-Créez un fichier nommé **samples-http-application-routing.yaml** , puis copiez-y le code YAML suivant. À la ligne 43, mettez à jour `<CLUSTER_SPECIFIC_DNS_ZONE>` avec le nom de zone DNS collecté à la précédente étape de cet article.
+Créez un fichier nommé **samples-http-application-routing.yaml**, puis copiez-y le code YAML suivant. À la ligne 43, mettez à jour `<CLUSTER_SPECIFIC_DNS_ZONE>` avec le nom de zone DNS collecté à la précédente étape de cet article.
 
 ```yaml
 apiVersion: apps/v1
@@ -163,7 +163,7 @@ service/aks-helloworld created
 ingress.networking.k8s.io/aks-helloworld created
 ```
 
-Ouvrez un navigateur web pour *aks-helloworld.\<CLUSTER_SPECIFIC_DNS_ZONE\>* , par exemple *aks-helloworld.9f9c1fe7-21a1-416d-99cd-3543bb92e4c3.eastus.aksapp.io* , et vérifiez que l’application de démonstration s’affiche. L’application peut apparaître au bout de quelques minutes seulement.
+Ouvrez un navigateur web pour *aks-helloworld.\<CLUSTER_SPECIFIC_DNS_ZONE\>* , par exemple *aks-helloworld.9f9c1fe7-21a1-416d-99cd-3543bb92e4c3.eastus.aksapp.io*, et vérifiez que l’application de démonstration s’affiche. L’application peut apparaître au bout de quelques minutes seulement.
 
 ## <a name="remove-http-routing"></a>Supprimer le routage HTTP
 
@@ -173,7 +173,7 @@ La solution de routage HTTP peut être supprimée à l’aide d’Azure CLI. Pou
 az aks disable-addons --addons http_application_routing --name myAKSCluster --resource-group myResourceGroup --no-wait
 ```
 
-Quand le module complémentaire de routage d’application HTTP est désactivé, certaines ressources Kubernetes peuvent rester dans le cluster. Ces ressources incluent *configMaps* et *secrets* , et sont créées dans l’espace de noms *kube-system*. Pour maintenir un cluster propre, vous voulez peut-être supprimer ces ressources.
+Quand le module complémentaire de routage d’application HTTP est désactivé, certaines ressources Kubernetes peuvent rester dans le cluster. Ces ressources incluent *configMaps* et *secrets*, et sont créées dans l’espace de noms *kube-system*. Pour maintenir un cluster propre, vous voulez peut-être supprimer ces ressources.
 
 Recherchez les ressources *addon-http-application-routing* à l’aide des commandes [kubectl get][kubectl-get] suivantes :
 
@@ -280,8 +280,8 @@ ingress "aks-helloworld" deleted
 Pour plus d’informations sur l’installation d’un contrôleur d’entrée sécurisé HTTPS dans AKS, consultez [Entrée HTTPS sur Azure Kubernetes Service (AKS)][ingress-https].
 
 <!-- LINKS - internal -->
-[az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
-[az-aks-show]: /cli/azure/aks?view=azure-cli-latest#az-aks-show
+[az-aks-create]: /cli/azure/aks#az-aks-create
+[az-aks-show]: /cli/azure/aks#az-aks-show
 [ingress-https]: ./ingress-tls.md
 [az-aks-enable-addons]: /cli/azure/aks#az-aks-enable-addons
 [az aks install-cli]: /cli/azure/aks#az-aks-install-cli

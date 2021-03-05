@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8ab84511c21f41c5120ac050159b6f2e049b7ca
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 8e342adee715bfd1f178557268b9f4515572f0e9
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99091525"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102177213"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Archive des nouveautés d’Azure Active Directory
 
@@ -33,6 +33,190 @@ Les notes de publication relatives aux nouveautés d’Azure Active Directory fo
 - Modifications planifiées
 
 ---
+## <a name="august-2020"></a>Août 2020 
+ 
+### <a name="updates-to-azure-multi-factor-authentication-server-firewall-requirements"></a>Mises à jour de la Configuration requise du pare-feu du serveur Azure Multi-Factor Authentication
+
+**Type :** Modification planifiée  
+**Catégorie de service :** MFA  
+**Fonctionnalité de produit :** Protection et sécurité des identités
+ 
+À partir du 1er octobre 2020, la configuration requise du pare-feu du serveur Azure MFA exigera des plages d’adresses IP supplémentaires.
+
+Si des règles de pare-feu pour le trafic sortant sont en vigueur au sein de votre organisation, mettez à jour les règles de façon à ce que vos serveurs MFA puissent communiquer avec toutes les plages d’adresses IP nécessaires. Les plages d’adresses IP sont documentées dans [Configuration requise du pare-feu du serveur Azure Multi-Factor Authentication](../authentication/howto-mfaserver-deploy.md#azure-multi-factor-authentication-server-firewall-requirements).
+
+---
+
+### <a name="upcoming-changes-to-user-experience-in-identity-secure-score"></a>Modifications à venir de l’expérience utilisateur dans le score d’identité sécurisée
+
+**Type :** Modification planifiée  
+**Catégorie de service :** Protection de l’identité **Fonctionnalité produit :** Protection et sécurité des identités
+
+Nous mettons à jour le portail Score d’identité sécurisée pour l’aligner sur les modifications introduites dans la [nouvelle version](/microsoft-365/security/mtp/microsoft-secure-score-whats-new) du Niveau de sécurité Microsoft. 
+
+La préversion avec les modifications sera disponible début septembre. Les modifications apportées à la préversion sont les suivantes :
+- Le « Score d’identité sécurisée » est renommé « Niveau de sécurité de l’identité » pour l’alignement avec Niveau de sécurité Microsoft
+- Points normalisés à l’échelle standard et exprimés en pourcentages au lieu de points
+
+Dans cette préversion, les clients peuvent basculer entre l’expérience existante et la nouvelle expérience. Cette préversion publique sera disponible jusqu’à la fin du mois de novembre 2020. Après la préversion, les clients seront automatiquement dirigés vers la nouvelle expérience utilisateur.
+
+---
+
+### <a name="new-restricted-guest-access-permissions-in-azure-ad---public-preview"></a>Nouvelles autorisations d’accès invité restreintes dans Azure AD – Préversion publique
+
+**Type :** Nouvelle fonctionnalité  
+**Catégorie de service :** Contrôle d’accès   
+**Fonctionnalité de produit :** User Management
+
+Nous avons mis à jour les autorisations au niveau répertoire pour les utilisateurs invités. Ces autorisations permettent aux administrateurs d’imposer des restrictions et contrôles supplémentaires à l’accès utilisateur invité externe. Les administrateurs peuvent désormais ajouter des restrictions à l’accès d’invités externes aux informations d’appartenance et de profil des utilisateurs et des groupes. Grâce à cette fonctionnalité en préversion publique, les clients peuvent gérer l’accès des utilisateurs externes à grande échelle en obfusquant les appartenances de groupe, notamment en empêchant les utilisateurs invités de voir les appartenances des groupes dans lesquels ils se trouvent.
+
+Pour plus d’informations, consultez [Autorisations d’accès invité restreintes](../enterprise-users/users-restrict-guest-permissions.md) et [Autorisations par défaut des utilisateurs](./users-default-permissions.md).
+ 
+---
+
+### <a name="general-availability-of-delta-queries-for-service-principals"></a>Disponibilité générale des requêtes delta pour les principaux de service
+
+**Type :** Nouvelle fonctionnalité  
+**Catégorie de service :** MS Graph  
+**Fonctionnalité de produit :** Expérience de développement
+ 
+La requête delta Microsoft Graph prend désormais en charge le type de ressource dans la version v1.0 :
+- Principal de service
+
+Désormais, les clients peuvent suivre efficacement les modifications apportées à ces ressources et le service offre la meilleure solution pour synchroniser les modifications apportées à ces ressources avec un magasin de données local. Pour savoir comment configurer ces ressources dans une requête, consultez [Utiliser des requêtes delta pour suivre les modifications apportées aux données de Microsoft Graph](/graph/delta-query-overview).
+ 
+---
+
+### <a name="general-availability-of-delta-queries-for-oauth2permissiongrant"></a>Disponibilité générale des requêtes Delta pour oAuth2PermissionGrant
+
+**Type :** Nouvelle fonctionnalité  
+**Catégorie de service :** MS Graph  
+**Fonctionnalité de produit :** Expérience de développement
+
+La requête delta Microsoft Graph prend désormais en charge le type de ressource dans la version v1.0 :
+- OAuth2PermissionGrant
+
+Les clients peuvent désormais suivre efficacement les modifications apportées à ces ressources et le service offre la meilleure solution pour synchroniser les modifications apportées à ces ressources avec un magasin de données local. Pour savoir comment configurer ces ressources dans une requête, consultez [Utiliser des requêtes delta pour suivre les modifications apportées aux données de Microsoft Graph](/graph/delta-query-overview).
+
+---
+
+### <a name="new-federated-apps-available-in-azure-ad-application-gallery---august-2020"></a>Nouvelles applications fédérées disponibles dans la galerie d’applications Azure AD – Août 2020
+
+**Type :** Nouvelle fonctionnalité  
+**Catégorie de service :** Applications d’entreprise  
+**Fonctionnalité de produit :** Intégration tierce
+
+En août 2020, nous avons ajouté les 25 applications suivantes à notre galerie d’applications avec prise en charge de la fédération :
+
+[Backup365](https://portal.backup365.io/login), [Soapbox](https://app.soapboxhq.com/create?step=auth&provider=azure-ad2-oauth2), [Alma SIS](https://almau.getalma.com/), [Enlyft Dynamics 365 Connector](http://enlyft.com/), [Serraview Space Utilization Software Solutions](../saas-apps/serraview-space-utilization-software-solutions-tutorial.md), [Uniq](https://web.uniq.app/), [Visibly](../saas-apps/visibly-tutorial.md), [Zylo](../saas-apps/zylo-tutorial.md), [Edmentum - Courseware Assessments Exact Path](https://auth.edmentum.com/elf/login), [CyberLAB](https://cyberlab.evolvesecurity.com/#/welcome), [Altamira HRM](../saas-apps/altamira-hrm-tutorial.md), [WireWheel](../saas-apps/wirewheel-tutorial.md), [Zix Compliance and Capture](https://sminstall.zixcorp.com/teams/teams.php?install_request=true&tenant_id=common), [Greenlight Enterprise Business Controls Platform](../saas-apps/greenlight-enterprise-business-controls-platform-tutorial.md), [Genetec Clearance](https://www.clearance.network/), [iSAMS](../saas-apps/isams-tutorial.md), [VeraSMART](../saas-apps/verasmart-tutorial.md), [Amiko](https://amiko.web.rivero.app/), [Twingate](https://auth.twingate.com/signup), [Funnel Leasing](https://nestiolistings.com/sso/oidc/azure/authorize/), [Scalefusion](https://scalefusion.com/users/sign_in/), [Bpanda](https://goto.bpanda.com/login), [Vivun Calendar Connect](https://app.vivun.com/dashboard/calendar/connect), [FortiGate SSL VPN](../saas-apps/fortigate-ssl-vpn-tutorial.md), [Wandera End User](https://www.wandera.com/)
+
+La documentation de toutes ces applications est disponible ici https://aka.ms/AppsTutorial
+
+Pour référencer votre application dans la galerie d’applications Azure AD, lisez les informations détaillées ici : https://aka.ms/AzureADAppRequest
+
+---
+
+### <a name="resource-forests-now-available-for-azure-ad-ds"></a>Les forêts de ressources sont désormais disponibles pour Azure AD DS 
+
+**Type :** Nouvelle fonctionnalité **Catégorie de service :** Services de domaine Azure AD   
+**Fonctionnalité de produit :** Services de domaine Azure AD
+ 
+La capacité des forêts de ressources dans Azure AD Domain Services est désormais généralement disponible. Vous pouvez désormais activer l’autorisation sans synchronisation de hachage de mot de passe pour utiliser Azure AD Domain Services, notamment l’autorisation par carte à puce. Pour en savoir plus, consultez [Concepts et fonctionnalités des jeux de réplicas pour Azure Active Directory Domain Services (préversion)](../../active-directory-domain-services/concepts-replica-sets.md).
+ 
+---
+
+### <a name="regional-replica-support-for-azure-ad-ds-managed-domains-now-available"></a>Prise en charge des réplicas régionaux pour les domaines gérés par Azure AD DS désormais disponible
+
+**Type :** Nouvelle fonctionnalité   
+**Catégorie de service :** Services de domaine Azure AD  
+**Fonctionnalité de produit :** Services de domaine Azure AD
+ 
+Vous pouvez étendre un domaine managé pour avoir plusieurs jeux de réplicas par locataire Azure AD. Les jeux de réplicas peuvent être ajoutés à n’importe quel réseau virtuel appairé dans toute région Azure prenant en charge Azure Active Directory Domain Services. D’autres jeux de réplicas dans des régions Azure différentes assurent la récupération d’urgence géographique pour les applications héritées si une région Azure est mise hors connexion. Pour en savoir plus, consultez [Concepts et fonctionnalités des jeux de réplicas pour Azure Active Directory Domain Services (préversion)](../../active-directory-domain-services/concepts-replica-sets.md).
+
+---
+
+### <a name="general-availability-of-azure-ad-my-sign-ins"></a>Disponibilité générale de Mes connexions Azure AD
+
+**Type :** Nouvelle fonctionnalité  
+**Catégorie de service :** Authentifications (connexions)  
+**Fonctionnalité de produit :** Expériences d’utilisateur final
+ 
+La nouvelle fonctionnalité Mes connexions Azure AD permet aux utilisateurs d’entreprise d’examiner leur historique de connexion pour vérifier l’absence de toute activité inhabituelle. Elle permet en outre aux utilisateurs finaux de signaler s’ils étaient ou non à l’origine d’activités suspectes. Pour en savoir plus sur l’utilisation de cette fonctionnalité, consultez [Afficher et rechercher votre activité de connexion récente à partir de la page Mes connexions](../user-help/my-account-portal-sign-ins-page.md#confirm-unusual-activity).
+ 
+---
+
+### <a name="sap-successfactors-hr-driven-user-provisioning-to-azure-ad-is-now-generally-available"></a>L’approvisionnement piloté par SAP SuccessFactors RH d’utilisateurs vers Azure AD est désormais généralement disponible
+
+**Type :** Nouvelle fonctionnalité  
+**Catégorie de service :** Provisionnement d’applications  
+**Fonctionnalité de produit :** Gestion du cycle de vie des identités
+ 
+Vous pouvez à présent intégrer SAP SuccessFactors en tant que source d’identité faisant autorité avec Azure AD, et automatiser le cycle de vie de bout en bout des identités à l’aide d’événements de RH tels que de nouvelles embauches et des démissions pour conduire l’approvisionnement et le désapprovisionnement de comptes dans Azure AD. 
+
+Pour en savoir plus sur la configuration de l’approvisionnement entrant de SAP SuccessFactors vers Azure AD, consultez le didacticiel [Configurer l’approvisionnement d’utilisateurs SAP SuccessFactors vers Active Directory](../saas-apps/sap-successfactors-inbound-provisioning-tutorial.md).
+ 
+---
+
+### <a name="custom-open-id-connect-ms-graph-api-support-for-azure-ad-b2c"></a>Prise en charge personnalisée de l’API MS Graph Open ID Connect pour Azure AD B2C
+
+**Type :** Nouvelle fonctionnalité  
+**Catégorie de service :** B2C - Gestion des identités consommateurs  
+**Fonctionnalité de produit :** B2B/B2C
+ 
+Auparavant, des fournisseurs d’Open ID Connect personnalisés ne pouvaient être ajoutés ou gérés que via le portail Azure. Les clients Azure AD B2C peuvent désormais ajouter et gérer ces fournisseurs également via la version bêta des API Microsoft Graph. Pour savoir comment configurer cette ressource à l’aide d’API, consultez [type de ressource identityProvider](/graph/api/resources/identityprovider?view=graph-rest-beta).
+ 
+---
+
+### <a name="assign-azure-ad-built-in-roles-to-cloud-groups"></a>Affecter des rôles intégrés Azure AD à des groupes cloud
+
+**Type :** Nouvelle fonctionnalité  
+**Catégorie de service :** Rôles Azure AD  
+**Fonctionnalité de produit :** Contrôle d’accès
+
+Vous pouvez désormais attribuer des rôles intégrés Azure AD à des groupes cloud avec cette nouvelle fonctionnalité. Par exemple, vous pouvez attribuer le rôle Administrateur SharePoint au groupe Contoso_SharePoint_Admins. Vous pouvez également utiliser PIM pour faire du groupe un membre éligible du rôle, au lieu d’accorder un accès permanent. Pour découvrir comment configurer cette fonctionnalité, consultez [Utiliser des groupes cloud pour gérer les attributions de rôles dans Azure Active Directory (préversion)](../roles/groups-concept.md).
+ 
+---
+
+### <a name="insights-business-leader-built-in-role-now-available"></a>Rôle intégré Leader d’entreprise Insights désormais disponible
+
+**Type :** Nouvelle fonctionnalité  
+**Catégorie de service :** Rôles Azure AD  
+**Fonctionnalité de produit :** Contrôle d’accès
+ 
+Les utilisateurs titulaires du rôle Leader d’entreprise Insights peuvent accéder à un ensemble de tableaux de bord et d’insights via l’[application M365 Insights](https://www.microsoft.com/microsoft-365/partners/workplaceanalytics). Ceci inclut l’accès total à tous les tableaux de bord et aux insights présentés et la fonctionnalité d’exploration de données. Les utilisateurs titulaires de ce rôle n’ont pas accès aux paramètres de configuration du produit. Cette responsabilité est dévolue au rôle Administrateur Insights. Pour en savoir plus, consultez [Autorisations des rôles d’administrateur dans Azure Active Directory](../roles/permissions-reference.md#insights-business-leader).
+ 
+---
+
+### <a name="insights-administrator-built-in-role-now-available"></a>Rôle intégré Administrateur Insights désormais disponible
+
+**Type :** Nouvelle fonctionnalité  
+**Catégorie de service :** Rôles Azure AD  
+**Fonctionnalité de produit :** Contrôle d’accès
+ 
+Les utilisateurs titulaires du rôle Insights Administrator peuvent accéder à l’ensemble des fonctionnalités d’administration de l’[application M365 Insights](https://www.microsoft.com/microsoft-365/partners/workplaceanalytics). Un utilisateur titulaire de rôle peut lire les informations d’annuaire, surveiller l’intégrité du service, soumettre des tickets de support et accéder aux paramètres d’Administrateur Insights. Pour en savoir plus, consultez [Autorisations des rôles d’administrateur dans Azure Active Directory](../roles/permissions-reference.md#insights-administrator).
+ 
+--- 
+
+### <a name="application-admin-and-cloud-application-admin-can-manage-extension-properties-of-applications"></a>Un Administrateur d’application ou un Administrateur d’application cloud peuvent gérer les propriétés d’extension des applications
+
+**Type :** Fonctionnalité modifiée  
+**Catégorie de service :** Rôles Azure AD  
+**Fonctionnalité de produit :** Contrôle d’accès
+ 
+Auparavant, seul l’Administrateur général pouvait gérer la [propriété d’extension](/graph/api/application-post-extensionproperty?view=graph-rest-beta&tabs=http). Nous allons désormais activer cette fonctionnalité pour l’Administrateur d’application et l’Administrateur d’application cloud.
+ 
+---
+
+### <a name="mim-2016-sp2-hotfix-462630-and-connectors-1113010"></a>Correctif logiciel MIM 2016 SP2 4.6.263.0 et connecteurs 1.1.1301.0
+
+**Type :** Fonctionnalité modifiée  
+**Catégorie de service :** Microsoft Identity Manager  
+**Fonctionnalité de produit :** Gestion du cycle de vie des identités
+
+Un [correctif cumulatif (build 4.6.263.0)](https://support.microsoft.com/help/4576473/hotfix-rollup-package-build-4-6-263-0-is-available-for-microsoft-ident) est disponible pour Microsoft Identity Manager (MIM) 2016 Service Pack 2 (SP2). Ce package cumulatif contient des mises à jour pour les composants MIM CM, Gestionnaire de synchronisation MIM et PAM. En outre, la build de connecteurs génériques MIM 1.1.1301.0 inclut des mises à jour du connecteur Graph.
+
+---
+
 ## <a name="july-2020"></a>Juillet 2020
 
 ### <a name="as-an-it-admin-i-want-to-target-client-apps-using-conditional-access"></a>En tant qu’administrateur informatique, je souhaite cibler des applications clientes à l’aide de l’accès conditionnel
