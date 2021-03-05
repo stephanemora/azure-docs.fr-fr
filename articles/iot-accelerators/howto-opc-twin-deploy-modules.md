@@ -9,12 +9,12 @@ ms.service: industrial-iot
 ms.custom: devx-track-azurecli
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 1c12b1c7fd393227cb22d011f8b88f914cfded59
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 38235f9b01b321e27664ee837763732971f0b85c
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96445491"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102201496"
 ---
 # <a name="deploy-opc-twin-module-and-dependencies-from-scratch"></a>Déployer le module de représentations de OPC et les dépendances à partir de zéro
 
@@ -182,7 +182,7 @@ Le moyen le plus facile de déployer les modules dans un appareil de passerelle 
 
 ### <a name="prerequisites"></a>Prérequis
 
-1. Installez la dernière version de l’[interface de ligne de commande AZ](/cli/azure/?view=azure-cli-latest) en suivant [ce lien](/cli/azure/install-azure-cli?view=azure-cli-latest).
+1. Installez la dernière version de l’[interface de ligne de commande AZ](/cli/azure/) en suivant [ce lien](/cli/azure/install-azure-cli).
 
 ### <a name="quickstart"></a>Démarrage rapide
 

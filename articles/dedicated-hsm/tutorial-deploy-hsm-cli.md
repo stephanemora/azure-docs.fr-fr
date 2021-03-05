@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: b6f4610887092b1dac5cdc85622739318d5921d7
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 1ca8bc5c82540b0dc02959d26b452554ef294368
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96852232"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102200527"
 ---
 # <a name="tutorial-deploying-hsms-into-an-existing-virtual-network-using-the-azure-cli"></a>Tutoriel : Déploiement de modules HSM sur un réseau virtuel existant à l’aide d’Azure CLI
 
@@ -38,7 +38,7 @@ Ce tutoriel concerne l’intégration d’une paire de modules de sécurité mat
 
 ## <a name="prerequisites"></a>Prérequis
 
-Le service Azure HSM dédié n’est pas disponible dans le portail Azure. Toute interaction avec le service est effectuée via la ligne de commande ou PowerShell. Ce tutoriel utilise l’interface de ligne de commande (CLI) Azure Cloud Shell. Si vous débutez avec Azure CLI, suivez les instructions fournies ici : [Bien démarrer avec Azure CLI 2.0](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest&preserve-view=true).
+Le service Azure HSM dédié n’est pas disponible dans le portail Azure. Toute interaction avec le service est effectuée via la ligne de commande ou PowerShell. Ce tutoriel utilise l’interface de ligne de commande (CLI) Azure Cloud Shell. Si vous débutez avec Azure CLI, suivez les instructions fournies ici : [Bien démarrer avec Azure CLI 2.0](/cli/azure/get-started-with-azure-cli).
 
 Il est supposé que :
 

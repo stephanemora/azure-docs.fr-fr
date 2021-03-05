@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 01/13/2021
 ms.author: alkohli
-ms.openlocfilehash: 26e8f08d4b901a9ea57da826d9441d23508c4a4c
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: f2bad214045710fe861040514beb3c536664d684
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98797613"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102201887"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Tutoriel : Commander Azure Data Box
 
@@ -437,7 +437,7 @@ Effectuez les étapes suivantes l’aide d’Azure CLI pour commander un appare
    |query| Chaîne de requêtes JMESPath. Pour plus d’informations, consultez [JMESPath](http://jmespath.org/). | --query <string>|
    |verbose| Inclure la journalisation détaillée. | --verbose |
 
-2. Dans l’invite de commandes de votre choix ou dans votre terminal, exécutez [az data box job create](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-create&preserve-view=true) pour créer votre commande Azure Data Box.
+2. Dans l’invite de commandes de votre choix ou dans votre terminal, exécutez [az data box job create](/cli/azure/ext/databox/databox/job#ext-databox-az-databox-job-create) pour créer votre commande Azure Data Box.
 
    ```azurecli
    az databox job create --resource-group <resource-group> --name <order-name> --location <azure-location> --sku <databox-device-type> --contact-name <contact-name> --phone <phone-number> --email-list <email-list> --street-address1 <street-address-1> --street-address2 <street-address-2> --city "contact-city" --state-or-province <state-province> --country <country> --postal-code <postal-code> --company-name <company-name> --storage-account "storage-account"
@@ -605,7 +605,7 @@ Ensuite, Microsoft prépare et achemine l’appareil via un transporteur région
 
 ### <a name="track-a-single-order"></a>Suivre une commande unique
 
-Pour obtenir des informations de suivi sur une commande Azure Data Box unique existante, exécutez [`az databox job show`](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-show&preserve-view=true). La commande affiche des informations sur la commande, notamment (liste non exhaustive) : nom, groupe de ressources, informations de suivi, ID d’abonnement, informations de contact, type d’expédition et référence SKU de l’appareil.
+Pour obtenir des informations de suivi sur une commande Azure Data Box unique existante, exécutez [`az databox job show`](/cli/azure/ext/databox/databox/job#ext-databox-az-databox-job-show). La commande affiche des informations sur la commande, notamment (liste non exhaustive) : nom, groupe de ressources, informations de suivi, ID d’abonnement, informations de contact, type d’expédition et référence SKU de l’appareil.
 
    ```azurecli
    az databox job show --resource-group <resource-group> --name <order-name>
@@ -646,7 +646,7 @@ Pour obtenir des informations de suivi sur une commande Azure Data Box unique e
 
 ### <a name="list-all-orders"></a>Lister toutes les commandes
 
-Si vous avez commandé plusieurs dispositifs, vous pouvez exécuter [`az databox job list`](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-list&preserve-view=true) pour voir toutes vos commandes Azure Data Box. La commande liste toutes les commandes qui appartiennent à un groupe de ressources spécifique. Également affichés dans la sortie : nom de la commande, état de l’expédition, région Azure, type de livraison, état de la commande. Les commandes annulées sont également incluses dans la liste.
+Si vous avez commandé plusieurs dispositifs, vous pouvez exécuter [`az databox job list`](/cli/azure/ext/databox/databox/job#ext-databox-az-databox-job-list) pour voir toutes vos commandes Azure Data Box. La commande liste toutes les commandes qui appartiennent à un groupe de ressources spécifique. Également affichés dans la sortie : nom de la commande, état de l’expédition, région Azure, type de livraison, état de la commande. Les commandes annulées sont également incluses dans la liste.
 La commande affiche également les horodatages de chaque commande.
 
 ```azurecli
@@ -765,7 +765,7 @@ Pour supprimer une commande annulée, accédez à **Vue d’ensemble**, puis sé
 
 ### <a name="cancel-an-order"></a>Annuler une commande
 
-Pour annuler une commande Azure Data Box, exécutez [`az databox job cancel`](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-cancel&preserve-view=true). Vous devez spécifier la raison de l’annulation de la commande.
+Pour annuler une commande Azure Data Box, exécutez [`az databox job cancel`](/cli/azure/ext/databox/databox/job#ext-databox-az-databox-job-cancel). Vous devez spécifier la raison de l’annulation de la commande.
 
    ```azurecli
    az databox job cancel --resource-group <resource-group> --name <order-name> --reason <cancel-description>
@@ -802,7 +802,7 @@ Pour annuler une commande Azure Data Box, exécutez [`az databox job cancel`](/
 
 ### <a name="delete-an-order"></a>Supprimer une commande
 
-Si vous avez annulé une commande Azure Data Box, vous pouvez exécuter [`az databox job delete`](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-delete&preserve-view=true) pour la supprimer.
+Si vous avez annulé une commande Azure Data Box, vous pouvez exécuter [`az databox job delete`](/cli/azure/ext/databox/databox/job#ext-databox-az-databox-job-delete) pour la supprimer.
 
    ```azurecli
    az databox job delete --name [-n] <order-name> --resource-group <resource-group> [--yes] [--verbose]

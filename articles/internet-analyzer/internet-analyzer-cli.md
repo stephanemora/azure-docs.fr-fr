@@ -7,12 +7,12 @@ ms.service: internet-analyzer
 ms.topic: tutorial
 ms.date: 10/16/2019
 ms.author: mebeatty
-ms.openlocfilehash: 23a76e4007965c263671554bbcd937dbf3b4b0a6
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: a9a9fe93ebe302a76d69249dc56933e1bcc924d1
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676205"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102200085"
 ---
 # <a name="create-an-internet-analyzer-test-using-cli-preview"></a>Créer un test Internet Analyzer avec l’interface de ligne de commande (préversion)
 
@@ -29,15 +29,15 @@ La préversion publique est disponible dans toutes les régions. Toutefois, le s
 
 ## <a name="object-model"></a>Modèle objet
 L’interface CLI d’Internet Analyzer expose les types de ressources suivants :
-* **Tests**  : un test compare les performances des utilisateurs finaux de deux points de terminaison Internet (A et B) au fil du temps.
+* **Tests** : un test compare les performances des utilisateurs finaux de deux points de terminaison Internet (A et B) au fil du temps.
 * **Profils** : les tests sont créés sous un profil Internet Analyzer. Les profils permettent de regrouper les tests associés ; un profil unique peut contenir un ou plusieurs tests.
-* **Points de terminaison préconfigurés**  : nous avons préparé des points de terminaison avec diverses configurations (régions, technologies d’accélération, etc.). Vous pouvez utiliser un de ces points de terminaison préconfigurés dans vos tests.
+* **Points de terminaison préconfigurés** : nous avons préparé des points de terminaison avec diverses configurations (régions, technologies d’accélération, etc.). Vous pouvez utiliser un de ces points de terminaison préconfigurés dans vos tests.
 * **Cartes de performance** : une carte de performance fournit des résumés rapides et pertinents des résultats des mesures. Consultez [Interprétation de votre carte de performance](internet-analyzer-scorecard.md).
 * **Série chronologique** : Une série chronologique montre comment une métrique change dans le temps.
 
 ## <a name="profile-and-test-creation"></a>Création de profils et de tests
 1. Obtenez un accès à la préversion d’Internet Analyzer en suivant les instructions fournies dans la section **Comment faire pour participer à la préversion ?** des [Questions fréquentes (FAQ) sur Internet Analyzer](internet-analyzer-faq.md).
-2. [Installer l’interface de ligne de commande Microsoft Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
+2. [Installer l’interface de ligne de commande Microsoft Azure](/cli/azure/install-azure-cli).
 3. Exécutez la commande `login` pour démarrer une session CLI :
     ```azurecli-interactive
     az login
@@ -50,9 +50,9 @@ L’interface CLI d’Internet Analyzer expose les types de ressources suivants�
 
 5. Sélectionnez votre ID d’abonnement qui a obtenu l’accès à la préversion publique d’Internet Analyzer.
 
-    Après vous être connecté, vous voyez une liste des abonnements associés à votre compte Azure. Les informations d’abonnement avec `isDefault: true` correspond à l’abonnement actuellement activé après vous être connecté. Pour sélectionner un autre abonnement, utilisez la commande [az account set](/cli/azure/account#az-account-set) avec l’ID d’abonnement auquel vous voulez passer. Pour plus d’informations sur la sélection d’abonnements, consultez [Utiliser plusieurs abonnements Azure](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest).
+    Après vous être connecté, vous voyez une liste des abonnements associés à votre compte Azure. Les informations d’abonnement avec `isDefault: true` correspond à l’abonnement actuellement activé après vous être connecté. Pour sélectionner un autre abonnement, utilisez la commande [az account set](/cli/azure/account#az-account-set) avec l’ID d’abonnement auquel vous voulez passer. Pour plus d’informations sur la sélection d’abonnements, consultez [Utiliser plusieurs abonnements Azure](/cli/azure/manage-azure-subscriptions-azure-cli).
 
-    Il existe des méthodes pour se connecter de manière non interactive, qui sont dévelopées en détail dans [Se connecter avec Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
+    Il existe des méthodes pour se connecter de manière non interactive, qui sont dévelopées en détail dans [Se connecter avec Azure CLI](/cli/azure/authenticate-azure-cli).
 
 6. **[Facultatif]** créer un groupe de ressources Azure :
     ```azurecli-interactive
@@ -132,6 +132,6 @@ L’interface CLI d’Internet Analyzer expose les types de ressources suivants�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour obtenir la liste complète des commandes prises en charge et des exemples d’utilisation, parcourez les [Informations de référence sur l’interface CLI d’Internet Analyzer](/cli/azure/ext/internet-analyzer/internet-analyzer?view=azure-cli-latest).
+* Pour obtenir la liste complète des commandes prises en charge et des exemples d’utilisation, parcourez les [Informations de référence sur l’interface CLI d’Internet Analyzer](/cli/azure/ext/internet-analyzer/internet-analyzer).
 * Consultez la [FAQ sur Internet Analyzer](internet-analyzer-faq.md).
 * En savoir plus sur l’incorporation du [client Internet Analyzer](internet-analyzer-embed-client.md) et sur la création d’un [point de terminaison personnalisé](internet-analyzer-custom-endpoint.md).

@@ -3,12 +3,12 @@ title: Mettre à jour un groupe de conteneurs
 description: Découvrez comment mettre à jour les conteneurs en cours d’exécution dans vos groupes de conteneurs Azure Container Instances.
 ms.topic: article
 ms.date: 04/17/2020
-ms.openlocfilehash: cfc27de8caae98dd1c3065b5ed06433c4baaa5d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb31eeda83532c408a303e879439006bcd7d4e45
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82928718"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102200646"
 ---
 # <a name="update-containers-in-azure-container-instances"></a>Mettre à jour les conteneurs dans Azure Container Instances
 
@@ -30,7 +30,7 @@ Pour mettre à jour un groupe de conteneurs existant
 > [!TIP]
 > Un [fichier YAML](./container-instances-container-groups.md#deployment) permet de conserver la configuration de déploiement d’un groupe de conteneurs et fournit un point de départ pour déployer un groupe mis à jour. Si vous avez appliqué une autre méthode pour créer le groupe, vous pouvez exporter la configuration vers YAML à l’aide d’[az container export][az-container-export]. 
 
-### <a name="example"></a> Exemple
+### <a name="example"></a>Exemple
 
 L’exemple Azure CLI suivant met à jour un groupe de conteneurs avec une nouvelle étiquette de nom DNS. Étant donné que la propriété d’étiquette de nom DNS du groupe est celui qui peut être mis à jour, le groupe de conteneurs est redéployé et ses conteneurs sont redémarrés.
 
@@ -89,6 +89,6 @@ Le **groupe de conteneurs** est mentionné plusieurs fois dans cet article. Chaq
 <!-- LINKS - External -->
 
 <!-- LINKS - Internal -->
-[az-container-create]: /cli/azure/container?view=azure-cli-latest#az-container-create
+[az-container-create]: /cli/azure/container#az-container-create
 [azure-cli-install]: /cli/azure/install-azure-cli
 [az-container-export]: /cli/azure/container#az-container-export

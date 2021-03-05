@@ -12,12 +12,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
 - devx-track-azurecli
-ms.openlocfilehash: 7753c6c118d763163e6bc8f69f5b4eee13fe2393
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 53b5add7526b0c20487e8fe3adb0b8ebe207a2ce
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97588792"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102200040"
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-in-a-web-application"></a>Visualiser les données de capteur en temps réel depuis votre hub Azure IoT dans une application web
 
@@ -153,7 +153,7 @@ Vous devez également voir la sortie dans la console qui affiche les messages qu
 
 La [fonctionnalité Web Apps d’Azure App Service](../app-service/overview.md) fournit une plateforme en tant que service (PAAS) pour l’hébergement d’applications web. Les applications web hébergées dans Azure App Service peuvent bénéficier de puissantes fonctionnalités Azure, telles qu’une sécurité supplémentaire, l’équilibrage de charge et la scalabilité, ainsi que des solutions DevOps proposées par Azure et les partenaires, comme le déploiement continu, la gestion des packages, etc. Azure App Service prend en charge les applications web développées dans de nombreux langages connus, et déployées sur une infrastructure Windows ou Linux.
 
-Dans cette section, vous provisionnez une application web dans App Service et y déployez votre code à l’aide de commandes Azure CLI. Les détails des commandes utilisées se trouvent dans la documentation [az webapp](/cli/azure/webapp?view=azure-cli-latest). Avant de commencer, assurez-vous que vous avez suivi les étapes pour [ajouter un groupe de ressources à votre hub IoT](#add-a-consumer-group-to-your-iot-hub), [obtenir une chaîne de connexion de service pour votre hub IoT](#get-a-service-connection-string-for-your-iot-hub) et [télécharger l’application web à partir de GitHub](#download-the-web-app-from-github).
+Dans cette section, vous provisionnez une application web dans App Service et y déployez votre code à l’aide de commandes Azure CLI. Les détails des commandes utilisées se trouvent dans la documentation [az webapp](/cli/azure/webapp). Avant de commencer, assurez-vous que vous avez suivi les étapes pour [ajouter un groupe de ressources à votre hub IoT](#add-a-consumer-group-to-your-iot-hub), [obtenir une chaîne de connexion de service pour votre hub IoT](#get-a-service-connection-string-for-your-iot-hub) et [télécharger l’application web à partir de GitHub](#download-the-web-app-from-github).
 
 1. Un [plan App Service](../app-service/overview-hosting-plans.md) définit un ensemble de ressources de calcul nécessaires à l’exécution d’une application hébergée dans App Service. Dans ce tutoriel, nous utilisons le niveau Développeur/Gratuit pour héberger l’application web. Avec le niveau Gratuit, votre application web s’exécute sur des ressources Windows partagées avec d’autres applications App Service, y compris les applications d’autres clients. Azure propose également des plans App Service pour déployer des applications web sur des ressources de calcul Linux. Vous pouvez ignorer cette étape si vous disposez déjà d’un plan App Service que vous souhaitez utiliser.
 

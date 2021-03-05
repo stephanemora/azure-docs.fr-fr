@@ -5,15 +5,15 @@ services: virtual-machines
 author: albecker1
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 02/12/2021
+ms.date: 03/04/2021
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: 54c29d76757916a8eea54af16babdae21b809a19
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a2f6a3fd8d36bb54773db21e3d36dab0060bae57
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101750883"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102178373"
 ---
 ## <a name="disk-level-bursting"></a>Bursting de disque
 
@@ -63,15 +63,14 @@ Vous pouvez consulter la [page de tarification de Disques managés](https://azur
 
 Le bursting basé sur les crédits est également disponible pour les tailles de disque P20 et inférieures dans toutes les régions des clouds Azure publics, gouvernementaux et en Chine. Par défaut, le bursting de disque est activé par défaut sur tous les déploiements nouveaux et existants des tailles de disque prises en charge. Le bursting au niveau des machines virtuelles utilise uniquement le bursting basé sur les crédits.
 
-### <a name="virtual-machine-level-bursting"></a>Bursting au niveau des machines virtuelles
-Le bursting au niveau des machines virtuelles est activé dans toutes les régions du cloud public sur les tailles prises en charge suivantes : 
-- [Série Lsv2](../articles/virtual-machines/lsv2-series.md)
+## <a name="virtual-machine-level-bursting"></a>Bursting au niveau des machines virtuelles
 
-Le bursting au niveau des machines virtuelles est également disponible dans la région USA Centre-Ouest pour les tailles prises en charge suivantes :
+Le bursting au niveau des machines virtuelles utilise uniquement le modèle basé sur les crédits pour le bursting, il est activé par défaut pour toutes les machines virtuelles qui le prennent en charge.
+
+Le bursting au niveau des machines virtuelles est activé dans toutes les régions du cloud public Azure sur les tailles prises en charge suivantes : 
+- [Série Lsv2](../articles/virtual-machines/lsv2-series.md)
 - [Séries Dv3 et Dsv3](../articles/virtual-machines/dv3-dsv3-series.md)
 - [Séries Ev3 et Esv3](../articles/virtual-machines/ev3-esv3-series.md)
-
-Par défaut, le bursting est activé pour les machines virtuelles qui le prennent en charge.
 
 ## <a name="bursting-flow"></a>Flux de rafale
 

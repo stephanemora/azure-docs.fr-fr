@@ -9,12 +9,12 @@ ms.date: 01/13/2021
 ms.reviewer: andalmia
 ms.author: banders
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: bd155ea3c98231cf20fa7c62325e3c2ecfb89920
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 69cc0998be6079b7d3f2ecf209e5a709771ae293
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98185918"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102200595"
 ---
 # <a name="programmatically-create-azure-enterprise-agreement-subscriptions-with-the-latest-apis"></a>Créer des abonnements Contrat Entreprise Azure programmatiquement avec les API les plus récentes
 
@@ -201,7 +201,7 @@ Vous recevez le subscriptionId dans la réponse à la commande.
 
 Commencez par installer cette extension en exécutant `az extension add --name account` et `az extension add --name alias`.
 
-Exécutez la commande [az account alias create](/cli/azure/ext/account/account/alias?view=azure-cli-latest#ext_account_az_account_alias_create&preserve-view=true) suivante, et fournissez le `billing-scope` et le `id` de l’une de vos `enrollmentAccounts`. 
+Exécutez la commande [az account alias create](/cli/azure/ext/account/account/alias#ext_account_az_account_alias_create) suivante, et fournissez le `billing-scope` et le `id` de l’une de vos `enrollmentAccounts`. 
 
 ```azurecli-interactive
 az account alias create --name "sampleAlias" --billing-scope "/providers/Microsoft.Billing/billingAccounts/1234567/enrollmentAccounts/654321" --display-name "Dev Team Subscription" --workload "Production"

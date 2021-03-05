@@ -704,6 +704,8 @@
           href: how-to-create-tumbling-window-trigger.md
         - name: Créer une dépendance de déclencheur de fenêtre bascule
           href: tumbling-window-trigger-dependency.md
+        - name: Référencer des métadonnées de déclencheur dans un pipeline
+          href: how-to-use-trigger-parameterization.md
     - name: Catalogue de données et gouvernance
       items:
         - name: Connecter une fabrique de données à Azure Purview

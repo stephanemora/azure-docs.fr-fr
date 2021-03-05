@@ -5,14 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/22/2019
-author: iqshahmicrosoft
-ms.author: iqshah
-ms.openlocfilehash: 814a4012ace95e84e75bcb4071c549822b2b0633
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+author: kriti-ms
+ms.author: krsh
+ms.openlocfilehash: e3d20b5e9206cf05d749f75982a07937a8caf078
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89182426"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102201088"
 ---
 # <a name="were-moving-virtual-machine-vm-images-on-azure-marketplace-to-managed-disk-storage"></a>Déplacement des images de machines virtuelles de la Place de marché Azure vers un stockage sur disque managé
 
@@ -29,8 +29,6 @@ Si vous avez des questions, n’hésitez pas à [nous contacter](https://support
 ### <a name="would-the-users-of-my-vm-images-experience-an-outage"></a>Les utilisateurs de mes images de machines virtuelles subiront-ils des temps d’arrêt ?
 
 Les utilisateurs des images de machines virtuelles ne subiront aucun temps d’arrêt. 
-
-Durant la première phase, nous déplacerons uniquement les images de machines virtuelles où aucune machine virtuelle n’est en cours d’exécution. Comme ces images ne seront utilisées par personne, il n’y aura aucun impact pour les utilisateurs. Durant les phases suivantes, il n’y aura pas d’impact non plus pour les utilisateurs.
 
 ### <a name="how-long-does-it-take-for-the-process-to-complete"></a>Combien de temps durera le processus au total ?
 

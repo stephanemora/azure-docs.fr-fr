@@ -7,12 +7,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 12/14/2020
 ms.author: jgao
-ms.openlocfilehash: f731236b235883f019c74ef0b32f5066ca5b7514
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: b2e1ffb3cbd513766945864e33589c46284bf942
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98179365"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102200935"
 ---
 # <a name="configure-development-environment-for-deployment-scripts-in-arm-templates"></a>Configurer l’environnement de développement pour les scripts de déploiement dans des modèles ARM
 
@@ -357,7 +357,7 @@ La valeur par défaut du chemin de montage est `/mnt/azscripts/azscriptinput`. I
 L’image conteneur par défaut spécifiée dans le modèle est **mcr.microsoft.com/azure-cli:2.9.1**. Consultez la liste des versions de [Azure CLI prises en charge](https://mcr.microsoft.com/v2/azure-cli/tags/list).
 
 > [!IMPORTANT]
-> Le script de déploiement utilise les images CLI disponibles dans Microsoft Container Registry (MCR). Il faut environ un mois pour certifier une image CLI pour un script de déploiement. N’utilisez pas les versions de l’interface CLI qui ont été publiées il y a moins de 30 jours. Pour trouver les dates de publication des images, consultez les [Notes de publication d’Azure CLI](/cli/azure/release-notes-azure-cli?view=azure-cli-latest&preserve-view=true). Si vous utilisez une version non prise en charge, le message d’erreur répertorie les versions prises en charge.
+> Le script de déploiement utilise les images CLI disponibles dans Microsoft Container Registry (MCR). Il faut environ un mois pour certifier une image CLI pour un script de déploiement. N’utilisez pas les versions de l’interface CLI qui ont été publiées il y a moins de 30 jours. Pour trouver les dates de publication des images, consultez les [Notes de publication d’Azure CLI](/cli/azure/release-notes-azure-cli). Si vous utilisez une version non prise en charge, le message d’erreur répertorie les versions prises en charge.
 
 Le modèle interrompt l’instance de conteneur après 1 800 secondes. Il faut compter 30 minutes avant que l’instance de conteneur passe à l’état terminé et que la session prenne fin.
 
