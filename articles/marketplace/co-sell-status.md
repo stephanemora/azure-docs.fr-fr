@@ -7,18 +7,18 @@ ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
 ms.date: 02/24/2021
-ms.openlocfilehash: 395e1279f3578dd1ee834836dead4169d0ea281a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 114e52884ca220635085bdbb8ab19b4f9cf810c0
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101743046"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102120094"
 ---
 # <a name="verify-co-sell-status-of-a-commercial-marketplace-offer"></a>Vérifier le statut de co-vente d’une offre de la Place de marché commerciale
 
 Vous pouvez vérifier le statut de co-vente d’une offre dans la page **Vue d’ensemble de l’offre** d’une offre dans le programme Place de marché commerciale de l’Espace partenaires.
 
-## <a name="verify-co-sell-status"></a>Vérifier le statut de co-vente
+## <a name="verify-co-sell-status"></a>Vérifier le statut de la co-vente
 
 1. Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard/home).
 1. Dans le menu de navigation de gauche, sélectionnez **Place de marché commerciale** > **Vue d’ensemble**.
@@ -30,10 +30,10 @@ Le tableau suivant montre tous les statuts de co-vente possibles. Pour plus d’
 
 | Statut | Commentaire |
 | ------------ | ------------- |
-| Pas de co-vente prête | Les [conditions minimales requises pour le statut Prêt pour la co-vente](#requirements-for-co-sell-ready-status) ne sont pas remplies. |
-| Prêt pour la co-vente | Toutes les [conditions requises pour le statut Prêt pour la co-vente](#requirements-for-co-sell-ready-status) sont remplies. |
-| Co-vente Azure IP avec incentives | Les exigences en matière de co-vente sont satisfaites, en plus de [ces exigences supplémentaires](#requirements-for-IP-Co-sell-incentivized-status). |
-| Incentive Biz Apps ISV Connect Premium  | Ce statut s’applique aux offres Dynamics 365 et Power Apps. Il indique que toutes les [conditions requises pour ce statut](#requirements-for-biz-apps-isv-connect-premium-incentive-status) sont remplies. |
+| Pas de co-vente prête | Les [conditions minimales requises pour le statut Prêt pour la co-vente](co-sell-requirements.md#requirements-for-co-sell-ready-status) ne sont pas remplies. |
+| Prêt pour la co-vente | Toutes les [conditions requises pour le statut Prêt pour la co-vente](co-sell-requirements.md#requirements-for-co-sell-ready-status) sont remplies. |
+| Co-vente Azure IP avec incentives | Les exigences en matière de co-vente sont satisfaites, en plus de [ces exigences supplémentaires](co-sell-requirements.md#requirements-for-ip-co-sell-incentivized-status). |
+| Incentive Biz Apps ISV Connect Premium  | Ce statut s’applique aux offres Dynamics 365 et Power Apps. Il indique que toutes les [conditions requises pour ce statut](co-sell-requirements.md#requirements-for-biz-apps-isv-connect-premium-incentive-status) sont remplies. |
 |||
 
 ## <a name="next-steps"></a>Étapes suivantes
