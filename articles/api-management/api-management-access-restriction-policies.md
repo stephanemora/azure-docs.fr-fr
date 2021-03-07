@@ -7,14 +7,14 @@ author: vladvino
 ms.assetid: 034febe3-465f-4840-9fc6-c448ef520b0f
 ms.service: api-management
 ms.topic: article
-ms.date: 02/09/2021
+ms.date: 02/26/2021
 ms.author: apimpm
-ms.openlocfilehash: 0b18a73d0357b5dd90b329ba55c6601e60df5bbc
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 882d96271b6976db1ffc0dde181d5699c5cc27de
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100367569"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688244"
 ---
 # <a name="api-management-access-restriction-policies"></a>Stratégies de restriction des accès de la Gestion des API
 
@@ -137,8 +137,8 @@ Dans l’exemple suivant, la limite de débit par abonnement est de 20 appels p
 | Nom           | Description                                                                                           | Obligatoire | Default |
 | -------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
 | name           | Nom de l’API à laquelle la limite de débit s’applique.                                                | Oui      | N/A     |
-| calls          | Nombre maximal d’appels autorisés au cours de l’intervalle de temps spécifié dans le paramètre `renewal-period`. | Oui      | N/A     |
-| renewal-period | Période en secondes après laquelle le débit est réinitialisé.                                              | Oui      | N/A     |
+| calls          | Nombre maximal d’appels autorisés au cours de l’intervalle de temps spécifié dans `renewal-period`. | Oui      | N/A     |
+| renewal-period | Durée en secondes de la fenêtre glissante pendant laquelle le nombre de demandes autorisées ne doit pas dépasser la valeur spécifiée dans `calls`.                                              | Oui      | N/A     |
 | retry-after-header-name    | Nom d’un en-tête de réponse dont la valeur est l’intervalle de tentative recommandé en secondes après dépassement du débit d’appels spécifié. |  Non | N/A  |
 | retry-after-variable-name    | Nom d’une variable d’expression de stratégie qui stocke l’intervalle de tentative recommandé, en secondes, après dépassement du débit d’appels spécifié. |  Non | N/A  |
 | remaining-calls-header-name    | Le nom d’un en-tête de réponse dont la valeur après chaque exécution de stratégie est le nombre d’appels restants autorisés pour l’intervalle de temps spécifié dans le `renewal-period`. |  Non | N/A  |
@@ -214,7 +214,7 @@ Dans l’exemple suivant, la limite de débit de 10 appels par 60 secondes est
 | calls               | Nombre maximal d’appels autorisés au cours de l’intervalle de temps spécifié dans le paramètre `renewal-period`. | Oui      | N/A     |
 | counter-key         | Clé à utiliser pour la stratégie de limite de débit.                                                             | Oui      | N/A     |
 | increment-condition | Expression booléenne spécifiant si la demande doit être comptée dans le débit (`true`).        | Non       | N/A     |
-| renewal-period      | Période en secondes après laquelle le débit est réinitialisé.                                              | Oui      | N/A     |
+| renewal-period      | Durée en secondes de la fenêtre glissante pendant laquelle le nombre de demandes autorisées ne doit pas dépasser la valeur spécifiée dans `calls`.                                           | Oui      | N/A     |
 | retry-after-header-name    | Nom d’un en-tête de réponse dont la valeur est l’intervalle de tentative recommandé en secondes après dépassement du débit d’appels spécifié. |  Non | N/A  |
 | retry-after-variable-name    | Nom d’une variable d’expression de stratégie qui stocke l’intervalle de tentative recommandé, en secondes, après dépassement du débit d’appels spécifié. |  Non | N/A  |
 | remaining-calls-header-name    | Le nom d’un en-tête de réponse dont la valeur après chaque exécution de stratégie est le nombre d’appels restants autorisés pour l’intervalle de temps spécifié dans le `renewal-period`. |  Non | N/A  |
@@ -317,7 +317,7 @@ La stratégie `quota` applique un volume d’appels et/ou un quota de bande pass
 | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | quota     | Élément racine.                                                                                                                                                                                                                                                                                | Oui      |
 | api       | Ajoutez un ou plusieurs éléments de ce type pour imposer un quota d’appel aux API au sein du produit. Les quotas d’appel au niveau du produit et de l’API s’appliquent indépendamment les uns des autres. L’API peut être référencée via `name` ou `id`. Si les deux attributs sont fournis, `id` sera utilisé et `name` sera ignoré.                    | Non       |
-| operation | Ajoutez un ou plusieurs éléments de ce type pour imposer un quota d’appel aux opérations au sein d’une API. Les quotas d’appel au niveau du produit, de l’API et de l’opération s’appliquent indépendamment les uns des autres. L’opération peut être référencée via `name` ou `id`. Si les deux attributs sont fournis, `id` sera utilisé et `name` sera ignoré. | Non       |
+| operation | Ajoutez un ou plusieurs éléments de ce type pour imposer un quota d’appel aux opérations au sein d’une API. Les quotas d’appel au niveau du produit, de l’API et de l’opération s’appliquent indépendamment les uns des autres. L’opération peut être référencée via `name` ou `id`. Si les deux attributs sont fournis, `id` sera utilisé et `name` sera ignoré. | Non      |
 
 ### <a name="attributes"></a>Attributs
 
@@ -326,7 +326,7 @@ La stratégie `quota` applique un volume d’appels et/ou un quota de bande pass
 | name           | Nom de l’API ou de l’opération à laquelle s’applique le quota.                                             | Oui                                                              | N/A     |
 | bandwidth      | Nombre maximal de kilo-octets autorisés au cours de l’intervalle de temps spécifié dans le paramètre `renewal-period`. | Il est obligatoire de spécifier `calls`, `bandwidth` ou les deux. | N/A     |
 | calls          | Nombre maximal d’appels autorisés au cours de l’intervalle de temps spécifié dans le paramètre `renewal-period`.     | Il est obligatoire de spécifier `calls`, `bandwidth` ou les deux. | N/A     |
-| renewal-period | Période en secondes après laquelle le quota se réinitialise.                                                  | Oui                                                              | N/A     |
+| renewal-period | Période en secondes après laquelle le quota se réinitialise. Quand la valeur est définie sur `0`, la période est définie sur Infini. | Oui                                                              | N/A     |
 
 ### <a name="usage"></a>Usage
 
@@ -390,7 +390,7 @@ Dans l’exemple suivant, le quota est indexé par l’adresse IP de l’appelan
 | calls               | Nombre maximal d’appels autorisés au cours de l’intervalle de temps spécifié dans le paramètre `renewal-period`.     | Il est obligatoire de spécifier `calls`, `bandwidth` ou les deux. | N/A     |
 | counter-key         | Clé à utiliser pour la stratégie de quota.                                                                      | Oui                                                              | N/A     |
 | increment-condition | Expression booléenne spécifiant si la demande doit être comptée dans le quota (`true`).             | Non                                                               | N/A     |
-| renewal-period      | Période en secondes après laquelle le quota se réinitialise.                                                  | Oui                                                              | N/A     |
+| renewal-period      | Période en secondes après laquelle le quota se réinitialise. Quand la valeur est définie sur `0`, la période est définie sur Infini.                                                   | Oui                                                              | N/A     |
 
 ### <a name="usage"></a>Usage
 

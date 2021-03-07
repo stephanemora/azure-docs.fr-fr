@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/26/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 2c69cea7055476bcc4c4a28cea0a0cf8c8f66f88
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: bbb42a4955ff0b4fbbac58830ec5c8aecf04915d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98753460"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101686731"
 ---
 # <a name="a-web-api-that-calls-web-apis-call-an-api"></a>Une API web qui appelle des API web : Appeler une API
 
@@ -29,9 +29,15 @@ Après avoir obtenu un jeton, vous pouvez appeler une API web protégée. Vous a
 
 Lorsque vous utilisez *Microsoft.Identity.Web*, vous avez trois scénarios d’utilisation :
 
-- [Option n°1 : Appeler Microsoft Graph à l’aide du kit de développement logiciel (SDK) Microsoft Graph](#option-1-call-microsoft-graph-with-the-sdk)
-- [Option n°2 : Appeler une API web située en aval avec la classe d’assistance](#option-2-call-a-downstream-web-api-with-the-helper-class)
-- [Option 3 : Appeler une API web située en aval sans la classe d’assistance](#option-3-call-a-downstream-web-api-without-the-helper-class)
+- [Une API web qui appelle des API web : Appeler une API](#a-web-api-that-calls-web-apis-call-an-api)
+  - [Code de contrôle](#controller-code)
+- [ASP.NET Core](#aspnet-core)
+      - [Option 1 : Appeler Microsoft Graph à l’aide du SDK](#option-1-call-microsoft-graph-with-the-sdk)
+      - [Option n°2 : Appeler une API web située en aval avec la classe d’assistance](#option-2-call-a-downstream-web-api-with-the-helper-class)
+      - [Option 3 : Appeler une API web située en aval sans la classe d’assistance](#option-3-call-a-downstream-web-api-without-the-helper-class)
+- [Java](#java)
+- [Python](#python)
+  - [Étapes suivantes](#next-steps)
 
 #### <a name="option-1-call-microsoft-graph-with-the-sdk"></a>Option 1 : Appeler Microsoft Graph à l’aide du SDK
 
@@ -159,7 +165,7 @@ private String callMicrosoftGraphMeEndpoint(String accessToken){
 ```
 
 # <a name="python"></a>[Python](#tab/python)
-Aucun exemple illustrant ce flux avec MSAL Python n’est encore disponible.
+Un exemple illustrant ce flux avec MSAL Python est disponible dans [ms-identity-python-on-behalf-of](https://github.com/Azure-Samples/ms-identity-python-on-behalf-of).
 
 ---
 

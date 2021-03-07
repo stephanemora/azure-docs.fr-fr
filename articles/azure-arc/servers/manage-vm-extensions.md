@@ -1,14 +1,14 @@
 ---
 title: Gestion des extensions de machine virtuelle avec des serveur activés par Azure Arc
 description: Les serveurs activés par Azure Arc peuvent gérer le déploiement d’extensions de machine virtuelle qui permettent d’effectuer des tâches d’automatisation et de configuration post-déploiement sur des machines virtuelles non Azure.
-ms.date: 01/07/2021
+ms.date: 03/01/2021
 ms.topic: conceptual
-ms.openlocfilehash: b39149eb7ac572ac3bd50bb6303f28d2340f387d
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 039c52ccbee03636da0f5acc0fc5844be9b646f5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100580850"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687904"
 ---
 # <a name="virtual-machine-extension-management-with-azure-arc-enabled-servers"></a>Gestion des extensions de machine virtuelle avec des serveurs activés par Azure Arc
 
@@ -25,9 +25,7 @@ Les serveurs avec Azure Arc vous permettent de déployer des extensions de machi
 
 La prise en charge des extensions de machine virtuelle des serveurs activés par Azure Arc offre les avantages clés suivants :
 
-- Utilise [Azure Automation State Configuration](../../automation/automation-dsc-overview.md) pour stocker de manière centralisée les configurations et conserver l’état souhaité des machines connectées hybrides activées via l’extension de machine virtuelle DSC.
-
-- Collecte les données de journaux à des fins d’analyse en activant [Journaux dans Azure Monitor](../../azure-monitor/logs/data-platform-logs.md) via l’extension de machine virtuelle de l’agent Log Analytics. Ce point s’avère utile pour effectuer une analyse complexe de données issues de sources de différents types.
+- Collectez les données de journaux à des fins d’analyse avec [Journaux dans Azure Monitor](../../azure-monitor/logs/data-platform-logs.md) en activant l’extension de machine virtuelle de l’agent Log Analytics. Ce point s’avère utile pour effectuer une analyse complexe de données issues de sources de différents types.
 
 - Avec [Azure Monitor pour machines virtuelles](../../azure-monitor/vm/vminsights-overview.md), analyse les performances de vos machines virtuelles Windows et Linux et supervise leurs processus et dépendances vis-à-vis d’autres ressources et les processus externes. Pour cela, il convient d’activer les extensions de machine virtuelle de l’agent Log Analytics et de Dependency Agent.
 
@@ -51,7 +49,6 @@ Pour découvrir le package d’agent Azure Connected Machine et obtenir des dét
 |----------|----------|-----|-----------------------|
 |Analyseur de vulnérabilité intégré à Azure Defender |Qualys |WindowsAgent.AzureSecurityCenter |[Solution intégrée d'évaluation des vulnérabilités d'Azure Defender pour les machines Azure et hybrides](../../security-center/deploy-vulnerability-assessment-vm.md)|
 |Extension de script personnalisé |Microsoft.Compute | CustomScriptExtension |[Extension de script personnalisée Windows](../../virtual-machines/extensions/custom-script-windows.md)|
-|DSC PowerShell |Microsoft.PowerShell |DSC |[Extension DSC Windows PowerShell](../../virtual-machines/extensions/dsc-windows.md)|
 |Agent Log Analytics |Microsoft.EnterpriseCloud.Monitoring |MicrosoftMonitoringAgent |[Extension de machine virtuelle Log Analytics pour Windows](../../virtual-machines/extensions/oms-windows.md)|
 |Azure Monitor pour machines virtuelles (insights) |Microsoft.Azure.Monitoring.DependencyAgent |DependencyAgentWindows | [Extension de machine virtuelle Dependency Agent pour Windows](../../virtual-machines/extensions/agent-dependency-windows.md)|
 |Synchronisation du certificat Azure Key Vault | Microsoft.Azure.Key.Vault |KeyVaultForWindows | [Extension de machine virtuelle Key Vault pour Windows](../../virtual-machines/extensions/key-vault-windows.md) |
@@ -63,7 +60,6 @@ Pour découvrir le package d’agent Azure Connected Machine et obtenir des dét
 |----------|----------|-----|-----------------------|
 |Analyseur de vulnérabilité intégré à Azure Defender |Qualys |LinuxAgent.AzureSecurityCenter |[Solution intégrée d'évaluation des vulnérabilités d'Azure Defender pour les machines Azure et hybrides](../../security-center/deploy-vulnerability-assessment-vm.md)|
 |Extension de script personnalisé |Microsoft.Azure.Extensions |CustomScript |[Extension de script personnalisé Linux version 2](../../virtual-machines/extensions/custom-script-linux.md) |
-|DSC PowerShell |Microsoft.OSTCExtensions |DSCForLinux |[Extension DSC PowerShell pour Linux](../../virtual-machines/extensions/dsc-linux.md) |
 |Agent Log Analytics |Microsoft.EnterpriseCloud.Monitoring |OmsAgentForLinux |[Extension de machine virtuelle Log Analytics pour Linux](../../virtual-machines/extensions/oms-linux.md) |
 |Azure Monitor pour machines virtuelles (insights) |Microsoft.Azure.Monitoring.DependencyAgent |DependencyAgentLinux |[Extension de machine virtuelle Dependency Agent pour Linux](../../virtual-machines/extensions/agent-dependency-linux.md) |
 |Synchronisation du certificat Azure Key Vault | Microsoft.Azure.Key.Vault |KeyVaultForLinux | [Extension de machine virtuelle Key Vault pour Linux](../../virtual-machines/extensions/key-vault-linux.md) |
@@ -82,7 +78,7 @@ Veillez à consulter la documentation relative à chacune des extensions de mach
 
 ### <a name="log-analytics-vm-extension"></a>Extension de machine virtuelle Log Analytics
 
-L’extension de machine virtuelle de l’agent Log Analytics pour Linux nécessite l’installation de Python 2.x sur la machine cible. 
+L’extension de machine virtuelle de l’agent Log Analytics pour Linux nécessite l’installation de Python 2.x sur la machine cible.
 
 ### <a name="azure-key-vault-vm-extension-preview"></a>Extension de machine virtuelle Azure Key Vault (préversion)
 

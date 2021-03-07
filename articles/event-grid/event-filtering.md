@@ -2,13 +2,13 @@
 title: Filtrage d’événements pour Azure Event Grid
 description: Explique comment filtrer des événements lors de la création d’un abonnement Azure Event Grid.
 ms.topic: conceptual
-ms.date: 02/26/2021
-ms.openlocfilehash: 7253c4a38660b0041f27918309efae21675fdc8f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/04/2021
+ms.openlocfilehash: 94445341891149d5d02c7f33caef20bf45123e9b
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101721954"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102197773"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Comprendre le filtrage d’événements pour les abonnements Event Grid
 
@@ -58,13 +58,27 @@ Pour filtrer sur des valeurs dans les champs de données et spécifier l’opér
 * valeurs : valeur ou valeurs à comparer à la clé.
 
 ## <a name="key"></a>Clé
-La clé est le champ des données d’événement que vous utilisez pour le filtrage. Il peut s’agir d’un nombre, d’une valeur booléenne, d’une chaîne ou d’un tableau. Pour les événements dans le **schéma Event Grid**, utilisez les valeurs suivantes pour la clé : `ID`, `Topic`, `Subject`, `EventType`, `DataVersion` ou événement de donnée (comme `data.key1`).
+La clé est le champ des données d’événement que vous utilisez pour le filtrage. Les types possibles sont les suivants :
+
+- Number
+- Boolean
+- String
+- Array. Vous devez définir la propriété `enableAdvancedFilteringOnArrays` sur true pour utiliser cette fonctionnalité. Actuellement, le portail Azure ne prend pas en charge l’activation de cette fonctionnalité. 
+
+    ```json
+    "filter":
+    {
+        "subjectBeginsWith": "/blobServices/default/containers/mycontainer/log",
+        "subjectEndsWith": ".jpg",
+        "enableAdvancedFilteringOnArrays": true
+    }
+    ```
+
+Pour les événements dans le **schéma Event Grid**, utilisez les valeurs suivantes pour la clé : `ID`, `Topic`, `Subject`, `EventType`, `DataVersion` ou événement de donnée (comme `data.key1`).
 
 Pour les événements dans le **schéma des événements cloud**, utilisez les valeurs suivantes pour la clé : `eventid`, `source`, `eventtype`, `eventtypeversion` ou événement de données (comme `data.key1`).
 
-Pour le **schéma d’entrée personnalisé**, utilisez les champs de données d’événement (comme `data.key1`).
-
-Pour accéder aux champs de la section de données, utilisez la notation `.` (point). Par exemple, `data.sitename`, `data.appEventTypeDetail.action` pour accéder à `sitename` ou `action` pour l’exemple d’événement suivant.
+Pour le **schéma d’entrée personnalisé**, utilisez les champs de données d’événement (comme `data.key1`). Pour accéder aux champs de la section de données, utilisez la notation `.` (point). Par exemple, `data.sitename`, `data.appEventTypeDetail.action` pour accéder à `sitename` ou `action` pour l’exemple d’événement suivant.
 
 ```json
     "data": {
@@ -80,10 +94,8 @@ Pour accéder aux champs de la section de données, utilisez la notation `.` (po
     },
 ```
 
-
 ## <a name="values"></a>Valeurs
 Les valeurs peuvent être : nombre, chaîne, booléen ou tableau
-
 
 ## <a name="operators"></a>Opérateurs
 

@@ -8,22 +8,20 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/16/2020
+ms.date: 02/26/2021
 ms.author: justinha
-ms.openlocfilehash: 059f711269fd5f1eea9675f238a6003eaf1a0534
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: e8887cc39b48f090ff223e5e83c13d65b921dc0b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96618108"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687496"
 ---
-# <a name="tutorial-create-and-use-replica-sets-for-resiliency-or-geolocation-in-azure-active-directory-domain-services-preview"></a>Tutoriel : Créer et utiliser des jeux de réplicas pour la résilience ou la géolocalisation dans Azure Active Directory Domain Services (préversion)
+# <a name="tutorial-create-and-use-replica-sets-for-resiliency-or-geolocation-in-azure-active-directory-domain-services"></a>Tutoriel : Créer et utiliser des jeux de réplicas pour la résilience ou la géolocalisation dans Azure Active Directory Domain Services
 
 Pour améliorer la résilience d’un domaine managé Azure Active Directory Domain Services (Azure AD DS) ou pour effectuer un déploiement vers des zones géographiques supplémentaires proches de vos applications, vous pouvez utiliser des *jeux de réplicas*. Chaque espace de noms de domaine managé Azure AD DS, tel que *aaddscontoso.com*, contient un jeu de réplicas initial. La possibilité de créer des jeux de réplicas supplémentaires dans d’autres régions Azure fait bénéficier un domaine managé de la résilience géographique.
 
 Vous pouvez ajouter un jeu de réplicas à n’importe quel réseau virtuel appairé d’une région Azure prenant en charge Azure AD DS.
-
-Les jeux de réplicas sont une fonctionnalité en préversion publique d’Azure AD Domain Services. Ne perdez pas de vue que les fonctionnalités toujours en préversion présentent des différences sur le plan de la prise en charge. Pour plus d'informations sur les préversions, consultez [Contrat SLA des préversions Azure Active Directory](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Dans ce tutoriel, vous allez apprendre à :
 
@@ -78,7 +76,7 @@ Pour créer un jeu de réplicas supplémentaire, effectuez les étapes suivantes
 
 1. Sur le portail Azure, recherchez et sélectionnez **Azure AD Domain Services**.
 1. Choisissez votre domaine managé, par exemple *aaddscontoso.com*.
-1. Sur le côté gauche, sélectionnez **Jeux de réplicas (préversion)** . Chaque domaine managé comprend un jeu de réplicas initial dans la région sélectionnée, comme le montre la capture d’écran d’exemple ci-dessous :
+1. Sur le côté gauche, sélectionnez **Jeux de réplicas**. Chaque domaine managé comprend un jeu de réplicas initial dans la région sélectionnée, comme le montre la capture d’écran d’exemple ci-dessous :
 
     ![Capture d’écran d’exemple pour afficher et ajouter un jeu de réplicas sur le portail Azure](./media/tutorial-create-replica-set/replica-set-list.png)
 
@@ -113,7 +111,7 @@ Pour supprimer un jeu de réplicas, effectuez les étapes suivantes :
 
 1. Sur le portail Azure, recherchez et sélectionnez **Azure AD Domain Services**.
 1. Choisissez votre domaine managé, par exemple *aaddscontoso.com*.
-1. Sur le côté gauche, sélectionnez **Jeux de réplicas (préversion)** . Dans la liste des jeux de réplicas, sélectionnez le menu contextuel **...** en regard du jeu de réplicas à supprimer.
+1. Sur le côté gauche, sélectionnez **Jeux de réplicas**. Dans la liste des jeux de réplicas, sélectionnez le menu contextuel **...** en regard du jeu de réplicas à supprimer.
 1. Sélectionnez **Supprimer** dans le menu contextuel, puis confirmez que vous voulez supprimer le jeu de réplicas.
 
 > [!NOTE]

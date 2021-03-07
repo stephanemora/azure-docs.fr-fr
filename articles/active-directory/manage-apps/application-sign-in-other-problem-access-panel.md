@@ -12,12 +12,12 @@ ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: japere
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 5d314331059a96388f23cd43667fca20a689f167
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 2a0411e97f78104de1356d482e4e43a42701c073
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258844"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687622"
 ---
 # <a name="troubleshoot-problems-signing-in-to-an-application-from-azure-ad-my-apps"></a>Résoudre les problèmes de connexion à une application à partir d’Azure AD Mes applications
 
@@ -141,14 +141,15 @@ Pour vérifier l’appartenance d’un utilisateur à des groupes, procédez com
 7.  Sélectionnez **Groupes** pour afficher les groupes dont l’utilisateur est membre.
 
 ### <a name="check-if-a-user-has-more-than-999-app-role-assignments"></a>Vérifier si un utilisateur a plus de 999 attributions de rôle d’application
-Si plus de 999 attributions de rôle d’application sont affectées à l’utilisateur, il se peut qu’il ne puisse pas voir toutes ses applications sur Mes applications.
+Si l’utilisateur a plus de 999 attributions de rôle d’application, il se peut qu’il ne puisse pas voir toutes ses applications sur Mes applications.
 
 Cela est dû au fait que Mes applications indique actuellement jusqu’à 999 attributions de rôle d’application pour déterminer les applications auxquelles les utilisateurs sont affectés. Si un utilisateur est affecté à plus de 999 applications, il n’est pas possible de contrôler celles de ces applications qui s’afficheront dans le portail Mes applications.
 
-Pour vérifier le nombre d’attributions de rôle d’application à un utilisateur, procédez comme suit :
+Pour vérifier si un utilisateur a plus de 999 attributions de rôle d’application, procédez comme suit :
 1. Installez le module PowerShell [**Microsoft. Graph**](https://github.com/microsoftgraph/msgraph-sdk-powershell).
-2. Exécutez `Connect-MgGraph -Scopes "Directory.Read.All"` et authentifiez-vous en tant qu’**administrateur général**.
-3. Exécutez `$m = Get-MgUserAppRoleAssignment -UserId "<userId>" | Measure; $m.Count` pour déterminer le nombre actuel d’attributions de rôle d’application à l’utilisateur.
+2. Exécutez `Connect-MgGraph -Scopes "User.ReadBasic.All Application.Read.All"`.
+3. Exécutez `(Get-MgUserAppRoleAssignment -UserId "<userId>" -Top 999).Count` pour déterminer le nombre actuel d’attributions de rôle d’application à l’utilisateur.
+4. Si le résultat est 999, l’utilisateur a probablement plus de 999 attributions de rôles d’application.
 
 ### <a name="check-a-users-assigned-licenses"></a>Vérifier les licences affectées à un utilisateur
 Pour vérifier les licences affectées à un utilisateur, procédez comme suit :
