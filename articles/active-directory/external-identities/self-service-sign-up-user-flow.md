@@ -5,39 +5,39 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 06/16/2020
+ms.date: 03/02/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51602e97a8424bade542eec6f88b673130fee8b5
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 883e658fd3f03eb50d54e548ffac49e23b340808
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97586021"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688623"
 ---
 # <a name="add-a-self-service-sign-up-user-flow-to-an-app-preview"></a>Ajouter un flux utilisateur d’inscription en libre-service à une application (préversion)
-> [!NOTE]
-> L’inscription en libre-service est une fonctionnalité en préversion publique d’Azure Active Directory. Pour plus d’informations sur les préversions, consultez [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Vous pouvez créer des flux d’utilisateurs pour les applications générées par votre organisation. L’association de votre flux utilisateur avec une application vous permet d’activer l’inscription sur cette application. Vous pouvez choisir plusieurs applications à associer au flux utilisateur. Une fois que vous avez associé le flux d’utilisateurs à une ou plusieurs applications, les utilisateurs qui visitent cette application pourront s'inscrire et obtenir un compte invité à l’aide des options configurées dans le flux d’utilisateurs.
+> [!NOTE]
+> Certaines des fonctionnalités mentionnées dans cet article sont des fonctionnalités en préversion publique d’Azure Active Directory. Pour plus d’informations sur les préversions, consultez [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Pour les applications que vous générez, vous pouvez créer des flux d’utilisateur qui permettent à un utilisateur de s’inscrire à une application et de créer un compte invité. Un flux d’utilisateur d’inscription en libre-service définit la série d’étapes que l’utilisateur suit lors de l’inscription, les fournisseurs d’identité que vous l’autorisez à utiliser et les attributs utilisateur que vous souhaitez collecter. Vous pouvez associer une ou plusieurs applications à un seul flux d’utilisateur.
 
 > [!NOTE]
 > Vous pouvez associer des flux d’utilisateurs à des applications générées par votre organisation. Les flux d’utilisateurs ne peuvent pas être utilisés pour les applications Microsoft, telles que SharePoint ou Teams.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-### <a name="add-social-identity-providers-optional"></a>Ajouter des fournisseurs d’identité sociale (facultatif)
+### <a name="add-identity-providers-optional"></a>Ajouter des fournisseur d’identité (facultatif)
 
-Azure AD est le fournisseur d’identité par défaut pour l’inscription en libre-service. Cela signifie que les utilisateurs peuvent s’inscrire par défaut avec un compte Azure AD. Des fournisseurs d’identité sociale peuvent également être inclus dans ces flux d’inscription pour prendre en charge les comptes Google et Facebook.
+Azure AD est le fournisseur d’identité par défaut pour l’inscription en libre-service. Cela signifie que les utilisateurs peuvent s’inscrire par défaut avec un compte Azure AD. Dans vos flux d’utilisateurs d’inscription en libre-service, vous pouvez également inclure des fournisseurs d’identité sociale tels que Google et Facebook, un compte Microsoft (préversion) et un code secret à usage unique envoyé par e-mail (préversion).
 
+- [Fournisseur d’identité de compte Microsoft (préversion)](microsoft-account.md)
+- [Authentification par envoi d’un code secret à usage unique par e-mail](one-time-passcode.md)
 - [Ajouter Facebook à votre liste de fournisseurs d’identité sociale](facebook-federation.md)
 - [Ajouter Google à votre liste de fournisseurs d’identité sociale](google-federation.md)
-
-> [!NOTE]
-> Dans la préversion actuelle, si un flux d’utilisateurs d’inscription en libre-service est associé à une application et que vous envoyez à l’utilisateur une invitation à cette application, l’utilisateur ne pourra pas utiliser un compte Gmail pour accepter l’invitation. En guise de solution de contournement, l’utilisateur peut passer par le processus d’inscription en libre-service. Ou, il peut accepter l’invitation en accédant à une autre application ou à l’aide de leur portail Mes applications sur https://myapps.microsoft.com.
 
 ### <a name="define-custom-attributes-optional"></a>Définir des attributs personnalisés (facultatif)
 
@@ -50,7 +50,7 @@ Avant de pouvoir ajouter un flux utilisateur d’inscription en libre-service à
 1. Connectez-vous au [Portail Azure](https://portal.azure.com) en tant qu’administrateur Azure AD.
 2. Sous **Services Azure**, sélectionnez **Azure Active Directory**.
 3. Sélectionnez **Paramètres utilisateur**, puis, sous **Utilisateurs externes**, sélectionnez **Gérer les paramètres de collaboration externes**.
-4. Positionnez le bouton bascule **Activer l’inscription en libre-service d’invité via des flux utilisateur (préversion)** sur **Oui**.
+4. Positionnez le bouton bascule **Activer l’inscription en libre-service d’invité via des flux utilisateur** sur **Oui**.
 
    ![Activer l’inscription en libre-service d’invité](media/self-service-sign-up-user-flow/enable-self-service-sign-up.png)
 5. Sélectionnez **Enregistrer**.
@@ -61,7 +61,7 @@ Ensuite, vous allez créer le flux utilisateur pour l’inscription en libre-ser
 1. Connectez-vous au [Portail Azure](https://portal.azure.com) en tant qu’administrateur Azure AD.
 2. Sous **Services Azure**, sélectionnez **Azure Active Directory**.
 3. Dans le menu de gauche, sélectionnez **Identités externes**.
-4. Sélectionnez **Flux utilisateur (préversion)** , puis **Nouveau flux utilisateur**.
+4. Sélectionnez **Flux d’utilisateurs**, puis **Nouveau flux d’utilisateurs**.
 
    ![Bouton Ajouter un nouveau flux utilisateur](media/self-service-sign-up-user-flow/new-user-flow.png)
 
@@ -75,14 +75,14 @@ Ensuite, vous allez créer le flux utilisateur pour l’inscription en libre-ser
 > Vous ne pouvez collecter des attributs que lorsqu’un utilisateur s’inscrit pour la première fois. Une fois qu’un utilisateur s’est inscrit, il n’est plus invité à collecter des informations sur les attributs, même si vous modifiez le flux d’utilisateur.
 
 8. Sélectionnez **Create** (Créer).
-9. Le nouveau flux utilisateur s’affiche dans la liste **Flux utilisateur (préversion)** . Si nécessaire, actualisez la page.
+9. Le nouveau flux d’utilisateurs apparaît dans la liste **Flux d’utilisateurs**. Si nécessaire, actualisez la page.
 
 ## <a name="select-the-layout-of-the-attribute-collection-form"></a>Sélectionner la mise en page du formulaire de collection d’attributs
 
 Vous pouvez choisir l’ordre dans lequel les attributs s’affichent sur la page d’inscription. 
 
 1. Dans le [portail Azure](https://portal.azure.com), sélectionnez **Azure Active Directory**.
-2. Sélectionnez **Identités externes**, **Flux utilisateur (préversion)** .
+2. Sélectionnez **External Identities**, puis **Flux d’utilisateurs**.
 3. Sélectionnez le flux utilisateur d’inscription en libre-service dans la liste.
 4. Sous **Personnaliser**, sélectionnez **Mises en page**.
 5. Les attributs à collecter que vous avec choisis sont répertoriés. Pour modifier l’ordre d’affichage, sélectionnez un attribut, puis choisissez **Monter**, **Descendre**, **Déplacer vers le haut** ou **Déplacer vers le bas**.
@@ -95,7 +95,7 @@ Vous pouvez maintenant associer des applications au flux utilisateur.
 1. Connectez-vous au [Portail Azure](https://portal.azure.com) en tant qu’administrateur Azure AD.
 2. Sous **Services Azure**, sélectionnez **Azure Active Directory**.
 3. Dans le menu de gauche, sélectionnez **Identités externes**.
-4. Sous **Inscription en libre-service**, sélectionnez **Flux utilisateurs (préversion)** .
+4. Sous **Inscription en libre-service**, sélectionnez **Flux d’utilisateurs**.
 5. Sélectionnez le flux utilisateur d’inscription en libre-service dans la liste.
 6. Dans le menu de gauche, sous **Utiliser**, sélectionnez **Applications**.
 7. Sélectionnez **Ajouter une application**.

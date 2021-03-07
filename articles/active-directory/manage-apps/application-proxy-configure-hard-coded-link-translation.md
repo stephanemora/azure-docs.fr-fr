@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 44266f7a7485b44ba60a27aadd7422e8d1c3acf4
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: bb1935242790333a91b47ccecc19d934b8145085
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99259404"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688329"
 ---
 # <a name="redirect-hard-coded-links-for-apps-published-with-azure-ad-application-proxy"></a>Rediriger les liens codés en dur pour des applications publiées avec le Proxy d’application Azure AD
 
@@ -63,6 +63,9 @@ Avec l’extension de navigateur MyApps, toutes les URL internes publiées avec 
 Pour utiliser cette fonctionnalité, l’utilisateur doit télécharger l’extension et être connecté. Aucune autre configuration n’est nécessaire pour les administrateurs ou les utilisateurs. 
 
 Pour plus d’informations, notamment sur la configuration de cette option, consultez la documentation de [l’extension de navigateur MyApps](../user-help/my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension).
+
+> [!NOTE]
+> L’extension de navigateur MyApps ne prend pas en charge la traduction de liens pour les URL génériques.
 
 ### <a name="option-3-link-translation-setting"></a>Option 3 : Paramètre de traduction de lien 
 

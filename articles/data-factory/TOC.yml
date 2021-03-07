@@ -26,8 +26,6 @@
     - name: Créer une fabrique de données - Modèle ARM
       displayName: Resource Manager
       href: quickstart-create-data-factory-resource-manager-template.md
-    - name: Sécurité - Activer le chiffrement à clé gérée par le client
-      href: enable-customer-managed-key.md
     - name: Créer un flux de données
       href: data-flow-create.md
 - name: Tutoriels
@@ -36,7 +34,7 @@
       items:
         - name: De Stockage Blob Azure à Azure SQL Database
           items:
-            - name: Outil Copier des données
+            - name: Outil de copie des données
               href: tutorial-copy-data-tool.md
             - name: Interface utilisateur (IU)
               href: tutorial-copy-data-portal.md
@@ -44,7 +42,7 @@
               href: tutorial-copy-data-dot-net.md
         - name: D’une base de données SQL Server au Stockage Blob Azure
           items:
-            - name: Outil Copier des données
+            - name: Outil de copie des données
               href: tutorial-hybrid-copy-data-tool.md
             - name: Interface utilisateur (IU)
               href: tutorial-hybrid-copy-portal.md
@@ -173,10 +171,6 @@
       href: concepts-pipeline-execution-triggers.md
     - name: Runtime d’intégration
       href: concepts-integration-runtime.md
-    - name: Sécurité
-      items:
-        - name: Base de référence de la sécurité
-          href: security-baseline.md
     - name: Flux de données
       items:
         - name: Transformer des données avec des flux de données de mappage
@@ -439,7 +433,7 @@
           href: copy-activity-monitoring.md
         - name: Supprimer des fichiers à l’aide de l’activité de suppression
           href: delete-activity.md
-        - name: Outil Copier des données
+        - name: Outil de copie des données
           href: copy-data-tool.md
         - name: Prise en charge du format et de la compression
           href: supported-file-formats-and-compression-codecs.md
@@ -474,11 +468,11 @@
           href: control-flow-azure-function-activity.md
         - name: Activité personnalisée
           href: transform-data-using-dotnet-custom-activity.md
-        - name: Activité de Databricks Jar
+        - name: Activité Databricks Jar
           href: transform-data-databricks-jar.md
-        - name: Activité de Databricks Notebook
+        - name: Activité Databricks Notebook
           href: transform-data-databricks-notebook.md
-        - name: Activité de Databricks Python
+        - name: Activité Databricks Python
           href: transform-data-databricks-python.md
         - name: Activité de commande Data Explorer
           href: /azure/data-explorer/data-factory-command-activity?toc=/azure/data-factory/toc.json
@@ -490,7 +484,7 @@
           href: transform-data-using-hadoop-map-reduce.md
         - name: Activité Pig HDInsight
           href: transform-data-using-hadoop-pig.md
-        - name: Activité Spark HDInsight
+        - name: Activité HDInsight Spark
           href: transform-data-using-spark.md
         - name: Activité de diffusion en continu HDInsight
           href: transform-data-using-hadoop-streaming.md
@@ -506,25 +500,25 @@
           href: compute-linked-services.md
     - name: Flux de contrôle
       items:
-        - name: Ajouter une activité variable
+        - name: Activité d’ajout de variable
           href: control-flow-append-variable-activity.md
         - name: Activité d’exécution du pipeline
           href: control-flow-execute-pipeline-activity.md
         - name: Activité de filtre
           href: control-flow-filter-activity.md
-        - name: Pour chaque activité
+        - name: Activité For Each
           href: control-flow-for-each-activity.md
         - name: Activité d’obtention des métadonnées
           href: control-flow-get-metadata-activity.md
-        - name: Activité Condition si
+        - name: Activité IfCondition
           href: control-flow-if-condition-activity.md
         - name: Activité de recherche
           href: control-flow-lookup-activity.md
-        - name: Définir une activité variable
+        - name: Activité de définition de variable
           href: control-flow-set-variable-activity.md
         - name: Activité Switch
           href: control-flow-switch-activity.md
-        - name: Activité jusqu’à
+        - name: Activité Until
           href: control-flow-until-activity.md
         - name: Activité de validation
           href: control-flow-validation-activity.md
@@ -598,7 +592,7 @@
           href: data-movement-security-considerations.md
         - name: Stratégies d’accès aux données
           href: data-access-strategies.md
-        - name: Adresses IP Azure Integration Runtime
+        - name: "Adresses\_IP du runtime d’intégration Azure"
           href: azure-integration-runtime-ip-addresses.md
         - name: Informations d’identification dans Azure Key Vault
           href: store-credentials-in-key-vault.md
@@ -608,12 +602,14 @@
           href: encrypt-credentials-self-hosted-integration-runtime.md
         - name: Identité managée pour Data Factory
           href: data-factory-service-identity.md
-        - name: Chiffrement à clé gérée par le client
+        - name: Chiffrer une fabrique de données avec une clé gérée par le client
           href: enable-customer-managed-key.md
         - name: Réseau virtuel managé
           href: managed-virtual-network-private-endpoint.md
         - name: Azure Private Link pour Data Factory
           href: data-factory-private-link.md
+        - name: Base de référence de sécurité Azure
+          href: security-baseline.md
     - name: Surveillance et gestion
       items:
         - name: Surveiller visuellement

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/26/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: bbb42a4955ff0b4fbbac58830ec5c8aecf04915d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: f4dfd2c7f9dbdd111f70a5dd5a648c11eacbf7b0
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101686731"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102038541"
 ---
 # <a name="a-web-api-that-calls-web-apis-call-an-api"></a>Une API web qui appelle des API web : Appeler une API
 
@@ -29,15 +29,9 @@ Après avoir obtenu un jeton, vous pouvez appeler une API web protégée. Vous a
 
 Lorsque vous utilisez *Microsoft.Identity.Web*, vous avez trois scénarios d’utilisation :
 
-- [Une API web qui appelle des API web : Appeler une API](#a-web-api-that-calls-web-apis-call-an-api)
-  - [Code de contrôle](#controller-code)
-- [ASP.NET Core](#aspnet-core)
-      - [Option 1 : Appeler Microsoft Graph à l’aide du SDK](#option-1-call-microsoft-graph-with-the-sdk)
-      - [Option n°2 : Appeler une API web située en aval avec la classe d’assistance](#option-2-call-a-downstream-web-api-with-the-helper-class)
-      - [Option 3 : Appeler une API web située en aval sans la classe d’assistance](#option-3-call-a-downstream-web-api-without-the-helper-class)
-- [Java](#java)
-- [Python](#python)
-  - [Étapes suivantes](#next-steps)
+- [Option 1 : Appeler Microsoft Graph à l’aide du SDK](#option-1-call-microsoft-graph-with-the-sdk)
+- [Option n°2 : Appeler une API web située en aval avec la classe d’assistance](#option-2-call-a-downstream-web-api-with-the-helper-class)
+- [Option 3 : Appeler une API web située en aval sans la classe d’assistance](#option-3-call-a-downstream-web-api-without-the-helper-class)
 
 #### <a name="option-1-call-microsoft-graph-with-the-sdk"></a>Option 1 : Appeler Microsoft Graph à l’aide du SDK
 

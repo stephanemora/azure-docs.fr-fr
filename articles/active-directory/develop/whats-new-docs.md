@@ -11,16 +11,37 @@ ms.subservice: develop
 ms.topic: reference
 ms.workload: identity
 ms.author: marsma
-ms.openlocfilehash: 11f32d893ccc26dd30d9997d4348661d45f84eb8
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: 56e6d859293b91a56252372574f59c8dcc2cd80e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99225477"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687326"
 ---
 # <a name="microsoft-identity-platform-docs-whats-new"></a>Documentation relative à la plateforme d’identités Microsoft : Nouveautés
 
 Bienvenue sur cette page dédiée aux nouveautés dans la documentation relative à la plateforme d’identités Microsoft. Cet article répertorie les nouveaux documents qui ont été ajoutés et ceux qui ont subi des mises à jour significatives au cours des trois derniers mois.
+
+## <a name="february-2021"></a>Février 2021
+
+### <a name="new-articles"></a>Nouveaux articles
+
+- [Démarrage rapide : Acquérir un jeton d’accès et appeler l’API Microsoft Graph depuis une application de bureau Electron](quickstart-v2-nodejs-desktop.md)
+- [Tutoriel : Connecter des utilisateurs et appeler l’API Microsoft Graph dans une application de bureau Electron](tutorial-v2-nodejs-desktop.md)
+- [Démarrage rapide : Acquérir un jeton et appeler l’API Microsoft Graph à partir d’une application console Node.js en utilisant l’identité de l’application](quickstart-v2-nodejs-console.md)
+- [Tutoriel : Appeler l’API Microsoft Graph dans une application console Node.js](tutorial-v2-nodejs-console.md)
+- [Tutoriel : Connecter des utilisateurs dans une application web Node.js & Express](tutorial-v2-nodejs-webapp-msal.md)
+- [Prendre en charge l’authentification sans mot de passe avec des clés FIDO2 dans les applications que vous développez](support-fido2-authentication.md)
+
+### <a name="updated-articles"></a>Articles mis à jour
+
+- [Quelles sont les nouveautés en matière d’authentification ?](reference-breaking-changes.md)
+- [Utiliser MSAL.NET pour connecter les utilisateurs avec des identités sociales](msal-net-aad-b2c-considerations.md)
+- [Exemples de code de la plateforme d’identité Microsoft (point de terminaison v2.0)](sample-v2-code.md)
+- [Vidéos sur la plateforme d’identités Microsoft](identity-videos.md)
+- [Démarrage rapide : Configurer un locataire](quickstart-create-new-tenant.md)
+- [Démarrage rapide : Inscrire une application à l’aide de la plateforme d’identités Microsoft](quickstart-register-app.md)
+- [Démarrage rapide : Acquérir un jeton et appeler l’API Microsoft Graph à partir d’une application console Java à l’aide de l’identité de l’application](quickstart-v2-java-daemon.md)
 
 ## <a name="january-2021"></a>Janvier 2021
 
@@ -66,17 +87,3 @@ Bienvenue sur cette page dédiée aux nouveautés dans la documentation relative
 - [Jetons d’accès de la plateforme d’identités Microsoft](access-tokens.md)
 - [Une API web qui appelle des API web : Acquérir un jeton pour l’application](scenario-web-api-call-api-acquire-token.md)
 
-
-## <a name="november-2020"></a>Novembre 2020
-
-### <a name="new-articles"></a>Nouveaux articles
-
-- [Guide pratique pour utiliser des API dotées d’Évaluation continue de l’accès dans vos applications](app-resilience-continuous-access-evaluation.md)
-
-### <a name="updated-articles"></a>Articles mis à jour
-
-- [Jetons d’accès de la plateforme d’identités Microsoft](access-tokens.md)
-- [Options de configuration d’application (MSAL)](msal-client-application-configuration.md)
-- [Procédure : Fournir des revendications facultatives à votre application](active-directory-optional-claims.md)
-- [Publier votre application dans la galerie d’applications Azure AD](v2-howto-app-gallery-listing.md)
-- [Procédure : ajouter des rôles d’application dans votre application et les recevoir dans le jeton](howto-add-app-roles-in-azure-ad-apps.md)

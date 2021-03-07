@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/25/2021
 ms.author: jeedes
-ms.openlocfilehash: 1b65191e97402f2fb352c56664dad085c448242c
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 84d50d19a8356418a5cbf1f93784e5b8816d4be5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101650621"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101689349"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-talentlms"></a>Didacticiel : Intégration d’Azure Active Directory à TalentLMS
 
@@ -170,11 +170,11 @@ Pour permettre aux utilisateurs Azure AD de se connecter à TalentLMS, vous deve
 
     ![Ajouter un utilisateur](./media/talentlms-tutorial/IC777299.png "Ajouter un utilisateur")  
 
-    a. Dans la zone de texte **First name**, entrez le prénom de l’utilisateur, par exemple **Britta**.
+    a. Dans la zone de texte **First Name**, entrez le prénom de l’utilisateur, par exemple `Britta`.
 
-    b. Dans la zone de texte **Last name**, tapez le nom de l’utilisateur, par exemple **Simon**.
+    b. Dans la zone de texte **Last name**, tapez le nom de l’utilisateur, par exemple `Simon`.
  
-    c. Dans la zone de texte **Email**, entrez l’adresse e-mail de l’utilisateur, par exemple `brittasimon\@contoso.com`.
+    c. Dans la zone de texte **Email**, entrez l’adresse e-mail de l’utilisateur, par exemple `brittasimon@contoso.com`.
 
     d. Cliquez sur **Add User**.
 

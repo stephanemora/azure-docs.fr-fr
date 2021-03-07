@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/13/2021
+ms.date: 03/02/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f76aecc80537e6db55c8c4f2e5a7a240be6b1415
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: dcd0ccdc42a820f1e264b739cb0063516a0cb53e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98675744"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688550"
 ---
 # <a name="user-profile-attributes"></a>Attributs de profil utilisateur
 
@@ -137,7 +137,7 @@ Pour les identités fédérées, en fonction du fournisseur d’identité, **iss
 
 ## <a name="password-profile-property"></a>Propriété de profil de mot de passe
 
-Pour une identité locale, l’attribut **passwordProfile** est obligatoire et contient le mot de passe de l’utilisateur. L’attribut `forceChangePasswordNextSignIn` doit être défini sur `false`.
+Pour une identité locale, l’attribut **passwordProfile** est obligatoire et contient le mot de passe de l’utilisateur. L’attribut `forceChangePasswordNextSignIn` indique si un utilisateur doit réinitialiser le mot de passe lors de la prochaine connexion. Pour gérer une réinitialisation forcée du mot de passe, [configurez le flux de réinitialisation forcée du mot de passe](force-password-reset.md).
 
 Pour une identité (de réseau social) fédérée, l’attribut **passwordProfile** n’est pas nécessaire.
 

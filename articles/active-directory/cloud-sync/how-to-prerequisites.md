@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/11/2020
+ms.date: 03/02/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b83c9b0ece933ad71810c50e89ae296aa218ec75
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: ac247b9dc70c565621d3544d14e2f76ff12fda47
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98612499"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101689315"
 ---
 # <a name="prerequisites-for-azure-ad-connect-cloud-sync"></a>Prérequis pour la synchronisation cloud Azure AD Connect
 Cet article fournit des conseils sur la façon de choisir et d’utiliser la synchronisation cloud Azure Active Directory (Azure AD) Connect en tant que solution d’identité.
@@ -26,14 +26,14 @@ Vous avez besoin des éléments suivants pour utiliser la synchronisation cloud 
 
 - Les informations d’identification Administrateur de domaine ou Administrateur d’entreprise pour créer le compte de service managé de groupe (gMSA) Azure AD Connect Cloud Sync pour exécuter le service agent. 
 - Un compte d’administrateur d’identité hybride pour votre locataire Azure AD qui n’est pas un utilisateur invité.
-- Un serveur local pour l’agent de provisionnement avec Windows 2012 R2 ou ultérieur.  Ce serveur doit être un serveur de niveau 0 basé sur le [modèle de niveau d’administration Active Directory](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material).
+- Un serveur local pour l’agent de provisionnement avec Windows 2016 ou ultérieur.  Ce serveur doit être un serveur de niveau 0 basé sur le [modèle de niveau d’administration Active Directory](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material).
 - Des configurations de pare-feu locales.
 
 ## <a name="group-managed-service-accounts"></a>Group Managed Service Accounts
 Un compte de service managé de groupe est un compte de domaine managé qui fournit la gestion automatique des mots de passe, la gestion simplifiée du nom de principal du service (SPN), la possibilité de déléguer la gestion à d’autres administrateurs et cette fonctionnalité s’étend sur plusieurs serveurs.  Azure AD Connect Cloud Sync prend en charge et utilise un gMSA pour l’exécution de l’agent.  Vous serez invité à fournir des informations d’identification d’administration lors de l’installation, afin de créer ce compte.  Le compte s’affiche sous la forme (domain\provAgentgMSA$).  Pour plus d’informations sur un gMSA, consultez [Comptes de service managés de groupe](/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview) 
 
 ### <a name="prerequisites-for-gmsa"></a>Prérequis pour gMSA :
-1.  Le schéma Active Directory dans la forêt du domaine gMSA doit être mis à jour vers Windows Server 2012
+1.  Le schéma Active Directory dans la forêt du domaine gMSA doit être mis à jour vers Windows Server 2012.
 2.  Les [modules RSAT PowerShell](/windows-server/remote/remote-server-administration-tools) sur un contrôleur de domaine
 3.  Au moins un contrôleur de domaine dans le domaine doit exécuter Windows Server 2012.
 4.  Un serveur joint à un domaine sur lequel l’agent est en cours d’installation doit être configuré avec Windows Server 2012 ou une version ultérieure.
@@ -65,7 +65,7 @@ Exécutez l’[outil IdFix](/office365/enterprise/prepare-directory-attributes-f
 
 ### <a name="in-your-on-premises-environment"></a>Dans votre environnement local
 
-1. Identifiez un serveur hôte joint à un domaine exécutant Windows Server 2012 R2 ou ultérieur, avec au minimum 4 Go de RAM et .NET 4.7.1 + Runtime.
+1. Identifiez un serveur hôte joint à un domaine exécutant Windows Server 2016 ou ultérieur, avec au minimum 4 Go de RAM et .NET 4.7.1 + Runtime.
 
 2. La stratégie d’exécution de PowerShell sur le serveur local doit être définie sur Undefined ou sur RemoteSigned.
 

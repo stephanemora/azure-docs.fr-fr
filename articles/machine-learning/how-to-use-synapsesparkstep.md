@@ -1,25 +1,25 @@
 ---
 title: Utiliser Apache Spark dans un pipeline de Machine Learning (préversion)
 titleSuffix: Azure Machine Learning
-description: Liez votre espace de travail Synapse à votre pipeline de Machine Learning Azure afin d’utiliser Spark pour la manipulation des données.
+description: Liez votre espace de travail Azure Synapse Analytics à votre pipeline Azure Machine Learning afin d’utiliser Apache Spark pour la manipulation des données.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.author: laobri
 author: lobrien
-ms.date: 02/25/2021
+ms.date: 03/04/2021
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: a912bc5abcdadf3f8eca46f805c433d3a1058c68
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: ea7dc30d0aed1350a8c9275d786ea22fa52c77bf
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101660326"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102203689"
 ---
-# <a name="how-to-use-apache-spark-in-your-machine-learning-pipeline-with-azure-synapse-preview"></a>Guide pratique pour utiliser Apache Spark dans votre pipeline de Machine Learning avec Azure Synapse (préversion)
+# <a name="how-to-use-apache-spark-powered-by-azure-synapse-analytics-in-your-machine-learning-pipeline-preview"></a>Guide pratique pour utiliser Apache Spark (alimenté par Azure Synapse Analytics) dans votre pipeline Machine Learning (préversion)
 
-Dans cet article, vous allez apprendre à utiliser des pools Apache Spark avec Synapse comme cible de calcul pour une étape de préparation des données dans un pipeline Azure Machine Learning. Vous découvrirez comment un même pipeline peut utiliser des ressources de calcul adaptées à l’étape spécifique, telle que la préparation des données ou l’entraînement. Vous verrez comment les données sont préparées pour l’étape Spark et comment elles sont passées à l’étape suivante. 
+Dans cet article, vous allez apprendre à utiliser des pools Apache Spark alimentés par Azure Synapse Analytics comme cible de calcul pour une étape de préparation des données dans un pipeline Azure Machine Learning. Vous découvrirez comment un même pipeline peut utiliser des ressources de calcul adaptées à l’étape spécifique, telle que la préparation des données ou l’entraînement. Vous verrez comment les données sont préparées pour l’étape Spark et comment elles sont passées à l’étape suivante. 
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -27,27 +27,27 @@ Dans cet article, vous allez apprendre à utiliser des pools Apache Spark avec S
 
 * [Configurez votre environnement de développement](how-to-configure-environment.md) pour installer le SDK Azure Machine Learning ou utilisez une [instance de calcul Azure Machine Learning](concept-compute-instance.md) avec le SDK déjà installé.
 
-* Créez un espace de travail Synapse et un pool Apache Spark (voir [Démarrage rapide : Créer un pool Apache Spark serverless avec Synapse Studio](../synapse-analytics/quickstart-create-apache-spark-pool-studio.md)). 
+* Créez un espace de travail Azure Synapse Analytics et un pool Apache Spark (voir [Démarrage rapide : Créer un pool Apache Spark serverless avec Synapse Studio](../synapse-analytics/quickstart-create-apache-spark-pool-studio.md)). 
 
-## <a name="link-your-machine-learning-workspace-and-synapse-workspace"></a>Lier votre espace de travail de Machine Learning et votre espace de travail Synapse 
+## <a name="link-your-azure-machine-learning-workspace-and-azure-synapse-analytics-workspace"></a>Lier votre espace de travail Azure Machine Learning et l’espace de travail Azure Synapse Analytics 
 
-Vous créez et administrez vos pools Apache Spark dans un espace de travail Synapse. Pour intégrer un pool Spark à un espace de travail Azure Machine Learning, vous devez créer un lien vers l’espace de travail Synapse. 
+Vous créez et administrez vos pools Apache Spark dans un espace de travail Azure Synapse Analytics. Pour intégrer un pool Apache Spark à un espace de travail Azure Machine Learning, vous devez créer un lien vers l’espace de travail Azure Synapse Analytics. 
 
-Vous pouvez attacher un pool Synapse Spark par le biais de l’interface utilisateur d’Azure Machine Learning Studio à l’aide de la page **Services liés**. Vous pouvez également le faire par le biais de la page **Calcul** avec l’option **Joindre un calcul**.
+Vous pouvez attacher un pool Apache Spark par le biais de l’interface utilisateur d’Azure Machine Learning Studio à l’aide de la page **Services liés**. Vous pouvez également le faire par le biais de la page **Calcul** avec l’option **Joindre un calcul**.
 
-Vous pouvez également attacher un pool Synapse Spark par le biais d’un SDK (comme indiqué ci-dessous) ou d’un modèle ARM (voir cet [exemple de modèle ARM](https://github.com/Azure/azure-quickstart-templates/blob/master/101-machine-learning-linkedservice-create/azuredeploy.json)). 
+Vous pouvez également attacher un pool Apache Spark par le biais d’un SDK (comme indiqué ci-dessous) ou d’un modèle ARM (voir cet [exemple de modèle ARM](https://github.com/Azure/azure-quickstart-templates/blob/master/101-machine-learning-linkedservice-create/azuredeploy.json)). 
 
-Vous pouvez utiliser la ligne de commande pour suivre le modèle ARM, ajouter le service lié et attacher le pool Synapse à l’aide du code suivant :
+Vous pouvez utiliser la ligne de commande pour suivre le modèle ARM, ajouter le service lié et attacher le pool Apache Spark à l’aide du code suivant :
 
 ```bash
 az deployment group create --name --resource-group <rg_name> --template-file "azuredeploy.json" --parameters @"azuredeploy.parameters.json"
 ```
 
 > [!Important]
-> Pour établir correctement une liaison à l’espace de travail Synapse, vous devez disposer du rôle Propriétaire dans la ressource de l’espace de travail Synapse. Vérifiez votre accès dans le portail Azure.
+> Pour établir correctement une liaison à l’espace de travail Azure Synapse Analytics, vous devez disposer du rôle Propriétaire dans la ressource de l’espace de travail Azure Synapse Analytics. Vérifiez votre accès dans le portail Azure.
 > Le service lié obtient une identité attribuée par le système quand vous le créez. Vous devez attribuer à cette identité du service de liaison le rôle « Administrateur Synapse Apache Spark » de Synapse Studio afin qu’elle puisse envoyer le travail Spark (voir [Gestion des attributions de rôles RBAC Synapse dans Synapse Studio](../synapse-analytics/security/how-to-manage-synapse-rbac-role-assignments.md)). Vous devez également attribuer à l’utilisateur de l’espace de travail Azure Machine Learning le rôle « Contributeur » à partir du portail Azure de la gestion des ressources.
 
-## <a name="create-or-retrieve-the-link-between-your-synapse-workspace-and-your-azure-machine-learning-workspace"></a>Créer ou récupérer le lien entre votre espace de travail Synapse et votre espace de travail Azure Machine Learning
+## <a name="create-or-retrieve-the-link-between-your-azure-synapse-analytics-workspace-and-your-azure-machine-learning-workspace"></a>Créer ou récupérer le lien entre votre espace de travail Azure Synapse Analytics et votre espace de travail Azure Machine Learning
 
 Vous pouvez récupérer des services liés dans votre espace de travail à l’aide d’un code tel que celui-ci :
 
@@ -65,9 +65,9 @@ linked_service = LinkedService.get(ws, 'synapselink1')
 
 Tout d’abord, `Workspace.from_config()` accède à votre espace de travail Azure Machine Learning à l’aide de la configuration définie dans `config.json` (voir [Didacticiel : Bien démarrer avec Azure Machine Learning dans votre environnement de développement](tutorial-1st-experiment-sdk-setup-local.md)). Ensuite, le code affiche tous les services liés disponibles dans l’espace de travail. Enfin, `LinkedService.get()` récupère un service lié nommé `'synapselink1'`. 
 
-## <a name="attach-your-synapse-spark-pool-as-a-compute-target-for-azure-machine-learning"></a>Attacher votre pool Synapse Spark en tant que cible de calcul pour Azure Machine Learning
+## <a name="attach-your-apache-spark-pool-as-a-compute-target-for-azure-machine-learning"></a>Attacher votre pool Apache Spark en tant que cible de calcul pour Azure Machine Learning
 
-Pour utiliser votre pool Synapse Spark afin d’alimenter une étape de votre pipeline de Machine Learning, vous devez l’attacher en tant que `ComputeTarget` pour l’étape de pipeline, comme illustré dans le code suivant.
+Pour utiliser votre pool Apache Spark afin d’alimenter une étape de votre pipeline Machine Learning, vous devez l’attacher en tant que `ComputeTarget` pour l’étape de pipeline, comme illustré dans le code suivant.
 
 ```python
 from azureml.core.compute import SynapseCompute, ComputeTarget
@@ -85,13 +85,11 @@ synapse_compute=ComputeTarget.attach(
 synapse_compute.wait_for_completion()
 ```
 
-La première étape consiste à configurer le `SynapseCompute`. L’argument `linked_service` est l’objet `LinkedService` que vous avez créé ou récupéré à l’étape précédente. L’argument `type` doit être `SynapseSpark`. L’argument `pool_name` dans `SynapseCompute.attach_configuration()` doit correspondre à celui d’un pool existant dans votre espace de travail Synapse. Pour plus d’informations sur la création d’un pool Apache Spark dans l’espace de travail Synapse, consultez [Démarrage rapide : Créer un pool Apache Spark serverless avec Synapse Studio](../synapse-analytics/quickstart-create-apache-spark-pool-studio.md). Le type de `attach_config` est `ComputeTargetAttachConfiguration`.
+La première étape consiste à configurer le `SynapseCompute`. L’argument `linked_service` est l’objet `LinkedService` que vous avez créé ou récupéré à l’étape précédente. L’argument `type` doit être `SynapseSpark`. L’argument `pool_name` dans `SynapseCompute.attach_configuration()` doit correspondre à celui d’un pool existant dans votre espace de travail Azure Synapse Analytics. Pour plus d’informations sur la création d’un pool Apache Spark dans l’espace de travail Azure Synapse Analytics, consultez [Démarrage rapide : Créer un pool Apache Spark serverless avec Synapse Studio](../synapse-analytics/quickstart-create-apache-spark-pool-studio.md). Le type de `attach_config` est `ComputeTargetAttachConfiguration`.
 
 Une fois la configuration créée, vous créez une `ComputeTarget` de Machine Learning en passant le `Workspace`, la `ComputeTargetAttachConfiguration` et le nom par lequel vous souhaitez faire référence au calcul dans l’espace de travail de Machine Learning. L’appel à `ComputeTarget.attach()` étant asynchrone, l’exemple se bloque jusqu’à la fin de l’appel.
 
 ## <a name="create-a-synapsesparkstep-that-uses-the-linked-apache-spark-pool"></a>Créer une `SynapseSparkStep` qui utilise le pool Apache Spark lié
-
-L’exemple de notebook [Spark job on Synapse spark pool](https://github.com/azure/machinelearningnotebooks) (Travail Spark sur le pool Synapse Spark) définit un pipeline de Machine Learning simple. Tout d’abord, le notebook définit une étape de préparation des données gérée par le `synapse_compute` défini à l’étape précédente. Ensuite, le notebook définit une étape d’entraînement gérée par une cible de calcul mieux adaptée à l’entraînement. L’exemple de notebook utilise la base de données Titanic Survival pour démontrer l’entrée et la sortie de données ; il ne nettoie pas les données et ne crée pas de modèle prédictif à proprement parler. Étant donné qu’il n’y a pas d’entraînement réel dans cet exemple, l’étape d’entraînement utilise une ressource de calcul basée sur le processeur peu coûteuse.
 
 Les données circulent dans un pipeline de Machine Learning par le biais d’objets `DatasetConsumptionConfig`, qui peuvent contenir des données tabulaires ou des ensembles de fichiers. Les données proviennent souvent de fichiers d’un stockage d’objets blob situé dans le magasin de données d’un espace de travail. Le code suivant illustre un code standard permettant de créer une entrée pour un pipeline de Machine Learning :
 
@@ -123,7 +121,7 @@ step1_output = HDFSOutputDatasetConfig(destination=(datastore,"test")).register_
 
 En l’occurrence, les données sont stockées dans le `datastore` dans un fichier appelé `test` et sont disponibles dans l’espace de travail de Machine Learning en tant que `Dataset` avec le nom `registered_dataset`.
 
-En plus des données, une étape de pipeline peut avoir des dépendances Python par étape. Les objets `SynapseSparkStep` individuels peuvent également spécifier leur configuration Synapse précise. Cela est illustré dans le code suivant, qui spécifie que la version du package `azureml-core` doit être au moins égale à `1.20.0`. (Comme mentionné plus haut, cette exigence pour `azureml-core` est nécessaire pour utiliser un `FileDataset` comme entrée.)
+En plus des données, une étape de pipeline peut avoir des dépendances Python par étape. Les objets `SynapseSparkStep` individuels peuvent également spécifier leur configuration Azure Synapse Apache Spark précise. Cela est illustré dans le code suivant, qui spécifie que la version du package `azureml-core` doit être au moins égale à `1.20.0`. (Comme mentionné plus haut, cette exigence pour `azureml-core` est nécessaire pour utiliser un `FileDataset` comme entrée.)
 
 ```python
 from azureml.core.environment import Environment
@@ -191,7 +189,7 @@ sdf.coalesce(1).write\
 .csv(args.output_dir)
 ```
 
-Ce script de préparation des données n’effectue aucune transformation de données réelle, mais il montre comment récupérer des données, les convertir en dataframe Spark et effectuer certaines manipulations Spark de base. Vous pouvez trouver la sortie dans Azure Machine Learning Studio en ouvrant l’exécution enfant, en choisissant l’onglet **Sorties + journaux** et en ouvrant le fichier `logs/azureml/driver/stdout`, comme indiqué dans l’illustration suivante.
+Ce script de préparation des données n’effectue aucune transformation de données réelle, mais il montre comment récupérer des données, les convertir en dataframe Spark et effectuer certaines manipulations Apache Spark de base. Vous pouvez trouver la sortie dans Azure Machine Learning Studio en ouvrant l’exécution enfant, en choisissant l’onglet **Sorties + journaux** et en ouvrant le fichier `logs/azureml/driver/stdout`, comme indiqué dans l’illustration suivante.
 
 :::image type="content" source="media/how-to-use-synapsesparkstep/synapsesparkstep-stdout.png" alt-text="Capture d’écran de Studio montrant l’onglet stdout de l’exécution enfant":::
 
@@ -228,14 +226,14 @@ Le code ci-dessus crée la ressource de calcul si nécessaire. Ensuite, le résu
 
 Après avoir défini toutes vos étapes, vous pouvez créer et exécuter votre pipeline. 
 
-```
+```python
 from azureml.pipeline.core import Pipeline
 
 pipeline = Pipeline(workspace=ws, steps=[step_1, step_2])
 pipeline_run = pipeline.submit('synapse-pipeline', regenerate_outputs=True)
 ```
 
-Le code ci-dessus crée un pipeline constitué de l’étape de préparation des données gérée par Synapse (`step_1`) et de l’étape d’entraînement (`step_2`). Azure calcule le graphique d’exécution en examinant les dépendances de données entre les étapes. En l’occurrence, il n’existe qu’une dépendance simple selon laquelle `step2_input` nécessite obligatoirement `step1_output`.
+Le code ci-dessus crée un pipeline constitué de l’étape de préparation des données sur des pools Apache Spark gérés par Azure Synapse Analytics (`step_1`) et de l’étape d’entraînement (`step_2`). Azure calcule le graphique d’exécution en examinant les dépendances de données entre les étapes. En l’occurrence, il n’existe qu’une dépendance simple selon laquelle `step2_input` nécessite obligatoirement `step1_output`.
 
 L’appel à `pipeline.submit` crée, si nécessaire, une expérience appelée `synapse-pipeline` et y commence une exécution de manière asynchrone. Les étapes individuelles au sein du pipeline sont exécutées en tant qu’exécutions enfants de cette exécution principale et peuvent être supervisées et consultées dans la page Expériences de Studio.
 

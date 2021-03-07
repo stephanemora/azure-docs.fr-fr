@@ -16,12 +16,12 @@ ms.date: 07/17/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b45decd2f2cf9c99cffb0e08d4d6a5c5cfafc67
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: e10aa5d96722b414d7384ceb81f393575d57e2a2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96858397"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688771"
 ---
 # <a name="azure-ad-connect-how-to-recover-from-localdb-10-gb-limit"></a>Azure AD Connect : Comment récupérer depuis la limite de 10 Go de base de données locale
 Azure AD Connect nécessite une base de données SQL Server pour stocker les données d’identité. Vous pouvez utiliser la base de données locale par défaut de SQL Server 2012 installée avec Azure AD Connect ou utiliser votre propre base de données SQL complète. SQL Server Express impose une limite de taille de 10 Go. Lorsque vous utilisez la base de données locale et que cette limite est atteinte, le service de synchronisation Azure AD Connect ne peut plus démarrer ou se synchroniser correctement. Cet article indique les étapes de récupération.
@@ -74,7 +74,7 @@ Le nom de la base de données créée pour Azure AD Connect est **ADSync**. Pour
 
 4. Démarrez l’utilitaire **sqlcmd** en exécutant la commande `./SQLCMD.EXE -S "(localdb)\.\ADSync" -U <Username> -P <Password>`, à l’aide des informations d’identification de l’administrateur système ou du propriétaire de la base de données.
 
-5. Pour réduire la base de données, à l’invite sqlcmd (1>), entrez `DBCC Shrinkdatabase(ADSync,1);` suivi par `GO` dans la ligne suivante.
+5. Pour réduire la base de données, à l’invite sqlcmd (`1>`), entrez `DBCC Shrinkdatabase(ADSync,1);` suivi par `GO` dans la ligne suivante.
 
 6. Si l’opération réussit, essayez de redémarrer le service de synchronisation. Si vous pouvez démarrer le service de synchronisation, passez à l’étape [Supprimer les données d’historique d’exécution](#delete-run-history-data). Sinon, contactez le support.
 
