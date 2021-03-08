@@ -4,21 +4,21 @@ description: Découvrez comment utiliser le portail Azure, l’interface CLI ou 
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
-ms.date: 09/18/2018
-ms.openlocfilehash: 015a84ab6f81875407f460c4a45423f3f5e22b7f
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.date: 02/14/2021
+ms.openlocfilehash: 854867bb6f40bdd8f0fac28e69d936a4027760b5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100600352"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714372"
 ---
 # <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>Créer, afficher et gérer des alertes de métrique classiques à l’aide d’Azure Monitor
 
 > [!WARNING]
-> Cet article décrit comment créer des alertes de métriques classiques plus anciennes. Azure Monitor prend désormais en charge de [nouvelles alertes de métrique quasi en temps réel et une nouvelle expérience d’alertes](../platform/alerts-overview.md). Les alertes classiques sont [mises hors service](../platform/monitoring-classic-retirement.md) pour les utilisateurs du cloud public, bien qu’elles soient toujours utilisées de manière limitée pour les ressources qui ne prennent pas encore en charge les nouvelles alertes.
+> Cet article décrit comment créer des alertes de métriques classiques plus anciennes. Azure Monitor prend désormais en charge de [nouvelles alertes de métrique quasi en temps réel et une nouvelle expérience d’alertes](./alerts-overview.md). Les alertes classiques sont [retirées](./monitoring-classic-retirement.md) pour les utilisateurs du cloud public, avec une utilisation limitée jusqu’au **31 mai 2021**. Les alertes classiques pour Azure Government Cloud et Azure China 21Vianet seront mises hors service le **29 février 2024**.
 >
 
-Dans Azure Monitor, les alertes de métrique classiques vous avertissent lorsque l’une de vos métriques dépasse un certain seuil. Les alertes de métriques classiques constituent une ancienne fonctionnalité qui permet d’obtenir des alertes uniquement sur les métriques sans dimensions. Il existe une fonctionnalité plus récente et plus avancée : alertes de métrique. Vous pouvez en savoir plus sur la nouvelle fonctionnalité d’alertes de métrique dans la [vue d’ensemble des alertes de métrique](../platform/alerts-metric-overview.md). Dans cet article, nous allons décrire comment créer, afficher et gérer des règles d’alerte de métrique classique via le portail Azure, Azure CLI et PowerShell.
+Dans Azure Monitor, les alertes de métrique classiques vous avertissent lorsque l’une de vos métriques dépasse un certain seuil. Les alertes de métriques classiques constituent une ancienne fonctionnalité qui permet d’obtenir des alertes uniquement sur les métriques sans dimensions. Il existe une fonctionnalité plus récente et plus avancée : alertes de métrique. Vous pouvez en savoir plus sur la nouvelle fonctionnalité d’alertes de métrique dans la [vue d’ensemble des alertes de métrique](./alerts-metric-overview.md). Dans cet article, nous allons décrire comment créer, afficher et gérer des règles d’alerte de métrique classique via le portail Azure, Azure CLI et PowerShell.
 
 ## <a name="with-azure-portal"></a>Avec le Portail Azure
 
@@ -134,6 +134,5 @@ Cette section montre comment utiliser les commandes PowerShell pour créer, affi
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Créer une alerte de métrique classique avec un modèle Resource Manager](../platform/alerts-enable-template.md)
-- [Recevoir une alerte de métrique classique pour notifier un système non-Azure à l’aide d’un webhook](../platform/alerts-webhooks.md)
-
+- [Créer une alerte de métrique classique avec un modèle Resource Manager](./alerts-enable-template.md)
+- [Recevoir une alerte de métrique classique pour notifier un système non-Azure à l’aide d’un webhook](./alerts-webhooks.md)

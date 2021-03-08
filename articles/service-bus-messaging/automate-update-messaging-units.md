@@ -3,12 +3,12 @@ title: Azure Service Bus – Mettre à jour automatiquement les unités de messa
 description: Cet article vous explique de quelle façon vous pouvez mettre à jour automatiquement les unités de messagerie d’un espace de noms Service Bus.
 ms.topic: how-to
 ms.date: 09/15/2020
-ms.openlocfilehash: 932c7bb1235cb54aefe67253e38e1683187f4d2c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 594f9987bfa5a7a439fb862a0345d0004785b189
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100581636"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720594"
 ---
 # <a name="automatically-update-messaging-units-of-an-azure-service-bus-namespace"></a>Mettre à jour automatiquement les unités de messagerie d’un espace de noms Azure Service Bus 
 La mise à l’échelle automatique vous permet de disposer de la bonne quantité de ressources en cours d’exécution pour gérer la charge sur votre application. Elle vous permet d’ajouter des ressources pour gérer les augmentations de charge et d’économiser de l’argent en supprimant les ressources qui sont inactives. Pour en savoir plus sur la fonctionnalité de mise à l’échelle automatique d’Azure Monitor, consultez [Vue d’ensemble de la mise à l’échelle automatique dans Microsoft Azure](../azure-monitor/autoscale/autoscale-overview.md). 
@@ -57,7 +57,7 @@ Vous pouvez configurer la mise à l’échelle automatique des unités de messag
 Vous ne pouvez pas définir une planification de mise à l’échelle automatique selon des jours ou une plage de dates spécifiques pour une condition par défaut. Cette condition de mise à l’échelle est exécutée quand aucune des autres conditions de mise à l’échelle avec planifications ne correspond. 
 
 ### <a name="scale-based-on-a-metric"></a>Mettre à l’échelle selon une métrique
-La procédure suivante vous montre comment ajouter une condition pour augmenter automatiquement les unités de messagerie (scale-out) quand l’utilisation du processeur est supérieure à 75 % et diminuer les unités de messagerie (scale-in) quand elle est inférieure à 25 %. Les incréments sont effectués de 1 à 2, de 2 à 4 et de 4 à 8. De même, les décrémentations sont effectuées de 8 à 4, de 4 à 2 et de 2 à 1. 
+La procédure suivante vous montre comment ajouter une condition pour augmenter automatiquement les unités de messagerie (scale-out) quand l’utilisation du processeur est supérieure à 75 % et diminuer les unités de messagerie (scale-in) quand elle est inférieure à 25 %. Les incrémentations sont effectuées de 1 à 2, de 2 à 4, de 4 à 8 et de 8 à 16. De même, les décrémentations sont effectuées de 16 à 8, de 8 à 4, de 4 à 2 et de 2 à 1. 
 
 1. Dans la page **Paramètre de mise à l’échelle automatique**, sélectionnez **Mise à l’échelle automatique personnalisée** pour l’option **Choisir comment mettre à l’échelle vos ressources**. 
 1. Dans la section **Par défaut** de la page, spécifiez un **nom** pour la condition par défaut. Sélectionnez l’icône en forme de **crayon** pour modifier le texte. 
@@ -74,7 +74,7 @@ La procédure suivante vous montre comment ajouter une condition pour augmenter 
         :::image type="content" source="./media/automate-update-messaging-units/scale-rule-cpu-75.png" alt-text="Par défaut - Scale-out si l’utilisation du processeur est supérieure à 75 %":::       
 
         > [!NOTE]
-        > La fonctionnalité de mise à l’échelle automatique augmente les unités de messagerie de l’espace de noms si l’utilisation globale du processeur dépasse 75 % dans cet exemple. Les incréments sont effectués de 1 à 2, de 2 à 4 et de 4 à 8. 
+        > La fonctionnalité de mise à l’échelle automatique augmente les unités de messagerie de l’espace de noms si l’utilisation globale du processeur dépasse 75 % dans cet exemple. Les incrémentations sont effectuées de 1 à 2, de 2 à 4, de 4 à 8 et de 8 à 16. 
 1. Sélectionnez une nouvelle fois **+ Ajouter une règle**, puis procédez comme suit dans la page **Règle de mise à l’échelle** :
     1. Sélectionnez une métrique dans la liste déroulante **Nom de la métrique**. Dans cet exemple, il s’agit de **Processeur**. 
     1. Sélectionnez un opérateur et des valeurs de seuil. Dans cet exemple, il s’agit des valeurs **Inférieur à** et **25** pour **Seuil de métrique pour déclencher l’action de mise à l’échelle**. 
@@ -84,7 +84,7 @@ La procédure suivante vous montre comment ajouter une condition pour augmenter 
         :::image type="content" source="./media/automate-update-messaging-units/scale-rule-cpu-25.png" alt-text="Par défaut - Scale-in si l’utilisation du processeur est inférieure à 25%":::       
 
         > [!NOTE]
-        > La fonctionnalité de mise à l’échelle automatique diminue les unités de messagerie de l’espace de noms si l’utilisation globale du processeur est inférieure à 25 % dans cet exemple. Les décrémentations sont effectuées de 8 à 4, de 4 à 2 et de 2 à 1. 
+        > La fonctionnalité de mise à l’échelle automatique diminue les unités de messagerie de l’espace de noms si l’utilisation globale du processeur est inférieure à 25 % dans cet exemple. Les décrémentations sont effectuées de 16 à 8, de 8 à 4, de 4 à 2 et de 2 à 1. 
 1. Définissez le nombre **minimal**, **maximal** et **par défaut** d’unités de messagerie.
 
     :::image type="content" source="./media/automate-update-messaging-units/default-scale-metric-based.png" alt-text="Règle par défaut basée sur une métrique":::

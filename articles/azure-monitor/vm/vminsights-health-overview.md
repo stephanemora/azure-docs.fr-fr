@@ -1,26 +1,25 @@
 ---
-title: Intégrité des invités Azure Monitor pour machines virtuelles (préversion)
-description: Vue d’ensemble de la fonctionnalité d’intégrité d’Azure Monitor pour machines virtuelles, notamment la façon dont vous pouvez voir l’intégrité de vos machines virtuelles et recevoir des alertes quand une machine virtuelle devient non saine.
-ms.subservice: ''
+title: Intégrité de l’invité de VM Insights (préversion)
+description: Vue d’ensemble de la fonctionnalité d’intégrité dans VM Insights, notamment la façon dont vous pouvez voir l’intégrité de vos machines virtuelles et recevoir des alertes quand une machine virtuelle devient non saine.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/27/2020
-ms.openlocfilehash: 96bed9f3b04e54e2e9a5234d78f9a2660126742e
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 2922ca4068531c45e6acad0ce54aa96624c6238e
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100598716"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102052124"
 ---
-# <a name="azure-monitor-for-vms-guest-health-preview"></a>Intégrité des invités Azure Monitor pour machines virtuelles (préversion)
-L’intégrité des invités Azure Monitor pour machines virtuelles vous permet de voir l’état d’intégrité d’une machine virtuelle tel que défini par un ensemble de mesures de performances échantillonnées à des intervalles réguliers à partir du système d’exploitation invité. Vous pouvez vérifier rapidement l’intégrité de toutes les machines virtuelles d’un abonnement ou d’un groupe de ressources, explorer en détail l’état d’intégrité d’une machine virtuelle spécifique ou être averti de manière proactive quand une machine virtuelle devient non saine. 
+# <a name="vm-insights-guest-health-preview"></a>Intégrité de l’invité de VM Insights (préversion)
+L’intégrité des invités de VM Insights vous permet de voir l’état d’intégrité d’une machine virtuelle tel que défini par un ensemble de mesures de performances échantillonnées à des intervalles réguliers à partir du système d’exploitation invité. Vous pouvez vérifier rapidement l’intégrité de toutes les machines virtuelles d’un abonnement ou d’un groupe de ressources, explorer en détail l’état d’intégrité d’une machine virtuelle spécifique ou être averti de manière proactive quand une machine virtuelle devient non saine. 
 
 ## <a name="enable-virtual-machine-health"></a>Activer l’intégrité d’une machine virtuelle
-Pour plus d’informations sur l’activation de la fonctionnalité d’intégrité des invités et l’intégration de machines virtuelles, consultez [Activer l’intégrité des invités Azure Monitor pour machines virtuelles (préversion)](vminsights-health-enable.md).
+Pour plus d’informations sur l’activation de la fonctionnalité d’intégrité des invités et l’intégration de machines virtuelles, consultez [Activer l’intégrité de l’invité de VM Insights (préversion)](vminsights-health-enable.md).
 
 ## <a name="pricing"></a>Tarifs
-Il n’y a aucun coût direct pour la fonctionnalité d’intégrité des invités, mais il y a un coût pour l’ingestion et le stockage des données d’état d’intégrité dans l’espace de travail Log Analytics. Toutes les données sont stockées dans la table *HealthStateChangeEvent*. Pour plus d’informations sur les modèles tarifaires et les coûts, consultez [Gérer l’utilisation et les coûts avec les journaux Azure Monitor](../platform/manage-cost-storage.md).
+Il n’y a aucun coût direct pour la fonctionnalité d’intégrité des invités, mais il y a un coût pour l’ingestion et le stockage des données d’état d’intégrité dans l’espace de travail Log Analytics. Toutes les données sont stockées dans la table *HealthStateChangeEvent*. Pour plus d’informations sur les modèles tarifaires et les coûts, consultez [Gérer l’utilisation et les coûts avec les journaux Azure Monitor](../logs/manage-cost-storage.md).
 
 ## <a name="view-virtual-machine-health"></a>Voir l’intégrité des machines virtuelles
 La colonne **Intégrité de la machine virtuelle invitée** de la page **Démarrer** vous donne un aperçu rapide de l’intégrité de chaque machine virtuelle dans un abonnement ou un groupe de ressources particulier. L’intégrité actuelle de chaque machine virtuelle est affichée, des icônes pour chaque groupe montrant le nombre de machines virtuelles de ce groupe ayant ces états.
@@ -95,7 +94,7 @@ Sélectionnez un moniteur pour voir ses détails, qui comprennent les onglets su
 [![Historique des détails du moniteur](media/vminsights-health-overview/monitor-details-history.png)](media/vminsights-health-overview/monitor-details-history.png#lightbox)
 
 ### <a name="configuration"></a>Configuration
-Affichez et modifiez la configuration du moniteur pour la machine virtuelle sélectionnée. Pour plus d’informations, consultez [Configurer la supervision de l’intégrité des invités Azure Monitor pour machines virtuelles](vminsights-health-enable.md).
+Affichez et modifiez la configuration du moniteur pour la machine virtuelle sélectionnée. Pour plus d’informations, consultez [Configurer la surveillance dans l’intégrité de l’invité de VM Insights (préversion)](vminsights-health-enable.md)
 
 [![Configuration des détails du moniteur](media/vminsights-health-overview/monitor-details-configuration.png)](media/vminsights-health-overview/monitor-details-configuration.png#lightbox)
 
@@ -104,6 +103,6 @@ Affichez et modifiez la configuration du moniteur pour la machine virtuelle sél
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Activer l’intégrité des invités dans Azure Monitor pour machines virtuelles et intégrer des agents](vminsights-health-enable.md)
+- [Activer l’intégrité des invités dans VM Insights et les agents intégrés.](vminsights-health-enable.md)
 - [Configurer des moniteurs en utilisant le portail Azure](vminsights-health-configure.md)
 - [Configurer des moniteurs en utilisant des règles de collecte des données](vminsights-health-configure-dcr.md)

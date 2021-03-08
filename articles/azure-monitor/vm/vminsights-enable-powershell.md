@@ -1,33 +1,33 @@
 ---
-title: Activer Azure Monitor pour machines virtuelles à l’aide de PowerShell
-description: Décrit comment activer Azure Monitor pour machines virtuelles pour des machines virtuelles ou des groupe de machines virtuelles identiques Azure à l’aide d’Azure Policy.
+title: Activer VM Insights à l’aide de PowerShell
+description: Décrit comment activer VM Insights pour des machines virtuelles ou des groupe de machines virtuelles identiques Azure à l’aide d’Azure PowerShell.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 83b17e021ce8003b5dbd279886edfdc199f58ce3
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 47ac71797684f82dfd94acff2d18bca11b2f50d1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100600115"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717075"
 ---
-# <a name="enable-azure-monitor-for-vms-using-powershell"></a>Activer Azure Monitor pour machines virtuelles à l’aide de PowerShell
-Cet article explique comment activer Azure Monitor pour machines virtuelles sur des machines virtuelles Azure à l’aide de PowerShell. Cette procédure peut être utilisée pour les éléments suivants :
+# <a name="enable-vm-insights-using-powershell"></a>Activer VM Insights à l’aide de PowerShell
+Cet article explique comment activer VM Insights sur des machines virtuelles Azure à l’aide de PowerShell. Cette procédure peut être utilisée pour les éléments suivants :
 
 - Machine virtuelle Azure
 - Groupe de machines virtuelles identiques Azure
 
 ## <a name="prerequisites"></a>Prérequis
 
-- [Créer et configurer un espace de travail Log Analytics](../insights/vminsights-configure-workspace.md)
-- Pour vous assurer que le système d’exploitation de la machine virtuelle ou du groupe de machines virtuelles identiques que vous activez est pris en charge, consulter [Systèmes d’exploitation pris en charge](../insights/vminsights-enable-overview.md#supported-operating-systems). 
+- [Créer et configurer un espace de travail Log Analytics](./vminsights-configure-workspace.md)
+- Pour vous assurer que le système d’exploitation de la machine virtuelle ou du groupe de machines virtuelles identiques que vous activez est pris en charge, consulter [Systèmes d’exploitation pris en charge](./vminsights-enable-overview.md#supported-operating-systems). 
 
 
 ## <a name="powershell-script"></a>Script PowerShell
 
-Si vous souhaitez activer Azure Monitor pour machines virtuelles pour plusieurs machines virtuelles ou des groupes de machines virtuelles identiques, utilisez le script PowerShell [Install-VMInsights.ps1](https://www.powershellgallery.com/packages/Install-VMInsights) disponible dans la galerie Azure PowerShell. Ce script effectue une itération au sein des groupes suivants :
+Si vous souhaitez activer VM Insights pour plusieurs machines virtuelles ou groupes de machines virtuelles identiques, utilisez le script PowerShell [Install-VMInsights.ps1](https://www.powershellgallery.com/packages/Install-VMInsights) disponible dans Azure PowerShell Gallery. Ce script effectue une itération au sein des groupes suivants :
 
 - Chaque machine virtuelle et groupe de machines virtuelles identiques dans votre abonnement.
 - Le groupe de ressources à portée spécifié par *ResourceGroup*.
@@ -139,7 +139,7 @@ PARAMETERS
     Specify to use a PolicyAssignmentName for source and to reinstall (move to a new workspace)
 ```
 
-L’exemple suivant illustre l’utilisation des commandes PowerShell dans le dossier pour activer Azure Monitor pour machines virtuelles et comprendre la sortie attendue :
+L’exemple suivant illustre l’utilisation des commandes PowerShell dans le dossier pour activer VM Insights et comprendre la sortie attendue :
 
 ```powershell
 $WorkspaceId = "<GUID>"
@@ -190,5 +190,5 @@ Failed: (0)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour découvrir les dépendances d’applications détectées, consultez [Utilisation de la fonctionnalité Map d’Azure Monitor pour machines virtuelles](vminsights-maps.md). 
+* Pour afficher les dépendances d’applications découvertes, consultez [Utiliser la Carte VM Insights](vminsights-maps.md). 
 * Pour identifier les goulots d’étranglement, l’utilisation globale et les performances de votre machine virtuelle, consultez [Afficher les performances des machines virtuelles Azure](vminsights-performance.md).

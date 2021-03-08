@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - device-developer
-ms.openlocfilehash: 028088087b16ded182042aadec4be08a4b8a9589
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: 4db7c9fdfd439e049ca76fec6f0e66bd4a37fffd
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99062676"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702706"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Se connecter à Azure IoT Central
 
@@ -217,7 +217,44 @@ Quand un appareil réel se connecte à votre application IoT Central, son état 
 
 ## <a name="best-practices"></a>Meilleures pratiques
 
-Ne conservez pas ou ne mettez pas en cache la chaîne de connexion de l’appareil que DPS renvoie quand vous connectez l’appareil pour la première fois. Pour reconnecter un appareil, passez en revue le flux standard d’inscription de l’appareil pour obtenir la chaîne de connexion de l’appareil correcte. Si l’appareil met en cache la chaîne de connexion, le logiciel de l’appareil risque d’avoir une chaîne de connexion obsolète. Si IoT Central met à jour le hub IoT Azure sous-jacent qu’il utilise, un appareil avec une chaîne de connexion obsolète ne peut se connecter.
+Ces recommandations montrent comment implémenter des appareils pour tirer parti de la récupération d’urgence et de la mise à l’échelle automatique intégrée dans IoT Central.
+
+La liste suivante présente le flux global quand un appareil se connecte à IoT Central :
+
+1. Utilisez DPS pour approvisionner l’appareil et obtenir une chaîne de connexion d’appareil.
+
+1. Utilisez la chaîne de connexion pour connecter le point de terminaison IoT Hub interne de IoT Central. Échangez des données avec votre application IoT Central.
+
+1. Si l’appareil reçoit des échecs de connexion, en fonction du type d’erreur, retentez la connexion ou réapprovisionnez l’appareil.
+
+### <a name="use-dps-to-provision-the-device"></a>Utiliser le service DPS pour approvisionner l’appareil
+
+Pour approvisionner un appareil avec le service DPS, utilisez l’ID d’étendue, les informations d’identification et l’ID d’appareil provenant de votre application IoT Central. Pour en savoir plus sur les types d’informations d’identification, consultez [inscription de groupe X.509](#x509-group-enrollment) et [inscription de groupe SAP](#sas-group-enrollment). Pour en savoir plus sur les ID d’appareil, consultez [Inscription d’appareil](#device-registration).
+
+En cas de réussite, le service DPS retourne une chaîne de connexion que l’appareil peut utiliser pour se connecter à votre application IoT Central. Pour résoudre des erreurs d’approvisionnement, consultez [Vérifier l’état d’approvisionnement de votre appareil](troubleshoot-connection.md#check-the-provisioning-status-of-your-device).
+
+L’appareil peut mettre en cache la chaîne de connexion à utiliser pour des connexions ultérieures. Toutefois, l’appareil doit être préparé à [gérer des échecs de connexion](#handle-connection-failures).
+
+### <a name="connect-to-iot-central"></a>Connecter à IoT Central
+
+Utilisez la chaîne de connexion pour connecter le point de terminaison IoT Hub interne de IoT Central. La connexion vous permet d’envoyer des données de télémétrie à votre application IoT Central, de synchroniser les valeurs de propriété avec votre application IoT Central, et de répondre à des commandes envoyées par votre application IoT Central.
+
+### <a name="handle-connection-failures"></a>Gérer les échecs de connexion
+
+Pour la mise à l’échelle ou la récupération d’urgence, IoT Central peut mettre à jour son hub IoT sous-jacent. Pour maintenir la connectivité, le code de votre appareil doit gérer des erreurs de connexion spécifiques en établissant une connexion au nouveau point de terminaison IoT Hub.
+
+Si l’appareil reçoit l’une des erreurs suivantes quand il se connecte, il doit recommencer l’étape d’approvisionnement avec le service DPS pour obtenir une nouvelle chaîne de connexion. Les erreurs suivantes signifient que la chaîne de connexion que l’appareil utilise n’est plus valide :
+
+- Point de terminaison IoT Hub inaccessible.
+- Jeton de sécurité périmé.
+- Appareil désactivé dans IoT Hub.
+
+Si l’appareil reçoit l’une des erreurs suivantes quand il se connecte, il doit utiliser une stratégie d’interruption pour réessayer la connexion. Ces erreurs signifient que la chaîne de connexion que l’appareil utilise est toujours valide, mais que des conditions temporaires empêchent l’appareil de se connecter :
+
+- Appareil bloqué par l’opérateur.
+- Erreur interne 500 du service.
+
+Pour en savoir plus sur les codes d’erreur des appareils, consultez [Résolution des problèmes de connexion d’appareils](troubleshoot-connection.md).
 
 ## <a name="sdk-support"></a>Prise en charge des Kits de développement logiciel (SDK)
 

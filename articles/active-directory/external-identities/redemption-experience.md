@@ -5,18 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 03/02/2021
+ms.date: 03/04/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
-ms.reviewer: elisol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95c7ca826eaf7d72cb35985b154458f149ef4a0e
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: df867059a7d4020952f71ca8d663a644ee2428fd
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101649311"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102199626"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Utilisation d'invitations Azure Active Directory B2B Collaboration
 
@@ -35,6 +34,7 @@ Les utilisateurs invités peuvent désormais se connecter à vos applications mu
 ![Connexion au point de terminaison commun](media/redemption-experience/common-endpoint-flow-small.png)
 
 L’utilisateur est ensuite redirigé vers votre point de terminaison de locataire, où il peut soit se connecter avec son adresse e-mail, soit sélectionner un fournisseur d’identité que vous avez configuré.
+
 ## <a name="redemption-through-a-direct-link"></a>Échange via un lien direct
 
 Au lieu de l’e-mail d’invitation ou de l’URL commune d’une application, vous pouvez fournir à un invité un lien direct vers votre application ou votre portail. Vous devez d’abord ajouter l’utilisateur invité à votre annuaire par le biais du [portail Azure](./b2b-quickstart-add-guest-users-portal.md) ou de [PowerShell](./b2b-quickstart-invite-powershell.md). Ensuite, vous pouvez utiliser un des [moyens personnalisables de votre choix pour déployer des applications vers les utilisateurs](../manage-apps/end-user-experiences.md), notamment les liens d’authentification directe. Lorsqu’un invité utilise un lien direct au lieu de l’e-mail d’invitation, il est toujours guidé dans l’expérience de consentement initial.
@@ -73,7 +73,7 @@ Quand un utilisateur clique sur le lien **Accepter l’invitation** dans un [e-m
 
 3. Si un administrateur a activé la [fédération Google](./google-federation.md), Azure AD vérifie si le suffixe de domaine de l’utilisateur est gmail.com ou googlemail.com et redirige l’utilisateur vers Google.
 
-4. Le processus d’acceptation vérifie si l’utilisateur dispose d’un [compte Microsoft (MSA)](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create) personnel.
+4. Le processus d’échange vérifie si l’utilisateur dispose d’un [compte Microsoft (MSA)](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create) personnel existant pour les échanges juste-à-temps (JIT), mais pas pour l’échange de lien d’invitation par e-mail. Si l’utilisateur a déjà un MSA existant, il se connecte avec son MSA existant.
 
 5. Une fois que le **répertoire de base** de l’utilisateur est identifié, l’utilisateur est envoyé au fournisseur d’identité correspondant pour se connecter.  
 

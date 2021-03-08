@@ -1,22 +1,22 @@
 ---
-title: Visualiser les dépendances d’applications avec Azure Monitor pour machines virtuelles
-description: Cartographie est une fonctionnalité d’Azure Monitor pour machines virtuelles. Elle détecte automatiquement les composants d’application sur les systèmes Windows et Linux, et cartographie la communication entre les différents services. Cet article explique comment utiliser la fonctionnalité Cartographie dans divers scénarios.
+title: Afficher des dépendances d’application avec VM Insights
+description: Carte est une fonctionnalité de VM Insights. Elle détecte automatiquement les composants d’application sur les systèmes Windows et Linux, et cartographie la communication entre les différents services. Cet article explique comment utiliser la fonctionnalité Cartographie dans divers scénarios.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/20/2020
-ms.openlocfilehash: ea11a2dbff9c05400f24ecfa86c66395032b8ac9
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 19da3e3e02581ce9fad080bb23bc48dcb9a3ceb3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100600107"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719642"
 ---
-# <a name="use-the-map-feature-of-azure-monitor-for-vms-to-understand-application-components"></a>Utiliser la fonctionnalité Cartographie d’Azure Monitor pour machines virtuelles afin de mieux comprendre le fonctionnement des composants d’application
-Dans Azure Monitor pour machines virtuelles, vous pouvez voir les composants d’application qui ont été détectés sur les machines virtuelles Windows et Linux exécutées dans Azure ou votre environnement. Il existe deux manières d’observer les machines virtuelles : en affichant une carte directement à partir d’une machine virtuelle ou en affichant une carte à partir d’Azure Monitor pour voir les composants dans les groupes de machines virtuelles. Cet article vous aidera à bien comprendre ces deux méthodes de visualisation et à utiliser correctement la fonctionnalité Cartographie. 
+# <a name="use-the-map-feature-of-vm-insights-to-understand-application-components"></a>Utiliser la fonctionnalité Carte de VM Insights pour comprendre les composants d’application
+Dans VM Insights, vous pouvez voir les composants d’application découverts sur des machines virtuelles Windows et Linux exécutées dans Azure ou votre environnement. Il existe deux manières d’observer les machines virtuelles : en affichant une carte directement à partir d’une machine virtuelle ou en affichant une carte à partir d’Azure Monitor pour voir les composants dans les groupes de machines virtuelles. Cet article vous aidera à bien comprendre ces deux méthodes de visualisation et à utiliser correctement la fonctionnalité Cartographie. 
 
-Pour plus d’informations sur la configuration d’Azure Monitor pour les machines virtuelles, consultez [Enable Azure Monitor for VMs ](../insights/vminsights-enable-overview.md)(Activer Azure Monitor pour les machines virtuelles).
+Pour plus d’informations sur la configuration de VM Insights, consultez [Activer VM Insights](./vminsights-enable-overview.md).
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 Connectez-vous au [portail Azure](https://portal.azure.com).
@@ -49,7 +49,7 @@ Pour que la fonctionnalité Cartographie affiche des alertes pertinentes, créez
 - Incluez une clause de regroupement des alertes par ordinateur (par exemple, **by Computer interval 1 minute**).
 - Créez l’alerte sur la base d’une métrique.
 
-Pour plus d’informations sur les alertes Azure et la création de règles d’alerte, consultez [Alertes unifiées dans Azure Monitor](../platform/alerts-overview.md).
+Pour plus d’informations sur les alertes Azure et la création de règles d’alerte, consultez [Alertes unifiées dans Azure Monitor](../alerts/alerts-overview.md).
 
 Située dans le coin supérieur droit, l’option **Légende** décrit les symboles et les rôles cartographiés. Pour voir la carte plus en détail et vous déplacer autour, utilisez les contrôles de zoom disponibles en bas à droite. Vous pouvez définir le niveau de zoom et adapter la carte à la taille de la page.  
 
@@ -85,7 +85,7 @@ Si le groupe inclut des serveurs supervisés et non supervisés, vous pouvez sé
 
 ## <a name="view-a-map-from-a-vm"></a>Afficher une carte à partir d’une machine virtuelle 
 
-Pour accéder à Azure Monitor pour machines virtuelles directement à partir d’une machine virtuelle :
+Pour accéder à VM Insights directement à partir d’une machine virtuelle :
 
 1. Dans le portail Azure, sélectionnez **Machines virtuelles**. 
 2. Dans la liste, sélectionnez une machine virtuelle. Dans la section **Supervision**, choisissez **Insights**.  
@@ -99,7 +99,7 @@ Par défaut, la carte affiche les 30 dernières minutes. Si vous souhaitez voir 
 
 ## <a name="view-a-map-from-a-virtual-machine-scale-set"></a>Afficher une carte à partir d’un groupe de machines virtuelles identiques
 
-Pour accéder à Azure Monitor pour machines virtuelles directement à partir d’un groupe de machines virtuelles identiques :
+Pour accéder à VM Insights directement à partir d’un groupe de machines virtuelles identiques :
 
 1. Dans le Portail Microsoft Azure, sélectionnez **Groupes de machines virtuelles identiques**.
 2. Dans la liste, sélectionnez une machine virtuelle. Ensuite, dans la section **Supervision**, choisissez **Insights**.  
@@ -128,11 +128,10 @@ Dans Azure Monitor, la fonctionnalité Cartographie offre une vue globale de vos
 
 Choisissez un espace de travail à l’aide du sélecteur **Espace de travail** en haut de la page. Si vous avez plusieurs espaces de travail Log Analytics, choisissez l’espace de travail qui est activé avec la solution et qui contient des machines virtuelles supervisées. 
 
-Le sélecteur **Groupe** affiche les abonnements, les groupes de ressources, les [groupes d’ordinateurs](../platform/computer-groups.md) et les groupes de machines virtuelles identiques qui sont associés à l’espace de travail sélectionné. Votre sélection s’applique uniquement à la fonctionnalité Cartographie, et n’est pas reportée sur la fonctionnalité Performances ou Intégrité.
+Le sélecteur **Groupe** affiche les abonnements, les groupes de ressources, les [groupes d’ordinateurs](../logs/computer-groups.md) et les groupes de machines virtuelles identiques qui sont associés à l’espace de travail sélectionné. Votre sélection s’applique uniquement à la fonctionnalité Cartographie, et n’est pas reportée sur la fonctionnalité Performances ou Intégrité.
 
 Par défaut, la carte affiche les 30 dernières minutes. Si vous souhaitez voir les dépendances sur une plus grande période passée, vous pouvez exécuter une requête sur un intervalle de temps historique allant jusqu’à une heure. Pour exécuter la requête, utilisez le sélecteur **TimeRange**. Vous pouvez exécuter une requête, par exemple, durant un incident ou pour afficher l’état avant une modification.  
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour identifier les goulots d’étranglement, superviser les performances et comprendre l’utilisation globale de vos machines virtuelles, consultez [Afficher les performances avec Azure Monitor pour machines virtuelles](vminsights-performance.md). 
-
+Pour identifier les goulots d’étranglement, vérifier les performances et comprendre l’utilisation globale de vos machines virtuelles, consultez [Afficher l’état des performances pour VM Insights](vminsights-performance.md).

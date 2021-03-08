@@ -1,15 +1,14 @@
 ---
 title: Vue d’ensemble des alertes et de la surveillance des notifications dans Azure
-description: Vue d’ensemble des alertes dans Azure. Alertes, alertes classiques et interface des alertes.
-ms.subservice: alerts
+description: Vue d’ensemble des alertes dans Azure Monitor
 ms.topic: conceptual
-ms.date: 01/28/2018
-ms.openlocfilehash: 96e15c1e07d437855b6553757295800406a4cf4c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.date: 02/14/2021
+ms.openlocfilehash: 6785cfdf673e4c2da03ff26649c9336d57b699c8
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100598662"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102038048"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Vue d’ensemble des alertes dans Microsoft Azure 
 
@@ -94,7 +93,7 @@ La page Alertes par défaut fournit un résumé des alertes qui sont créées da
 > [!NOTE]
    >  Vous ne pouvez accéder qu’aux alertes générées au cours des 30 derniers jours.
 
-Elle n’affiche pas ou n’effectue pas le suivi des alertes classiques. Vous pouvez modifier les abonnements ou filtrer des paramètres pour mettre à jour la page. 
+Vous pouvez modifier les abonnements ou filtrer des paramètres pour mettre à jour la page.
 
 ![Capture d’écran de la page Alertes](media/alerts-overview/alerts-page.png)
 

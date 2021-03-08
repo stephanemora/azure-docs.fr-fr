@@ -1,17 +1,16 @@
 ---
 title: Colonnes standard dans les enregistrements de journaux Azure Monitor | Microsoft Docs
 description: Décrit les colonnes communes à plusieurs types de données dans les journaux Azure Monitor.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/25/2021
-ms.openlocfilehash: c479f525435139b2f92838bf15edf4563aeed4e2
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 3e12bef7569110084cd059b0dfde8562bd914823
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101704121"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102030764"
 ---
 # <a name="standard-columns-in-azure-monitor-logs"></a>Colonnes standard dans les journaux Azure Monitor
 Les données des journaux Azure Monitor sont [stockées sous la forme d’un jeu d’enregistrements dans un espace de travail Log Analytics ou dans une application Application Insights](../logs/data-platform-logs.md), chacun ayant un type de données particulier associé à un ensemble unique de colonnes. De nombreux types de données comportent des colonnes standard qui sont communes à plusieurs types. Cet article décrit ces colonnes et fournit des exemples sur la façon dont vous pouvez les utiliser dans des requêtes.

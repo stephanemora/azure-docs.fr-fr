@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: b0cafcbc9fa6f0fcb31f44b44dfbe4fc3e10c17d
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 1fe36dc7b3c04f033c1b693b657e07bcf42e3223
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94656069"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101715001"
 ---
 # <a name="connect-data-from-microsoft-defender-for-identity-formerly-azure-advanced-threat-protection"></a>Connecter des données à partir de Microsoft Defender pour Identity (anciennement Azure Advanced Threat Protection)
 
@@ -27,7 +27,9 @@ ms.locfileid: "94656069"
 > Le connecteur de données Microsoft Defender pour Identity dans Azure Sentinel est actuellement en préversion publique.
 > Cette fonctionnalité est fournie sans contrat de niveau de service et est déconseillée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Vous pouvez diffuser des journaux à partir de [Microsoft Defender pour Identity](/azure-advanced-threat-protection/what-is-atp) dans Azure Sentinel en un seul clic.
+Cet article explique comment diffuser en continu des alertes de sécurité de [Microsoft Defender pour Identity](/azure-advanced-threat-protection/what-is-atp) dans Azure Sentinel. 
+
+Pour transférer des alertes d’intégrité en plus des alertes de sécurité, intégrez Microsoft Defender pour Identity avec un serveur Syslog. Pour plus d’informations, consultez la [Documentation de Microsoft Defender pour Identity](/defender-for-identity/setting-syslog). 
 
 ## <a name="prerequisites"></a>Prérequis
 

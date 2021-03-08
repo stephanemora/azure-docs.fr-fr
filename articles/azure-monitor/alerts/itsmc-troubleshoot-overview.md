@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 04/12/2020
-ms.openlocfilehash: 991d37b097587e8e4a524c4fc8bc21e9b6af20b5
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a01005231b5d775f79555ec10dedeb3f30b3426a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100599071"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737203"
 ---
 # <a name="troubleshoot-problems-in-it-service-management-connector"></a>Résoudre les problèmes liés à Connecteur de gestion des services informatiques
 
@@ -55,7 +55,7 @@ Les sections suivantes identifient les symptômes courants, les causes possibles
 
 * Les informations d’identification sont incorrectes.
 * Les privilèges sont insuffisants.
-* L’application web n’a pas été correctement déployée.
+* Pour les connexions Service Manager  : l’application web n’a pas été déployée correctement.
 
 **Résolution** :
 
@@ -95,3 +95,12 @@ Les sections suivantes identifient les symptômes courants, les causes possibles
 **Cause** : Une instance d’ITSMC nouvellement créée n’a pas encore terminé la synchronisation initiale.
 
 **Résolution** : Passez en revue les [erreurs courantes et leurs résolutions](itsmc-dashboard-errors.md).
+
+### <a name="sync-connection"></a>Synchroniser la connexion 
+
+**Cause** : Il peut y avoir plusieurs raisons à l’apparition de ce symptôme :
+
+* Les modèles ne sont pas affichés dans le cadre de la définition de l’action.
+* Aucun incident/événement n’est créé dans ServiceNow.
+
+**Résolution**: [Synchronisez le connecteur](itsmc-resync-servicenow.md).

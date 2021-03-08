@@ -4,16 +4,17 @@ description: Découvrez comment copier des données vers ou à partir d’IBM In
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 06/28/2020
+ms.date: 02/20/2021
 ms.author: jingwang
-ms.openlocfilehash: 95ecb44f154ab84a60a1ee673826d83fc51305b3
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 23fc5cabb947f579177a26afc6baec873f2df154
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100383498"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101727887"
 ---
 # <a name="copy-data-from-and-to-ibm-informix-using-azure-data-factory"></a>Copier des données vers ou à partir d’IBM Informix à l’aide d’Azure Data Factory
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Cet article explique comment utiliser l’activité de copie dans Azure Data Factory pour copier des données à partir d’un magasin de données IBM Informix. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
@@ -27,12 +28,13 @@ Ce connecteur Informix est pris en charge pour les activités suivantes :
 
 Vous pouvez copier des données d’une source Informix vers tout magasin de données récepteur pris en charge, ou à partir de tout magasin de données source pris en charge vers un récepteur Informix. Pour obtenir la liste des banques de données prises en charge en tant que sources ou récepteurs par l’activité de copie, consultez le tableau [Banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).
 
+
 ## <a name="prerequisites"></a>Prérequis
 
 Pour utiliser ce connecteur Informix, vous devez :
 
 - Configurer un Runtime d’intégration autohébergé. Pour plus d’informations, consultez l’article [Runtime d’intégration autohébergé](create-self-hosted-integration-runtime.md).
-- Installez le pilote ODBC Informix pour le magasin de données sur la machine exécutant le runtime d’intégration. Par exemple, vous pouvez utiliser le pilote « IBM INFORMIX Informix DRIVER (64-bit) ».
+- Installez le pilote ODBC Informix pour le magasin de données sur la machine exécutant le runtime d’intégration. Pour plus d’informations sur l’installation et la configuration du pilote, consultez le [Guide du pilote ODBC Informix](https://www.ibm.com/support/knowledgecenter/SSGU8G_11.70.0/com.ibm.odbc.doc/odbc.htm) dans IBM Knowledge Center, ou contactez l’équipe de support d’IBM afin d’obtenir des instructions pour l’installation du pilote.
 
 ## <a name="getting-started"></a>Prise en main
 

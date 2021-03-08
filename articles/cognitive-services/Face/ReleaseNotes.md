@@ -10,16 +10,23 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 12/11/2020
 ms.author: pafarley
-ms.openlocfilehash: 49d8eeaa8d1160659a456f147a6a5e27f923af33
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a66f65d48a14853ec1da08f5d83b777f4fdac846
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101733463"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183315"
 ---
 # <a name="whats-new-in-face-service"></a>Nouveautés du service Visage
 
 Le service Visage Azure est mis à jour régulièrement. Lisez cet article pour vous tenir informé des améliorations de fonctionnalités, des correctifs et des mises à jour de la documentation.
+
+## <a name="february-2021"></a>Février 2021
+
+* Nouveau modèle de détection d’API Visage : le nouveau modèle detection 03 est le modèle de détection le plus précis actuellement disponible. Si vous êtes un nouveau client, nous vous recommandons d’utiliser ce modèle. Le modèle detection 03 améliore à la fois le rappel et la précision des visages plus petits présents sur des images (64 x 64 pixels). Les améliorations supplémentaires incluent une réduction globale des faux positifs et une meilleure détection des orientations de visages pivotés. La combinaison du modèle detection 03 avec le nouveau modèle recognition 04 permettra également d’améliorer la précision de la reconnaissance. Pour plus d’informations, consultez [Spécifier un modèle de détection des visages](https://docs.microsoft.com/azure/cognitive-services/face/face-api-how-to-topics/specify-detection-model) .
+* Attribut de masque de visage : l’attribut de masque de visage est disponible dans le dernier modèle detection 03, avec l’attribut supplémentaire `"noseAndMouthCovered"` qui détecte si le masque de visage est porté comme prévu, couvrant à la fois le nez et la bouche. Pour utiliser la fonctionnalité de détection de masque la plus récente, les utilisateurs doivent spécifier le modèle de détection dans la demande d’API : affectez la version du modèle avec le paramètre _detectionModel_ à `detection_03`. Pour plus d’informations, consultez [Spécifier un modèle de détection des visages](https://docs.microsoft.com/azure/cognitive-services/face/face-api-how-to-topics/specify-detection-model) .
+* Nouveau modèle de reconnaissance de l’API Visage : Le nouveau modèle recognition 04 est le modèle de reconnaissance le plus précis actuellement disponible. Si vous êtes un nouveau client, nous vous recommandons d’utiliser ce modèle à des fins de vérification et d’identification. Il améliore la précision du modèle recognition 03, y compris une meilleure reconnaissance pour les utilisateurs inscrits et qui portent un masque (masques chirurgicaux, masques N95, masques en tissu). Les clients peuvent désormais créer des expériences utilisateur sécurisées et transparentes pour détecter si un utilisateur inscrit porte un masque à l’aide du dernier modèle detection 03, puis reconnaître les personnes avec le dernier modèle recognition 04. Pour plus d’informations, consultez [Spécifier un modèle de reconnaissance faciale](https://docs.microsoft.com/azure/cognitive-services/face/face-api-how-to-topics/specify-recognition-model).
+
 
 ## <a name="january-2021"></a>Janvier 2021
 * Limiter la latence lors de l’utilisation de l’API Visage : L’équipe Visage a publié un nouvel article détaillant les causes potentielles de la latence lors de l’utilisation du service, et les stratégies d’atténuation possibles. Voir [Limiter la latence lors de l’utilisation du service Visage](./face-api-how-to-topics/how-to-mitigate-latency.md).

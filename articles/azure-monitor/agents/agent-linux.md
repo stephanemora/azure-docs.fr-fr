@@ -6,21 +6,21 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2020
-ms.openlocfilehash: 9e0d9162c497ff035438b5a65c6f4500ce834860
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 06b59aa1fe6b51bf237c0cd64117166ca4ece10b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100598454"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734925"
 ---
 # <a name="install-log-analytics-agent-on-linux-computers"></a>Installer l’agent Log Analytics sur des ordinateurs Linux
 Cet article fournit des détails sur l’installation de l’agent Log Analytics sur des ordinateurs Linux à l’aide des méthodes suivantes :
 
 * [Installez l’agent pour Linux à l’aide d’un script wrapper](#install-the-agent-using-wrapper-script) hébergé sur GitHub. Il s’agit de la méthode recommandée pour installer et mettre à niveau l'agent lorsque l'ordinateur dispose d’une connexion Internet, directement ou via un serveur proxy.
-* [Téléchargez et installez manuellement](#install-the-agent-manually) l’agent. Ceci est nécessaire lorsque l’ordinateur Linux n'a pas accès à Internet et communiquera avec Azure Monitor ou Azure Automation via la [passerelle Log Analytics](../platform/gateway.md). 
+* [Téléchargez et installez manuellement](#install-the-agent-manually) l’agent. Ceci est nécessaire lorsque l’ordinateur Linux n'a pas accès à Internet et communiquera avec Azure Monitor ou Azure Automation via la [passerelle Log Analytics](./gateway.md). 
 
 >[!IMPORTANT]
-> Les méthodes d’installation décrites dans cet article sont généralement utilisées pour les machines virtuelles locales ou dans d’autres clouds. Pour d’autres options efficaces que vous pouvez utiliser pour des machines virtuelles Azure, consultez [Options d’installation](../platform/log-analytics-agent.md#installation-options).
+> Les méthodes d’installation décrites dans cet article sont généralement utilisées pour les machines virtuelles locales ou dans d’autres clouds. Pour d’autres options efficaces que vous pouvez utiliser pour des machines virtuelles Azure, consultez [Options d’installation](./log-analytics-agent.md#installation-options).
 
 
 
@@ -32,7 +32,7 @@ Pour obtenir la liste des distributions Linux que l’agent Log Analytics prend 
 >OpenSSL 1.1.0 est uniquement pris en charge sur les plateformes x86_x64 (64 bits), tandis qu’OpenSSL antérieur à 1.x n’est pris en charge sur aucune plateforme.
 
 >[!NOTE]
->L'exécution de l'agent Log Analytics pour Linux n'est pas prise en charge dans les conteneurs. Si vous devez surveiller des conteneurs, utilisez la [solution Container Monitoring](../insights/containers.md) pour les hôtes Docker ou [Azure Monitor pour conteneurs](../insights/container-insights-overview.md) pour Kubernetes.
+>L'exécution de l'agent Log Analytics pour Linux n'est pas prise en charge dans les conteneurs. Si vous devez surveiller des conteneurs, utilisez la [solution Container Monitoring](../containers/containers.md) pour les hôtes Docker ou [Container Insights](../containers/container-insights-overview.md) pour Kubernetes.
 
 À partir des versions publiées après août 2018, nous apportons les changements suivants à notre modèle de prise en charge :  
 
@@ -100,7 +100,7 @@ Le tableau suivant met en évidence les packages requis pour les [distributions 
 >rsyslog ou syslog-ng est requis pour collecter les messages syslog. Le démon syslog par défaut sur la version 5 de Red Hat Enterprise Linux, CentOS et Oracle Linux (sysklog) ne prend pas en charge la collecte des événements syslog. Pour collecter les données syslog avec cette version de ces distributions, le démon rsyslog doit être installé et configuré à la place de sysklog.
 
 ## <a name="network-requirements"></a>Configuration requise pour le réseau
-Pour connaître la configuration réseau requise pour l’agent Linux, consultez [Présentation de l’agent Log Analytics](../platform/log-analytics-agent.md#network-requirements).
+Pour connaître la configuration réseau requise pour l’agent Linux, consultez [Présentation de l’agent Log Analytics](./log-analytics-agent.md#network-requirements).
 
 ## <a name="agent-install-package"></a>Package d’installation de l’agent
 

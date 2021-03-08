@@ -3,12 +3,12 @@ title: Fonctions des modèles de gestionnaire des ressources Azure
 description: Décrit les fonctions à utiliser dans un modèle Azure Resource Manager (modèle ARM) pour récupérer des valeurs, utiliser des chaînes et des valeurs numériques, et récupérer des informations sur le déploiement.
 ms.topic: conceptual
 ms.date: 10/12/2020
-ms.openlocfilehash: 2d124893cbe1694671231fd206f8e44cc20f6204
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: dbda5c635a5189158424363c341b269d331a5fdc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96931705"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101707317"
 ---
 # <a name="arm-template-functions"></a>Fonctions des modèles ARM
 
@@ -33,6 +33,10 @@ La plupart des fonctions opèrent de la même façon quand elles sont déployée
 <a id="skip" aria-hidden="true"></a>
 <a id="take" aria-hidden="true"></a>
 <a id="union" aria-hidden="true"></a>
+
+## <a name="any-function"></a>Toutes les fonctions
+
+La [fonction any](template-functions-any.md) est disponible dans bicep pour aider à résoudre les problèmes concernant les avertissements de type de données.
 
 ## <a name="array-functions"></a>Fonctions Tableau
 

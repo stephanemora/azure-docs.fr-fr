@@ -6,18 +6,17 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
-ms.subservice: metrics
-ms.openlocfilehash: 8d0f1e711b325b1b9ce4e431c1438e511384e8a0
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d728dfb364cb0f82326a472196cb28d79b85b1e9
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100598777"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102031475"
 ---
 # <a name="advanced-features-of-the-azure-metrics-explorer"></a>Fonctionnalités avancées d’Azure Metrics Explorer
 
 > [!NOTE]
-> Cet article suppose que vous connaissez les caractéristiques de base de la fonctionnalité Azure Metrics Explorer d’Azure Monitor. Si vous êtes un nouvel utilisateur et que vous souhaitez apprendre à créer votre premier graphique de métriques, consultez l’article [Prise en main d’Azure Metrics Explorer](../platform/metrics-getting-started.md).
+> Cet article suppose que vous connaissez les caractéristiques de base de la fonctionnalité Azure Metrics Explorer d’Azure Monitor. Si vous êtes un nouvel utilisateur et que vous souhaitez apprendre à créer votre premier graphique de métriques, consultez l’article [Prise en main d’Azure Metrics Explorer](./metrics-getting-started.md).
 
 Dans Azure Monitor, les [métriques](data-platform-metrics.md) sont une série de valeurs mesurées et de comptages qui sont collectés et stockés au fil du temps. Les métriques peuvent être standard (également appelées « plateforme ») ou personnalisées. 
 
@@ -49,11 +48,11 @@ Lorsque vous êtes satisfait de votre sélection, sélectionnez **Appliquer**.
 ### <a name="view-metrics-across-multiple-resources"></a>Afficher les métriques de plusieurs ressources
 Certains types de ressources peuvent interroger des métriques sur plusieurs ressources. Les ressources doivent se trouver dans le même abonnement et au même emplacement. Recherchez ces types de ressources en haut du menu **Types de ressources**. 
 
-Pour plus d’informations, consultez [Sélectionner plusieurs ressources](../platform/metrics-dynamic-scope.md#select-multiple-resources).
+Pour plus d’informations, consultez [Sélectionner plusieurs ressources](./metrics-dynamic-scope.md#select-multiple-resources).
 
 ![Capture d’écran montrant les types de ressources croisées.](./media/metrics-charts/multi-resource-scope.png)
 
-Pour les types qui sont compatibles avec plusieurs ressources, vous pouvez interroger les métriques sur un abonnement ou plusieurs groupes de ressources. Pour plus d’informations, consultez [Sélectionner un groupe de ressources ou un abonnement](../platform/metrics-dynamic-scope.md#select-a-resource-group-or-subscription).
+Pour les types qui sont compatibles avec plusieurs ressources, vous pouvez interroger les métriques sur un abonnement ou plusieurs groupes de ressources. Pour plus d’informations, consultez [Sélectionner un groupe de ressources ou un abonnement](./metrics-dynamic-scope.md#select-a-resource-group-or-subscription).
 
 ## <a name="multiple-metric-lines-and-charts"></a>Plusieurs courbes et graphiques de métriques
 
@@ -67,7 +66,7 @@ Par exemple, imaginez que vous avez cinq comptes de stockage et que vous souhait
 
 ### <a name="multiple-metrics-on-the-same-chart"></a>Plusieurs métriques sur le même graphique
 
-Pour afficher plusieurs métriques sur le même graphique, commencez par [créer un graphique](../platform/metrics-getting-started.md#create-your-first-metric-chart). Sélectionnez ensuite **Ajouter une métrique**. Répétez cette étape pour ajouter une autre métrique sur le même graphique.
+Pour afficher plusieurs métriques sur le même graphique, commencez par [créer un graphique](./metrics-getting-started.md#create-your-first-metric-chart). Sélectionnez ensuite **Ajouter une métrique**. Répétez cette étape pour ajouter une autre métrique sur le même graphique.
 
 > [!NOTE]
 > En règle générale, vos graphiques ne doivent pas mélanger les métriques qui utilisent des unités de mesure différentes. Par exemple, évitez de mélanger une mesure qui utilise les millisecondes avec une autre qui utilise les kilo-octets. Évitez également de mélanger les métriques dont les échelles diffèrent de manière significative. 
@@ -86,7 +85,7 @@ Lorsque vous ajoutez une métrique à un graphique, Metrics Explorer applique au
 
 Avant d’utiliser différentes agrégations sur un graphique, vous devez comprendre comment Metrics Explorer les gère. Les métriques sont une série de mesures (ou « valeurs métriques ») capturées au cours d’une période donnée. Lorsque vous tracez un graphique, les valeurs de la métrique sélectionnée sont agrégées séparément sur le *fragment de temps*. 
 
-Vous sélectionnez la taille du fragment de temps à l’aide du [panneau du sélecteur d’heure](../platform/metrics-getting-started.md#select-a-time-range) de Metrics Explorer. Si vous ne sélectionnez pas explicitement le fragment de temps, l’intervalle de temps actuellement sélectionné est utilisé par défaut. Une fois que le fragment de temps est déterminé, les valeurs métriques qui ont été capturées pendant chaque fragment de temps sont agrégées sur le graphique, un point de données par fragment de temps.
+Vous sélectionnez la taille du fragment de temps à l’aide du [panneau du sélecteur d’heure](./metrics-getting-started.md#select-a-time-range) de Metrics Explorer. Si vous ne sélectionnez pas explicitement le fragment de temps, l’intervalle de temps actuellement sélectionné est utilisé par défaut. Une fois que le fragment de temps est déterminé, les valeurs métriques qui ont été capturées pendant chaque fragment de temps sont agrégées sur le graphique, un point de données par fragment de temps.
 
 Par exemple, supposons qu’un graphique indique la métrique *Temps de réponse du serveur*. Il utilise l’agrégation *Moyenne* sur la période des *dernières 24 heures*. Dans cet exemple :
 
@@ -230,6 +229,42 @@ Le volet de création de règles d’alerte s’ouvre. Dans le volet, vous voyez
 
 Pour plus d’informations, consultez [Créer, afficher et gérer des alertes de métrique](../alerts/alerts-metric.md).
 
+## <a name="correlate-metrics-to-logs"></a>Mettre en corrélation des métriques et des journaux
+Pour aider les clients à diagnostiquer la cause racine d’anomalies dans leur graphique des métriques, nous avons créé une fonctionnalité d’exploration des journaux. L’exploration des journaux permet aux clients de mettre en corrélation des pics dans leur graphique des métriques avec des journaux et des requêtes. 
+
+Avant de nous plonger dans l’expérience, nous souhaitons commencer par présenter les différents types de journaux et requêtes fournis. 
+
+| Terme             | Définition  | 
+|------------------|-------------|
+| Journaux d’activité    | Fournit des informations sur les opérations effectuées sur chaque ressource Azure dans l’abonnement à partir de l’extérieur (plan de gestion) en plus des mises à jour sur des événements Service Health. Le journal d’activité vous permet de déterminer le quoi, le qui et le quand de toute opération d’écriture (PUT, POST, DELETE) effectuée sur les ressources dans votre abonnement. Il n’y qu’un seul journal d’activité par abonnement Azure.  |   
+| Journal de diagnostic   | Fournissent des insights sur les opérations effectuées au sein d’une ressource Azure (le plan de données), par exemple l’obtention d’un secret à partir d’un Key Vault ou l’envoi d’une requête à une base de données. Le contenu des journaux de ressources varie en fonction du service Azure et du type de ressource. **Remarque :** doit être fourni par le service et activé par le client  | 
+| Journal recommandé | Requêtes basées sur un scénario que le client peut exploiter pour examiner des anomalies dans son explorateur de métriques.  |
+
+Actuellement, la fonctionnalité d’exploration des journaux est disponible pour des fournisseurs de ressources sélectionnés. Les fournisseurs de ressources qui ont accès à l’expérience complète d’exploration des journaux sont les suivants : 
+
+* Application Insights 
+* Mise à l’échelle automatique 
+* App Services  
+* Stockage  
+
+Voici un exemple d’expériences pour le fournisseur de ressources Application Insights.
+
+![Pic d’échecs dans le panneau des métriques d’Application Insights](./media/metrics-charts/drill-into-log-ai.png)
+
+Pour diagnostiquer le pic de demandes ayant échoué, cliquez sur « Drill into Logs » (Explorer les journaux).
+
+![Capture d’écran de la liste déroulante d’exploration des journaux](./media/metrics-charts/drill-into-logs-dropdown.png)
+
+En cliquant sur l’option d’échec, vous êtes dirigé vers un panneau d’échec personnalisé qui affiche les opérations qui ont échoué, les principaux types d’exceptions et les dépendances. 
+
+![Capture d’écran du panneau d’échec d’Application Insights](./media/metrics-charts/ai-failure-blade.png)
+
+### <a name="common-problems-with-drill-into-logs"></a>Problèmes courants liés à l’exploration des journaux
+
+* Le journal et les requêtes sont désactivés : pour afficher les journaux et les requêtes recommandés, vous devez router vos journaux de diagnostic vers Log Analytics. Pour découvrir comment procéder, lisez [ce document](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings). 
+* Les journaux d’activité sont uniquement fournis : la fonctionnalité d’exploration des journaux n’est disponible que pour des fournisseurs de ressources sélectionnés. Par défaut, les journaux d’activité sont fournis. 
+
+ 
 ## <a name="troubleshooting"></a>Dépannage
 
 Si vous ne voyez aucune donnée sur votre graphique, passez en revue les informations de dépannage suivantes :
@@ -242,6 +277,5 @@ Si vous ne voyez aucune donnée sur votre graphique, passez en revue les informa
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour créer des tableaux de bord exploitables à l’aide des métriques, consultez [Création de tableaux de bord d’indicateurs de performance clés personnalisés](../learn/tutorial-app-dashboards.md).
+Pour créer des tableaux de bord exploitables à l’aide des métriques, consultez [Création de tableaux de bord d’indicateurs de performance clés personnalisés](../app/tutorial-app-dashboards.md).
 
- 

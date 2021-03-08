@@ -1,19 +1,19 @@
 ---
-title: Utiliser Azure Monitor pour les conteneurs afin de consulter les mesures en temps réel | Microsoft Docs
-description: Cet article décrit l’affichage en temps réel des mesures sans l’utilisation de kubectl avec Azure Monitor pour les conteneurs.
+title: Afficher des métriques en temps réel avec Container Insights | Microsoft Docs
+description: Cet article décrit l’affichage en temps réel de métriques sans l’utilisation de kubectl avec Container Insights.
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.custom: references_regions
-ms.openlocfilehash: 81d7210778fd6b5d75fb4b4fa8e066d2e015174f
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 2e3a8a417a934374c2c0b256bb65a471d98fdebe
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100598977"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731848"
 ---
 # <a name="how-to-view-metrics-in-real-time"></a>Comment afficher les mesures en temps réel
 
-La fonctionnalité Azure Monitor Live Data pour les conteneurs vous permet de visualiser les mesures relatives à l’état des nœuds et des pods dans un cluster en temps réel. Elle émule l’accès direct aux commandes `kubectl top nodes`, `kubectl get pods –all-namespaces`et `kubectl get nodes` pour appeler, analyser et visualiser les données dans les graphiques de performances inclus dans cette recommandation analytique.
+La fonctionnalité Live Data (préversion) de Container Insights vous permet de visualiser des métriques sur l’état des nœuds et des pods dans un cluster en temps réel. Elle émule l’accès direct aux commandes `kubectl top nodes`, `kubectl get pods –all-namespaces`et `kubectl get nodes` pour appeler, analyser et visualiser les données dans les graphiques de performances inclus dans cette recommandation analytique.
 
 Cet article fournit une vue d’ensemble détaillée et vous aide à mieux comprendre l’utilisation de cette fonctionnalité.
 
@@ -26,7 +26,7 @@ Pour obtenir de l’aide concernant la configuration ou la résolution des probl
 
 Comme la fonctionnalité Live Data (préversion) accède directement à l’API Kubernetes, des informations supplémentaires sur le modèle d’authentification sont mises à disposition [ici](https://kubernetes.io/docs/concepts/overview/kubernetes-api/).
 
-Cette fonctionnalité effectue une opération d’interrogation sur les points de terminaison de mesures (notamment `/api/v1/nodes`, `/apis/metrics.k8s.io/v1beta1/nodes` et `/api/v1/pods`), toutes les 5 secondes par défaut. Ces données sont mises en cache dans votre navigateur et sont représentées sous forme de graphique dans les quatre graphiques de performances inclus dans Azure Monitor pour les conteneurs, sous l’onglet **Cluster** en sélectionnant **Démarrer (préversion)** . Chaque interrogation ultérieure est représentée sous forme de graphique dans une fenêtre de visualisation toutes les 5 minutes.
+Cette fonctionnalité effectue une opération d’interrogation sur les points de terminaison de mesures (notamment `/api/v1/nodes`, `/apis/metrics.k8s.io/v1beta1/nodes` et `/api/v1/pods`), toutes les 5 secondes par défaut. Ces données sont mises en cache dans votre navigateur et sont représentées sous forme de graphique dans les quatre graphiques de performances inclus dans Container Insights, sous l’onglet **Cluster** en sélectionnant **Démarrer (préversion)** . Chaque interrogation ultérieure est représentée sous forme de graphique dans une fenêtre de visualisation toutes les 5 minutes.
 
 ![Option Démarrer dans la vue Cluster](./media/container-insights-livedata-metrics/cluster-view-go-live-example-01.png)
 

@@ -1,17 +1,16 @@
 ---
 title: API Collecte de données HTTP Azure Monitor | Microsoft Docs
 description: L’API Collecte de données HTTP Azure Monitor permet d’ajouter des données POST JSON à un espace de travail Log Analytics à partir de tout client pouvant appeler l’API REST. Cet article explique comment utiliser l’API, et contient des exemples montrant comment publier des données à l’aide de différents langages de programmation.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/14/2020
-ms.openlocfilehash: 80c10ae8427bd21de0ec3a7cd37d6c8ca5cca1fd
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 8c5b4eac17b4c7ae9b4081d0eb9118285dc74bd5
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100598558"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102030951"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>Transmettre des données à Azure Monitor avec l’API Collecteur de données HTTP (préversion publique)
 Cet article vous montre comment utiliser l’API Collecte de données HTTP pour transmettre des données à Azure Monitor à partir d’un client API REST.  Il explique comment mettre en forme les données collectées par le script ou l’application, les inclure dans une requête et faire en sorte qu’Azure Monitor autorise cette requête.  Il est illustré par des exemples pour PowerShell, C# et Python.
@@ -54,7 +53,7 @@ Pour utiliser l’API Collecte de données HTTP, il vous suffit de créer une re
 | Autorisation |Signature de l’autorisation. Plus loin dans cet article, vous pouvez lire comment créer un en-tête HMAC-SHA256. |
 | Log-Type |Spécifiez le type d’enregistrement des données envoyées. Ne peut contenir que des lettres, des chiffres et des traits de soulignement (_) et ne doit pas dépasser 100 caractères. |
 | x-ms-date |Date à laquelle la requête a été traitée, au format RFC 1123. |
-| x-ms-AzureResourceId | ID de la ressource Azure à laquelle les données doivent être associées. Cette opération remplit la propriété [_ResourceId](../platform/log-standard-columns.md#_resourceid) et permet d’inclure les données dans des requêtes [centrées sur la ressource](../platform/design-logs-deployment.md#access-mode). Si ce champ n’est pas spécifié, les données ne sont pas incluses dans des requêtes centrées sur la ressource. |
+| x-ms-AzureResourceId | ID de la ressource Azure à laquelle les données doivent être associées. Cette opération remplit la propriété [_ResourceId](./log-standard-columns.md#_resourceid) et permet d’inclure les données dans des requêtes [centrées sur la ressource](./design-logs-deployment.md#access-mode). Si ce champ n’est pas spécifié, les données ne sont pas incluses dans des requêtes centrées sur la ressource. |
 | time-generated-field | Nom d’un champ de données qui contient l’horodateur de l’élément de données. Si vous spécifiez un champ, son contenu est utilisé pour **TimeGenerated**. Si ce champ n’est pas spécifié, la valeur par défaut de **TimeGenerated** est l’heure d’ingestion du message. Le contenu du champ de message doit suivre le format ISO 8601 AAAA-MM-JJThh:mm:ssZ. |
 
 ## <a name="authorization"></a>Autorisation
@@ -650,11 +649,11 @@ Bien que l’API de collecte de données soit censée répondre à la plupart de
 | Alternative | Description | Idéale pour |
 |---|---|---|
 | [Événements personnalisés](../app/api-custom-events-metrics.md?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#properties) : Ingestion native basée sur le Kit de développement logiciel (SDK) dans Application Insights | Application Insights, généralement instrumenté via un Kit de développement logiciel (SDK) dans votre application, vous permet d’envoyer des données personnalisées par le biais d’événements personnalisés. | <ul><li> Données qui sont générées dans votre application, mais non récupérées par le Kit de développement logiciel (SDK) via un des types de données par défaut (par ex. : requêtes, dépendances, exceptions, etc.).</li><li> Données qui sont plus souvent corrélées à d’autres données d’application dans Application Insights </li></ul> |
-| API de collecte de données dans les journaux Azure Monitor | L’API de collecte de données dans les journaux Azure Monitor est une méthode d’ingestion de données complètement flexible. Toutes les données mises en forme dans un objet JSON peuvent être envoyées ici. Une fois envoyées, elles sont traitées et mises à disposition dans des journaux pour être corrélées à d’autres données de journaux ou par rapport à d’autres données Application Insights. <br/><br/> Il est relativement facile de charger les données sous forme de fichiers dans un objet blob Azure Blob, ces fichiers seront alors traités et chargés dans Log Analytics. Consultez [cet article](./create-pipeline-datacollector-api.md) pour un exemple d’implémentation de ce pipeline. | <ul><li> Données qui ne sont pas nécessairement générées dans une application instrumentée dans Application Insights.</li><li> Les exemples incluent les tables de consultations et de faits, les données de référence, les statistiques pré-agrégées, etc. </li><li> Conçu pour les données qui seront référencées de manière croisée par rapport à d’autres données Azure Monitor (par exemple, Application Insights, autres types de données de journaux, Security Center, Azure Monitor pour conteneurs/machines virtuelles, etc.). </li></ul> |
+| API de collecte de données dans les journaux Azure Monitor | L’API de collecte de données dans les journaux Azure Monitor est une méthode d’ingestion de données complètement flexible. Toutes les données mises en forme dans un objet JSON peuvent être envoyées ici. Une fois envoyées, elles sont traitées et mises à disposition dans des journaux pour être corrélées à d’autres données de journaux ou par rapport à d’autres données Application Insights. <br/><br/> Il est relativement facile de charger les données sous forme de fichiers dans un objet blob Azure Blob, ces fichiers seront alors traités et chargés dans Log Analytics. Consultez [cet article](./create-pipeline-datacollector-api.md) pour un exemple d’implémentation de ce pipeline. | <ul><li> Données qui ne sont pas nécessairement générées dans une application instrumentée dans Application Insights.</li><li> Les exemples incluent les tables de consultations et de faits, les données de référence, les statistiques pré-agrégées, etc. </li><li> Conçu pour les données qui seront référencées de manière croisée par rapport à d’autres données Azure Monitor (par exemple, Application Insights, autres types de données de journaux, Security Center, Container Insights/Machines virtuelles, etc.). </li></ul> |
 | [Explorateur de données Azure](/azure/data-explorer/ingest-data-overview) | Azure Data Explorer (ADX) est la plateforme de données sur laquelle s’appuient Application Insights Analytics et les journaux Azure Monitor. Maintenant à la disposition générale, l’utilisation de la plateforme de données dans sa forme brute vous offre une flexibilité complète (mais implique une surcharge de gestion) sur le cluster (Kubernetes RBAC, taux de conservation, schéma, etc.). ADX propose de nombreuses [options d’ingestion](/azure/data-explorer/ingest-data-overview#ingestion-methods), notamment des fichiers [CSV, TSV et JSON](/azure/kusto/management/mappings?branch=master). | <ul><li> Données qui ne seront pas corrélées à d’autres données dans Application Insights ou les journaux. </li><li> Données nécessitant des fonctionnalités d’ingestion ou de traitement avancées non disponibles actuellement dans les journaux Azure Monitor. </li></ul> |
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-- Utilisez l’[API Recherche de journal](../log-query/log-query-overview.md) pour récupérer des données à partir de l’espace de travail Log Analytics.
+- Utilisez l’[API Recherche de journal](./log-query-overview.md) pour récupérer des données à partir de l’espace de travail Log Analytics.
 
 - En savoir plus sur la façon de [créer un pipeline de données avec l’API Collecte de données ](create-pipeline-datacollector-api.md) en utilisant le flux de travail Logic Apps sur Azure Monitor.

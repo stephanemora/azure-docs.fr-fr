@@ -4,19 +4,18 @@ description: Découvrez comment modifier les webhooks, les applications logiques
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
-ms.date: 03/19/2018
-ms.subservice: alerts
-ms.openlocfilehash: 1d6fc8e4b9baecf02531fc1baa617b87a9d3255c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.date: 02/14/2021
+ms.openlocfilehash: ce61c3539a4ea29cbeb48c379ed143363500701e
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100598661"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102038014"
 ---
 # <a name="prepare-your-logic-apps-and-runbooks-for-migration-of-classic-alert-rules"></a>Préparer les applications logiques et les runbooks pour la migration des règles d’alerte classiques
 
 > [!NOTE]
-> Comme [précédemment annoncé](../platform/monitoring-classic-retirement.md), les alertes classiques dans Azure Monitor sont mises hors service pour les utilisateurs du cloud public, bien qu’elles soient toujours utilisées de manière limitée pour les ressources qui ne prennent pas encore en charge les nouvelles alertes. La date de mise hors service de ces alertes a été repoussée. Une nouvelle date sera annoncée prochainement.
+> Comme [précédemment annoncé](monitoring-classic-retirement.md), les alertes classiques dans Azure Monitor sont mises hors service pour les utilisateurs du cloud public, avec une utilisation limitée jusqu’au **31 mai 2021**. Les alertes classiques pour Azure Government Cloud et Azure China 21Vianet vont être mises hors service le **29 février 2024**.
 >
 
 Si vous choisissez de migrer volontairement vos règles d’alerte classiques vers de nouvelles règles d’alerte, n’oubliez pas qu’il existe certaines différences entre les deux systèmes. Cet article décrit ces différences et explique comment préparer la modification.
@@ -36,7 +35,7 @@ Le tableau suivant référence les interfaces de programmation pour les alertes 
 
 ## <a name="notification-payload-changes"></a>Modifications de charge utile de notification
 
-Le format de charge utile de notification est légèrement différent pour les [règles d’alerte classiques](../platform/alerts-webhooks.md) et les [nouvelles alertes de métrique](alerts-metric-near-real-time.md#payload-schema). Si des actions de webhook, d’application logique ou de runbook sont déclenchées par des règles d’alerte classiques, vous devez mettre à jour ces points de terminaison de notification pour accepter le format de charge utile des nouvelles alertes de métrique.
+Le format de charge utile de notification est légèrement différent pour les [règles d’alerte classiques](alerts-webhooks.md) et les [nouvelles alertes de métrique](alerts-metric-near-real-time.md#payload-schema). Si vous avez des règles d’alerte classiques avec des actions webhook, logic app ou runbook, vous devez mettre à jour les cibles pour accepter le nouveau format de charge utile.
 
 Utilisez le tableau suivant pour mapper les champs de charge utile de webhook du format classique vers le nouveau format :
 
@@ -153,13 +152,13 @@ Pour obtenir un exemple complet de runbook qui arrête une machine virtuelle lor
 
 ## <a name="partner-integration-via-webhooks"></a>Intégration des partenaires par le biais de webhooks
 
-La plupart de [nos partenaires qui s’intègrent avec les alertes classiques](../platform/partners.md) prennent déjà en charge les nouvelles alertes de métrique. Voici quelques intégrations connues qui fonctionnent déjà avec les nouvelles alertes de métrique :
+La plupart de [nos partenaires qui s’intègrent avec les alertes classiques](../partners.md) prennent déjà en charge les nouvelles alertes de métrique. Voici quelques intégrations connues qui fonctionnent déjà avec les nouvelles alertes de métrique :
 
 - [PagerDuty](https://www.pagerduty.com/docs/guides/azure-integration-guide/)
 - [OpsGenie](https://docs.opsgenie.com/docs/microsoft-azure-integration)
 - [Signl4](https://www.signl4.com/blog/mobile-alert-notifications-azure-monitor/)
 
-Si vous utilisez une intégration des partenaires qui n’est pas répertoriée ici, vérifiez auprès du fournisseur d’intégration que l’intégration fonctionne avec les nouvelles alertes de métrique.
+Si vous utilisez une intégration des partenaires qui n’est pas répertoriée ici, vérifiez auprès d’eux qu’ils utilisent les nouvelles alertes de métrique.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

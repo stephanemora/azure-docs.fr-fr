@@ -1,17 +1,17 @@
 ---
-title: Rapports d’Azure Monitor pour conteneurs
-description: Décrit les rapports qui permettent d’analyser les données collectées par Azure Monitor pour conteneurs.
+title: Rapports dans Container Insights
+description: Décrit les rapports qui permettent d’analyser les données collectées par Container Insights.
 ms.topic: conceptual
 ms.date: 12/07/2020
-ms.openlocfilehash: 94709cf4a8b579447c11f91f9bc6863ab4b4fe08
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: ab704ed184d9d67ddfba5aede385899faf2a56de
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100582311"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704274"
 ---
-# <a name="reports-in-azure-monitor-for-containers"></a>Rapports d’Azure Monitor pour conteneurs
-Les rapports d’Azure Monitor pour conteneurs sont les [classeurs Azure](../visualize/workbooks-overview.md) prêts à l’emploi que nous recommandons. Cet article décrit les différents rapports disponibles et explique comment y accéder.
+# <a name="reports-in-container-insights"></a>Rapports dans Container Insights
+Les rapports dans Container Insights sont des [classeurs Azure](../visualize/workbooks-overview.md) prêts à l’emploi recommandés. Cet article décrit les différents rapports disponibles et explique comment y accéder.
 
 ## <a name="viewing-reports"></a>Affichage de rapports
 À partir du menu **Azure Monitor** du portail Azure, sélectionnez **Conteneurs**. Sélectionnez **Insights** dans la section **Supervision**, choisissez un cluster, puis sélectionnez la page **Rapports (préversion)** . 

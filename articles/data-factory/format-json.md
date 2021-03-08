@@ -6,12 +6,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/29/2020
 ms.author: jingwang
-ms.openlocfilehash: 30b8cb2b5c8b1ccd0c927a6ff8a3a282d3d43c69
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: f19f8fb3811435e9bbc207d2d130c0655a6dee02
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100386541"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101706065"
 ---
 # <a name="json-format-in-azure-data-factory"></a>Format JSON dans Azure Data Factory
 
@@ -218,7 +218,7 @@ Le tableau ci-dessous liste les propriétés prises en charge par une source JS
 
 ### <a name="source-format-options"></a>Options de format source
 
-L’utilisation d’un jeu de données JSON comme source dans votre flux de données vous permet de définir cinq paramètres supplémentaires. Ces paramètres se trouvent sous l’accordéon de **paramètres JSON**, sous l’onglet **Options de la source**.  
+L’utilisation d’un jeu de données JSON comme source dans votre flux de données vous permet de définir cinq paramètres supplémentaires. Ces paramètres se trouvent sous l’accordéon de **paramètres JSON**, sous l’onglet **Options de la source**. Pour le paramètre de **Forme de document**, vous pouvez sélectionner un des types **Document unique**, **document par ligne** et un **Tableau de documents**.
 
 ![Paramètres JSON](media/data-flow/json-settings.png "Paramètres JSON")
 

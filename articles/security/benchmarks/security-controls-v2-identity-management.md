@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: f76ebf8609b5f4ac587800359a5cbb0c6f967f3c
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 4a36bd69ff5ddbc79e358d6f8a2c5b4d640c6d5c
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101698601"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102051444"
 ---
 # <a name="security-control-v2-identity-management"></a>Contrôle de sécurité V2 : Gestion des identités
 
 La gestion des identités couvre les contrôles permettant d’établir une identité et des contrôles d’accès sécurisés à l’aide d’Azure Active Directory. Cela comprend l’utilisation de l’authentification unique, des authentifications fortes, des identités gérées (et des principes de service) pour les applications, l’accès conditionnel et la surveillance des anomalies de compte.
 
-Pour afficher l’instance Azure Policy intégrée applicable, consultez [Informations sur l’initiative intégrée Conformité réglementaire Azure Security Benchmark : Gestion des identités](../../governance/policy/samples/azure-security-benchmark#identity-management)
+Pour afficher l’instance Azure Policy intégrée applicable, consultez [Informations sur l’initiative intégrée Conformité réglementaire Azure Security Benchmark : Gestion des identités](../../governance/policy/samples/azure-security-benchmark.md#identity-management)
 
 ## <a name="im-1-standardize-azure-active-directory-as-the-central-identity-and-authentication-system"></a>IM-1 : Normaliser Azure Active Directory comme système d’authentification et d’identité central
 

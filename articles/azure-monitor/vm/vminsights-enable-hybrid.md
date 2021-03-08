@@ -1,17 +1,16 @@
 ---
 title: Activer Azure Monitor pour un environnement hybride
 description: Cet article décrit comment activer VM Insights pour un environnement de cloud hybride contenant une ou plusieurs machines virtuelles.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 6518906f264077ac88a90513a237840f7f814247
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: c3c8495b7355ee5d9ee8c28b4e0097a0080964d4
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101731270"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102046635"
 ---
 # <a name="enable-vm-insights-for-a-hybrid-virtual-machine"></a>Activer VM Insights pour une machine virtuelle hybride
 Cet article explique comment activer VM Insights pour une machine virtuelle en dehors d’Azure, y compris des environnements locaux et autres clouds.

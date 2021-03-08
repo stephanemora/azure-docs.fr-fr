@@ -1,26 +1,26 @@
 ---
-title: Exemples de modèle Resource Manager destinés à Azure Monitor pour conteneurs
-description: Exemples de modèle Azure Resource Manager permettant de déployer et de configurer Azure Monitor pour conteneurs.
+title: Exemples de modèles Resource Manager pour Container Insights
+description: Exemples de modèles Azure Resource Manager pour déployer et configurer Container Insights.
 ms.subservice: logs
 ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2020
-ms.openlocfilehash: e33bb6ae04f0b11a25a7ab87362bc243ee19c79c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: f75278663abde8d4b0f47c8df1dbbdbc298bcafb
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100597223"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723331"
 ---
-# <a name="resource-manager-template-samples-for-azure-monitor-for-containers"></a>Exemples de modèle Resource Manager destinés à Azure Monitor pour conteneurs
+# <a name="resource-manager-template-samples-for-container-insights"></a>Exemples de modèles Resource Manager pour Container Insights
 Cet article contient des exemples de [modèle Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) pour déployer et configurer l’agent Log Analytics destiné à des machines virtuelles dans Azure Monitor. Chaque exemple comprend un fichier de modèle et un fichier de paramètres avec des exemples de valeurs à fournir au modèle.
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
 
 ## <a name="enable-for-aks-cluster"></a>Activer pour un cluster AKS
-L’exemple suivant active Azure Monitor pour conteneurs sur un cluster AKS.
+L’exemple suivant active Container Insights sur un cluster AKS.
 
 
 ### <a name="template-file"></a>Fichier de modèle
@@ -357,4 +357,4 @@ L’exemple suivant active Azure Monitor pour conteneurs sur un cluster AKS.
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Obtenir d’autres exemples de modèle pour Azure Monitor](../resource-manager-samples.md).
-* [En savoir plus sur Azure Monitor pour conteneurs](../containers/container-insights-overview.md).
+* [En savoir plus sur Container Insights](../containers/container-insights-overview.md).

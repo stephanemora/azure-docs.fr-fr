@@ -4,19 +4,21 @@ description: Benchmark de sécurité Azure V2 pour la sauvegarde et la récupér
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/20/2020
+ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 089cf521a7c5428833be340001c88b870c568a8f
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: fd9a01868230efd9e9078171359d81302b472cd3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97368883"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101724419"
 ---
 # <a name="security-control-v2-backup-and-recovery"></a>Contrôle de sécurité V2 : Sauvegarde et récupération
 
 La sauvegarde et la récupération recouvrent les contrôles destinés à s’assurer que les sauvegardes de données et de configurations aux différents niveaux de service sont effectuées, validées et protégées.
+
+Pour afficher l’instance Azure Policy intégrée applicable, consultez [Informations sur l’initiative intégrée Conformité réglementaire Azure Security Benchmark : Sauvegarde et Récupération](../../governance/policy/samples/azure-security-benchmark#backup-and-recovery)
 
 ## <a name="br-1-ensure-regular-automated-backups"></a>BR-1 : Garantir des sauvegardes automatiques régulières
 
@@ -26,7 +28,7 @@ La sauvegarde et la récupération recouvrent les contrôles destinés à s’as
 
 Veillez à sauvegarder les systèmes et les données pour assurer la continuité de l’activité après un événement inattendu. Ceci doit être défini par des objectifs de point de récupération (RPO) et de délai de récupération (RTO).
 
-Activez le service Sauvegarde Azure et configurez la source de la sauvegarde (par exemple, machines virtuelles Azure, SQL Server ou partages de fichiers), ainsi que la fréquence et la période de rétention souhaitées.  
+Activez le service Sauvegarde Azure et configurez la source de la sauvegarde (par exemple, machines virtuelles Azure, SQL Server ou partages de fichiers), ainsi que la fréquence et la période de rétention souhaitées.
 
 Pour un niveau plus élevé de protection, vous pouvez activer l’option de stockage géoredondant afin de répliquer les données de sauvegarde dans une région secondaire et de les récupérer à l’aide d’une restauration inter-région.
 
@@ -54,9 +56,9 @@ Pour un niveau plus élevé de protection, vous pouvez activer l’option de sto
 |--|--|--|--|
 | BR-2 | 10,2 | CP-9 |
 
-Assurez-vous que vos sauvegardes sont protégées contre les attaques. Cela doit inclure le chiffrement des sauvegardes afin de vous protéger contre la perte de confidentialité.   
+Assurez-vous que vos sauvegardes sont protégées contre les attaques. Cela doit inclure le chiffrement des sauvegardes afin de vous protéger contre la perte de confidentialité.
 
-Pour une sauvegarde locale à l’aide du service Sauvegarde Azure, le chiffrement au repos est assuré à l’aide de la phrase secrète que vous fournissez. Pour une sauvegarde de service Azure normale, les données de sauvegarde sont automatiquement chiffrées à l’aide de clés gérées par la plateforme Azure. Vous pouvez choisir de chiffrer la sauvegarde à l’aide d’une clé gérée par le client. Dans ce cas, assurez-vous que cette clé gérée par le client dans le coffre de clés est également dans l’étendue de la sauvegarde. 
+Pour une sauvegarde locale à l’aide du service Sauvegarde Azure, le chiffrement au repos est assuré à l’aide de la phrase secrète que vous fournissez. Pour une sauvegarde de service Azure normale, les données de sauvegarde sont automatiquement chiffrées à l’aide de clés gérées par la plateforme Azure. Vous pouvez choisir de chiffrer la sauvegarde à l’aide d’une clé gérée par le client. Dans ce cas, assurez-vous que cette clé gérée par le client dans le coffre de clés est également dans l’étendue de la sauvegarde.
 
 Utilisez un contrôle d’accès en fonction du rôle Azure dans le service Sauvegarde Azure, la solution Azure Key Vault ou d’autres ressources pour protéger les sauvegardes et les clés gérées par le client. En outre, vous pouvez activer des fonctionnalités de sécurité avancées pour exiger une authentification multifacteur avant que les sauvegardes soient modifiées ou supprimées.
 
@@ -104,7 +106,7 @@ Effectuez régulièrement une restauration des données de votre sauvegarde. Ass
 |--|--|--|--|
 | BR-4 | 10,4 | CP-9 |
 
-Assurez-vous que vous avez pris les mesures nécessaires pour empêcher la perte de clés et récupérer d’une telle perte. Activez la suppression réversible et la protection contre la purge dans Azure Key Vault pour protéger les clés contre une suppression accidentelle ou malveillante.  
+Assurez-vous que vous avez pris les mesures nécessaires pour empêcher la perte de clés et récupérer d’une telle perte. Activez la suppression réversible et la protection contre la purge dans Azure Key Vault pour protéger les clés contre une suppression accidentelle ou malveillante.
 
 - [Guide pratique pour activer la suppression réversible et la protection contre la purge dans Key Vault](../../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 

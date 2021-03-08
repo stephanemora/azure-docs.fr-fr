@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/01/2020
 ms.author: NanditaV
 ms.reviewer: jrasnick
-ms.openlocfilehash: 12d858488c4530e4b0d949cd36ed9ad2f7df4c59
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 6fd28c9392d760888eafde37471a49ffaa2e4423
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100384484"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101694136"
 ---
 # <a name="create-a-workspace-with-data-exfiltration-protection-enabled"></a>Créer un espace de travail avec la protection contre l’exfiltration de données activée
 Cet article explique comment créer un espace de travail avec la protection contre l’exfiltration des données activée et comment gérer les locataires Azure AD approuvés pour cet espace de travail.
@@ -50,7 +50,7 @@ Vous pouvez créer des points de terminaison privés managés pour vous connecte
 >Les ressources dans les locataires autres que le locataire de l’espace de travail ne doivent pas avoir de règles de pare-feu bloquantes pour que les pools SQL puissent s’y connecter. Les ressources au sein du réseau virtuel managé de l’espace de travail, comme les clusters Spark, peuvent se connecter via des liaisons privées managées aux ressources protégées par un pare-feu.
 
 ## <a name="known-limitations"></a>Limitations connues
-Les utilisateurs peuvent fournir un fichier de configuration d'environnement pour installer des packages Python à partir de référentiels publics tels que PyPI. Dans les espaces de travail protégés contre l'exfiltration de données, les connexions aux référentiels sortants sont bloquées. En conséquence, les bibliothèques Python installées à partir de référentiels publics comme PyPI ne sont pas prises en charge. 
+Les utilisateurs peuvent fournir un fichier de configuration d'environnement pour installer des packages Python à partir de référentiels publics tels que PyPI. Dans les espaces de travail protégés contre l'exfiltration de données, les connexions aux référentiels sortants sont bloquées. En conséquence, les bibliothèques Python installées à partir de référentiels publics comme PyPI ne sont pas prises en charge. Les utilisateurs peuvent également créer un canal privé dans leur compte principal Azure Data Lake Storage et le référencer dans le fichier config de leur environnement Conda. 
   
 ## <a name="next-steps"></a>Étapes suivantes
 

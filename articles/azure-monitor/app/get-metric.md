@@ -5,12 +5,12 @@ ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: b4a255235b2c6d772ab9a05dffacd4574ddd3280
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0ce2651d5cfcb1578d78982af109a004aaac11f4
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100584191"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719778"
 ---
 # <a name="custom-metric-collection-in-net-and-net-core"></a>Collecte de métriques personnalisées dans .NET et .NET Core
 
@@ -33,7 +33,7 @@ La limitation est particulièrement importante dans le sens où, comme l’écha
 En résumé, l’approche recommandée consiste à utiliser `GetMetric()`, car elle effectue une pré-agrégation, elle accumule les valeurs de tous les appels Track() et envoie un résumé/une agrégation une fois par minute. Cela peut réduire considérablement le coût et les problèmes de performances en envoyant moins de points de données, tout en recueillant néanmoins toutes les informations pertinentes.
 
 > [!NOTE]
-> Seuls les kits SDK .NET et .NET Core ont une méthode GetMetric(). Si vous utilisez Java, vous pouvez utiliser des [métriques Micrometer](./micrometer-java.md) ou `TrackMetric()`. Pour Python, vous pouvez utiliser [OpenCensus.stats](./opencensus-python.md#metrics) pour envoyer des métriques personnalisées. Pour JavaScript et Node.js, vous utiliserez quand même `TrackMetric()`, mais gardez à l’esprit les avertissements décrits dans la section précédente.
+> Seuls les kits SDK .NET et .NET Core ont une méthode GetMetric(). Si vous utilisez Java, vous pouvez utiliser des [métriques Micrometer](./micrometer-java.md) ou `TrackMetric()`. Pour JavaScript et Node.js, vous utiliserez quand même `TrackMetric()`, mais gardez à l’esprit les avertissements décrits dans la section précédente. Pour Python, vous pouvez utiliser [OpenCensus.stats](./opencensus-python.md#metrics) pour envoyer des métriques personnalisées, mais l’implémentation de métriques est différente.
 
 ## <a name="getting-started-with-getmetric"></a>Bien démarrer avec GetMetric
 
@@ -69,7 +69,7 @@ namespace WorkerService3
             // Here "computersSold", a custom metric name, is being tracked with a value of 42 every second.
             while (!stoppingToken.IsCancellationRequested)
             {
-                _telemetryClient.GetMetric("computersSold").TrackValue(42);
+                _telemetryClient.GetMetric("ComputersSold").TrackValue(42);
 
                 _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
                 await Task.Delay(1000, stoppingToken);
@@ -89,7 +89,7 @@ Application Insights Telemetry: {"name":"Microsoft.ApplicationInsights.Dev.00000
 "ai.internal.sdkVersion":"m-agg2c:2.12.0-21496",
 "ai.internal.nodeName":"Test-Computer-Name"},
 "data":{"baseType":"MetricData",
-"baseData":{"ver":2,"metrics":[{"name":"computersSold",
+"baseData":{"ver":2,"metrics":[{"name":"ComputersSold",
 "kind":"Aggregation",
 "value":1722,
 "count":41,
@@ -101,6 +101,9 @@ Application Insights Telemetry: {"name":"Microsoft.ApplicationInsights.Dev.00000
 ```
 
 Cet élément de télémétrie unique représente une agrégation de 41 mesures de métriques distinctes. Étant donné que nous envoyions sans cesse la même valeur, nous avons un *écart type (stDev)* de 0 avec des valeurs *maximale (max)* et *minimale (min)* identiques. La propriété *value* représente la somme de toutes les valeurs individuelles qui ont été agrégées.
+
+> [!NOTE]
+> GetMetric ne prend pas en charge le suivi de la dernière valeur (par exemple, « gauge ») ou des histogrammes/distributions.
 
 Si nous examinons notre ressource Application Insights dans l’expérience Journaux (analytique), cet élément de télémétrie se présentera comme suit :
 
@@ -283,7 +286,7 @@ computersSold.TrackValue(100, "Dim1Value1", "Dim2Value3");
 // The above call does not track the metric, and returns false.
 ```
 
-* `seriesCountLimit` est la quantité maximale de séries chronologiques de données qu’une métrique peut contenir. Une fois cette limite atteinte, les appels à `TrackValue()`.
+* `seriesCountLimit` est la quantité maximale de séries chronologiques de données qu’une métrique peut contenir. Une fois cette limite atteinte, les appels à `TrackValue()` ne sont pas suivis.
 * `valuesPerDimensionLimit` limite le nombre de valeurs distinctes par dimension d’une manière similaire.
 * `restrictToUInt32Values` détermine si seules les valeurs entières non négatives doivent être suivies.
 

@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 02/18/2021
 ms.custom: template-concept
-ms.openlocfilehash: 4c2ace609d67cc48d1b73bdb044e7048ebda21e7
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: c93ecdc138e757f84e995a69a6c3d7f1b5460abe
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102098330"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102179372"
 ---
 # <a name="azure-percept-dk-overview"></a>Vue d’ensemble du DK Azure Percept
 
@@ -24,7 +24,7 @@ Azure Percept DK est un kit de développement IA et IoT Edge conçu pour le dév
 
 - **Capacité d’exécuter l’intelligence artificielle à la périphérie**. Avec l’accélération matérielle intégrée, il peut exécuter des modèles d’IA de vision sans connexion au Cloud.
 - **Sécurité intégrée avec racine matérielle de confiance**. Pour plus d’informations, consultez la vue d’ensemble de la [sécurité Azure Percept](./overview-percept-security.md).
-- **Intégration transparente à [Azure Percept Studio](./overview-azure-percept-studio.md)** et à d’autres services Azure. Par exemple, Azure IoT Hub, Azure Cognitive Services et [Live Video Analytics](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/overview).
+- **Intégration transparente à [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819)** et à d’autres services Azure. Par exemple, Azure IoT Hub, Azure Cognitive Services et [Live Video Analytics](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/overview).
 - **Intégration transparente avec [Azure Percept Audio](./overview-azure-percept-audio.md) (facultatif)**
 - **Prise en charge des principales plateformes d’IA**. Par exemple, ONNX et TensorFlow.
 - **Intégration au système de rails 80/20**. Pour faciliter la création de prototypes dans les environnements de production. En savoir plus sur [l’intégration 80/20](./overview-8020-integration.md).

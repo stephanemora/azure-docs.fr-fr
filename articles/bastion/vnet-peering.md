@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 12/09/2020
 ms.author: cherylmc
-ms.openlocfilehash: 472261666c86b666efd09c7217d12e5a795a50d9
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: f72a3739fac1e7d6afdafd2676ea6fcefe847b2a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97094883"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710581"
 ---
 # <a name="vnet-peering-and-azure-bastion-preview"></a>Appairage de réseaux virtuels et architecture d’Azure Bastion (préversion)
 
@@ -40,9 +40,15 @@ Cette figure représente l’architecture d’un déploiement Azure Bastion dans
 **Étapes :**
 
 1. Connectez-vous au portail Azure à l’aide de n’importe quel navigateur HTML5.
-1. Sélectionnez la machine virtuelle à laquelle vous souhaitez vous connecter.
-1. Azure Bastion est détecté en toute transparence sur le réseau virtuel appairé.
-1. D’un simple clic, la session RDP/SSH s’ouvre dans le navigateur. Pour les limites de session RDP et SSH simultanées, consultez [Sessions RDP et SSH](bastion-faq.md#limits).
+2. Vérifiez que vous disposez d’un accès **en lecture** à la machine virtuelle cible et au réseau virtuel appairé. En outre, vérifiez sous IAM que vous disposez d’un accès en lecture aux ressources suivantes :
+   * Rôle de lecteur sur la machine virtuelle.
+   * Rôle de lecteur sur la carte réseau avec adresse IP privée de la machine virtuelle.
+   * Rôle de lecteur sur la ressource Azure Bastion.
+   * Rôle de lecteur sur le réseau virtuel (inutile s’il n’y a pas de réseau virtuel appairé).
+3. Pour afficher Bastion dans le menu déroulant **Connexion**, vous devez sélectionner les abonnements auxquels vous avez accès dans **Abonnement > Abonnement global**.
+4. Sélectionnez la machine virtuelle à laquelle vous souhaitez vous connecter.
+5. Azure Bastion est détecté en toute transparence sur le réseau virtuel appairé.
+6. D’un simple clic, la session RDP/SSH s’ouvre dans le navigateur. Pour les limites de session RDP et SSH simultanées, consultez [Sessions RDP et SSH](bastion-faq.md#limits).
 
   :::image type="content" source="../../includes/media/bastion-vm-rdp/connect-vm.png" alt-text="Connexion":::
 

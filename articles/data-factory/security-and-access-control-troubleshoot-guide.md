@@ -4,14 +4,14 @@ description: Découvrez comment résoudre les problèmes de sécurité et de con
 author: lrtoyou1223
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 02/04/2021
+ms.date: 02/24/2021
 ms.author: lle
-ms.openlocfilehash: 0dac0dcb272b602be8b921bce0ffc68c05cb9cbd
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: fa410441203c50d96c0de1d9188fb73b6fd4d577
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100375168"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101706153"
 ---
 # <a name="troubleshoot-azure-data-factory-security-and-access-control-issues"></a>Résoudre les problèmes de sécurité et de contrôle d’accès dans Azure Data Factory
 
@@ -142,7 +142,6 @@ Pour résoudre ce problème, procédez comme suit :
 
 1. Ajoutez de nouveau la clé d’authentification IR dans le runtime d’intégration.
 
-
 **Solution 2**
 
 Pour résoudre le problème, accédez à [Azure Private Link pour Azure Data Factory](./data-factory-private-link.md).
@@ -150,6 +149,45 @@ Pour résoudre le problème, accédez à [Azure Private Link pour Azure Data Fac
 Essayez d’activer l’accès au réseau public sur l’interface utilisateur, comme illustré dans la capture d’écran suivante :
 
 ![Capture d’écran du contrôle « Activé » pour « Autoriser l’accès au réseau public » dans le volet Mise en réseau.](media/self-hosted-integration-runtime-troubleshoot-guide/enable-public-network-access.png)
+
+### <a name="adf-private-dns-zone-overrides-azure-resource-manager-dns-resolution-causing-not-found-error"></a>La zone DNS privée ADF remplace la résolution DNS d’Azure Resource Manager, entraînant une erreur « introuvable »
+
+#### <a name="cause"></a>Cause
+Azure Resource Manager et ADF utilisent la même zone privée, ce qui crée un conflit potentiel sur le DNS privé du client avec un scénario dans lequel les enregistrements Azure Resource Manager sont introuvables.
+
+#### <a name="solution"></a>Solution
+1. Recherchez des zones DNS privées **privatelink.Azure.com** dans le portail Azure.
+![Capture d’écran de la recherche de zones DNS privées.](media/security-access-control-troubleshoot-guide/private-dns-zones.png)
+2. Vérifiez s’il existe un enregistrement A **adf**.
+![Capture d’écran d’un enregistrement A.](media/security-access-control-troubleshoot-guide/a-record.png)
+3.  Accédez à **Liens de réseau virtuel**, puis supprimez tous les enregistrements.
+![Capture d’écran de lien de réseau virtuel.](media/security-access-control-troubleshoot-guide/virtual-network-link.png)
+4.  Accédez à votre fabrique de données dans le portail Azure et recréez le point de terminaison privé pour le portail Azure Data Factory.
+![Capture d’écran de la recréation d’un point de terminaison privé.](media/security-access-control-troubleshoot-guide/create-private-endpoint.png)
+5.  Revenez à Zones DNS privées et vérifiez s’il existe une nouvelle zone DNS privée **privatelink.adf.azure.com**.
+![Capture d’écran de nouvel enregistrement DNS.](media/security-access-control-troubleshoot-guide/check-dns-record.png)
+
+### <a name="connection-error-in-public-endpoint"></a>Erreur de connexion dans un point de terminaison public
+
+#### <a name="symptoms"></a>Symptômes
+
+Lorsque vous copiez des données avec un accès public au compte de Stockage Blob Azure, les exécutions du pipeline échouent de façon aléatoire avec l’erreur suivante.
+
+Par exemple : le récepteur de Stockage Blob Azure utilisait Azure IR (réseau virtuel public non géré) et, la source Azure SQL Database utilisait le runtime d’intégration de réseau virtuel managé. Ou bien la source ou le récepteur utilisent le runtime d’intégration de réseau virtuel managé uniquement avec un accès public au stockage.
+
+`
+<LogProperties><Text>Invoke callback url with req:
+"ErrorCode=UserErrorFailedToCreateAzureBlobContainer,'Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,Message=Unable to create Azure Blob container. Endpoint: XXXXXXX/, Container Name: test.,Source=Microsoft.DataTransfer.ClientLibrary,''Type=Microsoft.WindowsAzure.Storage.StorageException,Message=Unable to connect to the remote server,Source=Microsoft.WindowsAzure.Storage,''Type=System.Net.WebException,Message=Unable to connect to the remote server,Source=System,''Type=System.Net.Sockets.SocketException,Message=A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond public ip:443,Source=System,'","Details":null}}</Text></LogProperties>.
+`
+
+#### <a name="cause"></a>Cause
+
+ADF peut toujours utiliser le runtime d’intégration de réseau virtuel managé, mais vous pouvez rencontrer une telle erreur parce que le point de terminaison public pour le Stockage Blob Azure dans un réseau virtuel managé n’est pas fiable compte tenu du résultat du test, et le Stockage Blob Azure et Azure Data Lake Gen2 ne sont pas pris en charge pour être connectés via un point de terminaison public à partir du réseau virtuel managé ADF comme expliqué dans [Réseau virtuel managé et points de terminaison privés managés](https://docs.microsoft.com/azure/data-factory/managed-virtual-network-private-endpoint#outbound-communications-through-public-endpoint-from-adf-managed-virtual-network).
+
+#### <a name="solution"></a>Solution
+
+- Le point de terminaison privé étant activé sur la source et également côté récepteur lors de l’utilisation du runtime d’intégration de réseau virtuel managé.
+- Si vous souhaitez toujours utiliser le point de terminaison public, vous pouvez basculer vers le runtime d’intégration public uniquement au lieu d’utiliser le runtime d’intégration de réseau virtuel managé pour la source et le récepteur. Même si vous revenez au runtime d’intégration public, ADF peut continuer à utiliser le runtime d’intégration de réseau virtuel managé si le runtime d’intégration de réseau virtuel managé est toujours présent.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

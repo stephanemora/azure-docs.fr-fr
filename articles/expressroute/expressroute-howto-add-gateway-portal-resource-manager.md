@@ -5,15 +5,15 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: tutorial
-ms.date: 10/05/2020
+ms.date: 03/03/2021
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 56e35c23eacdf98db283ba5d8c2e32687cbe0ea8
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6c6969fdf413c4eb5e7bbcf046fc397834d6c0a2
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101740900"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102038915"
 ---
 # <a name="tutorial-configure-a-virtual-network-gateway-for-expressroute-using-the-azure-portal"></a>Tutoriel : Configurer une passerelle de réseau virtuel pour ExpressRoute à l’aide du portail Azure
 > [!div class="op_single_selector"]
@@ -67,16 +67,16 @@ Vous pouvez afficher une [vidéo](https://azure.microsoft.com/documentation/vide
 
     Si vous utilisez un réseau virtuel à double pile et prévoyez d’utiliser un Peering privé IPv6 sur ExpressRoute, cliquez sur **Ajouter un espace d’adressage IP6**, puis entrez les valeurs de la **Plage d’adresses IPv6**.
 
-Ensuite, sélectionnez **OK** pour enregistrer les valeurs et créer le sous-réseau de passerelle.
+    Ensuite, sélectionnez **OK** pour enregistrer les valeurs et créer le sous-réseau de passerelle.
 
-    :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/add-subnet-gateway.png" alt-text="Adding the subnet":::
+    :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/add-subnet-gateway.png" alt-text="Ajout du sous-réseau":::
 
 ## <a name="create-the-virtual-network-gateway"></a>Créer la passerelle de réseau virtuel
 
 1. Dans le portail, sur le côté gauche, sélectionnez **Créer une ressource**, puis entrez « Passerelle de réseau virtuel » dans la zone de recherche. Recherchez **passerelle de réseau virtuel** dans les résultats de la recherche et sélectionnez l’entrée. Dans la page **Passerelle de réseau virtuel**, sélectionnez **Créer**.
 1. Dans la page **Créer une passerelle de réseau virtuel**, entrez ou sélectionnez les paramètres suivants :
 
-    | Paramètre | Value |
+    | Paramètre | Valeur |
     | --------| ----- |
     | Abonnement | Vérifiez que l’abonnement approprié est sélectionné. |
     | Groupe de ressources | Le groupe de ressources est choisi automatiquement une fois que vous avez sélectionné le réseau virtuel. | 

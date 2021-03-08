@@ -4,19 +4,21 @@ description: 'Benchmark de sécurité Azure v2 : Accès privilégié'
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/20/2020
+ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: fd39f5e0af34c702cddc8e08b6a94e428c7f0167
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 29d4acc50ed872c37268a0b21c3e34837249a026
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99092048"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102035411"
 ---
 # <a name="security-control-v2-privileged-access"></a>Contrôle de sécurité V2 : Accès privilégié
 
 L’accès privilégié recouvre les contrôles permettant de protéger l’accès privilégié à votre locataire Azure et à vos ressources. Cela comprend une série de contrôles visant à protéger votre modèle d’administration, vos comptes d’administration et les stations de travail à accès privilégié contre les risques délibérés et involontaires.
+
+Pour afficher l’instance Azure Policy intégrée applicable, consultez [Informations sur l’initiative intégrée Conformité réglementaire Azure Security Benchmark : Accès privilégié](../../governance/policy/samples/azure-security-benchmark.md#privileged-access)
 
 ## <a name="pa-1-protect-and-limit-highly-privileged-users"></a>PA-1 : Protéger et limiter les utilisateurs disposant de privilèges élevés
 
@@ -30,7 +32,7 @@ Limitez le nombre de comptes d’utilisateur dotés de privilèges élevés et p
 
 - Administrateur de rôle privilégié : Les utilisateurs avec ce rôle peuvent gérer les attributions de rôles dans Azure AD et Azure AD Privileged Identity Management (PIM). De plus, ce rôle permet de gérer tous les aspects de PIM et des unités administratives.
 
-Remarque : Vous pouvez avoir d’autres rôles critiques qui doivent être régis si vous utilisez des rôles personnalisés avec certaines autorisations attribuées. Vous pouvez également appliquer des contrôles similaires au compte Administrateur des ressources métier critiques.  
+Remarque : Vous pouvez avoir d’autres rôles critiques qui doivent être régis si vous utilisez des rôles personnalisés avec certaines autorisations attribuées. Vous pouvez également appliquer des contrôles similaires au compte Administrateur des ressources métier critiques.
 
 Vous pouvez activer l’accès privilégié juste-à-temps (JAT) aux ressources Azure et Azure AD en utilisant Azure AD Privileged Identity Management (PIM). JAT accorde des autorisations temporaires pour effectuer des tâches privilégiées uniquement lorsque les utilisateurs en ont besoin. PIM peut également générer des alertes de sécurité en cas d’activité suspecte ou non sécurisée dans votre organisation Azure AD.
 
@@ -153,13 +155,11 @@ Utilisez les fonctionnalités de gestion des droits d’utilisation d’Azure AD
 
 | Identifiant Azure | ID des contrôles CIS v7.1 | ID NIST SP 800-53 r4 |
 |--|--|--|--|
-| PA-6 | 4.6, 11.6, 12.12 | AC-2, SC-3,  SC-7 |
+| PA-6 | 4.6, 11.6, 12.12 | AC-2, SC-3, SC-7 |
 
 Les stations de travail sécurisées et isolées sont extrêmement importantes pour la sécurité des rôles sensibles comme les administrateurs, développeurs et opérateurs de service critique. Utilisez des stations de travail utilisateur hautement sécurisées et/ou Azure Bastion pour les tâches d’administration. Utilisez Azure Active Directory, Microsoft Defender Advanced Threat Protection (MDATP) et/ou Microsoft Intune pour déployer une station de travail utilisateur sécurisée et gérée pour les tâches d’administration. Les stations de travail sécurisées peuvent être gérées de manière centralisée pour appliquer une configuration sécurisée, notamment une authentification forte, des lignes de base logicielles et matérielles et un accès réseau et logique restreint. 
 
-- [Comprendre les stations de travail d’accès privilégié](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
-
-- [Déployer une station de travail d’accès privilégié](/security/compass/privileged-access-deployment)
+- [Comprendre les stations de travail d’accès privilégié](/security/compass/privileged-access-deployment)
 
 **Responsabilité** : Customer
 
@@ -178,7 +178,8 @@ Les stations de travail sécurisées et isolées sont extrêmement importantes p
 | PA-7 | 14.6 | AC-2, AC-3, SC-3 |
 
 Le contrôle d’accès en fonction du rôle Azure (Azure RBAC) vous permet de gérer l’accès aux ressources Azure par le biais d’attributions de rôles. Vous pouvez affecter ces rôles à des utilisateurs et regrouper des principaux de service et des identités managées. Les rôles intégrés prédéfinis pour certaines ressources peuvent être inventoriés ou interrogés par le biais d’outils tels qu’Azure CLI, Azure PowerShell et le portail Azure. Les privilèges que vous attribuez aux ressources par le biais d’Azure RBAC doivent toujours être limités à ce qui est requis par les rôles. Les privilèges limités complètent l’approche juste-à-temps (JIT) d’Azure AD Privileged Identity Management (PIM), et ces privilèges doivent être révisés régulièrement.
-Utilisez des rôles intégrés pour allouer les autorisations et créez un rôle personnalisé uniquement lorsque cela est nécessaire. 
+
+Utilisez les rôles intégrés pour allouer des autorisations et ne créez des rôles personnalisés que si nécessaire.
 
 - [Présentation du contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../../role-based-access-control/overview.md)
 
@@ -192,9 +193,9 @@ Utilisez des rôles intégrés pour allouer les autorisations et créez un rôle
 
 - [Sécurité des applications et DevSecOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
-- [Gestion de la conformité de la sécurité](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management) 
+- [Gestion de la conformité de la sécurité](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
-- [Gestion de la posture](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)    
+- [Gestion de la posture](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)
 
 - [Gestion des identités et des clés](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
 

@@ -1,28 +1,28 @@
 ---
-title: Guide pratique pour la gestion de l’agent Azure Monitor pour conteneurs | Microsoft Docs
-description: Cet article décrit la gestion des tâches de maintenance les plus courantes avec l’agent en conteneur Log Analytics utilisé par Azure Monitor pour conteneurs.
+title: Comment gérer l’agent Container Insights | Microsoft Docs
+description: Cet article décrit la gestion des tâches de maintenance les plus courantes avec l’agent Log Analytics conteneurisé que Container Insights utilise.
 ms.topic: conceptual
 ms.date: 07/21/2020
-ms.openlocfilehash: b656b0cc89e40dd732def4ebf56dceae69a033b0
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 2a0c32ef797a953eca794e16fe0ace5e967f339f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100600165"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713794"
 ---
-# <a name="how-to-manage-the-azure-monitor-for-containers-agent"></a>Guide pratique pour la gestion de l’agent Azure Monitor pour conteneurs
+# <a name="how-to-manage-the-container-insights-agent"></a>Comment gérer l’agent Container Insights
 
-Azure Monitor pour conteneurs utilise une version en conteneur de l’agent Log Analytics pour Linux. Après le déploiement initial, vous devrez sans doute exécuter des tâches courantes ou facultatives pendant son cycle de vie. Cet article explique comment mettre à niveau l’agent manuellement et comment désactiver la collecte des variables d’environnement à partir d’un conteneur donné. 
+Container Insights utilise une version conteneurisée de l’agent Log Analytics pour Linux. Après le déploiement initial, vous devrez sans doute exécuter des tâches courantes ou facultatives pendant son cycle de vie. Cet article explique comment mettre à niveau l’agent manuellement et comment désactiver la collecte des variables d’environnement à partir d’un conteneur donné. 
 
-## <a name="how-to-upgrade-the-azure-monitor-for-containers-agent"></a>Comment mettre à niveau l’agent Azure Monitor pour conteneurs
+## <a name="how-to-upgrade-the-container-insights-agent"></a>Comment mettre à niveau l’agent Container Insights
 
-Azure Monitor pour conteneurs utilise une version en conteneur de l’agent Log Analytics pour Linux. Lorsqu’une nouvelle version de l’agent est disponible, celui-ci est automatiquement mis à niveau sur vos clusters Kubernetes managés sur Azure Kubernetes Service (AKS) et Azure Red Hat OpenShift version 3.x. Pour un [cluster Kubernetes hybride](container-insights-hybrid-setup.md) et Azure Red Hat OpenShift version 4.x, l’agent n’est pas managé et vous devez le mettre à niveau manuellement.
+Container Insights utilise une version conteneurisée de l’agent Log Analytics pour Linux. Lorsqu’une nouvelle version de l’agent est disponible, celui-ci est automatiquement mis à niveau sur vos clusters Kubernetes managés sur Azure Kubernetes Service (AKS) et Azure Red Hat OpenShift version 3.x. Pour un [cluster Kubernetes hybride](container-insights-hybrid-setup.md) et Azure Red Hat OpenShift version 4.x, l’agent n’est pas managé et vous devez le mettre à niveau manuellement.
 
 Si la mise à niveau de l’agent échoue pour un cluster hébergé sur AKS ou Azure Red Hat OpenShift version 3.x, cet article décrit également le processus permettant de mettre à niveau l’agent manuellement. Pour suivre les versions publiées, consultez [Annonces des versions de l’agent](https://github.com/microsoft/docker-provider/tree/ci_feature_prod).
 
 ### <a name="upgrade-agent-on-aks-cluster"></a>Mettre à niveau l’agent sur un cluster AKS
 
-Le processus de mise à niveau de l’agent sur des clusters AKS se compose de deux étapes simples. La première étape consiste à désactiver la surveillance avec Azure Monitor pour conteneurs à l’aide de l'interface de ligne de commande Azure. Suivez les étapes décrites dans l'article [Désactiver la surveillance](container-insights-optout.md?#azure-cli). L'interface de ligne de commande Azure permet de supprimer l’agent des nœuds du cluster, sans incidence sur la solution et les données correspondantes stockées dans l’espace de travail. 
+Le processus de mise à niveau de l’agent sur des clusters AKS se compose de deux étapes simples. La première étape consiste à désactiver la surveillance avec Container Insights à l’aide de l’interface de ligne de commande Azure. Suivez les étapes décrites dans l'article [Désactiver la surveillance](container-insights-optout.md?#azure-cli). L'interface de ligne de commande Azure permet de supprimer l’agent des nœuds du cluster, sans incidence sur la solution et les données correspondantes stockées dans l’espace de travail. 
 
 >[!NOTE]
 >Lors de cette activité de maintenance, les nœuds du cluster ne transfèrent pas les données collectées et les vues de performances n'affichent pas les données entre le moment où vous supprimez l'agent et celui où vous installez la nouvelle version. 
@@ -97,7 +97,7 @@ Pour plus d'informations sur l'utilisation d'un principal de service avec cette 
 
 ## <a name="how-to-disable-environment-variable-collection-on-a-container"></a>Comment désactiver la collecte des variables d’environnement sur un conteneur
 
-Azure Monitor pour conteneurs collecte des variables d’environnement à partir des conteneurs en cours d’exécution dans un pod, puis les affiche dans le volet des propriétés du conteneur sélectionné dans la vue **Conteneurs**. Vous pouvez contrôler ce comportement en désactivant la collecte pour un conteneur spécifique, soit pendant le déploiement du cluster Kubernetes, soit après le déploiement en définissant la variable d’environnement *AZMON_COLLECT_ENV*. Cette fonctionnalité est disponible avec l’agent ciprod11292018 et versions ultérieures.  
+Container Insights collecte des variables d’environnement à partir des conteneurs en cours d’exécution dans un pod, puis les présente dans le volet des propriétés du conteneur sélectionné dans l’affichage **Conteneurs**. Vous pouvez contrôler ce comportement en désactivant la collecte pour un conteneur spécifique, soit pendant le déploiement du cluster Kubernetes, soit après le déploiement en définissant la variable d’environnement *AZMON_COLLECT_ENV*. Cette fonctionnalité est disponible avec l’agent ciprod11292018 et versions ultérieures.  
 
 Pour désactiver la collecte des variables d’environnement sur un nouveau conteneur ou sur un conteneur existant, définissez la variable **AZMON_COLLECT_ENV** avec la valeur **False** dans votre fichier de configuration yaml pour le déploiement de Kubernetes. 
 
@@ -114,7 +114,7 @@ oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging
 
 Votre éditeur de texte par défaut s’ouvre. Définissez la variable, puis enregistrez le fichier dans l’éditeur.
 
-Pour vérifier que le changement de configuration est effectif, sélectionnez un conteneur dans la vue **Conteneurs** d’Azure Monitor pour conteneurs puis, dans le volet des propriétés, développez **Variables d’environnement**.  La section doit afficher uniquement la variable créée précédemment - **AZMON_COLLECT_ENV = FALSE**. Pour tous les autres conteneurs, la section des variables d’environnement doit répertorier toutes les variables d’environnement détectées.
+Pour vérifier que le changement de configuration est effectif, sélectionnez un conteneur dans l’affichage **Conteneurs** de Container Insights, puis, dans le volet des propriétés, développez **Variables d’environnement**.  La section doit afficher uniquement la variable créée précédemment - **AZMON_COLLECT_ENV = FALSE**. Pour tous les autres conteneurs, la section des variables d’environnement doit répertorier toutes les variables d’environnement détectées.
 
 Pour réactiver la découverte des variables d’environnement, suivez le même processus et remplacez la valeur **False** par **True**, avant de réexécuter la commande `kubectl` pour mettre à jour le conteneur.  
 

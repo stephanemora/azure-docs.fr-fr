@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 12/15/2020
 ms.custom: devx-track-java
 ms.author: pafarley
-ms.openlocfilehash: c8435d250f95f861f2a84e91d673eb59c3a6d44b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 59f7d40d64e10266937aab8dacb39bd6c647ce07
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101749980"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102193609"
 ---
 <a name="HOLTop"></a>
 
@@ -90,7 +90,13 @@ Accédez au nouveau dossier et créez le fichier *ComputerVisionQuickstarts.java
 > [!TIP]
 > Vous voulez voir l’intégralité du fichier de code de démarrage rapide à la fois ? Vous le trouverez sur [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java), qui contient les exemples de code utilisés dans ce guide de démarrage rapide.
 
-Dans la classe **ComputerVisionQuickstarts** de l’application, créez des variables pour la clé et le point de terminaison de votre ressource.
+Définissez la classe **ComputerVisionQuickstarts**.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_classdef_1)]
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_classdef_2)]
+
+Dans la classe **ComputerVisionQuickstarts**, créez des variables pour la clé et le point de terminaison de votre ressource.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_creds)]
 
@@ -154,7 +160,7 @@ Ensuite, spécifiez les caractéristiques visuelles que vous souhaitez extraire 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_features)]
 
 ### <a name="analyze"></a>Analyser
-Cette méthode affiche les résultats détaillés sur la console pour chaque étendue de l’analyse d’image. Nous vous recommandons d’inclure cet appel de méthode dans un bloc try/catch. L’a méthode **analyzeImageInStream** retourne un objet **ImageAnalysis** qui contient toutes les informations extraites.
+Ce bloc permet d’imprimer des résultats détaillés sur la console pour chaque étendue de l’analyse d’image. L’a méthode **analyzeImageInStream** retourne un objet **ImageAnalysis** qui contient toutes les informations extraites.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_analyze)]
 
@@ -183,6 +189,21 @@ Le code suivant obtient l’ensemble d’étiquettes détectées dans l’image.
 Le code suivant retourne les visages détectés dans l’image avec les coordonnées de leur rectangle et sélectionne les attributs du visage. Pour plus d’informations, consultez [Détection des visages](../../concept-detecting-faces.md).
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_faces)]
+
+### <a name="detect-objects"></a>Détecter des objets
+
+Le code suivant renvoie les objets détectés dans l’image avec leurs coordonnées. Pour plus d’informations, consultez [Détection des objets](../../concept-object-detection.md).
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_objects)]
+
+
+### <a name="detect-brands"></a>Détecter les marques
+
+Le code suivant renvoie les logos de marques détectés dans l’image avec leurs coordonnées. Pour plus d’informations, consultez [Détection des marques](../../concept-brand-detection.md).
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_brands)]
+
+
 
 ### <a name="detect-adult-racy-or-gory-content"></a>Détecter des contenus pour adultes, choquants ou sordides
 
@@ -216,6 +237,13 @@ Le code suivant affiche des informations sur le type d’image, qu’il s’agis
 
 > [!div class="nextstepaction"]
 > [J’ai analysé une image](?success=analyze-image#read-printed-and-handwritten-text) [J’ai rencontré un problème](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Section=analyze-image)
+
+### <a name="close-out-the-method"></a>Fermer la méthode
+
+Complétez le bloc try/catch et fermez la méthode.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyze_catch)]
+
 
 ## <a name="read-printed-and-handwritten-text"></a>Lire du texte imprimé et manuscrit
 

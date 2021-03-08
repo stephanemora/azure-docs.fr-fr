@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 02/16/2021
+ms.date: 02/25/2021
 ms.author: victorh
-ms.openlocfilehash: 9f89d84fc7033645b2b094e9f40a1d85b076623b
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: b01a856c71375af507e2bf29297e64a6ce9412e5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100544831"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101741427"
 ---
 # <a name="azure-firewall-features"></a>Fonctionnalités du Pare-feu Azure
 
@@ -123,6 +123,18 @@ Par exemple, si le Pare-feu Azure intercepte une requête HTTPS pour `www.google
 - Pare-feu Premium : l’URL complète étant examinée, `www.google.com/news` est classée en tant qu’*Actualités*.
 
 Les catégories sont organisées en fonction de leur gravité sous **Responsabilité**, **Bande passante élevée**, **Utilisation métier**, **Perte de productivité**, **Navigation générale** et **Sans catégorie**.
+
+### <a name="categorization-change"></a>Modification de la catégorisation
+
+Vous pouvez demander une modification de catégorisation si vous  :
+
+ - pensez qu’un nom de domaine complet (FQDN) ou une URL doit être dans une catégorie différente 
+ 
+or 
+
+- avez une catégorie suggérée pour un FQDN ou une URL sans catégorie
+
+Vous êtes invité à envoyer une demande à l’adresse [https://aka.ms/azfw-webcategories-request](https://aka.ms/azfw-webcategories-request) .
 
 ### <a name="category-exceptions"></a>Exceptions de catégorie
 

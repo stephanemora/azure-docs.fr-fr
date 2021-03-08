@@ -4,35 +4,25 @@ description: Découvrez comment utiliser l’outil de migration volontaire pour 
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
-ms.date: 03/19/2018
-ms.subservice: alerts
-ms.openlocfilehash: 28ccdde85f2873839fbe977c3c991177ac8bb3bb
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.date: 02/14/2020
+ms.openlocfilehash: fa487bec49ab9faa0f7c3dce752a30e4440fb873
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100598620"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102037674"
 ---
 # <a name="use-the-voluntary-migration-tool-to-migrate-your-classic-alert-rules"></a>Utiliser l’outil de migration volontaire pour migrer vos règles d’alerte classiques
 
-Comme [précédemment annoncé](../platform/monitoring-classic-retirement.md), les alertes classiques dans Azure Monitor sont mises hors service pour les utilisateurs du cloud public, bien qu’elles soient toujours utilisées de manière limitée pour les ressources qui ne prennent pas encore en charge les nouvelles alertes. Un outil de migration était disponible dans le portail Azure pour les clients qui utilisaient des règles d’alerte classiques et qui souhaitaient déclencher la migration eux-mêmes. Cet article explique comment utiliser cet outil de migration, qui sera également utilisé pour les alertes restantes dans l’attente d’une annonce ultérieure.
+Comme [précédemment annoncé](monitoring-classic-retirement.md), les alertes classiques dans Azure Monitor sont mises hors service pour les utilisateurs du cloud public, avec une utilisation limitée jusqu’au **31 mai 2021**. Les alertes classiques pour Azure Government Cloud et Azure China 21Vianet vont être mises hors service le **29 février 2024**.
 
-## <a name="benefits-of-new-alerts"></a>Avantages des nouvelles alertes
-
-Les alertes classiques sont remplacées par de nouvelles alertes unifiées dans Azure Monitor. La nouvelle plateforme d’alertes présente les avantages suivants :
-
-- Vous pouvez créer des alertes sur diverses métriques multidimensionnelles pour [de nombreux services Azure supplémentaires](alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
-- Les nouvelles alertes sur les métriques prennent en charge des [règles d’alerte multiressources](alerts-metric-overview.md#monitoring-at-scale-using-metric-alerts-in-azure-monitor) qui réduisent considérablement la surcharge de la gestion de nombreuses règles.
-- Le mécanisme de notification unifié, qui prend en charge :
-  - Les [groupes d’actions](../platform/action-groups.md), un mécanisme de notification modulaire qui fonctionne avec tous les nouveaux types d’alertes (métriques, journaux et journaux d’activité).
-  - De nouveaux mécanismes de notification tels que les SMS, la voix et le connecteur ITSM.
-- [L’expérience d’alerte unifiée](../platform/alerts-overview.md) rassemble toutes les alertes sur des signaux différents (métriques, journaux et journaux d’activité) dans un seul endroit.
+Un outil de migration est disponible dans le Portail Azure pour les clients qui utilisaient des règles d’alerte classiques et qui souhaitent déclencher la migration eux-mêmes. Cet article explique comment utiliser l’outil de migration.
 
 ## <a name="before-you-migrate"></a>Avant de migrer
 
 Le processus de migration convertit les règles d’alerte classiques en de nouvelles règles équivalentes et crée des groupes d’actions. Lors de la préparation, tenez compte des points suivants :
 
-- Le format de charge utile de notification et les API pour créer et gérer les nouvelles règles d’alerte sont différents de ceux des règles d’alerte classiques, car ils prennent en charge davantage de fonctionnalités. [Découvrez comment préparer la migration](alerts-prepare-migration.md).
+- Le format de charge utile de notification et les API pour créer et gérer les nouvelles règles d’alerte sont différents des règles d’alerte classiques, car ils prennent en charge davantage de fonctionnalités. [Découvrez comment préparer la migration](alerts-prepare-migration.md).
 
 - Certaines règles d’alerte classiques ne peuvent pas être migrées à l’aide de l’outil. [Découvrez les règles qui ne peuvent pas être migrées et que faire avec](alerts-understand-migration.md#manually-migrating-classic-alerts-to-newer-alerts).
 

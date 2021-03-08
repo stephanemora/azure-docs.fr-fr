@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 09/04/2020
+ms.date: 02/26/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 5681228e5da2708912d69f16a4b09a4a93d8bb04
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 04a4366bfee6b1d9c5f52d649910163269962684
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89500298"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709255"
 ---
 # <a name="supported-authentication-methods"></a>Méthodes d’authentification prises en charge
 
@@ -21,14 +21,14 @@ Dans cet article, nous vous fournirons un aperçu des types d’authentification
 
 ## <a name="session-host-authentication"></a>Authentification de l’hôte de session
 
-Windows Virtual Desktop prend en charge NT LAN Manager (NTLM) et Kerberos pour l’authentification de l’hôte de session. Toutefois, pour utiliser Kerberos, le client doit obtenir des tickets de sécurité Kerberos auprès d’un service de centre de distribution de clés (KDC, Key Distribution Center) fonctionnant sur un contrôleur de domaine. Pour obtenir des tickets, le client a besoin d’une ligne de vue directe sur le contrôleur de domaine. Vous pouvez obtenir une ligne de vue directe en utilisant le réseau de votre entreprise. Vous pouvez également utiliser une connexion VPN qui vous relie au réseau de votre entreprise.
+Windows Virtual Desktop prend en charge NT LAN Manager (NTLM) et Kerberos pour l’authentification de l’hôte de session. Toutefois, pour utiliser Kerberos, le client doit obtenir des tickets de sécurité Kerberos auprès d’un service de centre de distribution de clés (KDC, Key Distribution Center) fonctionnant sur un contrôleur de domaine. Pour obtenir des tickets, le client a besoin d’une ligne de vue directe sur le contrôleur de domaine. Vous pouvez obtenir une ligne de vue directe en utilisant le réseau de votre entreprise. Vous pouvez également utiliser une connexion VPN à votre réseau d’entreprise ou configurer un [serveur proxy KDC](key-distribution-center-proxy.md).
 
 Voici les méthodes de connexion actuellement prises en charge :
 
 - Client Windows Desktop
     - Nom d’utilisateur et mot de passe
     - Carte à puce
-    - Windows Hello
+    - Windows Hello Entreprise (approbation de certificat uniquement)
 - Client Windows Store
     - Nom d’utilisateur et mot de passe
 - Client web
@@ -41,7 +41,7 @@ Voici les méthodes de connexion actuellement prises en charge :
     - Nom d’utilisateur et mot de passe
 
 >[!NOTE]
->La carte à puce et Windows Hello peuvent uniquement utiliser Kerberos pour se connecter. La connexion avec Kerberos nécessite une ligne de vue sur le contrôleur de domaine.
+>La carte à puce et Windows Hello Entreprise peuvent uniquement utiliser Kerberos pour se connecter. La connexion avec Kerberos nécessite une ligne de mire sur le contrôleur de domaine ou un [Serveur proxy KDC](key-distribution-center-proxy.md).
 
 ## <a name="hybrid-identity"></a>Identité hybride
 

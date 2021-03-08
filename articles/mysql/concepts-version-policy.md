@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/03/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 4903f1e48eb2f33c68d62c635201474b841ed146
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 6acb3268ba40399612940b395437fde3beffda1a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94591510"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101732868"
 ---
 # <a name="azure-database-for-mysql-versioning-policy"></a>Stratégie de contrôle de version Azure Database pour MySQL
 
@@ -20,13 +20,18 @@ Cette page décrit la stratégie de contrôle de version d’Azure Database pour
 
 ## <a name="supported--mysql-versions"></a>Versions de MySQL prises en charge
 
-Azure Database pour MySQL prend en charge les versions de base de données suivantes.
+Azure Database pour MySQL a été développé à partir de [MySQL Community Edition](https://www.mysql.com/products/community/), avec le moteur de stockage InnoDB. Le service prend en charge toutes les versions majeures actuelles prises en charge par la communauté, à savoir MySQL 5.6, 5.7 et 8.0. MySQL utilise le schéma de nommage X.Y.Z, où X est la version majeure, Y la version mineure et Z la version du correctif de bogue. Pour plus d’informations sur ce schéma, reportez-vous à la [documentation MySQL](https://dev.mysql.com/doc/refman/5.7/en/which-version.html).
 
-| Version | Serveur unique | Serveur flexible (préversion) |
-| ----- | :------: | :----: |
-| MySQL 8 | X |  | 
-| MySQL 5.7 | X | X |
-| MySQL 5.6| X |  |
+> [!NOTE]
+> Dans l’option de déploiement Serveur unique, une passerelle est utilisée pour rediriger les connexions vers des instances de serveur. Une fois la connexion établie, le client de MySQL affiche la version de MySQL définie dans la passerelle, et non la version en cours d’exécution sur votre instance de serveur MySQL. Pour déterminer la version de votre instance de serveur MySQL, utilisez la commande `SELECT VERSION();` à l’invite de MySQL.
+
+Azure Database pour MySQL prend actuellement en charge les versions majeures et mineures suivantes de MySQL :
+
+| Version | Serveur unique <br/> Version mineure actuelle |Serveur flexible (préversion) <br/> Version mineure actuelle  |
+|:-------------------|:-------------------------------------------|:---------------------------------------------|
+|MySQL version 5.6 |  [5.6.47](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-47.html) | Non pris en charge|
+|MySQL version 5.7 | [5.7.29](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-29.html) | [5.7.29](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-29.html)|
+|MySQL Version 8.0 | [8.0.15](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-15.html) | [8.0.21](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-21.html)|
 
 
 ## <a name="major-version-support"></a>Prise en charge de la version principale
@@ -50,7 +55,7 @@ Le tableau ci-dessous fournit les détails relatifs au retrait des versions prin
 Après la date de suppression pour chaque version de base de données MySQL, si vous continuez d’exécuter la version supprimée, tenez compte des restrictions suivantes :
 - Dans la mesure où la communauté ne publie plus de correctifs de bogues ou de correctifs de sécurité, Azure Database pour MySQL n’effectue pas de mise à jour corrective sur le moteur de base de données supprimé pour la résolution de bogues ou de problèmes de sécurité. Il n’y aura pas non plus de mesures de sécurité concernant le moteur de base de données supprimé. Toutefois, Azure continuera à effectuer des opérations de maintenance et de mise à jour périodiques pour l’hôte, le système d’exploitation, les conteneurs et tout autre composant lié aux services.
 - Si un problème de prise en charge rencontré est lié à la base de données MySQL, il est possible que nous ne puissions pas vous venir en aide. Dans ce cas, vous devrez mettre à niveau votre base de données afin que nous puissions intervenir.
-- Vous ne serez plus en mesure de créer des serveurs de base de données pour la version supprimée. Toutefois, vous pouvez effectuer des récupérations à un instant dans le passé et créer des réplicas de lecture pour vos serveurs existants.
+<!-- - You will not be able to create new database servers for the retired version. However, you will be able to perform point-in-time recoveries and create read replicas for your existing servers. -->
 - Les nouvelles fonctionnalités de service développées par Azure Database pour MySQL peuvent uniquement être disponibles pour les versions de serveur de base de données prises en charge.
 - Les contrats de niveau de service de durée de fonctionnement s’appliquent uniquement aux problèmes liés au service Azure Database pour MySQL et non aux temps d’arrêt causés par des bogues liés au moteur de base de données.  
 - En cas de menace sérieuse pour le service provoquée par la vulnérabilité du moteur de base de données MySQL identifiée dans la version de la base de données supprimée, Azure peut décider d’arrêter votre serveur de base de données pour sécuriser le service. Il vous sera demandé de procéder à la mise à niveau du serveur avant sa mise en ligne. Pendant le processus de mise à niveau, vos données sont toujours protégées à l’aide de sauvegardes automatiques effectuées sur le service, qui peuvent être utilisées pour restaurer la version antérieure si vous le souhaitez. 

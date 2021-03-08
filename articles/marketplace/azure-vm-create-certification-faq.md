@@ -4,15 +4,15 @@ description: Résolvez les problèmes courants liés au test et à la certificat
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: troubleshooting
-author: iqshahmicrosoft
-ms.author: iqshah
+author: mathapli
+ms.author: mathapli
 ms.date: 01/18/2021
-ms.openlocfilehash: 80dc19a58d212bb6ab8d608e222cd3a0bd3990d1
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: adcd91d58b3bb5fde3ffa81c828c58d4b6db48d4
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98600981"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101721155"
 ---
 # <a name="troubleshoot-virtual-machine-certification"></a>Résoudre les problèmes de certification des machines virtuelles
 
@@ -594,8 +594,37 @@ Ensuite, republiez l’offre.
 
 Pour terminer le processus de publication, consultez [Réviser et publier des offres](review-publish-offer.md).
 
+### <a name="vm-images-with-limited-access-or-requiring-custom-templates"></a>Images de machine virtuelle avec accès limité ou nécessitant des modèles personnalisés
+
+#### <a name="locked-down-or-ssh-disabled-offer"></a>Offre SSH désactivé (ou) verrouillé
+
+  Les images publiées avec le protocole SSH désactivé (pour Linux) ou le protocole RDP désactivé (pour Windows) sont traitées comme des machines virtuelles verrouillées. Il existe des scénarios métier spéciaux à cause desquels les serveurs de publication n’autorisent qu’un accès restreint à un nombre limité d’utilisateurs voire à aucun. Lors des contrôles de validation, les machines virtuelles verrouillées risquent de ne pas autoriser l’exécution de certaines commandes de certification.
+
+
+#### <a name="custom-templates"></a>Modèles personnalisés
+
+   En général, toutes les images publiées sous des offres de machine virtuelle unique suivent le modèle ARM standard pour le déploiement. Toutefois, il existe des scénarios dans lesquels le serveur de publication peut exiger une personnalisation lors du déploiement de machines virtuelles (par exemple, plusieurs cartes réseau à configurer).
+    
+   Selon les scénarios ci-dessous (non exhaustifs), les serveurs de publication utilisent des modèles personnalisés pour le déploiement de la machine virtuelle :
+
+   * machine virtuelle nécessitant des sous-réseaux de réseau supplémentaires ;
+   * métadonnées supplémentaires à insérer dans le modèle ARM ;
+   * commandes prérequises pour l’exécution du modèle ARM.
+
+### <a name="vm-extensions"></a>Extensions de machine virtuelle   
+
+   Les extensions de machine virtuelle Azure sont de petites applications permettant d’exécuter des tâches de configuration et d’automatisation post-déploiement sur des machines virtuelles Azure. Par exemple, si une machine virtuelle nécessite l’installation d’un logiciel, une protection antivirus ou l’exécution d’un script, vous pouvez utiliser une extension de machine virtuelle. 
+
+   Les validations de l’extension de machine virtuelle Linux nécessitent que les éléments suivants fassent partie de l’image :
+* Agent Linux Azure, version postérieure à la version 2.2.41
+* Python, version postérieure à la version 2.8 
+
+
+Pour plus d’informations, consultez [Extension de machine virtuelle](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-linux).
+     
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Configurer les propriétés d’une offre de machine virtuelle](azure-vm-create-properties.md)
 - [Activer les Récompenses de la place de marché](partner-center-portal/marketplace-rewards.md)
 - Si vous avez des questions ou des suggestions d’amélioration, contactez le [support d’Espace partenaires](https://aka.ms/marketplacepublishersupport).
+ 

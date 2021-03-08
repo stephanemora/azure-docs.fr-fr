@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 03/01/2021
 ms.author: alkohli
-ms.openlocfilehash: ef840b3d9db4e82eeecea37079a08ccb0858a77b
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: aac4278c6ce03c43418e99978cd039e24dc01194
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96448531"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719268"
 ---
 # <a name="kubernetes-workload-management-on-your-azure-stack-edge-pro-device"></a>Gestion des charges de travail Kubernetes sur votre appareil Azure Stack Edge Pro
 
@@ -54,6 +54,17 @@ Il existe trois façons principales de déployer vos charges de travail. Chacune
 - **Déploiement de Kubernetes activé par Azure Arc** : Kubernetes activé par Azure Arc est un outil de gestion hybride qui vous permet de déployer des applications sur vos clusters Kubernetes. Vous vous connectez au cluster Kubernetes sur votre appareil Azure Stack Edge Pro via `azure-arc namespace`. Les agents déployés dans cet espace de noms sont responsables de la connectivité à Azure. Vous appliquez la configuration du déploiement à l’aide de la gestion de la configuration basée sur GitOps. 
     
     Un Kubernetes activé par Azure Arc vous permet également d’utiliser Azure Monitor pour conteneurs afin d’afficher et de surveiller votre cluster. Pour plus d’informations, consultez [Qu’est-ce que Kubernetes activé par Azure Arc ?](../azure-arc/kubernetes/overview.md).
+    
+    Depuis le mois de mars 2021, Kubernetes avec Azure Arc est généralement disponible pour les utilisateurs, et les frais d’utilisation standard s’appliquent. En tant que client de préversion apprécié, vous pouvez disposer de Kubernetes avec Azure Arc gratuitement pour des appareils Azure Stack Edge. Pour bénéficier de l’offre en préversion, créez une [Demande de support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) :
+
+    1. Sous **Type de problème**, sélectionnez **Facturation**.
+    2. Sous **Abonnement**, sélectionnez votre abonnement.
+    3. Sous **Service**, sélectionnez **Mes services**, puis **Azure Stack Edge**.
+    4. Sous **Ressource**, sélectionnez votre ressource.
+    5. Sous **Résumé**, entrez une description de votre problème.
+    6. Sous **Type de problème**, sélectionnez **Frais imprévus**.
+    7. Sous **Sous-type de problème**, sélectionnez **M’aider à comprendre les frais facturés sur mon essai gratuit**.
+
 
 ## <a name="choose-the-deployment-type"></a>Choisir le type de déploiement
 

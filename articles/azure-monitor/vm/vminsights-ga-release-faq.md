@@ -1,17 +1,16 @@
 ---
 title: Questions fréquentes sur VM Insights (GA) | Microsoft Docs
 description: VM Insights est une solution d’Azure qui combine à la fois l’intégrité et l’analyse des performances du système d’exploitation de la machine virtuelle Azure. En outre, elle identifie automatiquement les composants des applications et leurs dépendances avec les autres ressources, et effectue le mappage de leurs communications respectives. Cet article répond aux questions courantes au sujet de la version en disponibilité générale.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/31/2020
-ms.openlocfilehash: 0c55463847e0bf55cf14db2a35de1de16526cd90
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: fbef73bfe8058110277b200b8c4091fcde110c04
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101710751"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102031866"
 ---
 # <a name="vm-insights-generally-available-ga-frequently-asked-questions"></a>Questions fréquentes sur la disponibilité générale (GA) de VM Insights
 Ces Questions fréquentes (FAQ) sur la disponibilité générale couvrent les modifications apportées au 4e trimestre 2019 et au 1er trimestre 2020, lors de la préparation pour la disponibilité générale.
@@ -20,15 +19,15 @@ Ces Questions fréquentes (FAQ) sur la disponibilité générale couvrent les mo
 Nous avons publié une nouvelle version de VM Insights en janvier 2020, avant l’annonce de disponibilité générale. Les clients qui activeront VM Insights recevront désormais la version de disponibilité générale. Les clients existants qui utilisent la version de VM Insights du quatrième trimestre de 2019 ou une version antérieure seront invités à effectuer une mise à niveau. Ce FAQ vous aidera à effectuer une mise à niveau à grande échelle si vos déploiements sont volumineux sur plusieurs espaces de travail.
 
 
-Avec cette mise à niveau, les données de performances d’Azure Monitor pour machines virtuelles sont stockées dans la même table *InsightsMetrics* que [Container Insights](../containers/container-insights-overview.md), ce qui vous permet d’interroger plus facilement les deux jeux de données. De plus, cette table vous permet de stocker des jeux de données plus diversifiés que la table utilisée auparavant. 
+Avec cette mise à niveau, les données de performances VM Insights sont stockées dans la même table *InsightsMetrics* que [Container Insights](../containers/container-insights-overview.md), ce qui vous permet d’interroger plus facilement les deux jeux de données. De plus, cette table vous permet de stocker des jeux de données plus diversifiés que la table utilisée auparavant. 
 
 Nos affichages de performances utilisent désormais les données que nous stockons dans la table *InsightsMetrics*.  Si vous n’avez pas encore effectué la mise à niveau pour utiliser la dernière solution VMInsights sur votre espace de travail, vos graphiques n’afficheront plus d’informations.  Vous pouvez effectuer la mise à niveau à partir de notre page **Prise en main**, comme décrit ci-dessous.
 
 
 ## <a name="what-is-changing"></a>Qu’est-ce qui change ?
-Nous avons publié une nouvelle solution, appelée VMInsights, qui offre des fonctionnalités supplémentaires pour la collecte des données ainsi qu’un nouvel emplacement de stockage de ces données dans votre espace de travail Log Analytics. 
+Nous avons publié une nouvelle solution, appelée VMInsights, qui offre des fonctionnalités supplémentaires pour la collecte des données ainsi qu’un nouvel emplacement de stockage de ces données dans votre espace de travail Log Analytics. 
 
-Auparavant, nous avons activé la solution ServiceMap sur votre espace de travail et configuré les compteurs de performance dans votre espace de travail Log Analytics pour envoyer les données à la table de *Perf*. Cette nouvelle solution envoie les données à une table nommée *InsightsMetrics* qui est également utilisée par Container Insights. Le schéma de cette table nous permet de stocker des indicateurs de performance et des jeux de données de service supplémentaires qui ne sont pas compatibles avec le format de la table *Perf*.
+Auparavant, nous avons activé la solution ServiceMap sur votre espace de travail et configuré les compteurs de performance dans votre espace de travail Log Analytics pour envoyer les données à la table de *Perf*. Cette nouvelle solution envoie les données à une table nommée *InsightsMetrics* qui est également utilisée par Container Insights. Le schéma de cette table nous permet de stocker des métriques et des jeux de données de service supplémentaires qui ne sont pas compatibles avec le format de la table *Perf*.
 
 Nous avons mis à jour nos graphiques de performances afin d’utiliser les données que nous stockons dans la table *InsightsMetrics*. Vous pouvez effectuer la mise à niveau pour utiliser la table *InsightsMetrics* à partir de notre page **Prise en main**, comme décrit ci-dessous.
 
@@ -58,7 +57,7 @@ Si vous avez créé des [alertes de journal](../alerts/alerts-unified-log.md) qu
 
 Nous mettrons à jour ces questions fréquentes et notre documentation pour inclure des exemples de règles d’alerte de recherche dans les journaux pour les jeux de données que nous collectons.
 
-## <a name="how-will-this-affect-my-bill"></a>Comment cela va-t-il affecter ma facture ?
+## <a name="how-will-this-change-affect-my-bill"></a>Quel impact ce changement aura-t-il sur ma facture ?
 
 La facturation reste basée sur la quantité de données ingérées et conservées dans votre espace de travail Log Analytics.
 
@@ -84,13 +83,13 @@ La table `InsightsMetrics` stockera les jeux de données des machines virtuelles
 
 Non, les deux solutions partagent les jeux de données cartographiques que nous stockons dans les tables `VMComputer` (anciennement ServiceMapComputer_CL), `VMProcess` (anciennement ServiceMapProcess_CL), `VMConnection` et `VMBoundPort`. Ces données ne vous seront donc pas facturées deux fois si vous utilisez les deux solutions dans votre espace de travail.
 
-## <a name="if-i-remove-either-the-service-map-or-vminsights-solution-will-it-remove-my-data"></a>Si je supprime la solution Service Map ou VMInsights, les données associées seront-elles aussi supprimées ?
+## <a name="if-i-remove-either-the-service-map-or-vminsights-solution-will-it-remove-my-data"></a>Si je supprime la solution Service Map ou VMInsights, mes données seront-elles supprimées ?
 
 Non, les deux solutions partagent les jeux de données cartographiques que nous stockons dans les tables `VMComputer` (anciennement ServiceMapComputer_CL), `VMProcess` (anciennement ServiceMapProcess_CL), `VMConnection` et `VMBoundPort`. Si vous supprimez l’une des solutions, ces jeux de données identifient qu’il reste une solution en place qui utilise les données et les conserve dans l’espace de travail Log Analytics. Les données sont supprimées de votre espace de travail seulement si vous supprimez les deux solutions.
 
 ## <a name="health-feature-is-in-limited-public-preview"></a>La fonctionnalité Intégrité est disponible en préversion publique limitée
 
-Nos clients ont été nombreux à nous adresser d’excellents commentaires au sujet de notre fonctionnalité Intégrité pour les machines virtuelles. Cette fonctionnalité suscite beaucoup d’intérêt et d’enthousiasme en raison de son potentiel de prise en charge des workflows de supervision. Nous prévoyons d’effectuer toute une série de changements afin d’améliorer la fonctionnalité et de répondre aux attentes de nos clients. 
+Nos clients ont été nombreux à nous adresser d’excellents commentaires au sujet de notre fonctionnalité Intégrité pour les machines virtuelles. Cette fonctionnalité suscite un intérêt important en raison de son potentiel de prise en charge des workflows d’analyse. Nous prévoyons d’effectuer toute une série de changements afin d’améliorer la fonctionnalité et de répondre aux attentes de nos clients. 
 
 Afin de minimiser l’impact de ces changements pour les nouveaux clients, nous avons rendu cette fonctionnalité disponible en **préversion publique limitée**. Cette mise à jour a eu lieu en octobre 2019.
 
@@ -108,7 +107,7 @@ Si vous faites partie des clients existants, vous pouvez continuer à utiliser l
 
 ## <a name="i-use-vm-health-now-with-one-environment-and-would-like-to-deploy-it-to-a-new-one"></a>J’utilise actuellement la fonctionnalité Intégrité des machines virtuelles et je souhaite la déployer dans un nouvel environnement
 
-Si vous êtes un client existant qui utilisez déjà la fonctionnalité Intégrité et que vous souhaitez l’utiliser dans le cadre d’un nouveau déploiement, envoyez-nous une demande par e-mail à vminsights@microsoft.com pour obtenir des instructions.
+Si vous êtes un client existant qui utilise déjà la fonctionnalité Intégrité et que vous souhaitez l’utiliser dans le cadre d’un nouveau lancement, contactez-nous à l’adresse vminsights@microsoft.com pour demander des instructions.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

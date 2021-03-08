@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: trbye
 ms.custom: contperf-fy21q2; references_regions
-ms.openlocfilehash: f2dca513b4413f1761ea1b21bf71f90bb27d3053
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 39370659e71a7d281914b360eea83eb0b68b25ba
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100388649"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101716565"
 ---
 # <a name="what-is-custom-speech"></a>Qu’est-ce que Custom Speech ?
 
@@ -45,7 +45,9 @@ Ce diagramme met en évidence les éléments qui composent la [zone Custom Speec
 Vous avez besoin d’un compte Azure et d’un abonnement au service Speech pour pouvoir créer un modèle personnalisé à partir de [Speech Studio](https://speech.microsoft.com/customspeech). Si vous n’avez pas de compte et d’abonnement, [essayez le service Speech gratuitement](overview.md#try-the-speech-service-for-free).
 
 > [!NOTE]
-> Si vous comptez effectuer l’entraînement d’un modèle personnalisé avec des **données audio**, choisissez l’une des régions suivantes. Elles disposent d’un matériel dédié à l’entraînement. Cela permet de réduire le temps nécessaire pour effectuer l’apprentissage d’un modèle.
+> Veillez à créer un abonnement standard (S0). Les abonnements gratuits (F0) ne sont pas pris en charge.
+
+Si vous comptez effectuer l’entraînement d’un modèle personnalisé avec des **données audio**, choisissez l’une des régions suivantes. Elles disposent d’un matériel dédié à l’entraînement. Cela réduira le temps nécessaire à l’apprentissage d’un modèle, et vous permettra d’utiliser plus de données audio pour l’apprentissage. Dans ces régions, le service Speech utilisera jusqu’à 20 heures d’audio pour l’apprentissage. Dans d’autres, il utilisera moins de 8 heures.
 
 * Australie Est
 * Centre du Canada
@@ -61,9 +63,6 @@ Vous avez besoin d’un compte Azure et d’un abonnement au service Speech pour
 * Gouvernement américain - Virginie
 * Europe Ouest
 * USA Ouest 2
-
-> [!NOTE]
-> Veillez à créer un abonnement standard (S0). Les abonnements gratuits (F0) ne sont pas pris en charge.
 
 Une fois que vous avez créé un compte Azure et un abonnement au service Speech, vous devez vous connecter à [Speech Studio](https://speech.microsoft.com/customspeech) et connecter votre abonnement.
 

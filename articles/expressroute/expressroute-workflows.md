@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/24/2020
 ms.author: duau
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 2742b03bcacd73e7e602666b898417f295905f19
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 24ad325cae2ee71ad49ee8ee055a83ceb8fa7ef2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97034069"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101721733"
 ---
 # <a name="expressroute-workflows-for-circuit-provisioning-and-circuit-states"></a>Workflows ExpressRoute d’approvisionnement du circuit et états du circuit
 
@@ -77,8 +77,12 @@ Configurez les domaines de routage. Si votre fournisseur de connectivité gère 
 
 Activez le peering privé pour vous connecter aux machines virtuelles et aux services cloud déployés au sein du réseau virtuel Azure.
 
-* Sous-réseau de peering pour le chemin 1 (/30)
-* Sous-réseau de peering pour le chemin 2 (/30)
+* Sous-réseaux IPv4 :
+    * Sous-réseau de peering pour le chemin 1 (/30)
+    * Sous-réseau de peering pour le chemin 2 (/30)
+* Sous-réseaux IPv6 (facultatif) :
+    * Sous-réseau de peering pour le chemin 1 (/126)
+    * Sous-réseau de peering pour le chemin 2 (/126)
 * ID du réseau local virtuel pour le peering
 * ASN pour le peering
 * ASN ExpressRoute = 12076
@@ -88,8 +92,12 @@ Activez le peering privé pour vous connecter aux machines virtuelles et aux ser
 
 Activez cette option pour accéder aux services en ligne de Microsoft, tels que Microsoft 365. De plus, tous les services Azure PaaS sont accessibles via le peering Microsoft. Pour vous connecter à Microsoft, vous devez veiller à utiliser un proxy/périphérique différent de celui que vous utilisez pour Internet. L’utilisation du même appareil edge à la fois pour ExpressRoute et Internet entraîne un routage asymétrique et provoque des pertes de connectivité sur votre réseau.
 
-* Sous-réseau de peering pour le chemin 1 (/30) – doit être une adresse IP publique
-* Sous-réseau de peering pour le chemin 2 (/30) – doit être une adresse IP publique
+* Sous-réseaux IPv4 :
+    * Sous-réseau de peering pour le chemin 1 (/30) – doit être une adresse IP publique
+    * Sous-réseau de peering pour le chemin 2 (/30) – doit être une adresse IP publique
+* Sous-réseaux IPv6 (facultatif) :
+    * Sous-réseau de peering pour le chemin 1 (/126) – doit être une adresse IP publique
+    * Sous-réseau de peering pour le chemin 2 (/126) – doit être une adresse IP publique
 * ID du réseau local virtuel pour le peering
 * ASN pour le peering
 * Préfixes publiés – doivent être des préfixes d’adresses IP publiques
@@ -160,7 +168,7 @@ Vous pouvez choisir de le réactiver si nécessaire, ou exécuter des applets de
 
 ## <a name="routing-session-configuration-state"></a>État de configuration d’une session de routage
 
-L’état de provisionnement BGP indique si la session BGP a été activée sur le réseau de périmètre Microsoft. L’utilisation du peering privé ou Microsoft doit être activée (Enabled).
+L’état de provisionnement BGP indique si la session BGP a été activée sur le Microsoft Edge. L’utilisation du peering privé ou Microsoft doit être activée (Enabled).
 
 Il est important de vérifier l'état de la session BGP, en particulier pour le peering Microsoft. En plus de l'état d’approvisionnement BGP, il existe un autre état appelé *état des préfixes publics publiés*. Les préfixes publics publiés doivent afficher l’état *configured*, pour que la session BGP soit opérationnelle et pour que votre routage fonctionne de bout en bout. 
 

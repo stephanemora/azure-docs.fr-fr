@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 01/13/2021
-ms.openlocfilehash: 22974a47a6b1e9d49e5055a85f46286497cfe149
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 29ac0c5991964de48cedd15622d15e929bc9d733
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98250530"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709544"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Comment configurer Azure Database pour MySQL pour la réplication de données entrantes MySQL
 
@@ -101,9 +101,23 @@ Les étapes suivantes servent à préparer et à configurer le serveur MySQL hé
    ```
 
    Si la variable [`log_bin`](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_log_bin) est renvoyée avec la valeur « ON », la journalisation binaire est activée sur votre serveur.
-
-   Si `log_bin` est renvoyé avec la valeur « OFF », activez la journalisation binaire en modifiant votre fichier my.cnf ainsi que `log_bin=ON` et redémarrez le serveur pour que la modification prenne effet.
-
+   
+   Si `log_bin` est retournée avec la valeur « OFF », 
+   1. recherchez votre fichier de configuration MySQL (my.cnf) dans le serveur source. Par exemple : /etc/my.cnf
+   2. Ouvrez le fichier de configuration pour le modifier, puis recherchez-y la section **mysqld**.
+   3.  Dans la section mysqld, ajoutez la ligne suivante :
+   
+       ```bash
+       log-bin=mysql-bin.log
+       ```
+     
+   4. Redémarrez le serveur source MySQL pour appliquer les modifications.
+   5. Une fois le serveur redémarré, vérifiez que la journalisation binaire est activée en exécutant la même requête que précédemment :
+   
+      ```sql
+      SHOW VARIABLES LIKE 'log_bin';
+      ```
+   
 4. Paramètres du serveur source
 
    Réplication des données entrantes nécessite que le paramètre `lower_case_table_names` soit cohérent entre les serveurs source et réplica. Par défaut, ce paramètre est 1 dans Azure Database pour MySQL.

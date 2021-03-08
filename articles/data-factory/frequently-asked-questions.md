@@ -6,12 +6,12 @@ ms.author: weetok
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: a3b892b5d92feb743d9a538c4e418b1f47e39b03
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: d0fd62c0173bec17c217ece5560119749d1a4fc6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100386303"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101739332"
 ---
 # <a name="azure-data-factory-faq"></a>Forum Aux Questions Azure Data Factory
 
@@ -48,7 +48,7 @@ Data Factory vous donne la liberté de modéliser n’importe quel style de flux
     - Bouclage des conteneurs :
         * L’activité foreach effectue une itération sur une collection spécifiée d’activités dans une boucle. 
 - Flux basés sur un déclencheur :
-    - Les pipelines peuvent être déclenchés à la demande ou selon un temps horloge.
+    - Les pipelines peuvent être déclenchés à la demande, en fonction du temps Horloge ou en réponse à des rubriques Event Grid pilotées par les événements
 - Flux delta :
     - Vous pouvez utiliser des paramètres afin de définir la marque de borne haute pour la copie delta lors du déplacement des tables de dimension ou de référence à partir d’un magasin relationnel, localement ou dans le cloud, pour charger les données dans le lac.
 

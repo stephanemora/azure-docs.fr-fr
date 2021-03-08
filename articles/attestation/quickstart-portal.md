@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: a8ab7195958a6c2d5a730c38232eb348d505deda
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: d1310e3c4b4a56a27219cce613e8f6109d32c8c2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99593601"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101729387"
 ---
 # <a name="quickstart-set-up-azure-attestation-by-using-the-azure-portal"></a>Démarrage rapide : Configurer Azure Attestation à partir du portail Azure
 
@@ -90,7 +90,7 @@ Suivez les étapes de cette section pour afficher, ajouter et supprimer des cert
 1. Accédez au menu ou à la page d’accueil du portail Azure, puis sélectionnez **Toutes les ressources**.
 1. Dans la zone de filtre, entrez le nom du fournisseur d’attestation.
 1. Sélectionnez le fournisseur d’attestation et accédez à la page Vue d’ensemble.
-1. Sélectionnez **Certificats de signataire de stratégie** dans le menu de la ressource sur le côté gauche de la fenêtre ou dans le volet inférieur.
+1. Sélectionnez **Certificats de signataire de stratégie** dans le menu de la ressource sur le côté gauche de la fenêtre ou dans le volet inférieur. Vous voyez une invite à sélectionner le certificat pour l’authentification. Choisissez l’option appropriée pour continuer.
 1. Sélectionnez **Télécharger les certificats de signataire de stratégie**. Le bouton est désactivé pour les fournisseurs d’attestation créés sans l’obligation de signature de stratégie.
 1. Le fichier texte téléchargé aura tous les certificats au format JWS.
 1. Vérifiez le nombre de certificats et les certificats téléchargés.
@@ -122,7 +122,7 @@ Cette section explique comment afficher une stratégie d’attestation et commen
 1.  Accédez au menu ou à la page d’accueil du portail Azure, puis sélectionnez **Toutes les ressources**.
 1.  Dans la zone de filtre, entrez le nom du fournisseur d’attestation.
 1.  Sélectionnez le fournisseur d’attestation et accédez à la page Vue d’ensemble.
-1.  Sélectionnez **Stratégie** dans le menu de la ressource sur le côté gauche de la fenêtre ou dans le volet inférieur.
+1.  Sélectionnez **Stratégie** dans le menu de la ressource sur le côté gauche de la fenêtre ou dans le volet inférieur. Vous voyez une invite à sélectionner le certificat pour l’authentification. Choisissez l’option appropriée pour continuer.
 1.  Sélectionnez le **Type d’attestation** par défaut et affichez la **Stratégie actuelle**.
 
 ### <a name="configure-an-attestation-policy"></a>Configurer une stratégie d’attestation
@@ -144,6 +144,7 @@ Suivez ces étapes pour charger une stratégie au format JWT ou texte si le four
    Pour l’option de chargement de fichier, l’aperçu de la stratégie est affiché au format texte et ne peut pas être modifié.
 
 1. Sélectionnez **Actualiser** dans le menu supérieur pour afficher la stratégie configurée.
+
 
 Si le fournisseur d’attestation a été créé avec une obligation de signature de stratégie, suivez ces étapes pour charger une stratégie au format JWT.
 

@@ -1,39 +1,37 @@
 ---
 title: Créer un index de recherche dans le portail Azure
 titleSuffix: Azure Cognitive Search
-description: Dans ce guide de démarrage rapide du portail Azure, utilisez l’Assistant Importation de données pour créer, charger et interroger votre premier index de recherche dans Recherche cognitive Azure.
+description: Créez, chargez et interrogez votre premier index de recherche à l’aide de l’Assistant Importer des données du Portail Azure. Ce guide de démarrage rapide utilise un jeu de données d’hôtel fictif pour les exemples de données.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 12/12/2020
-ms.openlocfilehash: 1e9d63c88cf0cd6f65db99b2bc878797770d53cd
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.date: 03/02/2021
+ms.openlocfilehash: 1be165bfe7cca44e8a928933c3c8fe926ad7d4c9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97368628"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101694833"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>Démarrage rapide : Créer un index Recherche cognitive Azure dans le portail Azure
 
-Créez votre premier index à l’aide de l’Assistant **Importation des données** et d’un exemple de source de données intégré, constitué de données d’hôtel fictives. L’Assistant vous guide lors de la création d’un index de recherche (hotels-sample-index) afin que vous puissiez écrire des requêtes intéressantes en quelques minutes. 
+Créez votre premier index de recherche à l’aide de l’Assistant **Importer des données** et d’un exemple de source de données intégré, constitué de données d’hôtel fictives. L’Assistant vous guide lors de la création d’un index de recherche (hotels-sample-index) afin que vous puissiez écrire des requêtes intéressantes en quelques minutes. 
 
 Bien que vous n’utilisiez pas les options de ce guide de démarrage rapide, l’Assistant comporte une page consacrée à l’enrichissement par IA, afin que vous puissiez extraire le texte et la structure des fichiers image et du texte non structuré. Pour obtenir une procédure pas à pas similaire qui propose l’enrichissement par IA, consultez [Démarrage rapide : Créer un ensemble de compétences cognitives](cognitive-search-quickstart-blob.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
-Avant de commencer la lecture cet article, vous devez disposer des éléments suivants :
-
 + Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/).
 
-+ Service Recherche cognitive Azure. [Créez un service](search-create-service-portal.md) ou [recherchez un service existant](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) dans votre abonnement actuel. Vous pouvez utiliser un service gratuit pour ce guide de démarrage rapide. 
++ Service Recherche cognitive Azure (tout niveau et toute région). [Créez un service](search-create-service-portal.md) ou [recherchez un service existant](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) dans votre abonnement actuel. Vous pouvez utiliser un service gratuit pour ce guide de démarrage rapide. 
 
 ### <a name="check-for-space"></a>Vérifier l’espace disponible
 
-De nombreux clients commencent avec le service gratuit. Cette version est limitée à trois index, trois sources de données et trois indexeurs. Avant de commencer, assurez-vous de disposer d’assez d’espace pour stocker des éléments supplémentaires. Ce didacticiel crée une occurrence de chaque objet.
+De nombreux clients commencent avec le service gratuit. Ce niveau gratuit est limité à trois index, trois sources de données et trois indexeurs. Avant de commencer, assurez-vous de disposer d’assez d’espace pour stocker des éléments supplémentaires. Ce didacticiel crée une occurrence de chaque objet.
 
-Les sections figurant sur le tableau de bord des services indiquent le nombre d’index, d’indexeurs et de sources de données dont vous disposez déjà. 
+Consultez la page de présentation du service pour découvrir le nombre d’index, d’indexeurs et de sources de données que vous possédez. 
 
 :::image type="content" source="media/search-get-started-portal/tiles-indexers-datasources.png" alt-text="Listes des index, indexeurs et sources de données":::
 
@@ -70,14 +68,18 @@ Nous allons pour le moment ignorer cette étape et passer directement à l’ét
 
 ### <a name="step-3---configure-index"></a>Étape 3 : configurer l’index
 
-En règle générale, la création d’index exige d’utiliser du code avant le chargement des données. Comme indiqué dans ce didacticiel, l’Assistant peut cependant générer un index de base pour n’importe quelle source de données à analyser. Un index requiert au minimum un nom et une collection de champs. L’un de ces champs servira de clé du document pour identifier chaque document de façon unique. En outre, vous pouvez spécifier des analyseurs de langage ou des suggesteurs si vous souhaitez bénéficier d’une autocomplétion ou de suggestions de requêtes.
+Pour l’index hotels-sample intégré, un schéma d’index par défaut vous est défini. À l’exception de quelques exemples de filtres avancés, les requêtes dans la documentation et les exemples qui ciblent l’index hotel-samples s’exécuteront sur cette définition d’index :
+
+:::image type="content" source="media/search-get-started-portal/hotelsindex.png" alt-text="Index des hôtels généré":::
+
+En règle générale, la création d’index exige d’utiliser du code avant le chargement des données. L’Assistant Importer des données condense ces étapes en générant un index de base pour toutes les sources de données qu’il peut analyser. Un index requiert au minimum un nom et une collection de champs. L’un de ces champs servira de clé du document pour identifier chaque document de façon unique. En outre, vous pouvez spécifier des analyseurs de langage ou des suggesteurs si vous souhaitez bénéficier d’une autocomplétion ou de suggestions de requêtes.
 
 Les champs comportent des types de données et des attributs. Les cases à cocher figurant dans la partie supérieure sont des *attributs d’index* qui contrôlent le mode d’utilisation du champ.
 
-* **Récupérable** signifie que le champ s’affiche dans la liste des résultats de recherche. En décochant cette case, vous pouvez marquer des champs comme étant hors limites pour les résultats de recherche, par exemple lorsqu’un champ est utilisé uniquement dans les expressions de filtre.
-* **Clé** désigne l’identificateur unique du document. Il est toujours présenté sous forme d’une chaîne et est obligatoire.
-* Les options **Filtrable**, **Triable** et **À choix multiples** déterminent si les champs sont utilisés dans une structure de filtre, de tri ou de navigation à facettes.
-* **Possibilité de recherche** signifie que le champ est inclus dans la recherche en texte intégral. Les chaînes sont utilisables dans une recherche. Les champs numériques et booléens sont souvent marqués comme ne pouvant pas faire l’objet d’une recherche.
++ **Récupérable** signifie que le champ s’affiche dans la liste des résultats de recherche. En décochant cette case, vous pouvez marquer des champs comme étant hors limites pour les résultats de recherche, par exemple lorsqu’un champ est utilisé uniquement dans les expressions de filtre.
++ **Clé** désigne l’identificateur unique du document. Il est toujours présenté sous forme d’une chaîne et est obligatoire.
++ Les options **Filtrable**, **Triable** et **À choix multiples** déterminent si les champs sont utilisés dans une structure de filtre, de tri ou de navigation à facettes.
++ **Possibilité de recherche** signifie que le champ est inclus dans la recherche en texte intégral. Les chaînes sont utilisables dans une recherche. Les champs numériques et booléens sont souvent marqués comme ne pouvant pas faire l’objet d’une recherche.
 
 Votre sélection n’a aucune influence sur les besoins en stockage. Par exemple, si vous définissez l’attribut **Récupérable** sur plusieurs champs, les besoins en stockage n’augmentent pas.
 
@@ -87,10 +89,7 @@ Par défaut, l’Assistant analyse la source de données pour y rechercher des i
 
    Si vous réexécutez l’Assistant à l’aide d’une source de données « hotels » existante, l’index ne sera pas configuré avec les attributs par défaut. Vous devrez sélectionner manuellement les attributs lors des prochaines importations. 
 
-   :::image type="content" source="media/search-get-started-portal/hotelsindex.png" alt-text="Index des hôtels généré":::
-
-2. Passez à la page suivante.
-
+1. Passez à la page suivante.
 
 ### <a name="step-4---configure-indexer"></a>Étape 4 : configurer l’indexeur
 
@@ -104,7 +103,7 @@ Cliquez sur **Envoyer** pour créer et exécuter simultanément l’indexeur.
 
 ## <a name="monitor-progress"></a>Surveiller la progression
 
-L’Assistant doit vous rediriger vers la liste des indexeurs où vous pourrez en surveiller la progression. Pour une navigation automatique, accédez à la page Vue d’ensemble et cliquez sur **Indexeurs**.
+L’Assistant doit vous rediriger vers la liste des indexeurs où vous pourrez en surveiller la progression. Pour une navigation automatique, accédez à la page de présentation et cliquez sur l’onglet **Indexeurs**.
 
 Il faut parfois plusieurs minutes au portail pour actualiser la page, mais l’indexeur que vous venez de créer devrait apparaître dans la liste, avec un état indiquant que l’opération est en cours ou qu’elle a réussi, ainsi que le nombre de documents indexés.
 
@@ -112,7 +111,7 @@ Il faut parfois plusieurs minutes au portail pour actualiser la page, mais l’i
 
 ## <a name="view-the-index"></a>Afficher l’index
 
-La page principale du service fournit des liens vers les ressources créées dans votre service Recherche cognitive Azure.  Pour voir l’index que vous venez de créer, cliquez sur **Index** dans la liste des liens. 
+La page de présentation du service contient des liens vers les ressources créées dans votre service Recherche cognitive Azure.  Pour voir l’index que vous venez de créer, cliquez sur **Index** dans la liste des liens. 
 
 Attendez que la page du portail s’actualise. Après quelques minutes, vous devriez voir l’index avec un nombre de documents et une taille de stockage.
 
@@ -120,7 +119,9 @@ Attendez que la page du portail s’actualise. Après quelques minutes, vous dev
 
 Dans cette liste, vous pouvez cliquer sur l’index *hotels-sample* que vous venez de créer pour voir le schéma de l’index. Ajoutez éventuellement de nouveaux champs. 
 
-L’onglet **Champs** montre le schéma d’index. Faites défiler la liste vers le bas pour entrer un nouveau champ. Dans la plupart des cas, vous ne pouvez pas modifier les champs existants. Les champs existants ont une représentation physique dans la Recherche cognitive Azure et ne sont donc pas modifiables, pas même dans du code. Pour modifier considérablement un champ existant, créez un nouvel index en supprimant l’original.
+L’onglet **Champs** montre le schéma d’index. Si vous écrivez des requêtes et que vous devez vérifier si un champ est filtrable ou triable, cet onglet vous permet de visualiser les attributs.
+
+Faites défiler la liste vers le bas pour entrer un nouveau champ. Bien que vous puissiez toujours créer un champ, vous ne pouvez généralement pas modifier les champs existants. Les champs existants ont une représentation physique dans votre service de recherche et ne sont donc pas modifiables, pas même dans le code. Pour modifier considérablement un champ existant, créez un nouvel index en supprimant l’original.
 
    :::image type="content" source="media/search-get-started-portal/sample-index-def.png" alt-text="définition de l’index d’exemples":::
 
@@ -142,11 +143,11 @@ L’**Explorateur de recherche** est uniquement équipé pour gérer des [demand
 
    :::image type="content" source="media/search-get-started-portal/search-explorer-cmd.png" alt-text="Commande Explorateur de recherche":::
 
-2. Dans la liste déroulante **Index**, choisissez *hotels-sample-index*. Cliquez sur la liste déroulante **Version d’API** pour voir les API REST disponibles. Pour les requêtes ci-après, utilisez la version mise à la disposition générale (2020-06-30).
+1. Dans la liste déroulante **Index**, choisissez *hotels-sample-index*. Cliquez sur la liste déroulante **Version d’API** pour voir les API REST disponibles. Pour les requêtes ci-après, utilisez la version mise à la disposition générale (2020-06-30).
 
    :::image type="content" source="media/search-get-started-portal/search-explorer-changeindex.png" alt-text="Commandes d’index et d’API":::
 
-3. Dans la barre de recherche, collez les chaînes de requête ci-dessous, puis cliquez sur **Rechercher**.
+1. Dans la barre de recherche, collez les chaînes de requête ci-dessous, puis cliquez sur **Rechercher**.
 
    :::image type="content" source="media/search-get-started-portal/search-explorer-query-string-example.png" alt-text="Chaîne de requête et bouton de recherche":::
 
@@ -158,19 +159,19 @@ Vous pouvez entrer soit des termes et expressions, de la même manière que dans
 
 #### <a name="example-string-query-searchspa"></a>Exemple (requête sous forme de chaîne) : `search=spa`
 
-* Le paramètre **search** permet d’entrer une recherche par mot clé pour une recherche en texte intégral. Dans ce cas précis, il retourne les hôtels dont l’un des champs contient le mot *spa*.
++ Le paramètre **search** permet d’entrer une recherche par mot clé pour une recherche en texte intégral. Dans ce cas précis, il retourne les hôtels dont l’un des champs contient le mot *spa*.
 
-* **L’Explorateur de recherche** renvoie les résultats au format JSON, qui est particulièrement détaillé et difficile à lire si les documents présentent une structure dense. Cela est intentionnel ; la visibilité du document entier est importante en matière de développement, en particulier lors des tests. Pour une meilleure expérience utilisateur, vous devrez écrire le code qui [gère les résultats de recherche](search-pagination-page-layout.md) pour mettre en évidence les éléments importants.
++ **L’Explorateur de recherche** renvoie les résultats au format JSON, qui est particulièrement détaillé et difficile à lire si les documents présentent une structure dense. Cela est intentionnel ; la visibilité du document entier est importante en matière de développement, en particulier lors des tests. Pour une meilleure expérience utilisateur, vous devrez écrire le code qui [gère les résultats de recherche](search-pagination-page-layout.md) pour mettre en évidence les éléments importants.
 
-* Les documents sont composés de tous les champs marqués comme « récupérables » dans l’index. Pour visualiser les attributs d’index dans le portail, cliquez sur *hotels-sample* dans la liste **Index**.
++ Les documents sont composés de tous les champs marqués comme « récupérables » dans l’index. Pour visualiser les attributs d’index dans le portail, cliquez sur *hotels-sample* dans la liste **Index**.
 
 #### <a name="example-parameterized-query-searchspacounttruetop10"></a>Exemple (requête paramétrable) : `search=spa&$count=true&$top=10`
 
-* Le symbole **&** permet d’ajouter des paramètres de recherche, qui peuvent être spécifiés dans n’importe quel ordre.
++ Le symbole **&** permet d’ajouter des paramètres de recherche, qui peuvent être spécifiés dans n’importe quel ordre.
 
-* Le paramètre **$count=true** récupère une valeur indiquant le nombre total de documents retournés. Cette valeur s’affiche en haut des résultats de recherche. Vous pouvez vérifier les requêtes de filtre en surveillant les modifications signalées par **$count=true**. Des petits nombres indiquent que votre filtre fonctionne.
++ Le paramètre **$count=true** récupère une valeur indiquant le nombre total de documents retournés. Cette valeur s’affiche en haut des résultats de recherche. Vous pouvez vérifier les requêtes de filtre en surveillant les modifications signalées par **$count=true**. Des petits nombres indiquent que votre filtre fonctionne.
 
-* La chaîne **$top=10** retourne les 10 documents les mieux classés parmi tous les documents. Par défaut, la Recherche cognitive Azure retourne les 50 meilleures correspondances. Vous pouvez augmenter ou diminuer ce nombre par le biais du paramètre **$top**.
++ La chaîne **$top=10** retourne les 10 documents les mieux classés parmi tous les documents. Par défaut, la Recherche cognitive Azure retourne les 50 meilleures correspondances. Vous pouvez augmenter ou diminuer ce nombre par le biais du paramètre **$top**.
 
 ### <a name="filter-the-query"></a><a name="filter-query"></a>Filtrer la requête
 
@@ -178,9 +179,9 @@ Les filtres sont inclus dans les demandes de recherche lorsque vous ajoutez le p
 
 #### <a name="example-filtered-searchbeachfilterrating-gt-4"></a>Exemple (filtré) : `search=beach&$filter=Rating gt 4`
 
-* Le paramètre **$filter** renvoie les résultats correspondant aux critères que vous avez spécifiés. Dans ce cas précis, ce sont les évaluations supérieures à 4.
++ Le paramètre **$filter** renvoie les résultats correspondant aux critères que vous avez spécifiés. Dans ce cas précis, ce sont les évaluations supérieures à 4.
 
-* La syntaxe de filtre est une construction OData. Pour plus d’informations, consultez l’article [Filter OData syntax](/rest/api/searchservice/odata-expression-syntax-for-azure-search) (Syntaxe d’expression de filtre OData).
++ La syntaxe de filtre est une construction OData. Pour plus d’informations, consultez l’article [Filter OData syntax](/rest/api/searchservice/odata-expression-syntax-for-azure-search) (Syntaxe d’expression de filtre OData).
 
 ### <a name="facet-the-query"></a><a name="facet-query"></a> « Facetter » la requête
 
@@ -188,19 +189,18 @@ Les filtres de facettes sont inclus dans les demandes de recherche. Vous pouvez 
 
 #### <a name="example-faceted-with-scope-reduction-searchfacetcategorytop2"></a>Exemple (par facettes avec une étendue réduite) : `search=*&facet=Category&$top=2`
 
-* **search=** _ est une recherche vide. Les recherches vides portent sur tous les éléments. L’un des motifs possibles de l’exécution d’une requête vide est l’application de filtres ou de facettes au jeu complet de documents. Par exemple, vous souhaitez obtenir une structure de navigation par facettes constituée de tous les hôtels de l’index.
-_ **facet** retourne une structure de navigation que vous pouvez transmettre à un contrôle d’interface utilisateur. Il renvoie des catégories ainsi qu’un nombre. Dans ce cas, les catégories sont basées sur un champ nommé *Catégorie*. Il n’existe pas d’agrégation dans la Recherche cognitive Azure, mais vous pouvez bénéficier d’une fonctionnalité quasiment comparable via `facet`, qui retourne un nombre de documents dans chaque catégorie.
++ **search=** * est une recherche vide. Les recherches vides portent sur tous les éléments. L’un des motifs possibles de l’exécution d’une requête vide est l’application de filtres ou de facettes au jeu complet de documents. Par exemple, vous souhaitez obtenir une structure de navigation par facettes constituée de tous les hôtels de l’index.
++ **facet** renvoie une structure de navigation que vous pouvez transmettre à un contrôle d’interface utilisateur. Il renvoie des catégories ainsi qu’un nombre. Dans ce cas, les catégories sont basées sur un champ nommé *Catégorie*. Il n’existe pas d’agrégation dans la Recherche cognitive Azure, mais vous pouvez bénéficier d’une fonctionnalité quasiment comparable via `facet`, qui retourne un nombre de documents dans chaque catégorie.
 
-* **$top=2** renvoie deux documents, illustrant ainsi la possibilité d’utiliser `top` pour réduire ou augmenter les résultats.
++ **$top=2** renvoie deux documents, illustrant ainsi la possibilité d’utiliser `top` pour réduire ou augmenter les résultats.
 
 #### <a name="example-facet-on-numeric-values-searchspafacetrating"></a>Exemple (par facettes sur des valeurs numériques) : `search=spa&facet=Rating`
 
-* Cette requête définit une facette pour l’évaluation dans une recherche de texte portant sur le mot *spa*. Le terme *évaluation* peut être spécifié en tant que facette, car ce champ est désigné comme récupérable, filtrable et « facettable » dans l’index. De plus, les valeurs qu’il contient (valeur numérique de 1 à 5) sont adaptées à un classement des entrées en différents groupes.
++ Cette requête définit une facette pour l’évaluation dans une recherche de texte portant sur le mot *spa*. Le terme *évaluation* peut être spécifié en tant que facette, car ce champ est désigné comme récupérable, filtrable et « facettable » dans l’index. De plus, les valeurs qu’il contient (valeur numérique de 1 à 5) sont adaptées à un classement des entrées en différents groupes.
 
-* Seuls les champs filtrables peuvent être désignés comme étant à facettes. Les résultats ne peuvent renvoyer que les champs récupérables.
++ Seuls les champs filtrables peuvent être désignés comme étant à facettes. Les résultats ne peuvent renvoyer que les champs récupérables.
 
-* Le champ *Évaluation* est un champ à virgule flottante et double précision, et le regroupement se fera par valeur précise. Pour plus d’informations sur le regroupement par intervalle (par exemple « 3 étoiles », « 4 étoiles », etc.), consultez [Guide pratique pour implémenter une navigation par facettes dans la Recherche cognitive Azure](./search-faceted-navigation.md#filter-based-on-a-range).
-
++ Le champ *Évaluation* est un champ à virgule flottante et double précision, et le regroupement se fera par valeur précise. Pour plus d’informations sur le regroupement par intervalle (par exemple « 3 étoiles », « 4 étoiles », etc.), consultez [Guide pratique pour implémenter une navigation par facettes dans la Recherche cognitive Azure](./search-faceted-navigation.md#filter-based-on-a-range).
 
 ### <a name="highlight-search-results"></a><a name="highlight-query"></a>Mettre en surbrillance les termes de recherche
 
@@ -208,13 +208,13 @@ La mise en surbrillance des correspondances fait référence au formatage du tex
 
 #### <a name="example-highlighter-searchbeachhighlightdescription"></a>Exemple (surligneur) : `search=beach&highlight=Description`
 
-* Dans cet exemple, le mot mis en forme *beach* (plage) est plus facile à repérer dans le champ de description.
++ Dans cet exemple, le mot mis en forme *beach* (plage) est plus facile à repérer dans le champ de description.
 
 #### <a name="example-linguistic-analysis-searchbeacheshighlightdescription"></a>Exemple (analyse linguistique) : `search=beaches&highlight=Description`
 
-* La recherche en texte intégral reconnaît les variations de base au niveau du format des mots. Dans ce cas, en réponse au mot clé de recherche « beaches », les résultats de recherche contiennent le mot « beach » mis en surbrillance pour les hôtels qui ont ce mot dans leurs champs de recherche. Les résultats peuvent afficher différentes formes du même mot grâce à l’exécution d’une analyse linguistique. 
++ La recherche en texte intégral reconnaît les variations de base au niveau du format des mots. Dans ce cas, en réponse au mot clé de recherche « beaches », les résultats de recherche contiennent le mot « beach » mis en surbrillance pour les hôtels qui ont ce mot dans leurs champs de recherche. Les résultats peuvent afficher différentes formes du même mot grâce à l’exécution d’une analyse linguistique. 
 
-* La Recherche cognitive Azure prend en charge 56 analyseurs Lucene et Microsoft. Par défaut, la Recherche cognitive Azure utilise l’analyseur Lucene standard.
++ La Recherche cognitive Azure prend en charge 56 analyseurs Lucene et Microsoft. Par défaut, la Recherche cognitive Azure utilise l’analyseur Lucene standard.
 
 ### <a name="try-fuzzy-search"></a><a name="fuzzy-search"></a> Essayer la recherche partielle
 

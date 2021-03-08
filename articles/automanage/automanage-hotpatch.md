@@ -8,25 +8,25 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: jushiman
-ms.openlocfilehash: bdd5a379afb9603c8966320d85c778632948cfd0
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 710e6902be6ebe28caaf40fb446e4ee7cd2bf4dc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101660203"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687564"
 ---
-# <a name="hotpatch-for-windows-server-azure-edition-preview"></a>Hotpatch pour Windows Server Azure Edition (préversion)
+# <a name="hotpatch-for-new-virtual-machines-preview"></a>Patch à chaud pour les nouvelles machines virtuelles (préversion)
 
 La mise à jour corrective à chaud est une nouvelle façon d’installer les mises à jour sur les nouvelles machines virtuelles Windows Server Azure Edition, qui ne nécessite pas de redémarrage après l’installation. Cet article contient des informations sur le programme Hotpatch pour machines virtuelles Windows Server Azure Edition, qui présente les avantages suivants :
 * Impact plus faible sur la charge de travail avec moins de redémarrages
 * Déploiement plus rapide des mises à jour, car les packages sont plus petits, s’installent plus rapidement et offrent une orchestration des patchs plus facile à mettre en œuvre avec Azure Update Manager
 * Meilleure protection, car les packages de mise à jour Hotpatch se limitent à l’étendue des mises à jour de sécurité Windows, qui s’installent plus rapidement et sans redémarrage
 
-## <a name="how-hotpatch-works"></a>Fonctionnement de Hotpatch
+## <a name="how-hotpatch-works"></a>Fonctionnement du patch à chaud
 
 Hotpatch fonctionne en établissant d’abord une base de référence avec la dernière mise à jour cumulative de Windows Update. Des patchs à chaud sont publiés régulièrement (par exemple, le deuxième mardi du mois) en s’appuyant sur cette base de référence. Les patchs à chaud contiennent des mises à jour qui ne nécessitent pas de redémarrage. Régulièrement (tous les trois mois au minimum), la base de référence est actualisée avec la dernière mise à jour cumulative.
 
-    :::image type="content" source="media\automanage-hotpatch\hotpatch-sample-schedule.png" alt-text="Hotpatch Sample Schedule.":::
+:::image type="content" source="media\automanage-hotpatch\hotpatch-sample-schedule.png" alt-text="Exemple de calendrier Hotpatch.":::
 
 Il existe deux types de base de référence : **les bases de référence planifiées** et les **bases de référence non planifiées**.
 *  Les **bases de référence planifiées** sont publiées à une cadence régulière. Dans l’intervalle, des patchs à chaud sont également publiés.  Les bases de référence planifiées incluent toutes les mises à jour de la _dernière mise à jour cumulative_ comparable pour le mois considéré, et nécessitent un redémarrage.
@@ -154,7 +154,7 @@ Pour voir l’état du patch de votre machine virtuelle, accédez à la section 
 Sur cet écran, vous verrez l’état de Hotpatch pour votre machine virtuelle. Vous pouvez également vérifier s’il existe des patchs pour votre machine virtuelle qui n’ont pas été installés. Comme indiqué dans la section « Installation des patchs » ci-dessus, toutes les mises à jour de sécurité et critiques sont automatiquement installées sur votre machine virtuelle via la fonctionnalité de [mise à jour corrective automatique de la machine virtuelle invitée](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching). Aucune action supplémentaire n’est nécessaire. Les patchs ayant d’autres classifications de mise à jour ne sont pas installés automatiquement. À la place, ils sont consultables dans la liste des patchs disponibles sous l’onglet Update Compliance. Vous pouvez également voir l’historique des déploiements de mises à jour sur votre machine virtuelle via l’historique des mises à jour. L’historique des mises à jour des 30 derniers jours s’affiche avec les détails relatifs à l’installation des patchs.
 
 
-    :::image type="content" source="media\automanage-hotpatch\hotpatch-management-ui.png" alt-text="Hotpatch Management.":::
+:::image type="content" source="media\automanage-hotpatch\hotpatch-management-ui.png" alt-text="Gestion des patchs à chaud.":::
 
 Avec la mise à jour corrective automatique de la machine virtuelle invitée, votre machine virtuelle est régulièrement et automatiquement évaluée pour identifier les mises à jour disponibles. Ces évaluations périodiques vous permettent d’avoir la garantie que les patchs disponibles sont détectés. Vous pouvez voir les résultats de l’évaluation sur l’écran Mises à jour ci-dessus, notamment l’heure de la dernière évaluation. Vous pouvez également déclencher une évaluation des patchs à la demande pour votre machine virtuelle à tout moment via l’option Assess now (Évaluer maintenant), et passer en revue les résultats une fois l’évaluation effectuée.
 
@@ -197,7 +197,7 @@ Il existe des points importants à prendre en compte pour l’exécution d’une
 
 ### <a name="are-reboots-still-needed-for-a-vm-enrolled-in-hotpatch"></a>Les redémarrages sont-ils toujours nécessaires pour une machine virtuelle inscrite au programme Hotpatch ?
 
-* Les redémarrages sont toujours nécessaires pour installer des mises à jour non incluses dans le programme Hotpatch. Elles sont nécessaires périodiquement après l’installation d’une base de référence (dernière mise à jour cumulative de Windows Update). Ce redémarrage permet de maintenir votre machine virtuelle synchronisée par rapport à tous les patchs inclus dans la mise à jour cumulative. Au début, les bases de référence (qui nécessitent un redémarrage) ont une cadence fixée à tous les trois mois. Celle-ci passe ensuite à 6 mois et plus.
+* Les redémarrages sont toujours nécessaires pour installer des mises à jour non incluses dans le programme Hotpatch. Elles sont nécessaires périodiquement après l’installation d’une base de référence (dernière mise à jour cumulative de Windows Update). Ce redémarrage permet de maintenir votre machine virtuelle synchronisée par rapport à tous les patchs inclus dans la mise à jour cumulative. Au début, les bases de référence (qui nécessitent un redémarrage) ont une cadence fixée à tous les trois mois. Celle-ci augmente ensuite.
 
 ### <a name="are-my-applications-affected-when-a-hotpatch-update-is-installed"></a>Mes applications sont-elles affectées quand une mise à jour Hotpatch est installée ?
 

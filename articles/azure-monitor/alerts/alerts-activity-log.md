@@ -2,14 +2,13 @@
 title: Créer, afficher et gérer des alertes de journal d’activité dans Azure Monitor
 description: Créer des alertes de journal d’activité à l’aide du portail Azure, d’un modèle Azure Resource Manager et d’Azure PowerShell.
 ms.topic: conceptual
-ms.subservice: alerts
 ms.date: 06/25/2019
-ms.openlocfilehash: bb4c1410d046389ae9e82986c6b0ed3d133fcf2a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 26ca755f6675fa19c3b122c3528e05d1e8d76845
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101704461"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102045528"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-by-using-azure-monitor"></a>Créer, afficher et gérer des alertes de journal d’activité à l’aide d’Azure Monitor  
 

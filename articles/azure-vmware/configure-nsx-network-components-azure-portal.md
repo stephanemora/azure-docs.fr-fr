@@ -3,12 +3,12 @@ title: Configurer des composants réseau NSX dans Azure VMware Solution
 description: Découvrez comment utiliser la console Azure VMware Solution pour configurer des segments de réseau NSX-T.
 ms.topic: how-to
 ms.date: 02/16/2021
-ms.openlocfilehash: dbed29fb1063b78386f9ec1e2ee00d9c685a944e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 0478582a9bc4fb77a1784c27ec4f5c302d6b89fc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100416570"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101716919"
 ---
 # <a name="configure-nsx-network-components-in-azure-vmware-solution"></a>Configurer des composants réseau NSX dans Azure VMware Solution
 
@@ -36,13 +36,9 @@ Vous pouvez créer et configurer un segment NSX-T à partir de la console Azure 
 >[!NOTE]
 >Si vous envisagez d’utiliser le protocole DHCP, vous devez [configurer un serveur DHCP ou un relais DHCP](#create-a-dhcp-server-or-dhcp-relay-in-the-azure-portal) avant de pouvoir créer et configurer un segment NSX-T.
 
-1. Dans votre cloud privé Azure VMware Solution, sous **Réseau des charges de travail**, sélectionnez **segments** > **Ajouter**.
+1. Dans votre cloud privé Azure VMware Solution, sous **Réseau des charges de travail**, sélectionnez **segments** > **Ajouter**. Fournissez les détails du nouveau segment logique, puis sélectionnez **OK**.
 
    :::image type="content" source="media/configure-nsx-network-components-azure-portal/add-new-nsxt-segment.png" alt-text="Capture d’écran montrant comment ajouter un nouveau segment":::
-
-1. Fournissez les détails du nouveau segment logique.
-
-   :::image type="content" source="media/configure-nsx-network-components-azure-portal/create-new-segment-details.png" alt-text="Capture d’écran montrant les détails du nouveau segment":::
    
    - **Nom du segment** : nom du commutateur logique qui est visible dans vCenter.
    - **Passerelle de sous-réseau** : adresse IP de la passerelle pour le sous-réseau du commutateur logique avec un masque de sous-réseau. Les machines virtuelles sont attachées à un commutateur logique, et toutes les machines virtuelles qui se connectent à ce commutateur appartiennent au même sous-réseau.  De plus, toutes les machines virtuelles attachées à ce segment logique doivent contenir une adresse IP du même segment.
@@ -50,8 +46,6 @@ Vous pouvez créer et configurer un segment NSX-T à partir de la console Azure 
    - **Passerelle connectée** - *Sélectionnée par défaut et en lecture seule.*  Passerelle de niveau 1 et type d’informations de segment. 
       - **T1** : nom de la passerelle de niveau 1 dans NSX-T Manager. Un cloud privé Azure VMware Solution est fourni avec une passerelle NSX-T de niveau 0 en mode Actif/Actif et une passerelle NSX-T de niveau 1 par défaut en mode Actif/En attente.  Les segments créés par le biais de la console Azure VMware Solution se connectent uniquement à la passerelle de niveau 1 par défaut, et les charges de travail de ces segments obtiennent une connectivité Est-Ouest et Nord-Sud. Vous pouvez uniquement créer plus de passerelles de niveau 1 par le biais de NSX-T Manager. Les passerelles de niveau 1 créées à partir de la console NSX-T Manager ne sont pas visibles dans la console Azure VMware Solution. 
       - **Type** : segment de superposition pris en charge par Azure VMware Solution.
-
-1. Sélectionnez **OK** pour créer le segment et l’attacher à la passerelle de niveau 1. 
 
    Le segment est désormais visible dans la console Azure VMware Solution , NSX-T Manager et vCenter.
 
@@ -157,24 +151,12 @@ Vous allez configurer une zone DNS par défaut et une zone FQDN pour envoyer les
 
 ### <a name="step-2-configure-dns-service"></a>Étape 2. Configurer le service DNS
 
-1. Sélectionnez l’onglet **Service DNS**, sélectionnez **Ajouter**, puis indiquez les informations suivantes :
+1. Sélectionnez l’onglet **Service DNS**, puis **Ajouter**. Entrez les détails, puis sélectionnez **OK**.
 
    :::image type="content" source="media/configure-nsx-network-components-azure-portal/nsxt-workload-networking-configure-dns-service.png" alt-text="Capture d’écran montrant les informations nécessaires pour le service DNS":::
 
-   1. Un nom pour le service DNS.
-
-   1. Entrez l’adresse IP du service DNS.
-
-   1. Sélectionnez la zone DNS par défaut que vous avez créée sous l’onglet Zones DNS.
-
-   1. Sélectionnez les zones FQDN que vous avez ajoutées sous l’onglet Zones DNS.
-
-   1. Sélectionnez le **niveau de journalisation**.
-
    >[!TIP]
    >L’option **Passerelle de niveau 1** est sélectionnée par défaut et reflète la passerelle créée lors du déploiement d’Azure VMware Solution.
-
-1. Sélectionnez **OK**. 
 
    Le service DNS a été ajouté avec succès.
 

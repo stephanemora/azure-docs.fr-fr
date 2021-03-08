@@ -8,38 +8,42 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: eb59bb43d493609ae408a402eaea2dcc9c6fab29
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 71217e6379c02191311f5d93cb439d9da20080bc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100548775"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101706960"
 ---
 # <a name="deploy-a-cloud-service-extended-support-using-arm-templates"></a>Déployer un service cloud (support étendu) à l’aide de modèles ARM
 
-Ce tutoriel explique comment créer un déploiement d’un service cloud (support étendu) à l’aide de [modèles ARM](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview). 
+Ce tutoriel explique comment créer un déploiement d’un service cloud (support étendu) à l’aide de [modèles ARM](../azure-resource-manager/templates/overview.md). 
 
 > [!IMPORTANT]
 > Cloud Services (support étendu) est actuellement en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
+> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
 ## <a name="before-you-begin"></a>Avant de commencer
-1. Consultez les [prérequis du déploiement](deploy-prerequisite.md) de Cloud Services (support étendu) et créez les ressources associées. 
 
-2. Créez un groupe de ressources à l’aide du [portail Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal) ou de [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-powershell). Cette étape est facultative si vous utilisez un groupe de ressources existant. 
+1. Consultez les [prérequis du déploiement](deploy-prerequisite.md) de Cloud Services (support étendu) et créez les ressources associées.
+
+2. Créez un groupe de ressources à l’aide du [portail Azure](/azure/azure-resource-manager/management/manage-resource-groups-portal) ou de [PowerShell](/azure/azure-resource-manager/management/manage-resource-groups-powershell). Cette étape est facultative si vous utilisez un groupe de ressources existant.
  
-3. Créez un compte de stockage en utilisant le [portail Azure](https://docs.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal) ou [PowerShell](https://docs.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-powershell). Cette étape est facultative si vous utilisez un compte de stockage existant. 
+3. Créez un compte de stockage en utilisant le [portail Azure](/azure/storage/common/storage-account-create?tabs=azure-portal) ou [PowerShell](/azure/storage/common/storage-account-create?tabs=azure-powershell). Cette étape est facultative si vous utilisez un compte de stockage existant.
 
-4. Chargez vos fichiers de définition de service (.csdef) et de configuration de service (.cscfg) dans le compte de stockage en utilisant le [portail Azure](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal#upload-a-block-blob), [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-blobs-upload?toc=/azure/storage/blobs/toc.json) ou [PowerShell](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-powershell#upload-blobs-to-the-container). Obtenez les URI SAS des deux fichiers à ajouter au modèle ARM plus loin dans ce tutoriel. 
+4. Chargez vos fichiers de définition de service (.csdef) et de configuration de service (.cscfg) dans le compte de stockage en utilisant le [portail Azure](/azure/storage/blobs/storage-quickstart-blobs-portal#upload-a-block-blob), [AzCopy](/azure/storage/common/storage-use-azcopy-blobs-upload?toc=/azure/storage/blobs/toc.json) ou [PowerShell](/azure/storage/blobs/storage-quickstart-blobs-powershell#upload-blobs-to-the-container). Obtenez les URI SAS des deux fichiers à ajouter au modèle ARM plus loin dans ce tutoriel.
 
-5. (Facultatif) Créez un coffre de clés et chargez les certificats. 
-    -  Les certificats peuvent être joints aux services cloud pour sécuriser les communications à destination et en provenance du service. Pour que des certificats puissent être utilisés, leurs empreintes numériques doivent être spécifiées dans votre fichier de configuration de service (.cscfg) et chargées dans un coffre de clés. Il est possible de créer un coffre de clés par le biais du [portail Azure](https://docs.microsoft.com/azure/key-vault/general/quick-create-portal) ou de [PowerShell](https://docs.microsoft.com/azure/key-vault/general/quick-create-powershell). 
-    - Le coffre de clés associé doit se trouver dans la même région et le même abonnement que le service cloud.   
+5. (Facultatif) Créez un coffre de clés et chargez les certificats.
+
+    -  Les certificats peuvent être joints aux services cloud pour sécuriser les communications à destination et en provenance du service. Pour que des certificats puissent être utilisés, leurs empreintes numériques doivent être spécifiées dans votre fichier de configuration de service (.cscfg) et chargées dans un coffre de clés. Il est possible de créer un coffre de clés par le biais du [portail Azure](/azure/key-vault/general/quick-create-portal) ou de [PowerShell](/azure/key-vault/general/quick-create-powershell).
+    - Le coffre de clés associé doit se trouver dans la même région et le même abonnement que le service cloud.
     - Les autorisations appropriées doivent être activées pour le coffre de clés associé afin que la ressource Cloud Services (support étendu) puisse récupérer le certificat à partir de Key Vault. Pour plus d’informations, consultez [Certificats et coffre de clés](certificates-and-key-vault.md)
     - Le coffre de clés doit être référencé dans la section OsProfile du modèle ARM présenté dans les étapes ci-dessous.
 
-## <a name="deploy-a-cloud-service-extended-support"></a>Déployer un service cloud (support étendu) 
+## <a name="deploy-a-cloud-service-extended-support"></a>Déployer un service cloud (support étendu)
+
 1. Créez un réseau virtuel. Le nom du réseau virtuel doit correspondre aux références figurant dans le fichier de configuration de service (.cscfg). Si vous utilisez un réseau virtuel existant, omettez cette section dans le modèle ARM.
 
     ```json
@@ -68,7 +72,7 @@ Ce tutoriel explique comment créer un déploiement d’un service cloud (suppor
     ] 
     ```
     
-     Si vous créez un réseau virtuel, ajoutez ce qui suit à la section `dependsOn` pour garantir que la plateforme crée le réseau virtuel avant de créer le service cloud. 
+     Si vous créez un réseau virtuel, ajoutez ce qui suit à la section `dependsOn` pour garantir que la plateforme crée le réseau virtuel avant de créer le service cloud.
 
     ```json
     "dependsOn": [ 
@@ -100,7 +104,7 @@ Ce tutoriel explique comment créer un déploiement d’un service cloud (suppor
     ] 
     ```
      
-     Si vous créez une adresse IP, ajoutez ce qui suit à la section `dependsOn` pour garantir que la plateforme crée l’adresse IP avant de créer le service cloud. 
+     Si vous créez une adresse IP, ajoutez ce qui suit à la section `dependsOn` pour garantir que la plateforme crée l’adresse IP avant de créer le service cloud.
     
     ```json
     "dependsOn": [ 
@@ -108,7 +112,7 @@ Ce tutoriel explique comment créer un déploiement d’un service cloud (suppor
           ] 
     ```
  
-3. Créez un objet de profil réseau et associez l’adresse IP publique au serveur front-end de l’équilibreur de charge. Un équilibreur de charge est automatiquement créé par la plateforme.  
+3. Créez un objet de profil réseau et associez l’adresse IP publique au serveur front-end de l’équilibreur de charge. Un équilibreur de charge est automatiquement créé par la plateforme.
 
     ```json
     "networkProfile": { 
@@ -154,71 +158,70 @@ Ce tutoriel explique comment créer un déploiement d’un service cloud (suppor
     ```
   
     > [!NOTE]
-    > SourceVault est l’ID de ressource ARM pour votre coffre de clés. Pour trouver ces informations, localisez l’ID de ressource dans la section Propriétés de votre coffre de clés. 
+    > SourceVault est l’ID de ressource ARM pour votre coffre de clés. Pour trouver ces informations, localisez l’ID de ressource dans la section Propriétés de votre coffre de clés.
     > - certificateUrl est accessible en accédant au certificat dans le coffre de clés intitulé **Identificateur de secret**.  
    >  - certificateUrl doit se présenter sous la forme https://{keyvault-endpoint}/secrets/{secretname}/{secret-id}
 
-5. Créez un profil de rôle. Vérifiez que le nombre de rôles, le nom des rôles, le nombre d’instances dans chaque rôle et les tailles sont identiques dans la configuration de service (.cscfg), la définition de service (.csdef) et la section de profil de rôle du modèle ARM. 
+5. Créez un profil de rôle. Vérifiez que le nombre de rôles, le nom des rôles, le nombre d’instances dans chaque rôle et les tailles sont identiques dans la configuration de service (.cscfg), la définition de service (.csdef) et la section de profil de rôle du modèle ARM.
     
     ```json
-    "roleProfile": { 
-          "roles": { 
-          "value": [ 
-            { 
-              "name": "WebRole1", 
-              "sku": { 
-                "name": "Standard_D1_v2", 
-                "capacity": "1" 
-              } 
-            }, 
-            { 
-              "name": "WorkerRole1", 
-              "sku": { 
-                "name": "Standard_D1_v2", 
-                "capacity": "1" 
-              } 
+    "roleProfile": {
+      "roles": {
+        "value": [
+          {
+            "name": "WebRole1",
+            "sku": {
+              "name": "Standard_D1_v2",
+              "capacity": "1"
+            }
+          },
+          {
+            "name": "WorkerRole1",
+            "sku": {
+              "name": "Standard_D1_v2",
+              "capacity": "1"
             } 
-        }
+          } 
+        ]
+      }
     }   
     ```
 
-6. (Facultatif) Créez un profil d’extension pour ajouter des extensions à votre service cloud. Pour cet exemple, nous ajoutons l’extension de diagnostic Windows Azure et de bureau à distance. 
+6. (Facultatif) Créez un profil d’extension pour ajouter des extensions à votre service cloud. Pour cet exemple, nous ajoutons l’extension de diagnostic Windows Azure et de bureau à distance.
     
     ```json
         "extensionProfile": {
-              "extensions": [
-                {
-                  "name": "RDPExtension",
-                  "properties": {
-                    "autoUpgradeMinorVersion": true,
-                    "publisher": "Microsoft.Windows.Azure.Extensions",
-                    "type": "RDP",
-                    "typeHandlerVersion": "1.2.1",
-                    "settings": "<PublicConfig>\r\n <UserName>[Insert Username]</UserName>\r\n <Expiration>1/21/2022 12:00:00 AM</Expiration>\r\n</PublicConfig>",
-                    "protectedSettings": "<PrivateConfig>\r\n <Password>[Insert Password]</Password>\r\n</PrivateConfig>"
-                  }
-                },
-                {
-                  "name": "Microsoft.Insights.VMDiagnosticsSettings_WebRole1",
-                  "properties": {
-                    "autoUpgradeMinorVersion": true,
-                    "publisher": "Microsoft.Azure.Diagnostics",
-                    "type": "PaaSDiagnostics",
-                    "typeHandlerVersion": "1.5",
-                    "settings": "[parameters('wadPublicConfig_WebRole1')]",
-                    "protectedSettings": "[parameters('wadPrivateConfig_WebRole1')]",
-                    "rolesAppliedTo": [
-                      "WebRole1"
-              ]
+          "extensions": [
+            {
+              "name": "RDPExtension",
+              "properties": {
+                "autoUpgradeMinorVersion": true,
+                "publisher": "Microsoft.Windows.Azure.Extensions",
+                "type": "RDP",
+                "typeHandlerVersion": "1.2.1",
+                "settings": "<PublicConfig>\r\n <UserName>[Insert Username]</UserName>\r\n <Expiration>1/21/2022 12:00:00 AM</Expiration>\r\n</PublicConfig>",
+                "protectedSettings": "<PrivateConfig>\r\n <Password>[Insert Password]</Password>\r\n</PrivateConfig>"
+              }
+            },
+            {
+              "name": "Microsoft.Insights.VMDiagnosticsSettings_WebRole1",
+              "properties": {
+                "autoUpgradeMinorVersion": true,
+                "publisher": "Microsoft.Azure.Diagnostics",
+                "type": "PaaSDiagnostics",
+                "typeHandlerVersion": "1.5",
+                "settings": "[parameters('wadPublicConfig_WebRole1')]",
+                "protectedSettings": "[parameters('wadPrivateConfig_WebRole1')]",
+                "rolesAppliedTo": [
+                  "WebRole1"
+                ]
+              }
             }
-          }
-        ]
-      }
+          ]
+        }
+    ```
 
-  
-    ```    
-
-7. Passez en revue l’ensemble du modèle. 
+7. Passez en revue l’ensemble du modèle.
 
     ```json
     {
@@ -266,12 +269,12 @@ Ce tutoriel explique comment créer un déploiement d’un service cloud (suppor
           "metadata": {
              "description": "Public configuration of Windows Azure Diagnostics extension"
           }
-         },
+        },
         "wadPrivateConfig_WebRole1": {
           "type": "securestring",
           "metadata": {
             "description": "Private configuration of Windows Azure Diagnostics extension"
-         }
+          }
         },
         "vnetName": {
           "type": "string",
@@ -411,7 +414,7 @@ Ce tutoriel explique comment créer un déploiement d’un service cloud (suppor
                 }
               ]
             },
-        "extensionProfile": {
+            "extensionProfile": {
               "extensions": [
                 {
                   "name": "RDPExtension",
@@ -445,14 +448,15 @@ Ce tutoriel explique comment créer un déploiement d’un service cloud (suppor
       ]
     }
     ```
- 
+
 8. Déployez le fichier de modèle et de paramètres (définition des paramètres dans le fichier de modèle) pour créer le déploiement de service cloud (prise en charge étendue). Veuillez vous reporter à ces [exemples de modèles](https://github.com/Azure-Samples/cloud-services-extended-support) si nécessaire.
 
     ```powershell
-    New-AzResourceGroupDeployment -ResourceGroupName “ContosOrg"  -TemplateFile "file path to your template file” -TemplateParameterFile "file path to your parameter file"
+    New-AzResourceGroupDeployment -ResourceGroupName "ContosOrg" -TemplateFile "file path to your template file" -TemplateParameterFile "file path to your parameter file"
     ```
- 
+
 ## <a name="next-steps"></a>Étapes suivantes 
+
 - Consultez les [questions fréquentes (FAQ)](faq.md) concernant Cloud Services (support étendu).
 - Déployez un service cloud (support étendu) avec le [portail Azure](deploy-portal.md), [PowerShell](deploy-powershell.md), un [modèle](deploy-template.md) ou [Visual Studio](deploy-visual-studio.md).
 - Visitez le [dépôt d’exemples de Cloud Services (support étendu)](https://github.com/Azure-Samples/cloud-services-extended-support).

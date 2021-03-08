@@ -1,22 +1,21 @@
 ---
-title: Vue d’ensemble de l’activation d’Azure Monitor pour machines virtuelles
-description: Découvrez comment déployer et configurer Azure Monitor pour des machines virtuelles. Découvrez la configuration système requise.
-ms.subservice: ''
+title: Activer la vue d’ensemble de VM Insights
+description: Découvrez comment déployer et configurer VM Insights. Découvrez la configuration système requise.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: d83ed63e5e86ac415a8d6145c2efe484ad335b75
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 7aa8221c960685149a5d475665be105acaf7aa15
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100600128"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102046667"
 ---
-# <a name="enable-azure-monitor-for-vms-overview"></a>Vue d’ensemble de l’activation d’Azure Monitor pour machines virtuelles
+# <a name="enable-vm-insights-overview"></a>Activer la vue d’ensemble de VM Insights
 
-Cet article fournit une vue d’ensemble des options disponibles pour activer Azure Monitor pour machines virtuelles afin de superviser l’intégrité et les performances des éléments suivants :
+Cet article fournit une vue d’ensemble des options disponibles pour permettre à VM Insights de surveiller l’intégrité et les performances des éléments suivants :
 
 - Machines virtuelles Azure 
 - Groupes de machines virtuelles identiques Azure
@@ -24,15 +23,15 @@ Cet article fournit une vue d’ensemble des options disponibles pour activer Az
 - Machines virtuelles locales
 - Machines virtuelles hébergées dans un autre environnement cloud.  
 
-Pour configurer Azure Monitor pour des machines virtuelles :
+Pour configurer VM Insights :
 
 * Activez une seule machine virtuelle Azure, un seul groupe de machines virtuelles identiques Azure ou une seule machine Azure Arc en sélectionnant **Insights** directement à partir du menu correspondant dans le portail Azure.
 * Activez plusieurs machines virtuelles Azure, plusieurs groupes de machines virtuelles identiques Azure ou plusieurs machines Azure Arc à l’aide d’Azure Policy. Cette méthode vérifie que, sur des machines virtuelles et des groupes identiques Azure, les dépendances requises sont installées et correctement configurées. Les machines virtuelles et les groupes identiques non conformes sont signalés pour vous permettre de décider si vous souhaitez les activer et les corriger.
 * Activez plusieurs machines virtuelles Azure, plusieurs machines virtuelles Azure Arc, plusieurs groupes de machines virtuelles identiques Azure ou plusieurs machines Azure Arc sur un abonnement ou un groupe de ressources spécifique à l’aide de PowerShell.
-* Activez Azure Monitor pour machines virtuelles afin de surveiller les machines virtuelles ou ordinateurs physiques hébergés dans votre réseau d’entreprise ou un autre environnement cloud.
+* Activez VM Insights pour surveiller des machines virtuelles ou ordinateurs physiques hébergés dans votre réseau d’entreprise ou un autre environnement cloud.
 
 ## <a name="supported-machines"></a>Machines prises en charge
-Azure Monitor pour machines virtuelles prend en charge les machines suivantes :
+VM Insights prend en charge les machines suivantes :
 
 - Machine virtuelle Azure
 - Groupe de machines virtuelles identiques Azure
@@ -40,7 +39,7 @@ Azure Monitor pour machines virtuelles prend en charge les machines suivantes :
 
 
 ## <a name="supported-azure-arc-machines"></a>Machines Azure Arc prises en charge
-Azure Monitor pour machines virtuelles est disponible pour les serveurs Azure Arc dans les régions où le service d’extension Arc est disponible. Vous devez exécuter la version 0.9 ou une version supérieure de l’agent Arc.
+VM Insights est disponible pour les serveurs avec Azure Arc dans les régions où le service d’extension Arc est disponible. Vous devez exécuter la version 0.9 ou une version supérieure de l’agent Arc.
 
 | Source connectée | Prise en charge | Description |
 |:--|:--|:--|
@@ -50,12 +49,12 @@ Azure Monitor pour machines virtuelles est disponible pour les serveurs Azure Ar
 
 ## <a name="supported-operating-systems"></a>Systèmes d’exploitation pris en charge
 
-Azure Monitor pour machines virtuelles prend en charge tout système d’exploitation prenant en charge l’agent Log Analytics et l’agent Dependency. Pour une liste complète, consultez [Vue d’ensemble des agents Azure Monitor](../agents/agents-overview.md#supported-operating-systems).
+VM Insights prend en charge tout système d’exploitation prenant en charge l’agent Log Analytics et l’agent Dependency. Pour une liste complète, consultez [Vue d’ensemble des agents Azure Monitor](../agents/agents-overview.md#supported-operating-systems).
 
 > [!IMPORTANT]
-> La fonctionnalité d’intégrité des invités d’Azure Monitor pour machines virtuelles prend en charge un nombre plus restreint de systèmes d’exploitation lorsqu’elle est en préversion publique. Pour obtenir une liste détaillée, consultez [Activer l’intégrité des invités d’Azure Monitor pour machines virtuelles (préversion)](../vm/vminsights-health-enable.md).
+> La fonctionnalité d’intégrité des invités de VM Insights prend en charge un nombre plus restreint de systèmes d’exploitation quand elle est en préversion publique. Pour une liste détaillée, consultez [Activer l’intégrité des invités de VM Insights (préversion)](../vm/vminsights-health-enable.md).
 
-Consultez la liste suivante de considérations sur la prise en charge par Linux de l’agent Dependency qui prend en charge Azure Monitor pour machines virtuelles :
+Consultez la liste suivante de considérations sur la prise en charge par Linux de l’agent Dependency qui prend en charge VM Insights :
 
 - Seules les versions du noyau SMP Linux et par défaut sont prises en charge.
 - Les versions non standard du noyau, par exemple Physical Address Extension (PAE) et Xen, ne sont prises en charge par aucune distribution Linux. Par exemple, un système avec la chaîne de version *2.6.16.21-0.8-xen* n’est pas pris en charge.
@@ -64,15 +63,15 @@ Consultez la liste suivante de considérations sur la prise en charge par Linux 
 - Le noyau CentOSPlus est pris en charge.
 - Le noyau Linux doit être corrigé pour la vulnérabilité Spectre. Pour plus d’informations, consultez le fournisseur de votre distribution Linux.
 ## <a name="log-analytics-workspace"></a>Espace de travail Log Analytics
-Azure Monitor pour machines virtuelles nécessite un espace de travail Log Analytics. Pour plus d’informations sur la configuration de cet espace de travail, consultez [Configurer l’espace de travail Log Analytics d’Azure Monitor pour machines virtuelles](vminsights-configure-workspace.md).
+VM Insights requiert un espace de travail Log Analytics. Pour plus d’informations sur la configuration de cet espace de travail, consultez [Configurer l’espace de travail Log Analytics pour VM Insights](vminsights-configure-workspace.md).
 ## <a name="agents"></a>Agents
-Azure Monitor pour machines virtuelles nécessite l’installation des deux agents suivants sur chaque machine virtuelle ou groupe de machines virtuelles identiques à surveiller. Pour intégrer la ressource, installez ces agents et connectez-les à l’espace de travail.  Pour connaître la configuration réseau requise pour ces agents, consultez [Configuration requise pour le réseau](../agents/log-analytics-agent.md#network-requirements).
+VM Insights nécessite l’installation des deux agents suivants sur chaque machine virtuelle ou groupe de machines virtuelles identiques à surveiller. Pour intégrer la ressource, installez ces agents et connectez-les à l’espace de travail.  Pour connaître la configuration réseau requise pour ces agents, consultez [Configuration requise pour le réseau](../agents/log-analytics-agent.md#network-requirements).
 
 - [Agent Log Analytics](../agents/log-analytics-agent.md). Collecte les événements et les données de performances de la machine virtuelle ou du groupe de machines virtuelles identiques et les livre à l’espace de travail Log Analytics. Les méthodes de déploiement de l’agent Log Analytics sur les ressources Azure utilisent l’extension de machine virtuelle pour [Windows](../../virtual-machines/extensions/oms-windows.md) et [Linux](../../virtual-machines/extensions/oms-linux.md).
-- Agent de dépendances. Collecte les données découvertes concernant les processus exécutés sur la machine virtuelle et les dépendances de processus externes, qui sont utilisées par la [fonctionnalité de mappage dans Azure Monitor pour machines virtuelles](../vm/vminsights-maps.md). Il s’appuie sur l’agent Log Analytics pour remettre ses données à Azure Monitor. Les méthodes de déploiement de l’agent Dependency Agent sur les ressources Azure utilisent l’extension de machine virtuelle pour [Windows](../../virtual-machines/extensions/agent-dependency-windows.md) et [Linux](../../virtual-machines/extensions/agent-dependency-linux.md).
+- Agent de dépendances. Collecte les données découvertes concernant les processus exécutés sur la machine virtuelle et les dépendances de processus externes, qui sont utilisées par la [fonctionnalité de mappage dans VM Insights](../vm/vminsights-maps.md). Il s’appuie sur l’agent Log Analytics pour remettre ses données à Azure Monitor. Les méthodes de déploiement de l’agent Dependency Agent sur les ressources Azure utilisent l’extension de machine virtuelle pour [Windows](../../virtual-machines/extensions/agent-dependency-windows.md) et [Linux](../../virtual-machines/extensions/agent-dependency-linux.md).
 
 > [!NOTE]
-> L’agent Log Analytics est le même agent que celui utilisé par Operations Manager. Azure Monitor pour machines virtuelles peut surveiller les agents qui sont également surveillés par Operations Manager s’ils sont connectés directement, et que vous y installez l’agent de dépendances. Les agents connectés à Azure Monitor via une [connexion de groupe d’administration](../tform/../agents/om-agents.md) ne peuvent pas être surveillés par Azure Monitor pour machines virtuelles.
+> L’agent Log Analytics est le même agent que celui utilisé par Operations Manager. VM Insights peut surveiller des agents qui sont également surveillés par Operations Manager s’ils sont connectés directement, et que vous y installez Dependency Agent. Les agents connectés à Azure Monitor via une [connexion de groupe d’administration](../tform/../agents/om-agents.md) ne peuvent pas être surveillés par VM Insights.
 
 Voici plusieurs méthodes pour déployer ces agents. 
 
@@ -86,12 +85,12 @@ Voici plusieurs méthodes pour déployer ces agents.
 
 ## <a name="network-requirements"></a>Configuration requise pour le réseau
 
-- Pour connaître la configuration réseau requise pour l’agent Log Analytics, consultez [Configuration requise pour le réseau](../platform/log-analytics-agent.md#network-requirements).
+- Pour connaître la configuration réseau requise pour l’agent Log Analytics, consultez [Configuration requise pour le réseau](../agents/log-analytics-agent.md#network-requirements).
 - L’agent de dépendances nécessite une connexion de la machine virtuelle à l’adresse 169.254.169.254. Il s’agit du point de terminaison de service de métadonnées Azure. Vérifiez que les paramètres du pare-feu autorisent les connexions à ce point de terminaison.
 
 
 ## <a name="management-packs"></a>Packs d’administration
-Lorsqu’un espace de travail Log Analytics est configuré pour Azure Monitor pour machines virtuelles, deux packs d’administration sont transférés à tous les ordinateurs Windows connectés à cet espace de travail. Les packs d’administration se nomment *Microsoft.IntelligencePacks.ApplicationDependencyMonitor* et *Microsoft.IntelligencePacks.VMInsights*, et sont écrits dans *%Programfiles%\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs*. 
+Quand un espace de travail Log Analytics est configuré pour VM Insights, deux packs d’administration sont transférés à tous les ordinateurs Windows connectés à cet espace de travail. Les packs d’administration se nomment *Microsoft.IntelligencePacks.ApplicationDependencyMonitor* et *Microsoft.IntelligencePacks.VMInsights*, et sont écrits dans *%Programfiles%\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs*. 
 
 La source de données utilisée par le pack d’administration *ApplicationDependencyMonitor* est * *%Program files%\Microsoft Monitoring Agent\Agent\Health Service State\Resources\<AutoGeneratedID>\Microsoft.EnterpriseManagement.Advisor.ApplicationDependencyMonitorDataSource.dll*. La source de données utilisée par le pack d’administration *VMInsights* est *%Program files%\Microsoft Monitoring Agent\Agent\Health Service State\Resources\<AutoGeneratedID>\ Microsoft.VirtualMachineMonitoringModule.dll*.
 
@@ -107,4 +106,4 @@ Pour plus d’informations sur l’utilisation et la collecte de données, voir 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour savoir comment utiliser la fonctionnalité d’analyse des performances, consultez [Afficher les performances d’Azure Monitor pour machines virtuelles](../vm/vminsights-performance.md). Pour afficher les dépendances des applications détectées, consultez [Utilisation de la fonctionnalité Map d’Azure Monitor pour machines virtuelles dans le but de comprendre les composants d’application](../vm/vminsights-maps.md).
+Pour savoir comment utiliser la fonctionnalité d’analyse des performances, consultez [Afficher les performances de VM Insights](../vm/vminsights-performance.md). Pour afficher les dépendances des applications découvertes, consultez [Afficher la carte VM Insights](../vm/vminsights-maps.md).

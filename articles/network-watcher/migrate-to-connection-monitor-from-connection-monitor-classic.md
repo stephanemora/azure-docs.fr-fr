@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: vinigam
-ms.openlocfilehash: ff4882f2146a8b978047df2fcf6c52734534979f
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: d4ab5361d245ad1ee10d43184cc0a2d65fed2054
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99833981"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101730029"
 ---
 # <a name="migrate-to-connection-monitor-from-connection-monitor-classic"></a>Migrer vers le Moniteur de connexion à partir du Moniteur de connexion (classique)
 
@@ -32,7 +32,7 @@ La migration produit les résultats suivants :
 
 * Les agents et les paramètres de pare-feu fonctionnent tels quels. Aucune modification n’est nécessaire. 
 * Les moniteurs de connexion existants seront mappés vers Moniteur de connexion > Groupe de test > Format de test. En sélectionnant **Modifier**, vous pouvez afficher et modifier les propriétés de la nouvelle fonctionnalité Moniteur de connexion, télécharger un modèle pour apporter des modifications à Moniteur de connexion et le soumettre via Azure Resource Manager. 
-* Les machines virtuelles Azure avec l’extension Network Watcher envoient des données à l’espace de travail et aux métriques. Le Moniteur de connexion met les données à disposition par le biais des nouvelles métriques (ChecksFailedPercent et RoundTripTimeMs) à la place des anciennes métriques (ProbesFailedPercent et AverageRoundtripMs). 
+* Les machines virtuelles Azure avec l’extension Network Watcher envoient des données à l’espace de travail et aux métriques. Le Moniteur de connexion met les données à disposition par le biais des nouvelles métriques (ChecksFailedPercent et RoundTripTimeMs) à la place des anciennes métriques (ProbesFailedPercent et AverageRoundtripMs). Les anciennes métriques seront migrées vers les nouvelles métriques en tant que ProbesFailedPercent -> ChecksFailedPercent et AverageRoundtripMs -> RoundTripTimeMs.
 * Analyse des données :
    * **Alertes** : Migrées automatiquement vers les nouvelles métriques.
    * **Tableaux de bord et intégrations** : Nécessite la modification manuelle de l’ensemble de métriques. 
@@ -49,7 +49,7 @@ Si vous utilisez un espace de travail personnalisé, assurez-vous que Network Wa
     
 1. Sélectionnez votre abonnement et les moniteurs de connexion que vous souhaitez migrer, puis sélectionnez **Migrer les éléments sélectionnés**. 
 
-En quelques clics seulement, vous avez migré les moniteurs de connexion existants vers Moniteur de connexion. 
+En quelques clics seulement, vous avez migré les moniteurs de connexion existants vers Moniteur de connexion. Après la migration de CM (classique) vers CM, vous ne pourrez pas voir le l’analyse sous CM (classique)
 
 Vous pouvez désormais personnaliser les propriétés de Moniteur de connexion, modifier l’espace de travail par défaut, télécharger des modèles et vérifier l’état de la migration. 
 

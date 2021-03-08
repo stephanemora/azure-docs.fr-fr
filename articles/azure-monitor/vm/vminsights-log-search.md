@@ -1,25 +1,24 @@
 ---
-title: Interroger des journaux d’activité à partir d’Azure Monitor pour machines virtuelles
-description: Azure Monitor pour machines virtuelles collecte des métriques et des données de journal. Cet article décrit les enregistrements correspondants et inclut des exemples de requêtes.
-ms.subservice: ''
+title: Comment interroger des journaux à partir de VM Insights
+description: La solution VM Insights collecte des métriques et des données de journal. Cet article décrit les enregistrements correspondants et inclut des exemples de requêtes.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
-ms.openlocfilehash: ae0bc6ea35d5c6e3ebe0cd7f232e5c8b1e637d9d
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 28ee7f3d327c09f5837c7dc9e2f39c0f2ca4d888
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100600113"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102046531"
 ---
-# <a name="how-to-query-logs-from-azure-monitor-for-vms"></a>Comment interroger des journaux d’activité à partir d’Azure Monitor pour les machines virtuelles
+# <a name="how-to-query-logs-from-vm-insights"></a>Comment interroger des journaux à partir de VM Insights
 
-Azure Monitor pour machines virtuelles collecte des métriques de performances et de connexion, les données d’inventaire des ordinateurs et processus et des informations concernant l’état d’intégrité, puis les transfère à l'espace de travail Log Analytics dans Azure Monitor.  Ces données sont disponibles pour la [requête](../log-query/log-query-overview.md) dans Azure Monitor. Vous pouvez appliquer ces données à divers scénarios tels que la planification de la migration, l’analyse de la capacité, la détection et la résolution de problèmes de performances à la demande.
+VM Insights collecte des métriques de performances et de connexion, les données d’inventaire des ordinateurs et processus et des informations concernant l’état d’intégrité, puis les transfère à l’espace de travail Log Analytics dans Azure Monitor.  Ces données sont disponibles pour la [requête](../logs/log-query-overview.md) dans Azure Monitor. Vous pouvez appliquer ces données à divers scénarios tels que la planification de la migration, l’analyse de la capacité, la détection et la résolution de problèmes de performances à la demande.
 
 ## <a name="map-records"></a>Mapper des enregistrements
 
-Un enregistrement est généré par heure pour chaque ordinateur et processus, en plus des enregistrements générés lorsqu’un processus ou un ordinateur démarre ou est intégré à la fonctionnalité Map d’Azure Monitor pour les machines virtuelles. Les propriétés de ces enregistrements sont décrites dans les tableaux suivants. Les champs et les valeurs des événements ServiceMapComputer_CL sont mappés aux champs de la ressource Machine dans l’API Azure Resource Manager ServiceMap. Les champs et les valeurs des événements ServiceMapProcess_CL sont mappés aux champs de la ressource Processus dans l’API Azure Resource Manager ServiceMap. Le champ ResourceName_s correspond au champ de nom dans la ressource Azure Resource Manager correspondante. 
+Un enregistrement par heure est généré pour chaque processus et ordinateur, en plus des enregistrements générés quand un processus ou ordinateur démarre ou est intégré à la fonctionnalité Cartes de VM Insights. Les propriétés de ces enregistrements sont décrites dans les tableaux suivants. Les champs et les valeurs des événements ServiceMapComputer_CL sont mappés aux champs de la ressource Machine dans l’API Azure Resource Manager ServiceMap. Les champs et les valeurs des événements ServiceMapProcess_CL sont mappés aux champs de la ressource Processus dans l’API Azure Resource Manager ServiceMap. Le champ ResourceName_s correspond au champ de nom dans la ressource Azure Resource Manager correspondante. 
 
 Il existe des propriétés générées en interne que vous pouvez utiliser pour identifier les ordinateurs et processus uniques :
 
@@ -473,6 +472,6 @@ Les compteurs de performance actuellement collectés dans la table *InsightsMetr
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Si vous débutez dans l’écriture de requêtes de journal dans Azure Monitor, consultez [Comment utiliser Log Analytics](../log-query/log-analytics-tutorial.md) dans le portail Azure pour en savoir plus.
+* Si vous débutez dans l’écriture de requêtes de journal dans Azure Monitor, consultez [Comment utiliser Log Analytics](../logs/log-analytics-tutorial.md) dans le portail Azure pour en savoir plus.
 
-* Découvrez [l’écriture de requêtes de recherche](../log-query/get-started-queries.md).
+* Découvrez [l’écriture de requêtes de recherche](../logs/get-started-queries.md).

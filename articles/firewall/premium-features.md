@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: conceptual
-ms.date: 02/16/2021
+ms.date: 02/25/2021
 ms.author: victorh
-ms.openlocfilehash: e823e1efc66592e9f48b7ff5e53a176a4e8cb514
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: ff5c6961e64deddc8e52dc92a7c34b5b369a44ed
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100549421"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101715562"
 ---
 # <a name="azure-firewall-premium-preview-features"></a>Fonctionnalités du Pare-feu Azure Premium - Préversion
 
@@ -72,7 +72,7 @@ Les catégories web permettent aux administrateurs d’autoriser ou de refuser a
 
 Par exemple, si le Pare-feu Azure intercepte une demande HTTPS pour `www.google.com/news`, la catégorisation suivante est attendue : 
 
-- Pare-feu standard : seule la partie du nom de domaine complet étant examinée, `www.google.com` est classé en tant que *Moteur de recherche*. 
+- Pare-feu Standard : seule la partie du nom de domaine complet étant examinée, `www.google.com` est classé en tant que *Moteur de recherche*. 
 
 - Pare-feu Premium : l’URL complète étant examinée, `www.google.com/news` est classée en tant qu’*Actualités*.
 
@@ -80,7 +80,20 @@ Les catégories sont organisées en fonction de leur gravité sous **Responsabil
 
 #### <a name="category-exceptions"></a>Exceptions de catégorie
 
-Vous pouvez créer des exceptions à vos règles de catégorie web. Créez une collection de règles d’autorisation ou de refus distinct avec une priorité plus élevée au sein du groupe de collections de règles. Par exemple, vous pouvez configurer une collection de règles qui autorise `www.linkedin.com` avec la priorité 100, avec une collection de règles qui refuse **Réseaux sociaux** avec la priorité 200. Cette opération crée l’exception pour la catégorie web **Réseaux sociaux** prédéfinie. 
+Vous pouvez créer des exceptions à vos règles de catégorie web. Créez une collection de règles d’autorisation ou de refus distinct avec une priorité plus élevée au sein du groupe de collections de règles. Par exemple, vous pouvez configurer une collection de règles qui autorise `www.linkedin.com` avec la priorité 100, avec une collection de règles qui refuse **Réseaux sociaux** avec la priorité 200. Cette opération crée l’exception pour la catégorie web **Réseaux sociaux** prédéfinie.
+
+#### <a name="categorization-change"></a>Modification de la catégorisation
+
+Vous pouvez demander une modification de catégorisation si vous  :
+
+ - pensez qu’un nom de domaine complet (FQDN) ou une URL doit être dans une catégorie différente 
+ 
+or 
+
+- avez une catégorie suggérée pour un FQDN ou une URL sans catégorie
+
+Vous êtes invité à envoyer une demande à l’adresse [https://aka.ms/azfw-webcategories-request](https://aka.ms/azfw-webcategories-request) .
+ 
 
 ## <a name="known-issues"></a>Problèmes connus
 
@@ -98,6 +111,7 @@ Certificats signés par le client non approuvés|Les certificats signés par le 
 |Adresse IP source erronée dans les alertes avec système IDPS pour HTTP (sans inspection TLS).|Lorsque le trafic HTTP en texte brut est utilisé, que le système IDPS émet une nouvelle alerte et que la destination est publique, l’adresse IP source affichée est incorrecte (l’adresse IP interne est affichée à la place de l’adresse IP d’origine).|Correctif planifié lors de la disponibilité générale.|
 |Propagation du certificat|Après l’application d’un certificat d’autorité de certification sur le pare-feu, la prise en compte du certificat peut prendre de 5 à 10 minutes.|Correctif planifié lors de la disponibilité générale.|
 |Contournement IDPS|Le contournement IDPS ne fonctionne pas pour le trafic avec terminaison TLS. L’adresse IP source et les groupes IP sources ne sont pas pris en charge.|Correctif planifié lors de la disponibilité générale.|
+|Prise en charge du protocole TLS 1.3|Le protocole TLS 1.3 est partiellement pris en charge. Le tunnel TLS entre le client et le pare-feu est basé sur le protocole TLS 1.2, et celui entre le pare-feu et le serveur web externe est basé sur le protocole TLS 1.3.|Des mises à jour sont à l’étude.|
 
 
 

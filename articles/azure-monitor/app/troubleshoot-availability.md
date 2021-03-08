@@ -4,14 +4,14 @@ description: Résolvez des problèmes relatifs aux tests web dans Azure Applicat
 ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
-ms.date: 11/19/2020
+ms.date: 02/14/2021
 ms.reviewer: sdash
-ms.openlocfilehash: 849701caf73a4fb289773c67bccaab2e0f39dbd1
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 940a70de81df60f7b6c1545c992e1ee10e69fa9f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100583722"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728924"
 ---
 # <a name="troubleshooting"></a>Dépannage
 
@@ -58,7 +58,7 @@ Le rapport de dépannage vous permet de diagnostiquer facilement les problèmes 
 
 ### <a name="i-did-not-get-an-email-when-the-alert-triggered-or-resolved-or-both"></a>Je n’ai pas reçu d’e-mail lorsque l’alerte s’est déclenchée, a été résolue, ou les deux.
 
-Vérifiez la configuration des alertes classiques pour confirmer que votre adresse e-mail est répertoriée directement, ou que vous êtes sur une liste de distribution qui est configurée pour recevoir des notifications. Le cas échéant, vérifiez ensuite la configuration de la liste de distribution pour confirmer qu’elle peut recevoir des e-mails externes. Vérifiez également si votre administrateur de messagerie dispose de stratégies configurées qui pourraient provoquer ce problème.
+Vérifiez la configuration d’un groupe d’action des alertes pour confirmer que votre adresse e-mail est répertoriée directement, ou que vous êtes sur une liste de distribution qui est configurée pour recevoir des notifications. Le cas échéant, vérifiez ensuite la configuration de la liste de distribution pour confirmer qu’elle peut recevoir des e-mails externes. Vérifiez également si votre administrateur de messagerie dispose de stratégies configurées qui pourraient provoquer ce problème.
 
 ### <a name="i-did-not-receive-the-webhook-notification"></a>Je n’ai pas reçu la notification webhook.
 
@@ -110,21 +110,6 @@ Chaque test possède une limite de 100 demandes. En outre, le test s’arrête s
 ### <a name="how-can-i-run-a-test-with-client-certificates"></a>Comment puis-je exécuter un test avec des certificats clients ?
 
 Non pris en charge actuellement.
-
-## <a name="who-receives-the-classic-alert-notifications"></a>Qui reçoit les notifications d'alerte (classiques) ?
-
-Cette section ne s'applique qu'aux alertes classiques et vous aidera à optimiser vos notifications d'alerte afin que seuls les destinataires de votre choix les reçoivent. Pour mieux comprendre la différence entre les [alertes classiques](../alerts/alerts-classic.overview.md) et la nouvelle expérience d'alerte, reportez-vous à l'[article de présentation des alertes](../alerts/alerts-overview.md). Pour contrôler la notification des alertes dans la nouvelle expérience d'alerte, utilisez des [groupes d'actions](../alerts/action-groups.md).
-
-* Nous recommandons l'utilisation de destinataires spécifiques pour les notifications d'alertes classiques.
-
-* Pour les alertes relatives aux échecs de X sur Y emplacements, l'option **En bloc/groupe**, si elle est activée, envoie une notification aux utilisateurs dotés du rôle d'administrateur/co-administrateur.  Grosso modo, _tous_ les administrateurs de l'_abonnement_ recevront des notifications.
-
-* Pour les alertes de métrique de disponibilité, l’option **En bloc/groupe**, si elle est activée, envoie des alertes aux utilisateurs ayant des rôles de propriétaire, contributeur ou lecteur dans l’abonnement. Dans les faits, _tous_ les utilisateurs ayant accès à la ressource Application Insights sont concernés et recevront des notifications. 
-
-> [!NOTE]
-> Si vous utilisez actuellement l'option **En bloc/groupe** et que vous la désactivez, vous ne pourrez pas annuler la modification.
-
-Utilisez la nouvelle expérience d'alerte ou les alertes en temps quasi-réel si vous devez notifier les utilisateurs en fonction de leur rôle. Avec les [groupes d'actions](../alerts/action-groups.md), vous pouvez configurer des notifications par e-mail à l'intention des utilisateurs dotés du rôle de contributeur, de propriétaire ou de lecteur (rôles non combinés en une même option).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

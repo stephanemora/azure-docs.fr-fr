@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: fbe71b0ae7bf711d740cbba38c84b68de553f031
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: b47f833a3b47dae145aa18eb6eda0c6bd95f6689
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101698550"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102042911"
 ---
 # <a name="security-control-v2-network-security"></a>Contrôle de sécurité V2 : Sécurité réseau
 
 La sécurité réseau couvre les contrôles permettant de sécuriser et de protéger les réseaux Azure. Cela comprend la sécurisation des réseaux virtuels, l’établissement de connexions privées, la prévention et l’atténuation des attaques externes, ainsi que la sécurisation de DNS.
 
-Pour afficher l’instance Azure Policy intégrée applicable, consultez [Informations sur l’initiative intégrée Conformité réglementaire Azure Security Benchmark : Sécurité réseau](../../governance/policy/samples/azure-security-benchmark#network-security)
+Pour afficher l’instance Azure Policy intégrée applicable, consultez [Informations sur l’initiative intégrée Conformité réglementaire Azure Security Benchmark : Sécurité réseau](../../governance/policy/samples/azure-security-benchmark.md#network-security)
 
 ## <a name="ns-1-implement-security-for-internal-traffic"></a>NS-1 : Implémenter la sécurité pour le trafic interne
 

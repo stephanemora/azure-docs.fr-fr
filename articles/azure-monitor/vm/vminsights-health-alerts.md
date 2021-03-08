@@ -1,17 +1,16 @@
 ---
 title: Alertes d’intégrité de l’invité de VM Insights (préversion)
 description: Décrit les alertes créées par Intégrité des invités de VM Insights, notamment la façon de les activer et de configurer les notifications.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/10/2020
-ms.openlocfilehash: a32ba9f1c4cf5d6bb9de69e1a6860c858e3ee2a6
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 1b5fd10b3e0bd84aa7d34a918f4f2376130d2e45
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101707504"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102052260"
 ---
 # <a name="vm-insights-guest-health-alerts-preview"></a>Alertes d’intégrité de l’invité de VM Insights (préversion)
 L’intégrité des invités de VM Insights vous permet de voir l’état d’intégrité d’une machine virtuelle tel que défini par un ensemble de mesures de performances échantillonnées à intervalles réguliers. Une alerte peut être créée lorsqu’une machine virtuelle ou un moniteur passe à un état défectueux. Vous pouvez afficher et gérer ces alertes avec [celles créées par les règles d’alerte dans Azure Monitor](../alerts/alerts-overview.md) et choisir d’être informé de manière proactive lors de la création d’une nouvelle alerte.

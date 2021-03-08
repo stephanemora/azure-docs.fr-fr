@@ -1,19 +1,19 @@
 ---
 title: Surveiller un nouveau cluster Azure Kubernetes Service (AKS) | Microsoft Docs
-description: Découvrez comment activer la surveillance d’un nouveau cluster Azure Kubernetes Service (AKS) avec Azure Monitor pour l’abonnement aux conteneurs.
+description: Découvrez comment activer la surveillance d’un nouveau cluster Azure Kubernetes Service (AKS) avec un abonnement Container Insights.
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.custom: devx-track-terraform, devx-track-azurecli
-ms.openlocfilehash: 19c4a88cee8776136593b041e94dd14c7c9c28d6
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 9b6c4f8a05b8e7a350ebd5afd677e8bb2ee6e9b4
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100600168"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717568"
 ---
 # <a name="enable-monitoring-of-a-new-azure-kubernetes-service-aks-cluster"></a>Activer la surveillance d’un nouveau cluster Azure Kubernetes Service (AKS)
 
-Cet article explique comment configurer Azure Monitor pour les conteneurs afin de surveiller un cluster Kubernetes managé hébergé sur [Azure Kubernetes Service](../../aks/index.yml) que vous préparez pour un déploiement dans votre abonnement.
+Cet article explique comment configurer Container Insights afin de surveiller un cluster Kubernetes managé hébergé sur [Azure Kubernetes Service](../../aks/index.yml), que vous préparez pour un déploiement dans votre abonnement.
 
 Vous pouvez activer la surveillance d’un cluster AKS à l’aide d’une des méthodes prises en charge :
 
@@ -34,14 +34,14 @@ Si vous souhaitez [déployer un nouveau cluster AKS à l’aide de Terraform](/
 >[!NOTE]
 >Si vous choisissez d’utiliser Terraform, vous devez exécuter le fournisseur de gestion des ressources Azure Terraform version 1.17.0 ou ultérieure.
 
-Pour ajouter Azure Monitor pour les conteneurs à l’espace de travail, consultez [azurerm_log_analytics_solution](https://www.terraform.io/docs/providers/azurerm/r/log_analytics_solution.html) et renseignez le profil en incluant [**addon_profile**](https://www.terraform.io/docs/providers/azurerm/r/kubernetes_cluster.html#addon_profile) et en spécifiant **oms_agent**. 
+Pour ajouter Container Insights à l’espace de travail, consultez [azurerm_log_analytics_solution](https://www.terraform.io/docs/providers/azurerm/r/log_analytics_solution.html) et renseignez le profil en incluant [**addon_profile**](https://www.terraform.io/docs/providers/azurerm/r/kubernetes_cluster.html#addon_profile), et spécifiez **oms_agent**. 
 
 Une fois la surveillance activée et toutes les tâches de configuration terminées correctement, vous pouvez contrôler les performances de votre cluster de deux manières :
 
 * Directement dans le cluster AKS en sélectionnant **Intégrité** dans le volet gauche.
 * En cliquant sur la vignette **Conteneurs Monitor Insights** dans la page du cluster AKS pour le cluster sélectionné. Dans Azure Monitor, dans le volet gauche, sélectionnez **Intégrité**. 
 
-  ![Options de sélection d’Azure Monitor pour les conteneurs dans AKS](./media/container-insights-onboard/kubernetes-select-monitoring-01.png)
+  ![Options pour la sélection de Container Insights dans AKS](./media/container-insights-onboard/kubernetes-select-monitoring-01.png)
 
 Une fois que vous avez activé la surveillance, 15 minutes peuvent s’écouler avant que vous puissiez voir les métriques d’intégrité du cluster. 
 
@@ -117,5 +117,5 @@ Au bout de quelques minutes, la commande se termine et renvoie des informations 
 
 * Si vous rencontrez des problèmes en tentant d’intégrer la solution, consultez le [guide de résolution des problèmes](container-insights-troubleshoot.md)
 
-* Une fois l’analyse activée pour collecter l’utilisation des ressources et l’intégrité de votre cluster Azure Kubernetes et charges de travail s’y exécutant, découvrez [comment utiliser](container-insights-analyze.md) Azure Monitor pour les conteneurs.
+* Une fois la supervision activée pour collecter l’intégrité et l’utilisation des ressources de votre cluster AKS et des charges de travail s’exécutant sur celles-ci, découvrez [comment utiliser](container-insights-analyze.md) Container Insights.
 

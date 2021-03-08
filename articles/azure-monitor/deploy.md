@@ -1,17 +1,16 @@
 ---
 title: Déployer Azure Monitor
 description: Décrit les différentes étapes requises pour une implémentation complète d’Azure Monitor afin de surveiller toutes les ressources de votre abonnement Azure.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: f5855d7ab1f7ba8e11334f1373fb10166f47003a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 7656efeb26a8a8b3c752ea996c8e644c68a48626
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101708252"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102043998"
 ---
 # <a name="deploy-azure-monitor"></a>Déployer Azure Monitor
 L’activation d’Azure Monitor pour surveiller toutes vos ressources Azure consiste en une combinaison de configuration de composants Azure Monitor et de configuration des ressources Azure pour générer des données d’analyse collectées par Azure Monitor. Cet article décrit les différentes étapes requises pour une implémentation complète d’Azure Monitor avec une configuration commune afin de surveiller toutes les ressources de votre abonnement Azure. Les descriptions de base de chaque étape sont fournies avec des liens vers d’autres documents pour des exigences de configuration détaillées.

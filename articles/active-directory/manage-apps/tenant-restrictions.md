@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/26/2020
+ms.date: 2/23/2021
 ms.author: kenwith
 ms.reviewer: hpsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f605b2bb48855d70ea305dcda194b26da71ee9ec
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: a9a884cbe9ad30ce298318d217aa9ed1947c8f21
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99252472"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102123018"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Utiliser des restrictions liées au locataire pour gérer l’accès aux applications cloud SaaS
 
@@ -27,7 +27,9 @@ La solution Azure Active Directory (Azure AD) consiste en une fonctionnalité ap
 
 Grâce aux restrictions liées au locataire, les organisations peuvent spécifier la liste des locataires auxquels leurs utilisateurs sont autorisés à accéder. Dans ce cas, Azure AD accorde uniquement l’accès à ces clients autorisés.
 
-Cet article est axé sur les restrictions liées au locataire pour Microsoft 365, mais cette fonctionnalité doit fonctionner avec n’importe quelle application cloud SaaS qui utilise des protocoles d’authentification moderne avec Azure AD pour l’authentification unique. Si vous utilisez des applications SaaS avec un locataire Azure AD différent du locataire utilisé par Microsoft 365, vérifiez que tous les locataires nécessaires sont autorisés. Pour plus d’informations sur les applications cloud SaaS, consultez [Active Directory Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActiveDirectory).
+Cet article se concentre sur les restrictions liées au locataire pour Microsoft 365, mais la fonctionnalité protège toutes les applications qui dirigent l’utilisateur vers Azure AD à des fins d’authentification unique. Si vous utilisez des applications SaaS avec un locataire Azure AD différent du locataire utilisé par votre Microsoft 365, vérifiez que tous les locataires nécessaires sont autorisés (par ex. dans les scénarios de collaboration B2B). Pour plus d’informations sur les applications cloud SaaS, consultez [Active Directory Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps).
+
+En outre, la fonctionnalité des restrictions liées au locataire prend désormais en charge [le blocage de l’utilisation de toutes les applications grand public Microsoft](#blocking-consumer-applications-public-preview) (applications MSA) comme OneDrive, Hotmail et Xbox.com.  Cette option utilise un en-tête distinct pour le point de terminaison `login.live.com` et est détaillée à la fin du document.
 
 ## <a name="how-it-works"></a>Fonctionnement
 
@@ -39,7 +41,7 @@ La solution comprend les composants suivants :
 
 3. **Logiciel client** : pour prendre en charge les restrictions liées au locataire, le logiciel client doit demander des jetons directement à Azure AD, afin que l’infrastructure du proxy puisse intercepter le trafic. Actuellement, les applications Microsoft 365 basées sur navigateur prennent en charge les restrictions liées au locataire, comme les clients Office qui utilisent l’authentification moderne (comme OAuth 2.0).
 
-4. **Authentification moderne** : les services cloud doivent utiliser l’authentification moderne pour utiliser les restrictions liées au locataire et bloquer l’accès à tous les locataires non autorisés. Vous devez configurer les services cloud Microsoft 365 pour qu’ils utilisent les protocoles d’authentification moderne par défaut. Pour plus d’informations sur la prise en charge de l’authentification moderne par Microsoft 365, consultez [Updated Office 365 modern authentication](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
+4. **Authentification moderne** : les services cloud doivent utiliser l’authentification moderne pour utiliser les restrictions liées au locataire et bloquer l’accès à tous les locataires non autorisés. Vous devez configurer les services cloud Microsoft 365 pour qu’ils utilisent les protocoles d’authentification moderne par défaut. Pour plus d’informations sur la prise en charge de l’authentification moderne par Microsoft 365, consultez [Updated Office 365 modern authentication](https://www.microsoft.com/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
 
 Le schéma suivant illustre le flux de trafic de niveau supérieur. Les restrictions liées au locataire nécessitent l’inspection TLS uniquement pour le trafic vers Azure AD, pas pour le trafic vers les services cloud Microsoft 365. Cette distinction est importante, car le volume de trafic pour l’authentification auprès d’Azure AD est généralement beaucoup plus faible que le volume de trafic vers les applications SaaS comme Exchange Online et SharePoint Online.
 
@@ -63,22 +65,20 @@ La configuration suivante est nécessaire pour activer les restrictions liées a
 
 - Les clients doivent approuver la chaîne de certificat présentée par le proxy pour les communications TLS. Par exemple, si des certificats d’une [infrastructure à clé publique](/windows/desktop/seccertenroll/public-key-infrastructure) interne sont utilisés, le certificat d’autorité de certificat racine émetteur interne doit être approuvé.
 
-- Des licences Azure AD Premium 1 sont requises pour l’utilisation de restrictions de locataire. 
+- Des licences Azure AD Premium 1 sont requises pour l’utilisation de restrictions de locataire.
 
 #### <a name="configuration"></a>Configuration
 
-Pour chaque demande entrante sur login.microsoftonline.com, login.microsoft.com et login.windows.net, insérez deux en-têtes HTTP : *Restrict-Access-To-Tenants* et *Restrict-Access-Context*.
+Pour chaque demande sortante sur login.microsoftonline.com, login.microsoft.com et login.windows.net, insérez deux en-têtes HTTP : *Restrict-Access-To-Tenants* et *Restrict-Access-Context*.
 
 > [!NOTE]
-> Lors de la configuration de l’interception SSL et de l’injection d’en-tête, assurez-vous que le trafic vers https://device.login.microsoftonline.com est exclu. Cette URL est utilisée pour l’authentification de l’appareil et l’exécution de l’inspection TLS peut interférer avec l’authentification par certificat client, ce qui peut entraîner des problèmes d’inscription de l’appareil et d’accès conditionnel en fonction de l’appareil.
-
-
+> N’incluez pas de sous-domaines sous `*.login.microsoftonline.com` dans la configuration de votre proxy. Cette action inclut device.login.microsoftonline.com et interférera avec l’authentification par certificat client, qui est utilisée dans les scénarios d’inscription d’appareil et d’accès conditionnel basé sur les appareils. Configurez votre serveur proxy de façon à exclure device.login.microsoftonline.com de l’inspection TLS et de l’injection d’en-tête.
 
 Les éléments suivants doivent être inclus dans les en-têtes :
 
 - Pour *Restrict-Access-To-Tenants*, utilisez une valeur de \<permitted tenant list\> (liste de locataires autorisés), qui est une liste séparée par des virgules des locataires auxquels vous souhaitez que les utilisateurs puissent accéder. N’importe quel domaine qui est inscrit auprès d’un locataire peut être utilisé pour identifier le locataire dans cette liste, ainsi que l’ID de répertoire proprement dit. Pour obtenir un exemple des trois façons de décrire un locataire, la paire nom/valeur pour autoriser Contoso, Fabrikam et Microsoft ressemble à ceci : `Restrict-Access-To-Tenants: contoso.com,fabrikam.onmicrosoft.com,72f988bf-86f1-41af-91ab-2d7cd011db47`
 
-- Pour *Restrict-Access-Context*, utilisez une valeur d’ID de répertoire unique, déclarant quel locataire définit les restrictions liées au locataire. Par exemple, pour déclarer Contoso en tant que locataire qui définit la stratégie de restrictions liées au locataire, la paire nom/valeur ressemble à ceci : `Restrict-Access-Context: 456ff232-35l2-5h23-b3b3-3236w0826f3d`.  Vous **devez** utiliser votre propre ID de répertoire à cet endroit.
+- Pour *Restrict-Access-Context*, utilisez une valeur d’ID de répertoire unique, déclarant quel locataire définit les restrictions liées au locataire. Par exemple, pour déclarer Contoso en tant que locataire qui définit la stratégie de restrictions liées au locataire, la paire nom/valeur ressemble à ceci : `Restrict-Access-Context: 456ff232-35l2-5h23-b3b3-3236w0826f3d`.  Vous **devez** utiliser votre propre ID de répertoire à cet endroit afin d’obtenir des journaux pour ces authentifications.
 
 > [!TIP]
 > Vous trouverez votre ID de répertoire dans le [portail Azure Active Directory](https://aad.portal.azure.com/). Connectez-vous en tant qu’administrateur, sélectionnez **Azure Active Directory**, puis sélectionnez **Propriétés**. 
@@ -88,9 +88,6 @@ Les éléments suivants doivent être inclus dans les en-têtes :
 Pour empêcher les utilisateurs d’insérer leur propre en-tête HTTP avec des locataires non approuvés, le proxy doit remplacer l’en-tête *Restrict-Access-To-Tenants* si celui-ci est déjà présent dans la requête entrante.
 
 Les clients doivent être forcés à utiliser le proxy pour toutes les demandes à login.microsoftonline.com, login.microsoft.com et login.windows.net. Par exemple, si des fichiers PAC sont utilisés pour indiquer aux locataires d’utiliser le proxy, les utilisateurs finaux ne doivent pas être en mesure de modifier ou de désactiver les fichiers PAC.
-
-> [!NOTE]
-> N’incluez pas de sous-domaines sous *.login.microsoftonline.com dans la configuration de votre proxy. Cette action inclut device.login.microsoftonline.com et peut interférer avec l’authentification par certificat client, qui est utilisée dans les scénarios d’inscription d’appareil et d’accès conditionnel basé sur les appareils. Configurez votre serveur proxy de façon à exclure device.login.microsoftonline.com de l’inspection TLS et de l’injection d’en-tête.
 
 ## <a name="the-user-experience"></a>Expérience utilisateur
 
@@ -112,22 +109,18 @@ Bien que la configuration des restrictions liées au locataire est effectuée su
 
 L’administrateur du locataire spécifié en tant que locataire Restricted-Access-Context peut utiliser ce rapport pour afficher les connexions bloquées en raison de la stratégie de restrictions liées au locataire, notamment l’identité utilisée et l’ID du répertoire cible. Les connexions sont incluses si le client définissant la restriction est le client de l’utilisateur, ou le client de la ressource pour la connexion.
 
-> [!NOTE]
-> Le rapport peut contenir des informations limitées, telles que l’ID de répertoire cible, lorsqu’un utilisateur situé dans un locataire autre que le locataire Restricted-Access-Context se connecte. Dans ce cas, les informations d’identification de l’utilisateur, telles que le nom et le nom d’utilisateur principal, sont masquées pour protéger les données utilisateur dans d’autres locataires (« 00000000-0000-0000-0000-00000000@domain.com ») 
+Le rapport peut contenir des informations limitées, telles que l’ID de répertoire cible, lorsqu’un utilisateur situé dans un locataire autre que le locataire Restricted-Access-Context se connecte. Dans ce cas, les informations d’identification de l’utilisateur, comme le nom et le nom d’utilisateur principal, sont masquées pour protéger les données utilisateur dans d’autres locataires ("{PII Removed}@domain.com" ou 00000000-0000-0000-0000-000000000000 à la place des noms d’utilisateur et des ID d’objet, le cas échéant). 
 
 Comme pour les autres rapports dans le portail Azure, vous pouvez utiliser des filtres pour spécifier l’étendue de votre rapport. Vous pouvez filtrer par intervalle de temps, utilisateur, application, locataire ou état spécifique. Si vous sélectionnez le boulon **Colonnes**, vous pouvez choisir d’afficher les données avec n’importe quelle combinaison des champs suivants :
 
-- **Utilisateur**
+- **Utilisateur** : des informations d’identification personnelle peuvent être supprimées dans ce champ, il sera alors défini sur `00000000-0000-0000-0000-000000000000`. 
 - **Application**
 - **État**
 - **Date**
-- **Date (UTC)** (où UTC est le temps universel coordonné)
-- **Méthode d’authentification MFA** (méthode d’authentification multifacteur)
-- **Détail d’authentification MFA** (détail d’authentification multifacteur)
-- **Résultat MFA**
+- **Date (UTC)**  : où UTC est le temps universel coordonné
 - **Adresse IP**
 - **Client**
-- **Nom d’utilisateur**
+- **Nom d’utilisateur** : des informations d’identification personnelle peuvent être supprimées dans ce champ, il sera alors défini sur `{PII Removed}@domain.com`
 - **Lieu**
 - **ID du locataire cible**
 
@@ -162,23 +155,32 @@ Fiddler est un proxy de débogage web gratuit qui peut être utilisé pour captu
 
    1. Dans l’outil débogueur web Fiddler, sélectionnez le menu **Règles** et sélectionnez **Personnaliser les règles...** pour ouvrir le fichier CustomRules.
 
-   2. Ajoutez les lignes suivantes au début de la fonction `OnBeforeRequest`. Remplacez \<tenant domain\> (domaine du locataire) par un domaine inscrit auprès de votre locataire (par exemple, `contoso.onmicrosoft.com`). Remplacez \<directory ID\> par l’identificateur GUID Azure AD de votre locataire.
+   2. Ajoutez les lignes suivantes au début de la fonction `OnBeforeRequest`. Remplacez \<List of tenant identifiers\> (domaine du locataire) par un domaine inscrit auprès de votre locataire (par exemple, `contoso.onmicrosoft.com`). Remplacez \<directory ID\> par l’identificateur GUID Azure AD de votre locataire.  Vous **devez** inclure l’identificateur GUID correct afin que les journaux apparaissent dans votre locataire. 
 
-      ```JScript.NET
+   ```JScript.NET
+    // Allows access to the listed tenants.
       if (
           oSession.HostnameIs("login.microsoftonline.com") ||
           oSession.HostnameIs("login.microsoft.com") ||
           oSession.HostnameIs("login.windows.net")
       )
       {
-          oSession.oRequest["Restrict-Access-To-Tenants"] = "<tenant domain>";
-          oSession.oRequest["Restrict-Access-Context"] = "<directory ID>";
+          oSession.oRequest["Restrict-Access-To-Tenants"] = "<List of tenant identifiers>";
+          oSession.oRequest["Restrict-Access-Context"] = "<Your directory ID>";
       }
-      ```
 
-      Si vous avez besoin d’autoriser plusieurs clients, utilisez une virgule pour séparer les noms des clients. Par exemple :
+    // Blocks access to consumer apps
+      if (
+          oSession.HostnameIs("login.live.com")
+      )
+      {
+          oSession.oRequest["sec-Restrict-Tenant-Access-Policy"] = "restrict-msa";
+      }
+   ```
 
-      `oSession.oRequest["Restrict-Access-To-Tenants"] = "contoso.onmicrosoft.com,fabrikam.onmicrosoft.com";`
+   Si vous avez besoin d’autoriser plusieurs clients, utilisez une virgule pour séparer les noms des clients. Par exemple :
+
+   `oSession.oRequest["Restrict-Access-To-Tenants"] = "contoso.onmicrosoft.com,fabrikam.onmicrosoft.com";`
 
 4. Enregistrez et fermez le fichier CustomRules.
 
@@ -193,7 +195,33 @@ En fonction des capacités de votre infrastructure de proxy, vous pourriez être
 
 Pour obtenir des informations spécifiques, consultez la documentation de votre serveur proxy.
 
+## <a name="blocking-consumer-applications-public-preview"></a>Blocage des applications grand public (préversion publique)
+
+Les applications de Microsoft qui prennent en charge les comptes de consommateurs et les comptes d’entreprises, comme [OneDrive](https://onedrive.live.com/) ou [Microsoft Learn](https://docs.microsoft.com/learn/), peuvent parfois être hébergées sur la même URL.  Cela signifie que les utilisateurs qui doivent accéder à cette URL à des fins professionnelles peuvent également y accéder à des fins personnelles, ce qui n’est peut-être pas autorisé dans le cadre de vos règles de fonctionnement.
+
+Certaines organisations tentent de résoudre ce problème en bloquant `login.live.com` afin de bloquer l’authentification des comptes personnels.  Cela a plusieurs inconvénients :
+
+1. Le blocage de `login.live.com` bloque l’utilisation de comptes personnels dans les scénarios d’invité B2B, ce qui peut gêner les visiteurs et la collaboration.
+1. [Autopilot requiert l’utilisation de `login.live.com`](https://docs.microsoft.com/mem/autopilot/networking-requirements) pour se déployer. Les scénarios Intune et Autopilot peuvent échouer lorsque `login.live.com` est bloqué.
+1. Les données de télémétrie de l’organisation et les mises à jour Windows qui s’appuient sur le service login.live.com pour les ID d’appareil [cessent de fonctionner](https://docs.microsoft.com/windows/deployment/update/windows-update-troubleshooting#feature-updates-are-not-being-offered-while-other-updates-are).
+
+### <a name="configuration-for-consumer-apps"></a>Configuration pour les applications grand public
+
+Tandis que l’en-tête `Restrict-Access-To-Tenants` fonctionne comme une liste verte, le bloc de compte Microsoft (MSA) fonctionne comme un signal de refus, indiquant à la plateforme de compte Microsoft de ne pas permettre aux utilisateurs de se connecter aux applications grand public. Pour envoyer ce signal, l’en-tête `sec-Restrict-Tenant-Access-Policy` est injecté au trafic visitant `login.live.com` l’aide du même proxy ou pare-feu d’entreprise que [ci-dessus](#proxy-configuration-and-requirements). La valeur de l’en-tête doit être `restrict-msa`. Lorsque l’en-tête est présent et qu’une application grand public tente de connecter un utilisateur directement, cette connexion est bloquée.
+
+Pour le moment, l’authentification auprès des applications grand public n’apparaît pas dans les [journaux d’administration](#admin-experience), car login.live.com est hébergé séparément d’Azure AD.
+
+### <a name="what-the-header-does-and-does-not-block"></a>Ce qui est bloqué et non bloqué par l’en-tête
+
+La stratégie `restrict-msa` bloque l’utilisation d’applications grand public, mais autorise plusieurs autres types de trafic et d’authentification :
+
+1. Trafic sans utilisateur pour les appareils.  Cela comprend le trafic pour Autopilot, Windows Update et les données de télémétrie de l’organisation.
+1. Authentification B2B de comptes de consommateurs. Les utilisateurs disposant de comptes Microsoft qui sont [invités à collaborer avec un locataire](https://docs.microsoft.com/azure/active-directory/external-identities/redemption-experience#invitation-redemption-flow) s’authentifient sur login.live.com pour accéder à un locataire de ressources.
+    1. Cet accès est contrôlé à l’aide de l’en-tête `Restrict-Access-To-Tenants` pour autoriser ou refuser l’accès à ce locataire de ressources.
+1. Authentification « PassThrough », utilisée par de nombreuses applications Azure et Office.com, où les applications utilisent Azure AD pour connecter des utilisateurs consommateurs dans un contexte de consommateur.
+    1. Cet accès est également contrôlé à l’aide de l’en-tête `Restrict-Access-To-Tenants` pour autoriser ou refuser l’accès au locataire « PassThrough » spécial (`f8cdef31-a31e-4b4a-93e4-5f571e91255a`).  Si ce locataire n’apparaît pas dans votre liste `Restrict-Access-To-Tenants` de domaines autorisés, Azure AD empêche les comptes de consommateurs de se connecter à ces applications.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-- En savoir plus sur [l’authentification moderne Office 365 mise à jour](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/)
+- En savoir plus sur [l’authentification moderne Office 365 mise à jour](https://www.microsoft.com/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/)
 - Consultez les [URL et plages d’adresses IP Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)

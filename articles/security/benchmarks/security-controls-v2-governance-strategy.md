@@ -4,15 +4,15 @@ description: Benchmark de sécurité Azure v2, gouvernance et stratégie
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/20/2020
+ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 935a6b41152ff914889e299b6455fbb30b2f0447
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: 277033e41ec7e02b89eca8cf74fe6854acb51cc1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97369053"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101727020"
 ---
 # <a name="security-control-v2-governance-and-strategy"></a>Contrôle de sécurité V2 : Gouvernance et stratégie
 
@@ -24,15 +24,15 @@ La gouvernance et la stratégie fournissent des conseils pour garantir une strat
 |--|--|--|--|
 | GS-1 | 2, 13 | SC, AC |
 
-Veillez à documenter et à communiquer une stratégie claire pour la surveillance et la protection continues des systèmes et des données. Hiérarchisez la découverte, l’évaluation, la protection et la surveillance des données et systèmes critiques de l’entreprise. 
+Veillez à documenter et à communiquer une stratégie claire pour la surveillance et la protection continues des systèmes et des données. Hiérarchisez la découverte, l’évaluation, la protection et la surveillance des données et systèmes critiques de l’entreprise.
 
 Cette stratégie doit inclure les recommandations, stratégies et normes documentées pour les éléments suivants : 
 
 - Norme de classification des données en fonction des risques pour l’entreprise
 
-- Visibilité de l’organisation de sécurité sur les risques et l’inventaire des actifs 
+- Visibilité de l’organisation de sécurité sur les risques et l’inventaire des actifs
 
-- Approbation de l’organisation de sécurité pour les services Azure en vue de leur utilisation 
+- Approbation de l’organisation de sécurité pour les services Azure en vue de leur utilisation
 
 - Sécurité des ressources tout au long de leur cycle de vie
 
@@ -107,7 +107,7 @@ Mesurez et atténuez en permanence les risques liés à vos ressources individue
 |--|--|--|--|
 | GS-4 | N/A | PL, PM |
 
-Veillez à documenter et à communiquer une stratégie claire pour les rôles et les responsabilités de votre organisation de sécurité. Veillez à définir clairement les responsabilités pour les décisions relatives à la sécurité, à former tout le monde au modèle de responsabilité partagée et à former les équipes techniques à la technologie permettant de sécuriser le cloud.
+Veillez à documenter et à communiquer une stratégie claire pour les rôles et responsabilités au sein de votre organisation de sécurité. Veillez à définir clairement les responsabilités pour les décisions relatives à la sécurité, à former tout le monde au modèle de responsabilité partagée et à former les équipes techniques à la technologie permettant de sécuriser le cloud.
 
 - [Meilleures pratiques pour la sécurité Azure 1 – Personnes : Former les équipes pour le parcours vers la sécurité dans le cloud](/azure/cloud-adoption-framework/security/security-top-10#1-people-educate-teams-about-the-cloud-security-journey)
 
@@ -127,9 +127,9 @@ Veillez à documenter et à communiquer une stratégie claire pour les rôles et
 |--|--|--|--|
 | GS-5 | 9 | CA, SC |
 
-Établissez une approche de sécurité réseau Azure dans le cadre de la stratégie de contrôle d’accès de sécurité globale de votre organisation.  
+Établissez une approche de sécurité réseau Azure dans le cadre de la stratégie de contrôle d’accès de sécurité globale de votre organisation.
 
-Cette stratégie doit inclure les recommandations, stratégies et normes documentées pour les éléments suivants : 
+Cette stratégie doit inclure les recommandations, stratégies et normes documentées pour les éléments suivants :
 
 - Responsabilité centralisée pour la gestion et la sécurité du réseau
 
@@ -165,9 +165,9 @@ Pour plus d’informations, consultez les références suivantes :
 |--|--|--|--|
 | GS-6 | 16, 4 | AC, AU, SC |
 
-Établissez une approche d’identité Azure et d’accès privilégié dans le cadre de la stratégie de contrôle d’accès de sécurité globale de votre organisation.  
+Établissez une approche d’identité Azure et d’accès privilégié dans le cadre de la stratégie de contrôle d’accès de sécurité globale de votre organisation.
 
-Cette stratégie doit inclure les recommandations, stratégies et normes documentées pour les éléments suivants : 
+Cette stratégie doit inclure les recommandations, stratégies et normes documentées pour les éléments suivants :
 
 - Un système centralisé d’identité et d’authentification et son interconnexion avec d’autres systèmes d’identité internes et externes
 
@@ -175,7 +175,7 @@ Cette stratégie doit inclure les recommandations, stratégies et normes documen
 
 - Protection des utilisateurs disposant de privilèges élevés
 
-- Surveillance et gestion des activités anormales des utilisateurs  
+- Surveillance et gestion des activités anormales des utilisateurs
 
 - Vérification de l’identité et de l’accès des utilisateurs et processus de rapprochement
 
@@ -205,7 +205,7 @@ Pour plus d’informations, consultez les références suivantes :
 
 Cette stratégie doit inclure les recommandations, stratégies et normes documentées pour les éléments suivants : 
 
-- Rôle et responsabilités de l’organisation d’opérations de sécurité (SecOP) 
+- Rôle et responsabilités de l’organisation d’opérations de sécurité (SecOps) 
 
 - Un processus de réponse aux incidents bien défini, aligné avec NIST ou autre cadre réglementaire du secteur 
 

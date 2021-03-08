@@ -1,24 +1,24 @@
 ---
-title: Activer l’intégrité des invités d’Azure Monitor pour machines virtuelles (préversion)
-description: Décrit comment activer l’intégrité des invités d’Azure Monitor pour machines virtuelles dans votre abonnement et comment intégrer des machines virtuelles.
+title: Activer l’intégrité de l’invité de VM Insights (préversion)
+description: Décrit comment activer l’intégrité des invités de VM Insights dans votre abonnement et comment intégrer des machines virtuelles.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/16/2020
 ms.custom: references_regions
-ms.openlocfilehash: 5a65a986e95f333b6179c71a46edc69ca61acdea
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 3747e9190010bd3c0b88dfdbe9da01009316c275
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100599152"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733718"
 ---
-# <a name="enable-azure-monitor-for-vms-guest-health-preview"></a>Activer l’intégrité des invités d’Azure Monitor pour machines virtuelles (préversion)
-L’intégrité des invités d’Azure Monitor pour machines virtuelles vous permet de voir l’état d’intégrité d’une machine virtuelle tel que défini par un ensemble de mesures de performances échantillonnées à des intervalles réguliers. Cet article explique comment activer cette fonctionnalité dans votre abonnement et comment activer la supervision des invités pour chaque machine virtuelle.
+# <a name="enable-vm-insights-guest-health-preview"></a>Activer l’intégrité de l’invité de VM Insights (préversion)
+L’intégrité des invités de VM Insights vous permet de voir l’état d’intégrité d’une machine virtuelle tel que défini par un ensemble de mesures de performances échantillonnées à intervalles réguliers. Cet article explique comment activer cette fonctionnalité dans votre abonnement et comment activer la supervision des invités pour chaque machine virtuelle.
 
 ## <a name="current-limitations"></a>Limites actuelles
-L’intégrité des invités d’Azure Monitor pour machines virtuelles présente les limitations suivantes dans la préversion publique :
+L’intégrité des invités de VM Insights présente les limitations suivantes dans la préversion publique :
 
 - Seules les machines virtuelles Azure sont actuellement prises en charge. Azure Arc pour serveurs n’est pas pris en charge actuellement.
 
@@ -35,20 +35,26 @@ La machine virtuelle doit se trouver dans l’une des régions suivantes :
 
 - Centre de l’Australie
 - Australie Est
-- Australie Sud-Est
+- Sud-Australie Est
+- Centre du Canada
 - Inde centrale
 - USA Centre
 - Asie Est
 - USA Est
 - USA Est 2
 - USA Est 2 (EUAP)
+- France Centre
 - Allemagne Centre-Ouest
 - Japon Est
+- Centre de la Corée
 - Centre-Nord des États-Unis
 - Europe Nord
 - États-Unis - partie centrale méridionale
+- Afrique du Sud Nord
 - Asie Sud-Est
+- Suisse Nord
 - Sud du Royaume-Uni
+- Ouest du Royaume-Uni
 - Centre-USA Ouest
 - Europe Ouest
 - USA Ouest
@@ -57,24 +63,36 @@ La machine virtuelle doit se trouver dans l’une des régions suivantes :
 
 L’espace de travail Log Analytics doit se trouver dans l’une des régions suivantes :
 
+- Centre de l’Australie
+- Australie Est
+- Sud-Australie Est
+- Centre du Canada
+- Canada Inde
 - USA Centre
+- Asie Est
 - USA Est
 - USA Est 2
 - USA Est 2 (EUAP)
+- France Centre
+- Japon Est
+- Centre-Nord des États-Unis
 - Europe Nord
+- États-Unis - partie centrale méridionale
 - Asie Sud-Est
+- Suisse Nord
 - Sud du Royaume-Uni
 - Région Europe Ouest
+- USA Ouest
 - USA Ouest 2
 
 ## <a name="prerequisites"></a>Prérequis
 
-- La machine virtuelle doit être intégrée à Azure Monitor pour machines virtuelles.
+- La machine virtuelle doit être intégrée à VM Insights.
 - L’utilisateur qui exécute les étapes d’intégration doit avoir un accès minimal de niveau contributeur à l’abonnement dans lequel se trouvent la machine virtuelle et la règle de collecte de données.
 - Les fournisseurs de ressources Azure requis doivent être inscrits comme décrit dans la section suivante.
 
 ## <a name="register-required-azure-resource-providers"></a>Inscrire les fournisseurs de ressources Azure requis
-Si vous souhaitez activer le suivi de l’intégrité des invités d’Azure Monitor pour machines virtuelles, les fournisseurs de ressources Azure suivants doivent être inscrits dans le cadre de votre abonnement. 
+Si vous souhaitez activer l’intégrité des invités de VM Insights, les fournisseurs de ressources Azure suivants doivent être inscrits pour votre abonnement. 
 
 - Microsoft.WorkloadMonitor
 - Microsoft.Insights
@@ -90,7 +108,7 @@ POST https://management.azure.com/subscriptions/[subscriptionId]/providers/Micro
 ## <a name="enable-a-virtual-machine-using-the-azure-portal"></a>Activer une machine virtuelle à l’aide du portail Azure
 Lorsque vous activez l’intégrité des invités pour une machine virtuelle dans le portail Azure, toute la configuration requise est effectuée pour vous. Cela comprend la création de la règle de collecte de données requise, l’installation de l’extension d’intégrité des invités sur la machine virtuelle, et la création d’une association avec la règle de collecte de données.
 
-Dans l’affichage **Prise en main** dans Azure Monitor pour machines virtuelles, cliquez sur le lien en regard du message de mise à niveau d’une machine virtuelle, puis cliquez sur le bouton **Mettre à niveau**. Vous pouvez également sélectionner plusieurs machines virtuelles pour les mettre à niveau ensemble.
+Dans l’affichage **Prise en main** dans VM Insights, cliquez sur le lien en regard du message de mise à niveau d’une machine virtuelle, puis cliquez sur le bouton **Mettre à niveau**. Vous pouvez également sélectionner plusieurs machines virtuelles pour les mettre à niveau ensemble.
 
 ![Activer la fonctionnalité d’intégrité sur une machine virtuelle](media/vminsights-health-enable/enable-agent.png)
 
@@ -107,10 +125,10 @@ Trois étapes sont nécessaires pour activer des machines virtuelles à l’aide
 > [!NOTE]
 > Si vous activez une machine virtuelle à l’aide du portail Azure, la règle de collecte de données décrite ici est créée pour vous. Dans ce cas, vous n’avez pas besoin de suivre cette étape.
 
-La configuration des moniteurs dans l’intégrité des invités d’Azure Monitor pour machines virtuelles est stockée dans des [règles de collecte de données](../agents/data-collection-rule-overview.md). Chaque machine virtuelle avec l’extension d’intégrité des invités aura besoin d’une association avec cette règle.
+La configuration des analyses dans l’intégrité des invités de VM Insights est stockée dans des [règles de collecte de données](../agents/data-collection-rule-overview.md). Chaque machine virtuelle avec l’extension d’intégrité des invités aura besoin d’une association avec cette règle.
 
 > [!NOTE]
-> Vous pouvez créer des règles de collecte de données supplémentaires pour modifier la configuration par défaut des moniteurs, comme décrit dans [Configurer la supervision de l’intégrité des invités d’Azure Monitor pour machines virtuelles (préversion)](vminsights-health-configure.md).
+> Vous pouvez créer des règles de collecte de données supplémentaires pour modifier la configuration par défaut des analyses, comme décrit dans [Configurer la supervision de l’intégrité des invités de VM Insights (préversion)](vminsights-health-configure.md).
 
 Le modèle requiert des valeurs pour les paramètres suivants :
 
@@ -414,4 +432,4 @@ az deployment group create --name GuestHealthDeployment --resource-group my-reso
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Personnaliser des moniteurs activés par Azure Monitor pour machines virtuelles](vminsights-health-configure.md)
+- [Personnaliser les analyses activées par VM Insights](vminsights-health-configure.md)

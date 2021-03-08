@@ -1,36 +1,36 @@
 ---
-title: Alertes d’Azure Monitor pour machines virtuelles
-description: Décrit comment créer des règles d’alerte à partir des données de performances collectées par Azure Monitor pour machines virtuelles.
+title: Alertes d’Insights de machine virtuelle
+description: Décrit comment créer des règles d’alerte à partir des données de performances collectées par Insights de machine virtuelle.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/10/2020
-ms.openlocfilehash: 4ae5b12f22b0cbcef7577c2eb9d4f3e3ae737590
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: e3b5f49d9a4ed7af40afba5b267ba0c7bb9cd73a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100599809"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704053"
 ---
-# <a name="how-to-create-alerts-from-azure-monitor-for-vms"></a>Comment créer des alertes à partir d’Azure Monitor pour machines virtuelles
-[Les alertes dans Azure Monitor](../platform/alerts-overview.md) vous informent de façon proactive des données et des modèles intéressants dans vos données de surveillance. Azure Monitor pour machines virtuelles n’inclut pas de règles d’alerte préconfigurées, mais vous pouvez créer vos propres règles en fonction des données collectées. Cet article fournit des conseils sur la création de règles d’alerte, y compris un ensemble d’exemples de requêtes.
+# <a name="how-to-create-alerts-from-vm-insights"></a>Comment créer des alertes à partir d’Insights de machine virtuelle
+[Les alertes dans Azure Monitor](../alerts/alerts-overview.md) vous informent de façon proactive des données et des modèles intéressants dans vos données de surveillance. Insights de machine virtuelle n’inclut pas de règles d’alerte préconfigurées, mais vous pouvez créer vos propres règles en fonction des données collectées. Cet article fournit des conseils sur la création de règles d’alerte, y compris un ensemble d’exemples de requêtes.
 
 > [!IMPORTANT]
-> Les alertes décrites dans cet article sont basées sur des requêtes de journal à partir de données collectées par Azure Monitor pour machines virtuelles. Cela diffère des alertes créées par [Intégrité des invités Azure Monitor pour machines virtuelles](vminsights-health-overview.md), qui est une fonctionnalité actuellement en préversion publique. À mesure que cette fonctionnalité se rapproche de la disponibilité générale, des conseils sur les alertes seront consolidés.
+> Les alertes décrites dans cet article sont basées sur des requêtes de journal à partir de données collectées par Insights de machine virtuelle. Cela diffère des alertes créées par [Intégrité des invités Azure Monitor pour machines virtuelles](vminsights-health-overview.md), qui est une fonctionnalité actuellement en préversion publique. À mesure que cette fonctionnalité se rapproche de la disponibilité générale, des conseils sur les alertes seront consolidés.
 
 
 ## <a name="alert-rule-types"></a>Types de règles d’alerte
-Azure Monitor propose [différents types de règles d’alerte](../platform/alerts-overview.md#what-you-can-alert-on) en fonction des données utilisées pour créer l’alerte. Toutes les données collectées par Azure Monitor pour machines virtuelles sont stockées dans des journaux Azure Monitor, avec prise en charge des [alertes de journal](../alerts/alerts-log.md). Vous ne pouvez actuellement pas utiliser [d’alertes de métriques](../alerts/alerts-log.md) avec les données de performances collectées à partir d’Azure Monitor pour machines virtuelles, car les données ne sont pas collectées dans des métriques Azure Monitor. Pour collecter des données pour les alertes de métriques, installez [l’extension Diagnostics](../agents/diagnostics-extension-overview.md) pour les machines virtuelles Windows ou [l’agent Telegraf](../platform/collect-custom-metrics-linux-telegraf.md) pour les machines virtuelles Linux afin de collecter les données de performances dans des métriques.
+Azure Monitor propose [différents types de règles d’alerte](../alerts/alerts-overview.md#what-you-can-alert-on) en fonction des données utilisées pour créer l’alerte. Toutes les données collectées par Insights de machine virtuelle sont stockées dans des journaux Azure Monitor, avec prise en charge des [alertes de journal](../alerts/alerts-log.md). Vous ne pouvez actuellement pas utiliser [d’alertes de métriques](../alerts/alerts-log.md) avec les données de performances collectées à partir d’Insights de machine virtuelle, car les données ne sont pas collectées dans des métriques Azure Monitor. Pour collecter des données pour les alertes de métriques, installez [l’extension Diagnostics](../agents/diagnostics-extension-overview.md) pour les machines virtuelles Windows ou [l’agent Telegraf](../essentials/collect-custom-metrics-linux-telegraf.md) pour les machines virtuelles Linux afin de collecter les données de performances dans des métriques.
 
 Il existe deux types d’alertes de journal dans Azure Monitor :
 
 - Les [alertes sur le nombre de résultats](../alerts/alerts-unified-log.md#count-of-the-results-table-rows) créent une alerte unique lorsqu’une requête retourne au moins un nombre spécifié d’enregistrements. Elles sont idéales pour les données non numériques, comme les événements Windows et syslog collectés par [l’agent Log Analytics](../agents/log-analytics-agent.md) ou pour l’analyse des tendances de performances sur plusieurs ordinateurs.
-- Les [alertes de mesure de métrique](../alerts/alerts-unified-log.md#calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value) créent une alerte distincte pour chaque enregistrement dans une requête dont la valeur dépasse un seuil défini dans la règle d’alerte. Ces règles d’alerte sont idéales pour les données de performances collectées par Azure Monitor pour machines virtuelles, car elles peuvent créer des alertes individuelles pour chaque ordinateur.
+- Les [alertes de mesure de métrique](../alerts/alerts-unified-log.md#calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value) créent une alerte distincte pour chaque enregistrement dans une requête dont la valeur dépasse un seuil défini dans la règle d’alerte. Ces règles d’alerte sont idéales pour les données de performances collectées par Insights de machine virtuelle, car elles peuvent créer des alertes individuelles pour chaque ordinateur.
 
 
 ## <a name="alert-rule-walkthrough"></a>Procédure pas à pas pour les règles d’alerte
-Cette section décrit la création d’une règle d’alerte de mesure de métrique à l’aide des données de performances d’Azure Monitor pour machines virtuelles. Vous pouvez utiliser ce processus de base avec diverses requêtes de journal pour alerter sur différents compteurs de performance.
+Cette section décrit la création d’une règle d’alerte de mesure de métrique à l’aide des données de performances d’Insights de machine virtuelle. Vous pouvez utiliser ce processus de base avec diverses requêtes de journal pour alerter sur différents compteurs de performance.
 
 Commencez par créer une nouvelle règle d’alerte en suivant la procédure décrite dans [Créer, afficher et gérer des alertes de journal à l’aide d’Azure Monitor](../alerts/alerts-log.md). Pour la **Ressource**, sélectionnez l’espace de travail Log Analytics que les machines virtuelles Azure Monitor utilisent dans votre abonnement. Étant donné que la ressource cible pour les règles d’alerte de journal est toujours un espace de travail Log Analytics, la requête de journal doit inclure un filtre pour des machines virtuelles spécifiques ou des groupes de machines virtuelles identiques. 
 
@@ -44,7 +44,7 @@ La section **Évaluées sur la base de** définit la fréquence d’exécution d
 ![Règle d’alerte Mesure métrique](media/vminsights-alerts/metric-measurement-alert.png)
 
 ## <a name="sample-alert-queries"></a>Exemples de requêtes d’alerte
-Les requêtes suivantes peuvent être utilisées avec une règle d’alerte de mesure de métrique à l’aide des données de performances collectées par Azure Monitor pour machines virtuelles. Chacune synthétise les données par ordinateur afin qu’une alerte soit créée pour chaque ordinateur avec une valeur qui dépasse le seuil.
+Les requêtes suivantes peuvent être utilisées avec une règle d’alerte de mesure de métrique à l’aide des données de performances collectées par Insights de machine virtuelle. Chacune synthétise les données par ordinateur afin qu’une alerte soit créée pour chaque ordinateur avec une valeur qui dépasse le seuil.
 
 ### <a name="cpu-utilization"></a>Utilisation du processeur
 
@@ -200,5 +200,5 @@ or _ResourceId startswith "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/r
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- En savoir plus sur les [alertes dans Azure Monitor](../platform/alerts-overview.md).
-- En savoir plus sur les [requêtes de journal à l’aide des données d’Azure Monitor pour machines virtuelles](vminsights-log-search.md).
+- En savoir plus sur les [alertes dans Azure Monitor](../alerts/alerts-overview.md).
+- En savoir plus sur les [requêtes de journal à l’aide des données d’Insights de machine virtuelle](vminsights-log-search.md).

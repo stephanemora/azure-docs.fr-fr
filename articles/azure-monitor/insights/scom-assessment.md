@@ -1,17 +1,16 @@
 ---
 title: Accéder à System Center Operations Manager avec Azure Monitor
 description: La solution System Center Operations Manager Health Check permet d’évaluer les risques et l’intégrité de vos environnements à intervalles réguliers.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/25/2018
-ms.openlocfilehash: 97d7d21374062462248e1b86f2bde2fef2d25331
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 35ae1e09fd0a06014a747cef99631a7bfe2dee1c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96004906"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731406"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Optimisation de votre environnement avec la solution System Center Operations Manager Health Check (préversion)
 
@@ -79,7 +78,7 @@ Le compte d’identification doit respecter les conditions suivantes avant de co
 1. Dans la console Operations Manager, sélectionnez le bouton de navigation **Administration**.
 2. Sous **Configuration d’identification**, cliquez sur **Comptes**.
 3. Dans l’Assistant **Créer un compte d’identification**, sur la page **Introduction**, cliquez sur **suivant**.
-4. Sur la page **Propriétés générales**, sélectionnez **Windows** dans la liste **Type de compte d’identification :** .
+4. Sur la page **Propriétés générales**, sélectionnez **Windows** dans la liste **Type de compte d’identification :**.
 5. Entrez un nom d’affichage dans la zone de texte **Nom d’affichage**, saisissez éventuellement une description dans la zone **Description**, puis cliquez sur **Suivant**.
 6. Sur la page **Sécurité de la distribution**, sélectionnez **Plus sécurisé**.
 7. Cliquez sur **Créer**.  
@@ -90,7 +89,7 @@ Maintenant que le compte d’identification est créé, il doit cibler les serve
 2. Dans l’onglet **Distribution**, cliquez sur **Ajouter** pour **Ordinateurs sélectionnés** et ajoutez le serveur d’administration auquel distribuer le compte.  Cliquez deux fois sur **OK** pour enregistrer vos modifications.
 3. Sous **Configuration d’identification**, cliquez sur **Profils**.
 4. Recherchez *Profil d’évaluation SCOM*.
-5. Le nom du profil doit être le suivant : *Microsoft System Center Operations Manager Health Check exécuté en tant que profil*.
+5. Le nom de profil devrait être : *Microsoft System Center Operations Manager Health Check exécuté en tant que profil*.
 6. Avec le bouton droit, mettez à jour ses propriétés et ajoutez le nouveau compte d’identification créé précédemment.
 
 ### <a name="sql-script-to-grant-granular-permissions-to-the-run-as-account"></a>Script SQL octroyant des autorisations granulaires au compte d’identification
@@ -147,13 +146,13 @@ ALTER ROLE [db_owner] ADD MEMBER [UserName]
 
 Le pack de gestion de la solution System Center Operations Manager Health Check inclut une règle nommée *Microsoft System Center Operations Manager Run Health Check Rule*. Cette règle est responsable de l’exécution du contrôle d’intégrité. Pour activer la règle et configurer la fréquence, utilisez les procédures ci-dessous.
 
-Par défaut, la règle Microsoft System Center Operations Manager Run Health Check Rule est désactivée. Pour exécuter le contrôle d’intégrité, vous devez activer la règle sur un serveur de gestion. Utilisez les étapes suivantes.
+Par défaut, la règle Microsoft System Center Operations Manager Run Health Check Rule est désactivée. Pour exécuter le contrôle d’intégrité, vous devez activer la règle sur un serveur de gestion. Effectuez les étapes suivantes.
 
 #### <a name="enable-the-rule-for-a-specific-management-server"></a>Activation de la règle pour un serveur de gestion spécifique
 
 1. Dans l’espace de travail **Création** de la console Opérateur d’Operations Manager, recherchez la règle *Microsoft System Center Operations Manager Run Health Check Rule* dans le volet **Règles**.
-2. Dans les résultats de la recherche, sélectionnez le résultat qui inclut le texte *Type : Serveur d’administration*.
-3. Cliquez sur la règle avec le bouton droit, puis cliquez sur **Substitutions** > **Pour un objet spécifique de la classe : Serveur d’administration**.
+2. Dans les résultats de la recherche, sélectionnez le résultat qui inclut le texte *Type : serveur de gestion*.
+3. Cliquez sur la règle avec le bouton droit, puis cliquez sur **Substitutions** > **Pour un objet spécifique de la classe : serveur de gestion**.
 4.  Dans la liste de serveurs de gestion disponibles, sélectionnez le serveur de gestion où la règle doit être exécutée.  Il doit s’agir du même serveur d’administration que vous avez configuré précédemment pour y associer le compte d’identification.
 5.  Veillez à modifier la valeur de substitution sur **True** pour la valeur du paramètre **Activé**.<br><br> ![paramètre de substitution](./media/scom-assessment/rule.png)
 
@@ -164,8 +163,8 @@ Par défaut, la règle Microsoft System Center Operations Manager Run Health Che
 L’évaluation est configurée pour s’exécuter toutes les 10 080 minutes (ou sept jours) par défaut. Vous pouvez substituer la valeur par la valeur minimale de 1 440 minutes (ou un jour). La valeur représente l’intervalle de temps minimal requis entre les exécutions d’évaluation successives. Pour substituer l’intervalle, utilisez les étapes ci-dessous.
 
 1. Dans l’espace de travail **Création** de la console Operations Manager, recherchez la règle *Microsoft System Center Operations Manager Run Health Check Rule* dans le volet **Règles**.
-2. Dans les résultats de la recherche, sélectionnez le résultat qui inclut le texte *Type : Serveur d’administration*.
-3. Cliquez sur la règle avec le bouton droit, puis cliquez sur **Remplacer la règle** > **Pour tous les objets de la classe : Serveur d’administration**.
+2. Dans les résultats de la recherche, sélectionnez le résultat qui inclut le texte *Type : serveur de gestion*.
+3. Cliquez sur la règle avec le bouton droit, puis cliquez sur **Remplacer la règle** > **Pour tous les objets de la classe : serveur de gestion**.
 4. Modifiez la valeur du paramètre **Intervalle** sur la valeur de l’intervalle souhaité. Dans l’exemple ci-dessous, la valeur est définie sur 1 440 minutes (1 jour).<br><br> ![paramètre d’intervalle](./media/scom-assessment/interval.png)<br>  
 
     Si la valeur est inférieure à 1440 minutes, la règle s’exécute selon un intervalle d’une journée. Dans cet exemple, la règle ignore la valeur de l’intervalle et s’exécute à la fréquence d’un jour.
@@ -229,7 +228,7 @@ Si vous souhaitez ignorer des recommandations, vous pouvez créer un fichier tex
     ```
 
     >[!NOTE]
-    > Si vous avez mis à niveau votre espace de travail vers le [nouveau langage de requête dans Log Analytics](../log-query/log-query-overview.md), remplacez la requête ci-dessus par la requête ci-dessous.
+    > Si vous avez mis à niveau votre espace de travail vers le [nouveau langage de requête dans Log Analytics](../logs/log-query-overview.md), remplacez la requête ci-dessus par la requête ci-dessous.
     >
     > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -254,7 +253,7 @@ Si vous souhaitez ignorer des recommandations, vous pouvez créer un fichier tex
     ```
 
     >[!NOTE]
-    > Si vous avez mis à niveau votre espace de travail vers le [nouveau langage de requête dans Log Analytics](../log-query/log-query-overview.md), remplacez la requête ci-dessus par la requête ci-dessous.
+    > Si vous avez mis à niveau votre espace de travail vers le [nouveau langage de requête dans Log Analytics](../logs/log-query-overview.md), remplacez la requête ci-dessus par la requête ci-dessous.
     >
     > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Ignore" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -295,5 +294,5 @@ Si vous souhaitez ignorer des recommandations, vous pouvez créer un fichier tex
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Rechercher dans les journaux d’activité](../log-query/log-query-overview.md) pour savoir comment analyser les données et recommandations détaillées de System Center Operations Manager Health Check.
+- [Rechercher dans les journaux d’activité](../logs/log-query-overview.md) pour savoir comment analyser les données et recommandations détaillées de System Center Operations Manager Health Check.
 

@@ -2,18 +2,18 @@
 title: Mise à niveau des agents Kubernetes avec Azure Arc
 services: azure-arc
 ms.service: azure-arc
-ms.date: 03/02/2021
+ms.date: 03/03/2021
 ms.topic: article
 author: shashankbarsin
 ms.author: shasb
 description: Contrôler les mises à niveau des agents Kubernetes avec Azure Arc
 keywords: Kubernetes, Arc, Azure, K8s, conteneurs, agent, mise à niveau
-ms.openlocfilehash: 3a5355269db4ccfc91612f661b464556b22c1d35
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 172654f655e594c295a8807b417c32d7849bd4b1
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101660222"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102121913"
 ---
 # <a name="upgrading-azure-arc-enabled-kubernetes-agents"></a>Mise à niveau des agents Kubernetes avec Azure Arc
 
@@ -84,6 +84,6 @@ Une version mineure des agents Kubernetes avec Azure Arc est publiée environ un
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Connecter un cluster à Azure Arc](./connect-cluster.md)
-* [Créer des configurations sur votre cluster Kubernetes compatible avec Azure Arc](./use-gitops-connected-cluster.md)
-* [Utiliser Azure Policy pour appliquer des configurations à grande échelle](./use-azure-policy.md)
+* Parcourez notre guide de démarrage rapide pour [connecter un cluster Kubernetes à Azure Arc](./connect-cluster.md).
+* Un cluster Kubernetes est-il déjà connecté à Azure Arc ? [Créez des configurations sur votre cluster Kubernetes compatible avec Arc](./use-gitops-connected-cluster.md).
+* Découvrez comment [utiliser Azure Policy pour appliquer des configurations à grande échelle](./use-azure-policy.md).

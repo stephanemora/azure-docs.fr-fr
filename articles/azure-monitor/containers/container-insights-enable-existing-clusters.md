@@ -1,19 +1,19 @@
 ---
 title: Surveiller un cluster Azure Kubernetes Service (AKS) déployé | Microsoft Docs
-description: Découvrez comment activer la surveillance d’un cluster Azure Kubernetes Service (AKS) avec Azure Monitor pour les conteneurs déjà déployés dans votre abonnement.
+description: Découvrez comment activer la surveillance d’un cluster Azure Kubernetes service (AKS) avec Container Insights déjà déployé dans votre abonnement.
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.custom: devx-track-terraform, devx-track-azurecli
-ms.openlocfilehash: 547c22e4d82aa728009a2fdb42f2c3b481b7a625
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: e84e1c4ad3aa3950a433218255ccac3d91435231
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100600171"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717670"
 ---
 # <a name="enable-monitoring-of-azure-kubernetes-service-aks-cluster-already-deployed"></a>Activer la surveillance d’un cluster Azure Kubernetes Service (AKS) déjà déployé
 
-Cet article explique comment configurer Azure Monitor pour les conteneurs afin de surveiller un cluster Kubernetes managé hébergé sur [Azure Kubernetes Service](../../aks/index.yml) et déjà déployé dans votre abonnement.
+Cet article explique comment configurer Container Insights pour surveiller un cluster Kubernetes managé hébergé sur [Azure Kubernetes Service](../../aks/index.yml) et déjà déployé dans votre abonnement.
 
 Vous pouvez activer la surveillance d’un cluster AKS déjà déployé à l’aide d’une des méthodes prises en charge :
 
@@ -113,13 +113,13 @@ Pour activer la supervision de votre cluster AKS dans le portail Azure à partir
 
 4. Dans la liste des clusters non surveillés, recherchez le conteneur et cliquez sur **Activer**.
 
-5. Dans la page **Onboarding to Container Health and Logs** (Intégration de l’intégrité des conteneurs et aux journaux), si vous disposez d’un espace de travail Log Analytics dans le même abonnement que le cluster, sélectionnez-le dans la liste déroulante.
+5. Sur la page **Intégration à Container insights**, si vous disposez d’un espace de travail Log Analytics dans le même abonnement que le cluster, sélectionnez-le dans la liste déroulante.
     La liste présélectionne l’espace de travail par défaut et l’emplacement où le conteneur AKS est déployé dans l’abonnement.
 
     ![Activer la supervision des conteneurs Insights AKS](./media/container-insights-onboard/kubernetes-onboard-brownfield-01.png)
 
     >[!NOTE]
-    >Si vous souhaitez créer un espace de travail Log Analytics pour stocker les données de supervision du cluster, suivez les instructions de [Créer un espace de travail Log Analytics](../learn/quick-create-workspace.md). Veillez à créer l’espace de travail dans le même abonnement que le conteneur AKS.
+    >Si vous souhaitez créer un espace de travail Log Analytics pour stocker les données de supervision du cluster, suivez les instructions de [Créer un espace de travail Log Analytics](../logs/quick-create-workspace.md). Veillez à créer l’espace de travail dans le même abonnement que le conteneur AKS.
 
 Une fois que vous avez activé la surveillance, 15 minutes peuvent s’écouler avant que vous puissiez voir les métriques d’intégrité du cluster.
 
@@ -137,13 +137,13 @@ Pour activer la surveillance directement depuis votre cluster AKS dans le porta
 
 5. Sur la page Vue d’ensemble du service Kubernetes, sélectionnez **Surveillance - Insights**.
 
-6. Dans la page **Intégration à Azure Monitor pour conteneurs**, si vous disposez d’un espace de travail Log Analytics dans le même abonnement que le cluster, sélectionnez-le dans la liste déroulante.
+6. Sur la page **Intégration à Container insights**, si vous disposez d’un espace de travail Log Analytics dans le même abonnement que le cluster, sélectionnez-le dans la liste déroulante.
     La liste présélectionne l’espace de travail par défaut et l’emplacement où le conteneur AKS est déployé dans l’abonnement.
 
     ![Activer le contrôle d’intégrité des conteneurs AKS](./media/container-insights-onboard/kubernetes-onboard-brownfield-02.png)
 
     >[!NOTE]
-    >Si vous souhaitez créer un espace de travail Log Analytics pour stocker les données de supervision du cluster, suivez les instructions de [Créer un espace de travail Log Analytics](../learn/quick-create-workspace.md). Veillez à créer l’espace de travail dans le même abonnement que le conteneur AKS.
+    >Si vous souhaitez créer un espace de travail Log Analytics pour stocker les données de supervision du cluster, suivez les instructions de [Créer un espace de travail Log Analytics](../logs/quick-create-workspace.md). Veillez à créer l’espace de travail dans le même abonnement que le conteneur AKS.
 
 Une fois que vous avez activé la surveillance, 15 minutes peuvent s’écouler avant que vous ne puissiez voir les données opérationnelles du cluster.
 
@@ -158,7 +158,7 @@ Cette méthode inclut deux modèles JSON. Le premier modèle spécifie la config
 >Le modèle doit être déployé dans le même groupe de ressources que le cluster.
 >
 
-L’espace de travail Log Analytics doit être créé avant d’activer la surveillance à l’aide d’Azure PowerShell ou CLI. Pour créer l’espace de travail, vous pouvez en configurer un via [Azure Resource Manager](../samples/resource-manager-workspace.md), [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json) ou le [portail Azure](../learn/quick-create-workspace.md).
+L’espace de travail Log Analytics doit être créé avant d’activer la surveillance à l’aide d’Azure PowerShell ou CLI. Pour créer l’espace de travail, vous pouvez en configurer un via [Azure Resource Manager](../logs/resource-manager-workspace.md), [PowerShell](../logs/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json) ou le [portail Azure](../logs/quick-create-workspace.md).
 
 Si vous n’êtes pas familiarisé avec le déploiement de ressources à l’aide d’un modèle, consultez les rubriques suivantes :
 
@@ -380,4 +380,4 @@ Au bout de quelques minutes, la commande se termine et renvoie des informations 
 
 * Si vous rencontrez des problèmes en tentant d’intégrer la solution, consultez le [guide de résolution des problèmes](container-insights-troubleshoot.md)
 
-* Une fois l’analyse activée pour collecter l’utilisation des ressources et l’intégrité de votre cluster Azure Kubernetes et charges de travail s’y exécutant, découvrez [comment utiliser](container-insights-analyze.md) Azure Monitor pour les conteneurs.
+* Une fois la supervision activée pour collecter l’intégrité et l’utilisation des ressources de votre cluster AKS et des charges de travail s’exécutant sur celles-ci, découvrez [comment utiliser](container-insights-analyze.md) Container Insights.

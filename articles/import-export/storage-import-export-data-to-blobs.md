@@ -5,16 +5,16 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/24/2021
+ms.date: 03/03/2021
 ms.author: alkohli
 ms.subservice: common
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 2acc3d104786be330e3e799ad7bd96d703587581
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3
+ms.openlocfilehash: 77a1c02c1ec59778521104e57f3bf3de8e52fa44
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101738988"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102177412"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Utiliser le service Azure Import/Export pour transférer des données dans le Stockage Blob Azure
 
@@ -104,46 +104,57 @@ Effectuez les étapes suivantes pour créer une tâche d’importation dans le p
 1. Connectez-vous sur https://portal.azure.com/.
 2. Recherchez les **tâches d’importation/exportation**.
 
-    ![Rechercher des tâches d’importation/exportation](./media/storage-import-export-data-to-blobs/import-to-blob-1.png)
+   ![Rechercher des tâches d’importation/exportation](./media/storage-import-export-data-to-blobs/import-to-blob-1.png)
 
 3. Sélectionnez **+Nouveau**.
 
-    ![Sélectionner Nouveau pour en créer une ](./media/storage-import-export-data-to-blobs/import-to-blob-2.png)
+   ![Sélectionner Nouveau pour en créer une ](./media/storage-import-export-data-to-blobs/import-to-blob-2.png)
 
 4. Dans **De base** :
 
-   * Sélectionnez **Importer dans Azure**.
-   * Indiquez un nom décrivant le travail d’importation. Utilisez le nom pour suivre la progression de vos tâches.
-       * Le nom ne peut contenir que des lettres minuscules, des chiffres et des traits d’union.
-       * Le nom doit commencer par une lettre et ne doit pas contenir d’espaces.
-   * Sélectionnez un abonnement.
-   * Entrez ou sélectionnez un groupe de ressources.
+   1. Sélectionnez un abonnement.
+   1. Sélectionnez un groupe de ressources ou sélectionnez **Créer**, puis créez-en un.
+   1. Indiquez un nom décrivant le travail d’importation. Utilisez le nom pour suivre la progression de vos tâches.
+      * Le nom ne peut contenir que des lettres minuscules, des chiffres et des traits d’union.
+      * Le nom doit commencer par une lettre et ne doit pas contenir d’espaces.
 
-     ![Créer une tâche d’importation - Étape 1](./media/storage-import-export-data-to-blobs/import-to-blob-3.png)
+   1. Sélectionnez **Importer dans Azure**.
+
+    ![Créer une tâche d’importation - Étape 1](./media/storage-import-export-data-to-blobs/import-to-blob-3.png)
+
+    Sélectionnez **Suivant : Détails du travail >** pour continuer.
 
 5. Dans **Détails de la tâche** :
 
-   * Chargez les fichiers journaux du lecteur que vous avez obtenus à l’étape de préparation de lecteur. Si vous avez utilisé `waimportexport.exe version1`, chargez un fichier pour chaque lecteur préparé. Si la taille du fichier journal dépasse 2 Mo, vous pouvez utiliser `<Journal file name>_DriveInfo_<Drive serial ID>.xml` également créé avec le fichier journal.
-   * Sélectionnez le compte de stockage de destination des données.
-   * L’emplacement de remise est automatiquement rempli en fonction de la région du compte de stockage sélectionné.
+   1. Chargez les fichiers journaux que vous avez créés précédemment dans [Étape 1 : Préparer les lecteurs](#step-1-prepare-the-drives). Si vous avez utilisé `waimportexport.exe version1`, chargez un fichier pour chaque lecteur préparé. Si la taille du fichier journal dépasse 2 Mo, vous pouvez utiliser `<Journal file name>_DriveInfo_<Drive serial ID>.xml` également créé avec le fichier journal.
+   1. Sélectionnez la région Azure de destination pour la commande.
+   1. Sélectionnez le compte de stockage pour l’importation.
+      
+      L’emplacement de remise est automatiquement rempli en fonction de la région du compte de stockage sélectionné.
+   1. Si vous ne souhaitez pas enregistrer un journal détaillé, effacez l’option **Enregistrer le journal détaillé dans le conteneur blob « waimportexport »** .
 
-   ![Créer une tâche d’importation - Étape 2](./media/storage-import-export-data-to-blobs/import-to-blob-4.png)
+   ![Créer une tâche d’importation - Étape 2](./media/storage-import-export-data-to-blobs/import-to-blob-4.png).
 
-6. Dans **Informations de réexpédition** :
+   Sélectionnez **Suivant : Expédition >** pour continuer.
 
-   * Sélectionnez le transporteur dans la liste déroulante. Si vous souhaitez utiliser un autre transporteur que FedEx/DHL, choisissez une option existante dans la liste déroulante. Contactez l’équipe des opérations Azure Data Box à l’adresse `adbops@microsoft.com` pour lui indiquer le nom du transporteur auquel vous envisagez de faire appel.
-   * Entrez un numéro de compte de transporteur valide que vous avez créé pour ce transporteur. Microsoft utilise ce compte pour renvoyer les lecteurs une fois la tâche d’importation terminée. Si vous n’avez pas de numéro de compte, créez un compte de transporteur [FedEx](https://www.fedex.com/us/oadr/) ou [DHL](https://www.dhl.com/).
-   * Indiquez le nom, le numéro de téléphone, l'e-mail, l'adresse, la ville, le code postal, l'état/la province et le pays/la région d'un contact, puis vérifiez que ces informations sont complètes et valides.
+6. Dans **Expédition** :
+
+   1. Sélectionnez le transporteur dans la liste déroulante. Si vous souhaitez utiliser un autre transporteur que FedEx/DHL, choisissez une option existante dans la liste déroulante. Contactez l’équipe des opérations Azure Data Box à l’adresse `adbops@microsoft.com` pour lui indiquer le nom du transporteur auquel vous envisagez de faire appel.
+   1. Entrez un numéro de compte de transporteur valide que vous avez créé pour ce transporteur. Microsoft utilise ce compte pour renvoyer les lecteurs une fois la tâche d’importation terminée. Si vous n’avez pas de numéro de compte, créez un compte de transporteur [FedEx](https://www.fedex.com/us/oadr/) ou [DHL](https://www.dhl.com/).
+   1.  Indiquez le nom d’un contact, le numéro de téléphone, l’e-mail, l’adresse, la ville, le code postal, l’état/la province et le pays/la région, puis vérifiez que ces informations sont complètes et valides.
 
        > [!TIP]
        > Au lieu de spécifier une adresse de messagerie pour un seul utilisateur, fournissez une adresse de groupe. Cela garantit que vous recevrez des notifications même si un administrateur s’en va.
 
-     ![Créer une tâche d'importation - Étape 3](./media/storage-import-export-data-to-blobs/import-to-blob-5.png)
+   ![Créer une tâche d'importation - Étape 3](./media/storage-import-export-data-to-blobs/import-to-blob-5.png)
 
-7. Dans le **Récapitulatif** :
+   Sélectionnez **Vérifier + créer** pour continuer.
 
-   * Passez en revue les informations de tâche dans le récapitulatif. Notez le nom de la tâche et l’adresse du centre de données Azure pour réexpédier les disques à Azure. Ces informations sont utilisées par la suite sur l’étiquette d’expédition.
-   * Cliquez sur **OK** pour créer la tâche d’importation.
+7. Dans le résumé de la commande :
+
+   1. Consultez les **Conditions** et sélectionnez « Je reconnais que toutes les informations fournies sont correctes et j’accepte les conditions générales. » La validation est ensuite effectuée.
+   1. Passez en revue les informations de tâche dans le récapitulatif. Notez le nom de la tâche et l’adresse du centre de données Azure pour réexpédier les disques à Azure. Ces informations sont utilisées par la suite sur l’étiquette d’expédition.
+   1. Sélectionnez **Create** (Créer).
 
      ![Créer une tâche d’importation - Étape 4](./media/storage-import-export-data-to-blobs/import-to-blob-6.png)
 

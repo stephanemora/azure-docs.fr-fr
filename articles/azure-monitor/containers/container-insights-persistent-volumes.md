@@ -1,22 +1,22 @@
 ---
-title: Configurer la supervision de volumes persistants avec Azure Monitor pour conteneurs | Microsoft Docs
-description: Cet article explique comment configurer la supervision de clusters Kubernetes constitués de volumes persistants à l’aide d’Azure Monitor pour conteneurs.
+title: Configurer la surveillance de volumes persistants avec Container Insights | Microsoft Docs
+description: Cet article explique comment configurer la surveillance de clusters Kubernetes constitués de volumes persistants à l’aide de Container Insights.
 ms.topic: conceptual
 ms.date: 10/20/2020
-ms.openlocfilehash: d7da6bc88e7c8526e3940714502d3c92d2f37dd8
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0afbeab49a6909a0011cd75a0419f7325ca68132
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100600393"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713726"
 ---
-# <a name="configure-pv-monitoring-with-azure-monitor-for-containers"></a>Configurer la supervision de volumes persistants avec Azure Monitor pour conteneurs
+# <a name="configure-pv-monitoring-with-container-insights"></a>Configurer la surveillance de volumes persistants avec Container Insights
 
-À partir de la version de l’agent *ciprod10052020*, l’agent intégré Azure Monitor pour conteneurs prend désormais en charge l’analyse des volumes persistants.
+Depuis la version de l’agent *ciprod10052020*, l’agent intégré Container Insights prend en charge la surveillance de l’usage de volumes persistants.
 
 ## <a name="pv-metrics"></a>Métriques de volume persistant
 
-Azure Monitor pour conteneurs lance automatiquement la supervision des volumes persistants en collectant les métriques suivantes toutes les 60 secondes et en les stockant dans la table **InsightMetrics**.
+Container Insights lance automatiquement la supervision des volumes persistants en collectant les métriques suivantes toutes les 60 secondes et en les stockant dans la table **InsightMetrics**.
 
 |Nom de métrique |Dimension de la métrique (balises) |Description |
 |------------|------------------------|------------|
@@ -24,7 +24,7 @@ Azure Monitor pour conteneurs lance automatiquement la supervision des volumes p
 
 ## <a name="monitor-persistent-volumes"></a>Superviser les volumes persistants
 
-Azure Monitor pour conteneurs inclut des graphiques préconfigurés pour cette métrique sous la forme d’un classeur pour chaque cluster. Vous pouvez trouver les graphiques dans l’onglet Volume persistant du classeur **Détails de la charge de travail** directement à partir d’un cluster AKS en sélectionnant Classeurs dans le volet gauche, puis dans la liste déroulante **Voir les classeurs** dans Insight. Vous pouvez également activer une alerte recommandée pour l’utilisation de volumes persistants, ainsi que pour interroger ces métriques dans Log Analytics.  
+Container Insights inclut des graphiques préconfigurés pour cette métrique dans un classeur pour chaque cluster. Vous pouvez trouver les graphiques dans l’onglet Volume persistant du classeur **Détails de la charge de travail** directement à partir d’un cluster AKS en sélectionnant Classeurs dans le volet gauche, puis dans la liste déroulante **Voir les classeurs** dans Insight. Vous pouvez également activer une alerte recommandée pour l’utilisation de volumes persistants, ainsi que pour interroger ces métriques dans Log Analytics.  
 
 ![Exemple de classeur pour les charges de travail de volume persistant Azure Monitor](./media/container-insights-persistent-volumes/pv-workload-example.PNG)
 

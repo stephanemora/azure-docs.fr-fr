@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/29/2020
-ms.openlocfilehash: 6af183c16238c6630b194b112f0c09fd4399d443
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 47c5ad18f50bd25dd3bf351090ffc9ef5d54f0b2
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101694068"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102202907"
 ---
 # <a name="azure-purview-data-catalog-lineage-user-guide"></a>Guide de l’utilisateur sur la traçabilité du Data Catalog dans Azure Purview
 
@@ -31,7 +31,7 @@ Les outils d’intégration de données et ETL peuvent envoyer les données de t
 
 | Système de traitement des données | Portée prise en charge |
 | ---------------------- | ------------|
-| Azure Data Factory | [Activité de copie](how-to-link-azure-data-factory.md#data-factory-copy-data-support) <br> [Activité de flux de données](how-to-link-azure-data-factory.md#data-factory-data-flow-support) <br> [Activité Exécuter le package SSIS](how-to-link-azure-data-factory.md#data-factory-execute-ssis-package-support) |
+| Azure Data Factory | [Activité de copie](how-to-link-azure-data-factory.md#data-factory-copy-activity-support) <br> [Activité de flux de données](how-to-link-azure-data-factory.md#data-factory-data-flow-support) <br> [Activité Exécuter le package SSIS](how-to-link-azure-data-factory.md#data-factory-execute-ssis-package-support) |
 | Azure Data Share | [Partager l’instantané](how-to-link-azure-data-share.md) |
  
 ### <a name="data-storage-systems"></a>Systèmes de stockage de données
@@ -49,6 +49,8 @@ Les systèmes de données tels qu’Azure ML et Power BI signalent la traçabili
 | Power BI | [Jeux de données, flux de données, rapports et tableaux de bord](register-scan-power-bi-tenant.md)
 
 ## <a name="get-started-with-lineage"></a>Prise en main de la traçabilité
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE1XVQS]
 
 La traçabilité dans Purview inclut des jeux de données et des processus. Les jeux de données sont également appelés « nœuds », tandis que les processus peuvent également être appelés « périphéries » :
 

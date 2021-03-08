@@ -1,22 +1,22 @@
 ---
-title: Alertes sur les métriques d'Azure Monitor pour conteneurs
-description: Cet article passe en revue les alertes métriques recommandées disponibles dans Azure Monitor pour les conteneurs en préversion publique.
+title: Alertes métriques de Container Insights
+description: Cet article passe en revue les alertes métriques recommandées disponibles dans Container Insights en préversion publique.
 ms.topic: conceptual
 ms.date: 10/28/2020
-ms.openlocfilehash: 59c8d7b58809c981130d2ce92406fb5b1ce146ff
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: f19959c76d31422a0bdf898a6fa41e6b168e2e61
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100599917"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728890"
 ---
-# <a name="recommended-metric-alerts-preview-from-azure-monitor-for-containers"></a>Alertes métriques recommandées (préversion) d’Azure Monitor pour les conteneurs
+# <a name="recommended-metric-alerts-preview-from-container-insights"></a>Alertes métriques recommandées (préversion) de Container Insights
 
-Pour alerter concernant des problèmes de ressources système quand les conteneurs rencontrent des pics de demande et approchent de leur capacité maximale, avec Azure Monitor pour les conteneurs, vous devez créer une alerte de journal basée sur les données de performances stockées dans des journaux Azure Monitor. Azure Monitor pour conteneurs comprend désormais des règles d'alerte sur les métriques préconfigurées pour votre cluster AKS et Kubernetes avec Azure Arc, qui est en préversion publique.
+Pour alerter concernant des problèmes de ressources système quand les conteneurs rencontrent des pics de demande et approchent de leur capacité maximale, avec Container Insights, vous devez créer une alerte de journal basée sur les données de performances stockées dans des journaux Azure Monitor. Container Insights comprend désormais des règles d’alerte métrique préconfigurées pour vos clusters AKS et Kubernetes avec Azure Arc, en préversion publique.
 
 Cet article passe en revue l’expérience et fournit des conseils sur la configuration et la gestion de ces règles d’alerte.
 
-Avant de commencer, si vous n’êtes pas familiarisé avec les alertes d’Azure Monitor, consultez [Vue d’ensemble des alertes dans Microsoft Azure](../platform/alerts-overview.md). Pour en savoir plus sur les alertes métriques, consultez [Alertes métriques dans Azure Monitor](../alerts/alerts-metric-overview.md).
+Avant de commencer, si vous n’êtes pas familiarisé avec les alertes d’Azure Monitor, consultez [Vue d’ensemble des alertes dans Microsoft Azure](../alerts/alerts-overview.md). Pour en savoir plus sur les alertes métriques, consultez [Alertes métriques dans Azure Monitor](../alerts/alerts-metric-overview.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -31,13 +31,13 @@ Avant de commencer, vérifiez les éléments suivants :
     * Exécuter la commande : `kubectl describe <omsagent-pod-name> --namespace=kube-system`. Dans l’état renvoyé, notez la valeur sous **Image** pour omsagent, dans la section *Containers* de la sortie. 
     * Sous l’onglet **Nœuds**, sélectionnez le nœud de cluster, puis, dans le volet **Propriétés** à droite, notez la valeur sous **Balise d’image de l’agent**.
 
-    La valeur indiquée pour AKS doit être la version **ciprod05262020** ou une version ultérieure. La valeur indiquée pour le cluster Kubernetes avec Azure Arc doit être la version **ciprod09252020** ou une version ultérieure. Si votre cluster dispose d'une version antérieure, consultez [Comment mettre à niveau l'agent Azure Monitor pour conteneurs](container-insights-manage-agent.md#upgrade-agent-on-aks-cluster) afin de connaître les étapes à suivre pour obtenir la dernière version.
+    La valeur indiquée pour AKS doit être la version **ciprod05262020** ou une version ultérieure. La valeur indiquée pour le cluster Kubernetes avec Azure Arc doit être la version **ciprod09252020** ou une version ultérieure. Si votre cluster dispose d’une version antérieure, consultez [Comment mettre à niveau l’agent Container Insights](container-insights-manage-agent.md#upgrade-agent-on-aks-cluster) afin de connaître les étapes à suivre pour obtenir la dernière version.
 
     Pour plus d’informations sur la version de l’agent, consultez l’[historique de publication des mises en production de l’agent](https://github.com/microsoft/docker-provider/tree/ci_feature_prod). Pour vérifier que les métriques sont collectées, vous pouvez utiliser Azure Monitor Metrics Explorer et vérifier qu’**Insights** figure dans l’**espace de noms métrique** . Si c’est le cas, vous pouvez commencer à configurer les alertes. Si vous ne voyez aucune métrique collectée, le principal du service de cluster ou MSI ne dispose pas des autorisations nécessaires. Pour vérifier que le SPN ou MSI est membre du rôle **Éditeur de métriques d’analyse**, suivez les étapes décrites dans la section [Effectuer une mise à niveau par cluster à l’aide d’Azure CLI](container-insights-update-metrics.md#upgrade-per-cluster-using-azure-cli) pour confirmer et définir l’attribution de rôle.
 
 ## <a name="alert-rules-overview"></a>Vue d’ensemble des règles d’alerte
 
-Pour alerter sur ce qui est important, Azure Monitor pour conteneurs inclut les alertes sur les métriques suivantes pour vos clusters AKS et Kubernetes avec Azure Arc :
+Pour alerter sur ce qui est important, Container Insights inclut les alertes métriques suivantes pour vos clusters AKS et Kubernetes avec Azure Arc :
 
 |Nom| Description |Seuil par défaut |
 |----|-------------|------------------|
@@ -108,15 +108,15 @@ Procédez comme suit pour activer les alertes métriques dans Azure Monitor à p
 
 ### <a name="from-the-azure-portal"></a>À partir du portail Azure
 
-Cette section décrit l’activation de l’alerte métrique d’Azure Monitor pour les conteneurs (préversion) à partir du portail Azure.
+Cette section décrit l’activation d’alerte métrique (préversion) de Container Insights à partir du portail Azure.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 
-2. Il est possible d’accéder à la fonctionnalité alerte métrique (préversion) d’Azure Monitor pour les conteneurs directement à partir d’un cluster AKS en sélectionnant **Insights** dans le volet gauche du portail Azure.
+2. Il est possible d’accéder à la fonctionnalité d’alerte métrique (préversion) de Container Insights directement à partir d’un cluster AKS en sélectionnant **Insights** dans le volet gauche du portail Azure.
 
 3. Dans la barre de commandes, sélectionnez **Alertes recommandées**.
 
-    ![Option Alertes recommandées dans Azure Monitor pour les conteneurs](./media/container-insights-metric-alerts/command-bar-recommended-alerts.png)
+    ![Option Alertes recommandées dans Container Insights](./media/container-insights-metric-alerts/command-bar-recommended-alerts.png)
 
 4. Le volet de propriétés **Alertes recommandées** s’affiche automatiquement sur le côté droit de la page. Par défaut, toutes les règles d’alerte dans la liste sont désactivées. Après que vous avez sélectionné **Activer**, la règle d’alerte est créée et son nom mis à jour pour inclure un lien vers la ressource d’alerte.
 
@@ -198,7 +198,7 @@ Les étapes de base sont les suivantes :
 
 ## <a name="edit-alert-rules"></a>Éditer des règles d’alerte
 
-Vous pouvez afficher et gérer les règles d’alerte d’Azure Monitor pour les conteneurs, afin de modifier le seuil, ou configurer un [groupe d’actions](../alerts/action-groups.md) pour votre cluster AKS. Si vous pouvez effectuer ces actions à partir du portail Azure et d’Azure CLI, vous pouvez également le faire directement à partir de votre cluster AKS dans Azure Monitor pour les conteneurs.
+Vous pouvez afficher et gérer les règles d’alerte de Container Insights, afin de modifier le seuil, ou configurer un [groupe d’actions](../alerts/action-groups.md) pour votre cluster AKS. Si vous pouvez effectuer ces actions à partir du portail Azure et d’Azure CLI, vous pouvez également le faire directement à partir de votre cluster AKS dans Container Insights.
 
 1. Dans la barre de commandes, sélectionnez **Alertes recommandées**.
 

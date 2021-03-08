@@ -1,20 +1,19 @@
 ---
-title: Configurer la supervision d’Intégrité des invités Azure Monitor pour machines virtuelles (préversion)
-description: Décrit comment modifier la supervision par défaut d’Intégrité des invités Azure Monitor pour machines virtuelles (préversion) à l’aide du portail Azure.
-ms.subservice: ''
+title: Configurer la surveillance dans l’intégrité de l’invité de VM Insights (préversion)
+description: Décrit comment modifier la surveillance par défaut de l’intégrité des invités VM Insights (préversion) à l’aide du portail Azure.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/14/2020
-ms.openlocfilehash: 427bdec2b5e5ab14d566375d5ad8f9da9dc3e81b
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0f6599bb9f379cf471dafbb83a7deefbb05c0dbe
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100600278"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102052209"
 ---
-# <a name="configure-monitoring-in-azure-monitor-for-vms-guest-health-preview"></a>Configurer la supervision d’Intégrité des invités Azure Monitor pour machines virtuelles (préversion)
-La fonctionnalité Intégrité des invités Azure Monitor pour machines virtuelles vous permet de voir l’état d’intégrité d’une machine virtuelle tel que défini par un ensemble de mesures de performances échantillonnées à des intervalles réguliers. Cet article décrit la façon dont vous pouvez modifier la supervision par défaut à l’aide du portail Azure. Il décrit également les concepts fondamentaux des moniteurs nécessaires à la [configuration de la supervision à l’aide d’une règle de collecte de données](vminsights-health-configure-dcr.md).
+# <a name="configure-monitoring-in-vm-insights-guest-health-preview"></a>Configurer la surveillance dans l’intégrité de l’invité de VM Insights (préversion)
+L’intégrité des invités de VM Insights vous permet de voir l’état d’intégrité d’une machine virtuelle tel que défini par un ensemble de mesures de performances échantillonnées à intervalles réguliers. Cet article décrit la façon dont vous pouvez modifier la supervision par défaut à l’aide du portail Azure. Il décrit également les concepts fondamentaux des moniteurs nécessaires à la [configuration de la supervision à l’aide d’une règle de collecte de données](vminsights-health-configure-dcr.md).
 
 ## <a name="open-monitor-configuration"></a>Ouvrir la configuration du moniteur
 Ouvrez la configuration du moniteur dans le portail Azure en sélectionnant le moniteur, puis l’onglet **Configuration**.

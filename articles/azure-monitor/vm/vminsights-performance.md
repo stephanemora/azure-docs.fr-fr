@@ -1,24 +1,23 @@
 ---
-title: Comment créer des graphiques de performances avec Azure Monitor pour les machines virtuelles
-description: Performances est une fonctionnalité d’Azure Monitor pour les machines virtuelles qui détecte automatiquement les composants d’application sur les systèmes Windows et Linux et mappe la communication entre les services. Cet article fournit des informations sur son utilisation dans divers scénarios.
-ms.subservice: ''
+title: Comment créer des graphiques de performances avec VM Insights
+description: Performances est une fonctionnalité de VM Insights qui découvre automatiquement les composants d’application sur les systèmes Windows et Linux et mappe la communication entre services. Cet article fournit des informations sur son utilisation dans divers scénarios.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/31/2020
-ms.openlocfilehash: f9578fadfbe057b723af63e338bf8bda63cf6f21
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 02cb6a0c69fef1a33dd9327ddbd86e02b376a60e
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100600088"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102046463"
 ---
-# <a name="how-to-chart-performance-with-azure-monitor-for-vms"></a>Comment créer des graphiques de performances avec Azure Monitor pour les machines virtuelles
+# <a name="how-to-chart-performance-with-vm-insights"></a>Comment créer des graphiques de performances avec VM Insights
 
-Azure Monitor pour les machines virtuelles comprend un ensemble de graphiques de performances qui ciblent divers indicateurs de performance clés (KPI) pour vous aider à déterminer l’intégrité du fonctionnement d’une machine virtuelle. Les graphiques illustrent l’utilisation des ressources sur une période de temps pour que vous puissiez identifier les goulots d’étranglement ou les anomalies. Vous pouvez également basculer sur une perspective répertoriant toutes les machines virtuelles pour afficher l’utilisation des ressources en fonction de la métrique sélectionnée. Il y a beaucoup d’autres éléments à prendre en compte dans la gestion des performances, mais la solution Azure Monitor pour machines virtuelles supervise des indicateurs de performances clés du système d’exploitation liés à l’utilisation du processeur, de la mémoire, de la carte réseau et du disque. La fonctionnalité Performances vient compléter celle de supervision de l’intégrité et permet d’exposer les problèmes indiquant une panne éventuelle d’un composant système, de prendre en charge les réglages et l’optimisation pour améliorer l’efficacité ou de prendre en charge la planification de la capacité.  
+VM Insights comprend un ensemble de graphiques de performances qui ciblent divers indicateurs de performance clés (KPI) pour vous aider à déterminer l’intégrité du fonctionnement d’une machine virtuelle. Les graphiques illustrent l’utilisation des ressources sur une période de temps pour que vous puissiez identifier les goulots d’étranglement ou les anomalies. Vous pouvez également basculer sur une perspective répertoriant toutes les machines virtuelles pour afficher l’utilisation des ressources en fonction de la métrique sélectionnée. S’il y a beaucoup d’éléments à prendre en compte dans la gestion des performances, la solution VM Insights supervise des indicateurs de performances clés du système d’exploitation liés à l’utilisation du processeur, de la mémoire, de la carte réseau et du disque. La fonctionnalité Performances vient compléter celle de supervision de l’intégrité et permet d’exposer les problèmes indiquant une panne éventuelle d’un composant système, de prendre en charge les réglages et l’optimisation pour améliorer l’efficacité ou de prendre en charge la planification de la capacité.  
 
 ## <a name="limitations"></a>Limites
-Voici les limitations de la collecte de performances avec Azure Monitor pour machines virtuelles.
+Voici les limitations de la collecte de performances avec VM Insights.
 
 - La **Mémoire disponible** n’est pas disponible pour les machines virtuelles exécutant Red Hat Linux (RHEL) 6. Cette mesure est calculée à partir de **MemAvailable** qui a été introduite dans la [version 3.14 du noyau](http://www.man7.org/linux/man-pages/man1/free.1.html).
 - Les métriques sont uniquement disponibles pour les disques de données sur des machines virtuelles Linux utilisant la famille de systèmes de fichiers XFS ou EXT (EXT2, EXT3, EXT4).
@@ -33,7 +32,7 @@ Dans Azure Monitor, la fonctionnalité Performances peut afficher l’ensemble d
 
 ![Affichage Top N List (Liste N premiers) - Performances - Insights de machine virtuelle](media/vminsights-performance/vminsights-performance-aggview-01.png)
 
-Dans l’onglet **Graphiques N premiers**, si vous avez plusieurs espaces de travail Log Analytics, choisissez celui qui est activé avec la solution à partir du sélecteur **Espace de travail** en haut de la page. Le sélecteur **Groupe** retourne les abonnements, les groupes de ressources, les [groupes d’ordinateurs](../platform/computer-groups.md) et les groupes de machines virtuelles identiques associés à l’espace de travail sélectionné que vous pouvez utiliser pour filtrer davantage les résultats présentés dans les graphiques de cette page et dans les autres pages. Votre sélection s’applique seulement à la fonctionnalité Performances, et n’est pas reportée sur Intégrité ou Carte.  
+Dans l’onglet **Graphiques N premiers**, si vous avez plusieurs espaces de travail Log Analytics, choisissez celui qui est activé avec la solution à partir du sélecteur **Espace de travail** en haut de la page. Le sélecteur **Groupe** retourne les abonnements, les groupes de ressources, les [groupes d’ordinateurs](../logs/computer-groups.md) et les groupes de machines virtuelles identiques associés à l’espace de travail sélectionné que vous pouvez utiliser pour filtrer davantage les résultats présentés dans les graphiques de cette page et dans les autres pages. Votre sélection s’applique seulement à la fonctionnalité Performances, et n’est pas reportée sur Intégrité ou Carte.  
 
 Par défaut, les graphiques montrent les dernières 24 heures. À l’aide du sélecteur **TimeRange**, vous pouvez interroger les intervalles de temps précédents (jusqu’à 30 jours) pour afficher l’état des performances passées.
 
@@ -45,7 +44,7 @@ Les cinq graphiques d’utilisation de capacité affichés sur la page sont :
 * Bytes Sent Rate (Taux d’octets envoyés) : affiche les cinq premières machines avec la moyenne d’octets envoyés la plus élevée 
 * Bytes Received Rate (Taux d’octets reçus) : affiche les cinq premières machines avec la moyenne d’octets reçus la plus élevée 
 
-En cliquant sur l’icône d’épingle dans le coin supérieur droit de l’un des cinq graphiques, vous épinglez le graphique sélectionné au dernier tableau de bord Azure que vous avez consulté.  À partir du tableau de bord, vous pouvez redimensionner et repositionner le graphique. En sélectionnant le graphique depuis le tableau de bord, vous allez être redirigé vers Azure Monitor pour machines virtuelles, et charger la portée et la vue appropriées.  
+En cliquant sur l’icône d’épingle dans le coin supérieur droit de l’un des cinq graphiques, vous épinglez le graphique sélectionné au dernier tableau de bord Azure que vous avez consulté.  À partir du tableau de bord, vous pouvez redimensionner et repositionner le graphique. La sélection du graphique dans le tableau de bord a pour effet de vous rediriger vers VM Insights et de charger l’étendue et l’affichage appropriés.  
 
 Cliquez sur l’icône située à gauche de l’icône d’épingle, sur l’un des cinq graphiques, pour ouvrir la vue **Top N List** (Liste N premiers).  Ici, vous pouvez voir l’utilisation des ressources pour cette métrique de performances par machine virtuelle dans un affichage de liste, ainsi que la machine virtuelle avec les tendances d’utilisation les plus élevées.  
 
@@ -104,7 +103,7 @@ Les graphiques d’utilisation de la capacité suivants sont fournis :
 * Bytes Sent Rate (Taux d’octets envoyés) : affiche par défaut la moyenne d’octets envoyés 
 * Bytes Received Rate (Taux d’octets reçus) : affiche par défaut la moyenne d’octets reçus
 
-En cliquant sur l’icône d’épingle dans le coin supérieur droit de l’un des graphiques, vous épinglez le graphique sélectionné au dernier tableau de bord Azure que vous avez consulté. À partir du tableau de bord, vous pouvez redimensionner et repositionner le graphique. En sélectionnant le graphique du tableau de bord vous redirige vers Azure Monitor pour machines virtuelles et charge l’affichage des détails sur les performances pour la machine virtuelle.  
+En cliquant sur l’icône d’épingle dans le coin supérieur droit de l’un des graphiques, vous épinglez le graphique sélectionné au dernier tableau de bord Azure que vous avez consulté. À partir du tableau de bord, vous pouvez redimensionner et repositionner le graphique. La sélection du graphique dans le tableau de bord a pour effet de vous rediriger vers VM Insights et de charger l’affichage des détails des performances de la machine virtuelle.  
 
 ![Performances - Insights de machine virtuelle directement depuis l’affichage de la machine virtuelle](./media/vminsights-performance/vminsights-performance-directvm-01.png)
 
@@ -117,7 +116,7 @@ Pour un accès direct depuis un groupe de machines virtuelles identiques, procé
 
 Cette page charge l’affichage des performances Azure Monitor, limité au groupe identique sélectionné. Cela vous permet de voir les n principales instances dans le groupe identique sur l’ensemble des métriques surveillées, d’afficher les performances agrégées sur le groupe identique et de voir les tendances relatives aux métriques sélectionnées sur les instances individuelles et le groupe identique. La sélection d’une instance de la vue de liste vous permet de charger son mappage ou de naviguer dans une vue détaillée des performances pour cette instance.
 
-En cliquant sur l’icône d’épingle dans le coin supérieur droit de l’un des graphiques, vous épinglez le graphique sélectionné au dernier tableau de bord Azure que vous avez consulté. À partir du tableau de bord, vous pouvez redimensionner et repositionner le graphique. En sélectionnant le graphique du tableau de bord vous redirige vers Azure Monitor pour machines virtuelles et charge l’affichage des détails sur les performances pour la machine virtuelle.  
+En cliquant sur l’icône d’épingle dans le coin supérieur droit de l’un des graphiques, vous épinglez le graphique sélectionné au dernier tableau de bord Azure que vous avez consulté. À partir du tableau de bord, vous pouvez redimensionner et repositionner le graphique. La sélection du graphique dans le tableau de bord a pour effet de vous rediriger vers VM Insights et de charger l’affichage des détails des performances de la machine virtuelle.  
 
 ![Afficher des performances associées aux insights de machine virtuelle directement à partir de la vue d’un groupe de machines virtuelles identiques Azure](./media/vminsights-performance/vminsights-performance-directvmss-01.png)
 
@@ -128,6 +127,6 @@ En cliquant sur l’icône d’épingle dans le coin supérieur droit de l’un 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez comment utiliser les [classeurs](vminsights-workbooks.md) fournis dans Azure Monitor pour machines virtuelles afin d’analyser plus en détail les métriques de performances et de réseau.  
+- Découvrez comment utiliser les [classeurs](vminsights-workbooks.md) fournis avec VM Insights afin d’analyser plus en détail les métriques de performances et de réseau.  
 
-- Pour en savoir plus sur les dépendances des applications détectées, consultez [View Azure Monitor for VMs Map](vminsights-maps.md) (Afficher la carte d’Azure Monitor pour machines virtuelles).
+- Pour découvrir les dépendances d’applications découvertes, consultez [Afficher la Carte VM Insights](vminsights-maps.md).

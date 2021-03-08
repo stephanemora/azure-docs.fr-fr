@@ -4,16 +4,16 @@ description: Analyse des performances des applications pour les services d’app
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js, devx-track-dotnet
-ms.openlocfilehash: 74b39219b3b18c8de0214367d141085f6dc5f674
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 7661066bc2666070c8b3ed9263b1223c09d6c720
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100574000"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734721"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Analyser les performances d’Azure App Service
 
-L’activation de la supervision de vos applications web ASP.NET et ASP.NET Core exécutées sur [Azure App Services](../../app-service/index.yml) n’a jamais été aussi facile. Alors qu’auparavant vous deviez installer manuellement une extension de site, la dernière version de l’agent/extension est désormais intégrée à l’image App Service par défaut. Cet article explique pas à pas comment activer la supervision Application Insights et vous donne des conseils d’automatisation du processus pour les déploiements à grande échelle.
+L’activation de la surveillance de vos applications web ASP.NET, ASP.NET Core et Node.js s’exécutant sur [Azure App Services](../../app-service/index.yml) n’a jamais été aussi facile. Alors qu’auparavant vous deviez installer manuellement une extension de site, la dernière version de l’agent/extension est désormais intégrée à l’image App Service par défaut. Cet article explique pas à pas comment activer la supervision Application Insights et vous donne des conseils d’automatisation du processus pour les déploiements à grande échelle.
 
 > [!NOTE]
 > L’ajout manuel d’une extension de site Application Insights via **Outils de développement** > **Extensions** est une méthode dépréciée. Cette méthode d’installation de l’extension était dépendante des mises à jour manuelles pour chaque nouvelle version. La version stable la plus récente de l’extension est désormais [préinstallée](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions) dans l’image App Service. Les fichiers se trouvent dans `d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent` et sont automatiquement mis à jour avec chaque version stable. Si vous suivez les instructions ci-dessous pour activer la supervision basée sur un agent, l’extension dépréciée sera automatiquement supprimée.
@@ -97,7 +97,7 @@ Le ciblage de l’infrastructure complète à partir d’ASP.NET Core, le déplo
 
 # <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
-À partir de votre application web App Service, sous **Paramètres** > **sélectionnez Application Insights** > **Activer**. La supervision basée sur l’agent Node.js est actuellement en préversion.
+La surveillance basée sur un agent Windows n’est pas prise en charge. Pour l’activer avec Linux, consultez la [documentation App Service Node.js](../../app-service/configure-language-nodejs.md?pivots=platform-linux#monitor-with-application-insights).
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -170,6 +170,7 @@ Pour activer la collecte de données de télémétrie avec Application Insights,
 |XDT_MicrosoftApplicationInsights_Mode |  Dans le mode par défaut uniquement, les fonctionnalités essentielles sont activées afin de garantir des performances optimales. | `default` ou `recommended`. |
 |InstrumentationEngine_EXTENSION_VERSION | Contrôle si le moteur de réécriture binaire `InstrumentationEngine` est activé. Ce paramètre impacte les performances ainsi que les temps de démarrage/démarrage à froid. | `~1` |
 |XDT_MicrosoftApplicationInsights_BaseExtensions | Contrôle si le texte de tables SQL et Azure est capturé, ainsi que les appels de dépendances. Avertissement de performance : le temps de démarrage à froid de l’application sera perturbé. Ce paramètre requiert `InstrumentationEngine`. | `~1` |
+|XDT_MicrosoftApplicationInsights_PreemptSdk | Pour les applications ASP.NET Core uniquement. Active la technologie interop (interopération) avec le Kit de développement logiciel (SDK) Application Insights. Charge l’extension côte à côte avec le Kit de développement logiciel (SDK), et utilise celui-ci pour envoyer des données de télémétrie (désactive le Kit de développement logiciel (SDK) Application Insights). |`1`|
 
 ### <a name="app-service-application-settings-with-azure-resource-manager"></a>Paramètres d’application App Service avec Azure Resource Manager
 

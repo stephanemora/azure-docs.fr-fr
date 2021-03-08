@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 05/26/2020
 ms.author: lajanuar
 ms.custom: devx-track-csharp
-ms.openlocfilehash: dd5b83908ae7c6d62acd3391933028685facf755
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 0665dcbc8de518c5759c52a8fc3aec26859566d6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98927486"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728006"
 ---
 # <a name="tutorial-create-a-translation-app-with-wpf"></a>Tutoriel : Créer une application de traduction avec WPF
 
@@ -41,7 +41,7 @@ Cette liste inclut les services Cognitive Services utilisés dans ce tutoriel. S
 | Service | Fonctionnalité | Description |
 |---------|---------|-------------|
 | Convertisseur | [Obtenir les langues](./reference/v3-0-languages.md) | Récupérez la liste complète des langues prises en charge pour la traduction de texte. |
-| Convertisseur | [Translate](./reference/v3-0-translate.md) | Traduisez du texte dans plus de 70 langues. |
+| Convertisseur | [Translate](./reference/v3-0-translate.md) | Traduisez du texte en 90 langues et dialectes. |
 | Convertisseur | [Detect](./reference/v3-0-detect.md) | Détectez la langue du texte d’entrée. Inclut le score de confiance pour la détection. |
 | Vérification orthographique Bing | [Vérification orthographique](/rest/api/cognitiveservices/bing-spell-check-api-v7-reference) | Corrigez les fautes d’orthographe pour améliorer l’exactitude de la traduction. |
 
@@ -264,7 +264,7 @@ Enfin, nous avons ajouté du code pour appeler des méthodes afin de récupérer
 
 ## <a name="get-supported-languages"></a>Obtenir les langues prises en charge
 
-Translator prend actuellement en charge plus de 70 langues. Comme de nouvelles langues seront prises en charge au fil du temps, nous vous recommandons d’appeler la ressource Languages exposée par Translator au lieu de coder en dur la liste des langues dans votre application.
+Le Traducteur prend actuellement en charge 90 langues et dialectes. Comme de nouvelles langues seront prises en charge au fil du temps, nous vous recommandons d’appeler la ressource Languages exposée par Translator au lieu de coder en dur la liste des langues dans votre application.
 
 Dans cette section, nous envoyons une demande `GET` à la ressource Languages, en spécifiant que nous voulons la liste des langues disponibles pour la traduction.
 

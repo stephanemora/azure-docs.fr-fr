@@ -4,12 +4,12 @@ description: Découvrez comment utiliser la réplication Hive dans les clusters 
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/08/2020
-ms.openlocfilehash: 3dd894a46b666703f64e44336c0bf022da8a063a
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 2e57b7d8121ac0bd6fc9cb693750c41a0ef6a5bc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98941340"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733055"
 ---
 # <a name="how-to-use-apache-hive-replication-in-azure-hdinsight-clusters"></a>Guide pratique pour utiliser la réplication Apache Hive dans les clusters Azure HDInsight
 
@@ -19,7 +19,7 @@ La réplication Hive a évolué au fil des années, avec des versions plus réce
 
 ## <a name="advantages-of-replv2"></a>Avantages de Replv2
 
-[Hive ReplicationV2](https://cwiki.apache.org/confluence/display/Hive/HiveReplicationv2Development) ou (Replv2) présente les avantages suivants par rapport à la première version de la réplication Hive qui utilisait Hive [IMPORT-EXPORT](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ImportExport) :
+[Hive ReplicationV2](https://cwiki.apache.org/confluence/display/Hive/HiveReplicationv2Development) (également appelé Replv2) présente les avantages suivants par rapport à la première version de la réplication Hive qui utilisait Hive [IMPORT-EXPORT](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ImportExport) :
 
 - Réplication incrémentielle basée sur les événements
 - Réplication à un instant dans le passé  
@@ -222,6 +222,6 @@ La séquence de code suivante fournit un exemple de la façon dont l’amorçage
 Pour en savoir plus sur les fonctionnalités présentées dans cet article, voir :
 
 - [Continuité d’activité Azure HDInsight](../hdinsight-business-continuity.md)
-- [Architectures de continuité d’activité Azure HDInsight](../hdinsight-business-continuity-architecture.md)
+- [Architectures de continuité de l’activité Azure HDInsight](../hdinsight-business-continuity-architecture.md)
 - [Étude de cas d’architecture de solution hautement disponible Azure HDInsight](../hdinsight-high-availability-case-study.md)
 - [Présentation d’Apache Hive et HiveQL sur Azure HDInsight](../hadoop/hdinsight-use-hive.md)

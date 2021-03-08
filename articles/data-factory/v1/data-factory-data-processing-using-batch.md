@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c59e164d67a665a5e99cb5045b3b0cf38e33dc87
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: ec04000e678cd3fc55f4681781f91b6d98ea41f5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100364271"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101730862"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Traiter des jeux de données volumineux à l’aide de Data Factory et de Batch
 > [!NOTE]
@@ -575,9 +575,7 @@ Les services liés relient des magasins de données ou des services de calcul à
    d. Entrez l’URI du lot pour la propriété JSON **batchUri** .
 
       > [!IMPORTANT]
-      > L’URL dans le panneau **Compte Batch** est au format suivant : \<accountname\>.\<region\>.batch.azure.com. Pour la propriété **batchUri** dans le fichier JSON, vous devez supprimer a88"nom_compte."** de l’URL. par exemple `"batchUri": "https://eastus.batch.azure.com"`.
-      >
-      >
+      > L’URL dans le panneau **Compte Batch** est au format suivant : `<accountname>.<region>.batch.azure.com`. Pour la propriété `batchUri` dans le script JSON, vous devez supprimer `<accountname>.` de l’URL. par exemple `"batchUri": "https://eastus.batch.azure.com"`.
 
       ![Panneau Compte Batch](./media/data-factory-data-processing-using-batch/image9.png)
 

@@ -7,12 +7,12 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/21/2018
 ms.custom: seodec18
-ms.openlocfilehash: 484e8853d02aa68c8a8695ba7cc724adb5a8766a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 3356e0bdd45b6a213ef5ef4a814e64585d8e8924
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100572962"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726765"
 ---
 # <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>Présentation de la surveillance des tâches Stream Analytics et des requêtes
 
@@ -30,6 +30,7 @@ Une fenêtre s’affiche comme suit :
 | ---------------------- | ---------------------------------------- |
 | Événements d'entrée en backlog       | Nombre d’événements d’entrée qui sont en backlog. Une valeur non nulle pour cette métrique implique que votre travail n’est pas en mesure de suivre le nombre d’événements entrants. Si cette valeur est croissante ou constamment différente de zéro, vous devez effectuer un scale-out de votre travail. Vous trouverez plus d’informations en consultant [Comprendre et ajuster les unités de diffusion en continu](stream-analytics-streaming-unit-consumption.md). |
 | Erreurs de conversion de données | Nombre d’événements de sortie qui n’ont pas pu être convertis dans le schéma de sortie attendu. La stratégie de l’erreur peut être modifiée sur 'Drop' pour supprimer les événements confrontés à ce scénario. |
+| % d’utilisation du processeur (préversion)       | Pourcentage d’utilisation du processeur par votre tâche. Si cette métrique est systématiquement supérieure à 80%, cela peut signifier que votre tâche est limitée par l’utilisation du processeur et que des événements d’entrée risquent d’être retardés. Vous pouvez augmenter le nombre d’unités de diffusion allouées à votre tâche afin de limiter ces problèmes. |
 | Événements d’entrée précoces       | Événements dont l’horodatage d’application est antérieure à leur heure d’arrivée de plus de 5 minutes. |
 | Requêtes de fonction ayant échoué | Nombre d’appels à la fonction Azure Machine Learning ayant échoué (le cas échéant). |
 | Événements de fonction        | Nombre d’événements envoyés à la fonction Azure Machine Learning (le cas échéant). |
@@ -42,7 +43,7 @@ Une fenêtre s’affiche comme suit :
 | Événements non ordonnés    | Nombre d’événements reçus dans le désordre qui ont été supprimés ou dont l’horodatage a été réglé, en fonction de la stratégie de classement des événements. Cela peut être affecté par la configuration du paramètre de la plage de tolérance pour les événements en désordre. |
 | Événements de sortie          | Quantité de données envoyées par le travail Stream Analytics à la cible de sortie, en nombre d’événements. |
 | Erreurs d’exécution         | Nombre total d’erreurs liées au traitement des requêtes (à l’exception des erreurs détectées lors de l’ingestion d’événements ou de la génération de résultats) |
-| Utilisation de % d’unités de diffusion       | Si l’utilisation des ressources est régulièrement supérieure à 80 %, le délai en filigrane augmente; tout comme le nombre d’événements retardés. Dans ce cas, vous pouvez d’augmenter les unités de streaming. Une utilisation intensive indique que la tâche atteint une limite proche de la quantité maximale de ressources allouées. |
+| Utilisation de % d’unités de diffusion       | Pourcentage d’utilisation de la mémoire par votre tâche. Si le pourcentage d’utilisation des ressources est régulièrement supérieur à 80 %, le délai en filigrane augmente; tout comme le nombre d’événements retardés. Dans ce cas, vous pouvez d’augmenter les unités de streaming. Une utilisation intensive indique que la tâche atteint une limite proche de la quantité maximale de ressources allouées. |
 | Délai en filigrane       | Le délai en filigrane maximal sur toutes les partitions de toutes les sorties du travail. |
 
 Vous pouvez utiliser ces mesures pour [surveiller les performances de votre travail Stream Analytics](./stream-analytics-set-up-alerts.md#scenarios-to-monitor). 

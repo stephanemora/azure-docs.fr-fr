@@ -1,17 +1,16 @@
 ---
 title: Analyse des modifications dans Insights de machine virtuelle
 description: L’intégration d’Insights de machine virtuelle avec Analyse des changements d’application vous permet d’afficher toute modification apportée à une machine virtuelle susceptible d’avoir affecté ses performances.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/23/2020
-ms.openlocfilehash: 48f0f0e124040dc070bd5e31f956f75e759303d3
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 375812813d704eb9b48d0ed8fbbc65dd5e47da49
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101704002"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102046769"
 ---
 # <a name="change-analysis-in-vm-insights"></a>Analyse des modifications dans Insights de machine virtuelle
 L’intégration d’insights de machine virtuelle avec [Analyse des changements d’application](../app/change-analysis.md) vous permet d’afficher toute modification apportée à une machine virtuelle susceptible d’avoir affecté ses performances.

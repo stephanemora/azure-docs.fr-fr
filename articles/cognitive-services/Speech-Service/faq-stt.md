@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/01/2021
 ms.author: panosper
-ms.openlocfilehash: 21924ad5da8833ca5cf8373270ed1bfd3facfdc9
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 1ebba3231a7b3a86b98bcc14d1257412d1557ff3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100388615"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738189"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Forum aux questions sur la reconnaissance vocale
 
@@ -138,7 +138,9 @@ Consultez [Quotas et limites des services Speech](speech-services-quotas-and-lim
 
 **R** : L’apprentissage d’un modèle avec des données audio peut être un processus long. Selon la quantité de données, la création d’un modèle personnalisé peut prendre plusieurs jours. Si elle n’est pas terminée au bout d’une semaine, le service peut abandonner l’opération d’apprentissage et signaler un échec du modèle.
 
-Pour obtenir des résultats plus rapides, utilisez l’une des [régions](custom-speech-overview.md#set-up-your-azure-account) dans lesquelles du matériel dédié est disponible pour l’apprentissage. En général, le service traite environ 10 heures de données audio par jour dans les régions avec ce type de matériel. Il peut uniquement traiter environ 1 heure de données audio par jour dans d’autres régions. Vous pouvez copier le modèle entièrement entraîné dans une autre région à l’aide de [l’API REST](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription). L’apprentissage sur du simple texte est beaucoup plus rapide : il se termine généralement au bout de quelques minutes.
+Utilisez l’une des [régions](custom-speech-overview.md#set-up-your-azure-account) dans lesquelles du matériel dédié est disponible pour l’apprentissage. Le service Speech utilisera jusqu’à 20 heures d’audio pour l’apprentissage dans ces régions. Dans d’autres régions, il n’utilise que jusqu’à 8 heures.
+
+En général, le service traite environ 10 heures de données audio par jour dans les régions avec du matériel dédié. Il peut uniquement traiter environ 1 heure de données audio par jour dans d’autres régions. Vous pouvez copier le modèle entièrement entraîné dans une autre région à l’aide de [l’API REST](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription). L’apprentissage sur du simple texte est beaucoup plus rapide : il se termine généralement au bout de quelques minutes.
 
 Certains modèles de base ne sont pas personnalisables avec des données audio. Dans ce cas, le service utilise simplement le texte de la transcription pour l’apprentissage et ignore les données audio. L’apprentissage se révèlera alors beaucoup plus rapide. Les résultats seront les mêmes que pour l’apprentissage sur du simple texte. Pour obtenir la liste des modèles de base prenant en charge l’entraînement avec des données audio, consultez les informations relatives à la [prise en charge des langues](language-support.md#speech-to-text).
 

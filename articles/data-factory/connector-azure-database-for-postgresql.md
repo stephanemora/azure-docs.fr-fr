@@ -6,13 +6,13 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/01/2021
-ms.openlocfilehash: 32c65a3e1063b29ab6458151aec42e4415a73b62
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 02/25/2021
+ms.openlocfilehash: ec4ea645e325ef48d4cb5951cd39fd4e9cbe1617
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100381322"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738053"
 ---
 # <a name="copy-and-transform-data-in-azure-database-for-postgresql-by-using-azure-data-factory"></a>Copier et transformer des données dans Azure Database pour PostgreSQL à l’aide d’Azure Data Factory
 
@@ -29,6 +29,8 @@ Ce connecteur Azure Database pour PostgreSQL est pris en charge pour les activit
 - [Activité de copie](copy-activity-overview.md) avec [prise en charge de la matrice source/récepteur](copy-activity-overview.md)
 - [Mappage de flux de données](concepts-data-flow-overview.md)
 - [Activité de recherche](control-flow-lookup-activity.md)
+
+Actuellement, le flux de données prend en charge un serveur unique Azure Database pour PostgreSQL, mais pas un serveur flexible ou hyperscale (Citus).
 
 ## <a name="getting-started"></a>Prise en main
 

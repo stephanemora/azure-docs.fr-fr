@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/02/2021
 ms.custom: references_regions
-ms.openlocfilehash: eedb3dfeafbd378cfff7afb04fcc2b9aa6e791d6
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: e9cbb7daf61397064bd79f30d851d96fdf63f5a0
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101678431"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102203230"
 ---
 # <a name="semantic-search-in-azure-cognitive-search"></a>Recherche sémantique dans la Recherche cognitive Azure
 
@@ -27,7 +27,7 @@ La technologie sous-jacente, tirant parti des investissements réalisés par Bin
 
 Les fonctionnalités en préversion publique sont les suivantes :
 
-+ Algorithme de classement sémantique qui récupère les documents pertinents en fonction du contexte ou de la signification sémantique des termes de la requête de recherche
++ Le modèle de classement sémantique qui note les résultats en fonction du contexte ou de la signification sémantique des termes de la requête de recherche
 + Légendes sémantiques mettant en surbrillance les passages pertinents
 + Réponses sémantiques à la requête, également formulées à partir des résultats
 + Vérification orthographique corrigeant les fautes de frappe avant que les termes de la requête n’atteignent le moteur de recherche
@@ -44,7 +44,9 @@ Pour créer les légendes et les réponses, il utilise des modèles de représen
 
 ## <a name="availability-and-pricing"></a>Disponibilité et tarification
 
-Le classement sémantique est disponible par le biais de l’[enregistrement d’inscription](https://aka.ms/SemanticSearchPreviewSignup), auprès des services de recherche créés au niveau Standard (S1, S2, S3) et situés dans l’une des régions suivantes : USA Centre Nord, USA Ouest, USA Ouest 2, USA Est 2, Europe Nord, Europe Ouest. La correction orthographique est disponible dans les mêmes régions, mais ne présente aucune restriction de niveau. Si vous avez un service existant qui répond aux critères de niveau et de région, seule l’inscription est requise.
+Le classement sémantique est disponible par le biais de l’[enregistrement d’inscription](https://aka.ms/SemanticSearchPreviewSignup), auprès des services de recherche créés au niveau Standard (S1, S2, S3) et situés dans l’une des régions suivantes : USA Centre Nord, USA Ouest, USA Ouest 2, USA Est 2, Europe Nord, Europe Ouest. Un service de recherche existant au niveau S1 ou supérieur dans les régions indiquées est éligible pour la préversion (inutile de créer un nouveau service).
+
+La correction orthographique est disponible dans les mêmes régions, mais ne présente aucune restriction de niveau ni d’obligation d’inscription. 
 
 Dans le cadre du lancement de la préversion, du 2 mars au 1er avril, la correction orthographique et le classement sémantique sont proposés gratuitement. Après le 1er avril, les coûts de calcul liés à l’exécution de cette fonctionnalité deviendront un événement facturable. Le coût attendu est d’environ 500 dollars US par mois pour 250 000 requêtes. Vous trouverez des informations détaillées sur les coûts, présentées à la [page des tarifs de la Recherche cognitive](https://azure.microsoft.com/pricing/details/search/) et dans [Estimer et gérer les coûts](search-sku-manage-costs.md).
 

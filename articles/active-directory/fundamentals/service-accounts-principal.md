@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1c9df24a255d640c463bd62e8bdfe8a576df3b09
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: fff9f9e809c61761ae22bc64cb0810b6e8b98f07
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101692860"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102122695"
 ---
 # <a name="securing-service-principals"></a>Sécurisation des principaux de service
 
@@ -107,7 +107,7 @@ Impossible de gérer la connexion des principaux de service avec l’accès cond
 ## <a name="move-from-a-user-account-to-a-service-principal"></a>Passer d’un compte d’utilisateur à un principal de service  
 Si vous utilisez un compte d’utilisateur Azure en tant que principal du service, voyez s’il vous est possible d’utiliser une [identité managée](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet) ou un principal de service. Si vous ne pouvez pas utiliser d’identité managée, approvisionnez un principal de service doté de suffisamment d’autorisations et d’étendue pour exécuter les tâches requises. Vous pouvez créer un principal de service en [inscrivant une application](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) ou à l’aide de [PowerShell](https://docs.microsoft.com/azure/active-directory/develop/howto-authenticate-service-principal-powershell).
 
-Lorsque vous utilisez Microsoft Graph, consultez la documentation de l’API spécifique, [comme dans cet exemple](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps?view=azps-5.0.0), et assurez-vous que le type d’autorisation pour l’application est pris en charge.
+Lorsque vous utilisez Microsoft Graph, consultez la documentation de l’API spécifique, [comme dans cet exemple](/powershell/azure/create-azure-service-principal-azureps), et assurez-vous que le type d’autorisation pour l’application est pris en charge.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -115,7 +115,7 @@ Lorsque vous utilisez Microsoft Graph, consultez la documentation de l’API sp�
 
 [Créer un principal du service](../develop/howto-create-service-principal-portal.md)
 
- [Surveiller les connexions de principal de service](../reports-monitoring/concept-all-sign-ins#sign-ins-report.md)
+ [Surveiller les connexions de principal de service](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins#sign-ins-report)
 
 **Pour en savoir plus sur la sécurisation des comptes de service :**
 
@@ -125,4 +125,4 @@ Lorsque vous utilisez Microsoft Graph, consultez la documentation de l’API sp�
 
 [Administration des comptes de service Azure](service-accounts-governing-azure.md)
 
-[Présentation des comptes de service locaux](service-accounts-on-poremises.md)
+[Présentation des comptes de service locaux](service-accounts-on-premises.md)

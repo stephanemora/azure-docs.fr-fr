@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: conceptual
 ms.date: 01/29/2021
-ms.openlocfilehash: 103855748c4b5d998dfc81eeb4044f5f53dae9e5
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 2b37308bcbcd489876c21dce56878de7e0daf545
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100372006"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699026"
 ---
 # <a name="pricing-and-billing-models-for-azure-logic-apps"></a>Modèles de tarification et de facturation pour Azure Logic Apps
 
@@ -94,7 +94,9 @@ Pour plus d’informations sur les limites, consultez [Limites ISE dans Azure Lo
 
 ## <a name="integration-accounts"></a>Comptes d’intégration
 
-Un [compte d’intégration](../logic-apps/logic-apps-pricing.md#integration-accounts) est une ressource distincte que vous créez et liez à des applications logiques afin que vous puissiez explorer, générer et tester des solutions d’intégration B2B qui utilisent [EDI](logic-apps-enterprise-integration-b2b.md) et les capacités de [traitement XML](logic-apps-enterprise-integration-xml.md). Azure Logic Apps propose les niveaux de service ou niveaux de compte d’intégration suivants :
+Un [compte d’intégration](../logic-apps/logic-apps-pricing.md#integration-accounts) est une ressource distincte que vous créez et liez à des applications logiques afin que vous puissiez explorer, générer et tester des solutions d’intégration B2B qui utilisent [EDI](logic-apps-enterprise-integration-b2b.md) et les capacités de [traitement XML](logic-apps-enterprise-integration-xml.md).
+
+Azure Logic Apps offre ces niveaux de compte d’intégration, qui [varient en fonction de la tarification](https://azure.microsoft.com/pricing/details/logic-apps/) et du [modèle de facturation](logic-apps-pricing.md#integration-accounts), selon que vos applications logiques sont basées sur la consommation ou sur un ISE :
 
 | Niveau | Description |
 |------|-------------|

@@ -3,12 +3,12 @@ title: Hébergement dédié Azure Functions
 description: Découvrez les avantages de l’exécution d’Azure Functions sur un plan d’hébergement App Service dédié.
 ms.topic: conceptual
 ms.date: 10/29/2020
-ms.openlocfilehash: 0ee32d4c4a7d33664da88b133a1f7011fc09f298
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a9f976eda4a551c302ba7df92fbdbbf7a4fce1d7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100591054"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704563"
 ---
 # <a name="dedicated-hosting-plans-for-azure-functions"></a>Plans d’hébergement dédiés pour Azure Functions
 
@@ -41,7 +41,7 @@ Même lorsque le paramètre Always On est activé, le délai d’exécution des 
 
 ## <a name="app-service-environments"></a>Environnements App Service
 
-L’exécution dans une instance [App Service Environment](../app-service/environment/intro.md) vous permet d’isoler entièrement vos fonctions et de tirer parti d’un nombre d’instances plus élevé que dans un plan App Service. Pour commencer, voir la rubrique .
+L’exécution dans une instance App Service Environment vous permet d’isoler entièrement vos fonctions et de tirer parti d’un nombre d’instances plus élevé que dans un plan App Service. Pour plus d’informations, consultez [Présentation des environnements App Service](../app-service/environment/intro.md).
 
 Si vous souhaitez simplement exécuter votre application de fonction dans un réseau virtuel, vous pouvez le faire à l’aide du [plan Premium](functions-premium-plan.md). Pour en savoir plus, consultez [Établir l’accès privé aux sites avec Azure Functions](functions-create-private-site-access.md). 
 

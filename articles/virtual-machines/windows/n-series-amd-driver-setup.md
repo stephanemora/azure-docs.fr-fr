@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 12/4/2019
 ms.author: vikancha
-ms.openlocfilehash: b62095a3dc48480d8b1d33328d2d0dc25470d763
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 1e08d54b9467231233c62635dafc5135456a3843
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461088"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101695411"
 ---
 # <a name="install-amd-gpu-drivers-on-n-series-vms-running-windows"></a>Installer les pilotes GPU AMD sur les machines virtuelles de série N exécutant Windows
 
@@ -31,7 +31,13 @@ Pour obtenir les spécifications de base, les capacités de stockage et les info
 
 | Système d''exploitation | Pilote |
 | -------- |------------- |
-| Windows 10 Entreprise multisession - Build 1903 <br/><br/>Windows 10 - Build 1809<br/><br/>Windows Server 2016<br/><br/>Windows Server 2019 | [20.Q1.17](https://download.microsoft.com/download/d/e/f/def0fb44-15ab-4b83-959a-8094eb9d0dfe/AMD-Azure-NVv4-Driver-20Q1-Hotfix3.exe) (.exe) |
+| Windows 10 Entreprise multisession - Build 1909 <br/><br/>Windows 10 - Build 1909<br/><br/>Windows Server 2016<br/><br/>Windows Server 2019 | [20.Q4](https://download.microsoft.com/download/f/1/6/f16e6275-a718-40cd-a366-9382739ebd39/AMD-Azure-NVv4-Driver-20Q4.exe) (.exe) |
+
+ > [!NOTE]
+   >  Si vous utilisez le build 1903/1909, vous devrez peut-être mettre à jour la stratégie de groupe suivante pour obtenir des performances optimales. Ces modifications ne sont pas nécessaires pour les autres builds de Windows.
+   >  
+   >  [Configuration de l’ordinateur->Stratégies->Paramètres Windows->Modèles d’administration->Composants Windows->Services Bureau à distance->Hôte de session Bureau à distance->Session à distance    Environnement], définissez la Stratégie [Utiliser le pilote d’affichage graphique WDDM pour les connexions Bureau à distance] sur Désactivé.
+   >  
 
 
 ## <a name="driver-installation"></a>Installation du pilote

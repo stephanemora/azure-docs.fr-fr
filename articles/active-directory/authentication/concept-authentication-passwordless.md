@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e36acb5a6a0984b003e4e8deb597bddfc43b064a
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 97517ad3ff260806108dc22686d49b43b0fc6609
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101647555"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102096018"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Options d’authentification sans mot de passe pour Azure Active Directory
 
@@ -89,6 +89,8 @@ Les clés de sécurité FIDO2 sont une méthode d’authentification sans mot de
 Les utilisateurs peuvent enregistrer, puis sélectionner une clé de sécurité FIDO2 dans l’interface de connexion en tant que principal moyen d’authentification. Ces clés de sécurité FIDO2 sont généralement des périphériques USB, mais elles peuvent également utiliser les technologies Bluetooth ou NFC. Avec un périphérique matériel gérant l’authentification, la sécurité d’un compte augmente car il n’existe aucun mot de passe qui pourrait être exposé ou deviné.
 
 Les clés de sécurité FIDO2 peuvent être utilisées pour se connecter à leurs appareils Windows 10 joints à Azure AD ou à Azure AD hybride et bénéficier de l’authentification unique sur leurs ressources cloud et locales. Les utilisateurs peuvent également se connecter aux navigateurs pris en charge. Les clés de sécurité FIDO2 constituent une excellente solution pour les entreprises qui sont très sensibles à la sécurité ou ayant des scénarios ou des employés qui ne sont pas prêts à ou capables d’utiliser leur téléphone comme deuxième facteur.
+
+Nous proposons un document de référence sur [les navigateurs qui prennent en charge l’authentification FIDO2 avec Azure AD](fido2-compatibility.md) ainsi que les meilleures pratiques pour les développeurs qui souhaitent [prendre en charge l’authentification FIDO2 dans les applications qu’ils développent](../develop/support-fido2-authentication.md).
 
 ![Connectez-vous à Microsoft Edge avec une clé de sécurité](./media/concept-authentication-passwordless/concept-web-sign-in-security-key.png)
 

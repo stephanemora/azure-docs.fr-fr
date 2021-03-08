@@ -4,19 +4,21 @@ description: Protection des données Azure Security Benchmark V2
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/20/2020
+ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 687c344aefc70729c85fb37d615ec0a272ff4fde
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: c8d907062835f18393946b04f1f1e9d5ec345411
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97368866"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735758"
 ---
 # <a name="security-control-v2-data-protection"></a>Contrôle de sécurité V2 : Protection des données
 
 La protection des données recouvre le contrôle de protection des données au repos, en transit et via des mécanismes d’accès autorisés. Cela comprend la découverte, la classification, la protection et la supervision des ressources de données sensibles via le contrôle d’accès, le chiffrement et la journalisation dans Azure.
+
+Pour afficher l’instance Azure Policy intégrée applicable, consultez [Informations sur l’initiative intégrée Conformité réglementaire Azure Security Benchmark : Protection des données](../../governance/policy/samples/azure-security-benchmark#data-protection)
 
 ## <a name="dp-1-discovery-classify-and-label-sensitive-data"></a>DP-1 : Découvrir, classifier et étiqueter des données sensibles
 
@@ -24,9 +26,9 @@ La protection des données recouvre le contrôle de protection des données au r
 |--|--|--|--|
 | DP-1 | 13.1, 14.5, 14.7 | SC-28 |
 
-Découvrez, classifiez et étiquetez vos données sensibles de façon à concevoir les contrôles appropriés pour faire en sorte que le stockage, le traitement et la transmission sécurisées des informations sensibles soient assurés par les systèmes technologiques de l’organisation. 
+Découvrez, classifiez et étiquetez vos données sensibles de façon à concevoir les contrôles appropriés pour faire en sorte que le stockage, le traitement et la transmission sécurisées des informations sensibles soient assurés par les systèmes technologiques de l’organisation.
 
-Utilisez Azure Information Protection (et son outil d’analyse associé) pour les informations sensibles présentes dans les documents Office au niveau d’Azure, de l’environnement local, d’Office 365 et ailleurs. 
+Utilisez Azure Information Protection (et son outil d’analyse associé) pour les informations sensibles présentes dans les documents Office au niveau d’Azure, de l’environnement local, d’Office 365 et ailleurs.
 
 Vous pouvez utiliser Azure SQL Information Protection pour faciliter la classification et l’étiquetage des informations stockées dans les bases de données Azure SQL Database.
 
@@ -38,7 +40,7 @@ Vous pouvez utiliser Azure SQL Information Protection pour faciliter la classifi
 
 **Parties prenantes de la sécurité des clients** ([En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
 
-- [Sécurité des applications et DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)  
+- [Sécurité des applications et DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
 - [Sécurité des données](/azure/cloud-adoption-framework/organize/cloud-security-data-security) 
 
@@ -84,9 +86,9 @@ Azure Information Protection (AIP) offre des fonctionnalités de supervision pou
 
 Si cela est nécessaire pour la conformité de la protection contre la perte de données (DLP), vous pouvez utiliser une solution DLP basée sur l’hôte pour appliquer des contrôles de détection et/ou de prévention de façon à empêcher l’exfiltration de données.
 
-- [Activer ATP pour Azure SQL](../../azure-sql/database/threat-detection-overview.md)
+- [Azure Defender pour SQL](../../azure-sql/database/azure-defender-for-sql.md)
 
-- [Activer ATP pour Stockage Azure](../../storage/common/azure-defender-storage-configure.md?tabs=azure-security-center)
+- [Azure Defender pour Stockage](../../storage/common/azure-defender-storage-configure.md?tabs=azure-security-center)
 
 **Responsabilité** : Partagé
 
@@ -104,11 +106,11 @@ Si cela est nécessaire pour la conformité de la protection contre la perte de 
 |--|--|--|--|
 | DP-4 | 14.4 | SC-8 |
 
-En complément des contrôles d’accès, les données en transit doivent être protégées contre les attaques « hors bande » (par exemple, la capture de trafic) à l’aide du chiffrement pour empêcher les attaquants de lire ou modifier facilement les données. 
+En complément des contrôles d’accès, les données en transit doivent être protégées contre les attaques « hors bande » (par exemple, la capture de trafic) à l’aide du chiffrement pour empêcher les attaquants de lire ou modifier facilement les données.
 
-C’est certes facultatif pour le trafic sur les réseaux privés, mais essentiel pour le trafic sur les réseaux externes et publics. Pour le trafic HTTP, vérifiez que les clients se connectant à vos ressources Azure peuvent négocier TLS v1.2 ou une version ultérieure. Pour la gestion à distance, utilisez SSH (pour Linux) ou RDP/TLS (pour Windows) plutôt qu’un protocole non chiffré. Les versions et protocoles SSL, TLS et SSH rendus obsolètes et les chiffrements faibles doivent être désactivés.  
+C’est certes facultatif pour le trafic sur les réseaux privés, mais essentiel pour le trafic sur les réseaux externes et publics. Pour le trafic HTTP, vérifiez que les clients se connectant à vos ressources Azure peuvent négocier TLS v1.2 ou une version ultérieure. Pour la gestion à distance, utilisez SSH (pour Linux) ou RDP/TLS (pour Windows) plutôt qu’un protocole non chiffré. Les versions et protocoles SSL, TLS et SSH rendus obsolètes et les chiffrements faibles doivent être désactivés.
 
-Par défaut, Azure assure le chiffrement des données en transit entre les centres de données Azure. 
+Par défaut, Azure assure le chiffrement des données en transit entre les centres de données Azure.
 
 - [Présentation du chiffrement en transit avec Azure](../fundamentals/encryption-overview.md#encryption-of-data-in-transit)
 

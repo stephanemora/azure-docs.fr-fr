@@ -1,19 +1,19 @@
 ---
-title: Créer des rapports interactifs Azure Monitor pour machines virtuelles avec des classeurs
-description: Simplifier la création de rapports complexes grâce à des classeurs paramétrés prédéfinis et personnalisés pour Azure Monitor pour machines virtuelles.
+title: Créer des rapports interactifs VM Insights avec des classeurs
+description: Simplifiez la création de rapports complexes grâce à des classeurs paramétrables prédéfinis et personnalisés pour VM Insights.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
-ms.openlocfilehash: 43cdb9de111bdea5486e49a56d58d38279b685c7
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 1e2f6c7a6b4a36eb1aa4230f62ee4b0c2a1c57c3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100600077"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731287"
 ---
-# <a name="create-interactive-reports-azure-monitor-for-vms-with-workbooks"></a>Créer des rapports interactifs Azure Monitor pour machines virtuelles avec des classeurs
+# <a name="create-interactive-reports-vm-insights-with-workbooks"></a>Créer des rapports interactifs VM Insights avec des classeurs
 
 Les classeurs regroupent du texte, des  [requêtes de journal](/azure/data-explorer/kusto/query/), des métriques et des paramètres sous la forme de rapports interactifs complets. Les classeurs sont modifiables par tous les membres de l’équipe ayant accès aux mêmes ressources Azure.
 
@@ -24,7 +24,7 @@ Les classeurs sont utiles pour les scénarios tels que les suivants :
 * Partager les résultats d’une expérimentation de redimensionnement de votre machine virtuelle avec d’autres membres de votre équipe. Vous pouvez expliquer les objectifs de l’expérimentation avec du texte, puis montrer chaque métrique d’utilisation et des requêtes analytiques utilisées pour évaluer l’expérimentation, en vous aidant de légendes claires indiquant si chaque métrique se situe au-dessus ou en dessous de la cible.
 * Créer des rapports relatifs à l’impact d’une panne sur l’utilisation de votre machine virtuelle, en combinant des données, une explication du texte et une présentation des étapes suivantes pour éviter à l’avenir d’éventuelles interruptions.
 
-Le tableau suivant récapitule les classeurs qu’inclut Azure Monitor pour machines virtuelles pour vous aider à commencer.
+Le tableau suivant récapitule les classeurs qu’inclut VM Insights pour vous aider à commencer.
 
 | Classeur | Description | Étendue |
 |----------|-------------|-------|
@@ -96,7 +96,7 @@ Les sections de requête sont extrêmement flexibles et peuvent être utilisées
 
 Vous pouvez également formuler des requêtes concernant d’autres machines virtuelles que celle à partir de laquelle vous avez lancé le classeur. Vous pouvez lancer des requêtes sur plusieurs machines virtuelles, ainsi que sur des espaces de travail Log Analytics, à condition de disposer d’une autorisation d’accès à ces ressources.
 
-Pour inclure des données d’autres espaces de travail Log Analytics ou d’une application Application Insights spécifique, utilisez l’identificateur de l’**espace de travail**. Pour en savoir plus sur les requêtes inter-ressources, reportez-vous aux [instructions officielles](../log-query/cross-workspace-query.md).
+Pour inclure des données d’autres espaces de travail Log Analytics ou d’une application Application Insights spécifique, utilisez l’identificateur de l’**espace de travail**. Pour en savoir plus sur les requêtes inter-ressources, reportez-vous aux [instructions officielles](../logs/cross-workspace-query.md).
 
 ### <a name="advanced-analytic-query-settings"></a>Paramètres de requête analytique avancés
 
@@ -137,7 +137,7 @@ VMConnection
 
 ## <a name="adding-metrics-sections"></a>Ajout de sections de métriques
 
-Les sections de métriques vous offrent un accès complet pour intégrer des données de métriques Azure Monitor dans vos rapports interactifs. Dans Azure Monitor pour machines virtuelles, les classeurs prédéfinis contiennent généralement des données de requête analytique plutôt que des données métriques.  Vous pouvez décider de créer des classeurs avec des données de métriques, ce qui vous permet de combiner les avantages des deux fonctionnalités dans un emplacement unique. Vous avez également la possibilité d’extraire des données de métriques à partir des ressources de l’ensemble des abonnements auxquels vous avez accès.
+Les sections de métriques vous offrent un accès complet pour intégrer des données de métriques Azure Monitor dans vos rapports interactifs. Dans VM Insights, les classeurs prédéfinis contiennent généralement des données de requête analytique plutôt que des données métriques.  Vous pouvez décider de créer des classeurs avec des données de métriques, ce qui vous permet de combiner les avantages des deux fonctionnalités dans un emplacement unique. Vous avez également la possibilité d’extraire des données de métriques à partir des ressources de l’ensemble des abonnements auxquels vous avez accès.
 
 Voici un exemple de données de machine virtuelle extraites dans un classeur en vue d’afficher les performances du processeur sous forme de grille :
 
@@ -244,4 +244,4 @@ Pour épingler un lien à un classeur dans un tableau de bord Azure :
 
 - Pour connaître les limitations et les performances globales des machines virtuelles, consultez [Afficher les performances des machines virtuelles Azure](vminsights-performance.md).
 
-- Pour en savoir plus sur les dépendances des applications détectées, consultez [View Azure Monitor for VMs Map](vminsights-maps.md) (Afficher la carte d’Azure Monitor pour machines virtuelles).
+- Pour découvrir les dépendances d’applications découvertes, consultez [Afficher la Carte VM Insights](vminsights-maps.md).

@@ -2,13 +2,13 @@
 title: Vue d’ensemble des fonctionnalités d’Azure Event Hubs | Microsoft Docs
 description: Cet article décrit en détails les fonctionnalités et la terminologie d’Azure Event Hubs.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 8860a8aa83a17b12236dd47d79479a82846fa8a8
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.date: 02/19/2021
+ms.openlocfilehash: 8bb63bfdbeb5b875b1e461fbd93fb48dcbb43054
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98791944"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101739073"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Fonctionnalités et terminologie dans Azure Event Hubs
 
@@ -47,7 +47,12 @@ Azure Event Hubs garantit que tous les événements qui partagent une clé de pa
 
 ### <a name="event-retention"></a>Rétention des événements
 
-Les événements publiés sont supprimés d’un Event Hub selon une stratégie de rétention configurable basée sur un délai. La valeur par défaut et la période de rétention la plus brève possible est de 1 jour (24 heures). Pour Event Hubs Standard, la période de rétention maximale est de 7 jours. Pour Event Hubs Dedicated, la période de rétention maximale est de 90 jours.
+Les événements publiés sont supprimés d’un Event Hub selon une stratégie de rétention configurable basée sur un délai. Voici quelques points importants :
+
+- La valeur **par défaut** et la période de rétention **la plus courte** possible est de **1 jour (24 heures)** .
+- Pour Event Hubs **Standard**, la période de rétention maximale est de **7 jours**. 
+- Pour Event Hubs **Dedicated**, la période de rétention maximale est de **90 jours**.
+- Si vous modifiez la période de rétention, celle-ci s’applique à tous les messages, dont ceux figurant déjà dans l’Event Hub. 
 
 > [!NOTE]
 > Event Hubs est un moteur de flux d’événements en temps réel et n’est pas conçu pour être utilisé à la place d’une base de données et/ou d’un magasin permanent pour les flux d’événements se déroulant de manière illimitée. 
@@ -117,6 +122,9 @@ Un *décalage* correspond à la position d’un événement dans une partition. 
 Les *points de contrôle* constituent un processus par lequel les lecteurs marquent ou valident leur position dans une séquence d’événements de partition. La réalisation des points de contrôle est la responsabilité du consommateur et se produit sur une base par partition dans un groupe de consommateurs. Cette responsabilité signifie que pour chaque groupe de consommateurs, chaque lecteur de partition doit conserver une trace de sa position actuelle dans le flux d’événements. Il peut informer le service lorsqu’il considère que le flux de données est complet.
 
 Si un lecteur se déconnecte d'une partition, lorsqu'il se reconnecte il commence la lecture au point de contrôle qui a été précédemment soumis par le dernier lecteur de cette partition dans ce groupe de consommateurs. Lorsque le lecteur se connecte, il transmet le décalage à l’Event Hub pour spécifier l’emplacement où commencer la lecture. De cette façon, vous pouvez utiliser les points de contrôle pour marquer les événements comme « terminés » par les applications en aval et pour assurer la résilience si un basculement se produit entre des lecteurs en cours d’exécution sur des ordinateurs différents. Il est possible de revenir à des données plus anciennes en spécifiant un décalage inférieur à partir de ce processus de vérification. Grâce à ce mécanisme, les points de contrôle permettent une résilience au basculement renforcée, mais également la relecture du flux d’événements.
+
+> [!IMPORTANT]
+> Les décalages sont fournis par le service Event Hubs. Il incombe au consommateur de créer des points de contrôle à mesure que les événements sont traités.
 
 > [!NOTE]
 > Si vous utilisez Stockage Blob Azure comme magasin de points de contrôle dans un environnement qui prend en charge une autre version du SDK de stockage Blob que celle généralement disponible sur Azure, vous devez utiliser le code pour remplacer la version de l’API de service de stockage par la version prise en charge par cet environnement. Par exemple, si vous exécutez [Event Hubs sur Azure Stack Hub version 2002](/azure-stack/user/event-hubs-overview), la version la plus élevée disponible pour le service Stockage est la version 2017-11-09. Dans ce cas, vous devez utiliser le code pour cibler la version de l’API de service de stockage 2017-11-09. Pour obtenir un exemple sur la façon de cibler une version spécifique de l’API de stockage, consultez les exemples suivants sur GitHub : 

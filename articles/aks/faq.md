@@ -3,12 +3,13 @@ title: Forum aux questions sur Azure Kubernetes Service (AKS)
 description: Recherchez des réponses à certaines des questions les plus fréquemment posées sur Azure Kubernetes Service (AKS).
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.openlocfilehash: 6c2eddf3b7002b101fed8face4a58f2d2b2f4878
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.custom: references_regions
+ms.openlocfilehash: 6d7ea48722e6604fe67d7a4ddcb12870623d9354
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99820260"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101739625"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Forum aux questions sur Azure Kubernetes Service (AKS)
 
@@ -134,7 +135,7 @@ La prise en charge des pools de nœuds dans Windows Server comprend certaines li
 
 AKS fournit des garanties adossées à un contrat SLA à titre complémentaire facultatif avec le [Contrat SLA de durée de fonctionnement][uptime-sla]. 
 
-Le contrat SLA Gratuit proposé par défaut ne garantit pas un point de terminaison de serveur d’API à haut niveau de disponibilité (notre objectif de niveau de service est de 99,5 %). Il peut arriver que des problèmes de connectivité temporaires soient observés en cas de mise à niveau, de nœuds Underlay défectueux, de maintenance de la plateforme, etc. Si votre charge de travail ne tolère pas les redémarrages du serveur d’API, nous vous suggérons d’opter pour le contrat SLA Durée de bon fonctionnement.
+La référence (SKU) gratuite proposée par défaut n’est associée à aucun *Contrat* de niveau de service, mais a un *Objectif* de niveau de service de 99,5 %. Il peut arriver que des problèmes de connectivité temporaires surviennent en cas de mise à niveau, de nœuds Underlay non sains, de maintenance de la plateforme, d’application inondant le serveur API de demandes, etc. Si votre charge de travail ne tolère pas les redémarrages du serveur API, nous vous suggérons d’opter pour le contrat SLA Durée de bon fonctionnement.
 
 ## <a name="can-i-apply-azure-reservation-discounts-to-my-aks-agent-nodes"></a>Puis-je appliquer des remises de réservation Azure sur mes nœuds d’agent AKS ?
 
@@ -202,7 +203,7 @@ L’agent Log Analytics est pris en charge, car il s’agit d’une extension g�
 
 ## <a name="does-aks-store-any-customer-data-outside-of-the-clusters-region"></a>AKS stocke-t-il des données client en dehors de la région du cluster ?
 
-La fonctionnalité permettant le stockage de données client dans une seule région n’est actuellement disponible que dans la région Asie Sud-Est (Singapour) de la zone géographique Asie-Pacifique. Pour toutes les autres régions, les données client sont stockées dans Zone géographique.
+La fonctionnalité permettant le stockage de données client dans une seule région n’est actuellement disponible que dans la région Asie Sud-Est (Singapour) de la zone géographique Asie-Pacifique, et la région Brésil Sud (État de Sao Paulo) de la zone géographique Brésil. Pour toutes les autres régions, les données client sont stockées dans Zone géographique.
 
 ## <a name="are-aks-images-required-to-run-as-root"></a>Les images AKS sont-elles nécessaires pour fonctionner en tant que racine ?
 

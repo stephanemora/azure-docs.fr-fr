@@ -1,22 +1,22 @@
 ---
-title: Guide pratique pour interroger des journaux à partir d’Azure Monitor pour conteneurs | Microsoft Docs
-description: Azure Monitor pour conteneurs collecte des métriques et des données de journal. Cet article décrit les enregistrements correspondants et inclut des exemples de requêtes.
+title: Comment interroger des journaux à partir de Container Insights | Microsoft Docs
+description: Container Insights collecte des métriques et des données de journal. Cet article décrit les enregistrements correspondants et inclut des exemples de requêtes.
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: 8f02d900ba931768c7f8acebc1b124aff777da18
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 79efa714548adbde67774cab741bf953a4ff1e83
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100600164"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711108"
 ---
-# <a name="how-to-query-logs-from-azure-monitor-for-containers"></a>Guide pratique pour interroger des journaux à partir d’Azure Monitor pour conteneurs
+# <a name="how-to-query-logs-from-container-insights"></a>Comment interroger des journaux à partir de Container Insights
 
-Azure Monitor pour conteneurs collecte des métriques de performances, des données d’inventaire et des informations sur l’état d’intégrité à partir d’hôtes de conteneur et de conteneurs. Les données sont collectées toutes les trois minutes et transférées à l’espace de travail Log Analytics dans Azure Monitor. Ces données sont disponibles pour la [requête](../log-query/log-query-overview.md) dans Azure Monitor. Vous pouvez appliquer ces données à divers scénarios tels que la planification de la migration, l’analyse de la capacité, la détection et la résolution de problèmes de performances à la demande.
+Container Insights collecte des métriques de performances, des données d’inventaire et des informations sur l’état d’intégrité à partir d’hôtes de conteneur et de conteneurs. Les données sont collectées toutes les trois minutes et transférées à l’espace de travail Log Analytics dans Azure Monitor. Ces données sont disponibles pour la [requête](../logs/log-query-overview.md) dans Azure Monitor. Vous pouvez appliquer ces données à divers scénarios tels que la planification de la migration, l’analyse de la capacité, la détection et la résolution de problèmes de performances à la demande.
 
 ## <a name="container-records"></a>Enregistrements de conteneur
 
-Le tableau suivant présente en détail les enregistrements collectés par Azure Monitor pour conteneurs. Pour obtenir la liste des descriptions de colonne, consultez la référence pour les tables [ContainerInventory](/azure/azure-monitor/reference/tables/containerinventory) et [ContainerLog](/azure/azure-monitor/reference/tables/containerlog).
+Le tableau suivant présente en détail les enregistrements collectés par Container Insights. Pour obtenir la liste des descriptions de colonne, consultez la référence pour les tables [ContainerInventory](/azure/azure-monitor/reference/tables/containerinventory) et [ContainerLog](/azure/azure-monitor/reference/tables/containerlog).
 
 | Données | Source de données | Type de données | Champs |
 |------|-------------|-----------|--------|
@@ -110,4 +110,4 @@ Les résultats obtenus sont similaires à ceux de l’exemple suivant :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Azure Monitor pour conteneurs n’inclut pas d’un ensemble prédéfini d’alertes. Pour savoir comment créer les alertes recommandées pour une utilisation élevée du processeur et de la mémoire, consultez [Créer des alertes de performances avec Azure Monitor pour conteneurs](./container-insights-log-alerts.md).
+Container Insights n’inclut pas d’un ensemble prédéfini d’alertes. Consultez [Créer des alertes de performances avec Container Insights](./container-insights-log-alerts.md) pour savoir comment créer les alertes recommandées pour une utilisation élevée du processeur et de la mémoire, afin de prendre en charge vos procédures et processus opérationnels ou DevOps.

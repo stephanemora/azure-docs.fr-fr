@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9fd10d6a4fb748a61b5e1d9e27777c2fa1134039
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: d45b2ec8814ec2b7f02da99500aa1e72ec525d65
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99225611"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101695700"
 ---
 # <a name="how-to-use-openrowset-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Comment utiliser OPENROWSET avec le pool SQL serverless dans Azure Synapse Analytics
 
@@ -97,6 +97,7 @@ WITH ( {'column_name' 'column_type' [ 'column_ordinal' | 'json_path'] })
 [ , PARSER_VERSION = 'parser_version' ]
 [ , HEADER_ROW = { TRUE | FALSE } ]
 [ , DATAFILETYPE = { 'char' | 'widechar' } ]
+[ , CODEPAGE = { 'ACP' | 'OEM' | 'RAW' | 'code_page' } ]
 ```
 
 ## <a name="arguments"></a>Arguments
@@ -237,6 +238,10 @@ Spécifie si le fichier CSV contient une ligne d’en-tête. La valeur par défa
 DATAFILETYPE = { 'char' | 'widechar' }
 
 Spécifie l’encodage : char est utilisé pour UTF8, widechar est utilisé pour les fichiers UTF16.
+
+CODEPAGE = { 'ACP' | 'OEM' | 'RAW' | 'code_page' }
+
+Indique la page de codes des données dans le fichier. La valeur par défaut est 65001 (encodage UTF-8). Cliquez [ici](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql?view=sql-server-ver15#codepage) pour en savoir plus sur cette option.
 
 ## <a name="fast-delimited-text-parsing"></a>Analyse rapide du texte délimité
 

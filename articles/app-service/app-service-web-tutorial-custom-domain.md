@@ -11,12 +11,12 @@ adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./app-service-web-tutorial-custom-domain-uiex
-ms.openlocfilehash: b3ff1b344852d57f0effbd978c06aa617682ea4f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 79599ce04b93409c67342be73cf88d5e20621c1d
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101720311"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102182568"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Tutoriel : Mapper un nom DNS personnalisé existant à Azure App Service
 
@@ -308,10 +308,7 @@ Dans votre navigateur, accédez aux noms DNS que vous avez configurés précéd
 
 ## <a name="resolve-404-not-found"></a>Résoudre une erreur 404 « Introuvable »
 
-Si vous recevez une erreur HTTP 404 (Introuvable) lors de la navigation vers l’URL de votre domaine personnalisé, vérifiez que votre domaine résout l’adresse IP de votre application en utilisant <a href="https://www.whatsmydns.net/" target="_blank">WhatsmyDNS.net</a>. Si ce n’est pas le cas, l’une des raisons suivantes peut en être la cause :
-
-- Un enregistrement A et/ou un enregistrement CNAME est manquant dans le domaine personnalisé configuré.
-- Le client du navigateur a mis en cache l'ancienne adresse IP de votre domaine. Effacez le cache et testez à nouveau la résolution DNS. Sur une machine Windows, effacez le cache avec `ipconfig /flushdns`.
+Si vous recevez une erreur HTTP 404 (Introuvable) lors de la navigation vers l’URL de votre domaine personnalisé, vérifiez que votre domaine résout l’adresse IP de votre application en utilisant <a href="https://www.nslookup.io/" target="_blank">nslookup.io</a>. Si ce n’est pas le cas, vérifiez que les enregistrements A et CNAME sont configurés correctement à l’aide du même site. Si cela résout correctement l’adresse IP, mais que vous obtenez toujours une erreur 404, votre navigateur peut avoir mis en cache l’ancienne adresse IP de votre domaine. Effacez le cache et testez à nouveau la résolution DNS. Sur une machine Windows, effacez le cache avec `ipconfig /flushdns`.
 
 ## <a name="migrate-an-active-domain"></a>Migrer un domaine actif
 

@@ -2,19 +2,19 @@
 title: Vider les étiquettes et les manifestes
 description: Utilisez une commande de vidage pour supprimer plusieurs balises et manifestes d’un registre de conteneurs Azure en fonction d’un filtre d’âge et d’étiquette, et planifiez éventuellement des opérations de vidage.
 ms.topic: article
-ms.date: 01/27/2021
-ms.openlocfilehash: 11750965ac563d1d5b7ad5ac7b52cf996e791e56
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.date: 02/19/2021
+ms.openlocfilehash: 2dedfdd6eba73b7573743eba60294ac2231ffc56
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954036"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101722226"
 ---
 # <a name="automatically-purge-images-from-an-azure-container-registry"></a>Purger automatiquement les images d’un registre de conteneurs Azure
 
 Lorsque vous utilisez un registre de conteneurs Azure dans le cadre d’un workflow de développement, le registre peut rapidement se remplir d’images ou d’autres artefacts qui ne sont pas nécessaires après une brève période. Vous souhaiterez peut-être supprimer toutes les étiquettes antérieures à une certaine durée ou correspondant à un filtre de nom spécifié. Pour supprimer rapidement plusieurs artefacts, cet article présente la commande `acr purge` que vous pouvez exécuter en tant que tâche ACR à la demande ou [planifiée](container-registry-tasks-scheduled.md). 
 
-La commande `acr purge` est actuellement distribuée dans une image de conteneur public (`mcr.microsoft.com/acr/acr-cli:0.3`), générée à partir du code source dans le référentiel [acr-cli](https://github.com/Azure/acr-cli) dans GitHub.
+La commande `acr purge` est actuellement distribuée dans une image de conteneur public (`mcr.microsoft.com/acr/acr-cli:0.4`), générée à partir du code source dans le référentiel [acr-cli](https://github.com/Azure/acr-cli) dans GitHub.
 
 Pour utiliser les exemples de tâche ACR de cet article, vous pouvez utiliser Azure Cloud Shell ou une installation locale d’Azure CLI. Si vous souhaitez l’utiliser en local, la version 2.0.76 ou une version ultérieure est requise. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI][azure-cli-install]. 
 
@@ -45,6 +45,7 @@ Au minimum, spécifiez les éléments suivants lorsque vous exécutez `acr purge
 * `--untagged` : Spécifie que les manifestes qui n’ont pas d’étiquettes associées (*manifestes non étiquetés*) sont supprimés.
 * `--dry-run` : Spécifie qu’aucune donnée n’est supprimée, mais la sortie est la même que si la commande était exécutée sans cet indicateur. Ce paramètre est utile pour tester une commande de vidage afin de s’assurer qu’elle ne supprime pas par inadvertance les données que vous envisagez de conserver.
 * `--keep` : spécifie que le dernier nombre x de balises à supprimer est conservé.
+* `--concurrency` : Spécifie un nombre de tâches de vidage à traiter simultanément. Une valeur par défaut est utilisée si ce paramètre n’est pas fourni.
 
 Pour les paramètres supplémentaires, exécutez `acr purge --help`. 
 

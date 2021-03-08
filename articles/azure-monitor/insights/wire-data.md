@@ -1,17 +1,16 @@
 ---
 title: Solution Wire Data dans Azure Monitor | Microsoft Docs
 description: Les données de communication sont des données de performances et réseau consolidées provenant des ordinateurs avec des agents Log Analytics. Les données réseau sont associées à vos données de journaux pour vous aider à mettre les données en corrélation.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/29/2020
-ms.openlocfilehash: 563104a82da3b6b2263fce46792cf4f627c8f6ad
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 5981a5f136d613ffcedda86797d807d2eecfab0d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100572331"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713624"
 ---
 # <a name="wire-data-20-preview-solution-in-azure-monitor"></a>Solution Wire Data 2.0 (préversion) dans Azure Monitor
 
@@ -26,7 +25,7 @@ Outre l’agent Log Analytics, la solution Wire Data utilise des agents Microsof
 > 
 >Les clients existants qui utilisent la solution Wire Data peuvent continuer à l’utiliser. Nous publierons des instructions concernant la chronologie de la migration vers Service Map.
 >
->Les nouveaux clients doivent installer la [solution Service Map](../vm/service-map.md) ou [Azure Monitor pour machines virtuelles](../vm/vminsights-overview.md).  Le jeu de données Service Map est comparable à Wire Data.  Azure Monitor pour machines virtuelles comprend le jeu de données Service Map avec des fonctionnalités et des données de performances supplémentaires pour l’analyse. 
+>Les nouveaux clients doivent installer la [solution Service Map](../vm/service-map.md) ou [VM Insights](../vm/vminsights-overview.md).  Le jeu de données Service Map est comparable à Wire Data.  VM Insights comprend le jeu de données Service Map avec des fonctionnalités et des données de performances supplémentaires pour l’analyse. 
 
 
 Par défaut, Azure Monitor journalise les données pour l’UC, la mémoire, le disque et les données de performances du réseau à partir de compteurs intégrés à Windows et à Linux, ainsi que d’autres compteurs de performances que vous pouvez spécifier. La collecte des données réseau et autres est effectuée en temps réel pour chaque agent, notamment les sous-réseaux et les protocoles de niveau application utilisés par l’ordinateur.  Wire Data examine les données réseau au niveau de l’application, pas au niveau de la couche de transport TCP.   La solution n’examine pas les données ACK et SYN individuelles.   Une fois la connexion effectuée, elle est considérée comme une connexion active et marquée en tant que Connecté. Cette connexion reste active tant que les deux côtés acceptent que le socket est ouvert et que des données peuvent être transférées dans les deux sens.   Si l’un des deux côtés ferme la connexion, celle-ci est marquée en tant que Déconnecté.  Par conséquent, elle ne compte que la bande passante des paquets terminés avec succès et ne signale pas les renvois ou les paquets ayant échoué.

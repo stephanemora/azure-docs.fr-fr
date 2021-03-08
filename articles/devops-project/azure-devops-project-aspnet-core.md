@@ -12,15 +12,15 @@ ms.assetid: ''
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.topic: quickstart
-ms.date: 03/24/2020
+ms.date: 02/23/2021
 ms.author: mlearned
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 63d3ac356e4f2c1d17e1511227f5089b7ff4266f
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 59f8d721c23cbb033f295f2ef3045fc96f08ba96
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97589155"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733179"
 ---
 # <a name="create-a-cicd-pipeline-for-net-with-azure-devops-starter"></a>Créer un pipeline CI/CD pour .NET avec Azure DevOps Starter
 
@@ -43,7 +43,9 @@ Azure DevOps Starter crée un pipeline CI/CD dans Azure DevOps. Vous pouvez cré
 1. Sélectionnez Exemple d’application **.NET**. Les exemples .NET offrent le choix entre une infrastructure ASP.NET open source et une infrastructure .NET Core multiplateforme.
 
    ![.NET Framework](_img/azure-devops-project-aspnet-core/select-dotnet.png)
-
+   
+   > [!NOTE]
+   > L’option par défaut pour la configuration du démarrage de DevOps est avec **GitHub**, mais il n’est pas possible de modifier ce à partir de l’Assistant.
 2. Cet exemple est une application MVC ASP.NET Core. Sélectionnez le framework d’application **.NET Core**, puis **Suivant**.    
     
 3. Sélectionnez **Application web Windows** comme cible de déploiement, puis sélectionnez **Suivant**. Si vous le souhaitez, vous pouvez choisir d’autres services Azure pour votre déploiement. Le framework d’application, que vous avez choisi précédemment, détermine le type de cible de déploiement de service Azure disponible ici.
@@ -101,7 +103,7 @@ Dans l’étape précédente, Azure DevOps Starter a automatiquement configuré 
 1. Sous le nom de votre pipeline de build, sélectionnez **Historique**.   
 Dans le volet **Historique**, vous pouvez voir une piste d’audit des modifications que vous avez apportées récemment à la build.  Azure Pipelines gère les modifications apportées au pipeline de build et vous permet de comparer les versions.
 
-1. Sélectionnez **Déclencheurs**. DevOps Starter a créé automatiquement un déclencheur CI, et chaque validation dans le dépôt lance une nouvelle build. Vous pouvez éventuellement choisir d’inclure ou d’exclure des branches dans le processus d’intégration continue.
+1. Sélectionnez **Déclencheurs**. DevOps Starter a créé automatiquement un déclencheur CI, et chaque validation dans le référentiel lance une nouvelle build. Vous pouvez éventuellement choisir d’inclure ou d’exclure des branches dans le processus d’intégration continue.
 
 1. Sélectionnez **Rétention**. En fonction de votre scénario, vous pouvez spécifier des stratégies pour conserver ou supprimer un certain nombre de builds.
 

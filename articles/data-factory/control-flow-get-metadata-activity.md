@@ -4,45 +4,34 @@ description: Découvrez comment utiliser l’activité d’obtention des métado
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 09/23/2020
+ms.date: 02/25/2021
 ms.author: jingwang
-ms.openlocfilehash: f860225862dcbfb79535acfbd6eeb89a217e7ae9
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 91cb10d601f0a44cf9895fffe558c03fdbe06eef
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100385487"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710224"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Activité d’obtention des métadonnées dans Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Vous pouvez utiliser l’activité d’obtention des métadonnées pour récupérer les métadonnées de n’importe quelle donnée dans Azure Data Factory. Vous pouvez utiliser cette activité dans les scénarios suivants :
+Vous pouvez utiliser l’activité d’obtention des métadonnées pour récupérer les métadonnées de n’importe quelle donnée dans Azure Data Factory. Vous pouvez utiliser la sortie de l’activité d’obtention des métadonnées dans des expressions conditionnelles pour effectuer la validation, ou consommer les métadonnées dans des activités subséquentes.
 
-- Valider les métadonnées de n’importe quelle donnée
-- Déclencher un pipeline quand des données sont prêtes/disponibles
+## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 
-La fonctionnalité suivante est disponible dans le flux de contrôle :
-
-- Vous pouvez utiliser la sortie de l’activité d’obtention des métadonnées dans des expressions conditionnelles pour effectuer la validation.
-- Vous pouvez déclencher un pipeline quand une condition est remplie via une bouche Do Until.
-
-## <a name="capabilities"></a>Fonctionnalités
-
-L’activité d’obtention des métadonnées sélectionne un jeu de données en tant qu’entrée et retourne les informations de métadonnées en tant que sortie. Pour l’instant, les connecteurs suivants et les métadonnées récupérables correspondantes sont pris en charge. La taille maximale des métadonnées retournées est d’environ 4 Mo.
-
->[!NOTE]
->Si vous exécutez l’activité d’obtention des métadonnées sur un runtime d’intégration auto-hébergé, les dernières fonctionnalités sont prises en charge sur la version 3.6 ou ultérieure.
+L’activité d’obtention des métadonnées sélectionne un jeu de données en tant qu’entrée et retourne les informations de métadonnées en tant que sortie. Actuellement, les connecteurs suivants et les métadonnées récupérables correspondantes sont pris en charge. La taille maximale des métadonnées retournées est de **4 Mo**.
 
 ### <a name="supported-connectors"></a>Connecteurs pris en charge
 
 **Stockage Fichier**
 
-| Connecteur/Métadonnées | itemName<br>(fichier/dossier) | itemType<br>(fichier/dossier) | taille<br>(fichier) | created<br>(fichier/dossier) | lastModified<br>(fichier/dossier) |childItems<br>(dossier) |contentMD5<br>(fichier) | structure<br/>(fichier) | columnCount<br>(fichier) | exists<br>(fichier/dossier) |
+| Connecteur/Métadonnées | itemName<br>(fichier/dossier) | itemType<br>(fichier/dossier) | taille<br>(fichier) | created<br>(fichier/dossier) | lastModified<sup>1</sup><br>(fichier/dossier) |childItems<br>(dossier) |contentMD5<br>(fichier) | structure<sup>2</sup><br/>(fichier) | columnCount<sup>2</sup><br>(fichier) | exists<sup>3</sup><br>(fichier/dossier) |
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
-| [Amazon S3](connector-amazon-simple-storage-service.md) | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
-| [Google Cloud Storage](connector-google-cloud-storage.md) | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
-| [stockage d’objets blob Azure](connector-azure-blob-storage.md) | √/√ | √/√ | √ | x/x | √/√* | √ | √ | √ | √ | √/√ |
+| [Amazon S3](connector-amazon-simple-storage-service.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
+| [Google Cloud Storage](connector-google-cloud-storage.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
+| [stockage d’objets blob Azure](connector-azure-blob-storage.md) | √/√ | √/√ | √ | x/x | √/√ | √ | √ | √ | √ | √/√ |
 | [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | √/√ | √/√ | √ | x/x | √/√ | √ | √ | √ | √ | √/√ |
 | [Azure Files](connector-azure-file-storage.md) | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
@@ -50,12 +39,23 @@ L’activité d’obtention des métadonnées sélectionne un jeu de données en
 | [SFTP](connector-sftp.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | [FTP](connector-ftp.md) | √/√ | √/√ | √ | x/x | x/x | √ | x | √ | √ | √/√ |
 
-- Lorsque vous utilisez l’activité d’obtention des métadonnées sur un dossier, vérifiez que vous disposez de l’autorisation LIST/EXECUTE sur le dossier donné.
-- Pour Amazon S3 et Google Cloud Storage, `lastModified` s’applique au compartiment et à la clé, mais pas au dossier virtuel, et `exists` s’applique au compartiment et à la clé, mais pas au préfixe ou au dossier virtuel.
+<sup>1</sup> Métadonnées `lastModified` :
+- Pour Amazon S3 et Google Cloud Storage, `lastModified` s’applique au compartiment et à la clé, mais pas au dossier virtuel, et `exists` s’applique au compartiment et à la clé, mais pas au préfixe ou au dossier virtuel. 
 - Pour le stockage Blob Azure, `lastModified` s’applique au conteneur et au blob, mais pas au dossier virtuel.
-- Le filtre `lastModified` s’applique actuellement aux éléments du filtre enfant mais pas au dossier/fichier spécifié lui-même.
+
+<sup>2</sup> Les métadonnées `structure` et `columnCount` ne sont pas pris en charge lors de l’obtention de métadonnées à partir de fichiers binaires, JSON ou XML.
+
+<sup>3</sup> Métadonnées `exists` : pour Amazon S3 et Google Cloud Storage, `exists` s’applique au compartiment et à la clé, mais pas au préfixe ou au dossier virtuel.
+
+Notez les points suivants :
+
+- Lorsque vous utilisez l’activité d’obtention des métadonnées sur un dossier, vérifiez que vous disposez de l’autorisation LIST/EXECUTE sur le dossier donné.
 - Le filtre de caractères génériques sur des dossiers/fichiers n’est pas pris en charge pour une activité Obtenir des métadonnées.
-- `structure` et `columnCount` ne sont pas pris en charge lors de l’obtention de métadonnées à partir de fichiers binaires, JSON ou XML.
+- Filtres `modifiedDatetimeStart` et `modifiedDatetimeEnd` définis sur le connecteur :
+
+    - Ces deux propriétés sont utilisées pour filtrer les éléments enfants lors de l’obtention de métadonnées à partir d’un dossier. Cela ne s’applique pas lors de l’obtention de métadonnées à partir d’un fichier.
+    - Quand un tel filtre est utilisé, les `childItems` dans la sortie comprennent uniquement les fichiers modifiés dans la plage spécifiée, pas dans les dossiers.
+    - Pour appliquer un tel filtre, l’activité GetMetadata énumère tous les fichiers dans le dossier spécifié, et vérifie l’heure de modification. Évitez de pointer vers un dossier contenant un grand nombre de fichiers, même si le nombre de fichiers qualifiés attendu est faible. 
 
 **Base de données relationnelle**
 
@@ -85,9 +85,6 @@ Vous pouvez spécifier les types de métadonnées suivants dans la liste de cham
 
 >[!TIP]
 >Si vous souhaitez vérifier qu’un fichier, un dossier ou une table existe, spécifiez `exists` dans la liste de champs de l’activité d’obtention des métadonnées. Vous pouvez ensuite vérifier le résultat de `exists: true/false` dans la sortie de l’activité. Si `exists` n’est pas spécifié dans la liste de champs, l’activité d’obtention des métadonnées échouera si l’objet est introuvable.
-
->[!NOTE]
->Quand vous récupérez des métadonnées à partir de magasins de fichiers et configurez `modifiedDatetimeStart` ou `modifiedDatetimeEnd`, le `childItems` dans la sortie incluent uniquement les fichiers du chemin spécifié, dont l’heure de dernière modification est comprise dans la plage spécifiée. Il n’inclut pas les éléments des sous-dossiers.
 
 ## <a name="syntax"></a>Syntaxe
 

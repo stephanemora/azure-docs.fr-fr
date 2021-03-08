@@ -2,14 +2,14 @@
 title: Créer un compte dans le portail Azure
 description: Apprenez à créer un compte Azure Batch dans le portail Azure pour exécuter des charges de travail parallèles à grande échelle dans le cloud
 ms.topic: how-to
-ms.date: 01/26/2021
+ms.date: 02/23/2021
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bd9dd9b6d6d3a8d6938427b83528746ae5d09318
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 36759a0caef41af9307bf621a1b6b634ddf586cc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100368504"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703662"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Créer un compte Batch avec le portail Azure
 
@@ -101,7 +101,7 @@ En mode abonnement utilisateur, un [coffre de clés Azure](../key-vault/general/
 
 Lors de la création du compte Batch en mode abonnement utilisateur, spécifiez **Abonnement utilisateur** comme mode d’allocation de pool, sélectionnez le coffre de clés que vous avez créé, puis cochez la case pour accorder à Azure Batch l’accès au coffre de clés.
 
-Si vous préférez accorder manuellement l’accès au coffre de clés, accédez à la section **Stratégies d’accès** du coffre de clés, puis sélectionnez **Ajouter une stratégie d'accès**. Cliquez sur le lien en regard de **Sélectionner le principal**, puis recherchez **Microsoft Azure Batch** (Application ID **ddbf3205-c6bd-46ae-8127-60eb93363864**). Sélectionnez ce principal, puis configurez les **Autorisations du secret** à l’aide du menu déroulant. Azure Batch doit avoir au minimum les autorisations **Get**, **List**, **Set** et **Delete**.
+Si vous préférez accorder manuellement l’accès au coffre de clés, accédez à la section **Stratégies d’accès** du coffre de clés, puis sélectionnez **Ajouter une stratégie d'accès**. Cliquez sur le lien en regard de **Sélectionner le principal**, puis recherchez **Microsoft Azure Batch** (Application ID **ddbf3205-c6bd-46ae-8127-60eb93363864**). Sélectionnez ce principal, puis configurez les **Autorisations du secret** à l’aide du menu déroulant. Azure Batch doit avoir au minimum les autorisations **Get**, **List**, **Set** et **Delete**. Pour les [coffres de clés avec suppression réversible](../key-vault/general/soft-delete-overview.md), Azure Batch doit également disposer de l’autorisation **Récupérer**.
 
 :::image type="content" source="media/batch-account-create-portal/secret-permissions.png" alt-text="Capture d’écran des sélections Autorisations du secret pour Azure Batch":::
 

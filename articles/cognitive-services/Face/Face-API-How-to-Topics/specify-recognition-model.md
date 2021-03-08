@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: longl
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ea6b567d7b48e504d9b79dad568da7170ada5326
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 58e910a721bea95e74a004ae306f1bbc3ade62f2
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101706824"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102174153"
 ---
 # <a name="specify-a-face-recognition-model"></a>Spécifier un modèle de reconnaissance faciale
 
@@ -24,11 +24,11 @@ Ce guide vous montre comment spécifier un modèle de reconnaissance faciale pou
 
 Le service Visage utilise des modèles Machine Learning pour effectuer des opérations sur les visages humains présents dans les images. Nous continuons d’améliorer la précision de nos modèles en fonction des commentaires de nos clients et des progrès de la recherche, et nous intégrons ces améliorations sous forme de mises à jour de modèles. Les développeurs peuvent spécifier la version du modèle de reconnaissance faciale qu'ils souhaitent utiliser ; ils peuvent choisir le modèle qui correspond le mieux à leur cas d'utilisation.
 
-Le service Visage d’Azure dispose de trois modèles de reconnaissance. Les modèles _recognition_01_ (publié en 2017) et _recognition_02_ (publié en 2019) sont continuellement pris en charge pour assurer la compatibilité descendante pour les clients utilisant les objets FaceList ou **PersonGroup** créés avec ces modèles. Un objet **FaceList** ou **Persongroup** utilise toujours le modèle de reconnaissance avec lequel il a été créé et de nouveaux visages sont associés à ce modèle lorsqu'ils y sont ajoutés. Ceci ne peut pas être modifié après la création et les clients doivent utiliser le modèle de reconnaissance correspondant avec l’objet **FaceList** ou **PersonGroup** correspondant.
+Le service Visage d’Azure dispose de quatre modèles de reconnaissance. Les modèles _recognition_01_ (publié en 2017), _recognition_02_ (publié en 2019) et _recognition_03_ (publié en 2020) sont continuellement pris en charge pour assurer la compatibilité descendante pour les clients utilisant les objets FaceList ou **PersonGroup** créés avec ces modèles. Un objet **FaceList** ou **Persongroup** utilise toujours le modèle de reconnaissance avec lequel il a été créé et de nouveaux visages sont associés à ce modèle lorsqu'ils y sont ajoutés. Ceci ne peut pas être modifié après la création et les clients doivent utiliser le modèle de reconnaissance correspondant avec l’objet **FaceList** ou **PersonGroup** correspondant.
 
 Vous pouvez passer à des modèles de reconnaissance ultérieurs à votre convenance. Toutefois, vous devrez créer de nouveaux objets FaceList et PersonGroup avec le modèle de reconnaissance de votre choix.
 
-Le modèle _recognition_03_ (publié en 2020) est le modèle le plus précis actuellement disponible. Si vous êtes un nouveau client, nous vous recommandons d’utiliser ce modèle. _Recognition_03_ offrira une meilleure précision pour les comparaisons de similarité et les comparaisons de correspondance de personne. Notez que chaque modèle fonctionne indépendamment des autres et qu’un seuil de confiance défini pour un modèle n’est pas destiné à être comparé avec les autres modèles de reconnaissance.
+Le modèle _recognition_04_ (publié en 2021) est le modèle le plus précis actuellement disponible. Si vous êtes un nouveau client, nous vous recommandons d’utiliser ce modèle. _Recognition_04_ offre une meilleure précision pour les comparaisons de similarité et les comparaisons de correspondance de personne. _Recognition_04_ améliore la reconnaissance pour les utilisateurs inscrits qui portent des masques (chirurgicaux, N95, en tissu). Vous pouvez désormais créer des expériences utilisateur sécurisées et transparentes qui utilisent le dernier modèle de _detection_03_ pour détecter si un utilisateur inscrit porte un masque, puis reconnaître les personnes avec le dernier modèle _recognition_04_. Notez que chaque modèle fonctionne indépendamment des autres et qu’un seuil de confiance défini pour un modèle n’est pas destiné à être comparé avec les autres modèles de reconnaissance.
 
 Poursuivez la lecture pour en savoir plus sur la détermination d’un modèle spécifique dans différentes opérations de détection de visages, tout en évitant les conflits de modèles. Si vous êtes un utilisateur expérimenté et souhaitez déterminer si vous devez passer au modèle le plus récent, passez à la section [Évaluer des modèles différents](#evaluate-different-models) pour évaluer le nouveau modèle et comparer les résultats en utilisant votre ensemble de données actuel.
 
@@ -51,6 +51,7 @@ Lorsque vous utilisez l’API [Face - Detect], attribuez la version du modèle a
 * recognition_01
 * recognition_02
 * recognition_03
+* recognition_04
 
 
 Si vous le souhaitez, vous pouvez spécifier le paramètre _returnRecognitionModel_ (par défaut **false**) pour indiquer si _recognitionModel_ doit être retourné comme réponse. Ainsi, une URL de requête pour l’API REST [Face - Detect] se présentera comme suit :
@@ -91,10 +92,10 @@ Vous pouvez également spécifier un modèle de reconnaissance pour la recherche
 Consultez l'exemple de code suivant pour la bibliothèque cliente .NET.
 
 ```csharp
-await faceClient.FaceList.CreateAsync(faceListId, "My face collection", recognitionModel: "recognition_03");
+await faceClient.FaceList.CreateAsync(faceListId, "My face collection", recognitionModel: "recognition_04");
 ```
 
-Ce code crée une liste de visages appelée `My face collection`, en utilisant le modèle _recognition_03_ pour l’extraction des traits de visage. Lorsque vous recherchez dans cette liste des visages similaires à un nouveau visage détecté, ce visage doit avoir été détecté ([Face - Detect]) en utilisant le modèle _recognition_03_. Comme dans la section précédente, le modèle doit être cohérent.
+Ce code crée une liste de visages appelée `My face collection`, en utilisant le modèle _recognition_04_ pour l’extraction des caractéristiques. Lorsque vous recherchez dans cette liste des visages similaires à un nouveau visage détecté, celui-ci doit avoir été détecté ([Visage - Détecter]) en utilisant le modèle _recognition_04_. Comme dans la section précédente, le modèle doit être cohérent.
 
 Aucun changement n’est apporté à l'API [Face - Find Similar] ; vous spécifiez uniquement la version du modèle lors de la détection.
 
@@ -105,10 +106,10 @@ L’API [Face - Verify] évalue si deux visages appartiennent à la même person
 ## <a name="evaluate-different-models"></a>Évaluer des modèles différents
 
 Si vous souhaitez comparer les performances des différents modèles de reconnaissance sur vos propres données, vous devez :
-1. créer trois objets PersonGroup utilisant respectivement _recognition_01_, _recognition_02_ et _recognition_03_ ;
-1. utiliser vos données d’image pour détecter les visages et les relier à des **personne** s au sein de ces trois objets **PersonGroup** ; 
+1. créer quatre objets PersonGroup utilisant respectivement _recognition_01_, _recognition_02_, _recognition_03_ et _recognition_04_ ;
+1. utiliser vos données d’image pour détecter des visages et les relier à des **personne** s au sein de ces quatre objets **PersonGroup** ; 
 1. former vos objets PersonGroup à l'aide de l'API PersonGroup - Former ;
-1. effectuer un test avec l’API Face - Identify sur les trois objets **PersonGroup** et comparer les résultats.
+1. effectuer un test avec Visage - Identifier sur les quatre objets **PersonGroup** et comparer les résultats.
 
 
 Si vous spécifiez normalement un seuil de confiance (une valeur comprise entre zéro et une valeur qui détermine le degré de confiance que doit avoir le modèle pour identifier un visage), vous devrez peut-être utiliser différents seuils pour différents modèles. Le seuil d’un modèle n'est pas destiné à être partagé avec un autre modèle, et il ne produira pas nécessairement les mêmes résultats.

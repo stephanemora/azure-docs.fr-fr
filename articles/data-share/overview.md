@@ -5,13 +5,14 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: overview
-ms.date: 10/30/2020
-ms.openlocfilehash: b9fb5d6537d2c8dffef397c56128dd4891c939b7
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.date: 02/23/2021
+ms.custom: references_regions
+ms.openlocfilehash: 3a7c73e4a5ba00155ab905f28edbcb0eb42c0539
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578125"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101724861"
 ---
 # <a name="what-is-azure-data-share"></a>Qu’est-ce qu’Azure Data Share ?
 
@@ -81,7 +82,7 @@ Toutes ces fonctionnalités sont disponibles par le biais du portail Azure ou de
 
 Pour obtenir la liste des régions Azure où Azure Data Share est disponible, reportez-vous à la page [Produits disponibles par région](https://azure.microsoft.com/global-infrastructure/services/?products=data-share) et recherchez Azure Data Share. 
 
-Azure Data Share ne stocke pas une copie des données. Les données sont stockées dans le magasin de données sous-jacent qui est partagé. Par exemple, si un producteur de données stocke ses données dans un compte Azure Data Lake Store situé dans la région USA Ouest, c’est là que les données seront stockées. S’il partage des données avec un compte de stockage Azure situé dans la région Europe Ouest par le biais d’un instantané, les données sont en règle générale transférées directement vers le compte de stockage Azure situé dans la région Europe Ouest.
+Pour les métadonnées stockées par Azure Data Share, pour la région Asie Sud-Est (Singapour), il est stocké dans la région même, et pour toutes les autres régions prises en charge, il est stocké dans la zone géographique. Azure Data Share ne stocke pas de copie des données partagées. Les données sont stockées dans le magasin de données sous-jacent qui est partagé. Par exemple, si un fournisseur de données stocke ses données dans un compte Azure Data Lake Storage situé dans la région USA Ouest, c’est là que les données seront stockées. S’il partage des données avec un compte de stockage Azure situé dans la région Europe Ouest par le biais d’un instantané, les données sont en règle générale transférées directement vers le compte de stockage Azure situé dans la région Europe Ouest. 
 
 Il n’est pas nécessaire que le service Azure Data Share soit disponible dans votre région pour que vous puissiez l’utiliser. Par exemple, si vous avez des données stockées dans un compte de stockage Azure situé dans une région où Azure Data Share n’est pas encore disponible, vous pouvez malgré tout utiliser le service pour partager vos données. 
 

@@ -1,31 +1,31 @@
 ---
-title: Configurer la supervision de l’intégrité des invités Azure Monitor pour machines virtuelles en utilisant des règles de collecte des données (préversion)
-description: Décrit comment modifier la supervision par défaut de l’intégrité des invités Azure Monitor pour machines virtuelles à grande échelle en utilisant des modèles Resource Manager.
+title: Configurer la surveillance dans l’intégrité de l’invité de VM Insights à l’aide règles de collecte de données (préversion)
+description: Décrit comment modifier la supervision par défaut de l’intégrité des invités de VM Insights à grande échelle en utilisant des modèles Resource Manager.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/15/2020
-ms.openlocfilehash: 2001fece40267ca2e3256e699d2dc253ceb10f0c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 907aea16b018fb5dd3846db546787d132f8f5a9f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100600281"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731219"
 ---
-# <a name="configure-monitoring-in-azure-monitor-for-vms-guest-health-using-data-collection-rules-preview"></a>Configurer la supervision de l’intégrité des invités Azure Monitor pour machines virtuelles en utilisant des règles de collecte des données (préversion)
-L’[intégrité des invités Azure Monitor pour machines virtuelles](vminsights-health-overview.md) vous permet de voir l’état d’intégrité d’une machine virtuelle tel que défini par un ensemble de mesures de performances échantillonnées à intervalles réguliers. Cet article décrit comment vous pouvez modifier la supervision par défaut sur plusieurs machines virtuelles en utilisant des règles de collecte des données.
+# <a name="configure-monitoring-in-vm-insights-guest-health-using-data-collection-rules-preview"></a>Configurer la surveillance dans l’intégrité de l’invité de VM Insights à l’aide règles de collecte de données (préversion)
+L’[intégrité des invités de VM Insights](vminsights-health-overview.md) vous permet de voir l’état d’intégrité d’une machine virtuelle tel que défini par un ensemble de mesures de performances échantillonnées à intervalles réguliers. Cet article décrit comment vous pouvez modifier la supervision par défaut sur plusieurs machines virtuelles en utilisant des règles de collecte des données.
 
 
 ## <a name="monitors"></a>Analyses
-L’état d’intégrité d’une machine virtuelle est déterminé par le [cumul de l’intégrité](vminsights-health-overview.md#health-rollup-policy) de chacun de ses moniteurs. Il existe deux types de moniteurs dans l’intégrité des invités Azure Monitor pour machines virtuelles, comme indiqué dans le tableau suivant.
+L’état d’intégrité d’une machine virtuelle est déterminé par le [cumul de l’intégrité](vminsights-health-overview.md#health-rollup-policy) de chacun de ses moniteurs. Il existe deux types de moniteurs dans l’intégrité des invités de VM Insights, comme indiqué dans le tableau suivant.
 
 | Superviser | Description |
 |:---|:---|
 | Moniteur d’unités | Mesure certains aspects d’une ressource ou d’une application. Il peut s’agir de la vérification d’un compteur de performances pour déterminer le niveau de performance de la ressource ou sa disponibilité. |
 | Moniteur agrégé | Regroupe plusieurs moniteurs pour fournir un seul état d’intégrité agrégé. Un moniteur agrégé peut contenir un ou plusieurs moniteurs d’unités et d’autres moniteurs agrégés. |
 
-L’ensemble des moniteurs utilisés par l’intégrité des invités Azure Monitor pour machines virtuelles ne peut pas être modifié directement. Vous pouvez cependant créer des [remplacements](#overrides) qui modifient le comportement de la configuration par défaut. Les remplacements sont définis dans des règles de collecte des données. Vous pouvez créer plusieurs règles de collecte de données, chacune contenant plusieurs remplacements pour obtenir la configuration de supervision souhaitée.
+L’ensemble des moniteurs utilisés par l’intégrité des invités de VM Insights ne peut pas être modifié directement. Vous pouvez cependant créer des [remplacements](#overrides) qui modifient le comportement de la configuration par défaut. Les remplacements sont définis dans des règles de collecte des données. Vous pouvez créer plusieurs règles de collecte de données, chacune contenant plusieurs remplacements pour obtenir la configuration de supervision souhaitée.
 
 ## <a name="monitor-properties"></a>Propriétés des moniteurs
 Le tableau suivant décrit les propriétés que vous pouvez configurer sur chaque moniteur.

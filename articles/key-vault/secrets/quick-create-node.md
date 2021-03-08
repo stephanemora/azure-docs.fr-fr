@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: afb0e04d6f8a34d844df382081d53a32899e9a5c
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 70416daced2cbdebb70fb8e1defbcbcb599710f1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97934762"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101705481"
 ---
 # <a name="quickstart-azure-key-vault-secret-client-library-for-javascript-version-4"></a>Démarrage rapide : Bibliothèque de client de secrets Azure Key Vault pour JavaScript (version 4)
 
@@ -56,13 +56,13 @@ Créez ensuite une application Node.js pouvant être déployée dans le Cloud.
 
 1. Dans une interface de commande, créez un dossier nommé `key-vault-node-app` :
 
-```azurecli
+```terminal
 mkdir key-vault-node-app
 ```
 
 1. Accédez au répertoire *key-vault-node-app* nouvellement créé, puis exécutez la commande « init » pour initialiser le projet node :
 
-```azurecli
+```terminal
 cd key-vault-node-app
 npm init -y
 ```
@@ -71,13 +71,13 @@ npm init -y
 
 Dans la fenêtre de console, installez la [bibliothèque de secrets](https://www.npmjs.com/package/@azure/keyvault-secrets) Azure Key Vault pour Node.js.
 
-```azurecli
+```terminal
 npm install @azure/keyvault-secrets
 ```
 
 Installez le package [azure.identity](https://www.npmjs.com/package/@azure/identity) pour l’authentification auprès d’un coffre de clés.
 
-```azurecli
+```terminal
 npm install @azure/identity
 ```
 
@@ -168,7 +168,7 @@ const client = new SecretClient(KVUri, credential);
 
 ### <a name="save-a-secret"></a>Enregistrer un secret
 
-Maintenant que votre application est authentifiée, vous pouvez placer un secret dans votre coffre avec la [méthode setSecret](/javascript/api/@azure/keyvault-secrets/secretclient?#setsecret-string--string--setsecretoptions-). Un nom pour le secret est nécessaire : dans cet exemple, nous utilisons « mySecret ».  
+Maintenant que votre application est authentifiée, vous pouvez placer un secret dans votre coffre avec la [méthode setSecret](/javascript/api/@azure/keyvault-secrets/secretclient?view=azure-node-latest#setSecret_string__string__SetSecretOptions_). Un nom pour le secret est nécessaire : dans cet exemple, nous utilisons « mySecret ».  
 
 ```javascript
 await client.setSecret(secretName, secretValue);
@@ -176,7 +176,7 @@ await client.setSecret(secretName, secretValue);
 
 ### <a name="retrieve-a-secret"></a>Récupérer un secret
 
-Vous pouvez maintenant récupérer la valeur définie précédemment avec la [méthode getSecret](/javascript/api/@azure/keyvault-secrets/secretclient?#getsecret-string--getsecretoptions-).
+Vous pouvez maintenant récupérer la valeur définie précédemment avec la [méthode getSecret](/javascript/api/@azure/keyvault-secrets/secretclient?view=azure-node-latest#getSecret_string__GetSecretOptions_).
 
 ```javascript
 const retrievedSecret = await client.getSecret(secretName);
@@ -258,9 +258,9 @@ main().then(() => console.log('Done')).catch((ex) => console.log(ex.message));
 
 1. Exécutez les commandes suivantes pour exécuter l’application.
 
-    ```azurecli
+    ```terminal
     npm install
-    npm index.js
+    node index.js
     ```
 
 1. Quand vous y êtes invité, entrez une valeur de secret. Par exemple, mySecretPassword.

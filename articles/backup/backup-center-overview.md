@@ -3,12 +3,12 @@ title: Vue d’ensemble du Centre de sauvegarde
 description: Cet article fournit une vue d’ensemble du Centre de sauvegarde pour Azure.
 ms.topic: conceptual
 ms.date: 09/30/2020
-ms.openlocfilehash: 0acf3a17e41b89b462a7fb07c5d3ebd55d4052af
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: fee7bf41d0c72238231d9c4aba52a26cac9fb960
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101725371"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102099996"
 ---
 # <a name="overview-of-backup-center"></a>Vue d’ensemble du Centre de sauvegarde
 
@@ -27,7 +27,7 @@ Voici quelques-uns des principaux avantages du Centre de sauvegarde :
 
 ## <a name="get-started"></a>Bien démarrer
 
-Pour commencer à utiliser le Centre de sauvegarde, recherchez **Centre de sauvegarde** dans le portail Azure, puis accédez au tableau de bord du **Centre de sauvegarde (préversion)** .
+Pour commencer à utiliser le Centre de sauvegarde, recherchez **Centre de sauvegarde** dans le portail Azure, puis accédez au tableau de bord du **Centre de sauvegarde**.
 
 ![Recherche dans le Centre de sauvegarde](./media/backup-center-overview/backup-center-search.png)
 
@@ -37,7 +37,7 @@ Le premier écran qui s’affiche est la **Vue d’ensemble**. Il contient deux 
 
 La vignette **Travaux** affiche une synthèse de tous les travaux de sauvegarde et de restauration associés déclenchés au sein de votre espace de sauvegarde au cours des dernières 24 heures. Vous pouvez afficher des informations sur le nombre de travaux terminés, en échec et en cours. La sélection de l’un des nombres dans cette vignette vous permet d’afficher des informations supplémentaires sur les travaux pour un type de source de données, un type d’opération et un état spécifiques.
 
-La vignette **Instances de sauvegarde** affiche une synthèse de toutes les instances de sauvegarde dans votre espace de sauvegarde. Par exemple, vous pouvez voir le nombre d’instances de sauvegarde en état de suppression réversible par rapport au nombre d’instances toujours configurées pour la protection. La sélection de l’un des nombres figurant dans cette vignette vous permet d’afficher des informations supplémentaires sur les instances de sauvegarde pour un type de source de données et un état de protection spécifiques.
+La vignette **Instances de sauvegarde** affiche une synthèse de toutes les instances de sauvegarde dans votre espace de sauvegarde. Par exemple, vous pouvez voir le nombre d’instances de sauvegarde en état de suppression réversible par rapport au nombre d’instances toujours configurées pour la protection. La sélection de l’un des nombres figurant dans cette vignette vous permet d’afficher des informations supplémentaires sur les instances de sauvegarde pour un type de source de données et un état de protection spécifiques. Vous pouvez également afficher toutes les instances de sauvegarde dont la source des données sous-jacente est introuvable (la source des données peut être supprimée ou vous n’avez peut-être pas accès à la source des données).
 
 Regardez la vidéo suivante pour comprendre les fonctionnalités du Centre de sauvegarde :
 

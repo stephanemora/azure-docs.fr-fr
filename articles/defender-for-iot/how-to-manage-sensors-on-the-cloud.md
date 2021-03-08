@@ -1,20 +1,20 @@
 ---
-title: Intégrer et gérer des capteurs dans le portail Defender pour IoT
+title: Intégrer et gérer des capteurs et des abonnements dans le portail Defender pour IoT
 description: Découvrez comment intégrer, visualiser et gérer les capteurs dans le portail Defender pour IoT.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/27/2020
+ms.date: 2/18/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 7cc4fe4e2b675fb1b46bb4404d892c02a1f00553
-ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
+ms.openlocfilehash: 63b3b450e289b40aa9acbfb0d5170e8eb57f9e58
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100526856"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733259"
 ---
-# <a name="onboard-and-manage-sensors-in-the-defender-for-iot-portal"></a>Intégrer et gérer des capteurs dans le portail Defender pour IoT
+# <a name="onboard-and-manage-sensors-and-subscriptions-in-the-defender-for-iot-portal"></a>Intégrer et gérer des capteurs et des abonnements dans le portail Defender pour IoT
 
 Cet article explique comment intégrer, visualiser et gérer les capteurs dans le [portail Defender pour IoT](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started).
 
@@ -64,7 +64,7 @@ Sur le [portail Defender pour IoT](https://portal.azure.com/#blade/Microsoft_Azu
 
 ## <a name="manage-onboarded-sensors"></a>Gérer les capteurs intégrés
 
-Vous utilisez le [portail Defender pour IoT](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started) pour les tâches de gestion relatives aux capteurs.
+Utilisez le [portail Defender pour IoT](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started) pour les tâches de gestion relatives aux capteurs.
 
 Les capteurs intégrés peuvent être affichés sur la page **Sites et capteurs**. Vous pouvez également modifier les informations d’un capteur depuis cette page.
 
@@ -78,9 +78,9 @@ Utilisez les options d’édition **Sites et capteurs** pour modifier le nom et 
 
 Pour apporter des modifications :
 
-1. Cliquez avec le bouton droit sur le bouton de sélection ( **...** ) du capteur que vous souhaitez modifier.
-1. Sélectionnez Modifier.
-1. Mettez à jour la zone du capteur, ou créez-en une.
+1. Sélectionnez les **points de suspension** ( **…** ) pour le capteur que vous souhaitez modifier.
+1. Sélectionnez **Edit** (Modifier).
+1. Mettez à jour la zone du capteur, ou créez une zone.
 
 ### <a name="delete-a-sensor"></a>Supprimer un capteur
 
@@ -122,6 +122,24 @@ Pour réactiver un capteur :
 8. Sélectionnez **Télécharger** et sélectionnez le fichier que vous avez enregistré à partir de la page Intégrer un capteur.
 
 9. Sélectionnez **Activer**.
+
+## <a name="offboard-a-subscription"></a>Retirer un abonnement
+
+Les abonnements sont gérés mensuellement. Quand vous retirez un abonnement, vous êtes facturé pour celui-ci jusqu’à la fin du mois. 
+
+Désinstallez tous les capteurs associés à l’abonnement avant de retirer l’abonnement. Pour plus d’informations sur la suppression d’un capteur, consultez [Supprimer un capteur](#delete-a-sensor). 
+
+Pour retirer un abonnement :
+
+1. Accédez à la page **Tarification**.
+1. Sélectionnez l’abonnement, puis l’icône **Supprimer** :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/delete-icon.png" border="false":::.
+1. Dans la fenêtre contextuelle de confirmation, activez la case à cocher pour confirmer que vous avez supprimé tous les capteurs associés à l’abonnement.
+
+    :::image type="content" source="media/how-to-manage-sensors-on-the-cloud/offboard-popup.png" alt-text="Activez la case à cocher et sélectionnez Annuler pour annuler votre capteur.":::
+
+1. Sélectionnez le bouton **Retirer**. 
+
+L’environnement local n’est pas affecté, mais vous devez en désinstaller le capteur, ou réaffecter le capteur à un autre abonnement afin d’éviter que des données associées soient transmises à la console de gestion locale. 
 
 ## <a name="see-also"></a>Voir aussi
 

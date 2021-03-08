@@ -1,17 +1,16 @@
 ---
 title: Utiliser la solution Service Map dans Azure | Microsoft Docs
 description: Service Map est une solution comprise dans Azure qui détecte automatiquement les composants d’application sur les systèmes Windows et Linux et mappe la communication entre les services. Cet article fournit des informations sur le déploiement de Service Map dans votre environnement et son utilisation dans divers scénarios.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2019
-ms.openlocfilehash: 0374c7d304a40031919bae8816d31477e742b9c8
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: ad3f8821189e6e7aabb5653e5f938bb73f57a34b
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100599817"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102046993"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Utilisation de la solution Service Map dans Azure
 
@@ -26,7 +25,7 @@ Cet article décrit les détails de l’intégration et de l’utilisation de Se
 * L’[agent Dependency](vminsights-enable-overview.md#agents) installé sur l’ordinateur Windows ou le serveur Linux.
 
 >[!NOTE]
->Si vous avez déjà déployé Service Map, vous pouvez maintenant visualiser vos mappages dans Azure Monitor pour les machines virtuelles, incluant des fonctionnalités supplémentaires pour la supervision de l’intégrité et des performances de celles-ci. Pour en savoir plus, consultez [Présentation d’Azure Monitor pour machines virtuelles](../vm/vminsights-overview.md). Pour en savoir plus sur les différences entre la solution Service Map et la fonctionnalité de carte Azure Monitor pour machines virtuelles, consultez les [questions fréquentes (FAQ)](../faq.md#azure-monitor-for-vms).
+>Si vous avez déjà déployé Service Map, vous pouvez désormais aussi visualiser vos cartes dans VM Insights, qui inclut des fonctionnalités supplémentaires pour la surveillance de l’intégrité et des performances des machines virtuelles. Pour plus d’informations, consultez [Vue d’ensemble de VM Insights](../vm/vminsights-overview.md). Pour en savoir plus sur les différences entre la solution Service Map et la fonctionnalité de carte de VM Insights, consultez les [questions fréquentes (FAQ)](../faq.md#vm-insights).
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
@@ -241,7 +240,7 @@ Service Map intègre la recherche dans les journaux pour afficher un nombre de t
 
 ## <a name="service-desk-integration"></a>Intégration du service d’assistance
 
-L’intégration de Service Map au connecteur de gestion des services informatiques est automatique quand les deux solutions sont activées et configurées dans votre espace de travail Log Analytics. L’intégration dans Service Map est libellée « Service Desk ». Pour plus d’informations, voir [Gérer de manière centralisée les éléments de travail ITSM à l’aide d’IT Service Management Connector (version préliminaire)](../platform/itsmc-overview.md).
+L’intégration de Service Map au connecteur de gestion des services informatiques est automatique quand les deux solutions sont activées et configurées dans votre espace de travail Log Analytics. L’intégration dans Service Map est libellée « Service Desk ». Pour plus d’informations, voir [Gérer de manière centralisée les éléments de travail ITSM à l’aide d’IT Service Management Connector (version préliminaire)](../alerts/itsmc-overview.md).
 
 Le volet **Service Desk d’une machine** affiche la liste de tous les événements d’IT Service Management survenus pour le serveur sélectionné pendant la période sélectionnée. Le serveur affiche une icône s’il existe des éléments en cours, et le volet Service Desk de la machine affiche la liste de ceux-ci.
 
@@ -304,7 +303,7 @@ Le volet **Mises à jour de la machine** affiche les données de la solution Upd
 
 ## <a name="log-analytics-records"></a>Enregistrements Log Analytics
 
-Les données d’inventaire des ordinateurs et processus de la solution Service Map sont disponibles pour effectuer une [recherche](../log-query/log-query-overview.md) dans Log Analytics. Vous pouvez appliquer ces données à divers scénarios tels que la planification de la migration, l’analyse de la capacité, la détection et la résolution de problèmes de performances à la demande.
+Les données d’inventaire des ordinateurs et processus de la solution Service Map sont disponibles pour effectuer une [recherche](../logs/log-query-overview.md) dans Log Analytics. Vous pouvez appliquer ces données à divers scénarios tels que la planification de la migration, l’analyse de la capacité, la détection et la résolution de problèmes de performances à la demande.
 
 Un enregistrement par heure est généré pour chaque processus et ordinateur, en plus des enregistrements générés quand un processus ou ordinateur démarre ou est intégré à la solution Service Map. Les propriétés de ces enregistrements sont décrites dans les tableaux suivants. Les champs et les valeurs des événements ServiceMapComputer_CL sont mappés aux champs de la ressource Machine dans l’API Azure Resource Manager ServiceMap. Les champs et les valeurs des événements ServiceMapProcess_CL sont mappés aux champs de la ressource Processus dans l’API Azure Resource Manager ServiceMap. Le champ ResourceName_s correspond au champ de nom dans la ressource Azure Resource Manager correspondante. 
 
@@ -550,7 +549,7 @@ Pour plus d’informations sur l’utilisation et la collecte de données, voir 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En savoir plus sur les [recherches dans les journaux](../log-query/log-query-overview.md) dans Log Analytics pour récupérer les données collectées par la solution Service Map.
+En savoir plus sur les [recherches dans les journaux](../logs/log-query-overview.md) dans Log Analytics pour récupérer les données collectées par la solution Service Map.
 
 ## <a name="troubleshooting"></a>Dépannage
 

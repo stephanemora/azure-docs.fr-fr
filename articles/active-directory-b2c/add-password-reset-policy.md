@@ -12,12 +12,12 @@ ms.date: 03/02/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: d7f597010f86e0f962f250dcd87d6c78f401a73d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: b82d573b7d8a65447d75aa8f017c87795bbef6cd
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101688982"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102171652"
 ---
 # <a name="set-up-a-password-reset-flow-in-azure-active-directory-b2c"></a>Configuration d’un flux de réinitialisation de mot de passe dans Azure Active Directory B2C.
 
@@ -206,7 +206,7 @@ Dans votre parcours utilisateur, vous pouvez représenter le sous-parcours Mot d
 
 ### <a name="set-the-user-journey-to-be-executed"></a>Définir le parcours utilisateur à exécuter
 
-Maintenant que vous avez modifié ou créé un parcours utilisateur, dans la section **Partie de confiance**, spécifiez le parcours qu’Azure AD B2C exécutera pour cette stratégie personnalisée. Dans l’élément [RelyingParty](../articles/active-directory-b2c/relyingparty.md), recherchez l’élément **DefaultUserJourney**. Mettez à jour l’élément **ReferenceId DefaultUserJourney** pour qu’il corresponde à l’ID du parcours utilisateur dans lequel vous avez ajouté **ClaimsProviderSelections**.
+Maintenant que vous avez modifié ou créé un parcours utilisateur, dans la section **Partie de confiance**, spécifiez le parcours qu’Azure AD B2C exécutera pour cette stratégie personnalisée. Dans l’élément [RelyingParty](relyingparty.md), recherchez l’élément **DefaultUserJourney**. Mettez à jour l’élément **ReferenceId DefaultUserJourney** pour qu’il corresponde à l’ID du parcours utilisateur dans lequel vous avez ajouté **ClaimsProviderSelections**.
 
 ```xml
 <RelyingParty>
@@ -301,5 +301,3 @@ Les stratégies personnalisées sont un ensemble de fichiers XML que vous télé
 ## <a name="next-steps"></a>Étapes suivantes
 
 Configurer une [réinitialisation de mot de passe forcée](force-password-reset.md)
-
-

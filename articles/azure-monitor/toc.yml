@@ -1078,7 +1078,7 @@
           href: insights/container-insights-reports.md
         - name: Consulter les données en direct
           items:
-            - name: Vue d’ensemble de Données en direct (préversion)
+            - name: Vue d’ensemble des données actives
               href: containers/container-insights-livedata-overview.md
             - name: Programme d’installation
               href: containers/container-insights-livedata-setup.md

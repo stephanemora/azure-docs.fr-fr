@@ -1,19 +1,19 @@
 ---
-title: Voir Déploiements (préversion) avec Azure Monitor pour conteneurs | Microsoft Docs
-description: Cet article décrit la vue en temps réel de Kubernetes Deployments, sans l’utilisation de kubectl, dans Azure Monitor pour conteneurs.
+title: Afficher les déploiements de Container Insights (préversion) | Microsoft Docs
+description: Cet article décrit l’affichage en temps réel de Kubernetes Deployments, sans l’utilisation de kubectl, dans Container Insights.
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.custom: references_regions
-ms.openlocfilehash: 2f1eac82ce67818c7bf86ce3ca8924155d8ee2aa
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: c6eaac209234f7352395502c6761312cf258108f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100598990"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713913"
 ---
 # <a name="how-to-view-deployments-preview-in-real-time"></a>Guide pratique pour voir Déploiements (préversion) en temps réel
 
-Avec Azure Monitor pour conteneurs, la vue de la fonctionnalité Déploiements (préversion) émule l’accès direct aux objets Kubernetes Deployment en temps réel par l’exposition des commandes `kubeclt get deployments` et `kubectl describe deployment {your deployment}`.
+Avec Container Insights, la fonctionnalité d’affichage des déploiements (préversion) émule un accès direct à des objets de déploiement Kubernetes en temps réel par l’exposition des commandes `kubeclt get deployments` et `kubectl describe deployment {your deployment}`.
 
 >[!NOTE]
 >Les clusters AKS activés en tant que [clusters privés](https://azure.microsoft.com/updates/aks-private-cluster/) ne sont pas pris en charge par cette fonctionnalité. Cette fonctionnalité repose sur l’accès direct à l’API Kubernetes via un serveur proxy depuis votre navigateur. L’activation de la sécurité réseau pour bloquer l’API Kubernetes depuis ce proxy bloque ce trafic.
@@ -56,7 +56,7 @@ Lorsque vous sélectionnez un déploiement dans la liste, un volet de propriét�
 
 Lorsque vous consultez les détails du déploiement, vous pouvez voir les événements et les journaux de conteneurs en temps réel. Sélectionnez **Montrer la console active** pour que le volet de la console Live Data (préversion) apparaisse sous la grille des données des déploiements, dans laquelle vous pouvez voir les données des journaux en direct dans un flux continu. Si l’indicateur d’état de récupération affiche une coche verte tout à droite du volet, cela signifie que des données sont récupérables et que leur envoi en streaming vers votre console commence.
 
-Vous pouvez également filtrer par événements au niveau du cluster ou de l’espace de noms. Pour en savoir plus sur la consultation des données en temps réel dans la console, consultez [Voir Live Data (préversion) avec Azure Monitor pour conteneurs](container-insights-livedata-overview.md).
+Vous pouvez également filtrer par événements au niveau du cluster ou de l’espace de noms. Pour en savoir plus sur la consultation des données en temps réel dans la console, consultez [Afficher les données actives (préversion) avec Container Insights](container-insights-livedata-overview.md).
 
 ![Données en direct dans la vue Déploiements de la console](./media/container-insights-livedata-deployments/deployments-console-view-events.png)
 

@@ -12,19 +12,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2020
 ms.author: yelevin
-ms.openlocfilehash: 5c715804693571bc421951de1288fc884d2eae8d
-ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
+ms.openlocfilehash: 23e116eba6393f834b3368901d4440e668b16fca
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97746182"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101724283"
 ---
 # <a name="advanced-multistage-attack-detection-in-azure-sentinel"></a>Détection avancée des attaques multiphases dans Azure Sentinel
 
-
 > [!IMPORTANT]
-> Certaines fonctionnalités de Fusion dans Azure Sentinel sont actuellement en **préversion publique**.
-> Ces fonctionnalités étant fournies sans contrat de niveau de service, elles sont déconseillées pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Certaines détections de Fusion (voir celles indiquées ci-dessous) sont actuellement en **préversion**. Consultez l’[Avenant aux conditions d’utilisation pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) pour connaître les conditions juridiques supplémentaires s’appliquant aux fonctionnalités Azure sont en version bêta, en préversion ou non encore en disponibilité générale.
 
 La technologie Fusion basée sur l’apprentissage automatique permet à Azure Sentinel de détecter automatiquement les attaques multiphases en identifiant des combinaisons de comportements anormaux et d’activités suspectes observés à différentes phases de la chaîne de destruction. Sur la base de ces découvertes, Azure Sentinel génère des incidents qui seraient autrement difficiles à intercepter. Ces incidents comprennent au moins deux alertes ou activités. Le système est conçu de façon à ce que ces incidents soient peu volumineux, soient détectés avec une haute fidélité, et présentent un niveau de gravité élevé.
 
@@ -60,12 +58,12 @@ Comme mentionné plus haut, étant donné que la technologie Fusion met en corr�
 Pour activer ces scénarios de détection des attaques optimisés par Fusion, toutes les sources de données répertoriées doivent être ingérées à l’aide des connecteurs de données Azure Sentinel associés.
 
 > [!NOTE]
-> Certains de ces scénarios sont en **préversion publique**. Cela est spécifié.
+> Certains de ces scénarios sont en **PRÉVERSION**. Cela est spécifié.
 
 ## <a name="compute-resource-abuse"></a>Abus de ressource de calcul
 
 ### <a name="multiple-vm-creation-activities-following-suspicious-azure-active-directory-sign-in"></a>Plusieurs activités de création de machine virtuelle suite à une connexion suspecte à Azure Active Directory
-Ce scénario est actuellement en **préversion publique**.
+Ce scénario est actuellement en **PRÉVERSION**.
 
 **Tactiques MITRE ATT&CK :** Accès initial, impact 
 
@@ -214,7 +212,7 @@ Ce scénario est actuellement en **préversion publique**.
 ### <a name="suspicious-inbox-manipulation-rules-set-following-suspicious-azure-ad-sign-in"></a>Règles de manipulation de boîte de réception définies suite à une connexion suspecte à Azure AD
 Ce scénario appartient à deux classifications de menaces dans cette liste : l’**exfiltration de données** et le **déplacement latéral**. Par souci de clarté, il apparaît dans les deux sections.
 
-Ce scénario est actuellement en **préversion publique**.
+Ce scénario est actuellement en **PRÉVERSION**.
 
 **Tactiques MITRE ATT&CK :** Accès initial, Déplacement latéral, Exfiltration
 
@@ -235,7 +233,7 @@ Ce scénario est actuellement en **préversion publique**.
 - **Événement de connexion d’utilisateur à l’aide d’informations d’identification fuitées**
 
 ### <a name="multiple-power-bi-report-sharing-activities-following-suspicious-azure-ad-sign-in"></a>Activités multiples de partage de rapport Power BI suite à une connexion suspecte à Azure AD 
-Ce scénario est actuellement en **préversion publique**.
+Ce scénario est actuellement en **PRÉVERSION**.
 
 **Tactiques MITRE ATT&CK :** Accès initial, Exfiltration 
 
@@ -256,7 +254,7 @@ Ce scénario est actuellement en **préversion publique**.
 - **Événement de connexion d’utilisateur avec des informations d’identification fuitées, à l’origine d’activités multiples de partage de rapport Power BI**
 
 ### <a name="suspicious-power-bi-report-sharing-following-suspicious-azure-ad-sign-in"></a>Partage de rapport Power BI suite à une connexion suspecte à Azure AD
-Ce scénario est actuellement en **préversion publique**.
+Ce scénario est actuellement en **PRÉVERSION**.
 
 **Tactiques MITRE ATT&CK :** Accès initial, Exfiltration 
 
@@ -299,7 +297,7 @@ Ce scénario est actuellement en **préversion publique**.
 - **Événement de connexion d’un utilisateur avec des informations d’identification fuitées, à l’origine d’une suppression de fichiers en masse**
 
 ### <a name="suspicious-email-deletion-activity-following-suspicious-azure-ad-sign-in"></a>Activité suspecte de suppression de courrier suite à une connexion suspecte à Azure AD
-Ce scénario est actuellement en **préversion publique**.
+Ce scénario est actuellement en **PRÉVERSION**.
 
 **Tactiques MITRE ATT&CK :** Accès initial, impact 
 
@@ -322,7 +320,7 @@ Ce scénario est actuellement en **préversion publique**.
 ## <a name="denial-of-service"></a>Denial of service (déni de service)
 
 ### <a name="multiple-vm-delete-activities-following-suspicious-azure-ad-sign-in"></a>Activités multiples de suppression de machines virtuelles suite à une connexion suspecte à Azure AD
-Ce scénario est actuellement en **préversion publique**.
+Ce scénario est actuellement en **PRÉVERSION**.
 
 **Tactiques MITRE ATT&CK :** Accès initial, impact
 
@@ -367,7 +365,7 @@ Ce scénario est actuellement en **préversion publique**.
 ### <a name="suspicious-inbox-manipulation-rules-set-following-suspicious-azure-ad-sign-in"></a>Règles de manipulation de boîte de réception définies suite à une connexion suspecte à Azure AD
 Ce scénario appartient à deux classifications de menaces dans cette liste : le **déplacement latéral** et l’**exfiltration de données**. Par souci de clarté, il apparaît dans les deux sections.
 
-Ce scénario est actuellement en **préversion publique**.
+Ce scénario est actuellement en **PRÉVERSION**.
 
 **Tactiques MITRE ATT&CK :** Accès initial, Déplacement latéral, Exfiltration
 
@@ -412,7 +410,7 @@ Ce scénario est actuellement en **préversion publique**.
 ## <a name="malicious-execution-with-legitimate-process"></a>Exécution malveillante avec un processus légitime
 
 ### <a name="powershell-made-a-suspicious-network-connection-followed-by-anomalous-traffic-flagged-by-palo-alto-networks-firewall"></a>PowerShell a établi une connexion réseau suspecte, suivie d’un trafic anormal signalé par le pare-feu Palo Alto Networks.
-Ce scénario est actuellement en **préversion publique**.
+Ce scénario est actuellement en **PRÉVERSION**.
 
 **Tactiques MITRE ATT&CK :** Exécution
 
@@ -423,7 +421,7 @@ Ce scénario est actuellement en **préversion publique**.
 **Description :** Les incidents de ce type signalés par Fusion indiquent qu’une demande de connexion sortante a été effectuée à l’aide d’une commande PowerShell, puis qu’une activité d’entrée anormale a été détectée par le pare-feu Palo Alto Networks. Cela indique qu’un attaquant a probablement obtenu l’accès à votre réseau et tente d’effectuer des actions malveillantes. Les tentatives de connexion par PowerShell qui suivent ce modèle peuvent indiquer une activité de contrôle et de commande de programme malveillant, des demandes de téléchargement de programme malveillant supplémentaires, ou l’établissement d’un accès interactif à distance par une personne malveillante. Comme toutes les attaques « vivant de la terre », cette activité pourrait être une utilisation légitime de PowerShell. Toutefois, l’exécution de la commande PowerShell suivie d’une activité de pare-feu entrante suspecte renforce la suspicion que PowerShell est utilisé de manière malveillante et doit être examiné de plus près. Dans les journaux Palo Alto, Azure Sentinel se concentre sur les [journaux des menaces](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/view-and-manage-logs/log-types-and-severity-levels/threat-logs), et le trafic est considéré comme suspect lorsque des menaces sont autorisées (données, fichiers, saturations, paquets, analyses, logiciels espions, URL, virus, vulnérabilités, virus d’incendie, incendies suspects). Référencez également le journal des menaces Palo Alto correspondant au [type de menace/contenu](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/threat-log-fields.html) indiqué dans la description de l’incident par Fusion pour obtenir des détails supplémentaires sur l’alerte.
 
 ### <a name="suspicious-remote-wmi-execution-followed-by-anomalous-traffic-flagged-by-palo-alto-networks-firewall"></a>Exécution suspecte de WMI à distance, suivie d’un trafic anormal signalé par le pare-feu Palo Alto Networks
-Ce scénario est actuellement en **préversion publique**.
+Ce scénario est actuellement en **PRÉVERSION**.
 
 **Tactiques MITRE ATT&CK :** Exécution, Détection
 
@@ -456,7 +454,7 @@ Ce scénario est actuellement en **préversion publique**.
 ## <a name="malware-c2-or-download"></a>Logiciel malveillant C2 ou téléchargement
 
 ### <a name="network-request-to-tor-anonymization-service-followed-by-anomalous-traffic-flagged-by-palo-alto-networks-firewall"></a>Demande réseau au service d’anonymisation TOR, suivie d’un trafic anormal signalé par le pare-feu de Palo Alto Networks.
-Ce scénario est actuellement en **préversion publique**.
+Ce scénario est actuellement en **PRÉVERSION**.
 
 **Tactiques MITRE ATT&CK :** Commande et contrôle
 
@@ -467,7 +465,7 @@ Ce scénario est actuellement en **préversion publique**.
 **Description :** Les incidents de ce type signalés par Fusion indiquent qu’une demande de connexion sortante a été adressée au service d’anonymisation TOR, puis qu’une activité d’entrée anormale a été détectée par le pare-feu de Palo Alto Networks. Cela indique qu’un attaquant a probablement obtenu l’accès à votre réseau et tente de dissimuler ses actions et son intention. Les connexions au réseau TOR qui suivent ce modèle peuvent indiquer une activité de contrôle et de commande de programme malveillant, des demandes de téléchargement de programme malveillant supplémentaires, ou l’établissement d’un accès interactif à distance par une personne malveillante. Dans les journaux Palo Alto, Azure Sentinel se concentre sur les [journaux des menaces](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/view-and-manage-logs/log-types-and-severity-levels/threat-logs), et le trafic est considéré comme suspect lorsque des menaces sont autorisées (données, fichiers, saturations, paquets, analyses, logiciels espions, URL, virus, vulnérabilités, virus d’incendie, incendies suspects). Référencez également le journal des menaces Palo Alto correspondant au [type de menace/contenu](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/threat-log-fields.html) indiqué dans la description de l’incident par Fusion pour obtenir des détails supplémentaires sur l’alerte.
 
 ### <a name="outbound-connection-to-ip-with-a-history-of-unauthorized-access-attempts-followed-by-anomalous-traffic-flagged-by-palo-alto-networks-firewall"></a>Connexion sortante à l’adresse IP avec un historique des tentatives d’accès non autorisées suivie d’un trafic anormal signalé par le pare-feu Palo Alto Networks
-Ce scénario est actuellement en **préversion publique**.
+Ce scénario est actuellement en **PRÉVERSION**.
 
 **Tactiques MITRE ATT&CK :** Commande et contrôle
 
@@ -502,7 +500,7 @@ Ce scénario est actuellement en **préversion publique**.
 ## <a name="remote-exploitation"></a>Exploitation à distance
 
 ### <a name="suspected-use-of-attack-framework-followed-by-anomalous-traffic-flagged-by-palo-alto-networks-firewall"></a>Utilisation présumée d’infrastructure d’attaque, suivie d’un trafic anormal signalé par le pare-feu Palo Alto Networks
-Ce scénario est actuellement en **préversion publique**.
+Ce scénario est actuellement en **PRÉVERSION**.
 
 **Tactiques MITRE ATT&CK :** Accès initial, Exécution, Déplacement latéral, Élévation des privilèges
 

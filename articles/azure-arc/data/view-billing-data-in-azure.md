@@ -9,17 +9,17 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 03/02/2021
 ms.topic: how-to
-ms.openlocfilehash: 16546432c8c0a23d5c9dc471fe8c62ced5eca993
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 7ef1cd43d2efbc5ab92cc2b4cba4d237805d8921
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101687530"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102202652"
 ---
 # <a name="upload-billing-data-to-azure-and-view-it-in-the-azure-portal"></a>Télécharger des données de facturation dans Azure et les afficher dans le portail Azure
 
 > [!IMPORTANT] 
->  L’utilisation de services de données compatibles avec Azure Arc pendant la période de la préversion n’occasionne aucun coût. Bien que le système de facturation fonctionne de bout en bout, le compteur de facturation est défini sur $0.  Si vous suivez ce scénario, vous verrez des entrées dans votre facturation pour un service nommé **services de données hybrides** et pour des ressources d’un type appelé **microsoft.AzureData/`<resource type>`** . Vous pourrez voir un enregistrement pour chaque service de données Azure Arc que vous créez, mais chaque enregistrement sera facturé à $0.
+>  L’utilisation de services de données compatibles avec Azure Arc pendant la période de la préversion n’occasionne aucun coût. Bien que le système de facturation fonctionne de bout en bout, le compteur de facturation est défini sur $0.  Si vous suivez ce scénario, vous verrez des entrées dans votre facturation pour un service nommé **services de données hybrides** et pour des ressources d’un type appelé **Microsoft.AzureArcData/`<resource type>`** . Vous pourrez voir un enregistrement pour chaque service de données Azure Arc que vous créez, mais chaque enregistrement sera facturé à $0.
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
@@ -119,7 +119,7 @@ Pour afficher les données de facturation dans le portail Azure, procédez comme
 1. Assurez-vous que l’Étendue est définie sur l’abonnement dans lequel vos ressources de service de données ont été créées.
 1. Sélectionnez **Coût par ressource** dans la liste déroulante Afficher en regard du sélecteur Étendue en haut de la vue.
 1. Assurez-vous que le filtre de date est défini sur **Mois en cours** ou sur un autre intervalle de temps semblant logique compte tenu de la date de création des ressources de votre service de données.
-1. Si vous souhaitez filtrer un seul type de service de données activé par Azure Arc, cliquez sur **Ajouter un filtre** afin d’ajouter un filtre par **Type de ressource** = `microsoft.azuredata/<data service type>`.
+1. Si vous souhaitez filtrer un seul type de service de données activé par Azure Arc, cliquez sur **Ajouter un filtre** afin d’ajouter un filtre par **Type de ressource** = `Microsoft.AzureArcData/<data service type>`.
 1. Vous voyez maintenant une liste de toutes les ressources qui ont été créées et chargées dans Azure. Étant donné que le compteur de facturation indique $0, le coût affiché sera toujours $0.
 
 ## <a name="download-billing-data"></a>Télécharger les données de facturation
@@ -159,5 +159,5 @@ Vous pouvez valider les fichiers de données de facturation dans le portail Azur
 7. Explorez les dossiers et fichiers générés, puis cliquez sur l’un des fichiers. csv générés.
 8. Cliquez sur le bouton **Télécharger** pour enregistrer le fichier dans votre dossier Téléchargements local.
 9. Ouvrez le fichier à l’aide d’une visionneuse de fichiers. csv telle qu’Excel.
-10. Filtrez les résultats pour afficher uniquement les lignes avec le **Type de ressource** = `Microsoft.AzureData/<data service resource type`.
+10. Filtrez les résultats pour afficher uniquement les lignes avec le **Type de ressource** = `Microsoft.AzureArcData/<data service resource type`.
 11. Vous verrez le nombre d’heures d’utilisation de l’instance au cours de la période actuelle de 24 heures dans la colonne UsageQuantity.

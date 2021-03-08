@@ -1,19 +1,19 @@
 ---
 title: Utiliser la syntaxe de requête Lucene simple
 titleSuffix: Azure Cognitive Search
-description: Apprenez, à l’aide d’exemples, à exécuter des requêtes basées sur la syntaxe simple pour effectuer des recherches en texte intégral, filtrées, géographiques ou à facettes sur un index de Recherche cognitive Azure.
+description: Exemples de requêtes illustrant la syntaxe simple pour effectuer des recherches en texte intégral, filtrées et géographiques sur un index Recherche cognitive Azure.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/12/2020
-ms.openlocfilehash: ff9495e37a499b5502d8f8ced79b69608fa9552a
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.date: 03/03/2021
+ms.openlocfilehash: 2abe19351c92bf9cea85c85dd55f47b5ee6d1625
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97401744"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101694034"
 ---
 # <a name="use-the-simple-search-syntax-in-azure-cognitive-search"></a>Utiliser la syntaxe de recherche « simple » dans Recherche cognitive Azure
 
@@ -22,309 +22,508 @@ Dans Recherche cognitive Azure, la [syntaxe de requête simple](query-simple-syn
 > [!NOTE]
 > Une autre syntaxe de requête est la syntaxe [Lucene complète](query-lucene-syntax.md), qui prend en charge des structures de requête plus complexes, telles qu’une recherche approximative et par caractères génériques. Pour plus d’informations et d’exemples, consultez [Utiliser la syntaxe Lucene complète](search-query-lucene-examples.md).
 
-## <a name="nyc-jobs-examples"></a>Exemples d’emplois à New York
+## <a name="hotels-sample-index"></a>Index hotels-sample
 
-Les exemples suivants tirent parti de l’[index de recherche NYC Jobs](https://azjobsdemo.azurewebsites.net/) composé de postes à pourvoir sur la base d’un jeu de données fourni par l’[initiative City of New York OpenData](https://nycopendata.socrata.com/). Ces données ne doivent pas être considérées comme étant à jour ou complètes. L’index se trouve sur un service de bac à sable fourni par Microsoft, ce qui signifie que vous n’avez pas besoin d’abonnement Azure ni de Recherche cognitive Azure pour essayer ces requêtes.
+Les requêtes suivantes sont basées sur l’index hotels-sample, que vous pouvez créer en suivant les instructions de ce guide de [démarrage rapide](search-get-started-portal.md).
 
-En revanche, vous avez besoin de Postman ou d’un outil équivalent pour émettre la requête HTTP sur GET ou POST. Si vous ne connaissez pas bien ces outils, consultez [Démarrage rapide : Explorer l’API REST de Recherche cognitive Azure](search-get-started-rest.md).
+Les exemples de requêtes sont formulés à l’aide de l’API REST et des requêtes POST. Vous pouvez les coller et les exécuter dans [Postman](search-get-started-rest.md) ou dans [Visual Studio Code grâce à l’extension Recherche cognitive](search-get-started-vs-code.md).
 
-## <a name="set-up-the-request"></a>Configurer la requête
+Les en-têtes de requête doivent comporter les valeurs suivantes :
 
-1. Les en-têtes de requête doivent comporter les valeurs suivantes :
+| Clé | Valeur |
+|-----|-------|
+| Content-Type | application/json|
+| api-key  | `<your-search-service-api-key>`, clé de requête ou d’administration |
 
-   | Clé | Valeur |
-   |-----|-------|
-   | Content-Type | `application/json`|
-   | api-key  | `252044BE3886FE4A8E3BAA4F595114BB` </br> (il s’agit de la clé API de requête réelle pour le service de recherche de bac à sable qui héberge l’index NYC Jobs) |
-
-1. Définissez le verbe sur **`GET`** .
-
-1. Définissez l’URL sur **`https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&search=*&$count=true`** . 
-
-   + La collection de documents dans l’index comprend tout le contenu disponible pour la recherche. La clé API de requête fournie dans l’en-tête de requête fonctionne uniquement pour les opérations de lecture ciblant la collection de documents.
-
-   + **`$count=true`** retourne le nombre des documents correspondant aux critères de recherche. Une chaîne de recherche vide comptabilisera tous les documents figurant dans l’index (environ 2558 dans le cas de NYC Jobs).
-
-   + **`search=*`** est une requête non spécifiée équivalente à une recherche nulle ou vide. Elle n’est pas particulièrement utile, mais c’est la recherche la plus simple que vous puissiez effectuer, et elle affiche tous les champs récupérables dans l’index, avec toutes les valeurs.
-
-1. En guise d’étape de vérification, collez la requête suivante dans GET et cliquez sur **Envoyer**. Les résultats sont retournés sous forme de documents JSON détaillés.
-
-   ```http
-   https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true&search=*&queryType=full
-   ```
-
-### <a name="how-to-invoke-simple-query-parsing"></a>Appel de l’analyse de requête simple
-
-Pour les requêtes interactives, vous n’avez rien à spécifier : l’analyse simple est l’analyse par défaut. Dans le code, si vous avez précédemment appelé **`queryType=full`** , vous pouvez réinitialiser la valeur par défaut avec **`queryType=simple`** .
+Les paramètres URI doivent inclure le point de terminaison de votre service de recherche avec le nom de l’index, les collections de documents, la commande de recherche et la version de l’API, comme dans l’exemple suivant :
 
 ```http
-POST /indexes/nycjobs/docs/search?api-version=2020-06-30
-{
-    "queryType": "simple"
-}
+https://{{service-name}}.search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30
 ```
 
-## <a name="example-1-full-text-search-on-specific-fields"></a>Exemple 1 : Recherche en texte intégral sur des champs spécifiques
+Le corps de la demande doit être formé comme un JSON valide :
 
-Ce premier exemple n’est pas propre à un analyseur, mais nous permet d’introduire le premier concept de requête fondamental : la contenance. Cet exemple limite l’exécution de la requête et la réponse à quelques champs spécifiques. Lors de l’utilisation de l’outil Postman ou Explorateur de recherche, il est important de connaître la structure d’une réponse JSON accessible en lecture. 
-
-Cette requête cible uniquement *business_title* dans **`searchFields`** , en spécifiant grâce au paramètre **`select`** le même champ dans la réponse.
-
-```http
-POST /indexes/nycjobs/docs/search?api-version=2020-06-30
+```json
 {
-    "count": true,
-    "queryType": "simple",
     "search": "*",
-    "searchFields": "business_title",
-    "select": "business_title"
+    "queryType": "simple",
+    "select": "HotelId, HotelName, Category, Tags, Description",
+    "count": true
 }
 ```
 
-La réponse pour cette requête doit ressembler à la capture d’écran suivante.
++ « search » défini sur `*` est une requête non spécifiée équivalente à une recherche null ou vide. Elle n’est pas particulièrement utile, mais c’est la recherche la plus simple que vous puissiez effectuer, et elle affiche tous les champs récupérables dans l’index, avec toutes les valeurs.
 
-  :::image type="content" source="media/search-query-lucene-examples/postman-sample-results.png" alt-text="Exemple de réponse Postman" border="false":::
++ « queryType » défini sur « simple » est la valeur par défaut et peut être omis. Il est toutefois inclus pour renforcer le fait que les exemples de requêtes de cet article sont formulés dans la syntaxe simple.
 
-Vous avez peut-être remarqué le score de recherche dans la réponse. Des scores uniformes de **1** sont obtenus en l’absence de classement, soit parce que la recherche n’était pas une recherche en texte intégral, soit parce qu’aucun critère n’a été fourni. Pour une recherche vide, les lignes reviennent dans un ordre arbitraire. Si vous incluez des critères réels, vous constaterez que les scores de recherche deviendront des valeurs significatives.
++ « select » défini sur une liste de champs séparés par des virgules est utilisé pour la composition des résultats de la recherche, y compris uniquement les champs qui sont utiles pour les résultats de la recherche.
+
++ « count » renvoie le nombre de documents correspondant aux critères de recherche. Une chaîne de recherche vide comptabilisera tous les documents figurant dans l’index (environ 50 pour l’index hotels-sample).
+
+## <a name="example-1-full-text-search"></a>Exemple 1 : Recherche en texte intégral
+
+La recherche en texte intégral peut porter sur n’importe quel nombre de termes autonomes ou d’expressions entre guillemets, avec ou sans opérateurs booléens. 
+
+```http
+POST /indexes/hotel-samples-index/docs/search?api-version=2020-06-30
+{
+    "search": "pool spa +airport",
+    "searchMode": any,
+    "queryType": "simple",
+    "select": "HotelId, HotelName, Category, Description",
+    "count": true
+}
+```
+
+Une recherche par mot-clé constituée d’expressions ou de termes importants a tendance à donner de meilleurs résultats. Les champs de chaîne font l’objet d’une analyse de texte lors de l’indexation et de l’interrogation, ce qui permet de supprimer les mots non essentiels comme « the », « and », « it ». Pour voir comment une chaîne de requête est mise sous forme de jeton dans l’index, transmettez la chaîne dans un appel [d’analyse de texte](/rest/api/searchservice/test-analyzer) à l’index.
+
+Le paramètre « searchMode » contrôle la précision et le rappel. Si vous voulez plus de rappel, utilisez la valeur par défaut «any », qui renvoie un résultat si une partie de la chaîne de requête est mise en correspondance. Si vous privilégiez la précision, c’est-à-dire que toutes les parties de la chaîne sont mises en correspondance, remplacez searchMode par « all ». Testez les deux méthodes ci-dessus pour voir dans quelle mesure le mode de recherche modifie le résultat.
+
+La réponse à la requête « pool spa +airport » doit être similaire à l’exemple suivant, ajusté par souci de concision.
+
+```json
+"@odata.count": 6,
+"value": [
+    {
+        "@search.score": 7.3617697,
+        "HotelId": "21",
+        "HotelName": "Nova Hotel & Spa",
+        "Description": "1 Mile from the airport.  Free WiFi, Outdoor Pool, Complimentary Airport Shuttle, 6 miles from the beach & 10 miles from downtown.",
+        "Category": "Resort and Spa",
+        "Tags": [
+            "pool",
+            "continental breakfast",
+            "free parking"
+        ]
+    },
+    {
+        "@search.score": 2.5560288,
+        "HotelId": "25",
+        "HotelName": "Scottish Inn",
+        "Description": "Newly Redesigned Rooms & airport shuttle.  Minutes from the airport, enjoy lakeside amenities, a resort-style pool & stylish new guestrooms with Internet TVs.",
+        "Category": "Luxury",
+        "Tags": [
+            "24-hour front desk service",
+            "continental breakfast",
+            "free wifi"
+        ]
+    },
+    {
+        "@search.score": 2.2988036,
+        "HotelId": "35",
+        "HotelName": "Suites At Bellevue Square",
+        "Description": "Luxury at the mall.  Located across the street from the Light Rail to downtown.  Free shuttle to the mall and airport.",
+        "Category": "Resort and Spa",
+        "Tags": [
+            "continental breakfast",
+            "air conditioning",
+            "24-hour front desk service"
+        ]
+    }
+```
+
+Vous pouvez remarquer le score de recherche dans la réponse. Il s’agit du score de pertinence de la correspondance. Par défaut, un service de recherche renvoie les 50 premières correspondances en fonction de ce score.
+
+Des scores uniformes de « 1.0 » sont obtenus en l’absence de classement, soit parce que la recherche n’était pas une recherche en texte intégral, soit parce qu’aucun critère n’a été fourni. Par exemple, pour une recherche vide (search=`*`), les lignes sont renvoyées dans un ordre arbitraire. Si vous incluez des critères réels, vous constaterez que les scores de recherche deviendront des valeurs significatives.
 
 ## <a name="example-2-look-up-by-id"></a>Exemple 2 : Recherche par ID
 
-Lorsque vous retournez des résultats de recherche dans une requête, une étape logique suivante consiste à fournir une page de détails qui comprend davantage de champs du document. Cet exemple montre comment retourner un document unique en utilisant une [opération de recherche](/rest/api/searchservice/lookup-document) pour transmettre l’ID du document.
-
-Tous les documents ont un identificateur unique. Pour tester la syntaxe d’une requête de recherche, retournez tout d’abord une liste d’ID de document afin d’en trouver un à utiliser. Pour NYC Jobs, les identificateurs sont stockés dans le champ `id`.
+Lorsque vous retournez des résultats de recherche dans une requête, l’étape logique suivante consiste à fournir une page de détails qui comprend davantage de champs du document. Cet exemple vous indique comment retourner un document unique à l’aide du [document de recherche](/rest/api/searchservice/lookup-document) en transmettant l’ID du document.
 
 ```http
-GET /indexes/nycjobs/docs?api-version=2020-06-30&search=*&$select=id&$count=true
+GET /indexes/hotels-sample-index/docs/41?api-version=2020-06-30
 ```
 
-Ensuite, récupérez un document de la collection basé sur `id` « 9E1E3AF9-0660-4E00-AF51-9B654925A2D5 », qui est apparu en premier dans la réponse précédente. La requête suivante retourne tous les champs récupérables pour le document entier.
+Tous les documents ont un identificateur unique. Si vous utilisez le portail, sélectionnez l’index dans l’onglet **Index**, puis examinez les définitions des champs pour déterminer quel champ est la clé. À l’aide de REST, l’appel [Obtenir un index](/rest/api/searchservice/get-index) renvoie la définition de l’index dans le corps de la réponse.
 
-```http
-GET /indexes/nycjobs/docs/9E1E3AF9-0660-4E00-AF51-9B654925A2D5?api-version=2020-06-30
+La réponse à la requête ci-dessus consiste en un document dont la clé est 41. Tout champ marqué comme « récupérable » dans la définition de l’index peut être renvoyé dans les résultats de recherche et affiché dans votre application.
+
+```json
+{
+    "HotelId": "41",
+    "HotelName": "Ocean Air Motel",
+    "Description": "Oceanfront hotel overlooking the beach features rooms with a private balcony and 2 indoor and outdoor pools. Various shops and art entertainment are on the boardwalk, just steps away.",
+    "Description_fr": "L'hôtel front de mer surplombant la plage dispose de chambres avec balcon privé et 2 piscines intérieures et extérieures. Divers commerces et animations artistiques sont sur la promenade, à quelques pas.",
+    "Category": "Budget",
+    "Tags": [
+        "pool",
+        "air conditioning",
+        "bar"
+    ],
+    "ParkingIncluded": true,
+    "LastRenovationDate": "1951-05-10T00:00:00Z",
+    "Rating": 3.5,
+    "Location": {
+        "type": "Point",
+        "coordinates": [
+            -157.846817,
+            21.295841
+        ],
+        "crs": {
+            "type": "name",
+            "properties": {
+                "name": "EPSG:4326"
+            }
+        }
+    },
+    "Address": {
+        "StreetAddress": "1450 Ala Moana Blvd 2238 Ala Moana Ctr",
+        "City": "Honolulu",
+        "StateProvince": "HI",
+        "PostalCode": "96814",
+        "Country": "USA"
+    },
 ```
 
-## <a name="example-3-filter-queries"></a>Exemple 3 : Requêtes de filtre
+## <a name="example-3-filter-on-text"></a>Exemple 3 : Filtre de texte
 
-La [syntaxe de filtre](./search-query-odata-filter.md) est une expression OData que vous pouvez utiliser de façon autonome ou avec **`search`** . Un filtre autonome, dépourvu de paramètre de recherche, est utile quand l’expression de filtre est en mesure de qualifier complètement les documents d’intérêt. En l’absence d’une chaîne de requête, il n’y a ni analyse lexicale ou linguistique, ni scoring (tous les scores sont égaux à 1), ni classement. Vous pouvez remarquer que la chaîne de recherche est vide.
+La [syntaxe de filtre](search-query-odata-filter.md) est une expression OData que vous pouvez utiliser de façon autonome ou avec « search ». Utilisés conjointement, le filtre est d’abord appliqué à la totalité de l’index et la recherche est ensuite effectuée sur les résultats du filtre. Les filtres peuvent donc être utiles pour améliorer les performances des requêtes, puisqu’ils limitent le nombre de documents que devra traiter la requête de recherche.
+
+Les filtres peuvent être définis sur n’importe quel champ marqué comme « filtrable » dans la définition de l’index. Pour l’index hotels-sample, les champs filtrables comprennent les champs Category, Tags, ParkingIncluded, Rating et la plupart des champs Address.
 
 ```http
-POST /indexes/nycjobs/docs/search?api-version=2020-06-30
+POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
+{
+    "search": "art tours",
+    "queryType": "simple",
+    "filter": "Category eq 'Resort and Spa'",
+    "select": "HotelId,HotelName,Description,Category",
+    "count": true
+}
+```
+
+La réponse à la requête ci-dessus est limitée aux hôtels de la catégorie « Resort and Spa », qui comprennent les termes « art » ou « tours ». Dans ce cas, il n’y a qu’une seule correspondance.
+
+```json
+{
+    "@search.score": 2.8576312,
+    "HotelId": "31",
+    "HotelName": "Santa Fe Stay",
+    "Description": "Nestled on six beautifully landscaped acres, located 2 blocks from the Plaza. Unwind at the spa and indulge in art tours on site.",
+    "Category": "Resort and Spa"
+}
+```
+
+## <a name="example-4-filter-functions"></a>Exemple 4 : Fonctions de filtre
+
+Les expressions de filtre peuvent inclure [des fonctions « search.ismatch » et « search.ismatchscoring »](search-query-odata-full-text-search-functions.md), ce qui vous permet de créer une requête de recherche dans le filtre. Cette expression de filtre utilise un caractère générique sur *gratuit* pour sélectionner des équipements, y compris le Wi-Fi gratuit, le stationnement gratuit, etc.
+
+```http
+POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
+  {
+    "search": "",
+    "filter": "search.ismatch('free*', 'Tags', 'full', 'any')",
+    "select": "HotelId, HotelName, Category, Description",
+    "count": true
+  }
+```
+
+La réponse à la requête ci-dessus renvoie 19 hôtels qui offrent des services gratuits. Notez que le score de recherche est un « 1.0 » uniforme dans les résultats. Cela s’explique par le fait que l’expression de recherche est null ou vide, ce qui donne lieu à des correspondances verbatim, mais pas à une recherche en texte intégral. Les scores de pertinence sont renvoyés uniquement lors d’une recherche en texte intégral. Si vous utilisez des filtres sans « search », assurez-vous d’avoir suffisamment de champs triables pour pouvoir contrôler le classement de la recherche.
+
+```json
+"@odata.count": 19,
+"value": [
     {
-      "count": true,
-      "search": "",
-      "filter": "salary_frequency eq 'Annual' and salary_range_from gt 90000",
-      "select": "job_id, business_title, agency, salary_range_from"
+        "@search.score": 1.0,
+        "HotelId": "31",
+        "HotelName": "Santa Fe Stay",
+        "Tags": [
+            "view",
+            "restaurant",
+            "free parking"
+        ]
+    },
+    {
+        "@search.score": 1.0,
+        "HotelId": "27",
+        "HotelName": "Super Deluxe Inn & Suites",
+        "Tags": [
+            "bar",
+            "free wifi"
+        ]
+    },
+    {
+        "@search.score": 1.0,
+        "HotelId": "39",
+        "HotelName": "Whitefish Lodge & Suites",
+        "Tags": [
+            "continental breakfast",
+            "free parking",
+            "free wifi"
+        ]
+    },
+    {
+        "@search.score": 1.0,
+        "HotelId": "11",
+        "HotelName": "Regal Orb Resort & Spa",
+        "Tags": [
+            "free wifi",
+            "restaurant",
+            "24-hour front desk service"
+        ]
+    },
+```
+
+## <a name="example-5-range-filters"></a>Exemple 5 : Filtres de plage
+
+Le filtrage de plage est pris en charge par des expressions de filtre pour n’importe quel type de données. Les exemples suivants illustrent des plages numériques et de chaînes. Les types de données sont importants dans les filtres de plage et fonctionnent mieux lorsque les données numériques se trouvent dans des champs numériques, et les données de chaîne dans des champs de chaîne. L’utilisation de données numériques dans les champs de chaîne n’est pas adaptée aux plages, car les chaînes numériques ne sont pas comparables.
+
+La requête suivante est une plage numérique. Dans l’index hotels-sample, le seul champ numérique filtrable est le classement.
+
+```http
+POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
+{
+    "search": "*",
+    "filter": "Rating ge 2 and Rating lt 4",
+    "select": "HotelId, HotelName, Rating",
+    "orderby": "Rating desc",
+    "count": true
+}
+```
+
+La réponse à cette requête doit être similaire à l’exemple suivant, ajusté par souci de concision.
+
+```json
+"@odata.count": 27,
+"value": [
+    {
+        "@search.score": 1.0,
+        "HotelId": "22",
+        "HotelName": "Stone Lion Inn",
+        "Rating": 3.9
+    },
+    {
+        "@search.score": 1.0,
+        "HotelId": "25",
+        "HotelName": "Scottish Inn",
+        "Rating": 3.8
+    },
+    {
+        "@search.score": 1.0,
+        "HotelId": "2",
+        "HotelName": "Twin Dome Motel",
+        "Rating": 3.6
     }
 ```
 
-Utilisés conjointement, le filtre est d’abord appliqué à la totalité de l’index et la recherche est effectuée sur les résultats du filtre. Les filtres peuvent donc être utiles pour améliorer les performances des requêtes, puisqu’ils limitent le nombre de documents que devra traiter la requête de recherche.
-
-  :::image type="content" source="media/search-query-simple-examples/filtered-query.png" alt-text="Réponse d’une requête de filtre" border="false":::
-
-Une autre méthode efficace pour combiner un filtre et une recherche consiste à utiliser **`search.ismatch*()`** dans une expression de filtre, dans laquelle vous pouvez utiliser une requête de recherche dans le filtre. Cette expression de filtre utilise un caractère générique sur *plan* afin de sélectionner les documents dont le champ business_title contient les termes plan, planificateur, planification, et ainsi de suite.
+La requête suivante est un filtre de plage sur un champ de chaîne (Address/StateProvince) :
 
 ```http
-POST /indexes/nycjobs/docs/search?api-version=2020-06-30
-    {
-      "count": true,
-      "search": "",
-      "filter": "search.ismatch('plan*', 'business_title', 'full', 'any')",
-      "select": "job_id, business_title, agency, salary_range_from"
-    }
+POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
+{
+    "search": "*",
+    "filter": "Address/StateProvince ge 'A*' and Address/StateProvince lt 'D*'",
+    "select": "HotelId, HotelName, Address/StateProvince",
+    "count": true
+}
 ```
 
-Pour plus d’informations sur la fonction, consultez la [description de la fonction search.ismatch dans les exemples de filtre](./search-query-odata-full-text-search-functions.md#examples).
+La réponse à cette requête doit être similaire à l’exemple ci-dessous, ajusté par souci de concision. Dans cet exemple, il n’est pas possible d’utiliser le champ StateProvince pour le tri, car il n’est pas marqué comme « triable » dans la définition de l’index.
 
-## <a name="example-4-range-filters"></a>Exemple 4 : Filtres de plage
+```json
+"@odata.count": 9,
+"value": [
+    {
+        "@search.score": 1.0,
+        "HotelId": "9",
+        "HotelName": "Smile Hotel",
+        "Address": {
+            "StateProvince": "CA "
+        }
+    },
+    {
+        "@search.score": 1.0,
+        "HotelId": "39",
+        "HotelName": "Whitefish Lodge & Suites",
+        "Address": {
+            "StateProvince": "CO"
+        }
+    },
+    {
+        "@search.score": 1.0,
+        "HotelId": "7",
+        "HotelName": "Countryside Resort",
+        "Address": {
+            "StateProvince": "CA "
+        }
+    },
+```
 
-Le filtrage de plage est pris en charge par le biais des expressions **`$filter`** pour n’importe quel type de données. Les exemples ci-après effectuent des recherches sur des champs numériques et de chaîne. 
+## <a name="example-6-geo-search"></a>Exemple 6 : Recherche basée sur la localisation
 
-Les types de données sont importants dans les filtres de plage et fonctionnent mieux lorsque les données numériques se trouvent dans des champs numériques, et les données de chaîne dans des champs de chaîne. L’utilisation de données numériques dans les champs de chaîne n’est pas adaptée aux plages, car les chaînes numériques ne sont pas comparables dans la Recherche cognitive Azure.
-
-La requête suivante est une plage numérique :
+L’index hotels-sample inclut un champ geo_location avec des coordonnées de latitude et de longitude. Cet exemple utilise la [fonction geo.distance](search-query-odata-geo-spatial-functions.md#examples) qui applique un filtre sur les documents situés à une distance arbitraire (en kilomètres) d’un point de départ que vous spécifiez. Vous pouvez ajuster la dernière valeur de la requête (10) pour réduire ou étendre la surface d’exposition de la requête.
 
 ```http
-POST /indexes/nycjobs/docs/search?api-version=2020-06-30
-    {
-      "count": true,
-      "search": "",
-      "filter": "num_of_positions ge 5 and num_of_positions lt 10",
-      "select": "job_id, business_title, num_of_positions, agency",
-      "orderby": "agency"
-    }
-```
-La réponse pour cette requête doit ressembler à la capture d’écran suivante.
-
-  :::image type="content" source="media/search-query-simple-examples/rangefilternumeric.png" alt-text="Filtre de plage pour les plages numériques" border="false":::
-
-Dans cette requête, la plage se trouve sur un champ de chaîne (business_title) :
-
-```http
-POST /indexes/nycjobs/docs/search?api-version=2020-06-30
-    {
-      "count": true,
-      "search": "",
-      "filter": "business_title ge 'A*' and business_title lt 'C*'",
-      "select": "job_id, business_title, agency",
-      "orderby": "business_title"
-    }
+POST /indexes/v/docs/search?api-version=2020-06-30
+{
+    "search": "*",
+    "filter": "geo.distance(Location, geography'POINT(-122.335114 47.612839)') le 10",
+    "select": "HotelId, HotelName, Address/City, Address/StateProvince",
+    "count": true
+}
 ```
 
-La réponse pour cette requête doit ressembler à la capture d’écran suivante.
+La réponse à cette requête renvoie tous les hôtels situés dans un rayon de 10 kilomètres des coordonnées fournies :
 
-  :::image type="content" source="media/search-query-simple-examples/rangefiltertext.png" alt-text="Filtre de plage pour les plages de texte" border="false":::
-
-> [!NOTE]
-> L’utilisation de facettes sur des plages de valeurs est une condition d’application de recherche courante. Pour plus d’informations et d’exemples, consultez [Comment créer un filtre de facette](search-filters-facets.md).
-
-## <a name="example-5-geo-search"></a>Exemple 5 : Recherche basée sur la localisation
-
-L’exemple d’index inclut un champ geo_location avec des coordonnées de latitude et de longitude. Cet exemple utilise la [fonction geo.distance](search-query-odata-geo-spatial-functions.md#examples) qui applique un filtre sur les documents situés à une distance arbitraire (en kilomètres) d’un point de départ que vous spécifiez. Vous pouvez ajuster la dernière valeur de la requête (4) pour réduire ou étendre la surface de la requête.
-
-```http
-POST /indexes/nycjobs/docs/search?api-version=2020-06-30
-    {
-      "count": true,
-      "search": "",
-      "filter": "geo.distance(geo_location, geography'POINT(-74.11734 40.634384)') le 4",
-      "select": "business_title, work_location"
-    }
+```json
+{
+    "@odata.count": 3,
+    "value": [
+        {
+            "@search.score": 1.0,
+            "HotelId": "45",
+            "HotelName": "Arcadia Resort & Restaurant",
+            "Address": {
+                "City": "Seattle",
+                "StateProvince": "WA"
+            }
+        },
+        {
+            "@search.score": 1.0,
+            "HotelId": "24",
+            "HotelName": "Gacc Capital",
+            "Address": {
+                "City": "Seattle",
+                "StateProvince": "WA"
+            }
+        },
+        {
+            "@search.score": 1.0,
+            "HotelId": "16",
+            "HotelName": "Double Sanctuary Resort",
+            "Address": {
+                "City": "Seattle",
+                "StateProvince": "WA"
+            }
+        }
+    ]
+}
 ```
-
-Pour améliorer la lisibilité des résultats de la recherche, ces derniers sont tronqués afin d’inclure un poste et le lieu de travail. Les coordonnées de départ ont été obtenues à partir d’un document aléatoire dans l’index (dans le cas présent, pour le lieu de travail Staten Island).
-
-  :::image type="content" source="media/search-query-simple-examples/geo-search.png" alt-text="Carte de Staten Island" border="false":::
-
-## <a name="example-6-search-precision"></a>Exemple 6 : Précision de la recherche
-
-Les requêtes de termes portent sur des termes uniques, pouvant être nombreux, qui sont évalués de manière indépendante. Les requêtes d’expressions sont placées entre guillemets et évaluées comme une chaîne textuelle. La précision de la correspondance est contrôlée par des opérateurs et searchMode.
-
-Exemple 1 : `search=fire` correspond à 140 résultats, où toutes les correspondances contiennent le mot fire quelque part dans le document.
-
-```http
-POST /indexes/nycjobs/docs/search?api-version=2020-06-30
-    {
-      "count": true,
-      "search": "fire"
-    }
-```
-
-Exemple 2 : `search=fire department` retourne 2002 résultats. Des correspondances sont retournées pour les documents contenant fire ou department.
-
-```http
-POST /indexes/nycjobs/docs/search?api-version=2020-06-30
-    {
-      "count": true,
-      "search": "fire department"
-    }
-```
-
-Exemple 3 : `search="fire department"` retourne 77 résultats. La mise de la chaîne entre guillemets a pour effet de créer une recherche d’expression composée des deux termes, et des correspondances sont trouvées sur des termes tokenisés dans l’index, consistant en la combinaison des termes. Cela explique pourquoi une recherche comme `search=+fire +department` n’est pas équivalente. Les deux termes sont obligatoires, mais sont analysés de manière indépendante. 
-
-```http
-POST /indexes/nycjobs/docs/search?api-version=2020-06-30
-    {
-    "count": true,
-    "search": "\"fire department\""
-    }
-```
-
-> [!Note]
-> Comme une requête d’expression est spécifiée à l’aide de guillemets, cet exemple ajoute un caractère d’échappement (`\`) pour conserver la syntaxe.
 
 ## <a name="example-7-booleans-with-searchmode"></a>Exemple 7 : Opérateurs booléens avec searchMode
 
-La syntaxe simple prend en charge les opérateurs booléens sous la forme de caractères (`+, -, |`). Le paramètre searchMode indique le compromis entre précision et rappel, **`searchMode=any`** favorisant le rappel (la mise en correspondance sur n’importe quel critère qualifie un document pour le jeu de résultats), et **`searchMode=all`** favorisant la précision (tous les critères doivent être mis en correspondance). 
+La syntaxe simple prend en charge les opérateurs booléens sous la forme de caractères (`+, -, |`) pour gérer la logique de requête AND, OR et NOT. La recherche booléenne se déroule comme on peut s’y attendre, à quelques exceptions près. 
 
-La valeur par défaut est **`searchMode=any`** , ce qui peut être déroutant si vous placez plusieurs opérateurs dans une requête et obtenez des résultats moins affinés que prévu. Cela est particulièrement vrai avec NOT, où les résultats incluent tous les documents « ne contenant pas » un terme spécifique.
+Dans les exemples précédents, le paramètre « searchMode » a été utilisé pour influencer la précision et le rappel, « searchMode=any » favorisant le rappel (un document qui remplit l’un des critères est considéré comme une correspondance), et « searchMode=all » favorisant la précision (tous les critères doivent être mis en correspondance dans un document). 
 
-Avec le searchMode par défaut (any), 2 800 documents sont retournés : ceux contenant l’expression « fire department », plus tous les documents ne contenant pas l’expression « Metrotech Center ».
+Dans une recherche booléenne, la valeur par défaut « searchMode=any » peut prêter à confusion si vous placez plusieurs opérateurs dans une requête et obtenez des résultats moins affinés que prévu. Cela est particulièrement vrai avec l’opérateur NOT, les résultats incluant tous les documents « ne contenant pas » un terme ou une expression spécifique.
 
-```http
-POST /indexes/nycjobs/docs/search?api-version=2020-06-30
-    {
-      "count": true,
-      "search": "\"fire department\"-\"Metrotech Center\"",
-      "searchMode": "any"
-    }
-```
+L'exemple suivant illustre cette situation. Si vous lancez la requête suivante avec searchMode (any), 42 documents seront renvoyés : ceux qui contiennent le terme « restaurant », et ceux qui ne contiennent pas l’expression « climatisation ». 
 
-La réponse pour cette requête doit ressembler à la capture d’écran suivante.
-
-  :::image type="content" source="media/search-query-simple-examples/searchmodeany.png" alt-text="Mode de recherche any" border="false":::
-
-Affecter la valeur **`searchMode=all`** applique un effet cumulé aux critères et retourne un jeu de résultats plus petit (21 documents) constitué de documents contenant l’expression entière « fire department », moins les emplois à l’adresse du Metrotech Center.
+Notez qu’il n’y a aucun espace entre l’opérateur booléen (`-`) et l’expression « climatisation ».
 
 ```http
-POST /indexes/nycjobs/docs/search?api-version=2020-06-30
-    {
-      "count": true,
-      "search": "\"fire department\"-\"Metrotech Center\"",
-      "searchMode": "all"
-    }
+POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
+{
+    "search": "restaurant -\"air conditioning\"",
+    "searchMode": "any",
+    "searchFields": "Tags",
+    "select": "HotelId, HotelName, Tags",
+    "count": true
+}
 ```
 
-  :::image type="content" source="media/search-query-simple-examples/searchmodeall.png" alt-text="Mode de recherche all" border="false":::
+Affecter la valeur « searchMode=all » applique un effet cumulé aux critères et retourne un jeu de résultats plus petit (7 correspondances) constitué de documents contenant le terme « restaurant », à l’exception de ceux contenant l’expression « climatisation ».
 
-## <a name="example-8-structuring-results"></a>Exemple 8 : Structuration des résultats
+La réponse à cette requête est désormais similaire à l’exemple suivant, ajusté par souci de concision.
 
-Plusieurs paramètres contrôlent quels champs figurent dans les résultats de la recherche, le nombre de documents retournés dans chaque lot, ainsi que l’ordre de tri. Cet exemple reprend quelques-uns des exemples précédents, mais limite les résultats à des champs spécifiques à l’aide de l’instruction **`$select`** et de critères de recherche textuelle, retournant 82 correspondances.
+```json
+"@odata.count": 7,
+"value": [
+    {
+        "@search.score": 2.5460577,
+        "HotelId": "11",
+        "HotelName": "Regal Orb Resort & Spa",
+        "Tags": [
+            "free wifi",
+            "restaurant",
+            "24-hour front desk service"
+        ]
+    },
+    {
+        "@search.score": 2.166792,
+        "HotelId": "10",
+        "HotelName": "Countryside Hotel",
+        "Tags": [
+            "24-hour front desk service",
+            "coffee in lobby",
+            "restaurant"
+        ]
+    },
+```
+
+## <a name="example-8-paging-results"></a>Exemple 8: Résultats de pagination
+
+Grâce aux exemples précédents, vous avez découvert les paramètres qui ont une incidence sur la composition des résultats de recherche, notamment le paramètre « select », qui détermine quels champs se trouvent dans un résultat, les ordres de tri et comment inclure le nombre de correspondances. Cet exemple est la suite de la composition des résultats de la recherche sous la forme de paramètres de pagination qui vous permettent de traiter par lot le nombre de résultats qui s’affichent dans une page donnée. 
+
+Par défaut, un service de recherche renvoie les 50 premières correspondances. Pour contrôler le nombre de correspondances de chaque page, utilisez le paramètre « top » pour définir la taille du lot, puis « skip » pour récupérer les lots suivants.
+
+L’exemple suivant utilise un filtre et un ordre de tri sur le champ Rating (filtrable et triable), car il est plus facile de voir les effets de la pagination sur les résultats triés. Lors d’une requête de recherche complète normale, les principales correspondances sont classées et paginées par « @search.score ».
 
 ```http
-POST /indexes/nycjobs/docs/search?api-version=2020-06-30
-    {
-      "count": true,
-      "search": "\"fire department\"",
-      "searchMode": "any",
-      "select": "job_id,agency,business_title,civil_service_title,work_location,job_description"
-    }
+POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
+{
+    "search": "*",
+    "filter": "Rating gt 4",
+    "select": "HotelName, Rating",
+    "orderby": "Rating desc",
+    "top": "5",
+    "count": true
+}
 ```
 
-En ajoutant à l’exemple précédent, vous pouvez trier par titre. Ce tri fonctionne car civil_service_title est *triable* dans l’index.
-
-```http
-POST /indexes/nycjobs/docs/search?api-version=2020-06-30
-    {
-      "count": true,
-      "search": "\"fire department\"",
-      "searchMode": "any",
-      "select": "job_id,agency,business_title,civil_service_title,work_location,job_description",
-      "orderby": "civil_service_title"
-    }
-```
-
-La pagination des résultats est implémentée à l’aide du paramètre **`$top`** , retournant dans ce cas les cinq premiers documents :
-
-```http
-POST /indexes/nycjobs/docs/search?api-version=2020-06-30
-    {
-      "count": true,
-      "search": "\"fire department\"",
-      "searchMode": "any",
-      "select": "job_id,agency,business_title,civil_service_title,work_location,job_description",
-      "orderby": "civil_service_title",
-      "top": "5"
-    }
-```
+La requête a trouvé 21 documents correspondants, mais étant donné que vous avez spécifié « top », la réponse renvoie uniquement les cinq premières correspondances, le classement étant compris entre 4,7 et 4,9 avec « Lady of the Lake B & B ». 
 
 Pour obtenir les cinq suivants, ignorez le premier lot :
 
 ```http
-POST /indexes/nycjobs/docs/search?api-version=2020-06-30
+POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
+{
+    "search": "*",
+    "filter": "Rating gt 4",
+    "select": "HotelName, Rating",
+    "orderby": "Rating desc",
+    "top": "5",
+    "skip": "5",
+    "count": true
+}
+```
+
+La réponse du deuxième lot ignore les cinq premières correspondances, et renvoie les cinq suivantes, en commençant par « Pull’r Inn Motel ». Pour continuer avec des lots supplémentaires, conservez « top » sur 5, puis incrémentez « skip » de 5 à chaque nouvelle demande (skip=5, skip=10, skip=15, etc.).
+
+```json
+"value": [
     {
-      "count": true,
-      "search": "\"fire department\"",
-      "searchMode": "any",
-      "select": "job_id,agency,business_title,civil_service_title,work_location,job_description",
-      "orderby": "civil_service_title",
-      "top": "5",
-      "skip": "5"
+        "@search.score": 1.0,
+        "HotelName": "Pull'r Inn Motel",
+        "Rating": 4.7
+    },
+    {
+        "@search.score": 1.0,
+        "HotelName": "Sublime Cliff Hotel",
+        "Rating": 4.6
+    },
+    {
+        "@search.score": 1.0,
+        "HotelName": "Antiquity Hotel",
+        "Rating": 4.5
+    },
+    {
+        "@search.score": 1.0,
+        "HotelName": "Nordick's Motel",
+        "Rating": 4.5
+    },
+    {
+        "@search.score": 1.0,
+        "HotelName": "Winter Panorama Resort",
+        "Rating": 4.5
     }
+]
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Essayez de spécifier des requêtes dans le code. Les liens suivants expliquent comment configurer des requêtes de recherche à l’aide des kits de développement logiciel (SDK) Azure.
+Maintenant que vous en savez un peu plus sur la syntaxe de base des requêtes, vous pouvez essayer de spécifier les requêtes dans le code. Les liens suivants expliquent comment configurer des requêtes de recherche à l’aide des Kits de développement logiciel (SDK) Azure.
 
 + [Interroger un index à l’aide du SDK .NET](search-get-started-dotnet.md)
 + [Interroger un index à l’aide du SDK Python](search-get-started-python.md)

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 2/26/2021
-ms.openlocfilehash: c57ac9ddbebcf02cb0118705b63f97fd1880b0f2
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 098f62365971fd634001706ab99fd414a6b25056
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101695875"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102123562"
 ---
 # <a name="register-and-scan-azure-multiple-sources"></a>Inscrire et analyser des sources multiples Azure
 
@@ -95,12 +95,12 @@ Pour créer une analyse et l’exécuter, procédez comme suit :
     1. Vous pouvez sélectionner des **informations d’identification au niveau parent** comme le fichier MSI ou des informations d’identification d’un type de principal du service spécifique, que vous souhaitez utiliser pour tous les types de ressources dans l’abonnement ou le groupe de ressources
     1. Vous pouvez également **sélectionner spécifiquement le type de ressource et appliquer d’autres informations d’identification** pour ce type de ressource
     1. Ces informations d’identification seront considérées comme la méthode d’authentification pour toutes les ressources d’un type spécifique
-    1. Vous devez définir les informations d’identification choisies sur les ressources afin de les analyser correctement comme décrit dans la [section](#Setting-up-authentication-to-scan-resources-under-a-subscription-or-resource-group) ci-dessus
+    1. Vous devez définir les informations d’identification choisies sur les ressources afin de les analyser correctement comme décrit dans la [section](#setting-up-authentication-to-scan-resources-under-a-subscription-or-resource-group) ci-dessus
 1. Dans chaque type, vous pouvez choisir d’analyser toutes les ressources ou un sous-ensemble par nom.
     1. Si vous conservez la valeur **Tout** pour l’option, les ressources futures de ce type seront également analysées lors des exécutions d’analyse ultérieures
     1. Si vous sélectionnez des comptes de stockage ou des bases de données SQL spécifiques, les ressources futures créées de ce type dans cet abonnement ou ce groupe de ressources ne seront pas incluses dans les analyses, sauf si l’analyse est explicitement modifiée par la suite
  
-1.  Cliquez sur **Continuer** pour continuer. Nous allons tester l’accès pour vérifier si vous avez appliqué le fichier MSI Purview en tant que lecteur sur l’abonnement ou le groupe de ressources. Si un message d’erreur est généré, suivez les instructions [ici](#Setting-up-authentication-for-enumerating-resources-under-a-subscription-or-resource-group)
+1.  Cliquez sur **Continuer** pour continuer. Nous allons tester l’accès pour vérifier si vous avez appliqué le fichier MSI Purview en tant que lecteur sur l’abonnement ou le groupe de ressources. Si un message d’erreur est généré, suivez les instructions [ici](#setting-up-authentication-for-enumerating-resources-under-a-subscription-or-resource-group)
 
 1.  Sélectionnez les **ensembles de règles d’analyse** pour chaque type de ressource choisi à l’étape précédente. Vous pouvez également créer des ensembles de règles d’analyse inline.
   :::image type="content" source="media/register-scan-azure-multiple-sources/multiple-scan-rule-set.png" alt-text="Sélection de l’ensemble de règles d’analyse multiple Azure":::

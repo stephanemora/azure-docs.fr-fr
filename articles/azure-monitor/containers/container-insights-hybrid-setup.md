@@ -1,22 +1,22 @@
 ---
-title: Configurer des clusters Kubernetes hybrides avec Azure Monitor pour les conteneurs | Microsoft Docs
-description: Cet article explique comment configurer Azure Monitor pour les conteneurs afin de surveiller les clusters Kubernetes hébergés sur Azure Stack ou dans un autre environnement.
+title: Configurer des clusters Kubernetes hybrides avec Container Insights | Microsoft Docs
+description: Cet article explique comment configurer Container Insights afin de surveiller les clusters Kubernetes hébergés sur Azure Stack ou dans un autre environnement.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 12901b1d2d7edd85fbe1650600856d09105c15b2
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d2692b4a634d60ef62339f68277591d711260712
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100598993"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711244"
 ---
-# <a name="configure-hybrid-kubernetes-clusters-with-azure-monitor-for-containers"></a>Configurer des clusters Kubernetes hybrides avec Azure Monitor pour les conteneurs
+# <a name="configure-hybrid-kubernetes-clusters-with-container-insights"></a>Configurer des clusters Kubernetes hybrides avec Container Insights
 
-Azure Monitor pour les conteneurs offre une expérience d’analyse riche pour Azure Kubernetes Service (AKS) et [Moteur AKS sur Azure](https://github.com/Azure/aks-engine), qui est un cluster Kubernetes automanagé hébergé sur Azure. Cet article explique comment activer la surveillance des clusters Kubernetes hébergés en dehors d’Azure et obtenir une expérience de surveillance similaire.
+Container Insights offre une expérience d’analyse riche pour Azure Kubernetes Service (AKS) et [Moteur AKS sur Azure](https://github.com/Azure/aks-engine), qui est un cluster Kubernetes automanagé hébergé sur Azure. Cet article explique comment activer la surveillance des clusters Kubernetes hébergés en dehors d’Azure et obtenir une expérience de surveillance similaire.
 
 ## <a name="supported-configurations"></a>Configurations prises en charge
 
-Les configurations suivantes sont officiellement prises en charge avec Azure Monitor pour les conteneurs. Si vous utilisez des versions différentes de Kubernetes et du système d’exploitation, envoyez un e-mail à l’adresse askcoin@microsoft.com.
+Les configurations suivantes sont officiellement prises en charge avec Container Insights. Si vous utilisez des versions différentes de Kubernetes et du système d’exploitation, envoyez un e-mail à l’adresse askcoin@microsoft.com.
 
 - Environnements :
 
@@ -36,19 +36,19 @@ Les configurations suivantes sont officiellement prises en charge avec Azure Mon
 
 Avant de commencer, vérifiez que vous disposez des éléments suivants :
 
-- Un [espace de travail Log Analytics](../platform/design-logs-deployment.md).
+- Un [espace de travail Log Analytics](../logs/design-logs-deployment.md).
 
-    Azure Monitor pour conteneurs prend en charge un espace de travail Log Analytics dans les régions répertoriées dans [Produits Azure par région](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor). Pour créer votre propre espace de travail, vous pouvez utiliser [Azure Resource Manager](../samples/resource-manager-workspace.md), [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json) ou le [portail Azure](../learn/quick-create-workspace.md).
+    Container Insights prend en charge un espace de travail Log Analytics dans les régions répertoriées dans [Produits Azure par région](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor). Pour créer votre propre espace de travail, vous pouvez utiliser [Azure Resource Manager](../logs/resource-manager-workspace.md), [PowerShell](../logs/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json) ou le [portail Azure](../logs/quick-create-workspace.md).
 
     >[!NOTE]
     >L’analyse de plusieurs clusters avec le même nom de cluster dans le même espace de travail Log Analytics n’est pas prise en charge. Les noms de cluster doivent être uniques.
     >
 
-- Vous êtes membre du **rôle de contributeur Log Analytics** pour activer la supervision des conteneurs. Pour plus d’informations sur la façon de contrôler l’accès à un espace de travail Log Analytics, consultez [Gérer l’accès à l’espace de travail et aux données de journal](../platform/manage-access.md).
+- Vous êtes membre du **rôle de contributeur Log Analytics** pour activer la supervision des conteneurs. Pour plus d’informations sur la façon de contrôler l’accès à un espace de travail Log Analytics, consultez [Gérer l’accès à l’espace de travail et aux données de journal](../logs/manage-access.md).
 
-- Pour afficher les données de supervision, vous devez disposer du rôle [*Lecteur Log Analytics*](../platform/manage-access.md#manage-access-using-azure-permissions) dans l’espace de travail Log Analytics, configuré avec Azure Monitor pour conteneurs.
+- Pour afficher les données de supervision, vous devez disposer du rôle [*Lecteur Log Analytics*](../logs/manage-access.md#manage-access-using-azure-permissions) dans l’espace de travail Log Analytics, configuré avec Container Insights.
 
-- [Client HELM](https://helm.sh/docs/using_helm/) pour intégrer le graphique Azure Monitor pour conteneurs pour le cluster Kubernetes spécifié.
+- [Client HELM](https://helm.sh/docs/using_helm/) pour intégrer le graphique Container Insights pour le cluster Kubernetes spécifié.
 
 - Les informations de configuration du proxy et du pare-feu suivantes sont requises pour permettre à la version de l’agent Log Analytics pour Linux de communiquer avec Azure Monitor :
 
@@ -67,11 +67,11 @@ Avant de commencer, vérifiez que vous disposez des éléments suivants :
 
 ## <a name="enable-monitoring"></a>Activer la supervision
 
-L’activation d’Azure Monitor pour les conteneurs pour le cluster Kubernetes hybride consiste à effectuer les étapes suivantes dans l’ordre.
+L’activation de Container Insights pour le cluster Kubernetes hybride consiste à effectuer les étapes suivantes dans l’ordre.
 
 1. Configurez votre espace de travail Log Analytics avec la solution Container Insights.   
 
-2. Activez le graphique HELM Azure Monitor pour conteneurs avec l’espace de travail Log Analytics.
+2. Activez le graphique HELM Container Insights avec l’espace de travail Log Analytics.
 
 Pour plus d’informations sur les solutions de supervision dans Azure Monitor, cliquez [ici](../../azure-monitor/insights/solutions.md).
 
@@ -252,7 +252,7 @@ Pour identifier l’ID de ressource complet de votre espace de travail Log Analy
 
 ## <a name="install-the-helm-chart"></a>Installer le graphique HELM
 
-Dans cette section, vous allez installer l’agent en conteneur pour Azure Monitor pour les conteneurs. Avant de continuer, vous devez identifier l’ID d’espace de travail requis pour le paramètre `omsagent.secret.wsid` et la clé primaire requise pour le paramètre `omsagent.secret.key`. Vous pouvez identifier ces informations en effectuant les étapes suivantes, puis exécuter les commandes pour installer l’agent à l’aide du graphique HELM.
+Dans cette section, vous allez installer l’agent en conteneur pour Container Insights. Avant de continuer, vous devez identifier l’ID d’espace de travail requis pour le paramètre `omsagent.secret.wsid` et la clé primaire requise pour le paramètre `omsagent.secret.key`. Vous pouvez identifier ces informations en effectuant les étapes suivantes, puis exécuter les commandes pour installer l’agent à l’aide du graphique HELM.
 
 1. Exécutez la commande suivante pour identifier l’ID de l’espace de travail :
 
@@ -325,14 +325,14 @@ Les définitions d’API prises en charge pour le cluster Azure Stack Hub sont f
 
 Avec la version de graphique 1.0.0, les paramètres de collecte des données de l’agent sont contrôlés à partir de ConfigMap. Reportez-vous à la documentation sur les paramètres de collecte de données de l’agent [ici](container-insights-agent-config.md).
 
-Une fois que vous avez correctement déployé le graphique, vous pouvez examiner les données de votre cluster Kubernetes hybride dans Azure Monitor pour conteneurs depuis le portail Azure.  
+Une fois que vous avez correctement déployé le graphique, vous pouvez examiner les données de votre cluster Kubernetes hybride dans Container Insights depuis le portail Azure.  
 
 >[!NOTE]
 >La latence d’ingestion est de cinq à dix minutes entre l’agent et la validation dans l’espace de travail Azure Log Analytics. L’état du cluster affiche la valeur **Pas de données** ou **Inconnu** jusqu’à ce que toutes les données d’analyse requises soient disponibles dans Azure Monitor.
 
 ## <a name="configure-proxy-endpoint"></a>Configurer le point de terminaison proxy
 
-À compter de la version 2.7.1 du graphique, le graphique prendra en charge la spécification du point de terminaison proxy avec le paramètre `omsagent.proxy`. Cela lui permet de communiquer via votre serveur proxy. La communication entre l’agent Azure Monitor pour les conteneurs et Azure Monitor peut être un serveur proxy HTTP ou HTTPs, et l’authentification anonyme et l’authentification de base (nom d’utilisateur/mot de passe) sont prises en charge.
+À compter de la version 2.7.1 du graphique, le graphique prendra en charge la spécification du point de terminaison proxy avec le paramètre `omsagent.proxy`. Cela lui permet de communiquer via votre serveur proxy. La communication entre l’agent Container Insights et Azure Monitor peut s’opérer via un serveur proxy HTTP ou HTTPS, et l’authentification anonyme et l’authentification de base (nom d’utilisateur/mot de passe) sont prises en charge.
 
 La valeur de configuration de proxy a la syntaxe suivante : `[protocol://][user:password@]proxyhost[:port]`
 
@@ -356,7 +356,7 @@ Si vous spécifiez le protocole **http**, les requêtes HTTP sont créées en ut
 Si vous rencontrez une erreur lors de la tentative d’activation de la surveillance de votre cluster Kubernetes hybride, copiez le script PowerShell [TroubleshootError_nonAzureK8s.ps1](https://aka.ms/troubleshoot-non-azure-k8s) et enregistrez-le dans un dossier sur votre ordinateur. Ce script est fourni pour aider à détecter et à résoudre les problèmes rencontrés. Les problèmes qu’il est conçu de détecter et tenter de corriger sont les suivants :
 
 - L’espace de travail Log Analytics spécifié est valide
-- L’espace de travail Log Analytics est configuré avec la solution Azure Monitor pour conteneurs. Si ce n’est pas le cas, configurez l’espace de travail.
+- L’espace de travail Log Analytics est configuré avec la solution Container Insights. Si ce n’est pas le cas, configurez l’espace de travail.
 - Les pods replicaset OmsAgent sont en cours d’exécution
 - Les pods daemonset OmsAgent sont en cours d’exécution
 - Le service Intégrité OmsAgent est en cours d’exécution
@@ -372,4 +372,4 @@ Pour exécuter avec Azure PowerShell, utilisez les commandes suivantes dans le d
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Une fois l’analyse activée pour collecter l’utilisation des ressources et l’intégrité de votre cluster Kubernetes hybride et des charges de travail s’y exécutant, découvrez [comment utiliser](container-insights-analyze.md) Azure Monitor pour les conteneurs.
+Une fois l’analyse activée pour collecter l’utilisation des ressources et l’intégrité de votre cluster Kubernetes hybride et des charges de travail s’y exécutant, découvrez [comment utiliser](container-insights-analyze.md) Container Insights.

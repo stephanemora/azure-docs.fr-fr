@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: tutorial
 ms.date: 02/17/2021
 ms.custom: template-how-to
-ms.openlocfilehash: de85c4f8cdcd9781345ee1488549aab23e38ec5c
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 3c5e6fd62e4f4db9ccc1306d32d09b8338cbf963
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101678073"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102098024"
 ---
 # <a name="create-a-voice-assistant-with-azure-percept-dk-and-azure-percept-audio"></a>Créer un Assistant vocal avec le DK Azure Percept et Azure Percept Audio
 
@@ -24,30 +24,11 @@ Ce guide explique comment configurer vos appareils, créer un Assistant vocal et
 
 - DK (devkit) Azure Percept
 - Azure Percept Audio
-- Un haut-parleur ou un casque (facultatif)
+- Haut-parleur ou casque qui peut être branché à une prise audio de 3,5 mm (facultatif)
 - [Abonnement Azure](https://azure.microsoft.com/free/)
 - [Expérience d’installation du DK Azure Percept](./quickstart-percept-dk-set-up.md) : vous avez connecté votre devkit à un réseau Wi-Fi, créé un hub IoT et connecté votre devkit au hub IoT
+- [Installation d’Azure Percept Audio](./quickstart-percept-audio-setup.md)
 
-## <a name="device-setup"></a>Configuration de l’appareil
-
-1. (Facultatif) Connectez votre haut-parleur ou votre casque au SoM audio via la prise casque, étiquetée « Line Out ». Cela vous permettra d’entendre les réponses audio de votre Assistant vocal. Si vous ne connectez pas de haut-parleur ou de casque, vous pourrez toujours voir les réponses sous forme de texte dans la fenêtre de démonstration.
-
-1. Connectez le SoM audio à la carte porteuse de votre devkit à l’aide du câble USB-A vers micro B inclus.
-
-1. Mettez sous tension le devkit.
-
-    - Le voyant L01 du SoM audio passe au vert fixe pour indiquer que l’appareil est sous tension.
-    - Le voyant L02 passe au vert clignotant pour indiquer que le SoM audio s’authentifie.
-
-1. Attendez que le processus d’authentification se termine. Cette opération peut prendre jusqu’à 3 minutes.
-
-1. Passez à la section suivante lorsque vous voyez l’un des éléments suivants :
-
-    - Le voyant L01 s’éteint et L02 s’allume en blanc. Cela indique que l’authentification est terminée et que le devkit n’a pas encore été configuré avec un mot clé.
-    - Les trois voyants passent au bleu. Cela indique que l’authentification est terminée et que le devkit a été configuré avec un mot clé.
-
-    > [!NOTE]
-    > Contactez le support si votre devkit ne parvient pas à s’identifier.
 
 ## <a name="create-a-voice-assistant-using-an-available-template"></a>Créer un Assistant vocal à l’aide d’un modèle
 
@@ -119,6 +100,7 @@ La démonstration Automobile inclut un chauffage de siège virtuel, un dégivreu
 * « Règle la température sur X degrés » (X correspondant à la température souhaitée, par exemple 24.)
 * « Augmente/Diminue la température de Y degrés »
 
+
 :::image type="content" source="./media/tutorial-no-code-speech/auto-demo.png" alt-text="Capture d’écran de la fenêtre de la démonstration Automobile.":::
 
 ### <a name="inventory-demo-commands"></a>Commandes de la démonstration Inventaire
@@ -131,19 +113,30 @@ La démonstration Inventaire propose une sélection de boîtes virtuelles bleues
 * « Compte les boîtes Y » (Y correspondant à la couleur des boîtes, par exemple jaune.)
 * « Expédie tout le stock »
 
+
 :::image type="content" source="./media/tutorial-no-code-speech/inventory-demo.png" alt-text="Capture d’écran de la fenêtre de la démonstration Inventaire.":::
 
 ## <a name="configure-your-keyword"></a>Configurer votre mot clé
 
-Pour modifier votre mot clé, cliquez sur **Modifier** en regard de **Mot clé personnalisé** dans la fenêtre de démonstration. Sélectionnez l’un des mots clés disponibles, puis cliquez sur **Enregistrer**. Vous pouvez choisir parmi une sélection de mots clés prédéfinis, ainsi que parmi tous les mots clés personnalisés que vous avez créés.
+Vous pouvez personnaliser le mot clé pour votre application Assistant vocal.
 
-:::image type="content" source="./media/tutorial-no-code-speech/change-keyword.png" alt-text="Capture d’écran de la sélection des mots clés disponibles.":::
+1. Cliquez sur **Modifier** à côté de **Mot clé personnalisé** dans la fenêtre de démonstration.
+
+1. Sélectionnez l’un des mots clés disponibles. Vous pouvez choisir parmi une sélection d’exemples de mots clés, ainsi que parmi tous les mots clés personnalisés que vous avez créés.
+
+1. Cliquez sur **Enregistrer**.
 
 ### <a name="create-a-custom-keyword"></a>Créer un mot clé personnalisé
 
-Pour créer un mot clé personnalisé, cliquez sur **+ Créer un mot clé personnalisé** en haut de la fenêtre de démonstration. Entrez le mot clé de votre choix (qui peut être un mot unique ou une phrase courte), sélectionnez votre **ressource Speech** (qui est listée en regard de **Commande personnalisée** dans la fenêtre de démonstration et comprend le préfixe de votre application), puis cliquez sur **Enregistrer**. L’entraînement de votre mot clé personnalisé peut se terminer en quelques secondes.
+Vous pouvez créer votre propre mot clé pour votre application vocale. L’entraînement de votre mot clé personnalisé peut ne prendre que quelques minutes.
 
-:::image type="content" source="./media/tutorial-no-code-speech/custom-keyword.png" alt-text="Capture d’écran de la fenêtre de création du mot clé personnalisé.":::
+1. Cliquez sur **+ Créer un mot clé personnalisé** en haut de la fenêtre de démonstration. 
+
+1. Entrez le mot clé de votre choix. Il peut s’agir d’un mot unique ou d’une expression courte.
+
+1. Sélectionnez votre **ressource Speech** (dont la liste figure à côté de **Commande personnalisée** dans la fenêtre de démonstration et qui comprend le préfixe de votre application).
+
+1. Cliquez sur **Enregistrer**. 
 
 ## <a name="create-a-custom-command"></a>Créer une commande personnalisée
 
@@ -185,13 +178,13 @@ Pour plus d’informations sur le développement de commandes personnalisées, c
 
 ### <a name="voice-assistant-was-created-but-does-not-respond-to-commands"></a>L’Assistant vocal a été créé mais ne répond pas aux commandes
 
-Vérifiez les voyants sur le SoM audio :
+Vérifiez les voyants LED sur la carte d’interposeur :
 
 * Trois voyants bleus fixes indiquent que l’Assistant vocal est prêt et qu’il attend le mot clé.
 * Si le voyant central (L02) est blanc, cela signifie que l’initialisation du devkit est terminée et que celui-ci doit être configuré avec un mot clé.
-* Une combinaison de voyants verts indique que le SoM audio n’a pas encore terminé l’initialisation. L’initialisation peut prendre quelques minutes.
+* Si la LED centrale (L02) clignote en blanc, cela signifie que le SoM Audio n’a pas encore terminé l’initialisation. L’initialisation peut prendre quelques minutes.
 
-Pour plus d’informations sur les voyants du SoM audio, consultez l’article consacré aux voyants.
+Pour plus d’informations sur les voyants LED, consultez l’article [LED](./audio-button-led-behavior.md).
 
 ### <a name="voice-assistant-does-not-respond-to-a-custom-keyword-created-in-speech-studio"></a>L’Assistant vocal ne répond pas à un mot clé personnalisé créé dans Speech Studio
 
@@ -207,22 +200,20 @@ Cela peut se produire si le module de reconnaissance vocale est obsolète. Effec
 
 1. Vérifiez la version du module Speech. Si une mise à jour est disponible, le bouton **Mettre à jour** s’affiche à côté du numéro de version.
 
-    :::image type="content" source="./media/tutorial-no-code-speech/devkit.png" alt-text="Capture d’écran de la fenêtre des paramètres de reconnaissance vocale du DevKit.":::
-
 1. Cliquez sur **Mettre à jour** pour déployer la mise à jour du module Speech. Le processus de mise à jour prend généralement de 2 à 3 minutes.
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Une fois que vous avez fini d’utiliser l’application Assistant vocal, effectuez les étapes suivantes pour nettoyer les ressources Speech que vous avez déployées dans ce tutoriel :
 
-1. Sur le [portail Azure](https://ms.portal.azure.com/#home), sélectionnez **Groupes de ressources** dans le menu de gauche ou tapez « groupes de ressources » dans la barre de recherche.
+1. Sur le [portail Azure](https://portal.azure.com), sélectionnez **Groupes de ressources** dans le menu de gauche ou tapez « groupes de ressources » dans la barre de recherche.
 
     :::image type="content" source="./media/tutorial-no-code-speech/azure-portal.png" alt-text="Capture d’écran de la page d’accueil du portail Azure montrant le menu de gauche et les groupes de ressources.":::
 
 1. Sélectionnez votre groupe de ressources.
 
 1. Sélectionnez les six ressources dont le nom comprend le préfixe de votre application, puis cliquez sur l’icône **Supprimer** dans le menu du haut.
-
+\
     :::image type="content" source="./media/tutorial-no-code-speech/select-resources.png" alt-text="Capture d’écran des ressources Speech sélectionnées pour la suppression.":::
 
 1. Pour confirmer la suppression, tapez **oui** dans la zone de confirmation, vérifiez que vous avez sélectionné les bonnes ressources, puis cliquez sur **Supprimer**.
