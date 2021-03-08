@@ -12,12 +12,12 @@ ms.date: 2/23/2021
 ms.author: kenwith
 ms.reviewer: hpsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9a884cbe9ad30ce298318d217aa9ed1947c8f21
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: b545afb370b84404d3e15f885464aabf00d2eaf2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102123018"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687071"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Utiliser des restrictions liées au locataire pour gérer l’accès aux applications cloud SaaS
 
@@ -29,7 +29,7 @@ Grâce aux restrictions liées au locataire, les organisations peuvent spécifie
 
 Cet article se concentre sur les restrictions liées au locataire pour Microsoft 365, mais la fonctionnalité protège toutes les applications qui dirigent l’utilisateur vers Azure AD à des fins d’authentification unique. Si vous utilisez des applications SaaS avec un locataire Azure AD différent du locataire utilisé par votre Microsoft 365, vérifiez que tous les locataires nécessaires sont autorisés (par ex. dans les scénarios de collaboration B2B). Pour plus d’informations sur les applications cloud SaaS, consultez [Active Directory Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps).
 
-En outre, la fonctionnalité des restrictions liées au locataire prend désormais en charge [le blocage de l’utilisation de toutes les applications grand public Microsoft](#blocking-consumer-applications-public-preview) (applications MSA) comme OneDrive, Hotmail et Xbox.com.  Cette option utilise un en-tête distinct pour le point de terminaison `login.live.com` et est détaillée à la fin du document.
+En outre, la fonctionnalité des restrictions liées au locataire prend désormais en charge [le blocage de l’utilisation de toutes les applications grand public Microsoft](#blocking-consumer-applications) (applications MSA) comme OneDrive, Hotmail et Xbox.com.  Cette option utilise un en-tête distinct pour le point de terminaison `login.live.com` et est détaillée à la fin du document.
 
 ## <a name="how-it-works"></a>Fonctionnement
 
@@ -178,9 +178,9 @@ Fiddler est un proxy de débogage web gratuit qui peut être utilisé pour captu
       }
    ```
 
-   Si vous avez besoin d’autoriser plusieurs clients, utilisez une virgule pour séparer les noms des clients. Par exemple :
+Si vous avez besoin d’autoriser plusieurs clients, utilisez une virgule pour séparer les noms des clients. Par exemple :
 
-   `oSession.oRequest["Restrict-Access-To-Tenants"] = "contoso.onmicrosoft.com,fabrikam.onmicrosoft.com";`
+      `oSession.oRequest["Restrict-Access-To-Tenants"] = "contoso.onmicrosoft.com,fabrikam.onmicrosoft.com";`
 
 4. Enregistrez et fermez le fichier CustomRules.
 

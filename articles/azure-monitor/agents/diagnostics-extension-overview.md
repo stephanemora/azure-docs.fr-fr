@@ -1,17 +1,16 @@
 ---
 title: Vue d’ensemble de l’extension Diagnostics Azure
 description: Utilisation des diagnostics Azure pour le débogage, la mesure des performances, la surveillance, l’analyse du trafic dans Cloud Services, Virtual Machines et Service Fabric
-ms.subservice: diagnostic-extension
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/14/2020
-ms.openlocfilehash: f3cde32178449169b07f57d4abbc346d8ca89df4
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 3c0e348e62184f839ce38e4c364fb5c6b81f1131
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100599206"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726221"
 ---
 # <a name="azure-diagnostics-extension-overview"></a>Vue d’ensemble de l’extension Diagnostics Azure
 L’extension Diagnostics Azure est un [agent présent dans Azure Monitor](../agents/agents-overview.md) qui collecte des données de supervision dans le système d’exploitation invité des ressources de calcul Azure, notamment des machines virtuelles. Cet article fournit une vue d’ensemble de l’extension Diagnostics Azure, notamment des fonctionnalités spécifiques qu’elle prend en charge ainsi que des options d’installation et de configuration. 
@@ -33,8 +32,8 @@ L’agent Log Analytics dans Azure Monitor peut également être utilisé pour c
 Les principales différences à prendre en compte sont les suivantes :
 
 - L’extension Diagnostics Azure peut être utilisée uniquement avec des machines virtuelles Azure. L’agent Log Analytics peut être utilisé avec des machines virtuelles dans Azure, dans d’autres clouds et en local.
-- L’extension Diagnostics Azure envoie des données à Stockage Azure, à [Azure Monitor Metrics](../platform/data-platform-metrics.md) (Windows uniquement) et à Event Hubs. L’agent Log Analytics collecte des données dans des [journaux d’activité Azure Monitor](../platform/data-platform-logs.md).
-- L’agent Log Analytics est requis pour les [solutions](../monitor-reference.md#insights-and-core-solutions), [Azure Monitor pour machines virtuelles](../insights/vminsights-overview.md) et d’autres services tels qu’[Azure Security Center](../../security-center/index.yml).
+- L’extension Diagnostics Azure envoie des données à Stockage Azure, à [Azure Monitor Metrics](../essentials/data-platform-metrics.md) (Windows uniquement) et à Event Hubs. L’agent Log Analytics collecte des données dans des [journaux d’activité Azure Monitor](../logs/data-platform-logs.md).
+- L’agent Log Analytics est requis pour les [solutions](../monitor-reference.md#insights-and-core-solutions), [VM Insights](../vm/vminsights-overview.md) et d’autres services tels qu’[Azure Security Center](../../security-center/index.yml).
 
 ## <a name="costs"></a>Coûts
 Il n’y a aucun coût lié à l’extension Diagnostics Azure, mais vous pouvez être facturé pour les données ingérées. Consultez les [tarifs Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/) appliqués pour la destination dans laquelle vous collectez les données.
@@ -74,7 +73,7 @@ Configurez un ou plusieurs *récepteurs de données* pour envoyer des données �
 
 | Destination | Description |
 |:---|:---|
-| Métriques Azure Monitor | Collecter les données de performances dans les métriques Azure Monitor. Consultez [Envoyer des métriques de système d’exploitation invité à la base de données de métriques Azure Monitor](../platform/collect-custom-metrics-guestos-resource-manager-vm.md).  |
+| Métriques Azure Monitor | Collecter les données de performances dans les métriques Azure Monitor. Consultez [Envoyer des métriques de système d’exploitation invité à la base de données de métriques Azure Monitor](../essentials/collect-custom-metrics-guestos-resource-manager-vm.md).  |
 | Hubs d'événements | Utiliser Azure Event Hubs pour envoyer des données en dehors d’Azure. Consultez [Streaming des données Diagnostics Azure vers Event Hubs](diagnostics-extension-stream-event-hubs.md) |
 | Objets blob de stockage Azure | Écrire les données dans des objets blob au sein du Stockage Azure, en plus de les écrire dans des tables. |
 | Application Insights | Collecter les données des applications qui s’exécutent dans votre machine virtuelle vers Application Insights pour les intégrer à d’autres supervisions d’applications. Consultez [Envoyez les données de diagnostic à Application Insights](diagnostics-extension-to-application-insights.md). |
@@ -89,7 +88,7 @@ LAD écrit les données dans des tables au sein du Stockage Azure. Elle prend en
 |:---|:---|
 | Hubs d'événements | Utiliser Azure Event Hubs pour envoyer des données en dehors d’Azure. |
 | Objets blob de stockage Azure | Écrire les données dans des objets blob au sein du Stockage Azure, en plus de les écrire dans des tables. |
-| Métriques Azure Monitor | Installer l’agent Telegraf en plus de LAD. Consultez [Collecter des métriques personnalisées pour une machine virtuelle Linux avec l’agent InfluxData Telegraf](../platform/collect-custom-metrics-linux-telegraf.md).
+| Métriques Azure Monitor | Installer l’agent Telegraf en plus de LAD. Consultez [Collecter des métriques personnalisées pour une machine virtuelle Linux avec l’agent InfluxData Telegraf](../essentials/collect-custom-metrics-linux-telegraf.md).
 
 
 ## <a name="installation-and-configuration"></a>Installation et configuration

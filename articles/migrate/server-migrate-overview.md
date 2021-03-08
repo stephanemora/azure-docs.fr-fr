@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: cf3a3d3fdfcd03f068224c93643d364cd2646290
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 7446b2050fdd7bbc7704953c053da0629231191c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98895626"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101715120"
 ---
 # <a name="select-a-vmware-migration-option"></a>Sélectionnez une option de migration VMware
 
@@ -28,7 +28,7 @@ Utilisez ces comparaisons sélectionnées pour vous aider à choisir la méthode
 **Paramètre** | **Sans agent** | **Basé sur un agent**
 --- | --- | ---
 **Autorisations Azure** | Vous avez besoin d’autorisations pour créer un projet Azure Migrate et pour inscrire des applications Azure AD créées lorsque vous déployez l’appliance Azure Migrate. | Vous avez besoin des autorisations de Collaborateur sur l’abonnement Azure. 
-**Réplication** | Un maximum de 300 machines virtuelles peuvent être répliquées simultanément à partir d’un vCenter Server.<br/> Si vous avez plus de 50 machines virtuelles pour la migration, créez plusieurs lots de machines virtuelles.<br/> La réplication multiple en une seule fois aura un impact sur les performances.<br/><br/> Dans le portail, vous pouvez sélectionner jusqu’à 10 machines à la fois pour la réplication. Pour répliquer davantage de machines, ajoutez-les par lots de 10.| La capacité de réplication augmente en mettant à l’échelle l’appliance de réplication.
+**Réplication** | Un maximum de 500 machines virtuelles peuvent être répliquées simultanément à partir d’un vCenter Server. Dans le portail, vous pouvez sélectionner jusqu’à 10 machines à la fois pour la réplication. Pour répliquer davantage de machines, ajoutez-les par lots de 10.| La capacité de réplication augmente en mettant à l’échelle l’appliance de réplication.
 **Étapes de déploiement d’appliance** | L'[appliance Azure Migrate](migrate-appliance.md) est déployée en local. | L'[appliance de réplication Azure Migrate](migrate-replication-appliance.md) est déployée en local.
 **Compatibilité Site Recovery** | Compatible. | Vous ne pouvez pas répliquer avec Azure Migrate Server Migration si vous avez défini la réplication pour une machine utilisant Site Recovery.
 **Disque cible** | Disques managés | Disques managés

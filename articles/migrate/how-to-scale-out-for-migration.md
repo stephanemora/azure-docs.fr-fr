@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 03/02/2021
-ms.openlocfilehash: fda9026adf46a26927912b9e1983a537470c37ee
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6e81b3d62fb5b208c88257d7660f74ac25f099b8
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101743157"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102047944"
 ---
 # <a name="scale-agentless-migration-of-vmware-virtual-machines-to-azure"></a>Mettre à l’échelle une migration sans agent de machines virtuelles VMware vers Azure
 
@@ -153,7 +153,7 @@ Une fois les fichiers importés, l’inscription de l’appliance de montée en 
 :::image type="content" source="./media/how-to-scale-out-for-migration/view-sources.png" alt-text="Importation réussie":::
 
 > [!IMPORTANT]
-> Si vous modifiez les informations d’identification de vCenter Server sur l’appliance principale, veillez à réimporter les fichiers de configuration sur l’appliance de montée en puissance parallèle pour obtenir la configuration la plus récente et poursuivre les réplications en cours.<br/> Si vous n’avez plus besoin de l’appliance de montée en puissance parallèle, veillez à la désactiver. [**En savoir plus**](./common-questions-appliance) sur la désactivation de l’appliance de montée en puissance parallèle lorsque vous n’en avez pas besoin.
+> Si vous modifiez les informations d’identification de vCenter Server sur l’appliance principale, veillez à réimporter les fichiers de configuration sur l’appliance de montée en puissance parallèle pour obtenir la configuration la plus récente et poursuivre les réplications en cours.<br/> Si vous n’avez plus besoin de l’appliance de montée en puissance parallèle, veillez à la désactiver. [**En savoir plus**](./common-questions-appliance.md) sur la désactivation de l’appliance de montée en puissance parallèle lorsque vous n’en avez pas besoin.
 
 ## <a name="replicate"></a>Réplication
 

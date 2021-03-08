@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 01/18/2021
-ms.openlocfilehash: d1ba698cd95a074c021aa351a98eb12fc8ae0fc3
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0b0dd584aee4a7647a3028ea20b517c0d74a330a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100599321"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734738"
 ---
 # <a name="connector-status-errors-in-the-itsmc-dashboard"></a>Erreurs d’état du connecteur dans le tableau de bord d’ITSMC
 
@@ -56,7 +56,9 @@ Les sections suivantes décrivent les erreurs courantes qui apparaissent dans la
 
 ## <a name="invalid-refresh-token"></a>Jeton d’actualisation non valide
 
-**Erreur** : « AccessToken et RefreshToken non valides. L’utilisateur doit s’authentifier à nouveau. »
+**Erreur** : 
+  * « AccessToken et RefreshToken non valides. L’utilisateur doit s’authentifier à nouveau. »
+  * « Impossible de synchroniser la configuration des modèles pour les événements, alertes et incidents. Pour plus d’informations, consultez le message d’exception. »
 
 **Cause** : Un jeton d’actualisation a expiré.
 

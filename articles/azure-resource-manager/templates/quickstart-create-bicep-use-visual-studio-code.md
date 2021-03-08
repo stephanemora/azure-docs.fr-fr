@@ -5,18 +5,18 @@ author: mumian
 ms.date: 03/02/2021
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: b959d471d290a58611787cf1916343c26abe8e69
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ab1d7b88321ce5959b99423ae2ca1332369ef691
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101701327"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102178965"
 ---
 # <a name="quickstart-create-bicep-files-with-visual-studio-code"></a>Démarrage rapide : Créer des fichiers Bicep avec Visual Studio Code
 
 L’extension Bicep pour Visual Studio Code fournit la prise en charge du langage et la saisie semi-automatique des ressources. Ces outils facilitent la création et la validation des fichiers [Bicep](./bicep-overview.md). Dans ce guide de démarrage rapide, vous allez utiliser l’extension pour créer un fichier Bicep à partir de zéro. Ce faisant, vous découvrirez différentes possibilités d’extension telles que la validation et la saisie semi-automatique.
 
-Pour suivre ce guide de démarrage rapide, vous avez besoin de [Visual Studio Code](https://code.visualstudio.com/), ainsi que de l’[extension Bicep](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep). Vous avez également besoin soit de la version d’[Azure CLI](/cli/azure/?view=azure-cli-latest&preserve-view=true), soit du [module Azure PowerShell](/powershell/azure/new-azureps-module-az?view=azps-3.7.0&preserve-view=true) le plus récent, que vous devez authentifier après leur installation.
+Pour suivre ce guide de démarrage rapide, vous avez besoin de [Visual Studio Code](https://code.visualstudio.com/), ainsi que de l’[extension Bicep](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep). Vous avez également besoin soit de la version d’[Azure CLI](/cli/azure/), soit du [module Azure PowerShell](/powershell/azure/new-azureps-module-az?view=azps-3.7.0&preserve-view=true) le plus récent, que vous devez authentifier après leur installation.
 
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 

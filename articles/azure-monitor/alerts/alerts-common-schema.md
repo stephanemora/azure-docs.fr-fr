@@ -4,12 +4,12 @@ description: Comprendre le schéma d’alerte commun, pourquoi vous devez l’ut
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 03/14/2019
-ms.openlocfilehash: aa619976c8fa03b925d66e884ad03fc4e385693e
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 70e37f8f1c9391eee5901f611bae579efe1cd9b9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100598680"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737288"
 ---
 # <a name="common-alert-schema"></a>Schéma d’alerte courant
 
@@ -52,7 +52,7 @@ Vous pouvez adhérer ou ne pas adhérer au schéma d’alerte commun par le biai
 > 1. Les types d’alerte suivants prennent en charge le schéma commun par défaut (aucune adhésion requise) :
 >     * Alertes de détection intelligente
 > 1. Les types d’alerte suivants ne prennent pas en charge le schéma commun :
->     * Alertes générées par [Azure Monitor pour machines virtuelles](../insights/vminsights-overview.md)
+>     * Alertes générées par [VM Insights](../vm/vminsights-overview.md)
 >     * Alertes générées par [Azure Cost Management](../../cost-management-billing/manage/cost-management-budget-scenario.md)
 
 ### <a name="through-the-azure-portal"></a>À l’aide du portail Azure

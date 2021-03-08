@@ -1,5 +1,5 @@
 ---
-title: Vue d'ensemble des Clusters Azure Stream Analytics (préversion)
+title: Vue d’ensemble des clusters Azure Stream Analytics
 description: Découvrez l'offre de cluster Stream Analytics dédiée à un seul locataire.
 author: sidramadoss
 ms.author: sidram
@@ -7,14 +7,14 @@ ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc
 ms.date: 09/22/2020
-ms.openlocfilehash: 75a95fa4ad36b69ca920f527060644dcc5264ce8
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: e5157a02f97370b20db85bf5e3e8aae98a2d8668
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98019531"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709289"
 ---
-# <a name="overview-of-azure-stream-analytics-cluster-preview"></a>Vue d'ensemble du Cluster Azure Stream Analytics (préversion)
+# <a name="overview-of-azure-stream-analytics-cluster"></a>Vue d’ensemble du cluster Azure Stream Analytics
 
 L'offre de cluster Azure Stream Analytics permet de déployer un seul locataire pour les scénarios de streaming complexes et exigeants. À grande échelle, les clusters Stream Analytics peuvent traiter plus de 200 Mo/seconde en temps réel. Les travaux Stream Analytics exécutés sur des clusters dédiés peuvent tirer parti de toutes les fonctionnalités de l'offre Standard et incluent la prise en charge de la connectivité par liaison privée à vos entrées et sorties.
 

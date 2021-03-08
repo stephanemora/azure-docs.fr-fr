@@ -1,16 +1,17 @@
 ---
 title: Comment interroger des journaux à partir de VM Insights
 description: La solution VM Insights collecte des métriques et des données de journal. Cet article décrit les enregistrements correspondants et inclut des exemples de requêtes.
+ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
-ms.openlocfilehash: 28ee7f3d327c09f5837c7dc9e2f39c0f2ca4d888
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: bbecb15173c929aee46e7d1eeb5e83aab86430f5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102046531"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713522"
 ---
 # <a name="how-to-query-logs-from-vm-insights"></a>Comment interroger des journaux à partir de VM Insights
 

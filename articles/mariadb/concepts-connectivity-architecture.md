@@ -6,12 +6,12 @@ ms.author: bahusse
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 2/11/2021
-ms.openlocfilehash: a83b570637d18fd0e92cd80ed87acbef8c7a9d77
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: b166e2f648446ac1672ead00a774d71d34699380
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100368062"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101724640"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mariadb"></a>Architecture de connectivité dans Azure Database for MariaDB
 Cet article présente l’architecture de connectivité Azure Database for MariaDB, ainsi que la façon dont le trafic est orienté vers votre instance Azure Database for MariaDB des clients dans Azure et en dehors.
@@ -65,7 +65,7 @@ Le tableau suivant répertorie les adresses IP de la passerelle Azure Database f
 | Inde Centre | 104.211.96.159     | | |
 | Sud de l’Inde | 104.211.224.146  | | |
 | Inde Ouest | 104.211.160.80    | | |
-| Japon Est | 40.79.192.23 | 13.78.61.196 | |
+| Japon Est | 40.79.192.23, 40.79.184.8 | 13.78.61.196 | |
 | OuJapon Est | 191.238.68.11, 40.74.96.6, 40.74.96.7     | 104.214.148.156 | |
 | Centre de la Corée | 52.231.17.13   | 52.231.32.42 | |
 | Corée du Sud | 52.231.145.3     | 52.231.200.86 | |

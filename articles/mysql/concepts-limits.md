@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/1/2020
-ms.openlocfilehash: b4f828c675df9625d6d4889dbc31bbc4b9f887ed
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.openlocfilehash: 9b18b24686908ac92f97ea0cae892369919ae4d6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97386712"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101721016"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Limitations dans Azure Database pour MySQL
 Les sections suivantes abordent la capacité, la prise en charge du moteur de stockage, la prise en charge des privilèges, la prise en charge des instructions de manipulation des données et les limites fonctionnelles du service de base de données. Vous pouvez aussi consulter les [limitations générales](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) qui sont applicables au moteur de base de données MySQL.
@@ -29,7 +29,7 @@ Les plug-ins de mot de passe tels que « validate_password » et « caching_s
 
 ## <a name="storage-engines"></a>Moteurs de stockage
 
-MySQL prend en charge de nombreux moteurs de stockage. Sur le Serveur flexible Azure Database pour MySQL, les moteurs de stockage suivants sont pris en charge ou ne le sont pas :
+MySQL prend en charge de nombreux moteurs de stockage. Sur Azure Database pour MySQL, les moteurs de stockage suivants sont pris en charge ou ne le sont pas :
 
 ### <a name="supported"></a>Prise en charge
 - [InnoDB](https://dev.mysql.com/doc/refman/5.7/en/innodb-introduction.html)

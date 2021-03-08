@@ -1,17 +1,16 @@
 ---
 title: Résoudre les problèmes dans ITSMC
 description: Découvrez comment résoudre les problèmes courants dans Connecteur de gestion des services informatiques.
-ms.subservice: alerts
 ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 04/12/2020
-ms.openlocfilehash: a01005231b5d775f79555ec10dedeb3f30b3426a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 7094bf07453c06831fecfa2056480bf498b26a72
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101737203"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102041618"
 ---
 # <a name="troubleshoot-problems-in-it-service-management-connector"></a>Résoudre les problèmes liés à Connecteur de gestion des services informatiques
 

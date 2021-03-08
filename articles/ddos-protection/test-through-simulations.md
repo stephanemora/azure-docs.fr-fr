@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
-ms.openlocfilehash: e95495e48725a68ab1fe3f37d235e5765b2c8015
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 3be8682b3a12f06aa83db1791cb0ed125bbcee7e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99806237"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719234"
 ---
 # <a name="test-through-simulations"></a>Tester à l’aide de simulations
 
@@ -28,6 +28,9 @@ Nous travaillons en collaboration avec [BreakingPoint Cloud](https://www.ixiacom
 - Optimiser votre processus de réponse aux incidents en cas d’attaque DDoS.
 - Documenter la conformité DDoS.
 - Former des équipes de sécurité réseau.
+
+> [!NOTE]
+> BreakingPoint Cloud n’est disponible que pour le cloud public.
 
 ## <a name="prerequisites"></a>Prérequis
 

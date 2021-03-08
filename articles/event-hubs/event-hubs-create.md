@@ -3,12 +3,12 @@ title: Démarrage rapide Azure - Créer un Event Hub à l'aide du portail Azure
 description: Dans ce guide de démarrage rapide, vous allez apprendre à créer un hub d’événements Azure à l’aide du portail Azure.
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: c1244317655815da91429585eff9ffbcc16662d4
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 6bd9d247db6cd5a956ff4bce9b70f1f8a5a7499a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96435499"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101742039"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-portal"></a>Démarrage rapide : Créer un hub d’événements avec le portail Azure
 Azure Event Hubs est une plateforme de streaming Big Data et un service d’ingestion d’événements, capable de recevoir et de traiter des millions d’événements par seconde. Les concentrateurs d’événements peuvent traiter et stocker des événements, des données ou la télémétrie produits par des logiciels et appareils distribués. Les données envoyées à un concentrateur d’événements peuvent être transformées et stockées à l’aide d’adaptateurs de traitement par lot/stockage ou d’un fournisseur d’analyse en temps réel. Pour une présentation détaillée d’Event Hubs, consultez [Vue d’ensemble d’Event Hubs](event-hubs-about.md) et [Fonctionnalités d’Event Hubs](event-hubs-features.md).
@@ -87,7 +87,7 @@ Pour créer un Event Hub dans l’espace de noms, effectuez les actions suivante
 
     Le paramètre **Nombre de partitions** vous permet de paralléliser la consommation sur un grand nombre de consommateurs. Pour plus d'informations, consultez [Partitions](event-hubs-scalability.md#partitions).
 
-    Le paramètre **Rétention des messages** spécifie la durée pendant laquelle le service Event Hubs conserve les données. Pour connaître les limites maximales pour ce paramètre, consultez [Quotas et limites](event-hubs-quotas.md).
+    Le paramètre **Rétention des messages** spécifie la durée pendant laquelle le service Event Hubs conserve les données. Pour plus d’informations, consultez [Rétention des événements](event-hubs-features.md#event-retention).
 1. Vous pouvez examiner l’état de la création du hub d’événements dans les alertes. Une fois créé, le hub d’événements apparaît dans la liste.
 
     ![Hub d’événements créé](./media/event-hubs-quickstart-portal/event-hub-created.png)

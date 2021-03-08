@@ -3,12 +3,12 @@ title: Supervision Kubernetes avec Container Insights | Microsoft Docs
 description: Cet article décrit comment voir et analyser les performances d’un cluster Kubernetes avec Container Insights.
 ms.topic: conceptual
 ms.date: 03/26/2020
-ms.openlocfilehash: 432de02d22a418e92a7487001ae8c128323f3685
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 865a21e8c54d2cf569e04534fab6ec14f5519f34
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101711346"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102124310"
 ---
 # <a name="monitor-your-kubernetes-cluster-performance-with-container-insights"></a>Superviser les performances de votre cluster Kubernetes avec Container Insights
 
@@ -20,7 +20,7 @@ Pour plus d’informations sur l’activation de Container Insights, consultez [
 
 Azure Monitor fournit une vue multi-cluster qui affiche l’état d’intégrité de tous les clusters Kubernetes surveillés exécutant Linux et Windows Server 2019, déployés dans les groupes de ressources de vos abonnements. Il montre les clusters découverts sur tous les environnements et qui ne sont pas surveillés par la solution. Vous pouvez immédiatement comprendre l’intégrité du cluster et, à partir de là, vous pouvez explorer le nœud et la page de performances du contrôleur, ou naviguer pour voir les graphiques de performances du cluster. Pour les clusters AKS qui ont été détectés et identifiés comme non surveillés, vous pouvez activer leur surveillance à tout moment.
 
-Les principales différences entre la surveillance d’un cluster Windows Server doté de Container Insights et celle d’un cluster Linux sont décrites [ici](container-insights-overview.md#what-does-azure-monitor-for-containers-provide) dans l’article de présentation.
+Les principales différences entre la surveillance d’un cluster Windows Server doté de Container Insights et celle d’un cluster Linux sont décrites [ici](container-insights-overview.md#what-does-container-insights-provide) dans l’article de présentation.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 

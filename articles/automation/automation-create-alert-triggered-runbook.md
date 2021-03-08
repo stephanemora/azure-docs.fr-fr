@@ -3,18 +3,18 @@ title: Utiliser une alerte pour déclencher un runbook Azure Automation
 description: Cet article explique comment déclencher un runbook à exécuter quand une alerte Azure est levée.
 services: automation
 ms.subservice: process-automation
-ms.date: 04/29/2019
+ms.date: 02/14/2021
 ms.topic: conceptual
-ms.openlocfilehash: add2bbb7b8f9eeb72c8c58b8c54b070a6b14d8e6
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0483b171ee65ac55d65261140738bc5c1838873f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100586060"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101732290"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>Utiliser une alerte pour déclencher un runbook Azure Automation
 
-Vous pouvez utiliser [Azure Monitor](../azure-monitor/overview.md) pour surveiller des métriques de base et des journaux d’activité pour la plupart des services Azure. Vous pouvez appeler les runbooks Azure Automation à l’aide de [groupes d’actions](../azure-monitor/alerts/action-groups.md) ou à partir d’alertes classiques pour automatiser des tâches basées sur les alertes. Cet article explique comment configurer et exécuter un runbook en utilisant des alertes.
+Vous pouvez utiliser [Azure Monitor](../azure-monitor/overview.md) pour surveiller des métriques de base et des journaux d’activité pour la plupart des services Azure. Vous pouvez appeler les runbooks Azure Automation en utilisant des [groupes d’actions](../azure-monitor/platform/action-groups.md) pour automatiser des tâches basées sur des alertes. Cet article explique comment configurer et exécuter un runbook en utilisant des alertes.
 
 ## <a name="alert-types"></a>Types d’alertes
 
