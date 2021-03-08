@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/14/2021
+ms.date: 02/22/2021
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 99521a746a16a2d0de310fc6cfb2d2272e7b2593
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 0bfc09a372584a25c23060cef33d1f698e6d5ff3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98705932"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101712604"
 ---
 # <a name="azure-importexport-system-requirements"></a>Configuration système requise du service Azure Import/Export
 
@@ -43,7 +43,10 @@ Le service Azure Import/Export prend en charge les types de comptes de stockage 
 
 - Comptes de stockage v2 à usage général standard (recommandés pour la plupart des scénarios)
 - Comptes de stockage d’objets blob
-- Comptes de stockage v1 à usage général (déploiements Classic ou Azure Resource Manager)
+- Comptes de stockage à usage général v1 (déploiements Classic ou Azure Resource Manager)
+
+> [!IMPORTANT]
+> La prise en charge du protocole NFS (Network File System) 3.0 dans le stockage d’objets BLOB Azure n’est pas prise en charge avec Azure Import/Export.
 
 Pour plus d’informations sur les comptes de stockage, consultez [Vue d’ensemble des comptes de stockage Azure](../storage/common/storage-account-overview.md).
 
