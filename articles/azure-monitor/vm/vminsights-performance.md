@@ -1,17 +1,16 @@
 ---
 title: Comment créer des graphiques de performances avec VM Insights
 description: Performances est une fonctionnalité de VM Insights qui découvre automatiquement les composants d’application sur les systèmes Windows et Linux et mappe la communication entre services. Cet article fournit des informations sur son utilisation dans divers scénarios.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/31/2020
-ms.openlocfilehash: 9c69ea3da71063d7e20ebf31ae2eb3df9a51e2c2
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 02cb6a0c69fef1a33dd9327ddbd86e02b376a60e
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101725439"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102046463"
 ---
 # <a name="how-to-chart-performance-with-vm-insights"></a>Comment créer des graphiques de performances avec VM Insights
 

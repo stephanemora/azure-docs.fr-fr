@@ -5,14 +5,14 @@ services: azure-app-configuration
 author: AlexandraKemperMS
 ms.service: azure-app-configuration
 ms.topic: how-to
-ms.date: 07/27/2020
+ms.date: 02/23/2021
 ms.author: alkemper
-ms.openlocfilehash: c5e0cc3eb29fb612460b16d8de9dee62949b5bd2
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 7d343e07414dd1c3f9786c1684eb6f14d5f45e51
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99979604"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718180"
 ---
 # <a name="push-settings-to-app-configuration-with-azure-pipelines"></a>Envoyer des paramètres vers App Configuration avec Azure Pipelines
 
@@ -80,7 +80,7 @@ Les paramètres suivants sont utilisés par la tâche App Configuration Push :
 
 - **Azure subscription** : liste déroulante contenant vos connexions de service Azure disponibles. Pour mettre à jour et actualiser votre liste de connexions de service Azure disponibles, appuyez sur le bouton **Refresh Azure subscription** (Actualiser l’abonnement Azure) à droite de la zone de texte.
 - **App Configuration Name** : liste déroulante qui charge vos magasins de configuration disponibles sous l’abonnement sélectionné. Pour mettre à jour et actualiser votre liste de magasins de configuration disponibles, appuyez sur le bouton **Refresh App Configuration Name** (Actualiser le nom App Configuration) à droite de la zone de texte.
-- **Configuration File Path** : chemin de votre fichier de configuration. Vous pouvez parcourir votre artefact de build pour sélectionner un fichier de configuration. (bouton `...` à droite de la zone de texte).
+- **Configuration File Path** : chemin de votre fichier de configuration. Vous pouvez parcourir votre artefact de build pour sélectionner un fichier de configuration. (bouton `...` à droite de la zone de texte). Les formats de fichier pris en charge sont les suivants : yaml, json, properties.
 - **Separator** : séparateur utilisé pour aplatir les fichiers .JSON et .yml.
 - **Depth** : profondeur à laquelle les fichiers .JSON et .yml seront aplatis.
 - **Prefix** : chaîne ajoutée au début de chaque clé envoyée au magasin App Configuration.

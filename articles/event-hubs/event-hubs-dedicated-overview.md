@@ -3,12 +3,12 @@ title: Vue d’ensemble d’Event Hubs Dedicated - Azure Event Hubs | Microsoft 
 description: Cet article fournit une vue d’ensemble d’Azure Event Hubs Dedicated, qui offre des déploiements de concentrateurs d’événements à locataire unique.
 ms.topic: article
 ms.date: 10/23/2020
-ms.openlocfilehash: 1a15206fc35f0d536c7105aa73dfdcfc9967124d
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 721acf354c7d14c1362b4f760982af37d59115f9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358862"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101715613"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>Vue d’ensemble d’Event Hubs Dedicated
 
@@ -52,7 +52,7 @@ L’offre Event Hubs Dedicated est facturée à un tarif mensuel fixe, avec un m
 | Partitions | 32 par hub d’événements | 1 024 par hub d’événements<br/>2 000 par unité de capacité |
 | Groupes de consommateurs | 20 par hub d’événements | Aucune limite par unité de capacité, 1 000 par hub d’événements |
 | Connexions réparties | 1 000 inclus, 5 000 maximum | 100 000 inclus et maximum |
-| Rétention des messages | 7 jours, 84 Go inclus par unité de débit | 90 jours, 10 To inclus per unité de capacité |
+| [Rétention des événements](event-hubs-features.md#event-retention) | 7 jours, 84 Go inclus par unité de débit | 90 jours, 10 To inclus per unité de capacité |
 | Capture | Paiement par heure | Inclus |
 
 Pour augmenter les quotas et limites, consultez [Quotas et limites d’Azure Event Hubs](event-hubs-quotas.md)

@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: how-to
-ms.date: 11/12/2020
-ms.openlocfilehash: bdbbf3e808e1dda0970aaf87d154ee79bea4dcb1
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.date: 02/24/2021
+ms.openlocfilehash: f87ad76e9bb1db4d71716bf860d5fee2d413e8e9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97964165"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101740373"
 ---
 # <a name="share-and-receive-data-from-azure-sql-database-and-azure-synapse-analytics"></a>Partager et recevoir des données d’Azure SQL Database et d’Azure Synapse Analytics
 
@@ -275,7 +275,7 @@ Suivez les étapes ci-dessous pour configurer l’emplacement où vous souhaitez
 ### <a name="trigger-a-snapshot"></a>Déclencher une capture instantanée
 Ces étapes s’appliquent seulement au partage basé sur des instantanés.
 
-1. Vous pouvez déclencher un instantané en sélectionnant l’onglet **Détails** puis **Déclencher un instantané**. Ici, vous pouvez déclencher une capture instantanée complète ou incrémentielle de vos données. Si vous recevez des données de votre fournisseur de données pour la première fois, sélectionnez l’option de copie complète. Pour les sources SQL, seule la capture instantanée complète est prise en charge.
+1. Vous pouvez déclencher un instantané en sélectionnant l’onglet **Détails** puis **Déclencher un instantané**. Ici, vous pouvez déclencher une capture instantanée complète ou incrémentielle de vos données. Si vous recevez des données de votre fournisseur de données pour la première fois, sélectionnez l’option de copie complète. Pour les sources SQL, seule la capture instantanée complète est prise en charge. Quand un instantané est en cours d’exécution, les instantanés suivants ne démarrent pas tant que l’exécution de l’instantané précédent n’est pas terminée.
 
    ![Déclencher un instantané](./media/trigger-snapshot.png "Déclencher un instantané") 
 

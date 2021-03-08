@@ -4,12 +4,12 @@ description: Découvrez comment activer la redondance de zone dans Azure Contain
 ms.topic: article
 ms.date: 02/23/2021
 ms.custom: references_regions
-ms.openlocfilehash: 931adcf8258c48d7df42bd5927e8789d7cc871db
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a190ea68f41196fb11c20259b9953f516d6f5370
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101738104"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102203859"
 ---
 # <a name="enable-zone-redundancy-in-azure-container-registry-for-resiliency-and-high-availability"></a>Activer la redondance de zone dans Azure Container Registry à des fins de résilience et de haute disponibilité
 
@@ -48,7 +48,7 @@ az group create --name <resource-group-name> --location <location>
 
 ### <a name="create-zone-enabled-registry"></a>Création d’un registre compatible avec les zones
 
-Exécutez la commande [az acr create](/cli/azure/acr?view=azure-cli-latest#az_acr_create) pour créer un registre redondant interzone dans le niveau de service Premium. Choisissez une région qui [prend en charge les zones de disponibilité](../availability-zones/az-region.md) pour Azure Container Registry. Dans l’exemple suivant, la redondance de zone est activée dans la région *eastus*. Pour connaître d’autres options de registre, consultez l’aide de la commande `az acr create`.
+Exécutez la commande [az acr create](/cli/azure/acr#az_acr_create) pour créer un registre redondant interzone dans le niveau de service Premium. Choisissez une région qui [prend en charge les zones de disponibilité](../availability-zones/az-region.md) pour Azure Container Registry. Dans l’exemple suivant, la redondance de zone est activée dans la région *eastus*. Pour connaître d’autres options de registre, consultez l’aide de la commande `az acr create`.
 
 ```azurecli
 az acr create \
@@ -70,7 +70,7 @@ Dans la sortie de la commande, repérez la propriété `zoneRedundancy` du regis
 
 ### <a name="create-zone-redundant-replication"></a>Création d’une réplication redondante interzone
 
-Exécutez la commande [az acr replication create](/cli/azure/acr/replication?view=azure-cli-latest#az_acr_replication_create) pour créer un réplica de registre redondant interzone dans une région qui [prend en charge les zones de disponibilité](../availability-zones/az-region.md) pour Azure Container Registry, par exemple *westus2*. 
+Exécutez la commande [az acr replication create](/cli/azure/acr/replication#az_acr_replication_create) pour créer un réplica de registre redondant interzone dans une région qui [prend en charge les zones de disponibilité](../availability-zones/az-region.md) pour Azure Container Registry, par exemple *westus2*. 
 
 ```azurecli
 az acr replication create \
@@ -220,7 +220,7 @@ Copiez le contenu suivant dans un nouveau fichier et enregistrez-le à l’aide 
   }
 ```
 
-Exécutez la commande [az deployment group create](/cli/azure/group/deployment?view=azure-cli-latest#az_group_deployment_create) suivante pour créer le Registre à l’aide du fichier de modèle précédent. Si indiqué, fournissez :
+Exécutez la commande [az deployment group create](/cli/azure/group/deployment#az_group_deployment_create) suivante pour créer le Registre à l’aide du fichier de modèle précédent. Si indiqué, fournissez :
 
 * un nom de registre unique, ou déployez le modèle sans paramètres et il créera un nom unique pour vous
 * un emplacement pour le réplica qui prend en charge les zones de disponibilité, par exemple *westus2*

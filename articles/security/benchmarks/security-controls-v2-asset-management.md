@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 32b0a7e31fc0d595eacc2bf5257f41e4ce35566b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: fbeb88b6aa542666481458fde97d7c63f467fa30
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101735809"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102051529"
 ---
 # <a name="security-control-v2-asset-management"></a>Contrôle de sécurité V2 : Gestion des ressources
 
 La gestion des ressources couvre les contrôles permettant de garantir la visibilité et la gouvernance de sécurité sur les ressources Azure. Cela comprend des recommandations relatives aux autorisations pour le personnel de sécurité, l’accès sécurisé à l’inventaire des ressources et la gestion des approbations pour les services et les ressources (inventaire, suivi et correction).
 
-Pour afficher l’instance Azure Policy intégrée applicable, consultez [Informations sur l’initiative intégrée Conformité réglementaire Azure Security Benchmark : Sécurité réseau](../../governance/policy/samples/azure-security-benchmark#asset-management)
+Pour afficher l’instance Azure Policy intégrée applicable, consultez [Informations sur l’initiative intégrée Conformité réglementaire Azure Security Benchmark : Sécurité réseau](../../governance/policy/samples/azure-security-benchmark.md#asset-management)
 
 ## <a name="am-1-ensure-security-team-has-visibility-into-risks-for-assets"></a>AM-1 : S’assurer que l’équipe de sécurité a une visibilité sur les risques pour les ressources
 
@@ -154,7 +154,7 @@ Vous pouvez également utiliser une solution tierce pour découvrir et identifie
 
 - [Comprendre la fonctionnalité Suivi des modifications et inventaire d’Azure Automation](../../automation/change-tracking/overview.md)
 
-- [Guide pratique pour contrôler l’exécution des scripts PowerShell dans des environnements Windows](/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6)
+- [Guide pratique pour contrôler l’exécution des scripts PowerShell dans des environnements Windows](/powershell/module/microsoft.powershell.security/set-executionpolicy)
 
 **Responsabilité** : Customer
 

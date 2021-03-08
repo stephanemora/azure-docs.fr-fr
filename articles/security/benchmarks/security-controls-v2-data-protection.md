@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: c8d907062835f18393946b04f1f1e9d5ec345411
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 50358eed580bbd83f25386feb0068a252060672b
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101735758"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102037113"
 ---
 # <a name="security-control-v2-data-protection"></a>Contrôle de sécurité V2 : Protection des données
 
 La protection des données recouvre le contrôle de protection des données au repos, en transit et via des mécanismes d’accès autorisés. Cela comprend la découverte, la classification, la protection et la supervision des ressources de données sensibles via le contrôle d’accès, le chiffrement et la journalisation dans Azure.
 
-Pour afficher l’instance Azure Policy intégrée applicable, consultez [Informations sur l’initiative intégrée Conformité réglementaire Azure Security Benchmark : Protection des données](../../governance/policy/samples/azure-security-benchmark#data-protection)
+Pour afficher l’instance Azure Policy intégrée applicable, consultez [Informations sur l’initiative intégrée Conformité réglementaire Azure Security Benchmark : Protection des données](../../governance/policy/samples/azure-security-benchmark.md#data-protection)
 
 ## <a name="dp-1-discovery-classify-and-label-sensitive-data"></a>DP-1 : Découvrir, classifier et étiqueter des données sensibles
 

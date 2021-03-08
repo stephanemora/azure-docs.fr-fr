@@ -1,17 +1,16 @@
 ---
 title: Analyser les services de stockage Azure avec Azure Monitor pour le stockage | Microsoft Docs
 description: Cet article décrit la fonctionnalité Azure Monitor pour le stockage, qui fournit aux administrateurs du stockage une compréhension rapide des problèmes de performances et d’utilisation avec leurs comptes de stockage Azure.
-ms.subservice: ''
 ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 05/11/2020
-ms.openlocfilehash: 13c884d9f140fbd962bfa32ef2d853339aec325a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0baaca8df8865061b51f1629da14c3b18a527047
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100587354"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708065"
 ---
 # <a name="monitoring-your-storage-service-with-azure-monitor-for-storage"></a>Analyse de votre service de stockage avec Azure Monitor pour le stockage
 
@@ -85,7 +84,7 @@ Lorsque vous sélectionnez une valeur sous l’une des colonnes du classeur, vou
 
 ## <a name="view-from-a-storage-account"></a>Afficher à partir d’un compte de stockage
 
-Pour accéder à Azure Monitor pour machines virtuelles directement à partir d’un compte de stockage :
+Pour accéder VM Insights directement à partir d’un compte de stockage :
 
 1. Dans le portail Azure, sélectionnez Comptes de stockage.
 

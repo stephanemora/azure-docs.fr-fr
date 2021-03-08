@@ -21,13 +21,13 @@ Lorsque vous ajoutez une solution de supervision à votre abonnement, par défau
 Il existe trois étapes au ciblage d’une solution, comme décrit dans les sections suivantes. 
 
 
-### <a name="1-create-a-computer-group"></a>Créer un groupe d’ordinateurs
+### <a name="1-create-a-computer-group"></a>1. Créer un groupe d’ordinateurs
 Vous spécifiez les ordinateurs que vous souhaitez inclure dans une étendue en créant un [groupe d'ordinateurs](../logs/computer-groups.md) dans Azure Monitor.  Le groupe d'ordinateurs peut être basé sur une requête de journal ou importé à partir d'autres sources comme les groupes WSUS ou Active Directory. Comme [décrit ci-dessous](#solutions-and-agents-that-cant-be-targeted), seuls les ordinateurs qui sont directement connectés à Azure Monitor figurent dans l'étendue.
 
 Une fois que le groupe d’ordinateurs est créé dans votre espace de travail, vous devez l’inclure dans une configuration d’étendue qui peut être appliquée à une ou plusieurs solutions.
  
  
-### <a name="2-create-a-scope-configuration"></a>Création d’une configuration d’étendue
+### <a name="2-create-a-scope-configuration"></a>2. Création d’une configuration d’étendue
  Une **configuration d’étendue** inclut un ou plusieurs groupes d’ordinateurs et peut être appliquée à une ou plusieurs solutions. 
  
  Créez une configuration d’étendue à l’aide de la procédure suivante.  
@@ -41,7 +41,7 @@ Une fois que le groupe d’ordinateurs est créé dans votre espace de travail, 
  6. Cliquez sur **OK** pour créer la configuration d’étendue. 
 
 
-### <a name="3-apply-the-scope-configuration-to-a-solution"></a>Appliquez la configuration d’étendue à une solution.
+### <a name="3-apply-the-scope-configuration-to-a-solution"></a>3. Appliquez la configuration d’étendue à une solution.
 Une fois que vous avez une configuration d’étendue, vous pouvez l’appliquer à une ou plusieurs solutions.  Notez qu’une seule configuration d’étendue peut être utilisée avec plusieurs solutions, mais chaque solution ne peut utiliser qu’une seule configuration d’étendue.
 
 Appliquez une configuration d’étendue à l’aide de la procédure suivante.  

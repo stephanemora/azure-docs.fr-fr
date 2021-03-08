@@ -3,20 +3,20 @@ title: Activer le module complémentaire AKS Monitoring à l’aide d’Azure Po
 description: Décrit comment activer le module complémentaire AKS Monitoring à l’aide d’une stratégie personnalisée Azure.
 ms.topic: conceptual
 ms.date: 02/04/2021
-ms.openlocfilehash: 302fdbbbcadf211339952f4b1bd97dcbb4ab1a85
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 2163527cc83e70913e9a6e11bf2e22f9ed9c6690
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807988"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713896"
 ---
 # <a name="enable-aks-monitoring-addon-using-azure-policy"></a>Activer le module complémentaire AKS Monitoring à l’aide d’Azure Policy
 Cet article décrit comment activer le module complémentaire AKS Monitoring à l’aide d’une stratégie personnalisée Azure. La stratégie personnalisée du module complémentaire Monitoring peut être affectée au niveau de l’abonnement ou du groupe de ressources. Si l’espace de travail Azure Log Analytics et le cluster AKS se trouvent dans des abonnements différents, l’identité managée utilisée par l’attribution de stratégie doit avoir les autorisations de rôle requises sur les abonnements ou au moins sur la ressource de l’espace de travail Log Analytics. De même, si la stratégie est limitée au groupe de ressources, l’identité managée doit avoir les autorisations de rôle requises sur l’espace de travail Log Analytics si l’espace de travail n’est pas dans l’étendue du groupe de ressources sélectionné.
 
 Le module complémentaire Monitoring requiert les rôles suivants sur l’identité managée utilisée par Azure Policy :
 
- - [azure-kubernetes-service-contributor-role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#azure-kubernetes-service-contributor-role)
- - [log-analytics-contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#log-analytics-contributor)
+ - [azure-kubernetes-service-contributor-role](../../role-based-access-control/built-in-roles.md#azure-kubernetes-service-contributor-role)
+ - [log-analytics-contributor](../../role-based-access-control/built-in-roles.md#log-analytics-contributor)
 
 ## <a name="create-and-assign-policy-definition-using-azure-portal"></a>Créer et attribuer une définition de stratégie avec le portail Azure
 
@@ -79,6 +79,5 @@ Le module complémentaire Monitoring requiert les rôles suivants sur l’identi
 
 - En savoir plus sur [Azure Policy](../../governance/policy/overview.md).
 - En savoir plus sur le [fonctionnement de la sécurité de la correction](../../governance/policy/how-to/remediate-resources.md#how-remediation-security-works).
-- En savoir plus sur [Azure Monitor pour conteneurs](../insights/container-insights-overview.md).
-- Installez [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
-
+- [En savoir plus sur Container Insights](./container-insights-overview.md).
+- Installez [Azure CLI](/cli/azure/install-azure-cli).

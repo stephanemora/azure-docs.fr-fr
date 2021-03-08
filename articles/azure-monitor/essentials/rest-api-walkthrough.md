@@ -5,12 +5,12 @@ ms.subservice: metrics
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.custom: has-adal-ref
-ms.openlocfilehash: 41c2432c3c80be7d28e8f33372dea44ba108c5d3
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: b22387272ebeae7a7db8f0e0940841415e345279
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100599026"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734211"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Procédure pas à pas d’utilisation de l’API REST d’Azure Monitor
 
@@ -462,9 +462,9 @@ Une fois les définitions de mesures disponibles connues, il est possible de ré
 >
 >
 
-**Méthode** : GET
+**Méthode** : `GET`
 
-**URI de demande** : `https:\//management.azure.com/subscriptions/\*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-namespace}*/*{resource-type}*/*{resource-name}*/providers/microsoft.insights/metrics?$filter=*{filter}*&api-version=*{apiVersion}*`
+**URI de demande** : `https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider-namespace}/{resource-type}/{resource-name}/providers/microsoft.insights/metrics?$filter={filter}&api-version={apiVersion}`
 
 Par exemple, pour retrouver les points de données de mesure RunsSucceeded pour la plage de temps spécifiée et avec un fragment de temps de 1 heure, la requête est la suivante :
 
@@ -734,7 +734,6 @@ GET https://management.azure.com/subscriptions/089bd33f-d4ec-47fe-8ba5-0753aa5c5
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Consultez la [Vue d’ensemble de l’analyse](../overview.md).
-* Affichez les [Mesures prises en charge avec Azure Monitor](../platform/metrics-supported.md).
+* Affichez les [Mesures prises en charge avec Azure Monitor](./metrics-supported.md).
 * Consultez la [Référence de l’API REST Microsoft Azure Monitor](/rest/api/monitor/).
 * Consultez la [Bibliothèque de gestion Azure](/previous-versions/azure/reference/mt417623(v=azure.100)).
-

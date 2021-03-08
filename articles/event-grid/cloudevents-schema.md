@@ -4,12 +4,12 @@ description: Décrit comment utiliser le schéma CloudEvents pour les événemen
 ms.topic: conceptual
 ms.date: 11/10/2020
 ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 93e514e0eac40cfaa51d410a446608deca3cbd6d
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: 484f118791d57c082a9f4383b1af4a22c04849c4
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97901400"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737900"
 ---
 # <a name="use-cloudevents-v10-schema-with-event-grid"></a>Utiliser le schéma CloudEvents v1.0 avec Event Grid
 En plus de son [schéma d’événement par défaut](event-schema.md), Azure Event Grid prend en charge en mode natif les événements dans l’[implémentation JSON de CloudEvents v1.0](https://github.com/cloudevents/spec/blob/v1.0/json-format.md) et la [liaison de protocole HTTP](https://github.com/cloudevents/spec/blob/v1.0/http-protocol-binding.md). [CloudEvents](https://cloudevents.io/) est une [spécification ouverte](https://github.com/cloudevents/spec/blob/v1.0/spec.md) qui décrit les données d’événement.
@@ -60,10 +60,10 @@ Vous pouvez utiliser Event Grid pour l’entrée et la sortie des événements d
 
  Ressource Event Grid | Schéma d’entrée       | Schéma de remise
 |---------------------|-------------------|---------------------
-| Rubriques sur le système       | Schéma Event Grid | Schéma Event Grid ou schéma CloudEvent
-| Rubriques/domaines utilisateur | Schéma Event Grid | Schéma Event Grid
+| Rubriques sur le système       | Schéma Event Grid | Schéma Event Grid ou CloudEvents
+| Rubriques/domaines utilisateur | Schéma Event Grid | Schéma Event Grid ou CloudEvents
 | Rubriques/domaines utilisateur | Schéma CloudEvents | Schéma CloudEvents
-| Rubriques/domaines utilisateur | Schéma personnalisé     | Schéma personnalisé, schéma Event Grid ou schéma CloudEvent
+| Rubriques/domaines utilisateur | Schéma personnalisé     | Schéma personnalisé, schéma Event Grid ou schéma CloudEvents
 | PartnerTopics       | Schéma CloudEvents | Schéma CloudEvents
 
 Pour tous les schémas d’événement, Event Grid nécessite une validation lorsque vous publiez dans une rubrique Event Grid et lorsque vous créez un abonnement aux événements.

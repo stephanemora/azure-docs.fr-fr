@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/26/2020
-ms.openlocfilehash: 000de084cf9375347704cc4d3905ca36bdd77ff8
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 125431e6630ccfdd9e0e5d6b2a4ec5fa9b9e58fd
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92926187"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101736183"
 ---
 # <a name="choose-the-right-mysql-server-option-in-azure"></a>Choisir l’option MySQL Server appropriée dans Azure
 
@@ -43,17 +43,19 @@ Le tableau suivant liste les principales différences entre ces options :
 
 | Attribut          | Azure Database pour MySQL<br/>Serveur unique |Azure Database pour MySQL<br/>Serveur flexible  |MySQL sur des machines virtuelles Azure                      |
 |:-------------------|:-------------------------------------------|:---------------------------------------------|:---------------------------------------|
-| Prise en charge de la version de MySQL | 5.6, 5.7 et 8.0| 5.7 | Toutes les versions|
+| Prise en charge de la version de MySQL | 5.6, 5.7 et 8.0| 5.7 et 8.0 | Toutes les versions|
 | Mise à l’échelle du calcul | Pris en charge (la mise à l’échelle de et vers le niveau De base n’est pas prise en charge)| Prise en charge | Prise en charge|
 | Taille de stockage | 5 Gio à 16Tio| De 5 Gio à 16 Tio | De 32 Gio à 32 767 Gio|
 | Mise à l’échelle du stockage en ligne | Prise en charge| Prise en charge| Non pris en charge|
 | Mise à l’échelle du stockage automatique | Prise en charge| Non prise en charge en préversion| Non pris en charge|
+| Mise à l’échelle des IOPs supplémentaires | Non pris en charge| Prise en charge| Non pris en charge|
 | Connectivité réseau | - Points de terminaison publics avec pare-feu de serveur.<br/> - Accès privé avec prise en charge de Liaison privée.|- Points de terminaison publics avec pare-feu de serveur.<br/> - Accès privé avec intégration de réseau virtuel.| - Points de terminaison publics avec pare-feu de serveur.<br/> - Accès privé avec prise en charge de Liaison privée.|
 | Contrat de niveau de service (SLA) | Contrat SLA de disponibilité de 99,99 % |Aucun contrat de niveau de service en préversion| 99,99 % utilisant des zones de disponibilité|
 | Mise à jour corrective du système d’exploitation| Automatique  | Automatique avec contrôle de fenêtre de maintenance personnalisée | Géré par les utilisateurs finaux |
 | Mise à jour corrective de MySQL     | Automatique  | Automatique avec contrôle de fenêtre de maintenance personnalisée | Géré par les utilisateurs finaux |
 | Haute disponibilité | Haute disponibilité intégrée à l’intérieur d’une zone de disponibilité unique| Haute disponibilité intégrée à l’intérieur de zones de disponibilité et entre elles | Gestion personnalisée à l’aide d’un clustering, d’une réplication, etc.|
 | Redondance de zone | Non pris en charge | Prise en charge | Prise en charge|
+| Placement de la zone | Non pris en charge | Prise en charge | Prise en charge|
 | Scénarios hybrides | Pris en charge avec [Réplication des données entrantes](./concepts-data-in-replication.md)| Non disponible en préversion | Géré par les utilisateurs finaux |
 | Réplicas en lecture | Pris en charge (jusqu’à 5 réplicas)| Pris en charge (jusqu’à 10 réplicas)| Géré par les utilisateurs finaux |
 | Sauvegarde | Automatisée avec une rétention de 7 à 35 jours | Automatisée avec une rétention de 1 à 35 jours | Géré par les utilisateurs finaux |
