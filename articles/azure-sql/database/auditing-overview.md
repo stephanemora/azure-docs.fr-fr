@@ -8,14 +8,14 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 02/03/2021
+ms.date: 02/28/2021
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: 0e85019c8f02b8a4a97426d50a30d047b95378a1
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 8635e3590d4196e407dfc591a55ee240806358ed
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100572282"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691516"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Audit pour Azure SQL Database et Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -47,6 +47,8 @@ Vous pouvez utiliser l’audit SQL Database pour :
 - Le **stockage Premium** n'est actuellement **pas pris en charge**.
 - **L’espace de noms hiérarchique** pour un **compte de stockage Azure Data Lake Storage Gen2** n’est actuellement **pas pris en charge**.
 - L’activation de l’audit sur une instance **Azure Synapse** interrompue n’est pas prise en charge. Pour activer l’audit, reprenez Azure Synapse.
+- L’audit pour les **pools Azure Synapse SQL** prend en charge les groupes d’actions d’audit par défaut **uniquement**.
+
 
 #### <a name="define-server-level-vs-database-level-auditing-policy"></a><a id="server-vs-database-level"></a>Définir une stratégie d’audit au niveau du serveur ou au niveau de la base de données
 

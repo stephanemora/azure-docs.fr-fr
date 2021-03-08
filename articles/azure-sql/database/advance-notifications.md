@@ -1,6 +1,6 @@
 ---
 title: Notifications préalables (préversion) pour les événements de maintenance planifiée
-description: Recevez une notification avant la maintenance planifiée pour Azure SQL Database ou Azure SQL Managed Instance.
+description: Recevez une notification avant la maintenance planifiée pour Azure SQL Database.
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: service
@@ -11,24 +11,26 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/02/2021
-ms.openlocfilehash: 3f63a8d2f75a58a771d837128c2b2498c28948ef
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 07f6267a14a4604e1a43dd1a1a9930d63a419336
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101678328"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690887"
 ---
 # <a name="advance-notifications-for-planned-maintenance-events-preview"></a>Notifications préalables pour les événements de maintenance planifiée (préversion)
-[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Les notifications préalables (préversion) sont disponibles pour les bases de données configurées pour la [fenêtre de maintenance (préversion)](maintenance-window.md). Les notifications préalables permettent aux clients de configurer des notifications à envoyer jusqu’à 24 heures à l’avance de tout événement planifié.
 
 Les notifications peuvent être configurées de sorte que vous puissiez recevoir des textes, des e-mails, des notifications push Azure et des messages vocaux lorsque le démarrage de la maintenance planifiée est prévu dans les 24 heures suivantes. Des notifications supplémentaires sont envoyées au début et à la fin de la maintenance.
 
+> [!Note]
+> Bien qu’il soit possible de choisir une fenêtre de maintenance pour les instances managées Azure SQL, les notifications préalables ne sont actuellement pas disponibles pour les instances managées Azure SQL.
 
 ## <a name="create-an-advance-notification"></a>Créer une notification préalable
 
-Les notifications préalable sont disponibles pour les bases de données Azure SQL et les instances managées dont la fenêtre de maintenance est configurée. 
+Les notifications préalables sont disponibles pour les bases de données Azure SQL dont la fenêtre de maintenance est configurée. 
 
 Effectuez les étapes suivantes pour activer une notification.  
 

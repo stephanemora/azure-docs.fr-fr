@@ -11,12 +11,12 @@ ms.author: sacartac
 ms.reviewer: nibaccam
 ms.date: 12/21/2020
 ms.custom: automl
-ms.openlocfilehash: f0bb354bce0c4696f60e2be5c6186760518c7431
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: ad8a9f7af9ddabe969d090f80378ba5ff891d7f1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99549184"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691941"
 ---
 # <a name="tutorial-create-a-classification-model-with-automated-ml-in-azure-machine-learning"></a>Tutoriel : Créer un modèle de classification avec le ML automatisé dans Azure Machine Learning
 
@@ -187,6 +187,30 @@ L’exemple suivant parcourt les onglets **Détails** et **Métriques** pour mon
 
 ![Détails sur l’exécution de l’itération](./media/tutorial-first-experiment-automated-ml/run-detail.gif)
 
+## <a name="model-explanations"></a>Explications de modèle
+
+Pendant l’exécution des modèles, vous pouvez en profiter pour examiner les explications de modèle et constater quelles fonctionnalités de données (brutes ou générées) ont influencé les prédictions d’un modèle spécifique. 
+
+Ces explications de modèle peuvent être générées à la demande et sont résumées dans le tableau de bord des explications de modèle contenu sous l’onglet **Explications (aperçu)** .
+
+Pour générer des explications de modèle : 
+ 
+1. Sélectionnez **Exécuter 1** en haut pour revenir à l’écran **Modèles**. 
+1. Sélectionnez l’onglet **Modèles**.
+1. Pour ce tutoriel, sélectionnez le premier modèle **MaxAbsScaler, LightGBM**.
+1. Sélectionnez le bouton **Expliquer le modèle** en haut. À droite, le volet **Expliquer le modèle** s’affiche. 
+1. Sélectionnez le cluster **automl-compute** que vous avez créé précédemment. Ce cluster de calcul lance une exécution enfant pour générer les explications du modèle.
+1. Sélectionnez **Créer** en bas. Un message de réussite en vert s’affiche en haut de votre écran. 
+    >[!NOTE]
+    > L’exécution d’explicabilité dure généralement de 2 à 5 minutes.
+1. Sélectionnez le bouton **Explications (aperçu)** . Cet onglet se remplit une fois que l’exécution d’explicabilité est effectuée.
+1. Sur le côté gauche, développez le volet et sélectionnez la ligne « **RAW** » sous **Fonctionnalités**. 
+1. Sélectionnez l’onglet **Agréger l’importance des caractéristiques** à droite. Ce graphique montre les fonctionnalités de données qui ont influencé les prédictions du modèle sélectionné. 
+
+    Dans cet exemple, c’est la *durée* qui semble avoir le plus influencé les prédictions de ce modèle.
+    
+    ![Tableau de bord des explications de modèle](media/tutorial-first-experiment-automated-ml/model-explanation-dashboard.png)
+
 ## <a name="deploy-the-best-model"></a>Déployer le meilleur modèle
 
 L’interface de machine learning automatisé vous permet de déployer le meilleur modèle comme service web en quelques étapes. Le déploiement consiste à intégrer le modèle pour qu’il puisse prédire de nouvelles données et identifier les domaines potentiels d’opportunités. 
@@ -211,7 +235,7 @@ Nous déployons ce modèle, mais nous vous informons que le déploiement prend 2
     Description du déploiement| Déploiement de ma première expérience de Machine Learning automatisé
     Type de capacité de calcul | Sélectionnez une instance de calcul Azure (ACI)
     Activer l’authentification| Désactivez. 
-    Utiliser des déploiements personnalisés| Désactivez. Permet de générer automatiquement le fichier de pilote par défaut (script de score) et le fichier d’environnement. 
+    Utiliser des déploiements personnalisés| Désactivez. Permet de générer automatiquement le fichier de pilote par défaut (script de scoring) et le fichier d’environnement. 
     
     Pour cet exemple, nous utilisons les valeurs par défaut fournies dans le menu *Avancé*. 
 

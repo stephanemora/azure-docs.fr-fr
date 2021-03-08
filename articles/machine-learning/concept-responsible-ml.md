@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
-ms.date: 12/21/2020
+ms.date: 02/25/2021
 ms.custom: responsible-ml
-ms.openlocfilehash: 7124fdd6e7d137e21234ff40426e13dc65b4f9e0
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: f849968c16d2c3d8940a71da0e0cda536882d9c8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98223106"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101692060"
 ---
 # <a name="what-is-responsible-machine-learning-preview"></a>Qu’est-ce que l’apprentissage automatique responsable ? (préversion)
 
@@ -42,7 +42,7 @@ La confiance doit toujours rester au cœur du développement et de l’utilisati
 
 Les systèmes de boîte opaque peuvent être problématiques, car il est difficile pour les parties prenantes, telles que les développeurs système, les régulateurs, les utilisateurs et les décideurs de comprendre pourquoi les systèmes prennent certaines décisions. Certains systèmes d’intelligence artificielle sont plus faciles à expliquer que d’autres, et ils résultent parfois d’un compromis entre l’exactitude et la transparence.
 
-Pour créer des systèmes d’intelligence artificielle interprétables, utilisez [InterpretML](https://github.com/interpretml/interpret), un package open source créé par Microsoft. Vous pouvez [utiliser InterpretML à l’intérieur d’Azure Machine Learning](how-to-machine-learning-interpretability.md) pour [interpréter et expliquer vos modèles d’apprentissage automatique](how-to-machine-learning-interpretability-aml.md), dont des [modèles d’apprentissage automatique automatisé](how-to-machine-learning-interpretability-automl.md).
+Pour créer des systèmes d’intelligence artificielle interprétables, utilisez [InterpretML](https://github.com/interpretml/interpret), un package open source créé par Microsoft. Le package InterpretML prend en charge une grande variété de techniques d’interprétation, telles que SHapley Additive exPlanations (SHAP), l’explicatif d’imitation et l’importance de la fonctionnalité de permutation (PFI).  Vous pouvez [utiliser InterpretML à l’intérieur d’Azure Machine Learning](how-to-machine-learning-interpretability.md) pour [interpréter et expliquer vos modèles d’apprentissage automatique](how-to-machine-learning-interpretability-aml.md), dont des [modèles d’apprentissage automatique automatisé](how-to-machine-learning-interpretability-automl.md).
 
 ## <a name="mitigate-fairness-in-machine-learning-models"></a>Atténuer l’impartialité dans les modèles Machine Learning
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: df74a15a84ba04addb75b021d3b77b06cfe2ea48
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 29a63d598ada8c413316fbf18bb87597afdf62de
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96781111"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101693830"
 ---
 # <a name="azure-disk-encryption-scenarios-on-windows-vms"></a>Scénarios Azure Disk Encryption sur les machines virtuelles Windows
 
@@ -151,7 +151,7 @@ Pour activer le chiffrement sur les disques NVMe :
 
 Le chiffrement est conservé sur les disques NVMe dans les scénarios suivants :
 - Redémarrage de machine virtuelle
-- Réimageage VMSS
+- Réinitialiser des groupes de machines virtuelles identiques
 - Permutation de système d’exploitation
 
 Les disques NVMe ne seront pas initialisés dans les scénarios suivants :
@@ -260,9 +260,8 @@ Azure Disk Encryption ne fonctionne pas pour les scénarios, fonctionnalités et
 - Conteneurs Windows Server qui créent des volumes dynamiques pour chaque conteneur.
 - Disques de système d’exploitation éphémères.
 - Chiffrement de systèmes de fichiers partagés/distribués comme DFS, GFS, DRDB, etc.
-- Déplacement d’une machine virtuelle chiffrée vers un autre abonnement ou une autre région.
+- Déplacement d’une machine virtuelle chiffrée vers un autre abonnement.
 - Création d’une image ou d’une capture instantanée d’une machine virtuelle chiffrée et utilisation de celle-ci pour déployer des machines virtuelles supplémentaires.
-- Machines virtuelles Gen2 (consultez : [Prise en charge des machines virtuelles de génération 2 sur Azure](../generation-2.md#generation-1-vs-generation-2-capabilities))
 - Machines virtuelles de la série M avec des disques Accélérateur d’écriture.
 - Application d’ADE à une machine virtuelle qui possède des disques chiffrés avec un [chiffrement côté serveur avec des clés gérées par le client](../disk-encryption.md) (SSE + CMK). L’application de SSE + CMK à un disque de données sur une machine virtuelle chiffrée avec ADE est également un scénario non pris en charge.
 - Migration d’une machine virtuelle chiffrée par ADE ou n’a **jamais** été chiffrée avec ADE, pour un [chiffrement côté serveur avec clés gérées par le client](../disk-encryption.md).

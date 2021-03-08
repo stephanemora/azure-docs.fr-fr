@@ -8,15 +8,15 @@ ms.reviewer: sgilley
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 01/29/2021
+ms.date: 02/26/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1
-ms.openlocfilehash: a4be95561c097191803f2faa271c5d6bba875869
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 0212ed1378dbb1d2165e9333a38fa911598c4c6d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99430345"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691482"
 ---
 # <a name="hyperparameter-tuning-a-model-with-azure-machine-learning"></a>Hyperparamètre optimisant un modèle avec Azure Machine Learning
 
@@ -25,7 +25,7 @@ Automatisez une optimisation efficace des hyperparamètres à l’aide du [packa
 1. Définir l’espace de recherche de paramètres
 1. Spécifier une métrique principale à optimiser  
 1. Spécifier la stratégie d’arrêt anticipé pour les exécutions à faibles performances
-1. Allouer des ressources
+1. Créer et attribuer des ressources
 1. Lancer une expérience avec la configuration définie
 1. Visualiser les exécutions d’entraînement
 1. Sélectionner la meilleure configuration pour votre modèle
@@ -119,7 +119,7 @@ param_sampling = RandomParameterSampling( {
 
 L’[échantillonnage de grille](/python/api/azureml-train-core/azureml.train.hyperdrive.gridparametersampling?preserve-view=true&view=azure-ml-py) prend en charge les hyperparamètres discrets. Utilisez l’échantillonnage de grille si vous avez un budget pour effectuer une recherche exhaustive sur l’espace de recherche. Prend en charge l’arrêt anticipé des exécutions à faibles performances.
 
-Effectue une recherche de grille simple sur toutes les valeurs possibles. L’échantillonnage de grille ne peut être utilisé qu’avec des hyperparamètres `choice`. Par exemple, l’espace suivant compte six échantillons :
+L’échantillonnage de grille effectue une recherche par grille simple sur toutes les valeurs possibles. L’échantillonnage de grille ne peut être utilisé qu’avec des hyperparamètres `choice`. Par exemple, l’espace suivant compte six échantillons :
 
 ```Python
 from azureml.train.hyperdrive import GridParameterSampling
@@ -133,7 +133,7 @@ param_sampling = GridParameterSampling( {
 
 #### <a name="bayesian-sampling"></a>Échantillonnage bayésien
 
-L’[échantillonnage bayésien](/python/api/azureml-train-core/azureml.train.hyperdrive.bayesianparametersampling?preserve-view=true&view=azure-ml-py) est basé sur l’algorithme d’optimisation bayésienne. Il choisit des exemples en fonction de la façon dont les exemples précédents ont été exécutés, afin que les nouveaux exemples améliorent la métrique principale.
+L’[échantillonnage bayésien](/python/api/azureml-train-core/azureml.train.hyperdrive.bayesianparametersampling?preserve-view=true&view=azure-ml-py) est basé sur l’algorithme d’optimisation bayésienne. Il choisit des exemples en fonction des performances des exemples précédents, afin que les nouveaux exemples améliorent la métrique principale.
 
 L’échantillonnage bayésien est recommandé si vous disposez d’un budget suffisant pour explorer l’espace hyperparamétrique. Pour de meilleurs résultats, nous recommandons un nombre maximal d’exécutions supérieur ou égal à 20 fois le nombre d’hyperparamètres configurés. 
 
@@ -203,7 +203,7 @@ Azure Machine Learning prend en charge les stratégies d’arrêt anticipé suiv
 
 ### <a name="bandit-policy"></a>Stratégie Bandit
 
-La [stratégie Bandit](/python/api/azureml-train-core/azureml.train.hyperdrive.banditpolicy?preserve-view=true&view=azure-ml-py#&preserve-view=truedefinition) est une stratégie d’arrêt basée sur le facteur de marge/marge totale et l’intervalle d’évaluation. Cette stratégie arrête de façon anticipée les exécutions quand la métrique principale se trouve en dehors du facteur de marge/marge totale spécifié par rapport à l’exécution la plus performante.
+La [stratégie Bandit](/python/api/azureml-train-core/azureml.train.hyperdrive.banditpolicy?preserve-view=true&view=azure-ml-py#&preserve-view=truedefinition) est une stratégie d’arrêt basée sur le facteur de marge/marge totale et l’intervalle d’évaluation. Bandit termine les exécutions quand la métrique principale n’est pas comprise dans le facteur de marge/marge totale de l’exécution la plus performante.
 
 > [!NOTE]
 > L’échantillonnage bayésien ne prend pas en charge l’arrêt anticipé. Lorsque vous utilisez l’échantillonnage bayésien, définissez `early_termination_policy = None`.
@@ -226,7 +226,7 @@ Dans cet exemple, la stratégie d’arrêt anticipé est appliquée à chaque in
 
 ### <a name="median-stopping-policy"></a>Stratégie d’arrêt médiane
 
-La [stratégie d’arrêt médiane](/python/api/azureml-train-core/azureml.train.hyperdrive.medianstoppingpolicy?preserve-view=true&view=azure-ml-py) est une stratégie d’arrêt anticipé basée sur les moyennes mobiles des métriques principales rapportées par les exécutions. Cette stratégie calcule les moyennes mobiles pour toutes les exécutions d’entraînement et arrête les exécutions dont les valeurs de la métrique principale sont moins bonnes que la médiane des moyennes.
+La [stratégie d’arrêt médiane](/python/api/azureml-train-core/azureml.train.hyperdrive.medianstoppingpolicy?preserve-view=true&view=azure-ml-py) est une stratégie d’arrêt anticipé basée sur les moyennes mobiles des métriques principales rapportées par les exécutions. Cette stratégie calcule les moyennes mobiles pour toutes les exécutions d’apprentissage et arrête les exécutions dont les valeurs de la métrique principale sont moins bonnes que la valeur médiane des moyennes.
 
 Cette stratégie prend les paramètres de configuration suivants :
 * `evaluation_interval` : fréquence d’application de la stratégie (paramètre facultatif).
@@ -238,7 +238,7 @@ from azureml.train.hyperdrive import MedianStoppingPolicy
 early_termination_policy = MedianStoppingPolicy(evaluation_interval=1, delay_evaluation=5)
 ```
 
-Dans cet exemple, la stratégie d’arrêt anticipé est appliquée à chaque intervalle, en commençant à l’intervalle d’évaluation 5. Une exécution est interrompue à l’intervalle 5 si sa meilleure métrique principale est moins bonne que la médiane des moyennes mobiles sur les intervalles 1 à 5 pour toutes les exécutions d’entraînement.
+Dans cet exemple, la stratégie d’arrêt anticipé est appliquée à chaque intervalle, en commençant à l’intervalle d’évaluation 5. Une exécution est interrompue à l’intervalle 5 si sa meilleure métrique principale est moins bonne que la valeur médiane des moyennes mobiles sur les intervalles 1 à 5 pour toutes les exécutions d’apprentissage.
 
 ### <a name="truncation-selection-policy"></a>Stratégie de sélection de troncation
 
@@ -271,7 +271,7 @@ policy=None
 * Si vous cherchez une stratégie classique qui permet de réaliser des économies, sans arrêter les tâches prometteuses, vous pouvez utiliser une stratégie d’arrêt à la médiane avec un `evaluation_interval` de 1 et un `delay_evaluation` de 5. Il s’agit de valeurs prudentes, qui peuvent fournir approximativement 25 à 35 % d’économies sans perte sur la métrique principale (d’après nos évaluations).
 * Pour des économies plus importantes, utilisez une stratégie Bandit avec une plus petite marge autorisée ou une stratégie de sélection de troncation avec un pourcentage de troncation plus élevé.
 
-## <a name="allocate-resources"></a>Allouer des ressources
+## <a name="create-and-assign-resources"></a>Créer et attribuer des ressources
 
 Contrôlez le budget de vos ressources en spécifiant le nombre maximal d’exécutions d’entraînement.
 
@@ -302,18 +302,28 @@ Pour [configurer votre optimisation des hyperparamètres](/python/api/azureml-tr
 * Votre stratégie d’arrêt anticipé
 * Métrique principale
 * Paramètres d’allocation des ressources
-* ScriptRunConfig `src`
+* ScriptRunConfig `script_run_config`
 
 ScriptRunConfig est le script d’entraînement qui s’exécute avec les hyperparamètres échantillonnés. Il définit les ressources par travail (un ou plusieurs nœuds) et la cible de calcul à utiliser.
 
 > [!NOTE]
->La cible de calcul spécifiée dans `src` doit avoir suffisamment de ressources pour répondre à votre niveau d’accès concurrentiel. Pour plus d’informations sur ScriptRunConfig, consultez [Configurer des exécutions d’entraînement](how-to-set-up-training-targets.md).
+>La cible de calcul utilisée dans `script_run_config` doit avoir suffisamment de ressources pour répondre à votre niveau d’accès concurrentiel. Pour plus d’informations sur ScriptRunConfig, consultez [Configurer des exécutions d’entraînement](how-to-set-up-training-targets.md).
 
 Configurez votre expérience d’optimisation des hyperparamètres :
 
 ```Python
 from azureml.train.hyperdrive import HyperDriveConfig
-hd_config = HyperDriveConfig(run_config=src,
+from azureml.train.hyperdrive import RandomParameterSampling, BanditPolicy, uniform, PrimaryMetricGoal
+
+param_sampling = RandomParameterSampling( {
+        'learning_rate': uniform(0.0005, 0.005),
+        'momentum': uniform(0.9, 0.99)
+    }
+)
+
+early_termination_policy = BanditPolicy(slack_factor=0.15, evaluation_interval=1, delay_evaluation=10)
+
+hd_config = HyperDriveConfig(run_config=script_run_config,
                              hyperparameter_sampling=param_sampling,
                              policy=early_termination_policy,
                              primary_metric_name="accuracy",
@@ -321,6 +331,36 @@ hd_config = HyperDriveConfig(run_config=src,
                              max_total_runs=100,
                              max_concurrent_runs=4)
 ```
+
+`HyperDriveConfig` détermine les paramètres transmis à `ScriptRunConfig script_run_config`. `script_run_config`, à son tour, passe des paramètres au script d’apprentissage. L’extrait de code ci-dessus provient de l’exemple de bloc-notes [Train, hyperparameter tune, and deploy with PyTorch](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/pytorch/train-hyperparameter-tune-deploy-with-pytorch). Dans cet exemple, les paramètres `learning_rate` et `momentum` sont réglés. L’arrêt précoce des exécutions est déterminé par une stratégie `BanditPolicy` qui arrête toute exécution dont la métrique principale n’est pas comprise dans la plage de valeurs `slack_factor` (consultez [Référence de classe BanditPolicy](python/api/azureml-train-core/azureml.train.hyperdrive.banditpolicy?view=azure-ml-py)). 
+
+Le code suivant extrait de l’exemple montre comment les valeurs en cours de paramétrage sont reçues, analysées et transmises à la fonction du script d’apprentissage `fine_tune_model` :
+
+```python
+# from pytorch_train.py
+def main():
+    print("Torch version:", torch.__version__)
+
+    # get command-line arguments
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--num_epochs', type=int, default=25,
+                        help='number of epochs to train')
+    parser.add_argument('--output_dir', type=str, help='output directory')
+    parser.add_argument('--learning_rate', type=float,
+                        default=0.001, help='learning rate')
+    parser.add_argument('--momentum', type=float, default=0.9, help='momentum')
+    args = parser.parse_args()
+
+    data_dir = download_data()
+    print("data directory is: " + data_dir)
+    model = fine_tune_model(args.num_epochs, data_dir,
+                            args.learning_rate, args.momentum)
+    os.makedirs(args.output_dir, exist_ok=True)
+    torch.save(model, os.path.join(args.output_dir, 'model.pt'))
+```
+
+> [!Important]
+> Chaque exécution d’un hyperparamètre redémarre l’apprentissage à partir de zéro, y compris la regénération du modèle et de _tous les chargeurs de données_. Vous pouvez réduire ce coût à l’aide d’un pipeline Azure Machine Learning ou d’un processus manuel pour effectuer au mieux la préparation des données avant les exécutions d’apprentissage. 
 
 ## <a name="submit-hyperparameter-tuning-experiment"></a>Soumettre une expérience d’optimisation des hyperparamètres
 
@@ -335,7 +375,6 @@ hyperdrive_run = experiment.submit(hd_config)
 ## <a name="warm-start-hyperparameter-tuning-optional"></a>Optimisation des hyperparamètres - Démarrage à chaud (facultatif)
 
 La recherche des meilleures valeurs d’hyperparamètres pour votre modèle peut être un processus itératif. Vous pouvez réutiliser les connaissances des cinq précédentes exécutions pour accélérer l’optimisation des hyperparamètres.
-
 
 Le démarrage à chaud est géré différemment en fonction de la méthode d’échantillonnage :
 - **Échantillonnage bayésien** : Les essais de l’exécution précédente sont utilisés comme connaissance préalable pour choisir de nouveaux exemples et pour améliorer la métrique principale.
@@ -368,7 +407,7 @@ Vous pouvez configurer votre expérience de paramétrage d’hyperparamètres po
 ```Python
 from azureml.train.hyperdrive import HyperDriveConfig
 
-hd_config = HyperDriveConfig(run_config=src,
+hd_config = HyperDriveConfig(run_config=script_run_config,
                              hyperparameter_sampling=param_sampling,
                              policy=early_termination_policy,
                              resume_from=warmstart_parents_to_resume_from,

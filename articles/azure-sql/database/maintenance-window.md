@@ -10,12 +10,12 @@ ms.author: wiassaf
 ms.reviewer: sstein
 ms.custom: references_regions
 ms.date: 03/02/2021
-ms.openlocfilehash: 4006cedf5f24ab2fc08e41b58f8acf90c404f668
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 9dc4d17ea95362dd915bd1dfdfd82f4cdec611b8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101678381"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101692808"
 ---
 # <a name="maintenance-window-preview"></a>Fenêtre de maintenance (préversion)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -28,7 +28,7 @@ Pour plus d’informations sur les événements de maintenance, consultez [Plani
 
 Azure effectue régulièrement des mises à jour de maintenance planifiée sur les ressources Azure SQL Database et SQL Managed Instance qui incluent souvent des mises à jour du matériel sous-jacent, des logiciels incluant le système d’exploitation sous-jacent et du moteur SQL. Pendant une mise à jour de maintenance, les ressources sont entièrement disponibles et accessibles, mais certaines des mises à jour de maintenance nécessitent un basculement, car Azure met les instances hors connexion pendant un bref moment afin d’appliquer les mises à jour de maintenance (huit secondes en moyenne).  Les mises à jour de maintenance planifiée se produisent une fois tous les 35 jours en moyenne, ce qui signifie que le client peut s’attendre à un événement de maintenance planifiée par mois par Azure SQL Database ou SQL Managed Instance, et uniquement pendant les créneaux de fenêtres de maintenance sélectionnés par le client.   
 
-La fenêtre de maintenance est destinée aux charges de travail métier qui sont sensibles aux interruptions de connectivité potentielles pouvant résulter des événements de maintenance planifiée pendant la fenêtre par défaut.  
+La fenêtre de maintenance est destinée aux charges de travail métier qui ne sont pas résilientes aux problèmes de connectivité intermittents pouvant résulter d'événements de maintenance planifiée.
 
 La fenêtre de maintenance peut être configurée à l’aide du portail Azure, de PowerShell, de l’interface CLI ou de l’API Azure. Elle peut être configurée lors de la création ou pour des bases de données SQL et des instances managées SQL existantes.
 
@@ -37,15 +37,15 @@ La fenêtre de maintenance peut être configurée à l’aide du portail Azure, 
 Par défaut, toutes les bases de données Azure SQL et toutes les bases de données d’instance managée sont mises à jour chaque jour uniquement entre 17h00 et 8h00 (heure locale) afin d’éviter toute interruption durant les heures de pointe. L’heure locale est déterminée par la [région Azure](https://azure.microsoft.com/global-infrastructure/geographies/) qui héberge la ressource. Vous pouvez ajuster les mises à jour de maintenance à une heure adaptée à votre base de données en choisissant parmi deux créneaux de fenêtres de maintenance supplémentaires :
 
 * Fenêtre **par défaut**, de 17h00 à 8h00 heure locale du lundi au dimanche 
-* Fenêtre de jour de la semaine, de 22H00 à 06h00 heure locale du lundi au jeudi : **Cette option doit être choisie spécifiquement par le client** 
-* Fenêtre du week-end, de 22H00 à 06h00 heure locale du vendredi au dimanche : **Cette option doit être choisie spécifiquement par le client**  
+* Fenêtre semaine, de 22h00 à 6h00 heure locale, du lundi au jeudi
+* Fenêtre week-end, de 22h00 à 6h00 heure locale, du vendredi au dimanche
 
 Une fois la fenêtre de maintenance sélectionnée, toutes les mises à jour de maintenance planifiée ont lieu uniquement pendant la fenêtre de votre choix.   
 
 > [!Note]
 > En plus des mises à jour de maintenance planifiée, dans de rares circonstances, des événements de maintenance non planifiés peuvent entraîner une indisponibilité. 
 
-### <a name="cost"></a>Coût
+### <a name="cost-and-eligibility"></a>Coût et éligibilité
 
 Le choix d’une fenêtre de maintenance est gratuit pour les [types d’offre](https://azure.microsoft.com/support/legal/offer-details/) d’abonnement suivants : Paiement à l’utilisation, Fournisseur de solutions cloud (CSP), Microsoft Enterprise ou Contrat client Microsoft.
 

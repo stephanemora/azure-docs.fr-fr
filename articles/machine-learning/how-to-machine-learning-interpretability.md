@@ -10,20 +10,20 @@ ms.custom: how-to, responsible-ml
 ms.author: mithigpe
 author: minthigpen
 ms.reviewer: Luis.Quintanilla
-ms.date: 11/16/2020
-ms.openlocfilehash: 6784361dde67d7dcc1423d9edbcc92ec513ff6d4
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.date: 02/25/2021
+ms.openlocfilehash: 2c61cfaf0e97f7d483239a23e5eea52b51c6a126
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222630"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690207"
 ---
 # <a name="model-interpretability-in-azure-machine-learning-preview"></a>Interprétabilité des modèles dans le service Azure Machine Learning (version préliminaire)
 
 
-## <a name="overview-of-model-interpretability"></a>Vue d’ensemble de l’interprétabilité des modèles
+## <a name="model-interpretability-overview"></a>Vue d'ensemble de l'interprétabilité des modèles
 
-L’interprétabilité est essentielle autant pour les scientifiques des données et les auditeurs que pour les décisionnaires en entreprise pour garantir la conformité avec les stratégies d’entreprise, les normes du secteur et les réglementations gouvernementales :
+L'interprétabilité des modèles est essentielle tant pour les scientifiques des données que pour les auditeurs et les décisionnaires d'entreprise afin de garantir la conformité avec les stratégies de l'entreprise, les normes du secteur et les réglementations gouvernementales :
 
 + Les scientifiques des données doivent être capables d’expliquer leurs modèles aux dirigeants et aux parties prenantes, afin que ces derniers puissent comprendre la valeur et la précision de leurs découvertes. Ils ont également besoin d’interprétabilité pour déboguer leurs modèles et prendre des décisions éclairées sur la manière de les améliorer. 
 
@@ -31,15 +31,15 @@ L’interprétabilité est essentielle autant pour les scientifiques des donnée
 
 + Les décisionnaires en entreprise veulent être sûrs de pouvoir jouer la transparence pour les utilisateurs finaux. Cela leur permet de gagner et de conserver leur confiance.
 
-
 La capacité à expliquer un modèle Machine Learning est importante lors de deux phases principales du développement de modèle :
+
 + Pendant la phase de formation, les concepteurs et évaluateurs de modèles peuvent utiliser la sortie d’interprétabilité d’un modèle pour vérifier des hypothèses et gagner la confiance des parties prenantes. Ils utilisent également les insights qui ressortent du modèle pour le débogage, la confirmation que le comportement du modèle correspond à leurs objectifs et la recherche de l’iniquité du modèle ou de ses caractéristiques insignifiantes.
 
 + Au cours de la phase d’inférence, bénéficier d’une transparence sur les modèles déployés permet aux dirigeants de comprendre comment, « une fois déployé », le modèle fonctionne et comment ses décisions traitent et influencent les gens dans la vie réelle. 
 
 ## <a name="interpretability-with-azure-machine-learning"></a>Interprétabilité avec Azure Machine Learning
 
-Les classes d’interprétabilité sont accessibles via le package de Kit de développement logiciel (SDK) suivant : (En savoir plus sur l’[installation de packages de Kit de développement logiciel (SDK) pour Azure Machine Learning](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py))
+Les classes d'interprétabilité des modèles sont accessibles via le kit de développement logiciel (SDK) suivant : (En savoir plus sur l'[installation de kits de développement logiciel (SDK) pour Azure Machine Learning](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py))
 
 * `azureml.interpret`, contient des fonctionnalités prises en charge par Microsoft.
 
@@ -52,11 +52,7 @@ Grâce aux classes et aux méthodes dans le Kit de développement logiciel (SDK)
 + Réaliser l’interprétabilité des modèles sur des jeux de données du monde réel à l’échelle, pendant la formation et l’inférence.
 + Utiliser un tableau de bord de visualisation interactive pour découvrir des modèles de données et des explications au moment de la formation.
 
-
 Dans Machine Learning, les **fonctionnalités** sont les champs de données utilisés pour prédire un point de données cible. Par exemple, pour prédire le risque de crédit, les champs de données d’âge, de taille du compte et d’âge de compte peuvent servir. Dans ce cas, l’âge, la taille du compte et l’âge du compte sont des **fonctionnalités**. L’importance d’une fonctionnalité vous indique dans quelle mesure chaque champ de données a contribué aux prédictions du modèle. Par exemple, l’âge peut être fortement utilisé dans la prédiction tandis que la taille et l’âge du compte n’affectent pas les valeurs de prédiction de manière significative. Ce processus permet aux scientifiques des données d’expliquer les prédictions obtenues, de sorte que les parties prenantes ont une visibilité sur les caractéristiques les plus importantes dans le modèle.
-
-Découvrez les techniques d’interprétabilité, les modèles Machine Learning et les environnements d’exécution qui sont pris en charge ici.
-
 
 ## <a name="supported-interpretability-techniques"></a>Techniques d’interprétabilité prises en charge
 
@@ -70,9 +66,6 @@ Découvrez les techniques d’interprétabilité, les modèles Machine Learning 
 |Explicatif de noyau SHAP| L’explicatif de noyau de SHAP utilise une régression linéaire locale spécialement pondérée pour estimer les valeurs SHAP pour **n’importe quel modèle**.|Indépendant du modèle|
 |Explicatif d’imitation (substitution globale)| L’explicatif d’imitation repose sur l’idée d’entraînement de [modèles de substitution globaux](https://christophm.github.io/interpretable-ml-book/global.html) sur des modèles de boîte noire d’imitation. Un modèle de substitution global est un modèle intrinsèquement interprétable qui est formé pour estimer les prédictions de **n’importe quel modèle de boîte noire** aussi précisément que possible. Les scientifiques des données peuvent interpréter le modèle de substitution pour déduire des conclusions sur le modèle de boîte noire. Vous pouvez utiliser un des modèles interprétables suivants comme modèle de substitution : LightGBM (LGBMExplainableModel), régression linéaire (LinearExplainableModel), modèle explicable Stochastic Gradient Descent (SGDExplainableModel) et arbre de décision (DecisionTreeExplainableModel).|Indépendant du modèle|
 |Explicatif d’importance de fonctionnalité de permutation (PFI)| L’importance de fonctionnalité de permutation est une technique utilisée pour expliquer les modèles de classification et de régression qui s’inspirent du [document relatif aux forêts aléatoires de Breiman](https://www.stat.berkeley.edu/~breiman/randomforest2001.pdf) (consultez la section 10). De façon générale, il fonctionne en permutant aléatoirement les données d’une caractéristique à la fois pour l’ensemble du jeu de données et en calculant dans quelle mesure la métrique de performances d’intérêt change. Plus la modification est importante, et plus la fonctionnalité l’est également. La PFI peut expliquer le comportement global de **n’importe quel modèle sous-jacent**, mais n’explique pas les prédictions individuelles. |Indépendant du modèle|
-
-
-
 
 Outre les techniques d’interprétabilité décrites ci-dessus, nous prenons en charge un autre explicatif SHAP, appelé `TabularExplainer`. En fonction du modèle, `TabularExplainer` utilise l’un des explicatifs SHAP pris en charge :
 

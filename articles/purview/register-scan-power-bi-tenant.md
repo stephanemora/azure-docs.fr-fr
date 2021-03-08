@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/19/2020
-ms.openlocfilehash: a4883bfce2469af0ee8bcc34933f94b0b5329959
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 2ecc5df9db51bb6c923b9e0f47163e492bd76cfa
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100518077"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101695740"
 ---
 # <a name="register-and-scan-a-power-bi-tenant-preview"></a>Inscrire et analyser un locataire Power BI (préversion)
 
@@ -98,11 +98,13 @@ Tout d’abord, ajoutez un indicateur de fonctionnalité spécial à votre URL P
     > Pour Power BI, l’inscription et l’analyse de la source de données sont autorisées pour une seule instance.
 
 
-4. Donnez un nom à votre analyse. Notez que la seule méthode d’authentification prise en charge est **Identité managée**.
+4. Donnez un nom à votre analyse. Sélectionnez ensuite l’option permettant d’inclure ou d’exclure les espaces de travail personnels. Notez que la seule méthode d’authentification prise en charge est **Identité managée**.
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-scan-setup.png" alt-text="Image montrant la configuration de l’analyse Power BI":::
 
-    Le nom de l’analyse doit comporter entre 3 et 63 caractères, et contenir uniquement des lettres minuscules, des chiffres, des traits de soulignement et des traits d’union.  Les espaces ne sont pas autorisés.
+    > [!Note]
+    > * Le changement de la configuration d’une analyse pour inclure ou exclure un espace de travail personnel déclenche l’analyse complète de la source Power BI
+    > * Le nom de l’analyse doit comporter entre 3 et 63 caractères, et contenir uniquement des lettres minuscules, des chiffres, des traits de soulignement et des traits d’union. Les espaces ne sont pas autorisés.
 
 5. Configurez un déclencheur d’analyse. Les options disponibles sont **Une fois**, **Tous les 7 jours** et **Tous les 30 jours**.
 

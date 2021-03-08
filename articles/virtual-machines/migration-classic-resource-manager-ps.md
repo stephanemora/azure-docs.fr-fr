@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 02/06/2020
 ms.author: tagore
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0ffea1e35cd457fc1fa350b1b234360d111fc911
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: c750e34e8081cf5a8b3d41cc8c52584a4353a336
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101669268"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101695156"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-powershell"></a>Migration de ressources IaaS d’un environnement classique vers Azure Resource Manager à l’aide de PowerShell
 
@@ -165,7 +165,7 @@ Préparez les machines virtuelles dans le service cloud pour la migration. Vous 
     $validate.ValidationMessages
     ```
 
-    La commande suivante affiche les avertissements et erreurs qui bloquent la migration. Si la validation se déroule correctement, vous pouvez passer à l’étape de préparation.
+    La commande suivante affiche les avertissements et erreurs qui bloquent la migration. Si les messages de validation ne contiennent pas d'erreur de type, vous pouvez passer à l'étape de préparation.
 
     ```powershell
     Move-AzureService -Prepare -ServiceName $serviceName `
@@ -189,7 +189,7 @@ Préparez les machines virtuelles dans le service cloud pour la migration. Vous 
     $validate.ValidationMessages
     ```
 
-    La commande suivante affiche les avertissements et erreurs qui bloquent la migration. Si la validation se déroule correctement, vous pouvez passer à l’étape de la préparation suivante :
+    La commande suivante affiche les avertissements et erreurs qui bloquent la migration. Si les messages de validation ne contiennent pas d'erreurs, vous pouvez passer à l'étape de préparation suivante :
 
     ```powershell
         Move-AzureService -Prepare -ServiceName $serviceName -DeploymentName $deploymentName `

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/29/2020
-ms.openlocfilehash: a319dbce2502f35272cf9b70da2022f581d64275
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 6af183c16238c6630b194b112f0c09fd4399d443
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96550285"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101694068"
 ---
 # <a name="azure-purview-data-catalog-lineage-user-guide"></a>Guide de l’utilisateur sur la traçabilité du Data Catalog dans Azure Purview
 
@@ -74,39 +74,47 @@ Azure Purview prend en charge la traçabilité au niveau des ressources pour les
 
    :::image type="content" source="./media/catalog-lineage-user-guide/view-columns-from-lineage.png" alt-text="Capture d’écran montrant comment sélectionner l’option d’affichage des colonnes dans la page Traçabilité" border="true":::
 
-## <a name="column-level-lineage"></a>Traçabilité au niveau de la colonne
+## <a name="dataset-column-lineage"></a>Traçabilité des colonnes du jeu de données
 
-Azure Purview prend en charge la traçabilité au niveau dela colonne pour les jeux de données. Pour afficher la traçabilité au niveau de la colonne, accédez à l’onglet **Traçabilité** de la ressource actuelle dans le catalogue et procédez comme suit :
+Pour afficher la traçabilité au niveau de la colonne d’un jeu de données, accédez à l’onglet **Traçabilité** de la ressource actuelle dans le catalogue et procédez comme suit :
 
 1. Une fois que vous êtes sous l’onglet Traçabilité, dans le volet gauche, activez la case à cocher en regard de chaque colonne que vous souhaitez afficher dans la traçabilité des données.
 
    :::image type="content" source="./media/catalog-lineage-user-guide/select-columns-to-show-in-lineage.png" alt-text="Capture d’écran montrant comment sélectionner des colonnes à afficher dans la page Traçabilité" lightbox="./media/catalog-lineage-user-guide/select-columns-to-show-in-lineage.png":::
 
-1. Pointez sur une colonne sélectionnée dans le volet gauche ou dans le jeu de données du canevas de traçabilité pour voir le mappage de colonnes. Toutes les instances de colonne sont mises en surbrillance.
+2. Pointez sur une colonne sélectionnée dans le volet gauche ou dans le jeu de données du canevas de traçabilité pour voir le mappage de colonnes. Toutes les instances de colonne sont mises en surbrillance.
 
    :::image type="content" source="./media/catalog-lineage-user-guide/show-column-flow-in-lineage.png" alt-text="Capture d’écran montrant comment pointer sur un nom de colonne pour mettre en surbrillance le contenu d’une colonne dans une trajectoire de traçabilité des données." lightbox="./media/catalog-lineage-user-guide/show-column-flow-in-lineage.png":::
 
-1. Si le nombre de colonnes est supérieur à ce qui peut être affiché dans le volet gauche, utilisez l’option de filtre pour sélectionner une colonne spécifique par nom. Vous pouvez également utiliser la souris pour faire défiler la liste.
+3. Si le nombre de colonnes est supérieur à ce qui peut être affiché dans le volet gauche, utilisez l’option de filtre pour sélectionner une colonne spécifique par nom. Vous pouvez également utiliser la souris pour faire défiler la liste.
 
    :::image type="content" source="./media/catalog-lineage-user-guide/filter-columns-by-name.png" alt-text="Capture d’écran montrant comment filtrer les colonnes par nom de colonne sur la page de traçabilité." lightbox="./media/catalog-lineage-user-guide/filter-columns-by-name.png":::
 
-1. Si le canevas de traçabilité contient plus de nœuds et de périphéries, utilisez le filtre pour sélectionner la ressource de données ou les nœuds de processus par nom. Vous pouvez également utiliser votre souris pour naviguer dans la fenêtre de traçabilité.
+4. Si le canevas de traçabilité contient plus de nœuds et de périphéries, utilisez le filtre pour sélectionner la ressource de données ou les nœuds de processus par nom. Vous pouvez également utiliser votre souris pour naviguer dans la fenêtre de traçabilité.
 
    :::image type="content" source="./media/catalog-lineage-user-guide/filter-assets-by-name.png" alt-text="Capture d’écran montrant les nœuds de ressources de données par nom dans la page de traçabilité." lightbox="./media/catalog-lineage-user-guide/filter-assets-by-name.png":::
 
-1. Utilisez le bouton bascule dans le volet gauche pour mettre en surbrillance la liste des jeux de données dans le canevas de traçabilité. Si vous désactivez le bouton bascule, toutes les ressources contenant au moins une des colonnes sélectionnées s’affichent. Si vous activez le bouton bascule, seuls les jeux de données qui contiennent toutes les colonnes s’affichent.
+5. Utilisez le bouton bascule dans le volet gauche pour mettre en surbrillance la liste des jeux de données dans le canevas de traçabilité. Si vous désactivez le bouton bascule, toutes les ressources contenant au moins une des colonnes sélectionnées s’affichent. Si vous activez le bouton bascule, seuls les jeux de données qui contiennent toutes les colonnes s’affichent.
 
    :::image type="content" source="./media/catalog-lineage-user-guide/use-toggle-to-filter-nodes.png" alt-text="Capture d’écran montrant comment utiliser le bouton bascule pour filtrer la liste des nœuds sur la page de traçabilité." lightbox="./media/catalog-lineage-user-guide/use-toggle-to-filter-nodes.png":::
 
+## <a name="process-column-lineage"></a>Traiter la traçabilité des colonnes
+Le traitement des données peut prendre un ou plusieurs jeux de données d’entrée pour produire une ou plusieurs sorties. Dans Purview, la traçabilité au niveau des colonnes est disponible pour les nœuds de processus. 
+1. Basculez entre les jeux de données d’entrée et de sortie à partir d’une liste déroulante dans le volet des colonnes.
+2. Sélectionnez les colonnes d’une ou de plusieurs tables pour afficher le flux de traçabilité du jeu de données d’entrée vers le jeu de données de sortie correspondant.
+
+   :::image type="content" source="./media/catalog-lineage-user-guide/process-column-lineage.png" alt-text="Capture d’écran montrant la traçabilité des colonnes d’un nœud de processus." lightbox="./media/catalog-lineage-user-guide/process-column-lineage.png":::
+
+## <a name="browse-assets-in-lineage"></a>Parcourir les ressources dans la traçabilité
 1. Sélectionnez **Switch to asset (Basculer vers la ressource)** sur n’importe quelle ressource pour afficher ses métadonnées à partir de la vue Traçabilité. Vous pouvez ainsi facilement accéder à une autre ressource dans le catalogue à partir de la vue Traçabilité.
 
    :::image type="content" source="./media/catalog-lineage-user-guide/select-switch-to-asset.png" alt-text="Capture d’écran montrant comment sélectionner l’option de basculement vers la ressource dans une ressource de données de traçabilité." lightbox="./media/catalog-lineage-user-guide/select-switch-to-asset.png":::
 
-1. Le canevas de traçabilité peut devenir complexe pour les jeux de données populaires. Pour éviter tout encombrement, l’affichage par défaut n’affiche que cinq niveaux de traçabilité pour la ressource active. Le reste de la traçabilité peut être développé en cliquant sur les bulles dans le canevas de traçabilité. Les consommateurs de données peuvent également masquer les ressources du canevas qui ne présentent aucun intérêt. Pour réduire davantage l’encombrement, désactivez le bouton bascule **More Lineage (Plus de traçabilité)** en ligne en haut du canevas de traçabilité. Cette action masque toutes les bulles dans le canevas de traçabilité.
+2. Le canevas de traçabilité peut devenir complexe pour les jeux de données populaires. Pour éviter tout encombrement, l’affichage par défaut n’affiche que cinq niveaux de traçabilité pour la ressource active. Le reste de la traçabilité peut être développé en cliquant sur les bulles dans le canevas de traçabilité. Les consommateurs de données peuvent également masquer les ressources du canevas qui ne présentent aucun intérêt. Pour réduire davantage l’encombrement, désactivez le bouton bascule **More Lineage (Plus de traçabilité)** en ligne en haut du canevas de traçabilité. Cette action masque toutes les bulles dans le canevas de traçabilité.
 
    :::image type="content" source="./media/catalog-lineage-user-guide/use-toggle-to-hide-bubbles.png" alt-text="Capture d’écran montrant comment sélectionner le bouton bascule permettant d’afficher davantage de traçabilité." lightbox="./media/catalog-lineage-user-guide/use-toggle-to-hide-bubbles.png":::
 
-1. Utilisez les boutons intelligents dans le canevas de traçabilité pour obtenir une vue optimale de la traçabilité. Les fonctionnalités Disposition automatique, zoom pour ajuster, zoom avant/arrière, plein écran et carte de navigation sont disponibles pour une expérience de traçabilité immersive dans le catalogue.
+3. Utilisez les boutons intelligents dans le canevas de traçabilité pour obtenir une vue optimale de la traçabilité. Les fonctionnalités Disposition automatique, zoom pour ajuster, zoom avant/arrière, plein écran et carte de navigation sont disponibles pour une expérience de traçabilité immersive dans le catalogue.
 
    :::image type="content" source="./media/catalog-lineage-user-guide/use-lineage-smart-buttons.png" alt-text="Capture d’écran montrant comment sélectionner les boutons intelligents Traçabilité." lightbox="./media/catalog-lineage-user-guide/use-lineage-smart-buttons.png":::
 

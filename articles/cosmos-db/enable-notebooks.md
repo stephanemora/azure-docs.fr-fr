@@ -5,15 +5,15 @@ author: deborahc
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 02/09/2021
+ms.date: 02/22/2021
 ms.author: dech
 ms.custom: references_regions
-ms.openlocfilehash: fd7f663ee5b6ceb49e6f1a393fc30919d5b245e9
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 02e8ad5f2b5326f947ba0bca6456ce9d9d3c27d7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100547823"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101692774"
 ---
 # <a name="enable-notebooks-for-azure-cosmos-db-accounts-preview"></a>Activer les notebooks pour un compte Azure Cosmos DB (préversion)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -27,12 +27,12 @@ Les notebooks Jupyter intégrés dans Azure Cosmos DB vous permettent d’analys
 À compter du 10 février 2021, les notebooks seront automatiquement activés pour les nouveaux comptes Azure Cosmos créés dans une [région prise en charge](#supported-regions). Aucune configuration supplémentaire n'est requise pour activer les notebooks. Utilisez les instructions suivantes pour créer un compte :
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 1. Sélectionnez **Créer une ressource** > **Bases de données** > **Azure Cosmos DB**.
-1. Entrez les paramètres de base du compte. 
- 
+1. Entrez les paramètres de base du compte.
+
    :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-create-new-account-detail-2.png" alt-text="Page de nouveau compte pour Azure Cosmos DB":::
 
 1. Sélectionnez **Revoir + créer**. Vous pouvez ignorer les options **Réseau** et **Balises**. 
-1. Passez en revue les paramètres du compte, puis sélectionnez **Créer**. La création du compte prend quelques minutes. Attendez que la page du portail affiche **Votre déploiement est terminé**. 
+1. Passez en revue les paramètres du compte, puis sélectionnez **Créer**. La création du compte prend quelques minutes. Attendez que la page du portail affiche **Votre déploiement est terminé**.
 
    :::image type="content" source="media/enable-notebooks/create-new-account-with-notebooks-complete.png" alt-text="Volet Notifications du portail Azure":::
 
@@ -60,12 +60,12 @@ Vous pouvez également activer les notebooks sur des comptes existants. Cette op
 
 Pour vérifier que vous pouvez utiliser les notebooks, sélectionnez l’un d’eux sous Exemples de notebooks. Cela a pour effet d’enregistrer une copie du notebook dans votre espace de travail et de l’ouvrir.
 
-Dans cet exemple, nous allons utiliser **gettingstarted.ipynb**. 
+Dans cet exemple, nous allons utiliser **gettingstarted.ipynb**.
 
 :::image type="content" source="media/enable-notebooks/select-getting-started-notebook.png" alt-text="Afficher le notebook GettingStarted.ipynb":::
 
 Pour exécuter le notebook :
-1. Sélectionnez la première cellule de code contenant du code Python. 
+1. Sélectionnez la première cellule de code contenant du code Python.
 1. Sélectionnez **Exécuter** pour exécuter la cellule. Dans la cellule, appuyez sur **Maj+Entrée** pour exécuter la cellule.
 1. Actualisez le volet des ressources pour voir la base de données et le conteneur créés.
 
@@ -112,8 +112,7 @@ Les notebooks intégrés pour Azure Cosmos DB sont actuellement disponibles dans
 
 * Découvrez les avantages des [blocs-notes Jupyter d’Azure Cosmos DB](cosmosdb-jupyter-notebooks.md)
 * [Explorer la galerie d’exemples de notebooks](https://cosmos.azure.com/gallery.html)
+* [Publier des notebooks dans la galerie des notebooks Azure Cosmos DB](publish-notebook-gallery.md)
 * [Utiliser les fonctionnalités et commandes des notebooks Python](use-python-notebook-features-and-commands.md)
 * [Utiliser les fonctionnalités et commandes des notebooks C#](use-csharp-notebook-features-and-commands.md)
 * [Importer des notebooks depuis un dépôt GitHub](import-github-notebooks.md)
-
-

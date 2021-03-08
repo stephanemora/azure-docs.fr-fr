@@ -10,12 +10,12 @@ ms.date: 2/11/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 7833656b9b9be45aa3a0f0a8aa45cd70f925ce73
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 5c79ea68e648cd3d78f94eb2272b6f32e3c4806f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100379657"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750924"
 ---
 ## <a name="prerequisites"></a>Prérequis
 Avant de commencer, assurez-vous de :
@@ -53,9 +53,11 @@ pod 'AzureCommunicationChat', '~> 1.0.0-beta.8'
 
 Installez les dépendances ; cette opération crée également un espace de travail Xcode : `pod install`
 
+**Après l’exécution de l’installation du pod, rouvrez le projet dans Xcode en sélectionnant le nouveau `.xcworkspace`.**
+
 ### <a name="setup-the-placeholders"></a>Configurer les espaces réservés
 
-Ouvrez le fichier d’espace de travail `ChatQuickstart.xcworkspace` dans Xcode, puis ouvrez `ViewController.swift`.
+Ouvrez l’espace de travail `ChatQuickstart.xcworkspace` dans Xcode, puis ouvrez `ViewController.swift`.
 
 Dans ce guide de démarrage rapide, nous allons ajouter notre code à `viewController` et afficher la sortie dans la console Xcode. Ce guide de démarrage rapide ne traite pas de la création d’une interface utilisateur dans iOS. 
 
@@ -120,6 +122,10 @@ let endpoint = "<ACS_RESOURCE_ENDPOINT>"
 
 Remplacez `<ACS_RESOURCE_ENDPOINT>` par le point de terminaison de votre ressource ACS.
 Remplacez `<ACCESS_TOKEN>` par un jeton d’accès ACS valide.
+
+Ce guide de démarrage rapide ne couvre pas la création d’un niveau de service pour gérer les jetons de votre application de conversation, bien que cette opération soit recommandée. Consultez la documentation suivante pour plus d’informations sur l’[Architecture de conversation](../../../concepts/chat/concepts.md)
+
+Apprenez-en davantage sur les [jetons d’accès utilisateur](../../access-tokens.md).
 
 ## <a name="object-model"></a>Modèle objet 
 Les classes et interfaces suivantes gèrent quelques-unes des principales fonctionnalités de la bibliothèque de client Azure Communication Services Chat pour JavaScript.

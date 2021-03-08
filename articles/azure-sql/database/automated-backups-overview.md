@@ -11,12 +11,12 @@ author: shkale-msft
 ms.author: shkale
 ms.reviewer: mathoma, stevestein, danil
 ms.date: 11/18/2020
-ms.openlocfilehash: e4917d03e3c0fb8109f9ad9bdcea9e7c1cdcd5df
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.openlocfilehash: 862d33e523562511796999d82b67d2b4b11efaf3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98108056"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690609"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Sauvegardes automatisées - Azure SQL Database et SQL Managed Instance
 
@@ -229,17 +229,15 @@ Vous pouvez modifier la période de rétention des sauvegardes PITR par défaut 
 
 ### <a name="change-the-pitr-backup-retention-period-by-using-the-azure-portal"></a>Modifier la période de rétention des sauvegardes avec récupération jusqu’à une date et heure via le portail Azure
 
-Pour modifier la période de rétention des sauvegardes avec récupération jusqu’à une date et heure (PITR) via le Portail Azure, accédez au serveur ou à l’instance gérée contenant les bases de données dont vous souhaitez modifier la période de rétention. 
+Pour modifier la période de rétention des sauvegardes avec récupération jusqu’à une date et heure (PITR) via le Portail Azure, accédez au serveur ou à l’instance gérée contenant les bases de données dont vous souhaitez modifier la période de rétention. Sélectionnez **Sauvegardes** dans le volet gauche, puis sélectionnez l’onglet **Stratégies de conservation**. Sélectionnez la ou les bases de données pour lesquelles vous souhaitez modifier la conservation de la sauvegarde PITR. Sélectionnez ensuite **Configurer la conservation** dans la barre d’action.
+
+
 
 #### <a name="sql-database"></a>[Base de données SQL](#tab/single-database)
-
-Les changements de rétention des sauvegardes PITR pour SQL Database sont effectués sur la page du serveur dans le portail. Pour modifier la rétention PITR pour les bases de données sur un serveur, accédez au panneau de vue d’ensemble du serveur. Sélectionnez **Gérer les sauvegardes** dans le volet gauche, sélectionnez les bases de données dans l’étendu de votre changement, puis sélectionnez **Configurer la rétention** en haut de l’écran :
 
 ![Modifier la conservation des données avec récupération jusqu’à une date et heure au niveau serveur](./media/automated-backups-overview/configure-backup-retention-sqldb.png)
 
 #### <a name="sql-managed-instance"></a>[SQL Managed Instance](#tab/managed-instance)
-
-Les changements de conservation des sauvegardes avec restauration dans le temps pour SQL Managed Instance sont effectués au niveau d’une base de données individuelle. Pour modifier la conservation des données avec récupération jusqu’à une date et heure pour une base de données d’instance à partir du portail Azure, accédez au panneau de vue d’ensemble de la base de données. Sélectionnez ensuite **configurer la rétention des sauvegardes** en haut de l’écran :
 
 ![Modifier la conservation des données avec récupération jusqu’à une date et heure, instance gérée](./media/automated-backups-overview/configure-backup-retention-sqlmi.png)
 

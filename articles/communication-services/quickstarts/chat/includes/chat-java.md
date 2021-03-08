@@ -10,12 +10,12 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 6a075ae721d767faf25e4774dd545d36eedfaef4
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: b402dec76f88bfdb0bc4758f94cc6e8e279d8040
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100379656"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750309"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
@@ -84,6 +84,8 @@ Les classes et interfaces suivantes gèrent quelques-unes des principales foncti
 ## <a name="create-a-chat-client"></a>Créer un client de conversation
 Pour créer un client de conversation, vous allez utiliser le point de terminaison Communication Services ainsi que le jeton d’accès qui a été généré au cours des étapes prérequises. Les jetons d’accès utilisateur vous permettent de créer des applications clientes qui s’authentifient directement auprès d’Azure Communication Services. Une fois que vous avez généré ces jetons sur votre serveur, transmettez-les en retour à un appareil client. Vous devez utiliser la classe CommunicationTokenCredential de la bibliothèque de client commune pour passer le jeton à votre client de conversation. 
 
+En savoir plus sur l’[Architecture de conversation](../../../concepts/chat/concepts.md)
+
 Si vous devez ajouter des instructions d’importation, veillez à ajouter uniquement des importations des espaces de noms com.azure.communication.chat et com.azure.communication.chat.models, et non de l’espace de noms com.azure.communication.chat.implementation. Dans le fichier App.java qui a été généré via Maven, vous pouvez commencer avec le code suivant :
 
 ```Java
@@ -139,11 +141,11 @@ La réponse `chatThreadClient` est utilisée pour effectuer les opérations sur 
 List<ChatParticipant> participants = new ArrayList<ChatParticipant>();
 
 ChatParticipant firstThreadParticipant = new ChatParticipant()
-    .setUser(firstUser)
+    .setCommunicationIdentifier(firstUser)
     .setDisplayName("Participant Display Name 1");
     
 ChatParticipant secondThreadParticipant = new ChatParticipant()
-    .setUser(secondUser)
+    .setCommunicationIdentifier(secondUser)
     .setDisplayName("Participant Display Name 2");
 
 participants.add(firstThreadParticipant);
@@ -205,13 +207,15 @@ chatThreadClient.listMessages().iterableByPage().forEach(resp -> {
 
 `listMessages` retourne différents types de messages qui peuvent être identifiés par `chatMessage.getType()`. Ces types sont les suivants :
 
-- `Text` : Message de conversation ordinaire envoyé par un participant au fil de conversation.
+- `text` : Message de conversation ordinaire envoyé par un participant au fil de conversation.
 
-- `ThreadActivity/TopicUpdate`: Message système qui indique que le sujet a été mis à jour.
+- `html` : message de conversation envoyé par un participant au fil de conversation.
 
-- `ThreadActivity/AddMember`: Message système qui indique qu’un ou plusieurs membres ont été ajoutés au fil de conversation.
+- `topicUpdated`: Message système qui indique que le sujet a été mis à jour
 
-- `ThreadActivity/DeleteMember`: Message système qui indique qu’un membre a été supprimé du fil de conversation.
+- `participantAdded` : Message système qui indique qu’un ou plusieurs participants ont été ajoutés au fil de conversation.
+
+- `participantRemoved` : Message système qui indique qu’un participant a été supprimé du fil de conversation.
 
 Pour plus d’informations, consultez [Types de messages](../../../concepts/chat/concepts.md#message-types).
 
@@ -222,7 +226,7 @@ Une fois qu’un fil de conversation est créé, vous pouvez y ajouter des utili
 Utilisez la méthode `addParticipants` pour ajouter des participants au fil identifié par threadId.
 
 - Utilisez `listParticipants` pour lister les participants à ajouter au fil de conversation.
-- `user`, obligatoire, est le CommunicationUserIdentifier que vous avez créé avec le CommunicationIdentityClient dans le guide de démarrage rapide [Jeton d’accès utilisateur](../../access-tokens.md).
+- `communicationIdentifier`, obligatoire. Il s’agit du CommunicationIdentifier que vous avez créé avec le CommunicationIdentityClient dans le guide de démarrage rapide [Jeton d’accès utilisateur](../../access-tokens.md).
 - `display_name`, facultatif, est le nom d’affichage pour le participant au fil.
 - `share_history_time`, facultatif, est le moment à partir duquel l’historique de conversation est partagé avec le participant. Pour partager l’historique depuis le début du fil de conversation, attribuez à cette propriété une date égale ou antérieure à la date de création du fil. Pour ne pas partager l’historique antérieur au moment où le participant a été ajouté, définissez-la sur l’heure actuelle. Pour partager un historique partiel, attribuez-lui la date de votre choix.
 
@@ -230,11 +234,11 @@ Utilisez la méthode `addParticipants` pour ajouter des participants au fil iden
 List<ChatParticipant> participants = new ArrayList<ChatParticipant>();
 
 ChatParticipant firstThreadParticipant = new ChatParticipant()
-    .setUser(user1)
+    .setCommunicationIdentifier(identity1)
     .setDisplayName("Display Name 1");
 
 ChatParticipant secondThreadParticipant = new ChatParticipant()
-    .setUser(user2)
+    .setCommunicationIdentifier(identity2)
     .setDisplayName("Display Name 2");
 
 participants.add(firstThreadParticipant);
@@ -245,14 +249,14 @@ AddChatParticipantsOptions addChatParticipantsOptions = new AddChatParticipantsO
 chatThreadClient.addParticipants(addChatParticipantsOptions);
 ```
 
-## <a name="remove-user-from-a-chat-thread"></a>Supprimer un utilisateur d’un fil de conversation
+## <a name="remove-participant-from-a-chat-thread"></a>Supprimer un participant d’un fil de conversation
 
-De la même manière que vous pouvez ajouter un utilisateur à un fil, vous pouvez supprimer des utilisateurs d’un fil de conversation. Pour ce faire, vous devez suivre les identités utilisateur des participants que vous avez ajoutés.
+De la même façon que vous ajoutez un participant à un fil de conversation, vous pouvez supprimer des participants d’un fil de conversation. Pour ce faire, vous devez suivre les identités des participants que vous avez ajoutés.
 
-Utilisez `removeParticipant`, où `user` est le CommunicationUserIdentifier que vous avez créé.
+Utilisez `removeParticipant`, où `identifier` est le CommunicationUserIdentifier que vous avez créé.
 
 ```Java
-chatThreadClient.removeParticipant(user);
+chatThreadClient.removeParticipant(identity);
 ```
 
 ## <a name="run-the-code"></a>Exécuter le code

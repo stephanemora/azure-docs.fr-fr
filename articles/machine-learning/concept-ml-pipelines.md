@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: laobri
 author: lobrien
-ms.date: 01/12/2021
+ms.date: 02/26/2021
 ms.custom: devx-track-python
-ms.openlocfilehash: e3f92f445068b98c12069577ddf61a71568e403b
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 8b5e74d12af92b5d300e638bee27020a5af5383c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98871551"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690377"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>Présentation des pipelines Azure Machine Learning
 
@@ -95,22 +95,27 @@ experiment = Experiment(ws, 'MyExperiment')
 
 input_data = Dataset.File.from_files(
     DataPath(datastore, '20newsgroups/20news.pkl'))
+prepped_data_path = OutputFileDatasetConfig(name="output_path")
 
 dataprep_step = PythonScriptStep(
     name="prep_data",
     script_name="dataprep.py",
-    compute_target=cluster,
-    arguments=[input_dataset.as_named_input('raw_data').as_mount(), dataprep_output]
-    )
-output_data = OutputFileDatasetConfig()
-input_named = input_data.as_named_input('input')
-
-steps = [ PythonScriptStep(
-    script_name="train.py",
-    arguments=["--input", input_named.as_download(), "--output", output_data],
+    source_directory="prep_src",
     compute_target=compute_target,
-    source_directory="myfolder"
-) ]
+    arguments=["--prepped_data_path", prepped_data_path],
+    inputs=[input_dataset.as_named_input('raw_data').as_mount() ]
+    )
+
+prepped_data = prepped_data_path.read_delimited_files()
+
+train_step = PythonScriptStep(
+    name="train",
+    script_name="train.py",
+    compute_target=compute_target,
+    arguments=["--prepped_data", prepped_data],
+    source_directory="train_src"
+)
+steps = [ dataprep_step, train_step ]
 
 pipeline = Pipeline(workspace=ws, steps=steps)
 
@@ -118,9 +123,13 @@ pipeline_run = experiment.submit(pipeline)
 pipeline_run.wait_for_completion()
 ```
 
-L’extrait de code commence par les objets Azure Machine Learning communs, un `Workspace`, un `Datastore`, un [ComputeTarget](/python/api/azureml-core/azureml.core.computetarget?preserve-view=true&view=azure-ml-py) et un `Experiment`. Ensuite, le code crée les objets pour contenir `input_data` et `output_data`. `input_data` est une instance de [FileDataset](/python/api/azureml-core/azureml.data.filedataset?preserve-view=true&view=azure-ml-py) tandis que `output_data` est une instance de [OutputFileDatasetConfig](/python/api/azureml-core/azureml.data.output_dataset_config.outputfiledatasetconfig?preserve-view=true&view=azure-ml-py). Pour `OutputFileDatasetConfig`, le comportement par défaut consiste à copier la sortie dans le magasin de données `workspaceblobstore`, sous `/dataset/{run-id}/{output-name}`, sachant que `run-id` correspond à l’ID de l’exécution et que la valeur `output-name` est générée automatiquement si elle n’est pas spécifiée par le développeur.
+L’extrait de code commence par les objets Azure Machine Learning communs, un `Workspace`, un `Datastore`, un [ComputeTarget](/python/api/azureml-core/azureml.core.computetarget?preserve-view=true&view=azure-ml-py) et un `Experiment`. Ensuite, le code crée les objets pour contenir `input_data` et `prepped_data_path`. `input_data` est une instance de [FileDataset](/python/api/azureml-core/azureml.data.filedataset?preserve-view=true&view=azure-ml-py) tandis que `prepped_data_path` est une instance de [OutputFileDatasetConfig](/python/api/azureml-core/azureml.data.output_dataset_config.outputfiledatasetconfig?preserve-view=true&view=azure-ml-py). Pour `OutputFileDatasetConfig`, le comportement par défaut consiste à copier la sortie dans le magasin de données `workspaceblobstore`, sous `/dataset/{run-id}/{output-name}`, sachant que `run-id` correspond à l’ID de l’exécution et que la valeur `output-name` est générée automatiquement si elle n’est pas spécifiée par le développeur.
 
-Le tableau `steps` contient un élément unique, un `PythonScriptStep` qui utilisera les objets de données et s’exécutera sur le `compute_target`. Ensuite, le code instancie l’objet `Pipeline` lui-même, en transmettant l’espace de travail et le tableau d’étapes. L’appel à `experiment.submit(pipeline)` commence l’exécution du pipeline Azure ML. L’appel à `wait_for_completion()` se bloque jusqu’à ce que le pipeline soit terminé. 
+Le code de préparation des données (non illustré), écrit les fichiers délimités sous `prepped_data_path`. Les résultats de l'étape de préparation des données sont transmis à l'étape de formation sous forme de `prepped_data`. 
+
+Le tableau `steps` contient les deux `PythonScriptStep`, `dataprep_step` et `train_step`. Azure Machine Learning analysera les dépendances de données de `prepped_data` et exécutera `dataprep_step` avant `train_step`. 
+
+Ensuite, le code instancie l’objet `Pipeline` lui-même, en transmettant l’espace de travail et le tableau d’étapes. L’appel à `experiment.submit(pipeline)` commence l’exécution du pipeline Azure ML. L’appel à `wait_for_completion()` se bloque jusqu’à ce que le pipeline soit terminé. 
 
 Pour en savoir plus sur la connexion de votre pipeline à vos données, consultez les articles [Accès aux données dans Azure Machine Learning](concept-data.md) et [Déplacement de données au sein d’un pipeline ML et vers un autre pipeline ML (Python)](how-to-move-data-in-out-of-pipelines.md). 
 

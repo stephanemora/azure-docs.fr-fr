@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 12/20/2020
 ms.topic: conceptual
 ms.custom: how-to, automl
-ms.openlocfilehash: 1a40fe01240474c2a6df3e028b7d03f3e8bb73fc
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: d7a0832fd15df402c88e1ba565c90a24e0d6eb8a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879745"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101692417"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Créer, examiner et déployer des modèles de machine learning automatisé avec Azure Machine Learning
 
@@ -164,7 +164,7 @@ Imputer avec| Sélectionnez la valeur à imputer aux valeurs manquantes dans vos
 Sélectionnez **Terminer** pour exécuter votre expérience. Le processus de préparation de l’expérience peut prendre jusqu’à 10 minutes. Les travaux de formation peuvent prendre 2 à 3 minutes supplémentaires pour que chaque pipeline se termine.
 
 > [!NOTE]
-> Les algorithmes utilisés par le ML automatisé présentent un fonctionnement aléatoire inhérent qui peut provoquer de légères variations dans un score de métrique final de modèle recommandé, comme la précision. Le ML automatisé exécute également des opérations au niveau des données, telles que les opérations train-test split, train-validation split ou la validation croisée, si nécessaire. Par conséquent, si vous exécutez plusieurs fois une expérience avec les mêmes paramètres de configuration et la même métrique principale, vous constaterez probablement des variations dans chaque score de métrique finale d’expériences, en raison de ces facteurs. 
+> Les algorithmes utilisés par le ML automatisé présentent un fonctionnement aléatoire inhérent qui peut provoquer de légères variations dans un score de métrique final de modèle recommandé, comme la précision. Le ML automatisé exécute également des opérations au niveau des données, telles que le fractionnement de test de formation, le fractionnement de validation de formation ou la validation croisée, le cas échéant. Par conséquent, si vous exécutez plusieurs fois une expérience avec les mêmes paramètres de configuration et la même métrique principale, vous constaterez probablement des variations dans chaque score de métrique finale d’expériences, en raison de ces facteurs. 
 
 ### <a name="view-experiment-details"></a>Afficher les détails de l'expérience
 
@@ -179,6 +179,21 @@ L’onglet **Modèles** contient une liste des modèles créés affichés selon 
 Explorez les modèles terminés pour voir les détails de l’exécution de la formation, par exemple un résumé du modèle sous l’onglet **Modèle** ou les graphiques des mesures de performance sous l’onglet **Mesures**. [En savoir plus sur les graphiques](how-to-understand-automated-ml.md).
 
 [![Détails de l’itération](media/how-to-use-automated-ml-for-ml-models/iteration-details.png)](media/how-to-use-automated-ml-for-ml-models/iteration-details-expanded.png)
+
+## <a name="model-explanations"></a>Explications de modèle
+
+Pour mieux comprendre votre modèle, identifiez les caractéristiques de données (brutes ou traitées) qui ont influencé les prédictions du modèle avec le tableau de bord des explications de modèle. 
+
+Le tableau de bord des explications de modèle fournit une analyse globale du modèle qui a fait l'objet de l'apprentissage, avec ses prédictions et explications. Il vous permet également d'explorer un point de données particulier et l'importance des caractéristiques individuelles. [En savoir plus sur les visualisations du tableau de bord des explications et les tracés spécifiques](how-to-machine-learning-interpretability-aml.md#visualizations).
+
+Pour obtenir des explications sur un modèle particulier : 
+
+1. Dans l'onglet **Modèles**, sélectionnez le modèle que vous souhaitez utiliser. 
+1. Sélectionnez le bouton **Expliquer le modèle** et fournissez un calcul utilisable pour générer les explications.
+1. Consultez l'état dans l'onglet **Exécutions enfants**. 
+1. Accédez ensuite à l'onglet **Explications (préversion)** qui contient le tableau de bord des explications. 
+
+    ![Tableau de bord des explications de modèle](media/how-to-use-automated-ml-for-ml-models/model-explanation-dashboard.png)
 
 ## <a name="deploy-your-model"></a>Déployer votre modèle
 

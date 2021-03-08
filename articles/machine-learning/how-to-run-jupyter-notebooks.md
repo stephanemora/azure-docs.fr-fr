@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 01/19/2021
-ms.openlocfilehash: 18ccadcf43d41c677a665ed068d093f51389b576
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 82c11b913d38695c8738de88f3ce69b198ee099e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101657330"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691873"
 ---
 # <a name="run-jupyter-notebooks-in-your-workspace"></a>Exécuter des notebooks Jupyter dans votre espace de travail
 
@@ -190,7 +190,7 @@ Pour plus de détails sur vos instances de calcul, consultez la page **Calcul** 
 
 * Si vous ne pouvez pas vous connecter à un notebook, vérifiez que la communication avec le socket web n’est **pas** désactivée. Pour que la fonctionnalité d’instance de calcul Jupyter fonctionne, la communication avec le socket web doit être activée. Vérifiez que votre réseau autorise les connexions WebSocket à *.instances.azureml.net et *.instances.azureml.ms. 
 
-* Lorsque l’instance de calcul est déployée dans un espace de travail privé, elle n’est accessible qu’à partir d’un réseau virtuel. Si vous utilisez un DNS ou un fichier d’hôtes personnalisé, ajoutez une entrée pour <nom-instance>.<region>.instances.azureml.ms avec l’adresse IP privée du point de terminaison privé de l’espace de travail. Pour plus d’informations, consultez l’article [DNS personnalisé](./how-to-custom-dns.md?tabs=azure-cli).
+* Quand l’instance de calcul est déployée dans un espace de travail de liaison privée, elle est uniquement [accessible à partir d’un réseau virtuel](https://docs.microsoft.com/azure/machine-learning/how-to-secure-training-vnet#compute-instance). Si vous utilisez un DNS ou un fichier d’hôtes personnalisé, ajoutez une entrée pour <nom-instance>.<region>.instances.azureml.ms avec l’adresse IP privée du point de terminaison privé de l’espace de travail. Pour plus d’informations, consultez l’article [DNS personnalisé](./how-to-custom-dns.md?tabs=azure-cli).
     
 ## <a name="next-steps"></a>Étapes suivantes
 

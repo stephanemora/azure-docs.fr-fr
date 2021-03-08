@@ -6,12 +6,12 @@ ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/30/2020
-ms.openlocfilehash: 885aab68c769c0705994bad34bee6aaa4fdc3f3d
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 9fb6e94062639d32707f52f66e0b99531884a636
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101658467"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101692264"
 ---
 # <a name="frequently-asked-questions-about-azure-synapse-link-for-azure-cosmos-db"></a>Foire aux questions sur Azure Synapse Link pour Azure Cosmos DB
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -73,6 +73,10 @@ Azure Cosmos DB garantit l’isolation des performances entre les charges de tra
 Oui, vous pouvez configurer un [point de terminaison privé managé](analytical-store-private-endpoints.md) et limiter l’accès réseau du magasin analytique au réseau virtuel managé d’Azure Synapse. Les points de terminaison privés managés établissent une liaison privée avec votre magasin analytique. Ce point de terminaison privé limite également l’accès en écriture au magasin transactionnel, parmi d’autres services de données Azure.
 
 Vous pouvez ajouter des points de terminaison privés de magasin transactionnel et de magasin analytique au même compte Azure Cosmos DB dans un espace de travail Azure Synapse Analytics. Si vous voulez seulement exécuter des requêtes analytiques, vous pouvez mapper seulement le point de terminaison privé analytique.
+
+### <a name="can-i-use-customer-managed-keys-with-the-azure-cosmos-db-analytical-store"></a>Puis-je utiliser des clés managées par le client avec le magasin analytique Azure Cosmos DB ?
+
+Vous pouvez chiffrer les données du magasin transactionnel et du magasin analytique de manière fluide en utilisant les mêmes clés managées par le client, de manière automatique et transparente. L’utilisation de clés gérées par le client avec le magasin analytique Azure Cosmos DB nécessite actuellement une configuration supplémentaire de votre compte. Pour plus d’informations, contactez l’[équipe Azure Cosmos DB](mailto:azurecosmosdbcmk@service.microsoft.com).
 
 ### <a name="are-delete-and-update-operations-on-the-transactional-store-reflected-in-the-analytical-store"></a>Les opérations de suppression et de mise à jour sur le magasin transactionnel sont-elles reflétées dans le magasin analytique ?
 

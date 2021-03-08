@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 01/19/2021
-ms.openlocfilehash: c8d0ea43410b8d191d3d0b08c2f232bd72c80b20
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: b86414758c3b644725e5aa29ca3b314f489508aa
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101669622"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101693524"
 ---
 # <a name="automatically-label-your-data-in-azure-purview"></a>Étiquetage automatique de données dans Azure Purview
 
@@ -102,7 +102,10 @@ En étendant les étiquettes de confidentialité de MIP avec Azure Purview, les 
 
 **Extension des étiquettes de confidentialité à Purview :**
 
-Dans Microsoft 365, accédez à la page **Information Protection**. Dans **Étendre l’étiquetage aux ressources dans Azure Purview**, sélectionnez le bouton **Activer**, puis sélectionnez **Oui** dans la boîte de dialogue de confirmation qui s’affiche.
+Les étapes suivantes permettent aux étiquettes de confidentialité d’être disponibles pour une utilisation dans Azure Purview, où vous pouvez appliquer vos étiquettes de confidentialité à des ressources telles que les colonnes SQL, les fichiers du Stockage Blob Azure et bien plus encore.
+
+1. Dans Microsoft 365, accédez à la page **Information Protection**. 
+1. Dans **Étendre l’étiquetage aux ressources dans Azure Purview**, sélectionnez le bouton **Activer**, puis sélectionnez **Oui** dans la boîte de dialogue de confirmation qui s’affiche.
 
 Par exemple :
 

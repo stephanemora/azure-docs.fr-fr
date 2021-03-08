@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/16/2020
 ms.author: sedusch
-ms.openlocfilehash: fe98ef297c6bed5ef3d982ed09db361244f75216
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 5d6ea75936383388a57a7822f054e0ea7297471e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101675699"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101695513"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Déploiement de machines virtuelles Azure pour SAP NetWeaver
 
@@ -1057,47 +1057,17 @@ La nouvelle extension de machine virtuelle pour SAP utilise une identité manag�
    az login
    ```
 
-1. Suivez la procédure décrite dans l’article [Configuration des identités managées pour les ressources Azure sur une machine virtuelle à l’aide d’Azure CLI][qs-configure-cli-windows-vm] pour activer une identité managée affectée par le système à la machine virtuelle. Les identités managées affectées par l’utilisateur ne sont pas prises en charge par l’extension de machine virtuelle pour SAP. Toutefois, vous pouvez activer à la fois une identité affectée par le système et une identité affectée par l’utilisateur.
-
-   Exemple :
+1. Installez l’extension Azure CLI AEM. Veillez à utiliser la version 0.2.0 ou ultérieure.
+  
    ```azurecli
-   az vm identity assign -g <resource-group-name> -n <vm name>
+   az extension add --name aem
    ```
-
-1. Attribuez à l’identité managée l’accès au groupe de ressources de la machine virtuelle ou à toutes les interfaces réseau, aux disques managés et à la machine virtuelle proprement dite, selon les modalités décrites dans [Attribution de l’accès à une ressource à une identité managée à l’aide d’Azure CLI][howto-assign-access-cli].
-
-    Exemple :
-
-    ```azurecli
-    # Azure CLI on Linux
-    spID=$(az resource show -g <resource-group-name> -n <vm name> --query identity.principalId --out tsv --resource-type Microsoft.Compute/virtualMachines)
-    rgId=$(az group show -g <resource-group-name> --query id --out tsv)
-    az role assignment create --assignee $spID --role 'Reader' --scope $rgId
-
-    # Azure CLI on Windows/PowerShell
-    $spID=az resource show -g <resource-group-name> -n <vm name> --query identity.principalId --out tsv --resource-type Microsoft.Compute/virtualMachines
-    $rgId=az group show -g <resource-group-name> --query id --out tsv
-    az role assignment create --assignee $spID --role 'Reader' --scope $rgId
-    ```
-
-1. Exécutez la commande Azure CLI suivante afin d’installer l’extension Azure pour SAP.
-    L’extension n’est actuellement prise en charge que dans AzureCloud. Azure China 21Vianet, Azure Government et les autres environnements spéciaux ne sont pas encore pris en charge.
-
-    ```azurecli
-    # Azure CLI on Linux
-    ## For Linux machines
-    az vm extension set --publisher Microsoft.AzureCAT.AzureEnhancedMonitoring --name MonitorX64Linux --version 1.0 -g <resource-group-name> --vm-name <vm name> --settings '{"system":"SAP"}'
-
-    ## For Windows machines
-    az vm extension set --publisher Microsoft.AzureCAT.AzureEnhancedMonitoring --name MonitorX64Windows --version 1.0 -g <resource-group-name> --vm-name <vm name> --settings '{"system":"SAP"}'
-
-    # Azure CLI on Windows/PowerShell
-    ## For Linux machines
-    az vm extension set --publisher Microsoft.AzureCAT.AzureEnhancedMonitoring --name MonitorX64Linux --version 1.0 -g <resource-group-name> --vm-name <vm name> --settings '{\"system\":\"SAP\"}'
-
-    ## For Windows machines
-    az vm extension set --publisher Microsoft.AzureCAT.AzureEnhancedMonitoring --name MonitorX64Windows --version 1.0 -g <resource-group-name> --vm-name <vm name> --settings '{\"system\":\"SAP\"}'
-    ```
+  
+1. Installer la nouvelle extension avec
+  
+   ```azurecli
+   az vm aem set -g <resource-group-name> -n <vm name> --install-new-extension
+   ```
 
 ## <a name="checks-and-troubleshooting"></a><a name="564adb4f-5c95-4041-9616-6635e83a810b"></a>Vérifications et résolution des problèmes
 

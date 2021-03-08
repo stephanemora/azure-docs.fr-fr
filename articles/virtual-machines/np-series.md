@@ -7,16 +7,17 @@ ms.subservice: hpc
 ms.topic: conceptual
 ms.date: 02/09/2021
 ms.author: vikancha
-ms.openlocfilehash: 8d350e248d09f29496f4461b902eba96d8375732
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 4fe6df5a9eabc6e5088618039fdea450ee8314ce
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101668280"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101693847"
 ---
-# <a name="np-series-preview"></a>Série NP (préversion)
-
+# <a name="np-series-preview"></a>Série NP (préversion) 
 Les machines virtuelles de la série NP sont alimentées par des FPGA [Xilinx U250](https://www.xilinx.com/products/boards-and-kits/alveo/u250.html) pour accélérer les charges de travail, notamment l’inférence machine learning, le transcodage vidéo et la recherche de base de données et Analytics. Les machines virtuelles de la série NP sont également alimentées par des processeurs Intel Xeon 8171M (Skylake) avec une vitesse d’horloge de Turbo de 3,2 GHz.
+
+Soumettez une requête à l’aide du [formulaire de préversion](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR9x_QCQkJXxHl4qOI4jC9YtUOVI0VkgwVjhaTFFQMTVBTDFJVFpBMzJSSCQlQCN0PWcu) pour participer au programme de préversion de la série NP.
 
 
 [Stockage Premium](premium-storage-performance.md) : Pris en charge<br>

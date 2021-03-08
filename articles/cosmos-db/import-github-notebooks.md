@@ -6,13 +6,13 @@ ms.author: dech
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 05/19/2020
-ms.openlocfilehash: 8315369d2100036a50aae770267aa04bceb2dfb0
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.date: 02/22/2021
+ms.openlocfilehash: f7002b3968e91447a26315f31347ad469aa5daca
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93339799"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690649"
 ---
 # <a name="import-notebooks-from-a-github-repo-into-azure-cosmos-db"></a>Importer des blocs-notes à partir d’un dépôt GitHub dans Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -33,7 +33,7 @@ Vous pouvez vous connecter à vos propres dépôts GitHub ou à d’autres dép�
 
    :::image type="content" source="./media/import-github-notebooks/authorize-access-github.png" alt-text="Autoriser Azure Cosmos DB à accéder à vos dépôts GitHub":::
 
-1. Vous êtes redirigé vers la page web « github.com », dans laquelle vous pouvez confirmer l’autorisation. Sélectionnez le bouton **autoriser AzureCosmosDBNotebooks** , puis entrez le mot de passe de votre compte GitHub dans l’invite.
+1. Vous êtes redirigé vers la page web « github.com », dans laquelle vous pouvez confirmer l’autorisation. Sélectionnez le bouton **autoriser AzureCosmosDBNotebooks**, puis entrez le mot de passe de votre compte GitHub dans l’invite.
 
 1. Une fois l’autorisation accordée, vous êtes redirigé vers votre compte Azure Cosmos. Vous pouvez alors voir tous les dépôts publics/privés de votre compte GitHub. Vous pouvez sélectionner un dépôt dans la liste disponible, ou en ajouter un directement à l’aide de son URL.
 
@@ -45,7 +45,7 @@ Vous pouvez vous connecter à vos propres dépôts GitHub ou à d’autres dép�
 
 Une fois l’intégration avec un compte GitHub opérée, vous seul pouvez voir la liste des dépôts et blocs-notes de votre compte Azure Cosmos. Cela reste vrai même si plusieurs utilisateurs se connectent au compte Azure Cosmos DB et y ajoutent leurs propres comptes. Autrement dit, plusieurs utilisateurs peuvent utiliser le même compte Azure Cosmos pour connecter leur espace de travail de blocs-notes à GitHub. Toutefois, chaque utilisateur voit uniquement la liste des dépôts et blocs-notes qu’il a importés. Vous ne pouvez pas voir les blocs-notes importés par d’autres.
 
-Pour déconnecter votre compte GitHub de l’espace de travail des blocs-notes, ouvrez l’onglet **Explorateur de données** , sélectionnez `…` en regard de **Dépôts GitHub** , puis sélectionnez **Se déconnecter de GitHub**.
+Pour déconnecter votre compte GitHub de l’espace de travail des blocs-notes, ouvrez l’onglet **Explorateur de données**, sélectionnez `…` en regard de **Dépôts GitHub**, puis sélectionnez **Se déconnecter de GitHub**.
 
 ## <a name="edit-a-notebook-and-push-changes-to-github"></a>Modifier un bloc-notes et envoyer (push) les modifications à GitHub
 
@@ -57,7 +57,12 @@ Dans le flux GitHub normal, après avoir validé les modifications, vous expédi
 
 :::image type="content" source="./media/import-github-notebooks/commit-changes-github.png" alt-text="Modifier des blocs-notes et valider les modifications sur GitHub":::
 
+Après avoir modifié le bloc-notes (notebook), vous pouvez le [Publier dans la galerie des blocs-notes](publish-notebook-gallery.md). 
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Découvrez les avantages des [blocs-notes Jupyter d’Azure Cosmos DB](cosmosdb-jupyter-notebooks.md).
-
+* [Explorer la galerie d’exemples de notebooks](https://cosmos.azure.com/gallery.html)
+* [Publier des notebooks dans la galerie des notebooks Azure Cosmos DB](publish-notebook-gallery.md)
+* [Utiliser les fonctionnalités et commandes des notebooks Python](use-python-notebook-features-and-commands.md)
+* [Utiliser les fonctionnalités et commandes des notebooks C#](use-csharp-notebook-features-and-commands.md)

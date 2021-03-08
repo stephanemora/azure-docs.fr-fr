@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions, contperf-fy21q1
-ms.openlocfilehash: 857fba6dfa6191163c06c423cefb42d57f25dc1d
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 1a73988b66ba7b47f18ecaaa07df59e9047a933b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99980573"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691822"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>Vue d’ensemble de l’isolement et de la confidentialité des réseaux virtuels
 
@@ -71,7 +71,7 @@ Utilisez la procédure ci-dessous pour sécuriser votre espace de travail et les
 1. Créez un [espace de travail avec Private Link activé](how-to-secure-workspace-vnet.md#secure-the-workspace-with-private-endpoint) pour activer la communication entre votre réseau virtuel et votre espace de travail.
 1. Ajoutez Azure Key Vault au réseau virtuel avec un [point de terminaison de service](../key-vault/general/overview-vnet-service-endpoints.md) ou un [point de terminaison privé](../key-vault/general/private-link-service.md). Définissez le Key Vault sur [« Autoriser les services Microsoft approuvés à contourner ce pare-feu »](how-to-secure-workspace-vnet.md#secure-azure-key-vault).
 1. Ajoutez votre compte de stockage Azure au réseau virtuel avec un [point de terminaison de service](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints) ou un [point de terminaison privé](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints).
-1. [Configurez Azure Container Registry de manière à utiliser un point de terminaison privé](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr) et [activez la délégation de sous-réseau dans Azure Container Instances](how-to-secure-inferencing-vnet.md#enable-azure-container-instances-aci).
+1. [Configurer Azure Container Registry pour utiliser un point de terminaison privé](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr).
 
 ![Diagramme d’architecture représentant la manière dont l’espace de travail et les ressources associées communiquent entre eux par le biais des points de terminaison de service ou privés au sein d’un réseau virtuel](./media/how-to-network-security-overview/secure-workspace-resources.png)
 

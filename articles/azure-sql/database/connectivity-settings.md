@@ -9,12 +9,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: sstein, vanto
 ms.date: 07/06/2020
-ms.openlocfilehash: e3422f468d1355245fb31e8f04d5f8625f583c37
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 84fdca96f2ce42c608e7def98f6a3400964cfe46
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462180"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691924"
 ---
 # <a name="azure-sql-connectivity-settings"></a>Paramètres de connectivité pour Azure SQL
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -104,7 +104,7 @@ az sql server update -n sql-server-name -g sql-server-group --set publicNetworkA
 
 Le paramètre de version de [TLS (Transport Layer Security)](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server) minimale permet aux clients de contrôler la version de TLS que leur base de données SQL utilise.
 
-Actuellement, nous prenons en charge les versions de TLS 1.0, 1.1 et 1.2. La définition d’une version minimale de TLS garantit que les versions de TLS plus récentes sont prises en charge. Par exemple, le choix d’une version de TLS supérieure à 1.1 signifie que seules les connexions avec les versions de TLS 1.1 et 1.2 sont acceptées, les connexions avec la version de TLS 1.0 étant rejetées. Après avoir effectué un test pour vérifier que vos applications prennent en charge la version de TLS 1.2, nous vous recommandons de la définir comme version minimale. Cette version comprend des correctifs de vulnérabilités des versions précédentes et est la version la plus récente de TLS prise en charge dans Azure SQL Database.
+Actuellement, nous prenons en charge les versions de TLS 1.0, 1.1 et 1.2. La définition d’une version minimale de TLS garantit que les versions de TLS plus récentes sont prises en charge. Par exemple, le choix de la version TLS 1.1 signifie que seules les connexions avec les versions TLS 1.1 et 1.2 sont acceptées, les connexions avec la version TLS 1.0 étant rejetées. Après avoir effectué un test pour vérifier que vos applications prennent en charge la version de TLS 1.2, nous vous recommandons de la définir comme version minimale. Cette version comprend des correctifs de vulnérabilités des versions précédentes et est la version la plus récente de TLS prise en charge dans Azure SQL Database.
 
 > [!IMPORTANT]
 > Par défaut, la version minimale de TLS autorise toutes les versions. Une fois que vous avez appliqué une version de TLS, il n’est plus possible de rétablir le paramétrage par défaut.

@@ -1,26 +1,23 @@
 ---
-title: Utiliser le Bureau à distance sur une machine virtuelle Linux dans Azure
+title: Utiliser xrdp avec Linux
 description: Découvrez comment installer et configurer le Bureau à distance (xrdp) pour effectuer une connexion à une machine virtuelle Linux dans Azure à l’aide des outils graphiques
 services: virtual-machines-linux
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: ''
-ms.assetid: ''
 ms.service: virtual-machines-linux
+ms.collection: linux
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
 ms.topic: how-to
-ms.date: 09/12/2019
+ms.date: 03/01/2021
 ms.author: cynthn
-ms.openlocfilehash: bea7e38c35ceddafb64937d6e1a6f69d7c727f44
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 448e9f6487b5afc51be9b3dee8e07007c8534a0b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98196382"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101695173"
 ---
-# <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>Installer et configurer le Bureau à distance pour effectuer une connexion à une machine virtuelle Linux dans Azure
+# <a name="install-and-configure-xrdp-to-use-remote-desktop-with-a-linux-vm"></a>Installer et configurer xrdp pour utiliser le Bureau à distance avec une machine virtuelle Linux
+
 Les machines virtuelles (VM) Linux dans Azure sont généralement gérées à partir de la ligne de commande à l’aide d’une connexion Secure Shell (SSH). Si vous découvrez Linux, ou si vous souhaitez des scénarios de dépannage rapides, l’utilisation du Bureau à distance peut se révéler plus facile. Cet article explique comment installer et configurer un environnement de bureau ([xfce](https://www.xfce.org)) et le Bureau à distance ([xrdp](http://xrdp.org)) pour votre machine virtuelle Linux à l’aide du modèle de déploiement Resource Manager.
 
 
@@ -32,6 +29,7 @@ Cet article nécessite que vous disposiez d’une machine virtuelle Ubuntu 18.0
 
 
 ## <a name="install-a-desktop-environment-on-your-linux-vm"></a>Installation d’un environnement de bureau sur votre machine virtuelle Linux
+
 La plupart des machines virtuelles Linux dans Azure n’ont pas d’environnement de bureau installé par défaut. Les machines virtuelles Linux sont généralement gérées à l’aide des connexions SSH plutôt que d’un environnement de bureau. Il existe divers environnements de bureau sous Linux que vous pouvez choisir. Selon l’environnement de bureau que vous choisissez, ce dernier peut consommer entre 1 et 2 Go d’espace disque et nécessiter 5 à 10 minutes pour installer et configurer tous les packages requis.
 
 L’exemple suivant installe l’environnement de bureau léger [xfce4](https://www.xfce.org/) sur une machine virtuelle Ubuntu 18.04 LTS. Les commandes pour les autres distributions varient légèrement (utilisez `yum` pour effectuer une installation sur Red Hat Enterprise Linux et configurez les règles `selinux` appropriées, ou utilisez `zypper` pour une installation sur SUSE, par exemple).
@@ -94,9 +92,14 @@ az vm open-port --resource-group myResourceGroup --name myVM --port 3389
 
 
 ## <a name="connect-your-linux-vm-with-a-remote-desktop-client"></a>Connexion de votre machine virtuelle Linux à un client Bureau à distance
-Ouvrez votre client Bureau à distance local et connectez-vous à l’adresse IP ou au nom DNS de votre machine virtuelle Linux. Entrez le nom d’utilisateur et le mot de passe du compte d’utilisateur sur votre machine virtuelle comme suit :
 
-![Connexion à xrdp à l’aide de votre client Bureau à distance](./media/use-remote-desktop/remote-desktop-client.png)
+Ouvrez votre client Bureau à distance local et connectez-vous à l’adresse IP ou au nom DNS de votre machine virtuelle Linux. 
+
+:::image type="content" source="media/use-remote-desktop/remote-desktop.png" alt-text="Capture d'écran du client Bureau à distance.":::
+
+Entrez le nom d’utilisateur et le mot de passe du compte d’utilisateur sur votre machine virtuelle comme suit :
+
+:::image type="content" source="media/use-remote-desktop/xrdp-login.png" alt-text="Capture de l'écran de connexion xrdp.":::
 
 Une fois l’authentification effectuée, l’environnement de bureau xfce se charge et ressemble à l’exemple suivant :
 
