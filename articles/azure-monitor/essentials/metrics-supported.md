@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 02/06/2021
 ms.author: robb
 ms.subservice: metrics
-ms.openlocfilehash: 3f9ec395e8ccf6d5162717b2e38b0650ccc84812
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 6e4a776bd9aaf3900d05a6191b8ff4dcbb11fd52
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101091793"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731661"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métriques prises en charge avec Azure Monitor
 
@@ -156,7 +156,7 @@ Pour obtenir des informations complémentaires importantes, consultez [Vue d’e
 |---|---|---|---|---|---|---|
 |active-timer-count|Oui|active-timer-count|Count|Average|Nombre de minuteurs actuellement actifs|Deployment, AppName, Pod|
 |alloc-rate|Oui|alloc-rate|Octets|Average|Nombre d’octets alloués dans le tas managé|Deployment, AppName, Pod|
-|AppCpuUsage|Oui|Utilisation récente du processeur de l’application (préversion)|Pourcentage|Average|Utilisation récente du processeur pour l’application|Deployment, AppName, Pod|
+|AppCpuUsage|Oui|Utilisation du processeur de l’application |Pourcentage|Average|Utilisation récente du processeur pour l’application|Deployment, AppName, Pod|
 |assembly-count|Oui|assembly-count|Count|Average|Nombre d’assemblys chargés|Deployment, AppName, Pod|
 |cpu-usage|Oui|cpu-usage|Pourcentage|Average|% de temps d’utilisation du processeur par le processus|Deployment, AppName, Pod|
 |current-requests|Oui|current-requests|Count|Average|Nombre total de demandes en traitement au cours de la durée de vie du processus|Deployment, AppName, Pod|
@@ -2167,9 +2167,9 @@ Pour obtenir des informations complémentaires importantes, consultez [Vue d’e
 
 |Métrique|Exportable par le biais des paramètres de diagnostic ?|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|---|
-|QueryVolume|Oui|Volume de requête|Count|Total|Nombre de requêtes servies pour une zone DNS|Aucune dimension|
+|QueryVolume|Non|Volume de requête|Count|Total|Nombre de requêtes servies pour une zone DNS|Aucune dimension|
 |RecordSetCapacityUtilization|Non|Utilisation de la capacité du jeu d’enregistrements|Pourcentage|Maximale|Pourcentage de la capacité du jeu d’enregistrements utilisée par une zone DNS|Aucune dimension|
-|RecordSetCount|Oui|Nombre de jeux d’enregistrements|Count|Maximale|Nombre de jeux d’enregistrements dans une zone DNS|Aucune dimension|
+|RecordSetCount|Non|Nombre de jeux d’enregistrements|Count|Maximale|Nombre de jeux d’enregistrements dans une zone DNS|Aucune dimension|
 
 
 ## <a name="microsoftnetworkexpressroutecircuits"></a>Microsoft.Network/expressRouteCircuits
@@ -2799,7 +2799,7 @@ Pour obtenir des informations complémentaires importantes, consultez [Vue d’e
 |SuccessE2ELatency|Oui|Latence E2E de réussite|Millisecondes|Average|Latence moyenne de bout en bout des requêtes réussies envoyées à un service de stockage ou à l’opération API spécifiée, en millisecondes. Cette valeur inclut le temps de traitement requis au sein de Stockage Microsoft Azure pour lire la requête, envoyer la réponse et recevoir un accusé de réception de la réponse.|GeoType, ApiName, Authentication|
 |SuccessServerLatency|Oui|Latence du serveur avec requête réussie|Millisecondes|Average|Durée moyenne utilisée pour traiter une requête réussie par Stockage Azure. Cette valeur n’inclut pas la latence réseau spécifiée dans SuccessE2ELatency.|GeoType, ApiName, Authentication|
 |Transactions|Oui|Transactions|Count|Total|Nombre de requêtes envoyées à un service de stockage ou à l’opération API spécifiée. Ce nombre inclut les requêtes réussies et celles ayant échoué, ainsi que les requêtes qui ont généré des erreurs. Utilisez la dimension ResponseType pour connaître le nombre des différents types de réponses.|ResponseType, GeoType, ApiName, Authentication|
-|UsedCapacity|Non|Capacité utilisée|Octets|Average|Quantité de stockage utilisée par le compte de stockage. Pour les comptes de stockage standard, il s’agit de la somme de la capacité utilisée par les objets blob, tables, fichiers et files d’attente. Pour les comptes de Stockage Premium et Blob, elle équivaut à BlobCapacity ou à FileCapacity.|Aucune dimension|
+|UsedCapacity|Oui|Capacité utilisée|Octets|Average|Quantité de stockage utilisée par le compte de stockage. Pour les comptes de stockage standard, il s’agit de la somme de la capacité utilisée par les objets blob, tables, fichiers et files d’attente. Pour les comptes de Stockage Premium et Blob, elle équivaut à BlobCapacity ou à FileCapacity.|Aucune dimension|
 
 
 ## <a name="microsoftstoragestorageaccountsblobservices"></a>Microsoft.Storage/storageAccounts/blobServices
@@ -3137,11 +3137,11 @@ Pour obtenir des informations complémentaires importantes, consultez [Vue d’e
 |AverageResponseTime|Oui|Temps de réponse moyen (déconseillé)|Secondes|Average|Temps moyen, en secondes, nécessaire à l’application pour traiter les requêtes.|Instance|
 |BytesReceived|Oui|Données entrantes|Octets|Total|Quantité de bande passante entrante, en Mio, consommée par l’application.|Instance|
 |BytesSent|Oui|Données sortantes|Octets|Total|Quantité de bande passante sortante, en Mio, consommée par l’application.|Instance|
-|CpuTime|Oui|Temps processeur|Secondes|Total|Temps processeur, en secondes, consommée par l’application. Pour plus d’informations sur cette métrique, consultez https://docs.microsoft.com/azure/app-service/web-sites-monitor#cpu-time-vs-cpu-percentage (Temps processeur et pourcentage UC).|Instance|
+|CpuTime|Oui|Temps processeur|Secondes|Total|Temps processeur, en secondes, consommée par l’application. Pour plus d’informations sur cette métrique, consultez https://docs.microsoft.com/azure/app-service/web-sites-monitor#cpu-time-vs-cpu-percentage (Temps processeur et pourcentage UC). Non applicable à Azure Functions.|Instance|
 |CurrentAssemblies|Oui|Assemblys actuels|Count|Average|Nombre d’assemblys actuellement chargés dans tous les AppDomains dans cette application.|Instance|
 |FileSystemUsage|Oui|Utilisation de systèmes de fichiers|Octets|Average|Pourcentage du quota de systèmes de fichiers consommé par l’application.|Aucune dimension|
-|FunctionExecutionCount|Oui|Nombre d’exécutions de fonctions|Count|Total|Nombre d’exécutions de fonctions|Instance|
-|FunctionExecutionUnits|Oui|Unités d’exécution de fonctions|Count|Total|Unités d’exécution de fonctions|Instance|
+|FunctionExecutionCount|Oui|Nombre d’exécutions de fonctions|Count|Total|Nombre d’exécutions de fonctions. Présent uniquement pour Azure Functions.|Instance|
+|FunctionExecutionUnits|Oui|Unités d’exécution de fonctions|Count|Total|Unités d’exécution de fonctions. Présent uniquement pour Azure Functions.|Instance|
 |Gen0Collections|Oui|Garbage collections de génération 0|Count|Total|Nombre de fois que les objets de génération 0 ont été récupérés par le Garbage Collector depuis le début du processus d’application. Les garbage collections de génération supérieure comprennent toutes celles de génération inférieure.|Instance|
 |Gen1Collections|Oui|Garbage collections de génération 1|Count|Total|Nombre de fois que les objets de génération 1 ont été récupérés par le Garbage Collector depuis le début du processus d’application. Les garbage collections de génération supérieure comprennent toutes celles de génération inférieure.|Instance|
 |Gen2Collections|Oui|Garbage collections de génération 2|Count|Total|Nombre de fois que les objets de génération 2 ont été récupérés par le Garbage Collector depuis le début du processus d’application.|Instance|

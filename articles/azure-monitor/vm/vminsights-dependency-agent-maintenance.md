@@ -1,21 +1,21 @@
 ---
-title: Comment mettre à niveau l’agent Dependency pour Azure Monitor pour machines virtuelles
-description: Cet article décrit la façon de mettre à niveau l’agent Dependency Azure Monitor pour machines virtuelles en utilisant la ligne de commande, l’assistant d’installation et d’autres méthodes.
+title: Comment mettre à niveau l’agent de dépendances VM Insights
+description: Cet article décrit comment mettre à niveau l’agent de dépendances VM insights à l’aide de la ligne de commande, de l’Assistant d’installation et d’autres méthodes.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/16/2020
-ms.openlocfilehash: 05358c560c70396d4e165abd174178378aad517b
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 14ca614c1e108ce43f05f98520cff6ff215ec5cc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100600131"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101722906"
 ---
-# <a name="how-to-upgrade-the-azure-monitor-for-vms-dependency-agent"></a>Comment mettre à niveau l’agent Dependency pour Azure Monitor pour machines virtuelles
+# <a name="how-to-upgrade-the-vm-insights-dependency-agent"></a>Comment mettre à niveau l’agent de dépendances VM Insights
 
-Après le déploiement initial de l’agent Dependency Azure Monitor pour machines virtuelles, des mises à jour incluant des correctifs de bogues ou la prise en charge de nouvelles fonctionnalités sont publiées.  Cet article vous aide à comprendre les méthodes disponibles et à effectuer la mise à niveau manuellement ou par le biais de l’automatisation.
+Après le déploiement initial de l’agent de dépendances VM Insights, des mises à jour incluant des correctifs de bogues ou la prise en charge de nouvelles fonctionnalités sont publiées.  Cet article vous aide à comprendre les méthodes disponibles et à effectuer la mise à niveau manuellement ou par le biais de l’automatisation.
 
 ## <a name="upgrade-options"></a>Options de mise à niveau 
 
@@ -70,4 +70,4 @@ Si le démarrage de l’agent de dépendances échoue, recherchez des informatio
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si vous souhaitez arrêter la surveillance de vos machines virtuelles pendant un certain temps ou supprimer entièrement Azure Monitor pour machines virtuelles, consultez [Désactiver la surveillance dans Azure Monitor pour machines virtuelles](../vm/vminsights-optout.md).
+Si vous souhaitez arrêter l’analyse de vos machines virtuelles pendant un certain temps ou supprimer entièrement VM Insights, consultez [Désactiver l’analyse de vos machines virtuelles dans VM Insights](../vm/vminsights-optout.md).

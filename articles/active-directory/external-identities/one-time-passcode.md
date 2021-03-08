@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 02/12/2021
+ms.date: 03/02/2021
 ms.author: mimart
 author: msmimart
 manager: CelesteDG
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f37c7e2f21c76fcc902b0922399081b9be949e99
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 7961997c6a6736c154b6217ee3f21682d0c4c3fc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100365529"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688465"
 ---
 # <a name="email-one-time-passcode-authentication"></a>Authentification par envoi d’un code secret à usage unique par e-mail
 
@@ -26,7 +26,8 @@ Cet article explique comment activer l’authentification par envoi d’un code 
 ![Diagramme de présentation de l’envoi d’un code secret à usage unique par e-mail](media/one-time-passcode/email-otp.png)
 
 > [!IMPORTANT]
-> **À compter d’octobre 2021**, la fonctionnalité d’envoi d’un code secret à usage unique par e-mail sera activée pour tous les locataires existants et sera activée par défaut pour les nouveaux locataires. Si vous ne souhaitez pas autoriser cette fonctionnalité à s’activer automatiquement, vous pouvez la désactiver. Consultez [Désactivation de l’envoi d’un code à usage unique par e-mail](#disable-email-one-time-passcode) ci-dessous.
+> - **À compter d’octobre 2021**, la fonctionnalité d’envoi d’un code secret à usage unique par e-mail sera activée pour tous les locataires existants et sera activée par défaut pour les nouveaux locataires. Si vous ne souhaitez pas autoriser cette fonctionnalité à s’activer automatiquement, vous pouvez la désactiver. Consultez [Désactivation de l’envoi d’un code à usage unique par e-mail](#disable-email-one-time-passcode) ci-dessous.
+> - Dans le portail Azure, les paramètres de code à usage unique par e-mail ont été déplacés de **Paramètres de collaboration externe** vers **Tous les fournisseurs d’identité**.
 
 > [!NOTE]
 > Les utilisateurs d'un code secret à usage unique doivent se connecter à l'aide d'un lien incluant le contexte du locataire (par exemple, `https://myapps.microsoft.com/?tenantid=<tenant id>` ou `https://portal.azure.com/<tenant id>`, ou dans le cas d'un domaine vérifié, `https://myapps.microsoft.com/<verified domain>.onmicrosoft.com`). Liens directs aux applications et ressources fonctionnent également tant qu’ils incluent le contexte client. Les utilisateurs invités ne peuvent actuellement pas se connecter à l’aide de points de terminaison qui n’ont aucun contexte locataire. Par exemple, `https://myapps.microsoft.com` et `https://portal.azure.com` provoquent une erreur.
@@ -83,27 +84,50 @@ L’utilisateur invité teri@gmail.com est invité sur Fabrikam, qui n’a pas d
 
 2. Dans le volet de navigation, sélectionnez **Azure Active Directory**.
 
-3. Sélectionnez **Identités externes** > **Paramètres de collaboration externe**.
+3. Sélectionnez **Identités externes** > **Tous les fournisseurs d’identité**.
 
-4. Sous **Envoi d’un code secret à usage unique par e-mail pour les invités**, sélectionnez **Désactiver l’envoi d’un code secret à usage unique par e-mail pour les invités**.
+4. Sélectionnez **Code à usage unique par e-mail**, puis **Désactiver le code à usage unique par e-mail pour les invités**.
 
    > [!NOTE]
-   > Si vous voyez le bouton bascule suivant au lieu des options d’envoi d’un code secret à usage unique par e-mail, cela signifie que vous avez précédemment activé, désactivé ou choisi la préversion de la fonctionnalité. Sélectionnez **Non** pour désactiver la fonctionnalité.
+   > Dans le portail Azure, les paramètres de code à usage unique par e-mail ont été déplacés de **Paramètres de collaboration externe** vers **Tous les fournisseurs d’identité**.
+   > Si vous voyez un bouton bascule au lieu des options d’envoi d’un code à usage unique par e-mail, cela signifie que vous avez précédemment activé, désactivé ou choisi la préversion de la fonctionnalité. Sélectionnez **Non** pour désactiver la fonctionnalité.
    >
-   >![Choix de la fonctionnalité Envoi d’un code à usage unique par e-mail](media/delegate-invitations/enable-email-otp-opted-in.png)
+   >![Bouton bascule du code à usage unique par e-mail désactivé](media/one-time-passcode/enable-email-otp-disabled.png)
 
 5. Sélectionnez **Enregistrer**.
 
 ## <a name="note-for-public-preview-customers"></a>Remarque pour les clients de la préversion publique
 
-Si vous avez déjà choisi la préversion publique de la fonctionnalité d’envoi d’un code secret à usage unique par e-mail, la date d’activation automatique de la fonctionnalité (octobre 2021) ne s’applique pas à vous. De ce fait, vos processus d’entreprise associés ne seront pas affectés. Vous ne verrez pas non plus l’option **Activer automatiquement l’envoi d’un code secret à usage unique par e-mail pour les invités en octobre 2021** sous les propriétés **Envoi d’un code secret à usage unique par e-mail pour les invités** sur le portail Azure. Seul le bouton bascule **Oui** ou **Non** apparaîtra :
+Si vous avez déjà choisi la préversion publique de la fonctionnalité d’envoi d’un code secret à usage unique par e-mail, la date d’activation automatique de la fonctionnalité (octobre 2021) ne s’applique pas à vous. De ce fait, vos processus d’entreprise associés ne seront pas affectés. Vous ne verrez pas non plus l’option **Activer automatiquement l’envoi d’un code à usage unique par e-mail pour les invités à partir d’octobre 2021** sous les propriétés **Code à usage unique par e-mail pour les invités** sur le portail Azure. Seul le bouton bascule **Oui** ou **Non** apparaîtra :
 
-![Choix de la fonctionnalité Envoi d’un code à usage unique par e-mail](media/delegate-invitations/enable-email-otp-opted-in.png)
+![Activation de la fonctionnalité d’envoi d’un code à usage unique par e-mail](media/one-time-passcode/enable-email-otp-opted-in.png)
 
 Toutefois, si vous préférez désactiver la fonctionnalité et autoriser son activation automatique en octobre 2021, vous pouvez revenir aux paramètres par défaut à l’aide du [type de ressource de configuration de la méthode d’authentification par e-mail](/graph/api/resources/emailauthenticationmethodconfiguration) de l’API Microsoft Graph. Les options suivantes seront alors disponibles sous **Envoi d’un code secret à usage unique par e-mail pour les invités** :
 
-- **Activer automatiquement l’envoi d’un code secret à usage unique par e-mail pour les invités en octobre 2021** (Par défaut) : si la fonctionnalité d’envoi d’un code secret à usage unique par e-mail n’est pas encore activée pour votre locataire, elle le sera automatiquement en octobre 2021. Aucune action supplémentaire n’est nécessaire si vous souhaitez que la fonctionnalité soit activée à ce moment-là. Si vous avez déjà activé ou désactivé la fonctionnalité, cette option n’est pas disponible.
+![Choix de la fonctionnalité Envoi d’un code à usage unique par e-mail](media/one-time-passcode/email-otp-options.png)
+
+- **Activer automatiquement le code à usage unique par e-mail pour les invités à partir d’octobre 2021**. (Par défaut) Si la fonctionnalité d’envoi d’un code à usage unique par e-mail n’est pas encore activée pour votre locataire, elle le sera automatiquement à partir d’octobre 2021. Aucune action supplémentaire n’est nécessaire si vous souhaitez que la fonctionnalité soit activée à ce moment-là. Si vous avez déjà activé ou désactivé la fonctionnalité, cette option n’est pas disponible.
 
 - **Activer dès maintenant l’envoi d’un code à usage unique par e-mail pour les invités** : cette option permet d’activer la fonctionnalité d’envoi d’un code secret à usage unique par e-mail pour votre locataire.
 
 - **Désactiver l’envoi d’un code à usage unique par e-mail pour les invités** : cette option permet de désactiver la fonctionnalité d’envoi d’un code secret à usage unique par e-mail pour votre locataire et d’empêcher qu’elle ne s’active en octobre 2021.
+
+## <a name="note-for-azure-us-government-customers"></a>Remarque pour les clients Azure US Government
+
+La fonctionnalité de code à usage unique par e-mail est désactivée par défaut dans le cloud Azure US Government.  
+
+ ![Code à usage unique par e-mail désactivé](media/one-time-passcode/enable-email-otp-disabled.png)
+
+Pour activer la fonctionnalité de code à usage unique par e-mail dans le cloud Azure US Government :
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur général Azure AD.
+2. Dans le volet de navigation, sélectionnez **Azure Active Directory**.
+3. Sélectionnez **Relations organisationnelles** > **Paramètres**.
+
+   > [!NOTE]
+   > - Si vous ne voyez pas l’option **Relations organisationnelles**, recherchez « identités externes » dans la barre de recherche en haut.
+
+4. Sélectionnez **Code à usage unique par e-mail**, puis cliquez sur **Oui**.
+5. Sélectionnez **Enregistrer**.
+
+Pour plus d’informations sur les limitations actuelles, consultez la page sur les [clouds Azure US Government](current-limitations.md#azure-us-government-clouds).

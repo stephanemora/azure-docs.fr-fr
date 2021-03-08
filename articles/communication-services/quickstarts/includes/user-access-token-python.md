@@ -10,12 +10,12 @@ ms.date: 08/20/2020
 ms.topic: include
 ms.custom: include file
 ms.author: tchladek
-ms.openlocfilehash: b4a5dcbd6bc0a6468e8ac8cc7edc8589ea380b28
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: aefad6670e937fcb7994688c8c6e846c3cab94e6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101657092"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750762"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
@@ -70,28 +70,22 @@ connection_string = os.environ['COMMUNICATION_SERVICES_CONNECTION_STRING']
 client = CommunicationIdentityClient.from_connection_string(connection_string)
 ```
 
-Sinon, si vous avez une identité managée configurée, consultez [Utiliser des identités managées](../managed-identity.md). Vous pouvez également vous authentifier avec une identité managée.
-```python
-const endpoint = os.environ["COMMUNICATION_SERVICES_ENDPOINT"];
-var client = new CommunicationIdentityClient(endpoint, DefaultAzureCredential());
-```
-
 ## <a name="create-an-identity"></a>Créer une identité
 
 Azure Communication Services gère un répertoire LID (Lightweight Identity Directory). Utilisez la méthode `create_user` pour créer une entrée, avec une valeur `Id` unique, dans le répertoire. Stockez l’identité reçue avec un mappage aux utilisateurs de votre application. Par exemple, en les stockant dans la base de données de votre serveur d’applications. L’identité sera demandée ultérieurement pour émettre des jetons d’accès.
 
 ```python
 identity = client.create_user()
-print("\nCreated an identity with ID: " + identity.identifier + ":")
+print("\nCreated an identity with ID: " + identity.identifier)
 ```
 
 ## <a name="issue-access-tokens"></a>Émettre des jetons d’accès
 
-Avec la méthode `get_token`, émettez un jeton d’accès pour une identité Communication Services existant déjà. Le paramètre `scopes` définit un ensemble de primitives, qui autorise ce jeton d’accès. Consultez [la liste des actions prises en charge](../../concepts/authentication.md). Une nouvelle instance du paramètre `CommunicationUserIdentifier` peut être construite en fonction de la représentation sous forme de chaîne de l’identité Azure Communication Service.
+Avec la méthode `issue_token`, émettez un jeton d’accès pour une identité Communication Services existant déjà. Le paramètre `scopes` définit un ensemble de primitives, qui autorise ce jeton d’accès. Consultez [la liste des actions prises en charge](../../concepts/authentication.md). Une nouvelle instance du paramètre `communicationUser` peut être construite en fonction de la représentation sous forme de chaîne de l’identité Azure Communication Service.
 
 ```python
 # Issue an access token with the "voip" scope for an identity
-token_result = client.get_token(identity, ["voip"])
+token_result = client.issue_token(identity, ["voip"])
 expires_on = token_result.expires_on.strftime('%d/%m/%y %I:%M %S %p')
 print("\nIssued an access token with 'voip' scope that expires at " + expires_on + ":")
 print(token_result.token)
@@ -99,21 +93,36 @@ print(token_result.token)
 
 Les jetons d’accès sont des informations d’identification à durée de vie courte, qui doivent être réémises. Ne pas le faire peut entraîner une interruption expérimentée par les utilisateurs de votre application. La propriété de réponse `expires_on` indique la durée de vie du jeton d’accès.
 
-## <a name="refresh-access-tokens"></a>Actualiser des jetons d’accès
+## <a name="create-an-identity-and-issue-an-access-token-within-the-same-request"></a>Créer une identité et émettre un jeton d’accès dans la même requête
 
-Pour actualiser un jeton d’accès, utilisez l’objet `CommunicationUserIdentifier` permettant d’émettre à nouveau :
+La méthode `create_user_with_token` permet de créer une identité Communication Services et d’émettre un jeton d’accès pour celle-ci. Le paramètre `scopes` définit un ensemble de primitives, qui autorise ce jeton d’accès. Consultez [la liste des actions prises en charge](../../concepts/authentication.md).
 
 ```python
+# Issue an identity and an access token with the "voip" scope for the new identity
+identity_token_result = client.create_user_with_token(["voip"])
+identity = identity_token_result[0].identifier
+token = identity_token_result[1].token
+expires_on = identity_token_result[1].expires_on.strftime('%d/%m/%y %I:%M %S %p')
+print("\nCreated an identity with ID: " + identity)
+print("\nIssued an access token with 'voip' scope that expires at " + expires_on + ":")
+print(token)
+```
+
+## <a name="refresh-access-tokens"></a>Actualiser des jetons d’accès
+
+Pour actualiser un jeton d’accès, utilisez l’objet `CommunicationUser` permettant d’émettre à nouveau :
+
+```python  
 # Value existingIdentity represents identity of Azure Communication Services stored during identity creation
-identity = CommunicationUserIdentifier(existingIdentity)
-token_result = client.get_token( identity, ["voip"])
+identity = CommunicationUser(existingIdentity)
+token_result = client.issue_token( identity, ["voip"])
 ```
 
 ## <a name="revoke-access-tokens"></a>Révoquer des jetons d’accès
 
 Dans certains cas, vous pouvez révoquer explicitement des jetons d’accès. Par exemple, lorsqu’un utilisateur d’une application modifie le mot de passe qu’il utilise pour s’authentifier auprès de votre service. La méthode `revoke_tokens` invalide tous les jetons d’accès actifs qui ont été émis pour l’identité.
 
-```python
+```python  
 client.revoke_tokens(identity)
 print("\nSuccessfully revoked all access tokens for identity with ID: " + identity.identifier)
 ```
@@ -129,8 +138,8 @@ print("\nDeleted the identity with ID: " + identity.identifier)
 
 ## <a name="run-the-code"></a>Exécuter le code
 
-À partir d’une invite de console, accédez au répertoire contenant le fichier *issue-access-token.py*, puis exécutez la commande `python` suivante pour exécuter l’application.
+À partir d’une invite de console, accédez au répertoire contenant le fichier *issue-access-token.py*, puis exécutez la commande `python` suivante pour lancer l’application.
 
 ```console
-python ./issue-access-token.py
+python ./issue-access-tokens.py
 ```

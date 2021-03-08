@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/02/2021
 ms.custom: references_regions
-ms.openlocfilehash: cdc5de8153e8b2e0ea8bb8ea372fe8610ccb895b
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: da172e9a7605876711e4a4f32bf4fac698b35109
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101678432"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101694799"
 ---
 # <a name="add-spell-check-to-queries-in-cognitive-search"></a>Ajouter la vérification orthographique aux requêtes dans le service Recherche cognitive
 
@@ -36,7 +36,7 @@ Vous pouvez améliorer le rappel en corrigeant l’orthographe de termes de requ
   Le paramètre queryLanguage est requis pour le vérificateur d’orthographe. « en-us » est actuellement la seule valeur valide.
 
 > [!Note]
-> Le paramètre speller est disponible sur tous les niveaux, dans les régions offrant la recherche sémantique. Pour plus d’informations, consultez [Disponibilité et tarifs](semantic-search-overview.md#availability-and-pricing).
+> Le paramètre speller est disponible sur tous les niveaux, dans les régions offrant la recherche sémantique. Vous ne devez pas vous inscrire pour accéder à cette fonctionnalité d'évaluation. Pour plus d’informations, consultez [Disponibilité et tarifs](semantic-search-overview.md#availability-and-pricing).
 
 ## <a name="spell-correction-with-simple-search"></a>Correction orthographique avec recherche simple
 
@@ -94,7 +94,13 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 
 ## <a name="language-considerations"></a>Observations relatives au langage
 
-Le paramètre queryLanguage requis pour le vérificateur d’orthographe doit être cohérent avec tous les [analyseurs linguistiques](index-add-language-analyzers.md) affectés aux définitions de champ dans le schéma d’index. Spécifié dans une demande de requête, le paramètre queryLanguage détermine les lexiques utilisés pour la vérification orthographique. Il est également utilisé comme entrée de l’[algorithme de classement sémantique](semantic-how-to-query-response.md) le cas échéant. Des analyseurs linguistiques sont utilisés pendant l’indexation et la récupération des documents correspondants dans l’index de recherche. À des fins de cohérence, si le paramètre queryLanguage a la valeur « en-us », une variante anglaise de l’analyseur linguistique doit également être utilisée (« en.microsoft » ou « en.lucene »). 
+Le paramètre queryLanguage requis pour le vérificateur d’orthographe doit être cohérent avec tous les [analyseurs linguistiques](index-add-language-analyzers.md) affectés aux définitions de champ dans le schéma d’index. 
+
++ queryLanguage détermine les lexiques utilisés pour la vérification orthographique. Il est également utilisé comme entrée de l’[algorithme de classement sémantique](semantic-how-to-query-response.md) si vous utilisez « queryType=semanti ».
+
++ Des analyseurs linguistiques sont utilisés pendant l’indexation et l’exécution de requêtes pour récupérer des documents correspondants dans l’index de recherche. Exemple de définition d’un champ qui utilise un analyseur linguistique : `"name": "Description", "type": "Edm.String", "analyzer": "en.microsoft"`.
+
+Pour des résultats optimaux lors de l’utilisation du correcteur orthographique, si le paramètre queryLanguage a la valeur « en-us », une variante anglaise de l’analyseur linguistique doit également être utilisée (« en.microsoft » ou « en.lucene »).
 
 > [!NOTE]
 > Les analyseurs indépendants de la langue (keyword, simple, standard, stop, whitespace, `standardasciifolding.lucene`, etc.) ne génèrent pas de conflit avec les paramètres queryLanguage.

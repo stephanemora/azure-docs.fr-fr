@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 07/14/2020
+ms.date: 03/01/2021
 ms.author: apimpm
-ms.openlocfilehash: 77d9d20f3321aa5bb6c5ea47a3949a82bdd1ad75
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 85abf30d792b24b92685e191f5b460a42dc29142
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131239"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688414"
 ---
 # <a name="api-management-cross-domain-policies"></a>Gestion des API dans les stratégies de domaine
 Cette rubrique est une ressource de référence au sujet des stratégies Gestion des API suivantes. Pour plus d'informations sur l'ajout et la configuration des stratégies, consultez la page [Stratégies dans Gestion des API](./api-management-policies.md).
@@ -62,7 +62,10 @@ Cette stratégie peut être utilisée dans les [sections](./api-management-howto
 - **Étendues de la stratégie :** toutes les étendues
 
 ## <a name="cors"></a><a name="CORS"></a> CORS
-La stratégie `cors` ajoute la prise en charge du partage des ressources cross-origin (CORS) à une opération ou une API afin de permettre les appels inter-domaines à partir des navigateurs clients.
+La stratégie `cors` ajoute la prise en charge du partage des ressources cross-origin (CORS) à une opération ou une API afin de permettre les appels inter-domaines à partir des navigateurs clients. 
+
+> [!NOTE]
+> Si la demande correspond à une opération avec une méthode OPTIONS définie dans l’API, la logique de traitement des demandes préliminaire associée aux stratégies CORS n’est pas exécutée. Par conséquent, ces opérations peuvent être utilisées pour implémenter une logique de traitement préliminaire personnalisée.
 
 CORS permet à un navigateur et à un serveur d'interagir et de déterminer si les demandes cross-origin doivent être autorisées ou non, par exemple dans le cas d'appels XMLHttpRequests passés via JavaScript sur une page web vers d'autres domaines). Cette stratégie offre plus de flexibilité que de simplement autoriser les demandes de même origine, mais elle est plus sûre que d'autoriser toutes les demandes cross-origin.
 
@@ -71,7 +74,7 @@ Vous devez appliquer la stratégie CORS pour activer la console interactive dans
 ### <a name="policy-statement"></a>Instruction de la stratégie
 
 ```xml
-<cors allow-credentials="false|true">
+<cors allow-credentials="false|true" terminate-unmatched-request="true|false">
     <allowed-origins>
         <origin>origin uri</origin>
     </allowed-origins>
@@ -138,6 +141,7 @@ Cet exemple montre comment prendre en charge les demandes en amont, telles que c
 |Nom|Description|Obligatoire|Default|
 |----------|-----------------|--------------|-------------|
 |allow-credentials|L’en-tête `Access-Control-Allow-Credentials` de la réponse en amont est défini sur la valeur de cet attribut et influe sur la capacité du client à envoyer des informations d’identification dans les demandes inter-domaines.|Non|false|
+|terminate-unmatched-request|Cet attribut contrôle le traitement des demandes Cross-Origin qui ne correspondent pas aux paramètres de stratégie CORS. Lorsque la demande OPTIONS est traitée comme une demande préliminaire et ne correspond pas aux paramètres de stratégie CORS : si l’attribut a la valeur `true`, mettez immédiatement fin à la demande avec une réponse 200 OK vide ; Si l’attribut a la valeur `false`, recherchez dans les éléments entrants les autres stratégies CORS dans la portée qui sont des enfants directs de l’élément entrant et appliquez-les.  Si aucune stratégie CORS n’est trouvée, mettez fin à la demande avec une réponse vide 200 OK. Lorsque la demande GET ou HEAD inclut l’en-tête Origin (et qu’elle est donc traitée comme une demande Cross-Origin) et ne correspond pas aux paramètres de stratégie CORS : si l’attribut a la valeur `true`, mettez immédiatement fin à la demande avec une réponse 200 OK vide ; Si l’attribut a la valeur `false`, autorisez la poursuite normale de la demande et n’ajoutez pas d’en-têtes CORS à la réponse.|Non|true|
 |preflight-result-max-age|L’en-tête `Access-Control-Max-Age` de la réponse en amont est défini sur la valeur de cet attribut et influe sur la capacité de l’agent utilisateur à mettre en cache la réponse en amont.|Non|0|
 
 ### <a name="usage"></a>Usage

@@ -10,16 +10,16 @@ ms.date: 08/20/2020
 ms.topic: include
 ms.custom: include file
 ms.author: tchladek
-ms.openlocfilehash: 49c4179432c0b57dfe68de563621807b1141fc67
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 2213da7b9c6e4776a0e463e6a43d0cc645a1e911
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101657072"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101749903"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
-- Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - La dernière version de la [bibliothèque de client .NET Core](https://dotnet.microsoft.com/download/dotnet-core) pour votre système d’exploitation.
 - Une ressource Communication Services active et la chaîne de connexion. [Créez une ressource Communication Services](../create-communication-resource.md).
 
@@ -45,7 +45,7 @@ dotnet build
 Alors que vous êtes toujours dans le répertoire de l’application, installez le package de la bibliothèque Azure Communication Services Identity pour .NET à l’aide de la commande `dotnet add package`.
 
 ```console
-dotnet add package Azure.Communication.Identity --version 1.0.0
+dotnet add package Azure.Communication.Identity
 ```
 
 ### <a name="set-up-the-app-framework"></a>Configurer le framework d’application
@@ -89,21 +89,6 @@ string connectionString = Environment.GetEnvironmentVariable("COMMUNICATION_SERV
 var client = new CommunicationIdentityClient(connectionString);
 ```
 
-Vous pouvez également séparer le point de terminaison et la clé d’accès.
-```csharp
-// This code demonstrates how to fetch your endpoint and access key
-// from an environment variable.
-string endpoint = Environment.GetEnvironmentVariable("COMMUNICATION_SERVICES_ENDPOINT");
-string accessKey = Environment.GetEnvironmentVariable("COMMUNICATION_SERVICES_ACCESSKEY");
-var client = new CommunicationIdentityClient(new Uri(endpoint), new AzureKeyCredential(accessKey));
-```
-
-Si vous avez une identité managée configurée, consultez [Utiliser des identités managées](../managed-identity.md). Vous pouvez également vous authentifier avec une identité managée.
-```csharp
-TokenCredential tokenCredential = new DefaultAzureCredential();
-var client = new CommunicationIdentityClient(endpoint, tokenCredential);
-```
-
 ## <a name="create-an-identity"></a>Créer une identité
 
 Azure Communication Services gère un répertoire LID (Lightweight Identity Directory). Utilisez la méthode `createUser` pour créer une entrée dans le répertoire avec une valeur `Id` unique. Stockez l’identité reçue avec un mappage aux utilisateurs de votre application. Par exemple, en les stockant dans la base de données de votre serveur d’applications. L’identité sera demandée ultérieurement pour émettre des jetons d’accès.
@@ -116,34 +101,46 @@ Console.WriteLine($"\nCreated an identity with ID: {identity.Id}");
 
 ## <a name="issue-identity-access-tokens"></a>Émettre des jetons d’accès d’identité
 
-Avec la méthode `GetToken`, émettez un jeton d’accès pour une identité Communication Services existant déjà. Le paramètre `scopes` définit un ensemble de primitives, qui autorise ce jeton d’accès. Consultez [la liste des actions prises en charge](../../concepts/authentication.md). Une nouvelle instance du paramètre `communicationUser` peut être construite en fonction de la représentation sous forme de chaîne de l’identité Azure Communication Service.
+Avec la méthode `issueToken`, émettez un jeton d’accès pour une identité Communication Services existant déjà. Le paramètre `scopes` définit un ensemble de primitives, qui autorise ce jeton d’accès. Consultez [la liste des actions prises en charge](../../concepts/authentication.md). Une nouvelle instance du paramètre `communicationUser` peut être construite en fonction de la représentation sous forme de chaîne de l’identité Azure Communication Service.
 
 ```csharp
 // Issue an access token with the "voip" scope for an identity
-var tokenResponse = await client.GetTokenAsync(identity, scopes: new [] { CommunicationTokenScope.VoIP });
+var tokenResponse = await client.IssueTokenAsync(identity, scopes: new [] { CommunicationTokenScope.VoIP });
 var token =  tokenResponse.Value.Token;
 var expiresOn = tokenResponse.Value.ExpiresOn;
 Console.WriteLine($"\nIssued an access token with 'voip' scope that expires at {expiresOn}:");
 Console.WriteLine(token);
 ```
 
-Les jetons d’accès sont des informations d’identification à durée de vie courte, qui doivent être réémises. Ne pas le faire peut entraîner une interruption expérimentée par les utilisateurs de votre application. La propriété de réponse `expiresOn` indique la durée de vie du jeton d’accès.
+Les jetons d’accès sont des informations d’identification à durée de vie courte, qui doivent être réémises. Ne pas le faire peut entraîner une interruption expérimentée par les utilisateurs de votre application. La propriété de réponse `expiresOn` indique la durée de vie du jeton d’accès. 
+
+## <a name="create-an-identity-and-issue-an-access-token-within-the-same-request"></a>Créer une identité et émettre un jeton d’accès dans la même requête
+
+La méthode `createUserWithToken` permet de créer une identité Communication Services et d’émettre un jeton d’accès pour celle-ci. Le paramètre `scopes` définit un ensemble de primitives, qui autorise ce jeton d’accès. Consultez [la liste des actions prises en charge](../../concepts/authentication.md).
+
+```csharp  
+// Issue an identity and an access token with the "voip" scope for the new identity
+var identityWithTokenResponse = await client.CreateUserWithTokenAsync(scopes: new[] { CommunicationTokenScope.VoIP });
+var identity = identityWithTokenResponse.Value.user.Id;
+var token = identityWithTokenResponse.Value.token.Token;
+var expiresOn = identityWithTokenResponse.Value.token.ExpiresOn;
+```
 
 ## <a name="refresh-access-tokens"></a>Actualiser des jetons d’accès
 
-Pour actualiser un jeton d’accès, transmettez une instance de l’objet `CommunicationUserIdentifier` dans `GetTokenAsync`. Si vous avez stocké cet élément `Id` et que vous devez créer un `CommunicationUserIdentifier`, vous pouvez le faire en passant votre `Id` stocké dans le constructeur `CommunicationUserIdentifier`, comme suit :
+Pour actualiser un jeton d’accès, transmettez une instance de l’objet `CommunicationUser` dans `IssueTokenAsync`. Si vous avez stocké cet élément `Id` et que vous devez créer un `CommunicationUser`, vous pouvez le faire en passant votre `Id` stocké dans le constructeur `CommunicationUser`, comme suit :
 
-```csharp
+```csharp  
 // In this example, userId is a string containing the Id property of a previously-created CommunicationUser
-var identityToRefresh = new CommunicationUserIdentifier(userId);
-var tokenResponse = await client.GetTokenAsync(identityToRefresh, scopes: new [] { CommunicationTokenScope.VoIP });
+identityToRefresh = new CommunicationUser(userId);
+tokenResponse = await client.IssueTokenAsync(identityToRefresh, scopes: new [] { CommunicationTokenScope.VoIP });
 ```
 
 ## <a name="revoke-access-tokens"></a>Révoquer des jetons d’accès
 
 Dans certains cas, vous pouvez révoquer explicitement des jetons d’accès. Par exemple, lorsqu’un utilisateur d’une application modifie le mot de passe qu’il utilise pour s’authentifier auprès de votre service. La méthode `RevokeTokensAsync` invalide tous les jetons d’accès actifs qui ont été émis pour l’identité.
 
-```csharp
+```csharp  
 await client.RevokeTokensAsync(identity);
 Console.WriteLine($"\nSuccessfully revoked all access tokens for identity with ID: {identity.Id}");
 ```

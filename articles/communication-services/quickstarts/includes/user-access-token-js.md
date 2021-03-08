@@ -10,12 +10,12 @@ ms.date: 08/20/2020
 ms.topic: include
 ms.custom: include file
 ms.author: tchladek
-ms.openlocfilehash: 3de4b3869b5df0da4c71eade1fe4f684653dc265
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 381cba23175086a4d9bac7cc0ba71807bc248056
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101657089"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750767"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
@@ -93,24 +93,6 @@ const connectionString = process.env['COMMUNICATION_SERVICES_CONNECTION_STRING']
 const identityClient = new CommunicationIdentityClient(connectionString);
 ```
 
-Vous pouvez également séparer le point de terminaison et la clé d’accès.
-```javascript
-// This code demonstrates how to fetch your endpoint and access key
-// from an environment variable.
-const endpoint = process.env["COMMUNICATION_SERVICES_ENDPOINT"];
-const accessKey = process.env["COMMUNICATION_SERVICES_ACCESSKEY"];
-const tokenCredential = new AzureKeyCredential(accessKey);
-// Instantiate the identity client
-const identityClient = new CommunicationIdentityClient(endpoint, tokenCredential)
-```
-
-Si vous avez une identité managée configurée, consultez [Utiliser des identités managées](../managed-identity.md). Vous pouvez également vous authentifier avec une identité managée.
-```javascript
-const endpoint = process.env["COMMUNICATION_SERVICES_ENDPOINT"];
-const tokenCredential = new DefaultAzureCredential();
-var client = new CommunicationIdentityClient(endpoint, tokenCredential);
-```
-
 ## <a name="create-an-identity"></a>Créer une identité
 
 Azure Communication Services gère un répertoire LID (Lightweight Identity Directory). Utilisez la méthode `createUser` pour créer une entrée, avec une valeur `Id` unique, dans le répertoire. Stockez l’identité reçue avec un mappage aux utilisateurs de votre application. Par exemple, en les stockant dans la base de données de votre serveur d’applications. L’identité sera demandée ultérieurement pour émettre des jetons d’accès.
@@ -122,11 +104,11 @@ console.log(`\nCreated an identity with ID: ${identityResponse.communicationUser
 
 ## <a name="issue-access-tokens"></a>Émettre des jetons d’accès
 
-Avec la méthode `getToken`, émettez un jeton d’accès pour une identité Communication Services existant déjà. Le paramètre `scopes` définit un ensemble de primitives, qui autorise ce jeton d’accès. Consultez [la liste des actions prises en charge](../../concepts/authentication.md). Une nouvelle instance du paramètre `communicationUser` peut être construite en fonction de la représentation sous forme de chaîne de l’identité Azure Communication Service.
+Avec la méthode `issueToken`, émettez un jeton d’accès pour une identité Communication Services existant déjà. Le paramètre `scopes` définit un ensemble de primitives, qui autorise ce jeton d’accès. Consultez [la liste des actions prises en charge](../../concepts/authentication.md). Une nouvelle instance du paramètre `communicationUser` peut être construite en fonction de la représentation sous forme de chaîne de l’identité Azure Communication Service.
 
 ```javascript
 // Issue an access token with the "voip" scope for an identity
-let tokenResponse = await identityClient.getToken(identityResponse, ["voip"]);
+let tokenResponse = await identityClient.issueToken(identityResponse, ["voip"]);
 const { token, expiresOn } = tokenResponse;
 console.log(`\nIssued an access token with 'voip' scope that expires at ${expiresOn}:`);
 console.log(token);
@@ -134,10 +116,22 @@ console.log(token);
 
 Les jetons d’accès sont des informations d’identification à durée de vie courte, qui doivent être réémises. Ne pas le faire peut entraîner une interruption expérimentée par les utilisateurs de votre application. La propriété de réponse `expiresOn` indique la durée de vie du jeton d’accès.
 
+## <a name="create-an-identity-and-issue-an-access-token-within-the-same-request"></a>Créer une identité et émettre un jeton d’accès dans la même requête
+
+La méthode `createUserWithToken` permet de créer une identité Communication Services et d’émettre un jeton d’accès pour celle-ci. Le paramètre `scopes` définit un ensemble de primitives, qui autorise ce jeton d’accès. Consultez [la liste des actions prises en charge](../../concepts/authentication.md).
+
+```javascript
+// Issue an identity and an access token with the "voip" scope for the new identity
+let identityTokenResponse = await this.client.createUserWithToken(["voip"]);
+const { token, expiresOn, user } = identityTokenResponse;
+console.log(`\nCreated an identity with ID: ${user.communicationUserId}`);
+console.log(`\nIssued an access token with 'voip' scope that expires at ${expiresOn}:`);
+console.log(token);
+```
 
 ## <a name="refresh-access-tokens"></a>Actualiser des jetons d’accès
 
-L’actualisation des jetons d’accès est aussi simple que l’appel de `getToken` avec la même identité que celle utilisée pour émettre les jetons. Vous devez également fournir les `scopes` des jetons actualisés.
+L’actualisation des jetons d’accès est aussi simple que l’appel de `issueToken` avec la même identité que celle utilisée pour émettre les jetons. Vous devez également fournir les `scopes` des jetons actualisés. 
 
 ```javascript
 // // Value of identityResponse represents the Azure Communication Services identity stored during identity creation and then used to issue the tokens being refreshed
@@ -149,7 +143,7 @@ let refreshedTokenResponse = await identityClient.issueToken(identityResponse, [
 
 Dans certains cas, vous pouvez révoquer explicitement des jetons d’accès. Par exemple, lorsqu’un utilisateur d’une application modifie le mot de passe qu’il utilise pour s’authentifier auprès de votre service. La méthode `revokeTokens` invalide tous les jetons d’accès actifs qui ont été émis pour l’identité.
 
-```javascript
+```javascript  
 await identityClient.revokeTokens(identityResponse);
 console.log(`\nSuccessfully revoked all access tokens for identity with ID: ${identityResponse.communicationUserId}`);
 ```

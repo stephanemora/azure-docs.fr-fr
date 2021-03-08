@@ -7,12 +7,12 @@ ms.author: crtreasu
 ms.date: 02/02/2021
 ms.topic: quickstart
 ms.service: azure-object-anchors
-ms.openlocfilehash: 7e71719d83426a3444435ed78d0d63a2599a9157
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 8a02bb7c70df4fed55c354638fe6662b85e6c164
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101747724"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102049626"
 ---
 # <a name="quickstart-create-a-hololens-app-with-azure-object-anchors-in-cwinrt-and-directx"></a>Démarrage rapide : Créer une application HoloLens avec Azure Object Anchors, en C++/WinRT et DirectX
 
@@ -23,7 +23,6 @@ Vous découvrirez comment effectuer les actions suivantes :
 > [!div class="checklist"]
 > * Créer et charger de façon autonome une application HoloLens
 > * Détecter un objet et visualiser son modèle
-> * Capturer les diagnostics d’exécution
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -31,8 +30,8 @@ Vous découvrirez comment effectuer les actions suivantes :
 
 Pour suivre ce guide de démarrage rapide, veillez à avoir :
 
-* Un objet physique dans votre environnement et son modèle 3D (CAO ou numérisé).
-* Une machine Windows avec les éléments suivants installés :
+* Un objet physique dans votre environnement et son modèle 3D (CAO ou numérisé).
+* Une machine Windows avec les éléments suivants installés :
   * <a href="https://git-scm.com" target="_blank">Git pour Windows</a>
   * <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a> avec la charge de travail de **développement pour la plateforme Windows universelle** et le composant **SDK Windows 10 (version 10.0.18362.0 ou plus récente)**
 * Un appareil HoloLens 2 à jour et pour lequel le [mode développeur](https://docs.microsoft.com/windows/mixed-reality/using-visual-studio#enabling-developer-mode) est activé.
@@ -64,7 +63,7 @@ Pour lancer et déboguer l’application, sélectionnez **Déboguer > Démarrer 
 
 ## <a name="ingest-object-model-and-detect-its-instance"></a>Ingérer un modèle objet et détecter son instance
 
-Vous devez créer un modèle objet pour exécuter l’exemple d’application. Supposons que vous disposiez déjà d’un modèle de maillage 3D CAO ou numérisé d’un objet dans votre espace. Reportez-vous à [Démarrage rapide : Ingestion d’un modèle 3D](./get-started-model-ingestion.md) sur la création d’un modèle.
+Vous devez créer un modèle objet pour exécuter l’exemple d’application. Supposons que vous disposiez déjà d’un modèle de maillage 3D CAO ou numérisé d’un objet dans votre espace. Reportez-vous à [Démarrage rapide : Ingestion d’un modèle 3D](./get-started-model-conversion.md) sur la création d’un modèle.
 
 Téléchargez ce modèle, **chair.ou** dans notre exemple, sur votre ordinateur. Ensuite, dans le portail de l’appareil HoloLens, sélectionnez **Système > Explorateur de fichiers > LocalAppData > AoaSampleApp > LocalState**, puis sélectionnez **Parcourir...** . Sélectionnez ensuite votre fichier de modèle, **chair.ou** par exemple, puis sélectionnez **Télécharger**. Vous devriez alors voir le fichier de modèle dans le cache local.
 
@@ -86,7 +85,7 @@ L’application aligne fidèlement un modèle 3D sur son équivalent physique. L
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Démarrage rapide : Ingestion d’un modèle 3D](./get-started-model-ingestion.md)
+> [Démarrage rapide : Ingestion d’un modèle 3D](./get-started-model-conversion.md)
 
 > [!div class="nextstepaction"]
 > [Concepts : Vue d’ensemble du Kit de développement logiciel (SDK)](../concepts/sdk-overview.md)
