@@ -1,17 +1,16 @@
 ---
 title: Utiliser la solution Service Map dans Azure | Microsoft Docs
 description: Service Map est une solution comprise dans Azure qui détecte automatiquement les composants d’application sur les systèmes Windows et Linux et mappe la communication entre les services. Cet article fournit des informations sur le déploiement de Service Map dans votre environnement et son utilisation dans divers scénarios.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2019
-ms.openlocfilehash: 688adcf0012f8871c4034cbba6ce2ddcacdbcc43
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ad3f8821189e6e7aabb5653e5f938bb73f57a34b
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101717143"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102046993"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Utilisation de la solution Service Map dans Azure
 
@@ -26,7 +25,7 @@ Cet article décrit les détails de l’intégration et de l’utilisation de Se
 * L’[agent Dependency](vminsights-enable-overview.md#agents) installé sur l’ordinateur Windows ou le serveur Linux.
 
 >[!NOTE]
->Si vous avez déjà déployé Service Map, vous pouvez désormais aussi visualiser vos cartes dans VM Insights, qui inclut des fonctionnalités supplémentaires pour la surveillance de l’intégrité et des performances des machines virtuelles. Pour plus d’informations, consultez [Vue d’ensemble de VM Insights](../vm/vminsights-overview.md). Pour en savoir plus sur les différences entre la solution Service Map et la fonctionnalité de carte de VM Insights, consultez les [questions fréquentes (FAQ)](../faq.md#azure-monitor-for-vms).
+>Si vous avez déjà déployé Service Map, vous pouvez désormais aussi visualiser vos cartes dans VM Insights, qui inclut des fonctionnalités supplémentaires pour la surveillance de l’intégrité et des performances des machines virtuelles. Pour plus d’informations, consultez [Vue d’ensemble de VM Insights](../vm/vminsights-overview.md). Pour en savoir plus sur les différences entre la solution Service Map et la fonctionnalité de carte de VM Insights, consultez les [questions fréquentes (FAQ)](../faq.md#vm-insights).
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 

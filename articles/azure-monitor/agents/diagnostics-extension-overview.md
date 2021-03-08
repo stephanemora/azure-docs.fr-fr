@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/14/2020
-ms.openlocfilehash: 3c0e348e62184f839ce38e4c364fb5c6b81f1131
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 90addb74811819dec563ba072e9a6aea2cf72ca4
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101726221"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102036535"
 ---
 # <a name="azure-diagnostics-extension-overview"></a>Vue d’ensemble de l’extension Diagnostics Azure
 L’extension Diagnostics Azure est un [agent présent dans Azure Monitor](../agents/agents-overview.md) qui collecte des données de supervision dans le système d’exploitation invité des ressources de calcul Azure, notamment des machines virtuelles. Cet article fournit une vue d’ensemble de l’extension Diagnostics Azure, notamment des fonctionnalités spécifiques qu’elle prend en charge ainsi que des options d’installation et de configuration. 
@@ -78,7 +78,7 @@ Configurez un ou plusieurs *récepteurs de données* pour envoyer des données �
 | Objets blob de stockage Azure | Écrire les données dans des objets blob au sein du Stockage Azure, en plus de les écrire dans des tables. |
 | Application Insights | Collecter les données des applications qui s’exécutent dans votre machine virtuelle vers Application Insights pour les intégrer à d’autres supervisions d’applications. Consultez [Envoyez les données de diagnostic à Application Insights](diagnostics-extension-to-application-insights.md). |
 
-Vous pouvez également collecter des données WAD à partir du stockage dans un espace de travail Log Analytics pour les analyser avec les journaux Azure Monitor, bien que l’agent Log Analytics soit généralement utilisé pour cette fonctionnalité. Il peut envoyer les données directement à un espace de travail Log Analytics et prend en charge des solutions et des insights qui fournissent des fonctionnalités supplémentaires.  Consultez [Collecter les journaux de diagnostic Azure depuis le Stockage Azure](../essentials/diagnostics-extension-logs.md). 
+Vous pouvez également collecter des données WAD à partir du stockage dans un espace de travail Log Analytics pour les analyser avec les journaux Azure Monitor, bien que l’agent Log Analytics soit généralement utilisé pour cette fonctionnalité. Il peut envoyer les données directement à un espace de travail Log Analytics et prend en charge des solutions et des insights qui fournissent des fonctionnalités supplémentaires.  Consultez [Collecter les journaux de diagnostic Azure depuis le Stockage Azure](../agents/diagnostics-extension-logs.md). 
 
 
 ### <a name="linux-diagnostics-extension-lad"></a>Extension de diagnostic Linux (LAD)

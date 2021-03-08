@@ -12,16 +12,16 @@ ms.date: 02/15/2021
 ms.author: lajanuar
 ms.custom: cog-serv-seo-aug-2020
 keywords: traducteur, traduction de texte, traduction automatique, service de traduction
-ms.openlocfilehash: 12f6d22f263747a8c43b2d98e6ade1de78aea1ce
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 72df700d38cad3ee31ef438d7df1c890acde9e6b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100556266"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101727972"
 ---
 # <a name="what-is-the-translator-service"></a>Qu’est-ce que le service Translator ?
 
-Translator est un service de traduction automatique basé sur le cloud qui fait partie de la famille [Azure Cognitive Services](../../index.yml?panel=ai&pivot=products) des API cognitives utilisées pour créer des applications intelligentes. Il est facile d’intégrer Translator à vos applications, sites web, outils et solutions. Il vous permet d’ajouter des expériences utilisateur multilingues dans [plus de 70 langues](./language-support.md). Vous pouvez l’utiliser sur n’importe quelle plateforme matérielle avec n’importe quel système d’exploitation pour la traduction de texte.
+Translator est un service de traduction automatique basé sur le cloud qui fait partie de la famille [Azure Cognitive Services](../../index.yml?panel=ai&pivot=products) des API cognitives utilisées pour créer des applications intelligentes. Il est facile d’intégrer Translator à vos applications, sites web, outils et solutions. Il vous permet d’ajouter des expériences utilisateur multilingues dans [90 langues et dialectes](./language-support.md). Vous pouvez l’utiliser sur n’importe quelle plateforme matérielle avec n’importe quel système d’exploitation pour la traduction de texte.
 
 ## <a name="about-microsoft-translator"></a>À propos de Microsoft Translator
 

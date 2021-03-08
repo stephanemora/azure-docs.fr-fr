@@ -10,16 +10,16 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: lajanuar
-ms.openlocfilehash: 935a9e92de88c2519dc1a1042315d204e8f60099
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: b114c4f3e6646f68e7a1068be8dd52778a26fb58
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98919916"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738138"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>Langues et régions prises en charge pour la traduction de texte et vocale
 
-Utilisez Translator pour traduire vers et depuis plus de 70 langues de traduction de texte. La traduction automatique neuronale (NMT) constitue la nouvelle référence en matière de traductions automatiques de grande qualité reposant sur l’intelligence artificielle, et est proposée par défaut dans Translator v3 lorsqu’un système neuronal est disponible.
+Utilisez Traducteur pour traduire vers et depuis plus de 90 langues et dialectes de traduction de texte. La traduction automatique neuronale (NMT) constitue la nouvelle référence en matière de traductions automatiques de grande qualité reposant sur l’intelligence artificielle, et est proposée par défaut dans Translator v3 lorsqu’un système neuronal est disponible.
 
 Vous pouvez aussi utiliser Translator en association avec Custom Translator pour créer des systèmes de traduction neuronaux qui comprennent la terminologie utilisée dans votre entreprise et votre secteur d’activité, et en association avec le service Microsoft Speech pour ajouter la traduction vocale à votre application.
 
@@ -37,8 +37,12 @@ Translator prend en charge les langues suivantes pour la traduction de texte en 
 | Langage | Code langue |
 |:-|:-:|
 | Afrikaans | `af` |
+| Albanais | `sq` |
+| Amharique | `am` |
 | Arabe | `ar` |
+| Arménien | `hy` |
 | Assamais | `as` |
+| Azéri | `az` |
 | Bangla | `bn` |
 | Bosniaque (latin) | `bs` |
 | Bulgare | `bg` |
@@ -74,11 +78,13 @@ Translator prend en charge les langues suivantes pour la traduction de texte en 
 | Japonais | `ja` |
 | Kannada | `kn` |
 | Kazakh | `kk` |
+| Khmer | `km` |
 | Klingon | `tlh-Latn` |
 | Klingon (plqaD) | `tlh-Piqd` |
 | Coréen | `ko` |
 | Kurde (central) | `ku` |
 | Kurde (Nord) | `kmr` |
+| Lao | `lo` |
 | Letton | `lv` |
 | Lituanien | `lt` |
 | Malgache | `mg` |
@@ -87,6 +93,8 @@ Translator prend en charge les langues suivantes pour la traduction de texte en 
 | Maltais | `mt` |
 | Maori | `mi` |
 | Marathi | `mr` |
+| Myanmar | `my` |
+| Népalais | `ne` |
 | Norvégien | `nb` |
 | Odia | `or` |
 | Pachto | `ps` |
@@ -110,6 +118,7 @@ Translator prend en charge les langues suivantes pour la traduction de texte en 
 | Tamoul | `ta` |
 | Télougou | `te` |
 | Thaï | `th` |
+| Tigrigna | `ti` |
 | Tonga | `to` |
 | Turc | `tr` |
 | Ukrainien | `uk` |
@@ -130,6 +139,7 @@ Translator détecte les langues suivantes pour la traduction et la translittéra
 | Langage | Code langue |
 |:-|:-:|
 | Afrikaans | `af` |
+| Albanais | `sq` |
 | Arabe | `ar` |
 | Bulgare | `bg` |
 | Catalan | `ca` |
@@ -152,6 +162,7 @@ Translator détecte les langues suivantes pour la traduction et la translittéra
 | Hongrois | `hu` |
 | Islandais | `is` |
 | Indonésien | `id` |
+| Inuktitut | `iu` |
 | Irlandais | `ga` |
 | Italien | `it` |
 | Japonais | `ja` |

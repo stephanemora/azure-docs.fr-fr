@@ -1,17 +1,16 @@
 ---
 title: Alertes d’Insights de machine virtuelle
 description: Décrit comment créer des règles d’alerte à partir des données de performances collectées par Insights de machine virtuelle.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/10/2020
-ms.openlocfilehash: e3b5f49d9a4ed7af40afba5b267ba0c7bb9cd73a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 06c58b7081ed68724a3c907f8fe76dcf5f7b8057
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101704053"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102046803"
 ---
 # <a name="how-to-create-alerts-from-vm-insights"></a>Comment créer des alertes à partir d’Insights de machine virtuelle
 [Les alertes dans Azure Monitor](../alerts/alerts-overview.md) vous informent de façon proactive des données et des modèles intéressants dans vos données de surveillance. Insights de machine virtuelle n’inclut pas de règles d’alerte préconfigurées, mais vous pouvez créer vos propres règles en fonction des données collectées. Cet article fournit des conseils sur la création de règles d’alerte, y compris un ensemble d’exemples de requêtes.

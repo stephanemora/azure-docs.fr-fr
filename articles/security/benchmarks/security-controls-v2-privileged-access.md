@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: a4f1c6e32bbc679a7ec946384903b2bda3887d05
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 29d4acc50ed872c37268a0b21c3e34837249a026
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101720577"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102035411"
 ---
 # <a name="security-control-v2-privileged-access"></a>Contrôle de sécurité V2 : Accès privilégié
 
 L’accès privilégié recouvre les contrôles permettant de protéger l’accès privilégié à votre locataire Azure et à vos ressources. Cela comprend une série de contrôles visant à protéger votre modèle d’administration, vos comptes d’administration et les stations de travail à accès privilégié contre les risques délibérés et involontaires.
 
-Pour afficher l’instance Azure Policy intégrée applicable, consultez [Informations sur l’initiative intégrée Conformité réglementaire Azure Security Benchmark : Accès privilégié](../../governance/policy/samples/azure-security-benchmark#privileged-access)
+Pour afficher l’instance Azure Policy intégrée applicable, consultez [Informations sur l’initiative intégrée Conformité réglementaire Azure Security Benchmark : Accès privilégié](../../governance/policy/samples/azure-security-benchmark.md#privileged-access)
 
 ## <a name="pa-1-protect-and-limit-highly-privileged-users"></a>PA-1 : Protéger et limiter les utilisateurs disposant de privilèges élevés
 
@@ -160,8 +160,6 @@ Utilisez les fonctionnalités de gestion des droits d’utilisation d’Azure AD
 Les stations de travail sécurisées et isolées sont extrêmement importantes pour la sécurité des rôles sensibles comme les administrateurs, développeurs et opérateurs de service critique. Utilisez des stations de travail utilisateur hautement sécurisées et/ou Azure Bastion pour les tâches d’administration. Utilisez Azure Active Directory, Microsoft Defender Advanced Threat Protection (MDATP) et/ou Microsoft Intune pour déployer une station de travail utilisateur sécurisée et gérée pour les tâches d’administration. Les stations de travail sécurisées peuvent être gérées de manière centralisée pour appliquer une configuration sécurisée, notamment une authentification forte, des lignes de base logicielles et matérielles et un accès réseau et logique restreint. 
 
 - [Comprendre les stations de travail d’accès privilégié](/security/compass/privileged-access-deployment)
-
-- [Déployer une station de travail d’accès privilégié](../../active-directory/devices/howto-azure-managed-workstation)
 
 **Responsabilité** : Customer
 

@@ -4,12 +4,12 @@ description: Développer des fonctions avec Python
 ms.topic: article
 ms.date: 11/4/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 78965a1a09272663c52469b8ccd91988f30b53cc
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 0829ef9a6b63866c2527e521ed7edf48a3249392
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101708694"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102044253"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guide des développeurs Python sur Azure Functions
 
@@ -22,7 +22,7 @@ En tant que développeur Python, vous pouvez également être intéressé par l�
 | <ul><li>[Fonction Python avec Visual Studio Code](./create-first-function-vs-code-csharp.md?pivots=programming-language-python)</li><li>[Fonction Python avec le terminal/l’invite de commandes](./create-first-function-cli-csharp.md?pivots=programming-language-python)</li></ul> | <ul><li>[Guide du développeur](functions-reference.md)</li><li>[Options d’hébergement](functions-scale.md)</li><li>[Considérations relatives aux&nbsp;performances](functions-best-practices.md)</li></ul> | <ul><li>[Classification d’images avec PyTorch](machine-learning-pytorch.md)</li><li>[Exemple Azure Automation](/samples/azure-samples/azure-functions-python-list-resource-groups/azure-functions-python-sample-list-resource-groups/)</li><li>[Machine learning avec TensorFlow](functions-machine-learning-tensorflow.md)</li><li>[Parcourir les exemples Python](/samples/browse/?products=azure-functions&languages=python)</li></ul> |
 
 > [!NOTE]
-> Même si vous pouvez [développer votre solution Azure Functions basée sur Python localement sur Windows](./azure-functions/create-first-function-vs-code-python#run-the-function-locally), Python n’est pris en charge que sur un plan d’hébergement basé sur Linux lors de l’exécution dans Azure. Consultez la liste des combinaisons [système d’exploitation/runtime](./azure-functions/functions-scale#operating-systemruntime) prises en charge.
+> Même si vous pouvez [développer votre solution Azure Functions basée sur Python localement sur Windows](create-first-function-vs-code-python.md#run-the-function-locally), Python n’est pris en charge que sur un plan d’hébergement basé sur Linux lors de l’exécution dans Azure. Consultez la liste des combinaisons [système d’exploitation/runtime](functions-scale.md#operating-systemruntime) prises en charge.
 
 ## <a name="programming-model"></a>Modèle de programmation
 

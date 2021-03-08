@@ -1,17 +1,16 @@
 ---
 title: Configurer la surveillance dans l’intégrité de l’invité de VM Insights à l’aide règles de collecte de données (préversion)
 description: Décrit comment modifier la supervision par défaut de l’intégrité des invités de VM Insights à grande échelle en utilisant des modèles Resource Manager.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/15/2020
-ms.openlocfilehash: 907aea16b018fb5dd3846db546787d132f8f5a9f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 0db6ed7566c53429f8b9798ac8cdafe76ca7bd5a
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101731219"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102052141"
 ---
 # <a name="configure-monitoring-in-vm-insights-guest-health-using-data-collection-rules-preview"></a>Configurer la surveillance dans l’intégrité de l’invité de VM Insights à l’aide règles de collecte de données (préversion)
 L’[intégrité des invités de VM Insights](vminsights-health-overview.md) vous permet de voir l’état d’intégrité d’une machine virtuelle tel que défini par un ensemble de mesures de performances échantillonnées à intervalles réguliers. Cet article décrit comment vous pouvez modifier la supervision par défaut sur plusieurs machines virtuelles en utilisant des règles de collecte des données.
