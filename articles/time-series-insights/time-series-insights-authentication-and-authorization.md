@@ -10,84 +10,136 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 10/02/2020
+ms.date: 02/23/2021
 ms.custom: seodec18, has-adal-ref
-ms.openlocfilehash: d1bd3c5796658663b6111723829cbe620346002c
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 58c0f408e3ad80109efd3db79d6e4a0d881aed78
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95016239"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101724170"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Authentification et autorisation pour l’API Insights Azure Time Series
 
-Ce document explique comment inscrire une application dans Azure Active Directory à l'aide du nouveau panneau Azure Active Directory. Les applications inscrites dans Azure Active Directory permettent aux utilisateurs de s'authentifier et d'utiliser l'API Azure Time Series Insight associée à un environnement Azure Time Series Insights.
+Selon les besoins de votre entreprise, votre solution peut inclure une ou plusieurs applications clientes que vous utilisez pour interagir avec les [API](https://docs.microsoft.com/en-us/rest/api/time-series-insights/reference-data-access-overview) de votre environnement Azure Time Series Insights. Azure Time Series Insights effectue l’authentification à l’aide de [jetons de sécurité Azure AD basés sur OAUTH 2.0](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims). Pour authentifier vos clients, vous devez obtenir un jeton du porteur avec les autorisations appropriées et le transmettre avec vos appels d’API. Ce document décrit plusieurs méthodes d’obtention d’informations d’identification que vous pouvez utiliser pour obtenir un jeton du porteur et vous authentifier.
 
-## <a name="service-principal"></a>Principal du service
 
-Les sections suivantes expliquent comment configurer une application pour accéder à l’API Azure Time Series Insights pour le compte d’une application. L’application peut ensuite interroger ou publier des données de référence dans l’environnement Azure Time Series Insights avec ses propres informations d’identification par le biais d’Azure Active Directory.
+  Ce document explique comment inscrire une application dans Azure Active Directory à l’aide du nouveau panneau Azure Active Directory. Les applications inscrites dans Azure Active Directory permettent aux utilisateurs de s'authentifier et d'utiliser l'API Azure Time Series Insight associée à un environnement Azure Time Series Insights.
 
-## <a name="summary-and-best-practices"></a>Résumé et meilleures pratiques
+## <a name="managed-identities"></a>Identités managées
 
-Le flux d'inscription de l'application Azure Active Directory implique trois étapes principales.
+Les sections suivantes décrivent comment utiliser une identité managée d’Azure Active Directory (Azure AD) pour accéder à l’API Azure Time Series Insights. Sur Azure, les identités managées évitent aux développeurs d’avoir à gérer les informations d’identification en fournissant une identité pour la ressource Azure dans Azure AD et en l’utilisant pour obtenir des jetons Azure Active Directory (Azure AD). Voici quelques-uns des avantages de l’utilisation des identités managées :
 
-1. [Inscrire une application](#azure-active-directory-app-registration) dans Azure Active Directory.
-1. Autoriser l’application à accéder aux [données dans l’environnement Azure Time Series Insights](#granting-data-access).
-1. Utiliser l'**ID d’application** et la **clé secrète client** pour obtenir un jeton depuis `https://api.timeseries.azure.com/` dans votre [application cliente](#client-app-initialization). Le jeton permet ensuite d’appeler l’API Azure Time Series Insights.
+- Vous n’avez pas besoin de gérer les informations d’identification. Vous n’avez même pas accès à ces dernières.
+- Vous pouvez utiliser des identités managées pour vous authentifier auprès d’un service Azure qui prend en charge l’authentification Azure AD, notamment Azure Key Vault.
+- Les identités managées peuvent être utilisées sans coût supplémentaire.
 
-Comme indiqué à l'**étape 3**, séparer les informations d'identification de l'utilisateur et de l'application permet ce qui suit :
+Pour en savoir plus sur les deux types d’identités managées, consultez [Que sont les identités managées pour les ressources Azure ?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
 
-* Attribuer à l’identité de l’application des autorisations différentes de vos propres autorisations. En règle générale, ces autorisations sont strictement limitées à ce que l’application nécessite. Par exemple, vous pouvez autoriser l’application à lire uniquement des données dans un environnement Azure Time Series Insights particulier.
-* Isoler la sécurité de l’application de la création des informations d'identification d'un utilisateur en utilisant une **clé secrète client** ou un certificat de sécurité. Ainsi, les informations d’identification de l’application ne dépendent pas des informations d’identification d’un utilisateur spécifique. Si le rôle de l’utilisateur évolue, l’application ne requiert pas nécessairement de nouvelles informations d’identification ou une configuration supplémentaire. Si l’utilisateur modifie son mot de passe, tous les accès à l’application ne requièrent pas de nouvelles informations d’identification ou clés.
-* Exécuter un script sans assistance en utilisant une **clé secrète client** ou un certificat de sécurité plutôt que les informations d’identification d’un utilisateur spécifique (ce qui implique qu'il soit présent).
-* Utiliser un certificat de sécurité plutôt qu’un mot de passe pour sécuriser l’accès à votre API Azure Time Series Insights.
+Vous pouvez utiliser des identités gérées à partir de vos :
 
-> [!IMPORTANT]
-> Suivez le principe de **séparation des problèmes** (décrit dans ce scénario ci-dessus) lorsque vous configurez votre stratégie de sécurité Azure Time Series Insights.
+- Machines virtuelles Azure
+- Azure App Services
+- Azure Functions
+- Instances de conteneur Azure
+- Et bien plus...
 
-> [!NOTE]
+Pour la liste complète, consultez [Services Azure qui prennent en charge les identités gérées pour les ressources Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities#azure-services-that-support-managed-identities-for-azure-resources).
 
-> * L'article se concentre sur une application à client unique conçue pour s’exécuter au sein d’une seule organisation.
-> * Les applications à client unique sont généralement utilisées pour des applications métier exécutées au sein de votre organisation.
+## <a name="azure-active-directory-app-registration"></a>Inscription d'application Azure Active Directory
 
-## <a name="detailed-setup"></a>Configuration détaillée
+Nous vous recommandons d’utiliser des identités managées autant que possible afin de ne pas avoir à gérer les informations d’identification. Si votre application cliente n’est pas hébergée sur un service Azure qui prend en charge les identités managées, vous pouvez inscrire votre application auprès d’un locataire Azure AD. Lorsque vous inscrivez votre application auprès d’Azure AD, vous créez une configuration d’identité pour votre application, ce qui lui permet de s’intégrer avec Azure AD. Quand vous inscrivez une application dans le [portail Azure](https://portal.azure.com/), vous choisissez s’il s’agit d’une application monolocataire (accessible uniquement dans votre locataire) ou multilocataire (accessible dans d’autres locataires). De plus, vous pouvez éventuellement définir un URI de redirection (auquel le jeton d’accès est envoyé).
 
-### <a name="azure-active-directory-app-registration"></a>Inscription d'application Azure Active Directory
+Une fois l’inscription de l’application terminée, vous disposez d’une instance globale unique de l’application (objet application) qui réside dans votre locataire ou annuaire de base. Vous disposez également d’un ID global unique pour votre application (l’ID de l’application ou du client). Dans le portail, vous pouvez ensuite ajouter des secrets ou des certificats, ainsi que des étendues pour que votre application fonctionne, personnaliser votre application dans la boîte de dialogue de connexion, et bien plus.
+
+Si vous inscrivez une application dans le portail, un objet application et un objet principal de service sont automatiquement créés dans votre locataire de base. Si vous inscrivez/créez une application à l’aide des API Microsoft Graph, la création de l’objet principal de service est une étape distincte. Un objet principal de service est requis pour demander des jetons.
+
+Veillez à consulter la liste de vérification [Sécurité](https://docs.microsoft.com/azure/active-directory/develop/identity-platform-integration-checklist#security) pour votre application. En guise de meilleure pratique, il est recommandé d’utiliser des [informations d’identification de certificat](https://docs.microsoft.com/azure/active-directory/develop/active-directory-certificate-credentials), pas des informations d’identification de mot de passe (clés secrètes client).
+
+Pour plus d’informations, consultez [Objets application et principal du service dans Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals).
+
+## <a name="step-1-create-your-managed-identity-or-app-registration"></a>Étape 1 : créer votre identité managée ou inscription d’application
+
+Une fois que vous avez déterminé si vous allez utiliser une identité managée ou une inscription d’application, l’étape suivante consiste à en approvisionner une.
+
+### <a name="managed-identity"></a>Identité managée
+
+Les étapes à suivre pour créer une identité managée varient en fonction de l’emplacement de votre code et de la création ou non d’une identité attribuée par le système ou par l’utilisateur. Pour comprendre la différence, consultez [Types d’identités managées](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview#managed-identity-types). Une fois que vous avez sélectionné votre type d’identité, recherchez et suivez le tutoriel approprié dans la [documentation](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/) sur les identités managées par Azure AD. Vous y trouverez des instructions sur la configuration des identités managées pour :
+
+- [Machines virtuelles Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#enable-system-assigned-managed-identity-during-creation-of-a-vm)
+- [App Service et Azure Functions](https://docs.microsoft.com/azure/app-service/overview-managed-identity)
+- [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/container-instances-managed-identity)
+- Et bien plus...
+
+### <a name="application-registration"></a>Inscription de l’application
+
+Suivez les étapes décrites dans [Inscrire une application](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app#register-an-application).
 
 [!INCLUDE [Azure Active Directory app registration](../../includes/time-series-insights-aad-registration.md)]
 
-### <a name="granting-data-access"></a>Octroi d'un accès aux données
+## <a name="step-2-grant-access"></a>Étape 2 : accorder l’accès
 
-1. Pour l’environnement Azure Time Series Insights, sélectionnez **Stratégies d’accès aux données**, puis **Ajouter**.
+Lorsque votre environnement Azure Time Series Insights reçoit une demande, le jeton du porteur de l’appelant est d’abord validé. Si la validation réussit, l’appelant a été authentifié. Ensuite, une autre vérification est effectuée pour s’assurer que l’appelant est autorisé à effectuer l’action demandée. Pour autoriser un utilisateur ou un principal de service, vous devez commencer par lui accorder un accès à l’environnement en lui attribuant le rôle Lecteur ou Contributeur.
 
-   [![Ajouter une nouvelle stratégie d’accès aux données à l’environnement Azure Time Series Insights](media/authentication-and-authorization/time-series-insights-data-access-policies-add.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-add.png#lightbox)
+- Pour accorder l’accès via l’interface utilisateur du [portail Azure](https://portal.azure.com/), suivez les instructions fournies dans l’article [Accorder l’accès aux données dans un environnement](https://docs.microsoft.com/azure/time-series-insights/concepts-access-policies) . Lors de la sélection de l’utilisateur, vous pouvez rechercher l’identité managée ou l’inscription d’application par son nom ou par son ID.
 
-1. Dans la boîte de dialogue **Sélectionner un utilisateur**, collez le **Nom de l'application** ou l'**ID de l'application** à partir de la section d'inscription de l'application Azure Active Directory.
+- Pour accorder l’accès à l’aide d’Azure CLI, exécutez la commande suivante. Pour obtenir la liste complète des commandes disponibles pour gérer l’accès, consultez la documentation [ici](https://docs.microsoft.com/cli/azure/ext/timeseriesinsights/tsi/access-policy?view=azure-cli-latest).
 
-   [![Rechercher une application dans la boîte de dialogue Sélectionner un utilisateur](media/authentication-and-authorization/time-series-insights-data-access-policies-select-user.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-select-user.png#lightbox)
+   ```azurecli-interactive
+   az tsi access-policy create --name "ap1" --environment-name "env1" --description "some description" --principal-object-id "aGuid" --roles Reader Contributor --resource-group "rg1"
+   ```
 
-1. Sélectionnez le rôle. Sélectionnez **Lecteur** pour interroger des données ou **Contributeur** pour interroger des données et modifier les données de référence. Sélectionnez **OK**.
+> [!Note]
+> L’extension timeseriesinsights pour Azure CLI nécessite la version 2.11.0 ou une version ultérieure. L’extension est automatiquement installée la première fois que vous exécutez une commande az tsi access-policy. [Apprenez-en davantage](https://docs.microsoft.com/cli/azure/azure-cli-extensions-overview) sur les extensions.
 
-   [![Choisir Lecteur ou Contributeur dans la boîte de dialogue Sélectionner un rôle utilisateur](media/authentication-and-authorization/time-series-insights-data-access-policies-select-role.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-select-role.png#lightbox)
+## <a name="step-3-requesting-tokens"></a>Étape 3 : demande de jetons
 
-1. Enregistrez la stratégie en sélectionnant **OK**.
+Une fois que votre identité managée ou votre inscription d’application ont été approvisionnées et qu’un rôle leur a été attribué, vous êtes prêt à commencer à les utiliser pour demander des jetons du porteur OAuth 2.0. La méthode que vous utilisez pour obtenir un jeton varie selon l’emplacement d’hébergement de votre code et le langage de votre choix. Lorsque vous spécifiez la ressource (également appelée « audience » du jeton), vous pouvez identifier Azure Time Series Insights par son URL ou son GUID :
 
-   > [!TIP]
-   > Pour plus d’informations sur les options avancées d’accès aux données, consultez [Octroi d’un accès aux données](./concepts-access-policies.md).
+* `https://api.timeseries.azure.com/`
+* `120d688d-1518-4cf7-bd38-182f158850b6`
 
-### <a name="client-app-initialization"></a>Initialisation de l'application cliente
+> [!IMPORTANT]
+> Si vous utilisez l’URL en tant qu’ID de ressource, le jeton doit être émis exactement à `https://api.timeseries.azure.com/`. La barre oblique de fin est obligatoire.
 
-* Les développeurs peuvent utiliser la Bibliothèque d’authentification Microsoft (MSAL) pour s’authentifier auprès d’Azure Time Series Insights.
+> * Si vous utilisez [Postman](https://www.getpostman.com/), votre **AuthURL** sera donc : `https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/authorize?scope=https://api.timeseries.azure.com//.default`
+> * `https://api.timeseries.azure.com/` est valide, mais `https://api.timeseries.azure.com` ne l’est pas.
 
-* Pour s’authentifier à l’aide de la bibliothèque MSAL :
+### <a name="managed-identities"></a>Identités managées
 
-   1. Utilisez l'**ID de l'application** et la **clé secrète client** (clé de l'application) à partir de la section d'inscription de l'application Azure Active Directory afin d'obtenir le jeton pour le compte de l’application.
+Lors de l’accès à partir de Azure App Service ou de Functions, suivez les instructions fournies dans [Obtenir des jetons pour les ressources Azure](https://docs.microsoft.com/azure/app-service/overview-managed-identity).
 
-   1. Dans C#, le code suivant permet d'obtenir le jeton pour le compte de l’application. Pour obtenir un exemple complet sur la façon d’interroger des données à partir d’un environnement Gen1, consultez [Interroger des données à l’aide de C#](time-series-insights-query-data-csharp.md).
+> [!TIP]
+> Pour les fonctions et applications .NET, la façon la plus simple d’utiliser une identité managée consiste à recourir à la [Bibliothèque de client Azure Identity](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme) pour .NET. 
 
-        Consultez le référentiel [Azure Time Series Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/gen1-sample/csharp-tsi-gen1-sample/Program.cs)] pour accéder au code C#.
+Pour les applications et les fonctions .NET, la façon la plus simple pour utiliser une identité managée consiste à passer par le package Microsoft.Azure.Services.AppAuthentication. Ce package est populaire en raison de sa simplicité et de ses avantages en matière de sécurité. Les développeurs peuvent écrire du code une seule fois et laisser la bibliothèque de client déterminer comment s’authentifier en fonction de l’environnement d’application, selon qu’il s’agit d’une station de travail de développeur utilisant un compte de développeur ou déployée dans Azure à l’aide d’une identité de service managée. Pour obtenir des conseils sur la migration à partir de la bibliothèque AppAuthentication prédécesseur, lisez [Guide de migration AppAuthentication vers Azure.Identity](https://docs.microsoft.com/dotnet/api/overview/azure/app-auth-migration?view=azure-dotnet).
 
-   1. Le jeton peut ensuite être passé dans l’en-tête `Authorization` lorsque l’application appelle l’API Azure Time Series Insights.
+Demandez un jeton pour Azure Time Series Insights en utilisant le langage C# et la bibliothèque de client d’identité Azure pour .NET :
+
+    ```csharp
+    using Azure.Identity;
+    // ...
+    var credential = new DefaultAzureCredential();
+    var token = credential.GetToken(
+    new Azure.Core.TokenRequestContext(
+        new[] { "https://api.timeseries.azure.com/" }));
+   var accessToken = token.Token;
+    ```
+
+### <a name="app-registration"></a>Inscriptions des applications
+
+* Les développeurs peuvent utiliser la [Bibliothèque d’authentification Microsoft](https://docs.microsoft.com/azure/active-directory/develop/msal-overview) (MSAL) afin d’obtenir des jetons pour les inscriptions d’applications.
+
+La MSAL est utilisable dans de nombreux scénarios d’application, dont les suivants :
+
+* [Applications monopages (JavaScript)](https://docs.microsoft.com/azure/active-directory/develop/scenario-spa-overview.md)
+* [Application web connectant un utilisateur et appelant une API web pour le compte de l’utilisateur](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-call-api-overview.md)
+* [API web appelant une autre API web en aval pour le compte de l’utilisateur connecté](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-api-call-api-overview.md)
+* [Application de bureau appelant une API web pour le compte de l’utilisateur connecté](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-overview.md)
+* [Application mobile appelant une API web au nom de l’utilisateur qui s’est connecté de manière interactive](https://docs.microsoft.com/azure/active-directory/develop/scenario-mobile-overview.md)
+* [Application démon de bureau/service appelant une API web pour son propre compte](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-overview.md)
+
+Pour obtenir un exemple de code C# montrant comment obtenir un jeton en tant qu’inscription d’application, et interroger des données à partir d’un environnement Gen2, consultez l’exemple d’application sur [GitHub](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/gen2-sample/csharp-tsi-gen2-sample/DataPlaneClientSampleApp/Program.cs).
 
 > [!IMPORTANT]
 > Si vous utilisez la [Bibliothèque d'authentification Active Directory (ADAL)](../active-directory/azuread-dev/active-directory-authentication-libraries.md) consultez la section [Migration vers MSAL](../active-directory/develop/msal-net-migration.md).
@@ -99,26 +151,16 @@ Cette section décrit les en-têtes de requête HTTP et les paramètres qui son
 > [!TIP]
 > Lisez les [Informations de référence sur l’API REST Azure](/rest/api/azure/) pour en savoir plus sur l’utilisation des API REST, la création de requêtes HTTP et la gestion des réponses HTTP.
 
-### <a name="authentication"></a>Authentification
-
-Pour exécuter des requêtes authentifiées sur les [API Azure Time Series Insights](/rest/api/time-series-insights/), un jeton de porteur OAuth 2.0 valide doit être passé dans l’[en-tête d’autorisation](/rest/api/apimanagement/2019-12-01/authorizationserver/createorupdate) à l’aide du client REST de votre choix (Postman, JavaScript, C#).
-
-> [!TIP]
-> Pour savoir comment s’authentifier par programmation auprès des API Azure Time Series Insights à l’aide du [Kit de développement logiciel (SDK) JavaScript Client](https://github.com/microsoft/tsiclient/blob/master/docs/API.md), lisez l’[exemple de visualisation hébergé du Kit de développement logiciel (SDK) client](https://tsiclientsample.azurewebsites.net/) Azure Time Series Insights ainsi que des graphes et autres graphiques.
-
 ### <a name="http-headers"></a>En-têtes HTTP
 
 Les en-têtes de requête obligatoires sont décrits ci-dessous.
 
 | En-tête de requête obligatoire | Description |
 | --- | --- |
-| Autorisation | Pour s’authentifier auprès d’Azure Time Series Insights, un jeton de porteur OAuth 2.0 valide doit être passé dans l’en-tête d’**autorisation**. |
+| Autorisation | Pour l’authentification auprès d’Azure Time Series Insights, un jeton du porteur OAuth 2.0 valide doit être passé dans l’[en-tête d’autorisation](/rest/api/apimanagement/2019-12-01/authorizationserver/createorupdate). |
 
-> [!IMPORTANT]
-> Le jeton doit être émis exactement vers la ressource `https://api.timeseries.azure.com/` (également appelée « audience » du jeton).
-
-> * Votre **AuthURL** [Postman](https://www.getpostman.com/) sera donc : `https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/authorize?scope=https://api.timeseries.azure.com//.default`
-> * `https://api.timeseries.azure.com/` est valide, mais `https://api.timeseries.azure.com` ne l’est pas.
+> [!TIP]
+> Pour savoir comment s’authentifier par programmation auprès des API Azure Time Series Insights à l’aide du [Kit de développement logiciel (SDK) JavaScript Client](https://github.com/microsoft/tsiclient/blob/master/docs/API.md), lisez l’[exemple de visualisation hébergé du Kit de développement logiciel (SDK) client](https://tsiclientsample.azurewebsites.net/) Azure Time Series Insights ainsi que des graphes et autres graphiques.
 
 Les en-têtes de requête facultatifs sont décrits ci-dessous.
 
@@ -144,14 +186,10 @@ Les en-têtes de réponse facultatifs mais recommandés sont décrits ci-dessous
 
 Les paramètres de chaîne de requête d’URL obligatoires dépendent de la version de l’API.
 
-| Libérer | Valeurs de version d’API possibles |
+| Libérer | Valeurs de version d’API |
 | --- |  --- |
 | Première génération | `api-version=2016-12-12`|
-| Deuxième génération | `api-version=2020-07-31` et `api-version=2018-11-01-preview`|
-
-> [!IMPORTANT]
->
-> La version de `api-version=2018-11-01-preview` sera bientôt dépréciée. Nous recommandons aux utilisateurs de passer à la version la plus récente.
+| Deuxième génération | `api-version=2020-07-31`|
 
 Les paramètres de chaîne de requête d’URL facultatifs incluent la définition d’un délai d’expiration pour les durées d’exécution des requêtes HTTP.
 
@@ -166,6 +204,4 @@ Les paramètres de chaîne de requête d’URL facultatifs incluent la définiti
 
 * Pour un exemple de code qui appelle l’API Azure Time Series Insights Gen2, lisez [Interroger des données Gen2 à l’aide de C#](./time-series-insights-update-query-data-csharp.md).
 
-* Pour obtenir des informations de référence sur l’API, lisez la documentation de [référence sur l’API de requête](/rest/api/time-series-insights/gen1-query-api).
-
-* Découvrez comment [créer un principal de service](../active-directory/develop/howto-create-service-principal-portal.md).
+* Pour obtenir des informations de référence sur l’API, lisez la documentation de [référence sur l’API de requête](/rest/api/time-series-insights/reference-query-apis).

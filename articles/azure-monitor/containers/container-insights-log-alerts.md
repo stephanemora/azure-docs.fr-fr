@@ -1,18 +1,18 @@
 ---
-title: Alertes de journal d’Azure Monitor pour les conteneurs | Microsoft Docs
-description: Cet article explique comment créer des alertes de journal personnalisées pour l'utilisation de la mémoire et du processeur à partir d'Azure Monitor pour les conteneurs.
+title: Alertes de journal à partir de Container Insights | Microsoft Docs
+description: Cet article explique comment créer des alertes de journal personnalisées pour l’utilisation de la mémoire et du processeur à partir de Container Insights.
 ms.topic: conceptual
 ms.date: 01/05/2021
-ms.openlocfilehash: 4239567c60afda6ca165e097562cb888c731f15a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 64d499d69194ac338d367ae094e42f4c8af23bef
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100598599"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711193"
 ---
-# <a name="how-to-create-log-alerts-from-azure-monitor-for-containers"></a>Comment créer des alertes de journal à partir d’Azure Monitor pour conteneurs
+# <a name="how-to-create-log-alerts-from-container-insights"></a>Création d’alertes de journal à partir de Container Insights
 
-Azure Monitor pour conteneurs surveille les performances des charges de travail de conteneur déployées sur des clusters Kubernetes gérés ou auto-gérés. Pour alerter sur ce qui est important, cet article décrit comment créer des alertes basées sur le journal en réponse aux situations suivantes avec des clusters AKS :
+Container Insights surveille les performances des charges de travail de conteneur déployées sur des clusters Kubernetes gérés ou auto-gérés. Pour alerter sur ce qui est important, cet article décrit comment créer des alertes basées sur le journal en réponse aux situations suivantes avec des clusters AKS :
 
 - Lorsque l’utilisation de la mémoire ou de l’UC sur les nœuds de cluster dépasse un seuil
 - Lorsque l’utilisation de la mémoire ou de l’UC sur n’importe quel conteneur au sein d’un contrôleur dépasse un seuil par rapport à une limite définie sur la ressource correspondante
@@ -20,9 +20,9 @@ Azure Monitor pour conteneurs surveille les performances des charges de travail 
 - Nombre de phases de pod à l’état *Échec*, *En attente*, *Inconnu*, *En cours d’exécution* ou *Réussite*
 - Lorsque espace disque libre sur les nœuds de cluster dépasse un seuil
 
-Pour alerter en cas d’utilisation élevée de la mémoire ou de l’UC, ou de manque d’espace disponible sur les nœuds de cluster, utilisez les requêtes fournies pour créer une alerte de métrique ou une alerte de mesure de métrique. Si les alertes métriques ont une latence inférieure à celle des alertes de journal, celles-ci offrent des capacités de requête avancées et une plus grande sophistication. Les requêtes d’alerte de journal comparent une valeur DateHeure au présent en utilisant l’opérateur *now* et en remontant d’une heure. (Azure Monitor pour conteneurs stocke toutes les dates au format de temps universel coordonné (UTC).)
+Pour alerter en cas d’utilisation élevée de la mémoire ou de l’UC, ou de manque d’espace disponible sur les nœuds de cluster, utilisez les requêtes fournies pour créer une alerte de métrique ou une alerte de mesure de métrique. Si les alertes métriques ont une latence inférieure à celle des alertes de journal, celles-ci offrent des capacités de requête avancées et une plus grande sophistication. Les requêtes d’alerte de journal comparent une valeur DateHeure au présent en utilisant l’opérateur *now* et en remontant d’une heure. (Container Insights stocke toutes les dates au format de temps universel coordonné (UTC).)
 
-Avant de commencer, si vous n’êtes pas familiarisé avec les alertes d’Azure Monitor, consultez [Vue d’ensemble des alertes dans Microsoft Azure](../platform/alerts-overview.md). Pour en savoir plus sur les alertes utilisant des requêtes de journal, consultez [Alertes de journal dans Azure Monitor](../alerts/alerts-unified-log.md). Pour en savoir plus sur les alertes de métrique, consultez [Alertes de métriques dans Azure Monitor](../alerts/alerts-metric-overview.md).
+Avant de commencer, si vous n’êtes pas familiarisé avec les alertes d’Azure Monitor, consultez [Vue d’ensemble des alertes dans Microsoft Azure](../alerts/alerts-overview.md). Pour en savoir plus sur les alertes utilisant des requêtes de journal, consultez [Alertes de journal dans Azure Monitor](../alerts/alerts-unified-log.md). Pour en savoir plus sur les alertes de métrique, consultez [Alertes de métriques dans Azure Monitor](../alerts/alerts-metric-overview.md).
 
 ## <a name="resource-utilization-log-search-queries"></a>Requêtes de recherche de journal concernant l’utilisation des ressources
 
@@ -275,7 +275,7 @@ InsightsMetrics
 
 ## <a name="create-an-alert-rule"></a>Création d'une règle d'alerte
 
-Cette section décrit la création d’une règle d’alerte de mesure de métrique à l’aide des données de performances d’Azure Monitor pour conteneurs. Vous pouvez utiliser ce processus de base avec diverses requêtes de journal pour alerter sur différents compteurs de performance. Utilisez l’une des requêtes de recherche dans les journaux fournies précédemment pour commencer. Pour créer une alerte en utilisant un modèle Resource Manager, consultez [Exemples de création d’alerte de journal à l’aide d’un modèle Resource Manager](../alerts/alerts-log-create-templates.md).
+Cette section décrit la création d’une règle d’alerte de mesure de métrique à l’aide des données de performances de Container Insights. Vous pouvez utiliser ce processus de base avec diverses requêtes de journal pour alerter sur différents compteurs de performance. Utilisez l’une des requêtes de recherche dans les journaux fournies précédemment pour commencer. Pour créer une alerte en utilisant un modèle Resource Manager, consultez [Exemples de création d’alerte de journal à l’aide d’un modèle Resource Manager](../alerts/alerts-log-create-templates.md).
 
 >[!NOTE]
 >La procédure suivante visant à créer une règle d’alerte pour l’utilisation des ressources de conteneur requiert de basculer vers une nouvelle API d’alertes de journal, comme décrit dans [Changer de préférence d’API pour les alertes de journal](../alerts/alerts-log-api-switch.md).
@@ -283,7 +283,7 @@ Cette section décrit la création d’une règle d’alerte de mesure de métri
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Dans le portail Azure, recherchez et sélectionnez **Espaces de travail Log Analytics**.
-3. Dans votre liste d’espaces de travail Log Analytics, sélectionnez l’espace de travail qui prend en charge Azure Monitor pour conteneurs. 
+3. Dans votre liste d’espaces de travail Log Analytics, sélectionnez l’espace de travail qui prend en charge Container Insights. 
 4. Dans le volet à gauche, sélectionnez **Journaux** pour ouvrir la page des journaux Azure Monitor. Cette page vous permet d’écrire et d’exécuter des requêtes de journal Azure.
 5. Dans la page **Journaux**, collez l’une des [requêtes](#resource-utilization-log-search-queries) fournies précédemment dans le champ **Requête de recherche**, puis sélectionnez **Exécuter** pour valider les résultats. Si vous n’effectuez pas cette étape, l’option **+Nouvelle alerte** n’est pas sélectionnable.
 6. Sélectionnez **+Nouvelle alerte** pour créer une alerte de journal.

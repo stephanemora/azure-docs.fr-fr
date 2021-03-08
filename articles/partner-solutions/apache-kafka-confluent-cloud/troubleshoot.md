@@ -3,15 +3,15 @@ title: Résolution des problèmes d’Apache Kafka pour Confluent Cloud – Solu
 description: Cet article fournit des informations sur la résolution des problèmes et la foire aux questions (FAQ) concernant Confluent Cloud sur Azure.
 ms.service: partner-services
 ms.topic: conceptual
-ms.date: 01/15/2021
+ms.date: 02/18/2021
 author: tfitzmac
 ms.author: tomfitz
-ms.openlocfilehash: cbf166086a489165e8100dafd7c212ab6c298b41
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: b1e4b06fcbecf11d7d5f58a583fe3bd6643d99ec
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98253221"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709392"
 ---
 # <a name="troubleshooting-apache-kafka-for-confluent-cloud-solutions"></a>Résolution des problèmes d’Apache Kafka pour les solutions Confluent Cloud
 
@@ -28,6 +28,16 @@ Pour trouver l’offre sur Place de marché Azure, procédez comme suit :
 1. Sélectionnez la vignette de l’application.
 
 Si l’offre n’est pas affichée, contactez le [support de Confluent](https://support.confluent.io). Votre ID de locataire Azure Active Directory doit figurer dans la liste des locataires autorisés. Pour savoir comment trouver votre ID de locataire, consultez [Comment trouver votre ID de locataire Azure Active Directory](../../active-directory/fundamentals/active-directory-how-to-find-tenant.md).
+
+## <a name="purchase-errors"></a>Erreurs d’achat
+
+* L’achat échoue car aucune carte de crédit valide n’est connectée à l’abonnement Azure, ou car aucun mode de paiement n’est associé à l’abonnement.
+
+  Utilisez un autre abonnement Azure. Vous pouvez également ajouter ou mettre à jour la carte de crédit ou le mode de paiement de l’abonnement. Pour plus d’informations, consultez [Mise à jour de la carte de crédit et du mode de paiement](../../cost-management-billing/manage/change-credit-card.md).
+
+* L’abonnement EA n’autorise pas les achats de la Place de marché.
+
+  Utilisez un autre abonnement. Ou vérifiez si votre abonnement EA est activé pour les achats de la Place de marché. Pour plus d’informations, voir [Activer les achats de la Place de marché](../../cost-management-billing/manage/ea-azure-marketplace.md#enabling-azure-marketplace-purchases). Si ces options ne résolvent pas le problème, contactez le [support technique](https://support.confluent.io).
 
 ## <a name="conflict-error"></a>Erreur de conflit
 

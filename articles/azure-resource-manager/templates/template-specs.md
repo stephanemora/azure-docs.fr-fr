@@ -2,15 +2,15 @@
 title: Créer et déployer des spécifications de modèle
 description: Décrit comment créer des specs de modèle et les partager avec d’autres utilisateurs de votre organisation.
 ms.topic: conceptual
-ms.date: 01/14/2021
+ms.date: 03/02/2021
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 762c483883d391c436065b13b54f127f1618d7f9
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: e4efc63ffa49b1c8ca44fc806e37e4aa91cd76c8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98734913"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101700386"
 ---
 # <a name="azure-resource-manager-template-specs-preview"></a>Specs de modèle Azure Resource Manager (préversion)
 
@@ -246,6 +246,78 @@ az deployment group create \
 
 ---
 
+## <a name="versioning"></a>Gestion de version
+
+Quand vous créez une spec de modèle, vous indiquez son nom de version. Lorsque vous itérez sur le code du modèle, vous pouvez mettre à jour une version existante (pour les correctifs logiciels) ou publier une nouvelle version. La version est une chaîne de texte. Vous êtes libre de choisir le système de contrôle de version, notamment le contrôle de version sémantique. Les utilisateurs de la spec de modèle peuvent fournir le nom de version à utiliser au moment de son déploiement.
+
+## <a name="use-tags"></a>Utiliser des balises
+
+Les [étiquettes](../management/tag-resources.md) vous aident à organiser logiquement vos ressources. Vous pouvez ajouter des balises aux spécifications de modèle à l’aide d’Azure PowerShell et d’Azure CLI :
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+New-AzTemplateSpec `
+  -Name storageSpec `
+  -Version 1.0a `
+  -ResourceGroupName templateSpecsRg `
+  -Location westus2 `
+  -TemplateFile ./mainTemplate.json `
+  -Tag @{Dept="Finance";Environment="Production"}
+```
+
+# <a name="cli"></a>[INTERFACE DE LIGNE DE COMMANDE](#tab/azure-cli)
+
+```azurecli
+az ts create \
+  --name storageSpec \
+  --version "1.0a" \
+  --resource-group templateSpecRG \
+  --location "westus2" \
+  --template-file "./mainTemplate.json" \
+  --tags Dept=Finance Environment=Production
+```
+
+---
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+Set-AzTemplateSpec `
+  -Name storageSpec `
+  -Version 1.0a `
+  -ResourceGroupName templateSpecsRg `
+  -Location westus2 `
+  -TemplateFile ./mainTemplate.json `
+  -Tag @{Dept="Finance";Environment="Production"}
+```
+
+# <a name="cli"></a>[INTERFACE DE LIGNE DE COMMANDE](#tab/azure-cli)
+
+```azurecli
+az ts update \
+  --name storageSpec \
+  --version "1.0a" \
+  --resource-group templateSpecRG \
+  --location "westus2" \
+  --template-file "./mainTemplate.json" \
+  --tags Dept=Finance Environment=Production
+```
+
+---
+
+Lors de la création ou de la modification d’une spécification de modèle avec le paramètre de version spécifié, mais sans le paramètre de balise/balises :
+
+- Si la spécification de modèle existe et contient des balises, mais que la version n’existe pas, la nouvelle version hérite des mêmes balises que la spécification de modèle existante.
+
+Lors de la création ou de la modification d’une spécification de modèle avec les paramètres de balise/balises et la version spécifiée :
+
+- Si la spécification de modèle et la version n’existent pas, les balises sont ajoutées à la fois à la nouvelle spécification de modèle et à la nouvelle version.
+- Si la spécification de modèle existe, mais que la version n’existe pas, les balises sont ajoutées uniquement à la nouvelle version.
+- Si la spécification de modèle et la version existent, les balises s’appliquent uniquement à la version.
+
+Lors de la modification d’un modèle avec le paramètre balise/balises spécifié, mais sans le paramètre version spécifié, les balises sont uniquement ajoutées à la spécification du modèle.
+
 ## <a name="create-a-template-spec-with-linked-templates"></a>Créer une spec de modèle avec des modèles liés
 
 Si le modèle principal de votre spec de modèle fait référence à des modèles liés, les commandes PowerShell et CLI peuvent automatiquement trouver et empaqueter les modèles liés à partir de votre disque local. Vous n’avez pas besoin de configurer manuellement les référentiels ou les comptes de stockage pour héberger les specs de modèle : tout est autonome dans la ressource de spec de modèle.
@@ -331,10 +403,6 @@ L’exemple suivant est similaire à l’exemple précédent, mais vous utilisez
 ```
 
 Pour plus d’informations sur la liaison de specs de modèle, consultez [Didacticiel : Déployer une spec de modèle en tant que modèle lié](template-specs-deploy-linked-template.md).
-
-## <a name="versioning"></a>Gestion de version
-
-Quand vous créez une spec de modèle, vous indiquez son nom de version. Lorsque vous itérez sur le code du modèle, vous pouvez mettre à jour une version existante (pour les correctifs logiciels) ou publier une nouvelle version. La version est une chaîne de texte. Vous êtes libre de choisir le système de contrôle de version, notamment le contrôle de version sémantique. Les utilisateurs de la spec de modèle peuvent fournir le nom de version à utiliser au moment de son déploiement.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

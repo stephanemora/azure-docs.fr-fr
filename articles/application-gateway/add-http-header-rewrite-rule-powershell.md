@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 04/12/2019
 ms.author: absha
-ms.openlocfilehash: 6938ad55915286af397fee6d72a333e3bb39a1e6
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 29ca3aff7d75c7a14bf7b325719924936762d191
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397913"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711686"
 ---
 # <a name="rewrite-http-request-and-response-headers-with-azure-application-gateway---azure-powershell"></a>Réécrire les en-têtes de requête et de réponse HTTP avec Azure Application Gateway - Azure PowerShell
 
@@ -31,23 +31,23 @@ Pour configurer la réécriture d’en-tête HTTP, vous devez effectuer ces éta
 
 1. Créez les objets nécessaires à la réécriture d’en-tête HTTP :
 
-   - **RequestHeaderConfiguration** : permet de spécifier les champs d’en-tête de requête que vous souhaitez réécrire, ainsi que la nouvelle valeur des en-têtes.
+   - **RequestHeaderConfiguration** : permet de spécifier les champs d’en-tête de requête que vous souhaitez réécrire, ainsi que la nouvelle valeur des en-têtes.
 
-   - **ResponseHeaderConfiguration** : permet de spécifier les champs d’en-tête de réponse que vous souhaitez réécrire, ainsi que la nouvelle valeur des en-têtes.
+   - **ResponseHeaderConfiguration** : permet de spécifier les champs d’en-tête de réponse que vous souhaitez réécrire, ainsi que la nouvelle valeur des en-têtes.
 
-   - **ActionSet** : contient les configurations des en-têtes de requête et de réponse spécifiés ci-dessus.
+   - **ActionSet** : contient les configurations des en-têtes de requête et de réponse spécifiés ci-dessus.
 
-   - **Condition**  : configuration facultative. Les conditions de réécriture évaluent le contenu des requêtes et réponses HTTP(S). L’action de réécriture se produit si la requête ou la réponse HTTP(S) correspondent à la condition de réécriture.
+   - **Condition** : une configuration facultative. Les conditions de réécriture évaluent le contenu des requêtes et réponses HTTP(S). L’action de réécriture se produit si la requête ou la réponse HTTP(S) correspondent à la condition de réécriture.
 
      Si vous associez plusieurs conditions à une action, cette dernière ne se produit que lorsque toutes les conditions sont remplies. En d’autres termes, il s’agit d’une opération ET logique.
 
-   - **RewriteRule** : contient plusieurs combinaisons d’actions/conditions de réécriture.
+   - **RewriteRule** : contient plusieurs combinaisons d’actions/conditions de réécriture.
 
-   - **RuleSequence** : configuration facultative qui permet de déterminer l’ordre dans lequel s’exécutent les règles de réécriture. Cette configuration est utile quand vous disposez de plusieurs règles de réécriture dans un jeu de réécritures. Une règle de réécriture qui présente une valeur de séquence de règle inférieure s’exécute en premier. Si vous attribuez la même valeur de séquence de règle à deux règles de réécriture, l’ordre d’exécution n’est pas déterministe.
+   - **RuleSequence** : configuration facultative qui permet de déterminer l’ordre dans lequel s’exécutent les règles de réécriture. Cette configuration est utile quand vous disposez de plusieurs règles de réécriture dans un jeu de réécritures. Une règle de réécriture qui présente une valeur de séquence de règle inférieure s’exécute en premier. Si vous attribuez la même valeur de séquence de règle à deux règles de réécriture, l’ordre d’exécution n’est pas déterministe.
 
      Si vous ne configurez pas explicitement l’objet RuleSequence, une valeur par défaut de 100 est définie.
 
-   - **RewriteRuleSet** : contient plusieurs règles de réécriture qui seront associées à une règle d’acheminement de requête.
+   - **RewriteRuleSet** : contient plusieurs règles de réécriture qui seront associées à une règle d’acheminement de requête.
 
 2. Attachez l’objet RewriteRuleSet à une règle d’acheminement. La configuration de réécriture est attachée à l’écouteur source via la règle de routage. Quand vous utilisez une règle de routage de base, la configuration de réécriture d’en-tête est associée à un écouteur source et correspond à une réécriture d’en-tête globale. Quand vous utilisez une règle de routage basée sur le chemin, la configuration de réécriture d’en-tête est définie sur le mappage du chemin d’URL. Dans ce cas, elle s’applique uniquement à la zone de chemin spécifique d’un site.
 
@@ -62,7 +62,7 @@ Select-AzSubscription -Subscription "<sub name>"
 
 ## <a name="specify-the-http-header-rewrite-rule-configuration"></a>Spécifier la configuration de règle de réécriture des en-têtes HTTP
 
-Dans cet exemple, nous allons modifier une URL de redirection en réécrivant l’en-tête d’emplacement dans la réponse HTTP chaque fois que cet en-tête contient une référence à azurewebsites.net. Pour ce faire, nous allons ajouter une condition destinée à évaluer si l’en-tête d’emplacement de la réponse contient ou non azurewebsites.net. Nous allons utiliser le modèle `(https?):\/\/.*azurewebsites\.net(.*)$`. Et nous utiliserons `{http_resp_Location_1}://contoso.com{http_resp_Location_2}` comme valeur d’en-tête. Cette valeur remplacera *azurewebsites.net* par *contoso.com* dans l’en-tête d’emplacement.
+Dans cet exemple, nous allons modifier une URL de redirection en réécrivant l’en-tête d’emplacement dans la réponse HTTP chaque fois que cet en-tête contient une référence à azurewebsites.net. Pour ce faire, nous allons ajouter une condition destinée à évaluer si l’en-tête d’emplacement de la réponse contient ou non azurewebsites.net. Nous allons utiliser le modèle `(https?)://.*azurewebsites.net(.*)$`. Et nous utiliserons `{http_resp_Location_1}://contoso.com{http_resp_Location_2}` comme valeur d’en-tête. Cette valeur remplacera *azurewebsites.net* par *contoso.com* dans l’en-tête d’emplacement.
 
 ```azurepowershell
 $responseHeaderConfiguration = New-AzApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "Location" -HeaderValue "{http_resp_Location_1}://contoso.com{http_resp_Location_2}"

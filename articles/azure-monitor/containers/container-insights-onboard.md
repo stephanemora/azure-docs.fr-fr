@@ -1,18 +1,18 @@
 ---
-title: Activer Azure Monitor pour conteneurs | Microsoft Docs
-description: Cet article explique comment activer et configurer Azure Monitor pour conteneurs afin que vous puissiez comprendre les performances de votre conteneur et les problèmes liés aux performances identifiés.
+title: Activer Container Insights | Microsoft Docs
+description: Cet article explique comment activer et configurer Container Insights afin que vous puissiez comprendre les performances de votre conteneur et les problèmes liés aux performances identifiés.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 56f60b58cff351aa37e98cdba933c929aaaedab6
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 58797221fa3380e4f7533a710e2f8dc658cb676c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100599915"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708354"
 ---
-# <a name="enable-azure-monitor-for-containers"></a>Activer Azure Monitor pour conteneurs
+# <a name="enable-container-insights"></a>Activer Container Insights
 
-Cet article offre un aperçu des options disponibles pour configurer Azure Monitor pour conteneurs en vue de superviser les performances des charges de travail qui sont déployées dans un environnement Kubernetes et hébergées sur :
+Cet article offre un aperçu des options disponibles pour configurer Container Insights en vue de surveiller les performances des charges de travail qui sont déployées dans un environnement Kubernetes et hébergées sur :
 
 - [Azure Kubernetes Service (AKS)](../../aks/index.yml)  
 - [Azure Red Hat OpenShift](../../openshift/intro-openshift.md) versions 3.x et 4.x  
@@ -23,7 +23,7 @@ Vous pouvez également superviser les performances des charges de travail déplo
 - Azure, à l’aide du [moteur AKS](https://github.com/Azure/aks-engine)
 - [Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview) ou localement, à l’aide du moteur AKS.
 
-Vous pouvez activer Azure Monitor pour conteneurs pour un nouveau déploiement ou pour un ou plusieurs déploiements existants de Kubernetes à l’aide de l’une des méthodes prises en charge suivantes :
+Vous pouvez activer Container Insights pour un nouveau déploiement ou pour un ou plusieurs déploiements existants de Kubernetes à l’aide de l’une des méthodes prises en charge suivantes :
 
 - Le portail Azure
 - Azure PowerShell
@@ -44,37 +44,37 @@ Avant de commencer, vérifiez que vous respectez les exigences suivantes :
 
 - Vous disposez d’un espace de travail Log Analytics.
 
-   Azure Monitor pour conteneurs prend en charge un espace de travail Log Analytics dans les régions listées dans [Disponibilité des produits par région](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor).
+   Container Insights prend en charge un espace de travail Log Analytics dans les régions répertoriées dans [Disponibilité des produits par région](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor).
 
    Vous pouvez le créer quand vous activez la supervision de votre nouveau cluster AKS, ou vous pouvez laisser l’expérience d’intégration créer un espace de travail par défaut dans le groupe de ressources par défaut de l’abonnement de cluster AKS. 
    
    Si vous choisissez de créer l’espace de travail vous-même, vous pouvez le créer par le biais de : 
-   - [Azure Resource Manager](../samples/resource-manager-workspace.md)
-   - [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)
-   - [Portail Azure](../learn/quick-create-workspace.md) 
+   - [Azure Resource Manager](../logs/resource-manager-workspace.md)
+   - [PowerShell](../logs/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)
+   - [Portail Azure](../logs/quick-create-workspace.md) 
    
-   Pour obtenir la liste des paires de mappage prises en charge à utiliser pour l’espace de travail par défaut, consultez [Mappage des régions pour Azure Monitor pour conteneurs](container-insights-region-mapping.md).
+   Pour obtenir la liste des paires de mappage prises en charge à utiliser pour l’espace de travail par défaut, consultez [Mappage des régions pour Container Insights](container-insights-region-mapping.md).
 
-- Vous êtes membre du groupe *Contributeur Log Analytics* pour activer la supervision des conteneurs. Pour plus d’informations sur la façon de contrôler l’accès à un espace de travail Log Analytics, consultez [Gérer les espaces de travail](../platform/manage-access.md).
+- Vous êtes membre du groupe *Contributeur Log Analytics* pour activer la supervision des conteneurs. Pour plus d’informations sur la façon de contrôler l’accès à un espace de travail Log Analytics, consultez [Gérer les espaces de travail](../logs/manage-access.md).
 
 - Vous êtes membre du [groupe *Propriétaire*](../../role-based-access-control/built-in-roles.md#owner) sur la ressource de cluster AKS.
 
    [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
-- Pour afficher les données de supervision, vous devez disposer du rôle [*Lecteur Log Analytics*](../platform/manage-access.md#manage-access-using-azure-permissions) dans l’espace de travail Log Analytics, configuré avec Azure Monitor pour conteneurs.
+- Pour afficher les données de surveillance, vous devez avoir le rôle [*Lecteur Log Analytics*](../logs/manage-access.md#manage-access-using-azure-permissions) dans l’espace de travail Log Analytics, configuré avec Container Insights.
 
 - Les métriques Prometheus ne sont pas recueillies par défaut. Avant de [configurer l’agent](container-insights-prometheus-integration.md) pour recueillir les métriques, il est important de consulter la [documentation Prometheus](https://prometheus.io/) pour comprendre les données pouvant être récupérées et les méthodes prises en charge.
 
 ## <a name="supported-configurations"></a>Configurations prises en charge
 
-Azure Monitor pour conteneurs prend officiellement en charge les configurations suivantes :
+Container Insights prend officiellement en charge les configurations suivantes :
 
 - Environnements : Azure Red Hat OpenShift, Kubernetes local et le moteur AKS sur Azure et Azure Stack. Pour plus d’informations, consultez [Moteur AKS sur Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview).
 - Les versions de Kubernetes et de la stratégie de prise en charge sont les mêmes que celles [prises en charge dans Azure Kubernetes Service (AKS)](../../aks/supported-kubernetes-versions.md). 
 
 ## <a name="network-firewall-requirements"></a>Configuration requise du pare-feu réseau
 
-Le tableau suivant répertorie les informations de configuration du proxy et du pare-feu requises pour permettre à l’agent conteneurisé de communiquer avec Azure Monitor pour conteneurs. Tout le trafic réseau provenant de l’agent est sortant vers Azure Monitor.
+Le tableau suivant répertorie les informations de configuration du proxy et du pare-feu requises pour permettre à l’agent conteneurisé de communiquer avec Container Insights. Tout le trafic réseau provenant de l’agent est sortant vers Azure Monitor.
 
 |Ressource de l’agent|Port |
 |--------------|------|
@@ -102,7 +102,7 @@ Le tableau suivant répertorie les informations de configuration du proxy et du 
 
 ## <a name="components"></a>Components
 
-Votre capacité à superviser les performances dépend d’un agent Log Analytics conteneurisé pour Linux, spécialement développé pour Azure Monitor pour conteneurs. Cet agent spécialisé collecte les données de performances et d’événements à partir de tous les nœuds du cluster, et l’agent est automatiquement déployé puis inscrit auprès de l’espace de travail Log Analytics spécifié pendant le déploiement. 
+Votre capacité à surveiller les performances dépend d’un agent Log Analytics conteneurisé pour Linux, spécialement développé pour Container Insights. Cet agent spécialisé collecte les données de performances et d’événements à partir de tous les nœuds du cluster, et l’agent est automatiquement déployé puis inscrit auprès de l’espace de travail Log Analytics spécifié pendant le déploiement. 
 
 La version d’agent est microsoft/oms:ciprod04202018 ou ultérieure. Elle est représentée par une date au format suivant : *mmjjaaaa*.
 
@@ -116,7 +116,7 @@ Quand une nouvelle version de l’agent est disponible, celui-ci est automatique
 >
 > Le modèle doit être déployé dans le même groupe de ressources que le cluster.
 
-Pour activer Azure Monitor pour conteneurs, appliquez l’une des méthodes décrites dans le tableau suivant :
+Pour activer Container Insights, utilisez l’une des méthodes décrites dans le tableau suivant :
 
 | État du déploiement | Méthode | Description |
 |------------------|--------|-------------|
@@ -136,4 +136,4 @@ Pour activer Azure Monitor pour conteneurs, appliquez l’une des méthodes déc
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous avez activé la supervision, vous pouvez commencer à analyser les performances de vos clusters Kubernetes hébergés sur Azure Kubernetes Service (AKS), Azure Stack ou un autre environnement. Pour savoir comment utiliser Azure Monitor pour les conteneurs, consultez [Connaître les performances des clusters Kubernetes](container-insights-analyze.md).
+Maintenant que vous avez activé la supervision, vous pouvez commencer à analyser les performances de vos clusters Kubernetes hébergés sur Azure Kubernetes Service (AKS), Azure Stack ou un autre environnement. Pour savoir comment utiliser Container Insights, consultez [Connaître les performances des clusters Kubernetes](container-insights-analyze.md).

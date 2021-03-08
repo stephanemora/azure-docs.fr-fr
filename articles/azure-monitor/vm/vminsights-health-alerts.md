@@ -1,25 +1,25 @@
 ---
-title: Alertes d’Intégrité des invités Azure Monitor pour machines virtuelles (préversion)
-description: Décrit les alertes créées par Intégrité des invités Azure Monitor pour machines virtuelles, notamment la façon de les activer et de configurer les notifications.
+title: Alertes d’intégrité de l’invité de VM Insights (préversion)
+description: Décrit les alertes créées par Intégrité des invités de VM Insights, notamment la façon de les activer et de configurer les notifications.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/10/2020
-ms.openlocfilehash: 30025f387768aaf1e4d642292c21d5b15ccc7451
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a32ba9f1c4cf5d6bb9de69e1a6860c858e3ee2a6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100600283"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101707504"
 ---
-# <a name="azure-monitor-for-vms-guest-health-alerts-preview"></a>Alertes d’Intégrité des invités Azure Monitor pour machines virtuelles (préversion)
-La fonctionnalité Intégrité des invités Azure Monitor pour machines virtuelles vous permet de voir l’état d’intégrité d’une machine virtuelle tel que défini par un ensemble de mesures de performances échantillonnées à des intervalles réguliers. Une alerte peut être créée lorsqu’une machine virtuelle ou un moniteur passe à un état défectueux. Vous pouvez afficher et gérer ces alertes avec [celles créées par les règles d’alerte dans Azure Monitor](../platform/alerts-overview.md) et choisir d’être informé de manière proactive lors de la création d’une nouvelle alerte.
+# <a name="vm-insights-guest-health-alerts-preview"></a>Alertes d’intégrité de l’invité de VM Insights (préversion)
+L’intégrité des invités de VM Insights vous permet de voir l’état d’intégrité d’une machine virtuelle tel que défini par un ensemble de mesures de performances échantillonnées à intervalles réguliers. Une alerte peut être créée lorsqu’une machine virtuelle ou un moniteur passe à un état défectueux. Vous pouvez afficher et gérer ces alertes avec [celles créées par les règles d’alerte dans Azure Monitor](../alerts/alerts-overview.md) et choisir d’être informé de manière proactive lors de la création d’une nouvelle alerte.
 
 ## <a name="configure-alerts"></a>Configurer des alertes
-Vous ne pouvez pas créer de règle d’alerte explicite pour Intégrité des invités Azure Monitor pour machines virtuelles tant que cette fonctionnalité est en préversion. Par défaut, les alertes sont créées pour chaque machine virtuelle, mais pas pour chaque moniteur.  Cela signifie que si un moniteur passe à un état qui ne modifie pas l’état actuel de la machine virtuelle, aucune alerte n’est créée, car l’état de la machine virtuelle n’a pas changé. 
+Vous ne pouvez pas créer de règle d’alerte explicite pour l’intégrité des invités de VM Insights tant que cette fonctionnalité est en préversion. Par défaut, les alertes sont créées pour chaque machine virtuelle, mais pas pour chaque moniteur.  Cela signifie que si un moniteur passe à un état qui ne modifie pas l’état actuel de la machine virtuelle, aucune alerte n’est créée, car l’état de la machine virtuelle n’a pas changé. 
 
-Vous pouvez désactiver les alertes pour une machine virtuelle particulière ou pour un moniteur particulier sur une machine virtuelle à partir du paramètre **État de l’alerte** dans la configuration de la machine virtuelle sur le portail Azure. Pour plus d’informations sur la configuration des analyses sur le portail Azure, consultez [Configurer la supervision dans Intégrité des invités Azure Monitor pour machines virtuelles (préversion)](vminsights-health-configure.md). Pour plus d’informations sur la configuration des analyses sur un ensemble de machines virtuelles, consultez [Configurer la supervision dans Intégrité des invités Azure Monitor pour machines virtuelles à l’aide de règles de collecte des données (préversion)](vminsights-health-configure-dcr.md).
+Vous pouvez désactiver les alertes pour une machine virtuelle particulière ou pour un moniteur particulier sur une machine virtuelle à partir du paramètre **État de l’alerte** dans la configuration de la machine virtuelle sur le portail Azure. Pour plus d’informations sur la configuration des analyses sur le portail Azure, consultez [Configurer la surveillance dans l’intégrité de l’invité de VM Insights (préversion)](vminsights-health-configure.md). Pour plus d’informations sur la configuration des analyses sur un ensemble de machines virtuelles, consultez [Configurer la surveillance dans l’intégrité de l’invité de VM Insights à l’aide règles de collecte de données (préversion)](vminsights-health-configure-dcr.md).
 
 ## <a name="alert-severity"></a>Gravité de l’alerte
 La gravité de l’alerte créée par l’intégrité des invités correspond directement à la gravité de la machine virtuelle ou du moniteur déclenchant l’alerte.
@@ -31,12 +31,12 @@ La gravité de l’alerte créée par l’intégrité des invités correspond di
 | Healthy  | Sev4 |
 
 ## <a name="alert-lifecycle"></a>Cycle de vie des alertes
-Une [alerte Azure](../platform/alerts-overview.md) est créée pour chaque machine virtuelle chaque fois qu’elle passe à un état **Avertissement** ou **Critique**. Affichez l’alerte à partir d’**Alertes** dans le menu **Azure Monitor** ou dans le menu de la machine virtuelle sur le portail Azure.
+Une [alerte Azure](../alerts/alerts-overview.md) est créée pour chaque machine virtuelle chaque fois qu’elle passe à un état **Avertissement** ou **Critique**. Affichez l’alerte à partir d’**Alertes** dans le menu **Azure Monitor** ou dans le menu de la machine virtuelle sur le portail Azure.
 
 Si une alerte est déjà à l’état **Déclenché** lorsque l’état de la machine virtuelle change, une deuxième alerte n’est pas créée, mais la gravité de la même alerte est modifiée pour correspondre à l’état de la machine virtuelle. Par exemple, si la machine virtuelle passe à l’état **Critique** quand une alerte **Avertissement** était déjà à l’état **Déclenché**, la gravité de cette alerte passera à **SEV1**. Si la machine virtuelle passe à l’état **Avertissement** quand une alerte **Sev1** était déjà à l’état **Déclenché**, la gravité de cette alerte passera à **Sev2**. Si la machine virtuelle revient à un état **Sain**, l’alerte sera résolue et la gravité passera à **Sev4**.
 
 ## <a name="viewing-alerts"></a>Affichage des alertes
-Affichez les alertes créées par Intégrité des invités Azure Monitor pour machines virtuelles avec d’autres [alertes dans le portail Azure](../platform/alerts-overview.md#alerts-experience). Vous pouvez sélectionner **Alertes** dans le menu **Azure Monitor** pour afficher les alertes de toutes les ressources surveillées ou sélectionner **Alertes** dans le menu d’une machine virtuelle pour afficher les alertes de cette machine virtuelle uniquement.
+Affichez les alertes créées par l’intégrité des invités de VM Insights avec d’autres [alertes dans le portail Azure](../platform/alerts-overview.md#alerts-experience). Vous pouvez sélectionner **Alertes** dans le menu **Azure Monitor** pour afficher les alertes de toutes les ressources surveillées ou sélectionner **Alertes** dans le menu d’une machine virtuelle pour afficher les alertes de cette machine virtuelle uniquement.
 
 ## <a name="alert-properties"></a>Propriétés de l'alerte
 
@@ -106,6 +106,6 @@ Dans **Définir sur cette étendue**, sélectionnez **Groupe d’actions**, puis
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Activer l’intégrité des invités dans Azure Monitor pour machines virtuelles et intégrer des agents](vminsights-health-enable.md)
+- [Activer l’intégrité des invités dans VM Insights et les agents intégrés.](vminsights-health-enable.md)
 - [Configurer des moniteurs en utilisant le portail Azure](vminsights-health-configure.md)
 - [Configurer des moniteurs en utilisant des règles de collecte des données](vminsights-health-configure-dcr.md)

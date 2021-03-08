@@ -6,12 +6,12 @@ ms.date: 11/25/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: d815c919c2b2d63b093c4290a661cbf508c56012
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: e9208e617eb73786bcb003dc1b55d0d77ca6650f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96601065"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704427"
 ---
 # <a name="upgrading-from-application-insights-java-2x-sdk"></a>Mise à niveau à partir du SDK Application Insights pour Java 2.x
 
@@ -220,3 +220,16 @@ De même, si vous préférez la vue fournie par l’ancien nom des dépendances,
 Précédemment, dans le SDK 2.x, le nom d’opération des données de télémétrie de la requête était également défini sur les données de télémétrie des dépendances.
 Application Insights Java 3.0 ne renseigne plus le nom de l’opération dans les données de télémétrie des dépendances.
 Si vous souhaitez afficher le nom de l’opération pour la requête parente des données de télémétrie des dépendances, vous pouvez écrire une requête Logs (Kusto) à joindre à la table des requêtes à partir de la table des dépendances.
+
+## <a name="2x-sdk-logging-appenders"></a>Appenders de journalisation SDK 2.x
+
+L’agent 3.0 [collecte automatiquement la journalisation](./java-standalone-config#auto-collected-logging) sans qu’il soit nécessaire de configurer des appenders de journalisation.
+Si vous utilisez des appenders de journalisation SDK 2.x, vous pouvez les supprimer car ils seront supprimés par l’agent 3.0.
+
+## <a name="2x-sdk-spring-boot-starter"></a>Spring boot starter SDK 2.x
+
+Il n’existe aucun spring boot starter 3.0.
+L’installation et la configuration de l’agent 3.0 suivent les mêmes [étapes simples](./java-in-process-agent.md#quickstart), que vous utilisiez spring boot ou non.
+
+Lorsque vous procédez à une mise à niveau à partir de spring boot starter SDK 2.x, notez que le nom du rôle cloud n’aura plus la valeur par défaut `spring.application.name`.
+Consultez la [documentation sur la configuration 3.0](./java-standalone-config.md#cloud-role-name) pour définir le nom du rôle cloud dans 3.0 via la configuration json ou la variable d’environnement.

@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: jushiman
-ms.openlocfilehash: 04d6daac6644bd8d29479ac527bbdd8a5bdbd116
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 986b02ee1127bc929ce34518226424ba06d24b89
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101678398"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102101543"
 ---
 # <a name="msv2-and-mdsv2-series-medium-memory-preview"></a>Mémoire moyenne des séries Msv2 et Mdsv2 (préversion)
 
@@ -48,13 +48,13 @@ Pour plus d’informations sur les machines virtuelles de 2e génération, cons
 
 | Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit du disque non mis en cache max. : IOPS/Mbits/s | Nombre max de cartes réseau | Bande passante réseau attendue (Mbit/s) | 
 |---|---|---|---|---|---|---|---|
-| Standard_M32dms_v2 | 32 | 875 | 0 | 32 |  20 000/500 | 8 | 8000 | 
-| Standard_M64ds_v2 | 64 | 1 024 | 0 | 64 | 40 000/1 000 | 8 | 16000 | 
-| Standard_M64dms_v2 | 64 | 1792 | 0 | 64 | 40 000/1 000 | 8 | 16000 | 
-| Standard_M128ds_v2 | 128 | 2 048 | 0 | 64 | 80 000/2 000 | 8 | 30000 | 
-| Standard_M128dms_v2 | 128 | 3892 | 0 | 64 | 80 000/2 000 | 8 | 30000 | 
-| Standard_M192ids_v2 | 192 | 2 048 | 0 | 64 | 80 000/2 000 | 8 | 30000 | 
-| Standard_M192idms_v2 | 192 | 4096 | 0 | 64 | 80 000/2 000 | 8 | 30000 | 
+| Standard_M32ms_v2 | 32 | 875 | 0 | 32 |  20 000/500 | 8 | 8000 | 
+| Standard_M64s_v2 | 64 | 1 024 | 0 | 64 | 40 000/1 000 | 8 | 16000 | 
+| Standard_M64ms_v2 | 64 | 1792 | 0 | 64 | 40 000/1 000 | 8 | 16000 | 
+| Standard_M128s_v2 | 128 | 2 048 | 0 | 64 | 80 000/2 000 | 8 | 30000 | 
+| Standard_M128ms_v2 | 128 | 3892 | 0 | 64 | 80 000/2 000 | 8 | 30000 | 
+| Standard_M192is_v2 | 192 | 2 048 | 0 | 64 | 80 000/2 000 | 8 | 30000 | 
+| Standard_M192ims_v2 | 192 | 4096 | 0 | 64 | 80 000/2 000 | 8 | 30000 | 
 
 ## <a name="mdsv2-medium-memory-with-disk"></a>Mdsv2 mémoire moyenne avec disque  
 

@@ -4,15 +4,15 @@ description: Vue d’ensemble de l’environnement App Service Environment
 author: ccompy
 ms.assetid: 3d37f007-d6f2-4e47-8e26-b844e47ee919
 ms.topic: article
-ms.date: 11/16/2020
+ms.date: 03/02/2021
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: fbc498fcd654d16936c2548528e2600be68a2ad9
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 23b23340550ded3642d19500270f06cfb6faf8cb
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94663268"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735095"
 ---
 # <a name="app-service-environment-overview"></a>Vue d’ensemble d’App Service Environment 
 
@@ -53,7 +53,7 @@ L’environnement App Service Environment peut être utilisé dans de nombreux c
 Il existe un certain nombre de fonctionnalités de mise en réseau qui permettent aux applications dans l’instance App Service multilocataire d’atteindre des ressources isolées du réseau ou d’être isolées du réseau elles-mêmes. Ces fonctionnalités sont activées au niveau de l’application.  Avec un environnement ASE, aucune configuration supplémentaire sur les applications n’est nécessaire pour les inclure dans le réseau virtuel. Les applications sont déployées dans un environnement isolé du réseau qui se trouve déjà dans un réseau virtuel. Non seulement l’environnement ASE héberge des applications isolées du réseau, mais il s’agit également d’un système monolocataire. Aucun autre client n’utilise l’environnement ASE. Si vous avez vraiment besoin d’un scénario d’isolation complet, vous pouvez également déployer votre environnement ASE sur du matériel dédié. Entre l’hébergement d’applications isolées du réseau, la caractéristique monolocataire et la capacité 
 
 ## <a name="dedicated-environment"></a>Environnement dédié
-Un environnement ASE est dédié exclusivement à un seul abonnement et peut héberger 200 instances de plan App Service. Il peut s’agir de 100 instances d’un même plan App Service ou de 100 plans App Service à instance unique, ou de toutes les combinaisons possibles des deux.
+Un environnement ASE est dédié exclusivement à un seul abonnement et peut héberger jusqu’à 200 instances de plan App Service dans plusieurs plans App Service. Le mot « instance » fait référence à une mise à l’échelle horizontale de plan App Service. Chaque instance est l’équivalent d’un rôle de travail. Si un environnement ASE peut totaliser 200 instances, un plan App Service v2 isolé peut contenir 100 instances. L’environnement ASE peut contenir deux plans App Service de 100 instances chacun, 200 plans App Service à instance unique, ou tout nombre d’instances compris entre les deux.
 
 Un environnement App Service est composé de frontends et de workers. Les frontends sont responsables de la terminaison du protocole HTTP/HTTPS et de l’équilibrage de charge automatique des demandes d’application dans un environnement App Service. Ils sont ajoutés automatiquement à mesure que les plans App Service dans l’environnement App Service augmentent leur échelle.
 
@@ -77,7 +77,7 @@ Les applications doivent souvent accéder à des ressources d'entreprise telles 
 ## <a name="preview"></a>Préversion
 App Service Environment v3 est en préversion publique.  Certaines fonctionnalités sont ajoutées à mesure de l’évolution de la préversion. Les limites actuelles d’ASEv3 incluent :
 
-- Impossibilité à mettre à l’échelle un plan App Service au-delà de cinq instances
+- Impossibilité à mettre à l’échelle un plan App Service au-delà de 50 instances
 - Impossibilité d’obtenir un conteneur à partir d’un registre privé
 - Impossibilité des fonctionnalités App Service actuellement non prises en charge de passer par le réseau virtuel client
 - Aucun modèle de déploiement externe avec un point de terminaison accessible sur Internet

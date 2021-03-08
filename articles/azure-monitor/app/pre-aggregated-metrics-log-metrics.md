@@ -6,12 +6,12 @@ author: vgorbenko
 ms.author: vitalyg
 ms.date: 09/18/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: c419411b0956cdc42055f0e97a47fc8e4ddb38c9
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: acbe535d740eb527d165be1675f31e759851a987
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100589743"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717823"
 ---
 # <a name="log-based-and-pre-aggregated-metrics-in-application-insights"></a>Métriques basées sur le journal et pré-agrégées dans Application Insights
 
@@ -48,8 +48,10 @@ Notez par ailleurs que le point de terminaison de collecte pré-agrège les év�
 | .NET Core et .NET Framework | Prises en charge (v2.13.1 et ultérieures)| Prises en charge via [TrackMetric](api-custom-events-metrics.md#trackmetric)| Prises en charge (v2.7.2 et ultérieure) via [GetMetric](get-metric.md) |
 | Java                         | Non pris en charge       | Prises en charge via [TrackMetric](api-custom-events-metrics.md#trackmetric)| Non pris en charge                           |
 | Node.js                      | Non pris en charge       | Prises en charge via [TrackMetric](api-custom-events-metrics.md#trackmetric)| Non pris en charge                           |
-| Python                       | Non pris en charge       | Prise en charge                                 | Prises en charge via [OpenCensus.stats](opencensus-python.md#metrics) |  
+| Python                       | Non pris en charge       | Prise en charge                                 | Prise en charge partielle via [OpenCensus.stats](opencensus-python.md#metrics) |  
 
+> [!NOTE]
+>  L’implémentation des métriques pour Python avec OpenCensus.stats est différente de GetMetric. Pour plus d’informations, consultez [la documentation Python sur les métriques](./opencensus-python.md#metrics).
 
 ### <a name="codeless-supported-pre-aggregated-metrics-table"></a>Tableau des métriques pré-agrégées prises en charge sans code
 

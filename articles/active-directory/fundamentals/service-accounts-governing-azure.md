@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c43125edab0f5ed097b99798ca22e5543e15a2d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 4311d0acc7c417bf31c71f46e6c25c65312b894d
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101692863"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102034527"
 ---
 # <a name="governing-azure-ad-service-accounts"></a>Gestion des comptes de service Azure
 
@@ -51,14 +51,14 @@ Nous vous recommandons les pratiques suivantes pour les privilèges de compte de
 
 **autorisations**
 
-* N’assignez pas de rôles intégrés aux comptes de service. Au lieu de cela, utilisez le [modèle d’octroi d’autorisation OAuth2 pour Microsoft Graph](https://docs.microsoft.com/graph/api/resources/oauth2permissiongrant?view=graph-rest-1.0).
+* N’assignez pas de rôles intégrés aux comptes de service. Au lieu de cela, utilisez le [modèle d’octroi d’autorisation OAuth2 pour Microsoft Graph](/graph/api/resources/oauth2permissiongrant).
 
 * Si un rôle privilégié doit être attribué au principal du service, envisagez d’attribuer un [rôle personnalisé](https://docs.microsoft.com/azure/active-directory/roles/custom-create) avec des privilèges requis spécifiques en fonction de la durée.
 
 * N’incluez pas de comptes de service en tant que membres de groupes dotés d’autorisations élevées. 
 
-* [Utilisez PowerShell pour énumérer les membres des rôles privilégiés](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0), par exemple   
-`Get-AzureADDirectoryRoleMember`, et filtrer sur l’objectType « Principal du service ».
+* [Utilisez PowerShell pour énumérer les membres des rôles privilégiés](/powershell/module/azuread/get-azureaddirectoryrolemember), par exemple   
+`Get-AzureADDirectoryRoleMember` et filtrez sur l’objectType « Principal du service ».
 
    Ou utilisez  
 ‎   `Get-AzureADServicePrincipal | % { Get-AzureADServiceAppRoleAssignment -ObjectId $_ }`
@@ -117,7 +117,7 @@ Nous vous recommandons d’exporter les journaux de connexion Azure AD et de les
 
 Révisez régulièrement les autorisations accordées et les étendues auxquelles accèdent les comptes de service pour voir s’il est possible de les réduire ou de les éliminer.
 
-* Utilisez [PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureadserviceprincipaloauth2permissiongrant?view=azureadps-2.0) afin de [créer une automatisation de la vérification et de la documentation](https://gist.github.com/psignoret/41793f8c6211d2df5051d77ca3728c09) des étendues du consentement accordé à un compte de service.
+* Utilisez [PowerShell](/powershell/module/azuread/get-azureadserviceprincipaloauth2permissiongrant) afin de [créer une automatisation de la vérification et de la documentation](https://gist.github.com/psignoret/41793f8c6211d2df5051d77ca3728c09) des étendues du consentement accordé à un compte de service.
 
 * Utilisez PowerShell pour [réviser les informations d’identification des principaux de service existants](https://github.com/AzureAD/AzureADAssessment) et vérifier leur validité.
 
@@ -172,7 +172,7 @@ L’exemple PowerShell gratuit de Microsoft collecte les autorisations OAuth2 et
 
 **Les processus de déprovisionnement doivent inclure les tâches suivantes.**
 
-1. Une fois l’application ou le script associés déprovisionnés, [surveillez les connexions](../reports-monitoring/concept-all-sign-ins#sign-ins-report.md) et l’accès du compte de service aux ressources.
+1. Une fois l’application ou le script associés déprovisionnés, [surveillez les connexions](../reports-monitoring/concept-all-sign-ins.md#sign-ins-report) et l’accès du compte de service aux ressources.
 
    * Si le compte est toujours actif, déterminez la façon dont il est utilisé avant de passer au étapes suivantes.
  

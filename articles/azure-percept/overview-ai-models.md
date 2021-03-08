@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 02/16/2021
 ms.custom: template-concept
-ms.openlocfilehash: 28a8de231f179cf69342da81e6a2ae1989d2a5d6
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 8a9ed564012e8b530436152d931f5a5f6470ff98
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102041584"
+ms.locfileid: "102098364"
 ---
 # <a name="azure-percept-ai-models"></a>Modèles IA Azure Percept
 
@@ -52,6 +52,8 @@ Des commandes et des mots clés d’assistant vocal prédéfinis sont disponible
 
 ## <a name="advanced-development"></a>Développement avancé
 
-Pour les développeurs avancés, le [notebook Jupyter](https://github.com/microsoft/Project-Santa-Cruz-Preview/blob/main/Sample-Scripts-and-Notebooks/Official/Machine%20Learning%20Notebooks/Transferlearningusing_SSDLiteV2%20Model.ipynb) disponible effectue l’apprentissage de transfert à l’aide d’un modèle TensorFlow (MobileNetSSDV2Lite) préentraîné en Python avec un jeu de données personnalisé pour la détection d’objets. Le notebook utilise des instances de calcul distantes par le biais d’[Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/#product-overview), et peut être exécuté dans le cloud à l’aide du portail AzureML ou localement dans [Visual Studio Code](https://code.visualstudio.com/).
+Pour des conseils, des tutoriels et des exemples à jour, consultez le [GitHub de développement avancé Azure Percept DK](https://github.com/microsoft/azure-percept-advanced-development) :
 
-Il contient également des [scripts](https://github.com/microsoft/Project-Santa-Cruz-Preview/tree/main/Sample-Scripts-and-Notebooks/Official/Scripts) Python utiles pour la gestion des jeux de données et le [programme d’installation du pack d’outils de développement](https://github.com/microsoft/Project-Santa-Cruz-Preview/blob/main/Sample-Scripts-and-Notebooks/Official/Machine%20Learning%20Notebooks/dev-tools-installer.md), qui installe et configure tous les outils nécessaires au développement d’une solution IA avancée.
+* Intégration d’un modèle d’intelligence artificielle personnalisé à l’appareil
+* Mise à jour d’un modèle déjà pris en charge avec l’apprentissage de transfert
+* Et plus encore

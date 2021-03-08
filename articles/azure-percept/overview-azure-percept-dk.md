@@ -7,26 +7,27 @@ ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 02/18/2021
 ms.custom: template-concept
-ms.openlocfilehash: 4fd0a7cb575a109d1393527b48de3fa4e3446167
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 4c2ace609d67cc48d1b73bdb044e7048ebda21e7
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101660451"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102098330"
 ---
 # <a name="azure-percept-dk-overview"></a>Vue d’ensemble du DK Azure Percept
 
-Le DK Azure Percept est un kit de développement d’IA Edge conçu pour le développement de la preuve de concept de l’IA de vision. Lorsqu’il est associé à [Azure Percept Studio](./overview-azure-percept-studio.md), il devient une plateforme puissante et facile à utiliser permettant de créer des solutions d’intelligence artificielle Edge pour un large éventail d’applications de vision. Il est disponible à l’achat sur [Microsoft Store en ligne](https://go.microsoft.com/fwlink/p/?LinkId=2155270).
+Azure Percept DK est un kit de développement IA et IoT Edge conçu pour le développement de preuves de concept IA de vision et d’audio. Associé à [Azure Percept Studio](./overview-azure-percept-studio.md) et à [Azure Percept Audio](./overview-azure-percept-audio.md), il devient une plateforme puissante et facile à utiliser permettant de créer des solutions d’intelligence artificielle Edge pour un large éventail d’applications IA de vision et d’audio. Il est disponible à l’achat sur [Microsoft Store en ligne](https://go.microsoft.com/fwlink/p/?LinkId=2155270).
 
-:::image type="content" source="./media/overview-azure-percept-dk/dk-image.png" alt-text="Image.":::
+:::image type="content" source="./media/overview-azure-percept-dk/dk-image.png" alt-text="Appareil Azure Percept DK.":::
 
 ## <a name="key-features"></a>Principales fonctionnalités
 
 - **Capacité d’exécuter l’intelligence artificielle à la périphérie**. Avec l’accélération matérielle intégrée, il peut exécuter des modèles d’IA de vision sans connexion au Cloud.
 - **Sécurité intégrée avec racine matérielle de confiance**. Pour plus d’informations, consultez la vue d’ensemble de la [sécurité Azure Percept](./overview-percept-security.md).
 - **Intégration transparente à [Azure Percept Studio](./overview-azure-percept-studio.md)** et à d’autres services Azure. Par exemple, Azure IoT Hub, Azure Cognitive Services et [Live Video Analytics](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/overview).
+- **Intégration transparente avec [Azure Percept Audio](./overview-azure-percept-audio.md) (facultatif)**
 - **Prise en charge des principales plateformes d’IA**. Par exemple, ONNX et TensorFlow.
-- **Intégration au système de rails 80/20**. Pour faciliter la création de prototypes dans les environnements de production. En savoir plus sur l’[intégration 80/20](./overview-8020-integration.md).
+- **Intégration au système de rails 80/20**. Pour faciliter la création de prototypes dans les environnements de production. En savoir plus sur [l’intégration 80/20](./overview-8020-integration.md).
 
 ## <a name="hardware-components"></a>Composants matériels
 

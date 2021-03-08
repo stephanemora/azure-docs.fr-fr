@@ -1,20 +1,21 @@
 ---
-title: Stratégies IPsec par défaut Azure Virtual WAN | Microsoft Docs
+title: Stratégies IPsec site à site de réseau étendu virtuel
+titleSuffix: Azure Virtual WAN
 description: En savoir plus sur les stratégies de connectivité IPsec d’Azure Virtual WAN, notamment les stratégies par défaut de l’initiateur et du répondeur et les combinaisons de stratégies personnalisées.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 02/24/2021
 ms.author: cherylmc
-ms.openlocfilehash: 30c58a26a326370a2566bc9ebbec33bfbd4b3173
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 94225ea6ef8b53a83388b2be6ea3b32c1e5204bf
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91267361"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726680"
 ---
-# <a name="virtual-wan-default-policies-for-ipsec-connectivity"></a>Stratégies par défaut Virtual WAN pour la connectivité IPsec
+# <a name="site-to-site-ipsec-policies"></a>Stratégies IPsec site à site
 
 Cet article montre les combinaisons de stratégies IPsec prises en charge.
 
@@ -29,4 +30,5 @@ Cet article montre les combinaisons de stratégies IPsec prises en charge.
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour connaître les étapes de configuration d’une stratégie IPsec personnalisée, consultez [Configurer une stratégie IPsec personnalisée pour Virtual WAN](virtual-wan-custom-ipsec-portal.md).
+
 Pour en plus sur le réseau WAN virtuel, consultez [À propos du réseau WAN virtuel Azure](virtual-wan-about.md) et la [FAQ sur le réseau WAN virtuel Azure](virtual-wan-faq.md).

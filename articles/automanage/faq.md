@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: troubleshooting
 ms.date: 02/22/2021
 ms.author: deanwe
-ms.openlocfilehash: 214730733780ef3492048f697b1c5e180434a527
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 0b4e116210cf68dc672122ad4ddc98f85067f3b8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101654015"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688006"
 ---
 # <a name="frequently-asked-questions-for-azure-automanage-for-vms"></a>Forum aux questions sur Azure Automanage pour machines virtuelles
 
@@ -80,7 +80,7 @@ Azure Automanage est disponible sans coût supplémentaire en préversion publiq
 
 **Puis-je appliquer Automanage par le biais d’Azure Policy ?**
 
-Oui, nous disposons d’une stratégie intégrée qui applique automatiquement Automanage à toutes les machines virtuelles au sein de votre étendue définie. Vous devez également spécifier le profil de configuration (DevTest ou Production) en même temps que votre compte Automanage. Apprenez-en davantage sur l’activation d’Automanage via Azure Policy [ici](virtual-machines-policy-enable.md).
+Oui, nous disposons d’une stratégie intégrée qui applique automatiquement Automanage à toutes les machines virtuelles au sein de votre étendue définie. Vous devez également spécifier la configuration de l’environnement (DevTest ou Production) ainsi que votre compte Automanage. Apprenez-en davantage sur l’activation d’Automanage via Azure Policy [ici](virtual-machines-policy-enable.md).
 
 
 **Qu’est-ce qu’un compte Automanage ?**
@@ -93,9 +93,9 @@ Le compte Automanage est une MSI (Managed Service Identity) qui fournit le conte
 Si votre machine virtuelle est liée à un espace de travail Log Analytics existant, nous réutiliserons cet espace de travail pour appliquer ces solutions : Change Tracking, Inventaire et Update Management. Ces solutions seront activées sur toutes les machines virtuelles connectées à cet espace de travail.
 
 
-**Puis-je modifier le profil de configuration de ma machine virtuelle ?**
+**Puis-je modifier l’environnement de ma machine virtuelle ?**
 
-Actuellement, vous devez désactiver Automanage pour cette machine virtuelle, puis le réactiver avec le profil de configuration et les préférences souhaités.
+À ce stade, vous devez désactiver Automanage pour cette machine virtuelle, puis réactiver Automanage avec l’environnement et les préférences que vous souhaitez.
 
 
 **Si ma machine virtuelle est déjà configurée pour un service, tel Update Management, Automanage va-t-il la reconfigurer ?**

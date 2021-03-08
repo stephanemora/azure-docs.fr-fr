@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: how-to
-ms.date: 12/16/2020
-ms.openlocfilehash: 242980ac1b89345ed9d8ff903e65129cff3cb917
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.date: 02/23/2021
+ms.openlocfilehash: dc309e85373193e4f5d431f543ff3e59ea5bebc7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97964097"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101739260"
 ---
 # <a name="share-and-receive-data-from-azure-blob-storage-and-azure-data-lake-storage"></a>Partager et recevoir des données à partir de Stockage Blob Azure et d’Azure Data Lake Storage
 
@@ -24,6 +24,7 @@ Azure Data Share prend en charge le partage de fichiers, dossiers et de système
 Lorsque les systèmes de fichiers, les conteneurs ou les dossiers sont partagés dans un partage basé sur un instantané, les consommateurs de données peuvent choisir d’effectuer une copie complète des données de partage. Ils peuvent également utiliser la fonctionnalité d’instantané incrémentiel pour copier uniquement les fichiers nouveaux ou mis à jour. La fonctionnalité d’instantané incrémentiel est basée sur l’heure de la dernière modification des fichiers. 
 
 Les fichiers existants portant le même nom seront remplacés lors d’un instantané. Un fichier supprimé de la source n’est pas supprimé de la cible. Les sous-dossiers vides sur la source ne sont pas copiés vers la cible. 
+
 ## <a name="share-data"></a>Partager des données
 
 Utilisez les informations des sections suivantes pour partager des données à l’aide d’Azure Data Share. 
@@ -184,7 +185,7 @@ Suivez les étapes de cette section pour configurer un emplacement de réception
 ### <a name="trigger-a-snapshot"></a>Déclencher une capture instantanée
 Les étapes de cette section s’appliquent uniquement au partage basé sur un instantané.
 
-1. Vous pouvez déclencher un instantané à partir de l’onglet **Détails**. Sous l’onglet, sélectionnez **Déclencher un instantané**. Vous pouvez choisir de déclencher un instantané complet ou un instantané incrémentiel de vos données. Si vous recevez pour la première fois des données de votre fournisseur de données, sélectionnez **Copie complète**. 
+1. Vous pouvez déclencher un instantané à partir de l’onglet **Détails**. Sous l’onglet, sélectionnez **Déclencher un instantané**. Vous pouvez choisir de déclencher un instantané complet ou un instantané incrémentiel de vos données. Si vous recevez pour la première fois des données de votre fournisseur de données, sélectionnez **Copie complète**. Quand un instantané est en cours d’exécution, les instantanés suivants ne démarrent pas tant que l’exécution de l’instantané précédent n’est pas terminée.
 
    ![Capture d’écran montrant la sélection de l’option Déclencher un instantané.](./media/trigger-snapshot.png "Déclencher un instantané.") 
 
@@ -194,6 +195,14 @@ Les étapes de cette section s’appliquent uniquement au partage basé sur un i
 
 ### <a name="view-history"></a>Afficher l’historique
 Vous pouvez afficher l’historique de vos instantanés uniquement dans un partage basé sur un instantané. Pour afficher l’historique, ouvrez l’onglet **Historique**. Vous trouverez ici l’historique de tous les instantanés générés au cours des 30 derniers jours. 
+
+## <a name="storage-snapshot-performance"></a>Performance de capture instantanée de stockage
+La performance de capture instantanée de stockage est affectées par un certain nombre de facteurs en plus du nombre de fichiers et de la taille des données partagées. Il est toujours recommandé d’effectuer vos propres tests de performances. Voici quelques exemples de facteurs qui ont un impact sur les performances.
+
+* Accès simultané aux magasins de données sources et cibles.  
+* Emplacement des magasins de données sources et cibles. 
+* Pour un instantané incrémentiel, le nombre de fichiers dans le jeu de données partagé peut avoir un impact sur le temps nécessaire pour trouver la liste des fichiers dont l’heure de dernière modification est postérieure à la dernière capture instantanée réussie. 
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 Vous avez appris à partager et recevoir des données à partir d’un compte de stockage à l’aide du service Azure Data Share. Pour en savoir plus sur le partage à partir d’autres sources de données, consultez [Magasins de données pris en charge](supported-data-stores.md).

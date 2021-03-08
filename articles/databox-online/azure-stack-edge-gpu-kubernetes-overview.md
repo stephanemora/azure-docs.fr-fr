@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 08/28/2020
+ms.date: 03/01/2021
 ms.author: alkohli
-ms.openlocfilehash: 5b96e568b57c34fec1c93727aabe8e739a2a45cd
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 6e9ae9b8d9d1154d55991d078af0faef65ff654b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96448648"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699570"
 ---
 # <a name="kubernetes-on-your-azure-stack-edge-pro-gpu-device"></a>Kubernetes sur votre appareil Azure Stack Edge Pro avec GPU
 
@@ -107,6 +107,16 @@ Pour plus d’informations sur le déploiement d’applications sur votre cluste
 ### <a name="kubernetes-and-azure-arc"></a>Kubernetes et Azure Arc
 
 Azure Arc est un outil de gestion hybride qui vous permet de déployer des applications sur vos clusters Kubernetes. Azure Arc vous permet également d’utiliser Azure Monitor pour conteneurs afin d’afficher et de surveiller vos clusters. Pour plus d’informations, consultez [Qu’est-ce que Kubernetes avec Azure Arc ?](../azure-arc/kubernetes/overview.md). Pour plus d’informations sur la tarification d’Azure Arc, consultez [Tarification d’Azure Arc](https://azure.microsoft.com/services/azure-arc/#pricing).
+
+À compter de mars 2021, Kubernetes avec Azure Arc sera mis à la disposition générale pour les utilisateurs, et des frais d’utilisation standard s’appliquent. En tant que client de préversion apprécié, vous pouvez disposer de Kubernetes avec Azure Arc gratuitement pour des appareils Azure Stack Edge. Pour bénéficier de l’offre en préversion, créez une [Demande de support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) :
+
+1. Sous **Type de problème**, sélectionnez **Facturation**.
+2. Sous **Abonnement**, sélectionnez votre abonnement.
+3. Sous **Service**, sélectionnez **Mes services**, puis **Azure Stack Edge**.
+4. Sous **Ressource**, sélectionnez votre ressource.
+5. Sous **Résumé**, entrez une description de votre problème.
+6. Sous **Type de problème**, sélectionnez **Frais imprévus**.
+7. Sous **Sous-type de problème**, sélectionnez **M’aider à comprendre les frais facturés sur mon essai gratuit**.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

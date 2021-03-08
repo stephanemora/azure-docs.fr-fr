@@ -4,19 +4,21 @@ description: 'Benchmark de sécurité Azure v2 : Journalisation et détection 
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/20/2020
+ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 2a0ce52c094739ffbbce2f93a41b2533222066b8
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a274ec1aab3f530700f89ef810fa667fdf4d08e6
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100576813"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102042978"
 ---
 # <a name="security-control-v2-logging-and-threat-detection"></a>Contrôle de sécurité V2 : Journalisation et détection des menaces
 
-La fonctionnalité Journalisation et détection des menaces recouvre les contrôles destinés à détecter les menaces dans Azure et à activer, collecter et stocker les journaux d’audit pour les services Azure. Cela comprend l’activation des processus de détection, d’investigation et de correction avec des contrôles visant à générer des alertes de haute qualité avec la détection native des menaces dans les services Azure. Cela inclut également la collecte des journaux avec Azure Monitor, la centralisation de l’analyse de la sécurité avec Azure Sentinel, la synchronisation de l’heure et la rétention des journaux. 
+La fonctionnalité Journalisation et détection des menaces recouvre les contrôles destinés à détecter les menaces dans Azure et à activer, collecter et stocker les journaux d’audit pour les services Azure. Cela comprend l’activation des processus de détection, d’investigation et de correction avec des contrôles visant à générer des alertes de haute qualité avec la détection native des menaces dans les services Azure. Cela inclut également la collecte des journaux avec Azure Monitor, la centralisation de l’analyse de la sécurité avec Azure Sentinel, la synchronisation de l’heure et la rétention des journaux.
+
+Pour afficher l’instance Azure Policy intégrée applicable, consultez [Informations sur l’initiative intégrée Conformité réglementaire Azure Security Benchmark : Journalisation et détection des menaces](../../governance/policy/samples/azure-security-benchmark.md#logging-and-threat-detection)
 
 ## <a name="lt-1-enable-threat-detection-for-azure-resources"></a>LT-1 : Activer la détection des menaces pour les ressources Azure
 
@@ -46,7 +48,7 @@ En outre, utilisez Azure Sentinel pour créer des règles d’analyse, qui repè
 
 - [Opérations de sécurité](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
-- [Gestion de la posture](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)   
+- [Gestion de la posture](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)
 
 - [Sécurité des applications et DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 
@@ -83,9 +85,9 @@ Azure Security Center pouvez également alerter en cas de certaines activités s
 
 - [Opérations de sécurité](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
-- [Gestion de la posture](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)   
+- [Gestion de la posture](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)
 
-- [Sécurité des applications et DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
+- [Sécurité des applications et DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
 - [Renseignement sur les menaces](/azure/cloud-adoption-framework/organize/cloud-security-threat-intelligence)
 
@@ -95,7 +97,9 @@ Azure Security Center pouvez également alerter en cas de certaines activités s
 |--|--|--|--|
 | LT-3 | 9.3, 12.2, 12.5, 12.8 | AU-3, AU-6, AU-12, SI-4 |
 
-Activez et collectez les journaux de ressources des groupes de sécurité réseau (NSG), les journaux de flux du NSG, les journaux de Pare-feu Azure et ceux de Web Application Firewall (WAF) afin d’analyser la sécurité et de prendre en charge les enquêtes sur les incidents, la chasse aux menaces et la génération d’alertes de sécurité. Vous pouvez envoyer les journaux de flux à un espace de travail Log Analytics sur Azure Monitor, puis utiliser Traffic Analytics pour obtenir des insights. Veillez à collecter les journaux de requêtes DNS pour faciliter la corrélation d’autres données réseau.
+Activez et collectez les journaux de ressources des groupes de sécurité réseau (NSG), les journaux de flux du NSG, les journaux de Pare-feu Azure et ceux de Web Application Firewall (WAF) afin d’analyser la sécurité et de prendre en charge les enquêtes sur les incidents, la chasse aux menaces et la génération d’alertes de sécurité. Vous pouvez envoyer les journaux de flux à un espace de travail Log Analytics sur Azure Monitor, puis utiliser Traffic Analytics pour obtenir des insights.
+
+Veillez à collecter les journaux de requêtes DNS pour faciliter la corrélation d’autres données réseau.
 
 - [Tutoriel : journaliser le trafic réseau à destination et en provenance d’une machine virtuelle à l’aide du portail Azure](../../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
@@ -117,7 +121,7 @@ Activez et collectez les journaux de ressources des groupes de sécurité résea
 
 - [Opérations de sécurité](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
-- [Gestion de la posture](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)   
+- [Gestion de la posture](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)
 
 - [Sécurité des applications et DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 
@@ -131,7 +135,7 @@ Activez et collectez les journaux de ressources des groupes de sécurité résea
 
 Activez la journalisation des ressources Azure pour répondre aux exigences de conformité, de détection des menaces, de chasse aux menaces et d’investigation des incidents. 
 
-Vous pouvez utiliser Azure Security Center et Azure Policy pour activer les journaux de ressources et la collecte des données de journal sur les ressources Azure pour accéder aux journaux d’audit, de sécurité et de ressources. Les journaux d’activité, automatiquement disponibles, incluent la source de l’événement, la date, l’utilisateur, l’horodatage, les adresses sources, les adresses de destination et d’autres éléments utiles. 
+Vous pouvez utiliser Azure Security Center et Azure Policy pour activer les journaux de ressources et la collecte des données de journal sur les ressources Azure pour accéder aux journaux d’audit, de sécurité et de ressources. Les journaux d’activité, automatiquement disponibles, incluent la source de l’événement, la date, l’utilisateur, l’horodatage, les adresses sources, les adresses de destination et d’autres éléments utiles.
 
 - [Présentation de la journalisation et des différents types de journaux dans Azure](../../azure-monitor/essentials/platform-logs-overview.md)
 
@@ -145,7 +149,7 @@ Vous pouvez utiliser Azure Security Center et Azure Policy pour activer les jour
 
 Sécurité d’infrastructure et de point de terminaison 
 
-- [Sécurité des applications et DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
+- [Sécurité des applications et DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
 - [Renseignement sur les menaces](/azure/cloud-adoption-framework/organize/cloud-security-threat-intelligence)
 
@@ -155,13 +159,13 @@ Sécurité d’infrastructure et de point de terminaison
 |--|--|--|--|
 | LT-5 | 6.5, 6.6 | AU-3, SI-4 |
 
-Centralisez le stockage et l’analyse de la journalisation pour activer la corrélation. Pour chaque source de journal, assurez-vous d’avoir attribué un propriétaire de données, des conseils d’accès, un emplacement de stockage, les outils utilisés pour traiter les données et y accéder, ainsi que les exigences de conservation des données.
+Centralisez le stockage et l’analyse de la journalisation pour activer la corrélation. Pour chaque source de journal, assurez-vous d’avoir attribué un propriétaire de données, des conseils d’accès, un emplacement de stockage, les outils utilisés pour traiter les données et y accéder, ainsi que les exigences en matière de conservation des données.
 
 Veillez à intégrer les journaux d’activité Azure dans votre journalisation centralisée. Ingérez des journaux par le biais d’Azure Monitor pour agréger les données de sécurité générées par les appareils de point de terminaison, les ressources réseau et d’autres systèmes de sécurité. Dans Azure Monitor, utilisez des espaces de travail Log Analytics pour interroger et effectuer l’analytique, et utilisez des comptes Stockage Azure pour le stockage à long terme et l’archivage.
 
 En outre, activez et intégrez les données dans Azure Sentinel ou une solution SIEM tierce.
 
-De nombreuses organisations choisissent d’utiliser Azure Sentinel pour les données « chaudes » qui sont utilisées fréquemment et Stockage Azure pour les données « froides » qui sont utilisées moins fréquemment. 
+De nombreuses organisations choisissent d’utiliser Azure Sentinel pour les données « chaudes » qui sont utilisées fréquemment et Stockage Azure pour les données « froides » qui sont utilisées moins fréquemment.
 
 - [Guide pratique pour collecter des journaux et des métriques de plateforme avec Azure Monitor](../../azure-monitor/essentials/diagnostic-settings.md)
 
@@ -189,7 +193,7 @@ Dans Azure Monitor, vous pouvez définir la période de rétention de votre espa
 
 - [Modification de la période de conservation des données dans Log Analytics](../../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
-- [Guide pratique pour configurer la stratégie de conservation des journaux de compte de Stockage Azure](../../storage/common/storage-monitor-storage-account.md#configure-logging)
+- [Guide pratique pour configurer la stratégie de conservation des journaux de compte de Stockage Azure](../../storage/common/manage-storage-analytics-logs.md#configure-logging)
 
 - [Exportation des alertes et recommandations Azure Security Center](../../security-center/continuous-export.md)
 
@@ -199,9 +203,9 @@ Dans Azure Monitor, vous pouvez définir la période de rétention de votre espa
 
 - [Architecture de la sécurité](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
-- [Sécurité des applications et DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
+- [Sécurité des applications et DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
-- [Opérations de sécurité](/azure/cloud-adoption-framework/organize/cloud-security-operations-center) 
+- [Opérations de sécurité](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [Gestion de la conformité de la sécurité](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
@@ -211,7 +215,7 @@ Dans Azure Monitor, vous pouvez définir la période de rétention de votre espa
 |--|--|--|--|
 | LT-7 | 6.1 | AU-8 |
 
-Microsoft gère les sources temporelles pour la plupart des services PaaS et SaaS d’Azure. Pour vos machines virtuelles, utilisez le serveur NTP par défaut de Microsoft pour la synchronisation de l’heure, sauf si vous avez une exigence spécifique.  Si vous devez mettre en place votre propre serveur NTP (Network Time Protocol), veillez à sécuriser le port 123 du service UDP.
+Microsoft gère les sources temporelles pour la plupart des services PaaS et SaaS d’Azure. Pour vos machines virtuelles, utilisez le serveur NTP par défaut de Microsoft pour la synchronisation de l’heure, sauf si vous avez une exigence spécifique. Si vous devez mettre en place votre propre serveur NTP (Network Time Protocol), veillez à sécuriser le port 123 du service UDP.
 
 Tous les journaux générés par des ressources dans Azure fournissent des horodatages avec le fuseau horaire spécifié par défaut.
 

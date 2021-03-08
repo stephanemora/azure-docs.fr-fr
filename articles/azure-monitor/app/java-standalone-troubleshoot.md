@@ -4,12 +4,12 @@ description: Découvrez comment résoudre les problèmes liés à l’agent Java
 ms.topic: conceptual
 ms.date: 11/30/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 90e0ceb6ba9d696eb446d607ed2f2f134733618e
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 286354ecf508dec7b9ba7633bf3b5c7ddc6bfd91
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881134"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737055"
 ---
 # <a name="troubleshooting-guide-azure-monitor-application-insights-for-java"></a>Guide de résolution des problèmes : Azure Monitor Application Insights pour Java
 
@@ -45,15 +45,23 @@ La journalisation n’est capturée que si elle respecte, premièrement, le seui
 
 La meilleure façon de savoir si une instruction de journalisation particulière respecte le seuil configuré des frameworks de journalisation est de confirmer qu’elle apparaît dans le journal des applications (par exemple, fichier ou console).
 
+Notez également que, si une exception est transmise à l’enregistreur d’événements, le message de journal (et l’exception) s’affichent dans le portail Azure dans la table `exceptions` au lieu de la table `traces`.
+
 Pour plus d’informations, consultez la [configuration de la journalisation collectée automatiquement](./java-standalone-config.md#auto-collected-logging).
 
 ## <a name="import-ssl-certificates"></a>Importer des certificats SSL
 
 Cette section vous aide à dépanner et éventuellement à corriger les exceptions liées aux certificats SSL lors de l’utilisation de l’agent Java.
 
-Il existe deux voies différentes pour résoudre ce problème.
+Deux chemins différents sont présentés ci-dessous pour résoudre ce problème :
+* Si vous utilisez un magasin de clés Java par défaut
+* Si vous utilisez un magasin de clés Java personnalisé
 
-### <a name="if-using-a-default-java-keystore"></a>Si vous utilisez un magasin de clés Java par défaut :
+Si vous ne savez pas quel chemin suivre, vérifiez si vous disposez d’un argument JVM `-Djavax.net.ssl.trustStore=...`.
+Si vous _n’avez pas_ un tel argument JVM, vous utilisez probablement le magasin de clés Java par défaut.
+Si vous _avez_ un tel argument JVM, vous utilisez probablement un magasin de clés personnalisé, et l’argument JVM vous dirige vers votre magasin de clés personnalisé.
+
+### <a name="if-using-the-default-java-keystore"></a>Si vous utilisez le magasin de clés Java par défaut :
 
 En règle générale, le magasin de clés Java par défaut aura déjà tous les certificats racine de l’autorité de certification. Toutefois, il peut y avoir des exceptions, par exemple le certificat du point de terminaison d’ingestion, qui peut être signé par un autre certificat racine. Nous vous recommandons donc d’effectuer les trois étapes suivantes pour résoudre ce problème :
 
@@ -68,7 +76,7 @@ En règle générale, le magasin de clés Java par défaut aura déjà tous les 
     Une fois le certificat téléchargé, générez un hachage SHA-1 sur le certificat à l’aide de la commande ci-dessous :
     > `keytool -printcert -v -file "your_downloaded_root_certificate.cer"`
  
-    Copiez la valeur SHA-1 et vérifiez si cette valeur est présente dans le fichier « temp.txt » que vous avez enregistré précédemment.  Si vous ne pouvez pas trouver la valeur SHA-1 dans le fichier temporaire, cela signifie que le certificat racine téléchargé est manquant dans le magasin de clés Java par défaut.
+    Copiez la valeur SHA-1 et vérifiez si cette valeur est présente dans le fichier « temp.txt » que vous avez enregistré précédemment.  Si vous ne trouvez pas la valeur SHA-1 dans le fichier temporaire, cela signifie que le certificat racine téléchargé est manquant dans le magasin de clés Java par défaut.
 
 
 3. Importez le certificat racine dans le magasin de clés Java par défaut à l’aide de la commande suivante :

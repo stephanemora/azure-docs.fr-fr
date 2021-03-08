@@ -1,29 +1,28 @@
 ---
-title: Intégrer un mappage Azure Monitor pour machines virtuelles avec Operations Manager | Microsoft Docs
-description: Azure Monitor pour machines virtuelles découvre automatiquement les composants d’application sur les systèmes Windows et Linux, et cartographie la communication entre les différents services. Cet article décrit l’utilisation de la fonctionnalité Map pour créer automatiquement des diagrammes d’application distribuée dans Operations Manager.
-ms.subservice: ''
+title: Intégrer la fonctionnalité Carte de VM Insights avec Operations Manager | Microsoft Docs
+description: VM Insights découvre automatiquement les composants d’application sur les systèmes Windows et Linux, et cartographie la communication entre les services. Cet article décrit l’utilisation de la fonctionnalité Map pour créer automatiquement des diagrammes d’application distribuée dans Operations Manager.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/12/2019
-ms.openlocfilehash: 0722a1806cc94102f92045c78850d96ed9890d02
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 3a7d0d49313cb524a5bf39add5c9a55862dcad47
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100598363"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102046888"
 ---
-# <a name="integrate-system-center-operations-manager-with-azure-monitor-for-vms-map-feature"></a>Intégrer System Center Operations Manager avec la fonctionnalité de mappage Azure Monitor pour machines virtuelles
+# <a name="integrate-system-center-operations-manager-with-vm-insights-map-feature"></a>Intégrer System Center Operations Manager avec la fonctionnalité Carte de VM Insights
 
-Dans Azure Monitor pour machines virtuelles, vous pouvez voir les composants d’application qui ont été détectés sur les machines virtuelles Windows et Linux exécutées dans Azure ou votre environnement. Avec cette intégration entre la fonctionnalité Map et System Center Operations Manager, vous pouvez créer automatiquement des diagrammes d’application distribuée dans Operations Manager basés sur des cartes de dépendance dynamique dans Azure Monitor pour machines virtuelles. Cet article explique comment configurer votre groupe d’administration System Center Operations Manager pour prendre en charge cette fonctionnalité.
+Dans VM Insights, vous pouvez voir les composants d’application qui ont été détectés sur les machines virtuelles Windows et Linux exécutées dans Azure ou votre environnement. Avec cette intégration entre la fonctionnalité Carte et System Center Operations Manager, vous pouvez créer automatiquement des diagrammes d’application distribuée dans Operations Manager basés sur des cartes de dépendance dynamique dans VM Insights. Cet article explique comment configurer votre groupe d’administration System Center Operations Manager pour prendre en charge cette fonctionnalité.
 
 >[!NOTE]
->Si vous avez déjà déployé Service Map, vous pouvez visualiser vos cartes dans Azure Monitor pour machines virtuelles, qui inclut des fonctionnalités supplémentaires pour la supervision de l’intégrité et des performances des machines virtuelles. La fonctionnalité Map d’Azure Monitor pour machines virtuelles est destinée à remplacer la solution autonome Service Map. Pour en savoir plus, consultez [Présentation d’Azure Monitor pour machines virtuelles](../vm/vminsights-overview.md).
+>Si vous avez déjà déployé Service Map, vous pouvez visualiser vos cartes dans VM Insights, qui inclut des fonctionnalités supplémentaires pour la surveillance de l’intégrité et des performances des machines virtuelles. La fonctionnalité Carte de VM Insights est destinée à remplacer la solution autonome Service Map. Pour plus d’informations, consultez [Vue d’ensemble de VM Insights](../vm/vminsights-overview.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
 * Un groupe d’administration System Center Operations Manager (2012 R2 ou version ultérieure).
-* Un espace de travail Log Analytics configuré pour prendre en charge Azure Monitor pour machines virtuelles.
+* Un espace de travail Log Analytics configuré pour prendre en charge VM Insights.
 * Une ou plusieurs machines virtuelles Windows et Linux, ou des ordinateurs physiques supervisés par Operations Manager qui envoient des données à votre espace de travail Log Analytics. Les serveurs Linux qui envoient des rapports à un groupe d’administration Operations Manager doivent être configurés pour se connecter directement à Azure Monitor. Pour plus d’informations, consultez la vue d’ensemble dans [Collecter des données de journal avec l’agent Log Analytics](../agents/log-analytics-agent.md).
 * Un principal de service disposant d’un accès à l’abonnement Azure associé à l’espace de travail Log Analytics. Pour plus d’informations, consultez l’article [Créer un principal du service](#create-a-service-principal).
 
@@ -43,7 +42,7 @@ Après avoir installé le pack d’administration Service Map, un nouveau nœud,
 >[!NOTE]
 >[Operations Management Suite était une collection de services](../terminology.md#april-2018---retirement-of-operations-management-suite-brand) incluant Log Analytics, qui fait désormais partie intégrante d’[Azure Monitor](../overview.md).
 
-Pour configurer l’intégration de la fonctionnalité MAP d’Azure Monitor pour machines virtuelles, procédez comme suit :
+Pour configurer l’intégration de la fonctionnalité Carte de VM Insights, procédez comme suit :
 
 1. Cliquez sur **Ajouter un espace de travail** dans le volet de **vue d’ensemble de Service Map** pour ouvrir l’Assistant Configuration.  
 
@@ -66,7 +65,7 @@ Pour configurer l’intégration de la fonctionnalité MAP d’Azure Monitor pou
     Pour que l’intégration crée un diagramme d’application distribuée pour un serveur, le serveur doit être :
 
    * Supervisé par Operations Manager
-   * Configuré pour envoyer des rapports à l’espace de travail Log Analytics configuré avec Azure Monitor pour machines virtuelles
+   * Configuré pour envoyer des rapports à l’espace de travail Log Analytics configuré avec VM Insights
    * Répertorié dans le groupe de serveurs Service Map
 
      ![Groupe de configuration d’Operations Manager](media/service-map-scom/scom-config-group.png)
@@ -92,7 +91,7 @@ Le dossier Service Map possède quatre nœuds :
   >[!NOTE]
   >Ces alertes ne sont pas des alertes Log Analytics synchronisées avec Operations Manager. Elles sont générées dans le groupe d’administration en fonction des flux de travail définis dans le pack d’administration Service Map.
 
-* **Serveurs** : répertorie les serveurs supervisés configurés pour la synchronisation à partir de la fonctionnalité Map d’Azure Monitor pour machines virtuelles.
+* **Serveurs** : répertorie les serveurs supervisés configurés pour la synchronisation à partir de la fonctionnalité Carte de VM Insights.
 
     ![Panneau Analyse des serveurs d’Operations Manager](media/service-map-scom/scom-monitoring-servers.png)
 
@@ -117,7 +116,7 @@ Vous ne pouvez configurer qu’un seul espace de travail Log Analytics dans la v
 
 ## <a name="configure-rules-and-overrides"></a>Configuration des règles et des valeurs de remplacement
 
-Une règle, *Microsoft. SystemCenter. ServiceMapImport. Rule*, extrait périodiquement des informations de la fonctionnalité Map d’Azure Monitor pour machines virtuelles. Pour modifier l’intervalle de synchronisation, vous pouvez remplacer la règle et modifier la valeur du paramètre **IntervalMinutes**.
+Une règle, *Microsoft.SystemCenter.ServiceMapImport.Rule*, extrait périodiquement des informations de la fonctionnalité Carte de VM Insights. Pour modifier l’intervalle de synchronisation, vous pouvez remplacer la règle et modifier la valeur du paramètre **IntervalMinutes**.
 
 ![Fenêtre des propriétés des valeurs de remplacement Operations Manager](media/service-map-scom/scom-overrides.png)
 
@@ -131,8 +130,8 @@ Une règle, *Microsoft. SystemCenter. ServiceMapImport. Rule*, extrait périodiq
 La conception actuelle présente les problèmes et les limitations suivants :
 
 * Vous ne pouvez vous connecter qu’à un seul espace de travail Log Analytics.
-* Bien que vous puissiez ajouter des serveurs au Groupe de serveurs Service Map manuellement via le volet **Création**, les mappages de ces serveurs sont synchronisés immédiatement. Ils sont synchronisés à partir de la fonctionnalité Map d’Azure Monitor pour machines virtuelles lors du cycle de synchronisation suivant.
-* Si vous apportez des modifications aux diagrammes d’application distribuée créés par le pack d’administration, ces modifications seront probablement remplacées lors de la prochaine synchronisation avec Azure Monitor pour machines virtuelles.
+* Bien que vous puissiez ajouter des serveurs au Groupe de serveurs Service Map manuellement via le volet **Création**, les mappages de ces serveurs sont synchronisés immédiatement. Ils seront synchronisés à partir de la fonctionnalité Carte de VM Insights lors du prochain cycle de synchronisation.
+* Si vous apportez des modifications aux diagrammes d’application distribuée créée par le pack d’administration, ces modifications seront probablement remplacées dans la prochaine synchronisation avec VM Insights.
 
 ## <a name="create-a-service-principal"></a>Créer un principal du service
 
@@ -144,5 +143,5 @@ Pour obtenir une documentation Azure officielle sur la création d’un principa
 
 ### <a name="suggestions"></a>Suggestions
 
-Avez-vous des commentaires à nous adresser concernant l’intégration avec la fonctionnalité Map d’Azure Monitor pour machines virtuelles fonctionnalité Map ou cette documentation ? Consultez notre [page Voix utilisateur](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map) qui vous permet de suggérer des fonctionnalités ou de voter pour les suggestions en cours.
+Avez-vous des commentaires sur l’intégration avec la fonctionnalité Carte de VM Insights ou cette documentation ? Consultez notre [page Voix utilisateur](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map) qui vous permet de suggérer des fonctionnalités ou de voter pour les suggestions en cours.
 

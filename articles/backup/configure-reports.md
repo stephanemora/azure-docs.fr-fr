@@ -3,14 +3,14 @@ title: Configurer les rapports de la Sauvegarde Azure
 description: Configurez et affichez les rapports de la Sauvegarde Azure à l’aide de Log Analytics et des classeurs Azure.
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 39d1aa17c5e92eccd34013738937e49890109561
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 62bb59a8a77d11e30e54298317a35e1f883a9622
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897273"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710615"
 ---
-# <a name="configure-azure-backup-reports-preview"></a>Configurer les rapports Sauvegarde Azure (préversion)
+# <a name="configure-azure-backup-reports"></a>Configurer les rapports de la Sauvegarde Azure
 
 Les administrateurs de sauvegarde ont souvent besoin d’insights sur les sauvegardes, en fonction de données couvrant une longue période. Voici quelques-uns des cas d’usage d’une telle solution :
 
@@ -18,7 +18,7 @@ Les administrateurs de sauvegarde ont souvent besoin d’insights sur les sauveg
 - audit des sauvegardes et restaurations ;
 - identification des tendances clés à différents niveaux de granularité.
 
-Aujourd’hui, la Sauvegarde Azure fournit une solution de reporting qui utilise les [journaux Azure Monitor](../azure-monitor/log-query/log-analytics-tutorial.md) et les [classeurs Azure](../azure-monitor/platform/workbooks-overview.md). Ces ressources vous permettent d’obtenir de riches insights sur vos sauvegardes dans l’ensemble de votre espace de sauvegarde. Cet article explique comment configurer et afficher des rapports Sauvegarde Azure.
+Aujourd’hui, la Sauvegarde Azure fournit une solution de reporting qui utilise les [journaux Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md) et les [classeurs Azure](../azure-monitor/visualize/workbooks-overview.md). Ces ressources vous permettent d’obtenir de riches insights sur vos sauvegardes dans l’ensemble de votre espace de sauvegarde. Cet article explique comment configurer et afficher des rapports Sauvegarde Azure.
 
 ## <a name="supported-scenarios"></a>Scénarios pris en charge
 
@@ -41,9 +41,9 @@ Suivez cette procédure pour commencer à utiliser les rapports.
 
 Configurez un ou plusieurs espaces de travail Log Analytics pour stocker vos données de rapport de sauvegarde. L’emplacement et l’abonnement dans lesquels ces espaces de travail peuvent être créés dépendent de l’emplacement et de l’abonnement où se trouvent les coffres.
 
-Pour configurer un espace de travail Log Analytics, consultez [Création d’un espace de travail Log Analytics sur le Portail Azure](../azure-monitor/learn/quick-create-workspace.md).
+Pour configurer un espace de travail Log Analytics, consultez [Création d’un espace de travail Log Analytics sur le Portail Azure](../azure-monitor/logs/quick-create-workspace.md).
 
-Par défaut, les données d’un espace de travail Log Analytics sont conservées pendant 30 jours. Pour consulter les données sur un horizon temporel plus long, changez la période de rétention de l’espace de travail Log Analytics. Pour modifier cette période, consultez [Gestion de l’utilisation et des coûts avec les journaux Azure Monitor](../azure-monitor/platform/manage-cost-storage.md).
+Par défaut, les données d’un espace de travail Log Analytics sont conservées pendant 30 jours. Pour consulter les données sur un horizon temporel plus long, changez la période de rétention de l’espace de travail Log Analytics. Pour modifier cette période, consultez [Gestion de l’utilisation et des coûts avec les journaux Azure Monitor](../azure-monitor/logs/manage-cost-storage.md).
 
 ### <a name="2-configure-diagnostics-settings-for-your-vaults"></a>2. Configurer les paramètres de diagnostic des coffres
 
@@ -139,6 +139,20 @@ En sélectionnant la vignette **Optimisations de la stratégie**, puis de la vig
 Dans le filtre **Type de gestion des sauvegardes** en haut de l’onglet, les éléments **SQL dans la machine virtuelle Azure** et **SAP HANA dans la machine virtuelle Azure** doivent être sélectionnés pour que la grille puisse afficher les charges de travail de base de données comme prévu.
 
 ![Onglet Optimiser – Optimisations de planification des sauvegardes](./media/backup-azure-configure-backup-reports/optimize-backup-schedule.png)
+
+###### <a name="policy-adherence"></a>Adhésion à la stratégie
+
+Cet onglet vous permet de déterminer si toutes vos instances de sauvegarde ont eu au moins une sauvegarde réussie par jours. Vous pouvez voir l’adhésion à la stratégie par période ou par instance de sauvegarde.
+
+###### <a name="email-azure-backup-reports"></a>Rapports de messagerie sur Sauvegarde Azure
+
+La fonctionnalité **Rapport de messagerie** disponible dans Rapports de sauvegarde vous permet de créer des tâches automatisées pour recevoir des rapports périodiques par e-mail. Cette fonctionnalité fonctionne en déployant une application logique dans votre environnement Azure, qui interroge les données de vos espaces de travail Log Analytics (LA) sélectionnés, en fonction des entrées que vous faites.
+
+Une fois l’application logique créée, vous devez autoriser les connexions aux Journaux d’Azure Monitor et à Office 365. Pour ce faire, accédez à **Logic Apps** dans le portail Azure, puis recherchez le nom de la tâche que vous avez créée. La sélection de l’élément de menu **Connexions d’API** a pour effet d’ouvrir la liste des connexions d’API que vous devez autoriser.
+
+###### <a name="customize-azure-backup-reports"></a>Personnaliser les rapports de Sauvegarde Azure
+
+Les Rapports de sauvegarde utilisent des fonctions sur des journaux d’Azure Monitor. Ces fonctions opèrent sur des données figurant dans des tables de Sauvegarde Azure brutes de LA, et retournent des données mises en forme qui vous permettent de récupérer facilement les informations de toutes vos entités liées à la sauvegarde, à l’aide de requêtes simples.
 
 ## <a name="export-to-excel"></a>Exporter vers Excel
 

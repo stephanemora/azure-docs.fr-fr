@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/05/2020
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 9f01961ec7c7f8e0a4e2d72e28e6def50e93ad5d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b75e6e0a8b79f374900e6cb2dfc49680d3d0190
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91854305"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101739056"
 ---
 # <a name="tutorial-configure-a-virtual-network-gateway-for-expressroute-using-powershell"></a>Tutoriel : Configurer une passerelle de réseau virtuel pour ExpressRoute à l’aide de PowerShell
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ Ce tutoriel vous aide à ajouter, redimensionner et supprimer une passerelle de 
 
 Dans ce tutoriel, vous allez apprendre à :
 > [!div class="checklist"]
-> - créer un sous-réseau de passerelle ;
+> - créez un sous-réseau de passerelle ;
 > - créer une passerelle de réseau virtuel.
 
 ## <a name="prerequisites"></a>Prérequis
@@ -53,6 +53,11 @@ Les étapes de cette tâche utilisent un réseau virtuel basé sur les valeurs f
 | Type | *ExpressRoute* |
 | Nom d’IP publique de passerelle  | *gwpip* |
 
+> [!IMPORTANT]
+> La prise en charge du protocole IPv6 pour le peering privé est actuellement en **préversion publique**. Si vous souhaitez connecter votre réseau virtuel à un circuit ExpressRoute avec un peering privée IPv6 configuré, assurez-vous que votre réseau virtuel est en double pile et respecte les recommandations décrites [ici](https://docs.microsoft.com/azure/virtual-network/ipv6-overview).
+> 
+> 
+
 ## <a name="add-a-gateway"></a>Ajout d’une passerelle
 
 1. Pour vous connecter à Azure, exécutez `Connect-AzAccount`.
@@ -76,6 +81,11 @@ Les étapes de cette tâche utilisent un réseau virtuel basé sur les valeurs f
 
    ```azurepowershell-interactive
    Add-AzVirtualNetworkSubnetConfig -Name GatewaySubnet -VirtualNetwork $vnet -AddressPrefix 192.168.200.0/26
+   ```
+    Si vous utilisez un réseau virtuel à double pile et prévoyez d’utiliser un Peering privé IPv6 sur ExpressRoute, créez plutôt un sous-réseau de passerelle à double pile.
+
+   ```azurepowershell-interactive
+   Add-AzVirtualNetworkSubnetConfig -Name GatewaySubnet -VirtualNetwork $vnet -AddressPrefix "10.0.0.0/26","ace:daa:daaa:deaa::/64"
    ```
 1. Définissez la configuration.
 
@@ -102,6 +112,10 @@ Les étapes de cette tâche utilisent un réseau virtuel basé sur les valeurs f
    ```azurepowershell-interactive
    New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG -Location $Location -IpConfigurations $ipconf -GatewayType Expressroute -GatewaySku Standard
    ```
+> [!IMPORTANT]
+> Si vous prévoyez d’utiliser un Peering privé IPv6 sur ExpressRoute, veillez à sélectionner une référence (SKU) AZ (ErGw1AZ, ErGw2AZ, ErGw3AZ) pour **-GatewaySku**.
+> 
+> 
 
 ## <a name="verify-the-gateway-was-created"></a>Vérification de la création de la passerelle
 Utilisez les commandes suivantes pour vérifier que la passerelle a été créée :

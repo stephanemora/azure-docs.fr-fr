@@ -4,12 +4,12 @@ description: Dans cet article, découvrez les fonctionnalités de surveillance e
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: 74669a1347fac9f61d028d9cb1f3da174bb71f96
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 2273b66be88cb22a15d0779ed2918ba3d94da1ce
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99550339"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713369"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Surveillance des charges de travail de Sauvegarde Azure
 
@@ -119,6 +119,18 @@ Si la fréquence était définie sur une synthèse horaire et qu’une alerte a 
 Pour désactiver/résoudre une alerte active, vous pouvez sélectionner l’élément de liste correspondant à l’alerte que vous souhaitez désactiver. Cette opération ouvre un écran qui affiche des informations détaillées sur l’alerte, avec un bouton **Désactiver** en haut. Le fait de sélectionner ce bouton change l’état de l’alerte en **Inactif**. Vous pouvez également désactiver une alerte en cliquant avec le bouton droit sur l’élément de liste correspondant à cette alerte et en sélectionnant **Désactiver**.
 
 ![Désactivation d’alerte de coffre Recovery Services](media/backup-azure-monitoring-laworkspace/vault-alert-inactivation.png)
+
+## <a name="azure-monitor-alerts-for-azure-backup-preview"></a>Alertes d’Azure Monitor pour Sauvegarde Azure (préversion)
+
+Le service Sauvegarde Azure fournit également des alertes via Azure Monitor, afin de permettre aux utilisateurs de bénéficier d’une expérience cohérente de gestion des alertes dans différents services Azure, donc Sauvegarde. Vous pouvez router les alertes d’Azure Monitor vers n’importe quel canal de notification pris en charge par le service Sauvegarde Azure, par exemple, e-mail, ITSM, webhook, application logique, etc.
+
+Actuellement, cette fonctionnalité est disponible pour Azure Database pour PostgreSQL, les blobs Azure et les disques managés Azure. Des alertes sont générées pour les scénarios suivants. Elles sont accessibles en accédant à un coffre de sauvegarde et en cliquant sur l’élément de menu **Alertes** :
+
+- Supprimer des données de sauvegarde
+- Échec de la sauvegarde (pour recevoir des alertes en cas d’échec de la sauvegarde, vous devez inscrire l’indicateur AFEC nommé **EnableAzureBackupJobFailureAlertsToAzureMonitor** via le portail en préversion)
+- Échec de la restauration (pour obtenir des alertes en cas d’échec de la restauration, vous devez inscrire l’indicateur AFEC nommé **EnableAzureBackupJobFailureAlertsToAzureMonitor** via le portail en préversion)
+
+Pour plus d’informations concernant les alertes d’Azure Monitor, consultez [Vue d’ensemble des alertes dans Azure](https://docs.microsoft.com/azure/azure-monitor/alerts/alerts-overview).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

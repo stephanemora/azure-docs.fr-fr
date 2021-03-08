@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: overview
 ms.date: 02/18/2021
 ms.custom: template-overview
-ms.openlocfilehash: 0581e659eca0a59719db0dd0e48cf3628b64dd2a
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 85b7f3a62324bc93cd78649cd39e0f4dc7d0baed
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101664217"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102098194"
 ---
 # <a name="introduction-to-azure-percept"></a>Introduction à Azure Percept
 
@@ -22,21 +22,21 @@ Les problématiques de l’intégration rencontrées quand vous tentez de déplo
 
 - Identifier et sélectionner l’électronique appropriée servant de base aux solutions.
 - Garantir la sécurité collective du matériel, des logiciels, des modèles et des données.
-- La possibilité de créer et de gérer des solutions qui fonctionnent de façon homogène.
+- Créer et gérer des solutions qui fonctionnent de façon fluide à grande échelle.
 
 ## <a name="components-of-azure-percept"></a>Composants d’Azure Percept
 
 Les principaux composants d’Azure Percept sont les suivants :
 
-- Des programmes de conception de référence et de certification du matériel pour l’IA.
+1. Des programmes de conception de référence et de certification du matériel pour l’IA.
 
     - Fournit à l’écosystème des développeurs de matériel des modèles et des pratiques recommandées pour le développement de matériel IA en périphérie qui peut être intégré facilement aux services IA et IoT d’Azure.
 
-- Un DK (devkit) Azure Percept.
+2. Un DK (devkit) Azure Percept.
 
-    - Un kit de développement suffisamment flexible pour prendre en charge un large choix de scénarios de prototypage.
+    - Un kit de développement suffisamment flexible pour gérer un large éventail de scénarios de prototypage à destination des constructeurs d’appareils, des développeurs de solutions et des clients.
 
-- Des services et des workflows pour accélérer le développement de modèles et de solutions IA en périphérie.
+3. Des services et des workflows pour accélérer le développement de modèles et de solutions IA en périphérie.
 
     - Des workflows de développement et des modèles prédéfinis accessibles depuis Azure Percept Studio.
     - Des services de développement de modèles.

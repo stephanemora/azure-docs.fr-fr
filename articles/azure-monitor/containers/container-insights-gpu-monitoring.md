@@ -1,31 +1,31 @@
 ---
-title: Configurer la supervision de GPU avec Azure Monitor pour conteneurs | Microsoft Docs
-description: Cet article explique comment configurer la supervision de clusters Kubernetes constitués de nœuds équipés de GPU NVIDIA et AMD à l’aide d’Azure Monitor pour conteneurs.
+title: Configurer la surveillance de GPU à l’aide de Container Insights | Microsoft Docs
+description: Cet article explique comment configurer la surveillance des clusters Kubernetes constitués de nœuds équipés de GPU NVIDIA et AMD à l’aide de Container Insights.
 ms.topic: conceptual
 ms.date: 03/27/2020
-ms.openlocfilehash: 11a9de0872fd3e7589332322b3f8fb855d2c88ec
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 2958b000ac0dabcd7fddf75a58f553b705a95e9a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100600169"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731865"
 ---
-# <a name="configure-gpu-monitoring-with-azure-monitor-for-containers"></a>Configurer la supervision de GPU avec Azure Monitor pour conteneurs
+# <a name="configure-gpu-monitoring-with-container-insights"></a>Configurer la surveillance de GPU avec Container Insights
 
-Depuis sa version *ciprod03022019*, l’agent intégré d’Azure Monitor pour conteneurs prend désormais en charge la supervision de l’utilisation de GPU (cartes graphiques) sur les nœuds de cluster Kubernetes compatibles GPU et supervise les pods/conteneurs demandant et utilisant des ressources GPU.
+Depuis sa version *ciprod03022019*, l’agent intégré de Container Insights prend désormais en charge la surveillance de l’utilisation de GPU (cartes graphiques) sur les nœuds de cluster Kubernetes compatibles GPU, et surveille les pods/conteneurs demandant et utilisant des ressources GPU.
 
 ## <a name="supported-gpu-vendors"></a>Fabricants de GPU compatibles
 
-Azure Monitor pour conteneurs prend en charge la supervision des clusters de GPU des fabricants de GPU suivants :
+Container Insights prend en charge la surveillance des clusters de GPU des fabricants de GPU suivants :
 
 - [NVIDIA](https://developer.nvidia.com/kubernetes-gpu)
 
 - [AMD](https://github.com/RadeonOpenCompute/k8s-device-plugin)
 
-Azure Monitor pour conteneurs lance automatiquement la supervision de l’utilisation de GPU sur les nœuds ainsi que celle des demandes GPU en pods et en charges de travail, en collectant les métriques suivantes toutes les 60 secondes et en les stockant dans la table **InsightMetrics**.
+Container Insights démarre automatiquement la surveillance de l’utilisation de GPU sur les nœuds ainsi que celle des demandes GPU en pods et en charges de travail, en collectant les métriques suivantes toutes les 60 secondes et en les stockant dans la table **InsightMetrics**.
 
 >[!NOTE]
->Après le provisionnement d’un cluster avec les nœuds GPU, assurez-vous que le [pilote GPU](../../aks/gpu-cluster.md) est installé, comme exigé par AKS pour exécuter des charges de travail GPU. Azure Monitor pour conteneurs collecte les métriques GPU via des pods de pilote GPU s’exécutant dans le nœud. 
+>Après le provisionnement d’un cluster avec les nœuds GPU, assurez-vous que le [pilote GPU](../../aks/gpu-cluster.md) est installé, comme exigé par AKS pour exécuter des charges de travail GPU. Container Insights collecte les métriques de GPU via des pods de pilote GPU s’exécutant dans le nœud. 
 
 |Nom de métrique |Dimension de la métrique (balises) |Description |
 |------------|------------------------|------------|
@@ -39,7 +39,7 @@ Azure Monitor pour conteneurs lance automatiquement la supervision de l’utilis
 
 ## <a name="gpu-performance-charts"></a>Graphiques de performances de GPU 
 
-Azure Monitor pour conteneurs inclut des graphiques préconfigurés pour les métriques listées dans le tableau précédent sous la forme d’un classeur de GPU pour chaque cluster. Si vous souhaitez obtenir une description des classeurs Azure Monitor pour conteneurs, consultez [Classeurs Azure Monitor pour conteneurs](../insights/container-insights-reports.md).
+Container Insights inclut des graphiques préconfigurés pour les métriques listées dans le tableau précédent sous la forme d’un classeur GPU pour chaque cluster. Pour une description des classeurs disponibles dans Container insights, consultez [Classeurs dans Container Insights](../insights/container-insights-reports.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

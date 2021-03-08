@@ -1,26 +1,26 @@
 ---
-title: Voir Live Data (préversion) avec Azure Monitor pour conteneurs | Microsoft Docs
-description: Cet article décrit la vue en temps réel des journaux, métriques de pod et événements Kubernetes, sans l’utilisation de kubectl, dans Azure Monitor pour conteneurs.
+title: Voir Live Data (préversion) avec Container Insights | Microsoft Docs
+description: Cet article décrit la vue en temps réel des journaux, métriques de pod et événements Kubernetes, sans l’utilisation de kubectl, dans Container Insights.
 ms.topic: conceptual
 ms.date: 12/17/2020
 ms.custom: references_regions
-ms.openlocfilehash: 3655ff8e5879aa4113753b5529c1e484fb079401
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 7e644680916097bc453c30be63a7db324df5f8f6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100598602"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711227"
 ---
 # <a name="how-to-view-kubernetes-logs-events-and-pod-metrics-in-real-time"></a>Comment voir les journaux, métriques de pod et événements Kubernetes en temps réel
 
-Azure Monitor pour conteneurs comprend la fonctionnalité Live Data (préversion), une fonctionnalité de diagnostic avancé qui vous permet d’accéder directement aux journaux (stdout/stderror), métriques de pod et événements de conteneur Azure Kubernetes Service (AKS). Elle expose un accès direct aux `kubectl logs -c`, aux événements `kubectl get` et aux `kubectl top pods`. Un volet de la console affiche les journaux, les métriques et les événements générés par le moteur de conteneur, afin de faciliter la résolution des problèmes en temps réel.
+Container Insights comprend la fonctionnalité Live Data (préversion), une fonctionnalité de diagnostic avancé qui vous permet d’accéder directement aux journaux (stdout/stderror), métriques de pod et événements de conteneur Azure Kubernetes Service (AKS). Elle expose un accès direct aux `kubectl logs -c`, aux événements `kubectl get` et aux `kubectl top pods`. Un volet de la console affiche les journaux, les métriques et les événements générés par le moteur de conteneur, afin de faciliter la résolution des problèmes en temps réel.
 
 Cet article fournit une vue d’ensemble détaillée et vous aide à mieux comprendre l’utilisation de cette fonctionnalité.
 
 Pour obtenir de l’aide lors de la configuration ou de la résolution des problèmes se rapportant à la fonctionnalité Live Data (préversion), consultez notre [guide de configuration](container-insights-livedata-setup.md). Comme cette fonctionnalité accède directement à l’API Kubernetes, des informations supplémentaires sur le modèle d’authentification sont disponibles [ici](https://kubernetes.io/docs/concepts/overview/kubernetes-api/).
 
 ## <a name="view-deployment-live-logs-preview"></a>Afficher des journaux dynamiques de déploiement (préversion)
-Utilisez la procédure suivante pour afficher les journaux dynamiques pour des déploiements qui font partie de clusters AKS qui ne sont pas surveillés par Azure Monitor pour conteneurs. Si votre cluster utilise Azure Monitor pour conteneurs, utilisez le processus ci-dessous pour afficher les données actives pour des nœuds, contrôleurs, conteneurs et déploiements.
+Utilisez la procédure suivante pour afficher les journaux dynamiques pour des déploiements qui font partie de clusters AKS qui ne sont pas surveillés par Container Insights. Si votre cluster utilise Container Insights, utilisez le processus ci-dessous pour afficher les données actives pour des nœuds, contrôleurs, conteneurs et déploiements.
 
 1. Dans le portail Azure, accédez au groupe de ressources du cluster AKS et sélectionnez votre ressource AKS.
 

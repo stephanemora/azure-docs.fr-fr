@@ -11,35 +11,39 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 12/16/2020
-ms.openlocfilehash: 983fc2cd7e9863361776d5a9d5bc02359fccd510
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: fad19d360f7c476ba71a9bbe00b58387b92f8ac4
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100580827"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690552"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Gérer la conservation à long terme des sauvegardes Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Azure SQL Database vous permet de configurer une base de données dotée d'une stratégie de [conservation des sauvegardes à long terme](long-term-retention-overview.md) (LTR) afin de conserver automatiquement les sauvegardes de la base de données dans des conteneurs de stockage Blob Azure distincts pendant une durée maximale de 10 ans. Vous pouvez ensuite récupérer une base de données à l’aide de ces sauvegardes via le portail Azure ou PowerShell. Vous pouvez également configurer la conservation à long terme pour une instance d'[Azure SQL Managed Instance](../managed-instance/long-term-backup-retention-configure.md), mais cette fonctionnalité n'est actuellement disponible qu'en préversion publique limitée.
+Azure SQL Database vous permet de configurer une stratégie de [conservation des sauvegardes à long terme](long-term-retention-overview.md) (LTR) afin de conserver automatiquement les sauvegardes dans des conteneurs de stockage Blob Azure distincts pendant une durée maximale de 10 ans. Vous pouvez ensuite récupérer une base de données à l’aide de ces sauvegardes via le portail Azure ou PowerShell. Les stratégies de conservation à long terme sont également prises en charge pour [Azure SQL Managed Instance](../managed-instance/long-term-backup-retention-configure.md).
 
 ## <a name="using-the-azure-portal"></a>Utilisation du portail Azure
 
-Les sections suivantes vous montrent comment utiliser le portail Azure pour configurer la rétention à long terme, afficher des sauvegardes dans une rétention à long terme et restaurer la sauvegarde à partir d’une rétention à long terme.
+Les sections suivantes vous montrent comment utiliser le portail Azure pour définir des stratégies de conservation à long terme, gérer les sauvegardes de conservation à long terme disponibles et effectuer une restauration à partir d’une sauvegarde disponible.
 
 ### <a name="configure-long-term-retention-policies"></a>Configurer des stratégies de rétention à long terme
 
 Vous pouvez configurer SQL Database pour [conserver des sauvegardes automatisées](long-term-retention-overview.md) sur une période plus longue que la période de rétention associée à votre niveau de service.
 
-1. Dans le portail Azure, sélectionnez votre instance SQL Server, puis cliquez sur **Gérer les sauvegardes**. Dans l’onglet **Configurer les stratégies**, cochez la case pour la base de données sur laquelle vous souhaitez définir ou modifier des stratégies de rétention des sauvegardes à long terme. Si la case à cocher située en regard de la base de données n’est pas sélectionnée, les modifications de la stratégie ne s’appliqueront pas à cette base de données.  
+1. Dans le portail Azure, accédez à votre serveur, puis sélectionnez **Sauvegardes**. Sélectionnez l’onglet **Stratégies de conservation** pour modifier vos paramètres de conservation de sauvegarde.
 
-   ![lien gérer les sauvegardes](./media/long-term-backup-retention-configure/ltr-configure-ltr.png)
+   ![expérience des stratégies de conservation](./media/long-term-backup-retention-configure/ltr-policies-tab.png)
 
-2. Dans le volet **Configure policies** (Configurer des stratégies), indiquez si vous souhaitez conserver des sauvegardes à une fréquence hebdomadaire, mensuelle ou annuelle, et spécifiez la période de rétention pour chacune.
+2. Sous l’onglet Stratégies de conservation, sélectionnez la ou les bases de données sur lesquelles vous souhaitez définir ou modifier des stratégies de conservation des sauvegardes à long terme. Les bases de données non sélectionnées ne sont pas affectées.
 
-   ![configurer des stratégies](./media/long-term-backup-retention-configure/ltr-configure-policies.png)
+   ![sélectionner la base de données pour configurer les stratégies de conservation de sauvegarde](./media/long-term-backup-retention-configure/ltr-policies-tab-configure.png)
 
-3. Lorsque vous avez terminé, cliquez sur **Appliquer**.
+3. Dans le volet **Configurer les stratégies**, spécifiez la période de conservation souhaitée pour les sauvegardes hebdomadaires, mensuelles ou annuelles. Choisissez une période de conservation de « 0 » pour indiquer qu’aucune conservation de sauvegarde à long terme ne doit être définie.
+
+   ![volet configurer des stratégies](./media/long-term-backup-retention-configure/ltr-configure-policies.png)
+
+4. Sélectionnez **Appliquer** pour appliquer les paramètres de conservation choisis à toutes les bases de données sélectionnées.
 
 > [!IMPORTANT]
 > Lorsque vous activez une stratégie de rétention des sauvegardes à long terme, la première sauvegarde peut ne devenir visible et disponible pour une restauration qu’au bout de 7 jours. Pour en savoir plus sur la cadence des sauvegardes LTR, consultez la section relative à la [rétention des sauvegardes à long terme](long-term-retention-overview.md).
@@ -48,21 +52,23 @@ Vous pouvez configurer SQL Database pour [conserver des sauvegardes automatisée
 
 Affichez les sauvegardes qui sont conservées pour une base de données spécifique avec une stratégie de conservation à long terme et restaurez à partir de ces sauvegardes.
 
-1. Sur le portail Azure, sélectionnez votre serveur, puis cliquez sur **Gérer les sauvegardes**. Dans l’onglet **Sauvegardes disponibles**, sélectionnez la base de données pour laquelle vous souhaitez afficher les sauvegardes disponibles.
+1. Dans le portail Azure, accédez à votre serveur, puis sélectionnez **Sauvegardes**. Pour afficher les sauvegardes LTR disponibles pour une base de données spécifique, sélectionnez **Gérer** sous la colonne des sauvegardes LTR disponibles. Un volet s’affiche avec la liste des sauvegardes LTR disponibles pour la base de données sélectionnée.
 
-   ![sélectionner la base de données](./media/long-term-backup-retention-configure/ltr-available-backups-select-database.png)
+   ![expérience des sauvegardes disponibles](./media/long-term-backup-retention-configure/ltr-available-backups-tab.png)
 
-1. Dans le volet **Sauvegardes disponibles**, passez en revue les sauvegardes disponibles.
+1. Dans le volet **Sauvegardes LTR disponibles**, passez en revue les sauvegardes disponibles. Vous pouvez sélectionner une sauvegarde à partir de laquelle effectuer la restauration ou la supprimer.
 
-   ![afficher les sauvegardes](./media/long-term-backup-retention-configure/ltr-available-backups.png)
+   ![afficher les sauvegardes LTR disponibles](./media/long-term-backup-retention-configure/ltr-available-backups-manage.png)
 
-1. Sélectionnez la sauvegarde à partir de laquelle vous souhaitez restaurer, puis spécifiez le nouveau nom de la base de données.
+1. Pour effectuer une restauration à partir d’une sauvegarde LTR disponible, sélectionnez la sauvegarde à partir de laquelle vous souhaitez effectuer la restauration, puis **Restaurer**.
 
-   ![restauration](./media/long-term-backup-retention-configure/ltr-restore.png)
+   ![restaurer à partir d’une sauvegarde LTR disponible](./media/long-term-backup-retention-configure/ltr-available-backups-restore.png)
 
-1. Cliquez sur **OK** pour restaurer votre base de données à partir de la sauvegarde qui se trouve dans le stockage Azure vers une nouvelle base de données.
+1. Choisissez un nom pour votre nouvelle base de données, puis sélectionnez **Vérifier + créer** pour passer en revue les détails de votre restauration. Sélectionnez **Créer** pour restaurer votre base de données à partir de la sauvegarde choisie.
 
-1. Dans la barre d’outils, cliquez sur l’icône de notification pour visualiser l’état du travail de restauration.
+   ![configurer les détails de la restauration](./media/long-term-backup-retention-configure/restore-ltr.png)
+
+1. Dans la barre d’outils, cliquez sur l’icône de notification pour afficher l’état du travail de restauration.
 
    ![progression du travail de restauration](./media/long-term-backup-retention-configure/restore-job-progress-long-term.png)
 

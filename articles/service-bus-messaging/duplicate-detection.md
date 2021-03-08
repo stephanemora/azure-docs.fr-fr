@@ -3,12 +3,12 @@ title: Détection des messages dupliqués dans Azure Service Bus | Microsoft Doc
 description: Cet article explique la façon dont vous pouvez détecter les doublons dans les messages Azure Service Bus. Le message en double peut être ignoré et abandonné.
 ms.topic: article
 ms.date: 01/13/2021
-ms.openlocfilehash: 8ff98b3a052be6004a2dc070f10d6f8c9ca0617f
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 527c2dea34b02733907372b6e75a40a5ef5fc289
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98684806"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711923"
 ---
 # <a name="duplicate-detection"></a>Détection des doublons
 
@@ -48,7 +48,7 @@ Dans le portail, activez la fonctionnalité au moment de la création de l’ent
 
 Par programmation, définissez l’indicateur avec la propriété [QueueDescription.requiresDuplicateDetection](/dotnet/api/microsoft.servicebus.messaging.queuedescription.requiresduplicatedetection#Microsoft_ServiceBus_Messaging_QueueDescription_RequiresDuplicateDetection) sur l’API .NET Framework complète. Avec l’API Azure Resource Manager, la valeur se définit avec la propriété [queueProperties.requiresDuplicateDetection](/azure/templates/microsoft.servicebus/namespaces/queues#property-values).
 
-L’historique de la durée de détection des doublons est de 30 secondes par défaut pour les files d’attente et les rubriques, et de sept jours au maximum. Vous pouvez modifier ce paramètre dans la fenêtre des propriétés de file d’attente et de rubrique dans le portail Azure.
+L’historique de la durée de détection des doublons est de 10 secondes par défaut pour les files d’attente et les rubriques, avec une valeur minimale de 20 secondes et une valeur maximale de 7 jours. Vous pouvez modifier ce paramètre dans la fenêtre des propriétés de file d’attente et de rubrique dans le portail Azure.
 
 ![Capture d’écran de la fonctionnalité Service Bus avec le paramètre Propriétés mis en surbrillance et l’option Historique des détections dupliquées délimitée en rouge.][2]
 

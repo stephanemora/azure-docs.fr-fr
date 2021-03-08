@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/20/2020
 ms.author: duau
-ms.openlocfilehash: e28c995a0fb574f2e7319f8ee540f49d1bbed4dd
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 77cc509a9fac2a24b3cd70675c1ee4160ecdb24d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97656901"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101741852"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door"></a>Questions fréquentes (FAQ) sur Azure Front Door
 
@@ -97,9 +97,9 @@ Pour verrouiller votre application afin de n’accepter que le trafic provenant 
     > [!WARNING]
     > L’espace IP back-end de Front Door pourra changer ultérieurement, mais avant cela nous ferons en sorte d’avoir procédé à l’intégration avec les [balises de service et les plages d’adresses IP Azure](https://www.microsoft.com/download/details.aspx?id=56519). Nous vous recommandons de vous abonner aux [balises de service et aux plages d’adresses IP Azure](https://www.microsoft.com/download/details.aspx?id=56519) pour vous tenir informé des modifications ou mises à jour.
 
--    Effectuez une opération GET sur votre porte d’entrée avec la version d’API `2020-01-01` ou une version ultérieure. Dans l’appel d’API, recherchez le champ `frontdoorID`. Filtrez sur l’en-tête entrant « **X-Azure-FDID** » envoyé par Front Door à votre back-end avec la valeur du champ `frontdoorID`. Vous pouvez également trouver la valeur `Front Door ID` sous la section Vue d’ensemble de la page du portail Front Door. 
+- Recherchez la valeur `Front Door ID` dans la section Vue d’ensemble de la page du portail Front Door. Vous pouvez ensuite filtrer sur l’en-tête entrant «**X-Azure-FDID**» envoyé par Front Door à votre serveur principal avec cette valeur pour vous assurer que seule une instance Front Door est autorisée (car les plages d’adresses IP ci-dessus sont partagées avec d’autres instances Front Door d’autres clients).
 
-- Appliquez un filtrage de règles sur votre serveur web principal pour limiter le trafic en fonction de la valeur obtenue de l’en-tête « X-Azure-FDID ».
+- Appliquez un filtrage de règles sur votre serveur web principal pour limiter le trafic en fonction de la valeur obtenue de l’en-tête « X-Azure-FDID ». Notez que certains services comme Azure App Service fournissent cette fonctionnalité de [filtrage basé sur l’en-tête](../app-service/app-service-ip-restrictions#restrict-access-to-a-specific-azure-front-door-instance-preview) sans avoir à modifier votre application ou votre hôte.
 
   Voici un exemple pour [Microsoft Internet Information Services (IIS)](https://www.iis.net/) :
 

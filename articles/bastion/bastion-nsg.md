@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 12/09/2020
 ms.author: cherylmc
-ms.openlocfilehash: 4fe22e0dae73df7af4fc24ba508ecbecf72dfd05
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.openlocfilehash: b6a0dee4c3fef1be4f4b9f910b4c6256b4924a2d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97795368"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101700216"
 ---
 # <a name="working-with-nsg-access-and-azure-bastion"></a>Utiliser l’accès au groupe de sécurité réseau et Azure Bastion
 
@@ -32,11 +32,15 @@ Dans ce diagramme :
 
 Cette section décrit le trafic réseau entre l’utilisateur et Azure Bastion et jusqu’aux machines virtuelles cibles de votre réseau virtuel :
 
+> [!IMPORTANT]
+> Si vous choisissez d’utiliser un groupe de sécurité réseau avec votre ressource Azure Bastion, vous **devez** créer toutes les règles de trafic entrant et sortant suivantes. L’omission de l’une des règles suivantes dans votre groupe de sécurité réseau empêchera votre ressource Azure Bastion de recevoir les futures mises à jour requises, et exposera par conséquent votre ressource aux vulnérabilités de sécurité.
+> 
+
 ### <a name="azurebastionsubnet"></a><a name="apply"></a>AzureBastionSubnet
 
-Azure Bastion est spécifiquement déployé dans le sous-réseau ***AzureBastionSubnet** _.
+Azure Bastion est spécifiquement déployé dans le sous-réseau ***AzureBastionSubnet***.
 
-_ **Trafic d’entrée :**
+* **Trafic d’entrée :**
 
    * **Trafic d’entrée à partir d’un réseau Internet public :** Azure Bastion créera une adresse IP publique et le port 443 devra être activé pour le trafic d’entrée de cette adresse. Il n’est PAS nécessaire d’ouvrir le port 3389/22 sur le sous-réseau AzureBastionSubnet.
    * **Trafic d’entrée à partir du plan de contrôle d’Azure Bastion :** pour la connectivité du plan de contrôle, activez le port 443 pour un accès entrant à partir de l’étiquette de service **GatewayManager**. Ceci permet au plan de contrôle, c’est-à-dire au gestionnaire de passerelle, de communiquer avec Azure Bastion.

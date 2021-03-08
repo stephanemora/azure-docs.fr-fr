@@ -1,19 +1,19 @@
 ---
-title: Mise à jour d’Azure Monitor pour conteneurs afin d’activer les métriques | Microsoft Docs
-description: Cet article décrit comment mettre à jour Azure Monitor pour conteneurs afin d’activer la fonctionnalité de métriques personnalisées prenant en charge l’exploration de métriques agrégées et la génération d’alertes sur ces dernières.
+title: Comment mettre à jour Container Insights pour les métriques | Microsoft Docs
+description: Cet article décrit comment mettre à jour Container Insights afin d’activer la fonctionnalité de métriques personnalisées prenant en charge l’exploration de métriques agrégées et la génération d’alertes sur ces dernières.
 ms.topic: conceptual
 ms.date: 10/09/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 37c19cd074e9ce1985d5d0e82137d8603913d4bd
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: edca7e4e8f6a9ea8dd9efdaafab8c906efd671b6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100598797"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708269"
 ---
-# <a name="how-to-update-azure-monitor-for-containers-to-enable-metrics"></a>Mise à jour d’Azure Monitor pour conteneurs afin d’activer les métriques
+# <a name="how-to-update-container-insights-to-enable-metrics"></a>Comment mettre à jour Container Insights pour activer les métriques
 
-Azure Monitor pour conteneurs prend désormais en charge la collecte de métriques à partir des nœuds et pods de clusters Azure Kubernetes Service (AKS) et Kubernetes avec Azure Arc, ainsi que la consignation de ces métriques dans le magasin de métriques Azure Monitor. Cette modification est destinée à accroître la rapidité d’exécution lors de la présentation de calculs agrégés (Avg, Count, Max, Min, Sum) dans les graphiques de performances, à prendre en charge l’épinglage de ces graphiques dans les tableaux de bord du Portail Azure et à gérer les alertes de métrique.
+Container Insights prend désormais en charge la collecte de métriques à partir des nœuds et pods de clusters Azure Kubernetes Service (AKS) et Kubernetes avec Azure Arc, ainsi que la consignation de ces métriques dans le magasin de métriques Azure Monitor. Cette modification est destinée à accroître la rapidité d’exécution lors de la présentation de calculs agrégés (Avg, Count, Max, Min, Sum) dans les graphiques de performances, à prendre en charge l’épinglage de ces graphiques dans les tableaux de bord du Portail Azure et à gérer les alertes de métrique.
 
 >[!NOTE]
 >Actuellement, cette fonctionnalité ne prend pas en charge les clusters Azure Red Hat OpenShift.
@@ -47,7 +47,7 @@ Si vous avez choisi d’utiliser Azure CLI, vous devez d’abord l’installer e
 
 ## <a name="upgrade-a-cluster-from-the-azure-portal"></a>Mettre à niveau un cluster à partir du Portail Azure
 
-Dans le cas des clusters AKS existants surveillés par Azure Monitor pour conteneurs, après avoir sélectionné un cluster pour visualiser son intégrité à partir de la vue multicluster dans Azure Monitor ou directement à partir du cluster en sélectionnant **Insights** dans le volet gauche, vous devriez voir apparaître une bannière en haut du portail.
+Dans le cas des clusters AKS existants surveillés par Container Insights, après avoir sélectionné un cluster pour visualiser son intégrité à partir de la vue multicluster dans Azure Monitor ou directement à partir du cluster en sélectionnant **Insights** dans le volet gauche, vous devriez voir apparaître une bannière en haut du portail.
 
 ![Bannière de mise à niveau de cluster AKS dans le Portail Azure](./media/container-insights-update-metrics/portal-banner-enable-01.png)
 

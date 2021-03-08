@@ -1,30 +1,30 @@
 ---
-title: Configurer Azure Red Hat OpenShift v4.x avec Azure Monitor pour conteneurs | Microsoft Docs
+title: Configurer Azure Red Hat OpenShift v4.x avec Container Insights | Microsoft Docs
 description: Cet article décrit comment configurer l’analyse d’un cluster Kubernetes avec Azure Monitor, hébergé sur Azure Red Hat OpenShift version 4 ou ultérieure.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: e6668ac22c6c0f53c7511cfb76bf50c5474f3a76
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a9e04818f1a915a853d32b5db408a521cdae9f4c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100600179"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713930"
 ---
-# <a name="configure-azure-red-hat-openshift-v4x-with-azure-monitor-for-containers"></a>Configurer Azure Red Hat OpenShift v4.x avec Azure Monitor pour conteneurs
+# <a name="configure-azure-red-hat-openshift-v4x-with-container-insights"></a>Configurer Azure Red Hat OpenShift v4.x avec Container Insights
 
-Azure Monitor pour les conteneurs offre une expérience d’analyse riche pour les clusters Azure Kubernetes Service (AKS) et Moteur AKS. Cet article explique comment parvenir à une expérience d’analyse similaire en activant la surveillance pour les clusters Kubernetes hébergés sur [Azure Red Hat OpenShift](../../openshift/intro-openshift.md) version 4.x.
+Container Insights offre une expérience de surveillance riche pour les clusters Azure Kubernetes Service (AKS) et Moteur AKS. Cet article explique comment parvenir à une expérience d’analyse similaire en activant la surveillance pour les clusters Kubernetes hébergés sur [Azure Red Hat OpenShift](../../openshift/intro-openshift.md) version 4.x.
 
 >[!NOTE]
 >La prise en charge d’Azure Red Hat OpenShift est actuellement une fonctionnalité en préversion publique.
 >
 
-Vous pouvez activer Azure Monitor pour conteneurs pour un ou plusieurs déploiements existants d’Azure Red Hat OpenShift v4.x à l’aide des méthodes prises en charge décrites dans cet article.
+Vous pouvez activer Container Insights pour un ou plusieurs déploiements existants d’Azure Red Hat OpenShift v4.x à l’aide des méthodes prises en charge décrites dans cet article.
 
 Pour un cluster existant, exécutez [le script Bash dans Azure CLI](/cli/azure/openshift#az-openshift-create&preserve-view=true).
 
 ## <a name="supported-and-unsupported-features"></a>Fonctionnalités prises en charge et non prises en charge
 
-Azure Monitor pour conteneurs prend en charge l’analyse d’Azure Red Hat OpenShift v4.x comme décrit dans l’article [Vue d’ensemble d’Azure Monitor pour les conteneurs](container-insights-overview.md), à l’exception des fonctionnalités suivantes :
+Container Insights prend en charge la surveillance d’Azure Red Hat OpenShift v4.x comme décrit dans [Vue d’ensemble de Container Insights](container-insights-overview.md), à l’exception des fonctionnalités suivantes :
 
 - Données actives (préversion)
 - [Collecter les indicateurs de performance](container-insights-update-metrics.md) à partir des nœuds de cluster et des pod, et les stocker dans la base de données de métriques Azure Monitor
@@ -39,13 +39,13 @@ Azure Monitor pour conteneurs prend en charge l’analyse d’Azure Red Hat Open
 
 - Outil en ligne de commande [Kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 
-- Un [espace de travail Log Analytics](../platform/design-logs-deployment.md).
+- Un [espace de travail Log Analytics](../logs/design-logs-deployment.md).
 
-    Azure Monitor pour conteneurs prend en charge un espace de travail Log Analytics dans les régions répertoriées dans [Produits Azure par région](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor). Pour créer votre propre espace de travail, vous pouvez utiliser [Azure Resource Manager](../samples/resource-manager-workspace.md), [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json) ou le [portail Azure](../learn/quick-create-workspace.md).
+    Container Insights prend en charge un espace de travail Log Analytics dans les régions répertoriées dans [Produits Azure par région](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor). Pour créer votre propre espace de travail, vous pouvez utiliser [Azure Resource Manager](../logs/resource-manager-workspace.md), [PowerShell](../logs/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json) ou le [portail Azure](../logs/quick-create-workspace.md).
 
-- Pour activer et accéder aux fonctionnalités d’Azure Monitor pour les conteneurs, vous devez au minimum avoir le rôle Azure *Contributeur* dans l’abonnement Azure et le rôle [*Contributeur Log Analytics*](../platform/manage-access.md#manage-access-using-azure-permissions) de l’espace de travail Log Analytics configuré avec Azure Monitor pour les conteneurs.
+- Pour activer les fonctionnalités de Container Insights et y accéder, vous devez avoir au minimum le rôle Azure *Contributeur* dans l’abonnement Azure et le rôle [*Contributeur Log Analytics*](../logs/manage-access.md#manage-access-using-azure-permissions) dans l’espace de travail Log Analytics, configurés avec Container Insights.
 
-- Pour afficher les données de supervision, vous devez disposer du rôle [*Lecteur Log Analytics*](../platform/manage-access.md#manage-access-using-azure-permissions) dans l’espace de travail Log Analytics, configuré avec Azure Monitor pour conteneurs.
+- Pour afficher les données de surveillance, vous devez avoir le rôle [*Lecteur Log Analytics*](../logs/manage-access.md#manage-access-using-azure-permissions) dans l’espace de travail Log Analytics, configuré avec Container Insights.
 
 ## <a name="enable-monitoring-for-an-existing-cluster"></a>Activer l’analyse pour un cluster existant
 
@@ -68,7 +68,7 @@ Pour activer l’analyse pour un cluster Azure Red Hat OpenShift version 4 ou ul
     adminPassword=$(az aro list-credentials -g $clusterResourceGroup -n $clusterName --query 'kubeadminPassword' -o tsv)
     apiServer=$(az aro show -g $clusterResourceGroup -n $clusterName --query apiserverProfile.url -o tsv)
     oc login $apiServer -u $adminUserName -p $adminPassword
-    # openshift project name for azure monitor for containers
+    # openshift project name for Container insights
     openshiftProjectName="azure-monitor-for-containers"
     oc new-project $openshiftProjectName
     # get the kube config context
@@ -150,7 +150,7 @@ Une fois que vous avez activé la surveillance, 15 minutes peuvent s’écouler 
 
 ### <a name="enable-monitoring-from-the-azure-portal"></a>Activer l’analyse dans le Portail Azure
 
-L’affichage multicluster dans Azure Monitor pour conteneurs met en surbrillance vos clusters Azure Red Hat OpenShift pour lesquels la supervision n’est pas activée sous l’onglet **Clusters non supervisés**. L’option **Activer** à côté de votre cluster ne lance pas l’intégration de l’analyse à partir du portail. Vous êtes redirigé vers cet article pour activer manuellement l’analyse en effectuant les étapes décrites plus haut dans cet article.
+L’affichage multicluster dans Container Insights met en surbrillance vos clusters Azure Red Hat OpenShift pour lesquels la supervision n’est pas activée sous l’onglet **Clusters non supervisés**. L’option **Activer** à côté de votre cluster ne lance pas l’intégration de l’analyse à partir du portail. Vous êtes redirigé vers cet article pour activer manuellement l’analyse en effectuant les étapes décrites plus haut dans cet article.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
@@ -166,10 +166,10 @@ L’affichage multicluster dans Azure Monitor pour conteneurs met en surbrillanc
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Une fois l’analyse activée pour collecter l’utilisation des ressources et l’intégrité de votre cluster Red Hat OpenShift version 4.x et des charges de travail s’y exécutant, découvrez [comment utiliser](container-insights-analyze.md) Azure Monitor pour conteneurs.
+- Une fois l’analyse activée pour collecter l’utilisation des ressources et l’intégrité de votre cluster Red Hat OpenShift version 4.x et des charges de travail s’y exécutant, découvrez [comment utiliser](container-insights-analyze.md) Container Insights.
 
 - Par défaut, l’agent conteneurisé collecte les journaux de conteneurs *stdout* et *stderr* de tous les conteneurs en cours d’exécution dans tous les espaces de noms, sauf kube-system. Pour configurer le regroupement des journaux de conteneurs spécifiques d’un ou plusieurs espaces de noms particuliers, consultez [Configurer l’agent Insight de conteneur](container-insights-agent-config.md) afin de configurer les paramètres de collection de données souhaités dans votre fichier de configurations *ConfigMap*.
 
 - Pour scraper et analyser des indicateurs de performance Prometheus à partir de votre cluster, consultez [Configurer le scraping des métriques Prometheus](container-insights-prometheus-integration.md).
 
-- Pour savoir comment arrêter l’analyse de votre cluster avec Azure Monitor pour conteneurs, consultez [Comment arrêter l’analyse de votre cluster Azure Red Hat OpenShift](./container-insights-optout-openshift-v3.md).
+- Pour savoir comment arrêter la surveillance de votre cluster avec Container Insights, consultez [Comment arrêter la surveillance de votre cluster Azure Red Hat OpenShift](./container-insights-optout-openshift-v3.md).

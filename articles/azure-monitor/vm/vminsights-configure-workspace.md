@@ -1,29 +1,29 @@
 ---
-title: Configurer l’espace de travail Log Analytics pour Azure Monitor pour machines virtuelles
-description: Décrit comment créer et configurer l’espace de travail Log Analytics utilisé par Azure Monitor pour machines virtuelles.
+title: Configurer l’espace de travail Log Analytics pour VM Insights
+description: Décrit comment créer et configurer l’espace de travail Log Analytics utilisé par VM Insights.
 ms.subservice: ''
 ms.topic: conceptual
 ms.custom: references_regions
 author: bwren
 ms.author: bwren
 ms.date: 12/22/2020
-ms.openlocfilehash: b84f9cae848d53cf04e1b77810b347786e122c5b
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: dc7e6c42837ccaa56c7a211deb646c934ec137a4
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100600135"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717126"
 ---
-# <a name="configure-log-analytics-workspace-for-azure-monitor-for-vms"></a>Configurer l’espace de travail Log Analytics pour Azure Monitor pour machines virtuelles
-Azure Monitor pour machines virtuelles collecte ses données à partir d’un ou plusieurs espaces de travail Log Analytics dans Azure Monitor. Avant d’intégrer des agents, vous devez créer et configurer un espace de travail. Cet article décrit les exigences de l’espace de travail et sa configuration pour Azure Monitor pour machines virtuelles.
+# <a name="configure-log-analytics-workspace-for-vm-insights"></a>Configurer l’espace de travail Log Analytics pour VM Insights
+VM Insights collecte ses données à partir d’un ou plusieurs espaces de travail Log Analytics dans Azure Monitor. Avant d’intégrer des agents, vous devez créer et configurer un espace de travail. Cet article décrit les exigences de l’espace de travail et sa configuration pour VM Insights.
 
 ## <a name="overview"></a>Vue d’ensemble
 Un abonnement unique peut utiliser n’importe quel nombre d’espaces de travail en fonction de vos besoins. Toutefois, il existe un impératif : l’espace de travail doit se trouver dans un emplacement pris en charge et doit être configuré avec la solution *VMInsights*.
 
-Une fois l’espace de travail configuré, vous pouvez utiliser l’une des options disponibles afin d’installer les agents nécessaires sur la machine virtuelle et le groupe de machines virtuelles identiques, puis spécifier un espace de travail pour leur permettre d’envoyer leurs données. Azure Monitor pour machines virtuelles collectera les données de n’importe quel espace de travail configuré dans son abonnement.
+Une fois l’espace de travail configuré, vous pouvez utiliser l’une des options disponibles afin d’installer les agents nécessaires sur la machine virtuelle et le groupe de machines virtuelles identiques, puis spécifier un espace de travail pour leur permettre d’envoyer leurs données. VM Insights collectera les données de tout espace de travail configuré dans son abonnement.
 
 > [!NOTE]
-> Quand vous activez Azure Monitor pour machines virtuelles sur une seule machine virtuelle ou un seul groupe de machines virtuelles identiques via le portail Azure, vous pouvez sélectionner un espace de travail existant ou en créer un. La solution *VMInsights* sera installée dans cet espace de travail, si ce n’est déjà fait. Vous pouvez ensuite utiliser cet espace de travail pour d’autres agents.
+> Quand vous activez VMSS sur une seule machine virtuelle ou un seul groupe de machines virtuelles identiques via le portail Azure, vous pouvez sélectionner un espace de travail existant ou en créer un. La solution *VMInsights* sera installée dans cet espace de travail, si ce n’est déjà fait. Vous pouvez ensuite utiliser cet espace de travail pour d’autres agents.
 
 
 ## <a name="create-log-analytics-workspace"></a>Créer un espace de travail Log Analytics
@@ -35,16 +35,16 @@ Accédez aux espace de travail Log Analytics dans le portail Azure à partir du 
 
 [![Espaces de travail Log Analytics](media/vminsights-configure-workspace/log-analytics-workspaces.png)](media/vminsights-configure-workspace/log-analytics-workspaces.png#lightbox)
 
-Vous pouvez créer un espace de travail Log Analytics à l’aide de l’une des méthodes suivantes. Consultez [Conception de votre déploiement de journaux Azure Monitor](../platform/design-logs-deployment.md) pour obtenir des conseils sur la détermination du nombre d'espaces de travail que vous devez utiliser dans votre environnement et sur la façon de concevoir leur stratégie d'accès.
+Vous pouvez créer un espace de travail Log Analytics à l’aide de l’une des méthodes suivantes. Consultez [Conception de votre déploiement de journaux Azure Monitor](../logs/design-logs-deployment.md) pour obtenir des conseils sur la détermination du nombre d'espaces de travail que vous devez utiliser dans votre environnement et sur la façon de concevoir leur stratégie d'accès.
 
 
-* [Azure portal](../../azure-monitor/learn/quick-create-workspace.md)
-* [Azure CLI](../../azure-monitor/learn/quick-create-workspace-cli.md)
-* [PowerShell](../platform/powershell-workspace-configuration.md)
-* [Azure Resource Manager](../samples/resource-manager-workspace.md)
+* [Azure portal](../logs/quick-create-workspace.md)
+* [Azure CLI](../logs/quick-create-workspace-cli.md)
+* [PowerShell](../logs/powershell-workspace-configuration.md)
+* [Azure Resource Manager](../logs/resource-manager-workspace.md)
 
 ## <a name="supported-regions"></a>Régions prises en charge
-Azure Monitor pour machines virtuelles prend en charge tout espace de travail Log Analytics dans les [régions prises en charge par Log Analytics](https://azure.microsoft.com/global-infrastructure/services/?products=monitor&regions=all), à l’exception de celles-ci :
+VM Insights prend en charge tout espace de travail Log Analytics dans les [régions prises en charge par Log Analytics](https://azure.microsoft.com/global-infrastructure/services/?products=monitor&regions=all), à l’exception des suivantes :
 
 - Allemagne Centre-Ouest
 - Centre de la Corée
@@ -53,10 +53,10 @@ Azure Monitor pour machines virtuelles prend en charge tout espace de travail Lo
 >Vous pouvez surveiller les machines virtuelles Azure de n’importe quelle région. Les machines virtuelles elles-même ne sont pas limitées aux régions prises en charge par l’espace de travail Log Analytics.
 
 ## <a name="azure-role-based-access-control"></a>Contrôle d'accès en fonction du rôle Azure
-Pour activer les fonctionnalités et y accéder dans Azure Monitor pour les machines virtuelles, vous devez avoir le rôle [Contributeur Log Analytics](../platform/manage-access.md#manage-access-using-azure-permissions) dans l’espace de travail. Pour afficher les données de performances, d’intégrité et de mappage, vous devez avoir le rôle [Lecteur d’analyse](../platform/roles-permissions-security.md#built-in-monitoring-roles) pour la machine virtuelle Azure. Pour plus d’informations sur la façon de contrôler l’accès à un espace de travail Log Analytics, consultez [Gérer les espaces de travail](../platform/manage-access.md).
+Pour activer les fonctionnalités et y accéder dans VM Insights, vous devez avoir le rôle [Contributeur Log Analytics](../logs/manage-access.md#manage-access-using-azure-permissions) dans l’espace de travail. Pour afficher les données de performances, d’intégrité et de mappage, vous devez avoir le rôle [Lecteur d’analyse](../roles-permissions-security.md#built-in-monitoring-roles) pour la machine virtuelle Azure. Pour plus d’informations sur la façon de contrôler l’accès à un espace de travail Log Analytics, consultez [Gérer les espaces de travail](../logs/manage-access.md).
 
 ## <a name="add-vminsights-solution-to-workspace"></a>Ajout de la solution VMInsights à l’espace de travail
-Pour pouvoir utiliser un espace de travail Log Analytics avec Azure Monitor pour machines virtuelles, la solution *VMInsights* doit être installée. Les méthodes de configuration de l’espace de travail sont décrites dans les sections suivantes.
+Pour pouvoir utiliser un espace de travail Log Analytics avec VM Insights, la solution *VMInsights* doit être installée. Les méthodes de configuration de l’espace de travail sont décrites dans les sections suivantes.
 
 > [!NOTE]
 > Lorsque vous ajoutez la solution *VMInsights* à l’espace de travail, toutes les machines virtuelles existantes connectées à l’espace de travail commencent à envoyer des données à InsightsMetrics. Les données des autres types de données ne seront pas collectées tant que vous n'aurez pas ajouté Dependency Agent aux machines virtuelles existantes connectées à l'espace de travail.
@@ -73,13 +73,13 @@ Pour configurer plusieurs espaces de travail, sélectionnez l’onglet **Configu
 [![Configuration de l’espace de travail](../vm/media/vminsights-enable-policy/workspace-configuration.png)](../vm/media/vminsights-enable-policy/workspace-configuration.png#lightbox)
 
 
-Quand vous activez Azure Monitor pour machines virtuelles sur une seule machine virtuelle ou un seul groupe de machines virtuelles identiques via le portail Azure, vous pouvez sélectionner un espace de travail existant ou en créer un. La solution *VMInsights* sera installée dans cet espace de travail, si ce n’est déjà fait. Vous pouvez ensuite utiliser cet espace de travail pour d’autres agents.
+Quand vous activez VMSS sur une seule machine virtuelle ou un seul groupe de machines virtuelles identiques via le portail Azure, vous pouvez sélectionner un espace de travail existant ou en créer un. La solution *VMInsights* sera installée dans cet espace de travail, si ce n’est déjà fait. Vous pouvez ensuite utiliser cet espace de travail pour d’autres agents.
 
 [![Activer une machine virtuelle unique dans le portail](../vm/media/vminsights-enable-portal/enable-vminsights-vm-portal.png)](../vm/media/vminsights-enable-portal/enable-vminsights-vm-portal.png#lightbox)
 
 
 ### <a name="resource-manager-template"></a>Modèle Resource Manager
-Les modèles Azure Resource Manager pour Azure Monitor pour machines virtuelles sont fournis dans un fichier d’archive (.zip) que vous pouvez [télécharger à partir de notre référentiel GitHub](https://aka.ms/VmInsightsARMTemplates). Cela inclut un modèle appelé **ConfigureWorkspace** qui configure un espace de travail Log Analytics pour Azure Monitor pour machines virtuelles. Vous déployez ce modèle à l’aide de l’une des méthodes standard, y compris les exemples de commandes PowerShell et CLI ci-dessous : 
+Les modèles Azure Resource Manager pour VM Insights sont fournis dans un fichier d’archive (.zip) que vous pouvez [télécharger à partir de notre dépôt GitHub](https://aka.ms/VmInsightsARMTemplates). Celui-ci inclut un modèle appelé **ConfigureWorkspace** qui configure un espace de travail Log Analytics pour VM Insights. Vous déployez ce modèle à l’aide de l’une des méthodes standard, y compris les exemples de commandes PowerShell et CLI ci-dessous : 
 
 # <a name="cli"></a>[INTERFACE DE LIGNE DE COMMANDE](#tab/CLI)
 
@@ -99,5 +99,5 @@ New-AzResourceGroupDeployment -Name ConfigureWorkspace -ResourceGroupName my-res
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-- Consultez [Intégrer des agents à Azure Monitor pour machines virtuelles](vminsights-enable-overview.md) pour connecter des agents à Azure Monitor pour machines virtuelles.
+- Pour connecter des agents à des VM Insights, consultez [Intégrer des agents à VM Insights](vminsights-enable-overview.md).
 - Consultez [Ciblage des solutions de supervision dans Azure Monitor (préversion)](../insights/solution-targeting.md) pour limiter la quantité de données envoyées d'une solution à l'espace de travail.

@@ -4,19 +4,21 @@ description: 'Benchmark de sécurité Azure v2 : Réponse aux incidents'
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/20/2020
+ms.date: 002/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 043e365bfe27db516a42386a91bc0433e27e2068
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: 40a88349040482b3325e63d7035dea35df444cdb
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97368832"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101698584"
 ---
 # <a name="security-control-v2-incident-response"></a>Contrôle de sécurité V2 : Réponse aux incidents
 
 La fonctionnalité Réponse aux incidents recouvre les contrôles dans le cycle de vie de la réponse aux incidents : préparation, détection et analyse, confinement et activités postérieures aux incidents. Cela comprend l’utilisation de services Azure tels qu’Azure Security Center et Sentinel pour automatiser le processus de réponse aux incidents.
+
+Pour afficher l’instance Azure Policy intégrée applicable, consultez [Informations sur l’initiative intégrée Conformité réglementaire Azure Security Benchmark : Réponse aux incidents](../../governance/policy/samples/azure-security-benchmark#incident-response)
 
 ## <a name="ir-1-preparation--update-incident-response-process-for-azure"></a>IR-1 : Préparation – mettre à jour le processus de réponse aux incidents pour Azure
 
@@ -92,7 +94,7 @@ Exportez vos alertes et recommandations Azure Security Center en utilisant la fo
 |--|--|--|--|
 | IR-4 | 19 | IR-4 |
 
-Veiller à ce que les analystes puissent interroger et utiliser diverses sources de données lorsqu’ils enquêtent sur des incidents potentiels, afin d’obtenir une vision complète de ce qui s’est passé. Différents journaux doivent être collectés pour suivre les activités d’un attaquant potentiel tout au long de la chaîne de destruction afin d’éviter les angles morts.  Vous devez également vous assurer que les insights et les enseignements sont capturés pour d’autres analystes et pour une référence historique future.  
+Veiller à ce que les analystes puissent interroger et utiliser diverses sources de données lorsqu’ils enquêtent sur des incidents potentiels, afin d’obtenir une vision complète de ce qui s’est passé. Différents journaux doivent être collectés pour suivre les activités d’un attaquant potentiel tout au long de la chaîne de destruction afin d’éviter les angles morts. Vous devez également vous assurer que les insights et les enseignements sont capturés pour d’autres analystes et pour une référence historique future.
 
 Les sources de données à examiner comprennent les sources de journalisation centralisées qui sont déjà collectées auprès des services et des systèmes en fonctionnement concernés, mais elles peuvent également inclure les éléments suivants :
 
@@ -136,7 +138,7 @@ Donnez aux analystes le contexte sur lequel les incidents doivent se concentrer 
 
 Azure Security Center attribue un niveau de gravité à chaque alerte pour vous aider à hiérarchiser celles devant être examinées en premier. La gravité dépend du niveau de confiance que Security Center accorde à la recherche ou aux données analytiques utilisées pour émettre l’alerte, mais aussi de l’intention malveillante estimée de l’activité à l’origine de l’alerte.
 
-En outre, marquez les ressources à l’aide d’étiquettes et créez un système de nommage pour identifier et classer les ressources Azure, en particulier celles qui traitent des données sensibles.  Il vous incombe de hiérarchiser le traitement des alertes en fonction de la criticité des ressources et de l’environnement Azure où l’incident s’est produit.
+En outre, marquez les ressources à l’aide d’étiquettes et créez un système de nommage pour identifier et classer les ressources Azure, en particulier celles qui traitent des données sensibles. Il vous incombe de hiérarchiser le traitement des alertes en fonction de la criticité des ressources et de l’environnement Azure où l’incident s’est produit.
 
 - [Alertes de sécurité dans le Centre de sécurité Azure](../../security-center/security-center-alerts-overview.md)
 

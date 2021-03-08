@@ -9,15 +9,16 @@ ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: douglas, sstein
-ms.date: 01/26/2021
-ms.openlocfilehash: 7588ce055ce0df89a7dca87a75a38c8acccf6d46
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.date: 02/27/2021
+ms.openlocfilehash: 3c969c1898e67361e37a825d7976b1c52d08dd24
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98806087"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691142"
 ---
 # <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>Basculement manuel initié par l’utilisateur sur SQL Managed Instance
+[!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 Cet article explique comment basculer manuellement un nœud principal sur des niveaux de service SQL Managed Instance à usage général (GP) et critique pour l’entreprise (BC), et comment basculer manuellement un nœud de réplica secondaire en lecture seule sur le niveau de service BC uniquement.
 
@@ -33,7 +34,7 @@ Vous pouvez envisager d’exécuter un [basculement manuel](../database/high-ava
 - Dans certains cas de dégradations de performances de requête, un basculement manuel peut vous aider à atténuer le problème de performances.
 
 > [!NOTE]
-> En vous assurant que vos applications bénéficient d’un basculement résilient avant le déploiement en production, vous atténuez le risque d’erreurs d’application en production et contribuez à la disponibilité des applications pour vos clients.
+> En vous assurant que vos applications bénéficient d’un basculement résilient avant le déploiement en production, vous atténuez le risque d’erreurs d’application en production et contribuez à la disponibilité des applications pour vos clients. Apprenez-en davantage sur le test de vos applications pour la préparation au cloud grâce à l’enregistrement vidéo [Testing App Cloud Readiness for Failover Resiliency with SQL Managed Instance](https://youtu.be/FACWYLgYDL8) (Tester la préparation au cloud des applications pour la résilience au basculement avec SQL Managed Instance).
 
 ## <a name="initiate-manual-failover-on-sql-managed-instance"></a>Basculement manuel initié sur SQL Managed Instance
 
@@ -42,7 +43,7 @@ Vous pouvez envisager d’exécuter un [basculement manuel](../database/high-ava
 L’utilisateur qui initie un basculement doit disposer de l’un des rôles Azure suivants :
 
 - Rôle Propriétaire de l’abonnement ; ou
-- Rôle Contributeur Managed Instance ; ou
+- Rôle [Contributeur Managed Instance](../../role-based-access-control/built-in-roles.md#sql-managed-instance-contributor), ou
 - Rôle personnalisé avec l’autorisation suivante :
   - `Microsoft.Sql/managedInstances/failover/action`
 
@@ -150,8 +151,9 @@ La courte perte de connectivité de votre client pendant le basculement, qui dur
 > - Pour les instances BC, il doit exister un quorum de réplicas pour que la requête de basculement soit acceptée.
 > - Pour les instances BC, il n’est pas possible de spécifier le réplica secondaire accessible en lecture sur lequel initier le basculement.
 > - Le basculement n’est pas autorisé tant que la première sauvegarde complète d’une nouvelle base de données n’est pas terminée par les systèmes de sauvegarde automatisée.
+> - Le basculement ne sera pas autorisé si une restauration de la base de données est en cours.
 
 ## <a name="next-steps"></a>Étapes suivantes
-
+- Apprenez-en davantage sur le test de vos applications pour la préparation au cloud grâce à l’enregistrement vidéo [Testing App Cloud Readiness for Failover Resiliency with SQL Managed Instance](https://youtu.be/FACWYLgYDL8) (Tester la préparation au cloud des applications pour la résilience au basculement avec SQL Managed Instance).
 - Pour en savoir plus sur la haute disponibilité de Managed instance, consultez [Haute disponibilité pour Azure SQL Managed Instance](../database/high-availability-sla.md).
 - Pour obtenir une vue d’ensemble, consultez [Présentation d’Azure SQL Managed Instance](sql-managed-instance-paas-overview.md).

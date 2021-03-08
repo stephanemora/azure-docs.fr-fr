@@ -4,12 +4,12 @@ description: Créer des alertes de journal d’activité à l’aide du portail 
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 06/25/2019
-ms.openlocfilehash: 83023cca6b034ee0e9acddfa081f09eb47b9fb1e
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: bb4c1410d046389ae9e82986c6b0ed3d133fcf2a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100600362"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704461"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-by-using-azure-monitor"></a>Créer, afficher et gérer des alertes de journal d’activité à l’aide d’Azure Monitor  
 
@@ -26,7 +26,9 @@ Lorsque vous créez des règles d’alerte, vérifiez les points suivants :
 
 - L’abonnement présent dans l’étendue n’est pas différent de celui dans lequel l’alerte est créée.
 - Les critères doivent être : niveau, état, appelant, groupe de ressources, ID de ressource, type de ressource ou catégorie d’événement sur lesquels l’alerte est configurée.
-- Il n'existe pas de condition « anyOf » ou de conditions imbriquées dans le fichier JSON de configuration d'alerte. En principe, une seule condition « allOf » est autorisée sans autre condition « allOf » ou « anyOf ».
+- Une seule condition « allOf » est autorisée.
+- « AnyOf » peut être utilisée pour autoriser plusieurs conditions sur plusieurs champs (par exemple, si les champs « status » ou « SubStatus » sont égaux à une certaine valeur). Notez que l’utilisation de « AnyOf » est actuellement limitée à la création de la règle d’alerte avec un déploiement de modèle ARM.
+- « ContainsAny » peut être utilisée pour autoriser plusieurs valeurs du même champ (par exemple, si « Operation » est égal à « Delete » ou à « Modify »). Notez que l’utilisation de « ContainsAny » est actuellement limitée à la création de la règle d’alerte avec un déploiement de modèle ARM.
 - Lorsque la catégorie est « administration », vous devez spécifier au moins l’un des critères précédents dans votre alerte. L’alerte créée ne s’activera peut-être pas à chaque fois qu’un événement sera créé dans les journaux d’activité.
 - Les alertes ne peuvent pas être créées pour des événements dans la catégorie Alerte du journal d’activité.
 
@@ -92,7 +94,7 @@ Procédez comme suit.
     - **Description** : Description de la nouvelle règle d’alerte.
     - **Enregistrer l'alerte dans le groupe de ressources** : sélectionnez le groupe de ressources dans lequel vous souhaitez enregistrer cette nouvelle règle.
 
-5. Dans le menu déroulant sous **Groupe d’actions**, spécifiez le groupe d’actions que vous souhaitez affecter à cette nouvelle règle d’alerte. Vous pouvez également [créer un groupe d’actions](../platform/action-groups.md) et l’affecter à la nouvelle règle. Pour créer un groupe, sélectionnez **+ Nouveau groupe**.
+5. Dans le menu déroulant sous **Groupe d’actions**, spécifiez le groupe d’actions que vous souhaitez affecter à cette nouvelle règle d’alerte. Vous pouvez également [créer un groupe d’actions](./action-groups.md) et l’affecter à la nouvelle règle. Pour créer un groupe, sélectionnez **+ Nouveau groupe**.
 
 6. Pour activer les règles après les avoir créées, cliquez sur **Oui** dans l’option **Activer la règle lors de la création**.
 7. Sélectionnez **Créer une règle d’alerte**.
@@ -287,6 +289,5 @@ Les ressources de règle d'alerte de journal d'activité peuvent être supprimé
 
 - En savoir plus sur le [schéma de webhook des journaux d’activité](./activity-log-alerts-webhook.md).
 - Lisez une [présentation des journaux d’activité](./activity-log-alerts.md).
-- En savoir plus sur les [groupes d’actions](../platform/action-groups.md).  
+- En savoir plus sur les [groupes d’actions](./action-groups.md).  
 - En savoir plus sur les [notifications sur l’intégrité du service](../../service-health/service-notifications.md).
-

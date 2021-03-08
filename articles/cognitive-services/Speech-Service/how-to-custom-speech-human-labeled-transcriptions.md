@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: erhopf
-ms.openlocfilehash: db3d8f4424f59d8432221753af776a5b55859882
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: af6ced49071b7fbae983508e68964aa064ef38e1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100388853"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101700029"
 ---
 # <a name="how-to-create-human-labeled-transcriptions"></a>Comment créer des transcriptions étiquetées à la main
 
 Si vous cherchez à améliorer la précision de la reconnaissance, en particulier les problèmes liés à la suppression de mots ou à leur substitution inappropriée, vous pouvez utiliser des transcriptions étiquetées à la main avec vos données audio. En quoi consistent les transcriptions étiquetées à la main ? Il s’agit tout simplement de transcriptions textuelles, mot par mot, d’un fichier audio.
 
-Sachant que l’amélioration de la reconnaissance nécessite un échantillon volumineux de données de transcription, nous vous conseillons de fournir entre 10 et 20 heures de données. Dans cette page, nous allons passer en revue les principes à respecter pour créer des transcriptions de grande qualité. Ce guide est divisé par paramètres régionaux, avec des sections pour l’anglais des États-Unis, le chinois mandarin et l’allemand.
+Sachant que l’amélioration de la reconnaissance nécessite un échantillon volumineux de données de transcription, nous vous conseillons de fournir entre 1 et 20 heures de données. Le service Speech utilisera jusqu’à 20 heures d’audio pour l’apprentissage. Dans cette page, nous allons passer en revue les principes à respecter pour créer des transcriptions de grande qualité. Ce guide est divisé par paramètres régionaux, avec des sections pour l’anglais des États-Unis, le chinois mandarin et l’allemand.
 
 > [!NOTE]
 > Tous les modèles de base ne prennent pas en charge la personnalisation avec les fichiers audio. Si un modèle de base ne prend pas cela en charge, l’apprentissage utilise simplement le texte des transcriptions, comme lors de l’utilisation du texte associé. Pour obtenir la liste des modèles de base prenant en charge l’entraînement avec des données audio, consultez les informations relatives à la [prise en charge des langues](language-support.md#speech-to-text).

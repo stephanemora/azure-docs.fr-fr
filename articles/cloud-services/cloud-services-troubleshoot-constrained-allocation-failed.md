@@ -1,30 +1,24 @@
 ---
-title: Résoudre les problèmes liés à ConstrainedAllocationFailed lors du déploiement d’un service cloud sur Azure | Microsoft Docs
-description: Cet article explique comment résoudre une exception ConstrainedAllocationFailed lors du déploiement d’un service cloud sur Azure.
+title: Résoudre les problèmes liés à ConstrainedAllocationFailed lors du déploiement d’un service cloud (classique) sur Azure | Microsoft Docs
+description: Cet article explique comment résoudre une exception ConstrainedAllocationFailed lors du déploiement d’un service cloud (classique) sur Azure.
 services: cloud-services
 author: mibufo
 ms.author: v-mibufo
 ms.service: cloud-services
 ms.topic: troubleshooting
-ms.date: 02/04/2020
-ms.openlocfilehash: de344bbcd89158676bacf2a8aa1743d282700b9d
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.date: 02/22/2021
+ms.openlocfilehash: 346e7eb77039ab80e6f9dffb8ea8360198040504
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100520750"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738279"
 ---
-# <a name="troubleshoot-constrainedallocationfailed-when-deploying-a-cloud-service-to-azure"></a>Résoudre les problèmes liés à ConstrainedAllocationFailed lors du déploiement d’un service cloud sur Azure
+# <a name="troubleshoot-constrainedallocationfailed-when-deploying-a-cloud-service-classic-to-azure"></a>Résoudre les problèmes liés à ConstrainedAllocationFailed lors du déploiement d’un service cloud (classique) sur Azure
 
-Dans cet article, vous allez résoudre les échecs d’allocation empêchant le déploiement d’Azure Cloud Services en raison de contraintes.
+Cet article explique comment résoudre des échecs d’allocation empêchant le déploiement d’Azure Cloud Services (classique) en raison de contraintes d’allocation.
 
-Microsoft Azure procède à une allocation quand vous effectuez les opérations suivantes :
-
-- Mise à niveau d’instances de services cloud
-
-- Ajout de nouvelles instances de rôle web ou de rôle de travail
-
-- Déploiement d’instances sur un service cloud
+Lorsque vous déployez des instances sur un service cloud (classique) ou ajoutez de nouvelles instances de rôle web ou de rôle de travail, Microsoft Azure alloue des ressources de calcul.
 
 Vous pouvez parfois recevoir des erreurs durant ces opérations avant même d’avoir atteint la limite de votre abonnement Azure.
 
@@ -33,9 +27,11 @@ Vous pouvez parfois recevoir des erreurs durant ces opérations avant même d’
 
 ## <a name="symptom"></a>Symptôme
 
-Dans le portail Azure, accédez à votre service cloud puis, dans la barre latérale, sélectionnez *Journaux des opérations (classique)* pour afficher les journaux.
+Dans le portail Azure, accédez à votre service cloud (classique), puis, dans la barre latérale, sélectionnez *Journal des opérations (classique)* pour afficher les journaux.
 
-Quand vous inspectez les journaux de votre service cloud, vous constatez l’exception suivante :
+![Image affichant le panneau Journal des opérations (classique).](./media/cloud-services-troubleshoot-constrained-allocation-failed/cloud-services-troubleshoot-allocation-logs.png)
+
+Quand vous inspectez les journaux de votre service cloud (classique), vous constatez l’exception suivante :
 
 |Type d’exception  |Message d’erreur  |
 |---------|---------|
@@ -43,99 +39,42 @@ Quand vous inspectez les journaux de votre service cloud, vous constatez l’exc
 
 ## <a name="cause"></a>Cause
 
-Il y a un problème de capacité avec la région ou le cluster sur lequel vous effectuez le déploiement. Cela se produit quand la référence SKU de ressource que vous avez sélectionnée n’est pas disponible pour la localisation spécifiée.
+Lorsque la première instance est déployée sur un service cloud (intermédiaire ou de production), celui-ci est épinglé à un cluster.
 
-> [!NOTE]
-> Quand le premier nœud d’un service cloud est déployé, il est *épinglé* à un pool de ressources. Un pool de ressources peut être un cluster unique ou un groupe de clusters.
->
-> Au fil du temps, les ressources de ce pool de ressources peuvent devenir entièrement utilisées. Si un service cloud effectue une demande d’allocation pour des ressources supplémentaires alors que les ressources disponibles dans le pool de ressources épinglé sont insuffisantes, la demande entraîne un [échec d’allocation](cloud-services-allocation-failures.md).
+Au fil du temps, il arrive que les ressources de ce cluster soient entièrement utilisées. Si un service cloud (classique) demande l’allocation de ressources supplémentaires alors que les ressources disponibles dans le cluster épinglé sont insuffisantes, la demande entraîne un échec d’allocation. Pour plus d’informations, consultez les [problèmes courants d’échec d’allocation](cloud-services-allocation-failures.md#common-issues).
 
 ## <a name="solution"></a>Solution
 
-Dans ce scénario, vous devez sélectionner une autre région ou référence SKU sur laquelle déployer votre service cloud. Avant de déployer ou de mettre à niveau votre service cloud, vous pouvez déterminer quelles références SKU sont disponibles dans une région ou une zone de disponibilité. Suivez les processus d’[Azure CLI](#list-skus-in-region-using-azure-cli), de [PowerShell](#list-skus-in-region-using-powershell) ou de l’[API REST](#list-skus-in-region-using-rest-api) ci-dessous.
+Les services cloud existants sont *épinglés* à un cluster. Les déploiements ultérieurs du service cloud (classique) s’effectueront dans le même cluster.
 
-### <a name="list-skus-in-region-using-azure-cli"></a>Lister les références SKU dans la région à l’aide d’Azure CLI
+Lorsque vous rencontrez une erreur d’allocation dans ce scénario, la procédure recommandée consiste à opérer un redéploiement vers un nouveau service cloud (classique) (et à mettre à jour l’enregistrement *CNAME*).
 
-Vous pouvez utiliser la commande [az vm list-skus](https://docs.microsoft.com/cli/azure/vm.html#az_vm_list_skus).
+> [!TIP]
+> Cette solution est celle qui a le plus de chances de réussir car elle permet à la plateforme de choisir parmi tous les clusters de cette région.
 
-- Utilisez le paramètre `--location` pour filtrer la sortie sur la localisation que vous utilisez.
-- Utilisez le paramètre `--size` pour rechercher par un nom partiel.
-- Pour plus d’informations, consultez le guide [Résoudre les erreurs de référence SKU non disponible](../azure-resource-manager/templates/error-sku-not-available.md#solution-2---azure-cli).
+> [!NOTE]
+> Cette solution ne devrait pas entraîner de temps d'arrêt.
 
-    **Par exemple :**
+1. Déployez la charge de travail vers un nouveau service cloud (classique).
+    - Pour d’autres instructions, consultez le guide [Comment créer et déployer un service cloud (classique)](cloud-services-how-to-create-deploy-portal.md).
 
-    ```azurecli
-    az vm list-skus --location southcentralus --size Standard_F --output table
-    ```
+    > [!WARNING]
+    > Si vous ne souhaitez pas perdre l’adresse IP associée à cet emplacement de déploiement, vous pouvez utiliser la [Solution 3 : Conserver l’adresse IP](cloud-services-allocation-failures.md#solutions).
 
-    **Résultats de l’exemple :** ![Sortie Azure CLI de l’exécution de la commande « az vm list-skus --location southcentralus --size Standard_F --output table », qui affiche les références SKU disponibles.](./media/cloud-services-troubleshoot-constrained-allocation-failed/cloud-services-troubleshoot-constrained-allocation-failed-1.png)
+1. Mettez à jour l’enregistrement *CNAME* ou *A* pour faire pointer le trafic vers le nouveau service cloud (classique).
+    - Pour d’autres instructions, consultez le guide [Configuration d’un nom de domaine personnalisé pour un service cloud Azure](cloud-services-custom-domain-name-portal.md#understand-cname-and-a-records).
 
-#### <a name="list-skus-in-region-using-powershell"></a>Lister les références SKU dans la région à l’aide de PowerShell
+1. Une fois que l’ancien ne reçoit plus de trafic, vous pouvez supprimer l’ancien service cloud (classique).
+    - Pour d’autres instructions, consultez le guide [Supprimer des déploiements et un service cloud (classique)](cloud-services-how-to-manage-portal.md#delete-deployments-and-a-cloud-service).
+    - Pour voir le trafic réseau dans votre service cloud (classique), consultez [Introduction à la surveillance de service cloud (classique)](cloud-services-how-to-monitor.md).
 
-Vous pouvez utiliser la commande [Get-AzComputeResourceSku](https://docs.microsoft.com/powershell/module/az.compute/get-azcomputeresourcesku).
-
-- Filtrez les résultats par emplacement.
-- Pour cette commande, vous devez disposer de la version la plus récente de PowerShell.
-- Pour plus d’informations, consultez le guide [Résoudre les erreurs de référence SKU non disponible](../azure-resource-manager/templates/error-sku-not-available.md#solution-1---powershell).
-
-**Par exemple :**
-
-```azurepowershell
-Get-AzComputeResourceSku | where {$_.Locations -icontains "centralus"}
-```
-
-**Autres commandes utiles :**
-
-Filtrer les localisations qui contiennent la taille (Standard_DS14_v2) :
-
-```azurepowershell
-Get-AzComputeResourceSku | where {$_.Locations.Contains("centralus") -and $_.ResourceType.Contains("virtualMachines") -and $_.Name.Contains("Standard_DS14_v2")}
-```
-
-Filtrer toutes les localisations qui contiennent la taille (v3) :
-
-```azurepowershell
-Get-AzComputeResourceSku | where {$_.Locations.Contains("centralus") -and $_.ResourceType.Contains("virtualMachines") -and $_.Name.Contains("v3")} | fc
-```
-
-#### <a name="list-skus-in-region-using-rest-api"></a>Lister les références SKU dans la région à l’aide de l’API REST
-
-Vous pouvez utiliser l’opération [Resource Skus - List](https://docs.microsoft.com/rest/api/compute/resourceskus/list). Elle renvoie les références et les régions disponibles dans le format suivant :
-
-```json
-{
-  "value": [
-    {
-      "resourceType": "virtualMachines",
-      "name": "Standard_A0",
-      "tier": "Standard",
-      "size": "A0",
-      "locations": [
-        "eastus"
-      ],
-      "restrictions": []
-    },
-    {
-      "resourceType": "virtualMachines",
-      "name": "Standard_A1",
-      "tier": "Standard",
-      "size": "A1",
-      "locations": [
-        "eastus"
-      ],
-      "restrictions": []
-    },
-    <Rest_of_your_file_is_located_here...>
-  ]
-}
-    
-```
+Pour d’autres étapes de correction, consultez [Résolution des problèmes d’échecs d’allocation de service cloud (classique) | Microsoft Docs](cloud-services-allocation-failures.md#common-issues).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour obtenir d’autres solutions aux échecs d’allocation et mieux comprendre comment elles sont générées :
+Pour d’autres solutions en lien avec les échecs d’allocation et des informations générales :
 
 > [!div class="nextstepaction"]
-> [Échecs d’allocation (services cloud)](cloud-services-allocation-failures.md)
+> [Échecs d’allocation – Services cloud (classique)](cloud-services-allocation-failures.md)
 
 Si le problème lié à Azure n’est pas traité dans cet article, parcourez les forums Azure sur [MSDN et Stack Overflow](https://azure.microsoft.com/support/forums/). Vous pouvez publier votre problème sur ces forums ou [@AzureSupport sur Twitter](https://twitter.com/AzureSupport). Vous pouvez également envoyer une demande de support Azure. Pour envoyer une demande de support sur la page [Prise en charge Azure](https://azure.microsoft.com/support/options/), sélectionnez *Obtenir de l’aide*.

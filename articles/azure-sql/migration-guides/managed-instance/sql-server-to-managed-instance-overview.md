@@ -9,13 +9,13 @@ ms.topic: how-to
 author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
-ms.date: 11/06/2020
-ms.openlocfilehash: 9afe50e419f9c180b0b5efcd6182eb693dc6622a
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.date: 02/18/2020
+ms.openlocfilehash: 1f619e1eac58f70642117dabafc266d1bc250609
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99093941"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690411"
 ---
 # <a name="migration-overview-sql-server-to-sql-managed-instance"></a>Vue d’ensemble de la migration : de SQL Server vers SQL Managed Instance
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -90,6 +90,7 @@ Le tableau suivant liste les outils de migration recommandés :
 |---------|---------|
 |[Azure Database Migration Service (DMS)](../../../dms/tutorial-sql-server-to-managed-instance.md)  | Service Azure interne qui prend en charge la migration en mode hors connexion pour les applications qui peuvent se permettre un temps d’arrêt pendant le processus de migration. Contrairement à la migration continue en mode en ligne, la migration en mode hors connexion exécute une restauration unique d’une sauvegarde complète de la base de données de la source vers la cible. | 
 |[Sauvegarde et restauration natives](../../managed-instance/restore-sample-database-quickstart.md) | SQL Managed Instance prend en charge la restauration des sauvegardes de base de données SQL Server natives (fichiers .bak), ce qui en fait l’option de migration la plus simple pour les clients qui peuvent fournir des sauvegardes complètes de base de données sur le stockage Azure. Les sauvegardes complètes et différentielles sont également prises en charge et documentées dans la [section sur les ressources de migration](#migration-assets) plus loin dans cet article.| 
+|[Service LRS](../../managed-instance/log-replay-service-migrate.md) | Il s’agit d’un service cloud activé pour Managed Instance basé sur la technologie de copie des journaux de transaction SQL Server, ce qui en fait une option de migration pour les clients qui peuvent fournir des sauvegardes complètes, différentielles et de journaux de base de données dans le stockage Azure. Le service LRS est utilisé pour restaurer les fichiers de sauvegarde à partir du Stockage Blob Azure vers SQL Managed Instance.| 
 | | |
 
 ### <a name="alternative-tools"></a>Autres outils
@@ -114,8 +115,9 @@ Le tableau suivant compare les options de migration recommandées :
 
 |Option de migration  |Quand l’utiliser  |Considérations  |
 |---------|---------|---------|
-|[Azure Database Migration Service (DMS)](../../../dms/tutorial-sql-server-to-managed-instance.md) | – Migration de bases de données uniques ou de plusieurs bases de données à grande échelle. </br> – Acceptation de temps d’arrêt pendant le processus de migration. </br> </br> Sources prises en charge : </br> - Serveur SQL (2005 à 2019) en local ou machine virtuelle Azure </br> - AWS EC2 </br> - AWS RDS </br> - Machine virtuelle SQL Server GCP Compute |  – Les migrations à grande échelle peuvent être automatisées via [PowerShell](../../../dms/howto-sql-server-to-azure-sql-mi-powershell.md). </br> – La durée de la migration dépend de la taille de la base de données et est influencée par le temps de sauvegarde et de restauration. </br> – Un temps d’arrêt suffisant peut être nécessaire. |
+|[Azure Database Migration Service (DMS)](../../../dms/tutorial-sql-server-to-managed-instance.md) | – Migration de bases de données uniques ou de plusieurs bases de données à grande échelle. </br> – Acceptation de temps d’arrêt pendant le processus de migration. </br> </br> Sources prises en charge : </br> - Serveur SQL (2005 à 2019) en local ou machine virtuelle Azure </br> - AWS EC2 </br> - AWS RDS </br> - Machine virtuelle SQL Server GCP Compute |  – Les migrations à grande échelle peuvent être automatisées via [PowerShell](../../../dms/howto-sql-server-to-azure-sql-managed-instance-powershell-offline.md). </br> – La durée de la migration dépend de la taille de la base de données et est influencée par le temps de sauvegarde et de restauration. </br> – Un temps d’arrêt suffisant peut être nécessaire. |
 |[Sauvegarde et restauration natives](../../managed-instance/restore-sample-database-quickstart.md) | – Migration de bases de données d’applications métier individuelles.  </br> – Migration rapide et facile sans un service ou un outil de migration distinct.  </br> </br> Sources prises en charge : </br> - Serveur SQL (2005 à 2019) en local ou machine virtuelle Azure </br> - AWS EC2 </br> - AWS RDS </br> – Machine virtuelle SQL Server GCP Compute | – La sauvegarde de base de données utilise plusieurs threads pour optimiser le transfert de données vers Stockage Blob Azure, mais la bande passante de l’ISV et la taille de la base de données peuvent avoir un impact sur le débit de transfert. </br> – Les temps d’arrêt doivent tenir compte du temps nécessaire pour effectuer une sauvegarde et une restauration complètes (ce qui correspond à une taille d’une opération de données).| 
+|[Service LRS](../../managed-instance/log-replay-service-migrate.md) | – Migration de bases de données d’applications métier individuelles.  </br> - Davantage de contrôle est nécessaire pour les migrations de bases de données.  </br> </br> Sources prises en charge : </br> - SQL Server (2008 - 2019) local ou machine virtuelle Azure </br> - AWS EC2 </br> - AWS RDS </br> - Machine virtuelle SQL Server GCP Compute | - La migration implique d’effectuer des sauvegardes complètes de base de données sur SQL Server et de copier les fichiers de sauvegarde dans le Stockage Blob Azure. Le service LRS est utilisé pour restaurer les fichiers de sauvegarde à partir du Stockage Blob Azure vers SQL Managed Instance. </br> - Les bases de données restaurées pendant le processus de migration sont en mode de restauration et ne peuvent pas être utilisées à des fins de lecture ou d’écriture tant que le processus n’est pas terminé.| 
 | | | |
 
 ### <a name="alternative-options"></a>Autres options
@@ -161,7 +163,7 @@ Au-delà de l’architecture de haute disponibilité incluse dans Azure SQL Mana
 
 #### <a name="sql-agent-jobs"></a>Travaux SQL Agent
 
-Utilisez l’option Azure Database Migration Service (DMS) en mode hors connexion pour migrer des [travaux SQL Agent](../../../dms/howto-sql-server-to-azure-sql-mi-powershell.md#offline-migrations). Dans le cas contraire, créez un script des travaux en Transact-SQL (T-SQL) à l’aide de SQL Server Management Studio, puis recréez-les manuellement sur l’instance Azure SQL Managed Instance cible. 
+Utilisez l’option Azure Database Migration Service (DMS) en mode hors connexion pour migrer des [travaux SQL Agent](../../../dms/howto-sql-server-to-azure-sql-managed-instance-powershell-offline.md). Dans le cas contraire, créez un script des travaux en Transact-SQL (T-SQL) à l’aide de SQL Server Management Studio, puis recréez-les manuellement sur l’instance Azure SQL Managed Instance cible. 
 
 > [!IMPORTANT]
 > À l’heure actuelle, Azure DMS prend uniquement en charge les travaux comportant des étapes du sous-système T-SQL. Les travaux comportant des étapes du package SSIS devront être migrés manuellement. 
@@ -223,7 +225,7 @@ Pour commencer votre migration de SQL Server vers Azure SQL Managed Instance, co
 - Pour en savoir plus sur Azure SQL Managed Instance, consultez :
    - [Niveaux de service dans Azure SQL Managed Instance](../../managed-instance/sql-managed-instance-paas-overview.md#service-tiers)
    - [Différences entre SQL Server et Azure SQL Managed Instance](../../managed-instance/transact-sql-tsql-differences-sql-server.md)
-   - [Calculatrice du coût total de possession Azure](https://azure.microsoft.com/pricing/tco/calculator/) 
+   - [Outil de calcul du coût total de possession Azure](https://azure.microsoft.com/pricing/tco/calculator/) 
 
 
 - Pour plus d’informations sur l’infrastructure et le cycle d’adoption pour les migrations cloud, consultez :

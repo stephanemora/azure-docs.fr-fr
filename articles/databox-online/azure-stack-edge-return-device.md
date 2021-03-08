@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 07/27/2020
+ms.date: 02/26/2021
 ms.author: alkohli
-ms.openlocfilehash: 0c35bde40cac9629f084d69d52f119651b5655f7
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 6c9e8938feb3c3444d01f9d37476589776707425
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98784475"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703182"
 ---
 # <a name="return-your-azure-stack-edge-pro-device"></a>Retourner votre appareil Azure Stack Edge Pro
 
@@ -30,26 +30,16 @@ Dans cet article, vous apprendrez comment :
 
 ## <a name="erase-data-from-the-device"></a>Effacer les données de l’appareil
 
-Pour effacer les données des disques de données de votre appareil, vous devez réinitialiser votre appareil. Vous pouvez réinitialiser votre appareil à l’aide de l’interface utilisateur web locale ou de l’interface PowerShell.
+Pour effacer les données des disques de données de votre appareil, vous devez réinitialiser votre appareil.
 
-Avant de réinitialiser, créez une copie des données locales sur l’appareil si nécessaire. Vous pouvez copier les données de l’appareil dans un conteneur de Stockage Azure.
+Avant de réinitialiser, créez une copie des données locales sur l’appareil si nécessaire. Vous pouvez copier les données de l’appareil dans un conteneur de Stockage Azure. 
 
-Vous pouvez initier le retour de l’appareil même avant la réinitialisation de l’appareil. 
+Vous pouvez initier le retour de l’appareil même avant la réinitialisation de l’appareil.
 
-Pour réinitialiser votre appareil à l’aide de l’interface utilisateur web locale, effectuez les étapes suivantes.
+Vous pouvez réinitialiser votre appareil via l’interface utilisateur web locale ou PowerShell. Pour obtenir des instructions concernant PowerShell, consultez [Réinitialiser votre appareil](./azure-stack-edge-connect-powershell-interface.md#reset-your-device).
 
-1. Sur l’interface utilisateur web locale, accédez à **Maintenance > Réinitialisation de l’appareil**.
-2. Sélectionnez **Réinitialiser l’appareil**.
 
-    ![Réinitialisation de l’appareil](media/azure-stack-edge-return-device/device-reset-1.png)
-
-3. Lorsque vous êtes invité à confirmer l’opération, passez en revue l’avertissement et sélectionnez **Oui** pour continuer.
-
-    ![Confirmer la réinitialisation](media/azure-stack-edge-return-device/device-reset-2.png)  
-
-La réinitialisation efface les données des disques de données d’appareil. En fonction de la quantité de données sur votre appareil, ce processus prend environ 30 à 40 minutes.
-
-Vous pouvez également vous connecter à l’interface PowerShell de l’appareil et utiliser l’applet de commande `Reset-HcsAppliance` pour effacer les données des disques de données. Pour plus d’informations, consultez [Réinitialiser votre appareil](azure-stack-edge-connect-powershell-interface.md#reset-your-device).
+[!INCLUDE] [Réinitialiser les données de l’appareil](../../includes/azure-stack-edge-device-reset.md)
 
 > [!NOTE]
 > - Si vous échangez pour ou effectuez une mise à niveau vers un nouvel appareil, nous vous recommandons de ne réinitialiser votre appareil que lorsque vous avez reçu le nouvel appareil.
@@ -67,15 +57,15 @@ Pour commencer le processus de retour, effectuez les étapes suivantes.
 
     1. Indiquez le numéro de série de l’appareil. Pour récupérer le numéro de série de l’appareil, accédez à l’interface utilisateur web locale de l’appareil, puis accédez à **Vue d’ensemble**.  
     
-    ![Numéro de série de l’appareil 1](media/azure-stack-edge-return-device/device-serial-number-1.png) 
+       ![Numéro de série de l’appareil 1](media/azure-stack-edge-return-device/device-serial-number-1.png) 
 
-    2. Entrez le numéro d’étiquette de service qui correspond à un identificateur de cinq caractères ou plus propre à votre appareil. L’étiquette de service se trouve dans le coin inférieur droit de l’appareil (quand vous êtes en face de l’appareil). Retirez l’étiquette d’informations (panneau d’étiquette coulissant). Ce panneau contient des informations système telles que l’étiquette de service, la carte d’interface réseau, l’adresse MAC, etc. 
+    2. Entrez le numéro d’étiquette de service. Le numéro d’étiquette de service est un identificateur avec au moins cinq caractères, propre à votre appareil. L’étiquette de service se trouve dans l’angle inférieur droit de l’appareil (quand vous êtes face à celui-ci). Retirez l’étiquette d’informations (panneau d’étiquette coulissant). Ce panneau contient des informations système telles que l’étiquette de service, la carte d’interface réseau, l’adresse MAC, etc. 
     
-    ![Numéro d’étiquette de service 1](media/azure-stack-edge-return-device/service-tag-number-1.png)
+       ![Numéro d’étiquette de service 1](media/azure-stack-edge-return-device/service-tag-number-1.png)
 
     3. Dans la liste déroulante, choisissez une raison pour le retour.
 
-    ![Retourner l’appareil 2](media/azure-stack-edge-return-device/return-device-2.png) 
+       ![Retourner l’appareil 2](media/azure-stack-edge-return-device/return-device-2.png) 
 
 3. Sous **Informations de livraison** :
 
@@ -84,7 +74,7 @@ Pour commencer le processus de retour, effectuez les étapes suivantes.
 
     ![Retourner l’appareil 3](media/azure-stack-edge-return-device/return-device-3.png)
 
-4. Passez en revue les **conditions de confidentialité** et cochez la case en regard de la note disant que vous avez lu et acceptez les conditions de confidentialité.
+4. Passez en revue les **conditions de confidentialité** et activez la case à cocher en regard de la note, disant que vous avez lu et acceptez les conditions de confidentialité.
 
 5. Sélectionnez **Initier le retour**.
 
@@ -123,8 +113,8 @@ Lorsque l’appareil est reçu par le centre de données Azure, il est inspecté
 
 Vous pouvez supprimer l’appareil dans le Portail Azure :
 
-- Après avoir passé la commande et avant la préparation de l’appareil par Microsoft.
-- Lorsque vous avez retourné l’appareil à Microsoft, il est soumis à une inspection physique dans le centre de données Azure, et l’équipe d’opérations Azure Stack Edge Pro vous appelle pour confirmer que l’appareil a été retourné.
+- Après avoir passé une commande et avant que Microsoft ait préparé l’appareil.
+- Une fois que vous avez retourné un appareil à Microsoft, et que l’équipe d’opérations d’Azure Stack Edge Pro a appelé pour confirmer le retour de l’appareil. L’équipe d’opérations n’appelle pas jusqu’à ce que l’appareil retourné passe l’inspection physique au centre de gestion Azure.
 
 Si vous avez activé l’appareil sur un autre abonnement ou à un autre emplacement, Microsoft déplacera votre commande vers le nouvel abonnement ou emplacement dans un délai d’un jour ouvrable. Lorsque la commande est déplacée, vous pouvez supprimer cette ressource.
 

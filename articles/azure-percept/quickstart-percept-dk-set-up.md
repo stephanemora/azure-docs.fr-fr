@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: quickstart
 ms.date: 02/15/2021
 ms.custom: template-quickstart
-ms.openlocfilehash: 77ccf09903b6cff83b52d60d43d0c52533c9c1ad
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 49bf89d38edef6a9186cbdb5bb89a763339385b4
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102041686"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175819"
 ---
 # <a name="set-up-your-azure-percept-dk-and-deploy-your-first-ai-model"></a>Configurer votre DK Azure Percept et déployer votre premier modèle IA
 
@@ -25,7 +25,7 @@ Si vous rencontrez des problèmes lorsque vous suivez ce guide de démarrage rap
 - Un DK Azure Percept.
 - Un ordinateur hôte basé sur Windows, Linux ou OS X avec fonctionnalité Wi-Fi et un navigateur web.
 - Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Le compte Azure doit avoir le rôle « propriétaire » ou « contributeur » sur l’abonnement. Apprenez-en davantage sur les définitions de rôles Azure
+- Le compte Azure doit avoir le rôle « propriétaire » ou « contributeur » sur l’abonnement. En savoir plus sur [les définitions de rôles Azure](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles#azure-roles).
 
 ### <a name="prerequisite-check"></a>Vérification du prérequis
 
@@ -182,7 +182,7 @@ Si vous voulez créer un abonnement, effectuez [les étapes suivantes](https://d
 
 ## <a name="view-your-device-in-the-azure-percept-studio-and-deploy-common-prebuilt-sample-apps"></a>Affichez votre appareil dans Azure Percept Studio et déployez des exemples d’applications prédéfinis courants
 
-1. Affichez votre liste d’appareils à partir de la page de vue d’ensemble d’Azure Percept. La page de vue d’ensemble d’Azure Percept est votre point de départ pour accéder à de nombreux workflows différents pour le développement initial et avancé de modèles et de solutions IA Edge
+1. Affichez votre liste d’appareils à partir de la page de présentation [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819). La page de vue d’ensemble d’Azure Percept est votre point de départ pour accéder à de nombreux workflows différents pour le développement initial et avancé de modèles et de solutions IA Edge
 
     :::image type="content" source="./media/quickstart-percept-dk-setup/portal-01-get-device-list.png" alt-text="Affichez votre liste d’appareils.":::
     

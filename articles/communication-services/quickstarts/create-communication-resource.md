@@ -10,21 +10,21 @@ ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-azp-net
-ms.openlocfilehash: d861f6bfbe38ad73715ef521a36cc097b8538c9b
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: f40da8b2c9f64da424d43a6679977cda5bf111df
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99820000"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691771"
 ---
 # <a name="quickstart-create-and-manage-communication-services-resources"></a>Démarrage rapide : Créer et gérer des ressources Communication Services
  
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
-Commencez avec Azure Communication Services en provisionnant votre première ressource Communication Services. Les ressources Communication Services peuvent être provisionnées via le portail Azure ou avec la bibliothèque de client .NET Management. La bibliothèque de client Management vous permet de créer, configurer, mettre à jour et supprimer votre ressource et vos interfaces à l’aide d’[Azure Resource Manager](../../azure-resource-manager/management/overview.md), le service de gestion et de déploiement d’Azure. Toutes les fonctionnalités disponibles dans les bibliothèques de client sont accessibles à partir du portail Azure. 
+Commencez avec Azure Communication Services en provisionnant votre première ressource Communication Services. Les ressources Communication Services peuvent être provisionnées via le [portail Azure](https://portal.azure.com) ou avec la bibliothèque de client de gestion .NET. La bibliothèque de client de gestion et le portail Azure vous permettent de créer, configurer, mettre à jour et supprimer vos ressources et votre interface à l’aide d’[Azure Resource Manager](../../azure-resource-manager/management/overview.md), le service de gestion et de déploiement d’Azure. Toutes les fonctionnalités disponibles dans les bibliothèques de client sont accessibles à partir du portail Azure. 
 
 > [!WARNING]
-> Notez que Communication Services est disponible uniquement aux États-Unis pendant la préversion publique. Notez également que les ressources Communication ne peuvent pas être transférées vers un autre abonnement durant cette période de préversion publique.
+> Notez que bien que Communication Services soit disponible dans plusieurs zones géographiques, afin d’obtenir un numéro de téléphone, l’emplacement des données de la ressource doit être défini sur « US ». Notez également que les ressources Communication ne peuvent pas être transférées vers un autre abonnement durant cette période de préversion publique.
 
 ::: zone pivot="platform-azp"
 [!INCLUDE [Azure portal](./includes/create-resource-azp.md)]

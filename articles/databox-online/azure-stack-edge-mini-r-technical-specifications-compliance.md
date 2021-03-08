@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 03/01/2021
 ms.author: alkohli
-ms.openlocfilehash: e6dff06e92126e2fc4538273e229dcb0904e3101
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 3a0b87f04e60fd56d543c7c7a752cd788e087c78
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96465350"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101727479"
 ---
 # <a name="azure-stack-edge-mini-r-technical-specifications"></a>Spécifications techniques de l’appareil Azure Stack Edge Mini R
 
@@ -80,9 +80,9 @@ Le tableau suivant présente les spécifications du bloc d’alimentation :
 
 ## <a name="included-battery"></a>Batterie incluse
 
-L’appareil Azure Stack Edge Mini R inclut également une batterie intégrée qui est chargée par le bloc d’alimentation. 
+L’appareil Azure Stack Edge Mini R inclut également une batterie intégrée qui est chargée par le bloc d’alimentation.
 
-Une batterie de type 2590 supplémentaire peut être utilisée conjointement avec la batterie intégrée pour étendre l’utilisation de l’appareil entre les charges. Cette batterie doit être conforme à toutes les réglementations relatives à la sécurité, au transport et à l’environnement applicables dans le pays d’utilisation.
+Une [batterie de type 2590](https://www.bren-tronics.com/bt-70791ck.html) supplémentaire peut être utilisée conjointement avec la batterie intégrée pour étendre l’utilisation de l’appareil entre les charges. Cette batterie doit être conforme à toutes les réglementations relatives à la sécurité, au transport et à l’environnement applicables dans le pays d’utilisation.
 
 
 | Caractéristique           | Valeur                      |

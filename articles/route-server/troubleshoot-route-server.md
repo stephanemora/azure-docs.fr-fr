@@ -7,12 +7,12 @@ ms.service: route-server
 ms.topic: how-to
 ms.date: 03/02/2021
 ms.author: duau
-ms.openlocfilehash: 02dd9aa74da42f0a5d70de4513b88756a97bea1e
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 9fa0f73d06bda02d784628823ee70bc538b375e2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101678531"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101695802"
 ---
 # <a name="troubleshooting-azure-route-server-issues"></a>Résolution des problèmes liés à Azure Route Server
 
@@ -21,11 +21,15 @@ ms.locfileid: "101678531"
 > Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
 > Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="bgp-connectivity-issues"></a>Problèmes de connectivité avec BGP
+## <a name="connectivity-issues"></a>Problèmes de connectivité
 
-### <a name="why-is-the-bgp-peering-between-my-nva-and-the-azure-route-server-going-up-and-down-flapping"></a>Pourquoi le peering BGP entre ma NVA et Azure Route Server est-il instable (« bagottement ») ?
+### <a name="why-does-my-nva-lose-internet-connectivity-after-it-advertises-the-default-route-00000-to-azure-route-server"></a>Pourquoi ma NVA rencontre-t-elle des problèmes de connectivité après avoir publié l’itinéraire par défaut (0.0.0.0/0) sur Azure Route Server ?
+Lorsque votre NVA publie l’itinéraire par défaut, Azure Route Server la programme pour toutes les machines virtuelles du réseau virtuel, y compris la NVA elle-même. Cet itinéraire par défaut définit la NVA comme tronçon suivant pour tout le trafic Internet. Si votre NVA a besoin d’une connexion Internet, vous devez configurer un [itinéraire défini par l’utilisateur](../virtual-network/virtual-networks-udr-overview.md) pour remplacer l’itinéraire par défaut de la NVA et joindre l’UDR au sous-réseau sur lequel la NVA est hébergée (voir l’exemple ci-dessous). Sinon, l’ordinateur hôte de la NVA continue d’envoyer le trafic Internet, y compris celui envoyé par la NVA à la NVA.
 
-Le bagottement peut être dû au paramétrage du minuteur BGP. Par défaut, le minuteur Keep Alive sur Azure Route Server est défini sur 60 secondes et le minuteur de sauvegarde est de 180 secondes.
+| Routage | Tronçon suivant |
+|-------|----------|
+| 0.0.0.0/0 | Internet |
+
 
 ### <a name="why-can-i-ping-from-my-nva-to-the-bgp-peer-ip-on-azure-route-server-but-after-i-set-up-the-bgp-peering-between-them-i-cant-ping-the-same-ip-anymore-why-does-the-bgp-peering-goes-down"></a>Pourquoi puis-je effectuer un test ping depuis ma NVA vers l’adresse IP de pair BGP sur Azure Route Server, alors qu’après avoir configuré le peering BGP entre eux, je ne peux plus effectuer de test ping vers la même adresse IP ? Pourquoi le peering BGP tombe-t-il en panne ?
 
@@ -37,11 +41,18 @@ Dans certaines NVA, vous devez ajouter une route statique pour le sous-réseau d
 
 10.0.1.1 est l’adresse IP de passerelle par défaut dans le sous-réseau où votre NVA (ou plus précisément, une des cartes réseau) est hébergée.
 
-## <a name="bgp-route-issues"></a>Problèmes de routes BGP
+### <a name="why-do-i-lose-connectivity-to-my-on-premises-network-over-expressroute-andor-azure-vpn-when-im-deploying-azure-route-server-to-a-virtual-network-that-already-has-expressroute-gateway-andor-azure-vpn-gateway"></a>Pourquoi est-ce que je perds la connectivité à mon réseau local via ExpressRoute et/ou VPN Azure lorsque je déploie Azure Route Server sur un réseau virtuel qui possède déjà la passerelle ExpressRoute et/ou la passerelle VPN Azure ?
+Lorsque vous déployez Azure Route Server sur un réseau virtuel, nous devons mettre à jour le plan de contrôle entre les passerelles et le réseau virtuel. Pendant cette mise à jour, les machines virtuelles du réseau virtuel perdront temporairement leur connectivité au réseau local. Nous vous recommandons vivement de planifier une maintenance pour déployer Azure Route Server dans votre environnement de production.  
+
+## <a name="control-plane-issues"></a>Problèmes liés au plan de contrôle
+
+### <a name="why-is-the-bgp-peering-between-my-nva-and-the-azure-route-server-going-up-and-down-flapping"></a>Pourquoi le peering BGP entre ma NVA et Azure Route Server est-il instable (« bagottement ») ?
+
+Le bagottement peut être dû au paramétrage du minuteur BGP. Par défaut, le minuteur Keep Alive sur Azure Route Server est défini sur 60 secondes et le minuteur de sauvegarde est de 180 secondes.
 
 ### <a name="why-does-my-nva-not-receive-routes-from-azure-route-server-even-though-the-bgp-peering-is-up"></a>Pourquoi ma NVA ne reçoit-elle pas de routes d’Azure Route Server même si le peering BGP est opérationnel ?
 
-Le numéro ASN utilisé par Azure Route Server est 65515. Veillez à configurer un autre numéro ASN pour votre NVA afin qu’une session « eBGP » puisse être établie entre votre NVA et Azure Route Server et que la propagation des routes puisse se produire automatiquement.
+Le numéro ASN utilisé par Azure Route Server est 65515. Veillez à configurer un autre numéro ASN pour votre NVA afin qu’une session « eBGP » puisse être établie entre votre NVA et Azure Route Server et que la propagation des routes puisse se produire automatiquement. Veillez à activer « multi-hop » dans votre configuration BGP, car votre NVA et Azure Route Server se trouvent dans des sous-réseaux différents du réseau virtuel.
 
 ### <a name="the-bgp-peering-between-my-nva-and-azure-route-server-is-up-i-can-see-routes-exchanged-correctly-between-them-why-arent-the-nva-routes-in-the-effective-routing-table-of-my-vm"></a>Le peering BGP entre ma NVA et Azure Route Server est opérationnel. Je peux voir des routes correctement échangées entre eux. Pourquoi les routes de la NVA ne sont-elles pas dans la table de routage effective de ma machine virtuelle ? 
 

@@ -6,14 +6,14 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 02/26/2021
 ms.author: jushiman
-ms.openlocfilehash: 61897a790da8a5f52b1b8f8e208629e7755690fa
-ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
+ms.openlocfilehash: 356afea7573b24649f682205d26823b4e24e7fbe
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97759736"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101695190"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Support des machines virtuelles de 2e génération dans Azure
 
@@ -79,11 +79,13 @@ Azure ne prend actuellement pas en charge certaines fonctionnalités qui sont pr
 
 | Fonctionnalités pour la 2e génération                | Hyper-V local | Azure |
 |-------------------------------------|---------------------|-------|
-| Démarrage sécurisé                         | :heavy_check_mark:  | :x:   |
+| Démarrage sécurisé                         | :heavy_check_mark:  | Avec le lancement fiable (préversion)   |
 | Machine virtuelle protégée                         | :heavy_check_mark:  | :x:   |
-| vTPM                                | :heavy_check_mark:  | :x:   |
-| Sécurité basée sur la virtualisation (VBS) | :heavy_check_mark:  | :x:   |
+| vTPM                                | :heavy_check_mark:  | Avec le lancement fiable (préversion)  |
+| Sécurité basée sur la virtualisation (VBS) | :heavy_check_mark:  | Avec le lancement fiable (préversion)   |
 | Format VHDX                         | :heavy_check_mark:  | :x:   |
+
+Pour plus d’informations, consultez [Lancement fiable (préversion)](trusted-launch.md).
 
 ## <a name="features-and-capabilities"></a>Fonctionnalités et capacités
 
@@ -105,7 +107,7 @@ Azure ne prend actuellement pas en charge certaines fonctionnalités qui sont pr
 | Azure Site Recovery               | :heavy_check_mark: | :heavy_check_mark: |
 | Sauvegarde/restauration                    | :heavy_check_mark: | :heavy_check_mark: |
 | Galerie d’images partagées              | :heavy_check_mark: | :heavy_check_mark: |
-| [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md)             | :heavy_check_mark: | :x:                |
+| [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md)             | :heavy_check_mark: | :heavy_check_mark:                |
 | [Chiffrement côté serveur](disk-encryption.md)            | :heavy_check_mark: | :heavy_check_mark: |
 
 ## <a name="creating-a-generation-2-vm"></a>Création d’une machine virtuelle de 2e génération
@@ -206,7 +208,7 @@ Vous pouvez également créer des machines virtuelles de 2e génération à l’
     Oui. Pour en savoir plus, consultez [Créer une machine virtuelle avec mise en réseau accélérée](../virtual-network/create-vm-accelerated-networking-cli.md).
 
 * **Les machines virtuelles de 2e génération prennent-elles en charge le démarrage sécurisé ou vTPM dans Azure ?**
-    Les machines virtuelles de 1ère et 2e générations dans Azure ne prennent pas en charge le démarrage sécurisé ou vTPM. 
+    vTPM et l’amorçage sécurisé sont des fonctionnalités de lancement fiable (préversion) pour les machines virtuelles de 2e génération. Pour plus d’informations, consultez [Lancement fiable](trusted-launch.md).
     
 * **La 2e génération prend-elle en charge VHDX ?**  
     Non, les machines virtuelles de 2e génération prennent en charge uniquement un disque dur virtuel.
@@ -225,5 +227,7 @@ Vous pouvez également créer des machines virtuelles de 2e génération à l’
     1. Vérifiez que vous recherchez une [taille de machine virtuelle qui prend en charge les machines virtuelles Gen2](#generation-2-vm-sizes).
 
 ## <a name="next-steps"></a>Étapes suivantes
+
+En savoir plus sur le [lancement fiable (préversion)](trusted-launch-portal.md) avec des machines virtuelles Gen 2.
 
 En savoir plus sur les [machines virtuelles de 2e génération dans Hyper-V](/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).

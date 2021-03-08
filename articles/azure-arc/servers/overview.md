@@ -2,18 +2,18 @@
 title: Vue d'ensemble des serveurs avec Azure Arc
 description: Apprenez à utiliser les serveurs avec Azure Arc afin de gérer les serveurs hébergés en dehors d'Azure comme une ressource Azure.
 keywords: Azure Automation, DSC, PowerShell, Desired State Configuration, Update Management, Change Tracking, inventaire, runbooks, Python, graphique, hybride
-ms.date: 11/12/2020
+ms.date: 02/18/2021
 ms.topic: overview
-ms.openlocfilehash: be5955e9bf02e591fdbba3f080d034c126379c2f
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 5692dfaceb15086b04ee951b8ecdf88f73c7d122
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100584797"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101686221"
 ---
 # <a name="what-is-azure-arc-enabled-servers"></a>Qu’est-ce qu’un serveur avec Azure Arc ?
 
-Les serveurs avec Azure Arc vous permettent de gérer vos machines Windows et Linux hébergées en dehors d’Azure, sur votre réseau d’entreprise ou un autre fournisseur de cloud correspondant bien à la façon dont vous gérez les machines virtuelles Azure natives. Quand une machine hybride est connectée à Azure, elle devient une machine connectée et est traitée comme une ressource dans Azure. Chaque machine connectée possède un ID de ressource, est incluse dans un groupe de ressources et tire parti des constructions Azure standard, comme Azure Policy et l’application d’étiquettes. Les fournisseurs de services qui gèrent l'infrastructure locale d'un client peuvent gérer ses machines hybrides (comme ils le font déjà avec les ressources Azure natives) dans différents environnements clients à l'aide d'[Azure Lighthouse](../../lighthouse/how-to/manage-hybrid-infrastructure-arc.md) avec Azure Arc.
+Les serveurs avec Azure Arc vous permettent de gérer vos machines virtuelles et vos serveurs physiques Windows et Linux hébergés *en dehors* d’Azure sur votre réseau d’entreprise ou un autre fournisseur de cloud. Cette expérience de gestion est conçue pour être cohérente avec la manière dont vous gérez les machines virtuelles Azure natives. Quand une machine hybride est connectée à Azure, elle devient une machine connectée et est traitée comme une ressource dans Azure. Chaque machine connectée possède un ID de ressource, est incluse dans un groupe de ressources et tire parti des constructions Azure standard, comme Azure Policy et l’application d’étiquettes. Les fournisseurs de services qui gèrent l'infrastructure locale d'un client peuvent gérer ses machines hybrides (comme ils le font déjà avec les ressources Azure natives) dans différents environnements clients à l'aide d'[Azure Lighthouse](../../lighthouse/how-to/manage-hybrid-infrastructure-arc.md) avec Azure Arc.
 
 Pour bénéficier de cette expérience avec vos machines hybrides hébergées en dehors d’Azure, vous devez installer Azure Connected Machine sur chaque machine que vous envisagez de connecter à Azure. Cet agent ne fournit aucune autre fonctionnalité et ne remplace pas l’agent Azure [Log Analytics](../../azure-monitor/agents/log-analytics-agent.md). L’agent Log Analytics pour Windows et Linux est nécessaire quand vous souhaitez superviser de manière proactive le système d’exploitation et les charges de travail en cours d’exécution sur la machine, gérer le système d’exploitation à l’aide de runbooks Automation ou de solutions comme Update Management ou utiliser d’autres services Azure tels qu’[Azure Security Center](../../security-center/security-center-introduction.md).
 
@@ -44,7 +44,7 @@ Les données de journal collectées et stockées dans un espace de travail Log A
 
 Pour obtenir la liste définitive des régions prises en charge dotées de serveurs avec Azure Arc, consultez la page [Produits Azure par région](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc).
 
-Dans la plupart des cas, l’emplacement que vous sélectionnez au moment de créer le script d’installation doit être la région Azure géographiquement la plus proche de l’emplacement de votre ordinateur. Les données au repos sont stockées dans la zone géographique Azure englobant la région que vous spécifiez, ce qui peut aussi affecter votre choix de région si vous avez des exigences concernant la résidence des données. Si la région Azure à laquelle votre machine se connecte subit une panne, la machine connectée n’est pas affectée, mais les opérations de gestion effectuées avec Azure risquent de ne pas aboutir. En cas de panne régionale, si vous avez plusieurs emplacements qui prennent en charge un service géographiquement redondant, l’idéal est de connecter les machines de chaque emplacement à une région Azure distincte.
+Dans la plupart des cas, l’emplacement que vous sélectionnez au moment de créer le script d’installation doit être la région Azure géographiquement la plus proche de l’emplacement de votre ordinateur. Les données au repos sont stockées dans la zone géographique Azure englobant la région que vous spécifiez, ce qui peut aussi affecter votre choix de région si vous avez des exigences concernant la résidence des données. Si la région Azure à laquelle votre machine se connecte subit une panne, la machine connectée n’est pas affectée, mais les opérations de gestion effectuées avec Azure risquent de ne pas aboutir. En cas de panne régionale et si vous avez plusieurs emplacements qui prennent en charge un service géographiquement redondant, l’idéal est de connecter les machines de chaque emplacement à une région Azure distincte.
 
 Les métadonnées suivantes concernant la machine connectée sont collectées et stockées dans la région où la ressource machine Azure Arc est configurée :
 
@@ -54,6 +54,13 @@ Les métadonnées suivantes concernant la machine connectée sont collectées et
 - Version de l’agent Machine connectée
 
 Par exemple, si la machine est inscrite auprès d’Azure Arc dans la région USA Est, ces données sont stockées dans la région USA.
+
+### <a name="supported-environments"></a>Environnements pris en charge
+
+Les serveurs avec Arc prennent en charge la gestion des serveurs physiques et des machines virtuelles hébergés *en dehors* d’Azure. Pour plus d’informations sur les environnements de cloud hybride hébergeant des machines virtuelles qui sont pris en charge, consultez [Prérequis de l’agent Connected Machine](agent-overview.md#supported-environments).
+
+> [!NOTE]
+> Les serveurs avec Arc ne sont pas conçus ni pris en charge pour permettre la gestion des machines virtuelles s’exécutant dans Azure.
 
 ### <a name="agent-status"></a>État de l’agent
 

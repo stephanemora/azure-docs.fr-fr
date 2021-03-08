@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.date: 08/01/2020
 ms.custom: mvc, devcenter, seodec18
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 302e0dc79d13eedebf810df042dc31f78b173fb6
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 324919c1d085302e675e0bc9a370ce35f52a0f1d
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101747384"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102109104"
 ---
 <!-- advanced for windows -->
 
@@ -48,7 +48,7 @@ ms.locfileid: "101747384"
 
 1. Sélectionnez **Créer une application web... Avancé**, pour déployer sur App Service sur Windows.
 
-1. Tapez un <abbr title="Les caractères valides dans un nom d’application sont les suivants : « a-z », « 0-9 » et « - ».">nom</abbr> global unique pour votre application web et appuyez sur **Entrée**. 
+1. Tapez un <abbr title="Les caractères valides dans un nom d’application sont les suivants : « a-z », « 0-9 » et « - ».">name</abbr> global unique pour votre application web et appuyez sur **Entrée**. 
 1. Sélectionnez **Créer un groupe de ressources** et entrez un nom pour le groupe de ressources, par exemple `AppServiceQS-rg`.
 1. Choisissez votre **version Node.js** (LTS est recommandé).
 
@@ -70,10 +70,14 @@ ms.locfileid: "101747384"
 
 1. Une fois le déploiement terminé, sélectionnez **Parcourir le site web** dans l’invite pour afficher l’application web que vous venez de déployer.
 
-<br>
+<br/>
 <details>
-<summary>Dépannage</summary>
+<summary><strong>Dépannage</strong></summary>
+
+Si vous n’avez pas pu effectuer ces étapes, vérifiez les points suivants :
+
 * Assurez-vous que votre application utilise le port d’écoute fourni par la variable d’environnement PORT `process.env.PORT`.
+
 * Si vous voyez s’afficher le message d’erreur **« Vous n’êtes pas autorisé à afficher ce répertoire ou cette page. »** , c’est que l’application n’a probablement pas réussi à démarrer correctement. Examinez la sortie du journal pour rechercher et corriger l’erreur. 
 
 </details>
@@ -83,5 +87,5 @@ ms.locfileid: "101747384"
 [Signaler un problème](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azure-app-service&prepare-your-environment)
 
 
-<br>
+<br/>
 <hr/>

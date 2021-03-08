@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 32ba630d5e2f8e3e581f394af2ee687a971d3a7a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 88a7600239d6e960fa2e635c9e7d9049a7c02db3
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101692872"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102032351"
 ---
 # <a name="securing-managed-identities"></a>Sécurisation des identités managées
 
@@ -84,7 +84,7 @@ Vous disposez de plusieurs méthodes pour rechercher des identités managées :
 
 * Via Microsoft Graph
 
-### <a name="using-the-azure-portal"></a>Via le portail Azure
+### <a name="using-the-azure-portal"></a>Utilisation du portail Azure
 
 1. Dans Azure AD, sélectionnez Application d'entreprise.
 
@@ -100,7 +100,7 @@ Vous pouvez obtenir la liste de toutes les identités managées de votre locatai
 
 `https://graph.microsoft.com/v1.0/servicePrincipals?$filter=(servicePrincipalType eq 'ManagedIdentity') `
 
-Vous pouvez filtrer ces requêtes. Pour plus d'informations, consultez [GET servicePrincipal](https://docs.microsoft.com/graph/api/serviceprincipal-get?view=graph-rest-1.0&tabs=http) dans la documentation de Graph.
+Vous pouvez filtrer ces requêtes. Pour plus d'informations, consultez [GET servicePrincipal](/graph/api/serviceprincipal-get?view=) dans la documentation de Graph.
 
 ## <a name="assess-the-security-of-managed-identities"></a>Évaluer la sécurité des identités managées 
 
@@ -140,7 +140,7 @@ Si vous utilisez un principal de service ou un compte d'utilisateur Azure AD, d�
 
 [Administration des comptes de service Azure](service-accounts-governing-azure.md)
 
-[Présentation des comptes de service locaux](service-accounts-on-poremises.md)
+[Présentation des comptes de service locaux](service-accounts-on-premises.md)
 
  
 

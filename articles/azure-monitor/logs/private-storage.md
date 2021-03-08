@@ -1,17 +1,16 @@
 ---
 title: Utilisation de comptes de stockage gérés par le client dans Azure Monitor Log Analytics
 description: Utilisez votre propre compte de stockage pour les scénarios de Log Analytics
-ms.subservice: logs
 ms.topic: conceptual
 author: noakup
 ms.author: noakuper
 ms.date: 09/03/2020
-ms.openlocfilehash: 3c5a528ada9e7239f5c53da1cae6df7ceffac918
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 69b5927c73dac14c76b94a4ee5bbb21449f8ec98
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100599232"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102047450"
 ---
 # <a name="using-customer-managed-storage-accounts-in-azure-monitor-log-analytics"></a>Utilisation de comptes de stockage gérés par le client dans Azure Monitor Log Analytics
 
@@ -23,7 +22,7 @@ Log Analytics s’appuie sur Stockage Azure dans différents scénarios. Cette u
 ## <a name="ingesting-azure-diagnostics-extension-logs-wadlad"></a>Ingestion des journaux de l’extension Azure Diagnostics (WAD/LAD)
 Les agents de l’extension Azure Diagnostics (également appelés WAD et LAD pour les agents Windows et Linux, respectivement) recueillent différents journaux du système d’exploitation et les stockent sur un compte de stockage géré par le client. Vous pouvez ensuite ingérer ces journaux dans Log Analytics pour les examiner et les analyser.
 ### <a name="how-to-collect-azure-diagnostics-extension-logs-from-your-storage-account"></a>Procédure de collecte des journaux de l’extension Azure Diagnostics à partir de votre compte de stockage
-Connectez le compte de stockage à votre espace de travail Log Analytics en tant que source de données de stockage à l’aide du [portail Azure](../essentials/diagnostics-extension-logs.md#collect-logs-from-azure-storage) ou en appelant l’[API Storage Insights](/rest/api/loganalytics/storage%20insights/createorupdate).
+Connectez le compte de stockage à votre espace de travail Log Analytics en tant que source de données de stockage à l’aide du [portail Azure](../agents/diagnostics-extension-logs.md#collect-logs-from-azure-storage) ou en appelant l’[API Storage Insights](/rest/api/loganalytics/storage%20insights/createorupdate).
 
 Types de données pris en charge :
 * syslog
@@ -51,6 +50,7 @@ Pour que le compte de stockage se connecte correctement à votre liaison privée
 * autoriser Azure Monitor à accéder au compte de stockage. Si vous avez choisi d’autoriser uniquement certains réseaux à accéder à votre compte de stockage, vous devez sélectionner l’exception : « Autoriser les services Microsoft approuvés à accéder à ce compte de stockage ».
 ![Image de l’approbation de compte de stockage MS services](./media/private-storage/storage-trust.png)
 * si votre espace de travail traite également du trafic provenant d’autres réseaux, vous devez configurer le compte de stockage de manière à autoriser le trafic entrant provenant des réseaux concernés ou d’Internet.
+* Coordonnez la version TLS entre les agents et le compte de stockage : il est recommandé d’envoyer des données à Log Analytics à l’aide du protocole TLS 1.2 ou version ultérieure. Passez en revue les [conseils spécifiques à la plateforme](https://docs.microsoft.com/azure/azure-monitor/logs/data-security#sending-data-securely-using-tls-12) et, si nécessaire, [configurez vos agents pour utiliser TLS 1.2](https://docs.microsoft.com/azure/azure-monitor/agents/agent-windows#configure-agent-to-use-tls-12). Si, pour une raison quelconque, cela n’êtes pas possible, configurez le compte de stockage pour qu’il accepte TLS 1.0.
 
 ### <a name="using-a-customer-managed-storage-account-for-cmk-data-encryption"></a>Utilisation d’un compte de stockage géré par le client pour le chiffrement de données CMK
 Stockage Azure chiffre toutes les données au repos dans un compte de stockage. Par défaut, il utilise des clés gérées par Microsoft (MMK) pour chiffrer les données ; cependant, Stockage Azure vous permet également d’utiliser CMK à partir d’Azure Key Vault pour chiffrer vos données de stockage. Vous pouvez importer vos propres clés dans Azure Key Vault ou utiliser les API d’Azure Key Vault pour générer des clés.

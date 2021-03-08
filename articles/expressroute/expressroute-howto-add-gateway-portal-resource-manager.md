@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/05/2020
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 843d0b8cfd75e8cbdf45ac535cc9486aa42442d6
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 56e35c23eacdf98db283ba5d8c2e32687cbe0ea8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "91761787"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101740900"
 ---
 # <a name="tutorial-configure-a-virtual-network-gateway-for-expressroute-using-the-azure-portal"></a>Tutoriel : Configurer une passerelle de réseau virtuel pour ExpressRoute à l’aide du portail Azure
 > [!div class="op_single_selector"]
@@ -50,6 +50,11 @@ Les étapes de cette tâche utilisent un réseau virtuel basé sur les valeurs f
 
 Vous pouvez afficher une [vidéo](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network) de ces étapes avant de commencer votre configuration.
 
+> [!IMPORTANT]
+> La prise en charge du protocole IPv6 pour le peering privé est actuellement en **préversion publique**. Si vous souhaitez connecter votre réseau virtuel à un circuit ExpressRoute avec un Peering privé IPv6 configuré, assurez-vous que votre réseau virtuel est à double pile et suivez les instructions relatives à [IPv6 pour Azure VNet](https://docs.microsoft.com/azure/virtual-network/ipv6-overview).
+> 
+> 
+
 ## <a name="create-the-gateway-subnet"></a>Créer le sous-réseau de passerelle
 
 1. Dans le [portail](https://portal.azure.com), accédez au réseau virtuel Resource Manager pour lequel vous souhaitez créer une passerelle de réseau virtuel.
@@ -58,16 +63,20 @@ Vous pouvez afficher une [vidéo](https://azure.microsoft.com/documentation/vide
    
     :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/add-gateway-subnet.png" alt-text="Ajouter le sous-réseau de passerelle":::
 
-1. Le **Nom** de votre sous-réseau est automatiquement rempli avec la valeur « GatewaySubnet ». Cette valeur est nécessaire pour qu’Azure puisse reconnaître le sous-réseau en tant que sous-réseau de passerelle. Ajustez les valeurs de **Plage d’adresses** renseignées automatiquement pour qu’elles correspondent à la configuration requise. Nous vous recommandons de créer un sous-réseau de passerelle avec /27 ou plus (/26, /25, etc.). Ensuite, sélectionnez **OK** pour enregistrer les valeurs et créer le sous-réseau de passerelle.
+1. Le **Nom** de votre sous-réseau est automatiquement rempli avec la valeur « GatewaySubnet ». Cette valeur est nécessaire pour qu’Azure puisse reconnaître le sous-réseau en tant que sous-réseau de passerelle. Ajustez les valeurs de **Plage d’adresses** renseignées automatiquement pour qu’elles correspondent à la configuration requise. Nous vous recommandons de créer un sous-réseau de passerelle avec /27 ou plus (/26, /25, etc.).
 
-    :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/add-subnet-gateway.png" alt-text="Ajout du sous-réseau":::
+    Si vous utilisez un réseau virtuel à double pile et prévoyez d’utiliser un Peering privé IPv6 sur ExpressRoute, cliquez sur **Ajouter un espace d’adressage IP6**, puis entrez les valeurs de la **Plage d’adresses IPv6**.
+
+Ensuite, sélectionnez **OK** pour enregistrer les valeurs et créer le sous-réseau de passerelle.
+
+    :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/add-subnet-gateway.png" alt-text="Adding the subnet":::
 
 ## <a name="create-the-virtual-network-gateway"></a>Créer la passerelle de réseau virtuel
 
 1. Dans le portail, sur le côté gauche, sélectionnez **Créer une ressource**, puis entrez « Passerelle de réseau virtuel » dans la zone de recherche. Recherchez **passerelle de réseau virtuel** dans les résultats de la recherche et sélectionnez l’entrée. Dans la page **Passerelle de réseau virtuel**, sélectionnez **Créer**.
 1. Dans la page **Créer une passerelle de réseau virtuel**, entrez ou sélectionnez les paramètres suivants :
 
-    | Paramètre | Valeur |
+    | Paramètre | Value |
     | --------| ----- |
     | Abonnement | Vérifiez que l’abonnement approprié est sélectionné. |
     | Groupe de ressources | Le groupe de ressources est choisi automatiquement une fois que vous avez sélectionné le réseau virtuel. | 
@@ -78,6 +87,11 @@ Vous pouvez afficher une [vidéo](https://azure.microsoft.com/documentation/vide
     | Réseau virtuel | Sélectionnez *TestVNet*. |
     | Adresse IP publique | Sélectionnez **Créer nouveau**.|
     | Nom de l’adresse IP publique | Fournissez un nom pour l’adresse IP publique. |
+
+    > [!IMPORTANT]
+    > Si vous prévoyez d’utiliser un Peering privé IPv6 sur ExpressRoute, veillez à sélectionner une référence (SKU) AZ (ErGw1AZ, ErGw2AZ, ErGw3AZ) pour **Référence (SKU)** .
+    > 
+    > 
 
 1. Sélectionnez **Vérifier + créer**, puis **Créer** pour commencer à créer la passerelle. Les paramètres sont validés et la passerelle se déploie. La création d’une passerelle de réseau virtuel peut prendre jusqu’à 45 minutes.
 

@@ -8,17 +8,17 @@ ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: conceptual
 ms.date: 01/04/2021
-ms.openlocfilehash: e812fa47d35889a9cf8c671a4df6034812272a6a
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 57e9d0c584600a8fac90499d72cfac1620052603
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101670626"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101694918"
 ---
 # <a name="troubleshoot-library-installation-errors"></a>Résoudre les erreurs d’installation de bibliothèque 
-Pour que vos applications disposent d’un code tiers ou généré en local, vous pouvez installer une bibliothèque sur l’un de vos pools Apache Spark serverless. Les packages répertoriés dans le fichier requirements.txt sont téléchargés à partir de PyPi au démarrage du pool. Ce fichier de configuration requise est utilisé chaque fois qu’une instance Spark est créée à partir de ce pool Spark. Une fois qu’une bibliothèque est installée pour un pool Spark, elle est disponible pour toutes les sessions utilisant le même pool. 
+Pour que vos applications disposent d’un code tiers ou généré en local, vous pouvez installer une bibliothèque sur l’un de vos pools Apache Spark serverless. Les packages répertoriés dans le fichier requirements.txt sont téléchargés à partir de PyPi au démarrage du pool. Ce fichier de configuration requise est utilisé chaque fois qu’une instance Spark est créée à partir de ce pool Spark. Une fois qu’une bibliothèque est installée pour un pool Spark, elle est disponible pour toutes les sessions utilisant le même pool. 
 
-Dans certains cas, vous constaterez peut-être que la bibliothèque que vous essayez d’installer n’apparaît pas dans votre pool Apache Spark. Ce cas se produit souvent lorsqu’une erreur est survenue dans le fichier requirements.txt fourni ou dans les bibliothèques spécifiées. En cas d’erreur dans le processus d’installation de la bibliothèque, le pool Apache Spark restaure les bibliothèques spécifiées dans le runtime de base Synapse.
+Dans certains cas, il se peut qu’une bibliothèque n’apparaisse pas dans votre pool Apache Spark. Cela se produit généralement lorsqu’une erreur est survenue dans le fichier requirements.txt fourni ou dans les bibliothèques spécifiées. En cas d’erreur dans le processus d’installation de la bibliothèque, le pool Apache Spark restaure les bibliothèques spécifiées dans le runtime de base Synapse.
 
 L’objectif de ce document est de fournir des problèmes courants et de vous aider à déboguer les erreurs d’installation de bibliothèque.
 
@@ -28,6 +28,19 @@ Lorsque vous mettez à jour les bibliothèques dans votre pool Apache Spark, ces
 Vous pouvez forcer l’application des modifications en sélectionnant l’option **Forcer les nouveaux paramètres**. Ce paramètre met fin à toutes les sessions actives pour le pool Spark sélectionné. Une fois les sessions terminées, vous devez attendre le redémarrage du pool. 
 
 ![Ajouter des bibliothèques Python](./media/apache-spark-azure-portal-add-libraries/update-libraries.png "Ajouter des bibliothèques Python")
+
+## <a name="track-installation-progress"></a>Vérifier la progression de l’installation
+Un travail Spark réservé au système démarre chaque fois qu’un pool est mis à jour avec un nouvel ensemble de bibliothèques. Ce travail Spark permet de surveiller l’état de l’installation de la bibliothèque. En cas d’échec de l’installation suite à des conflits avec la bibliothèque ou à d’autres problèmes, l’état précédent ou l’état par défaut du pool Spark est rétabli. 
+
+De plus, les utilisateurs peuvent consulter les journaux d’installation pour identifier les conflits de dépendance ou vérifier quelles bibliothèques ont été installées lors de la mise à jour du pool.
+
+Pour afficher ces journaux :
+1. Accédez à la liste des applications Spark dans l’onglet **Surveiller**. 
+2. Sélectionnez la tâche de l’application Spark du système qui correspond à la mise à jour de votre pool. Ces tâches système s’exécutent sous le titre *SystemReservedJob-LibraryManagement*.
+   ![Capture d’écran mettant en évidence la tâche de bibliothèque réservée au système.](./media/apache-spark-azure-portal-add-libraries/system-reserved-library-job.png "Afficher la tâche de bibliothèque système")
+3. Affichez les journaux du **pilote** et **stdout**. 
+4. Parmi les résultats, vous verrez les journaux relatifs à l’installation de vos packages.
+    ![Capture d’écran mettant en évidence les résultats de la tâche de bibliothèque réservée au système.](./media/apache-spark-azure-portal-add-libraries/system-reserved-library-job-results.png "Afficher la progression de la tâche de bibliothèque système")
 
 ## <a name="validate-your-permissions"></a>Valider vos autorisations
 Pour installer et mettre à jour des bibliothèques, vous devez disposer des autorisations **Contributeur aux données Blob du stockage** ou **Propriétaire des données Blob du stockage** sur le compte de stockage Azure Data Lake Storage Gen2 principal qui est lié à l’espace de travail Azure Synapse Analytics.
@@ -58,28 +71,20 @@ Si une erreur s’affiche, vous ne disposez probablement pas des autorisations r
 
 En outre, si vous exécutez un pipeline, le fichier MSI de l’espace de travail doit également posséder des autorisations Propriétaire des données Blob du stockage ou Contributeur aux données Blob du stockage. Pour apprendre à accorder cette autorisation à l’identité de votre espace de travail, consultez : [Octroyez des autorisations à une identité managée de l’espace de travail](../security/how-to-grant-workspace-managed-identity-permissions.md).
 
-## <a name="check-the-requirements-file"></a>Consulter le fichier de spécifications
-Un fichier ***requirements.txt*** (sortie de la commande pip freeze) permet de mettre à niveau l’environnement virtuel. Ce fichier est au format décrit dans la documentation de référence [pip freeze](https://pip.pypa.io/en/stable/reference/pip_freeze/).
+## <a name="check-the-environment-configuration-file"></a>Vérifier le fichier config de l’environnement
+Vous pouvez utiliser le fichier config d’un environnement pour mettre à niveau l’environnement Conda. Si vous souhaitez obtenir la liste des formats de fichier pris en charge pour la gestion des pools Python, cliquez [ici](./apache-spark-manage-python-packages.md).
 
 Il est important de noter les restrictions suivantes :
-   -  Le nom du package PyPI doit être mentionné avec une version exacte. 
    -  Le contenu du fichier de spécifications ne doit pas inclure de lignes ou de caractères vides supplémentaires. 
-   -  Le [runtime Synapse](apache-spark-version-support.md) comprend un ensemble de bibliothèques qui sont préinstallées sur chaque pool Apache Spark serverless. Les packages préinstallés sur le runtime de base ne peuvent pas passer à une version antérieure. Les packages ne peuvent être qu’ajoutés ou mis à niveau.
+   -  Le [runtime Synapse](apache-spark-version-support.md) comprend un ensemble de bibliothèques qui sont préinstallées sur chaque pool Apache Spark serverless. Vous ne pouvez pas supprimer ou désinstaller les packages préinstallés sur le runtime de base.
    -  La modification de la version de PySpark, Python, Scala/Java, .NET ou Spark n’est pas prise en charge.
-
-L’extrait de code suivant montre le format obligatoire du fichier de configuration requise.
-
-```
-absl-py==0.7.0
-adal==1.2.1
-alabaster==0.7.10
-```
+   -  Les bibliothèques Python avec étendue de session prennent uniquement en charge les fichiers avec une extension YML.
 
 ## <a name="validate-wheel-files"></a>Valider des fichiers de roues
 Les pools Apache Spark serverless Synapse sont basés sur la distribution Linux. Lors du téléchargement et de l’installation de fichiers de roues directement à partir de PyPI, veillez à sélectionner la version qui repose sur Linux et qui s’exécute sur la même version de Python que le pool Spark.
 
 >[!IMPORTANT]
->Des packages personnalisés peuvent être ajoutés ou modifiés entre les sessions. Toutefois, vous devrez attendre le redémarrage du pool et de la session pour voir le package mis à jour.
+>Des packages personnalisés peuvent être ajoutés ou modifiés entre les sessions. Toutefois, vous devez attendre le redémarrage du pool et de la session pour voir le package mis à jour.
 
 ## <a name="check-for-dependency-conflicts"></a>Rechercher des conflits de dépendance
  En général, la résolution de dépendance Python peut être difficile à gérer. Pour vous aider à déboguer les conflits de dépendance localement, vous pouvez créer votre propre environnement virtuel basé sur le runtime Synapse et valider vos modifications.
@@ -95,6 +100,9 @@ Pour recréer l’environnement et valider vos mises à jour :
     ```
    
  3. Utilisez ``pip install -r <provide your req.txt file>`` pour mettre à jour l’environnement virtuel avec vos packages spécifiés. Si l’installation génère une erreur, il peut y avoir un conflit entre ce qui est préinstallé dans le runtime de base Synapse et ce qui est spécifié dans le fichier d’exigences fourni. Ces conflits de dépendance doivent être résolus afin d’extraire les bibliothèques mises à jour sur votre pool Apache Spark serverless.
+
+>[!IMPORTANT]
+>Vous risquez de rencontrer des problèmes en cas d’utilisation simultanée de pip et de conda. Si vous combinez pip et conda, nous vous invitons à suivre les [meilleures pratiques recommandées](https://docs.conda.io/projects/conda/latest/user-guide/tasks/manage-environments.html#using-pip-in-an-environment).
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Afficher les bibliothèques par défaut : [Prise en charge des versions d’Apache Spark](apache-spark-version-support.md)

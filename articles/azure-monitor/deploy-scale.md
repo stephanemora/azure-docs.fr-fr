@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/08/2020
-ms.openlocfilehash: f2f2272363cbc26895b061fe7b6263ed2a29fbab
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: bcd56e464419312e74aec01cf22ae56f797991ad
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91993247"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731763"
 ---
 # <a name="deploy-azure-monitor-at-scale-using-azure-policy"></a>Déployer les fonctionnalités Azure Monitor à la bonne échelle à l’aide d’Azure Policy
 Même si certaines fonctionnalités Azure Monitor sont configurées une fois pour toutes ou un nombre de fois limité, pour d’autres, l’opération doit être répétée pour chacune des ressources que vous voulez superviser. Cet article décrit des méthodes pour implémenter Azure Monitor à la bonne échelle avec Azure Policy et garantir une configuration cohérente et précise de la supervision pour toutes vos ressources Azure.
@@ -33,7 +33,7 @@ Azure Policy comporte les objets présents dans le tableau suivant. Pour obtenir
 | Affectation | Une définition ou une initiative de stratégie ne prend pas effet tant qu’elle n’est pas affectée à une étendue. Par exemple, affectez une stratégie à un groupe de ressources pour l’appliquer à toutes les ressources créées dans cette ressource, ou appliquez-la à un abonnement pour l’appliquer à toutes les ressources de cet abonnement.  Pour plus d’informations, consultez [Structure d’attribution Azure Policy](../governance/policy/concepts/assignment-structure.md). |
 
 ## <a name="built-in-policy-definitions-for-azure-monitor"></a>Définitions de stratégie intégrées pour Azure Monitor
-Azure Policy comprend plusieurs définitions prédéfinies en rapport avec Azure Monitor. Vous pouvez affecter ces définitions de stratégie à votre abonnement existant ou vous en servir de base pour créer vos propres définitions personnalisées. Pour obtenir la liste complète des politiques intégrées de la catégorie **Supervision**, consultez [Définitions de stratégie intégrées d’Azure Policy pour Azure Monitor](./samples/policy-reference.md).
+Azure Policy comprend plusieurs définitions prédéfinies en rapport avec Azure Monitor. Vous pouvez affecter ces définitions de stratégie à votre abonnement existant ou vous en servir de base pour créer vos propres définitions personnalisées. Pour obtenir la liste complète des politiques intégrées de la catégorie **Supervision**, consultez [Définitions de stratégie intégrées d’Azure Policy pour Azure Monitor](.//policy-reference.md).
 
 Pour consulter les définitions de stratégie intégrées en rapport avec la supervision, procédez comme suit :
 
@@ -45,7 +45,7 @@ Pour consulter les définitions de stratégie intégrées en rapport avec la sup
 
 
 ## <a name="diagnostic-settings"></a>Paramètres de diagnostic
-Les [paramètres de diagnostic](platform/diagnostic-settings.md) recueillent les journaux et les métriques des ressources Azure à plusieurs emplacements, généralement dans un espace de travail Log Analytics, ce qui vous permet d’analyser les données avec des [requêtes de journal](log-query/log-query-overview.md) et des [alertes de journal](platform/alerts-log.md). Utilisez Policy pour créer automatiquement un paramètre de diagnostic chaque fois que vous créez une ressource.
+Les [paramètres de diagnostic](essentials/diagnostic-settings.md) recueillent les journaux et les métriques des ressources Azure à plusieurs emplacements, généralement dans un espace de travail Log Analytics, ce qui vous permet d’analyser les données avec des [requêtes de journal](logs/log-query-overview.md) et des [alertes de journal](alerts/alerts-log.md). Utilisez Policy pour créer automatiquement un paramètre de diagnostic chaque fois que vous créez une ressource.
 
 Chaque type de ressource Azure est constitué d’un ensemble unique de catégories qui doivent être listées dans le paramètre de diagnostic. Pour cette raison, chaque type de ressource a besoin d’une définition de stratégie distincte. Certains types de ressources comportent des définitions de stratégie intégrées que vous pouvez affecter sans modification. Pour les autres types de ressources, vous devez créer une définition personnalisée.
 
@@ -101,7 +101,7 @@ Au lieu de créer une affectation pour chaque définition de stratégie, une str
 
 Pour plus d’informations sur la création d’une initiative, consultez [Créer et attribuer une définition d’initiative](../governance/policy/tutorials/create-and-manage.md#create-and-assign-an-initiative-definition). Tenez compte des recommandations suivantes :
 
-- Définissez la **Catégorie**sur **Supervision** pour la regrouper avec les définitions de stratégie intégrées et personnalisées associées.
+- Définissez la **Catégorie** sur **Supervision** pour la regrouper avec les définitions de stratégie intégrées et personnalisées associées.
 - Au lieu de spécifier les détails de l’espace de travail Log Analytics et du hub d’événements pour la définition de stratégie incluse dans l’initiative, utilisez un paramètre d’initiative commun. Vous pourrez ainsi spécifier facilement une valeur commune pour toutes les définitions de stratégie et changer cette valeur si nécessaire.
 
 ![Définition d’initiative](media/deploy-scale/initiative-definition.png)
@@ -121,34 +121,34 @@ L’initiative s’applique à chaque machine virtuelle à mesure qu’elle est 
 ![Correction d’initiative](media/deploy-scale/initiative-remediation.png)
 
 
-## <a name="azure-monitor-for-vms"></a>Azure Monitor pour machines virtuelles
-[Azure Monitor pour machines virtuelles](insights/vminsights-overview.md) est le principal outil de supervision des machines virtuelles d’Azure Monitor. L’activation d’Azure Monitor pour machines virtuelles a pour effet d’installer l’agent Log Analytics et Dependency Agent. Au lieu d’effectuer ces tâches manuellement, utilisez Azure Policy pour faire en sorte que chaque machine virtuelle soit configurée à mesure que vous la créez.
+## <a name="vm-insights"></a>VM Insights
+[VM Insights](vm/vminsights-overview.md) est le principal outil de surveillance des machines virtuelles d’Azure Monitor. L’activation de VM Insights a pour effet d’installer l’agent Log Analytics et l’agent Dependency. Au lieu d’effectuer ces tâches manuellement, utilisez Azure Policy pour faire en sorte que chaque machine virtuelle soit configurée à mesure que vous la créez.
 
 > [!NOTE]
-> Azure Monitor pour machines virtuelles inclut une fonctionnalité appelée **Couverture de stratégie Azure Monitor pour machines virtuelles**, qui permet de découvrir et de corriger les machines virtuelles non conformes dans votre environnement. Vous pouvez utiliser cette fonctionnalité plutôt que de travailler directement avec Azure Policy pour les machines virtuelles Azure et les machines virtuelles hybrides connectées à Azure Arc. Pour les groupes de machines virtuelles identiques Azure, vous devez créer l’affectation à l’aide d’Azure Policy.
+> VM Insights inclut une fonctionnalité appelée **Couverture de stratégie VM Insights**, qui permet de découvrir et de corriger les machines virtuelles non conformes dans votre environnement. Vous pouvez utiliser cette fonctionnalité plutôt que de travailler directement avec Azure Policy pour les machines virtuelles Azure et les machines virtuelles hybrides connectées à Azure Arc. Pour les groupes de machines virtuelles identiques Azure, vous devez créer l’affectation à l’aide d’Azure Policy.
  
 
-Azure Monitor pour machines virtuelles comprend les initiatives intégrées suivantes ,qui installent les deux agents pour activer la surveillance complète. 
+VM Insights comprend les initiatives intégrées suivantes qui installent les deux agents pour activer la surveillance complète. 
 
 |Nom |Description |
 |:---|:---|
-|Activer Azure Monitor pour machines virtuelles | Installe l’agent Log Analytics et l’agent Dependency sur les machines virtuelles Azure et les machines virtuelles hybrides connectées à Azure Arc. |
+|Activer VM Insights | Installe l’agent Log Analytics et l’agent Dependency sur les machines virtuelles Azure et les machines virtuelles hybrides connectées à Azure Arc. |
 |Activer Azure Monitor pour les groupes de machines virtuelles identiques | Ceci permet d’installer l'agent Log Analytics et l’agent Dependency sur des groupes de machines virtuelles identiques Azure. |
 
 
 ### <a name="virtual-machines"></a>Machines virtuelles
-Au lieu de créer des affectations pour ces initiatives à l’aide de l’interface Azure Policy, Azure Monitor pour machines virtuelles est doté d’une fonctionnalité qui vous permet d’inspecter le nombre de machines virtuelles dans chaque étendue pour déterminer si l’initiative a été appliquée. Vous pouvez ensuite configurer l’espace de travail et créer les affectations nécessaires à l’aide de cette interface.
+Au lieu de créer des affectations pour ces initiatives à l’aide de l’interface Azure Policy, VM Insights est doté d’une fonctionnalité qui vous permet d’inspecter le nombre de machines virtuelles dans chaque étendue pour déterminer si l’initiative a été appliquée. Vous pouvez ensuite configurer l’espace de travail et créer les affectations nécessaires à l’aide de cette interface.
 
-Pour obtenir des détails sur ce processus, consultez [Activer Azure Monitor pour machines virtuelles VM à l’aide d’Azure Policy](./insights/vminsights-enable-policy.md).
+Pour obtenir des détails sur ce processus, consultez [Activer VM Insights à l’aide d’Azure Policy](./vm/vminsights-enable-policy.md).
 
-![Stratégie Azure Monitor pour machines virtuelles](media/deploy-scale/vminsights-policy.png)
+![Stratégie de VM Insights](media/deploy-scale/vminsights-policy.png)
 
 ### <a name="virtual-machine-scale-sets"></a>Groupes identiques de machines virtuelles
 Pour utiliser Azure Policy dans le but d’activer l’analyse de groupes de machines virtuelles identiques, attribuez l’initiative **Activer Azure Monitor pour les groupes de machines virtuelles identiques** à un groupe d’administration, un abonnement ou un groupe de ressources Azure, en fonction de l’étendue de vos ressources à surveiller. Un [groupe d’administration ](../governance/management-groups/overview.md) est particulièrement utile pour définir l’étendue de la stratégie, surtout si votre organisation possède plusieurs abonnements.
 
 ![Capture d’écran de la page Affecter une initiative dans le Portail Azure. La définition d’initiative est définie sur Activer Azure Monitor pour les groupes de machines virtuelles identiques.](media/deploy-scale/virtual-machine-scale-set-assign-initiative.png)
 
-Sélectionnez l’espace de travail auquel les données seront envoyées. La solution *VMInsights* doit avoir été installée dans cet espace de travail comme décrit dans []().
+Sélectionnez l’espace de travail auquel les données seront envoyées. Cet espace de travail doit avoir la solution *VMInsights* installée comme décrit dans [Configurer l’espace de travail Log Analytics pour VM Insights](vm/vminsights-configure-workspace.md).
 
 ![Sélectionner un espace de travail](media/deploy-scale/virtual-machine-scale-set-workspace.png)
 
@@ -157,7 +157,7 @@ Créez une tâche de correction si vous devez affecter cette stratégie à un gr
 ![Tâche de correction](media/deploy-scale/virtual-machine-scale-set-remediation.png)
 
 ### <a name="log-analytics-agent"></a>Agent Log Analytics
-Vous pouvez avoir des scénarios dans lesquels vous souhaitez installer l’agent Log Analytics, mais pas l’agent Dependency. Il n’existe pas d’initiative intégrée pour le seul agent, mais vous pouvez créer votre propre initiative sur la base des définitions de stratégie intégrées fournies par Azure Monitor pour machines virtuelles.
+Vous pouvez avoir des scénarios dans lesquels vous souhaitez installer l’agent Log Analytics, mais pas l’agent Dependency. Il n’existe pas d’initiative intégrée pour le seul agent, mais vous pouvez créer votre propre initiative sur la base des définitions de stratégie intégrées fournies par VM Insights.
 
 > [!NOTE]
 > Il n’y a aucune raison de déployer l’agent Dependency seul, car il requiert que l’agent Log Analytics fournisse ses données à Azure Monitor.
@@ -181,4 +181,4 @@ Vous pouvez avoir des scénarios dans lesquels vous souhaitez installer l’agen
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Découvrir plus en détail [Azure Policy](../governance/policy/overview.md).
-- Découvrir plus en détail les [paramètres de diagnostic](platform/diagnostic-settings.md).
+- Découvrir plus en détail les [paramètres de diagnostic](essentials/diagnostic-settings.md).

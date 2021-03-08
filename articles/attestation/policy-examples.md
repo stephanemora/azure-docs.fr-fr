@@ -7,18 +7,39 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 51e8f01726c732604199ff08323f073d508da66e
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 6a5460a691658bda1cd60e503be8c98433c9c343
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98602309"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720152"
 ---
 # <a name="examples-of-an-attestation-policy"></a>Exemples de stratégie d’attestation
 
-Une stratégie d’attestation est utilisée pour traiter la preuve d’attestation et déterminer si Azure Attestation doit émettre un jeton d’attestation. La génération de jeton d’attestation peut être contrôlée à l’aide de stratégies personnalisées. Voici quelques exemples de stratégie d’attestation.
+Une stratégie d’attestation est utilisée pour traiter la preuve d’attestation et déterminer si Azure Attestation doit émettre un jeton d’attestation. La génération de jeton d’attestation peut être contrôlée à l’aide de stratégies personnalisées. Voici quelques exemples de stratégie d’attestation. 
 
-## <a name="default-policy-for-an-sgx-enclave"></a>Stratégie par défaut pour une enclave SGX 
+## <a name="sample-custom-policy-for-an-sgx-enclave"></a>Exemple de stratégie personnalisée pour une enclave SGX 
+
+```
+version= 1.0;
+authorizationrules
+{
+       [ type=="x-ms-sgx-is-debuggable", value==false ]
+        && [ type=="x-ms-sgx-product-id", value==<product-id> ]
+        && [ type=="x-ms-sgx-svn", value>= 0 ]
+        && [ type=="x-ms-sgx-mrsigner", value=="<mrsigner>"]
+    => permit();
+};
+issuancerules {
+c:[type=="x-ms-sgx-mrsigner"] => issue(type="<custom-name>", value=c.value);
+};
+
+```
+Pour plus d’informations sur les revendications entrantes générées par Azure Attestation, consultez [ensembles de revendications](/azure/attestation/claim-sets). Des auteurs de stratégie peuvent utiliser des réclamations entrantes pour définir des règles d’autorisation dans une stratégie personnalisée. 
+
+La section relative aux règles d’émission n’est pas obligatoire. Les utilisateurs peuvent utiliser cette section pour obtenir des revendications sortantes supplémentaires générées dans le jeton d’attestation avec des noms personnalisés. Pour plus d’informations sur les revendications sortantes générées par le service dans le jeton d’attestation, consultez les [ensembles de revendications](/azure/attestation/claim-sets).
+
+## <a name="default-policy-for-an-sgx-enclave"></a>Stratégie par défaut pour une enclave SGX
 
 ```
 version= 1.0;
@@ -38,17 +59,18 @@ issuancerules
 };
 ```
 
-## <a name="sample-custom-policy-for-an-sgx-enclave"></a>Exemple de stratégie personnalisée pour une enclave SGX 
+Les revendications utilisées dans la stratégie par défaut sont considérées comme dépréciées, mais sont entièrement prises en charge et continueront d’être incluses à l’avenir. Nous vous recommandons d’utiliser les noms des revendications non dépréciées. Pour plus d’informations sur les noms de revendications recommandés, consultez les [ensembles de revendications](/azure/attestation/claim-sets). 
+
+## <a name="sample-custom-policy-to-support-multiple-sgx-enclaves"></a>Exemple de stratégie personnalisée pour prendre en charge plusieurs enclaves SGX
 
 ```
 version= 1.0;
-authorizationrules
+authorizationrules 
 {
-       [ type=="x-ms-sgx-is-debuggable", value==false ]
-        && [ type=="x-ms-sgx-product-id", value==<product-id> ]
-        && [ type=="x-ms-sgx-svn", value>= 0 ]
-        && [ type=="x-ms-sgx-mrsigner", value=="<mrsigner>"]
-    => permit();
+    [ type=="x-ms-sgx-is-debuggable", value==true ]&&
+    [ type=="x-ms-sgx-mrsigner", value=="mrsigner1"] => permit(); 
+    [ type=="x-ms-sgx-is-debuggable", value==true ]&& 
+    [ type=="x-ms-sgx-mrsigner", value=="mrsigner2"] => permit(); 
 };
 ```
 

@@ -1,20 +1,20 @@
 ---
-title: Activer Azure Monitor pour machines virtuelles à l’aide d’Azure Policy
-description: Décrit l’activation d’Azure Monitor pour machines virtuelles sur plusieurs groupes de machines virtuelles identiques ou plusieurs machines virtuelles Azure à l’aide d’Azure Policy.
+title: Activer VM Insights à l’aide d’Azure Policy
+description: Décrit l’activation de VM Insights sur plusieurs machines virtuelles ou groupes de machines virtuelles identiques Azure à l’aide d’Azure Policy.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 4da0610de1f71cd422ec684ea633a4474c078862
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a63a647f3d76e3cc2616f05fe96d86dbdd36e74d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100600123"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101707538"
 ---
-# <a name="enable-azure-monitor-for-vms-by-using-azure-policy"></a>Activer Azure Monitor pour machines virtuelles à l’aide d’Azure Policy
-Cet article explique comment activer Azure Monitor pour machines virtuelles sur des machines virtuelles Azure ou une machine virtuelle hybride connectée à Azure Arc (préversion) à l’aide d’Azure Policy. Azure Policy vous permet d’attribuer des définitions de stratégie qui installent les agents nécessaires à Azure Monitor pour machines virtuelles dans votre environnement Azure et activent automatiquement la supervision des machines virtuelles à mesure qu’elles sont créées. Azure Monitor pour machines virtuelles offre une fonctionnalité permettant de découvrir et corriger les machines virtuelles non conformes dans votre environnement. Utilisez cette fonctionnalité au lieu d’utiliser directement Azure Policy.
+# <a name="enable-vm-insights-by-using-azure-policy"></a>Activer VM Insights à l’aide d’Azure Policy
+Cet article explique comment activer VM Insights pour des machines virtuelles Azure ou une machine virtuelle hybride connectée avec Azure Arc (préversion) à l’aide d’Azure Policy. Azure Policy vous permet d’attribuer des définitions de stratégie qui installent les agents requis pour VM Insights dans votre environnement Azure et activent automatiquement la surveillance des machines virtuelles à mesure qu’elles sont créées. VM Insights offre une fonctionnalité permettant de découvrir et corriger les machines virtuelles non conformes dans votre environnement. Utilisez cette fonctionnalité au lieu d’utiliser directement Azure Policy.
 
 Si vous n’êtes pas familiarisé avec Azure Policy, consultez la brève introduction de l’article [Déployer les fonctionnalités Azure Monitor à la bonne échelle à l’aide d’Azure Policy](../deploy-scale.md).
 
@@ -22,15 +22,15 @@ Si vous n’êtes pas familiarisé avec Azure Policy, consultez la brève introd
 > Pour utiliser Azure Policy avec des groupes de machines virtuelles identiques Azure ou pour utiliser directement Azure Policy pour activer des machines virtuelles Azure, consultez [Déployer les fonctionnalités Azure Monitor à la bonne échelle à l’aide d’Azure Policy](../deploy-scale.md#azure-monitor-for-vms).
 
 ## <a name="prerequisites"></a>Prérequis
-- [Créer et configurer un espace de travail Log Analytics](../insights/vminsights-configure-workspace.md)
-- Consulter [Systèmes d’exploitation pris en charge](../insights/vminsights-enable-overview.md#supported-operating-systems) pour vous assurer que le système d’exploitation de la machine virtuelle ou du groupe de machines virtuelles identiques que vous activez est pris en charge 
+- [Créer et configurer un espace de travail Log Analytics](./vminsights-configure-workspace.md)
+- Pour vous assurer que le système d’exploitation de la machine virtuelle ou du groupe de machines virtuelles identiques que vous activez est pris en charge, consulter [Systèmes d’exploitation pris en charge](./vminsights-enable-overview.md#supported-operating-systems). 
 
 
-## <a name="azure-monitor-for-vms-initiative"></a>Initiative Azure Monitor pour machines virtuelles
-Azure Monitor pour machines virtuelles fournit des définitions de stratégie intégrées pour l’installation de l’agent Log Analytics et de l’agent de dépendances sur les machines virtuelles Azure. L’initiative **Activer Azure Monitor pour machines virtuelles** inclut chacune de ces définitions de stratégie. Attribuez cette initiative à un groupe d’administration, un abonnement ou un groupe de ressources pour installer automatiquement les agents sur toutes les machines virtuelles Windows ou Linux de cette étendue.
+## <a name="vm-insights-initiative"></a>Initiative VM Insights
+VM Insights fournit des définitions de stratégie intégrées pour l’installation de l’agent Log Analytics et de l’agent de dépendances sur les machines virtuelles Azure. L’initiative **Activer VM Insights** inclut chacune de ces définitions de stratégie. Attribuez cette initiative à un groupe d’administration, un abonnement ou un groupe de ressources pour installer automatiquement les agents sur toutes les machines virtuelles Windows ou Linux de cette étendue.
 
 ## <a name="open-policy-coverage-feature"></a>Accéder à la fonctionnalité de couverture de stratégie
-Pour accéder à la **couverture de la stratégie Azure Monitor pour machines virtuelles**, sélectionnez **Machines virtuelles** dans le menu **Azure Monitor** du portail Azure. Sélectionnez **Autres options d’intégration**, puis **Activer** sous **Activer l’utilisation de la stratégie**.
+Pour accéder à la **couverture de la stratégie VM Insights**, sélectionnez **Machines virtuelles** dans le menu **Azure Monitor** du portail Azure. Sélectionnez **Autres options d’intégration**, puis **Activer** sous **Activer l’utilisation de la stratégie**.
 
 [![Onglet Prise en main d’Azure Monitor pour machines virtuelles](./media/vminsights-enable-policy/get-started-page.png)](./media/vminsights-enable-policy/get-started-page.png#lightbox)
 
@@ -39,7 +39,7 @@ Si vous ne disposez pas encore d’une attribution, créez-en une en cliquant su
 
 [![Créer une attribution](media/vminsights-enable-policy/create-assignment.png)](media/vminsights-enable-policy/create-assignment.png#lightbox)
 
-Cette page est identique à celle permettant d’attribuer une initiative dans Azure Policy, à ceci près qu’elle est codée en dur avec l’étendue que vous avez sélectionnée et la définition d’initiative **Activer Azure Monitor pour machines virtuelles**. Si vous le souhaitez, vous pouvez modifier le champ **Nom de l’attribution** et remplir la zone **Description**. Sélectionnez **Exclusions** si vous souhaitez spécifier une exclusion pour l’étendue. Par exemple, si votre étendue est un groupe d’administration, vous pouvez spécifier un abonnement de ce groupe d’administration à exclure de l’attribution.
+Cette page est identique à celle permettant d’attribuer une initiative dans Azure Policy, à ceci près qu’elle est codée en dur avec l’étendue que vous avez sélectionnée et la définition d’initiative **Activer VM Insights**. Si vous le souhaitez, vous pouvez modifier le champ **Nom de l’attribution** et remplir la zone **Description**. Sélectionnez **Exclusions** si vous souhaitez spécifier une exclusion pour l’étendue. Par exemple, si votre étendue est un groupe d’administration, vous pouvez spécifier un abonnement de ce groupe d’administration à exclure de l’attribution.
 
 [![Attribuer l’initiative](media/vminsights-enable-policy/assign-initiative.png)](media/vminsights-enable-policy/assign-initiative.png#lightbox)
 
@@ -53,9 +53,9 @@ Dans la page **Paramètres**, sous **Espace de travail Log Analytics**, sélecti
 Cliquez sur **Vérifier + créer** pour vérifier les informations sur l’attribution, puis cliquez sur **Créer** pour la créer. Ne créez pas de tâche de correction à ce stade, car vous aurez probablement besoin de plusieurs tâches de correction pour activer les machines virtuelles existantes. Consultez [Corriger les résultats de conformité](#remediate-compliance-results) plus bas.
 
 ## <a name="review-compliance"></a>Vérifier la conformité
-Quand l’attribution est créée, vous pouvez vérifier et gérer la couverture de l’initiative **Activer Azure Monitor pour machines virtuelles** dans vos groupes d’administration et abonnements. Vous pouvez voir combien de machines virtuelles existent dans chacun des groupes d’administration et des abonnements ainsi que leur état de conformité.
+Une fois l’attribution créée, vous pouvez vérifier et gérer la couverture pour l’initiative **Activer VM Insights** dans vos groupes d’administration et abonnements. Vous pouvez voir combien de machines virtuelles existent dans chacun des groupes d’administration et des abonnements ainsi que leur état de conformité.
 
-[![Page de gestion de stratégie d’Azure Monitor pour machines virtuelles](media/vminsights-enable-policy/manage-policy-page-01.png)](media/vminsights-enable-policy/manage-policy-page-01.png#lightbox)
+[![Page Stratégie de gestion de VM Insights](media/vminsights-enable-policy/manage-policy-page-01.png)](media/vminsights-enable-policy/manage-policy-page-01.png#lightbox)
 
 
 Le tableau suivant décrit les informations fournies dans cette vue.
@@ -105,11 +105,11 @@ Cliquez sur **Corriger** pour créer la tâche de correction, puis cliquez sur *
 [![Capture d'écran du volet de correction des stratégies de Monitor | Machines virtuelles.](media/vminsights-enable-policy/remediation.png)](media/vminsights-enable-policy/remediation.png#lightbox)
 
 
-Après l’exécution des tâches de correction, vos machines virtuelles doivent être conformes aux agents installés et activées pour Azure Monitor pour machines virtuelles. 
+Une fois les tâches de correction accomplies, vos machines virtuelles doivent être conformes aux agents installés et activées pour VM Insights. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Une fois la supervision activée pour vos machines virtuelles, ces informations peuvent être analysées par Azure Monitor pour machines virtuelles. 
+Une fois la surveillance activée pour vos machines virtuelles, ces informations sont disponibles pour analyse avec VM Insights. 
 
-- Pour afficher les dépendances des applications détectées, consultez [Utilisation de la fonctionnalité Map d’Azure Monitor pour machines virtuelles dans le but de comprendre les composants d’application](vminsights-maps.md). 
-- Pour identifier les goulots d’étranglement et l’utilisation globale avec les performances de votre machine virtuelle, consultez [Consulter les performances des machines virtuelles Azure](vminsights-performance.md). 
+- Pour afficher les dépendances d’applications découvertes, consultez [Afficher la Carte VM Insights](vminsights-maps.md). 
+- Pour identifier les goulots d’étranglement et l’utilisation globale avec les performances de votre machine virtuelle, consultez [Consulter les performances des machines virtuelles Azure](vminsights-performance.md).

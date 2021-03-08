@@ -9,12 +9,12 @@ ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.date: 03/02/2021
 ms.topic: conceptual
-ms.openlocfilehash: d4667e8fa3a5624dddc3cb0dd792fc73ea812332
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 8100d9e12f107e0c4598876c46453b46c6ee4d0e
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101692857"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102121998"
 ---
 # <a name="known-issues---azure-arc-enabled-data-services-preview"></a>Problèmes connus – Services de données avec Azure Arc (préversion)
 
@@ -22,10 +22,7 @@ ms.locfileid: "101692857"
 
 ## <a name="february-2021"></a>Février 2021
 
-
 - Le mode de cluster connecté est désactivé
-- L’hyperscale PostgreSQL avec Azure Arc activé retourne un message d’erreur incorrect lorsqu’il ne peut pas effectuer une restauration jusqu’au point relatif dans le temps que vous indiquez. Par exemple, si vous avez spécifié un instant dans le passé pour la restauration qui est antérieur aux éléments que contiennent vos sauvegardes, la restauration échoue avec un message d’erreur tel que : `ERROR: (404). Reason: Not found. HTTP response body: {"code":404, "internalStatus":"NOT_FOUND", "reason":"Failed to restore backup for server...}`. Dans ce cas, redémarrez la commande après avoir donné un point dans le temps qui se situe dans la plage de dates pour lesquelles vous avez des sauvegardes. Pour déterminer cette plage, répertoriez vos sauvegardes et examinez les dates auxquelles elles ont été effectuées.
-- Un ID de sauvegarde est requis lors d’une restauration complète. Par défaut, si vous n’indiquez pas d’ID de sauvegarde, la sauvegarde la plus récente sera utilisée. Cela ne fonctionne pas dans cette version.
 
 ## <a name="introduced-prior-to-february-2021"></a>Introduit avant février 2021
 

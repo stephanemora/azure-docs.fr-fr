@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: overview
 ms.date: 12/17/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 496b315e23beeb97d08befca13e05c4797268f36
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 8b1c4077c036cbb75738115437d29ffd14b160ff
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85341556"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723671"
 ---
 # <a name="entity-functions"></a>Fonctions d’entité
 
@@ -24,7 +24,10 @@ Les entités offrent un moyen d’effectuer un scale-out des applications, en di
 
 Les entités se comportent un peu comme de minuscules services qui communiquent par le biais de messages. Chaque entité a une identité unique et un état interne (s’il existe). À l’instar des services ou des objets, les entités effectuent des opérations quand elles y sont invitées. Quand une opération s’exécute, elle peut mettre à jour l’état interne de l’entité. Elle peut également appeler des services externes et attendre une réponse. Les entités communiquent avec d’autres entités, orchestrations et clients à l’aide de messages qui sont envoyés implicitement par le biais de files d’attente fiables. 
 
-Pour éviter les conflits, toutes les opérations effectuées sur une entité unique sont assurées de s’exécuter en série, autrement dit l’une après l’autre. 
+Pour éviter les conflits, toutes les opérations effectuées sur une entité unique sont assurées de s’exécuter en série, autrement dit l’une après l’autre.
+
+> [!NOTE]
+> Lorsqu’une entité est appelée, elle traite sa charge utile jusqu’à son achèvement, puis planifie l’activation d’une nouvelle exécution à l’arrivée des futures entrées. Par conséquent, les journaux d’exécution d’entités peuvent afficher une exécution supplémentaire après chaque appel d’entité, ce qui est normal.
 
 ### <a name="entity-id"></a>L’ID d’entité
 Les entités sont accessibles par le biais d’un identificateur unique, l’*ID d’entité*. Un ID d’entité est simplement une paire de chaînes qui identifie de façon unique une instance d’entité. Elle comprend :
@@ -149,7 +152,48 @@ module.exports = df.entity(function(context) {
     }
 });
 ```
+# <a name="python"></a>[Python](#tab/python)
 
+### <a name="example-python-entity"></a>Exemple : entité Python
+
+Le code suivant est l’entité `Counter` implémentée en tant que fonction durable écrite en Python.
+
+**Counter/function.json**
+```json
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "name": "context",
+      "type": "entityTrigger",
+      "direction": "in"
+    }
+  ]
+}
+```
+
+**Counter/__init__.py**
+```Python
+import azure.functions as func
+import azure.durable_functions as df
+
+
+def entity_function(context: df.DurableEntityContext):
+    current_value = context.get_state(lambda: 0)
+    operation = context.operation_name
+    if operation == "add":
+        amount = context.get_input()
+        current_value += amount
+    elif operation == "reset":
+        current_value = 0
+    elif operation == "get":
+        context.set_result(current_value)
+    context.set_state(current_value)
+
+
+
+main = df.Entity.create(entity_function)
+```
 ---
 
 ## <a name="access-entities"></a>Accéder aux entités
@@ -201,6 +245,19 @@ module.exports = async function (context) {
 };
 ```
 
+# <a name="python"></a>[Python](#tab/python)
+
+```Python
+from azure.durable_functions import DurableOrchestrationClient
+import azure.functions as func
+
+
+async def main(req: func.HttpRequest, starter: str, message):
+    client = DurableOrchestrationClient(starter)
+    entityId = df.EntityId("Counter", "myCounter")
+    await client.signal_entity(entityId, "add", 1)
+```
+
 ---
 
 Le terme *signal* signifie que l’appel de l’API d’entité est unidirectionnel et asynchrone. Il n’est pas possible pour une fonction cliente de savoir quand l’entité a traité l’opération. De plus, la fonction cliente ne peut pas observer les valeurs de résultat ou les exceptions. 
@@ -235,6 +292,11 @@ module.exports = async function (context) {
     return stateResponse.entityState;
 };
 ```
+
+# <a name="python"></a>[Python](#tab/python)
+
+> [!NOTE]
+> Actuellement, Python ne prend pas en charge la lecture d’états d’entité à partir d’un client. Utilisez plutôt un orchestrateur `callEntity`.
 
 ---
 
@@ -279,6 +341,21 @@ module.exports = df.orchestrator(function*(context){
 > [!NOTE]
 > JavaScript ne prend pas actuellement en charge la signalisation d’une entité à partir d’un orchestrateur. Utilisez `callEntity` à la place.
 
+# <a name="python"></a>[Python](#tab/python)
+
+```Python
+import azure.functions as func
+import azure.durable_functions as df
+
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    entityId = df.EntityId("Counter", "myCounter")
+    current_value = yield context.call_entity(entityId, "get")
+    if current_value < 10:
+        context.signal_entity(entityId, "add", 1)
+    return state
+```
+
 ---
 
 Seules les orchestrations peuvent appeler des entités et obtenir une réponse, qui peut être une valeur de retour ou une exception. Les fonctions clientes utilisant la [liaison cliente](durable-functions-bindings.md#entity-client) peuvent uniquement signaler des entités.
@@ -318,6 +395,11 @@ Par exemple, nous pouvons modifier l’exemple d’entité `Counter` précédent
         context.df.setState(currentValue + amount);
         break;
 ```
+
+# <a name="python"></a>[Python](#tab/python)
+
+> [!NOTE]
+> Python ne prend pas encore en charge les signaux d’entité à entité. Utilisez à la place un orchestrateur pour signaler des entités.
 
 ---
 
@@ -421,7 +503,6 @@ Il existe des différences importantes, qui sont à noter :
 * Les modèles de demande/réponse dans les entités sont limités aux orchestrations. À partir de l’intérieur des entités, seule la messagerie unidirectionnelle (également appelée « signalisation ») est autorisée, comme dans le modèle d’acteur d’origine, et contrairement aux grains dans Orleans. 
 * Les entités durables ne subissent pas de blocage. Dans Orleans, des blocages peuvent se produire et ne sont pas résolus tant que les messages n’ont pas expiré.
 * Les entités durables, qui peuvent être utilisées conjointement avec des orchestrations durables, prennent en charge les mécanismes de verrouillage distribués. 
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

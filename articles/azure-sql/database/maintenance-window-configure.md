@@ -8,13 +8,13 @@ ms.topic: how-to
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 03/02/2021
-ms.openlocfilehash: e8f7e5451b48066f52a4c1038e58b1efa99951e6
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.date: 03/04/2021
+ms.openlocfilehash: 210f0c52a2b27492bfa2181473043df3537157d2
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102048593"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183197"
 ---
 # <a name="configure-maintenance-window-preview"></a>Configurer la fenêtre de maintenance (préversion)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -26,6 +26,8 @@ La fenêtre de maintenance *par défaut du système* est comprise entre 17h00 et
 
 La capacité à choisir une autre fenêtre de maintenance n’est pas disponible pour tous les niveaux de service ni toutes les régions. Pour plus d’informations sur la disponibilité, consultez [Disponibilité de la fenêtre de maintenance](maintenance-window.md#availability).
 
+> [!Important]
+> La configuration de la fenêtre de maintenance est une opération asynchrone durable, similaire à la modification du niveau de service de la ressource Azure SQL. La ressource est disponible pendant l’opération, à l’exception d’un basculement rapide qui se produit à la fin de l’opération et qui dure généralement jusqu’à 8 secondes, même en cas de transactions durables interrompues. Pour réduire l’impact du basculement, vous devez effectuer l’opération en dehors des heures de pointe.
 
 ## <a name="configure-maintenance-window-during-database-creation"></a>Configurer la fenêtre de maintenance lors de la création de la base de données 
 
@@ -176,7 +178,7 @@ Lors de la définition de la fenêtre de maintenance, chaque région a ses propr
 
 ### <a name="discover-sql-database-and-elastic-pool-maintenance-windows"></a>Découvrir les fenêtres de maintenance de SQL Database et de pool élastique
 
-L’exemple suivant retourne les fenêtres de maintenance disponibles pour la région *eastus2* à l’aide de la commande [az maintenance public-configuration list](/cli/azure/ext/maintenance/maintenance/public-configuration?view=azure-cli-latest&preserve-view=true#ext_maintenance_az_maintenance_public_configuration_list). Pour les bases de données et les pools élastiques, affectez la valeur `SQLDB` à `maintenanceScope`.
+L’exemple suivant retourne les fenêtres de maintenance disponibles pour la région *eastus2* à l’aide de la commande [az maintenance public-configuration list](/cli/azure/ext/maintenance/maintenance/public-configuration#ext_maintenance_az_maintenance_public_configuration_list). Pour les bases de données et les pools élastiques, affectez la valeur `SQLDB` à `maintenanceScope`.
 
    ```azurecli
    location="eastus2"
@@ -186,7 +188,7 @@ L’exemple suivant retourne les fenêtres de maintenance disponibles pour la r�
 
 ### <a name="discover-sql-managed-instance-maintenance-windows"></a>Découvrir les fenêtres de maintenance de SQL Managed Instance
 
-L’exemple suivant retourne les fenêtres de maintenance disponibles pour la région *eastus2* à l’aide de la commande [az maintenance public-configuration list](/cli/azure/ext/maintenance/maintenance/public-configuration?view=azure-cli-latest&preserve-view=true#ext_maintenance_az_maintenance_public_configuration_list). Pour les instances managées, affectez à la valeur `SQLManagedInstance` à `maintenanceScope`.
+L’exemple suivant retourne les fenêtres de maintenance disponibles pour la région *eastus2* à l’aide de la commande [az maintenance public-configuration list](/cli/azure/ext/maintenance/maintenance/public-configuration#ext_maintenance_az_maintenance_public_configuration_list). Pour les instances managées, affectez à la valeur `SQLManagedInstance` à `maintenanceScope`.
 
    ```azurecli
    az maintenance public-configuration list --query "[?location=='eastus2'&&contains(maintenanceScope,'SQLManagedInstance')]"

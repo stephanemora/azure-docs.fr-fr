@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/13/2020
 ms.author: kumud
-ms.openlocfilehash: 5070b64c3900aa4ee1cf51519c7b64362ac37413
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 5de909d0d57ae212fa562eb31551e2271d307d47
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100596677"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101694255"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Créer, changer ou supprimer un groupe de sécurité réseau
 
@@ -361,6 +361,11 @@ Pour effectuer des tâches sur des groupes de sécurité réseau, des règles de
 | Microsoft.Network/networkSecurityGroups/write                 |   Créer ou mettre à jour un groupe de sécurité réseau                             |
 | Microsoft.Network/networkSecurityGroups/delete                |   Supprimer un groupe de sécurité réseau                                       |
 | Microsoft.Network/networkSecurityGroups/join/action           |   Associez un groupe de sécurité réseau à un sous-réseau ou à une interface réseau 
+
+
+>[!NOTE]
+> Pour effectuer des opérations `write` sur un groupe de sécurité réseau, le compte d’abonnement doit au moins avoir les autorisations `read` pour le groupe de ressources, ainsi que l’autorisation `Microsoft.Network/networkSecurityGroups/write`.
+
 
 ### <a name="network-security-group-rule"></a>Règle de groupe de sécurité réseau
 

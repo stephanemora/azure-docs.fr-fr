@@ -8,15 +8,13 @@ ms.date: 01/04/2021
 ms.author: chhenk
 ms.reviewer: azmetadatadev
 ms.custom: references_regions
-ms.openlocfilehash: fcdccf6701afe73ab0f11a7a907072b01a9d5aa4
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: e18c09130fcbcdbb470abc19d76bdf2ccfef0775
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100373303"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175706"
 ---
-# <a name="azure-instance-metadata-service"></a>Service de métadonnées d’instance Azure
-
 Azure Instance Metadata Service fournit des informations sur les instances de machine virtuelle en cours d’exécution. Vous pouvez l’utiliser pour gérer et configurer vos machines virtuelles.
 Ces information comprennent la référence SKU, le stockage, les configurations réseau et les événements de maintenance à venir. Pour connaître la liste complète des données disponibles, consultez le [Résumé des catégories de points de terminaison](#endpoint-categories).
 
@@ -42,13 +40,13 @@ Voici un exemple de code permettant de récupérer toutes les métadonnées d’
 #### <a name="windows"></a>[Windows](#tab/windows/)
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance?api-version=2020-09-01" | ConvertTo-Json -Depth 64
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "http://169.254.169.254/metadata/instance?api-version=2020-09-01" | ConvertTo-Json -Depth 64
 ```
 
 #### <a name="linux"></a>[Linux](#tab/linux/)
 
 ```bash
-curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance?api-version=2020-09-01"
+curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance?api-version=2020-09-01" | jq
 ```
 
 ---
@@ -196,7 +194,7 @@ Pour accéder à un format de réponse autre que le format par défaut, spécifi
 #### <a name="windows"></a>[Windows](#tab/windows/)
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text" | ConvertTo-Json
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"
 ```
 
 #### <a name="linux"></a>[Linux](#tab/linux/)
@@ -248,9 +246,7 @@ Si vous ne spécifiez pas de version, vous recevez une erreur accompagnée de la
 - 2020-07-15
 - 2020-09-01
 - 2020-10-01
-
-> [!NOTE]
-> La version 2020-10-01 est actuellement déployée et n’est peut-être pas encore disponible dans chaque région.
+- 2020-12-01
 
 ### <a name="swagger"></a>Fichier Swagger
 
@@ -273,6 +269,7 @@ L’API IMDS contient plusieurs catégories de points de terminaison qui représ
 | `/metadata/attested` | Voir [Données attestées](#attested-data) | 2018-10-01
 | `/metadata/identity` | Voir [Identité managée via IMDS](#managed-identity) | 2018-02-01
 | `/metadata/instance` | Voir [Métadonnées d’instance](#instance-metadata) | 2017-04-02
+| `/metadata/loadbalancer` | Voir [Récupérer les métadonnées de l’équilibreur de charge à l’aide d’IMDS](#load-balancer-metadata) | 2020-10-01
 | `/metadata/scheduledevents` | Voir [Scheduled Events via IMDS](#scheduled-events) | 2017-08-01
 | `/metadata/versions` | Voir [Versions](#versions) | N/A
 
@@ -336,6 +333,7 @@ Décomposition du schéma :
 |------|-------------|--------------------|
 | `azEnvironment` | Environnement Azure dans lequel s’exécute la machine virtuelle | 2018-10-01
 | `customData` | Cette fonctionnalité est actuellement désactivée. Nous mettrons à jour cette documentation dès qu’elle sera disponible. | 2019-02-01
+| `evictionPolicy` | Définit le mode de suppression d’une [machine virtuelle spot](../articles/virtual-machines/spot-vms.md). | 2020-12-01
 | `isHostCompatibilityLayerVm` | Indique si la machine virtuelle s’exécute sur la couche de compatibilité de l’ordinateur hôte | 2020-06-01
 | `licenseType` | Type de licence pour [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit). Présent seulement pour les machines virtuelles dotées d’AHB | 2020-09-01
 | `location` | Région Azure dans laquelle la machine virtuelle est en cours d’exécution | 2017-04-02
@@ -349,6 +347,7 @@ Décomposition du schéma :
 | `plan` | [Plan](/rest/api/compute/virtualmachines/createorupdate#plan) contenant le nom, le produit et l’éditeur d’une machine virtuelle s’il s’agit d’une image de la Place de marché Azure | 2018-04-02
 | `platformUpdateDomain` |  [Domaine de mise à jour](../articles/virtual-machines/manage-availability.md) dans lequel la machine virtuelle est en cours d’exécution | 2017-04-02
 | `platformFaultDomain` | [Domaine par défaut](../articles/virtual-machines/manage-availability.md) dans lequel la machine virtuelle est en cours d’exécution | 2017-04-02
+| `priority` | Priorité de la machine virtuelle. Pour en savoir plus, consultez la section [Machines virtuelles spot](../articles/virtual-machines/spot-vms.md) | 2020-12-01
 | `provider` | Fournisseur de la machine virtuelle | 2018-10-01
 | `publicKeys` | [Collection de clés publiques](/rest/api/compute/virtualmachines/createorupdate#sshpublickey) affectée à la machine virtuelle et aux chemins | 2018-04-02
 | `publisher` | Éditeur de l’image de machine virtuelle | 2017-04-02
@@ -423,13 +422,6 @@ Données | Description |
 | `ipv6.ipAddress` | Adresse IPv6 locale de la machine virtuelle | 2017-04-02
 | `macAddress` | Adresse MAC de la machine virtuelle | 2017-04-02
 
-**Étiquettes de machines virtuelles**
-
-Les balises de machine virtuelle sont incluses dans l’API d’instance sous le point de terminaison instance/compute/tags.
-Des balises peuvent être appliqués à votre machine virtuelle Azure pour les organiser de manière logique dans une taxonomie. Les balises affectées à une machine virtuelle peuvent être récupérées à l’aide de la requête ci-dessous.
-
-Le champ `tags` est une chaîne dont les étiquettes sont délimitées par des points-virgules. Cette sortie peut constituer un problème si des points-virgules sont utilisés dans les étiquettes proprement dites. Si un analyseur est écrit pour extraire les balises par programmation, vous devez vous appuyer sur le champ `tagsList`. Le champ `tagsList` est un tableau JSON sans délimiteur et, par conséquent plus facile à analyser.
-
 
 #### <a name="sample-1-tracking-vm-running-on-azure"></a>Exemple 1 : Suivi de la machine virtuelle s’exécutant sur Azure
 
@@ -440,7 +432,7 @@ En tant que fournisseur de service, vous aurez peut-être besoin de suivre le no
 #### <a name="windows"></a>[Windows](#tab/windows/)
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/compute/vmId?api-version=2017-08-01&format=text"| ConvertTo-Json
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "http://169.254.169.254/metadata/instance/compute/vmId?api-version=2017-08-01&format=text"
 ```
 
 #### <a name="linux"></a>[Linux](#tab/linux/)
@@ -468,7 +460,7 @@ Vous pouvez interroger ces données directement via IMDS.
 #### <a name="windows"></a>[Windows](#tab/windows/)
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/compute/platformFaultDomain?api-version=2017-08-01&format=text" | ConvertTo-Json
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "http://169.254.169.254/metadata/instance/compute/platformFaultDomain?api-version=2017-08-01&format=text"
 ```
 
 #### <a name="linux"></a>[Linux](#tab/linux/)
@@ -485,7 +477,98 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
 0
 ```
 
-#### <a name="sample-3-get-more-information-about-the-vm-during-support-case"></a>Exemple 3 : Obtenir plus d’informations sur la machine virtuelle dans le cadre du support technique
+#### <a name="sample-3-get-vm-tags"></a>Exemple 3 : Obtenir les balises de machines virtuelles
+
+Les balises de machine virtuelle sont incluses dans l’API d’instance sous le point de terminaison instance/compute/tags.
+Des balises peuvent être appliqués à votre machine virtuelle Azure pour les organiser de manière logique dans une taxonomie. Les balises affectées à une machine virtuelle peuvent être récupérées à l’aide de la requête ci-dessous.
+
+**Requête**
+
+#### <a name="windows"></a>[Windows](#tab/windows/)
+
+```powershell
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "http://169.254.169.254/metadata/instance/compute/tags?api-version=2017-08-01&format=text"
+```
+
+#### <a name="linux"></a>[Linux](#tab/linux/)
+
+```bash
+curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/compute/platformFaultDomain?api-version=2017-08-01&format=text"
+```
+
+---
+
+**Réponse**
+
+```
+Department:IT;ReferenceNumber:123456;TestStatus:Pending
+```
+
+Le champ `tags` est une chaîne dont les étiquettes sont délimitées par des points-virgules. Cette sortie peut constituer un problème si des points-virgules sont utilisés dans les étiquettes proprement dites. Si un analyseur est écrit pour extraire les balises par programmation, vous devez vous appuyer sur le champ `tagsList`. Le champ `tagsList` est un tableau JSON sans délimiteur et, par conséquent plus facile à analyser. Le tagsList attribué à une machine virtuelle peut être récupéré à l’aide de la requête ci-dessous.
+
+**Requête**
+
+#### <a name="windows"></a>[Windows](#tab/windows/)
+
+```powershell
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "http://169.254.169.254/metadata/instance/compute/tagsList?api-version=2019-06-04" | ConvertTo-Json -Depth 64
+```
+
+#### <a name="linux"></a>[Linux](#tab/linux/)
+
+```bash
+curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/compute/tagsList?api-version=2019-06-04" | jq
+```
+
+---
+
+**Réponse**
+
+#### <a name="windows"></a>[Windows](#tab/windows/)
+
+```json
+{
+    "value":  [
+                  {
+                      "name":  "Department",
+                      "value":  "IT"
+                  },
+                  {
+                      "name":  "ReferenceNumber",
+                      "value":  "123456"
+                  },
+                  {
+                      "name":  "TestStatus",
+                      "value":  "Pending"
+                  }
+              ],
+    "Count":  3
+}
+```
+
+#### <a name="linux"></a>[Linux](#tab/linux/)
+
+```json
+[
+  {
+    "name": "Department",
+    "value": "IT"
+  },
+  {
+    "name": "ReferenceNumber",
+    "value": "123456"
+  },
+  {
+    "name": "TestStatus",
+    "value": "Pending"
+  }
+]
+```
+
+---
+
+
+#### <a name="sample-4-get-more-information-about-the-vm-during-support-case"></a>Exemple 4 : Obtenir plus d’informations sur la machine virtuelle dans le cadre du support technique
 
 En tant que fournisseur de services, vous recevrez peut-être un appel du support pour lequel vous devrez connaître les informations de la machine virtuelle. Demandez au client de partager les métadonnées de calcul afin que l’équipe du support dispose des informations de base concernant le type de machine virtuelle sur Azure.
 
@@ -494,7 +577,7 @@ En tant que fournisseur de services, vous recevrez peut-être un appel du suppor
 #### <a name="windows"></a>[Windows](#tab/windows/)
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/compute?api-version=2020-09-01" | ConvertTo-Json -Depth 64
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "http://169.254.169.254/metadata/instance/compute?api-version=2020-09-01" | ConvertTo-Json -Depth 64
 ```
 
 #### <a name="linux"></a>[Linux](#tab/linux/)
@@ -510,6 +593,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
 > [!NOTE]
 > La réponse est une chaîne JSON. L’exemple de réponse suivant est imprimé avec soin par souci de lisibilité.
 
+#### <a name="windows"></a>[Windows](#tab/windows/)
 ```json
 {
     "azEnvironment": "AZUREPUBLICCLOUD",
@@ -517,13 +601,13 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
     "licenseType":  "Windows_Client",
     "location": "westus",
     "name": "examplevmname",
-    "offer": "Windows",
+    "offer": "WindowsServer",
     "osProfile": {
         "adminUsername": "admin",
         "computerName": "examplevmname",
         "disablePasswordAuthentication": "true"
     },
-    "osType": "linux",
+    "osType": "Windows",
     "placementGroupId": "f67c14ab-e92c-408c-ae2d-da15866ec79a",
     "plan": {
         "name": "planName",
@@ -548,7 +632,108 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
         "secureBootEnabled": "true",
         "virtualTpmEnabled": "false"
     },
-    "sku": "Windows-Server-2012-R2-Datacenter",
+    "sku": "2019-Datacenter",
+    "storageProfile": {
+        "dataDisks": [{
+            "caching": "None",
+            "createOption": "Empty",
+            "diskSizeGB": "1024",
+            "image": {
+                "uri": ""
+            },
+            "lun": "0",
+            "managedDisk": {
+                "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
+                "storageAccountType": "Standard_LRS"
+            },
+            "name": "exampledatadiskname",
+            "vhd": {
+                "uri": ""
+            },
+            "writeAcceleratorEnabled": "false"
+        }],
+        "imageReference": {
+            "id": "",
+            "offer": "WindowsServer",
+            "publisher": "MicrosoftWindowsServer",
+            "sku": "2019-Datacenter",
+            "version": "latest"
+        },
+        "osDisk": {
+            "caching": "ReadWrite",
+            "createOption": "FromImage",
+            "diskSizeGB": "30",
+            "diffDiskSettings": {
+                "option": "Local"
+            },
+            "encryptionSettings": {
+                "enabled": "false"
+            },
+            "image": {
+                "uri": ""
+            },
+            "managedDisk": {
+                "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
+                "storageAccountType": "Standard_LRS"
+            },
+            "name": "exampleosdiskname",
+            "osType": "Windows",
+            "vhd": {
+                "uri": ""
+            },
+            "writeAcceleratorEnabled": "false"
+        }
+    },
+    "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
+    "tags": "baz:bash;foo:bar",
+    "version": "15.05.22",
+    "vmId": "02aab8a4-74ef-476e-8182-f6d2ba4166a6",
+    "vmScaleSetName": "crpteste9vflji9",
+    "vmSize": "Standard_A3",
+    "zone": ""
+}
+```
+
+#### <a name="linux"></a>[Linux](#tab/linux/)
+```json
+{
+    "azEnvironment": "AZUREPUBLICCLOUD",
+    "isHostCompatibilityLayerVm": "true",
+    "licenseType":  "Windows_Client",
+    "location": "westus",
+    "name": "examplevmname",
+    "offer": "UbuntuServer",
+    "osProfile": {
+        "adminUsername": "admin",
+        "computerName": "examplevmname",
+        "disablePasswordAuthentication": "true"
+    },
+    "osType": "Linux",
+    "placementGroupId": "f67c14ab-e92c-408c-ae2d-da15866ec79a",
+    "plan": {
+        "name": "planName",
+        "product": "planProduct",
+        "publisher": "planPublisher"
+    },
+    "platformFaultDomain": "36",
+    "platformUpdateDomain": "42",
+    "publicKeys": [{
+            "keyData": "ssh-rsa 0",
+            "path": "/home/user/.ssh/authorized_keys0"
+        },
+        {
+            "keyData": "ssh-rsa 1",
+            "path": "/home/user/.ssh/authorized_keys1"
+        }
+    ],
+    "publisher": "Canonical",
+    "resourceGroupName": "macikgo-test-may-23",
+    "resourceId": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/virtualMachines/examplevmname",
+    "securityProfile": {
+        "secureBootEnabled": "true",
+        "virtualTpmEnabled": "false"
+    },
+    "sku": "18.04-LTS",
     "storageProfile": {
         "dataDisks": [{
             "caching": "None",
@@ -593,7 +778,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
                 "storageAccountType": "Standard_LRS"
             },
             "name": "exampleosdiskname",
-            "osType": "Linux",
+            "osType": "linux",
             "vhd": {
                 "uri": ""
             },
@@ -610,7 +795,9 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
 }
 ```
 
-#### <a name="sample-4-get-the-azure-environment-where-the-vm-is-running"></a>Exemple 4 : Obtenir l’environnement Azure dans lequel s’exécute la machine virtuelle
+---
+
+#### <a name="sample-5-get-the-azure-environment-where-the-vm-is-running"></a>Exemple 5 : Obtenir l’environnement Azure dans lequel s’exécute la machine virtuelle
 
 Azure dispose de plusieurs clouds souverains comme [Azure Government](https://azure.microsoft.com/overview/clouds/government/). Vous avez parfois besoin de l’environnement Azure pour prendre certaines décisions liées au runtime. L’exemple suivant vous montre comment obtenir ce comportement.
 
@@ -619,7 +806,7 @@ Azure dispose de plusieurs clouds souverains comme [Azure Government](https://az
 #### <a name="windows"></a>[Windows](#tab/windows/)
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/compute/azEnvironment?api-version=2018-10-01&format=text" | ConvertTo-Json
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "http://169.254.169.254/metadata/instance/compute/azEnvironment?api-version=2018-10-01&format=text"
 ```
 
 #### <a name="linux"></a>[Linux](#tab/linux/)
@@ -646,14 +833,14 @@ Le cloud et les valeurs de l’environnement Azure sont listés ici.
 | [Azure Allemagne](https://azure.microsoft.com/overview/clouds/germany/) | AzureGermanCloud
 
 
-#### <a name="sample-5-retrieve-network-information"></a>Exemple 5 : Récupérer des informations sur le réseau
+#### <a name="sample-6-retrieve-network-information"></a>Exemple 6 : Récupérer des informations sur le réseau
 
 **Requête**
 
 #### <a name="windows"></a>[Windows](#tab/windows/)
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/network?api-version=2017-08-01" | ConvertTo-Json  -Depth 64
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "http://169.254.169.254/metadata/instance/network?api-version=2017-08-01" | ConvertTo-Json  -Depth 64
 ```
 
 #### <a name="linux"></a>[Linux](#tab/linux/)
@@ -693,12 +880,12 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/ne
 }
 ```
 
-#### <a name="sample-6-retrieve-public-ip-address"></a>Exemple 6 : Récupérer l’adresse IP publique
+#### <a name="sample-7-retrieve-public-ip-address"></a>Exemple 7 : Récupérer l’IP publique
 
 #### <a name="windows"></a>[Windows](#tab/windows/)
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress/0/publicIpAddress?api-version=2017-08-01&format=text" | ConvertTo-Json
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress/0/publicIpAddress?api-version=2017-08-01&format=text"
 ```
 
 #### <a name="linux"></a>[Linux](#tab/linux/)
@@ -792,7 +979,7 @@ Les fournisseurs de la Place de marché Azure veulent être sûrs que la licence
 
 ```powershell
 # Get the signature
-$attestedDoc = Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http://169.254.169.254/metadata/attested/document?api-version=2020-09-01
+$attestedDoc = Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri http://169.254.169.254/metadata/attested/document?api-version=2020-09-01
 # Decode the signature
 $signature = [System.Convert]::FromBase64String($attestedDoc.signature)
 ```
@@ -913,8 +1100,12 @@ Vous pouvez ensuite demander des jetons pour les identités gérées auprès d�
 
 Pour plus d’informations sur la procédure d’activation de cette fonctionnalité, consultez [Obtenir un jeton d’accès](../articles/active-directory/managed-identities-azure-resources/how-to-use-vm-token.md).
 
+## <a name="load-balancer-metadata"></a>Métadonnées de l’équilibreur de charge
+Lorsque vous placez des instances de machine virtuelle ou de groupe de machines virtuelles derrière Azure Standard Load Balancer, utilisez IMDS pour récupérer les métadonnées relatives à l’équilibreur de charge et aux instances. Pour en savoir plus, consultez la section [Récupérer les informations de l’équilibreur de charge](../articles/load-balancer/instance-metadata-service-load-balancer.md).
+
 ## <a name="scheduled-events"></a>Événements planifiés
 Vous pouvez obtenir l’état des événements planifiés en utilisant IMDS. L’utilisateur peut ensuite spécifier un ensemble d’actions à exécuter pour ces événements. Pour plus d’informations, consultez [Événements planifiés pour Linux](../articles/virtual-machines/linux/scheduled-events.md) ou [Événements planifiés pour Windows](../articles/virtual-machines/windows/scheduled-events.md).
+
 
 ## <a name="sample-code-in-different-languages"></a>Exemple de code dans différents langages
 

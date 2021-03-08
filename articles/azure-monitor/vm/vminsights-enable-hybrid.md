@@ -1,28 +1,28 @@
 ---
 title: Activer Azure Monitor pour un environnement hybride
-description: Cet article décrit comment activer des Azure Monitor pour machines virtuelles pour un environnement de cloud hybride contenant une ou plusieurs machines virtuelles.
+description: Cet article décrit comment activer VM Insights pour un environnement de cloud hybride contenant une ou plusieurs machines virtuelles.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: d56b1ed7b4923b054ad6864b713fc2a26d95f7e2
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 6518906f264077ac88a90513a237840f7f814247
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100600130"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731270"
 ---
-# <a name="enable-azure-monitor-for-vms-for-a-hybrid-virtual-machine"></a>Activer Azure Monitor pour machines virtuelles pour une machine virtuelle hybride
-Cet article explique comment activer Azure Monitor pour machines virtuelles pour une machine virtuelle en dehors d’Azure, y compris des environnements locaux et autres clouds.
+# <a name="enable-vm-insights-for-a-hybrid-virtual-machine"></a>Activer VM Insights pour une machine virtuelle hybride
+Cet article explique comment activer VM Insights pour une machine virtuelle en dehors d’Azure, y compris des environnements locaux et autres clouds.
 
 > [!IMPORTANT]
-> La méthode recommandée pour activer des machines virtuelles hybrides consiste tout d’abord à activer [Azure Arc pour serveurs](../../azure-arc/servers/overview.md) afin que les machines virtuelles puissent être activées pour Azure Monitor pour machines virtuelles à l’aide de processus similaires aux machines virtuelles Azure. Cet article explique comment intégrer des machines virtuelles hybrides si vous choisissez de ne pas utiliser Azure Arc.
+> La méthode recommandée pour activer des machines virtuelles hybrides consiste tout d’abord à activer [Azure Arc pour serveurs](../../azure-arc/servers/overview.md) afin que les machines virtuelles puissent être activées pour VM Insights à l’aide de processus similaires aux machines virtuelles Azure. Cet article explique comment intégrer des machines virtuelles hybrides si vous choisissez de ne pas utiliser Azure Arc.
 
 ## <a name="prerequisites"></a>Prérequis
 
-- [Créer et configurer un espace de travail Log Analytics](../insights/vminsights-configure-workspace.md)
-- Pour vous assurer que le système d’exploitation de la machine virtuelle ou du groupe de machines virtuelles identiques que vous activez est pris en charge, consulter [Systèmes d’exploitation pris en charge](../insights/vminsights-enable-overview.md#supported-operating-systems). 
+- [Créer et configurer un espace de travail Log Analytics](./vminsights-configure-workspace.md)
+- Pour vous assurer que le système d’exploitation de la machine virtuelle ou du groupe de machines virtuelles identiques que vous activez est pris en charge, consulter [Systèmes d’exploitation pris en charge](./vminsights-enable-overview.md#supported-operating-systems). 
 
 
 ## <a name="overview"></a>Vue d’ensemble
@@ -31,13 +31,13 @@ Les machines virtuelles en dehors d’Azure nécessitent les mêmes agent Log An
 Pour plus d’informations sur le déploiement de l’agent Log Analytics, consultez [Connecter des ordinateurs Windows à Azure Monitor](../agents/agent-windows.md) ou [Connecter des ordinateurs Linux à Azure Monitor](../agents/agent-linux.md). Des détails pour l’agent Dependency Agent sont fournis dans cet article. 
 
 ## <a name="firewall-requirements"></a>Configuration requise du pare-feu
-La configuration requise du pare-feu pour l’agent Log Analytics est fournie dans [Présentation de l’agent Log Analytics](../agents/log-analytics-agent.md#network-requirements). L’agent Map Dependency Agent Azure Monitor pour machines virtuelles ne transmet pas de données par lui-même et ne requiert pas de modifications des pare-feu ni des ports. Log Analytics Agent transmet toujours les données Map au service Azure Monitor, directement ou par le biais de la [passerelle Operations Management Suite](../../azure-monitor/agents/gateway.md), si vos stratégies de sécurité n’autorisent pas les ordinateurs du réseau à se connecter à Internet.
+La configuration requise du pare-feu pour l’agent Log Analytics est fournie dans [Présentation de l’agent Log Analytics](../agents/log-analytics-agent.md#network-requirements). L’agent Map Dependency de VM Insights ne transmet pas de données par lui-même et ne requiert pas de modifications des pare-feu ou des ports. Log Analytics Agent transmet toujours les données Map au service Azure Monitor, directement ou par le biais de la [passerelle Operations Management Suite](../../azure-monitor/agents/gateway.md), si vos stratégies de sécurité n’autorisent pas les ordinateurs du réseau à se connecter à Internet.
 
 
 ## <a name="dependency-agent"></a>Agent de dépendances
 
 >[!NOTE]
->Les informations suivantes décrites dans cette section s’appliquent également à la solution [Service Map](../insights/service-map.md).  
+>Les informations suivantes décrites dans cette section s’appliquent également à la solution [Service Map](./service-map.md).  
 
 Vous pouvez télécharger le Dependency Agent à partir des emplacements suivants :
 
@@ -177,8 +177,8 @@ Vérifiez le fichier C:\Program Files\Microsoft Dependency Agent\logs\wrapper.lo
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Une fois la supervision activée pour vos machines virtuelles, ces informations peuvent être analysées par Azure Monitor pour machines virtuelles.
+Une fois la surveillance activée pour vos machines virtuelles, ces informations sont disponibles pour analyse avec VM Insights.
 
-- Pour afficher les dépendances des applications détectées, consultez [Utilisation de la fonctionnalité Map d’Azure Monitor pour machines virtuelles dans le but de comprendre les composants d’application](vminsights-maps.md).
+- Pour afficher les dépendances d’applications découvertes, consultez [Afficher la Carte VM Insights](vminsights-maps.md).
 
 - Pour identifier les goulots d’étranglement et l’utilisation globale avec les performances de votre machine virtuelle, consultez [Consulter les performances des machines virtuelles Azure](vminsights-performance.md).

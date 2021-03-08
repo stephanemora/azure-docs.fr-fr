@@ -7,24 +7,26 @@ ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 02/18/2021
 ms.custom: template-concept
-ms.openlocfilehash: bd366c05be1b9d5b2a1bff238cfbaaa9dd290508
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: f40d9a1285f1eb625a9e33387f2cc9fafcbc3322
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101660296"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102098398"
 ---
 # <a name="advanced-development-with-azure-percept"></a>Développement avancé avec Azure Percept
 Avec Azure Percept, les développeurs de logiciels et les scientifiques des données peuvent utiliser des workflows de code avancés pour la gestion du cycle de vie IA. Grâce à une bibliothèque open source croissante, ils peuvent utiliser des exemples pour commencer leur développement IA dans des conditions idéales et créer des solutions prêtes pour la production.
 
 ## <a name="get-started-with-the-advanced-development-tutorials"></a>Tutoriels pour bien démarrer avec le développement avancé
 
-Ce [notebook Jupyter](https://github.com/microsoft/Project-Santa-Cruz-Private-Preview/blob/main/Sample-Scripts-and-Notebooks/Official/Machine%20Learning%20Notebooks/Transferlearningusing_SSDLiteV2%20Model.ipynb) effectue un apprentissage de transfert à l’aide d’un modèle TensorFlow pré-entraîné (MobileNetSSDV2Lite) sur AzureML en Python avec un jeu de données personnalisé pour détecter les bols. Il existe deux tutoriels pour vous guider lors de l’utilisation du notebook pour l’entraînement et le déploiement de votre détecteur de bol sur le kit de développement Project Santa Cruz :
+Découvrez tous les [modèles IA Azure Percept](./overview-ai-models.md) disponibles.
 
-- [Développement cloud](./advanced-development-cloud.md) : dans ce tutoriel, vous allez exécuter le notebook dans le [portail Azure Machine Learning](https://ml.azure.com) avec une instance de calcul distante.
+Pour des conseils, des tutoriels et des exemples à jour, consultez le [GitHub de développement avancé Azure Percept DK](https://github.com/microsoft/azure-percept-advanced-development) :
 
-- [Développement local](./advanced-development-local.md) : dans ce tutoriel, vous allez exécuter le notebook localement dans VS Code avec une instance de calcul distante.
+* Intégration d’un modèle d’intelligence artificielle personnalisé à l’appareil
+* Mise à jour d’un modèle déjà pris en charge avec l’apprentissage de transfert
+* Et plus encore
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez tous les [modèles IA Azure Percept](./overview-ai-models.md) disponibles.
+Découvrez tous les [modèles IA Azure Percept](./overview-ai-models.md) disponibles. Si aucun de ces modèles ne répond à vos besoins, n’hésitez pas à utiliser le parcours de code avancé pour apporter votre propre modèle ou pipeline de vision par ordinateur à Percept DK. Si vous estimez que cela peut aider d’autres utilisateurs, ouvrez aussi une demande de tirage (pull request).

@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: dc301cf7149ad9fcd5bd5c02226afedc4df5e3ee
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 63db8375379144b2ede78d9e7010a350b3f69b12
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94833093"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726408"
 ---
 # <a name="orchestrator-function-code-constraints"></a>Contraintes de code des fonctions d’orchestrateur
 
@@ -31,7 +31,7 @@ Le tableau suivant présente des exemples d’API qui doivent être évitées, c
 | Catégorie d’API | Motif | Solution de contournement |
 | ------------ | ------ | ---------- |
 | Dates et heures  | Les API qui retournent la date ou l’heure actuelle ne sont pas déterministes, car la valeur retournée est différente à chaque réexécution. | Utilisez la propriété [CurrentUtcDateTime](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableorchestrationcontext.currentutcdatetime) dans .NET, l’API `currentUtcDateTime` dans JavaScript ou l’API `current_utc_datetime` dans Python, sans risque pour la réexécution. |
-| GUID et UUID  | Les API qui retournent un GUID ou un UUID aléatoire ne sont pas déterministes, car la valeur générée est différente à chaque réexécution. | Utilisez [NewGuid](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableorchestrationcontext.newguid) dans .NET ou `newGuid` dans JavaScript pour générer des GUID aléatoires de façon sûre. |
+| GUID et UUID  | Les API qui retournent un GUID ou un UUID aléatoire ne sont pas déterministes, car la valeur générée est différente à chaque réexécution. | Utilisez [NewGuid](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableorchestrationcontext.newguid) dans .NET, `newGuid` dans JavaScript, et `new_guid` dans Python pour générer des GUID aléatoires de façon sûre. |
 | Nombres aléatoires | Les API qui retournent des nombres aléatoires ne sont pas déterministes, car la valeur générée est différente à chaque réexécution. | Utilisez une fonction d’activité pour renvoyer des nombres aléatoires à une orchestration. Les valeurs de retour des fonctions d’activité sont toujours sûres pour la réexécution. |
 | Liaisons | Les liaisons d’entrée et de sortie effectuent généralement des opérations d’E/S et ne sont pas déterministes. Même les liaisons du [client d’orchestration](durable-functions-bindings.md#orchestration-client) et du [client d’entité](durable-functions-bindings.md#entity-client) ne doivent pas être utilisées directement par une fonction d’orchestrateur. | Utilisez des liaisons d’entrée et de sortie dans les fonctions clientes ou d’activité. |
 | Réseau | Les appels réseau impliquent des systèmes externes et ne sont pas déterministes. | Utilisez les fonctions d’activité pour effectuer des appels réseau. Si vous devez effectuer un appel HTTP à partir de votre fonction d’orchestrateur, vous pouvez également utiliser les [API HTTP durables](durable-functions-http-features.md#consuming-http-apis). |

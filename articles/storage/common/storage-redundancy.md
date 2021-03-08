@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/19/2021
+ms.date: 03/02/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 78958dc0f95d2bc7a9e393ac2e769a97f7e92efa
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 955d3330d3f08d7e7f024ec2c36941d02244d9ba
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100556445"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726834"
 ---
 # <a name="azure-storage-redundancy"></a>Redondance de Stockage Azure
 
@@ -87,10 +87,11 @@ Lorsque vous créez un compte de stockage, vous sélectionnez la région primair
 
 Le service Stockage Azure offre deux options pour la copie de vos données vers une région secondaire :
 
-- La réplication par **stockage géoredondant (GRS)** copie vos données de façon synchrone trois fois au sein d’un même emplacement physique dans la région primaire en utilisant une réplication LRS. Elle copie ensuite vos données de façon asynchrone vers un emplacement physique unique dans la région secondaire.
-- La réplication par **stockage géoredondant interzone (GZRS)** copie vos données de façon synchrone dans trois zones de disponibilité Azure au sein de la région primaire en utilisant une réplication ZRS. Elle copie ensuite vos données de façon asynchrone vers un emplacement physique unique dans la région secondaire.
+- La réplication par **stockage géoredondant (GRS)** copie vos données de façon synchrone trois fois au sein d’un même emplacement physique dans la région primaire en utilisant une réplication LRS. Elle copie ensuite vos données de façon asynchrone vers un emplacement physique unique dans la région secondaire. Dans la région secondaire, vos données sont copiées de manière synchrone trois fois en utilisant un stockage localement redondant.
+- La réplication par **stockage géoredondant interzone (GZRS)** copie vos données de façon synchrone dans trois zones de disponibilité Azure au sein de la région primaire en utilisant une réplication ZRS. Elle copie ensuite vos données de façon asynchrone vers un emplacement physique unique dans la région secondaire. Dans la région secondaire, vos données sont copiées de manière synchrone trois fois en utilisant un stockage localement redondant.
 
-La principale différence entre les réplications GRS et GZRS réside dans la manière dont les données sont répliquées dans la région primaire. Dans la région secondaire, les données sont toujours répliquées de manière synchrone trois fois en utilisant un stockage localement redondant. LRS dans la région secondaire protège vos données contre les défaillances matérielles.
+> [!NOTE]
+> La principale différence entre les réplications GRS et GZRS réside dans la manière dont les données sont répliquées dans la région primaire. Dans la région secondaire, les données sont toujours répliquées de manière synchrone trois fois en utilisant un stockage localement redondant. LRS dans la région secondaire protège vos données contre les défaillances matérielles.
 
 Avec le stockage GRS ou GZRS, les données de la région secondaire ne sont disponibles pour l’accès en lecture ou en écriture qu’en cas de basculement vers la région secondaire. Pour un accès en lecture à la région secondaire, configurez votre compte de stockage pour utiliser un stockage géoredondant avec accès en lecture (RA-GRS) ou un stockage géoredondant interzone avec accès en lecture (RA-GZRS). Pour plus d’informations, voir [Accès en lecture aux données dans la région secondaire](#read-access-to-data-in-the-secondary-region).
 

@@ -1,22 +1,22 @@
 ---
-title: Déploiement et métriques HPA avec Azure Monitor pour conteneurs | Microsoft Docs
-description: Cet article décrit les métriques de déploiement et HPA (autoscaler de pods élastique) collectées avec Azure Monitor pour les conteneurs.
+title: Déploiement et métriques HPA avec Container Insights | Microsoft Docs
+description: Cet article décrit les métriques de déploiement et HPA (autoscaler de pods élastique) collectées avec Container Insights.
 ms.topic: conceptual
 ms.date: 08/09/2020
-ms.openlocfilehash: ee1f0d4849a8382a898aaca84956ff78166e138f
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: c8bb100b756ea92d73e1c3a698f119b4f8157930
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100600175"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717704"
 ---
-# <a name="deployment--hpa-metrics-with-azure-monitor-for-containers"></a>Déploiement et métriques HPA avec Azure Monitor pour conteneurs
+# <a name="deployment--hpa-metrics-with-container-insights"></a>Déploiement et métriques HPA avec Container Insights
 
-À partir de la version de l’agent *ciprod08072020*, l’agent intégré d’Azure Monitor pour conteneurs collecte désormais les métriques pour les déploiements et HPA.
+À partir de la version de l’agent *ciprod08072020*, l’agent intégré de Container Insights collecte désormais les métriques pour les déploiements et HPA.
 
 ## <a name="deployment-metrics"></a>Métriques de déploiement
 
-Azure Monitor pour conteneurs lance automatiquement la supervision des déploiements en collectant les métriques suivantes toutes les 60 secondes et en les stockant dans la table **InsightMetrics** :
+Container Insights lance automatiquement la supervision des déploiements en collectant les métriques suivantes toutes les 60 secondes et en les stockant dans la table **InsightMetrics** :
 
 |Nom de métrique |Dimension de la métrique (balises) |Description |
 |------------|------------------------|------------|
@@ -24,7 +24,7 @@ Azure Monitor pour conteneurs lance automatiquement la supervision des déploiem
 
 ## <a name="hpa-metrics"></a>Métriques HPA
 
-Azure Monitor pour conteneurs lance automatiquement la supervision des HPA en collectant les métriques suivantes toutes les 60 secondes et en les stockant dans la table **InsightMetrics** :
+Container Insights lance automatiquement la supervision des HPA en collectant les métriques suivantes toutes les 60 secondes et en les stockant dans la table **InsightMetrics** :
 
 |Nom de métrique |Dimension de la métrique (balises) |Description |
 |------------|------------------------|------------|
@@ -32,7 +32,7 @@ Azure Monitor pour conteneurs lance automatiquement la supervision des HPA en co
 
 ## <a name="deployment--hpa-charts"></a>Graphiques de déploiement & HPA 
 
-Azure Monitor pour conteneurs inclut des graphiques préconfigurés pour les métriques listées dans le tableau précédent sous la forme d’un classeur pour chaque cluster. Vous pouvez trouver le classeur de déploiements et HPA **Déploiements et HPA** directement à partir d’un cluster AKS en sélectionnant **Classeurs** dans le volet de gauche, puis à partir de la liste déroulante **Voir les classeurs** dans Insight.
+Container Insights inclut des graphiques préconfigurés pour les métriques listées dans le tableau précédent sous la forme d’un classeur pour chaque cluster. Vous pouvez trouver le classeur de déploiements et HPA **Déploiements et HPA** directement à partir d’un cluster AKS en sélectionnant **Classeurs** dans le volet de gauche, puis à partir de la liste déroulante **Voir les classeurs** dans Insight.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

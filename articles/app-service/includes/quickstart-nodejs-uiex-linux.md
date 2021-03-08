@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.date: 08/01/2020
 ms.custom: mvc, devcenter, seodec18
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: a6c580f7d6bc03f298621b1a33fcb9f3f461e802
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 59a2c96987762e6b56cc7b453877cebe3124e443
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101747387"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102109055"
 ---
 <!-- default for linux -->
 
@@ -48,7 +48,7 @@ ms.locfileid: "101747387"
 
 1. Choisissez **Créer une application web** pour déployer sur App Service sur Linux par défaut.
 
-1. Tapez un <abbr title="Les caractères valides dans un nom d’application sont les suivants : « a-z », « 0-9 » et « - ».">nom</abbr> global unique pour votre application web et appuyez sur **Entrée**. 
+1. Tapez un <abbr title="Les caractères valides dans un nom d’application sont les suivants : « a-z », « 0-9 » et « - ».">name</abbr> global unique pour votre application web et appuyez sur **Entrée**. 
 
 1. Choisissez votre **version Node.js** (LTS est recommandé).
 
@@ -67,10 +67,14 @@ ms.locfileid: "101747387"
 
 1. Une fois le déploiement terminé, sélectionnez **Parcourir le site web** dans l’invite pour afficher l’application web que vous venez de déployer.
 
-<br>
+<br/>
 <details>
-<summary>Dépannage</summary>
+<summary><strong>Dépannage</strong></summary>
+
+Si vous n’avez pas pu effectuer ces étapes, vérifiez les points suivants :
+
 * Assurez-vous que votre application utilise le port d’écoute fourni par la variable d’environnement PORT `process.env.PORT`.
+
 * Si vous voyez s’afficher le message d’erreur **« Vous n’êtes pas autorisé à afficher ce répertoire ou cette page. »** , c’est que l’application n’a probablement pas réussi à démarrer correctement. Examinez la sortie du journal pour rechercher et corriger l’erreur. 
 
 </details>
@@ -80,7 +84,7 @@ ms.locfileid: "101747387"
 [Signaler un problème](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azure-app-service&prepare-your-environment)
 
 
-<br>
+<br/>
 <hr/>
 
 

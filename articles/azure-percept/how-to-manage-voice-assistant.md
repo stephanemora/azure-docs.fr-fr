@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/15/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 593d2ccadf814cb5af27a4bb738f28132f39ab7d
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 5e41dea3b47c608b9e82ac57fa1cfe5247ea6cc2
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101660267"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102099010"
 ---
 # <a name="managing-your-voice-assistant"></a>Gestion de votre Assistant vocal
 
@@ -28,7 +28,7 @@ Un mot clé est un mot ou une expression courte utilisé pour activer un Assista
 
 1. Cliquez sur **modifier** en regard de **Mot clé personnalisé** dans la page de démonstration.
 
-    :::image type="content" source="./media/manage-voice-assistant/hospitality-demo.png" alt-text="Image.":::
+    :::image type="content" source="./media/manage-voice-assistant/hospitality-demo.png" alt-text="Capture d’écran de la fenêtre de la démonstration Hôtellerie.":::
 
     Si la page de démonstration n’est pas ouverte, accédez à la page de l’appareil (voir ci-dessous), puis cliquez sur **Tester votre Assistant vocal** sous **Actions** pour accéder à la démonstration.
 
@@ -40,17 +40,17 @@ Un mot clé est un mot ou une expression courte utilisé pour activer un Assista
 
 1. Dans la page de présentation d’[Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819), cliquez sur **Appareils** dans le volet du menu de gauche.
 
-    :::image type="content" source="./media/manage-voice-assistant/portal-overview-devices.png" alt-text="Image.":::
+    :::image type="content" source="./media/manage-voice-assistant/portal-overview-devices.png" alt-text="Capture d’écran de la page de présentation d’Azure Percept Studio avec Appareils encadré.":::
 
 1. Sélectionnez l’appareil sur lequel votre application Assistant vocal a été déployée.
 
 1. Ouvrez l’onglet **Speech**.
 
-    :::image type="content" source="./media/manage-voice-assistant/device-page.png" alt-text="Image.":::
+    :::image type="content" source="./media/manage-voice-assistant/device-page.png" alt-text="Capture d’écran de la page de l’appareil Edge avec l’onglet Voix encadré.":::
 
 1. Cliquez sur **Modifier** en regard de **Mot clé**.
 
-    :::image type="content" source="./media/manage-voice-assistant/change-keyword-device.png" alt-text="Image.":::
+    :::image type="content" source="./media/manage-voice-assistant/change-keyword-device.png" alt-text="Capture d’écran des actions de la solution vocale disponibles.":::
 
 1. Sélectionnez l’un des mots clés disponibles, puis cliquez sur **Enregistrer** pour appliquer les modifications.
 

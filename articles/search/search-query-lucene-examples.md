@@ -1,270 +1,353 @@
 ---
 title: Utiliser la syntaxe de requête Lucene complète
 titleSuffix: Azure Cognitive Search
-description: Syntaxe de requête Lucene pour la recherche approximative, la recherche de proximité, l’amélioration de termes, la recherche d’expressions régulières et la recherche par caractères génériques dans le service Recherche cognitive Azure.
+description: Exemples de requête illustrant la syntaxe de requête Lucene pour la recherche approximative, la recherche de proximité, la promotion de termes, la recherche d’expressions régulières et la recherche par caractères génériques dans un index Recherche cognitive Azure.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
-tags: Lucene query analyzer syntax
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/05/2020
-ms.openlocfilehash: df26cfc3b220f40a7e73ff1c750d2b2ae37e7625
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.date: 03/03/2021
+ms.openlocfilehash: 6213efb6ba14052c6f957a6d999f48f55f65186c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97401455"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101693558"
 ---
 # <a name="use-the-full-lucene-search-syntax-advanced-queries-in-azure-cognitive-search"></a>Utiliser la syntaxe de recherche Lucene « complète » (requêtes avancées dans Recherche cognitive Azure)
 
-Lors de la construction de requêtes pour Recherche cognitive Azure, vous pouvez remplacer l’[analyseur de requêtes simple](query-simple-syntax.md) par défaut par l’[analyseur de requêtes Lucene dans Recherche cognitive Azure](query-lucene-syntax.md), plus puissant, afin de formuler des définitions de requêtes spécialisées et avancées. 
+Lors de la création de requêtes pour la Recherche cognitive Azure, vous pouvez remplacer [l’analyseur de requêtes simple](query-simple-syntax.md) par défaut par [l’analyseur de requêtes Lucene](query-lucene-syntax.md), plus puissant, afin de formuler des expressions de requêtes spécialisées et avancées.
 
-L’analyseur Lucene prend en charge des constructions de requêtes complexes, telles que des requêtes portant sur des champs, la recherche approximative, la recherche par caractères génériques infixes et suffixes, la recherche de proximité, la promotion de termes et la recherche d’expression régulière. Cette fonctionnalité plus puissante nécessite des capacités de traitement supplémentaires et peut donc entraîner des temps d’exécution un peu plus longs. Dans cet article, vous pouvez parcourir des exemples décrivant les opérations de requête basées sur la syntaxe complète.
+L’analyseur Lucene prend en charge des formats de requêtes complexes, telles que des requêtes portant sur des champs, la recherche approximative, la recherche par caractères génériques infixes et suffixes, la recherche de proximité, la promotion de termes et la recherche d’expression régulière. Cette fonctionnalité plus puissante nécessite des capacités de traitement supplémentaires et peut donc entraîner des temps d’exécution un peu plus longs. Dans cet article, vous pouvez parcourir des exemples décrivant les opérations de requête basées sur la syntaxe complète.
 
 > [!Note]
 > Une grande partie des constructions de requêtes spécialisées activées par le biais de la syntaxe de requête Lucene complète ne sont pas soumises à une [analyse du texte](search-lucene-query-architecture.md#stage-2-lexical-analysis), ce qui peut être surprenant si vous prévoyez une recherche de radical ou une lemmatisation. L’analyse lexicale est effectuée uniquement sur des termes complets (requête sur un terme ou une expression). Les types de requête avec des termes incomplets (requête de préfixe, de caractère générique, d’expression régulière, partielle) sont ajoutés directement à l’arborescence de requête, en ignorant la phase d’analyse. La seule transformation effectuée sur les termes de requête partiels est l’utilisation de minuscules. 
 >
 
-## <a name="nyc-jobs-examples"></a>Exemples NYC Jobs
+## <a name="hotels-sample-index"></a>Index hotels-sample
 
-Les exemples suivants utilisent un [index de recherche NYC Jobs](https://azjobsdemo.azurewebsites.net/) composé de postes à pourvoir sur la base d’un jeu de données fourni par l’[initiative City of New York OpenData](https://nycopendata.socrata.com/). Ces données ne doivent pas être considérées comme étant à jour ou complètes. L’index se trouve sur un service de bac à sable fourni par Microsoft, ce qui signifie que vous n’avez pas besoin d’abonnement Azure ni de Recherche cognitive Azure pour essayer ces requêtes.
+Les requêtes suivantes sont basées sur l’index hotels-sample, que vous pouvez créer en suivant les instructions de ce guide de [démarrage rapide](search-get-started-portal.md).
 
-En revanche, vous avez besoin de Postman ou d’un outil équivalent pour émettre la requête HTTP sur GET ou POST. Si vous ne connaissez pas bien ces outils, consultez [Démarrage rapide : Explorer l’API REST de Recherche cognitive Azure](search-get-started-rest.md).
+Les exemples de requêtes sont formulés à l’aide de l’API REST et des requêtes POST. Vous pouvez les coller et les exécuter dans [Postman](search-get-started-rest.md) ou dans [Visual Studio Code grâce à l’extension Recherche cognitive](search-get-started-vs-code.md).
 
-## <a name="set-up-the-request"></a>Configurer la requête
+Les en-têtes de requête doivent comporter les valeurs suivantes :
 
-1. Les en-têtes de requête doivent comporter les valeurs suivantes :
+| Clé | Valeur |
+|-----|-------|
+| Content-Type | application/json|
+| api-key  | `<your-search-service-api-key>`, clé de requête ou d’administration |
 
-   | Clé | Valeur |
-   |-----|-------|
-   | Content-Type | `application/json`|
-   | api-key  | `252044BE3886FE4A8E3BAA4F595114BB` </br> (Il s’agit de la clé d’API de requête réelle pour le service de recherche de bac à sable qui héberge l’index NYC Jobs) |
-
-1. Définissez le verbe sur **`GET`** .
-
-1. Définissez l’URL sur **`https://azs-playground.search.windows.net/indexes/nycjobs/docs/search=*&api-version=2020-06-30&queryType=full`**
-
-   + La collection de documents dans l’index contient tout le contenu disponible pour la recherche. Une clé d’API de requête fournie dans l’en-tête de requête fonctionne uniquement pour les opérations de lecture ciblant la collection de documents.
-
-   + **`$count=true`** retourne le nombre de documents correspondant aux critères de recherche. Une chaîne de recherche vide comptabilisera tous les documents figurant dans l’index (environ 2558 dans le cas de NYC Jobs).
-
-   + **`search=*`** est une requête non spécifiée équivalente à une recherche nulle ou vide. Elle n’est pas particulièrement utile, mais c’est la recherche la plus simple que vous puissiez effectuer, et elle affiche tous les champs récupérables dans l’index, avec toutes les valeurs.
-
-   + **`queryType=full`** appelle l’analyseur Lucene complet.
-
-1. En guise d’étape de vérification, collez la requête suivante dans GET et cliquez sur **Envoyer**. Les résultats sont retournés sous forme de documents JSON détaillés.
-
-   ```http
-   https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true&search=*&queryType=full
-   ```
-
-### <a name="how-to-invoke-full-lucene-parsing"></a>Appel de l’analyse Lucene complète
-
-Ajoutez **`queryType=full`** pour appeler la syntaxe de requête complète et substituer la syntaxe de requête simple par défaut. Tous les exemples de cet article spécifient le paramètre de requête **`queryType=full`** , ce qui indique que la syntaxe complète est traitée par l’analyseur de requêtes Lucene. 
+Les paramètres URI doivent inclure le point de terminaison de votre service de recherche avec le nom de l’index, les collections de documents, la commande de recherche et la version de l’API, comme dans l’exemple suivant :
 
 ```http
-POST /indexes/nycjobs/docs/search?api-version=2020-06-30
-{
-    "queryType": "full"
-}
+https://{{service-name}}.search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30
 ```
 
-## <a name="example-1-query-scoped-to-a-list-of-fields"></a>Exemple 1 : Requête portée sur une liste de champs
+Le corps de la demande doit être formé comme un JSON valide :
 
-Ce premier exemple n’est pas propre à un analyseur, mais nous permet d’introduire le premier concept de requête fondamental : la contenance. Cet exemple limite l’exécution de la requête et la réponse à quelques champs spécifiques. Lors de l’utilisation de l’outil Postman ou Explorateur de recherche, il est important de connaître la structure d’une réponse JSON accessible en lecture. 
-
-Cette requête cible uniquement *business_title* dans **`searchFields`** , en spécifiant grâce au paramètre **`select`** le même champ dans la réponse.
-
-```http
-POST https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30
+```json
 {
-    "count": true,
-    "queryType": "full",
     "search": "*",
-    "searchFields": "business_title",
-    "select": "business_title"
+    "queryType": "full",
+    "select": "HotelId, HotelName, Category, Tags, Description",
+    "count": true
 }
 ```
 
-La réponse pour cette requête doit ressembler à la capture d’écran suivante.
++ « search » défini sur `*` est une requête non spécifiée équivalente à une recherche null ou vide. Elle n’est pas particulièrement utile, mais c’est la recherche la plus simple que vous puissiez effectuer, et elle affiche tous les champs récupérables dans l’index, avec toutes les valeurs.
 
-  ![Exemple de réponse Postman avec scores](media/search-query-lucene-examples/postman-sample-results.png)
++ « queryType » défini sur « full » appelle l’analyseur de requêtes Lucene complet et est requis pour cette syntaxe.
 
-Vous avez peut-être remarqué le score de recherche dans la réponse. Des scores uniformes de **1** sont obtenus en l’absence de classement, soit parce que la recherche n’était pas une recherche en texte intégral, soit parce qu’aucun critère n’a été fourni. Pour une recherche vide, les lignes reviennent dans un ordre arbitraire. Si vous incluez des critères réels, vous constaterez que les scores de recherche deviendront des valeurs significatives.
++ « select » défini sur une liste de champs séparés par des virgules est utilisé pour la composition des résultats de la recherche, y compris uniquement les champs qui sont utiles pour les résultats de la recherche.
 
-## <a name="example-2-fielded-search"></a>Exemple 2 : Recherche par champ
++ « count » renvoie le nombre de documents correspondant aux critères de recherche. Une chaîne de recherche vide comptabilisera tous les documents figurant dans l’index (environ 50 pour l’index hotels-sample).
 
-La syntaxe Lucene complète permet de restreindre des expressions de recherche individuelles à un champ spécifique. Cet exemple recherche les titres de fonctions contenant le terme « senior » mais pas « junior ». Vous pouvez spécifier plusieurs champs à l’aide de l’opérateur AND.
+## <a name="example-1-fielded-search"></a>Exemple 1 : Recherche par champ
+
+La recherche par champ permet de restreindre les expressions de recherche individuelles et intégrées à un champ spécifique. Dans cet exemple, on recherche les noms d’hôtels contenant le terme « hôtel », mais pas « motel ». Vous pouvez spécifier plusieurs champs à l’aide de l’opérateur AND. 
+
+Lorsque vous utilisez cette syntaxe de requête, vous pouvez omettre le paramètre « searchFields » lorsque les champs que vous souhaitez interroger se trouvent dans l’expression de recherche. Si vous incluez « searchFields » dans une recherche par champ, `fieldName:searchExpression` est toujours prioritaire par rapport à « searchFields ».
 
 ```http
-POST /indexes/nycjobs/docs?api-version=2020-06-30
+POST /indexes/hotel-samples-index/docs/search?api-version=2020-06-30
 {
-    "count": true,
+    "search": "HotelName:(hotel NOT motel) AND Category:'Resort and Spa'",
     "queryType": "full",
-    "search": "business_title:(senior NOT junior) AND posting_type:external",
-    "searchFields": "business_title, posting_type",
-    "select": "business_title, posting_type"
+    "select": "HotelName, Category",
+    "count": true
 }
 ```
 
-La réponse pour cette requête doit ressembler à la capture d’écran suivante (posting_type n’est pas affiché).
+La réponse à cette requête doit ressembler à l’exemple suivant : filtré sur « Centre de balnéothérapie », renvoyant les noms d’hôtels contenant le terme « hôtel » ou « motel ».
 
-  :::image type="content" source="media/search-query-lucene-examples/intrafieldfilter.png" alt-text="Expression de recherche de réponse de l’exemple Postman" border="false":::
+```json
+"@odata.count": 4,
+"value": [
+    {
+        "@search.score": 4.481559,
+        "HotelName": "Nova Hotel & Spa",
+        "Category": "Resort and Spa"
+    },
+    {
+        "@search.score": 2.4524608,
+        "HotelName": "King's Palace Hotel",
+        "Category": "Resort and Spa"
+    },
+    {
+        "@search.score": 2.3970203,
+        "HotelName": "Triple Landscape Hotel",
+        "Category": "Resort and Spa"
+    },
+    {
+        "@search.score": 2.2953436,
+        "HotelName": "Peaceful Market Hotel & Spa",
+        "Category": "Resort and Spa"
+    }
+]
+```
 
-L’expression de recherche peut être un mot ou une phrase, ou une expression plus complexe entre parenthèses, éventuellement avec des opérateurs booléens. Voici quelques exemples :
+L’expression de recherche peut être un mot ou une expression unique, ou bien une expression plus complexe entre parenthèses, éventuellement avec des opérateurs booléens. Voici quelques exemples :
 
-+ `business_title:(senior NOT junior)`
-+ `state:("New York" OR "New Jersey")`
-+ `business_title:(senior NOT junior) AND posting_type:external`
++ `HotelName:(hotel NOT motel)`
++ `Address/StateProvince:("WA" OR "CA")`
++ `Tags:("free wifi" NOT "free parking") AND "coffee in lobby"`
 
-Veillez à placer les chaînes entre guillemets si vous souhaitez que les deux chaînes soient évaluées comme une seule entité, comme ici où deux emplacements distincts sont recherchés dans le champ `state`. Selon l’outil, vous devrez peut-être placer les guillemets dans une séquence d’échappement (`\`). 
+Veillez à ce que l’expression soit entre guillemets si vous souhaitez que les deux chaînes soient évaluées comme une seule entité, comme ici où deux emplacements distincts sont recherchés dans le champ Address/StateProvince. Selon le client, vous devrez peut-être placer les guillemets dans une séquence d’échappement (`\`).
 
-Le champ spécifié dans **fieldName:searchExpression** doit être un champ pouvant faire l’objet d’une recherche. Pour plus d’informations sur l’utilisation des attributs d’index dans les définitions de champs, consultez [Créer un index (API REST Recherche cognitive Azure)](/rest/api/searchservice/create-index).
+Le champ spécifié dans `fieldName:searchExpression` doit être un champ pouvant faire l’objet d’une recherche. Pour en savoir plus sur l’attribution des définitions de champ, consultez la section [Créer un index (API REST)](/rest/api/searchservice/create-index).
 
-> [!NOTE]
-> Dans l’exemple ci-dessus, le paramètre **`searchFields`** est omis car chaque partie de la requête comporte un nom de champ explicitement spécifié. Toutefois, vous pouvez toujours utiliser **`searchFields`** si la requête comporte plusieurs parties (à l’aide des instructions AND). Par exemple, la requête `search=business_title:(senior NOT junior) AND external&searchFields=posting_type` ne correspondrait à `senior NOT junior` qu'au niveau du champ `business_title`, alors qu'elle correspondrait au champ « externe » avec le champ `posting_type`. Le nom du champ fourni dans `fieldName:searchExpression` a toujours priorité sur le paramètre **`searchFields`** , c’est pourquoi dans cet exemple, nous pouvons omettre `business_title` dans **`searchFields`** .
+## <a name="example-2-fuzzy-search"></a>Exemple 2 : Recherche approximative
 
-## <a name="example-3-fuzzy-search"></a>Exemple 3 : Recherche partielle
-
-La syntaxe Lucene complète prend également en charge la recherche approximative, avec une mise en correspondance des termes qui ont une construction similaire. Pour effectuer une recherche partielle, ajoutez le signe tilde `~` à la fin d’un mot avec un paramètre facultatif, une valeur comprise entre 0 et 2, qui spécifie la distance de modification. Par exemple, `blue~` ou `blue~1` retournent blue, blues et glue.
+Les recherches approximatives permettent d’obtenir des correspondances sur des termes similaires, y compris des mots mal orthographiés. Pour effectuer une recherche partielle, ajoutez le signe tilde `~` à la fin d’un mot avec un paramètre facultatif, une valeur comprise entre 0 et 2, qui spécifie la distance de modification. Par exemple, `blue~` ou `blue~1` retournent blue, blues et glue.
 
 ```http
-POST /indexes/nycjobs/docs?api-version=2020-06-30
+POST /indexes/hotel-samples-index/docs/search?api-version=2020-06-30
 {
-    "count": true,
+    "search": "Tags:conserge~",
     "queryType": "full",
-    "search": "business_title:asosiate~",
-    "searchFields": "business_title",
-    "select": "business_title"
+    "select": "HotelName, Category, Tags",
+    "searchFields": "HotelName, Category, Tags",
+    "count": true
 }
 ```
 
-Les phrases ne sont pas prises en charge directement, mais vous pouvez spécifier une correspondance partielle pour chaque terme d’une phrase à plusieurs éléments, par exemple `search=business_title:asosiate~ AND comm~`.  Dans la capture d’écran ci-dessous, la réponse inclut une correspondance pour *community associate*.
+La réponse à cette requête est « concierge » dans les documents correspondants, ajustés par souci de concision :
 
-  :::image type="content" source="media/search-query-lucene-examples/fuzzysearch.png" alt-text="Réponse de recherche partielle" border="false":::
+```json
+"@odata.count": 12,
+"value": [
+    {
+        "@search.score": 1.1832147,
+        "HotelName": "Secret Point Motel",
+        "Category": "Boutique",
+        "Tags": [
+            "pool",
+            "air conditioning",
+            "concierge"
+        ]
+    },
+    {
+        "@search.score": 1.1819803,
+        "HotelName": "Twin Dome Motel",
+        "Category": "Boutique",
+        "Tags": [
+            "pool",
+            "free wifi",
+            "concierge"
+        ]
+    },
+    {
+        "@search.score": 1.1773309,
+        "HotelName": "Smile Hotel",
+        "Category": "Suite",
+        "Tags": [
+            "view",
+            "concierge",
+            "laundry service"
+        ]
+    },
+```
+
+Les phrases ne sont pas prises en charge directement, mais vous pouvez spécifier une correspondance partielle pour chaque terme d’une phrase à plusieurs éléments, par exemple `search=Tags:landy~ AND sevic~`.  Cette expression de requête renvoie 15 correspondances pour le terme « service de blanchisserie ».
 
 > [!Note]
 > Les requêtes approximatives ne sont pas [analysées](search-lucene-query-architecture.md#stage-2-lexical-analysis). Les types de requête avec des termes incomplets (requête de préfixe, de caractère générique, d’expression régulière, partielle) sont ajoutés directement à l’arborescence de requête, en ignorant la phase d’analyse. La seule transformation effectuée sur les termes de requête partiels est l’utilisation de minuscules.
 >
 
-## <a name="example-4-proximity-search"></a>Exemple 4 : Recherche de proximité
+## <a name="example-3-proximity-search"></a>Exemple 3 : Recherche de proximité
 
-Les recherches de proximité servent à rechercher des termes qui sont proches les uns des autres dans un document. Insérez un signe tilde « ~ » à la fin d’une expression, suivi du nombre de mots qui créent la limite de proximité. Par exemple, "hotel airport"~5 recherche les termes hotel et airport distants de cinq mots ou moins dans un document.
+Les recherches de proximité servent à rechercher des termes qui sont proches les uns des autres dans un document. Insérez un signe tilde « ~ » à la fin d’une expression, suivi du nombre de mots qui créent la limite de proximité.
 
-Cette requête recherche les termes « senior » et « analyst », où chaque terme est séparé par un seul mot, et les guillemets sont placés dans une séquence d’échappement (`\"`) pour conserver l’expression :
+Cette requête recherche les termes « hôtel » et « aéroport » distants de 5 mots ou moins dans un document. Les guillemets sont placés dans une séquence d’échappement (`\"`) pour conserver l’expression :
 
 ```http
-POST /indexes/nycjobs/docs?api-version=2020-06-30
+POST /indexes/hotel-samples-index/docs/search?api-version=2020-06-30
 {
-    "count": true,
+    "search": "Description: \"hotel airport\"~5",
     "queryType": "full",
-    "search": "business_title:\"senior analyst\"~1",
-    "searchFields": "business_title",
-    "select": "business_title"
+    "select": "HotelName, Description",
+    "searchFields": "HotelName, Description",
+    "count": true
 }
 ```
 
-La réponse pour cette requête doit ressembler à la capture d’écran suivante 
+La réponse à cette requête doit ressembler à l’exemple suivant :
 
-  :::image type="content" source="media/search-query-lucene-examples/proximity-before.png" alt-text="Requête de proximité" border="false":::
+```json
+"@odata.count": 2,
+"value": [
+    {
+        "@search.score": 0.6331726,
+        "HotelName": "Trails End Motel",
+        "Description": "Only 8 miles from Downtown.  On-site bar/restaurant, Free hot breakfast buffet, Free wireless internet, All non-smoking hotel. Only 15 miles from airport."
+    },
+    {
+        "@search.score": 0.43032226,
+        "HotelName": "Catfish Creek Fishing Cabins",
+        "Description": "Brand new mattresses and pillows.  Free airport shuttle. Great hotel for your business needs. Comp WIFI, atrium lounge & restaurant, 1 mile from light rail."
+    }
+]
+```
 
-Réessayez en éliminant la distance (`~0`) entre les termes « analyste senior ». Notez que huit documents sont retournés pour cette requête, par opposition à 10 pour la requête précédente.
+## <a name="example-4-term-boosting"></a>Exemple 4 : Promotion de termes
+
+La promotion de termes signifie que vous pouvez accorder à un document un rang plus élevé s’il contient le terme promu, par rapport aux documents qui ne contiennent pas ce terme. Pour promouvoir un terme, utilisez le signe `^` (caret) avec un facteur de promotion (un nombre) à la fin du terme recherché. La valeur par défaut du facteur de promotion est 1. Si cette valeur doit être positive, elle peut néanmoins être inférieure à 1 (0,2 par exemple). Il ne faut pas confondre la promotion de termes avec les profils de score, qui promeuvent certains champs plutôt que des termes spécifiques.
+
+Dans cette requête « avant », on recherche « accès à la plage » et on constate que sept documents correspondent à au moins un des deux termes.
 
 ```http
-POST /indexes/nycjobs/docs?api-version=2020-06-30
+POST /indexes/hotel-samples-index/docs/search?api-version=2020-06-30
 {
-    "count": true,
+    "search": "beach access",
     "queryType": "full",
-    "search": "business_title:\"senior analyst\"~0",
-    "searchFields": "business_title",
-    "select": "business_title"
+    "select": "HotelName, Description, Tags",
+    "searchFields": "HotelName, Description, Tags",
+    "count": true
 }
 ```
 
-## <a name="example-5-term-boosting"></a>Exemple 5 : Promotion de termes
+En réalité, seul un document correspond au terme « accès ». Étant donné qu’il s’agit de la seule correspondance, il figure en haut des résultats (deuxième position), même s’il ne contient pas le terme « plage ».
 
-La promotion de termes signifie que vous pouvez accorder à un document un rang plus élevé s’il contient le terme promu, par rapport aux documents qui ne contiennent pas ce terme. Pour promouvoir un terme, utilisez le signe `^` (caret) avec un facteur de promotion (un nombre) à la fin du terme recherché.
-
-Dans cette requête « avant », on recherche les postes à pourvoir contenant le terme *computer analyst* et on constate l’absence de résultat avec les deux mots *computer* et *analyst*. Par contre, les postes *computer* figurent en haut des résultats.
-
-```http
-POST /indexes/nycjobs/docs?api-version=2020-06-30
-{
-    "count": true,
-    "queryType": "full",
-    "search": "business_title:computer analyst",
-    "searchFields": "business_title",
-    "select": "business_title"
-}
+```json
+"@odata.count": 7,
+"value": [
+    {
+        "@search.score": 2.2723424,
+        "HotelName": "Nova Hotel & Spa",
+        "Description": "1 Mile from the airport.  Free WiFi, Outdoor Pool, Complimentary Airport Shuttle, 6 miles from the beach & 10 miles from downtown."
+    },
+    {
+        "@search.score": 1.5507699,
+        "HotelName": "Old Carrabelle Hotel",
+        "Description": "Spacious rooms, glamorous suites and residences, rooftop pool, walking access to shopping, dining, entertainment and the city center."
+    },
+    {
+        "@search.score": 1.5358944,
+        "HotelName": "Whitefish Lodge & Suites",
+        "Description": "Located on in the heart of the forest. Enjoy Warm Weather, Beach Club Services, Natural Hot Springs, Airport Shuttle."
+    },
+    {
+        "@search.score": 1.3433652,
+        "HotelName": "Ocean Air Motel",
+        "Description": "Oceanfront hotel overlooking the beach features rooms with a private balcony and 2 indoor and outdoor pools. Various shops and art entertainment are on the boardwalk, just steps away."
+    },
 ```
 
-Dans la requête « après », on répète la recherche, cette fois en promouvant les résultats contenant le terme *analyst* par rapport au terme *computer* si les deux mots ensemble n’existent pas. `search=business_title:computer analyst^2` est une version lisible de la requête. Pour une requête utilisable dans Postman, `^2` est encodé sous la forme `%5E2`.
+Dans la requête « après », on répète la recherche, cette fois en promouvant les résultats contenant le terme « accès » par rapport au terme « accès ». `search=Description:beach^2 access` est une version lisible de la requête. Selon votre client, vous devrez peut-être exprimer `^2` comme suit `%5E2`.
 
-```http
-POST /indexes/nycjobs/docs?api-version=2020-06-30
-{
-    "count": true,
-    "queryType": "full",
-    "search": "business_title:computer analyst%5e2",
-    "searchFields": "business_title",
-    "select": "business_title"
-}
-```
+Suite à la promotion du terme « plage », la correspondance avec le Old Carrabelle Hotel passe en sixième position.
 
-La réponse pour cette requête doit ressembler à la capture d’écran suivante.
+<!-- Consider a scoring profile that boosts matches in a certain field, such as "genre" in a music app. Term boosting could be used to further boost certain search terms higher than others. For example, "rock^2 electronic" will boost documents that contain the search terms in the "genre" field higher than other searchable fields in the index. Furthermore, documents that contain the search term "rock" will be ranked higher than the other search term "electronic" as a result of the term boost value (2). -->
 
-  :::image type="content" source="media/search-query-lucene-examples/termboostingafter.png" alt-text="Promotion de termes après" border="false":::
-
-Il ne faut pas confondre la promotion de termes avec les profils de score, qui promeuvent certains champs plutôt que des termes spécifiques. L’exemple suivant permet d’illustrer les différences entre les deux.
-
-Prenez un profil de score qui promeut les correspondances figurant dans un certain champ, par exemple **genre** dans l’exemple musicstoreindex. En utilisant la promotion de termes, vous pouvez promouvoir encore plus certains termes de recherche. Par exemple, "rock^2 electronic" promeut les documents qui contiennent les termes de recherche dans le champ **genre** , par rapport aux autres champs de recherche de l’index. Par ailleurs, les documents qui contiennent le terme de recherche « rock » bénéficient d’un classement plus élevé que ceux qui contiennent le terme de recherche « electronic » en raison de la valeur de promotion du terme (2).
-
-Lors de la définition du niveau de facteur, plus le facteur de promotion est élevé, plus le terme est pertinent par rapport aux autres termes de recherche. Par défaut, le facteur de promotion est égal à 1. Ce facteur doit être positif, mais il peut être inférieur à 1 (par exemple 0,2).
-
-## <a name="example-6-regex"></a>Exemple 6 : Expression régulière
+## <a name="example-5-regex"></a>Exemple 5 : Regex
 
 Une recherche d’expression régulière trouve une correspondance en fonction du contenu placé entre des barres obliques « / », comme le décrit la [classe RegExp](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/util/automaton/RegExp.html).
 
 ```http
-POST /indexes/nycjobs/docs?api-version=2020-06-30
+POST /indexes/hotel-samples-index/docs/search?api-version=2020-06-30
 {
-    "count": true,
+    "search": "HotelName:/(Mo|Ho)tel/",
     "queryType": "full",
-    "search": "business_title:/(Sen|Jun)ior/",
-    "searchFields": "business_title",
-    "select": "business_title"
+    "select": "HotelName",
+    "count": true
 }
 ```
 
-La réponse pour cette requête doit ressembler à la capture d’écran suivante.
+La réponse à cette requête doit ressembler à l’exemple suivant :
 
-  :::image type="content" source="media/search-query-lucene-examples/regex.png" alt-text="Requête par expression régulière" border="false":::
+```json
+    "@odata.count": 22,
+    "value": [
+        {
+            "@search.score": 1.0,
+            "HotelName": "Days Hotel"
+        },
+        {
+            "@search.score": 1.0,
+            "HotelName": "Triple Landscape Hotel"
+        },
+        {
+            "@search.score": 1.0,
+            "HotelName": "Smile Hotel"
+        },
+        {
+            "@search.score": 1.0,
+            "HotelName": "Pelham Hotel"
+        },
+        {
+            "@search.score": 1.0,
+            "HotelName": "Sublime Cliff Hotel"
+        },
+        {
+            "@search.score": 1.0,
+            "HotelName": "Twin Dome Motel"
+        },
+        {
+            "@search.score": 1.0,
+            "HotelName": "Nova Hotel & Spa"
+        },
+        {
+            "@search.score": 1.0,
+            "HotelName": "Scarlet Harbor Hotel"
+        },
+```
 
 > [!Note]
 > Les requêtes Regex ne sont pas [analysées](./search-lucene-query-architecture.md#stage-2-lexical-analysis). La seule transformation effectuée sur les termes de requête partiels est l’utilisation de minuscules.
 >
 
-## <a name="example-7-wildcard-search"></a>Exemple 7 : Recherche par caractères génériques
+## <a name="example-6-wildcard-search"></a>Exemple 6 : Recherche par caractères génériques
 
-Vous pouvez utiliser la syntaxe généralement reconnue pour effectuer des recherches avec plusieurs caractères génériques (\*) ou un caractère générique unique (?). Notez que l’Analyseur de requêtes Lucene prend en charge l’utilisation de ces symboles avec un terme unique, et non une expression.
+Vous pouvez utiliser la syntaxe généralement reconnue pour effectuer des recherches avec plusieurs caractères génériques (`*`) ou un caractère générique unique (`?`). Notez que l’Analyseur de requêtes Lucene prend en charge l’utilisation de ces symboles avec un terme unique, et non une expression.
 
-Dans cette requête, on recherche les postes à pourvoir qui contiennent le préfixe « prog », par exemple ceux contenant les termes « programmation » et « programmeur ». Vous ne pouvez pas utiliser un symbole `*` ou `?` comme premier caractère d’une recherche.
+Dans cette requête, recherchez les noms d’hôtels qui contiennent le préfixe « sc ». Vous ne pouvez pas utiliser un symbole `*` ou `?` comme premier caractère d’une recherche.
 
 ```http
-POST /indexes/nycjobs/docs?api-version=2020-06-30
+POST /indexes/hotel-samples-index/docs/search?api-version=2020-06-30
 {
-    "count": true,
+    "search": "HotelName:sc*",
     "queryType": "full",
-    "search": "business_title:prog*",
-    "searchFields": "business_title",
-    "select": "business_title"
+    "select": "HotelName",
+    "count": true
 }
 ```
 
-La réponse pour cette requête doit ressembler à la capture d’écran suivante.
+La réponse à cette requête doit ressembler à l’exemple suivant :
 
-  :::image type="content" source="media/search-query-lucene-examples/wildcard.png" alt-text="Requête par caractère générique" border="false":::
+```json
+    "@odata.count": 2,
+    "value": [
+        {
+            "@search.score": 1.0,
+            "HotelName": "Scarlet Harbor Hotel"
+        },
+        {
+            "@search.score": 1.0,
+            "HotelName": "Scottish Inn"
+        }
+    ]
+```
 
 > [!Note]
 > Les requêtes par caractères génériques ne sont pas [analysées](./search-lucene-query-architecture.md#stage-2-lexical-analysis). La seule transformation effectuée sur les termes de requête partiels est l’utilisation de minuscules.

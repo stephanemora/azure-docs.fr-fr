@@ -7,13 +7,13 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: terrylan
 manager: rkarlin
-ms.date: 09/15/2020
-ms.openlocfilehash: 01232aa101e2964354acfbeb6cea341a0da33ca6
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 02/19/2021
+ms.openlocfilehash: 04fc020b2b08d4d3dc68b62c417eb8e2d2e85b97
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96489886"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720611"
 ---
 # <a name="customer-lockbox-for-microsoft-azure"></a>Customer Lockbox pour Microsoft Azure
 
@@ -22,18 +22,16 @@ ms.locfileid: "96489886"
 
 Customer Lockbox pour Microsoft Azure fournit une interface dans laquelle les clients peuvent vérifier et approuver/refuser les demandes d’accès aux données client. Il est utilisé lorsqu’un ingénieur Microsoft doit accéder aux données client dans le cadre d’une demande de support.
 
-Cet article décrit comment les demandes Customer Lockbox sont initiées, suivies et stockées en vue d’audits et de révisions ultérieures.
+Cet article décrit comment activer Customer Lockbox et comment les demandes de Lockbox sont initiées, suivies et stockées en vue d’audits et de révisions ultérieurs.
 
-Customer Lockbox est désormais disponible au plus grand nombre et actuellement activé pour l’accès Bureau à distance sur les machines virtuelles.
+<a id='supported-services-and-scenarios-in-preview'>## Services et scénarios pris en charge (disponibilité générale)
 
-## <a name="supported-services-and-scenarios-in-preview"></a>Services et scénarios pris en charge en préversion
+Les services suivants sont désormais généralement disponibles pour Customer Lockbox :
 
-Les services suivants sont désormais en version préliminaire pour Customer Lockbox :
-
-- Gestion des API
+- Gestion des API Azure
 - Azure App Service
-- Cognitive Services
-- Container Registry
+- Azure Cognitive Services
+- Azure Container Registry
 - Azure Database pour MySQL
 - Azure Databricks
 - Azure Data Box
@@ -41,34 +39,21 @@ Les services suivants sont désormais en version préliminaire pour Customer Loc
 - Azure Data Factory
 - Azure Database pour PostgreSQL
 - Azure Functions
-- HDInsight
+- Azure HDInsight
 - Azure Kubernetes Service
 - Azure Monitor
 - Stockage Azure
-- Azure SQL DB
+- Azure SQL Database
 - Transfert d'abonnement Azure
 - Azure Synapse Analytics
-- Machines virtuelles (qui couvrent désormais également l’accès aux images mémoire et aux disques managés)
+- Machines virtuelles dans Azure (couvrant l’accès au Bureau à distance, l’accès aux images mémoire et les disques managés)
 
-Pour activer Customer Lockbox pour ces offres de préversion pour votre organisation, inscrivez-vous à [Customer Lockbox pour la préversion publique d’Azure](https://aka.ms/customerlockbox/insiderprogram).
+## <a name="enable-customer-lockbox"></a>Activer Customer Lockbox
 
-## <a name="supported-services-and-scenarios-in-general-availability"></a>Services et scénarios pris en charge dans la disponibilité générale
-
-Les services et les scénarios suivants sont actuellement disponibles globalement pour Customer Lockbox.
-
-### <a name="remote-desktop-access-to-virtual-machines"></a>Accès Bureau à distance aux machines virtuelles
-
-Customer Lockbox est actuellement activé pour les demandes d’accès Bureau à distance sur les machines virtuelles. Les charges de travail suivantes sont prises en charge :
-- Platform as a service (PaaS) - Azure Cloud Services (rôle web et rôle de travail)
-- Infrastructure as a Service (IaaS) - Windows et Linux (Azure Resource Manager uniquement)
-- Groupe de machines virtuelles identiques - Windows et Linux
+Vous pouvez désormais activer Customer Lockbox à partir du [module d’administration](https://aka.ms/customerlockbox/administration) dans le panneau Customer Lockbox.  
 
 > [!NOTE]
-> Les instances IaaS Classic ne sont pas prises en charge par Customer Lockbox. Si vous avez des charges de travail exécutées sur des instances IaaS Classic, nous vous recommandons de les migrer vers des modèles de déploiement Resource Manager. Pour obtenir des instructions, voir [Migration prise en charge par la plateforme de ressources IaaS Classic vers Azure Resource Manager](../../virtual-machines/migration-classic-resource-manager-overview.md)
-
-#### <a name="detailed-audit-logs"></a>Journaux d’audit détaillés
-
-Pour les scénarios qui impliquent l’accès Bureau à distance, vous pouvez utiliser les journaux des événements Windows pour passer en revue les actions effectuées par l’ingénieur Microsoft. Envisagez d’utiliser Azure Security Center pour collecter vos journaux des événements et de copier les données dans votre espace de travail à des fins d’analyse. Pour plus d’informations, voir [Collecte de données dans Azure Security Center](../../security-center/security-center-enable-data-collection.md).
+> Pour activer Customer Lockbox, le [rôle d’administrateur général](../../active-directory/roles/manage-roles-portal.md) doit être attribué au compte d’utilisateur.
 
 ## <a name="workflow"></a>Workflow
 
@@ -80,7 +65,7 @@ Les étapes suivantes décrivent un workflow classique pour une demande Customer
 
 3. Un ingénieur du support Azure examine la demande de service et détermine les étapes suivantes pour résoudre le problème.
 
-4. Si l’ingénieur du support ne parvient pas à résoudre le problème à l’aide des données de télémétrie et des outils standard, l’étape suivante consiste à demander des autorisations élevées à l’aide d’un service d’accès juste à temps (JAT). Cette demande peut émaner de l’ingénieur du support d’origine ou d’un autre ingénieur quand le problème est remonté à l’équipe Azure DevOps.
+4. Si l’ingénieur du support ne parvient pas à résoudre le problème à l’aide des données de télémétrie et des outils standard, l’étape suivante consiste à demander des autorisations élevées à l’aide d’un service d’accès juste à temps (JAT). Cette demande peut provenir de l’ingénieur du support technique d’origine ou d’un autre ingénieur, car le problème est réaffecté à l’équipe Azure DevOps.
 
 5. Une fois la demande d’accès soumise par l’ingénieur Azure, le service juste-à-temps évalue la demande en tenant compte des facteurs suivants :
     - Étendue de la ressource
@@ -99,7 +84,7 @@ Les étapes suivantes décrivent un workflow classique pour une demande Customer
 
     ![Azure Customer Lockbox - Notification par courrier électronique](./media/customer-lockbox-overview/customer-lockbox-email-notification.png)
 
-8. La notification par courrier électronique contient un lien vers le panneau **Customer Lockbox** dans le portail Azure. Via ce lien, l’approbateur désigné se connecte au portail Azure pour afficher des demandes en attente de l’organisation pour Customer Lockbox :
+8. La notification par e-mail contient un lien vers le panneau **Customer Lockbox** dans le module Administration. Via ce lien, l’approbateur désigné se connecte au portail Azure pour afficher des demandes en attente de l’organisation pour Customer Lockbox :
 
     ![Azure Customer Lockbox - Page d’accueil](./media/customer-lockbox-overview/customer-lockbox-landing-page.png)
 
@@ -137,18 +122,17 @@ Par exemple :
 
 ## <a name="customer-lockbox-integration-with-azure-security-benchmark"></a>Intégration de Customer Lockbox au benchmark de sécurité Azure
 
-Nous avons introduit un nouveau contrôle de base de référence ([3.13](../benchmarks/security-control-identity-access-control.md#313-provide-microsoft-with-access-to-relevant-customer-data-during-support-scenarios)) dans le benchmark de sécurité Azure qui couvre la mise en application de Customer Lockbox. Les clients peuvent désormais tirer parti du benchmark afin de passer en revue la mise en application de Customer Lockbox pour un service.
+Nous avons introduit un nouveau contrôle de base de référence ([3.13](../benchmarks/security-control-identity-access-control.md#313-provide-microsoft-with-access-to-relevant-customer-data-during-support-scenarios)) dans le benchmark de sécurité Azure qui couvre la mise en application de Customer Lockbox. Les clients peuvent désormais tirer parti du point de référence afin de réviser les conditions d’application de Customer Lockbox pour un service.
 
 ## <a name="exclusions"></a>Exclusions
 
-Les demandes Customer Lockbox ne sont pas déclenchées dans les scénarios de support d’ingénierie suivants :
+Les demandes de Customer Lockbox ne sont pas déclenchées dans les scénarios de support d’ingénierie suivants :
 
 - Un ingénieur Microsoft doit réaliser une activité qui ne fait pas partie des procédures de fonctionnement standard. Par exemple, pour récupérer ou restaurer des services dans des scénarios inattendus ou imprévisibles.
-
-- Un ingénieur Microsoft accède à la plateforme Azure dans le cadre de la résolution des problèmes et accède par inadvertance aux données client. Par exemple, lors de la résolution des problèmes, l’équipe de réseau Azure capture des paquets sur un périphérique réseau. Toutefois, si le client a chiffré les données en transit, l’ingénieur ne peut pas lire les données.
+- Un ingénieur Microsoft accède à la plateforme Azure dans le cadre de la résolution des problèmes et accède par inadvertance aux données client. Par exemple, lors de la résolution des problèmes, l’équipe de réseau Azure capture des paquets sur un périphérique réseau. Dans ce scénario, si le client chiffre les données en transit, l’ingénieur ne peut pas les lire.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Customer Lockbox est automatiquement disponible pour tous les clients qui ont un [plan de support Azure](https://azure.microsoft.com/support/plans/) avec un niveau minimal de **développeur**.
+Customer Lockbox est disponible pour tous les clients qui disposent d’un [plan de support Azure](https://azure.microsoft.com/support/plans/) avec un niveau minimal de **Développeur**. Vous pouvez activer Customer Lockbox à partir du [module Administration](https://aka.ms/customerlockbox/administration) dans le panneau Customer Lockbox.
 
-Lorsque vous disposez d’un plan de support éligible, vous n’avez rien à faire pour activer Customer Lockbox. Les demandes Customer Lockbox sont initiées par un ingénieur Microsoft si cette action est nécessaire pour l’avancement d’un ticket de support créé par une personne de votre organisation.
+Des demandes de Customer Lockbox sont initiées par un ingénieur Microsoft si cette action est nécessaire pour faire progresser un cas de support.

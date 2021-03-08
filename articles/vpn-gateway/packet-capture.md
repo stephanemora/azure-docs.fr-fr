@@ -2,17 +2,17 @@
 title: 'Passerelle VPN Azure : Configurer la capture de paquets'
 description: Découvrez la fonctionnalité de capture de paquets que vous pouvez utiliser sur les passerelles VPN pour cerner plus précisément la cause d’un problème.
 services: vpn-gateway
-author: radwiv
+author: anzaman
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 12/2/2020
-ms.author: radwiv
-ms.openlocfilehash: caa9a0869d7d4bca58b91a0c682177e1408f8300
-ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
+ms.date: 02/22/2021
+ms.author: alzam
+ms.openlocfilehash: 0983139d1c9af235eba4c9f99da7bc9dea3f231b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97733804"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726612"
 ---
 # <a name="configure-packet-capture-for-vpn-gateways"></a>Configurer la capture de paquets pour les passerelles VPN
 
@@ -27,6 +27,7 @@ Vous pouvez effectuer une capture de paquets VPN Gateway sur la passerelle ou su
 Utiliser un filtre à cinq tuples (sous-réseau source, sous-réseau de destination, port source, port de destination, protocole) et des indicateurs TCP (SYN, ACK, FIN, URG, PSH, RST) est pratique pour isoler les problèmes dans un trafic à volume élevé.
 
 Les exemples suivants de code JSON et d’un schéma JSON permettent d’expliquer chaque propriété. Voici quelques limitations à prendre en compte quand vous effectuez des captures de paquets :
+
 - Dans le schéma présenté ici, le filtre est un tableau, mais un seul filtre peut être utilisé à la fois actuellement.
 - Vous ne pouvez pas effectuer plusieurs captures de paquets à l’échelle de la passerelle en même temps.
 - Vous ne pouvez pas non plus effectuer plusieurs captures de paquets simultanément sur la même connexion. En revanche, vous pouvez effectuer plusieurs captures de paquets à la fois sur des connexions différentes.
@@ -317,7 +318,13 @@ Les exemples suivants de code JSON et d’un schéma JSON permettent d’expliqu
 }
 ```
 
-## <a name="set-up-packet-capture-by-using-powershell"></a>Configurer la capture de paquets avec PowerShell
+## <a name="packet-capture---portal"></a>Capture de paquets - portail
+
+Vous pouvez configurer la capture de paquets dans le portail Azure.
+
+:::image type="content" source="./media/packet-capture/portal.jpg" alt-text="Capture d’écran de la capture de paquets dans le portail." lightbox="./media/packet-capture/portal.jpg":::
+
+## <a name="packet-capture---powershell"></a>Capture de paquets - PowerShell
 
 Les exemples ci-dessous montrent des commandes PowerShell qui démarrent et arrêtent les captures de paquets. Pour plus d’informations sur les options de paramètre, consultez [Start-AzVirtualnetworkGatewayPacketCapture](/powershell/module/az.network/start-azvirtualnetworkgatewaypacketcapture).
 

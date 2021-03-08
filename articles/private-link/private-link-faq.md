@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 10/05/2019
 ms.author: allensu
-ms.openlocfilehash: b56c57a0b803a41c095f6f25f69a18a815d182f1
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 4e81d8f88a7c01b6d302bcdaa88559159bed04ea
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99582007"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709405"
 ---
 # <a name="azure-private-link-frequently-asked-questions-faq"></a>Questions fréquentes (FAQ) sur Azure Private Link
 
@@ -65,6 +65,12 @@ Vous pouvez mettre à l’échelle votre service Private Link de différentes ma
 - Ajoutez des machines virtuelles back-end au pool derrière votre équilibreur de charge Standard. 
 - Ajoutez une adresse IP au service Private Link. Vous pouvez utiliser jusqu’à 8 adresses IP par service Private Link.  
 - Ajoutez un nouveau service Private Link à Standard Load Balancer. Vous pouvez utiliser jusqu’à 8 services Private Link par équilibreur de charge.   
+
+### <a name="what-is-natnetwork-address-translation-ip-configuration-used-in-private-link-service-how-can-i-scale-in-terms-of-available-ports-and-connections"></a>Que représente la configuration IP NAT (Network Address Translation) IP utilisée dans le service Private Link ? Comment effectuer un scale-in en termes de ports et de connexions disponibles ? 
+
+La configuration IP NAT s’assure qu’il n’y a aucun conflit IP entre l’espace d’adressage source (côté client) et de destination (fournisseur de services) en fournissant la traduction d’adresses réseau (NAT) source sur le trafic Private Link côté destination (côté fournisseur de services). L’adresse IP NAT s’affichera en tant qu’adresse IP source pour tous les paquets reçus par votre service, et en tant qu’adresse IP de destination pour tous les paquets envoyés par votre service.  L’adresse IP NAT peut être choisie à partir de n’importe quel sous-réseau du réseau virtuel d’un fournisseur de services. 
+
+Chaque adresse IP NAT fournit 64 000 connexions TCP (64 000 ports) par machine virtuelle derrière l’équilibreur de charge standard. Pour mettre à l’échelle et ajouter d’autres connexions, vous pouvez ajouter de nouvelles adresses IP NAT, ou ajouter d’autres machines virtuelles derrière l’équilibreur de charge standard. Cela permet de mettre à l’échelle la disponibilité du port et d’autoriser plus de connexions. Les connexions seront réparties entre les adresses IP NAT et les machines virtuelles situées derrière l’équilibreur de charge standard.
 
 ### <a name="can-i-connect-my-service-to-multiple-private-endpoints"></a>Est-il possible de connecter son service à plusieurs points de terminaison privés ?
 Oui. Un service Private Link peut recevoir des connexions provenant de plusieurs points de terminaison privés. En revanche, un point de terminaison privé ne peut se connecter qu’à un seul service Private Link.  
