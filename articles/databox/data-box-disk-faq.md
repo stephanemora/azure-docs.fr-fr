@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: conceptual
-ms.date: 02/17/2021
+ms.date: 03/02/2021
 ms.author: alkohli
 ms.custom: references_regions
-ms.openlocfilehash: 7212fc4113c1de0a7aee4c6c02e8fa65f9828680
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 88aedb7daa375ae6b4a9107dceed1d25ed72ed92
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101724827"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102039102"
 ---
 # <a name="azure-data-box-disk-frequently-asked-questions"></a>Azure Data Box Disk : Forum Aux Questions (FAQ)
 
@@ -55,7 +55,7 @@ R. Pour cinq disques de 8 To chacun (7 To de capacité utile), la capacité ut
 R.  Pour voir où les disques Data Box Disk sont actuellement disponibles, accédez à [Disponibilité dans la région](data-box-disk-overview.md#region-availability).  
 
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box-disks"></a>Q. Dans quelles régions puis-je stocker des données avec des disques Data Box ?
-R. La solution Data Box Disk est prise en charge dans toutes les régions des États-Unis, du Canada, de l’Australie, de l’Europe Ouest, de l’Europe Nord, de la Corée et du Japon. Seules les régions du cloud public Azure sont prises en charge. Azure Government et les autres clouds souverains ne sont pas pris en charge.
+R. Data Box Disk est pris en charge dans toutes les régions des pays suivants : États-Unis, Canada, Union européenne, Royaume-Uni, Australie, Singapour, Inde, Chine, Hong Kong, Japon, Corée et Afrique du Sud. Seules les régions du cloud public Azure sont prises en charge. Azure Government et les autres clouds souverains ne sont pas pris en charge.
 
 ### <a name="q-how-can-i-import-source-data-present-at-my-location-in-one-countryregion-to-an-azure-region-in-a-different-country"></a>Q. Comment importer des données sources présentes sur le site où je me trouve dans un pays/une région vers une région Azure située dans un autre pays ?
 R. Data Box Disk prend en charge l'ingestion de données, mais uniquement dans le même pays/la même région que leur destination. Aucune frontière internationale ne peut être franchie. La seule exception concerne les commandes au sein de l'Union européenne (UE), où les disques Data Box Disk peuvent être expédiés depuis et vers n'importe quel pays/région de l'UE.
@@ -76,7 +76,7 @@ Expédiez un [disque pris en charge](../import-export/storage-import-export-requ
 
 #### <a name="q-does-data-box-disk-store-any-customer-data-outside-of-the-service-region"></a>Q. Data Box Disk stocke-t-il des données client en dehors de la région de service ?
 
-R. Non. Data Box Disk ne stocke pas de données client en dehors de la région de service. Le client a l’entière propriété de ses données et peut enregistrer les données à un emplacement spécifié en fonction du compte de stockage sélectionné lors de la création de la commande.  
+R. Non. Data Box Disk ne stocke pas de données client en dehors de la région de service. Le client a l’entière propriété de ses données et peut les enregistrer les données à un emplacement spécifié en fonction du compte de stockage sélectionné lors de la création de la commande.  
 
 En plus des données client, des données Data Box Disk incluent des métadonnées et des journaux d’analyse. Dans toutes les régions (à l’exception des régions Brésil Sud et Asie Sud-Est), les données Data Box Disk sont stockées et répliquées dans une [région jumelée](../best-practices-availability-paired-regions.md) via un compte de stockage géoredondant pour se protéger contre la perte de données.  
 
@@ -142,7 +142,7 @@ R. Oui. Vous pouvez connecter plusieurs disques Data Box au même ordinateur hô
 ## <a name="track-status"></a>Suivi de l'état
 
 ### <a name="q-how-do-i-track-the-disks-from-when-i-placed-the-order-to-shipping-the-disks-back"></a>Q. Comment faire pour suivre les disques depuis leur commande à leur renvoi ? 
-R.  Vous pouvez suivre l’état de la commande de disques Data Box dans le portail Azure. Lorsque vous créez la commande, vous êtes également invité à fournir une adresse e-mail pour recevoir des notifications. Si vous fourni une adresse e-mail, vous serez averti par e-mail de toutes les modifications d’état de la commande. Plus d’informations sur la manière de [configurer les notifications par e-mail](data-box-portal-ui-admin.md#edit-notification-details).
+R.  Vous pouvez suivre l’état de la commande de disques Data Box dans le portail Azure. Lorsque vous créez la commande, vous êtes également invité à fournir une adresse e-mail pour recevoir des notifications. Si vous avez fourni une adresse e-mail, vous serez averti par e-mail de toutes les modifications d’état de la commande. Plus d’informations sur la manière de [configurer les notifications par e-mail](data-box-portal-ui-admin.md#edit-notification-details).
 
 ### <a name="q-how-do-i-return-the-disks"></a>Q. Comment faire pour renvoyer les disques ? 
 R.  Microsoft inclut une étiquette d’expédition dans le colis contenant les disques Data Box. Collez l’étiquette sur la boîte d’envoi et déposez le paquet scellé chez votre livreur. Si vous avez endommagé ou perdu l’étiquette, vous pouvez accéder à **Vue d’ensemble > Télécharger une étiquette d'expédition** et télécharger une nouvelle étiquette d’expédition.
@@ -199,7 +199,7 @@ R.  Pour accélérer le processus de copie :
 - Copiez les fichiers sur le disque de la machine virtuelle.
 
 ### <a name="q-can-i-use-multiple-storage-accounts-with-data-box-disks"></a>Q. Puis-je utiliser plusieurs comptes de stockage avec les disques Data Box ?
-R.  Non. Pour l’instant, seul un compte de stockage, général ou classique, est pris en charge par les disques Data Box. Les objets blob chauds et froids sont pris en charge. Seuls les comptes de stockage aux États-Unis, en Europe Ouest et en Europe Nord dans le cloud public Azure sont actuellement pris en charge.
+R.  Non. Pour l’instant, seul un compte de stockage, général ou classique, est pris en charge par les disques Data Box. Les objets blob chauds et froids sont pris en charge.
 
 ### <a name="q-what-is-the-toolset-available-for-my-data-with-data-box-disks"></a>Q. Quel est l’ensemble d’outils disponible pour mes données avec des disques Data Box Disk ?
 R. L’ensemble d’outils Data Box Disk contient trois outils :

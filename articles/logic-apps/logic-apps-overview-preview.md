@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 02/01/2021
-ms.openlocfilehash: 5db0214e9b985df5c5aedb1dbe9878e484af2a55
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.date: 03/02/2021
+ms.openlocfilehash: 9d8d3cb4bf68f7da2bddabd21272d1011ce92f66
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99430795"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101715205"
 ---
 # <a name="overview-azure-logic-apps-preview"></a>Présentation : Préversion Azure Logic Apps
 
@@ -38,7 +38,7 @@ Cette présentation couvre les sujets suivants :
 
 * [Limites dans Azure Logic Apps (préversion)](#limits).
 
-Pour plus d’informations, consultez les autres articles suivants :
+Pour plus d’informations, consultez ces autres rubriques :
 
 * [Azure Logic Apps s’exécutant partout – Présentation approfondie du runtime](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-runtime-deep-dive/ba-p/1835564)
 
@@ -50,7 +50,7 @@ Pour plus d’informations, consultez les autres articles suivants :
 
 Le runtime d’Azure Logic Apps (préversion) utilise l’extensibilité d’[Azure Functions](../azure-functions/functions-overview.md) et est hébergé en tant qu’extension sur le runtime d’Azure Functions. Cette architecture signifie que vous pouvez exécuter le nouveau type d’application logique partout où Azure Functions s’exécute. Vous pouvez héberger le runtime d’Azure Logic Apps (préversion) sur pratiquement toutes les topologies de réseau possibles et choisir n’importe quelle taille de calcul disponible pour gérer la charge de travail dont votre workflow a besoin. Pour plus d’informations sur l’extensibilité d’Azure Functions, consultez [Kit de développement logiciel (SDK) WebJobs : Création de liaisons d’entrée et de sortie personnalisées](https://github.com/Azure/azure-webjobs-sdk/wiki/Creating-custom-input-and-output-bindings).
 
-Avec cette nouvelle approche, le runtime d’Azure Logic Apps (préversion) et vos workflows font tous deux partie de votre application que vous pouvez empaqueter ensemble. Cette capacité vous permet de déployer et d’exécuter vos workflows en copiant simplement les artefacts dans l’environnement d’hébergement et en démarrant votre application. Cette approche offre également une expérience plus standardisée pour la création de pipelines DevOps autour des projets de workflow pour l’exécution des tests et validations requis avant le déploiement des modifications dans les environnements de production. Pour plus d’informations, consultez [Azure Logic Apps s’exécutant partout – Présentation approfondie du runtime](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-runtime-deep-dive/ba-p/1835564).
+Avec cette nouvelle approche, le runtime d’Azure Logic Apps (préversion) et vos workflows font tous deux partie de votre application que vous pouvez empaqueter ensemble. Cette capacité vous permet de déployer et d’exécuter vos workflows en copiant simplement les artefacts dans l’environnement d’hébergement et en démarrant votre application. Cette approche offre également une expérience plus standardisée pour la création de pipelines de déploiement autour des projets de workflow pour l’exécution des tests et validations requis avant le déploiement des modifications dans les environnements de production. Pour plus d’informations, consultez [Azure Logic Apps s’exécutant partout – Présentation approfondie du runtime](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-runtime-deep-dive/ba-p/1835564).
 
 Le tableau suivant résume les différences dans la manière dont les workflows partagent les ressources en fonction de l’environnement dans lequel ils s’exécutent. Pour connaître les différences de limites, consultez [Limites dans Azure Logic Apps (préversion)](#limits).
 
@@ -139,10 +139,17 @@ Azure Logic Apps (préversion) comprend de nombreuses capacités actuelles et su
 
 * Activez les capacités de journalisation et de suivi des diagnostics pour votre application logique en utilisant [Application Insights](../azure-monitor/app/app-insights-overview.md) lorsque la fonctionnalité est prise en charge par votre abonnement Azure et les paramètres de l’application logique.
 
+* Accédez à des fonctionnalités réseau, comme la connexion et l’intégration privées aux réseaux virtuels Azure, de la même façon qu’Azure Functions quand vous créez et déployez vos applications logiques, en utilisant le [plan Azure Functions Premium](../azure-functions/functions-premium-plan.md). Pour plus d’informations, consultez les rubriques suivantes :
+
+  * [Options de mise en réseau d’Azure Functions](../azure-functions/functions-networking-options.md)
+
+  * [Azure Logic Apps s’exécutant partout – Capacités réseau avec Azure Logic Apps (préversion)](https://techcommunity.microsoft.com/t5/integrations-on-azure/logic-apps-anywhere-networking-possibilities-with-logic-app/ba-p/2105047)
+
 * Régénérez les clés d’accès pour les connexions gérées utilisées par les workflows individuels dans une ressource **Application logique (préversion)** . Pour cette tâche, [suivez les mêmes étapes que pour la ressource **Logic Apps**, mais au niveau du workflow individuel](logic-apps-securing-a-logic-app.md#regenerate-access-keys), et non au niveau de la ressource de l’application logique.
 
-> [!NOTE]
-> Pour plus d’informations sur les problèmes connus actuels, consultez la [page relative aux problèmes connus de la préversion publique de Logic Apps dans GitHub](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md).
+* Ajoutez des branches parallèles dans le nouveau concepteur en suivant les mêmes étapes que le concepteur hors préversion.
+ 
+Pour plus d’informations, consultez [Fonctionnalités modifiées, limitées, indisponibles et non prises en charge](#limited-unavailable-unsupported), ainsi que la [page sur les problèmes connus de la préversion publique de Logic Apps dans GitHub](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md).
 
 <a name="pricing-model"></a>
 
@@ -171,7 +178,9 @@ Dans Azure Logic Apps (préversion), ces capacités ont changé, ou elles sont a
 
 * **Prise en charge du système d’exploitation** : actuellement, le concepteur de Visual Studio Code ne fonctionne pas sur le système d’exploitation Linux. Toutefois, vous pouvez déployer des applications logiques qui utilisent le runtime Logic Apps Preview sur des machines virtuelles basées sur Linux. Pour le moment, vous pouvez créer vos applications logiques dans Visual Studio Code sur Windows ou macOS, puis les déployer sur une machine virtuelle Linux.
 
-* **Déclencheurs et actions** : Certains déclencheurs intégrés ne sont pas disponibles, tels que Fenêtre glissante et Traitement par lots. Pour démarrer votre workflow, utilisez le [déclencheur intégré Périodicité, Requête, HTTP, Webhook HTTP, Event Hubs ou Service Bus](../connectors/apis-list.md). Les déclencheurs et actions intégrés s’exécutent en mode natif dans le runtime d’Azure Logic Apps (préversion), tandis que les connecteurs gérés sont déployés dans Azure. Dans le concepteur, les déclencheurs et les actions intégrés s’affichent sous l’onglet **Intégré**, tandis que les déclencheurs et les actions des connecteurs gérés s’affichent sous l’onglet **Azure**.
+* **Déclencheurs et actions** :Les déclencheurs et actions intégrés s’exécutent en mode natif dans le runtime d’Azure Logic Apps (préversion), tandis que les connecteurs gérés sont déployés sur Azure. Certains déclencheurs intégrés ne sont pas disponibles, tels que Fenêtre glissante et Traitement par lots.
+
+  Pour démarrer votre workflow, utilisez le [déclencheur intégré Périodicité, Requête, HTTP, Webhook HTTP, Event Hubs ou Service Bus](../connectors/apis-list.md). Dans le concepteur, les déclencheurs et les actions intégrés s’affichent sous l’onglet **Intégré**, tandis que les déclencheurs et les actions des connecteurs gérés s’affichent sous l’onglet **Azure**.
 
   > [!NOTE]
   > Pour s’exécuter localement dans Visual Studio Code, les déclencheurs et les actions basés sur un webhook nécessitent une configuration supplémentaire. Pour plus d’informations, consultez [Créer des workflows avec état et sans état dans Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md#webhook-setup).
@@ -199,11 +208,11 @@ Dans Azure Logic Apps (préversion), ces capacités ont changé, ou elles sont a
 
       * Les actions Opérations de code inlined n’ont plus besoin d’un compte d’intégration.
 
-      * Si vous utilisez macOS ou Linux, l’option **Opérations de code inlined** est actuellement indisponible lorsque vous utilisez l’extension Azure Logic Apps (préversion) dans Visual Studio Code.
+      * Pour macOS et Linux, l’option **Opérations de code inlined** est maintenant prise en charge quand vous utilisez l’extension Azure Logic Apps (préversion) dans Visual Studio Code.
 
-      * Si vous apportez des modifications à une action Opérations de code inlined, vous devez redémarrer votre application logique.
+      * Vous n’avez plus besoin de redémarrer votre application logique si vous apportez des modifications à une action **Opérations de code inlined**.
 
-      * Les actions Opérations de code inlined ont des [limites mises à jour](logic-apps-overview-preview.md#inline-code-limits).
+      * Les actions **Opérations de code inlined** ont des [limites mises à jour](logic-apps-overview-preview.md#inline-code-limits).
 
     * Certains [déclencheurs et actions B2B intégrés pour les comptes d’intégration](../connectors/apis-list.md#integration-account-connectors) ne sont pas disponibles, par exemple, les actions de codage et de décodage **Fichier plat**.
 
@@ -211,17 +220,15 @@ Dans Azure Logic Apps (préversion), ces capacités ont changé, ou elles sont a
 
 * **Disponibilité du plan d’hébergement** : Si vous créez un nouveau type de ressource **Application logique (préversion)** dans le portail Azure ou que vous le déployez à partir de Visual Studio Code, vous pouvez uniquement utiliser le plan d’hébergement Premium ou App Service dans Azure. Les plans d’hébergement dits de consommation ne sont pas disponibles ni pris en charge pour le déploiement de ce type de ressource. Vous pouvez effectuer le déploiement de Visual Studio Code vers un conteneur Docker, mais pas vers un [environnement de service d’intégration (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
 
-* **Branches parallèles** : Actuellement, vous ne pouvez pas ajouter de branches parallèles à l’aide de la nouvelle expérience de concepteur. Toutefois, vous pouvez toujours ajouter ces branches par le biais de l’expérience de concepteur d’origine et les faire apparaître dans le nouveau concepteur.
-
-  1. En bas du concepteur, désactivez la nouvelle expérience en sélectionnant le contrôle **Nouveau canevas**.
-
-  1. Ajoutez les branches parallèles à votre workflow.
-
-  1. Activez la nouvelle expérience en sélectionnant à nouveau le contrôle **Nouveau canevas**.
+* **Débogage des points d’arrêt dans Visual Studio Code** : Bien que vous puissiez ajouter et utiliser des points d’arrêt à l’intérieur du fichier **workflow.json** pour un workflow, les points d’arrêt sont pris en charge uniquement pour les actions pour le moment, et non pour les déclencheurs. Pour plus d’informations, consultez [Créer des workflows avec état et sans état dans Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md#manage-breakpoints).
 
 * **Contrôle de zoom** : Le contrôle de zoom n’est pas disponible actuellement sur le concepteur.
 
-* **Débogage des points d’arrêt dans Visual Studio Code** : Bien que vous puissiez ajouter et utiliser des points d’arrêt à l’intérieur du fichier **workflow.json** pour un workflow, les points d’arrêt sont pris en charge uniquement pour les actions pour le moment, et non pour les déclencheurs. Pour plus d’informations, consultez [Créer des workflows avec état et sans état dans Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md#manage-breakpoints).
+* **Historique des déclencheurs et historique des exécutions** : Pour le type de ressource **Application logique (préversion)** , l’historique des déclencheurs et l’historique des exécutions s’affichent dans le portail Azure au niveau du workflow, et non au niveau de l’application logique. Pour trouver ces données d’historique, suivez ces étapes :
+
+   * Pour afficher l’historique des exécutions, ouvrez le workflow dans votre application logique. Dans le menu du workflow, sous **Développeur**, sélectionnez **Superviser**.
+
+   * Pour passer en revue l’historique des déclencheurs, ouvrez le workflow dans votre application logique. Dans le menu du workflow, sous **Développeur**, sélectionnez **Historique des déclencheurs**.
 
 <a name="limits"></a>
 
