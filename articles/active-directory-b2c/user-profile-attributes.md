@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/02/2021
+ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: dcd0ccdc42a820f1e264b739cb0063516a0cb53e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: db2715f0827203dac505fa4dc15c22bdab953010
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101688550"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102120213"
 ---
 # <a name="user-profile-attributes"></a>Attributs de profil utilisateur
 
@@ -101,9 +101,9 @@ Un compte de client, qui peut être un consommateur, un partenaire ou un citoyen
 - Identité **locale** : Le nom d’utilisateur et le mot de passe sont stockés localement dans l’annuaire Azure AD B2C. Nous faisons souvent référence à ces identités en parlant de « comptes locaux ».
 - Identités **fédérées** : Également appelées comptes *sociaux* ou d’*entreprise*. L’identité de l’utilisateur est managée par un fournisseur d’identité fédéré, comme Facebook, Microsoft, ADFS ou Salesforce.
 
-Un utilisateur disposant d’un compte client peut se connecter avec plusieurs identités. Par exemple, le nom d’utilisateur, l’adresse e-mail, l’ID d’employé, l’ID national, etc. Un même compte peut avoir plusieurs identités, à la fois locales et de réseaux sociaux, avec le même mot de passe.
+Un utilisateur disposant d’un compte client peut se connecter avec plusieurs identités. Par exemple, le nom d’utilisateur, l’adresse e-mail, l’ID d’employé, l’ID national, etc. Un même compte peut avoir plusieurs identités, à la fois locales et de réseaux sociaux, avec le même mot de passe. 
 
-Dans l’API Microsoft Graph, les identités locales et fédérées sont stockées dans l’attribut `identities` de l’utilisateur, qui est de type [objectIdentity][graph-objectIdentity]. La collection `identities` représente un ensemble d’identités utilisées pour se connecter à un compte d’utilisateur. Cette collection permet à l’utilisateur de se connecter au compte d’utilisateur avec une de ses identités associées.
+Dans l’API Microsoft Graph, les identités locales et fédérées sont stockées dans l’attribut `identities` de l’utilisateur, qui est de type [objectIdentity](/graph/api/resources/objectidentity). La collection `identities` représente un ensemble d’identités utilisées pour se connecter à un compte d’utilisateur. Cette collection permet à l’utilisateur de se connecter au compte d’utilisateur avec une de ses identités associées. L’attribut d’identités peut contenir jusqu’à dix objets [objectIdentity](/graph/api/resources/objectidentity) . Chaque objet contient les propriétés suivantes :
 
 | Nom   | Type |Description|
 |:---------------|:--------|:----------|

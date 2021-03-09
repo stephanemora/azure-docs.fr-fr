@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/25/2021
+ms.date: 03/03/2021
 ms.author: b-juche
-ms.openlocfilehash: 756cadd42e8cda557a90c39e2412f5d4f3290835
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6041e863f6c887af35aa070f13e1406462ffc5b3
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101741206"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102041567"
 ---
 # <a name="solution-architectures-using-azure-netapp-files"></a>Architectures de solution avec Azure NetApp Files
 Cet article fournit des références aux meilleures pratiques pouvant vous aider à comprendre les architectures de solution pour l’utilisation d’Azure NetApp Files.  
@@ -95,8 +95,8 @@ Cette section fournit des références pour les Solutions SAP sur Azure.
 * [Azure NetApp Files : déchargement de sauvegardes SAP HANA avec Cloud Sync](https://blog.netapp.com/azure-netapp-files-sap-hana)
 * [Accélérez vos copies système SAP HANA à l’aide d’Azure NetApp Files](https://blog.netapp.com/sap-hana-faster-using-azure-netapp-files/)
 * [Cloud Volumes ONTAP et Azure NetApp Files : migration du système SAP HANA facilitée](https://blog.netapp.com/cloud-volumes-ontap-and-azure-netapp-files-sap-hana-system-migration-made-easy/)
-* [Décisions architecturales pour optimiser les investissements ANF dans l’architecture de Scale-out HANA N+M - Partie 1](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/architectural-decisions-to-maximize-anf-investment-in-hana-n-m/ba-p/2078737)
-* [Décisions architecturales pour optimiser les investissements ANF dans l’architecture de Scale-out HANA N+M - Partie 2](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/architectural-decisions-to-maximize-anf-investment-in-hana-n-m/ba-p/2117130)
+* [Décisions architecturales pour optimiser les investissements ANF dans l’architecture de Scale-out HANA N+M – Partie 1](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/architectural-decisions-to-maximize-anf-investment-in-hana-n-m/ba-p/2078737)
+* [Décisions architecturales pour optimiser les investissements ANF dans l’architecture de Scale-out HANA N+M – Partie 2](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/architectural-decisions-to-maximize-anf-investment-in-hana-n-m/ba-p/2117130)
 
 ## <a name="azure-vmware-solutions"></a>Azure VMware Solution
 
@@ -139,6 +139,7 @@ Cette section fournit des références pour les solutions HPC (Calcul haute perf
 ### <a name="analytics"></a>Analytics
 
 * [Azure NetApp Files : un système de fichiers partagé à utiliser avec la grille SAS sur Microsoft Azure](https://communities.sas.com/t5/Administration-and-Deployment/Azure-NetApp-Files-A-shared-file-system-to-use-with-SAS-Grid-on/m-p/705192)
+* [Azure NetApp Files : un système de fichiers partagé à utiliser avec la grille SAS sur MS Azure – MISE À JOUR RHEL8.3/nconnect](https://communities.sas.com/t5/Administration-and-Deployment/Azure-NetApp-Files-A-shared-file-system-to-use-with-SAS-Grid-on/m-p/722261#M21648)
 * [Meilleures pratiques d’utilisation de Microsoft Azure avec SAS®](https://communities.sas.com/t5/Administration-and-Deployment/Best-Practices-for-Using-Microsoft-Azure-with-SAS/m-p/676833#M19680)
 
 ## <a name="azure-platform-services-solutions"></a>Déployer des solutions pour les services de plateforme Azure
