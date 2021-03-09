@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 12/07/2020
-ms.openlocfilehash: a7e19894a4688fe270422e93f7081f98e0b699a3
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.date: 03/02/2021
+ms.openlocfilehash: 3cf5047dbb79f6d8b35b0fe089069a20ab4a50a6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936530"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101736341"
 ---
 # <a name="create-stateful-and-stateless-workflows-in-the-azure-portal-with-azure-logic-apps-preview"></a>Créer des workflows avec état et sans état dans le portail Azure à l’aide d’Azure Logic Apps (préversion)
 
@@ -34,7 +34,7 @@ Cet article explique comment créer votre application logique et votre workflow 
 
 * Déclenchez une exécution de workflow.
 
-* Affichez l’historique des exécutions du workflow.
+* Affichez l’historique de déclencheur et d’exécution de votre application logique.
 
 * Activez ou ouvrez Application Insights après le déploiement.
 
@@ -51,6 +51,8 @@ Cet article explique comment créer votre application logique et votre workflow 
 
   > [!NOTE]
   > Les [applications logiques avec état](logic-apps-overview-preview.md#stateful-stateless) effectuent des transactions de stockage, telles que l’utilisation de files d’attente pour la planification et le stockage d’états de workflow dans des tables et des blobs. Ces transactions occasionne des [frais pour le service Stockage Azure](https://azure.microsoft.com/pricing/details/storage/). Pour plus d’informations sur la façon dont les applications logiques avec état stockent les données dans un stockage externe, consultez [Avec état par rapport à sans état](logic-apps-overview-preview.md#stateful-stateless).
+
+* Pour effectuer un déploiement sur un conteneur Docker, vous avez besoin d’une image conteneur Docker existante. Par exemple, vous pouvez créer cette image avec [Azure Container Registry](../container-registry/container-registry-intro.md), [App Service](../app-service/overview.md) ou [Azure Container Instances](../container-instances/container-instances-overview.md). 
 
 * Pour générer le même exemple d’application logique que celui présenté dans cet article, vous avez besoin d’un compte de courrier Office 365 Outlook qui utilise un compte Microsoft professionnel ou scolaire pour se connecter.
 
@@ -77,7 +79,7 @@ Cet article explique comment créer votre application logique et votre workflow 
    | **Abonnement** | Oui | <*Azure-subscription-name*> | Abonnement Azure à utiliser pour votre application logique. |
    | **Groupe de ressources** | Oui | <*nom-groupe-de-ressources-Azure*> | Groupe de ressources Azure dans lequel vous créez votre application logique et les ressources associées. Ce nom de ressource doit être unique d’une région à l’autre et peut uniquement contenir des lettres, des chiffres, des traits d’union ( **-** ), des traits de soulignement ( **_** ), des parenthèses [ **()** ] et des points ( **.** ). <p><p>Cet exemple crée un groupe de ressources nommé `Fabrikam-Workflows-RG`. |
    | **Nom de l’application logique** | Oui | <*logic-app-name*> | Nom à utiliser pour votre application logique. Ce nom de ressource doit être unique d’une région à l’autre et peut uniquement contenir des lettres, des chiffres, des traits d’union ( **-** ), des traits de soulignement ( **_** ), des parenthèses [ **()** ] et des points ( **.** ). <p><p>Cet exemple crée une application logique nommée `Fabrikam-Workflows`. <p><p>**Remarque** : Le nom de votre application logique reçoit automatiquement le suffixe `.azurewebsites.net`, car la ressource **Application logique (préversion)** est alimentée par Azure Functions, qui utilise la même convention d’affectation de noms d’application. |
-   | **Publier** | Oui | <*deployment-environment*> | Destination de déploiement pour votre application logique. Vous pouvez effectuer le déploiement sur Azure en sélectionnant **Workflow** ou un conteneur Docker. <p><p>Cet exemple utilise **Workflow**, qui est la ressource **Application logique (préversion)** dans Azure. <p><p>Si vous sélectionnez **Conteneur Docker**, [spécifiez le conteneur à utiliser dans les paramètres de votre application logique](#set-docker-container). |
+   | **Publier** | Oui | <*deployment-environment*> | Destination de déploiement pour votre application logique. Vous pouvez effectuer un déploiement sur Azure en sélectionnant **Workflow** ou **Conteneur Docker**. <p><p>Cet exemple utilise **Workflow**, qui permet de déployer la ressource **Application logique (préversion)** sur le portail Azure. <p><p>**Remarque** : Avant de sélectionner **Conteneur Docker**, veillez à créer votre image conteneur Docker. Par exemple, vous pouvez créer cette image avec [Azure Container Registry](../container-registry/container-registry-intro.md), [App Service](../app-service/overview.md) ou [Azure Container Instances](../container-instances/container-instances-overview.md). Ainsi, après avoir sélectionné **Conteneur Docker**, vous pouvez [spécifier le conteneur à utiliser dans les paramètres de votre application logique](#set-docker-container). |
    | **Région** | Oui | <*Azure-region*> | Région Azure à utiliser lors de la création de votre groupe de ressources et de vos ressources. <p><p>Cet exemple utilise la région **USA Ouest**. |
    |||||
 
@@ -90,7 +92,7 @@ Cet article explique comment créer votre application logique et votre workflow 
    | Propriété | Obligatoire | Valeur | Description |
    |----------|----------|-------|-------------|
    | **Compte de stockage** | Oui | <*Azure-storage-account-name*> | [Compte de stockage Azure](../storage/common/storage-account-overview.md) à utiliser pour les transactions de stockage. Ce nom de ressource doit être unique d’une région à l’autre et comporter entre 3 et 24 caractères avec uniquement des chiffres et des lettres minuscules. Sélectionnez un compte existant ou créez un nouveau compte. <p><p>Cet exemple crée un compte de stockage nommé `fabrikamstorageacct`. |
-   | **Type de plan** | Oui | <*Azure-hosting-plan*> | [Plan d’hébergement](../app-service/overview-hosting-plans.md) à utiliser pour déployer votre application logique, qui est un [**plan Premium**](../azure-functions/functions-premium-plan.md) ou [**App Service**](../azure-functions/dedicated-plan.md). Votre choix a une incidence sur les niveaux tarifaires que vous pouvez choisir ultérieurement. <p><p>Cet exemple utilise le **plan App Service**. <p><p>**Remarque** : Comme Azure Functions, le type de ressource **Application logique (préversion)** requiert un plan d’hébergement et un niveau tarifaire. Les plans d’hébergement dits de consommation ne sont pas pris en charge ni disponibles pour ce type de ressource. Pour plus d’informations, consultez les rubriques suivantes : <p><p>- [Échelle et hébergement dans Azure Functions](../azure-functions/functions-scale.md) <br>- [Détails de tarification d’App Service](https://azure.microsoft.com/pricing/details/app-service/) <p><p> |
+   | **Type de plan** | Oui | <*Azure-hosting-plan*> | [Plan d’hébergement](../app-service/overview-hosting-plans.md) à utiliser pour déployer votre application logique, à savoir un plan [**Functions Premium**](../azure-functions/functions-premium-plan.md) ou [**App Service** (dédié)](../azure-functions/dedicated-plan.md). Votre choix a une incidence sur les fonctionnalités et les niveaux tarifaires disponibles par la suite. <p><p>Cet exemple utilise le **plan App Service**. <p><p>**Remarque** : Comme Azure Functions, le type de ressource **Application logique (préversion)** requiert un plan d’hébergement et un niveau tarifaire. Les plans de consommation ne sont pas pris en charge ni disponibles pour ce type de ressource. Pour plus d’informations, consultez les rubriques suivantes : <p><p>- [Échelle et hébergement dans Azure Functions](../azure-functions/functions-scale.md) <br>- [Détails de tarification d’App Service](https://azure.microsoft.com/pricing/details/app-service/) <p><p>Par exemple, le plan Functions Premium donne accès aux fonctionnalités réseau, comme la connexion et l’intégration privées aux réseaux virtuels Azure, de la même façon qu’Azure Functions quand vous créez et déployez vos applications logiques. Pour plus d’informations, consultez les rubriques suivantes : <p><p>- [Options réseau d’Azure Functions](../azure-functions/functions-networking-options.md) <br>- [Azure Logic Apps s’exécutant partout – Capacités réseau avec Azure Logic Apps (préversion)](https://techcommunity.microsoft.com/t5/integrations-on-azure/logic-apps-anywhere-networking-possibilities-with-logic-app/ba-p/2105047) |
    | **Plan Windows** | Oui | <*plan-name*> | Nom du plan à utiliser. Sélectionnez un plan existant ou fournissez le nom d’un nouveau plan. <p><p>L’exemple suivant utilise le nom `Fabrikam-Service-Plan`. |
    | **SKU et taille** | Oui | <*pricing-tier*> | [Niveau tarifaire](../app-service/overview-hosting-plans.md) à utiliser pour héberger votre application logique. Vos choix sont influencés par le type de plan que vous avez choisi précédemment. Pour modifier le niveau par défaut, sélectionnez **Modifier la taille**. Vous pouvez ensuite sélectionner d’autres niveaux tarifaires en fonction de la charge de travail dont vous avez besoin. <p><p>Cet exemple utilise le **niveau tarifaire F1** gratuit pour des charges de travail **Dev/Test**. Pour en savoir plus, consultez les [détails de tarification d’App Service](https://azure.microsoft.com/pricing/details/app-service/). |
    |||||
@@ -107,9 +109,12 @@ Cet article explique comment créer votre application logique et votre workflow 
 
    ![Capture d’écran montrant le portail Azure et les nouveaux paramètres de ressource d’application logique.](./media/create-stateful-stateless-workflows-azure-portal/check-logic-app-resource-settings.png)
 
+   > [!TIP]
+   > Si vous recevez une erreur de validation après avoir sélectionné **Créer**, ouvrez et passez en revue les détails de l’erreur. Par exemple, si votre région sélectionnée atteint un quota pour les ressources que vous essayez de créer, essayez éventuellement une autre région.
+
    Une fois le déploiement terminé, votre application logique est automatiquement active et en cours d’exécution, mais elle ne fait rien pour l’instant, car il n’existe aucun workflow.
 
-1. Sur la page d’achèvement du déploiement, sélectionnez **Accéder à la ressource** afin de pouvoir commencer à créer votre workflow.
+1. Sur la page d’achèvement du déploiement, sélectionnez **Accéder à la ressource** afin de pouvoir commencer à créer votre workflow. Si vous avez sélectionné **Conteneur Docker** pour déployer votre application logique, poursuivez avec les [étapes relatives aux informations sur ce conteneur Docker](#set-docker-container).
 
    ![Capture d’écran montrant le portail Azure et le déploiement terminé.](./media/create-stateful-stateless-workflows-azure-portal/logic-app-completed-deployment.png)
 
@@ -117,15 +122,13 @@ Cet article explique comment créer votre application logique et votre workflow 
 
 ## <a name="specify-docker-container-for-deployment"></a>Spécifier un conteneur Docker pour le déploiement
 
-Si vous avez sélectionné **Conteneur Docker** lors de la création de votre application logique, assurez-vous de fournir des informations sur le conteneur que vous souhaitez utiliser pour le déploiement après que le portail Azure a créé votre ressource **Application logique (préversion)** .
+Avant de commencer ces étapes, vous avez besoin d’une image conteneur Docker. Par exemple, vous pouvez créer cette image avec [Azure Container Registry](../container-registry/container-registry-intro.md), [App Service](../app-service/overview.md) ou [Azure Container Instances](../container-instances/container-instances-overview.md). Vous pouvez alors fournir des informations sur votre conteneur Docker après avoir créé votre application logique.
 
 1. Dans le portail Azure, accédez à votre ressource d’application logique.
 
-1. Dans le menu de l’application logique, sous **Paramètres**, sélectionnez **Paramètres de conteneur**. Fournissez les détails et l’emplacement de votre image conteneur Docker.
+1. Dans le menu de l’application logique, sous **Paramètres**, sélectionnez **Centre de déploiement**.
 
-   ![Capture d’écran montrant le menu de l’application logique avec l’élément « Paramètres de conteneur » sélectionné.](./media/create-stateful-stateless-workflows-azure-portal/logic-app-deploy-container-settings.png)
-
-1. Lorsque vous avez terminé, enregistrez vos paramètres.
+1. Dans le volet **Centre de déploiement**, suivez les instructions pour fournir et gérer les détails de votre conteneur Docker.
 
 <a name="add-workflow"></a>
 
@@ -286,9 +289,11 @@ Dans cet exemple, le workflow s’exécute lorsque le déclencheur Requête reç
 
       ![Capture d’écran montrant l’e-mail Outlook décrit dans l’exemple.](./media/create-stateful-stateless-workflows-azure-portal/workflow-app-result-email.png)
 
+<a name="view-run-history"></a>
+
 ## <a name="review-run-history"></a>Examiner l’historique des exécutions
 
-Pour un workflow avec état, après chaque exécution du workflow, vous pouvez afficher l’historique des exécutions, y compris l’état de l’exécution globale, du déclencheur et de chaque action, ainsi que leurs entrées et les sorties.
+Pour un workflow avec état, après chaque exécution du workflow, vous pouvez afficher l’historique des exécutions, y compris l’état de l’exécution globale, du déclencheur et de chaque action, ainsi que leurs entrées et les sorties. Dans le portail Azure, l’historique des exécutions et les historiques des déclencheurs s’affichent au niveau du workflow, et non au niveau de l’application logique. Pour passer en revue les historiques des déclencheurs en dehors du contexte de l’historique des exécutions, consultez [Examiner les historiques des déclencheurs](#view-trigger-histories).
 
 1. Dans le portail Azure, dans le menu de votre workflow, sélectionnez **Analyse**.
 
@@ -320,15 +325,15 @@ Pour un workflow avec état, après chaque exécution du workflow, vous pouvez a
 
    | État d’action | Icône | Description |
    |---------------|------|-------------|
-   | Abandonné | ![Icône d’état d’action « Abandonnée »][aborted-icon] | L’action a été arrêtée ou ne s’est pas terminée en raison de problèmes externes, par exemple, une panne du système ou l’expiration d’un abonnement Azure. |
-   | Annulé | ![Icône d’état d’action « Annulée »][cancelled-icon] | L’action était en cours d’exécution mais a reçu une demande d’annulation. |
-   | Échec | ![Icône d’état d’action « Échec »][failed-icon] | L’action a échoué. |
-   | Exécution en cours | ![Icône d’état d’action « Exécution »][running-icon] | L’action est en cours d’exécution. |
-   | Ignoré | ![Icône d’état d’action « Ignorée »][skipped-icon] | L’action a été ignorée parce qu’elle précède immédiatement l’action qui a échoué. Une action a une condition `runAfter` qui exige que l’action précédente se termine correctement avant que l’action en cours puisse s’exécuter. |
-   | Opération réussie | ![Icône d’état d’action « Réussie »][succeeded-icon] | L’action a réussi. |
-   | Réussie avec de nouvelles tentatives | ![Icône d’état d’action « Réussie avec de nouvelles tentatives »][succeeded-with-retries-icon] | L’action a réussi, mais uniquement après une ou plusieurs tentatives. Pour consulter l’historique des tentatives, dans la vue des détails de l’historique des exécutions, sélectionnez cette action afin de voir les entrées et sorties. |
-   | Délai dépassé | ![Icône d’état de l’action « Expirée »][timed-out-icon] | L’action a été arrêtée en raison du délai d’expiration spécifié par les paramètres de cette action. |
-   | En attente | ![Icône d’état d’action « En attente »][waiting-icon] | S’applique à une action de webhook qui attend une demande entrante d’un appelant. |
+   | **Abandonné** | ![Icône d’état d’action « Abandonnée »][aborted-icon] | L’action a été arrêtée ou ne s’est pas terminée en raison de problèmes externes, par exemple, une panne du système ou l’expiration d’un abonnement Azure. |
+   | **Annulé** | ![Icône d’état d’action « Annulée »][cancelled-icon] | L’action était en cours d’exécution mais a reçu une demande d’annulation. |
+   | **Échec** | ![Icône d’état d’action « Échec »][failed-icon] | L’action a échoué. |
+   | **Exécution** | ![Icône d’état d’action « Exécution »][running-icon] | L’action est en cours d’exécution. |
+   | **Ignoré** | ![Icône d’état d’action « Ignorée »][skipped-icon] | L’action a été ignorée parce qu’elle précède immédiatement l’action qui a échoué. Une action a une condition `runAfter` qui exige que l’action précédente se termine correctement avant que l’action en cours puisse s’exécuter. |
+   | **Réussi** | ![Icône d’état d’action « Réussie »][succeeded-icon] | L’action a réussi. |
+   | **Réussie avec de nouvelles tentatives** | ![Icône d’état d’action « Réussie avec de nouvelles tentatives »][succeeded-with-retries-icon] | L’action a réussi, mais uniquement après une ou plusieurs tentatives. Pour consulter l’historique des tentatives, dans la vue des détails de l’historique des exécutions, sélectionnez cette action afin de voir les entrées et sorties. |
+   | **Délai dépassé** | ![Icône d’état de l’action « Expirée »][timed-out-icon] | L’action a été arrêtée en raison du délai d’expiration spécifié par les paramètres de cette action. |
+   | **En attente** | ![Icône d’état d’action « En attente »][waiting-icon] | S’applique à une action de webhook qui attend une demande entrante d’un appelant. |
    ||||
 
    [aborted-icon]: ./media/create-stateful-stateless-workflows-azure-portal/aborted.png
@@ -346,6 +351,18 @@ Pour un workflow avec état, après chaque exécution du workflow, vous pouvez a
    ![Capture d’écran montrant les entrées et sorties de l’action « Envoyer un e-mail » sélectionnée.](./media/create-stateful-stateless-workflows-azure-portal/review-step-inputs-outputs.png)
 
 1. Pour examiner plus en détail les entrées et sorties brutes de cette étape, sélectionnez **Afficher les entrées brutes** ou **Afficher les sorties brutes**.
+
+<a name="view-trigger-histories"></a>
+
+## <a name="review-trigger-histories"></a>Examiner les historiques des déclencheurs
+
+Pour un workflow avec état, vous pouvez consulter l’historique des déclencheurs pour chaque exécution, notamment l’état des déclencheurs ainsi que les entrées et sorties, en dehors du [contexte de l’historique des exécutions](#view-run-history). Dans le portail Azure, l’historique des déclencheurs et l’historique des exécutions s’affichent au niveau du workflow, et non au niveau de l’application logique. Pour trouver ces données d’historique, suivez ces étapes :
+
+1. Dans le portail Azure, dans le menu de votre workflow, sous **Développeur**, sélectionnez **Historiques des déclencheurs**.
+
+   Le volet **Historiques des déclencheurs** affiche les historiques des déclencheurs pour les exécutions de votre workflow.
+
+1. Pour consulter un historique des déclencheurs spécifique, sélectionnez l’ID de l’exécution correspondante.
 
 <a name="enable-open-application-insights"></a>
 
@@ -365,7 +382,10 @@ Pour activer Application Insights sur une application logique déployée ou pour
 
    Si la fonctionnalité Application Insights est activée, dans le volet **Application Insights**, sélectionnez **Afficher les données Application Insights**.
 
-Après l’ouverture d’Application Insights, vous pouvez passer en revue les différentes métriques de votre application logique.
+Après l’ouverture d’Application Insights, vous pouvez passer en revue les différentes métriques de votre application logique. Pour plus d’informations, consultez les rubriques suivantes :
+
+* [Azure Logic Apps s’exécutant partout – Superviser avec Application Insights (première partie)](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-monitor-with-application/ba-p/1877849)
+* [Azure Logic Apps s’exécutant partout – Superviser avec Application Insights (deuxième partie)](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-monitor-with-application/ba-p/2003332)
 
 <a name="enable-run-history-stateless"></a>
 
