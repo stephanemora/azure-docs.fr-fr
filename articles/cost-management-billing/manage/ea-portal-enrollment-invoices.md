@@ -3,18 +3,18 @@ title: Factures d’inscription Azure Entreprise
 description: Cet article explique comment gérer et traiter votre facture Azure Enterprise.
 author: bandersmsft
 ms.author: banders
-ms.date: 01/19/2021
+ms.date: 03/05/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
-ms.reviewer: boalcsva
+ms.reviewer: ruturajd
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 90ae9bdcee5f5f4c4281f2c3f931389b2ebf9486
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 71ba1d6e1e45c5c2e72e2be620158b1aa4b71582
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98598078"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102430805"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Factures d’inscription Azure Entreprise
 
@@ -98,29 +98,41 @@ Le portail Azure Enterprise filtre les inscriptions inactives en dehors de l’a
 
 ## <a name="change-a-po-number-for-an-upcoming-overage-invoice"></a>Modifier un numéro de bon de commande pour une facture de dépassement à venir
 
-Le portail Azure Enterprise génère automatiquement un numéro de bon de commande par défaut, sauf si l’administrateur de l’entreprise en définit un avant la date de la facture. L’administrateur de l’entreprise peut également mettre à jour le numéro de bon de commande dans un délai de sept jours après la réception d’un e-mail de notification de facture automatisée.
+Le portail Azure Enterprise génère automatiquement un numéro de bon de commande par défaut, sauf si l’administrateur de l’entreprise en définit un avant la date de la facture. L’administrateur de l’entreprise peut également mettre à jour le numéro de bon de commande dans un délai de sept jours après la réception d’un e-mail de notification de facture automatisée. 
 
-### <a name="to-update-the-azure-services-purchase-order-number"></a>Pour mettre à jour le numéro de bon de commande des services Azure :
+Pour empêcher la génération automatique des numéros de bon de commande tous les mois, vous pouvez verrouiller le numéro de bon de commande. Consultez [Verrouiller le numéro de bon de commande](#lock-po-number-to-prevent-automatic-update-in-upcoming-billing-cycles).
+
+### <a name="update-the-azure-services-purchase-order-number"></a>Mettre à jour le numéro de BDC des services Azure
 
 1. Sur le portail Azure Enterprise, sélectionnez **Rapport** > **Résumé de l'utilisation**.
 1. Sélectionnez **Edit PO Numbers** (Modifier les numéros de bon de commande) dans le coin supérieur droit.
 1. Sélectionnez la case d’option **Services Azure**.
 1. Sélectionnez une **Période de facturation** dans le menu déroulant de plages de dates.
-
    Vous pouvez modifier un numéro de bon de commande pendant sept jours après avoir reçu une notification de facture, mais avant d'avoir payé la facture.
 1. Entrez un nouveau numéro de bon de commande dans le champ **PO Number** (Numéro de bon de commande).
 1. Cliquez sur **Save** (Enregistrer) pour envoyer votre modification.
 
-### <a name="to-update-the-azure-marketplace-purchase-order-number"></a>Pour mettre à jour le numéro de bon de commande de Place de marché Azure :
+### <a name="update-the-azure-marketplace-purchase-order-number"></a>Mettre à jour le numéro de bon de commande de la Place de marché Azure
 
 1. Sur le portail Azure Enterprise, sélectionnez **Rapport** > **Résumé de l'utilisation**.
 1. Sélectionnez **Edit PO Numbers** (Modifier les numéros de bon de commande) dans le coin supérieur droit.
 1. Sélectionnez la case d’option **Place de marché**.
-1. Sélectionnez une **Période de facturation** dans le menu déroulant de plages de dates.
-
-   Vous pouvez modifier un numéro de bon de commande pendant sept jours après avoir reçu une notification de facture, mais avant d'avoir payé la facture.
+1. Sélectionnez une **Période de facturation** dans le menu déroulant de plages de dates.  
+    Vous pouvez modifier un numéro de bon de commande pendant sept jours après avoir reçu une notification de facture, mais avant d'avoir payé la facture.
 1. Entrez un nouveau numéro de bon de commande dans le champ **PO Number** (Numéro de bon de commande).
 1. Cliquez sur **Save** (Enregistrer) pour envoyer votre modification.
+
+### <a name="lock-po-number-to-prevent-automatic-update-in-upcoming-billing-cycles"></a>Verrouiller le numéro de BDC pour empêcher une mise à jour automatique dans les prochains cycles de facturation
+
+Une fois que vous avez verrouillé le numéro de BDC, celui-ci reste verrouillé pour toutes les nouvelles factures et vous n’avez pas besoin de le mettre à jour.
+
+1.  Dans le portail Azure Enterprise, sélectionnez **Rapport** > **Résumé de l’utilisation**.
+2.  Sélectionnez **Edit PO Numbers** (Modifier les numéros de bon de commande) dans le coin supérieur droit.
+3.  Tapez un nouveau numéro de BDC dans le champ **PO Number**.
+4.  Sélectionnez la zone **Lock PO number** (Verrouiller le numéro de BDC).
+5.  Cliquez sur **Save** (Enregistrer) pour envoyer votre modification.  
+    :::image type="content" source="./media/ea-portal-enrollment-invoices/lock-po.png" alt-text="Capture d’écran montrant la zone d’affichage/de modification des numéros de BDC." lightbox="./media/ea-portal-enrollment-invoices/lock-po.png" :::
+
 
 ## <a name="azure-enterprise-billing-frequency"></a>Fréquence de facturation d’Azure Enterprise
 
