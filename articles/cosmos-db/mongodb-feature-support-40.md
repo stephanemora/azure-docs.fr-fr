@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 03/02/2021
 author: gahl-levy
 ms.author: gahllevy
-ms.openlocfilehash: 4a7e80b77048d1853c9cb0d6e59c5bdd76e8d823
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 41293f96246dd4badab000c4e7f936d825e7665a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101664208"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691125"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-40-server-version-supported-features-and-syntax"></a>API Azure Cosmos DB pour MongoDB (version serveur 4.0) : fonctionnalités et syntaxe prises en charge
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -583,7 +583,7 @@ Azure Cosmos DB prend en charge une durée de vie (TTL) en fonction du timestamp
 
 ## <a name="transactions"></a>Transactions
 
-Azure Cosmos DB prend en charge les transactions pour les collections non partitionnées. Le délai d’expiration des transactions est fixé à cinq secondes.
+Les transactions multidocuments sont prises en charge dans une collection non partitionnée. Les transactions multidocuments ne sont pas prises en charge sur plusieurs collections ou au sein de collections partitionnées. Le délai d’expiration des transactions est fixé à cinq secondes.
 
 ## <a name="user-and-role-management"></a>Gestion des rôles et des utilisateurs
 

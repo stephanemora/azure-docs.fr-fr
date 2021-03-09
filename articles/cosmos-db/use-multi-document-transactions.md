@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 03/02/2021
 ms.author: gahllevy
-ms.openlocfilehash: 4d7dcc829f25b7f1b7c6cb6b1d13a664d301bfe6
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: f319db76c8aee5a2a35ff8ca9670c42089350ede
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101678334"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101692468"
 ---
 # <a name="use-multi-document-transactions-in-azure-cosmos-db-api-for-mongodb"></a>Utiliser des transactions multidocuments dans l’API Azure Cosmos DB pour MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -32,11 +32,13 @@ Les transactions multidocuments suivent la sémantique **ACID** :
 
 ## <a name="requirements"></a>Spécifications
 
-Les transactions multidocuments sont prises en charge dans une collection non partitionnée dans la version 4.0. Les transactions multidocuments ne sont pas prises en charge sur plusieurs collections ou au sein de collections partitionnées.
+Les transactions multidocuments sont prises en charge dans une collection non partitionnée dans l’API version 4.0. Les transactions multidocuments ne sont pas prises en charge sur plusieurs collections ou au sein de collections partitionnées dans la version 4.0. Le délai d’expiration des transactions est fixé à cinq secondes.
 
 Tous les pilotes qui prennent en charge le protocole filaire version 4.0 ou ultérieure prennent en charge les transactions multidocuments dans l’API Azure Cosmos DB pour MongoDB.
 
 ## <a name="run-multi-document-transactions-in-mongodb-shell"></a>Exécuter des transactions multidocuments dans le shell MongoDB
+> [!Note]
+> Cet exemple ne fonctionne pas dans la version bêta de MongoSH (interpréteur de commandes) incorporée dans MongoDB Compass.
 
 1. Ouvrez une invite de commandes, et accédez au répertoire où le shell Mongo version 4.0 ou ultérieure est installé :
 

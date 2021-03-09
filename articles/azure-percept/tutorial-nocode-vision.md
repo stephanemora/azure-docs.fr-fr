@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: tutorial
 ms.date: 02/10/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: 54d4f1fe983cf20b734351754bb8eba191894dbc
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 6de86cbc065b5352b3b643708dd55c6856b37dd7
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101678060"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102097905"
 ---
 # <a name="create-a-no-code-vision-solution-in-azure-percept-studio"></a>Créer une solution de vision sans code dans Azure Percept Studio
 
@@ -23,6 +23,7 @@ Azure Percept Studio vous permet de créer et de déployer des solutions de visi
 - Étiqueter vos images d’entraînement dans [Custom Vision](https://www.customvision.ai/)
 - Entraîner votre modèle de détection ou de classification des objets personnalisé
 - Déployer votre modèle sur votre devkit
+- Améliorer le modèle en configurant le réentraînement
 
 Ce tutoriel est conçu pour les développeurs qui ont peu d’expérience en IA, voire aucune, et qui débutent avec Azure Percept.
 
@@ -30,15 +31,13 @@ Ce tutoriel est conçu pour les développeurs qui ont peu d’expérience en IA,
 
 - DK (devkit) Azure Percept
 - [Abonnement Azure](https://azure.microsoft.com/free/)
-- Expérience OOBE : vous avez connecté votre devkit à un réseau Wi-Fi, créé un hub IoT et connecté votre devkit à ce hub IoT
+- Expérience d’installation du DK Azure Percept : vous avez connecté votre devkit à un réseau Wi-Fi, créé un hub IoT et connecté votre devkit au hub IoT
 
 ## <a name="create-a-vision-prototype"></a>Créer un prototype de vision
 
 1. Démarrez votre navigateur pour accéder à [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819).
 
-1. Dans la page Vue d’ensemble, cliquez sur l’onglet **Tutoriels et démonstrations**.
-
-    :::image type="content" source="./media/tutorial-nocode-vision/percept-studio-overview-inline.png" alt-text="Écran de vue d’ensemble d’Azure Percept Studio." lightbox="./media/tutorial-nocode-vision/percept-studio-overview.png":::
+1. Sur la page vue de présentation, cliquez sur l’onglet **Démonstrations et tutoriel**. :::image type="content" source="./media/tutorial-nocode-vision/percept-studio-overview-inline.png" alt-text="Écran de présentation d’Azure Percept Studio." lightbox="./media/tutorial-nocode-vision/percept-studio-overview.png":::
 
 1. Dans **Tutoriels et démonstrations de vision**, cliquez sur **Créer un prototype de vision**.
 
@@ -142,11 +141,23 @@ Après avoir fermé cette fenêtre, vous pouvez revenir en arrière pour modifie
 
 :::image type="content" source="./media/tutorial-nocode-vision/vision-project-inline.png" alt-text="Page Projet de vision." lightbox="./media/tutorial-nocode-vision/vision-project.png":::
 
+## <a name="improve-your-model-by-setting-up-retraining"></a>Améliorer le modèle en configurant le réentraînement
+
+Une fois que vous avez entraîné votre modèle et que vous l’avez déployé sur l’appareil, vous pouvez définir des paramètres de réentraînement pour capturer d’autres données d’apprentissage. Cette fonctionnalité permet d’améliorer le niveau de performance d’un modèle entraîné en offrant la possibilité de capturer des images en fonction d’une plage de probabilités. Par exemple, vous pouvez configurer votre appareil de sorte qu’il ne capture que les images d’apprentissage pour lesquelles la probabilité est faible. Voici quelques [conseils supplémentaires](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-improving-your-classifier) sur l’ajout d’images et l’équilibrage des données d’apprentissage.
+
+1. Pour configurer le réentraînement, revenez à votre **Projet**, puis au **Résumé du projet**.
+1. Dans l’onglet **Capture d’images**, sélectionnez **Capture d’images automatique** et **Configurer le réentraînement**.
+1. Configurez la capture d’image automatisée pour collecter une grande quantité d’images à la fois en cochant la case **Capture d’images automatique**.
+1. Sélectionnez votre taux d’acquisition d’images par défaut sous **Taux de capture**, ainsi que le nombre total d’images que vous souhaitez collecter sous **Cible**.
+1. Dans la section **Configurer le réentraînement**, sélectionnez l’itération pour laquelle vous souhaitez capturer d’autres données d’apprentissage, puis sélectionnez la plage de probabilités. Seules les images conformes au taux de probabilité sont chargées dans votre projet.
+
+    :::image type="content" source="./media/tutorial-nocode-vision/vision-image-capture.png" alt-text="Capture d’images.":::
+
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous avez créé une ressource Azure pour ce tutoriel et si vous ne souhaitez plus développer ni utiliser votre solution de vision, effectuez les étapes suivantes pour supprimer votre ressource :
 
-1. Accédez au [portail Azure](https://ms.portal.azure.com/#home).
+1. Accédez au [portail Azure](https://ms.portal.azure.com/).
 1. Cliquez sur **Toutes les ressources**.
 1. Cochez la case en regard de la ressource créée pendant ce tutoriel. Le type de ressource sera listé sous **Cognitive Services**.
 1. Cliquez sur l’icône **Supprimer** en haut de l’écran.

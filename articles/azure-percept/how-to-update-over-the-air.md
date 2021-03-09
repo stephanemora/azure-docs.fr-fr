@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/18/2021
 ms.custom: template-how-to
-ms.openlocfilehash: aa8f696b6a26e812256be4e93975844f2c721b6e
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: b8f9e6f4bc091abbd1bb08ecbd649c1411e5ab20
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101660260"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102095389"
 ---
 # <a name="update-your-azure-percept-dk-over-the-air"></a>Mettre à jour votre DK Azure Percept en OTA
 
@@ -92,7 +92,7 @@ Conditions d’utilisation des étiquettes de groupe :
 1. Vérifiez que le groupe d’appareils approprié est sélectionné comme groupe d’appareils cible. Sélectionnez une **Date de début** et une **Heure de début** pour votre déploiement, puis cliquez sur **Créer un déploiement**. 
 
     >[!CAUTION]
-    >La définition d’une heure de début dans le passé déclenche immédiatement le déploiement.
+    >Si vous définissez une heure de début dans le passé, le déploiement se déclenche immédiatement.
  
 1. Vérifiez le graphique de conformité. Vous devez constater que la mise à jour est maintenant en cours.
  
