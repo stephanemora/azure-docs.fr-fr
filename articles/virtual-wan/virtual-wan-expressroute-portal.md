@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/07/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
-ms.openlocfilehash: 07053c096ce001b322e5f05556bd041519ca9d2e
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 080136b8fc25b08a6b96464f0a61115a4bb2f3f8
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102474"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102426607"
 ---
 # <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan"></a>Tutoriel : Créer une association ExpressRoute avec Azure Virtual WAN
 
@@ -48,18 +48,18 @@ Vérifiez que vous disposez des éléments ci-dessous avant de commencer votre c
 
 Dans un navigateur, accédez au [portail Azure](https://portal.azure.com) et connectez-vous avec votre compte Azure.
 
-1. Accédez à la page WAN Virtuel. Dans le portail, cliquez sur **+Créer une ressource** . Tapez **WAN virtuel** dans la zone de recherche et sélectionnez Entrée.
+1. Accédez à la page WAN Virtuel. Dans le portail, cliquez sur **+Créer une ressource**. Tapez **WAN virtuel** dans la zone de recherche et sélectionnez Entrée.
 2. Sélectionnez **WAN virtuel** dans les résultats. Dans la page Virtual WAN, cliquez sur **Créer** pour ouvrir la page Créer un WAN.
-3. Dans la page **Créer un WAN** , sous l’onglet **Fonctions de base** , renseignez les champs suivants :
+3. Dans la page **Créer un WAN**, sous l’onglet **Fonctions de base**, renseignez les champs suivants :
 
    ![Créer un WAN](./media/virtual-wan-expressroute-portal/createwan.png)
 
-   * **Abonnement**  : sélectionnez l’abonnement que vous voulez utiliser.
+   * **Abonnement** : sélectionnez l’abonnement que vous voulez utiliser.
    * **Groupe de ressources** : Créer en un nouveau ou utiliser un qui existe déjà.
-   * **Emplacement du groupe de ressources**  : choisissez un emplacement de la ressource dans la liste déroulante. Un WAN est une ressource globale et ne réside pas dans une région particulière. Toutefois, vous devez sélectionner une région pour gérer et localiser plus facilement la ressource WAN que vous créez.
-   * **Nom**  : tapez le nom que vous souhaitez donner à votre réseau étendu.
-   * **Type**  : sélectionnez **Standard** . Vous ne pouvez pas créer une passerelle ExpressRoute à l’aide de la référence SKU de base.
-4. Quand vous avez fini de renseigner les champs, cliquez sur **Vérifier + Créer** .
+   * **Emplacement du groupe de ressources** : choisissez un emplacement de la ressource dans la liste déroulante. Un WAN est une ressource globale et ne réside pas dans une région particulière. Toutefois, vous devez sélectionner une région pour gérer et localiser plus facilement la ressource WAN que vous créez.
+   * **Nom** : tapez le nom que vous souhaitez donner à votre réseau étendu.
+   * **Type** : sélectionnez **Standard**. Vous ne pouvez pas créer une passerelle ExpressRoute à l’aide de la référence SKU de base.
+4. Quand vous avez fini de renseigner les champs, cliquez sur **Vérifier + Créer**.
 5. Après la validation, sélectionnez **Créer** pour créer le WAN virtuel.
 
 ## <a name="create-a-virtual-hub-and-gateway"></a><a name="hub"></a>Créer un hub virtuel et une passerelle
@@ -79,7 +79,7 @@ Créez un hub virtuel. Une fois le hub créé, vous serez facturé, même si vou
 Vous pouvez également créer une passerelle dans un hub existant en la modifiant.
 
 1. Accédez au hub virtuel que vous souhaitez modifier et sélectionnez-le.
-2. Sur la page **Modifier un hub virtuel** , cochez la case **Inclure la passerelle ExpressRoute** .
+2. Sur la page **Modifier un hub virtuel**, cochez la case **Inclure la passerelle ExpressRoute**.
 3. Cliquez sur **Confirmer** pour confirmer vos modifications. La création complète d’un hub virtuel et des ressources d’un hub prend environ 30 minutes.
 
    ![hub existant](./media/virtual-wan-expressroute-portal/edithub.png "modifier un hub")
@@ -94,9 +94,9 @@ Une fois que vous avez créé une passerelle ExpressRoute, vous pouvez afficher 
 
 Dans cette section, vous créez la connexion de peering entre votre hub et un réseau virtuel. Répétez ces étapes pour chaque réseau virtuel que vous souhaitez connecter.
 
-1. Dans la page de votre réseau étendu, cliquez sur **Connexion réseau de réseau virtuel** .
-2. Dans la page de connexion de réseau virtuel, cliquez sur **+ Ajouter une connexion** .
-3. Dans la page **Ajouter une connexion** , renseignez les champs suivants :
+1. Dans la page de votre réseau étendu, cliquez sur **Connexion réseau de réseau virtuel**.
+2. Dans la page de connexion de réseau virtuel, cliquez sur **+ Ajouter une connexion**.
+3. Dans la page **Ajouter une connexion**, renseignez les champs suivants :
 
     * **Nom de connexion** : nommez votre connexion.
     * **Hubs** : sélectionnez le hub que vous souhaitez associer à cette connexion.
@@ -109,10 +109,10 @@ Une fois la passerelle créée, vous pouvez y connecter un circuit [ExpressRoute
 
 ### <a name="to-connect-the-circuit-to-the-hub-gateway"></a>Pour connecter votre circuit à la passerelle de hub
 
-Dans le portail, accédez à la page **Hub virtuel -> Connectivité -> ExpressRoute** . Si vous avez accès à un circuit ExpressRoute dans votre abonnement, vous verrez le circuit que vous souhaitez utiliser dans la liste des circuits. Si vous ne voyez aucun circuit, mais que vous l’avez fourni avec une clé d’autorisation et un URI de circuit homologue, vous pouvez échanger et connecter un circuit. Consultez [Rechercher un circuit en utilisant une clé d'autorisation](#authkey).
+Dans le portail, accédez à la page **Hub virtuel -> Connectivité -> ExpressRoute**. Si vous avez accès à un circuit ExpressRoute dans votre abonnement, vous verrez le circuit que vous souhaitez utiliser dans la liste des circuits. Si vous ne voyez aucun circuit, mais que vous l’avez fourni avec une clé d’autorisation et un URI de circuit homologue, vous pouvez échanger et connecter un circuit. Consultez [Rechercher un circuit en utilisant une clé d'autorisation](#authkey).
 
 1. Sélectionnez le circuit.
-2. Sélectionnez **Connecter un ou plusieurs circuits** .
+2. Sélectionnez **Connecter un ou plusieurs circuits**.
 
    ![connecter des circuits](./media/virtual-wan-expressroute-portal/cktconnect.png "connecter des circuits")
 
@@ -145,7 +145,7 @@ Si vous souhaitez modifier la taille de votre passerelle ExpressRoute, localisez
 
 Si vous souhaitez que le hub virtuel Azure publie l’itinéraire par défaut 0.0.0.0/0 sur vos points de terminaison ExpressRoute, vous devez activer « Propager l’itinéraire par défaut ».
 
-1. Sélectionnez votre **Circuit ->...-> Modifie la connexion** .
+1. Sélectionnez votre **Circuit ->...-> Modifie la connexion**.
 
    ![Modifier la connexion](./media/virtual-wan-expressroute-portal/defaultroute1.png "Modifier la connexion")
 
@@ -155,11 +155,9 @@ Si vous souhaitez que le hub virtuel Azure publie l’itinéraire par défaut 0.
 
 ## <a name="clean-up-resources"></a><a name="cleanup"></a>Supprimer des ressources
 
-Quand vous n’avez plus besoin de ces ressources, vous pouvez utiliser [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) pour supprimer le groupe de ressources et toutes les ressources qu’il contient. Remplacez « myResourceGroup » par le nom de votre groupe de ressources et exécutez la commande PowerShell suivante :
+Quand vous n’avez plus besoin des ressources que vous avez créées, supprimez-les. Certaines des ressources Virtual WAN doivent être supprimées dans un certain ordre en raison des dépendances. La suppression peut prendre environ 30 minutes.
 
-```azurepowershell-interactive
-Remove-AzResourceGroup -Name myResourceGroup -Force
-```
+[!INCLUDE [Delete resources](../../includes/virtual-wan-resource-cleanup.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

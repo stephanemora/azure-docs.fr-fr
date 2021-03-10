@@ -10,23 +10,23 @@ author: sdgilley
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, fasttrack-edit
-ms.openlocfilehash: 3fca8e74112b90b3cac70adaa955bbf242999705
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 472bc66c75881d622e8ecfe23031f58db773a919
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97739584"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102518923"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces"></a>Créer et gérer des espaces de travail Azure Machine Learning 
 
-Cet article explique comment créer, afficher et supprimer des [**espaces de travail Azure Machine Learning**](concept-workspace.md) pour le service [Azure Machine Learning](overview-what-is-azure-ml.md) à l’aide du portail Azure ou du [Kit de développement logiciel (SDK) pour Python](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py).
+Cet article explique comment créer, afficher et supprimer des [**espaces de travail Azure Machine Learning**](concept-workspace.md) pour le service [Azure Machine Learning](overview-what-is-azure-ml.md) à l’aide du portail Azure ou du [Kit de développement logiciel (SDK) pour Python](/python/api/overview/azure/ml/).
 
 À mesure que vos besoins évoluent ou que les exigences en matière d’automation augmentent, vous pouvez également créer et supprimer des espaces de travail [à l’aide de l’interface CLI](reference-azure-machine-learning-cli.md) ou [via l’extension VS Code](tutorial-setup-vscode-extension.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning](https://aka.ms/AMLFree) dès aujourd’hui.
-* Si vous comptez utiliser le Kit de développement logiciel (SDK) Python, [installez-le](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
+* Si vous comptez utiliser le Kit de développement logiciel (SDK) Python, [installez-le](/python/api/overview/azure/ml/install).
 
 ## <a name="limitations"></a>Limites
 
@@ -111,7 +111,7 @@ Par défaut, la création d’un espace de travail crée également une instance
                              exist_ok=False)
    ```
 
-Pour plus d’informations, consultez la [Référence du Kit de développement logiciel (SDK) d’espace de travail](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py).
+Pour plus d’informations, consultez la [Référence du Kit de développement logiciel (SDK) d’espace de travail](/python/api/azureml-core/azureml.core.workspace.workspace).
 
 Si vous rencontrez des problèmes pour accéder à votre abonnement, consultez [Configurer l’authentification pour des ressources et workflows Azure Machine Learning](how-to-setup-authentication.md), ainsi que le bloc-notes [Authentification dans Azure Machine Learning](https://aka.ms/aml-notebook-auth).
 
@@ -167,7 +167,7 @@ Si vous rencontrez des problèmes pour accéder à votre abonnement, consultez [
 
 # <a name="python"></a>[Python](#tab/python)
 
-Fournie par le SDK Python Azure Machine Learning, la classe [PrivateEndpointConfig](/python/api/azureml-core/azureml.core.privateendpointconfig?preserve-view=true&view=azure-ml-py) peut être utilisée avec [Workspace.create()](/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---tags-none--friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--adb-workspace-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--private-endpoint-config-none--private-endpoint-auto-approval-true--exist-ok-false--show-output-true-&preserve-view=true) pour créer un espace de travail avec un point de terminaison privé. Cette classe nécessite un réseau virtuel existant.
+Fournie par le SDK Python Azure Machine Learning, la classe [PrivateEndpointConfig](/python/api/azureml-core/azureml.core.privateendpointconfig) peut être utilisée avec [Workspace.create()](/python/api/azureml-core/azureml.core.workspace.workspace#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---tags-none--friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--adb-workspace-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--private-endpoint-config-none--private-endpoint-auto-approval-true--exist-ok-false--show-output-true-) pour créer un espace de travail avec un point de terminaison privé. Cette classe nécessite un réseau virtuel existant.
 
 # <a name="portal"></a>[Portail](#tab/azure-portal)
 

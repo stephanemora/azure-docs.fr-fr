@@ -11,16 +11,16 @@ author: NilsPohlmann
 ms.date: 03/02/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1
-ms.openlocfilehash: 75d241840ecfc8520989342d9def8186de922c0d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 0d4f014db85a40819b178b23caa89b90d08026af
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101691856"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102522272"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Créer et exécuter des pipelines de Machine Learning avec le kit SDK Azure Machine Learning
 
-Dans cet article, vous allez apprendre à créer et exécuter un [pipeline Machine Learning](concept-ml-pipelines.md) à l’aide du [Kit de développement logiciel (SDK) Azure Machine Learning](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py). Les **pipelines ML** vous permettent de créer un workflow qui associe plusieurs phases ML. Publiez ensuite ce pipeline pour y accéder ou le partager par la suite avec d’autres utilisateurs. Suivez les pipelines ML pour voir comment votre modèle s’exécute dans la réalité et pour détecter une dérive de données. Les pipelines ML sont idéaux pour les scénarios de scoring par lots car ils utilisent différents calculs, réutilisent les étapes au lieu de les réexécuter et partagent les flux de travail ML avec d’autres.
+Dans cet article, vous allez apprendre à créer et exécuter un [pipeline Machine Learning](concept-ml-pipelines.md) à l’aide du [Kit de développement logiciel (SDK) Azure Machine Learning](/python/api/overview/azure/ml/intro). Les **pipelines ML** vous permettent de créer un workflow qui associe plusieurs phases ML. Publiez ensuite ce pipeline pour y accéder ou le partager par la suite avec d’autres utilisateurs. Suivez les pipelines ML pour voir comment votre modèle s’exécute dans la réalité et pour détecter une dérive de données. Les pipelines ML sont idéaux pour les scénarios de scoring par lots car ils utilisent différents calculs, réutilisent les étapes au lieu de les réexécuter et partagent les flux de travail ML avec d’autres.
 
 Cet article n’est pas un didacticiel. Pour obtenir de l’aide sur la création de votre premier pipeline, consultez [Didacticiel : Créer un pipeline Azure Machine Learning pour le scoring par lots](tutorial-pipeline-batch-scoring-classification.md) ou [Utiliser le ML automatisé dans un pipeline Azure Machine Learning dans Python](how-to-use-automlstep-in-pipelines.md). 
 
@@ -81,7 +81,7 @@ Les étapes consomment généralement des données et produisent des données de
 
 Le meilleur moyen de fournir des données à un pipeline est un objet [DataSet](/python/api/azureml-core/azureml.core.dataset.Dataset). L’objet `Dataset` pointe vers les données qui se trouvent dans un magasin de données ou qui sont accessibles par ce biais ou à une URL web. La classe `Dataset` étant abstraite, vous allez créer une instance de `FileDataset` (faisant référence à un ou plusieurs fichiers) ou un `TabularDataset` créé à partir d’un ou de plusieurs fichiers avec des colonnes de données délimitées.
 
-Vous créez un `Dataset` à l’aide de méthodes comme [from_file](/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?preserve-view=true&view=azure-ml-py#&preserve-view=truefrom-files-path--validate-true-) ou [from_delimited_files](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?preserve-view=true&view=azure-ml-py#&preserve-view=truefrom-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none--support-multi-line-false-).
+Vous créez un `Dataset` à l’aide de méthodes comme [from_file](/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory#from-files-path--validate-true-) ou [from_delimited_files](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none--support-multi-line-false-).
 
 ```python
 from azureml.core import Dataset
@@ -89,7 +89,7 @@ from azureml.core import Dataset
 my_dataset = Dataset.File.from_files([(def_blob_store, 'train-images/')])
 ```
 
-Les données intermédiaires (ou la sortie d’une étape) sont représentées par un objet [OutputFileDatasetConfig](/python/api/azureml-pipeline-core/azureml.data.output_dataset_config.outputfiledatasetconfig?preserve-view=true&view=azure-ml-py). `output_data1` est généré en tant que sortie d’une étape. Si vous le souhaitez, ces données peuvent être inscrites en tant que jeu de données en appelant `register_on_complete`. Si vous créez un `OutputFileDatasetConfig` dans une étape et l’utilisez en tant qu’entrée pour une autre étape, cette dépendance de données entre les étapes crée un ordre d’exécution implicite dans le pipeline.
+Les données intermédiaires (ou la sortie d’une étape) sont représentées par un objet [OutputFileDatasetConfig](/python/api/azureml-pipeline-core/azureml.data.output_dataset_config.outputfiledatasetconfig). `output_data1` est généré en tant que sortie d’une étape. Si vous le souhaitez, ces données peuvent être inscrites en tant que jeu de données en appelant `register_on_complete`. Si vous créez un `OutputFileDatasetConfig` dans une étape et l’utilisez en tant qu’entrée pour une autre étape, cette dépendance de données entre les étapes crée un ordre d’exécution implicite dans le pipeline.
 
 Les objets`OutputFileDatasetConfig` retournent un répertoire et, par défaut, écrivent la sortie dans le magasin de données par défaut de l’espace de travail.
 
@@ -180,7 +180,7 @@ Le chemin emprunté si vous remplacez `USE_CURATED_ENV` par `False` affiche le m
 
 ## <a name="construct-your-pipeline-steps"></a><a id="steps"></a>Composer les étapes de votre pipeline
 
-Une fois que vous avez créé la ressource et l’environnement de calcul, vous êtes prêt à définir les étapes de votre pipeline. De nombreuses étapes intégrées sont disponibles via le kit de développement logiciel (SDK) Azure Machine Learning, comme vous pouvez le voir dans la [documentation de référence pour le package `azureml.pipeline.steps`](/python/api/azureml-pipeline-steps/azureml.pipeline.steps?preserve-view=true&view=azure-ml-py). La classe la plus flexible est [PythonScriptStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?preserve-view=true&view=azure-ml-py), qui exécute un script Python.
+Une fois que vous avez créé la ressource et l’environnement de calcul, vous êtes prêt à définir les étapes de votre pipeline. De nombreuses étapes intégrées sont disponibles via le kit de développement logiciel (SDK) Azure Machine Learning, comme vous pouvez le voir dans la [documentation de référence pour le package `azureml.pipeline.steps`](/python/api/azureml-pipeline-steps/azureml.pipeline.steps). La classe la plus flexible est [PythonScriptStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep), qui exécute un script Python.
 
 ```python
 from azureml.pipeline.steps import PythonScriptStep
@@ -233,7 +233,7 @@ Pour obtenir d’autres exemples de code, consultez [Comment générer un pipeli
 Après avoir défini vos étapes, vous générez le pipeline à l’aide de tout ou partie de ces étapes.
 
 > [!NOTE]
-> Aucune donnée ni fichier n’est téléchargé sur Azure Machine Learning lorsque vous définissez les étapes ou générez le pipeline. Les fichiers sont chargés quand vous appelez [Experiment.submit()](/python/api/azureml-core/azureml.core.experiment.experiment?preserve-view=true&view=azure-ml-py#&preserve-view=truesubmit-config--tags-none----kwargs-).
+> Aucune donnée ni fichier n’est téléchargé sur Azure Machine Learning lorsque vous définissez les étapes ou générez le pipeline. Les fichiers sont chargés quand vous appelez [Experiment.submit()](/python/api/azureml-core/azureml.core.experiment.experiment#submit-config--tags-none----kwargs-).
 
 ```python
 # list of steps to run (`compare_step` definition not shown)
@@ -247,7 +247,7 @@ pipeline1 = Pipeline(workspace=ws, steps=[compare_models])
 
 ### <a name="use-a-dataset"></a>Utiliser un jeu de données 
 
-Les jeux de données créés depuis Stockage Blob Azure, Azure Files, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database et Azure Database pour PostgreSQL peuvent être utilisés comme entrée pour n'importe quelle étape de pipeline. Vous pouvez écrire la sortie dans un objet [DataTransferStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?preserve-view=true&view=azure-ml-py) ou [DatabricksStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep?preserve-view=true&view=azure-ml-py) ou bien, si vous souhaitez écrire les données dans un magasin de données spécifique, utilisez [OutputFileDatasetConfig](/python/api/azureml-pipeline-core/azureml.data.outputfiledatasetconfig?preserve-view=true&view=azure-ml-py). 
+Les jeux de données créés depuis Stockage Blob Azure, Azure Files, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database et Azure Database pour PostgreSQL peuvent être utilisés comme entrée pour n'importe quelle étape de pipeline. Vous pouvez écrire la sortie dans un objet [DataTransferStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep) ou [DatabricksStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep) ou bien, si vous souhaitez écrire les données dans un magasin de données spécifique, utilisez [OutputFileDatasetConfig](/python/api/azureml-pipeline-core/azureml.data.outputfiledatasetconfig). 
 
 > [!IMPORTANT]
 > L’écriture de données de sortie dans un magasin de données à l’aide de `OutputFileDatasetConfig` est prise en charge uniquement pour un objet blob Azure, un partage de fichiers Azure et les magasins de données ADLS Gen 1 ou Gen 2. 
@@ -261,7 +261,7 @@ dataset_consuming_step = PythonScriptStep(
 )
 ```
 
-Vous récupérez ensuite le jeu de données dans votre pipeline à l’aide du dictionnaire [Run.input_datasets](/python/api/azureml-core/azureml.core.run.run?preserve-view=true&view=azure-ml-py#&preserve-view=trueinput-datasets).
+Vous récupérez ensuite le jeu de données dans votre pipeline à l’aide du dictionnaire [Run.input_datasets](/python/api/azureml-core/azureml.core.run.run#input-datasets).
 
 ```python
 # iris_train.py
@@ -285,7 +285,7 @@ Pour plus d’informations, notamment sur les autres façons de transmettre et d
 ## <a name="caching--reuse"></a>Mise en cache et réutilisation  
 
 Afin d’optimiser et de personnaliser le comportement de vos pipelines, vous pouvez effectuer quelques opérations autour de la mise en cache et de la réutilisation. Par exemple, vous pouvez choisir :
-+ De **désactiver la réutilisation par défaut de la sortie d’exécution de l’étape** en définissant `allow_reuse=False` pendant la [définition de l’étape](/python/api/azureml-pipeline-steps/?preserve-view=true&view=azure-ml-py). La réutilisation est essentielle lors de l’utilisation des pipelines dans un environnement de collaboration. En effet, cela permet de supprimer les exécutions inutiles et ainsi d’offrir une grande souplesse. Toutefois, vous pouvez refuser la réutilisation.
++ De **désactiver la réutilisation par défaut de la sortie d’exécution de l’étape** en définissant `allow_reuse=False` pendant la [définition de l’étape](/python/api/azureml-pipeline-steps/). La réutilisation est essentielle lors de l’utilisation des pipelines dans un environnement de collaboration. En effet, cela permet de supprimer les exécutions inutiles et ainsi d’offrir une grande souplesse. Toutefois, vous pouvez refuser la réutilisation.
 + De **forcer la régénération de sortie pour toutes les étapes dans une exécution** avec `pipeline_run = exp.submit(pipeline, regenerate_outputs=False)`
 
 Par défaut, `allow_reuse` pour les étapes est activé et le `source_directory` spécifié dans la définition de l’étape est haché. Par conséquent, si le script pour une étape donnée reste le même (`script_name`, entrées et paramètres) et que rien d’autre n’a changé dans le ` source_directory`, la sortie d’une exécution d’étape précédente est réutilisée, le travail n’est pas envoyé pour le calcul et les résultats de l’exécution précédente sont immédiatement disponibles pour l’étape suivante à la place.
@@ -328,7 +328,7 @@ Lorsque vous exécutez un pipeline pour la première fois, Azure Machine Learnin
 
 ![Diagramme d’exécution d’une expérience en tant que pipeline](./media/how-to-create-your-first-pipeline/run_an_experiment_as_a_pipeline.png)
 
-Pour plus d’informations, consultez la référence [Experiment class](/python/api/azureml-core/azureml.core.experiment.experiment?preserve-view=true&view=azure-ml-py) (Classe Experiment).
+Pour plus d’informations, consultez la référence [Experiment class](/python/api/azureml-core/azureml.core.experiment.experiment) (Classe Experiment).
 
 ## <a name="use-pipeline-parameters-for-arguments-that-change-at-inference-time"></a>Utiliser les paramètres de pipeline pour les arguments qui changent au temps de l’inférence
 
@@ -378,6 +378,6 @@ Lorsque vous lancez une exécution d’entraînement où le répertoire source e
 
 - Pour partager votre pipeline avec des collègues ou des clients, consultez [Publier des pipelines Machine Learning](how-to-deploy-pipelines.md)
 - Utilisez [ces notebooks Jupyter sur GitHub](https://aka.ms/aml-pipeline-readme) pour explorer plus en détail les pipelines Machine Learning
-- Consultez l’aide de référence du SDK pour les packages [azureml-pipelines-core](/python/api/azureml-pipeline-core/?preserve-view=true&view=azure-ml-py) et [azureml-pipelines-steps](/python/api/azureml-pipeline-steps/?preserve-view=true&view=azure-ml-py)
+- Consultez l’aide de référence du SDK pour les packages [azureml-pipelines-core](/python/api/azureml-pipeline-core/) et [azureml-pipelines-steps](/python/api/azureml-pipeline-steps/)
 - Consultez le [guide pratique](how-to-debug-pipelines.md) pour obtenir des conseils sur le débogage et la résolution des problèmes de pipelines.
 - Découvrez comment exécuter des notebooks dans l’article [Utiliser des notebooks Jupyter pour explorer ce service](samples-notebooks.md).

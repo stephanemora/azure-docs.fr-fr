@@ -6,19 +6,19 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 02/03/2021
+ms.date: 02/22/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: 44265efd4d125bb2701742a490fc883c48f1877b
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 6c067fb5f39e82bb1601ce7b4d9dc5e2ce4ac624
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99550990"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102440137"
 ---
 # <a name="tutorial-run-a-compute-workload-with-iot-edge-module-on-azure-stack-edge-pro-gpu"></a>Tutoriel : Exécuter une charge de travail de calcul avec un module IoT Edge sur Azure Stack Edge Pro avec GPU
 
-<!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
+[!INCLUDE [applies-to-GPU-and-pro-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-sku.md)]
 
 Ce tutoriel explique comment exécuter une charge de travail de calcul à l’aide d’un module IoT Edge sur votre appareil Azure Stack Edge Pro avec GPU. Une fois le calcul configuré, l’appareil transforme les données avant de les envoyer à Azure.
 
@@ -75,7 +75,7 @@ Pour le déploiement simple dans ce tutoriel, vous aurez besoin de deux partages
 
     `rsync <source file path> < destination file path>`
 
-    Pour plus d’informations sur la commande `rsync`, consultez la [documentation de Rsync](https://www.computerhope.com/unix/rsync.htm).
+    Pour plus d’informations sur la commande `rsync`, consultez la [documentation de `Rsync`](https://www.computerhope.com/unix/rsync.htm).
  
 3. Accédez à **Passerelle de stockage cloud > Partages** pour voir la liste des partages mise à jour.
 

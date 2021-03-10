@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 07/17/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy
-ms.openlocfilehash: 46b8f153e65f436fa1062a0606e0fb0136d972a5
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: 8076e3f6b2198abe46ae49cd8e0fd2b02f000231
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97824597"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102519348"
 ---
 # <a name="deploy-your-existing-model-with-azure-machine-learning"></a>Déployer votre modèle existant avec Azure Machine Learning
 
@@ -28,13 +28,13 @@ Pour plus d’informations sur les concepts et les termes utilisés dans cet art
 ## <a name="prerequisites"></a>Prérequis
 
 * [Un espace de travail Azure Machine Learning](how-to-manage-workspace.md)
-  + Les exemples Python supposent que la variable `ws` est définie sur votre espace de travail Azure Machine Learning. Pour plus d’informations sur la procédure de connexion à l’espace de travail, reportez-vous à la [documentation sur le kit SDK Azure Machine Learning pour Python](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#&preserve-view=trueworkspace).
+  + Les exemples Python supposent que la variable `ws` est définie sur votre espace de travail Azure Machine Learning. Pour plus d’informations sur la procédure de connexion à l’espace de travail, reportez-vous à la [documentation sur le kit SDK Azure Machine Learning pour Python](/python/api/overview/azure/ml/#workspace).
   
   + Les exemples de l’interface CLI utilisent les espaces réservés `myworkspace` et `myresourcegroup`, que vous devez remplacer par le nom de votre espace de travail et le groupe de ressources qui le contient.
 
-* Le [kit SDK Python d’Azure Machine Learning](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).  
+* Le [kit SDK Python d’Azure Machine Learning](/python/api/overview/azure/ml/install).  
 
-* [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest) et [Extension CLI Machine Learning](reference-azure-machine-learning-cli.md).
+* [Azure CLI](/cli/azure/install-azure-cli) et [Extension CLI Machine Learning](reference-azure-machine-learning-cli.md).
 
 * Un modèle entraîné. Le modèle doit être conservé dans un ou plusieurs fichiers de votre environnement de développement. <br><br>Pour illustrer l’inscription d’un modèle entraîné, l’exemple de code fourni dans cet article utilise les modèles issus du [projet d’analyse des sentiments sur Twitter de Paolo Ripamonti](https://www.kaggle.com/paoloripamonti/twitter-sentiment-analysis).
 
@@ -52,7 +52,7 @@ model = Model.register(model_path = "./models",
                        workspace = ws)
 ```
 
-Pour plus d’informations, consultez les informations de référence sur [Model.register()](/python/api/azureml-core/azureml.core.model%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=trueregister-workspace--model-path--model-name--tags-none--properties-none--description-none--datasets-none--model-framework-none--model-framework-version-none--child-paths-none--sample-input-dataset-none--sample-output-dataset-none--resource-configuration-none-).
+Pour plus d’informations, consultez les informations de référence sur [Model.register()](/python/api/azureml-core/azureml.core.model%28class%29#register-workspace--model-path--model-name--tags-none--properties-none--description-none--datasets-none--model-framework-none--model-framework-version-none--child-paths-none--sample-input-dataset-none--sample-output-dataset-none--resource-configuration-none-).
 
 ```azurecli
 az ml model register -p ./models -n sentiment -w myworkspace -g myresourcegroup
@@ -61,7 +61,7 @@ az ml model register -p ./models -n sentiment -w myworkspace -g myresourcegroup
 > [!TIP]
 > Vous pouvez également définir des objets de dictionnaire `tags` et `properties` dans le modèle inscrit. Ces valeurs peuvent être utilisées ultérieurement pour identifier un modèle spécifique. Par exemple, le framework utilisé, les paramètres d’entraînement, etc.
 
-Pour plus d’informations, consultez les informations de référence sur [az ml model register](/cli/azure/ext/azure-cli-ml/ml/model?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-register).
+Pour plus d’informations, consultez les informations de référence sur [az ml model register](/cli/azure/ext/azure-cli-ml/ml/model#ext-azure-cli-ml-az-ml-model-register).
 
 
 Pour plus d’informations sur l’inscription de modèle en général, consultez [Gérer, déployer et superviser des modèles d’apprentissage automatique](concept-model-management-and-deployment.md).
@@ -103,7 +103,7 @@ inference_config = InferenceConfig(entry_script="score.py",
 Pour plus d’informations, consultez les articles suivants :
 
 + [Comment utiliser des environnements](how-to-use-environments.md).
-+ Informations de référence sur [InferenceConfig](/python/api/azureml-core/azureml.core.model.inferenceconfig?preserve-view=true&view=azure-ml-py).
++ Informations de référence sur [InferenceConfig](/python/api/azureml-core/azureml.core.model.inferenceconfig).
 
 
 L’interface CLI charge la configuration de l’inférence à partir d’un fichier YAML :
@@ -220,7 +220,7 @@ Pour plus d’informations sur les scripts d’entrée, consultez [Déployer des
 
 ## <a name="define-deployment"></a>Définir le déploiement
 
-Le package [Webservice](/python/api/azureml-core/azureml.core.webservice?preserve-view=true&view=azure-ml-py) contient les classes utilisées pour le déploiement. La classe que vous utilisez détermine où le modèle est déployé. Par exemple, pour déployer un modèle comme un service web sur Azure Kubernetes Service, utilisez [AksWebService.deploy_configuration()](/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py&preserve-view=true#&preserve-view=truedeploy-configuration-autoscale-enabled-none--autoscale-min-replicas-none--autoscale-max-replicas-none--autoscale-refresh-seconds-none--autoscale-target-utilization-none--collect-model-data-none--auth-enabled-none--cpu-cores-none--memory-gb-none--enable-app-insights-none--scoring-timeout-ms-none--replica-max-concurrent-requests-none--max-request-wait-time-none--num-replicas-none--primary-key-none--secondary-key-none--tags-none--properties-none--description-none--gpu-cores-none--period-seconds-none--initial-delay-seconds-none--timeout-seconds-none--success-threshold-none--failure-threshold-none--namespace-none--token-auth-enabled-none--compute-target-name-none-) pour créer la configuration de déploiement.
+Le package [Webservice](/python/api/azureml-core/azureml.core.webservice) contient les classes utilisées pour le déploiement. La classe que vous utilisez détermine où le modèle est déployé. Par exemple, pour déployer un modèle comme un service web sur Azure Kubernetes Service, utilisez [AksWebService.deploy_configuration()](/python/api/azureml-core/azureml.core.webservice.akswebservice#deploy-configuration-autoscale-enabled-none--autoscale-min-replicas-none--autoscale-max-replicas-none--autoscale-refresh-seconds-none--autoscale-target-utilization-none--collect-model-data-none--auth-enabled-none--cpu-cores-none--memory-gb-none--enable-app-insights-none--scoring-timeout-ms-none--replica-max-concurrent-requests-none--max-request-wait-time-none--num-replicas-none--primary-key-none--secondary-key-none--tags-none--properties-none--description-none--gpu-cores-none--period-seconds-none--initial-delay-seconds-none--timeout-seconds-none--success-threshold-none--failure-threshold-none--namespace-none--token-auth-enabled-none--compute-target-name-none-) pour créer la configuration de déploiement.
 
 Le code Python suivant définit une configuration de déploiement pour un déploiement local. Cette configuration déploie le modèle sous la forme d’un service web sur votre ordinateur local.
 
@@ -233,7 +233,7 @@ from azureml.core.webservice import LocalWebservice
 deployment_config = LocalWebservice.deploy_configuration()
 ```
 
-Pour plus d’informations, consultez les informations de référence sur [LocalWebservice.deploy_configuration()](/python/api/azureml-core/azureml.core.webservice.localwebservice?preserve-view=true&view=azure-ml-py#&preserve-view=truedeploy-configuration-port-none-).
+Pour plus d’informations, consultez les informations de référence sur [LocalWebservice.deploy_configuration()](/python/api/azureml-core/azureml.core.webservice.localwebservice#deploy-configuration-port-none-).
 
 L’interface CLI charge la configuration de déploiement à partir d’un fichier YAML :
 
@@ -260,7 +260,7 @@ print(service.state)
 print("scoring URI: " + service.scoring_uri)
 ```
 
-Pour plus d’informations, consultez les informations de référence sur [Model.deploy()](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py#&preserve-view=truedeploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-).
+Pour plus d’informations, consultez les informations de référence sur [Model.deploy()](/python/api/azureml-core/azureml.core.model.model#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-).
 
 Pour déployer le modèle à partir de l’interface CLI, utilisez la commande suivante. Cette commande déploie la version 1 du modèle inscrit (`sentiment:1`) à l’aide des configurations de l’inférence et de déploiement stockées dans les fichiers `inferenceConfig.json` et `deploymentConfig.json` :
 
@@ -268,7 +268,7 @@ Pour déployer le modèle à partir de l’interface CLI, utilisez la commande s
 az ml model deploy -n myservice -m sentiment:1 --ic inferenceConfig.json --dc deploymentConfig.json
 ```
 
-Pour plus d’informations, consultez les informations de référence sur [az ml model deploy](/cli/azure/ext/azure-cli-ml/ml/model?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy).
+Pour plus d’informations, consultez les informations de référence sur [az ml model deploy](/cli/azure/ext/azure-cli-ml/ml/model#ext-azure-cli-ml-az-ml-model-deploy).
 
 Pour plus d’informations sur le déploiement, consultez [Comment et où déployer des modèles ?](how-to-deploy-and-where.md).
 

@@ -11,12 +11,12 @@ ms.reviewer: peterlu
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: d9bad49b7c3d71304a33691cf5004c853228f8e8
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.openlocfilehash: 2b4af9dec2bf397ad2766c68d547eeac85a9a9a3
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97797228"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102518362"
 ---
 # <a name="train-keras-models-at-scale-with-azure-machine-learning"></a>Entraîner des modèles Keras à grande échelle avec Azure Machine Learning
 
@@ -42,7 +42,7 @@ Exécutez ce code sur l’un de ces environnements :
 
  - Votre propre serveur de notebooks Jupyter
 
-    - [Installer le SDK Azure Machine Learning](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py) (>= 1.15.0).
+    - [Installer le SDK Azure Machine Learning](/python/api/overview/azure/ml/install) (>= 1.15.0).
     - [Créer un fichier de configuration d’espace de travail](how-to-configure-environment.md#workspace).
     - [Téléchargez les exemples de fichiers de script](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/keras/train-hyperparameter-tune-deploy-with-keras) `keras_mnist.py` et `utils.py`
 
@@ -68,7 +68,7 @@ from azureml.core.compute_target import ComputeTargetException
 
 ### <a name="initialize-a-workspace"></a>Initialiser un espace de travail
 
-L’[espace de travail Azure Machine Learning](concept-workspace.md) est la ressource de niveau supérieur du service. Il vous fournit un emplacement centralisé dans lequel utiliser tous les artefacts que vous créez. Dans le kit de développement logiciel (SDK) Python, vous pouvez accéder aux artefacts de l’espace de travail en créant un objet [`workspace`](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py).
+L’[espace de travail Azure Machine Learning](concept-workspace.md) est la ressource de niveau supérieur du service. Il vous fournit un emplacement centralisé dans lequel utiliser tous les artefacts que vous créez. Dans le kit de développement logiciel (SDK) Python, vous pouvez accéder aux artefacts de l’espace de travail en créant un objet [`workspace`](/python/api/azureml-core/azureml.core.workspace.workspace).
 
 Créez un objet d’espace de travail à partir du fichier `config.json` créé dans la [section Conditions préalables](#prerequisites).
 
@@ -192,11 +192,11 @@ src = ScriptRunConfig(source_directory=script_folder,
 Pour plus d’informations sur la configuration des travaux avec ScriptRunConfig, consultez [Configurer et envoyer des exécutions d’entraînement](how-to-set-up-training-targets.md).
 
 > [!WARNING]
-> Si vous utilisiez précédemment l’estimateur TensorFlow pour configurer vos travaux de formation keras, veuillez noter que les estimateurs ont été dépréciés à partir de la version du kit de développement logiciel (SDK) 1.19.0. Avec le kit de développement logiciel (SDK) Azure ML > = 1.15.0, ScriptRunConfig est la méthode recommandée pour configurer des tâches de formation, y compris celles utilisant des infrastructures d’apprentissage approfondi. Pour les questions courantes sur la migration, consultez le [Guide de migration pour ScriptRunConfig](how-to-migrate-from-estimators-to-scriptrunconfig.md).
+> Si vous utilisiez précédemment l’estimateur TensorFlow pour configurer vos travaux de formation keras, veuillez noter que les estimateurs ont été dépréciés à partir de la version du kit de développement logiciel (SDK) 1.19.0. Avec le kit de développement logiciel (SDK) Azure ML > = 1.15.0, ScriptRunConfig est la méthode recommandée pour configurer des tâches de formation, y compris celles utilisant des infrastructures d’apprentissage approfondi. Pour les questions courantes sur la migration, consultez le [Guide de migration de l’estimateur vers ScriptRunConfig](how-to-migrate-from-estimators-to-scriptrunconfig.md).
 
 ### <a name="submit-your-run"></a>Envoyer votre exécution
 
-L’[objet d’exécution](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py) fournit l’interface à l’historique des exécutions pendant et après l’exécution de la tâche.
+L’[objet d’exécution](/python/api/azureml-core/azureml.core.run%28class%29) fournit l’interface à l’historique des exécutions pendant et après l’exécution de la tâche.
 
 ```Python
 run = Experiment(workspace=ws, name='Tutorial-Keras-Minst').submit(src)

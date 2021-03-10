@@ -5,14 +5,14 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 2/4/2021
 ms.author: baanders
-ms.openlocfilehash: c3c1b814b357a2e4b724590261657e485852f99c
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 9a02c4f5c5699b4a6308bfaa519fa9eb776414d6
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99575679"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102244745"
 ---
-* **Si vous n’avez pas besoin des ressources que vous avez créées dans ce tutoriel**, vous pouvez supprimer l’instance Azure Digital Twins et toutes les autres ressources de cet article à l’aide de la commande [az group delete](/cli/azure/group?preserve-view=true&view=azure-cli-latest#az-group-delete). Cette opération supprime toutes les ressources Azure d’un groupe de ressources ainsi que ce dernier.
+* **Si vous n’avez pas besoin des ressources que vous avez créées dans ce tutoriel**, vous pouvez supprimer l’instance Azure Digital Twins et toutes les autres ressources de cet article à l’aide de la commande [az group delete](/cli/azure/group#az-group-delete). Cette opération supprime toutes les ressources Azure d’un groupe de ressources ainsi que ce dernier.
     
     > [!IMPORTANT]
     > La suppression d’un groupe de ressources est irréversible. Le groupe de ressources et toutes les ressources qu’il contient sont supprimés définitivement. Veillez à ne pas supprimer accidentellement les mauvaises ressources ou le mauvais groupe de ressources.

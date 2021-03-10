@@ -12,18 +12,18 @@ ms.reviewer: nibaccam
 ms.date: 07/31/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, data4ml
-ms.openlocfilehash: 688bec24cbcd88130470634abff0688ead8005ef
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 15bad877be00e143ce6f6956a4e1f23378c275c0
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881684"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521779"
 ---
 # <a name="train-models-with-azure-machine-learning-datasets"></a>Effectuer l'apprentissage de modèles avec des jeux de données Azure Machine Learning 
 
-Cet article explique comment utiliser des [jeux de données Azure Machine Learning](/python/api/azureml-core/azureml.core.dataset%28class%29?preserve-view=true&view=azure-ml-py) pour entraîner des modèles Machine Learning.  Vous pouvez utiliser des jeux de données dans votre cible de calcul locale ou distante sans vous soucier des chaînes de connexion ou des chemins de données. 
+Cet article explique comment utiliser des [jeux de données Azure Machine Learning](/python/api/azureml-core/azureml.core.dataset%28class%29) pour entraîner des modèles Machine Learning.  Vous pouvez utiliser des jeux de données dans votre cible de calcul locale ou distante sans vous soucier des chaînes de connexion ou des chemins de données. 
 
-Les jeux de données Azure Machine Learning fournissent une intégration transparente avec les fonctionnalités de formation d’Azure Machine Learning telles que [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py), [HyperDrive](/python/api/azureml-train-core/azureml.train.hyperdrive?preserve-view=true&view=azure-ml-py) et les [pipelines Azure Machine Learning](./how-to-create-machine-learning-pipelines.md).
+Les jeux de données Azure Machine Learning fournissent une intégration transparente avec les fonctionnalités de formation d’Azure Machine Learning telles que [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig), [HyperDrive](/python/api/azureml-train-core/azureml.train.hyperdrive) et les [pipelines Azure Machine Learning](./how-to-create-machine-learning-pipelines.md).
 
 Si vous ne voulez pas encore rendre vos données disponibles pour l’apprentissage du modèle, mais que vous souhaitez charger vos données dans votre notebook pour l’exploration des données, consultez [Guide pratique pour explorer les données d’un jeu de données](how-to-create-register-datasets.md#explore-data). 
 
@@ -35,16 +35,16 @@ Pour créer des jeux de données et effectuer un entraînement avec eux, vous av
 
 * Un [espace de travail Azure Machine Learning](how-to-manage-workspace.md).
 
-* Le [kit de développement logiciel (SDK) Azure Machine Learning pour Python](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py) (version 1.13.0 ou ultérieure), qui inclut le package `azureml-datasets`.
+* Le [kit de développement logiciel (SDK) Azure Machine Learning pour Python](/python/api/overview/azure/ml/install) (version 1.13.0 ou ultérieure), qui inclut le package `azureml-datasets`.
 
 > [!Note]
-> Certaines classes de jeu de données ont des dépendances avec le package [azureml-dataprep](/python/api/azureml-dataprep/?preserve-view=true&view=azure-ml-py). Pour les utilisateurs Linux, ces classes sont uniquement prises en charge dans les distributions suivantes :  Red Hat Enterprise Linux, Ubuntu, Fedora et CentOS.
+> Certaines classes de jeu de données ont des dépendances avec le package [azureml-dataprep](/python/api/azureml-dataprep/). Pour les utilisateurs Linux, ces classes sont uniquement prises en charge dans les distributions suivantes :  Red Hat Enterprise Linux, Ubuntu, Fedora et CentOS.
 
 ## <a name="consume-datasets-in-machine-learning-training-scripts"></a>Utiliser des jeux de données dans des scripts d’apprentissage Machine Learning
 
 Si vous disposez de données structurées qui ne sont pas encore inscrites en tant que jeu de données, créez un TabularDataset et utilisez-le directement dans votre script de formation pour votre expérience locale ou distante.
 
-Dans cet exemple, vous créez un [TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py) non inscrit et le spécifiez comme argument de script dans l’objet ScriptRunConfig pour la formation. Si vous souhaitez réutiliser ce TabularDataset avec d’autres expériences dans votre espace de travail, consultez [Comment inscrire des jeux de données dans votre espace de travail](how-to-create-register-datasets.md#register-datasets).
+Dans cet exemple, vous créez un [TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset) non inscrit et le spécifiez comme argument de script dans l’objet ScriptRunConfig pour la formation. Si vous souhaitez réutiliser ce TabularDataset avec d’autres expériences dans votre espace de travail, consultez [Comment inscrire des jeux de données dans votre espace de travail](how-to-create-register-datasets.md#register-datasets).
 
 ### <a name="create-a-tabulardataset"></a>Créer un TabularDataset
 
@@ -90,7 +90,7 @@ df = dataset.to_pandas_dataframe()
 
 ### <a name="configure-the-training-run"></a>Configurer l’exécution de l’apprentissage
 
-Un objet [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrun?preserve-view=true&view=azure-ml-py) est utilisé pour configurer et soumettre l’exécution de la formation.
+Un objet [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrun) est utilisé pour configurer et soumettre l’exécution de la formation.
 
 Ce code crée un objet ScriptRunConfig, `src`, qui spécifie :
 
@@ -117,7 +117,7 @@ run.wait_for_completion(show_output=True)
 
 ## <a name="mount-files-to-remote-compute-targets"></a>Monter des fichiers sur des cibles de calcul distantes
 
-Si vous avez des données non structurées, créez un [FileDataset](/python/api/azureml-core/azureml.data.filedataset?preserve-view=true&view=azure-ml-py) et montez ou téléchargez vos fichiers de données pour les mettre à la disposition de votre cible de calcul à distance pour la formation. Découvrez quand utiliser [le montage ou le téléchargement](#mount-vs-download) pour vos expériences de formation à distance. 
+Si vous avez des données non structurées, créez un [FileDataset](/python/api/azureml-core/azureml.data.filedataset) et montez ou téléchargez vos fichiers de données pour les mettre à la disposition de votre cible de calcul à distance pour la formation. Découvrez quand utiliser [le montage ou le téléchargement](#mount-vs-download) pour vos expériences de formation à distance. 
 
 L’exemple suivant crée un FileDataset et monte le jeu de données sur la cible de calcul en le transmettant comme argument au script de formation. 
 
@@ -225,7 +225,7 @@ print (mounted_path)
 
 ## <a name="get-datasets-in-machine-learning-scripts"></a>Récupérer des jeux de données dans des scripts Machine Learning
 
-Les jeux de données inscrits sont accessibles localement et à distance sur des clusters de calcul comme la capacité de calcul Azure Machine Learning. Pour accéder à votre jeu de données inscrit dans plusieurs expériences, utilisez le code suivant afin d’accéder à votre espace de travail et de récupérer le jeu de données utilisé dans votre exécution précédente. Par défaut, la méthode [`get_by_name()`](/python/api/azureml-core/azureml.core.dataset.dataset?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-by-name-workspace--name--version--latest--) sur la classe `Dataset` retourne la dernière version du jeu de données inscrit auprès de l’espace de travail.
+Les jeux de données inscrits sont accessibles localement et à distance sur des clusters de calcul comme la capacité de calcul Azure Machine Learning. Pour accéder à votre jeu de données inscrit dans plusieurs expériences, utilisez le code suivant afin d’accéder à votre espace de travail et de récupérer le jeu de données utilisé dans votre exécution précédente. Par défaut, la méthode [`get_by_name()`](/python/api/azureml-core/azureml.core.dataset.dataset#get-by-name-workspace--name--version--latest--) sur la classe `Dataset` retourne la dernière version du jeu de données inscrit auprès de l’espace de travail.
 
 ```Python
 %%writefile $script_folder/train.py

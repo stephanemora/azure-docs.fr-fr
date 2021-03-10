@@ -5,14 +5,14 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 11/11/2020
 ms.author: baanders
-ms.openlocfilehash: 887d185249f96b5d3be4aab6a96aa3c6c4a85690
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 02f6c59a76a3fdb7bd4360570b29d7b40a1aff8d
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96231410"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102473675"
 ---
-Cet article montre comment effectuer différentes opérations de gestion à l’aide du [**kit SDK** .NET (C#) Azure Digital Twins](/dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet&preserve-view=true). Vous pouvez également créer les mêmes appels de gestion à l’aide des autres kits SDK de langage décrits dans [*Guide pratique : Utiliser les kits SDK et les API Azure Digital Twins*](../articles/digital-twins/how-to-use-apis-sdks.md).
+Cet article montre comment effectuer différentes opérations de gestion à l’aide du [**kit SDK** .NET (C#) Azure Digital Twins](/dotnet/api/overview/azure/digitaltwins/management). Vous pouvez également créer les mêmes appels de gestion à l’aide des autres kits SDK de langage décrits dans [*Guide pratique : Utiliser les kits SDK et les API Azure Digital Twins*](../articles/digital-twins/how-to-use-apis-sdks.md).
 
 > [!TIP] 
 > N’oubliez pas que toutes les méthodes du SDK sont disponibles dans les versions synchrones et asynchrones. Pour les appels de pagination, les méthodes asynchrones retournent `AsyncPageable<T>`, tandis que les versions synchrones retournent `Pageable<T>`.

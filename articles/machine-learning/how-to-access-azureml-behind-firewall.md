@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 11/18/2020
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 0fcea6a44f5379ff3da5b348ae45486be6c2516a
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: 295228e9eaa3529b05055869bd46f9aefc938a6f
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99831312"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102212771"
 ---
 # <a name="use-workspace-behind-a-firewall-for-azure-machine-learning"></a>Utiliser l’espace de travail derrière un Pare-feu pour Azure Machine Learning
 
@@ -33,15 +33,15 @@ Lorsque vous utilisez le pare-feu Azure, utilisez __DNAT (Destination Network Ad
 
 Si vous utilisez une __instance de calcul__ Azure Machine Learning ou un __cluster de calcul__, ajoutez des [itinéraires définis par l’utilisateur (UDR)](../virtual-network/virtual-networks-udr-overview.md) pour le sous-réseau contenant les ressources Azure Machine Learning. Cet itinéraire force le trafic __depuis__ les adresses IP des ressources `BatchNodeManagement` et `AzureMachineLearning` vers l’adresse IP publique de votre instance de calcul et de votre cluster de calcul.
 
-Ces UDR autorisent le service Batch à communiquer avec les nœuds de calcul pour la planification des tâches. Ajoutez également l’adresse IP d’Azure Machine Learning service, car elle est nécessaire pour l’accès aux instances de calcul. Lors de l’ajout de l’adresse IP pour Azure Machine Learning service, vous devez ajouter l’adresse IP pour les régions Azure __primaire et secondaire__. La région primaire est celle où se trouve votre espace de travail.
+Ces UDR autorisent le service Batch à communiquer avec les nœuds de calcul pour la planification des tâches. Ajoutez également l’adresse IP du service Azure Machine Learning, car elle est nécessaire pour l’accès aux instances de calcul. Lors de l’ajout de l’adresse IP pour le service Azure Machine Learning, vous devez ajouter l’adresse IP pour les régions Azure __primaire et secondaire__. La région primaire est celle où se trouve votre espace de travail.
 
-Pour trouver la région secondaire, consultez [Assurer la continuité des activités et la récupération d’urgence à l’aide des régions jumelées Azure](../best-practices-availability-paired-regions.md#azure-regional-pairs). Par exemple, si votre Azure Machine Learning service se trouve dans la région USA Est 2, la région secondaire correspond à USA Centre. 
+Pour trouver la région secondaire, consultez [Assurer la continuité des activités et la récupération d’urgence à l’aide des régions jumelées Azure](../best-practices-availability-paired-regions.md#azure-regional-pairs). Par exemple, si votre service Azure Machine Learning se trouve dans la région USA Est 2, la région secondaire correspond à USA Centre. 
 
 Pour obtenir la liste des adresses IP du service Batch et du service Azure Machine Learning, utilisez l’une des méthodes suivantes :
 
 * Téléchargez les [plages d’adresses IP Azure et les balises de service](https://www.microsoft.com/download/details.aspx?id=56519), et recherchez `BatchNodeManagement.<region>` et `AzureMachineLearning.<region>` dans le fichier, où `<region>` est votre région Azure.
 
-* Utilisez [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest) pour télécharger les informations. L’exemple suivant télécharge les informations d’adresse IP et filtre les informations pour la région USA Est 2 (primaire) et la région USA Centre (secondaire) :
+* Utilisez [Azure CLI](/cli/azure/install-azure-cli) pour télécharger les informations. L’exemple suivant télécharge les informations d’adresse IP et filtre les informations pour la région USA Est 2 (primaire) et la région USA Centre (secondaire) :
 
     ```azurecli-interactive
     az network list-service-tags -l "East US 2" --query "values[?starts_with(id, 'Batch')] | [?properties.region=='eastus2']"

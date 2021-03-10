@@ -4,16 +4,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/27/2020
 ms.author: trbye
-ms.openlocfilehash: c0e3dc2a93393982341414399e318de0d983b918
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ecc8fa0d6660d76f20451cf98e927e7efb2c30d7
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81399945"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102434471"
 ---
 :::row:::
     :::column span="3":::
-        Le Kit de développement logiciel (SDK) Speech Python est disponible sous la forme d’un module d’index de package Python (PyPI). Pour plus d’informations, consultez <a href="https://pypi.org/project/azure-cognitiveservices-speech/" target="_blank">azure-cognitiveservices-speech <span class="docon docon-navigate-external x-hidden-focus"></span></a>. Le Kit de développement logiciel (SDK) Speech Python est compatible avec Windows, Linux et macOS.
+        Le Kit de développement logiciel (SDK) Speech Python est disponible sous la forme d’un module d’index de package Python (PyPI). Pour plus d’informations, consultez <a href="https://pypi.org/project/azure-cognitiveservices-speech/" target="_blank">azure-cognitiveservices-speech </a>. Le Kit de développement logiciel (SDK) Speech Python est compatible avec Windows, Linux et macOS.
     :::column-end:::
     :::column:::
         <br>
@@ -35,4 +35,4 @@ pip install azure-cognitiveservices-speech
 
 #### <a name="additional-resources"></a>Ressources supplémentaires
 
-- <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/python" target="_blank">Code source de démarrage rapide du Kit de développement logiciel (SDK) Speech Python <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/python" target="_blank">Code source de démarrage rapide du Kit de développement logiciel (SDK) Speech Python </a>

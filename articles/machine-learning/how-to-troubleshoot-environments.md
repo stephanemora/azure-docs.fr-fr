@@ -10,12 +10,12 @@ ms.author: sagopal
 ms.date: 12/3/2020
 ms.topic: troubleshooting
 ms.custom: devx-track-python
-ms.openlocfilehash: 5b2f62e8e04bddadc7068eb75405bcf1568f5713
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: ec0c7d64f2145cdaf594cb903c072984f4d376a9
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101657296"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102519127"
 ---
 # <a name="troubleshoot-environment-image-builds"></a>Résoudre les problèmes liés à la génération d’images d’environnement
 
@@ -24,8 +24,8 @@ Découvrez comment résoudre les problèmes liés à la génération d’images 
 ## <a name="prerequisites"></a>Prérequis
 
 * Un abonnement Azure. Essayez la [version gratuite ou payante d’Azure Machine Learning](https://aka.ms/AMLFree).
-* Le [Kit de développement logiciel (SDK) Azure Machine Learning](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
-* [Interface de ligne de commande Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
+* Le [Kit de développement logiciel (SDK) Azure Machine Learning](/python/api/overview/azure/ml/install).
+* [Interface de ligne de commande Azure](/cli/azure/install-azure-cli).
 * [Extension CLI pour Azure Machine Learning](reference-azure-machine-learning-cli.md).
 * Pour déboguer localement, vous devez avoir une installation opérationnelle de Docker sur votre système local.
 
@@ -158,7 +158,7 @@ Problèmes possibles :
 
 ### <a name="you-get-a-401-error-from-a-workspace-container-registry"></a>Vous recevez une erreur 401 d’un registre de conteneurs d’espace de travail
 
-Resynchronisez les clés de stockage à l’aide de la commande [ws.sync_keys()](/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#sync-keys--).
+Resynchronisez les clés de stockage à l’aide de la commande [ws.sync_keys()](/python/api/azureml-core/azureml.core.workspace.workspace#sync-keys--).
 
 ### <a name="the-environment-keeps-throwing-a-waiting-for-other-conda-operations-to-finish-error"></a>L’environnement continue à générer l’erreur « En attente de la fin d’autres opérations Conda… »
 

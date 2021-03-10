@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: a84e4e767092a1507ef0608c21ff1896cb1dde0d
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: de3d9aa60322cc3e6e189f6f16c35d6f42c0cf61
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880942"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102500408"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Former des modèles avec Azure Machine Learning
 
@@ -41,13 +41,13 @@ Chacune de ces méthodes d’entraînement peut utiliser différents types de re
 
 Le SDK Azure Machine Learning pour Python vous permet de créer et exécuter des workflows de machine learning avec Azure Machine Learning. Vous pouvez interagir avec le service à partir d’une session Python interactive, de notebooks Jupyter, de Visual Studio Code ou d’un autre IDE.
 
-* [Qu’est-ce que le SDK Azure Machine Learning pour Python ?](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)
-* [Installer/mettre à jour le SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)
+* [Qu’est-ce que le SDK Azure Machine Learning pour Python ?](/python/api/overview/azure/ml/intro)
+* [Installer/mettre à jour le SDK](/python/api/overview/azure/ml/install)
 * [Configurer un environnement de développement pour Azure Machine Learning](how-to-configure-environment.md)
 
 ### <a name="run-configuration"></a>Configuration de série de tests
 
-Un travail d’apprentissage générique avec Azure Machine Learning peut être défini à l’aide de la classe [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py). La configuration de série de tests de script est ensuite utilisée avec vos scripts d’apprentissage pour effectuer l’apprentissage d’un modèle sur une cible de calcul.
+Un travail d’apprentissage générique avec Azure Machine Learning peut être défini à l’aide de la classe [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig). La configuration de série de tests de script est ensuite utilisée avec vos scripts d’apprentissage pour effectuer l’apprentissage d’un modèle sur une cible de calcul.
 
 Vous pouvez commencer avec une configuration d’exécution pour votre ordinateur local avant de passer si besoin à une autre pour une cible de calcul cloud. Quand vous changez de cible de calcul, vous ne changez que la configuration d’exécution utilisée. Une exécution consigne aussi des informations sur la tâche d’entraînement, notamment les entrées, les sorties et les journaux.
 

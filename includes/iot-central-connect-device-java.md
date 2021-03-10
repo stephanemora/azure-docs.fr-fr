@@ -4,19 +4,19 @@ ms.author: dobett
 ms.service: iot-pnp
 ms.topic: include
 ms.date: 11/24/2020
-ms.openlocfilehash: ad305202daf09258bbd439e824fc07f1eed1c5af
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 75533a49c72f13bb9e1e62c160a63ef0606bee23
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033847"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102245076"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
 Pour effectuer les étapes de cet article, vous avez besoin des éléments suivants :
 
 * Une application Azure IoT Central créée avec le modèle **Application personnalisée**. Pour plus d’informations, consultez [Créer une application](../articles/iot-central/core/quick-deploy-iot-central.md). L’application doit avoir été créée à partir le 14 juillet 2020 ou après.
-* Un ordinateur de développement avec Java SE Development Kit 8. Dans [Prise en charge à long terme de Java pour Azure et Azure Stack](/java/azure/jdk/?preserve-view=true&view=azure-java-stable), sous **Prise en charge à long terme**, sélectionnez **Java 8**.
+* Un ordinateur de développement avec Java SE Development Kit 8. Dans [Prise en charge à long terme de Java pour Azure et Azure Stack](/java/azure/jdk/), sous **Prise en charge à long terme**, sélectionnez **Java 8**.
 * [Apache Maven 3](https://maven.apache.org/download.cgi).
 * Une copie locale du dépôt GitHub [SDK Microsoft Azure IoT pour Java](https://github.com/Azure/azure-iot-sdk-java) qui contient l’exemple de code. Utilisez ce lien pour télécharger une copie du dépôt : [Télécharger le fichier ZIP](https://github.com/Azure/azure-iot-sdk-java/archive/master.zip). Décompressez ensuite le fichier dans un emplacement approprié de votre ordinateur local.
 

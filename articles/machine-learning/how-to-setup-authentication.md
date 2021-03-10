@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 11/05/2020
 ms.topic: conceptual
 ms.custom: how-to, has-adal-ref, devx-track-js, devx-track-azurecli, contperf-fy21q2
-ms.openlocfilehash: 27c8a0b80068124613af15565f387f15ac6b8e57
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 30e4fede72df8eaf922745e7781c9e0d11f7ddb4
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97027252"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102210816"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Configurer l’authentification pour des ressources et workflows Azure Machine Learning
 
@@ -54,7 +54,7 @@ Pour utiliser un principal de service, vous devez d’abord créer le principal 
 >
 > La raison pour laquelle vous accordez l’accès le plus bas est qu’un principal de service utilise un mot de passe pour l’authentification et que le mot de passe peut être stocké dans le cadre d’un script d’automatisation. Si le mot de passe est divulgué, le fait d’avoir un accès minimal requis pour une tâche spécifique réduit au minimum l’utilisation malveillante du principal de service.
 
-Le moyen le plus simple de créer un principal de service et de lui accorder l’accès à votre espace de travail consiste à utiliser [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest). Pour créer un principal de service et lui accorder l’accès à votre espace de travail, procédez comme suit :
+Le moyen le plus simple de créer un principal de service et de lui accorder l’accès à votre espace de travail consiste à utiliser [Azure CLI](/cli/azure/install-azure-cli). Pour créer un principal de service et lui accorder l’accès à votre espace de travail, procédez comme suit :
 
 > [!NOTE]
 > Vous devez être administrateur de l’abonnement pour pouvoir effectuer toutes les étapes ci-dessous.
@@ -67,9 +67,9 @@ Le moyen le plus simple de créer un principal de service et de lui accorder l�
 
     Si l’interface CLI peut ouvrir votre navigateur par défaut, elle le fera et chargera une page de connexion par la même occasion. Dans le cas contraire, vous devez ouvrir un navigateur et suivre les instructions de la ligne de commande. Les instructions impliquent de naviguer vers [https://aka.ms/devicelogin](https://aka.ms/devicelogin) et d’entrer un code d’autorisation.
 
-    Si vous avez plusieurs abonnements Azure, vous pouvez utiliser la commande `az account set -s <subscription name or ID>` pour configurer l’abonnement. Pour plus d'informations, consultez [Utiliser plusieurs abonnements Azure](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest).
+    Si vous avez plusieurs abonnements Azure, vous pouvez utiliser la commande `az account set -s <subscription name or ID>` pour configurer l’abonnement. Pour plus d'informations, consultez [Utiliser plusieurs abonnements Azure](/cli/azure/manage-azure-subscriptions-azure-cli).
 
-    Pour les autres méthodes d’authentification, consultez [Se connecter avec Azure CLI](/cli/azure/authenticate-azure-cli?preserve-view=true&view=azure-cli-latest).
+    Pour les autres méthodes d’authentification, consultez [Se connecter avec Azure CLI](/cli/azure/authenticate-azure-cli).
 
 1. Installez l’extension Azure Machine Learning :
 
@@ -236,7 +236,7 @@ ws.get_details()
 
 ### <a name="use-a-service-principal-from-the-azure-cli"></a>Utiliser un principal de service à partir d’Azure CLI
 
-Vous pouvez utiliser un principal de service pour les commandes Azure CLI. Pour plus d’informations, consultez [Se connecter avec un principal de service](/cli/azure/create-an-azure-service-principal-azure-cli?preserve-view=true&view=azure-cli-latest#sign-in-using-a-service-principal).
+Vous pouvez utiliser un principal de service pour les commandes Azure CLI. Pour plus d’informations, consultez [Se connecter avec un principal de service](/cli/azure/create-an-azure-service-principal-azure-cli#sign-in-using-a-service-principal).
 
 ### <a name="use-a-service-principal-with-the-rest-api-preview"></a>Utiliser un principal de service avec l’API REST (préversion)
 

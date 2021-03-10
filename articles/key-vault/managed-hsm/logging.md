@@ -9,12 +9,12 @@ ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 22abd38ead1257b49eeae98acfcd74349f563811
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7420ffbe5b365c635c1eac2620cfd54ceb649ebf
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90992167"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102211802"
 ---
 # <a name="managed-hsm-logging"></a>Journalisation pour HSM managé 
 
@@ -22,7 +22,7 @@ Une fois que vous avez créé un ou plusieurs HSM managés, vous voulez probable
 
 Vous pouvez accéder aux informations de journalisation 10 minutes (au maximum) après l’opération sur le HSM managé. Dans la plupart des cas, ce sera plus rapide.  C’est à vous de gérer vos journaux d’activité dans votre compte de stockage :
 
-* Utilisez les méthodes de contrôle d’accès Azure standard pour assurer la sécurité de vos journaux d’activité en limitant l’accès à ces derniers.
+* Utilisez les méthodes de contrôle d’accès Azure standard pour sécuriser vos journaux en limitant qui y a accès.
 * Supprimez les journaux d’activité que vous ne souhaitez plus conserver dans votre compte de stockage.
 
 Utilisez ce tutoriel pour démarrer avec la journalisation pour HSM managé. Vous allez créer un compte de stockage, activer la journalisation et interpréter les informations de journal collectées.  
@@ -35,7 +35,7 @@ Utilisez ce tutoriel pour démarrer avec la journalisation pour HSM managé. Vou
 Pour effectuer les étapes de cet article, vous devez disposer des éléments suivants :
 
 * Un abonnement à Microsoft Azure. Si vous n’en avez pas, vous pouvez vous inscrire pour bénéficier d’un [essai gratuit](https://azure.microsoft.com/pricing/free-trial).
-* Azure CLI 2.12.0 ou version ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI]( /cli/azure/install-azure-cli).
+* Azure CLI 2.12.0 ou une version ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI]( /cli/azure/install-azure-cli).
 * HSM managé dans votre abonnement. Consultez [Démarrage rapide : Provisionner et activer un HSM managé à l’aide d’Azure CLI](quick-create-cli.md) pour provisionner et activer un HSM managé.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
@@ -48,7 +48,7 @@ La première étape de la configuration de la journalisation de clés consiste �
 az login
 ```
 
-Pour plus d’informations sur les options de connexion par le biais de l’interface CLI, consultez [Se connecter avec Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest&preserve-view=true)
+Pour plus d’informations sur les options de connexion par le biais de l’interface CLI, consultez [Se connecter avec Azure CLI](/cli/azure/authenticate-azure-cli)
 
 Vous devrez peut-être spécifier l’abonnement que vous avez utilisé pour créer votre HSM managé. Entrez la commande ci-après pour afficher les abonnements de votre compte :
 
