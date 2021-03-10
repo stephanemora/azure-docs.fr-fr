@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: be8f4ba8552521d25992d7c3a405dc2628fbbb85
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 86efd7781c7353b4846c77eba01ed34fb63067ff
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100560816"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102433248"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Gérer les modèles Azure Digital Twins
 
-Vous pouvez gérer les [modèles](concepts-models.md) que votre instance Azure Digital Twins connait à l’aide des API [**DigitalTwinModels**](/rest/api/digital-twins/dataplane/models), du [SDK .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) ou de [l’interface CLI Azure Digital Twins](how-to-use-cli.md). 
+Vous pouvez gérer les [modèles](concepts-models.md) que votre instance Azure Digital Twins connait à l’aide des API [**DigitalTwinModels**](/rest/api/digital-twins/dataplane/models), du [SDK .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client) ou de [l’interface CLI Azure Digital Twins](how-to-use-cli.md). 
 
 Les opérations de gestion incluent le chargement, la validation, la récupération et la suppression des modèles. 
 

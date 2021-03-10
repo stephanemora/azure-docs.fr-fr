@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: pafarley
-ms.openlocfilehash: 085dd18214f795566669fb862bba63b67eb9115d
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 218579176b807bbdae85646f27eaa7f301d4b9a6
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350362"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102428267"
 ---
 # <a name="build-an-enrollment-app-for-android-with-react"></a>Créer une application d’inscription pour Android avec React
 
@@ -37,9 +37,9 @@ L’exemple d’application d’inscription est écrit à l’aide de JavaScript
 ## <a name="set-up-the-development-environment"></a>Configuration de l’environnement de développement
 
 1. Clonez le dépôt git pour l’[exemple d’application d’inscription](https://github.com/azure-samples/cognitive-services-FaceAPIEnrollmentSample).
-1. Pour configurer votre environnement de développement, suivez la <a href="https://reactnative.dev/docs/environment-setup"  title="documentation React Native"  target="_blank">documentation React Native <span class="docon docon-navigate-external x-hidden-focus"></span></a>. Sélectionnez **React Native CLI Quickstart** (Démarrage rapide avec CLI React Native) comme système d’exploitation de développement, puis **Android** comme système d’exploitation cible. Suivez les indications des sections **Installing dependencies** (Installation des dépendances) et **Android development environment** (Environnement de développement Android).
+1. Pour configurer votre environnement de développement, suivez la <a href="https://reactnative.dev/docs/environment-setup"  title="documentation React Native"  target="_blank">documentation React Native </a>. Sélectionnez **React Native CLI Quickstart** (Démarrage rapide avec CLI React Native) comme système d’exploitation de développement, puis **Android** comme système d’exploitation cible. Suivez les indications des sections **Installing dependencies** (Installation des dépendances) et **Android development environment** (Environnement de développement Android).
 1. Ouvrez le fichier env.json dans l’éditeur de texte de votre choix, par exemple [Visual Studio Code](https://code.visualstudio.com/), puis ajoutez votre point de terminaison et votre clé. Vous pouvez accéder à votre point de terminaison et à votre clé dans le portail Azure sous l’onglet **Vue d’ensemble** de votre ressource. Cette étape sert uniquement à des fins de test local : n’archivez pas votre clé API Visage dans votre référentiel distant.
-1. Exécutez l’application à l’aide de l’émulateur d’appareil virtuel Android à partir d’Android Studio ou de votre propre appareil Android. Pour tester votre application sur un appareil physique, suivez la <a href="https://reactnative.dev/docs/running-on-device"  title="documentation React Native"  target="_blank">documentation React Native <span class="docon docon-navigate-external x-hidden-focus"></span></a> correspondante.  
+1. Exécutez l’application à l’aide de l’émulateur d’appareil virtuel Android à partir d’Android Studio ou de votre propre appareil Android. Pour tester votre application sur un appareil physique, suivez la <a href="https://reactnative.dev/docs/running-on-device"  title="documentation React Native"  target="_blank">documentation React Native </a> correspondante.  
 
 
 ## <a name="create-an-enrollment-experience"></a>Créer une expérience d’inscription  
@@ -78,9 +78,9 @@ Pour commencer, vérifiez que votre application est prête pour le déploiement 
 
 Quand vous êtes prêt à publier votre application en production, vous générez un fichier APK prêt pour la mise en production, qui correspond au format de fichier de package pour les applications Android. Ce fichier APK doit être signé avec une clé privée. Avec cette build, vous pouvez commencer à distribuer l’application directement à vos appareils. 
 
-Pour savoir comment générer une clé privée, signer votre application et générer un fichier APK de mise en production, suivez la documentation <a href="https://developer.android.com/studio/publish/preparing#publishing-build"  title="Prepare for release"  target="_blank">Prepare for release <span class="docon docon-navigate-external x-hidden-focus"></span></a> (Préparer la mise en production).  
+Pour savoir comment générer une clé privée, signer votre application et générer un fichier APK de mise en production, suivez la documentation <a href="https://developer.android.com/studio/publish/preparing#publishing-build"  title="Prepare for release"  target="_blank">Prepare for release </a> (Préparer la mise en production).  
 
-Une fois que vous avez créé un fichier APK signé, consultez la documentation <a href="https://developer.android.com/studio/publish"  title="Publish your app"  target="_blank">Publish your app<span class="docon docon-navigate-external x-hidden-focus"></span></a> (Publier votre application) pour en savoir plus sur la publication de votre application.
+Une fois que vous avez créé un fichier APK signé, consultez la documentation <a href="https://developer.android.com/studio/publish"  title="Publish your app"  target="_blank">Publish your app</a> (Publier votre application) pour en savoir plus sur la publication de votre application.
 
 ## <a name="next-steps"></a>Étapes suivantes  
 

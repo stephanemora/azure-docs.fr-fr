@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 03/27/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 33cc9b52c4b687ca8147867b99dc70e8d71a9223
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fc4cc5063f72ff3f0db62cde79f7908add86166e
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88944390"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102434490"
 ---
 :::row:::
     :::column span="3":::
@@ -26,11 +26,11 @@ ms.locfileid: "88944390"
 
 ### <a name="system-requirements"></a>Configuration système requise
 
-Le Kit de développement logiciel (SDK) Speech sur Windows nécessite que <a href="https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads" target="_blank">Microsoft Visual C++ Redistributable pour Visual Studio 2019<span class="docon docon-navigate-external x-hidden-focus"></span></a> soit installé sur le système.
+Le Kit de développement logiciel (SDK) Speech sur Windows nécessite que <a href="https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads" target="_blank">Microsoft Visual C++ Redistributable pour Visual Studio 2019</a> soit installé sur le système.
 
-- <a href="https://aka.ms/vs/16/release/vc_redist.x86.exe" target="_blank">Installer pour x86 <span class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://aka.ms/vs/16/release/vc_redist.x64.exe" target="_blank">Installer pour x64 <span class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://aka.ms/vs/16/release/vc_redist.arm64.exe" target="_blank">Installer pour ARMx64<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://aka.ms/vs/16/release/vc_redist.x86.exe" target="_blank">Installer pour x86 </a>
+- <a href="https://aka.ms/vs/16/release/vc_redist.x64.exe" target="_blank">Installer pour x64 </a>
+- <a href="https://aka.ms/vs/16/release/vc_redist.arm64.exe" target="_blank">Installer pour ARMx64</a>
 
 ### <a name="c"></a>C#
 

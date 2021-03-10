@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/20/2020
 ms.author: jeedes
-ms.openlocfilehash: e22738f1fff813e5a928b76f8049e810847fe548
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: df4031a590eb4547d4327cebe96ccbe63d21785a
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358148"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102437806"
 ---
 # <a name="tutorial-configure-box-for-automatic-user-provisioning"></a>Didacticiel : configurer Box pour l’approvisionnement automatique d’utilisateurs
 
@@ -36,6 +36,9 @@ Pour configurer l’intégration d’Azure AD à Box, vous avez besoin des élé
 
 > [!NOTE]
 > Les applications doivent d’abord être activées dans l’application Box.
+
+> [!NOTE]
+> Cette intégration peut également être utilisée à partir de l’environnement cloud US Government Azure AD. Cette application est disponible dans la Galerie d’applications cloud US Government Azure AD et peut être configurée de la même façon que dans le cloud public.
 
 Pour tester la procédure de ce didacticiel, suivez les recommandations ci-dessous :
 
@@ -95,7 +98,7 @@ Cette section décrit comment activer l'approvisionnement des comptes d'utilisat
 
     ![Capture d’écran de l’onglet Approvisionnement pour Box dans le portail Azure. Le mode d’approvisionnement est défini sur Automatique et le bouton Autorisation est mis en évidence dans Informations d’identification de l’administrateur.](./media/box-userprovisioning-tutorial/provisioning.png)
 
-5. Sous la section **Informations d’identification de l’administrateur** , cliquez sur **Autoriser** pour ouvrir la boîte de dialogue de connexion à Box dans une nouvelle fenêtre de navigateur.
+5. Sous la section **Informations d’identification de l’administrateur**, cliquez sur **Autoriser** pour ouvrir la boîte de dialogue de connexion à Box dans une nouvelle fenêtre de navigateur.
 
 6. Dans la page **Login to grant access to Box** (Se connecter pour autoriser l’accès à Box), saisissez les informations d’identification, puis cliquez sur **Authorize** (Autoriser). 
    
@@ -107,13 +110,13 @@ Cette section décrit comment activer l'approvisionnement des comptes d'utilisat
 
 8. Dans le portail Azure, cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à votre application Box. Si la connexion échoue, vérifiez que votre compte Box dispose des autorisations d’administrateur d’équipe et recommencez l’étape **Autoriser**.
 
-9. Entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement dans le champ **E-mail de notification** , puis cochez la case.
+9. Entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement dans le champ **E-mail de notification**, puis cochez la case.
 
 10. Cliquez sur **Enregistrer.**
 
 11. Dans la section Mappages, sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec Box**.
 
-12. Dans la section **Mappages des attributs** , passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et Box. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour établir une correspondance avec les comptes d’utilisateur Box en vue de mises à jour ultérieures. Cliquez sur le bouton Enregistrer pour valider les modifications.
+12. Dans la section **Mappages des attributs**, passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et Box. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour établir une correspondance avec les comptes d’utilisateur Box en vue de mises à jour ultérieures. Cliquez sur le bouton Enregistrer pour valider les modifications.
 
 13. Pour activer le service d’approvisionnement Azure AD pour Box, définissez le paramètre **État de l’approvisionnement** sur **Activé** dans la section Paramètres.
 

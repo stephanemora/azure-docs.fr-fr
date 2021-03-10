@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 12/18/2020
 ms.author: mbullwin
-ms.openlocfilehash: a75962105a7640f4a3c73df80f5ba516565c7076
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: a7579bb53f82dfdfe82c4eba64d2c6984152c875
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97705033"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102444781"
 ---
 Dans ce guide de démarrage rapide, vous allez apprendre à détecter les anomalies dans un lot de données de série chronologique à l’aide du service Détecteur d’anomalies et de cURL.
 
@@ -18,7 +18,7 @@ Pour obtenir une vue d’ensemble des concepts du Détecteur d’anomalies, cons
 ## <a name="prerequisites"></a>Prérequis
 
 - Abonnement Azure - [En créer un gratuitement](https://azure.microsoft.com/free/cognitive-services)
-- Une fois que vous avez votre abonnement Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector"  title="Créer une ressource Détecteur d’anomalies"  target="_blank">créez une ressource Détecteur d’anomalies <span class="docon docon-navigate-external x-hidden-focus"></span></a> dans le portail Azure pour obtenir votre clé et votre point de terminaison. Attendez qu’elle se déploie, puis sélectionnez le bouton **Accéder à la ressource**.
+- Une fois que vous avez votre abonnement Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector"  title="Créer une ressource Détecteur d’anomalies"  target="_blank">créez une ressource Détecteur d’anomalies </a> dans le portail Azure pour obtenir votre clé et votre point de terminaison. Attendez qu’elle se déploie, puis sélectionnez le bouton **Accéder à la ressource**.
     - Vous aurez besoin de la clé et de l’adresse du point de terminaison de la ressource que vous créez pour utiliser l’API REST. 
     Vous pouvez utiliser le niveau tarifaire Gratuit (`F0`) pour tester le service, puis passer par la suite à un niveau payant pour la production.
 

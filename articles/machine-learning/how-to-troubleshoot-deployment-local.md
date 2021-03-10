@@ -11,12 +11,12 @@ ms.reviewer: luquinta
 ms.date: 11/25/2020
 ms.topic: troubleshooting
 ms.custom: devx-track-python, deploy, contperf-fy21q2
-ms.openlocfilehash: 225cb8d7bc35491ceefe444664afe175c7f7ea01
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 69ac47296cb4624de6cdf05ddb3e72973751f631
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954933"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102519620"
 ---
 # <a name="troubleshooting-with-a-local-model-deployment"></a>Dépannage avec un déploiement de modèle local
 
@@ -28,8 +28,8 @@ Essayez un déploiement de modèle local comme première étape de dépannage d�
 * Option A (**recommandée**) : déboguer localement sur une instance de calcul Azure Machine Learning
    * Un espace de travail Azure Machine Learning avec une [instance de calcul](how-to-deploy-local-container-notebook-vm.md) en cours d’exécution
 * Option B : déboguer localement sur votre calcul
-   * Le [Kit de développement logiciel (SDK) Azure Machine Learning](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
-   * [Interface de ligne de commande Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
+   * Le [Kit de développement logiciel (SDK) Azure Machine Learning](/python/api/overview/azure/ml/install).
+   * [Interface de ligne de commande Azure](/cli/azure/install-azure-cli).
    * [Extension CLI pour Azure Machine Learning](reference-azure-machine-learning-cli.md).
    * Installation de Docker opérationnelle sur votre système local. 
    * Pour vérifier votre installation de Docker, utilisez la commande `docker run hello-world` à partir d’un terminal ou d’une invite de commandes. Pour obtenir des informations sur l’installation de Docker ou sur la résolution des erreurs Docker, consultez la [documentation Docker](https://docs.docker.com/).
@@ -98,7 +98,7 @@ print(service.run(input_data=test_sample))
 > [!NOTE]
 > Le script est rechargé à partir de l’emplacement spécifié par l’objet `InferenceConfig` utilisé par le service.
 
-Pour modifier le modèle, les dépendances Conda ou la configuration de déploiement, utilisez [update()](/python/api/azureml-core/azureml.core.webservice%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=trueupdate--args-). L’exemple suivant met à jour le modèle utilisé par le service :
+Pour modifier le modèle, les dépendances Conda ou la configuration de déploiement, utilisez [update()](/python/api/azureml-core/azureml.core.webservice%28class%29#update--args-). L’exemple suivant met à jour le modèle utilisé par le service :
 
 ```python
 service.update([different_model], inference_config, deployment_config)
@@ -106,7 +106,7 @@ service.update([different_model], inference_config, deployment_config)
 
 ### <a name="delete-the-service"></a>Supprimer le service
 
-Pour supprimer le service, utilisez [delete()](/python/api/azureml-core/azureml.core.webservice%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truedelete--).
+Pour supprimer le service, utilisez [delete()](/python/api/azureml-core/azureml.core.webservice%28class%29#delete--).
 
 ### <a name="inspect-the-docker-log"></a><a id="dockerlog"></a> Examiner le journal Docker
 

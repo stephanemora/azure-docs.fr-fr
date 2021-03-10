@@ -10,12 +10,12 @@ author: BlackMist
 ms.date: 11/04/2020
 ms.custom: devx-track-python
 adobe-target: true
-ms.openlocfilehash: 09be6a73b092f6298099e4a11bcd606759515c07
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 00a3ab2954d09a7e70e81d8de3644b678b79d005
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100374250"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521388"
 ---
 # <a name="what-is-azure-machine-learning"></a>Qu'est-ce que Azure Machine Learning ?
 
@@ -42,7 +42,7 @@ Les prévisions ou prédictions générées à partir de Machine Learning peuven
 Azure Machine Learning fournit tous les outils dont les développeurs et les scientifiques de données ont besoin pour leurs flux de travaux Machine Learning, notamment :
 + Le [concepteur Azure Machine Learning](tutorial-designer-automobile-price-train-score.md) : faites glisser et déposez des modules pour générer vos expériences, puis déployez des pipelines.
 
-+ Notebooks Jupyter : utilisez nos [exemples de notebooks](https://github.com/Azure/MachineLearningNotebooks) ou créez vos propres notebooks pour tirer parti de nos exemples de <a href="/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">Kits de développement logiciel (SDK) Python</a> pour votre Machine Learning. 
++ Notebooks Jupyter : utilisez nos [exemples de notebooks](https://github.com/Azure/MachineLearningNotebooks) ou créez vos propres notebooks pour tirer parti de nos exemples de <a href="/python/api/overview/azure/ml/intro" target="_blank">Kits de développement logiciel (SDK) Python</a> pour votre Machine Learning. 
 
 + Utilisez des scripts R ou des notebooks dans lesquels vous utilisez le <a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html" target="_blank">Kit de développement logiciel (SDK) pour R</a> pour écrire votre propre code, ou utilisez les modules R dans le concepteur.
 
@@ -60,7 +60,7 @@ Vous pouvez même utiliser [MLflow pour suivre des métriques et déployer des m
 
 ## <a name="build-ml-models-in-python-or-r"></a>Générer des modèles ML en Python ou R
 
-Commencez l’entraînement sur votre ordinateur local en utilisant le <a href="/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">Kit de développement logiciel (SDK) Python</a> ou le <a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html" target="_blank">Kit de développement logiciel (SDK) R</a> Azure Machine Learning. Vous pouvez ensuite effectuer un scale-out sur le cloud. 
+Commencez l’entraînement sur votre ordinateur local en utilisant le <a href="/python/api/overview/azure/ml/intro" target="_blank">Kit de développement logiciel (SDK) Python</a> ou le <a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html" target="_blank">Kit de développement logiciel (SDK) R</a> Azure Machine Learning. Vous pouvez ensuite effectuer un scale-out sur le cloud. 
 
 Les nombreuses [cibles de calcul](how-to-create-attach-compute-studio.md) disponibles, comme la Capacité de calcul Azure Machine Learning et [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks), ainsi que les [services de réglage d’hyperparamètres avancés](how-to-tune-hyperparameters.md), vous permettent de générer de meilleurs modèles plus rapidement en tirant parti de la puissance du cloud.
 
@@ -91,7 +91,7 @@ Le [studio Azure Machine Learning](https://studio.azureml.net) est un portail we
 ## <a name="mlops-deploy--lifecycle-management"></a>MLOps : Déployer et gestion du cycle de vie
 Quand vous disposez du modèle adéquat, vous pouvez facilement l’utiliser dans un service web, sur un appareil IoT ou à partir de Power BI. Pour plus d’informations, consultez l’article qui explique [comment et où effectuer le déploiement](how-to-deploy-and-where.md).
 
-Vous pouvez ensuite gérer vos modèles déployés à l’aide du [Kit de développement logiciel (SDK) Azure Machine Learning pour Python](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py), d’[Azure Machine Learning Studio](https://ml.azure.com) ou de l’[interface CLI Machine Learning](reference-azure-machine-learning-cli.md).
+Vous pouvez ensuite gérer vos modèles déployés à l’aide du [Kit de développement logiciel (SDK) Azure Machine Learning pour Python](/python/api/overview/azure/ml/), d’[Azure Machine Learning Studio](https://ml.azure.com) ou de l’[interface CLI Machine Learning](reference-azure-machine-learning-cli.md).
 
 Une fois déployé, votre modèle peut retourner des prédictions [en temps réel](how-to-consume-web-service.md) ou [de manière asynchrone](./tutorial-pipeline-batch-scoring-classification.md) sur de grandes quantités de données.
 

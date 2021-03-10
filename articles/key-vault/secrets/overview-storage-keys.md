@@ -10,12 +10,12 @@ ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/18/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 8473d3a19a86027b5b01af59d24833dc40cd1fe9
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: e89716d0560cbf7960cb7bde67156c8df0045a31
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95242353"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102499218"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-the-azure-cli"></a>Gérer les clés de compte de stockage avec Key Vault et l’interface de ligne de commande Azure
 > [!IMPORTANT]
@@ -56,7 +56,7 @@ Pour suivre ce guide, vous devez d’abord effectuer ce qui suit :
 
 ### <a name="connect-to-your-azure-account"></a>Se connecter au compte Azure
 
-Authentifiez votre session Azure CLI à l’aide des commandes [az login](/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0).
+Authentifiez votre session Azure CLI à l’aide des commandes [az login](/powershell/module/az.accounts/connect-azaccount).
 
 ```azurecli-interactive
 az login

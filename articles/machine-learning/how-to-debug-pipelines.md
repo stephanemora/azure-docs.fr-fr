@@ -10,16 +10,16 @@ ms.author: laobri
 ms.date: 10/22/2020
 ms.topic: troubleshooting
 ms.custom: troubleshooting, devx-track-python, contperf-fy21q2
-ms.openlocfilehash: 0f27688e31f772cc8d784371aa570d55c41f5695
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 195942d1787cdef51ee480fa5c5595db99bc7c78
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131812"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102522085"
 ---
 # <a name="troubleshooting-machine-learning-pipelines"></a>Résolution des problèmes de pipeline Machine Learning
 
-Dans cet article, vous allez apprendre à résoudre les problèmes lorsque vous obtenez des erreurs lors de l’exécution d’un [pipeline Machine Learning](concept-ml-pipelines.md) dans [Azure Machine Learning SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) et [Azure machine learning designer](./concept-designer.md). 
+Dans cet article, vous allez apprendre à résoudre les problèmes lorsque vous obtenez des erreurs lors de l’exécution d’un [pipeline Machine Learning](concept-ml-pipelines.md) dans [Azure Machine Learning SDK](/python/api/overview/azure/ml/intro) et [Azure machine learning designer](./concept-designer.md). 
 
 ## <a name="troubleshooting-tips"></a>Conseils de dépannage
 
@@ -33,7 +33,7 @@ Le tableau suivant présente les problèmes courants qui se produisent pendant l
 | Le pipeline ne réutilise pas les étapes | La réutilisation d’étape est activée par défaut, mais vérifiez que vous ne l’avez pas désactivée dans une étape du pipeline. Si la réutilisation est désactivée, le paramètre `allow_reuse` de l’étape est défini sur `False`. |
 | Le pipeline se réexécute inutilement | Pour faire en sorte que les étapes ne se réexécutent que lorsque leurs données ou scripts sous-jacents changent, découplez les répertoires de votre code source pour chaque étape. Si vous utilisez le même répertoire source pour plusieurs étapes, des réexécutions inutiles peuvent se produire. Utilisez le paramètre `source_directory` sur un objet d’étape de pipeline pour pointer vers votre répertoire isolé pour cette étape, et vérifiez que vous n’utilisez pas le même chemin `source_directory` pour plusieurs étapes. |
 | Étape ralentissant les époques d’apprentissage ou tout autre comportement de bouclage | Essayez de faire basculer les écritures de fichier, notamment a journalisation, de `as_mount()` à `as_upload()`. Le mode **montage** utilise un système de fichiers virtualisé distant et charge l’intégralité du fichier chaque fois qu’il y est ajouté. |
-| Le démarrage de la cible de calcul prend beaucoup de temps | Les images Docker pour les cibles de calcul sont chargées à partir d’Azure Container Registry (ACR). Par défaut, Azure Machine Learning crée un ACR qui utilise le niveau de service *De base*. Le fait de modifier le niveau de l’ACR pour votre espace de travail sur Standard ou Premium peut réduire le temps nécessaire à la génération et au chargement des images. Pour plus d’informations, consultez [Niveaux de service pour Azure Container Registry](../container-registry/container-registry-skus.md). |
+| Le démarrage de la cible de calcul prend beaucoup de temps | Les images Docker pour les cibles de calcul sont chargées à partir d’Azure Container Registry (ACR). Par défaut, Azure Machine Learning crée un ACR qui utilise le niveau de service *De base*. Un passage au niveau Standard ou Premium du registre ACR de l’espace de travail est susceptible de réduire le temps nécessaire à la génération et au chargement des images. Pour plus d’informations, consultez [Niveaux de service pour Azure Container Registry](../container-registry/container-registry-skus.md). |
 
 ### <a name="authentication-errors"></a>Erreurs d’authentification
 
@@ -192,7 +192,7 @@ Le tableau ci-dessous fournit des informations sur les différentes options de d
 
 | Bibliothèque                    | Type   | Exemple                                                          | Destination                                  | Ressources                                                                                                                                                                                                                                                                                                                    |
 |----------------------------|--------|------------------------------------------------------------------|----------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Kit de développement logiciel (SDK) Azure Machine Learning | Métrique | `run.log(name, val)`                                             | Interface utilisateur du portail Azure Machine Learning             | [Comment suivre les expériences](how-to-track-experiments.md)<br>[azureml.core.Run class](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py)                                                                                                                                                 |
+| Kit de développement logiciel (SDK) Azure Machine Learning | Métrique | `run.log(name, val)`                                             | Interface utilisateur du portail Azure Machine Learning             | [Comment suivre les expériences](how-to-track-experiments.md)<br>[azureml.core.Run class](/python/api/azureml-core/azureml.core.run%28class%29)                                                                                                                                                 |
 | Impression/Journalisation pour Python    | Journal    | `print(val)`<br>`logging.info(message)`                          | Journaux du pilote, concepteur Azure Machine Learning | [Comment suivre les expériences](how-to-track-experiments.md)<br><br>[Journalisation pour Python](https://docs.python.org/2/library/logging.html)                                                                                                                                                                       |
 | OpenCensus pour Python          | Journal    | `logger.addHandler(AzureLogHandler())`<br>`logging.log(message)` | Application Insights – Traces                | [Déboguer des pipelines dans Application Insights](./how-to-log-pipelines-application-insights.md)<br><br>[Exportateurs OpenCensus Azure Monitor](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure)<br>[Fiches pratiques concernant la journalisation pour Python](https://docs.python.org/3/howto/logging-cookbook.html) |
 
@@ -244,7 +244,7 @@ Quand vous publiez une exécution de pipeline en restant dans la page de créati
 1. Dans le volet droit du module, accédez à l’onglet **Sorties + journaux**.
 1. Développez le volet droit, puis sélectionnez le fichier **70_driver_log.txt** pour afficher le fichier dans le navigateur. Vous pouvez également télécharger les journaux localement.
 
-    ![Volet de sortie développé dans le concepteur](./media/how-to-debug-pipelines/designer-logs.png)?view=azure-ml-py&preserve-view=true)?view=azure-ml-py&preserve-view=true)
+    ![Volet de sortie développé dans le concepteur](./media/how-to-debug-pipelines/designer-logs.png)
 
 ### <a name="get-logs-from-pipeline-runs"></a>Obtenir des journaux à partir des exécutions de pipeline
 
@@ -274,6 +274,6 @@ Dans certains cas, vous devrez peut-être déboguer interactivement le code Pyth
 
 * Pour obtenir un exemple complet de Machine Learning automatisé dans des pipelines ML, consultez [Utiliser le ML automatisé dans un pipeline Azure Machine Learning en Python](how-to-use-automlstep-in-pipelines.md).
 
-* Consultez les informations de référence sur le SDK pour obtenir de l’aide sur les packages [azureml-pipelines-core](/python/api/azureml-pipeline-core/?preserve-view=true&view=azure-ml-py) et [azureml-pipelines-steps](/python/api/azureml-pipeline-steps/?preserve-view=true&view=azure-ml-py).
+* Consultez les informations de référence sur le SDK pour obtenir de l’aide sur les packages [azureml-pipelines-core](/python/api/azureml-pipeline-core/) et [azureml-pipelines-steps](/python/api/azureml-pipeline-steps/).
 
 * Consultez la liste des [exceptions et codes d’erreur du concepteur](algorithm-module-reference/designer-error-codes.md).

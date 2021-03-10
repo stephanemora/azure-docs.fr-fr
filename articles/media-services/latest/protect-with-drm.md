@@ -14,19 +14,19 @@ ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: a4f5810f76af7116421bac3953b4eb65370055e3
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: eeb41967ac7e2b73bfb32933f7f019a5722fdc9b
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98955171"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102454430"
 ---
 # <a name="tutorial-use-drm-dynamic-encryption-and-license-delivery-service"></a>Tutoriel : Utilisation du chiffrement dynamique DRM et du service de remise des licences
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 > [!NOTE]
-> Ce tutoriel utilise les exemples du [SDK .NET](/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet), mais les étapes générales sont les mêmes pour l’[API REST](/rest/api/media/liveevents), l’[interface CLI](/cli/azure/ams/live-event?view=azure-cli-latest) et d’autres [SDK](media-services-apis-overview.md#sdks) pris en charge.
+> Ce tutoriel utilise les exemples du [SDK .NET](/dotnet/api/microsoft.azure.management.media.models.liveevent), mais les étapes générales sont les mêmes pour l’[API REST](/rest/api/media/liveevents), l’[interface CLI](/cli/azure/ams/live-event) et d’autres [SDK](media-services-apis-overview.md#sdks) pris en charge.
 
 Vous pouvez utiliser Azure Media Services pour diffuser vos flux chiffrés avec des licences Microsoft PlayReady, Google Widevine ou Apple FairPlay. Pour une explication détaillée, consultez [Protection du contenu avec chiffrement dynamique](content-protection-overview.md).
 

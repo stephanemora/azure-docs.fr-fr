@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 747ceb0106f437f9e2442c2b8c68c0b73a9107a6
-ms.sourcegitcommit: 02ed9acd4390b86c8432cad29075e2204f6b1bc3
+ms.openlocfilehash: 0343402d92498bff56250027086cbf2ceb258f0f
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97808252"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102427162"
 ---
 # <a name="back-up-and-recover-your-form-recognizer-models"></a>Sauvegarder et récupérer vos modèles Form Recognizer
 
@@ -28,7 +28,7 @@ Si votre application ou votre entreprise dépend de l’utilisation d’un modè
 
 ##  <a name="prerequisites"></a>Prérequis
 
-1. Deux ressources Azure Form Recognizer dans différentes régions Azure. Si vous ne les avez pas, accédez au portail Azure et <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer" title="créez une ressource Form Recognizer" target="_blank">Créer une ressource Form Recognizer <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Deux ressources Azure Form Recognizer dans différentes régions Azure. Si vous ne les avez pas, accédez au portail Azure et <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer" title="créez une ressource Form Recognizer" target="_blank">Créer une ressource Form Recognizer </a>.
 1. La clé d’abonnement, l’URL de point de terminaison et l’ID d’abonnement de votre ressource Form Recognizer. Ces valeurs se trouvent sous l’onglet **Vue d’ensemble** de la ressource sur le portail Azure.
 
 

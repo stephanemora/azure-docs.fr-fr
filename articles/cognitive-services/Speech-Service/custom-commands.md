@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: travisw
-ms.openlocfilehash: 40736764cf9cec6f652e0147eb25d83f15c5bee2
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: e4ae8a09a554afe232091b68888af17dfa096771
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024940"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102426467"
 ---
 # <a name="what-is-custom-commands"></a>Présentation des commandes personnalisées
 
@@ -36,7 +36,7 @@ Les outils adaptés à la solution Commandes personnalisées disposent d’un vo
 
 ## <a name="getting-started-with-custom-commands"></a>Prise en main de la solution Commandes personnalisées
 
-Notre objectif avec les commandes personnalisées est de réduire votre charge cognitive pour découvrir toutes les différentes technologies et vous concentrer sur la création de votre application de commande vocale. Première étape de l’utilisation des commandes personnalisées pour <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">créer une ressource Azure Speech <span class="docon docon-navigate-external x-hidden-focus"></span></a>. Vous pouvez créer une application Commandes personnalisées sur Speech Studio et la publier. Une fois cette opération effectuée, une application se trouvant sur un appareil peut communiquer avec elle à l’aide du kit de développement logiciel (SDK) Speech.
+Notre objectif avec les commandes personnalisées est de réduire votre charge cognitive pour découvrir toutes les différentes technologies et vous concentrer sur la création de votre application de commande vocale. Première étape de l’utilisation des commandes personnalisées pour <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">créer une ressource Azure Speech </a>. Vous pouvez créer une application Commandes personnalisées sur Speech Studio et la publier. Une fois cette opération effectuée, une application se trouvant sur un appareil peut communiquer avec elle à l’aide du kit de développement logiciel (SDK) Speech.
 
 #### <a name="authoring-flow-for-custom-commands"></a>Création d’un flux pour Commandes personnalisées
    ![Création d’un flux pour Commandes personnalisées](media/voice-assistants/custom-commands-flow.png "Flux de création de la solution Commandes personnalisées")

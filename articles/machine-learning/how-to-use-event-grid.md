@@ -11,12 +11,12 @@ ms.author: shipatel
 author: shivp950
 ms.reviewer: larryfr
 ms.date: 05/11/2020
-ms.openlocfilehash: 06b871d29c26241c38be27c4ace8ab7461834fd1
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 9dc7c0a476f57048c7caefb6001918d314c991ee
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101655715"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102209694"
 ---
 # <a name="trigger-applications-processes-or-cicd-workflows-based-on-azure-machine-learning-events-preview"></a>Déclenchement des applications, des processus et des workflows CI/CD en fonction d’événements Azure Machine Learning (préversion)
 
@@ -59,7 +59,7 @@ Ces événements sont publiés via Azure Event Grid. À l’aide du portail Azur
 
 Lors de la configuration de vos événements, vous pouvez appliquer des filtres de manière à ce qu’ils ne se déclenchent que sur des données d’événements spécifiques. Dans l’exemple ci-dessous, pour les événements de modification de l’état d’exécution, vous pouvez filtrer par type d’exécution. L’événement se déclenche uniquement lorsque les critères sont satisfaits. Pour en savoir plus sur les données d’événement que vous pouvez filtrer, reportez-vous au [schéma Event Grid pour Azure Machine Learning](../event-grid/event-schema-machine-learning.md). 
 
-Les abonnements pour les événements Azure Machine Learning sont protégés par le contrôle d’accès en fonction du rôle Azure (Azure RBAC). Seul le [contributeur ou propriétaire](how-to-assign-roles.md#default-roles) d’un espace de travail peut créer, mettre à jour et supprimer des abonnements aux événements.  Des filtres peuvent être appliqués aux abonnements aux événements pendant la [création](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest&preserve-view=true) de l’abonnement aux événements ou ultérieurement. 
+Les abonnements pour les événements Azure Machine Learning sont protégés par le contrôle d’accès en fonction du rôle Azure (Azure RBAC). Seul le [contributeur ou propriétaire](how-to-assign-roles.md#default-roles) d’un espace de travail peut créer, mettre à jour et supprimer des abonnements aux événements.  Des filtres peuvent être appliqués aux abonnements aux événements pendant la [création](/cli/azure/eventgrid/event-subscription) de l’abonnement aux événements ou ultérieurement. 
 
 
 1. Accédez au Portail Azure, sélectionnez un nouvel abonnement ou un abonnement existant. 
@@ -130,7 +130,7 @@ Une fois que vous avez confirmé votre sélection, cliquez sur __Créer__. Aprè
 
 ### <a name="set-up-with-the-cli"></a>Configurer avec l’interface CLI
 
-Vous pouvez installer la dernière version d’[Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest) ou utiliser Azure Cloud Shell fourni dans le cadre de votre abonnement Azure.
+Vous pouvez installer la dernière version d’[Azure CLI](/cli/azure/install-azure-cli) ou utiliser Azure Cloud Shell fourni dans le cadre de votre abonnement Azure.
 
 Pour installer l’extension Event Grid, utilisez la commande suivante à partir de l’interface CLI :
 

@@ -11,12 +11,12 @@ author: lobrien
 ms.date: 8/25/2020
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy21q1
-ms.openlocfilehash: 5dc14873f8863332d37a6ced6ce4013e76640dea
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: efedb21a1ec1ed53a8c6bfadf337d23a89c04383
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879391"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102520174"
 ---
 # <a name="publish-and-track-machine-learning-pipelines"></a>Publier et suivre des pipelines Machine Learning
 
@@ -38,7 +38,7 @@ Les pipelines Machine Learning sont des flux de travail réutilisables pour les 
 
 Une fois que vous disposez d’un pipeline opérationnel, vous pouvez publier un pipeline pour qu’il s’exécute avec des entrées différentes. Pour que le point de terminaison REST d’un pipeline déjà publié accepte des paramètres, vous devez configurer votre pipeline afin d’utiliser des objets `PipelineParameter` pour les arguments qui varient.
 
-1. Pour créer un paramètre de pipeline, utilisez un objet [PipelineParameter](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter?preserve-view=true&view=azure-ml-py) avec une valeur par défaut.
+1. Pour créer un paramètre de pipeline, utilisez un objet [PipelineParameter](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter) avec une valeur par défaut.
 
    ```python
    from azureml.pipeline.core.graph import PipelineParameter
@@ -76,7 +76,7 @@ Tous les pipelines publiés disposent d’un point de terminaison REST. Avec le 
 > [!IMPORTANT]
 > Si vous utilisez le contrôle d’accès en fonction du rôle Azure (RBAC Azure) pour gérer l’accès à votre pipeline, [définissez les autorisations de votre scénario de pipeline (entraînement ou scoring)](how-to-assign-roles.md#common-scenarios).
 
-Pour appeler l’exécution du pipeline précédent, vous avez besoin d’un jeton d’en-tête d’authentification Azure Active Directory. L’obtention de ce jeton est décrite dans les informations de référence sur la [classe AzureCliAuthentication](/python/api/azureml-core/azureml.core.authentication.azurecliauthentication?preserve-view=true&view=azure-ml-py) et dans le notebook [Authentification dans Azure Machine Learning](https://aka.ms/pl-restep-auth).
+Pour appeler l’exécution du pipeline précédent, vous avez besoin d’un jeton d’en-tête d’authentification Azure Active Directory. L’obtention de ce jeton est décrite dans les informations de référence sur la [classe AzureCliAuthentication](/python/api/azureml-core/azureml.core.authentication.azurecliauthentication) et dans le notebook [Authentification dans Azure Machine Learning](https://aka.ms/pl-restep-auth).
 
 ```python
 from azureml.pipeline.core import PublishedPipeline
@@ -360,10 +360,10 @@ p = PublishedPipeline.get(ws, id="068f4885-7088-424b-8ce2-eeb9ba5381a6")
 p.disable()
 ```
 
-Vous pouvez le réactiver avec `p.enable()`. Pour plus d’informations, consultez la référence de la [classe PublishedPipeline](/python/api/azureml-pipeline-core/azureml.pipeline.core.publishedpipeline?preserve-view=true&view=azure-ml-py).
+Vous pouvez le réactiver avec `p.enable()`. Pour plus d’informations, consultez la référence de la [classe PublishedPipeline](/python/api/azureml-pipeline-core/azureml.pipeline.core.publishedpipeline).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Utilisez [ces blocs-notes Jupyter sur GitHub](https://aka.ms/aml-pipeline-readme) pour explorer plus en détail les pipelines Machine Learning.
-- Consultez l’aide relative à la référence SDK des packages [azureml-pipelines-core](/python/api/azureml-pipeline-core/?preserve-view=true&view=azure-ml-py) et [azureml-pipelines-steps](/python/api/azureml-pipeline-steps/?preserve-view=true&view=azure-ml-py).
+- Consultez l’aide relative à la référence SDK des packages [azureml-pipelines-core](/python/api/azureml-pipeline-core/) et [azureml-pipelines-steps](/python/api/azureml-pipeline-steps/).
 - Consultez le [guide pratique](how-to-debug-pipelines.md) pour obtenir des conseils sur le débogage et la résolution des problèmes de pipelines.

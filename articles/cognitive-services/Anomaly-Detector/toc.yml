@@ -16,8 +16,6 @@
   items:
     - name: Visualiser les anomalies en lot avec Power BI
       href: tutorials/batch-anomaly-detection-powerbi.md
-    - name: Détection d’anomalie sur les données de streaming avec Azure Databricks
-      href: tutorials/anomaly-detection-streaming-databricks.md
 - name: Guides pratiques
   items:
     - name: Identifier les anomalies de vos données

@@ -11,16 +11,16 @@ author: jpe316
 ms.date: 09/24/2020
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy21q2, devx-track-python, deploy
-ms.openlocfilehash: 9e43291325510f92f2e5fd6c07cdb9257fdede9d
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: e6a58a6555602af2494683037721a1f83e7ea33c
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033066"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102519314"
 ---
 # <a name="deploy-ml-models-to-field-programmable-gate-arrays-fpgas-with-azure-machine-learning"></a>Déployer des modèles ML sur des réseaux de portes programmables in situ (FGPA, field-programmable gate array) avec Azure Machine Learning 
 
-Dans cet article, vous allez en apprendre davantage sur les FPGA et le déploiement de vos modèles ML sur un FPGA Azure à l’aide du [package Python de modèles accélérés matériellement](/python/api/azureml-accel-models/azureml.accel?preserve-view=true&view=azure-ml-py) d’[Azure Machine Learning](overview-what-is-azure-ml.md).
+Dans cet article, vous allez en apprendre davantage sur les FPGA et le déploiement de vos modèles ML sur un FPGA Azure à l’aide du [package Python de modèles accélérés matériellement](/python/api/azureml-accel-models/azureml.accel) d’[Azure Machine Learning](overview-what-is-azure-ml.md).
 
 ## <a name="what-are-fpgas"></a>Présentation des FPGA
 Les FPGA contiennent un tableau de blocs logiques programmables et une hiérarchie d’interconnexions reconfigurables. Les interconnexions permettent la configuration de ces blocs de différentes façons après leur fabrication. Par rapport aux autres circuits intégrés, les FPGA offrent une combinaison de programmabilité et de performances. 
@@ -56,7 +56,7 @@ La **gamme de machines virtuelles Azure PBS** contient des FPGA Intel Arria 10. 
 
 ## <a name="deploy-models-on-fpgas"></a>Déployer des modèles sur des FPGA
 
-Vous pouvez déployer un modèle en tant que service web sur FGPA avec des [Modèles accélérés matériellement Azure Machine Learning](/python/api/azureml-accel-models/azureml.accel?preserve-view=true&view=azure-ml-py). L’utilisation de FGPA assure une inférence à très faible latence, même avec une taille de lot unique. 
+Vous pouvez déployer un modèle en tant que service web sur FGPA avec des [Modèles accélérés matériellement Azure Machine Learning](/python/api/azureml-accel-models/azureml.accel). L’utilisation de FGPA assure une inférence à très faible latence, même avec une taille de lot unique. 
 
 Dans cet exemple, vous créez un graphe TensorFlow pour prétraiter l’image en entrée, en faire un caractériseur à l’aide de ResNet-50 sur un FPGA et exécuter les fonctionnalités via un classifieur formé sur le jeu de données ImageNet. Ensuite, le modèle est déployé sur un cluster AKS.
 
@@ -68,7 +68,7 @@ Dans cet exemple, vous créez un graphe TensorFlow pour prétraiter l’image en
  
 - Le package de modèles accélérés matériellement : `pip install --upgrade azureml-accel-models[cpu]`.    
     
-- [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest)
+- [Azure CLI](/cli/azure/install-azure-cli)
 
 - Quota FPGA. Soumettez une [demande de quota](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2nac9-PZhBDnNSV2ITz0LNUN0U5S0hXRkNITk85QURTWk9ZUUFUWkkyTC4u), ou exécutez cette commande CLI pour vérifier le quota : 
 
@@ -80,7 +80,7 @@ Dans cet exemple, vous créez un graphe TensorFlow pour prétraiter l’image en
 
 ### <a name="define-the-tensorflow-model"></a>Définir le modèle TensorFlow
 
-Commencez par utiliser le [Kit de développement logiciel (SDK) Azure Machine Learning pour Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) afin de créer une définition de service. Une définition de service est un fichier décrivant un pipeline de graphes (entrée, caractériseur et classifieur) basé sur TensorFlow. La commande de déploiement compresse la définition et les graphes dans un fichier ZIP, puis charge ce fichier dans Stockage Blob Azure. Le réseau neuronal profond est déjà déployé pour s’exécuter sur le FPGA.
+Commencez par utiliser le [Kit de développement logiciel (SDK) Azure Machine Learning pour Python](/python/api/overview/azure/ml/intro) afin de créer une définition de service. Une définition de service est un fichier décrivant un pipeline de graphes (entrée, caractériseur et classifieur) basé sur TensorFlow. La commande de déploiement compresse la définition et les graphes dans un fichier ZIP, puis charge ce fichier dans Stockage Blob Azure. Le réseau neuronal profond est déjà déployé pour s’exécuter sur le FPGA.
 
 1. Charger un espace de travail Azure Machine Learning
 

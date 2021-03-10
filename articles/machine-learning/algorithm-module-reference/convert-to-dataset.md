@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: 671a8f7c6fa4c20ef4fc88f57d4a946a84614389
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 3ba69a6ddf38083e5665e20081f5f909b7100024
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93420867"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102508484"
 ---
 # <a name="convert-to-dataset"></a>Convertir en jeu de données
 
@@ -35,7 +35,7 @@ Nous vous recommandons d’utiliser le module [Modifier les métadonnées](edit-
 
 2. Connectez-le à n’importe quel module qui génère un jeu de données.   
 
-    Tant que les données sont [tabulaires](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py), vous pouvez les convertir en jeu de données. Cela inclut les données chargées via le module [Importer des données](import-data.md), les données créées via le module [Entrer des données manuellement](enter-data-manually.md) ou les jeux de données transformés via le module [Appliquer une transformation](apply-transformation.md).
+    Tant que les données sont [tabulaires](/python/api/azureml-core/azureml.data.tabulardataset), vous pouvez les convertir en jeu de données. Cela inclut les données chargées via le module [Importer des données](import-data.md), les données créées via le module [Entrer des données manuellement](enter-data-manually.md) ou les jeux de données transformés via le module [Appliquer une transformation](apply-transformation.md).
 
 3.  Dans la liste déroulante **Action**, indiquez si vous souhaitez effectuer un nettoyage des données avant d’enregistrer le jeu de données :  
   

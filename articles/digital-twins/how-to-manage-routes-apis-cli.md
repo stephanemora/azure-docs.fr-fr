@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 11/18/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 40cf83b0ca9e4c794979f2b20ddb73360758abc5
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: b0e440f9fe0b7ce1591318362ac0419b9aa01baf
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102198538"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102433299"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Gérer les points de terminaison et les itinéraires dans Azure Digital Twins (API et CLI)
 
@@ -20,7 +20,7 @@ ms.locfileid: "102198538"
 
 Dans Azure Digital Twins, vous pouvez acheminer les [notifications d’événements](how-to-interpret-event-data.md) vers des services en aval ou des ressources de calcul connectées. Pour ce faire, vous devez d’abord configurer des **points de terminaison** qui peuvent recevoir les événements. Vous pouvez ensuite créer [**des itinéraires d’événements**](concepts-route-events.md) qui spécifient quels événements générés par Azure Digital Twins sont remis aux points de terminaison.
 
-Cet article vous guide tout au long du processus de création de points de terminaison et de routes à l’aide des [API REST](/rest/api/azure-digitaltwins/), du [kit SDK .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) et de l’[interface CLI Azure Digital Twins](how-to-use-cli.md).
+Cet article vous guide tout au long du processus de création de points de terminaison et de routes à l’aide des [API REST](/rest/api/azure-digitaltwins/), du [kit SDK .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client) et de l’[interface CLI Azure Digital Twins](how-to-use-cli.md).
 
 Vous pouvez également gérer les points de terminaison et les routes à l’aide du [portail Azure](https://portal.azure.com). Pour obtenir une version de cet article qui utilise le portail à la place, consultez le [Tutoriel  *: Gérer les points de terminaison et les itinéraires (portail)*](how-to-manage-routes-portal.md).
 
@@ -208,7 +208,7 @@ Les routes d'événements peuvent être créées à l’aide des API de plan de 
 
 ### <a name="create-routes-with-the-apis-and-c-sdk"></a>Créer des routes avec les API et le Kit de développement logiciel (SDK) C#
 
-Une des méthodes permettant de définir des routes d’événements consiste à utiliser les [API de plan de données](how-to-use-apis-sdks.md#overview-data-plane-apis). Les exemples fournis dans cet article utilisent le [Kit de développement logiciel (SDK) C#](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true).
+Une des méthodes permettant de définir des routes d’événements consiste à utiliser les [API de plan de données](how-to-use-apis-sdks.md#overview-data-plane-apis). Les exemples fournis dans cet article utilisent le [Kit de développement logiciel (SDK) C#](/dotnet/api/overview/azure/digitaltwins/client).
 
 `CreateOrReplaceEventRouteAsync` est l’appel du kit de développement logiciel (SDK) utilisé pour ajouter un itinéraire d’événement. Voici un exemple de son utilisation :
 

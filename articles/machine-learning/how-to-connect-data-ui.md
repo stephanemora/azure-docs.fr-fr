@@ -11,12 +11,12 @@ author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 09/22/2020
 ms.custom: how-to, data4ml
-ms.openlocfilehash: 554c815e6384115d56611e497f49a2c97ed15e38
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 0e2230bdcf2b2f4358db4a0d600506b711f39c45
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461433"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102508229"
 ---
 # <a name="connect-to-data-with-the-azure-machine-learning-studio"></a>Se connecter aux données avec Azure Machine Learning Studio
 
@@ -31,7 +31,7 @@ Le tableau suivant définit et récapitule les avantages liés aux magasins de d
 
 Pour comprendre où figurent les magasins de données et les jeux de données dans le flux de travail global d’accès aux données d’Azure Machine Learning, consultez l’article [Sécuriser l’accès aux données](concept-data.md#data-workflow).
 
-Pour une première expérience de code, consultez les articles suivants pour utiliser le kit de développement logiciel (SDK) [Azure Machine Learning Python](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py) pour :
+Pour une première expérience de code, consultez les articles suivants pour utiliser le kit de développement logiciel (SDK) [Azure Machine Learning Python](/python/api/overview/azure/ml/) pour :
 * [Vous connecter aux services de stockage Azure avec les magasins de données.](how-to-access-data.md) 
 * [Créer des jeux de données Azure Machine Learning](how-to-create-register-datasets.md). 
 

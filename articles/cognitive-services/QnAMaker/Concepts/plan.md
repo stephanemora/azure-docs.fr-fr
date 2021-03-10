@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: bf5582016f74e67926c38111a3d8d2f468f3ac79
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.openlocfilehash: e20679c3999f7ece1f6d3ed47a241cfd9dab9236
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99987995"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102214743"
 ---
 # <a name="plan-your-qna-maker-app"></a>Planifier votre application QnA Maker
 
@@ -177,7 +177,7 @@ Il existe un [classement des réponses en deux phases](query-knowledge-base.md#h
 
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (version stable)](#tab/v1)
 
-Appliquez les [dernières mises à jour du runtime](../how-to/set-up-qnamaker-service-azure.md#get-the-latest-runtime-updates) pour gérer automatiquement les mises à jour de service.
+Appliquez les [dernières mises à jour du runtime](../how-to/configure-QnA-Maker-resources.md#get-the-latest-runtime-updates) pour gérer automatiquement les mises à jour de service.
 
 # <a name="qna-maker-managed-preview-release"></a>[QnA Maker managé (préversion)](#tab/v2)
 
@@ -187,7 +187,7 @@ Dans QnA Maker managé (préversion), le runtime est managé par le service QnA 
 
 ### <a name="scaling-throughput-and-resiliency"></a>Mise à l’échelle, débit et résilience
 
-La mise à l’échelle, le débit et la résilience sont déterminés par les [ressources Azure](../how-to/set-up-qnamaker-service-azure.md), leurs niveaux tarifaires et toute architecture environnante telle que [Traffic Manager](../how-to/set-up-qnamaker-service-azure.md#business-continuity-with-traffic-manager).
+La mise à l’échelle, le débit et la résilience sont déterminés par les [ressources Azure](../how-to/set-up-qnamaker-service-azure.md), leurs niveaux tarifaires et toute architecture environnante telle que [Traffic Manager](../how-to/configure-QnA-Maker-resources.md#business-continuity-with-traffic-manager).
 
 ### <a name="analytics-with-application-insights"></a>Analytique avec Application Insights
 

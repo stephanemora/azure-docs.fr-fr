@@ -14,12 +14,12 @@ metadata:
   author: aahill
   ms.author: aahi
   ms.date: 11/06/2019
-  ms.openlocfilehash: 5a158da6465c8f881febbf01019a1f10362b3ac4
-  ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+  ms.openlocfilehash: cf7d3b916006990e9b13d0afc60d1d72cf2474dd
+  ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 03/05/2021
-  ms.locfileid: "102183469"
+  ms.lasthandoff: 03/09/2021
+  ms.locfileid: "102499031"
 highlightedContent:
   items:
   - title: Comparer les API Recherche Bing
@@ -287,23 +287,23 @@ additionalContent:
     - title: Kit de développement logiciel (SDK) Java
       links:
       - text: Recherche web Bing
-        url: /java/api/overview/azure/cognitiveservices/client/bingwebsearchapi?view=azure-java-stable
+        url: /java/api/overview/azure/cognitiveservices/client/bingwebsearchapi
       - text: Recherche personnalisée Bing
-        url: /java/api/overview/azure/cognitiveservices/client/bingcustomsearch?view=azure-java-stable
+        url: /java/api/overview/azure/cognitiveservices/client/bingcustomsearch
       - text: Recherche d’entité Bing
-        url: /java/api/overview/azure/cognitiveservices/client/bingentitysearchapi?view=azure-java-stable
+        url: /java/api/overview/azure/cognitiveservices/client/bingentitysearchapi
       - text: Recherche d’images Bing
-        url: /java/api/overview/azure/cognitiveservices/client/bingimagesearch?view=azure-java-stable
+        url: /java/api/overview/azure/cognitiveservices/client/bingimagesearch
       - text: Recherche Bing Actualités
-        url: /java/api/overview/azure/cognitiveservices/client/bingnewssearch?view=azure-java-stable
+        url: /java/api/overview/azure/cognitiveservices/client/bingnewssearch
       - text: Recherche de vidéos Bing
-        url: /java/api/overview/azure/cognitiveservices/client/bingvideosearch?view=azure-java-stable
+        url: /java/api/overview/azure/cognitiveservices/client/bingvideosearch
       - text: Recherche visuelle Bing
-        url: /java/api/overview/azure/cognitiveservices/client/bingvisualsearch?view=azure-java-stable
+        url: /java/api/overview/azure/cognitiveservices/client/bingvisualsearch
       - text: Vérification orthographique Bing
-        url: /java/api/overview/azure/cognitiveservices/client/bingspellcheck?view=azure-java-stable
+        url: /java/api/overview/azure/cognitiveservices/client/bingspellcheck
       - text: Suggestion automatique Bing
-        url: /java/api/overview/azure/cognitiveservices/client/bingautosuggest?view=azure-java-stable
+        url: /java/api/overview/azure/cognitiveservices/client/bingautosuggest
     - title: Kit de développement logiciel (SDK) Python
       links:
       - text: Recherche web Bing
@@ -323,27 +323,27 @@ additionalContent:
       - text: Recherche visuelle Bing
         url: /python/api/overview/azure/cognitiveservices/bing-visual-search-readme
       - text: Vérification orthographique Bing
-        url: /python/api/overview/azure/cognitiveservices/spellcheck?view=azure-python
+        url: /python/api/overview/azure/cognitiveservices/spellcheck
     - title: Kit de développement logiciel (SDK) Node.js
       links:
       - text: Recherche web Bing
-        url: /javascript/api/@azure/cognitiveservices-websearch/?view=azure-node-latest
+        url: /javascript/api/@azure/cognitiveservices-websearch/
       - text: Recherche personnalisée Bing
-        url: /javascript/api/@azure/cognitiveservices-customsearch/?view=azure-node-latest
+        url: /javascript/api/@azure/cognitiveservices-customsearch/
       - text: Recherche d’entité Bing
-        url: /javascript/api/@azure/cognitiveservices-entitysearch/?view=azure-node-latest
+        url: /javascript/api/@azure/cognitiveservices-entitysearch/
       - text: Recherche d’images Bing
-        url: /javascript/api/@azure/cognitiveservices-imagesearch/?view=azure-node-latest
+        url: /javascript/api/@azure/cognitiveservices-imagesearch/
       - text: Recherche Bing Actualités
-        url: /javascript/api/@azure/cognitiveservices-newssearch/?view=azure-node-latest
+        url: /javascript/api/@azure/cognitiveservices-newssearch/
       - text: Recherche de vidéos Bing
-        url: /javascript/api/@azure/cognitiveservices-videosearch/?view=azure-node-latest
+        url: /javascript/api/@azure/cognitiveservices-videosearch/
       - text: Recherche visuelle Bing
-        url: /javascript/api/@azure/cognitiveservices-visualsearch/?view=azure-node-latest
+        url: /javascript/api/@azure/cognitiveservices-visualsearch/
       - text: Vérification orthographique Bing
-        url: /javascript/api/@azure/cognitiveservices-spellcheck/?view=azure-node-latest
+        url: /javascript/api/@azure/cognitiveservices-spellcheck/
       - text: Suggestion automatique Bing
-        url: /javascript/api/@azure/cognitiveservices-autosuggest/?view=azure-node-latest
+        url: /javascript/api/@azure/cognitiveservices-autosuggest/
     - title: Kit de développement logiciel (SDK) Go
       links:
       - text: Recherche web Bing

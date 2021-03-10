@@ -10,18 +10,18 @@ ms.custom: how-to
 ms.author: larryfr
 author: BlackMist
 ms.date: 03/05/2020
-ms.openlocfilehash: ec99be6082e01ea49e75ff29b5fb3c37d56b6dd5
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: c800901ae139b16e75613b0cc8de3a9485186896
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98683372"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521371"
 ---
 # <a name="what-happened-to-azure-machine-learning-workbench"></a>Qu’est-il arrivé à Azure Machine Learning Workbench ?
 
 L’application Azure Machine Learning Workbench et d’autres fonctionnalités d’origine ont été dépréciées et remplacées dans la version de **septembre 2018** pour faire place à une [architecture](concept-azure-machine-learning-architecture.md) améliorée.
 
-Pour améliorer votre expérience, la version contient de nombreuses mises à jour importantes demandées par les clients dans leurs commentaires. Les fonctionnalités principales qui englobent les exécutions expérimentales jusqu’au déploiement de modèles n’ont pas changé. Toutefois, maintenant, vous pouvez utiliser le <a href="/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">SDK Python</a> robuste, le SDK R et l’interface [Azure CLI](reference-azure-machine-learning-cli.md) pour accomplir vos tâches et pipelines de Machine Learning.
+Pour améliorer votre expérience, la version contient de nombreuses mises à jour importantes demandées par les clients dans leurs commentaires. Les fonctionnalités principales qui englobent les exécutions expérimentales jusqu’au déploiement de modèles n’ont pas changé. Toutefois, maintenant, vous pouvez utiliser le <a href="/python/api/overview/azure/ml/intro" target="_blank">SDK Python</a> robuste, le SDK R et l’interface [Azure CLI](reference-azure-machine-learning-cli.md) pour accomplir vos tâches et pipelines de Machine Learning.
 
 La plupart des artefacts créés dans la version précédente d’Azure Machine Learning sont stockés dans votre propre stockage local ou cloud. Ces artefacts ne disparaîtront jamais.
 
@@ -36,7 +36,7 @@ Dans cet article, vous découvrez ce qui a changé et comment cela affecte votre
 La dernière version d’Azure Machine Learning comprend les fonctionnalités suivantes :
 + Un [modèle de ressources Azure simplifié](concept-azure-machine-learning-architecture.md).
 + Une [nouvelle interface utilisateur du portail](how-to-track-experiments.md) pour gérer vos expériences et vos cibles de calcul.
-+ Un nouveau <a href="/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">SDK</a> Python plus complet.
++ Un nouveau <a href="/python/api/overview/azure/ml/intro" target="_blank">SDK</a> Python plus complet.
 + Une nouvelle [extension Azure CLI](reference-azure-machine-learning-cli.md) enrichie pour le machine learning.
 
 L’[architecture](concept-azure-machine-learning-architecture.md) a été repensée pour faciliter l’utilisation. Les ressources et comptes Azure multiples ont laissé la place à un [espace de travail Azure Machine Learning](concept-workspace.md). Vous pouvez rapidement créer des espaces de travail dans le [portail Azure](how-to-manage-workspace.md). Avec un espace de travail, plusieurs utilisateurs peuvent stocker des cibles de calcul d’entraînement et de déploiement, des expériences de modèle, des images Docker, des modèles déployés, etc.
@@ -49,7 +49,7 @@ Bien que la version actuelle comprenne de nouveaux clients CLI et SDK amélioré
 
 Depuis le 9 janvier 2019, les comptes Machine Learning Workbench, Azure Machine Learning - Expérimentation et Gestion des modèles, et leurs kits de développement logiciel (SDK) et interfaces CLI associés, ne sont plus pris en charge.
 
-Toutes les fonctionnalités les plus récentes sont disponibles dans ce <a href="/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">SDK</a>, l’[interface CLI](reference-azure-machine-learning-cli.md) et le [portail](how-to-manage-workspace.md).
+Toutes les fonctionnalités les plus récentes sont disponibles dans ce <a href="/python/api/overview/azure/ml/intro" target="_blank">SDK</a>, l’[interface CLI](reference-azure-machine-learning-cli.md) et le [portail](how-to-manage-workspace.md).
 
 ## <a name="what-about-run-histories"></a>Qu’en est-il des historiques des exécutions ?
 
@@ -67,7 +67,7 @@ Commencez à entraîner vos modèles et à effectuer le suivi des historiques d�
 
 Vous ne perdez aucun code ni travail. Dans la version antérieure, les projets sont des entités de cloud avec un répertoire local. Dans la version la plus récente, vous attachez des répertoires locaux à l’espace de travail Azure Machine Learning à l’aide d’un fichier de configuration local. Consultez un [diagramme de l’architecture la plus récente](concept-azure-machine-learning-architecture.md).
 
-La majorité du contenu de projet est déjà sur votre ordinateur local. Vous devez simplement créer un fichier config dans ce répertoire et le référencer dans votre code pour vous connecter à votre espace de travail. Pour continuer à utiliser le répertoire local contenant vos fichiers et scripts, spécifiez le nom du répertoire dans la commande Python [« experiment.submit »](/python/api/azureml-core/azureml.core.experiment.experiment?preserve-view=true&view=azure-ml-py) ou à l’aide de la commande CLI `az ml project attach`.  Par exemple :
+La majorité du contenu de projet est déjà sur votre ordinateur local. Vous devez simplement créer un fichier config dans ce répertoire et le référencer dans votre code pour vous connecter à votre espace de travail. Pour continuer à utiliser le répertoire local contenant vos fichiers et scripts, spécifiez le nom du répertoire dans la commande Python [« experiment.submit »](/python/api/azureml-core/azureml.core.experiment.experiment) ou à l’aide de la commande CLI `az ml project attach`.  Par exemple :
 ```python
 run = exp.submit(source_directory=script_folder,
                  script='train.py', run_config=run_config_system_managed)

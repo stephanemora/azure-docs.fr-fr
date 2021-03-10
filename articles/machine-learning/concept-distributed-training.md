@@ -9,12 +9,12 @@ ms.author: nibaccam
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/27/2020
-ms.openlocfilehash: 4e1972e0530656bf6cc0e6319191ab4ebbfbfddb
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: f87175500fcf5bdbcf9a5c2f499f6bab96b37b63
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93358573"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102498963"
 ---
 # <a name="distributed-training-with-azure-machine-learning"></a>Formation distribuée avec Azure Machine Learning
 
@@ -24,7 +24,7 @@ Dans la formation distribuée, la charge de travail visant à effectuer l’appr
 
 ## <a name="deep-learning-and-distributed-training"></a>Deep Learning et formation distribuée 
 
-Il existe deux principaux types de formation distribuée : le [parallélisme des données](#data-parallelism) et le [parallélisme de modèle](#model-parallelism). Pour la formation distribuée sur des modèles de Deep Learning, le [Kit de développement logiciel (SDK) Azure Machine Learning dans Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) prend en charge les intégrations aux infrastructures populaires, PyTorch et TensorFlow. Les deux infrastructures utilisent le parallélisme des données pour la formation distribuée et peuvent exploiter [horovod](https://horovod.readthedocs.io/en/latest/summary_include.html) pour optimiser les vitesses de calcul. 
+Il existe deux principaux types de formation distribuée : le [parallélisme des données](#data-parallelism) et le [parallélisme de modèle](#model-parallelism). Pour la formation distribuée sur des modèles de Deep Learning, le [Kit de développement logiciel (SDK) Azure Machine Learning dans Python](/python/api/overview/azure/ml/intro) prend en charge les intégrations aux infrastructures populaires, PyTorch et TensorFlow. Les deux infrastructures utilisent le parallélisme des données pour la formation distribuée et peuvent exploiter [horovod](https://horovod.readthedocs.io/en/latest/summary_include.html) pour optimiser les vitesses de calcul. 
 
 * [Entraînement distribué avec PyTorch](how-to-train-pytorch.md#distributed-training)
 

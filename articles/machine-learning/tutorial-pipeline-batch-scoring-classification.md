@@ -11,12 +11,12 @@ ms.author: laobri
 ms.reviewer: laobri
 ms.date: 10/13/2020
 ms.custom: contperf-fy20q4, devx-track-python
-ms.openlocfilehash: 8222f88f5118c4ac8f489bb05ee5ca2724dbf067
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 570bfed5ae5fc6fafea36b9ed1f2673a0daae22b
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98184082"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521507"
 ---
 # <a name="tutorial-build-an-azure-machine-learning-pipeline-for-batch-scoring"></a>Tutoriel : Créer un pipeline Azure Machine Learning pour le scoring par lots
 
@@ -138,7 +138,7 @@ model = Model.register(model_path="models/inception_v3.ckpt",
 
 Vous ne pouvez pas exécuter les pipelines Machine Learning localement, donc exécutez-les sur des ressources cloud ou des *cibles de calcul distantes*. Une cible de calcul distante est un environnement Compute virtuel réutilisable où vous exécutez des expériences et des workflows Machine Learning. 
 
-Exécutez le code suivant pour créer une cible [`AmlCompute`](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?preserve-view=true&view=azure-ml-py) ayant un GPU, puis attachez-la à votre espace de travail. Pour plus d’informations sur les cibles de calcul, consultez l’[article conceptuel](./concept-compute-target.md).
+Exécutez le code suivant pour créer une cible [`AmlCompute`](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute) ayant un GPU, puis attachez-la à votre espace de travail. Pour plus d’informations sur les cibles de calcul, consultez l’[article conceptuel](./concept-compute-target.md).
 
 
 ```python
@@ -301,7 +301,7 @@ Une étape de pipeline est un objet qui encapsule tout ce dont vous avez besoin 
 * Données d’entrée et de sortie ainsi que tous les paramètres personnalisés
 * Référence à un script ou une logique de kit SDK à exécuter au cours de l’étape
 
-Plusieurs classes héritent de la classe parente [`PipelineStep`](/python/api/azureml-pipeline-core/azureml.pipeline.core.builder.pipelinestep?preserve-view=true&view=azure-ml-py). Vous pouvez choisir des classes pour utiliser des frameworks ou des piles spécifiques afin de créer une étape. Dans cet exemple, vous utilisez la classe `ParallelRunStep` pour définir la logique de votre étape en utilisant un script Python personnalisé. Si un argument de votre script est une entrée ou une sortie de l’étape, il doit être défini *à la fois* dans le tableau `arguments`*ainsi que* dans le paramètre `input` ou `output`, respectivement. 
+Plusieurs classes héritent de la classe parente [`PipelineStep`](/python/api/azureml-pipeline-core/azureml.pipeline.core.builder.pipelinestep). Vous pouvez choisir des classes pour utiliser des frameworks ou des piles spécifiques afin de créer une étape. Dans cet exemple, vous utilisez la classe `ParallelRunStep` pour définir la logique de votre étape en utilisant un script Python personnalisé. Si un argument de votre script est une entrée ou une sortie de l’étape, il doit être défini *à la fois* dans le tableau `arguments`*ainsi que* dans le paramètre `input` ou `output`, respectivement. 
 
 Dans les scénarios qui comportent plusieurs étapes, une référence d’objet dans le tableau `outputs` devient disponible en tant qu’*entrée* pour une étape de pipeline suivante.
 
@@ -325,7 +325,7 @@ batch_score_step = ParallelRunStep(
 )
 ```
 
-Pour obtenir la liste de toutes les classes utilisables dans les différents types d’étape, consultez les informations relatives au [package d’étapes](/python/api/azureml-pipeline-steps/azureml.pipeline.steps?preserve-view=true&view=azure-ml-py).
+Pour obtenir la liste de toutes les classes utilisables dans les différents types d’étape, consultez les informations relatives au [package d’étapes](/python/api/azureml-pipeline-steps/azureml.pipeline.steps).
 
 ## <a name="submit-the-pipeline"></a>Envoyer le pipeline
 
@@ -382,9 +382,9 @@ published_pipeline
 
 Pour exécuter le pipeline à partir du point de terminaison REST, vous avez besoin d’un en-tête d’authentification de type porteur OAuth2. L’exemple suivant utilise l’authentification interactive (à des fins d’illustration). Toutefois, dans la plupart des scénarios de production qui nécessitent une authentification automatisée ou sans assistance, utilisez l’authentification du principal de service, comme [décrit dans cet article](how-to-setup-authentication.md).
 
-Pour permettre l’authentification du principal de service, créez une *inscription d’application* dans *Azure Active Directory*. Commencez par générer un secret client, puis accordez au principal de service un *accès en fonction du rôle* à votre espace de travail Machine Learning. Utilisez la classe [`ServicePrincipalAuthentication`](/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication?preserve-view=true&view=azure-ml-py) pour gérer votre flux d’authentification. 
+Pour permettre l’authentification du principal de service, créez une *inscription d’application* dans *Azure Active Directory*. Commencez par générer un secret client, puis accordez au principal de service un *accès en fonction du rôle* à votre espace de travail Machine Learning. Utilisez la classe [`ServicePrincipalAuthentication`](/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication) pour gérer votre flux d’authentification. 
 
-[`InteractiveLoginAuthentication`](/python/api/azureml-core/azureml.core.authentication.interactiveloginauthentication?preserve-view=true&view=azure-ml-py) et `ServicePrincipalAuthentication` héritent de `AbstractAuthentication`. Dans les deux cas, utilisez la fonction [`get_authentication_header()`](/python/api/azureml-core/azureml.core.authentication.abstractauthentication?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-authentication-header--) de la même manière pour extraire l’en-tête :
+[`InteractiveLoginAuthentication`](/python/api/azureml-core/azureml.core.authentication.interactiveloginauthentication) et `ServicePrincipalAuthentication` héritent de `AbstractAuthentication`. Dans les deux cas, utilisez la fonction [`get_authentication_header()`](/python/api/azureml-core/azureml.core.authentication.abstractauthentication#get-authentication-header--) de la même manière pour extraire l’en-tête :
 
 ```python
 from azureml.core.authentication import InteractiveLoginAuthentication

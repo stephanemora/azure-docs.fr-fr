@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/04/2020
 ms.topic: how-to
-ms.openlocfilehash: cfc10658463888e43ea1a24dfefd3f8939ec8ef7
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: d8a6fd458cdcf79cdeb693b25acf72d4ec48def7
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98762777"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102507515"
 ---
 # <a name="use-azure-blob-storage-for-model-conversion"></a>Utiliser Stockage Blob Azure pour la conversion de modèle
 
@@ -28,7 +28,7 @@ Le service de [conversion de modèle](model-conversion.md) nécessite l’accès
 La création du compte de stockage et des conteneurs d’objets Blob peut être effectuée à l’aide de l’un des outils suivants :
 
 - [Azure portal](https://portal.azure.com)
-- [Ligne de commande az](/cli/azure/install-azure-cli?view=azure-cli-latest)
+- [Ligne de commande az](/cli/azure/install-azure-cli)
 - [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
 - SDK (C#, Python, etc.)
 
@@ -52,7 +52,7 @@ Vous pouvez générer un URI SAS à l’aide de l’une des méthodes suivantes�
 
 - Module az PowerShell
   - Consultez les [exemples de scripts PowerShell](../../samples/powershell-example-scripts.md).
-- [Ligne de commande az](/cli/azure/install-azure-cli?view=azure-cli-latest)
+- [Ligne de commande az](/cli/azure/install-azure-cli)
 - [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
   - Cliquez avec le bouton droit sur le conteneur « Obtenir une signature d’accès partagé » (accès en lecture et liste pour le conteneur d’entrée, accès en écriture pour le conteneur de sortie).
 - SDK (C#, Python, etc.)
@@ -65,7 +65,7 @@ Pour commencer à convertir un modèle, vous devez le charger à l’aide de l�
 
 - [Explorateur Stockage Azure](https://azure.microsoft.com/features/storage-explorer/) : une interface utilisateur pratique pour charger/télécharger/gérer des fichiers sur un stockage Blob Azure
 - [Ligne de commande Azure](../../../storage/blobs/storage-quickstart-blobs-cli.md)
-- [Module Azure PowerShell](/powershell/azure/install-az-ps?view=azps-2.2.0)
+- [Module Azure PowerShell](/powershell/azure/install-az-ps)
   - Consultez les [exemples de scripts PowerShell](../../samples/powershell-example-scripts.md).
 - [Utilisation d’un SDK de stockage (Python, C#, etc.)](../../../storage/index.yml)
 - [Utilisation des API REST Stockage Azure](/rest/api/storageservices/blob-service-rest-api)
