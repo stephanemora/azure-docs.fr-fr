@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
-ms.openlocfilehash: 9367cf4324d577e4dd44cb9294a8b82b1bceaf74
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 7be6cf1df15d7afd7cb9447be68ff70ff7b14d03
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100522951"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102449218"
 ---
 # <a name="security-agent-troubleshoot-guide-linux"></a>Guide de résolution des problèmes liés à l’agent de sécurité (Linux)
 
@@ -28,10 +28,9 @@ L’agent Azure Defender pour IoT démarre automatiquement immédiatement après
 
 Dans ce guide de résolution des problèmes, vous allez apprendre à :
 
-> [!div class="checklist"]
-> * Vérifier si l’agent de sécurité est en cours d’exécution
-> * Obtenir les erreurs de l’agent de sécurité
-> * Comprendre et corriger les erreurs de l’agent de sécurité
+- Vérifier si l’agent de sécurité est en cours d’exécution
+- Obtenir les erreurs de l’agent de sécurité
+- Comprendre et corriger les erreurs de l’agent de sécurité
 
 ## <a name="validate-if-the-security-agent-is-running"></a>Vérifier si l’agent de sécurité est en cours d’exécution
 
@@ -108,4 +107,10 @@ Defender for IoT agent encountered an error! Error in: {Error Code}, reason: {Er
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Lire la [vue d’ensemble](overview.md) du service Defender pour IoT En savoir plus sur l’[architecture](architecture.md) Defender pour IoT Activer le [service](quickstart-onboard-iot-hub.md) Defender pour IoT Lire la [FAQ](resources-frequently-asked-questions.md) du service Defender pour IoT Découvrir comment accéder aux [données de sécurité brutes](how-to-security-data-access.md) Comprendre les [recommandations](concept-recommendations.md) Comprendre les [alertes](concept-security-alerts.md) de sécurité
+- Lire la [vue d’ensemble](overview.md) du service Defender pour IoT
+- Découvrir plus en détail l’[architecture](architecture.md) de Defender pour IoT
+- Activer la [service](quickstart-onboard-iot-hub.md) Defender pour IoT
+- Lire la [FAQ](resources-frequently-asked-questions.md) du service Defender pour IoT
+- Découvrir comment accéder aux [données de sécurité brutes](how-to-security-data-access.md)
+- Comprendre les [recommandations](concept-recommendations.md)
+- Comprendre les [alertes de sécurité](concept-security-alerts.md)

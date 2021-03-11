@@ -120,7 +120,7 @@
     - name: Créer un hub de notification à l’aide de Kits de développement logiciel (SDK)
       items:
         - name: Créer un hub de notification - .NET
-          href: /dotnet/api/overview/azure/notification-hubs?view=azure-dotnet
+          href: /dotnet/api/overview/azure/notification-hubs
         - name: Créer un hub de notification - Node.js
           href: notification-hubs-nodejs-push-notification-tutorial.md
         - name: Créer un hub de notification - Java

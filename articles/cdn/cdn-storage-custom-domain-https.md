@@ -1,42 +1,36 @@
 ---
-title: Accéder aux objets blob de stockage à l’aide d’un domaine personnalisé Azure CDN via HTTPS
+title: 'Didacticiel : Accéder aux objets blob de stockage à l’aide d’un domaine personnalisé Azure CDN via HTTPS'
 description: Découvrez comment ajouter un domaine personnalisé Azure CDN et activer HTTPS sur ce domaine pour votre point de terminaison de stockage Blob personnalisé.
 services: cdn
 documentationcenter: ''
 author: asudbring
-manager: danielgi
-editor: ''
-ms.assetid: ''
 ms.service: azure-cdn
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 6061de0a330518baaa829a9a1c8a05f196d68dcb
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 296a51edf024551a03330f4843690e97c6abd47d
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92777841"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102564881"
 ---
-# <a name="tutorial-access-storage-blobs-using-an-azure-cdn-custom-domain-over-https"></a>Tutoriel : Accéder aux objets blob de stockage à l’aide d’un domaine personnalisé Azure CDN via HTTPS
+# <a name="tutorial-access-storage-blobs-using-an-azure-cdn-custom-domain-over-https"></a>Didacticiel : Accéder aux objets blob de stockage à l’aide d’un domaine personnalisé Azure CDN via HTTPS
 
 Une fois que vous avez intégré votre compte de stockage Azure à Azure Content Delivery Network (CDN), vous pouvez ajouter un domaine personnalisé et activer le protocole HTTPS sur ce domaine pour le point de terminaison de votre stockage d’objets blob personnalisé. 
 
 ## <a name="prerequisites"></a>Prérequis
 
-Avant de suivre la procédure indiquée dans ce didacticiel, vous devez intégrer votre compte de stockage Azure à Azure CDN. Pour plus d’informations, consultez [Démarrage rapide : Intégrer un compte de stockage Azure à Azure CDN](cdn-create-a-storage-account-with-cdn.md).
+Avant de suivre la procédure indiquée dans ce didacticiel, vous devez intégrer votre compte de stockage Azure à Azure CDN. Pour plus d’informations, consultez le guide de démarrage rapide [Intégrer un compte de stockage Azure à Azure CDN](cdn-create-a-storage-account-with-cdn.md).
 
 ## <a name="add-a-custom-domain"></a>Ajouter un domaine personnalisé
-Lorsque vous créez un point de terminaison CDN dans votre profil, le nom du point de terminaison, qui est un sous-domaine de azureedge.net, est inclus dans l’URL de diffusion de contenu CDN par défaut. Vous avez également la possibilité d’associer un domaine personnalisé à un point de terminaison CDN. Grâce à cette option, vous distribuez votre contenu avec un domaine personnalisé dans votre URL au lieu d’un nom de point de terminaison. Pour ajouter un domaine personnalisé à votre point de terminaison, suivez les instructions de ce tutoriel : [Ajouter un domaine personnalisé à votre point de terminaison Azure CDN](cdn-map-content-to-custom-domain.md).
+Lorsque vous créez un point de terminaison CDN dans votre profil, le nom du point de terminaison, qui est un sous-domaine de azureedge.net, est inclus dans l’URL de diffusion de contenu CDN par défaut. Vous avez également la possibilité d’associer un domaine personnalisé à un point de terminaison CDN. Grâce à cette option, vous distribuez votre contenu avec un domaine personnalisé dans votre URL au lieu d’un nom de point de terminaison. Pour ajouter un domaine personnalisé à votre point de terminaison, suivez les instructions du didacticiel : [Ajouter un domaine personnalisé à votre point de terminaison Azure CDN](cdn-map-content-to-custom-domain.md).
 
 ## <a name="configure-https"></a>Configurer le protocole HTTPS
-En utilisant le protocole HTTPS sur votre domaine personnalisé, vous vous assurez que vos données sont distribuées sur internet en toute sécurité via le chiffrement TLS/SSL. Lorsque votre navigateur web est connecté à un site web via HTTPS, ce protocole valide le certificat de sécurité du site et vérifie qu’il est fourni par une autorité de certification légitime. Pour configurer le protocole HTTPS sur votre domaine personnalisé, suivez les instructions de ce tutoriel : [Configurer HTTPS sur un domaine personnalisé Azure CDN](cdn-custom-ssl.md).
+En utilisant le protocole HTTPS sur votre domaine personnalisé, vous vous assurez que vos données sont distribuées sur internet en toute sécurité via le chiffrement TLS/SSL. Lorsque votre navigateur web est connecté à un site web via HTTPS, ce protocole valide le certificat de sécurité du site et vérifie qu’il est fourni par une autorité de certification légitime. Pour configurer le protocole HTTPS sur votre domaine personnalisé, suivez les instructions du didacticiel : [Configurer le protocole HTTPS sur un domaine personnalisé Azure CDN](cdn-custom-ssl.md).
 
-## <a name="shared-access-signatures"></a>Les signatures d’accès partagé
+## <a name="shared-access-signatures"></a>Signatures d’accès partagé
 Si le point de terminaison de votre stockage d’objets blob est configuré de sorte que l’accès en lecture anonyme est interdit, vous devez fournir un jeton [Signature d’accès partagé (SAP)](cdn-sas-storage-support.md) pour chaque requête effectuée auprès de votre domaine personnalisé. Par défaut, les points de terminaison de stockage d’objets blob interdisent l’accès en lecture anonyme. Pour en savoir plus sur SAP, consultez la section [Gestion de l’accès en lecture anonyme aux conteneurs et aux objets blob](../storage/blobs/anonymous-read-access-configure.md).
 
 Azure CDN ignore les restrictions ajoutées au jeton SAP. Par exemple, tous les jetons SAP disposent d’un délai d’expiration. Ainsi, le contenu reste accessible avec une SAP qui a expiré tant que le contenu n’est pas vidé des serveurs de point de présence (POP) du CDN. Vous pouvez contrôler la durée de mise en cache sur Azure CDN en définissant l’en-tête de réponse du cache. Pour en savoir plus, consultez la rubrique [Gérer l’expiration des objets blob de stockage Azure CDN](cdn-manage-expiration-of-blob-content.md).

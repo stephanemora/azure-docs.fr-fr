@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2019
 ms.author: kaushika
-ms.openlocfilehash: 9975e40f7d4f3b69c9281efd0288389740bf92ec
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 9a0d06a8f8fa8f68f063404f2b483b817eb0563f
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98943656"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102452099"
 ---
 # <a name="configure-and-validate-virtual-network-or-vpn-connections"></a>Configurer et valider des connexions de réseaux virtuels ou de VPN
 
@@ -248,7 +248,7 @@ Le protocole BGP assure également le routage de transit entre plusieurs réseau
 
 Pour configurer une connexion VPN utilisant le protocole BGP, consultez [Configurer le protocole BGP sur des passerelles VPN Azure à l'aide de PowerShell](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md).
 
-Activez le protocole BGP sur la passerelle de réseau virtuel en créant un numéro de système autonome. Les passerelles de base ne prennent pas en charge le protocole BGP. Pour vérifier la référence SKU de la passerelle, accédez à la section **Vue d'ensemble** du panneau **Passerelle VPN** dans le portail Azure. Si vous disposez d'une référence SKU **De base**, vous devez la remplacer (voir [Redimensionner la passerelle](/powershell/module/azurerm.network/resize-azurermvirtualnetworkgateway?viewFallbackFrom=azurermps-4.0.0)) par **VpnGw1**. 
+Activez le protocole BGP sur la passerelle de réseau virtuel en créant un numéro de système autonome. Les passerelles de base ne prennent pas en charge le protocole BGP. Pour vérifier la référence SKU de la passerelle, accédez à la section **Vue d'ensemble** du panneau **Passerelle VPN** dans le portail Azure. Si vous disposez d'une référence SKU **De base**, vous devez la remplacer (voir [Redimensionner la passerelle](/powershell/module/azurerm.network/resize-azurermvirtualnetworkgateway)) par **VpnGw1**. 
 
 La vérification de la référence SKU peut entraîner un temps d'arrêt de 20 à 30 minutes. Dès que la passerelle dispose de la référence SKU qui convient, vous pouvez ajouter le numéro de système autonome via la cmdlet PowerShell [Set-AzureRmVirtualNetworkGateway](/powershell/module/azurerm.network/set-azurermvirtualnetworkgateway). Une fois le numéro AS configuré, une adresse IP de pair BGP pour la passerelle est fournie automatiquement.
 

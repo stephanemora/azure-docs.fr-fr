@@ -1,24 +1,18 @@
 ---
 title: Autorisations dans Azure Security Center | Microsoft Docs
 description: Cet article explique comment Azure Security Center utilise le contrôle d’accès en fonction du rôle pour affecter des autorisations aux utilisateurs et identifie les actions autorisées pour chaque rôle.
-services: security-center
-cloud: na
-documentationcenter: na
 author: memildin
 manager: rkarlin
 ms.service: security-center
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
-ms.date: 12/01/2020
+ms.date: 01/03/2021
 ms.author: memildin
-ms.openlocfilehash: 14ee9f23379a26c1756c622efb7d739f49dd0537
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: dcbb4977e1bfd17f0cbed61abf9ba335615b7799
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102099180"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102443758"
 ---
 # <a name="permissions-in-azure-security-center"></a>Autorisations dans Azure Security Center
 
@@ -39,15 +33,15 @@ Outre ces rôles, il existe deux rôles propres à Security Center :
 
 Le tableau suivant affiche les rôles et les actions autorisées dans Security Center.
 
-|Action|Lecteur Sécurité / <br> Lecteur |Administrateur de la sécurité  |Contributeur sur le groupe de ressources / <br> Propriétaire du groupe de ressources  |Collaborateur de l’abonnement  |Propriétaire de l’abonnement  |
-|:--- |:---:|:---:|:---:|:---:|:---:|
-|Modifier une stratégie de sécurité|-|✔|-|-|✔|
-|Ajouter/attribuer des initiatives (y compris) des standards de conformité réglementaire)|-|-|-|-|✔|
-|Activer/désactiver Azure Defender|-|✔|-|-|✔|
-|Activer/désactiver le provisionnement automatique|-|✔|-|✔|✔|
-|Appliquer des recommandations de sécurité à une ressource</br> (et utiliser [Correction rapide !](security-center-remediate-recommendations.md#quick-fix-remediation))|-|-|✔|✔|✔|
-|Ignorer les alertes|-|✔|-|✔|✔|
-|Afficher les alertes et les recommandations|✔|✔|✔|✔|✔|
+| Action                                                                                                                                        | Lecteur Sécurité / <br> Lecteur | Administrateur de la sécurité | Contributeur sur le groupe de ressources / <br> Propriétaire du groupe de ressources | Collaborateur de l’abonnement | Propriétaire de l’abonnement |
+|:----------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------:|:--------------:|:------------------------------------------------------:|:------------------------:|:------------------:|
+| Modifier une stratégie de sécurité                                                                                                                          | -                             | ✔             | -                                                      | -                        | ✔                 |
+| Ajouter/attribuer des initiatives (y compris) des standards de conformité réglementaire)                                                                           | -                             | -              | -                                                      | -                        | ✔                 |
+| Activer/désactiver Azure Defender                                                                                                               | -                             | ✔             | -                                                      | -                        | ✔                 |
+| Activer/désactiver le provisionnement automatique                                                                                                            | -                             | ✔             | -                                                      | ✔                       | ✔                  |
+| Appliquer des recommandations de sécurité à une ressource</br> (et utiliser [Correction rapide !](security-center-remediate-recommendations.md#quick-fix-remediation)) | -                             | -              | ✔                                                     | ✔                        | ✔                 |
+| Ignorer les alertes                                                                                                                                | -                             | ✔             | -                                                      | ✔                       | ✔                  |
+| Afficher les alertes et les recommandations                                                                                                               | ✔                            | ✔              | ✔                                                     | ✔                        | ✔                 |
 
 > [!NOTE]
 > Nous vous recommandons d’attribuer le rôle le moins permissif permettant aux utilisateurs d’effectuer leurs tâches. Par exemple, affectez le rôle Lecteur aux utilisateurs qui n’ont besoin que de consulter des informations sur l’intégrité de la sécurité d’une ressource sans effectuer aucune action, telles que l’application des recommandations ou la modification des stratégies.

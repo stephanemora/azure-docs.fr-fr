@@ -112,7 +112,7 @@
           href: exempt-resource.md
         - name: Créer des stratégies et des initiatives de sécurité personnalisées
           href: custom-security-policies.md
-    - name: Protéger vos ordinateurs avec Defender pour les serveurs
+    - name: Protéger vos ordinateurs
       displayName: 'hybrid, arc, Azure Defender for machines'
       items:
         - name: Vue d’ensemble d’Azure Defender pour les serveurs

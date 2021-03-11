@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/05/2021
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 780da47e6f071d854a16ca1d1c5cd02dbdd6bef0
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: f6bd0c13d5cbad802613e2bdea8fd6002f4deea2
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955640"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102444332"
 ---
 Event Hub organise les séquences d’événements dans une ou plusieurs partitions. Les événements les plus récents sont ajoutés à la fin de cette séquence. Une partition peut être considérée comme un « journal de validation ».
 
@@ -57,4 +57,3 @@ Il est tentant de définir le nombre de partitions sur la valeur maximale autori
 
 Bien qu’il soit possible d’envoyer directement aux partitions, cela n’est pas recommandé. Au lieu de cela, vous pouvez utiliser des constructions de niveau supérieur présentées dans la section [Éditeurs d’événements](../articles/event-hubs/event-hubs-features.md#event-publishers). 
 
-Pour plus d’informations sur les partitions et le compromis entre la disponibilité et la fiabilité, consultez le [Guide de programmation de concentrateurs d’événements](../articles/event-hubs/event-hubs-programming-guide.md#partition-key) et l’article [Disponibilité et cohérence dans Event Hubs](../articles/event-hubs/event-hubs-availability-and-consistency.md).

@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 11/09/2020
+ms.date: 03/08/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 81a1263d0eacbffa77e2e35e4594e23235394183
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: e867fee753fb9db530db2b2015c3aea9280bc16f
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97108669"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102448642"
 ---
 # <a name="localization-string-ids"></a>ID de chaînes de localisation
 
@@ -357,7 +357,7 @@ Voici les ID d’un [contrôle d’affichage de vérification](display-control-v
 | id | Valeur par défaut |
 | -- | ------------- |
 |intro_msg| La vérification est nécessaire. Cliquez sur le bouton Envoyer.|
-|success_send_code_msg | Le code de vérification a été envoyé à votre boîte de réception. Veuillez le copier dans la zone d’entrée ci-dessous.|
+|success_send_code_msg | Le code de vérification a été envoyé. Veuillez le copier dans la zone d’entrée ci-dessous.|
 |failure_send_code_msg | Nous rencontrons des problèmes de la vérification de votre adresse e-mail. Entrez une adresse e-mail valide et réessayez.|
 |success_verify_code_msg | Adresse e-mail vérifiée. Vous pouvez maintenant continuer.|
 |failure_verify_code_msg | Nous rencontrons des problèmes de la vérification de votre adresse e-mail. Recommencez.|

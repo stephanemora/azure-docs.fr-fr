@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 218208891cccb4f606a574a9c1c09f30c4ac0b11
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: f373c849cd542769fec7a10f20dad04e742c9591
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98725076"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102565136"
 ---
 # <a name="secure-external-access-to-microsoft-teams-sharepoint-and-onedrive-for-business"></a>Sécuriser l’accès externe à Microsoft Teams, SharePoint et OneDrive Entreprise 
 
@@ -90,7 +90,7 @@ Pour en savoir plus sur la gestion de l’accès externe dans Teams, consultez l
 
 * [Gérer l’accès externe dans Microsoft Teams](/microsoftteams/manage-external-access)
 
-* [Modèles d’identité Microsoft 365 et Azure Active Directory](/microsoft-365/enterprise/about-microsoft-365-identity?view=o365-worldwide)
+* [Modèles d’identité Microsoft 365 et Azure Active Directory](/microsoft-365/enterprise/about-microsoft-365-identity)
 
 * [Modèles d’identité et authentification pour Microsoft Teams](/MicrosoftTeams/identify-models-authentication)
 
@@ -191,7 +191,7 @@ Consultez les articles suivants sur la sécurisation de l’accès externe aux r
 
 6. [Sécuriser l’accès avec la gestion des droits d’utilisation](6-secure-access-entitlement-managment.md)
 
-7. [Sécuriser l’accès avec des stratégies d’accès conditionnel](7-secure-access-conditional-access.md)
+7. [Sécuriser l’accès avec des stratégies d’Accès conditionnel](7-secure-access-conditional-access.md)
 
 8. [Sécuriser l’accès avec des étiquettes de confidentialité](8-secure-access-sensitivity-labels.md)
 

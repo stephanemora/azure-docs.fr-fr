@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9913132ca6ff3ce2840b55aa771f7bd9be2404ea
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 319ab7343792be92005611d26acc382df711bf1e
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101650972"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102565063"
 ---
 # <a name="protecting-microsoft-365-from-on-premises-attacks"></a>Protéger Microsoft 365 des attaques locales
 
@@ -69,7 +69,7 @@ Pour lutter contre les vecteurs de menace décrits précédemment, nous vous rec
 
     Ces comptes administrateur sont des comptes à usage restreint. *Aucun compte local ne doit disposer de privilèges administratifs dans Microsoft 365.* 
 
-    Pour plus d’informations, consultez la [présentation des rôles Administrateur Microsoft 365](/microsoft-365/admin/add-users/about-admin-roles?view=o365-worldwide). Consultez également [Rôles liés à Microsoft 365 dans Azure AD](../roles/m365-workload-docs.md).
+    Pour plus d’informations, consultez la [présentation des rôles Administrateur Microsoft 365](/microsoft-365/admin/add-users/about-admin-roles). Consultez également [Rôles liés à Microsoft 365 dans Azure AD](../roles/m365-workload-docs.md).
 
 1. **Gérez les appareils à partir de Microsoft 365.** Utilisez les fonctionnalités de jonction Azure AD et de gestion informatique des périphériques mobiles (GMP) pour éliminer les dépendances vis-à-vis de votre infrastructure locale de gestion des périphériques. Ces dépendances sont susceptibles de nuire aux contrôles des appareils et de la sécurité.
 
@@ -151,7 +151,7 @@ Lorsqu’il est utilisé pour approvisionner des comptes hybrides, le système �
 
 Les groupes cloud vous permettent de dissocier votre collaboration et votre accès de votre infrastructure locale.
 
-* **Collaboration** : utilisez des groupes Microsoft 365 et Microsoft Teams pour bénéficier d'une collaboration moderne. Désactivez les listes de distribution locales et procédez à une [mise à niveau des listes de distribution vers des groupes Microsoft 365 dans Outlook](/office365/admin/manage/upgrade-distribution-lists?view=o365-worldwide).
+* **Collaboration** : utilisez des groupes Microsoft 365 et Microsoft Teams pour bénéficier d'une collaboration moderne. Désactivez les listes de distribution locales et procédez à une [mise à niveau des listes de distribution vers des groupes Microsoft 365 dans Outlook](/office365/admin/manage/upgrade-distribution-lists).
 
 * **Accès** : utilisez des groupes de sécurité Azure AD ou des groupes Microsoft 365 pour autoriser l'accès aux applications dans Azure AD.
 * **Licence Office 365** : utilisez une licence basée sur les groupes pour approvisionner Office 365 avec des groupes cloud uniquement. Cette méthode dissocie le contrôle de l’appartenance à un groupe de l’infrastructure locale.
@@ -205,7 +205,7 @@ Utilisez l’accès conditionnel Azure AD pour interpréter les signaux et les u
 
    Pour plus d’informations, consultez [Protocoles d’authentification hérités](../fundamentals/auth-sync-overview.md). Vous pouvez également consulter les informations spécifiques à [Exchange Online](/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online#how-basic-authentication-works-in-exchange-online) et [SharePoint Online](/powershell/module/sharepoint-online/set-spotenant?view=sharepoint-ps).
 
-* Implémentez les [configurations recommandées pour l’identité et l’accès aux appareils](/microsoft-365/security/office-365-security/identity-access-policies?view=o365-worldwide).
+* Implémentez les [configurations recommandées pour l’identité et l’accès aux appareils](/microsoft-365/security/office-365-security/identity-access-policies).
 
 * Si vous utilisez une version d’Azure AD qui n’inclut pas l’accès conditionnel, veillez à utiliser les [paramètres de sécurité par défaut d’Azure AD](../fundamentals/concept-fundamentals-security-defaults.md).
 

@@ -6,12 +6,12 @@ ms.author: deseelam
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 02/22/2021
-ms.openlocfilehash: b52d61c2828ddf5c04ab943d73964d236c9017c1
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 5dd27e4502ac70ef10f2623ed6dfb2f62de37f06
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102098840"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102448781"
 ---
 # <a name="replicate-data-over-expressroute-with-azure-migrate-server-migration"></a>Répliquer des données via ExpressRoute avec Azure Migrate : migration de serveur
 
@@ -72,6 +72,7 @@ Pour créer et rechercher le compte de stockage :
 ![Affichage du groupe de ressources](./media/replicate-using-expressroute/storage-account-name.png)
 
 > [!Tip]
+>  
 > Si vous disposez de plusieurs comptes de stockage avec le préfixe **« lsa »** dans votre groupe de ressources, vous pouvez vérifier le compte de stockage en accédant aux paramètres de réplication et au menu de configuration cible pour l’une des machines virtuelles de réplication dans le projet. <br/> 
 > ![Vue d’ensemble des paramètres de réplication](./media/replicate-using-expressroute/storage-account.png)
 
@@ -125,8 +126,9 @@ Si vous n’avez pas sélectionné l’option d’intégration à une zone DNS p
 
     ![createprivatedns](./media/replicate-using-expressroute/create-private-dns.png)
 
-    a.  Dans la page **Zones DNS privées**, sélectionnez le bouton **+Ajouter** pour commencer à créer une zone.  
-    b.  Dans la page **Créer une zone DNS privée**, entrez les informations requises. Entrez le nom de la zone DNS privée, sous la forme _privatelink_.blob.core.windows.net. c. Passez à l’onglet **Vérifier + créer** pour vérifier et créer la zone DNS.
+    a. Dans la page **Zones DNS privées**, sélectionnez le bouton **+Ajouter** pour commencer à créer une zone.  
+    b. Dans la page **Créer une zone DNS privée**, entrez les informations requises. Entrez le nom de la zone DNS privée, sous la forme _privatelink_.blob.core.windows.net.  
+    c. Passez à l’onglet **Vérifier + créer** pour vérifier et créer la zone DNS.   
 
 2. Liez la zone DNS privée à votre réseau virtuel.  
 

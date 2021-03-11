@@ -6,12 +6,12 @@ ms.author: chugu
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 4/15/2020
-ms.openlocfilehash: c268dba51ecf2c2b246c54574ecf3838533b017e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 62bd5d2e70d3a66998907305fecee4dcc87cdb23
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101710207"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102451725"
 ---
 # <a name="use-azure-sql-managed-instance-with-sql-server-integration-services-ssis-in-azure-data-factory"></a>Utiliser Azure SQL Managed Instance avec SQL Server Integration Services (SSIS) dans Azure Data Factory
 
@@ -39,7 +39,7 @@ Vous pouvez maintenant déplacer vos projets, packages et charges de travail SQL
             - Dans le même réseau virtuel que l’instance gérée, avec un **sous-réseau différent**.
             - Dans un autre réseau virtuel que l’instance gérée, via l’appairage de réseaux virtuels (qui est limité à la même région en raison de contraintes d’appairage des réseaux virtuels globaux) ou via une connexion de réseau virtuel à réseau virtuel.
 
-            Pour plus d'informations sur la connectivité de l'instance gérée SQL, consultez [Connecter votre application à Azure SQL Managed Instance](https://review.docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connect-app).
+            Pour plus d'informations sur la connectivité de l'instance gérée SQL, consultez [Connecter votre application à Azure SQL Managed Instance](/azure/sql-database/sql-database-managed-instance-connect-app).
 
         1. [Configurer un réseau virtuel](#configure-virtual-network).
 

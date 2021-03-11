@@ -2,18 +2,18 @@
 title: 'Tutoriel : Créer et gérer des machines virtuelles Windows avec Azure PowerShell'
 description: Dans ce tutoriel, vous allez apprendre à utiliser Azure PowerShell pour créer et gérer des machines virtuelles Windows dans Azure.
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.topic: tutorial
 ms.workload: infrastructure
 ms.date: 06/06/2019
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: b9b7fee32ec8d844452cfcb5eba29859467105e4
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: ae298562b5d3306cf6c20b4c2fb7b378ba99c986
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102520759"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102561617"
 ---
 # <a name="tutorial-create-and-manage-windows-vms-with-azure-powershell"></a>Tutoriel : Créer et gérer des machines virtuelles Windows avec Azure PowerShell
 

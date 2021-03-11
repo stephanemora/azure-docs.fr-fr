@@ -6,12 +6,12 @@ ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: c2bde64c17520f4cf66ddecd9fc55a9bdd9edc37
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 02abdd752528ce28642b6228648062ed961d5ae3
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98020585"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102452388"
 ---
 # <a name="event-hubs-output-from-azure-stream-analytics"></a>Event Hubs à partir d’Azure Stream Analytics
 
@@ -37,7 +37,7 @@ La table suivante a les paramètres nécessaires pour configurer des flux de don
 
 ## <a name="partitioning"></a>Partitionnement
 
-Le partitionnement varie en fonction de l’alignement des partitions. Lorsque la clé de partition de la sortie Event Hub s’aligne parfaitement avec l’étape de requête (précédente) en amont, le nombre d’enregistreurs est égal au nombre de partitions dans la sortie Event Hub. Chaque enregistreur utilise la [classe EventHubSender](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet&preserve-view=true) pour envoyer des événements à la partition concernée. Lorsque la clé de partition de la sortie Event Hub ne s’aligne pas avec l’étape de requête (précédente) en amont, le nombre d’enregistreurs est égal au nombre de partitions de cette précédente étape. Chaque enregistreur utilise la [classe SendBatchAsync](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet&preserve-view=true) dans **EventHubClient** pour envoyer des événements à toutes les partitions de sortie. 
+Le partitionnement varie en fonction de l’alignement des partitions. Lorsque la clé de partition de la sortie Event Hub s’aligne parfaitement avec l’étape de requête (précédente) en amont, le nombre d’enregistreurs est égal au nombre de partitions dans la sortie Event Hub. Chaque enregistreur utilise la [classe EventHubSender](/dotnet/api/microsoft.servicebus.messaging.eventhubsender) pour envoyer des événements à la partition concernée. Lorsque la clé de partition de la sortie Event Hub ne s’aligne pas avec l’étape de requête (précédente) en amont, le nombre d’enregistreurs est égal au nombre de partitions de cette précédente étape. Chaque enregistreur utilise la [classe SendBatchAsync](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync) dans **EventHubClient** pour envoyer des événements à toutes les partitions de sortie. 
 
 ## <a name="output-batch-size"></a>Taille de lot de sortie
 

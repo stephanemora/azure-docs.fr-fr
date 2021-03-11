@@ -2,17 +2,18 @@
 title: Migrer vos machines virtuelles Windows vers le Stockage Premium Azure à l’aide d’Azure Site Recovery
 description: Découvrez comment migrer vos disques de machine virtuelle d’un compte de stockage standard vers un compte de stockage Premium à l’aide d’Azure Site Recovery.
 author: luywang
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.collection: windows
 ms.topic: how-to
 ms.date: 08/15/2017
 ms.author: luywang
 ms.subservice: disks
-ms.openlocfilehash: 58d4459e1869a9d1f7ccb8234c0356ac486a950c
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: aeb8028468a1e1944a4fd39275f134bfae00dfa3
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91975550"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102555344"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migrer vers le stockage Premium à l’aide d’Azure Site Recovery
 
@@ -167,7 +168,7 @@ Pour vérifier que votre serveur de configuration est correctement associé à l
 
    ![Volet Activer la réplication avec Source sélectionné][13]
 
-Lorsque vous concevez votre environnement de stockage Azure, nous vous recommandons d’utiliser des comptes de stockage distincts pour chaque machine virtuelle dans un groupe à haute disponibilité. Nous vous recommandons de suivre la bonne pratique de la couche de stockage concernant l’[utilisation de plusieurs comptes de stockage pour chaque groupe à haute disponibilité](../manage-availability.md). La distribution de disques de machines virtuelles sur plusieurs comptes de stockage permet d’améliorer la disponibilité du stockage et distribue les E/S sur l’infrastructure de stockage Azure.
+Lorsque vous concevez votre environnement de stockage Azure, nous vous recommandons d’utiliser des comptes de stockage distincts pour chaque machine virtuelle dans un groupe à haute disponibilité. Nous vous recommandons de suivre la bonne pratique de la couche de stockage concernant l’[utilisation de plusieurs comptes de stockage pour chaque groupe à haute disponibilité](../availability.md). La distribution de disques de machines virtuelles sur plusieurs comptes de stockage permet d’améliorer la disponibilité du stockage et distribue les E/S sur l’infrastructure de stockage Azure.
 
 Si vos machines virtuelles se trouvent dans un groupe à haute disponibilité au lieu de répliquer les disques de toutes les machines virtuelles dans un compte de stockage, nous vous recommandons vivement de migrer plusieurs machines virtuelles plusieurs fois. De cette façon, les machines virtuelles d’un même groupe à haute disponibilité ne partagent pas le même compte de stockage. Utilisez le volet **Activer la réplication** pour configurer un par un des comptes de stockage de destination pour chaque machine virtuelle.
  

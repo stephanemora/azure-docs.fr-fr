@@ -14,12 +14,12 @@ ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 03/18/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c0771864229c8a3918da076de48fb6e033d2cf5a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 73c19b72c75d9638213f3c813a708a272cbe2a1b
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89018176"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102452337"
 ---
 # <a name="export-and-import-azure-notification-hubs-registrations-in-bulk"></a>Exporter et importer en bloc des inscriptions Azure Notification Hubs
 
@@ -127,7 +127,7 @@ En plus des URL d’entrée et de sortie, cet exemple crée un objet `Notificati
 - `ImportUpdateRegistrations`
 - `ImportDeleteRegistrations`
 
-Une fois l’appel terminé, le travail est poursuivi par le hub de notifications. Vous pouvez vérifier l’état du travail en appelant [GetNotificationHubJobAsync](/dotnet/api/microsoft.azure.notificationhubs.notificationhubclient.getnotificationhubjobasync?view=azure-dotnet).
+Une fois l’appel terminé, le travail est poursuivi par le hub de notifications. Vous pouvez vérifier l’état du travail en appelant [GetNotificationHubJobAsync](/dotnet/api/microsoft.azure.notificationhubs.notificationhubclient.getnotificationhubjobasync).
 
 À l’issue du travail, vous pouvez examiner les résultats dans les fichiers suivants situés dans votre répertoire de sortie :
 

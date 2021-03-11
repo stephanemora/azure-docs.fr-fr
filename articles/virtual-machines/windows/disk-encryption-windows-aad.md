@@ -3,17 +3,18 @@ title: Azure Disk Encryption avec Azure AD pour les machines virtuelles Windows 
 description: Cet article fournit des instructions sur l’activation de Microsoft Azure Disk Encryption pour les machines virtuelles IaaS Windows.
 author: msmbaldwin
 ms.service: virtual-machines
-ms.subservice: security
+ms.subservice: disks
+ms.collection: windows
 ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 352c8848b98bfb463c03ceea89ebe3f4b6ad6d5b
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 3b7f6f63953ba09e57e4586c698e16b9abb8aa1c
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92742428"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102555276"
 ---
 # <a name="azure-disk-encryption-with-azure-ad-for-windows-vms-previous-release"></a>Azure Disk Encryption avec Azure AD pour les machines virtuelles Windows (version précédente)
 
@@ -31,7 +32,7 @@ Il existe de nombreux scénarios permettant d’activer le chiffrement de disque
 ## <a name="enable-encryption-on-new-iaas-vms-created-from-the-marketplace"></a>Activer le chiffrement sur de nouvelles machines virtuelles IaaS créées à partir de la Place de marché
 Vous pouvez activer le chiffrement de disque sur de nouvelles machines virtuelles IaaS Windows à partir de la Place de marché dans Azure en utilisant un modèle Resource Manager. Le modèle crée une machine virtuelle Windows chiffrée en utilisant l’image de la galerie Windows Server 2012.
 
-1. Sur le [modèle Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-new-vm-gallery-image), cliquez sur **Déployer sur Azure** .
+1. Sur le [modèle Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-new-vm-gallery-image), cliquez sur **Déployer sur Azure**.
 
 2. Sélectionnez l’abonnement, le groupe de ressources, l’emplacement du groupe de ressources, les paramètres, les conditions légales et le contrat. Cliquez sur **Acheter** pour déployer une nouvelle machine virtuelle IaaS où le chiffrement est activé.
 
@@ -48,7 +49,7 @@ Vous pouvez activer le chiffrement de disque sur de nouvelles machines virtuelle
          Get-AzVmDiskEncryptionStatus -ResourceGroupName 'MyVirtualMachineResourceGroup' -VMName 'MySecureVM'
          ```
 
-     -  Sélectionnez la machine virtuelle, puis cliquez sur **Disques** sous le titre **Paramètres** pour vérifier l’état du chiffrement dans le portail. Dans le graphique sous **Chiffrement** , vous voyez s’il est activé. 
+     -  Sélectionnez la machine virtuelle, puis cliquez sur **Disques** sous le titre **Paramètres** pour vérifier l’état du chiffrement dans le portail. Dans le graphique sous **Chiffrement**, vous voyez s’il est activé. 
            ![Portail Azure - Chiffrement de disque activé](../media/disk-encryption/disk-encryption-fig2.png)
 
 Le tableau suivant répertorie les paramètres du modèle Resource Manager pour les nouvelles machines virtuelles dans un scénario Place de marche utilisant l’ID de client Azure AD :
@@ -156,7 +157,7 @@ Utilisez la commande [az vm encryption enable](/cli/azure/vm/encryption#az-vm-en
 Vous pouvez activer le chiffrement de disque sur des machines virtuelles Windows IaaS existantes ou en cours d’exécution dans Azure en utilisant le [modèle Resource Manager pour chiffrer une machine virtuelle Windows en cours d’exécution](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm).
 
 
-1. Dans le modèle de démarrage rapide Azure, cliquez sur **Déployer sur Azure** .
+1. Dans le modèle de démarrage rapide Azure, cliquez sur **Déployer sur Azure**.
 
 2. Sélectionnez l’abonnement, le groupe de ressources, l’emplacement du groupe de ressources, les paramètres, les conditions légales et le contrat. Cliquez sur **Acheter** pour activer le chiffrement sur la machine virtuelle IaaS existante ou en cours d’exécution.
 
@@ -167,8 +168,8 @@ Le tableau suivant répertorie les paramètres du modèle Resource Manager pour 
 | AADClientID | ID de client de l’application Azure AD qui dispose des autorisations pour écrire des clés secrètes dans le coffre de clés. |
 | AADClientSecret | Clé secrète de client de l’application Azure AD qui dispose des autorisations pour écrire des clés secrètes dans le coffre de clés. |
 | keyVaultName | Nom du coffre de clés dans lequel la clé BitLocker doit être téléchargée. Vous pouvez l’obtenir avec la cmdlet `(Get-AzKeyVault -ResourceGroupName <MyKeyVaultResourceGroupName>). Vaultname` ou la commande Azure CLI `az keyvault list --resource-group "MySecureGroup"`|
-|  keyEncryptionKeyURL | URL de la clé de chiffrement à clé utilisée pour chiffrer la clé BitLocker générée. Ce paramètre est facultatif si vous sélectionnez **nokek** dans la liste déroulante UseExistingKek. Si vous sélectionnez **kek** dans la liste déroulante UseExistingKek, vous devez entrer la valeur _keyEncryptionKeyURL_ . |
-| volumeType | Type de volume sur lequel l’opération de chiffrement est effectuée. Les valeurs valides sont _Système d’exploitation_ , _Données_ et _Tous_ . |
+|  keyEncryptionKeyURL | URL de la clé de chiffrement à clé utilisée pour chiffrer la clé BitLocker générée. Ce paramètre est facultatif si vous sélectionnez **nokek** dans la liste déroulante UseExistingKek. Si vous sélectionnez **kek** dans la liste déroulante UseExistingKek, vous devez entrer la valeur _keyEncryptionKeyURL_. |
+| volumeType | Type de volume sur lequel l’opération de chiffrement est effectuée. Les valeurs valides sont _Système d’exploitation_, _Données_ et _Tous_. |
 | sequenceVersion | Version de séquence de l’opération BitLocker. Incrémentez ce numéro de version à chaque fois qu’une opération de chiffrement de disque est exécutée sur la même machine virtuelle. |
 | vmName | Nom de la machine virtuelle sur laquelle l’opération de chiffrement doit être effectuée. |
 
