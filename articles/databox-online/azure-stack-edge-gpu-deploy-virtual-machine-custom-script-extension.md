@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/25/2021
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 8b233211f47250d4742d35cd0782cdd241839496
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 2d2e7d403ab3e9cc7e8e17de53b6e821ec24caa1
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98804858"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102438010"
 ---
 # <a name="deploy-custom-script-extension-on-vms-running-on-your-azure-stack-edge-pro-device"></a>Déployer des extensions de script personnalisé sur des machines virtuelles s’exécutant sur votre appareil Azure Stack Edge Pro
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 L’extension de script personnalisé télécharge et exécute des scripts ou des commandes sur des machines virtuelles s’exécutant sur vos appareils Azure Stack Edge Pro. Cet article explique en détail comment installer et exécuter l’extension de script personnalisé à l’aide d’un modèle Azure Resource Manager. 
 

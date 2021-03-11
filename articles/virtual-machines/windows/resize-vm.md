@@ -2,18 +2,18 @@
 title: Redimensionner une machine virtuelle Windows dans Azure
 description: Modifier la taille de la machine virtuelle utilisée pour une machine virtuelle Azure.
 author: cynthn
-ms.service: virtual-machines-windows
-ms.subservice: sizes
+ms.service: virtual-machines
+ms.collection: windows
 ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: cynthn
-ms.openlocfilehash: 4860422fefb5a95fe41912b4898f02867f7b3aeb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f7f41c0fb2bf949dd47491761fde8025a2d35155
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87832244"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102560648"
 ---
 # <a name="resize-a-windows-vm"></a>Redimensionner une machine virtuelle Windows
 
@@ -21,7 +21,7 @@ Cet article vous explique comment modifier la [taille d’une machine virtuelle]
 
 Une fois que vous avez créé une machine virtuelle, vous pouvez la mettre à l’échelle en modifiant sa taille. Dans certains cas, vous devez commencer par libérer la machine virtuelle. Cela peut se produire si la nouvelle taille n’est pas disponible sur le cluster matériel qui héberge actuellement la machine virtuelle.
 
-Si votre machine virtuelle utilise le stockage Premium, assurez-vous de choisir une version **s** de la taille pour obtenir un support de stockage Premium. Par exemple, choisissez Standard_E4**s**_v3 au lieu de Standard_E4_v3.
+Si votre machine virtuelle utilise le stockage Premium, assurez-vous de choisir une version **s** de la taille pour obtenir un support de stockage Premium. Par exemple, choisissez Standard_E4 **s** _v3 au lieu de Standard_E4_v3.
 
 ## <a name="use-the-portal"></a>Utiliser le portail
 

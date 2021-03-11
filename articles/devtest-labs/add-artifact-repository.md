@@ -3,12 +3,12 @@ title: Ajouter un référentiel d’artefacts à votre laboratoire dans Azure De
 description: Découvrez comment spécifier votre propre dépôt d’artefacts pour votre laboratoire dans Azure DevTest Labs afin de stocker des outils non disponibles dans le dépôt d’artefacts public.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 5dd7d89020bf077e29b177f6871f43b52467b0d8
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: da4e345b18a46226853d71bbf66af0487f1a761f
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97512009"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102502193"
 ---
 # <a name="add-an-artifact-repository-to-your-lab-in-devtest-labs"></a>Ajouter un référentiel d’artefacts à votre laboratoire dans Azure DevTest Labs.
 Azure DevTest Labs vous permet de spécifier l’ajout d’un artefact à une machine virtuelle pendant ou après la création de cette dernière. Cet artefact peut être un outil ou une application que vous souhaitez installer sur la machine virtuelle. Les artefacts sont définis dans un fichier JSON chargé à partir d’un référentiel Git Azure DevOps ou GitHub.
@@ -183,7 +183,7 @@ New-AzResourceGroupDeployment `
 Une fois la cmdlet AzResourceGroupDeployment de nouveau exécutée avec succès, la commande affiche des informations importantes, telles que l’état d’approvisionnement (qui doit être Réussi) et les différentes sorties pour le modèle.
 
 ## <a name="use-azure-powershell"></a>Utilisation d'Azure PowerShell
-Cette section fournit un exemple de script PowerShell, qui peut être utilisé pour ajouter un référentiel d’artefacts à un laboratoire. Si vous n’avez pas Azure PowerShell, accédez à la section [How to install and configure Azure PowerShell](/powershell/azure/?view=azps-1.2.0) (Comment installer et configurer Azure PowerShell) pour obtenir des instructions détaillées afin de l’installer.
+Cette section fournit un exemple de script PowerShell, qui peut être utilisé pour ajouter un référentiel d’artefacts à un laboratoire. Si vous n’avez pas Azure PowerShell, accédez à la section [How to install and configure Azure PowerShell](/powershell/azure/) (Comment installer et configurer Azure PowerShell) pour obtenir des instructions détaillées afin de l’installer.
 
 ### <a name="full-script"></a>Script complet
 Voici le script complet, y compris les commentaires et messages détaillés :

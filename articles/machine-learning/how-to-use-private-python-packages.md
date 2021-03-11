@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/10/2020
-ms.openlocfilehash: 6a722746c8e06a691e702b095d3081f1530645de
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: b922c25561843d140f1e2b8221f62fad89ea00c8
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93318932"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102520895"
 ---
 # <a name="use-private-python-packages-with-azure-machine-learning"></a>Utiliser des packages Python privés avec Azure Machine Learning
 
@@ -31,12 +31,12 @@ Les packages privés sont utilisés par le biais de la classe [Environment](/pyt
 
 ## <a name="prerequisites"></a>Prérequis
 
- * Le [kit de développement logiciel (SDK) Azure Machine Learning pour Python](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)
+ * Le [kit de développement logiciel (SDK) Azure Machine Learning pour Python](/python/api/overview/azure/ml/install)
  * Un [espace de travail Azure Machine Learning](how-to-manage-workspace.md)
 
 ## <a name="use-small-number-of-packages-for-development-and-testing"></a>Utiliser un petit nombre de packages à des fins de développement et de test
 
-Pour un petit nombre de packages privés destinés à un seul espace de travail, utilisez la méthode statique [`Environment.add_private_pip_wheel()`](/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py#&preserve-view=trueadd-private-pip-wheel-workspace--file-path--exist-ok-false-). Cette approche vous permet d'ajouter rapidement un package privé à l'espace de travail et peut parfaitement être utilisée à des fins de développement et de test.
+Pour un petit nombre de packages privés destinés à un seul espace de travail, utilisez la méthode statique [`Environment.add_private_pip_wheel()`](/python/api/azureml-core/azureml.core.environment.environment#add-private-pip-wheel-workspace--file-path--exist-ok-false-). Cette approche vous permet d'ajouter rapidement un package privé à l'espace de travail et peut parfaitement être utilisée à des fins de développement et de test.
 
 Pointez l'argument filepath vers un fichier wheel local et exécutez la commande ```add_private_pip_wheel```. La commande renvoie une URL qui permet de suivre l'emplacement du package dans votre espace de travail. Capturez l'URL de stockage et transmettez-la à la méthode `add_pip_package()`.
 
@@ -58,7 +58,7 @@ Cette approche utilise un jeton d'accès personnel pour l'authentification aupr�
 
  1. [Créez un PAT (jeton d'accès personnel)](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?preserve-view=true&tabs=preview-page&view=azure-devops#create-a-pat) pour votre instance d'Azure DevOps. Définissez l'étendue du jeton sur __Empaquetage > Lire__. 
 
- 2. Ajoutez l'URL et le PAT Azure DevOps en tant que propriétés de l'espace de travail, en utilisant la méthode [Workspace.set_connection](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py#&preserve-view=trueset-connection-name--category--target--authtype--value-).
+ 2. Ajoutez l'URL et le PAT Azure DevOps en tant que propriétés de l'espace de travail, en utilisant la méthode [Workspace.set_connection](/python/api/azureml-core/azureml.core.workspace.workspace#set-connection-name--category--target--authtype--value-).
 
      ```python
     from azureml.core import Workspace

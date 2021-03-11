@@ -6,18 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/27/2021
+ms.date: 02/21/2021
 ms.author: alkohli
-ms.openlocfilehash: 8ecd1a99d41dc1391e6dba129d50eb53a67843d1
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 8ebc7da1c091e5e3102ccc9dd73fc0303b97cd55
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98955342"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102436904"
 ---
 # <a name="set-azure-resource-manager-password-on-azure-stack-edge-pro-gpu-device"></a>Définir un mot de passe Azure Resource Manager sur un appareil Azure Stack Edge Pro avec GPU
 
-<!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 Cet article explique comment définir votre mot de passe Azure Resource Manager. Vous devez définir ce mot de passe lorsque vous vous connectez aux API locales de l’appareil via Azure Resource Manager.
 

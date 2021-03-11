@@ -2,17 +2,18 @@
 title: Créer une machine virtuelle à partir d’un disque dur virtuel généralisé chargé
 description: Chargez un disque dur virtuel généralisé sur Azure et utilisez-le pour créer des machines virtuelles dans le modèle de déploiement du Gestionnaire de ressources.
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.subservice: disks
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 12/12/2019
 ms.author: cynthn
-ms.openlocfilehash: fd3ace98582a414a82ed4d1007a6c7df4b36d211
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 793bc5518664761a2a9b0cfd46e616d2fb72c3e6
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98873093"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102562093"
 ---
 # <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>Charger un disque dur virtuel généralisé et l’utiliser pour créer des machines virtuelles dans Azure
 

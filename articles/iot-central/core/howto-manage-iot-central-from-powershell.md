@@ -9,12 +9,12 @@ ms.date: 03/27/2020
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
 manager: philmea
-ms.openlocfilehash: 832147fd06dbc7439500b911efbbde6d9b1d81fd
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: a870b72d1dda04ab29dbb5f056873d47f888b837
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92123060"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102501360"
 ---
 # <a name="manage-iot-central-from-azure-powershell"></a>Gérer IoT Central à partir d’Azure PowerShell
 
@@ -28,10 +28,12 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
+[!INCLUDE [Warning About Access Required](../../../includes/iot-central-warning-contribitorrequireaccess.md)]
+
 Si vous préférez exécuter Azure PowerShell sur votre ordinateur local, consultez [Installer le module Azure PowerShell](/powershell/azure/install-az-ps). Lorsque vous exécutez Azure PowerShell localement, utilisez l’applet de commande **Connect-AzAccount** pour vous connecter à Azure avant d’essayer les applets de commande de cet article.
 
 > [!TIP]
-> Si vous devez exécuter vos commandes PowerShell dans un autre abonnement Azure, consultez [Modifier l’abonnement actif](/powershell/azure/manage-subscriptions-azureps?view=azps-3.4.0#change-the-active-subscription).
+> Si vous devez exécuter vos commandes PowerShell dans un autre abonnement Azure, consultez [Modifier l’abonnement actif](/powershell/azure/manage-subscriptions-azureps#change-the-active-subscription).
 
 ## <a name="install-the-iot-central-module"></a>Installer le module IoT Central
 

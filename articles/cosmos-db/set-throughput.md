@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/25/2021
-ms.openlocfilehash: 74addd691e3a6c42f48100292542cfd3563b5c3a
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: 1d5fba12ce9b1ce8d30c59a08aa36e1222abe3c7
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98797576"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102433928"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Introduction au débit approvisionné dans Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -98,13 +98,13 @@ Après avoir créé un conteneur Azure Cosmos ou une base de données, vous pouv
 
 Vous pouvez récupérer le débit approvisionné d’un conteneur ou d’une base de données dans le portail Azure ou à l’aide des Kits de développement logiciel (SDK) suivants :
 
-* [Container.ReadThroughputAsync](/dotnet/api/microsoft.azure.cosmos.container.readthroughputasync?view=azure-dotnet&preserve-view=true) sur le Kit de développement logiciel (SDK) .NET.
-* [CosmosContainer.readThroughput](/java/api/com.azure.cosmos.cosmosasynccontainer.readthroughput?view=azure-java-stable&preserve-view=true) sur le Kit de développement logiciel (SDK) Java.
+* [Container.ReadThroughputAsync](/dotnet/api/microsoft.azure.cosmos.container.readthroughputasync) sur le Kit de développement logiciel (SDK) .NET.
+* [CosmosContainer.readThroughput](/java/api/com.azure.cosmos.cosmosasynccontainer.readthroughput) sur le Kit de développement logiciel (SDK) Java.
 
 La réponse de ces méthodes contient également le [débit minimal approvisionné](concepts-limits.md#storage-and-database-operations) pour le conteneur ou la base de données :
 
-* [ThroughputResponse.MinThroughput](/dotnet/api/microsoft.azure.cosmos.throughputresponse.minthroughput?view=azure-dotnet&preserve-view=true) sur le Kit de développement logiciel (SDK) .NET.
-* [ThroughputResponse.getMinThroughput()](/java/api/com.azure.cosmos.models.throughputresponse.getminthroughput?view=azure-java-stable&preserve-view=true) sur me Kit de développement logiciel (SDK) Java.
+* [ThroughputResponse.MinThroughput](/dotnet/api/microsoft.azure.cosmos.throughputresponse.minthroughput) sur le Kit de développement logiciel (SDK) .NET.
+* [ThroughputResponse.getMinThroughput()](/java/api/com.azure.cosmos.models.throughputresponse.getminthroughput) sur me Kit de développement logiciel (SDK) Java.
 
 La valeur RU/s minimale réelle peut varier en fonction de la configuration de votre compte. Mais en général, il s’agit de la valeur maximale :
 
@@ -116,8 +116,8 @@ La valeur RU/s minimale réelle peut varier en fonction de la configuration de v
 
 Vous pouvez mettre à l’échelle le débit approvisionné d’un conteneur ou d’une base de données via le portail Azure ou à l’aide des Kits de développement logiciel (SDK) suivants :
 
-* [Container.ReplaceThroughputAsync](/dotnet/api/microsoft.azure.cosmos.container.replacethroughputasync?view=azure-dotnet&preserve-view=true) sur le Kit de développement logiciel (SDK) .NET.
-* [CosmosContainer.replaceThroughput](/java/api/com.azure.cosmos.cosmosasynccontainer.replacethroughput?view=azure-java-stable&preserve-view=true) sur le Kit de développement logiciel (SDK) Java.
+* [Container.ReplaceThroughputAsync](/dotnet/api/microsoft.azure.cosmos.container.replacethroughputasync) sur le Kit de développement logiciel (SDK) .NET.
+* [CosmosContainer.replaceThroughput](/java/api/com.azure.cosmos.cosmosasynccontainer.replacethroughput) sur le Kit de développement logiciel (SDK) Java.
 
 Si vous **réduisez le débit approvisionné**, vous pouvez le faire jusqu’à la valeur [minimale](#current-provisioned-throughput).
 
@@ -128,8 +128,8 @@ Si vous **augmentez le débit approvisionné**, la plupart du temps, l’opérat
 
 Vous pouvez vérifier par programmation la progression de la mise à l’échelle en lisant la section [Débit approvisionné actuel](#current-provisioned-throughput) et en utilisant :
 
-* [ThroughputResponse.IsReplacePending](/dotnet/api/microsoft.azure.cosmos.throughputresponse.isreplacepending?view=azure-dotnet&preserve-view=true) sur le Kit de développement logiciel (SDK) .NET.
-* [ThroughputResponse.isReplacePending()](/java/api/com.azure.cosmos.models.throughputresponse.isreplacepending?view=azure-java-stable&preserve-view=true) sur le Kit de développement logiciel (SDK) Java.
+* [ThroughputResponse.IsReplacePending](/dotnet/api/microsoft.azure.cosmos.throughputresponse.isreplacepending) sur le Kit de développement logiciel (SDK) .NET.
+* [ThroughputResponse.isReplacePending()](/java/api/com.azure.cosmos.models.throughputresponse.isreplacepending) sur le Kit de développement logiciel (SDK) Java.
 
 Vous pouvez utiliser les [métriques Azure Monitor](monitor-cosmos-db.md#view-operation-level-metrics-for-azure-cosmos-db) pour voir l’historique du débit provisionné (RU/s) et du stockage sur une ressource.
 

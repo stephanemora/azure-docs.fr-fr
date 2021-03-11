@@ -8,12 +8,12 @@ ms.date: 04/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 4a3f272ab6e4a1788368442d7d060233391442fd
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: 6c9b4a9ee1a778ba7a534377f8b2abe9d9a7e18a
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99627813"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102504728"
 ---
 # <a name="introduction-to-azure-managed-disks"></a>Introduction aux disques managés Azure
 
@@ -35,7 +35,7 @@ Avec des disques managés, vous pouvez créer jusqu’à 50 000 **disques** de
 
 ### <a name="integration-with-availability-sets"></a>Intégration avec des groupes à haute disponibilité
 
-Les disques managés sont intégrés avec des groupes à haute disponibilité pour garantir que les disques des [machines virtuelles d’un groupe à haute disponibilité](./manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) sont suffisamment isolés les uns des autres pour éviter un point de défaillance unique. Les disques sont automatiquement placés dans différentes unités d’échelle de stockage (horodatages). Si un horodatage est mis en échec en raison d’une défaillance matérielle ou logicielle, seules les instances de machine virtuelle possédant des disques sur ces horodatages sont mises en échec. Par exemple, supposons qu’une de vos applications est exécutée sur 5 machines virtuelles, qui sont hébergées dans un groupe à haute disponibilité. Les disques de ces machines virtuelles ne seront pas stockés dans le même horodatage. Par conséquent, si un horodatage est mis en échec, les autres instances de l’application continuent de s’exécuter.
+Les disques managés sont intégrés avec des groupes à haute disponibilité pour garantir que les disques des [machines virtuelles d’un groupe à haute disponibilité](./availability-set-overview.md) sont suffisamment isolés les uns des autres pour éviter un point de défaillance unique. Les disques sont automatiquement placés dans différentes unités d’échelle de stockage (horodatages). Si un horodatage est mis en échec en raison d’une défaillance matérielle ou logicielle, seules les instances de machine virtuelle possédant des disques sur ces horodatages sont mises en échec. Par exemple, supposons qu’une de vos applications est exécutée sur 5 machines virtuelles, qui sont hébergées dans un groupe à haute disponibilité. Les disques de ces machines virtuelles ne seront pas stockés dans le même horodatage. Par conséquent, si un horodatage est mis en échec, les autres instances de l’application continuent de s’exécuter.
 
 ### <a name="integration-with-availability-zones"></a>Intégration aux zones de disponibilité
 
@@ -100,7 +100,7 @@ Ce disque a une capacité maximale de 4 095 Gio.
 
 ### <a name="temporary-disk"></a>Disque temporaire
 
-La plupart des machines virtuelles contiennent un disque temporaire qui n’est pas un disque managé. Il fournit un stockage à court terme pour les applications et les processus, et est destiné à stocker seulement des données comme les fichiers de pagination ou d’échange. Les données présentes sur le disque temporaire peuvent être perdues lors d’un [événement de maintenance](./manage-availability.md#understand-vm-reboots---maintenance-vs-downtime) ou quand vous [redéployez une machine virtuelle](troubleshooting/redeploy-to-new-node-windows.md?toc=/azure/virtual-machines/windows/toc.json). Lors d’un redémarrage standard réussi de la machine virtuelle, les données présentes sur le disque temporaire sont conservées. Pour plus d’informations sur les machines virtuelles sans disques temporaires, consultez [Tailles de machine virtuelle Azure sans disque temporaire local](azure-vms-no-temp-disk.md).
+La plupart des machines virtuelles contiennent un disque temporaire qui n’est pas un disque managé. Il fournit un stockage à court terme pour les applications et les processus, et est destiné à stocker seulement des données comme les fichiers de pagination ou d’échange. Les données présentes sur le disque temporaire peuvent être perdues lors d’un [événement de maintenance](./understand-vm-reboots.md) ou quand vous [redéployez une machine virtuelle](troubleshooting/redeploy-to-new-node-windows.md?toc=/azure/virtual-machines/windows/toc.json). Lors d’un redémarrage standard réussi de la machine virtuelle, les données présentes sur le disque temporaire sont conservées. Pour plus d’informations sur les machines virtuelles sans disques temporaires, consultez [Tailles de machine virtuelle Azure sans disque temporaire local](azure-vms-no-temp-disk.md).
 
 Sur les machines virtuelles Azure Linux, le disque temporaire est en général /dev/sdb, tandis que sur les machines virtuelles Windows il s’agit de D: par défaut. Le disque temporaire n’est pas chiffré par le chiffrement côté serveur, sauf si vous activez le chiffrement sur l’hôte.
 

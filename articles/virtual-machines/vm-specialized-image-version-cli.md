@@ -3,19 +3,19 @@ title: Créer une machine virtuelle à partir d’une version d’image spécial
 description: Créez une machine virtuelle à l’aide d’une version d’image spécialisée dans une galerie d’images partagées à l’aide d’Azure CLI.
 author: cynthn
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: shared-image-gallery
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 04/23/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: dedefcd18a2860bbcae9a0ac6b5b07550d9cbf3f
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: fe081b0e74acf771e10406c15a3dea4e09956c37
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881938"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102560959"
 ---
 # <a name="create-a-vm-using-a-specialized-image-version-with-the-azure-cli"></a>Créer une machine virtuelle à l’aide d’une version d’image spécialisée avec Azure CLI
 

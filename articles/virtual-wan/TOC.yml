@@ -13,6 +13,9 @@
         - name: Routage Any-to-Any
           displayName: Resource Manager Any-to-any routing
           href: quickstart-any-to-any-template.md
+        - name: Router vers des réseaux virtuels de services partagés
+          displayName: Resource Manager route to shared services VNets
+          href: quickstart-route-shared-services-vnet-template.md
 - name: Tutoriels
   expanded: true
   items:
@@ -60,7 +63,7 @@
           href: scenario-isolate-vnets-custom.md
         - name: Isolation des réseaux virtuels et des branches
           href: scenario-isolate-virtual-networks-branches.md
-        - name: Réseaux virtuels des services partagés
+        - name: Réseaux virtuels de services partagés
           href: scenario-shared-services-vnet.md
         - name: Router via une NVA
           href: scenario-route-through-nva.md

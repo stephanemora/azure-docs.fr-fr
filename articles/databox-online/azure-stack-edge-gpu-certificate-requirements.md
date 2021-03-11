@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 11/17/2020
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: bbe4be0b6cc1d3ea9e0391e82ce21e307e9de640
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 9184a3f429804ac383f137de49c5391e2e1db80f
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100549410"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102439236"
 ---
 # <a name="certificate-requirements"></a>Configuration requise des certificats
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 Cet article décrit les exigences applicables aux certificats qui doivent être satisfaites pour que les certificats puissent être installés sur votre appareil Azure Stack Edge Pro. Les exigences ont trait aux certificats PFX, à l’autorité émettrice, au nom de l’objet et à l’autre nom de l’objet du certificat, ainsi qu’aux algorithmes de certificat pris en charge.
 

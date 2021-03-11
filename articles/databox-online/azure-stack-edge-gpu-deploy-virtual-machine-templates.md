@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/25/2021
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 9a347d57de540ed31c862f618be7c8a98b685348
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 2922e9620f558e072cfc1264f7e661efd11a90fb
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100546922"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102437006"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-templates"></a>Déployer des machines virtuelles sur votre appareil Azure Stack Edge Pro avec GPU au moyen de modèles
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 Ce tutoriel explique comment créer et gérer une machine virtuelle sur votre appareil Azure Stack Edge Pro à l’aide de modèles. Ces modèles sont des fichiers JSON (JavaScript Object Notation) qui définissent l’infrastructure et la configuration d’une machine virtuelle. Y sont spécifiées les ressources à déployer et les propriétés de ces ressources.
 
@@ -76,10 +78,10 @@ Configurez ces prérequis pour créer les ressources nécessaires à la créatio
     
 ### <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
-Créez un groupe de ressources Azure avec [New-AzureRmResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Un groupe de ressources est un conteneur logique dans lequel sont déployées et gérées les ressources Azure, comme le compte de stockage, le disque et le disque managé.
+Créez un groupe de ressources Azure avec [New-AzureRmResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Un groupe de ressources est un conteneur logique dans lequel les ressources Azure comme le compte de stockage, le disque et le disque managé sont déployées et gérées.
 
 > [!IMPORTANT]
-> Toutes les ressources sont créées au même emplacement que l’appareil, à savoir **DBELocal**.
+> Toutes les ressources sont créées au même emplacement que celui de l’appareil et cet emplacement est défini sur **DBELocal**.
 
 ```powershell
 New-AzureRmResourceGroup -Name <Resource group name> -Location DBELocal
@@ -122,7 +124,7 @@ myasegpusavm       myasegpurgvm      DBELocal StandardLRS Storage            7/2
 PS C:\windows\system32>
 ```
 
-Pour obtenir la clé du compte de stockage, exécutez la commande `Get-AzureRmStorageAccountKey`. Voici un exemple de sortie de cette commande.
+Pour obtenir la clé du compte de stockage, exécutez la commande `Get-AzureRmStorageAccountKey`. Vous trouverez ici un exemple de sortie de la commande.
 
 ```powershell
 PS C:\windows\system32> Get-AzureRmStorageAccountKey

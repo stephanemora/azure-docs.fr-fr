@@ -3,17 +3,18 @@ title: Exécuter des scripts shell dans une machine virtuelle Linux sur Azure
 description: Cette rubrique explique comment exécuter des scripts au sein d’une machine virtuelle Linux Azure à l’aide de la fonctionnalité Run Command
 services: automation
 ms.service: virtual-machines
+ms.collection: linux
 author: bobbytreed
 ms.author: robreed
 ms.date: 04/26/2019
 ms.topic: how-to
 manager: carmonm
-ms.openlocfilehash: dae77dfb72fb6b11721500686991f2b199606b99
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 73dd15a5eed3e27d9b72bc0357e35901c04ba7a2
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737861"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102552930"
 ---
 # <a name="run-shell-scripts-in-your-linux-vm-by-using-run-command"></a>Exécuter des scripts shell dans votre machine virtuelle Linux avec Run Command
 
