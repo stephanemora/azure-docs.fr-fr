@@ -27,8 +27,6 @@
       href: cdn-custom-ssl.md
     - name: Définir de règles de mise en cache
       href: cdn-caching-rules-tutorial.md
-    - name: Appliquer HTTPS en utilisant le moteur de règles standard
-      href: cdn-standard-rules-engine.md
 - name: Exemples
   items:
     - name: Exemples de code
@@ -76,6 +74,8 @@
           href: cdn-improve-performance.md
         - name: Plusieurs origines de point de terminaison
           href: endpoint-multiorigin.md
+        - name: Appliquer HTTPS en utilisant le moteur de règles standard
+          href: cdn-standard-rules-engine.md
         - name: Contrôler le comportement de mise en cache
           items:
             - name: Contrôler le comportement de mise en cache en utilisant des règles de mise en cache

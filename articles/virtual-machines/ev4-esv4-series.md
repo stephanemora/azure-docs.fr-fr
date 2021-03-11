@@ -6,15 +6,15 @@ ms.author: brbell
 ms.reviewer: cynthn
 ms.custom: mimckitt
 ms.service: virtual-machines
-ms.subservice: sizes
+ms.subservice: vm-sizes-memory
 ms.topic: conceptual
 ms.date: 6/8/2020
-ms.openlocfilehash: 08df5e92f7dfd86aedd1c5fbf17f8bda1cfb8508
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 40ca03114d5a27ad3e5be54d75cb3bbe0221a501
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100558767"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102560291"
 ---
 # <a name="ev4-and-esv4-series"></a>Séries Ev4 et Esv4
 
@@ -34,7 +34,7 @@ Le stockage sur disque de données à distance est facturé séparément des mac
 [Mise en cache du Stockage Premium](premium-storage-performance.md) : Non pris en charge<br>
 [Migration dynamique](maintenance-and-updates.md) : Pris(e) en charge<br>
 [Mises à jour avec préservation de la mémoire](maintenance-and-updates.md) : Pris(e) en charge<br>
-[Prise en charge de la génération de machine virtuelle](generation-2.md) : Génération 1<br>
+[Génération de machine virtuelle prise en charge](generation-2.md) : Génération 1<br>
 [Performances réseau accélérées](../virtual-network/create-vm-accelerated-networking-cli.md) : Prise en charge (*requiert un minimum de 4 processeurs virtuels*)<br>
 [Disques de système d’exploitation éphémères](ephemeral-os-disks.md) : Non pris en charge <br>
 <br>
@@ -56,7 +56,7 @@ Le stockage sur disque de données à distance est facturé séparément des mac
 Les tailles de la série Esv4 s’exécutent sur Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake). Ces instances sont idéales pour les applications d’entreprise utilisant beaucoup de mémoire. Les machines virtuelles de cette série sont dotées de la technologie Intel&reg; Hyper-Threading. Le stockage sur disque de données à distance est facturé séparément des machines virtuelles.
 
 [ACU](acu.md) : 195-210<br>
-[Stockage Premium](premium-storage-performance.md) : Pris(e) en charge<br>
+[Stockage Premium](premium-storage-performance.md) : Pris en charge<br>
 [Mise en cache du Stockage Premium](premium-storage-performance.md) : Pris(e) en charge<br>
 [Migration dynamique](maintenance-and-updates.md) : Pris(e) en charge<br>
 [Mises à jour avec préservation de la mémoire](maintenance-and-updates.md) : Pris(e) en charge<br>

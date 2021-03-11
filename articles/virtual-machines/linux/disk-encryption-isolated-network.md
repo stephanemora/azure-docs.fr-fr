@@ -2,18 +2,19 @@
 title: Azure Disk Encryption sur un réseau isolé
 description: Cet article présente des conseils de dépannage pour Microsoft Azure Disk Encryption sur des machines virtuelles Linux.
 author: msmbaldwin
-ms.service: virtual-machines-linux
-ms.subservice: security
+ms.service: virtual-machines
+ms.subservice: disks
+ms.collection: linux
 ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 02/27/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1d7e019e7759e22e945bddee477a4cb77f17350b
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 8d8d2b88251f837a23c4e82a90eb4d4eb0043702
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913821"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102553049"
 ---
 # <a name="azure-disk-encryption-on-an-isolated-network"></a>Azure Disk Encryption sur un réseau isolé
 
@@ -26,11 +27,11 @@ Azure Disk Encryption dépend de plusieurs composants, qui sont généralement i
 Voici les packages nécessaires pour chaque distribution. Pour obtenir la liste complète des distributions et des types de volumes pris en charge, consultez [Machines virtuelles et systèmes d’exploitation pris en charge](disk-encryption-overview.md#supported-vms-and-operating-systems).
 
 - **Ubuntu 14.04, 16.04, 18.04** : lsscsi, psmisc, at, cryptsetup-bin, python-parted, python-six, procps, grub-pc-bin
-- **CentOS 7.2-7.7**  : lsscsi, psmisc, lvm2, UUID, at, patch, cryptsetup, cryptsetup-rechiffrer, pyparted, procps-ng, util-linux
-- **CentOS 6.8**  : lsscsi, psmisc, lvm2, UUID, à, cryptsetup-rechiffrer, pyparted, Python-six
-- **RedHat 7.2 - 7.7**  : lsscsi, psmisc, lvm2, uuid, at, patch, cryptsetup, cryptsetup-reencrypt, procps-ng, util-linux
-- **RedHat 6.8**  : lsscsi, psmisc, lvm2, uuid, at, patch, cryptsetup-reencrypt
-- **openSUSE 42,3, SLES 12-SP4, 12-SP3**  : lsscsi, cryptsetup
+- **CentOS 7.2-7.7** : lsscsi, psmisc, lvm2, UUID, at, patch, cryptsetup, cryptsetup-rechiffrer, pyparted, procps-ng, util-linux
+- **CentOS 6.8** : lsscsi, psmisc, lvm2, UUID, à, cryptsetup-rechiffrer, pyparted, Python-six
+- **RedHat 7.2 - 7.7** : lsscsi, psmisc, lvm2, uuid, at, patch, cryptsetup, cryptsetup-reencrypt, procps-ng, util-linux
+- **RedHat 6.8** : lsscsi, psmisc, lvm2, uuid, at, patch, cryptsetup-reencrypt
+- **openSUSE 42,3, SLES 12-SP4, 12-SP3** : lsscsi, cryptsetup
 
 Sous Red Hat, lorsqu’un proxy est requis, vous devez absolument vous assurer que le gestionnaire d’abonnements et yum sont configurés correctement. Pour plus d’informations, consultez [Guide pratique pour résoudre les problèmes du gestionnaire d’abonnement et yum](https://access.redhat.com/solutions/189533).  
 

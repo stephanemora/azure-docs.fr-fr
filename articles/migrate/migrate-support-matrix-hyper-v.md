@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/14/2020
-ms.openlocfilehash: 4407f9544a7d3a19e3ff7d404669fdb27b881d30
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: fc7be5c6c5dda8c5065330f819f646f4abd08994
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100590639"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521354"
 ---
 # <a name="support-matrix-for-hyper-v-assessment"></a>Tableau de prise en charge pour l’évaluation Hyper-V
 
@@ -39,7 +39,7 @@ Pour configurer l’évaluation d’une machine virtuelle Hyper-V, vous créez u
 | :-------------------       | :------------------- |
 | **Hôte Hyper-V**       | L’hôte Hyper-V peut être autonome ou déployé dans un cluster.<br/><br/> L’hôte Hyper-V peut exécuter Windows Server 2019, Windows Server 2016 ou Windows Server 2012 R2. L’installation Server Core de ces systèmes d’exploitation est également prise en charge. <br/>Vous ne pouvez pas évaluer des machines virtuelles situées sur des hôtes Hyper-V exécutant Windows Server 2012.
 | **autorisations**           | Vous avez besoin des privilèges Administrateur sur l’hôte Hyper-V. <br/> Si vous ne souhaitez pas attribuer de privilèges Administrateur, créez un compte d’utilisateur local ou de domaine et ajoutez le compte d’utilisateur à ces groupes : Utilisateurs de gestion à distance, Administrateurs Hyper-V et Utilisateurs de l’Analyseur de performances. |
-| **Communication à distance PowerShell**   | La [communication à distance PowerShell](/powershell/module/microsoft.powershell.core/enable-psremoting?view=powershell-7) doit être activée sur chaque hôte Hyper-V. |
+| **Communication à distance PowerShell**   | La [communication à distance PowerShell](/powershell/module/microsoft.powershell.core/enable-psremoting) doit être activée sur chaque hôte Hyper-V. |
 | **Réplica Hyper-V**       | Si vous utilisez un réplica Hyper-V (ou si vous avez plusieurs machines virtuelles avec les mêmes identificateurs de machines virtuelles) et que vous découvrez les machines virtuelles originales et répliquées à l’aide d’Azure Migrate, l’évaluation générée par Azure Migrate pourrait ne pas être exacte. |
 
 

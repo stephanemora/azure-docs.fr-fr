@@ -1,25 +1,19 @@
 ---
 title: Gestionnaire d’extensions Azure Desired State Configuration
 description: Charger et appliquer une configuration DSC PowerShell sur une machine virtuelle Azure à l’aide de l’extension DSC
-services: virtual-machines-windows
-documentationcenter: ''
-author: bobbytreed
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: virtual-machines-windows
-ms.subservice: extensions
 ms.topic: article
-ms.tgt_pltfrm: windows
-ms.workload: ''
-ms.date: 03/26/2018
+ms.service: virtual-machines
+ms.subservice: extensions
+author: bobbytreed
 ms.author: robreed
-ms.openlocfilehash: 5254d83c18ddc9f2a5518ed4f711d4cd73ab6de7
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.collection: windows
+ms.date: 03/26/2018
+ms.openlocfilehash: 72f66aeee64133a13ce0e49155c4b2a90240a3fb
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97510938"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102559985"
 ---
 # <a name="powershell-dsc-extension"></a>Extension de configuration d’état souhaité PowerShell
 
@@ -27,7 +21,7 @@ ms.locfileid: "97510938"
 
 L’extension DSC PowerShell pour Windows est publiée et prise en charge par Microsoft. L’extension charge et applique une Configuration DSC PowerShell sur une machine virtuelle Azure. L’extension DSC fait appel à DSC PowerShell pour mettre en œuvre la configuration DSC reçue sur la machine virtuelle. Ce document présente les plateformes, configurations et options de déploiement qui sont prises en charge pour l’extension de machine virtuelle DSC pour Windows.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 ### <a name="operating-system"></a>Système d’exploitation
 
@@ -98,7 +92,7 @@ L’extrait JSON suivant montre le schéma de la section des paramètres de l’
 
 ### <a name="property-values"></a>Valeurs de propriétés
 
-| Name | Valeur/Exemple | Type de données |
+| Nom | Valeur/Exemple | Type de données |
 | ---- | ---- | ---- |
 | apiVersion | 2018-10-01 | Date |
 | publisher | Microsoft.Powershell.DSC | string |
@@ -107,7 +101,7 @@ L’extrait JSON suivant montre le schéma de la section des paramètres de l’
 
 ### <a name="settings-property-values"></a>Valeurs de la propriété Settings
 
-| Name | Type de données | Description
+| Nom | Type de données | Description
 | ---- | ---- | ---- |
 | settings.wmfVersion | string | Spécifie la version de Windows Management Framework qui doit être installée sur votre machine virtuelle. Lorsque cette propriété est définie sur « latest », la dernière version de WMF est installée. Actuellement, les seules valeurs possibles pour cette propriété sont « 4.0 », « 5.0 » et « latest ». Les valeurs possibles font l’objet de mises à jour. La valeur par défaut est « latest ». |
 | settings.configuration.url | string | Spécifie l’adresse URL de téléchargement de votre fichier .zip de configuration DSC. Si l’accès à l’URL fournie nécessite un jeton SAP, vous devez définir la propriété protectedSettings.configurationUrlSasToken sur la valeur du jeton SAP. Cette propriété est requise si la propriété settings.configuration.script ou settings.configuration.function est définie.
@@ -121,7 +115,7 @@ L’extrait JSON suivant montre le schéma de la section des paramètres de l’
 
 ### <a name="protected-settings-property-values"></a>Valeurs de la propriété Protected Settings
 
-| Name | Type de données | Description
+| Nom | Type de données | Description
 | ---- | ---- | ---- |
 | protectedSettings.configurationArguments | string | Définit les paramètres à transmettre à votre configuration DSC. Cette propriété est chiffrée. |
 | protectedSettings.configurationUrlSasToken | string | Spécifie le jeton SAP permettant d’accéder à l’URL définie par configuration.url. Cette propriété est chiffrée. |

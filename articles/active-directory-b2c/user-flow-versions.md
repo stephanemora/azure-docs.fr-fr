@@ -10,22 +10,22 @@ ms.topic: reference
 ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 75ad3743a90f5773163a8f115e1924b8c5bbe097
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 1c05ff1bf1956943230bf523584025787495d57f
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97108091"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102517852"
 ---
 # <a name="user-flow-versions-in-azure-active-directory-b2c"></a>Versions de flux utilisateur dans Azure Active Directory B2C
 
 Les flux utilisateur dans Azure Active Directory B2C (Azure AD B2C) vous aident à configurer des [stratégies](user-flow-overview.md) courantes qui décrivent entièrement les expériences liées à l’identité des clients. Ces expériences incluent l’inscription, la connexion, la réinitialisation du mot de passe et la modification du profil. Les tableaux ci-dessous décrivent les flux d’utilisateurs disponibles dans Azure AD B2C.
 
 > [!IMPORTANT]
-> Nous avons modifié la manière dont nous référençons les versions de flux utilisateur. Auparavant, nous proposions des versions V1 (prêtes pour la production) et des versions V1.1 et V2 (préversions). Maintenant, nous avons consolidé les flux utilisateur en deux versions :
+> Nous avons modifié la manière dont nous référençons les versions de flux utilisateur. Auparavant, nous proposions des versions V1 (prêtes pour la production) et des versions V1.1 et V2 (préversions). Maintenant, nous avons regroupé les flux d’utilisateur en deux versions :
 >
->- Les flux utilisateur **recommandés** sont les nouvelles préversions des flux utilisateur. Ils sont minutieusement testés et combinent toutes les fonctionnalités des versions **V2** et **V1.1** héritées. À l’avenir, les nouveaux flux utilisateur recommandés seront maintenus et mis à jour. Une fois que vous passez à ces nouveaux flux d’utilisateurs recommandés, vous avez accès aux nouvelles fonctionnalités à mesure qu’elles sont publiées.
->- **Les flux utilisateur standard**, précédemment appelés **v1**, sont généralement disponibles et sont des flux d’utilisateurs prêts pour la production. Si vos flux utilisateur sont critiques et dépendent de versions très stables, vous pouvez continuer à utiliser des flux d’utilisateur standard, tout en gardant à l’esprit que ces versions ne seront pas maintenues et mises à jour.
+>- Les flux d’utilisateur **recommandés** sont les nouvelles préversions des flux d’utilisateur. Ils sont minutieusement testés et combinent toutes les fonctionnalités des versions **V2** et **V1.1** héritées. À l’avenir, les nouveaux flux d’utilisateur recommandés seront maintenus et mis à jour. Quand vous passez à ces nouveaux flux d’utilisateur recommandés, vous avez accès aux nouvelles fonctionnalités à mesure qu’elles sont publiées.
+>- Les flux d’utilisateur **standard**, anciennement **V1**, sont en disponibilité générale et sont prêts pour la production. Si vous utilisez des flux d’utilisateur stratégiques, qui dépendent de versions très stables, vous pouvez continuer à utiliser des flux d’utilisateur standard tout en gardant à l’esprit que ces versions ne seront pas mises à jour ni maintenues.
 >
 >Tous les flux utilisateur hérités (V1.1 et V2) seront dépréciés d’ici le **1er août 2021**. Dans la mesure du possible, nous vous recommandons vivement de [basculer vers les nouvelles versions **recommandées**](#how-to-switch-to-a-new-recommended-user-flow) dès que possible, afin de pouvoir toujours tirer parti des dernières fonctionnalités et mises à jour. *Ces modifications s’appliquent uniquement au cloud public Azure. Les autres environnements continueront à utiliser le [contrôle de version de flux utilisateur hérité](user-flow-versions-legacy.md).*
 
@@ -35,11 +35,11 @@ Les flux utilisateur recommandés sont des préversions qui associent de nouvell
 
 | Flux utilisateur | Description |
 | --------- | ----------- |
-| Réinitialisation du mot de passe (préversion) | Permet à un utilisateur de choisir un nouveau mot de passe après la vérification de son adresse e-mail. À l’aide de ce flux utilisateur, vous pouvez configurer les éléments suivants : <ul><li>[Authentification multifacteur](multi-factor-authentication.md)</li><li>Paramètres de conformité de jeton</li><li>[Vérification de l’âge](basic-age-gating.md)</li><li>[Exigences en termes de « complexité » du mot de passe](password-complexity.md)</li></ul> |
+| Réinitialisation du mot de passe (préversion) | Permet à un utilisateur de choisir un nouveau mot de passe après la vérification de son adresse e-mail. À l’aide de ce flux utilisateur, vous pouvez configurer les éléments suivants : <ul><li>[Authentification multifacteur](multi-factor-authentication.md)</li><li>Paramètres de conformité de jeton</li><li>[Vérification de l’âge](age-gating.md)</li><li>[Exigences en termes de « complexité » du mot de passe](password-complexity.md)</li></ul> |
 | Modification de profil (préversion) | Permet à un utilisateur de configurer ses attributs utilisateur. À l’aide de ce flux utilisateur, vous pouvez configurer les éléments suivants : <ul><li>[Durée de vie du jeton](tokens-overview.md)</li><li>Paramètres de conformité de jeton</li><li>Comportement de la session</li></ul> |
-| Connexion (préversion) | Permet à un utilisateur de se connecter à son compte. À l’aide de ce flux utilisateur, vous pouvez configurer les éléments suivants : <ul><li>[Authentification multifacteur](multi-factor-authentication.md)</li><li>[Durée de vie du jeton](tokens-overview.md)</li><li>Paramètres de conformité de jeton</li><li>Comportement de la session</li><li>[Vérification de l’âge](basic-age-gating.md)</li><li>Personnalisation de la page de connexion</li></ul> |
-| Inscription (préversion) | Permet à un utilisateur de créer un compte. À l’aide de ce flux utilisateur, vous pouvez configurer les éléments suivants : <ul><li>[Authentification multifacteur](multi-factor-authentication.md)</li><li>[Durée de vie du jeton](tokens-overview.md)</li><li>Paramètres de conformité de jeton</li><li>Comportement de la session</li><li>[Vérification de l’âge](basic-age-gating.md)</li><li>[Exigences en termes de « complexité » du mot de passe](password-complexity.md)</li></ul> |
-| Inscription et connexion (préversion) | Permet à un utilisateur de créer un compte ou de se connecter à son compte. À l’aide de ce flux utilisateur, vous pouvez configurer les éléments suivants : <ul><li>[Authentification multifacteur](multi-factor-authentication.md)</li><li>[Vérification de l’âge](basic-age-gating.md)</li><li>[Exigences en termes de « complexité » du mot de passe](password-complexity.md)</li></ul> |
+| Connexion (préversion) | Permet à un utilisateur de se connecter à son compte. À l’aide de ce flux utilisateur, vous pouvez configurer les éléments suivants : <ul><li>[Authentification multifacteur](multi-factor-authentication.md)</li><li>[Durée de vie du jeton](tokens-overview.md)</li><li>Paramètres de conformité de jeton</li><li>Comportement de la session</li><li>[Vérification de l’âge](age-gating.md)</li><li>Personnalisation de la page de connexion</li></ul> |
+| Inscription (préversion) | Permet à un utilisateur de créer un compte. À l’aide de ce flux utilisateur, vous pouvez configurer les éléments suivants : <ul><li>[Authentification multifacteur](multi-factor-authentication.md)</li><li>[Durée de vie du jeton](tokens-overview.md)</li><li>Paramètres de conformité de jeton</li><li>Comportement de la session</li><li>[Vérification de l’âge](age-gating.md)</li><li>[Exigences en termes de « complexité » du mot de passe](password-complexity.md)</li></ul> |
+| Inscription et connexion (préversion) | Permet à un utilisateur de créer un compte ou de se connecter à son compte. À l’aide de ce flux utilisateur, vous pouvez configurer les éléments suivants : <ul><li>[Authentification multifacteur](multi-factor-authentication.md)</li><li>[Vérification de l’âge](age-gating.md)</li><li>[Exigences en termes de « complexité » du mot de passe](password-complexity.md)</li></ul> |
 
 ## <a name="standard-user-flows"></a>Flux d’utilisateur standard
 

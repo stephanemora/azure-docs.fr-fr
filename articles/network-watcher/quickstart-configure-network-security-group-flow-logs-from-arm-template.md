@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 01/07/2021
 ms.author: damendo
 ms.custom: subject-armqs
-ms.openlocfilehash: ded7b24461fdcdbc3d020a487cafc20620633097
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: bc075e5074fe39ad38e45235af932b40fef78fce
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98019718"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521864"
 ---
 # <a name="quickstart-configure-network-security-group-flow-logs-by-using-an-arm-template"></a>Démarrage rapide : Configurer les journaux de flux de groupe de sécurité réseau au moyen d’un modèle ARM
 
@@ -82,7 +82,7 @@ Pour une présentation complète des propriétés de l’objet journaux de flux 
 
 Si vous utilisez des modèles ARM pour la première fois, apprenez-en davantage sur ces modèles ARM en consultant les articles suivants :
 
-- [Déployer des ressources à l’aide de modèles Resource Manager et d’Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md#deploy-local-template)
+- [Déployer des ressources à l’aide de modèles Resource Manager et d’Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md#deploy-local-template-or-bicep-file)
 - [Tutoriel : Créer et déployer votre premier modèle Resource Manager](../azure-resource-manager/templates/template-tutorial-create-first-template.md)
 
 L’exemple suivant est un modèle complet. Il s’agit également de la version la plus simple du modèle. L’exemple contient les paramètres minimaux qui sont passés pour configurer les journaux de flux NSG. Pour plus d’exemples, consultez l’article de présentation [Configurer des journaux de flux NSG avec un modèle Azure Resource Manager](network-watcher-nsg-flow-logging-azure-resource-manager.md).
@@ -145,7 +145,7 @@ New-AzResourceGroupDeployment -Name EnableFlowLog -ResourceGroupName NetworkWatc
 Deux options s’offrent à vous pour déterminer si votre déploiement a réussi :
 
 - Votre console PowerShell indique `ProvisioningState` comme étant `Succeeded`.
-- Accédez à la [page du portail dédiée aux journaux de flux NSG](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs). 
+- Accédez à la [page du portail dédiée aux journaux de flux NSG](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs).
 
 Si vous rencontrez des problèmes lors du déploiement, consultez [Résolution des erreurs courantes dans un déploiement Azure avec Azure Resource Manager](../azure-resource-manager/templates/common-deployment-errors.md).
 

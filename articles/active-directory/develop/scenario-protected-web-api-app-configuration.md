@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: bdf74a6d8b6798de8aba33baea5afdf987ce1c34
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 5206c2295ee7c01b4a2908e59da1cfdd8782bccd
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99582483"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102517716"
 ---
 # <a name="protected-web-api-code-configuration"></a>API web protégée : Configuration de code
 
@@ -175,7 +175,7 @@ services.AddControllers();
 > - `$"api://{ClientId}` dans tous les autres cas (pour les [jetons d’accès](access-tokens.md) v1.0).
 > Pour plus d’informations, consultez le [code source](https://github.com/AzureAD/microsoft-identity-web/blob/d2ad0f5f830391a34175d48621a2c56011a45082/src/Microsoft.Identity.Web/Resource/RegisterValidAudience.cs#L70-L83) de Microsoft.Identity.Web.
 
-L’extrait de code précédent est extrait du [didacticiel incrémentiel de l’API web ASP.NET Core](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/63087e83326e6a332d05fee6e1586b66d840b08f/1.%20Desktop%20app%20calls%20Web%20API/TodoListService/Startup.cs#L23-L28). Les détails relatifs à **AddMicrosoftIdentityWebApiAuthentication** sont disponibles dans [Microsoft.Identity.Web](microsoft-identity-web.md). Cette méthode appelle [AddMicrosoftIdentityWebAPI](/dotnet/api/microsoft.identity.web.microsoftidentitywebapiauthenticationbuilderextensions.addmicrosoftidentitywebapi?preserve-view=true&view=azure-dotnet-preview), qui indique à l’intergiciel comment valider le jeton.
+L’extrait de code précédent est extrait du [didacticiel incrémentiel de l’API web ASP.NET Core](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/63087e83326e6a332d05fee6e1586b66d840b08f/1.%20Desktop%20app%20calls%20Web%20API/TodoListService/Startup.cs#L23-L28). Les détails relatifs à **AddMicrosoftIdentityWebApiAuthentication** sont disponibles dans [Microsoft.Identity.Web](microsoft-identity-web.md). Cette méthode appelle [AddMicrosoftIdentityWebAPI](/dotnet/api/microsoft.identity.web.microsoftidentitywebapiauthenticationbuilderextensions.addmicrosoftidentitywebapi), qui indique à l’intergiciel comment valider le jeton.
 
 ## <a name="token-validation"></a>Validation du jeton
 
@@ -224,7 +224,7 @@ services.Configure<JwtBearerOptions>(JwtBearerDefaults.AuthenticationScheme, opt
       // Your code to add extra configuration that will be executed after the current event implementation.
       options.TokenValidationParameters.ValidIssuers = new[] { /* list of valid issuers */ };
       options.TokenValidationParameters.ValidAudiences = new[] { /* list of valid audiences */};
-  }
+  };
 });
 ```
 

@@ -3,19 +3,19 @@ title: Clonage d’une image managée dans une version d’image avec Azure CLI
 description: Découvrez comment cloner une image managée vers une version d’image dans Shared Image Gallery avec Azure CLI.
 author: cynthn
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: shared-image-gallery
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 56611794bc2f190eccef739679da8474c9b04eb4
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: cae82072785838d410453b2eb83685905b0ba04e
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98675958"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102553780"
 ---
 # <a name="clone-a-managed-image-to-an-image-version-using-the-azure-cli"></a>Clonage d’une image managée dans une version d’image avec Azure CLI
 Si vous souhaitez cloner une image managée existante dans Shared Image Gallery, vous pouvez créer directement une image Shared Image Gallery à partir de l’image managée. Une fois que vous avez testé votre nouvelle image, vous pouvez supprimer l’image managée source. Vous pouvez également effectuer une migration depuis une image managée vers une galerie d’images partagées à l’aide de [PowerShell](image-version-managed-image-powershell.md).

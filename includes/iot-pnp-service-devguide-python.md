@@ -4,16 +4,16 @@ ms.author: dobett
 ms.service: iot-pnp
 ms.topic: include
 ms.date: 10/20/2020
-ms.openlocfilehash: bef7807c0df580a6763a69619cdaa3d9d29f72e6
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: a925c3a17988ef6f4b95a1e3cf4dd5fb8baa4829
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521375"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102510629"
 ---
 Les ressources suivantes sont également disponibles :
 
-- [Documentation de référence du Kit de développement logiciel (SDK) Python](/python/api/azure-iot-hub/azure.iot.hub?preserve-view=true&view=azure-python)
+- [Documentation de référence du Kit de développement logiciel (SDK) Python](/python/api/azure-iot-hub/azure.iot.hub)
 - [Exemples de clients de service](https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-hub/samples/iothub_registry_manager_method_sample.py)
 - [Exemples Digital Twins](https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-hub/samples/get_digital_twin_sample.py)
 
@@ -111,7 +111,7 @@ result = iothub_registry_manager.invoke_device_method(device_id, device_method)
 print(result.payload)
 ```
 
-L’extrait suivant montre comment appeler la commande `getMaxMinReport` sur un composant. La commande est définie dans le composant **thermostat1**  :
+L’extrait suivant montre comment appeler la commande `getMaxMinReport` sur un composant. La commande est définie dans le composant **thermostat1** :
 
 ```python
 from azure.iot.hub import IoTHubRegistryManager
@@ -163,7 +163,7 @@ patch = [{"op": "add", "path": "/targetTemperature", "value": 42}]
 digital_twin_client.update_digital_twin(device_id, patch)
 ```
 
-L’extrait suivant montre comment mettre à jour la propriété `targetTemperature` sur un composant. La propriété est définie dans le composant **Thermostat1** :
+L’extrait suivant montre comment mettre à jour la propriété `targetTemperature` sur un composant. La propriété est définie dans le composant **thermostat1** :
 
 ```python
 from azure.iot.hub import DigitalTwinClient
@@ -198,7 +198,7 @@ else:
     print("No invoke_command_result found")
 ```
 
-L’extrait suivant montre comment appeler la commande `getMaxMinReport` sur un composant. La commande est définie dans le composant **thermostat1**  :
+L’extrait suivant montre comment appeler la commande `getMaxMinReport` sur un composant. La commande est définie dans le composant **thermostat1** :
 
 ```python
 from azure.iot.hub import DigitalTwinClient

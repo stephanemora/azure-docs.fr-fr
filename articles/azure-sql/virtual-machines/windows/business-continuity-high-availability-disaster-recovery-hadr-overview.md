@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2020
 ms.author: mathoma
-ms.openlocfilehash: 4443ccfe8d570e50352cbb70c83d6094132038cc
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: f4d870f458607ceb0f05812b5c0c066ce810448e
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736892"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102508314"
 ---
 # <a name="business-continuity-and-hadr-for-sql-server-on-azure-virtual-machines"></a>Continuité d’activité et HADR pour SQL Server sur Machines virtuelles Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -106,7 +106,7 @@ Les machines virtuelles Azure, le stockage et le réseau ont des caractéristiqu
 ### <a name="high-availability-nodes-in-an-availability-set"></a>Nœuds haute disponibilité d’un groupe à haute disponibilité
 Les groupes à haute disponibilité dans Azure vous permettent de placer les nœuds haute disponibilité dans des domaines d’erreur et des domaines de mise à niveau distincts. La plateforme Azure attribue un domaine de mise à jour et un domaine d’erreur à chaque machine virtuelle de votre groupe à haute disponibilité. Cette configuration au sein d’un centre de données assure la disponibilité d’au moins une des machines virtuelles pendant un événement de maintenance planifié ou non, avec le niveau de 99,95 % stipulé dans le contrat de niveau de service (SLA) Azure. 
 
-Pour une configuration à haute disponibilité, placez toutes les machines virtuelles SQL Server correspondantes dans le même groupe à haute disponibilité afin d’éviter la perte d’applications ou de données lors d’un événement de maintenance. Seuls les nœuds du même service cloud peuvent faire partie du même groupe à haute disponibilité. Pour plus d’informations, consultez [Gestion de la disponibilité des machines virtuelles](../../../virtual-machines/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Pour une configuration à haute disponibilité, placez toutes les machines virtuelles SQL Server correspondantes dans le même groupe à haute disponibilité afin d’éviter la perte d’applications ou de données lors d’un événement de maintenance. Seuls les nœuds du même service cloud peuvent faire partie du même groupe à haute disponibilité. Pour plus d’informations, consultez [Gestion de la disponibilité des machines virtuelles](../../../virtual-machines/availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### <a name="high-availability-nodes-in-an-availability-zone"></a>Nœuds haute disponibilité d’une zone de disponibilité
 Les Zones de disponibilité sont des emplacements physiques uniques au sein d’une région Azure. Chaque zone est composée d’un ou de plusieurs centres de données équipés d’une alimentation, d’un système de refroidissement et d’un réseau indépendants. La séparation physique des zones de disponibilité dans une région contribue à protéger les applications et les données des défaillances dans le centre de données en veillant à ce qu’au moins une machine soit disponible et réponde au contrat de niveau de service Azure de 99,99 %. 

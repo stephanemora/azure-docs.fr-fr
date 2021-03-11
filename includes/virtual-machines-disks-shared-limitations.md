@@ -1,5 +1,5 @@
 ---
-title: Fichier include
+title: Fichier Include
 description: Fichier include
 services: virtual-machines
 author: roygara
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/30/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 4a61399bbb75639fdf4f03da7b77f22a2136adbe
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: 22a1a4b99717df32a40ea69ebb65a3a8e14ee2b4
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99628889"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102511042"
 ---
 L’activation de disques partagés est disponible uniquement pour un sous-ensemble de types de disques. Seuls les disques Ultra et les disques SSD Premium peuvent activer des disques partagés. Chaque disque managé pour lequel la fonctionnalité Disques partagés est activée est soumis aux limitations suivantes, selon le type disque :
 
@@ -34,7 +34,7 @@ Les disques Ultra partagés sont disponibles dans toutes les régions qui prenne
 - Activation possible uniquement sur des disques de données, et non sur des disques de système d’exploitation.
 - La mise en cache de l’hôte **ReadOnly** n’est pas disponible pour les disques SSD Premium avec `maxShares>1`.
 - Le bursting n’est pas disponible pour les disques SSD Premium avec `maxShares>1`.
-- Lorsque vous utilisez des groupes à haute disponibilité et des groupes de machines virtuelles identiques avec des disques partagés Azure, [l’alignement du domaine d’erreur de stockage](../articles/virtual-machines/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) sur un domaine d’erreur de machine virtuelle n’est pas appliqué pour le disque de données partagé.
+- Lorsque vous utilisez des groupes à haute disponibilité et des groupes de machines virtuelles identiques avec des disques partagés Azure, [l’alignement du domaine d’erreur de stockage](../articles/virtual-machines/availability.md) sur un domaine d’erreur de machine virtuelle n’est pas appliqué pour le disque de données partagé.
 - Lorsque des [groupes de placement de proximité](../articles/virtual-machines/windows/proximity-placement-groups.md) sont utilisés, toutes les machines virtuelles qui se partagent un disque doivent faire partie du même groupe de placement de proximité.
 - Seuls les disques de base peuvent être utilisés avec certaines versions de la fonctionnalité Cluster de basculement de Windows Server. Pour plus d’informations, consultez [Configuration matérielle requise pour le clustering de basculement et options de stockage](/windows-server/failover-clustering/clustering-requirements).
 - La prise en charge d’Azure Site Recovery n’est pas encore disponible.

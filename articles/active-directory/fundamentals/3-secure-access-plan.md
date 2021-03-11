@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 202f2190e68b89d790c628248ae89f0cb274ff76
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 266142240ba9e892c905ac8aa6521da5a14c4c3d
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98725209"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102554018"
 ---
 # <a name="3-create-a-security-plan-for-external-access"></a>3. Créer un plan de sécurité pour l’accès externe 
 
@@ -132,7 +132,7 @@ Si vos stratégies sont hautement personnalisées pour vos besoins, tenez compte
 
    * Si vous utilisez des [organisations connectées](../governance/entitlement-management-organization.md) pour regrouper tous les utilisateurs d’un même partenaire, planifiez des révisions régulières avec le propriétaire de l’entreprise et le représentant du partenaire.
 
-* **Groupes Microsoft 365**. Définissez une [stratégie d’expiration de groupe](/microsoft-365/solutions/microsoft-365-groups-expiration-policy?view=o365-worldwide) pour les groupes Microsoft 365 auxquels les utilisateurs externes sont invités. 
+* **Groupes Microsoft 365**. Définissez une [stratégie d’expiration de groupe](/microsoft-365/solutions/microsoft-365-groups-expiration-policy) pour les groupes Microsoft 365 auxquels les utilisateurs externes sont invités. 
 
 * **Autres options**. Si les utilisateurs externes ont un accès extérieur à des packages d’accès de la gestion des droits d’utilisation ou à des groupes Microsoft 365, configurez le processus d’entreprise pour déterminer quand les comptes doivent être rendus inactifs ou supprimés. Par exemple :
 
@@ -220,11 +220,11 @@ Consultez les articles suivants sur la sécurisation de l’accès externe aux r
 
 4. [Utiliser des groupes pour la sécurité](4-secure-access-groups.md)
 
-5. [Transition vers Azure AD B2B](5-secure-access-b2b.md)
+5. [Transition vers Azure AD B2B](5-secure-access-b2b.md)
 
 6. [Sécuriser l’accès avec la gestion des droits d’utilisation](6-secure-access-entitlement-managment.md)
 
-7. [Sécuriser l’accès avec l’accès conditionnel](7-secure-access-conditional-access.md)
+7. [Sécuriser l’accès avec des stratégies d’Accès conditionnel](7-secure-access-conditional-access.md)
 
 8. [Sécuriser l’accès avec des étiquettes de confidentialité](8-secure-access-sensitivity-labels.md)
 

@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 415d50258ce5fc8416dd908bf53f812e72a10f48
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: eb72c34489755dad17700a16a5109824ad892e83
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102124497"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102553270"
 ---
 # <a name="how-to-encode-with-a-custom-transform---net"></a>Comment encoder avec une transformation personnalisée - .NET
 
@@ -44,7 +44,7 @@ Clonez un dépôt GitHub qui contient l’exemple .NET Core complet sur votre ma
  git clone https://github.com/Azure-Samples/media-services-v3-dotnet.git
  ```
  
-L’exemple de présélection personnalisée se trouve dans le dossier [Encodage avec une présélection personnalisée à l’aide de .NET](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/EncodingWithMESCustomPreset).
+L’exemple de présélection personnalisée se trouve dans le dossier [Encodage avec une présélection personnalisée à l’aide de .NET](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/EncodingWithMESCustomPreset_H264).
 
 ## <a name="create-a-transform-with-a-custom-preset"></a>Créer une transformation avec un préréglage personnalisé
 
@@ -56,7 +56,7 @@ Lorsque vous créez une [transformation](/rest/api/media/transforms), vous devez
 
 L’exemple suivant définit un ensemble de sorties à générer lorsque cette transformation est utilisée. Nous ajoutons tout d’abord une couche AacAudio pour l’encodage audio et deux couches H264Video pour l’encodage vidéo. Dans les couches vidéo, nous attribuons des étiquettes pour pouvoir les utiliser dans les noms de fichiers de sortie. Nous souhaitons ensuite que la sortie inclue également des miniatures. Dans l’exemple ci-dessous, nous spécifions des images au format PNG, générées à 50 % de la résolution de la vidéo d’entrée et à trois horodatages (25 %, 50 %, 75 %) de la longueur de la vidéo d’entrée. Pour fini, nous spécifions le format des fichiers de sortie : un pour la vidéo + audio et un autre pour les miniatures. Étant donné que nous avons plusieurs couches H264, nous devons utiliser des macros qui produisent des noms uniques par couche. Nous pouvons utiliser une macro `{Label}` ou `{Bitrate}` ; l’exemple montre la première.
 
-[!code-csharp[Main](../../../media-services-v3-dotnet/VideoEncoding/EncodingWithMESCustomPreset/Program.cs#EnsureTransformExists)]
+[!code-csharp[Main](../../../media-services-v3-dotnet/VideoEncoding/EncodingWithMESCustomPreset_H264/Program.cs#EnsureTransformExists)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

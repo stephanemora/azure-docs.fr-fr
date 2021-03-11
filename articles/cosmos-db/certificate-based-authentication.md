@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 06/11/2019
 ms.author: tvoellm
 ms.reviewer: sngun
-ms.openlocfilehash: e0913351d40cd75da17d16cca119b4ad5ce20de0
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 84cbc681d0974e91561daf8918dff389226fa7aa
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93334699"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102553967"
 ---
 # <a name="certificate-based-authentication-for-an-azure-ad-identity-to-access-keys-from-an-azure-cosmos-db-account"></a>Authentification basée sur les certificats pour une identité Azure AD pour accéder aux clés d’un compte Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -32,21 +32,21 @@ Dans cette étape, vous inscrirez un exemple d’application web dans votre comp
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 
-1. Ouvrez le volet Azure **Active Directory** , accédez au volet **Inscriptions d’applications** , puis sélectionnez **Nouvelle inscription**. 
+1. Ouvrez le volet Azure **Active Directory**, accédez au volet **Inscriptions d’applications**, puis sélectionnez **Nouvelle inscription**. 
 
    :::image type="content" source="./media/certificate-based-authentication/new-app-registration.png" alt-text="Nouvelle inscription d’application dans Active Directory":::
 
-1. Remplissez le formulaire **Inscrire une application** , notamment les détails suivants :  
+1. Remplissez le formulaire **Inscrire une application**, notamment les détails suivants :  
 
-   * **Nom**  : entrez un nom pour votre application. Cela peut être n’importe quel nom, tel que « sampleApp ».
-   * **Types de comptes pris en charge**  : choisissez **Comptes dans cet annuaire organisationnel uniquement (répertoire par défaut)** afin de permettre aux ressources de votre répertoire actuel d’accéder à cette application. 
-   * **URL de redirection**  : choisissez l’application de type **Web** et fournissez une URL pointant vers l’emplacement où votre application est hébergée. Il peut s’agir de n’importe quelle URL. Pour cet exemple, vous pouvez fournir une URL de test de type `https://sampleApp.com`, même si l’application n’existe pas.
+   * **Nom** : entrez un nom pour votre application. Cela peut être n’importe quel nom, tel que « sampleApp ».
+   * **Types de comptes pris en charge** : choisissez **Comptes dans cet annuaire organisationnel uniquement (répertoire par défaut)** afin de permettre aux ressources de votre répertoire actuel d’accéder à cette application. 
+   * **URL de redirection** : choisissez l’application de type **Web** et fournissez une URL pointant vers l’emplacement où votre application est hébergée. Il peut s’agir de n’importe quelle URL. Pour cet exemple, vous pouvez fournir une URL de test de type `https://sampleApp.com`, même si l’application n’existe pas.
 
    :::image type="content" source="./media/certificate-based-authentication/register-sample-web-app.png" alt-text="Inscription d’un exemple d’application web":::
 
 1. Une fois le formulaire rempli, sélectionnez **Inscrire**.
 
-1. Une fois l’application inscrite, notez l’ **ID (du client) d’application** et l’ **ID d’objet**. Ces informations vous seront utiles plus tard. 
+1. Une fois l’application inscrite, notez l’**ID (du client) d’application** et l’ **ID d’objet**. Ces informations vous seront utiles plus tard. 
 
    :::image type="content" source="./media/certificate-based-authentication/get-app-object-ids.png" alt-text="Obtenir les ID de l’application et de l’objet":::
 
@@ -65,7 +65,7 @@ Dans cette étape, vous allez installer le module Azure AD PowerShell. Ce module
    Set-AzContext $context 
    ```
 
-1. Installer et importer le module [AzureAD](/powershell/module/azuread/?view=azureadps-2.0&preserve-view=true)
+1. Installer et importer le module [AzureAD](/powershell/module/azuread/)
 
    ```powershell
    Install-Module AzureAD
@@ -109,7 +109,7 @@ La commande ci-dessus donne une sortie similaire à la capture d’écran ci-des
 
 1. Accédez à votre compte Azure Cosmos, ouvrez le panneau **Contrôle d’accès (IAM)** .
 
-1. Sélectionnez **Ajouter** , puis **Ajouter une attribution de rôle**. Ajoutez le sampleApp que vous avez créé à l’étape précédente avec le rôle **Contributeur** , comme indiqué dans la capture d’écran suivante :
+1. Sélectionnez **Ajouter**, puis **Ajouter une attribution de rôle**. Ajoutez le sampleApp que vous avez créé à l’étape précédente avec le rôle **Contributeur**, comme indiqué dans la capture d’écran suivante :
 
    :::image type="content" source="./media/certificate-based-authentication/configure-cosmos-account-with-identify.png" alt-text="Configurer le compte Azure Cosmos pour utiliser la nouvelle identité":::
 
@@ -123,9 +123,9 @@ Dans l’inscription d’application Azure pour l’application cliente :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 
-1. Ouvrez le volet Azure **Active Directory** , accédez au volet **Inscriptions d’applications** , puis ouvre l’exemple d’application que vous avez créé à l’étape précédente. 
+1. Ouvrez le volet Azure **Active Directory**, accédez au volet **Inscriptions d’applications**, puis ouvre l’exemple d’application que vous avez créé à l’étape précédente. 
 
-1. Sélectionnez **Certificats et secrets** , puis **Télécharger un certificat**. Parcourez jusqu’au fichier de certificat que vous avez créé à l’étape précédente pour le télécharger.
+1. Sélectionnez **Certificats et secrets**, puis **Télécharger un certificat**. Parcourez jusqu’au fichier de certificat que vous avez créé à l’étape précédente pour le télécharger.
 
 1. Sélectionnez **Ajouter**. Une fois le certificat téléchargé, les valeurs d’empreinte, de date de début et d’expiration s’affichent.
 

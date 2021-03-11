@@ -220,10 +220,10 @@
           href: media-services-metrics-diagnostic-logs.md
         - name: Schémas des journaux de diagnostic
           href: media-services-diagnostic-logs-schema.md
-    - name: Azure Media Player
+    - name: Lecteurs compatibles
       items:
-        - name: Présentation du lecteur multimédia Azure
-          href: ../azure-media-player/azure-media-player-overview.md
+        - name: Lecteurs multimédias pour Media Services
+          href: media-players-overview.md
     - name: Développement avec les API v3
       items:
         - name: Vue d’ensemble

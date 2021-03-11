@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: rogarana
-ms.openlocfilehash: 0493b66928d944e251e6fe4abda4f1d3d8fb7e23
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 8887243f953a7bb000033a2e56b4655b93cd7ca8
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94695892"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102519790"
 ---
 # <a name="overview-of-azure-files-identity-based-authentication-options-for-smb-access"></a>Vue d’ensemble des options d’authentification basée sur l’identité Azure Files pour l’accès SMB
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -128,7 +128,7 @@ Une fois l’authentification Azure AD DS ou AD DS locale activée, vous pouvez 
 
 ### <a name="configure-directory-or-file-level-permissions-for-azure-files"></a>Configurer des autorisations au niveau du répertoire ou du fichier pour Azure Files
 
-Le service Azure Files applique des autorisations de fichiers Windows standard au niveau du répertoire et du fichier, y compris au niveau du répertoire racine. La configuration des autorisations au niveau du répertoire ou du fichier est prise en charge sur SMB et REST. Montez le partage de fichiers cible à partir de votre machine virtuelle, et configurez des autorisations à l’aide de l’Explorateur de fichiers Windows, de la commande Windows [icacls](/windows-server/administration/windows-commands/icacls) ou de la commande [Set-ACL](/powershell/module/microsoft.powershell.security/get-acl?view=powershell-6).
+Le service Azure Files applique des autorisations de fichiers Windows standard au niveau du répertoire et du fichier, y compris au niveau du répertoire racine. La configuration des autorisations au niveau du répertoire ou du fichier est prise en charge sur SMB et REST. Montez le partage de fichiers cible à partir de votre machine virtuelle, et configurez des autorisations à l’aide de l’Explorateur de fichiers Windows, de la commande Windows [icacls](/windows-server/administration/windows-commands/icacls) ou de la commande [Set-ACL](/powershell/module/microsoft.powershell.security/get-acl).
 
 ### <a name="use-the-storage-account-key-for-superuser-permissions"></a>Utiliser la clé de compte de stockage pour les autorisations de superutilisateur
 

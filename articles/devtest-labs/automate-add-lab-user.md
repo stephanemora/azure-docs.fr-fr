@@ -3,12 +3,12 @@ title: Automatiser l’ajout d’un utilisateur de labo dans Azure DevTest Labs 
 description: Cet article explique comment automatiser l’ajout d’un utilisateur à un laboratoire dans Azure DevTest Labs à l’aide de modèles Azure Resource Manager, de PowerShell et de CLI.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 61853efacc5974b81d46b2b8cca0f2796672d72d
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: dc5522cfe694f193b9bbeeb3145808a367a62c12
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92327958"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102519399"
 ---
 # <a name="automate-adding-a-lab-user-to-a-lab-in-azure-devtest-labs"></a>Automatiser l’ajout d’un utilisateur de labo à un labo dans Azure DevTest Labs
 Azure DevTest Labs vous permet de créer rapidement des environnements de développement/test en libre-service à l’aide du Portail Azure. Toutefois, si vous disposez de plusieurs équipes et de plusieurs instances DevTest Labs, l’automatisation du processus de création peut vous faire gagner du temps. Les [modèles Azure Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/Environments) vous permettent de créer des labos, des machines virtuelles de labo, des images personnalisées et des formules, et d’ajouter des utilisateurs de manière automatisée. Cet article concerne spécifiquement l’ajout d’utilisateurs à une instance DevTest Labs.
@@ -100,7 +100,7 @@ L’ID de définition de rôle est l’identificateur de chaîne de la définiti
 
 L’ID d’abonnement est obtenu à l’aide de la fonction de modèle `subscription().subscriptionId`.  
 
-Vous devez obtenir la définition de rôle du rôle intégré `DevTest Labs User`. Pour obtenir le GUID du rôle [Utilisateur de DevTest Labs](../role-based-access-control/built-in-roles.md#devtest-labs-user), vous pouvez utiliser [l’API REST Attributions de rôles](/rest/api/authorization/roleassignments) ou la cmdlet [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition?view=azps-1.8.0).
+Vous devez obtenir la définition de rôle du rôle intégré `DevTest Labs User`. Pour obtenir le GUID du rôle [Utilisateur de DevTest Labs](../role-based-access-control/built-in-roles.md#devtest-labs-user), vous pouvez utiliser [l’API REST Attributions de rôles](/rest/api/authorization/roleassignments) ou la cmdlet [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition).
 
 ```powershell
 $dtlUserRoleDefId = (Get-AzRoleDefinition -Name "DevTest Labs User").Id
@@ -161,7 +161,7 @@ New-AzureRmResourceGroupDeployment -Name "MyLabResourceGroup-$(New-Guid)" -Resou
 
 Il est important de noter que le nom du déploiement de groupe et le GUID d’attribution de rôle doivent être uniques. Si vous essayez de déployer une attribution de ressources en spécifiant un GUID non unique, vous obtiendrez une erreur `RoleAssignmentUpdateNotPermitted`.
 
-Si vous prévoyez d’utiliser le modèle à plusieurs reprises pour ajouter plusieurs objets Active Directory au rôle Utilisateur de DevTest Labs pour votre labo, envisagez d’utiliser des objets dynamiques dans votre commande PowerShell. L’exemple ci-après utilise la cmdlet [New-Guid](/powershell/module/Microsoft.PowerShell.Utility/New-Guid?view=powershell-5.0) pour spécifier de manière dynamique le nom du déploiement de groupe de ressources et le GUID d’attribution de rôle.
+Si vous prévoyez d’utiliser le modèle à plusieurs reprises pour ajouter plusieurs objets Active Directory au rôle Utilisateur de DevTest Labs pour votre labo, envisagez d’utiliser des objets dynamiques dans votre commande PowerShell. L’exemple ci-après utilise la cmdlet [New-Guid](/powershell/module/Microsoft.PowerShell.Utility/New-Guid) pour spécifier de manière dynamique le nom du déploiement de groupe de ressources et le GUID d’attribution de rôle.
 
 ```powershell
 New-AzureRmResourceGroupDeployment -Name "MyLabResourceGroup-$(New-Guid)" -ResourceGroupName 'MyLabResourceGroup' -TemplateFile .\azuredeploy.json -roleAssignmentGuid "$(New-Guid)" -labName "MyLab" -principalId "11111111-1111-1111-1111-111111111111"

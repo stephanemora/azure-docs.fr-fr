@@ -258,6 +258,8 @@
         - name: Utilisation d’un modèle Resource Manager
           displayName: arm
           href: how-to-create-workspace-template.md
+        - name: Lier à un espace de travail Azure Synapse Analytics
+          href: how-to-link-synapse-ml-workspaces.md
     - name: Créer et gérer des ressources de calcul
       items:
         - name: Instance de calcul
@@ -454,6 +456,8 @@
           href: how-to-understand-automated-ml.md
         - name: "Utiliser un modèle ONNX dans une application\_.NET"
           href: how-to-use-automl-onnx-model-dotnet.md
+        - name: Résoudre les problèmes du ML automatisé
+          href: how-to-troubleshoot-auto-ml.md
     - name: Déployer et traiter des modèles
       items:
         - name: Où et comment déployer
@@ -590,7 +594,7 @@
   items:
     - name: Kit de développement logiciel (SDK) Python
       displayName: 'api, core, package, python, class'
-      href: /python/api/overview/azure/ml/intro?view=azure-ml-py
+      href: /python/api/overview/azure/ml/intro
     - name: SDK R
       displayName: 'api, core, package, R, class'
       href: 'https://azure.github.io/azureml-sdk-for-r/reference/index.html'
