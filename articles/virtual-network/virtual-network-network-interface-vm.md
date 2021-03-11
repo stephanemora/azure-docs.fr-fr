@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/13/2020
 ms.author: kumud
-ms.openlocfilehash: 2b45bd2e2b9ad971891cbcb944286f40b4f66883
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 43d3da49688a7daeb3ea4e0c1c3dba505dcd3b59
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98216952"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102508331"
 ---
 # <a name="add-network-interfaces-to-or-remove-network-interfaces-from-virtual-machines"></a>Ajouter ou supprimer des interfaces réseau pour des machines virtuelles
 
@@ -143,7 +143,7 @@ Pour plus d’informations sur les paramètres d’interface réseau et leur mod
 
 - Vous pouvez contrôler l’interface réseau vers laquelle vous envoyez le trafic sortant. Toutefois, par défaut une machine virtuelle envoie tout le trafic sortant à l’adresse IP affectée à la configuration IP principale de l’interface réseau principale.
 
-- Auparavant, toutes les machines virtuelles du même groupe à haute disponibilité étaient requises pour une seule ou plusieurs interfaces réseau. Des machines virtuelles comportant un nombre quelconque d’interfaces réseau peuvent désormais exister dans le même groupe à haute disponibilité, pour autant que ce nombre soit pris en charge par la taille de la machine virtuelle. Vous ne pouvez ajouter une machine virtuelle à un groupe à haute disponibilité qu’au moment de la création de celui-ci. Pour en savoir plus sur les groupes à haute disponibilité, consultez [Gérer la disponibilité des machines virtuelles dans Azure](../virtual-machines/manage-availability.md?toc=%2fazure%2fvirtual-network%2ftoc.json#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy).
+- Auparavant, toutes les machines virtuelles du même groupe à haute disponibilité étaient requises pour une seule ou plusieurs interfaces réseau. Des machines virtuelles comportant un nombre quelconque d’interfaces réseau peuvent désormais exister dans le même groupe à haute disponibilité, pour autant que ce nombre soit pris en charge par la taille de la machine virtuelle. Vous ne pouvez ajouter une machine virtuelle à un groupe à haute disponibilité qu’au moment de la création de celui-ci. Pour en savoir plus sur les groupes à haute disponibilité, consultez [Gérer la disponibilité des machines virtuelles dans Azure](../virtual-machines/availability.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 - Vous pouvez connecter des interfaces réseau dans la même machine virtuelle à différents sous-réseaux au sein d’un réseau virtuel. Toutefois, les interfaces réseau doivent toutes être connectées au même réseau virtuel.
 

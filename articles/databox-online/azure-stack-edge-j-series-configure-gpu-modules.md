@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/04/2021
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: d172ce98ba93360c621a91fb0e2a55d022470943
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: dfae1a9b02db7e7b9577acdb47a1ba089f1609e8
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97935554"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102439049"
 ---
 # <a name="configure-and-run-a-module-on-gpu-on-azure-stack-edge-pro-device"></a>Configurer et exécuter un module GPU sur un appareil Azure Stack Edge Pro
+
+[!INCLUDE [applies-to-GPU-and-pro-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-sku.md)]
 
 Votre appareil Azure Stack Edge Pro contient une ou plusieurs unités de traitement graphique (GPU, Graphics Processing Unit). Les GPU sont souvent choisis pour les calculs IA, car ils offrent des capacités de traitement parallèle et sont plus rapides au rendu d’image que les processeurs (ou CPU). Pour plus d’informations sur le GPU de votre appareil Azure Stack Edge Pro, accédez aux [spécifications techniques des appareils Azure Stack Edge Pro](azure-stack-edge-gpu-technical-specifications-compliance.md).
 

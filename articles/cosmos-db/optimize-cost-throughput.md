@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/07/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 86de3e1199b00dff4e03f3b4292f86e6c19ea491
-ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
+ms.openlocfilehash: 0c95fc9e416399b5c8fe032e0d3af0c3b7f9cf6e
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96296537"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102433571"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Optimiser le coût du débit approvisionné dans Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -81,7 +81,7 @@ Les kits de développement logiciel (SDK) natifs (.NET/.NET Core, Java, Node.js 
 
 Si plusieurs de vos clients opèrent simultanément et systématiquement au-delà du taux de requête, le nombre de nouvelles tentatives par défaut de 9 ne suffira peut-être pas. Dans ce cas, le client envoie à l’application une exception `RequestRateTooLargeException` avec le code d’état 429. Le nombre de nouvelles tentatives par défaut peut être modifié en définissant les `RetryOptions` sur l’instance ConnectionPolicy. Par défaut, l’`RequestRateTooLargeException` avec le code d’état 429 est retournée après un temps d’attente cumulé de 30 secondes si la requête continue à fonctionner au-dessus du taux de requête. Cela se produit même lorsque le nombre de nouvelles tentatives actuel est inférieur au nombre maximal de nouvelles tentatives, qu’il s’agisse de la valeur par défaut de 9 ou d’une valeur définie par l’utilisateur. 
 
-[MaxRetryAttemptsOnThrottledRequests](/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretryattemptsonthrottledrequests?preserve-view=true&view=azure-dotnet) a la valeur 3 ; dans ce cas, si une opération de requête est soumise à une restriction de taux car elle dépasse le débit réservé pour le conteneur, l’opération de requête réessaie trois fois avant d’envoyer l’exception à l’application. [MaxRetryWaitTimeInSeconds](/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretrywaittimeinseconds?preserve-view=true&view=azure-dotnet#Microsoft_Azure_Documents_Client_RetryOptions_MaxRetryWaitTimeInSeconds) a la valeur 60 ; dans ce cas, si le délai d’attente de la nouvelle tentative cumulative depuis la première requête dépasse 60 secondes, l’exception est levée.
+[MaxRetryAttemptsOnThrottledRequests](/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretryattemptsonthrottledrequests) a la valeur 3 ; dans ce cas, si une opération de requête est soumise à une restriction de taux car elle dépasse le débit réservé pour le conteneur, l’opération de requête réessaie trois fois avant d’envoyer l’exception à l’application. [MaxRetryWaitTimeInSeconds](/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretrywaittimeinseconds#Microsoft_Azure_Documents_Client_RetryOptions_MaxRetryWaitTimeInSeconds) a la valeur 60 ; dans ce cas, si le délai d’attente de la nouvelle tentative cumulative depuis la première requête dépasse 60 secondes, l’exception est levée.
 
 ```csharp
 ConnectionPolicy connectionPolicy = new ConnectionPolicy(); 

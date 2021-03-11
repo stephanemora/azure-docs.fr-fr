@@ -1,5 +1,5 @@
 ---
-title: Créer un jumeau de module pour le micro-agent Defender IoT (préversion)
+title: Créer un jumeau de module pour le micro-agent Defender pour IoT
 titleSuffix: Azure Defender for IoT
 description: Découvrez comment créer des jumeaux de module DefenderIotMicroAgent individuels pour les nouveaux appareils.
 author: shhazam-ms
@@ -8,14 +8,14 @@ ms.author: shhazam
 ms.date: 1/20/2021
 ms.topic: quickstart
 ms.service: azure
-ms.openlocfilehash: f14f253960b628f2bf8052e92dbec3c897a205db
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: ea82fea89a9e81e66be6b3060aad067d3ceb8f5f
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99820838"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102123001"
 ---
-# <a name="create-a-defender-iot-micro-agent-module-twin-preview"></a>Créer un jumeau de module pour le micro-agent Defender IoT (préversion)
+# <a name="create-a-defender-iot-micro-agent-module-twin"></a>Créer un jumeau de module pour le micro-agent Defender pour IoT 
 
 Vous pouvez créer des jumeaux de module  **DefenderIotMicroAgent** individuels pour les nouveaux appareils. Vous pouvez également créer des jumeaux de module par lot pour tous les appareils d’un hub IoT. 
 

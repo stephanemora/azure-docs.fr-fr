@@ -3,12 +3,12 @@ title: Gérer et surveiller les sauvegardes de machines virtuelles Azure
 description: Découvrez comment gérer et superviser les sauvegardes de machine virtuelle Azure à l’aide du service Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: a56f13afa23a81b9cd2b34d34e1ca302c0c667f0
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 51ce88bb67d64ce129a3479d38db9a66dfe65d0a
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "96002905"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100635075"
 ---
 # <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Gérer les sauvegardes de machines virtuelles Azure avec le service Sauvegarde Azure
 
@@ -97,7 +97,7 @@ Vous pouvez exécuter une sauvegarde à la demande d’une machine virtuelle une
 * La plage de conservation pour une sauvegarde à la demande correspond à la valeur de conservation que vous spécifiez quand vous déclenchez la sauvegarde.
 
 > [!NOTE]
-> Le service Sauvegarde Azure prend en charge jusqu’à neuf sauvegardes à la demande par jour, mais Microsoft recommande d’effectuer au maximum quatre sauvegardes quotidiennes à la demande afin d’assurer un niveau de performance optimal.
+> Le service Sauvegarde Azure prend en charge jusqu’à trois sauvegardes à la demande par jour et une sauvegarde planifiée supplémentaire.
 
 Pour déclencher une sauvegarde à la demande :
 

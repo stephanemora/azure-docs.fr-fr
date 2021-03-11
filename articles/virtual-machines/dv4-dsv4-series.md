@@ -6,15 +6,15 @@ ms.author: brbell
 ms.reviewer: cynthn
 ms.custom: mimckitt
 ms.service: virtual-machines
-ms.subservice: sizes
+ms.subservice: vm-sizes-general
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: eefd0ba447340f79100772f549002f6fd8c2c01c
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: cc6ce30855d17f45636e0df04978fed88dcecff7
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100554869"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102549139"
 ---
 # <a name="dv4-and-dsv4-series"></a>Séries Dv4 et Dsv4
 
@@ -53,7 +53,7 @@ Le stockage sur disque de données à distance est facturé séparément des mac
 Les tailles de la série Dsv4 s’exécutent sur Intel &reg;​​Xeon&reg; Platinum 8272CL (Cascade Lake). Elles offrent une combinaison de processeur virtuel, de mémoire et d’options de stockage distant adaptée à la plupart des charges de travail de production. Les machines virtuelles de série Dsv4 sont dotées de la technologie Hyper-Threading d’[Intel&reg;](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html). Le stockage sur disque de données à distance est facturé séparément des machines virtuelles.
 
 [ACU](acu.md) : 195-210<br>
-[Stockage Premium](premium-storage-performance.md) : Pris(e) en charge<br>
+[Stockage Premium](premium-storage-performance.md) : Pris en charge<br>
 [Mise en cache du Stockage Premium](premium-storage-performance.md) : Pris(e) en charge<br>
 [Migration dynamique](maintenance-and-updates.md) : Pris(e) en charge<br>
 [Mises à jour avec préservation de la mémoire](maintenance-and-updates.md) : Pris(e) en charge<br>

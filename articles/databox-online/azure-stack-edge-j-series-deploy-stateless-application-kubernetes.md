@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/22/2021
+ms.date: 03/05/2021
 ms.author: alkohli
-ms.openlocfilehash: b199fdbac4aca7637e07a18383cc7e254f702019
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 40065189f3c1dd52f462985aef344e9cbeb12f0b
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98804853"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102522374"
 ---
 # <a name="deploy-a-kubernetes-stateless-application-via-kubectl-on-your-azure-stack-edge-pro-gpu-device"></a>Déployer une application sans état Kubernetes via kubectl sur votre appareil Azure Stack Edge Pro avec GPU
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 Cet article explique comment déployer une application sans état à l’aide des commandes kubectl sur un cluster Kubernetes existant. Cet article vous guide également tout au long du processus de création et de configuration de pods dans votre application sans état.
 
@@ -25,7 +27,7 @@ Avant de pouvoir créer un cluster Kubernetes et d’utiliser l’outil de ligne
 
 - Vous avez les informations d’identification de connexion à un appareil Azure Stack Edge Pro à 1 nœud.
 
-- Windows PowerShell 5.0 ou version ultérieure est installé sur un système client Windows pour accéder à l’appareil Azure Stack Edge Pro. Vous pouvez également utiliser un autre client avec un système d’exploitation pris en charge. Cet article décrit la procédure à utiliser avec un client Windows. Pour télécharger la dernière version de Windows PowerShell, accédez à [Installation de Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-7&preserve-view=true).
+- Windows PowerShell 5.0 ou version ultérieure est installé sur un système client Windows pour accéder à l’appareil Azure Stack Edge Pro. Vous pouvez également utiliser un autre client avec un système d’exploitation pris en charge. Cet article décrit la procédure à utiliser avec un client Windows. Pour télécharger la dernière version de Windows PowerShell, accédez à [Installation de Windows PowerShell](/powershell/scripting/install/installing-windows-powershell).
 
 - Le calcul est activé sur l’appareil Azure Stack Edge Pro. Pour activer le calcul, accédez à la page **Calcul** de l’interface utilisateur locale de l’appareil. Puis sélectionnez une interface réseau que vous souhaitez activer pour le calcul. Sélectionnez **Activer**. L’activation du calcul entraîne la création d’un commutateur virtuel sur votre appareil sur cette interface réseau. Pour plus d’informations, consultez [Activer le réseau de calcul sur Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md).
 

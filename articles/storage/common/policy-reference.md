@@ -1,18 +1,18 @@
 ---
 title: Définitions de stratégie intégrées pour Stockage Azure
 description: Liste les définitions de stratégie intégrées d’Azure Policy pour Stockage Azure. Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de vos ressources Azure.
-ms.date: 02/09/2021
+ms.date: 03/05/2021
 ms.topic: reference
 author: tamram
 ms.author: tamram
 ms.service: storage
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 9a47965cdc96e83c47217a5718c5127a062b3709
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 02bbe505c8a9581173f2ddf0d78b4dfdea5107a9
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100098427"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102433039"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-storage"></a>Définitions intégrées d’Azure Policy pour le stockage Azure
 

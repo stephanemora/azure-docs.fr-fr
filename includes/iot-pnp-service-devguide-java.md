@@ -4,16 +4,16 @@ ms.author: dobett
 ms.service: iot-pnp
 ms.topic: include
 ms.date: 10/20/2020
-ms.openlocfilehash: 70df45877a310d74e7c5c82292d18b1c0eb32da8
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 33752c1ebb83c5d63e8e1cb396c52f01f07046cd
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521376"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102244793"
 ---
 Les ressources suivantes sont également disponibles :
 
-- [Documentation de référence du Kit de développement logiciel (SDK) Java](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicetwindevice?preserve-view=true&view=azure-java-stable)
+- [Documentation de référence du Kit de développement logiciel (SDK) Java](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicetwindevice)
 - [Exemples de clients de service](https://github.com/Azure/azure-iot-sdk-java/blob/master/service/iot-service-samples/pnp-service-sample)
 - [Exemples Digital Twins](https://github.com/Azure/azure-iot-sdk-java/tree/master/service/iot-service-samples/digitaltwin-service-samples)
 
@@ -49,7 +49,7 @@ twin.setDesiredProperties(Collections.singleton(new Pair("targetTemperature", pr
 twinClient.updateTwin(twin);
 ```
 
-L’extrait suivant montre comment mettre à jour la propriété `targetTemperature` sur un composant. Vous devez obtenir le jumeau avant de le mettre à jour. La propriété est définie dans le composant **thermostat1**  :
+L’extrait suivant montre comment mettre à jour la propriété `targetTemperature` sur un composant. Vous devez obtenir le jumeau avant de le mettre à jour. La propriété est définie dans le composant **thermostat1** :
 
 ```java
 public static Set<Pair> CreateComponentPropertyPatch(@NonNull String propertyName, @NonNull double propertyValue, @NonNull String componentName)
@@ -99,7 +99,7 @@ MethodResult result = methodClient.invoke(deviceId, "getMaxMinReport", responseT
 System.out.println("Method result status is: " + result.getStatus());
 ```
 
-L’extrait suivant montre comment appeler la commande `getMaxMinReport` sur un composant. La commande est définie dans le composant **thermostat1**  :
+L’extrait suivant montre comment appeler la commande `getMaxMinReport` sur un composant. La commande est définie dans le composant **thermostat1** :
 
 ```java
 DeviceMethod methodClient = DeviceMethod.createFromConnectionString(iotHubConnectionString);
@@ -200,7 +200,7 @@ latch2.await(10, TimeUnit.SECONDS);
 GetDigitalTwin();
 ```
 
-L’extrait suivant montre comment mettre à jour la propriété `targetTemperature` sur un composant. La propriété est définie dans le composant **thermostat1**  :
+L’extrait suivant montre comment mettre à jour la propriété `targetTemperature` sur un composant. La propriété est définie dans le composant **thermostat1** :
 
 ```java
 DigitalTwinClient client = DigitalTwinClient.createFromConnectionString(iotHubConnectionString);
@@ -266,7 +266,7 @@ private static String prettyString(String str)
 }
 ```
 
-L’extrait suivant montre comment appeler la commande `getMaxMinReport` sur un composant. La commande est définie dans le composant **thermostat1**  :
+L’extrait suivant montre comment appeler la commande `getMaxMinReport` sur un composant. La commande est définie dans le composant **thermostat1** :
 
 ```java
 DigitalTwinClient client = DigitalTwinClient.createFromConnectionString(iotHubConnectionString);

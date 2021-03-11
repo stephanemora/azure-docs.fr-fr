@@ -97,10 +97,10 @@
       items:
         - name: Utiliser les API et kits SDK
           href: how-to-use-apis-sdks.md
+        - name: Créer des kits SDK de langages personnalisés avec AutoRest
+          href: how-to-create-custom-sdks.md
         - name: Faire des demandes avec Postman
           href: how-to-use-postman.md
-        - name: Créer des kits SDK personnalisés avec AutoRest
-          href: how-to-create-custom-sdks.md
         - name: Intégrer à Azure SignalR Service
           href: how-to-integrate-azure-signalr.md
     - name: Connecter une entrée
@@ -154,19 +154,19 @@
         - name: Plan de contrôle
           items:
             - name: Kit SDK .NET (C#)
-              href: /dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet
+              href: /dotnet/api/overview/azure/digitaltwins/management
             - name: Kit de développement logiciel (SDK) Java
-              href: /java/api/overview/azure/digitaltwins/resourcemanagement?view=azure-java-stable
+              href: /java/api/overview/azure/digitaltwins/resourcemanagement
         - name: Plan de données
           items:
             - name: Kit SDK .NET (C#)
-              href: /dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet
+              href: /dotnet/api/overview/azure/digitaltwins/client
             - name: Kit de développement logiciel (SDK) Java
-              href: /java/api/overview/azure/digitaltwins/client?preserve-view=true&view=azure-java-stable
+              href: /java/api/overview/azure/digitaltwins/client
             - name: Kit de développement logiciel (SDK) JavaScript
-              href: /javascript/api/@azure/digital-twins-core/?branch=master&view=azure-node-latest
+              href: /javascript/api/@azure/digital-twins-core/
             - name: Kit de développement logiciel (SDK) Python
-              href: /python/api/azure-digitaltwins-core/azure.digitaltwins.core?view=azure-python
+              href: /python/api/azure-digitaltwins-core/azure.digitaltwins.core
     - name: Interface CLI Digital Twins
       href: /cli/azure/ext/azure-iot/dt
 - name: Ressources

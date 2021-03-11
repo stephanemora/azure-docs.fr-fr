@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 11/11/2020
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: bccb6fa33007082737997c7282fb286c38e3bbd7
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: f19625f1d558071ccb29487efe56146756c7692c
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96465282"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102437534"
 ---
 # <a name="enable-edge-container-registry-on-your-azure-stack-edge-pro-gpu-device"></a>Activer un registre de conteneurs Edge sur votre appareil Azure Stack Edge Pro avec GPU
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 Cet article explique comment activer le registre de conteneurs Edge et l’utiliser à partir du cluster Kubernetes sur votre appareil Azure Stack Edge Pro. L’exemple utilisé dans l’article explique comment envoyer une image d’un registre source, dans ce cas, le registre de conteneurs Microsoft, vers le registre de l’appareil Azure Stack Edge, à savoir le registre de conteneurs Edge.
 

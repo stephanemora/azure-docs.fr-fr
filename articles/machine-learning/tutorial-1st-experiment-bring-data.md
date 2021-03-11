@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 02/11/2021
 ms.custom: tracking-python
-ms.openlocfilehash: 5e1af60cccb48195db38e420dfe3df01f404669c
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: bbe28f4fda32ce7d55a437e4ac944dc206f436ee
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100377995"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102522357"
 ---
 # <a name="tutorial-use-your-own-data-part-4-of-4"></a>Tutoriel : Utiliser vos propres données (partie 4 sur 4)
 
@@ -200,7 +200,7 @@ Le script de contrôle est similaire à celui de la [partie 3 de notre série](
       `dataset = Dataset.File.from_files( ... )`
    :::column-end:::
    :::column span="2":::
-      Un [jeu de données](/python/api/azureml-core/azureml.core.dataset.dataset?preserve-view=true&view=azure-ml-py) est utilisé pour référencer les données que vous avez chargées dans Stockage Blob Azure. Les jeux de données sont une couche d’abstraction au-dessus de vos données, conçue pour améliorer la fiabilité.
+      Un [jeu de données](/python/api/azureml-core/azureml.core.dataset.dataset) est utilisé pour référencer les données que vous avez chargées dans Stockage Blob Azure. Les jeux de données sont une couche d’abstraction au-dessus de vos données, conçue pour améliorer la fiabilité.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -208,7 +208,7 @@ Le script de contrôle est similaire à celui de la [partie 3 de notre série](
       `config = ScriptRunConfig(...)`
    :::column-end:::
    :::column span="2":::
-      [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) est modifié pour inclure une liste d’arguments qui seront passés dans `train.py`. L’argument `dataset.as_named_input('input').as_mount()` signifie que le répertoire spécifié sera _monté_ sur la cible de calcul.
+      [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig) est modifié pour inclure une liste d’arguments qui seront passés dans `train.py`. L’argument `dataset.as_named_input('input').as_mount()` signifie que le répertoire spécifié sera _monté_ sur la cible de calcul.
    :::column-end:::
 :::row-end:::
 

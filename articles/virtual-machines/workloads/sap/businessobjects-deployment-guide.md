@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/05/2020
 ms.author: depadia
-ms.openlocfilehash: e753d810bbc2ed1079b58d20a0659bf5e2219d11
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 3b3c313df5704e49481c66ad682faccd48d180ea
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101671906"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102505900"
 ---
 # <a name="sap-businessobjects-bi-platform-planning-and-implementation-guide-on-azure"></a>Guide de planification et d’implémentation de la plateforme SAP BusinessObjects BI sur Azure
 
@@ -222,7 +222,7 @@ SAP BI Platform contient de nombreux composants différents et, lors de la conce
 
 De plus, le nombre de domaines de mise à jour et d'erreur qui peuvent être utilisés par un groupe à haute disponibilité Azure au sein d'une unité d'échelle Azure est limité. Ainsi, si vous continuez d'ajouter des machines virtuelles à un groupe à haute disponibilité, deux ou plusieurs machines virtuelles finiront par se retrouver dans le même domaine d'erreur ou de mise à jour. Pour plus d'informations, consultez la section [Groupes à haute disponibilité Azure](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/virtual-machines/workloads/sap/planning-guide.md#azure-availability-sets) du document Planification et implémentation de machines virtuelles Azure pour SAP.
 
-Pour comprendre le concept des groupes à haute disponibilité Azure et leur relation avec les domaines d'erreur et de mise à niveau, consultez l'article [Gérer la disponibilité](../../manage-availability.md).
+Pour comprendre le concept des groupes à haute disponibilité Azure et leur relation avec les domaines d'erreur et de mise à niveau, consultez l'article [Gérer la disponibilité](../../availability.md).
 
 > [!Important]
 > Les concepts de Zones de disponibilité Azure et de groupes à haute disponibilité Azure sont incompatibles. Cela signifie que vous pouvez déployer deux ou plusieurs machines virtuelles dans une zone de disponibilité ou dans un groupe à haute disponibilité Azure, mais pas dans les deux.

@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 11/12/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: 85e4b6a4d0ff1c3bd7e634311a36396a74408419
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: b4c705e65b5b8c4f9e34dc5ff1474e87da5bee02
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100594448"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102209782"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>Notifications de maintenance planifiées pour les groupes de machines virtuelles identiques
 
@@ -143,7 +143,7 @@ Set-AzVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -Pe
 
 ## <a name="check-maintenance-status-by-using-the-cli"></a>Vérifier l’état de maintenance à l’aide d’interface de ligne de commande
 
-Vous pouvez afficher les informations de maintenance planifiée à l’aide de la commande [az vmss list-instances](/cli/azure/vmss?view=azure-cli-latest#az-vmss-list-instances).
+Vous pouvez afficher les informations de maintenance planifiée à l’aide de la commande [az vmss list-instances](/cli/azure/vmss#az-vmss-list-instances).
  
 Les informations de maintenance sont retournées uniquement en cas de maintenance planifiée. Si aucune maintenance planifiée n’affecte l’instance de machine virtuelle, la commande ne retourne pas d’informations de maintenance. 
 

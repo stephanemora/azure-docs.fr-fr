@@ -16,12 +16,12 @@ ms.date: 10/30/2014
 ms.author: erikre
 ms.reviewer: vibhork;dominic.may@sendgrid.com;elmer.thomas@sendgrid.com
 ms.custom: devx-track-java
-ms.openlocfilehash: 57daf9170a7f97c6c141532dafe759cde9d1c77b
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 7a857b887b53ccb2288507742ca52d72d90ff548
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95519062"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102214352"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-java-in-an-azure-deployment"></a>Envoi de courriers électroniques à l'aide de SendGrid à partir de Java dans un déploiement Azure
 L'exemple qui suit montre comment vous pouvez utiliser SendGrid pour envoyer des courriers électroniques depuis une page Web hébergée sur Azure. L’application finale demande à l’utilisateur les valeurs du courrier électronique, comme illustré dans la capture d’écran qui suit.
@@ -40,7 +40,7 @@ Pour utiliser le code de cette rubrique, vous devrez effectuer les opérations s
 
 Vous devez également avoir vos propres nom d'utilisateur et mot de passe SendGrid pour pouvoir envoyer le courrier électronique. Pour vos premiers pas avec SendGrid, consultez la page [Envoi de courriers électroniques à l'aide de SendGrid depuis Java](store-sendgrid-java-how-to-send-email.md).
 
-En outre, il est recommandé de bien connaître les informations de la page [Création d'une application Hello World pour Azure dans Eclipse](/java/azure/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app?view=azure-java-stable)ou bien d'autres techniques d'hébergement pour les applications Java dans Azure si vous n'utilisez pas Eclipse.
+En outre, il est recommandé de bien connaître les informations de la page [Création d'une application Hello World pour Azure dans Eclipse](/azure/developer/java/toolkit-for-eclipse/create-hello-world-web-app)ou bien d'autres techniques d'hébergement pour les applications Java dans Azure si vous n'utilisez pas Eclipse.
 
 ## <a name="create-a-web-form-for-sending-email"></a>Création d'un formulaire Web pour l'envoi de courriers électroniques
 Le code qui suit présente la conception d'un formulaire Web qui extrait les données des utilisateurs pour envoyer des courriers électroniques. Dans le cadre du présent contenu, le fichier JSP est nommé **emailform.jsp**.

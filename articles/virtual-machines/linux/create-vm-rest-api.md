@@ -2,16 +2,17 @@
 title: Créer une machine virtuelle Linux à l’aide de l’API REST
 description: Découvrez comment créer une machine virtuelle Linux dans Azure utilisant la fonctionnalité Disques managés et l’authentification SSH avec l’API REST Azure.
 author: cynthn
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.topic: how-to
 ms.date: 06/05/2018
 ms.author: cynthn
-ms.openlocfilehash: b3eeaf5f343b6026e02d17e4d3bd90dba4b991c4
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 519939445e67f0f993662e2faf506eb186686156
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737043"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102554562"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>Créer une machine virtuelle Linux utilisant l’authentification SSH avec l’API REST
 
@@ -133,7 +134,7 @@ Il existe deux réponses de réussite pour l’opération de création ou de mis
 | 200 OK      | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | OK          |
 | 201 Créé | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | Date de création     |
 
-Une réponse *201 Créé* condensée à partir de l’exemple de corps de demande précédent qui crée une machine virtuelle affiche un ID *vmId* assigné et l’état *provisioningState* *Creating* :
+Une réponse *201 Créé* condensée à partir de l’exemple de corps de demande précédent qui crée une machine virtuelle affiche un ID *vmId* assigné et l’état *provisioningState**Creating* :
 
 ```json
 {

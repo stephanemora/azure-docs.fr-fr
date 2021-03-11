@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 09/30/2020
-ms.openlocfilehash: 83fc88a57a1cdbec35a8f939a81698799d290d70
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: ec8943bc73cac2020350dd4916f040f031cd842b
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102183622"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102499694"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-with-azure-cache-for-redis"></a>Déployer un modèle Machine Learning sur Azure Functions à l’aide d’Azure Cache pour Redis 
 
@@ -128,7 +128,7 @@ Pour plus d’informations sur le script d’entrée, consultez [Définir le cod
 Ces entités sont encapsulées dans une __configuration d'inférence__. La configuration d’inférence référence le script d’entrée et d’autres dépendances.
 
 > [!IMPORTANT]
-> Lors de la création d’une configuration d’inférence à utiliser avec Azure Functions, vous devez utiliser un objet [Environnement](/python/api/azureml-core/azureml.core.environment%28class%29?preserve-view=true&view=azure-ml-py). Notez que, si vous définissez un environnement personnalisé, vous devez ajouter azureml-defaults avec une version supérieure ou égale à 1.0.45 comme dépendance pip. Ce package contient les fonctionnalités nécessaires pour héberger le modèle en tant que service web. L’exemple suivant illustre la création d’un objet d’environnement et son utilisation avec une configuration d’inférence :
+> Lors de la création d’une configuration d’inférence à utiliser avec Azure Functions, vous devez utiliser un objet [Environnement](/python/api/azureml-core/azureml.core.environment%28class%29). Notez que, si vous définissez un environnement personnalisé, vous devez ajouter azureml-defaults avec une version supérieure ou égale à 1.0.45 comme dépendance pip. Ce package contient les fonctionnalités nécessaires pour héberger le modèle en tant que service web. L’exemple suivant illustre la création d’un objet d’environnement et son utilisation avec une configuration d’inférence :
 >
 > ```python
 > from azureml.core.environment import Environment
@@ -161,7 +161,7 @@ pip install azureml-contrib-functions
 
 ## <a name="create-the-image"></a>Création de l’image
 
-Pour créer l’image Docker qui est déployée sur Azure Functions, utilisez [azureml.contrib.functions.package](/python/api/azureml-contrib-functions/azureml.contrib.functions?preserve-view=true&view=azure-ml-py) ou la fonction de package spécifique pour le déclencheur que vous souhaitez utiliser. L’extrait de code suivant montre comment créer un nouveau package avec un déclencheur HTTP à partir de la configuration du modèle et de l’inférence :
+Pour créer l’image Docker qui est déployée sur Azure Functions, utilisez [azureml.contrib.functions.package](/python/api/azureml-contrib-functions/azureml.contrib.functions) ou la fonction de package spécifique pour le déclencheur que vous souhaitez utiliser. L’extrait de code suivant montre comment créer un nouveau package avec un déclencheur HTTP à partir de la configuration du modèle et de l’inférence :
 
 > [!NOTE]
 > L’extrait de code suppose que `model` contient un modèle inscrit et que `inference_config` contient la configuration de l’environnement d’inférence. Pour plus d’informations, consultez [Déployer des modèles avec Azure Machine Learning](../machine-learning/how-to-deploy-and-where.md).
@@ -317,5 +317,5 @@ Après quelques instants, le groupe de ressources et toutes ses ressources sont 
 
 * En savoir plus sur [Azure Cache pour Redis](./cache-overview.md)
 * Découvrez comment configurer votre application de fonction dans la documentation sur [Functions](../azure-functions/functions-create-function-linux-custom-image.md).
-* [Référence sur l’API](/python/api/azureml-contrib-functions/azureml.contrib.functions?preserve-view=true&view=azure-ml-py) 
+* [Référence sur l’API](/python/api/azureml-contrib-functions/azureml.contrib.functions) 
 * Créer une [application Python qui utilise Azure Cache pour Redis](./cache-python-get-started.md)

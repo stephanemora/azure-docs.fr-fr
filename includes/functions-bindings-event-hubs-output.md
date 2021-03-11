@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 02/21/2020
 ms.author: cshoe
-ms.openlocfilehash: 11ad3bdcaa40c479c9358fd623edf0e6fdafa0d6
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: dadd86521a7b6c20dab2ed036555b798b869344c
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96002071"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102511054"
 ---
 Utilisez la liaison de sortie Event Hubs pour écrire des événements dans un flux d’événements du hub d’événements. Vous devez disposer de l’autorisation d’envoi à un hub d’événements pour y écrire les événements.
 
@@ -274,7 +274,7 @@ Il existe deux options pour produire en sortie un message Event Hub à partir d�
 
 - **Valeur de retour** : Définissez la propriété `name` dans *function.json* sur `$return`. Avec cette configuration, la valeur renvoyée de la fonction est conservée sous la forme d’un message Event Hub.
 
-- **Impératif** : Passez une valeur à la méthode [set](/python/api/azure-functions/azure.functions.out?view=azure-python#set-val--t-----none) du paramètre déclaré en tant que type [Out](/python/api/azure-functions/azure.functions.out?view=azure-python). La valeur transmise à `set` est conservée en tant que message d’Event Hub.
+- **Impératif** : Passez une valeur à la méthode [set](/python/api/azure-functions/azure.functions.out#set-val--t-----none) du paramètre déclaré en tant que type [Out](/python/api/azure-functions/azure.functions.out). La valeur transmise à `set` est conservée en tant que message d’Event Hub.
 
 # <a name="java"></a>[Java](#tab/java)
 

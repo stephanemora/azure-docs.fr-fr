@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3bba64f8c07545107d57f79ae94dab96e517815f
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: ceea2dbcf408b6b35ef7c26580278d3979244119
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97900703"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102551536"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Identification et résolution des problèmes d’affectation de licences pour un groupe dans Azure Active Directory
 
@@ -106,7 +106,7 @@ Si vous utilisez Exchange Online, certains comptes d’utilisateur de votre orga
 > ```
 > Get-Recipient -ResultSize unlimited | where {$_.EmailAddresses -match "user@contoso.onmicrosoft.com"} | fL Name, RecipientType,emailaddresses
 > ```
-> Pour en savoir plus sur ce problème, consultez le [message d’erreur indiquant que l’adresse de proxy est déjà utilisée dans Exchange Online](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online). L’article inclut également des informations sur [la connexion à Exchange Online à l’aide de PowerShell à distance](/powershell/exchange/connect-to-exchange-online-powershell?view=exchange-ps).
+> Pour en savoir plus sur ce problème, consultez le [message d’erreur indiquant que l’adresse de proxy est déjà utilisée dans Exchange Online](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online). L’article inclut également des informations sur [la connexion à Exchange Online à l’aide de PowerShell à distance](/powershell/exchange/connect-to-exchange-online-powershell).
 
 Une fois les problèmes d’adresse de proxy résolus pour les utilisateurs concernés, veillez à forcer le traitement des licences sur le groupe, pour vous assurer que les licences peuvent désormais être appliquées.
 

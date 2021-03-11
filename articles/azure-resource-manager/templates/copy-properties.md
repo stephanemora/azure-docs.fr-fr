@@ -3,12 +3,12 @@ title: Définir plusieurs instances d’une propriété
 description: Utilisez l’opération de copie dans un modèle Azure Resource Manager (modèle ARM) pour effectuer une itération à plusieurs reprises lors de la création d’une propriété sur une ressource.
 ms.topic: conceptual
 ms.date: 09/15/2020
-ms.openlocfilehash: 446a303104e6b538129cd22d1f1fbbba6282b2ee
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 958deba6152ffa3bcb1d2d79cd026c0cb2eebcbe
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905925"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521659"
 ---
 # <a name="property-iteration-in-arm-templates"></a>Itération de propriété dans les modèles ARM
 
@@ -64,7 +64,7 @@ L’exemple suivant montre comment appliquer `copy` à la propriété `dataDisks
       "type": "int",
       "minValue": 0,
       "maxValue": 16,
-      "defaultValue": 16,
+      "defaultValue": 3,
       "metadata": {
         "description": "The number of dataDisks to create."
       }

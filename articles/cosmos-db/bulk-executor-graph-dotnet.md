@@ -9,12 +9,12 @@ ms.date: 05/28/2019
 ms.author: chrande
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b31cb33e09158de5912132d0fb7bd31a62131181
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 15e94dac02770bf28aae4cbfc4e337cb68b8be40
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360511"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102425320"
 ---
 # <a name="using-the-graph-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db-gremlin-api"></a>Utilisation de la bibliothèque graphique de l’exécuteur en bloc .NET pour effectuer des opérations en bloc dans l’API Gremlin Azure Cosmos DB
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
@@ -25,12 +25,12 @@ Par opposition à l’envoi de requêtes Gremlin à une base de données, où le
 
 ## <a name="bulk-operations-with-graph-data"></a>Opérations en bloc avec des données graphiques
 
-La [bibliothèque de l’exécuteur en bloc](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.graph?preserve-view=true&view=azure-dotnet) contient un espace de noms `Microsoft.Azure.CosmosDB.BulkExecutor.Graph` pour fournir des fonctionnalités pour la création et l’importation d’objets graphiques. 
+La [bibliothèque de l’exécuteur en bloc](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.graph) contient un espace de noms `Microsoft.Azure.CosmosDB.BulkExecutor.Graph` pour fournir des fonctionnalités pour la création et l’importation d’objets graphiques. 
 
 Le processus suivant décrit l’utilisation de la migration des données pour un conteneur de l’API Gremlin :
 1. Récupérez les enregistrements de la source de données.
 2. Construisez des objets `GremlinVertex` et `GremlinEdge` à partir des enregistrements obtenus et ajoutez-les à une structure de données `IEnumerable`. Dans cette partie de l’application, la logique de détection et d’ajout des relations doit être implémentée au cas où la source de données n’est pas une base de données de graphiques.
-3. Utilisez la [méthode Graph BulkImportAsync](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.graph.graphbulkexecutor.bulkimportasync?preserve-view=true&view=azure-dotnet) pour insérer les objets graphiques dans la collection.
+3. Utilisez la [méthode Graph BulkImportAsync](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.graph.graphbulkexecutor.bulkimportasync) pour insérer les objets graphiques dans la collection.
 
 Ce mécanisme améliorera l’efficacité de la migration de données par rapport à l’utilisation d’un client Gremlin. Cette amélioration est expérimentée car l’insertion de données avec Gremlin demandera l’envoi d’une requête à la fois par l’application, requête qui devra être validée, évaluée, puis exécutée pour créer les données. La bibliothèque de l’exécuteur en bloc gérera la validation dans l’application et enverra plusieurs objets graphiques à la fois pour chaque requête réseau.
 
@@ -160,4 +160,4 @@ Paramètre|Description
 
 * Pour en savoir plus sur les packages NuGet et les notes de publication de la bibliothèque .NET de l’exécuteur en bloc, consultez les [détails relatifs au Kit de développement logiciel (SDK) de l’exécuteur en bloc](sql-api-sdk-bulk-executor-dot-net.md). 
 * Découvrez les [conseils relatifs aux performances](./bulk-executor-dot-net.md#performance-tips) pour optimiser davantage l’utilisation de l’exécuteur en bloc.
-* Examinez l’[article de référence sur BulkExecutor.Graph](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.graph?preserve-view=true&view=azure-dotnet) pour plus d’informations sur les classes et les méthodes définies dans cet espace de noms.
+* Examinez l’[article de référence sur BulkExecutor.Graph](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.graph) pour plus d’informations sur les classes et les méthodes définies dans cet espace de noms.

@@ -1,7 +1,7 @@
 ---
 title: Tailles des machines virtuelles Azure – Stockage | Microsoft Docs
 description: Répertorie les différentes tailles optimisées pour le stockage disponibles pour les machines virtuelles dans Azure. Liste des informations sur le nombre de processeurs virtuels, de disques de données et de cartes réseau, ainsi que sur le débit de stockage et la bande passante réseau pour les tailles disponibles dans cette série.
-ms.subservice: sizes
+ms.subservice: vm-sizes-storage
 documentationcenter: ''
 author: sasha-melamed
 ms.service: virtual-machines
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 5af7b3373993dce1939ecd7534140e58db688579
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d97fe6cda1134d45468e257965fd5e28fe170e6f
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87835576"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102561022"
 ---
 # <a name="storage-optimized-virtual-machine-sizes"></a>Tailles de machine virtuelle à stockage optimisé
 

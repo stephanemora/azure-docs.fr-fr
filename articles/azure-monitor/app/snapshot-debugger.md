@@ -7,12 +7,12 @@ ms.date: 10/23/2019
 author: cweining
 ms.author: cweining
 ms.reviewer: cweining
-ms.openlocfilehash: 5913f5fa8d45e6bf92d6132468e0e3bf7a121c65
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: bd196e60fed8a18064bfa59e343e51a878a11237
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97673516"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102217395"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Captures instantanées de débogage sur exceptions levées dans des applications .NET
 Quand une exception se produit, vous pouvez collecter automatiquement une capture instantanée de débogage à partir de votre application web dynamique. La capture instantanée indique l’état du code source et des variables au moment où l’exception a été levée. Le Débogueur de capture instantanée d’[Azure Application Insights](./app-insights-overview.md) analyse la télémétrie des exceptions à partir de votre application web. Il collecte des captures instantanées sur les principales exceptions levées afin que vous disposiez des informations dont vous avez besoin pour diagnostiquer des problèmes de production. Incluez le [package NuGet de collecte des captures instantanées](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) dans votre application, et configurez éventuellement les paramètres de collecte dans [ApplicationInsights.config](./configuration-with-applicationinsights-config.md). Les captures instantanées apparaissent sur les [exceptions](./asp-net-exceptions.md) dans le portail Application Insights.
@@ -29,6 +29,7 @@ La collecte de captures instantanées est disponible pour :
 Les environnements suivants sont pris en charge :
 
 * [Azure App Service](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)
+* [Fonction Azure](snapshot-debugger-function-app.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Cloud Services](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) exécutant la famille de systèmes d’exploitation 4 ou ultérieur
 * [Services Azure Service Fabric](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) exécutant Windows Server 2012 R2 ou ultérieur
 * [Machines virtuelles Azure et groupes de machines virtuelles identiques](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) exécutant Windows Server 2012 R2 ou ultérieur
@@ -134,6 +135,7 @@ Toutefois, dans Azure App Services, le collecteur de captures instantanées peut
 Activez le Débogueur de capture instantanée Application Insights pour votre application :
 
 * [Azure App Service](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)
+* [Fonction Azure](snapshot-debugger-function-app.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Cloud Services](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 * [Services Azure Service Fabric](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 * [Machines virtuelles Azure et Virtual Machine Scale Sets](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)

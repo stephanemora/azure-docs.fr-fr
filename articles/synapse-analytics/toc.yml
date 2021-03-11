@@ -269,7 +269,7 @@
               href: sql/load-data-overview.md
         - name: Développement
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: sql/develop-overview.md
             - name: Meilleures pratiques
               href: sql/develop-best-practices.md
@@ -340,15 +340,12 @@
                 - name: Procédures stockées
                   href: sql/develop-stored-procedures.md
                 - name: Transactions
-                  href: sql/develop-transactions.md
-                - name: Transactions
                   items:
-                    - name: Pool SQL serverless
+                    - name: Transactions de pool SQL dédié
+                      href: sql/develop-transactions.md
+                    - name: Bonnes pratiques sur les transactions de pool SQL dédié
                       displayname: 'Transaction, best, practices'
                       href: sql/develop-transaction-best-practices.md
-                    - name: Pool SQL dédié
-                      displayname: 'Transactions, best, practices'
-                      href: ./sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
                 - name: Schémas définis par l’utilisateur
                   href: sql/develop-user-defined-schemas.md
                 - name: Attribution de variables
@@ -1151,7 +1148,7 @@
 - name: Informations de référence
   items:
     - name: Azure CLI
-      href: /cli/azure/ext/synapse/?view=azure-cli-latest
+      href: /cli/azure/ext/synapse/
     - name: Types de classement de base de données
       href: sql/reference-collation-types.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Go

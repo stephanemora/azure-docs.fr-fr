@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: normesta
-ms.openlocfilehash: e5f62456b85791bad5bb66f3abf67e523558d76e
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 9fa7f586db5a32640c16db5802b56d6481e8889d
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100650386"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102439287"
 ---
 # <a name="access-control-model-in-azure-data-lake-storage-gen2"></a>Modèle de contrôle d’accès dans Azure Data Lake Storage Gen2
 
@@ -106,7 +106,7 @@ Le tableau suivant vous montre comment combiner des rôles Azure et des entrées
 
 
 > [!NOTE] 
-> Pour afficher le contenu d’un conteneur dans l’Explorateur Stockage Azure, les principaux de sécurité doivent [se connecter à l’Explorateur Stockage à l’aide de Azure AD](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#add-a-resource-via-azure-ad)et (au minimum) disposer d’un accès en lecture (R--) au dossier racine (`\`) d’un conteneur. Ce niveau d’autorisation leur donne la possibilité de répertorier le contenu du dossier racine. Si vous ne souhaitez pas que le contenu du dossier racine soit visible, vous pouvez lui attribuer le rôle [Lecteur](../../role-based-access-control/built-in-roles.md#reader). Avec ce rôle, ils peuvent répertorier les conteneurs dans le compte, mais pas le contenu du conteneur. Vous pouvez ensuite accorder l’accès à des répertoires et des fichiers spécifiques à l’aide de listes de contrôle d’accès.   
+> Pour afficher le contenu d’un conteneur dans l’Explorateur Stockage Azure, les principaux de sécurité doivent [se connecter à l’Explorateur Stockage à l’aide de Azure AD](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#attach-to-an-individual-resource)et (au minimum) disposer d’un accès en lecture (R--) au dossier racine (`\`) d’un conteneur. Ce niveau d’autorisation leur donne la possibilité de répertorier le contenu du dossier racine. Si vous ne souhaitez pas que le contenu du dossier racine soit visible, vous pouvez lui attribuer le rôle [Lecteur](../../role-based-access-control/built-in-roles.md#reader). Avec ce rôle, ils peuvent répertorier les conteneurs dans le compte, mais pas le contenu du conteneur. Vous pouvez ensuite accorder l’accès à des répertoires et des fichiers spécifiques à l’aide de listes de contrôle d’accès.   
 
 ## <a name="security-groups"></a>Groupes de sécurité
 

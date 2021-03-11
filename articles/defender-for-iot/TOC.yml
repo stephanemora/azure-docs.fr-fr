@@ -4,13 +4,13 @@
   displayName: 'IoT, OT, getting started'
   href: overview.md
   items:
-    - name: Nouveautés
-      href: release-notes.md
     - name: Architecture de solution sans agent
       displayName: 'deployment, where to deploy'
       href: architecture.md
     - name: Architecture de solution basée sur un agent
       href: architecture-agent-based.md
+- name: Nouveautés
+  href: release-notes.md
 - name: Démarrages rapides
   expanded: true
   items:
@@ -27,12 +27,12 @@
         - name: Intégrer à une solution basée sur un agent Defender pour IoT
           displayName: 'IoT Hub, existing, enable'
           href: quickstart-onboard-iot-hub.md
-        - name: Installer le micro-agent Defender pour IoT
+        - name: Installer le micro-agent Defender pour IoT (préversion)
           displayName: 'package, authentication, methods, certificate, authenticate, version'
           href: quickstart-standalone-agent-binary-installation.md
-        - name: Créer un jumeau de module pour le micro-agent Defender pour IoT
+        - name: Créer un jumeau de module pour le micro-agent Defender IoT (préversion)
           href: quickstart-create-micro-agent-module-twin.md
-        - name: Créer le micro-agent Defender pour IoT à partir du code source
+        - name: Créer le micro-agent Defender pour IoT à partir du code source (préversion)
           displayName: 'baseline, configuration, customize, distribution'
           href: quickstart-building-the-defender-micro-agent-from-source.md
         - name: Configurer un module de sécurité pour Azure RTOS
@@ -56,18 +56,18 @@
           href: concept-key-concepts.md
     - name: Solution basée sur un agent pour les fabricants d’appareils
       items:
-        - name: Vue d’ensemble du portefeuille d’agents et prise en charge des OS
+        - name: Vue d’ensemble du portefeuille d’agents et prise en charge des OS (préversion)
           displayName: 'standalone agent, micro agent, RTOS'
           href: concept-agent-portfolio-overview-os-support.md
-        - name: Vue d’ensemble du micro-agent autonome
+        - name: Vue d’ensemble du micro-agent autonome (préversion)
           displayName: 'endpoint, posture, distribution, flexible, model'
           href: concept-standalone-micro-agent-overview.md
-        - name: Authentification des agents de sécurité
+        - name: Authentification des agents de sécurité (préversion)
           displayName: 'connection string, certificate, authentication'
           href: concept-security-agent-authentication.md
         - name: Posture de sécurité - Benchmark CIS
           href: concept-security-posture.md
-        - name: Agrégation des événements
+        - name: Agrégation d’événements (préversion)
           displayName: 'process events, network connection'
           href: concept-event-aggregation.md
         - name: Alertes intégrées pour IoT Hub
@@ -297,7 +297,7 @@
               href: how-to-investigate-device.md
 - name: Dépannage
   items:
-    - name: Résolution des problèmes du micro-agent Defender pour IoT
+    - name: Résolution des problèmes du micro-agent Defender pour IoT (préversion)
       displayName: 'service status, review logs'
       href: troubleshoot-defender-micro-agent.md
 - name: Prise en charge et mise hors service des fonctionnalités

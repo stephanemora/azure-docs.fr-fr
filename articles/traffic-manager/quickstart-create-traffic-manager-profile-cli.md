@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/09/2020
 ms.author: duau
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 07fadd7b3129b3ca3351e0416c8aa6f49de82212
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 9a19e9c66967f36c3bdc4124fb9e60f7b7d2b36d
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201227"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102213434"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-for-a-highly-available-web-application-using-azure-cli"></a>Démarrage rapide : Créer un profil Traffic Manager pour assurer une haute disponibilité à vos applications web avec Azure CLI
 
@@ -47,7 +47,7 @@ L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l�
 
 ## <a name="create-a-traffic-manager-profile"></a>Créer un profil Traffic Manager
 
-Créez un profil Traffic Manager en utilisant la commande [az network traffic-manager profile create](/cli/azure/network/traffic-manager/profile?view=azure-cli-latest#az-network-traffic-manager-profile-create) qui dirige le trafic utilisateur en fonction de la priorité du point de terminaison.
+Créez un profil Traffic Manager en utilisant la commande [az network traffic-manager profile create](/cli/azure/network/traffic-manager/profile#az-network-traffic-manager-profile-create) qui dirige le trafic utilisateur en fonction de la priorité du point de terminaison.
 
 Dans l’exemple suivant, remplacez **<profile_name>** par un nom de profil Traffic Manager unique.
 
@@ -70,7 +70,7 @@ az network traffic-manager profile create \
 Pour ce guide de démarrage rapide, vous aurez besoin de deux instances d’une application web déployée dans deux régions Azure différentes (*USA Est* et *Europe Ouest*). Chacune servira de point de terminaison principal et de point de terminaison de basculement à Traffic Manager.
 
 ### <a name="create-web-app-service-plans"></a>Créer des plans App Service web
-Créez des plans App Service web en utilisant la commande [az appservice plan create](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) pour les deux instances de l’application web que vous allez déployer dans deux régions Azure distinctes.
+Créez des plans App Service web en utilisant la commande [az appservice plan create](/cli/azure/appservice/plan#az-appservice-plan-create) pour les deux instances de l’application web que vous allez déployer dans deux régions Azure distinctes.
 
 Dans l’exemple suivant, remplacez **<appspname_eastus>** et **<appspname_westeurope>** par un nom de plan App Service unique.
 
@@ -91,7 +91,7 @@ az appservice plan create \
 ```
 
 ### <a name="create-a-web-app-in-the-app-service-plan"></a>Créer une application web dans le plan App Service
-Créez deux instances de l’application web en utilisant la commande [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) dans les plans App Service dans les régions Azure *USA Est* et *Europe Ouest*.
+Créez deux instances de l’application web en utilisant la commande [az webapp create](/cli/azure/webapp#az-webapp-create) dans les plans App Service dans les régions Azure *USA Est* et *Europe Ouest*.
 
 Dans l’exemple suivant, remplacez **<app1name_eastus>** et **<app2name_westeurope>** par un nom d’application unique, puis remplacez **<appspname_eastus>** et **<appspname_westeurope>** par le nom utilisé pour créer les plans App Service dans la section précédente.
 
@@ -110,7 +110,7 @@ az webapp create \
 ```
 
 ## <a name="add-traffic-manager-endpoints"></a>Ajouter des points de terminaison Traffic Manager
-Ajoutez les deux applications web en tant que points de terminaison Traffic Manager en utilisant la commande [az network traffic-manager endpoint create](/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-create) dans le profil Traffic Manager comme suit :
+Ajoutez les deux applications web en tant que points de terminaison Traffic Manager en utilisant la commande [az network traffic-manager endpoint create](/cli/azure/network/traffic-manager/endpoint#az-network-traffic-manager-endpoint-create) dans le profil Traffic Manager comme suit :
 
 - Déterminez l’ID d’application web et ajoutez l’application web située dans la région Azure *USA Est* comme point de terminaison principal pour le routage de tout le trafic utilisateur. 
 - Déterminez l’ID d’application web et ajoutez l’application web située dans la région Azure *Europe Ouest* comme point de terminaison de basculement. 
@@ -178,7 +178,7 @@ Dans l’exemple suivant, remplacez **<app1name_eastus>** et **<app2name_westeur
 
 ### <a name="determine-the-dns-name"></a>Déterminer le nom DNS
 
-Déterminez le nom DNS du profil Traffic Manager en utilisant la commande [az network traffic-manager profile show](/cli/azure/network/traffic-manager/profile?view=azure-cli-latest#az-network-traffic-manager-profile-show).
+Déterminez le nom DNS du profil Traffic Manager en utilisant la commande [az network traffic-manager profile show](/cli/azure/network/traffic-manager/profile#az-network-traffic-manager-profile-show).
 
 ```azurecli-interactive
 
@@ -196,7 +196,7 @@ Copiez la valeur de **RelativeDnsName**. Le nom DNS de votre profil Traffic Mana
 
     > [!NOTE]
     > Dans ce scénario de démarrage rapide, toutes les demandes sont routées vers le point de terminaison principal. Il est défini sur **Priorité 1**.
-2. Pour voir le basculement de Traffic Manager en action, désactivez votre site principal en utilisant la commande [az network traffic-manager endpoint update](/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-update).
+2. Pour voir le basculement de Traffic Manager en action, désactivez votre site principal en utilisant la commande [az network traffic-manager endpoint update](/cli/azure/network/traffic-manager/endpoint#az-network-traffic-manager-endpoint-update).
 
    ```azurecli-interactive
 
@@ -214,7 +214,7 @@ Copiez la valeur de **RelativeDnsName**. Le nom DNS de votre profil Traffic Mana
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Une fois que vous avez terminé, supprimez les groupes de ressources, les applications web et toutes les ressources associées en utilisant la commande [az group delete](/cli/azure/group?view=azure-cli-latest#az-group-delete).
+Une fois que vous avez terminé, supprimez les groupes de ressources, les applications web et toutes les ressources associées en utilisant la commande [az group delete](/cli/azure/group#az-group-delete).
 
 ```azurecli-interactive
 

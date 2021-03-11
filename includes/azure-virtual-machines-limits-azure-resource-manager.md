@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 02/10/2020
 ms.author: cynthn
-ms.openlocfilehash: 61af1f1a97e0ffad0332a34034f5dd1d007d1a5c
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 397dd3d16fa994df29a08ff9095b4c7c6c4af815
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98900917"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102510972"
 ---
 | Ressource | Limite |
 | --- | --- |
@@ -17,7 +17,7 @@ ms.locfileid: "98900917"
 | Nombre total de cœurs de machine virtuelle par [abonnement](https://azure.microsoft.com/pricing/) |20<sup>1</sup> par région. Contactez le support pour augmenter la limite. |
 | Nombre total de cœurs de machine virtuelle Azure Spot par [abonnement](https://azure.microsoft.com/pricing/) |20<sup>1</sup> par région. Contactez le support pour augmenter la limite. |
 | Machine virtuelle par série, telle que Dv2, et F, cœurs par [abonnement](https://azure.microsoft.com/pricing/) |20<sup>1</sup> par région. Contactez le support pour augmenter la limite. |
-| [Groupes à haute disponibilité](../articles/virtual-machines/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) par abonnement |2 500 par région. |
+| [Groupes à haute disponibilité](../articles/virtual-machines/availability-set-overview.md) par abonnement |2 500 par région. |
 | Machines virtuelles par groupe à haute disponibilité | 200 |
 | [Groupes de placement de proximité](../articles/virtual-machines/windows/proximity-placement-groups-portal.md) par [groupe de ressources](../articles/azure-resource-manager/management/overview.md#resource-groups) | 800 | 
 | Certificats par groupe à haute disponibilité | 199<sup>2</sup> |

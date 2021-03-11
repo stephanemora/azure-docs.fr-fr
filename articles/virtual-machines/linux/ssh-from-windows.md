@@ -3,16 +3,17 @@ title: Utiliser des clés SSH pour se connecter à des machines virtuelles Linux
 description: Apprenez à créer et à utiliser des clés SSH à partir d’un ordinateur Windows pour vous connecter à une machine virtuelle Linux dans Azure.
 author: cynthn
 ms.service: virtual-machines
+ms.collection: linux
 ms.workload: infrastructure-services
 ms.date: 10/31/2020
 ms.topic: how-to
 ms.author: cynthn
-ms.openlocfilehash: 183b601a4521c3ff3e4578784f7adadd01045b0e
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 167ce63931155f5142ed34b41f857505699bc0a6
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93147145"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102552777"
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>Comment utiliser des clés SSH avec Windows sur Azure
 
@@ -25,7 +26,7 @@ Pour utiliser des clés SSH à partir d’un client Linux ou macOS, consultez le
 
 [SSH](https://www.ssh.com/ssh/) est un protocole de connexion chiffré qui permet d’ouvrir des sessions sécurisées via des connexions non sécurisées. SSH est le protocole de connexion par défaut pour les machines virtuelles Linux hébergées dans Azure. Bien que le protocole SSH lui-même offre une connexion chiffrée, l’utilisation de mots de passe avec SSH laisse néanmoins la machine virtuelle vulnérable aux attaques en force brute. Nous vous recommandons de vous connecter à une machine virtuelle via SSH à l’aide d’une paire de clés publique/privée, également appelées clés *SSH*. 
 
-La paire de clés publique-privée est semblable au verrou sur votre porte d’entrée. Le verrou est exposé au **public** , toute personne disposant de la bonne clé peut ouvrir la porte. La clé est **privée** et fournie uniquement aux personnes auxquelles vous faites confiance, car elle peut être utilisée pour déverrouiller la porte. 
+La paire de clés publique-privée est semblable au verrou sur votre porte d’entrée. Le verrou est exposé au **public**, toute personne disposant de la bonne clé peut ouvrir la porte. La clé est **privée** et fournie uniquement aux personnes auxquelles vous faites confiance, car elle peut être utilisée pour déverrouiller la porte. 
 
 - La *clé publique* est placée sur votre machine virtuelle Linux lorsque vous créez la machine virtuelle. 
 

@@ -5,18 +5,22 @@ author: davidmrdavid
 ms.topic: conceptual
 ms.date: 12/02/2020
 ms.author: azfuncdf
-ms.openlocfilehash: 9083821fa03c09949daaf3166367489248a4d7d2
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.openlocfilehash: 62b3c9bb1c6fd53d9f11227a9d7e774d56859d04
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98029133"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102434761"
 ---
 # <a name="monitor-scenario-in-durable-functions---github-issue-monitoring-sample"></a>Scénario de surveillance dans l’extension Fonctions durables - Exemple de surveillance d’un problème GitHub
 
 Le modèle de surveillance fait référence à un processus récurrent flexible dans un flux de travail, par exemple l’interrogation jusqu’à ce que certaines conditions soient respectées. Cet article décrit un exemple qui utilise l’extension Fonctions durables pour implémenter la surveillance.
 
-[!INCLUDE durable-functions-prerequisites]
+## <a name="prerequisites"></a>Prérequis
+
+* [Suivez l’article sur le démarrage rapide](quickstart-python-vscode.md)
+* [Clonez ou téléchargez les exemples de projets à partir de GitHub](https://github.com/Azure/azure-functions-durable-python/tree/main/samples/)
+
 
 ## <a name="scenario-overview"></a>Présentation du scénario
 
@@ -45,7 +49,6 @@ Cet article explique les fonctions suivantes dans l’exemple d’application :
 
 ### <a name="e3_monitor-orchestrator-function"></a>Fonction d'orchestrateur E3_Monitor
 
-# <a name="python"></a>[Python](#tab/python)
 
 La fonction **E3_Monitor** utilise le fichier *function.json* standard pour les fonctions d’orchestrateur.
 
@@ -55,7 +58,6 @@ Voici le code qui implémente la fonction :
 
 [!code-python[Main](~/samples-durable-functions-python/samples/monitor/E3_Monitor/\_\_init\_\_.py)]
 
----
 
 Cette fonction d’orchestrateur effectue les actions suivantes :
 
@@ -73,7 +75,6 @@ Plusieurs instances d’orchestrateur peuvent s’exécuter simultanément en ap
 
 Comme avec d’autres exemples, les fonctions d’activité d’assistance sont des fonctions régulières qui utilisent la liaison de déclencheur `activityTrigger`. La fonction **E3_TooManyOpenIssues** obtient une liste des problèmes actuellement ouverts sur le référentiel et détermine s’il y en a « trop » : plus de 3 dans notre exemple.
 
-# <a name="python"></a>[Python](#tab/python)
 
 Le fichier *function.json* est défini comme suit :
 
@@ -83,13 +84,11 @@ Et voici l’implémentation.
 
 [!code-python[Main](~/samples-durable-functions-python/samples/monitor/E3_TooManyOpenIssues/\_\_init\_\_.py)]
 
----
 
 ### <a name="e3_sendalert-activity-function"></a>Fonction d’activité E3_SendAlert
 
 La fonction **E3_SendAlert** utilise la liaison Twilio pour envoyer un SMS à l’utilisateur final et l’avertir qu’il y a au moins 3 problèmes ouverts à résoudre.
 
-# <a name="python"></a>[Python](#tab/python)
 
 Son fichier *function.json* est simple :
 
@@ -99,7 +98,6 @@ Et voici le code qui envoie le SMS :
 
 [!code-python[Main](~/samples-durable-functions-python/samples/monitor/E3_SendAlert/\_\_init\_\_.py)]
 
----
 
 ## <a name="run-the-sample"></a>Exécution de l'exemple
 

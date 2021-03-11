@@ -6,18 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/25/2021
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 0985779aeb14fd4f3d6a12cf152e4c63c909d613
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: ee0587063c0fac67068869c58471ada58354fab7
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98806681"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102437670"
 ---
 # <a name="create-custom-vm-images-for-your-azure-stack-edge-pro-device"></a>Créer des images de machine virtuelle personnalisées pour votre appareil Azure Stack Edge Pro
 
-<!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 Pour déployer des machines virtuelles sur votre appareil Azure Stack Edge Pro, vous devez être capable de créer des images de machine virtuelle personnalisées que vous pouvez utiliser pour créer des machines virtuelles. Cet article décrit les étapes nécessaires à la création d’images personnalisées de machines virtuelles Linux ou Windows, images que vous pouvez utiliser pour déployer des machines virtuelles sur votre appareil Azure Stack Edge Pro.
 

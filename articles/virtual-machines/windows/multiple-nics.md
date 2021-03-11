@@ -2,17 +2,18 @@
 title: Créer et gérer dans Azure des machines virtuelles Windows utilisant plusieurs cartes d’interface réseau
 description: Découvrez comment créer et gérer une machine virtuelle Windows équipée de plusieurs cartes d’interface réseau à l’aide d’Azure PowerShell ou de modèles Resource Manager.
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.collection: windows
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: cynthn
-ms.openlocfilehash: 66a135cd1629aa2befcd4c56d835473791d62ce8
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 2664d175818a6e29dcd3f704c6938987bae050cd
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91974003"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102555174"
 ---
 # <a name="create-and-manage-a-windows-virtual-machine-that-has-multiple-nics"></a>Créer et gérer une machine virtuelle Windows équipée de plusieurs cartes d’interface réseau
 Les machines virtuelles (VM) dans Azure peuvent être équipées de plusieurs cartes d’interface réseau (NIC) virtuelles. Un scénario courant consiste à disposer de sous-réseaux différents pour les connectivités frontale et principale. Vous pouvez associer plusieurs cartes d’interface réseau d’une machine virtuelle à différents sous-réseaux, mais ces sous-réseaux doivent tous résider dans le même réseau virtuel. Cet article explique comment créer une machine virtuelle équipée de plusieurs cartes d’interface réseau. Il explique également comment ajouter ou supprimer des cartes d’interface réseau d’une machine virtuelle existante. Comme le nombre de cartes réseau prises en charge varie suivant la [taille des machines virtuelles](../sizes.md) , pensez à dimensionner la vôtre en conséquence.

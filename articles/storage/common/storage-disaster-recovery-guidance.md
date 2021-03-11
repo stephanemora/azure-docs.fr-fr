@@ -10,12 +10,12 @@ ms.date: 05/05/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: e00e22862121f2f974f9531a9892e32e115d6041
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: f556c7acd903c108193f9c12a2849500645b119b
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101737645"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102506699"
 ---
 # <a name="disaster-recovery-and-storage-account-failover"></a>Reprise d’activité après sinistre et basculement de compte de stockage
 
@@ -132,7 +132,7 @@ Une fois le basculement terminé, les clients peuvent à nouveau lire et écrire
 
 ### <a name="azure-virtual-machines"></a>Machines virtuelles Azure
 
-Les machines virtuelles Azure ne basculent pas dans le cadre d’un basculement de compte. Si la région primaire devient indisponible et que vous basculez vers la région secondaire, vous devez recréer toutes les machines virtuelles après le basculement. En outre, il existe un risque de perte de données lié au basculement de compte. Microsoft vous recommande de suivre les recommandations suivantes en matière de [haute disponibilité](../../virtual-machines/manage-availability.md) et de [reprise d’activité après sinistre](../../virtual-machines/backup-recovery.md) propres aux machines virtuelles dans Azure.
+Les machines virtuelles Azure ne basculent pas dans le cadre d’un basculement de compte. Si la région primaire devient indisponible et que vous basculez vers la région secondaire, vous devez recréer toutes les machines virtuelles après le basculement. En outre, il existe un risque de perte de données lié au basculement de compte. Microsoft vous recommande de suivre les recommandations suivantes en matière de [haute disponibilité](../../virtual-machines/availability.md) et de [reprise d’activité après sinistre](../../virtual-machines/backup-recovery.md) propres aux machines virtuelles dans Azure.
 
 ### <a name="azure-unmanaged-disks"></a>Disques non managés Azure
 
