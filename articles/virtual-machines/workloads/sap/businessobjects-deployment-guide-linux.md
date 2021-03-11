@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/05/2020
 ms.author: depadia
-ms.openlocfilehash: 7a40acf7dea11781a0381e93ea180c5185b7818b
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: b94e1f82409da3329eb6d978fa2ae0222928cd97
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101671928"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102505934"
 ---
 # <a name="sap-businessobjects-bi-platform-deployment-guide-for-linux-on-azure"></a>Guide de déploiement de la plateforme SAP BusinessObjects BI pour Linux sur Azure
 
@@ -603,7 +603,7 @@ Pour réduire l’impact des temps d’arrêt dus à un ou plusieurs événement
 - Utilisez Disques managés pour les machines virtuelles dans un groupe à haute disponibilité.
 - Configurez chaque couche Application dans des groupes à haute disponibilité distincts.
 
-Pour plus d’informations, consultez [Gestion de la disponibilité des machines virtuelles Linux](../../manage-availability.md).
+Pour plus d’informations, consultez [Gestion de la disponibilité des machines virtuelles Linux](../../availability.md).
 
 #### <a name="high-availability-for-cms-database"></a>Haute disponibilité pour la base de données CMS
 

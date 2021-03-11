@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: traffic-manager
 ms.date: 09/18/2019
 ms.author: duau
-ms.openlocfilehash: 502533b69058eacd4ad18a3b29a33fbc4a3715a5
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 7dd7f43044a9643eb7e9d5296dfb209e425d5fb6
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98183776"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102504778"
 ---
 # <a name="traffic-manager-subnet-override-using-azure-powershell"></a>Remplacement de sous-réseau Traffic Manager avec Azure PowerShell
 
@@ -43,7 +43,7 @@ Vous pouvez exécuter les commandes qui suivent dans [Azure Cloud Shell](https:/
 
 1. **Récupérer le point de terminaison Traffic Manager :**
 
-    Pour activer le remplacement de sous-réseau, récupérez le point de terminaison à ajouter au remplacement, puis stockez-le dans une variable à l’aide de [Get-AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/get-aztrafficmanagerendpoint?view=azps-2.5.0).
+    Pour activer le remplacement de sous-réseau, récupérez le point de terminaison à ajouter au remplacement, puis stockez-le dans une variable à l’aide de [Get-AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/get-aztrafficmanagerendpoint).
 
     Remplacez les valeurs de Name, ProfileName et ResourceGroupName par les valeurs du point de terminaison que vous changez.
 
@@ -54,7 +54,7 @@ Vous pouvez exécuter les commandes qui suivent dans [Azure Cloud Shell](https:/
     ```
 2. **Ajouter la plage d’adresses IP au point de terminaison :**
     
-    Pour ajouter la plage d’adresses IP au point de terminaison, vous devez utiliser [Add-AzTrafficManagerIpAddressRange](/powershell/module/az.trafficmanager/add-aztrafficmanageripaddressrange?view=azps-2.5.0&viewFallbackFrom=azps-2.4.0).
+    Pour ajouter la plage d’adresses IP au point de terminaison, vous devez utiliser [Add-AzTrafficManagerIpAddressRange](/powershell/module/az.trafficmanager/add-aztrafficmanageripaddressrange).
 
     ```powershell
 
@@ -68,18 +68,18 @@ Vous pouvez exécuter les commandes qui suivent dans [Azure Cloud Shell](https:/
     Add-AzTrafficManagerIPAddressRange -TrafficManagerEndpoint $TrafficManagerEndpoint -First "12.13.14.0" -Last "12.13.14.31" -Scope 27
  
     ```
-    Une fois les plages ajoutées, utilisez [Set-AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/set-aztrafficmanagerendpoint?view=azps-2.5.0) pour mettre à jour le point de terminaison.
+    Une fois les plages ajoutées, utilisez [Set-AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/set-aztrafficmanagerendpoint) pour mettre à jour le point de terminaison.
 
     ```powershell
 
     Set-AzTrafficManagerEndpoint -TrafficManagerEndpoint $TrafficManagerEndpoint
 
     ```
-Vous pouvez supprimer la plage d’adresses IP à l’aide de [Remove-AzTrafficManagerIpAddressRange](/powershell/module/az.trafficmanager/remove-aztrafficmanageripaddressrange?view=azps-2.5.0).
+Vous pouvez supprimer la plage d’adresses IP à l’aide de [Remove-AzTrafficManagerIpAddressRange](/powershell/module/az.trafficmanager/remove-aztrafficmanageripaddressrange).
 
 1.  **Récupérer le point de terminaison Traffic Manager :**
 
-    Pour activer le remplacement de sous-réseau, récupérez le point de terminaison à ajouter au remplacement, puis stockez-le dans une variable à l’aide de [Get-AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/get-aztrafficmanagerendpoint?view=azps-2.5.0).
+    Pour activer le remplacement de sous-réseau, récupérez le point de terminaison à ajouter au remplacement, puis stockez-le dans une variable à l’aide de [Get-AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/get-aztrafficmanagerendpoint).
 
     Remplacez les valeurs de Name, ProfileName et ResourceGroupName par les valeurs du point de terminaison que vous changez.
 
@@ -102,7 +102,7 @@ Vous pouvez supprimer la plage d’adresses IP à l’aide de [Remove-AzTraffic
     Remove-AzTrafficManagerIpAddressRange -TrafficManagerEndpoint $TrafficManagerEndpoint -First "12.13.14.0" -Last "12.13.14.31" -Scope 27
 
     ```
-     Une fois les plages supprimées, utilisez [Set-AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/set-aztrafficmanagerendpoint?view=azps-2.5.0) pour mettre à jour le point de terminaison.
+     Une fois les plages supprimées, utilisez [Set-AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/set-aztrafficmanagerendpoint) pour mettre à jour le point de terminaison.
 
     ```powershell
 

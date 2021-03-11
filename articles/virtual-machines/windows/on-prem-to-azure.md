@@ -3,19 +3,20 @@ title: Migrer à partir d’AWS et d’autres plateformes vers la fonctionnalit�
 description: Créez des machines virtuelles dans Azure à l’aide de disques durs virtuels chargés à partir d’autres clouds comme AWS ou d’autres plateformes de virtualisation, et tirez parti d’Azure Disques managés.
 author: roygara
 manager: twooley
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.subervice: disks
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: conceptual
 ms.date: 10/07/2017
 ms.author: rogarana
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 55f7c68df1e339f0f9eda809bbb0acbb2e9131b5
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: c817528ff26dd10112eaf69c7ad20f8fb5813695
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98200887"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102550397"
 ---
 # <a name="migrate-from-amazon-web-services-aws-and-other-platforms-to-managed-disks-in-azure"></a>Migrer à partir d’Amazon Web Services (AWS) et d’autres plateformes vers la fonctionnalité Disques managés dans Azure
 
@@ -49,7 +50,7 @@ Cette section vous aide à prendre la meilleure décision concernant les types d
 
 Si vous envisagez de migrer à partir de disques non managés vers des disques managés, prenez en compte le fait que les utilisateurs avec le rôle [Contributeur de machine virtuelle](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) ne sera pas en mesure de modifier la taille de la machine virtuelle (comme avant la conversion). Cela s’explique par le fait que les machines virtuelles avec disques managés obligent l’utilisateur à détenir une autorisation Microsoft.Compute/disks/write sur les disques du système d’exploitation.
 
-### <a name="location"></a>Location
+### <a name="location"></a>Emplacement
 
 Choisissez un emplacement où Azure Disques managés est disponible. Si vous effectuez une migration vers la fonctionnalité Disques managés Premium, assurez-vous également que le stockage Premium est disponible dans la région où vous prévoyez la migration. Pour obtenir des informations à jour sur les emplacements disponibles, consultez [Services Azure par région](https://azure.microsoft.com/regions/#services) .
 

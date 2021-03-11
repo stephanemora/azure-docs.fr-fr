@@ -7,12 +7,12 @@ ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 10/30/2020
 keywords: java, jakartaee, javaee, microprofile, open-liberty, websphere-liberty, aro, openshift, red hat
-ms.openlocfilehash: acb448a9662daa58b5d2ff42861e238e23586b33
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: 08fd3ab112498a983b438d5ba1f1f100816cbf5d
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100633884"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102212992"
 ---
 # <a name="deploy-a-java-application-with-open-libertywebsphere-liberty-on-an-azure-red-hat-openshift-4-cluster"></a>Déployer une application Java avec Open Liberty/WebSphere Liberty sur un cluster Azure Red Hat OpenShift 4
 
@@ -31,7 +31,7 @@ Remplissez les prérequis suivants pour suivre ce guide.
 1. Installez une implémentation de Java SE (par exemple, [AdoptOpenJDK OpenJDK 8 LTS/OpenJ9](https://adoptopenjdk.net/?variant=openjdk8&jvmVariant=openj9)).
 1. Installez [Maven](https://maven.apache.org/download.cgi) 3.5.0 ou une version ultérieure.
 1. Installez [Docker](https://docs.docker.com/get-docker/) pour votre système d’exploitation.
-1. Installez [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest) 2.0.75 ou une version ultérieure.
+1. Installez [Azure CLI](/cli/azure/install-azure-cli) 2.0.75 ou une version ultérieure.
 1. Vérifiez et installez [`envsubst`](https://command-not-found.com/envsubst) s’il n’est pas préinstallé sur votre système d’exploitation.
 1. Clonez le code de cet exemple sur votre système local. L’exemple se trouve sur [GitHub](https://github.com/Azure-Samples/open-liberty-on-aro).
 1. Suivez les instructions de la section [Créer un cluster Azure Red Hat OpenShift 4](./tutorial-create-cluster.md).
@@ -40,7 +40,7 @@ Remplissez les prérequis suivants pour suivre ce guide.
 
    Si vous envisagez d’exécuter des applications gourmandes en mémoire sur le cluster, spécifiez la taille de machine virtuelle appropriée pour les nœuds Worker à l’aide du paramètre `--worker-vm-size`. Par exemple, `Standard_E4s_v3` est la taille de machine virtuelle minimale pour installer l’opérateur Elasticsearch sur un cluster. Pour plus d'informations, consultez les pages suivantes :
 
-   * [Azure CLI pour créer un cluster](/cli/azure/aro?preserve-view=true&view=azure-cli-latest#az-aro-create)
+   * [Azure CLI pour créer un cluster](/cli/azure/aro#az-aro-create)
    * [Tailles de machines virtuelles prises en charge pour la mémoire optimisée](./support-policies-v4.md#memory-optimized)
    * [Conditions préalables à l’installation de l’opérateur Elasticsearch](https://docs.openshift.com/container-platform/4.3/logging/cluster-logging-deploying.html#cluster-logging-deploy-eo-cli_cluster-logging-deploying)
 

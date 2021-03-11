@@ -2,17 +2,18 @@
 title: Déplacer une instance Windows AWS EC2 vers Azure
 description: Déplacez une instance Windows EC2 Amazon Web Services (AWS) vers une machine virtuelle Azure.
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.collection: windows
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 06/01/2018
 ms.author: cynthn
-ms.openlocfilehash: 9f66653996cb36e58054756ac877f859559609be
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 86d3e67b121bf7d66651e1e823e5f137e918a171
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87267096"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102550788"
 ---
 # <a name="move-a-windows-vm-from-amazon-web-services-aws-to-an-azure-virtual-machine"></a>Déplacer une machine virtuelle Windows d’Amazon Web Services (AWS) vers une machine virtuelle Azure
 

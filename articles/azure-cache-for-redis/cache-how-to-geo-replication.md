@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
 ms.author: yegu
-ms.openlocfilehash: 130cb1d63da27010012c22dc2cdb40c3d8f03273
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 8701f7bcb2e7ff705e4f1d1b401f4eb3e680f28b
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102178556"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102501037"
 ---
 # <a name="configure-geo-replication-for-premium-azure-cache-for-redis-instances"></a>Configurer la géoréplication pour les instances Azure Cache pour Redis Premium
 
@@ -170,7 +170,7 @@ Pour obtenir un point de récupération, [exportez](cache-how-to-import-export-d
 
 ### <a name="can-i-use-powershell-or-azure-cli-to-manage-geo-replication"></a>Puis-je utiliser PowerShell ou Azure CLI pour gérer la géoréplication ?
 
-Oui, la géoréplication peut être gérée à l'aide du portail Azure, de PowerShell ou d'Azure CLI. Pour plus d'informations, consultez la documentation de [PowerShell](/powershell/module/az.rediscache/?view=azps-1.4.0#redis_cache) ou d'[Azure CLI](/cli/azure/redis/server-link).
+Oui, la géoréplication peut être gérée à l'aide du portail Azure, de PowerShell ou d'Azure CLI. Pour plus d'informations, consultez la documentation de [PowerShell](/powershell/module/az.rediscache/#redis_cache) ou d'[Azure CLI](/cli/azure/redis/server-link).
 
 ### <a name="how-much-does-it-cost-to-replicate-my-data-across-azure-regions"></a>Combien coûte la réplication de mes données entre régions Azure ?
 

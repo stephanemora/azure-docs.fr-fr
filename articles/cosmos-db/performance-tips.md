@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: sngun
 ms.custom: devx-track-dotnet, contperf-fy21q2
-ms.openlocfilehash: 47e20e89c8eaef59b9acd6cf7e31244afd4bcf60
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 57b3d5853f83fc7ee75538d7966f5e20b1a64cd6
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97359045"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102428947"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net-sdk-v2"></a>Conseils sur les performances pour Azure Cosmos DB et le kit SDK .NET v2
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -137,19 +137,19 @@ Le Kit de développement logiciel (SDK) SQL .NET version 1.9.0 et ultérieure p
 - `MaxDegreeOfParallelism` contrôle le nombre maximal de partitions qui peuvent être interrogées en parallèle. 
 - `MaxBufferedItemCount` contrôle le nombre de résultats pré-récupérés.
 
-**_Ajustement du degré de parallélisme_* _
+***Ajustement du degré de parallélisme***
 
 La requête parallèle fonctionne en interrogeant plusieurs partitions en parallèle. Mais, les données d’une partition individuelle sont extraites en série dans le cadre de la requête. La définition de `MaxDegreeOfParallelism` dans [SDK V2](sql-api-sdk-dotnet.md) sur le nombre de partitions augmente les chances de résultats de la requête, sous réserve que toutes les autres conditions système restent inchangées. Si vous ne connaissez pas le nombre de partitions, vous pouvez définir le degré de parallélisme sur un nombre élevé. Le système choisit la valeur minimale (nombre de partitions, entrée fournie par l’utilisateur) comme degré de parallélisme.
 
 Les requêtes parallèles produisent de meilleurs résultats si les données sont réparties de manière homogène entre toutes les partitions. Si la collection est partitionnée de sorte que toutes les données retournées par une requête, ou une grande partie d’entre elles, sont concentrées sur quelques partitions (une partition dans le pire des cas), ces partitions vont limiter les performances de la requête.
 
-_*_Tuning MaxBufferedItemCount_*_
+***Tuning MaxBufferedItemCount***
     
 Une requête parallèle est conçue pour pré-extraire les résultats pendant que le lot de résultats actuel est en cours de traitement par le client. Cette pré-récupération permet d’améliorer la latence globale d’une requête. Le paramètre `MaxBufferedItemCount` limite le nombre de résultats pré-récupérés (fetch). Définissez `MaxBufferedItemCount` sur le nombre attendu de résultats retournés (ou un nombre plus élevé) pour permettre à la requête de recevoir le maximum d’avantages de la pré-récupération (fetch).
 
 La pré-récupération (fetch) fonctionne de la même façon, quel que soit le degré de parallélisme, et il existe une seule mémoire tampon pour les données de toutes les partitions.  
 
-_ *Implémentation d’interruption à des intervalles de RetryAfter**
+**Implémentation d’interruption à des intervalles de RetryAfter**
 
 Lors du test de performances, vous devez augmenter la charge jusqu’à une limite d’un petit nombre de requêtes. Si les requêtes sont limitées, l’application cliente doit s’interrompre à la limitation pour l’intervalle de nouvelle tentative spécifié sur le serveur. Le respect de l’interruption garantit un temps d’attente minimal entre chaque tentative. 
 
@@ -180,7 +180,7 @@ Afin de réduire le nombre de boucles réseau nécessaires pour récupérer tous
 > [!NOTE] 
 > La propriété `maxItemCount` ne doit pas être utilisée uniquement pour la pagination. Son utilisation principale consiste à améliorer les performances des requêtes en réduisant le nombre maximal d’éléments retournés dans une seule page.  
 
-Vous pouvez également définir la taille de la page à l’aide des SDK Azure Cosmos DB disponibles. La propriété [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet&preserve-view=true) dans `FeedOptions` vous permet de définir le nombre maximal d’éléments à retourner dans l’opération d’énumération. Lorsque la propriété `maxItemCount` est définie sur -1, le Kit de développement logiciel (SDK) recherche automatiquement la valeur optimale en fonction de la taille du document. Par exemple :
+Vous pouvez également définir la taille de la page à l’aide des SDK Azure Cosmos DB disponibles. La propriété [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount) dans `FeedOptions` vous permet de définir le nombre maximal d’éléments à retourner dans l’opération d’énumération. Lorsque la propriété `maxItemCount` est définie sur -1, le Kit de développement logiciel (SDK) recherche automatiquement la valeur optimale en fonction de la taille du document. Par exemple :
     
 ```csharp
 IQueryable<dynamic> authorResults = client.CreateDocumentQuery(documentCollection.SelfLink, "SELECT p.Author FROM Pages p WHERE p.Title = 'About Seattle'", new FeedOptions { MaxItemCount = 1000 });

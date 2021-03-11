@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: d656ce23cf68a1eec23421b769d5847f9b661bb4
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 8cdfc9e1243de831364bc6a8a11fe25453cc4931
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98955900"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102213859"
 ---
 # <a name="manage-streaming-endpoints-with--media-services-v3"></a>Gérer les points de terminaison de streaming avec Media Services v3
 
@@ -47,7 +47,7 @@ Révision :
 POST https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaservices/slitestmedia10/streamingEndpoints/myStreamingEndpoint1/start?api-version=2018-07-01
 ```
 
-Pour plus d'informations, consultez les pages suivantes : 
+Pour plus d’informations, consultez : 
 
 * Documentation de référence de l’exemple [Démarrer un StreamingEndpoint](/rest/api/media/streamingendpoints/start).
 * Le démarrage d’un point de terminaison de streaming est une opération asynchrone. 
@@ -73,7 +73,7 @@ az ams streaming-endpoint start [--account-name]
                                 [--subscription]
 ```
 
-Pour plus d’informations, consultez [az ams streaming-endpoint start](/cli/azure/ams/streaming-endpoint?view=azure-cli-latest#az-ams-streaming-endpoint-start).
+Pour plus d’informations, consultez [az ams streaming-endpoint start](/cli/azure/ams/streaming-endpoint#az-ams-streaming-endpoint-start).
 
 ## <a name="use-sdks"></a>Utiliser les kits de développement logiciel
 

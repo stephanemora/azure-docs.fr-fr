@@ -11,12 +11,12 @@ ms.author: anumamah
 ms.reviewer: nibaccam
 ms.date: 08/14/2020
 ms.custom: devx-track-python, automl
-ms.openlocfilehash: f4d26ba6bec8f3e63ba89ed9abae789704a0828b
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 04e50f5a990624aa01c845c82658639b8450f57d
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98184099"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102503859"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>Tutoriel : Utiliser le machine learning automatisé pour prédire le prix des courses de taxi
 
@@ -175,7 +175,7 @@ final_df.describe()
 
 ## <a name="configure-workspace"></a>Configurer l’espace de travail
 
-Créez un objet d’espace de travail à partir de l’espace de travail existant. Un [espace de travail](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py) est une classe qui accepte les informations concernant vos abonnements et vos ressources Azure. Il crée également une ressource cloud pour superviser et suivre les exécutions de votre modèle. `Workspace.from_config()` lit le fichier **config.json** et charge les détails d’authentification dans un objet nommé `ws`. `ws` est utilisé dans tout le reste du code de ce didacticiel.
+Créez un objet d’espace de travail à partir de l’espace de travail existant. Un [espace de travail](/python/api/azureml-core/azureml.core.workspace.workspace) est une classe qui accepte les informations concernant vos abonnements et vos ressources Azure. Il crée également une ressource cloud pour superviser et suivre les exécutions de votre modèle. `Workspace.from_config()` lit le fichier **config.json** et charge les détails d’authentification dans un objet nommé `ws`. `ws` est utilisé dans tout le reste du code de ce didacticiel.
 
 ```python
 from azureml.core.workspace import Workspace
@@ -302,7 +302,7 @@ BEST: The best observed score thus far.
 
 ## <a name="explore-the-results"></a>Lire les résultats
 
-Explorez les résultats de l’entraînement automatique à l’aide d’un [widget Jupyter](/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py). Le widget vous permet de voir un graphique et un tableau de toutes les itérations d’exécution individuelles, ainsi que des métriques et des métadonnées de précision d’entraînement. Vous pouvez aussi filtrer sur des métriques de précision différentes de votre métrique principale avec le sélecteur de liste déroulante.
+Explorez les résultats de l’entraînement automatique à l’aide d’un [widget Jupyter](/python/api/azureml-widgets/azureml.widgets). Le widget vous permet de voir un graphique et un tableau de toutes les itérations d’exécution individuelles, ainsi que des métriques et des métadonnées de précision d’entraînement. Vous pouvez aussi filtrer sur des métriques de précision différentes de votre métrique principale avec le sélecteur de liste déroulante.
 
 ```python
 from azureml.widgets import RunDetails

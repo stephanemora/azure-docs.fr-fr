@@ -5,17 +5,17 @@ services: virtual-machines
 documentationcenter: ''
 author: mimckitt
 ms.author: mimckitt
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.topic: how-to
 ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 07/28/2020
-ms.openlocfilehash: b845d547224fb173d2a4b156575778783e0281fa
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: ba973bd5609dacf05eca842025d4e828d8a9f841
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96488563"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102550945"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>Présentation de l’utilisation des machines virtuelles Azure
 L’analyse de vos données d’utilisation Azure vous permet d’en savoir plus sur votre consommation, et ainsi d’optimiser la gestion et l’allocation des coûts au sein de votre organisation. Ce document offre une immersion dans les détails de votre consommation de Calcul Azure. Pour plus d’informations sur l’utilisation générale d’Azure, consultez [Présentation de votre facture](../cost-management-billing/understand/review-individual-bill.md).

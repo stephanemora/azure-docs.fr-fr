@@ -10,17 +10,17 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy21q1, automl
 ms.date: 08/20/2020
-ms.openlocfilehash: 6e686c7b22eb834a096cdd7a67beb6d8d291ef20
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 14837391f7bf907acbbe1d573f3171acef4db658
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100392321"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102503502"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Entraîner automatiquement un modèle de prévision de série chronologique
 
 
-Dans cet article, vous allez apprendre à configurer et à effectuer l'apprentissage d’un modèle de régression de prévisions de séries chronologiques à l’aide du Machine Learning automatisé dans le [Kit de développement logiciel (SDK) Python Azure Machine Learning](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py). 
+Dans cet article, vous allez apprendre à configurer et à effectuer l'apprentissage d’un modèle de régression de prévisions de séries chronologiques à l’aide du Machine Learning automatisé dans le [Kit de développement logiciel (SDK) Python Azure Machine Learning](/python/api/overview/azure/ml/). 
 
 Pour cela, vous devez : 
 
@@ -120,7 +120,7 @@ En savoir plus sur la façon dont AutoML applique la validation croisée afin [d
 
 ## <a name="configure-experiment"></a>Configurer une expérience
 
-L’objet [`AutoMLConfig`](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?preserve-view=true&view=azure-ml-py) définit les paramètres et les données nécessaires pour une tâche de Machine Learning automatisé. La configuration d’un modèle de prévisions est semblable à celle d’un modèle de régression standard, mais certains modèles et certaines options de configuration et étapes de caractérisation existent spécifiquement pour les données de séries chronologiques. 
+L’objet [`AutoMLConfig`](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) définit les paramètres et les données nécessaires pour une tâche de Machine Learning automatisé. La configuration d’un modèle de prévisions est semblable à celle d’un modèle de régression standard, mais certains modèles et certaines options de configuration et étapes de caractérisation existent spécifiquement pour les données de séries chronologiques. 
 
 ### <a name="supported-models"></a>Modèles pris en charge
 Le Machine Learning automatisé essaie automatiquement différents modèles et algorithmes dans le cadre du processus de création et de paramétrage du modèle. En tant qu’utilisateur, vous n’avez pas besoin de spécifier l’algorithme. Pour les expériences de prévision, les modèles natifs de série chronologique et de Deep Learning font partie du système de recommandation. Le tableau suivant récapitule ce sous-ensemble de modèles. 
@@ -138,7 +138,7 @@ ForecastTCN (préversion)| ForecastTCN est un modèle de réseau neuronal conçu
 
 Comme pour un problème de régression, vous définissez les paramètres d’entraînement standard comme type de tâche, le nombre d’itérations, les données d’apprentissage et le nombre de validations croisées. Pour les tâches de prévision, il existe des paramètres supplémentaires qui doivent être définis et qui affectent l’expérience. 
 
-Ces paramètres supplémentaires sont résumés dans le tableau suivant. Consultez la [documentation de référence de la classe ForecastingParameter](/python/api/azureml-automl-core/azureml.automl.core.forecasting_parameters.forecastingparameters?preserve-view=true&view=azure-ml-py) pour obtenir des modèles de conception de la syntaxe.
+Ces paramètres supplémentaires sont résumés dans le tableau suivant. Consultez la [documentation de référence de la classe ForecastingParameter](/python/api/azureml-automl-core/azureml.automl.core.forecasting_parameters.forecastingparameters) pour obtenir des modèles de conception de la syntaxe.
 
 | Nom du&nbsp;paramètre | Description | Obligatoire |
 |-------|-------|-------|
@@ -154,7 +154,7 @@ Ces paramètres supplémentaires sont résumés dans le tableau suivant. Consult
 
 
 Le code suivant, 
-* Tire parti de la classe [`ForecastingParameters`](/python/api/azureml-automl-core/azureml.automl.core.forecasting_parameters.forecastingparameters?preserve-view=true&view=azure-ml-py) pour définir les paramètres de prévisions associés à l'apprentissage de l'expérience.
+* Tire parti de la classe [`ForecastingParameters`](/python/api/azureml-automl-core/azureml.automl.core.forecasting_parameters.forecastingparameters) pour définir les paramètres de prévisions associés à l'apprentissage de l'expérience.
 * Définit le `time_column_name` sur le champ `day_datetime` dans le jeu de données. 
 * Définit le paramètre `time_series_id_column_names` sur `"store"`. Cela permet de s’assurer que **deux groupes de séries chronologiques distincts** sont créés pour les données ; une pour les banques A et B.
 * Définit le `forecast_horizon` sur 50 afin de prédire pour l’ensemble du jeu de tests. 
@@ -298,7 +298,7 @@ Consultez un exemple de code Python tirant parti de la [caractéristique d’agr
 
 ### <a name="short-series-handling"></a>Gestion des séries courtes
 
-Le ML automatisé considère une série chronologique comme une **série courte** si le nombre de points de données est insuffisant pour mener les phases d'apprentissage et de validation du développement du modèle. Le nombre de points de données varie d'une expérience à l'autre et dépend du paramètre max_horizon, du nombre de divisions pour la validation croisée et de la longueur de la recherche arrière du modèle, c'est-à-dire le maximum d'historique nécessaire pour construire les caractéristiques de la série chronologique. Pour connaître le calcul exact, consultez la [documentation de référence de short_series_handling_configuration](/python/api/azureml-automl-core/azureml.automl.core.forecasting_parameters.forecastingparameters?preserve-view=true&view=azure-ml-py#short-series-handling-configuration).
+Le ML automatisé considère une série chronologique comme une **série courte** si le nombre de points de données est insuffisant pour mener les phases d'apprentissage et de validation du développement du modèle. Le nombre de points de données varie d'une expérience à l'autre et dépend du paramètre max_horizon, du nombre de divisions pour la validation croisée et de la longueur de la recherche arrière du modèle, c'est-à-dire le maximum d'historique nécessaire pour construire les caractéristiques de la série chronologique. Pour connaître le calcul exact, consultez la [documentation de référence de short_series_handling_configuration](/python/api/azureml-automl-core/azureml.automl.core.forecasting_parameters.forecastingparameters#short-series-handling-configuration).
 
 Le ML automatisé permet par défaut une gestion des séries courtes avec le paramètre `short_series_handling_configuration` de l'objet `ForecastingParameters`. 
 

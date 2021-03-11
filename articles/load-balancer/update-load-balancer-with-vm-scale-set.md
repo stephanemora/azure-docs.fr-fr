@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/29/2020
 ms.author: irenehua
-ms.openlocfilehash: 952889777e4236d7fa03fad5b1bdbf98499f7066
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 52f2a2ed301bf734ad605a2ee68a0ab672a97014
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101721308"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102218721"
 ---
 # <a name="update-or-delete-a-load-balancer-used-by-virtual-machine-scale-sets"></a>Mettre à jour ou supprimer un équilibreur de charge utilisé par des groupes de machines virtuelles identiques
 
@@ -30,7 +30,7 @@ Lorsque vous travaillez avec des groupes de machines virtuelles identiques et un
 
 ## <a name="set-up-a-load-balancer-for-scaling-out-virtual-machine-scale-sets"></a>Configurer un équilibreur de charge pour effectuer un scale-out des groupes de machines virtuelles identiques
 
-Assurez-vous que le [pool NAT de trafic entrant](/cli/azure/network/lb/inbound-nat-pool?view=azure-cli-latest) est configuré sur l’instance d’Azure Load Balancer et que le groupe de machines virtuelles identiques est placé dans le pool principal de l’équilibreur de charge. Load Balancer crée automatiquement des règles NAT de trafic entrant dans le pool NAT de trafic entrant lorsque de nouvelles instances de machines virtuelles sont ajoutées au groupe de machines virtuelles identiques.
+Assurez-vous que le [pool NAT de trafic entrant](/cli/azure/network/lb/inbound-nat-pool) est configuré sur l’instance d’Azure Load Balancer et que le groupe de machines virtuelles identiques est placé dans le pool principal de l’équilibreur de charge. Load Balancer crée automatiquement des règles NAT de trafic entrant dans le pool NAT de trafic entrant lorsque de nouvelles instances de machines virtuelles sont ajoutées au groupe de machines virtuelles identiques.
 
 Pour vérifier si le pool NAT de trafic entrant est correctement configuré :
 
@@ -44,7 +44,7 @@ Il est impossible d’ajouter une seule règle NAT de trafic entrant. Toutefois,
 
 Pour ajouter un ensemble complet de règles NAT de trafic entrant pour les groupes de machines virtuelles identiques, commencez par créer un pool NAT de trafic entrant dans l’équilibreur de charge. Ensuite, référencez le pool NAT de trafic entrant à partir du profil réseau du groupe de machines virtuelles identiques. Vous trouverez ci-dessous un exemple complet utilisant l’interface CLI.
 
-La plage de ports frontaux du nouveau pool NAT de trafic entrant ne doit pas chevaucher les pools NAT de trafic entrant existants. Pour afficher les pools NAT de trafic entrant existants qui sont configurés, utilisez cette [commande CLI](/cli/azure/network/lb/inbound-nat-pool?view=azure-cli-latest#az_network_lb_inbound_nat_pool_list) :
+La plage de ports frontaux du nouveau pool NAT de trafic entrant ne doit pas chevaucher les pools NAT de trafic entrant existants. Pour afficher les pools NAT de trafic entrant existants qui sont configurés, utilisez cette [commande CLI](/cli/azure/network/lb/inbound-nat-pool#az_network_lb_inbound_nat_pool_list) :
   
 ```azurecli-interactive
   az network lb inbound-nat-pool create 

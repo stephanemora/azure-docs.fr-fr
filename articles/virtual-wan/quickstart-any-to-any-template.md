@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 02/02/2021
 ms.author: cherylmc
 ms.custom: subject-armqs
-ms.openlocfilehash: bf892a45ee6df2ab29a1b326a663dc41057c7ea6
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: d31f490baec49e8e0b6fcf89caa8c19202fdf763
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99509729"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102431378"
 ---
 # <a name="quickstart-create-an-any-to-any-configuration-using-an-arm-template"></a>Démarrage rapide : Créer une configuration Any-to-any à l’aide d’un modèle ARM
 
@@ -125,13 +125,7 @@ Le modèle ne configure pas tous les paramètres nécessaires à un réseau hybr
 
 Quand vous n’avez plus besoin des ressources que vous avez créées, supprimez-les. Certaines des ressources Virtual WAN doivent être supprimées dans un certain ordre en raison des dépendances. La suppression peut prendre environ 30 minutes.
 
-1. Ouvrez le WAN virtuel que vous avez créé.
-1. Sélectionnez un hub virtuel associé au WAN virtuel pour ouvrir la page du hub.
-1. Cliquez sur **Supprimer**. Supprimez toutes les entités (connexions, passerelles, etc.) du hub. Cette opération peut prendre 30 minutes.
-1. Vous pouvez supprimer le hub à ce stade ou le supprimer ultérieurement en même temps que vous supprimez le groupe de ressources.
-1. Répétez cette opération pour tous les hubs associés au WAN virtuel.
-1. Accédez au groupe de ressources sur le portail Azure.
-1. Sélectionnez **Supprimer le groupe de ressources**. Tous les éléments du groupe de ressources sont alors supprimés, y compris les hubs et le WAN virtuel.
+[!INCLUDE [Delete resources](../../includes/virtual-wan-resource-cleanup.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

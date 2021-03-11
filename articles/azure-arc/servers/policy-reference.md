@@ -1,21 +1,21 @@
 ---
 title: Définitions de stratégie intégrées pour Serveurs avec Azure Arc
 description: Liste les définitions de stratégie intégrées d’Azure Policy pour Serveurs avec Azure Arc (préversion). Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de vos ressources Azure.
-ms.date: 02/09/2021
+ms.date: 03/05/2021
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 120916f6007e0c62db7a81b58c598709db791ae5
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 419e8392c68387468e2bef2f4634020a2cd222a0
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100091009"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102425943"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-arc-enabled-servers"></a>Définitions intégrées d’Azure Policy pour Serveurs avec Azure Arc
 
 Cette page constitue un index des définitions de stratégie intégrées d’[Azure Policy](../../governance/policy/overview.md) pour Serveurs avec Azure Arc. Pour obtenir des éléments intégrés supplémentaires d’Azure Policy pour d’autres services, consultez [Définitions intégrées d’Azure Policy](../../governance/policy/samples/built-in-policies.md).
 
-Le nom de chaque définition de stratégie intégrée est un lien vers la définition de la stratégie dans le portail Azure. Utilisez le lien de la colonne **Version** pour voir la source dans le [dépôt GitHub Azure Policy](https://github.com/Azure/azure-policy).
+Le nom de chaque définition de stratégie intégrée est un lien vers la définition de la stratégie dans le portail Azure. Utilisez le lien figurant dans la colonne **Version** pour voir la source dans le [dépôt GitHub Azure Policy](https://github.com/Azure/azure-policy).
 
 ## <a name="azure-arc-enabled-servers"></a>Serveurs avec Azure Arc
 

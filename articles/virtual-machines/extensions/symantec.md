@@ -1,25 +1,24 @@
 ---
 title: Installer Symantec Endpoint Protection sur une machine virtuelle Windows dans Azure
 description: Découvrez comment installer et configurer l’extension de sécurité Symantec Endpoint Protection sur une machine virtuelle Azure nouvelle ou existante, créée avec le modèle de déploiement Classic.
-author: roiyz
-tags: azure-service-management
-ms.service: virtual-machines-windows
-ms.subservice: extensions
-ms.workload: infrastructure-services
 ms.topic: article
+ms.service: virtual-machines
+ms.subservice: extensions
+author: amjads1
+ms.author: amjads
+ms.collection: windows
 ms.date: 03/31/2017
-ms.author: akjosh
-ms.openlocfilehash: e001c85dd960e9d60ff321cfecc8bf8b80de087c
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 9a25e9eb27111a450f787f4efb3e0d39456fc757
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967939"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102559645"
 ---
 # <a name="how-to-install-and-configure-symantec-endpoint-protection-on-a-windows-vm"></a>Installation et configuration de Symantec Endpoint Protection sur une machine virtuelle Windows
 [!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
 
-Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../../azure-resource-manager/management/deployment-models.md). Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager.
+Azure a deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../../azure-resource-manager/management/deployment-models.md). Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager.
 
 Cet article décrit comment installer et configurer le client Symantec Endpoint Protection sur une machine virtuelle existante exécutant Windows Server. Le client complet inclut des services tels qu’une protection antivirus et anti-programmes espions, un pare-feu et une prévention contre les intrusions. Le client est installé sous forme d'extension de sécurité en utilisant l'agent de machine virtuelle.
 

@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 2121ad4f908d28ab30f15be261b3f155ab6dd983
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 16fecf5ce0d4551125ded4ba05fcbc41530efaf1
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102039697"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102430562"
 ---
 # <a name="manage-instances-in-durable-functions-in-azure"></a>Gérer des instances dans Durable Functions dans Azure
 
@@ -283,7 +283,7 @@ func durable get-history --id 0ab8c55a66644d68a3a8b220b12d209c
 
 Au lieu d’interroger chaque instance de votre orchestration une par une, il peut s’avérer plus efficace de toutes les interroger en même temps.
 
-Vous pouvez utiliser la méthode [ListInstancesAsync](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableorchestrationclient.listinstancesasync?view=azure-dotnet#Microsoft_Azure_WebJobs_Extensions_DurableTask_IDurableOrchestrationClient_ListInstancesAsync_Microsoft_Azure_WebJobs_Extensions_DurableTask_OrchestrationStatusQueryCondition_System_Threading_CancellationToken_) (.NET), [getStatusAll](/javascript/api/durable-functions/durableorchestrationclient?view=azure-node-latest#getstatusall--) (JavaScript) ou `get_status_all` (Python) pour demander l’état de toutes les instances de l’orchestration. Dans .NET, si vous souhaitez l’annuler, vous pouvez passer un objet `CancellationToken`. La méthode retourne une liste d’objets qui représentent les instances de l’orchestration correspondant aux paramètres de la requête.
+Vous pouvez utiliser la méthode [ListInstancesAsync](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableorchestrationclient.listinstancesasync#Microsoft_Azure_WebJobs_Extensions_DurableTask_IDurableOrchestrationClient_ListInstancesAsync_Microsoft_Azure_WebJobs_Extensions_DurableTask_OrchestrationStatusQueryCondition_System_Threading_CancellationToken_) (.NET), [getStatusAll](/javascript/api/durable-functions/durableorchestrationclient#getstatusall--) (JavaScript) ou `get_status_all` (Python) pour demander l’état de toutes les instances de l’orchestration. Dans .NET, si vous souhaitez l’annuler, vous pouvez passer un objet `CancellationToken`. La méthode retourne une liste d’objets qui représentent les instances de l’orchestration correspondant aux paramètres de la requête.
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -366,7 +366,7 @@ func durable get-instances
 
 Il est possible que vous n’ayez pas vraiment besoin de toutes les informations fournies par une requête d’instance standard. Peut-être avez-vous seulement besoin de connaître l’heure de création de l’orchestration ou de l’état de son exécution ? Vous pouvez affiner votre requête en appliquant des filtres.
 
-Utilisez la méthode [ListInstancesAsync](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableorchestrationclient.listinstancesasync?view=azure-dotnet#Microsoft_Azure_WebJobs_Extensions_DurableTask_IDurableOrchestrationClient_ListInstancesAsync_Microsoft_Azure_WebJobs_Extensions_DurableTask_OrchestrationStatusQueryCondition_System_Threading_CancellationToken_) (.NET) ou [getStatusBy](/javascript/api/durable-functions/durableorchestrationclient?view=azure-node-latest#getstatusby-date---undefined--date---undefined--orchestrationruntimestatus---) (JavaScript) pour obtenir la liste des instances de l’orchestration correspondant à un ensemble de filtres prédéfinis.
+Utilisez la méthode [ListInstancesAsync](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableorchestrationclient.listinstancesasync#Microsoft_Azure_WebJobs_Extensions_DurableTask_IDurableOrchestrationClient_ListInstancesAsync_Microsoft_Azure_WebJobs_Extensions_DurableTask_OrchestrationStatusQueryCondition_System_Threading_CancellationToken_) (.NET) ou [getStatusBy](/javascript/api/durable-functions/durableorchestrationclient#getstatusby-date---undefined--date---undefined--orchestrationruntimestatus---) (JavaScript) pour obtenir la liste des instances de l’orchestration correspondant à un ensemble de filtres prédéfinis.
 
 # <a name="c"></a>[C#](#tab/csharp)
 

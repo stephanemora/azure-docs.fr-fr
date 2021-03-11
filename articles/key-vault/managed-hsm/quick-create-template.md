@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, devx-track-azurecli
 ms.date: 09/15/2020
 ms.author: mbaldwin
-ms.openlocfilehash: d47935f76347b2d5272b386942a85643a732e643
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: d9fb9e0221ad6a5749899c89bbd9dc5631e7a91c
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94831750"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102213264"
 ---
 # <a name="quickstart-create-an-key-vault-managed-hsm-using-an-azure-resource-manager-template"></a>Démarrage rapide : Créer un HSM managé Key Vault avec un modèle Azure Resource Manager
 
@@ -30,7 +30,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 Pour effectuer les étapes de cet article, vous devez disposer des éléments suivants :
 
 - Un abonnement à Microsoft Azure. Si vous n’en avez pas, vous pouvez vous inscrire pour bénéficier d’un [essai gratuit](https://azure.microsoft.com/pricing/free-trial).
-- Azure CLI 2.12.0 ou version ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer l’interface de ligne de commande Azure]( /cli/azure/install-azure-cli)
+- Azure CLI 2.12.0 ou une version ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer l’interface de ligne de commande Azure]( /cli/azure/install-azure-cli)
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
@@ -43,7 +43,7 @@ Pour vous connecter à Azure à l’aide de l’interface CLI, vous pouvez taper
 az login
 ```
 
-Pour plus d’informations sur les options de connexion via l’interface CLI, consultez [Se connecter avec Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest&preserve-view=true)
+Pour plus d’informations sur les options de connexion via l’interface CLI, consultez [Se connecter avec Azure CLI](/cli/azure/authenticate-azure-cli)
 
 ## <a name="create-a-manage-hsm"></a>Créer un HSM managé
 
@@ -55,13 +55,13 @@ Ressource Azure définie dans le modèle :
 
 Vous pouvez trouver d’autres exemples de modèles Azure Key Vault [ici](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Keyvault).
 
-Le modèle a besoin de l’ID d’objet associé à votre compte. Pour le trouver, utilisez la commande Azure CLI [az ad user show](/cli/azure/ad/user?view=azure-cli-latest&preserve-view=true#az_ad_user_show) en transmettant votre adresse e-mail au paramètre `--id`. Vous pouvez limiter la sortie au seul ID d’objet avec le paramètre `--query`.
+Le modèle a besoin de l’ID d’objet associé à votre compte. Pour le trouver, utilisez la commande Azure CLI [az ad user show](/cli/azure/ad/user#az_ad_user_show) en transmettant votre adresse e-mail au paramètre `--id`. Vous pouvez limiter la sortie au seul ID d’objet avec le paramètre `--query`.
 
 ```azurecli-interactive
 az ad user show --id <your-email-address> --query "objectId"
 ```
 
-Il se peut que vous ayez aussi besoin de votre ID de locataire. Pour le trouver, utilisez la commande Azure CLI [az ad user show](/cli/azure/account?view=azure-cli-latest&preserve-view=true#az_account_show). Vous pouvez limiter la sortie au seul ID de locataire avec le paramètre `--query`.
+Il se peut que vous ayez aussi besoin de votre ID de locataire. Pour le trouver, utilisez la commande Azure CLI [az ad user show](/cli/azure/account#az_account_show). Vous pouvez limiter la sortie au seul ID de locataire avec le paramètre `--query`.
 
  ```azurecli-interactive
  az account show --query "tenantId"

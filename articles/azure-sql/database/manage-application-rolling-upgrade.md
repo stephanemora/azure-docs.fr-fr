@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 02/13/2019
-ms.openlocfilehash: 659a8a3b38a79cc9dcc97f6f1e9c4395426ef7a8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b7d21852ad684782fa1cb917442fee236d3c882b
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91450266"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102502142"
 ---
 # <a name="manage-rolling-upgrades-of-cloud-applications-by-using-sql-database-active-geo-replication"></a>Gérer les mises à niveau propagées des applications cloud à l’aide de la géoréplication active Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -110,7 +110,7 @@ ALTER DATABASE <Prod_DB>
 SET (ALLOW_CONNECTIONS = NO)
 ```
 
-2. Arrêtez la géoréplication en déconnectant la base de données secondaire (11). Cette action crée une copie indépendante mais entièrement synchronisée de la base de données de production. Cette base de données est alors mise à niveau. L’exemple suivant utilise Transact-SQL mais [PowerShell](/powershell/module/az.sql/remove-azsqldatabasesecondary?view=azps-1.5.0&preserve-view=true) est également disponible. 
+2. Arrêtez la géoréplication en déconnectant la base de données secondaire (11). Cette action crée une copie indépendante mais entièrement synchronisée de la base de données de production. Cette base de données est alors mise à niveau. L’exemple suivant utilise Transact-SQL mais [PowerShell](/powershell/module/az.sql/remove-azsqldatabasesecondary) est également disponible. 
 
 ```sql
 -- Disconnect the secondary, terminating geo-replication

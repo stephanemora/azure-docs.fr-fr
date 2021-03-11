@@ -2,16 +2,16 @@
 title: Commandes Azure CLI courantes
 description: Découvrez certaines des commandes Azure CLI courantes pour commencer à gérer vos machines virtuelles en mode Azure Resource Manager
 author: RicksterCDN
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 05/12/2017
 ms.author: rclaus
-ms.openlocfilehash: 5a9dd8aaeed0642461e4244a72a3dab5c96a77b6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2084d79ecbbc53ef9e3c75bae0664eae7de0eccb
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87372244"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102559628"
 ---
 # <a name="common-azure-cli-commands-for-managing-azure-resources"></a>Commandes Azure CLI courantes pour gérer les ressources Azure
 
@@ -23,14 +23,14 @@ Cet article requiert Azure CLI version 2.0.4 ou ultérieure. Exécutez `az --v
 Pour plus d’informations sur les commutateurs et options de ligne de commande spécifiques, vous pouvez utiliser les options et l’aide en ligne des commandes en tapant `az <command> <subcommand> --help`.
 
 ### <a name="create-vms"></a>Créer des machines virtuelles
-| Tâche | Commandes d’interface de ligne de commande Azure |
+| Tâche | Commandes Azure CLI |
 | --- | --- |
 | Créer un groupe de ressources | `az group create --name myResourceGroup --location eastus` |
 | Créer une machine virtuelle Linux | `az vm create --resource-group myResourceGroup --name myVM --image ubuntults` |
 | Créer une machine virtuelle Windows | `az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter` |
 
 ### <a name="manage-vm-state"></a>Gérer l’état d’une machine virtuelle
-| Tâche | Commandes d’interface de ligne de commande Azure |
+| Tâche | Commandes Azure CLI |
 | --- | --- |
 | Démarrer une machine virtuelle | `az vm start --resource-group myResourceGroup --name myVM` |
 | Arrêter une machine virtuelle | `az vm stop --resource-group myResourceGroup --name myVM` |
@@ -40,7 +40,7 @@ Pour plus d’informations sur les commutateurs et options de ligne de commande 
 | Supprimer une machine virtuelle | `az vm delete --resource-group myResourceGroup --name myVM` |
 
 ### <a name="get-vm-info"></a>Obtenir des informations sur les machines virtuelles
-| Tâche | Commandes d’interface de ligne de commande Azure |
+| Tâche | Commandes Azure CLI |
 | --- | --- |
 | Énumérer les machines virtuelles | `az vm list` |
 | Obtenir des informations sur une machine virtuelle | `az vm show --resource-group myResourceGroup --name myVM` |
@@ -48,7 +48,7 @@ Pour plus d’informations sur les commutateurs et options de ligne de commande 
 | Obtenir toutes les tailles de machines virtuelles disponibles | `az vm list-sizes --location eastus` |
 
 ## <a name="disks-and-images"></a>Disques et images
-| Tâche | Commandes d’interface de ligne de commande Azure |
+| Tâche | Commandes Azure CLI |
 | --- | --- |
 | Ajouter un disque de données à une machine virtuelle | `az vm disk attach --resource-group myResourceGroup --vm-name myVM --disk myDataDisk --size-gb 128 --new` |
 | Supprimer un disque de données à partir d'une machine virtuelle | `az vm disk detach --resource-group myResourceGroup --vm-name myVM --disk myDataDisk` |

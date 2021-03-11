@@ -8,12 +8,12 @@ ms.date: 05/29/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 5acb8e347046780c84f0aa324b997abb5e2aa840
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: c22b3f3164cbb7c1a7ed150d093f77777c7b1023
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629221"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102501292"
 ---
 # <a name="enable-and-create-large-file-shares"></a>Activer et créer des partages de fichiers volumineux
 
@@ -22,8 +22,8 @@ Lorsque vous activez des partages de fichiers volumineux sur votre compte de sto
 ## <a name="prerequisites"></a>Prérequis
 
 - Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
-- Si vous envisagez d’utiliser Azure CLI, [installez-en la dernière version](/cli/azure/install-azure-cli?view=azure-cli-latest).
-- Si vous envisagez d’utiliser le module Azure PowerShell, [installez-en la dernière version](/powershell/azure/install-az-ps?view=azps-4.6.0).
+- Si vous envisagez d’utiliser Azure CLI, [installez-en la dernière version](/cli/azure/install-azure-cli).
+- Si vous envisagez d’utiliser le module Azure PowerShell, [installez-en la dernière version](/powershell/azure/install-az-ps).
 
 ## <a name="restrictions"></a>Restrictions
 
@@ -65,7 +65,7 @@ L’activation de partages de fichiers volumineux sur un compte est un processus
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Tout d’abord, [installez la dernière version d’Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) pour pouvoir activer les partages de fichiers volumineux.
+Tout d’abord, [installez la dernière version d’Azure CLI](/cli/azure/install-azure-cli) pour pouvoir activer les partages de fichiers volumineux.
 
 Pour créer un compte de stockage avec des partages de fichiers volumineux activés, utilisez la commande suivante. Remplacez `<yourStorageAccountName>`, `<yourResourceGroup>` et `<yourDesiredRegion>` par vos informations.
 
@@ -76,7 +76,7 @@ az storage account create --name <yourStorageAccountName> -g <yourResourceGroup>
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Tout d’abord, [installez la dernière version de PowerShell](/powershell/azure/install-az-ps?view=azps-3.0.0) pour pouvoir activer les partages de fichiers volumineux.
+Tout d’abord, [installez la dernière version de PowerShell](/powershell/azure/install-az-ps) pour pouvoir activer les partages de fichiers volumineux.
 
 Pour créer un compte de stockage avec des partages de fichiers volumineux activés, utilisez la commande suivante. Remplacez `<yourStorageAccountName>`, `<yourResourceGroup>` et `<yourDesiredRegion>` par vos informations.
 

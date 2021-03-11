@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 66f077028b9f9f7a7644a318d4447eeaaab19e98
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: b410dc89b286ef830f0d5b6a9c33fe77d380f5d1
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94919928"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102507209"
 ---
 # <a name="about-azure-key-vault-certificates"></a>À propos des certificats Azure Key Vault
 
@@ -91,7 +91,7 @@ Une stratégie de certificat contient des informations sur la création et la ge
 
 Quand un certificat Key Vault est créé de zéro, une stratégie doit être fournie. La stratégie spécifie comment créer cette version du certificat Key Vault ou la prochaine version. Lorsqu’une stratégie a été définie, des opérations de création successives ne sont pas nécessaires pour les prochaines versions. Il n’existe qu’une seule instance d’une stratégie pour toutes les versions d’un certificat Key Vault.  
 
-Globalement, une stratégie de certificat contient les informations suivantes (les définitions correspondantes se trouvent [ici](/powershell/module/az.keyvault/set-azkeyvaultcertificatepolicy?view=azps-4.4.0)) :  
+Globalement, une stratégie de certificat contient les informations suivantes (les définitions correspondantes se trouvent [ici](/powershell/module/az.keyvault/set-azkeyvaultcertificatepolicy)) :  
 
 -   Propriétés du certificat X.509 : contient le nom du sujet, les autres noms du sujet et d’autres propriétés utilisées pour créer une demande de certificat X.509.  
 -   Propriétés des clés : contient les champs type de clé, longueur de clé, exportable et ReuseKeyOnRenewal. Ces champs indiquent au coffre de clés comment générer une clé. 

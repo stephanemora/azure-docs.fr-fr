@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 02/10/2021
 ms.author: trbye
 ms.custom: devx-track-js
-ms.openlocfilehash: b06defbdac0f1bddfca13db095799f3158095585
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 3fa47935721ccfccdfe18d60a66d5cc480582e7d
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100515047"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102428233"
 ---
 Dans ce guide de démarrage rapide, vous découvrez les modèles de conception courants qui permettent d’utiliser la synthèse vocale au moyen du kit SDK Speech. Vous commencez par créer une configuration et une synthèse de base, puis passez à des exemples plus poussés en matière de développement d’applications personnalisées, notamment :
 
@@ -29,16 +29,16 @@ Cet article part du principe que vous disposez d’un compte Azure et d’une re
 
 ## <a name="install-the-speech-sdk"></a>Installer le Kit de développement logiciel (SDK) Speech
 
-Avant de pouvoir faire quoi que ce soit, vous devez installer le <a href="https://www.npmjs.com/package/microsoft-cognitiveservices-speech-sdk" target="_blank">SDK Speech pour JavaScript<span class="docon docon-navigate-external x-hidden-focus"></span></a>. Suivez les instructions ci-dessous, en fonction de votre plateforme :
+Avant de pouvoir faire quoi que ce soit, vous devez installer le <a href="https://www.npmjs.com/package/microsoft-cognitiveservices-speech-sdk" target="_blank">SDK Speech pour JavaScript</a>. Suivez les instructions ci-dessous, en fonction de votre plateforme :
 - <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk?tabs=nodejs#get-the-speech-sdk" target="_blank">Node.js <span 
 class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk?tabs=browser#get-the-speech-sdk" target="_blank">Navigateur web <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk?tabs=browser#get-the-speech-sdk" target="_blank">Navigateur web </a>
 
 De plus, selon l’environnement cible, utilisez l’un des éléments suivants :
 
 # <a name="script"></a>[script](#tab/script)
 
-Téléchargez et extrayez le fichier *microsoft.cognitiveservices.speech.sdk.bundle.js* du <a href="https://aka.ms/csspeech/jsbrowserpackage" target="_blank">SDK Speech pour JavaScript <span class="docon docon-navigate-external x-hidden-focus"></span></a>, puis placez-le dans un dossier accessible à votre fichier HTML.
+Téléchargez et extrayez le fichier *microsoft.cognitiveservices.speech.sdk.bundle.js* du <a href="https://aka.ms/csspeech/jsbrowserpackage" target="_blank">SDK Speech pour JavaScript</a>  , puis placez-le dans un dossier accessible à votre fichier HTML.
 
 ```html
 <script src="microsoft.cognitiveservices.speech.sdk.bundle.js"></script>;
@@ -53,7 +53,7 @@ Téléchargez et extrayez le fichier *microsoft.cognitiveservices.speech.sdk.bun
 import * as sdk from "microsoft-cognitiveservices-speech-sdk";
 ```
 
-Pour plus d’informations sur `import`, consultez la page consacrée aux directives <a href="https://javascript.info/import-export" target="_blank">export et import <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+Pour plus d’informations sur `import`, consultez la page consacrée aux directives <a href="https://javascript.info/import-export" target="_blank">export et import </a>.
 
 # <a name="require"></a>[require](#tab/require)
 
@@ -61,7 +61,7 @@ Pour plus d’informations sur `import`, consultez la page consacrée aux direct
 const sdk = require("microsoft-cognitiveservices-speech-sdk");
 ```
 
-Pour plus d’informations sur `require`, consultez la <a href="https://nodejs.org/en/knowledge/getting-started/what-is-require/" target="_blank">présentation de require <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+Pour plus d’informations sur `require`, consultez la <a href="https://nodejs.org/en/knowledge/getting-started/what-is-require/" target="_blank">présentation de require </a>.
 
 ---
 
@@ -285,7 +285,7 @@ function xmlToString(filePath) {
 }
 ```
 
-Pour plus d’informations sur `readFileSync`, consultez <a href="https://nodejs.org/api/fs.html#fs_fs_readlinksync_path_options" target="_blank">Système de fichiers Node.js<span class="docon docon-navigate-external x-hidden-focus"></span></a>. À partir de là, l’objet obtenu est exactement le même que dans les exemples précédents.
+Pour plus d’informations sur `readFileSync`, consultez <a href="https://nodejs.org/api/fs.html#fs_fs_readlinksync_path_options" target="_blank">Système de fichiers Node.js</a>. À partir de là, l’objet obtenu est exactement le même que dans les exemples précédents.
 
 ```javascript
 function synthesizeSpeech() {

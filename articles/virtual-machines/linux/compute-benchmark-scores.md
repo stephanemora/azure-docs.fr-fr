@@ -1,16 +1,18 @@
 ---
 title: Calcul des scores de test d’évaluation pour les machines virtuelles Linux Azure
 description: Comparez les scores de test d’évaluation de calcul CoreMark pour les machines virtuelles Azure exécutant Linux.
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.subservice: sizes
+ms.collection: linux
 ms.topic: conceptual
 ms.date: 04/29/2020
 ms.reviewer: davberg
-ms.openlocfilehash: 939b5f6005dcb0b320852aece60db5bcf36dddbd
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: ef60bbfe19e10dcd98ca3691e1fdf0d03d07be24
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201176"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102558659"
 ---
 # <a name="compute-benchmark-scores-for-linux-vms"></a>Calcul des scores de test d’évaluation pour les machines virtuelles Linux
 Les scores de test d’évaluation CoreMark suivants montrent les performances de calcul pour la gamme de machines virtuelles hautes performances d’Azure exécutant Ubuntu. Les scores de test d’évaluation de calcul sont également disponibles pour [les machines virtuelles Windows](../windows/compute-benchmark-scores.md).

@@ -2,18 +2,19 @@
 title: Exemples de scripts Azure Disk Encryption pour machines virtuelles Windows
 description: Cet article constitue l’annexe de Microsoft Azure Disk Encryption pour les machines virtuelles Windows.
 author: msmbaldwin
-ms.service: virtual-machines-windows
-ms.subservice: security
+ms.service: virtual-machines
+ms.subservice: disks
+ms.collection: windows
 ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: f113a1e559798328a2ef81336e8afff02732bb90
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 413553165fcf74fa4590cb4661212b885a277579
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99804952"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102550635"
 ---
 # <a name="azure-disk-encryption-sample-scripts"></a>Exemples de scripts Azure Disk Encryption 
 

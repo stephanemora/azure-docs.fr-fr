@@ -6,12 +6,12 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.date: 07/15/2018
 ms.author: juergent
-ms.openlocfilehash: c9c2b0c3f55cf5fb6dfd32774baac2a49ec3609f
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: e17739c65c0b80beb1f6fdd09f31897b317d7858
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101677150"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102506886"
 ---
 # <a name="sap-business-one-on-azure-virtual-machines"></a>SAP Business One sur les machines virtuelles Azure
 Ce document fournit des conseils pour déployer SAP Business One sur des machines virtuelles Azure. Ce document n’est pas un substitue au document d’installation pour SAP Business One. Le document doit couvrir la planification de base et les instructions de déploiement pour que l’infrastructure Azure exécute des applications Business One.
@@ -102,7 +102,7 @@ SQL Server et SAP HANA sont disponibles comme type de base de données. Indépen
 
 Bien que cela soit déjà mentionné dans les documents spécifiques et génériques aux bases de données, nous insistons sur le fait que vous devez savoir :
 
-- [Gérer la disponibilité des machines virtuelles Windows dans Azure](../../manage-availability.md) et [Gérer la disponibilité des machines virtuelles Linux dans Azure](../../manage-availability.md)
+- [Gérer la disponibilité des machines virtuelles Windows dans Azure](../../availability.md) et [Gérer la disponibilité des machines virtuelles Linux dans Azure](../../availability.md)
 - [Contrat SLA pour les machines virtuelles](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/)
 
 Ces documents vous aideront à décider de la sélection des types de stockage et de la configuration de haute disponibilité.

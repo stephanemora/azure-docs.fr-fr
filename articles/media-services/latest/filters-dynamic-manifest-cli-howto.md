@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: f75b8055757557eadeb98a45196a116e56c5aa35
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 54e99c645b93bfcb3aee4e81cef3b2b5d6589d95
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101093436"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102211462"
 ---
 # <a name="creating-filters-with-cli"></a>Créer des filtres avec l’interface CLI
 
@@ -29,7 +29,7 @@ Quand vous transmettez votre contenu à un client (événements de streaming en 
 
 Pour obtenir une description détaillée de cette fonctionnalité et des scénarios dans lesquels elle est utilisée, consultez [Manifestes dynamiques](filters-dynamic-manifest-overview.md) et [Filtres](filters-concept.md).
 
-Cette rubrique explique comment définir un filtre pour un actif multimédia Vidéo à la demande et comment utiliser l’interface CLI dans Media Services v3 pour créer des [filtres de compte](/cli/azure/ams/account-filter?view=azure-cli-latest) et des [filtres d’actif multimédia](/cli/azure/ams/asset-filter?view=azure-cli-latest).
+Cette rubrique explique comment définir un filtre pour un actif multimédia Vidéo à la demande et comment utiliser l’interface CLI dans Media Services v3 pour créer des [filtres de compte](/cli/azure/ams/account-filter) et des [filtres d’actif multimédia](/cli/azure/ams/asset-filter).
 
 > [!NOTE]
 > Veillez à consulter [presentationTimeRange](filters-concept.md#presentationtimerange).
@@ -80,7 +80,7 @@ L’exemple suivant définit les conditions de sélection de piste qui sont ajou
 
 ## <a name="create-account-filters"></a>Créer des filtres de compte
 
-La commande [az ams account-filter](/cli/azure/ams/account-filter?view=azure-cli-latest) ci-dessous crée un filtre de compte qui filtre les sélections de pistes [définies précédemment](#define-a-filter).
+La commande [az ams account-filter](/cli/azure/ams/account-filter) ci-dessous crée un filtre de compte qui filtre les sélections de pistes [définies précédemment](#define-a-filter).
 
 La commande vous permet de transmettre paramètre `--tracks` facultatif contenant un JSON qui représente les sélections de pistes.  Utilisez @{file} pour charger le JSON à partir d’un fichier. Si vous utilisez l’interface de ligne de commande Azure en local, spécifiez le chemin d’accès de la totalité du fichier :
 
@@ -92,7 +92,7 @@ Voir aussi [Exemples de filtres JSON](/rest/api/media/accountfilters/createorupd
 
 ## <a name="create-asset-filters"></a>Créer des filtres d’élément multimédia
 
-La commande [az ams asset-filter](/cli/azure/ams/asset-filter?view=azure-cli-latest) ci-dessous crée un filtre d’actif multimédia qui filtre les sélections de pistes [définies précédemment](#define-a-filter). 
+La commande [az ams asset-filter](/cli/azure/ams/asset-filter) ci-dessous crée un filtre d’actif multimédia qui filtre les sélections de pistes [définies précédemment](#define-a-filter). 
 
 ```azurecli
 az ams asset-filter create -a amsAccount -g resourceGroup -n filterName --asset-name assetName --tracks @tracks.json
@@ -132,4 +132,4 @@ Le tableau suivant présente des exemples d’URL utilisant des filtres :
 
 ## <a name="see-also"></a>Voir aussi
 
-[Azure CLI](/cli/azure/ams?view=azure-cli-latest)
+[Azure CLI](/cli/azure/ams)

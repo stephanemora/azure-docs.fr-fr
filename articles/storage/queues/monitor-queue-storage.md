@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: queues
 ms.custom: monitoring, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: bb9eb2e91fb29849f27e7aba9bc4794698bf0b0b
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 8f49485d00379f5845569976e793f06d56a8967d
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100570036"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102506818"
 ---
 # <a name="monitoring-azure-queue-storage"></a>Surveiller le service Stockage File d'attente
 
@@ -108,6 +108,8 @@ Si vous choisissez d’archiver vos journaux dans un compte de stockage, vous pa
    > ![Page Paramètres de diagnostic – Stockage d’archive](media/monitor-queue-storage/diagnostic-logs-settings-pane-archive-storage.png)
 
 2. Dans la liste déroulante **Compte de stockage**, sélectionnez le compte de stockage dans lequel vous souhaitez archiver vos journaux, cliquez sur le bouton **OK**, puis sélectionnez le bouton **Enregistrer**.
+ 
+   [!INCLUDE [no retention policy](../../../includes/azure-storage-logs-retention-policy.md)]
 
    > [!NOTE]
    > Avant de choisir un compte de stockage comme destination d’exportation, consultez [Archiver les journaux de ressources Azure](../../azure-monitor/essentials/resource-logs.md#send-to-azure-storage) pour comprendre les conditions préalables relatives au compte de stockage.
@@ -153,12 +155,14 @@ Si vous choisissez d’archiver vos journaux dans un compte de stockage, vous pa
 Activez les journaux à l’aide de la cmdlet PowerShell [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) avec le paramètre `StorageAccountId`.
 
 ```powershell
-Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -StorageAccountId <storage-account-resource-id> -Enabled $true -Category <operations-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
+Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -StorageAccountId <storage-account-resource-id> -Enabled $true -Category <operations-to-log>
 ```
 
 Remplacez l’espace réservé `<storage-service-resource--id>` de cet extrait de code par l’ID de ressource de la file d’attente. Vous pouvez trouver l’ID de ressource dans le portail Azure en ouvrant la page **Propriétés** de votre compte de stockage.
 
 Vous pouvez utiliser `StorageRead`, `StorageWrite` et `StorageDelete` comme valeur du paramètre **Category**.
+
+[!INCLUDE [no retention policy](../../../includes/azure-storage-logs-retention-policy.md)]
 
 Voici un exemple :
 
@@ -215,16 +219,18 @@ Si vous choisissez d’archiver vos journaux dans un compte de stockage, vous pa
 Activez les journaux à l’aide de la commande [`az monitor diagnostic-settings create`](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create).
 
 ```azurecli-interactive
-az monitor diagnostic-settings create --name <setting-name> --storage-account <storage-account-name> --resource <storage-service-resource-id> --resource-group <resource-group> --logs '[{"category": <operations>, "enabled": true "retentionPolicy": {"days": <number-days>, "enabled": <retention-bool}}]'
+az monitor diagnostic-settings create --name <setting-name> --storage-account <storage-account-name> --resource <storage-service-resource-id> --resource-group <resource-group> --logs '[{"category": <operations>, "enabled": true}]'
 ```
 
 Remplacez l’espace réservé `<storage-service-resource--id>` de cet extrait de code par l’ID de ressource de la file d’attente. Vous pouvez trouver l’ID de ressource dans le portail Azure en ouvrant la page **Propriétés** de votre compte de stockage.
 
 Vous pouvez utiliser `StorageRead`, `StorageWrite` et `StorageDelete` comme valeur du paramètre `category`.
 
+[!INCLUDE [no retention policy](../../../includes/azure-storage-logs-retention-policy.md)]
+
 Voici un exemple :
 
-`az monitor diagnostic-settings create --name setting1 --storage-account mystorageaccount --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/queueServices/default --resource-group myresourcegroup --logs '[{"category": StorageWrite, "enabled": true, "retentionPolicy": {"days": 90, "enabled": true}}]'`
+`az monitor diagnostic-settings create --name setting1 --storage-account mystorageaccount --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/queueServices/default --resource-group myresourcegroup --logs '[{"category": StorageWrite, "enabled": true}]'`
 
 Pour obtenir une description de chaque paramètre, consultez [Archiver des journaux de ressources via l’interface de ligne de commande Azure](../../azure-monitor/essentials/resource-logs.md#send-to-azure-storage).
 

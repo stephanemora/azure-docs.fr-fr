@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 1/14/2021
 ms.author: inhenkel
-ms.openlocfilehash: 779a52b44a5dc4e81dc7910da12c5cfb91c1c3ca
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 792f4f81d84b61f0f78c53e62168921221b4f330
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101705379"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102503162"
 ---
 # <a name="step-3---set-up-to-migrate-to-the-v3-rest-api-or-client-sdk"></a>Étape 3 : configurer la migration vers l’API REST v3 ou le Kit de développement logiciel (SDK) client
 
@@ -50,8 +50,8 @@ Suivez les étapes de démarrage rapide pour la [configuration de votre environn
 
 ## <a name="download-client-sdk-of-your-choice-and-set-up-your-environment"></a>Téléchargez le Kit de développement logiciel (SDK) client de votre choix et configurez votre environnement
 
-- Kits de développement logiciel (SDK) disponibles pour  [.NET](/dotnet/api/overview/azure/mediaservices/management?preserve-view=true&view=azure-dotnet), .NET Core,  [Node.js](/javascript/api/overview/azure/mediaservices/management?preserve-view=true&view=azure-node-latest),  [Python](/python/api/overview/azure/mediaservices/management?preserve-view=true&view=azure-python),  [Java](/java/api/overview/azure/mediaservices/management?preserve-view=true&view=azure-java-stable),  [Go](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/mediaservices/mgmt/2018-07-01/media) et [Ruby](https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md).
-- Intégration d’[Azure CLI](/cli/azure/ams?preserve-view=true&view=azure-cli-latest) pour la prise en charge de scripts simples.
+- Kits de développement logiciel (SDK) disponibles pour  [.NET](/dotnet/api/overview/azure/mediaservices/management), .NET Core,  [Node.js](/javascript/api/overview/azure/mediaservices/management),  [Python](/python/api/overview/azure/mediaservices/management),  [Java](/java/api/overview/azure/mediaservices/management),  [Go](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/mediaservices/mgmt/2018-07-01/media) et [Ruby](https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md).
+- Intégration d’[Azure CLI](/cli/azure/ams) pour la prise en charge de scripts simples.
 
 > [!NOTE]
 > Un Kit de développement logiciel (SDK) PHP de la communauté n’est plus disponible pour Azure Media Services dans v3. Si vous utilisez PHP sur v2, vous devez migrer vers l’API REST directement dans votre code.

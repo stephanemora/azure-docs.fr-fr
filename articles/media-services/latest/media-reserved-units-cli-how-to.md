@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: inhenkel
-ms.openlocfilehash: 98e87cf9d1f46ddb8ee1d433bd0b0ba8806fac89
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: a07c4a20b854e09daf3b320b8c99757ca99b2578
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101091929"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102213808"
 ---
 # <a name="how-to-scale-media-reserved-units"></a>Mise à l'échelle des unités réservées Multimédia
 
@@ -36,7 +36,7 @@ Familiarisez-vous avec les [unités réservées Multimédia](concept-media-reser
 
 Exécutez la commande `mru`.
 
-La commande [az ams account mru](/cli/azure/ams/account/mru?view=azure-cli-latest) suivante définit les unités réservées au multimédia sur le compte « amsaccount » à l’aide des paramètres **count** et **type**.
+La commande [az ams account mru](/cli/azure/ams/account/mru) suivante définit les unités réservées au multimédia sur le compte « amsaccount » à l’aide des paramètres **count** et **type**.
 
 ```azurecli
 az ams account mru set -n amsaccount -g amsResourceGroup --count 10 --type S3

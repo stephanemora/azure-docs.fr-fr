@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 01/03/2020
 ms.author: twooley
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: cb6d5fafa8d956c296124c5a20f8a087160961da
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: faa539119bbb8d73e66788b8ba472cf0db26a2e4
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92109236"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102431735"
 ---
 # <a name="filesystem-operations-on-data-lake-storage-gen1-using-the-net-sdk"></a>Opérations de système de fichiers dans Data Lake Storage Gen1 à l’aide du Kit de développement logiciel (SDK) .NET
 
@@ -202,7 +202,7 @@ Voici quelques exemples qui indiquent comment utiliser le Kit de développement 
 ## <a name="see-also"></a>Voir aussi
 
 * [Opérations de gestion du compte sur Data Lake Storage Gen1 à l’aide du SDK .NET](data-lake-store-get-started-net-sdk.md)
-* [Référence SDK .NET Data Lake Storage Gen1](/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
+* [Référence SDK .NET Data Lake Storage Gen1](/dotnet/api/overview/azure/data-lake-store)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

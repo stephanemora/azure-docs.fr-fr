@@ -2,18 +2,19 @@
 title: Déplacer des fichiers vers et depuis des machines virtuelles Linux Azure avec SCP
 description: Déplacez, en toute sécurité, des fichiers vers et depuis une machine virtuelle Linux dans Azure à l’aide de SCP et d’une paire de clés SSH.
 author: cynthn
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 07/12/2017
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 83c054a9e2dd829dbfb34a3873f06332e504b832
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 83b57055ee7a3fedab014abeab96520c3877b843
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201193"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102558438"
 ---
 # <a name="move-files-to-and-from-a-linux-vm-using-scp"></a>Déplacer des fichiers vers et depuis une machine virtuelle Linux à l’aide de SCP
 
@@ -49,7 +50,7 @@ Pour plus d’informations sur la configuration de votre `~/.ssh/config` et les 
 
 Pour le premier exemple, nous copions un fichier de configuration Azure vers une machine virtuelle Linux qui est utilisée pour déployer l’automatisation. Étant donné que ce fichier contient des informations d’identification d’API Azure, notamment des secrets, sa sécurité est importante. Le tunnel chiffré fourni par SSH protège le contenu du fichier.
 
-La commande suivante copie le fichier local *.azure/config* vers une machine virtuelle Azure avec le nom de domaine complet *myserver.eastus.cloudapp.azure.com*. Le nom d’utilisateur administrateur sur la machine virtuelle Azure est *azureuser*. Le fichier est ciblé dans le répertoire */home/azureuser/* . Substituez vos propres valeurs dans cette commande.
+La commande suivante copie le fichier local *.azure/config* vers une machine virtuelle Azure avec le nom de domaine complet *myserver.eastus.cloudapp.azure.com*. Le nom d’utilisateur administrateur sur la machine virtuelle Azure est *azureuser*. Le fichier est ciblé dans le répertoire */home/azureuser/*. Substituez vos propres valeurs dans cette commande.
 
 ```bash
 scp ~/.azure/config azureuser@myserver.eastus.cloudapp.com:/home/azureuser/config

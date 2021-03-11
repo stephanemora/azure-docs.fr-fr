@@ -4,12 +4,12 @@ ms.author: dobett
 ms.service: iot-pnp
 ms.topic: include
 ms.date: 11/20/2020
-ms.openlocfilehash: 788aa0ebe9df91caba2ee279df96cbea175975e4
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 8d3f35a733a0f78fabc33df857d911ba3cd222f5
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95487794"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102245022"
 ---
 IoT Plug-and-Play simplifie l’IoT en vous permettant d’interagir avec les fonctionnalités d’un appareil sans avoir connaissance de l’implémentation de l’appareil sous-jacent. Ce démarrage rapide vous montre comment utiliser Java pour vous connecter à un appareil IoT Plug-and-Play connecté à votre solution et le contrôler.
 
@@ -19,7 +19,7 @@ IoT Plug-and-Play simplifie l’IoT en vous permettant d’interagir avec les fo
 
 Pour suivre ce démarrage rapide sur Windows, installez les logiciels suivants sur votre environnement Windows local :
 
-* Java SE Development Kit 8. Dans [Prise en charge à long terme de Java pour Azure et Azure Stack](/java/azure/jdk/?preserve-view=true&view=azure-java-stable), sous **Prise en charge à long terme**, sélectionnez **Java 8**.
+* Java SE Development Kit 8. Dans [Prise en charge à long terme de Java pour Azure et Azure Stack](/java/azure/jdk/), sous **Prise en charge à long terme**, sélectionnez **Java 8**.
 * [Apache Maven 3](https://maven.apache.org/download.cgi).
 
 ### <a name="clone-the-sdk-repository-with-the-sample-code"></a>Clonez le référentiel SDK avec l’exemple de code

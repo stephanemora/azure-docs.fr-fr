@@ -7,12 +7,12 @@ ms.service: firewall-manager
 ms.topic: conceptual
 ms.date: 07/30/2020
 ms.author: victorh
-ms.openlocfilehash: 921a8b6c808d4eef2b02ef0580d5b2ea9045366d
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 54faa0bc7d414eb15a866b8e1e6d09e15b22b071
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94659503"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102500850"
 ---
 # <a name="ip-groups-in-azure-firewall-policy"></a>Groupes IP dans une stratégie de Pare-feu Azure
 
@@ -72,13 +72,13 @@ Vous pouvez avoir un maximum de 100 groupes d’adresses IP par pare-feu avec 
 
 Vous pouvez utiliser les cmdlets Azure PowerShell suivantes pour créer et gérer des groupes IP :
 
-- [New-AzIpGroup](/powershell/module/az.network/new-azipgroup?view=azps-3.4.0)
-- [Remove-AzIPGroup](/powershell/module/az.network/remove-azipgroup?view=azps-3.4.0)
-- [Get-AzIpGroup](/powershell/module/az.network/get-azipgroup?view=azps-3.4.0)
-- [Set-AzIpGroup](/powershell/module/az.network/set-azipgroup?view=azps-3.4.0)
-- [New-AzFirewallPolicyNetworkRule](/powershell/module/az.network/new-azfirewallpolicynetworkrule?view=azps-3.4.0)
-- [New-AzFirewallPolicyApplicationRule](/powershell/module/az.network/new-azfirewallpolicyapplicationrule?view=azps-3.4.0)
-- [New-AzFirewallPolicyNatRule](/powershell/module/az.network/new-azfirewallpolicynatrule?view=azps-3.4.0)
+- [New-AzIpGroup](/powershell/module/az.network/new-azipgroup)
+- [Remove-AzIPGroup](/powershell/module/az.network/remove-azipgroup)
+- [Get-AzIpGroup](/powershell/module/az.network/get-azipgroup)
+- [Set-AzIpGroup](/powershell/module/az.network/set-azipgroup)
+- [New-AzFirewallPolicyNetworkRule](/powershell/module/az.network/new-azfirewallpolicynetworkrule)
+- [New-AzFirewallPolicyApplicationRule](/powershell/module/az.network/new-azfirewallpolicyapplicationrule)
+- [New-AzFirewallPolicyNatRule](/powershell/module/az.network/new-azfirewallpolicynatrule)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

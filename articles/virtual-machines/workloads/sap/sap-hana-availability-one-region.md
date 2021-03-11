@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/27/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 83c56c337e2b07175dec28cfefa5da75dab7b4f0
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 845cecfb6b09591b10de30267b31e6e1a80a7482
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101667956"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102504318"
 ---
 # <a name="sap-hana-availability-within-one-azure-region"></a>Disponibilité de SAP HANA au sein d’une région Azure
 Cet article décrit plusieurs scénarios de disponibilité au sein d’une région Azure. Azure dispose de plusieurs régions, réparties à travers le monde. Pour obtenir la liste des régions Azure, voir [Régions Azure](https://azure.microsoft.com/regions/). Pour le déploiement de SAP HANA sur des machines virtuelles au sein d’une région Azure, Microsoft offre le déploiement d’une machine virtuelle unique avec une instance HANA. Pour une disponibilité accrue, vous pouvez déployer deux machines virtuelles avec deux instances HANA au sein d’un [groupe à haute disponibilité Azure](../../windows/tutorial-availability-sets.md) qui utilise la réplication de système HANA pour des raisons de disponibilité. 
@@ -29,7 +29,7 @@ Actuellement, Azure offre les [Zones de disponibilité Azure](../../../availabil
 
 Les régions Azure proposant des zones de disponibilité disposent de plusieurs centres de données. Les centres de données sont indépendants de la fourniture de la source d’alimentation, du refroidissement et du réseau. Nous offrons différentes zones au sein d’une seule région Azure pour déployer des applications sur deux ou trois des zones de disponibilité offertes. Si les problèmes d’alimentation et de réseau n’affectent qu’une seule infrastructure de zone de disponibilité Azure, le déploiement de votre application au sein d’une région Azure devrait toujours opérationnel. Une capacité réduite peut se produire. Par exemple, des machines virtuelles dans une zone peuvent être perdues, mais les machines virtuelles dans les deux autres zones seront toujours en exécution. 
  
-Un groupe à haute disponibilité Azure est une fonctionnalité de regroupement logique qui aide à assurer que les ressources de machine virtuelle que vous y incluez sont isolées les unes des autres lors de leur déploiement dans un centre de données Azure. Azure veille à ce que les machines virtuelles que vous placez dans un groupe à haute disponibilité s’exécutent sur plusieurs serveurs physiques, racks de calcul, unités de stockage et commutateurs réseau. Dans certaines documentations Azure, cette configuration est considérée comme des placements dans différents [Mise à jour et domaines d’erreur](../../manage-availability.md). En règle générale, ces placements se trouvent dans un centre de données Azure. En imaginant que les problèmes d’alimentation et de réseau affectent le centre de données que vous déployez, toutes vos capacités dans une région Azure seraient aussi affectées.
+Un groupe à haute disponibilité Azure est une fonctionnalité de regroupement logique qui aide à assurer que les ressources de machine virtuelle que vous y incluez sont isolées les unes des autres lors de leur déploiement dans un centre de données Azure. Azure veille à ce que les machines virtuelles que vous placez dans un groupe à haute disponibilité s’exécutent sur plusieurs serveurs physiques, racks de calcul, unités de stockage et commutateurs réseau. Dans certaines documentations Azure, cette configuration est considérée comme des placements dans différents [Mise à jour et domaines d’erreur](../../availability.md). En règle générale, ces placements se trouvent dans un centre de données Azure. En imaginant que les problèmes d’alimentation et de réseau affectent le centre de données que vous déployez, toutes vos capacités dans une région Azure seraient aussi affectées.
 
 Le placement des centres de données représentant les zones de disponibilité Azure est un compromis entre une latence réseau entre des services déployés dans différentes zones et une distance spécifique entre des centres de données. Idéalement, les catastrophes naturelles n’affectent pas l’alimentation, le réseau et l’infrastructure de toutes vos zones de disponibilité dans cette région. Toutefois, comme nous l’avons déjà vu avec des catastrophes naturelles d’envergure, les zones de disponibilité peuvent ne pas fournir autant de disponibilité que vous le souhaitez au sein d’une région. Pensez à l’ouragan Maria qui a touché l’ile de Porto Rico le 20 septembre 2017. L’ouragan a entrainé une coupure de courant de la quasi-totalité de cette ile de 145 kilomètres.
 

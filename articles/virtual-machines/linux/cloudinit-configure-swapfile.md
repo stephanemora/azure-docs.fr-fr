@@ -3,16 +3,17 @@ title: Utiliser cloud-init pour configurer une partition d'échange sur une mach
 description: Utilisation de cloud-init pour configurer une partition d'échange sur une machine virtuelle Linux lors de la création à l'aide de l'interface Azure CLI
 author: rickstercdn
 manager: gwallace
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.topic: how-to
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: 1f8746e67ba712ac4c2c3e832fcb5ffefb170d59
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9f4adc4e1e980db2af4fcc20b3a4492309c89f3
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87371938"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102559373"
 ---
 # <a name="use-cloud-init-to-configure-a-swap-partition-on-a-linux-vm"></a>Utiliser cloud-init pour configurer une partition d'échange sur une machine virtuelle Linux
 Cet article vous explique comment utiliser [cloud-init](https://cloudinit.readthedocs.io) pour configurer la partition d'échange sur différentes distributions Linux. La partition d'échange est généralement configurée par l'Agent Linux (WALA) en fonction des distributions qui en ont besoin.  Ce document décrit le processus de création de la partition d'échange à la demande au moment de l'approvisionnement à l'aide de cloud-init.  Pour plus d’informations sur le fonctionnement de cloud-init en mode natif dans Azure et sur les versions de Linux prises en charge, consultez [Présentation de cloud-init](using-cloud-init.md)

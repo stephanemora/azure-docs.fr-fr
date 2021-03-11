@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: b4480f3d28cb89165a6ba3c5b26b10b1aba9765c
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 610f0a9692c18afbd7bb446959b09bac14d6f629
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461843"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102507617"
 ---
 # <a name="powershell-and-the-azure-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell et Azure CLI : Activer Transparent Data Encryption à l’aide d'une clé gérée par le client à partir d'Azure Key Vault
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -79,7 +79,7 @@ Pour ajouter des autorisations à votre serveur sur un HSM managé, ajoutez le r
 
 ## <a name="add-the-key-vault-key-to-the-server-and-set-the-tde-protector"></a>Ajouter la clé Key Vault au serveur et définir le protecteur TDE
 
-- Utilisez le cmdlet [Get-AzKeyVaultKey](/powershell/module/az.keyvault/get-azkeyvaultkey?view=azps-2.4.0) pour récupérer l’ID de la clé à partir du coffre de clé
+- Utilisez le cmdlet [Get-AzKeyVaultKey](/powershell/module/az.keyvault/get-azkeyvaultkey) pour récupérer l’ID de la clé à partir du coffre de clé
 - Utilisez la cmdlet [Add-AzSqlServerKeyVaultKey](/powershell/module/az.sql/add-azsqlserverkeyvaultkey) pour ajouter la clé de Key Vault au serveur.
 - Utilisez la cmdlet [Set-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) pour définir la clé en tant que protecteur TDE pour toutes les ressources de serveur.
 - Utilisez la cmdlet [Get-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/get-azsqlservertransparentdataencryptionprotector) pour confirmer que le protecteur TDE a été configuré comme prévu.

@@ -1,5 +1,5 @@
 ---
-title: Fichier include
+title: Fichier Include
 description: Fichier include
 services: azure-communication-services
 author: mikben
@@ -10,17 +10,17 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: b402dec76f88bfdb0bc4758f94cc6e8e279d8040
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 192970540f21905b624ce3f6e3558baa935a4d7a
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101750309"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102489734"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
 - Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Java Development Kit (JDK)](/java/azure/jdk/?preserve-view=true&view=azure-java-stable) version 8 ou ultérieure.
+- [Java Development Kit (JDK)](/java/azure/jdk/) version 8 ou ultérieure.
 - [Apache Maven](https://maven.apache.org/download.cgi).
 - Chaîne de connexion et ressource Communication Services déployée. [Créez une ressource Communication Services](../../create-communication-resource.md).
 - [Jeton d’accès utilisateur](../../access-tokens.md). Veillez à définir l’étendue sur « chat » (conversation) et notez la chaîne token ainsi que la chaîne userId.
@@ -66,7 +66,7 @@ Pour l’authentification, votre client doit référencer le package `azure-comm
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-common</artifactId>
-    <version>1.0.0-beta.4</version> 
+    <version>1.0.0</version> 
 </dependency>
 ```
 

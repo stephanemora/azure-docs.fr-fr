@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 08/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 40d22a410054f17676c4d9db639fd5e32da18531
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 51bfd632e854132be27a7b971cf03e9fe5b00138
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101665988"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102504301"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Check-list relative à la planification et au déploiement de la charge de travail SAP sur Azure
 
@@ -138,7 +138,7 @@ Nous vous recommandons de configurer et de valider une solution complète HADR e
         - Si vous utilisez Azure Load Balancer avec des systèmes d’exploitation invité Linux, vérifiez que le paramètre réseau Linux **net.ipv4.tcp_timestamps** a la valeur **0**. Cette suggestion est incompatible avec les suggestions des anciennes versions de la [note SAP n° 2382421](https://launchpad.support.sap.com/#/notes/2382421). La note SAP mise à jour indique que ce paramètre doit être défini sur **0** pour fonctionner avec les équilibreurs de charge Azure.
         - Envisagez d’utiliser des [groupes de placement de proximité Azure](../../co-location.md) pour bénéficier d’une latence réseau optimale. Pour plus d’informations, consultez [Groupes de placements de proximité Azure pour une latence réseau optimale avec les applications SAP](sap-proximity-placement-scenarios.md).
    4. Déploiements de haute disponibilité et de récupération d’urgence.
-        - Si vous déployez la couche Application SAP sans définir de zone de disponibilité Azure spécifique, assurez-vous que toutes les machines virtuelles qui exécutent des instances de dialogue SAP ou des instances intergiciel d’un système SAP unique sont déployées dans un [groupe à haute disponibilité](../../manage-availability.md).
+        - Si vous déployez la couche Application SAP sans définir de zone de disponibilité Azure spécifique, assurez-vous que toutes les machines virtuelles qui exécutent des instances de dialogue SAP ou des instances intergiciel d’un système SAP unique sont déployées dans un [groupe à haute disponibilité](../../availability-set-overview.md).
         - Si vous n’avez pas besoin de la haute disponibilité pour les services SAP Central Services et le SGBD, vous pouvez déployer ces machines virtuelles dans le même groupe à haute disponibilité que la couche Application SAP.
         - Si vous protégez les services SAP Central Services et la couche SGBD pour bénéficier de la haute disponibilité avec la réplication passive, placez les deux nœuds SAP Central Services dans un groupe à haute disponibilité distinct et les deux nœuds SGBD dans un autre groupe à haute disponibilité.
         - Si vous procédez à des déploiements dans des Zones de disponibilité Azure, vous ne pouvez pas utiliser de groupes à haute disponibilité. Toutefois, vous devez veiller à déployer les nœuds Central Services actifs et passifs dans deux zones de disponibilité différentes. Utilisez les zones de disponibilité ayant la latence la plus faible entre elles.

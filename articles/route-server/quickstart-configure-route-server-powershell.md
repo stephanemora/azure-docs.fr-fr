@@ -7,12 +7,12 @@ ms.service: route-server
 ms.topic: quickstart
 ms.date: 03/02/2021
 ms.author: duau
-ms.openlocfilehash: 5b40cfcde7aa1771c8a4b9025d35b2dc0c728676
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: e302cb9da410487dbea4ec5c5b256c4cb5dd186f
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102039782"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102566377"
 ---
 # <a name="quickstart-create-and-configure-route-server-using-azure-powershell"></a>Démarrage rapide : Créer et configurer Route Server à l’aide d’Azure PowerShell
 
@@ -130,7 +130,7 @@ Vous pouvez afficher les routes publiées et reçues par Azure Route Server à l
 Get-AzRouteServerPeerAdvertisedRoute
 Get-AzRouteServerPeerLearnedRoute
 ```
-## <a name="clean-up"></a>Nettoyer
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous n’avez plus besoin du serveur de routage Azure, utilisez ces commandes pour supprimer le peering BGP, puis le serveur de routage. 
 

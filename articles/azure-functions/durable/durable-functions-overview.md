@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 12/23/2020
 ms.author: cgillum
 ms.reviewer: azfuncdf
-ms.openlocfilehash: 2079a3a7c9ce6817186e743bb09d31facdecf0e7
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 15e1dff37e1782baf5740a3fb35119bbbbffc297
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97931719"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102558795"
 ---
 # <a name="what-are-durable-functions"></a>Présentation de Durable Functions
 
@@ -23,7 +23,7 @@ Durable Functions prend actuellement en charge les langages suivants :
 
 * **C#**  : les [bibliothèques de classes précompilées](../functions-dotnet-class-library.md) et le [script C#](../functions-reference-csharp.md).
 * **JavaScript** : pris en charge uniquement pour la version 2.x du runtime Azure Functions. Nécessite la version 1.7.0 ou ultérieure de l’extension Durable Functions. 
-* **Python** : nécessite la version 2.3.1 ou une version ultérieure de l’extension Durable Functions. La prise en charge de Durable Functions est actuellement en préversion publique.
+* **Python** : nécessite la version 2.3.1 ou une version ultérieure de l’extension Durable Functions.
 * **F#**  : les bibliothèques de classes précompilées et le script F#. Le script F# est pris en charge uniquement pour la version 1.x du runtime Azure Functions.
 * **PowerShell** : la prise en charge de Durable Functions est actuellement en préversion publique. Uniquement pris en charge pour la version 3.x du runtime Azure Functions et PowerShell 7. Nécessite la version 2.2.2 ou ultérieure de l'extension Durable Functions. Actuellement, seuls les modèles suivants sont pris en charge : [Chaînage de fonctions](#chaining), [Fan-out/fan-in](#fan-in-out), [API HTTP Async](#async-http).
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/19/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 01133ab5582e63c0e87d8a5cf8de12f5445394c5
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e5ae08c23748e55a8c3b75eb8fb9c112684f022e
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91969702"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102507904"
 ---
 # <a name="backup-and-disaster-recovery-for-azure-iaas-disks"></a>Sauvegarde et récupération d’urgence pour les disques IaaS Azure
 
@@ -48,7 +48,7 @@ Cette architecture a permis à Azure de fournir de façon cohérente une durabil
 
 Les défaillances matérielles localisées sur l’ordinateur hôte ou dans la plateforme de stockage peuvent parfois entraîner une indisponibilité temporaire de la machine virtuelle qui est couverte par le [contrat SLA Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) qui en garantit la disponibilité. Azure fournit également un contrat SLA de pointe pour les instances de machine virtuelle uniques qui utilisent des disques SSD Azure Premium.
 
-Pour protéger les charges de travail d’application contre les temps d’arrêt suite à l’indisponibilité temporaire d’un disque ou d’une machine virtuelle, les clients peuvent utiliser les [groupes à haute disponibilité](./manage-availability.md). Plusieurs machines virtuelles regroupées dans un groupe à haute disponibilité assurent la redondance de votre application. Azure crée ensuite ces machines virtuelles et disques dans des domaines d’erreur distincts avec différents composants d’alimentation, réseau et serveur.
+Pour protéger les charges de travail d’application contre les temps d’arrêt suite à l’indisponibilité temporaire d’un disque ou d’une machine virtuelle, les clients peuvent utiliser les [groupes à haute disponibilité](./availability.md). Plusieurs machines virtuelles regroupées dans un groupe à haute disponibilité assurent la redondance de votre application. Azure crée ensuite ces machines virtuelles et disques dans des domaines d’erreur distincts avec différents composants d’alimentation, réseau et serveur.
 
 En raison de ces domaines d’erreur distincts, les défaillances matérielles localisées n’affectent généralement pas plusieurs machines virtuelles du groupe en même temps. Ces domaines d’erreur distincts garantissent une haute disponibilité pour votre application. Il est considéré comme une bonne pratique d’utiliser des groupes à haute disponibilité lorsque la haute disponibilité est requise. La section suivante couvre l’aspect de la récupération d’urgence.
 

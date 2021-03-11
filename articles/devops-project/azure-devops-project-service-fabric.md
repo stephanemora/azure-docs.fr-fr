@@ -8,12 +8,12 @@ ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
-ms.openlocfilehash: 723f46652643883dc8e718468a9ca9eead50e1aa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 078331c35c76a3cda97398b1a487933a3f0f5ab8
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91856022"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102559305"
 ---
 # <a name="tutorial-deploy-your-aspnet-core-app-to-azure-service-fabric-by-using-azure-devops-starter"></a>Tutoriel : Déployer votre application ASP.NET Core dans Azure Service Fabric à l’aide d’Azure DevOps Starter
 
@@ -158,4 +158,4 @@ Si vous le souhaitez, vous pouvez modifier le pipeline CI/CD Azure afin qu’il 
 Pour en savoir plus sur Service Fabric et les microservices, voir :
 
 > [!div class="nextstepaction"]
-> [Utiliser une approche de microservices pour la conception d’applications](/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
+> [Utiliser une approche de microservices pour la conception d’applications](/azure/devops/pipelines/release/define-multistage-release-process)
