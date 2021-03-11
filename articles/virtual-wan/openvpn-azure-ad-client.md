@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: 8e97a2f077efd4d00eec4a91645dc1b65057ebd9
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 3dbdfb461bc2ae79439f39df3efbc2c564782110
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94565005"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102548391"
 ---
 # <a name="configure-a-vpn-client-for-p2s-openvpn-protocol-connections-azure-ad-authentication"></a>Configurez un client VPN pour les connexions P2S de protocole OpenVPN : Authentification Azure AD
 
@@ -140,15 +140,15 @@ Ces étapes vous aident à configurer votre connexion pour qu’elle se connecte
 
 1. Pour diagnostiquer les problèmes de connexion, vous pouvez utiliser l’outil **Diagnostiquer**. Sélectionnez les points de suspension ( **...** ) en regard de la connexion VPN que vous souhaitez diagnostiquer pour afficher le menu. Sélectionnez ensuite **Diagnostiquer**.
 
-    ![Capture d’écran montrant l’option Diagnostiquer sélectionnée dans le menu.](./media/openvpn-azure-ad-client/diagnose/diagnose1.jpg)
+    ![Capture d’écran montrant l’option de diagnostic sélectionnée dans le menu.](./media/openvpn-azure-ad-client/diagnose/diagnose1.jpg)
 
 2. Dans la page **Propriétés de connexion**, sélectionnez **Exécuter le diagnostic**.
 
-    ![Capture d’écran montre le bouton Exécuter le diagnostic pour une connexion.](./media/openvpn-azure-ad-client/diagnose/diagnose2.jpg)
+    ![Capture d’écran montre le bouton d’exécution du diagnostic pour une connexion.](./media/openvpn-azure-ad-client/diagnose/diagnose2.jpg)
 
 3. Connectez-vous avec vos informations d’identification.
 
-    ![Capture d’écran montrant la boîte de dialogue d’identification pour cette action.](./media/openvpn-azure-ad-client/diagnose/diagnose3.jpg)
+    ![Capture d’écran montrant la boîte de dialogue de connexion pour cette action.](./media/openvpn-azure-ad-client/diagnose/diagnose3.jpg)
 
 4. Examinez les résultats du diagnostic.
 
@@ -192,7 +192,7 @@ Vous pouvez modifier le fichier XML de profil téléchargé et ajouter les balis
 ```
 
 > [!NOTE]
-> Le client OpenVPN Azure AD utilise les entrées de la table de stratégie de résolution de noms DNS, ce qui signifie que les serveurs DNS ne seront pas listés sous la sortie de `ipconfig /all`. Pour confirmer vos paramètres DNS en cours d’utilisation, consultez [Get-DnsClientNrptPolicy](/powershell/module/dnsclient/get-dnsclientnrptpolicy?view=win10-ps) dans PowerShell.
+> Le client OpenVPN Azure AD utilise les entrées de la table de stratégie de résolution de noms DNS, ce qui signifie que les serveurs DNS ne seront pas listés sous la sortie de `ipconfig /all`. Pour confirmer vos paramètres DNS en cours d’utilisation, consultez [Get-DnsClientNrptPolicy](/powershell/module/dnsclient/get-dnsclientnrptpolicy) dans PowerShell.
 >
 
 ### <a name="how-do-i-add-custom-routes-to-the-vpn-client"></a>Comment ajouter des routes personnalisées au client VPN ?

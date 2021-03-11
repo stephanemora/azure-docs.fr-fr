@@ -9,12 +9,12 @@ ms.subservice: extensions
 ms.date: 02/12/2021
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 3350ff7aa05232173e5fd3b21451a76a0a40683d
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 8805b3c4947311a3054066b3378d881d673c2b14
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102043709"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521745"
 ---
 # <a name="preview-orchestration-modes-for-virtual-machine-scale-sets-in-azure"></a>Préversion : modes d’orchestration pour les groupes de machines virtuelles identiques dans Azure 
 
@@ -128,7 +128,7 @@ Le tableau suivant compare le mode d’orchestration Flexible, le mode d’orche
 |         Alertes Azure  |            Non  |            Oui  |            Oui  |
 |         Insights de machine virtuelle  |            Non  |            Oui  |            Oui  |
 |         Sauvegarde Azure  |            Oui  |            Oui  |            Oui  |
-|         Azure Site Recovery  |            Oui, PowerShell uniquement  |            Oui  |            Oui  |
+|         Azure Site Recovery  |            Non  |            Non  |            Oui  |
 |         Ajout d’une machine virtuelle existante à un groupe/suppression du groupe  |            Non  |            Non  |            Non  | 
 
 
@@ -322,7 +322,7 @@ InvalidParameter. The specified fault domain count 2 must fall in the range 1 to
 
 **Cause :** Le paramètre `platformFaultDomainCount` n’est pas valide pour la région ou la zone sélectionnée. 
 
-**Solution :** Sélectionnez une valeur `platformFaultDomainCount` valide. Pour les déploiements zonaux, la valeur `platformFaultDomainCount` maximale est 1. Pour les déploiements régionaux où aucune zone n’est spécifiée, la valeur `platformFaultDomainCount` maximale varie selon la région. Consultez les scripts de l’article [Gestion de la disponibilité des machines virtuelles](../virtual-machines/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) pour déterminer le nombre maximal de domaines d’erreur par région. 
+**Solution :** Sélectionnez une valeur `platformFaultDomainCount` valide. Pour les déploiements zonaux, la valeur `platformFaultDomainCount` maximale est 1. Pour les déploiements régionaux où aucune zone n’est spécifiée, la valeur `platformFaultDomainCount` maximale varie selon la région. Consultez les scripts de l’article [Gestion de la disponibilité des machines virtuelles](../virtual-machines/availability.md) pour déterminer le nombre maximal de domaines d’erreur par région. 
 
 ```
 OperationNotAllowed. Deletion of Virtual Machine Scale Set is not allowed as it contains one or more VMs. Please delete or detach the VM(s) before deleting the Virtual Machine Scale Set.

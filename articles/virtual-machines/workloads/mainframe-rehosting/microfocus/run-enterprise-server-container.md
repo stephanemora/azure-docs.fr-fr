@@ -1,7 +1,7 @@
 ---
 title: Exécuter Micro Focus Enterprise Server 5.0 dans un conteneur Docker sur Azure | Microsoft Docs
 description: Dans cet article, découvrez comment exécuter Micro Focus Enterprise Server 5.0 dans un conteneur Docker sur Microsoft Azure.
-services: virtual-machines-linux
+services: virtual-machines
 documentationcenter: ''
 author: maggsl
 ms.author: edprice
@@ -12,12 +12,12 @@ ms.date: 06/29/2020
 tags: ''
 keywords: ''
 ms.service: multiple
-ms.openlocfilehash: f34767c160c8229eb5b63806924926a46ea00cc2
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 5c436eae53b16c980e9725cfef0573367d144842
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93127193"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102548374"
 ---
 # <a name="run-micro-focus-enterprise-server-50-in-a-docker-container-on-azure"></a>Exécuter Micro Focus Enterprise Server 5.0 dans un conteneur Docker sur Azure
 
@@ -54,9 +54,9 @@ Avant de commencer, consultez les prérequis suivants :
 
     2.  Sélectionnez la **région** et le **groupe de ressources** sur lesquels vous souhaitez effectuer le déploiement.
 
-    3.  Pour les **options de disponibilité** , utilisez le paramètre par défaut.
+    3.  Pour les **options de disponibilité**, utilisez le paramètre par défaut.
 
-    4.  Pour le **nom d’utilisateur** , saisissez le compte administrateur que vous souhaitez utiliser et le mot de passe.
+    4.  Pour le **nom d’utilisateur**, saisissez le compte administrateur que vous souhaitez utiliser et le mot de passe.
 
     5.  Assurez-vous que le **port 3389 RDP** est ouvert. Seul ce port doit être exposé publiquement pour que vous puissiez vous connecter à la machine virtuelle. Acceptez ensuite toutes les valeurs par défaut, puis cliquez sur **Vérifier + créer**.
 
@@ -75,7 +75,7 @@ Avant de commencer, consultez les prérequis suivants :
     > [!Note]    
     > N’utilisez pas vos informations d’identification d’entreprise pour vous connecter. (Le client RDP suppose que vous souhaitez les utiliser. Mais vous ne le voulez pas.)
 
-9.  Sélectionnez **Autres choix** , puis sélectionnez les informations d’identification de votre machine virtuelle.
+9.  Sélectionnez **Autres choix**, puis sélectionnez les informations d’identification de votre machine virtuelle.
 
 À ce stade, la machine virtuelle est en cours d’exécution et est jointe via RDP. Vous êtes connecté et prêt pour l’étape suivante.
 
@@ -129,7 +129,7 @@ Avant de commencer, consultez les prérequis suivants :
 
 2.  Obtenez l’adresse IP du conteneur acctdemo pour que Docker puisse agir comme un serveur DHCP pour les conteneurs qu’il gère :
 
-    1.  Obtenez l’ID du conteneur en cours d’exécution. Saisissez **Docker ps** à l’invite de commandes et notez l’ID ( **22a0fe3159d0** dans cet exemple). Notez-le pour l’étape suivante.
+    1.  Obtenez l’ID du conteneur en cours d’exécution. Saisissez **Docker ps** à l’invite de commandes et notez l’ID (**22a0fe3159d0** dans cet exemple). Notez-le pour l’étape suivante.
 
     2.  Pour obtenir l’adresse IP du conteneur acctdemo, utilisez l’ID de conteneur de l’étape précédente comme suit :
 

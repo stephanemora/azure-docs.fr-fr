@@ -4,12 +4,12 @@ ms.service: container-registry
 ms.topic: include
 ms.date: 05/07/2020
 ms.author: danlep
-ms.openlocfilehash: be170144fddeb1a69592f1714ec745d559665832
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d699e8985a3a23b3aab87601d5298d9c8f7e34e1
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82982424"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102244519"
 ---
 ## <a name="create-a-docker-enabled-virtual-machine"></a>Créer une machine virtuelle compatible Docker
 
@@ -67,7 +67,7 @@ This message shows that your installation appears to be working correctly.
 
 ### <a name="install-the-azure-cli"></a>Installer l’interface de ligne de commande Microsoft Azure
 
-Suivez les étapes de la section [Installer Azure CLI avec apt](/cli/azure/install-azure-cli-apt?view=azure-cli-latest) pour installer Azure CLI sur votre machine virtuelle Ubuntu. Par exemple :
+Suivez les étapes de la section [Installer Azure CLI avec apt](/cli/azure/install-azure-cli-apt) pour installer Azure CLI sur votre machine virtuelle Ubuntu. Par exemple :
 
 ```bash
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash

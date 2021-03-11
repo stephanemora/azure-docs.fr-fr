@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 12/11/2020
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: e5734591bfc48469eacc1ad39cbb89f3850bfc8c
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: b32757dddf745e7aaa0ea8276a3527fa464cc0d4
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97367064"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102442160"
 ---
 # <a name="recover-from-a-failed-azure-stack-edge-pro-gpu-device"></a>Récupération après la défaillance d’un appareil Azure Stack Edge Pro GPU 
+
+[!INCLUDE [applies-to-GPU-and-pro-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-sku.md)]
 
 Cet article explique comment effectuer une récupération après une défaillance non tolérable de votre appareil Azure Stack Edge Pro GPU. Une défaillance non tolérable d’un appareil Azure Stack Edge Pro GPU nécessite un remplacement de l’appareil.
 

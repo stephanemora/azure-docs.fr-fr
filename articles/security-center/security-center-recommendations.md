@@ -1,57 +1,22 @@
 ---
 title: Recommandations de sécurité dans le Centre de sécurité Azure
 description: Ce document vous montre comment les recommandations du Centre de sécurité Azure peuvent vous aider à protéger vos ressources Azure et à rester en conformité avec les stratégies de sécurité.
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: 86c50c9f-eb6b-4d97-acb3-6d599c06133e
 ms.service: security-center
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 01/24/2021
 ms.author: memildin
-ms.openlocfilehash: 3b2f111f83dbd731b69671e58d4bf9dc648a596f
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 57760443746e111750e74ef55fc18729f6ba32c4
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99526498"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102100336"
 ---
-# <a name="security-recommendations-in-azure-security-center"></a>Recommandations de sécurité dans le Centre de sécurité Azure 
+# <a name="review-your-security-recommendations"></a>Consulter vos recommandations de sécurité
 
 Cette rubrique explique comment visualiser et comprendre les recommandations d’Azure Security Center pour vous aider à protéger vos ressources Azure.
-
-
-## <a name="what-are-security-recommendations"></a>Quelles sont les recommandations de sécurité ?
-
-Security Center analyse périodiquement l’état de sécurité de vos ressources Azure pour identifier les vulnérabilités de sécurité potentielles. Il fournit ensuite des recommandations sur la façon de corriger ces vulnérabilités.
-
-Les recommandations sont des actions à effectuer pour sécuriser et renforcer vos ressources. 
-
-Chaque recommandation vous fournit les informations suivantes :
-
-- Courte description du problème
-- Étapes de correction à effectuer pour implémenter la recommandation
-- Ressources concernées
-
-## <a name="how-does-microsoft-decide-what-needs-securing-and-hardening"></a>Comment Microsoft décide-t-il de ce qui doit être sécurisé et renforcé ?
-
-Les recommandations de Security Center sont basées sur le Benchmark de sécurité Azure. Presque toutes les recommandations ont une stratégie sous-jacente qui est dérivée d’une exigence dans le point de référence.
-
-Le Benchmark de sécurité Azure est l’ensemble des directives propres à Azure et créées par Microsoft contenant les bonnes pratiques de sécurité et de conformité basées sur les infrastructures de conformité courantes. Ce point de référence, largement respecté et centré sur le cloud, est basé sur les contrôles du [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) et du [National Institute of Standards and Technology (NIST)](https://www.nist.gov/). Découvrez le [Benchmark de sécurité Azure](../security/benchmarks/introduction.md).
-
-Lorsque vous examinez les détails d’une recommandation, il est souvent utile de pouvoir consulter la stratégie sous-jacente. Pour chaque recommandation soutenue par une stratégie, utilisez le lien **Afficher la définition de stratégie** à partir de la page des détails de la recommandation pour accéder directement à l’entrée d’Azure Policy pour la stratégie correspondante :
-
-:::image type="content" source="media/release-notes/view-policy-definition.png" alt-text="Lien vers la page Azure Policy de la stratégie spécifique prenant en charge une recommandation":::
-
-Utilisez ce lien pour afficher la définition de stratégie et passer en revue la logique d’évaluation. 
-
-Si vous examinez la liste des recommandations de notre [Guide de référence des recommandations de sécurité](recommendations-reference.md), vous remarquerez également des liens vers les pages de définition de stratégie :
-
-:::image type="content" source="media/release-notes/view-policy-definition-from-documentation.png" alt-text="Accès à la page Azure Policy d’une stratégie particulière, directement à partir de la page de référence des recommandations d’Azure Security Center":::
 
 ## <a name="monitor-recommendations"></a>Surveiller les recommandations <a name="monitor-recommendations"></a>
 

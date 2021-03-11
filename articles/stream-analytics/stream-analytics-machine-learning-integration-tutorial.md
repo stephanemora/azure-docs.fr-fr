@@ -2,17 +2,17 @@
 title: Intégration d’Azure Stream Analytics avec Azure Machine Learning Studio (classique)
 description: Cet article explique comment configurer rapidement un travail Azure Stream Analytics simple avec Azure Machine Learning Studio (classique) à l’aide d’une fonction définie par l’utilisateur.
 ms.service: stream-analytics
-author: jasonwhowell
-ms.author: jasonh
+author: sidramadoss
+ms.author: sidram
 ms.topic: how-to
 ms.date: 08/12/2020
 ms.custom: seodec18
-ms.openlocfilehash: 89b1b91270d1fe30ffcb5ae0caa5f319aa616683
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 1ebe62c1b90e09b36dd75b5bda4054cca08d5759
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102178522"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102441208"
 ---
 # <a name="do-sentiment-analysis-with-azure-stream-analytics-and-azure-machine-learning-studio-classic"></a>Effectuer une analyse des sentiments avec Azure Stream Analytics et Azure Machine Learning Studio (classique)
 

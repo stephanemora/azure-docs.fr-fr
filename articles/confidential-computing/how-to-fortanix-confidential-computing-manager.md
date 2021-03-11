@@ -3,17 +3,17 @@ title: Fortanix Confidential Computing Manager dans une application managée Azu
 description: Découvrez comment déployer Fortanix Confidential Computing Manager (CCM) dans une application managée dans le portail Azure.
 author: JBCook
 ms.service: virtual-machines
-ms.subservice: workloads
+ms.subservice: confidential-computing
 ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 02/03/2021
 ms.author: jencook
-ms.openlocfilehash: 6132b864e94c5c2af691183e198ca882c361d5ec
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 757ce9b7502316bbc8a5b8f27ba672048b7bbace
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99551091"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102563419"
 ---
 # <a name="fortanix-confidential-computing-manager-in-an-azure-managed-application"></a>Fortanix Confidential Computing Manager dans une application managée Azure
 

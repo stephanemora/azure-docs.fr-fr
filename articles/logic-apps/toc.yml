@@ -1,6 +1,6 @@
 - name: Documentation Azure Logic Apps
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: "Qu’est-ce qu’Azure Logic Apps\_?"
       href: logic-apps-overview.md
@@ -388,7 +388,7 @@
     - name: Modèle tarifaire et mesure de l’utilisation
       href: logic-apps-pricing.md
     - name: Azure CLI
-      href: /cli/azure/ext/logic/logic?view=azure-cli-latest
+      href: /cli/azure/ext/logic/logic
     - name: Azure PowerShell
       href: /powershell/module/az.logicapp
     - name: API REST

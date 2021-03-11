@@ -3,12 +3,12 @@ title: Vue d’ensemble de Container Insights | Microsoft Docs
 description: Cet article décrit Container Insights qui surveille la solution AKS Container Insights et la valeur qu’elle offre en surveillant l’intégrité de vos clusters AKS et de Container Instances dans Azure.
 ms.topic: conceptual
 ms.date: 09/08/2020
-ms.openlocfilehash: 1055e2228c6625ae24e6bf388cf297e3e3363666
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a29890f569c47c48aae7d5d61badee7edeef58a0
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101723382"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102441514"
 ---
 # <a name="container-insights-overview"></a>Vue d’ensemble de Container Insights
 
@@ -58,7 +58,7 @@ Les principales différences entre la supervision d’un cluster Windows Server 
 
 Regardez la vidéo suivante qui fournit une présentation approfondie de niveau intermédiaire pour vous apprendre à surveiller votre cluster AKS avec Container Insights.
 
-> [!VIDEO https://youtu.be/XEdwGvS2AwA]
+> [!VIDEO https://www.youtube.com/embed/XEdwGvS2AwA]
 
 ## <a name="how-do-i-access-this-feature"></a>Comment accéder à cette fonctionnalité ?
 

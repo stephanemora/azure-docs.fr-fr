@@ -2,19 +2,20 @@
 title: Vue d’ensemble du provisionnement Linux
 description: Vue d’ensemble de la façon d’intégrer vos images de machine virtuelle Linux ou de créer des images à utiliser dans Azure.
 author: danielsollondon
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.subservice: imaging
+ms.collection: linux
 ms.topic: overview
 ms.workload: infrastructure
 ms.date: 06/22/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: a7d9aa7de8bb75a22acc85c77924765eaa1b6b3b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6dafa400f2ce2421db6775084befc0abeab70a04
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87080146"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102563215"
 ---
 # <a name="azure-linux-vm-provisioning"></a>Provisionnement de machines virtuelles Linux Azure
 Lorsque vous créez une machine virtuelle à partir d’une image généralisée (Shared Image Gallery ou image managée), le plan de contrôle vous permet de créer une machine virtuelle et de lui transmettre des paramètres. Ce processus porte le nom de *provisionnement* de machines virtuelles. Pendant le provisionnement, la plateforme met les valeurs de paramètres de création de machine virtuelle nécessaires (nom d’hôte, nom d’utilisateur, mot de passe, clés SSH, customData) à la disposition de la machine virtuelle lors de son démarrage. 

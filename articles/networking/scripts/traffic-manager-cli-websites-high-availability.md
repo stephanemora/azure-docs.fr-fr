@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: traffic-manager
 ms.date: 06/26/2018
 ms.author: allensu
-ms.openlocfilehash: 7103b11b7ee268acbddd8b402e1be1d44074f54d
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 90fcba21ad6f44b5a420cb15b95ef278f9b5b9b0
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98234067"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102211071"
 ---
 # <a name="route-traffic-for-high-availability-of-applications---azure-cli"></a>Router le trafic pour la haute disponibilité des applications – Azure CLI
 
@@ -49,7 +49,7 @@ Ce script utilise les commandes suivantes pour créer un groupe de ressources, u
 |---|---|
 | [az group create](/cli/azure/group) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
 | [az appservice plan create](/cli/azure/appservice/plan) | Crée un plan App Service. Cela équivaut à une batterie de serveurs pour votre application web Azure. |
-| [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Crée une application web Azure dans le plan App Service. |
+| [az webapp create](/cli/azure/webapp#az-webapp-create) | Crée une application web Azure dans le plan App Service. |
 | [az network traffic-manager profile create](/cli/azure/network/traffic-manager/profile) | Crée un profil Azure Traffic Manager. |
 | [az network traffic-manager endpoint create](/cli/azure/network/traffic-manager/endpoint) | Ajoute un point de terminaison à un profil Azure Traffic Manager. |
 

@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: ac8b0e0c2cdbd46626677f4be0f78800d839ad28
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 67f5665225bc1297d0eb1b1e1da954fb47660dee
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97358892"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102488951"
 ---
 # <a name="migration-guide-sql-server-to-sql-managed-instance"></a>Guide de migration : de SQL Server vers SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -57,6 +57,8 @@ Vous pouvez également utiliser  [Microsoft Assessment and Planning Toolkit (�
 Pour plus d’informations sur les outils utilisables au cours de la phase de découverte, consultez [Services et outils disponibles pour les scénarios de migration de données](../../../dms/dms-tools-matrix.md). 
 
 ### <a name="assess"></a>Évaluer 
+
+[!INCLUDE [assess-estate-with-azure-migrate](../../../../includes/azure-migrate-to-assess-sql-data-estate.md)]
 
 Une fois les sources de données découvertes, évaluez les instances de SQL Server locales que vous pouvez migrer vers Azure SQL Managed Instance pour identifier les obstacles ou les problèmes de compatibilité liés à la migration. 
 
@@ -212,12 +214,12 @@ Certaines fonctionnalités SQL Server sont disponibles uniquement une fois que v
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Si vous souhaitez obtenir une matrice des services et outils Microsoft et tiers qui peuvent vous aider dans différents scénarios de migration de données et de base de données ainsi que pour des tâches spécialisées, consultez [Services et outils disponibles pour les scénarios de migration de données](../../../dms/dms-tools-matrix.md).
+- Pour obtenir une matrice des services et outils Microsoft et tiers qui peuvent vous aider dans les différents scénarios de migration de données et de base de données ainsi que leurs tâches spécialisées, consultez [Services et outils de migration de données](../../../dms/dms-tools-matrix.md).
 
 - Pour en savoir plus sur Azure SQL Managed Instance, consultez :
    - [Niveaux de service dans Azure SQL Managed Instance](../../managed-instance/sql-managed-instance-paas-overview.md#service-tiers)
    - [Différences entre SQL Server et Azure SQL Managed Instance](../../managed-instance/transact-sql-tsql-differences-sql-server.md)
-   - [Calculatrice du coût total de possession Azure](https://azure.microsoft.com/pricing/tco/calculator/) 
+   - [Outil de calcul du coût total de possession Azure](https://azure.microsoft.com/pricing/tco/calculator/) 
 
 
 - Pour plus d’informations sur l’infrastructure et le cycle d’adoption pour les migrations cloud, consultez :

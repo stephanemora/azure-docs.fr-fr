@@ -9,19 +9,19 @@ ms.topic: sample
 ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: mvc, seodec18, devx-track-azurecli
-ms.openlocfilehash: e1fc3771eaf5e8fa59b297e2052d232150ccfab3
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: 3d2dd7691ac601e690e9f477b0450da07233e201
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97006287"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102553457"
 ---
 # <a name="create-an-app-service-app-with-continuous-deployment-using-azure-cli"></a>Créer une application App Service avec un déploiement continu à l’aide d’Azure CLI
 
 Cet exemple de script crée une application dans App Service avec ses ressources associées, puis configure un déploiement continu à partir d’un dépôt Azure DevOps. Pour cet exemple, vous aurez besoin des éléments suivants :
 
 * Un dépôt Azure DevOps avec du code d’application pour lequel vous disposez d’autorisations d’administration.
-* Un [PAT (jeton d’accès personnel)](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=vsts) pour votre organisation Azure DevOps.
+* Un [PAT (jeton d’accès personnel)](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate) pour votre organisation Azure DevOps.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
