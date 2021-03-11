@@ -18,12 +18,12 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 56eedda7f79fedce1e34ad837c92006e5cd8f191
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d27ad1f15e9f46f0bc67e62b79606828efb85e6
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88998269"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102453153"
 ---
 # <a name="how-to-send-scheduled-notifications"></a>Procédure : Envoyer des notifications planifiées
 
@@ -31,7 +31,7 @@ Si vous avez un scénario dans lequel vous souhaitez envoyer une notification à
 
 
 ## <a name="schedule-your-notifications"></a>Planifier vos notifications
-Lorsque vous envoyez une notification, utilisez simplement la classe [`ScheduledNotification`](/dotnet/api/microsoft.azure.notificationhubs.schedulednotification?view=azure-dotnet#microsoft_azure_notificationhubs_schedulednotification) dans le Kit de développement logiciel (SDK) Notification Hubs, comme indiqué dans l'exemple suivant :
+Lorsque vous envoyez une notification, utilisez simplement la classe [`ScheduledNotification`](/dotnet/api/microsoft.azure.notificationhubs.schedulednotification#microsoft_azure_notificationhubs_schedulednotification) dans le Kit de développement logiciel (SDK) Notification Hubs, comme indiqué dans l'exemple suivant :
 
 ```csharp
 Notification notification = new AppleNotification("{\"aps\":{\"alert\":\"Happy birthday!\"}}");

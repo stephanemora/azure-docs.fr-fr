@@ -8,12 +8,12 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: 7118ff589e580fd3aa1f693e72152f1ad4c18e10
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 47b4f36aec9a906317a9704a7d73bf66385d9e88
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99979876"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102552114"
 ---
 # <a name="tutorial-sign-in-users-and-call-a-protected-api-from-a-blazor-webassembly-app"></a>Tutoriel : Connecter des utilisateurs et appeler une API protégée à partir d’une application Blazor WebAssembly
 
@@ -49,7 +49,7 @@ Une fois l’inscription effectuée, sous **Gérer**, sélectionnez **Authentifi
 Pour créer l’application, vous avez besoin des tout derniers modèles Blazor. Vous pouvez les installer pour l’interface CLI .NET Core au moyen de la commande suivante :
 
 ```dotnetcli
-dotnet new --install Microsoft.AspNetCore.Components.WebAssembly.Templates::3.2.1
+dotnet new -i Microsoft.Identity.Web.ProjectTemplates::1.6.0
 ```
 
 Exécutez ensuite la commande suivante pour créer l’application. Remplacez les espaces réservés dans la commande par les informations appropriées extraites de la page de présentation de votre application et exécutez la commande dans un interpréteur de commandes. L’emplacement de sortie spécifié avec l’option `-o|--output` crée un dossier de projet s’il n’existe pas et devient partie intégrante du nom de l’application.

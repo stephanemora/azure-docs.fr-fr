@@ -99,6 +99,8 @@
       href: firewall-workbook.md
     - name: Déployer et configurer un pare-feu Premium
       href: premium-deploy.md
+    - name: Déployer des certificats d’autorité de certification d’entreprise pour Premium
+      href: premium-deploy-certificates-enterprise-ca.md
     - name: Migrer vers le Pare-feu Azure Premium
       href: premium-migrate.md
 - name: Informations de référence

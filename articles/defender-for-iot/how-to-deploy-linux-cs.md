@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
-ms.openlocfilehash: 48737831440a1402b6974955b4da61a4216b011f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ec26cd0b66b6d08d8bd686d8f3e5ad8011df10b1
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90930255"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102449762"
 ---
 # <a name="deploy-defender-for-iot-c-based-security-agent-for-linux"></a>Déployer l’agent de sécurité Defender pour IoT basé sur C# pour Linux
 
@@ -27,11 +27,10 @@ Ce guide explique comment installer et déployer sur Linux l’agent de sécurit
 
 Dans ce guide, vous apprendrez comment :
 
-> [!div class="checklist"]
-> * Installer
-> * Vérifier le déploiement
-> * Désinstaller l’agent
-> * Dépanner
+- Installer
+- Vérifier le déploiement
+- Désinstaller l’agent
+- Dépanner
 
 ## <a name="prerequisites"></a>Prérequis
 

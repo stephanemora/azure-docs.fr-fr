@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 8e69803f4740a58adb4230bd82cc723221762cb4
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 52c93bef4529f27ad38677f17209e7b48e997368
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576614"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102548442"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Développer des applications sécurisées sur Azure
 Cet article présente les activités et contrôles de sécurité à prendre en compte lorsque vous développez des applications pour le cloud. Les questions et concepts de sécurité à prendre en compte pendant les phases d’implémentation et de vérification du [Microsoft Security Development Lifecycle](/previous-versions/windows/desktop/cc307891(v=msdn.10)) y sont abordées. L’objectif est de vous aider à définir les activités et services Azure que vous pouvez utiliser pour développer une application plus sécurisée.
@@ -34,7 +34,7 @@ Supposons que votre application soit utilisée d’une manière que vous ne souh
 
 ### <a name="perform-code-reviews"></a>Effectuer des révisions de code
 
-Avant d’archiver du code, [révisez-le](/azure/devops/learn/devops-at-microsoft/code-reviews-not-primarily-finding-bugs) pour augmenter la qualité globale du code et réduire le risque de création de bogues. Vous pouvez utiliser [Visual Studio](/azure/devops/repos/tfvc/get-code-reviewed-vs?view=vsts) pour gérer le processus de révision de code.
+Avant d’archiver du code, [révisez-le](/azure/devops/learn/devops-at-microsoft/code-reviews-not-primarily-finding-bugs) pour augmenter la qualité globale du code et réduire le risque de création de bogues. Vous pouvez utiliser [Visual Studio](/azure/devops/repos/tfvc/get-code-reviewed-vs) pour gérer le processus de révision de code.
 
 ### <a name="perform-static-code-analysis"></a>Effectuer une analyse du code statique
 

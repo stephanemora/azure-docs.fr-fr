@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/29/2019
 ms.author: memildin
-ms.openlocfilehash: 778feda8d72101d4ae2a0f0c27549701dfb53340
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 1ce20deed8b26dc5f5bebf4656dd3f1c370d766f
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341411"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102561226"
 ---
 # <a name="endpoint-protection-assessment-and-recommendations-in-azure-security-center"></a>Évaluation de la protection de point de terminaison et recommandations dans Azure Security Center
 
@@ -29,9 +29,9 @@ Azure Security Center fournit des évaluations d’intégrité des versions [pri
 
 ## <a name="windows-defender"></a>Windows Defender
 
-* Security Center vous recommande d’ **« Installer des solutions de protection de point de terminaison sur une machine virtuelle »** lorsque la commande [Get-MpComputerStatus](/powershell/module/defender/get-mpcomputerstatus?preserve-view=true&view=win10-ps) s’exécute et renvoie **AMServiceEnabled : False**
+* Security Center vous recommande d’ **« Installer des solutions de protection de point de terminaison sur une machine virtuelle »** lorsque la commande [Get-MpComputerStatus](/powershell/module/defender/get-mpcomputerstatus) s’exécute et renvoie **AMServiceEnabled : False**
 
-* Security Center vous recommande de **« Résoudre les problèmes d’intégrité de la protection de point de terminaison sur vos machines »** lorsque commande [Get-MpComputerStatus](/powershell/module/defender/get-mpcomputerstatus?preserve-view=true&view=win10-ps) s’exécute et qu’une des situations suivantes se présente :
+* Security Center vous recommande de **« Résoudre les problèmes d’intégrité de la protection de point de terminaison sur vos machines »** lorsque commande [Get-MpComputerStatus](/powershell/module/defender/get-mpcomputerstatus) s’exécute et qu’une des situations suivantes se présente :
 
   * L’une des propriétés suivantes est false :
 

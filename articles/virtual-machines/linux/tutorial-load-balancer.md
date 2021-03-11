@@ -1,13 +1,15 @@
 ---
 title: 'Tutoriel : Équilibrer la charge des machines virtuelles Linux dans Azure'
 description: Dans ce tutoriel, vous allez apprendre à utiliser Azure CLI afin de créer un équilibreur de charge pour une application hautement disponible et sécurisée sur trois machines virtuelles Linux
-services: virtual-machines-linux
+services: virtual-machines
 documentationcenter: virtual-machines
 author: cynthn
 manager: gwallace
 tags: azure-resource-manager
+ms.subservice: networking
 ms.assetid: ''
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
@@ -15,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 11/13/2017
 ms.author: cynthn
 ms.custom: mvc, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 7846fc84adfbf34ad8db1dbe16a79cb5345e6021
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 433bbd51618cfb5624c8ed2c549e1793488f0e81
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91336086"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102553763"
 ---
 # <a name="tutorial-load-balance-linux-virtual-machines-in-azure-to-create-a-highly-available-application-with-the-azure-cli"></a>Tutoriel : Équilibrer la charge des machines virtuelles Linux dans Azure pour créer une application hautement disponible avec Azure CLI
 

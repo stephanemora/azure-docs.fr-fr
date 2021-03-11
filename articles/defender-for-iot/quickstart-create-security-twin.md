@@ -1,5 +1,5 @@
 ---
-title: Créer un jumeau de module de sécurité
+title: 'Démarrage rapide : Créer un jumeau de module de sécurité'
 description: Dans ce guide de démarrage rapide, vous allez découvrir comment créer un jumeau de module Defender pour IoT en vue d’une utilisation avec Azure Defender pour IoT.
 services: defender-for-iot
 ms.service: defender-for-iot
@@ -13,16 +13,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/21/2021
 ms.author: shhazam
-ms.openlocfilehash: 68d137caeed91e9dea2dbf3883929d85c25382aa
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 832c8e426b57e6b447ef805f2868a6d42abe3d9d
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100523258"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102449694"
 ---
-# <a name="create-an-azureiotsecurity-module-twin"></a>Créer un jumeau de module azureiotsecurity
+# <a name="quickstart-create-an-azureiotsecurity-module-twin"></a>Démarrage rapide : Créer un jumeau de module azureiotsecurity
 
 Ce guide de démarrage rapide explique comment créer des jumeaux de module _azureiotsecurity_ individuels destinés à de nouveaux appareils, ou créer par lot des jumeaux de module pour tous les appareils d’un hub IoT.
+
+## <a name="prerequisites"></a>Prérequis
+
+Aucun
 
 ## <a name="understanding-azureiotsecurity-module-twins"></a>Présentation des jumeaux de module azureiotsecurity
 

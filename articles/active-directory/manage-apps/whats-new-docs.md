@@ -1,7 +1,7 @@
 ---
 title: Nouveautés dans la gestion des applications Azure Active Directory
 description: Gestion des applications Azure Active Directory - Nouvelle documentation et documentation mise à jour
-ms.date: 02/01/2021
+ms.date: 03/08/2021
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: reference
@@ -9,16 +9,32 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: daveba
-ms.openlocfilehash: 9de518f53a6054a47a72e40ebe546a32dd48aabe
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: ebd8839fd17f79bc53b5093af83d457bb23712d9
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101647270"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102452048"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Gestion des applications Azure Active Directory : Nouveautés
 
 Nouveautés de la documentation relative à la gestion des applications Azure Active Directory Cet article répertorie les nouveaux documents qui ont été ajoutés et ceux qui ont subi des mises à jour significatives au cours des trois derniers mois. Pour découvrir les nouveautés en matière de gestion des applications d’entreprise, consultez [Nouveautés d’Azure Active Directory](../fundamentals/whats-new.md).
+
+## <a name="february-2021"></a>Février 2021
+
+### <a name="new-articles"></a>Nouveaux articles
+
+- [Intégrer à SharePoint (SAML)](application-proxy-integrate-with-sharepoint-server-saml.md)
+- [Migrer l’authentification des applications vers Azure Active Directory](migrate-application-authentication-to-azure-active-directory.md)
+
+### <a name="updated-articles"></a>Articles mis à jour
+
+- [Intégrer à SharePoint (SAML)](application-proxy-integrate-with-sharepoint-server-saml.md)
+- [Accorder le consentement de l’administrateur au niveau locataire à une application](grant-admin-consent.md)
+- [Déplacement de l’authentification d’application des services de fédération Active Directory (AD FS) vers Azure Active Directory](migrate-adfs-apps-to-azure.md)
+- [Tutoriel : Ajouter une application locale pour un accès à distance via le proxy d’application d’Azure Active Directory](application-proxy-add-on-premises-application.md)
+- [Problèmes de connexion aux applications configurées pour l’authentification unique basée sur SAML](application-sign-in-problem-federated-sso-gallery.md)
+- [Utiliser des restrictions liées au locataire pour gérer l’accès aux applications cloud SaaS](tenant-restrictions.md)
 
 ## <a name="january-2021"></a>Janvier 2021
 

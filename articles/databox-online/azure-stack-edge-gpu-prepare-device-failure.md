@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 12/11/2020
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: b437ce7b6894ebefe38b32f27d370d9f8c4bfe80
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: 60469dc834c28bd8dbc73a1883ea01b06797c01f
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97369019"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102442976"
 ---
 # <a name="prepare-for-an-azure-stack-edge-pro-gpu-device-failure"></a>Se préparer à la défaillance d’un appareil Azure Stack Edge Pro avec GPU
+
+[!INCLUDE [applies-to-GPU-and-pro-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-sku.md)]
 
 Cet article vous aide à vous préparer à la défaillance d’un appareil en détaillant comment enregistrer et sauvegarder la configuration et les données de l’appareil sur votre appareil Azure Stack Edge Pro avec GPU. 
 

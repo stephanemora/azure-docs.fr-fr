@@ -9,12 +9,12 @@ ms.author: mariusu
 ms.date: 10/15/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 5752f20cb433a417a684076338214cd2ea80bc8b
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: aadecd3c57f5a145efd43058a5113205d7517c0b
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101658095"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102486401"
 ---
 # <a name="get-started-with-the-web-calling-sample"></a>Bien démarrer avec l’exemple d’appel web
 
@@ -23,6 +23,9 @@ L’exemple d’appel web est une application web qui sert de procédure pas à 
 Cet exemple a été conçu pour les développeurs, et facilite la prise en main de Communication Services. Son interface utilisateur est divisée en plusieurs sections, chacune comportant un bouton « Show code » qui vous permet de copier du code directement à partir de votre navigateur afin de le coller dans votre propre application Communication Services.
 
 ## <a name="get-started-with-the-web-calling-sample"></a>Bien démarrer avec l’exemple d’appel web
+
+[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
+
 
 > [!IMPORTANT]
 > [Cet exemple est disponible sur Github](https://github.com/Azure-Samples/communication-services-web-calling-tutorial/).
