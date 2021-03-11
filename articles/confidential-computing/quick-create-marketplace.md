@@ -3,17 +3,17 @@ title: 'Démarrage rapide : Créer une machine virtuelle d’informatique confi
 description: Commencez vos déploiements en apprenant à créer rapidement une machine virtuelle d’informatique confidentielle avec la Place de marché.
 author: JBCook
 ms.service: virtual-machines
-ms.subservice: workloads
+ms.subservice: confidential-computing
 ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 04/06/2020
 ms.author: JenCook
-ms.openlocfilehash: 82d9c143f84dfced639c928bf12693024079c2ba
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.openlocfilehash: aba23b67574fb74b7cd571dc5d4642bb8b991b93
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91409491"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102566632"
 ---
 # <a name="quickstart-deploy-an-azure-confidential-computing-vm-in-the-marketplace"></a>Démarrage rapide : Déployer une machine virtuelle d’informatique confidentielle Azure dans la Place de marché
 
@@ -28,7 +28,7 @@ Si vous souhaitez déployer une machine virtuelle d’informatique confidentiell
 Si vous n’avez pas d’abonnement Azure, [créez un compte](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/) avant de commencer.
 
 > [!NOTE]
-> Les comptes associés à un essai gratuit n’ont pas accès aux machines virtuelles utilisées dans ce tutoriel. Effectuez une mise à niveau vers un abonnement avec paiement à l’utilisation.
+> Les comptes associés à un essai gratuit n’ont pas accès aux machines virtuelles utilisées dans ce tutoriel. Veuillez passer à un abonnement avec paiement à l’utilisation.
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 

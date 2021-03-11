@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.topic: article
 ms.date: 12/22/2020
 ms.author: tyao
-ms.openlocfilehash: 60a4ef47bc30955c918983d54f613cbdb5cbed73
-ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
+ms.openlocfilehash: 65e378c0380804c13e4b42d855aede7781b93592
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97746760"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102211666"
 ---
 # <a name="configure-an-ip-restriction-rule-with-a-web-application-firewall-for-azure-front-door"></a>Configurer une règle de restriction IP avec un Pare-feu d’applications web pour Azure Front Door
 
@@ -95,7 +95,7 @@ Créez un profil Azure Front Door en suivant les instructions décrites dans [D�
 
 ### <a name="create-a-waf-policy"></a>Créer une stratégie de pare-feu d’applications web (WAF).
 
-Créer une stratégie WAF à l’aide de la commande [az network front-door waf-policy create](/cli/azure/ext/front-door/network/front-door/waf-policy?view=azure-cli-latest#ext-front-door-az-network-front-door-waf-policy-create). Dans l’exemple suivant, remplacez le nom de la stratégie *IPAllowPolicyExampleCLI* par un nom unique.
+Créer une stratégie WAF à l’aide de la commande [az network front-door waf-policy create](/cli/azure/ext/front-door/network/front-door/waf-policy#ext-front-door-az-network-front-door-waf-policy-create). Dans l’exemple suivant, remplacez le nom de la stratégie *IPAllowPolicyExampleCLI* par un nom unique.
 
 ```azurecli-interactive 
 az network front-door waf-policy create \
@@ -105,7 +105,7 @@ az network front-door waf-policy create \
   ```
 ### <a name="add-a-custom-ip-access-control-rule"></a>Ajouter une règle de contrôle d’accès IP personnalisée
 
-Utilisez la commande [az network front-door waf-policy custom-rule create](/cli/azure/ext/front-door/network/front-door/waf-policy/rule?view=azure-cli-latest#ext-front-door-az-network-front-door-waf-policy-rule-create) pour ajouter une règle de contrôle d’accès IP personnalisée pour une stratégie WAF que vous venez de créer.
+Utilisez la commande [az network front-door waf-policy custom-rule create](/cli/azure/ext/front-door/network/front-door/waf-policy/rule#ext-front-door-az-network-front-door-waf-policy-rule-create) pour ajouter une règle de contrôle d’accès IP personnalisée pour une stratégie WAF que vous venez de créer.
 
 Dans les exemples suivants :
 -  Remplacez *IPAllowPolicyExampleCLI* par votre stratégie unique créée précédemment.
@@ -138,7 +138,7 @@ az network front-door waf-policy rule match-condition add \
   ```
                                                    
 ### <a name="find-the-id-of-a-waf-policy"></a>Rechercher l’ID d’une stratégie WAF 
-Recherchez une stratégie WAF à l’aide de la commande [az network front-door waf-policy show](/cli/azure/ext/front-door/network/front-door/waf-policy?view=azure-cli-latest#ext-front-door-az-network-front-door-waf-policy-show). Là encore, remplacez *IPAllowPolicyExampleCLI* dans l’exemple suivant par votre stratégie unique que vous avez créée précédemment.
+Recherchez une stratégie WAF à l’aide de la commande [az network front-door waf-policy show](/cli/azure/ext/front-door/network/front-door/waf-policy#ext-front-door-az-network-front-door-waf-policy-show). Là encore, remplacez *IPAllowPolicyExampleCLI* dans l’exemple suivant par votre stratégie unique que vous avez créée précédemment.
 
    ```azurecli
    az network front-door  waf-policy show \
@@ -148,7 +148,7 @@ Recherchez une stratégie WAF à l’aide de la commande [az network front-door 
 
 ### <a name="link-a-waf-policy-to-an-azure-front-door-front-end-host"></a>Lier une stratégie WAF à un hôte front-end Azure Front Door
 
-Définissez l’ID *WebApplicationFirewallPolicyLink* d’Azure Front Door sur l’ID de la stratégie à l’aide de la commande [az network front-door update](/cli/azure/ext/front-door/network/front-door?view=azure-cli-latest#ext-front-door-az-network-front-door-update). Remplacez *IPAllowPolicyExampleCLI* par votre stratégie unique créée précédemment.
+Définissez l’ID *WebApplicationFirewallPolicyLink* d’Azure Front Door sur l’ID de la stratégie à l’aide de la commande [az network front-door update](/cli/azure/ext/front-door/network/front-door#ext-front-door-az-network-front-door-update). Remplacez *IPAllowPolicyExampleCLI* par votre stratégie unique créée précédemment.
 
    ```azurecli
    az network front-door update \

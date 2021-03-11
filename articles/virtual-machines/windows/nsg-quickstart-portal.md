@@ -3,16 +3,17 @@ title: Ouvrir des ports sur une machine virtuelle avec le Portail Azure
 description: Apprenez à ouvrir un port et créer un point de terminaison sur votre machine virtuelle à l'aide du portail Azure
 author: cynthn
 ms.service: virtual-machines
+ms.subservice: networking
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 05/27/2020
 ms.author: cynthn
-ms.openlocfilehash: 1c3c39dd8c907f780876f97f9703857653d4e359
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 28b3ee98d44e1567d9e25cf9237015396975ab01
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92777756"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102550448"
 ---
 # <a name="how-to-open-ports-to-a-virtual-machine-with-the-azure-portal"></a>Guide d’ouverture de ports vers une machine virtuelle avec le portail Azure
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
@@ -23,7 +24,7 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
 
 ## <a name="create-a-network-security-group"></a>Créer un groupe de sécurité réseau
 
-1. Recherchez et sélectionnez un groupe de ressources pour la machine virtuelle, choisissez **Ajouter** , puis recherchez et sélectionnez **Groupe de sécurité de réseau**.
+1. Recherchez et sélectionnez un groupe de ressources pour la machine virtuelle, choisissez **Ajouter**, puis recherchez et sélectionnez **Groupe de sécurité de réseau**.
 
 1. Sélectionnez **Create** (Créer).
 
@@ -45,7 +46,7 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
 
     ![Basculer vers la page Avancé](./media/nsg-quickstart-portal/advanced.png)
 
-1. Dans la page **Ajouter une règle de sécurité de trafic entrant** , basculez vers **Avancé** depuis **De base** en haut de la page. 
+1. Dans la page **Ajouter une règle de sécurité de trafic entrant**, basculez vers **Avancé** depuis **De base** en haut de la page. 
 
 1. Choisissez un **Service** courant dans le menu déroulant, tel que **HTTP**. Vous pouvez aussi sélectionner **Personnalisé** si vous souhaitez indiquer un port spécifique à utiliser. 
 

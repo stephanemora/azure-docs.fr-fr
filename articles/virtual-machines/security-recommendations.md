@@ -10,12 +10,12 @@ ms.date: 11/13/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
 ms.reviewer: cynthn
-ms.openlocfilehash: afb985ecbe91835369738966e39e751f06f8d796
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 622ebfed8294dbcb441aa509fc4f6ba75114f28d
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100571338"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102499354"
 ---
 # <a name="security-recommendations-for-virtual-machines-in-azure"></a>Recommandations de sécurité pour les machines virtuelles dans Azure
 
@@ -33,7 +33,7 @@ Pour obtenir des informations générales sur Azure Security Center, consultez [
 | Quand vous créez des images de machine virtuelle personnalisées, appliquez les dernières mises à jour. | Avant de créer des images, installez les dernières mises à jour du système d’exploitation et de toutes les applications qui feront partie de votre image.  | - |
 | veiller à ce que les machines virtuelles soient toujours à jour. | Vous pouvez utiliser la solution [Update Management](../automation/update-management/overview.md) dans Azure Automation pour gérer les mises à jour de vos systèmes d’exploitation Windows et Linux dans Azure. | [Oui](../security-center/asset-inventory.md) |
 | Sauvegardez vos machines virtuelles. | La [sauvegarde Azure](../backup/backup-overview.md) vous permet de protéger vos données d’application à des coûts d’exploitation minimes. Les erreurs rencontrées par les applications peuvent endommager vos données et les erreurs humaines peuvent introduire des bogues dans vos applications. La sauvegarde Azure protège vos machines virtuelles exécutant Windows et Linux. | - |
-| Utilisez plusieurs machines virtuelles pour plus de résilience et de disponibilité. | Si votre machine virtuelle exécute des applications qui doivent être hautement disponibles, utilisez plusieurs machines virtuelles ou des [groupes à haute disponibilité](./manage-availability.md). | - |
+| Utilisez plusieurs machines virtuelles pour plus de résilience et de disponibilité. | Si votre machine virtuelle exécute des applications qui doivent être hautement disponibles, utilisez plusieurs machines virtuelles ou des [groupes à haute disponibilité](./availability.md). | - |
 | Adoptez une stratégie BCDR (continuité d’activité et reprise d’activité). | Azure Site Recovery vous permet de choisir parmi différentes options conçues pour la continuité de l’activité. Il prend en charge différents scénarios de réplication et de basculement. Pour plus d’informations, consultez [À propos de Site Recovery](../site-recovery/site-recovery-overview.md). | - |
 
 ## <a name="data-security"></a>Sécurité des données

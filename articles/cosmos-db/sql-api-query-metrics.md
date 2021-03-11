@@ -5,15 +5,15 @@ author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 05/23/2019
+ms.date: 01/06/2021
 ms.author: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: fedcdd55a465f5c09c331a0fa917811c349b15b1
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 019ca26143a4879efafa973299703f0abcb21162
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097224"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102488084"
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Réglage des performances de requête avec Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -143,7 +143,6 @@ Les éléments suivants sont les facteurs les plus courants qui affectent les pe
 | Débit approvisionné | Mesurez la RU (unité de requête) par requête et assurez-vous d’avoir le débit approvisionné nécessaire pour vos requêtes. | 
 | Partitionnement et clés de partition | Préférez les requêtes avec la valeur de clé de partition dans la clause de filtre pour une latence faible. |
 | Options de requête et de kit SDK | Suivez les meilleures pratiques du kit SDK, comme la connectivité directe, et paramétrez les options d’exécution de requêtes du côté client. |
-| Latence du réseau | Prenez en compte la surcharge réseau dans la prise de mesures, et utilisez des API d’hébergement multiple pour lire à partir de la région la plus proche. |
 | Stratégie d’indexation | Assurez-vous que vous disposez de la stratégie ou des chemins d’indexation nécessaires pour la requête. |
 | Mesures d’exécution des requêtes | Analysez les mesures de l’exécution des requêtes pour identifier les réécritures potentielles de formes de données et de requêtes.  |
 

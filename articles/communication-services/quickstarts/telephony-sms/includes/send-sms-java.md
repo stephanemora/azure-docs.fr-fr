@@ -1,5 +1,5 @@
 ---
-title: Fichier include
+title: Fichier Include
 description: Fichier include
 services: azure-communication-services
 author: chrwhit
@@ -10,12 +10,12 @@ ms.date: 08/20/2020
 ms.topic: include
 ms.custom: include file
 ms.author: chrwhit
-ms.openlocfilehash: cb8e6934125630590a337ed7bf7f4c81b2b73bb3
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 1c4f3c47e3ac6e1e701b673574bb664237c1a9af
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94915166"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102244854"
 ---
 Commencez avec Azure Communication Services en utilisant la bibliothèque de client Communication Services SMS Java pour envoyer des SMS.
 
@@ -28,7 +28,7 @@ Le fait de suivre ce guide de démarrage rapide entraîne une petite dépense de
 ## <a name="prerequisites"></a>Prérequis
 
 - Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Java Development Kit (JDK)](/java/azure/jdk/?preserve-view=true&view=azure-java-stable) version 8 ou ultérieure.
+- [Java Development Kit (JDK)](/java/azure/jdk/) version 8 ou ultérieure.
 - [Apache Maven](https://maven.apache.org/download.cgi).
 - Une ressource Communication Services active et la chaîne de connexion. [Créez une ressource Communication Services](../../create-communication-resource.md).
 - Un numéro de téléphone permettant de recevoir des SMS. [Obtenez un numéro de téléphone](../get-phone-number.md).
@@ -42,7 +42,7 @@ Le fait de suivre ce guide de démarrage rapide entraîne une petite dépense de
 
 ### <a name="create-a-new-java-application"></a>Créer une application Java
 
-Ouvrez votre fenêtre de terminal ou de commande, puis accédez au répertoire dans lequel vous souhaitez créer votre application Java. Exécutez la commande ci-dessous pour générer le projet Java à partir du modèle maven-archetype-quickstart.
+Ouvrez votre terminal ou votre fenêtre Commande, puis accédez au répertoire dans lequel vous souhaitez créer votre application Java. Exécutez la commande ci-dessous pour générer le projet Java à partir du modèle maven-archetype-quickstart.
 
 ```console
 mvn archetype:generate -DgroupId=com.communication.quickstart -DartifactId=communication-quickstart -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false
@@ -136,7 +136,7 @@ SmsClient client = new SmsClientBuilder()
     .buildClient();
 ```
 
-Vous pouvez initialiser le client avec n’importe quel client HTTP personnalisé qui implémente l’interface `com.azure.core.http.HttpClient`. Le code ci-dessus illustre l’utilisation du [client HTTP Netty Azure Core](/java/api/overview/azure/core-http-netty-readme?preserve-view=true&view=azure-java-stable) qui est fourni par `azure-core`.
+Vous pouvez initialiser le client avec n’importe quel client HTTP personnalisé qui implémente l’interface `com.azure.core.http.HttpClient`. Le code ci-dessus illustre l’utilisation du [client HTTP Netty Azure Core](/java/api/overview/azure/core-http-netty-readme) qui est fourni par `azure-core`.
 
 Vous pouvez également fournir la chaîne de connexion entière à l’aide de la fonction connectionString() au lieu de fournir le point de terminaison et la clé d’accès. 
 ```java

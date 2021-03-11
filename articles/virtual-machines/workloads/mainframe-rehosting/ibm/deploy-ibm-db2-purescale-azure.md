@@ -2,16 +2,16 @@
 title: Déployer IBM DB2 pureScale sur Azure
 description: Découvrez comment déployer un exemple d’architecture utilisé récemment par une entreprise pour migrer son environnement IBM DB2 s’exécutant sur z/OS vers IBM DB2 pureScale sur Azure.
 author: njray
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.topic: how-to
 ms.date: 11/09/2018
 ms.author: edprice
-ms.openlocfilehash: 91ab11dce1c88f698640ce446b529c9cbe92cac5
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 481816ca0c1fecfee9396f6cc40582695b0952f2
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99221433"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102550193"
 ---
 # <a name="deploy-ibm-db2-purescale-on-azure"></a>Déployer IBM DB2 pureScale sur Azure
 
@@ -48,7 +48,7 @@ Le script deploy.sh crée et configure les ressources Azure pour cette architect
 
 -   Crée une machine virtuelle Windows à utiliser pour le test, mais n'installe rien sur celle-ci.
 
-Ensuite, les scripts de déploiement configurent un réseau de zone de stockage virtuel (vSAN) iSCSI pour le stockage partagé sur Azure. Dans cet exemple, iSCSI se connecte au cluster de stockage partagé. Dans la solution client d'origine, GlusterFS était utilisé. Toutefois, IBM ne prend plus en charge cette approche. Pour continuer à bénéficier de la prise en charge d’IBM, vous devez utiliser un système de fichiers compatible iSCSI pris en charge. Les espaces de stockage direct sont proposés en option par Microsoft.
+Ensuite, les scripts de déploiement configurent un réseau de zone de stockage virtuel (vSAN) iSCSI pour le stockage partagé sur Azure. Dans cet exemple, iSCSI se connecte au cluster de stockage partagé. Dans la solution client d'origine, GlusterFS était utilisé. Toutefois, IBM ne prend plus en charge cette approche. Pour continuer à bénéficier de la prise en charge d'IBM, vous devez utiliser un système de fichiers compatible iSCSI pris en charge. Les espaces de stockage direct sont proposés en option par Microsoft.
 
 Cette solution vous donne également la possibilité d’installer les cibles iSCSI sous la forme d’un nœud Windows unique. iSCSI fournit une interface de stockage de bloc partagé sur TCP/IP qui permet à la procédure d’installation deDB2 pureScale d’utiliser une interface d’appareil pour se connecter à un stockage partagé.
 
@@ -77,7 +77,7 @@ Le dépôt GitHub inclut DB2server.rsp, un fichier réponse (.rsp) qui vous perm
 | Choisir un projet          |                                              | DB2 Version 11.1.3.3. Éditions Server avec DB2 pureScale                                              |
 | Configuration             | Répertoire                                    | /data1/opt/ibm/db2/V11.1                                                                              |
 |                           | Choisir le type d'installation                 | Standard                                                                                               |
-|                           | J’accepte les conditions IBM                     | Activé                                                                                               |
+|                           | J’accepte les conditions IBM                     | Activée                                                                                               |
 | Propriétaire de l’instance            | Utilisateur existant pour l’instance, nom d’utilisateur        | DB2sdin1                                                                                              |
 | Utilisateur délimité               | Utilisateur existant, nom d’utilisateur                     | DB2sdfe1                                                                                              |
 | Système de fichiers de cluster       | Chemin de périphérique de partition disque partagée            | /dev/dm-2                                                                                             |

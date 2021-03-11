@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: 04137fef640da46ca8876811e127e109a8c3d445
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 4bfc29472373a53bcebb2ba59134d1f3702d4793
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348302"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102549870"
 ---
 # <a name="build-the-landing-page-for-your-transactable-saas-offer-in-the-commercial-marketplace"></a>Créer la page d'accueil de votre offre SaaS à vendre dans le Marketplace commercial
 
@@ -54,7 +54,7 @@ La première étape de l’utilisation de l’identité consiste à s’assurer 
 
 Pour commencer, suivez les instructions pour l’[inscription d’une nouvelle application](../active-directory/develop/quickstart-register-app.md). Pour permettre aux utilisateurs d’autres entreprise de visiter l’application, vous devez choisir l’une des options multilocataires lorsqu’il vous est demandé qui peut utiliser l’application.
 
-Si vous envisagez d’interroger l’API Microsoft Graph, [configurez votre nouvelle application de manière à accéder aux API web](../active-directory/develop/quickstart-configure-app-access-web-apis.md). Lorsque vous sélectionnez les autorisations d’API pour cette application, la valeur par défaut **user.Read** suffit pour collecter des informations de base sur l’acheteur afin de rendre le processus d’intégration lisse et automatique. Ne demandez aucune autorisation d’API nommée **besoin du consentement de l’administrateur** , car cela empêchera tous les utilisateurs non-administrateurs de visiter votre page d’accueil.
+Si vous envisagez d’interroger l’API Microsoft Graph, [configurez votre nouvelle application de manière à accéder aux API web](../active-directory/develop/quickstart-configure-app-access-web-apis.md). Lorsque vous sélectionnez les autorisations d’API pour cette application, la valeur par défaut **user.Read** suffit pour collecter des informations de base sur l’acheteur afin de rendre le processus d’intégration lisse et automatique. Ne demandez aucune autorisation d’API nommée **besoin du consentement de l’administrateur**, car cela empêchera tous les utilisateurs non-administrateurs de visiter votre page d’accueil.
 
 Si vous avez besoin d’autorisations élevées dans le cadre de votre processus d’intégration ou de configuration, envisagez d’utiliser la fonctionnalité de [consentement incrémentiel](../active-directory/azuread-dev/azure-ad-endpoint-comparison.md) d’Azure AD afin que tous les acheteurs envoyés par le marketplace puissent interagir initialement avec la page d’accueil.
 
@@ -62,7 +62,7 @@ Si vous avez besoin d’autorisations élevées dans le cadre de votre processus
 
 Nous avons fourni plusieurs exemples d’applications qui implémentent un site web simple avec la connexion Azure AD activée. Une fois que votre application est inscrite dans Azure AD, le panneau **Démarrage rapide** propose une liste de types d’applications et de piles de développement courants, comme le montre la figure 1. Choisissez ce qui correspond à votre environnement et suivez les instructions de téléchargement et d’installation.
 
-**_Figure 1 : Panneau Démarrage rapide dans le portail Azure_* _
+***Figure 1 : Panneau Mobile Démarrage rapide dans le portail Azure***
 
 :::image type="content" source="./media/azure-ad-saas/azure-ad-quickstart-blade.png" alt-text="Montre le panneau de démarrage rapide dans le portail Azure.":::
 
@@ -109,7 +109,7 @@ Dans le cadre du flux [OpenID Connect](../active-directory/develop/v2-protocols-
 
 ## <a name="use-the-microsoft-graph-api"></a>Utiliser l’API Microsoft Graph
 
-Le jeton d’ID contient des informations de base pour identifier l’acheteur, mais votre processus d’activation peut nécessiter des détails supplémentaires, tels que l’entreprise de l’acheteur, pour finaliser le processus d’intégration. Utilisez l’[API Microsoft Graph](/graph/use-the-api) pour demander ces informations afin de ne pas forcer l’utilisateur à entrer de nouveau ces détails. Les autorisations standard _ *User.Read* * incluent par défaut les informations suivantes.
+Le jeton d’ID contient des informations de base pour identifier l’acheteur, mais votre processus d’activation peut nécessiter des détails supplémentaires, tels que l’entreprise de l’acheteur, pour finaliser le processus d’intégration. Utilisez l’[API Microsoft Graph](/graph/use-the-api) pour demander ces informations afin de ne pas forcer l’utilisateur à entrer de nouveau ces détails. Les autorisations standard **user.Read** incluent par défaut les informations suivantes.
 
 | Valeur | Description |
 | ------------ | ------------- |
@@ -122,7 +122,7 @@ Le jeton d’ID contient des informations de base pour identifier l’acheteur, 
 | surname | Nom de l’utilisateur. |
 |||
 
-Des propriétés supplémentaires, telles que le nom de la société de l’utilisateur ou l’emplacement de l’utilisateur (pays), peuvent être sélectionnées pour être incluses dans la demande. Pour plus d’informations, consultez [propriétés du type de ressource utilisateur](/graph/api/resources/user?view=graph-rest-1.0&preserve-view=true#properties).
+Des propriétés supplémentaires, telles que le nom de la société de l’utilisateur ou l’emplacement de l’utilisateur (pays), peuvent être sélectionnées pour être incluses dans la demande. Pour plus d’informations, consultez [propriétés du type de ressource utilisateur](/graph/api/resources/user#properties).
 
 La plupart des applications inscrites à Azure AD accordent des permissions déléguées de lecture des informations de l’utilisateur à partir du locataire Azure AD de son entreprise. Toute demande d’informations de ce type adressée à Microsoft Graph doit être accompagnée d’un jeton d’accès pour l’authentification. Les étapes spécifiques pour générer le jeton d’accès dépendent de la pile de technologies que vous utilisez, mais l’exemple de code contient un exemple. Pour plus d’informations, consultez [Obtenir l’accès pour le compte d’un utilisateur](/graph/auth-v2-user).
 

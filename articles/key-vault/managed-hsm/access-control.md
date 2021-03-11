@@ -7,14 +7,14 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 02/17/2021
 ms.author: ambapat
-ms.openlocfilehash: 816941fe0ec3a81c41da56acedcedf2de7febe74
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 0c0a0c5f62f92aaf195e207dfd505ffb017d924e
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445232"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653898"
 ---
 # <a name="managed-hsm-access-control"></a>Contrôle d’accès HSM managé
 
@@ -63,7 +63,7 @@ Le tableau suivant présente les points de terminaison pour les plans de gestion
 | Plan&nbsp;d’accès | Points de terminaison d’accès | Opérations | Mécanisme de contrôle d’accès |
 | --- | --- | --- | --- |
 | Plan de gestion | **Mondial :**<br> management.azure.com:443<br> | Créer, lire, mettre à jour, supprimer et déplacer des HSM managés<br>Définir des balises de HSM managé | Azure RBAC |
-| Plan de données | **Mondial :**<br> &lt;hsm-name&gt;.vault.azure.net:443<br> | **Clés** : decrypt, encrypt,<br> unwrap, wrap, verify, sign, get, list, update, create, import, delete, backup, restore, purge<br/><br/> **Gestion des rôles de plan de données (RBAC local HSM managé)**   _: répertorier les définitions de rôles, attribuer des rôles, supprimer des attributions de rôles, définir des rôles personnalisés<br/><br/>_ *Sauvegarde/restauration  **: sauvegarde, restauration, vérification des opérations de sauvegarde/restauration de l’état <br/><br/>** Domaine de sécurité** : télécharger et charger le domaine de sécurité | RBAC local HSM managé |
+| Plan de données | **Mondial :**<br> <ph id="ph1">&amp;lt;</ph>hsm-name<ph id="ph2">&amp;gt;</ph>.managedhsm.azure.net:443<br> | **Clés** : decrypt, encrypt,<br> unwrap, wrap, verify, sign, get, list, update, create, import, delete, backup, restore, purge<br/><br/> **Gestion des rôles de plan de données (RBAC local HSM managé)**   _: répertorier les définitions de rôles, attribuer des rôles, supprimer des attributions de rôles, définir des rôles personnalisés<br/><br/>_ *Sauvegarde/restauration  **: sauvegarde, restauration, vérification des opérations de sauvegarde/restauration de l’état <br/><br/>** Domaine de sécurité** : télécharger et charger le domaine de sécurité | RBAC local HSM managé |
 |||||
 ## <a name="management-plane-and-azure-rbac"></a>Plan de gestion et Azure RBAC
 

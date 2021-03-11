@@ -3,22 +3,22 @@ title: Configurer une stratégie de rétention dans Azure DevTest Labs | Microso
 description: Découvrez comment configurer une stratégie de rétention, nettoyer la fabrique et mettre hors service des images anciennes à partir de DevTest Labs.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 115fdff215399a9a51171161191ecf5009e8e20e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 85384e88f8d456c7bf67302a57618d7a9703a5ee
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85476051"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102550023"
 ---
 # <a name="set-up-retention-policy-in-azure-devtest-labs"></a>Configurer une stratégie de rétention dans Azure DevTest Labs
 Cet article couvre la définition d’une stratégie de conservation, le nettoyage de la fabrique et la suppression des anciennes images dans tous les autres DevTest Labs de l’organisation. 
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 Vérifiez que vous avez bien suivi ces articles avant de continuer :
 
 - [Créer une fabrique d’images](image-factory-create.md)
 - [Exécuter une fabrique d’images depuis Azure DevOps](image-factory-set-up-devops-lab.md)
-- [Enregistrer des images personnalisées et les distribuer à plusieurs labos](image-factory-save-distribute-custom-images.md)
+- [Enregistrer les images personnalisées et les distribuer à plusieurs laboratoires](image-factory-save-distribute-custom-images.md)
 
 Les éléments suivants doivent déjà être en place :
 
@@ -64,7 +64,7 @@ L’ajout d’une nouvelle image à votre fabrique est également simple. Quand 
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-1. [Planifier votre génération/mise en production](/azure/devops/pipelines/build/triggers?view=azure-devops&tabs=designer) pour exécuter périodiquement la fabrique d’images. Elle actualise vos images générées par la fabrique de façon régulière.
+1. [Planifier votre génération/mise en production](/azure/devops/pipelines/build/triggers?tabs=designer) pour exécuter périodiquement la fabrique d’images. Elle actualise vos images générées par la fabrique de façon régulière.
 2. Créez d’autres images golden pour votre fabrique. Vous pouvez également envisager de [créer des artefacts](devtest-lab-artifact-author.md) pour générer un script avec des éléments supplémentaires de vos tâches de configuration de machine virtuelle et inclure les artefacts dans vos images de fabrique.
 4. Créez une [génération/mise en production distincte](/azure/devops/pipelines/overview?view=azure-devops-2019) pour exécuter le script **DistributeImages** séparément. Vous pouvez exécuter ce script quand vous apportez des modifications à Labs.json et obtenir ainsi des images copiées vers les labos cibles sans devoir recréer toutes les images.
 

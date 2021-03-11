@@ -8,12 +8,12 @@ ms.date: 01/03/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: contperf-fy21q1, devx-track-azurecli
-ms.openlocfilehash: d75b60c715a758684e6f3a4b331c0b12d17eaf21
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 3abca397186572cabb4f7ae99edae8688ea4d9a6
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101705107"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102499507"
 ---
 # <a name="enable-azure-active-directory-domain-services-authentication-on-azure-files"></a>Activer l’authentification Azure Active Directory Domain Services sur Azure Files
 
@@ -99,7 +99,7 @@ L’image suivante montre comment activer l’authentification Azure AD DS sur S
 
 Pour activer l’authentification Azure AD DS sur SMB avec Azure PowerShell, installez le dernier module Azure (version 2.4 ou ultérieure) ou le module Stockage Azure (version 1.5 ou ultérieure). Pour en savoir plus sur l’installation de PowerShell, consultez [Installer Azure PowerShell sur Windows avec PowerShellGet](/powershell/azure/install-Az-ps).
 
-Pour créer un compte de stockage, appelez [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount?view=azps-2.5.0), puis affectez au paramètre **EnableAzureActiveDirectoryDomainServicesForFile** la valeur **true**. Dans l’exemple ci-dessous, remplacez les valeurs d’espace réservé par vos propres valeurs. (Si vous utilisiez le module en préversion précédent, le paramètre pour l’activation de la fonctionnalité est **EnableAzureFilesAadIntegrationForSMB**.)
+Pour créer un compte de stockage, appelez [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount), puis affectez au paramètre **EnableAzureActiveDirectoryDomainServicesForFile** la valeur **true**. Dans l’exemple ci-dessous, remplacez les valeurs d’espace réservé par vos propres valeurs. (Si vous utilisiez le module en préversion précédent, le paramètre pour l’activation de la fonctionnalité est **EnableAzureFilesAadIntegrationForSMB**.)
 
 ```powershell
 # Create a new storage account
@@ -123,9 +123,9 @@ Set-AzStorageAccount -ResourceGroupName "<resource-group-name>" `
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Pour activer l’authentification Azure AD sur SMB avec Azure CLI, installez la dernière version de l’interface CLI (version 2.0.70 ou ultérieure). Pour plus d’informations sur l'installation de l’interface de ligne de commande Azure, consultez [Installer l’interface de ligne de commande Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
+Pour activer l’authentification Azure AD sur SMB avec Azure CLI, installez la dernière version de l’interface CLI (version 2.0.70 ou ultérieure). Pour plus d’informations sur l'installation de l’interface de ligne de commande Azure, consultez [Installer l’interface de ligne de commande Azure](/cli/azure/install-azure-cli).
 
-Pour créer un compte de stockage, appelez [az storage account create](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create) et définissez la propriété `--enable-files-aadds` avec la valeur **true**. Dans l’exemple ci-dessous, remplacez les valeurs d’espace réservé par vos propres valeurs. (Si vous utilisiez le module en préversion précédent, le paramètre pour l’activation des fonctionnalités est **file-aad**.)
+Pour créer un compte de stockage, appelez [az storage account create](/cli/azure/storage/account#az-storage-account-create) et définissez la propriété `--enable-files-aadds` avec la valeur **true**. Dans l’exemple ci-dessous, remplacez les valeurs d’espace réservé par vos propres valeurs. (Si vous utilisiez le module en préversion précédent, le paramètre pour l’activation des fonctionnalités est **file-aad**.)
 
 ```azurecli-interactive
 # Create a new storage account

@@ -135,7 +135,7 @@
           href: time-series-insights-environment-mitigate-latency.md
         - name: Diagnostiquer et résoudre les problèmes
           href: time-series-insights-diagnose-and-solve-problems.md
-- name: Référence
+- name: Informations de référence
   items:
     - name: Time Series Insights
       items:
@@ -176,7 +176,7 @@
     - name: Superviser la référence des données
       href: how-to-monitor-tsi-reference.md
     - name: Azure CLI
-      href: /cli/azure/ext/timeseriesinsights/timeseriesinsights?view=azure-cli-latest
+      href: /cli/azure/ext/timeseriesinsights/timeseriesinsights
 - name: Ressources
   items:
     - name: Options d’aide et de support

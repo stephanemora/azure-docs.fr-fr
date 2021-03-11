@@ -2,18 +2,19 @@
 title: 'Démarrage rapide : Utiliser un modèle Resource Manager pour créer une machine virtuelle Ubuntu Linux'
 description: Dans ce guide de démarrage rapide, apprenez à utiliser un modèle Resource Manager pour créer une machine virtuelle Linux
 author: cynthn
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.topic: quickstart
 ms.workload: infrastructure
 ms.date: 06/04/2020
 ms.author: cynthn
 ms.custom: subject-armqs
-ms.openlocfilehash: bd22d20703dc72e220f9b479b4a4005033f964ae
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 97a9d3632cb0e78b899844b1aaa84a030c6da23e
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88649769"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102549615"
 ---
 # <a name="quickstart-create-an-ubuntu-linux-virtual-machine-using-an-arm-template"></a>Démarrage rapide : Créer une machine virtuelle Ubuntu Linux à l’aide d’un modèle ARM
 

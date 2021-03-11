@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a25caa3b59d242b8dcc8a52e1a5d684815cf7bf
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 8525e9a76fa2439692cdb26b36c0bb761d63177c
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96547778"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102550227"
 ---
 # <a name="create-or-update-a-dynamic-group-in-azure-active-directory"></a>Créer ou mettre à jour un groupe dynamique dans Azure Active Directory
 
@@ -80,7 +80,7 @@ Si la règle que vous avez entrée n’est pas valide, une explication de la rai
 
 ## <a name="turn-on-or-off-welcome-email"></a>Activer ou désactiver l’e-mail de bienvenue
 
-Lorsqu’un groupe Microsoft 365 est créé, une notification de bienvenue est envoyée par e-mail aux utilisateurs qui sont ajoutés au groupe. Plus tard, si un attribut d’utilisateur ou d’appareil change, toutes les règles de groupe dynamique au sein de l’organisation sont traitées pour les modifications d’appartenance. Les utilisateurs qui sont alors ajoutés reçoivent également la notification de bienvenue. Vous pouvez désactiver ce comportement dans [Exchange PowerShell](/powershell/module/exchange/users-and-groups/Set-UnifiedGroup?view=exchange-ps&preserve-view=true).
+Lorsqu’un groupe Microsoft 365 est créé, une notification de bienvenue est envoyée par e-mail aux utilisateurs qui sont ajoutés au groupe. Plus tard, si un attribut d’utilisateur ou d’appareil change, toutes les règles de groupe dynamique au sein de l’organisation sont traitées pour les modifications d’appartenance. Les utilisateurs qui sont alors ajoutés reçoivent également la notification de bienvenue. Vous pouvez désactiver ce comportement dans [Exchange PowerShell](/powershell/module/exchange/users-and-groups/Set-UnifiedGroup).
 
 ## <a name="check-processing-status-for-a-rule"></a>Vérifier l’état de traitement d’une règle
 

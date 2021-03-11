@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 03/24/2020
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 5727a08159f750a69920f66f4b743c187aa00885
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 06ac110da35a5a77157bd4e31caaa5aa5fd015cc
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97588962"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102566564"
 ---
 # <a name="create-a-cicd-pipeline-for-php-with-azure-devops-starter"></a>Créer un pipeline CI/CD pour PHP avec Azure DevOps Starter
 
@@ -94,7 +94,7 @@ Si vous ne disposez pas d’un abonnement Azure, vous pouvez en obtenir un gratu
 
 1. Sous le nom de votre pipeline de build, sélectionnez **Historique**.  Le volet **Historique** affiche une piste d’audit des modifications que vous avez apportées récemment à la build. Azure Pipelines gère les modifications apportées au pipeline de build et vous permet de comparer les versions.
 
-1. Sélectionnez **Déclencheurs**. DevOps Starter a créé automatiquement un déclencheur CI, et chaque validation dans le dépôt lance une nouvelle build. Vous pouvez éventuellement choisir d’inclure ou d’exclure des branches dans le processus d’intégration continue.
+1. Sélectionnez **Déclencheurs**. DevOps Starter a créé automatiquement un déclencheur CI, et chaque validation dans le référentiel lance une nouvelle build. Vous pouvez éventuellement choisir d’inclure ou d’exclure des branches dans le processus d’intégration continue.
 
 1. Sélectionnez **Rétention**. En fonction de votre scénario, vous pouvez spécifier des stratégies pour conserver ou supprimer un certain nombre de builds.
 
@@ -125,4 +125,4 @@ Quand vous n’en avez plus besoin, vous pouvez supprimer Azure App Service et l
 Quand vous avez configuré votre processus CI/CD, les pipelines de build et de mise en production ont été créés automatiquement. Vous pouvez le modifier afin qu’il réponde aux besoins de votre équipe. Pour en savoir plus sur le pipeline CI/CD Azure, consultez ce tutoriel :
 
 > [!div class="nextstepaction"]
-> [Personnaliser le processus CD](/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
+> [Personnaliser le processus CD](/azure/devops/pipelines/release/define-multistage-release-process)

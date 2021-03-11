@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 52413f36a9ba5c7b7a3c68567a65a20bc3ce4090
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: c354435f689f5182dd368fd53fdab28f1ab63d48
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100585209"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102218789"
 ---
 # <a name="analyze-logs-and-metrics-with-diagnostics-settings"></a>Analyser les journaux et les métriques avec les paramètres de diagnostic
 
@@ -27,7 +27,7 @@ La fonctionnalité de diagnostic d’Azure Spring Cloud vous permet d’analyser
 Choisissez la catégorie de journal et de métrique que vous souhaitez analyser.
 
 > [!TIP]
-> Vous souhaitez simplement diffuser vos journaux en continu ? Voyez cette [commande Azure CLI](/cli/azure/ext/spring-cloud/spring-cloud/app?preserve-view=true&view=azure-cli-latest#ext-spring-cloud-az-spring-cloud-app-logs) !
+> Vous souhaitez simplement diffuser vos journaux en continu ? Voyez cette [commande Azure CLI](/cli/azure/ext/spring-cloud/spring-cloud/app#ext-spring-cloud-az-spring-cloud-app-logs) !
 
 ## <a name="logs"></a>Journaux d’activité
 

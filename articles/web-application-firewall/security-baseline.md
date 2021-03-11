@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: f29e6f0de3286b04321207b4c469f34aeaee8ef5
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ae6b4f38772cd6c6755ece78fb5c47834a616204
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101737407"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102211632"
 ---
 # <a name="azure-security-baseline-for-azure-web-application-firewall"></a>Base de référence de sécurité pour Azure Web Application Firewall
 
@@ -81,9 +81,9 @@ Configurez Azure WAF pour qu’il s’exécute en mode de prévention après avo
 
 Appliquez des règles et des groupes de règles aux stratégies Azure Web Application Firewall (WAF) en fonction des métadonnées de balise appliquées.
 
-- [Stratégie WAF sur Application Gateway](/cli/azure/network/application-gateway/waf-policy?view=azure-cli-latest) 
+- [Stratégie WAF sur Application Gateway](/cli/azure/network/application-gateway/waf-policy) 
 
-- [Stratégie WAF sur Front Door](/cli/azure/ext/front-door/network/front-door/waf-policy?view=azure-cli-latest)
+- [Stratégie WAF sur Front Door](/cli/azure/ext/front-door/network/front-door/waf-policy)
 
 **Supervision d’Azure Security Center** : Non applicable
 

@@ -1,26 +1,27 @@
 ---
 title: Développer le lecteur de système d’exploitation d’une machine virtuelle Windows dans Azure
 description: Développer la taille du lecteur de système d’exploitation d’une machine virtuelle à l’aide d’Azure PowerShell dans le modèle de déploiement Resource Manager.
-services: virtual-machines-windows
+services: virtual-machines
 documentationcenter: ''
 author: kirpasingh
 manager: roshar
 editor: ''
 tags: azure-resource-manager
 ms.assetid: d9edfd9f-482f-4c0b-956c-0d2c2c30026c
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.collection: windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/02/2020
 ms.author: kirpas
 ms.subservice: disks
-ms.openlocfilehash: df27d7b25010fa68fc86ffe093318b2b0b7f4e96
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 2f991dd93549cf73005127569af496df541eecde
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93393827"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102549598"
 ---
 # <a name="how-to-expand-the-os-drive-of-a-virtual-machine"></a>Extension du lecteur de système d’exploitation d’une machine virtuelle
 
@@ -39,16 +40,16 @@ Lorsque vous créez une machine virtuelle (VM) dans un groupe de ressources en d
 ## <a name="resize-a-managed-disk-in-the-azure-portal"></a>Redimensionner un disque managé dans le portail Azure
 
 1. Dans le [portail Azure](https://portal.azure.com), accédez à la machine virtuelle dans laquelle vous souhaitez étendre le disque. Sélectionnez **Arrêter** pour désallouer\libérer la machine virtuelle.
-2. Une fois la machine virtuelle arrêtée, dans le menu de gauche, sous **Paramètres** , sélectionnez **Disques**.
+2. Une fois la machine virtuelle arrêtée, dans le menu de gauche, sous **Paramètres**, sélectionnez **Disques**.
 
     :::image type="content" source="./media/expand-os-disk/select-disks.png" alt-text="Capture d’écran montrant l’option Disques sélectionnée dans la section Paramètres du menu.":::
 
  
-3. Sous **Nom du disque** , sélectionnez le disque que vous souhaitez redimensionner.
+3. Sous **Nom du disque**, sélectionnez le disque que vous souhaitez redimensionner.
 
     :::image type="content" source="./media/expand-os-disk/disk-name.png" alt-text="Capture d’écran montrant le volet Disques avec un nom de disque sélectionné.":::
 
-4. Dans le menu de gauche, sous **Paramètres** , sélectionnez **Configuration**.
+4. Dans le menu de gauche, sous **Paramètres**, sélectionnez **Configuration**.
 
     :::image type="content" source="./media/expand-os-disk/configuration.png" alt-text="Capture d’écran montrant l’option Configuration sélectionnée dans la section Paramètres du menu.":::
 
@@ -237,11 +238,11 @@ Une fois que vous avez étendu le disque pour la machine virtuelle, vous devez a
 
 2. Ouvrez une invite de commandes et tapez **diskpart**.
 
-3. À l’invite **DISKPART** , tapez `list volume`. Prenez note du volume que vous souhaitez étendre.
+3. À l’invite **DISKPART**, tapez `list volume`. Prenez note du volume que vous souhaitez étendre.
 
-4. À l’invite **DISKPART** , tapez `select volume <volumenumber>`. Cette commande sélectionne le volume *volumenumber* que vous souhaitez étendre dans un espace vide contigu sur le même disque.
+4. À l’invite **DISKPART**, tapez `select volume <volumenumber>`. Cette commande sélectionne le volume *volumenumber* que vous souhaitez étendre dans un espace vide contigu sur le même disque.
 
-5. À l’invite **DISKPART** , tapez `extend [size=<size>]`. Cette commande étend le volume sélectionné d’après la taille ( *size* ) en mégaoctets (Mo) indiquée.
+5. À l’invite **DISKPART**, tapez `extend [size=<size>]`. Cette commande étend le volume sélectionné d’après la taille (*size*) en mégaoctets (Mo) indiquée.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

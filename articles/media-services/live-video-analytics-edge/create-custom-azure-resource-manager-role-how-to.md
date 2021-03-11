@@ -3,12 +3,12 @@ title: Créer un rôle Azure Resource Manager personnalisé et l’affecter à u
 description: Cet article explique comment créer un rôle Azure Resource Manager personnalisé et l’affecter à un principal de service pour Live Video Analytics sur IoT Edge, à l’aide de Microsoft Azure CLI.
 ms.topic: how-to
 ms.date: 05/27/2020
-ms.openlocfilehash: 40bf0f60a718d512e02481d977b8208112ed1a55
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 80974c111dd451314635d06334766322bc68e437
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425728"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102210442"
 ---
 # <a name="create-custom-azure-resource-manager-role-and-assign-to-service-principal"></a>Créer un rôle Azure Resource Manager personnalisé et l’affecter à un principal du service
 
@@ -49,7 +49,7 @@ Si vous n’avez pas de compte Media Services, procédez comme suit pour en cré
     ```
     az account set --subscription " <yourSubscriptionName or yourSubscriptionId>"
     ```
-1. Créez un [groupe de ressources](/cli/azure/group?view=azure-cli-latest#az-group-create) et un [compte de stockage](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create).
+1. Créez un [groupe de ressources](/cli/azure/group#az-group-create) et un [compte de stockage](/cli/azure/storage/account#az-storage-account-create).
 1. À présent, créez un compte Azure Media Services à l’aide du modèle de commande suivant dans Cloud Shell :
 
     ```
@@ -85,8 +85,8 @@ Cette commande génère une réponse semblable à celle-ci :
 ```
 1. La sortie d’un principal de service avec authentification par mot de passe comprend la clé de mot de passe qui, dans ce cas, est le paramètre « AadSecret ». 
 
-    N’oubliez pas de copier cette valeur : elle ne pourra être récupérée. Si vous oubliez le mot de passe, effectuez une [réinitialisation des informations d’identification du principal du service](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#reset-credentials).
-1. L’appId et la clé de locataire s’affichent dans la sortie en tant que « AadClientId » et « AadTenantId », respectivement. Ces éléments sont utilisés pour l’authentification du principal de service. Enregistrez leurs valeurs, mais elles peuvent être récupérées à tout moment avec la [liste az ad sp](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-list).
+    N’oubliez pas de copier cette valeur : elle ne pourra être récupérée. Si vous oubliez le mot de passe, effectuez une [réinitialisation des informations d’identification du principal du service](/cli/azure/create-an-azure-service-principal-azure-cli#reset-credentials).
+1. L’appId et la clé de locataire s’affichent dans la sortie en tant que « AadClientId » et « AadTenantId », respectivement. Ces éléments sont utilisés pour l’authentification du principal de service. Enregistrez leurs valeurs, mais elles peuvent être récupérées à tout moment avec la [liste az ad sp](/cli/azure/ad/sp#az-ad-sp-list).
 
 ### <a name="create-a-custom-role-definition"></a>Créer une définition de rôle personnalisé  
 
@@ -171,7 +171,7 @@ La commande ci-dessus affiche la valeur objectId du principal de service.
 “objectId” : “<yourObjectId>”,
 ```
 
-Utilisez le modèle de [commande az role assignment create](/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create) pour lier le rôle personnalisé au principal de service :
+Utilisez le modèle de [commande az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) pour lier le rôle personnalisé au principal de service :
 
 ```
 az role assignment create --role “LVAEdge User” --assignee-object-id < objectId>    

@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 02/02/2021
 ms.author: tisande
-ms.openlocfilehash: 9e6777a082dcda76c7c7df6bd1b55611cf5cdf84
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: d5d5bc0a108cd08283ea29ce3bdc2de49310c5aa
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99493157"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102499558"
 ---
 # <a name="getting-started-with-sql-queries"></a>Bien démarrer avec les requêtes SQL
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -23,10 +23,10 @@ Dans les comptes d’API SQL Azure Cosmos DB, il existe deux façons de lire des
 
 Voici quelques exemples montrant comment effectuer des **lectures de points** avec chaque SDK :
 
-- [Kit de développement logiciel (SDK) .NET](/dotnet/api/microsoft.azure.cosmos.container.readitemasync?preserve-view=true&view=azure-dotnet)
-- [Kit SDK Java](/java/api/com.azure.cosmos.cosmoscontainer.readitem?preserve-view=true&view=azure-java-stable#com_azure_cosmos_CosmosContainer__T_readItem_java_lang_String_com_azure_cosmos_models_PartitionKey_com_azure_cosmos_models_CosmosItemRequestOptions_java_lang_Class_T__)
-- [Kit de développement logiciel (SDK) Node.js](/javascript/api/@azure/cosmos/item?preserve-view=true&view=azure-node-latest#read-requestoptions-)
-- [Kit de développement logiciel (SDK) Python](/python/api/azure-cosmos/azure.cosmos.containerproxy?preserve-view=true&view=azure-python#read-item-item--partition-key--populate-query-metrics-none--post-trigger-include-none----kwargs-)
+- [Kit de développement logiciel (SDK) .NET](/dotnet/api/microsoft.azure.cosmos.container.readitemasync)
+- [Kit SDK Java](/java/api/com.azure.cosmos.cosmoscontainer.readitem#com_azure_cosmos_CosmosContainer__T_readItem_java_lang_String_com_azure_cosmos_models_PartitionKey_com_azure_cosmos_models_CosmosItemRequestOptions_java_lang_Class_T__)
+- [Kit de développement logiciel (SDK) Node.js](/javascript/api/@azure/cosmos/item#read-requestoptions-)
+- [Kit de développement logiciel (SDK) Python](/python/api/azure-cosmos/azure.cosmos.containerproxy#read-item-item--partition-key--populate-query-metrics-none--post-trigger-include-none----kwargs-)
 
 **Requêtes SQL** : vous pouvez interroger des données en écrivant des requêtes avec le langage SQL (Structured Query Language) comme langage de requête JSON. Les requêtes coûtent toujours au moins 2,3 unités de requête et, en général, ont une latence plus élevée et plus variable que les lectures de points. Les requêtes peuvent retourner de nombreux éléments.
 

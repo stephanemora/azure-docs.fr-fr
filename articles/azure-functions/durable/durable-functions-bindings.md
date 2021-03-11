@@ -4,12 +4,12 @@ description: Guide pratique pour utiliser des déclencheurs et des liaisons pour
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 899bc3fdc94b8232acd3edf3e0cbab3c481ff8f2
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: fe64945aeb71011e769ba4016ae36cb557f41f33
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013721"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102424255"
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>Liaisons pour Fonctions durables (Azure Functions)
 
@@ -19,7 +19,7 @@ L’extension [Fonctions durables](durable-functions-overview.md) introduit deux
 
 Le déclencheur d’orchestration vous permet de créer des [fonctions d’orchestrateur durables](durable-functions-types-features-overview.md#orchestrator-functions). Ce déclencheur prend en charge le démarrage de nouvelles instances de fonctions d’orchestrateur et la reprise d’instances de fonctions d’orchestrateur existantes « en attente » d’une tâche.
 
-Lorsque vous utilisez les outils Visual Studio pour Azure Functions, le déclencheur d’orchestration est configuré à l’aide de l’attribut .NET [OrchestrationTriggerAttribute](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.orchestrationtriggerattribute?view=azure-dotnet).
+Lorsque vous utilisez les outils Visual Studio pour Azure Functions, le déclencheur d’orchestration est configuré à l’aide de l’attribut .NET [OrchestrationTriggerAttribute](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.orchestrationtriggerattribute).
 
 Lorsque vous écrivez des fonctions d’orchestrateur dans des langages de script (par exemple, JavaScript ou C#), le déclencheur d’orchestration est défini par l’objet JSON suivant dans le tableau `bindings` du fichier *function.json* :
 

@@ -11,6 +11,10 @@
   items:
     - name: Créer une instance Front Door Standard/Premium - Portail
       href: create-front-door-portal.md
+- name: Exemples
+  items:
+    - name: Modèles Resource Manager
+      href: resource-manager-template-samples.md
 - name: Concepts
   items:
     - name: Questions fréquentes (FAQ) sur Front Door

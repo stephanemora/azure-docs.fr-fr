@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: fb3aeb732166537dd4aa98acad0c4dfa5788a8ca
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 0f1dcb82c3a8d3819e8d316ef8efe2e3256e3db4
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101732392"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102218993"
 ---
 # <a name="azure-security-baseline-for-vpn-gateway"></a>Base de référence de sécurité Azure pour Passerelle VPN
 
@@ -412,7 +412,7 @@ Suivez les recommandations d’Azure Security Center relatives au chiffrement au
 
 - [Guide pratique pour créer des requêtes avec Azure Graph](../governance/resource-graph/first-query-portal.md)
 
-- [Azure CLI pour la passerelle VPN](/cli/azure/network/vnet-gateway?view=azure-cli-latest)
+- [Azure CLI pour la passerelle VPN](/cli/azure/network/vnet-gateway)
 
 - [Guide pratique pour afficher ses abonnements Azure](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 

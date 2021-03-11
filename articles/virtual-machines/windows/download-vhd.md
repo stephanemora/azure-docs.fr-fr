@@ -3,18 +3,18 @@ title: Télécharger un VHD Windows à partir d’Azure
 description: Téléchargez un VHD Windows à l’aide du Portail Azure.
 author: cynthn
 manager: gwallace
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.subservice: disks
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 01/13/2019
 ms.author: cynthn
-ms.openlocfilehash: 5e6f7b461d205478d6a3fe3eecbbb933d0533ec9
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: a33b248c18bcbf322a1e2d911453a1c4c087e625
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98200513"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102550516"
 ---
 # <a name="download-a-windows-vhd-from-azure"></a>Télécharger un VHD Windows à partir d’Azure
 

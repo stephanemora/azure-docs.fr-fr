@@ -3,12 +3,12 @@ title: Messagerie asynchrone Service Bus | Microsoft Docs
 description: Découvrez comment Azure Service Bus prend en charge l’asynchronisme en utilisant un mécanisme d’envoi en différé avec des files d’attente, des rubriques et des abonnements.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: ea09b809a19cfe7c7f024b059589748ff9e297d4
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: e37c18b95bca7ef1e6e8f0d74976bb73b214624a
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98631621"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102500629"
 ---
 # <a name="asynchronous-messaging-patterns-and-high-availability"></a>Modèles de messagerie asynchrone et haute disponibilité
 
@@ -34,7 +34,7 @@ Il existe plusieurs méthodes permettant de gérer les problèmes de messagerie 
 * Échec de Service Bus dans un centre de données Azure. Il s’agit d’une « défaillance irrémédiable », et le système reste inaccessible pendant plusieurs minutes, voire quelques heures.
 
 > [!NOTE]
-> Le terme **stockage** peut désigner le stockage Azure et SQL Azure.
+> Le terme **stockage** peut à la fois s'appliquer à Azure Storage et SQL Azure.
 > 
 > 
 
@@ -73,5 +73,5 @@ Maintenant que vous avez appris les principes fondamentaux de la messagerie asyn
 [System.TimeSpan.Zero]: /dotnet/api/system.timespan.zero
 [IsTransient]: /dotnet/api/microsoft.servicebus.messaging.messagingexception
 [UnauthorizedAccessException]: /dotnet/api/system.unauthorizedaccessexception
-[BacklogQueueCount]: /dotnet/api/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions?redirectedfrom=MSDN
+[BacklogQueueCount]: /dotnet/api/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions
 [handling outages and disasters]: service-bus-outages-disasters.md
