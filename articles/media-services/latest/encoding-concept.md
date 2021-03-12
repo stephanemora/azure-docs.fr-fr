@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 159336d3e8949739cb00dbe66ed82fa90256dcfd
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 84caa287803fa64b12d9da4c2afb1f8dd1418e13
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897898"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102455278"
 ---
 # <a name="encoding-video-and-audio-with-media-services"></a>Encodage vidéo et audio avec Media Services
 
@@ -137,7 +137,7 @@ Media Services prend entièrement en charge la personnalisation de toutes les va
 
 ## <a name="preset-schema"></a>Schéma de préréglage
 
-Dans Media Services v3, les présélections sont des entités fortement typées dans l’API elle-même. Vous trouverez la définition « schema » (schéma) pour ces objets dans [Open API Specification (ou Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01). Vous pouvez également consulter les définitions prédéfinies (comme **StandardEncoderPreset**) dans [l’API REST](/rest/api/media/transforms/createorupdate#standardencoderpreset), [le Kit de développement logiciel (SDK) .NET](/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset?view=azure-dotnet) (ou d’autres documents de référence sur le Kit de développement logiciel (SDK) Media Services v3).
+Dans Media Services v3, les présélections sont des entités fortement typées dans l’API elle-même. Vous trouverez la définition « schema » (schéma) pour ces objets dans [Open API Specification (ou Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01). Vous pouvez également consulter les définitions prédéfinies (comme **StandardEncoderPreset**) dans [l’API REST](/rest/api/media/transforms/createorupdate#standardencoderpreset), [le Kit de développement logiciel (SDK) .NET](/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset) (ou d’autres documents de référence sur le Kit de développement logiciel (SDK) Media Services v3).
 
 ## <a name="scaling-encoding-in-v3"></a>Mise à l’échelle de l’encodage dans v3
 

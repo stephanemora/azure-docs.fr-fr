@@ -4,12 +4,12 @@ description: Forum aux questions sur Service Fabric, fonctionnalités, cas d’u
 ms.topic: troubleshooting
 ms.date: 08/18/2017
 ms.author: pepogors
-ms.openlocfilehash: 1655a8ed03b1f678cc5dba0a165e0bcca1d2517a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e03ccf432852a5fc9ee700ba0e39dfe2e64fcc9
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87292851"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102456094"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Questions fréquentes sur Service Fabric
 
@@ -22,7 +22,7 @@ Les utilisateurs posent fréquemment des questions sur l’utilisation et les fo
 
 ### <a name="how-do-i-roll-back-my-service-fabric-cluster-certificate"></a>Comment restaurer mon certificat de cluster Service Fabric ?
 
-Restaurer une mise à niveau pour votre application nécessite de détecter les échecs d’intégrité avant que le quorum du cluster Service Fabric ne valide la modification. Les modifications validées peuvent uniquement être restaurées par progression. Le recours à un ingénieur en charge de la remontée d’information via le support technique peut être nécessaire pour récupérer votre cluster, si un changement de certificat cassant non surveillé a été introduit.  La [mise à niveau des applications de Service Fabric](./service-fabric-application-upgrade.md?branch=master) applique des [paramètres de mise à niveau d’application](./service-fabric-application-upgrade-parameters.md?branch=master), et garantit une mise à niveau sans temps d’arrêt.  En suivant notre mode de surveillance recommandé pour la mise à niveau des applications, la progression automatique via les domaines de mise à jour est basée sur la réussite des vérifications d’intégrité. Une restauration automatique a lieu en cas d’échec de la mise à jour d’un service par défaut.
+Restaurer une mise à niveau pour votre application nécessite de détecter les échecs d’intégrité avant que le quorum du cluster Service Fabric ne valide la modification. Les modifications validées peuvent uniquement être restaurées par progression. Le recours à un ingénieur en charge de la remontée d’information via le support technique peut être nécessaire pour récupérer votre cluster, si un changement de certificat cassant non surveillé a été introduit.  La [mise à niveau des applications de Service Fabric](./service-fabric-application-upgrade.md) applique des [paramètres de mise à niveau d’application](./service-fabric-application-upgrade-parameters.md), et garantit une mise à niveau sans temps d’arrêt.  En suivant notre mode de surveillance recommandé pour la mise à niveau des applications, la progression automatique via les domaines de mise à jour est basée sur la réussite des vérifications d’intégrité. Une restauration automatique a lieu en cas d’échec de la mise à jour d’un service par défaut.
  
 Si votre cluster utilise toujours la propriété classique d’empreinte du certificat dans votre modèle Resource Manager, il est recommandé de [modifier le cluster de l’utilisation de l’empreinte du certificat à l’utilisation du nom commun](./service-fabric-cluster-change-cert-thumbprint-to-cn.md) pour tirer parti des fonctionnalités modernes de gestion des secrets.
 

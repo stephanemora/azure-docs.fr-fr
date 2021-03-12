@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, cc996988-fb4f-47, devx-track-python
-ms.openlocfilehash: 778424cbb81f8fe51a57dd41d94aa9015ffad94e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 5d94625e3eb121e556b28038cf59626be1332966
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100381509"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102455803"
 ---
 # <a name="azure-queue-storage-output-bindings-for-azure-functions"></a>Liaisons de sortie de Stockage File d’attente Azure pour Azure Functions
 
@@ -480,7 +480,7 @@ Il existe deux options pour produire en sortie un message File d’attente à pa
 
 - **Valeur de retour** : Définissez la propriété `name` dans *function.json* sur `$return`. Avec cette configuration, la valeur de retour de la fonction est conservée sous la forme d’un message de Stockage File d’attente.
 
-- **Impératif** : Passez une valeur à la méthode [set](/python/api/azure-functions/azure.functions.out?view=azure-python&preserve-view=true#set-val--t-----none) du paramètre déclaré en tant que type [Out](/python/api/azure-functions/azure.functions.out?view=azure-python&preserve-view=true). La valeur passée à `set` est conservée en tant que message de Stockage File d’attente.
+- **Impératif** : Passez une valeur à la méthode [set](/python/api/azure-functions/azure.functions.out#set-val--t-----none) du paramètre déclaré en tant que type [Out](/python/api/azure-functions/azure.functions.out). La valeur passée à `set` est conservée en tant que message de Stockage File d’attente.
 
 ---
 

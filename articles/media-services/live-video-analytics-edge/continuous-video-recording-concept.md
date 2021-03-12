@@ -3,12 +3,12 @@ title: Enregistrement de vidéo en continu – Azure
 description: L’enregistrement de vidéo continu (CVR) fait référence au processus d’enregistrement vidéo continu à partir d’une source vidéo. Cette rubrique explique ce qu’est le CVR.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 04f09f1968e647c57ba0913a9e7f9e601d045771
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8b25d74db279f8cfff68f08efeab2975484a0c5
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89566690"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102453748"
 ---
 # <a name="continuous-video-recording"></a>Enregistrement de vidéo continu  
 
@@ -19,7 +19,7 @@ ms.locfileid: "89566690"
 
 ## <a name="overview"></a>Vue d’ensemble
 
-L’enregistrement de vidéo continu (CVR) fait référence au processus d’enregistrement vidéo continu à partir d’une source vidéo. Live Video Analytics sur IoT Edge prend en charge l’enregistrement de vidéos en continu, 24 h sur 24 et 7 jours sur 7, à partir d’une caméra CCTV via un [graphe multimédia](media-graph-concept.md) constitué d’un nœud source RTSP et d’un nœud récepteur de ressources. Le diagramme ci-dessous montre une représentation graphique d’un tel graphe multimédia. La représentation JSON de la [topologie de graphe](media-graph-concept.md?branch=release-preview-media-services-lva#media-graph-topologies-and-instances) d’un tel graphe multimédia peut être trouvée [ici](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/cvr-asset).
+L’enregistrement de vidéo continu (CVR) fait référence au processus d’enregistrement vidéo continu à partir d’une source vidéo. Live Video Analytics sur IoT Edge prend en charge l’enregistrement de vidéos en continu, 24 h sur 24 et 7 jours sur 7, à partir d’une caméra CCTV via un [graphe multimédia](media-graph-concept.md) constitué d’un nœud source RTSP et d’un nœud récepteur de ressources. Le diagramme ci-dessous montre une représentation graphique d’un tel graphe multimédia. La représentation JSON de la [topologie de graphe](media-graph-concept.md#media-graph-topologies-and-instances) d’un tel graphe multimédia peut être trouvée [ici](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/cvr-asset).
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/continuous-video-recording/continuous-video-recording-overview.svg" alt-text="Enregistrement de vidéo continu":::

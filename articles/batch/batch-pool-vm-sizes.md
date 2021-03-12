@@ -2,14 +2,14 @@
 title: Choisir des tailles et des images de machines virtuelles pour les pools
 description: Quelle taille de machine virtuelle et quelle version de système d’exploitation choisir parmi celles disponibles pour les nœuds de calcul dans des pools Azure Batch
 ms.topic: conceptual
-ms.date: 11/24/2020
+ms.date: 03/08/2021
 ms.custom: seodec18
-ms.openlocfilehash: de1f61bb2bdc83377887fda726a65c1900f36d55
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 42b8743fac6a6c64e98271490f0bfc4671fa7698
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576699"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102455193"
 ---
 # <a name="choose-a-vm-size-and-image-for-compute-nodes-in-an-azure-batch-pool"></a>Choisir une taille et une image de machine virtuelle pour des nœuds de calcul dans un pool Azure Batch
 
@@ -35,13 +35,11 @@ Les pools Batch dans la configuration de la machine virtuelle prennent en charge
 | DC | Non pris en charge |
 | Dv2, DSv2 | Toutes les tailles |
 | Dv3, Dsv3 | Toutes les tailles |
-| Dav4 | Toutes les tailles |
-| Dasv4 | Toutes les tailles |
+| Dav4, Dasv4 | Toutes les tailles |
 | Ddv4, Ddsv4 |  Toutes les tailles |
 | Dv4, Dsv4 | Non pris en charge |
 | Ev3, Esv3 | Toutes les tailles, à l’exception de E64is_v3 |
-| Eav4 | Toutes les tailles |
-| Easv4 | Toutes les tailles |
+| Eav4, Easv4 | Toutes les tailles |
 | Edv4, Edsv4 |  Toutes les tailles |
 | Ev4, Esv4 | Non pris en charge |
 | F, Fs | Toutes les tailles |
@@ -58,7 +56,7 @@ Les pools Batch dans la configuration de la machine virtuelle prennent en charge
 | NC | Toutes les tailles |
 | NCv2 | Toutes les tailles |
 | NCv3 | Toutes les tailles |
-| NCasT4_v3 | Aucune – pas encore disponible |
+| NCasT4_v3 | Toutes les tailles |
 | ND | Toutes les tailles |
 | NDv2 | Aucune – pas encore disponible |
 | NV | Toutes les tailles |

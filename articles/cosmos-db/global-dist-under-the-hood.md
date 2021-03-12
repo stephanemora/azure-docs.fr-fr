@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/02/2020
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: f19e009341ac0e9556cef36f8da6ef19cde0447f
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 1b47ad27abbe59eceabd15d091f88f4659d8dad6
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93087510"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102486384"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db---under-the-hood"></a>Distribution de données mondiale avec Azure Cosmos DB - Sous le capot
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -23,9 +23,9 @@ Cosmos DB étant un service fondamental dans Azure, il est déployé dans toutes
 
 **La distribution à l’échelle mondiale dans Azure Cosmos DB est une solution clé en main :** À tout moment, en quelques clics ou par programmation à l’aide d’un appel d’API unique, vous pouvez ajouter ou supprimer les régions géographiques associées à votre base de données Cosmos. Une base de données Cosmos comprend à son tour une série de conteneurs Cosmos. Dans Cosmos DB, les conteneurs font office d’unités logiques de distribution et d’extensibilité. Les collections, tables et graphiques que vous créez sont (en interne) tout simplement des conteneurs Cosmos. Les conteneurs sont totalement indépendants du schéma et fournissent une étendue pour les requêtes. Les données d’un conteneur Cosmos sont automatiquement indexées lors de l’ingestion. L’indexation automatique permet aux utilisateurs d’interroger les données sans les tracas associés à la gestion du schéma ou de l’index, en particulier dans une configuration globalement distribuée.  
 
-- Dans une région spécifique, les données d’un conteneur sont distribuées à l’aide d’une clé de partition que vous fournissez, et gérées de manière transparente par les partitions physiques sous-jacentes ( *distribution locale* ).  
+- Dans une région spécifique, les données d’un conteneur sont distribuées à l’aide d’une clé de partition que vous fournissez, et gérées de manière transparente par les partitions physiques sous-jacentes (*distribution locale*).  
 
-- Chaque partition physique est également répliquée entre les régions géographiques ( *distribution mondiale* ). 
+- Chaque partition physique est également répliquée entre les régions géographiques (*distribution mondiale*). 
 
 Quand une application utilisant Cosmos DB met à l’échelle le débit de façon élastique sur un conteneur Cosmos ou consomme davantage de stockage, Cosmos DB gère de manière transparente les opérations de gestion des partitions (fractionnement, clonage, suppression) dans toutes les régions. Indépendamment de l’échelle, de la distribution ou des défaillances, Cosmos DB continue à fournir une illustration système unique des données à l’intérieur des conteneurs globalement distribués dans un nombre quelconque de régions.  
 
@@ -85,5 +85,4 @@ Les sémantiques des cinq modèles de cohérence dans Cosmos DB sont exposées [
 Découvrez ensuite comment configurer la distribution mondiale à l’aide les articles suivants :
 
 * [Ajouter/supprimer des régions à partir de votre compte de base de données](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
-* [Article relatif à la configuration des clients pour le multihébergement](how-to-manage-database-account.md#configure-multiple-write-regions)
 * [Guide pratique pour créer une stratégie personnalisée de résolution des conflits](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy)
