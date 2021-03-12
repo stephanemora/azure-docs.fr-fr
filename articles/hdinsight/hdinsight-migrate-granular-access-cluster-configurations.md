@@ -6,12 +6,12 @@ ms.author: tyfox
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/20/2020
-ms.openlocfilehash: c6bbb389902c11239f665c6d0db787f61955a953
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: a30768f4904c9e5be2edc020f12260cf3a54c889
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100555814"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102425887"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>Migrer vers un accès en fonction du rôle granulaire pour les configurations de cluster
 
@@ -111,11 +111,11 @@ Mettez à jour vers la [version 2.1.0](https://www.nuget.org/packages/Microsoft.
 
 Mettez à jour vers la [version 5.0.0](https://www.nuget.org/packages/Microsoft.Azure.Management.HDInsight/5.0.0) ou versions ultérieures du SDK HDInsight pour .NET. Des modifications minimes du code peuvent être nécessaires si vous utilisez une méthode affectée par ces changements :
 
-- [`ConfigurationOperationsExtensions.Get`](/dotnet/api/microsoft.azure.management.hdinsight.configurationsoperationsextensions.get?view=azure-dotnet&preserve-view=true)**ne retournera plus de paramètres sensibles** comme les clés de stockage (core-site) ou les informations d'identification HTTP (passerelle).
-    - Pour récupérer toutes les configurations, y compris les paramètres sensibles, utilisez [`ConfigurationOperationsExtensions.List`](/dotnet/api/microsoft.azure.management.hdinsight.configurationsoperationsextensions.list?view=azure-dotnet&preserve-view=true) à l’avenir.  Notez que les utilisateurs disposant du rôle « Lecteur » ne seront pas en mesure d’utiliser cette méthode. Cela permet un contrôle granulaire sur les utilisateurs pouvant accéder aux informations sensibles d’un cluster. 
-    - Pour récupérer des données d’identification de passerelle HTTP, utilisez [`ClusterOperationsExtensions.GetGatewaySettings`](/dotnet/api/microsoft.azure.management.hdinsight.clustersoperationsextensions.getgatewaysettings?view=azure-dotnet&preserve-view=true). 
-- [`ConfigurationsOperationsExtensions.Update`](/dotnet/api/microsoft.azure.management.hdinsight.configurationsoperationsextensions.update?view=azure-dotnet&preserve-view=true) est maintenant déconseillé et a été remplacé par [`ClusterOperationsExtensions.UpdateGatewaySettings`](/dotnet/api/microsoft.azure.management.hdinsight.clustersoperationsextensions.updategatewaysettings?view=azure-dotnet&preserve-view=true). 
-- [`ConfigurationsOperationsExtensions.EnableHttp`](/dotnet/api/microsoft.azure.management.hdinsight.configurationsoperationsextensions.enablehttp?view=azure-dotnet&preserve-view=true) et [`DisableHttp`](/dotnet/api/microsoft.azure.management.hdinsight.configurationsoperationsextensions.disablehttp?view=azure-dotnet&preserve-view=true) sont désormais déconseillés. HTTP est désormais toujours activé. Ces méthodes ne sont donc plus nécessaires.
+- [`ConfigurationOperationsExtensions.Get`](/dotnet/api/microsoft.azure.management.hdinsight.configurationsoperationsextensions.get)**ne retournera plus de paramètres sensibles** comme les clés de stockage (core-site) ou les informations d'identification HTTP (passerelle).
+    - Pour récupérer toutes les configurations, y compris les paramètres sensibles, utilisez [`ConfigurationOperationsExtensions.List`](/dotnet/api/microsoft.azure.management.hdinsight.configurationsoperationsextensions.list) à l’avenir.  Notez que les utilisateurs disposant du rôle « Lecteur » ne seront pas en mesure d’utiliser cette méthode. Cela permet un contrôle granulaire sur les utilisateurs pouvant accéder aux informations sensibles d’un cluster. 
+    - Pour récupérer des données d’identification de passerelle HTTP, utilisez [`ClusterOperationsExtensions.GetGatewaySettings`](/dotnet/api/microsoft.azure.management.hdinsight.clustersoperationsextensions.getgatewaysettings). 
+- [`ConfigurationsOperationsExtensions.Update`](/dotnet/api/microsoft.azure.management.hdinsight.configurationsoperationsextensions.update) est maintenant déconseillé et a été remplacé par [`ClusterOperationsExtensions.UpdateGatewaySettings`](/dotnet/api/microsoft.azure.management.hdinsight.clustersoperationsextensions.updategatewaysettings). 
+- [`ConfigurationsOperationsExtensions.EnableHttp`](/dotnet/api/microsoft.azure.management.hdinsight.configurationsoperationsextensions.enablehttp) et [`DisableHttp`](/dotnet/api/microsoft.azure.management.hdinsight.configurationsoperationsextensions.disablehttp) sont désormais déconseillés. HTTP est désormais toujours activé. Ces méthodes ne sont donc plus nécessaires.
 
 ### <a name="sdk-for-python"></a>Kit SDK pour Python
 
