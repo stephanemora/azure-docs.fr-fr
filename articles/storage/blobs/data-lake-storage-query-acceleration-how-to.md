@@ -9,12 +9,12 @@ ms.date: 01/06/2021
 ms.author: normesta
 ms.reviewer: jamsbak
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 5d5278c33c24c7f95459b9c121bca9e960615b9c
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: a925d3f55395d094c7f19f65de4b72fd20a11a41
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99260178"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102213672"
 ---
 # <a name="filter-data-by-using-azure-data-lake-storage-query-acceleration"></a>Filtrer des données à l’aide de l’accélération des requêtes d’Azure Data Lake Storage
 
@@ -40,7 +40,7 @@ L’accélération des requêtes est une nouvelle capacité d’Azure Data Lake 
 
   ### <a name="java"></a>[Java](#tab/java)
 
-  - [Kit de développement Java (JDK)](/java/azure/jdk/?view=azure-java-stable&preserve-view=true), version 8 ou ultérieure
+  - [Kit de développement Java (JDK)](/java/azure/jdk/), version 8 ou ultérieure
 
   - [Apache Maven](https://maven.apache.org/download.cgi) 
 

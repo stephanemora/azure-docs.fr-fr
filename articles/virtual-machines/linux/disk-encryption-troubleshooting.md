@@ -2,18 +2,19 @@
 title: Dépannage d'Azure Disk Encryption pour les machines virtuelles Linux
 description: Cet article contient des conseils de dépannage concernant Microsoft Azure Disk Encryption pour les machines virtuelles Linux.
 author: msmbaldwin
-ms.service: virtual-machines-linux
-ms.subservice: security
+ms.service: virtual-machines
+ms.subservice: disks
+ms.collection: linux
 ms.topic: troubleshooting
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0a1bdce0478961b27bde7dd32733d95c58ba2361
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 58ea788d6959b039ff5de8a4a889c531b987d826
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91972235"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102563368"
 ---
 # <a name="azure-disk-encryption-for-linux-vms-troubleshooting-guide"></a>Guide de résolution des problèmes d’Azure Disk Encryption pour les machines virtuelles Linux
 

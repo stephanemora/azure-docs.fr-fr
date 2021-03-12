@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: 1eae40437e06bfb150e202db1f3bb4125baeaa97
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: b985399eb89ae7bbf73d280775157207498f0080
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100515032"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100645516"
 ---
 ## <a name="download-and-install"></a>Télécharger et installer
 
@@ -19,11 +19,12 @@ ms.locfileid: "100515032"
 Procédez ainsi pour installer l’interface CLI Speech sur Windows :
 
 1. Sur Windows, vous avez besoin de [Microsoft Redistributable Visual C++ pour Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) pour votre plateforme. La première installation peut demander i, redémarrage.
-1. Installez [.NET Core 3.1](/dotnet/core/install/linux).
+1. Installez le [SDK .NET Core 3.1](/dotnet/core/install/linux).
 2. Installez l’interface CLI Speech à l’aide de NuGet en entrant cette commande :
 
-    `dotnet tool install --global Microsoft.CognitiveServices.Speech.CLI --version 1.15.0`
-
+   ```console
+   dotnet tool install --global Microsoft.CognitiveServices.Speech.CLI --version 1.15.0
+   ```
 Tapez `spx` pour afficher l’aide de l’interface CLI Speech.
 
 > [!NOTE]

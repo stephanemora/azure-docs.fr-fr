@@ -7,16 +7,16 @@ ms.service: web-application-firewall
 ms.date: 11/10/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: c2c84b508ee86ebdd82dbcc7040106142187c506
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: a92679bb3114c4a60870424f3ec68a8de7b303da
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94563458"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102499915"
 ---
 # <a name="web-application-firewall-waf-with-front-door-service-exclusion-lists"></a>Pare-feu d’applications web (WAF) avec des listes d’exclusions Azure Front Door Service 
 
-Parfois, le pare-feu d’applications web (WAF) peut bloquer une requête que vous souhaitez autoriser pour votre application. Par exemple, Active Directory insère des jetons qui sont utilisés pour l’authentification. Ces jetons peuvent contenir des caractères spéciaux susceptibles de déclencher un faux positif dans les règles du pare-feu d’applications web. Les listes d’exclusion du WAF vous permettent d’omettre certains attributs de la demande dans une évaluation par le WAF.  Une liste d’exclusions peut être configurée à l’aide de [PowerShell](/powershell/module/az.frontdoor/New-AzFrontDoorWafManagedRuleExclusionObject?view=azps-3.5.0), d’[Azure CLI](/cli/azure/ext/front-door/network/front-door/waf-policy/managed-rules/exclusion?view=azure-cli-latest#ext-front-door-az-network-front-door-waf-policy-managed-rules-exclusion-add), de l’[API REST](/rest/api/frontdoorservice/webapplicationfirewall/policies/createorupdate) ou du portail Azure. L’exemple suivant illustre la configuration avec le Portail Azure. 
+Parfois, le pare-feu d’applications web (WAF) peut bloquer une requête que vous souhaitez autoriser pour votre application. Par exemple, Active Directory insère des jetons qui sont utilisés pour l’authentification. Ces jetons peuvent contenir des caractères spéciaux susceptibles de déclencher un faux positif dans les règles du pare-feu d’applications web. Les listes d’exclusion du WAF vous permettent d’omettre certains attributs de la demande dans une évaluation par le WAF.  Une liste d’exclusions peut être configurée à l’aide de [PowerShell](/powershell/module/az.frontdoor/New-AzFrontDoorWafManagedRuleExclusionObject), d’[Azure CLI](/cli/azure/ext/front-door/network/front-door/waf-policy/managed-rules/exclusion#ext-front-door-az-network-front-door-waf-policy-managed-rules-exclusion-add), de l’[API REST](/rest/api/frontdoorservice/webapplicationfirewall/policies/createorupdate) ou du portail Azure. L’exemple suivant illustre la configuration avec le Portail Azure. 
 ## <a name="configure-exclusion-lists-using-the-azure-portal"></a>Configurer des listes d’exclusions à l’aide du Portail Azure
 **Gérer les exclusions** est accessible à partir du portail WAF sous **Règles managées**
 

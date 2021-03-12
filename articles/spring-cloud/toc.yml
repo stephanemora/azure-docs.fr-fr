@@ -123,6 +123,8 @@
           href: spring-cloud-howto-enable-system-assigned-managed-identity.md
         - name: Créer des rôles et des autorisations
           href: spring-cloud-howto-permissions.md
+        - name: "Accéder au plan de données avec RBAC Azure\_AD"
+          href: spring-cloud-howto-access-data-plane-azure-ad-rbac.md
     - name: Integrate
       items:
         - name: Lier une application à Azure CosmosDB

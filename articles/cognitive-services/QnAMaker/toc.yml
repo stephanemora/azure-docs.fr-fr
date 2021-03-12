@@ -47,13 +47,17 @@
       href: choose-natural-language-processing-service.md
 - name: Guides pratiques
   items:
-    - name: Gérer des ressources Azure
-      href: How-To/set-up-qnamaker-service-azure.md
-      displayName: 'azure, resource, key, upgrade, pricing, tier,'
-    - name: Isolement réseau pour les ressources Azure
-      href: How-To/network-isolation.md
-    - name: Gérer l’accès aux ressources QnA Maker
-      href: How-To/manage-qna-maker-app.md
+    - name: Gérer les ressources QnA Maker
+      items:
+        - name: Configurer des ressources QnA Maker
+          href: How-To/set-up-qnamaker-service-azure.md
+          displayName: 'azure, resource, key, upgrade, pricing, tier,'
+        - name: Gérer l’accès aux ressources QnA Maker
+          href: How-To/manage-qna-maker-app.md
+        - name: Configurer des ressources QnA Maker
+          href: How-To/configure-qna-maker-resources.md
+        - name: Isolement réseau pour les ressources Azure
+          href: How-To/network-isolation.md
     - name: Gérer une base de connaissances
       items:
         - name: Créer une base de connaissances
@@ -77,8 +81,12 @@
         - name: Changer la réponse par défaut
           href: How-To/change-default-answer.md
     - name: Interroger une base de connaissances
-      href: How-To/metadata-generateanswer-usage.md
-      displayName: 'isTest, test, route, request, http, post, body, header, json, metadata, top, strictFilters, GenerateAnswer, API, answer, RankerType, id, text, question, context, 200, 2xx, 400, 401, 403, 404'
+      items:
+        - name: Utilisation de l’API GenerateAnswer
+          href: How-To/metadata-generateanswer-usage.md
+          displayName: 'isTest, test, route, request, http, post, body, header, json, metadata, top, strictFilters, GenerateAnswer, API, answer, RankerType, id, text, question, context, 200, 2xx, 400, 401, 403, 404'
+        - name: Filtrer les Q/R par métadonnées
+          href: How-To/query-knowledge-base-with-metadata.md
     - name: Configurer l’apprentissage actif pour améliorer la base de connaissances
       items:
         - name: Activation de l’apprentissage actif
@@ -124,7 +132,7 @@
         - name: C#
           items:
             - name: Documentation de référence
-              href: /dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker?view=azure-dotnet
+              href: /dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker
             - name: "Package\_NuGet"
               href: 'https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker/'
             - name: Exemples
@@ -140,7 +148,7 @@
         - name: JavaScript
           items:
             - name: Documentation de référence
-              href: /javascript/api/%40azure/cognitiveservices-qnamaker/index?view=azure-node-latest
+              href: /javascript/api/%40azure/cognitiveservices-qnamaker/index
             - name: NPM - Création
               href: 'https://www.npmjs.com/package/@azure/cognitiveservices-qnamaker'
             - name: NPM - Exécution de requête
@@ -150,7 +158,7 @@
         - name: Python
           items:
             - name: Documentation de référence
-              href: /python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker?view=azure-python
+              href: /python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker
             - name: Pip
               href: 'https://pypi.org/project/azure-cognitiveservices-knowledge-qnamaker/'
             - name: Exemples

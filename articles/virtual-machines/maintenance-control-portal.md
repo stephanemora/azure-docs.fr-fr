@@ -3,16 +3,17 @@ title: Contrôle de maintenance des machines virtuelles Azure avec le portail Az
 description: Découvrez comment contrôler le moment où la maintenance est appliquée à vos machines virtuelles Azure à l’aide du contrôle de maintenance et du portail Azure.
 author: cynthn
 ms.service: virtual-machines
+ms.subservice: maintenance-control
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/22/2020
 ms.author: cynthn
-ms.openlocfilehash: b174e2631131e6bf26d7b1cb62442c8a99102e2e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0dea30723a3ebe1598d6304ac3c98bfe1b55b466
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91397281"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102563011"
 ---
 # <a name="control-updates-with-maintenance-control-and-the-azure-portal"></a>Contrôler les mises à jour avec le contrôle de maintenance et le portail Azure
 

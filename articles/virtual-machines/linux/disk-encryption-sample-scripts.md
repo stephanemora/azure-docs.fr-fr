@@ -2,18 +2,19 @@
 title: Exemples de scripts Azure Disk Encryption
 description: Cet article constitue l’annexe de Microsoft Azure Disk Encryption pour les machines virtuelles Linux.
 author: msmbaldwin
-ms.service: virtual-machines-linux
-ms.subservice: security
+ms.service: virtual-machines
+ms.subservice: disks
+ms.collection: linux
 ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: d178ae39d3af6b39047501f0bc47acbc6e792f48
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: f11677d9ebc31f1c1f7cc6332b07b69f8e35ad52
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92911492"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102561175"
 ---
 # <a name="azure-disk-encryption-sample-scripts-for-linux-vms"></a>Exemples de scripts Azure Disk Encryption pour machines virtuelles Linux
 
@@ -258,7 +259,7 @@ Configurez le chiffrement pour l’utiliser dans Azure en effectuant les étapes
 
 ### <a name="opensuse-132"></a>openSUSE 13.2
 Pour configurer le chiffrement lors de l’installation de la distribution, effectuez les étapes suivantes :
-1. Lorsque vous partitionnez les disques, sélectionnez **Chiffrer le groupe de volumes** , puis entrez un mot de passe. Il s’agit du mot de passe que vous allez charger dans votre coffre de clés.
+1. Lorsque vous partitionnez les disques, sélectionnez **Chiffrer le groupe de volumes**, puis entrez un mot de passe. Il s’agit du mot de passe que vous allez charger dans votre coffre de clés.
 
    ![Configuration d’openSUSE 13.2 - Chiffrer un groupe de volumes](./media/disk-encryption/opensuse-encrypt-fig1.png)
 

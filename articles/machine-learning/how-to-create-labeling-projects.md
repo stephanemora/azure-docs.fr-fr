@@ -9,12 +9,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
 ms.custom: data4ml
-ms.openlocfilehash: 4b2777bfd9905a1caa8b69b78ff892b661e4dc4b
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 62801d40295762b0066f0d2887d7d528ee7b7c2a
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99097538"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101656820"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Créer un projet d’étiquetage des données et exporter des étiquettes 
 
@@ -107,12 +107,9 @@ Si vous envisagez d’ajouter de nouvelles images à votre jeu de données, util
 
 Pour ajouter d’autres images à votre projet, utilisez l’[Explorateur Stockage Azure](https://azure.microsoft.com/features/storage-explorer/) à charger dans le dossier approprié du stockage Blob. 
 
-Cochez la case **Activer l’actualisation incrémentielle** quand vous souhaitez que votre projet supervise continuellement les nouvelles données dans le magasin de données. Ces données sont tirées (pull) dans votre projet une fois par jour quand l’option est activée.
+Cochez la case **Activer l’actualisation incrémentielle** quand vous souhaitez que votre projet supervise continuellement les nouvelles données dans le magasin de données. Quand l’option est activée, les données sont tirées (pulled) dans votre projet une fois par jour. Les nouvelles données que vous ajoutez au magasin de données apparaîtront donc dans votre projet après un certain délai.  Vous trouverez l’horodatage de la dernière actualisation des données dans la section **Actualisation incrémentielle** de l’onglet **Détails** pour votre projet.
 
 Décochez cette case si vous ne souhaitez pas que les nouvelles images qui apparaissent dans le magasin de données soient ajoutées à votre projet.
-
-Vous trouverez l’horodatage de la dernière actualisation dans la section **Actualisation incrémentielle** de l’onglet **Détails** pour votre projet.
-
 
 ## <a name="specify-label-classes"></a>Spécifier des classes d’étiquettes
 
