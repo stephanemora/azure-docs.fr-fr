@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.author: memildin
 author: memildin
 manager: rkarlin
-ms.openlocfilehash: ea7524b32b7637aa7c36308f8b869aa5207c08a2
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: b73e7f8c13f621bc359a2ae79a725829420a3ecc
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93334410"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102455590"
 ---
 # <a name="advanced-threat-protection-for-azure-cosmos-db-preview"></a>Advanced Threat Protection pour Azure Cosmos DB (préversion)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -34,9 +34,9 @@ Pour une expérience d’investigation complète des alertes de sécurité, nous
 
 Advanced Threat Protection pour Azure Cosmos DB détecte les activités anormales indiquant des tentatives d’accès ou d’exploitation inhabituelles ou potentiellement dangereuses de bases de données. Il peut actuellement déclencher les alertes suivantes :
 
-- **Accès à partir d’emplacements inhabituels**  : Cette alerte est déclenchée en cas de modification du modèle d’accès à un compte Azure Cosmos, où un utilisateur s’est connecté au point de terminaison Azure Cosmos DB à partir d’un emplacement géographique inhabituel. Dans certains cas, l’alerte détecte une action légitime indiquant une nouvelle application ou une opération de maintenance du développeur. Dans d’autres cas, l’alerte détecte une action malveillante, par exemple, d’un ancien employé, d’un attaquant externe, etc.
+- **Accès à partir d’emplacements inhabituels** : Cette alerte est déclenchée en cas de modification du modèle d’accès à un compte Azure Cosmos, où un utilisateur s’est connecté au point de terminaison Azure Cosmos DB à partir d’un emplacement géographique inhabituel. Dans certains cas, l’alerte détecte une action légitime indiquant une nouvelle application ou une opération de maintenance du développeur. Dans d’autres cas, l’alerte détecte une action malveillante, par exemple, d’un ancien employé, d’un attaquant externe, etc.
 
-- **Extraction de données inhabituelles**  : Cette alerte est déclenchée quand un client extrait une quantité inhabituelle de données d’un compte Azure Cosmos DB. Il peut s’agir d’un symptôme d’exfiltration de données effectuée pour transférer toutes les données stockées dans le compte vers un magasin de données externe.
+- **Extraction de données inhabituelles** : Cette alerte est déclenchée quand un client extrait une quantité inhabituelle de données d’un compte Azure Cosmos DB. Il peut s’agir d’un symptôme d’exfiltration de données effectuée pour transférer toutes les données stockées dans le compte vers un magasin de données externe.
 
 
 
@@ -48,11 +48,11 @@ Vous pouvez configurer la protection avancée contre les menaces de plusieurs fa
 
 1. Lancez le portail Azure à l’adresse [https://portal.azure.com](https://portal.azure.com/).
 
-2. À partir du compte Azure Cosmos DB, dans le menu **Paramètres** , sélectionnez **Sécurité avancée**.
+2. À partir du compte Azure Cosmos DB, dans le menu **Paramètres**, sélectionnez **Sécurité avancée**.
 
     :::image type="content" source="./media/cosmos-db-advanced-threat-protection/cosmos-db-atp.png" alt-text="Configurer ATP":::
 
-3. Dans le panneau de configuration **Sécurité avancée**  :
+3. Dans le panneau de configuration **Sécurité avancée** :
 
     * Cliquez sur l’option **Advanced Threat Protection** pour la définir sur **Activé**.
     * Cliquez sur **Enregistrer** pour enregistrer la stratégie de protection avancée contre les menaces, nouvelle ou mise à jour.   
@@ -68,9 +68,9 @@ Utilisez les commandes de l’API REST pour créer, mettre à jour ou obtenir le
 
 Utilisez les cmdlets PowerShell suivantes :
 
-* [Activer Advanced Threat Protection](/powershell/module/az.security/enable-azsecurityadvancedthreatprotection?viewFallbackFrom=azps-2.4.0)
-* [Obtenir Advanced Threat Protection](/powershell/module/az.security/get-azsecurityadvancedthreatprotection?viewFallbackFrom=azps-2.4.0)
-* [Désactiver Advanced Threat Protection](/powershell/module/az.security/disable-azsecurityadvancedthreatprotection?viewFallbackFrom=azps-2.4.0)
+* [Activer Advanced Threat Protection](/powershell/module/az.security/enable-azsecurityadvancedthreatprotection)
+* [Obtenir Advanced Threat Protection](/powershell/module/az.security/get-azsecurityadvancedthreatprotection)
+* [Désactiver Advanced Threat Protection](/powershell/module/az.security/disable-azsecurityadvancedthreatprotection)
 
 ### <a name="arm-template"></a>[Modèle ARM](#tab/arm-template)
 
@@ -85,12 +85,12 @@ Utilisez Azure Policy pour activer Advanced Threat Protection pour Cosmos DB.
 
     :::image type="content" source="./media/cosmos-db-advanced-threat-protection/cosmos-db.png" alt-text="Rechercher dans la stratégie"::: 
 
-1. Cliquez sur la stratégie **Déployer Advanced Threat Protection pour Cosmos DB** , puis sur **Attribuer**.
+1. Cliquez sur la stratégie **Déployer Advanced Threat Protection pour Cosmos DB**, puis sur **Attribuer**.
 
     :::image type="content" source="./media/cosmos-db-advanced-threat-protection/cosmos-db-atp-policy.png" alt-text="Sélectionnez Abonnement ou Groupe":::
 
 
-1. Dans le champ **Étendue** , cliquez sur les trois points, sélectionnez un abonnement Azure ou un groupe de ressources, puis cliquez sur **Sélectionner**.
+1. Dans le champ **Étendue**, cliquez sur les trois points, sélectionnez un abonnement Azure ou un groupe de ressources, puis cliquez sur **Sélectionner**.
 
     :::image type="content" source="./media/cosmos-db-advanced-threat-protection/cosmos-db-atp-details.png" alt-text="Page Définitions de stratégies":::
 

@@ -3,18 +3,18 @@ title: CLI - Créer une image à partir d’une capture instantanée ou d’un d
 description: Découvrez comment créer une image à partir d’une capture instantanée ou d’un disque managé dans Shared Image Gallery à l’aide d’Azure CLI.
 author: cynthn
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: shared-image-gallery
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 06/30/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 9cfb1fe6d2050a63070e9c21e4b8c3ef59efcb15
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: c809edd3699d0b9827fe15da53d5d18b12cbe6e6
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98682679"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102556959"
 ---
 # <a name="create-an-image-from-a-managed-disk-or-snapshot-in-a-shared-image-gallery-using-the-azure-cli"></a>Créer une image à partir d’un disque managé ou d’une capture instantanée dans Shared Image Gallery à l’aide d’Azure CLI
 
@@ -73,7 +73,7 @@ Pour plus d’informations sur les valeurs que vous pouvez spécifier pour une d
 
 Créez une définition d’image dans la galerie avec la commande [az sig image-definition create](/cli/azure/sig/image-definition#az-sig-image-definition-create).
 
-Dans cet exemple, la définition d’image se nomme *myImageDefinition* et est destinée à une image de système d’exploitation Linux [spécialisée](./shared-image-galleries.md#generalized-and-specialized-images). Pour créer une définition pour des images utilisant un système d’exploitation Windows, utilisez `--os-type Windows`. 
+Dans cet exemple, la définition d’image est nommée *myImageDefinition* et est destinée à une image de système d’exploitation Linux [spécialisée](./shared-image-galleries.md#generalized-and-specialized-images). Pour créer une définition pour des images utilisant un système d’exploitation Windows, utilisez `--os-type Windows`. 
 
 Dans cet exemple, la galerie est nommée *myGallery*, elle se trouve dans le groupe de ressources *myGalleryRG*, et le nom de la définition d’image est *mImageDefinition*.
 
