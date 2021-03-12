@@ -4,17 +4,17 @@ ms.author: erhopf
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/11/2020
-ms.openlocfilehash: 1085daca153431a28fdcc2583d0e31308214bf91
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 2d186463f340be14113228baa583fdcf6ff55401
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95560968"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102510727"
 ---
 ## <a name="authenticate-with-azure-active-directory"></a>S’authentifier à l’aide d’Azure Active Directory
 
 > [!IMPORTANT]
-> 1. Actuellement, **seule** l’API Vision par ordinateur, l’API Visage, l’API Analyse de texte, le Lecteur immersif, Form Recognizer, le Détecteur d’anomalies et tous les services Bing, à l’exception de Recherche personnalisée Bing, prennent en charge l’authentification à l’aide d’Azure Active Directory (AAD).
+> 1. Actuellement, **seule** l’API Vision par ordinateur, l’API Visage, l’API Analyse de texte, le Lecteur immersif, Form Recognizer, le Détecteur d’anomalies, QnA Maker et tous les services Bing, à l’exception de Recherche personnalisée Bing, prennent en charge l’authentification avec Azure Active Directory (AAD).
 > 2. L’authentification AAD doit être toujours utilisée avec le nom de sous-domaine personnalisé de votre ressource Azure. Les [points de terminaison régionaux](../articles/cognitive-services/cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints) ne prennent pas en charge l’authentification AAD.
 
 Dans les sections précédentes, nous vous avons montré comment vous authentifier auprès d’Azure Cognitive Services en utilisant une clé d’abonnement monoservice ou multiservice. Bien que ces clés offrent un moyen simple et rapide de démarrer le développement, elles ne conviennent pas dans des scénarios plus complexes qui nécessitent le contrôle d’accès en fonction du rôle Azure (Azure RBAC). Voyons ce qui est nécessaire pour s’authentifier avec Azure Active Directory (AAD).
@@ -25,13 +25,13 @@ Dans les sections suivantes, vous allez utiliser l’environnement Azure Cloud S
 
 La première étape consiste à créer un sous-domaine personnalisé. Si vous voulez utiliser une ressource Cognitive Services existante n’ayant pas de nom de sous-domaine personnalisé, suivez les instructions de la rubrique [Sous-domaines personnalisés de Cognitive Services](../articles/cognitive-services/cognitive-services-custom-subdomains.md#how-does-this-impact-existing-resources) pour activer un sous-domaine personnalisé pour votre ressource.
 
-1. Commencez par ouvrir Azure Cloud Shell. Ensuite, [sélectionnez un abonnement](/powershell/module/az.accounts/set-azcontext?view=azps-3.3.0) :
+1. Commencez par ouvrir Azure Cloud Shell. Ensuite, [sélectionnez un abonnement](/powershell/module/az.accounts/set-azcontext) :
 
    ```powershell-interactive
    Set-AzContext -SubscriptionName <SubscriptionName>
    ```
 
-2. Ensuite, [créez une ressource Cognitive Services](/powershell/module/az.cognitiveservices/new-azcognitiveservicesaccount?view=azps-1.8.0) avec un sous-domaine personnalisé. Le nom de sous-domaine doit être globalement unique et ne peut pas inclure de caractères spéciaux, comme : « . », « ! », « , ».
+2. Ensuite, [créez une ressource Cognitive Services](/powershell/module/az.cognitiveservices/new-azcognitiveservicesaccount) avec un sous-domaine personnalisé. Le nom de sous-domaine doit être globalement unique et ne peut pas inclure de caractères spéciaux, comme : « . », « ! », « , ».
 
    ```powershell-interactive
    $account = New-AzCognitiveServicesAccount -ResourceGroupName <RESOURCE_GROUP_NAME> -name <ACCOUNT_NAME> -Type <ACCOUNT_TYPE> -SkuName <SUBSCRIPTION_TYPE> -Location <REGION> -CustomSubdomainName <UNIQUE_SUBDOMAIN>
@@ -47,7 +47,7 @@ Maintenant que vous disposez d’un sous-domaine personnalisé associé à votre
 > [!NOTE]
 > Gardez à l’esprit que la propagation des attributions de rôles Azure peut prendre cinq minutes.
 
-1. Nous allons d’abord inscrire une [application AAD](/powershell/module/Az.Resources/New-AzADApplication?view=azps-1.8.0).
+1. Nous allons d’abord inscrire une [application AAD](/powershell/module/Az.Resources/New-AzADApplication).
 
    ```powershell-interactive
    $SecureStringPassword = ConvertTo-SecureString -String <YOUR_PASSWORD> -AsPlainText -Force
@@ -57,7 +57,7 @@ Maintenant que vous disposez d’un sous-domaine personnalisé associé à votre
 
    Vous aurez besoin de l’**ApplicationId** à l’étape suivante.
 
-2. Ensuite, vous devez [créer un principal du service](/powershell/module/az.resources/new-azadserviceprincipal?view=azps-1.8.0) pour l’application AAD.
+2. Ensuite, vous devez [créer un principal du service](/powershell/module/az.resources/new-azadserviceprincipal) pour l’application AAD.
 
    ```powershell-interactive
    New-AzADServicePrincipal -ApplicationId <APPLICATION_ID>
@@ -66,7 +66,7 @@ Maintenant que vous disposez d’un sous-domaine personnalisé associé à votre
    >[!NOTE]
    > Si vous inscrivez une application dans le portail Azure, cette étape est effectuée pour vous.
 
-3. La dernière étape consiste à [affecter le rôle « Utilisateur Cognitive Services »](/powershell/module/az.Resources/New-azRoleAssignment?view=azps-1.8.0) au principal du service (délimité à la ressource). En affectant un rôle, vous accordez au principal du service l’accès à cette ressource. Vous pouvez accorder au même principal du service l’accès à plusieurs ressources de votre abonnement.
+3. La dernière étape consiste à [affecter le rôle « Utilisateur Cognitive Services »](/powershell/module/az.Resources/New-azRoleAssignment) au principal du service (délimité à la ressource). En affectant un rôle, vous accordez au principal du service l’accès à cette ressource. Vous pouvez accorder au même principal du service l’accès à plusieurs ressources de votre abonnement.
    >[!NOTE]
    > L’ObjectId du principal du service est utilisé, et non pas l’ObjectId de l’application.
    > ACCOUNT_ID est l’ID de ressource Azure du compte Cognitive Services que vous avez créé. Cet ID est indiqué dans les « propriétés » de la ressource dans le portail Azure.

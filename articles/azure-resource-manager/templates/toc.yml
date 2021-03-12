@@ -543,7 +543,7 @@
           href: template-functions-object.md
         - name: Fonctions de ressource
           href: template-functions-resource.md
-        - name: Fonctions de chaîne
+        - name: Fonctions de chaînes
           href: template-functions-string.md
     - name: REST
       href: /rest/api/resources/
@@ -556,7 +556,7 @@
     - name: Java
       href: /java/api/com.microsoft.azure.management.resources
     - name: Python
-      href: /python/api/overview/azure/resources?view=azure-python
+      href: /python/api/overview/azure/resources
 - name: Ressources
   items:
     - name: Développer vos compétences avec Microsoft Learn

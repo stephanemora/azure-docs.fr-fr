@@ -2,18 +2,19 @@
 title: 'Démarrage rapide : Créer une machine virtuelle Windows à l’aide de l’interface de ligne de commande Azure'
 description: Dans ce guide de démarrage rapide, vous allez apprendre à utiliser l’interface de ligne de commande Azure pour créer une machine virtuelle Windows.
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.collection: windows
 ms.topic: quickstart
 ms.workload: infrastructure
 ms.date: 07/02/2019
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: bcfbcc4f78e14edc40abccf4a697b00bc7a3f014
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 769b42133fb894c916ecaa3c42dd7de85206c765
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87496183"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102556245"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-with-the-azure-cli"></a>Démarrage rapide : Créer une machine virtuelle Windows avec l’interface Azure CLI
 

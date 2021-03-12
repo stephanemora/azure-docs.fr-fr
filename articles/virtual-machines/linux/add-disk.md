@@ -2,17 +2,18 @@
 title: Ajouter un disque de données à une machine virtuelle Linux avec Azure CLI
 description: Découvrir comment ajouter un disque de données persistant à votre machine virtuelle Linux avec l’interface Azure CLI
 author: cynthn
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.subservice: disks
+ms.collection: linux
 ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: cynthn
-ms.subservice: disks
-ms.openlocfilehash: 1155b4274b97f540fd97bf39e51fd41c37bc9627
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: a4e0cee7a46e3f61f95e87f7cba1fb3595ace3c5
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98730619"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102556806"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Ajouter un disque à une machine virtuelle Linux
 
@@ -44,7 +45,7 @@ az vm disk attach -g myResourceGroup --vm-name myVM --name $diskId
 
 ## <a name="format-and-mount-the-disk"></a>Formater et monter le disque
 
-Vous devez exécuter SSH dans votre machine virtuelle Azure afin de partitionner, de formater et de monter votre nouveau disque pour que votre machine virtuelle Linux puisse l’utiliser. Pour plus d’informations, consultez l’article [Utilisation de SSH avec Linux sur Azure](mac-create-ssh-keys.md). L'exemple suivant permet de se connecter à une machine virtuelle avec l'adresse IP publique *10.123.123.25* et le nom d'utilisateur *azureuser* :
+Vous devez exécuter SSH dans votre machine virtuelle Azure afin de partitionner, de formater et de monter votre nouveau disque pour que votre machine virtuelle Linux puisse l’utiliser. Pour plus d’informations, consultez l’article [Utilisation de SSH avec Linux sur Azure](mac-create-ssh-keys.md). L’exemple suivant établit une connexion à une machine virtuelle à l’aide de l’adresse IP publique *10.123.123.25* avec le nom d’utilisateur *azureuser* :
 
 ```bash
 ssh azureuser@10.123.123.25
@@ -79,10 +80,10 @@ Pour formater le disque, utilisez `parted`. Si la taille du disque est supérieu
 
 > [!NOTE]
 > Il est recommandé d'utiliser la dernière version `parted` disponible pour votre distribution.
-> Si la taille du disque est supérieure ou égale à 2 tébioctets (Tio), vous devez utiliser le partitionnement GPT. Si la taille du disque est inférieure à 2 Tio, vous pouvez utiliser le partitionnement MBR ou GPT.  
+> Si la taille du disque est supérieure ou égale à 2 Tio, vous devez utiliser le partitionnement GPT. Si la taille du disque est inférieure à 2 Tio, vous pouvez utiliser le partitionnement MBR ou GPT.  
 
 
-L'exemple suivant utilise `parted` sur `/dev/sdc`, qui correspond à l'emplacement du premier disque de données sur la plupart des machines virtuelles. Remplacez `sdc` par l'option appropriée pour votre disque. Nous le formatons également à l'aide du système de fichiers [XFS](https://xfs.wiki.kernel.org/).
+L’exemple suivant utilise `parted` sur `/dev/sdc`, où le premier disque de données se trouve généralement sur la plupart des machines virtuelles. Remplacez `sdc` par l’option adaptée à votre disque. Nous le formatons également à l’aide du système de fichiers [XFS](https://xfs.wiki.kernel.org/) .
 
 ```bash
 sudo parted /dev/sdc --script mklabel gpt mkpart xfspart xfs 0% 100%
@@ -90,7 +91,7 @@ sudo mkfs.xfs /dev/sdc1
 sudo partprobe /dev/sdc1
 ```
 
-Utilisez l'utilitaire [`partprobe`](https://linux.die.net/man/8/partprobe) pour vérifier que le noyau tient compte de la nouvelle partition et du nouveau système de fichiers. Si vous ne parvenez pas à utiliser `partprobe`, les commandes blkid ou lslbk ne renvoient pas immédiatement l'UUID du nouveau système de fichiers.
+Utilisez l’utilitaire [`partprobe`](https://linux.die.net/man/8/partprobe) pour vérifier que le noyau tient compte de la nouvelle partition et du nouveau système de fichiers. Si vous ne parvenez pas à utiliser `partprobe`, les commandes blkid ou lslbk ne retournent pas immédiatement l’UUID du nouveau système de fichiers.
 
 
 ### <a name="mount-the-disk"></a>Monter le disque
@@ -109,7 +110,7 @@ sudo mount /dev/sdc1 /datadrive
 
 ### <a name="persist-the-mount"></a>Rendre le montage permanent
 
-Pour vous assurer que le lecteur est remonté automatiquement après un redémarrage, vous devez l’ajouter au fichier */etc/fstab*. Il est aussi vivement recommandé d'utiliser l'UUID (identificateur unique universel) dans */etc/fstab* pour faire référence au lecteur plutôt que de se contenter du nom de l'appareil (par exemple, */dev/sdc1*). Si le système d’exploitation détecte une erreur disque pendant le démarrage, l’utilisation de l’UUID évite que le disque incorrect ne soit monté sur un emplacement donné. Les disques de données restants reçoivent alors les mêmes ID d’appareil. Pour rechercher l’UUID du nouveau lecteur, utilisez l’utilitaire `blkid` :
+Pour vous assurer que le lecteur est remonté automatiquement après un redémarrage, vous devez l’ajouter au fichier */etc/fstab*. Il est aussi vivement recommandé d’utiliser l’UUID (identificateur global unique) dans */etc/fstab* comme référence au lecteur, plutôt que le nom d’appareil uniquement (par exemple, */dev/sdc1*). Si le système d’exploitation détecte une erreur disque pendant le démarrage, l’utilisation de l’UUID évite que le disque incorrect ne soit monté sur un emplacement donné. Les disques de données restants reçoivent alors les mêmes ID d’appareil. Pour rechercher l’UUID du nouveau lecteur, utilisez l’utilitaire `blkid` :
 
 ```bash
 sudo blkid
@@ -134,7 +135,7 @@ Ensuite, ouvrez le fichier */etc/fstab* dans un éditeur de texte, comme suit :
 sudo nano /etc/fstab
 ```
 
-Dans cet exemple, utilisez la valeur UUID de l'appareil `/dev/sdc1` créé lors des étapes précédentes et le point de montage `/datadrive`. Ajoutez la ligne suivante à la fin du fichier `/etc/fstab` :
+Dans cet exemple, utilisez la valeur UUID pour l’appareil `/dev/sdc1` créé lors des étapes précédentes et le point de montage `/datadrive`. Ajoutez la ligne suivante à la fin du fichier `/etc/fstab` :
 
 ```bash
 UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   xfs   defaults,nofail   1   2

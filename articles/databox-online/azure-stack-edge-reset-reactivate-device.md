@@ -6,14 +6,14 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/01/2020
+ms.date: 03/03/2020
 ms.author: alkohli
-ms.openlocfilehash: 4026bac9818b14c33c05d99caff4052adad196c3
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 95fbe5dc4a934fee10c558f640bc24f261203a33
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101743222"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102443509"
 ---
 # <a name="reset-and-reactivate-your-azure-stack-edge-pro-device"></a>Réinitialiser et réactiver votre appareil Azure Stack Edge Pro
 
@@ -32,7 +32,7 @@ Dans cet article, vous apprendrez comment :
 
 ## <a name="reset-data-from-the-device"></a>Réinitialiser les données de l’appareil
 
-Pour effacer les données des disques de données de votre appareil, vous devez réinitialiser votre appareil. 
+Pour effacer les données des disques de données de votre appareil, vous devez réinitialiser votre appareil.
 
 Avant de réinitialiser, créez une copie des données locales sur l’appareil si nécessaire. Vous pouvez copier les données de l’appareil dans un conteneur de Stockage Azure.
 
@@ -41,7 +41,7 @@ Avant de réinitialiser, créez une copie des données locales sur l’appareil 
 
 Vous pouvez réinitialiser votre appareil via l’interface utilisateur web locale ou PowerShell. Pour obtenir des instructions concernant PowerShell, consultez [Réinitialiser votre appareil](./azure-stack-edge-connect-powershell-interface.md#reset-your-device).
 
-[! INCLUDe] [Réinitialiser les données de l’appareil](../../includes/azure-stack-edge-device-reset.md)
+[!INCLUDE [Reset data from the device](../../includes/azure-stack-edge-device-reset.md)]
 
 ## <a name="reactivate-device"></a>Réactiver l’appareil
 
@@ -49,11 +49,11 @@ Une fois l’appareil réinitialisé, vous devez le réactiver en tant que nouve
 
 Pour réactiver votre appareil existant, procédez comme suit :
 
-1. Créez une nouvelle commande pour l’appareil existant en procédant de la manière décrite dans [Créer une nouvelle ressource](azure-stack-edge-gpu-deploy-prep?tabs=azure-portal#create-a-new-resource). Sous l’onglet **Adresse de livraison**, sélectionnez **J’ai déjà un appareil**.
+1. Créez une nouvelle commande pour l’appareil existant en procédant de la manière décrite dans [Créer une nouvelle ressource](azure-stack-edge-gpu-deploy-prep.md?tabs=azure-portal#create-a-new-resource). Sous l’onglet **Adresse de livraison**, sélectionnez **J’ai déjà un appareil**.
 
    ![Ne spécifiez aucun nouvel appareil dans Adresse de livraison](./media/azure-stack-edge-reset-reactivate-device/create-resource-with-no-new-device.png)
 
-1. [Obtenez la clé d’activation](azure-stack-edge-gpu-deploy-prep?tabs=azure-portal#get-the-activation-key).
+1. [Obtenez la clé d’activation](azure-stack-edge-gpu-deploy-prep.md?tabs=azure-portal#get-the-activation-key).
 
 1. [Connectez-vous à l’appareil](azure-stack-edge-gpu-deploy-connect.md).
 
@@ -63,7 +63,7 @@ Pour réactiver votre appareil existant, procédez comme suit :
 
 1. [Configurez des certificats](azure-stack-edge-gpu-deploy-configure-certificates.md).
 
-1. [Activez l’appareil](databox-online/azure-stack-edge-gpu-deploy-activate.md).
+1. [Activez l’appareil](azure-stack-edge-gpu-deploy-activate.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

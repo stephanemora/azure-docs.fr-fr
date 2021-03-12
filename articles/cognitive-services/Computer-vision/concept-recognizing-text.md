@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/11/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 2833fd44b75f4bebf41b5100eb2350ca69436520
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: e0247560afa8229f4fa5c25ec7dfbbca4f7defb2
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100362792"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102486096"
 ---
 # <a name="optical-character-recognition-ocr"></a>Reconnaissance optique des caractères (OCR)
 
@@ -133,17 +133,17 @@ Voici un exemple de réponse JSON correcte :
 ```
 
 ## <a name="natural-reading-order-output-latin-only"></a>Sortie de l’ordre de lecture naturel (langues latines uniquement)
-À l’aide de l’[API Read 3.2 preview](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005), spécifiez l’ordre dans lequel les lignes de texte sont générées avec le paramètre de requête `readingOrder`. Utilisez `natural` pour une sortie d’ordre de lecture plus conviviale, comme illustré dans l’exemple suivant. Cette fonctionnalité est prise en charge uniquement pour les langues latines.
+À l’aide de l’[API Read 3.2 preview](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/5d986960601faab4bf452005), spécifiez l’ordre dans lequel les lignes de texte sont générées avec le paramètre de requête `readingOrder`. Utilisez `natural` pour une sortie d’ordre de lecture plus conviviale, comme illustré dans l’exemple suivant. Cette fonctionnalité est prise en charge uniquement pour les langues latines.
 
 :::image border type="content" source="./Images/ocr-reading-order-example.png" alt-text="Exemple d’ordre de lecture OCR":::
 
 ## <a name="handwritten-classification-for-text-lines-latin-only"></a>Classification manuscrite pour les lignes de texte (Latin uniquement)
-La réponse de l’[API Read 3.2 preview](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005) inclut le classement de chaque ligne de texte selon qu’elle est de style manuscrit ou non, avec un score de confiance. Cette fonctionnalité est prise en charge uniquement pour les langues latines. L’exemple suivant illustre la classification manuscrite pour le texte de l’image.
+La réponse de l’[API Read 3.2 preview](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/5d986960601faab4bf452005) inclut le classement de chaque ligne de texte selon qu’elle est de style manuscrit ou non, avec un score de confiance. Cette fonctionnalité est prise en charge uniquement pour les langues latines. L’exemple suivant illustre la classification manuscrite pour le texte de l’image.
 
 :::image border type="content" source="./Images/ocr-handwriting-classification.png" alt-text="Exemple de classification d’écriture manuscrite OCR":::
 
 ## <a name="select-pages-or-page-ranges-for-text-extraction"></a>Sélectionner des pages ou des plages de pages pour l’extraction de texte
-Avec l’[API Read 3.2 preview](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005), pour les grands documents multipages, utilisez le paramètre de requête `pages` pour spécifier des numéros de pages ou des plages de pages spécifiques pour extraire le texte de ces pages uniquement. L’exemple suivant montre un document de 10 pages, avec le texte extrait pour les deux cas : toutes les pages (1 à 10) et certaines pages (3 à 6).
+Avec l’[API Read 3.2 preview](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/5d986960601faab4bf452005), pour les grands documents multipages, utilisez le paramètre de requête `pages` pour spécifier des numéros de pages ou des plages de pages spécifiques pour extraire le texte de ces pages uniquement. L’exemple suivant montre un document de 10 pages, avec le texte extrait pour les deux cas : toutes les pages (1 à 10) et certaines pages (3 à 6).
 
 :::image border type="content" source="./Images/ocr-select-pages.png" alt-text="Sortie des pages sélectionnées":::
 
@@ -166,4 +166,4 @@ Pour un déploiement local, le [conteneur Docker Read (préversion)](./computer-
 
 - Découvrez comment bien démarrer avec les [démarrages rapides sur la bibliothèque de client ou l’API REST Vision par ordinateur](./quickstarts-sdk/client-library.md).
 - Découvrez l’[API REST Lire 3.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005).
-- Découvrez [l’API REST Read 3.2 en préversion publique](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005) avec prise en charge d’un total de 73 langues.
+- Découvrez [l’API REST Read 3.2 en préversion publique](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/5d986960601faab4bf452005) avec prise en charge d’un total de 73 langues.
