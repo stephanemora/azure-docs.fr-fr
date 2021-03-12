@@ -2,18 +2,19 @@
 title: Tutoriel - Configurer la reprise d’activité pour les machines virtuelles Windows avec Azure Site Recovery
 description: Découvrez comment activer la reprise d’activité après sinistre pour les machines virtuelles Windows dans une autre région Azure avec le service Azure Site Recovery.
 author: rayne-wiselman
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.collection: windows
 ms.subservice: recovery
 ms.topic: tutorial
 ms.date: 11/05/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 53cc0b820bd2ffb9fc28b37f44bb71a7b9d3cd30
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: e9f44ea2af832729a47bf4b719b90f9b14e401b9
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93379933"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102555854"
 ---
 # <a name="tutorial-enable-disaster-recovery-for-windows-vms"></a>Tutoriel : Activer la reprise d’activité pour les machines virtuelles Windows
 
@@ -53,8 +54,8 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
     --- | --- 
     Étiquette du stockage | Permet d’écrire des données entre la machine virtuelle et le compte de stockage de cache.
     Étiquette Azure AD | Autorise l’accès à toutes les adresses IP qui correspondent à Azure AD.
-    Étiquette Event Hubs | Permet d’accéder à la supervision de Site Recovery.
-    Étiquette Azure Site Recovery | Permet d’accéder au service Site Recovery dans n’importe quelle région.
+    Étiquette EventsHub | Permet d’accéder à la supervision de Site Recovery.
+    Étiquette AzureSiteRecovery | Permet d’accéder au service Site Recovery dans n’importe quelle région.
     GuestAndHybridManagement | Utilisez-la si vous souhaitez mettre automatiquement à niveau l’agent Mobilité Site Recovery qui est exécuté sur les machines virtuelles où est activée la réplication.
 5.  Sur les machines virtuelles Windows, installez les dernières mises à jour Windows pour garantir que les machines virtuelles disposent des certificats racines les plus récents.
  

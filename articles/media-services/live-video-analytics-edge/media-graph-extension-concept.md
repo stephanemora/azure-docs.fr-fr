@@ -3,12 +3,12 @@ title: Présentation de l’extension de graphe multimédia – Azure
 description: Live Video Analytics sur IoT Edge vous permet d’étendre les fonctionnalités de traitement de graphe multimédia via un nœud d’extension de graphe.
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: 6735148bf453cfe0afb58d51451dea65f06705d6
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 66656690e4e53508253091134a67adeb899b3dbf
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97401115"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102455837"
 ---
 # <a name="media-graph-extension"></a>Extension de graphe multimédia
 
@@ -19,11 +19,11 @@ Live Video Analytics prend en charge deux types de processeurs d’extension de 
 * [Processeur d’extension HTTP](media-graph-concept.md#http-extension-processor)
 * [Processeur d’extension gRPC](media-graph-concept.md#grpc-extension-processor)
 
-Le nœud d’extension Graph s’attend à ce que le plug-in d’extension Analytics retourne les résultats au format JSON. Dans l’idéal, les résultats doivent suivre le [modèle d’objet du schéma des métadonnées d’inférence](https://review.docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/inference-metadata-schema?branch=release-lva-dec-update).
+Le nœud d’extension Graph s’attend à ce que le plug-in d’extension Analytics retourne les résultats au format JSON. Dans l’idéal, les résultats doivent suivre le [modèle d’objet du schéma des métadonnées d’inférence](/azure/media-services/live-video-analytics-edge/inference-metadata-schema).
 
 ## <a name="http-extension-processor"></a>Processeur d’extension HTTP
 
-Le processeur d’extension HTTP permet des scénarios d’extensibilité à l’aide du [protocole HTTP](https://review.docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/http-extension-protocol?branch=release-lva-dec-update), dans lesquels les performances et/ou l’utilisation optimale des ressources ne constituent pas la préoccupation principale. Vous pouvez exposer votre propre IA à un graphe multimédia via un point de terminaison REST HTTP. 
+Le processeur d’extension HTTP permet des scénarios d’extensibilité à l’aide du [protocole HTTP](/azure/media-services/live-video-analytics-edge/http-extension-protocol), dans lesquels les performances et/ou l’utilisation optimale des ressources ne constituent pas la préoccupation principale. Vous pouvez exposer votre propre IA à un graphe multimédia via un point de terminaison REST HTTP. 
 
 Utilisez le nœud de processeur d’extension HTTP lorsque :
 
@@ -33,7 +33,7 @@ Utilisez le nœud de processeur d’extension HTTP lorsque :
 
 ## <a name="grpc-extension-processor"></a>Processeur d’extension gRPC
 
-Le processeur d’extension gRPC permet des scénarios d’extensibilité à l’aide d’un [protocole structuré](https://review.docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/grpc-extension-protocol?branch=release-lva-dec-update) hautement performant, s’appuyant sur gRPC. Il est idéal pour les scénarios où les performances et/ou l’utilisation optimale des ressources sont une priorité. Le processeur d’extension gRPC permet de tirer pleinement parti des définitions de données structurées. gRPC offre de hautes performances de transfert de contenu avec :
+Le processeur d’extension gRPC permet des scénarios d’extensibilité à l’aide d’un [protocole structuré](/azure/media-services/live-video-analytics-edge/grpc-extension-protocol) hautement performant, s’appuyant sur gRPC. Il est idéal pour les scénarios où les performances et/ou l’utilisation optimale des ressources sont une priorité. Le processeur d’extension gRPC permet de tirer pleinement parti des définitions de données structurées. gRPC offre de hautes performances de transfert de contenu avec :
 
 * la [mémoire partagée intégrée](https://en.wikipedia.org/wiki/Shared_memory) ou 
 * l’incorporation directe du contenu dans le corps des messages gRPC. 
@@ -57,7 +57,7 @@ Le diagramme ci-dessous illustre le flux de données général :
 
 ## <a name="samples"></a>Exemples
 
-Vous pouvez commencer par utiliser l’un de nos guides de démarrage rapide qui illustrent l’analytique vidéo en direct avec un service d’extension prédéfini, à des fréquences d’images faibles en utilisant le [processeur d’extension HTTP](https://review.docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/use-your-model-quickstart?branch=release-lva-dec-update&pivots=programming-language-csharp) ou à des fréquences d’images élevées en utilisant le [processeur d’extension gRPC](https://review.docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/analyze-live-video-use-your-grpc-model-quickstart?branch=release-lva-dec-update&pivots=programming-language-csharp).
+Vous pouvez commencer par utiliser l’un de nos guides de démarrage rapide qui illustrent l’analytique vidéo en direct avec un service d’extension prédéfini, à des fréquences d’images faibles en utilisant le [processeur d’extension HTTP](/azure/media-services/live-video-analytics-edge/use-your-model-quickstart?pivots=programming-language-csharp) ou à des fréquences d’images élevées en utilisant le [processeur d’extension gRPC](/azure/media-services/live-video-analytics-edge/analyze-live-video-use-your-grpc-model-quickstart?pivots=programming-language-csharp).
 
 Pour les utilisateurs expérimentés, vous pouvez passer en revue quelques-uns de nos exemples de [notebook Jupyter](https://github.com/Azure/live-video-analytics/blob/master/utilities/video-analysis/notebooks/readme.md) pour Live Video Analytics. Ces notebooks fournissent des instructions pas à pas pour **les extensions de graphe multimédia** sur :
 

@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: yegu
-ms.openlocfilehash: 5de4e1b465cfc3ced59f8fe34a7f397324b4a225
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: d63cafb32dc1db0a901ed3e6004446b450db10c7
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92537624"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102451521"
 ---
 # <a name="migrate-to-azure-cache-for-redis"></a>Migrer vers Azure Cache pour Redis
 Cet article décrit un certain nombre d’approches pour migrer un cache existant exécuté localement ou dans un autre service cloud vers Azure Cache pour Redis.
@@ -61,15 +61,15 @@ Les étapes générales pour implémenter cette option sont les suivantes :
 
 1. Créez une instance Azure Cache pour Redis dans le niveau Premium avec la même taille (ou une taille plus grande) que le cache existant.
 
-2. Enregistrez un instantané du cache Redis existant. Vous pouvez [configurer des instructions Redis pour enregistrer régulièrement des instantanés](https://redis.io/topics/persistence) ou exécuter le processus manuellement à l’aide des commandes [SAVE](https://redis.io/commands/save) et [BGSAVE](https://redis.io/commands/bgsave). Par défaut, le fichier RDB est nommé « dump.rdb » et se trouve dans le chemin d’accès spécifié dans le fichier de configuration *redis.conf* .
+2. Enregistrez un instantané du cache Redis existant. Vous pouvez [configurer des instructions Redis pour enregistrer régulièrement des instantanés](https://redis.io/topics/persistence) ou exécuter le processus manuellement à l’aide des commandes [SAVE](https://redis.io/commands/save) et [BGSAVE](https://redis.io/commands/bgsave). Par défaut, le fichier RDB est nommé « dump.rdb » et se trouve dans le chemin d’accès spécifié dans le fichier de configuration *redis.conf*.
 
     > [!NOTE]
-    > Si vous migrez des données dans Azure Cache pour Redis, consultez [ces instructions sur la façon d’exporter un fichier RDB](cache-how-to-import-export-data.md) ou utilisez [l’applet de commande Export de PowerShell](/powershell/module/azurerm.rediscache/export-azurermrediscache?view=azurermps-6.13.0&viewFallbackFrom=azurermps-6.4.0) à la place.
+    > Si vous migrez des données dans Azure Cache pour Redis, consultez [ces instructions sur la façon d’exporter un fichier RDB](cache-how-to-import-export-data.md) ou utilisez [l’applet de commande Export de PowerShell](/powershell/module/azurerm.rediscache/export-azurermrediscache) à la place.
     >
 
 3. Copiez le fichier RDB dans un compte de stockage Azure dans la région où se trouve votre nouveau cache. Pour ce faire, vous pouvez utiliser AzCopy.
 
-4. Importez le fichier RDB dans le nouveau cache à l’aide de ces [instructions d’importation](cache-how-to-import-export-data.md) ou de l’[applet de commande Import de PowerShell](/powershell/module/azurerm.rediscache/import-azurermrediscache?view=azurermps-6.13.0&viewFallbackFrom=azurermps-6.4.0).
+4. Importez le fichier RDB dans le nouveau cache à l’aide de ces [instructions d’importation](cache-how-to-import-export-data.md) ou de l’[applet de commande Import de PowerShell](/powershell/module/azurerm.rediscache/import-azurermrediscache).
 
 5. Mettez à jour votre application pour utiliser la nouvelle instance de cache.
 

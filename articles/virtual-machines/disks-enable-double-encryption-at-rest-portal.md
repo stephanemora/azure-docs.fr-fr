@@ -5,15 +5,15 @@ author: roygara
 ms.date: 08/24/2020
 ms.topic: how-to
 ms.author: rogarana
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 3882aae0fb1ecf330917f886555208c3937dd9a5
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: b5f58b549fc9d879f6c2e5515c679d82c3ff44e4
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93358216"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102560359"
 ---
 # <a name="use-the-azure-portal-to-enable-double-encryption-at-rest-for-managed-disks"></a>Utiliser le portail Azure afin d’activer le double chiffrement au repos pour les disques managés
 
@@ -26,7 +26,7 @@ Le Stockage sur disque Azure prend en charge le double chiffrement au repos pour
     > [!IMPORTANT]
     > Pour accéder au portail Azure, vous devez utiliser le [lien fourni](https://aka.ms/diskencryptionupdates). Le double chiffrement au repos n’est actuellement pas visible dans le portail Azure public sans utiliser le lien.
 
-1. Recherchez **Jeux de chiffrement de disque** , puis sélectionnez le résultat.
+1. Recherchez **Jeux de chiffrement de disque**, puis sélectionnez le résultat.
 
     :::image type="content" source="media/virtual-machines-disks-double-encryption-at-rest-portal/double-encryption-disk-encryption-sets-search.png" alt-text="Capture d’écran du portail Azure principal, avec « Jeux de chiffrement de disque » en surbrillance dans la barre de recherche.":::
 
@@ -35,7 +35,7 @@ Le Stockage sur disque Azure prend en charge le double chiffrement au repos pour
     :::image type="content" source="media/virtual-machines-disks-double-encryption-at-rest-portal/double-encryption-add-disk-encryption-set.png" alt-text="Capture d’écran du panneau Jeux de chiffrement de disque, avec le bouton + Ajouter sélectionné.":::
 
 1. Sélectionnez une des régions prises en charge.
-1. Pour **Type de chiffrement** , sélectionnez **Double chiffrement avec les clés gérées par la plateforme et gérées par le client**.
+1. Pour **Type de chiffrement**, sélectionnez **Double chiffrement avec les clés gérées par la plateforme et gérées par le client**.
 
     > [!NOTE]
     > Une fois que vous avez créé un jeu de chiffrement de disque avec un type de chiffrement particulier, il n’est plus possible de le modifier. Si vous souhaitez utiliser un type de chiffrement différent, vous devez créer un nouveau jeu de chiffrement de disque.
@@ -62,7 +62,7 @@ Le Stockage sur disque Azure prend en charge le double chiffrement au repos pour
 
 1. Accédez à votre disque.
 1. Sélectionnez **Chiffrement**.
-1. Pour **Type de chiffrement** , sélectionnez **Double chiffrement avec les clés gérées par la plateforme et gérées par le client**.
+1. Pour **Type de chiffrement**, sélectionnez **Double chiffrement avec les clés gérées par la plateforme et gérées par le client**.
 1. Sélectionnez votre du jeu de chiffrement de disque
 1. Sélectionnez **Enregistrer**.
 

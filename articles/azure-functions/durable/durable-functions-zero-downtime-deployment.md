@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: azfuncdf
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 2c96f2cc37c47c77b82ca86d5fd0295f0c66a896
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 707d624c47c536e00e98910a8902772703733515
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96009481"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102558761"
 ---
 # <a name="zero-downtime-deployment-for-durable-functions"></a>Déploiement sans temps d’arrêt pour Durable Functions
 
@@ -111,7 +111,7 @@ public static async Task<IActionResult> StatusCheck(
 }
 ```
 
-Configurez ensuite la porte de préproduction pour qu’elle attende la fin de l’exécution de toutes les orchestrations en cours. Pour plus d’informations, consultez [Contrôle du déploiement de mises en production à l’aide de portes](/azure/devops/pipelines/release/approvals/gates?view=azure-devops)
+Configurez ensuite la porte de préproduction pour qu’elle attende la fin de l’exécution de toutes les orchestrations en cours. Pour plus d’informations, consultez [Contrôle du déploiement de mises en production à l’aide de portes](/azure/devops/pipelines/release/approvals/gates)
 
 ![Porte de déploiement](media/durable-functions-zero-downtime-deployment/deployment-gate.png)
 

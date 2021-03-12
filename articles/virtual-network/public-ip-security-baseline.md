@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: b26a020b9b4b1641d67a4f5ca55908b8d37f31e4
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 3dfb2cd445edf33ed8db4807efcc2e6326f838ab
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100596500"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102549003"
 ---
 # <a name="azure-security-baseline-for-azure-public-ip"></a>Base de référence de sécurité Azure pour les adresses IP publiques Azure
 
@@ -114,9 +114,9 @@ Une adresse IP publique ne génère pas elle-même de journaux liés au trafic 
 
 Des rôles intégrés Azure prédéfinis, inventoriés ou interrogés, existent pour certaines ressources par le biais d’outils tels qu’Azure CLI, Azure PowerShell ou le portail Azure.
 
-- [Guide pratique pour obtenir un rôle d’annuaire dans Azure AD avec PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+- [Guide pratique pour obtenir un rôle d’annuaire dans Azure AD avec PowerShell](/powershell/module/azuread/get-azureaddirectoryrole)
 
-- [Guide pratique pour obtenir les membres d’un rôle d’annuaire dans Azure AD avec PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [Guide pratique pour obtenir les membres d’un rôle d’annuaire dans Azure AD avec PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
 **Supervision d’Azure Security Center** : Oui
 
@@ -242,7 +242,7 @@ Bien que les ressources Azure classiques puissent être découvertes via Resourc
 
 - [Guide pratique pour créer des requêtes avec Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-- [Guide pratique pour afficher ses abonnements Azure](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+- [Guide pratique pour afficher ses abonnements Azure](/powershell/module/az.accounts/get-azsubscription)
 
 - [Présentation d’Azure RBAC](../role-based-access-control/overview.md)
 
