@@ -1,26 +1,26 @@
 ---
 title: Sauvegarde Azure pour SQL Server s’exécutant sur une machine virtuelle Azure
 description: Dans cet article, découvrez comment inscrire Sauvegarde Azure dans SQL Server s’exécutant sur une machine virtuelle Azure.
-author: dcurwin
-manager: carmonm
+ms.topic: article
 ms.service: virtual-machines
 ms.subservice: extensions
-ms.topic: conceptual
-ms.date: 07/05/2019
+author: dcurwin
 ms.author: dacurwin
-ms.openlocfilehash: c6a071956565a8bbc31e5be362c41a7c39d8f551
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.collection: windows
+ms.date: 07/05/2019
+ms.openlocfilehash: 46cc4b23ca7dd70da3f917a3399406480dc9fdbd
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98738048"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102557095"
 ---
 # <a name="azure-backup-for-sql-server-running-in-azure-vm"></a>Sauvegarde Azure pour SQL Server s’exécutant sur une machine virtuelle Azure
 
 Sauvegarde Azure, entre autres offres, prend en charge la sauvegarde des charges de travail telles que SQL Server s’exécutant sur des machines virtuelles Azure. L’application SQL s’exécutant dans une machine virtuelle Azure, le service de sauvegarde a besoin d’autorisations pour accéder à l’application et récupérer les informations nécessaires.
 Pour ce faire, Sauvegarde Azure installe l'extension **AzureBackupWindowsWorkload** sur la machine virtuelle dans laquelle le serveur SQL Server est en cours d’exécution, lors du processus d’inscription déclenché par l’utilisateur.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour obtenir la liste des scénarios pris en charge, reportez-vous à la [matrice de prise en charge](../../backup/sql-support-matrix.md#scenario-support) Sauvegarde Azure.
 
@@ -85,7 +85,7 @@ Le JSON suivant illustre le schéma de l’extension WorkloadBackup.
 
 ### <a name="property-values"></a>Valeurs de propriétés
 
-Name | Valeur/Exemple | Type de données
+Nom | Valeur/Exemple | Type de données
  --- | --- | ---
 locale | fr-FR  |  string
 taskId | "1c0ae461-9d3b-418c-a505-bb31dfe2095d"  | string

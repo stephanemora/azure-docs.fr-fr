@@ -13,12 +13,12 @@ ms.author: trbye
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-set-twenty-four
 keywords: synthèse vocale
-ms.openlocfilehash: c3f1db836ce028b6881efe0b2fa90e9ac19caac8
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 7a41c4d9c1074b376da3de556caf63ced0bc84ec
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92058231"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102428200"
 ---
 # <a name="get-started-with-text-to-speech"></a>Bien démarrer avec la conversion de texte par synthèse vocale
 
@@ -53,6 +53,20 @@ ms.locfileid: "92058231"
 ::: zone pivot="programmer-tool-spx"
 [!INCLUDE [CLI Basics include](includes/how-to/text-to-speech-basics/text-to-speech-basics-cli.md)]
 ::: zone-end
+
+## <a name="get-position-information"></a>Obtenir des informations sur la position
+
+Votre projet peut avoir besoin de savoir quand un mot est prononcé par synthèse vocale afin de pouvoir prendre une action spécifique en fonction de ce timing. Par exemple, si vous souhaitez mettre en évidence des mots à mesure qu’il sont prononcés, vous devez savoir ce qu’il faut mettre en évidence, à quel moment et pendant combien de temps.
+
+Pour cela, vous pouvez utiliser l’événement `WordBoundary` disponible dans `SpeechSynthesizer`. Cet événement est déclenché au début de chaque nouveau mot prononcé et fournit un décalage temporel dans le flux parlé ainsi qu’un décalage de texte dans l’invite d’entrée.
+
+* `AudioOffset` signale le temps écoulé dans l’audio de sortie entre le début de la synthèse et le début du mot suivant. Cette valeur est mesurée en centaines de nanosecondes (HNS), 10 000 HNS équivalant à 1 milliseconde.
+* `WordOffset` signale la position du caractère dans la chaîne d’entrée (texte d’origine ou [SSML](speech-synthesis-markup.md)) juste avant le mot sur le point d’être prononcé.
+
+> [!NOTE]
+> Les événements `WordBoundary` sont déclenchés à mesure que les données audio de sortie deviennent disponibles (ce qui va plus vite que la lecture sur un appareil de sortie). Il appartient à l’appelant de synchroniser de manière appropriée le timing du flux avec le « temps réel ».
+
+Vous trouverez des exemples d’utilisation de `WordBoundary` dans les [exemples de synthèse vocale](https://aka.ms/csspeech/samples) sur GitHub.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

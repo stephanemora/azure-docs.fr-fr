@@ -2,22 +2,26 @@
 title: 'Démarrage rapide : Étiqueter des formulaires, effectuer l’apprentissage d’un modèle et analyser des formulaires à l’aide de l’exemple d’outil d’étiquetage – Form Recognizer'
 titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide, vous allez utiliser l’outil d’étiquetage des exemples Form Recognizer pour étiqueter manuellement des documents de formulaire. Ensuite, vous allez effectuer l’apprentissage d’un modèle de traitement de documents personnalisé, et utiliser le modèle pour extraire des paires clé/valeur.
-author: PatrickFarley
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 01/29/2021
-ms.author: pafarley
+ms.author: lajanuar
 ms.custom: cog-serv-seo-aug-2020
 keywords: traitement de documents
-ms.openlocfilehash: 9642f9ce51cd3eb90344f96bc099da7adea93022
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: f07e3b6142ad99ba3b9e64e4733109a7e5ae04f9
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100364787"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102425735"
 ---
+<!-- markdownlint-disable MD001 -->
+<!-- markdownlint-disable MD024 -->
+<!-- markdownlint-disable MD033 -->
+<!-- markdownlint-disable MD034 -->
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Entraîner un modèle Form Recognizer avec des étiquettes à l’aide de l’outil d’étiquetage des exemples
 
 Dans ce démarrage rapide, vous allez utiliser l’API REST Form Recognizer avec l’exemple d’outil d’étiquetage pour effectuer l’apprentissage d’un modèle de traitement de documents personnalisé avec des données étiquetées manuellement. Pour en savoir plus sur l’apprentissage supervisé avec Form Recognizer, consultez la section [Effectuer l’apprentissage avec des étiquettes](../overview.md#train-with-labels) de la vue d’ensemble.
@@ -29,9 +33,9 @@ Dans ce démarrage rapide, vous allez utiliser l’API REST Form Recognizer avec
 Pour suivre cette procédure de démarrage rapide, vous avez besoin des éléments suivants :
 
 * Abonnement Azure - [En créer un gratuitement](https://azure.microsoft.com/free/cognitive-services)
-* Une fois que vous avez votre abonnement Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="créez une ressource Form Recognizer"  target="_blank">créer une ressource Form Recognizer<span class="docon docon-navigate-external x-hidden-focus"></span></a> sur le portail Azure pour obtenir votre clé et votre point de terminaison. Une fois le déploiement effectué, cliquez sur **Accéder à la ressource**.
-    * Vous aurez besoin de la clé et du point de terminaison de la ressource que vous créez pour connecter votre application à l’API Form Recognizer. Vous collerez votre clé et votre point de terminaison dans le code ci-dessous plus loin dans le guide de démarrage rapide.
-    * Vous pouvez utiliser le niveau tarifaire Gratuit (`F0`) pour tester le service, puis passer par la suite à un niveau payant pour la production.
+* Une fois que vous avez votre abonnement Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="créez une ressource Form Recognizer"  target="_blank">créer une ressource Form Recognizer</a> sur le portail Azure pour obtenir votre clé et votre point de terminaison. Une fois le déploiement effectué, cliquez sur **Accéder à la ressource**.
+  * Vous aurez besoin de la clé et du point de terminaison de la ressource que vous créez pour connecter votre application à l’API Form Recognizer. Vous collerez votre clé et votre point de terminaison dans le code ci-dessous plus loin dans le guide de démarrage rapide.
+  * Vous pouvez utiliser le niveau tarifaire Gratuit (`F0`) pour tester le service, puis passer par la suite à un niveau payant pour la production.
 * Au minimum un ensemble de six formulaires du même type. Vous allez utiliser ces données pour entraîner le modèle et tester un formulaire. Pour ce guide de démarrage rapide, vous pouvez utiliser un [exemple de jeu de données](https://go.microsoft.com/fwlink/?linkid=2090451) (téléchargez et extrayez *sample_data.zip*). Chargez les fichiers d’apprentissage à la racine d’un conteneur de stockage d’objets blob dans un compte Stockage Azure offrant un niveau de performance standard.
 
 ## <a name="create-a-form-recognizer-resource"></a>Créer une ressource Form Recognizer
@@ -42,27 +46,28 @@ Pour suivre cette procédure de démarrage rapide, vous avez besoin des élémen
 
 Pour essayer en ligne l’outil d’étiquetage des exemples Form Recognizer, accédez au [site web FOTT](https://fott-preview.azurewebsites.net/).
 
-# <a name="v20"></a>[v2.0](#tab/v2-0)
-> [!div class="nextstepaction"]
-> [Essayer des modèles prédéfinis](https://fott.azurewebsites.net/)
+### <a name="v21-preview"></a>[v2.1 (préversion)](#tab/v2-1)
 
-# <a name="v21-preview"></a>[v2.1 (préversion)](#tab/v2-1)
 > [!div class="nextstepaction"]
 > [Essayer des modèles prédéfinis](https://fott-preview.azurewebsites.net/)
 
+### <a name="v20"></a>[v2.0](#tab/v2-0)
+
+> [!div class="nextstepaction"]
+> [Essayer des modèles prédéfinis](https://fott.azurewebsites.net/)
+
 ---
 
-Vous aurez besoin d’un abonnement Azure ([créez-en un gratuitement](https://azure.microsoft.com/free/cognitive-services)) et d’un point de terminaison et d’une clé [de ressource Form Recognizer](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) pour tester le service Form Recognizer. 
-
+Vous aurez besoin d’un abonnement Azure ([créez-en un gratuitement](https://azure.microsoft.com/free/cognitive-services)) et d’un point de terminaison et d’une clé [de ressource Form Recognizer](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) pour tester le service Form Recognizer.
 
 ## <a name="set-up-the-sample-labeling-tool"></a>Configurer l’outil d’étiquetage des exemples
 
 Vous allez utiliser le moteur Docker pour exécuter l’outil d’étiquetage des exemples. Procédez comme suit pour configurer le conteneur Docker. Pour apprendre les principes de base de Docker et des conteneurs, consultez la [vue d’ensemble de Docker](https://docs.docker.com/engine/docker-overview/).
 
 > [!TIP]
-> OCR Form Labeling Tool est également disponible en tant que projet open source sur GitHub. L’outil est une application web TypeScript créée à l’aide de React + Redux. Pour en savoir plus ou apporter votre contribution, consultez le dépôt [OCR Form Labeling Tool](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md#run-as-web-application). Pour tester l’outil en ligne, accédez au [site web FOTT](https://fott.azurewebsites.net/).   
+> OCR Form Labeling Tool est également disponible en tant que projet open source sur GitHub. L’outil est une application web TypeScript créée à l’aide de React + Redux. Pour en savoir plus ou apporter votre contribution, consultez le dépôt [OCR Form Labeling Tool](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md#run-as-web-application). Pour tester l’outil en ligne, accédez au [site web FOTT](https://fott.azurewebsites.net/).
 
-1. Tout d’abord, installez Docker sur un ordinateur hôte. Ce guide va vous montrer comment utiliser l’ordinateur local en tant qu’hôte. Si vous voulez utiliser un service d’hébergement Docker dans Azure, consultez le guide pratique [Déployer l’outil d’étiquetage des exemples](../deploy-label-tool.md). 
+1. Tout d’abord, installez Docker sur un ordinateur hôte. Ce guide va vous montrer comment utiliser l’ordinateur local en tant qu’hôte. Si vous voulez utiliser un service d’hébergement Docker dans Azure, consultez le guide pratique [Déployer l’outil d’étiquetage des exemples](../deploy-label-tool.md).
 
    L’ordinateur hôte doit satisfaire à la configuration matérielle suivante :
 
@@ -70,38 +75,43 @@ Vous allez utiliser le moteur Docker pour exécuter l’outil d’étiquetage de
     |:--|:--|:--|
     |Outil d’étiquetage des exemples|2 cœurs, 4 Go de mémoire|4 cœurs, 8 Go de mémoire|
 
-   Installez Docker sur votre ordinateur en suivant les instructions appropriées pour votre système d’exploitation : 
+   Installez Docker sur votre ordinateur en suivant les instructions appropriées pour votre système d’exploitation :
+
    * [Windows](https://docs.docker.com/docker-for-windows/)
    * [macOS](https://docs.docker.com/docker-for-mac/)
    * [Linux](https://docs.docker.com/install/)
 
-
-
 1. Récupérez le conteneur de l’outil d’étiquetage des exemples avec la commande `docker pull`.
 
-    # <a name="v20"></a>[v2.0](#tab/v2-0)    
-    ```
-    docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool
-    ```
-    # <a name="v21-preview"></a>[v2.1 (préversion)](#tab/v2-1)    
-    ```
-    docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview
-    ```
+### <a name="v21-preview"></a>[v2.1 (préversion)](#tab/v2-1)
 
-    ---
+```console
+ docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview
+```
 
-1. Vous êtes maintenant prêt à exécuter le conteneur avec `docker run`.
+### <a name="v20"></a>[v2.0](#tab/v2-0)
 
-    # <a name="v20"></a>[v2.0](#tab/v2-0)    
-    ```
-    docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool eula=accept
-    ```
-    # <a name="v21-preview"></a>[v2.1 (préversion)](#tab/v2-1)    
-    ```
-    docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview eula=accept    
-    ```
+```console
+docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool
+```
 
-    --- 
+---
+</br>
+  3. Vous êtes maintenant prêt à exécuter le conteneur avec `docker run`.
+
+### <a name="v21-preview"></a>[v2.1 (préversion)](#tab/v2-1)
+
+```console
+ docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview eula=accept
+```
+
+### <a name="v20"></a>[v2.0](#tab/v2-0)
+
+```console
+docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool eula=accept
+```
+
+---
 
    Cette commande rend l’outil d’étiquetage des exemples disponible par le biais d’un navigateur web. Atteindre `http://localhost:3000`.
 
@@ -116,10 +126,10 @@ Tout d’abord, vérifiez que tous les documents d’entraînement ont le même 
 
 Activez CORS sur votre compte de stockage. Sélectionnez votre compte de stockage dans le portail Azure, puis cliquez sur l’onglet **CORS** dans le volet gauche. Sur la ligne inférieure, renseignez les valeurs suivantes. Cliquez ensuite sur **Enregistrer** en haut.
 
-* Origines autorisées = * 
+* Origines autorisées = *
 * Méthodes autorisées = \[tout sélectionner\]
 * En-têtes autorisés = *
-* En-têtes exposés = * 
+* En-têtes exposés = *
 * Âge maximal = 200
 
 > [!div class="mx-imgBorder"]
@@ -164,7 +174,7 @@ Quand vous créez ou ouvrez un projet, la fenêtre principale de l’éditeur d�
 
 * Un volet de visualisation redimensionnable, qui contient une liste déroulante de formulaires à partir de la connexion source.
 * Le volet principal de l’éditeur, qui vous permet d’appliquer des étiquettes.
-* Le volet de l’éditeur d’étiquettes, qui permet aux utilisateurs de modifier, de verrouiller, de réorganiser et de supprimer des étiquettes. 
+* Le volet de l’éditeur d’étiquettes, qui permet aux utilisateurs de modifier, de verrouiller, de réorganiser et de supprimer des étiquettes.
 
 ### <a name="identify-text-elements"></a>Identifier les éléments de texte
 
@@ -178,7 +188,29 @@ Il indique aussi les tables qui ont été automatiquement extraites. Cliquez sur
 
 Vous allez ensuite créer des balises (étiquettes) et les appliquer aux éléments de texte que vous souhaitez que le modèle analyse.
 
-# <a name="v20"></a>[v2.0](#tab/v2-0)  
+### <a name="v21-preview"></a>[v2.1 (préversion)](#tab/v2-1)
+
+1. Tout d’abord, utilisez le volet de l’éditeur d’étiquettes pour créer les étiquettes que vous souhaitez identifier :
+   * Cliquez sur **+** pour créer une étiquette.
+   * Entrez le nom de l’étiquette.
+   * Appuyez sur Entrée pour enregistrer l’étiquette.
+1. Dans l’éditeur principal, cliquez pour sélectionner des mots parmi les éléments de texte en surbrillance. Dans l’API _v2.1 preview.2_, vous pouvez aussi cliquer pour sélectionner des _marques de sélection_ comme des cases d’option et des cases à cocher en tant que paires clé-valeur. Form Recognizer détermine si la marque de sélection est « sélectionnée » ou « non sélectionnée » en tant que valeur.
+1. Cliquez sur l’étiquette que vous souhaitez appliquer ou appuyez sur la touche du clavier correspondante. Les touches numériques sont affectées comme touches d’accès rapide pour les 10 premières étiquettes. Vous pouvez réorganiser vos étiquettes à l’aide des icônes de flèches haut et bas dans le volet de l’éditeur d’étiquettes.
+    > [!Tip]
+    > Gardez à l’esprit les conseils suivants quand vous étiquetez vos formulaires :
+    >
+    > * Vous ne pouvez appliquer qu’une seule étiquette à chaque élément de texte sélectionné.
+    > * Chaque étiquette ne peut être appliquée qu’une seule fois par page. Si une valeur apparaît plusieurs fois sur le même formulaire, créez des étiquettes différentes pour chaque instance, par exemple « facture n° 1 », « facture n° 2 », etc.
+    > * Les étiquettes ne peuvent pas s’étendre sur plusieurs pages.
+    > * Étiquetez les valeurs telles qu’elles apparaissent sur le formulaire ; n’essayez pas de fractionner une valeur en deux parties avec deux étiquettes différentes. Par exemple, un champ d’adresse doit être étiqueté avec une étiquette unique, même s’il s’étend sur plusieurs lignes.
+    > * N’incluez pas de clés dans vos champs étiquetés&mdash;uniquement les valeurs.
+    > * Les données de la table doivent être détectées automatiquement et seront disponibles dans le fichier JSON de sortie final. Toutefois, si le modèle ne parvient pas à détecter toutes les données de votre table, vous pouvez aussi étiqueter manuellement ces champs. Étiquetez chaque cellule de la table avec une étiquette différente. Si vos formulaires comportent des tables avec un nombre variable de lignes, veillez à étiqueter au moins un formulaire avec la table la plus grande possible.
+    > * Servez-vous des boutons situés à droite de **+** pour rechercher, renommer, réorganiser et supprimer vos étiquettes.
+    > * Pour supprimer une étiquette appliquée sans supprimer l’étiquette proprement dite, sélectionne lez rectangle étiqueté dans la vue du document et appuyez sur la touche de suppression.
+    >
+
+### <a name="v20"></a>[v2.0](#tab/v2-0)
+
 1. Tout d’abord, utilisez le volet de l’éditeur d’étiquettes pour créer les étiquettes que vous souhaitez identifier.
    1. Cliquez sur **+** pour créer une étiquette.
    1. Entrez le nom de l’étiquette.
@@ -186,7 +218,8 @@ Vous allez ensuite créer des balises (étiquettes) et les appliquer aux éléme
 1. Dans l’éditeur principal, cliquez pour sélectionner des mots parmi les éléments de texte en surbrillance.
 1. Cliquez sur l’étiquette que vous souhaitez appliquer ou appuyez sur la touche du clavier correspondante. Les touches numériques sont affectées comme touches d’accès rapide pour les 10 premières étiquettes. Vous pouvez réorganiser vos étiquettes à l’aide des icônes de flèches haut et bas dans le volet de l’éditeur d’étiquettes.
     > [!Tip]
-    > Gardez à l’esprit les conseils suivants quand vous étiquetez vos formulaires.
+    > Gardez à l’esprit les conseils suivants quand vous étiquetez vos formulaires :
+    >
     > * Vous ne pouvez appliquer qu’une seule étiquette à chaque élément de texte sélectionné.
     > * Chaque étiquette ne peut être appliquée qu’une seule fois par page. Si une valeur apparaît plusieurs fois sur le même formulaire, créez des étiquettes différentes pour chaque instance, par exemple « facture n° 1 », « facture n° 2 », etc.
     > * Les étiquettes ne peuvent pas s’étendre sur plusieurs pages.
@@ -195,31 +228,11 @@ Vous allez ensuite créer des balises (étiquettes) et les appliquer aux éléme
     > * Les données de la table doivent être détectées automatiquement et seront disponibles dans le fichier JSON de sortie final. Toutefois, si le modèle ne parvient pas à détecter toutes les données de votre table, vous pouvez aussi étiqueter manuellement ces champs. Étiquetez chaque cellule de la table avec une étiquette différente. Si vos formulaires comportent des tables avec un nombre variable de lignes, veillez à étiqueter au moins un formulaire avec la table la plus grande possible.
     > * Servez-vous des boutons situés à droite de **+** pour rechercher, renommer, réorganiser et supprimer vos étiquettes.
     > * Pour supprimer une étiquette appliquée sans supprimer l’étiquette proprement dite, sélectionne lez rectangle étiqueté dans la vue du document et appuyez sur la touche de suppression.
-
-
-# <a name="v21-preview"></a>[v2.1 (préversion)](#tab/v2-1) 
-1. Tout d’abord, utilisez le volet de l’éditeur d’étiquettes pour créer les étiquettes que vous souhaitez identifier.
-   1. Cliquez sur **+** pour créer une étiquette.
-   1. Entrez le nom de l’étiquette.
-   1. Appuyez sur Entrée pour enregistrer l’étiquette.
-1. Dans l’éditeur principal, cliquez pour sélectionner des mots parmi les éléments de texte en surbrillance. Dans l’API _v2.1 preview.2_, vous pouvez aussi cliquer pour sélectionner des _marques de sélection_ comme des cases d’option et des cases à cocher en tant que paires clé-valeur. Form Recognizer détermine si la marque de sélection est « sélectionnée » ou « non sélectionnée » en tant que valeur.
-1. Cliquez sur l’étiquette que vous souhaitez appliquer ou appuyez sur la touche du clavier correspondante. Les touches numériques sont affectées comme touches d’accès rapide pour les 10 premières étiquettes. Vous pouvez réorganiser vos étiquettes à l’aide des icônes de flèches haut et bas dans le volet de l’éditeur d’étiquettes.
-    > [!Tip]
-    > Gardez à l’esprit les conseils suivants quand vous étiquetez vos formulaires.
-    > * Vous ne pouvez appliquer qu’une seule étiquette à chaque élément de texte sélectionné.
-    > * Chaque étiquette ne peut être appliquée qu’une seule fois par page. Si une valeur apparaît plusieurs fois sur le même formulaire, créez des étiquettes différentes pour chaque instance, par exemple « facture n° 1 », « facture n° 2 », etc.
-    > * Les étiquettes ne peuvent pas s’étendre sur plusieurs pages.
-    > * Étiquetez les valeurs telles qu’elles apparaissent sur le formulaire ; n’essayez pas de fractionner une valeur en deux parties avec deux étiquettes différentes. Par exemple, un champ d’adresse doit être étiqueté avec une étiquette unique, même s’il s’étend sur plusieurs lignes.
-    > * N’incluez pas de clés dans vos champs étiquetés&mdash;uniquement les valeurs.
-    > * Les données de la table doivent être détectées automatiquement et seront disponibles dans le fichier JSON de sortie final. Toutefois, si le modèle ne parvient pas à détecter toutes les données de votre table, vous pouvez aussi étiqueter manuellement ces champs. Étiquetez chaque cellule de la table avec une étiquette différente. Si vos formulaires comportent des tables avec un nombre variable de lignes, veillez à étiqueter au moins un formulaire avec la table la plus grande possible.
-    > * Servez-vous des boutons situés à droite de **+** pour rechercher, renommer, réorganiser et supprimer vos étiquettes.
-    > * Pour supprimer une étiquette appliquée sans supprimer l’étiquette proprement dite, sélectionne lez rectangle étiqueté dans la vue du document et appuyez sur la touche de suppression.
-
+>
 
 ---
 
 :::image type="content" source="../media/label-tool/main-editor-2-1.png" alt-text="Fenêtre principale de l’éditeur de l’outil d’étiquetage des exemples.":::
-
 
 Effectuez les étapes ci-dessus pour étiqueter au moins cinq de vos formulaires.
 
@@ -231,35 +244,43 @@ Si vous le souhaitez, vous pouvez définir le type de données attendu pour chaq
 > ![Sélection d'un type valeur avec l'outil d'étiquetage des exemples](../media/whats-new/value-type.png)
 
 Les types et variantes de valeurs suivants sont actuellement pris en charge :
+
 * `string`
-    * default, `no-whitespaces`, `alphanumeric`
+  * default, `no-whitespaces`, `alphanumeric`
+
 * `number`
-    * default, `currency`
-* `date` 
-    * default, `dmy`, `mdy`, `ymd`
+  * default, `currency`
+
+* `date`
+  * default, `dmy`, `mdy`, `ymd`
+
 * `time`
 * `integer`
 * `selectionMark` – _Nouveautés de v2.1-preview.1_
 
 > [!NOTE]
 > Consultez les règles suivantes pour la mise en forme des dates :
-> 
+>
 > Vous devez spécifier un format (`dmy`, `mdy`, `ymd`) pour le fonctionnement de la mise en forme de la date.
 >
 > Les caractères suivants peuvent être utilisés comme délimiteurs de date : `, - / . \`. L’espace blanc ne peut pas être utilisé comme délimiteur. Par exemple :
+>
 > * 01,01,2020
 > * 01-01-2020
 > * 01/01/2020
 >
 > Le jour et le mois peuvent chacun être écrits sous la forme d’un ou de deux chiffres, et l’année sous la forme de deux ou quatre chiffres :
+>
 > * 1-1-2020
 > * 1-01-20
 >
 > Si une chaîne de date contient huit chiffres, le délimiteur est facultatif :
+>
 > * 01012020
 > * 01 01 2020
 >
 > Le mois peut également être écrit sous sa forme complète ou abrégée. Si le nom est utilisé, les caractères de délimitation sont facultatifs. Toutefois, ce format peut être reconnu moins précisément que d’autres.
+>
 > * 01/Jan/2020
 > * 01Jan2020
 > * 01 Jan 2020
@@ -282,21 +303,22 @@ Une fois l’entraînement terminé, examinez la valeur **Average Accuracy**. Si
 
 ## <a name="compose-trained-models"></a>Composer des modèles entraînés
 
-# <a name="v20"></a>[v2.0](#tab/v2-0)  
-
-Cette fonctionnalité est actuellement disponible dans v2.1. preview. 
-
-# <a name="v21-preview"></a>[v2.1 (préversion)](#tab/v2-1) 
+### <a name="v21-preview"></a>[v2.1 (préversion)](#tab/v2-1)
 
 Avec Model Compose (Composition de modèles), vous pouvez composer jusqu’à 100 modèles pour un même ID de modèle. Quand vous appelez la fonction d’analyse avec cet ID de modèle composé, Form Recognizer classifie d’abord le formulaire soumis, en le rapprochant du modèle qui correspond le mieux, puis retourne les résultats pour ce modèle. Cela est utile quand les formulaires entrants sont susceptibles d’appartenir à l’un des différents modèles.
 
-Pour composer des modèles dans l’outil d’étiquetage des exemples, cliquez sur l’icône Model Compose (flèche de fusion) à gauche. À gauche, sélectionnez les modèles que vous souhaitez composer ensemble. Les modèles présentant une icône de flèche sont déjà des modèles composés. Cliquez sur le bouton « Compose » (Composer). Dans la fenêtre contextuelle, nommez votre nouveau modèle composé, puis cliquez sur « Compose » (Composer). Une fois l’opération terminée, le nouveau modèle composé apparaît dans la liste. 
+Pour composer des modèles dans l’outil d’étiquetage des exemples, cliquez sur l’icône Model Compose (flèche de fusion) à gauche. À gauche, sélectionnez les modèles que vous souhaitez composer ensemble. Les modèles présentant une icône de flèche sont déjà des modèles composés.
+Cliquez sur le bouton « Compose » (Composer). Dans la fenêtre contextuelle, nommez votre nouveau modèle composé, puis cliquez sur « Compose » (Composer). Une fois l’opération terminée, le nouveau modèle composé apparaît dans la liste.
 
 :::image type="content" source="../media/label-tool/model-compose.png" alt-text="Vue UX de composition de modèles.":::
 
+### <a name="v20"></a>[v2.0](#tab/v2-0)
+
+Cette fonctionnalité est actuellement disponible dans v2.1. preview.
+
 ---
 
-## <a name="analyze-a-form"></a>Analyser un formulaire 
+## <a name="analyze-a-form"></a>Analyser un formulaire
 
 Cliquez sur l’icône de prédiction (ampoule) sur la gauche pour tester votre modèle. Chargez un document de formulaire que vous n’avez pas utilisé dans le processus d’entraînement. Cliquez ensuite sur le bouton **Predict** à droite pour obtenir les prédictions de clé/valeur pour le formulaire. L’outil applique des étiquettes dans les cadres englobants et signale la confiance de chaque étiquette.
 
@@ -311,13 +333,15 @@ La justesse moyenne signalée, les scores de confiance et la justesse réelle pe
 
 ## <a name="save-a-project-and-resume-later"></a>Enregistrer un projet et le reprendre plus tard
 
-Pour reprendre votre projet à un autre moment ou dans un autre navigateur, vous devez enregistrer son jeton de sécurité et le retaper ultérieurement. 
+Pour reprendre votre projet à un autre moment ou dans un autre navigateur, vous devez enregistrer son jeton de sécurité et le retaper ultérieurement.
 
 ### <a name="get-project-credentials"></a>Récupérer les informations d’identification du projet
+
 Accédez à la page des paramètres du projet (icône en forme de curseurs) et prenez note du nom du jeton de sécurité. Accédez ensuite aux paramètres d’application (icône en forme d’engrenage), où apparaissent tous les jetons de sécurité dans votre instance de navigateur actuelle. Recherchez le jeton de sécurité de votre projet et copiez son nom et sa valeur de clé en lieu sûr.
 
 ### <a name="restore-project-credentials"></a>Restaurer les informations d’identification du projet
-Quand vous souhaitez reprendre votre projet, vous devez d’abord créer une connexion au même conteneur de stockage d’objets blob. Pour ce faire, répétez les étapes ci-dessus. Ensuite, accédez à la page des paramètres de l’application (icône en forme d’engrenage) et vérifiez si le jeton de sécurité de votre projet y figure. Si ce n’est pas le cas, ajoutez un nouveau jeton de sécurité et copiez le nom et la clé de votre jeton obtenus à l’étape précédente. Cliquez ensuite sur Save Settings (Enregistrer les paramètres). 
+
+Quand vous souhaitez reprendre votre projet, vous devez d’abord créer une connexion au même conteneur de stockage d’objets blob. Pour ce faire, répétez les étapes ci-dessus. Ensuite, accédez à la page des paramètres de l’application (icône en forme d’engrenage) et vérifiez si le jeton de sécurité de votre projet y figure. Si ce n’est pas le cas, ajoutez un nouveau jeton de sécurité et copiez le nom et la clé de votre jeton obtenus à l’étape précédente. Cliquez ensuite sur Save Settings (Enregistrer les paramètres).
 
 ### <a name="resume-a-project"></a>Reprendre un projet
 

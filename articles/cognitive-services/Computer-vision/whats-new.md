@@ -10,16 +10,25 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 01/13/2021
 ms.author: pafarley
-ms.openlocfilehash: 4f5ea68102e98a9abc3e5a0a31d3153bc1bd1663
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 78746e7623f58af5ae9df829b48245295dc39f01
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101738223"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487098"
 ---
 # <a name="whats-new-in-computer-vision"></a>Nouveautés de Vision par ordinateur
 
 Découvrir les nouveautés du service. Ces éléments peuvent être des notes de publication, des vidéos, des billets de blog et d’autres types d’informations. Marquez cette page pour rester informé des nouveautés du service.
+
+## <a name="march-2021"></a>Mars 2021
+
+### <a name="computer-vision-32-public-preview-update"></a>Mise à jour de la préversion publique de Vision par ordinateur 3.2
+
+La préversion publique de l’API Vision par ordinateur v3.2 a été mise à jour. La préversion offre toutes les fonctionnalités de Vision par ordinateur, ainsi que les versions mises à jour des API Lire et Analyser.
+
+> [!div class="nextstepaction"]
+> [Consulter la préversion publique 3 de Vision par ordinateur v3.2](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/5d986960601faab4bf452005)
 
 ## <a name="february-2021"></a>Février 2021
 
@@ -34,7 +43,7 @@ La préversion publique de l’API Lire v3.2 de Vision par ordinateur, disponibl
 [Découvrez-en plus](concept-recognizing-text.md) sur l’API Lire.
 
 > [!div class="nextstepaction"]
-> [Utiliser la préversion publique de l’API Lire v 3.2](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005)
+> [Utiliser la préversion publique de l’API Lire v 3.2](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/5d986960601faab4bf452005)
 
 
 ## <a name="january-2021"></a>Janvier 2021

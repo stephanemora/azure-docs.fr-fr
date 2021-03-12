@@ -2,17 +2,17 @@
 title: Machines virtuelles dans un modèle Azure Resource Manager | Microsoft Azure
 description: En savoir plus sur la manière dont la ressource de machine virtuelle est définie dans un modèle Azure Resource Manager.
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 01/03/2019
 ms.author: cynthn
-ms.openlocfilehash: 2726ba3b337dc785de58b06fb5e8372058f71879
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 32b73be3faf6eedb92220725b292a3e69cf7f965
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202094"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102555990"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Machines virtuelles dans un modèle Azure Resource Manager
 
@@ -144,7 +144,7 @@ Cet exemple montre une section de ressources standard d’un modèle pour la cr�
 >
 >
 
-## <a name="api-version"></a>Version de l'API
+## <a name="api-version"></a>Version d'API
 
 Lorsque vous déployez des ressources à l’aide d’un modèle, vous devez spécifier une version de l’API à utiliser. L’exemple montre la ressource de la machine virtuelle en utilisant cet élément apiVersion :
 
