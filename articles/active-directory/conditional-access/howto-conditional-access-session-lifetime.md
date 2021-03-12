@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 205136437fa1a2a33b3b337f5cc9f2dde283faef
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 6116ab543d6dfc886e44206c2a60e4456b39fbc9
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99491938"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102558183"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Configurer la gestion de session d’authentification avec l’accès conditionnel
 
@@ -37,7 +37,7 @@ La fréquence de connexion définit la durée à l’issue de laquelle un utilis
 
 La configuration par défaut d’Azure Active Directory (Azure AD) pour la fréquence de connexion utilisateur est une fenêtre cumulative de 90 jours. Demander des informations d’identification aux utilisateurs semble souvent une chose sensée à faire, mais celle-ci peut avoir l’effet inverse que celui prévu : les utilisateurs qui sont habitués à entrer leurs informations d’identification machinalement peuvent involontairement les fournir à une invite de demande d’informations d’identification malveillante.
 
-Il peut paraître alarmant de ne pas demander à un utilisateur de se reconnecter, en réalité toute violation des stratégies informatiques révoquera la session. Certains exemples incluent (mais ne sont pas limités à) une modification de mot de passe, un appareil non conforme ou une désactivation de compte. Vous pouvez aussi explicitement [révoquer les sessions des utilisateurs avec PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0&preserve-view=true). La configuration Azure AD par défaut se résume à « ne pas demander aux utilisateurs de fournir leurs informations d’identification si l’état de la sécurité de leurs sessions n’a pas changé ».
+Il peut paraître alarmant de ne pas demander à un utilisateur de se reconnecter, en réalité toute violation des stratégies informatiques révoquera la session. Certains exemples incluent (mais ne sont pas limités à) une modification de mot de passe, un appareil non conforme ou une désactivation de compte. Vous pouvez aussi explicitement [révoquer les sessions des utilisateurs avec PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken). La configuration Azure AD par défaut se résume à « ne pas demander aux utilisateurs de fournir leurs informations d’identification si l’état de la sécurité de leurs sessions n’a pas changé ».
 
 Le paramètre de fréquence de connexion fonctionne avec les applications qui ont implémenté les protocoles OAUTH2 ou OIDC conformément aux standards. La plupart des applications natives de Microsoft pour Windows, Mac et Mobile, notamment les applications web suivantes, sont conformes au paramètre.
 
