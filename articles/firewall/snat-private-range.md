@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: how-to
 ms.date: 01/11/2021
 ms.author: victorh
-ms.openlocfilehash: 0df91680dadbc4ac19299a4df48a585a11f044e8
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: c425afc314435c38d15d53ab0c38dcd48e35a40b
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98072239"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102508926"
 ---
 # <a name="azure-firewall-snat-private-ip-address-ranges"></a>Pare-feu Azure traduit l’adresse réseau source des plages d’adresses IP privées
 
@@ -58,7 +58,7 @@ New-AzFirewall @azFw
 > [!NOTE]
 > IANAPrivateRanges est étendu aux valeurs par défaut actuelles sur Pare-feu Azure, tandis que les autres plages y sont ajoutées. Pour conserver la valeur par défaut IANAPrivateRanges dans votre spécification de plage privée, elle doit rester dans votre spécification `PrivateRange`, comme indiqué dans les exemples suivants.
 
-Pour plus d’informations, consultez [New-AzFirewall](/powershell/module/az.network/new-azfirewall?view=azps-3.3.0).
+Pour plus d’informations, consultez [New-AzFirewall](/powershell/module/az.network/new-azfirewall).
 
 ### <a name="existing-firewall"></a>Pare-feu existant
 

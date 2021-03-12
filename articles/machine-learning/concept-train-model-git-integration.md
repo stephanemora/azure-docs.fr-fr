@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.date: 11/16/2020
-ms.openlocfilehash: 7c10d3066dc7b9ee0994de8c327b286bf8c917e7
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: cc844cbd2518bb131f6902d1da3e7653951224b5
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100099470"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102547847"
 ---
 # <a name="git-integration-for-azure-machine-learning"></a>Intégration de Git pour Azure Machine Learning
 
@@ -89,7 +89,7 @@ cat ~/.ssh/id_rsa.pub
 
 + [GitLab](https://docs.gitlab.com/ee/ssh/#adding-an-ssh-key-to-your-gitlab-account)
 
-+ [Azure DevOps](/azure/devops/repos/git/use-ssh-keys-to-authenticate?view=azure-devops#step-2--add-the-public-key-to-azure-devops-servicestfs&preserve-view=true) : Démarrez à l’**étape 2**.
++ [Azure DevOps](/azure/devops/repos/git/use-ssh-keys-to-authenticate#step-2--add-the-public-key-to-azure-devops-servicestfs) : Démarrez à l’**étape 2**.
 
 + [BitBucket](https://support.atlassian.com/bitbucket-cloud/docs/set-up-an-ssh-key/#SetupanSSHkey-ssh2). Démarrez à **étape 4**.
 
@@ -178,7 +178,7 @@ Les informations journalisées contiennent du texte similaire au code JSON suiva
 
 ### <a name="python-sdk"></a>Kit de développement logiciel (SDK) Python
 
-Après l’envoi d’une exécution d’entraînement, un objet [Run](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py) est retourné. L’attribut `properties` de cet objet contient les informations Git journalisées. Par exemple, le code suivant récupère le hachage de validation :
+Après l’envoi d’une exécution d’entraînement, un objet [Run](/python/api/azureml-core/azureml.core.run%28class%29) est retourné. L’attribut `properties` de cet objet contient les informations Git journalisées. Par exemple, le code suivant récupère le hachage de validation :
 
 ```python
 run.properties['azureml.git.commit']
@@ -192,7 +192,7 @@ Vous pouvez utiliser la commande CLI `az ml run` pour récupérer les propriét�
 az ml run list -e train-on-amlcompute --last 1 -w myworkspace -g myresourcegroup --query '[].properties'
 ```
 
-Pour plus d’informations, consultez la documentation de référence [az ml run](/cli/azure/ext/azure-cli-ml/ml/run?preserve-view=true&view=azure-cli-latest).
+Pour plus d’informations, consultez la documentation de référence [az ml run](/cli/azure/ext/azure-cli-ml/ml/run).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

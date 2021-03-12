@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/25/2021
 ms.author: alkohli
-ms.openlocfilehash: bed1c8fd77e84c69571cfad7dd6b7eeb6607209f
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: f1bce5c0ecdab4a9c96c3f2cc0e9734247bdfd66
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98808042"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102566343"
 ---
 # <a name="troubleshoot-storsimple-device-deployment-issues"></a>Résolution des problèmes de déploiement d’un appareil StorSimple
 ## <a name="overview"></a>Vue d’ensemble
@@ -189,7 +189,7 @@ Au moment de configurer des interfaces réseau pour un premier déploiement d’
    * Si l’interface est intègre mais pas activée, l’état d’**ifIndex** indique **Absent**.
    * Si l’interface n’existe pas, il n’apparaît pas dans cette liste. L’interface utilisateur du service StorSimple Device Manager continue d’afficher cette interface avec l’état Échec.
 
-Pour plus d’informations sur l’utilisation de cette applet de commande, accédez à la page [GetNetAdapter](/powershell/module/netadapter/get-netadapter?view=win10-ps&preserve-view=true) dans le document de référence des applets de commande Windows PowerShell.
+Pour plus d’informations sur l’utilisation de cette applet de commande, accédez à la page [GetNetAdapter](/powershell/module/netadapter/get-netadapter) dans le document de référence des applets de commande Windows PowerShell.
 
 Les sections suivantes présentent des exemples de sortie de l’applet de commande `Get-NetAdapter` .
 

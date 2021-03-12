@@ -10,12 +10,12 @@ author: peterclu
 ms.date: 05/05/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q2
-ms.openlocfilehash: 7144d576694b6694f426533451717cef58c2da87
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 4c03016d003978b3c56361595bec7c559205574b
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97562444"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102520878"
 ---
 # <a name="reinforcement-learning-preview-with-azure-machine-learning"></a>Apprentissage par renforcement (préversion) avec Azure Machine Learning
 
@@ -49,8 +49,8 @@ Exécutez ce code dans l’un de ces environnements : Nous vous recommandons d�
  
  - Votre propre serveur de notebooks Jupyter
 
-    - Installez le [Kit de développement logiciel (SDK) Azure Machine Learning](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
-    - Installez le [Kit de développement logiciel (SDK) d’apprentissage par renforcement d’Azure Machine Learning](/python/api/azureml-contrib-reinforcementlearning/?preserve-view=true&view=azure-ml-py) : `pip install --upgrade azureml-contrib-reinforcementlearning`
+    - Installez le [Kit de développement logiciel (SDK) Azure Machine Learning](/python/api/overview/azure/ml/install).
+    - Installez le [Kit de développement logiciel (SDK) d’apprentissage par renforcement d’Azure Machine Learning](/python/api/azureml-contrib-reinforcementlearning/) : `pip install --upgrade azureml-contrib-reinforcementlearning`
     - Créer un [fichier de configuration d’espace de travail](how-to-configure-environment.md#workspace).
     - Exécutez le réseau virtuel pour ouvrir les ports réseau utilisés pour l’apprentissage par renforcement distribué.
 
@@ -107,7 +107,7 @@ ws = Workspace.from_config()
 
 ### <a name="create-a-reinforcement-learning-experiment"></a>Créer une expérience d’apprentissage par renforcement
 
-Créez une [expérience](/python/api/azureml-core/azureml.core.experiment.experiment?preserve-view=true&view=azure-ml-py) pour suivre votre apprentissage par renforcement. Dans Azure Machine Learning, les expériences sont des collections logiques d’essais associés pour organiser des journaux d’exécution, un historique, des résultats et bien plus encore.
+Créez une [expérience](/python/api/azureml-core/azureml.core.experiment.experiment) pour suivre votre apprentissage par renforcement. Dans Azure Machine Learning, les expériences sont des collections logiques d’essais associés pour organiser des journaux d’exécution, un historique, des résultats et bien plus encore.
 
 ```python
 experiment_name='rllib-pong-multi-node'
@@ -214,7 +214,7 @@ else:
 ```
 
 ## <a name="create-a-reinforcement-learning-estimator"></a>Créer un estimateur d’apprentissage par renforcement
-Utilisez le [ReinforcementLearningEstimator](/python/api/azureml-contrib-reinforcementlearning/azureml.contrib.train.rl.reinforcementlearningestimator?preserve-view=true&view=azure-ml-py) pour soumettre un travail de formation à Azure Machine Learning.
+Utilisez le [ReinforcementLearningEstimator](/python/api/azureml-contrib-reinforcementlearning/azureml.contrib.train.rl.reinforcementlearningestimator) pour soumettre un travail de formation à Azure Machine Learning.
 
 Azure Machine Learning utilise des classes d’estimateur pour encapsuler les informations de configuration de l’exécution. Cela vous permet de spécifier comment configurer l’exécution d’un script. 
 
@@ -402,7 +402,7 @@ def on_train_result(info):
 
 ## <a name="submit-a-run"></a>Envoyer une exécution
 
-[Run](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py) gère l’historique des exécutions des travaux en cours ou terminés. 
+[Run](/python/api/azureml-core/azureml.core.run%28class%29) gère l’historique des exécutions des travaux en cours ou terminés. 
 
 ```python
 run = exp.submit(config=rl_estimator)

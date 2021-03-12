@@ -9,12 +9,12 @@ ms.date: 1/20/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli, references_regions
-ms.openlocfilehash: 5a27f38e92955c0aa240f6be394aacd187c3a8b8
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 24bee926d84c7a5be3f19c39d39285c2cd486824
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100370901"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102211020"
 ---
 # <a name="create-an-azure-file-share"></a>Crée un partage de fichiers Azure
 Pour créer un partage de fichiers Azure, vous devez répondre à trois questions se rapportant la façon dont vous allez l’utiliser :
@@ -35,7 +35,7 @@ Pour plus d’informations sur ces trois choix, consultez [Planification d’un 
 ## <a name="prerequisites"></a>Prérequis
 - Cet article suppose que vous avez déjà créé un abonnement Azure. Si vous n’avez pas d’abonnement, vous pouvez [créer un compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 - Si vous envisagez d’utiliser Azure PowerShell, [installez-en la dernière version](/powershell/azure/install-az-ps).
-- Si vous envisagez d’utiliser Azure CLI, [installez-en la dernière version](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
+- Si vous envisagez d’utiliser Azure CLI, [installez-en la dernière version](/cli/azure/install-azure-cli).
 
 ## <a name="create-a-storage-account"></a>Créez un compte de stockage.
 Les partages de fichiers Azure sont déployés dans des *comptes de stockage*, qui sont des objets de niveau supérieur représentant un pool partagé de stockage. Ce pool de stockage peut être utilisé pour déployer plusieurs partages de fichiers. 
@@ -213,7 +213,7 @@ New-AzRmStorageShare `
 ```
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
-Vous pouvez créer un partage de fichiers Azure avec la commande [`az storage share-rm create`](/cli/azure/storage/share-rm?preserve-view=true&view=azure-cli-latest#az_storage_share_rm_create). Les commandes Azure CLI suivantes supposent que vous avez défini les variables `$resourceGroupName` et `$storageAccountName` comme indiqué ci-dessus, dans la section relative à la création d’un compte de stockage avec Azure CLI.
+Vous pouvez créer un partage de fichiers Azure avec la commande [`az storage share-rm create`](/cli/azure/storage/share-rm#az_storage_share_rm_create). Les commandes Azure CLI suivantes supposent que vous avez défini les variables `$resourceGroupName` et `$storageAccountName` comme indiqué ci-dessus, dans la section relative à la création d’un compte de stockage avec Azure CLI.
 
 > [!Important]  
 > Pour les partages de fichiers Premium, le paramètre `--quota` fait référence à la taille provisionnée du partage de fichiers. La taille provisionnée du partage de fichiers est la quantité pour laquelle vous êtes facturé, quelle que soit l’utilisation faite. Les partages de fichiers Standard sont facturés en fonction de l’utilisation, et non par rapport à la taille provisionnée.

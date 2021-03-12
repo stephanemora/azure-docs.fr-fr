@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 01/15/2021
 ms.custom: designer
-ms.openlocfilehash: e93f912915303ce903a32ceba4f079593657a4ac
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: ec563371ab505113117707f56c31f506f7fdf377
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576056"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659503"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer"></a>Tutoriel : Déployer un modèle Machine Learning avec le concepteur
 
@@ -42,7 +42,7 @@ Pour déployer votre pipeline, vous devez d’abord convertir le pipeline d’en
 
 1. Au-dessus du canevas de pipeline, sélectionnez **Create inference pipeline** > **Real-time inference pipeline** (Créer un pipeline d’inférence > Pipeline d’inférence en temps réel).
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-deploy/tutorial2-create-inference-pipeline.png"alt-text="Capture d’écran montrant l’emplacement du bouton pour créer un pipeline":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-deploy/tutorial2-create-inference-pipeline.png" alt-text="Capture d’écran montrant l’emplacement du bouton pour créer un pipeline":::
 
     Votre pipeline doit maintenant se présenter comme suit : 
 
@@ -97,7 +97,7 @@ Une fois le provisionnement du service AKS terminé, revenez au pipeline d’inf
 
 1. Sélectionnez le cluster AKS que vous avez créé.
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-deploy/setup-endpoint.png"alt-text="Capture d’écran montrant comment configurer un nouveau point de terminaison en temps réel":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-deploy/setup-endpoint.png" alt-text="Capture d’écran montrant comment configurer un nouveau point de terminaison en temps réel":::
 
     Vous pouvez également changer le paramètre **Avancé** pour votre point de terminaison en temps réel.
     
@@ -137,6 +137,22 @@ Une fois le déploiement effectué, vous pouvez afficher votre point de terminai
 1. Pour tester votre point de terminaison, accédez à l’onglet **Tester**. À partir de là, vous pouvez entrer des données de test et sélectionner **Tester** afin de vérifier la sortie de votre point de terminaison.
 
 Pour plus d’informations sur l’utilisation de votre service web, consultez [Consommer un modèle déployé en tant que service web](how-to-consume-web-service.md).
+
+## <a name="limitations"></a>Limites
+
+Si vous modifiez votre pipeline d’entraînement, vous devez soumettre à nouveau le pipeline d’entraînement, **mettre à jour** le pipeline d’inférence et réexécuter le pipeline d’inférence.
+
+Notez que seuls les modèles entraînés seront mis à jour dans le pipeline d’inférence, alors que la transformation de données ne sera pas mise à jour.
+
+Pour utiliser la transformation mise à jour dans le pipeline d’inférence, vous devez inscrire la sortie de la transformation du module de transformation en tant que jeu de données.
+
+![Capture d’écran montrant comment inscrire un jeu de données de transformation](./media/tutorial-designer-automobile-price-deploy/register-transformation-dataset.png)
+
+Ensuite, remplacez manuellement le module **TD-** dans le pipeline d’inférence par le jeu de données inscrit.
+
+![Capture d’écran montrant comment remplacer le module de transformation](./media/tutorial-designer-automobile-price-deploy/replace-td-module.png)
+
+Vous pouvez ensuite envoyer le pipeline d’inférence avec le modèle et la transformation mis à jour, puis déployer.
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

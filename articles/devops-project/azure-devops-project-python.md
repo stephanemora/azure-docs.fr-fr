@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 03/24/2020
 ms.author: mlearned
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: dec41f1b9de6920338360edeb18b9878a8c86432
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 99ca60f2610d34d194c50e92501c0126a7c80323
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97588928"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102566547"
 ---
 # <a name="create-a-cicd-pipeline-for-python-with-azure-devops-starter"></a>Créer un pipeline CI/CD pour Python avec Azure DevOps Starter
 
@@ -65,7 +65,7 @@ DevOps Starter crée un pipeline CI/CD dans Azure Pipelines. Vous pouvez créer 
 
 ## <a name="commit-code-changes-and-execute-cicd"></a>Valider les modifications de code et exécuter CI/CD
 
-DevOps Starter crée un dépôt Git dans Azure Repos ou dans GitHub. Pour voir le dépôt et modifier le code dans votre application, suivez les étapes ci-dessous : 
+DevOps Starter crée un référentiel Git dans Azure Repos ou dans GitHub. Pour voir le dépôt et modifier le code dans votre application, suivez les étapes ci-dessous : 
 
 1. Sur le côté gauche du tableau de bord DevOps Starter, sélectionnez le lien correspondant à votre branche principale. Ce lien ouvre une vue sur le référentiel Git récemment créé.
 
@@ -129,4 +129,4 @@ Quand vous n’en avez plus besoin, vous pouvez supprimer Azure App Service et l
 Quand vous avez configuré votre processus CI/CD, les pipelines de build et de mise en production ont été créés automatiquement. Vous pouvez le modifier afin qu’il réponde aux besoins de votre équipe. Pour en savoir plus sur le pipeline CI/CD, consultez :
 
 > [!div class="nextstepaction"]
-> [Personnaliser le processus CD](/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
+> [Personnaliser le processus CD](/azure/devops/pipelines/release/define-multistage-release-process)

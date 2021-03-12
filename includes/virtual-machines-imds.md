@@ -8,12 +8,12 @@ ms.date: 01/04/2021
 ms.author: chhenk
 ms.reviewer: azmetadatadev
 ms.custom: references_regions
-ms.openlocfilehash: e18c09130fcbcdbb470abc19d76bdf2ccfef0775
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 554730919d4226c07e099d5e457cd0fd20dbad30
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102175706"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102510807"
 ---
 Azure Instance Metadata Service fournit des informations sur les instances de machine virtuelle en cours d’exécution. Vous pouvez l’utiliser pour gérer et configurer vos machines virtuelles.
 Ces information comprennent la référence SKU, le stockage, les configurations réseau et les événements de maintenance à venir. Pour connaître la liste complète des données disponibles, consultez le [Résumé des catégories de points de terminaison](#endpoint-categories).
@@ -345,8 +345,8 @@ Décomposition du schéma :
 | `osType` | Linux ou Windows | 2017-04-02
 | `placementGroupId` | [Groupe de placement](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) de votre groupe de machines virtuelles identiques | 2017-08-01
 | `plan` | [Plan](/rest/api/compute/virtualmachines/createorupdate#plan) contenant le nom, le produit et l’éditeur d’une machine virtuelle s’il s’agit d’une image de la Place de marché Azure | 2018-04-02
-| `platformUpdateDomain` |  [Domaine de mise à jour](../articles/virtual-machines/manage-availability.md) dans lequel la machine virtuelle est en cours d’exécution | 2017-04-02
-| `platformFaultDomain` | [Domaine par défaut](../articles/virtual-machines/manage-availability.md) dans lequel la machine virtuelle est en cours d’exécution | 2017-04-02
+| `platformUpdateDomain` |  [Domaine de mise à jour](../articles/virtual-machines/availability.md) dans lequel la machine virtuelle est en cours d’exécution | 2017-04-02
+| `platformFaultDomain` | [Domaine par défaut](../articles/virtual-machines/availability.md) dans lequel la machine virtuelle est en cours d’exécution | 2017-04-02
 | `priority` | Priorité de la machine virtuelle. Pour en savoir plus, consultez la section [Machines virtuelles spot](../articles/virtual-machines/spot-vms.md) | 2020-12-01
 | `provider` | Fournisseur de la machine virtuelle | 2018-10-01
 | `publicKeys` | [Collection de clés publiques](/rest/api/compute/virtualmachines/createorupdate#sshpublickey) affectée à la machine virtuelle et aux chemins | 2018-04-02

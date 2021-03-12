@@ -4,18 +4,30 @@ description: Découvrez comment implémenter un moniteur d’état à l’aide d
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: e70c50098ece516312e1e92984185624c276301b
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.openlocfilehash: 8ef32ecfb6f69b71d29578d3b8314f568fd9386a
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98028418"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102431072"
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>Scénario de surveillance dans l’extension Fonctions durables - Exemple d’observateur météo
 
 Le modèle de surveillance fait référence à un processus *récurrent* flexible dans un flux de travail, par exemple l’interrogation jusqu’à ce que certaines conditions soient respectées. Cet article décrit un exemple qui utilise l’extension [Fonctions durables](durable-functions-overview.md) pour implémenter la surveillance.
 
-[!INCLUDE [durable-functions-prerequisites](../../../includes/durable-functions-prerequisites.md)]
+## <a name="prerequisites"></a>Prérequis
+
+# <a name="c"></a>[C#](#tab/csharp)
+
+* [Suivez l’article sur le démarrage rapide](durable-functions-create-first-csharp.md)
+* [Clonez ou téléchargez les exemples de projets à partir de GitHub](https://github.com/Azure/azure-functions-durable-extension/tree/main/samples/precompiled)
+
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+* [Suivez l’article sur le démarrage rapide](quickstart-js-vscode.md)
+* [Clonez ou téléchargez les exemples de projets à partir de GitHub](https://github.com/Azure/azure-functions-durable-extension/tree/main/samples/javascript)
+
+---
 
 ## <a name="scenario-overview"></a>Présentation du scénario
 
@@ -72,9 +84,6 @@ Voici le code qui implémente la fonction :
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_Monitor/index.js)]
 
-# <a name="python"></a>[Python](#tab/python)
-Nous avons un autre tutoriel pour le modèle de supervision sur Python, accessible [ici](durable-functions-monitor-python.md).
-
 ---
 
 Cette fonction d’orchestrateur effectue les actions suivantes :
@@ -105,9 +114,6 @@ Et voici l’implémentation.
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_GetIsClear/index.js)]
 
-# <a name="python"></a>[Python](#tab/python)
-Nous avons un autre tutoriel pour le modèle de supervision sur Python, accessible [ici](durable-functions-monitor-python.md).
-
 ---
 
 ### <a name="e3_sendgoodweatheralert-activity-function"></a>Fonction d'activité E3_SendGoodWeatherAlert
@@ -130,9 +136,6 @@ Son fichier *function.json* est simple :
 Et voici le code qui envoie le SMS :
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_SendGoodWeatherAlert/index.js)]
-
-# <a name="python"></a>[Python](#tab/python)
-Nous avons un autre tutoriel pour le modèle de supervision sur Python, accessible [ici](durable-functions-monitor-python.md).
 
 ---
 

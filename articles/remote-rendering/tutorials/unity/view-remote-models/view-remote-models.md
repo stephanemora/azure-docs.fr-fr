@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: bfcd1e600c722cf3a4951da60097c7c373f9b1a6
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: ef2d0eb409cbef2fdd3579ae5e8b409e24bdda2f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99592039"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735962"
 ---
 # <a name="tutorial-viewing-a-remotely-rendered-model"></a>Tutoriel : Affichage d’un modèle rendu à distance
 
@@ -55,43 +55,9 @@ Dans cet exemple, nous partons du principe que le projet est créé dans un doss
 
 ## <a name="include-the-azure-remote-rendering-package"></a>Inclure le package Azure Remote Rendering
 
-Vous devez modifier le fichier `Packages/manifest.json` qui se trouve dans le dossier de votre projet Unity. Ouvrez le fichier dans un éditeur de texte et ajoutez les lignes suivantes dans la partie supérieure de votre manifeste :
+[Suivez les instructions](../../../how-tos/unity/install-remote-rendering-unity-package.md) pour ajouter le package Azure Remote Rendering à un projet Unity.
 
-```json
-{
-    "scopedRegistries": [
-    {
-        "name": "Azure Mixed Reality Services",
-        "url": "https://api.bintray.com/npm/microsoft/AzureMixedReality-NPM/",
-        "scopes": ["com.microsoft.azure"]
-    }
-    ],
-    "dependencies": {
-        "com.unity.render-pipelines.universal": "7.3.1",
-        "com.microsoft.azure.remote-rendering": "0.1.31",
-        ...existing dependencies...
-    }
-}
-```
 
-Après avoir modifié et enregistré le manifeste, Unity s’actualise automatiquement. Vérifiez que les packages ont été chargés dans la fenêtre *Project* (Projet) :
-
-:::image type="content" source="./media/confirm-packages.png" alt-text="vérifier les importations de packages":::
-
-Si vos packages ne se chargent pas, vérifiez s’il y a des erreurs dans votre console Unity. Si ce n’est pas le cas mais que les packages ne figurent toujours pas dans le dossier **Packages**, cochez le bouton bascule de visibilité des packages.\
-![Capture d’écran avec une flèche pointant vers le bouton bascule de visibilité des packages.](./media/unity-package-visibility.png)
-
-## <a name="ensure-you-have-the-latest-version-of-the-package"></a>Vérifiez que vous avez la version la plus récente du package.
-
-Les étapes suivantes permettent de vérifier que votre projet utilise la version la plus récente du package Remote Rendering.
-
-1. Dans le menu supérieur de l’éditeur Unity, ouvrez *Window -> Package Manager* (Fenêtre -> Gestionnaire de packages).
-1. Sélectionnez le package **Microsoft Azure Remote Rendering**.
-1. Dans la page Package Manager (Gestionnaire de packages), vérifiez que le bouton **Update** (Mettre à jour) est disponible pour le package **Microsoft Azure Remote Rendering**. Si c’est le cas, cliquez dessus pour mettre à jour le package vers la dernière version disponible :\
-![Le package ARR dans le Gestionnaire de package](./media/package-manager.png)
-1. La mise à jour du package peut parfois occasionner des erreurs dans la console. Si cela se produit, essayez de fermer, puis de rouvrir le projet.
-1. Quand le package est à jour, le Gestionnaire de packages affiche **Up to date** (À jour) à la place du bouton Update (Mettre à jour).\
-![Package à jour](./media/package-up-to-date.png)
 ## <a name="configure-the-camera"></a>Configurer la caméra
 
 1. Sélectionner le nœud **Main Camera** (Caméra principale).
