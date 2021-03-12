@@ -2,18 +2,19 @@
 title: Tutoriel - Configurer la reprise d’activité après sinistre pour les machines virtuelles Linux avec Azure Site Recovery
 description: Découvrez comment configurer la reprise d’activité après sinistre pour des machines virtuelles Linux dans une autre région Azure avec le service Azure Site Recovery.
 author: rayne-wiselman
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.subservice: recovery
 ms.topic: tutorial
 ms.date: 11/05/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: d14d276c798e40d417a8038aee5b7550e84f4114
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: fa43f40d4849a8e773241fa17a1e1787ce86a8ff
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93379784"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102564745"
 ---
 # <a name="tutorial-set-up-disaster-recovery-for-linux-virtual-machines"></a>Tutoriel : Configurer la reprise d’activité après sinistre pour les machines virtuelles Linux
 
@@ -53,7 +54,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
     **Tag** | **Autoriser** 
     --- | --- 
     Étiquette du stockage | Permet d’écrire des données entre la machine virtuelle et le compte de stockage de cache.
-    Étiquette Azure AD | Autorise l’accès à toutes les adresses IP qui correspondent à Azure AD.
+    Étiquette Azure AD | Autorise l’accès à toutes les adresses IP qui correspondent à Azure AD.
     Étiquette EventsHub | Permet d’accéder à la supervision de Site Recovery.
     Étiquette AzureSiteRecovery | Permet d’accéder au service Site Recovery dans n’importe quelle région.
     GuestAndHybridManagement | Utilisez-la si vous souhaitez mettre automatiquement à niveau l’agent Mobilité Site Recovery qui est exécuté sur les machines virtuelles où est activée la réplication.
@@ -159,7 +160,7 @@ L’extension Site Recovery installée sur la machine virtuelle pendant la répl
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez configuré la reprise d’activité après sinistre pour une machine virtuelle Azure, et vous avez effectué un test de reprise d’activité. À présent, vous pouvez effectuer le basculement complet de la machine virtuelle.
+Dans ce tutoriel, vous avez configuré la reprise d’activité après sinistre pour une machine virtuelle Azure, puis vous avez effectué un test de reprise d’activité. À présent, vous pouvez effectuer le basculement complet de la machine virtuelle.
 
 > [!div class="nextstepaction"]
 > [Basculer une machine virtuelle vers une autre région](../../site-recovery/azure-to-azure-tutorial-dr-drill.md)

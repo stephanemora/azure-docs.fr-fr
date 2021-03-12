@@ -1,6 +1,6 @@
 - name: Documentation Spatial Anchors
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: À propos de Spatial Anchors
       href: overview.md
@@ -107,6 +107,8 @@
       href: concepts/logging-diagnostics.md
     - name: Relocalisation grossière
       href: concepts/coarse-reloc.md
+    - name: Stratégie de localisation d’ancre
+      href: concepts/anchor-locate-strategy.md
 - name: References
   items:
     - name: Kit SDK pour Unity

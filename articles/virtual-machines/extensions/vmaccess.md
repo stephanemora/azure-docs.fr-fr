@@ -1,27 +1,19 @@
 ---
 title: Réinitialiser l’accès à une machine virtuelle Linux Azure
 description: Comment gérer les utilisateurs administratifs et réinitialiser l’accès sur des machines virtuelles Linux à l’aide de l’extension VMAccess et d’Azure CLI
-services: virtual-machines-linux
-documentationcenter: ''
-author: axayjo
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 261a9646-1f93-407e-951e-0be7226b3064
-ms.service: virtual-machines-linux
-ms.subservice: extensions
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-ms.devlang: azurecli
 ms.topic: article
+ms.service: virtual-machines
+ms.subservice: extensions
+author: amjads1
+ms.author: amjads
+ms.collection: linux
 ms.date: 05/10/2018
-ms.author: akjosh
-ms.openlocfilehash: e46f7f3d51d2841a2287c86f9e8dddd7460b1a5d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e0e63762fc151d93cb34885c04dd4d03285c29f1
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96016435"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102557044"
 ---
 # <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli"></a>Gérer les utilisateurs administratifs, SSH, et vérifier ou réparer les disques de machines virtuelles Linux à l’aide de l’extension VMAccess avec Azure CLI
 ## <a name="overview"></a>Vue d’ensemble
@@ -32,7 +24,7 @@ Cet article vous explique comment utiliser l’extension Azure VMAccess pour vé
 > [!NOTE]
 > Si vous utilisez l’extension VMAccess pour réinitialiser le mot de passe de votre machine virtuelle après l’installation de l’extension de connexion AAD, vous devez réexécuter l’extension de connexion AAD pour réactiver la connexion AAD sur votre machine.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 ### <a name="operating-system"></a>Système d’exploitation
 
 L’extension d’accès aux machines virtuelles peut être exécutée sur ces distributions de Linux :

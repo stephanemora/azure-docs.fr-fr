@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 101e42263e46c5a21f26b0fa9cdeed798525fee9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc87429f269fba5083b87e2c328f0e21de9707ff
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89047076"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102454345"
 ---
 # <a name="set-up-disaster-recovery-at-scale-for-vmware-vmsphysical-servers"></a>Configurer la récupération d’urgence à grande échelle de machines virtuelles VMware et de serveurs physiques
 
@@ -214,7 +214,7 @@ Pour exécuter un basculement à grande échelle, nous recommandons de procéder
     - [Découvrez d’autres informations](recovery-plan-overview.md) sur les plans de récupération.
 2. Ajoutez des scripts de runbook Azure Automation aux plans de récupération pour automatiser toutes les tâches manuelles sur Azure. Les tâches typiques incluent la configuration d’équilibreurs de charge, la mise à jour de DNS, etc. [En savoir plus](site-recovery-runbook-automation.md)
 2. Avant le basculement, préparez les machines Windows afin qu’elles soient conformes à l’environnement Azure. Les [limites de nombre de basculements](#plan-azure-subscriptions-and-quotas) sont plus élevées pour les machines conformes. [Apprenez-en davantage](site-recovery-failover-to-azure-troubleshoot.md#failover-failed-with-error-id-170010) sur les runbooks.
-4.  Déclenchez le basculement avec la cmdlet PowerShell [Start-AzRecoveryServicesAsrPlannedFailoverJob](/powershell/module/az.recoveryservices/start-azrecoveryservicesasrplannedfailoverjob?view=azps-2.0.0&viewFallbackFrom=azps-1.1.0), ainsi qu’un plan de récupération.
+4.  Déclenchez le basculement avec la cmdlet PowerShell [Start-AzRecoveryServicesAsrPlannedFailoverJob](/powershell/module/az.recoveryservices/start-azrecoveryservicesasrplannedfailoverjob), ainsi qu’un plan de récupération.
 
 
 

@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: article
-ms.date: 02/12/2021
-ms.openlocfilehash: 9a3a511a287f093b4fc317213afedd5fdc3c21be
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.date: 03/09/2021
+ms.openlocfilehash: 7796fc7e2032559ca3ff5c738c46fe025719942d
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100520661"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102556619"
 ---
 # <a name="authenticate-access-to-azure-resources-by-using-managed-identities-in-azure-logic-apps"></a>Authentifier l’accès aux ressources Azure avec des identités managées dans Azure Logic Apps
 
@@ -39,7 +39,6 @@ Actuellement, seuls [des déclencheurs et des actions intégrés spécifiques](.
 * Azure Automation
 * Azure Event Grid
 * Azure Key Vault
-* Journaux Azure Monitor
 * Azure Resource Manager
 * HTTP avec Azure AD
 
@@ -307,7 +306,7 @@ Pour pouvoir vous servir de l’identité managée de votre application logique 
 * [Azure portal](#azure-portal-assign-access)
 * [Modèle Azure Resource Manager](../role-based-access-control/role-assignments-template.md)
 * Azure PowerShell ([New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment)) : pour plus d’informations, consultez [Ajouter ou supprimer des attributions de rôles à l’aide du RBAC Azure et d’Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
-* Azure CLI ([az role assignment create](/cli/azure/role/assignment?view=azure-cli-latest&preserve-view=true#az-role-assignment-create)) : pour plus d’informations, consultez [Ajouter ou supprimer des attributions de rôles avec le RBAC Azure et Azure CLI](../role-based-access-control/role-assignments-cli.md).
+* Azure CLI ([az role assignment create](/cli/azure/role/assignment#az-role-assignment-create)) : pour plus d’informations, consultez [Ajouter ou supprimer des attributions de rôles avec le RBAC Azure et Azure CLI](../role-based-access-control/role-assignments-cli.md).
 * [API REST Azure](../role-based-access-control/role-assignments-rest.md)
 
 <a name="azure-portal-assign-access"></a>

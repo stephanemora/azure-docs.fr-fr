@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: overview
-ms.date: 01/05/2021
+ms.date: 02/16/2021
 ms.author: mbullwin
 keywords: détection d’anomalie, Machine Learning, algorithmes
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 425c6cab4a4a5e1329e2d38f49c5058ec8ffc5b9
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: ad3bd1eed6e5e7efb783c4a40958e16c3ca23691
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97901366"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100572081"
 ---
 # <a name="what-is-the-anomaly-detector-api"></a>Présentation de l’API Détecteur d’anomalies
 
@@ -53,13 +53,13 @@ Pour savoir comment appeler l’API Détecteur d’anomalies, essayez ce [notebo
 Pour exécuter le notebook, procédez comme suit :
 
 1. Obtenez une clé d’abonnement valide pour l’API Détecteur d’anomalies et un point de terminaison d’API. La section ci-dessous donne les instructions pour s’inscrire.
-1. Connectez-vous, puis cliquez sur Cloner en haut à droite.
-1. Désactivez l’option « public » dans la boîte de dialogue avant de procéder à l’opération de clonage. Dans le cas contraire, votre notebook, avec toutes les clés d’abonnement, sera public.
-1. Cliquez sur **Exécuter sur le calcul gratuit**
+1. Connectez-vous, puis sélectionnez Clone (Cloner) en haut à droite.
+1. Décochez l’option « public » dans la boîte de dialogue avant de procéder à l’opération de clonage. Dans le cas contraire, votre notebook, avec toutes les clés d’abonnement, est public.
+1. Sélectionnez **Run on Free Compute** (Exécuter sur le calcul gratuit).
 1. Sélectionnez l’un des notebooks.
 1. Ajoutez votre clé d’abonnement à l’API Détecteur d'anomalies valide à la variable `subscription_key`.
 1. Modifiez la variable `endpoint` à votre point de terminaison. Par exemple : `https://westus2.api.cognitive.microsoft.com/anomalydetector/v1.0/timeseries/last/detect`
-1. Dans la barre de menus supérieure, cliquez sur **Cellule**, puis sur **Exécuter tout**.
+1. Dans la barre de menus supérieure, sélectionnez **Cell** (Cellule), puis **Run All** (Tout exécuter).
 
 ## <a name="workflow"></a>Workflow
 
@@ -97,7 +97,7 @@ Aucune configuration client n’est nécessaire pour activer la résilience des 
 
 ## <a name="deploy-on-premises-using-docker-containers"></a>Déployer localement en utilisant des conteneurs Docker
 
-[Utilisez les conteneurs Détecteur d'anomalies](anomaly-detector-container-howto.md) pour déployer localement des fonctionnalités d’API. Les conteneurs Docker vous donnent la possibilité de rapprocher davantage le service de vos données, ce qui peut être souhaitable pour des raisons de conformité, de sécurité ou opérationnelles.
+[Utilisez les conteneurs Détecteur d'anomalies](anomaly-detector-container-howto.md) pour déployer localement des fonctionnalités d’API. Les conteneurs Docker vous permettent de rapprocher davantage le service de vos données, ce qui peut être souhaitable pour des raisons de conformité, de sécurité ou opérationnelles.
 
 ## <a name="join-the-anomaly-detector-community"></a>Rejoindre la communauté du détecteur d’anomalies
 

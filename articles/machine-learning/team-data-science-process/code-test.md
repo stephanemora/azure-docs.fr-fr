@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=weig, previous-ms.author=weig
-ms.openlocfilehash: ce37ee51e549a2bd6f2747f28af8c038c39d8f1f
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 66853b580ba1b619bf4cc995e05bd3cfaff07cfb
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97656833"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102565867"
 ---
 # <a name="data-science-code-testing-on-azure-with-the-team-data-science-process-and-azure-devops-services"></a>Test de code de science des données dans Azure avec Team Data Science Process et Azure DevOps Services
 Cet article donne des recommandations préliminaires pour tester les codes dans un flux de travail de science des données. Ce type de test permet aux chercheurs de données de vérifier leur code systématiquement et efficacement pour en garantir la qualité et le résultat. Nous nous basons sur un projet TDSP (Team Data Science Process) [qui utilise le jeu de données UCI Adult Income](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) que nous avons publié précédemment afin de montrer comment tester les codes. 
@@ -124,7 +124,7 @@ Utilisez les étapes suivantes pour configurer et exécuter un test de code et u
 
     ![Liste des modèles et bouton Processus vide](./media/code-test/start_empty_process_template.PNG)
 
-    d. Donnez un nom à la build et sélectionnez l’agent. Vous pouvez choisir ici la valeur par défaut si vous souhaitez utiliser une machine DSVM et terminer le processus de génération. Pour plus d’informations sur la configuration des agents, voir [Créer et libérer des agents](/azure/devops/pipelines/agents/agents?view=vsts).
+    d. Donnez un nom à la build et sélectionnez l’agent. Vous pouvez choisir ici la valeur par défaut si vous souhaitez utiliser une machine DSVM et terminer le processus de génération. Pour plus d’informations sur la configuration des agents, voir [Créer et libérer des agents](/azure/devops/pipelines/agents/agents).
     
     ![Sélections de la build et de l’agent](./media/code-test/select_agent.PNG)
 
