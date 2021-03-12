@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0dc015ee1798bb4b9ce632d11f952178156155d6
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 23b0f92a4beca6e1c986993a42cc8ac66e619177
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98955183"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102455431"
 ---
 # <a name="media-services-v3-with-playready-license-template"></a>Azure Media Services V3 avec le modèle de licence PlayReady
 
@@ -65,7 +65,7 @@ Le code XML est conforme au schéma XML de modèle de licence PlayReady défini 
 
 Media Services propose des types qui vous permettent de configurer un modèle de licence PlayReady. 
 
-L’extrait de code qui suit utilise les classes .NET de Media Services pour configurer le modèle de licence PlayReady. Les classes sont définies dans l’espace de noms [Microsoft.Azure.Management.Media.Models](/dotnet/api/microsoft.azure.management.media.models?view=azure-dotnet). L’extrait de code configure le droit de lecture PlayRight de la licence PlayReady. PlayRight accorde à l’utilisateur la capacité de lire le contenu faisant l’objet des restrictions configurées dans la licence et sur le PlayRight lui-même (pour la stratégie spécifique de lecture). Une grande partie de la stratégie relative au droit PlayRight se rapporte aux restrictions de sortie qui contrôlent les types de sorties utilisables pour la lecture du contenu, ainsi que toutes les autres restrictions qui doivent être mises en place quand une sortie donnée est utilisée. Par exemple, si DigitalVideoOnlyContentRestriction est activé, le runtime DRM autorise uniquement l’affichage de la vidéo sur des sorties numériques. (Les sorties vidéo analogiques ne sont pas autorisées à diffuser du contenu.)
+L’extrait de code qui suit utilise les classes .NET de Media Services pour configurer le modèle de licence PlayReady. Les classes sont définies dans l’espace de noms [Microsoft.Azure.Management.Media.Models](/dotnet/api/microsoft.azure.management.media.models). L’extrait de code configure le droit de lecture PlayRight de la licence PlayReady. PlayRight accorde à l’utilisateur la capacité de lire le contenu faisant l’objet des restrictions configurées dans la licence et sur le PlayRight lui-même (pour la stratégie spécifique de lecture). Une grande partie de la stratégie relative au droit PlayRight se rapporte aux restrictions de sortie qui contrôlent les types de sorties utilisables pour la lecture du contenu, ainsi que toutes les autres restrictions qui doivent être mises en place quand une sortie donnée est utilisée. Par exemple, si DigitalVideoOnlyContentRestriction est activé, le runtime DRM autorise uniquement l’affichage de la vidéo sur des sorties numériques. (Les sorties vidéo analogiques ne sont pas autorisées à diffuser du contenu.)
 
 > [!IMPORTANT]
 > La licence PlayReady présente de puissantes restrictions. Si les protections de sortie sont trop restrictives, le contenu risque de ne pas pouvoir être lu sur certains clients. Pour plus d’informations, consultez [Règles de conformité PlayReady](https://www.microsoft.com/playready/licensing/compliance/).

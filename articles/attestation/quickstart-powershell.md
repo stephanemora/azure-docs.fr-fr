@@ -7,16 +7,16 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 3c908fffe93d657662310d4e91ed25ae28ca6908
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: cbc415411e05d6fdecee1acf2fbc02b3c170b9d6
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99429090"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102501122"
 ---
 # <a name="quickstart-set-up-azure-attestation-with-azure-powershell"></a>Démarrage rapide : Configurer Azure Attestation avec Azure PowerShell
 
-Suivez les étapes ci-dessous pour créer et configurer un fournisseur d’attestations à l’aide d’Azure PowerShell. Pour plus d’informations sur l’installation et l’exécution d’Azure PowerShell, consultez [Vue d’ensemble d’Azure PowerShell](/powershell/azure/?view=azps-2.8.0&viewFallbackFrom=azps-2.4.0).
+Suivez les étapes ci-dessous pour créer et configurer un fournisseur d’attestations à l’aide d’Azure PowerShell. Pour plus d’informations sur l’installation et l’exécution d’Azure PowerShell, consultez [Vue d’ensemble d’Azure PowerShell](/powershell/azure/).
 
 Notez que PowerShell Gallery a déprécié les versions 1.0 et 1.1 du protocole TLS (Transport Layer Security). TLS 1.2 ou une version ultérieure est recommandé. Vous risquez donc de recevoir les erreurs suivantes :
 
@@ -226,7 +226,7 @@ Notez que toute manipulation sémantique du certificat du signataire de stratég
 
 Pour obtenir un exemple de certificat du signataire de stratégie, consultez [Exemples de certificat de signataire de stratégie](policy-signer-examples.md).
 
-Pour plus d’informations sur les applets de commande et leurs paramètres, consultez [Applets de commande PowerShell pour Azure Attestation](/powershell/module/az.attestation/?view=azps-4.3.0#attestation). 
+Pour plus d’informations sur les applets de commande et leurs paramètres, consultez [Applets de commande PowerShell pour Azure Attestation](/powershell/module/az.attestation/#attestation). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

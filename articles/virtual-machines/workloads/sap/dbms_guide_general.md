@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 09/20/2020
 ms.author: juergent
 ms.reviewer: cynthn
-ms.openlocfilehash: 470b6b0c871d91a2a8a584a6efd04605e0afcf88
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: e978baa556f1bc1cfea0ccd5abbbf92dc77b1622
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101666838"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102504012"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Facteurs à prendre en compte pour le déploiement SGBD des machines virtuelles Azure pour la charge de travail SAP
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -265,7 +265,7 @@ Il existe d’autres méthodes de redondance. Pour plus d’informations, consul
 
 
 ## <a name="vm-node-resiliency"></a>Résilience des nœuds de machine virtuelle
-Azure propose plusieurs contrats SLA différents pour les machines virtuelles. Pour plus d’informations, consultez la dernière mise à jour du [SLA pour Machines virtuelles](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/). La couche SGBD étant un facteur critique pour la disponibilité dans un système SAP, vous devez bien comprendre les concepts des groupes à haute disponibilité, des Zones de disponibilité et des événements de maintenance. Pour plus d’informations sur ces concepts, consultez [Gérer la disponibilité des machines virtuelles Windows dans Azure](../../manage-availability.md) et [Gérer la disponibilité des machines virtuelles Linux dans Azure](../../manage-availability.md).
+Azure propose plusieurs contrats SLA différents pour les machines virtuelles. Pour plus d’informations, consultez la dernière mise à jour du [SLA pour Machines virtuelles](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/). La couche SGBD étant un facteur critique pour la disponibilité dans un système SAP, vous devez bien comprendre les concepts des groupes à haute disponibilité, des Zones de disponibilité et des événements de maintenance. Pour plus d’informations sur ces concepts, consultez [Gérer la disponibilité des machines virtuelles Windows dans Azure](../../availability.md) et [Gérer la disponibilité des machines virtuelles Linux dans Azure](../../availability.md).
 
 Les recommandations minimales pour les scénarios de SGBD de production avec une charge de travail SAP sont les suivantes :
 
