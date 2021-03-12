@@ -308,6 +308,48 @@
       href: partner-center-portal/downloads-dashboard.md
     - name: Tableau de bord des évaluations et des avis
       href: partner-center-portal/ratings-reviews.md
+    - name: Accès programmatique à l’analytique
+      items:
+        - name: Bien démarrer
+          href: analytics-get-started.md
+        - name: Prérequis de l’accès programmatique
+          href: analytics-prerequisites.md
+        - name: Paradigme de l’accès programmatique
+          href: analytics-programmatic-access.md
+        - name: Effectuer votre premier appel d’API
+          href: analytics-make-your-first-api-call.md
+        - name: Liste des requêtes système
+          href: analytics-system-queries.md
+        - name: Exemples de requêtes
+          href: analytics-sample-queries.md
+        - name: Exemple d’application
+          href: analytics-sample-application.md
+        - name: Spécification de requête personnalisée
+          href: analytics-custom-query-specification.md
+        - name: FAQ sur l’analytique programmatique
+          href: analytics-programmatic-faq.md
+        - name: Informations de référence sur les API d’analytique
+          items:
+            - name: Liste des API
+              href: analytics-available-apis.md
+            - name: Obtenir tous les jeux de données
+              href: analytics-api-get-all-datasets.md
+            - name: API Obtenir des requêtes de rapport
+              href: analytics-api-get-report-queries.md
+            - name: API Supprimer des requêtes de rapport
+              href: analytics-api-delete-report-queries.md
+            - name: API Essayer des requêtes de rapport
+              href: analytics-api-try-report-queries.md
+            - name: API Obtenir le rapport
+              href: analytics-api-get-report.md
+            - name: API Mettre à jour le rapport
+              href: analytics-api-update-report.md
+            - name: API Supprimer le rapport
+              href: analytics-api-delete-report.md
+            - name: API Mettre en pause les exécutions de rapport
+              href: analytics-api-pause-report-executions.md
+            - name: API Reprendre les exécutions de rapport
+              href: analytics-api-resume-report-executions.md
     - name: Gérer les anomalies de facturation à l’usage
       href: anomaly-detection.md
     - name: Questions fréquentes sur Analytics
