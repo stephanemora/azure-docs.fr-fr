@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 137cff47d49be1405f60bc47cd16f7f027ab63a9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 19b3595228c29814e42af88696972fd81b156190
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91320827"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102443044"
 ---
 # <a name="use-kubernetes-dashboard-to-monitor-your-azure-stack-edge-pro-gpu-device"></a>Utiliser le tableau de bord Kubernetes pour superviser votre appareil Azure Stack Edge Pro avec GPU
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 Cet article décrit comment accéder au tableau de bord Kubernetes et l’utiliser pour superviser votre appareil Azure Stack Edge Pro avec GPU. Pour surveiller votre appareil, vous pouvez utiliser des graphiques dans le portail Azure, afficher le tableau de bord Kubernetes ou exécuter des commandes `kubectl` par le biais de l’interface PowerShell de l’appareil. 
 

@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: overview
 ms.date: 07/16/2020
-ms.openlocfilehash: 85a5493e1d1c06a68aa9f4b64cd0f3d55c4f5f63
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 5d64ec925e1d88f8143a85393ceb18ae37c2b917
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99580885"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102202278"
 ---
 # <a name="whats-new-in-qna-maker"></a>Nouveautés de QnA Maker
 
@@ -36,7 +36,7 @@ Découvrez les nouveautés de QnA Maker.
 ### <a name="july-2020"></a>Juillet 2020
 
 * [Métadonnées : `OR` combinaison logique de plusieurs paires de métadonnées](how-to/metadata-generateanswer-usage.md#logical-or-using-strictfilterscompoundoperationtype-property)
-* [Étapes](how-to/set-up-qnamaker-service-azure.md#recommended-settings-for-network-isolation) permettant de configurer des points de terminaison Recherche cognitive pour qu’ils soient privés, mais toujours accessibles à QnA Maker.
+* [Étapes](how-to/network-isolation.md) permettant de configurer des points de terminaison Recherche cognitive pour qu’ils soient privés, mais toujours accessibles à QnA Maker.
 * Les ressources gratuites de Recherche cognitive sont supprimées après [90 jours d’inactivité](how-to/set-up-qnamaker-service-azure.md#inactivity-policy-for-free-search-resources).
 
 ### <a name="june-2020"></a>Juin 2020
@@ -64,11 +64,11 @@ Découvrez les nouveautés de QnA Maker.
 
 ### <a name="october-2019"></a>2 octobre 2019
 
-* [Définition explicite de la langue](./index.yml) pour toutes les bases de connaissances du service QnA Maker.
+* Définition explicite de la langue pour toutes les bases de connaissances du service QnA Maker.
 
 ### <a name="september-2019"></a>Septembre 2019
 
-* Importer et exporter avec le [format de fichier XLS](./index.yml)
+* Importer et exporter avec le format de fichier XLS.
 
 ### <a name="june-2019"></a>Juin 2019
 
