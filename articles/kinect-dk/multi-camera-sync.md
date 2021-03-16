@@ -7,12 +7,12 @@ ms.prod: kinect-dk
 ms.date: 02/20/2020
 ms.topic: article
 keywords: azure, kinect, spécifications, matériel, DK, fonctionnalités, profondeur, couleur, RVB, capteur de mouvement, contrôleur, synchronisation
-ms.openlocfilehash: 30961152b31a659cb27e91a99d6806490998d18d
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: eabf77896777f39efcfd61adb3040bca8642716e
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97592277"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102039952"
 ---
 # <a name="synchronize-multiple-azure-kinect-dk-devices"></a>Synchroniser plusieurs appareils Azure Kinect DK
 
@@ -36,6 +36,9 @@ Il existe de nombreuses raisons d’utiliser plusieurs appareils Azure Kinect DK
 ## <a name="plan-your-multi-device-configuration"></a>Planifier votre configuration de plusieurs appareils
 
 Avant de commencer, veillez à consulter [Spécifications matérielles Azure Kinect DK](hardware-specification.md) et [Caméra de profondeur DK Azure Kinect](depth-camera.md).
+
+> [!NOTE]  
+> Retirez le cache en plastique extérieur pour exposer les prises de synchronisation en entrée (« Sync In ») et de synchronisation en sortie (« Sync Out »).
 
 ### <a name="select-a-device-configuration"></a>Sélectionner une configuration d’appareil
 
@@ -63,6 +66,9 @@ La source du déclencheur doit envoyer le signal au port **Sync in** de l’appa
 ![Configurations de câble pour un signal de déclenchement externe](./media/resources/camera-trigger-signal.jpg)
 
 Pour plus d’informations sur l’utilisation de l’équipement externe, consultez [Utiliser un enregistreur Azure Kinect avec des appareils synchronisés externes](record-external-synchronized-units.md)
+
+> [!NOTE]  
+> Sync Out correspond à VSync pour la caméra RVB. Les timestamps de tous les appareils sont définis sur zéro et effectuent un comptage progressif. Microsoft n’a pas caractérisé la largeur minimale et maximale de l’impulsion de synchronisation et recommande d’imiter l’impulsion générée par la synchronisation en sortie d’un Azure Kinect DK.
 
 ### <a name="plan-your-camera-settings-and-software-configuration"></a>Planifier les paramètres et la configuration logicielle de vos caméras
 

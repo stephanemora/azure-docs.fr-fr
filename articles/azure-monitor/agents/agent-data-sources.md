@@ -1,17 +1,16 @@
 ---
 title: Sources de données d’agent Log Analytics dans Azure Monitor
 description: Les sources de données définissent les données de journal qu’Azure Monitor collecte auprès des agents et d’autres sources connectées.  Cet article décrit la façon dont Azure Monitor utilise les sources de données, explique en détail comment les configurer, et fournit un résumé des différentes sources de données disponibles.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/21/2020
-ms.openlocfilehash: 8b0debed6e0865f39cd42c7003347b2510600f81
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 02/26/2021
+ms.openlocfilehash: 51cdee9c899feeb003a7d6301d2da0749fad65e9
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101720016"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102041930"
 ---
 # <a name="log-analytics-agent-data-sources-in-azure-monitor"></a>Sources de données d’agent Log Analytics dans Azure Monitor
 Les données qu’Azure Monitor collecte à partir des machines virtuelles avec l’[agent Log Analytics](./log-analytics-agent.md) sont définies par les sources de données que vous configurez dans l’[espace de travail Log Analytics](../logs/data-platform-logs.md).   Chaque source de données crée des enregistrements d'un type particulier, chaque type ayant son propre ensemble de propriétés.
@@ -40,11 +39,11 @@ Le tableau suivant répertorie les sources de données des agents actuellement d
 
 
 ## <a name="configuring-data-sources"></a>Configuration des sources de données
-Pour configurer des sources de données pour les agents Log Analytics, accédez au menu **Espaces de travail Log Analytics** dans le portail Azure et sélectionnez un espace de travail. Cliquez sur **Paramètres avancés** puis sur **Données**. Sélectionnez la source de données à configurer. Vous pouvez suivre le lien dans le tableau ci-dessus vers la documentation de chaque source de données pour plus d’informations sur leur configuration.
+Pour configurer des sources de données pour les agents Log Analytics, accédez au menu **Espaces de travail Log Analytics** dans le portail Azure et sélectionnez un espace de travail. Cliquez sur **Configuration des agents**. Sélectionnez l’onglet de la source de données à configurer. Vous pouvez suivre le lien dans le tableau ci-dessus vers la documentation de chaque source de données pour plus d’informations sur leur configuration.
 
 Toutes les configurations sont remises à tous les agents connectés à cet espace de travail.  Nous ne pouvez exclure aucun agent connecté de cette configuration.
 
-![Configurer les événements Windows](media/agent-data-sources/configure-events.png)
+[![Configurer les événements Windows](media/agent-data-sources/configure-events.png)](media/agent-data-sources/configure-events.png#lightbox)
 
 
 

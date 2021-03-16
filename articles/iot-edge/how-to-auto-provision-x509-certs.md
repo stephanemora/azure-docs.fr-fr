@@ -5,17 +5,17 @@ author: kgremban
 manager: philmea
 ms.author: kgremban
 ms.reviewer: kevindaw
-ms.date: 04/09/2020
+ms.date: 03/01/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: ee51b31246760e4619eef1e16e800b16ea886de0
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: f4b33b0156f1a5e27f71509cad637684a0332413
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99430711"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102046157"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-x509-certificates"></a>Créer et provisionner un appareil IoT Edge à l’aide de certificats X.509
 
@@ -52,10 +52,14 @@ Les fichiers suivants sont nécessaires pour configurer le provisionnement autom
 * Un certificat de chaîne complète, qui doit comporter au moins l’identité d’appareil et les certificats intermédiaires qu’elle contient. Le certificat de chaîne complète est transmis au runtime IoT Edge.
 * Un certificat d’autorité de certification racine ou intermédiaire issu de la chaîne d’approbation des certificats. Ce certificat est chargé dans DPS si vous créez une inscription de groupe.
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 > [!NOTE]
 > Il existe actuellement dans libiothsm une limitation empêchant l’utilisation de certificats qui expirent le 1er janvier 2038 ou après cette date.
 
-### <a name="use-test-certificates"></a>Utiliser des certificats de test
+:::moniker-end
+
+### <a name="use-test-certificates-optional"></a>Utiliser des certificats de test (facultatif)
 
 Si vous n’avez pas d’autorité de certification disponible pour créer des certificats d’identité et que vous souhaitez tester ce scénario, le dépôt Git Azure IoT Edge contient des scripts que vous pouvez utiliser pour générer des certificats de test. Ces certificats, conçus uniquement pour les tests de développement, ne doivent pas être utilisés en production.
 
@@ -227,18 +231,21 @@ Préparez les informations suivantes :
 
 ### <a name="linux-device"></a>Appareil Linux
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+
 1. Ouvrez le fichier de configuration sur l’appareil IoT Edge.
 
    ```bash
    sudo nano /etc/iotedge/config.yaml
    ```
 
-1. Recherchez la section des configurations de provisionnement dans le fichier. Décommentez les lignes du provisionnement avec les clés symétriques du service Device Provisioning et assurez-vous que les autres lignes de provisionnement sont commentées.
+1. Recherchez la section des configurations de provisionnement dans le fichier. Supprimez les marques de commentaire des lignes pour l’approvisionnement de certificat DPS X.509, et assurez-vous que les autres lignes d’approvisionnement sont commentées.
 
    La ligne `provisioning:` ne doit pas être précédée d’un espace et les éléments imbriqués doivent être en retrait de deux espaces.
 
    ```yml
-   # DPS TPM provisioning configuration
+   # DPS X.509 provisioning configuration
    provisioning:
      source: "dps"
      global_endpoint: "https://global.azure-devices-provisioning.net"
@@ -252,8 +259,6 @@ Préparez les informations suivantes :
    #  dynamic_reprovisioning: false
    ```
 
-   Si vous le souhaitez, utilisez les lignes `always_reprovision_on_startup` ou `dynamic_reprovisioning` pour configurer le comportement de reprovisionnement de votre appareil. Si un appareil est configuré pour être reprovisionné au démarrage, le reprovisionnement est toujours tenté avec le service DPS dans un premier temps, puis, en cas d’échec, au moyen de la sauvegarde de provisionnement. Si un appareil est configuré pour se reprovisionner dynamiquement lui-même, IoT Edge redémarre et exécute le reprovisionnement si un événement de reprovisionnement est détecté. Pour plus d’informations, consultez [Concepts du reprovisionnement d’appareils IoT Hub](../iot-dps/concepts-device-reprovision.md).
-
 1. Mettez à jour les valeurs de `scope_id`, `identity_cert` et `identity_pk` avec vos informations sur l’appareil et le service Device Provisioning.
 
    Quand vous ajoutez le certificat X.509 et les informations de clé au fichier config.yaml, les chemins doivent être fournis en tant qu’URI de fichier. Par exemple :
@@ -261,13 +266,74 @@ Préparez les informations suivantes :
    `file:///<path>/identity_certificate_chain.pem`
    `file:///<path>/identity_key.pem`
 
-1. Fournissez un `registration_id` pour l’appareil si vous le souhaitez, ou laissez cette ligne commentée pour inscrire l’appareil avec le nom commun du certificat d’identité.
+1. Vous pouvez fournir un `registration_id` pour l’appareil. Autrement, laissez cette ligne commentée pour inscrire l’appareil avec le nom CN du certificat d’identité.
+
+1. Si vous le souhaitez, utilisez les lignes `always_reprovision_on_startup` ou `dynamic_reprovisioning` pour configurer le comportement de reprovisionnement de votre appareil. Si un appareil est configuré pour être reprovisionné au démarrage, le reprovisionnement est toujours tenté avec le service DPS dans un premier temps, puis, en cas d’échec, au moyen de la sauvegarde de provisionnement. Si un appareil est configuré pour se reprovisionner dynamiquement lui-même, IoT Edge redémarre et exécute le reprovisionnement si un événement de reprovisionnement est détecté. Pour plus d’informations, consultez [Concepts du reprovisionnement d’appareils IoT Hub](../iot-dps/concepts-device-reprovision.md).
+
+1. Enregistrez et fermez le fichier config.yaml.
 
 1. Redémarrez le runtime IoT Edge afin qu’il récupère toutes les modifications de configuration que vous avez effectuées sur l’appareil.
 
    ```bash
    sudo systemctl restart iotedge
    ```
+
+:::moniker-end
+<!-- end 1.1. -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+1. Créez un fichier de configuration pour votre appareil à partir d’un fichier de modèle fourni dans le cadre de l’installation d’IoT Edge.
+
+   ```bash
+   sudo cp /etc/aziot/config.toml.edge.template /etc/aziot/config.toml
+   ```
+
+1. Ouvrez le fichier de configuration sur l’appareil IoT Edge.
+
+   ```bash
+   sudo nano /etc/aziot/config.toml
+   ```
+
+1. Recherchez la section **Provisioning** du fichier. Supprimez les marques de commentaire des lignes pour l’approvisionnement de certificat X.509, et assurez-vous que les autres lignes d’approvisionnement sont commentées.
+
+   ```toml
+   # DPS provisioning with X.509 certificate
+   [provisioning]
+   source = "dps"
+   global_endpoint = "https://global.azure-devices-provisioning.net"
+   id_scope = "<SCOPE_ID>"
+   
+   [provisioning.attestation]
+   method = "x509"
+   # registration_id = "<OPTIONAL REGISTRATION ID. LEAVE COMMENTED OUT TO REGISTER WITH CN OF identity_cert>"
+
+   identity_cert = "<REQUIRED URI TO DEVICE IDENTITY CERTIFICATE>"
+
+   identity_pk = "<REQUIRED URI TO DEVICE IDENTITY PRIVATE KEY>"
+   ```
+
+1. Mettez à jour les valeurs de `id_scope`, `identity_cert` et `identity_pk` avec vos informations relatives à l’appareil et à DPS.
+
+   La valeur du certificat d’identité peut être fournie sous la forme d’un URI de fichier ou être émise de manière dynamique à l’aide de l’autorité de certification EST ou locale. Supprimez les marques de commentaire d’une seule ligne, selon le format que vous choisissez d’utiliser.
+
+   La valeur de la clé privée d’identité peut être fournie sous la forme d’un URI de fichier ou d’un URI PKCS#11. Supprimez les marques de commentaire d’une seule ligne, selon le format que vous choisissez d’utiliser.
+
+   Si vous utilisez des URI PKCS#11, recherchez la section **PKCS#11** dans le fichier config et fournissez des informations sur votre configuration de PKCS#11.
+
+1. Vous pouvez fournir un `registration_id` pour l’appareil. Autrement, laissez cette ligne commentée pour inscrire l’appareil avec le nom commun du certificat d’identité.
+
+1. Enregistrez et fermez le fichier.
+
+1. Appliquez les modifications de configuration que vous avez apportées à IoT Edge.
+
+   ```bash
+   sudo iotedge config apply
+   ```
+
+:::moniker-end
+<!-- end 1.2 -->
 
 ### <a name="windows-device"></a>Appareil Windows
 
@@ -287,7 +353,7 @@ Préparez les informations suivantes :
    ```
 
    >[!TIP]
-   >Le fichier config.yaml stocke vos informations de certificat et de clé sous forme d’URI de fichier. Toutefois, la commande Initialize-IoTEdge gère cette étape de mise en forme pour vous ; vous pouvez donc fournir le chemin absolu des fichiers de certificat et de clé sur votre appareil.
+   >Le fichier config stocke vos informations de certificat et de clé sous forme d’URI de fichier. Toutefois, la commande Initialize-IoTEdge gère cette étape de mise en forme pour vous ; vous pouvez donc fournir le chemin absolu des fichiers de certificat et de clé sur votre appareil.
 
 ## <a name="verify-successful-installation"></a>Vérifier la réussite de l’installation
 
@@ -298,6 +364,9 @@ Vous pouvez vérifier que l’inscription individuelle que vous avez créée dan
 Utilisez les commandes suivantes sur votre appareil pour vérifier que le runtime a été installé et démarré correctement.
 
 ### <a name="linux-device"></a>Appareil Linux
+
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 
 Vérifiez l’état du service IoT Edge.
 
@@ -316,6 +385,29 @@ Répertoriez les modules en cours d’exécution.
 ```cmd/sh
 iotedge list
 ```
+:::moniker-end
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+Vérifiez l’état du service IoT Edge.
+
+```cmd/sh
+sudo iotedge system status
+```
+
+Consultez les journaux d’activité de service.
+
+```cmd/sh
+sudo iotedge system logs
+```
+
+Répertoriez les modules en cours d’exécution.
+
+```cmd/sh
+sudo iotedge list
+```
+:::moniker-end
 
 ### <a name="windows-device"></a>Appareil Windows
 
