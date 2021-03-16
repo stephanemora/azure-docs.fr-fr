@@ -8,12 +8,12 @@ ms.date: 11/19/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 47883c742d77a88adb662e8dded0723f0e105385
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: a38af4c942de280e7b1c094885a1ede6774ead56
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98044184"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102433214"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Interroger le graphe de jumeaux Azure Digital Twins
 
@@ -21,7 +21,7 @@ Cet article fournit des exemples de requête et des instructions plus détaillé
 
 Cet article commence par des exemples de requête qui illustrent la structure du langage de requête et les opérations de requête courantes pour des jumeaux numériques. Il décrit ensuite comment exécuter vos requêtes une fois que vous les avez écrites, à l’aide de l’[API de requête](/rest/api/digital-twins/dataplane/query) ou d’un [SDK](how-to-use-apis-sdks.md#overview-data-plane-apis) Azure Digital Twins.
 
-> [!TIP]
+> [!NOTE]
 > Si vous exécutez les exemples de requête ci-dessous avec un appel d’API ou de SDK, vous devez condenser le texte de la requête sur une seule ligne.
 
 ## <a name="show-all-digital-twins"></a>Montrer tous les jumeaux numériques
@@ -36,7 +36,7 @@ Obtenir les jumeaux numériques d’après leurs **propriétés** (y compris l�
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryByProperty1":::
 
-> [!TIP]
+> [!NOTE]
 > L’ID d’un jumeau numérique s’interroge à l’aide du champ de métadonnées `$dtId`.
 
 Vous pouvez également obtenir des jumeaux en fonction de **la définition ou non d’une certaine propriété**. Voici une requête qui récupère les jumeaux dont la propriété *Location* a été définie :
@@ -50,6 +50,10 @@ Cela vous permet d’obtenir des jumeaux par le biais de leurs propriétés *tag
 Vous pouvez également obtenir des jumeaux selon le **type d’une propriété**. Voici une requête qui récupère les jumeaux dont la propriété *Temperature* est un nombre :
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryByProperty3":::
+
+>[!TIP]
+> Si une propriété est de type `Map`, vous pouvez utiliser les clés et valeurs de la carte directement dans la requête, comme suit :
+> :::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryByProperty4":::
 
 ## <a name="query-by-model"></a>Requête par modèle
 
@@ -216,11 +220,16 @@ Une fois que vous avez choisi une chaîne de requête, exécutez-la en appelant 
 
 Vous pouvez appeler l’API directement ou utiliser l’un des [SDK](how-to-use-apis-sdks.md#overview-data-plane-apis) disponibles pour Azure Digital Twins.
 
-L’extrait de code suivant illustre l’appel au [SDK .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) à partir de l’application cliente :
+L’extrait de code suivant illustre l’appel au [SDK .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client) à partir de l’application cliente :
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/queries.cs" id="RunQuery":::
 
-Cet appel retourne les résultats de la requête sous la forme d’un objet [BasicDigitalTwin](/dotnet/api/azure.digitaltwins.core.basicdigitaltwin?view=azure-dotnet&preserve-view=true).
+La requête utilisée dans cet appel retourne une liste de jumeaux numériques, que l’exemple ci-dessus représente avec des objets [BasicDigitalTwin](/dotnet/api/azure.digitaltwins.core.basicdigitaltwin). Le type de retour de vos données pour chaque requête dépend des termes que vous spécifiez avec l’ instruction `SELECT` :
+* Les requêtes qui commencent par `SELECT * FROM ...` retournent une liste de jumeaux numériques (qui peuvent être sérialisés sous la forme d’objets `BasicDigitalTwin` ou d’autres types de jumeaux numériques personnalisés que vous avez peut-être créés).
+* Les requêtes qui commencent au format `SELECT <A>, <B>, <C> FROM ...` retournent un dictionnaire avec des clés `<A>`, `<B>` et `<C>`.
+* D’autres formats d’instructions `SELECT` peuvent être élaborés pour retourner des données personnalisées. Vous pouvez envisager de créer vos propres classes pour gérer des jeux de résultats très personnalisés. 
+
+### <a name="query-with-paging"></a>Requête avec pagination
 
 Les appels de requête prennent en charge la pagination. Voici un exemple complet qui utilise `BasicDigitalTwin` en tant que type de résultat de requête avec gestion des erreurs et pagination :
 

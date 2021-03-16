@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 02/05/2021
-ms.openlocfilehash: 19c7d37d62ec54e57127f5993e8bae4d4e9a2908
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 03/03/2021
+ms.openlocfilehash: 39d7516b9cec1a3b9aa4484c2ff93564bd5772da
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100388530"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102034283"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites et informations de configuration pour Azure Logic Apps
 
@@ -27,7 +27,7 @@ Les limites pour la définition d’une application logique sont les suivantes :
 | ---- | ----- | ----- |
 | Actions par flux de travail | 500 | Pour étendre cette limite, vous pouvez au besoin ajouter des workflows imbriqués. |
 | Niveaux d’imbrication d’actions autorisés | 8 | Pour étendre cette limite, vous pouvez au besoin ajouter des workflows imbriqués. |
-| Flux de travail par région et par abonnement | 1 000 | |
+| Flux de travail par région et par abonnement | 1 000 | |
 | Déclencheurs par flux de travail | 10 | Lors de l’utilisation du mode Code, et non du concepteur |
 | Limite de cas de basculement d’étendue | 25 | |
 | Variables par workflow | 250 | |
@@ -139,7 +139,7 @@ Les limites pour la définition d’une application logique sont les suivantes :
 
 | Nom | Limite | Notes |
 | ---- | ----- | ----- |
-| Action : Exécutions par tranche de 5 minutes | 100 000 est la limite par défaut, mais 300 000 est la limite maximale. | Pour augmenter la limite par défaut à la valeur maximale de votre application logique, consultez [Exécuter en mode de débit élevé](#run-high-throughput-mode), disponible dans la préversion. Vous pouvez [répartir la charge de travail entre plusieurs applications logiques](../logic-apps/handle-throttling-problems-429-errors.md#logic-app-throttling) si nécessaire. |
+| Action : exécutions par intervalle de roulement de 5 minutes | - 100 000 exécutions (par défaut) <p><p>- 300 000 exécutions (maximum en mode de débit élevé)  | Pour porter la limite par défaut à la limite maximale pour votre application logique, consultez [Exécuter en mode de débit élevé](#run-high-throughput-mode), en préversion. Vous pouvez [répartir la charge de travail entre plusieurs applications logiques](../logic-apps/handle-throttling-problems-429-errors.md#logic-app-throttling) si nécessaire. |
 | Action : Appels sortants simultanés | ~2,500 | Vous pouvez diminuer le nombre de requêtes simultanées ou réduire la durée si nécessaire. |
 | Point de terminaison du runtime : Appels entrants simultanés | ~1,000 | Vous pouvez diminuer le nombre de requêtes simultanées ou réduire la durée si nécessaire. |
 | Point de terminaison du runtime : appels de lecture toutes les cinq minutes  | 60 000 | Cette limite s’applique aux appels qui obtiennent les entrées et sorties brutes à partir de l’historique des exécutions d’une application logique. Vous pouvez répartir la charge de travail entre plusieurs applications si nécessaire. |
@@ -151,7 +151,7 @@ Les limites pour la définition d’une application logique sont les suivantes :
 
 #### <a name="run-in-high-throughput-mode"></a>Exécuter en mode de débit élevé
 
-Pour une définition d’application logique unique, le nombre d’actions qui s’exécutent toutes les cinq minutes présente une [limite par défaut](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). Pour augmenter la limite par défaut à la valeur maximale de votre application logique, vous pouvez exécuter en mode de débit élevé, disponible dans la préversion. Vous pouvez [répartir la charge de travail entre plusieurs applications logiques](../logic-apps/handle-throttling-problems-429-errors.md#logic-app-throttling) si nécessaire.
+Pour une définition d’application logique unique, le nombre d’actions qui s’exécutent toutes les cinq minutes présente une [limite par défaut](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). Pour porter la limite par défaut à la [limite maximale](../logic-apps/logic-apps-limits-and-config.md#throughput-limits) pour votre application logique, qui équivaut à trois fois la limite par défaut, vous pouvez activer le mode de débit élevé en préversion. Vous pouvez [répartir la charge de travail entre plusieurs applications logiques](../logic-apps/handle-throttling-problems-429-errors.md#logic-app-throttling) si nécessaire.
 
 1. Dans le portail Azure, dans le menu de votre application logique, sous **Paramètres**, sélectionnez **Paramètres de workflow**.
 
@@ -325,14 +325,14 @@ Les limites du nombre d’artefacts pour chaque niveau de compte d’intégratio
 > [!NOTE]
 > Utilisez le niveau gratuit uniquement pour les scénarios exploratoires, pas pour les scénarios de production. Ce niveau limite le débit et l’utilisation et n’inclut aucun contrat de niveau de service (SLA).
 
-| Artefact | Gratuit | De base | Standard |
+| Artefact | Gratuit | De base | standard |
 |----------|------|-------|----------|
-| Contrats commerciaux EDI | 10 | 1 | 1 000 |
-| Partenaires commerciaux EDI | 25 | 2 | 1 000 |
-| Cartes | 25 | 500 | 1 000 |
-| Schémas | 25 | 500 | 1 000 |
-| Assemblys | 10 | 25 | 1 000 |
-| Certificats | 25 | 2 | 1 000 |
+| Contrats commerciaux EDI | 10 | 1 | 1 000 |
+| Partenaires commerciaux EDI | 25 | 2 | 1 000 |
+| Cartes | 25 | 500 | 1 000 |
+| Schémas | 25 | 500 | 1 000 |
+| Assemblys | 10 | 25 | 1 000 |
+| Certificats | 25 | 2 | 1 000 |
 | Configurations par lots | 5 | 1 | 50 |
 ||||
 
@@ -351,7 +351,7 @@ Les limites du nombre d’artefacts pour chaque niveau de compte d’intégratio
 
 ### <a name="throughput-limits"></a>Limites de débit
 
-| Point de terminaison du runtime | Gratuit | De base | Standard | Notes |
+| Point de terminaison du runtime | Gratuit | De base | standard | Notes |
 |------------------|------|-------|----------|-------|
 | appels de lecture toutes les cinq minutes | 3 000 | 30,000 | 60 000 | Cette limite s’applique aux appels qui obtiennent les entrées et sorties brutes à partir de l’historique des exécutions d’une application logique. Vous pouvez répartir la charge de travail entre plusieurs comptes si nécessaire. |
 | appels d’invocation toutes les cinq minutes | 3 000 | 30,000 | 45,000 | Vous pouvez répartir la charge de travail entre plusieurs comptes si nécessaire. |
@@ -444,6 +444,7 @@ Cette section répertorie les adresses IP entrantes pour le service Azure Logic
 | Australie Est | 13.75.153.66, 104.210.89.222, 104.210.89.244, 52.187.231.161 |
 | Sud-Australie Est | 13.73.115.153, 40.115.78.70, 40.115.78.237, 52.189.216.28 |
 | Brésil Sud | 191.235.86.199, 191.235.95.229, 191.235.94.220, 191.234.166.198 |
+| Brésil Sud-Est | 20.40.32.59, 20.40.32.162, 20.40.32.80, 20.40.32.49 |
 | Centre du Canada | 13.88.249.209, 52.233.30.218, 52.233.29.79, 40.85.241.105 |
 | Est du Canada | 52.232.129.143, 52.229.125.57, 52.232.133.109, 40.86.202.42 |
 | Inde centrale | 52.172.157.194, 52.172.184.192, 52.172.191.194, 104.211.73.195 |
@@ -510,6 +511,7 @@ Cette section répertorie les adresses IP sortantes pour le service Azure Logic
 | Australie Est | 13.75.149.4, 104.210.91.55, 104.210.90.241, 52.187.227.245, 52.187.226.96, 52.187.231.184, 52.187.229.130, 52.187.226.139 | 52.237.214.72, 13.72.243.10, 13.70.72.192 - 13.70.72.207, 13.70.78.224 - 13.70.78.255 |
 | Sud-Australie Est | 13.73.114.207, 13.77.3.139, 13.70.159.205, 52.189.222.77, 13.77.56.167, 13.77.58.136, 52.189.214.42, 52.189.220.75 | 52.255.48.202, 13.70.136.174, 13.77.50.240 - 13.77.50.255, 13.77.55.160 - 13.77.55.191 |
 | Brésil Sud | 191.235.82.221, 191.235.91.7, 191.234.182.26, 191.237.255.116, 191.234.161.168, 191.234.162.178, 191.234.161.28, 191.234.162.131 | 191.232.191.157, 104.41.59.51, 191.233.203.192 - 191.233.203.207, 191.233.207.160 - 191.233.207.191 |
+| Brésil Sud-Est | 20.40.32.81, 20.40.32.19, 20.40.32.85, 20.40.32.60, 20.40.32.116, 20.40.32.87, 20.40.32.61, 20.40.32.113 | 23.97.120.109, 23.97.121.26 |
 | Centre du Canada | 52.233.29.92, 52.228.39.244, 40.85.250.135, 40.85.250.212, 13.71.186.1, 40.85.252.47, 13.71.184.150 | 52.237.32.212, 52.237.24.126, 13.71.170.208 - 13.71.170.223, 13.71.175.160 - 13.71.175.191 |
 | Est du Canada | 52.232.128.155, 52.229.120.45, 52.229.126.25, 40.86.203.228, 40.86.228.93, 40.86.216.241, 40.86.226.149, 40.86.217.241 | 52.242.30.112, 52.242.35.152, 40.69.106.240 - 40.69.106.255, 40.69.111.0 - 40.69.111.31 |
 | Inde centrale | 52.172.154.168, 52.172.186.159, 52.172.185.79, 104.211.101.108, 104.211.102.62, 104.211.90.169, 104.211.90.162, 104.211.74.145 | 52.172.212.129, 52.172.211.12, 20.43.123.0 - 20.43.123.31, 104.211.81.192 - 104.211.81.207 |

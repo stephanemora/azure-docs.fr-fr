@@ -10,12 +10,12 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 08/03/2020
 ms.author: avgupta
-ms.openlocfilehash: ee262c0eb2431085e71d8ee0035bcdab9833d1cf
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 19de46bc87b72ada221c63e36e87d0545304d344
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94565770"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102122151"
 ---
 # <a name="leverage-content-type-to-store-json-key-values-in-app-configuration"></a>Tirer parti du type de contenu pour stocker des valeurs de clés JSON dans App Configuration
 
@@ -175,12 +175,28 @@ az appconfig kv export -d file --format json --path "~/Export.json" --separator 
 
 ## <a name="consuming-json-key-values-in-applications"></a>Utiliser des valeurs de clés JSON dans des applications
 
-Le moyen le plus simple d’utiliser des valeurs de clés JSON dans votre application est d’utiliser les bibliothèques du fournisseur App Configuration. Avec les bibliothèques du fournisseur, vous n’avez pas besoin d’implémenter une gestion spéciale des valeurs de clés JSON dans votre application. Elles sont toujours désérialisées pour votre application de la même façon que les autres bibliothèques du fournisseur de configurations JSON. 
+Le moyen le plus simple d’utiliser des valeurs de clés JSON dans votre application est d’utiliser les bibliothèques du fournisseur App Configuration. Avec les bibliothèques du fournisseur, vous n’avez pas besoin d’implémenter une gestion spéciale des valeurs de clés JSON dans votre application. Elles seront analysées et converties pour correspondre à la configuration native de votre application.
+
+Par exemple, si vous avez la paire clé-valeur suivante dans App Configuration :
+
+| Clé | Valeur | Type de contenu |
+|---|---|---|
+| Paramètres | {"FontSize":24,"UseDefaultRouting":false} | application/json |
+
+La configuration de votre application .NET comprendra les paires clé-valeur suivantes :
+
+| Clé | Valeur |
+|---|---|
+| Settings:FontSize | 24 |
+| Settings:UseDefaultRouting | false |
+
+Vous pouvez accéder directement aux nouvelles clés, ou choisir de [lier des valeurs de configuration à des instances d’objets .NET](/aspnet/core/fundamentals/configuration/#bind-hierarchical-configuration-data-using-the-options-pattern).
+
 
 > [!Important]
 > Le support natif des valeurs de clés JSON est disponible dans la version 4.0.0 (ou ultérieure) du fournisseur de la configuration .NET. Pour plus d’informations, consultez la section [*Étapes suivantes*](#next-steps).
 
-Si vous utilisez le kit de développement logiciel (SDK) ou l’API REST pour lire les valeurs de clés de App Configuration, en fonction du type de contenu, votre application est responsable de la désérialisation d’une clé-valeur à l’aide du désérialiseur JSON standard.
+Si vous utilisez le Kit de développement logiciel (SDK) ou l’API REST pour lire les valeurs de clés d’App Configuration, en fonction du type de contenu, votre application est responsable de l’analyse de la valeur d’une paire clé-valeur JSON.
 
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources

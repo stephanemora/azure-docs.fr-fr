@@ -3,12 +3,12 @@ title: Géorécupération d’urgence Azure Service Bus | Microsoft Docs
 description: Utiliser les régions géographiques pour le basculement et la récupération d’urgence dans Azure Service Bus
 ms.topic: article
 ms.date: 02/10/2021
-ms.openlocfilehash: 86d35465e5b31514f4d215095932b857ce7dcb35
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 3e8050cdaaae7e16a0f5125292df4b89b3690ed3
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100384300"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102035392"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Géorécupération d’urgence Azure Service Bus
 
@@ -47,11 +47,7 @@ Cet article emploie les termes suivants :
 -  *Alias* : nom d’une configuration de récupération d’urgence que vous avez configurée. L’alias fournit une chaîne de connexion de nom de domaine complet (FQDN) stable. Les applications utilisent cet alias de chaîne de connexion pour se connecter à un espace de noms. L’utilisation d’un alias garantit que la chaîne de connexion restera inchangée après le déclenchement du basculement.
 
 -  *Espace de noms principal/secondaire* : espaces de noms qui correspondent à l’alias. L’espace de noms principal est « actif » et reçoit les messages (il peut s’agir d’un espace de noms existant ou nouveau). L’espace de noms secondaire est « passif » et ne reçoit pas de messages. Les métadonnées sont synchronisées entre ces deux espaces de noms, qui peuvent ainsi accepter facilement les messages sans aucune modification du code d’application ou de la chaîne de connexion. Pour vous assurer que seul l’espace de noms actif reçoit des messages, vous devez utiliser l’alias. 
-
-    > [!IMPORTANT]
-    > La fonctionnalité de géo-reprise d’activité après sinistre nécessite que l’abonnement et le groupe de ressources soient identiques pour les espaces de noms principal et secondaire.
 -  *Métadonnées* : entités telles que les files d'attentes, les rubriques et les abonnements ; incluent également leurs propriétés sur le service associé à l'espace de noms. Seules les entités et leurs paramètres sont automatiquement répliqués. Les messages ne sont pas répliqués.
-
 -  *Basculement* : processus d’activation de l’espace de noms secondaire.
 
 ## <a name="setup"></a>Programme d’installation
@@ -63,13 +59,13 @@ La section suivante est une présentation de l’association de deux espaces de 
 Tout d’abord, vous créez ou utilisez un espace de noms principal existant et un espace de noms secondaire, avant d’associer les deux. Cette association crée un alias qui vous servira à vous connecter. Étant donné que vous utilisez un alias, vous n’avez pas besoin de modifier les chaînes de connexion existantes. Vous pouvez uniquement ajouter de nouveaux espaces de noms à votre association de basculement. 
 
 1. Créez l’espace de noms principal.
-1. Créez l’espace de noms secondaire dans l’abonnement et le groupe de ressources qui contiennent l’espace de noms principal, mais dans une région différente. Cette étape est facultative. Vous pouvez créer l’espace de noms secondaire lors de la création du jumelage à l’étape suivante. 
+1. Créez l’espace de noms secondaire dans une autre région. Cette étape est facultative. Vous pouvez créer l’espace de noms secondaire lors de la création du jumelage à l’étape suivante. 
 1. Dans le portail Azure, accédez à votre espace de noms principal.
 1. Sélectionnez **Géo-récupération** dans le menu de gauche, puis **Lancer le jumelage** dans la barre d’outils. 
 
     :::image type="content" source="./media/service-bus-geo-dr/primary-namspace-initiate-pairing-button.png" alt-text="Lancer le jumelage à partir de l’espace de noms principal":::    
 1. Sur la page **Lancer le jumelage**, procédez comme suit :
-    1. Sélectionnez un espace de noms secondaire existant ou créez-en un dans l’abonnement et le groupe de ressources qui contiennent l’espace de noms principal. Dans cet exemple, un espace de noms existant est utilisé comme espace de noms secondaire.  
+    1. Sélectionnez un espace de noms secondaire existant ou créez-en un dans une autre région. Dans cet exemple, un espace de noms existant est utilisé comme espace de noms secondaire.  
     1. Dans le champ **Alias**, entrez un alias pour le jumelage de géo-reprise d’activité après sinistre. 
     1. Sélectionnez ensuite **Create** (Créer). 
 

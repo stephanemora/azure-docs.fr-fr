@@ -5,12 +5,12 @@ ms.reviewer: jasonh
 ms.service: data-lake-analytics
 ms.topic: troubleshooting
 ms.date: 10/10/2019
-ms.openlocfilehash: 41b7c80c85331f288343351749e6b2e5292b30c6
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 1236b83b410057e55015391772e37bd461a448d0
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95241605"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102030611"
 ---
 # <a name="learn-how-to-troubleshoot-u-sql-runtime-failures-due-to-runtime-changes"></a>Apprenez à résoudre les défaillances du runtime U-SQL en raison des modifications du runtime
 
@@ -55,7 +55,7 @@ Vous pouvez rencontrer deux problèmes de version du runtime :
 
 ## <a name="known-issues"></a>Problèmes connus
 
-* La référence au fichier Newtonsoft.Json version 12.0.3 ou ultérieure dans un script USQL entraîne l’échec de compilation suivant :
+1. La référence au fichier Newtonsoft.Json version 12.0.3 ou ultérieure dans un script USQL entraîne l’échec de compilation suivant :
 
     *« Nous sommes désolés, les travaux exécutés dans votre compte Data Lake Analytics vont probablement s’exécuter plus lentement ou ne pas se terminer. Un problème inattendu nous empêche de restaurer automatiquement cette fonctionnalité sur votre compte Azure Data Lake Analytics. Les ingénieurs Azure Data Lake ont été contactés pour enquêter. »*  
 
@@ -65,6 +65,10 @@ Vous pouvez rencontrer deux problèmes de version du runtime :
     `...`
 
     **Solution**: Utilisez le fichier Newtonsoft.json v12.0.2 ou une version antérieure.
+2. Les clients peuvent voir des fichiers et dossiers temporaires dans leur magasin. Ceux-ci sont produits dans le cadre de l’exécution normale du travail, mais généralement supprimés avant que les clients les voient. Dans certaines circonstances, rares et aléatoires, ils peuvent rester visibles pendant un certain temps. Ils sont finalement supprimés et ne sont jamais comptabilisés dans le stockage utilisateur, ou génèrent des frais. En fonction de la logique du travail des clients, ils peuvent occasionner des problèmes. Par exemple, si le travail énumère tous les fichiers du dossier, puis compare des listes de fichiers, il peut échouer en raison de la présence de fichiers temporaires inattendus. De même, si un travail en aval énumère tous les fichiers d’un dossier donné pour un traitement ultérieur, il peut également énumérer les fichiers temporaires.  
+
+    **Solution**: un correctif est identifié dans le runtime où les fichiers temporaires seront stockés dans un dossier temporaire au niveau du compte autre que le dossier de sortie actuel. Les fichiers temporaires seront écrits dans ce nouveau dossier temporaire, et supprimés à la fin de l’exécution du travail.  
+    Étant donné que ce correctif traite les données client, il est extrêmement important qu’il soit correctement validé dans MSFT avant sa publication. Ce correctif est censé être disponible en tant que runtime bêta au milieu de l’année 2021 et en tant que runtime par défaut au cours du deuxième semestre de l’année 2021. 
 
 
 ## <a name="see-also"></a>Voir aussi

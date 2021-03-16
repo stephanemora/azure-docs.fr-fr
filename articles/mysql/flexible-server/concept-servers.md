@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: 2cce4810a9e1a4d7143e2bab384d4b26471b7238
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: b664dd406a1ab90b4ea5e85005a69935f345c609
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93240747"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102034657"
 ---
 # <a name="server-concepts-in-azure-database-for-mysql-flexible-server-preview"></a>Concepts de serveur dans le serveur flexible (préversion) Azure Database pour MySQL
 
@@ -38,18 +38,18 @@ Un serveur flexible Azure Database pour MySQL :
 - fournit une intégration du réseau virtuel pour l’accès au serveur de base de données ;
 - offre un moyen de réduire les coûts en suspendant le serveur flexible lorsqu’il n’est pas utilisé ;
 - fournit l’étendue des stratégies de gestion qui s’appliquent à ses bases de données : connexions, pare-feu, utilisateurs, rôles, configurations, etc. ;
-- est actuellement pris en charge avec la version MySQL 5,7. Pour plus d’informations, consultez la page [Versions prises en charge du moteur Azure Database pour MySQL](./concepts-supported-versions.md).
+- Prend en charge les versions majeures de MySQL 5.7 et MySQL 8.0. Pour plus d’informations, consultez la page [Versions prises en charge du moteur Azure Database pour MySQL](./../concepts-supported-versions.md).
 
 Dans un serveur flexible Azure Database pour MySQL, vous pouvez créer une ou plusieurs bases de données. Vous pouvez choisir de créer une seule base de données par serveur pour utiliser toutes les ressources, ou de créer plusieurs bases de données pour partager les ressources. Les tarifs sont structurés par serveur, en fonction de la configuration du niveau de calcul, des vCores et du stockage (Go). Pour plus d’informations, consultez [Calcul et stockage](./concepts-compute-storage.md).
 
 ## <a name="stopstart-an-azure-database-for-mysql-flexible-server"></a>Arrêter/Démarrer un serveur flexible Azure Database pour MySQL
 
-Le serveur flexible Azure Database pour MySQL vous donne la possibilité d’ **arrêter** le serveur en cas de non utilisation et de le **démarrer** lorsque vous reprenez l’activité. Cela permet essentiellement de réduire les coûts sur les serveurs de base de données et de payer uniquement la ressource en cours d’utilisation. Cela devient encore plus important pour les charges de travail de développement et de test, et lorsque vous utilisez uniquement le serveur pour une partie de la journée. Lorsque vous arrêtez le serveur, toutes les connexions actives sont supprimées. Plus tard, lorsque vous souhaitez remettre le serveur en ligne, vous pouvez utiliser le [portail Azure](how-to-stop-start-server-portal.md) ou l’interface de ligne de commande.
+Le serveur flexible Azure Database pour MySQL vous donne la possibilité d’**arrêter** le serveur en cas de non utilisation et de le **démarrer** lorsque vous reprenez l’activité. Cela permet essentiellement de réduire les coûts sur les serveurs de base de données et de payer uniquement la ressource en cours d’utilisation. Cela devient encore plus important pour les charges de travail de développement et de test, et lorsque vous utilisez uniquement le serveur pour une partie de la journée. Lorsque vous arrêtez le serveur, toutes les connexions actives sont supprimées. Plus tard, lorsque vous souhaitez remettre le serveur en ligne, vous pouvez utiliser le [portail Azure](how-to-stop-start-server-portal.md) ou l’interface de ligne de commande.
 
-Lorsque le serveur se trouve à l’état **Arrêté** , le calcul du serveur n’est pas facturé. Toutefois, le stockage continue à être facturé tant que le stockage du serveur est conservé pour s’assurer que les fichiers de données sont disponibles lors du redémarrage du serveur.
+Lorsque le serveur se trouve à l’état **Arrêté**, le calcul du serveur n’est pas facturé. Toutefois, le stockage continue à être facturé tant que le stockage du serveur est conservé pour s’assurer que les fichiers de données sont disponibles lors du redémarrage du serveur.
 
 > [!IMPORTANT]
-> Lorsque vous **arrêtez** le serveur, il reste dans cet état durant les 7 jours suivants. Si vous ne le **démarrez** pas manuellement pendant cette période, le serveur sera automatiquement démarré à la fin des 7 jours. Vous pouvez choisir de l’ **arrêter** de nouveau si vous n’utilisez pas le serveur.
+> Lorsque vous **arrêtez** le serveur, il reste dans cet état durant les 7 jours suivants. Si vous ne le **démarrez** pas manuellement pendant cette période, le serveur sera automatiquement démarré à la fin des 7 jours. Vous pouvez choisir de l’**arrêter** de nouveau si vous n’utilisez pas le serveur.
 
 Pendant l’arrêt du serveur, aucune opération de gestion ne peut être effectuée sur le serveur. Afin de modifier les paramètres de configuration sur le serveur, vous devez [démarrer le serveur](how-to-stop-start-server-portal.md). Reportez-vous aux [contraintes liées à l’arrêt et au démarrage](./concepts-limitations.md#stopstart-operation).
 

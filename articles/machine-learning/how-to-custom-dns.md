@@ -11,12 +11,12 @@ author: jhirono
 ms.date: 11/20/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 2215c47fcd250a9ac1d6621f7e4b434bd33b3832
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 66a709f15191a8142f10f15d825276ea2ba4b83f
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98871093"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487982"
 ---
 # <a name="how-to-use-your-workspace-with-a-custom-dns-server"></a>Utilisation de votre espace de travail avec un serveur DNS personnalisé
 
@@ -52,7 +52,7 @@ La liste suivante contient les noms de domaine complets (FQDN) utilisés par vot
     > [!NOTE]
     > Les instances de calcul sont accessibles uniquement à partir du réseau virtuel.
     
-### <a name="these-fqdns-are-in-use-in-all-other-regions"></a>Ces noms de domaine complets sont utilisés dans toutes les autres régions
+### <a name="these-fqdns-are-in-use-in-all-other-public-regions"></a>Ces noms de domaine complets sont utilisés dans toutes les autres régions publiques
 La liste suivante contient les noms de domaine complets (FQDN) utilisés par votre espace de travail :
 
 * `<workspace-GUID>.workspace.<region>.cert.api.azureml.ms`
@@ -63,6 +63,17 @@ La liste suivante contient les noms de domaine complets (FQDN) utilisés par vot
     > [!NOTE]
     > Les instances de calcul sont accessibles uniquement à partir du réseau virtuel.
 
+### <a name="azure-china-21vianet-regions"></a>Régions cloud Azure China 21Vianet
+
+Les noms de domaine complets suivants sont destinés aux régions Azure China 21Vianet :
+
+* `<workspace-GUID>.workspace.<region>.cert.api.ml.azure.cn`
+* `<workspace-GUID>.workspace.<region>.api.ml.azure.cn`
+* `ml-<workspace-name, truncated>-<region>-<workspace-guid>.notebooks.chinacloudapi.cn`
+
+    > [!NOTE]
+    > Le nom de l’espace de travail pour ce nom de domaine complet peut être tronqué. La troncation est effectuée pour conserver la longueur du nom de domaine complet inférieure ou égale à 63 caractères.
+* `<instance-name>.<region>.instances.ml.azure.cn`
 ## <a name="find-the-ip-addresses"></a>Rechercher les adresses IP
 
 Pour rechercher les adresses IP internes des noms de domaine complets dans le réseau virtuel, utilisez l’une des méthodes suivantes :
@@ -94,7 +105,7 @@ $workspaceDns.CustomDnsConfigs | format-table
 
 ---
 
-Les informations retournées par toutes les méthodes sont les mêmes : une liste du nom de domaine complet et de l’adresse IP privée pour les ressources.
+Les informations retournées par toutes les méthodes sont les mêmes : une liste du nom de domaine complet et de l’adresse IP privée pour les ressources. L’exemple suivant provient d’une région Azure globale :
 
 | FQDN | Adresse IP |
 | ----- | ----- |
@@ -112,6 +123,12 @@ Les informations retournées par toutes les méthodes sont les mêmes : une lis
 >
 > Pour toutes ces adresses IP, utilisez la même adresse que les entrées `*.api.azureml.ms` retournées par les étapes précédentes.
 
+Le tableau suivant montre des exemples d’adresses IP à partir de régions Azure China 21Vianet :
+
+| FQDN | Adresse IP |
+| ----- | ----- |
+| `52882c08-ead2-44aa-af65-08a75cf094bd.workspace.chinaeast2.api.ml.azure.cn` | `10.1.0.5` |
+| `ml-mype-pltest-chinaeast2-52882c08-ead2-44aa-af65-08a75cf094bd.notebooks.chinacloudapi.cn` | `10.1.0.6` |
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur l’utilisation d’Azure Machine Learning avec un réseau virtuel, consultez [Présentation du réseau virtuel](how-to-network-security-overview.md).

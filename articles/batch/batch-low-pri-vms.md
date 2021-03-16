@@ -3,14 +3,14 @@ title: Exécuter des charges de travail sur des machines virtuelles rentables de
 description: Apprenez à configurer des machines virtuelles de faible priorité pour réduire le coût des charges de travail Azure Batch.
 author: mscurrell
 ms.topic: how-to
-ms.date: 02/02/2021
+ms.date: 03/03/2021
 ms.custom: seodec18
-ms.openlocfilehash: 9214ef83ec9b8bef4fb7bc7489aa0ab388f67c0d
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: cafc7216e8112640f823ecee1aea055ab78b3fc6
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99507268"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102098466"
 ---
 # <a name="use-low-priority-vms-with-batch"></a>Utiliser des machines virtuelles de faible priorité avec Batch
 
@@ -25,9 +25,9 @@ Les machines virtuelles de faible priorité sont proposées à un prix considér
 > [!NOTE]
 > Les [machines virtuelles Spot](https://azure.microsoft.com/pricing/spot/) sont désormais disponibles pour les [machines virtuelles mono-instance](../virtual-machines/spot-vms.md) et les [groupes de machines virtuelles identiques](../virtual-machine-scale-sets/use-spot.md). Les machines virtuelles Spot sont une évolution des machines virtuelles de faible priorité, mais diffèrent par leurs tarifs variables et la possibilité de définir un prix maximal lors de leur allocation.
 >
-> Les pools Azure Batch commenceront à prendre en charge les machines virtuelles Spot dans les mois qui suivront leur mise à disposition générale, avec de nouvelles versions des [API et outils Batch](./batch-apis-tools.md). Une fois que la prise en charge des machines virtuelles Spot sera disponible, les machines virtuelles de faible priorité seront déconseillées : elles continueront d’être prises en charge, à l’aide des versions actuelles des API et des outils, pendant au moins 12 mois, afin de laisser suffisamment de temps à une migration vers des machines virtuelles Spot.
+>Les pools Azure Batch prendront en charge les machines virtuelles Spot à l’avenir, avec des nouvelles versions des [outils et API Batch](./batch-apis-tools.md). Une fois que la prise en charge des machines virtuelles Spot sera disponible, les machines virtuelles de faible priorité seront déconseillées : elles continueront d’être prises en charge, à l’aide des versions actuelles des API et des outils, pendant au moins 12 mois, afin de laisser suffisamment de temps à une migration vers des machines virtuelles Spot.
 >
-> Les machines virtuelles Spot ne sont pas prises en charge pour les pools de [configuration du service cloud](/rest/api/batchservice/pool/add#cloudserviceconfiguration). Pour utiliser des machines virtuelles Spot, les pools de service cloud doivent être migrés vers des pools de [configuration de machine virtuelle](/rest/api/batchservice/pool/add#virtualmachineconfiguration).
+> Les machines virtuelles Spot ne seront prises en charge que pour des pools de configuration de machines virtuelles. Pour utiliser des machines virtuelles Spot, les pools de configuration de service cloud devront être [migrés vers des pools de configuration de machines virtuelles](batch-pool-cloud-service-to-virtual-machine-configuration.md).
 
 ## <a name="batch-support-for-low-priority-vms"></a>Prise en charge des machines virtuelles de faible priorité par Batch
 

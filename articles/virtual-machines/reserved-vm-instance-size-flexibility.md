@@ -6,14 +6,14 @@ ms.service: virtual-machines
 ms.subservice: reserved-instances
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 02/02/2021
+ms.date: 03/01/2021
 ms.author: yashar
-ms.openlocfilehash: 6b04caec380a481569de4a33ea0159fd641c000f
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 9270b7fb135eddd78a7aeb30cf88af4d704e176e
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101673954"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102030701"
 ---
 # <a name="virtual-machine-size-flexibility-with-reserved-vm-instances"></a>Flexibilité en termes de taille de machine virtuelle avec des instances de machines virtuelles réservées
 
@@ -48,7 +48,13 @@ Le fichier CSV ci-dessous contient les groupes de flexibilité de la taille d'in
 
 [Ratios de flexibilité de la taille d'instance](https://isfratio.blob.core.windows.net/isfratio/ISFRatio.csv)
 
-Nous conservons l’URL du fichier et le schéma fixes pour que vous puissiez utiliser le fichier par programmation. Les données seront également disponibles prochainement via l’API.
+Azure tient à jour le lien et le schémas pour vous permettre d’utiliser le fichier par programme.
+
+## <a name="view-vm-size-recommendations"></a>Afficher les recommandations de taille de machine virtuelle
+
+Azure affiche les recommandations de taille de machine virtuelle dans l’expérience d’achat. Pour afficher les recommandations de taille minimale, sélectionnez **Regrouper par taille minimale**.
+
+:::image type="content" source="./media/reserved-vm-instance-size-flexibility/select-product-recommended-quantity.png" alt-text="Capture d’écran montrant les quantités recommandées." lightbox="./media/reserved-vm-instance-size-flexibility/select-product-recommended-quantity.png" :::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

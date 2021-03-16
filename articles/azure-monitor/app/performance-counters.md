@@ -4,12 +4,12 @@ description: Surveillez les compteurs de performances système et .NET personnal
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5f1bd3ac4542dcce0d41f69a9c1664b747214554
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 423e17ef2b44286c28b464836075284929d8644c
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100583892"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102031359"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Compteurs de performances système dans Application Insights
 
@@ -21,7 +21,7 @@ Le volet Métriques affiche un ensemble de compteurs de performances par défaut
 
 ![Compteurs de performances signalés dans Application Insights](./media/performance-counters/performance-counters.png)
 
-Les compteurs par défaut actuels qui sont configurés pour être collectés pour les applications Web ASP.NET/ASP.NET Core sont :
+Les compteurs par défaut actuels qui sont configurés pour être collectés pour les applications web ASP.NET sont les suivants :
 - % du processus\\Temps du processeur
 - % du processus\\Temps du processeur normalisé
 - Mémoire\\Octets disponibles
@@ -31,6 +31,14 @@ Les compteurs par défaut actuels qui sont configurés pour être collectés pou
 - Processus\\Octets privés
 - Processus\\Octets de données IP/seconde
 - Applications ASP.NET\\Requêtes dans la file d’attente des applications
+- Processor(_Total)\\ % de temps de processeur
+
+Les compteurs par défaut actuels qui sont configurés pour être collectés pour les applications web ASP.NET Core sont les suivants :
+- % du processus\\Temps du processeur
+- % du processus\\Temps du processeur normalisé
+- Mémoire\\Octets disponibles
+- Processus\\Octets privés
+- Processus\\Octets de données IP/seconde
 - Processor(_Total)\\ % de temps de processeur
 
 ## <a name="add-counters"></a>Ajouter des compteurs

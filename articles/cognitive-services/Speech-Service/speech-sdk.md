@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: trbye
-ms.openlocfilehash: 597a7c3954912a3a86b5db9f92ba75e8aaee63f6
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 4c8ee3a65c26d1eb3acb7b9f4c18f11e870e4b82
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98601811"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102434454"
 ---
 # <a name="about-the-speech-sdk"></a>À propos du kit SDK Speech
 
@@ -58,13 +58,14 @@ La **Synthèse vocale (TTS)** est disponible sur les plateformes suivantes :
 
 ### <a name="voice-assistants"></a>Assistants vocaux
 
-Les [assistants vocaux](voice-assistants.md) qui utilisent le SDK Speech permettent aux développeurs de créer des interfaces conversationnelles naturelles pour leurs applications et leurs expériences. Le service d'assistance vocale permet une interaction rapide et fiable entre un appareil et un assistant. L'implémentation utilise le canal Direct Line Speech de Bot Framework ou le service intégré Commandes personnalisées pour la réalisation des tâches. En outre, des assistants vocaux peuvent utiliser des voix personnalisées dans le [Portail Custom Voice](https://aka.ms/customvoice) pour ajouter une expérience de sortie vocale unique.
+Les [assistants vocaux](voice-assistants.md) qui utilisent le kit SDK Speech vous permettent de créer des interfaces conversationnelles naturelles, quasi humaines, pour vos applications et vos expériences. Le kit SDK Speech fournit une interaction rapide et fiable qui inclut des données conversationnelles, de reconnaissance vocale et de synthèse vocale sur une seule connexion. Votre implémentation peut utiliser le canal Direct Line Speech de Bot Framework ou le service intégré Commandes personnalisées pour la réalisation des tâches. En outre, des assistants vocaux peuvent utiliser des voix personnalisées dans le [Portail Custom Voice](https://aka.ms/customvoice) pour ajouter une expérience de sortie vocale unique.
 
-Les **Assistants vocaux** sont disponibles sur les plateformes suivantes :
+La prise en charge des **assistants vocaux** est disponible sur les plateformes suivantes :
 
   - C++/Windows & Linux & macOS
   - C#/Windows
   - Java/Windows & Linux & macOS & Android (SDK Speech Devices)
+  - Go
 
 #### <a name="keyword-spotting"></a>Identification de mot clé
 
@@ -113,7 +114,7 @@ La **Transcription de centre d'appels** est disponible par le biais du service R
 
 ### <a name="codec-compressed-audio-input"></a>Entrée audio compressée par codec
 
-Plusieurs des langages de programmation du SDK Speech prennent en charge les flux d'entrée audio compressés par codec. Pour plus d'informations, consultez <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams" target="_blank">Utiliser des formats d'entrée audio compressés<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+Plusieurs des langages de programmation du SDK Speech prennent en charge les flux d'entrée audio compressés par codec. Pour plus d'informations, consultez <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams" target="_blank">Utiliser des formats d'entrée audio compressés</a>.
 
 L’**entrée audio compressée par codec** est disponible sur les plateformes suivantes :
 

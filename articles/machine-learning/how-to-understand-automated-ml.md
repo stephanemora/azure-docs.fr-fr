@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 12/09/2020
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy21q2, automl
-ms.openlocfilehash: c95a75ef48aa9e3db070c6c237f913fabbe893fa
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 6d8c56bc306a7ab0bf118d04f64d6523fc385cdd
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100388207"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102520776"
 ---
 # <a name="evaluate-automated-machine-learning-experiment-results"></a>Évaluer les résultats de l’expérience de Machine Learning automatisé
 
@@ -45,7 +45,7 @@ Par exemple, le Machine Learning automatisé génère les graphiques suivants ba
 
 Une fois votre expérience ML automatisé terminée, vous trouverez un historique des exécutions via :
   - Un navigateur avec [Azure Machine Learning Studio](overview-what-is-machine-learning-studio.md)
-  - Un notebook Jupyter utilisant le [widget RunDetails Jupyter](/python/api/azureml-widgets/azureml.widgets.rundetails?view=azure-ml-py&preserve-view=true)
+  - Un notebook Jupyter utilisant le [widget RunDetails Jupyter](/python/api/azureml-widgets/azureml.widgets.rundetails)
 
 Les étapes et la vidéo suivantes vous montrent comment afficher l’historique des exécutions et les graphiques ainsi que les métriques d’évaluation du modèle dans Studio :
 
@@ -192,7 +192,7 @@ explained_variance|La variance expliquée évalue dans quelle mesure un modèle 
 mean_absolute_error|L’erreur d’absolue moyenne est la valeur attendue de la valeur absolue de la différence entre la cible et la prédiction.<br><br> **Objectif** : Une valeur proche de 0 est optimale <br> **Plage :** [0, inf) <br><br> Types : <br>`mean_absolute_error` <br>  `normalized_mean_absolute_error` est la valeur mean_absolute_error divisée par la plage des données. | [Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_absolute_error.html)|
 mean_absolute_percentage_error|L’erreur de pourcentage absolue moyenne (MAPE) mesure la différence moyenne entre une valeur prédite et la valeur réelle.<br><br> **Objectif** : Une valeur proche de 0 est optimale <br> **Plage :** [0, inf) ||
 median_absolute_error|L’erreur absolue médiane est la médiane de toutes les différences absolues entre la cible et la prédiction. Cette perte est robuste pour les valeurs hors norme.<br><br> **Objectif** : Une valeur proche de 0 est optimale <br> **Plage :** [0, inf)<br><br>Types : <br> `median_absolute_error`<br> `normalized_median_absolute_error` est la valeur median_absolute_error divisée par la plage des données. |[Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.median_absolute_error.html)|
-r2_score|R2 est le coefficient de détermination ou le pourcentage de réduction dans les erreurs quadratiques comparé à un modèle de référence qui génère la moyenne. <br> <br> **Objectif** : Une valeur proche de 1 est optimale <br> **Plage :** [-1, 1] <br><br> Remarque : R2 a souvent la plage (-inf, 1], mais le Machine Learning automatisé fixe les valeurs négatives pour les modèles très mauvais à la valeur -1.|[Calcul](https://scikit-learn.org/0.16/modules/generated/sklearn.metrics.r2_score.html)|
+r2_score|R<sup>2</sup> (le coefficient de détermination) mesure la réduction proportionnelle de l’erreur carrée moyenne (MSE) par rapport à la variance totale des données observées. <br> <br> **Objectif** : Une valeur proche de 1 est optimale <br> **Plage :** [-1, 1]<br><br>Remarque : R<sup>2</sup> comprend souvent la plage [-inf, 1]. L’erreur carrée moyenne peut être plus grande que la variance observée ; par conséquent, R<sup>2</sup> peut avoir des valeurs négatives arbitrairement grandes, en fonction des données et des prédictions de modèle. Les clips Machine Learning automatisé ont signalé des scores R<sup>2</sup> à -1, par conséquent, une valeur de -1 pour R<sup>2</sup> signifie probablement que le véritable score R<sup>2</sup> est inférieur à -1. Tenez compte des autres valeurs de métriques et des propriétés des données lors de l’interprétation d’un score R<sup>2</sup> négatif.|[Calcul](https://scikit-learn.org/0.16/modules/generated/sklearn.metrics.r2_score.html)|
 root_mean_squared_error |L’erreur quadratique moyenne racine (RMSE) est la racine carrée de la différence quadratique attendue entre la cible et la prédiction. Pour un estimateur non biaisé, la valeur RMSE est égale à l’écart type.<br> <br> **Objectif** : Une valeur proche de 0 est optimale <br> **Plage :** [0, inf)<br><br>Types :<br> `root_mean_squared_error` <br> `normalized_root_mean_squared_error` est la valeur root_mean_squared_error divisée par la plage des données. |[Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html)|
 root_mean_squared_log_error|L’erreur logarithmique quadratique moyenne racine est la racine carrée de l’erreur logarithmique quadratique attendue.<br><br>**Objectif** : Une valeur proche de 0 est optimale <br> **Plage :** [0, inf) <br> <br>Types : <br>`root_mean_squared_log_error` <br> `normalized_root_mean_squared_log_error` est la valeur root_mean_squared_log_error divisée par la plage des données.  |[Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|
 spearman_correlation| La corrélation de Spearman est une mesure non paramétrique de la monotonie de la relation entre deux jeux de données. Contrairement à la corrélation de Pearson, la corrélation de Spearman ne suppose pas que les deux jeux de données sont normalement distribués. Comme d’autres coefficients de corrélation, la corrélation de Spearman varie entre -1 et 1, 0 impliquant l’absence de corrélation. Les corrélations de -1 ou 1 impliquent une relation monotone exacte. <br><br> La corrélation de Spearman est une métrique de corrélation de l’ordre de classement, ce qui signifie que les modifications apportées aux valeurs prédites ou réelles ne changeront pas le résultat Spearman si elles ne modifient pas l’ordre de classement des valeurs prédites ou réelles.<br> <br> **Objectif** : Une valeur proche de 1 est optimale <br> **Plage :** [-1, 1]|[Calcul](https://docs.scipy.org/doc/scipy-0.16.1/reference/generated/scipy.stats.spearmanr.html)|

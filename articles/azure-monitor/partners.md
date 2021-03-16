@@ -1,15 +1,14 @@
 ---
 title: Partenaires qui s’intègrent dans Azure Monitor
 description: Découvrez-en plus sur les partenaires Azure Monitor et comment vous pouvez accéder à la documentation pour les intégrer.
-ms.subservice: ''
 ms.topic: conceptual
-ms.date: 09/21/2020
-ms.openlocfilehash: 5f97097d21beab12c5f58161751a1bc340fa6cf7
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.date: 02/19/2021
+ms.openlocfilehash: ca58023510eb9329bc8ddf1339df4d8c27aae5e6
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100599099"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102101016"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Intégrations partenaires d’Azure Monitor
 
@@ -101,6 +100,8 @@ Grâce à la nouvelle intégration Azure-Datadog, les organisations peuvent dés
 -   Bénéficiez d'une facturation unifiée pour le service Datadog via la fonctionnalité de facturation de l'abonnement Azure.
 
 Inscrivez-vous pour bénéficier de la [Préversion publique](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR4z3T2aGXUZPslUNJ3YpcapURFBHSUJIMVJTWDM5VUFPMVkyTVhMVlYzMS4u) de la nouvelle intégration à Azure de Datadog.  La préversion publique sera disponible sur la Place de marché Azure à partir d'octobre 2020.
+
+S’abonner à la préversion de l’« Intégration de Datadog avec Azure » disponible sur la [Place de marché Azure](https://azuremarketplace.microsoft.com/marketplace/apps/datadog1591740804488.dd_liftr_v2?tab=Overview)
 
 Si vous utilisez toujours la précédente intégration configurée manuellement, consultez la [documentation disponible sur le site web de DataDog](https://docs.datadoghq.com/integrations/azure/).
 
@@ -290,8 +291,7 @@ Avec la supervision Azure Site24x7, vous pouvez :
 * Superviser votre biosphère Microsoft complète, notamment les applications SQL, Exchange, Active Directory, Office 365, IIS et Hyper-V.
 * Intégrer de manière fluide des services tiers tels que Microsoft Teams, PagerDuty, Zapier et plus encore.
 
-[Documentation Site24X7](https://www.site24x7.com/)
-
+[Documentation de Site24X7](https://www.site24x7.com/azure/?utm_source=microsoft-partner-page&utm_medium=webpage&utm_campaign=ms-partner)
 
 ## <a name="solarwinds"></a>SolarWinds
 

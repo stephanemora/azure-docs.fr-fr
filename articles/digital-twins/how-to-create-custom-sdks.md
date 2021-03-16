@@ -8,12 +8,12 @@ ms.date: 4/24/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: devx-track-js
-ms.openlocfilehash: e0c0d18dbb3596733d02430554fd40ec16180c64
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: e7239bfdca1dc464048c0db08488029b0868deb5
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99980658"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102049795"
 ---
 # <a name="create-custom-sdks-for-azure-digital-twins-using-autorest"></a>Création de kits SDK personnalisés pour Azure Digital Twins avec AutoRest
 
@@ -44,10 +44,10 @@ Pour exécuter AutoRest sur le fichier Swagger Azure Digital Twins, procédez co
 3. Exécutez AutoRest avec la commande suivante. Remplacez l’espace réservé `<language>` par le langage de votre choix : `python`, `java`, `go`, etc. (Vous trouverez la liste complète des options dans le [LISEZMOI AutoRest](https://github.com/Azure/autorest).)
 
 ```cmd/sh
-autorest --input-file=digitaltwins.json --<language> --output-folder=ADTApi --add-credentials --azure-arm --namespace=ADTApi
+autorest --input-file=digitaltwins.json --<language> --output-folder=DigitalTwinsApi --add-credentials --azure-arm --namespace=DigitalTwinsApi
 ```
 
-En résulte un nouveau dossier nommé *ADTApi* dans votre répertoire de travail. Les fichiers du Kit de développement logiciel (SDK) générés auront l’espace de noms *ADTApi*. Vous continuerez à utiliser cet espace de noms dans les autres exemples d’utilisation de cet article.
+Un nouveau dossier nommé *DigitalTwinsApi* s’affiche alors dans votre répertoire de travail. Les fichiers de SDK générés auront l’espace de noms *DigitalTwinsApi*. Vous continuerez à utiliser cet espace de noms dans les autres exemples d’utilisation de cet article.
 
 AutoRest prend en charge un large éventail de générateurs de code de langage.
 
@@ -60,8 +60,8 @@ Cette section fournit les instructions à suivre pour générer le kit SDK sous 
 Voici la procédure à suivre :
 
 1. Créez une solution Visual Studio pour une bibliothèque de classes.
-2. Utilisez *ADTApi* comme nom du projet.
-3. Dans l’Explorateur de solutions, cliquez avec le bouton droit pour sélectionner le projet *ADTApi* de la solution générée, puis choisissez *Ajouter > Élément existant…* .
+2. Utilisez *DigitalTwinsApi* comme nom de projet
+3. Dans l’Explorateur de solutions, cliquez avec le bouton droit pour sélectionner le projet *DigitalTwinsApi* de la solution générée, puis choisissez *Ajouter > Élément existant…*
 4. Recherchez le dossier dans lequel vous avez généré le kit SDK et sélectionnez les fichiers au niveau racine.
 5. Appuyez sur « OK ».
 6. Ajoutez un dossier au projet (cliquez avec le bouton droit pour sélectionner le projet dans l’Explorateur de solutions, puis sélectionnez *Ajouter > Nouveau dossier*).

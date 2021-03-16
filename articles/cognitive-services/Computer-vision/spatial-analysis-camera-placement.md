@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: 849afe54125588cb7664ee221e4f229e83be8f96
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 4c2d1cd1c73b377d85501fd31d0f5a1893df5183
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98185476"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487419"
 ---
 # <a name="camera-placement-guide"></a>Guide de positionnement de la caméra
 
@@ -72,12 +72,12 @@ Utilisez le tableau ci-dessous pour déterminer la distance de la caméra par ra
 
 | Hauteur de la caméra | Distance entre le point focal et la caméra (min/max) |  
 | ------------- | ---------------------------------------- |  
-| 8'            | 10'-13'                                  |  
-| 10'           | 7'-13'                                   |  
-| 12'           | 10'-17'                                  |  
-| 14'           | 11'-18'                                  |  
-| 16'           | 12'-22'                                  |  
-| 20'           | 15'-30'                                  |  
+| 8'            | 4,6'-8' (1,4 à 2,5 m)                                  |  
+| 10'           | 5,8'-10' (1,8 à 3 m)                                 |  
+| 12'           | 7'-12' (2,1 à 3,5 m)                                   |  
+| 14'           | 8'-14'' (2,5 à 4,3 m)                                  |  
+| 16'           | 9,2'-16' (2,8 à 4,9 m)                                 |  
+| 20'           | 11,5'-20' (3,5 à - 6 m)                                |  
 
 L’illustration suivante simule les vues d’une caméra selon la distance la plus proche et la distance la plus éloignée entre le point focal et la caméra.
 
@@ -91,15 +91,9 @@ Cette section décrit les plages de montage acceptables pour l’angle de camér
 
 ### <a name="line-configuration"></a>Configuration de ligne
 
-Le tableau suivant indique les recommandations pour les caméras configurées en mode **cognitiveservices.vision.spatialanalysis-personcrossingline**. Pour la détection de masque, +/-30 degrés est l’angle de montage optimal pour une hauteur de caméra comprise entre 8' et 12' (2,5 à 3,5 m).
+Pour l’opération **cognitiveservices.vision.spatialanalysis-personcrossingline**, +/-5° est l’angle de montage optimal de la caméra pour maximiser la précision.
 
-| Hauteur de la caméra | Distance entre le point focal et la caméra | Angle de montage optimal de la caméra (min/max) |  
-| ------------- | ------------------------------ | ------------------------------------------ |  
-| 8'            | 9'                             | +/-40°                                     |  
-| 10'           | 10'                            | +/-30°                                     |  
-| 12'           | 13'                            | +/-20°                                     |  
-| 16'           | 18'                            | +/-10°                                     |  
-| 20'           | 22'                            | +/-10°                                     |  
+Pour la détection de masque, +/-30 degrés est l’angle de montage optimal pour une hauteur de caméra comprise entre 8' et 12' (2,5 à 3,5 m).
 
 L’illustration suivante simule les vues de caméra à l’aide des recommandations d’angle le plus à gauche (-) et le plus à droite (+) en mode **cognitiveservices.vision.spatialanalysis-personcrossingline** pour compter les personnes qui passent une porte.
 

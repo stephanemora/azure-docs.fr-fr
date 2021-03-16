@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 01/19/2021
-ms.openlocfilehash: 82c11b913d38695c8738de88f3ce69b198ee099e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 5748bf3d428102e296067dc5d1927ba487d575bc
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101691873"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102518719"
 ---
 # <a name="run-jupyter-notebooks-in-your-workspace"></a>Exécuter des notebooks Jupyter dans votre espace de travail
 
@@ -115,7 +115,7 @@ Vous seul pouvez voir et utiliser les instances de calcul que vous créez.  Vos 
 
 ### <a name="view-logs-and-output"></a>Afficher les journaux et la sortie
 
-Utilisez des [widgets de notebook](/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py) pour afficher la progression de l’exécution et les journaux. Un widget est asynchrone et fournit des mises à jour jusqu’à ce que l’apprentissage se termine. Les widgets d’Azure Machine Learning sont également pris en charge dans Jupyter et JupterLab.
+Utilisez des [widgets de notebook](/python/api/azureml-widgets/azureml.widgets) pour afficher la progression de l’exécution et les journaux. Un widget est asynchrone et fournit des mises à jour jusqu’à ce que l’apprentissage se termine. Les widgets d’Azure Machine Learning sont également pris en charge dans Jupyter et JupterLab.
 
 :::image type="content" source="media/how-to-run-jupyter-notebooks/jupyter-widget.png" alt-text="Capture d’écran : Widget de notebook Jupyter ":::
 
@@ -186,11 +186,94 @@ Un indicateur en regard de la liste déroulante **Noyau** affiche son état.
 
 Pour plus de détails sur vos instances de calcul, consultez la page **Calcul** dans de [Studio](https://ml.azure.com).
 
+## <a name="useful-keyboard-shortcuts"></a>Raccourcis clavier utiles
+À l’instar des notebooks Jupyter, les notebooks Azure Machine Learning Studio disposent d’une interface utilisateur modale. Le clavier effectue des actions différentes selon le mode dans lequel se trouve la cellule du bloc-notes. Les notebooks Azure Machine Learning Studio prennent en charge les deux modes suivants pour une cellule de code donnée : le mode de commande et le mode d’édition.
+
+### <a name="command-mode-shortcuts"></a>Raccourcis du mode de commande
+
+Une cellule est en mode de commande quand elle n’affiche aucun curseur texte vous invitant à saisir. Quand une cellule est en mode de commande, vous pouvez modifier le bloc-notes entier, mais pas taper dans des cellules individuelles. Entrez en mode de commande en appuyant sur `ESC` ou en utilisant la souris pour sélectionner en dehors de la zone de l’éditeur d’une cellule.  La bordure gauche de la cellule active est bleue et unie, et son bouton **Exécuter** est bleu.
+
+   :::image type="content" source="media/how-to-run-jupyter-notebooks/command-mode.png" alt-text="Cellule de notebook en mode de commande ":::
+
+| Raccourci                      | Description                          |
+| ----------------------------- | ------------------------------------|
+| Entrez                         | Passer au mode Édition             |        
+| Maj+Entrée                 | Exécuter la cellule, sélectionner en dessous         |     
+| Contrôle/Commande + Entrée       | Exécuter la cellule                            |
+| Alt + Entrée                   | Exécuter la cellule, insérer la cellule de code en dessous    |
+| Contrôle/Commande + Alt + Entrée | Exécuter la cellule, insérer la cellule Markdown en dessous|
+| Alt + R                       | Exécuter tout      |                       
+| O                             | Convertir la cellule en code    |                         
+| M                             | Convertir la cellule en Markdown  |                       
+| Haut/K                          | Sélectionner la cellule au-dessus    |               
+| Bas/J                        | Sélectionner la cellule en dessous    |               
+| Un                             | Insérer une cellule de code au-dessus  |            
+| B                             | Insérer une cellule de code au-dessous   |           
+| Contrôle/Commande + Maj + A   | Insérer une cellule Markdown au-dessus    |      
+| Contrôle/Commande + Maj + B   | Insérer une cellule Markdown au-dessous   |       
+| X                             | Couper la cellule sélectionnée    |               
+| C                             | Copier la cellule sélectionnée   |               
+| Maj + V                     | Coller la cellule sélectionnée au-dessus           |
+| V                             | Coller la cellule sélectionnée au-dessous    |       
+| D D                           | Supprimer la cellule sélectionnée|                
+| O                             | Activer/désactiver la sortie         |              
+| Maj + O                     | Activer/désactiver le défilement de sortie   |          
+| I I                           | Interrompre le noyau |                   
+| 0 0                           | Redémarrer le noyau |                     
+| Maj + espace                 | Faire défiler vers le haut  |                         
+| Espace                         | Faire défiler vers le bas|
+| Onglet                           | Définir le focus sur le prochain élément pouvant être actif (quant le recouvrement par tabulation est désactivé)|
+| Contrôle/Commande + S           | Enregistrer le notebook |                      
+| 1                             | Remplacer par h1|                       
+| 2                             | Remplacer par h2|                        
+| 3                             | Remplacer par h3|                        
+| 4                             | Remplacer par h4 |                       
+| 5                             | Remplacer par h5 |                       
+| 6                             | Remplacer par h6 |                       
+
+### <a name="edit-mode-shortcuts"></a>Raccourcis du mode d’édition
+
+Le mode d’édition est indiqué par un curseur texte qui vous invite à taper dans la zone de l’éditeur. Quand une cellule est en mode d’édition, vous pouvez saisir dans la cellule. Entrez en mode édition en appuyant sur `Enter` ou en utilisant la souris pour sélectionner la zone de l’éditeur d’une cellule. La bordure gauche de la cellule active est verte et en pointillés, et son bouton **Exécuter** est vert. Vous voyez également l’invite de curseur dans la cellule en mode d’édition.
+
+   :::image type="content" source="media/how-to-run-jupyter-notebooks/edit-mode.png" alt-text="Cellule de notebook en mode d’édition":::
+
+Les raccourcis clavier suivants vous permettent de naviguer et d’exécuter du code plus facilement dans des notebooks Azure Machine Learning en mode d’édition.
+
+| Raccourci                      | Description|                                     
+| ----------------------------- | ----------------------------------------------- |
+| Caractère d'échappement                        | Entrer en mode de commande|  
+| Contrôle/Commande + espace       | Activer IntelliSense |
+| Maj+Entrée                 | Exécuter la cellule, sélectionner en dessous |                         
+| Contrôle/Commande + Entrée       | Exécuter la cellule  |                                      
+| Alt + Entrée                   | Exécuter la cellule, insérer la cellule de code en dessous  |              
+| Contrôle/Commande + Alt + Entrée | Exécuter la cellule, insérer la cellule Markdown en dessous  |          
+| Alt + R                       | Exécuter toutes les cellules     |                              
+| Haut                            | Déplacer le curseur vers le haut ou vers la cellule précédente    |             
+| Descendre                          | Déplacer le curseur vers le bas ou la cellule suivante |                  
+| Contrôle/Commande + S           | Enregistrer le notebook   |                                
+| Contrôle/Commande + haut          | Atteindre le début de la cellule   |                             
+| Contrôle/Commande + bas        | Atteindre la fin de la cellule |                                 
+| Onglet                           | Saisie semi-automatique de code ou mise en retrait (si le recouvrement par tabulation est activé) |
+| Contrôle/Commande + M           | Activer/désactiver le recouvrement par tabulation  |                       
+| Contrôle/Commande + ]           | Retrait |                                         
+| Contrôle/Commande + [           | Retrait négatif  |                                        
+| Contrôle/Commande + A           | Sélectionner tout|                                      
+| Contrôle/Commande + Z           | Annuler |                                           
+| Contrôle/Commande + Maj + Z   | Rétablir |                                           
+| Contrôle/Commande + Y           | Rétablir |                                           
+| Contrôle/Commande + début        | Atteindre le début de la cellule|                                
+| Contrôle/Commande + fin         | Atteindre la fin de la cellule   |                               
+| Contrôle/Commande + gauche        | Atteindre le mot à gauche |                               
+| Contrôle/Commande + droite       | Atteindre le mot à droite |                              
+| Contrôle/Commande + retour arrière   | Supprimer le mot précédent |                             
+| Contrôle/Commande + Suppr      | Supprimer le mot suivant |                              
+| Contrôle/Commande + /           | Afficher/masquer le commentaire sur la cellule
+
 ## <a name="troubleshooting"></a>Dépannage
 
 * Si vous ne pouvez pas vous connecter à un notebook, vérifiez que la communication avec le socket web n’est **pas** désactivée. Pour que la fonctionnalité d’instance de calcul Jupyter fonctionne, la communication avec le socket web doit être activée. Vérifiez que votre réseau autorise les connexions WebSocket à *.instances.azureml.net et *.instances.azureml.ms. 
 
-* Quand l’instance de calcul est déployée dans un espace de travail de liaison privée, elle est uniquement [accessible à partir d’un réseau virtuel](https://docs.microsoft.com/azure/machine-learning/how-to-secure-training-vnet#compute-instance). Si vous utilisez un DNS ou un fichier d’hôtes personnalisé, ajoutez une entrée pour <nom-instance>.<region>.instances.azureml.ms avec l’adresse IP privée du point de terminaison privé de l’espace de travail. Pour plus d’informations, consultez l’article [DNS personnalisé](./how-to-custom-dns.md?tabs=azure-cli).
+* Quand l’instance de calcul est déployée dans un espace de travail de liaison privée, elle est uniquement [accessible à partir d’un réseau virtuel](https://docs.microsoft.com/azure/machine-learning/how-to-secure-training-vnet#compute-instance). Si vous utilisez un DNS ou un fichier d’hôtes personnalisé, ajoutez une entrée pour <nom-instance>.< région >.instances.azureml.ms avec l’adresse IP privée du point de terminaison privé de l’espace de travail. Pour plus d’informations, consultez l’article [DNS personnalisé](./how-to-custom-dns.md?tabs=azure-cli).
     
 ## <a name="next-steps"></a>Étapes suivantes
 

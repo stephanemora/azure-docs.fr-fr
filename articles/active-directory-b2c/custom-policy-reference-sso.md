@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/07/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 453042766c427b05ec1ee1090a0702f64065542d
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: f690f4a416e86b02de0d35fc673849c1293df577
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97508048"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102095763"
 ---
 # <a name="single-sign-on-session-management-in-azure-active-directory-b2c"></a>Gestion de session d’authentification unique dans Azure Active Directory B2C
 
@@ -135,7 +135,7 @@ Ce fournisseur est utilisé pour gérer les sessions Azure AD B2C entre une part
 
 ### <a name="samlssosessionprovider"></a>SamlSSOSessionProvider
 
-Ce fournisseur est utilisé pour gérer les sessions SAML d’Azure AD B2C entre une application basée sur les revendications et un fournisseur d’identité SAML fédéré. Lorsque vous utilisez le fournisseur d’authentification unique pour stocker une session de fournisseur d’identité SAML, `RegisterServiceProviders` doit avoir la valeur `false`. Le profil technique `SM-Saml-idp` suivant est utilisé par le [profil technique du fournisseur d’identité SAML](saml-identity-provider-technical-profile.md).
+Ce fournisseur est utilisé pour gérer les sessions SAML d’Azure AD B2C entre une application basée sur les revendications et un fournisseur d’identité SAML fédéré. Lorsque vous utilisez le fournisseur d’authentification unique pour stocker une session de fournisseur d’identité SAML, `RegisterServiceProviders` doit avoir la valeur `false`. Le [fournisseur d’identité SAML](identity-provider-generic-saml.md) utilise le profil technique `SM-Saml-idp` suivant.
 
 ```xml
 <TechnicalProfile Id="SM-Saml-idp">
@@ -149,7 +149,7 @@ Ce fournisseur est utilisé pour gérer les sessions SAML d’Azure AD B2C entr
 
 Lorsque vous utilisez le fournisseur pour stocker la session SAML B2C, `RegisterServiceProviders` doit avoir la valeur `true`. La fermeture de la session SAML requiert les valeurs `SessionIndex` et `NameID` pour aboutir.
 
-Le profil technique `SM-Saml-issuer` suivant est utilisé par le [profil technique de l’émetteur SAML](saml-issuer-technical-profile.md)
+Le profil technique `SM-Saml-issuer` suivant est utilisé par le [profil technique de l’émetteur SAML](saml-service-provider.md)
 
 ```xml
 <TechnicalProfile Id="SM-Saml-issuer">

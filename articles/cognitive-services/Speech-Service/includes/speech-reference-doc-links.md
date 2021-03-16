@@ -9,12 +9,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 12/06/2019
 ms.author: trbye
-ms.openlocfilehash: 9074b10b9bf7f8147f70d77bcfbe02749e39154b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8bc959bc0960a2de3d84f8d75f285138eacdbe34
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91642327"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102434307"
 ---
 ## <a name="reference-docs"></a>Documents de référence
 
@@ -24,12 +24,12 @@ Le service Speech fournit deux kits de développement logiciel (SDK). Le premier
 
 Utilisez la liste suivante pour rechercher les documents de référence du kit de développement logiciel (SDK) Speech appropriés :
 
-- <a href="https://aka.ms/csspeech/csharpref" target="_blank" rel="noopener">Kit de développement logiciel (SDK) C<span class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://aka.ms/csspeech/cppref" target="_blank" rel="noopener">Kit de développement logiciel (SDK) C++<span class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://aka.ms/csspeech/javaref" target="_blank" rel="noopener">Kit de développement logiciel (SDK) Java<span class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://aka.ms/csspeech/pythonref" target="_blank" rel="noopener">Kit de développement logiciel (SDK) Python<span class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://aka.ms/csspeech/javascriptref" target="_blank" rel="noopener">Kit de développement logiciel (SDK) JavaScript<span class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://aka.ms/csspeech/objectivecref" target="_blank" rel="noopener">Kit de développement logiciel (SDK) Objective-C<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://aka.ms/csspeech/csharpref" target="_blank" rel="noopener">Kit de développement logiciel (SDK) C</a>
+- <a href="https://aka.ms/csspeech/cppref" target="_blank" rel="noopener">Kit SDK C++ </a>
+- <a href="https://aka.ms/csspeech/javaref" target="_blank" rel="noopener">Kit SDK Java </a>
+- <a href="https://aka.ms/csspeech/pythonref" target="_blank" rel="noopener">Kit de développement logiciel (SDK) Python</a>
+- <a href="https://aka.ms/csspeech/javascriptref" target="_blank" rel="noopener">Kit de développement logiciel (SDK) JavaScript</a>
+- <a href="https://aka.ms/csspeech/objectivecref" target="_blank" rel="noopener">Kit de développement logiciel (SDK) Objective-C</a>
 
 > [!TIP]
 > Le kit de développement logiciel (SDK) Speech service est activement géré et mis à jour. Pour suivre les modifications, les mises à jour et les ajouts de fonctionnalités, reportez-vous aux [notes de publication du kit de développement logiciel Speech](../releasenotes.md).
@@ -45,4 +45,4 @@ Pour obtenir des références aux différentes API REST du service Speech, repor
 - [API REST : Reconnaissance vocale](../rest-speech-to-text.md)
 - [API REST : Évaluation de la prononciation](../rest-speech-to-text.md#pronunciation-assessment-parameters)
 - [API REST : Synthèse vocale](../rest-text-to-speech.md)
-- <a href="https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0" target="_blank" rel="noopener">API REST : Transcription par lot et personnalisation <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0" target="_blank" rel="noopener">API REST : Transcription par lot et personnalisation </a>

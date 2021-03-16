@@ -1,15 +1,16 @@
 ---
 title: Déployer Consortium Hyperledger Fabric sur Azure Kubernetes Service
 description: Guide pratique pour déployer un réseau de consortium Hyperledger Fabric sur Azure Kubernetes Service
-ms.date: 01/08/2021
+ms.date: 03/01/2021
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: c0e7f3e7ab83f64cebd990de57d48c97891edb7f
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.custom: contperf-fy21q3
+ms.openlocfilehash: 42d16adbc5e6396c8d5d38176ac7681c712f4555
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897256"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102101101"
 ---
 # <a name="deploy-hyperledger-fabric-consortium-on-azure-kubernetes-service"></a>Déployer Consortium Hyperledger Fabric sur Azure Kubernetes Service
 
@@ -31,34 +32,6 @@ Option | Modèle de service | Cas d’utilisation courant
 Modèles de solution | IaaS | Les modèles de solution correspondent à des modèles Azure Resource Manager que vous pouvez utiliser pour provisionner une topologie de réseau blockchain entièrement configurée. Les modèles déploient et configurent les services de calcul, de mise en réseau et de stockage Microsoft Azure pour un type de réseau blockchain. Les modèles de solution sont fournis sans contrat SLA. Rendez-vous sur la [page Microsoft Q&A](/answers/topics/azure-blockchain-workbench.html) pour obtenir de l’aide.
 [Azure Blockchain Service](../service/overview.md) | PaaS | Azure Blockchain Service (préversion) simplifie la formation, la gestion et la gouvernance des réseaux blockchain de consortium. Utilisez Azure Blockchain Service pour les solutions nécessitant PaaS, la gestion de consortium ou la confidentialité des contrats et transactions.
 [Azure Blockchain Workbench](../workbench/overview.md) | IaaS et PaaS | La préversion d’Azure Blockchain Workbench est une collection de services et de fonctionnalités Azure qui vous aide à créer et à déployer des applications blockchain afin de partager des processus métier et des données avec d’autres organisations. Utilisez Azure Blockchain Workbench pour le prototypage d’une solution blockchain ou d’une preuve de concept pour une application blockchain. Azure Blockchain Workbench est fourni sans contrat de niveau de service (SLA). Rendez-vous sur la [page Microsoft Q&A](/answers/topics/azure-blockchain-workbench.html) pour obtenir de l’aide.
-
-## <a name="hyperledger-fabric-consortium-architecture"></a>Architecture de consortium Hyperledger Fabric
-
-Pour créer un réseau Hyperledger Fabric sur Azure, vous devez déployer un service de tri et une organisation dotée de nœuds homologues. À l’aide du modèle de solution Hyperledger Fabric sur Azure Kubernetes Service, vous pouvez créer des nœuds de tri ou des nœuds homologues. Vous devez déployer le modèle pour chaque nœud à créer.
-
-Les composants fondamentaux créés dans le cadre du déploiement du modèle sont les suivants :
-
-- **Nœuds des auteurs des commandes** : Nœud responsable du tri des transactions dans le registre. Avec les autres nœuds, les nœuds ordonnés constituent le service de classement du réseau Hyperledger Fabric.
-
-- **Nœuds homologues** : Nœud qui héberge principalement des registres et des contrats intelligents, à savoir des éléments fondamentaux du réseau.
-
-- **AC Fabric** : Autorité de certification pour Hyperledger Fabric. L’autorité de certification Fabric vous permet d’initialiser et de démarrer le processus serveur qui héberge l’autorité de certification. Elle vous permet de gérer les identités et les certificats. Chaque cluster AKS déployé dans le cadre du modèle aura un pod d’AC Fabric par défaut.
-
-- **CouchDB ou LevelDB** : Bases de données d’état du monde pour les nœuds homologues. LevelDB est la base de données d’état par défaut incorporée dans le nœud homologue. Elle stocke les données du code chaîné sous forme de paires clé/valeur simples et prend en charge uniquement les requêtes de clé, de plage de clés et de clé composite. CouchDB est une autre base de données d’état facultative qui prend en charge les requêtes enrichies lorsque les valeurs de données du code chaîné sont modélisées au format JSON.
-
-Le modèle de déploiement lance plusieurs ressources Azure dans votre abonnement. Les ressources Azure déployées sont les suivantes :
-
-- **Cluster AKS** : Cluster Azure Kubernetes Service configuré selon les paramètres d’entrée fournis par le client. Le cluster AKS a plusieurs pods configurés pour l’exécution des composants du réseau Hyperledger Fabric. Les pods créés sont les suivants :
-
-  - **Outils Fabric** : Les outils Fabric sont responsables de la configuration des composants Hyperledger Fabric.
-  - **Pods homologues/des auteurs des commandes** : Nœuds du réseau Hyperledger Fabric.
-  - **Proxy** : Pod proxy NGNIX par le biais duquel les applications clientes peuvent communiquer avec le cluster AKS.
-  - **AC Fabric** : Pod qui exécute l’AC Fabric.
-- **PostgreSQL** : Instance de base de données qui gère les identités de l’autorité de certification Fabric.
-
-- **Coffre de clés** : Instance du service Azure Key Vault déployée pour enregistrer les informations d’identification de l’autorité de certification Fabric et les certificats racine fournis par le client. Le coffre est utilisé en cas de nouvelle tentative de déploiement du modèle, pour en gérer le mécanisme.
-- **Disque managé** : Instance du service Disques managés Azure qui offre un magasin persistant pour le registre et pour la base de données d’état du monde du nœud homologue.
-- **Adresse IP publique** : Point de terminaison du cluster AKS déployé pour communiquer avec le cluster.
 
 ## <a name="deploy-the-orderer-and-peer-organization"></a>Déployer l’organisation homologue et de l’ordonnanceur
 
@@ -85,10 +58,10 @@ Pour bien démarrer avec le déploiement des composants du réseau Hyperledger F
     - **Nom de l’organisation** : Entrez le nom de l’organisation Hyperledger Fabric, qui est requis pour les différentes opérations de plan de données. Le nom de l’organisation doit être unique par déploiement.
     - **Composant du réseau Fabric** : Choisissez **Service de tri** ou **Nœuds homologues** en fonction du composant de réseau blockchain à configurer.
     - **Nombre de nœuds** : Les deux types de nœuds sont les suivants :
-        - **Service de tri** : Sélectionnez le nombre de nœuds pour la tolérance de panne du réseau. Le nombre de nœuds de tri pris en charge s’élève à 3, 5 et 7.
-        - **Nœuds homologues** : Vous pouvez choisir 1 à 10 nœuds en fonction de vos besoins.
-    - **Base de données d’état universelle de nœuds homologues** : Choisissez entre LevelDB et CouchDB. Ce champ s’affiche quand vous choisissez **Nœuds homologues** dans la liste déroulante **Composant du réseau Fabric**.
-    - **Nom d’utilisateur de l’autorité de certification Fabric** : Entrez le nom d’utilisateur qui est utilisé pour l’authentification de l’autorité de certification Fabric.
+        - **Service de tri**: nœuds responsables du tri des transactions dans le registre. Sélectionnez le nombre de nœuds pour la tolérance de panne du réseau. Le nombre de nœuds de tri pris en charge s’élève à 3, 5 et 7.
+        - **Nœuds homologues**: nœuds qui hébergent des registres et des contrats intelligents. Vous pouvez choisir 1 à 10 nœuds en fonction de vos besoins.
+    - **Base de données d’état universelle de nœuds homologues**: bases de données d’état universelles pour les nœuds homologues. LevelDB est la base de données d’état par défaut incorporée dans le nœud homologue. Elle stocke les données du code chaîné sous forme de paires clé/valeur simples et prend en charge uniquement les requêtes de clé, de plage de clés et de clé composite. CouchDB est une autre base de données d’état facultative qui prend en charge les requêtes enrichies lorsque les valeurs de données du code chaîné sont modélisées au format JSON. Ce champ s’affiche quand vous choisissez **Nœuds homologues** dans la liste déroulante **Composant du réseau Fabric**.
+    - **Nom d’utilisateur de l’autorité de certification Fabric** : l’autorité de certification Fabric vous permet d’initialiser et de démarrer le processus serveur qui héberge l’autorité de certification. Elle vous permet de gérer les identités et les certificats. Chaque cluster AKS déployé dans le cadre du modèle aura un pod d’AC Fabric par défaut. Entrez le nom d’utilisateur qui est utilisé pour l’authentification de l’autorité de certification Fabric.
     - **Mot de passe de l’AC Fabric** : Entrez le mot de passe pour l’authentification de l’AC Fabric.
     - **Confirmer le mot de passe** : Confirmez le mot de passe de l’AC Fabric.
     - **Certificats** : Si vous voulez utiliser vos propres certificats racines pour initialiser l’autorité de certification Fabric, choisissez l’option **Télécharger le certificat racine pour l’autorité de certification Fabric**. Dans le cas contraire, l’autorité de certification Fabric crée des certificats auto-signés par défaut.
@@ -96,11 +69,21 @@ Pour bien démarrer avec le déploiement des composants du réseau Hyperledger F
     - **Clé privée du certificat racine** : Chargez la clé privée du certificat racine. Si vous avez un certificat .pem, qui a une clé publique et privée combinée, chargez-le ici également.
 
 
-6. Sélectionnez l’onglet **Paramètres du cluster AKS** pour définir la configuration du cluster Azure Kubernetes Service qui est l’infrastructure sous-jacente sur laquelle les composants du réseau Hyperledger Fabric seront installés.
+6. Sélectionnez l’onglet **Paramètres du cluster AKS** pour définir la configuration du cluster Azure Kubernetes Service. Le cluster AKS a plusieurs pods configurés pour l’exécution des composants du réseau Hyperledger Fabric. Les ressources Azure déployées sont les suivantes :
+
+    - **Outils Fabric** : Les outils Fabric sont responsables de la configuration des composants Hyperledger Fabric.
+    - **Pods homologues/des auteurs des commandes** : Nœuds du réseau Hyperledger Fabric.
+    - **Proxy** : Pod proxy NGNIX par le biais duquel les applications clientes peuvent communiquer avec le cluster AKS.
+    - **AC Fabric** : Pod qui exécute l’AC Fabric.
+    - **PostgreSQL** : Instance de base de données qui gère les identités de l’autorité de certification Fabric.
+    - **Coffre de clés** : Instance du service Azure Key Vault déployée pour enregistrer les informations d’identification de l’autorité de certification Fabric et les certificats racine fournis par le client. Le coffre est utilisé en cas de nouvelle tentative de déploiement du modèle, pour en gérer le mécanisme.
+    - **Disque managé** : Instance du service Disques managés Azure qui offre un magasin persistant pour le registre et pour la base de données d’état du monde du nœud homologue.
+    - **Adresse IP publique** : Point de terminaison du cluster AKS déployé pour communiquer avec le cluster.
+
+    Entrez les informations suivantes : 
 
     ![Capture d’écran montrant l’onglet Paramètres du cluster AKS.](./media/hyperledger-fabric-consortium-azure-kubernetes-service/create-for-hyperledger-fabric-aks-cluster-settings-1.png)
 
-7. Entrez les informations suivantes :
     - **Nom du cluster Kubernetes** : Modifiez le nom du cluster AKS, si nécessaire. Ce champ est prérempli en fonction du préfixe de la ressource fournie.
     - **Version de Kubernetes** : Choisissez la version de Kubernetes qui sera déployée sur le cluster. Selon la région que vous avez sélectionnée sous l’onglet **De base**, les versions prises en charge disponibles peuvent changer.
     - **Préfixe DNS** : Entrez un préfixe de nom DNS (Domain Name System) pour le cluster AKS. Vous utiliserez le DNS pour vous connecter à l’API Kubernetes lors de la gestion des conteneurs après la création du cluster.

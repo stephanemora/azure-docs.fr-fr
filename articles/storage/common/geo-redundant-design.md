@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/05/2020
+ms.date: 02/18/2021
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c16f8233a2800025a8c6f601e236b86d2fd044fd
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 1a07acedadfaf3d5158ba8e494d4527301655425
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92480681"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102035099"
 ---
 # <a name="use-geo-redundancy-to-design-highly-available-applications"></a>Utilisez la géo-redondance pour concevoir des applications hautement disponibles
 
@@ -42,7 +42,7 @@ Gardez à l’esprit ces points clés pendant la conception de votre application
 
 * La copie en lecture seule est [cohérente](https://en.wikipedia.org/wiki/Eventual_consistency) avec les données de la région primaire.
 
-* Pour les blobs, tables et files d’attente, vous pouvez interroger la région secondaire pour obtenir la *dernière heure de synchronisation* . Cette valeur vous indique à quel moment la dernière réplication de la région primaire sur la région secondaire s’est produite. (Cette fonctionnalité n’est pas prise en charge pour Azure Files, qui n’a pas la redondance RA-GRS pour l’instant.)
+* Pour les blobs, tables et files d’attente, vous pouvez interroger la région secondaire pour obtenir la *dernière heure de synchronisation*. Cette valeur vous indique à quel moment la dernière réplication de la région primaire sur la région secondaire s’est produite. (Cette fonctionnalité n’est pas prise en charge pour Azure Files, qui n’a pas la redondance RA-GRS pour l’instant.)
 
 * Vous pouvez utiliser la bibliothèque cliente de stockage pour lire et écrire les données de la région primaire ou secondaire. Vous pouvez également rediriger les demandes de lecture automatiquement vers la région secondaire si une demande de lecture adressée à la région primaire arrive à expiration.
 
@@ -110,7 +110,7 @@ En cas de problème avec le stockage principal, les demandes de lecture peuvent 
 
 * **SecondaryThenPrimary**
 
-Lorsque vous affectez à la propriété **LocationMode** la valeur **PrimaryThenSecondary** , si la demande de lecture initiale au point de terminaison principal échoue avec une erreur renouvelable, le client effectue automatiquement une autre demande de lecture au point de terminaison secondaire. Si l’erreur est liée au délai d’attente du serveur, le client devra attendre l’expiration du délai avant la réception d’une erreur renouvelable du service.
+Lorsque vous affectez à la propriété **LocationMode** la valeur **PrimaryThenSecondary**, si la demande de lecture initiale au point de terminaison principal échoue avec une erreur renouvelable, le client effectue automatiquement une autre demande de lecture au point de terminaison secondaire. Si l’erreur est liée au délai d’attente du serveur, le client devra attendre l’expiration du délai avant la réception d’une erreur renouvelable du service.
 
 Lorsque vous décidez de la façon de répondre à une erreur renouvelable, deux scénarios principaux doivent être envisagés :
 
@@ -122,7 +122,7 @@ Lorsque vous décidez de la façon de répondre à une erreur renouvelable, deux
 
     Dans ce scénario, une perte de performances est observée, dans la mesure où toutes vos demandes de lecture essaieront le point de terminaison principal en premier, attendront l’expiration du délai, puis basculeront vers le point de terminaison secondaire.
 
-Dans le cadre de ces scénarios, vous devez savoir qu’un problème affecte actuellement le point de terminaison principal et envoyer toutes les demandes de lecture directement au point de terminaison secondaire en affectant à la propriété **LocationMode** la valeur **SecondaryOnly** . À ce stade, vous devez également définir l’exécution de l’application en mode lecture seule. Cette approche est appelée le modèle Disjoncteur. Voir [Circuit Breaker Pattern](/azure/architecture/patterns/circuit-breaker) (modèle Disjoncteur).
+Dans le cadre de ces scénarios, vous devez savoir qu’un problème affecte actuellement le point de terminaison principal et envoyer toutes les demandes de lecture directement au point de terminaison secondaire en affectant à la propriété **LocationMode** la valeur **SecondaryOnly**. À ce stade, vous devez également définir l’exécution de l’application en mode lecture seule. Cette approche est appelée le modèle Disjoncteur. Voir [Circuit Breaker Pattern](/azure/architecture/patterns/circuit-breaker) (modèle Disjoncteur).
 
 ### <a name="update-requests"></a>Demandes de mise à jour
 
@@ -148,6 +148,12 @@ Vous disposez de trois options principales pour la surveillance de la fréquence
 
 * Ajoutez un gestionnaire pour l’événement [**Retrying**](/dotnet/api/microsoft.azure.cosmos.table.operationcontext.retrying) sur l’objet [**OperationContext**](/java/api/com.microsoft.applicationinsights.extensibility.context.operationcontext) transmis à vos demandes de stockage. Il s’agit de la méthode présentée dans cet article et utilisée dans l’exemple qui l’accompagne. Ces événements se déclenchent à chaque fois que le client tente une nouvelle demande, ce qui vous permet de suivre la fréquence à laquelle le client rencontre des erreurs renouvelables sur un point de terminaison principal.
 
+    # <a name="net-v12"></a>[.NET v12](#tab/current)
+
+    Nous travaillons actuellement à la création d’extraits de code reflétant la version 12.x des bibliothèques de client du service Stockage Azure. Pour plus d’informations, consultez [Annonce des bibliothèques de client v12 du service Stockage Azure](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+
+    # <a name="net-v11"></a>[.NET v11](#tab/legacy)
+
     ```csharp
     operationContext.Retrying += (sender, arguments) =>
     {
@@ -156,8 +162,15 @@ Vous disposez de trois options principales pour la surveillance de la fréquence
             ...
     };
     ```
+    ---
 
 * Dans la méthode [**Evaluate**](/dotnet/api/microsoft.azure.cosmos.table.iextendedretrypolicy.evaluate) d’une stratégie de nouvelle tentative personnalisée, vous pouvez exécuter du code personnalisé chaque fois qu’une nouvelle tentative est effectuée. Le moment où une nouvelle tentative est effectuée est enregistré. En outre, cela vous donne également la possibilité de modifier le comportement de nouvelle tentative.
+
+    # <a name="net-v12"></a>[.NET v12](#tab/current)
+
+    Nous travaillons actuellement à la création d’extraits de code reflétant la version 12.x des bibliothèques de client du service Stockage Azure. Pour plus d’informations, consultez [Annonce des bibliothèques de client v12 du service Stockage Azure](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+
+    # <a name="net-v11"></a>[.NET v11](#tab/legacy)
 
     ```csharp
     public RetryInfo Evaluate(RetryContext retryContext,
@@ -184,6 +197,7 @@ Vous disposez de trois options principales pour la surveillance de la fréquence
         return info;
     }
     ```
+    ---
 
 * La troisième approche consiste à implémenter un composant de contrôle personnalisé dans votre application, qui effectue des tests ping en permanence sur votre point de terminaison de stockage principal avec des demandes de lecture factices (par exemple, la lecture d’un blob de petite taille) pour en déterminer l’état d’intégrité. Dans ce cas, la quantité de ressources sollicitées est raisonnable. Lorsque le système détecte qu’un problème atteint votre seuil, vous effectuez alors le basculement vers **SecondaryOnly** et le mode lecture seule.
 
@@ -193,9 +207,9 @@ Dans le cadre du troisième scénario, lorsque les tests ping effectués sur le 
 
 ## <a name="handling-eventually-consistent-data"></a>Gestion des données cohérentes
 
-Le stockage géoredondant réplique des transactions de la région primaire vers la région secondaire. Ce processus de réplication garantit que les données de la région secondaire sont *cohérentes* . Cela signifie que toutes les transactions de la région primaire apparaîtront dans la région secondaire. Cependant, cela peut prendre un certain temps, et rien ne garantit que les transactions arrivent dans la région secondaire dans l’ordre dans lequel elles ont été initialement appliquées dans la région primaire. Si vos transactions arrivent dans la région secondaire dans le désordre, vous *pouvez* considérer que vos données dans cette région resteront dans un état incohérent jusqu’à ce que le service rattrape son retard.
+Le stockage géoredondant réplique des transactions de la région primaire vers la région secondaire. Ce processus de réplication garantit que les données de la région secondaire sont *cohérentes*. Cela signifie que toutes les transactions de la région primaire apparaîtront dans la région secondaire. Cependant, cela peut prendre un certain temps, et rien ne garantit que les transactions arrivent dans la région secondaire dans l’ordre dans lequel elles ont été initialement appliquées dans la région primaire. Si vos transactions arrivent dans la région secondaire dans le désordre, vous *pouvez* considérer que vos données dans cette région resteront dans un état incohérent jusqu’à ce que le service rattrape son retard.
 
-Le tableau suivant illustre ce qui peut se produire lorsque vous mettez à jour les informations d’un employé pour qu’il devienne un membre du rôle *Administrateurs* . Cet exemple implique que vous mettiez à jour l’entité **d’employé** et une entité de **rôle administrateur** avec le nombre total d’administrateurs. Notez la façon dont les mises à jour sont appliquées dans le désordre dans la région secondaire.
+Le tableau suivant illustre ce qui peut se produire lorsque vous mettez à jour les informations d’un employé pour qu’il devienne un membre du rôle *Administrateurs*. Cet exemple implique que vous mettiez à jour l’entité **d’employé** et une entité de **rôle administrateur** avec le nombre total d’administrateurs. Notez la façon dont les mises à jour sont appliquées dans le désordre dans la région secondaire.
 
 | **Time** | **Transaction**                                            | **Réplication**                       | **Dernière heure de synchronisation** | **Résultat** |
 |----------|------------------------------------------------------------|---------------------------------------|--------------------|------------| 
@@ -207,9 +221,9 @@ Le tableau suivant illustre ce qui peut se produire lorsque vous mettez à jour 
 | *T5*     | Lire les entités <br>de la région secondaire                           |                                  | T1                 | Vous obtenez la valeur périmée pour l’entité d’employé <br> car la transaction B n’a <br> pas encore été répliquée. Vous obtenez la nouvelle valeur pour<br> l’entité de rôle d’administrateur car C a<br> été répliquée. La dernière heure de synchronisation n’a pas encore<br> été mise à jour car la transaction B<br> n’a pas été répliquée. Vous savez que<br>l’entité de rôle d’administrateur est cohérente <br>car l’heure/la date de l’entité sont postérieures à <br>la dernière heure de synchronisation. |
 | *T6*     |                                                      | Transaction B<br> répliquée sur<br> la région secondaire | T6                 | *T6* – Toutes les transactions jusqu’à C ont <br>été répliquées. La dernière heure de synchronisation<br> est mise à jour. |
 
-Dans cet exemple, supposons que le client bascule vers la lecture à partir de la région secondaire à l’instant T5. À ce stade, il peut lire correctement l’entité de **rôle administrateur** . Cependant, l’entité contient une valeur pour le nombre d’administrateurs qui n’est pas cohérente avec le nombre d’entités **d’employé** marquées comme administrateurs dans la région secondaire. Votre client pourrait simplement afficher cette valeur au risque que les informations soient incohérentes. Il pourrait également tenter de déterminer que le **rôle administrateur** est dans un état potentiellement incohérent dans la mesure où les mises à jour ont été effectuées dans le désordre et en informer l’utilisateur.
+Dans cet exemple, supposons que le client bascule vers la lecture à partir de la région secondaire à l’instant T5. À ce stade, il peut lire correctement l’entité de **rôle administrateur**. Cependant, l’entité contient une valeur pour le nombre d’administrateurs qui n’est pas cohérente avec le nombre d’entités **d’employé** marquées comme administrateurs dans la région secondaire. Votre client pourrait simplement afficher cette valeur au risque que les informations soient incohérentes. Il pourrait également tenter de déterminer que le **rôle administrateur** est dans un état potentiellement incohérent dans la mesure où les mises à jour ont été effectuées dans le désordre et en informer l’utilisateur.
 
-Pour déterminer que ses données sont potentiellement incohérentes, le client peut utiliser la valeur de la *dernière heure de synchronisation* , que vous pouvez obtenir à tout moment en interrogeant un service de stockage. Elle vous indique la dernière heure à laquelle les données de la région secondaire étaient cohérentes et à laquelle le service avait appliqué toutes les transactions. Dans l’exemple ci-dessus, une fois que le service insère l’entité **d’employé** dans la région secondaire, la dernière heure de synchronisation est définie sur *T1* . Elle reste définie sur *T1* jusqu’à ce que le service mette à jour l’entité **d’employé** dans la région secondaire, puis est définie sur *T6* . Si le client récupère la dernière heure de synchronisation lors de la lecture de l’entité à l’instant *T5* , il peut la comparer avec l’horodatage de l’entité. Si l’horodatage de l’entité est postérieur à la dernière heure de synchronisation, l’entité est dans un état potentiellement incohérent, et vous pouvez alors effectuer toute action appropriée pour votre application. L’utilisation de ce champ requiert que vous sachiez à quel moment a été effectuée la dernière mise à jour de la région primaire.
+Pour déterminer que ses données sont potentiellement incohérentes, le client peut utiliser la valeur de la *dernière heure de synchronisation*, que vous pouvez obtenir à tout moment en interrogeant un service de stockage. Elle vous indique la dernière heure à laquelle les données de la région secondaire étaient cohérentes et à laquelle le service avait appliqué toutes les transactions. Dans l’exemple ci-dessus, une fois que le service insère l’entité **d’employé** dans la région secondaire, la dernière heure de synchronisation est définie sur *T1*. Elle reste définie sur *T1* jusqu’à ce que le service mette à jour l’entité **d’employé** dans la région secondaire, puis est définie sur *T6*. Si le client récupère la dernière heure de synchronisation lors de la lecture de l’entité à l’instant *T5*, il peut la comparer avec l’horodatage de l’entité. Si l’horodatage de l’entité est postérieur à la dernière heure de synchronisation, l’entité est dans un état potentiellement incohérent, et vous pouvez alors effectuer toute action appropriée pour votre application. L’utilisation de ce champ requiert que vous sachiez à quel moment a été effectuée la dernière mise à jour de la région primaire.
 
 Pour savoir comment vérifier l’heure de la dernière synchronisation, consultez [Vérifier la propriété Heure de la dernière synchronisation pour un compte de stockage](last-sync-time-get.md).
 
@@ -218,6 +232,13 @@ Pour savoir comment vérifier l’heure de la dernière synchronisation, consult
 Il est important de tester si votre application se comporte comme prévu lorsqu’elle rencontre des erreurs renouvelables. Par exemple, vous devez tester si l’application bascule vers la région secondaire et le mode lecture seule lorsqu’elle détecte un problème et bascule de nouveau lorsque la région primaire est à nouveau disponible. Pour ce faire, il vous faut un moyen de simuler les erreurs renouvelables et de contrôler la fréquence à laquelle elles se produisent.
 
 Vous pouvez utiliser [Fiddler](https://www.telerik.com/fiddler) pour intercepter et modifier les réponses HTTP dans un script. Ce script peut identifier les réponses provenant de votre point de terminaison principal et remplacer le code d’état HTTP par un code que la bibliothèque cliente de stockage reconnaît comme une erreur renouvelable. Cet extrait de code offre un exemple simple de script Fiddler, qui intercepte les réponses aux demandes de lecture portant sur la table **employeedata** pour retourner un état 502 :
+
+
+# <a name="java-v12"></a>[Java v12](#tab/current)
+
+Nous travaillons actuellement à la création d’extraits de code reflétant la version 12.x des bibliothèques de client du service Stockage Azure. Pour plus d’informations, consultez [Annonce des bibliothèques de client v12 du service Stockage Azure](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+
+# <a name="java-v11"></a>[Java v11](#tab/legacy)
 
 ```java
 static function OnBeforeResponse(oSession: Session) {

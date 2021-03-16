@@ -5,14 +5,14 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 2/9/2021
+ms.date: 03/02/2021
 ms.author: duau
-ms.openlocfilehash: 402714b55d7513e41458503b12c68768d0c6ad5e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 253fce7d47d694c03d470fefdf81318a6bff77b3
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101743245"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102123052"
 ---
 # <a name="add-ipv6-support-for-private-peering-using-azure-powershell-preview"></a>Ajouter la prise en charge d’IPv6 pour le Peering privé à l’aide d’Azure PowerShell (préversion)
 
@@ -60,8 +60,8 @@ Votre requête sera ensuite approuvée par l’équipe ExpressRoute dans un dél
 
 3. Ajoutez un Peering privé IPv6 à votre configuration de Peering privé IPv4. Indiquez une paire de sous-réseaux IPv6 /126 dont vous êtes propriétaire pour votre lien principal et vos liens secondaires. À partir de chacun de ces sous-réseaux, vous allez attribuer la première adresse IP utilisable à votre routeur. Microsoft utilise la deuxième IP utilisable pour son routeur.
 
-> [!Note]
-> L’ASN et le VlanId de l’homologue doivent correspondre à ceux de votre configuration de Peering privé IPv4.
+    > [!Note]
+    > L’ASN et le VlanId de l’homologue doivent correspondre à ceux de votre configuration de Peering privé IPv4.
 
     ```azurepowershell-interactive
     Set-AzExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "3FFE:FFFF:0:CD30::/126" -SecondaryPeerAddressPrefix "3FFE:FFFF:0:CD30::4/126" -VlanId 200 -PeerAddressType IPv6
@@ -165,7 +165,7 @@ Suivez les étapes ci-dessous si vous envisagez de vous connecter à un nouvel e
 
 2. [Créez le sous-réseau de passerelle à double pile](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-resource-manager#add-a-gateway).
 
-3. [Créez la passerelle de réseau virtuel](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-resource-manager#add-a-gateway) à l’aide d’une référence SKU redondante dans une zone (ErGw1AZ, ErGw2AZ, ErGw3AZ). Si vous envisagez d’utiliser FastPath, utilisez ErGw3AZ.
+3. [Créez la passerelle de réseau virtuel](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-resource-manager#add-a-gateway) à l’aide d’une référence SKU redondante dans une zone (ErGw1AZ, ErGw2AZ, ErGw3AZ). Si vous envisagez d’utiliser FastPath, utilisez la référence ErGw3AZ (notez que celle-ci n’est disponible que pour des circuits utilisant ExpressRoute Direct).
 
 4. [Liez votre réseau virtuel à votre circuit ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-howto-linkvnet-arm).
 
@@ -175,6 +175,9 @@ Bien que la prise en charge IPV6 soit disponible pour les connexions à des dép
 * Connexions à des déploiements dans Azure via une référence SKU de passerelle ExpressRoute sans AZ
 * Connexions à des déploiements dans des régions sans AZ
 * Connexions Global Reach entre des circuits ExpressRoute
+* Utiliser ExpressRoute avec un WAN virtuel
+* FastPath avec circuits non ExpressRoute Direct
+* Coexistence avec une passerelle VPN
 
 ## <a name="next-steps"></a>Étapes suivantes
 

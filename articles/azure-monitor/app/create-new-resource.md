@@ -3,19 +3,19 @@ title: Créer une ressource Azure Application Insights | Microsoft Docs
 description: Configurez manuellement la surveillance d’Application Insights pour une nouvelle application en direct.
 ms.topic: conceptual
 ms.date: 02/10/2021
-ms.openlocfilehash: 1ec5e929f591c0b7ada36f345d86c6de591892c8
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 459f61d9e13a2098403f3e78c7a529e49bf65e59
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100575615"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102100931"
 ---
 # <a name="create-an-application-insights-resource"></a>Création d’une ressource Application Insights dans Azure
 
 Azure Application Insights affiche les données relatives à votre application dans une *ressource* Microsoft Azure. La création d’une nouvelle ressource fait, par conséquent, partie de la [configuration d’Application Insights pour surveiller une nouvelle application][start]. Après avoir créé votre nouvelle ressource, vous pouvez obtenir sa clé d’instrumentation et l’utiliser pour configurer le Kit de développement logiciel (SDK) Application Insights. La clé d’instrumentation lie vos données de télémétrie à la ressource.
 
 > [!IMPORTANT]
-> La version classique d’Application Insights est déconseillée. Suivez ces [instructions de mise à niveau vers la version basée sur espace de travail d’Application Insights](convert-classic-resource.md).
+> [La version classique d’Application Insights est déconseillée](https://azure.microsoft.com/updates/we-re-retiring-classic-application-insights-on-29-february-2024/). Suivez ces [instructions de mise à niveau vers la version basée sur espace de travail d’Application Insights](convert-classic-resource.md).
 
 ## <a name="sign-in-to-microsoft-azure"></a>Se connecter à Microsoft Azure
 
