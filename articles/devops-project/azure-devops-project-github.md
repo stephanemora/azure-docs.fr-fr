@@ -1,6 +1,6 @@
 ---
-title: 'Tutoriel : Créer un pipeline CI/CD pour votre code existant à l’aide d’Azure DevOps Starter'
-description: Azure DevOps Starter permet de démarrer facilement avec Azure. En quelques étapes rapides, DevOps Projects vous permet d’utiliser votre propre code et votre dépôt GitHub pour lancer une application sur un service Azure.
+title: 'Tutoriel : Créer un pipeline CI/CD pour votre code existant avec Azure DevOps Starter'
+description: Azure DevOps Starter facilite la prise en main d’Azure. En quelques étapes rapides, DevOps Projects vous permet d’utiliser votre propre code et votre dépôt GitHub pour lancer une application sur un service Azure.
 services: vsts
 documentationcenter: vs-devops-build
 ms.author: mlearned
@@ -13,18 +13,18 @@ ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 41f2ee9806b8f6818f2b2dd7a48920ac9907ca79
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c03ba657ac264b72d035f28956354398421ed2f9
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91854645"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102566598"
 ---
 # <a name="create-a-cicd-pipeline-for-github-repo-using-azure-devops-starter"></a>Créer un pipeline CI/CD pour un référentiel GitHub à l’aide d’Azure DevOps Starter
 
 Azure DevOps Starter présente un processus simplifié pour la création d’un pipeline d’intégration continue (CI) et de livraison continue (CD) vers Azure. Vous pouvez apporter votre code et dépôt Git existants, ou sélectionner un exemple d’application.
 
-Vous allez effectuer les étapes suivantes :
+Vous allez :
 
 > [!div class="checklist"]
 > * Utiliser DevOps Starter pour créer un pipeline CI/CD
@@ -53,7 +53,7 @@ Azure DevOps Starter crée un pipeline CI/CD dans Azure Pipelines. Vous pouvez c
 
 ## <a name="configure-access-to-your-github-repo-and-select-a-framework"></a>Configurer l’accès à votre dépôt GitHub et sélectionner un framework
 
-1. Sélectionnez **GitHub**  ou un dépôt de code **Git** externe. Sélectionnez **GitHub** pour ce tutoriel. Vous pouvez être amené la première fois à vous authentifier auprès de GitHub pour autoriser Azure à accéder à votre dépôt GitHub.
+1. Sélectionnez **GitHub** ou un dépôt de code **Git** externe. Sélectionnez **GitHub** pour ce tutoriel. Vous pouvez être amené la première fois à vous authentifier auprès de GitHub pour autoriser Azure à accéder à votre dépôt GitHub.
 
 1. Sélectionnez un **Dépôt** et une **Branche**, puis sélectionnez **Suivant**.
 
@@ -97,7 +97,7 @@ Azure DevOps Starter configure automatiquement un pipeline CI/CD dans Azure Pipe
 
    ![Page des builds Azure Pipelines](_img/azure-devops-project-github/pipelinesbuildpage.png)
 
-1. Dans le coin supérieur droit de la page **Builds**, vous pouvez sélectionner **Modifier** pour changer la build actuelle, **File d’attente** pour ajouter une nouvelle build, ou le bouton des points de suspension verticaux ( **&#8942;** ) pour ouvrir un menu avec plus d’options. Sélectionnez **Modifier**.
+1. Dans le coin supérieur droit de la page **Builds**, vous pouvez sélectionner **Modifier** pour changer la build actuelle, **File d’attente** pour ajouter une nouvelle build, ou le bouton des points de suspension verticaux (**&#8942;**) pour ouvrir un menu avec plus d’options. Sélectionnez **Modifier**.
 
 1. La build accomplit diverses opérations, comme la récupération de sources dans le dépôt, la restauration de dépendances et la publication de sorties utilisées pour les déploiements. À droite, sous **Nom**, remplacez le nom du pipeline de build par un nom plus descriptif. Sélectionnez **Enregistrer et mettre en file d’attente**, puis **Enregistrer**. Entrez un commentaire, puis sélectionnez de nouveau **Enregistrer**.
 
@@ -118,7 +118,7 @@ Lorsque vous avez configuré votre processus CI/CD dans ce tutoriel, vous avez a
 Pour en savoir plus sur le pipeline CI/CD, consultez :
 
 > [!div class="nextstepaction"]
-> [Définir votre pipeline de déploiement continu (CD) multiétape](/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
+> [Définir votre pipeline de déploiement continu (CD) multiétape](/azure/devops/pipelines/release/define-multistage-release-process)
 
 Pour en savoir plus sur la supervision des applications, consultez :
   

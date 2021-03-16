@@ -1,5 +1,5 @@
 ---
-title: Tutoriel - Se connecter à un serveur SQL Azure avec Azure Private Endpoint - Portail
+title: 'Tutoriel : Se connecter à un serveur SQL Azure avec Azure Private Endpoint - Portail'
 description: Ce tutoriel explique comment créer un serveur SQL Azure avec un point de terminaison privé à l’aide du portail Azure.
 services: private-link
 author: asudbring
@@ -7,14 +7,15 @@ ms.service: private-link
 ms.topic: tutorial
 ms.date: 10/20/2020
 ms.author: allensu
-ms.openlocfilehash: a7eca29dc9390306ac6ad4e66eec75a25c2d33ff
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 8bb227bdc4bbcdf986c2ed64e1f89e1dfa289b83
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95522156"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102554970"
 ---
-# <a name="tutorial---connect-to-an-azure-sql-server-using-an-azure-private-endpoint---azure-portal"></a>Tutoriel - Se connecter à un serveur SQL Azure avec Azure Private Endpoint - Portail Azure
+# <a name="tutorial-connect-to-an-azure-sql-server-using-an-azure-private-endpoint---azure-portal"></a>Tutoriel : Se connecter à un serveur SQL Azure avec Azure Private Endpoint - Portail Azure
 
 Azure Private Endpoint est le composant fondamental de Private Link dans Azure. Il permet à des ressources Azure, comme des machines virtuelles, de communiquer de façon privée avec des ressources Private Link.
 
@@ -96,7 +97,7 @@ Dans cette section, vous allez créer une machine virtuelle qui sera utilisée p
    
 2. Dans **Créer une machine virtuelle**, tapez ou sélectionnez les valeurs sous l’onglet **De base** :
 
-    | Paramètre | Value                                          |
+    | Paramètre | Valeur                                          |
     |-----------------------|----------------------------------|
     | **Détails du projet** |  |
     | Abonnement | Sélectionner votre abonnement Azure |
@@ -117,7 +118,7 @@ Dans cette section, vous allez créer une machine virtuelle qui sera utilisée p
   
 4. Sous l’onglet Réseau, sélectionnez ou entrez :
 
-    | Paramètre | Value |
+    | Paramètre | Valeur |
     |-|-|
     | **Interface réseau** |  |
     | Réseau virtuel | **myVNet** |
@@ -171,7 +172,7 @@ Dans cette section, vous allez créer un serveur SQL dans Azure.
 
 11. Dans **Créer un point de terminaison privé**, entrez ou sélectionnez les informations suivantes :
 
-    | Paramètre | Value |
+    | Paramètre | Valeur |
     | ------- | ----- |
     | Abonnement | Sélectionnez votre abonnement. |
     | Resource group | Sélectionnez **CreateSQLEndpointTutorial**. |
@@ -260,6 +261,6 @@ Dans ce tutoriel, vous avez créé les éléments suivants :
 
 Vous avez utilisé la machine virtuelle pour tester de façon sécurisée la connectivité au serveur SQL via le point de terminaison privé.
 
-Découvrez comment créer un service Private Link :
+En guise d’étape suivante, vous pouvez également être intéressé par le scénario d’architecture **Application web avec connectivité privée à une base de données Azure SQL**, qui connecte une application web en dehors du réseau virtuel au point de terminaison privé d’une base de données.
 > [!div class="nextstepaction"]
-> [Créer un service Private Link](create-private-link-service-portal.md)
+> [Application web avec connectivité privée à une base de données Azure SQL](/azure/architecture/example-scenario/private-web-app/private-web-app)

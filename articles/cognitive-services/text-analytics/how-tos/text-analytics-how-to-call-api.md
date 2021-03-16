@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/17/2020
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: 708c70a5144e4e38dd5de9524711c80ef28cd839
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 9302bde13a303dda2107900dc0c10cc180669a18
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100092126"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100650726"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Comment appeler l’API REST Analyse de texte
 
@@ -37,7 +37,7 @@ Avant d’utiliser l’API Analyse de texte, vous devrez créer une ressource Az
 
 ## <a name="change-your-pricing-tier"></a>Changer votre niveau tarifaire 
 
-Si vous disposez d’une ressource Analyse de texte avec un niveau tarifaire compris entre S0 et S4, vous pouvez la mettre à jour pour utiliser le [niveau tarifaire](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) Standard (S) :
+Si vous disposez d’une ressource Analyse de texte avec un niveau tarifaire compris entre S0 et S4, vous devez la mettre à jour pour utiliser le [niveau tarifaire](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) Standard (S). Les niveaux tarifaires S0 à S4 vont être supprimés. Pour mettre à jour le tarif de votre ressource :
 
 1. Accédez à votre ressource Analyse de texte dans le [portail Azure](https://portal.azure.com/).
 2. Dans le menu de navigation de gauche, sélectionnez **Niveau tarifaire**. Il se trouve sous **GESTION DES RESSOURCES**. 

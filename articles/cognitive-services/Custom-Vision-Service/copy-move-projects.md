@@ -9,12 +9,12 @@ ms.subservice: custom-vision
 ms.topic: how-to
 ms.date: 09/08/2020
 ms.author: pafarley
-ms.openlocfilehash: 548d936538a909da10796d0377f119826582c420
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.openlocfilehash: 7d58a8239c728f70efe3584c2649e196dffd791f
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94616057"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102501088"
 ---
 # <a name="copy-and-move-your-custom-vision-projects"></a>Copier et déplacer vos projets Custom Vision
 
@@ -31,6 +31,7 @@ Si votre application ou votre entreprise dépend de l’utilisation d’un proje
 - Deux ressources Azure Custom Vision. Si vous n’en avez pas, accédez au Portail Azure et [créez une nouvelle ressource Custom Vision](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision?azure-portal=true).
 - Les clés de formation et les URL de point de terminaison de vos ressources Custom Vision. Ces valeurs se trouvent sous l’onglet **Vue d’ensemble** de la ressource sur le portail Azure.
 - Un projet Custom Vision créé. Pour obtenir des instructions sur la façon de procéder, consultez [Créer un classifieur](./getting-started-build-a-classifier.md).
+* [PowerShell version 6.0+](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-windows) ou un utilitaire en ligne de commande similaire.
 
 ## <a name="process-overview"></a>Vue d’ensemble du processus
 

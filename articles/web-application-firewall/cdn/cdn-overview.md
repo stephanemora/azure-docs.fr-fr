@@ -7,14 +7,14 @@ ms.service: web-application-firewall
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: victorh
-ms.openlocfilehash: 6949c1e8f83ebf47878a3d449796ccc03920756a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cd1f21f150094094a6bf856b04a64a02963f35a8
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89225150"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521711"
 ---
-# <a name="azure-web-application-firewall-on-azure-content-delivery-network"></a>Pare-feu d’applications web Azure sur Azure Content Delivery Network
+# <a name="azure-web-application-firewall-on-azure-content-delivery-network-from-microsoft"></a>Pare-feu d’applications web Azure sur Azure Content Delivery Network de Microsoft
 
 Le pare-feu d’applications web (WAF) Azure sur Azure Content Delivery Network (CDN) de Microsoft offre une protection centralisée pour votre contenu web. WAF protège vos services web contre les vulnérabilités et les attaques courantes. Il assure la haute disponibilité de votre service pour vos utilisateurs et vous aide à répondre aux exigences de conformité.
 

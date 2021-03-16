@@ -8,12 +8,12 @@ ms.date: 11/19/2020
 ms.topic: conceptual
 ms.service: digital-twins
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 742cff544886a1499bccfa575684edef708da7bd
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 9549e6ea30be0cd9eb1a8c200a5af4a4721793a6
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97028357"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102034674"
 ---
 # <a name="about-the-query-language-for-azure-digital-twins"></a>À propos du langage de requête pour Azure Digital Twins
 
@@ -33,12 +33,17 @@ Vous pouvez utiliser le langage de requête Azure Digital Twins pour récupérer
 
 Pour soumettre une requête au service à partir d’une application cliente, vous allez utiliser l’[**API de requête**](/rest/api/digital-twins/dataplane/query) Azure Digital Twins. L’une des façons d’utiliser l’API consiste à utiliser l’un des [SDK](how-to-use-apis-sdks.md#overview-data-plane-apis) pour Azure Digital Twins.
 
+### <a name="considerations-for-querying"></a>Considérations liées à l’interrogation
+
+Quand vous écrivez des requêtes pour Azure Digital Twins, gardez à l’esprit les points suivants :
+* **Penser au respect de la casse** : toutes les opérations de requête Azure Digital Twins sont sensibles à la casse. Veillez donc à utiliser les noms exacts définis dans les modèles. Si les noms des propriétés sont mal orthographiés ou ne respectent pas la casse, le jeu de résultats sera vide et aucune erreur ne sera retournée.
+* **Placer les guillemets simples dans une séquence d’échappement** : si le texte de votre requête comprend un guillemet simple dans les données, celui-ci doit être placé dans une séquence d’échappement avec le caractère `\`. Voici un exemple qui traite une valeur de propriété *D'Souza* :
+
+  :::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="EscapedSingleQuote":::
+
 ## <a name="reference-expressions-and-conditions"></a>Référence : Expressions et conditions
 
 Cette section décrit les opérateurs et les fonctions disponibles pour écrire des requêtes Azure Digital Twins. Pour obtenir des exemples de requête illustrant l’utilisation de ces fonctionnalités, consultez [*Guide pratique : Interroger le graphique de jumeaux*](how-to-query-graph.md).
-
-> [!NOTE]
-> Toutes les opérations de requête Azure Digital Twins sont sensibles à la casse. Veillez donc à utiliser les noms exacts définis dans les modèles. Si les noms des propriétés sont mal orthographiés ou ne respectent pas la casse, le jeu de résultats sera vide et aucune erreur ne sera retournée.
 
 ### <a name="operators"></a>Opérateurs
 

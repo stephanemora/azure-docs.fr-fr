@@ -1,5 +1,5 @@
 ---
-title: Fichier include
+title: Fichier Include
 description: Fichier include
 services: app-service
 author: cephalin
@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 06/12/2019
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: aed23bf5008f850b19a1e5a8c7b0ff21f329eb3a
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 93bfb515c46413400ecd47105de378c7b677cecd
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100560482"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102564954"
 ---
 ## <a name="prepare-your-repository"></a>Préparer votre dépôt
 
-Pour obtenir les builds automatiques auprès du serveur de builds Azure App Service, vérifiez que la racine de votre référentiel contient les fichiers appropriés de votre projet.
+Pour obtenir des builds automatiques auprès du serveur de builds Azure App Service, vérifiez que la racine de votre référentiel contient les fichiers appropriés de votre projet.
 
 | Runtime | Fichiers du répertoire racine |
 |-|-|
@@ -34,6 +34,6 @@ Pour obtenir les builds automatiques auprès du serveur de builds Azure App Serv
 Pour personnaliser votre déploiement, vous pouvez inclure un fichier *.deployment* dans la racine du dépôt. Pour plus d’informations, consultez [Personnaliser les déploiements](https://github.com/projectkudu/kudu/wiki/Customizing-deployments) et [Personnaliser un script de déploiement](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script).
 
 > [!NOTE]
-> Si vous développez dans Visual Studio, laissez [Visual Studio créer un dépôt pour vous](/azure/devops/repos/git/creatingrepo?view=vsts&tabs=visual-studio&preserve-view=true). Le projet est immédiatement prêt à être déployé à l’aide de Git.
+> Si vous développez dans Visual Studio, laissez [Visual Studio créer un dépôt pour vous](/azure/devops/repos/git/creatingrepo?tabs=visual-studio). Le projet est immédiatement prêt à être déployé à l’aide de Git.
 >
 

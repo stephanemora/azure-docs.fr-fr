@@ -5,15 +5,15 @@ author: craigktreasure
 manager: vriveras
 services: azure-object-anchors
 ms.author: crtreasu
-ms.date: 02/19/2021
+ms.date: 03/02/2021
 ms.topic: conceptual
 ms.service: azure-object-anchors
-ms.openlocfilehash: 020f727674449523a57a608e8930d67e0f239cf6
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 74663f05c5ff995a090c7cd35e4edf46a754da17
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101743266"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102034606"
 ---
 # <a name="runtime-sdk-overview"></a>Vue d’ensemble de Runtime SDK
 
@@ -25,7 +25,7 @@ Tous les types décrits ci-dessous peuvent être retrouvés dans l’espace de n
 
 ### <a name="objectmodel"></a>ObjectModel
 
-Un [ObjectModel](https://docs.microsoft.com/dotnet/api/microsoft.azure.objectanchors.objectmodel) représente la géométrie d’un objet physique et code les paramètres nécessaires à la détection et à l’estimation de la pose. Il doit être créé à l’aide du [service Object Anchors](../quickstarts/get-started-model-ingestion.md). Ensuite, une application peut charger le fichier de modèle généré à l’aide de l’API Object Anchors et interroger le maillage incorporé dans ce modèle pour la visualisation.
+Un [ObjectModel](https://docs.microsoft.com/dotnet/api/microsoft.azure.objectanchors.objectmodel) représente la géométrie d’un objet physique et code les paramètres nécessaires à la détection et à l’estimation de la pose. Il doit être créé à l’aide du [service Object Anchors](../quickstarts/get-started-model-conversion.md). Ensuite, une application peut charger le fichier de modèle généré à l’aide de l’API Object Anchors et interroger le maillage incorporé dans ce modèle pour la visualisation.
 
 ### <a name="objectsearcharea"></a>ObjectSearchArea
 
@@ -103,7 +103,7 @@ if(status != ObjectObserverStatus.Allowed)
 }
 ```
 
-L’application crée ensuite un observateur d’objet et charge les modèles nécessaires générés par le [service d’ingestion Object Anchors](../quickstarts/get-started-model-ingestion.md).
+L’application crée ensuite un observateur d’objet et charge les modèles nécessaires générés par le [service de conversion de modèle Object Anchors](../quickstarts/get-started-model-conversion.md).
 
 ```cs
 var observer = new ObjectObserver();

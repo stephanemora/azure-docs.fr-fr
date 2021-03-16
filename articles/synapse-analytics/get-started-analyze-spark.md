@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: tutorial
 ms.date: 12/31/2020
-ms.openlocfilehash: 7410fcbc890780281763a91f33525562e9de1853
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 6b3c1ac2ea3625a768e16a3465230a5386c98ddc
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102182483"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102423711"
 ---
 # <a name="analyze-with-apache-spark"></a>Analyser avec Apache Spark
 
@@ -38,7 +38,7 @@ Dans ce tutoriel, vous allez découvrir les étapes de base permettant de charge
     display(df.limit(10))
     ```
 1. Dans le notebook, dans le menu **Attacher à**, choisissez le pool Spark serverless **Spark1** que nous avons créé précédemment.
-1. Sélectionnez **Exécuter** dans la cellule.
+1. Sélectionnez **Exécuter** dans la cellule. Synapse démarre une nouvelle session Spark pour exécuter cette cellule si nécessaire. Si une nouvelle session Spark est nécessaire, sa création prend environ deux secondes. 
 1. Si vous souhaitez simplement voir le schéma du dataframe, exécutez une cellule avec le code suivant :
     ```
 

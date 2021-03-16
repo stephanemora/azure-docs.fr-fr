@@ -2,19 +2,19 @@
 title: Rapports dans Container Insights
 description: Décrit les rapports qui permettent d’analyser les données collectées par Container Insights.
 ms.topic: conceptual
-ms.date: 12/07/2020
-ms.openlocfilehash: ab704ed184d9d67ddfba5aede385899faf2a56de
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/02/2021
+ms.openlocfilehash: ca74521a08d4edaa498e00e6452d8f69912e4bb9
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101704274"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102032792"
 ---
 # <a name="reports-in-container-insights"></a>Rapports dans Container Insights
 Les rapports dans Container Insights sont des [classeurs Azure](../visualize/workbooks-overview.md) prêts à l’emploi recommandés. Cet article décrit les différents rapports disponibles et explique comment y accéder.
 
 ## <a name="viewing-reports"></a>Affichage de rapports
-À partir du menu **Azure Monitor** du portail Azure, sélectionnez **Conteneurs**. Sélectionnez **Insights** dans la section **Supervision**, choisissez un cluster, puis sélectionnez la page **Rapports (préversion)** . 
+À partir du menu **Azure Monitor** du portail Azure, sélectionnez **Conteneurs**. Sélectionnez **Insights** dans la section **Supervision**, choisissez un cluster, puis sélectionnez la page **Rapports**. 
 
 [![Page Rapports](media/container-insights-reports/reports-page.png)](media/container-insights-reports/reports-page.png#lightbox)
 

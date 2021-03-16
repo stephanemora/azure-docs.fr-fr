@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: duau
-ms.openlocfilehash: 964af92006aad7b5ce8bdf25a332cbcf9c7ef144
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: f54c22a0c2f7bf89d790dbd33f748446a871d224
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98014516"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102099945"
 ---
 # <a name="how-to-configure-expressroute-direct"></a>Comment configurer ExpressRoute Direct
 
@@ -20,12 +20,21 @@ ExpressRoute Direct vous offre la possibilité de vous connecter directement au 
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Vous devez commencer par inscrire votre abonnement pour pouvoir utiliser ExpressRoute Direct. Envoyez pour cela un e-mail à <ExpressRouteDirect@microsoft.com> avec votre ID d’abonnement et les informations suivantes :
+Vous devez commencer par inscrire votre abonnement pour pouvoir utiliser ExpressRoute Direct. Vous devez commencer par inscrire votre abonnement pour pouvoir utiliser ExpressRoute Direct. Pour vous inscrire, procédez comme suit via Azure PowerShell :
+1.  Connectez-vous à Azure et sélectionnez l’abonnement à inscrire.
 
-* Scénarios que vous souhaitez réaliser avec **ExpressRoute Direct**
-* Préférences d’emplacement : consultez l’article [Partenaires et emplacements de peering](expressroute-locations-providers.md) pour obtenir la liste complète de tous les emplacements
-* Chronologie d'implémentation
-* D’autres questions
+    ```azurepowershell-interactive
+    Connect-AzAccount 
+
+    Select-AzSubscription -Subscription "<SubscriptionID or SubscriptionName>"
+    ```
+
+2. Inscrivez votre abonnement pour la préversion publique à l’aide de la commande suivante :
+    ```azurepowershell-interactive
+    Register-AzProviderFeature -FeatureName AllowExpressRoutePorts -ProviderNamespace Microsoft.Network
+    ```
+
+Une fois que vous êtes inscrit, vérifiez que le fournisseur de ressources **Microsoft.Network** est enregistré dans votre abonnement. L’inscription d’un fournisseur de ressources configure votre abonnement pour travailler avec le fournisseur de ressources.
 
 ## <a name="create-the-resource"></a><a name="resources"></a>Créer la ressource
 

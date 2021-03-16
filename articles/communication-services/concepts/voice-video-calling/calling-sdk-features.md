@@ -6,17 +6,20 @@ author: mikben
 manager: jken
 services: azure-communication-services
 ms.author: mikben
-ms.date: 09/30/2020
+ms.date: 03/04/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: ed56d0cf69710173d41c5262e7a3121a0cad1304
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: fe1e08434a9137fced3dc8aa061affc2d6580b67
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101660138"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102489274"
 ---
 # <a name="calling-client-library-overview"></a>Vue d’ensemble de la bibliothèque cliente d’appel
+
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+
 
 Il existe deux familles distinctes de bibliothèques de client Calling, pour les *clients* et pour les *services*. Les bibliothèques de client actuellement disponibles sont destinées à des expériences de l’utilisateur final : les sites web et les applications natives.
 
@@ -33,41 +36,64 @@ La liste suivante présente l’ensemble des fonctionnalités actuellement dispo
 |                   | Promouvoir un appel un-à-un avec deux utilisateurs en un appel de groupe avec plus de deux utilisateurs                                 | ✔️   | ✔️            | ✔️
 |                   | Rejoindre un appel de groupe après son démarrage                                                                              | ✔️   | ✔️            | ✔️
 |                   | Inviter un autre participant VoIP à rejoindre un appel de groupe en cours                                                       | ✔️   | ✔️            | ✔️
-|                   | Activer/désactiver la vidéo                                                         | ✔️   | ✔️            | ✔️
-|                   | Désactiver/réactiver le micro                                                                                                     | ✔️   | ✔️            | ✔️
-|                   | Basculer entre les caméras                                                                                              | ✔️   | ✔️            | ✔️
-|                   | Mettre en attente/reprendre                                                                                                  | ✔️   | ✔️            | ✔️
-|                   | Intervenant actif                                                                                                      | ✔️   | ✔️            | ✔️
-|                   | Choisir un intervenant pour les appels                                                                                            | ✔️   | ✔️            | ✔️
-|                   | Choisir un microphone pour les appels                                                                                         | ✔️   | ✔️            | ✔️
-|                   | Afficher l’état d’un participant<br/>*Inactif, Médias préliminaires, Connexion, Connecté, En attente, Dans la salle d’attente, Déconnecté*         | ✔️   | ✔️            | ✔️
-|                   | Afficher l’état d’un appel<br/>*Médias préliminaires, Entrant, Connexion, Sonnerie, Connecté, Attente, Déconnexion, Déconnecté* | ✔️   | ✔️            | ✔️
-|                   | Montrer si le micro d’un participant est désactivé                                                                                      | ✔️   | ✔️            | ✔️
-|                   | Afficher la raison pour laquelle un participant a quitté un appel                                                                       | ✔️   | ✔️            | ✔️
-| Partage d’écran    | Partager la totalité de l’écran dans l’application                                                                 | ✔️   | ❌            | ❌
-|                   | Partager une application spécifique (à partir de la liste des applications en cours d’exécution)                                                | ✔️   | ❌            | ❌
-|                   | Partager un onglet de navigateur web à partir de la liste des onglets ouverts                                                                  | ✔️   | ❌            | ❌
-|                   | Le participant peut visionner le partage d’écran à distance                                                                            | ✔️   | ✔️            | ✔️
-| Liste            | Lister les participants                                                                                                   | ✔️   | ✔️            | ✔️
-|                   | Supprimer un participant                                                                                                | ✔️   | ✔️            | ✔️
-| RTPC              | Passer un appel un-à-un avec un participant RTPC                                                                     | ✔️   | ✔️            | ✔️
+|  Contrôle durant l’appel | Activer/désactiver la vidéo                                                                                              | ✔️   | ✔️            | ✔️ 
+|                   | Désactiver/réactiver le micro                                                                                                     | ✔️   | ✔️            | ✔️         
+|                   | Basculer entre les caméras                                                                                              | ✔️   | ✔️            | ✔️           
+|                   | Mettre en attente/reprendre                                                                                                  | ✔️   | ✔️            | ✔️           
+|                   | Intervenant actif                                                                                                      | ✔️   | ✔️            | ✔️           
+|                   | Choisir un intervenant pour les appels                                                                                            | ✔️   | ✔️            | ✔️           
+|                   | Choisir un microphone pour les appels                                                                                         | ✔️   | ✔️            | ✔️           
+|                   | Afficher l’état d’un participant<br/>*Inactif, Médias préliminaires, Connexion, Connecté, En attente, Dans la salle d’attente, Déconnecté*         | ✔️   | ✔️            | ✔️           
+|                   | Afficher l’état d’un appel<br/>*Médias préliminaires, Entrant, Connexion, Sonnerie, Connecté, Attente, Déconnexion, Déconnecté* | ✔️   | ✔️            | ✔️           
+|                   | Montrer si le micro d’un participant est désactivé                                                                                      | ✔️   | ✔️            | ✔️           
+|                   | Afficher la raison pour laquelle un participant a quitté un appel                                                                       | ✔️   | ✔️            | ✔️     
+| Partage d’écran    | Partager la totalité de l’écran dans l’application                                                                 | ✔️   | ❌            | ❌           
+|                   | Partager une application spécifique (à partir de la liste des applications en cours d’exécution)                                                | ✔️   | ❌            | ❌           
+|                   | Partager un onglet de navigateur web à partir de la liste des onglets ouverts                                                                  | ✔️   | ❌            | ❌           
+|                   | Le participant peut visionner le partage d’écran à distance                                                                            | ✔️   | ✔️            | ✔️         
+| Liste            | Lister les participants                                                                                                   | ✔️   | ✔️            | ✔️           
+|                   | Supprimer un participant                                                                                                | ✔️   | ✔️            | ✔️         
+| RTPC              | Passer un appel un-à-un avec un participant RTPC                                                                     | ✔️   | ✔️            | ✔️   
 |                   | Passer un appel de groupe avec des participants RTPC                                                                           | ✔️   | ✔️            | ✔️
 |                   | Promouvoir un appel un-à-un avec un participant RTPC en appel de groupe                                                 | ✔️   | ✔️            | ✔️
-|                   | Composer un numéro à partir d’un appel de groupe en tant que participant RTPC                                                                    | ✔️   | ✔️            | ✔️
-| Général           | Tester votre micro, votre haut-parleur et votre caméra avec un service de test audio (disponible en appelant 8:echo123)                   |  ✔️  | ✔️            | ✔️
+|                   | Composer un numéro à partir d’un appel de groupe en tant que participant RTPC                                                                    | ✔️   | ✔️            | ✔️   
+| Général           | Tester votre micro, votre haut-parleur et votre caméra avec un service de test audio (disponible en appelant 8:echo123)                   | ✔️   | ✔️            | ✔️ 
+| Gestion des appareils | Demander l’autorisation d’utiliser l’audio et/ou la vidéo                                                                       | ✔️   | ✔️            | ✔️
+|                   | Obtenir la liste des caméras                                                                                                     | ✔️   | ✔️            | ✔️ 
+|                   | Définir la caméra                                                                                                          | ✔️   | ✔️            | ✔️
+|                   | Obtenir la caméra sélectionnée                                                                                                 | ✔️   | ✔️            | ✔️
+|                   | Obtenir la liste des microphones                                                                                                 | ✔️   | ✔️            | ✔️
+|                   | Définir le microphone                                                                                                      | ✔️   | ✔️            | ✔️
+|                   | Obtenir le microphone sélectionné                                                                                             | ✔️   | ✔️            | ✔️
+|                   | Obtenir la liste des haut-parleurs                                                                                                   | ✔️   | ✔️            | ✔️
+|                   | Définir le haut-parleur                                                                                                         | ✔️   | ✔️            | ✔️
+|                   | Obtenir le haut-parleur sélectionné                                                                                                | ✔️   | ✔️            | ✔️
+| Rendu vidéo   | Afficher une vidéo unique à de nombreux emplacements (caméra locale ou flux distant)                                                  | ✔️   | ✔️            | ✔️
+|                   | Définir/mettre à jour le mode de mise à l’échelle                                                                                           | ✔️   | ✔️            | ✔️ 
+|                   | Afficher un flux vidéo distant                                                                                          | ✔️   | ✔️            | ✔️
+
+
 
 ## <a name="javascript-calling-client-library-support-by-os-and-browser"></a>Prise en charge de la bibliothèque de client d’appel JavaScript par système d’exploitation et navigateur
 
-Le tableau suivant représente l’ensemble des navigateurs pris en charge et des versions actuellement disponibles.
+Le tableau suivant représente l’ensemble des navigateurs pris en charge disponibles. Nous prenons en charge les trois versions les plus récentes du navigateur, sauf indication contraire.
 
-|                                  | Windows          | macOS          | Ubuntu | Linux  | Android | iOS    | iPadOS|
-| -------------------------------- | ---------------- | -------------- | ------- | ------ | ------ | ------ | -------|
-| **Bibliothèque de client Calling** | Chrome*, nouveau Edge | Chrome *, Safari** | Chrome*  | Chrome* | Chrome* | Safari** | Safari** |
+|                                  | Chrome | Safari*  | Edge (Chromium) | 
+| -------------------------------- | -------| ------  | --------------  |
+| Android                          |  ✔️    | ❌     | ❌             |
+| iOS                              |  ❌    | ✔️**** | ❌             |
+| macOS***                         |  ✔️    | ✔️**   | ❌             |
+| Windows***                       |  ✔️    | ❌     | ✔️             |
+| Ubuntu/Linux                     |  ✔️    | ❌     | ❌             |
 
+*Les versions 13.1+ de Safari sont prises en charge. 
 
-*Notez que la dernière version de Chrome est prise en charge en plus des deux versions précédentes.<br/>
+**Les versions 14+ de Safari et 11+ de macOS sont nécessaires pour la prise en charge des vidéos sortantes. 
 
-**Notez que les versions 13.1+ de Safari sont prises en charge. La vidéo sortante pour Safari macOS n’est pas encore prise en charge, mais elle est prise en charge sur iOS. Le partage d’écran sortant est pris en charge uniquement sur iOS pour ordinateur de bureau. Les appels de groupe et 1:1 ne sont actuellement pas disponibles sur Safari.
+***Le partage d’écran sortant est pris en charge uniquement sur les plateformes de bureau (Windows, macOS et Linux), quelle que soit la version du navigateur, et n’est pas pris en charge sur les plateformes mobiles (Android, iOS, iPad et tablettes).
+
+****Une application iOS sur Safari ne peut pas énumérer/sélectionner des périphériques de microphone et de haut-parleur (par exemple, Bluetooth) ; il s’agit d’une limitation du système d’exploitation et il n’y a toujours qu’un seul périphérique.
+
 
 ## <a name="calling-client---browser-security-model"></a>Client appelant – Modèle de sécurité de navigateur
 
@@ -94,10 +120,9 @@ La bibliothèque de client d’appel de Communication Services prend en charge l
 
 |           |Web | Android/iOS|
 |-----------|----|------------|
-|**Nombre de flux sortants qui peuvent être envoyés simultanément** |1 audio/vidéo ou 1 audio/partage d’écran | 1 audio/vidéo |
-|**Nombre de flux entrants qui peuvent être restitués simultanément** |1 audio/vidéo ou 1 audio/partage d’écran| 6 audio/vidéo ou 1 partage d’écran |
+|**Nombre de flux sortants qui peuvent être envoyés simultanément** |1 vidéo + 1 partage d’écran | 1 vidéo + 1 partage d’écran|
+|**Nombre de flux entrants qui peuvent être restitués simultanément** |1 vidéo + 1 partage d’écran| 6 vidéos + 1 partage d’écran |
 
-Notez que dans les scénarios de groupe, un flux audio mixte est utilisé pour prendre en charge tous les participants audio.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -107,4 +132,4 @@ Notez que dans les scénarios de groupe, un flux audio mixte est utilisé pour p
 Pour plus d’informations, consultez les articles suivants :
 - Se familiariser avec les [flux d’appels](../call-flows.md) généraux
 - Découvrir les [types d’appels](../voice-video-calling/about-call-types.md)
-- Découvrir les [types de numéro de téléphone](../telephony-sms/plan-solution.md)
+- [Planifier votre solution RTPC](../telephony-sms/plan-solution.md)

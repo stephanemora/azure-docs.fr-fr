@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 08/25/2020
 ms.custom: mvc, seodec18
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 476a88e41382842d91859d319a571784bd6e9b49
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ca1308c969227336bfb4970f7c5c77b9f2e0cc22
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101742849"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102216528"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Tutoriel : Mapper un nom DNS personnalisé existant à Azure App Service
 
@@ -27,6 +27,8 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 > * Mapper un domaine générique à l’aide d’un enregistrement CNAME
 > * Rediriger l’URL par défaut vers un répertoire personnalisé
 
+<hr/> 
+
 ## <a name="1-prepare-your-environment"></a>1. Préparation de votre environnement
 
 * [Créez une application App Service](./index.yml), ou utilisez une application créée pour un autre didacticiel.
@@ -34,18 +36,20 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
     <details>
         <summary>De quoi ai-je besoin pour modifier les enregistrements DNS ?</summary>
-        Accès nécessaire au registre DNS de votre fournisseur de domaine, comme GoDaddy. Par exemple, pour ajouter des entrées DNS pour contoso.com et www.contoso.com, vous devez être en mesure de configurer les paramètres DNS du domaine racine contoso.com.
+        Accès nécessaire au registre DNS de votre fournisseur de domaine, comme GoDaddy. Par exemple, pour ajouter des entrées DNS pour <code>contoso.com</code> et <code>www.contoso.com</code>, vous devez pouvoir configurer les paramètres DNS du domaine racine <code>contoso.com</code>.
     </details>
+
+<hr/> 
 
 ## <a name="2-prepare-the-app"></a>2. Préparer l’application
 
 Pour mapper un nom DNS personnalisé à une application, le <abbr title="Spécifie l’emplacement, la taille et les fonctionnalités de la batterie de serveurs web qui héberge votre application.">Plan App Service</abbr> de l’application doit correspondre à un niveau de service payant (pas au niveau <abbr title="Niveau Azure App Service dans lequel votre application s’exécute sur les mêmes machines virtuelles que d’autres applications, notamment les applications d’autres clients. Ce niveau est destiné au développement et aux tests.">**Gratuit (F1)**</abbr>). Pour plus d’informations, consultez [Vue d’ensemble des plans Azure App Service](overview-hosting-plans.md).
 
-### <a name="sign-in-to-azure"></a>Connexion à Azure
+#### <a name="sign-in-to-azure"></a>Connexion à Azure
 
 Ouvrez le [portail Azure](https://portal.azure.com) et connectez-vous avec votre compte Azure.
 
-### <a name="select-the-app-in-the-azure-portal"></a>Sélectionner l’application dans le portail Azure
+#### <a name="select-the-app-in-the-azure-portal"></a>Sélectionner l’application dans le portail Azure
 
 1. Recherchez et sélectionnez **App Services**.
 
@@ -59,7 +63,7 @@ Ouvrez le [portail Azure](https://portal.azure.com) et connectez-vous avec votre
 
 <a name="checkpricing" aria-hidden="true"></a>
 
-### <a name="check-the-pricing-tier"></a>Vérification du niveau tarifaire
+#### <a name="check-the-pricing-tier"></a>Vérification du niveau tarifaire
 
 1. Dans le volet gauche de la page de l’application, faites défiler jusqu’à la section **Paramètres**, puis sélectionnez **Effectuer un scale-up (plan App Service)** .
 
@@ -73,7 +77,7 @@ Ouvrez le [portail Azure](https://portal.azure.com) et connectez-vous avec votre
 
 <a name="scaleup" aria-hidden="true"></a>
 
-### <a name="scale-up-the-app-service-plan"></a>Monter en puissance le plan App Service
+#### <a name="scale-up-the-app-service-plan"></a>Monter en puissance le plan App Service
 
 1. Sélectionnez un niveau payant (**D1**, **B1**, **B2**, **B3** ou n’importe quel niveau dans la catégorie **Production**). Pour obtenir des options supplémentaires, sélectionnez **Afficher d’autres options**.
 
@@ -84,6 +88,8 @@ Ouvrez le [portail Azure](https://portal.azure.com) et connectez-vous avec votre
    Lorsque la notification suivante s’affiche, cela signifie que l’opération est terminée.
 
    ![Capture d’écran montrant la confirmation de l’opération de mise à l’échelle](./media/app-service-web-tutorial-custom-domain/scale-notification.png)
+
+<hr/> 
 
 <a name="cname" aria-hidden="true"></a>
 
@@ -98,14 +104,16 @@ Pour ajouter un domaine personnalisé à votre application, vous devez vérifier
 
     <details>
         <summary>Pourquoi en ai-je besoin ?</summary>
-        L’ajout d’ID de vérification de domaines à votre domaine personnalisé peut empêcher les entrées DNS non résolues et éviter les acquisitions de sous-domaine. Pour les domaines personnalisés que vous avez précédemment configurés sans cet ID de vérification, vous devez les protéger du même risque en ajoutant l’ID de vérification à votre enregistrement DNS. Pour plus d’informations sur cette menace critique courante, consultez [Acquisition de sous-domaine](../security/fundamentals/subdomain-takeover.md).
+        L’ajout d’ID de vérification de domaines à votre domaine personnalisé peut empêcher les entrées DNS non résolues et éviter les acquisitions de sous-domaine. Pour les domaines personnalisés que vous avez précédemment configurés sans cet ID de vérification, vous devez les protéger du même risque en ajoutant l’ID de vérification à votre enregistrement DNS. Pour plus d’informations sur cette menace critique courante, consultez <a href="/azure/security/fundamentals/subdomain-takeover">Acquisition de sous-domaine</a>.
     </details>
     
 <a name="info"></a>
 
-3. **(Enregistrement A uniquement)    ** Pour mapper un <abbr title="Dans DNS, un enregistrement d’adresse mappe un nom d’hôte à une adresse IP.">Enregistrement A</abbr>, vous avez besoin de l’adresse IP externe de l’application. Dans la page **Domaines personnalisés**, copiez la valeur d’**Adresse IP**.
+3. **(Enregistrement A uniquement)** Pour mapper un <abbr title="Dans DNS, un enregistrement d’adresse mappe un nom d’hôte à une adresse IP.">Enregistrement A</abbr>, vous avez besoin de l’adresse IP externe de l’application. Dans la page **Domaines personnalisés**, copiez la valeur d’**Adresse IP**.
 
    ![Capture d’écran montrant la navigation dans le portail vers une application Azure.](./media/app-service-web-tutorial-custom-domain/mapping-information.png)
+
+<hr/> 
 
 ## <a name="4-create-the-dns-records"></a>4. Créer les enregistrements DNS
 
@@ -148,52 +156,71 @@ Pour ajouter un domaine personnalisé à votre application, vous devez vérifier
 
 Pour un sous-domaine comme `www` dans `www.contoso.com`, créez deux enregistrements conformément au tableau suivant :
 
-    | Type d’enregistrement | Host | Valeur | Commentaires |
-    | - | - | - |
-    | CNAME | `<subdomain>` (par exemple, `www`) | `<app-name>.azurewebsites.net` | Le mappage de domaine lui-même. |
-    | TXT | `asuid.<subdomain>` (par exemple, `asuid.www`) | [L’ID de vérification que vous avez obtenu précédemment](#3-get-a-domain-verification-id). | App Service accède à l’enregistrement TXT `asuid.<subdomain>` pour vérifier votre propriété du domaine personnalisé. |
-    
-    ![Screenshot that shows the portal navigation to an Azure app.](./media/app-service-web-tutorial-custom-domain/cname-record.png)
+| Type d’enregistrement | Host | Valeur | Commentaires |
+| - | - | - |
+| CNAME | `<subdomain>` (par exemple, `www`) | `<app-name>.azurewebsites.net` | Le mappage de domaine lui-même. |
+| TXT | `asuid.<subdomain>` (par exemple, `asuid.www`) | [L’ID de vérification que vous avez obtenu précédemment](#3-get-a-domain-verification-id). | App Service accède à l’enregistrement TXT `asuid.<subdomain>` pour vérifier votre propriété du domaine personnalisé. |
+
+![Capture d’écran montrant la navigation dans le portail vers une application Azure.](./media/app-service-web-tutorial-custom-domain/cname-record.png)
     
 # <a name="a"></a>[A](#tab/a)
 
 Pour un domaine racine comme `contoso.com`, créez deux enregistrements conformément au tableau suivant :
 
-    | Type d’enregistrement | Host | Valeur | Commentaires |
-    | - | - | - |
-    | Un | `@` | Adresse IP de [Copier l’adresse IP de l’application](#3-get-a-domain-verification-id) | Le mappage de domaine lui-même (`@` représente généralement le domaine racine). |
-    | TXT | `asuid` | [L’ID de vérification que vous avez obtenu précédemment](#3-get-a-domain-verification-id). | App Service accède à l’enregistrement TXT `asuid.<subdomain>` pour vérifier votre propriété du domaine personnalisé. Pour le domaine racine, utilisez `asuid`. |
-    
-    ![Screenshot that shows a DNS records page.](./media/app-service-web-tutorial-custom-domain/a-record.png)
+| Type d’enregistrement | Host | Valeur | Commentaires |
+| - | - | - |
+| Un | `@` | Adresse IP de [Copier l’adresse IP de l’application](#3-get-a-domain-verification-id) | Le mappage de domaine lui-même (`@` représente généralement le domaine racine). |
+| TXT | `asuid` | [L’ID de vérification que vous avez obtenu précédemment](#3-get-a-domain-verification-id). | App Service accède à l’enregistrement TXT `asuid.<subdomain>` pour vérifier votre propriété du domaine personnalisé. Pour le domaine racine, utilisez `asuid`. |
 
-    <details>
-    <summary>What if I want to map a subdomain with an A record?</summary>
-    To map a subdomain like `www.contoso.com` with an A record instead of a recommended CNAME record, your A record and TXT record should look like the following table instead:
+![Capture d’écran montrant une page d’enregistrements DNS.](./media/app-service-web-tutorial-custom-domain/a-record.png)
 
-    | Type d’enregistrement | Host | Valeur |
-    | - | - | - |
-    | Un | `<subdomain>` (par exemple, `www`) | Adresse IP de [Copier l’adresse IP de l’application](#info) |
-    | TXT | `asuid.<subdomain>` (par exemple, `asuid.www`) | [L’ID de vérification que vous avez obtenu précédemment](#3-get-a-domain-verification-id). |
-    </details>
-    
+<details>
+<summary>Que se passe-t-il si je souhaite mapper un sous-domaine à un enregistrement A ?</summary>
+Pour permettre le mappage d’un sous-domaine tel que `www.contoso.com` à un enregistrement A au lieu d’un enregistrement CNAME recommandé, votre enregistrement A et votre enregistrement TXT doivent plutôt se présenter comme dans le tableau suivant :
+
+<div class="table-scroll-wrapper"><table class="table"><caption class="visually-hidden">Tableau 3</caption>
+<thead>
+<tr>
+<th>Type d’enregistrement</th>
+<th>Host</th>
+<th>Valeur</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Un</td>
+<td><code>&lt;subdomain&gt;</code> (par exemple, <code>www</code>)</td>
+<td>Adresse IP de <a href="#info" data-linktype="self-bookmark">Copier l’adresse IP de l’application</a></td>
+</tr>
+<tr>
+<td>TXT</td>
+<td><code>asuid.&lt;subdomain&gt;</code> (par exemple, <code>asuid.www</code>)</td>
+<td><a href="#3-get-a-domain-verification-id" data-linktype="self-bookmark">L’ID de vérification que vous avez obtenu précédemment</a>.</td>
+</tr>
+</tbody>
+</table></div>
+</details>
+
 # <a name="wildcard-cname"></a>[Générique (CNAME)](#tab/wildcard)
 
 Pour un nom générique comme `*` dans `*.contoso.com`, créez deux enregistrements conformément au tableau suivant :
 
-    | Type d’enregistrement | Host | Valeur | Commentaires |
-    | - | - | - |
-    | CNAME | `*` | `<app-name>.azurewebsites.net` | Le mappage de domaine lui-même. |
-    | TXT | `asuid` | [L’ID de vérification que vous avez obtenu précédemment](#3-get-a-domain-verification-id). | App Service accède à l’enregistrement TXT `asuid` pour vérifier votre propriété du domaine personnalisé. |
-    
-    ![Screenshot that shows the navigation to an Azure app.](./media/app-service-web-tutorial-custom-domain/cname-record-wildcard.png)
-    
----
+| Type d’enregistrement | Host | Valeur | Commentaires |
+| - | - | - |
+| CNAME | `*` | `<app-name>.azurewebsites.net` | Le mappage de domaine lui-même. |
+| TXT | `asuid` | [L’ID de vérification que vous avez obtenu précédemment](#3-get-a-domain-verification-id). | App Service accède à l’enregistrement TXT `asuid` pour vérifier votre propriété du domaine personnalisé. |
 
-    <details>
-        <summary>My changes are erased after I leave the page.</summary>
-        For certain providers, such as GoDaddy, changes to DNS records don't become effective until you select a separate **Save Changes** link.
-    </details>
+![Capture d’écran montrant la navigation vers une application Azure.](./media/app-service-web-tutorial-custom-domain/cname-record-wildcard.png)
     
+-----
+
+<details>
+<summary>Mes changements sont effacés, une fois que j’ai quitté la page.</summary>
+<p>Pour certains fournisseurs tels que GoDaddy, les modifications apportées aux enregistrements DNS n’entrent en vigueur que lorsque vous cliquez sur un lien <strong>Enregistrer les modifications</strong> distinct.</p>
+</details>
+
+<hr/>
+
 ## <a name="5-enable-the-mapping-in-your-app"></a>5. Activer le mappage dans votre application
 
 1. Dans le volet gauche de la page d’application du portail Azure, sélectionnez **Domaines personnalisés**.
@@ -273,8 +300,10 @@ Pour un nom générique comme `*` dans `*.contoso.com`, créez deux enregistreme
         Si un avertissement s’affiche concernant votre domaine personnalisé, cela signifie qu’il n’est pas encore lié à un certificat TLS/SSL. Toute requête HTTPS envoyée par un navigateur à votre domaine personnalisé générera une erreur ou un avertissement, selon le navigateur utilisé. Pour ajouter une liaison TLS/SSL, consultez <a href="https://docs.microsoft.com/azure/app-service/configure-ssl-bindings">Sécuriser un nom DNS personnalisé avec une liaison TLS/SSL dans Azure App Service</a>.
     </details>
 
----
-    
+-----
+
+<hr/> 
+
 ## <a name="6-test-in-a-browser"></a>6. Test dans un navigateur
 
 Accédez aux noms DNS que vous avez configurés précédemment.
@@ -290,9 +319,13 @@ Accédez aux noms DNS que vous avez configurés précédemment.
 </ul>
 </details>
 
+<hr/> 
+
 ## <a name="migrate-an-active-domain"></a>Migrer un domaine actif
 
 Pour migrer un site actif et son nom de domaine DNS vers App Service sans interruption de service, voir [Migrer un nom DNS actif vers Azure App Service](manage-custom-dns-migrate-domain.md).
+
+<hr/> 
 
 <a name="virtualdir" aria-hidden="true"></a>
 
@@ -313,11 +346,13 @@ Même si ce scénario est courant, il n’implique en fait pas de mappage de dom
 
 1. Une fois l’opération terminée, vérifiez en accédant au chemin racine de votre application dans le navigateur (par exemple, `http://contoso.com` ou `http://<app-name>.azurewebsites.net`).
 
+<hr/> 
+
 ## <a name="automate-with-scripts"></a>Automatiser des tâches à l’aide de scripts
 
 Vous pouvez automatiser la gestion des domaines personnalisés à l’aide de scripts, en utilisant [Azure CLI](/cli/azure/install-azure-cli) ou [Azure PowerShell](/powershell/azure/).
 
-### <a name="azure-cli"></a>Azure CLI
+#### <a name="azure-cli"></a>Azure CLI
 
 La commande suivante ajoute un nom DNS personnalisé configuré à une application App Service.
 
@@ -330,7 +365,7 @@ az webapp config hostname add \
 
 Pour plus d’informations, consultez [Mapper un nom de domaine personnalisé à une application web](scripts/cli-configure-custom-domain.md).
 
-### <a name="azure-powershell"></a>Azure PowerShell
+#### <a name="azure-powershell"></a>Azure PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -344,6 +379,8 @@ Set-AzWebApp `
 ```
 
 Pour plus d’informations, consultez [Attribuer un domaine personnalisé à une application web](scripts/powershell-configure-custom-domain.md).
+
+<hr/> 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

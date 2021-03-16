@@ -1,6 +1,6 @@
 ---
-title: 'Tutoriel : Déployer des applications Node.js alimentées par Azure Cosmos DB avec Azure DevOps Starter'
-description: Azure DevOps Starter permet de démarrer facilement avec Azure. Grâce à DevOps Starter, vous pouvez déployer votre application Node.js alimentée par Azure Cosmos DB sur Windows Web App en quelques étapes rapides.
+title: 'Tutoriel : Déployer des applications Node.js avec Azure Cosmos DB et Azure DevOps Starter'
+description: Azure DevOps Starter facilite la prise en main d’Azure. Grâce à DevOps Starter, vous pouvez déployer votre application Node.js alimentée par Azure Cosmos DB sur Windows Web App en quelques étapes rapides.
 ms.author: mlearned
 ms.manager: gwallace
 ms.prod: devops
@@ -9,24 +9,24 @@ ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
 ms.custom: devx-track-js
-ms.openlocfilehash: de98d9db515e4ed88759efa7f22dddcca06151c8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d1bdae976d5e5b7d98311d33bb38b5035f2557ca
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91854679"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102548697"
 ---
 # <a name="deploy-nodejs-apps-powered-by-azure-cosmos-db-with-devops-starter"></a>Déployer des applications Node.js alimentées par Azure Cosmos DB avec DevOps Starter
 
 Azure DevOps Starter offre une expérience rationalisée dans laquelle vous pouvez créer un pipeline d’intégration continue (CI) et de déploiement continu (CD) dans Azure. Pour ce faire, utilisez votre code et votre référentiel Git existants ou sélectionnez un exemple d’application.
 
-De plus, DevOps Starter :
+En outre, DevOps Starter :
 
 * Crée automatiquement des ressources Azure, telles qu’Azure Cosmos DB, Azure Application Insights, Azure App Service et des plans App Service
 
 * Crée et configure un pipeline de mise en production CI/CD dans Azure DevOps
 
-Ce didacticiel présente les procédures suivantes :
+Dans ce tutoriel, vous allez :
 
 > [!div class="checklist"]
 > * Utiliser DevOps Starter pour déployer une application Node.js alimentée par Azure Cosmos DB
@@ -167,4 +167,4 @@ Vous pouvez le modifier afin qu’il réponde aux besoins de votre équipe. Vous
 > * Valider les modifications dans Git et les déployer automatiquement dans Azure
 > * Nettoyer les ressources
 
-Consultez [Définir votre pipeline de déploiement continu (CD) multiétape](/azure/devops/pipelines/release/define-multistage-release-process?view=azure-devops&viewFallbackFrom=vsts) pour plus d’informations et pour connaître les étapes suivantes.
+Consultez [Définir votre pipeline de déploiement continu (CD) multiétape](/azure/devops/pipelines/release/define-multistage-release-process) pour plus d’informations et pour connaître les étapes suivantes.

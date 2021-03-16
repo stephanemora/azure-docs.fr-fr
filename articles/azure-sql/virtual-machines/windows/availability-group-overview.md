@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/07/2020
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 213b973bfc93cb2237473b6bc4c7f1e138457409
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 8bbd56499c9b62248662fc5e8df0d5b3e1b672d4
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131897"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102504165"
 ---
 # <a name="always-on-availability-group-on-sql-server-on-azure-vms"></a>Groupes de disponibilité Always On sur SQL Server sur les machines virtuelles Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -38,7 +38,7 @@ Le diagramme suivant illustre un groupe de disponibilité pour SQL Server sur l
 
 ## <a name="vm-redundancy"></a>Redondance des machines virtuelles 
 
-Pour accroître la redondance et la haute disponibilité, les machines virtuelles SQL Server doivent se trouver dans le même [groupe à haute disponibilité](../../../virtual-machines/windows/tutorial-availability-sets.md#availability-set-overview) ou dans des [zones de disponibilité](../../../availability-zones/az-overview.md) différentes.
+Pour accroître la redondance et la haute disponibilité, les machines virtuelles SQL Server doivent se trouver dans le même [groupe à haute disponibilité](../../../virtual-machines/availability-set-overview.md) ou dans des [zones de disponibilité](../../../availability-zones/az-overview.md) différentes.
 
 Le fait de placer un ensemble de machines virtuelles dans un même groupe à haute disponibilité protège contre les pannes qui se produisent au sein d’un centre de données en raison d’un équipement défaillant (les machines virtuelles au sein d’un groupe à haute disponibilité ne partagent pas les ressources) ou contre les mises à jour (les machines virtuelles au sein d’un groupe à haute disponibilité ne sont pas mises à jour en même temps). Les zones de disponibilité protègent contre la défaillance d’un centre de données dans son intégralité, chaque zone représentant un ensemble de centres de centres au sein d’une région.  En faisant en sorte de placer les ressources dans différentes zones de disponibilité, aucune panne au niveau d’un centre de données ne peut mettre toutes vos machines virtuelles hors connexion.
 
@@ -51,6 +51,7 @@ Dans un déploiement local traditionnel, les clients se connectent à l’écout
 
 Avec SQL Server sur les machines virtuelles Azure, configurez un [équilibreur de charge](availability-group-vnn-azure-load-balancer-configure.md) pour router le trafic vers votre écouteur de groupe de disponibilité ou, si vous êtes sur SQL Server 2019 CU8 et une version ultérieure, vous pouvez configurer un [écouteur de nom de réseau distribué (DNN)](availability-group-distributed-network-name-dnn-listener-configure.md) pour remplacer l’écouteur de groupe de disponibilité VNN (nom de réseau virtuel) classique. 
 
+Pour plus d’informations sur les options de connectivité des clusters, consultez [Acheminer les connexions HADR vers SQL Server sur des machines virtuelles Azure](hadr-cluster-best-practices.md#connectivity). 
 
 ### <a name="vnn-listener"></a>Écouteur de VNN 
 

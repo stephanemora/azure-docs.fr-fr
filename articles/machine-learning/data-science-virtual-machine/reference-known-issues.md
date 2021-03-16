@@ -1,20 +1,19 @@
 ---
-title: 'Référence : Problèmes connus et résolutions'
+title: 'Informations de référence : Problèmes connus et dépannage'
 titleSuffix: Azure Data Science Virtual  Machine
 description: Obtenez la liste des problèmes connus, des solutions de contournement et des résolutions pour Azure Data Science Virtual Machine
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 author: gvashishtha
 ms.author: gopalv
 ms.topic: reference
 ms.date: 10/10/2019
-ms.openlocfilehash: 864b5e519875029149e93df248aa5953f62ec51e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: bcd75347f91109967ac48427ca0b8855c11b7d9b
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322951"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101656854"
 ---
 # <a name="known-issues-and-troubleshooting-the-azure-data-science-virtual-machine"></a>Problèmes connus et dépannage d’Azure Data Science Virtual Machine
 

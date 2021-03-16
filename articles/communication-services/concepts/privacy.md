@@ -8,16 +8,18 @@ ms.author: chpalm
 ms.date: 10/03/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 8e08c531cd46d5112138a3feedf97b27307e3dca
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 6fbc20ec7145a474d9f3aada153f2d012aba34f8
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101656191"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102561345"
 ---
 # <a name="region-availability-and-data-residency"></a>Disponibilité des régions et résidence des données
 
-Azure Communication Services s’engage à aider nos clients à respecter leurs conditions en matière de confidentialité et de données personnelles. En tant que développeur qui utilise Communication Services avec une relation directe avec des êtres humains à l’aide de l’application, vous contrôlez potentiellement leurs données. Étant donné qu’Azure Communication Services stocke ces données en votre nom, nous traitons probablement ces données. Cette page récapitule la manière dont le service conserve les données et dont vous pouvez les identifier, les exporter et les supprimer.
+[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
+
+Azure Communication Services s’engage à aider nos clients à respecter leurs conditions en matière de confidentialité et de données personnelles. En tant que développeur qui utilise Communication Services avec une relation directe avec des êtres humains à l’aide de l’application, vous contrôlez potentiellement leurs données. Étant donné qu’Azure Communication Services stocke et chiffre ces données au repos en votre nom, nous traitons probablement ces données. Cette page récapitule la manière dont le service conserve les données et dont vous pouvez les identifier, les exporter et les supprimer.
 
 ## <a name="data-residency"></a>Résidence des données
 
@@ -79,6 +81,6 @@ Azure Communication Services alimente les données de journalisation Azure Monit
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Demandes des titulaires des données en lien avec des données Azure dans le cadre du RGPD et du CCPA](/microsoft-365/compliance/gdpr-dsr-azure?preserve-view=true&view=o365-worldwide)
+- [Demandes des titulaires des données en lien avec des données Azure dans le cadre du RGPD et du CCPA](/microsoft-365/compliance/gdpr-dsr-azure)
 - [Centre de gestion de la confidentialité Microsoft](https://www.microsoft.com/trust-center/privacy/data-location)
 - [Carte interactive Azure - Où se trouvent mes données client ?](https://azuredatacentermap.azurewebsites.net/)

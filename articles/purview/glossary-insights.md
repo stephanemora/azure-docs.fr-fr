@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/20/2020
-ms.openlocfilehash: f61d99a61cb50886d70489b586d948bfa751e196
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: eb1d59ae41b04be60dec90aaee4b2305b6d39ca6
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576772"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102095848"
 ---
 # <a name="glossary-insights-on-your-data-in-azure-purview"></a>Insights sur les glossaires de vos données dans Azure Purview
 
@@ -48,25 +48,33 @@ Dans Azure Purview, vous pouvez créer des termes de glossaire et les attacher �
 
    :::image type="content" source="./media/glossary-insights/portal-access.png" alt-text="Lancer Purview à partir du Portail Azure":::
 
-1. Dans la page d’**accueil** de Purview, sélectionnez la vignette **Afficher les insights** pour accéder à la zone **Insights** :::image type="icon" source="media/glossary-insights/ico-insights.png" border="false":::.
+1. Dans la page d’**accueil** de Purview, sélectionnez la vignette **View insights (Afficher les insights)** pour accéder à la zone **Insights** :::image type="icon" source="media/glossary-insights/ico-insights.png" border="false":::.
 
    :::image type="content" source="./media/glossary-insights/view-insights.png" alt-text="Afficher vos insights dans le Portail Azure":::
 
 1. Dans la zone **Insights**:::image type="icon" source="media/glossary-insights/ico-insights.png" border="false":::, sélectionnez **Glossaire** pour afficher le rapport Purview **Insights relatifs aux glossaires**.
 
-La page **Insights relatifs aux glossaires** affiche les zones suivantes :
-1. **KPI de haut niveau** pour afficher les termes du glossaire et les utilisateurs du catalogue
+En votre qualité d’utilisateur professionnel, les **Insights relatifs aux glossaires** vous fournissent des informations précieuses pour conserver un glossaire bien défini pour votre organisation.
 
-2. **Principaux termes du glossaire et nombre de ressources** affiche les 5 premiers termes du glossaire avec les ressources qui y sont attachées. Toutes les autres ressources sont représentées dans la catégorie « Autre » du graphique.
+1. Le rapport commence par des **indicateurs de performance clé généraux** présentant le **_total des termes_ *_ dans votre compte Purview, les_* _Termes approuvés sans ressources_ *_ et les _* _Termes expirés avec ressources_**. Chacune de ces valeurs vous aide à identifier l’intégrité de votre glossaire.
 
-3. **Termes de glossaire par état** affiche la répartition des termes de glossaire par état, par exemple « Brouillon », « Approuvé », « Alerte » et « Expiré ». 
+   :::image type="content" source="./media/glossary-insights/glossary-kpi.png" alt-text="Indicateur de performance clé des insights relatifs aux glossaires"::: 
 
-1. Pointez ou cliquez sur la tranche du graphique avec un état et notez le nombre de termes avec cet état.
 
-1. **Distribution des rôles par nombre d’utilisateurs** illustre la distribution des rôles en fonction du nombre d’utilisateurs par rôle dans Purview.
+2. La section **Instantané des termes** (affichée ci-dessus) présente l’état des termes, tel que **_Brouillon_ *_, _* _Approuvé_ *_, _* _Alerte_ *_ et _* _Expiré_** pour les termes avec et sans ressources.
 
-   :::image type="content" source="./media/glossary-insights/glossary-insights1.png" alt-text="Afficher des insights sur les glossaires":::
+3. Cliquez sur **Afficher plus** pour afficher les noms de termes avec différents états et des détails supplémentaires sur les **_Administrateurs_ *_ et les _* _Experts_**. 
+
+   :::image type="content" source="./media/glossary-insights/glossary-view-more.png" alt-text="Capture instantanée de termes avec et sans ressources":::  
+
+4. Lorsque vous cliquez sur « Afficher plus » pour ***Termes approuvés avec ressources** _, les Insights vous permettent d’accéder à la page de détail de terme _ *Glossaire**, à partir de laquelle vous pouvez accéder à la liste des ressources avec les termes attachés. 
+
+   :::image type="content" source="./media/glossary-insights/navigate-to-glossary-detail.png" alt-text="Insights relatifs aux glossaires"::: 
+
+4. Dans la page Insights relatifs aux glossaires, affichez une répartition des **Termes incomplets** par type d’information manquante. Le graphique affiche le nombre de termes avec les champs **_Définition manquante_ *_, _* _Expert manquant_ *_, _* _Administrateur manquant_ *_ et _* _Multiples manquants_**.
+
+1. Cliquez sur ***Afficher plus** _ dans _ * Termes incomplets** pour afficher les termes pour lesquels des informations sont manquantes. Vous pouvez accéder à la page de détail de terme de Glossaire pour entrer les informations manquantes et vérifier que le terme est complet.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En savoir plus sur les rapports d’insight Azure Purview via les [Insights relatifs aux ressources](./asset-insights.md)
+En savoir plus sur la création d’un terme de glossaire via le [Glossaire](./how-to-create-import-export-glossary.md)

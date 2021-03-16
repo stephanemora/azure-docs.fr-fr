@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: f46a0938ebb8d9fe7e032162120056dca96b9567
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 2427fbdaa497ccb6d9a46330dcc6eb872e1d28ac
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99979760"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102214165"
 ---
 # <a name="azure-resources-for-qna-maker"></a>Ressources Azure pour QnA Maker
 
@@ -126,7 +126,7 @@ QnA Maker managé est un service gratuit. Son débit est actuellement limité à
 |[Mettre à niveau](../How-to/set-up-qnamaker-service-azure.md#upgrade-app-service) la référence SKU App Service et vérifier le niveau de la Recherche cognitive et [créer des réplicas de Recherche cognitive](../../../search/search-capacity-planning.md)|Votre base de connaissances doit traiter plus de demandes de votre application cliente, comme un bot de conversation.|
 |[Mettre à niveau](../How-to/set-up-qnamaker-service-azure.md#upgrade-the-azure-cognitive-search-service) le service Recherche cognitive Azure|Vous envisagez de disposer de nombreuses bases de connaissances.|
 
-Procurez-vous les dernières mises à jour du runtime en [mettant à jour votre App Service dans le portail Azure](../how-to/set-up-qnamaker-service-azure.md#get-the-latest-runtime-updates).
+Procurez-vous les dernières mises à jour du runtime en [mettant à jour votre App Service dans le portail Azure](../how-to/configure-QnA-Maker-resources.md#get-the-latest-runtime-updates).
 
 # <a name="qna-maker-managed-preview-release"></a>[QnA Maker managé (préversion)](#tab/v2)
 
@@ -142,16 +142,16 @@ Votre service QnA Maker gère deux types de clés : **clés de création** et *
 
 Utilisez ces clés lorsque vous adressez des demandes au service via des API.
 
-![Gestion des clés](../media/qnamaker-how-to-key-management/key-management.png)
+![Gestion des clés](../media/authoring-key.png)
 
 |Nom|Emplacement|Objectif|
 |--|--|--|
-|Clé de création/d’abonnement|[Azure portal](https://azure.microsoft.com/free/cognitive-services/)|ces clés sont utilisées pour accéder aux [API du service d’administration QnA Maker](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase). Ces API vous permettent de modifier les questions et réponses dans votre base de connaissances, et de publier votre base de connaissances. Ces clés sont créées lorsque vous créez un service QnA Maker.<br><br>Recherchez ces clés dans la ressource **Cognitive Services** de la page **Clés**.|
+|Clé de création/d’abonnement|[Azure portal](https://azure.microsoft.com/free/cognitive-services/)|ces clés sont utilisées pour accéder aux [API du service d’administration QnA Maker](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase). Ces API vous permettent de modifier les questions et réponses dans votre base de connaissances, et de publier votre base de connaissances. Ces clés sont créées lorsque vous créez un service QnA Maker.<br><br>Recherchez ces clés dans la ressource **Cognitive Services** de la page **Clés et point de terminaison**.|
 |Clé de point de terminaison de requête|[Portail QnA Maker](https://www.qnamaker.ai)|Ces clés sont utilisées pour interroger le point de terminaison de base de connaissances publié afin d’obtenir une réponse à une question d’utilisateur. En général, vous utilisez ce point de terminaison de requête dans votre bot conversationnel ou dans le code de l’application cliente qui se connecte au service QnA Maker. Ces clés sont créées lorsque vous publiez votre base de connaissances QnA Maker.<br><br>Recherchez ces clés dans la page **Paramètres du service**. Recherchez cette page à partir du menu de l’utilisateur en haut à droite de la page dans le menu déroulant.|
 
 ### <a name="find-authoring-keys-in-the-azure-portal"></a>Rechercher des clés de création dans le portail Azure
 
-Vous pouvez afficher et réinitialiser vos clés de création à partir du portail Azure où la ressource QnA Maker a été créée. Ces clés sont parfois appelées clés d’abonnement.
+Vous pouvez afficher et réinitialiser vos clés de création à partir du portail Azure où la ressource QnA Maker a été créée.
 
 1. Accédez à la ressource QnA Maker dans le portail Azure et sélectionnez la ressource qui a le type _Cognitive Services_ :
 
@@ -189,12 +189,12 @@ Utilisez ces clés lorsque vous adressez des demandes au service via des API.
 
 |Nom|Emplacement|Objectif|
 |--|--|--|
-|Clé de création/d’abonnement|[Azure portal](https://azure.microsoft.com/free/cognitive-services/)|ces clés sont utilisées pour accéder aux [API du service d’administration QnA Maker](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase). Ces API vous permettent de modifier les questions et réponses dans votre base de connaissances, et de publier votre base de connaissances. Ces clés sont créées lorsque vous créez un service QnA Maker.<br><br>Recherchez ces clés dans la ressource **Cognitive Services** de la page **Clés**.|
+|Clé de création/d’abonnement|[Azure portal](https://azure.microsoft.com/free/cognitive-services/)|ces clés sont utilisées pour accéder aux [API du service d’administration QnA Maker](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase). Ces API vous permettent de modifier les questions et réponses dans votre base de connaissances, et de publier votre base de connaissances. Ces clés sont créées lorsque vous créez un service QnA Maker.<br><br>Recherchez ces clés dans la ressource **Cognitive Services** de la page **Clés et point de terminaison**.|
 |Clé d’administration de Recherche cognitive Azure|[Azure portal](../../../search/search-security-api-keys.md)|Ces clés sont utilisées pour communiquer avec le service de recherche cognitive Azure déployé dans l’abonnement Azure de l’utilisateur. Quand vous associez une recherche cognitive Azure au service QnA Maker managé (préversion), la clé d’administration est automatiquement transmise au service QnA Maker. <br><br>Vous pouvez trouver ces clés sur la ressource **Recherche cognitive Azure** dans la page **Clés**.|
 
 ### <a name="find-authoring-keys-in-the-azure-portal"></a>Rechercher des clés de création dans le portail Azure
 
-Vous pouvez afficher et réinitialiser vos clés de création à partir du portail Azure où la ressource QnA Maker managé (préversion) a été créée. Ces clés sont parfois appelées clés d’abonnement.
+Vous pouvez afficher et réinitialiser vos clés de création à partir du portail Azure où la ressource QnA Maker managé (préversion) a été créée.
 
 1. Accédez à la ressource QnA Maker managé (préversion) dans le portail Azure et sélectionnez la ressource qui a le type *Cognitive Services* :
 
@@ -307,7 +307,7 @@ La première base de connaissances créée dans la ressource QnA Maker est utili
 
 Si vous créez un service QnA et ses dépendances (par exemple, la recherche) via le portail, un service de recherche est créé pour vous et lié au service QnA Maker. Une fois ces ressources créées, vous pouvez mettre à jour le paramètre App Service pour utiliser un service de recherche existant au préalable et supprimer celui que vous venez de créer.
 
-Découvrez [comment configurer](../How-To/set-up-qnamaker-service-azure.md#configure-qna-maker-to-use-different-cognitive-search-resource) QnA Maker pour utiliser une ressource Service cognitif différente de celle créée dans le cadre du processus de création de ressource QnA Maker.
+Découvrez [comment configurer](../How-To/configure-QnA-Maker-resources.md#configure-qna-maker-to-use-different-cognitive-search-resource) QnA Maker pour utiliser une ressource Service cognitif différente de celle créée dans le cadre du processus de création de ressource QnA Maker.
 
 ### <a name="app-service-and-app-service-plan"></a>App service et plan App service
 
@@ -365,6 +365,6 @@ Avec QnA Maker managé (préversion), vous avez la possibilité de configurer vo
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* En savoir plus sur la [base de connaissances](../index.yml) QnA Maker
+* En savoir plus sur la [base de connaissances](../How-To/manage-knowledge-bases.md) QnA Maker
 * Comprendre un [cycle de vie de base de connaissances](development-lifecycle-knowledge-base.md)
 * Examiner les [limites](../limits.md) du service et de la base de connaissances

@@ -1,19 +1,19 @@
 ---
-title: Créer un point de terminaison privé dans Azure Private Link
+title: 'Démarrage rapide : Créer un point de terminaison privé en utilisant un modèle ARM'
 description: Dans ce guide de démarrage rapide, vous utilisez un modèle Azure Resource Manager (modèle ARM) pour créer un point de terminaison privé.
 services: private-link
-author: mblanco77
+author: asudbring
 ms.service: private-link
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 05/26/2020
 ms.author: allensu
-ms.openlocfilehash: 553d36a86671617417b6b9b1ea47966c3ba3fdf6
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e80adc16e08e676ac2daabec01a11c10d537c547
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88705807"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102562943"
 ---
 # <a name="quickstart-create-a-private-endpoint-by-using-an-arm-template"></a>Démarrage rapide : Créer un point de terminaison privé à l’aide d’un modèle Resource Manager
 
@@ -137,4 +137,6 @@ Remove-AzResourceGroup -Name <your resource group name>
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En savoir plus sur [Azure Private Link](private-link-overview.md).
+Pour plus d’informations sur les services qui prennent en charge un point de terminaison privé, consultez :
+> [!div class="nextstepaction"]
+> [Disponibilité des liaisons privées](private-link-overview.md#availability)

@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/12/2021
+ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 2956f0ffb562214477249da3198ebbe42ef9bb45
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: c84966f7b4dc1740235fe6414da2ba832a1334fd
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98660367"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102119907"
 ---
 # <a name="set-up-a-sign-in-flow-in-azure-active-directory-b2c"></a>Configurer un flux de connexion dans Azure Active Directory B2C
 
@@ -30,7 +30,7 @@ La stratégie d’inscription permet aux utilisateurs d’effectuer les actions 
 * Les utilisateurs peuvent se connecter avec un compte Azure AD B2C local
 * Inscription ou connexion avec un compte social
 * Réinitialisation du mot de passe
-* Les utilisateurs ne peuvent pas s’inscrire pour un compte Azure AD B2C local : pour créer un compte, un administrateur peut utiliser l’[API MS Graph](microsoft-graph-operations.md).
+* Les utilisateurs ne peuvent pas s’inscrire pour un compte local Azure AD B2C. Pour créer un compte, un administrateur peut utiliser le [portail Azure](manage-users-portal.md#create-a-consumer-user)ou l’[API MS Graph](microsoft-graph-operations.md).
 
 ![Flux de modification du profil](./media/add-sign-in-policy/sign-in-user-flow.png)
 
@@ -75,26 +75,34 @@ Le profil technique **LocalAccountSignUpWithLogonEmail** est [autodéclaré](sel
 1. Ajoutez le fournisseur de revendications suivant à l’élément `ClaimsProviders` :
 
     ```xml
-    <ClaimsProvider>
-      <DisplayName>Local Account</DisplayName>
-      <TechnicalProfiles>
-        <TechnicalProfile Id="SelfAsserted-LocalAccountSignin-Email">
-          <Metadata>
-            <Item Key="setting.showSignupLink">false</Item>
-          </Metadata>
-        </TechnicalProfile>
-      </TechnicalProfiles>
-    </ClaimsProvider>
+    <!--
+    <ClaimsProviders> -->
+      <ClaimsProvider>
+        <DisplayName>Local Account</DisplayName>
+        <TechnicalProfiles>
+          <TechnicalProfile Id="SelfAsserted-LocalAccountSignin-Email">
+            <Metadata>
+              <Item Key="setting.showSignupLink">false</Item>
+            </Metadata>
+          </TechnicalProfile>
+        </TechnicalProfiles>
+      </ClaimsProvider>
+    <!--
+    </ClaimsProviders> -->
     ```
 
 1. Dans l’élément `<BuildingBlocks>`, ajoutez la [ContentDefinition](contentdefinitions.md) suivante pour faire référence à la version 1.2.0 ou à une URI de données plus récent :
 
     ```XML
-    <ContentDefinitions>
-     <ContentDefinition Id="api.localaccountsignup">
-        <DataUri>urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:1.2.0</DataUri>
-      </ContentDefinition>
-    </ContentDefinitions>
+    <!-- 
+    <BuildingBlocks> 
+      <ContentDefinitions>-->
+        <ContentDefinition Id="api.localaccountsignup">
+          <DataUri>urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:1.2.0</DataUri>
+        </ContentDefinition>
+      <!--
+      </ContentDefinitions>
+    </BuildingBlocks> -->
     ```
 
 ## <a name="update-and-test-your-policy"></a>Charger et tester votre stratégie
@@ -103,7 +111,7 @@ Le profil technique **LocalAccountSignUpWithLogonEmail** est [autodéclaré](sel
 1. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD en sélectionnant le filtre **Annuaire + abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire Azure AD.
 1. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Inscriptions d’applications**.
 1. Sélectionnez **Infrastructure d’expérience d’identité**.
-1. Sélectionnez **Charger une stratégie personnalisée**, puis chargez les deux fichiers de stratégie que vous avez modifiés.
+1. Sélectionnez **Charger une stratégie personnalisée**, puis chargez le fichier de stratégie que vous avez modifié, *TrustFrameworkExtensions.xml*.
 1. Sélectionnez la stratégie de connexion que vous avez chargée, puis cliquez sur le bouton **Exécuter maintenant**.
 1. Vous devez être en mesure de vous connecter avec le compte que vous avez créé (à l’aide de l’API MS Graph), sans le lien d’inscription.
 

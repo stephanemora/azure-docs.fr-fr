@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 2/9/2021
 ms.author: duau
-ms.openlocfilehash: 67f296c7584fcf25af79f9125137aca07c9906fd
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ef6ea9017a9aaa98e153df0d67f0b54fe5a2b64d
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101743282"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102124157"
 ---
 # <a name="add-ipv6-support-for-private-peering-using-the-azure-portal-preview"></a>Ajouter la prise en charge IPv6 pour le Peering privé à l’aide du Portail Azure (préversion)
 
@@ -88,7 +88,7 @@ Suivez les étapes ci-dessous si vous envisagez de vous connecter à un nouvel e
 
 2. [Créez le sous-réseau de passerelle à double pile](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-portal-resource-manager#create-the-gateway-subnet).
 
-3. [Créez la passerelle de réseau virtuel](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-portal-resource-manager#create-the-virtual-network-gateway) à l’aide d’une référence SKU redondante dans une zone (ErGw1AZ, ErGw2AZ, ErGw3AZ). Si vous envisagez d’utiliser FastPath, utilisez ErGw3AZ.
+3. [Créez la passerelle de réseau virtuel](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-portal-resource-manager#create-the-virtual-network-gateway) à l’aide d’une référence SKU redondante dans une zone (ErGw1AZ, ErGw2AZ, ErGw3AZ). Si vous envisagez d’utiliser FastPath, utilisez la référence ErGw3AZ (notez que celle-ci n’est disponible que pour des circuits utilisant ExpressRoute Direct).
 
 4. [Liez votre réseau virtuel à votre circuit ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager).
 
@@ -98,6 +98,9 @@ Bien que la prise en charge IPV6 soit disponible pour les connexions à des dép
 * Connexions à des déploiements dans Azure via une référence SKU de passerelle ExpressRoute sans AZ
 * Connexions à des déploiements dans des régions sans AZ
 * Connexions Global Reach entre des circuits ExpressRoute
+* Utiliser ExpressRoute avec un WAN virtuel
+* FastPath avec circuits non ExpressRoute Direct
+* Coexistence avec une passerelle VPN
 
 ## <a name="next-steps"></a>Étapes suivantes
 

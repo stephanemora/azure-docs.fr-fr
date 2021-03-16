@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 09/04/2019
+ms.date: 02/22/2021
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 6ac1fb1a69433be240e4250ea37835037f0b2ffa
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 750ed8f65db04199ea284e69693bced65a1dc8d9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873938"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703131"
 ---
 ::: zone target="docs"
 
@@ -79,6 +79,9 @@ Voici une liste des types de stockage pris en charge pour le disque Data Box.
 | Classique | standard |
 | Usage général  |Standard ; V1 et V2 sont pris en charge. Les niveaux chaud et froid sont tous les deux pris en charge. |
 | Compte de stockage d’objets blob | |
+
+> [!IMPORTANT]
+> Le protocole NFS (Network File System) 3.0 dans Stockage Blob Azure n’est pas pris en charge avec Data Box Disk.
 
 ## <a name="supported-storage-types-for-upload"></a>Types de stockage pris en charge pour le chargement
 

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/28/2021
+ms.date: 02/17/2021
 ms.author: jeedes
-ms.openlocfilehash: c5bdab2038f2f41c7240addaff99bd831d29f489
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: d4c9d2e290f6a8f07878a019b755c8add2ab69ea
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101643811"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102488442"
 ---
 # <a name="tutorial-integrate-dropbox-business-with-azure-active-directory"></a>Tutoriel : Intégrer Dropbox Business à Azure Active Directory
 
@@ -38,9 +38,9 @@ Pour commencer, vous devez disposer de ce qui suit :
 
 ## <a name="scenario-description"></a>Description du scénario
 
-* Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test. Dropbox Business prend en charge l’authentification unique lancée par le **fournisseur de services**
+* Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test. Dropbox Business prend en charge l’authentification SSO lancée par le fournisseur de services (**SP**).
 
-* Dropbox Business prend en charge l’[attribution et l’annulation d’attribution d’utilisateurs](dropboxforbusiness-tutorial.md)
+* Dropbox Business prend en charge le [provisionnement et le déprovisionnement automatique d’utilisateurs](dropboxforbusiness-tutorial.md).
 
 > [!NOTE]
 > L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.
@@ -82,11 +82,11 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 1. Dans la boîte de dialogue **Configuration SAML de base**, entrez les valeurs pour les champs suivants :
 
     a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://www.dropbox.com/sso/<id>`
-
-    b. Dans la zone de texte **Identificateur (ID d’entité)** , tapez la valeur : `Dropbox`
-
+    
+     b. Dans la zone de texte **Identificateur (ID d’entité)** , tapez la valeur : `Dropbox`
+    
     > [!NOTE]
-    > La valeur URL de connexion ci-dessus n’est pas une valeur réelle. Vous mettrez à jour la valeur avec l’URL de connexion réelle. La procédure est expliquée plus loin dans le didacticiel.
+    > Vous pouvez trouver l’**ID d’authentification SSO de la connexion Dropbox** sur le site Dropbox dans Interface d’administration > Paramètres > Authentification unique > URL de connexion (authentification unique).
 
 1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le **Certificat (Base64)** en fonction des options définies par rapport à vos besoins, puis enregistrez-le sur votre ordinateur.
 
@@ -137,23 +137,23 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 4. Cliquez sur l’**Icône Utilisateur** et sélectionnez l’onglet **Paramètres**.
 
-    ![Capture d’écran montrant l’action « USER ICON » et « Settings » sélectionnés.](./media/dropboxforbusiness-tutorial/configure1.png "Configurer l’authentification unique")
+    ![Capture d’écran montrant l’action « USER ICON » et « Settings » sélectionnés.](./media/dropboxforbusiness-tutorial/configure-1.png "Configurer l’authentification unique")
 
 5. Dans le volet de navigation gauche, cliquez sur **Console d’administration**.
 
-    ![Capture d’écran montrant « Admin console » sélectionné.](./media/dropboxforbusiness-tutorial/configure2.png "Configurer l’authentification unique")
+    ![Capture d’écran montrant « Admin console » sélectionné.](./media/dropboxforbusiness-tutorial/configure-2.png "Configurer l’authentification unique")
 
 6. Dans la **Console d’administration**, cliquez sur **Paramètres** dans le volet de navigation gauche.
 
-    ![Capture d’écran montrant « Paramètres » sélectionné.](./media/dropboxforbusiness-tutorial/configure3.png "Configurer l’authentification unique")
+    ![Capture d’écran montrant « Paramètres » sélectionné.](./media/dropboxforbusiness-tutorial/configure-3.png "Configurer l’authentification unique")
 
 7. Sélectionnez **Authentification unique** sous la section **Authentification**.
 
-    ![Capture d’écran montrant la section « Authentication » avec l’option « Single sign-on » sélectionnée.](./media/dropboxforbusiness-tutorial/configure4.png "Configurer l’authentification unique")
+    ![Capture d’écran montrant la section « Authentication » avec l’option « Single sign-on » sélectionnée.](./media/dropboxforbusiness-tutorial/configure-4.png "Configurer l’authentification unique")
 
 8. Dans la section **Authentification unique**, procédez comme suit :  
 
-    ![Capture d’écran montrant les paramètres de configuration de « Single sign-on »](./media/dropboxforbusiness-tutorial/configure5.png "Configurer l’authentification unique").
+    ![Capture d’écran montrant les paramètres de configuration de « Single sign-on »](./media/dropboxforbusiness-tutorial/configure-5.png "Configurer l’authentification unique").
 
     a. Sélectionnez **Requis** en tant qu’option dans la liste déroulante de l’**Authentification unique**.
 
@@ -174,7 +174,7 @@ Dans cette section, un utilisateur appelé B.Simon est créé dans Dropbox Busin
 >[!Note]
 >Si vous devez créer un utilisateur manuellement, contactez l’[équipe du support technique Dropbox Business](https://www.dropbox.com/business/contact)
 
-### <a name="test-sso"></a>Tester l’authentification unique (SSO)
+## <a name="test-sso"></a>Tester l’authentification unique (SSO)
 
 Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
 
@@ -186,4 +186,4 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Après avoir configuré Dropbox Business, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Après avoir configuré Dropbox Business, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

@@ -3,16 +3,17 @@ title: Mise à niveau automatique des extensions pour les machines virtuelles et
 description: Découvrez comment activer la mise à niveau automatique des extensions pour vos machines virtuelles et groupes de machines virtuelles identiques dans Azure.
 author: mayanknayar
 ms.service: virtual-machines
+ms.subservice: automatic-extension-upgrade
 ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 02/12/2020
 ms.author: manayar
-ms.openlocfilehash: acc014785105d14c3109cfa420f0e9402ca3f534
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: fa4fa1c43ab9d31b879bdec8e724e896bd16e14c
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100416511"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102123895"
 ---
 # <a name="preview-automatic-extension-upgrade-for-vms-and-scale-sets-in-azure"></a>Aperçu : Mise à niveau automatique des extensions pour les machines virtuelles et les groupes identiques dans Azure
 
@@ -21,7 +22,7 @@ La mise à niveau automatique des extensions est disponible en préversion pour 
  La mise à niveau automatique des extensions présente les fonctionnalités suivantes :
 - Prise en charge pour les machines virtuelles Azure et les groupes de machines virtuelles identiques Azure. Les groupes de machines virtuelles identiques de Service Fabric ne sont actuellement pas pris en charge.
 - Les mises à niveau sont appliquées dans un modèle de déploiement selon le principe de première disponibilité (détaillé ci-dessous).
-- En cas d’application à un groupe de machines virtuelles identiques, pas plus de 20 % des machines virtuelles du groupe de machines virtuelles identiques seront mises à niveau en un seul lot (sous réserve d’un minimum d’une machine virtuelle par lot).
+- Pour un groupe de machines virtuelles identiques, au maximum 20 % des machines virtuelles du groupe identique seront mises à niveau par lot. La taille de lot minimale est d’une machine virtuelle.
 - Fonctionne pour toutes les tailles de machine virtuelle et pour les extensions tant Windows que Linux.
 - Vous pouvez désactiver les mises à jour automatiques à tout moment.
 - La mise à niveau automatique des extensions peut être activée sur un groupe de machines virtuelles identiques de n’importe quelle taille.
@@ -36,24 +37,9 @@ La mise à niveau automatique des extensions est disponible en préversion pour 
 
 
 ## <a name="how-does-automatic-extension-upgrade-work"></a>Comment fonctionne la mise à niveau automatique des extensions ?
-Le processus de mise à niveau de l’extension fonctionne en remplaçant la version existante de l’extension sur une machine virtuelle par la nouvelle version publiée par l’éditeur de l’extension. L’intégrité de la machine virtuelle est analysée après l’installation de la nouvelle extension. Si la machine virtuelle n’est pas dans un état sain dans les cinq minutes suivant la fin de la mise à niveau, la version précédente est restaurée.
+Le processus de mise à niveau d’extension remplace la version existante de l’extension sur une machine virtuelle par une nouvelle version lors de la publication de celle-ci par l’éditeur de l’extension. L’intégrité de la machine virtuelle est analysée après l’installation de la nouvelle extension. Si la machine virtuelle n’est pas dans un état sain dans les cinq minutes suivant la fin de la mise à niveau, la version précédente est restaurée.
 
 Une mise à jour d’extension qui a échoué fait automatiquement l’objet d’une nouvelle tentative. Une nouvelle tentative est effectuée automatiquement à quelques jours d’intervalle, sans intervention de l’utilisateur.
-
-
-## <a name="upgrade-process-for-virtual-machine-scale-sets"></a>Processus de mise à niveau pour les groupes de machines virtuelles identiques
-1. Avant de commencer le processus de mise à niveau, l’orchestrateur vérifie qu’il n’y a pas plus de 20 % des machines virtuelles dans tout le groupe identique qui présentent un état non sain (pour une raison ou une autre).
-
-2. L’orchestrateur de mise à niveau identifie le lot d’instances de machines virtuelles à mettre à niveau, chaque lot devant compter au maximum 20 % du nombre total de machines virtuelles, sous réserve d’une taille de lot minimale d’une machine virtuelle.
-
-3. Pour les groupes identiques configurés avec des sondes d’intégrité d’application ou l’extension Intégrité de l’application, la mise à niveau attend jusqu’à cinq minutes (ou la durée définie dans la configuration de la sonde d’intégrité) que la machine virtuelle passe à l’état sain avant de commencer la mise à niveau du lot suivant. Si une machine virtuelle ne récupère pas son intégrité après une mise à niveau, par défaut, la version précédente de l’extension de la machine virtuelle est réinstallée.
-
-4. L’orchestrateur de mise à niveau suit également le pourcentage de machines virtuelles qui deviennent non saines après une mise à niveau. La mise à niveau s’arrête si plus de 20 % des instances mises à niveau passent à l’état non sain pendant le processus de mise à niveau.
-
-Le processus ci-dessus se poursuit jusqu’à ce que toutes les instances dans le groupe identique aient été mises à niveau.
-
-L’orchestrateur de mise à niveau du groupe identique vérifie l’intégrité de tout le groupe identique avant de procéder à la mise à niveau de chaque lot. Durant la mise à niveau d’un lot, il peut arriver que d’autres activités de maintenance planifiées ou non planifiées aient lieu en même temps et aient un impact sur l’intégrité des machines virtuelles de votre groupe identique. Si c’est le cas et que plus de 20 % des instances du groupe identique passent à l’état non sain, la mise à niveau du groupe identique s’arrête à la fin du lot en cours.
-
 
 ### <a name="availability-first-updates"></a>Mises à jour selon la première disponibilité
 Le modèle de première disponibilité pour les mises à jour orchestrées de la plateforme garantit que les configurations de disponibilité dans Azure sont respectées sur plusieurs niveaux de disponibilité.
@@ -62,9 +48,9 @@ Pour un groupe de machines virtuelles en cours de mise à jour, la plateforme Az
 
 **Entre les régions :**
 - Une mise à jour sera déployée sur Azure dans le monde entier de manière progressive afin d’éviter les échecs de déploiement à l’échelle d’Azure.
-- Une « phase » peut constituer une ou plusieurs régions, et une mise à jour passe d’une phase à l’autre uniquement si les machines virtuelles éligibles d’une phase sont correctement mises à jour.
+- Une « phase » peut englober une ou plusieurs régions, et une mise à jour ne change pas de phase tant que les machines virtuelles éligibles dans la phase précédente n’ont pas été correctement mises à jour.
 - Les régions associées géographiquement ne seront pas mises à jour simultanément et ne pourront pas dépendre de la même phase régionale.
-- La réussite d’une mise à jour est mesurée par le suivi de l’intégrité d’une machine virtuelle après sa mise à jour. L’intégrité de la machine virtuelle est suivie via les indicateurs d’intégrité de la plateforme pour la machine virtuelle. Dans le cas des groupes de machines virtuelles identiques, l’intégrité de la machine virtuelle est suivie par le biais de sondes d’intégrité d’application ou de l’extension Intégrité de l’application, si elle est appliquée au groupe identique.
+- La réussite d’une mise à jour est mesurée par le suivi de l’intégrité d’une machine virtuelle après sa mise à jour. L’intégrité de la machine virtuelle est suivie via les indicateurs d’intégrité de la plateforme pour la machine virtuelle. Pour des groupes de machines virtuelles identiques, l’intégrité des machines virtuelles est suivie à l’aide de sondes d’intégrité d’application ou de l’extension Intégrité de l’application si elle est appliquée au groupe identique.
 
 **Dans une région :**
 - Les machines virtuelles de différentes Zones de disponibilité ne sont pas mises à jour simultanément.
@@ -75,6 +61,18 @@ Pour un groupe de machines virtuelles en cours de mise à jour, la plateforme Az
 - Les machines virtuelles d’un même groupe à haute disponibilité sont mises à jour dans les limites du domaine de mise à jour, et les machines virtuelles de différents domaines de mise à jour ne sont pas mises à jour simultanément.  
 - Les machines virtuelles d’un groupe de machines virtuelles identiques commun sont regroupées par lots et mises à jour dans les limites du domaine de mise à jour.
 
+### <a name="upgrade-process-for-virtual-machine-scale-sets"></a>Processus de mise à niveau pour les groupes de machines virtuelles identiques
+1. Avant de commencer le processus de mise à niveau, l’orchestrateur vérifie qu’il n’y a pas plus de 20 % des machines virtuelles dans tout le groupe identique qui présentent un état non sain (pour une raison ou une autre).
+
+2. L’orchestrateur de mise à niveau identifie le lot d’instances de machine virtuelle à mettre à niveau. Un orchestrateur de mise à niveau peut avoir au maximum 20 % du nombre total de machines virtuelles, sous réserve d’une taille de lot minimale d’une machine virtuelle.
+
+3. Pour les groupes identiques configurés avec des sondes d’intégrité d’application ou l’extension Intégrité de l’application, la mise à niveau attend jusqu’à cinq minutes (ou la durée définie dans la configuration de la sonde d’intégrité) que la machine virtuelle passe à l’état sain avant de mettre à niveau le lot suivant. Si une machine virtuelle ne récupère pas son intégrité après une mise à niveau, par défaut, la version précédente de l’extension sur la machine virtuelle est réinstallée.
+
+4. L’orchestrateur de mise à niveau suit également le pourcentage de machines virtuelles qui deviennent non saines après une mise à niveau. La mise à niveau s’arrête si plus de 20 % des instances mises à niveau passent à l’état non sain pendant le processus de mise à niveau.
+
+Le processus ci-dessus se poursuit jusqu’à ce que toutes les instances dans le groupe identique aient été mises à niveau.
+
+L’orchestrateur de mise à niveau du groupe identique vérifie l’intégrité de tout le groupe identique avant de procéder à la mise à niveau de chaque lot. Durant la mise à niveau d’un lot, il peut arriver que d’autres activités de maintenance planifiées ou non planifiées aient lieu en même temps et aient un impact sur l’intégrité des machines virtuelles de votre groupe identique. Si c’est le cas et que plus de 20 % des instances du groupe identique passent à l’état non sain, la mise à niveau du groupe identique s’arrête à la fin du lot en cours.
 
 ## <a name="supported-extensions"></a>Extensions prises en charge
 La préversion de la mise à niveau automatique des extensions prend en charge les extensions suivantes (et d’autres sont ajoutées régulièrement) :
@@ -258,13 +256,13 @@ az vmss extension set \
 
 ## <a name="extension-upgrades-with-multiple-extensions"></a>Mises à niveau d’extension avec plusieurs extensions
 
-Une machine virtuelle ou un groupe de machines virtuelles identiques peut avoir plusieurs extensions avec la mise à niveau automatique des extensions activée, en plus d’autres extensions sans mise à niveau automatique.  
+Une machine virtuelle ou un groupe de machines virtuelles identiques peuvent avoir plusieurs extensions pour lesquelles la mise à niveau d’extension automatique est activée. Les mêmes machine virtuelle ou groupe identique peuvent également avoir d’autres extensions sans que la mise à niveau d’extension automatique soit activée.  
 
-Si plusieurs mises à niveau d’extension sont disponibles pour une machine virtuelle, les mises à niveau peuvent être regroupées. Toutefois, chaque mise à niveau d’extension est appliquée individuellement sur une machine virtuelle. Un échec sur une extension n’a aucun impact sur les autres extensions qui peuvent être mises à niveau. Par exemple, si deux extensions sont planifiées pour une mise à niveau et que la mise à niveau de la première extension échoue, la deuxième extension sera quand même mise à niveau.
+Si plusieurs mises à niveau d’extension sont disponibles pour une machine virtuelle, il est possible de les regrouper par lot, mais chaque mise à niveau d’extension est appliquée individuellement sur une machine virtuelle. Un échec sur une extension n’a aucun impact sur les autres extensions qui peuvent être mises à niveau. Par exemple, si deux extensions sont planifiées pour une mise à niveau et que la mise à niveau de la première extension échoue, la deuxième extension sera quand même mise à niveau.
 
-Les mises à niveau automatiques d’extensions peuvent également être appliquées lorsqu’une machine virtuelle ou un groupe de machines virtuelles identiques a plusieurs extensions configurées avec le [séquencement d’extensions](../virtual-machine-scale-sets/virtual-machine-scale-sets-extension-sequencing.md). Le séquencement d’extensions s’applique au premier déploiement de la machine virtuelle, et toute mise à niveau ultérieure d’une extension est appliquée indépendamment.
+Les mises à niveau automatiques d’extensions peuvent également être appliquées lorsqu’une machine virtuelle ou un groupe de machines virtuelles identiques a plusieurs extensions configurées avec le [séquencement d’extensions](../virtual-machine-scale-sets/virtual-machine-scale-sets-extension-sequencing.md). Le séquencement d’extensions s’applique au premier déploiement de la machine virtuelle, et toute mise à niveau d’extension future est appliquée de façon indépendante.
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 > [!div class="nextstepaction"]
-> [En savoir plus sur l’extension Intégrité de l’application](./windows/automatic-vm-guest-patching.md)
+> [En savoir plus sur l’extension Intégrité de l’application](../virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension.md)

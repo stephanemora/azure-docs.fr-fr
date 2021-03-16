@@ -7,14 +7,14 @@ ms.service: cache
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 02/08/2021
-ms.openlocfilehash: 50535ab9ac2a3541ade7b9abd8f355bbeaf6d4b3
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 63daa7cda2f10448e9a0f8e250412137dc2af892
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100365002"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102563895"
 ---
-# <a name="quickstart-create-a-redis-enterprise-cache-preview"></a>Démarrage rapide : Créer un cache Redis Enterprise (préversion)
+# <a name="quickstart-create-a-redis-enterprise-cache"></a>Démarrage rapide : Créer un cache Redis Enterprise
 
 Les niveaux Enterprise d’Azure Cache pour Redis offrent des instances [Redis Enterprise](https://redislabs.com/redis-enterprise/) entièrement intégrées et gérées. Ils sont actuellement disponibles en préversion. Il existe deux nouveaux niveaux dans cette préversion :
 * Enterprise, qui utilise la mémoire volatile (DRAM) sur une machine virtuelle pour stocker les données
@@ -22,7 +22,7 @@ Les niveaux Enterprise d’Azure Cache pour Redis offrent des instances [Redis E
 
 ## <a name="prerequisites"></a>Prérequis
 
-Vous aurez besoin d’un abonnement Azure avant de commencer. Si vous n’en avez pas, créez un [compte](https://azure.microsoft.com/). Pour plus d’informations, consultez [Conditions du niveau Enterprise](cache-overview.md#enterprise-and-enterprise-flash-tier-requirements).
+Vous aurez besoin d’un abonnement Azure avant de commencer. Si vous n’en avez pas, créez un [compte](https://azure.microsoft.com/). Pour plus d’informations, consultez [Considérations spéciales relatives aux niveaux Enterprise](cache-overview.md#special-considerations-for-enterprise-tiers).
 
 ## <a name="create-a-cache"></a>Création d'un cache
 1. Pour créer un cache, connectez-vous au portail Azure via le lien dans votre invitation à la préversion, puis sélectionnez **Créer une ressource**.
@@ -41,7 +41,7 @@ Vous aurez besoin d’un abonnement Azure avant de commencer. Si vous n’en ave
    | **Lieu** | Dans la liste déroulante, sélectionnez un emplacement. | Les niveaux Enterprise sont disponibles dans un nombre limité de régions Azure pendant la préversion. |
    | **Type de cache** | Dans la liste déroulante, sélectionnez un niveau *Enterprise* ou *Enterprise Flash* et une taille. |  Le niveau détermine la taille, les performances et les fonctionnalités disponibles pour le cache. |
    
-   :::image type="content" source="media/cache-create/enterprise-tier-basics.png" alt-text="Notions de base sur le niveau Enterprise":::
+   :::image type="content" source="media/cache-create/enterprise-tier-basics.png" alt-text="Onglet Informations de base pour le niveau Enterprise":::
 
    > [!NOTE] 
    > Veillez à cocher la case sous « Conditions » avant de continuer.
@@ -49,25 +49,15 @@ Vous aurez besoin d’un abonnement Azure avant de commencer. Si vous n’en ave
 
 1. Sélectionnez **Suivant : Mise en réseau** et ignorez.
 
-   > [!NOTE] 
-   > L’option Liaison privée est en cours de déploiement et peut ne pas être tout de suite disponible dans votre région.
-   >
+1. Sélectionnez **Suivant : Avancé**, puis définissez **Stratégie de clustering** sur **Entreprise**. Activez **Accès non-TLS uniquement** si vous envisagez de vous connecter au nouveau cache sans utiliser TLS. Toutefois, cette option n’est pas recommandée.
 
-1. Sélectionnez **Suivant : Avancé**, puis définissez **Stratégie de clustering** sur **Entreprise**.
-   
-   Vous pouvez conserver les paramètres par défaut ou les modifier en fonction de vos besoins. Lorsque vous activez **Autoriser l’accès uniquement via TLS**, vous devez utiliser TLS pour accéder au nouveau cache à partir de votre application.
+   :::image type="content" source="media/cache-create/enterprise-tier-advanced.png" alt-text="Onglet Avancé pour le niveau Enterprise":::
 
-   :::image type="content" source="media/cache-create/enterprise-tier-advanced.png" alt-text="Niveau Enterprise avancé":::
-
-   > [!NOTE] 
-   > Les modules Redis ne sont pas encore pris en charge dans le niveau Enterprise Flash. Si vous envisagez d’utiliser un module Redis, veillez à choisir un cache de niveau Enterprise.
-   >
-   
 1. Sélectionnez **Suivant : Étiquettes** et ignorez.
 
 1. Sélectionnez **Suivant : Vérifier + créer**.
 
-   :::image type="content" source="media/cache-create/enterprise-tier-summary.png" alt-text="Résumé du niveau Enterprise":::
+   :::image type="content" source="media/cache-create/enterprise-tier-summary.png" alt-text="Onglet Vérifier + créer pour le niveau Enterprise":::
 
 1. Vérifiez les paramètres, puis cliquez sur **Créer**.
    

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 9cf2f4876d62572ace118562fe5760f2b4010fa5
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: fedf1bc37661100404106859d3aef52b3eddf06d
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92891157"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102048135"
 ---
 # <a name="add-a-line-layer-to-the-map"></a>Ajouter un calque de lignes à la carte
 
@@ -66,7 +66,7 @@ Consultez l’extrait de code <a href='https://codepen.io/azuremaps/pen/drBJwX/'
 
 ## <a name="add-a-stroke-gradient-to-a-line"></a>Ajouter un dégradé de traits à une ligne
 
-Vous pouvez appliquer une couleur de trait à une ligne. Vous pouvez également remplir une ligne avec un dégradé de couleurs pour représenter la transition d’un segment de ligne au segment suivant. Par exemple, les dégradés de ligne peuvent être utilisés pour représenter des changements dans le temps et la distance, ou différentes températures sur une ligne d’objets connectés. Pour appliquer cette fonctionnalité à une ligne, la source de données doit avoir l’option `lineMetrics` définie sur true. Une expression de dégradé de couleurs peut alors être transmise à l’option `strokeColor` de la ligne. L’expression de dégradé de traits a pour référence l’expression de données `['line-progress']` qui expose les métriques de ligne calculées à l’expression.
+Vous pouvez appliquer une couleur de trait à une ligne. Vous pouvez également remplir une ligne avec un dégradé de couleurs pour représenter la transition d’un segment de ligne au segment suivant. Par exemple, les dégradés de ligne peuvent être utilisés pour représenter des changements dans le temps et la distance, ou différentes températures sur une ligne d’objets connectés. Pour appliquer cette fonctionnalité à une ligne, la source de données doit avoir l’option `lineMetrics` définie sur `true`. Une expression de dégradé de couleurs peut alors être transmise à l’option `strokeColor` de la ligne. L’expression de dégradé de traits a pour référence l’expression de données `['line-progress']` qui expose les métriques de ligne calculées à l’expression.
 
 <br/>
 

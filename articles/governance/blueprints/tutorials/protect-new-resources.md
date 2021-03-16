@@ -1,25 +1,25 @@
 ---
 title: 'Tutoriel : Protéger des nouvelles ressources avec des verrous'
 description: Dans ce tutoriel, vous utilisez les options de verrous de ressources Azure Blueprints « Lecture seule » et « Ne pas supprimer » pour protéger les ressources nouvellement déployées.
-ms.date: 01/27/2021
+ms.date: 03/08/2021
 ms.topic: tutorial
-ms.openlocfilehash: c671d641982ba833b54586c1b33979a97747396b
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 87da0f5a1fff2feb103b32533c8d314fb7690f80
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98915405"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102485739"
 ---
 # <a name="tutorial-protect-new-resources-with-azure-blueprints-resource-locks"></a>Tutoriel : Protéger les nouvelles ressources avec des verrous de ressource Azure Blueprints
 
-Les [verrous de ressources](../concepts/resource-locking.md) Azure Blueprints permettent de protéger les ressources nouvellement déployées contre toute manipulation, même par un compte disposant du rôle _Propriétaire_. Vous pouvez ajouter cette protection dans les définitions de blueprint des ressources qui ont été créées par un artefact de modèle Azure Resource Manager (modèle ARM).
+Les [verrous de ressources](../concepts/resource-locking.md) Azure Blueprints permettent de protéger les ressources nouvellement déployées contre toute manipulation, même par un compte disposant du rôle _Propriétaire_. Vous pouvez ajouter cette protection dans les définitions de blueprint des ressources qui ont été créées par un artefact de modèle Azure Resource Manager (modèle ARM). Le verrou de ressources blueprint est défini durant l’affectation du blueprint.
 
 Dans ce tutoriel, vous allez effectuer les étapes suivantes :
 
 > [!div class="checklist"]
 > - Créer une définition de blueprint
 > - Affecter l’état **Publié** à votre définition de blueprint
-> - Affecter votre définition de blueprint à un abonnement existant
+> - Affecter votre définition de blueprint à un abonnement existant (**définir des verrous de ressources**)
 > - Inspecter le nouveau groupe de ressources
 > - Annuler l’affectation du blueprint afin de retirer les verrous
 
@@ -56,6 +56,9 @@ Tout d’abord, créez la définition de blueprint.
    1. Sélectionnez la ligne **Ajouter un artefact** sous l’entrée **RGtoLock**.
    1. Sélectionnez **Modèle Azure Resource Manager** sous **Type d’artefact**, définissez **Nom complet de l’artefact** sur la valeur **StorageAccount**, et laissez le champ **Description** vide.
    1. Sous l’onglet **Modèle**, collez le modèle ARM suivant dans la zone de l’éditeur. Après avoir collé le modèle, sélectionnez **Ajouter** pour ajouter cet artefact au blueprint.
+
+      > [!NOTE]
+      > Cette étape définit les ressources à déployer, qui sont verrouillées par le verrou de ressource blueprint, mais elle n’inclut pas les verrous de ressources blueprint. Les verrous de ressources blueprint sont définis sous forme de paramètre de l’affectation du blueprint.
 
    ```json
    {
@@ -142,6 +145,9 @@ Une fois que la définition de blueprint est publiée, vous pouvez l’affecter 
    - **Verrouiller l'affectation**
 
      Sélectionnez le mode de verrouillage **Lecture seule**. Pour plus d’informations, consultez [Verrouillage des ressources des blueprints](../concepts/resource-locking.md).
+
+     > [!NOTE]
+     > Cette étape configure le verrou de ressources blueprint sur les ressources nouvellement déployées.
 
    - **Identité gérée**
 

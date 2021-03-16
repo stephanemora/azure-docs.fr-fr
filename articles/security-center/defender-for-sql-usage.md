@@ -1,6 +1,6 @@
 ---
-title: Utiliser Azure Defender pour SQL
-description: Découvrez comment utiliser le plan facultatif Azure Defender pour SQL de Azure Security Center
+title: Comment configurer Azure Defender pour SQL
+description: Découvrez comment activer l’outil facultatif Azure Defender d’Azure Security Center pour un plan SQL
 services: security-center
 documentationcenter: na
 author: memildin
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/11/2021
 ms.author: memildin
-ms.openlocfilehash: 96af34b5b68fca5ab8061c8c99f03bee094dc175
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: b82f0ca0624fcbd64f1c23f87f8f21f96d8e4d4c
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100590377"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102100574"
 ---
-# <a name="azure-defender-for-sql-servers-on-machines"></a>Azure Defender pour les serveurs SQL sur les machines 
+# <a name="enable-azure-defender-for-sql-servers-on-machines"></a>Activer Azure Defender pour serveurs SQL Server sur des machines 
 
 Ce plan Azure Defender détecte les activités anormales indiquant des tentatives inhabituelles et potentiellement dangereuses pour accéder à des bases de données ou les exploiter.
 
@@ -31,7 +31,7 @@ Vous voyez s’afficher des alertes en cas d’activités de base de données su
 |Aspect|Détails|
 |----|:----|
 |État de sortie :|Disponibilité générale (GA)|
-|Prix :|**Azure Defender pour les serveurs SQL Server sur les machines** est facturé comme indiqué sur [la page de tarification](security-center-pricing.md)|
+|Prix :|**Azure Defender pour serveurs SQL Server sur des machines** est facturé conformément à la [Tarification de Security Center](https://azure.microsoft.com/pricing/details/security-center/)|
 |Versions de SQL protégées :|Azure SQL Server (toutes les versions couvertes par le support Microsoft)|
 |Clouds :|![Oui](./media/icons/yes-icon.png) Clouds commerciaux<br>![Oui](./media/icons/yes-icon.png) Gouvernement des États-Unis<br>![Non](./media/icons/no-icon.png) Chine Gov, autres Gov|
 |||
@@ -40,11 +40,10 @@ Vous voyez s’afficher des alertes en cas d’activités de base de données su
 
 Pour activer ce plan :
 
-* Provisionnez l’agent Log Analytics sur l’hôte du serveur SQL. Cela permet de se connecter à Azure.
+[Étape 1. Approvisionnez l’agent Log Analytics sur l’hôte de votre serveur SQL Server : ](#step-1-provision-the-log-analytics-agent-on-your-sql-servers-host)
 
-* Activez le plan facultatif dans la page de tarification et des paramètres de Security Center.
+[Étape 2. Activez le plan facultatif dans la page de tarification et de paramètres de Security Center : ](#step-2-enable-the-optional-plan-in-security-centers-pricing-and-settings-page)
 
-Ces deux étapes sont décrites ci-dessous.
 
 ### <a name="step-1-provision-the-log-analytics-agent-on-your-sql-servers-host"></a>Étape 1. Provisionnez l’agent Log Analytics sur l’hôte du serveur SQL :
 
@@ -81,31 +80,6 @@ Ces deux étapes sont décrites ci-dessous.
 1. Vous pouvez également configurer la notification par e-mail pour les alertes de sécurité. 
     Vous pouvez définir une liste de destinataires devant recevoir une notification par e-mail quand des alertes Security Center sont générées. L’e-mail contient un lien direct vers l’alerte dans Azure Security Center avec tous les détails pertinents. Pour plus d'informations, consultez [Configurer des notifications par e-mail pour les alertes de sécurité](security-center-provide-security-contact-details.md).
 
-
-
-## <a name="explore-vulnerability-assessment-reports"></a>Explorer les rapports d’évaluation des vulnérabilités
-
-Le service d’évaluation des vulnérabilités analyse vos bases de données une fois par semaine. Les analyses s’exécutent le même jour de la semaine que celui où vous avez activé le service.
-
-Le tableau de bord d’évaluation des vulnérabilités fournit une vue d’ensemble des résultats de votre évaluation dans toutes vos bases de données, ainsi qu’un résumé des bases de données intègres et non intègres, et un résumé global des vérifications ayant échoué en fonction de la distribution des risques.
-
-Vous pouvez consulter les résultats de l’évaluation des vulnérabilités directement à partir de Security Center.
-
-1. À partir de la barre latérale de Security Center, ouvrez la page **Recommendations** et sélectionnez la recommandation **Les vulnérabilités de vos serveurs SQL Server sur des machines doivent être corrigées (préversion)** . Pour plus d’informations, consultez [Recommandations de Security Center](security-center-recommendations.md). 
-
-    :::image type="content" source="./media/security-center-advanced-iaas-data/data-and-storage-sqldb-vulns-on-vm.png" alt-text="Les résultats de l’évaluation des vulnérabilités de vos serveurs SQL sur des machines doivent être corrigés (préversion)":::
-
-    L’affichage détaillé de cette recommandation s’affiche.
-
-    :::image type="content" source="./media/security-center-advanced-iaas-data/all-servers-view.png" alt-text="Vue détaillée de la suggestions":::
-
-1. À explorer pour plus de détails :
-
-    * Pour obtenir une vue d’ensemble des ressources analysées (bases de données) ainsi que la liste des vérifications de sécurité qui ont été testées, sélectionnez le serveur de votre choix.
-
-    * Pour obtenir une vue d’ensemble des vulnérabilités regroupées en fonction d’une base de données SQL spécifique, sélectionnez la base de données de votre choix.
-
-    Dans chaque affichage, les vérifications de sécurité sont triées par **Gravité**. Cliquez sur une vérification de sécurité spécifique pour afficher un volet d’informations contenant une **Description**, une méthode de **Correction** ainsi que d’autres informations associées, telles que l’**Impact** ou les **Références**.
 
 ## <a name="azure-defender-for-sql-alerts"></a>Azure Defender pour les alertes SQL
 Les alertes sont générées en cas de détection de tentatives d’accès ou d’exploitation inhabituelles et potentiellement dangereuses des machines SQL. Ces événements peuvent déclencher des alertes indiquées sur la [page de référence des alertes](alerts-reference.md#alerts-sql-db-and-warehouse).
