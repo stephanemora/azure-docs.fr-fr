@@ -4,19 +4,19 @@ description: Découvrez comment faire passer votre solution Azure IoT Edge du d�
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 07/10/2020
+ms.date: 03/01/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 7850763abe2ef40aea4ab3b97187d50f7060fa18
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 65710047d5d5d1cc6b835144f7778392fb20b797
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100388768"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102042264"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Préparer le déploiement en production d’une solution IoT Edge
 
@@ -38,14 +38,19 @@ Il existe de nombreux types d’appareils IoT Edge : un Raspberry Pi, un portabl
 
 ### <a name="install-production-certificates"></a>Installer les certificats de production
 
-Un certificat d’autorité de certification doit être installé sur chaque appareil IoT Edge en production. Il est ensuite déclaré auprès du runtime IoT Edge dans le fichier config.yaml. Pour faciliter les scénarios de développement et de test, le runtime IoT Edge crée des certificats temporaires si aucun certificat n’est déclaré dans le fichier config.yaml. Toutefois, ces certificats temporaires expirent au bout de trois mois et ne sont pas sécurisés pour les scénarios de production. Dans les scénarios de production, vous devez fournir votre propre certificat d’autorité de certification d’appareil, soit issu d’une autorité de certification auto-signée, soit acheté auprès d’une autorité de certification commerciale.
+Un certificat d’autorité de certification doit être installé sur chaque appareil IoT Edge en production. Ce certificat d’autorité de certification est ensuite déclaré au runtime IoT Edge dans le fichier config. Pour faciliter les scénarios de développement et de test, le runtime IoT Edge crée des certificats temporaires si aucun certificat n’est déclaré dans le fichier config. Toutefois, ces certificats temporaires expirent au bout de trois mois et ne sont pas sécurisés pour les scénarios de production. Dans les scénarios de production, vous devez fournir votre propre certificat d’autorité de certification d’appareil, soit issu d’une autorité de certification auto-signée, soit acheté auprès d’une autorité de certification commerciale.
+
+<!--1.1-->
+:::moniker range="iotedge-2018-06"
 
 > [!NOTE]
 > Il existe actuellement dans libiothsm une limitation empêchant l’utilisation de certificats qui expirent le 1er janvier 2038 ou après cette date.
 
+:::moniker-end
+
 Pour comprendre le rôle du certificat d’autorité de certification d’appareil, voir [Comment Azure IoT Edge utilise les certificats](iot-edge-certs.md).
 
-Pour savoir comment installer des certificats sur un appareil IoT Edge et y faire référence dans le fichier config.yaml, consultez [Gestion d’un certificat sur un appareil IoT Edge](how-to-manage-device-certificates.md).
+Pour savoir comment installer des certificats sur un appareil IoT Edge et y faire référence dans le fichier config, consultez [Gérer un certificat sur un appareil IoT Edge](how-to-manage-device-certificates.md).
 
 ### <a name="have-a-device-management-plan"></a>Élaborer un plan de gestion des appareils
 
@@ -54,10 +59,10 @@ Avant de mettre un appareil en production, il faut savoir comment gérer les mis
 * Microprogramme de l’appareil
 * Bibliothèques du système d’exploitation
 * Moteur de conteneur, comme Moby
-* Démon IoT Edge
+* IoT Edge
 * Certificats d’autorité de certification
 
-Pour plus d’informations, consultez [Mettre à jour le runtime IoT Edge](how-to-update-iot-edge.md). Les méthodes actuelles de mise à jour du démon IoT Edge exigent un accès physique ou SSH à l’appareil IoT Edge. Si vous avez de nombreux appareils à mettre à jour, vous pouvez ajouter les étapes de mise à jour à un script ou utiliser un outil d’automatisation comme Ansible.
+Pour plus d’informations, consultez [Mettre à jour le runtime IoT Edge](how-to-update-iot-edge.md). Les méthodes actuelles de mise à jour d’IoT Edge exigent un accès physique ou SSH à l’appareil IoT Edge. Si vous avez de nombreux appareils à mettre à jour, vous pouvez ajouter les étapes de mise à jour à un script ou utiliser un outil d’automatisation comme Ansible.
 
 ### <a name="use-moby-as-the-container-engine"></a>Utiliser Moby comme moteur de conteneur
 
@@ -74,7 +79,7 @@ Les modules runtime ont tous les deux une variable d’environnement **UpstreamP
 * MQTTWS
 * AMQPWS
 
-Configurez la variable UpstreamProtocol pour l’agent IoT Edge dans le fichier config.yaml sur l’appareil. Par exemple, si l’appareil IoT Edge se trouve derrière un serveur proxy qui bloque les ports AMQP, il peut se révéler nécessaire de configurer l’agent IoT Edge de façon à ce qu’il utilise AMQP sur WebSocket (AMQPWS) pour établir la connexion initiale à IoT Hub.
+Configurez la variable UpstreamProtocol pour l’agent IoT Edge dans le fichier config sur l’appareil. Par exemple, si l’appareil IoT Edge se trouve derrière un serveur proxy qui bloque les ports AMQP, il peut se révéler nécessaire de configurer l’agent IoT Edge de façon à ce qu’il utilise AMQP sur WebSocket (AMQPWS) pour établir la connexion initiale à IoT Hub.
 
 Une fois l’appareil IoT Edge connecté, poursuivez la configuration de la variable UpstreamProtocol pour les deux modules de runtime dans les déploiements à venir. Vous trouverez un exemple de ce processus dans [Configurer un appareil IoT Edge pour communiquer via un serveur proxy](how-to-configure-proxy-support.md).
 
@@ -203,7 +208,7 @@ Ensuite, veillez à mettre à jour les références d’image dans le fichier de
 
 ### <a name="review-outboundinbound-configuration"></a>Vérifier la configuration sortante/entrante
 
-Les canaux de communication entre Azure IoT Hub et IoT Edge sont toujours configurés pour être sortants. Dans la plupart des scénarios IoT Edge, seules trois connexions sont nécessaires. Une connexion doit être établie entre le moteur de conteneur et le ou les registres de conteneurs qui contiennent les images de module. Le runtime IoT Edge doit être connecté à IoT Hub pour récupérer des informations de configuration des appareils et envoyer des messages et des données de télémétrie. Enfin, si vous utilisez l’approvisionnement automatique, le démon IoT Edge doit se connecter au service Device Provisioning. Pour plus d’informations, voir [Règles de configuration du pare-feu et des ports](troubleshoot.md#check-your-firewall-and-port-configuration-rules).
+Les canaux de communication entre Azure IoT Hub et IoT Edge sont toujours configurés pour être sortants. Dans la plupart des scénarios IoT Edge, seules trois connexions sont nécessaires. Une connexion doit être établie entre le moteur de conteneur et le ou les registres de conteneurs qui contiennent les images de module. Le runtime IoT Edge doit être connecté à IoT Hub pour récupérer des informations de configuration des appareils et envoyer des messages et des données de télémétrie. Enfin, si vous utilisez l’approvisionnement automatique, IoT Edge doit se connecter au service d’approvisionnement d’appareil (Service IoT Hub Device Provisioning). Pour plus d’informations, voir [Règles de configuration du pare-feu et des ports](troubleshoot.md#check-your-firewall-and-port-configuration-rules).
 
 ### <a name="allow-connections-from-iot-edge-devices"></a>Autoriser les connexions à partir d’appareils IoT Edge
 
@@ -211,7 +216,7 @@ Si votre configuration réseau exige d’autoriser explicitement les connexions 
 
 * **L’agent IoT Edge** ouvre une connexion AMQP/MQTT persistante à IoT Hub, éventuellement sur WebSockets.
 * Le **hub IoT Edge** ouvre une seule connexion AMQP persistante ou plusieurs connexions MQTT à IoT Hub, éventuellement sur WebSockets.
-* Le **démon IoT Edge** effectue des appels HTTPS intermittents à IoT Hub.
+* Le **service IoT Edge** effectue des appels HTTPS intermittents au service IoT Hub.
 
 Dans les trois cas, le nom DNS respecte le modèle \*.azure-devices.net.
 
@@ -248,7 +253,28 @@ Si vos appareils sont destinés à être déployés sur un réseau qui utilise u
 
 ### <a name="set-up-logs-and-diagnostics"></a>Configurer les journaux d’activité et les diagnostics
 
-Sous Linux, le démon IoT Edge utilise des journaux comme pilote de journalisation par défaut. Vous pouvez vous servir de l’outil en ligne de commande `journalctl` pour interroger les journaux d’activité du démon. Sous Windows, le démon IoT Edge utilise les diagnostics PowerShell. Interrogez les journaux d’activité du démon avec `Get-IoTEdgeLog`. Les modules IoT Edge utilisent le pilote par défaut JSON pour la journalisation.  
+Sous Linux, le démon IoT Edge utilise des journaux comme pilote de journalisation par défaut. Vous pouvez vous servir de l’outil en ligne de commande `journalctl` pour interroger les journaux d’activité du démon.
+
+<!--1.2-->
+:::moniker range=">=iotedge-2020-11"
+
+Depuis la version 1.2, IoT Edge s’appuie sur plusieurs démons. Si les journaux de chaque démon peuvent être interrogés individuellement avec `journalctl`, les commandes `iotedge system` offrent un moyen pratique d’interroger les journaux combinés.
+
+* Commande `iotedge` consolidée :
+
+  ```bash
+  sudo iotedge system logs
+  ```
+
+* Commande `journalctl` équivalente :
+
+  ```bash
+  journalctl -u aziot-edge -u aziot-identityd -u aziot-keyd -u aziot-certd -u aziot-tpmd
+  ```
+
+:::moniker-end
+
+Sous Windows, le démon IoT Edge utilise les diagnostics PowerShell. Interrogez les journaux d’activité du démon avec `Get-IoTEdgeLog`. Les modules IoT Edge utilisent le pilote par défaut JSON pour la journalisation.  
 
 ```powershell
 . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog

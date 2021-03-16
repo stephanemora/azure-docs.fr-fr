@@ -7,16 +7,16 @@ author: tamram
 ms.service: storage
 ms.devlang: python
 ms.topic: how-to
-ms.date: 12/04/2019
+ms.date: 02/18/2021
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 511166e156591562b2120b58cc420f3fccd1d8c4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ffdfd4dc8a81587d757e3f9853f1bb34e0b93c0d
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96008926"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102043743"
 ---
 # <a name="client-side-encryption-with-python"></a>Chiffrement côté client avec Python
 
@@ -54,7 +54,7 @@ Le déchiffrement via la technique d’enveloppe fonctionne de la façon suivant
 La bibliothèque cliente du stockage utilise [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) pour chiffrer les données utilisateur. Plus précisément, le mode [CBC (Cipher Block Chaining)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) avec AES. Chaque service fonctionnant un peu différemment, nous allons les étudier un par un ici.
 
 ### <a name="blobs"></a>Objets blob
-La bibliothèque cliente prend actuellement en charge le chiffrement des objets blob entiers uniquement. Plus précisément, le chiffrement est pris en charge lorsque les utilisateurs utilisent les méthodes **create** _. Les téléchargements complets et les téléchargements de plages sont pris en charge, et la parallélisation du chargement et du téléchargement est disponible.
+La bibliothèque cliente prend actuellement en charge le chiffrement des objets blob entiers uniquement. Plus précisément, le chiffrement est pris en charge lorsque les utilisateurs utilisent les méthodes **create**\*. Les téléchargements complets et les téléchargements de plages sont pris en charge, et la parallélisation du chargement et du téléchargement est disponible.
 
 Au cours du chiffrement, la bibliothèque cliente génère un vecteur d’initialisation aléatoire (IV) de 16 octets avec une clé de chiffrement de contenu (CEK) aléatoire de 32 octets, puis effectue le chiffrement d’enveloppe des données d’objets blob à l’aide de ces informations. La clé de chiffrement de contenu encapsulée ainsi que des métadonnées de chiffrement supplémentaires sont ensuite stockées en tant que métadonnées d’objet blob en même temps que l’objet blob chiffré sur le service.
 
@@ -63,9 +63,9 @@ Au cours du chiffrement, la bibliothèque cliente génère un vecteur d’initia
 > 
 > 
 
-Le téléchargement d’un objet blob chiffré implique de récupérer le contenu de l’objet blob entier à l’aide des méthodes pratiques _*get**_ . La clé de chiffrement de contenu encapsulée est désencapsulée et utilisée en combinaison avec le vecteur d’initialisation (stocké en tant que métadonnées d’objet blob dans cet exemple) pour renvoyer les données déchiffrées aux utilisateurs.
+Le téléchargement d’un objet blob chiffré implique de récupérer le contenu de l’objet blob entier à l’aide des méthodes pratiques **get**\*. La clé de chiffrement de contenu encapsulée est désencapsulée et utilisée en combinaison avec le vecteur d’initialisation (stocké en tant que métadonnées d’objet blob dans cet exemple) pour renvoyer les données déchiffrées aux utilisateurs.
 
-Le téléchargement d’une plage arbitraire (méthodes _*get**_ avec paramètres de plage transmis) dans l’objet blob chiffré implique d’ajuster la plage fournie par les utilisateurs pour obtenir une petite quantité de données supplémentaires pouvant être utilisées pour déchiffrer la plage demandée.
+Le téléchargement d’une plage arbitraire (méthodes **get**\* avec paramètres de plage transmis) dans l’objet blob chiffré implique d’ajuster la plage fournie par les utilisateurs pour obtenir une petite quantité de données supplémentaires pouvant être utilisées pour déchiffrer la plage demandée.
 
 Les objets blob de blocs et les objets blob de pages peuvent être chiffrés/déchiffrés à l’aide de ce schéma. Il n’existe actuellement aucune prise en charge pour le chiffrement des objets blob d’ajout.
 
@@ -114,7 +114,7 @@ Notez que les entités sont chiffrées, car elles sont insérées dans le lot à
 > [!IMPORTANT]
 > Tenez compte des points importants suivants quand vous utilisez le chiffrement côté client :
 > 
-> _ Pendant la lecture d’un objet blob chiffré ou l’écriture dans un objet blob chiffré, utilisez les commandes de chargement d’objets entiers et de téléchargement d’objets blob entiers/par plage. N’écrivez pas dans un objet blob chiffré à l’aide d’opérations de protocole telles que Put Block, Put Block List, Write Pages ou Clear Pages au risque d’endommager l’objet blob chiffré et de le rendre illisible.
+> * Pendant la lecture d’un objet blob chiffré ou l’écriture dans un objet blob chiffré, utilisez les commandes de chargement d’objets entiers et de téléchargement d’objets blob entiers/par plage. N’écrivez pas dans un objet blob chiffré à l’aide d’opérations de protocole telles que Put Block, Put Block List, Write Pages ou Clear Pages au risque d’endommager l’objet blob chiffré et de le rendre illisible.
 > * Pour les tables, une contrainte similaire existe. Veillez à ne pas mettre à jour les propriétés chiffrées sans aussi mettre à jour les métadonnées de chiffrement.
 > * Si vous définissez des métadonnées sur l’objet blob chiffré, vous risquez de remplacer les métadonnées relatives au chiffrement et nécessaires au déchiffrement, car la définition des métadonnées n’est pas additive. Cela est également vrai pour les instantanés : évitez de spécifier des métadonnées lors de la création d’un instantané d’objet blob chiffré. Si des métadonnées doivent être définies, veillez à appeler d’abord la méthode **get_blob_metadata** pour obtenir les métadonnées de chiffrement actuelles et éviter des écritures simultanées pendant la définition des métadonnées.
 > * Activez l’indicateur **require_encryption** dans l’objet de service pour les utilisateurs qui doivent recourir uniquement à des données chiffrées. Pour plus d’informations, consultez la section ci-dessous.
@@ -150,6 +150,12 @@ Les utilisateurs peuvent éventuellement activer un mode de fonctionnement dans 
 ### <a name="blob-service-encryption"></a>Chiffrement du service BLOB
 Définissez les champs de stratégie de chiffrement sur l’objet blockblobservice. Tout le reste est géré par la bibliothèque cliente en interne.
 
+# <a name="python-v12"></a>[Python v12](#tab/python)
+
+Nous travaillons actuellement à la création d’extraits de code reflétant la version 12.x des bibliothèques de client du service Stockage Azure. Pour plus d’informations, consultez [Annonce des bibliothèques de client v12 du service Stockage Azure](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+
+# <a name="python-v21"></a>[Python v2.1](#tab/python2)
+
 ```python
 # Create the KEK used for encryption.
 # KeyWrapper is the provided sample implementation, but the user may use their own object as long as it implements the interface above.
@@ -171,9 +177,16 @@ my_block_blob_service.create_blob_from_stream(
 # Download and decrypt the encrypted contents from the blob.
 blob = my_block_blob_service.get_blob_to_bytes(container_name, blob_name)
 ```
+---
 
 ### <a name="queue-service-encryption"></a>Chiffrement du service de File d’attente
 Définissez les champs de stratégie de chiffrement sur l’objet queueservice. Tout le reste est géré par la bibliothèque cliente en interne.
+
+# <a name="python-v12"></a>[Python v12](#tab/python)
+
+Nous travaillons actuellement à la création d’extraits de code reflétant la version 12.x des bibliothèques de client du service Stockage Azure. Pour plus d’informations, consultez [Annonce des bibliothèques de client v12 du service Stockage Azure](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+
+# <a name="python-v21"></a>[Python v2.1](#tab/python2)
 
 ```python
 # Create the KEK used for encryption.
@@ -195,11 +208,18 @@ my_queue_service.put_message(queue_name, content)
 # Retrieve message
 retrieved_message_list = my_queue_service.get_messages(queue_name)
 ```
+---
 
 ### <a name="table-service-encryption"></a>Chiffrement du service de Table
 En plus de créer une stratégie de chiffrement et de la définir dans les options de requête, vous devez spécifier une **encryption_resolver_function** dans le **tableservice** ou définir l’attribut de chiffrement sur EntityProperty.
 
 ### <a name="using-the-resolver"></a>Utilisation du programme de résolution
+
+# <a name="python-v12"></a>[Python v12](#tab/python)
+
+Nous travaillons actuellement à la création d’extraits de code reflétant la version 12.x des bibliothèques de client du service Stockage Azure. Pour plus d’informations, consultez [Annonce des bibliothèques de client v12 du service Stockage Azure](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+
+# <a name="python-v21"></a>[Python v2.1](#tab/python2)
 
 ```python
 # Create the KEK used for encryption.
@@ -233,13 +253,21 @@ my_table_service.insert_entity(table_name, entity)
 my_table_service.get_entity(
     table_name, entity['PartitionKey'], entity['RowKey'])
 ```
+---
 
 ### <a name="using-attributes"></a>Utilisation des attributs
 Comme mentionné ci-dessus, une propriété peut être marquée pour le chiffrement en la stockant dans un objet EntityProperty et en définissant le champ de chiffrement.
 
+# <a name="python-v12"></a>[Python v12](#tab/python)
+
+Nous travaillons actuellement à la création d’extraits de code reflétant la version 12.x des bibliothèques de client du service Stockage Azure. Pour plus d’informations, consultez [Annonce des bibliothèques de client v12 du service Stockage Azure](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+
+# <a name="python-v21"></a>[Python v2.1](#tab/python2)
+
 ```python
 encrypted_property_1 = EntityProperty(EdmType.STRING, value, encrypt=True)
 ```
+---
 
 ## <a name="encryption-and-performance"></a>Chiffrement et performances
 Notez que le chiffrement de vos données de stockage affecte les performances. La clé de contenu et le vecteur d’initialisation doivent être générés, le contenu proprement dit doit être chiffré et des métadonnées supplémentaires doivent être mises en forme et chargées. Cette surcharge varie selon la quantité de données chiffrées. Nous recommandons de tester systématiquement les performances des applications au cours du développement.

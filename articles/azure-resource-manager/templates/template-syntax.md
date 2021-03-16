@@ -2,13 +2,13 @@
 title: Structure et syntaxe des modèles
 description: Décrit la structure et les propriétés des modèles Azure Resource Manager (modèles ARM) à l’aide de la syntaxe JSON déclarative.
 ms.topic: conceptual
-ms.date: 12/17/2020
-ms.openlocfilehash: 31576c72fb845677f132fd9cd6ee776db922d436
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/03/2021
+ms.openlocfilehash: da64eb8abeaf45f58933dfbddaf954cad8e66f4a
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101722702"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102120414"
 ---
 # <a name="understand-the-structure-and-syntax-of-arm-templates"></a>Comprendre la structure et la syntaxe des modèles ARM
 
@@ -46,62 +46,6 @@ Dans sa structure la plus simple, un modèle a les éléments suivants :
 
 Chaque élément a des propriétés que vous pouvez définir. Cet article décrit les sections du modèle de manière plus approfondie.
 
-## <a name="data-types"></a>Types de données
-
-Dans un modèle ARM, vous pouvez utiliser les types de données suivants :
-
-* string
-* securestring
-* int
-* bool
-* objet
-* secureObject
-* tableau
-
-Le modèle suivant montre le format des types de données. Chaque type a une valeur par défaut au format approprié.
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "stringParameter": {
-      "type": "string",
-      "defaultValue": "option 1"
-    },
-    "intParameter": {
-      "type": "int",
-      "defaultValue": 1
-    },
-    "boolParameter": {
-      "type": "bool",
-      "defaultValue": true
-    },
-    "objectParameter": {
-      "type": "object",
-      "defaultValue": {
-        "one": "a",
-        "two": "b"
-      }
-    },
-    "arrayParameter": {
-      "type": "array",
-      "defaultValue": [ 1, 2, 3 ]
-    }
-  },
-  "resources": [],
-  "outputs": {}
-}
-```
-
-La chaîne sécurisée utilise le même format que la chaîne, et l’objet sécurisé utilise le même format que l’objet. Lorsque vous définissez un paramètre sur une chaîne sécurisée ou un objet sécurisé, la valeur du paramètre n’est pas enregistrée dans l’historique de déploiement et n’est pas consignée. Toutefois, si vous définissez cette valeur sécurisée sur une propriété qui n’attend pas une valeur sécurisée, la valeur n’est pas protégée. Par exemple, si vous définissez une chaîne sécurisée sur une balise, cette valeur est stockée sous forme de texte brut. Utilisez des chaînes sécurisées pour les mots de passe et les secrets.
-
-Pour les entiers passés comme paramètres inclus, la plage de valeurs peut être limitée par le SDK ou l’outil en ligne de commande que vous utilisez pour le déploiement. Par exemple, si vous utilisez PowerShell pour déployer un modèle, les types d’entiers peuvent être compris entre -2147483648 et 2147483647. Pour éviter cette limite, spécifiez des valeurs entières élevées dans un [fichier de paramètres](parameter-files.md). Les types de ressources appliquent leurs propres limites aux propriétés d’entiers.
-
-Quand vous spécifiez des valeurs booléennes et des valeurs entières dans votre modèle, ne les placez pas entre guillemets. Placez les valeurs de chaîne entre guillemets doubles (`"string value"`).
-
-Les objets commencent par une accolade ouvrante (`{`) et se terminent par une accolade fermante (`}`). Les tableaux commencent par un crochet ouvrant (`[`) et se terminent par un crochet fermant (`]`).
-
 ## <a name="parameters"></a>Paramètres
 
 Dans la section `parameters` du modèle, vous spécifiez les valeurs que vous pouvez saisir lors du déploiement des ressources. Vous êtes limité à 256 paramètres dans un modèle. Vous pouvez réduire le nombre de paramètres en utilisant des objets contenant plusieurs propriétés.
@@ -128,7 +72,7 @@ Les propriétés disponibles pour un paramètre sont :
 | Nom de l'élément | Obligatoire | Description |
 |:--- |:--- |:--- |
 | parameter-name |Oui |Nom du paramètre. Doit être un identificateur JavaScript valide. |
-| type |Oui |Type de la valeur du paramètre. Les types et valeurs autorisés sont : **string**, **secureString**, **int**, **bool**, **object**, **secureObject** et **array**. Consultez [Types de données](#data-types). |
+| type |Oui |Type de la valeur du paramètre. Les types et valeurs autorisés sont : **string**, **secureString**, **int**, **bool**, **object**, **secureObject** et **array**. Consultez [Types de données dans les modèles ARM](data-types.md). |
 | defaultValue |Non |Valeur par défaut du paramètre, si aucune valeur n'est fournie pour le paramètre. |
 | allowedValues |Non |Tableau des valeurs autorisées pour le paramètre afin de vous assurer que la bonne valeur a bien été fournie. |
 | minValue |Non |Valeur minimale pour les paramètres de type int, cette valeur est inclusive. |
@@ -141,7 +85,7 @@ Pour obtenir des exemples d’utilisation des paramètres, consultez [Paramètre
 
 ## <a name="variables"></a>Variables
 
-Dans la section `variables`, vous définissez les valeurs qui peuvent être utilisées dans votre modèle. Vous n’êtes pas obligé de définir des variables, mais elles simplifient souvent votre modèle en réduisant les expressions complexes. Le format de chaque variable correspond à l’un des [types de données](#data-types).
+Dans la section `variables`, vous définissez les valeurs qui peuvent être utilisées dans votre modèle. Vous n’êtes pas obligé de définir des variables, mais elles simplifient souvent votre modèle en réduisant les expressions complexes. Le format de chaque variable correspond à l’un des [types de données](data-types.md).
 
 L’exemple suivant montre les options disponibles pour la définition d’une variable :
 

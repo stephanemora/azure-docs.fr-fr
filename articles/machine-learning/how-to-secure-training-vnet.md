@@ -11,12 +11,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 07/16/2020
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1
-ms.openlocfilehash: 9a937336e1628add54ab5f52cdd6ef475d463f7d
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 2b264da06cf5088da07ec91cfa40c4babfde4c38
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100515986"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102219061"
 ---
 # <a name="secure-an-azure-machine-learning-training-environment-with-virtual-networks"></a>Sécuriser un environnement d’entraînement Azure Machine Learning à l’aide de réseaux virtuels
 
@@ -74,7 +74,7 @@ Pour utiliser une [__cible de calcul__ Azure Machine Learning gérée](concept-c
 > * Un seul équilibreur de charge
 > 
 > Dans le cas de clusters, ces ressources sont supprimées (et recréées) chaque fois que le cluster n’a plus aucun nœud. Toutefois, pour une instance, les ressources sont conservées jusqu’à ce que l’instance soit complètement supprimée (l’arrêt ne supprime pas les ressources). 
-> Ces ressources sont limitées par les [quotas de ressources](../azure-resource-manager/management/azure-subscription-service-limits.md) de l’abonnement. Si le groupe de ressources du réseau virtuel est verrouillé, la suppression de l’instance/du cluster de calcul échoue. L’équilibreur de charge ne peut pas être supprimé tant que l’instance/le cluster de calcul n’a pas été supprimé.
+> Ces ressources sont limitées par les [quotas de ressources](../azure-resource-manager/management/azure-subscription-service-limits.md) de l’abonnement. Si le groupe de ressources du réseau virtuel est verrouillé, la suppression de l’instance/du cluster de calcul échoue. L’équilibreur de charge ne peut pas être supprimé tant que l’instance/le cluster de calcul n’a pas été supprimé. Vérifiez également qu’aucune stratégie Azure n’interdit la création de groupes de sécurité réseau.
 
 
 ### <a name="required-ports"></a><a id="mlcports"></a> Ports requis
@@ -83,7 +83,7 @@ Si vous envisagez de sécuriser le réseau virtuel en restreignant le trafic ré
 
 Le service Batch ajoute des groupes de sécurité réseau (NSG) au niveau des interfaces réseau (NIC) qui sont attachées aux machines virtuelles. Ces groupes de sécurité réseau configurent automatiquement des règles de trafic entrant et sortant pour autoriser le trafic suivant :
 
-- Trafic TCP entrant sur les ports 29876 et 29877 à partir d’une __balise de service__ de __BatchNodeManagement__.
+- Trafic TCP entrant sur les ports 29876 et 29877 à partir d’une __balise de service__ de __BatchNodeManagement__. Le trafic sur ces ports est chiffré et utilisé par Azure Batch pour la communication entre le planificateur et le nœud.
 
     ![Règle de trafic entrant qui utilise la balise de service BatchNodeManagement](./media/how-to-enable-virtual-network/batchnodemanagement-service-tag.png)
 
@@ -93,7 +93,7 @@ Le service Batch ajoute des groupes de sécurité réseau (NSG) au niveau des in
 
 - Le trafic sortant sur n’importe quel port vers internet.
 
-- Le trafic TCP entrant de l’instance de calcul sur le port 44224 à partir d’une __Balise de service__ __AzureMachineLearning__.
+- Le trafic TCP entrant de l’instance de calcul sur le port 44224 à partir d’une __Balise de service__ __AzureMachineLearning__. Le trafic sur ce port est chiffré et utilisé par Azure Machine Learning pour la communication avec les applications qui s’exécutent sur des instances de calcul.
 
 > [!IMPORTANT]
 > Soyez prudent si vous modifiez ou ajoutez des règles de trafic entrant ou sortant dans des groupes de sécurité réseau configurés par Batch. Si un groupe de sécurité réseau bloque la communication vers les nœuds de calcul, le service Capacité de calcul définit l’état de ces nœuds sur « inutilisable ».
@@ -171,7 +171,7 @@ Pour ce faire, il y a deux manières de procéder :
 
     * Téléchargez les [plages d’adresses IP Azure et les balises de service](https://www.microsoft.com/download/details.aspx?id=56519), et recherchez `BatchNodeManagement.<region>` et `AzureMachineLearning.<region>` dans le fichier, où `<region>` est votre région Azure.
 
-    * Utilisez [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest) pour télécharger les informations. L’exemple suivant télécharge les informations d’adresse IP et filtre les informations pour la région USA Est 2 (primaire) et la région USA Centre (secondaire) :
+    * Utilisez [Azure CLI](/cli/azure/install-azure-cli) pour télécharger les informations. L’exemple suivant télécharge les informations d’adresse IP et filtre les informations pour la région USA Est 2 (primaire) et la région USA Centre (secondaire) :
 
         ```azurecli-interactive
         az network list-service-tags -l "East US 2" --query "values[?starts_with(id, 'Batch')] | [?properties.region=='eastus2']"
@@ -321,9 +321,9 @@ Attachez la machine virtuelle ou le cluster HDInsight à votre espace de travail
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Cet article est le troisième d’une série en quatre parties sur les réseaux virtuels. Consultez les autres articles pour découvrir comment sécuriser un réseau virtuel :
+Cet article est le troisième volet d’une série de cinq articles sur les réseaux virtuels. Consultez les autres articles pour découvrir comment sécuriser un réseau virtuel :
 
 * [Partie 1 : Vue d’ensemble des réseaux virtuels](how-to-network-security-overview.md)
 * [Partie 2 : Sécuriser les ressources d’espace de travail](how-to-secure-workspace-vnet.md)
 * [Partie 4 : Sécuriser l’environnement d’inférence](how-to-secure-inferencing-vnet.md)
-* [Partie 5 : Activer la fonctionnalité Studio](how-to-enable-studio-virtual-network.md)
+* [Partie 5 : Activer la caractéristique studio](how-to-enable-studio-virtual-network.md)

@@ -8,12 +8,13 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/18/2020
-ms.openlocfilehash: 09e7a39a2d97626dd01a00fdaef9bc4d711d557b
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.custom: references_regions
+ms.openlocfilehash: 22d7c1bbe03d8b3c0e3b6026c9bac039f0651548
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91828099"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102037249"
 ---
 # <a name="ai-enrichment-in-azure-cognitive-search"></a>Enrichissement de l’IA dans Recherche cognitive Azure
 
@@ -32,6 +33,17 @@ Les compétences intégrées se répartissent en fonction des catégories suivan
 Les compétences intégrées de la Recherche cognitive Azure sont basées sur les modèles Machine Learning préentraînés des API Cognitive Services : [Vision par ordinateur](../cognitive-services/computer-vision/index.yml) et [Analyse de texte](../cognitive-services/text-analytics/overview.md). Vous pouvez attacher une ressource Cognitive Services si vous souhaitez tirer parti de ces ressources lors du traitement du contenu.
 
 Le traitement en langage naturel et le traitement des images sont appliqués durant la phase d’ingestion des données. Les résultats sont intégrés à la composition d’un document au sein d’un index pouvant faire l’objet de recherches dans la Recherche cognitive Azure. Les données sont fournies en tant que jeu de données Azure, puis transmises via un pipeline d’indexation à l’aide des [compétences intégrées](cognitive-search-predefined-skills.md) dont vous avez besoin.  
+
+## <a name="feature-availability"></a>Disponibilité des fonctionnalités
+
+L’enrichissement par IA est disponible dans les régions où les Cognitive Services Azure sont également disponibles.  Vous pouvez vérifier la disponibilité actuelle de l’enrichissement par IA sur la page [Produits Azure disponibles par région](https://azure.microsoft.com/global-infrastructure/services/?products=search).  L’enrichissement par IA est disponible dans toutes les régions prises en charge, à l’exception des suivantes :
+
++ Sud-Australie Est
++ Chine Nord 2
++ Norvège Est
++ Allemagne Centre-Ouest
+
+Si votre service de recherche se trouve dans l’une de ces régions, vous ne serez pas en mesure de créer et d’utiliser des ensembles de compétences, mais toutes les autres fonctionnalités du service de recherche sont disponibles et entièrement prises en charge.
 
 ## <a name="when-to-use-ai-enrichment"></a>Quand utiliser l’enrichissement par IA
 

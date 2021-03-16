@@ -8,14 +8,14 @@ metadata:
   manager: nitinme
   ms.service: cognitive-services
   ms.topic: conceptual
-  ms.date: 02/04/2021
+  ms.date: 03/02/2021
   ms.author: aahi
-  ms.openlocfilehash: 3f51bc00d4df0723a40ff97847a14cba3e939e9d
-  ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+  ms.openlocfilehash: 2adab9ab076a23260656f973e959bb14314ae8c1
+  ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 02/14/2021
-  ms.locfileid: "100473456"
+  ms.lasthandoff: 03/04/2021
+  ms.locfileid: "102035472"
 title: Questions fréquentes (FAQ) sur les conteneurs Azure Cognitive Services
 summary: ''
 sections:
@@ -111,28 +111,7 @@ sections:
         * [Azure Cognitive Services](https://stackoverflow.com/questions/tagged/azure-cognitive-services)
         * [Microsoft Cognitive](https://stackoverflow.com/questions/tagged/microsoft-cognitive)
   - question: Comment fonctionne la facturation ?
-    answer: >
-      Comme dans le cloud Cognitive Services, les clients sont facturés en fonction de la consommation. Les conteneurs doivent être configurés pour envoyer des données de contrôle à Azure, et les transactions seront facturées en conséquence. Les ressources utilisées dans les services hébergés et locaux seront ajoutées à un quota unique avec des tarifs à plusieurs niveaux pour chaque utilisation. Pour plus d’informations, reportez-vous à la page des tarifs de l’offre correspondante.
-
-
-      * [Détecteur d’anomalies](../anomaly-Detector/anomaly-detector-container-howto.md#billing)
-
-      * [Vision par ordinateur](../computer-vision/computer-vision-how-to-install-containers.md#billing)
-
-      * [Visage](../face/face-how-to-install-containers.md#billing)
-
-      * [Form Recognizer](../form-recognizer/form-recognizer-container-howto.md#billing)
-
-      * [Language Understanding (LUIS)](../luis/luis-container-howto.md#billing)
-
-      * [API Speech Service](../speech-service/speech-container-howto.md#billing)
-
-      * [Analyse de texte](../text-analytics/how-tos/text-analytics-how-to-install-containers.md#billing)
-
-
-      > [!IMPORTANT]
-
-      > Les conteneurs Cognitives Services ne sont pas concédés sous licence pour s’exécuter sans être connectés à Azure pour le contrôle. Les clients doivent configurer les conteneurs de manière à ce qu’ils communiquent les informations de facturation au service de contrôle à tout moment. Les conteneurs Cognitive Services n’envoient pas de données client à Microsoft.
+    answer: "Comme dans le cloud Cognitive Services, les clients sont facturés en fonction de la consommation. Les conteneurs doivent être configurés pour envoyer des données de contrôle à Azure, et les transactions seront facturées en conséquence. Les ressources utilisées dans les services hébergés et locaux seront ajoutées à un quota unique avec des tarifs à plusieurs niveaux pour chaque utilisation. Pour plus d’informations, reportez-vous à la page des tarifs de l’offre correspondante.\n\n* [Détecteur d’anomalies](../anomaly-Detector/anomaly-detector-container-howto.md#billing)\n* [Vision par ordinateur](../computer-vision/computer-vision-how-to-install-containers.md#billing)\n* [Visage](../face/face-how-to-install-containers.md#billing)\n* [Form Recognizer](../form-recognizer/form-recognizer-container-howto.md#billing)\n* [Language Understanding (LUIS)](../luis/luis-container-howto.md#billing)\n* [API Speech Service](../speech-service/speech-container-howto.md#billing)\n* [Analyse de texte](../text-analytics/how-tos/text-analytics-how-to-install-containers.md#billing)\n\n> [!IMPORTANT]\n> Les conteneurs Cognitives Services ne sont pas concédés sous licence pour s’exécuter sans être connectés à Azure pour le contrôle. Les clients doivent configurer les conteneurs de manière à ce qu’ils communiquent les informations de facturation uniquement au service de contrôle à tout moment. Les conteneurs Cognitive Services n’envoient pas de données client à Microsoft.\n\nVoici un exemple d’informations que le conteneur communique pour le contrôle :\n\n\n```json \n\"usageRequestBody\": {\n  \"id\": \"customer_subscriptionID\",\n  \"apiType\": \"textanalytics\",\n  \"containerType\": \"keyphrase\",\n  \"containerVersion\": \"1.1.00864.0001\",\n  \"containerId\": \"dep--keyphrase-\",\n  \"meter\": {\n    \"name\": \"CognitiveServices.TextAnalytics.Container.BatchScoring\",\n    \"quantity\": 10.0\n  }\n  ```\n"
   - question: Quelle est la garantie actuelle en matière de prise en charge des conteneurs ?
     answer: >
       Les préversions ne bénéficient d’aucune garantie. La garantie standard de Microsoft pour les logiciels d’entreprise s’appliquera une fois les conteneurs formellement annoncés comme étant en disponibilité générale.
