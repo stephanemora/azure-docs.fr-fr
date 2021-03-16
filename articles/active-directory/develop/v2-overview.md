@@ -13,12 +13,12 @@ ms.date: 07/09/2020
 ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: identityplatformtop40, contperf-fy21q2
-ms.openlocfilehash: 662523b1544fe3ca9e8bda993efa7b578b9f69cc
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: a4ce8242bd3110fee038ac826973e6a134413344
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98752576"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102426839"
 ---
 # <a name="what-is-the-microsoft-identity-platform"></a>Présentation de la plateforme d’identités Microsoft
 
@@ -38,6 +38,8 @@ Plusieurs composants constitue la plateforme d’identités Microsoft :
 Pour les développeurs, la plateforme d’identités Microsoft offre l’intégration d’innovations modernes dans l’espace d’identité et de sécurité, telles que l’authentification sans mot de passe, l’authentification renforcée et l’accès conditionnel. Vous n’avez pas besoin d’implémenter ces fonctionnalités vous-même : les applications intégrées à la plateforme d’identités Microsoft tirent parti de ces innovations de manière native.
 
 Avec la plateforme d’identités Microsoft, vous pouvez écrire du code une seule fois et atteindre tous les utilisateurs. Vous pouvez générer une application une seule fois et la faire fonctionner dans de nombreuses plateformes, ou générer une application qui fonctionne en tant que client et aussi qu’application de ressource (API).
+
+Pour une vidéo de présentation de la plateforme et une démonstration de l’expérience d’authentification, consultez [What is the Microsoft identity platform for developers?](https://youtu.be/uDU1QTSw7Ps).
 
 ## <a name="getting-started"></a>Prise en main
 

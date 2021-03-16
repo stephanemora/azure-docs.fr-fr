@@ -1,19 +1,19 @@
 ---
-title: Fichier include
+title: Fichier Include
 description: Fichier include
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 02/05/2021
+ms.date: 03/05/2021
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: d275f2f4cad83c8f378c471e5a3fa1313d6c0e7d
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: b7f79bebce5a086b268f4fc1080c33517555fb39
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99624865"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102431536"
 ---
 ### <a name="is-azure-virtual-wan-in-ga"></a>Azure Virtual WAN est-il en disponibilité générale ?
 
@@ -93,7 +93,7 @@ Il existe deux options pour ajouter des serveurs DNS pour les clients P2S. La pr
 
 ### <a name="for-user-vpn-point-to-site--how-many-clients-are-supported"></a>Pour un VPN utilisateur (point à site), combien de clients sont pris en charge ?
 
-Chaque passerelle P2S VPN utilisateur compte deux instances, chacune d’elles prenant en charge un certain nombre d’utilisateurs à mesure que l’unité d’échelle change. L’unité d’échelle 1-3 prend en charge 500 connexions, l’unité d’échelle 4-6 1 000 connexions, l’unité d’échelle 7-12 5 000 connexions et l’unité d’échelle 13-18 jusqu’à 10 000 connexions.
+Chaque passerelle P2S de VPN utilisateur a deux instances. Chaque instance prend en charge jusqu’à un certain nombre de connexions à mesure que l’unité d’échelle change. L’unité d’échelle 1-3 prend en charge 500 connexions, l’unité d’échelle 4-6 1 000 connexions, l’unité d’échelle 7-12 5 000 connexions et l’unité d’échelle 13-18 jusqu’à 10 000 connexions.
 
 Supposons que l’utilisateur choisisse l’unité d’échelle 1. Chaque unité d’échelle implique le déploiement d’une passerelle active-active et chacune des instances (dans ce cas, 2) prend en charge jusqu’à 500 connexions. Comme vous pouvez obtenir 500 connexions * 2 par passerelle, cela ne signifie pas que vous planifiez 1 000 au lieu de 500 pour cette unité d’échelle. Il peut être nécessaire de traiter les instances. Au cours de cette opération, la connectivité pour les 500 supplémentaires peut être interrompue si vous avez dépassé le nombre de connexions recommandé. En outre, veillez à planifier les temps d’arrêt au cas où vous décideriez d’effectuer un scale-up ou un scale-down dans l’unité d’échelle, ou de modifier la configuration de point à site sur la passerelle VPN.
 
@@ -125,7 +125,7 @@ Non. Vous pouvez utiliser n’importe quel appareil prenant en charge les VPN et
 
 ### <a name="how-do-virtual-wan-partners-automate-connectivity-with-azure-virtual-wan"></a>Comment les partenaires WAN virtuel automatisent-ils la connectivité avec le WAN virtuel Azure ?
 
-Les solutions de connectivité à définition logicielle gèrent généralement leurs appareils de branche à l’aide d’un contrôleur ou un centre de provisionnement des appareils. Le contrôleur peut utiliser des API Azure pour automatiser la connectivité au WAN virtuel Azure. L’automatisation comprend le chargement des informations de branche, le téléchargement de la configuration Azure, la configuration de tunnels IPSec dans des hubs virtuels Azure et la configuration automatique de la connectivité à l’appareil de branche à Azure Virtual WAN. Lorsque vous avez des centaines de branches, la connexion à l’aide de partenaires CPE Virtual WAN est simple, car l’expérience d’intégration n’a plus besoin de configurer et de gérer une connectivité IPsec à grande échelle. Pour plus d’informations, consultez [Virtual WAN partner automation](../articles/virtual-wan/virtual-wan-configure-automation-providers.md) (Automation de partenaire WAN virtuel).
+Les solutions de connectivité à définition logicielle gèrent généralement leurs appareils de branche à l’aide d’un contrôleur ou un centre de provisionnement des appareils. Le contrôleur peut utiliser des API Azure pour automatiser la connectivité au WAN virtuel Azure. L’automatisation comprend le chargement des informations de branche, le téléchargement de la configuration Azure, la configuration de tunnels IPsec dans des hubs virtuels Azure et la configuration automatique de la connectivité de l’appareil de branche à Azure Virtual WAN. Lorsque vous avez des centaines de branches, la connexion à l’aide de partenaires CPE Virtual WAN est simple, car l’expérience d’intégration n’a plus besoin de configurer et de gérer une connectivité IPsec à grande échelle. Pour plus d’informations, consultez [Virtual WAN partner automation](../articles/virtual-wan/virtual-wan-configure-automation-providers.md) (Automation de partenaire WAN virtuel).
 
 ### <a name="what-if-a-device-i-am-using-is-not-in-the-virtual-wan-partner-list-can-i-still-use-it-to-connect-to-azure-virtual-wan-vpn"></a>Que se passe-t-il si j’utilise un appareil qui n’est pas dans la liste des partenaires Virtual WAN ? Puis-je toujours l’utiliser pour me connecter au VPN Azure Virtual WAN ?
 
@@ -133,7 +133,7 @@ Oui, si l’appareil prend en charge IPsec IKEv1 ou IKEv2. Les partenaires Virtu
 
 ### <a name="how-do-new-partners-that-are-not-listed-in-your-launch-partner-list-get-onboarded"></a>Comment les nouveaux partenaires qui ne figurent pas dans votre liste de partenaires de lancement sont-ils intégrés ?
 
-Toutes les API de réseau étendu virtuel sont des API ouvertes. Vous pouvez consulter la documentation [Automatisation des partenaires Virtual WAN](../articles/virtual-wan/virtual-wan-configure-automation-providers.md) pour évaluer la faisabilité technique. Un partenaire idéal dispose d’un appareil qui peut être approvisionné pour une connectivité IPsec IKEv1 ou IKEv2. Une fois que l’entreprise a terminé le travail d’automatisation pour son appareil CPE en fonction des instructions d’automatisation fournies ci-dessus, vous pouvez accéder à azurevirtualwan@microsoft.com pour être listé ici [Connectivité via les partenaires]( ../articles/virtual-wan/virtual-wan-locations-partners.md#partners). Si, comme client, vous souhaitez qu’une certaine solution d’entreprise soit listée comme partenaire Virtual WAN, demandez à l’entreprise de contacter le réseau Virtual WAN en envoyant un e-mail à azurevirtualwan@microsoft.com.
+Toutes les API de réseau étendu virtuel sont des API ouvertes. Vous pouvez consulter la documentation [Automatisation des partenaires Virtual WAN](../articles/virtual-wan/virtual-wan-configure-automation-providers.md) pour évaluer la faisabilité technique. Un partenaire idéal dispose d’un appareil qui peut être approvisionné pour une connectivité IPsec IKEv1 ou IKEv2. Une fois que l’entreprise a terminé le travail d’automatisation pour son appareil CPE en fonction des instructions d’automatisation fournies ci-dessus, vous pouvez accéder à azurevirtualwan@microsoft.com pour être listé ici [Connectivité via les partenaires]( ../articles/virtual-wan/virtual-wan-locations-partners.md#partners). Si, comme client, vous souhaitez qu’une certaine solution d’entreprise soit listée comme partenaire Virtual WAN, demandez à l’entreprise de contacter Virtual WAN en envoyant un e-mail à azurevirtualwan@microsoft.com.
 
 ### <a name="how-is-virtual-wan-supporting-sd-wan-devices"></a>Comment Virtual WAN prend en charge les appareils SD-WAN ?
 
@@ -149,7 +149,7 @@ Une connexion à partir d’un appareil VPN ou de branche dans Azure Virtual WAN
 
 ### <a name="what-happens-if-the-on-premises-vpn-device-only-has-1-tunnel-to-an-azure-virtual-wan-vpn-gateway"></a>Que se passe-t-il si le périphérique VPN local n’a qu’un seul tunnel vers une passerelle VPN Azure Virtual WAN ?
 
-Une connexion Azure Virtual WAN est composée de 2 tunnels. Une passerelle VPN Virtual WAN est déployée sur un hub virtuel en mode actif-actif, ce qui implique l’existence de tunnels distincts partant des appareils locaux et qui se terminent sur des instances distinctes. Cette recommandation s’adresse à tous les utilisateurs. Toutefois, si l’utilisateur choisit de n’avoir qu’un seul tunnel vers l’une des instances de passerelle VPN Virtual WAN, et si pour une raison quelconque (maintenance, application de correctifs, etc.), l’instance de passerelle doit être mise hors connexion, le tunnel est déplacé vers la deuxième instance active et l’utilisateur peut être amené à se reconnecter. Les sessions BGP ne sont pas déplacées d’une instance à l’autre.
+Une connexion Azure Virtual WAN est composée de 2 tunnels. Une passerelle VPN Virtual WAN est déployée sur un hub virtuel en mode actif-actif, ce qui implique l’existence de tunnels distincts partant des appareils locaux et qui se terminent sur des instances distinctes. Cette recommandation s’adresse à tous les utilisateurs. Cependant, si l’utilisateur choisit de n’avoir qu’un seul tunnel vers une des instances de passerelle VPN Virtual WAN, et si pour une raison quelconque (maintenance, application de correctifs, etc.), l’instance de passerelle est placée hors connexion, le tunnel est déplacé vers la deuxième instance active et l’utilisateur peut être amené à se reconnecter. Les sessions BGP ne sont pas déplacées d’une instance à l’autre.
 
 ### <a name="can-the-on-premises-vpn-device-connect-to-multiple-hubs"></a>L’appareil VPN local peut-il se connecter à plusieurs hubs ?
 
@@ -213,7 +213,7 @@ Le débit VPN total maximal d’un hub est de 20 Gbit/s, en fonction de l’uni
 
 ### <a name="can-i-use-nat-t-on-my-vpn-connections"></a>Puis-je utiliser NAT-T sur mes connexions VPN ?
 
-Oui, NAT Traversal (NAT-T) est pris en charge. La passerelle VPN Virtual WAN n’assure AUCUNE fonctionnalité de type NAT sur les paquets internes vers/à partir des tunnels IPsec. Dans cette configuration, vérifiez que l’appareil local initie le tunnel IPSec.
+Oui, NAT Traversal (NAT-T) est pris en charge. La passerelle VPN Virtual WAN n’assure AUCUNE fonctionnalité de type NAT sur les paquets internes vers/à partir des tunnels IPsec. Dans cette configuration, vérifiez que l’appareil local lance le tunnel IPsec.
 
 ### <a name="i-dont-see-the-20-gbps-setting-for-the-virtual-hub-in-portal-how-do-i-configure-that"></a>Je ne vois pas le paramètre 20 Gbit/s pour le hub virtuel dans le portail. Comment le configurer ?
 
@@ -302,3 +302,7 @@ Non. Virtual WAN ne stocke pas de données client.
 ### <a name="are-there-any-managed-service-providers-that-can-manage-virtual-wan-for-users-as-a-service"></a>Existe-t-il des fournisseurs de services managés capables de gérer Virtual WAN pour les utilisateurs en tant que service ?
 
 Oui. Pour obtenir la liste des solutions de fournisseurs de services managés (MSP) activées via la Place de marché Azure, consultez [Offres de la Place de marché Azure par les partenaires MSP de mise en réseau Azure](../articles/networking/networking-partners-msp.md#msp).
+
+### <a name="how-does-virtual-wan-hub-routing-differ-from-azure-route-server-in-a-vnet"></a>Quelle est la différence entre le routage du hub Virtual WAN et Azure Route Server dans un réseau virtuel ?
+
+Azure Route Server fournit un service d’appairage BGP (Border Gateway Protocol) qui peut être utilisé par les appliances virtuelles réseau pour apprendre des routes auprès du serveur de routage dans un réseau virtuel de hub créé par vous-même. Le routage Virtual WAN offre plusieurs fonctionnalités, notamment le routage de transit de réseau virtuel à réseau virtuel, le routage personnalisé, l’association et la propagation de routes personnalisées ainsi qu’un service de concentrateur entièrement maillé sans contact avec les services de connectivité d’ExpressRoute, le VPN de site, le VPN P2S utilisateur distant/à grande échelle et le hub sécurisé (Pare-feu Azure). Quand vous établissez un appairage BGP entre votre appliance virtuelle réseau et Azure Route Server, vous pouvez publier les adresses IP de votre appliance virtuelle réseau sur votre réseau virtuel. Pour toutes les fonctionnalités de routage avancées, comme le routage de transit, le routage personnalisé, etc., vous pouvez utiliser le routage Virtual WAN.

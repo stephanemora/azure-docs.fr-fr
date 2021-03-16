@@ -10,18 +10,31 @@ ms.date: 10/05/2020
 ms.topic: overview
 ms.custom: references_regions
 ms.service: azure-communication-services
-ms.openlocfilehash: b7d780ce6362e34c801b4da25332bff90f0b7515
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 380792db21932ed2c6cffb4227df09b27f0cdf5e
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101659271"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487478"
 ---
 # <a name="phone-number-types-in-azure-communication-services"></a>Types de numéros de téléphone dans Azure Communication Services
 
-[!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
+
+
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+
+> [!IMPORTANT]
+> La disponibilité des numéros de téléphone est limitée aux abonnements Azure payants disposant d’une adresse de facturation aux États-Unis et aux ressources Communication Services qui ont un emplacement de données aux États-Unis. Les numéros de téléphone ne peuvent pas être acquis sur des comptes d’essai ou avec des crédits gratuits Azure. Pour plus d’informations, consultez la section de ce document consacrée à l’[éligibilité des abonnements](#azure-subscriptions-eligibility).
+
 
 Azure Communication Services vous permet d’utiliser des numéros de téléphone pour effectuer des appels vocaux et envoyer des SMS avec le réseau téléphonique commuté public (RTPC). Dans ce document, nous allons examiner les types de numéro de téléphone, les options de configuration et la disponibilité dans les régions pour la planification de votre solution de téléphonie et de SMS à l’aide de Communication Services.
+
+## <a name="azure-subscriptions-eligibility"></a>Éligibilité des abonnements Azure
+
+Pour obtenir un numéro de téléphone, vous devez détenir un abonnement Azure payant. Les numéros de téléphone ne peuvent pas être acquis sur des comptes d’essai ou avec des crédits gratuits Azure. 
+
+La disponibilité des numéros de téléphone est limitée aux abonnements Azure disposant d’une adresse de facturation aux États-Unis et aux ressources Communication Services qui ont un emplacement de données aux États-Unis.
+
 
 ## <a name="number-types-and-features"></a>Types et caractéristiques des numéros
 Communication Services propose deux types de numéros de téléphone : **local** et **gratuit**.
@@ -69,11 +82,6 @@ Le tableau suivant vous montre où vous pouvez acquérir les différents types d
 
 \* Pour plus d’informations sur les destinations des appels et les tarifs, reportez-vous à la [page des prix](../pricing.md).
 
-## <a name="azure-subscriptions-eligibility"></a>Éligibilité des abonnements Azure
-
-Pour obtenir un numéro de téléphone, vous devez détenir un abonnement Azure payant. Les numéros de téléphone ne peuvent pas être acquis sur des comptes d’essai ou avec des crédits gratuits Azure.
-
-La disponibilité des numéros de téléphone est limitée aux abonnements Azure dont l’adresse de facturation se trouve aux États-Unis.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -8,18 +8,18 @@ ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
-ms.openlocfilehash: ce11fe5b65cd49cc880713eb4e47b081b6f3b44f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3495d0bd2a446b6b3255887d9b4523eb5a70ac53
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91855971"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102557316"
 ---
 # <a name="tutorial-deploy-your-aspnet-app-to-azure-virtual-machines-by-using-azure-devops-starter"></a>Tutoriel : Déployer votre application ASP.NET sur des machines virtuelles Azure avec Azure DevOps Starter
 
 Azure DevOps Starter offre une expérience simplifiée dans laquelle vous pouvez apporter vos code et dépôt Git existants ou choisir un exemple d’application pour créer un pipeline d’intégration continue (CI) et de livraison continue (CD) dans Azure. 
 
-Par ailleurs, DevOps Starter :
+En outre, DevOps Starter :
 * Crée automatiquement des ressources Azure, telles qu’une nouvelle machine virtuelle Azure
 * Crée et configure un pipeline de mise en production dans Azure DevOps qui inclut un pipeline de build pour CI
 * Configurer un pipeline de mise en production pour CD 
@@ -42,11 +42,11 @@ Ce didacticiel présente les procédures suivantes :
 
 ## <a name="use-devops-starter-to-deploy-your-aspnet-app"></a>Utiliser DevOps Starter pour déployer votre application ASP.NET
 
-Azure DevOps Starter crée un pipeline CI/CD dans Azure Pipelines. Vous pouvez créer une organisation Azure DevOps ou utiliser une organisation existante. Azure DevOps Project crée également des ressources Azure, telles que des machines virtuelles dans l’abonnement Azure de votre choix.
+DevOps Starter crée un pipeline CI/CD dans Azure Pipelines. Vous pouvez créer une organisation Azure DevOps ou utiliser une organisation existante. Azure DevOps Project crée également des ressources Azure, telles que des machines virtuelles dans l’abonnement Azure de votre choix.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
-1. Dans la zone de recherche, tapez **DevOps Starter**, puis sélectionnez $$$. Cliquez sur **Ajouter** pour en créer une.
+1. Dans la zone de recherche, tapez, puis sélectionnez **DevOps Starter**. Cliquez sur le **signe +** pour créer une ressource.
 
     ![Tableau de bord DevOps Starter](_img/azure-devops-starter-aks/search-devops-starter.png)
 
@@ -135,7 +135,7 @@ Vous êtes maintenant prêt à collaborer avec une équipe sur votre application
 
 1. Modifiez le fichier, par exemple en ajoutant du texte dans une des balises div. 
 
-1. En haut à droite, sélectionnez **Valider**, puis **Valider** à nouveau pour transmettre votre modification. Au bout de quelques instants, une build est démarrée dans Azure DevOps tandis qu’une mise en production est exécutée pour déployer les modifications. Surveillez l’état de la build dans le tableau de bord DevOps Starter, ou dans le navigateur avec votre organisation Azure DevOps.
+1. En haut à droite, sélectionnez **Valider**, puis **Valider** à nouveau pour transmettre votre modification. Au bout de quelques instants, une build est démarrée dans Azure DevOps tandis qu’une mise en production est exécutée pour déployer les modifications. Supervisez l’état de la build dans le tableau de bord DevOps Starter, ou dans le navigateur avec votre organisation Azure DevOps.
 
 1. Une fois la mise en production terminée, actualisez votre application pour vérifier vos modifications.
 
@@ -143,7 +143,7 @@ Vous êtes maintenant prêt à collaborer avec une équipe sur votre application
 
 Azure Application Insights vous permet d’analyser facilement les performances et l’utilisation de votre application. DevOps Starter configure automatiquement une ressource Application Insights pour votre application. Vous pouvez configurer différentes capacités d’alertes et de surveillance, si besoin.
 
-1. Dans le portail Azure, accédez au tableau de bord DevOps Starter. 
+1. Dans le Portail Azure, accédez au tableau de bord DevOps Starter. 
 
 1. En bas à droite, sélectionnez le lien **Application Insights** pour votre application. Le volet **Application Insights** s’ouvre. Cette vue contient les informations sur la surveillance de l’utilisation, des performances et de la disponibilité de votre application.
 
@@ -176,7 +176,7 @@ Si vous êtes en phase de test, vous pouvez éviter une hausse des frais de fact
 > [!IMPORTANT]
 > La procédure suivante supprime définitivement les ressources. La fonctionnalité *Supprimer* détruit les données qui sont créées par le projet dans DevOps Starter, à la fois dans Azure et dans Azure DevOps, et vous ne pourrez plus les récupérer. Utilisez cette procédure uniquement après avoir lu attentivement les invites.
 
-1. Dans le portail Azure, accédez au tableau de bord DevOps Starter.
+1. Dans le Portail Azure, accédez au tableau de bord DevOps Starter.
 1. En haut à droite, sélectionnez **Supprimer**. 
 1. À l’invite, sélectionnez **Oui** pour *supprimer définitivement* les ressources.
 
@@ -191,11 +191,11 @@ Dans ce didacticiel, vous avez appris à :
 > * Configurer Azure DevOps et un abonnement Azure 
 > * Examiner le pipeline CI
 > * Examiner le pipeline CD
-> * Valide les modifications apportées à Azure Repos et les déployer automatiquement dans Azure
+> * Valider les modifications apportées à Azure Repos et les déployer automatiquement dans Azure
 > * Configurer la surveillance d’Azure Application Insights
 > * Nettoyer les ressources
 
 Pour en savoir plus sur le pipeline CI/CD, consultez :
 
 > [!div class="nextstepaction"]
-> [Définir votre pipeline de déploiement continu (CD) multiétape](/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
+> [Définir votre pipeline de déploiement continu (CD) multiétape](/azure/devops/pipelines/release/define-multistage-release-process)

@@ -1,22 +1,22 @@
 ---
-title: 'Tutoriel : Haute disponibilité pour les machines virtuelles Windows dans Azure'
-description: Avec ce didacticiel, vous allez apprendre à utiliser Azure PowerShell pour déployer des machines virtuelles hautement disponibles dans les groupes à haute disponibilité
-services: virtual-machines-windows
-author: cynthn
-ms.service: virtual-machines-windows
-ms.workload: infrastructure-services
-ms.topic: tutorial
-ms.date: 11/30/2018
-ms.author: cynthn
+title: Déployer des machines virtuelles dans un groupe à haute disponibilité à l’aide d’Azure PowerShell
+description: Découvrez comment utiliser Azure PowerShell pour déployer des machines virtuelles hautement disponibles dans des groupes à haute disponibilité
+services: virtual-machines
+author: mimckitt
+ms.service: virtual-machines
+ms.topic: how-to
+ms.date: 3/8/2021
+ms.author: mimckitt
+ms.reviewer: cynthn
 ms.custom: mvc
-ms.openlocfilehash: e1c9cf0a60446fba6fae5c850231b0805e7ea135
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 178a29ea37195ddd2013ca5220663a75132beb24
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736650"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102555905"
 ---
-# <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-azure-powershell"></a>Tutoriel : Créer et déployer des machines virtuelles hautement disponibles avec Azure PowerShell
+# <a name="create-and-deploy-virtual-machines-in-an-availability-set-using-azure-powershell"></a>Créer et déployer des machines virtuelles dans un groupe à haute disponibilité à l’aide d’Azure PowerShell
 
 Dans ce tutoriel, vous allez apprendre à augmenter la disponibilité et la fiabilité de vos machines virtuelles à l’aide de groupes à haute disponibilité. Les groupes à haute disponibilité garantissent que les machines virtuelles que vous déployez sur Azure sont distribuées, sur plusieurs nœuds matériels isolés, dans un cluster. 
 
@@ -28,14 +28,6 @@ Dans ce tutoriel, vous allez apprendre à :
 > * Vérifier les tailles de machines virtuelles disponibles
 > * Vérifier Azure Advisor
 
-
-## <a name="availability-set-overview"></a>Vue d’ensemble des groupes à haute disponibilité
-
-Un groupe à haute disponibilité est une fonctionnalité de regroupement logique qui permet d’isoler les ressources de machine virtuelle les unes des autres quand elles sont déployées. Azure veille à ce que les machines virtuelles que vous placez dans un groupe à haute disponibilité s’exécutent sur plusieurs serveurs physiques, racks de calcul, unités de stockage et commutateurs réseau. Si une défaillance matérielle ou logicielle se produit, seul un sous-ensemble de vos machines virtuelles est affecté et votre solution globale reste opérationnelle. Les groupes à haute disponibilité sont indispensables pour créer des solutions cloud fiables.
-
-Prenons l’exemple d’une solution basée sur une machine virtuelle classique pour laquelle vous disposez de 4 serveurs web frontaux et de 2 machines virtuelles principales. Avec Azure, vous pouvez définir deux groupes à haute disponibilité avant de déployer vos machines virtuelles : un pour la couche web et un pour la couche arrière. Quand vous créez une machine virtuelle, vous spécifiez le groupe à haute disponibilité en tant que paramètre. Azure permet de s’assurer que les machines virtuelles sont isolées sur plusieurs ressources matérielles physiques. Si le matériel physique sur lequel s’exécute un de vos serveurs rencontre un problème, vous savez que les autres instances de vos serveurs continuent de s’exécuter car elles se trouvent sur un matériel différent.
-
-Utilisez des groupes à haute disponibilité quand vous souhaitez déployer des solutions fiables basées sur des machines virtuelles dans Azure.
 
 ## <a name="launch-azure-cloud-shell"></a>Lancement d’Azure Cloud Shell
 

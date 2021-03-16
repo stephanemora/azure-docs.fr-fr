@@ -7,12 +7,12 @@ ms.author: allensu
 ms.service: load-balancer
 ms.topic: tutorial
 ms.date: 02/24/2021
-ms.openlocfilehash: 7fc964abf7e6832341ad8b1ad55711b3a9993506
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 9107ef6100a3c362eae982412d54a981851bcb42
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101712507"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102561396"
 ---
 # <a name="tutorial-create-a-cross-region-azure-load-balancer-using-the-azure-portal"></a>Tutoriel : Créer un équilibreur de charge Azure inter-région à l’aide du portail Azure
 
@@ -52,7 +52,7 @@ Dans cette section, vous allez créer un équilibreur de charge interrégional e
 3. Dans la page **Équilibreur de charge**, sélectionnez **Créer**.
 4. Dans l’onglet **Fonctions de base** de la page **Créer un équilibreur de charge**, entrez ou sélectionnez les informations suivantes : 
 
-    | Paramètre                 | Value                                              |
+    | Paramètre                 | Valeur                                              |
     | ---                     | ---                                                |
     | Abonnement               | Sélectionnez votre abonnement.    |    
     | Resource group         | Sélectionnez **Créer**, puis entrez **CreateCRLBTutorial-rg** dans la zone de texte.|
@@ -121,7 +121,7 @@ Dans cette section, vous allez créer une sonde d’intégrité pour créer la r
 
 3. Utilisez ces valeurs pour configurer la sonde d’intégrité :
 
-    | Paramètre | Value |
+    | Paramètre | Valeur |
     | ------- | ----- |
     | Nom | Entrez **MyHealthProbe**. |
     | Protocol | Sélectionnez **TCP**. |
@@ -152,7 +152,7 @@ Dans cette section, vous allez créer une règle d’équilibreur de charge :
 
 3. Pour configurer la règle d’équilibrage de charge, utilisez les valeurs suivantes :
     
-    | Paramètre | Value |
+    | Paramètre | Valeur |
     | ------- | ----- |
     | Nom | Entrez **MyHTTPRule**. |
     | Version de l’adresse IP | Sélectionnez **IPv4** |
@@ -200,9 +200,6 @@ Dans ce tutoriel, vous allez :
 * Vous avez créé une règle d’équilibrage de charge.
 * Vous avez testé l’équilibreur de charge.
 
-Pour plus d’informations sur l’équilibreur de charge interrégional, consultez [Équilibreur de charge interrégional (préversion)](cross-region-overview.md).
-
-
-Passez à l’article suivant pour savoir comment :
+Pour plus d’informations sur l’équilibreur de charge interrégional, consultez :
 > [!div class="nextstepaction"]
-> [Équilibrer la charge de machines virtuelles entre des zones de disponibilité](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
+> [Équilibreur de charge inter-région (préversion)](cross-region-overview.md)

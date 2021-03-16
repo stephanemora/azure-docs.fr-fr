@@ -1,17 +1,17 @@
 ---
 title: 'Tutoriel sur le service Device Update pour IoT Hub : Utilisation de l’image de référence Yocto Raspberry Pi 3 B+ | Microsoft Docs'
 description: Démarrez avec le service Device Update pour IoT Hub en utilisant l’image de référence Yocto Raspberry Pi 3 B+.
-author: vimeht
-ms.author: vimeht
+author: valls
+ms.author: valls
 ms.date: 2/11/2021
 ms.topic: tutorial
 ms.service: iot-hub-device-update
-ms.openlocfilehash: bb992e4f33cc833411e7cce560f71adf1dc72076
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: ca689df97e7268a5c0f7c0479e6514b98ffda9f2
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101658833"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102443452"
 ---
 # <a name="device-update-for-azure-iot-hub-tutorial-using-the-raspberry-pi-3-b-reference-image"></a>Tutoriel sur le service Device Update pour IoT Hub : Utilisation de l’image de référence Raspberry Pi 3 B+
 
@@ -143,13 +143,11 @@ Utilisez ce numéro de version dans l’étape « Importer la mise à jour » 
 
 ## <a name="import-update"></a>Importer la mise à jour
 
-1. Sélectionnez l’option Mises à jour de l’appareil sous Gestion automatique des appareils dans la barre de navigation de gauche.
-
-2. Sélectionnez l’onglet Mises à jour.
-
-3. Sélectionnez « + Importer une nouvelle mise à jour ».
-
-4. Sélectionnez l’icône de dossier ou la zone de texte sous « Sélectionner un fichier manifeste d’importation ». Vous verrez une boîte de dialogue de sélection de fichiers. Sélectionnez le manifeste d’importation que vous avez téléchargé. Ensuite, sélectionnez l’icône de dossier ou la zone de texte sous « Sélectionner un ou plusieurs fichiers de mise à jour ». Vous verrez une boîte de dialogue de sélection de fichiers. Sélectionnez le fichier de mise à jour de manifeste apt que vous avez téléchargé.
+1. Créez un manifeste d’importation en suivant ces [instructions](import-update.md).
+2. Sélectionnez l’option Mises à jour de l’appareil sous Gestion automatique des appareils dans la barre de navigation de gauche.
+3. Sélectionnez l’onglet Mises à jour.
+4. Sélectionnez « + Importer une nouvelle mise à jour ».
+5. Sélectionnez l’icône de dossier ou la zone de texte sous « Sélectionner un fichier manifeste d’importation ». Vous verrez une boîte de dialogue de sélection de fichiers. Sélectionnez le manifeste d’importation que vous avez créé plus haut.  Ensuite, sélectionnez l’icône de dossier ou la zone de texte sous « Sélectionner un ou plusieurs fichiers de mise à jour ». Vous verrez une boîte de dialogue de sélection de fichiers. Sélectionnez le fichier de mise à jour que vous souhaitez déployer sur vos appareils IoT.
    
    :::image type="content" source="media/import-update/select-update-files.png" alt-text="Capture d’écran illustrant la sélection du fichier de mise à jour." lightbox="media/import-update/select-update-files.png":::
 

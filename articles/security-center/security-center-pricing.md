@@ -1,30 +1,25 @@
 ---
-title: Niveaux tarifaires d’Azure Security Center
-description: Azure Security Center est proposé en deux modes, avec et sans Azure Defender.
-services: security-center
-documentationcenter: na
+title: Azure Security Center gratuit et Azure Defender activé
+description: Découvrir les avantages de l’activation d’Azure Defender pour la protection des charges de travail cloud dans Azure Security Center
 author: memildin
-manager: rkarlin
-ms.assetid: 4d1364cd-7847-425a-bb3a-722cb0779f78
-ms.service: security-center
-ms.devlang: na
-ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/14/2021
 ms.author: memildin
-ms.openlocfilehash: 845697b9d2fd8d43caa3a9992fea8a780b7d9b7c
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+manager: rkarlin
+ms.service: security-center
+ms.topic: overview
+ms.date: 03/08/2021
+ms.openlocfilehash: d45dae8b0b3725555bd83a05032339671a9595be
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100522867"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102454362"
 ---
-# <a name="pricing-of-azure-security-center"></a>Niveaux tarifaires d’Azure Security Center
-Azure Security Center fournit une gestion unifiée de la sécurité et une protection avancée contre les menaces pour les charges de travail s’exécutant dans Azure, en local et dans d’autres clouds. Il fournit une visibilité et un contrôle sur les charges de travail cloud hybrides, des défenses actives qui réduisent votre exposition aux menaces et une détection intelligente pour vous aider à suivre le rythme des cyber-risques en rapide évolution.
+# <a name="azure-security-center-free-vs-azure-defender-enabled"></a>Azure Security Center gratuit et Azure Defender activé
+Azure Defender est gratuit pendant les 30 premiers jours. Une fois les 30 jours écoulés, si vous décidez de continuer à utiliser le service, votre utilisation est automatiquement facturée.
 
+Vous pouvez effectuer la mise à niveau à partir de la page **Tarification et paramètres**, comme décrit dans [Démarrage rapide : Activer Azure Defender](enable-azure-defender.md). Pour plus d’informations sur les prix dans la devise de votre choix et en fonction de votre région, consultez la page [Tarification de Security Center](https://azure.microsoft.com/pricing/details/security-center/).
 
-## <a name="free-option-vs-azure-defender-enabled"></a>Option gratuite contre Azure Defender activé
+## <a name="what-are-the-benefits-of-enabling-azure-defender"></a>Quels sont les avantages de l’activation d’Azure Defender ?
 
 Security Center est proposé en deux modes :
 
@@ -41,34 +36,9 @@ Security Center est proposé en deux modes :
     - **Protection étendue contre les menaces pour les ressources connectées à l’environnement Azure** – Azure Defender offre une protection étendue contre les menaces natives Azure pour les services Azure communs à toutes vos ressources : Azure Resource Manager, Azure DNS, la couche réseau Azure et Azure Key Vault. Offrant une visibilité unique sur la couche de gestion Azure et la couche Azure DNS, Azure Defender peut protéger les ressources cloud connectées à ces couches.
 
 
-## <a name="try-azure-defender-free-for-30-days"></a>Essayer Azure Defender gratuitement pendant 30 jours
-Azure Defender est gratuit pendant les 30 premiers jours. Une fois les 30 jours écoulés, si vous décidez de continuer à utiliser le service, votre utilisation est automatiquement facturée.
-
-## <a name="enable-azure-defender"></a>Activer Azure Defender
-Vous pouvez protéger l’intégralité d’un abonnement Azure avec Azure Defender et les protections seront héritées par toutes les ressources de l’abonnement.
-
-Pour activer Azure Defender :
-
-1. Dans le menu principal de Security Center, sélectionnez **Tarification et paramètres**.
-1. Sélectionnez l’abonnement à mettre à niveau.
-1. Sélectionnez **Azure Defender activé** pour mettre à niveau.
-1. Sélectionnez **Enregistrer**.
-
-Vous trouverez ci-dessous la page de tarification d’un exemple d’abonnement. Vous remarquerez que chaque plan dans Azure Defender est facturé séparément et peut être défini individuellement sur activé ou désactivé.
-
-:::image type="content" source="./media/security-center-pricing/pricing-tier-page.png" alt-text="Page de tarification de Security Center dans le portail":::
-
-> [!NOTE]
-> Pour activer les fonctionnalités de protection contre les menaces de Security Center, vous devez activer Azure Defender sur l’abonnement contenant les charges de travail applicables. L’activation au niveau espace de travail espace de travail n’active pas l’accès juste-à-temps à la machine virtuelle, les contrôles d’application adaptatifs et les détections réseau pour les ressources Azure. De plus, les seuls plans Azure Defender disponibles au niveau de l’espace de travail sont Azure Defender pour les serveurs et Azure Defender pour les serveurs SQL sur les machines.
->
-> Vous pouvez activer des **comptes Azure Defender pour le stockage** au niveau de l’abonnement ou de la ressource.
-> Vous pouvez activer **Azure Defender pour SQL** au niveau de l’abonnement ou de la ressource.
-> Vous pouvez activer la protection contre les menaces pour **Azure Database for MariaDB/Azure Database pour MySQL/Azure Database pour PostgreSQL** au niveau de la ressource uniquement.
-
-
 ## <a name="faq---pricing-and-billing"></a>FAQ – Prix et facturation 
 
-- [Comment puis-je suivre qui a effectué des modifications au niveau d’Azure Defender dans Azure Security Center dans mon organisation ?](#how-can-i-track-who-in-my-organization-enabled-azure-defender-changes-in-security-center)
+- [Comment puis-je suivre qui a effectué des modifications au niveau d’Azure Defender dans Security Center dans mon organisation ?](#how-can-i-track-who-in-my-organization-enabled-azure-defender-changes-in-security-center)
 - [Quels sont les plans proposés par Security Center ?](#what-are-the-plans-offered-by-security-center)
 - [Comment activer Azure Defender pour mon abonnement ?](#how-do-i-enable-azure-defender-for-my-subscription)
 - [Puis-je activer Azure Defender pour des serveurs sur un sous-ensemble de serveurs dans mon abonnement ?](#can-i-enable-azure-defender-for-servers-on-a-subset-of-servers-in-my-subscription)
@@ -98,14 +68,14 @@ Security Center présente deux offres :
 ### <a name="how-do-i-enable-azure-defender-for-my-subscription"></a>Comment activer Azure Defender pour mon abonnement ? 
 Vous pouvez utiliser l’une des méthodes suivantes pour activer Azure Defender pour votre abonnement : 
 
-|Méthode  |Instructions  |
-|---------|---------|
-|Pages Azure Security Center du portail Azure|[Activation d’Azure Defender](#enable-azure-defender)|
-|API REST|[API pricings](/rest/api/securitycenter/pricings)|
-|Azure CLI|[az security pricing](/cli/azure/security/pricing)|
-|PowerShell|[Set-AzSecurityPricing](/powershell/module/az.security/set-azsecuritypricing)|
-|Azure Policy|[Bundle Pricings](https://github.com/Azure/Azure-Security-Center/blob/master/Pricing%20%26%20Settings/ARM%20Templates/Set-ASC-Bundle-Pricing.json)|
-|||
+| Méthode                                          | Instructions                                                                                                                                       |
+|-------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
+| Pages Azure Security Center du portail Azure | [Activation d’Azure Defender](enable-azure-defender.md)                                                                                                  |
+| API REST                                        | [API pricings](/rest/api/securitycenter/pricings)                                                                                                  |
+| Azure CLI                                       | [az security pricing](/cli/azure/security/pricing)                                                                                                 |
+| PowerShell                                      | [Set-AzSecurityPricing](/powershell/module/az.security/set-azsecuritypricing)                                                                      |
+| Azure Policy                                    | [Bundle Pricings](https://github.com/Azure/Azure-Security-Center/blob/master/Pricing%20%26%20Settings/ARM%20Templates/Set-ASC-Bundle-Pricing.json) |
+|                                                 |                                                                                                                                                    |
 
 ### <a name="can-i-enable-azure-defender-for-servers-on-a-subset-of-servers-in-my-subscription"></a>Puis-je activer Azure Defender pour des serveurs sur un sous-ensemble de serveurs dans mon abonnement ?
 Non. Lorsque vous activez [Azure Defender pour les serveurs](defender-for-servers-introduction.md) sur un abonnement, tous les serveurs de l’abonnement sont protégés par Azure Defender. 

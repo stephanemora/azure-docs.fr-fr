@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: overview
 ms.date: 07/20/2020
 ms.author: sebansal
-ms.openlocfilehash: 0720e6b55cec8150eea9d41ca89b2c9b21a0bc94
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: c7948230164258aa785f3dd6c1f487c51ece9333
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93287689"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487183"
 ---
 # <a name="renew-your-azure-key-vault-certificates"></a>Renouveler des certificats Azure Key Vault
 
@@ -73,13 +73,16 @@ Pour plus d’informations sur la création d’une nouvelle demande de signatur
 Azure Key Vault gère également le renouvellement automatique des certificats auto-signés. Pour en savoir plus sur la modification de la stratégie d’émission et sur la mise à jour des attributs de cycle de vie d’un certificat, consultez [Configurer la rotation automatique d’un certificat dans Key Vault](./tutorial-rotate-certificates.md#update-lifecycle-attributes-of-a-stored-certificate).
 
 ## <a name="troubleshoot"></a>Dépanner
-Si le certificat émis est à l’état *Désactivé* dans le portail Azure, accédez à **Opération de certificat** pour afficher le message d’erreur du certificat.
+* Si le certificat émis est à l’état *Désactivé* dans le portail Azure, accédez à **Opération de certificat** pour afficher le message d’erreur du certificat.
+* Type d’erreur « La CSR utilisée pour obtenir votre certificat a déjà été utilisée. Essayez de générer un nouveau certificat avec une nouvelle CSR. »
+  Accédez à la section « Stratégie avancée » du certificat et vérifiez si l’option **« Réutiliser la clé lors du renouvellement »** est désactivée.
+
 
 ## <a name="frequently-asked-questions"></a>Forum aux questions
 
 **Comment faire pour tester la fonctionnalité de rotation automatique du certificat ?**
 
-Créez un certificat avec une validité de **1 mois** , puis définissez l’action de durée de vie pour la rotation à **1 %** . Avec ce paramètre, il y aura une rotation du certificat toutes les 7,2 heures.
+Créez un certificat avec une validité de **1 mois**, puis définissez l’action de durée de vie pour la rotation à **1 %** . Avec ce paramètre, il y aura une rotation du certificat toutes les 7,2 heures.
   
 **Les étiquettes seront-elles répliquées après le renouvellement automatique du certificat ?**
 

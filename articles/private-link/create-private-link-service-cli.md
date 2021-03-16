@@ -1,20 +1,20 @@
 ---
-title: Créer un service Azure Private Link à l’aide d’Azure CLI
-description: Découvrez comment créer un service Azure Private Link à l’aide d’Azure CLI
+title: 'Démarrage rapide : Créer un service Azure Private Link en utilisant Azure CLI'
+description: Dans ce guide de démarrage rapide, vous découvrez comment créer un service Azure Private Link en utilisant Azure CLI.
 services: private-link
 author: asudbring
 ms.service: private-link
 ms.topic: quickstart
 ms.date: 01/22/2021
 ms.author: allensu
-ms.openlocfilehash: 27ce0b2646b6c380e86b377d3dba287f7791794e
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 76fd959c28203132be4695031d96315f258cf53f
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100653684"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102563045"
 ---
-# <a name="create-a-private-link-service-using-azure-cli"></a>Créer un service Private Link à l’aide d’Azure CLI
+# <a name="quickstart-create-a-private-link-service-using-azure-cli"></a>Démarrage rapide : Créer un service Private Link en utilisant Azure CLI
 
 Commencez à créer un service Private Link qui fait référence à votre service.  Accordez à Private Link un accès à votre service ou ressource déployé(e) derrière Azure Standard Load Balancer.  Les utilisateurs de votre service ont un accès privé à partir de leur réseau virtuel.
 

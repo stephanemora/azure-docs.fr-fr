@@ -1,26 +1,19 @@
 ---
-title: Démarrage rapide – Intégrer un compte de stockage Azure à Azure CDN
-description: Découvrez comment utiliser le réseau de distribution de contenu (CDN) Azure pour diffuser du contenu haut débit en mettant en cache les objets blob à partir d’Azure Storage.
+title: 'Démarrage rapide : Intégrer un compte de stockage Azure à Azure CDN'
+description: Dans ce guide de démarrage rapide, vous allez découvrir comment utiliser le réseau de distribution de contenu (CDN) Azure pour diffuser du contenu haut débit en mettant en cache les objets blob à partir de Stockage Azure.
 services: cdn
-documentationcenter: ''
 author: asudbring
-manager: danielgi
-editor: ''
-ms.assetid: cbc2ff98-916d-4339-8959-622823c5b772
 ms.service: azure-cdn
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 04/30/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: b80437fa1ac41bb240565923eb40e562c8cf8c5b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7cd1c6b0b11ba291a36f49a2a9990a2755cdd74b
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96018611"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102561923"
 ---
 # <a name="quickstart-integrate-an-azure-storage-account-with-azure-cdn"></a>Démarrage rapide : Intégrer un compte de stockage Azure à Azure CDN
 
@@ -123,9 +116,6 @@ Au cours des étapes précédentes, vous avez créé un profil et un point de te
 3. Pour supprimer votre compte de stockage, sélectionnez-le dans le tableau de bord, puis sélectionnez **Supprimer** dans le menu supérieur.
 
 ## <a name="next-steps"></a>Étapes suivantes
-
-> [!div class="nextstepaction"]
-> [Créer un profil et un point de terminaison Azure CDN](cdn-create-new-endpoint.md)
 
 > [!div class="nextstepaction"]
 > [Tutoriel : Utiliser CDN pour le contenu statique du serveur à partir d’une application web](cdn-add-to-web-app.md)

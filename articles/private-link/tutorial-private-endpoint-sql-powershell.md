@@ -1,5 +1,5 @@
 ---
-title: Tutoriel - Se connecter à un serveur SQL Azure avec Azure Private Endpoint - PowerShell
+title: 'Tutoriel : Se connecter à un serveur SQL Azure avec Azure Private Endpoint - PowerShell'
 description: Ce tutoriel explique comment créer un serveur SQL Azure avec un point de terminaison privé en utilisant Azure PowerShell.
 services: private-link
 author: asudbring
@@ -7,14 +7,15 @@ ms.service: private-link
 ms.topic: tutorial
 ms.date: 10/31/2020
 ms.author: allensu
-ms.openlocfilehash: 7448e003771bea1e235d4e0776ebce3cb1beae17
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 8668bdb9dc391582234bf5741c0dd287d026defd
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95544086"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102554936"
 ---
-# <a name="tutorial---connect-to-an-azure-sql-server-using-an-azure-private-endpoint---azure-powershell"></a>Tutoriel - Se connecter à un serveur SQL Azure avec Azure Private Endpoint - Azure PowerShell
+# <a name="tutorial-connect-to-an-azure-sql-server-using-an-azure-private-endpoint---azure-powershell"></a>Tutoriel : Se connecter à un serveur SQL Azure avec Azure Private Endpoint - Azure PowerShell
 
 Azure Private Endpoint est le composant fondamental de Private Link dans Azure. Il permet à des ressources Azure, comme des machines virtuelles, de communiquer de façon privée avec des ressources Private Link.
 
@@ -337,6 +338,6 @@ Dans ce tutoriel, vous avez créé les éléments suivants :
 
 Vous avez utilisé la machine virtuelle pour tester de façon sécurisée la connectivité au serveur SQL via le point de terminaison privé.
 
-Découvrez comment créer un service Private Link :
+En guise d’étape suivante, vous pouvez également être intéressé par le scénario d’architecture **Application web avec connectivité privée à une base de données Azure SQL**, qui connecte une application web en dehors du réseau virtuel au point de terminaison privé d’une base de données.
 > [!div class="nextstepaction"]
-> [Créer un service Private Link](create-private-link-service-portal.md)
+> [Application web avec connectivité privée à une base de données Azure SQL](/azure/architecture/example-scenario/private-web-app/private-web-app)

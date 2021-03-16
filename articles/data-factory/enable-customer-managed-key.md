@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: chez
 ms.reviewer: mariozi
-ms.openlocfilehash: 2a943b82689184353b9d350b931a069df9c35ff2
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: c6c376e44c6135a800e6f7e281f8ea85b828329a
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100392695"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102443870"
 ---
 # <a name="encrypt-azure-data-factory-with-customer-managed-keys"></a>Chiffrer Azure Data Factory avec des clés gérées par le client
 
@@ -22,14 +22,11 @@ Azure Data Factory chiffre les données au repos, y compris les définitions d�
 
 Azure Key Vault est nécessaire pour stocker les clés gérées par le client. Vous pouvez créer vos propres clés et les stocker dans un coffre de clés, ou utiliser les API d’Azure Key Vault pour générer des clés. Le coffre de clés et Data Factory doivent se trouver dans le même locataire Azure Active Directory (Azure AD) et dans la même région, mais ils peuvent être dans des abonnements différents. Pour plus d’informations sur le coffre de clés Azure, consultez la page [Présentation du coffre de clés Azure](../key-vault/general/overview.md)
 
-> [!NOTE]
-> Une clé gérée par le client ne peut être configurée que sur une fabrique de données vide. La fabrique de données ne peut pas contenir de ressources telles que des services liés, des pipelines et des flux de données. Il est recommandé d’activer la clé gérée par le client juste après la création de la fabrique.
-
 ## <a name="about-customer-managed-keys"></a>À propos des clés gérées par le client
 
 Le diagramme suivant montre comment Data Factory utilise Azure Active Directory et Azure Key Vault pour effectuer des requêtes à l’aide de la clé gérée par le client :
 
-  ![Diagramme montrant le fonctionnement des clés managées par le client dans Azure Data Factory](media/enable-customer-managed-key/encryption-customer-managed-keys-diagram.png)
+  :::image type="content" source="media/enable-customer-managed-key/encryption-customer-managed-keys-diagram.png" alt-text="Diagramme montrant le fonctionnement des clés gérées par le client dans Azure Data Factory":::
 
 La liste suivante décrit les étapes numérotées dans le diagramme :
 
@@ -39,54 +36,83 @@ La liste suivante décrit les étapes numérotées dans le diagramme :
 1. Data Factory encapsule la clé de chiffrement de la fabrique avec la clé du client dans Azure Key Vault
 1. Pour les opérations de lecture/écriture, Data Factory envoie des requêtes à Azure Key Vault pour désencapsuler la clé de chiffrement du compte afin d’effectuer des opérations de chiffrement et de déchiffrement
 
+Il existe deux façons d’ajouter un chiffrement à clé gérée par le client aux fabriques de données. L’une consiste à procéder au moment de la création des fabriques dans le portail Azure, l’autre après leur création, dans l’interface utilisateur de Data Factory.
+
 ## <a name="prerequisites---configure-azure-key-vault-and-generate-keys"></a>Conditions préalables : configurer Azure Key Vault et générer des clés
 
 ### <a name="enable-soft-delete-and-do-not-purge-on-azure-key-vault"></a>Activer Suppression réversible et Ne pas vider dans Azure Key Vault
 
-Pour utiliser des clés gérées par le client avec Data Factory, deux propriétés doivent être configurées sur le coffre de clés, __Suppression réversible__ et __Ne pas vider__. Ces propriétés peuvent être activées à l’aide de PowerShell ou d’Azure CLI sur un coffre de clés nouveau ou existant. Pour savoir comment activer ces propriétés sur un coffre de clés existant, consultez les sections intitulées _Activation de la suppression réversible_ et _Activation de la protection contre le vidage_ dans l’un des articles suivants :
-
-- [Guide pratique pour utiliser la suppression réversible avec Power​Shell](../key-vault/general/key-vault-recovery.md)
-- [Guide pratique pour utiliser la suppression réversible avec Azure CLI](../key-vault/general/key-vault-recovery.md)
+Pour utiliser des clés gérées par le client avec Data Factory, deux propriétés doivent être configurées sur le coffre de clés, __Suppression réversible__ et __Ne pas vider__. Ces propriétés peuvent être activées à l’aide de PowerShell ou d’Azure CLI sur un coffre de clés nouveau ou existant. Pour savoir comment activer ces propriétés sur un coffre de clés existant, consultez [Gestion de la récupération d’Azure Key Vault avec suppression réversible et protection contre la suppression définitive](../key-vault/general/key-vault-recovery.md).
 
 Si vous créez un coffre de clés Azure par le biais du portail Azure, les options __Suppression réversible__ et __Ne pas vider__ peuvent être activées comme suit :
 
-  ![Capture d’écran de l’activation des options Suppression réversible et Protection contre le vidage lors de la création du coffre de clés](media/enable-customer-managed-key/01-enable-purge-protection.png)
+  :::image type="content" source="media/enable-customer-managed-key/01-enable-purge-protection.png" alt-text="Capture d’écran montrant comment activer les options Suppression réversible et Protection contre la suppression définitive lors de la création du coffre de clés":::
 
 ### <a name="grant-data-factory-access-to-azure-key-vault"></a>Accorder à Data Factory l’accès à Azure Key Vault
 
-Assurez-vous qu’Azure Key Vault et Azure Data Factory se trouvent dans le même locataire Azure Active Directory (Azure AD) et dans la _même région_. À partir du contrôle d’accès Azure Key Vault, accordez à l’identité du service managé (MSI) de Data Factory les autorisations suivantes : _Obtenir_, _Ne pas inclure la clé_ et _Inclure la clé_. Ces autorisations sont requises pour activer des clés gérées par le client dans Data Factory.
+Assurez-vous qu’Azure Key Vault et Azure Data Factory se trouvent dans le même locataire Azure Active Directory (Azure AD) et dans la _même région_. À partir du contrôle d’accès Azure Key Vault, accordez à la fabrique de données les autorisations suivantes : _Obtenir_, _Ne pas inclure la clé_ et _Inclure la clé_. Ces autorisations sont requises pour activer des clés gérées par le client dans Data Factory.
 
-  ![Capture d’écran de l’activation de l’accès de Data Factory à Key Vault](media/enable-customer-managed-key/02-access-policy-factory-managed-identities.png)
+* Si vous souhaitez ajouter le chiffrement à clé gérée par le client [après la création de la fabrique dans l’interface utilisateur de Data Factory](#post-factory-creation-in-data-factory-ui), assurez-vous que l’identité du service managé (MSI) de la fabrique de données dispose des trois autorisations pour Key Vault.
+* Si vous souhaitez ajouter le chiffrement à clé gérée par le client [pendant la création de la fabrique dans le portail Azure](#during-factory-creation-in-azure-portal), assurez-vous que l’identité managée affectée par l’utilisateur (UA-MI) dispose des trois autorisations pour Key Vault.
+
+  :::image type="content" source="media/enable-customer-managed-key/02-access-policy-factory-managed-identities.png" alt-text="Capture d’écran montrant comment activer l’accès de Data Factory à Key Vault":::
 
 ### <a name="generate-or-upload-customer-managed-key-to-azure-key-vault"></a>Générer ou charger une clé gérée par le client sur Azure Key Vault
 
-Vous pouvez créer vos propres clés et les stocker dans un coffre de clés, ou utiliser les API d’Azure Key Vault pour générer des clés. Seules les clés RSA 2048 bits sont prises en charge avec le chiffrement Data Factory. Pour plus d’informations, consultez [À propos des clés, des secrets et des certificats](../key-vault/general/about-keys-secrets-certificates.md).
+Vous pouvez créer vos propres clés et les stocker dans un coffre de clés. Si vous préférez, vous pouvez utiliser les API Azure Key Vault pour générer des clés. Seules les clés RSA 2048 bits sont prises en charge avec le chiffrement Data Factory. Pour plus d’informations, consultez [À propos des clés, des secrets et des certificats](../key-vault/general/about-keys-secrets-certificates.md).
 
-  ![Capture d’écran de la génération d’une clé gérée par le client](media/enable-customer-managed-key/03-create-key.png)
+  :::image type="content" source="media/enable-customer-managed-key/03-create-key.png" alt-text="Capture d’écran montrant comment générer une clé gérée par le client":::
 
 ## <a name="enable-customer-managed-keys"></a>Activer des clés gérées par le client
 
+### <a name="post-factory-creation-in-data-factory-ui"></a>Après la création de la fabrique dans l’interface utilisateur de Data Factory
+
+Cette section explique comment ajouter le chiffrement à clé gérée par le client dans l’interface utilisateur de Data Factory, _après_ la création de la fabrique.
+
+> [!NOTE]
+> Une clé gérée par le client ne peut être configurée que sur une fabrique de données vide. La fabrique de données ne peut pas contenir de ressources telles que des services liés, des pipelines et des flux de données. Il est recommandé d’activer la clé gérée par le client juste après la création de la fabrique.
+
+> [!IMPORTANT]
+> Cette approche ne fonctionne pas avec les fabriques managées compatibles avec les réseaux virtuels. Si vous souhaitez chiffrer de telles fabriques, envisagez l’[autre procédure](#during-factory-creation-in-azure-portal).
+
+1. Assurez-vous que l’identité MSI de la fabrique de données dispose des autorisations _Obtenir_, _Ne pas inclure la clé_ et _Inclure la clé_ pour Key Vault.
+
 1. Vérifiez que la fabrique de données est vide. La fabrique de données ne peut pas contenir de ressources telles que des services liés, des pipelines et des flux de données. Pour le moment, le déploiement d’une clé gérée par le client vers une fabrique non vide génère une erreur.
 
-1. Pour localiser l’URI de la clé dans le portail Azure, naviguez jusqu'à Azure Key Vault, puis sélectionnez le paramètre Clés. Sélectionnez la clé souhaitée, puis cliquez dessus pour afficher ses versions. Sélectionner une version de clé pour afficher les paramètres
+1. Pour localiser l’URI de la clé dans le portail Azure, naviguez jusqu'à Azure Key Vault, puis sélectionnez le paramètre Clés. Sélectionnez la clé souhaitée, puis resélectionnez-la pour afficher ses versions. Sélectionner une version de clé pour afficher les paramètres
 
-1. Copier la valeur du champ Identificateur de clé, qui fournit l’URI
-
-    ![Capture d’écran de l’étape permettant d’obtenir l’URI de la clé à partir de Key Vault](media/enable-customer-managed-key/04-get-key-identifier.png)
+1. Copiez la valeur du champ Identificateur de clé, qui fournit l’URI. :::image type="content" source="media/enable-customer-managed-key/04-get-key-identifier.png" alt-text="Capture d’écran montrant comment obtenir l’URI de la clé à partir de Key Vault":::
 
 1. Lancez le portail Azure Data Factory, puis, à l’aide de la barre de navigation sur la gauche, accédez au portail de gestion Data Factory.
 
-1. Cliquez sur l’icône __Clé gérée par le client__
-
-    ![Capture d’écran de l’activation de la clé gérée par le client dans Data Factory](media/enable-customer-managed-key/05-customer-managed-key-configuration.png)
+1. Cliquez sur l’icône __Clé gérée par le client__. :::image type="content" source="media/enable-customer-managed-key/05-customer-managed-key-configuration.png" alt-text="Capture d’écran montrant comment activer une clé gérée par le client dans l’interface utilisateur de Data Factory":::
 
 1. Entrer l’URI de la clé gérée par le client que vous avez copiée précédemment
 
 1. Cliquez sur __Enregistrer__ ; le chiffrement de la clé gérée par le client est activé pour Data Factory
 
+### <a name="during-factory-creation-in-azure-portal"></a>Pendant la création de la fabrique dans le portail Azure
+
+Cette section explique comment ajouter le chiffrement à clé gérée par le client dans le portail Azure, _pendant_ le déploiement de la fabrique.
+
+Pour chiffrer la fabrique, Data Factory doit d’abord récupérer la clé gérée par le client de Key Vault. Étant donné que le déploiement de la fabrique est toujours en cours, l’identité MSI n’est pas encore disponible pour effectuer l’authentification auprès de Key Vault. Ainsi, pour utiliser cette approche, le client doit attribuer une identité UA-MI à la fabrique de données. Nous supposons que les rôles sont définis dans l’identité UA-MI et procédons à l’authentification auprès de Key Vault.
+
+Pour en savoir plus sur les identités managées affectées par l’utilisateur, consultez [Types d’identités managées](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) et [Attribution de rôle pour une identité managée affectée par l’utilisateur](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
+
+1. Assurez-vous que l’identité managée affectée par l’utilisateur (UA-MI) dispose des autorisations _Obtenir_, _Ne pas inclure la clé_ et _Inclure la clé_ pour Key Vault.
+
+1. Sous l’onglet __Avancé__, cochez la case _Activer le chiffrement avec une clé gérée par le client_
+  :::image type="content" source="media/enable-customer-managed-key/06-user-assigned-managed-identity.png" alt-text="Capture d’écran de l’onglet Avancé illustrant la création d’une fabrique de données dans le portail Azure":::
+
+1. Fournissez l’URL de la clé gérée par le client stockée dans Key Vault.
+
+1. Sélectionnez une identité managée affectée par l’utilisateur appropriée pour effectuer l’authentification auprès de Key Vault.
+
+1. Poursuivez le déploiement de la fabrique.
+
 ## <a name="update-key-version"></a>Mettre à jour la version de la clé
 
-Lors de la création d’une nouvelle version d’une clé, mettez à jour la fabrique de données afin qu’elle utilise cette nouvelle version. Suivez les étapes similaires décrites dans la section _Activer des clés gérées par le client_, notamment :
+Lors de la création d’une nouvelle version d’une clé, mettez à jour la fabrique de données afin qu’elle utilise cette nouvelle version. Suivez les étapes similaires décrites dans la section consacrée à l’[interface utilisateur de Data Factory](#post-factory-creation-in-data-factory-ui), notamment :
 
 1. Rechercher l’URI de la nouvelle version de clé via le portail Azure Key Vault
 
@@ -98,7 +124,7 @@ Lors de la création d’une nouvelle version d’une clé, mettez à jour la fa
 
 ## <a name="use-a-different-key"></a>Utiliser une autre clé
 
-Pour modifier la clé utilisée pour le chiffrement Data Factory, vous devez mettre à jour manuellement les paramètres dans Data Factory. Suivez les étapes similaires décrites dans la section _Activer des clés gérées par le client_, notamment :
+Pour modifier la clé utilisée pour le chiffrement Data Factory, vous devez mettre à jour manuellement les paramètres dans Data Factory. Suivez les étapes similaires décrites dans la section consacrée à l’[interface utilisateur de Data Factory](#post-factory-creation-in-data-factory-ui), notamment :
 
 1. Rechercher l’URI de la nouvelle clé via le portail Azure Key Vault
 

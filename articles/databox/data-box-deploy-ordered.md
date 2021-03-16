@@ -6,14 +6,14 @@ author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/13/2021
+ms.date: 03/08/2021
 ms.author: alkohli
-ms.openlocfilehash: f2bad214045710fe861040514beb3c536664d684
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 281b22db692087f2876b4011563fee8c56bd476e
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102201887"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102522391"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Tutoriel : Commander Azure Data Box
 
@@ -164,7 +164,7 @@ La sortie suivante s’affiche :
     WSManStackVersion              3.0
 ```
 
-Si votre version de Windows PowerShell est inférieure à la version 6.2.4, vous devez la mettre à niveau. Pour installer la dernière version de Windows PowerShell, consultez [Installation d’Azure PowerShell](/powershell/scripting/install/installing-powershell?view=powershell-7&preserve-view=true).
+Si votre version de Windows PowerShell est inférieure à la version 6.2.4, vous devez la mettre à niveau. Pour installer la dernière version de Windows PowerShell, consultez [Installation d’Azure PowerShell](/powershell/scripting/install/installing-powershell).
 
 **Installer Azure PowerShell et les modules Data Box**
 
@@ -355,22 +355,34 @@ Effectuez les étapes suivantes dans le portail Azure pour commander un appareil
     ![Développement des options Bring your own password pour une commande d’importation de Data Box](media/data-box-deploy-ordered/select-data-box-import-security-02.png) 
 
    - Afin d’utiliser votre propre mot de passe pour votre nouvel appareil, dans **Définir la préférence pour le mot de passe de l’appareil**, sélectionnez **Utiliser votre propre mot de passe**, puis tapez un mot de passe conforme aux exigences de sécurité.
+     
+     Le mot de passe doit être alphanumérique et contenir entre 12 et 15 caractères, au moins une lettre majuscule, une lettre minuscule, un caractère spécial et un chiffre. 
+
+     - Caractères spéciaux autorisés : @ # - $ % ^ ! + = ; : _ ( )
+     - Caractères non autorisés : I i L o O 0
    
      ![Options d’utilisation de votre propre mot de passe d’appareil sur l’écran Sécurité pour une commande d’importation Data Box](media/data-box-deploy-ordered/select-data-box-import-security-03.png)
 
  - Afin d’utiliser vos propres mots de passe pour les partages :
 
-   - Dans **Définir la préférence pour les mots de passe de partage**, sélectionnez **Utiliser vos propres mots de passe**, puis **Sélectionnez des mots de passe pour les partages**.
+   1. Dans **Définir la préférence pour les mots de passe de partage**, sélectionnez **Utiliser vos propres mots de passe**, puis **Sélectionnez des mots de passe pour les partages**.
      
-        ![Options d’utilisation de vos mots de passe de partage sur l’écran Sécurité pour une commande d’importation Data Box](media/data-box-deploy-ordered/select-data-box-import-security-04.png)
+       ![Options d’utilisation de vos mots de passe de partage sur l’écran Sécurité pour une commande d’importation Data Box](media/data-box-deploy-ordered/select-data-box-import-security-04.png)
 
-    - Tapez un mot de passe pour chaque compte de stockage dans la commande. Le mot de passe sera utilisé sur tous les partages pour le compte de stockage.
-     
-        Afin d’utiliser le même mot de passe pour tous les comptes de stockage, sélectionnez **Copy to all** (Copier pour tous). Lorsque vous avez terminé, sélectionnez **Enregistrer**.
-     
-        ![Écran d’entrée de mots de passe de partage pour une commande d’importation de Data Box](media/data-box-deploy-ordered/select-data-box-import-security-05.png)
+    1. Tapez un mot de passe pour chaque compte de stockage dans la commande. Le mot de passe sera utilisé sur tous les partages pour le compte de stockage.
+    
+       Le mot de passe doit être alphanumérique et contenir entre 12 et 64 caractères, au moins une lettre majuscule, une lettre minuscule, un caractère spécial et un chiffre.
 
-       Dans l’écran **Sécurité**, vous pouvez utiliser **Afficher ou modifier les mots de passe** pour changer les mots de passe.
+       - Caractères spéciaux autorisés : @ # - $ % ^ ! + = ; : _ ( )
+       - Caractères non autorisés : I i L o O 0
+     
+    1. Afin d’utiliser le même mot de passe pour tous les comptes de stockage, sélectionnez **Copy to all** (Copier pour tous). 
+
+    1. Lorsque vous avez terminé, sélectionnez **Enregistrer**.
+     
+       ![Écran d’entrée de mots de passe de partage pour une commande d’importation de Data Box](media/data-box-deploy-ordered/select-data-box-import-security-05.png)
+
+    Dans l’écran **Sécurité**, vous pouvez utiliser **Afficher ou modifier les mots de passe** pour changer les mots de passe.
 
 16. Dans **Sécurité**, si vous voulez activer le double chiffrement basé sur logiciel, développez **Double-encryption (for highly secure environments)** Double chiffrement (pour les environnements hautement sécurisés) et sélectionnez **Enable double encryption for the order** (Activer le double chiffrement pour la commande).
 

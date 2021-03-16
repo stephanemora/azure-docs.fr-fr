@@ -1,19 +1,19 @@
 ---
-title: Prise en charge de l’attestation hors processus avec le DaemonSet Intel SGX Quote Helper sur Azure
+title: Prise en charge de l’attestation hors processus avec le Daemonset Intel SGX Quote Helper sur Azure (préversion)
 description: DaemonSet utilisé pour générer la déclaration QUOTE en dehors du processus de l’application SGX. Cet article explique comment la fonctionnalité d’attestation hors processus est mise en œuvre pour les charges de travail confidentielles qui s’exécutent dans un conteneur.
 ms.service: container-service
 author: agowdamsft
 ms.topic: overview
-ms.date: 9/22/2020
+ms.date: 2/12/2021
 ms.author: amgowda
-ms.openlocfilehash: b79b3b40f3fbfe7d70550db3aaf7b365aa455e89
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 5d872032ea5b4e08c3f436dd3bfc202786d8514d
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94564155"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102553253"
 ---
-# <a name="platform-software-management-with-sgx-quote-helper-daemon-set"></a>Gestion des logiciels de plateforme avec le DaemonSet SGX Quote Helper
+# <a name="platform-software-management-with-sgx-quote-helper-daemon-set-preview"></a>Gestion des logiciels de plateforme avec le DaemonSet SGX Quote Helper (préversion)
 
 Les [applications de l’enclave](confidential-computing-enclaves.md) qui effectuent une attestation à distance doivent générer une déclaration, appelée QUOTE. Cette QUOTE fournit une preuve cryptographique de l’identité et de l’état de l’application, ainsi que de l’environnement où s’exécute l’enclave. La génération de la QUOTE nécessite des composants logiciels de confiance qui font partie des composants logiciels de la plateforme Intel (PSW).
 
@@ -27,6 +27,13 @@ Intel prend en charge deux modes d’attestation dans le cadre de la génératio
 Les applications SGX créées avec le SDK Open Enclave utilisent par défaut le mode d’attestation intraprocessus. Les applications SGX acceptent le mode hors processus, mais nécessitent en plus un hébergement et une exposition des composants requis, comme l’AESM (Architectural Enclave Service Manager), externes à l’application.
 
 L’emploi de cette fonctionnalité est **fortement recommandé** du fait qu’elle augmente le temps d’activité de vos applications enclavées durant les mises à jour de la plateforme Intel ou celles du pilote DCAP.
+
+Pour activer cette fonctionnalité sur un cluster AKS, modifiez la commande add --enable-sgxquotehelper dans l’interface CLI lors de l’activation du module complémentaire d’informatique confidentielle. Des instructions détaillées faisant appel à l’interface CLI sont disponibles [ici](confidential-nodes-aks-get-started.md) : 
+
+```azurecli-interactive
+# Create a new AKS cluster with system node pool with Confidential Computing addon enabled and SGX Quote Helper
+az aks create -g myResourceGroup --name myAKSCluster --generate-ssh-keys --enable-addon confcom --enable-sgxquotehelper
+```
 
 ## <a name="why-and-what-are-the-benefits-of-out-of-proc"></a>Quels sont les avantages du mode hors processus ? Pour quelles raisons ?
 

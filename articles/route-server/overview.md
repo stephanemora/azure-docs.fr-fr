@@ -7,12 +7,12 @@ ms.service: route-server
 ms.topic: overview
 ms.date: 03/02/2021
 ms.author: duau
-ms.openlocfilehash: 099f9b3769179076491c7c2098ec56faff9847dd
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: d868c064b96f58ab3febc1fd3b7f20b74d507cb0
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102039833"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102437159"
 ---
 # <a name="what-is-azure-route-server-preview"></a>Présentation d’Azure Route Server (préversion) 
 
@@ -37,7 +37,7 @@ Azure Route Server simplifie la configuration, la gestion et le déploiement de 
 
 * Vous n’avez plus besoin de mettre à jour les [routes définies par l’utilisateur](../virtual-network/virtual-networks-udr-overview.md) manuellement, ni de supprimer les anciennes, dès lors que votre NVA en annonce de nouvelles. 
 
-* Vous n’avez plus besoin de configurer un équilibreur de charge devant votre NVA à des fins de résilience ou de performances. Quand vous appairez plusieurs instances de votre NVA avec Azure Route Server, vous pouvez configurer les attributs BGP dans votre NVA. Ces attributs BGP permettent à Azure Route Server de décider quelle instance de NVA doit être active ou passive. 
+* Vous pouvez appairer plusieurs instances de votre appliance virtuelle réseau avec Azure Route Server. Vous pouvez configurer les attributs BGP dans votre appliance virtuelle réseau et, en fonction de votre conception (par exemple, actif-actif pour les performances ou actif-passif pour la résilience), laisser Azure Route Server découvrir quelle instance d’appliance virtuelle réseau est active ou laquelle est passive. 
 
 * L’interface entre la NVA et Azure Route Server est basée sur un protocole standard commun. Tant que votre NVA prend en charge le protocole BGP, vous pouvez l’appairer avec Azure Route Server. Pour plus d’informations, consultez [Protocoles de routage pris en charge par Route Server](route-server-faq.md#protocol).
 

@@ -1,5 +1,5 @@
 ---
-title: Tutoriel - Se connecter à un serveur SQL Azure avec Azure Private Endpoint - Azure CLI
+title: 'Tutoriel : Se connecter à un serveur SQL Azure avec Azure Private Endpoint - Azure CLI'
 description: Ce tutoriel explique comment créer un serveur SQL Azure avec un point de terminaison privé à l’aide d’Azure CLI.
 services: private-link
 author: asudbring
@@ -7,14 +7,15 @@ ms.service: private-link
 ms.topic: tutorial
 ms.date: 11/03/2020
 ms.author: allensu
-ms.openlocfilehash: 8cfe44b9433ee1daac028253aa45c97804c88ae5
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 998b52a23894dcb7fa08b2c0fd42e4ef8e3678ae
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95544103"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102554987"
 ---
-# <a name="tutorial---connect-to-an-azure-sql-server-using-an-azure-private-endpoint---azure-cli"></a>Tutoriel - Se connecter à un serveur SQL Azure avec Azure Private Endpoint - Azure CLI
+# <a name="tutorial-connect-to-an-azure-sql-server-using-an-azure-private-endpoint---azure-cli"></a>Tutoriel : Se connecter à un serveur SQL Azure avec Azure Private Endpoint - Azure CLI
 
 Azure Private Endpoint est le composant fondamental de Private Link dans Azure. Il permet à des ressources Azure, comme des machines virtuelles, de communiquer de façon privée avec des ressources Private Link.
 
@@ -73,7 +74,7 @@ az network vnet create \
     --subnet-prefixes 10.0.0.0/24
 ```
 
-Mettez à jour le sous-réseau afin de désactiver les stratégies réseau du point de terminaison privé avec [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update) :
+Mettez à jour le sous-réseau pour désactiver les stratégies réseau de point de terminaison privé pour le point de terminaison privé à l’aide de la commande [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update) :
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -133,7 +134,7 @@ Le déploiement de l’hôte Azure Bastion peut prendre quelques minutes.
 
 Dans cette section, vous allez créer une machine virtuelle qui sera utilisée pour tester le point de terminaison privé.
 
-Créez une machine virtuelle avec la commande  [az vm create](/cli/azure/vm#az_vm_create). Lorsque vous y êtes invité, indiquez le mot de passe à utiliser comme informations d’identification pour la machine virtuelle :
+Créez une machine virtuelle avec la commande  [az vm create](/cli/azure/vm#az_vm_create). Lorsque vous y êtes invité, indiquez un mot de passe à utiliser comme informations d’identification pour la machine virtuelle :
 
 * Nommée **myVM**.
 * Dans **CreateSQLEndpointTutorial-rg**.
@@ -219,7 +220,7 @@ az network private-endpoint create \
 
 Dans cette section, vous allez créer et configurer la zone DNS privée au moyen de [az network private-dns zone create](/cli/azure/ext/privatedns/network/private-dns/zone#ext_privatedns_az_network_private_dns_zone_create).  
 
-Vous allez utiliser [az network private-dns link vnet create](/cli/azure/ext/privatedns/network/private-dns/link/vnet#ext_privatedns_az_network_private_dns_link_vnet_create) pour créer le lien de réseau virtuel vers la zone DNS.
+Vous utiliserez [az network private-dns link vnet create](/cli/azure/ext/privatedns/network/private-dns/link/vnet#ext_privatedns_az_network_private_dns_link_vnet_create) pour créer le lien de réseau virtuel vers la zone DNS.
 
 Vous allez créer un groupe de zones DNS avec [az network private-endpoint dns-zone-group create](/cli/azure/network/private-endpoint/dns-zone-group#az_network_private_endpoint_dns_zone_group_create).
 
@@ -327,6 +328,6 @@ Dans ce tutoriel, vous avez créé les éléments suivants :
 
 Vous avez utilisé la machine virtuelle pour tester de façon sécurisée la connectivité au serveur SQL via le point de terminaison privé.
 
-Découvrez comment créer un service Private Link :
+En guise d’étape suivante, vous pouvez également être intéressé par le scénario d’architecture **Application web avec connectivité privée à une base de données Azure SQL**, qui connecte une application web en dehors du réseau virtuel au point de terminaison privé d’une base de données.
 > [!div class="nextstepaction"]
-> [Créer un service Private Link](create-private-link-service-portal.md)
+> [Application web avec connectivité privée à une base de données Azure SQL](/azure/architecture/example-scenario/private-web-app/private-web-app)

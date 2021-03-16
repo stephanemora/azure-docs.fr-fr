@@ -7,12 +7,12 @@ ms.date: 11/23/2020
 ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, seodec18, contperf-fy21q1
 zone_pivot_groups: app-service-platform-windows-linux
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 4e2e34d73bc3048c587d7c0505f4978dd638370a
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 2a789b4ca1261c79e8e6eb93a4ed44e7e8e9272e
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/05/2021
-ms.locfileid: "102180273"
+ms.locfileid: "102214233"
 ---
 # <a name="quickstart-create-an-aspnet-core-web-app-in-azure"></a>Démarrage rapide : Créer une application web ASP.NET Core dans Azure
 
@@ -26,15 +26,17 @@ Une fois que vous avez terminé, vous disposez d’un <abbr title="Conteneur log
 
 ## <a name="1-prepare-your-environment"></a>1. Préparation de votre environnement
 
-- **Procurez-vous un compte Azure** avec un <abbr title="Structure organisationnelle de base dans laquelle vous gérez les ressources dans Azure, généralement associée à une personne ou à un service au sein d’une organisation.">subscription</abbr>. [Créez un compte gratuitement](https://azure.microsoft.com/free/dotnet/).
+- **Procurez-vous un compte Azure** avec un <abbr title="Structure organisationnelle de base dans laquelle vous gérez les ressources dans Azure, généralement associée à une personne ou à un service au sein d’une organisation.">abonnement</abbr>. [Créez un compte gratuitement](https://azure.microsoft.com/free/dotnet/).
 - **Installez <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a>** avec la charge de travail **Développement ASP.NET et web**.
 
 <details>
 <summary>Vous avez déjà Visual Studio 2019 ?</summary>
-  Si vous avez déjà installé Visual Studio 2019 :
+Si vous avez déjà installé Visual Studio 2019 :
 
-  - **Installez les dernières mises à jour** dans Visual Studio en sélectionnant **Aide** > **Rechercher les mises à jour**. Les dernières mises à jour contiennent le kit SDK .NET 5.0.
-  - **Ajoutez la charge de travail** en sélectionnant **Outils** > **Obtenir des outils et des fonctionnalités**.
+<ul>
+<li><strong>Installez les dernières mises à jour</strong> dans Visual Studio en sélectionnant <strong>Aide</strong> &gt; <strong>Rechercher les mises à jour</strong>. Les dernières mises à jour contiennent le kit SDK .NET 5.0.</li>
+<li><strong>Ajoutez la charge de travail</strong> en sélectionnant <strong>Outils</strong> &gt; <strong>Obtenir des outils et des fonctionnalités</strong>.</li>
+</ul>
 </details>
 
 <hr/> 
@@ -314,19 +316,19 @@ http://<app_name>.azurewebsites.net
 
 1. **Exécutez** `az webapp up` pour redéployer :
 
-```azurecli
-az webapp up --os-type linux
-```
-
-<details>
-<summary>Que fait cette fois <code>az webapp up</code> ?</summary>
-La première fois que vous avez exécuté la commande, elle a enregistré le nom de l’application, le groupe de ressources et le plan App Service dans le fichier <i>.azure/config</i> de la racine du projet. Quand vous l’exécutez à nouveau à partir de la racine du projet, elle utilise les valeurs enregistrées dans <i>.azure/config</i>, détecte que les ressources App Service existent déjà et effectue à nouveau le déploiement du fichier Zip.
-</details>
-
+    ```azurecli
+    az webapp up --os-type linux
+    ```
+    
+    <details>
+    <summary>Que fait cette fois <code>az webapp up</code> ?</summary>
+    La première fois que vous avez exécuté la commande, elle a enregistré le nom de l’application, le groupe de ressources et le plan App Service dans le fichier <i>.azure/config</i> de la racine du projet. Quand vous l’exécutez à nouveau à partir de la racine du projet, elle utilise les valeurs enregistrées dans <i>.azure/config</i>, détecte que les ressources App Service existent déjà et effectue à nouveau le déploiement du fichier Zip.
+    </details>
+    
 1. Une fois le déploiement terminé, **cliquez sur Actualiser** dans la fenêtre du navigateur qui s’est ouverte auparavant.
 
-![Mise à jour de l’exemple d’application s’exécutant dans Azure](media/quickstart-dotnetcore/dotnet-browse-azure-updated.png)
-
+    ![Mise à jour de l’exemple d’application s’exécutant dans Azure](media/quickstart-dotnetcore/dotnet-browse-azure-updated.png)
+    
 [Vous rencontrez des problèmes ? Faites-le nous savoir.](https://aka.ms/DotNetAppServiceLinuxQuickStart)
 
 <hr/> 
@@ -341,8 +343,8 @@ La première fois que vous avez exécuté la commande, elle a enregistré le nom
 
 1. La page Vue d’ensemble est l’endroit où vous effectuez des tâches de gestion de base, comme parcourir, arrêter, démarrer, redémarrer et supprimer. Le menu de gauche fournit différentes pages vous permettant de configurer votre application. 
 
-![Page App Service du Portail Azure](media/quickstart-dotnetcore/portal-app-overview-up.png)
-
+    ![Page App Service du Portail Azure](media/quickstart-dotnetcore/portal-app-overview-up.png)
+    
 <hr/> 
 
 ## <a name="9-clean-up-resources"></a>9. Nettoyer les ressources

@@ -1,22 +1,22 @@
 ---
-title: Détails de la conformité réglementaire pour New Zealand ISM
-description: Détails de l’initiative intégrée de conformité réglementaire New Zealand ISM. Chaque contrôle est mis en correspondance avec une ou plusieurs définitions Azure Policy qui simplifient l’évaluation.
-ms.date: 02/09/2021
+title: Détails de la conformité réglementaire pour New Zealand ISM Restricted
+description: Détails de l’initiative intégrée de conformité réglementaire pour New Zealand ISM. Chaque contrôle est mis en correspondance avec une ou plusieurs définitions Azure Policy qui simplifient l’évaluation.
+ms.date: 03/05/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: b2f4cec4f2c9abf6fb896ba9d515db1780115716
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 5f346f7755cf252ed15513d8dc0a60a9bc5cce3f
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100100895"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102437244"
 ---
-# <a name="details-of-the-new-zealand-ism-regulatory-compliance-built-in-initiative"></a>Détails de l’initiative intégrée de conformité réglementaire New Zealand ISM
+# <a name="details-of-the-new-zealand-ism-restricted-regulatory-compliance-built-in-initiative"></a>Détails de l’initiative intégrée de conformité réglementaire pour New Zealand ISM
 
-L’article suivant explique en détail comment la définition de l’initiative intégrée de conformité réglementaire Azure Policy correspond aux **domaines de conformité** et aux **contrôles** du New Zealand ISM.
-Pour plus d’informations sur cette norme de conformité, consultez [New Zealand ISM](https://www.nzism.gcsb.govt.nz/). Pour comprendre la _propriété_, consultez [Définition de stratégie Azure Policy](../concepts/definition-structure.md#type) et [Responsabilité partagée dans le cloud](../../../security/fundamentals/shared-responsibility.md).
+L’article suivant explique en détail comment la définition de l’initiative intégrée de conformité réglementaire pour Azure Policy est mappée à des **domaines de conformité** et des **contrôles** dans New Zealand ISM Restricted.
+Pour plus d’informations sur ce standard de conformité, consultez [New Zealand ISM Restricted](https://www.nzism.gcsb.govt.nz/). Pour comprendre la _propriété_, consultez [Définition de stratégie Azure Policy](../concepts/definition-structure.md#type) et [Responsabilité partagée dans le cloud](../../../security/fundamentals/shared-responsibility.md).
 
-Les correspondances suivantes concernent les contrôles **New Zealand ISM**. Utilisez le volet de navigation de droite pour accéder directement à un **domaine de conformité** spécifique. De nombreux contrôles sont mis en œuvre avec la définition d’une initiative [Azure Policy](../overview.md). Pour examiner la définition d’initiative complète, ouvrez **Stratégie** dans le Portail Azure et sélectionnez la page **Définitions**.
+Les mappages suivants sont relatifs aux contrôles **New Zealand ISM Restricted**. Utilisez le volet de navigation de droite pour accéder directement à un **domaine de conformité** spécifique. De nombreux contrôles sont mis en œuvre avec la définition d’une initiative [Azure Policy](../overview.md). Pour examiner la définition d’initiative complète, ouvrez **Stratégie** dans le Portail Azure et sélectionnez la page **Définitions**.
 Ensuite, recherchez et sélectionnez la définition d’initiative intégrée de conformité réglementaire **New Zealand Information Security Manual**.
 
 > [!IMPORTANT]
@@ -91,7 +91,7 @@ Ensuite, recherchez et sélectionnez la définition d’initiative intégrée de
 
 ## <a name="access-control-and-passwords"></a>Contrôle d’accès et mots de passe
 
-### <a name="16132-system-user-identitfication"></a>16.1.32 Identitfication des utilisateurs système
+### <a name="16132-system-user-identification"></a>16.1.32 Identification de l’utilisateur système
 
 **ID** : NZISM Security Benchmark AC-2 **Propriété** : Customer
 

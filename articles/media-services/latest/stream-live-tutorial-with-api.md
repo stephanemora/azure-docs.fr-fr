@@ -28,18 +28,18 @@ Ce didacticiel explique les procédures suivantes :
 Les éléments suivants sont requis pour suivre le didacticiel :
 
 - Installez Visual Studio Code ou Visual Studio.
-- [Créer un compte Media Services](./create-account-howto.md).<br/>Veillez à mémoriser les valeurs utilisées pour le nom du groupe de ressources et le nom du compte Media Services.
-- Suivez les étapes décrites dans [Accéder à l’API Azure Media Services avec Azure CLI](./access-api-howto.md) et enregistrez les informations d’identification. Vous en aurez besoin pour accéder à l’API.
+- [Créer un compte Media Services](./create-account-howto.md).<br/>Veillez à copier les détails de l’accès à l’API au format JSON ou à stocker les valeurs nécessaires pour se connecter au compte Media Services dans le format de fichier .env utilisé dans cet exemple.
+- Suivez les étapes décrites dans [Accéder à l’API Azure Media Services avec Azure CLI](./access-api-howto.md) et enregistrez les informations d’identification. Vous devez les utiliser pour accéder à l’API dans cet exemple ou les entrer dans le format de fichier .env. 
 - Une caméra ou appareil (tel qu’un ordinateur portable) utilisé pour diffuser un événement.
-- Un encodeur dynamique local qui convertit les signaux de la caméra en flux de données qui sont envoyés vers le service de vidéo en flux continu Media Services. Consultez [Encodeurs dynamiques locaux recommandés](recommended-on-premises-live-encoders.md). La diffusion doit se faire au format **RTMP** ou **Smooth Streaming**.  
-- Pour cet exemple, il est recommandé de commencer avec un encodeur logiciel comme le logiciel de streaming en direct OBS Studio. 
+- Un encodeur logiciel local qui encode votre flux de caméra et l’envoie au service de streaming en direct Media Services avec le protocole RTMP ; consultez les [encodeurs live locaux recommandés](recommended-on-premises-live-encoders.md). La diffusion doit se faire au format **RTMP** ou **Smooth Streaming**.  
+- Pour cet exemple, nous vous recommandons de commencer avec un encodeur logiciel comme le logiciel gratuit [Open Broadcast Software OBS Studio](https://obsproject.com/download). 
 
 > [!TIP]
 > Veillez à consulter [Diffusion en continu avec Media Services v3](live-streaming-overview.md) avant de commencer. 
 
 ## <a name="download-and-configure-the-sample"></a>Télécharger et configurer l’exemple
 
-Clonez un référentiel GitHub qui contient l’exemple .NET de diffusion en continu sur votre machine à l’aide de la commande suivante :  
+Clonez le dépôt GitHub suivant qui contient l’exemple .NET de streaming en direct sur votre machine avec la commande suivante :  
 
  ```bash
  git clone https://github.com/Azure-Samples/media-services-v3-dotnet.git
@@ -48,6 +48,9 @@ Clonez un référentiel GitHub qui contient l’exemple .NET de diffusion en con
 L’exemple de diffusion en continu est situé dans le dossier [Live](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/Live).
 
 Ouvrez [appsettings.json](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/main/Live/LiveEventWithDVR/appsettings.json) dans votre projet téléchargé. Remplacez les valeurs par les informations d’identification que vous avez obtenues en [accédant aux API](./access-api-howto.md).
+
+Notez que vous pouvez également utiliser le format de fichier .env à la racine du projet afin de définir vos variables d’environnement une seule fois pour tous les projets du dépôt d’exemples .NET. Il vous suffit de copier le fichier sample.env, de renseigner les informations que vous obtenez à partir d’Azure CLI ou de la page d’accès à l’API Media Services dans le portail Azure.  Renommez le fichier sample.env en « .env » pour l’utiliser dans tous les projets.
+Le fichier .gitignore est déjà configuré pour éviter que le contenu de ce fichier soit publié dans votre dépôt dupliqué. 
 
 > [!IMPORTANT]
 > Cet exemple utilise un suffixe unique pour chaque ressource. Si vous annulez le débogage ou vous fermez l’application sans l’avoir effectué, vous obtiendrez plusieurs événements en direct sur votre compte. <br/>Veillez à arrêter les événements en direct en cours d’exécution. Sinon, vous serez **facturé** !
@@ -58,27 +61,24 @@ Cette section examine les fonctions définies dans le fichier [Program.cs](https
 
 L’exemple crée un suffixe unique pour chaque ressource afin d’éviter tout conflit de noms si vous exécutez l’exemple plusieurs fois sans le supprimer.
 
-> [!IMPORTANT]
-> Cet exemple utilise un suffixe unique pour chaque ressource. Si vous annulez le débogage ou vous fermez l’application sans l’avoir effectué, vous obtiendrez plusieurs événements en direct sur votre compte. <br/>
-> Veillez à arrêter les événements en direct en cours d’exécution. Sinon, vous serez **facturé** !
 
 ### <a name="start-using-media-services-apis-with-net-sdk"></a>Commencer à utiliser les API Media Services avec le Kit de développement logiciel (SDK) .NET
 
-Pour commencer à utiliser les API Media Services avec .NET, vous devez créer un objet **AzureMediaServicesClient**. Pour créer l’objet, vous devez fournir les informations d’identification nécessaires pour que le client puisse se connecter à Azure à l’aide d’Azure AD. Dans le code que vous avez cloné au début de l’article, la fonction **GetCredentialsAsync** crée l’objet ServiceClientCredentials basé sur les informations d’identification fournies dans le fichier de configuration local. 
+Pour commencer à utiliser les API Media Services avec .NET, vous devez créer un objet **AzureMediaServicesClient**. Pour créer l’objet, vous devez fournir les informations d’identification nécessaires pour que le client puisse se connecter à Azure à l’aide d’Azure AD. Dans le code que vous avez cloné au début de l’article, la fonction **GetCredentialsAsync** crée l’objet ServiceClientCredentials en fonction des informations d’identification fournies dans le fichier de configuration local (appsettings.json) ou par le biais du fichier de variables d’environnement .env situé à la racine du dépôt.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet/Live/LiveEventWithDVR/Program.cs#CreateMediaServicesClient)]
 
 ### <a name="create-a-live-event"></a>Créer un événement en temps réel
 
-Cette section montre comment créer un type de **transmission directe** d’événement en direct (LiveEventEncodingType défini sur Aucun). Pour plus d’informations sur les types d’événements en direct disponibles, consultez [Types d’événements en direct](live-events-outputs-concept.md#live-event-types). 
+Cette section montre comment créer un type de **transmission directe** d’événement en direct (LiveEventEncodingType défini sur Aucun). Pour plus d’informations sur les autres types d’événements en direct disponibles, consultez [Types d’événements en direct](live-events-outputs-concept.md#live-event-types). En plus de Pass-through, vous pouvez utiliser un événement en direct de transcodage en temps réel pour un encodage cloud à débit adaptatif 720P ou 1080P. 
  
 Voici quelques éléments que vous voudrez probablement spécifier lors de la création de l’événement en temps réel :
 
-* Emplacement de Media Services.
-* Protocole de streaming de l’événement en direct (les protocoles RTMP et Smooth Streaming sont actuellement pris en charge).<br/>Vous ne pouvez pas changer l’option de protocole pendant l’exécution de l’événement en direct ou des sorties en direct qui lui sont associées. Si vous avez besoin d’autres protocoles, créez des événements en direct distincts pour chaque protocole de streaming.  
+* Protocole d’ingestion de l’événement en direct (les protocoles RTMP(S) et Smooth Streaming sont pris en charge).<br/>Vous ne pouvez pas changer l’option de protocole pendant l’exécution de l’événement en direct ou des sorties en direct qui lui sont associées. Si vous avez besoin d’autres protocoles, créez des événements en direct distincts pour chaque protocole de streaming.  
 * Restictions IP sur l’ingestion et la préversion. Vous pouvez définir les adresses IP autorisées à recevoir du contenu vidéo sur cet événement en direct. Les adresses IP autorisées peuvent être définies sous forme d’adresse IP unique (par exemple, « 10.0.0.1 »), de plage d’adresses IP constituée d’une adresse IP et d’un masque de sous-réseau CIDR (par exemple, « 10.0.0.1/22 ») ou de plage d’adresses IP constituée d’une adresse IP et d’un masque de sous-réseau au format décimal séparé par des points (par exemple, « 10.0.0.1(255.255.252.0) »).<br/>Si aucune adresse IP n’est spécifiée et qu’il n’existe pas de définition de règle, alors aucune adresse IP ne sera autorisée. Pour autoriser toutes les adresses IP, créez une règle et définissez la valeur 0.0.0.0/0.<br/>Les adresses IP doivent utiliser un des formats suivants : adresses IPv4 à quatre chiffres ou plage d’adresses CIDR.
 * Lors de la création de l’événement, vous pouvez spécifier qu’il démarre automatiquement. <br/>Lorsque le démarrage automatique est défini sur true, l’événement en direct démarre après sa création. La facturation commence donc dès le démarrage de l’événement en direct. Vous devez appeler explicitement la commande Stop sur la ressource de l’événement en direct pour arrêter toute facturation supplémentaire. Pour plus d’informations, consultez [États et facturation des événements en direct](live-event-states-billing.md).
-* Pour qu’une URL de réception soit prédictive, réglez le mode « personnel ». Pour plus d’informations, consultez [URL de réception des événements en direct](live-events-outputs-concept.md#live-event-ingest-urls).
+Il existe également des modes veille qui permettent de démarrer l’événement en direct dans un état « alloué » à moindre coût qui accélère le passage à l’état « En cours d’exécution ». C’est utile dans les cas où, par exemple, les hotpools doivent remettre les canaux rapidement aux streamers.
+* Pour qu’une URL d’ingestion soit prévisible et plus facile à gérer dans un encodeur live matériel, affectez la valeur true à la propriété « useStaticHostname ». Pour plus d’informations, consultez [URL de réception des événements en direct](live-events-outputs-concept.md#live-event-ingest-urls).
 
 [!code-csharp[Main](../../../media-services-v3-dotnet/Live/LiveEventWithDVR/Program.cs#CreateLiveEvent)]
 
@@ -101,15 +101,27 @@ Utilisez le point de terminaison d’aperçu et vérifiez que l’entrée de l�
 
 Une fois que le flux transite dans l’événement en direct, vous pouvez commencer l’événement de streaming en créant un actif multimédia, une sortie en direct et un localisateur de streaming. Le flux est alors archivé et mis à la disposition des observateurs via le point de terminaison de diffusion en continu.
 
+Lorsque vous apprenez ces concepts, le mieux est de penser à l’objet « actif multimédia » comme si c’était la cassette que vous insériez dans un magnétoscope à l’époque. La « sortie en direct » est le magnétoscope. « L’événement en direct » est simplement le signal vidéo arrivant à l’arrière de l’appareil.
+
+Vous créez d’abord le signal en créant l’événement en direct.  Le signal n’est pas transmis tant que vous n’avez pas démarré cet événement en direct et que vous n’avez pas connecté votre encodeur à l’entrée.
+
+La cassette peut être créée à tout moment. Il s’agit juste d’un « actif multimédia » vide que vous allez transmettre à l’objet de sortie en direct, le magnétoscope dans cette analogie.
+
+Le magnétoscope peut être créé à tout moment. Cela signifie que vous pouvez créer une sortie en direct avant de démarrer le flux du signal, ou après. Si vous avez besoin d’accélérer les opérations, il est parfois utile de la créer avant de démarrer le flux du signal.
+
+Pour arrêter le magnétoscope, vous devez appeler la fonction de suppression sur la sortie en direct. Cette opération ne supprime pas le contenu de la cassette « actif multimédia ».  L’actif multimédia est toujours conservé avec le contenu vidéo archivé tant que vous n’appelez pas la fonction de suppression explicitement sur l’actif multimédia lui-même.
+
+La section suivante vous guidera tout au long de la création de l’actif multimédia (« cassette ») et de la sortie en direct (« magnétophone »).
+
 #### <a name="create-an-asset"></a>Créer une ressource
 
-Créez un actif multimédia pour la sortie en direct à utiliser.
+Créez un actif multimédia pour la sortie en direct à utiliser. Dans l’analogie ci-dessus, il s’agit de la cassette sur laquelle nous enregistrons le signal vidéo en direct. Les visiteurs peuvent voir le contenu en direct ou à la demande à partir de cette cassette virtuelle.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet/Live/LiveEventWithDVR/Program.cs#CreateAsset)]
 
 #### <a name="create-a-live-output"></a>Créer une sortie en direct
 
-Les sorties en direct démarrent dès leur création et s’arrêtent à leur suppression. Quand vous supprimez la sortie en direct, vous ne supprimez pas l’élément multimédia sous-jacent ni le contenu de celui-ci.
+Les sorties en direct démarrent dès leur création et s’arrêtent à leur suppression. Il s’agit du « magnétoscope » pour notre événement. Quand vous supprimez la sortie en direct, vous ne supprimez pas l’actif multimédia sous-jacent ou le contenu de celui-ci. Cela revient à éjecter la cassette. L’actif multimédia contenant l’enregistrement dure aussi longtemps que vous le souhaitez, et quand il est éjecté (c’est-à-dire, quand la sortie en direct est supprimée), il est immédiatement disponible pour le visionnage à la demande. 
 
 [!code-csharp[Main](../../../media-services-v3-dotnet/Live/LiveEventWithDVR/Program.cs#CreateLiveOutput)]
 
@@ -118,7 +130,7 @@ Les sorties en direct démarrent dès leur création et s’arrêtent à leur su
 > [!NOTE]
 > Après la création de votre compte Media Services, un point de terminaison de streaming **par défaut** est ajouté à votre compte à l’état **Arrêté**. Pour démarrer le streaming de votre contenu et tirer parti de l’[empaquetage dynamique](dynamic-packaging-overview.md) et du chiffrement dynamique, le point de terminaison de streaming à partir duquel vous souhaitez diffuser du contenu doit se trouver à l’état **En cours d’exécution**.
 
-Quand vous publiez l’actif Sortie en direct à l’aide d’un localisateur de streaming, l’événement en direct (jusqu’à la longueur de la fenêtre DVR) reste visible jusqu’à l’expiration ou la suppression du localisateur de streaming, en fonction de ce qui se produit en premier.
+Quand vous publiez l’actif multimédia à l’aide d’un localisateur de streaming, l’événement en direct (jusqu’à la longueur de la fenêtre DVR) reste visible jusqu’à l’expiration ou la suppression du localisateur de streaming, en fonction de ce qui se produit en premier. C’est comme cela que vous pouvez mettre l’enregistrement sur « cassette virtuelle » à la disposition de votre public pour le regarder en direct et à la demande. La même URL peut être utilisée pour regarder l’événement en direct, la fenêtre DVR ou l’actif multimédia à la demande quand l’enregistrement est terminé (quand la sortie en direct est supprimée).
 
 [!code-csharp[Main](../../../media-services-v3-dotnet/Live/LiveEventWithDVR/Program.cs#CreateStreamingLocator)]
 

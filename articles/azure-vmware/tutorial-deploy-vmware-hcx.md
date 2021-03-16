@@ -3,21 +3,21 @@ title: Didacticiel - Déployer et configurer VMware HCX
 description: Découvrez comment déployer et configurer une solution VMware HCX (Hybrid Cloud Extension) pour votre cloud privé Azure VMware Solution.
 ms.topic: tutorial
 ms.date: 11/25/2020
-ms.openlocfilehash: a792f8dbc646f61377cf0a88e1a6e386340f23e8
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: a8b089ce834d5b49e4ad32081a58e371835e8602
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97357889"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102488298"
 ---
 # <a name="deploy-and-configure-vmware-hcx"></a>Déployer et configurer VMware HCX
 
 Cet article vous montre comment déployer et configurer le connecteur VMware HCX en local pour votre cloud privé Azure VMware Solution. Avec VMware HCX, vous pouvez migrer vos charges de travail VMware vers Azure VMware Solution et d’autres sites connectés, par le biais de différents types de migration. Étant donné que la solution VMware Azure déploie et configure le Gestionnaire de clouds HCX, vous devez télécharger, activer et configurer le connecteur HCX dans votre centre de données VMware local.
 
-Le connecteur VMware HCX Advanced est prédéployé dans Azure VMware Solution. Il prend en charge jusqu’à trois connexions de site (localement vers cloud, ou cloud vers cloud). Si vous avez besoin de plus de trois connexions de site, soumettez une [demande de support](https://portal.azure.com/#create/Microsoft.Support) pour activer le module complémentaire [VMware HCX Enterprise](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/) . Le module complémentaire est actuellement en préversion. 
+Le connecteur VMware HCX Advanced est prédéployé dans Azure VMware Solution. Il prend en charge jusqu’à trois connexions de site (localement vers cloud, ou cloud vers cloud). Si vous avez besoin de plus de trois connexions de site, soumettez une [demande de support](https://portal.azure.com/#create/Microsoft.Support) pour activer le module complémentaire [VMware HCX Enterprise](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/) .  
 
 >[!TIP]
->Bien que l’outil VMware Configuration Maximum décrive un nombre maximal de 25 paires de sites entre le connecteur local et le gestionnaire de cloud, la gestion des licences limite ce nombre à trois pour Advanced Edition et à 10 pour Enterprise Edition.
+>Bien que l’outil VMware Configuration Maximum décrive un nombre maximal de 25 paires de sites entre le connecteur local et Cloud Manager, le système de gestion des licences limite ce nombre à trois pour HCX Advanced et à 10 pour HCX Enterprise Edition.
 
 >[!NOTE]
 >VMware HCX Enterprise est disponible avec Azure VMware Solution sous forme de service en préversion. Il est gratuit et est soumis aux conditions générales d’un service en préversion. Faisant suite à la mise en disponibilité générale du service VMware HCX Enterprise, vous recevrez un préavis de 30 jours vous informant que la facturation sera basculée. Vous aurez également la possibilité de désactiver le service ou de le quitter. Il n’existe pas de chemin de mise à niveau simple, de VMware HCX Enterprise vers VMware HCX Advanced. Si vous décidez de passer à une version antérieure, vous devrez redéployer, ce qui entraînera un temps d’arrêt.
@@ -58,9 +58,9 @@ Assurez-vous que votre environnement vSphere local (environnement source) répon
 
 ### <a name="network-and-ports"></a>Réseau et ports
 
-* [Azure ExpressRoute Global Reach](tutorial-expressroute-global-reach-private-cloud.md) est configuré entre les circuits locaux et les circuits ExpressRoute du SDDC d’Azure VMware Solution.
+* [Azure ExpressRoute Global Reach](tutorial-expressroute-global-reach-private-cloud.md) est configuré entre les circuits locaux et les circuits ExpressRoute du cloud privé Azure VMware Solution.
 
-* [Tous les ports obligatoires](https://ports.vmware.com/home/VMware-HCX) sont ouverts pour la communication entre les composants locaux et le SDDC Azure VMware Solution.
+* [Tous les ports obligatoires](https://ports.vmware.com/home/VMware-HCX) sont ouverts pour permettre la communication entre les composants locaux et le cloud privé Azure VMware Solution.
 
 ### <a name="ip-addresses"></a>Adresses IP
 
@@ -76,12 +76,15 @@ Avant de déployer l’appliance virtuelle sur votre vCenter local, vous devez t
 
    :::image type="content" source="media/tutorial-vmware-hcx/find-hcx-ip-address.png" alt-text="Capture d’écran de l’adresse IP VMware HCX." lightbox="media/tutorial-vmware-hcx/find-hcx-ip-address.png":::
 
-1. Sélectionnez **Gérer** > **Identité** et sélectionnez **Mot de passe de l’administrateur du vCenter** pour identifier le mot de passe.
+1. Sélectionnez **Gérer** > **Identité**. 
+
+   Les URL et les informations d’identification de l’utilisateur pour le cloud privé vCenter et NSX-T Manager s’affichent.
 
    > [!TIP]
-   > Le mot de passe vCenter a été défini lorsque vous avez configuré le cloud privé. Il s’agit du même mot de passe que celui que vous utiliserez pour vous connecter au Gestionnaire HCX d’Azure VMware Solution.
+   > Le mot de passe vCenter a été défini lorsque vous avez configuré le cloud privé. Il s’agit du même mot de passe que celui que vous utiliserez pour vous connecter au Gestionnaire HCX d’Azure VMware Solution. Vous pouvez sélectionner **Générer un nouveau mot de passe** pour générer de nouveaux mots de passe vCenter et NSX-T.
 
-   :::image type="content" source="media/tutorial-vmware-hcx/hcx-admin-password.png" alt-text="Rechercher le mot de passe HCX." lightbox="media/tutorial-vmware-hcx/hcx-admin-password.png":::
+   :::image type="content" source="media/tutorial-access-private-cloud/ss4-display-identity.png" alt-text="Affichez les URL et les informations d’identification vCenter et NSX Manager du cloud privé." border="true":::
+
 
 1. Ouvrez une fenêtre de navigateur, connectez-vous au Gestionnaire HCX d’Azure VMware Solution sur le port `https://x.x.x.9` 443, avec les informations d’identification de l’utilisateur **cloudadmin\@vsphere.local**.
 
@@ -166,7 +169,7 @@ Après le redémarrage des services, vous devez voir l’état de vCenter appara
 Pour une vue d’ensemble de bout en bout de cette procédure, consultez la vidéo [Azure VMware Solution : Activer HCX](https://www.youtube.com/embed/PnVg6SZkQsY?rel=0&amp;vq=hd720).
 
    > [!IMPORTANT]
-   > Que vous utilisiez VMware HCX Advanced ou VMware HCX Enterprise, vous devrez peut-être installer le correctif à partir de l’[article 81558 de la Base de connaissances](https://kb.vmware.com/s/article/81558) de VMware. 
+   > Que vous utilisiez HCX Advanced ou HCX Enterprise, vous devrez peut-être installer le patch décrit dans l’[article 81558 de la Base de connaissances](https://kb.vmware.com/s/article/81558) de VMware. 
 
 ## <a name="configure-the-vmware-hcx-connector"></a>Configurer le connecteur VMware HCX
 
@@ -279,7 +282,7 @@ Pour une vue d’ensemble de bout en bout de cette procédure, consultez la vid�
 
 ### <a name="create-a-service-mesh"></a>Créer une maille de services.
 
-À présent, configurez une maille de services entre le SDDC local et le SDDC Azure VMware Solution.
+À présent, configurez un maillage de services entre l’environnement local et le cloud privé Azure VMware Solution.
 
 
 
@@ -366,7 +369,7 @@ Pour une vue d’ensemble de bout en bout de cette procédure, consultez la vid�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si l’état du tunnel d’interconnexion de l’appliance est **Activé** et vert, vous pouvez migrer et protéger des machines virtuelles Azure VMware Solution en utilisant VMware HCX. Azure VMware Solution prend en charge les migrations de charge de travail (avec ou sans extension réseau). Vous pouvez toujours migrer des charges de travail dans votre environnement vSphere, en même temps que la création locale de réseaux et le déploiement de machines virtuelles sur ces réseaux.  
+Si l’état du tunnel d’interconnexion HCX est **Activé** et vert, vous pouvez migrer et protéger les machines virtuelles Azure VMware Solution en utilisant VMware HCX. Azure VMware Solution prend en charge les migrations de charge de travail (avec ou sans extension réseau). Vous pouvez toujours migrer des charges de travail dans votre environnement vSphere, en même temps que la création locale de réseaux et le déploiement de machines virtuelles sur ces réseaux.  
 
 Pour plus d’informations sur l’utilisation de HCX, accédez à la documentation technique de VMware :
 

@@ -9,18 +9,18 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 03/08/2021
 ms.author: duau
-ms.openlocfilehash: 348f1d779f8ea67860726b8f8b7739921e7ad54a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 9b916f9942b0459b41d98b952fad072ae48318b3
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96003801"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102505429"
 ---
 # <a name="tutorial-direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>Tutoriel : Diriger le trafic vers des points de terminaison spécifiques en fonction du sous-réseau de l’utilisateur via Traffic Manager
 
-Cet article explique comment configurer la méthode de routage du trafic de sous-réseau. La méthode de routage du trafic de **sous-réseau** vous permet de mapper un ensemble de plages d’adresses IP à des points de terminaison spécifiques. Quand une requête est reçue par Traffic Manager, ce dernier inspecte l’adresse IP source de la requête et retourne le point de terminaison associé.
+Cet article explique comment configurer la méthode de routage du trafic de sous-réseau. La méthode de routage du trafic de **Sous-réseau** vous permet de mapper un ensemble de plages d’adresses IP à des points de terminaison spécifiques. Quand une requête est reçue par Traffic Manager, ce dernier inspecte l’IP source de la requête et retourne le point de terminaison associé.
 
 Dans ce tutoriel, à l’aide du routage de sous-réseau et en fonction de l’adresse IP de la requête de l’utilisateur, le trafic est routé vers un site web interne ou un site web de production.
 
@@ -38,7 +38,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour afficher Traffic Manager en action, ce didacticiel requiert que vous déployiez les éléments suivants :
+Pour voir Traffic Manager en action dans ce tutoriel, vous devez déployer les éléments suivants :
 
 - Deux sites web de base s’exécutant dans des régions Azure distinctes, **USA Est** (sert de site web interne) et **Europe Ouest** (sert de site web de production).
 - Deux machines virtuelles de test pour tester Traffic Manager : une machine virtuelle dans la région **USA Est** et la seconde dans la région **Europe Ouest**.
@@ -69,20 +69,20 @@ Dans cette section, vous allez créer deux machines virtuelles (*myIISVMEastUS* 
    - **Compte d’administrateur** > **Nom d’utilisateur** :  Entrez un nom d’utilisateur de votre choix.
    - **Compte d’administrateur** > **Mot de passe** :  Entrez un mot de passe de votre choix. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité définies](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).
    - **Règles des ports d’entrée** > **Ports d’entrée publics** : Sélectionnez **Autoriser les ports sélectionnés**.
-   - **Règles des ports d’entrée** > **Sélectionner des ports d’entrée** : Sélectionnez **RDP** et **HTTP** dans la zone déroulante.
+   - **Règles des ports d’entrée** > **Sélectionner des ports d’entrée** : Sélectionnez **RDP** et **HTTP** dans la zone de liste déroulante.
 
 3. Sélectionnez l’onglet **Gestion** ou sélectionnez **Suivant : Disques**, puis **Suivant : Mise en réseau**, puis **Suivant : Gestion**. Sous **Supervision**, définissez **Diagnostics de démarrage** sur **Désactivé**.
 4. Sélectionnez **Revoir + créer**.
-5. Vérifiez les paramètres, puis cliquez sur **Créer**.  
+5. Passez en revue les paramètres, puis sélectionnez **Créer**.  
 6. Suivez les étapes pour créer une seconde machine virtuelle nommée *myIISVMWestEurope*, avec un **groupe de ressources** nommé *myResourceGroupTM2*, une **localisation** dans la région *Europe Ouest* et tous les autres paramètres identiques à ceux de *myIISVMEastUS*.
 7. La création des machines virtuelles peut prendre plusieurs minutes. Attendez que les deux machines virtuelles aient été créées avant de passer aux étapes restantes.
 
 #### <a name="install-iis-and-customize-the-default-web-page"></a>Installer IIS et personnaliser la page web par défaut
 
-Dans cette section, vous allez installer le serveur IIS sur les deux machines virtuelles, *myIISVMEastUS* & *myIISVMWestEurope*, puis mettre à jour la page de site web par défaut. La page de site web personnalisée affiche le nom de la machine virtuelle à laquelle vous êtes connecté lorsque vous visitez le site web à partir d’un navigateur web.
+Dans cette section, vous allez installer le serveur IIS sur les deux machines virtuelles, *myIISVMEastUS* & *myIISVMWestEurope*, puis mettre à jour la page de site web par défaut. La page de site web personnalisée affiche le nom de la machine virtuelle à laquelle vous vous connectez quand vous visitez le site web à partir d’un navigateur web.
 
-1. Sélectionnez **Toutes les ressources** dans le menu de gauche, puis, dans la liste de ressources, cliquez sur *myIISVMEastUS* qui se trouve dans le groupe de ressources *myResourceGroupTM1*.
-2. Dans la page **Vue d’ensemble**, cliquez sur **Se connecter**, puis sur **Se connecter à la machine virtuelle**, et sélectionnez **Télécharger le fichier RDP**.
+1. Sélectionnez **Toutes les ressources** dans le menu de gauche, puis, dans la liste de ressources, sélectionnez *myIISVMEastUS*, qui se trouve dans le groupe de ressources *myResourceGroupTM1*.
+2. Dans la page **Vue d’ensemble**, sélectionnez **Se connecter**, puis dans **Se connecter à la machine virtuelle**, sélectionnez **Télécharger le fichier RDP**.
 3. Ouvrez le fichier .rdp téléchargé. Si vous y êtes invité, sélectionnez **Connexion**. Entrez le nom d’utilisateur et le mot de passe spécifiés lors de la création de la machine virtuelle. Vous devrez peut-être sélectionner **Plus de choix**, puis **Utiliser un autre compte**, pour spécifier les informations d’identification que vous avez entrées lorsque vous avez créé la machine virtuelle.
 4. Sélectionnez **OK**.
 5. Un avertissement de certificat peut s’afficher pendant le processus de connexion. Si vous recevez l’avertissement, sélectionnez **Oui** ou **Continuer** pour poursuivre le processus de connexion.
@@ -119,7 +119,7 @@ Dans cette section, vous allez installer le serveur IIS sur les deux machines vi
 
 Traffic Manager achemine le trafic utilisateur en fonction du nom DNS des points de terminaison de service. Dans cette section, vous configurez les noms DNS des serveurs IIS *myIISVMEastUS* et *myIISVMWestEurope*.
 
-1. Cliquez sur **Toutes les ressources** dans le menu de gauche, puis, dans la liste de ressources, sélectionnez *myIISVMEastUS* qui se trouve dans le groupe de ressources *myResourceGroupTM1*.
+1. Sélectionnez **Toutes les ressources** dans le menu de gauche, puis, dans la liste de ressources, sélectionnez *myIISVMEastUS*, qui se trouve dans le groupe de ressources *myResourceGroupTM1*.
 2. Dans la page **Vue d’ensemble**, sous **Nom DNS**, sélectionnez **Configurer**.
 3. Dans la page **Configuration**, sous l’étiquette du nom DNS, ajoutez un nom unique, puis sélectionnez **Enregistrer**.
 4. Répétez les étapes 1 à 3 pour la machine virtuelle nommée *myIISVMWestEurope* qui se trouve dans le groupe de ressources *myResourceGroupTM2*.
@@ -137,11 +137,11 @@ Dans cette section, vous allez créer une machine virtuelle (*myVMEastUS* et *my
    - **Compte d’administrateur** > **Nom d’utilisateur** :  Entrez un nom d’utilisateur de votre choix.
    - **Compte d’administrateur** > **Mot de passe** :  Entrez un mot de passe de votre choix. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité définies](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).
    - **Règles des ports d’entrée** > **Ports d’entrée publics** : Sélectionnez **Autoriser les ports sélectionnés**.
-   - **Règles des ports d’entrée** > **Sélectionner des ports d’entrée** : Sélectionnez **RDP** dans la zone déroulante.
+   - **Règles des ports d’entrée** > **Sélectionner des ports d’entrée** : Sélectionnez **RDP** dans la zone de liste déroulante.
 
 3. Sélectionnez l’onglet **Gestion** ou sélectionnez **Suivant : Disques**, puis **Suivant : Mise en réseau**, puis **Suivant : Gestion**. Sous **Supervision**, définissez **Diagnostics de démarrage** sur **Désactivé**.
 4. Sélectionnez **Revoir + créer**.
-5. Vérifiez les paramètres, puis cliquez sur **Créer**.  
+5. Passez en revue les paramètres, puis sélectionnez **Créer**.  
 6. Suivez les étapes pour créer une seconde machine virtuelle nommée *myVMWestEurope*, avec un **groupe de ressources** nommé *myResourceGroupTM2*, une **localisation** dans la région *Europe Ouest* et tous les autres paramètres identiques à ceux de *myVMEastUS*.
 7. La création des machines virtuelles peut prendre plusieurs minutes. Attendez que les deux machines virtuelles aient été créées avant de passer aux étapes restantes.
 
@@ -149,8 +149,10 @@ Dans cette section, vous allez créer une machine virtuelle (*myVMEastUS* et *my
 
 Créez un profil Traffic Manager qui vous permet de retourner des points de terminaison spécifiques en fonction de l’adresse IP source de la requête.
 
-1. Dans l’angle supérieur gauche de l’écran, cliquez sur **Créer une ressource** > **Mise en réseau** > **Profil Traffic Manager** > **Créer**.
-2. Dans **Créer un profil Traffic Manager**, entrez ou sélectionnez les informations suivantes, acceptez les valeurs par défaut pour les autres paramètres, puis choisissez **Créer** :
+1. En haut à gauche de l’écran, sélectionnez **Créer une ressource**. Recherchez *Profil Traffic Manager*, puis sélectionnez **Créer**.
+2. Dans **Créer un profil Traffic Manager**, entrez ou sélectionnez les informations suivantes. Acceptez les valeurs par défaut pour les paramètres restants, puis sélectionnez **Créer**.
+
+    ![Créer un profil Traffic Manager](./media/tutorial-traffic-manager-subnet-routing/create-traffic-manager-profile.png)
 
     | Paramètre                 | Valeur                                              |
     | ---                     | ---                                                |
@@ -158,18 +160,14 @@ Créez un profil Traffic Manager qui vous permet de retourner des points de term
     | Méthode de routage          | Sélectionnez la méthode de routage de **Sous-réseau**.                                       |
     | Abonnement            | Sélectionnez votre abonnement.                          |
     | Resource group          | Sélectionnez **Existant**, puis entrez *myResourceGroupTM1*. |
-    | |                              |
-    |
-
-    ![Créer un profil Traffic Manager](./media/tutorial-traffic-manager-subnet-routing/create-traffic-manager-profile.png)
 
 ## <a name="add-traffic-manager-endpoints"></a>Ajouter des points de terminaison Traffic Manager
 
 Ajoutez les deux machines virtuelles qui exécutent les serveurs IIS : *myIISVMEastUS* & *myIISVMWestEurope* pour router le trafic utilisateur en fonction du sous-réseau de la requête de l’utilisateur.
 
 1. Dans la barre de recherche du portail, recherchez le nom du profil Traffic Manager que vous avez créé dans la section précédente et sélectionnez le profil dans les résultats affichés.
-2. Dans **Profil Traffic Manager**, dans la section **Paramètres**, cliquez sur **Points de terminaison**, puis sur **Ajouter**.
-3. Entrez ou sélectionnez les informations suivantes, acceptez les valeurs par défaut pour les autres paramètres, puis cliquez sur **OK** :
+2. Dans **Profil Traffic Manager**, dans la section **Paramètres**, sélectionnez **Points de terminaison**, puis sélectionnez **Ajouter**.
+3. Entrez ou sélectionnez les informations suivantes. Acceptez les valeurs par défaut pour les paramètres restants, puis sélectionnez **OK** :
 
     | Paramètre                 | Valeur                                              |
     | ---                     | ---                                                |
@@ -180,7 +178,7 @@ Ajoutez les deux machines virtuelles qui exécutent les serveurs IIS : *myIISVME
     |  Paramètres de routage de sous-réseau    |   Ajoutez l’adresse IP de la machine virtuelle de test *myVMEastUS*. Toute requête utilisateur provenant de cette machine virtuelle est dirigée vers *myInternalWebSiteEndpoint*.    |
 
 4. Répétez les étapes 2 et 3 pour ajouter un autre point de terminaison nommé *myProdWebsiteEndpoint* pour l’adresse IP publique *myIISVMWestEurope-ip* qui est associée à la machine virtuelle serveur IIS nommée *myIISVMWestEurope*. Pour les **paramètres de routage de sous-réseau**, ajoutez l’adresse IP de la machine virtuelle de test *myVMWestEurope*. Toute requête utilisateur de cette machine virtuelle de test est routée vers le point de terminaison *myProdWebsiteEndpoint*.
-5. Lorsque l’ajout de deux points de terminaison est terminé, ceux-ci s’affichent dans **Profil Traffic Manager** avec leur état de surveillance défini sur **En ligne**.
+5. Une fois l’ajout des deux points de terminaison terminé, ceux-ci s’affichent dans **Profil Traffic Manager** avec leur état de surveillance défini sur **En ligne**.
 
 ## <a name="test-traffic-manager-profile"></a>Tester le profil Traffic Manager
 
@@ -197,16 +195,16 @@ Dans ce didacticiel, par souci de simplicité, vous utilisez le nom DNS du profi
 
 Vous pouvez déterminer le nom DNS du profil Traffic Manager en procédant comme suit :
 
-1. Dans la barre de recherche du portail, recherchez le nom du **profil Traffic Manager** que vous avez créé dans la section précédente. Dans les résultats affichés, cliquez sur le profil Traffic Manager.
-2. Cliquez sur **Overview**.
+1. Dans la barre de recherche du portail, recherchez le nom du **profil Traffic Manager** que vous avez créé dans la section précédente. Dans les résultats affichés, sélectionnez le profil Traffic Manager.
+2. Sélectionnez **Vue d’ensemble**.
 3. Le **profil Traffic Manager** affiche le nom DNS de votre profil Traffic Manager nouvellement créé. Dans les déploiements en environnements de production, vous configurez un nom de domaine personnalisé pour qu’il pointe vers le nom de domaine Traffic Manager, à l’aide d’un enregistrement DNS CNAME.
 
 ### <a name="view-traffic-manager-in-action"></a>Afficher Traffic Manager en action
 
 Dans cette section, vous pouvez voir Traffic Manager en action.
 
-1. Sélectionnez **Toutes les ressources** dans le menu de gauche, puis, dans la liste de ressources, cliquez sur *myVMEastUS* qui se trouve dans le groupe de ressources *myResourceGroupTM1*.
-2. Dans la page **Vue d’ensemble**, cliquez sur **Se connecter**, puis sur **Se connecter à la machine virtuelle**, et sélectionnez **Télécharger le fichier RDP**.
+1. Sélectionnez **Toutes les ressources** dans le menu de gauche, puis, dans la liste de ressources, sélectionnez *myVMEastUS*, qui se trouve dans le groupe de ressources *myResourceGroupTM1*.
+2. Dans la page **Vue d’ensemble**, sélectionnez **Se connecter**, puis dans **Se connecter à la machine virtuelle**, sélectionnez **Télécharger le fichier RDP**.
 3. Ouvrez le fichier .rdp téléchargé. Si vous y êtes invité, sélectionnez **Connexion**. Entrez le nom d’utilisateur et le mot de passe spécifiés lors de la création de la machine virtuelle. Vous devrez peut-être sélectionner **Plus de choix**, puis **Utiliser un autre compte**, pour spécifier les informations d’identification que vous avez entrées lorsque vous avez créé la machine virtuelle.
 4. Sélectionnez **OK**.
 5. Un avertissement de certificat peut s’afficher pendant le processus de connexion. Si vous recevez l’avertissement, sélectionnez **Oui** ou **Continuer** pour poursuivre le processus de connexion.
