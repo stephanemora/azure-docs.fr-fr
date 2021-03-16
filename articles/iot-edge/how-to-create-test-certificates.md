@@ -8,12 +8,12 @@ ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c5af77da0ed2c579a478c8ebaaa924882d9a15c6
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: d82f1cac6e437663fa0b1c3e21c65036f3c1d4eb
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927700"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102046038"
 ---
 # <a name="create-demo-certificates-to-test-iot-edge-device-features"></a>Créer des certificats de démonstration pour tester les fonctionnalités de l’appareil IoT Edge
 
@@ -32,7 +32,7 @@ Procédez comme suit pour créer des certificats de démonstration afin de teste
 1. [Configurez des scripts](#set-up-scripts) pour générer des certificats sur votre appareil.
 2. [Créez le certificat d’autorité de certification racine](#create-root-ca-certificate) que vous utilisez pour signer tous les autres certificats de votre scénario.
 3. Générez les certificats dont vous avez besoin dans le cadre du scénario à tester :
-   * [Créer des certificats d’identité d’appareil IoT Edge](#create-iot-edge-device-identity-certificates) pour l’approvisionnement automatique avec Service IoT Hub Device Provisioning.
+   * [Créez des certificats d’identité d’appareil IoT Edge](#create-iot-edge-device-identity-certificates) pour fournir aux appareils une authentification par certificat X.509, soit manuellement, soit avec Service IoT Hub Device Provisioning.
    * [Créer des certificats d’autorité de certification d’appareil IoT Edge](#create-iot-edge-device-ca-certificates) pour les appareils IoT Edge dans les scénarios de passerelle.
    * [Créer des certificats d’appareil en aval](#create-downstream-device-certificates) pour l’authentification des appareils en aval pour IoT Hub dans un scénario de passerelle.
 
@@ -57,7 +57,7 @@ Si vous avez déjà installé OpenSSL sur votre appareil Windows, assurez-vous q
 
 Il existe plusieurs façons d’installer OpenSSL, y compris les options suivantes :
 
-* **Plus facile :** Téléchargez et installez les [binaires OpenSSL de fournisseurs tiers](https://wiki.openssl.org/index.php/Binaries), par exemple, à partir d’ [OpenSSL sur SourceForge](https://sourceforge.net/projects/openssl/). Ajoutez le chemin d’accès complet à openssl.exe à votre variable d’environnement PATH.
+* **Plus facile :** Téléchargez et installez les [binaires OpenSSL de fournisseurs tiers](https://wiki.openssl.org/index.php/Binaries), par exemple, à partir d’[OpenSSL sur SourceForge](https://sourceforge.net/projects/openssl/). Ajoutez le chemin d’accès complet à openssl.exe à votre variable d’environnement PATH.
 
 * **Recommandé :** Téléchargez le code source OpenSSL et générez les fichiers binaires sur votre machine vous-même ou en utilisant [vcpkg](https://github.com/Microsoft/vcpkg). Les instructions ci-dessous utilisent vcpkg pour télécharger le code source, compiler et installer OpenSSL sur votre machine Windows en suivant des étapes simples.
 
@@ -163,7 +163,7 @@ Avant de suivre les étapes de cette section, suivez les étapes décrites dans 
    New-CACertsCertChain rsa
    ```
 
-   Cette commande de script crée plusieurs fichiers de certificat et de clé, mais lorsque les articles demandent le **certificat d’autorité de certification racine** , utilisez le fichier suivant :
+   Cette commande de script crée plusieurs fichiers de certificat et de clé, mais lorsque les articles demandent le **certificat d’autorité de certification racine**, utilisez le fichier suivant :
 
    * `<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem`
 
@@ -177,15 +177,15 @@ Avant de suivre les étapes de cette section, suivez les étapes décrites dans 
    ./certGen.sh create_root_and_intermediate
    ```
 
-   Cette commande de script crée plusieurs fichiers de certificat et de clé, mais lorsque les articles demandent le **certificat d’autorité de certification racine** , utilisez le fichier suivant :
+   Cette commande de script crée plusieurs fichiers de certificat et de clé, mais lorsque les articles demandent le **certificat d’autorité de certification racine**, utilisez le fichier suivant :
 
    * `<WRKDIR>/certs/azure-iot-test-only.root.ca.cert.pem`  
 
 ## <a name="create-iot-edge-device-identity-certificates"></a>Créer des certificats d'identité d’appareil IoT Edge
 
-Les certificats d’identité d'appareil sont utilisés pour approvisionner les appareils IoT Edge via le service Azure IoT Hub Device Provisioning.
+Les certificats d’identité d’appareil sont utilisés pour approvisionner des appareils IoT Edge si vous choisissez d’utiliser une authentification par certificat X.509. Ces certificats fonctionnent, que vous utilisiez l’approvisionnement manuel ou l’approvisionnement automatique via le Service IoT Hub Device Provisioning (DPS).
 
-Les certificats d’identité d’appareil sont placés dans la section **Approvisionnement** du fichier config.yaml de l’appareil IoT Edge.
+Les certificats d’identité d’appareil sont placés dans la section **Approvisionnement** du fichier config sur l’appareil IoT Edge.
 
 Avant de suivre les étapes de cette section, suivez les étapes décrites dans les sections [Configurer des scripts](#set-up-scripts) et [Créer un certificat d’autorité de certification racine](#create-root-ca-certificate).
 
@@ -223,17 +223,25 @@ Le script crée plusieurs fichiers de certificats et de clés, y compris trois q
 
 ## <a name="create-iot-edge-device-ca-certificates"></a>Créer des certificats d’autorité de certification d’appareil IoT Edge
 
-Chaque appareil IoT Edge destiné à la production a besoin d’un certificat d’autorité de certification d’appareil référencé à partir du fichier config.yaml.
+Chaque appareil IoT Edge allant en production a besoin d’un certificat d’autorité de certification d’appareil référencé à partir du fichier config.
 Le certificat d’autorité de certification de l’appareil est chargé de créer des certificats pour les modules en cours d’exécution sur l’appareil.
 Il est également nécessaire pour les scénarios de passerelle, car c'est grâce au certificat de l'autorité de certification de l'appareil que l'appareil IoT Edge vérifie son identité auprès des appareils en aval.
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 Les certificats d’autorité de certification d'appareil sont placés dans la section **Certificat** du fichier config.yaml de l’appareil IoT Edge.
+:::moniker-end
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+Les certificats d’autorité de certification d’appareil sont placés dans la section **Edge CA** du fichier config.toml sur l’appareil IoT Edge.
+:::moniker-end
 
 Avant de suivre les étapes de cette section, suivez les étapes décrites dans les sections [Configurer des scripts](#set-up-scripts) et [Créer un certificat d’autorité de certification racine](#create-root-ca-certificate).
 
 ### <a name="windows"></a>Windows
 
-1. Accédez au répertoire de travail qui contient les scripts de génération de certificats et le certificat d’Autorité de certification racine.
+1. Accédez au répertoire de travail qui contient les scripts de génération de certificats et le certificat d’autorité de certification racine.
 
 2. Créez la clé privée et le certificat d’autorité de certification d’appareil IoT Edge avec la commande suivante. Fournissez un nom pour le certificat de l'autorité de certification.
 
@@ -241,12 +249,12 @@ Avant de suivre les étapes de cette section, suivez les étapes décrites dans 
    New-CACertsEdgeDevice "<CA cert name>"
    ```
 
-   Cette commande crée plusieurs fichiers de certificat et de clé. Le certificat et la paire de clés suivants doivent être copiés sur un appareil IoT Edge et référencés dans le fichier config.yaml :
+   Cette commande crée plusieurs fichiers de certificat et de clé. La paire suivante de certificat et de clé doivent être copiée sur un appareil IoT Edge et référencée dans le fichier config :
 
    * `<WRKDIR>\certs\iot-edge-device-<CA cert name>-full-chain.cert.pem`
    * `<WRKDIR>\private\iot-edge-device-<CA cert name>.key.pem`
 
-Le nom d'appareil transmis à la commande **New-CACertsEdgeDevice** ne doit pas être le même que le paramètre hostname du fichier config.yaml ou que l'ID de l'appareil dans IoT Hub.
+Le nom transmis à la commande **New-CACertsEdgeDevice** ne doit pas être identique au paramètre hostname dans le fichier config ou à l’ID de l’appareil dans IoT Hub.
 
 ### <a name="linux"></a>Linux
 
@@ -258,12 +266,12 @@ Le nom d'appareil transmis à la commande **New-CACertsEdgeDevice** ne doit pas 
    ./certGen.sh create_edge_device_ca_certificate "<CA cert name>"
    ```
 
-   Cette commande de script crée plusieurs fichiers de certificats et de clés. Le certificat et la paire de clés suivants doivent être copiés sur un appareil IoT Edge et référencés dans le fichier config.yaml :
+   Cette commande de script crée plusieurs fichiers de certificats et de clés. La paire suivante de certificat et de clé doivent être copiée sur un appareil IoT Edge et référencée dans le fichier config :
 
    * `<WRKDIR>/certs/iot-edge-device-<CA cert name>-full-chain.cert.pem`
    * `<WRKDIR>/private/iot-edge-device-<CA cert name>.key.pem`
 
-Le nom transmis à la commande **create_edge_device_ca_certificate** ne doit pas être le même que le paramètre hostname du fichier config.yaml ni que l’ID de l’appareil dans IoT Hub.
+Le nom transmis à la commande **create_edge_device_ca_certificate** ne doit pas être identique au paramètre hostname dans le fichier config ou à l’ID de l’appareil dans IoT Hub.
 
 ## <a name="create-downstream-device-certificates"></a>Créer des certificats d’appareils en aval
 

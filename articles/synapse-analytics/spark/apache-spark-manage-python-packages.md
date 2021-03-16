@@ -5,16 +5,16 @@ services: synapse-analytics
 author: midesa
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.date: 03/01/2020
+ms.date: 02/26/2020
 ms.author: midesa
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: 296bd3a4a75cdd7f5dab3b6eb5fdcb00a889703d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 4bb323e0e8f72456b6a522ede9a98d193e1c3c7e
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101695864"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102098772"
 ---
 # <a name="manage-python-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Gérer des bibliothèques Python pour Apache Spark dans Azure Synapse Analytics
 
@@ -36,13 +36,13 @@ Lors du démarrage d’une instance Spark, ces bibliothèques sont automatiqueme
 Une fois que vous avez identifié les bibliothèques Python que vous souhaitez utiliser pour votre application Spark, vous pouvez les installer dans un pool Spark. Les bibliothèques de pools sont disponibles pour tous les notebooks et toutes les tâches qui s’exécutent sur le pool.
 
 Vous pouvez installer une bibliothèque sur un cluster de deux manières principales :
--  Installer une bibliothèque d’espace de travail qui a été téléchargée en tant que package d’espace de travail.
+-  Installer une bibliothèque d’espace de travail qui a été chargée en tant que package d’espace de travail.
 -  Fournir une spécification d’environnement *requirements.txt* ou *Conda environment.yml* pour installer des packages à partir de référentiels tels que PyPI, Conda-Forge et bien plus encore.
 
 > [!IMPORTANT]
 > - Si le package que vous installez est volumineux ou si son installation prend beaucoup de temps, cela affecte le temps de démarrage de l’instance Spark.
 > - La modification de la version de PySpark, Python, Scala/Java, .NET ou Spark n’est pas prise en charge.
-> - L’installation de packages à partir de PyPI n’est pas prise en charge dans les espaces de travail DEP.
+> - L’installation de packages à partir de référentiels externes tels que PyPI, Conda-forge ou les canaux Conda par défaut n’est pas prise en charge dans les espaces de travail avec DEP.
 
 ### <a name="install-python-packages"></a>Installer des packages Python
 Pour installer les packages Python à partir de référentiels tels que PyPI et Conda-Forge, vous devez fournir un fichier de spécification d’environnement. 
@@ -140,9 +140,6 @@ Pour ajouter des packages d’espace de travail :
 
 ![Capture d’écran mettant en évidence les packages d’espace de travail.](./media/apache-spark-azure-portal-add-libraries/studio-add-workspace-package.png "Afficher les packages d’espace de travail")
 
-> [!IMPORTANT]
-> L’installation de packages d’espace de travail n’est pas encore prise en charge dans les espaces de travail protégés contre l’exfiltration de données (DEP).
-
 ### <a name="storage-account"></a>Compte de stockage
 Les packages Wheel personnalisés peuvent être installés sur le pool Apache Spark en chargeant tous les fichiers Wheel dans le compte Azure Data Lake Storage (Gen2) qui est lié à l’espace de travail Synapse. 
 
@@ -158,10 +155,10 @@ Vous devrez peut-être ajouter le dossier ```python``` dans le dossier ```librar
 > Pour installer des bibliothèques personnalisées à l’aide de la méthode Azure DataLake Storage, vous devez disposer des autorisations **Contributeur aux données Blob du stockage** ou **Propriétaire des données Blob du stockage** sur le compte de stockage Gen2 principal qui est lié à l’espace de travail Azure Synapse Analytics.
 
 >[!WARNING]
-> Les utilisateurs ne peuvent pas fournir des fichiers wheel personnalisés à la fois dans le compte de stockage et dans l’interface de la bibliothèque d’espace de travail. S’ils les fournissent dans ces deux emplacements, seuls les fichiers wheel spécifiés dans la liste des packages d’espace de travail sont installés. 
+> Les utilisateurs ne peuvent pas fournir des fichiers wheel personnalisés à la fois dans le compte de stockage et dans l’interface de la bibliothèque d’espace de travail. Si les deux sont fournis, seuls les fichiers wheel spécifiés dans la liste des packages d’espace de travail sont installés. 
 
-## <a name="session-scoped-libraries-preview"></a>Bibliothèques avec étendue de session (préversion)
-Outre les bibliothèques de pools, vous pouvez également spécifier des bibliothèques avec étendue de session au démarrage d’une session de notebook.  Les bibliothèques avec étendue de session vous permettent de spécifier et d’utiliser des environnements Python personnalisés dans une session de notebook. 
+## <a name="session-scoped-packages-preview"></a>Packages avec étendue de session (préversion)
+Outre les packages du niveau pool, vous pouvez spécifier des bibliothèques incluses dans l’étendue de la session au début d’une session de notebook.  Les bibliothèques avec étendue de session vous permettent de spécifier et d’utiliser des environnements Python personnalisés dans une session de notebook. 
 
 Lorsque vous utilisez des bibliothèques avec étendue de session, il est important de garder à l’esprit les points suivants :
    - Lorsque vous installez des bibliothèques avec étendue de session, seul le notebook actif peut accéder aux bibliothèques spécifiées. 
@@ -187,3 +184,4 @@ Dans certains cas, il se peut que vous deviez examiner la version du package ind
 ## <a name="next-steps"></a>Étapes suivantes
 - Afficher les bibliothèques par défaut : [Prise en charge des versions d’Apache Spark](apache-spark-version-support.md)
 - Résoudre les erreurs d’installation de bibliothèque : [Résoudre les erreurs de bibliothèque](apache-spark-troubleshoot-library-errors.md)
+- Créer un canal Conda privé à l’aide de votre compte Azure Data Lake Storage : [Canaux privés Conda](./spark/../apache-spark-custom-conda-channel.md)

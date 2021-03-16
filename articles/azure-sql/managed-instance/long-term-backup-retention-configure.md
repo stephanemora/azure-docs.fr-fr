@@ -1,5 +1,5 @@
 ---
-title: 'Azure SQL Managed Instance : Conservation de sauvegardes à long terme (PowerShell)'
+title: 'Azure SQL Managed Instance : rétention des sauvegardes à long terme'
 description: Découvrez comment stocker et restaurer des sauvegardes automatisées sur des conteneurs de Stockage Blob Azure distincts pour une instance SQL Managed Instance avec PowerShell.
 services: sql-database
 ms.service: sql-managed-instance
@@ -7,28 +7,88 @@ ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
 ms.topic: how-to
-author: anosov1960
-ms.author: sashan
+author: shkale-msft
+ms.author: shkale
 ms.reviewer: mathoma, sstein
-ms.date: 04/29/2020
-ms.openlocfilehash: bb74a2e271473666332c627f6ad4324ca597e40c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.date: 02/25/2021
+ms.openlocfilehash: f298f0f9d76750be932db79b5a08b6385e984f88
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100593363"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102052023"
 ---
 # <a name="manage-azure-sql-managed-instance-long-term-backup-retention-powershell"></a>Gérer la conservation des sauvegardes à long terme Azure SQL Managed Instance (PowerShell)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-Dans Azure SQL Managed Instance, vous pouvez configurer une stratégie de [conservation des sauvegardes à long terme](../database/long-term-retention-overview.md#sql-managed-instance-support) (LTR) grâce à une fonctionnalité en préversion publique limitée. Cela vous permet de conserver automatiquement les sauvegardes de base de données dans des conteneurs Stockage Blob Azure distincts pendant 10 ans maximum. Vous pouvez ensuite récupérer une base de données à l’aide de ces sauvegardes avec PowerShell.
+Dans Azure SQL Managed Instance, une fonctionnalité en préversion publique vous permet de configurer une stratégie de [rétention des sauvegardes à long terme](../database/long-term-retention-overview.md) (LTR). Cela vous permet de conserver automatiquement les sauvegardes de base de données dans des conteneurs Stockage Blob Azure distincts pendant 10 ans maximum. Vous pouvez ensuite récupérer une base de données à l’aide de ces sauvegardes avec PowerShell.
 
    > [!IMPORTANT]
-   > La conservation LTR des instances gérées, actuellement en préversion limitée, est disponible pour les abonnements EA et CSP selon les cas. Pour demander une inscription, créez un [ticket de support Azure](https://azure.microsoft.com/support/create-ticket/). Pour le type de problème, sélectionnez « Problème technique », pour le service, choisissez « SQL Database Managed Instance » et pour le type de problème, sélectionnez **Sauvegarde, restauration et continuité d’activité/conservation de sauvegarde à long terme**. Dans votre demande, indiquez que vous souhaitez être inscrit à la préversion publique limitée de LTR pour Managed Instance.
+   > La LTR pour les instances gérées est actuellement disponible en préversion publique dans les régions publiques Azure. 
 
 Les sections suivantes vous montrent comment utiliser PowerShell pour configurer la rétention des sauvegardes à long terme, afficher des sauvegardes dans le stockage SQL Azure et restaurer à partir d’une sauvegarde dans le stockage SQL Azure.
 
-## <a name="azure-roles-to-manage-long-term-retention"></a>Rôles Azure pour gérer la conservation à long terme
+
+## <a name="using-the-azure-portal"></a>Utilisation du portail Azure
+
+Les sections suivantes vous montrent comment utiliser le portail Azure pour définir des stratégies de conservation à long terme, gérer les sauvegardes de conservation à long terme disponibles et effectuer une restauration à partir d’une sauvegarde disponible.
+
+### <a name="configure-long-term-retention-policies"></a>Configurer des stratégies de rétention à long terme
+
+Vous pouvez configurer SQL Managed Instance pour [conserver des sauvegardes automatisées](../database/long-term-retention-overview.md) sur une période plus longue que la période de rétention associée à votre niveau de service.
+
+1. Dans le portail Azure, sélectionnez votre instance gérée, puis cliquez sur **Sauvegardes**. Sous l’onglet **Stratégies de conservation**, sélectionnez les bases de données sur lesquelles vous souhaitez définir ou modifier des stratégies de rétention des sauvegardes à long terme. Les modifications ne s’appliquent pas aux bases de données non sélectionnées. 
+
+   ![lien gérer les sauvegardes](./media/long-term-backup-retention-configure/ltr-configure-ltr.png)
+
+2. Dans le volet **Configurer les stratégies**, spécifiez la période de conservation souhaitée pour les sauvegardes hebdomadaires, mensuelles ou annuelles. Choisissez une période de conservation de « 0 » pour indiquer qu’aucune conservation de sauvegarde à long terme ne doit être définie.
+
+   ![configurer des stratégies](./media/long-term-backup-retention-configure/ltr-configure-policies.png)
+
+3. Lorsque vous avez terminé, cliquez sur **Appliquer**.
+
+> [!IMPORTANT]
+> Lorsque vous activez une stratégie de rétention des sauvegardes à long terme, la première sauvegarde peut ne devenir visible et disponible pour une restauration qu’au bout de 7 jours. Pour en savoir plus sur la cadence des sauvegardes LTR, consultez la section relative à la [rétention des sauvegardes à long terme](../database/long-term-retention-overview.md).
+
+### <a name="view-backups-and-restore-from-a-backup"></a>Afficher des sauvegardes et restaurer à partir d’une sauvegarde
+
+Affichez les sauvegardes qui sont conservées pour une base de données spécifique avec une stratégie de conservation à long terme et restaurez à partir de ces sauvegardes.
+
+1. Dans le portail Azure, sélectionnez votre instance gérée, puis cliquez sur **Sauvegardes**. Dans l’onglet **Sauvegardes disponibles**, sélectionnez la base de données pour laquelle vous souhaitez afficher les sauvegardes disponibles. Cliquez sur **Gérer**.
+
+   ![sélectionner la base de données](./media/long-term-backup-retention-configure/ltr-available-backups-select-database.png)
+
+1. Dans le volet **Gérer les sauvegardes**, passez en revue les sauvegardes disponibles.
+
+   ![afficher les sauvegardes](./media/long-term-backup-retention-configure/ltr-available-backups.png)
+
+1. Sélectionnez la sauvegarde à partir de laquelle vous souhaitez restaurer, cliquez sur **Restaurer**, puis, dans la page Restaurer, spécifiez le nouveau nom de la base de données. La sauvegarde et la source sont préremplies sur cette page. 
+
+   ![sélectionner une sauvegarde pour restauration](./media/long-term-backup-retention-configure/ltr-available-backups-restore.png)
+   
+   ![restauration](./media/long-term-backup-retention-configure/ltr-restore.png)
+
+1. Cliquez sur **Vérifier + créer** pour examiner les détails de votre restauration. Cliquez ensuite sur **Créer** pour restaurer votre base de données à partir de la sauvegarde choisie.
+
+1. Dans la barre d’outils, cliquez sur l’icône de notification pour visualiser l’état du travail de restauration.
+
+   ![progression du travail de restauration](./media/long-term-backup-retention-configure/restore-job-progress-long-term.png)
+
+1. Une fois le travail de restauration terminé, ouvrez la page **Vue d’ensemble de l’instance gérée** pour voir la base de données nouvellement restaurée.
+
+> [!NOTE]
+> À ce stade, vous pouvez vous connecter à la base de données restaurée à l’aide de SQL Server Management Studio pour exécuter les tâches nécessaires, notamment pour [extraire un bit de données de la base de données restaurée à copier dans la base de données existante ou pour supprimer la base de données existante et renommer la base de données restaurée avec le nom de la base de données existante](../database/recovery-using-backups.md#point-in-time-restore).
+
+
+## <a name="using-powershell"></a>Utilisation de PowerShell
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+> [!IMPORTANT]
+> Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais le module Az.Sql fera l’objet d’un développement futur. Pour ces cmdlets, voir [AzureRM.Sql](/powershell/module/AzureRM.Sql/). Les arguments des commandes dans le module Az sont sensiblement identiques à ceux des modules AzureRm.
+
+Les sections suivantes vous montrent comment utiliser PowerShell pour configurer la rétention des sauvegardes à long terme, afficher des sauvegardes dans le stockage Azure et restaurer à partir d’une sauvegarde dans le stockage Azure.
+
+### <a name="azure-rbac-roles-to-manage-long-term-retention"></a>Rôles RBAC Azure pour gérer la conservation à long terme
 
 Pour **Get-AzSqlInstanceDatabaseLongTermRetentionBackup** et **Restore-AzSqlInstanceDatabase**, vous devez avoir l’un des rôles suivants :
 
@@ -52,7 +112,7 @@ Les autorisations Azure RBAC peuvent être accordées dans l’étendue de l’*
 
 - `Microsoft.Sql/locations/longTermRetentionManagedInstances/longTermRetentionDatabases/longTermRetentionManagedInstanceBackups/delete`
 
-## <a name="create-an-ltr-policy"></a>Créer une stratégie de rétention à long terme
+### <a name="create-an-ltr-policy"></a>Créer une stratégie de rétention à long terme
 
 ```powershell
 # get the Managed Instance
@@ -88,7 +148,7 @@ $LTRPolicy = @{
 Set-AzSqlInstanceDatabaseBackupLongTermRetentionPolicy @LTRPolicy
 ```
 
-## <a name="view-ltr-policies"></a>Afficher des stratégies de rétention à long terme
+### <a name="view-ltr-policies"></a>Afficher des stratégies de rétention à long terme
 
 Cet exemple montre comment lister les stratégies LTR au sein d’une instance pour une base de données unique.
 
@@ -119,7 +179,7 @@ foreach($database in $Databases.Name){
  }
 ```
 
-## <a name="clear-an-ltr-policy"></a>Effacer une stratégie de rétention à long terme
+### <a name="clear-an-ltr-policy"></a>Effacer une stratégie de rétention à long terme
 
 Cet exemple montre comment effacer une stratégie de rétention à long terme d’une base de données
 
@@ -134,7 +194,7 @@ $LTRPolicy = @{
 Set-AzSqlInstanceDatabaseBackupLongTermRetentionPolicy @LTRPolicy
 ```
 
-## <a name="view-ltr-backups"></a>Afficher des sauvegardes de rétention à long terme
+### <a name="view-ltr-backups"></a>Afficher des sauvegardes de rétention à long terme
 
 Cet exemple montre comment lister les sauvegardes LTR au sein d’une instance.
 
@@ -177,7 +237,7 @@ $LTRBackupParam = @{
 Get-AzSqlInstanceDatabaseLongTermRetentionBackup @LTRBackupParam 
 ```
 
-## <a name="delete-ltr-backups"></a>Supprimer des sauvegardes de rétention à long terme
+### <a name="delete-ltr-backups"></a>Supprimer des sauvegardes de rétention à long terme
 
 Cet exemple montre comment supprimer une sauvegarde de rétention à long terme de la liste des sauvegardes.
 
@@ -197,9 +257,9 @@ Remove-AzSqlInstanceDatabaseLongTermRetentionBackup -ResourceId $ltrBackup.Resou
 > [!IMPORTANT]
 > La suppression de sauvegardes de rétention à long terme n’est pas réversible. Pour supprimer une sauvegarde LTR une fois l’instance supprimée, vous devez disposer d’une autorisation étendue à l’abonnement. Vous pouvez configurer des notifications sur chaque suppression dans Azure Monitor en filtrant sur l’opération « Supprime une sauvegarde de conservation à long terme ». Le journal d’activité contient des informations sur la personne qui a effectué la requête et quand. Consultez [Créer des alertes de journal d’activité](../../azure-monitor/alerts/alerts-activity-log.md) pour obtenir des instructions détaillées.
 
-## <a name="restore-from-ltr-backups"></a>Restaurer à partir de sauvegardes de rétention à long terme
+### <a name="restore-from-ltr-backups"></a>Restaurer à partir de sauvegardes de rétention à long terme
 
-Cet exemple montre comment restaurer à partir d’une sauvegarde de rétention à long terme. Notez que cette interface n’a pas changé, mais que le paramètre d’ID de ressource requiert désormais l’ID de ressource de sauvegarde de rétention à long terme.
+Cet exemple montre comment restaurer à partir d’une sauvegarde de rétention à long terme. Notez que cette interface n’a pas changé, mais que le paramètre d’ID de ressource requiert désormais l’ID de ressource de sauvegarde LTR.
 
 ```powershell
 # restore a specific LTR backup as an P1 database on the instance $instanceName of the resource group $resourceGroup

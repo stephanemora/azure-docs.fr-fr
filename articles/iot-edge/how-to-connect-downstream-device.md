@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - devx-track-js
-ms.openlocfilehash: 35bb17a5cdfcc6aff4a513a594a08283ab1f1305
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 44fe128658b90d2327f17f22b2a33aaa1d4da1fc
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96437029"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102046123"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>Connecter un appareil en aval à une passerelle Azure IoT Edge
 
@@ -214,7 +214,7 @@ La sortie de cette commande peut être longue, car elle comprend des information
 
 Si la connexion entre votre appareil de nœud terminal et son appareil de passerelle est intermittente, essayez les étapes suivantes pour résoudre le problème.
 
-1. Le nom d’hôte de passerelle de la chaîne de connexion est-il identique à celui qui figure dans le fichier config.yaml IoT Edge de l’appareil de passerelle ?
+1. Le nom d’hôte de passerelle de la chaîne de connexion est-il identique à celui qui figure dans le fichier config IoT Edge de l’appareil de passerelle ?
 2. Le nom d’hôte de passerelle peut-il être résolu en une adresse IP ? Vous pouvez résoudre les problèmes de connexion intermittente à l’aide d’un DNS ou en ajoutant une entrée de fichier hôte sur l’appareil de nœud terminal.
 3. Les ports de communication de votre pare-feu sont-ils ouverts ? Une communication basée sur le protocole utilisé (MQTTS:8883/AMQPS:5671/HTTPS:433) doit pouvoir être établie entre l’appareil en aval et la passerelle transparente IoT Edge.
 

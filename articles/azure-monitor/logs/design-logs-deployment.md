@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/20/2019
-ms.openlocfilehash: ed9690a750ad6e1167ba0a0ae4a87b603c4a1f15
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a889275782388781eadffb7cf0a24771bf6e9e4f
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101717398"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102030832"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Conception de votre déploiement de journaux Azure Monitor
 
@@ -87,9 +87,9 @@ Les utilisateurs disposent de deux options pour accéder aux données :
 
     > [!NOTE]
     > Les journaux sont disponibles pour les requêtes dans le contexte de la ressource uniquement s’ils ont été correctement associés à la ressource appropriée. Les ressources suivantes ont des limitations :
-    > - Ordinateurs situés en dehors d’Azure
+    > - Ordinateurs en dehors d’Azure : pris en charge pour le contexte de la ressource uniquement via [Azure Arc pour serveurs](../../azure-arc/servers/index.yml)
     > - Service Fabric
-    > - Application Insights
+    > - Application Insights : prises en charge pour le contexte de la ressource uniquement lors de l’utilisation d’[une ressource Application Insights basée sur un espace de travail](../app/create-workspace-resource.md)
     >
     > Vous pouvez tester si les journaux sont correctement associés à leurs ressources en exécutant une requête et en inspectant les enregistrements qui vous intéressent. Si l’ID de ressource correct se trouve dans la propriété [_ResourceId](./log-standard-columns.md#_resourceid), les données sont disponibles pour les requêtes centrées sur la ressource.
 

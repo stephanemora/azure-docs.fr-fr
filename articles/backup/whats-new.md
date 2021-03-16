@@ -3,12 +3,12 @@ title: Nouveautés de Sauvegarde Azure
 description: En savoir plus sur les nouvelles fonctionnalités de Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 11/11/2020
-ms.openlocfilehash: 5343ec2ae04853492abbaace2432cf94c9fb5a07
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 48c8c189d956c4003d24511a54975fe86a982832
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98762369"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102095712"
 ---
 # <a name="whats-new-in-azure-backup"></a>Nouveautés de Sauvegarde Azure
 
@@ -18,6 +18,11 @@ Pour en savoir plus sur les nouvelles versions, vous pouvez créer un signet sur
 
 ## <a name="updates-summary"></a>Résumé des mises à jour
 
+- Mars 2021
+  - [Le Centre de sauvegarde est désormais en disponibilité générale](#backup-center-is-now-generally-available)
+  - [Prise en charge du niveau archive pour le service Sauvegarde Azure (en préversion)](#archive-tier-support-for-azure-backup-in-preview)
+- Février 2021
+  - [Sauvegarde pour objets blob Azure (en préversion)](#backup-for-azure-blobs-in-preview)
 - Janvier 2021
   - [Sauvegarde de disque Azure (en préversion)](#azure-disk-backup-in-preview)
   - [Chiffrement au repos à l’aide de clés gérées par le client (disponibilité générale)](#encryption-at-rest-using-customer-managed-keys)
@@ -35,9 +40,29 @@ Pour en savoir plus sur les nouvelles versions, vous pouvez créer un signet sur
   - [Stockage redondant interzone (ZRS) pour les données de sauvegarde (en préversion)](#zone-redundant-storage-zrs-for-backup-data-in-preview)
   - [Suppression réversible pour les charges de travail SQL Server et SAP HANA dans les machines virtuelles Azure](#soft-delete-for-sql-server-and-sap-hana-workloads)
 
+## <a name="backup-center-is-now-generally-available"></a>Le centre de sauvegarde est désormais en disponibilité générale
+
+Le centre de sauvegarde simplifie la gestion de la protection des données à grande échelle en vous permettant de découvrir, d’administrer, de superviser, d’exécuter et d’optimiser la gestion des sauvegardes dans une seule console centrale.
+
+Pour plus d’informations, consultez [Vue d’ensemble du centre de sauvegarde](backup-center-overview.md).
+
+## <a name="archive-tier-support-for-azure-backup-in-preview"></a>Prise en charge du niveau archive pour le service Sauvegarde Azure (en préversion)
+
+Le service Sauvegarde Azure vous permet désormais de réduire les coûts des sauvegardes de conservation à long terme avec la disponibilité du niveau Archive pour les machines virtuelles Azure et de SQL Server dans les machines virtuelles Azure.
+
+Pour plus d’informations, consultez [Prise en charge du niveau Archive (préversion)](archive-tier-support.md).
+
+## <a name="backup-for-azure-blobs-in-preview"></a>Sauvegarde pour les objets blob Azure (en préversion)
+
+La sauvegarde opérationnelle pour objets blob est une solution de protection des données locale gérée qui vous permet de protéger vos objets blob de blocs contre différentes situations de perte de données telles que des altérations de données, des suppressions de blobs et la suppression accidentelle de compte de stockage. Les données sont stockées localement dans le compte de stockage source proprement dit, et peuvent être récupérées à un point dans le temps sélectionné si nécessaire. La solution offre ainsi un moyen simple, sécurisé et économique de protéger vos objets blob.
+
+La sauvegarde opérationnelle pour objets blob s’intègre avec le centre de sauvegarde, entre autres fonctionnalités de gestion des sauvegardes, pour fournir un volet unique pour vous aider à gérer, surveiller, exploiter et analyser les sauvegardes à grande échelle.
+
+Pour plus d’informations, consultez [Vue d’ensemble de la sauvegarde opérationnelle pour les objets blob Azure (en préversion)](blob-backup-overview.md).
+
 ## <a name="azure-disk-backup-in-preview"></a>Sauvegarde de disque Azure (en préversion)
 
-La sauvegarde de disques Azure offre une solution clé en main qui fournit une gestion du cycle de vie des instantanés pour les [disques managés Azure](../virtual-machines/managed-disks-overview.md) en automatisant la création périodique d’instantanés et en les conservant pour une durée configurée à l’aide d’une stratégie de sauvegarde. Vous pouvez gérer les instantanés des disques sans aucun coût d’infrastructure et sans avoir recours à aucun script personnalisé ni aucune surcharge de gestion. Il s’agit d’une solution de sauvegarde avec cohérence en cas d’incident qui effectue une sauvegarde ponctuelle d’un disque managé au moyen d’[instantanés incrémentiels](../virtual-machines/disks-incremental-snapshots.md) avec une prise en charge de plusieurs sauvegardes par jour. Il s’agit également d’une solution sans agent qui n’a pas d’impact sur les performances des applications de production. Elle prend en charge la sauvegarde et la restauration des disques du système d’exploitation et des données (y compris des disques partagés), qu’ils soient ou non actuellement attachés à une machine virtuelle Azure en cours d’exécution.
+La sauvegarde de disques Azure offre une solution clé en main qui fournit une gestion du cycle de vie des instantanés pour les [disques managés Azure](../virtual-machines/managed-disks-overview.md) en automatisant la création périodique d’instantanés et en les conservant pour une durée configurée à l’aide d’une stratégie de sauvegarde. Vous pouvez gérer les instantanés des disques sans aucun coût d’infrastructure et sans avoir recours à aucun script personnalisé ni aucune surcharge de gestion. Il s’agit d’une solution de sauvegarde avec cohérence en cas de plantage qui effectue une sauvegarde ponctuelle d’un disque managé au moyen d’[instantanés incrémentiels](../virtual-machines/disks-incremental-snapshots.md) avec une prise en charge de plusieurs sauvegardes par jour. Il s’agit également d’une solution sans agent qui n’a pas d’impact sur les performances des applications de production. Elle prend en charge la sauvegarde et la restauration des disques du système d’exploitation et des données (y compris des disques partagés), qu’ils soient ou non actuellement attachés à une machine virtuelle Azure en cours d’exécution.
 
 Pour plus d’informations, consultez [Sauvegarde de disque Azure (en préversion)](disk-backup-overview.md).
 

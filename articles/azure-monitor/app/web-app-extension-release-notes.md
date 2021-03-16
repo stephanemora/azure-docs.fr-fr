@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: MS-jgol
 ms.author: jgol
 ms.date: 06/26/2020
-ms.openlocfilehash: b9da3b0647d5abe60dd8f6cb21163ff21f07205b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 07ba61f630b849a377f1c7ba881f95518eb73606
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86539718"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102042604"
 ---
 # <a name="release-notes-for-azure-web-app-extension-for-application-insights"></a>Notes de publication pour l’extension d’application web Azure pour Application Insights
 
@@ -27,6 +27,24 @@ Cet article contient les notes de publication de l’extension de Web Apps Azure
     - Désinstallez les extensions de site privé, car elles ne sont plus prises en charge.
 
 ## <a name="release-notes"></a>Notes de publication
+
+### <a name="2838"></a>2.8.38
+
+- Extension JAVA : mise à niveau vers l’[agent Java 3.0.2 (GA)](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.0.2) à partir de la version 2.5.1.
+- Extension Node.js : mise à jour du Kit de développement logiciel (SDK) IA vers la version [1.8.8](https://github.com/microsoft/ApplicationInsights-node.js/releases/tag/1.8.8) à partir de la version 1.8.7.
+- .NET Core : suppression des versions hors support (2.0, 2.2, 3.0). Les versions prises en charge sont les versions 2.1 et 3.1.
+
+### <a name="2837"></a>2.8.37
+
+- Extension Windows AppSvc : .Net Core rendu opérationnel avec tout version de System.Diagnostics.DiagnosticSource.dll.
+
+### <a name="2836"></a>2.8.36
+
+- Extension Windows AppSvc : activation d’inter-op avec le Kit de développement logiciel (SDK) IA dans .NET Core.
+
+### <a name="2835"></a>2.8.35
+
+- Extension Windows AppSvc : Ajout de la prise en charge de .NET Core 3.1.
 
 ### <a name="2833"></a>2.8.33
 

@@ -1,17 +1,16 @@
 ---
 title: Collecter les sources de données du journal des événements Windows avec l’agent Log Analytics dans Azure Monitor
 description: Décrit comment configurer la collecte des journaux d’événements Windows et par Azure Monitor et les détails des enregistrements créés.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/21/2020
-ms.openlocfilehash: b747a4b58c9c460178d415d0b45ade814723d8fe
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 02/26/2021
+ms.openlocfilehash: a3baa83e2ae306f1e43aee52e29a151bad6f85d9
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101719863"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102036591"
 ---
 # <a name="collect-windows-event-log-data-sources-with-log-analytics-agent"></a>Collecter les sources de données du journal des événements Windows avec l’agent Log Analytics
 Les journaux d’événements Windows sont les [sources de données](../agents/agent-data-sources.md) les plus courantes pour les agents Log Analytics sur Windows puisque de nombreuses applications écrivent dans le journal des événements Windows.  Vous pouvez collecter des événements à partir de journaux d’activité standard tels que Système et Application, ou spécifier des journaux d’activité personnalisés créés par les applications que vous souhaitez surveiller.
@@ -22,13 +21,13 @@ Les journaux d’événements Windows sont les [sources de données](../agents/a
 ![Événements Windows](media/data-sources-windows-events/overview.png)     
 
 ## <a name="configuring-windows-event-logs"></a>Configuration des journaux d’événements Windows
-Configurez les journaux d’événements Windows à partir du [menu Données dans les paramètres avancés](../agents/agent-data-sources.md#configuring-data-sources) de l’espace de travail Log Analytics.
+Configurez des journaux d’événements Windows à partir du [menu Configurer des agents](../agents/agent-data-sources.md#configuring-data-sources) pour l’espace de travail Log Analytics.
 
 Azure Monitor collecte uniquement les événements des journaux d’événements Windows spécifiés dans les paramètres.  Vous pouvez ajouter un journal d’événements en tapant le nom du journal puis en cliquant sur **+** .  Pour chaque journal, seuls les événements avec les niveaux de gravité sélectionnés sont collectés.  Vérifiez les niveaux de gravité du journal que vous souhaitez collecter.  Vous ne pouvez pas fournir d’autres critères supplémentaires pour filtrer les événements.
 
 Lorsque vous tapez le nom d’un journal d’événements, Azure Monitor suggère des noms communs de journaux d’événements. Si le journal que vous voulez ajouter n’apparaît pas dans la liste, vous pouvez l’ajouter en saisissant le nom complet du journal. Vous trouverez le nom complet du journal à l’aide de l’Observateur d’événements. Dans l’Observateur d’événements, ouvrez la page *Propriétés* du journal et copiez la chaîne du champ *Nom complet*.
 
-![Configurer les événements Windows](media/data-sources-windows-events/configure.png)
+[![Configurer les événements Windows](media/data-sources-windows-events/configure.png)](media/data-sources-windows-events/configure.png#lightbox)
 
 > [!NOTE]
 > Les événements critiques du journal d’événements Windows auront un niveau de gravité « Erreur » dans les journaux d’Azure Monitor.

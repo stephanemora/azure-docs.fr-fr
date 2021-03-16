@@ -1,15 +1,15 @@
 ---
-author: IEvangelist
-ms.author: dapine
-ms.date: 02/19/2020
+author: aahill
+ms.author: aahi
+ms.date: 03/02/2021
 ms.service: cognitive-services
 ms.topic: include
-ms.openlocfilehash: 2ac93f5aba722eea78267a512999a5581a887b99
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: d61813e723992f4381c5ea82121da8bbb70016dc
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95996414"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102032928"
 ---
 Les requêtes sur le conteneur sont facturées au niveau tarifaire de la ressource Azure utilisée pour `ApiKey`.
 
@@ -17,7 +17,7 @@ Les conteneurs Azure Cognitive Services ne sont pas concédés sous licence dans
 
 ### <a name="connect-to-azure"></a>Connexion à Azure
 
-Le conteneur a besoin des valeurs d’arguments de facturation pour s’exécuter. Ces valeurs permettent au conteneur de se connecter au point de terminaison de facturation. Le conteneur crée des rapports sur l’utilisation toutes les 10 à 15 minutes. Si le conteneur ne se connecte pas à Azure dans la fenêtre de temps imparti, il continue de s’exécuter, mais ne traite pas les requêtes tant que le point de terminaison de facturation n’est pas restauré. Une tentative de connexion est effectuée 10 fois, toutes les 10 à 15 minutes. S’il ne parvient pas à se connecter au point de terminaison de facturation au cours de ces 10 essais, le conteneur cesse de traiter les demandes.
+Le conteneur a besoin des valeurs d’arguments de facturation pour s’exécuter. Ces valeurs permettent au conteneur de se connecter au point de terminaison de facturation. Le conteneur crée des rapports sur l’utilisation toutes les 10 à 15 minutes. Si le conteneur ne se connecte pas à Azure dans la fenêtre de temps imparti, il continue de s’exécuter, mais ne traite pas les requêtes tant que le point de terminaison de facturation n’est pas restauré. Une tentative de connexion est effectuée 10 fois, toutes les 10 à 15 minutes. S’il ne parvient pas à se connecter au point de terminaison de facturation au cours de ces 10 essais, le conteneur cesse de traiter les demandes. Pour obtenir un exemple des informations envoyées à Microsoft en lien avec la facturation, consultez le [Forum aux questions sur le conteneur Cognitive Services](../articles/cognitive-services/containers/container-faq.yml#how-does-billing-work).
 
 ### <a name="billing-arguments"></a>Arguments de facturation
 

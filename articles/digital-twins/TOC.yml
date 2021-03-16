@@ -13,8 +13,12 @@
   items:
     - name: Coder une application cliente
       href: tutorial-code.md
-    - name: Explorer les bases avec un exemple d’application cliente
-      href: tutorial-command-line-app.md
+    - name: Créer un graphique
+      items:
+        - name: Utiliser un exemple d’application cliente
+          href: tutorial-command-line-app.md
+        - name: "Utiliser les commandes Azure\_CLI"
+          href: tutorial-command-line-cli.md
     - name: Connecter une solution de bout en bout
       href: tutorial-end-to-end.md
 - name: Concepts

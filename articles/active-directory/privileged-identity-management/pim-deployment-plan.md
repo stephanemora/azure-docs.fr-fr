@@ -14,12 +14,12 @@ ms.date: 08/27/2020
 ms.author: curtand
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c9ba7217dfc167a06a1fea389cfc40a5e1251ca
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 7b1d18982a4f2a9ee8ba585af56a5e9ded7c1c62
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367803"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102036824"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Déployer Azure AD Privileged Identity Management (PIM)
 
@@ -111,7 +111,7 @@ Pour les rôles Azure AD, il est courant pour les organisations d’attribuer le
 
 Suivez ces étapes pour implémenter le principe du privilège minimum pour vos rôles Azure AD.
 
-1. Appréhendez la précision des rôles en lisant et en comprenant les [rôles d’administrateur Azure AD disponibles](../roles/permissions-reference.md#available-roles). Vous et votre équipe devez également faire référence aux [rôles d’administrateur par tâche d’identité dans Azure AD](../roles/delegate-by-task.md), qui explique le rôle moins privilégié pour des tâches spécifiques.
+1. Appréhendez la précision des rôles en lisant et en comprenant les [rôles intégrés Azure AD](../roles/permissions-reference.md). Vous et votre équipe devez également faire référence aux [rôles d’administrateur par tâche d’identité dans Azure AD](../roles/delegate-by-task.md), qui explique le rôle moins privilégié pour des tâches spécifiques.
 
 1. Listez les utilisateurs avec des rôles privilégiés dans votre organisation. Vous pouvez utiliser la capacité [Détection et insights (préversion)](pim-security-wizard.md) de Privileged Identity Management pour réduire votre exposition.
 
@@ -286,7 +286,7 @@ Maintenant que vous avez identifié les utilisateurs de test, utilisez cette ét
 
 1. [Configurez les paramètres de rôle Azure AD](pim-how-to-change-default-settings.md) selon ce que vous avez planifié.
 
-1. Accédez à **Rôles Azure AD** , sélectionnez **Rôles** , puis sélectionnez le rôle que vous avez configuré.
+1. Accédez à **Rôles Azure AD**, sélectionnez **Rôles**, puis sélectionnez le rôle que vous avez configuré.
 
 1. Pour le groupe d’utilisateurs de test, s’ils sont déjà des administrateurs permanents, vous pouvez les rendre éligibles en les recherchant et en les convertissant du statut permanent au statut éligible en sélectionnant e bouton de sélection (…) de leur ligne. S’ils n’ont pas encore les affectations de rôles, vous pouvez [créer une affectation éligible](pim-how-to-add-role-to-user.md#make-a-user-eligible-for-a-role).
 
@@ -298,7 +298,7 @@ Maintenant que vous avez identifié les utilisateurs de test, utilisez cette ét
 
 1. [Configurez les paramètres de rôle de ressource Azure](pim-resource-roles-configure-role-settings.md) pour un rôle dans un abonnement ou une ressource que vous souhaitez tester.
 
-1. Accédez à **Ressources Azure** pour cet abonnement et sélectionnez **Rôles** , puis sélectionnez le rôle que vous avez configuré.
+1. Accédez à **Ressources Azure** pour cet abonnement et sélectionnez **Rôles**, puis sélectionnez le rôle que vous avez configuré.
 
 1. Pour le groupe d’utilisateurs de test, s’ils sont déjà des administrateurs actifs, vous pouvez les rendre éligibles en les recherchant et en [mettant à jour leur attribution de rôle](pim-resource-roles-assign-roles.md#update-or-remove-an-existing-role-assignment). S’ils n’ont pas encore le rôle, vous pouvez [affecter un nouveau rôle](pim-resource-roles-assign-roles.md#assign-a-role).
 
@@ -341,17 +341,17 @@ Si Privileged Identity Management ne fonctionne pas comme vous le souhaitez dans
 #### <a name="azure-ad-roles"></a>Rôles Azure AD
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-1. Ouvrez **Azure AD Privileged Identity Management** .
-1. Sélectionnez **Rôles Azure AD** , puis **Rôles** .
+1. Ouvrez **Azure AD Privileged Identity Management**.
+1. Sélectionnez **Rôles Azure AD**, puis **Rôles**.
 1. Pour chaque rôle que vous avez configuré, sélectionnez le bouton de sélection ( **…** ) pour tous les utilisateurs ayant une affectation éligible.
 1. Sélectionnez l’option **Rendre permanent** afin de rendre l’attribution de rôle permanente.
 
 #### <a name="azure-roles"></a>Rôles Azure
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-1. Ouvrez **Azure AD Privileged Identity Management** .
-1. Sélectionnez **Ressources Azure** , puis un abonnement ou une ressource que vous souhaitez restaurer.
-1. Sélectionnez **Rôles** .
+1. Ouvrez **Azure AD Privileged Identity Management**.
+1. Sélectionnez **Ressources Azure**, puis un abonnement ou une ressource que vous souhaitez restaurer.
+1. Sélectionnez **Rôles**.
 1. Pour chaque rôle que vous avez configuré, sélectionnez le bouton de sélection ( **…** ) pour tous les utilisateurs ayant une affectation éligible.
 1. Sélectionnez l’option **Rendre permanent** afin de rendre l’attribution de rôle permanente.
 
@@ -364,8 +364,8 @@ Le déploiement réussi de Privileged Identity Management en production est une 
 Pour plus d’informations sur l’utilisation de la fonctionnalité d’alerte intégrée de Privileged Identity Management pour protéger votre organisation, consultez [Alertes de sécurité](pim-how-to-configure-security-alerts.md#security-alerts). Ces alertes incluent notamment les suivantes : les administrateurs n’utilisent pas les rôles privilégiés, les rôles sont affectés en dehors de Privileged Identity Management, les rôles sont activés trop fréquemment, et bien plus encore. Pour protéger entièrement votre organisation, vous devez parcourir régulièrement votre liste d’alertes et résoudre les problèmes. Vous pouvez afficher et résoudre vos alertes de la façon suivante :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-1. Ouvrez **Azure AD Privileged Identity Management** .
-1. Sélectionnez **Rôles Azure AD** , puis **Alertes** .
+1. Ouvrez **Azure AD Privileged Identity Management**.
+1. Sélectionnez **Rôles Azure AD**, puis **Alertes**.
 
 > [!TIP]
 > :heavy_check_mark: **Microsoft recommande** de traiter immédiatement toutes les alertes marquées avec le niveau de gravité élevé. Pour les alertes avec les niveaux de gravité moyen et bas, vous devez rester informé et apporter des modifications si vous pensez qu’il existe une menace de sécurité.

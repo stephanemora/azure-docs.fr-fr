@@ -1,44 +1,32 @@
 ---
 title: Utilisation de stratégies de sécurité | Microsoft Docs
 description: Cet article décrit comment utiliser des stratégies de sécurité dans Azure Security Center.
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: 2d248817-ae97-4c10-8f5d-5c207a8019ea
 ms.service: security-center
 ms.devlang: na
 ms.topic: conceptual
-ms.custom: mvc
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 01/24/2021
 ms.author: memildin
-ms.openlocfilehash: 19128f0372f9a5bda0d16155167a507eccaf436a
-ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
+ms.openlocfilehash: 6ecedc20cf6924a82b6b4640d3caa75bc5958de0
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98986593"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102101322"
 ---
 # <a name="manage-security-policies"></a>Gérer les stratégies de sécurité
 
 Cet article explique comment configurer des stratégies de sécurité et comment les afficher dans Security Center. 
 
-## <a name="introduction-to-security-policies"></a>Présentation des stratégies de sécurité
+## <a name="who-can-edit-security-policies"></a>Qui peut modifier des stratégies de sécurité ?
 
-Une stratégie de sécurité définit la configuration souhaitée de vos charges de travail, et vous permet de vous assurer que vous êtes en conformité avec les exigences de sécurité de votre organisation ou des régulateurs.
+Vous pouvez modifier les stratégies de sécurité sur le portail Azure Policy, par l’intermédiaire de l’API REST ou à l’aide de Windows PowerShell.
 
-Azure Security Center émet ses recommandations de sécurité en fonction des stratégies que vous avez choisies. Les stratégies de Security Center sont basées sur des initiatives de stratégie créées dans Azure Policy. Vous pouvez utiliser [Azure Policy](../governance/policy/overview.md) pour gérer vos stratégies et définir des stratégies pour plusieurs groupes d’administration et abonnements.
+Security Center utilise le contrôle d’accès en fonction du rôle (Azure RBAC), lequel fournit des rôles intégrés que vous pouvez attribuer à des utilisateurs, groupes et services Azure. Lorsque les utilisateurs ouvrent Security Center, ils ne voient que les informations associées aux ressources auxquelles ils peuvent accéder. Autrement dit, les utilisateurs se voient attribuer le rôle de *propriétaire*, *contributeur* ou *lecteur* pour l’abonnement de la ressource. Il existe également deux rôles spécifiques à Security Center :
 
-Security Center offre les options suivantes pour l’utilisation des stratégies de sécurité :
-
-* **Afficher et modifier la stratégie par défaut intégrée** : lorsque vous activez Security Center, l’initiative nommée « Benchmark de sécurité Azure » est automatiquement attribuée à tous les abonnements inscrits auprès de Security Center. Pour personnaliser cette initiative, vous pouvez activer ou désactiver des stratégies individuelles au sein de celle-ci. Pour comprendre les options disponibles prêtes à l’emploi, consultez la liste des [stratégies de sécurité intégrées](./policy-reference.md).
-
-* **Ajouter vos propres stratégies personnalisées** : si vous souhaitez personnaliser les initiatives de sécurité appliquées à votre abonnement, vous pouvez le faire dans Security Center. Vous recevez ensuite des recommandations si vos machines ne suivent pas les stratégies que vous créez. Pour obtenir des instructions sur la création et l’attribution de stratégies personnalisées, voir [Utilisation de stratégies de sécurité personnalisées](custom-security-policies.md).
-
-* **Ajouter des stratégies de conformité réglementaire** : le tableau de bord de conformité réglementaire du Security Center affiche l’état de toutes les évaluations au sein de votre environnement dans le contexte d’une norme ou d’une réglementation particulières (par exemple, Azure CIS, NIST SP 800-53 R4, CSP SWIFT CSCF-v2020). Pour plus d’informations, voir [Améliorer votre conformité aux normes](security-center-compliance-dashboard.md).
-
+- **Lecteur Sécurité** : a le droit de consulter les éléments de Security Center tels que les recommandations, les alertes, la stratégie et l’intégrité. Ne peut pas apporter de modifications.
+- **Administrateur Sécurité** : a les mêmes droits de consultation que *Lecteur Sécurité*. Peut également mettre à jour la stratégie de sécurité et ignorer les alertes.
 
 ## <a name="manage-your-security-policies"></a>Gérer vos stratégies de sécurité
 
@@ -59,14 +47,13 @@ Pour afficher vos stratégies de sécurité dans Security Center :
     > [!NOTE]
     > Si l’étiquette « Groupe d’administration hérité » figure en regard de votre stratégie par défaut, cela signifie que la stratégie a été attribuée à un groupe d’administration et que l’abonnement que vous consultez en a hérité.
 
-
 1. Choisissez parmi les options disponibles sur cette page :
 
-    1. Pour utiliser des stratégies sectorielles, sélectionnez **Ajouter d'autres standards**. Pour plus d’informations, voir [Mise à jour des packages de conformité dynamique](update-regulatory-compliance-packages.md).
+    1. Pour utiliser des normes sectorielles, sélectionnez **Ajouter des normes**. Pour plus d’informations, consultez [Personnaliser l’ensemble de normes du tableau de bord de conformité réglementaire](update-regulatory-compliance-packages.md).
 
-    1. Pour attribuer et gérer des initiatives personnalisées, sélectionnez **Ajouter des initiatives personnalisées**. Pour plus d’informations, voir [Utilisation de stratégies de sécurité personnalisées](custom-security-policies.md).
+    1. Pour attribuer et gérer des initiatives personnalisées, sélectionnez **Ajouter des initiatives personnalisées**. Pour plus d’informations, consultez [Utilisation d’initiatives et de stratégies de sécurité personnalisées](custom-security-policies.md).
 
-    1. Pour afficher et modifier la stratégie par défaut, sélectionnez **Afficher la stratégie actuelle**, puis procédez comme décrit ci-dessous. 
+    1. Pour afficher et modifier l’initiative par défaut, sélectionnez **Afficher la stratégie actuelle**, puis procédez de la manière décrite ci-dessous. 
 
         :::image type="content" source="./media/security-center-policies/policy-screen.png" alt-text="Écran Stratégie actuelle":::
 
@@ -80,16 +67,6 @@ Pour afficher vos stratégies de sécurité dans Security Center :
 
        > [!NOTE]
        > Lorsque vous affichez les stratégies attribuées, vous pouvez voir plusieurs affectations et comment chacune d’elles est configurée individuellement.
-
-
-## <a name="who-can-edit-security-policies"></a>Qui peut modifier des stratégies de sécurité ?
-
-Vous pouvez modifier les stratégies de sécurité sur le portail Azure Policy, par l’intermédiaire de l’API REST ou à l’aide de Windows PowerShell.
-
-Security Center utilise le contrôle d’accès en fonction du rôle (Azure RBAC), lequel fournit des rôles intégrés que vous pouvez attribuer à des utilisateurs, groupes et services Azure. Lorsque les utilisateurs ouvrent Security Center, ils ne voient que les informations associées aux ressources auxquelles ils peuvent accéder. Autrement dit, les utilisateurs se voient attribuer le rôle de *propriétaire*, *contributeur* ou *lecteur* pour l’abonnement de la ressource. Il existe également deux rôles spécifiques à Security Center :
-
-- **Lecteur Sécurité** : a le droit de consulter les éléments de Security Center tels que les recommandations, les alertes, la stratégie et l’intégrité. Ne peut pas apporter de modifications.
-- **Administrateur Sécurité** : a les mêmes droits de consultation que *Lecteur Sécurité*. Peut également mettre à jour la stratégie de sécurité et ignorer les alertes.
 
 
 ## <a name="disable-security-policies-and-disable-recommendations"></a>Désactiver des stratégies de sécurité et des recommandations
@@ -129,7 +106,7 @@ Pour plus d’informations sur les recommandations, consultez [Gestion des recom
 ## <a name="next-steps"></a>Étapes suivantes
 Cette page a décrit les stratégies de sécurité. Pour accéder à des informations connexes, consultez les rubriques suivantes :
 
-- [Découvrez comment définir des stratégies avec PowerShell](../governance/policy/assign-policy-powershell.md) - 
-- [Découvrez comment modifier une stratégie de sécurité dans Azure Policy](../governance/policy/tutorials/create-and-manage.md) - 
+- [Découvrez comment définir des stratégies avec PowerShell](../governance/policy/assign-policy-powershell.md)
+- [Découvrez comment modifier une stratégie de sécurité dans Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 - [Découvrez comment définir une stratégie qui couvre plusieurs abonnements ou s’applique à des groupes d’administration avec Azure Policy](../governance/policy/overview.md)
 - [Découvrez comment activer Security Center sur tous les abonnements d’un groupe d’administration](onboard-management-group.md)

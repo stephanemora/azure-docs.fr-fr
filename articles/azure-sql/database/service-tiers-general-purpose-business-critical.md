@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake
 ms.date: 12/14/2020
-ms.openlocfilehash: b5a30846a6e2aaf85ded2e55641aa5fba9507a29
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.openlocfilehash: 95e11e98be8a58611a435de533ffcc16ec5ce357
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98165771"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102048554"
 ---
 # <a name="azure-sql-database-and-azure-sql-managed-instance-service-tiers"></a>Niveaux de service Azure SQL Database et Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -95,7 +95,7 @@ Pour surveiller la taille totale actuelle de vos fichiers MDF et LDF, utilisez [
 Du stockage pour les sauvegardes de base de données est alloué afin de prendre en charge les fonctionnalités de récupération jusqu’à une date et heure (PITR) et de [conservation à long terme (LTR)](long-term-retention-overview.md) de SQL Database et SQL Managed Instance. Ce stockage est alloué séparément pour chaque base de données. De plus, les fonctionnalités Limite de restauration dans le temps et Conservation à long terme sont, elles aussi, facturées séparément.
 
 - **Limite de restauration dans le temps** : les sauvegardes de bases de données individuelles sont automatiquement copiées vers le [stockage géographiquement redondant avec accès en lecture (RA-GRS)](../../storage/common/geo-redundant-design.md). La taille de stockage augmente dynamiquement avec chaque nouvelle création de sauvegarde. Le stockage est utilisé pour des sauvegardes complètes hebdomadaires, des sauvegardes différentielles quotidiennes et des sauvegardes de fichiers journaux qui sont copiés toutes les 5 minutes. La consommation du stockage dépend du taux de change de la base de données et de la période de conservation pour les sauvegardes. Vous pouvez configurer une période de conservation distincte pour chaque base de données, allant de 7 à 35 jours. Un volume de stockage minimal égal à 100 pour cent (1x) de la taille de la base de données est fourni sans frais supplémentaires. Pour la plupart des bases de données, cette quantité est suffisante pour stocker l’équivalent de 7 jours de sauvegardes.
-- **Conservation à long terme** : Vous pouvez également configurer la conservation à long terme des sauvegardes complètes pendant 10 ans maximum (cette fonctionnalité est en [préversion publique limitée pour SQL Managed Instance](long-term-retention-overview.md#sql-managed-instance-support)). Si vous configurez une stratégie de conservation à long terme, ces sauvegardes sont stockées automatiquement dans le stockage RA-GRS. Toutefois, vous pouvez contrôler la fréquence à laquelle les sauvegardes sont copiées. Pour répondre aux différentes exigences de conformité, vous pouvez sélectionner plusieurs périodes de conservation pour les sauvegardes hebdomadaires, mensuelles ou annuelles. La configuration que vous choisissez détermine la quantité de stockage utilisée pour les sauvegardes de conservation à long terme. Pour estimer le coût du stockage de conservation à long terme, vous pouvez utiliser la calculatrice de prix LTR. Pour plus d’informations, consultez [Conservation à long terme de SQL Database](long-term-retention-overview.md).
+- **Conservation à long terme** : vous pouvez également configurer la conservation à long terme des sauvegardes complètes pendant 10 ans maximum [pour SQL Managed Instance](long-term-retention-overview.md). Si vous configurez une stratégie de conservation à long terme, ces sauvegardes sont stockées automatiquement dans le stockage RA-GRS. Toutefois, vous pouvez contrôler la fréquence à laquelle les sauvegardes sont copiées. Pour répondre aux différentes exigences de conformité, vous pouvez sélectionner plusieurs périodes de conservation pour les sauvegardes hebdomadaires, mensuelles ou annuelles. La configuration que vous choisissez détermine la quantité de stockage utilisée pour les sauvegardes de conservation à long terme. Pour estimer le coût du stockage de conservation à long terme, vous pouvez utiliser la calculatrice de prix LTR. Pour plus d’informations, consultez [Conservation à long terme de SQL Database](long-term-retention-overview.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

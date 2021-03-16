@@ -6,12 +6,12 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: 40afa1d743b8d074fa46dde46163f6479ebf87c2
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 6c4dfed27a105fad951ae12ca053b6d86772717a
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100589066"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102032566"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>Découverte, évaluation et analyse des dépendances - Questions courantes
 
@@ -36,12 +36,17 @@ Vous pouvez découvrir jusqu’à 10 000 machines virtuelles VMware, jusqu’
 
 - Utilisez les **évaluations des machines virtuelles Azure** quand vous voulez évaluer vos [machines virtuelles VMware](how-to-set-up-appliance-vmware.md) et [Hyper-V](how-to-set-up-appliance-hyper-v.md) ainsi que des [serveurs physiques](how-to-set-up-appliance-physical.md) en vue de leur migration vers des machines virtuelles Azure. [En savoir plus](concepts-assessment-calculation.md)
 
+- Utilisez le type d’évaluation **Azure SQL** lorsque vous souhaitez évaluer votre SQL Server local à partir de votre environnement VMware pour la migration vers Azure SQL Database ou Azure SQL Managed instance. [En savoir plus](concepts-assessment-calculation.md)
+
+    > [!Note]
+    > La découverte et l’évaluation d’instances et de bases de données SQL Server s’exécutant dans votre environnement VMware sont actuellement en préversion. Pour tester cette fonctionnalité, utilisez [**ce lien**](https://aka.ms/AzureMigrate/SQL) afin de créer un projet dans la région **Australie Est**. Si vous avez déjà un projet en Australie Est et si vous souhaitez tester cette fonctionnalité, vérifiez que vous avez effectué ces [**prérequis**](how-to-discover-sql-existing-project.md) dans le portail.
+
 - Utilisez les évaluations **Azure VMware Solution (AVS)** quand vous voulez évaluer vos [machines virtuelles VMware](how-to-set-up-appliance-vmware.md) locales pour la migration vers [Azure VMware Solution (AVS)](../azure-vmware/introduction.md) avec ce type d’évaluation. [En savoir plus](concepts-azure-vmware-solution-assessment-calculation.md)
 
 - Vous pouvez utiliser un groupe commun avec seulement des machines VMware pour effectuer les deux types d’évaluations. Notez que si vous effectuez des évaluations AVS dans Azure Migrate pour la première fois, il est recommandé de créer un groupe de machines VMware.
  
 
-## <a name="why-is-performance-data-missing-for-someall-vms-in-my-assessment-report"></a>Pourquoi les données de performances sont-elles manquantes pour une partie ou la totalité des machines virtuelles dans mon rapport d’évaluation ?
+## <a name="why-is-performance-data-missing-for-someall-servers-in-my-azure-vm-andor-avs-assessment-report"></a>Pourquoi des données de performances sont-elles manquantes pour certains ou la totalité des serveurs dans ma machine virtuelle Azure et/ou mon rapport d’évaluation AVS ?
 
 Pour l’évaluation « En fonction des performances », le rapport d’évaluation signale « PercentageOfCoresUtilizedMissing » ou « PercentageOfMemoryUtilizedMissing » quand l’appliance Azure Migrate ne peut pas collecter les données de performances pour les machines virtuelles locales. Vérifiez :
 
@@ -50,24 +55,111 @@ Pour l’évaluation « En fonction des performances », le rapport d’évalu
 
 - Si tous les compteurs de performances sont manquants, assurez-vous que les connexions sortantes sur le port 443 (HTTPS) sont autorisées.
 
-Remarque : Si l’un des compteurs de performances est manquant, Azure Migrate : Server Assessment se base à la place sur les cœurs et la mémoire alloués localement pour recommander une taille de machine virtuelle.
+    > [!Note]
+    > Si l’un des compteurs de performances est manquant, l’outil d’évaluation de serveur Azure Migrate se base à la place sur les cœurs ou la mémoire alloués localement pour recommander une taille de machine virtuelle appropriée.
+
+
+## <a name="why-is-performance-data-missing-for-someall-sql-instancesdatabases-in-my-azure-sql-assessment"></a>Pourquoi des données de performances sont-elles manquantes pour certaines ou la totalité des instances/bases de données SQL dans mon évaluation Azure SQL ?
+
+Pour vous assurer que les données de performances soient collectées, vérifiez les éléments suivants :
+
+- Les serveurs SQL Server sont sous tension pendant que vous créez l’évaluation.
+- L’état de connexion de l’agent SQL dans Azure Migrate est « Connecté » (contrôlez la dernière pulsation). 
+- L’état de connexion d’Azure Migrate pour toutes les instances SQL est « Connecté » dans le panneau des instances SQL découvertes.
+- Si tous les compteurs de performances sont manquants, assurez-vous que les connexions sortantes sur le port 443 (HTTPS) sont autorisées
+
+Si des compteurs de performances sont manquant, l’évaluation SQL Azure recommande la plus petite configuration d’Azure SQL pour cette instance/cette base de données.
 
 ## <a name="why-is-the-confidence-rating-of-my-assessment-low"></a>Pourquoi la note de confiance de mon évaluation est faible ?
 
 La note de confiance pour les évaluations « En fonction des performances » dépend du pourcentage de [points de données disponibles](./concepts-assessment-calculation.md#ratings) nécessaires pour calculer l’évaluation. Voici les raisons pour lesquelles une évaluation pourrait obtenir une note de confiance faible :
 
-- Vous n’avez pas profilé votre environnement pour la durée pour laquelle vous créez l’évaluation. Par exemple, si vous créez une évaluation avec une durée des performances définie sur une semaine, vous devez attendre au moins une semaine après le démarrage de la découverte pour que tous les points de données soient recueillis. Si vous ne pouvez pas attendre pendant cette durée, définissez la durée des performances sur une période plus courte et « recalculez » l’évaluation.
+- Vous n’avez pas profilé votre environnement pour la durée pour laquelle vous créez l’évaluation. Par exemple, si vous créez une évaluation avec une durée des performances définie sur une semaine, vous devez attendre au moins une semaine après le démarrage de la découverte pour que tous les points de données soient recueillis. Si vous ne pouvez pas attendre pendant cette durée, définissez la durée des performances sur une période plus courte, puis **Recalculez** l’évaluation.
  
-- Server Assessment ne peut pas collecter les données de performances pour une partie ou la totalité des machines virtuelles pendant la période d’évaluation. Pour obtenir un niveau de confiance élevé, vérifiez les éléments suivants : 
-    - Les machines virtuelles sont sous tension pendant toute la durée de l’évaluation.
+- L’évaluation ne parvient pas à collecter les données de performances d’une partie ou de la totalité des serveurs pendant la période d’évaluation. Pour obtenir un niveau de confiance élevé, vérifiez les éléments suivants : 
+    - Les serveurs sont sous tension pendant toute la durée de l’évaluation.
     - Les connexions sortantes sont autorisées sur le port 443.
-    - Pour les machines virtuelles Hyper-V, la mémoire dynamique est activée. 
+    - Pour les serveurs Hyper-V, la mémoire dynamique est activée. 
+    - L’état de connexion des agents dans Azure Migrate est « Connecté » (et contrôlez la dernière pulsation).
+    - Pour les évaluations d’Azure SQL, l’état de connexion d’Azure Migrate pour toutes les instances SQL est « Connecté » dans le panneau des instances SQL découvertes.
 
-    « Recalculez » l’évaluation pour qu’elle reflète l’évolution récente de la note de confiance.
+    **Recalculez** l’évaluation pour qu’elle reflète les dernières modifications du niveau de confiance.
 
-- Peu de machines virtuelles ont été créées après que la découverte dans Évaluation de serveur a commencé. Par exemple, si vous créez une évaluation de l’historique des performances du mois dernier, mais si la création de quelques machines virtuelles dans l’environnement ne remonte qu’à une semaine. Dans ce cas, les données de performances pour les nouvelles machines virtuelles ne seront pas disponibles pour toute la durée et la note de confiance sera faible.
+- Pour les évaluations de machines virtuelles Azure et d’AVS, peu de serveurs ont été créés après le démarrage de la découverte. Par exemple, si vous créez une évaluation de l’historique des performances du mois dernier, mais si la création de quelques serveurs dans l’environnement ne remonte qu’à une semaine. Dans ce cas, les données de performances pour les nouveaux serveurs ne seront pas disponibles pendant toute la durée et le classement de confiance sera faible. [En savoir plus](./concepts-assessment-calculation.md#confidence-ratings-performance-based)
 
-[Apprenez-en davantage](./concepts-assessment-calculation.md#confidence-ratings-performance-based) sur les notes de confiance.
+- Pour les évaluations Azure SQL, peu d’instances et de bases de données SQL ont été créées après le démarrage de la découverte. Par exemple, si vous créez une évaluation de l’historique des performances du mois dernier, mais si la création de quelques instances ou bases de données SQL dans l’environnement ne remonte qu’à une semaine. Dans ce cas, les données de performances pour les nouveaux serveurs ne seront pas disponibles pendant toute la durée et le classement de confiance sera faible. [En savoir plus](./concepts-azure-sql-assessment-calculation.md#confidence-ratings)
+
+## <a name="i-want-to-try-out-the-new-azure-sql-assessment-feature-in-azure-migrate"></a>Je souhaite essayer la nouvelle fonctionnalité d’évaluation Azure SQL dans Azure Migrate
+Pour tester cette fonctionnalité, utilisez [ce lien](https://go.microsoft.com/fwlink/?linkid=2155668L) pour créer un projet dans la région **Australie Est**.
+- Reportez-vous aux tutoriels sur la [découverte](https://docs.microsoft.com/azure/migrate/tutorial-discover-vmware) et l’[évaluation](https://docs.microsoft.com/azure/migrate/tutorial-assess-sql) pour démarrer.
+- Notez que la découverte et l’évaluation des instances et bases de données SQL Server qui s’exécutent dans votre environnement VMware sont actuellement en préversion.
+
+## <a name="i-cant-see-some-servers-when-i-am-creating-an-azure-sql-assessment"></a>Je ne peux pas voir certains serveurs quand je crée une évaluation Azure SQL
+
+- L’évaluation Azure SQL ne peut être effectuée que sur des serveurs qui s’exécutent là où des instances SQL ont été découvertes. Si vous ne voyez pas les serveurs et les instances SQL que vous souhaitez évaluer, patientez pendant un certain temps pour que la découverte se termine, puis créez l’évaluation. 
+- Si vous n’êtes pas en mesure de voir un groupe créé précédemment lors de la création de l’évaluation, supprimez du groupe n’importe quel serveur non-VMware ou sans instance SQL.
+- Si vous effectuez pour la première fois des évaluations Azure SQL dans Azure Migrate, il est recommandé de créer un nouveau groupe de serveurs.
+
+## <a name="i-want-to-understand-how-was-the-readiness-for-my-instance-computed"></a>Je souhaite comprendre comment l’état de préparation de mon instance a été calculé.
+La préparation de vos instances SQL a été calculée après vérification de la compatibilité des fonctionnalités avec le type de déploiement Azure SQL ciblé (Azure SQL Database ou Azure SQL Managed Instance). [En savoir plus](./concepts-azure-sql-assessment-calculation.md#calculate-readiness)
+
+## <a name="why-is-the-readiness-for-all-my-sql-instances-marked-as-unknown"></a>Pourquoi l’état de préparation de mes instances SQL est-il marquée comme Inconnu ?
+Si votre découverte a été lancée récemment et est toujours en cours, vous pouvez voir que l’état de préparation de certaines ou de la totalité des instances SQL est inconnue. Nous vous recommandons d’attendre un certain temps pour que l’appliance profile l’environnement, puis recalcule l’évaluation.
+La découverte SQL est effectuée une fois toutes les 24 heures et vous devrez peut-être attendre un jour pour que les dernières modifications de configuration s’y reflètent. 
+
+## <a name="why-is-the-readiness-for-some-of-my-sql-instances-marked-as-unknown"></a>Pourquoi l’état de préparation d’une partie de mes instances SQL est-il marqué comme Inconnue ?
+Cela peut se produire dans les cas suivants : 
+- La découverte est encore en cours. Nous vous recommandons d’attendre un certain temps pour que l’appliance profile l’environnement, puis recalcule l’évaluation.
+- Vous devez résoudre certains problèmes de découverte dans le panneau Erreurs et notifications.
+
+La découverte SQL est effectuée une fois toutes les 24 heures et vous devrez peut-être attendre un jour pour que les dernières modifications de configuration s’y reflètent.
+
+## <a name="my-assessment-is-in-outdated-state"></a>Mon évaluation est à l’état Obsolète
+
+### <a name="azure-vmavs-assessment"></a>Évaluation de la machine virtuelle Azure ou de l’AVS
+En cas de modification locale des machines virtuelles appartenant à un groupe qui a été évalué, l’évaluation est marquée comme obsolète. Une évaluation peut être marquée comme « Obsolète » en raison d’une ou de plusieurs modifications dans les propriétés ci-dessous :
+- Nombre de cœurs du processeur
+- Mémoire allouée
+- Type de démarrage ou microprogramme
+- Nom du système d'exploitation, version et architecture
+- Nombre de disques
+- Nombre de cartes réseau
+- Modification de la taille du disque (Go alloués)
+- Mise à jour de la carte d’interface réseau. Exemple : Modifications des adresses Mac, ajout d’adresses IP, etc.
+
+**Recalculez** l’évaluation pour qu’elle reflète les dernières modifications apportées.
+
+### <a name="azure-sql-assessment"></a>Évaluation d’Azure SQL
+En cas de modifications des instances et bases de données SQL locales figurant dans un groupe qui a été évalué, l’évaluation est marquée comme **obsolète** :
+- L’instance SQL a été ajoutée ou supprimée sur un serveur
+- La base de données SQL a été ajoutée ou supprimée sur une instance SQL
+- La taille totale de la base de données dans une instance SQL a changé de plus de 20 %
+- Le nombre de cœurs de processeurs et/ou la quantité de mémoire allouée ont été modifiés
+
+**Recalculez** l’évaluation pour qu’elle reflète les dernières modifications apportées.
+
+## <a name="why-was-i-recommended-a-particular-target-deployment-type"></a>Pourquoi un type de déploiement cible particulier m’a-t-il été recommandé ?
+Azure Migrate recommande un type de déploiement Azure SQL spécifique qui est compatible avec votre instance SQL. La migration vers une cible recommandée par Microsoft réduit votre effort de migration global. Cette configuration Azure SQL (SKU) a été recommandée après la prise en compte des caractéristiques de performances de votre instance SQL et des bases de données qu’elle gère. Si plusieurs configurations Azure SQL sont éligibles, nous vous recommandons la solution la plus économique. [En savoir plus](./concepts-azure-sql-assessment-calculation.md#calculate-sizing)
+
+## <a name="what-deployment-target-should-i-choose-if-my-sql-instance-is-ready-for-azure-sql-db-and-azure-sql-mi"></a>Quelle cible de déploiement choisir si mon instance SQL est prête pour Azure SQL DB et Azure SQL MI ? 
+Si votre instance est prête pour Azure SQL DB et Azure SQL MI, nous vous recommandons d’utiliser le type de déploiement cible pour lequel le coût estimé de la configuration Azure SQL est inférieur.
+
+## <a name="why-is-my-instance-marked-as-potentially-ready-for-azure-vm-in-my-azure-sql-assessment"></a>Pourquoi mon instance est marquée comme « Potentiellement prête pour les machines virtuelles Azure » dans mon évaluation Azure SQL ?
+Cela peut se produire lorsque le type de déploiement cible choisi dans les propriétés d’évaluation est **recommandé** et que l’instance SQL n’est pas prête pour Azure SQL Database et Azure SQL Managed Instance. L’utilisateur est incité à créer une évaluation dans Azure Migrate avec le type d’évaluation **Machine virtuelle Azure** pour déterminer si le serveur sur lequel l’instance s’exécute est prêt à migrer vers une machine virtuelle Azure.
+L’utilisateur est incité à créer une évaluation dans Azure Migrate avec un type d’évaluation tel que **Machine virtuelle Azure** pour déterminer si le serveur sur lequel l’instance s’exécute est prêt à migrer plutôt vers une machine virtuelle Azure :
+- Les évaluations des machines virtuelles Azure dans Azure Migrate sont actuellement axées sur une approche lift-and-shift et ne prennent pas en compte les métriques de performances spécifiques de l’exécution des instances et des bases de données SQL sur la machine virtuelle Azure. 
+- Quand vous exécutez une évaluation de machine virtuelle Azure sur un serveur, les estimations de taille et de coût recommandées sont effectuées pour toutes les instances en cours d’exécution sur le serveur et peuvent être migrées vers une machine virtuelle Azure à l’aide de l’outil de migration de serveur. Avant de migrer, [passez en revue les instructions relatives aux performances](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices) de SQL Server sur les machines virtuelles Azure.
+
+## <a name="i-cant-see-some-databases-in-my-assessment-even-though-the-instance-is-part-of-the-assessment"></a>Je ne peux pas voir certaines bases de données dans mon évaluation même si l’instance fait partie de l’évaluation
+
+L’évaluation Azure SQL inclut uniquement des bases de données dont l’état est en ligne. Si la base de données est dans un autre état, l’évaluation ignore la préparation, le dimensionnement et le calcul du coût de ces bases de données. Si vous souhaitez évaluer de telles bases de données, changez l’état de la base de données et recalculez l’évaluation au bout d’un certain délai.
+
+## <a name="i-want-to-compare-costs-for-running-my-sql-instances-on-azure-vm-vs-azure-sql-databaseazure-sql-managed-instance"></a>Je souhaite comparer les coûts liés à l’exécution de mes instances SQL sur une machine virtuelle Azure ou sur Azure SQL Database/Azure SQL Managed Instance
+
+Vous pouvez créer une évaluation avec le type **Machine virtuelle Azure** sur le groupe utilisé dans votre évaluation **Azure SQL**. Vous pouvez ensuite comparer les deux rapports côte à côte. Toutefois, les évaluations des machines virtuelles Azure dans Azure Migrate sont actuellement axées sur une approche lift-and-shift et ne prennent pas en compte les métriques de performances spécifiques de l’exécution des instances et des bases de données SQL sur la machine virtuelle Azure. Quand vous exécutez une évaluation de machine virtuelle Azure sur un serveur, les estimations de taille et de coût recommandées sont effectuées pour toutes les instances en cours d’exécution sur le serveur et peuvent être migrées vers une machine virtuelle Azure à l’aide de l’outil de migration de serveur. Avant de migrer, [passez en revue les instructions relatives aux performances](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices) de SQL Server sur les machines virtuelles Azure.
+
+## <a name="the-storage-cost-in-my-azure-sql-assessment-is-zero"></a>Le coût du stockage dans mon évaluation de SQL Azure est égal à zéro
+Pour Azure SQL Managed Instance, aucun coût de stockage n’est ajouté pour le stockage des premiers 32 Go/instance/mois, et des coûts de stockage supplémentaires sont ajoutés pour le stockage par incréments de 32 Go. [En savoir plus](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/)
 
 ## <a name="i-cant-see-some-groups-when-i-am-creating-an-azure-vmware-solution-avs-assessment"></a>Je ne peux pas voir certains groupes quand je crée une évaluation Azure VMware Solution (AVS)
 

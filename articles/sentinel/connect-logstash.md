@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/10/2020
 ms.author: yelevin
-ms.openlocfilehash: 63b9d74fbbb1a79dd4f3d3e7c5fb094a372282e0
-ms.sourcegitcommit: 5e2f5efba1957ba40bd951c3dcad42f4a00734ff
+ms.openlocfilehash: da7d540a4b7982c7f743a7ae968515485b45aa5a
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96299630"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102035423"
 ---
 # <a name="use-logstash-to-connect-data-sources-to-azure-sentinel"></a>Utiliser Logstash pour connecter des sources de données à Azure Sentinel
 
 > [!IMPORTANT]
 > La fonctionnalité d'ingestion de données à l'aide du plug-in de sortie Logstash est actuellement en préversion publique. Cette fonctionnalité est fournie sans contrat de niveau de service et est déconseillée pour les charges de travail de production. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Le nouveau plug-in de sortie Azure Sentinel dédié au **moteur de collecte de données Logstash** vous permet désormais d'utiliser Logstash pour envoyer tous types de journaux à votre espace de travail Log Analytics dans Azure Sentinel. Vos journaux seront envoyés à une table personnalisée que vous définirez à l'aide du plug-in de sortie.
+Le plug-in de sortie d’Azure Sentinel dédié au **moteur de collecte de données Logstash** permet d’utiliser Logstash pour envoyer tout type de journal à votre espace de travail Log Analytics dans Azure Sentinel. Vos journaux seront envoyés à une table personnalisée que vous définirez à l'aide du plug-in de sortie.
 
 Pour en savoir plus sur l'utilisation du moteur de collecte de données Logstash, consultez [Prise en main de Logstash](https://www.elastic.co/guide/en/logstash/current/getting-started-with-logstash.html).
 
@@ -49,7 +49,7 @@ Le moteur Logstash est constitué de trois composants :
 Le plug-in de sortie Azure Sentinel pour Logstash envoie des données au format JSON à votre espace de travail Log Analytics, en utilisant l'API REST du collecteur de données HTTP de Log Analytics. Les données sont ingérées dans des journaux personnalisés.
 
 - Apprenez-en davantage sur l’[API REST Log Analytics](/rest/api/loganalytics/create-request).
-- Apprenez-en davantage sur les [journaux personnalisés](../azure-monitor/platform/data-sources-custom-logs.md).
+- Apprenez-en davantage sur les [journaux personnalisés](../azure-monitor/agents/data-sources-custom-logs.md).
 
 ## <a name="deploy-the-azure-sentinel-output-plugin-in-logstash"></a>Déployer le plug-in de sortie Azure Sentinel dans Logstash
 
@@ -57,7 +57,7 @@ Le plug-in de sortie Azure Sentinel pour Logstash envoie des données au format 
 
 Le plug-in de sortie Azure Sentinel est disponible dans la collection Logstash.
 
-- Suivez les instructions du document Logstash [Utilisation des plug-ins](https://www.elastic.co/guide/en/logstash/current/working-with-plugins.html) pour installer le plug-in **_[microsoft-logstash-output-azure-loganalytics](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/microsoft-logstash-output-azure-loganalytics)_* _.
+- Suivez les instructions du document Logstash [Utilisation des plug-ins](https://www.elastic.co/guide/en/logstash/current/working-with-plugins.html) pour installer le plug-in ***[microsoft-logstash-output-azure-loganalytics](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/microsoft-logstash-output-azure-loganalytics)***.
    
 - Si votre système Logstash n'a pas accès à Internet, suivez les instructions du document Logstash [Gestion des plug-ins hors connexion](https://www.elastic.co/guide/en/logstash/current/offline-plugins.html) pour préparer et utiliser un pack de plug-ins hors connexion. (Il vous faudra pour cela créer un autre système Logstash avec accès à Internet).
 
@@ -67,7 +67,7 @@ Utilisez les informations du document Logstash [Structure d’un fichier de conf
 
 | Nom du champ | Type de données | Description |
 |----------------|---------------|-----------------|
-| `workspace_id` | string | Entrez le GUID de l’ID de votre espace de travail. _ |
+| `workspace_id` | string | Entrez le GUID de l’ID de votre espace de travail. * |
 | `workspace_key` | string | Entrez le GUID de la clé primaire de votre espace de travail. * |
 | `custom_log_table_name` | string | Définissez le nom de la table dans laquelle les journaux seront ingérés. Vous ne pouvez configurer qu'un seul nom de table par plug-in de sortie. La table des journaux apparaîtra dans Azure Sentinel sous **Journaux**, dans **Tables**, catégorie **Journaux personnalisés**, avec le suffixe `_CL`. |
 | `endpoint` | string | Champ facultatif. Par défaut, il s'agit du point de terminaison Log Analytics. Utilisez ce champ pour définir un autre point de terminaison. |
@@ -76,8 +76,10 @@ Utilisez les informations du document Logstash [Structure d’un fichier de conf
 | `plugin_flush_interval` | nombre | Champ facultatif. Permet de définir l'intervalle maximum (en secondes) entre les transmissions de messages à Log Analytics. La valeur par défaut est 5. |
     | `amount_resizing` | boolean | True ou false. Activez ou désactivez le mécanisme de mise à l'échelle automatique, qui ajuste la taille de la mémoire tampon des messages en fonction du volume de données de journal reçues. |
 | `max_items` | nombre | Champ facultatif. S'applique uniquement si `amount_resizing` est défini sur « false ». Permet de fixer un plafond à la taille de la mémoire tampon des messages (dans les enregistrements). La valeur par défaut est 2000.  |
+| `azure_resource_id` | string | Champ facultatif. Définit l’ID de la ressource Azure où résident les données. <br>La valeur de l’ID de ressource est particulièrement utile si vous utilisez un [RBAC dans le contexte de la ressource](resource-context-rbac.md) pour donne accès uniquement à des données spécifiques. |
+| | | |
 
-\* Vous pouvez trouver l’ID et la clé primaire de l’espace de travail dans la ressource d’espace de travail, sous **Gestion des agents**.
+*  Vous pouvez trouver l’ID et la clé primaire de l’espace de travail dans la ressource d’espace de travail, sous **Gestion des agents**.
 
 #### <a name="sample-configurations"></a>Exemples de configurations
 

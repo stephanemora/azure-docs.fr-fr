@@ -13,13 +13,13 @@ ms.topic: conceptual
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: ''
-ms.date: 2/24/2021
-ms.openlocfilehash: b829d7045ac520cfe908c3c8809ae17702d6175d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 3/02/2021
+ms.openlocfilehash: 3d64336184450514d52095097343a4588213f111
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101691431"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102034895"
 ---
 # <a name="understand-and-resolve-azure-sql-database-blocking-problems"></a>Comprendre et résoudre les problèmes de blocage d’Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -334,7 +334,7 @@ Les colonnes `wait_type`, `open_transaction_count` et `status` font référence 
 | 5 | NULL | \>0 | restaurer | Oui. | Un signal d’attention peut apparaître dans la session XEvent pour ce SPID, indiquant qu’un délai d’attente ou une annulation de requête a eu lieu ou simplement qu’une instruction de restauration a été émise. |  
 | 6 | NULL | \>0 | en veille | À terme. Lorsque Windows NT détermine que la session n’est plus active, la connexion Azure SQL Database est interrompue. | La valeur `last_request_start_time` dans sys.dm_exec_sessions est bien antérieure à l’heure actuelle. |
 
-Les scénarios suivants développeront ces scénarios. 
+## <a name="detailed-blocking-scenarios"></a>Scénarios de blocage détaillés
 
 1.  Blocage causé par une requête normalement en cours d’exécution avec une durée d’exécution longue
 
@@ -366,7 +366,7 @@ Les scénarios suivants développeront ces scénarios.
 
     La sortie de la deuxième requête indique que le niveau d’imbrication de la transaction est 1. Tous les verrous acquis dans la transaction sont conservés jusqu’à ce que la transaction soit validée ou restaurée. Si les applications ouvrent et valident explicitement des transactions, une erreur de communication ou autre peut laisser la session et sa transaction dans un état ouvert. 
 
-    Utilisez le script ci-dessus basé sur sys.dm_tran_active_transactions pour identifier les transactions actuellement non validées.
+    Utilisez le script plus haut dans cet article basé sur sys.dm_tran_active_transactions pour identifier les transactions non validées dans l’instance.
 
     **Résolutions** :
 
@@ -377,6 +377,7 @@ Les scénarios suivants développeront ces scénarios.
             *    Dans le gestionnaire d’erreurs de l’application cliente, exécutez `IF @@TRANCOUNT > 0 ROLLBACK TRAN` après toute erreur, même si l’application cliente ne pense pas qu’une transaction est ouverte. La vérification des transactions ouvertes est obligatoire, car une procédure stockée appelée pendant le traitement peut avoir démarré une transaction à l’insu de l’application cliente. Certaines conditions, telles que l’annulation de la requête, empêchent la procédure de s’exécuter au-delà de l’instruction actuelle. Par conséquent, même si la procédure a une logique pour vérifier `IF @@ERROR <> 0` et abandonner la transaction, ce code de restauration ne sera pas exécuté dans ces cas.  
             *    Si le regroupement de connexions est utilisé dans une application qui ouvre la connexion et exécute un petit nombre de requêtes avant de libérer la connexion et de la rendre au pool, par exemple une application web, la désactivation temporaire du regroupement de connexions peut aider à atténuer le problème jusqu’à ce que l’application cliente soit modifiée pour gérer les erreurs de manière appropriée. Si vous désactivez le regroupement de connexions, le fait de libérer la connexion entraînera la déconnexion physique de la connexion Azure SQL Database, amenant le serveur à restaurer toute transaction ouverte.  
             *    Utilisez `SET XACT_ABORT ON` pour la connexion ou dans toutes les procédures stockées qui commencent des transactions et qui ne sont pas nettoyées après une erreur. En cas d’erreur d’exécution, ce paramètre abandonne toutes les transactions ouvertes et rend le contrôle au client. Pour plus d’informations, consultez [SET XACT_ABORT (Transact-SQL)](/sql/t-sql/statements/set-xact-abort-transact-sql).
+
     > [!NOTE]
     > La connexion n’est pas réinitialisée tant qu’elle n’est pas réutilisée à partir du pool de connexions. Il est donc possible qu’un utilisateur ouvre une transaction puis libère la connexion pour le pool de connexion. Cependant, celle-ci pourrait ne pas être réutilisée pendant plusieurs secondes, période pendant laquelle la transaction resterait ouverte. Si la connexion n’est pas réutilisée, la transaction est abandonnée lorsque le délai d’attente de la connexion expire et est supprimée du pool de connexions. Il est donc optimal pour l’application cliente d’abandonner les transactions dans son gestionnaire d’erreurs ou d’utiliser `SET XACT_ABORT ON` pour éviter ce retard potentiel.
 
@@ -385,14 +386,14 @@ Les scénarios suivants développeront ces scénarios.
 
 1.  Blocage causé par un SPID dont l’application cliente correspondante n’a pas permis d’extraire toutes les lignes de résultat
 
-    Après l’envoi d’une requête au serveur, toutes les applications doivent extraire immédiatement toutes les lignes de résultat jusqu’au bout. Si une application n’extrait pas toutes les lignes de résultats, des verrous peuvent être maintenus sur les tables et bloquer d’autres utilisateurs. Si vous utilisez une application qui envoie en toute transparence des instructions SQL au serveur, l’application doit extraire toutes les lignes de résultat. Si elle ne le fait pas (et si elle ne peut pas être configurée pour le faire), vous ne pourrez peut-être pas résoudre le problème de blocage. Pour éviter ce problème, vous pouvez limiter les applications au comportement médiocre à un signalement ou à une base de données d’aide à la décision.
+    Après l’envoi d’une requête au serveur, toutes les applications doivent extraire immédiatement toutes les lignes de résultat jusqu’au bout. Si une application n’extrait pas toutes les lignes de résultats, des verrous peuvent être maintenus sur les tables et bloquer d’autres utilisateurs. Si vous utilisez une application qui envoie en toute transparence des instructions SQL au serveur, l’application doit extraire toutes les lignes de résultat. Si elle ne le fait pas (et si elle ne peut pas être configurée pour le faire), vous ne pourrez peut-être pas résoudre le problème de blocage. Pour éviter ce problème, vous pouvez limiter les applications au comportement médiocre à un signalement ou à une base de données d’aide à la décision, séparée de la base de données OLTP principale.
     
     > [!NOTE]
     > Consultez l’[aide relative à la logique de nouvelle tentative](./troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors) pour les applications se connectant à Azure SQL Database. 
     
     **Résolution** : L’application doit être réécrite afin d’extraire toutes les lignes du résultat. Cela n’exclut pas l’utilisation de [OFFSET et FETCH dans la clause ORDER BY](/sql/t-sql/queries/select-order-by-clause-transact-sql#using-offset-and-fetch-to-limit-the-rows-returned) d’une requête pour effectuer la pagination côté serveur.
 
-1.  Blocage causé par un SPID en état de restauration
+1.  Blocage causé par une session en état de restauration
 
     Une requête de modification des données qui est tuée ou annulée en dehors d’une transaction définie par l’utilisateur est restaurée. Cela peut également être un effet secondaire de la déconnexion de la session réseau du client ou se produire lorsqu’une requête est sélectionnée comme victime d’un blocage. Cela peut souvent être identifié en observant la sortie de sys.dm_exec_requests, qui peut indiquer la **commande** ROLLBACK, et la **colonne percent_complete** peut afficher la progression. 
 

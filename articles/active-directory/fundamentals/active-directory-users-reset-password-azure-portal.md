@@ -14,12 +14,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 397c74203aae2f52ce81844695266cc36fdf3042
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 8809f8c168e7095f05587c7a572e08287637dc5a
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370897"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102034589"
 ---
 # <a name="reset-a-users-password-using-azure-active-directory"></a>Réinitialiser le mot de passe d’un utilisateur à l’aide d’Azure Active Directory
 
@@ -33,15 +33,15 @@ En tant qu’administrateur, vous pouvez réinitialiser le mot de passe d’un u
 
 ## <a name="to-reset-a-password"></a>Pour réinitialiser un mot de passe
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com/) en tant qu’administrateur d’utilisateurs ou administrateur de mots de passe. Pour obtenir plus d’informations sur les rôles disponibles, consultez l’article [Attribution de rôles d’administrateur dans Azure Active Directory](../roles/permissions-reference.md#available-roles).
+1. Connectez-vous au [portail Azure](https://portal.azure.com/) en tant qu’administrateur d’utilisateurs ou administrateur de mots de passe. Pour plus d’informations sur les rôles disponibles, consultez [Rôles intégrés Azure](../roles/permissions-reference.md).
 
-2. Sélectionnez **Azure Active Directory** , sélectionnez **Utilisateurs** , recherchez et sélectionnez l’utilisateur qui a besoin de la réinitialisation, puis sélectionnez **Réinitialiser le mot de passe**.
+2. Sélectionnez **Azure Active Directory**, sélectionnez **Utilisateurs**, recherchez et sélectionnez l’utilisateur qui a besoin de la réinitialisation, puis sélectionnez **Réinitialiser le mot de passe**.
 
     La page **Alain Charon - profil** s’affiche avec l’option **Réinitialiser le mot de passe**.
 
     ![Page du profil de l’utilisateur, avec l’option Réinitialiser le mot de passe mis en surbrillance](media/active-directory-users-reset-password-azure-portal/user-profile-reset-password-link.png)
 
-3. Sur la page **Réinitialiser le mot de passe** , sélectionnez **Réinitialiser le mot de passe**.
+3. Sur la page **Réinitialiser le mot de passe**, sélectionnez **Réinitialiser le mot de passe**.
 
     > [!Note]
     > Lorsque Azure Active Directory est utilisé, un mot de passe temporaire est automatiquement généré pour l’utilisateur. Lorsque vous utilisez Active Directory en local, vous créez le mot de passe pour l’utilisateur.
@@ -50,6 +50,10 @@ En tant qu’administrateur, vous pouvez réinitialiser le mot de passe d’un u
 
     >[!Note]
     >Le mot de passe temporaire n’expire jamais. La prochaine fois que l’utilisateur se connectera, le mot de passe fonctionnera toujours, quel que soit le temps écoulé dans depuis sa création.
+
+> [!IMPORTANT]
+> Si un administrateur ne peut pas réinitialiser le mot de passe de l’utilisateur, et si, dans les journaux des événements de l’application sur le serveur de Azure AD Connect, le code d’erreur hr=80231367 s’affiche, révisez les attributs de l’utilisateur dans Active Directory.  Si l’attribut **AdminCount** a la valeur 1, cela empêchera un administrateur de réinitialiser le mot de passe de l’utilisateur.  L’attribut **AdminCount** doit avoir la valeur 0 pour permettre aux administrateurs de réinitialiser le mot de passe de l’utilisateur.
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

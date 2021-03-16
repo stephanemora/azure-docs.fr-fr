@@ -6,12 +6,12 @@ ms.date: 11/25/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: e9208e617eb73786bcb003dc1b55d0d77ca6650f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6e1c7e15ff77fd75ff2fb70a6741ea2dd9a4cab8
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101704427"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102040241"
 ---
 # <a name="upgrading-from-application-insights-java-2x-sdk"></a>Mise à niveau à partir du SDK Application Insights pour Java 2.x
 
@@ -219,11 +219,24 @@ De même, si vous préférez la vue fournie par l’ancien nom des dépendances,
 
 Précédemment, dans le SDK 2.x, le nom d’opération des données de télémétrie de la requête était également défini sur les données de télémétrie des dépendances.
 Application Insights Java 3.0 ne renseigne plus le nom de l’opération dans les données de télémétrie des dépendances.
-Si vous souhaitez afficher le nom de l’opération pour la requête parente des données de télémétrie des dépendances, vous pouvez écrire une requête Logs (Kusto) à joindre à la table des requêtes à partir de la table des dépendances.
+Si vous souhaitez afficher le nom de l’opération pour la requête parente des données de télémétrie des dépendances, vous pouvez écrire une requête Logs (Kusto) à joindre à la table des requêtes à partir de la table des dépendances, par exemple,
+
+```
+let start = datetime('...');
+let end = datetime('...');
+dependencies
+| where timestamp between (start .. end)
+| project timestamp, type, name, operation_Id
+| join (requests
+    | where timestamp between (start .. end)
+    | project operation_Name, operation_Id)
+    on $left.operation_Id == $right.operation_Id
+| summarize count() by operation_Name, type, name
+```
 
 ## <a name="2x-sdk-logging-appenders"></a>Appenders de journalisation SDK 2.x
 
-L’agent 3.0 [collecte automatiquement la journalisation](./java-standalone-config#auto-collected-logging) sans qu’il soit nécessaire de configurer des appenders de journalisation.
+L’agent 3.0 [collecte automatiquement la journalisation](./java-standalone-config.md#auto-collected-logging) sans qu’il soit nécessaire de configurer des appenders de journalisation.
 Si vous utilisez des appenders de journalisation SDK 2.x, vous pouvez les supprimer car ils seront supprimés par l’agent 3.0.
 
 ## <a name="2x-sdk-spring-boot-starter"></a>Spring boot starter SDK 2.x

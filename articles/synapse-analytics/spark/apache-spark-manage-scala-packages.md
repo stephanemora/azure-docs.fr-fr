@@ -5,16 +5,16 @@ services: synapse-analytics
 author: midesa
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.date: 03/01/2020
+ms.date: 02/26/2020
 ms.author: midesa
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: 8d5c18eaaa4065eac515f38557664ceb44262adf
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: c70ecc4fc5469d728bc12d47024585ccf00ff98e
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101695863"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102098704"
 ---
 # <a name="manage-scala-and-java-packages-for-apache-spark-in-azure-synapse-analytics"></a>Gérer des packages Scala et Java pour Apache Spark dans Azure Synapse Analytics
 
@@ -37,13 +37,10 @@ Les packages de l’espace de travail peuvent être des fichiers jar personnalis
 
 Pour ajouter des packages d’espace de travail :
 1. Accédez à l’onglet **Gérer** > **Packages d’espace de travail**.
-2. Téléchargez vos fichiers wheel à l’aide du sélecteur de fichiers.
-3. Une fois les fichiers téléchargés dans l’espace de travail Azure Synapse, vous pouvez ajouter ces fichiers wheel à un pool Apache Spark donné.
+2. Chargez vos fichiers jar à l’aide du sélecteur de fichiers.
+3. Une fois les fichiers chargés dans l’espace de travail Azure Synapse, vous pouvez ajouter ces fichiers jar à un pool Apache Spark donné.
 
 ![Capture d’écran mettant en évidence les packages d’espace de travail.](./media/apache-spark-azure-portal-add-libraries/studio-add-workspace-package.png "Afficher les packages d’espace de travail")
-
-> [!IMPORTANT]
-> L’installation de packages d’espace de travail n’est pas encore prise en charge dans les espaces de travail protégés contre l’exfiltration de données (DEP).
 
 ## <a name="pool-libraries"></a>Bibliothèques de pools
 Une fois que vous avez identifié les packages Scala et Java que vous souhaitez utiliser pour votre application Spark, vous pouvez les installer dans un pool Spark. Les bibliothèques de pools sont disponibles pour tous les notebooks et toutes les tâches qui s’exécutent sur le pool.

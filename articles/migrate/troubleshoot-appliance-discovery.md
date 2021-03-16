@@ -6,12 +6,12 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 810ea58c5d88dec53463b9a2b04750169c70e137
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: f3331504540e8c23c3a83fe245bae27ca6c49385
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97704025"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102041278"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Résoudre les problèmes d’appliance et de découverte Azure Migrate
 
@@ -167,6 +167,19 @@ Si des machines virtuelles découvertes n’apparaissent pas dans le portail ou 
 
 Si vous supprimez des machines virtuelles et qu’elles apparaissent toujours dans le portail, attendez 30 minutes. Si elles apparaissent toujours, actualisez comme décrit ci-dessus.
 
+## <a name="discovered-applications-and-sql-server-instances-and-databases-not-in-portal"></a>Applications découvertes, et instances et bases de données SQL absentes du portail
+
+Une fois que vous avez lancé la découverte sur l’appliance, jusqu’à 24 heures peuvent s’écouler avant que les données d’inventaire commencent à s’afficher dans le portail.
+
+Si vous n’avez pas fourni les informations d’identification d’authentification Windows ou SQL Server sur le gestionnaire de configuration de l’appliance, ajoutez les informations d’identification afin que l’appliance puisse les utiliser pour se connecter aux instances SQL Server respectives.
+
+Une fois connectée, l’appliance recueille les données de configuration et de performances des instances et bases de données SQL Server. Les données de configuration SQL Server sont mises à jour toutes les 24 heures, et les données de performances capturées toutes les 30 secondes. Par conséquent, jusqu’à 24 heures peuvent s’écouler avant la mise à jour sur le portail de toute modification des propriétés de l’instance et des bases de données SQL Server, telles que l’état de la base de données, le niveau de compatibilité, etc.
+
+## <a name="sql-server-instance-is-showing-up-in-not-connected-state-on-portal"></a>L’instance SQL Server s’affiche dans l’état « Non connecté » sur le portail
+Pour voir les problèmes rencontrés lors de la découverte des instances et bases de données SQL Server, cliquez sur l’état « Non connecté » dans la colonne État de la connexion de la page « Serveurs détectés » de votre projet.
+
+La création d’une évaluation sur des serveurs contenant des instances SQL qui n’ont pas été complètement découvertes ou qui sont dans un état non connecté peut avoir pour effet que l’état de préparation soit marqué comme « Inconnu ».
+
 ## <a name="i-do-not-see-performance-data-for-some-network-adapters-on-my-physical-servers"></a>Je ne vois pas les données de performances pour certaines cartes réseau sur mes serveurs physiques
 
 Cela peut se produire si la virtualisation Hyper-V est activée sur le serveur physique. Le débit du réseau est capturé sur les cartes réseau virtuelles détectées en raison d’un écart de production.
@@ -199,9 +212,9 @@ Les erreurs classiques de découverte d’application sont résumées dans le ta
 
 | **Error** | **Cause** | **Action** |
 |--|--|--|
-| 9000 : Impossible de détecter l'état de VMware Tools. | VMware Tools n’est peut-être pas installé ou est endommagé. | Vérifiez que VMware Tools est installé et exécuté sur la machine virtuelle. |
-| 9001 : VMware Tools n’est pas installé. | VMware Tools n’est peut-être pas installé ou est endommagé. | Vérifiez que VMware Tools est installé et exécuté sur la machine virtuelle. |
-| 9002 : VMware Tools n’est pas en cours d'exécution. | VMware Tools n’est peut-être pas installé ou est endommagé. | Vérifiez que VMware Tools est installé et exécuté sur la machine virtuelle. |
+| 9000 : Impossible de détecter l'état de VMware Tools. | Les outils VMware ne sont peut-être pas installés ou sont endommagés. | Vérifiez que VMware Tools est installé et exécuté sur la machine virtuelle. |
+| 9001 : VMware Tools n’est pas installé. | Les outils VMware ne sont peut-être pas installés ou sont endommagés. | Vérifiez que VMware Tools est installé et exécuté sur la machine virtuelle. |
+| 9002 : VMware Tools n’est pas en cours d'exécution. | Les outils VMware ne sont peut-être pas installés ou sont endommagés. | Vérifiez que VMware Tools est installé et exécuté sur la machine virtuelle. |
 | 9003 : Type de système d’exploitation non pris en charge pour la détection de machine virtuelle invitée. | Le système d’exploitation en cours d’exécution sur le serveur n’est ni Windows, ni Linux. | Les types de système d’exploitation pris en charge sont Windows et Linux uniquement. Si le serveur est effectivement Windows ou Linux, vérifiez le type de système d’exploitation spécifié dans vCenter Server. |
 | 9004 : La machine virtuelle n’est pas en cours d’exécution. | La machine virtuelle est hors tension. | Vérifiez que la machine virtuelle est sous tension. |
 | 9005 : Type de système d’exploitation non pris en charge pour la détection de machine virtuelle invitée. | Type de système d’exploitation non pris en charge pour la détection de machine virtuelle invitée. | Les types de système d’exploitation pris en charge sont Windows et Linux uniquement. |
@@ -220,7 +233,7 @@ Les erreurs classiques de découverte d’application sont résumées dans le ta
 | 9018 : PowerShell n’est pas installé sur les machines virtuelles invitées. | PowerShell n’est pas disponible sur la machine virtuelle invitée. | Installez PowerShell sur la machine virtuelle invitée. |
 | 9019 : Détection impossible en raison d’échecs d’opérations de la machine virtuelle invitée. | Échec de l’opération de l’invité VMware sur la machine virtuelle. | Vérifiez que les informations d’identification de la machine virtuelle sont valides et que le nom d’utilisateur fourni dans les informations d’identification de la machine virtuelle invitée est au format UPN. |
 | 9020 : L’autorisation de création de fichier est refusée. | Le rôle associé à l’utilisateur ou à la stratégie de groupe empêche l’utilisateur de créer le fichier dans le dossier | Vérifiez si l’utilisateur invité fourni dispose de l’autorisation de créer le fichier dans le dossier. Consultez **Notifications** dans Évaluation du serveur pour connaître le nom du dossier. |
-| 9021 : Impossible de créer le fichier dans le chemin d’accès System Temp. | VMware Tools signale System Temp au lieu du chemin d’accès Users Temp. | Mettez à niveau votre outil VMware Tools à une version ultérieure à la version 10287 (format NGC/VI Client). |
+| 9021 : Impossible de créer le fichier dans le chemin d’accès System Temp. | VMware Tools signale System Temp au lieu du chemin d’accès Users Temp. | Mettez à niveau votre outil VMware vers une version supérieure à 10287 (format client NGC/VI). |
 | 9022 : L’accès à l’objet WMI est refusé. | Le rôle associé à l’utilisateur ou à la politique de groupe restreint l’accès de l’utilisateur à l’objet WMI. | Contactez le support Microsoft. |
 | 9023 : Impossible d’exécuter PowerShell, car la valeur de la variable d’environnement SystemRoot est vide. | La valeur de la variable d’environnement SystemRoot est vide pour la machine virtuelle invitée. | Contactez le Support Microsoft pour la résoudre. |
 | 9024 : Impossible de détecter si la valeur de la variable d’environnement TEMP est vide. | La valeur de la variable d’environnement TEMP est vide pour la machine virtuelle invitée. | Contactez le support Microsoft. |
@@ -228,7 +241,7 @@ Les erreurs classiques de découverte d’application sont résumées dans le ta
 | 9026 : Impossible d’exécuter les opérations d’invité sur la machine virtuelle. | L’état de la machine virtuelle n’autorise pas l’exécution des opérations d’invité sur la machine virtuelle. | Contactez le Support Microsoft pour la résoudre. |
 | 9027 : L’agent des opérations invité n’est pas en cours d’exécution sur la machine virtuelle. | Impossible de contacter l’agent des opérations invitées en cours d’exécution au sein de la machine virtuelle. | Contactez le Support Microsoft pour la résoudre. |
 | 9028 : Impossible de créer le fichier en raison d’un stockage sur disque insuffisant dans la machine virtuelle. | Espace insuffisant sur le disque | Assurez-vous que l’espace disponible est suffisant dans le stockage sur disque de la machine virtuelle. |
-| 9029 : Aucun accès à PowerShell depuis les informations d’identification de la machine virtuelle invitée fournies. | L’accès à PowerShell n’est pas disponible pour l’utilisateur. | Vérifiez que l’utilisateur ajouté sur l’appareil peut accéder à PowerShell sur la machine virtuelle invitée. |
+| 9029 : Aucun accès à PowerShell sur les informations d’identification de la machine virtuelle invitée fournies. | L’accès à PowerShell n’est pas disponible pour l’utilisateur. | Vérifiez que l’utilisateur ajouté sur l’appareil peut accéder à PowerShell sur la machine virtuelle invitée. |
 | 9030 : Impossible de collecter les métadonnées détectées, car l’hôte ESXi est déconnecté. | L’hôte ESXi est dans un état déconnecté. | Vérifiez que l’hôte ESXi exécutant la machine virtuelle est connecté. |
 | 9031 : Impossible de collecter les métadonnées détectées, car l’hôte ESXi ne répond pas. | L’hôte distant n’est pas dans un état valide. | Vérifiez que l'hôte ESXi exécutant la machine virtuelle est exécuté et connecté. |
 | 9032 : Détection impossible en raison d’une erreur interne. | Ce problème peut se produire en raison d’une erreur interne. | Contactez le Support Microsoft pour la résoudre. |

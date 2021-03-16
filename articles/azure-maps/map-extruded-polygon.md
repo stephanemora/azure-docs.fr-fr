@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 211bcbf27f3a9e885a4bc2c4e5edd27db7907edf
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 19675a92101ed1a13b07bc1a4039701cd029a020
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92890766"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102044083"
 ---
 # <a name="add-a-polygon-extrusion-layer-to-the-map"></a>Ajouter une couche d’extrusion de polygone à la carte
 
@@ -22,7 +22,7 @@ Cet article explique comment utiliser la couche d’extrusion de polygone pour a
 
 ## <a name="use-a-polygon-extrusion-layer"></a>Utiliser une couche d’extrusion de polygone
 
-Connectez la [couche d’extrusion de polygone](/javascript/api/azure-maps-control/atlas.layer.polygonextrusionlayer) à une source de données. Ensuite, chargez-la sur la carte. La couche d’extrusion de polygone restitue les zones des entités `Polygon` et `MultiPolygon` en tant que formes extrudées. Les propriétés `height` et `base` de la couche d’extrusion de polygone définissent la distance de base par rapport au sol et la hauteur de la forme extrudée en **mètres** . Le code suivant montre comment créer un polygone, l’ajouter à une source de données et l’afficher à l’aide de la classe Couche d’extrusion de polygone.
+Connectez la [couche d’extrusion de polygone](/javascript/api/azure-maps-control/atlas.layer.polygonextrusionlayer) à une source de données. Ensuite, chargez-la sur la carte. La couche d’extrusion de polygone restitue les zones des entités `Polygon` et `MultiPolygon` en tant que formes extrudées. Les propriétés `height` et `base` de la couche d’extrusion de polygone définissent la distance de base par rapport au sol et la hauteur de la forme extrudée en **mètres**. Le code suivant montre comment créer un polygone, l’ajouter à une source de données et l’afficher à l’aide de la classe Couche d’extrusion de polygone.
 
 > [!Note]
 > La valeur de `base` définie dans la couche d’extrusion de polygone doit être inférieure ou égale à la valeur de `height`.
@@ -32,10 +32,9 @@ Connectez la [couche d’extrusion de polygone](/javascript/api/azure-maps-contr
 <iframe height="500" style="width: 100%;" scrolling="no" title="Polygone extrudé" src="https://codepen.io/azuremaps/embed/wvvBpvE?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
 Consultez le stylet <a href='https://codepen.io/azuremaps/pen/wvvBpvE'>Extruded polygon</a> (Polygone extrudé) d’Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.</iframe>
 
-
 ## <a name="add-data-driven-polygons"></a>Ajouter des polygones pilotés par des données
 
-Une carte choroplèthe peut être rendue à l’aide de la couche d’extrusion de polygone. Définissez les propriétés `height` et `fillColor` de la couche d’extrusion sur la mesure de la variable statistique dans les entités géométriques `Polygon` et `MultiPolygon`. L’exemple de code suivant montre une carte choroplèthe extrudée des États-Unis basée sur la mesure de la densité de population de chaque État.
+Une carte choroplèthe peut être rendue à l’aide de la couche d’extrusion de polygone. Définissez les propriétés `height` et `fillColor` de la couche d’extrusion sur la mesure de la variable statistique dans les entités géométriques `Polygon` et `MultiPolygon`. L’exemple de code suivant montre une carte choroplèthe extrudée des États-Unis, basée sur la mesure de la densité de population de chaque État.
 
 <br/>
 
@@ -45,7 +44,7 @@ Consultez le stylet <a href='https://codepen.io/azuremaps/pen/eYYYNox'>Extruded 
 
 ## <a name="add-a-circle-to-the-map"></a>Ajouter un cercle à la carte
 
-Azure Maps utilise une version étendue du schéma GeoJSON qui fournit une définition de cercles, comme indiqué [ici](./extend-geojson.md#circle). Un cercle extrudé peut être affiché sur la carte en créant une entité `point` avec une propriété `subType` dotée de la valeur `Circle` et une propriété `Radius` numérique représentant le rayon en **mètres** . Par exemple :
+Azure Maps utilise une version étendue du schéma GeoJSON qui fournit une définition de cercles, comme indiqué [ici](./extend-geojson.md#circle). Un cercle extrudé peut être affiché sur la carte en créant une entité `point` avec une propriété `subType` dotée de la valeur `Circle` et une propriété `Radius` numérique représentant le rayon en **mètres**. Par exemple :
 
 ```javascript
 {

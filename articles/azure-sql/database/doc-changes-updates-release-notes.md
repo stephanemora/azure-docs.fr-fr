@@ -11,12 +11,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: sstein
-ms.openlocfilehash: 607b588d3371b20c2b3fa9854e27a7ccdfe2e551
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 86687e8259e7abcb9ff0e97f8cb75d96c0abfca8
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98703765"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102042502"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>Nouveautés d’Azure SQL Database et de SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -89,7 +89,7 @@ Les fonctionnalités suivantes sont activées dans le modèle de déploiement SQ
   - Prise en charge de <a href="/sharepoint/administration/deploy-azure-sql-managed-instance-with-sharepoint-servers-2016-2019"> SharePoint 2016 et SharePoint 2019 </a> ainsi que de <a href="/business-applications-release-notes/october18/dynamics365-business-central/support-for-azure-sql-database-managed-instance">Dynamics 365 Business Central </a>
   - Créez des instances gérées avec le <a href="/azure/azure-sql/managed-instance/scripts/create-powershell-azure-resource-manager-template">classement au niveau de l’instance</a> et le <a href="https://azure.microsoft.com/updates/managed-instance-time-zone-ga/">fuseau horaire</a>.
   - Les instances managées sont maintenant protégées par un [pare-feu intégré](../managed-instance/management-endpoint-verify-built-in-firewall.md).
-  - Configurez des instances SQL Managed Instance pour utiliser des [points de terminaison publics](../managed-instance/public-endpoint-configure.md), [remplacer par proxy](connectivity-architecture.md#connection-policy) une connexion afin d’obtenir de meilleures performances réseau, utiliser <a href="https://aka.ms/four-cores-sql-mi-update"> 4 vCores sur la génération de matériel Gen5</a> ou <a href="/azure/azure-sql/database/automated-backups-overview">configurer la conservation des sauvegardes jusqu’à 35 jours</a> pour une restauration dans le temps. La [rétention des sauvegardes à long terme](long-term-retention-overview.md#sql-managed-instance-support) (jusqu’à 10 ans) est actuellement en version préliminaire publique limitée.  
+  - Configurez des instances SQL Managed Instance pour utiliser des [points de terminaison publics](../managed-instance/public-endpoint-configure.md), [remplacer par proxy](connectivity-architecture.md#connection-policy) une connexion afin d’obtenir de meilleures performances réseau, utiliser <a href="https://aka.ms/four-cores-sql-mi-update"> 4 vCores sur la génération de matériel Gen5</a> ou <a href="/azure/azure-sql/database/automated-backups-overview">configurer la conservation des sauvegardes jusqu’à 35 jours</a> pour une restauration dans le temps. La [rétention des sauvegardes à long terme](long-term-retention-overview.md) (jusqu’à 10 ans) est actuellement en préversion publique.  
   - De nouvelles fonctionnalités vous permettent de <a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">géo-restaurer votre base de données dans un autre centre de données à l’aide de PowerShell</a>, de [renommer la base de données](https://azure.microsoft.com/updates/azure-sql-database-managed-instance-database-rename-is-supported/) et de [supprimer un cluster virtuel](../managed-instance/virtual-cluster-delete.md).
   - Le nouveau [rôle Contributeur d’instance intégré](../../role-based-access-control/built-in-roles.md#sql-managed-instance-contributor) permet la conformité de la séparation des tâches aux principes de sécurité et le respect des normes d’entreprise.
   - SQL Managed Instance est en disponibilité générale dans les régions Azure Government suivantes (US Gov Texas, US Gov Arizona) ainsi que dans les régions Chine Nord 2 et Chine Est 2. Elle est également disponible dans les régions publiques suivantes : Australie Centre, Australie Centre 2, Brésil Sud, France Sud, Émirats arabes unis Centre, Émirats arabes unis Nord, Afrique du Sud Nord, Afrique du Sud Ouest.
