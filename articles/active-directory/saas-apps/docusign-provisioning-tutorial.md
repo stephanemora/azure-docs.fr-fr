@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/21/2020
 ms.author: jeedes
-ms.openlocfilehash: dc3f307a21b746981a84b1c0747c4b22c448541f
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 71f95b08584a46fccb0975cd9285150573ac02d4
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96349903"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102218517"
 ---
 # <a name="tutorial-configure-docusign-for-automatic-user-provisioning"></a>Tutoriel : Configurer DocuSign pour l’approvisionnement automatique d’utilisateurs
 
@@ -97,7 +97,7 @@ Pour plus d’informations sur la lecture des journaux d’activité d’approvi
 ## <a name="troubleshooting-tips"></a>Conseils de dépannage
 * L’approvisionnement d’un rôle ou d’un profil d’autorisation pour un utilisateur dans Docusign peut être effectué à l’aide d’une expression dans vos mappages d’attributs à l’aide des fonctions [switch](../app-provisioning/functions-for-customizing-application-data.md#switch) et [singleAppRoleAssignment](../app-provisioning/functions-for-customizing-application-data.md#singleapproleassignment). Par exemple, l’expression ci-dessous approvisionne l’ID « 8032066 » lorsqu’un utilisateur a le rôle « administrateur DS » affecté dans Azure AD. Aucun profil d’autorisation n’est approvisionné si l’utilisateur n’est pas affecté à un rôle dans Azure AD. L’ID peut être récupéré à partir du [portail](https://support.docusign.com/articles/Default-settings-for-out-of-the-box-DocuSign-Permission-Profiles) DocuSign.
 
-Switch(SingleAppRoleAssignment([appRoleAssignments])," ", "8032066", "DS Admin")
+Switch(SingleAppRoleAssignment([appRoleAssignments])," ", "DS Admin", "8032066")
 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires

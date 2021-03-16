@@ -9,99 +9,76 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/14/2019
+ms.date: 03/02/2021
 ms.author: jeedes
-ms.openlocfilehash: a1f000572badcaa09c958c7ca19ed81c4d0603bb
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 26d9321f028bc8b9293e9d7d46616fff2f3b60ce
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92459503"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102486828"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jitbit-helpdesk"></a>Tutoriel : Intégration d’Azure Active Directory avec Jitbit Helpdesk
 
-Dans ce didacticiel, vous allez apprendre à intégrer Jitbit Helpdesk à Azure Active Directory (Azure AD).
-L’intégration de Jitbit Helpdesk dans Azure AD vous offre les avantages suivants :
+Dans ce tutoriel, vous allez découvrir comment intégrer Jitbit Helpdesk avec Azure Active Directory (Azure AD). Quand vous intégrez Jitbit Helpdesk avec Azure AD, vous pouvez :
 
-* Dans Azure AD, vous pouvez contrôler qui a accès à Jitbit Helpdesk.
-* Vous pouvez permettre aux utilisateurs de se connecter automatiquement à Nomadesk (par le biais de l’authentification unique) avec leur compte Azure AD.
-* Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
-
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
-Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
+* Contrôler, dans Azure AD, qui a accès à Jitbit Helpdesk.
+* Permettre à vos utilisateurs de se connecter automatiquement à Jitbit Helpdesk avec leur compte Azure AD.
+* Gérer vos comptes à un emplacement central : le Portail Azure.
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour configurer l’intégration d’Azure AD à Jitbit Helpdesk, vous avez besoin des éléments suivants :
+Pour commencer, vous devez disposer de ce qui suit :
 
-* Un abonnement Azure AD Si vous n’avez pas d’environnement Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
-* Abonnement Jitbit Helpdesk pour lequel l’authentification unique est activée
+* Un abonnement Azure AD Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
+* Un abonnement Jitbit Helpdesk pour lequel l’authentification SSO (authentification unique) est activée.
 
 ## <a name="scenario-description"></a>Description du scénario
 
 Dans ce didacticiel, vous configurez et testez l’authentification unique Azure AD dans un environnement de test.
 
-* Jitbit Helpdesk prend en charge l’authentification unique lancée par le **fournisseur de services**
+* Jitbit Helpdesk prend en charge l’authentification SSO lancée par le fournisseur de services (**SP**).
 
-## <a name="adding-jitbit-helpdesk-from-the-gallery"></a>Ajout de Jitbit Helpdesk à partir de la galerie
+> [!NOTE]
+> L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.
+
+## <a name="add-jitbit-helpdesk-from-the-gallery"></a>Ajouter Jitbit Helpdesk à partir de la galerie
 
 Pour configurer l’intégration de Jitbit Helpdesk à Azure AD, vous devez ajouter Jitbit Helpdesk, disponible dans la galerie, à votre liste d’applications SaaS gérées.
 
-**Pour ajouter Jitbit Helpdesk à partir de la galerie, procédez comme suit :**
+1. Connectez-vous au portail Azure avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
+1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory**.
+1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
+1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
+1. Dans la section **Ajouter à partir de la galerie**, dans la zone de recherche, tapez **Jitbit Helpdesk**.
+1. Sélectionnez **Jitbit Helpdesk** dans le panneau Résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory** .
+## <a name="configure-and-test-azure-ad-sso-for-jitbit-helpdesk"></a>Configurer et tester l’authentification SSO Azure AD pour Jitbit Helpdesk
 
-    ![Bouton Azure Active Directory](common/select-azuread.png)
+Configurez et testez l’authentification SSO Azure AD avec Jitbit Helpdesk à l’aide d’une utilisatrice de test appelée **B.Simon**. Pour que l’authentification SSO fonctionne, vous devez établir une relation entre un utilisateur Azure AD et l’utilisateur associé dans Jitbit Helpdesk.
 
-2. Accédez à **Applications d’entreprise** , puis sélectionnez l’option **Toutes les applications** .
+Pour configurer et tester l’authentification SSO Azure AD avec Jitbit Helpdesk, effectuez les étapes suivantes :
 
-    ![Panneau Applications d’entreprise](common/enterprise-applications.png)
+1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-sso)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+    1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
+    1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à B. Simon d’utiliser l’authentification unique Azure AD.
+1. **[Configurer l’authentification SSO pour Jitbit Helpdesk](#configure-jitbit-helpdesk-sso)** afin de configurer les paramètres d’authentification unique côté application.
+    1. **[Créer une utilisatrice de test pour Jitbit Helpdesk](#create-jitbit-helpdesk-test-user)** afin de disposer dans Jitbit Helpdesk d’un équivalent de B.Simon lié à la représentation Azure AD de l’utilisatrice.
+1. **[Tester l’authentification unique](#test-sso)** pour vérifier si la configuration fonctionne.
 
-3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
+## <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
 
-    ![Bouton Nouvelle application](common/add-new-app.png)
+Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
-4. Dans la zone de recherche, tapez **Jitbit Helpdesk** , sélectionnez **Jitbit Helpdesk** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+1. Dans le portail Azure, dans la page d’intégration de l’application **Jitbit Helpdesk**, recherchez la section **Gérer**, puis sélectionnez **Authentification unique**.
+1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de crayon de **Configuration SAML de base** afin de modifier les paramètres.
 
-     ![Jitbit Helpdesk dans la liste des résultats](common/search-new-app.png)
+   ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
+4. Dans la section **Configuration SAML de base**, effectuez les étapes suivantes :
 
-Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec Jitbit Helpdesk avec un utilisateur de test appelé **Britta Simon** .
-Pour que l’authentification unique fonctionne, une relation entre un utilisateur Azure AD et l’utilisateur Jitbit Helpdesk associé doit être établie.
-
-Pour configurer et tester l’authentification unique Azure AD avec Jitbit Helpdesk, vous devez suivre les indications des sections suivantes :
-
-1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Configurer l’authentification unique Jitbit Helpdesk](#configure-jitbit-helpdesk-single-sign-on)** pour configurer les paramètres de l’authentification unique côté application.
-3. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Créer un utilisateur de test Jitbit Helpdesk](#create-jitbit-helpdesk-test-user)** pour obtenir un équivalent de Britta Simon dans Jitbit Helpdesk lié à la représentation Azure AD de l’utilisateur.
-6. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
-
-### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
-
-Dans cette section, vous activez l’authentification unique Azure AD dans le portail Azure.
-
-Pour configurer l’authentification unique Azure AD avec Jitbit Helpdesk, effectuez les étapes suivantes :
-
-1. Dans le [portail Azure](https://portal.azure.com/), dans la page d’intégration de l’application **Jitbit Helpdesk** , sélectionnez **Authentification unique** .
-
-    ![Lien Configurer l’authentification unique](common/select-sso.png)
-
-2. Dans la boîte de dialogue **Sélectionner une méthode d’authentification unique** , sélectionnez le mode **SAML/WS-Fed** afin d’activer l’authentification unique.
-
-    ![Mode de sélection de l’authentification unique](common/select-saml-option.png)
-
-3. Dans la page **Configurer l’authentification unique avec SAML** , cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue **Configuration SAML de base** .
-
-    ![Modifier la configuration SAML de base](common/edit-urls.png)
-
-4. Dans la section **Configuration SAML de base** , effectuez les étapes suivantes :
-
-    ![Informations d’authentification unique dans Domaine et URL Jitbit Helpdesk](common/sp-identifier.png)
-
-    a. Dans la zone de texte **URL de connexion** , entrez une URL au format suivant :
+    a. Dans la zone de texte **URL de connexion**, tapez l’une des URL au format suivant :
     | |
     | ----------------------------------------|
     | `https://<hostname>/helpdesk/User/Login`|
@@ -111,96 +88,63 @@ Pour configurer l’authentification unique Azure AD avec Jitbit Helpdesk, effe
     > [!NOTE] 
     > Cette valeur n’est pas la valeur réelle. Mettez à jour cette valeur avec l’URL d’authentification réelle. Contactez [l’équipe de support Jitbit Helpdesk](https://www.jitbit.com/support/) pour obtenir cette valeur.
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)** , tapez une URL comme suit :`https://www.jitbit.com/web-helpdesk/`
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , tapez l’URL suivante : `https://www.jitbit.com/web-helpdesk/`
 
-5. Dans la page **Configurer l’authentification unique avec SAML** , dans la section **Certificat de signature SAML** , cliquez sur **Télécharger** pour télécharger le **Certificat (Base64)** en fonction des options définies par rapport à vos besoins, puis enregistrez-le sur votre ordinateur.
+5. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le **Certificat (Base64)** en fonction des options définies par rapport à vos besoins, puis enregistrez-le sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/certificatebase64.png)
 
-6. Dans la section **Configurer Jitbit Helpdesk** , copiez la ou les URL appropriées correspondant à vos besoins.
+6. Dans la section **Configurer Jitbit Helpdesk**, copiez la ou les URL appropriées correspondant à vos besoins.
 
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
 
-    a. URL de connexion
-
-    b. Identificateur Azure AD
-
-    c. URL de déconnexion
-
-### <a name="configure-jitbit-helpdesk-single-sign-on"></a>Configurer l’authentification unique Jitbit Helpdesk
-
-1. Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise Jitbit Helpdesk en tant qu’administrateur.
-
-1. Dans la barre d’outils située dans la partie supérieure, cliquez sur **Administration** .
-
-    ![Administration](./media/jitbit-helpdesk-tutorial/ic777681.png "Administration")
-
-1. Cliquez sur **General settings** .
-
-    ![Capture d’écran montrant le lien General Settings.](./media/jitbit-helpdesk-tutorial/ic777680.png "Utilisateurs, sociétés et autorisations")
-
-1. Dans la section de configuration **Authentication settings** , procédez comme suit :
-
-    ![Paramètres d’authentification](./media/jitbit-helpdesk-tutorial/ic777683.png "Authentication settings")
-
-    a. Sélectionnez **Activer l’authentification unique SAML 2.0** pour vous connecter à l’aide de l’authentification unique, avec **OneLogin** .
-
-    b. Dans la zone de texte **EndPoint URL** (URL du point de terminaison), collez la valeur **URL de connexion** que vous avez copiée dans le portail Azure.
-
-    c. Ouvrez votre certificat codé en **base 64** dans le Bloc-notes, copiez son contenu dans le Presse-papiers, puis collez-le dans la zone de texte **Certificat X.509** .
-
-    d. Cliquez sur **Save changes** .
-
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
-L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
+Dans cette section, vous allez créer un utilisateur de test appelé B. Simon dans le portail Azure.
 
-1. Dans le volet gauche du portail Azure, sélectionnez **Azure Active Directory** , sélectionnez **Utilisateurs** , puis sélectionnez **Tous les utilisateurs** .
-
-    ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](common/users.png)
-
-2. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
-
-    ![Bouton Nouvel utilisateur](common/new-user.png)
-
-3. Dans les propriétés de l’utilisateur, effectuez les étapes suivantes.
-
-    ![Boîte de dialogue Utilisateur](common/user-properties.png)
-
-    a. Dans le champ **Nom** , entrez **BrittaSimon** .
-  
-    b. Dans le champ **Nom d’utilisateur** , tapez **brittasimon@yourcompanydomain.extension**  
-    Par exemple : BrittaSimon@contoso.com
-
-    c. Cochez la case **Afficher le mot de passe** , puis notez la valeur affichée dans le champ Mot de passe.
-
-    d. Cliquez sur **Créer** .
+1. Dans le volet gauche du Portail Azure, sélectionnez **Azure Active Directory**, **Utilisateurs**, puis **Tous les utilisateurs**.
+1. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
+1. Dans les propriétés **Utilisateur**, effectuez les étapes suivantes :
+   1. Dans le champ **Nom**, entrez `B.Simon`.  
+   1. Dans le champ **Nom de l’utilisateur**, entrez username@companydomain.extension. Par exemple : `B.Simon@contoso.com`.
+   1. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
+   1. Cliquez sur **Créer**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
-Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Jitbit Helpdesk.
+Dans cette section, vous allez permettre à B.Simon d’utiliser l’authentification unique Azure en lui octroyant l’accès à Jitbit Helpdesk.
 
-1. Dans le portail Azure, sélectionnez **Applications d’entreprise** , **Toutes les applications** , puis **Jitbit Helpdesk** .
+1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
+1. Dans la liste des applications, sélectionnez **Jitbit Helpdesk**.
+1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
+1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
+1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
+1. Si vous attendez qu’un rôle soit attribué aux utilisateurs, vous pouvez le sélectionner dans la liste déroulante **Sélectionner un rôle** . Si aucun rôle n’a été configuré pour cette application, vous voyez le rôle « Accès par défaut » sélectionné.
+1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
-    ![Panneau Applications d’entreprise](common/enterprise-applications.png)
+## <a name="configure-jitbit-helpdesk-sso"></a>Configurer l’authentification SSO pour Jitbit Helpdesk
 
-2. Dans la liste des applications, sélectionnez **Jitbit Helpdesk** .
+1. Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise Jitbit Helpdesk en tant qu’administrateur.
 
-    ![Lien Jitbit Helpdesk dans la liste des applications](common/all-applications.png)
+1. Dans la barre d’outils située dans la partie supérieure, cliquez sur **Administration**.
 
-3. Dans le menu de gauche, sélectionnez **Utilisateurs et groupes** .
+    ![Administration](./media/jitbit-helpdesk-tutorial/settings.png "Administration")
 
-    ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
+1. Cliquez sur **General settings**.
 
-4. Cliquez sur le bouton **Ajouter un utilisateur** , puis sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution** .
+    ![Capture d’écran montrant le lien General Settings.](./media/jitbit-helpdesk-tutorial/general.png "Utilisateurs, sociétés et autorisations")
 
-    ![Volet Ajouter une attribution](common/add-assign-user.png)
+1. Dans la section de configuration **Authentication settings** , procédez comme suit :
 
-5. Dans la boîte de dialogue **Utilisateurs et groupes** , sélectionnez **Britta Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+    ![Paramètres d’authentification](./media/jitbit-helpdesk-tutorial/authentication.png "Authentication settings")
 
-6. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle** , sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+    a. Sélectionnez **Activer l’authentification unique SAML 2.0** pour vous connecter à l’aide de l’authentification unique, avec **OneLogin**.
 
-7. Dans la boîte de dialogue **Ajouter une attribution** , cliquez sur le bouton **Attribuer** .
+    b. Dans la zone de texte **EndPoint URL** (URL du point de terminaison), collez la valeur **URL de connexion** que vous avez copiée dans le portail Azure.
+
+    c. Ouvrez votre certificat codé en **base 64** dans le Bloc-notes, copiez son contenu dans le Presse-papiers, puis collez-le dans la zone de texte **Certificat X.509**.
+
+    d. Cliquez sur **Save changes**.
 
 ### <a name="create-jitbit-helpdesk-test-user"></a>Créer un utilisateur de test Jitbit Helpdesk
 
@@ -208,47 +152,47 @@ Pour pouvoir se connecter à Jitbit Helpdesk, les utilisateurs d’Azure Active
 
 **Pour approvisionner un compte d’utilisateur, procédez comme suit :**
 
-1. Connectez-vous à votre locataire **Jitbit Helpdesk** .
+1. Connectez-vous à votre locataire **Jitbit Helpdesk**.
 
-1. Dans le menu situé dans la partie supérieure, cliquez sur **Administration** .
+1. Dans le menu situé dans la partie supérieure, cliquez sur **Administration**.
 
-    ![Administration](./media/jitbit-helpdesk-tutorial/ic777681.png "Administration")
+    ![Administration](./media/jitbit-helpdesk-tutorial/settings.png "Administration")
 
-1. Cliquez sur **Users, companies and permissions** .
+1. Cliquez sur **Users, companies and permissions**.
 
-    ![Utilisateurs, sociétés et autorisations](./media/jitbit-helpdesk-tutorial/ic777682.png "Utilisateurs, sociétés et autorisations")
+    ![Utilisateurs, sociétés et autorisations](./media/jitbit-helpdesk-tutorial/users.png "Utilisateurs, sociétés et autorisations")
 
-1. Cliquez sur **Add User** .
+1. Cliquez sur **Add User**.
 
-    ![Ajouter un utilisateur](./media/jitbit-helpdesk-tutorial/ic777685.png "Ajouter un utilisateur")
+    ![Ajouter un utilisateur](./media/jitbit-helpdesk-tutorial/add.png "Ajouter un utilisateur")
 
 1. Dans la section Créer, entrez les données du compte Azure AD que vous souhaitez configurer comme suit :
 
-    ![Créer](./media/jitbit-helpdesk-tutorial/ic777686.png "Créer")
+    ![Créer](./media/jitbit-helpdesk-tutorial/create-section.png "Créer")
 
-   a. Dans la zone de texte **Username** (Nom d’utilisateur), tapez le nom de l’utilisateur, par exemple, **BrittaSimon** .
+   a. Dans la zone de texte **Username** (Nom d’utilisateur), tapez le nom de l’utilisateur, par exemple, **BrittaSimon**.
 
-   b. Dans la zone de texte **E-mail** , entrez l’e-mail de l’utilisateur, par exemple, **BrittaSimon@contoso.com** .
+   b. Dans la zone de texte **E-mail**, entrez l’e-mail de l’utilisateur, par exemple, **BrittaSimon@contoso.com** .
 
-   c. Dans la zone de texte **Prénom** , entrez le prénom de l’utilisateur, par exemple **Britta** .
+   c. Dans la zone de texte **Prénom**, entrez le prénom de l’utilisateur, par exemple **Britta**.
 
-   d. Dans la zone de texte **Nom** , entrez le nom de l’utilisateur, par exemple **Simon** .
+   d. Dans la zone de texte **Nom**, entrez le nom de l’utilisateur, par exemple **Simon**.
 
-   e. Cliquez sur **Créer** .
+   e. Cliquez sur **Créer**.
 
 > [!NOTE]
 > Vous pouvez d’autres outils ou API de création de compte d’utilisateur fournis par Jitbit Helpdesk pour configurer des comptes d’utilisateurs Azure AD.
 
-### <a name="test-single-sign-on"></a>Tester l’authentification unique
+## <a name="test-sso"></a>Tester l’authentification unique (SSO)
 
-Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
+Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
 
-Quand vous cliquez sur la vignette Jitbit Helpdesk dans le volet d’accès, vous devez être connecté automatiquement à l’application Jitbit Helpdesk pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+* Cliquez sur **Tester cette application** dans le portail Azure. Une redirection est effectuée vers l’URL de connexion à Jitbit Helpdesk, où vous pouvez lancer le flux de connexion. 
 
-## <a name="additional-resources"></a>Ressources supplémentaires
+* Accédez directement à l’URL de connexion à Jitbit Helpdesk, puis lancez le flux de connexion à partir de cet emplacement.
 
-- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](./tutorial-list.md)
+* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette Jitbit Helpdesk dans Mes applications, une redirection est effectuée vers l’URL de connexion à Jitbit Helpdesk. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
+## <a name="next-steps"></a>Étapes suivantes
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](../conditional-access/overview.md)
+Une fois que vous avez configuré Jitbit Helpdesk, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

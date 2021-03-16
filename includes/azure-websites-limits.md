@@ -3,13 +3,13 @@ author: rothja
 ms.service: app-service
 ms.topic: include
 ms.date: 03/04/2020
-ms.author: jroth
-ms.openlocfilehash: 71782661fd960cae3248005a8b90944eff9bef45
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.author: msangapu
+ms.openlocfilehash: bcbbd133c71b2917b73c200c4453ea57385fcaf1
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98024387"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102532543"
 ---
 | Ressource | Gratuit | Partagé | De base | standard | Premium (v1 à v3) | Isolé </th> |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -24,7 +24,7 @@ ms.locfileid: "98024387"
 | Bande passante |165 Mo |Illimitée, application du [taux de transfert de données](https://azure.microsoft.com/pricing/details/data-transfers/) |Illimitée, application du [taux de transfert de données](https://azure.microsoft.com/pricing/details/data-transfers/) |Illimitée, application du [taux de transfert de données](https://azure.microsoft.com/pricing/details/data-transfers/) |Illimitée, application du [taux de transfert de données](https://azure.microsoft.com/pricing/details/data-transfers/) |Illimitée, application du [taux de transfert de données](https://azure.microsoft.com/pricing/details/data-transfers/) |
 | Architecture de l'application |32 bits |32 bits |32 bits/64 bits |32 bits/64 bits |32 bits/64 bits |32 bits/64 bits |
 | Web Sockets par instance<sup>7</sup> |5 |35 |350 |Illimité |Illimité |Illimité |
-| Connexions IP | 600 | 600 | Dépend de la taille de l’instance<sup>8</sup> | Dépend de la taille de l’instance<sup>8</sup> | Dépend de la taille de l’instance<sup>8</sup> | 16 000 |
+| Connexions d’IP sortantes par instance | 600 | 600 | Dépend de la taille de l’instance<sup>8</sup> | Dépend de la taille de l’instance<sup>8</sup> | Dépend de la taille de l’instance<sup>8</sup> | 16 000 |
 | [Connexions simultanées du débogueur](../articles/app-service/troubleshoot-dotnet-visual-studio.md) par application |1 |1 |1 |5 |5 |5 |
 | Certificats App Service par abonnement<sup>9</sup>| Non pris en charge | Non pris en charge |10 |10 |10 |10 |
 | Domaines personnalisés par application</a> |0 (sous-domaine azurewebsites.net uniquement)|500 |500 |500 |500 |500 |

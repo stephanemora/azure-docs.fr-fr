@@ -4,19 +4,19 @@ description: Utiliser un appareil Azure IoT Edge en tant que passerelle transpar
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 10/15/2020
+ms.date: 03/01/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 9ecb1c50fe99cc93417a37e892049e03585945a5
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 431c116fee22da27ed0487fc6d2fe3644575491f
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100370425"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102046021"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Configurer un appareil IoT Edge en tant que passerelle transparente
 
@@ -26,10 +26,9 @@ Cet article donne des instructions détaillées pour configurer un appareil IoT 
 ::: moniker range="iotedge-2018-06"
 
 >[!NOTE]
->Actuellement :
+>Dans IoT Edge, versions 1.1 et antérieures, un appareil IoT Edge ne peut pas se trouver en aval d’une passerelle IoT Edge.
 >
-> * Les appareils Edge ne peuvent pas se connecter aux passerelles IoT Edge.
-> * Les appareils en aval ne peuvent pas utiliser le chargement de fichier.
+>Les appareils en aval ne peuvent pas utiliser le chargement de fichier.
 
 ::: moniker-end
 
@@ -37,9 +36,7 @@ Cet article donne des instructions détaillées pour configurer un appareil IoT 
 ::: moniker range=">=iotedge-2020-11"
 
 >[!NOTE]
->Actuellement :
->
-> * Les appareils en aval ne peuvent pas utiliser le chargement de fichier.
+>Les appareils en aval ne peuvent pas utiliser le chargement de fichier.
 
 ::: moniker-end
 
@@ -51,7 +48,17 @@ La configuration d’une connexion de passerelle transparente s’effectue en tr
 
 Pour qu’un appareil fasse office de passerelle, il doit se connecter de manière sécurisée aux appareils en aval qui lui sont associés. Azure IoT Edge vous permet d’utiliser une infrastructure à clé publique (PKI) pour configurer des connexions sécurisées entre les appareils. Dans ce cas, nous autorisons un appareil en aval à se connecter à un appareil IoT Edge faisant office de passerelle transparente. Pour assurer un niveau raisonnable de sécurité, l’appareil en aval doit confirmer l’identité de l’appareil de passerelle. Cette vérification d’identité empêche vos appareils de se connecter à des passerelles potentiellement malveillantes.
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 Un appareil en aval est une application ou une plateforme dont l’identité a été créée avec le service cloud [Azure IoT Hub](../iot-hub/index.yml). Ces applications utilisent souvent [Azure IoT device SDK](../iot-hub/iot-hub-devguide-sdks.md). Un appareil en aval peut même être une application fonctionnant sur l’appareil de passerelle IoT Edge proprement dit. Cependant, un appareil IoT Edge ne peut pas se trouver en aval d’une passerelle IoT Edge.
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+Un appareil en aval est une application ou une plateforme dont l’identité a été créée avec le service cloud [Azure IoT Hub](../iot-hub/index.yml). Ces applications utilisent souvent [Azure IoT device SDK](../iot-hub/iot-hub-devguide-sdks.md). Un appareil en aval peut même être une application fonctionnant sur l’appareil de passerelle IoT Edge proprement dit.
+:::moniker-end
+<!-- end 1.2 -->
 
 Vous pouvez créer n’importe quelle infrastructure de certificat permettant l’approbation requise pour votre topologie de l’appareil à la passerelle. Dans cet article, nous nous basons sur la même configuration de certificat que vous utiliseriez pour activer la [sécurité d’autorité de certification X.509](../iot-hub/iot-hub-x509ca-overview.md) dans IoT Hub, ce qui implique d’avoir un certificat d’autorité de certification X.509 associé à un hub IoT spécifique (l’autorité de certification racine du hub IoT), une série de certificats signés par cette autorité de certification ainsi qu’une autorité de certification pour l’appareil IoT Edge.
 
@@ -64,7 +71,7 @@ Les étapes suivantes vous guident tout au long du processus de création des ce
 
 Un appareil Linux ou Windows avec IoT Edge installé.
 
-Si vous n’avez aucun appareil prêt, vous pouvez en créer un sur une machine virtuelle Azure. Suivez les étapes décrites dans [Déployer votre premier module IoT Edge sur un appareil Linux virtuel](quickstart-linux.md) pour créer un IoT Hub, créer une machine virtuelle et configurer le runtime IoT Edge. 
+Si vous n’avez aucun appareil prêt, vous pouvez en créer un sur une machine virtuelle Azure. Suivez les étapes décrites dans [Déployer votre premier module IoT Edge sur un appareil Linux virtuel](quickstart-linux.md) pour créer un IoT Hub, créer une machine virtuelle et configurer le runtime IoT Edge.
 
 ## <a name="set-up-the-device-ca-certificate"></a>Configurer le certificat d’autorité de certification d’appareil
 
@@ -72,7 +79,7 @@ Toutes les passerelles IoT Edge requièrent l’installation d’un certificat d
 
 ![Configuration du certificat de la passerelle](./media/how-to-create-transparent-gateway/gateway-setup.png)
 
-Le certificat d’autorité de certification racine et le certificat d’autorité de certification de l’appareil (avec sa clé privée) doivent être présents sur l’appareil de passerelle IoT Edge et configurés dans le fichier config.yaml IoT Edge. N’oubliez pas que dans ce cas, le *certificat d’autorité de certification racine* correspond à la plus haute autorité de certification pour ce scénario IoT Edge. Le certificat d’autorité de certification de l’appareil de passerelle et les certificats des appareils en aval doivent s’appliquer au même certificat d’autorité de certification racine.
+Le certificat d’autorité de certification racine et le certificat d’autorité de certification de l’appareil (avec sa clé privée) doivent être présents sur l’appareil de passerelle IoT Edge et configurés dans le fichier config IoT Edge. N’oubliez pas que dans ce cas, le *certificat d’autorité de certification racine* correspond à la plus haute autorité de certification pour ce scénario IoT Edge. Le certificat d’autorité de certification de l’appareil de passerelle et les certificats des appareils en aval doivent s’appliquer au même certificat d’autorité de certification racine.
 
 >[!TIP]
 >Le processus d’installation du certificat d’autorité de certification racine et du certificat d’autorité de certification d’appareil sur un appareil IoT Edge est également expliqué plus en détail dans [Gérer des certificats sur un appareil IoT Edge](how-to-manage-device-certificates.md).
@@ -85,7 +92,7 @@ Préparez les fichiers suivants :
 
 Pour les scénarios de production, vous devez générer ces fichiers avec votre propre autorité de certification. Pour les scénarios de développement et de test, vous pouvez utiliser des certificats de démonstration.
 
-1. Si vous utilisez des certificats de démonstration, suivez les instructions [Créer des certificats de démonstration pour tester les fonctionnalités de l’appareil IoT Edge](how-to-create-test-certificates.md) pour créer vos fichiers. Sur cette page, vous devez effectuer les étapes suivantes :
+Si vous n’avez pas votre propre autorité de certification et souhaitez utiliser des certificats de démonstration, suivez les instructions fournies dans [Créer des certificats de démonstration pour tester les fonctionnalités de l’appareil IoT Edge](how-to-create-test-certificates.md) pour créer vos fichiers. Sur cette page, vous devez effectuer les étapes suivantes :
 
    1. Pour commencer, configurez les scripts pour générer des certificats sur votre appareil.
    2. Créez un certificat d’autorité de certification racine. Au terme de ces instructions, vous disposerez d’un fichier de certificat d’autorité de certification racine :
@@ -94,24 +101,55 @@ Pour les scénarios de production, vous devez générer ces fichiers avec votre 
       * `<path>/certs/iot-edge-device-<cert name>-full-chain.cert.pem` et
       * `<path>/private/iot-edge-device-<cert name>.key.pem`
 
-2. Si vous avez créé les certificats sur un autre ordinateur, copiez-les sur votre appareil IoT Edge.
+Si vous avez créé les certificats sur une autre machine, copiez-les sur votre appareil IoT Edge, puis passez aux étapes suivantes.
 
-3. Sur votre appareil IoT Edge, ouvrez le fichier config de démon de sécurité.
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+
+1. Sur votre appareil IoT Edge, ouvrez le fichier config de démon de sécurité.
+
    * Windows : `C:\ProgramData\iotedge\config.yaml`
    * Linux : `/etc/iotedge/config.yaml`
 
-4. Recherchez la section **Paramètres de certificat** du fichier. Supprimez les quatre lignes démarrant avec **certificats:** et fournissez les URI de vos trois fichiers en tant que valeurs pour les propriétés suivantes :
+1. Recherchez la section **Paramètres de certificat** du fichier. Supprimez les quatre lignes démarrant avec **certificats:** et fournissez les URI de vos trois fichiers en tant que valeurs pour les propriétés suivantes :
    * **device_ca_cert** : certificat d’autorité de certification d’appareil
    * **device_ca_pk** : Clé privée d’autorité de certification d’appareil
    * **trusted_ca_certs** : certificat d’autorité de certification racine
 
    Vérifiez que la ligne **certificates:** n’est pas précédée d’un espace et que les autres lignes sont mis en retrait de deux espaces.
 
-5. Enregistrez et fermez le fichier.
+1. Enregistrez et fermez le fichier.
 
-6. Redémarrez IoT Edge.
+1. Redémarrez IoT Edge.
    * Windows : `Restart-Service iotedge`
    * Linux : `sudo systemctl restart iotedge`
+:::moniker-end
+<!-- end 1.1 -->
+
+<!--1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+1. Sur votre appareil IoT Edge, ouvrez le fichier config : `/etc/aziot/config.toml`
+
+   >[!TIP]
+   >Si le fichier config n’existe pas encore sur votre appareil, utilisez `/etc/aziot/config.toml.edge.template` comme modèle pour en créer un.
+
+1. Recherchez le paramètre `trust_bundle_cert`. Supprimez les marques de commentaire de cette ligne et fournissez l’URI du fichier de certificat d’autorité de certification racine sur votre appareil.
+
+1. Recherchez la section `[edge_ca]` du fichier. Supprimez les marques de commentaire des trois lignes de cette section et fournissez les URI de vos fichiers de certificat et de clé en tant que valeurs pour les propriétés suivantes :
+   * **cert** : certificat d’autorité de certification d’appareil
+   * **pk** : clé privée d’autorité de certification d’appareil
+
+1. Enregistrez et fermez le fichier.
+
+1. Redémarrez IoT Edge.
+
+   ```bash
+   sudo iotedge system restart
+   ```
+
+:::moniker-end
+<!-- end 1.2 -->
 
 ## <a name="deploy-edgehub-and-route-messages"></a>Déployer edgeHub et acheminer les messages
 

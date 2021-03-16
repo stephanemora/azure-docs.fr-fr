@@ -1,17 +1,16 @@
 ---
 title: Journaux Azure Monitor pour les fournisseurs de services | Microsoft Docs
 description: Les journaux Azure Monitor permettent aux fournisseurs de services gérés (MSP), aux grandes entreprises, aux éditeurs de logiciels indépendants (ISV) et aux fournisseurs de service d’hébergement de gérer et de surveiller les serveurs situés dans l’infrastructure locale ou cloud d’un client.
-ms.subservice: logs
 ms.topic: conceptual
 author: MeirMen
 ms.author: meirm
 ms.date: 02/03/2020
-ms.openlocfilehash: 5f69de583dea14be3c7ce3ab6779af549e95de75
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 5f1421da10c4748dd78e4c6790568285fa646979
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100600052"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102047109"
 ---
 # <a name="azure-monitor-logs-for-service-providers"></a>Journaux Azure Monitor pour les fournisseurs de services
 
@@ -48,7 +47,7 @@ Les avantages de l’architecture distribuée sont les suivants :
 
 Les avantages de l’architecture distribuée sont les suivants :
 
-* La visualisation et l’analyse centralisées des données sur les locataires à l’aide d’outils tels que les classeurs Azure Monitor peuvent entraîner un ralentissement des expériences, en particulier lors de l’analyse de données dans plus de 50 espaces de travail.
+* La visualisation et l’analyse centralisées des données [sur les locataires clients](cross-workspace-query.md) à l’aide d’outils tels que les classeurs Azure Monitor peuvent entraîner un ralentissement des expériences, en particulier lors de l’analyse de données dans plus de 50 espaces de travail.
 * Si les clients ne sont pas intégrés pour la gestion déléguée des ressources Azure, les administrateurs de fournisseurs de services doivent être approvisionnés dans le répertoire du client et il est plus difficile pour le fournisseur de services de gérer un grand nombre de locataires clients à la fois.
 
 ### <a name="2-central---logs-are-stored-in-a-workspace-located-in-the-service-provider-tenant"></a>2. Central : les journaux d’activité sont stockés dans un espace de travail situé dans le locataire du fournisseur de services
@@ -85,7 +84,7 @@ Il existe deux options pour implémenter des journaux dans un emplacement centra
 
 * Automatiser la création des espaces de travail à l’aide de [PowerShell](../logs/powershell-workspace-configuration.md)
 
-* Utiliser [Alertes](../platform/alerts-overview.md) pour intégrer les espaces de travail aux systèmes existants
+* Utiliser [Alertes](../alerts/alerts-overview.md) pour intégrer les espaces de travail aux systèmes existants
 
 * Générer des rapports de synthèse à l’aide de [Power BI](../visualize/powerbi.md)
 

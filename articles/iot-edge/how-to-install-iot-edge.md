@@ -7,14 +7,14 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 01/20/2021
+ms.date: 03/01/2021
 ms.author: kgremban
-ms.openlocfilehash: efbae71162bdd0c126287191f7ad35cf903db138
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 3a2d048bfd3b47cd5a3cb93763aa27fac1b89649
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100378075"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102044916"
 ---
 # <a name="install-or-uninstall-azure-iot-edge-for-linux"></a>Installation et désinstallation d’Azure IoT Edge pour Linux
 
@@ -96,11 +96,14 @@ Si des erreurs surviennent lors de l’installation du moteur de conteneur Moby,
 
 Dans la sortie du script, vérifiez que tous les éléments sous `Generally Necessary` et `Network Drivers` sont activés. Si vous ne disposez pas de certaines fonctionnalités, activez-les en régénérant votre noyau à partir des sources et en sélectionnant les modules associés à inclure dans le noyau .config approprié. De même, si vous utilisez un générateur de configuration du noyau comme `defconfig` ou `menuconfig`, trouvez et activez les fonctionnalités respectives et recompilez votre noyau en conséquence. Une fois que vous avez déployé votre nouveau noyau modifié, exécutez à nouveau le script check-config pour vérifier que toutes les fonctionnalités requises ont été activées avec succès.
 
-## <a name="install-the-iot-edge-security-daemon"></a>Installer le démon de sécurité IoT Edge
+## <a name="install-iot-edge"></a>Installer IoT Edge
+
+<!-- 1.1 -->
+::: moniker range="iotedge-2018-06"
 
 Le démon de sécurité IoT Edge fournit et gère les standards de sécurité sur l’appareil IoT Edge. Le démon se lance à chaque démarrage et amorce l’appareil en démarrant le reste du runtime IoT Edge.
 
-La procédure de cette section représente le processus classique d’installation de la dernière version sur un appareil disposant d’une connexion Internet. Si vous devez installer une version spécifique, comme une préversion, ou si vous devez installer en mode hors connexion, suivez les étapes d’[installation d’une version hors connexion ou spécifique](#offline-or-specific-version-installation-optional) dans la section suivante.
+La procédure de cette section représente le processus classique d’installation de la dernière version sur un appareil disposant d’une connexion Internet. Si vous devez installer une version spécifique, comme une préversion, ou si vous devez installer en mode hors connexion, suivez les étapes d’[installation d’une version hors connexion ou spécifique](#offline-or-specific-version-installation-optional) plus loin dans cet article.
 
 Mettez à jour les listes de packages sur votre appareil.
 
@@ -128,6 +131,54 @@ Si vous souhaitez installer une version spécifique du démon de sécurité, sp�
 
 Si la version que vous souhaitez installer ne figure pas dans la liste, suivez la procédure [Installation d’une version spécifique ou hors connexion](#offline-or-specific-version-installation-optional) dans la suite de cet article. Cette section vous montre comment cibler une version antérieure du démon de sécurité IoT Edge ou des versions Release Candidate.
 
+<!-- end 1.1 -->
+::: moniker-end
+
+<!-- 1.2 -->
+::: moniker range=">=iotedge-2020-11"
+
+Le service IoT Edge fournit et gère les standards de sécurité sur l’appareil IoT Edge. Le service se lance à chaque démarrage et amorce l’appareil en démarrant le reste du runtime IoT Edge.
+
+Le service IoT Identity a été introduit avec la version 1.2 d’IoT Edge. Ce service gère l’approvisionnement et la gestion des identités pour IoT Edge et pour d’autres composants d’appareil qui doivent communiquer avec IoT Hub.
+
+La procédure de cette section représente le processus classique d’installation de la dernière version sur un appareil disposant d’une connexion Internet. Si vous devez installer une version spécifique, comme une préversion, ou si vous devez installer en mode hors connexion, suivez les étapes d’[installation d’une version hors connexion ou spécifique](#offline-or-specific-version-installation-optional) plus loin dans cet article.
+
+>[!NOTE]
+>Les étapes décrites dans cette section montrent comment installer IoT Edge version 1.2, actuellement en préversion publique. Si vous recherchez les étapes permettant d’installer la dernière version généralement disponible d’IoT Edge, consultez la version [1.1 (LTS)](?view=iotedge-2018-06&preserve-view=true) de cet article.
+>
+>Si vous disposez déjà d’un appareil IoT Edge exécutant une version plus ancienne et que vous souhaitez effectuer une mise à niveau vers la version 1.2, suivez les étapes décrites dans [Mettre à jour le runtime et le démon de sécurité IoT Edge](how-to-update-iot-edge.md). La version 1.2 est si différente des versions précédentes d’IoT Edge que des étapes spécifiques sont nécessaires pour la mise à niveau.
+
+Mettez à jour les listes de packages sur votre appareil.
+
+   ```bash
+   sudo apt-get update
+   ```
+
+Vérifiez les versions d’IoT Edge disponibles.
+
+   ```bash
+   apt list -a aziot-edge
+   ```
+
+Si vous souhaitez installer la version la plus récente d’IoT Edge, utilisez la commande suivante qui installe également la dernière version du package de services d’identité :
+
+   ```bash
+   sudo apt-get install aziot-edge
+   ```
+
+<!-- commenting out for public preview. reintroduce at GA
+
+Or, if you want to install a specific version of IoT Edge and the identity service, specify the versions from the apt list output. Specify the same versions for both services.. For example, the following command installs the most recent version of the 1.2 release:
+
+   ```bash
+   sudo apt-get install aziot-edge=1.2* aziot-identity-service=1.2*
+   ```
+
+-->
+
+<!-- end 1.2 -->
+::: moniker-end
+
 ## <a name="provision-the-device-with-its-cloud-identity"></a>Provisionnement de l’appareil avec son identité cloud
 
 Maintenant que le moteur de conteneur et le runtime d’IoT Edge sont installés sur votre appareil, vous pouvez passer à l’étape suivante, à savoir configurer l’appareil avec ses informations d’identité et d’authentification cloud.
@@ -143,20 +194,22 @@ Le runtime IoT Edge est maintenant installé sur votre appareil Linux. Vous deve
 
 Cette section décrit la procédure à suivre pour provisionner un appareil avec une authentification par clé symétrique. Vous devez avoir inscrit votre appareil dans IoT Hub et récupéré la chaîne de connexion à partir des informations de l’appareil. Si ce n’est pas le cas, suivez la procédure décrite dans [Inscription d’un appareil IoT Edge dans IoT Hub](how-to-register-device.md).
 
+<!-- 1.1 -->
+::: moniker range="iotedge-2018-06"
+
 Sur l’appareil IoT Edge, ouvrez le fichier de configuration.
 
    ```bash
    sudo nano /etc/iotedge/config.yaml
    ```
 
-Recherchez les configurations de provisionnement du fichier et décommentez la section **Manual provisioning configuration using a connection string**.
+Recherchez les configurations d’approvisionnement du fichier et supprimez les marques de commentaire de la section **Manual provisioning configuration using a connection string** si ce n’est déjà fait.
 
    ```yml
    # Manual provisioning configuration using a connection string
    provisioning:
      source: "manual"
      device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
-     dynamic_reprovisioning: false
    ```
 
 Mettez à jour la valeur de **device_connection_string** avec la chaîne de connexion à partir de votre appareil IoT Edge. Veillez à ajouter des marques de commentaire sur les autres sections de provisionnement. Assurez-vous que la ligne **d’approvisionnement :** n’est pas précédée d’une espace et que les éléments imbriqués sont en retrait de deux espaces.
@@ -173,11 +226,58 @@ Après avoir entré les informations de provisionnement dans le fichier de confi
    sudo systemctl restart iotedge
    ```
 
+<!-- end 1.1 -->
+::: moniker-end
+
+<!-- 1.2 -->
+::: moniker range=">=iotedge-2020-11"
+
+Créez le fichier de configuration pour votre appareil à partir d’un fichier de modèle fourni dans le cadre de l’installation d’IoT Edge.
+
+   ```bash
+   sudo cp /etc/aziot/config.toml.edge.template /etc/aziot/config.toml
+   ```
+
+Sur l’appareil IoT Edge, ouvrez le fichier de configuration.
+
+   ```bash
+   sudo nano /etc/aziot/config.toml
+   ```
+
+Recherchez la section **Provisioning** du fichier et supprimez les marques de commentaire des lignes sur l’approvisionnement manuel avec une chaîne de connexion.
+
+   ```toml
+   # Manual provisioning with connection string
+   [provisioning]
+   source = "manual"
+   connection_string = "<ADD DEVICE CONNECTION STRING HERE>"
+   ```
+
+Mettez à jour la valeur **connection_string** avec la chaîne de connexion à partir de votre appareil IoT Edge.
+
+Pour coller le contenu du Presse-papiers dans Nano, appuyez sur `Shift+Right Click` ou sur `Shift+Insert`.
+
+Enregistrez et fermez le fichier.
+
+   `CTRL + X`, `Y`, `Enter`
+
+Après avoir entré les informations d’approvisionnement dans le fichier de configuration, appliquez vos modifications :
+
+   ```bash
+   sudo iotedge config apply
+   ```
+
+<!-- end 1.2 -->
+::: moniker-end
+
 ### <a name="option-2-authenticate-with-x509-certificates"></a>Option n°2 : Authentification avec des certificats X.509
 
 Le runtime IoT Edge est maintenant installé sur votre appareil Linux. Vous devez provisionner l’appareil avec ses informations d’identité et d’authentification cloud.
 
 Cette section décrit la procédure à suivre pour provisionner un appareil avec une authentification par certificat X.509. Vous devez avoir inscrit votre appareil dans IoT Hub, en indiquant les empreintes correspondant au certificat et à la clé privée situés sur votre appareil IoT Edge. Si ce n’est pas le cas, suivez la procédure décrite dans [Inscription d’un appareil IoT Edge dans IoT Hub](how-to-register-device.md).
+
+<!-- 1.1 -->
+::: moniker range="iotedge-2018-06"
 
 Sur l’appareil IoT Edge, ouvrez le fichier de configuration.
 
@@ -188,7 +288,7 @@ Sur l’appareil IoT Edge, ouvrez le fichier de configuration.
 Recherchez la section des configurations de provisionnement du fichier et supprimez les marques de commentaire de la section **Manual provisioning configuration using an X.509 identity certificate**. Veillez à ajouter des marques de commentaire sur les autres sections de provisionnement. Assurez-vous que la ligne **d’approvisionnement :** n’est pas précédée d’une espace et que les éléments imbriqués sont en retrait de deux espaces.
 
    ```yml
-   # Manual provisioning configuration using a connection string
+   # Manual provisioning configuration using an x.509 identity certificate
    provisioning:
      source: "manual"
      authentication:
@@ -197,7 +297,6 @@ Recherchez la section des configurations de provisionnement du fichier et suppri
        device_id: "<REQUIRED DEVICE ID PROVISIONED IN IOTHUB>"
        identity_cert: "<REQUIRED URI TO DEVICE IDENTITY CERTIFICATE>"
        identity_pk: "<REQUIRED URI TO DEVICE IDENTITY PRIVATE KEY>"
-     dynamic_reprovisioning: false
    ```
 
 Mettez à jour les champs suivants :
@@ -217,35 +316,118 @@ Après avoir entré les informations de provisionnement dans le fichier de confi
    sudo systemctl restart iotedge
    ```
 
+<!-- end 1.1 -->
+::: moniker-end
+
+<!-- 1.2 -->
+::: moniker range=">=iotedge-2020-11"
+
+Créez le fichier de configuration pour votre appareil à partir d’un fichier de modèle fourni dans le cadre de l’installation d’IoT Edge.
+
+   ```bash
+   sudo cp /etc/aziot/config.toml.edge.template /etc/aziot/config.toml
+   ```
+
+Sur l’appareil IoT Edge, ouvrez le fichier de configuration.
+
+   ```bash
+   sudo nano /etc/aziot/config.toml
+   ```
+
+Recherchez la section **Provisioning** du fichier, et supprimez les marques de commentaire des lignes sur l’approvisionnement manuel avec un certificat d’identité X.509. Veillez à ajouter des marques de commentaire sur les autres sections de provisionnement.
+
+   ```toml
+   # Manual provisioning with x.509 certificates
+   [provisioning]
+   source = "manual"
+   iothub_hostname = "<REQUIRED IOTHUB HOSTNAME>"
+   device_id = "<REQUIRED DEVICE ID PROVISIONED IN IOTHUB>"
+
+   [provisioning.authentication]
+   method = "x509"
+
+   identity_cert = "<REQUIRED URI OR POINTER TO DEVICE IDENTITY CERTIFICATE>"
+
+   identity_pk = "<REQUIRED URI TO DEVICE IDENTITY PRIVATE KEY>"
+   ```
+
+Mettez à jour les champs suivants :
+
+* **iothub_hostname** : nom d’hôte de l’hub IoT auquel l’appareil doit se connecter. Par exemple, `{IoT hub name}.azure-devices.net`.
+* **device_id** : ID que vous avez indiqué lors de l’inscription de l’appareil.
+* **identity_cert** : URI d’un certificat d’identité sur l’appareil, par exemple : `file:///path/identity_certificate.pem`. Ou émettez le certificat de manière dynamique en utilisant EST ou une autorité de certification locale.
+* **identity_pk** : URI du fichier de clé privée pour le certificat d’identité fourni. par exemple : `file:///path/identity_key.pem`. Ou fournissez un URI PKCS#11, puis fournissez vos informations de configuration dans la section **PKCS#11** ultérieurement dans le fichier config.
+
+Enregistrez et fermez le fichier.
+
+   `CTRL + X`, `Y`, `Enter`
+
+Après avoir entré les informations d’approvisionnement dans le fichier config, appliquez vos modifications :
+
+   ```bash
+   sudo iotedge config apply
+   ```
+
+<!-- end 1.2 -->
+::: moniker-end
+
 ## <a name="verify-successful-configuration"></a>Vérification de la réussite de la configuration
 
 Vérifiez que le runtime a été correctement installé et configuré sur votre appareil IoT Edge.
 
-1. Vérifiez que le démon de sécurité IoT Edge s’exécute en tant que service système.
+>[!TIP]
+>Vous avez besoin de privilèges élevés pour exécuter les commandes `iotedge`. Une fois que vous vous déconnectez de votre machine et que vous vous reconnectez pour la première fois après avoir installé le runtime IoT Edge, vos autorisations sont automatiquement mises à jour. Dans l’intervalle, ajoutez `sudo` devant les commandes.
+
+Vérifiez que le service système IoT Edge est en cours d’exécution.
+
+<!-- 1.1 -->
+::: moniker range="iotedge-2018-06"
 
    ```bash
    sudo systemctl status iotedge
    ```
 
-   >[!TIP]
-   >Vous avez besoin de privilèges élevés pour exécuter les commandes `iotedge`. Une fois que vous vous déconnectez de votre machine et que vous vous reconnectez pour la première fois après avoir installé le runtime IoT Edge, vos autorisations sont automatiquement mises à jour. Dans l’intervalle, ajoutez `sudo` devant les commandes.
+::: moniker-end
 
-2. Si vous avez besoin de résoudre les problèmes du service, récupérez les journaux d’activité de ce dernier.
+<!-- 1.2 -->
+::: moniker range=">=iotedge-2020-11"
+
+   ```bash
+   sudo iotedge system status
+   ```
+
+::: moniker-end
+
+Si vous avez besoin de résoudre les problèmes du service, récupérez les journaux d’activité de ce dernier.
+
+<!-- 1.1 -->
+::: moniker range="iotedge-2018-06"
 
    ```bash
    journalctl -u iotedge
    ```
 
-3. Utilisez l’outil `check` pour vérifier l’état de la configuration et de la connexion de l’appareil.
+::: moniker-end
+
+<!-- 1.2 -->
+::: moniker range=">=iotedge-2020-11"
+
+   ```bash
+   sudo iotedge system logs
+   ```
+
+::: moniker-end
+
+Utilisez l’outil `check` pour vérifier l’état de la configuration et de la connexion de l’appareil.
 
    ```bash
    sudo iotedge check
    ```
 
-   >[!TIP]
-   >Utilisez toujours `sudo` pour exécuter l’outil de vérification, même après la mise à jour de vos autorisations. L’outil a besoin de privilèges élevés pour accéder au fichier **config.yaml** et vérifier l’état de la configuration.
+>[!TIP]
+>Utilisez toujours `sudo` pour exécuter l’outil de vérification, même après la mise à jour de vos autorisations. L’outil a besoin de privilèges élevés pour accéder au fichier config pour vérifier l’état de la configuration.
 
-4. Affichez tous les modules s’exécutant sur votre appareil IoT Edge. Lors du premier démarrage du service, seul le module **edgeAgent** apparaît dans cette liste. Le module edgeAgent s’exécute par défaut et vous aide à installer et démarrer tous les modules supplémentaires que vous déployez sur votre appareil.
+Affichez tous les modules s’exécutant sur votre appareil IoT Edge. Lors du premier démarrage du service, seul le module **edgeAgent** apparaît dans cette liste. Le module edgeAgent s’exécute par défaut et vous aide à installer et démarrer tous les modules supplémentaires que vous déployez sur votre appareil.
 
    ```bash
    sudo iotedge list
@@ -262,11 +444,14 @@ Utilisez les étapes de cette section si vous souhaitez installer une version sp
 
 À l’aide de commandes curl, vous pouvez cibler les fichiers de composants directement à partir du référentiel GitHub IoT Edge.
 
+<!-- 1.1 -->
+::: moniker range="iotedge-2018-06"
+
 1. Accédez aux [versions d’Azure IoT Edge](https://github.com/Azure/azure-iotedge/releases)et recherchez celle que vous souhaitez cibler.
 
 2. Développez la section **Ressources** pour cette version.
 
-3. Chaque version devrait avoir de nouveaux fichiers pour le démon de sécurité IoT Edge et le hsmlib. Utilisez les commandes suivantes pour mettre à jour ces composants.
+3. Chaque version devrait avoir de nouveaux fichiers pour le démon de sécurité IoT Edge et le hsmlib. Si vous envisagez d’installer IoT Edge sur un appareil hors connexion, téléchargez ces fichiers à l’avance. Autrement, utilisez les commandes suivantes pour mettre à jour ces composants.
 
    1. Trouvez le fichier **libiothsm-std** qui correspond à l’architecture de votre périphérique IoT Edge. Cliquez avec le bouton droit de la souris sur le lien de fichier et copiez l’adresse du lien.
 
@@ -284,6 +469,40 @@ Utilisez les étapes de cette section si vous souhaitez installer une version sp
       curl -L <iotedge link> -o iotedge.deb && sudo dpkg -i ./iotedge.deb
       ```
 
+<!-- end 1.1 -->
+::: moniker-end
+
+<!-- 1.2 -->
+::: moniker range=">=iotedge-2020-11"
+
+>[!NOTE]
+>Si votre appareil exécute actuellement IoT Edge version 1.1 ou une version antérieure, désinstallez les packages **iotedge** et **libiothsm-std** avant de suivre les étapes de cette section. Pour plus d’informations, consultez [Mise à jour de la version 1.0 ou 1.1 vers la version 1.2](how-to-update-iot-edge.md#special-case-update-from-10-or-11-to-12).
+
+1. Accédez aux [versions d’Azure IoT Edge](https://github.com/Azure/azure-iotedge/releases)et recherchez celle que vous souhaitez cibler.
+
+2. Développez la section **Ressources** pour cette version.
+
+3. Chaque mise en production devrait avoir de nouveaux fichiers pour IoT Edge et le service d’identité. Si vous envisagez d’installer IoT Edge sur un appareil hors connexion, téléchargez ces fichiers à l’avance. Autrement, utilisez les commandes suivantes pour mettre à jour ces composants.
+
+   1. Recherchez le fichier **aziot-identity-service** correspondant à l’architecture de votre appareil IoT Edge. Cliquez avec le bouton droit de la souris sur le lien de fichier et copiez l’adresse du lien.
+
+   2. Utilisez le lien copié dans la commande suivante pour installer cette version du service d’identité :
+
+      ```bash
+      curl -L <identity service link> -o aziot-identity-service.deb && sudo dpkg -i ./aziot-identity-service.deb
+      ```
+
+   3. Recherchez le fichier **aziot-edge** correspondant à l’architecture de votre appareil IoT Edge. Cliquez avec le bouton droit de la souris sur le lien de fichier et copiez l’adresse du lien.
+
+   4. Utilisez le lien copié dans la commande suivante pour installer cette version d’IoT Edge.
+
+      ```bash
+      curl -L <iotedge link> -o aziot-edge.deb && sudo dpkg -i ./aziot-edge.deb
+      ```
+
+<!-- end 1.2 -->
+::: moniker-end
+
 Maintenant que le moteur de conteneur et le runtime IoT Edge sont installés sur votre appareil, vous pouvez passer à l’étape suivante, [Provisionnement de l’appareil avec son identité cloud](#provision-the-device-with-its-cloud-identity).
 
 ## <a name="uninstall-iot-edge"></a>Désinstaller IoT Edge
@@ -292,9 +511,25 @@ Si vous souhaitez supprimer l’installation d’IoT Edge de votre appareil, uti
 
 Supprimez le runtime IoT Edge.
 
+<!-- 1.1 -->
+::: moniker range="iotedge-2018-06"
+
 ```bash
-sudo apt-get remove --purge iotedge
+sudo apt-get remove iotedge
 ```
+
+::: moniker-end
+
+<!-- 1.2 -->
+::: moniker range=">=iotedge-2020-11"
+
+```bash
+sudo apt-get remove aziot-edge
+```
+
+::: moniker-end
+
+Utilisez l’indicateur `--purge` pour supprimer tous les fichiers associés à IoT Edge, dont vos fichiers de configuration. Omettez cet indicateur si vous souhaitez réinstaller IoT Edge et utiliser les mêmes informations de configuration à l’avenir.
 
 Lors de la suppression du runtime IoT Edge, tous les conteneurs qu’il a créés sont arrêtés, mais continuent d’exister sur votre appareil. Affichez tous les conteneurs pour voir ceux qui restent.
 

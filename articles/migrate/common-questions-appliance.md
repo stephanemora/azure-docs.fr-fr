@@ -6,12 +6,12 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 09/15/2020
-ms.openlocfilehash: 9badbfe6cfe12d67e07f0889d175ed32bc455321
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 5a050d9aab9e8665c6048391488e57c9b4af10a5
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96753873"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102043063"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Appliance Azure Migrate : Questions courantes
 
@@ -36,21 +36,20 @@ Voici plus d’informations sur l’appliance Azure Migrate :
 
 ## <a name="how-can-i-deploy-the-appliance"></a>Comment puis-je déployer l’appliance ?
 
-L’appliance peut être déployée comme suit :
+L'appliance peut être déployée à l’aide de deux méthodes :
 
-- Utilisation d’un modèle pour la découverte de machines virtuelles VMware (fichiers .OVA) et Hyper-V (.VHD) pour créer une nouvelle machine virtuelle qui héberge l’appliance.
-- Si vous ne souhaitez pas utiliser un modèle, vous pouvez déployer l’appliance sur une machine physique ou virtuelle existante pour la découverte de machines virtuelles VMware ou Hyper-V à l’aide d’un script d’installation PowerShell, disponible en téléchargement dans un fichier zip du portail.
-- Pour les serveurs physiques ou virtuels locaux ou dans n’importe quel cloud, vous déployez toujours l’appliance à l’aide d’un script sur un serveur existant.
-- Pour Azure Government, les trois appliances ne peuvent être déployées qu’à l’aide du script du programme d’installation PowerShell.
+- L’appliance peut être déployée à l’aide d’un modèle pour les serveurs s’exécutant dans un environnement VMware ou Hyper-V ([modèle OVA pour VMware](how-to-set-up-appliance-vmware.md) ou [VHD pour Hyper-V](how-to-set-up-appliance-hyper-v.md)).
+- Si vous ne souhaitez pas utiliser de modèle, vous pouvez déployer l’appliance pour un environnement VMware ou Hyper-V à l’aide d’un [script d’installation PowerShell](deploy-appliance-script.md).
+- Dans Azure Government, vous devez déployer l’appliance à l’aide d’un script d’installation PowerShell. Reportez-vous aux étapes de déploiement décrites [ici](deploy-appliance-script-government.md).
+- Pour des serveurs physiques ou virtualisés locaux ou cloud, vous déployez toujours l’appliance à l’aide d’un script d’installation PowerShell. Découvrez les étapes de déploiement [ici](how-to-set-up-appliance-physical.md).
 
 ## <a name="how-does-the-appliance-connect-to-azure"></a>Comment l’appliance se connecte-t-elle à Azure ?
 
 L’appliance peut se connecter via Internet ou en utilisant Azure ExpressRoute. 
 
 - Vérifiez que l’appliance peut se connecter à ces [URL Azure](./migrate-appliance.md#url-access). 
-- Vous pouvez utiliser Azure ExpressRoute avec le peering Microsoft.  Le peering public, déconseillé, n’est pas disponible pour les nouveaux circuits ExpressRoute.
+- Vous pouvez utiliser Azure ExpressRoute avec le peering Microsoft. Le peering public, déconseillé, n’est pas disponible pour les nouveaux circuits ExpressRoute.
 - Le peering privé seul n’est pas prise en charge.
-
 
 
 ## <a name="does-appliance-analysis-affect-performance"></a>L’analyse de l’appliance affecte-t-elle les performances ?
@@ -109,7 +108,7 @@ Non. Il existe un mappage un-à-un entre une [appliance Azure Migrate](migrate-a
 
 ## <a name="can-an-azure-migrate-project-have-multiple-appliances"></a>Un projet Azure Migrate peut-il avoir plusieurs appliances ?
 
-Plusieurs appliances peuvent être attachées à un même projet. Toutefois, une appliance ne peut être associée qu’à un seul projet. 
+Plusieurs appliances peuvent être inscrites pour un même projet. Toutefois, une appliance ne peut être inscrite qu’auprès d’un seul projet.
 
 ## <a name="can-the-azure-migrate-appliancereplication-appliance-connect-to-the-same-vcenter"></a>L’appliance Azure Migrate/de réplication peut-elle se connecter au même vCenter ?
 
@@ -135,7 +134,7 @@ En outre, vous ne pouvez pas réutiliser une clé de projet Azure Migrate exista
 
 ## <a name="can-i-set-up-the-appliance-on-an-azure-vm"></a>Puis-je configurer l’appliance sur une machine virtuelle Azure ?
 
-Non. Actuellement, cette option n’est pas prise en charge. 
+Non. Actuellement, cette option n’est pas prise en charge.
 
 ## <a name="can-i-discover-on-an-esxi-host"></a>Puis-je lancer une détection sur un hôte ESXi ?
 
@@ -150,6 +149,19 @@ Seuls l’appliance et les agents de l’appliance sont mis à jour par ces mise
 ## <a name="can-i-check-agent-health"></a>Puis-je vérifier l’intégrité de l’agent ?
 
 Oui. Dans le portail, accédez à la page **Intégrité de l’agent** pour l’outil Azure Migrate: Server Assessment ou Azure Migrate : d’Azure Migrate. Vous pouvez y vérifier l’état de la connexion entre Azure et les agents de détection et d’évaluation sur l’appliance.
+
+## <a name="can-i-add-multiple-server-credentials-on-vmware-appliance"></a>Puis-je ajouter plusieurs informations d’identification de serveur sur une appliance VMware ?
+
+Oui, nous prenons désormais en charge plusieurs informations d’identification de serveur pour effectuer l’inventaire logiciel (découverte des applications installées), l’analyse des dépendances sans agent et la découverte des instances et bases de données SQL Server. [Apprenez-en davantage](tutorial-discover-vmware.md#provide-server-credentials) sur la façon de fournir des informations d’identification sur le gestionnaire de configuration de l’appliance.
+
+## <a name="what-type-of-server-credentials-can-i-add-on-the-vmware-appliance"></a>Quels types d’informations d’identification de serveur puis-je ajouter à l’appliance VMware ?
+Vous pouvez fournir des informations d’identification d’authentification de domaine/Windows (hors domaine)/Linux (hors domaine)/SQL Server sur le gestionnaire de configuration de l’appliance. [Apprenez-en davantage](add-server-credentials.md) sur la manière de fournir des informations d’identification et la façon dont nous les traitons.
+
+## <a name="what-type-of-sql-server-connection-properties-are-supported-by-azure-migrate-for-sql-discovery"></a>Quels types de propriétés de connexion SQL Server Azure Migrate prend-il en charge pour la découverte SQL ?
+Azure Migrate chiffre la communication entre l’appliance Azure Migrate et les instances SQL Server sources (avec la propriété Chiffrer la connexion définie sur TRUE). Ces connexions sont chiffrées avec [TrustServerCertificate](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlconnectionstringbuilder.trustservercertificate) (défini sur TRUE). La couche transport utilise le protocole SSL pour chiffrer le canal et contourner la chaîne de certificats afin de valider l’approbation. Le serveur d’appliance doit être configuré pour [approuver l’autorité racine du certificat](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).
+
+Si aucun certificat n’a été approvisionné sur le serveur à son démarrage, SQL Server génère un certificat auto-signé qui est utilisé pour chiffrer les paquets d’ouverture de session. [Plus d’informations](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine)
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 12/03/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: cb680221447594b4784f61112655d507397b1c00
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 673e2260f358332de00a15b29729f14d62fe82a4
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101648847"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102518005"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>Tutoriel : Créer un locataire Azure Active Directory B2C
 
@@ -23,6 +23,8 @@ Pour que vos applications puissent interagir avec Azure Active Directory B2C (Az
 
 > [!NOTE]
 > Vous pouvez créer jusqu’à 20 locataires par abonnement. Cette limite aide à se prémunir contre les menaces visant vos ressources, telles que les attaques par déni de service, et est appliquée à la fois dans le portail Azure et dans l’API de création de locataire sous-jacente. Si vous avez besoin de créer plus de 20 locataires, contactez le [Support Microsoft](support-options.md).
+> 
+> Si vous souhaitez réutiliser un nom de locataire que vous avez essayé de supprimer, mais que vous voyez s’afficher l’erreur « Déjà utilisé par un autre annuaire » quand vous entrez le nom de domaine, vous devez [suivre d’abord ces étapes pour supprimer complètement le locataire](https://docs.microsoft.com/azure/active-directory-b2c/faq?tabs=app-reg-ga#how-do-i-delete-my-azure-ad-b2c-tenant). Vous devez disposer au moins d’un rôle d’administrateur d’abonnements. Après avoir supprimé le locataire, vous devrez peut-être également vous déconnecter et vous reconnecter pour pouvoir réutiliser le nom de domaine.
 
 Dans cet article, vous apprendrez comment :
 

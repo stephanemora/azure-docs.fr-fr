@@ -4,7 +4,7 @@ description: Guide pratique pour configurer un appareil IoT Edge en aval de sort
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/10/2020
+ms.date: 03/01/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: 1258fd4b5c69b399b70d1f2db1be63765771e631
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 709b986cc06aada45a0f541142b89fc3537f8ba8
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98629401"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102046089"
 ---
 # <a name="connect-a-downstream-iot-edge-device-to-an-azure-iot-edge-gateway-preview"></a>Connexion d’un appareil IoT Edge en aval à une passerelle Azure IoT Edge (préversion)
 
@@ -25,6 +25,8 @@ Cet article explique comment établir une connexion approuvée entre une passere
 
 >[!NOTE]
 >Les conteneurs Linux doivent posséder la version 1.2 de IoT Edge, en préversion publique.
+>
+>Cet article reflète la dernière préversion d’IoT Edge version 1.2. Assurez-vous que votre appareil exécute la version [1.2.0-rc4](https://github.com/Azure/azure-iotedge/releases/tag/1.2.0-rc4) ou une version plus récente. Pour savoir comment obtenir la dernière préversion sur votre appareil, consultez [Installer Azure IOT Edge pour Linux (version 1.2)](how-to-install-iot-edge.md) ou [Mettre à jour IOT Edge vers la version 1.2](how-to-update-iot-edge.md#special-case-update-from-10-or-11-to-12).
 
 Dans un scénario de type passerelle, un appareil IoT Edge peut être à la fois une passerelle et un appareil en aval. Il est possible de superposer plusieurs passerelles IoT Edge pour créer une hiérarchie d’appareils. Les appareils en aval (ou enfants) peuvent s’authentifier et envoyer ou recevoir des messages par le biais de leur appareil de passerelle (ou parent).
 
@@ -103,9 +105,6 @@ Créez les certificats suivants :
 * Les **certificats intermédiaires** que vous souhaitez inclure dans la chaîne de certificats racines.
 * Un **certificat d’autorité de certification d’appareil** et sa **clé privée**, générés par les certificats racine et intermédiaires. Un certificat d’autorité de certification d’appareil unique est nécessaire pour chacun des appareils IoT Edge de la hiérarchie de passerelle.
 
->[!NOTE]
->Il existe actuellement dans libiothsm une limitation empêchant l’utilisation de certificats qui expirent le 1er janvier 2038 ou après cette date.
-
 Vous pouvez soit utiliser une autorité de certification auto-signée, soit en acheter un auprès d’une autorité de certification commerciale approuvée comme Baltimore, Verisign, DigiCert ou GlobalSign.
 
 Si vous ne disposez pas de certificats propres, vous pouvez [créer des certificats de démonstration pour tester les fonctionnalités de l’appareil IoT Edge](how-to-create-test-certificates.md). Suivez la procédure de cet article pour créer un ensemble de certificats racine et intermédiaires, puis des certificats d’autorité de certification d’appareil IoT Edge pour chacun de vos appareils.
@@ -124,7 +123,7 @@ La procédure de cette section fait référence au **certificat d’autorité de
 
 Procédez comme suit pour configurer IoT Edge sur votre appareil.
 
-Sur Linux, veillez à ce que l’utilisateur **iotedge** dispose d’autorisations d’accès en lecture au répertoire contenant les certificats et les clés.
+Assurez-vous que l’utilisateur **iotedge** dispose d’autorisations d’accès en lecture au répertoire contenant les certificats et les clés.
 
 1. Installez le **certificat d’autorité de certification racine** sur cet appareil IoT Edge.
 
@@ -140,19 +139,16 @@ Sur Linux, veillez à ce que l’utilisateur **iotedge** dispose d’autorisatio
 
    Cette commande doit indiquer en sortie qu’un certificat a été ajouté dans /etc/ssl/certs.
 
-1. Ouvrez le fichier de configuration du démon de sécurité IoT Edge.
+1. Ouvrez le fichier de configuration IoT Edge.
 
    ```bash
-   sudo nano /etc/iotedge/config.yaml
+   sudo nano /etc/aziot/config.toml
    ```
 
-1. Recherchez la section **certificates** du fichier config.yaml. Mettez à jour les trois champs de certificat de sorte qu’ils pointent vers vos certificats. Indiquez les chemins d’URI de fichier, au format `file:///<path>/<filename>`.
+   >[!TIP]
+   >Si le fichier de configuration n’existe pas encore sur votre appareil, utilisez `/etc/aziot/config.toml.edge.template` comme modèle pour en créer un.
 
-   * **device_ca_cert** : chemin d’URI de fichier du certificat d’autorité de certification d’appareil propre à l’appareil.
-   * **device_ca_pk** : chemin d’URI de fichier de la clé privée d’autorité de certification d’appareil propre à l’appareil.
-   * **trusted_ca_certs** : chemin d’URI de fichier du certificat d’autorité de certification racine partagé par tous les appareils de la hiérarchie de passerelle.
-
-1. Recherchez le paramètre **hostname** dans le fichier config.yaml. Remplacez la valeur du nom d’hôte par le nom de domaine complet (FQDN) ou l’adresse IP de l’appareil IoT Edge.
+1. Recherchez la section **HostName** dans le fichier config. Supprimez les marques de commentaire de la ligne contenant le paramètre `hostname`, et mettez à jour la valeur pour qu’elle corresponde au nom de domaine complet (FQDN) ou à l’adresse IP de l’appareil IoT Edge.
 
    C’est la valeur de ce paramètre qui sera utilisée par les appareils en aval pour se connecter à cette passerelle. Le nom d’hôte prend le nom de l’ordinateur par défaut, mais le nom de domaine complet ou l’adresse IP est requis pour connecter les appareils en aval.
 
@@ -160,33 +156,38 @@ Sur Linux, veillez à ce que l’utilisateur **iotedge** dispose d’autorisatio
 
    Maintenez une cohérence avec le modèle de nom d’hôte dans toute la hiérarchie de passerelle. Utilisez soit des noms de domaine complets, soit des adresses IP, non les deux.
 
-1. **Si cet appareil est un appareil enfant**, recherchez le paramètre **parent_hostname**. Remplacez la valeur du champ **parent_hostname** par le nom de domaine complet ou l’adresse IP de l’appareil parent, en fonction de ce qui a été indiqué comme nom d’hôte dans le fichier config.yaml du parent.
+1. *Si cet appareil est un appareil enfant*, recherchez la section **Parent hostname**. Supprimez les marques de commentaire et mettez à jour le paramètre `parent_hostname`pour qu’il indique le nom de domaine complet (FQDN) ou l’adresse IP de l’appareil parent, en fonction de ce qui a été spécifié comme nom d’hôte dans le fichier config de l’appareil parent.
+
+1. Recherchez la section **Trust bundle cert**. Supprimez les marques de commentaire et mettez à jour le `trust_bundle_cert` paramètre avec l’URI du fichier pour qu’il pointe vers le certificat d’autorité de certification racine sur votre appareil.
 
 1. Bien que cette fonctionnalité soit en préversion publique, vous devez configurer votre appareil IoT Edge de sorte qu’il utilise la préversion publique de l’agent IoT Edge au démarrage.
 
-   Recherchez la section YAML **agent** et remplacez la valeur image par l’image de la préversion publique :
+   Recherchez la section **Default Edge Agent** et remplacez la valeur de l’image par celle de l’image de la préversion publique :
 
-   ```yml
-   agent:
-     name: "edgeAgent"
-     type: "docker"
-     env: {}
-     config:
-       image: "mcr.microsoft.com/azureiotedge-agent:1.2.0-rc2"
-       auth: {}
+   ```toml
+   [agent.config]
+   image: "mcr.microsoft.com/azureiotedge-agent:1.2.0-rc4"
    ```
 
-1. Enregistrez (`Ctrl+O`) et fermez (`Ctrl+X`) le fichier config.yaml.
+1. Recherchez la section **Edge CA certificate** dans le fichier config. Supprimez les marques de commentaire de cette section et fournissez les chemins d’accès d’URI de fichier pour les fichiers de certificat et de clé sur l’appareil IoT Edge.
+
+   ```toml
+   [edge_ca]
+   cert = "file:///<path>/<device CA cert>"
+   pk = "file:///<path>/<device CA key>"
+   ```
+
+1. Enregistrez (`Ctrl+O`) et fermez (`Ctrl+X`) le fichier config.
 
 1. Si vous avez déjà utilisé d’autres certificats pour IoT Edge, supprimez les fichiers dans les deux répertoires suivants pour que vos nouveaux certificats s’appliquent :
 
-   * `/var/lib/iotedge/hsm/certs`
-   * `/var/lib/iotedge/hsm/cert_keys`
+   * `/var/lib/aziot/certd/certs`
+   * `/var/lib/aziot/keyd/keys`
 
-1. Redémarrez le service IoT Edge pour appliquer vos modifications.
+1. Appliquez vos modifications.
 
    ```bash
-   sudo systemctl restart iotedge
+   sudo iotedge config apply
    ```
 
 1. Recherchez les éventuelles erreurs dans la configuration.
@@ -202,7 +203,7 @@ Sur Linux, veillez à ce que l’utilisateur **iotedge** dispose d’autorisatio
 
 Bien que cette fonctionnalité soit en préversion publique, vous devez configurer votre appareil IoT Edge de sorte qu’il utilise la préversion publique des modules runtime IoT Edge. La section précédente donne la procédure de configuration d’edgeAgent au démarrage. Il vous faut également configurer les modules runtime dans les déploiements pour votre appareil.
 
-1. Configurez le module edgeHub de façon à utiliser l’image en préversion publique : `mcr.microsoft.com/azureiotedge-hub:1.2.0-rc2`.
+1. Configurez le module edgeHub de façon à utiliser l’image en préversion publique : `mcr.microsoft.com/azureiotedge-hub:1.2.0-rc4`.
 
 1. Configurez les variables d’environnement suivantes pour le module edgeHub :
 
@@ -211,7 +212,7 @@ Bien que cette fonctionnalité soit en préversion publique, vous devez configur
    | `experimentalFeatures__enabled` | `true` |
    | `experimentalFeatures__nestedEdgeEnabled` | `true` |
 
-1. Configurez le module edgeAgent de façon à utiliser l’image en préversion publique : `mcr.microsoft.com/azureiotedge-hub:1.2.0-rc2`.
+1. Configurez le module edgeAgent de façon à utiliser l’image en préversion publique : `mcr.microsoft.com/azureiotedge-hub:1.2.0-rc4`.
 
 ## <a name="network-isolate-downstream-devices"></a>Isolement réseau des appareils en aval
 
@@ -356,21 +357,20 @@ Si vous ne souhaitez pas que les appareils de couche inférieure effectuent des 
 
 L’agent IoT Edge est le premier composant de runtime à démarrer sur un appareil IoT Edge. Vous devez veiller à ce que les appareils IoT Edge en aval puissent accéder à l’image de module edgeAgent au démarrage, puis accéder aux déploiements et lancer les autres images de module.
 
-Lorsque vous accédez au fichier config.yaml sur un appareil IoT Edge pour fournir ses informations d’authentification, ses certificats et son nom d’hôte parent, mettez également à jour l’image conteneur edgeAgent.
+Lorsque vous accédez au fichier config sur un appareil IoT Edge pour fournir ses informations d’authentification, ses certificats et son nom d’hôte parent, mettez également à jour l’image conteneur edgeAgent.
 
 Si l’appareil de passerelle de la couche supérieure est configuré pour gérer les demandes d’images conteneur, remplacez `mcr.microsoft.com` par le nom d’hôte parent et le port d’écoute du proxy d’API. Dans le manifeste de déploiement, vous pouvez utiliser `$upstream` comme raccourci, mais il faut pour cela que le module edgeHub gère le routage et qu’il n’ait pas encore démarré. Par exemple :
 
-```yml
-agent:
-  name: "edgeAgent"
-  type: "docker"
-  env: {}
-  config:
-    image: "{Parent FQDN or IP}:443/azureiotedge-agent:1.2.0-rc2"
-    auth: {}
+```toml
+[agent]
+name = "edgeAgent"
+type = "docker"
+
+[agent.config]
+image: "{Parent FQDN or IP}:443/azureiotedge-agent:1.2.0-rc4"
 ```
 
-Si vous utilisez un registre de conteneurs local ou que vous fournissez manuellement les images conteneur sur l’appareil, mettez à jour le fichier config.yaml en conséquence.
+Si vous utilisez un registre de conteneurs local, ou fournissez les images conteneur manuellement sur l’appareil, mettez à jour le fichier config en conséquence.
 
 #### <a name="configure-runtime-and-deploy-proxy-module"></a>Configuration du runtime et déploiement du module proxy
 

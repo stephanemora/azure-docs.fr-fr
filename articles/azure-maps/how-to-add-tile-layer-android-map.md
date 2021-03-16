@@ -3,17 +3,18 @@ title: Ajouter un calque de mosaïques à des cartes Android | Microsoft Azure M
 description: Découvrez comment ajouter une couche de mosaïques à une carte. Consultez un exemple qui utilise l’Android SDK Azure Maps pour ajouter un calque de radar météo à une carte.
 author: rbrundritt
 ms.author: richbrun
-ms.date: 12/08/2020
+ms.date: 2/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 8ea6f44c47c5cd4d223b053640f65827f46db482
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+zone_pivot_groups: azure-maps-android
+ms.openlocfilehash: 6a920dc222cae4aedd77b667644de317637bbb69
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97679304"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102047500"
 ---
 # <a name="add-a-tile-layer-to-a-map-android-sdk"></a>Ajout d’une couche de mosaïques à une carte (Android SDK)
 
@@ -36,6 +37,7 @@ L’URL de la mosaïque passée à une couche de mosaïques doit être l’URL H
 * `{quadkey}` - identificateur quadkey de la mosaïque basé sur la convention de nommage du système de mosaïques de Bing Maps.
 * `{bbox-epsg-3857}` - chaîne de rectangle englobant au format `{west},{south},{east},{north}` du système SRID EPSG 3857.
 * `{subdomain}` : espace réservé pour les valeurs de sous-domaine, si la valeur de sous-domaine est spécifiée.
+* `azmapsdomain.invalid` - espace réservé pour aligner le domaine et l’authentification des demandes de vignette avec les mêmes valeurs que celles utilisées par la carte. Utilisez ceci lors de l’appel d’un service de vignette hébergé par Azure Maps.
 
 ## <a name="prerequisites"></a>Conditions préalables requises
 
@@ -44,6 +46,8 @@ Pour suivre la procédure décrite dans cet article, vous devez installer [Andro
 ## <a name="add-a-tile-layer-to-the-map"></a>Ajouter un calque de mosaïques à une carte
 
 Cet exemple montre comment créer une couche de mosaïques qui pointe vers un ensemble de mosaïques. Cet exemple utilise le système de mosaïques « x, y, zoom ». La source de cette couche de mosaïques est le [projet OpenSeaMap](https://openseamap.org/index.php), qui contient des cartes marines crowdsourcées. Souvent, avec les couches de mosaïques, il est souhaitable de pouvoir voir clairement les étiquettes des villes sur la carte. Ce comportement peut être obtenu en insérant la couche de mosaïques sous les couches d’étiquettes de la carte.
+
+::: zone pivot="programming-language-java-android"
 
 ```java
 TileLayer layer = new TileLayer(
@@ -57,16 +61,31 @@ TileLayer layer = new TileLayer(
 map.layers.add(layer, "labels");
 ```
 
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+val layer = TileLayer(
+    tileUrl("https://tiles.openseamap.org/seamark/{z}/{x}/{y}.png"),
+    opacity(0.8f),
+    tileSize(256),
+    minSourceZoom(7),
+    maxSourceZoom(17)
+)
+
+map.layers.add(layer, "labels")
+```
+
+::: zone-end
+
 La capture d’écran suivante montre le rendu, obtenu avec le code ci-dessus, d’une couche de mosaïques d’informations marines sur une carte avec un style de nuances de gris foncé.
 
 ![Carte Android affichant la couche de mosaïques](media/how-to-add-tile-layer-android-map/xyz-tile-layer-android.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur les différentes manières de définir des styles de carte, consultez l'article
+Pour plus d’informations sur les différentes manières de superposer des images sur une carte, consultez l’article suivant.
 
 > [!div class="nextstepaction"]
-> [Modifier le style de carte](set-android-map-styles.md)
-
-> [!div class="nextstepaction"]
-> [Ajouter une carte thermique](map-add-heat-map-layer-android.md)
+> [Couche d’images](map-add-image-layer-android.md)
