@@ -7,17 +7,17 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 03/02/2021
 ms.author: dech
-ms.openlocfilehash: c7c910c7162bde2209b07eb4f1d533328bae08c3
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 58ae61bc9e1736b13bb1802e2f39d5ada045cb6a
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101692882"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102039257"
 ---
 # <a name="publish-notebooks-to-the-azure-cosmos-db-notebook-gallery"></a>Publier des notebooks dans la galerie des notebooks Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-Les blocs-notes Jupyter Notebooks intégrés à Azure Cosmos DB sont directement intégrés à vos comptes Azure Cosmos DB dans le portail Azure. À l’aide de ces notebooks, vous pouvez analyser et visualiser vos données à partir du portail Azure. Les notebooks intégrés pour Azure Cosmos DB sont actuellement disponibles dans [29 régions](#supported-regions). Pour utiliser des notebooks, [créez un compte](#create-a-new-cosmos-account) ou [activez les notebooks sur un compte existant](#enable-notebooks-in-an-existing-cosmos-account) dans l’une de ces régions
+Les blocs-notes Jupyter Notebooks intégrés à Azure Cosmos DB sont directement intégrés à vos comptes Azure Cosmos DB dans le portail Azure. À l’aide de ces notebooks, vous pouvez analyser et visualiser vos données à partir du portail Azure. Les notebooks intégrés pour Azure Cosmos DB sont actuellement disponibles dans de [nombreuses régions](https://azure.microsoft.com/global-infrastructure/services/?products=cosmos-db&regions=all). Pour utiliser des notebooks, [créez un compte](create-cosmosdb-resources-portal.md) ou [activez les notebooks sur un compte existant](enable-notebooks.md) dans l’une de ces régions
 
 L’environnement de notebook dans le portail Azure contient des exemples publiés par l’équipe Azure Cosmos DB. Il dispose également d’une galerie publique dans laquelle vous pouvez publier et partager vos propres notebooks. Quand un notebook est publié dans la galerie, tous les utilisateurs Azure Cosmos DB peuvent l’afficher et l’utiliser. Dans cet article, vous allez apprendre à utiliser des notebooks de la galerie publique et à publier votre notebook dans la galerie.
 
@@ -53,7 +53,7 @@ Pour publier un notebook, procédez comme suit :
 
    Vous pouvez également trouver l’option **Publier dans la galerie** en sélectionnant le bouton **...** à côté du nom du notebook :
 
-   :::image type="content" source="./media/publish-notebook-gallery/choose-notebook-publish.png" alt-text="Choisissez un notebook à publier dans la galerie.":::
+   :::image type="content" source="./media/publish-notebook-gallery/choose-notebook-publish.png" alt-text="Une autre approche pour choisir un notebook à publier dans la galerie.":::
 
 1. Remplissez le formulaire **Publier dans la galerie** en indiquant les informations suivantes :
 
@@ -61,16 +61,15 @@ Pour publier un notebook, procédez comme suit :
    * **Description :** brève description des fonctionnalités de votre notebook.
    * **Étiquettes :** les étiquettes sont facultatives et servent à filtrer les résultats lors de la recherche par mot clé.
    * **Image de couverture :** image utilisée sur la page de couverture quand le notebook est publié. Vous pouvez choisir l'une des options suivantes :
-
-     * **Image personnalisée** : vous pouvez charger une image à partir de votre ordinateur. Choisissez un fichier image avec les proportions 256 x 144.
-     * **URL** : indiquez une URL accessible publiquement où se trouve l’image.
-     * **Effectuer une capture d’écran** : une capture d’écran de votre notebook ouvert est automatiquement effectuée et chargée dans l’aperçu.
-     * **Utilisez la première sortie d’affichage** : sortie de la première cellule ayant une sortie d’affichage. Les cellules qui affichent uniquement du contenu Markdown/texte ne sont pas considérées comme des sorties d’affichage.
+   * **Image personnalisée** : vous pouvez charger une image à partir de votre ordinateur. Choisissez un fichier image avec les proportions 256 x 144.
+   * **URL** : indiquez une URL accessible publiquement où se trouve l’image.
+   * **Effectuer une capture d’écran** : une capture d’écran de votre notebook ouvert est automatiquement effectuée et chargée dans l’aperçu.
+   * **Utilisez la première sortie d’affichage** : sortie de la première cellule ayant une sortie d’affichage. Les cellules qui affichent uniquement du contenu Markdown/texte ne sont pas considérées comme des sorties d’affichage.
 
    :::image type="content" source="./media/publish-notebook-gallery/publish-notebook.png" alt-text="Remplissez le formulaire de publication dans la galerie.":::
 
    > [!NOTE]
-   > Si vous utilisez l’option **Publier dans la galerie** à partir du bouton **…** à côté du nom du notebook, vous ne voyez pas toutes les options d’**Image de couverture**. Cela est peut-être dû au fait que le notebook n’est pas ouvert et qu’Azure Cosmos DB n’y a pas accès pour effectuer une capture d’écran ou accéder à la première sortie d’affichage.
+   > Si vous utilisez l’option **Publier dans la galerie** à partir du bouton **...** à côté du nom du notebook, vous ne voyez pas toutes les options d’**image de couverture**. Cela est peut-être dû au fait que le notebook n’est pas ouvert et qu’Azure Cosmos DB n’y a pas accès pour effectuer une capture d’écran ou accéder à la première sortie d’affichage.
 
 1. Vérifiez que l’aperçu semble correct et sélectionnez **Publier**. Une fois publié, ce notebook s’affiche dans la galerie publique des notebooks Azure Cosmos DB. Vérifiez que vous avez supprimé les données ou les sorties sensibles avant la publication. Le contenu du notebook est analysé pour s’assurer qu’il respecte les stratégies Microsoft avant d’être publié. Ce processus prend généralement quelques secondes. Si des violations sont détectées, un message s’affiche sous l’onglet Notification. Votre notebook ne sera pas publié si une violation est détectée. Vous devez supprimer le texte concerné et le publier à nouveau.
 

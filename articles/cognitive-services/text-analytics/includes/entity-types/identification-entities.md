@@ -7,26 +7,94 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 04/29/2020
+ms.date: 02/17/2021
 ms.author: aahi
-ms.openlocfilehash: 49a2b285d9494dfc5ca0863c021733b4bc874efa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a376b050d79709885e3542d330bb6b1eea48d046
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91779377"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750622"
 ---
-Cette catégorie d’entité comprend les informations financières et les formes officielles d’identification. Disponible à partir de la version `2019-10-01` du modèle. Les sous-types sont listés ci-dessous. 
-
 ### <a name="financial-account-identification"></a>Identification de compte financier
 
-| Nom de sous-type               | Description                                                                |
-|----------------------------|----------------------------------------------------------------------------|
-| Numéro de routage ABA        | Numéros de routage de transit ABA (American Banker Association).                  |
-| Code SWIFT                 | Codes SWIFT pour les informations sur les instructions de paiement.                           |
-| Carte de crédit                | Numéros de carte de crédit.                                                       |
-| Numéro de compte bancaire international (IBAN)                  | Codes IBAN pour les informations sur les instructions de paiement.                            |
+Cette catégorie d’entité comprend les informations financières et les formes officielles d’identification.
 
+#### <a name="category-aba-routing-number"></a>Catégorie : Numéro de routage ABA
+
+Cette catégorie contient l’entité suivante :
+
+:::row:::
+    :::column span="":::
+        **Entité**
+
+        Numéro de routage ABA
+
+    :::column-end:::
+    :::column span="2":::
+        **Détails**
+
+        Numéros de routage de transit ABA (American Banker Association).
+      
+    :::column-end:::
+:::row-end:::
+
+#### <a name="category-swift-code"></a>Catégorie : Code SWIFT
+
+Cette catégorie contient l’entité suivante :
+
+:::row:::
+    :::column span="":::
+        **Entité**
+
+        Code Swift
+
+    :::column-end:::
+    :::column span="2":::
+        **Détails**
+
+        Codes SWIFT pour les informations sur les instructions de paiement.
+      
+    :::column-end:::
+:::row-end:::
+
+#### <a name="category-credit-card"></a>Catégorie : Carte de crédit
+
+Cette catégorie contient l’entité suivante :
+
+:::row:::
+    :::column span="":::
+        **Entité**
+
+        Carte de crédit
+
+    :::column-end:::
+    :::column span="2":::
+        **Détails**
+
+        Numéros de carte de crédit. 
+      
+    :::column-end:::
+:::row-end:::
+
+#### <a name="category-international-banking-account-number-iban"></a>Catégorie : Numéro de compte bancaire international (IBAN) 
+
+Cette catégorie contient l’entité suivante :
+
+:::row:::
+    :::column span="":::
+        **Entité**
+
+        Carte de crédit
+
+    :::column-end:::
+    :::column span="2":::
+        **Détails**
+
+        Codes IBAN pour les informations sur les instructions de paiement.
+      
+    :::column-end:::
+:::row-end:::
 
 ### <a name="government-and-countryregion-specific-identification"></a>Identification propre aux gouvernements et pays/régions
 
@@ -37,249 +105,851 @@ Cette catégorie d’entité comprend les informations financières et les forme
 
 Les entités suivantes sont regroupées et listées par pays :
 
-Argentine
-* Numéro d’identité nationale (DNI) en Argentine
+#### <a name="argentina"></a>Argentine
 
-Autriche
-* Carte d’identité en Autriche
-* Numéros d’identification fiscale autrichien
-* Numéro de TVA en Autriche
+:::row:::
+    :::column span="":::
+        **Entité**
 
-Australie
-* Numéro de compte bancaire en Australie
-* Numéro professionnel australien
-* Numéro de société australien
-* Numéro de permis de conduire en Australie
-* Numéro de compte médical en Australie
-* Numéro de passeport en Australie
-* Numéro d’identification fiscale en Australie
+        Numéro d’identité nationale (DNI) en Argentine
 
-Belgique
-* Numéro national en Belgique
-* Numéro de TVA en Belgique
+    :::column-end:::
+:::row-end:::
 
-Brésil 
-* Numéro d’entité légale (CNPJ) au Brésil
-* Numéro CPF au Brésil
-* Carte d’identité nationale (RG) au Brésil
 
-Bulgarie
-* Numéro civil unifié en Bulgarie
+#### <a name="austria"></a>Autriche
 
-Canada
-* Numéro de compte bancaire au Canada
-* Numéro de permis de conduire au Canada
-* Numéro de service médical au Canada
-* Numéro de passeport au Canada
-* Numéro d’identification médicale personnelle (PHIN) au Canada
-* Numéro d’assurance sociale au Canada
+:::row:::
+    :::column span="":::
+        **Entité**
 
-Chili
-* Numéro de carte d’identité 
+        Carte d’identité en Autriche
 
-Chine
-* Numéro de carte d’identité de résident (RPC) en Chine
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
 
-Croatie
-* Numéro de carte d’identité en Croatie
-* Numéro de carte d’identité nationale en Croatie
-* Numéro d’identification personnelle (OIB) en Croatie
+        Numéro d’identification fiscale autrichien
 
-Chypre
-* Numéro de carte d’identité à Chypre
-* Numéros d’identification fiscale à Chypre
+    :::column-end:::
 
-République tchèque
-* Numéro d’identité personnelle en Tchéquie
+:::row-end:::
+:::row:::
+    :::column span="":::
 
-Danemark
-* Numéro d’identification personnelle au Danemark
+        Numéro de TVA en Autriche
 
-Estonie
-* Code d’identification personnelle en Estonie
+    :::column-end:::
+:::row-end:::
 
-Union européenne (UE)
-* Numéro de carte de débit UE
-* Numéro de permis de conduire dans l’Union européenne
-* Numéro d’identification nationale dans l’Union européenne
-* Numéro de passeport dans l’Union européenne
-* Numéro de sécurité sociale (SSN) dans l’Union européenne (ou équivalent)
-* Numéros d’identification fiscale UE (TIN)
 
-Finlande
-* Numéro d’assurance maladie européen en Finlande
-* Numéro d’identité nationale en Finlande
-* Numéro de passeport en Finlande
 
-France
-* Numéro de permis de conduire en France
-* Numéro d’assurance maladie en France
-* Carte nationale d’identité (CNI) en France
-* Numéro de passeport en France
-* Numéro de sécurité sociale (INSEE) en France
-* Numéro d’identification fiscale en France (numéro SPI)
-* Numéro de TVA en France
+#### <a name="australia"></a>Australie
 
-Allemagne
-* Numéro de permis de conduire en Allemagne
-* Numéro de carte d’identité en Allemagne
-* Numéro de passeport en Allemagne
-* Numéros d’identification fiscale en Allemagne
-* Numéro de TVA en Allemagne
+:::row:::
+    :::column span="":::
+        **Entité**
 
-Grèce 
-* Numéro de carte d’identité nationale en Grèce
-* Numéros d’identification fiscale en Grèce
+        Numéro de compte bancaire en Australie
 
-Hong Kong (R.A.S.)
-* Numéro de carte d’identité à Hong Kong (R.A.S.)
+    :::column-end:::
 
-Hongrie
-* Numéro d’identification nationale en Hongrie
-* Numéro d’identification fiscale en Hongrie
-* Numéro de TVA en Hongrie
+:::row-end:::
+:::row:::
+    :::column span="":::
 
-Inde
-* Numéro de compte permanent (PAN) en Inde
-* Numéro d’identification unique (Aadhaar) en Inde
+        Numéro d’entreprise en Australie
 
-Indonésie
-* Numéro de carte d’identité (KTP) en Indonésie
+    :::column-end:::
 
-Irlande
-* Numéro de service public personnel (PPS) en Irlande
+:::row-end:::
+:::row:::
+    :::column span="":::
 
-Israël
-* Numéro d’identité nationale en Israël
-* Numéro de compte bancaire en Israël
+        Numéro de société en Australie
 
-Italie
-* Numéro de permis de conduire en Italie
-* Code fiscal en Italie
-* Numéro de TVA en Italie
+    :::column-end:::
 
-Japon
-* Numéro de compte bancaire au Japon
-* Numéro de permis de conduire au Japon
-* My Number japonais - Personnel
-* My Number japonais - Entreprise
-* Numéro d’inscription de résident au Japon
-* Numéro de carte de résidence japonaise
-* Numéro d’assurance sociale (SIN) au Japon
-* Numéro de passeport au Japon
+:::row-end:::
+:::row:::
+    :::column span="":::
 
-Lettonie
-* Code personnel en Lettonie
+        Numéro de permis de conduire en Australie  
 
-Lituanie
-* Code personnel en Lituanie
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
 
-Luxembourg
-* Numéro d’identification nationale au Luxembourg (personnes physiques)
-* Numéro d’identification nationale au Luxembourg (personnes morales)
+        Numéro de compte médical en Australie
 
-Malaisie
-* Numéro de carte d’identité en Malaisie
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
 
-Malte
-* Numéro de carte d’identité à Malte
-* Numéros d’identification fiscale à Malte
+        Numéro de passeport en Australie
 
-Pays-Bas
-* Numéro de service citoyen (BSN) au Pays-Bas
-* Numéros d’identification fiscale aux Pays-Bas
-* Numéro de TVA aux Pays-Bas
+    :::column-end:::
 
-Nouvelle-Zélande
-* Numéro de compte bancaire en Nouvelle-Zélande
-* Numéro de permis de conduire en Nouvelle-Zélande
-* Numéro Inland Revenue Department (IRD) en Nouvelle-Zélande
-* Numéro du ministère de la santé en Nouvelle-Zélande
-* Numéro de protection sociale (Social Welfare) en Nouvelle-Zélande
+:::row-end:::
+:::row:::
+    :::column span="":::
 
-Norvège
-* Numéro d’identité en Norvège
+        Numéro de passeport en Australie
 
-Philippines
-* Numéro d’identité polyvalent unifié aux Philippines
+    :::column-end:::
 
-Pologne
-* Carte d’identité en Pologne
-* Numéro d’identité nationale (PESEL) en Pologne
-* Numéro de passeport en Pologne
-* Numéro REGON en Pologne
-* Numéros d’identification fiscale en Pologne
+:::row-end:::
+:::row:::
+    :::column span="":::
 
-Portugal 
-* Numéro de carte de citoyen au Portugal
-* Numéros d’identification fiscale au Portugal
+        Numéro d’identification fiscale en Australie
 
-Roumanie
-* Code numérique personnel (CNP) en Roumanie
+    :::column-end:::
 
-Russie
-* Numéro de passeport russe (national)
-* Numéro de passeport russe (international)
+:::row-end:::
 
-Arabie Saoudite
-* Numéro national en Arabie saoudite
 
-Singapour
-* Numéro de carte d’identité d’inscription nationale (NRIC) à Singapour
+#### <a name="belgium"></a>Belgique
 
-Slovaquie 
-* Numéro personnel en Slovaquie
+:::row:::
+    :::column span="":::
+        **Entité**
 
-Slovénie
-* Numéros d’identification fiscale en Slovénie
-* Numéro d’identification nationale de Slovénie de Slovénie
+        Numéro national en Belgique
 
-Afrique du Sud
-* Numéro d’identification en Afrique du Sud
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
 
-Corée du Sud
-* Numéro d’inscription de résident en Corée du Sud
+        Numéro de TVA en Belgique
 
-Espagne 
-* Numéro d’identification nationale en Espagne
-* Numéro de sécurité sociale (SSN) en Espagne
-* Numéros d’identification fiscale en Espagne
+    :::column-end:::
 
-Suède
-* Numéro d’identité nationale en Suède
-* Numéro de passeport en Suède
-* Numéros d’identification fiscale en Suède
+:::row-end:::
 
-Suisse
-* Numéro d'assurance sociale (AVS) en Suisse
 
-Taïwan 
-* Numéro d’identité nationale à Taïwan
-* Certificat de résident (ARC/TARC) à Taïwan
-* Numéro de passeport à Taïwan
+#### <a name="brazil"></a>Brésil 
 
-Thaïlande
-* Code d’identification de population thaï
+:::row:::
+    :::column span="":::
+        **Entité**
 
-Turquie
-* Numéro d’identification nationale en Turquie
+        Numéro d’entité légale (CNPJ) au Brésil
 
-Ukraine
-* Numéro de passeport en Ukraine (national)
-* Numéro de passeport en Ukraine (international)
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
 
-Royaume-Uni
-* au Royaume-Uni Numéro de permis de conduire
-* au Royaume-Uni Numéro d’électeur
-* au Royaume-Uni Numéro du service de santé national (NHS)
-* au Royaume-Uni Numéro d’assurance nationale (NINO)
-* au Royaume-Uni Numéro de passeport
-* au Royaume-Uni Numéro de référence fiscal unique (UTR)
+        Numéro CPF au Brésil
 
-États-Unis
-* États-Unis Numéro de sécurité sociale (SSN)
-* États-Unis Numéro de permis de conduire
-* États-Unis Numéro de passeport
-* États-Unis Numéro d’identification de contribuable individuel (ITIN)
-* États-Unis Numéro DEA (Drug Enforcement Agency)
-* États-Unis Numéro de compte bancaire
+    :::column-end:::
+
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Carte d’identité nationale (RG) au Brésil
+
+    :::column-end:::
+:::row-end:::
+
+#### <a name="canada"></a>Canada
+
+:::row:::
+    :::column span="":::
+        **Entité**
+
+        Numéro de compte bancaire au Canada
+
+    :::column-end:::
+
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Numéro de permis de conduire au Canada
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Numéro de service médical au Canada
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Numéro de passeport au Canada
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Numéro d’identification médicale personnelle (PHIN) au Canada
+
+    :::column-end:::
+
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Numéro d’assurance sociale au Canada
+
+    :::column-end:::
+:::row-end:::
+
+#### <a name="chile"></a>Chili 
+
+:::row:::
+    :::column span="":::
+        **Entité**
+
+        Numéro de carte d’identité au Chili
+
+    :::column-end:::
+:::row-end:::
+
+#### <a name="china"></a>Chine
+
+:::row:::
+    :::column span="":::
+        **Entité**
+
+        Numéro de carte d’identité de résident (RPC) en Chine
+
+    :::column-end:::
+:::row-end:::
+
+
+#### <a name="european-union-eu"></a>Union européenne (UE)
+
+:::row:::
+    :::column span="":::
+        **Entité**
+
+        Numéro de carte de débit UE
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Numéro de permis de conduire dans l’Union européenne
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Numéro d’identification nationale dans l’Union européenne
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Numéro de passeport dans l’Union européenne
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Numéro de sécurité sociale (NIR) dans l’Union européenne (ou équivalent)
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Numéros d’identification fiscale UE (TIN)
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Coordonnées GPS UE
+
+    :::column-end:::
+:::row-end:::
+
+#### <a name="france"></a>France
+
+:::row:::
+    :::column span="":::
+        **Entité**
+
+        Numéro de permis de conduire en France
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Numéro d’assurance maladie en France
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Carte nationale d’identité (CNI) en France
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Numéro de passeport en France
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Numéro de sécurité sociale (INSEE) en France
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Numéro d’identification fiscale en France (numéro SPI)
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Numéro de TVA en France
+
+    :::column-end:::
+:::row-end:::
+
+#### <a name="germany"></a>Allemagne
+
+:::row:::
+    :::column span="":::
+        **Entité**
+
+        Numéro de permis de conduire en Allemagne
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Numéro de carte d’identité en Allemagne
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Numéro de passeport en Allemagne
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Numéros d’identification fiscale en Allemagne
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Numéro de TVA en Allemagne
+
+    :::column-end:::
+:::row-end:::
+
+#### <a name="hong-kong"></a>Hong Kong (R.A.S.)
+
+:::row:::
+    :::column span="":::
+        **Entité**
+
+        Numéro de carte d’identité à Hong Kong (R.A.S.)
+
+    :::column-end:::
+:::row-end:::
+
+#### <a name="hungary"></a>Hongrie
+
+:::row:::
+    :::column span="":::
+        **Entité**
+
+        Numéro d’identification personnelle en Hongrie
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Numéro d’identification fiscale en Hongrie
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Numéro de TVA en Hongrie
+
+    :::column-end:::
+:::row-end:::
+
+#### <a name="india"></a>Inde
+
+:::row:::
+    :::column span="":::
+        **Entité**
+
+        Numéro de compte permanent (PAN) en Inde
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Numéro d’identification unique (Aadhaar) en Inde
+
+    :::column-end:::
+:::row-end:::
+
+
+#### <a name="indonesia"></a>Indonésie
+
+:::row:::
+    :::column span="":::
+        **Entité**
+
+        Numéro de carte d’identité (KTP) en Indonésie
+
+    :::column-end:::
+:::row-end:::
+
+#### <a name="ireland"></a>Irlande
+
+:::row:::
+    :::column span="":::
+        **Entité**
+
+        Numéro de service public personnel (PPS) en Irlande
+
+    :::column-end:::
+:::row-end:::
+
+#### <a name="israel"></a>Israël
+
+:::row:::
+    :::column span="":::
+        **Entité**
+
+        Numéro d’identité nationale en Israël
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Numéro de compte bancaire en Israël
+
+    :::column-end:::
+:::row-end:::
+
+#### <a name="italy"></a>Italie
+
+:::row:::
+    :::column span="":::
+        **Entité**
+
+        Numéro de permis de conduire en Italie
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Code fiscal en Italie
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Numéro de TVA en Italie
+
+    :::column-end:::
+:::row-end:::
+
+
+#### <a name="japan"></a>Japon
+
+:::row:::
+    :::column span="":::
+        **Entité**
+
+        Numéro de compte bancaire au Japon
+
+    :::column-end:::
+
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Numéro de permis de conduire au Japon
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Japon « Mon numéro » (personnel)
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Japon « Mon numéro » (entreprise)
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Numéro d’inscription de résident au Japon
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Numéro de carte de résidence au Japon
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Numéro d’assurance sociale (SIN) au Japon
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Numéro de passeport au Japon
+
+    :::column-end:::
+:::row-end:::
+
+#### <a name="luxembourg"></a>Luxembourg
+
+:::row:::
+    :::column span="":::
+        **Entité**
+
+        Numéro d’identification nationale au Luxembourg (personnes physiques)
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Numéro d’identification nationale au Luxembourg (personnes morales)
+
+    :::column-end:::
+:::row-end:::
+
+#### <a name="malta"></a>Malte
+
+:::row:::
+    :::column span="":::
+        **Entité**
+
+        Numéro de carte d’identité à Malte
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Numéros d’identification fiscale à Malte
+
+    :::column-end:::
+:::row-end:::
+
+
+#### <a name="new-zealand"></a>Nouvelle-Zélande
+
+:::row:::
+    :::column span="":::
+        **Entité**
+
+        Numéro de compte bancaire en Nouvelle-Zélande
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Numéro de permis de conduire en Nouvelle-Zélande
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Numéro Inland Revenue Department (IRD) en Nouvelle-Zélande
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Numéro du ministère de la santé en Nouvelle-Zélande
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+       Numéro de protection sociale (Social Welfare) en Nouvelle-Zélande
+
+    :::column-end:::
+:::row-end:::
+
+
+#### <a name="philippines"></a>Philippines
+
+:::row:::
+    :::column span="":::
+        **Entité**
+
+        Numéro d’identité polyvalent unifié aux Philippines
+
+    :::column-end:::
+:::row-end:::
+
+#### <a name="portugal"></a>Portugal 
+
+:::row:::
+    :::column span="":::
+        **Entité**
+
+        Numéro de carte de citoyen au Portugal
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+       Numéros d’identification fiscale au Portugal
+
+    :::column-end:::
+:::row-end:::
+
+#### <a name="singapore"></a>Singapour
+
+:::row:::
+    :::column span="":::
+        **Entité**
+
+        Numéro de carte d’identité d’inscription nationale (NRIC) à Singapour
+
+    :::column-end:::
+:::row-end:::
+
+
+#### <a name="south-africa"></a>Afrique du Sud
+
+:::row:::
+    :::column span="":::
+        **Entité**
+
+        Numéro d’identification en Afrique du Sud
+
+    :::column-end:::
+:::row-end:::
+
+
+#### <a name="south-korea"></a>Corée du Sud
+
+:::row:::
+    :::column span="":::
+        **Entité**
+
+        Numéro d’inscription de résident en Corée du Sud
+
+    :::column-end:::
+:::row-end:::
+
+#### <a name="spain"></a>Espagne
+
+:::row:::
+    :::column span="":::
+        **Entité**
+
+        Numéro d’identification nationale en Espagne
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Numéro de sécurité sociale (SSN) en Espagne
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Numéros d’identification fiscale en Espagne
+
+    :::column-end:::
+:::row-end:::
+ 
+#### <a name="switzerland"></a>Suisse
+
+:::row:::
+    :::column span="":::
+        **Entité**
+
+        Numéro d'assurance sociale (AVS) en Suisse
+
+    :::column-end:::
+:::row-end:::
+
+
+#### <a name="taiwan"></a>Taïwan 
+
+:::row:::
+    :::column span="":::
+        **Entité**
+
+        Numéro d’identité nationale à Taïwan
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+       Certificat de résident (ARC/TARC) à Taïwan
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Numéro de passeport à Taïwan
+
+    :::column-end:::
+:::row-end:::
+
+#### <a name="united-kingdom"></a>Royaume-Uni
+
+:::row:::
+    :::column span="":::
+        **Entité**
+
+        au Royaume-Uni Numéro de permis de conduire
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+       au Royaume-Uni Numéro d’électeur
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+       au Royaume-Uni Numéro du service de santé national (NHS)
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+       au Royaume-Uni Numéro d’assurance nationale (NINO)
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+       au Royaume-Uni ou aux États-Unis Numéro de passeport
+
+    :::column-end:::
+
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+       au Royaume-Uni Numéro de référence fiscal unique (UTR)
+
+    :::column-end:::
+
+:::row-end:::
+
+
+#### <a name="united-states"></a>États-Unis
+
+:::row:::
+    :::column span="":::
+        **Entité**
+
+        États-Unis Numéro de sécurité sociale (SSN)
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+       États-Unis Numéro de permis de conduire
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+       aux États-Unis ou au Royaume-Uni Numéro de passeport
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+       États-Unis Numéro d’identification de contribuable individuel (ITIN)
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+       États-Unis Numéro DEA (Drug Enforcement Agency)
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+       États-Unis Numéro de compte bancaire
+
+    :::column-end:::
+:::row-end:::

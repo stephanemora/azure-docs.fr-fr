@@ -8,15 +8,15 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
-ms.date: 10/06/2020
+ms.date: 03/02/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions, contperf-fy21q1
-ms.openlocfilehash: 1a73988b66ba7b47f18ecaaa07df59e9047a933b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: fcb678efe29178784c9233e79b307f705c40e3f7
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101691822"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102518673"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>Vue d’ensemble de l’isolement et de la confidentialité des réseaux virtuels
 
@@ -69,9 +69,14 @@ Les cinq sections suivantes vous montrent comment sécuriser le scénario résea
 Utilisez la procédure ci-dessous pour sécuriser votre espace de travail et les ressources associées. Ces étapes permettent à vos services de communiquer dans le réseau virtuel.
 
 1. Créez un [espace de travail avec Private Link activé](how-to-secure-workspace-vnet.md#secure-the-workspace-with-private-endpoint) pour activer la communication entre votre réseau virtuel et votre espace de travail.
-1. Ajoutez Azure Key Vault au réseau virtuel avec un [point de terminaison de service](../key-vault/general/overview-vnet-service-endpoints.md) ou un [point de terminaison privé](../key-vault/general/private-link-service.md). Définissez le Key Vault sur [« Autoriser les services Microsoft approuvés à contourner ce pare-feu »](how-to-secure-workspace-vnet.md#secure-azure-key-vault).
-1. Ajoutez votre compte de stockage Azure au réseau virtuel avec un [point de terminaison de service](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints) ou un [point de terminaison privé](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints).
-1. [Configurer Azure Container Registry pour utiliser un point de terminaison privé](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr).
+1. Ajoutez les services suivants au réseau virtuel en utilisant un __point de terminaison de service__ _ou_ un __point de terminaison privé__. Vous devez également autoriser les services Microsoft approuvés à accéder à ces services :
+    
+    | Service | Informations sur le point de terminaison | Autoriser les informations approuvées |
+    | ----- | ----- | ----- |
+    | __Azure Key Vault__| [Point de terminaison de service](../key-vault/general/overview-vnet-service-endpoints.md)</br>[Point de terminaison privé](../key-vault/general/private-link-service.md) | [Autoriser les services Microsoft approuvés à contourner ce pare-feu](how-to-secure-workspace-vnet.md#secure-azure-key-vault) |
+    | __Compte Stockage Azure__ | [Point de terminaison de service](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints)</br>[Point de terminaison privé](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints) | [Accorder l’accès aux services Azure approuvés](../storage/common/storage-network-security.md#grant-access-to-trusted-azure-services) |
+    | __Azure Container Registry__ | [Point de terminaison de service](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr)</br>[Point de terminaison privé](../container-registry/container-registry-private-link.md) | [Autoriser les services approuvés](../container-registry/allow-access-trusted-services.md) |
+
 
 ![Diagramme d’architecture représentant la manière dont l’espace de travail et les ressources associées communiquent entre eux par le biais des points de terminaison de service ou privés au sein d’un réseau virtuel](./media/how-to-network-security-overview/secure-workspace-resources.png)
 
@@ -106,10 +111,7 @@ Dans cette section, vous allez voir comment Azure Machine Learning communique de
 
 1. Azure Batch Services reçoit le travail de la part de l’espace de travail et l’envoie à l’environnement de calcul via l’équilibreur de charge public configuré avec la ressource de calcul. 
 
-1. La ressource de calcul reçoit le travail et commence l’entraînement. La ressource de calcul accède aux comptes de stockage sécurisés pour télécharger les fichiers d’entraînement et charger la sortie. 
-
-![Diagramme d’architecture représentant l’envoi d’un travail d’entraînement Azure Machine Learning lors de l’utilisation d’un réseau virtuel](./media/how-to-network-security-overview/secure-training-job-submission.png)
-
+1. La ressource de calcul reçoit le travail et commence l’entraînement. La ressource de calcul accède aux comptes de stockage sécurisés pour télécharger les fichiers d’entraînement et charger la sortie.
 
 ### <a name="limitations"></a>Limites
 
@@ -178,9 +180,9 @@ Pour plus d’informations sur les noms de domaine et les adresses IP requis, co
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Cet article fait partie d’une série en quatre parties sur les réseaux virtuels. Consultez les autres articles pour découvrir comment sécuriser un réseau virtuel :
+Cet article fait partie d’une série en cinq parties sur les réseaux virtuels. Consultez les autres articles pour découvrir comment sécuriser un réseau virtuel :
 
 * [Partie 2 : Vue d’ensemble des réseaux virtuels](how-to-secure-workspace-vnet.md)
 * [Partie 3 : Sécuriser l’environnement d’entraînement](how-to-secure-training-vnet.md)
 * [Partie 4 : Sécuriser l’environnement d’inférence](how-to-secure-inferencing-vnet.md)
-* [Partie 5 : Activer la fonctionnalité Studio](how-to-enable-studio-virtual-network.md)
+* [Partie 5 : Activer la caractéristique studio](how-to-enable-studio-virtual-network.md)

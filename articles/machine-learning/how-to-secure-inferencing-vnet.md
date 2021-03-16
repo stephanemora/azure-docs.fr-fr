@@ -11,12 +11,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 10/23/2020
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, devx-track-azurecli
-ms.openlocfilehash: 80abe036ef4a08f7ed6f0f19cffc2abde70a6ea9
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 5d029f4328f955d64c5ce479e553769f8a107e45
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99981304"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102518566"
 ---
 # <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>Sécuriser un environnement d’inférence Azure Machine Learning à l’aide de réseaux virtuels
 
@@ -34,7 +34,6 @@ Dans cet article, vous découvrirez comment sécuriser les ressources de calcul 
 > - Cluster AKS privé
 > - Cluster AKS avec liaison privée
 > - Azure Container Instances (ACI)
-
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -58,7 +57,6 @@ Pour utiliser un cluster AKS dans un réseau virtuel, les exigences réseau suiv
 > [!div class="checklist"]
 > * Remplissez les conditions requises indiquées sur la page [Configurer un réseau Azure CNI dans AKS (Azure Kubernetes Service)](../aks/configure-azure-cni.md#prerequisites).
 > * L’instance AKS et le réseau virtuel doivent être dans la même région. Si vous sécurisez le ou les comptes Stockage Azure utilisés par l’espace de travail dans un réseau virtuel, ils doivent se trouver aussi dans le même réseau virtuel que l’instance AKS.
-
 
 Pour ajouter AKS sur un réseau virtuel à votre espace de travail, effectuez les étapes suivantes :
 
@@ -223,7 +221,7 @@ az ml computetarget create aks -n myaks --load-balancer-type InternalLoadBalance
 > [!IMPORTANT]
 > L’interface CLI vous permet uniquement de créer un cluster AKS avec un équilibreur de charge interne. Il n’existe aucune commande AZ ML pour mettre à niveau un cluster existant afin d’utiliser un équilibreur de charge interne.
 
-Pour plus d’informations, consultez la référence [AZ ml computetarget Create AKS](/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-create-aks).
+Pour plus d’informations, consultez la référence [AZ ml computetarget Create AKS](/cli/azure/ext/azure-cli-ml/ml/computetarget/create#ext-azure-cli-ml-az-ml-computetarget-create-aks).
 
 ---
 
@@ -266,7 +264,7 @@ Pour utiliser ACI sur un réseau virtuel à votre espace de travail, effectuez l
     > [!IMPORTANT]
     > Lorsque vous activez la délégation, utilisez `Microsoft.ContainerInstance/containerGroups` comme valeur __Déléguer le sous-réseau à un service__.
 
-2. Déployez le modèle à l’aide de [AciWebservice.deploy_configuration()](/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?preserve-view=true&view=azure-ml-py#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none--vnet-name-none--subnet-name-none-&preserve-view=true), en utilisant les paramètres `vnet_name` et `subnet_name`. Appliquez ces paramètres au nom du réseau virtuel et au sous-réseau où vous avez activé la délégation.
+2. Déployez le modèle à l’aide de [AciWebservice.deploy_configuration()](/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none--vnet-name-none--subnet-name-none-), en utilisant les paramètres `vnet_name` et `subnet_name`. Appliquez ces paramètres au nom du réseau virtuel et au sous-réseau où vous avez activé la délégation.
 
 ## <a name="limit-outbound-connectivity-from-the-virtual-network"></a> Limitez la connectivité sortante à partir du réseau virtuel
 
@@ -274,9 +272,9 @@ Si vous ne souhaitez pas utiliser les règles de trafic sortant par défaut et s
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Cet article est le troisième d’une série en quatre parties sur les réseaux virtuels. Consultez les autres articles pour découvrir comment sécuriser un réseau virtuel :
+Cet article est le quatrième volet d’une série de cinq articles sur les réseaux virtuels. Consultez les autres articles pour découvrir comment sécuriser un réseau virtuel :
 
 * [Partie 1 : Vue d’ensemble des réseaux virtuels](how-to-network-security-overview.md)
 * [Partie 2 : Sécuriser les ressources d’espace de travail](how-to-secure-workspace-vnet.md)
-* [Partie 3 : Sécuriser l’environnement de formation](how-to-secure-training-vnet.md)
-* [Partie 5 : Activer la fonctionnalité Studio](how-to-enable-studio-virtual-network.md)
+* [Partie 3 : Sécuriser l’environnement d’entraînement](how-to-secure-training-vnet.md)
+* [Partie 5 : Activer la caractéristique studio](how-to-enable-studio-virtual-network.md)

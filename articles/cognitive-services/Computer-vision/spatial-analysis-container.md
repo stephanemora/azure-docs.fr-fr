@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: af028499d84a767ccb2a888ec7e7f92c80dbdd36
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 9989c6ea6b75203d43c37854caef7fdcbc321779
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101710564"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102519025"
 ---
 # <a name="install-and-run-the-spatial-analysis-container-preview"></a>Installer et exécuter le conteneur d’analyse spatiale (préversion)
 
@@ -24,7 +24,7 @@ Le conteneur d’analyse spatiale vous permet d’analyser le flux vidéo en tem
 ## <a name="prerequisites"></a>Prérequis
 
 * Abonnement Azure - [En créer un gratuitement](https://azure.microsoft.com/free/cognitive-services)
-* Une fois que vous avez votre abonnement Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Créer une ressource Vision par ordinateur"  target="_blank">créez une ressource Vision par ordinateur <span class="docon docon-navigate-external x-hidden-focus"></span></a> pour le niveau Standard S1 dans le portail Azure afin d’obtenir votre clé et votre point de terminaison. Une fois le déploiement effectué, cliquez sur **Accéder à la ressource**.
+* Une fois que vous avez votre abonnement Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Créer une ressource Vision par ordinateur"  target="_blank">créez une ressource Vision par ordinateur </a> pour le niveau Standard S1 dans le portail Azure afin d’obtenir votre clé et votre point de terminaison. Une fois le déploiement effectué, cliquez sur **Accéder à la ressource**.
     * Vous aurez besoin de la clé et du point de terminaison de la ressource que vous créez pour exécuter le conteneur d’analyse spatiale. Vous utiliserez votre clé et votre point de terminaison ultérieurement.
 
 
@@ -137,7 +137,7 @@ Quand le rôle de calcul Edge est configuré sur l’appareil Edge, il crée deu
 3. Attribuez une variable à l’adresse IP de l’appareil. 
     
     ```powershell
-    $ip = "" Replace with the IP address of your device. 
+    $ip = "<device-IP-address>" 
     ```
     
 4. Pour ajouter l’adresse IP de l’appareil à la liste des hôtes approuvés du client, utilisez la commande suivante : 
@@ -255,13 +255,22 @@ Utiliser l’interface de ligne de commande Azure pour créer un service Azure I
 
 ```bash
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+```
+```bash
 sudo az login
-sudo az account set --subscription <name or ID of Azure Subscription>
-sudo az group create --name "test-resource-group" --location "WestUS"
-
-sudo az iot hub create --name "test-iot-hub-123" --sku S1 --resource-group "test-resource-group"
-
-sudo az iot hub device-identity create --hub-name "test-iot-hub-123" --device-id "my-edge-device" --edge-enabled
+```
+```bash
+sudo az account set --subscription "<name or ID of Azure Subscription>"
+```
+```bash
+sudo az group create --name "<resource-group-name>" --location "<your-region>"
+```
+Consultez [Prise en charge des régions](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services) pour les régions disponibles.
+```bash
+sudo az iot hub create --name "<iothub-group-name>" --sku S1 --resource-group "<resource-group-name>"
+```
+```bash
+sudo az iot hub device-identity create --hub-name "<iothub-name>" --device-id "<device-name>" --edge-enabled
 ```
 
 Vous devez installer la version 1.0.9 d’[Azure IoT Edge](../../iot-edge/how-to-install-iot-edge.md). Pour télécharger la version correcte, procédez comme suit :
@@ -280,6 +289,8 @@ Installez la clé publique Microsoft GPG.
 
 ```bash
 curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+```
+```bash
 sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
 ```
 
@@ -406,13 +417,22 @@ Utiliser l’interface de ligne de commande Azure pour créer un service Azure I
 
 ```bash
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+```
+```bash
 sudo az login
-sudo az account set --subscription <name or ID of Azure Subscription>
-sudo az group create --name "test-resource-group" --location "WestUS"
-
-sudo az iot hub create --name "test-iot-hub-123" --sku S1 --resource-group "test-resource-group"
-
-sudo az iot hub device-identity create --hub-name "test-iot-hub-123" --device-id "my-edge-device" --edge-enabled
+```
+```bash
+sudo az account set --subscription "<name or ID of Azure Subscription>"
+```
+```bash
+sudo az group create --name "<resource-group-name>" --location "<your-region>"
+```
+Consultez [Prise en charge des régions](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services) pour les régions disponibles.
+```bash
+sudo az iot hub create --name "<iothub-group-name>" --sku S1 --resource-group "<resource-group-name>"
+```
+```bash
+sudo az iot hub device-identity create --hub-name "<iothub-name>" --device-id "<device-name>" --edge-enabled
 ```
 
 Vous devez installer la version 1.0.9 d’[Azure IoT Edge](../../iot-edge/how-to-install-iot-edge.md). Pour télécharger la version correcte, procédez comme suit :
@@ -431,6 +451,8 @@ Installez la clé publique Microsoft GPG.
 
 ```bash
 curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+```
+```bash
 sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
 ```
 
@@ -497,7 +519,7 @@ Une fois que vous avez mis à jour le manifeste de déploiement pour des [appare
 ```azurecli
 sudo az login
 sudo az extension add --name azure-iot
-sudo az iot edge set-modules --hub-name "<IoT Hub name>" --device-id "<IoT Edge device name>" --content DeploymentManifest.json --subscription "<subscriptionId>"
+sudo az iot edge set-modules --hub-name "<iothub-name>" --device-id "<device-name>" --content DeploymentManifest.json --subscription "<name or ID of Azure Subscription>"
 ```
 
 |Paramètre  |Description  |

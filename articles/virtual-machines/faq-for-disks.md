@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/15/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: dcfef81f2d7f3413489490d97c143fdec7e11bed
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: d516bcb224f7a7b5943214f28cffb7da3ea0871f
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499320"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102031597"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Forum aux questions sur les disques de machines virtuelles et les disques Premium gérés et non gérés Azure IaaS
 
@@ -382,11 +382,9 @@ Il n’existe aucun inconvénient à l’utilisation de TRIM sur des disques Azu
 
 **Quelles régions prennent en charge la fonctionnalité de rafale pour la taille de disque SSD Premium applicable ?**
 
-La capacité de rafale est actuellement prise en charge dans toutes les régions du cloud public Azure, avec une prise en charge des clouds souverains très prochainement. 
+La fonction de bursting basé sur le crédit est actuellement prise en charge dans toutes les régions du cloud public Azure. Les clouds souverains ne sont actuellement pas pris en charge.
 
-**Dans quelles régions les tailles de disque géré 4/8/16 Gio (P1/P2/P3, E1/E2/E3) sont-elles prises en charge ?**
-
-Ces nouvelles tailles de disque sont actuellement prises en charge dans toutes les régions du cloud public Azure, avec une prise en charge des clouds souverains très prochainement. 
+Le bursting à la demande n’est disponible que dans la région USA Centre-Ouest.
 
 **Les tailles de disque P1/P2/P3 sont-elles prises en charge pour les disques non managés ou les objets blob de pages ?**
 

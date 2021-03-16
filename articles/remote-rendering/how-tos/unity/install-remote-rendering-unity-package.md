@@ -5,43 +5,66 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/26/2020
 ms.topic: how-to
-ms.openlocfilehash: 3704d1a418baeec18c3303b8203a0185790cbcc7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9454bef52798650fc431f8df994e1a964662b453
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85564301"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720820"
 ---
 # <a name="install-the-remote-rendering-package-for-unity"></a>Installer le package Remote Rendering pour Unity
 
 Azure Remote Rendering utilise un package Unity pour encapsuler l’intégration dans Unity.
-
-## <a name="manage-the-remote-rendering-packages-in-unity"></a>Gérer les packages Remote Rendering dans Unity
-
-Les packages Unity sont des conteneurs qui peuvent être gérés par le biais de l’outil [Package Manager](https://docs.unity3d.com/Packages/com.unity.package-manager-ui@1.8/manual/index.html) de Unity.
 Ce package contient la totalité de l’API C# ainsi que tous les fichiers binaires de plug-in nécessaires à l’utilisation d’Azure Remote Rendering avec Unity.
 Le package se nomme **com.microsoft.azure.remote-rendering**, conformément au schéma de nommage des packages de Unity.
 
-Le package ne fait pas partie du [dépôt d’exemples ARR](https://github.com/Azure/azure-remote-rendering) et n’est pas disponible dans le registre de packages interne de Unity. Pour l’ajouter à un projet, vous devez modifier manuellement le fichier `manifest.md` du projet pour ajouter ce qui suit :
+Vous pouvez choisir l’une des options suivantes pour installer le package Unity.
 
-```json
-{
-  "scopedRegistries": [
-    {
-      "name": "Azure Mixed Reality Services",
-      "url": "https://api.bintray.com/npm/microsoft/AzureMixedReality-NPM/",
-      "scopes": ["com.microsoft.azure"]
-    }
-   ],
-  "dependencies": {
-    "com.microsoft.azure.remote-rendering": "0.1.31",
-    ...existing dependencies...
-  }
-}
-```
+## <a name="install-remote-rendering-package-using-the-mixed-reality-feature-tool"></a>Installer le package Remote Rendering à l’aide de Mixed Reality Feature Tool
 
-Après avoir ajouté le package, vous pouvez utiliser l’outil Package Manager de Unity pour vous assurer d’avoir la dernière version.
-Pour obtenir des instructions plus complètes, consultez le [Tutoriel : Afficher des modèles distants](../../tutorials/unity/view-remote-models/view-remote-models.md).
+[Mixed Reality Feature Tool](https://aka.ms/MRFeatureToolDocs) ([télécharger](https://aka.ms/mrfeaturetool)) est un outil permettant d’intégrer des packages de fonctionnalités de réalité mixte dans des projets Unity. Le package ne fait pas partie du [dépôt d’exemples ARR](https://github.com/Azure/azure-remote-rendering) et n’est pas disponible dans le registre de packages interne de Unity.
+
+Pour ajouter le package à un projet, vous devez :
+1. [Télécharger Mixed Reality Feature Tool](https://aka.ms/mrfeaturetool)
+1. Pour utiliser l’outil, suivez les [instructions complètes](https://aka.ms/MRFeatureToolDocs).
+1. Dans la page **Discover Features**(Découvrir les fonctionnalités), cochez la case correspondant au package **Microsoft Azure Remote Rendering**, puis sélectionnez la version du package que vous souhaitez ajouter à votre projet
+
+![Mixed_Reality_feature_tool_package](media/mixed-reality-feature-tool-package.png)
+
+Pour mettre à jour votre package local, sélectionnez simplement une version plus récente dans Mixed Reality Feature Tool, puis installez-la. La mise à jour du package peut parfois occasionner des erreurs dans la console. Si cela se produit, essayez de fermer, puis de rouvrir le projet.
+
+## <a name="install-remote-rendering-package-manually"></a>Installer manuellement le package Remote Rendering
+
+Pour installer manuellement le package Remote Rendering, vous devez :
+
+1. Télécharger le package à partir du flux NPM de packages Mixed Reality à l’adresse `https://pkgs.dev.azure.com/aipmr/MixedReality-Unity-Packages/_packaging/Unity-packages/npm/registry`.
+    * Vous pouvez utiliser [NPM](https://www.npmjs.com/get-npm) et exécuter la commande suivante pour télécharger le package dans le dossier actif.
+      ```
+      npm pack com.microsoft.azure.remote-rendering --registry https://pkgs.dev.azure.com/aipmr/MixedReality-Unity-Packages/_packaging/Unity-packages/npm/registry
+      ```
+
+    * Vous pouvez aussi utiliser le script PowerShell à l’emplacement `Scripts/DownloadUnityPackages.ps1` dans le [dépôt GitHub azure-remote-rendering](https://github.com/Azure/azure-remote-rendering).
+        * Remplacez le contenu de `Scripts/unity_sample_dependencies.json` par
+          ```json
+          {
+            "packages": [
+              {
+                "name": "com.microsoft.azure.remote-rendering", 
+                "version": "latest", 
+                "registry": "https://pkgs.dev.azure.com/aipmr/MixedReality-Unity-Packages/_packaging/Unity-packages/npm/registry"
+              }
+            ]
+          }
+          ```
+
+        * Exécutez la commande suivante dans PowerShell pour télécharger le package dans le répertoire de destination fourni.
+          ```
+          DownloadUnityPackages.ps1 -DownloadDestDir <destination directory>
+          ```
+
+1. [Installez le package téléchargé](https://docs.unity3d.com/Manual/upm-ui-tarball.html) avec le gestionnaire de package Unity.
+
+Pour mettre à jour votre package local, il vous suffit de réexécuter la commande correspondante que vous avez utilisée, puis de réimporter le package. La mise à jour du package peut parfois occasionner des erreurs dans la console. Si cela se produit, essayez de fermer, puis de rouvrir le projet.
 
 ## <a name="unity-render-pipelines"></a>Pipelines de rendu Unity
 

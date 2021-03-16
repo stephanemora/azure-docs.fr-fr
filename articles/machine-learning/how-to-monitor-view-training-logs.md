@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: ea96e1056e6157cfddbdc2f0b6451ed55a74d1de
-ms.sourcegitcommit: 90caa05809d85382c5a50a6804b9a4d8b39ee31e
+ms.openlocfilehash: 47531da9c1e508281a57074df7aa10ffffe78810
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97756056"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102518736"
 ---
 # <a name="monitor-and-view-ml-run-logs-and-metrics"></a>Surveiller et consulter les journaux d’exécution et les métriques de Machine Learning
 
@@ -39,7 +39,7 @@ Pour obtenir des informations générales sur la gestion de vos expériences, co
 
 ## <a name="monitor-runs-using-the-jupyter-notebook-widget"></a>Surveiller les exécutions avec le widget Jupyter Notebook
 
-Lorsque vous utilisez la méthode **ScriptRunConfig** pour envoyer des exécutions, vous pouvez vérifier la progression de l’exécution avec un [widget Jupyter](/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py). Comme l’envoi de l’exécution, le widget est asynchrone et fournit des mises à jour automatiques toutes les 10 à 15 secondes jusqu’à ce que la tâche soit terminée.
+Lorsque vous utilisez la méthode **ScriptRunConfig** pour envoyer des exécutions, vous pouvez vérifier la progression de l’exécution avec un [widget Jupyter](/python/api/azureml-widgets/azureml.widgets). Comme l’envoi de l’exécution, le widget est asynchrone et fournit des mises à jour automatiques toutes les 10 à 15 secondes jusqu’à ce que la tâche soit terminée.
 
 Affichez le widget Jupyter en attendant la fin de l’exécution.
     
@@ -78,9 +78,23 @@ Quand vous utilisez **ScriptRunConfig**, vous pouvez employer ```run.wait_for_co
 
 <a id="queryrunmetrics"></a>
 
-## <a name="query-run-metrics"></a>Interroger les métriques d’exécution
+## <a name="view-run-metrics"></a>Afficher les métriques d’exécution
 
-Vous pouvez afficher les métriques d’un modèle entraîné à l’aide de ```run.get_metrics()```. Par exemple, vous pouvez l’utiliser avec l’exemple ci-dessus pour déterminer le meilleur modèle en recherchant le modèle avec la valeur d’erreur quadratique moyenne (MSE) la plus faible.
+## <a name="via-the-sdk"></a>Via le kit SDK
+Vous pouvez afficher les métriques d’un modèle entraîné à l’aide de ```run.get_metrics()```. Reportez-vous à l’exemple ci-dessous. 
+
+```python
+from azureml.core import Run
+run = Run.get_context()
+run.log('metric-name', metric_value)
+
+metrics = run.get_metrics()
+# metrics is of type Dict[str, List[float]] mapping mertic names
+# to a list of the values for that metric in the given run.
+
+metrics.get('metric-name')
+# list of metrics in the order they were recorded
+```
 
 <a name="view-the-experiment-in-the-web-portal"></a>
 
@@ -95,18 +109,6 @@ Pour l’affichage individuel de l’Expérience, sélectionnez l’onglet **Tou
 Vous pouvez également modifier la table de la liste d’exécution pour sélectionner plusieurs exécutions et afficher la valeur la plus récente, la valeur minimale ou la valeur maximale du journal pour vos exécutions. Personnalisez vos graphiques pour comparer les valeurs des mesures journalisées et les agrégats sur plusieurs exécutions. 
 
 ![Exécution des détails dans Azure Machine Learning Studio](media/how-to-track-experiments/experimentation-tab.gif)
-
-### <a name="format-charts"></a>Mettre en forme les graphiques 
-
-Utilisez les méthodes suivantes dans les API de journalisation pour influencer les visualisations des métriques.
-
-|Valeur connectée|Exemple de code| Format dans le portail|
-|----|----|----|
-|Journaliser un tableau de valeurs numériques| `run.log_list(name='Fibonacci', value=[0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89])`|graphique en courbes à variable unique|
-|Journaliser une valeur numérique avec le même nom de métrique utilisé à plusieurs reprises (comme à l’intérieur d’une boucle for)| `for i in tqdm(range(-10, 10)):    run.log(name='Sigmoid', value=1 / (1 + np.exp(-i))) angle = i / 2.0`| Graphique en courbes à variable unique|
-|Journaliser une ligne avec 2 colonnes numériques à plusieurs reprises|`run.log_row(name='Cosine Wave', angle=angle, cos=np.cos(angle))   sines['angle'].append(angle)      sines['sine'].append(np.sin(angle))`|Graphique en courbes à deux variables|
-|Journaliser un table avec 2 colonnes numériques|`run.log_table(name='Sine Wave', value=sines)`|Graphique en courbes à deux variables|
-
 
 ### <a name="view-log-files-for-a-run"></a>Afficher les fichiers journaux d’une exécution 
 

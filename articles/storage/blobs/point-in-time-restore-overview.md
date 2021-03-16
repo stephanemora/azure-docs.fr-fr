@@ -6,22 +6,22 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/01/2021
+ms.date: 03/03/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1df2f12d6947734314609dc50787a59a2fa88731
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 4e6dac1ab7350caeb29e23b21eace433568b38ea
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99980510"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102031631"
 ---
 # <a name="point-in-time-restore-for-block-blobs"></a>Restauration dans le temps pour les objets blob de blocs
 
 La limite de restauration dans le temps offre une protection contre les suppressions ou altérations accidentelles en vous permettant de restaurer des données d’objet blob de blocs à un état antérieur. La limite de restauration dans le temps est utile dans les scénarios où un utilisateur ou une application supprime accidentellement des données ou lorsqu’une erreur d’application endommage les données. La restauration dans le temps permet également de tester des scénarios qui nécessitent le rétablissement d’un jeu de données à un état connu avant d’exécuter d’autres tests.
 
-La limite de restauration dans le temps est prise en charge pour les comptes de stockage v2 à usage général uniquement. Seules les données des niveaux d’accès chaud et froid peuvent être restaurées dans le cadre d’une limite de restauration dans le temps.
+La restauration à un instant dans le passé est prise en charge pour les comptes de stockage v2 à usage général au niveau de performance standard uniquement. Seules les données des niveaux d’accès chaud et froid peuvent être restaurées dans le cadre d’une limite de restauration dans le temps.
 
 Pour savoir comment activer la restauration jusqu’à une date et heure pour un compte de stockage, consultez [Effectuer une restauration jusqu’à une date et heure sur les données d’objet blob de blocs](point-in-time-restore-manage.md).
 

@@ -10,12 +10,12 @@ author: cartacioS
 ms.author: sacartac
 ms.date: 10/27/2020
 ms.custom: automl
-ms.openlocfilehash: ee9267637c5e3250bfcd543ca46c39d513725819
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: e7038a4e06a96ac2df1a7f0918877db9c97cb71d
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98072222"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102502533"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>Qu’est-ce que le Machine Learning automatisé (AutoML) ?
 
@@ -116,7 +116,7 @@ Pour les expériences de Machine Learning automatisé, la caractérisation s’a
 
 Dans chaque expérience de Machine Learning automatisé, vos données sont automatiquement mises à l’échelle et normalisées pour faciliter la bonne exécution des algorithmes. Pendant l’apprentissage du modèle, l’une des techniques suivantes de mise à l’échelle ou de normalisation est appliquée à chaque modèle. Découvrez comment AutoML permet [d’empêcher le surajustement et le déséquilibre des données](concept-manage-ml-pitfalls.md) dans vos modèles.
 
-|Mise à l’échelle&nbsp;et&&nbsp;normalisation| Description |
+|Traitement&nbsp;&&nbsp;de la mise à l’échelle| Description |
 | ------------- | ------------- |
 | [StandardScaleWrapper](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html)  | Normaliser les fonctionnalités en supprimant la moyenne et en mettant à l’échelle de l’écart d’unité.  |
 | [MinMaxScalar](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html)  | Transformer les fonctionnalités en les mettant à l’échelle des valeurs minimale et maximale de cette colonne.  |
@@ -204,7 +204,7 @@ Par exemple, la création d’un modèle __pour chaque instance ou chaque indivi
 
 Azure Machine Learning offre deux expériences pour utiliser le machine learning automatisé :
 
-* Pour les clients expérimentés en programmation, [SDK Python Azure Machine Learning](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) 
+* Pour les clients expérimentés en programmation, [SDK Python Azure Machine Learning](/python/api/overview/azure/ml/intro) 
 
 * Pour les clients avec une expérience limitée ou inexistante en programmation, Azure Machine Learning Studio sur [https://ml.azure.com](https://ml.azure.com/)  
 
@@ -289,7 +289,7 @@ Passez en revue les exemples de code détaillé et les cas d’usage disponibles
 
 ### <a name="python-sdk-reference"></a>Référence du Kit de développement logiciel (SDK) Python
 
-Approfondissez votre expertise des modèles de conception de Kit de développement logiciel (SDK) et des spécifications de classe avec la [documentation de référence sur la classe AutoML](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?preserve-view=true&view=azure-ml-py). 
+Approfondissez votre expertise des modèles de conception de Kit de développement logiciel (SDK) et des spécifications de classe avec la [documentation de référence sur la classe AutoML](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig). 
 
 > [!Note]
 > Des fonctionnalités de machine learning automatisé sont également disponible dans d’autres solutions Microsoft telles que [ML.NET](/dotnet/machine-learning/automl-overview), [HDInsight](../hdinsight/spark/apache-spark-run-machine-learning-automl.md), [Power BI](/power-bi/service-machine-learning-automated) et [SQL Server](https://cloudblogs.microsoft.com/sqlserver/2019/01/09/how-to-automate-machine-learning-on-sql-server-2019-big-data-clusters/)

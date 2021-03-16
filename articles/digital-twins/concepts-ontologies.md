@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 2/12/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: b53cac6e732fb568ba799534d9ad9168fd65eab1
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 3393856b25040cff603ea2ef51e8adbcba78dc26
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100563343"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102034691"
 ---
 # <a name="what-is-an-ontology"></a>Qu’est-ce qu’une ontologie ? 
 
@@ -58,7 +58,7 @@ Quelle que soit la stratégie choisie pour l’intégration d’une ontologie av
 
 Vous devez pouvoir ensuite utiliser ces modèles dans votre instance d’Azure Digital Twins. 
 
-Vous pouvez les visualiser à l’aide d’exemples d’applications tels qu’[Azure Digital Twins (ADT) Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) ou [ADT Model Visualizer](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/AdtModelVisualizer). Vous pouvez également les utiliser directement pour créer des [jumeaux numériques](concepts-twins-graph.md).
+Vous pouvez les visualiser à l’aide d’exemples d’application comme [Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) ou [Azure Digital Twins Model Visualizer](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/AdtModelVisualizer). Vous pouvez également les utiliser directement pour créer des [jumeaux numériques](concepts-twins-graph.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

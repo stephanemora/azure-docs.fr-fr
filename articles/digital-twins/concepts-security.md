@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: b589f98ee78d0709b2a74ba4e364cec0e486e968
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 81a44d4d0025c841cf56e19d6afee5e95bd44a55
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100547160"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101730505"
 ---
 # <a name="secure-azure-digital-twins"></a>Sécuriser Azure Digital Twins
 
@@ -55,7 +55,7 @@ Azure fournit **deux rôles intégrés Azure** pour autoriser l’accès à aux 
 | Lecteur des données Azure Digital Twins | Octroie un accès en lecture seule aux ressources Azure Digital Twins | d57506d4-4c8d-48b1-8587-93c323f6a5a3 |
 
 Vous pouvez attribuer des rôles de deux manières :
-* Via le volet de contrôle d’accès (IAM) pour Azure Digital Twins dans le portail Azure (consultez [*Ajouter ou supprimer des attributions de rôles Azure à l’aide du portail Azure*](../role-based-access-control/role-assignments-portal.md))
+* Via le volet de contrôle d’accès (IAM) pour Azure Digital Twins dans le portail Azure (consultez [*Attribuer des rôles Azure à l’aide du portail Azure*](../role-based-access-control/role-assignments-portal.md))
 * Via les commandes CLI pour ajouter ou supprimer un rôle
 
 Pour plus d’informations sur la procédure à suivre, testez le [*tutoriel Azure Digital Twins : Connecter une solution de bout en bout*](tutorial-end-to-end.md).
@@ -92,7 +92,7 @@ Azure prend en charge deux types d’identités managées : celles affectées p
 
 Vous pouvez utiliser une identité managée affectée par le système pour votre instance Azure Digital pour l’authentification auprès d’[un point de terminaison personnalisé](concepts-route-events.md#create-an-endpoint). Azure Digital Twins prend en charge l’authentification basée sur l’identité affectée par le système aux points de terminaison pour les destinations [Event Hub](../event-hubs/event-hubs-about.md) et  [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) , et à un point de terminaison [Conteneur Stockage Azure](../storage/blobs/storage-blobs-introduction.md)  pour les [événements de lettres mortes](concepts-route-events.md#dead-letter-events). Les points de terminaison [Event Grid](../event-grid/overview.md)  ne sont actuellement pas pris en charge pour les identités managées.
 
-Pour obtenir des instructions sur l’activation d’une identité managée par le système pour Azure Digital Twins afin de l’utiliser pour acheminer des événements, consultez le [*Guide pratique : Activer une identité managée pour les événements de routage (préversion)*](how-to-enable-managed-identities.md).
+Pour obtenir des instructions sur l’activation d’une identité managée par le système pour Azure Digital Twins afin de l’utiliser pour acheminer des événements, consultez le [*Guide pratique : Activer une identité managée pour les événements de routage (préversion)*](./how-to-enable-managed-identities-portal.md).
 
 ## <a name="private-network-access-with-azure-private-link-preview"></a>Accès réseau privé avec Azure Private Link (préversion)
 
@@ -106,7 +106,7 @@ Le point de terminaison privé utilise une adresse IP de l’espace d’adressag
 
 La configuration d’un point de terminaison privé pour votre instance Azure Digital Twins vous permet de sécuriser cette instance et d’éliminer l’exposition publique, tout en évitant l’exfiltration de données à partir de votre réseau virtuel.
 
-Pour obtenir des instructions sur la configuration d’une liaison privée pour Azure Digital Twins, consultez le [*Guide pratique : Activer l’accès privé avec Private Link (préversion)*](how-to-enable-private-link.md).
+Pour obtenir des instructions sur la configuration d’une liaison privée pour Azure Digital Twins, consultez le [*Guide pratique : Activer l’accès privé avec Private Link (préversion)*](./how-to-enable-private-link-portal.md).
 
 ### <a name="design-considerations"></a>Remarques relatives à la conception 
 

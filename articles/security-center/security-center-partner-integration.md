@@ -2,23 +2,18 @@
 title: Intégrer des solutions de sécurité dans Azure Security Center | Microsoft Docs
 description: Découvrez comment Azure Security Center s’intègre avec les partenaires pour améliorer la sécurité globale de vos ressources Azure.
 services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: 6af354da-f27a-467a-8b7e-6cbcf70fdbcb
 ms.service: security-center
 ms.topic: conceptual
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 12/10/2020
 ms.author: memildin
-ms.openlocfilehash: ecfb4bdbd523dd1514333a2185186eab0a7e4aaa
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: ff23a1fa4b631fc10163f22d94ccdbd8cbe657c2
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032675"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102099248"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Intégrer des solutions de sécurité dans Azure Security Center
 Ce document vous aide à gérer les solutions de sécurité déjà connectées à Azure Security Center et à en ajouter de nouvelles.
@@ -39,7 +34,7 @@ Pour en savoir plus sur l’intégration des outils d’analyse des vulnérabili
 
 Security Center offre également une analyse des vulnérabilités pour les éléments suivants :
 
-* Bases de données SQL : consultez [Explorer les rapports d’évaluation des vulnérabilités dans le tableau de bord de l’évaluation des vulnérabilités](defender-for-sql-usage.md#explore-vulnerability-assessment-reports).
+* Bases de données SQL : consultez [Explorer les rapports d’évaluation des vulnérabilités dans le tableau de bord de l’évaluation des vulnérabilités](defender-for-sql-on-machines-vulnerability-assessment.md#explore-vulnerability-assessment-reports).
 * Images Azure Container Registry – Consultez [Analyse des vulnérabilités dans les images avec Azure Defender pour les registres de conteneurs](defender-for-container-registries-usage.md)
 
 ## <a name="how-security-solutions-are-integrated"></a>Comment sont intégrées les solutions de sécurité
@@ -88,8 +83,7 @@ Sélectionnez **AFFICHAGE** pour obtenir des informations et des options supplé
 Security Center découvre automatiquement les solutions exécutées dans Azure mais qui ne sont pas connectées à Security Center. Elles sont ensuite affichées dans la section **Solutions découvertes**. Ces solutions incluent les solutions Azure, telles qu’[Azure AD Identity Protection](../active-directory/identity-protection/overview-identity-protection.md), et les solutions partenaires.
 
 > [!NOTE]
-> Activez **Azure Defender** au niveau de l’abonnement pour la fonctionnalité Solutions découvertes. Consultez [Tarification](security-center-pricing.md) pour en savoir plus sur les niveaux tarifaires.
->
+> Activez **Azure Defender** au niveau de l’abonnement pour la fonctionnalité Solutions découvertes. Pour plus d’informations, consultez [Démarrage rapide : Activer Azure Defender](enable-azure-defender.md).
 
 Sélectionnez **CONNECTER** sous une solution pour l’intégrer à Security Center et être notifié des alertes de sécurité.
 
@@ -103,7 +97,4 @@ La section **Ajouter des sources de données** comprend d’autres sources de do
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans cet article, vous avez appris à intégrer des solutions de partenaires dans Security Center. Pour accéder à des informations connexes, voir les articles suivants :
-
-* [Exporter en continu les données Security Center](continuous-export.md). Découvrez comment configurer une intégration avec Azure Sentinel ou tout autre SIEM.
-* [Surveillance de l’intégrité de la sécurité dans Security Center](security-center-monitoring.md). découvrez comment surveiller l’intégrité de vos ressources Azure.
+Dans cet article, vous avez appris à intégrer des solutions de partenaires dans Security Center. Pour savoir comment configurer une intégration avec Azure Sentinel ou toute autre solution SIEM, consultez [Exporter en continu des données Security Center](continuous-export.md).

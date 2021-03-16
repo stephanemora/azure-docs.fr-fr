@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: e80465cf8d43918e6ed6da8ebb3b96f3f197e887
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 0af327f624d0fed648012ce1d12bacabca688cec
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97679952"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102044185"
 ---
 # <a name="clustering-point-data"></a>Clustering de données de point
 
@@ -26,17 +26,17 @@ Lors de la visualisation de nombreux points de données sur la carte, les points
 
 ## <a name="enabling-clustering-on-a-data-source"></a>Activer le clustering sur une source de données
 
-Activez le clustering dans la classe `DataSource` en définissant l’option `cluster` sur true. Définissez `ClusterRadius` pour qu’il sélectionne des points à proximité et les combine en un cluster. La valeur de `ClusterRadius` est exprimée en pixels. Utilisez `clusterMaxZoom` pour spécifier un niveau de zoom auquel désactiver la logique de clustering. Voici un exemple montrant comment activer le clustering dans une source de données.
+Activez le clustering dans la classe `DataSource` en définissant l’option `cluster` sur true. Définissez la valeur `clusterRadius` pour sélectionner des points à proximité et les combiner dans un cluster. La valeur de `clusterRadius` est exprimée en pixels. Utilisez `clusterMaxZoom` pour spécifier un niveau de zoom auquel désactiver la logique de clustering. Voici un exemple montrant comment activer le clustering dans une source de données.
 
 ```javascript
 //Create a data source and enable clustering.
 var datasource = new atlas.source.DataSource(null, {
     //Tell the data source to cluster point data.
     cluster: true,
-
+    
     //The radius in pixels to cluster points together.
     clusterRadius: 45,
-
+    
     //The maximum zoom level in which clustering occurs.
     //If you zoom in more than this, all points are rendered as symbols.
     clusterMaxZoom: 15
@@ -46,7 +46,7 @@ var datasource = new atlas.source.DataSource(null, {
 > [!TIP]
 > Si deux points de données sont proches l’un de l’autre sur le sol, il est possible que le cluster ne se décompose jamais, quelle que soit l’importance du zoom avant effectué par l’utilisateur. Pour résoudre ce problème, vous pouvez définir l’option `clusterMaxZoom` de façon à désactiver la logique de clustering et à simplement afficher tous les éléments.
 
-Voici des méthodes supplémentaires fournies par la classe `DataSource` pour le clustering :
+La classe `DataSource` fournit également les méthodes relatives au clustering suivantes.
 
 | Méthode | Type de retour | Description |
 |--------|-------------|-------------|

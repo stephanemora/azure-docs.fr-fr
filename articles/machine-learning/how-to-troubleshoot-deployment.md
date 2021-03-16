@@ -10,22 +10,30 @@ ms.author: gopalv
 ms.date: 11/25/2020
 ms.topic: troubleshooting
 ms.custom: contperf-fy20q4, devx-track-python, deploy, contperf-fy21q2
-ms.openlocfilehash: 2b953fd040b9ba76eacddb91a89ac65d51e340a0
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: 8bec083e62bec6a0311487c1e64e780ad14f451b
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98071661"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102518261"
 ---
 # <a name="troubleshooting-remote-model-deployment"></a>Résolution des problèmes de déploiement de modèle distant 
 
 Découvrez comment dépanner, résoudre ou contourner les erreurs courantes que vous pouvez rencontrer lors du déploiement d’un modèle sur Azure Container Instances (ACI) et Azure Kubernetes Service (AKS) à l’aide d’Azure Machine Learning.
 
+> [!NOTE]
+> Si vous déployez un modèle sur Azure Kubernetes Service (AKS), nous vous conseillons d’activer [Azure Monitor](../azure-monitor/containers/container-insights-enable-existing-clusters.md) pour ce cluster. Vous pourrez ainsi mieux appréhender dans leur globalité l’intégrité du cluster et l’utilisation des ressources. Voici également quelques ressources pouvant vous être utiles :
+>
+> * [Rechercher les événements Resource Health qui ont un impact sur votre cluster AKS](../aks/aks-resource-health.md)
+> * [Diagnostics d’Azure Kubernetes Service](../aks/concepts-diagnostics.md)
+>
+> Si vous essayez de déployer un modèle sur un cluster défectueux ou surchargé, des problèmes sont à prévoir. Si vous avez besoin d’aide pour résoudre des problèmes de cluster AKS, contactez le support technique AKS.
+
 ## <a name="prerequisites"></a>Prérequis
 
 * Un **abonnement Azure**. Essayez la [version gratuite ou payante d’Azure Machine Learning](https://aka.ms/AMLFree).
-* Le [Kit de développement logiciel (SDK) Azure Machine Learning](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
-* [Interface de ligne de commande Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
+* Le [Kit de développement logiciel (SDK) Azure Machine Learning](/python/api/overview/azure/ml/install).
+* [Interface de ligne de commande Azure](/cli/azure/install-azure-cli).
 * [Extension CLI pour Azure Machine Learning](reference-azure-machine-learning-cli.md).
 
 ## <a name="steps-for-docker-deployment-of-machine-learning-models"></a>Étapes pour le déploiement Docker des modèles Machine Learning
@@ -91,7 +99,7 @@ Utilisez les informations de l’article [Examiner le journal Docker](how-to-tro
 
 ## <a name="function-fails-get_model_path"></a>Échec de la fonction : get_model_path()
 
-Souvent, dans la fonction `init()` du script de scoring, la fonction [Model.get_model_path()](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-model-path-model-name--version-none---workspace-none-) est appelée pour rechercher un fichier de modèle ou un dossier de fichiers de modèle dans le conteneur. Si le fichier ou le dossier de modèle est introuvable, la fonction échoue. Le moyen le plus simple de déboguer cette erreur consiste à exécuter le code Python ci-dessous dans l’interpréteur de commandes du conteneur :
+Souvent, dans la fonction `init()` du script de scoring, la fonction [Model.get_model_path()](/python/api/azureml-core/azureml.core.model.model#get-model-path-model-name--version-none---workspace-none-) est appelée pour rechercher un fichier de modèle ou un dossier de fichiers de modèle dans le conteneur. Si le fichier ou le dossier de modèle est introuvable, la fonction échoue. Le moyen le plus simple de déboguer cette erreur consiste à exécuter le code Python ci-dessous dans l’interpréteur de commandes du conteneur :
 
 ```python
 from azureml.core.model import Model
@@ -169,7 +177,7 @@ Il existe deux mesures permettant d’empêcher les codes d’état 503 :
     > [!NOTE]
     > Si vous recevez des pics de demande supérieurs au nouveau nombre minimal pouvant être géré par les réplicas, il se peut que des codes d’état 503 réapparaissent. Par exemple, si le trafic vers votre service augmente, vous devrez peut-être augmenter le nombre minimal de réplicas.
 
-Pour plus d’informations sur la configuration de `autoscale_target_utilization`, `autoscale_max_replicas`, et `autoscale_min_replicas`, consultez les informations de référence sur le module [AksWebservice](/python/api/azureml-core/azureml.core.webservice.akswebservice?preserve-view=true&view=azure-ml-py).
+Pour plus d’informations sur la configuration de `autoscale_target_utilization`, `autoscale_max_replicas`, et `autoscale_min_replicas`, consultez les informations de référence sur le module [AksWebservice](/python/api/azureml-core/azureml.core.webservice.akswebservice).
 
 ## <a name="http-status-code-504"></a>Code d’état HTTP 504
 

@@ -8,22 +8,22 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/02/2021
+ms.date: 03/03/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 4be73c126d9f153243b833a7b348244f4d1efcaa
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 0477153b466702bec0fa2d5221fee1e054d06314
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101692879"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102033762"
 ---
 # <a name="set-up-a-force-password-reset-flow-in-azure-active-directory-b2c"></a>Configurer un flux de réinitialisation forcée du mot de passe dans Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
-En tant qu’administrateur, vous pouvez réinitialiser le mot de passe d’un utilisateur si celui-ci oublie son mot de passe. Ou si vous souhaitez les forcer à réinitialiser le mot de passe. Cet article explique comment forcer une réinitialisation de mot de passe dans ces scénarios.
+En tant qu’administrateur, vous pouvez [réinitialiser le mot de passe d’un utilisateur](manage-users-portal.md#reset-a-users-password) qui viendrait à l’oublier. Ou si vous souhaitez les forcer à réinitialiser le mot de passe. Cet article explique comment forcer une réinitialisation de mot de passe dans ces scénarios.
 
 ## <a name="overview"></a>Vue d’ensemble
 
@@ -37,7 +37,7 @@ Le flux de réinitialisation du mot de passe s’applique aux comptes locaux dan
 
 ### <a name="force-a-password-reset-after-90-days"></a>Forcer la réinitialisation du mot de passe au bout de 90 jours
 
-En tant qu’administrateur, vous pouvez fixer l’expiration du mot de passe d’un utilisateur à 90 jours à l’aide de [MS Graph](microsoft-graph-operation.md). Au bout de 90 jours, la valeur de l’attribut [forceChangePasswordNextSignIn](user-profile-attributes.md#password-profile-property) est définie automatiquement sur `true`. Pour plus d’informations sur la façon de définir une stratégie d’expiration du mot de passe d’un utilisateur, consultez [Attribut de stratégie de mot de passe](user-profile-attributes.md#password-policy-attribute).
+En tant qu’administrateur, vous pouvez fixer l’expiration du mot de passe d’un utilisateur à 90 jours à l’aide de [MS Graph](microsoft-graph-operations.md). Au bout de 90 jours, la valeur de l’attribut [forceChangePasswordNextSignIn](user-profile-attributes.md#password-profile-property) est définie automatiquement sur `true`. Pour plus d’informations sur la façon de définir une stratégie d’expiration du mot de passe d’un utilisateur, consultez [Attribut de stratégie de mot de passe](user-profile-attributes.md#password-policy-attribute).
 
 Une fois qu’une stratégie d’expiration du mot de passe a été définie, vous devez également configurer un flux de réinitialisation forcée du mot de passe, comme décrit dans cet article.  
 
@@ -62,7 +62,7 @@ Pour activer le paramètre de **Réinitialisation forcée du mot de passe** dans
 
 ### <a name="test-the-user-flow"></a>Tester le flux utilisateur
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur d’utilisateurs ou administrateur de mot de passe. Pour plus d’informations sur les rôles disponibles, consultez [Assigner des rôles d’administrateur dans Azure Active Directory](../active-directory/roles/permissions-reference#available-roles).
+1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur d’utilisateurs ou administrateur de mot de passe. Pour plus d’informations sur les rôles disponibles, consultez [Assigner des rôles d’administrateur dans Azure Active Directory](../active-directory/roles/permissions-reference.md#all-roles).
 1. Sélectionnez l’icône **Annuaire et abonnement** dans la barre d’outils du portail, puis sélectionnez l’annuaire qui contient votre locataire Azure AD B2C.
 1. Dans le portail Azure, recherchez et sélectionnez **Azure AD B2C**.
 1. Sélectionnez **Utilisateurs**. Recherchez et sélectionnez l’utilisateur à utiliser pour tester la réinitialisation du mot de passe, puis sélectionnez **Réinitialiser le mot de passe**.
@@ -79,7 +79,23 @@ Pour activer le paramètre de **Réinitialisation forcée du mot de passe** dans
 
 ::: zone pivot="b2c-custom-policy"
 
-Cette fonctionnalité est actuellement disponible uniquement pour les flux d’utilisateurs.
+1. Obtenez l’exemple de réinitialisation de mot de passe forcée sur [GitHub](https://github.com/azure-ad-b2c/samples/tree/master/policies/force-password-reset).
+1. Dans chaque fichier, remplacez la chaîne `yourtenant` par le nom de votre locataire Azure AD B2C. Par exemple, si le nom de votre locataire B2C est *contosob2c*, toutes les instances de `yourtenant.onmicrosoft.com` deviennent `contosob2c.onmicrosoft.com`.
+1. Chargez les fichiers de stratégie dans l’ordre suivant : stratégie d’extension `TrustFrameworkExtensionsCustomForcePasswordReset.xml`, puis la stratégie de partie de confiance `SignUpOrSigninCustomForcePasswordReset.xml`.
+
+### <a name="test-the-policy"></a>Tester la stratégie
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur d’utilisateurs ou administrateur de mot de passe. Pour plus d’informations sur les rôles disponibles, consultez [Assigner des rôles d’administrateur dans Azure Active Directory](../active-directory/roles/permissions-reference.md#all-roles).
+1. Sélectionnez l’icône **Annuaire et abonnement** dans la barre d’outils du portail, puis sélectionnez l’annuaire qui contient votre locataire Azure AD B2C.
+1. Dans le portail Azure, recherchez et sélectionnez **Azure AD B2C**.
+1. Sélectionnez **Utilisateurs**. Recherchez et sélectionnez l’utilisateur à utiliser pour tester la réinitialisation du mot de passe, puis sélectionnez **Réinitialiser le mot de passe**.
+1. Dans la Portail Azure, recherchez et sélectionnez **Azure AD B2C**.
+1. Sous **Stratégies**, sélectionnez **Identity Experience Framework**.
+1. Sélectionnez la stratégie `B2C_1A_signup_signin_Custom_ForcePasswordReset` pour l’ouvrir. 
+1. Pour **Application**, sélectionnez une application web que vous avez [précédemment inscrite](troubleshoot-custom-policies.md#troubleshoot-the-runtime). L’**URL de réponse** doit être `https://jwt.ms`.
+1. Sélectionnez le bouton **Exécuter maintenant**.
+1. Connectez-vous avec le compte d’utilisateur pour lequel vous réinitialisez le mot de passe.
+1. Vous devez maintenant modifier le mot de passe pour l’utilisateur. Changez le mot de passe et sélectionnez **Continuer**. Le jeton est envoyé à `https://jwt.ms` et vous devez le voir.
 
 ::: zone-end
 

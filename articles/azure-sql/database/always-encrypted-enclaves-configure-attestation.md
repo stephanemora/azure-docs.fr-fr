@@ -11,12 +11,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviwer: vanto
 ms.date: 01/15/2021
-ms.openlocfilehash: 664733f3d4c4e4bf17440db0323580c5d2c8c2ce
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: fb42a0428f0439053375027481d38977b068e356
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100555669"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102122576"
 ---
 # <a name="configure-azure-attestation-for-your-azure-sql-logical-server"></a>Configurer Azure Attestation pour votre serveur logique Azure SQL
 
@@ -66,10 +66,14 @@ authorizationrules
 
 La stratégie ci-dessus vérifie les éléments suivants :
 
-- L’enclave dans Azure SQL Database ne prend pas en charge le débogage (cela réduirait le niveau de protection fourni par l’enclave).
-- L’ID produit de la bibliothèque à l’intérieur de l’enclave est l’ID produit attribué à Always Encrypted avec enclaves sécurisées (4639).
-- L’ID de version (svn) de la bibliothèque est supérieure à 0.
+- L’enclave dans Azure SQL Database ne prend pas en charge le débogage. 
+  > Il est possible de charger des enclaves quand le débogage est désactivé ou activé. La prise en charge du débogage est conçue pour permettre aux développeurs de résoudre des problèmes liés au code s’exécutant dans une enclave. Dans un système de production, le débogage peut permettre à un administrateur d’examiner le contenu de l’enclave, ce qui réduirait le niveau de protection qu’offre l’enclave. La stratégie recommandée désactive le débogage pour s’assurer que, si un administrateur malveillant tente d’activer la prise en charge du débogage en prenant le contrôle de l’ordinateur enclave, l’attestation échoue. 
+- L’ID produit de l’enclave correspond à celui attribué à la fonctionnalité Always Encrypted avec des enclaves sécurisées.
+  > Chaque enclave a un ID produit unique qui différencie l’enclave des autres enclaves. L’ID produit attribué à l’enclave Always Encrypted est 4639. 
+- Le numéro de version de sécurité de la bibliothèque est supérieur à 0.
+  > Il permet à Microsoft de répondre à des bogues de sécurité potentiels identifiés dans le code de l’enclave. En cas de détection et de correction d’un problème de sécurité, Microsoft déploie une nouvelle version de l’enclave avec un nouveau numéro de version de sécurité (incrémenté). La stratégie recommandée ci-dessus sera mise à jour pour refléter le nouveau numéro de version de sécurité. En mettant à jour votre stratégie pour qu’elle corresponde à la stratégie recommandée, vous pouvez vous assurer que, si un administrateur malveillant tente de charger une enclave plus ancienne et non sécurisée, l’attestation échouera.
 - La bibliothèque de l’enclave a été signée à l’aide de la clé de signature Microsoft (la valeur de la revendication x-ms-sgx-mrsigner est le code de hachage de la clé de signature).
+  > L’un des principaux objectifs de l’attestation est de convaincre les clients que le fichier binaire qui s’exécute dans l’enclave est celui qui est supposé s’exécuter. Les stratégies d’attestation fournissent deux mécanismes à cet effet. L’un est la revendication **mrenclave** qui est le hachage du fichier binaire supposé s’exécuter dans une enclave. Le problème avec la revendication **mrenclave** est que le hachage du fichier binaire change même avec des modifications banales du code, ce qui rend difficile la révision du code s’exécutant dans l’enclave. Par conséquent, nous vous recommandons d’utiliser la revendication **mrsigner**, qui est un hachage d’une clé utilisée pour signer le fichier binaire de l’enclave. Quand Microsoft révise l’enclave, la revendication **mrsigner** reste la même tant que la clé de signature ne change pas. Ainsi, il devient possible de déployer des fichiers binaires mis à jour sans interrompre les applications des clients. 
 
 > [!IMPORTANT]
 > Un fournisseur d’attestation est créé avec la stratégie par défaut pour les enclaves Intel SGX ce qui ne valide pas le code qui s’exécute à l’intérieur de l’enclave. Microsoft vous conseille vivement de définir la stratégie recommandée ci-dessus et de ne pas utiliser la stratégie par défaut pour Always Encrypted avec enclaves sécurisées.

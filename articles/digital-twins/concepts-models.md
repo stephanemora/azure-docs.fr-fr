@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 9abf389eb7f8862440f860c53a0dbd8b10315c67
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: d33634c08b85ad633fdad3f709b2b2182571d7de
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100558145"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102034759"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Comprendre les modèles de jumeau dans Azure Digital Twins
 
@@ -65,7 +65,7 @@ La **télémétrie** est souvent utilisée avec les appareils IoT, car de nombre
 
 Par conséquent, lors de la conception d’un modèle dans Azure Digital Twins, vous utiliserez probablement des **propriétés** dans la plupart des cas pour modéliser vos jumeaux. Cela vous permet de disposer du stockage de sauvegarde et de lire et d’interroger les champs de données.
 
-La télémétrie et les propriétés collaborent souvent pour traiter l’entrée de données provenant des appareils. Comme toute entrée dans Azure Digital Twins se fait via des [API](how-to-use-apis-sdks.md), vous utiliserez généralement votre fonction d’entrée pour lire les événements de télémétrie ou de propriété des appareils et définirez une propriété dans ADT en réponse. 
+La télémétrie et les propriétés collaborent souvent pour traiter l’entrée de données provenant des appareils. Comme toute entrée dans Azure Digital Twins se fait via des [API](how-to-use-apis-sdks.md), vous utiliserez généralement votre fonction d’entrée pour lire les événements de télémétrie ou de propriété des appareils, et vous définirez une propriété dans Azure Digital Twins en réponse. 
 
 Vous pouvez également publier un événement de télémétrie à partir de l’API Azure Digital Twins. Comme pour toute autre télémétrie, il s’agit d’un événement de courte durée qui nécessite un écouteur pour le traiter.
 
@@ -154,11 +154,11 @@ Toutefois, si vous avez de nombreux modèles à charger, ou s’ils ont de nombr
 
 _**Pour la visualisation des modèles**_
 
-Une fois que vous avez chargé des modèles dans votre instance d’Azure Digital Twins, vous pouvez les voir dans cette dernière. Vous pouvez voir notamment les relations d’héritage et les relations entre modèles à l’aide de l’application [**ADT Model Visualizer**](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/AdtModelVisualizer). Cet exemple est à l’état de brouillon. Nous encourageons la communauté de développement de jumeaux numériques à étendre cet exemple, et à y contribuer. 
+Une fois que vous avez chargé des modèles dans votre instance Azure Digital Twins, vous pouvez les voir dans cette dernière. Vous pouvez voir notamment les relations d’héritage et les relations entre modèles à l’aide de l’application [**Azure Digital Twins Model Visualizer**](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/AdtModelVisualizer). Cet exemple est à l’état de brouillon. Nous encourageons la communauté de développement de jumeaux numériques à étendre cet exemple, et à y contribuer. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Découvrez plus en détail la création de modèles basés sur des ontologies conformes aux standards du secteur : [*Concepts : Qu’est-ce qu’une ontologie ?* ](concepts-ontologies.md)
+* Découvrez plus en détail la création de modèles basés sur des ontologies conformes aux standards du secteur : [*Concepts : Qu’est-ce qu’une ontologie ?*](concepts-ontologies.md)
 
 * Explorez plus en détail la gestion des modèles à l’aide des opérations d’API : [*Guide pratique : Gérer les modèles DTDL*](how-to-manage-model.md)
 

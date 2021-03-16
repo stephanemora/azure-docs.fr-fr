@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/06/2020
 ms.author: shono
-ms.openlocfilehash: 2259d0114d91af2e688df66ff8dc4e8d293c2b03
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 0b1358f67e2b10078e24168bdb779cd708ac2403
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624830"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102095661"
 ---
 # <a name="select-a-domain-for-a-custom-vision-project"></a>Sélectionner un domaine pour un projet Custom Vision
 
@@ -37,7 +37,7 @@ Sous l’onglet Paramètres de votre projet Custom Vision, vous pouvez sélectio
 |Domain|Objectif|
 |---|---|
 |__Généralités__| Optimisé pour un large éventail de tâches de détection d’objets. Si aucun autre domaine n’est approprié, ou si vous hésitez sur le choix du domaine, sélectionnez le domaine Général. ID : `da2e3a8a-40a5-4171-82f4-58522f70fbc1`|
-|__General [A1]__| Optimisé pour une meilleure justesse avec un temps d’inférence comparable à celui du domaine General. Recommandé pour des besoins de localisation de région plus précis, des jeux de données plus importants ou des scénarios utilisateur plus difficiles. Ce domaine nécessite un entraînement plus long, et les résultats ne sont pas déterministes : attendez-vous à une différence mAP de +-1 % avec les mêmes données d’entraînement fournies. ID : `9c616dff-2e7d-ea11-af59-1866da359ce6`|
+|__General [A1]__| Optimisé pour une meilleure justesse avec un temps d’inférence comparable à celui du domaine General. Recommandé pour des besoins de localisation de région plus précis, des jeux de données plus importants ou des scénarios utilisateur plus difficiles. Ce domaine nécessite un entraînement plus long, et les résultats ne sont pas déterministes : attendez-vous à une différence au niveau de la moyenne des précisions moyennes (mAP) de +-1 % avec les mêmes données d’entraînement fournies. ID : `9c616dff-2e7d-ea11-af59-1866da359ce6`|
 |__Logo__|Optimisé pour rechercher des logos de marque dans les images. ID : `1d8ffafe-ec40-4fb2-8f90-72b3b6cecea4`|
 |__Products on shelves__ (Produits en rayon)|Optimisé pour la détection et la classification des produits en rayon. ID : `3780a898-81c3-4516-81ae-3a139614e1f3`|
 |__Compact Domains__ (Domaines compacts)| Optimisés en fonction des contraintes liées à la détection d'objets en temps réel sur les périphériques.|

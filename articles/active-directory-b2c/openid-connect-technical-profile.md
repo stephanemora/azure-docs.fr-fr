@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/01/2020
+ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f6b6fb18ce086c2eadc829f03460452deb0a12b9
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 670fbeeb006d21e29675f88895018d1a453a1c54
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98675150"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102120298"
 ---
 # <a name="define-an-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique OpenID Connect dans une stratégie personnalisée Azure Active Directory B2C
 
@@ -95,6 +95,7 @@ Le profil technique retourne également des revendications qui ne sont pas retou
 | token_endpoint_auth_method | Non | Indique comment Azure AD B2C envoie l’en-tête d’authentification au point de terminaison du jeton. Valeurs possibles : `client_secret_post` (par défaut) et `client_secret_basic` (préversion publique). Pour plus d’informations, consultez [Section d’authentification du client OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication). |
 | token_signing_algorithm | Non | Algorithme de signature utilisé pour les assertions clientes lorsque les métadonnées **token_endpoint_auth_method** sont définies sur `private_key_jwt`. Valeurs possibles : `RS256` (par défaut). |
 | SingleLogoutEnabled | Non | Indique si, lors de la connexion, le profil technique tente de se déconnecter des fournisseurs d’identité fédérés. Pour plus d’informations, consultez [Déconnexion d’une session Azure AD B2C](./session-behavior.md#sign-out).  Valeurs possibles : `true` (par défaut) ou `false`. |
+|ReadBodyClaimsOnIdpRedirect| Non| Définissez la valeur `true` pour lire les revendications du corps de la réponse en cas de redirection du fournisseur d’identité. Ces métadonnées sont utilisées avec l’[ID Apple](identity-provider-apple-id.md), où les revendications sont retournées dans la charge utile de la réponse.|
 
 ```xml
 <Metadata>

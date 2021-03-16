@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 061b190af6e66cf0c7e8095251a3ef77d9aaf247
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 3a8429d9dc6820b1f79c49d325872b61833f988d
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341683"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102095542"
 ---
 # <a name="faq---general-questions-about-azure-security-center"></a>FAQ - Questions générales sur Azure Security Center
 
@@ -46,10 +46,10 @@ La page **Vue d’ensemble de Security Center** affiche les mesures de sécurit�
 
 
 
-## <a name="what-is-a-security-policy"></a>Qu’est-ce qu’une stratégie de sécurité ?
-Une stratégie de sécurité définit l’ensemble des contrôles recommandés pour les ressources d’un abonnement spécifique. Dans Azure Security Center, vous définissez les stratégies de vos abonnements Azure en fonction des exigences de sécurité de votre entreprise et du type d’applications ou du niveau de confidentialité des données de chaque abonnement.
+## <a name="what-is-a-security-initiative"></a>Qu’est-ce qu’une initiative de sécurité ?
+Une initiative de sécurité définit l’ensemble des contrôles (stratégies) recommandés pour les ressources d’un abonnement spécifique. Dans Azure Security Center, vous attribuez des initiatives pour vos abonnements Azure en fonction des exigences de sécurité de votre entreprise et du type d’applications ou du niveau de sensibilité des données de chaque abonnement.
 
-Les stratégies de sécurité activées dans Azure Security Center déterminent les recommandations et la surveillance liées à la sécurité. Pour plus d’informations sur les stratégies de sécurité, consultez [Surveillance de l’intégrité de la sécurité dans le Centre de sécurité Azure](security-center-monitoring.md).
+Les stratégies de sécurité activées dans Azure Security Center déterminent les recommandations et la surveillance liées à la sécurité. Pour en savoir plus, consultez [Que sont les stratégies de sécurité, les initiatives et les recommandations ?](security-policy-concept.md).
 
 
 ## <a name="who-can-modify-a-security-policy"></a>Qui peut modifier une stratégie de sécurité ?

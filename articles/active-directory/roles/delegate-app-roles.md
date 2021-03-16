@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b5cb7e1521c649be4abc155d9f28a49b43a11e6d
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: fea9662b6f5890c6240e91b26cf641d6166d560a
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99071260"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102051189"
 ---
 # <a name="delegate-app-registration-permissions-in-azure-active-directory"></a>Déléguer des autorisations d’inscription d’application dans Azure Active Directory
 
@@ -77,7 +77,7 @@ Azure AD a un ensemble de rôles d’administrateur intégrés pour accorder l�
 - Administrateur d’application : Les utilisateurs dans ce rôle peuvent créer et gérer tous les aspects des applications d’entreprise, des inscriptions d’application et des paramètres de proxy d’application. Ce rôle permet également de donner son consentement à des autorisations déléguées et des autorisations d’application, à l’exception de Microsoft Graph. Les utilisateurs affectés à ce rôle ne sont pas ajoutés en tant que propriétaires lorsque des inscriptions d’applications ou des applications d’entreprise sont créées.
 - Administrateur d’application cloud Les utilisateurs dans ce rôle ont les mêmes autorisations que celles du rôle Administrateur d’application, sans la possibilité de gérer le proxy d’application. Les utilisateurs affectés à ce rôle ne sont pas ajoutés en tant que propriétaires lorsque des inscriptions d’applications ou des applications d’entreprise sont créées.
 
-Pour plus d’informations et pour afficher la description de ces rôles, consultez [Rôles disponibles](permissions-reference.md#available-roles).
+Pour plus d’informations et pour afficher la description de ces rôles, consultez [Rôles intégrés Azure AD](permissions-reference.md).
 
 Suivez les instructions fournies dans le guide pratique [Attribuer des rôles aux utilisateurs avec Azure Active Directory](../fundamentals/active-directory-users-assign-role-azure-portal.md) pour attribuer des rôles administrateur d’application ou administrateur d’application Cloud.
 

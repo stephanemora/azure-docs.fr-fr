@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 10/21/2020
 ms.custom: contperf-fy20q4, tracking-python
-ms.openlocfilehash: 3f128b7ee7fa8f690c2097a5d27e274ec1eb2a8a
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: ca3957563f7c7a7021ad994cc323823763c2936e
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97559537"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102171542"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Utiliser le studio Azure Machine Learning dans un réseau virtuel Azure
 
@@ -38,7 +38,6 @@ Consultez les autres articles de cette série :
 
 > [!IMPORTANT]
 > Si votre espace de travail se trouve dans un __cloud souverain__, comme Azure Government ou Azure China 21Vianet, les notebooks intégrés _ne prennent pas_ en charge l’utilisation du stockage qui se trouve dans un réseau virtuel. Cela étant, vous pouvez utiliser des notebooks Jupyter à partir d’une instance de calcul. Pour plus d’informations, consultez la section [Accéder aux données d’un notebook d’instance de capacité de calcul](how-to-secure-training-vnet.md#access-data-in-a-compute-instance-notebook).
-
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -107,7 +106,6 @@ Le tableau suivant décrit les raisons pour lesquelles vous devez activer l’au
 >
 > Pour résoudre ce problème, supprimez le compte de magasin de fichiers du réseau virtuel, puis rajoutez-le au réseau virtuel.
 
-
 ### <a name="grant-workspace-managed-identity-__reader__-access-to-storage-private-link"></a>Accorder à l’identité managée de l’espace de travail un accès __Lecteur__ à la liaison privée de stockage
 
 Si votre compte de stockage Azure utilise un point de terminaison privé, vous devez accorder à l’identité managée de l’espace de travail l’accès **Lecteur** à la liaison privée. Pour plus d’informations, voir le rôle intégré [Lecteur](../role-based-access-control/built-in-roles.md#reader). 
@@ -162,7 +160,7 @@ Vous devez également [activer l’authentification via une identité managée](
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Cet article est une partie facultative d’une série en quatre parties sur les réseaux virtuels. Consultez les autres articles pour découvrir comment sécuriser un réseau virtuel :
+Cet article est le cinquième volet d’une série de cinq articles sur les réseaux virtuels. Consultez les autres articles pour découvrir comment sécuriser un réseau virtuel :
 
 * [Partie 1 : Vue d’ensemble des réseaux virtuels](how-to-network-security-overview.md)
 * [Partie 2 : Sécuriser les ressources d’espace de travail](how-to-secure-workspace-vnet.md)

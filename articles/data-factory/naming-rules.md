@@ -7,12 +7,12 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: f0d14760ce3e6403c9b6fe8cc7a2100aeb3f39a6
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: bef8706d9dcef966397dcddc64ffbd567a8431f6
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100372907"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102034402"
 ---
 # <a name="azure-data-factory---naming-rules"></a>Azure Data Factory - Règles d’affectation des noms
 
@@ -27,6 +27,8 @@ Le tableau suivant fournit des règles d'affectation de noms pour les artefacts 
 | Runtime d’intégration |Unique dans une fabrique de données. Les noms sont sensibles à la casse. |<ul><li>Le nom du runtime d’intégration ne peut contenir que des lettres, des chiffres et des tirets (-).</li><li>Le premier et le dernier caractères doivent être une lettre ou un chiffre. Chaque tiret (-) doit être immédiatement précédé et suivi par une lettre ou un chiffre.</li><li>Les tirets consécutifs ne sont pas autorisés dans un nom de runtime d’intégration. </li></ul> |
 | Transformations de flux de données | Unique dans un flux de données. Les noms sont sensibles à la casse | <ul><li>Les noms de transformation de flux de données ne peuvent contenir que des lettres et des chiffres</li><li>Le premier caractère doit être une lettre. </li></ul> |
 | Groupe de ressources |Unique sur Microsoft Azure. Les noms sont sensibles à la casse. | Pour plus d’informations, consultez la page [Règles d’affectation de noms Azure et restrictions](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#resource-naming). |
+| Paramètres et variables du pipeline  |Unique dans le pipeline. Les noms sont sensibles à la casse. | <ul><li>Le contrôle de validation sur les noms de paramètres et de variables est limité à l’unicité par souci de compatibilité descendante.</li><li>Quand vous utilisez des paramètres ou des variables pour référencer des noms d’entités, par exemple un service lié, les règles de nommage d’entité s’appliquent.</li><li>Une bonne pratique consiste à suivre les règles de nommage relatives à la transformation de flux de données pour nommer les paramètres et variables de votre pipeline.</li></ul> |
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 Découvrez comment créer des fabriques de données en suivant les instructions pas à pas de l’article [Démarrage rapide : créer une fabrique de données](quickstart-create-data-factory-powershell.md). 

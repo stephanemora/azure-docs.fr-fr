@@ -8,19 +8,28 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 01/27/2021
+ms.date: 02/23/2021
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: 45b52f98f9f3670f2a68c22cfe9e27a86b2a74cc
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 629b40567ad9a1126413f5a97d1dc6264b4b10ca
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99220698"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101736632"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Nouveautés de l’API Analyse de texte
 
 L’API Analyse de texte est mise à jour de manière continue. Pour vous informer des développements récents, cet article vous fournit des informations sur les nouvelles versions et fonctionnalités.
+
+## <a name="february-2021"></a>Février 2021
+
+* La version de modèle `2021-01-15` pour le point de terminaison PII dans [Reconnaissance d’entité nommée](how-tos/text-analytics-how-to-entity-linking.md) v3.1-preview.x, qui fournit 
+  * Une prise en charge étendue de 9 nouvelles langues
+  * Une amélioration de la qualité de l’IA des catégories d’entités nommées pour les langues prises en charge.
+* Les niveaux tarifaires S0 à S4 sont supprimés le 8 mars 2021. Si vous disposez d’une ressource Analyse de texte existante avec un niveau tarifaire compris entre S0 et S4, vous devez la mettre à jour pour utiliser le [niveau tarifaire](how-tos/text-analytics-how-to-call-api.md#change-your-pricing-tier) Standard (S).
+* Le [conteneur Détection de langue](how-tos/text-analytics-how-to-install-containers.md?tabs=sentiment) est désormais en disponibilité générale.
+* La version 2.1 de l’API est en cours de retrait. 
 
 ## <a name="january-2021"></a>Janvier 2021
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: trbye
-ms.openlocfilehash: 078118ec793530720a49a19046854e5ea4b7f5c4
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: b7e4ea586098ea3eb0dfd684650f798d7988e18b
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100388938"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100634581"
 ---
 # <a name="evaluate-and-improve-custom-speech-accuracy"></a>Évaluer et améliorer la justesse de Custom Speech
 
@@ -109,16 +109,17 @@ L’audio avec des transcriptions étiquetées à la main offre les plus fortes 
 
 Tenez compte des détails suivants :
 
+* L’apprentissage de l’audio est plus avantageux si le contenu audio est également difficile à comprendre pour les êtres humains. Dans la plupart des cas, vous devez commencer l’apprentissage en utilisant simplement du texte associé.
+* Si vous utilisez l’une des langues les plus utilisées, telles que l’anglais (États-Unis), il y a de fortes chances qu’il ne soit pas nécessaire d’effectuer l’entraînement avec des données audio. Pour ces langues, les modèles de base offrent déjà une très bonne reconnaissance pour la plupart des scénarios. Il est probablement suffisant d’effectuer un entraînement avec du texte associé.
 * Custom Speech peut uniquement capturer le contexte des mots pour réduire les erreurs de substitution, pas les erreurs d’insertion ou de suppression.
 * Évitez les exemples comprenant des erreurs de transcription, mais incluez une qualité audio diversifiée.
 * Évitez les phrases qui ne sont pas liées au domaine de votre problème. Les phrases non liées peuvent endommager votre modèle.
 * En cas de variation de la qualité des transcriptions, vous pouvez dupliquer des phrases exceptionnellement bonnes (par exemple, d’excellentes transcriptions qui incluent des expressions clés) pour augmenter leur poids.
 * Le service vocal utilise automatiquement les transcriptions pour améliorer la reconnaissance des mots et des expressions spécifiques à un domaine, comme s’ils avaient été ajoutés en tant que texte associé.
-* L’apprentissage de l’audio est plus avantageux si le contenu audio est également difficile à comprendre pour les êtres humains. Dans la plupart des cas, vous devez commencer l’apprentissage en utilisant simplement du texte associé.
 * L’exécution d’une opération d’apprentissage peut prendre plusieurs jours. Pour améliorer la vitesse d’entraînement, veillez à créer votre abonnement au service Speech dans une [région disposant du matériel dédié](custom-speech-overview.md#set-up-your-azure-account) à l’entraînement.
 
 > [!NOTE]
-> Tous les modèles de base ne prennent pas en charge l’audio. Si un modèle de base ne le prend pas en charge, le service vocal utilise uniquement le texte des transcriptions et ignore l’audio. Pour obtenir la liste des modèles de base prenant en charge l’entraînement avec des données audio, consultez les informations relatives à la [prise en charge des langues](language-support.md#speech-to-text).
+> Tous les modèles de base ne prennent pas en charge l’audio. Si un modèle de base ne le prend pas en charge, le service vocal utilise uniquement le texte des transcriptions et ignore l’audio. Pour obtenir la liste des modèles de base prenant en charge l’entraînement avec des données audio, consultez les informations relatives à la [prise en charge des langues](language-support.md#speech-to-text). Même si un modèle de base prend en charge l’apprentissage avec des données audio, il est possible que le service n’utilise qu’une partie de l’audio. Il utilisera néanmoins toutes les transcriptions.
 
 > [!NOTE]
 > Si vous changez le modèle de base utilisé pour l’entraînement et si vous avez du contenu audio dans le jeu de données d’entraînement, vérifiez *toujours* si le nouveau modèle de base sélectionné [prend en charge l’entraînement avec des données audio](language-support.md#speech-to-text). Si le modèle de base utilisé jusqu’à maintenant ne prend pas en charge l’entraînement avec des données audio, et si le jeu de données d’entraînement contient de l’audio, le temps d’entraînement du nouveau modèle de base va **considérablement** augmenter. Il peut facilement passer de plusieurs heures à plusieurs jours, voire davantage. Cela est particulièrement vrai si votre abonnement au service Speech ne se situe **pas** dans une [région disposant du matériel dédié](custom-speech-overview.md#set-up-your-azure-account) à l’entraînement.

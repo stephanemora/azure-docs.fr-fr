@@ -11,16 +11,16 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 08/31/2020
 ms.custom: devx-track-python, data4ml
-ms.openlocfilehash: 9e4722933ec224712c8d649c0d9d850a9ee3e322
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 601be8409db22162a410d481e6609d378718a7b4
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98872007"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102503587"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Sécuriser l’accès aux données dans Azure Machine Learning
 
-Azure Machine Learning facilite la connexion à vos données dans le cloud.  Il fournit une couche d’abstraction sur le service de stockage sous-jacent, ce qui vous permet d’accéder de manière sécurisée à vos données et de les utiliser sans avoir à écrire du code propre à votre type de stockage. Azure Machine Learning propose également les fonctionnalités de données suivantes :
+Azure Machine Learning facilite la connexion à vos données dans le cloud. Il fournit une couche d’abstraction sur le service de stockage sous-jacent, ce qui vous permet d’accéder de manière sécurisée à vos données et de les utiliser sans avoir à écrire du code propre à votre type de stockage. Azure Machine Learning propose également les fonctionnalités de données suivantes :
 
 *    Interopérabilité avec les DataFrames Pandas et Spark
 *    Gestion de versions et suivi de la traçabilité des données
@@ -53,7 +53,7 @@ Le diagramme suivant fournit une démonstration visuelle de ce workflow recomman
 <a name="datastores"></a>
 ## <a name="connect-to-storage-with-datastores"></a>Se connecter au stockage avec des magasins de données
 
-Les magasins de données Azure Machine Learning conservent les informations de connexion à votre stockage Azure de manière sécurisée. Vous n’avez donc pas à les coder dans vos scripts. [Inscrivez et créez un magasin de données](how-to-access-data.md) pour vous connecter facilement à votre compte de stockage et accéder aux données de votre service de stockage Azure sous-jacent. 
+Les magasins de données Azure Machine Learning conservent de manière sécurisée les informations de connexion à votre stockage de données sur Azure. Vous n’avez donc pas à les coder dans vos scripts. [Inscrivez et créez un magasin de données](how-to-access-data.md) pour vous connecter facilement à votre compte de stockage, et accéder aux données de votre service de stockage sous-jacent. 
 
 Services de stockage cloud pris en charge dans Azure qui peuvent être enregistrés en tant que magasins de données :
 
@@ -65,6 +65,9 @@ Services de stockage cloud pris en charge dans Azure qui peuvent être enregistr
 + Azure Database pour PostgreSQL
 + Système de fichiers Databricks
 + Azure Database pour MySQL
+
+>[!TIP]
+> Les fonctionnalités en disponibilité générale liées à la création de magasins de données nécessitent une authentification basée sur les informations d’identification pour l’accès aux services de stockage, par exemple un principal de service ou un jeton de signature d’accès partagé (SAS). Ces informations d’identification sont accessibles aux utilisateurs qui disposent de l’accès *Lecteur* pour l’espace de travail. <br><br>Si cela pose problème, [créez un magasin de données qui utilise l’accès aux données en fonction de l’identité sur les services de stockage (préversion) ](how-to-identity-based-data-access.md). Cette capacité est une caractéristique [expérimentale](/python/api/overview/azure/ml/#stable-vs-experimental) en préversion qui peut évoluer à tout moment.
 
 <a name="datasets"></a>
 ## <a name="reference-data-in-storage-with-datasets"></a>Référencer des données dans le stockage avec des jeux de données
@@ -83,9 +86,9 @@ Les jeux de données peuvent être créés à partir de fichiers locaux, d’URL
 
 Il existe 2 types de datasets : 
 
-+ Un [FileDataset](/python/api/azureml-core/azureml.data.file_dataset.filedataset?preserve-view=true&view=azure-ml-py) fait référence à des fichiers uniques ou multiples dans vos magasins de données ou vos URL publiques. Si vos données sont déjà nettoyées et prêtes à l’emploi dans des expériences de formation, vous pouvez [télécharger ou monter des fichiers](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) référencés par FileDatasets dans votre cible de calcul.
++ Un [FileDataset](/python/api/azureml-core/azureml.data.file_dataset.filedataset) fait référence à des fichiers uniques ou multiples dans vos magasins de données ou vos URL publiques. Si vos données sont déjà nettoyées et prêtes à l’emploi dans des expériences de formation, vous pouvez [télécharger ou monter des fichiers](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) référencés par FileDatasets dans votre cible de calcul.
 
-+ Un [TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py) représente les données sous forme de tableau en analysant le fichier ou la liste de fichiers fournis. Vous pouvez charger un TabularDataset dans une trame de données Pandas ou Spark afin d’effectuer une autre manipulation et un nettoyage. Pour obtenir la liste complète des formats de données à partir desquels vous pouvez créer des TabularDatasets, consultez la [classe TabularDatasetFactory](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory).
++ Un [TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset) représente les données sous forme de tableau en analysant le fichier ou la liste de fichiers fournis. Vous pouvez charger un TabularDataset dans une trame de données Pandas ou Spark afin d’effectuer une autre manipulation et un nettoyage. Pour obtenir la liste complète des formats de données à partir desquels vous pouvez créer des TabularDatasets, consultez la [classe TabularDatasetFactory](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory).
 
 Vous trouverez des fonctionnalités supplémentaires des jeux de données dans la documentation suivante :
 

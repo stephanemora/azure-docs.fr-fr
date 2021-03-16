@@ -1,17 +1,16 @@
 ---
 title: Collecter des sources de données de performance Windows et Linux avec l’agent Log Analytics dans Azure Monitor
 description: Azure Monitor collecte les compteurs de performances pour analyser les performances sur les agents Windows et Linux.  Cet article explique comment configurer la collecte des compteurs de performances sur les agents Windows et Linux, comment ils sont stockés dans l’espace de travail et comment les analyser dans le portail Azure.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/21/2020
-ms.openlocfilehash: c06123b33c7f467e12742cf6180d821e647b5115
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 02/26/2021
+ms.openlocfilehash: f4bddc1666d1165d6a1e4c749fdbc96ede37747a
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101711550"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102036767"
 ---
 # <a name="collect-windows-and-linux-performance-data-sources-with-log-analytics-agent"></a>Collecter des sources de données de performance Windows et Linux avec l’agent Log Analytics
 Les compteurs de performances dans Windows et Linux fournissent des informations sur les performances des composants matériels, systèmes d’exploitation et applications.  Azure Monitor peut non seulement collecter les compteurs de performances des agents Log Analytics à intervalles réguliers pour effectuer une analyse en temps quasi réel, mais aussi agréger les données de performances pour réaliser des analyses à plus long terme et créer des rapports.
@@ -22,7 +21,7 @@ Les compteurs de performances dans Windows et Linux fournissent des informations
 ![Compteurs de performance](media/data-sources-performance-counters/overview.png)
 
 ## <a name="configuring-performance-counters"></a>Configuration des compteurs de performances
-Configurez les compteurs de performances à partir du [menu Données dans les paramètres avancés](../agents/agent-data-sources.md#configuring-data-sources) de l’espace de travail Log Analytics.
+Configurez des compteurs de performances à partir du [menu Configurer des agents](../agents/agent-data-sources.md#configuring-data-sources) pour l’espace de travail Log Analytics.
 
 Lorsque vous configurez initialement des compteurs de performances Windows ou Linux pour un nouvel espace de travail, vous avez la possibilité de créer rapidement plusieurs compteurs communs.  Ils s’affichent avec une case à cocher en regard.  Vérifiez que les compteurs que vous voulez créer sont cochés, puis cliquez sur **Ajouter les compteurs de performances sélectionnés**.
 
@@ -36,28 +35,28 @@ Pour les compteurs de performances Windows, vous pouvez choisir une instance sp�
 
 ### <a name="windows-performance-counters"></a>Compteurs de performances Windows
 
-![Configurer des compteurs de performances Windows](media/data-sources-performance-counters/configure-windows.png)
+[![Configurer des compteurs de performances Windows](media/data-sources-performance-counters/configure-windows.png)](media/data-sources-performance-counters/configure-windows.png#lightbox)
 
 Suivez cette procédure pour ajouter un nouveau compteur de performances Windows à collecter. Notez que les compteurs de performances Windows v2 ne sont pas pris en charge.
 
-1. Tapez le nom du compteur dans la zone de texte, au format *objet(instance)\compteur*.  Lorsque vous commencez à taper, la liste des compteurs correspondants s’affiche.  Vous pouvez soit choisir un compteur dans cette liste, soit taper le nom de votre choix.  Vous pouvez également retourner toutes les instances d’un compteur particulier en spécifiant *objet\compteur*.  
+1. Cliquez sur **Ajouter un compteur de performances**.
+2. Tapez le nom du compteur dans la zone de texte, au format *objet(instance)\compteur*.  Lorsque vous commencez à taper, la liste des compteurs correspondants s’affiche.  Vous pouvez soit choisir un compteur dans cette liste, soit taper le nom de votre choix.  Vous pouvez également retourner toutes les instances d’un compteur particulier en spécifiant *objet\compteur*.  
 
     Lors de la collecte des compteurs de performances SQL Server à partir d’instances nommées, tous les compteurs des instances nommées commencent par *MSSQL$* qui est suivi du nom de l’instance.  Par exemple, pour collecter le compteur Taux d’accès au cache de journal pour toutes les bases de données à partir de l’objet de performance de base de données pour l’instance SQL nommée INST2, spécifiez `MSSQL$INST2:Databases(*)\Log Cache Hit Ratio`.
 
-2. Cliquez sur **+** ou appuyez sur **Entrée** pour ajouter le compteur à la liste.
-3. Lorsque vous ajoutez un compteur, il utilise la valeur par défaut de 10 secondes comme **Intervalle d’échantillonnage**.  Vous pouvez configurer jusqu’à 1 800 secondes (30 minutes) si vous souhaitez réduire l’espace de stockage requis pour les données de performances collectées.
-4. Après avoir ajouté les compteurs souhaités, cliquez sur le bouton **Enregistrer** en haut de l’écran pour enregistrer la configuration.
+4. Lorsque vous ajoutez un compteur, il utilise la valeur par défaut de 10 secondes comme **Intervalle d’échantillonnage**.  Vous pouvez configurer jusqu’à 1 800 secondes (30 minutes) si vous souhaitez réduire l’espace de stockage requis pour les données de performances collectées.
+5. Après avoir ajouté les compteurs souhaités, cliquez sur le bouton **Appliquer** en haut de l’écran pour enregistrer la configuration.
 
 ### <a name="linux-performance-counters"></a>Compteurs de performances Linux
 
-![Configurer des compteurs de performances Linux](media/data-sources-performance-counters/configure-linux-1.png)
+[![Configurer des compteurs de performances Linux](media/data-sources-performance-counters/configure-linux.png)](media/data-sources-performance-counters/configure-linux.png#lightbox)
 
 Suivez cette procédure pour ajouter un nouveau compteur de performances Linux à collecter.
 
+1. Cliquez sur **Ajouter un compteur de performances**.
 1. Tapez le nom du compteur dans la zone de texte, au format *objet(instance)\compteur*.  Lorsque vous commencez à taper, la liste des compteurs correspondants s’affiche.  Vous pouvez soit choisir un compteur dans cette liste, soit taper le nom de votre choix.  
-1. Cliquez sur **+** , ou appuyez sur **Entrée** pour ajouter le compteur à la liste des autres compteurs de l’objet.
 1. Tous les compteurs d’un objet utilisent le même **Intervalle d’échantillonnage**.  La valeur par défaut est 10 secondes.  Vous pouvez configurer jusqu’à 1 800 secondes (30 minutes) si vous souhaitez réduire l’espace de stockage requis pour les données de performances collectées.
-1. Après avoir ajouté les compteurs souhaités, cliquez sur le bouton **Enregistrer** en haut de l’écran pour enregistrer la configuration.
+1. Après avoir ajouté les compteurs souhaités, cliquez sur le bouton **Appliquer** en haut de l’écran pour enregistrer la configuration.
 
 #### <a name="configure-linux-performance-counters-in-configuration-file"></a>Configuration des compteurs de performances Linux dans le fichier de configuration
 Au lieu de configurer les compteurs de performances Linux à l’aide du portail Azure, vous pouvez modifier les fichiers de configuration sur l’agent Linux.  Les mesures de performances à collecter sont contrôlées par la configuration du fichier **/etc/opt/microsoft/omsagent/\<workspace id\>/conf/omsagent.conf**.

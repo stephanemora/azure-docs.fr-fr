@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/21/2020
+ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1ad9cc3d6d07c8d744ec667e2fffb035848121b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c9104fb4598eb62ed96d0b21734053fa118b5237
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85203246"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102120280"
 ---
 # <a name="stringcollection-claims-transformations"></a>Transformations de revendications StringCollection
 
@@ -31,7 +31,7 @@ Ajoute une revendication de chaîne à une nouvelle revendication stringCollecti
 | Élément | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | item | string | ClaimType à ajouter à la revendication de sortie. |
-| InputClaim | collection | stringCollection | [Facultatif] Si spécifié, la transformation de revendication copie les éléments de cette collection et ajoute l’élément à la fin de la revendication de collection de sortie. |
+| InputClaim | collection | stringCollection | Collection de chaînes à ajouter à la revendication de sortie. Si la collection contient un élément, la transformation de revendication le copie et l’ajoute à la fin de la revendication de collection de sortie. |
 | OutputClaim | collection | stringCollection | ClaimType généré après l'appel de cette transformation de revendication, avec la valeur spécifiée dans la revendication d'entrée. |
 
 Utilisez cette transformation de revendication pour ajouter une chaîne à un objet stringCollection nouveau ou existant. Elle est couramment utilisée dans un profil technique **AAD-UserWriteUsingAlternativeSecurityId**. Avant la création d’un compte social, la transformation de revendication **CreateOtherMailsFromEmail** lit le ClaimType et ajoute la valeur au ClaimType **otherMails**.
@@ -64,7 +64,7 @@ Ajoute un paramètre de chaîne à une nouvelle revendication stringCollection �
 
 | Élément | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | collection | stringCollection | [Facultatif] Si spécifié, la transformation de revendication copie les éléments de cette collection et ajoute l’élément à la fin de la revendication de collection de sortie. |
+| InputClaim | collection | stringCollection | Collection de chaînes à ajouter à la revendication de sortie. Si la collection contient un élément, la transformation de revendication le copie et l’ajoute à la fin de la revendication de collection de sortie. |
 | InputParameter | item | string | Valeur à ajouter à la revendication de sortie. |
 | OutputClaim | collection | stringCollection | ClaimType généré après que cette transformation de revendication a été appelée, avec la valeur spécifiée dans le paramètre d’entrée. |
 
@@ -125,7 +125,7 @@ L’exemple suivant lit la revendication **otherMails** et retourne le premier �
 
 ## <a name="stringcollectioncontains"></a>StringCollectionContains
 
-Vérifie si un type de revendication StringCollection contient un élément
+Vérifie si un type de revendication StringCollection contient un élément.
 
 | Élément | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |

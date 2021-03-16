@@ -3,14 +3,14 @@ title: Sécurité des données Azure Automation
 description: Cet article vous aide à découvrir comment Azure Automation protège votre confidentialité et sécurise vos données.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 01/08/2021
+ms.date: 03/02/2021
 ms.topic: conceptual
-ms.openlocfilehash: f2ce8d482231b4a95c322e9d495a75f89953c32a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 2bdf25ef24f1fbf4aaf4dec154ea6af3421b915a
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100581116"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050815"
 ---
 # <a name="management-of-azure-automation-data"></a>Gestion des données Azure Automation
 
@@ -41,7 +41,7 @@ Pour plus d’informations sur la prise en charge du protocole TLS 1.2 avec l’
 
 ## <a name="data-retention"></a>Conservation des données
 
-Quand vous supprimez une ressource dans Azure Automation, elle est conservée pendant un certain nombre de jours à des fins d’audit avant d’être supprimée définitivement. Vous ne pouvez ni voir ni utiliser la ressource pendant cette période. Cette stratégie vaut aussi pour les ressources qui appartiennent à un compte Automation supprimé.
+Quand vous supprimez une ressource dans Azure Automation, elle est conservée pendant un certain nombre de jours à des fins d’audit avant d’être supprimée définitivement. Vous ne pouvez ni voir ni utiliser la ressource pendant cette période. Cette stratégie vaut aussi pour les ressources qui appartiennent à un compte Automation supprimé. La stratégie de rétention s’applique à tous les utilisateurs et ne peut actuellement pas être personnalisée. Cependant, si vous souhaitez conserver les données sur une plus longue période, vous pouvez [transférer les données de tâches Azure Automation dans des journaux Azure Monitor](automation-manage-send-joblogs-log-analytics.md).
 
 Le tableau suivant récapitule la stratégie de rétention pour les différentes ressources.
 
@@ -54,9 +54,9 @@ Le tableau suivant récapitule la stratégie de rétention pour les différentes
 | Modules |Un module est définitivement supprimé 30 jours après avoir été supprimé par un utilisateur ou 30 jours après qu’un utilisateur a supprimé le compte qui contenait le module. |
 | Configurations de nœud/fichiers MOF |Une ancienne configuration de nœud est définitivement supprimée 30 jours après la génération d’une nouvelle configuration de nœud. |
 | Rapports sur le nœud |Le rapport sur un nœud est définitivement supprimé définitivement 90 jours après la génération d’un nouveau rapport pour ce même nœud. |
-| Runbooks |Un runbook est définitivement supprimé 30 jours après qu’un utilisateur a supprimé la ressource ou 30 jours après qu’un utilisateur a supprimé le compte qui contenait la ressource. |
+| Runbooks |Un runbook est définitivement supprimé 30 jours après qu’un utilisateur a supprimé la ressource ou 30 jours après qu’un utilisateur a supprimé le compte qui contenait la ressource<sup>1</sup>. |
 
-La stratégie de rétention s’applique à tous les utilisateurs et ne peut actuellement pas être personnalisée. Cependant, si vous souhaitez conserver les données sur une plus longue période, vous pouvez [transférer les données de tâches Azure Automation dans des journaux Azure Monitor](automation-manage-send-joblogs-log-analytics.md).
+<sup>1</sup>Le runbook peuvent être récupéré dans la fenêtre de 30 jours en ouvrant un incident de support Azure auprès du support Microsoft Azure. Accédez au [site de support Azure](/support/options) et sélectionnez **Soumettre une demande de support**.
 
 ## <a name="data-backup"></a>Sauvegarde de données
 

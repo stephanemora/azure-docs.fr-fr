@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 96b9754908f437ccf81e002e9e9dd17af0bab4e3
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 46004d81756809958e359c2a0b72c143599c2853
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95019073"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101706756"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>Comprendre ce que sont les bons énoncés pour votre application LUIS
 
@@ -54,7 +54,7 @@ Prenez ces exemples d’énoncés :
 |Je souhaite obtenir un ordinateur, comment faire ?|
 |Quand puis-je avoir un ordinateur ?|
 
-Ici, le terme clé, « ordinateur », n’a pas de variante. Utilisez des alternatives telles que « ordinateur de bureau », « ordinateur portable », « station de travail » ou même juste « machine ». LUIS peut déduire intelligemment des synonymes à partir du contexte, mais, lorsque vous créez des énoncés pour l’apprentissage, il est toujours préférable de les faire varier.
+Ici, le terme clé, *ordinateur*, n’a pas de variante. Utilisez des alternatives telles que « ordinateur de bureau », « ordinateur portable », « station de travail » ou même juste « machine ». LUIS peut déduire intelligemment des synonymes à partir du contexte, mais, lorsque vous créez des énoncés pour l’apprentissage, il est toujours préférable de les faire varier.
 
 ## <a name="example-utterances-in-each-intent"></a>Exemples d’énoncés dans chaque intention
 

@@ -10,17 +10,16 @@ ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: wiassaf, sstein
-ms.date: 12/03/2019
-ms.openlocfilehash: 35e2a73b0cfae104cee417e7d4a159e7fd169a17
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 03/03/2021
+ms.openlocfilehash: d60810c291984e0f57df1968f69678de8179273c
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500901"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102042519"
 ---
 # <a name="enable-automatic-tuning-in-the-azure-portal-to-monitor-queries-and-improve-workload-performance"></a>Activer le réglage automatique dans le portail Azure pour superviser les requêtes et améliorer les performances de la charge de travail
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
-
 
 Azure SQL Database gère automatiquement les services de données qui supervisent vos requêtes en permanence et identifie l’action que vous pouvez effectuer pour améliorer les performances de votre charge de travail. Vous pouvez consulter les recommandations et les appliquer manuellement ou laisser Azure SQL Database appliquer automatiquement des actions correctives : il s’agit du **mode de réglage automatique**.
 
@@ -111,11 +110,26 @@ Si vous affectez la valeur ON à l’option de réglage, les paramètres hérit�
 
 Pour en savoir plus sur les options T-SQL permettant de configurer le réglage automatique, consultez [Options ALTER DATABASE SET (Transact-SQL)](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current&preserve-view=true).
 
-## <a name="disabled-by-the-system"></a>Désactivée par le système
+## <a name="troubleshooting"></a>Résolution des problèmes
 
-Le réglage automatique surveille toutes les actions effectuées sur la base de données et, dans certains cas, il peut déterminer que le réglage automatique ne peut pas fonctionner correctement sur la base de données. Dans ce cas, l’option de réglage est désactivée par le système. Dans la plupart des cas, cela est dû au fait que le Magasin des requêtes n’est pas activé ou est en lecture seule sur une base de données spécifique.
+### <a name="automated-recommendation-management-is-disabled"></a>La gestion automatique des recommandations est désactivée
 
-## <a name="permissions"></a>Autorisations
+Si un message d’erreur s’affiche indiquant que la gestion automatique des recommandations a été désactivée par un utilisateur ou simplement par le système, les causes les plus courantes sont les suivantes :
+- Le Magasin des requêtes n’est pas activé.
+- Le Magasin des requêtes est en mode lecture seule pour une base de données spécifiée.
+- Le Magasin des requêtes a cessé de fonctionner parce qu’il occupait l’espace de stockage alloué.
+
+Pour résoudre ce problème, vous pouvez envisager de procéder comme suit :
+- Nettoyez le Magasin des requêtes ou modifiez la période de conservation des données en « auto » à l’aide de T-SQL. Découvrez comment [configurer une stratégie de capture et de rétention recommandée pour le Magasin des requêtes](/azure/azure-sql/database/query-performance-insight-use#recommended-retention-and-capture-policy).
+- Dans SQL Server Management Studio (SSMS), procédez comme suit :
+  - Connectez-vous à la base de données Azure SQL.
+  - Cliquez avec le bouton droit sur la base de données.
+  - Accédez à Propriétés, puis cliquez sur Magasin des requêtes.
+  - Réglez le Mode d’opération sur Lecture-Écriture.
+  - Réglez le Mode de capture du magasin sur Auto.
+  - Réglez le Mode de nettoyage basé sur la taille sur Auto.
+
+### <a name="permissions"></a>Autorisations
 
 Le réglage automatique étant une fonctionnalité Azure, pour vous en servir, vous devez utiliser les rôles intégrés d’Azure. L’authentification SQL seule ne suffit pas pour utiliser la fonctionnalité du portail Azure.
 
@@ -123,7 +137,7 @@ Pour utiliser le réglage automatique, l’autorisation minimale requise à acco
 
 ## <a name="configure-automatic-tuning-e-mail-notifications"></a>Configurer les notifications par e-mail sur l’ajustement automatique
 
-Consultez le guide des [notifications par e-mail du réglage automatique](automatic-tuning-email-notifications-configure.md).
+Pour recevoir des notifications automatiques par e-mail concernant les recommandations de réglage automatique, consultez le guide [Notifications par e-mail sur l’ajustement automatique](automatic-tuning-email-notifications-configure.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

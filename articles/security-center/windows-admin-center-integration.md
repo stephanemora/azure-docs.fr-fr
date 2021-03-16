@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: memildin
-ms.openlocfilehash: ca3dd410474af0a42a3cd5b4217c3bba90b8ff1a
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: fc4207547a1f34fca1ef302626f1365572a236b9
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96511982"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102101305"
 ---
 # <a name="protect-windows-admin-center-resources-with-security-center"></a>Protéger des ressources Windows Admin Center grâce à Security Center
 
@@ -21,7 +21,7 @@ Windows Admin Center est un outil de gestion pour vos serveurs Windows. Il s’a
 
 > [!NOTE]
 > Azure Defender doit être activé à la fois sur votre abonnement Azure et sur l’espace de travail Log Analytics associé afin d’activer l’intégration de Windows Admin Center.
-> Azure Defender est gratuit pendant les 30 premiers jours si vous ne l’avez pas déjà utilisé sur l’abonnement et l’espace de travail. Pour plus d’informations, consultez la [page d’informations de tarification](security-center-pricing.md).
+> Azure Defender est gratuit pendant les 30 premiers jours si vous ne l’avez pas déjà utilisé sur l’abonnement et l’espace de travail. Pour plus d’informations sur les prix dans la devise de votre choix et en fonction de votre région, consultez la page [Tarification de Security Center](https://azure.microsoft.com/pricing/details/security-center/).
 >
 
 Une fois que vous avez correctement intégré un serveur de Windows Admin Center dans Azure Security Center, vous pouvez :

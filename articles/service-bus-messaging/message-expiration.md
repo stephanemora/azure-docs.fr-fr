@@ -3,12 +3,12 @@ title: Azure Service Bus - Expiration des messages
 description: Cet article traite de l'expiration et de la durée de vie des messages Azure Service Bus. Passé ce délai, le message n’est plus remis.
 ms.topic: conceptual
 ms.date: 02/17/2021
-ms.openlocfilehash: 505a041d2f6129b159166e9f99ce7fef779e1e66
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 74df8909633c2fa048c23c559ffdd315a8616e11
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101698363"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102042825"
 ---
 # <a name="message-expiration-time-to-live"></a>Expiration des messages (durée de vie)
 La charge utile dans un message, ou une commande ou demande transmise par un message à un destinataire, est presque toujours soumise à une forme de délai d’expiration au niveau de l’application. Passé ce délai, le contenu n’est plus remis, ou l’opération demandée n’est plus exécutée.
@@ -21,7 +21,7 @@ Une fois l’instant **expires-at-utc** passé, les messages ne sont plus éligi
 
 Lorsque le message est verrouillé, l’application peut être en possession d’un message qui a expiré. L’application peut alors poursuivre le traitement ou choisir d’abandonner le message. C’est au responsable de l’implémentation d’en décider.
 
-Nous vous recommandons de définir la valeur de **time-to-live** d’un message en heures ou en jours. Si vous définissez une valeur faible en secondes ou millisecondes, le message peut expirer avant que les consommateurs aient la possibilité de l’exploiter. 
+Une durée de vie extrêmement faible de l’ordre de quelques millisecondes ou secondes, peut entraîner l’expiration des messages avant que les applications destinataires les reçoivent. Considérez la TTL la plus élevée qui fonctionne pour votre application.
 
 ## <a name="entity-level-expiration"></a>Expiration au niveau de l’entité
 Tous les messages envoyés vers une file d’attente ou une rubrique sont soumis à un délai d’expiration par défaut qui est défini au niveau de l’entité. Ce délai peut également être défini dans le portail lors de la création, puis ajusté ultérieurement. Le délai d’expiration par défaut est utilisé pour tous les messages envoyés à l’entité où la propriété time-to-live n’est pas définie explicitement. Le délai d’expiration par défaut fait également office de plafond pour la valeur time-to-live. Les messages qui ont un délai d’expiration time-to-live plus long que le délai par défaut sont ajustés silencieusement à la valeur time-to-live de message par défaut avant d’être mis en file attente.

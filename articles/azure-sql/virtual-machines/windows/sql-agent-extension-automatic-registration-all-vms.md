@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 11/07/2020
-ms.openlocfilehash: 1ef7943586123a1870ed9a2d0c21aa8b5fd38c1c
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 139852949a3744fd603cb197b2e27fa32679aae0
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97359997"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102042417"
 ---
 # <a name="automatic-registration-with-sql-iaas-agent-extension"></a>Inscription automatique auprès de l’extension SQL IaaS Agent
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -30,7 +30,7 @@ Le fait d’inscrire votre machine virtuelle SQL Server auprès de [l’extensio
 
 Lorsque l’inscription automatique est activée, un travail est exécuté quotidiennement pour détecter si SQL Server est installé ou non sur toutes les machines virtuelles non inscrites de l’abonnement. Pour ce faire, copiez les fichiers binaires de l’extension SQL IaaS Agent sur la machine virtuelle, puis exécutez un utilitaire ponctuel qui recherche la ruche du registre SQL Server. Si la ruche SQL Server est détectée, la machine virtuelle est inscrite auprès de l’extension en mode léger. Si aucune ruche SQL Server n’existe dans le registre, les fichiers binaires sont supprimés.
 
-Une fois l’inscription automatique activée pour un abonnement, toutes les machines virtuelles actuelles et futures sur lesquelles SQL Server est installé sont inscrites auprès de l’extension SQL IaaS Agent en mode léger. Vous devez toujours [mettre à niveau manuellement vers le mode de gestion complet](sql-agent-extension-manually-register-single-vm.md#upgrade-to-full) pour tirer parti de l’ensemble complet de fonctionnalités. 
+Une fois l’inscription automatique activée pour un abonnement, toutes les machines virtuelles actuelles et futures sur lesquelles SQL Server est installé sont inscrites auprès de l’extension SQL IaaS Agent **en mode léger, sans temps d’arrêt et sans redémarrage du service SQL Server**. Vous devez toujours [mettre à niveau manuellement vers le mode de gestion complet](sql-agent-extension-manually-register-single-vm.md#upgrade-to-full) pour tirer parti de l’ensemble complet de fonctionnalités. 
 
 > [!IMPORTANT]
 > L’extension SQL IaaS Agent collecte des données dans le seul but de fournir d’autres avantages aux clients lors de l’utilisation de SQL Server dans Machines virtuelles Azure. Microsoft n’utilisera pas ces données pour les audits de gestion des licences sans le consentement préalable du client. Pour plus d’informations, consultez l’[Avenant à la déclaration de confidentialité de SQL Server](/sql/sql-server/sql-server-privacy#non-personal-data).

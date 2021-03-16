@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: terrylan
 manager: rkarlin
 ms.date: 02/19/2021
-ms.openlocfilehash: 04fc020b2b08d4d3dc68b62c417eb8e2d2e85b97
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: b39b1d33885de46607cd55acee9919473fab7733
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101720611"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102051427"
 ---
 # <a name="customer-lockbox-for-microsoft-azure"></a>Customer Lockbox pour Microsoft Azure
 
@@ -24,7 +24,8 @@ Customer Lockbox pour Microsoft Azure fournit une interface dans laquelle les cl
 
 Cet article décrit comment activer Customer Lockbox et comment les demandes de Lockbox sont initiées, suivies et stockées en vue d’audits et de révisions ultérieurs.
 
-<a id='supported-services-and-scenarios-in-preview'>## Services et scénarios pris en charge (disponibilité générale)
+<a name='supported-services-and-scenarios-in-general-availability'><a name='supported-services-and-scenarios-in-preview'>
+## <a name="supported-services-and-scenarios-general-availability"></a>Services et scénarios pris en charge (disponibilité générale)
 
 Les services suivants sont désormais généralement disponibles pour Customer Lockbox :
 

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: duau
-ms.openlocfilehash: acbd5c3aa88c2c8c14407ebda0c42d228aa6c9e3
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: b133f1cce4af07d8d5e50e04670741fcf7c936a4
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98018936"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102097072"
 ---
 # <a name="create-expressroute-direct-using-the-azure-portal"></a>Créer une ressource ExpressRoute Direct à l’aide du portail Azure
 
@@ -21,12 +21,19 @@ ExpressRoute Direct vous permet de vous connecter directement au réseau global 
 
 ## <a name="before-you-begin"></a><a name="before"></a>Avant de commencer
 
-Vous devez commencer par inscrire votre abonnement pour pouvoir utiliser ExpressRoute Direct. Envoyez pour cela un e-mail à <ExpressRouteDirect@microsoft.com> avec votre ID d’abonnement et les informations suivantes :
+Vous devez commencer par inscrire votre abonnement pour pouvoir utiliser ExpressRoute Direct. Pour vous inscrire, procédez comme suit via Azure PowerShell :
+1.  Connectez-vous à Azure et sélectionnez l’abonnement à inscrire.
 
-* Scénarios que vous souhaitez réaliser avec **ExpressRoute Direct**
-* Préférences d’emplacement : consultez l’article [Partenaires et emplacements de peering](expressroute-locations-providers.md) pour obtenir la liste complète de tous les emplacements
-* Chronologie d'implémentation
-* D’autres questions
+    ```azurepowershell-interactive
+    Connect-AzAccount 
+
+    Select-AzSubscription -Subscription "<SubscriptionID or SubscriptionName>"
+    ```
+
+2. Inscrivez votre abonnement pour la préversion publique à l’aide de la commande suivante :
+    ```azurepowershell-interactive
+    Register-AzProviderFeature -FeatureName AllowExpressRoutePorts -ProviderNamespace Microsoft.Network
+    ```
 
 Une fois que vous êtes inscrit, vérifiez que le fournisseur de ressources **Microsoft.Network** est enregistré dans votre abonnement. L’inscription d’un fournisseur de ressources configure votre abonnement pour travailler avec le fournisseur de ressources.
 

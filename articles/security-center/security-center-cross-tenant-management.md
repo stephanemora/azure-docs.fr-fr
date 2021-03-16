@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2019
 ms.author: memildin
-ms.openlocfilehash: d76ecc55c2e156199b2db789721946fd1f36de27
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 493a06e85ad6c8260c342cf8167386394835b1c6
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96922912"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102099486"
 ---
 # <a name="cross-tenant-management-in-security-center"></a>Gestion multilocataire dans Security Center
 
@@ -51,8 +51,4 @@ Les vues et les actions sont plus ou moins identiques. Voici quelques exemples 
 - **Gérer les fonctionnalités avancées de défense cloud et bien plus encore** : Gérez les divers services de protection contre les menaces et de protection, comme l’[accès juste-à-temps (JIT) aux machines virtuelles](security-center-just-in-time.md), le [renforcement du réseau adaptatif](security-center-adaptive-network-hardening.md), les [contrôles d’application adaptatifs](security-center-adaptive-application.md), etc.
  
 ## <a name="next-steps"></a>Étapes suivantes
-Cet article explique le fonctionnement de la gestion multilocataire dans Security Center. Pour plus d’informations sur le Centre de sécurité, consultez les rubriques suivantes :
-
-* [Renforcer votre posture de sécurité avec Azure Security Center](security-center-monitoring.md) – Découvrez comment superviser l’intégrité de vos ressources Azure.
-* [FAQ Azure Security Center](faq-general.md) : forum aux questions concernant l’utilisation de ce service.
-* [Découvrez Azure Lighthouse dans les scénarios de grandes entreprises](../lighthouse/concepts/enterprise.md) – Découvrez en quoi Azure Lighthouse peut simplifier la gestion inter-locataire au sein d’une grande entreprise qui utilise plusieurs locataires Azure AD.
+Cet article explique le fonctionnement de la gestion multilocataire dans Security Center. Pour découvrir en quoi Azure Lighthouse peut simplifier la gestion inter-locataire au sein d’une entreprise utilisant plusieurs locataires Azure AD, consultez [Azure Lighthouse dans les scénarios d’entreprise](../lighthouse/concepts/enterprise.md).

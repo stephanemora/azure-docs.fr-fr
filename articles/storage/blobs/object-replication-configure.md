@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/09/2020
+ms.date: 03/02/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 226601eadf922a9d834ab84520fd1edf964348fa
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 2b6855d72b644a3fe1fa46c883eb7414383a1a57
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98762930"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102031699"
 ---
 # <a name="configure-object-replication-for-block-blobs"></a>Configurer la réplication d’objets pour des objets blob de blocs
 
@@ -238,10 +238,10 @@ Gardez à l’esprit que, pour créer la stratégie, vous devez être titulaire 
 
 Le tableau suivant récapitule les valeurs à utiliser pour l’ID de stratégie et les ID de règle dans le fichier JSON de chaque scénario.
 
-| Lorsque vous créez le fichier JSON pour ce compte... | Définissez l’ID de stratégie et les ID de règle sur cette valeur... |
-|-|-|
-| Compte de destination | Valeur de chaîne *par défaut*. Le service Stockage Azure créera l’ID de stratégie et les ID de règle pour vous. |
-| Compte source | Valeurs de l’ID de stratégie et des ID de règle renvoyés lorsque vous téléchargez la stratégie définie sur le compte de destination en tant que fichier JSON. |
+| Lorsque vous créez le fichier JSON pour ce compte... | Définissez l’ID de stratégie sur cette valeur | Définissez les ID de règle sur cette valeur |
+|-|-|-|
+| Compte de destination | Valeur de chaîne *par défaut*. Le service Stockage Azure créera la valeur d’ID de stratégie pour vous. | Chaîne vide. Le service Stockage Azure créera les valeurs d’ID de règle pour vous. |
+| Compte source | Valeur de l’ID de stratégie retournée quand vous téléchargez la stratégie définie sur le compte de destination en tant que fichier JSON. | Valeurs des ID de règle retournés quand vous téléchargez la stratégie définie sur le compte de destination en tant que fichier JSON. |
 
 L’exemple suivant définit une stratégie de réplication sur le compte de destination avec une règle unique correspondant au préfixe *b*, et définit l’heure de création minimale des objets blob à répliquer. N’oubliez pas de remplacer les valeurs entre crochets par vos propres valeurs :
 
@@ -253,7 +253,7 @@ L’exemple suivant définit une stratégie de réplication sur le compte de des
     "destinationAccount": "<dest-account>",
     "rules": [
       {
-        "ruleId": "default",
+        "ruleId": "",
         "sourceContainer": "<source-container>",
         "destinationContainer": "<destination-container>",
         "filters": {
@@ -272,7 +272,7 @@ L’exemple suivant définit une stratégie de réplication sur le compte de des
 
 Pour configurer la réplication d’objets sur le compte de destination avec un fichier JSON dans le portail Azure, procédez comme suit :
 
-1. Créez un fichier JSON local définissant la stratégie de réplication sur le compte de destination. Définissez le champ **policyId** sur **par défaut** afin que le service Stockage Azure définisse l’ID de stratégie.
+1. Créez un fichier JSON local définissant la stratégie de réplication sur le compte de destination. Définissez le champ **policyId** sur *par défaut* afin que le service Stockage Azure définisse l’ID de stratégie.
 
     Un moyen simple de créer un fichier JSON qui définit une stratégie de réplication consiste à commencer par créer une stratégie de réplication test entre deux comptes de stockage dans le portail Azure. Vous pouvez ensuite télécharger les règles de réplication et modifier le fichier JSON en fonction des besoins.
 

@@ -8,12 +8,12 @@ ms.date: 10/15/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 13ac18abd0a557d02435c3805e1ab86bcbf1ff84
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: d9e3e0f96d235829928c1f7c79864b1dc732f9e4
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100391981"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102046344"
 ---
 # <a name="authenticate-a-downstream-device-to-azure-iot-hub"></a>Authentifier un appareil en aval auprès d’Azure IoT Hub
 
@@ -35,7 +35,7 @@ Suivez les étapes décrites dans [Configurer un appareil IoT Edge en tant que p
 
 Si vous utilisez l’authentification X.509, vous allez générer des certificats pour votre appareil en aval. Utilisez le même certificat d’autorité de certification racine et le même script de génération de certificat que ceux utilisés pour l’article relatif à la passerelle transparente.
 
-Cet article fait référence au *nom d’hôte de passerelle* à plusieurs endroits. Le nom d’hôte de passerelle est déclaré avec le paramètre **hostname** dans le fichier config.yaml sur l’appareil de passerelle IoT Edge. Il est référencé dans la chaîne de connexion de l’appareil en aval. Le nom d’hôte de passerelle doit être résolu en une adresse IP, à l’aide du DNS ou d’une entrée de fichier hôte sur l’appareil en aval.
+Cet article fait référence au *nom d’hôte de passerelle* à plusieurs endroits. Le nom d’hôte de passerelle est déclaré avec le paramètre **hostname** dans le fichier config sur l’appareil de passerelle IoT Edge. Il est référencé dans la chaîne de connexion de l’appareil en aval. Le nom d’hôte de passerelle doit être résolu en une adresse IP, à l’aide du DNS ou d’une entrée de fichier hôte sur l’appareil en aval.
 
 ## <a name="register-device-with-iot-hub"></a>Inscrire un appareil auprès d’IoT Hub
 
@@ -192,7 +192,7 @@ Pour les appareils en aval, les chaînes de connexion ont besoin des composants 
 * La méthode d’authentification, qu’il s’agisse d’une clé symétrique ou de certificats X.509
   * Si l’utilisation de l’authentification par clé symétrique fournit la clé primaire ou secondaire : `SharedAccessKey={key}`
   * Si vous utilisez l’authentification par certificat X.509, fournissez un indicateur : `x509=true`
-* L’appareil de passerelle via lequel l’appareil se connecte. Fournissez la valeur **hostname** qui figure dans le fichier config.yaml de l’appareil de passerelle IoT Edge : `GatewayHostName={gateway hostname}`
+* L’appareil de passerelle via lequel l’appareil se connecte. Fournissez la valeur **hostname** qui figure dans le fichier config de l’appareil de passerelle IoT Edge : `GatewayHostName={gateway hostname}`
 
 Dans son intégralité, une chaîne de connexion ressemble à ceci :
 

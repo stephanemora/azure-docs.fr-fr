@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: travisw
-ms.openlocfilehash: 77d756bc0c7bbdfa38bb1262638ef85b051fc234
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: b50b98095cdfe0e6ec19c89b57887ebc4a0f6317
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95026486"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713046"
 ---
 # <a name="getting-started-with-voice-assistants-on-windows"></a>Prise en main des assistants vocaux sur Windows
 
@@ -34,7 +34,7 @@ Pour commencer à développer un assistant vocal pour Windows, vous devez vous a
 
 Certaines ressources requises pour un agent vocal entièrement personnalisé sur Windows nécessitent des ressources Microsoft. L’[exemple d'assistant vocal UWP](windows-voice-assistants-faq.md#the-uwp-voice-assistant-sample) fournit des exemples de versions de ces ressources à des fins de développement et de test initiaux et dès lors, cette section n'est pas nécessaire à des fins de développement initial.
 
-- **Modèle de mot clé :** L’activation vocale requiert un modèle de mot clé Microsoft sous forme de fichier .bin. Le fichier .bin fourni dans l’exemple d'assistant vocal UWP est formé sur le mot clé « contoso ».
+- **Modèle de mot clé :** L’activation vocale requiert un modèle de mot clé Microsoft sous forme de fichier .bin. Le fichier .bin fourni dans l’exemple d’assistant vocal UWP est entraîné sur le mot clé *contoso*.
 - **Jeton de fonctionnalité à accès limité :** Les API ConversationalAgent fournissant un accès à l’audio du micro, elles sont protégées dans le cadre des restrictions relatives aux fonctionnalités à accès limité.  Pour utiliser une fonctionnalité à accès limité, vous devez obtenir auprès de Microsoft un jeton de fonctionnalité à accès limité connecté à l’identité de package de votre application.
 
 ## <a name="establish-a-dialog-service"></a>Établir un service de dialogue

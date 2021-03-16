@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2020
 ms.author: memildin
-ms.openlocfilehash: ca3a1083b512709ad5ef070b6f5bd0e363baf80b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 432729417a65376533d9ecc201f2f6f52376cc58
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101720747"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102099401"
 ---
 # <a name="sql-information-protection-policy-in-azure-security-center"></a>Stratégie de protection des informations SQL dans Azure Security Center
  
@@ -32,7 +32,7 @@ Le mécanisme de classification est basé sur les deux éléments suivants :
 Les options de la stratégie de protection des informations dans Security Center fournissent un ensemble prédéfini d’étiquettes et de types d’informations qui servent de valeurs par défaut pour le moteur de classification. Vous pouvez personnaliser la stratégie en fonction des besoins de votre organisation, comme décrit ci-dessous.
 
 > [!IMPORTANT]
-> Pour personnaliser la stratégie de protection des informations de votre locataire Azure, vous devez disposer de privilèges administratifs sur le groupe d’administration racine du locataire. Apprenez-en davantage dans [Gagner en visibilité au niveau locataire dans Azure Security Center](security-center-management-groups.md).
+> Pour personnaliser la stratégie de protection des informations de votre locataire Azure, vous devez disposer de privilèges administratifs sur le groupe d’administration racine du locataire. Pour en savoir plus, consultez [Accorder et demander une visibilité à l’échelle du locataire](tenant-wide-permissions-management.md).
 
 :::image type="content" source="./media/security-center-info-protection-policy/sql-information-protection-policy-page.png" alt-text="Page affichant votre stratégie de protection des informations SQL":::
  
@@ -58,7 +58,7 @@ Chaque façon est affichée dans l’onglet correspondant, ci-dessous.
 Dans la page des **tarifs et des paramètres** de Security Center, sélectionnez **Protection des informations SQL**.
 
 > [!NOTE]
-> Cette option s’affiche uniquement pour les utilisateurs disposant d’autorisations au niveau du locataire. [Accordez-vous des autorisations à l’échelle du locataire](./security-center-management-groups.md#grant-tenant-wide-permissions-to-yourself).
+> Cette option s’affiche uniquement pour les utilisateurs disposant d’autorisations au niveau du locataire. [Accordez-vous des autorisations à l’échelle du locataire](tenant-wide-permissions-management.md#grant-tenant-wide-permissions-to-yourself).
 
 :::image type="content" source="./media/security-center-info-protection-policy/pricing-settings-link-to-information-protection.png" alt-text="Accès à la stratégie de protection des informations SQL depuis la page des tarifs et des paramètres d’Azure Security Center":::
 

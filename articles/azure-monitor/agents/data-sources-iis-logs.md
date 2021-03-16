@@ -1,17 +1,16 @@
 ---
 title: Collecter les journaux IIS avec l’agent Log Analytics dans Azure Monitor
 description: Internet Information Services (IIS) enregistre l'activité des utilisateurs dans des fichiers journaux qui peuvent être collectés par Azure Monitor.  Cet article décrit comment configurer la collecte des journaux d’activité IIS et des détails des enregistrements qu’ils créent dans Azure Monitor.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/13/2020
-ms.openlocfilehash: 96eab2d93ae0212568f8ef23e32a35016cb17248
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 02/26/2021
+ms.openlocfilehash: 484e49219b94f5974661b1e76f533236666ebcfb
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101732052"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050730"
 ---
 # <a name="collect-iis-logs-with-log-analytics-agent-in-azure-monitor"></a>Collecter les journaux IIS avec l’agent Log Analytics dans Azure Monitor
 Internet Information Services (IIS) enregistre l’activité des utilisateurs dans des fichiers journaux qui peuvent être collectés par l’agent Log Analytics et stockés dans les [journaux d’Azure Monitor](../data-platform.md).
@@ -26,7 +25,7 @@ Azure Monitor regroupe des entrées des fichiers journaux créés par IIS. Vous 
 
 Azure Monitor prend en charge uniquement les fichiers journaux IIS stockés au format W3C, et ne prend pas en charge les champs personnalisés ou IIS Advanced Logging. Il ne collecte pas les journaux d’activité au format natif NCSA ou IIS.
 
-Configurez les journaux d’activité IIS dans Azure Monitor à partir du [menu des paramètres avancés](../agents/agent-data-sources.md#configuring-data-sources) pour l’agent Log Analytics.  Aucune configuration n’est requise autre que la sélection de l’option **Collecter les fichiers journaux IIS au format W3C**.
+Configurez les journaux d’activité IIS dans Azure Monitor dans le [menu Configuration de l’agent](../agents/agent-data-sources.md#configuring-data-sources) pour l’agent Log Analytics.  Aucune configuration n’est requise autre que la sélection de l’option **Collecter les fichiers journaux IIS au format W3C**.
 
 
 ## <a name="data-collection"></a>Collecte de données

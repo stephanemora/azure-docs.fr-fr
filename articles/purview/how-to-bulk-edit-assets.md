@@ -7,12 +7,12 @@ ms.service: data-catalog
 ms.subservice: data-catalog-gen2
 ms.topic: conceptual
 ms.date: 11/24/2020
-ms.openlocfilehash: 77bfa3d22d628cf179e95cd4892ec030f22ab35f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 493d3ceb596bb29da0e60ab08518375412417a0e
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101693762"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102049478"
 ---
 # <a name="how-to-bulk-edit-assets-to-tag-glossary-terms"></a>Comment modifier en bloc des ressources pour étiqueter des termes de glossaire
 
@@ -65,13 +65,13 @@ Cet article explique comment étiqueter plusieurs termes de glossaire dans une l
 
 7. Répétez les étapes ci-dessus pour les classifications, les propriétaires et les experts.
 
-    :::image type="content" source="media/how-to-bulk-edit-assets/all-list.png" alt-text="Capture d'écran des termes à supprimer.":::
+    :::image type="content" source="media/how-to-bulk-edit-assets/all-list.png" alt-text="Capture d’écran des classifications et des contacts.":::
 
 8. Une fois que vous avez terminé, fermez le panneau de modification en bloc en sélectionnant **Fermer** ou **Supprimer tout et fermer**. Fermer ne supprimera pas les ressources sélectionnées, tandis que Supprimer tout et fermer supprimera toutes les ressources sélectionnées.
     :::image type="content" source="media/how-to-bulk-edit-assets/close-list.png" alt-text="Capture d'écran de la fermeture.":::
 
    > [!Important]
-   > Le nombre recommandé de ressources pour la modification en bloc est de 15. La sélection de plus de 25 éléments peut entraîner des problèmes de performances.
+   > Le nombre recommandé de ressources pour la modification en bloc est de 25. La sélection de plus de 25 éléments peut entraîner des problèmes de performances.
    > La case **Afficher la sélection** ne s’affiche que si au moins une ressource est sélectionnée.
 
 

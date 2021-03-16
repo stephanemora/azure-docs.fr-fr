@@ -7,12 +7,12 @@ ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: dépannage, mise à jour, bogue, Kinect, commentaires, récupération, journalisation, conseils
-ms.openlocfilehash: a6e00b6c5e9e4f82bb668769aade8311896bef32
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 5f13815b8f8b26f6a08da28181a4a6164b7b89a3
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97587279"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102038818"
 ---
 # <a name="azure-kinect-known-issues-and-troubleshooting"></a>Problèmes connus et résolution des problèmes liés à Azure Kinect
 
@@ -174,6 +174,10 @@ Le moteur de profondeur Azure Kinect sur Linux utilise OpenGL. OpenGL requiert u
 2. Mettez le système hors tension, déconnectez le moniteur et mettez le système sous tension. La connexion automatique force la création d’une session x-server.
 2. Connectez-vous via SSH et définissez la variable d’environnement DISPLAY `export DISPLAY=:0`
 3. Démarrez votre application Azure Kinect.
+
+L’utilitaire [xtrlock](http://manpages.ubuntu.com/manpages/xenial/man1/xtrlock.1x.html) permet de verrouiller immédiatement l’écran après la connexion automatique. Ajoutez la commande suivante à l’application de démarrage ou au service systemd :
+
+`bash -c “xtrlock -b”` 
 
 ## <a name="missing-c-documentation"></a>Documentation C# manquante
 

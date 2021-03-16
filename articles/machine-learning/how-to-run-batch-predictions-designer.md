@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: keli19
 author: likebupt
-ms.date: 09/09/2020
+ms.date: 02/05/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 2ef125f65e13f7a9fa756553b1de148d4849babc
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: dda47d3ff561d4d57045dbb28f8c411e193086d5
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94553944"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101657358"
 ---
 # <a name="run-batch-predictions-using-azure-machine-learning-designer"></a>Exécuter des prédictions par lots à l’aide du concepteur Azure Machine Learning
 
@@ -145,7 +145,23 @@ Vous pouvez également définir un nouveau pipeline par défaut sous l'onglet **
 
 ![Définir le pipeline par défaut sur la page du pipeline publié](./media/how-to-run-batch-predictions-designer/set-new-default-pipeline.png)
 
+## <a name="limitations"></a>Limites
+
+Si vous apportez des modifications à votre pipeline d’entraînement, vous devez à nouveau le soumettre, **mettre à jour** le pipeline d’inférence et réexécuter ce dernier.
+
+Notez que seuls les modèles sont mis à jour dans le pipeline d’inférence, pas la transformation de données.
+
+Pour utiliser la transformation mise à jour dans le pipeline d’inférence, vous devez inscrire la sortie de transformation du module de transformation en tant que jeu de données.
+
+![Capture d’écran montrant comment inscrire le jeu de données de transformation](./media/how-to-run-batch-predictions-designer/register-transformation-dataset.png)
+
+Ensuite, remplacez manuellement le module **TD-** dans le pipeline d’inférence par le jeu de données inscrit.
+
+![Capture d’écran montrant comment remplacer le module de transformation](./media/how-to-run-batch-predictions-designer/replace-td-module-batch-inference-pipeline.png)
+
+Vous pouvez ensuite soumettre le pipeline d’inférence avec le modèle et la transformation mis à jour, puis publier.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 Suivez le [tutoriel](tutorial-designer-automobile-price-train-score.md) sur le concepteur pour entraîner et déployer un modèle de régression.
-«
+''
