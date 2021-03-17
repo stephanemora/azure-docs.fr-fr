@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 066fb32dc9da13e8a77660a9144b53675d689f63
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: fb81960b573b5b7d28f44f7a7482c28b4ef284be
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102553797"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103496454"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Azure Disk Encryption pour les machines virtuelles Linux 
 
@@ -143,6 +143,7 @@ Azure Disk Encryption exige Azure Key Vault pour contrôler et gérer les clés 
 Pour plus d’informations, consultez [Création et configuration d’un coffre de clés pour Azure Disk Encryption](disk-encryption-key-vault.md).
 
 ## <a name="terminology"></a>Terminologie
+
 Le tableau suivant définit certains termes courants utilisés dans la documentation d’Azure Disk Encryption :
 
 | Terminologie | Définition |

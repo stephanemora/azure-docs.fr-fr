@@ -6,12 +6,12 @@ ms.author: elhorton
 ms.service: iot-develop
 ms.topic: overview
 ms.date: 02/11/2021
-ms.openlocfilehash: fa10ddad8d2fbbc414f0ccaf16b9b99fae0b0786
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: c9624e9a23d005185429c82199324ac570cbd63e
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102505033"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102607728"
 ---
 # <a name="overview-of-azure-iot-device-sdks"></a>Vue d’ensemble des kits Azure IoT device SDK
 
@@ -107,7 +107,7 @@ Ces SDK peuvent s’exécuter sur n’importe quel appareil pouvant prendre en c
 * [Dépôt GitHub](https://github.com/Azure/azure-iot-sdk-node)
 * [Exemples](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples)
 * [Package](https://www.npmjs.com/package/azure-iot-device)
-* [Documentation de référence](/javascript/api/azure-iot-device/?view=azure-iot-typescript-latest&preserve-view=true)
+* [Documentation de référence](/javascript/api/azure-iot-device/)
 * [Documentation de référence sur les modules Edge](/javascript/api/azure-iot-device/moduleclient)
 
 #### <a name="python-device-sdk"></a>SDK d’appareil Python
@@ -131,7 +131,7 @@ Les SDK de service IoT Hub vous permettent de créer des applications qui intera
 
 **SDK de service IoT Hub Java** : [Dépôt GitHub](https://github.com/Azure/azure-iot-sdk-java/tree/master/service) | [Package](https://github.com/Azure/azure-iot-sdk-java/blob/master/doc/java-devbox-setup.md#for-the-service-sdk) | [Exemples](https://github.com/Azure/azure-iot-sdk-java/tree/master/service/iot-service-samples) | [Documentation de référence](/java/api/com.microsoft.azure.sdk.iot.service)
 
-**SDK de service IoT Hub JavaScript** : [Dépôt GitHub](https://github.com/Azure/azure-iot-sdk-node/tree/master/service) | [Package](https://www.npmjs.com/package/azure-iothub) | [Exemples](https://github.com/Azure/azure-iot-sdk-node/tree/master/service/samples) | [Documentation de référence](/javascript/api/azure-iothub/?view=azure-iot-typescript-latest&preserve-view=true)
+**SDK de service IoT Hub JavaScript** : [Dépôt GitHub](https://github.com/Azure/azure-iot-sdk-node/tree/master/service) | [Package](https://www.npmjs.com/package/azure-iothub) | [Exemples](https://github.com/Azure/azure-iot-sdk-node/tree/master/service/samples) | [Documentation de référence](/javascript/api/azure-iothub/)
 
 **SDK de service IoT Hub Python** : [Dépôt GitHub](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-hub) | [Package](https://pypi.python.org/pypi/azure-iot-hub/) | [Exemples](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-hub/samples) | [Documentation de référence](/python/api/azure-iot-hub)
 

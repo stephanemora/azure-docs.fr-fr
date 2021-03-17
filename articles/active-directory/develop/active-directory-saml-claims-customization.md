@@ -13,12 +13,12 @@ ms.date: 12/09/2020
 ms.author: kenwith
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 05447f41ca891adfe14533a74dfedf153e3c5773
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 0cccf45037320b476b1a44cafa8074bacadacbc8
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100102697"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103600947"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Procédure : personnaliser des revendications émises dans le jeton SAML pour les applications d’entreprise
 
@@ -71,7 +71,7 @@ Sélectionnez la source souhaitée pour la revendication `NameIdentifier` (ou Na
 |------|-------------|
 | E-mail | Adresse e-mail de l’utilisateur |
 | userprincipalName | Nom d’utilisateur principal (UPN) de l’utilisateur |
-| onpremisessamaccount | Nom de compte SAM qui a été synchronisé à partir d’Azure AD en local |
+| onpremisessamaccountname | Nom de compte SAM qui a été synchronisé à partir d’Azure AD en local |
 | objectid | ID d’objet de l’utilisateur dans Azure AD |
 | employeeid | ID d’employé de l’utilisateur |
 | Extensions d’annuaire | Extensions d’annuaire [ synchronisées à partir d’Active Directory local à l’aide d’Azure AD Connect Sync](../hybrid/how-to-connect-sync-feature-directory-extensions.md) |

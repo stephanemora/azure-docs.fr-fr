@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 01/12/2021
+ms.date: 03/16/2021
 ms.author: victorh
-ms.openlocfilehash: 63e2aac4c12ecc5d832cb037fda91bd2c6ad0bf1
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 506799f94676be007cf94320e3958bd305ce85f0
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98132441"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103573453"
 ---
 # <a name="what-is-azure-firewall-manager"></a>Qu’est-ce qu’Azure Firewall Manager ?
 
@@ -88,7 +88,6 @@ Les problèmes connus d’Azure Firewall Manager sont les suivants :
 |Échec de l'ajout en bloc d'adresses IP|Le pare-feu du hub sécurisé passe en état d'échec si vous ajoutez plusieurs adresses IP publiques.|Ajoutez de plus petits incréments d'adresses IP publiques. Par exemple, ajoutez 10 adresses à la fois.|
 |Protection DDoS Standard non prise en charge avec les hubs virtuels sécurisés|La protection DDoS Standard n’est pas intégrée aux réseaux WAN virtuels.|Enquête|
 |Journaux d’activité non entièrement pris en charge|La stratégie de pare-feu ne prend pas en charge les journaux d’activité.|Enquête|
-|Configuration de la traduction de l’adresse réseau source des plages d’adresses IP privées|Les [paramètres de plage d’adresses IP privées](../firewall/snat-private-range.md) sont ignorés si la stratégie de pare-feu Azure est configurée. Le comportement par défaut du Pare-feu Azure est utilisé : celui-ci ne traduit pas l’adresse réseau source avec des règles de réseau lorsque l’adresse IP de destination se trouve dans une plage d’adresses IP privées définie par la norme [IANA RFC 1918](https://tools.ietf.org/html/rfc1918).|Enquête|
 |Certains paramètres de pare-feu ne sont pas migrés lorsque le pare-feu est migré pour utiliser la stratégie de pare-feu|Les adresses privées SNAT et zones de disponibilité ne sont pas migrées lorsque vous migrez vers la stratégie de pare-feu Azure.|Enquête| 
 
 ## <a name="next-steps"></a>Étapes suivantes

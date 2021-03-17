@@ -8,22 +8,22 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: ff54c1dc62189f2a00528c6a82abe26c667c5538
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 331ef39facb9f7cf8f069f2a238be325f53de2d0
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102038694"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102618031"
 ---
 # <a name="cicd-for-azure-spring-cloud"></a>CI/CD pour Azure Spring Cloud
 
-Les outils d’intégration continue et de livraison continue vous permettent de déployer rapidement des mises à jour d’applications existantes avec un minimum d’effort et de risque. Azure DevOps vous aide à organiser et à contrôler ces travaux clés. Actuellement, Azure Spring Cloud n’offre pas de plug-in Azure DevOps spécifique.  Toutefois, vous pouvez intégrer vos applications Spring Cloud à DevOps à l’aide d’une [tâche Azure CLI](/azure/devops/pipelines/tasks/deploy/azure-cli?preserve-view=true&view=azure-devops).
+Les outils d’intégration continue et de livraison continue vous permettent de déployer rapidement des mises à jour d’applications existantes avec un minimum d’effort et de risque. Azure DevOps vous aide à organiser et à contrôler ces travaux clés. Actuellement, Azure Spring Cloud n’offre pas de plug-in Azure DevOps spécifique.  Toutefois, vous pouvez intégrer vos applications Spring Cloud à DevOps à l’aide d’une [tâche Azure CLI](/azure/devops/pipelines/tasks/deploy/azure-cli).
 
 Cet article montre comment utiliser une tâche Azure CLI avec Azure Spring Cloud pour l’intégration avec Azure DevOps.
 
 ## <a name="create-an-azure-resource-manager-service-connection"></a>Créer une connexion de service Azure Resource Manager
 
-Pour découvrir comment créer une connexion de service Azure Resource Manager à votre projet Azure DevOps, consultez [cet article](/azure/devops/pipelines/library/connect-to-azure?preserve-view=true&view=azure-devops). Veillez à sélectionner le même abonnement que celui utilisé pour votre instance de service Azure Spring Cloud.
+Pour découvrir comment créer une connexion de service Azure Resource Manager à votre projet Azure DevOps, consultez [cet article](/azure/devops/pipelines/library/connect-to-azure). Veillez à sélectionner le même abonnement que celui utilisé pour votre instance de service Azure Spring Cloud.
 
 ## <a name="azure-cli-task-templates"></a>Modèles de tâche Azure CLI
 ::: zone pivot="programming-language-csharp"

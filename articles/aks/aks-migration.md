@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 02/25/2020
 ms.custom: mvc
-ms.openlocfilehash: 5881d03603002cc8d5bef1680083f6b4145bc77f
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 19de94db517afb2a8eeb855e76f2381096f8d7c0
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99526685"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102609105"
 ---
 # <a name="migrate-to-azure-kubernetes-service-aks"></a>Migrer vers Azure Kubernetes Service (AKS)
 
@@ -114,7 +114,7 @@ La migration des applications sans état est le cas de migration le plus simple.
 Planifiez soigneusement la migration des applications avec afin d’éviter la perte de données ou un temps d’arrêt imprévu.
 
 Si vous utilisez Azure Files, vous pouvez monter le partage de fichiers en tant que volume dans le nouveau cluster :
-* [Monter le service Azure Files statique en tant que volume](./azure-files-volume.md#mount-the-file-share-as-a-volume)
+* [Monter le service Azure Files statique en tant que volume](./azure-files-volume.md#mount-file-share-as-an-persistent-volume)
 
 Si vous utilisez des disques managés Azure, vous pouvez monter le disque uniquement s’il n’est pas attaché à une machine virtuelle :
 * [Monter un disque Azure statique en tant que volume](./azure-disk-volume.md#mount-disk-as-volume)

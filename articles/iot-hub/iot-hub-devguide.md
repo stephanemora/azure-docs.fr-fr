@@ -9,12 +9,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.custom: mqtt
-ms.openlocfilehash: 03e05eb2bc56a07c2bda3d3fb224012abb3c9e4a
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 1fcf560ba1fef137a28ab1872635cc2182cd07e1
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92735938"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103009196"
 ---
 # <a name="azure-iot-hub-developer-guide"></a>Guide du développeur Azure IoT Hub
 
@@ -56,7 +56,7 @@ Ce guide du développeur IoT Hub inclut les articles suivants :
 
 * L’article [Contrôler l’accès à IoT Hub](iot-hub-devguide-security.md) décrit le modèle de sécurité utilisé pour autoriser l’accès à la fonctionnalité IoT Hub pour les appareils et les composants du cloud. L’article inclut des informations sur l’utilisation des jetons et des certificats X.509, ainsi que des détails sur les autorisations que vous pouvez accorder.
 
-* L’article [Utiliser des jumeaux d’appareil pour synchroniser l’état et la configuration](iot-hub-devguide-device-twins.md) décrit le concept de *jumeau d’appareil* . L’article décrit également les fonctionnalités exposées par les jumeaux d’appareil, telles que la synchronisation d’un appareil avec son jumeau. L’article inclut des informations sur les données stockées dans un jumeau d’appareil.
+* L’article [Utiliser des jumeaux d’appareil pour synchroniser l’état et la configuration](iot-hub-devguide-device-twins.md) décrit le concept de *jumeau d’appareil*. L’article décrit également les fonctionnalités exposées par les jumeaux d’appareil, telles que la synchronisation d’un appareil avec son jumeau. L’article inclut des informations sur les données stockées dans un jumeau d’appareil.
 
 * L’article [Appeler une méthode directe sur un appareil](iot-hub-devguide-direct-methods.md) décrit le cycle de vie d’une méthode directe. L’article décrit comment appeler des méthodes sur un appareil à partir de votre application backend, et comment gérer la méthode directe sur votre appareil.
 
@@ -75,5 +75,3 @@ Ce guide du développeur IoT Hub inclut les articles suivants :
 * L’article [Référence - Kits de développement logiciel (SDK) de services et d’appareils](iot-hub-devguide-sdks.md) répertorie les Kits de développement logiciel (SDK) Azure IoT que vous pouvez utiliser lors du développement d’appareils et d’applications de service qui interagissent avec IoT Hub. L’article inclut des liens vers la documentation en ligne sur les API.
 
 * L’article [Référence - Prise en charge de MQTT au niveau d’IoT Hub](iot-hub-mqtt-support.md) fournit des informations détaillées sur la prise en charge du protocole MQTT par IoT Hub. L’article décrit la prise en charge du protocole MQTT intégré dans les Kits de développement logiciel (SDK) Azure IoT et fournit des informations sur l’utilisation directe du protocole MQTT.
-
-* [Glossaire](iot-hub-devguide-glossary.md) contient une liste des termes courants relatifs à IoT Hub.

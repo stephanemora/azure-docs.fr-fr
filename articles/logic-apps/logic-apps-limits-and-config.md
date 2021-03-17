@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 03/03/2021
-ms.openlocfilehash: 39d7516b9cec1a3b9aa4484c2ff93564bd5772da
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.date: 03/18/2021
+ms.openlocfilehash: f4336350af92c27760369d668c6babddc4d4ea30
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102034283"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103462914"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites et informations de configuration pour Azure Logic Apps
 
@@ -50,7 +50,7 @@ Les limites pour l’exécution d’une application logique sont les suivantes :
 | Nom | Limite multilocataire | Limite d’environnement de service d’intégration | Notes |
 |------|--------------------|---------------------------------------|-------|
 | Durée d’exécution | 90 jours | 366 jours | La durée d’exécution est calculée à l’aide de l’heure de début d’une exécution et de la limite spécifiée par le paramètre de workflow, [**Conservation de l’historique des exécutions en jours**](#change-duration) à l’heure de début. <p><p>Pour modifier la limite par défaut, consultez [Modifier la durée d’exécution et la conservation de l’historique dans le stockage](#change-duration). |
-| Conservation de l’historique des exécutions dans le stockage | 90 jours | 366 jours | Si la durée d’une exécution dépasse la limite de conservation actuelle, l’exécution est supprimée de l’historique des exécutions dans le stockage. Que l’exécution se termine ou expire, la rétention de l’historique des exécutions est toujours calculée en utilisant l’heure de début de l’exécution et la limite actuelle spécifiée dans le paramètre du workflow, [**Conservation de l’historique des exécutions en jours**](#change-retention). Quelle que soit la limite précédente, la limite actuelle est toujours utilisée pour le calcul de la rétention. <p><p>Pour modifier la limite par défaut et pour plus d’informations, consultez [Modifier l’exécution et la conservation de l’historique des exécutions dans le stockage](#change-retention). Pour augmenter la limite maximale, [contactez l’équipe Logic Apps](mailto://logicappsemail@microsoft.com) pour qu’elle réponde à vos besoins. |
+| Conservation de l’historique des exécutions dans le stockage | 90 jours | 366 jours | Si la durée d’une exécution dépasse la limite de conservation actuelle, l’exécution est supprimée de l’historique des exécutions dans le stockage. Que l’exécution se termine ou expire, la rétention de l’historique des exécutions est toujours calculée en utilisant l’heure de début de l’exécution et la limite actuelle spécifiée dans le paramètre du workflow, [**Conservation de l’historique des exécutions en jours**](#change-retention). Quelle que soit la limite précédente, la limite actuelle est toujours utilisée pour le calcul de la rétention. <p><p>Pour modifier la limite par défaut et pour plus d’informations, consultez [Modifier l’exécution et la conservation de l’historique des exécutions dans le stockage](#change-retention). Pour augmenter la limite maximale, [contactez l’équipe Logic Apps](mailto://logicappspm@microsoft.com) pour qu’elle réponde à vos besoins. |
 | Intervalle de périodicité minimal | 1 seconde | 1 seconde ||
 | Intervalle de périodicité maximal | 500 jours | 500 jours ||
 |||||
@@ -203,8 +203,8 @@ Pour plus d’informations sur la définition de ressource de votre application 
 
   | Nom | Limite | Notes |
   |------|-------|-------|
-  | Limite d’exécution de l’unité de base | Limitation du système quand la capacité de l’infrastructure atteint 80 % | Assure environ 4 000 exécutions d’action par minute, ce qui représente environ 160 millions d’exécutions d’action par mois | |
-  | Limite d’exécution de l’unité d’échelle | Limitation du système quand la capacité de l’infrastructure atteint 80 % | Chaque unité d’échelle peut assurer environ 2 000 exécutions d’action supplémentaires par minute, ce qui représente environ 80 millions d’exécutions d’action supplémentaires par mois | |
+  | Limite d’exécution de l’unité de base | Limitation du système quand la capacité de l’infrastructure atteint 80 % | Assure environ 4 000 exécutions d’action par minute, ce qui représente environ 160 millions d’exécutions d’action par mois |
+  | Limite d’exécution de l’unité d’échelle | Limitation du système quand la capacité de l’infrastructure atteint 80 % | Chaque unité d’échelle peut assurer environ 2 000 exécutions d’action supplémentaires par minute, ce qui représente environ 80 millions d’exécutions d’action supplémentaires par mois |
   | Nombre maximum d’unités d’échelle que vous pouvez ajouter | 10 | |
   ||||
 
@@ -244,11 +244,11 @@ Comme certaines opérations de connecteur effectuent des appels asynchrones ou �
 
 #### <a name="character-limits"></a>Limites de caractères
 
-| Nom | Notes |
-|------|-------|
+| Nom | Limite | Notes |
+|------|-------|-------|
 | Limite d’évaluation des expressions | 131 072 caractères | Les expressions `@concat()`, `@base64()`, `@string()` ne peuvent pas contenir plus de caractères. |
-| Limite de caractères de l’URL de la requête | 16 384 caractères |
-|||
+| Limite de caractères de l’URL de la requête | 16 384 caractères | |
+||||
 
 <a name="retry-policy-limits"></a>
 

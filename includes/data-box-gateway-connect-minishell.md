@@ -4,12 +4,12 @@ ms.service: databox
 ms.topic: include
 ms.date: 10/15/2020
 ms.author: alkohli
-ms.openlocfilehash: c0ba6aee0e23dc0c68348c59c8ca8acdcd606435
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: f9707ab48d64ede2e796675eb3a0a6e7820c7073
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98900903"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102603365"
 ---
 Selon le système d’exploitation du client, les procédures permettant de se connecter à distance à l’appareil diffèrent.
 
@@ -58,17 +58,17 @@ Suivez cette procédure pour effectuer une connexion distante depuis un client W
 
 Sur le client Linux que vous utiliserez pour vous connecter :
 
-- [Installez la plus récente de PowerShell Core pour Linux](/powershell/scripting/install/installing-powershell-core-on-linux?preserve-view=true&view=powershell-6), à partir de GitHub, afin d’obtenir la fonctionnalité d’accès distant SSH. 
+- [Installez la plus récente de PowerShell Core pour Linux](/powershell/scripting/install/installing-powershell-core-on-linux), à partir de GitHub, afin d’obtenir la fonctionnalité d’accès distant SSH. 
 - [Installez uniquement le package `gss-ntlmssp` à partir du module NTLM](https://github.com/Microsoft/omi/blob/master/Unix/doc/setup-ntlm-omi.md). Pour les clients Ubuntu, exécutez la commande ci-dessous :
     - `sudo apt-get install gss-ntlmssp`
 
-Pour plus d’informations, voir [Accès distant à PowerShell via SSH](/powershell/scripting/learn/remoting/ssh-remoting-in-powershell-core?preserve-view=true&view=powershell-6).
+Pour plus d’informations, voir [Accès distant à PowerShell via SSH](/powershell/scripting/learn/remoting/ssh-remoting-in-powershell-core).
 
 Suivez cette procédure pour effectuer une connexion distante depuis un client NFS.
 
 1. Pour ouvrir la session PowerShell, saisissez :
 
-    `sudo pwsh`
+    `pwsh`
  
 2. Pour vous connecter à l’aide du client distant, saisissez :
 

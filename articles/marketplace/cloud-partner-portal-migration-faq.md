@@ -7,12 +7,12 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 091feacceb510038786ae487c0895f9ff1e47aba
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: e071692a1c6fe423b048dab884164d9b3c98f1fd
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880336"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102613610"
 ---
 # <a name="frequently-asked-questions-about-transitioning-from-the-cloud-partner-portal-to-partner-center"></a>Questions fréquentes (FAQ) sur la transition du portail Cloud Partner vers l’Espace partenaires
 
@@ -22,7 +22,7 @@ Le portail Cloud Partner a fait l’objet d’une transition vers l’Espace par
 
 Vous pouvez continuer à travailler dans l’Espace partenaires :
 
-| Domaine<img src="" width=200px> | Modifications |
+| Domaine | Modifications |
 | --- | --- |
 | Compte | Vous n’avez pas besoin de créer un nouveau compte Espace partenaires ; vous pouvez utiliser vos informations d’identification existantes du portail Cloud Partner pour vous connecter à l’Espace partenaires, où vous allez maintenant gérer votre compte, les utilisateurs, les autorisations et la facturation. Le contrat d’éditeur et les informations sur le profil de l’entreprise sont migrés vers votre nouveau compte Espace partenaires, ainsi que les informations de profil de paiement, les comptes d’utilisateur et les autorisations, ainsi que les offres actives. En savoir plus dans [Gérer votre compte Place de marché commerciale dans l’Espace partenaires](partner-center-portal/manage-account.md). |
 | Expérience de publication d’offre et de gestion des offres | Nous avons déplacé vos données d’offre du portail Cloud Partner vers l’Espace partenaires. Maintenant, vous accédez à vos offres dans l’Espace partenaires, qui offre une expérience utilisateur améliorée et une interface intuitive. Découvrez comment [Mettre à jour une offre existante dans la place de marché commerciale](partner-center-portal/update-existing-offer.md). |
@@ -41,7 +41,7 @@ Non, votre compte est préservé. Cela signifie que si vous êtes un partenaire 
 
 Voici les liens de l’Espace partenaires pour les pages couramment utilisées dans le portail Cloud Partner. Si vous avez enregistré les liens du portail Cloud Partner en tant que signets, vous devriez les mettre à jour.
 
-| Page du portail Microsoft Cloud Partner <img src="" width=100px>| Lien de la page du portail Cloud Partner | Lien de la page de l’Espace partenaire |
+| Page du portail Microsoft Cloud Partner | Lien de la page du portail Cloud Partner | Lien de la page de l’Espace partenaire |
 | --- | --- | --- |
 | Page Toutes les offres | [https://cloudpartner.azure.com/#alloffers](https://cloudpartner.azure.com/#alloffers) | [https://partner.microsoft.com/dashboard/commercial-marketplace/overview](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) |
 | Page Tous les éditeurs | [https://cloudpartner.azure.com/#publishers](https://cloudpartner.azure.com/#publishers) | [https://partner.microsoft.com/dashboard/account/v3/publishers/list](https://partner.microsoft.com/dashboard/account/v3/publishers/list) |
@@ -75,7 +75,7 @@ Tous les types d’offres précédemment pris en charge dans le portail Cloud Pa
 
 Pour les types d’offres pris en charge dans l’Espace partenaires, toutes les offres ont été déplacées, quel que soit leur état. Les offres de type brouillon, plus répertoriées et en préversion uniquement ont également été déplacées.
 
-| Type d’offre <img src="" width=150px>| Déplacé vers l’Espace partenaires ? <img src="" width=100px>| Étapes suivantes |
+| Type d’offre | Déplacé vers l’Espace partenaires ? | Étapes suivantes |
 | --- | --- | --- |
 | SaaS | Oui | Connectez-vous à l’Espace partenaires pour créer de nouvelles offres et gérer les offres créées dans le portail Cloud Partner. En savoir plus dans [Planifier une offre SaaS pour la place de marché commerciale](plan-saas-offer.md). |
 | Machine virtuelle | Oui | Connectez-vous à l’Espace partenaires pour créer de nouvelles offres et gérer les offres créées dans le portail Cloud Partner. En savoir plus dans [Planifier une offre de machine virtuelle](marketplace-virtual-machines.md). |
@@ -181,7 +181,7 @@ Vous pouvez demander à [arrêter la vente d’une offre](partner-center-portal/
 
 Les API du portail Cloud Partner sont intégrées à l’Espace partenaires et continueront à fonctionner. La transition vers l’Espace partenaires introduit de petites modifications. Passez en revue le tableau suivant pour vous assurer que votre code continue à fonctionner dans l’Espace partenaires.
 
-| API <img src="" width=100px>| Description de la modification | Impact |
+| API | Description de la modification | Impact |
 | --- | --- | --- |
 | POST Publish, GoLive, Cancel | Pour les offres migrées, l’en-tête de réponse aura un format différent, mais continuera à fonctionner de la même façon, indiquant un chemin relatif pour récupérer l’état de l’opération. | Lors de l’envoi d’une des requêtes POST correspondantes pour une offre, l’en-tête d’emplacement aura l’un des deux formats suivants en fonction de l’état de migration de l’offre : <ul><li>Offres non migrées : `/api/operations/{PublisherId}${offerId}$2$preview?api-version=2017-10-31`</li><li>Offres migrées : `/api/publishers/{PublisherId}/offers/{offereId}/operations/408a4835-0000-1000-0000-000000000000?api-version=2017-10-31`</li></ul>|
 | Opération GET | Pour les offres qui prenaient auparavant en charge le champ « notification-email » dans la réponse, ce champ est déprécié et n’est plus retourné pour les offres migrées. | Pour les offres migrées, nous n’enverrons plus de notifications à la liste des e-mails spécifiés dans les requêtes. Au lieu de cela, le service d’API s’alignera sur le processus de notification par e-mail dans l’Espace partenaires pour envoyer des e-mails. Plus précisément, les notifications de progression de l’opération seront envoyées à l’adresse e-mail définie dans la section Coordonnées du vendeur de vos paramètres de compte dans l’Espace partenaires.<br><br>Vérifiez que l’adresse e-mail définie dans la section Coordonnées du vendeur dans [Paramètres du compte](https://partner.microsoft.com/dashboard/account/management) de l’Espace partenaires est correcte pour recevoir les notifications. |

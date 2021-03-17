@@ -1,18 +1,18 @@
 ---
 title: Contrôles de conformité réglementaire Azure Policy pour Azure Batch
 description: Liste les contrôles de conformité réglementaire Azure Policy disponibles pour Azure Batch. Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de la conformité de vos ressources Azure.
-ms.date: 03/05/2021
+ms.date: 03/10/2021
 ms.topic: sample
 author: JnHs
 ms.author: jenhayes
 ms.service: batch
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: fc964b6e72456ca001bf192af7a7978b2bc95583
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: 681a192b5acca9105c235f1743b41089b4f703b6
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102443832"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102631509"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-batch"></a>Contrôles de conformité réglementaire Azure Policy pour Azure Batch
 

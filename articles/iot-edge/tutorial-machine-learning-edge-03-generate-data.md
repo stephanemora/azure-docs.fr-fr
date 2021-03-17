@@ -8,14 +8,16 @@ ms.date: 1/20/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: eef5e60b06eedb1fb07c57aa2e369dd3830fcad5
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: d5fdd762834d351119116c5e4854dd4233671c29
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96932402"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103463127"
 ---
 # <a name="tutorial-generate-simulated-device-data"></a>Tutoriel : Générer des données d’appareil simulées
+
+[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
 
 Dans cet article, nous utilisons des données d’entraînement de Machine Learning pour simuler un appareil qui envoie des données de télémétrie à Azure IoT Hub. Comme indiqué dans l’introduction, ce tutoriel utilise le [Turbofan engine degradation simulation data set](https://c3.nasa.gov/dashlink/resources/139/) (jeu de données de simulation de dégradation d’un turboréacteur à double flux) pour simuler les données d’un ensemble de moteurs d’avion à des fins d’entraînement et de test.
 
@@ -168,7 +170,7 @@ Les données que nous venons d’envoyer à votre hub IoT ont été routées ver
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Ce tutoriel fait partie d’un ensemble où chaque article s’appuie sur le travail effectué dans les articles précédents. Ne nettoyez pas les ressources avant d’avoir terminé le dernier tutoriel.
+Ce tutoriel fait partie d’une série où chaque article s’appuie sur le travail effectué dans les articles précédents. Ne nettoyez pas les ressources avant d’avoir terminé le dernier tutoriel.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

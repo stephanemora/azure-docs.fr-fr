@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: e95cd313d341844eabf4f5c5feae8a8ca3dc9c2e
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: ab41a336c32a1827c23f4c4619f47dc294a4d2ea
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91826541"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103419284"
 ---
 # <a name="authentication-and-authorization-for-azure-static-web-apps-preview"></a>Authentification et autorisation pour les applications Azure Static Web Apps - Préversion
 
@@ -145,19 +145,18 @@ Par exemple, pour vous connecter avec GitHub, vous pouvez inclure un lien de con
 
 Si vous choisissez de prendre en charge plusieurs fournisseurs, vous devez exposer un lien spécifique au fournisseur pour chacun d’entre eux sur votre site web.
 
-Vous pouvez utiliser une [règle d’acheminement](routes.md) pour mapper un fournisseur par défaut sur un itinéraire convivial comme _/login_.
+Vous pouvez utiliser une [règle d’acheminement](./configuration.md#routes) pour mapper un fournisseur par défaut sur un itinéraire convivial comme _/login_.
 
 ```json
 {
   "route": "/login",
-  "serve": "/.auth/login/github"
+  "redirect": "/.auth/login/github"
 }
 ```
 
 ### <a name="post-login-redirect"></a>Redirection après connexion
 
 Si vous souhaitez qu’un utilisateur retourne à une page spécifique après la connexion, indiquez une URL dans le paramètre de chaîne de requête `post_login_redirect_uri`.
-
 
 ## <a name="logout"></a>Logout
 
@@ -167,12 +166,12 @@ L’itinéraire `/.auth/logout` déconnecte les utilisateurs du site web. Vous p
 <a href="/.auth/logout">Log out</a>
 ```
 
-Vous pouvez utiliser une [règle d’acheminement](routes.md) pour mapper un itinéraire convivial comme _/login_.
+Vous pouvez utiliser une [règle d’acheminement](./configuration.md#routes) pour mapper un itinéraire convivial comme _/login_.
 
 ```json
 {
   "route": "/logout",
-  "serve": "/.auth/logout"
+  "redirect": "/.auth/logout"
 }
 ```
 

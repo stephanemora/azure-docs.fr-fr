@@ -9,14 +9,16 @@ ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d968fb066e68fe1bb6986c63ce750c5de5c98cf9
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: 0b7013979199eefa873a651d99e87dc8b2c47856
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100633176"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103201597"
 ---
 # <a name="monitor-module-twins"></a>Superviser les jumeaux de module
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Dans Azure IoT Hub, les jumeaux de module permettent de surveiller la connectivité et l’intégrité de vos déploiements IoT Edge. Les jumeaux de module stockent dans votre hub IoT des informations utiles sur les performances de vos modules en cours d’exécution. Les modules runtime de l’[agent IoT Edge](iot-edge-runtime.md#iot-edge-agent) et du [hub IoT Edge](iot-edge-runtime.md#iot-edge-hub) gèrent leurs jumeaux de module, `$edgeAgent` et `$edgeHub`, respectivement :
 

@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 02/05/2021
 ms.author: alkohli
-ms.openlocfilehash: d2fa464214f6a4201b1ecd62ee1a5dacdd7ec158
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: e72ad50b495dec7e3a647bb7bcbdeafd53f5de7b
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99832451"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102636621"
 ---
 # <a name="system-requirements-for-azure-stack-edge-pro-with-gpu"></a>Configuration système exigée pour Azure Stack Edge Pro avec GPU 
 
@@ -38,7 +38,7 @@ La configuration système requise pour Azure Stack Edge Pro inclut ce qui suit�
 
 ## <a name="supported-edge-storage-accounts"></a>Comptes de stockage Edge pris en charge
 
-Les comptes de stockage Edge suivants sont pris en charge avec l’interface REST de l’appareil. Les comptes de stockage Edge sont créés sur l’appareil. Pour plus d’informations, consultez [Comptes de stockage Edge](azure-stack-edge-j-series-manage-storage-accounts.md#about-edge-storage-accounts).
+Les comptes de stockage Edge suivants sont pris en charge avec l’interface REST de l’appareil. Les comptes de stockage Edge sont créés sur l’appareil. Pour plus d’informations, consultez [Comptes de stockage Edge](azure-stack-edge-gpu-manage-storage-accounts.md#about-edge-storage-accounts).
 
 |Type  |Compte de stockage  |Commentaires  |
 |---------|---------|---------|
@@ -79,7 +79,7 @@ Azure IoT Edge permet les communications sortantes entre un appareil Edge local 
 
 Utilisez le tableau suivant pour configurer les ports des serveurs hébergeant le runtime Azure IoT Edge :
 
-| N° de port | Entrant ou sortant | Étendue de ports | Obligatoire | Assistance |
+| N° de port | Entrant ou sortant | Étendue de ports | Obligatoire | Guidance |
 |----------|-----------|------------|----------|----------|
 | TCP 443 (HTTPS)| Sortie       | WAN        | Oui      | Sortie ouverte pour le déploiement de IoT Edge. Cette configuration est requise en cas d’utilisation de scripts manuels ou du service Azure IoT Device Provisioning.|
 

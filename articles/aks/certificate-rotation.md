@@ -4,12 +4,12 @@ description: Découvrez comment assurer la rotation de vos certificats dans un c
 services: container-service
 ms.topic: article
 ms.date: 11/15/2019
-ms.openlocfilehash: 1871a8deed4d189534915a9b46b6ace071c1126c
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: fa26762c54ad54835b174b8d814a2e77cb38b885
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102181769"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102619033"
 ---
 # <a name="rotate-certificates-in-azure-kubernetes-service-aks"></a>Effectuer une rotation des certificats dans Azure Kubernetes Service (AKS)
 
@@ -28,8 +28,6 @@ AKS génère et utilise les certificats, autorités de certification et comptes 
 * Le serveur d’API AKS crée une autorité de certification (CA) appelée « autorité de certification de cluster ».
 * Le serveur d’API dispose d’une autorité de certification de cluster, qui signe les certificats pour la communication unidirectionnelle, du serveur d’API vers les kubelets.
 * Chaque kubelet crée également une demande de signature de certificat (CSR), qui est signée par l’autorité de certification de cluster, pour la communication du kubelet vers le serveur d’API.
-* Le magasin de valeurs de clés etcd dispose d’un certificat signé par l’autorité de certification de cluster, pour la communication émanant de etcd à destination du serveur d’API.
-* Le magasin de valeurs de clé etcd crée une autorité de certification qui signe les certificats pour authentifier et autoriser la réplication des données entre les réplicas etcd du cluster AKS.
 * L’agrégation d’API utilise l’autorité de certification de cluster pour émettre des certificats destinés à la communication avec d’autres API. L’agrégation d’API peut également disposer de sa propre autorité de certification pour émettre ces certificats, mais elle utilise actuellement l’autorité de certification de cluster.
 * Chaque nœud utilise un jeton de compte de service (SA), qui est signé par l’autorité de certification de cluster.
 * Le client `kubectl` dispose d’un certificat pour communiquer avec le cluster AKS.

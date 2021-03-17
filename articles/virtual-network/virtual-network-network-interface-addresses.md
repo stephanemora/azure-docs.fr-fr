@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/22/2020
 ms.author: allensu
-ms.openlocfilehash: 3fd0cfe644ad78059e25d5386cd1a01f56ad9fba
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 1df132e558421d2ec6e26c3883c89457716dfc42
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98216986"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103419012"
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Ajouter, modifier ou supprimer des adresses IP pour une interface réseau Azure
 
@@ -192,8 +192,6 @@ Vous pouvez assigner zéro ou une adresse [IPv6](#ipv6) privée à une configura
 
 > [!NOTE]
 > Bien que vous puissiez créer une interface réseau avec une adresse IPv6 à l’aide du portail, il vous est impossible de l’utiliser pour ajouter une interface réseau existante à un ordinateur virtuel nouveau ou existant. Utilisez PowerShell ou Azure CLI pour créer une interface réseau avec une adresse IPv6 privée, puis attachez l’interface réseau pendant la création d’une machine virtuelle. Vous ne pouvez pas attacher d’interface réseau, avec une adresse IPv6 privée qui lui est assignée, à une machine virtuelle existante. Vous ne pouvez pas ajouter d’adresse IPv6 privée à la configuration IP d’une interface réseau attachée à une machine virtuelle, quel que soit l’outil utilisé (portail, CLI ou PowerShell).
-
-Vous ne pouvez pas assigner d’adresse IPv6 publique à une configuration IP principale ou secondaire.
 
 ## <a name="skus"></a>Références (SKU)
 

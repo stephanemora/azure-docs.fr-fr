@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3101cf3650fcfb7f9313b13c1c07a03dd734e9dd
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 71291458eec0aec13542d3e0dfaf04a96f391a23
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99089222"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103466114"
 ---
 # <a name="understand-roles-in-azure-active-directory"></a>Présentation des rôles dans Azure Active Directory
 
@@ -68,4 +68,4 @@ Rôles propres à un service | Administrateur Azure DevOps<br>Administrateur Azu
 
 - [Vue d’ensemble du contrôle d’accès en fonction du rôle Azure AD](custom-overview.md)
 - Créer des attributions de rôles à l’aide du [portail Azure, d’Azure AD PowerShell et de l’API Graph](custom-create.md)
-- [Afficher les affectations d’un rôle](custom-view-assignments.md)
+- [Répertorier les attributions de rôles](view-assignments.md)

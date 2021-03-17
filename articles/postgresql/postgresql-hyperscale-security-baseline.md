@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 19935037e98bbc7ce9c4152b034b664d802a8f3a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: c373bb172be01594bb5642a626cad24838b66ea2
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100588267"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102607983"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-postgresql---hyperscale-citus"></a>Base de référence de sécurité Azure pour Azure Database pour PostgreSQL – Hyperscale (Citus)
 
@@ -544,9 +544,9 @@ Par ailleurs, Azure Resource Manager a la possibilité d’exporter le modèle a
 
 **Aide** : Si vous avez recours à des définitions Azure Policy personnalisées pour vos instances Hyperscale (Citus) et les ressources associées, utilisez Azure Repos pour stocker et gérer votre code de façon sécurisée.
 
-- [Stocker du code dans Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops&preserve-view=true)
+- [Stocker du code dans Azure DevOps](/azure/devops/repos/git/gitworkflow)
 
-- [Documentation Azure Repos](/azure/devops/repos/index?view=azure-devops&preserve-view=true)
+- [Documentation Azure Repos](/azure/devops/repos/index)
 
 **Supervision d’Azure Security Center** : Non applicable
 
