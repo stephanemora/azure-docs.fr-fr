@@ -3,7 +3,7 @@ title: Gérer les points de terminaison de streaming avec le SDK .NET. | Microso
 description: Cet article montre comment gérer les points de terminaison de streaming avec le Kit de développement logiciel (SDK) Microsoft .NET.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 writer: juliako
 manager: femila
 editor: ''
@@ -13,15 +13,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: faf9acc6e91b43e2dd82589127f8697c666d86e3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5c84e7c753e6d1eb1d357320857e4c159cc13cfc
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91250525"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103013752"
 ---
 # <a name="manage-streaming-endpoints-with-net-sdk"></a>Gérer les points de terminaison de streaming avec le SDK .NET
 

@@ -3,16 +3,16 @@ title: Déployer sur IoT Edge pour Linux sur Windows - Azure
 description: Cet article fournit des conseils sur la façon de déployer sur un appareil IoT Edge pour Linux sur Windows.
 ms.topic: how-to
 ms.date: 02/18/2021
-ms.openlocfilehash: b635070d6a4834da2c6d82cc768684b6cde9cd71
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 9ec28c62ca804137ede3cd60d1980e55fbaa2807
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102042179"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102618132"
 ---
 # <a name="deploy-to-an-iot-edge-for-linux-on-windows-eflow-device"></a>Déployer sur un appareil IoT Edge pour Linux sur Windows (EFLOW)
 
-Dans cet article, vous allez découvrir comment déployer Live Video Analytics sur un appareil de périphérie qui dispose d’[IoT Edge pour Linux sur Windows (EFLOW)](https://docs.microsoft.com/azure/iot-edge/iot-edge-for-linux-on-windows?view=iotedge-2018-06). Une fois que vous aurez terminé les étapes décrites dans ce document, vous pourrez exécuter un [graphe multimédia](media-graph-concept.md) qui détecte le mouvement dans une vidéo et émet de tels événements vers le hub IoT dans le cloud. Vous pourrez ensuite extraire le graphe multimédia pour les scénarios avancés, et bénéficier de toute la puissance de Live Video Analytics dans votre appareil IoT Edge Windows.
+Dans cet article, vous allez découvrir comment déployer Live Video Analytics sur un appareil de périphérie qui dispose d’[IoT Edge pour Linux sur Windows (EFLOW)](https://docs.microsoft.com/azure/iot-edge/iot-edge-for-linux-on-windows). Une fois que vous aurez terminé les étapes décrites dans ce document, vous pourrez exécuter un [graphe multimédia](media-graph-concept.md) qui détecte le mouvement dans une vidéo et émet de tels événements vers le hub IoT dans le cloud. Vous pourrez ensuite extraire le graphe multimédia pour les scénarios avancés, et bénéficier de toute la puissance de Live Video Analytics dans votre appareil IoT Edge Windows.
 
 ## <a name="prerequisites"></a>Prérequis 
 

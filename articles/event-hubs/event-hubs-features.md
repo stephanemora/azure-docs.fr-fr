@@ -2,13 +2,13 @@
 title: Vue d’ensemble des fonctionnalités d’Azure Event Hubs | Microsoft Docs
 description: Cet article décrit en détails les fonctionnalités et la terminologie d’Azure Event Hubs.
 ms.topic: article
-ms.date: 02/19/2021
-ms.openlocfilehash: 8bb63bfdbeb5b875b1e461fbd93fb48dcbb43054
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/15/2021
+ms.openlocfilehash: fbfc2a23a7cde50172b80769558c2dfd6fd5ec84
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101739073"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103601302"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Fonctionnalités et terminologie dans Azure Event Hubs
 
@@ -53,6 +53,13 @@ Les événements publiés sont supprimés d’un Event Hub selon une stratégie 
 - Pour Event Hubs **Standard**, la période de rétention maximale est de **7 jours**. 
 - Pour Event Hubs **Dedicated**, la période de rétention maximale est de **90 jours**.
 - Si vous modifiez la période de rétention, celle-ci s’applique à tous les messages, dont ceux figurant déjà dans l’Event Hub. 
+
+Event Hubs conserve les événements pendant une durée de conservation configurée qui s’applique à toutes les partitions. Les événements sont automatiquement supprimés lorsque la période de conservation est atteinte. Si vous spécifiez une période de conservation d’une journée, l’événement devient indisponible exactement 24 heures après qu’il a été accepté. Vous ne pouvez pas supprimer explicitement des événements. 
+
+Si vous avez besoin d’archiver des événements au-delà de la période de conservation autorisée, vous pouvez faire en sorte qu’ils soient [stockés automatiquement dans Stockage Azure ou Azure Data Lake en activant la fonctionnalité de capture d’Event Hubs](event-hubs-capture-overview.md), et si vous avez besoin d’effectuer des recherches ou des analyses dans des archives profondes, vous pouvez [les importer facilement dans Azure Synapse](store-captured-data-data-warehouse.md) ou d’autres magasins et plateformes d’analytique similaires. 
+
+La limite de conservation des données en fonction du temps appliquée par Event Hubs a pour but d’éviter que des volumes importants de données historiques client soient interceptés dans un magasin profond qui n’est indexé que par un horodatage et qui n’autorise que l’accès séquentiel. La philosophie architecturale est que les données historiques nécessitent une indexation plus riche et un accès plus direct que l’interface d’événements en temps réel fournie par Event Hubs ou Kafka. Les moteurs de flux d’événements ne sont pas parfaits pour assumer le rôle de lacs de données ou d’archives à long terme pour le provisionnement d’événements. 
+ 
 
 > [!NOTE]
 > Event Hubs est un moteur de flux d’événements en temps réel et n’est pas conçu pour être utilisé à la place d’une base de données et/ou d’un magasin permanent pour les flux d’événements se déroulant de manière illimitée. 

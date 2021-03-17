@@ -8,14 +8,16 @@ ms.date: 10/15/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d9e3e0f96d235829928c1f7c79864b1dc732f9e4
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: c799e38092c5983b4ad0e3daea6aae99934c7302
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102046344"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200880"
 ---
 # <a name="authenticate-a-downstream-device-to-azure-iot-hub"></a>Authentifier un appareil en aval auprès d’Azure IoT Hub
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Dans un scénario de passerelle transparente, les appareils en aval (également appelés appareils de nœud terminal ou appareils enfants) ont besoin d’identités dans IoT Hub, comme tous les autres appareils. Cet article décrit les options permettant d’authentifier un appareil en aval dans IoT Hub, puis il montre comment déclarer la connexion de passerelle.
 

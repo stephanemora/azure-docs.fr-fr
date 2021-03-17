@@ -3,7 +3,7 @@ title: Effectuer une diffusion de vidéo en flux continu à l’aide d’Azure M
 description: Ce didacticiel vous guide tout au long des étapes de création d’un canal qui reçoit un flux en temps réel à vitesse de transmission unique et qui l’encode en flux à vitesses de transmission multiples à l’aide du portail Azure.
 services: media-services
 documentationcenter: ''
-author: anilmur
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: 504f74c2-3103-42a0-897b-9ff52f279e23
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/29/2020
+ms.date: 03/10/2021
 ms.author: inhenkel
-ms.openlocfilehash: a02f1fd873c0578bb4ec3a7788a06b10eebec7bd
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: 36a4eb2856beb3ae2b0227e92f0db26e01a1b616
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98695469"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103012749"
 ---
 # <a name="perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-azure-portal"></a>Effectuer une diffusion dynamique en continu à l’aide de Media Services pour créer des flux à vitesses de transmission multiples avec le portail Azure
 

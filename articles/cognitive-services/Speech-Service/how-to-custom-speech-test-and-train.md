@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: trbye
-ms.openlocfilehash: 15f0b01304f3333b8650ab2079cd56271d0095db
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 2c98546d20e9f977a605ccbac21010aa9b1dbadc
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102424493"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103232492"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Préparer des données pour Custom Speech
 
@@ -39,6 +39,8 @@ Un modèle entraîné dans le cadre d’un sous-ensemble de scénarios ne peut f
 > Commencez avec de petits ensembles d’exemples de données correspondant à la langue et à l’acoustique que votre modèle rencontrera.
 > Par exemple, enregistrez un petit échantillon représentatif du contenu audio sur le même matériel et dans le même environnement acoustique que votre modèle rencontrera dans les scénarios de production.
 > De petits jeux de données représentatifs peuvent exposer des problèmes avant que vous ayez investi dans la collecte de jeux de données beaucoup plus volumineux à des fins d’entraînement.
+>
+> Pour commencer rapidement, vous pouvez utiliser des exemples de données. Consultez ce dépôt GitHub pour un <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/sampledata/customspeech" target="_target">exemple de données Custom Speech </a>
 
 ## <a name="data-types"></a>Types de données
 
@@ -50,17 +52,14 @@ Ce tableau liste les types de données acceptés, les cas d’utilisation pour c
 | [Transcriptions audio + étiquetées à la main](#audio--human-labeled-transcript-data-for-testingtraining) | Oui<br>Utilisé pour évaluer la précision | 0,5 - 5 heures d’audio | Oui | 1 à 20 heures d’audio |
 | [Texte associé](#related-text-data-for-training) | Non | n/a | Oui | 1 – 200 Mo de texte associé |
 
-Lorsque vous effectuez l’apprentissage d’un nouveau modèle, commencez par [le texte associé](#related-text-data-for-training). Ces données permettront déjà d’améliorer la reconnaissance des expressions et termes spéciaux. L’apprentissage avec du texte est beaucoup plus rapide que l’apprentissage avec audio (quelques minutes au lieu de quelques jours).
-
 Les fichiers doivent être regroupées par type dans un jeu de données et chargés sous forme de fichier .zip. Chaque jeu de données ne peut contenir qu’un seul type de données.
 
 > [!TIP]
-> Pour commencer rapidement, vous pouvez utiliser des exemples de données. Consultez ce dépôt GitHub pour un <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/sampledata/customspeech" target="_target">exemple de données Custom Speech </a>
+> Lorsque vous effectuez l’apprentissage d’un nouveau modèle, commencez par [le texte associé](#related-text-data-for-training). Ces données permettront déjà d’améliorer la reconnaissance des expressions et termes spéciaux. L’apprentissage avec du texte est beaucoup plus rapide que l’apprentissage avec audio (quelques minutes au lieu de quelques jours).
 
 > [!NOTE]
 > Tous les modèles de base ne prennent pas en charge l’audio. Si un modèle de base ne le prend pas en charge, le service vocal utilise uniquement le texte des transcriptions et ignore l’audio. Pour obtenir la liste des modèles de base prenant en charge l’entraînement avec des données audio, consultez les informations relatives à la [prise en charge des langues](language-support.md#speech-to-text). Même si un modèle de base prend en charge l’apprentissage avec des données audio, il est possible que le service n’utilise qu’une partie de l’audio. Il utilisera néanmoins toutes les transcriptions.
-
-> [!NOTE]
+>
 > Si vous changez le modèle de base utilisé pour l’entraînement et si vous avez du contenu audio dans le jeu de données d’entraînement, vérifiez *toujours* si le nouveau modèle de base sélectionné [prend en charge l’entraînement avec des données audio](language-support.md#speech-to-text). Si le modèle de base utilisé jusqu’à maintenant ne prend pas en charge l’entraînement avec des données audio, et si le jeu de données d’entraînement contient de l’audio, le temps d’entraînement du nouveau modèle de base va **considérablement** augmenter. Il peut facilement passer de plusieurs heures à plusieurs jours, voire davantage. Cela est particulièrement vrai si votre abonnement au service Speech ne se situe **pas** dans une [région disposant du matériel dédié](custom-speech-overview.md#set-up-your-azure-account) à l’entraînement.
 >
 > Si vous êtes confronté au problème décrit dans le paragraphe ci-dessus, vous pouvez rapidement faire baisser le temps d’entraînement en réduisant la quantité du contenu audio dans le jeu de données, ou en supprimant complètement le contenu audio pour ne garder que le texte. Cette dernière option est fortement recommandée si votre abonnement au service Speech ne se situe **pas** dans une [région disposant du matériel dédié](custom-speech-overview.md#set-up-your-azure-account) à l’entraînement.

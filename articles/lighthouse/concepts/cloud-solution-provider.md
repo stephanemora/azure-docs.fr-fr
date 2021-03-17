@@ -1,14 +1,14 @@
 ---
 title: Considérations sur le programme des fournisseurs de solutions cloud
 description: Pour les partenaires CSP, la gestion des ressources déléguées Azure permet d’améliorer la sécurité et le contrôle en activant des autorisations précises.
-ms.date: 09/22/2020
+ms.date: 03/12/2021
 ms.topic: conceptual
-ms.openlocfilehash: 27bb1c4f82fe3c9ff8abe74b74bef19f16a8a874
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8736cf913739f2bd16fb519aed98fd336f6876a5
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90967167"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103419386"
 ---
 # <a name="azure-lighthouse-and-the-cloud-solution-provider-program"></a>Azure Lighthouse et le programme Fournisseur de solutions cloud
 

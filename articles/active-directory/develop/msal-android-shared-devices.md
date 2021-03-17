@@ -13,17 +13,14 @@ ms.date: 03/31/2020
 ms.author: marsma
 ms.reviewer: hahamil
 ms.custom: aaddev, identitypla | Azuretformtop40
-ms.openlocfilehash: ea902b8b609d226f6bb9e61ec0bfd60f75a3825d
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: a67e0d851ab544f737097eff9a884752cff9f5fc
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102038575"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103491541"
 ---
 # <a name="shared-device-mode-for-android-devices"></a>Mode d’appareil partagé pour les appareils Android
-
->[!IMPORTANT]
-> Cette fonctionnalité [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
 
 Les employés de terrain, comme les représentants, les membres d'équipage et les techniciens d'intervention, utilisent souvent un appareil mobile partagé pour effectuer leur travail. Cela devient problématique quand ils commencent à partager des mots de passe ou des codes confidentiels pour accéder aux données des clients et de l’entreprise sur l’appareil partagé.
 

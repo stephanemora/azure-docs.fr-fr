@@ -10,14 +10,16 @@ ms.date: 11/09/2020
 ms.topic: conceptual
 ms.service: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: e4043fd8b7c9571b62cbf65d7398754b27375efd
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: 730680b0cb6e8a728ed3072419674346de649368
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100633969"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200687"
 ---
 # <a name="publish-and-subscribe-with-azure-iot-edge"></a>Publier et s’abonner avec Azure IoT Edge
+
+[!INCLUDE [iot-edge-version-202011](../../includes/iot-edge-version-202011.md)]
 
 Vous pouvez utiliser le répartiteur IoT Edge MQTT pour publier des messages et vous y abonner. Cet article explique comment se connecter à ce répartiteur, publier et des messages et s’y abonner sur des rubriques définies par l’utilisateur et utiliser les primitives de messagerie IoT Hub. Le répartiteur IoT Edge MQTT est intégré au hub IoT Edge. Pour plus d’informations, consultez [les fonctionnalités de répartition du hub IoT Edge](iot-edge-runtime.md).
 
@@ -332,7 +334,7 @@ Notez que le port 1883 (MQTT), sans TLS, est utilisé dans ce premier exemple. U
 
 Le client MQTT **sub_client** est maintenant démarré et attend les messages entrants sur `test_topic`.
 
-#### <a name="publish"></a>Publish
+#### <a name="publish"></a>Publier
 
 Connectez votre client MQTT **pub_client** au répartiteur MQTT et publiez un message sur le même `test_topic` que ci-dessus en exécutant la commande suivante sur votre appareil IoT Edge à partir d’un autre terminal :
 

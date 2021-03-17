@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 3dfb2cd445edf33ed8db4807efcc2e6326f838ab
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 7f8633d791e2dd0f0723b272aefcb343d758b248
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/10/2021
-ms.locfileid: "102549003"
+ms.locfileid: "102612352"
 ---
 # <a name="azure-security-baseline-for-azure-public-ip"></a>Base de référence de sécurité Azure pour les adresses IP publiques Azure
 
@@ -152,7 +152,7 @@ Accès juste-à-temps activé à l’aide d’Azure Active Directory (Azure AD) 
 
 - [Stations de travail d’accès privilégié](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
-- [Planifier un déploiement d'Azure AD Multi-Factor Authentication basé sur le cloud](../active-directory/authentication/howto-mfa-getstarted.md)
+- [Planifier un déploiement informatique d'Azure AD Multi-Factor Authentication](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -350,9 +350,9 @@ Utilisez Azure Resource Graph pour interroger et découvrir des ressources dans 
 
 **Aide** : Si vous utilisez des définitions Azure Policy personnalisées, utilisez Azure DevOps ou Azure Repos pour stocker et gérer votre code en toute sécurité.
 
-- [Stocker du code dans Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [Stocker du code dans Azure DevOps](/azure/devops/repos/git/gitworkflow)
 
-- [Documentation Azure Repos](/azure/devops/repos/index?view=azure-devops)
+- [Documentation Azure Repos](/azure/devops/repos/index)
 
 **Supervision d’Azure Security Center** : Non applicable
 

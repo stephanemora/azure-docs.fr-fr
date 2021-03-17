@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 10/14/2020
 ms.author: alkohli
-ms.openlocfilehash: 922ef24bff7d6e60a3ba3b91113003f8206b8177
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: bd90a16c09dce65115cea2f097d18f2e0ced931a
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100548639"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102632031"
 ---
 # <a name="security-and-data-protection-for-azure-stack-edge-pro-r-and-azure-stack-edge-mini-r"></a>Sécurité et protection des données pour Azure Stack Edge Pro R et Azure Stack Edge Mini R
 
@@ -133,7 +133,7 @@ Lorsque l’appareil subit une réinitialisation matérielle, une réinitialisat
 
 [!INCLUDE [azure-stack-edge-gateway-data-rest](../../includes/azure-stack-edge-gateway-protect-data-storage-accounts.md)]
 
-- Faites tourner puis [synchronisez vos clés de compte de stockage](azure-stack-edge-j-series-manage-storage-accounts.md) régulièrement pour mieux protéger votre compte de stockage des utilisateurs non autorisés.
+- Faites tourner puis [synchronisez vos clés de compte de stockage](azure-stack-edge-gpu-manage-storage-accounts.md) régulièrement pour mieux protéger votre compte de stockage des utilisateurs non autorisés.
 
 ## <a name="manage-personal-information"></a>Gestion des informations personnelles
 
@@ -141,7 +141,7 @@ Le service Azure Stack Edge collecte des informations personnelles dans les scé
 
 [!INCLUDE [azure-stack-edge-gateway-data-rest](../../includes/azure-stack-edge-gateway-manage-personal-data.md)]
 
-Pour afficher la liste des utilisateurs qui ont accès à un partage ou qui peuvent supprimer un partage, suivez les étapes décrites dans [Gérer les partages sur Azure Stack Edge](azure-stack-edge-j-series-manage-shares.md).
+Pour afficher la liste des utilisateurs qui ont accès à un partage ou qui peuvent supprimer un partage, suivez les étapes décrites dans [Gérer les partages sur Azure Stack Edge](azure-stack-edge-gpu-manage-shares.md).
 
 Pour plus d’informations, consultez la Politique de confidentialité Microsoft dans le [Centre de gestion de la confidentialité](https://www.microsoft.com/trustcenter).
 

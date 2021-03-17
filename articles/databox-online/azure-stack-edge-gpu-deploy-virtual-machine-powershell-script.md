@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/22/2021
+ms.date: 03/08/2021
 ms.author: alkohli
-ms.openlocfilehash: 82019031eab4c17465115c4a24598f43d4620148
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: 36c7078a79cf8b0b7414c5031acb79b9a2c2453c
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102436446"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102630484"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-azure-powershell-script"></a>Déployer des machines virtuelles sur votre appareil avec GPU Azure Stack Edge Pro via un script Azure PowerShell
 
@@ -41,7 +41,7 @@ Avant de commencer à créer et à gérer une machine virtuelle sur votre appare
 
     1. Démarrez le **Bloc-notes** en tant qu’administrateur (des privilèges d’administrateur sont nécessaires pour enregistrer le fichier), puis ouvrez le fichier **hosts** qui se trouve dans `C:\Windows\System32\Drivers\etc`.
     
-        ![Fichier hosts dans l’Explorateur Windows](media/azure-stack-edge-j-series-connect-resource-manager/hosts-file.png)
+        ![Fichier hosts dans l’Explorateur Windows](media/azure-stack-edge-gpu-connect-resource-manager/hosts-file.png)
     
     2. Ajoutez les entrées suivantes à votre fichier **hosts**, en les remplaçant par les valeurs appropriées pour votre appareil :
     
@@ -54,7 +54,7 @@ Avant de commencer à créer et à gérer une machine virtuelle sur votre appare
 
     3. Utilisez l’image suivante pour référence. Enregistrez le fichier **hosts**.
 
-        ![Fichier hosts dans le Bloc-notes](media/azure-stack-edge-j-series-deploy-virtual-machine-cli-python/hosts-screenshot-boxed.png)
+        ![Fichier hosts dans le Bloc-notes](media/azure-stack-edge-gpu-deploy-virtual-machine-cli-python/hosts-screenshot-boxed.png)
 
 2. [Téléchargez le script PowerShell](https://aka.ms/ase-vm-powershell) utilisé dans cette procédure.
 
