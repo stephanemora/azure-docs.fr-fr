@@ -9,12 +9,12 @@ author: rolyon
 ms.author: rolyon
 ms.date: 02/25/2021
 ms.custom: generated
-ms.openlocfilehash: 1ee422d4c040e8546135981e0640484acc997b0a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: c91172ff110b950335c66f2c0ea9ac59c37e0a76
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101718724"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487849"
 ---
 # <a name="azure-resource-provider-operations"></a>Opérations de fournisseur de ressources Azure
 
@@ -50,6 +50,7 @@ Cliquez sur le nom du fournisseur de ressources dans le tableau suivant pour aff
 | [microsoft.storagesync](#microsoftstoragesync) |
 | [Microsoft.StorSimple](#microsoftstorsimple) |
 | **Web** |
+| [Microsoft.AppPlatform](#microsoftappplatform) |
 | [Microsoft.CertificateRegistration](#microsoftcertificateregistration) |
 | [Microsoft.DomainRegistration](#microsoftdomainregistration) |
 | [Microsoft.Maps](#microsoftmaps) |
@@ -2047,6 +2048,62 @@ Service Azure : [StorSimple](../storsimple/index.yml)
 > | Microsoft.StorSimple/operations/read | Répertorier ou obtenir les opérations |
 
 ## <a name="web"></a>Web
+
+### <a name="microsoftappplatform"></a>Microsoft.AppPlatform
+
+Service Azure : [Azure Spring Cloud](../spring-cloud/index.yml)
+
+> [!div class="mx-tableFixed"]
+> | Action | Description |
+> | --- | --- |
+> | Microsoft.AppPlatform/register/action | Permet de souscrire l'abonnement auprès du fournisseur de ressources Microsoft.AppPlatform |
+> | Microsoft.AppPlatform/unregister/action | Permet de résilier l'abonnement auprès du fournisseur de ressources Microsoft.AppPlatform |
+> | Microsoft.AppPlatform/locations/checkNameAvailability/action | Vérifie la disponibilité du nom de ressource |
+> | Microsoft.AppPlatform/locations/operationResults/Spring/read | Lit le résultat de l'opération relative à la ressource |
+> | Microsoft.AppPlatform/locations/operationStatus/operationId/read | Lit l'état de l'opération relative à la ressource |
+> | Microsoft.AppPlatform/operations/read | Répertorie les opérations de Microsoft Azure Spring Cloud disponibles |
+> | Microsoft.AppPlatform/skus/read | Répertorie les références SKU de Microsoft Azure Spring Cloud disponibles |
+> | Microsoft.AppPlatform/Spring/write | Crée ou met à jour une instance de service Azure Spring Cloud |
+> | Microsoft.AppPlatform/Spring/delete | Supprime une instance de service Azure Spring Cloud |
+> | Microsoft.AppPlatform/Spring/read | Récupère une ou plusieurs instances de service Azure Spring Cloud |
+> | Microsoft.AppPlatform/Spring/enableTestEndpoint/action | Active la fonctionnalité de point de terminaison de test d'une instance de service Azure Spring Cloud spécifique |
+> | Microsoft.AppPlatform/Spring/disableTestEndpoint/action | Désactive la fonctionnalité de point de terminaison de test d'une instance de service Azure Spring Cloud spécifique |
+> | Microsoft.AppPlatform/Spring/listTestKeys/action | Répertorie les clés de test d'une instance de service Azure Spring Cloud spécifique |
+> | Microsoft.AppPlatform/Spring/regenerateTestKey/action | Régénère les clés de test d'une instance de service Azure Spring Cloud spécifique |
+> | Microsoft.AppPlatform/Spring/apps/write | Crée ou met à jour l'application pour une instance de service Azure Spring Cloud spécifique |
+> | Microsoft.AppPlatform/Spring/apps/delete | Supprime l'application pour une instance de service Azure Spring Cloud spécifique |
+> | Microsoft.AppPlatform/Spring/apps/read | Récupère les applications pour une instance de service Azure Spring Cloud spécifique |
+> | Microsoft.AppPlatform/Spring/apps/getResourceUploadUrl/action | Récupère l'URL de chargement des ressources d'une application Microsoft Azure Spring Cloud spécifique |
+> | Microsoft.AppPlatform/Spring/apps/validateDomain/action | Valide le domaine personnalisé d'une application spécifique |
+> | Microsoft.AppPlatform/Spring/apps/bindings/write | Crée ou met à jour la liaison d'une application spécifique |
+> | Microsoft.AppPlatform/Spring/apps/bindings/delete | Supprime la liaison d'une application spécifique |
+> | Microsoft.AppPlatform/Spring/apps/bindings/read | Récupère les liaisons d'une application spécifique |
+> | Microsoft.AppPlatform/Spring/apps/deployments/write | Crée ou met à jour le déploiement d'une application spécifique |
+> | Microsoft.AppPlatform/Spring/apps/deployments/delete | Supprime le déploiement d'une application spécifique |
+> | Microsoft.AppPlatform/Spring/apps/deployments/read | Récupère les déploiements d'une application spécifique |
+> | Microsoft.AppPlatform/Spring/apps/deployments/start/action | Lance le déploiement d'une application spécifique |
+> | Microsoft.AppPlatform/Spring/apps/deployments/stop/action | Arrête le déploiement d'une application spécifique |
+> | Microsoft.AppPlatform/Spring/apps/deployments/restart/action | Relance le déploiement d'une application spécifique |
+> | Microsoft.AppPlatform/Spring/apps/deployments/getLogFileUrl/action | Récupère l'URL du fichier journal d'un déploiement d'application Microsoft Azure Spring Cloud spécifique |
+> | Microsoft.AppPlatform/Spring/apps/deployments/skus/read | Répertorie les références SKU disponibles pour un déploiement d'application |
+> | Microsoft.AppPlatform/Spring/apps/domains/write | Crée ou met à jour le domaine personnalisé d'une application spécifique |
+> | Microsoft.AppPlatform/Spring/apps/domains/delete | Supprime le domaine personnalisé d'une application spécifique |
+> | Microsoft.AppPlatform/Spring/apps/domains/read | Récupère les domaines personnalisés d'une application spécifique |
+> | Microsoft.AppPlatform/Spring/certificates/write | Crée ou met à jour le certificat d'une instance de service Azure Spring Cloud spécifique |
+> | Microsoft.AppPlatform/Spring/certificates/delete | Supprime le certificat d'une instance de service Azure Spring Cloud spécifique |
+> | Microsoft.AppPlatform/Spring/certificates/read | Récupère les certificats d'une instance de service Azure Spring Cloud spécifique |
+> | Microsoft.AppPlatform/Spring/configServers/read | Récupère le serveur de configuration d'une instance de service Azure Spring Cloud spécifique |
+> | Microsoft.AppPlatform/Spring/configServers/write | Crée ou met à jour le serveur de configuration d'une instance de service Azure Spring Cloud spécifique |
+> | Microsoft.AppPlatform/Spring/deployments/read | Récupère les déploiements d'une instance de service Azure Spring Cloud spécifique |
+> | Microsoft.AppPlatform/Spring/detectors/read | Récupère les détecteurs d'une instance de service Azure Spring Cloud spécifique |
+> | Microsoft.AppPlatform/Spring/monitoringSettings/read | Récupère le paramètre de surveillance d'une instance de service Azure Spring Cloud spécifique |
+> | Microsoft.AppPlatform/Spring/monitoringSettings/write | Crée ou met à jour le paramètre de surveillance d'une instance de service Azure Spring Cloud spécifique |
+> | **DataAction** | **Description** |
+> | Microsoft.AppPlatform/Spring/configService/read | Lit le contenu de configuration (par exemple, application.yaml) d'une instance de service Azure Spring Cloud spécifique |
+> | Microsoft.AppPlatform/Spring/eurekaService/read | Lit les informations d'inscription des applications utilisateur d'une instance de service Azure Spring Cloud spécifique |
+> | Microsoft.AppPlatform/Spring/eurekaService/write | Écrit les informations d'inscription des applications utilisateur d'une instance de service Azure Spring Cloud spécifique |
+> | Microsoft.AppPlatform/Spring/eurekaService/delete | Supprime les informations d'inscription des applications utilisateur d'une instance de service Azure Spring Cloud spécifique |
+> | Microsoft.AppPlatform/Spring/logstreamService/read | Lit le journal de streaming d'une application utilisateur d'une instance de service Azure Spring Cloud spécifique |
 
 ### <a name="microsoftcertificateregistration"></a>Microsoft.CertificateRegistration
 

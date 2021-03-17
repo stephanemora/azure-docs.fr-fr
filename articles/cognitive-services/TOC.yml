@@ -7,16 +7,10 @@
       href: what-are-cognitive-services.md
     - name: Documentation sur les nouveautés Cognitive Services
       href: whats-new-docs.md
-    - name: Cognitive Services et machine learning
-      href: cognitive-services-and-machine-learning.md
-    - name: Options de développement Cognitive Services
-      href: cognitive-services-development-options.md
-    - name: Sous-domaines personnalisés pour Cognitive Services
-      href: cognitive-services-custom-subdomains.md
     - name: Support multilingue
       href: language-support.md
-    - name: Prévoir et gérer les coûts
-      href: plan-manage-costs.md
+    - name: Tarifs
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/'
 - name: Démarrages rapides
   items:
     - name: Créer une ressource en utilisant le portail Azure
@@ -28,68 +22,82 @@
     - name: Créer une ressource à l’aide d’un modèle ARM
       displayName: Resource Manager
       href: create-account-resource-manager-template.md
+- name: Procédure
+  items:
+    - name: Prévoir et gérer les coûts
+      href: plan-manage-costs.md
     - name: la journalisation des diagnostics.
       href: diagnostic-logging.md
-- name: Sécurité
+    - name: Déployer
+      items:
+        - name: Conteneurs
+          items:
+            - name: Support pour les conteneurs
+              href: cognitive-services-container-support.md
+            - name: Étiquettes d’image conteneur et notes de publication
+              href: ./containers/container-image-tags.md
+            - name: Questions fréquentes (FAQ) sur les conteneurs
+              href: ./containers/container-faq.yml
+            - name: Recettes de conteneur
+              items:
+                - name: Réutilisation des conteneurs
+                  href: ./containers/container-reuse-recipe.md
+                - name: Déployer sur une instance de conteneur Azure
+                  href: ./containers/azure-container-instance-recipe.md
+                - name: Déployer sur Azure Kubernetes
+                  href: ./containers/azure-kubernetes-recipe.md
+                - name: Déployer avec Docker Compose
+                  href: ./containers/docker-compose-recipe.md
+            - name: Autres services de conteneur
+              items:
+                - name: Azure Container Instances
+                  href: ../container-instances/container-instances-tutorial-prepare-app.md
+                - name: Azure Container Registry
+                  href: ../container-registry/container-registry-get-started-azure-cli.md
+                - name: Azure Kubernetes Service (AKS)
+                  href: ../aks/tutorial-kubernetes-prepare-app.md
+            - name: Documentation sur les conteneurs Cognitive Services
+              href: containers/index.yml
+    - name: Sécurité
+      items:
+        - name: Sécurité de Cognitive Services
+          href: cognitive-services-security.md
+        - name: Réseaux virtuels pour Cognitive Services
+          href: cognitive-services-virtual-networks.md
+        - name: Configurer les clés gérées par le client
+          href: ./encryption/cognitive-services-encryption-keys-portal.md
+        - name: Authentifier des requêtes auprès de Cognitive Services
+          href: authentication.md
+        - name: Base de référence de la sécurité
+          href: security-baseline.md
+        - name: Contrôles de sécurité par Azure Policy
+          href: ./security-controls-policy.md
+    - name: Utiliser avec le Big Data
+      items:
+        - name: Cognitive Services pour le Big Data
+          href: ./big-data/cognitive-services-for-big-data.md
+        - name: Prise en main
+          href: ./big-data/getting-started.md
+        - name: Exemples
+          items:
+            - name: Python
+              href: ./big-data/samples-python.md
+            - name: Scala
+              href: ./big-data/samples-scala.md
+        - name: Recettes
+          items:
+            - name: "Recette\_: Le détecteur d’anomalies"
+              href: ./big-data/recipes/anomaly-detection.md
+            - name: "Recette\_: Art Explorer"
+              href: ./big-data/recipes/art-explorer.md
+- name: Concepts
   items:
-    - name: Sécurité de Cognitive Services
-      href: cognitive-services-security.md
-    - name: Réseaux virtuels pour Cognitive Services
-      href: cognitive-services-virtual-networks.md
-    - name: Configurer les clés gérées par le client
-      href: ./encryption/cognitive-services-encryption-keys-portal.md
-    - name: Authentifier des requêtes auprès de Cognitive Services
-      href: authentication.md
-    - name: Base de référence de la sécurité
-      href: security-baseline.md
-    - name: Contrôles de sécurité par Azure Policy
-      href: ./security-controls-policy.md
-- name: Support pour les conteneurs
-  items:
-    - name: Support pour les conteneurs
-      href: cognitive-services-container-support.md
-    - name: Étiquettes d’image conteneur et notes de publication
-      href: ./containers/container-image-tags.md
-    - name: Questions fréquentes (FAQ) sur les conteneurs
-      href: ./containers/container-faq.yml
-    - name: Recettes de conteneur
-      items:
-        - name: Réutilisation des conteneurs
-          href: ./containers/container-reuse-recipe.md
-        - name: Déployer sur une instance de conteneur Azure
-          href: ./containers/azure-container-instance-recipe.md
-        - name: Déployer sur Azure Kubernetes
-          href: ./containers/azure-kubernetes-recipe.md
-        - name: Déployer avec Docker Compose
-          href: ./containers/docker-compose-recipe.md
-    - name: Autres services de conteneur
-      items:
-        - name: Azure Container Instances
-          href: ../container-instances/container-instances-tutorial-prepare-app.md
-        - name: Azure Container Registry
-          href: ../container-registry/container-registry-get-started-azure-cli.md
-        - name: Azure Kubernetes Service (AKS)
-          href: ../aks/tutorial-kubernetes-prepare-app.md
-    - name: Documentation sur les conteneurs Cognitive Services
-      href: containers/index.yml
-- name: Big Data
-  items:
-    - name: Cognitive Services pour le Big Data
-      href: ./big-data/cognitive-services-for-big-data.md
-    - name: Prise en main
-      href: ./big-data/getting-started.md
-    - name: Exemples
-      items:
-        - name: Python
-          href: ./big-data/samples-python.md
-        - name: Scala
-          href: ./big-data/samples-scala.md
-    - name: Recettes
-      items:
-        - name: "Recette\_: Le détecteur d’anomalies"
-          href: ./big-data/recipes/anomaly-detection.md
-        - name: "Recette\_: Art Explorer"
-          href: ./big-data/recipes/art-explorer.md
+    - name: Options de développement Cognitive Services
+      href: cognitive-services-development-options.md
+    - name: Cognitive Services et machine learning
+      href: cognitive-services-and-machine-learning.md
+    - name: Sous-domaines personnalisés pour Cognitive Services
+      href: cognitive-services-custom-subdomains.md
 - name: Informations de référence
   items:
     - name: Éléments intégrés Azure Policy
@@ -99,23 +107,19 @@
   items:
     - name: Options d’aide et de support
       href: cognitive-services-support-options.md
-    - name: Feuille de route Azure
-      href: 'https://azure.microsoft.com/roadmap/?category=cognitive-services'
-    - name: Tarifs
-      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/'
+    - name: Prise en charge de la région
+      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+    - name: Mises à jour Azure
+      href: 'https://azure.microsoft.com/updates/?query=cognitive%20services'
     - name: Calculatrice de prix
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Conformité
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Contrat de Niveau de Service (SLA)
       href: 'https://azure.microsoft.com/support/legal/sla/cognitive-services/v1_1/'
+    - name: Azure Government
+      href: 'https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure'
     - name: Vidéos
       href: 'https://azure.microsoft.com/resources/videos/index/?services=cognitive-services'
     - name: Blog
       href: 'https://azure.microsoft.com/blog/topics/cognitive-services/'
-    - name: Mises à jour de service
-      href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
-    - name: Indiquer des commentaires sur le produit
-      href: 'https://cognitive.uservoice.com/'
-    - name: Code de conduite
-      href: 'https://go.microsoft.com/fwlink/?LinkId=698895'
