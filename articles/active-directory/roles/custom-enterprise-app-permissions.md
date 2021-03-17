@@ -12,12 +12,12 @@ ms.date: 11/04/2020
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 110da0a12336415d9d9c781e24684d7e2af8bc9d
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: d2159540c688a63082efb792fd4d261062ef65d9
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98741653"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103466791"
 ---
 # <a name="enterprise-application-permissions-for-custom-roles-in-azure-active-directory"></a>Autorisations d’application d’entreprise pour les rôles personnalisés dans Azure Active Directory
 
@@ -169,4 +169,4 @@ microsoft.directory/provisioningLogs/allProperties/read | Lire toutes les propri
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Créer des rôles personnalisés à l’aide du portail Azure, d’Azure AD PowerShell et de l’API Graph](custom-create.md)
-- [Afficher les attributions d’un rôle personnalisé](custom-view-assignments.md)
+- [Répertorier les attributions de rôles](view-assignments.md)

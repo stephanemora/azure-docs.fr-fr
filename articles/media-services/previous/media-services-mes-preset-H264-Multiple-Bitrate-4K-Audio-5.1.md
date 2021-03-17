@@ -1,7 +1,7 @@
 ---
 title: 264 - Vitesse de transmission multiple - 4 K - Audio 5.1 | Microsoft Docs
 description: Cette rubrique offre une vue d’ensemble de la présélection des tâches **264 - Vitesse de transmission multiple - 4 K - Audio 5.1**.
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
-ms.openlocfilehash: e91dbb9a9448796e484be34172c2ec0ee41047e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: 764a92b4fe0e247f07e7f0024e9de5731b0134ee
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89266848"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103013191"
 ---
 # <a name="h264-multiple-bitrate-4k-audio-51"></a>H264 – Vitesse de transmission multiple – 4 K – Audio 5.1
 
@@ -35,7 +35,7 @@ ms.locfileid: "89266848"
 >  Pour les encodages 4K, vous devez obtenir le type d’unité réservée Premium. Pour plus d’informations, consultez [Mise à l’échelle de l’encodage](./media-services-scale-media-processing-overview.md).  
   
 > [!NOTE]
->  Lorsque vous modifiez les valeurs `Width` et `Height` sur les couches, assurez-vous que les proportions demeurent constantes. Par exemple : 1 920 x 1 080, 1 280 x 720, 1 080 x 576, 640 x 360. Vous ne devez pas utiliser un mélange de proportions, comme : 1 280 x 720, 720 x 480, 640 x 360.  
+>  Lorsque vous modifiez les valeurs `Width` et `Height` sur les couches, assurez-vous que les proportions demeurent constantes. Par exemple : 1920x1080, 1280x720, 1080x576, 640x360. Vous ne devez pas utiliser un mélange de proportions, comme : 1280x720, 720x480, 640x360.  
   
  XML  
   

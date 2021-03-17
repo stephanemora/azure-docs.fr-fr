@@ -3,7 +3,7 @@ title: Télémétrie d’Azure Media Services | Microsoft Docs
 description: Cet article donne une vue d’ensemble des données de télémétrie de Microsoft Azure Media Services.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: 95c20ec4-c782-4063-8042-b79f95741d28
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/01/2019
-ms.author: juliako
-ms.openlocfilehash: 4bf9a96d7ffc3b939abe8cfb889c5bd49fee09cc
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.date: 3/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: b17b5901248056f6000710fa25d2ea1e9df2e2a5
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98694586"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103009086"
 ---
 # <a name="azure-media-services-telemetry"></a>Télémétrie Azure Media Services  
 
@@ -94,7 +94,7 @@ Il existe trois types d’entrées de données télémétriques spécifiques à 
 - Canaux en temps réel : toutes les minutes
 - Archive en temps réel : toutes les minutes
 
-**Point de terminaison de diffusion en continu**
+**Point de terminaison de streaming**
 
 Propriété|Valeur|Exemples
 ---|---|---
@@ -102,7 +102,7 @@ PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab701
 RowKey|RowKey|01688_00199
 Timestamp|Timestamp|Timestamp automatique à partir de la table Azure 2016-09-09T22:43:42.241Z
 Type|Type|StreamingEndpoint
-Name|Name|StreamingEndpointRequestLog
+Nom|Nom|StreamingEndpointRequestLog
 ObservedTime|ObservedTime|2016-09-09T22:42:36.924Z
 ServiceID|ID de service|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
 HostName|Nom d’hôte du point de terminaison|builddemoserver.origin.mediaservices.windows.net
@@ -120,8 +120,8 @@ Propriété|Valeur|Exemples/notes
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
 Timestamp|Timestamp|Timestamp automatique à partir de la table Azure 2016-09-09T22:43:42.241Z
-Type|Type|Channel
-Name|Name|ChannelHeartbeat
+Type|Type|Canal
+Nom|Nom|ChannelHeartbeat
 ObservedTime|ObservedTime|2016-09-09T22:42:36.924Z
 ServiceID|ID de service|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
 TrackType|Type de piste vidéo/audio/texte|vidéo/audio
@@ -133,10 +133,10 @@ OverlapCount|Chevauchement dans la réception|0
 DiscontinuityCount|Discontinuité de piste|0
 LastTimestamp|Timestamp des dernières données reçues|1800488800
 NonincreasingCount|Nombre de fragments rejetés en raison d’un timestamp n’augmentant pas|2
-UnalignedKeyFrames|Si nous avons reçu des fragments (parmi les différents niveaux de qualité) où les trames-clés ne sont pas alignées |True
-UnalignedPresentationTime|Si nous avons reçu des fragments (parmi les différents niveaux/pistes de qualité) où l’heure de présentation n’est pas alignée|True
-UnexpectedBitrate|True, si la vitesse de transmission réelle/calculée pour la piste audio/vidéo > 40 000 bits/s et IncomingBitrate == 0 ou IncomingBitrate et actualBitrate diffèrent de 50 % |True
-Healthy|True, si <br/>overlapCount, <br/>DiscontinuityCount, <br/>NonIncreasingCount, <br/>UnalignedKeyFrames, <br/>UnalignedPresentationTime, <br/>UnexpectedBitrate<br/> sont tous 0|True<br/><br/>Healthy est une fonction composite qui retourne la valeur false lorsque l’une des conditions suivantes contient :<br/><br/>- OverlapCount > 0<br/>- DiscontinuityCount > 0<br/>- NonincreasingCount > 0<br/>- UnalignedKeyFrames == True<br/>- UnalignedPresentationTime == True<br/>- UnexpectedBitrate == True
+UnalignedKeyFrames|Si nous avons reçu des fragments (parmi les différents niveaux de qualité) où les trames-clés ne sont pas alignées |Vrai
+UnalignedPresentationTime|Si nous avons reçu des fragments (parmi les différents niveaux/pistes de qualité) où l’heure de présentation n’est pas alignée|Vrai
+UnexpectedBitrate|True, si la vitesse de transmission réelle/calculée pour la piste audio/vidéo > 40 000 bits/s et IncomingBitrate == 0 ou IncomingBitrate et actualBitrate diffèrent de 50 % |Vrai
+Healthy|True, si <br/>overlapCount, <br/>DiscontinuityCount, <br/>NonIncreasingCount, <br/>UnalignedKeyFrames, <br/>UnalignedPresentationTime, <br/>UnexpectedBitrate<br/> sont tous 0|Vrai<br/><br/>Healthy est une fonction composite qui retourne la valeur false lorsque l’une des conditions suivantes contient :<br/><br/>- OverlapCount > 0<br/>- DiscontinuityCount > 0<br/>- NonincreasingCount > 0<br/>- UnalignedKeyFrames == True<br/>- UnalignedPresentationTime == True<br/>- UnexpectedBitrate == True
 
 **Archive en temps réel**
 
@@ -145,8 +145,8 @@ Propriété|Valeur|Exemples/notes
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
 Timestamp|Timestamp|Timestamp automatique à partir de la table Azure 2016-09-09T22:43:42.241Z
-Type|Type|Archivage
-Name|Name|ArchiveHeartbeat
+Type|Type|Archive
+Nom|Nom|ArchiveHeartbeat
 ObservedTime|ObservedTime|2016-09-09T22:42:36.924Z
 ServiceID|ID de service|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
 ManifestName|URL du programme|asset-eb149703-ed0a-483c-91c4-e4066e72cce3/a0a5cfbf-71ec-4bd2-8c01-a92a2b38c9ba.ism

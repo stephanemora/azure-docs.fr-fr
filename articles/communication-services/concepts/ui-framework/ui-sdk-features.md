@@ -4,15 +4,15 @@ titleSuffix: An Azure Communication Services conceptual document
 description: Découvrir les fonctionnalités de l’infrastructure d’interface utilisateur
 author: ddematheu2
 ms.author: dademath
-ms.date: 11/16/2020
+ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 51caf1e73cdeda5862e033a05878f35ddb6ff8dc
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 5b1aab8b38614249d6b502044b5c4c8170f46b3c
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99539708"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103492215"
 ---
 # <a name="ui-framework-capabilities"></a>Fonctionnalités de l’infrastructure d’interface utilisateur
 
@@ -71,7 +71,7 @@ L’infrastructure d’interface utilisateur d’Azure Communication Services vo
 
 | Type de composant            | Thèmes     | Layout                                                              | Modèles de données |
 |---------------------------|------------|---------------------------------------------------------------------|-------------|
-| Composant composite       |     N/A    | N/A                                                                 |     N/A     |
+| Composant composite       |     N/A    | NON APPLICABLE                                                                 |     N/A     |
 | Composants de base            |     N/A    | La disposition des composants peut être modifiée avec des styles externes         |     N/A     |
 
 

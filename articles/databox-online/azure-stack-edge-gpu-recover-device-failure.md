@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: b32757dddf745e7aaa0ea8276a3527fa464cc0d4
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: b1bfbda007619bf5bd94d47297845881758037bc
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102442160"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102636638"
 ---
 # <a name="recover-from-a-failed-azure-stack-edge-pro-gpu-device"></a>Récupération après la défaillance d’un appareil Azure Stack Edge Pro GPU 
 
@@ -52,10 +52,10 @@ Vous êtes maintenant prêt à déployer les charges de travail que vous exécut
 
 Procédez comme suit pour restaurer les données sur les partages cloud Edge sur votre appareil :
 
-1. [Ajoutez des partages](azure-stack-edge-j-series-manage-shares.md#add-a-share) portant les mêmes noms de partage que ceux créés précédemment sur l’appareil défaillant. Assurez-vous que, lors de la création des partages, la valeur du paramètre **Sélectionner le conteneur blob** est définie sur **Utilisez l’existant**, puis sélectionnez le conteneur utilisé avec l’appareil précédent.
-1. [Ajoutez des utilisateurs](azure-stack-edge-j-series-manage-users.md#add-a-user) qui avaient accès à l’appareil précédent.
-1. [Ajoutez les comptes de stockage](azure-stack-edge-j-series-manage-storage-accounts.md#add-an-edge-storage-account) associés aux partages précédemment sur l’appareil. Lors de la création de comptes de stockage Edge, faites votre sélection à partir d’un conteneur existant et pointez sur le conteneur qui a été mappé au compte de stockage Azure mappé sur l’appareil précédent. Toutes les données de l’appareil qui sont écrites dans le compte de stockage Edge de l’appareil précédent sont téléchargées vers le conteneur de stockage sélectionné dans le compte Stockage Azure mappé.
-1. [Actualisez le partage](azure-stack-edge-j-series-manage-shares.md#refresh-shares) de données à partir d’Azure. Cela a pour effet d’extraire toutes les données cloud du conteneur existant vers les partages.
+1. [Ajoutez des partages](azure-stack-edge-gpu-manage-shares.md#add-a-share) portant les mêmes noms de partage que ceux créés précédemment sur l’appareil défaillant. Assurez-vous que, lors de la création des partages, la valeur du paramètre **Sélectionner le conteneur blob** est définie sur **Utilisez l’existant**, puis sélectionnez le conteneur utilisé avec l’appareil précédent.
+1. [Ajoutez des utilisateurs](azure-stack-edge-gpu-manage-users.md#add-a-user) qui avaient accès à l’appareil précédent.
+1. [Ajoutez les comptes de stockage](azure-stack-edge-gpu-manage-storage-accounts.md#add-an-edge-storage-account) associés aux partages précédemment sur l’appareil. Lors de la création de comptes de stockage Edge, faites votre sélection à partir d’un conteneur existant et pointez sur le conteneur qui a été mappé au compte de stockage Azure mappé sur l’appareil précédent. Toutes les données de l’appareil qui sont écrites dans le compte de stockage Edge de l’appareil précédent sont téléchargées vers le conteneur de stockage sélectionné dans le compte Stockage Azure mappé.
+1. [Actualisez le partage](azure-stack-edge-gpu-manage-shares.md#refresh-shares) de données à partir d’Azure. Cela a pour effet d’extraire toutes les données cloud du conteneur existant vers les partages.
 
 ## <a name="restore-edge-local-shares"></a>Restaurer les partages locaux Edge
 
@@ -73,7 +73,7 @@ Une fois que l’appareil de remplacement est entièrement configuré, activez l
 Pour récupérer les données à partir de partages locaux, procédez comme suit :
 
 1. [Configurez le calcul sur l’appareil](azure-stack-edge-gpu-deploy-configure-compute.md).
-1. [Rajoutez un partage local](azure-stack-edge-j-series-manage-shares.md#add-a-local-share).
+1. [Rajoutez un partage local](azure-stack-edge-gpu-manage-shares.md#add-a-local-share).
 1. Exécutez la procédure de récupération fournie par la solution de protection des données de votre choix. Consultez les références du tableau précédent.
 
 ## <a name="restore-vm-files-and-folders"></a>Restaurer des fichiers et des dossiers de machines virtuelles

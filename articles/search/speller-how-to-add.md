@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/02/2021
 ms.custom: references_regions
-ms.openlocfilehash: da172e9a7605876711e4a4f32bf4fac698b35109
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: be72cae8d109bfeccd60e8c821625f75357568e3
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101694799"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103232356"
 ---
 # <a name="add-spell-check-to-queries-in-cognitive-search"></a>Ajouter la vérification orthographique aux requêtes dans le service Recherche cognitive
 
@@ -96,7 +96,7 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 
 Le paramètre queryLanguage requis pour le vérificateur d’orthographe doit être cohérent avec tous les [analyseurs linguistiques](index-add-language-analyzers.md) affectés aux définitions de champ dans le schéma d’index. 
 
-+ queryLanguage détermine les lexiques utilisés pour la vérification orthographique. Il est également utilisé comme entrée de l’[algorithme de classement sémantique](semantic-how-to-query-response.md) si vous utilisez « queryType=semanti ».
++ queryLanguage détermine les lexiques utilisés pour la vérification orthographique. Il est également utilisé comme entrée de l’[algorithme de classement sémantique](semantic-answers.md) si vous utilisez « queryType=semanti ».
 
 + Des analyseurs linguistiques sont utilisés pendant l’indexation et l’exécution de requêtes pour récupérer des documents correspondants dans l’index de recherche. Exemple de définition d’un champ qui utilise un analyseur linguistique : `"name": "Description", "type": "Edm.String", "analyzer": "en.microsoft"`.
 

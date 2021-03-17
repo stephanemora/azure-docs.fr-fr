@@ -6,16 +6,16 @@ author: mikben
 manager: mikben
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 2/11/2020
+ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 5c79ea68e648cd3d78f94eb2272b6f32e3c4806f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: dedea2a622cb0eece92bb8b57871c76daa05fb68
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101750924"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103495401"
 ---
 ## <a name="prerequisites"></a>Prérequis
 Avant de commencer, assurez-vous de :
@@ -47,8 +47,8 @@ Créez un Podfile : `pod init`
 
 Ouvrez le Podfile et ajoutez les dépendances suivantes à la cible `ChatQuickstart` :
 ```
-pod 'AzureCommunication', '~> 1.0.0-beta.8'
-pod 'AzureCommunicationChat', '~> 1.0.0-beta.8'
+pod 'AzureCommunication', '~> 1.0.0-beta.9'
+pod 'AzureCommunicationChat', '~> 1.0.0-beta.9'
 ```
 
 Installez les dépendances ; cette opération crée également un espace de travail Xcode : `pod install`
@@ -146,7 +146,7 @@ let request = CreateThreadRequest(
     topic: "Quickstart",
     participants: [
         Participant(
-            id: "<USER_ID>",
+            id: CommunicationUserIdentifier("<USER_ID>"),
             displayName: "Jack"
         )
     ]
@@ -166,7 +166,7 @@ chatClient.create(thread: request) { result, _ in
 semaphore.wait()
 ```
 
-Remplacez `<<USER_ID>>` par un ID d’utilisateur Communication Services valide.
+Remplacez `<USER_ID>` par un ID d’utilisateur Communication Services valide.
 
 Nous utilisons ici un sémaphore pour attendre le gestionnaire d’achèvement avant de continuer. Dans les étapes ultérieures, nous allons utiliser le `threadId` de la réponse retournée au gestionnaire d’achèvement.
 
@@ -210,7 +210,7 @@ Remplacez le commentaire `<ADD A USER>` par le code suivant :
 
 ```
 let user = Participant(
-    id: "<USER_ID>",
+    id: CommunicationUserIdentifier("<USER_ID>"),
     displayName: "Jane"
 )
 
@@ -240,7 +240,8 @@ chatThreadClient.listParticipants { result, _ in
     case let .success(participants):
         var iterator = participants.syncIterator
         while let participant = iterator.next() {
-            print(participant.user.identifier)
+            let user = participant.id as! CommunicationUserIdentifier
+            print(user.identifier)
         }
     case .failure:
         print("Failed to list participants")
@@ -258,7 +259,7 @@ Remplacez le commentaire `<REMOVE A USER>` par le code suivant :
 ```
 chatThreadClient
     .remove(
-        participant: "<USER_ID>"
+        participant: CommunicationUserIdentifier("<USER_ID>")
     ) { result, _ in
         switch result {
         case .success:

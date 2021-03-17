@@ -12,19 +12,18 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a40ce1fd7b3d9d946641c91f5876d8c73755b005
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: fc3ab64a35c24df2af9d90a5ad348f840610d188
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101092274"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102635839"
 ---
 # <a name="create-a-job-with-multiple-transform-outputs"></a>Création d’un travail avec plusieurs sorties de transformation
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Cette rubrique montre comment créer une transformation comportant deux sorties. La première appelle l’entrée à encoder pour le streaming à débit adaptatif avec une présélection [AdaptiveStreaming](encoding-concept.md#builtinstandardencoderpreset) intégrée. La seconde appelle le signal audio dans la vidéo d’entrée à traiter avec [AudioAnalyzerPreset](analyzing-video-audio-files-concept.md#built-in-presets). Une fois la transformation créée, vous pouvez envoyer un travail qui traitera votre vidéo en conséquence. Comme nous spécifions dans cet exemple deux sorties de transformation, nous devons indiquer deux sorties de travaux. Vous pouvez choisir de diriger les deux sorties de travaux vers la même ressource (comme ci-dessous), ou bien écrire les résultats dans des ressources distinctes.
- 
 
 > [!TIP]
 > Avant de commencer le développement, consultez [Développement avec les API Media Services v3](media-services-apis-overview.md) (informations sur l’accès aux API, les conventions d’affectation de noms, etc.)

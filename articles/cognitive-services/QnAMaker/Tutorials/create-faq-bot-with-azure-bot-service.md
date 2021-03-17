@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: tutorial
 ms.date: 08/31/2020
-ms.openlocfilehash: 356b954c65086ff65264ce7a62b038cd7a8eac3d
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: ab6607175c596a0d82cf75f0ad786a76e85b6959
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350957"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102612148"
 ---
 # <a name="tutorial-create-an-faq-bot-with-azure-bot-service"></a>Tutoriel : Créer un bot de forum aux questions avec Azure Bot Service
 Créez un bot de forum aux questions avec QnA Maker et Azure [Bot Service](https://azure.microsoft.com/services/bot-service/) sans code.
@@ -80,4 +80,4 @@ Quand vous apportez des modifications à la base de connaissances et que vous re
     Le chatbot répond avec une réponse provenant de votre base de connaissances.
 
     :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/test-web-chat.png" alt-text="Entrez une requête d’utilisateur dans le web chat de test.":::
-1. Activez le bot dans des [canaux supplémentaires](/azure/bot-service/bot-service-manage-channels?preserve-view=true&view=azure-bot-service-4.0) pris en charge.
+1. Activez le bot dans des [canaux supplémentaires](/azure/bot-service/bot-service-manage-channels) pris en charge.

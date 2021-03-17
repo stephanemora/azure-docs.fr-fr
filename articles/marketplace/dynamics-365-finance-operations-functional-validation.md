@@ -7,12 +7,12 @@ ms.topic: article
 author: emuench
 ms.author: navits
 ms.date: 07/17/2020
-ms.openlocfilehash: b9685081c0beacd745a83067b9d9876384933377
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 9be90cdac742a581c6346f923f44e769c8a70f76
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93131239"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102613627"
 ---
 # <a name="appsource-dynamics-365-finance-and-operations-functional-validation"></a>Validation fonctionnelle d’AppSource Dynamics 365 Finance and Operations
 
@@ -29,7 +29,7 @@ Pour une première publication dans l’[Espace partenaires](https://partner.mic
 Deux options sont disponibles pour la validation fonctionnelle :
 
 - Participer à une conférence téléphonique de 30 minutes pendant les heures de bureau (Heure standard du Pacifique, PST), afin de nous montrer et d’enregistrer l’environnement et la solution [LCS](https://lcs.dynamics.com/), ou
-- Dans l’Espace partenaires, accéder à [Place de marché commerciale](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) > **Vue d’ensemble** , puis charger l’URL d’une vidéo de démonstration et des captures d’écran LCS sous l’onglet Contenu supplémentaire de l’offre.
+- Dans l’Espace partenaires, accéder à [Place de marché commerciale](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) > **Vue d’ensemble**, puis charger l’URL d’une vidéo de démonstration et des captures d’écran LCS sous l’onglet Contenu supplémentaire de l’offre.
 
 L’équipe de certification Microsoft examinera la vidéo et les fichiers, puis elle approuvera la solution ou vous enverra des e-mails concernant les étapes à suivre.
 
@@ -50,13 +50,13 @@ Pour planifier un appel de révision finale, envoyez un e-mail à l’adresse [a
 
 2. Prenez les captures d’écran suivantes de l’environnement [LCS](https://lcs.dynamics.com/), qui correspondent à l’offre ou à la solution que vous souhaitez publier. Elles doivent être suffisamment nettes pour que l’équipe de certification puisse en lire le texte. Enregistrez les captures d’écran au format JPG. Plutôt que de fournir des captures d’écran, vous pouvez autoriser [appSourceCRM@microsoft.com](mailto:appSourceCRM@microsoft.com) à accéder à votre environnement LCS pour qu’ils puissent vérifier la configuration.
 
-    1. Accédez à **LCS** > **Concepteur de processus d’entreprise** > **Bibliothèque de projets**. Prenez des captures d’écran de toutes les étapes du processus. Incluez les colonnes **Diagrammes** et **Révisé** , comme illustré ici :
+    1. Accédez à **LCS** > **Concepteur de processus d’entreprise** > **Bibliothèque de projets**. Prenez des captures d’écran de toutes les étapes du processus. Incluez les colonnes **Diagrammes** et **Révisé**, comme illustré ici :
 
        :::image type="content" source="media/dynamics-365-finance-operations/project-library.png" alt-text="Affiche la fenêtre de la bibliothèque de projets.":::
 
       2. Accédez à **LCS** > **Gestion des solutions** > **Tester le package de solution**. Prenez des captures d’écran qui incluent une vue d’ensemble du package et de son contenu, comme dans les exemples suivants :
 
-    | Champ | Image <img src="" width="400px">|
+    | Champ | Image |
     | --- | --- |
     | Vue d’ensemble du package | [![Screenshot that shows the "Package overview" window.](media/dynamics-365-finance-operations/package-overview-45.png)](media/dynamics-365-finance-operations/package-overview.png#lightbox) |
     | <ul><li>Approbateurs de solution</li></ul> | [![Vue d’ensemble du package](media/dynamics-365-finance-operations/solution-approvers-45.png)](media/dynamics-365-finance-operations/solution-approvers.png#lightbox) |

@@ -1,18 +1,18 @@
 ---
 title: Définitions de stratégie intégrées pour Stockage Azure
 description: Liste les définitions de stratégie intégrées d’Azure Policy pour Stockage Azure. Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de vos ressources Azure.
-ms.date: 03/05/2021
+ms.date: 03/10/2021
 ms.topic: reference
 author: tamram
 ms.author: tamram
 ms.service: storage
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 02bbe505c8a9581173f2ddf0d78b4dfdea5107a9
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 54f466f823c5ef253589e61abe49a85e1074b3ed
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102433039"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103419891"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-storage"></a>Définitions intégrées d’Azure Policy pour le stockage Azure
 
@@ -23,6 +23,14 @@ Le nom de chaque définition de stratégie intégrée est un lien vers la défin
 ## <a name="microsoftstorage"></a>Microsoft.Storage
 
 [!INCLUDE [azure-policy-reference-service-storage](../../../includes/policy/reference/byrp/microsoft.storage.md)]
+
+## <a name="microsoftstoragecache"></a>Microsoft.StorageCache
+
+[!INCLUDE [azure-policy-reference-service-storagecache](../../../includes/policy/reference/byrp/microsoft.storagecache.md)]
+
+## <a name="microsoftstoragesync"></a>Microsoft.StorageSync
+
+[!INCLUDE [azure-policy-reference-service-storagesync](../../../includes/policy/reference/byrp/microsoft.storagesync.md)]
 
 ## <a name="microsoftclassicstorage"></a>Microsoft.ClassicStorage
 

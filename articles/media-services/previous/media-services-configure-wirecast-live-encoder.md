@@ -3,7 +3,7 @@ title: Configurer l’encodeur Telestream Wirecast pour envoyer un flux en direc
 description: "Cette rubrique explique comment configurer l'encodeur live Wirecast afin d'envoyer un flux à débit binaire unique à des canaux AMS activés pour l'encodage en temps réel. "
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: 0d2f1e81-51a6-4ca9-894a-6dfa51ce4c70
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 03/14/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.reviewer: cenkdin;anilmur
-ms.openlocfilehash: ecab0ee67dd1d5cee3fd9927c00c9f9d827b2f47
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: a736270919f36cb7d4bbd4e686a98ddc57f402fa
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92910047"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103016829"
 ---
 # <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>Utiliser l’encodeur Wirecast pour envoyer un flux en direct à débit binaire unique
 
@@ -49,7 +49,7 @@ Ce didacticiel montre comment gérer Azure Media Services (AMS) avec l’outil A
 * Lors de l’utilisation d’encodeurs logiciels, fermez tous les programmes inutiles.
 
 ## <a name="create-a-channel"></a>Créer un canal
-1. Dans l’outil AMSE, accédez à l’onglet **Live** , puis cliquez avec le bouton droit dans la zone des canaux. Dans le menu qui s’affiche, sélectionnez **Créer un canal...** .
+1. Dans l’outil AMSE, accédez à l’onglet **Live**, puis cliquez avec le bouton droit dans la zone des canaux. Dans le menu qui s’affiche, sélectionnez **Créer un canal...** .
 
     ![Capture d’écran de l’option Créer un canal sélectionnée dans un menu](./media/media-services-wirecast-live-encoder/media-services-wirecast1.png)
 
@@ -76,7 +76,7 @@ Pendant le démarrage du canal, vous pouvez [configurer l’encodeur](media-serv
 ## <a name="configure-the-telestream-wirecast-encoder"></a><a id="configure_wirecast_rtmp" />Configurer l’encodeur Telestream Wirecast
 Dans ce didacticiel, les paramètres de sortie ci-dessous sont utilisés. Le reste de cette section décrit la procédure de configuration plus en détail.
 
-**Vidéo** :
+**Vidéo**:
 
 * Codec : H.264
 * Profil : Élevé (niveau 4.0)
@@ -84,7 +84,7 @@ Dans ce didacticiel, les paramètres de sortie ci-dessous sont utilisés. Le res
 * Image clé : 2 secondes (60 secondes)
 * Fréquence d’images : 30
 
-**Audio** :
+**Audio**:
 
 * Codec : AAC (LC)
 * Vitesse de transmission : 192 Kbits/s
@@ -126,9 +126,9 @@ Dans ce didacticiel, les paramètres de sortie ci-dessous sont utilisés. Le res
     Assurez-vous que ce nouveau profil est sélectionné.
 7. Récupérez l’URL d’entrée du canal pour l’affecter au **Point de terminaison RTMP** Wirecast.
 
-    Revenez à l’outil AMSE et vérifiez l’état d’achèvement du canal. Une fois que l’état est passé de **Démarrage** à **En cours d’exécution** , vous pouvez obtenir l’URL d’entrée.
+    Revenez à l’outil AMSE et vérifiez l’état d’achèvement du canal. Une fois que l’état est passé de **Démarrage** à **En cours d’exécution**, vous pouvez obtenir l’URL d’entrée.
 
-    Une fois le canal en cours d’exécution, cliquez avec le bouton droit sur le nom du canal, déplacez le pointeur vers le bas pour le placer sur **Copier l’URL entrée dans le Presse-papiers** , puis sélectionnez **URL d’entrée principale**.  
+    Une fois le canal en cours d’exécution, cliquez avec le bouton droit sur le nom du canal, déplacez le pointeur vers le bas pour le placer sur **Copier l’URL entrée dans le Presse-papiers**, puis sélectionnez **URL d’entrée principale**.  
 
     ![Capture d’écran de l’option Copier l’URL dans le Presse-papiers de l’URL d’entrée principale](./media/media-services-wirecast-live-encoder/media-services-wirecast6.png)
 8. Dans la fenêtre **Paramètres de sortie** de Wirecast, collez ces informations dans le champ **Adresse** de la section de sortie et indiquez un nom de flux.
@@ -136,12 +136,12 @@ Dans ce didacticiel, les paramètres de sortie ci-dessous sont utilisés. Le res
     ![Capture d’écran des Paramètres de sortie](./media/media-services-wirecast-live-encoder/media-services-wirecast5.png)
 
 1. Sélectionnez **OK**.
-2. Dans l’écran principal de **Wirecast** , vérifiez que les sources d’entrée audio et vidéo sont prêtes, puis appuyez sur **Flux** dans le coin supérieur gauche.
+2. Dans l’écran principal de **Wirecast**, vérifiez que les sources d’entrée audio et vidéo sont prêtes, puis appuyez sur **Flux** dans le coin supérieur gauche.
 
     ![Capture d’écran du bouton Flux Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast7.png)
 
 > [!IMPORTANT]
-> Avant de cliquer sur **Flux** , vous **devez** vérifier que le canal est prêt.
+> Avant de cliquer sur **Flux**, vous **devez** vérifier que le canal est prêt.
 > Veillez également à ne pas laisser le canal à l’état d’exécution sans un flux de contribution d’entrée pendant plus de 15 minutes.
 >
 >

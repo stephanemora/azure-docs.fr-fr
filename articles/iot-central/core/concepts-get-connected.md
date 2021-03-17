@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - device-developer
-ms.openlocfilehash: 828f0ff81048ca0b6f07b7fdee9ed29c87991db4
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: dc0655aba424d29a4055f0d50a20057f22d084ed
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102032634"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103015453"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Se connecter à Azure IoT Central
 
@@ -178,7 +178,7 @@ Cette approche est pratique quand vous faites des essais avec IoT Central ou qua
 
 ## <a name="associate-a-device-with-a-device-template"></a>Associer un appareil à un modèle d’appareil
 
-IoT Central associe automatiquement un appareil à un modèle d’appareil lorsque l’appareil se connecte. Un appareil envoie un [ID de modèle](../../iot-pnp/iot-plug-and-play-glossary.md#model-id) lorsqu’il se connecte. IoT Central utilise l’ID de modèle pour identifier le modèle d’appareil correspondant à ce modèle d’appareil spécifique. Le processus de détection fonctionne comme suit :
+IoT Central associe automatiquement un appareil à un modèle d’appareil lorsque l’appareil se connecte. Un appareil envoie un [ID de modèle](../../iot-fundamentals/iot-glossary.md?toc=/azure/iot-central/toc.json&bc=/azure/iot-central/breadcrumb/toc.json#model-id) lorsqu’il se connecte. IoT Central utilise l’ID de modèle pour identifier le modèle d’appareil correspondant à ce modèle d’appareil spécifique. Le processus de détection fonctionne comme suit :
 
 1. Si le modèle d’appareil est déjà publié dans l’application IoT Central, l’appareil est associé au modèle d’appareil.
 1. Si le modèle d’appareil n’est pas encore publié dans l’application IoT Central, cette dernière le recherche dans le [référentiel de modèles public](https://github.com/Azure/iot-plugandplay-models). Si IoT Central trouve le modèle, il l’utilise pour générer un modèle d’appareil de base.

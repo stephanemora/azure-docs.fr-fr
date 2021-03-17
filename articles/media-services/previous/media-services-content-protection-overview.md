@@ -3,7 +3,7 @@ title: Protéger votre contenu avec Azure Media Services | Microsoft Docs
 description: Cet article donne une vue d’ensemble de la protection du contenu avec Azure Media Services v2.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: 81bc00e1-dcda-4d69-b9ab-8768b793422b
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/01/2019
-ms.author: juliako
-ms.openlocfilehash: 287f93a60a1c44b29b75def8cc3ee9adc577971c
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.date: 03/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: edffa2dddd0ec877a4b825a69a76fb158928c89f
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98695922"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103016761"
 ---
 # <a name="content-protection-overview"></a>Présentation de la protection du contenu
 
@@ -105,9 +105,9 @@ Les considérations suivantes s'appliquent :
 * Le type de chiffrement ne tient pas compte de la casse.
 * Les types de chiffrement suivants peuvent être spécifiés :
 
-  * **cenc** : pour PlayReady ou Widevine (chiffrement commun)
-  * **cbcs-aapl** : pour FairPlay (chiffrement CBC AES)
-  * **cbc** : chiffrement de l'enveloppe AES
+  * **cenc** : pour PlayReady ou Widevine (chiffrement commun)
+  * **cbcs-aapl** : pour FairPlay (chiffrement CBC AES)
+  * **cbc** : pour le chiffrement de l’enveloppe AES
 
 ## <a name="additional-notes"></a>Remarques supplémentaires
 
@@ -119,7 +119,7 @@ Les articles ci-dessous décrivent les étapes suivantes que vous pouvez exécut
 * [Protection avec le chiffrement du stockage](media-services-rest-storage-encryption.md)
 * [Protection avec le chiffrement AES](media-services-protect-with-aes128.md)
 * [Protection avec PlayReady et/ou Widevine](media-services-protect-with-playready-widevine.md)
-* [Protection avec FairPlay](media-services-protect-hls-with-FairPlay.md)
+* [Protéger avec FairPlay](media-services-protect-hls-with-FairPlay.md)
 
 ## <a name="related-links"></a>Liens connexes
 

@@ -3,7 +3,7 @@ title: Vue d’ensemble des points de terminaison de streaming Azure Media Servi
 description: Cet article fournit une vue d’ensemble des points de terminaison de streaming Azure Media Services.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 writer: juliako
 manager: femila
 editor: ''
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
-ms.author: juliako
-ms.openlocfilehash: f5e3d7e61b6c2a6ad3c121da9c0198c95ac24850
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.date: 3/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: 0961b52ebc7271fabf4cc05ed99eea23d911a2d4
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98694569"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103009087"
 ---
 # <a name="streaming-endpoints-overview"></a>Vue d’ensemble des points de terminaison de streaming  
 
@@ -80,9 +80,9 @@ Si votre point de terminaison de streaming **version « 1.0 »** continu a 1 o
 |Type|StreamingEndpointVersion|ScaleUnits|CDN|Facturation|
 |--------------|----------|-----------------|-----------------|-----------------|
 |Classique|1.0|0|N/D|Gratuit|
-|Point de terminaison de streaming Standard (préversion)|2|0|Oui|Payant|
+|Point de terminaison de streaming Standard (préversion)|2.0|0|Oui|Payant|
 |Unités de streaming Premium|1.0|>0|Oui|Payant|
-|Unités de streaming Premium|2|>0|Oui|Payant|
+|Unités de streaming Premium|2.0|>0|Oui|Payant|
 
 ### <a name="features"></a>Fonctionnalités
 

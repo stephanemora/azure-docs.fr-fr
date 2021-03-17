@@ -10,14 +10,16 @@ ms.topic: overview
 ms.date: 10/28/2019
 ms.author: kgremban
 ms.custom: mvc
-ms.openlocfilehash: 1ba133acda414d9779e2fb10150bbdd57285e9a5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e6c8e83838240b989c8c782840d8c771a6f6b7db
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "76511210"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103487800"
 ---
 # <a name="what-is-azure-iot-edge"></a>Qu’est-ce qu’Azure IoT Edge
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Azure IoT Edge déplace l’analytique et la logique métier personnalisée du cloud vers les appareils, afin que votre organisation puisse se concentrer sur les perspectives commerciales plutôt que sur la gestion des données. Effectuez un scale-out de votre solution IoT en plaçant votre logique métier dans des conteneurs standard. Vous pouvez alors déployer ces conteneurs sur n’importe lequel de vos appareils et tout superviser à partir du cloud.
 
@@ -60,9 +62,9 @@ Les choix liés à l’utilisation d’un appareil Azure IoT Edge vous incomben
 
 Le runtime Azure IoT Edge s'exécute sur un grand nombre d'appareils IoT, ce qui permet de l'utiliser de différentes façons. Il prend en charge les systèmes d’exploitation Linux et Windows ainsi que des détails matériels abstraits. Utilisez un appareil plus petit qu’un Raspberry Pi 3 si vous ne traitez pas de grands volumes de données, ou utilisez un serveur industriel pour exécuter des charges de travail consommant beaucoup de ressources.
 
-## <a name="iot-edge-cloud-interface"></a>Interface cloud IoT Edge
+## <a name="iot-edge-cloud-interface"></a>L’interface cloud IoT Edge
 
-Il est difficile de gérer le cycle de vie des logiciels pour des millions d'appareils IoT qui sont souvent de marques et de modèles différents, ou dispersées géographiquement. Les charges de travail sont créées et configurées pour un type particulier d’appareil, déployées sur tous vos appareils et supervisées pour intercepter tous les appareils présentant un dysfonctionnement. Ces activités ne peuvent pas être effectuées sur chaque appareil et doivent être appliquées à grande échelle.
+Il est difficile de gérer le cycle de vie des logiciels pour des millions d'appareils IoT qui sont souvent de marques et de modèles différents, ou dispersées géographiquement. Les charges de travail sont créées et configurées pour un type particulier d’appareil, déployées sur tous vos appareils et supervisées pour intercepter tous les appareils présentant un dysfonctionnement. Ces activités ne peuvent pas être effectuées sur chaque appareil : elles doivent être appliquées à grande échelle.
 
 Azure IoT Edge s’intègre parfaitement avec les accélérateurs de solution Azure IoT pour fournir un plan de contrôle pour les besoins de votre solution. Les services cloud vous permettent de :
 

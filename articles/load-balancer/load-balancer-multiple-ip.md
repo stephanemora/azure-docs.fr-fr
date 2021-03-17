@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: 5a896d3fbe2d191473b10655ccb19c5759762131
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d28946aad263af635a0139e68d424a77a1eab25
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84803632"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103417822"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>Équilibrage de charge sur plusieurs configurations IP dans le portail Azure
 
@@ -26,7 +26,6 @@ ms.locfileid: "84803632"
 > * [Portail](load-balancer-multiple-ip.md)
 > * [PowerShell](load-balancer-multiple-ip-powershell.md)
 > * [INTERFACE DE LIGNE DE COMMANDE](load-balancer-multiple-ip-cli.md)
-
 
 Dans cet article, nous allons vous montrer comment utiliser Azure Load Balancer avec plusieurs adresses IP sur un contrôleur d’interface réseau (carte réseau) secondaire. Le diagramme suivant illustre notre scénario :
 
@@ -42,7 +41,7 @@ Dans ce scénario, nous utilisons la configuration suivante :
 - Azure Load Balancer est utilisé pour exposer deux adresses IP frontales, une pour chaque site web. Les adresses frontales sont utilisées pour répartir le trafic sur la configuration IP respective de chaque site web.
 - Le même numéro de port est utilisé pour les adresses IP frontales et pour celles du pool principal.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Notre exemple de scénario suppose que vous disposez d’un groupe de ressources nommé **contosofabrikam** configuré de la manière suivante :
 
@@ -72,7 +71,7 @@ Pour chaque machine virtuelle dans votre réseau virtuel, ajoutez la configurati
     
     2. Sélectionnez **Configurations IP**. Dans le volet suivant, en haut, sélectionnez **Ajouter**.
 
-    3. Dans **Add IP configurations (Ajouter des configurations IP)** , ajoutez une seconde configuration IP à la carte réseau : 
+    3. Dans **Add IP configurations (Ajouter des configurations IP)**, ajoutez une seconde configuration IP à la carte réseau : 
 
         1. Entrez un nom pour la configuration IP secondaire. (Par exemple, pour VM1 et VM2, nommez la configuration IP **VM1NIC2-ipconfig2** et **VM2NIC2-ipconfig2**, respectivement.)
 
@@ -82,7 +81,7 @@ Pour chaque machine virtuelle dans votre réseau virtuel, ajoutez la configurati
 
 Lorsque la seconde configuration IP de la carte réseau secondaire est terminée, elle s’affiche dans les paramètres **Configurations IP** de la carte réseau donnée.
 
-### <a name="step-2-create-the-load-balancer"></a>Étape 2 : Créer l’équilibreur de charge
+### <a name="step-2-create-the-load-balancer"></a>Étape 2 : Créer l’équilibreur de charge
 
 Créez votre équilibreur de charge pour la configuration :
 
@@ -140,9 +139,9 @@ Pour chaque site web (contoso.com et fabrikam.com), configurez le pool d’adres
 
 3. Sous **Paramètres**, sélectionnez **Backend Pools (Pools principaux)** . Entrez le nom de votre pool principal (par exemple, **contosopool** ou **fabrikampool**). Dans le volet suivant, en haut, sélectionnez **Ajouter**. 
 
-4. Dans **Associated to (Associé à)** , sélectionnez **Availability set (Groupe à haute disponibilité)** .
+4. Dans **Associated to (Associé à)**, sélectionnez **Availability set (Groupe à haute disponibilité)**.
 
-5. Dans **Availability set (Groupe à haute disponibilité)** , sélectionnez **myAvailset**.
+5. Dans **Availability set (Groupe à haute disponibilité)**, sélectionnez **myAvailset**.
 
 6. Ajoutez les configurations IP réseau cibles pour les deux machines virtuelles : 
 
@@ -164,7 +163,7 @@ Configurez une sonde d’intégrité pour votre équilibreur de charge :
 
 2. Sélectionnez l’équilibreur de charge (**mylb**) auquel vous souhaitez ajouter la sonde d’intégrité.
 
-3. Sous **Paramètres**, sélectionnez **Health Probe (Sonde d’intégrité)** . Dans le volet suivant, en haut, sélectionnez **Ajouter**. 
+3. Sous **Paramètres**, sélectionnez **Health Probe (Sonde d’intégrité)**. Dans le volet suivant, en haut, sélectionnez **Ajouter**. 
 
 4. Entrez le nom de la sonde d’intégrité (par exemple, **HTTP**). Sélectionnez **OK**.
 
@@ -178,9 +177,9 @@ Pour chaque site web (contoso.com et fabrikam.com), configurez les règles d’�
 
 3. Dans **Adresse IP du serveur frontal**, sélectionnez l’adresse IP frontale que vous avez précédemment créée (par exemple, **contosofe** ou **fabrikamfe**).
 
-4. Dans **Port** et **Backend port (Port principal)** , conservez la valeur par défaut (**80**).
+4. Dans **Port** et **Backend port (Port principal)**, conservez la valeur par défaut (**80**).
 
-5. Dans **IP flottante (retour direct du serveur)** , sélectionnez **Désactivée**.
+5. Dans **IP flottante (retour direct du serveur)**, sélectionnez **Désactivée**.
 
 6. <a name="step6-6"></a>Sélectionnez **OK**.
 

@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 08/20/2019
-ms.openlocfilehash: 6fc5bea71909d0e17b4ef0256ab0cad644dacbb3
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 37c4bd2af080a76e93bc9599f06e4d502985979f
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95993820"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102609649"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>Utiliser Microsoft Azure Traffic Manager pour gérer le quota de points de terminaison entre les clés
 Language Understanding (LUIS) offre la possibilité d’augmenter le quota de demandes des points de terminaison au-delà du quota d’une seule clé. Il suffit de créer plusieurs clés pour LUIS et de les ajouter à l’application LUIS dans la section **Ressources et clés** de la page **Publier**.
@@ -366,12 +366,12 @@ Pour gérer le trafic entre les points de terminaison, vous devez insérer un ap
 
 Activez [journaux de diagnostic](../../traffic-manager/traffic-manager-diagnostic-logs.md) pour Traffic Manager afin de connaître la cause de la détérioration de l’état du point de terminaison.
 
-## <a name="clean-up"></a>Nettoyer
+## <a name="clean-up"></a>Nettoyage
 Supprimez les deux clés de point de terminaison LUIS, les trois profils Traffic Manager et le groupe de ressources contenant ces cinq ressources. Utilisez pour cela le Portail Azure. Supprimez les cinq ressources de la liste de ressources, puis supprimez le groupe de ressources.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Examinez les options [intergiciel (middleware)](/azure/bot-service/bot-builder-create-middleware?tabs=csaddmiddleware%252ccsetagoverwrite%252ccsmiddlewareshortcircuit%252ccsfallback%252ccsactivityhandler&view=azure-bot-service-4.0) de BotFramework v4 pour comprendre comment ajouter ce code de gestion du trafic à un bot BotFramework.
+Examinez les options [intergiciel (middleware)](/azure/bot-service/bot-builder-create-middleware?tabs=csaddmiddleware%252ccsetagoverwrite%252ccsmiddlewareshortcircuit%252ccsfallback%252ccsactivityhandler) de BotFramework v4 pour comprendre comment ajouter ce code de gestion du trafic à un bot BotFramework.
 
 [traffic-manager-marketing]: https://azure.microsoft.com/services/traffic-manager/
 [traffic-manager-docs]: ../../traffic-manager/index.yml

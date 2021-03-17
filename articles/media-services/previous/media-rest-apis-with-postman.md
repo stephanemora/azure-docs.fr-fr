@@ -3,7 +3,7 @@ title: Configurer Postman pour les appels d’API REST Azure Media Services
 description: Cet article explique comment configurer Postman pour les appels d’API REST Media Services.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/31/2020
-ms.author: juliako
-ms.openlocfilehash: a95e6c9554c96a530b4c92832a57b4febda86002
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.date: 03/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: ef92e772085b1b89388c3f85fb3fdb91df0f6a75
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98695685"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103012205"
 ---
 # <a name="configure-postman-for-media-services-v2-rest-api-calls"></a>Configurer Postman pour les appels d’API REST Media Services v2
 
@@ -31,11 +31,11 @@ Ce didacticiel vous montre comment configurer **Postman** afin de l’utiliser p
 
 Cet environnement et la collection sont utilisés dans les articles qui indiquent comment effectuer diverses tâches liées aux API REST Azure Media Services.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - Installez le client REST [Postman](https://www.getpostman.com/) pour exécuter les API REST indiquées dans certains des didacticiels REST AMS. 
 
-    Nous utilisons **Postman** mais n’importe quel outil REST serait approprié. Les autres solutions sont : **Visual Studio Code** avec le plug-in REST ou **Telerik Fiddler**. 
+    Nous utilisons **Postman** mais n’importe quel outil REST serait approprié. Les autres solutions possibles sont : **Visual Studio Code** avec le plug-in REST ou **Telerik Fiddler**. 
 
 ## <a name="configure-the-environment"></a>Configurer l’environnement 
 

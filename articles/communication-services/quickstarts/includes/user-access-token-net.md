@@ -1,21 +1,21 @@
 ---
-title: Fichier Include
+title: Fichier include
 description: Fichier include
 services: azure-communication-services
 author: tomaschladek
 manager: nmurav
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 08/20/2020
+ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: tchladek
-ms.openlocfilehash: 89b89eec0375cec7d27189a10f46e7317573b98b
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: a0f8744061853e8bd81d3435c1f007e96a7d5783
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102510815"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103495301"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
@@ -45,7 +45,7 @@ dotnet build
 Alors que vous êtes toujours dans le répertoire de l’application, installez le package de la bibliothèque Azure Communication Services Identity pour .NET à l’aide de la commande `dotnet add package`.
 
 ```console
-dotnet add package Azure.Communication.Identity --version 1.0.0
+dotnet add package Azure.Communication.Identity --version 1.0.0-beta.5
 ```
 
 ### <a name="set-up-the-app-framework"></a>Configurer le framework d’application
@@ -131,14 +131,18 @@ Les jetons d’accès sont des informations d’identification à durée de vie 
 
 ## <a name="create-an-identity-and-issue-an-access-token-within-the-same-request"></a>Créer une identité et émettre un jeton d’accès dans la même requête
 
-La méthode `createUserWithToken` permet de créer une identité Communication Services et d’émettre un jeton d’accès pour celle-ci. Le paramètre `scopes` définit un ensemble de primitives, qui autorise ce jeton d’accès. Consultez [la liste des actions prises en charge](../../concepts/authentication.md).
+La méthode `CreateUserAndTokenAsync` permet de créer une identité Communication Services et d’émettre un jeton d’accès pour celle-ci. Le paramètre `scopes` définit un ensemble de primitives, qui autorise ce jeton d’accès. Consultez [la liste des actions prises en charge](../../concepts/authentication.md).
 
-```csharp  
+```csharp
 // Issue an identity and an access token with the "voip" scope for the new identity
-var identityWithTokenResponse = await client.CreateUserWithTokenAsync(scopes: new[] { CommunicationTokenScope.VoIP });
-var identity = identityWithTokenResponse.Value.user.Id;
-var token = identityWithTokenResponse.Value.token.Token;
-var expiresOn = identityWithTokenResponse.Value.token.ExpiresOn;
+var identityAndTokenResponse = await client.CreateUserAndTokenAsync(scopes: new[] { CommunicationTokenScope.VoIP });
+var identity = identityAndTokenResponse.Value.User;
+var token = identityAndTokenResponse.Value.AccessToken.Token;
+var expiresOn = identityAndTokenResponse.Value.AccessToken.ExpiresOn;
+
+Console.WriteLine($"\nCreated an identity with ID: {identity.Id}");
+Console.WriteLine($"\nIssued an access token with 'voip' scope that expires at {expiresOn}:");
+Console.WriteLine(token);
 ```
 
 ## <a name="refresh-access-tokens"></a>Actualiser des jetons d’accès

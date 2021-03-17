@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 01/21/2021
 ms.custom: seodec18
-ms.openlocfilehash: f4b5d4915cd6520edd7a45af85a836c3360eee32
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: ee66e68216933c410092865a1cdb781476a944c6
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98696327"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103461132"
 ---
 # <a name="add-an-event-hub-event-source-to-your-azure-time-series-insights-environment"></a>Ajouter une source d’événement Event Hub à votre environnement Azure Time Series Insights
 
@@ -27,7 +27,7 @@ Cet article explique comment utiliser le Portail Azure pour ajouter une source d
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Créez un environnement Azure Time Series Insights comme décrit dans [Créer un environnement Azure Time Series Insights](./tutorials-set-up-tsi-environment.md).
+- Créez un environnement Azure Time Series Insights comme décrit dans [Créer un environnement Azure Time Series Insights](./tutorial-set-up-environment.md).
 - Créez un hub d’événements. Lisez [Créer un espace de noms Event Hubs et un concentrateur d’événements avec le Portail Azure](../event-hubs/event-hubs-create.md).
 - L’Event Hub doit avoir reçu des événements de message actifs. Découvrez comment [Envoyer des événements vers Azure Event Hubs à l’aide de .NET Framework](../event-hubs/event-hubs-dotnet-framework-getstarted-send.md).
 - Créez un groupe de consommateurs dédié dans l’Event Hub que l’environnement Azure Time Series Insights peut utiliser. Chaque source d’événement Azure Time Series Insights Azure doit avoir son propre groupe de consommateurs dédié, qui n’est pas partagé avec un autre consommateur. Si plusieurs lecteurs consomment des événements du même groupe de consommateurs, tous les lecteurs sont susceptibles de présenter des défaillances. Il existe également une limite de 20 groupes de consommateurs par Event Hub. Pour plus d’informations, consultez le [guide de programmation Event Hubs](../event-hubs/event-hubs-programming-guide.md).
