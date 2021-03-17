@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 01/13/2021
 ms.author: trbye
-ms.openlocfilehash: 4a6c7b36665c7a38534ce8e470bc8b327c274d95
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 53138a22c58e89ade4af234630e9429a19738a6a
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "99095176"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102556466"
 ---
 # <a name="get-started-with-the-azure-speech-cli"></a>Bien démarrer avec l’interface CLI Azure Speech
 
@@ -86,7 +86,7 @@ spx synthesize --text "Testing synthesis using the Speech CLI" --speakers
 Vous pouvez aussi enregistrer la sortie synthétisée dans un fichier. Dans cet exemple, nous allons créer un fichier nommé `my-sample.wav` dans le répertoire dans lequel la commande est exécutée.
 
 ```console
-spx synthesize --text "We hope that you enjoy using the Speech CLI." --audio output my-sample.wav
+spx synthesize --text "Enjoy using the Speech CLI." --audio output my-sample.wav
 ```
 
 Ces exemples supposent que vous testez en anglais. Cependant, la synthèse vocale est prise en charge dans de nombreuses langues. Vous pouvez extraire une liste complète de voix via cette commande ou dans la [page de prise en charge des langues](./language-support.md).

@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 01/07/2021
+ms.date: 03/08/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: d8f4693fd6e1e443dd44aa745f338efd00282983
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: 750b7a8367d46434f48626268a0eb37c9edddfb1
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102438248"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102633532"
 ---
 # <a name="tutorial-configure-compute-on-azure-stack-edge-pro-gpu-device"></a>Tutoriel : Configurer le calcul sur un appareil Azure Stack Edge Pro avec GPU
 
@@ -52,7 +52,7 @@ Pour configurer un client pour accéder au cluster Kubernetes, vous avez besoin 
 1. Dans l’interface utilisateur web locale de votre appareil, accédez à la page **Appareils**.
 2. Sous **Points de terminaison de l’appareil**, copiez le point de terminaison du **service d’API Kubernetes**. Ce point de terminaison est une chaîne au format suivant : `https://compute.<device-name>.<DNS-domain>[Kubernetes-cluster-IP-address]`. 
 
-    ![Page Appareil dans l’interface utilisateur locale](./media/azure-stack-edge-j-series-create-kubernetes-cluster/device-kubernetes-endpoint-1.png)
+    ![Page Appareil dans l’interface utilisateur locale](./media/azure-stack-edge-gpu-create-kubernetes-cluster/device-kubernetes-endpoint-1.png)
 
 3. Enregistrez la chaîne de point de terminaison. Vous allez utiliser cette chaîne de point de terminaison ultérieurement lors de la configuration d’un client pour accéder au cluster Kubernetes par le biais de kubectl.
 

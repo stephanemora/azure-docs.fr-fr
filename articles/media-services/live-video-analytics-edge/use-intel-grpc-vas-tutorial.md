@@ -6,12 +6,12 @@ ms.date: 02/04/2021
 ms.service: media-services
 ms.author: faneerde
 author: fvneerden
-ms.openlocfilehash: 282ab76c34405f19e7f81b2a8069c178b17ee0c1
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: 20a22d11973f5bb01e2c1345538d5d94ce311dc7
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102124412"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103465757"
 ---
 # <a name="tutorial-analyze-live-video-by-using-intel-openvino-dl-streamer--edge-ai-extension"></a>Tutoriel : Analyser la vidéo en direct avec Intel OpenVINO™ DL Streamer - Edge IA Extension 
 
@@ -128,7 +128,7 @@ Dans le cadre des prérequis, vous avez téléchargé l’exemple de code dans u
     Le fichier manifeste *deployment.openvino.grpc.cpu.amd64.json* est créé dans le dossier *src/edge/config*.
 
 > [!NOTE]
-Nous avons également inclus un modèle *deployment.openvino.grpc.gpu.template.json* qui permet de prendre en charge du GPU pour le module Intel OpenVINO DL Streamer - Edge AI Extension. Ces modèles pointent vers l’image du hub Docker d’Intel.
+> Nous avons également inclus un modèle *deployment.openvino.grpc.gpu.template.json* qui permet de prendre en charge du GPU pour le module Intel OpenVINO DL Streamer - Edge AI Extension. Ces modèles pointent vers l’image du hub Docker d’Intel.
 
 Les modèles mentionnés ci-dessus pointent vers l’image du hub Docker d’Intel. Si vous voulez plutôt héberger une copie sur Azure Container Registry, vous pouvez effectuer les étapes 1 et 2 ci-dessous :
 1. Connectez-vous avec SSH à un appareil sur lequel les outils CLI Docker sont installés (par exemple, votre périphérique) et tirez (pull)/étiquetez/envoyez (push) le conteneur en suivant ces étapes :

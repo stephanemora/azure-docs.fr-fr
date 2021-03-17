@@ -8,12 +8,12 @@ ms.date: 12/08/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: f8210428e772241134b57ac4fccb5b1549e04483
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: ab1da88899ba2b90e303da107631e3878b3a8b58
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97617270"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102635873"
 ---
 # <a name="synchronize-with-azure-blob-storage-by-using-azcopy-v10"></a>Synchroniser avec Stockage Blob Azure à l’aide d’AzCopy v10
 
@@ -33,7 +33,7 @@ Consultez l’article [Prise en main d’AzCopy](storage-use-azcopy-v10.md) pour
 > [!NOTE] 
 > Les exemples de cet article partent du principe que vous avez fourni des informations d’identification d’autorisation en utilisant Azure AD (Azure Active Directory).
 >
-> Si vous préférez utiliser un jeton SAS pour autoriser l’accès aux données d’objets blob, vous pouvez ajouter ce jeton à l’URL de ressource dans chaque commande AzCopy. Par exemple : `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`.ken>'`.
+> Si vous préférez utiliser un jeton SAS pour autoriser l’accès aux données d’objets blob, vous pouvez ajouter ce jeton à l’URL de ressource dans chaque commande AzCopy. Par exemple : `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`.
 
 ## <a name="guidelines"></a>Consignes
 

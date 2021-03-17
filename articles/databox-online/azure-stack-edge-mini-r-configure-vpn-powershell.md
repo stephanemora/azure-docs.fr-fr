@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 11/17/2020
 ms.author: alkohli
-ms.openlocfilehash: 763ccd397d8cd704ca161032e65f17979bccb53b
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 9fa4c678a04342b47601f81ede7c49ab841f42ba
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96465512"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102630960"
 ---
 # <a name="configure-vpn-on-your-azure-stack-edge-mini-r-device-via-azure-powershell"></a>Configurer un VPN sur votre appareil Azure Stack Edge Mini R via Azure PowerShell
 
@@ -29,7 +29,7 @@ Une connexion par passerelle VPN P2S vous permet de créer une connexion sécuri
 
 Le flux de travail type inclut les étapes suivantes :
 
-1. Configurer les prérequis.
+1. Configurez les prérequis.
 2. Configurez les ressources nécessaires sur Azure.
     1. Créez et configurez un réseau virtuel et les sous-réseaux requis. 
     2. Créez et configurez une passerelle VPN Azure (passerelle de réseau virtuel).
@@ -303,7 +303,7 @@ Procédez comme suit sur l’interface utilisateur locale de votre appareil Azur
 
 ## <a name="validate-data-transfer-through-vpn"></a>Valider le transfert de données via VPN
 
-Pour confirmer que le VPN fonctionne, copiez les données vers un partage SMB. Suivez les étapes décrites dans [Ajouter un partage](azure-stack-edge-j-series-manage-shares.md#add-a-share) sur votre appareil Azure Stack Edge. 
+Pour confirmer que le VPN fonctionne, copiez les données vers un partage SMB. Suivez les étapes décrites dans [Ajouter un partage](azure-stack-edge-gpu-manage-shares.md#add-a-share) sur votre appareil Azure Stack Edge. 
 
 1. Copiez un fichier, par exemple \data\pictures\waterfall.jpg, dans le partage SMB que vous avez monté sur votre système client. 
 2. Pour vérifier que les données passent par un VPN, pendant que les données sont copiées :

@@ -3,12 +3,12 @@ title: Interroger une base de connaissances – QnA Maker
 description: Une base de connaissances doit être publiée. Une fois publiée, la base de connaissances est interrogée au point de terminaison de prédiction du runtime à l’aide de l’API generateAnswer.
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: deefc53fdc94851da0e9e255962fbf85692d1393
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: c723d1446c90290929bc8cad066b4744e284f3f4
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99820379"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103008669"
 ---
 # <a name="query-the-knowledge-base-for-answers"></a>Interroger la base de connaissances pour obtenir des réponses
 
@@ -84,10 +84,9 @@ Une requête utilisateur est la question que l’utilisateur final pose à la ba
     "userId": "sd53lsY="
 }
 ```
+Vous contrôlez la réponse en définissant des propriétés telles que[scoreThreshold](./confidence-score.md#choose-a-score-threshold), [top](../how-to/improve-knowledge-base.md#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers), et [strictFilters](../how-to/query-knowledge-base-with-metadata.md).
 
-Vous contrôlez la réponse en définissant des propriétés telles que[scoreThreshold](./confidence-score.md#choose-a-score-threshold), [top](../how-to/improve-knowledge-base.md#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers), et [strictFilters](../how-to/metadata-generateanswer-usage.md#filter-results-with-strictfilters-for-metadata-tags).
-
-Utilisez [le contenu de la conversation](../how-to/metadata-generateanswer-usage.md#use-question-and-answer-results-to-keep-conversation-context) avec [la fonctionnalité multitour](../how-to/multiturn-conversation.md) pour que la conversation se poursuive afin d’affiner les questions et les réponses pour trouver la réponse correcte et définitive.
+Utilisez [le contenu de la conversation](../how-to/query-knowledge-base-with-metadata.md) avec [la fonctionnalité multitour](../how-to/multiturn-conversation.md) pour que la conversation se poursuive afin d’affiner les questions et les réponses pour trouver la réponse correcte et définitive.
 
 ### <a name="the-response-from-a-call-to-generate-an-answer"></a>Réponse d’un appel pour générer une réponse
 

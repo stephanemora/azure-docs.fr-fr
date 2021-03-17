@@ -3,7 +3,7 @@ title: Streaming en direct avec des encodeurs locaux qui créent des flux multid
 description: Cette rubrique explique comment configurer un canal qui reçoit un flux dynamique à débit binaire multiple en provenance d’un encodeur local.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: d9f0912d-39ec-4c9c-817b-e5d9fcf1f7ea
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
-ms.openlocfilehash: 746fe9132dcb06678e2a0a975c8eed0aba6c3fad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: 316372f091833519f0479d07355d2845c82743b6
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89269622"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103014840"
 ---
 # <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders"></a>Utilisation des canaux recevant un stream multidébit en direct d’encodeurs locaux
 
@@ -196,7 +196,7 @@ Le tableau suivant montre comment les états du canal sont mappés au mode de fa
 ## <a name="closed-captioning-and-ad-insertion"></a><a id="cc_and_ads"></a>Sous-titrage codé et insertion de publicités
 Le tableau suivant présente les normes de sous-titrage et d’insertion de publicités prises en charge.
 
-| Standard | Notes |
+| standard | Notes |
 | --- | --- |
 | CEA-708 et EIA-608 (708/608) |CEA-708 et EIA-608 sont des normes de sous-titrage codé pour les États-Unis et le Canada.<p><p>Actuellement, le sous-titrage est uniquement pris en charge s’il est inclus dans le flux d’entrée encodé. Vous devez utiliser un encodeur multimédia live capable d’insérer des sous-titres 608 ou 708 dans le flux encodé qui est envoyé à Media Services. Media Services distribue le contenu avec les sous-titres insérés à vos utilisateurs. |
 | TTML dans .ismt (pistes textuelles Smooth Streaming) |L'empaquetage dynamique de Media Services permet à vos clients de diffuser du contenu en continu dans l'un des formats suivants : DASH, HLS ou Smooth Streaming. Toutefois, si votre flux est au format MP4 fragmenté (Smooth Streaming) avec des sous-titres dans un fichier .ismt (pistes textuelles Smooth Streaming), vous pouvez distribuer le flux aux clients Smooth Streaming. |

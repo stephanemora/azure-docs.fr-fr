@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7828313844b8f95b2bac5bff37022a822686ab33
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 9f0fb81a4daa57b473e8b2b4b937426eafbf903d
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98740242"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103014534"
 ---
 # <a name="assign-custom-roles-with-resource-scope-using-powershell-in-azure-active-directory"></a>Assigner des rôles personnalisés avec une étendue de ressources à l’aide de PowerShell dans Azure Active Directory
 
@@ -35,16 +35,16 @@ Connectez-vous à votre organisation Azure AD à l’aide d’un compte administ
 Installez le module Azure AD PowerShell à partir de la [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureADPreview). Importez ensuite le module de préversion Azure AD PowerShell à l’aide de la commande suivante :
 
 ``` PowerShell
-Import-Module AzureADPreview
+Import-Module -Name AzureADPreview
 ```
 
 Pour vérifier que le module est prêt à l’emploi, faites correspondre la version retournée par la commande suivante à celle répertoriée ici :
 
 ``` PowerShell
-Get-Module AzureADPreview
+Get-Module -Name AzureADPreview
   ModuleType Version      Name                         ExportedCommands
   ---------- ---------    ----                         ----------------
-  Binary     2.0.0.115    azureadpreview               {Add-AzureADMSAdministrati...}
+  Binary     2.0.0.115    AzureADPreview               {Add-AzureADMSAdministrati...}
 ```
 
 Vous pouvez désormais utiliser les applets de commande dans le module. Pour obtenir une description complète des applets de commande du module Azure AD, consultez la documentation de référence en ligne du [module de préversion Azure AD](https://www.powershellgallery.com/packages/AzureADPreview).

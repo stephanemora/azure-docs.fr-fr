@@ -3,7 +3,7 @@ title: Génération de miniatures à l’aide de Media Encoder Standard avec .NE
 description: Cette rubrique montre comment utiliser .NET pour coder un élément multimédia tout en générant des miniatures à l’aide de Media Encoder Standard.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: b8dab73a-1d91-4b6d-9741-a92ad39fc3f7
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c4b17fb5547c1522ec81369f2e362868a3f216a1
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 0159a706bd5f5229a12ab52bc92d240f01a2ed11
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97652991"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103014041"
 ---
 # <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>Génération de miniatures à l’aide de Media Encoder Standard avec .NET
 
@@ -557,15 +557,15 @@ Les considérations suivantes s'appliquent :
 * L’utilisation d’horodatages explicites pour Début/Étape/Plage suppose que la source d’entrée a une longueur minimale de 1 minute.
 * Les éléments Jpg/Png/BmpImage possèdent les attributs de chaîne Start, Step et Range, qui peuvent être interprétés comme suit :
   
-  * Entiers non négatifs : nombre d’images, par exemple "Start": "120",
+  * Entiers non négatifs : nombre d'images, par exemple "Start": "120",
   * Présence du suffixe % : durée par rapport à la source, par exemple "Start": "15%", OU
   * Horodatage, s’il est exprimé au format HH:MM:SS. Par exemple "Start" : "00:01:00"
     
     Vous pouvez combiner et apparier les notations à votre guise.
     
     En outre, Start prend également en charge une macro spéciale, {Best}, qui tente de déterminer la première image de contenu « intéressante ». REMARQUE : Step et Range sont ignorés quand Start est défini sur {Best}.
-  * La configuration par défaut est « Start:{Best} ».
-* Le format de sortie doit être fourni explicitement pour chaque format d’image : Png/Jpg/BmpFormat. Quand il est présent, MES fait correspondre JpgVideo à JpgFormat et ainsi de suite. OutputFormat introduit une nouvelle macro spécifique au codec d’image, {Index}, qui doit être présente (une fois seulement) pour les formats de sortie d’image.
+  * Configuration par défaut : Start:{Best}
+* Le format de sortie doit être explicitement fourni pour chaque format d'image : Jpg/Png/BmpFormat. Quand il est présent, MES fait correspondre JpgVideo à JpgFormat et ainsi de suite. OutputFormat introduit une nouvelle macro spécifique au codec d’image, {Index}, qui doit être présente (une fois seulement) pour les formats de sortie d’image.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

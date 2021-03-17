@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: travisw
-ms.openlocfilehash: 4b0bbb982ed48dc052b1a15514ad36b1d69b62b5
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 511eb12df511fd037fc0b5bec701c0cc5c29bad2
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98599423"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102617775"
 ---
 # <a name="voice-assistants-frequently-asked-questions"></a>Questions fréquentes sur les assistants vocaux
 
@@ -36,7 +36,7 @@ Si vous ne trouvez pas de réponses à vos questions dans ce document, consultez
 **R :** La meilleure façon de commencer à créer une application de Commandes personnalisées (préversion) ou un bot Bot Framework de base.
 
 - [Créer une application Commandes personnalisées (préversion)](./quickstart-custom-commands-application.md)
-- [Créer un bot Bot Framework de base](/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
+- [Créer un bot Bot Framework de base](/azure/bot-service/bot-builder-tutorial-basic-deploy)
 - [Connecter un bot au canal Direct Line Speech](/azure/bot-service/bot-service-channel-connect-directlinespeech)
 
 ## <a name="debugging"></a>Débogage

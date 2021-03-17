@@ -11,12 +11,12 @@ ms.date: 08/03/2020
 ms.topic: conceptual
 ms.reviewer: larryfr
 ms.custom: how-to, tracking-python, deploy
-ms.openlocfilehash: 6043ea4e1366890033571c2ba78ecdb2e59f64e1
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 9de971639e22f9656ea75dc64993ac5881efbffb
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325204"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102609411"
 ---
 # <a name="continuously-deploy-models"></a>Déployer des modèles en continu
 
@@ -30,17 +30,17 @@ Cet article suppose que vous avez déjà inscrit un modèle dans votre espace de
 
 Vous pouvez déployer des modèles en continu à l’aide de l’extension Machine Learning pour [Azure DevOps](https://azure.microsoft.com/services/devops/). Vous pouvez utiliser l’extension Machine Learning pour Azure DevOps pour déclencher un pipeline de déploiement quand un nouveau modèle Machine Learning est inscrit dans un espace de travail Azure Machine Learning.
 
-1. Inscrivez-vous sur [Azure Pipelines](/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops), ce qui permet l’intégration et la livraison continues de votre application vers n’importe quelle plateforme ou n’importe quel cloud. (Azure Pipelines et les [pipelines Machine Learning](concept-ml-pipelines.md#compare) sont deux choses différentes.)
+1. Inscrivez-vous sur [Azure Pipelines](/azure/devops/pipelines/get-started/pipelines-sign-up), ce qui permet l’intégration et la livraison continues de votre application vers n’importe quelle plateforme ou n’importe quel cloud. (Azure Pipelines et les [pipelines Machine Learning](concept-ml-pipelines.md#compare) sont deux choses différentes.)
 
-1. [Créez un projet Azure DevOps.](/azure/devops/organizations/projects/create-project?view=azure-devops)
+1. [Créez un projet Azure DevOps.](/azure/devops/organizations/projects/create-project)
 
 1. Installez l’[extension Machine Learning pour Azure Pipelines](https://marketplace.visualstudio.com/items?itemName=ms-air-aiagility.vss-services-azureml&targetId=6756afbe-7032-4a36-9cb6-2771710cadc2&utm_source=vstsproduct&utm_medium=ExtHubManageList).
 
-1. Utilisez les connexions au service pour configurer une connexion de principal de service à votre espace de travail Azure Machine Learning afin d’accéder à vos artefacts. Accédez aux paramètres du projet, puis sélectionnez **Connexions au service** et **Azure Resource Manager**  :
+1. Utilisez les connexions au service pour configurer une connexion de principal de service à votre espace de travail Azure Machine Learning afin d’accéder à vos artefacts. Accédez aux paramètres du projet, puis sélectionnez **Connexions au service** et **Azure Resource Manager** :
 
     [![Sélectionner Azure Resource Manager](media/how-to-deploy-and-where/view-service-connection.png)](media/how-to-deploy-and-where/view-service-connection-expanded.png)
 
-1. Dans la liste **Niveau de portée** , sélectionnez **AzureMLWorkspace** , puis entrez le reste des valeurs :
+1. Dans la liste **Niveau de portée**, sélectionnez **AzureMLWorkspace**, puis entrez le reste des valeurs :
 
     ![Sélectionner AzureMLWorkspace](media/how-to-deploy-and-where/resource-manager-connection.png)
 

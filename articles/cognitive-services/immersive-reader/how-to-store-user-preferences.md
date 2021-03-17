@@ -6,21 +6,21 @@ author: metanMSFT
 manager: guillasi
 ms.service: cognitive-services
 ms.subservice: immersive-reader
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/29/2020
 ms.author: metang
-ms.openlocfilehash: 31c1ef8d75b4c12e4dd6a360852feb27857ac412
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 16ecd2166604d29fbc2242229f625b30ffd684e5
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636542"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102617690"
 ---
 # <a name="how-to-store-user-preferences"></a>Stocker les préférences de l’utilisateur
 
-Cet article explique comment stocker les paramètres d’interface utilisateur de l’utilisateur, précédemment appelés **préférences de l’utilisateur** , via les options [-preferences](./reference.md#options) et [-onPreferencesChanged](./reference.md#options) du SDK Lecteur immersif.
+Cet article explique comment stocker les paramètres d’interface utilisateur de l’utilisateur, précédemment appelés **préférences de l’utilisateur**, via les options [-preferences](./reference.md#options) et [-onPreferencesChanged](./reference.md#options) du SDK Lecteur immersif.
 
-Lorsque l’option du SDK [CookiePolicy](./reference.md#cookiepolicy-options) est définie sur *Activé* , l’application Lecteur immersif stocke les **préférences de l’utilisateur** (taille du texte, couleur du thème, police, etc.) dans les cookies locaux, dans un navigateur et sur un appareil spécifiques. À chaque fois que l’utilisateur lance le Lecteur immersif sur le même navigateur et le même appareil, il s’ouvre avec les préférences de l’utilisateur de la dernière session sur cet appareil. Toutefois, si l’utilisateur ouvre le Lecteur immersif dans un autre navigateur ou sur un autre appareil, les paramètres sont initialement configurés avec les paramètres par défaut du Lecteur immersif, et l’utilisateur doit à nouveau définir ses préférences, et ainsi de suite pour chaque appareil qu’il utilise. Les options `-preferences` et `-onPreferencesChanged` du SDK Lecteur immersif offrent aux applications un moyen d’activer l’itinérance des préférences d’un utilisateur entre différents navigateurs et appareils, de sorte que l’utilisateur bénéficie d’une expérience cohérente partout où il utilise l’application.
+Lorsque l’option du SDK [CookiePolicy](./reference.md#cookiepolicy-options) est définie sur *Activé*, l’application Lecteur immersif stocke les **préférences de l’utilisateur** (taille du texte, couleur du thème, police, etc.) dans les cookies locaux, dans un navigateur et sur un appareil spécifiques. À chaque fois que l’utilisateur lance le Lecteur immersif sur le même navigateur et le même appareil, il s’ouvre avec les préférences de l’utilisateur de la dernière session sur cet appareil. Toutefois, si l’utilisateur ouvre le Lecteur immersif dans un autre navigateur ou sur un autre appareil, les paramètres sont initialement configurés avec les paramètres par défaut du Lecteur immersif, et l’utilisateur doit à nouveau définir ses préférences, et ainsi de suite pour chaque appareil qu’il utilise. Les options `-preferences` et `-onPreferencesChanged` du SDK Lecteur immersif offrent aux applications un moyen d’activer l’itinérance des préférences d’un utilisateur entre différents navigateurs et appareils, de sorte que l’utilisateur bénéficie d’une expérience cohérente partout où il utilise l’application.
 
 Tout d’abord, en fournissant l’option de rappel de `-onPreferencesChanged` du SDK lors du lancement de l’application Lecteur immersif, le Lecteur immersif renvoie une chaîne `-preferences` à l’application hôte à chaque fois que l’utilisateur modifie ses préférences pendant la session du Lecteur immersif. L’application hôte est alors responsable du stockage des préférences de l’utilisateur dans son propre système. Ensuite, lorsque ce même utilisateur lance à nouveau le Lecteur immersif, l’application hôte peut récupérer les préférences de l’utilisateur à partir du stockage et les fournir comme option de chaîne `-preferences` du SDK lors du lancement de l’application Lecteur immersif, afin que les préférences de l’utilisateur soient restaurées.
 
