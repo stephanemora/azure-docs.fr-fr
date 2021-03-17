@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 887648526c8da5fc829abe48911fd6785c3d856f
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 501d5b17358501f17d17e8884ceec0bcbbb2ab1c
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100576600"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102612403"
 ---
 # <a name="azure-security-baseline-for-virtual-network-nat"></a>Base de référence de sécurité Azure pour NAT de réseau virtuel
 
@@ -218,7 +218,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 **Aide** : Utilisez Azure DevOps pour stocker et gérer de manière sécurisée votre code, comme les définitions de stratégies Azure personnalisées, les modèles Azure Resource Manager et les scripts Desired State Configuration. Pour accéder aux ressources que vous gérez dans Azure DevOps, vous pouvez accorder ou refuser des autorisations à des utilisateurs spécifiques, à des groupes de sécurité intégrés ou à des groupes définis dans Azure Active Directory (Azure AD) s’ils sont intégrés à Azure DevOps, ou à Active Directory s’il est intégré à TFS. 
 
-- [Stocker du code dans Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops) 
+- [Stocker du code dans Azure DevOps](/azure/devops/repos/git/gitworkflow) 
 
 - [À propos des autorisations et des groupes dans Azure DevOps](/azure/devops/organizations/security/about-permissions)
 

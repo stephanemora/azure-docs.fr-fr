@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: bonova, sstein, danil
-ms.date: 02/21/2021
-ms.openlocfilehash: 75fc4166614862c5ac48a72bacb6b7b19019d003
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/08/2021
+ms.openlocfilehash: 8c98ce661e7bb753d4e62d1eaf98702de91c5106
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101691907"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102489767"
 ---
 # <a name="features-comparison-azure-sql-database-and-azure-sql-managed-instance"></a>Comparaison des fonctionnalités : Azure SQL Database et Azure SQL Managed Instance
 
@@ -30,7 +30,11 @@ Azure SQL Database et SQL Managed Instance partagent une base de code commune av
 - Fonctionnalités de sécurité : [Rôles d’application](/sql/relational-databases/security/authentication-access/application-roles), [Masquage de données dynamique](/sql/relational-databases/security/dynamic-data-masking) ([voir le guide de démarrage](dynamic-data-masking-overview.md)), [Sécurité au niveau des lignes](/sql/relational-databases/security/row-level-security) et Détection des menaces (voir les guides de démarrage pour [SQL Database](threat-detection-configure.md) et [SQL Managed Instance](../managed-instance/threat-detection-configure.md)).
 - Fonctionnalités multi-modèles : [Traitement des graphes](/sql/relational-databases/graphs/sql-graph-overview), [Données JSON](/sql/relational-databases/json/json-data-sql-server) ([voir le guide de démarrage rapide](json-features.md)), [OPENXML](/sql/t-sql/functions/openxml-transact-sql), [Données spatiales](/sql/relational-databases/spatial/spatial-data-sql-server), [OPENJSON](/sql/t-sql/functions/openjson-transact-sql) et [Index XML](/sql/t-sql/statements/create-xml-index-transact-sql).
 
-Azure gère vos bases de données et garantit leur haute disponibilité. Certaines fonctionnalités susceptibles d’affecter la haute disponibilité ou qui ne peuvent pas être utilisées dans un environnement PaaS sont limitées dans SQL Database et SQL Managed Instance. Ces fonctionnalités sont décrites dans les tableaux ci-dessous. Si vous avez besoin de plus de détails sur les différences, vous pouvez les trouver dans les pages séparées pour [Azure SQL Database](../managed-instance/transact-sql-tsql-differences-sql-server.md) ou [Azure SQL Managed Instance](../managed-instance/transact-sql-tsql-differences-sql-server.md).
+Azure gère vos bases de données et garantit leur haute disponibilité. Certaines fonctionnalités susceptibles d’affecter la haute disponibilité ou qui ne peuvent pas être utilisées dans un environnement PaaS sont limitées dans SQL Database et SQL Managed Instance. Ces fonctionnalités sont décrites dans les tableaux ci-dessous.
+
+Si vous avez besoin de plus de détails sur les différences, vous les trouverez sur les pages distinctes :
+- [Différences entre Azure SQL Database et SQL Server](transact-sql-tsql-differences-sql-server.md)
+- [Différences entre Azure SQL Managed Instance et SQL Server](../managed-instance/transact-sql-tsql-differences-sql-server.md)
 
 ## <a name="features-of-sql-database-and-sql-managed-instance"></a>Fonctionnalités de SQL Database et SQL Managed Instance
 

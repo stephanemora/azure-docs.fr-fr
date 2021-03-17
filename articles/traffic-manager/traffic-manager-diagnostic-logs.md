@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: duau
-ms.openlocfilehash: 0c1273f4a2025658520118ed843d90b3378a129f
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 4cf3709574e2055f40759fd2d7026c93ac9db098
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100577887"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102608017"
 ---
 # <a name="enable-resource-logging-in-azure-traffic-manager"></a>Activation de la journalisation des ressources dans Azure Traffic Manager
 
@@ -39,14 +39,14 @@ Vous pouvez exécuter les commandes qui suivent dans [Azure Cloud Shell](https:/
 
 2. **Activez la journalisation des ressources pour le profil Traffic Manager :**
 
-    Activez la journalisation des ressources pour le profil Traffic Manager à l’aide de l’ID obtenu à l’étape précédente avec [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting?view=latest). La commande suivante stocke les journaux d’activité détaillés du profil Traffic Manager dans un compte de stockage Azure spécifié. 
+    Activez la journalisation des ressources pour le profil Traffic Manager à l’aide de l’ID obtenu à l’étape précédente avec [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting). La commande suivante stocke les journaux d’activité détaillés du profil Traffic Manager dans un compte de stockage Azure spécifié. 
 
       ```azurepowershell-interactive
     Set-AzDiagnosticSetting -ResourceId <TrafficManagerprofileResourceId> -StorageAccountId <storageAccountId> -Enabled $true
       ``` 
 3. **Vérifiez les paramètres de diagnostic :**
 
-      Vérifiez les paramètres de diagnostic pour le profil Traffic Manager à l’aide de [Get-AzDiagnosticSetting](/powershell/module/az.monitor/get-azdiagnosticsetting?view=latest). La commande suivante affiche les catégories journalisées pour une ressource.
+      Vérifiez les paramètres de diagnostic pour le profil Traffic Manager à l’aide de [Get-AzDiagnosticSetting](/powershell/module/az.monitor/get-azdiagnosticsetting). La commande suivante affiche les catégories journalisées pour une ressource.
 
      ```azurepowershell-interactive
      Get-AzDiagnosticSetting -ResourceId <TrafficManagerprofileResourceId>

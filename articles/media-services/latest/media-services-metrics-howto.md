@@ -14,25 +14,25 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: ab89c222648a66ad7451f9bb47e254c55b925630
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: ab5871749630b047f6498a2439f77693a999c798
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100590754"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103493919"
 ---
 # <a name="monitor-media-services-metrics"></a>Surveiller les mesures Media Services
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-[Azure Monitor](../../azure-monitor/overview.md) vous permet de surveiller les métriques et journaux de diagnostic pour vous aider à comprendre le fonctionnement de vos applications. Pour une description détaillée de cette fonctionnalité et pour comprendre pourquoi vous devez utiliser les métriques et les journaux de diagnostic Azure Media Services, consultez [Surveiller les métriques et journaux de diagnostic Media Services](media-services-metrics-diagnostic-logs.md).
+[Azure Monitor](../../azure-monitor/overview.md) vous permet de surveiller les métriques et journaux de diagnostic pour vous aider à comprendre le fonctionnement de vos applications. Pour une description détaillée de cette fonctionnalité et pour comprendre pourquoi vous devez utiliser les métriques et les journaux de diagnostic Azure Media Services, consultez [Surveiller les métriques et journaux de diagnostic Media Services](monitoring/monitor-media-services-data-reference.md).
 
 Azure Monitor offre plusieurs moyens d’interagir avec les mesures, y compris en créant des graphiques dans le portail, en y accédant via l’API REST ou en envoyant des requêtes avec Azure CLI. Cet article montre comment surveiller les mesures avec les graphiques du portail Azure et Azure CLI.
 
 ## <a name="prerequisites"></a>Prérequis
 
 - [Créer un compte Media Services](./create-account-howto.md)
-- Évaluation [Surveiller les mesures et les journaux de diagnostic Media Services](media-services-metrics-diagnostic-logs.md)
+- Évaluation [Surveiller les mesures et les journaux de diagnostic Media Services](monitoring/monitor-media-services-data-reference.md)
 
 ## <a name="view-metrics-in-azure-portal"></a>Voir les mesures depuis le portail Azure
 
@@ -46,7 +46,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les mesures, y compris e
     * &lt;Nom du compte Media Services&gt;/&lt;nom de point de terminaison de streaming&gt;
     * &lt;Nom du compte de stockage&gt;
 
-    Filtrez, sélectionnez la ressource, puis appuyez sur **Appliquer**. Pour plus d’informations sur les ressources prises en charge et les mesures, consultez [Surveiller les mesures Media Services](media-services-metrics-diagnostic-logs.md).
+    Filtrez, sélectionnez la ressource, puis appuyez sur **Appliquer**. Pour plus d’informations sur les ressources prises en charge et les mesures, consultez [Surveiller les mesures Media Services](monitoring/monitor-media-services-data-reference.md).
 
     > [!NOTE]
     > Pour basculer entre les ressources que vous souhaitez surveiller, cliquez à nouveau sur la zone **Source** et répétez cette étape.

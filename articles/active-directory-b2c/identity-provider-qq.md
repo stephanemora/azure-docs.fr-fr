@@ -7,17 +7,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/27/2021
+ms.date: 03/08/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 8bc2cddf4d0380e5dc22e8250b6ee26f4d005b8a
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 2fa8c2ea990644fa82ae79114322fa087259378b
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98952425"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102448186"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-qq-account-using-azure-active-directory-b2c"></a>Configurer l’inscription et la connexion avec un compte QQ à l’aide d’Azure Active Directory B2C
 
@@ -74,7 +74,11 @@ Pour autoriser la connexion des utilisateurs avec un compte QQ dans Azure Active
 1. Sélectionnez **Enregistrer**.
 1. Pour tester votre stratégie, sélectionnez **Exécuter le flux d’utilisateur**.
 1. Pour **Application**, sélectionnez l’application web *testapp1* que vous avez précédemment inscrite. L’**URL de réponse** doit être `https://jwt.ms`.
-1. Cliquez sur **Exécuter le flux d’utilisateur**.
+1. Sélectionnez le bouton **Exécuter le flux utilisateur**.
+1. Sur la page d'inscription ou de connexion, sélectionnez **QQ** pour vous connecter avec un compte QQ.
+
+Si le processus de connexion réussit, votre navigateur est redirigé vers `https://jwt.ms`, qui affiche le contenu du jeton retourné par Azure AD B2C.
+
 
 ::: zone-end
 
@@ -170,6 +174,13 @@ Vous pouvez définir un compte QQ en tant que fournisseur de revendications en l
 
 [!INCLUDE [active-directory-b2c-configure-relying-party-policy](../../includes/active-directory-b2c-configure-relying-party-policy-user-journey.md)]
 
-[!INCLUDE [active-directory-b2c-test-relying-party-policy](../../includes/active-directory-b2c-test-relying-party-policy-user-journey.md)]
+## <a name="test-your-custom-policy"></a>Tester votre stratégie personnalisée
+
+1. Sélectionnez votre stratégie de partie de confiance, par exemple `B2C_1A_signup_signin`.
+1. Pour **Application**, sélectionnez une application web que vous avez [précédemment inscrite](troubleshoot-custom-policies.md#troubleshoot-the-runtime). L’**URL de réponse** doit être `https://jwt.ms`.
+1. Sélectionnez le bouton **Exécuter maintenant**.
+1. Sur la page d'inscription ou de connexion, sélectionnez **QQ** pour vous connecter avec un compte QQ.
+
+Si le processus de connexion réussit, votre navigateur est redirigé vers `https://jwt.ms`, qui affiche le contenu du jeton retourné par Azure AD B2C.
 
 ::: zone-end

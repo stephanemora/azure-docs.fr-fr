@@ -9,14 +9,16 @@ ms.date: 04/01/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 055b89858fde901ab014e409fbe30c3438efce12
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 9ee5536562eb3f2008908a36ff296ef2cfa337ea
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101732987"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200619"
 ---
 # <a name="how-to-configure-container-create-options-for-iot-edge-modules"></a>Guide pratique pour configurer les options de création de conteneur pour les modules IoT Edge
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Le paramètre **createOptions** du manifeste de déploiement vous permet de configurer les conteneurs de module au moment de l’exécution. Ce paramètre étend votre contrôle sur les modules et permet d’effectuer des tâches telles que l’autorisation ou la restriction de l’accès du module aux ressources de l’appareil hôte, ou la configuration du réseau.
 

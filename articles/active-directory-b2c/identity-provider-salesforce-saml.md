@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/27/2021
+ms.date: 03/08/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 9dce61817bdd6b42223028a624cd6e237be28bfe
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 63288bca124959463dc6ea16cb9d681c68ad00da
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98953816"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102448187"
 ---
 # <a name="set-up-sign-in-with-a-salesforce-saml-provider-by-using-saml-protocol-in-azure-active-directory-b2c"></a>Configurer la connexion avec un fournisseur SAML Salesforce à l’aide du protocole SAML dans Azure Active Directory B2C
 
@@ -33,7 +33,7 @@ ms.locfileid: "98953816"
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Cet article explique comment activer la connexion d’utilisateurs à partir d’une organisation Salesforce à l’aide de [stratégies personnalisées](custom-policy-overview.md) dans Azure Active Directory B2C (Azure AD B2C). Vous allez activer la connexion en ajoutant un [profil technique de fournisseur d’identité SAML](saml-identity-provider-technical-profile.md) à une stratégie personnalisée.
+Cet article explique comment activer la connexion d’utilisateurs à partir d’une organisation Salesforce à l’aide de [stratégies personnalisées](custom-policy-overview.md) dans Azure Active Directory B2C (Azure AD B2C). Pour activer la connexion, vous devez ajouter un [fournisseur d'identité SAML](identity-provider-generic-saml.md) à une stratégie personnalisée.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -100,7 +100,7 @@ Vous devez enregistrer le certificat que vous avez créé dans votre locataire A
 
 Si vous souhaitez que les utilisateurs se connectent à l’aide d’un compte Salesforce, vous devez définir le compte en tant que fournisseur de revendications avec lequel Azure AD B2C peut communiquer par le biais d’un point de terminaison. Le point de terminaison fournit un ensemble de revendications utilisées par Azure AD B2C pour vérifier qu’un utilisateur spécifique s’est authentifié.
 
-Vous pouvez définir un compte Salesforce en tant que fournisseur de revendications en l’ajoutant à l’élément **ClaimsProviders** dans le fichier d’extension de votre stratégie. Pour plus d’informations, voir [Définir un profil technique de fournisseur d’identité SAML](saml-identity-provider-technical-profile.md).
+Vous pouvez définir un compte Salesforce en tant que fournisseur de revendications en l’ajoutant à l’élément **ClaimsProviders** dans le fichier d’extension de votre stratégie. Pour plus d'informations, consultez [Définir un fournisseur d'identité SAML](identity-provider-generic-saml.md).
 
 1. Ouvrez le fichier *TrustFrameworkExtensions.xml*.
 1. Recherchez l’élément **ClaimsProviders**. S’il n’existe pas, ajoutez-le sous l’élément racine.
@@ -186,6 +186,13 @@ Vous pouvez définir un compte Salesforce en tant que fournisseur de revendicati
 
 [!INCLUDE [active-directory-b2c-configure-relying-party-policy](../../includes/active-directory-b2c-configure-relying-party-policy-user-journey.md)]
 
-[!INCLUDE [active-directory-b2c-test-relying-party-policy](../../includes/active-directory-b2c-test-relying-party-policy-user-journey.md)]
+## <a name="test-your-custom-policy"></a>Tester votre stratégie personnalisée
+
+1. Sélectionnez votre stratégie de partie de confiance, par exemple `B2C_1A_signup_signin`.
+1. Pour **Application**, sélectionnez une application web que vous avez [précédemment inscrite](troubleshoot-custom-policies.md#troubleshoot-the-runtime). L’**URL de réponse** doit être `https://jwt.ms`.
+1. Sélectionnez le bouton **Exécuter maintenant**.
+1. Sur la page d'inscription ou de connexion, sélectionnez **Salesforce** pour vous connecter avec un compte Salesforce.
+
+Si le processus de connexion réussit, votre navigateur est redirigé vers `https://jwt.ms`, qui affiche le contenu du jeton retourné par Azure AD B2C.
 
 ::: zone-end

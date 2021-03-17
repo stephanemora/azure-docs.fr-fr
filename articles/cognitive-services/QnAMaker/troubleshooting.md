@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: troubleshooting
 ms.date: 11/09/2020
-ms.openlocfilehash: aea205bee41aed232b8453417dca521d2dfc83ab
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 7b7ac20672ee653cbf6d2b82b7a9454c1d742b2c
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98233778"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102612692"
 ---
 # <a name="troubleshooting-for-qna-maker"></a>Résolution des problèmes pour QnA Maker
 
@@ -389,7 +389,7 @@ Si vous avez du contenu dans plusieurs langues, veillez à créer un service dis
 <details>
 <summary><b>Dois-je utiliser Bot Framework pour pouvoir utiliser QnA Maker ?</b></summary>
 
-**Réponse** : Non, vous n’avez pas besoin d’utiliser [Bot Framework](https://github.com/Microsoft/botbuilder-dotnet) avec QnA Maker. Toutefois, QnA Maker est proposé parmi plusieurs modèles dans [Azure Bot Service](/azure/bot-service/?preserve-view=true&view=azure-bot-service-4.0). Bot Service permet le développement rapide de bot intelligent via Microsoft Bot Framework et s’exécute dans un environnement serverless.
+**Réponse** : Non, vous n’avez pas besoin d’utiliser [Bot Framework](https://github.com/Microsoft/botbuilder-dotnet) avec QnA Maker. Toutefois, QnA Maker est proposé parmi plusieurs modèles dans [Azure Bot Service](/azure/bot-service/). Bot Service permet le développement rapide de bot intelligent via Microsoft Bot Framework et s’exécute dans un environnement serverless.
 
 </details>
 
@@ -438,7 +438,7 @@ La clé de point de terminaison de la base de connaissances est étiquetée `QnA
 <details>
 <summary><b>Dois-je utiliser Bot Framework pour pouvoir utiliser QnA Maker ?</b></summary>
 
-**Réponse** : Non, vous n’avez pas besoin d’utiliser [Bot Framework](https://github.com/Microsoft/botbuilder-dotnet) avec QnA Maker. Toutefois, QnA Maker est proposé parmi plusieurs modèles dans [Azure Bot Service](/azure/bot-service/?preserve-view=true&view=azure-bot-service-4.0). Bot Service permet le développement rapide de bot intelligent via Microsoft Bot Framework et s’exécute dans un environnement serverless.
+**Réponse** : Non, vous n’avez pas besoin d’utiliser [Bot Framework](https://github.com/Microsoft/botbuilder-dotnet) avec QnA Maker. Toutefois, QnA Maker est proposé parmi plusieurs modèles dans [Azure Bot Service](/azure/bot-service/). Bot Service permet le développement rapide de bot intelligent via Microsoft Bot Framework et s’exécute dans un environnement serverless.
 
 </details>
 

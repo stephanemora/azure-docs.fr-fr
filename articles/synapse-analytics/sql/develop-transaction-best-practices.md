@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 74deebb66bc0db316e2aa36588034c6afb3bbe40
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 8b1f820cfca0e352b49d815e2b99d407ccc8ce43
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101674026"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102505696"
 ---
 # <a name="optimize-transactions-with-dedicated-sql-pool-in-azure-synapse-analytics"></a>Optimiser des transactions avec un pool SQL dédié dans Azure Synapse Analytics 
 
@@ -422,4 +422,4 @@ La configuration idéale consiste à laisser les transactions de modification de
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus sur les niveaux d’isolation et les limites des transactions, consultez [Transactions dans un pool SQL dédié](develop-transactions.md).  Pour une vue d’ensemble d’autres meilleures pratiques, consultez [Meilleures pratiques pour les pools SQL](best-practices-sql-pool.md).
+Pour en savoir plus sur les niveaux d’isolation et les limites des transactions, consultez [Transactions dans un pool SQL dédié](develop-transactions.md).  Pour une vue d'ensemble des autres bonnes pratiques, consultez [Meilleures pratiques pour les pools SQL dédiés](best-practices-sql-pool.md).

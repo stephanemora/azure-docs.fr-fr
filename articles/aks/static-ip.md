@@ -5,12 +5,12 @@ description: Découvrez comment créer et utiliser une adresse IP statique avec 
 services: container-service
 ms.topic: article
 ms.date: 11/14/2020
-ms.openlocfilehash: 22fd099633556fa9ddce575c2ac238b4950667cb
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 102df48ca22fb996e0f4d9c402b8ce8f0fa80f2c
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94651887"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102509470"
 ---
 # <a name="use-a-static-public-ip-address-and-dns-label-with-the-azure-kubernetes-service-aks-load-balancer"></a>Utiliser une adresse IP publique statique et une étiquette DNS avec l’équilibrage de charge d’Azure Kubernetes Service (AKS)
 
@@ -63,16 +63,14 @@ $ az network public-ip show --resource-group myResourceGroup --name myAKSPublicI
 
 ## <a name="create-a-service-using-the-static-ip-address"></a>Créer un service utilisant l’adresse IP statique
 
-Avant de créer un service, assurez-vous que Le principal de service utilisé par le cluster AKS a des autorisations déléguées sur l’autre groupe de ressources. Par exemple :
+Avant de créer un service, assurez-vous que l'identité de cluster utilisée par le cluster AKS dispose d'autorisations déléguées sur l'autre groupe de ressources. Par exemple :
 
 ```azurecli-interactive
 az role assignment create \
-    --assignee <SP Client ID> \
+    --assignee <Client ID> \
     --role "Network Contributor" \
     --scope /subscriptions/<subscription id>/resourceGroups/<resource group name>
 ```
-
-Vous pouvez également utiliser l’identité managée affectée par le système pour les autorisations au lieu du principal du service. Pour plus d’informations, consultez [Utiliser des identités managées](use-managed-identity.md).
 
 > [!IMPORTANT]
 > Si vous avez personnalisé votre adresse IP sortante, assurez-vous que l’identité de votre cluster dispose des autorisations d’accès tant à l’adresse IP publique sortante qu’à cette adresse IP publique entrante.

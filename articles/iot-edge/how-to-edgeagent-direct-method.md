@@ -9,14 +9,16 @@ ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 42c79526288fb7e05959ac60cddc6f468656ffd4
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 52cd7817594c5c2a1d4e3a4ca9c56891df594cd6
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91972541"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103201105"
 ---
 # <a name="communicate-with-edgeagent-using-built-in-direct-methods"></a>Communiquer avec edgeAgent à l’aide de méthodes directes intégrées
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Surveillez et gérez les déploiements d’IoT Edge à l’aide des méthodes directes incluses dans le module de l’agent IoT Edge. Les méthodes directes sont implémentées sur l’appareil, puis peuvent être appelées à partir du cloud. L’agent IoT Edge comprend des méthodes directes qui vous aident à surveiller et gérer vos appareils IoT Edge à distance.
 

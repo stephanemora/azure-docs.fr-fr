@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/03/2021
-ms.openlocfilehash: 234a0137f0a9487a56b3e0343eaea375d2f9a1af
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 97b0a4ca3e4fb94a21cbd30a27a3037f45fed782
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102043012"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487115"
 ---
 # <a name="querying-in-azure-cognitive-search"></a>Interrogation dans Recherche cognitive Azure
 
@@ -24,10 +24,11 @@ Dans Recherche cognitive, une requête est une spécification complète d’une 
 ```http
 POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30
 {
-    "queryType": "simple"
-    "search": "`New York` +restaurant",
-    "searchFields": "Description, Address/City, Tags",
-    "select": "HotelId, HotelName, Description, Rating, Address/City, Tags",
+    "queryType": "simple",
+    "searchMode": "all",
+    "search": "restaurant +view",
+    "searchFields": "HotelName, Description, Address/City, Address/StateProvince, Tags",
+    "select": "HotelName, Description, Address/City, Address/StateProvince, Tags",
     "top": "10",
     "count": "true",
     "orderby": "Rating desc"
@@ -38,9 +39,11 @@ Les paramètres utilisés lors de l’exécution de la requête sont les suivant
 
 + **`queryType`** définit l’analyseur qui peut être l’[analyseur de requêtes simple par défaut](search-query-simple-examples.md) (optimal pour la recherche en texte intégral), ou l’[analyseur de requêtes complet Lucene](search-query-lucene-examples.md) utilisé pour les constructions de requêtes avancées, telles que les expressions régulières, la recherche de proximité, la recherche approximative et par caractères génériques et bien d’autres encore.
 
++ **`searchMode`** spécifie si les correspondances sont basées sur « tous » les critères ou sur « n'importe quel » critère dans l'expression. La valeur par défaut est n'importe quel critère.
+
 + **`search`** fournit le critère de correspondance, généralement des termes ou expressions, avec ou sans opérateurs. Tout champ attribué en tant que champ avec *possibilité de recherche* dans le schéma d’index peut être utilisé avec ce paramètre.
 
-+ **`searchFields`** limite l’exécution des requêtes à des champs spécifiques pouvant faire l’objet d’une recherche.
++ **`searchFields`** limite l’exécution des requêtes à des champs spécifiques pouvant faire l’objet d’une recherche. Pendant le développement, il est utile d'utiliser la même liste de champs pour la sélection et la recherche. Sinon, une correspondance peut être basée sur des valeurs de champ que vous ne pouvez pas voir dans les résultats, ce qui crée une incertitude quant à la raison pour laquelle le document a été renvoyé.
 
 Paramètres utilisés pour former la réponse :
 
@@ -114,4 +117,4 @@ Pour une présentation détaillée de l’implémentation des requêtes, passez 
 
 + [Exemples de requête simple](search-query-simple-examples.md)
 + [Exemples de syntaxe de requête Lucene pour créer des requêtes avancées](search-query-lucene-examples.md)
-+ [Fonctionnement de la recherche en texte intégral dans la Recherche cognitive Azure](search-lucene-query-architecture.md)
++ [Fonctionnement de la recherche en texte intégral dans Recherche cognitive Azure](search-lucene-query-architecture.md)

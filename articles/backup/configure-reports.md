@@ -3,12 +3,12 @@ title: Configurer les rapports de la Sauvegarde Azure
 description: Configurez et affichez les rapports de la Sauvegarde Azure à l’aide de Log Analytics et des classeurs Azure.
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 62bb59a8a77d11e30e54298317a35e1f883a9622
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: e9f3d9dfa33e71d827a338258001f2b52af62b06
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101710615"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102509361"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurer les rapports de la Sauvegarde Azure
 
@@ -22,8 +22,8 @@ Aujourd’hui, la Sauvegarde Azure fournit une solution de reporting qui utilise
 
 ## <a name="supported-scenarios"></a>Scénarios pris en charge
 
-- Les rapports de sauvegarde sont pris en charge pour les machines virtuelles Azure, SQL dans les machines virtuelles Azure, SAP HANA dans les machines virtuelles Azure, l’agent Microsoft Azure Recovery Services (MARS), le serveur de sauvegarde Microsoft Azure (MABS) et System Center Data Protection Manager (DPM). Pour la sauvegarde de partages de fichiers Azure, les données sont affichées pour tous les enregistrements créés à partir du 1er juin 2020.
-- Pour la sauvegarde de partages de fichiers Azure, les données se trouvant sur des instances protégées ne sont pas affichées dans les rapports (la valeur par défaut est zéro pour tous les éléments de sauvegarde).
+- Les rapports de sauvegarde sont pris en charge pour les machines virtuelles Azure, SQL dans les machines virtuelles Azure, SAP HANA dans les machines virtuelles Azure, l’agent Microsoft Azure Recovery Services (MARS), le serveur de sauvegarde Microsoft Azure (MABS) et System Center Data Protection Manager (DPM). Concernant la sauvegarde des partages de fichiers Azure, les données sont affichées pour les enregistrements créés à partir du 1er juin 2020.
+- Concernant la sauvegarde des partages de fichiers Azure, les données figurant sur les instances protégées sont affichées pour les enregistrements créés après le 1er février 2021 (la valeur par défaut est zéro pour les enregistrements plus anciens).
 - Concernant les charges de travail DPM, les rapports de sauvegarde sont pris en charge pour la version 5.1.363.0 et les versions ultérieures de DPM et la version 2.0.9127.0 et les versions ultérieures de l’agent.
 - Concernant les charges de travail MABS, les rapports de sauvegarde sont pris en charge pour la version 13.0.415.0 et les versions ultérieures de MABS ainsi que pour la version 2.0.9170.0 et les versions ultérieures de l’agent.
 - Les rapports de sauvegarde peuvent être affichés sur l’ensemble des éléments de sauvegarde, des coffres, des abonnements et des régions, à condition que leurs données soient envoyées à un espace de travail Log Analytics auquel l’utilisateur a accès. Pour visualiser les rapports d’un ensemble de coffres, il suffit d’un accès lecteur à l’espace de travail Log Analytics auquel les coffres envoient leurs données. Il n’est pas nécessaire d’avoir accès aux différents coffres.
@@ -142,17 +142,31 @@ Dans le filtre **Type de gestion des sauvegardes** en haut de l’onglet, les é
 
 ###### <a name="policy-adherence"></a>Adhésion à la stratégie
 
-Cet onglet vous permet de déterminer si toutes vos instances de sauvegarde ont eu au moins une sauvegarde réussie par jours. Vous pouvez voir l’adhésion à la stratégie par période ou par instance de sauvegarde.
+Cet onglet vous permet de déterminer si toutes vos instances de sauvegarde ont eu au moins une sauvegarde réussie par jours. Concernant les éléments associés à une stratégie de sauvegarde hebdomadaire, vous pouvez utiliser cet onglet pour déterminer si toutes les instances de sauvegarde ont fait l'objet d'au moins une sauvegarde réussie par semaine.
+
+Deux types d'affichages sont disponibles en matière de respect de la stratégie :
+
+* **Respect de la stratégie par période** : cet affichage vous permet d'identifier le nombre d'éléments qui ont fait l'objet d'au moins une sauvegarde réussie au cours d'une journée donnée, ainsi que le nombre d'éléments qui n'ont fait l'objet d'aucune sauvegarde réussie ce jour-là. Vous pouvez cliquer sur une ligne pour afficher les détails de tous les travaux de sauvegarde qui ont été déclenchés le jour sélectionné. Notez que si vous définissez l'intervalle de temps sur une valeur plus élevée, telle que les 60 derniers jours, la grille est présentée en mode hebdomadaire et affiche le nombre total d'éléments qui ont fait l'objet d'au moins une sauvegarde réussie tous les jours de la semaine sélectionnée. Il existe également un affichage mensuel pour les périodes plus longues.
+
+Dans le cas des éléments sauvegardés sur une base hebdomadaire, cette grille vous aide à identifier tous les éléments qui ont fait l'objet d'au moins une sauvegarde réussie au cours de la semaine donnée. Pour une période plus longue, telle que les 120 derniers jours, la grille est présentée en mode mensuel et affiche le nombre total d'éléments qui ont fait l'objet d'au moins une sauvegarde réussie chaque semaine du mois donné. Pour plus d'informations sur les affichages quotidiens, hebdomadaires et mensuels, consultez [Conventions utilisées dans Rapports de sauvegarde](https://docs.microsoft.com/azure/backup/configure-reports#conventions-used-in-backup-reports).
+
+![Respect de la stratégie par période](./media/backup-azure-configure-backup-reports/policy-adherence-by-time-period.png)
+
+* **Respect de la stratégie par instance de sauvegarde** : cet affichage vous permet de consulter les détails du respect de la stratégie au niveau de l'instance de sauvegarde. Une cellule verte indique que l'instance de sauvegarde a fait l'objet d'au moins une sauvegarde réussie le jour donné. Une cellule rouge indique que l'instance de sauvegarde n'a encore fait l'objet d'aucune sauvegarde réussie le jour donné. Les agrégations quotidiennes, hebdomadaires et mensuelles suivent le même comportement que l'affichage Respect de la stratégie par période. Vous pouvez cliquer sur n'importe quelle ligne pour afficher tous les travaux de sauvegarde effectués sur l'instance de sauvegarde donnée dans l'intervalle de temps sélectionné.
+
+![Respect de la stratégie par instance de sauvegarde](./media/backup-azure-configure-backup-reports/policy-adherence-by-backup-instance.png)
 
 ###### <a name="email-azure-backup-reports"></a>Rapports de messagerie sur Sauvegarde Azure
 
 La fonctionnalité **Rapport de messagerie** disponible dans Rapports de sauvegarde vous permet de créer des tâches automatisées pour recevoir des rapports périodiques par e-mail. Cette fonctionnalité fonctionne en déployant une application logique dans votre environnement Azure, qui interroge les données de vos espaces de travail Log Analytics (LA) sélectionnés, en fonction des entrées que vous faites.
 
-Une fois l’application logique créée, vous devez autoriser les connexions aux Journaux d’Azure Monitor et à Office 365. Pour ce faire, accédez à **Logic Apps** dans le portail Azure, puis recherchez le nom de la tâche que vous avez créée. La sélection de l’élément de menu **Connexions d’API** a pour effet d’ouvrir la liste des connexions d’API que vous devez autoriser.
+Une fois l’application logique créée, vous devez autoriser les connexions aux Journaux d’Azure Monitor et à Office 365. Pour ce faire, accédez à **Logic Apps** dans le portail Azure, puis recherchez le nom de la tâche que vous avez créée. La sélection de l’élément de menu **Connexions d’API** a pour effet d’ouvrir la liste des connexions d’API que vous devez autoriser. [Apprenez-en davantage sur la configuration des e-mails et la résolution des problèmes](backup-reports-email.md).
 
 ###### <a name="customize-azure-backup-reports"></a>Personnaliser les rapports de Sauvegarde Azure
 
-Les Rapports de sauvegarde utilisent des fonctions sur des journaux d’Azure Monitor. Ces fonctions opèrent sur des données figurant dans des tables de Sauvegarde Azure brutes de LA, et retournent des données mises en forme qui vous permettent de récupérer facilement les informations de toutes vos entités liées à la sauvegarde, à l’aide de requêtes simples.
+La fonctionnalité Rapports de sauvegarde utilise des [fonctions système sur les journaux Azure Monitor](backup-reports-system-functions.md). Ces fonctions opèrent sur des données figurant dans des tables de Sauvegarde Azure brutes de LA, et retournent des données mises en forme qui vous permettent de récupérer facilement les informations de toutes vos entités liées à la sauvegarde, à l’aide de requêtes simples. 
+
+Pour créer vos propres classeurs de rapports en utilisant la fonctionnalité Rapports de sauvegarde comme base, accédez à Rapports de sauvegarde, cliquez sur **Modifier** en haut du rapport et affichez/modifiez les requêtes utilisées dans les rapports. Pour en savoir plus sur la création de rapports personnalisés, consultez la [documentation relative aux classeurs Azure](https://docs.microsoft.com/azure/azure-monitor/visualize/workbooks-overview). 
 
 ## <a name="export-to-excel"></a>Exporter vers Excel
 
@@ -175,6 +189,8 @@ Si vous utilisez [Azure Lighthouse](../lighthouse/index.yml) avec un accès dél
 - Le rapport affiche les détails des travaux (hors travaux de journalisation) qui se sont *déclenchés* dans l’intervalle de temps sélectionné.
 - Les valeurs affichées pour **Stockage cloud** et **Instances protégées** se trouvent à la *fin* de l’intervalle de temps sélectionné.
 - Les éléments de sauvegarde affichés dans les rapports sont ceux qui se trouvent à la *fin* de l’intervalle de temps sélectionné. Les éléments de sauvegarde qui ont été supprimés au milieu de l’intervalle de temps sélectionné ne sont pas affichés. La même convention vaut pour les stratégies de sauvegarde.
+- Si l'intervalle de temps sélectionné couvre une période inférieure ou égale à 30 jours, les graphiques sont affichés en mode quotidien, avec un point de données pour chaque jour. Si l'intervalle de temps couvre une période supérieure à 30 jours et inférieure ou égale à 90 jours, les graphiques sont affichés en mode hebdomadaire. Pour les périodes plus longues, les graphiques sont affichés en mode mensuel. L'agrégation hebdomadaire ou mensuelle des données améliore les performances des requêtes et facilite la lecture des données dans les graphiques.
+- Les grilles Respect de la stratégie suivent également une logique d'agrégation semblable à celle décrite ci-dessus. Il existe toutefois quelques petites différences. La première différence concerne les éléments associés à une stratégie de sauvegarde hebdomadaire, pour lesquels il n'existe aucun affichage quotidien (seuls les affichages hebdomadaires et mensuels sont disponibles). En outre, dans les grilles des éléments associés à une stratégie de sauvegarde hebdomadaire, un « mois » est considéré comme une période de 4 semaines (28 jours), et non de 30 jours, afin d'éliminer les semaines partielles.
 
 ## <a name="query-load-times"></a>Temps de chargement des requêtes
 

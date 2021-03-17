@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 7206ebfc1ad44f4deb2e98ddbeba633463f17ee5
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: c28ed042156865c52607ce031507c696f28b4e7c
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/10/2021
-ms.locfileid: "102562280"
+ms.locfileid: "102617299"
 ---
 # <a name="ncv3-series"></a>Série NCv3
 
@@ -24,7 +24,7 @@ Les machines virtuelles de série NCv3 sont optimisées par les GPU NVIDIA Tesla
 [Mises à jour avec préservation de la mémoire](maintenance-and-updates.md) : Non pris en charge<br>
 [Génération de machine virtuelle prise en charge](generation-2.md) : Génération 1 et 2<br>
 [Performances réseau accélérées](../virtual-network/create-vm-accelerated-networking-cli.md) : Non pris en charge<br>
-[Disques de système d’exploitation éphémères](ephemeral-os-disks.md) : Non pris en charge <br>
+[Disques de système d’exploitation éphémères](ephemeral-os-disks.md) : Pris en charge <br>
 Interconnexion Nvidia/NVLink : Non pris en charge<br>
 
 > [!IMPORTANT]

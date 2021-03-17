@@ -7,12 +7,12 @@ ms.author: andyriv
 ms.date: 2/16/2021
 ms.topic: tutorial
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 1501153b73683081dfac0684d6714eb537c03380
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 0128d0de4f078b62bc9571c8758d80cb26585354
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101658664"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102615378"
 ---
 # <a name="microsoft-connected-cache-preview-deployment-scenario-sample-two-level-nested-azure-iot-edge-gateway-with-outbound-unauthenticated-proxy"></a>Exemple de scénario de déploiement de la préversion du cache connecté Microsoft : passerelle Azure IoT Edge imbriquée à deux niveaux avec proxy non authentifié sortant
 
@@ -31,7 +31,7 @@ Le diagramme ci-dessous décrit le scénario où une passerelle Azure IoT Edge e
 
     **Variables d’environnement**
 
-    | Nom                 | Value                                       |
+    | Nom                 | Valeur                                       |
     | ----------------------------- | --------------------------------------------| 
     | CACHE_NODE_ID                 | Consultez la description de la variable d’environnement ci-dessus. |
     | CUSTOMER_ID                   | Consultez la description de la variable d’environnement ci-dessus. |
@@ -70,7 +70,7 @@ Le diagramme ci-dessous décrit le scénario où une passerelle Azure IoT Edge e
 ## <a name="child-gateway-configuration"></a>Configuration de la passerelle enfant
 
 >[!Note]
->Si vous avez des conteneurs répliqués utilisés dans votre configuration dans votre propre registre privé, vous devez modifier les paramètres de configuration de config.toml et les paramètres d’exécution dans le déploiement de votre module. Pour plus d’informations, reportez-vous au [Tutoriel : Créer une hiérarchie d’appareils IoT Edge - Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/tutorial-nested-iot-edge?view=iotedge-2020-11&tabs=azure-portal#deploy-modules-to-the-lower-layer-device&preserve-view=true).
+>Si vous avez des conteneurs répliqués utilisés dans votre configuration dans votre propre registre privé, vous devez modifier les paramètres de configuration de config.toml et les paramètres d’exécution dans le déploiement de votre module. Pour plus d’informations, reportez-vous au [Tutoriel : Créer une hiérarchie d’appareils IoT Edge - Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/tutorial-nested-iot-edge?view=iotedge-2020-11&tabs=azure-portal&preserve-view=true#deploy-modules-to-the-lower-layer-device).
 
 1. Modifiez le chemin de l’image pour l’agent Edge comme illustré dans l’exemple ci-dessous :
 

@@ -1,24 +1,18 @@
 ---
 title: Appliquer des recommandations dans Azure Security Center | Microsoft Docs
 description: Ce article explique comment appliquer les recommandations d’Azure Security Center pour protéger vos ressources et respecter les stratégies de sécurité.
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: 8be947cc-cc86-421d-87a6-b1e23077fd50
 ms.service: security-center
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 09/08/2020
+ms.date: 03/04/2021
 ms.author: memildin
-ms.openlocfilehash: dabd7e9e2c3c74225efc4611c7ad3523a6c76ba5
-ms.sourcegitcommit: 02ed9acd4390b86c8432cad29075e2204f6b1bc3
+ms.openlocfilehash: f382646c889d004738064cae2d09fd66d897b110
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97807988"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102438265"
 ---
 # <a name="remediate-recommendations-in-azure-security-center"></a>Appliquer les recommandations d’Azure Security Center
 
@@ -81,5 +75,5 @@ L’opération de correction applique la configuration à la ressource à l’ai
 
 Ce document vous a montré comment appliquer les recommandations fournies par Security Center. Pour plus d’informations sur Security Center, consultez les pages suivantes :
 
-* [Définition des stratégies de sécurité dans Azure Security Center](tutorial-security-policy.md) : découvrez comment configurer des stratégies de sécurité pour vos groupes de ressources et abonnements Azure.
-* [Surveillance de l’intégrité de la sécurité dans Azure Security Center](security-center-monitoring.md) : découvrez comment surveiller l’intégrité de vos ressources Azure.
+* [Définition des stratégies de sécurité dans Azure Security Center](tutorial-security-policy.md) : apprenez à configurer des stratégies de sécurité pour vos groupes de ressources et abonnements Azure.
+* [Présentation des stratégies de sécurité, des initiatives et des recommandations](security-policy-concept.md).

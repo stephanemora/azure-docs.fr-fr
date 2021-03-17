@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: a7e33f950bc5f13372962694abc8e3e40d8ad5c0
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: dbd4923dd2843ab2c043da69f1b72efd8e1eb701
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98753228"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103573045"
 ---
 # <a name="scenario-web-app-that-signs-in-users"></a>Scénario : Application web qui connecte les utilisateurs
 
@@ -55,7 +55,7 @@ Si vous développez avec Python, essayez le démarrage rapide suivant :
 
 Vous allez ajouter l’authentification à votre application web afin qu’elle puisse connecter des utilisateurs. L’ajout de l’authentification permet à votre application web d’accéder aux informations de profil limitées afin de personnaliser l’expérience des utilisateurs.
 
-Les applications web authentifient un utilisateur dans un navigateur web. Dans ce scénario, l’application web dirige le navigateur de l’utilisateur pour connecter ce dernier à Azure Active Directory (Azure AD). Azure AD renvoie une réponse de connexion via le navigateur de l’utilisateur, celle-ci contenant des revendications relatives à l’utilisateur dans un jeton de sécurité. Connecter des utilisateurs permet de tirer parti du protocole standard [Open ID Connect](./v2-protocols-oidc.md) simplifié par l’utilisation de [bibliothèques](scenario-web-app-sign-user-app-configuration.md#libraries-for-protecting-web-apps) d’intergiciels.
+Les applications web authentifient un utilisateur dans un navigateur web. Dans ce scénario, l’application web dirige le navigateur de l’utilisateur pour connecter ce dernier à Azure Active Directory (Azure AD). Azure AD renvoie une réponse de connexion via le navigateur de l’utilisateur, celle-ci contenant des revendications relatives à l’utilisateur dans un jeton de sécurité. Connecter des utilisateurs permet de tirer parti du protocole standard [Open ID Connect](./v2-protocols-oidc.md) simplifié par l’utilisation de [bibliothèques](scenario-web-app-sign-user-app-configuration.md#microsoft-libraries-supporting-web-apps) d’intergiciels.
 
 ![Une application web connecte des utilisateurs](./media/scenario-webapp/scenario-webapp-signs-in-users.svg)
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: f2d3b6b40a7b258da682d36260f6292d10635095
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 0a0f48a311e5adf0dd7c70c43317d99cc94fca86
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102498717"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103470521"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Améliorer la synthèse avec le langage de balisage de synthèse vocale (SSML, Speech Synthesis Markup Language)
 
@@ -88,11 +88,11 @@ L’élément `voice` est obligatoire. Il spécifie la voix utilisée pour la sy
 **Exemple**
 
 > [!NOTE]
-> Cet exemple utilise la voix `en-US-AriaRUS`. Pour accéder à la liste complète des voix prises en charge, voir [Prise en charge des langues](language-support.md#text-to-speech).
+> Cet exemple utilise la voix `en-US-JennyNeural`. Pour accéder à la liste complète des voix prises en charge, voir [Prise en charge des langues](language-support.md#text-to-speech).
 
 ```XML
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AriaRUS">
+    <voice name="en-US-JennyNeural">
         This is the text that is spoken.
     </voice>
 </speak>
@@ -183,11 +183,11 @@ speechConfig!.setPropertyTo(
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AriaRUS">
+    <voice name="en-US-JennyNeural">
         Good morning!
     </voice>
-    <voice name="en-US-Guy24kRUS">
-        Good morning to you too Aria!
+    <voice name="en-US-GuyNeural">
+        Good morning to you too Jenny!
     </voice>
 </speak>
 ```
@@ -467,7 +467,7 @@ L’élément `s` peut contenir du texte et les éléments suivants : `audio`, 
 
 ```XML
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AriaRUS">
+    <voice name="en-US-JennyNeural">
         <p>
             <s>Introducing the sentence element.</s>
             <s>Used to mark individual sentences.</s>
@@ -506,7 +506,7 @@ Les alphabets phonétiques sont constitués de phonèmes composés de lettres, d
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AriaRUS">
+    <voice name="en-US-JennyNeural">
         <phoneme alphabet="ipa" ph="t&#x259;mei&#x325;&#x27E;ou&#x325;"> tomato </phoneme>
     </voice>
 </speak>
@@ -514,7 +514,7 @@ Les alphabets phonétiques sont constitués de phonèmes composés de lettres, d
 
 ```xml
 <speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AriaRUS">
+    <voice name="en-US-JennyNeural">
         <phoneme alphabet="sapi" ph="iy eh n y uw eh s"> en-US </phoneme>
     </voice>
 </speak>
@@ -522,7 +522,7 @@ Les alphabets phonétiques sont constitués de phonèmes composés de lettres, d
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AriaRUS">
+    <voice name="en-US-JennyNeural">
         <s>His name is Mike <phoneme alphabet="ups" ph="JH AU"> Zhou </phoneme></s>
     </voice>
 </speak>
@@ -613,7 +613,7 @@ Une fois que vous avez publié votre lexique personnalisé, vous pouvez le réf�
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" 
           xmlns:mstts="http://www.w3.org/2001/mstts" 
           xml:lang="en-US">
-    <voice name="en-US-AriaRUS">
+    <voice name="en-US-JennyNeural">
         <lexicon uri="http://www.example.com/customlexicon.xml"/>
         BTW, we will be there probably at 8:00 tomorrow morning.
         Could you help leave a message to Robert Benigni for me?
@@ -703,7 +703,7 @@ Les modifications de volume peuvent s’appliquer aux voix standard au niveau de
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AriaRUS">
+    <voice name="en-US-JennyNeural">
         <prosody volume="+20.00%">
             Welcome to Microsoft Cognitive Services Text-to-Speech API.
         </prosody>
@@ -785,7 +785,7 @@ Le moteur de synthèse vocale prononce l’exemple ci-dessous comme suit : « 
  
 ```XML
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AriaRUS">
+    <voice name="en-US-JennyNeural">
         <p>
         Your <say-as interpret-as="ordinal"> 1st </say-as> request was for <say-as interpret-as="cardinal"> 1 </say-as> room
         on <say-as interpret-as="date" format="mdy"> 10/19/2010 </say-as>, with early arrival at <say-as interpret-as="time" format="hms12"> 12:35pm </say-as>.
@@ -823,7 +823,7 @@ Tout audio inclus dans le document SSML doit respecter les exigences suivantes 
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AriaRUS">
+    <voice name="en-US-JennyNeural">
         <p>
             <audio src="https://contoso.com/opinionprompt.wav"/>
             Thanks for offering your opinion. Please begin speaking after the beep.
@@ -863,7 +863,7 @@ Un seul fichier audio en arrière-plan est autorisé par document SSML. Toutefoi
 ```xml
 <speak version="1.0" xml:lang="en-US" xmlns:mstts="http://www.w3.org/2001/mstts">
     <mstts:backgroundaudio src="https://contoso.com/sample.wav" volume="0.7" fadein="3000" fadeout="4000"/>
-    <voice name="Microsoft Server Speech Text to Speech Voice (en-US, AriaRUS)">
+    <voice name="Microsoft Server Speech Text to Speech Voice (en-US, JennyNeural)">
         The text provided in this document will be spoken over the background audio.
     </voice>
 </speak>

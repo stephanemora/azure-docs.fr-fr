@@ -9,14 +9,16 @@ ms.date: 1/8/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9ae7009468b548cb9386fd405abfbe110d62f9a3
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: a20992ef26b74bcc37a7403e4ee77cacc0f8f66e
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100377514"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200290"
 ---
 # <a name="deploy-iot-edge-modules-at-scale-using-visual-studio-code"></a>Déployer des modules IoT Edge à l’échelle à l’aide de Visual Studio Code
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Vous pouvez créer un **déploiement automatique IoT Edge** à l’aide de Visual Studio Code pour gérer les déploiements en cours de plusieurs appareils à la fois. Les déploiements automatiques IoT Edge font partie de la fonctionnalité [Gestion automatique des appareils](../iot-hub/iot-hub-automatic-device-management.md) d’IoT Hub. Les déploiements sont des processus dynamiques qui vous permettent de déployer plusieurs modules sur plusieurs appareils. Vous pouvez également suivre l’état et l’intégrité des modules et apporter des modifications le cas échéant.
 

@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 02/25/2021
+ms.date: 03/10/2021
 ms.author: victorh
-ms.openlocfilehash: b01a856c71375af507e2bf29297e64a6ce9412e5
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 21bb1856409b7fbea1eeffb8b3769dd63119da50
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101741427"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102612845"
 ---
 # <a name="azure-firewall-features"></a>Fonctionnalités du Pare-feu Azure
 
@@ -148,4 +148,4 @@ Le service Pare-feu Azure est conforme aux normes PCI (Payment Card Industry), S
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Logique de traitement des règles de pare-feu Azure](rule-processing.md)
+- [Fonctionnalités du Pare-feu Azure Premium - Préversion](premium-features.md)

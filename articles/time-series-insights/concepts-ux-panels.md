@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 01/22/2021
 ms.custom: seodec18
-ms.openlocfilehash: 55e102cc7e27cbcd9a65999f590c8264f1ad4434
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 77c6e8790451ef830b37cc5914ce9de8e92174f5
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736850"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103464086"
 ---
 # <a name="azure-time-series-insights-explorer"></a>Explorateur Azure Time Series Insights
 
@@ -25,7 +25,7 @@ Cet article décrit les diverses fonctionnalités et options disponibles dans l�
 
 Pour commencer à utiliser l’Explorateur Azure Time Series Insights, vous devez :
 
-* Avoir un environnement Azure Time Series Insights Gen2 approvisionné. Pour en savoir plus sur l’approvisionnement d’une instance, lisez le tutoriel [Azure Time Series Insights Gen2](./tutorials-set-up-tsi-environment.md).
+* Avoir un environnement Azure Time Series Insights Gen2 approvisionné. Pour en savoir plus sur l’approvisionnement d’une instance, lisez le tutoriel [Azure Time Series Insights Gen2](./tutorial-set-up-environment.md).
 * [Fournissez l’accès aux données](./concepts-access-policies.md) à l’environnement Azure Time Series Insights Gen2 que vous avez créé pour le compte. Vous pouvez octroyer l’accès à d’autres personnes ainsi qu’à vous-même.
 * Ajoutez une source d’événement à l’environnement Azure Time Series Insights Gen2 pour envoyer (push) des données à ce dernier :
   * Découvrez [comment vous connecter à un Event Hub](./how-to-ingest-data-event-hub.md).
@@ -92,7 +92,7 @@ Le puits affiche les champs d’instance et d’autres métadonnées associées 
 
 Vous pouvez supprimer des éléments de données spécifiques à partir de vos données en cours en sélectionnant le contrôle **Supprimer** (corbeille) affiché en rouge à gauche de l’élément. La source vous permet également de contrôler la façon dont chaque élément est affiché dans le graphique. Vous pouvez choisir d’ajouter des ombres min./max., des points de données, de déplacer l’élément dans le temps et de visualiser l’instance de manière échelonnée.
 
-En outre, le contrôle Explorations vous permet de créer facilement des décalages temporels et des nuages de points.  
+En outre, le contrôle Explorations vous permet de créer facilement des décalages temporels et des nuages de points.
 
   [![Options de disposition de la source](media/v2-update-explorer/well-layout-options.png)](media/v2-update-explorer/well-layout-options.png#lightbox)
 

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/03/2021
+ms.date: 03/08/2021
 ms.author: b-juche
-ms.openlocfilehash: 6041e863f6c887af35aa070f13e1406462ffc5b3
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 3db4999f1cb6185f02a40395842c30b9d77072b3
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102041567"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102489019"
 ---
 # <a name="solution-architectures-using-azure-netapp-files"></a>Architectures de solution avec Azure NetApp Files
 Cet article fournit des références aux meilleures pratiques pouvant vous aider à comprendre les architectures de solution pour l’utilisation d’Azure NetApp Files.  
@@ -34,9 +34,9 @@ Cette section fournit des références pour les solutions de bases de données e
 
 ### <a name="oracle"></a>Oracle
 
-* [Performances des bases de données Oracle sur des volumes uniques Azure NetApp Files](performance-oracle-single-volumes.md)
 * [Oracle on Azure deployment best practice guide - Using Azure NetApp Files](https://www.netapp.com/us/media/tr-4780.pdf)
 * [Images de machine virtuelle Oracle et leur déploiement sur Microsoft Azure : options de configuration de stockage partagé](../virtual-machines/workloads/oracle/oracle-vm-solutions.md#shared-storage-configuration-options)
+* [Performances des bases de données Oracle sur des volumes uniques Azure NetApp Files](performance-oracle-single-volumes.md)
 * [Avantages de l’utilisation d’Azure NetApp Files avec Oracle Database](solutions-benefits-azure-netapp-files-oracle-database.md)
 
 ### <a name="machine-learning"></a>Machine Learning
@@ -77,10 +77,12 @@ Cette section fournit des références pour les Solutions SAP sur Azure.
 * [Haute disponibilité du scale-up SAP HANA avec Azure NetApp Files sur Red Hat Enterprise Linux](../virtual-machines/workloads/sap/sap-hana-high-availability-netapp-files-red-hat.md)
 * [Scale-out de SAP HANA avec le nœud de secours sur les machines virtuelles Azure avec Azure NetApp Files sur SUSE Linux Enterprise Server](../virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse.md)
 * [Scale-out de SAP HANA avec le nœud de secours sur les machines virtuelles Azure avec Azure NetApp Files sur Red Hat Enterprise Linux](../virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel.md)
+* [Scale-out de SAP HANA avec HSR et Pacemaker sur RHEL - Machines virtuelles Azure](../virtual-machines/workloads/sap/sap-hana-high-availability-scale-out-hsr-rhel.md)
 * [Outil Azure Application Consistent Snapshot (AzAcSnap)](azacsnap-introduction.md)
 
 ### <a name="sap-anydb"></a>SAP AnyDB
 
+* [Déploiement SGBD de machines virtuelles Oracle Azure pour charge de travail SAP - Machines virtuelles Azure](../virtual-machines/workloads/sap/dbms_guide_oracle.md#oracle-configuration-guidelines-for-sap-installations-in-azure-vms-on-linux)
 * [Déployer SAP AnyDB (Oracle 19c) avec Azure NetApp Files](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/deploy-sap-anydb-oracle-19c-with-azure-netapp-files/ba-p/2064043)
 
 ### <a name="sap-iq-nls"></a>SAP IQ-NLS

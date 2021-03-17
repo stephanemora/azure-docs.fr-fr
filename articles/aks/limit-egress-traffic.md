@@ -6,12 +6,12 @@ ms.topic: article
 ms.author: jpalma
 ms.date: 11/09/2020
 author: palma21
-ms.openlocfilehash: c6160d36240b59c60fafa955b916fb6167c2648e
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 93c8d1392de8f502a829276287a4687476dd36de
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98685752"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102505056"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Contrôler le trafic de sortie pour les nœuds de cluster dans Azure Kubernetes Service (AKS)
 
@@ -28,13 +28,13 @@ Les dépendances sortantes AKS sont presque entièrement définies avec des noms
 Par défaut, les clusters AKS ont un accès illimité sortant à Internet. Ce niveau d’accès réseau permet aux nœuds et services que vous exécutez d’accéder aux ressources externes en fonction des besoins. Si vous souhaitez restreindre le trafic de sortie, un nombre limité de ports et adresses doit être accessible afin de gérer les tâches de maintenance d’intégrité du cluster. La solution la plus simple pour sécuriser les adresses sortantes consiste à utiliser un dispositif de pare-feu permettant de contrôler le trafic sortant en fonction des noms de domaine. Le Pare-feu Azure, par exemple, peut restreindre le trafic HTTP et HTTPS sortant en fonction du nom FQDN de la destination. Vous pouvez également configurer les règles de pare-feu et de sécurité de votre choix pour autoriser ces ports et adresses requis.
 
 > [!IMPORTANT]
-> Ce document explique uniquement comment verrouiller le trafic sortant du sous-réseau AKS. AKS ne présente par défaut aucune exigence d’entrée.  Le blocage du **trafic de sous-réseau interne** à l’aide de groupes de sécurité réseau (NSG) et de pare-feu n’est pas pris en charge. Pour contrôler et bloquer le trafic au sein du cluster, utilisez des [**_Stratégies réseau_* _][network-policy].
+> Ce document explique uniquement comment verrouiller le trafic sortant du sous-réseau AKS. AKS ne présente par défaut aucune exigence d’entrée.  Le blocage du **trafic de sous-réseau interne** à l’aide de groupes de sécurité réseau (NSG) et de pare-feu n’est pas pris en charge. Pour contrôler et bloquer le trafic au sein du cluster, utilisez des [**_Stratégies réseau_**][network-policy].
 
 ## <a name="required-outbound-network-rules-and-fqdns-for-aks-clusters"></a>Règles de réseau sortantes et noms FQDN requis pour les clusters AKS
 
 Les règles de réseau et de nom FQDN/d’application suivantes sont requises pour un cluster AKS. Vous pouvez les utiliser si vous souhaitez configurer une solution autre que le Pare-feu Azure.
 
-_ Les dépendances d’adresses IP sont destinées au trafic non HTTP/S (à la fois le trafic TCP et UDP)
+* Les dépendances d’adresses IP pour le trafic non-HTTP/S (à la fois le trafic TCP et UDP)
 * Les points de terminaison HTTP/HTTPS avec des noms FQDN peuvent être placés dans votre dispositif de pare-feu.
 * Les points de terminaison HTTP/HTTPS avec caractères génériques constituent des dépendances qui peuvent varier avec votre cluster AKS selon le nombre de qualificateurs.
 * AKS utilise un contrôleur d’admission pour injecter le nom FQDN comme variable d’environnement pour tous les déploiements sous kube-system et gatekeeper-system. Ainsi, toutes les communications système entre les nœuds et le serveur d’API ont recours au nom FQDN du serveur d’API et non à son adresse IP. 
@@ -407,7 +407,7 @@ Un cluster AKS peut maintenant être déployé dans le réseau virtuel existant.
 
 ### <a name="create-a-service-principal-with-access-to-provision-inside-the-existing-virtual-network"></a>Créer un principal de service avec un accès pour provisionner à l’intérieur du réseau virtuel existant
 
-Un principal de service est utilisé par AKS pour créer des ressources de cluster. Le principal de service passé au moment de la création est utilisé pour créer les ressources AKS sous-jacentes, telles que les ressources de stockage, les adresses IP et les équilibreurs de charge utilisés par AKS (il est sinon possible d’utiliser une [identité managée](use-managed-identity.md)). Si vous n’avez pas accordé les autorisations appropriées ci-dessous, vous ne pourrez pas provisionner le cluster AKS.
+Une identité de cluster (identité managée ou principal de service) est utilisée par AKS pour créer des ressources de cluster. Un principal de service transmis au moment de la création est utilisé pour créer les ressources AKS sous-jacentes, telles que les ressources de stockage, les adresses IP et les équilibreurs de charge utilisés par AKS (il est sinon possible d'utiliser une [identité managée](use-managed-identity.md)). Si vous n’avez pas accordé les autorisations appropriées ci-dessous, vous ne pourrez pas provisionner le cluster AKS.
 
 ```azurecli
 # Create SP and Assign Permission to Virtual Network

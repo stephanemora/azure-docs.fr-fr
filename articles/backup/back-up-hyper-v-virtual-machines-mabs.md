@@ -3,12 +3,12 @@ title: Sauvegarder des machines virtuelles Hyper-V à l’aide de MABS
 description: Cet article contient les procédures de sauvegarde et de récupération des machines virtuelles à l’aide du serveur de sauvegarde Microsoft Azure (MABS).
 ms.topic: conceptual
 ms.date: 07/18/2019
-ms.openlocfilehash: fc4e34e11e2474521082b1c23f600e9a5ca7a9fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a020559229771fff1ecc8fb512a5b2af70240cdd
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89377996"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102509504"
 ---
 # <a name="back-up-hyper-v-virtual-machines-with-azure-backup-server"></a>Sauvegarder des machines virtuelles Hyper-V avec le serveur de sauvegarde Azure
 
@@ -136,10 +136,13 @@ Lorsque vous pouvez récupérer une machine virtuelle sauvegardée, vous utilise
 
 4. Dans l’écran **Sélectionner le type de récupération**, sélectionnez l’emplacement où vous souhaitez restaurer les données, puis sélectionnez **Suivant**.
 
-    - **Récupérer sur l’instance d’origine** : Lorsque vous récupérez sur l’instance d’origine, le disque dur virtuel d’origine est supprimé. MABS récupère le disque dur virtuel et d’autres fichiers de configuration à l’emplacement d’origine à l’aide de l’enregistreur VSS Hyper-V. À la fin du processus de récupération, les machines virtuelles sont toujours hautement disponibles.
+    - **Récupérer sur l'instance d'origine** : lors d'une récupération sur l'instance d'origine, le disque dur virtuel d'origine et tous les points de contrôle associés sont supprimés. MABS récupère le disque dur virtuel et d’autres fichiers de configuration à l’emplacement d’origine à l’aide de l’enregistreur VSS Hyper-V. À la fin du processus de récupération, les machines virtuelles sont toujours hautement disponibles.
         Le groupe de ressources doit être présent pour la récupération. S’il n’est pas disponible, effectuez la récupération à un autre emplacement, puis rendez la machine virtuelle hautement disponible.
 
     - **Récupérer l’ordinateur virtuel sur n’importe quel hôte** : MABS prend en charge un emplacement de récupération secondaire, qui permet de récupérer sans interruption une machine virtuelle Hyper-V protégée sur un hôte Hyper-V différent, quelle que soit l’architecture du processeur. Les machines virtuelles Hyper-V récupérées sur un nœud de cluster ne sont pas hautement disponibles. Si vous choisissez cette option, l’Assistant Récupération vous présente un écran supplémentaire pour identifier la destination et le chemin de destination.
+    
+        >[!NOTE]
+        >Si vous sélectionnez l'hôte d'origine, le comportement est le même que celui de l'option **Récupérer sur l'instance d'origine**. Le disque dur virtuel d'origine et tous les points de contrôle associés sont supprimés.
 
     - **Copier dans un dossier réseau** : MABS prend en charge la récupération au niveau de l’élément, qui vous permet d’effectuer une récupération au niveau de l’élément de fichiers, dossiers, volumes et disques durs virtuels (VHD) à partir d’une sauvegarde au niveau de l’hôte de machines virtuelles Hyper-V vers un partage réseau ou un volume sur un serveur protégé par MABS. Il n’est pas nécessaire d’installer l’agent de protection MABS à l’intérieur de l’invité pour effectuer une récupération au niveau de l’élément. Si vous choisissez cette option, l’Assistant Récupération vous présente un écran supplémentaire pour identifier la destination et le chemin de destination.
 

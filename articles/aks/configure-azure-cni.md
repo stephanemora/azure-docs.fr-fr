@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 06/03/2019
 ms.custom: references_regions
-ms.openlocfilehash: 6c0cc1c8da6fddfad6d3f70c88860ddcdd35a11a
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: ef9e3689f5846ddfc66c47a15967a18fc6550d35
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102182415"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102504250"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Configurer un réseau Azure CNI dans AKS (Azure Kubernetes Service)
 
@@ -24,10 +24,9 @@ Cet article vous montre comment utiliser les réseaux *Azure CNI* afin de créer
 
 * Le réseau virtuel du cluster AKS doit autoriser les connexions Internet sortantes.
 * Les clusters AKS ne peuvent pas utiliser `169.254.0.0/16`, `172.30.0.0/16`, `172.31.0.0/16` ou `192.0.2.0/24` pour la plage d’adresses de service Kubernetes, la plage d’adresses de pod ou la plage d’adresses de réseau virtuel de cluster.
-* Le principal du service utilisé par le cluster AKS doit disposer au moins des autorisations [Contributeur de réseau](../role-based-access-control/built-in-roles.md#network-contributor) sur le sous-réseau de votre réseau virtuel. Si vous souhaitez définir un [rôle personnalisé](../role-based-access-control/custom-roles.md) au lieu d’utiliser le rôle de contributeur de réseau intégré, les autorisations suivantes sont nécessaires :
+* L'identité de cluster utilisée par le cluster AKS doit au moins disposer des autorisations [Contributeur de réseau](../role-based-access-control/built-in-roles.md#network-contributor) sur le sous-réseau de votre réseau virtuel. Si vous souhaitez définir un [rôle personnalisé](../role-based-access-control/custom-roles.md) au lieu d’utiliser le rôle de contributeur de réseau intégré, les autorisations suivantes sont nécessaires :
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
-* Au lieu d’utiliser le principal de service, vous pouvez utiliser l’identité managée affectée par le système pour les autorisations. Pour plus d’informations, consultez [Utiliser des identités managées](use-managed-identity.md).
 * Le sous-réseau affecté au pool de nœuds AKS ne peut pas être un [sous-réseau délégué](../virtual-network/subnet-delegation-overview.md).
 
 ## <a name="plan-ip-addressing-for-your-cluster"></a>Planifier l’adressage IP pour votre cluster

@@ -3,7 +3,7 @@ title: Utilisation d’Azure Media Services pour fournir des licences DRM ou des
 description: Cet article décrit comment vous pouvez utiliser Azure Media Services pour fournir des licences PlayReady et/ou Widevine et des clés AES, et comment exécuter les autres opérations (encoder, chiffrer, diffuser) à l’aide de vos serveurs locaux.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: 8546c2c1-430b-4254-a88d-4436a83f9192
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e564feadfdb1d3cb6943d76b4b39ba0ec814e0d6
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: 10ff568ede601c57369f8c942ed61cb7a39ba703
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98693633"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103465706"
 ---
 # <a name="use-media-services-to-deliver-drm-licenses-or-aes-keys"></a>Utiliser Media Services pour fournir des licences DRM ou des clés AES
 
@@ -41,9 +41,6 @@ Media Services prend en charge plusieurs méthodes d’autorisation des utilisat
 Le diagramme suivant montre les principales étapes à suivre pour utiliser Media Services afin de fournir des licences PlayReady et/ou Widevine, et exécuter les autres opérations avec vos serveurs locaux :
 
 ![Protéger avec PlayReady](./media/media-services-deliver-keys-and-licenses/media-services-diagram1.png)
-
-## <a name="download-sample"></a>Charger l’exemple
-Pour télécharger l’exemple décrit dans cet article, consultez [Utiliser Azure Media Services pour fournir des licences PlayReady et/ou Widevine avec .NET](https://github.com/Azure/media-services-dotnet-deliver-drm-licenses).
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Créer et configurer un projet Visual Studio
 

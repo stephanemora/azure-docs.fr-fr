@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/11/2020
-ms.openlocfilehash: afe14bc03f0d12e56e1512aeb788a77c64151b58
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 7f98e14c2eae133941f3fc87247a427198ebcdc2
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547246"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102611961"
 ---
 # <a name="best-practices-for-building-an-application-with-azure-database-for-mysql"></a>Meilleures pratiques pour créer une application avec Azure Database pour MySQL 
 
@@ -76,7 +76,7 @@ Vous remarquerez un décalage entre le serveur source et le réplica, car la ré
 ## <a name="database-deployment"></a>Déploiement de base de données 
 
 ### <a name="configure-an-azure-database-for-mysql-task-in-your-cicd-deployment-pipeline"></a>Configurer une tâche Azure Database pour MySQL dans votre pipeline de déploiement CI/CD
-Parfois, vous devez déployer des modifications dans votre base de données. Dans ce cas, vous pouvez utiliser l’intégration continue (CI) et la livraison continue (CD) via [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) et utiliser une tâche pour [votre serveur MySQL](/azure/devops/pipelines/tasks/deploy/azure-mysql-deployment?view=azure-devops&preserve-view=true) afin de mettre à jour la base de données en exécutant un script personnalisé.
+Parfois, vous devez déployer des modifications dans votre base de données. Dans ce cas, vous pouvez utiliser l’intégration continue (CI) et la livraison continue (CD) via [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) et utiliser une tâche pour [votre serveur MySQL](/azure/devops/pipelines/tasks/deploy/azure-mysql-deployment) afin de mettre à jour la base de données en exécutant un script personnalisé.
 
 ### <a name="use-an-effective-process-for-manual-database-deployment"></a>Utiliser un processus efficace pour le déploiement manuel d’une base de données 
 Lors du déploiement manuel d’une base de données, suivez ces étapes pour minimiser le temps d’arrêt ou réduire le risque d’échec du déploiement : 

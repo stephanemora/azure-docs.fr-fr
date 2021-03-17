@@ -6,16 +6,16 @@ services: storage
 ms.service: storage
 ms.subservice: files
 ms.topic: conceptual
-ms.date: 10/26/2020
+ms.date: 3/02/2021
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: e872d28063a3e0671558ee4d388cad280b94f45b
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0612984afe71c3ae497d16968d2470668cc60ca7
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100596926"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102504829"
 ---
 # <a name="monitoring-azure-files"></a>Supervision d’Azure Files
 
@@ -105,6 +105,8 @@ Si vous choisissez d’archiver vos journaux dans un compte de stockage, vous pa
 
 2. Dans la liste déroulante **Compte de stockage**, sélectionnez le compte de stockage dans lequel vous souhaitez archiver vos journaux, cliquez sur le bouton **OK**, puis cliquez sur le bouton **Enregistrer**.
 
+   [!INCLUDE [no retention policy](../../../includes/azure-storage-logs-retention-policy.md)]
+
    > [!NOTE]
    > Avant de choisir un compte de stockage comme destination d’exportation, consultez [Archiver les journaux de ressources Azure](../../azure-monitor/essentials/resource-logs.md#send-to-azure-storage) pour comprendre les conditions préalables relatives au compte de stockage.
 
@@ -149,12 +151,14 @@ Si vous choisissez d’archiver vos journaux dans un compte de stockage, vous pa
 Activez les journaux à l’aide de la cmdlet PowerShell [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) avec le paramètre `StorageAccountId`.
 
 ```powershell
-Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -StorageAccountId <storage-account-resource-id> -Enabled $true -Category <operations-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
+Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -StorageAccountId <storage-account-resource-id> -Enabled $true -Category <operations-to-log> 
 ```
 
 Remplacez l’espace réservé `<storage-service-resource--id>` de cet extrait de code par l’ID de ressource du service Azure Files. Vous pouvez trouver l’ID de ressource dans le portail Azure en ouvrant la page **Propriétés** de votre compte de stockage.
 
 Vous pouvez utiliser `StorageRead`, `StorageWrite` et `StorageDelete` comme valeur du paramètre **Category**.
+
+[!INCLUDE [no retention policy](../../../includes/azure-storage-logs-retention-policy.md)]
 
 Voici un exemple :
 
@@ -211,16 +215,18 @@ Si vous choisissez d’archiver vos journaux dans un compte de stockage, vous pa
 Activez les journaux à l’aide de la commande [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create).
 
 ```azurecli-interactive
-az monitor diagnostic-settings create --name <setting-name> --storage-account <storage-account-name> --resource <storage-service-resource-id> --resource-group <resource-group> --logs '[{"category": <operations>, "enabled": true "retentionPolicy": {"days": <number-days>, "enabled": <retention-bool}}]'
+az monitor diagnostic-settings create --name <setting-name> --storage-account <storage-account-name> --resource <storage-service-resource-id> --resource-group <resource-group> --logs '[{"category": <operations>, "enabled": true}]'
 ```
 
 Remplacez l’espace réservé `<storage-service-resource--id>` dans cet extrait de code par le service Stockage Blob de l’ID de ressource. Vous pouvez trouver l’ID de ressource dans le portail Azure en ouvrant la page **Propriétés** de votre compte de stockage.
 
 Vous pouvez utiliser `StorageRead`, `StorageWrite` et `StorageDelete` comme valeur du paramètre **Category**.
 
+[!INCLUDE [no retention policy](../../../includes/azure-storage-logs-retention-policy.md)]
+
 Voici un exemple :
 
-`az monitor diagnostic-settings create --name setting1 --storage-account mystorageaccount --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/fileServices/default --resource-group myresourcegroup --logs '[{"category": StorageWrite, "enabled": true, "retentionPolicy": {"days": 90, "enabled": true}}]'`
+`az monitor diagnostic-settings create --name setting1 --storage-account mystorageaccount --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/fileServices/default --resource-group myresourcegroup --logs '[{"category": StorageWrite, "enabled": true}]'`
 
 Pour obtenir une description de chaque paramètre, consultez [Archiver des journaux de ressources via l’interface de ligne de commande Azure](../../azure-monitor/essentials/resource-logs.md#send-to-azure-storage).
 
@@ -481,21 +487,10 @@ Les entrées de journal sont créées uniquement si des demandes sont effectuée
 
 - Demandes ayant réussi
 - Demandes ayant échoué, y compris les erreurs de délai d’expiration, limitation, réseau, autorisation et autres erreurs
-- Demandes utilisant une signature d’accès partagé (SAS) ou OAuth, y compris les demandes ayant réussi et ayant échoué
-- Demandes de données d’analyse (données de journal classique dans le conteneur **$logs** et données de métriques de classe dans les tables **$metric**)
+- Demandes utilisant Kerberos, NTLM ou une signature d'accès partagé (SAS), y compris les demandes ayant réussi et ayant échoué
+- Demandes de données analytiques (données de journal classiques dans le conteneur **$logs** et données de métriques classiques dans les tables **$metric**)
 
 Les demandes effectuées par le service Azure Files lui-même, comme la création ou la suppression d’un journal, ne sont pas journalisées. Pour obtenir la liste complète des demandes SMB et REST journalisées, consultez [Opérations et messages d’état journalisés Storage Analytics](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) et [Informations de référence sur les données de supervision d’Azure Files](storage-files-monitoring-reference.md).
-
-### <a name="log-anonymous-requests"></a>Journaliser des requêtes anonymes
-
- Les types de demandes anonymes suivants sont enregistrés :
-
-- Demandes ayant réussi
-- Erreurs de serveur
-- Erreurs de délai d’expiration pour le client et le serveur
-- Demandes GET ayant échoué avec le code d’erreur 304 (non modifié)
-
-Aucune autre demande anonyme ayant échoué n'est enregistrée. Pour obtenir la liste complète des demandes SMB et REST journalisées, consultez [Opérations et messages d’état journalisés Storage Analytics](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) et [Informations de référence sur les données de supervision d’Azure Files](storage-files-monitoring-reference.md).
 
 ### <a name="accessing-logs-in-a-storage-account"></a>Accès aux journaux dans un compte de stockage
 
@@ -631,13 +626,12 @@ Le tableau suivant répertorie quelques exemples de scénarios destinés à la s
    > [!NOTE]
    > Si les types de réponse ne sont pas répertoriés dans la liste déroulante **Valeurs de dimension**, cela signifie que la ressource n’a pas été limitée. Pour ajouter les valeurs de dimension, à côté de la liste déroulante **Valeurs de dimension**, sélectionnez **Ajouter une valeur personnalisée**, entrez le type de réponse (par exemple, **SuccessWithThrottling**), sélectionnez **OK**, puis répétez ces étapes pour ajouter tous les types de réponses pertinents à votre partage de fichiers.
 
-8. Cliquez sur la liste déroulante **Nom de la dimension** et sélectionnez **Partage de fichiers**.
-9. Cliquez sur la liste déroulante **Valeurs de dimension**, puis sélectionnez le ou les partages de fichiers pour lesquels vous souhaitez recevoir une alerte.
-
+8. Pour les **partages de fichiers Premium**, cliquez sur la liste déroulante **Nom de la dimension** et sélectionnez **Partage de fichiers**. Pour les **partages de fichiers standard**, passez à l'**étape 10**.
 
    > [!NOTE]
-   > Si le partage de fichiers est un partage de fichiers standard, sélectionnez **Toutes les valeurs actuelles et futures**. La liste déroulante des valeurs de dimension ne répertorie pas les partages de fichiers, car les métriques par partage ne sont pas disponibles pour les partages de fichiers standard. Les alertes de limitation pour les partages de fichiers standard sont déclenchées si un partage de fichiers au sein du compte de stockage est limité et l’alerte n’identifiera pas quel partage de fichiers a été limité. Étant donné que les métriques par partage ne sont pas disponibles pour les partages de fichiers standard, il est recommandé de disposer d’un partage de fichiers par compte de stockage.
+   > Si le partage de fichiers est un partage standard, la dimension **Partage de fichiers** ne répertorie pas le(s) partage(s) de fichiers, car les métriques par partage ne sont pas disponibles pour les partages de fichiers standard. Les alertes de limitation pour les partages de fichiers standard sont déclenchées si un partage de fichiers au sein du compte de stockage est limité et l’alerte n’identifiera pas quel partage de fichiers a été limité. Étant donné que les métriques par partage ne sont pas disponibles pour les partages de fichiers standard, il est recommandé de disposer d’un partage de fichiers par compte de stockage.
 
+9. Cliquez sur la liste déroulante **Valeurs de dimension**, puis sélectionnez le ou les partages de fichiers pour lesquels vous souhaitez recevoir une alerte.
 10. Définissez les **paramètres d’alerte** (valeur de seuil, opérateur, granularité d’agrégation et fréquence), puis cliquez sur **Terminé**.
 
     > [!TIP]
@@ -654,12 +648,12 @@ Le tableau suivant répertorie quelques exemples de scénarios destinés à la s
 3. Cliquez sur **Modifier une ressource**, sélectionnez le **type de ressource fichier** pour le compte de stockage, puis cliquez sur **Terminé**. Par exemple, si le nom du compte de stockage est `contoso`, sélectionnez la ressource `contoso/file`.
 4. Cliquez sur **Ajouter une condition** pour ajouter une condition.
 5. Une liste de signaux pris en charge pour le compte de stockage s’affiche. Sélectionnez la métrique **Capacité de fichiers**.
-6. Dans le panneau **Configurer la logique du signal**, cliquez sur la liste déroulante **Nom de la dimension**, puis sélectionnez **Partage de fichiers**.
-7. Cliquez sur la liste déroulante **Valeurs de dimension**, puis sélectionnez le ou les partages de fichiers pour lesquels vous souhaitez recevoir une alerte.
+6. Pour les **partages de fichiers Premium**, cliquez sur la liste déroulante **Nom de la dimension** et sélectionnez **Partage de fichiers**. Pour les **partages de fichiers standard**, passez à l'**étape 8**.
 
    > [!NOTE]
-   > Si le partage de fichiers est un partage de fichiers standard, sélectionnez **Toutes les valeurs actuelles et futures**. La liste déroulante des valeurs de dimension ne répertorie pas les partages de fichiers, car les métriques par partage ne sont pas disponibles pour les partages de fichiers standard. Les alertes pour les partages de fichiers standard sont basées sur tous les partages de fichiers dans le compte de stockage. Étant donné que les métriques par partage ne sont pas disponibles pour les partages de fichiers standard, il est recommandé de disposer d’un partage de fichiers par compte de stockage.
+   > Si le partage de fichiers est un partage standard, la dimension **Partage de fichiers** ne répertorie pas le(s) partage(s) de fichiers, car les métriques par partage ne sont pas disponibles pour les partages de fichiers standard. Les alertes pour les partages de fichiers standard sont basées sur tous les partages de fichiers dans le compte de stockage. Étant donné que les métriques par partage ne sont pas disponibles pour les partages de fichiers standard, il est recommandé de disposer d’un partage de fichiers par compte de stockage.
 
+7. Cliquez sur la liste déroulante **Valeurs de dimension**, puis sélectionnez le ou les partages de fichiers pour lesquels vous souhaitez recevoir une alerte.
 8. Entrez la **Valeur du seuil**, en octets. Par exemple, si la taille du partage de fichiers est de 100 Tio et que vous voulez recevoir une alerte quand sa taille est de 80 % de la capacité, la valeur du seuil, en octets, est de 87960930222080.
 9. Définissez le reste des **paramètres d’alerte** (précision d’agrégation et fréquence d’évaluation), puis cliquez sur **Terminé**.
 10. Cliquez sur **Ajouter un groupe d’actions** pour ajouter un **groupe d’actions** (e-mail, SMS, etc.) à l’alerte, soit en sélectionnant un groupe d’actions existant, soit en créant un nouveau groupe d’actions.
@@ -673,12 +667,12 @@ Le tableau suivant répertorie quelques exemples de scénarios destinés à la s
 3. Cliquez sur **Modifier une ressource**, sélectionnez le **type de ressource fichier** pour le compte de stockage, puis cliquez sur **Terminé**. Par exemple, si le nom du compte de stockage est contoso, sélectionnez la ressource contoso/file.
 4. Cliquez sur **Ajouter une condition** pour ajouter une condition.
 5. Vous verrez une liste de signaux pris en charge pour le compte de stockage ; sélectionnez la métrique **Egress**.
-6. Dans le panneau **Configurer la logique du signal**, cliquez sur la liste déroulante **Nom de la dimension**, puis sélectionnez **Partage de fichiers**.
-7. Cliquez sur la liste déroulante **Valeurs de dimension**, puis sélectionnez le ou les partages de fichiers pour lesquels vous souhaitez recevoir une alerte.
+6. Pour les **partages de fichiers Premium**, cliquez sur la liste déroulante **Nom de la dimension** et sélectionnez **Partage de fichiers**. Pour les **partages de fichiers standard**, passez à l'**étape 8**.
 
    > [!NOTE]
-   > Si le partage de fichiers est un partage de fichiers standard, sélectionnez **Toutes les valeurs actuelles et futures**. La liste déroulante des valeurs de dimension ne répertorie pas les partages de fichiers, car les métriques par partage ne sont pas disponibles pour les partages de fichiers standard. Les alertes pour les partages de fichiers standard sont basées sur tous les partages de fichiers dans le compte de stockage. Étant donné que les métriques par partage ne sont pas disponibles pour les partages de fichiers standard, il est recommandé de disposer d’un partage de fichiers par compte de stockage.
+   > Si le partage de fichiers est un partage standard, la dimension **Partage de fichiers** ne répertorie pas le(s) partage(s) de fichiers, car les métriques par partage ne sont pas disponibles pour les partages de fichiers standard. Les alertes pour les partages de fichiers standard sont basées sur tous les partages de fichiers dans le compte de stockage. Étant donné que les métriques par partage ne sont pas disponibles pour les partages de fichiers standard, il est recommandé de disposer d’un partage de fichiers par compte de stockage.
 
+7. Cliquez sur la liste déroulante **Valeurs de dimension**, puis sélectionnez le ou les partages de fichiers pour lesquels vous souhaitez recevoir une alerte.
 8. Entrez **536870912000** octets pour la Valeur du seuil. 
 9. Cliquez sur la liste déroulante **Précision d’agrégation**, puis sélectionnez **24 heures**.
 10. Sélectionnez la **Fréquence d’évaluation**, puis cliquez sur **Terminé**.

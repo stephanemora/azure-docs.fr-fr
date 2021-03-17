@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: conceptual
-ms.date: 2/11/2021
+ms.date: 3/3/2021
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 4e1b5828e096d3d712def5420fd846d65b22e696
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 5549fc3b63b76c6158ae7399e6d94a43d2d4f28f
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100366107"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102435186"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Notes de publication de l’agent Azure File Sync
 Azure File Sync vous permet de centraliser les partages de fichiers de votre organisation dans Azure Files sans perdre la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Il transforme vos installations Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement (notamment SMB, NFS et FTPS). Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -25,19 +25,18 @@ Les versions prises en charge de l'agent Azure File Sync sont les suivantes :
 
 | Jalon | Numéro de version de l’agent | Date de publication | Statut |
 |----|----------------------|--------------|------------------|
-| Version V11.2 – [KB4539952](https://support.microsoft.com/topic/azure-file-sync-agent-v11-2-release-february-2021-c956eaf0-cd8e-4511-98c0-e5a1f2c84048)| 11.2.0.0 | 2 février 2021 | Prise en charge : Distribution de version d’évaluation |
+| Version V11.2 – [KB4539952](https://support.microsoft.com/topic/azure-file-sync-agent-v11-2-release-february-2021-c956eaf0-cd8e-4511-98c0-e5a1f2c84048)| 11.2.0.0 | 2 février 2021 | Prise en charge |
 | Mise en production V 11.1 – [KB4539951](https://support.microsoft.com/help/4539951)| 11.1.0.0 | 4 novembre 2020 | Prise en charge |
-| Version V10.1 : [KB4522411](https://support.microsoft.com/help/4522411)| 10.1.0.0 | 5 juin 2020 | Prise en charge |
-| Correctif cumulatif de mai 2020 : [KB4522412](https://support.microsoft.com/help/4522412)| 10.0.2.0 | 19 mai 2020 | Prise en charge |
-| Version V10 : [KB4522409](https://support.microsoft.com/help/4522409)| 10.0.0.0 | 9 avril 2020 | Prise en charge |
-| Correctif cumulatif de décembre 2019 – [KB4522360](https://support.microsoft.com/help/4522360)| 9.1.0.0 | 12 décembre 2019 | Pris en charge - La version de l'agent expirera le 16 février 2021 |
-| Version V9 - [KB4522359](https://support.microsoft.com/help/4522359)| 9.0.0.0 | 2 décembre 2019 | Pris en charge - La version de l'agent expirera le 16 février 2021 |
+| Version V10.1 : [KB4522411](https://support.microsoft.com/help/4522411)| 10.1.0.0 | 5 juin 2020 | Prise en charge - La version de l'agent expirera le 7 juin 2021 |
+| Correctif cumulatif de mai 2020 : [KB4522412](https://support.microsoft.com/help/4522412)| 10.0.2.0 | 19 mai 2020 | Prise en charge - La version de l'agent expirera le 7 juin 2021 |
+| Version V10 : [KB4522409](https://support.microsoft.com/help/4522409)| 10.0.0.0 | 9 avril 2020 | Prise en charge - La version de l'agent expirera le 7 juin 2021 |
 
 ## <a name="unsupported-versions"></a>Versions non prises en charge
 Les versions suivantes de l'agent Azure File Sync ont expiré et ne sont plus prises en charge :
 
 | Jalon | Numéro de version de l’agent | Date de publication | Statut |
 |----|----------------------|--------------|------------------|
+| Version V9 | 9.0.0.0 - 9.1.0.0 | N/A | Non prise en charge : la version de l'agent a expiré le 16 février 2021 |
 | Version 8 | 8.0.0.0 | N/A | Non pris en charge : la version de l'agent a expiré le 12 janvier 2021 |
 | Version V7 | 7.0.0.0 - 7.2.0.0 | N/A | Non pris en charge - Les versions de l'agent ont expiré le 1er septembre 2020 |
 | Version V6 | 6.0.0.0 - 6.3.0.0 | N/A | Non pris en charge : les versions de l’agent ont expiré le 21 avril 2020 |
@@ -151,6 +150,8 @@ Les éléments suivants ne se synchronisent pas, mais le reste du système conti
 ### <a name="cloud-tiering"></a>Hiérarchisation cloud
 - Si un fichier hiérarchisé est copié vers un autre emplacement à l’aide de Robocopy, le fichier résultant n’est pas hiérarchisé. L’attribut hors connexion peut être défini car Robocopy inclut cet attribut de façon erronée dans les opérations de copie.
 - Lors de la copie de fichiers à l’aide de Robocopy, utilisez l’option /MIR pour conserver les horodatages des fichiers. Les plus anciens fichiers sont ainsi hiérarchisés plus tôt que les derniers fichiers utilisés.
+    > [!Warning]  
+    > Le commutateur Robocopy /B n'est pas pris en charge avec Azure File Sync. L'utilisation du commutateur Robocopy /B avec un point de terminaison de serveur Azure File Sync comme source peut entraîner une corruption de fichiers.
 
 ## <a name="agent-version-10100"></a>Version de l’agent 10.1.0.0
 Les notes de publication suivantes concernent la version 10.1.0.0 de l’agent Azure File Sync publié le 5 juin 2020. Ces notes s’ajoutent aux notes de publication listées pour les versions 10.0.0.0 et 10.0.2.0.
@@ -247,102 +248,3 @@ Les éléments suivants ne se synchronisent pas, mais le reste du système conti
 ### <a name="cloud-tiering"></a>Hiérarchisation cloud
 - Si un fichier hiérarchisé est copié vers un autre emplacement à l’aide de Robocopy, le fichier résultant n’est pas hiérarchisé. L’attribut hors connexion peut être défini car Robocopy inclut cet attribut de façon erronée dans les opérations de copie.
 - Lors de la copie de fichiers à l’aide de Robocopy, utilisez l’option /MIR pour conserver les horodatages des fichiers. Les plus anciens fichiers sont ainsi hiérarchisés plus tôt que les derniers fichiers utilisés.
-
-## <a name="agent-version-9100"></a>Agent version 9.1.0.0
-Les notes de publication suivantes concernent la version 9.1.0.0 de l’agent Azure File Sync publiée le 12 décembre 2019. Ces notes s’ajoutent aux notes de publication de la version 9.0.0.0.
-
-Problème résolu dans cette version :  
-- La synchronisation échoue avec l’une des erreurs suivantes après la mise à niveau vers l’agent Azure File Sync version 9.0 :
-    - 0x8e5e044e (JET_errWriteConflict)
-    - 0x8e5e0450 (JET_errInvalidSesid)
-    - 0x8e5e0442 (JET_errInstanceUnavailable)
-
-## <a name="agent-version-9000"></a>Agent version 9.0.0.0
-Les notes de publication suivantes concernent la version 9.0.0.0 de l’agent Azure File Sync (publiée le 2 décembre 2019).
-
-### <a name="improvements-and-issues-that-are-fixed"></a>Améliorations et problèmes résolus
-
-- Prise en charge de la restauration libre-service
-    - Désormais, les utilisateurs peuvent également restaurer des fichiers hiérarchisés (ainsi que des fichiers sur disque) à l’aide de la fonctionnalité de version précédente, à partir des instantanés VSS créés après activation de la fonctionnalité de restauration libre-service sur le volume. Avant la version v9, la fonctionnalité de version précédente n’était pas prise en charge pour les fichiers hiérarchisés. Cette fonctionnalité doit être activée séparément pour chaque volume sur lequel existe un point de terminaison pour lequel la hiérarchisation cloud est activée. Pour plus d'informations, consultez les rubriques suivantes :  
-[Restauration libre-service via Versions précédentes et VSS (Volume Shadow Copy Service)](./storage-sync-files-deployment-guide.md#self-service-restore-through-previous-versions-and-vss-volume-shadow-copy-service). 
- 
-- Prise en charge de tailles de partage de fichiers plus importantes 
-    - Azure File Sync prend désormais en charge jusqu’à 64 Tio et 100 millions de fichiers dans un seul espace de noms qui se synchronise.  
- 
-- Prise en charge de la déduplication des données sur Server 2019 
-    - La déduplication des données est maintenant prise en charge (que la hiérarchisation cloud soit activée ou désactivée sur un ou plusieurs points de terminaison de serveur du volume) sur Windows Server 2016 et Windows Server 2019. Pour que la déduplication des données soit prise en charge sur les volumes pour lesquels la hiérarchisation cloud est activée sur Server 2019, Windows Update [KB4520062](https://support.microsoft.com/help/4520062) doit être installé. 
- 
-- Amélioration de la taille minimale d’un fichier à hiérarchiser 
-    - La taille minimale d’un fichier à hiérarchiser est désormais basée sur le double de la taille de cluster du système de fichiers. Par exemple, par défaut, la taille de cluster du système de fichiers NTFS est de 4 Ko ; ainsi, la taille de fichier minimale pour un fichier à hiérarchiser est de 8 Ko. 
- 
-- Applet de commande de test de connectivité réseau 
-    - Dans le cadre de la configuration d’Azure File Sync, plusieurs points de terminaison de service doivent être contactés. Ils ont chacun leur propre nom DNS qui doit être accessible au serveur. Ces URL sont également propres à la région dans laquelle un serveur est inscrit. Une fois qu’un serveur est inscrit, l’applet de commande de test de connectivité (PowerShell et l’utilitaire d’inscription du serveur) peut être utilisée pour tester les communications avec toutes les URL propres à ce serveur. Cette applet de commande peut aider à résoudre les problèmes qui se produisent quand une communication incomplète empêche le serveur de collaborer pleinement avec Azure File Sync et peut être utilisée pour affiner les configurations de proxy et de pare-feu.  
- 
-        Pour exécuter le test de connectivité réseau, exécutez les commandes PowerShell suivantes : 
- 
-        Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"  
-        Test-StorageSyncNetworkConnectivity
- 
-- Supprimer l’amélioration du point de terminaison de serveur quand la hiérarchisation cloud est activée 
-    - Comme auparavant, la suppression d’un point de terminaison de serveur n’entraîne pas la suppression de fichiers dans le partage de fichiers Azure. Toutefois, le comportement des points d’analyse sur le serveur local a changé. Les points d’analyse (pointeurs vers des fichiers qui ne sont pas locaux sur le serveur) sont désormais supprimés lors de la suppression d’un point de terminaison de serveur. Les fichiers entièrement mis en cache sont conservés sur le serveur. Cette amélioration a été apportée pour éviter l’existence de [fichiers hiérarchisés orphelins](./storage-sync-files-troubleshoot.md?tabs=portal1%252cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint) lors de la suppression d’un point de terminaison de serveur. Si le point de terminaison de serveur est recréé, les points d’analyse des fichiers hiérarchisés sont recréés sur le serveur.  
- 
-- Améliorations des performances et de la fiabilité 
-    - Réduction des échecs de rappel. La taille de rappel est désormais automatiquement ajustée en fonction de la bande passante réseau. 
-    - Amélioration des performances de téléchargement lors de l’ajout d’un nouveau serveur à un groupe de synchronisation. 
-    - Réduction de la proportion de fichiers non synchronisés en raison de conflits de contrainte. 
-    - Les fichiers ne sont pas hiérarchisés ou sont rappelés de manière inattendue dans certains scénarios si le chemin du point de terminaison de serveur est un point de montage de volume.
-    
-### <a name="evaluation-tool"></a>Outil d’évaluation
-Avant de déployer l’agent Azure File Sync, vous devez évaluer s’il est compatible avec votre système à l’aide de l’outil d’évaluation Azure File Sync. Cet outil est une applet de commande Azure PowerShell qui recherche les problèmes potentiels liés à votre système de fichiers et à votre jeu de données, comme des caractères non pris en charge ou une version de système d’exploitation non prise en charge. Pour des instructions d’installation et d’utilisation, voir la section [Outil d’évaluation](./storage-sync-files-planning.md#evaluation-cmdlet) du guide de planification. 
-
-### <a name="agent-installation-and-server-configuration"></a>Installation de l’agent et configuration du serveur
-Pour plus d’informations sur l’installation et la configuration de l’agent Azure File Sync avec Windows Server, consultez [Planification d’un déploiement Azure File Sync](storage-sync-files-planning.md) et [Guide pratique pour déployer Azure File Sync](storage-sync-files-deployment-guide.md).
-
-- Le package d’installation de l’agent doit être installé avec des autorisations (administrateur) élevées.
-- L’agent n’est pas pris en charge par l’option de déploiement de Nano Server.
-- L’agent est uniquement pris en charge sur Windows Server 2019, Windows Server 2016 et Windows Server 2012 R2.
-- 2 Gio de mémoire nécessaires pour l’agent. Si le serveur s’exécute sur une machine virtuelle où la mémoire dynamique est activée, la machine virtuelle doit être configurée avec un minimum de 2 048 Mio de mémoire.
-- Le service Storage Sync Agent (FileSyncSvc) ne prend pas en charge les points de terminaison serveur situés sur un volume dont le répertoire d’informations de volume système (SVI) est compressé. Cette configuration produit des résultats inattendus.
-
-### <a name="interoperability"></a>Interopérabilité
-- Les antivirus, applications de sauvegarde et autres applications qui ont accès à des fichiers hiérarchisés peuvent provoquer des rappels indésirables, sauf s’ils respectent l’attribut hors connexion et ignorent la lecture du contenu de ces fichiers. Pour plus d’informations, consultez [Résoudre les problèmes liés à Azure File Sync](storage-sync-files-troubleshoot.md).
-- Les filtres de fichiers FSRM peuvent entraîner des échecs de synchronisation sans fin lorsque les fichiers sont bloqués en raison du filtre de fichier.
-- L’exécution de sysprep sur un serveur sur lequel l’agent Azure File Sync est installé n’est pas prise en charge et peut produire des résultats inattendus. L’agent Azure File Sync doit être installé après avoir déployé l’image du serveur et terminé la mini-configuration de sysprep.
-
-### <a name="sync-limitations"></a>Limitations de synchronisation
-Les éléments suivants ne se synchronisent pas, mais le reste du système continue d’opérer normalement :
-- Fichiers avec caractères non pris en charge. Reportez-vous au [Guide de résolution des problèmes](storage-sync-files-troubleshoot.md#handling-unsupported-characters) pour consulter la liste des caractères non pris en charge.
-- Fichiers ou répertoires se terminant par un point.
-- Chemins de plus de 2 048 caractères.
-- La partie liste de contrôle d’accès discrétionnaire (DACL) d’un descripteur de sécurité si elle est supérieure à 2 Ko. (Ce problème survient uniquement lorsque vous avez plus de 40 entrées de contrôle d’accès (ACE) sur un seul élément.)
-- La partie liste de contrôle d’accès système (SACL) d’un descripteur de sécurité qui est utilisée pour l’audit.
-- Attributs étendus.
-- Autres flux de données.
-- Points d’analyse.
-- Liens physiques.
-- Si définie sur un serveur de fichiers, la compression n’est pas conservée lorsque les changements se synchronisent avec ce fichier depuis d’autres points de terminaison.
-- Tous les fichiers chiffrés avec EFS (ou tout autre chiffrement de mode utilisateur) qui empêche le service de lire les données.
-
-    > [!Note]  
-    > Azure File Sync chiffre toujours les données en transit. Les données sont toujours chiffrées au repos dans Azure.
- 
-### <a name="server-endpoint"></a>Point de terminaison de serveur
-- Un point de terminaison de serveur ne peut être créé que sur un volume NTFS. ReFS, FAT, FAT32 et d’autres systèmes de fichiers ne sont actuellement pas pris en charge par Azure File Sync.
-- Les fichiers à plusieurs niveaux sont inaccessibles si les fichiers ne sont pas rappelés avant la suppression du point de terminaison. Pour restaurer l’accès aux fichiers, recréez le point de terminaison de serveur. Si 30 jours se sont écoulés depuis que le point de terminaison de serveur a été supprimé ou si le point de terminaison cloud a été supprimé, les fichiers hiérarchisés non rappelés sont inutilisables. Pour en savoir plus, consultez [Les fichiers hiérarchisés ne sont pas accessibles sur le serveur après la suppression d’un point de terminaison de serveur](./storage-sync-files-troubleshoot.md?tabs=portal1%252cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint).
-- La hiérarchisation cloud n’est pas prise en charge sur le volume système. Pour créer un point de terminaison de serveur sur le volume système, désactivez la hiérarchisation cloud quand vous créez le point de terminaison de serveur.
-- Le clustering de basculement est pris en charge uniquement avec les disques en cluster, pas avec les volumes partagés de cluster (CSV).
-- Un point de terminaison de serveur ne peut pas être imbriqué. Il peut coexister sur le même volume en parallèle avec un autre point de terminaison.
-- Ne stockez pas de système d’exploitation ni de fichier de pagination d’application au sein d’un emplacement de point de terminaison de serveur.
-- Le nom de serveur dans le portail n’est pas mis à jour si le serveur est renommé.
-
-### <a name="cloud-endpoint"></a>Point de terminaison cloud
-- Azure File Sync prend en charge les modifications directes dans le partage de fichiers Azure. Toutefois, les modifications apportées au partage de fichiers Azure doivent d’abord être détectées par un travail de détection des modifications Azure File Sync. Un travail de détection des modifications est lancé pour un point de terminaison cloud une fois toutes les 24 heures. Pour synchroniser immédiatement les fichiers qui ont été modifiés dans le partage de fichiers Azure, le cmdlet PowerShell [Invoke-AzStorageSyncChangeDetection](/powershell/module/az.storagesync/invoke-azstoragesyncchangedetection) permet de lancer manuellement la détection des modifications apportées au partage de fichiers Azure. Par ailleurs, les modifications apportées à un partage de fichiers Azure via le protocole REST ne mettent pas à jour l’heure de dernière modification de SMB et ne sont pas visibles comme des modifications par la synchronisation.
-- Le service de synchronisation de stockage et/ou le compte de stockage peuvent être déplacés vers un autre groupe de ressources ou un autre abonnement à l’intérieur du locataire Azure AD existant. Si le compte de stockage est déplacé, vous devez donner à Hybrid File Sync Service l’accès au compte de stockage (consultez [Vérifiez qu’Azure File Sync a accès au compte de stockage](./storage-sync-files-troubleshoot.md?tabs=portal1%252cportal#troubleshoot-rbac)).
-
-    > [!Note]  
-    > Azure File Sync ne prend pas en charge le déplacement de l’abonnement vers un autre locataire Azure AD.
-
-### <a name="cloud-tiering"></a>Hiérarchisation cloud
-- Si un fichier hiérarchisé est copié vers un autre emplacement à l’aide de Robocopy, le fichier résultant n’est pas hiérarchisé. L’attribut hors connexion peut être défini car Robocopy inclut cet attribut de façon erronée dans les opérations de copie.
-- Lors de la copie de fichiers à l’aide de Robocopy, utilisez l’option /MIR pour conserver les horodatages des fichiers. Les plus anciens fichiers sont ainsi hiérarchisés plus tôt que les derniers fichiers utilisés.
-- La hiérarchisation des fichiers peut échouer si le fichier pagefile.sys se trouve sur un volume où la hiérarchisation cloud est activée. Le fichier pagefile.sys doit se trouver sur un volume où la hiérarchisation cloud est désactivée.

@@ -3,7 +3,7 @@ title: Vue d’ensemble de la communauté Azure Media Services | Microsoft Docs
 description: 'Cette page de la communauté Azure Media Services (AMS) aborde les diverses manières d’obtenir des mises à jour relatives à AMS, d’afficher de nouvelles vidéos et de nouveaux podcasts, de poser des questions et de faire des commentaires. '
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: 0df020f4-8297-4f31-92bf-de098283e997
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
-ms.openlocfilehash: f3cc775cd65293a39de28dfbdc8b1d06aeada3b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: 8c566484d5a594e81a0900d5a5ab5a3e34bfffa8
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90987310"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103016914"
 ---
 # <a name="azure-media-services-community"></a>Communauté Azure Media Services
 

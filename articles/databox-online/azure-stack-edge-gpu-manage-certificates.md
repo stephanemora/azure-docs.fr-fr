@@ -6,20 +6,20 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 09/29/2020
+ms.date: 03/08/2021
 ms.author: alkohli
-ms.openlocfilehash: 06d3ebae80b34d6b3c7f4a23694fd9fba34e4b76
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 534870e6bd67b7aa5273289f3154a794a2b9bd22
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101733497"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102519008"
 ---
 # <a name="use-certificates-with-azure-stack-edge-pro-gpu-device"></a>Utiliser des certificats avec des appareils Azure Stack Edge Pro avec GPU
 
-<!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-Cet article décrit les types de certificats qui peuvent être installés sur votre appareil Azure Stack Edge Pro. L’article comprend également les détails de chaque type de certificat, ainsi que la procédure d’installation et d’identification de la date d’expiration. 
+Cet article décrit les types de certificats qui peuvent être installés sur votre appareil Azure Stack Edge Pro. L’article comprend également les détails de chaque type de certificat, ainsi que la procédure d’installation et d’identification de la date d’expiration.  
 
 ## <a name="about-certificates"></a>À propos des certificats
 
@@ -400,7 +400,7 @@ La sauvegarde du fichier .pfx est maintenant enregistrée à l’emplacement que
 
 ## <a name="supported-certificate-algorithms"></a>Algorithmes de certificat pris en charge
 
- Seuls les certificats RSA (Rivest-Shamir-Adleman) sont pris en charge avec votre appareil Azure Stack Edge Pro. Si des certificats ECDSA (Elliptic Curve Digital Signature Algorithm) sont utilisés, le comportement de l’appareil est indéterminé.
+ Seuls les certificats RSA (Rivest-Shamir-Adleman) sont pris en charge avec votre appareil Azure Stack Edge Pro. Les certificats ECDSA (Elliptic Curve Digital Signature Algorithm) ne sont pas pris en charge.
 
  Les certificats qui contiennent une clé publique RSA sont appelés certificats RSA. Les certificats qui contiennent une clé publique ECC (Elliptic Curve Cryptographic) sont appelés certificats ECDSA (Elliptic Curve Digital Signature Algorithm). 
 

@@ -1,19 +1,19 @@
 ---
-title: Fichier include
+title: Fichier Include
 description: Fichier include
 services: virtual-machines
-author: styli365
+author: rishabv90
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 11/05/2020
-ms.author: sttsinar
+ms.author: risverma
 ms.custom: include file
-ms.openlocfilehash: e22c2b7cb561e30e84ea5ede5481fbdc35be8cdf
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: fc61c111291f9862f71f9a81828fa0fa828ab2ad
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100515057"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102510825"
 ---
 Le Calcul Azure propose des tailles de machines virtuelles qui sont isolées pour un type de matériel spécifique et dédiées à un seul et même client. Les tailles isolées vivent et fonctionnent sur une génération de matériel spécifique et seront déconseillées lors de sa mise hors service.
 
@@ -42,24 +42,26 @@ Les tailles de machines virtuelles isolées ont une durée de vie matérielle li
 
 | Taille | Date de mise hors service de l’isolation | 
 | --- | --- |
-| Standard_DS15_v2<sup>1</sup> | 15 mai 2020 |
-| Standard_D15_v2<sup>1</sup>  | 15 mai 2020 |
-
-<sup>1</sup> Pour plus d’informations sur le programme de mise hors service de l’isolation Standard_DS15_v2 et Standard_D15_v2, consultez les FAQ.
+| Standard_DS15_v2 | 15 mai 2021 |
+| Standard_D15_v2  | 15 mai 2021 |
+| Standard_G5  | 15 février 2022 |
+| Standard_GS5  | 15 février 2022 |
+| Standard_E64i_v3  | 15 février 2022 |
+| Standard_E64is_v3  | 15 février 2022 |
 
 
 ## <a name="faq"></a>Questions fréquentes (FAQ)
 ### <a name="q-is-the-size-going-to-get-retired-or-only-its-isolation-feature"></a>Q : La taille sera-t-elle mise hors service ou cela concerne-t-il seulement sa fonctionnalité « isolation » ?
-**R** : Si la taille de la machine virtuelle ne porte pas l’indice « i », seule la fonctionnalité « isolation » sera supprimée. Si l’isolation n’est pas nécessaire, aucune action n’est requise et la machine virtuelle continue de fonctionner comme prévu. Exemples : Standard_DS15_v2, Standard_D15_v2, Standard_M128ms, etc. Si la taille de la machine virtuelle comprend l’indice « i », la taille sera bientôt mise hors service.
+**R** : Actuellement, seule la fonctionnalité d'isolation des tailles de machines virtuelles est mise hors service. Les tailles isolées déconseillées continueront d'exister sous une forme non isolée. Si l’isolation n’est pas nécessaire, aucune action n’est requise et la machine virtuelle continue de fonctionner comme prévu.
 
 ### <a name="q-is-there-a-downtime-when-my-vm-lands-on-a-non-isolated-hardware"></a>Q : Y a-t-il un temps d’arrêt lorsque ma machine virtuelle arrive sur un matériel non isolé ?
-**R** : Si l’isolation n’est pas nécessaire, aucune action n’est requise et il n’y aura pas de temps d’arrêt.
+**R** : Si l’isolation n’est pas nécessaire, aucune action n’est requise et il n’y aura pas de temps d’arrêt. En revanche, si une isolation est nécessaire, notre annonce inclura la taille de remplacement recommandée. La sélection de la taille de remplacement obligera nos clients à redimensionner leurs machines virtuelles.  
 
 ### <a name="q-is-there-any-cost-delta-for-moving-to-a-non-isolated-virtual-machine"></a>Q : Existe-t-il un écart de coût pour le déplacement vers une machine virtuelle non isolée ?
 **R** : Non
 
 ### <a name="q-when-are-the-other-isolated-sizes-going-to-retire"></a>Q : Quand les autres tailles isolées vont-elles être mises hors service ?
-**R** : Nous enverrons des rappels 12 mois avant la dépréciation officielle de la taille isolée.
+**R** : Nous enverrons des rappels 12 mois avant la dépréciation officielle de la taille isolée. Notre dernière annonce comprend la mise hors service de la fonctionnalité d'isolation de Standard_G5, Standard_GS5, Standard_E64i_v3 et Standard_E64i_v3.  
 
 ### <a name="q-im-an-azure-service-fabric-customer-relying-on-the-silver-or-gold-durability-tiers-does-this-change-impact-me"></a>Q : Je suis un client Azure Service Fabric qui s’appuie sur les niveaux de durabilité Argent ou Or. Ce changement a-t-il un impact sur moi ?
 **R** : Non. Les garanties fournies par les [niveaux de durabilité](../articles/service-fabric/service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) de Service Fabric continuent de fonctionner même après ce changement. Si vous avez besoin d’une isolation matérielle physique pour d’autres raisons, vous devrez peut-être effectuer l’une des actions décrites ci-dessus. 
@@ -69,11 +71,20 @@ Les tailles de machines virtuelles isolées ont une durée de vie matérielle li
  
 | Date | Action |
 |---|---| 
-| 18 novembre 2019 | Disponibilité de D/DS15i_v2 (paiement à l’utilisation, instance réservée 1 an) | 
-| 14 mai 2020 | Dernier jour pour acheter l’instance réservée 1 an D/DS15i_v2 | 
-| 15 mai 2020 | Garantie d’isolation D/DS15_v2 retirée | 
-| 15 mai 2021 | Mise hors service de D/DS15i_v2 (tous les clients, sauf ceux qui ont acheté une instance réservée 3 ans de D/DS15_v2 avant le 18 novembre 2019)| 
-| 17 novembre 2022 | Mise hors service de D/DS15i_v2 quand les instances réservées 3 ans arrivent à leur terme (pour les clients qui ont acheté une instance réservée 3 ans de D/DS15_v2 avant le 18 novembre 2019) |
+| 15 mai 2020<sup>1</sup> | Annonce de la mise hors service de l'isolation de D/DS15_v2| 
+| 15 mai 2021 | Garantie d’isolation D/DS15_v2 retirée| 
+
+<sup>1</sup> Les clients existants utilisant ces tailles recevront un e-mail d'annonce avec des instructions détaillées sur les étapes suivantes.  
+
+### <a name="q-what-are-the-milestones-for-g5-gs5-e64i_v3-and-e64is_v3-isolation-retirement"></a>Q : Quels sont les jalons pour la mise hors service de l'isolation de G5, Gs5, E64i_v3 et E64is_v3 ? 
+**R** : 
+ 
+| Date | Action |
+|---|---|
+| 15 février 2021<sup>1</sup> | Annonce de la mise hors service de l'isolation de G5/GS5/E64i_v3/E64is_v3 |
+| 15 février 2022 | Mise hors service de la garantie d'isolation de G5/GS5/E64i_v3/E64is_v3 |
+
+<sup>1</sup> Les clients existants utilisant ces tailles recevront un e-mail d'annonce avec des instructions détaillées sur les étapes suivantes.  
 
 ## <a name="next-steps"></a>Étapes suivantes
 

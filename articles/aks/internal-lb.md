@@ -5,12 +5,12 @@ description: Découvrez comment créer et utiliser un équilibreur de charge int
 services: container-service
 ms.topic: article
 ms.date: 03/04/2019
-ms.openlocfilehash: ec8fd1f1b32d5bba6dc4dc756e1f95f4a74f9a96
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4c2c0866aa9a721a73e1eb8fa230f0022cf6b8ca
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87285881"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102505628"
 ---
 # <a name="use-an-internal-load-balancer-with-azure-kubernetes-service-aks"></a>Utiliser un équilibreur de charge interne avec Azure Kubernetes Service (AKS)
 
@@ -23,11 +23,11 @@ Pour restreindre l’accès à vos applications dans Azure Kubernetes Service (A
 
 Cet article suppose que vous avez un cluster AKS existant. Si vous avez besoin d’un cluster AKS, consultez le guide de démarrage rapide d’AKS [avec Azure CLI][aks-quickstart-cli]ou avec le [Portail Azure][aks-quickstart-portal].
 
-Azure CLI 2.0.59 (ou une version ultérieure) doit également être installé et configuré. Exécutez  `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez  [Installation d’Azure CLI][install-azure-cli].
+Azure CLI 2.0.59 (ou une version ultérieure) doit également être installé et configuré. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI][install-azure-cli].
 
-Le principal de service du cluster AKS a besoin de l’autorisation de gérer les ressources réseau si vous utilisez un sous-réseau ou un groupe de ressources existant. Pour plus d’informations, consultez [Utiliser la mise en réseau kubenet avec vos propres plages d’adresses IP dans Azure Kubernetes Service (AKS)][use-kubenet] ou [Configurer un réseau Azure CNI dans Azure Kubernetes Service (AKS)][advanced-networking]. Si vous configurez votre équilibreur de charge dans le but d’utiliser une [adresse IP dans un autre sous-réseau][different-subnet], assurez-vous que le principal de service du cluster AKS dispose également d’un accès en lecture à ce sous-réseau.
+L'identité du cluster AKS a besoin d'une autorisation pour gérer les ressources réseau si vous utilisez un sous-réseau ou un groupe de ressources existant. Pour plus d’informations, consultez [Utiliser la mise en réseau kubenet avec vos propres plages d’adresses IP dans Azure Kubernetes Service (AKS)][use-kubenet] ou [Configurer un réseau Azure CNI dans Azure Kubernetes Service (AKS)][advanced-networking]. Si vous configurez votre équilibreur de charge dans le but d'utiliser une [adresse IP dans un autre sous-réseau][different-subnet], assurez-vous que l'identité du cluster AKS dispose également d'un accès en lecture à ce sous-réseau.
 
-Au lieu d’utiliser le principal de service, vous pouvez aussi utiliser l’identité managée affectée par le système pour les autorisations. Pour plus d’informations, consultez [Utiliser des identités managées](use-managed-identity.md). Pour plus d’informations sur les autorisations, consultez [Delegate access to other Azure resources][aks-sp] (Déléguer l’accès à d’autres ressources Azure).
+Pour plus d’informations sur les autorisations, consultez [Delegate access to other Azure resources][aks-sp] (Déléguer l’accès à d’autres ressources Azure).
 
 ## <a name="create-an-internal-load-balancer"></a>Créer un équilibrage de charge interne
 
@@ -110,7 +110,7 @@ internal-app   LoadBalancer   10.1.15.188   10.0.0.35     80:31669/TCP   1m
 ```
 
 > [!NOTE]
-> Vous devrez peut-être accorder au principal de service de votre cluster AKS le rôle de *Contributeur de réseaux* pour le groupe de ressources où sont déployées vos ressources de réseau virtuel Azure. Affichez le principal de service avec [az aks show][az-aks-show], par exemple : `az aks show --resource-group myResourceGroup --name myAKSCluster --query "servicePrincipalProfile.clientId"`. Pour créer une attribution de rôle, utilisez la commande [az role assignment create][az-role-assignment-create].
+> Vous devrez peut-être accorder à l'identité de votre cluster AKS le rôle *Contributeur de réseau* pour le groupe de ressources où sont déployées vos ressources de réseau virtuel Azure. Affichez l'identité du cluster avec [az aks show][az-aks-show], par exemple `az aks show --resource-group myResourceGroup --name myAKSCluster --query "identity"`. Pour créer une attribution de rôle, utilisez la commande [az role assignment create][az-role-assignment-create].
 
 ## <a name="specify-a-different-subnet"></a>Spécifier un autre sous-réseau
 

@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 10/22/2020
 ms.author: nitinme
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 1a7e1cc2303438a904b95a378a14bd02ac88c179
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 85bcdb319431f1079cdbc8b94f0313f1dd6b67d6
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101736629"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103601999"
 ---
 # <a name="what-are-azure-cognitive-services"></a>Présentation d’Azure Cognitive Services
 
@@ -43,7 +43,6 @@ Les sections suivantes de cet article fournissent la liste des services qui font
 |[Service Custom Vision](./custom-vision-service/overview.md "Service Vision personnalisée")|Le Service Vision personnalisée vous permet de créer des classifieurs d’images personnalisés.|
 |[Visage](./face/index.yml "Face")| Le service Visage donne accès à des algorithmes d’analyse du visage permettant la détection et la reconnaissance d’attributs faciaux.|
 |[Form Recognizer](./form-recognizer/index.yml "Form Recognizer")|Form Recognizer identifie et extrait les données de paires clé-valeur et de table des documents du formulaire ; il sort ensuite des données structurées, notamment les relations dans le fichier d’origine.|
-|[Ink Recognizer](/previous-versions/azure/cognitive-services/Ink-Recognizer/ "Ink Recognizer") (Retrait)|Ink Recognizer vous permet de reconnaître et d’analyser les données de trait d’encre numérique, les formes et le contenu manuscrit, et sort une structure de document avec toutes les entités reconnues.|
 |[Video Indexer](../media-services/video-indexer/video-indexer-overview.md "Video Indexer")|Video Indexer vous permet d’extraire des informations de vos vidéos.|
 
 ## <a name="speech-apis"></a>Les API Speech

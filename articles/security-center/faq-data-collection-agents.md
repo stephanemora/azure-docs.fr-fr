@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2020
 ms.author: memildin
-ms.openlocfilehash: 30744ab97549d585cb6893dc2e2e12009e8cd3fb
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 4ef01045d1ca16d0101cdd9ccfcd118231cd28de
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100595762"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102456111"
 ---
 # <a name="faq---questions-about-data-collection-agents-and-workspaces"></a>FAQ – Question relatives à la collecte de données, aux agents et aux espaces de travail
 
@@ -29,11 +29,11 @@ Azure Security Center collecte des données à partir de vos machines virtuelles
 
 Non. Les espaces de travail créés par Security Center, bien qu’ils soient configurés pour une facturation Journaux Azure Monitor par nœud, n’entraînent pas de frais de journaux Azure Monitor. La facturation Security Center est toujours basée sur la stratégie de sécurité Security Center et les solutions installées sur l’espace de travail :
 
-- **Azure Defender désactivé** : Security Center active la solution « SecurityCenterFree » sur l’espace de travail par défaut. Vous ne serez pas facturé si Azure Defender est désactivé.
+- **Azure Defender désactivé** : Security Center active la solution « SecurityCenterFree » sur l'espace de travail par défaut. Vous ne serez pas facturé si Azure Defender est désactivé.
 
-- **Azure Defender activé** : Security Center active la solution « Security » sur l’espace de travail par défaut.
+- **Azure Defender activé** : Security Center active la solution « Security » sur l'espace de travail par défaut.
 
-Pour plus d’informations sur la tarification, consultez la page de [tarification de Security Center](https://azure.microsoft.com/pricing/details/security-center/).
+Pour plus d'informations sur les prix dans la devise de votre choix et en fonction de votre région, consultez la page [Tarification de Security Center](https://azure.microsoft.com/pricing/details/security-center/).
 
 > [!NOTE]
 > Le niveau tarifaire Log Analytics des espaces de travail créés par Security Center n’affecte pas la facturation Security Center.
@@ -111,7 +111,7 @@ Pour sélectionner un espace de travail Log Analytics existant :
 
 1. Dans le menu de Security Center, sélectionnez **Tarification et paramètres**.
 1. Sélectionnez l’abonnement approprié.
-1. Ouvrir la page **Approvisionnement automatique**
+1. Ouvrez la page **Approvisionnement automatique**.
 1. Pour l’agent Log Analytics, sélectionnez **Modifier la configuration**. 
 
     :::image type="content" source="./media/security-center-enable-data-collection/edit-configuration-auto-deploy-agent.png" alt-text="Configuration de l’agent Log Analytics à utiliser lors de l’utilisation du déploiement automatique" lightbox="./media/security-center-enable-data-collection/edit-configuration-auto-deploy-agent.png":::
@@ -146,7 +146,7 @@ Si l’agent Log Analytics est installé directement sur la machine virtuelle (p
 
 L’agent installé continue de rendre compte à ses espaces de travail déjà configurés et à l’espace de travail configuré dans Security Center (multihébergement pris en charge sur les machines Windows).
 
-Si l’espace de travail configuré est un espace de travail utilisateur (pas un espace de travail par défaut de Security Center), vous devez y installer la solution « Security/SecurityCenterFree » pour que Security Center démarre le traitement des événements à partir des machines virtuelles et ordinateurs rendant compte à cet espace de travail.
+Si l'espace de travail configuré est un espace de travail utilisateur (et non l'espace de travail par défaut de Security Center), vous devez y installer la solution « Security » ou « SecurityCenterFree » pour que Security Center commence à traiter les événements provenant des machines virtuelles et des ordinateurs relevant de cet espace de travail.
 
 Pour les machines Linux, le multihébergement d’agent n’est pas encore pris en charge, par conséquent, si une installation existante de l’agent est détectée, l’approvisionnement automatique n’a pas lieu et la configuration de la machine n’est pas modifiée.
 
@@ -207,7 +207,7 @@ Une fois la migration terminée, Security Center n’est pas en mesure de collec
 
 Installez manuellement l’extension de l’agent Log Analytics pour que Security Center puisse collecter des données de sécurité sur vos machines virtuelles et fournir des suggestions et des alertes. Consultez [Installation de l’agent pour les machines virtuelles Windows](../virtual-machines/extensions/oms-windows.md) ou [Installation de l’agent pour les machines virtuelles Linux](../virtual-machines/extensions/oms-linux.md) pour obtenir des instructions sur l’installation.
 
-Vous pouvez connecter l’agent à n’importe quel espace de travail personnalisé existant ou à l’espace de travail créé par Security Center. Si les solutions « Security » ou « SecurityCenterFree » ne sont pas activées pour un espace de travail personnalisé, vous devez appliquer une solution. Pour ce faire, sélectionnez l’abonnement ou l’espace de travail personnalisé, puis appliquez un niveau tarifaire via la page **Stratégie de sécurité – Niveau tarifaire**.
+Vous pouvez connecter l’agent à n’importe quel espace de travail personnalisé existant ou à l’espace de travail créé par Security Center. Si les solutions « Security » ou « SecurityCenterFree » ne sont pas activées dans un espace de travail personnalisé, vous devez appliquer une solution. Pour ce faire, sélectionnez l’abonnement ou l’espace de travail personnalisé, puis appliquez un niveau tarifaire via la page **Stratégie de sécurité – Niveau tarifaire**.
 
 :::image type="content" source="./media/security-center-platform-migration-faq/pricing-tier.png" alt-text="Activer ou désactiver Azure Defender":::
 

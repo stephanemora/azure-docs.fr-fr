@@ -8,15 +8,15 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 08/07/2020
 ms.reviewer: sngun
-ms.openlocfilehash: b6504c0521328edc356dea1c146fe9aeb6bde55f
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a8e968d05a1f844a79d2e42d10c323ed4c392424
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93092736"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521218"
 ---
 # <a name="azure-cosmos-db-attachments"></a>Pièces jointes Azure Cosmos DB
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-mongodb-api.md)]
 
 Les pièces jointes Azure Cosmos DB sont des éléments spéciaux contenant des références vers des métadonnées associées avec un objet blob ou un fichier multimédia externe.
 
@@ -40,6 +40,11 @@ Les pièces jointes managées d’Azure Cosmos DB sont distinctes de la prise en
 - Les pièces jointes ne sont pas prises en charge dans toutes les versions des kit de développement logiciel (SDK) Azure Cosmos DB.
 - Les pièces jointes managées sont limitées à 2 Go de stockage par compte de base de données.
 - Les pièces jointes managées ne sont pas compatibles avec la distribution globale d’Azure Cosmos DB, et elles ne sont pas répliquées dans les régions.
+
+> [!NOTE]
+> La version 3.2 de l'API Azure Cosmos DB pour MongoDB utilise des pièces jointes managées pour GridFS et est soumise aux mêmes limitations.
+>
+> Nous recommandons aux développeurs d'utiliser l'ensemble de fonctionnalités MongoDB GridFS pour procéder à une mise à niveau vers l'API Azure Cosmos DB pour MongoDB version 3.6 ou supérieure, qui est découplée des pièces jointes et offre une meilleure expérience. Par ailleurs, les développeurs qui utilisent l'ensemble de fonctionnalités MongoDB GridFS doivent également envisager d'utiliser le service Stockage Blob Azure, qui est spécialement conçu pour stocker le contenu des objets blob et offre des fonctionnalités étendues à moindre coût par rapport à GridFS.
 
 ## <a name="migrating-attachments-to-azure-blob-storage"></a>Migration de pièces jointes vers le stockage Blob Azure
 
@@ -162,6 +167,6 @@ namespace attachments
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Prise en main du [stockage Blob Azure](../storage/blobs/storage-quickstart-blobs-dotnet.md)
-- Obtenir des références pour l’utilisation de pièces jointes via le [kit de développement logiciel (SDK) .NET v2 d’Azure Cosmos DB](/dotnet/api/microsoft.azure.documents.attachment?preserve-view=true&view=azure-dotnet)
-- Obtenir des références pour l’utilisation de pièces jointes via le [kit de développement logiciel (SDK) Java v2 d’Azure Cosmos DB](/java/api/com.microsoft.azure.documentdb.attachment?preserve-view=true&view=azure-java-stable)
+- Obtenir des références pour l’utilisation de pièces jointes via le [kit de développement logiciel (SDK) .NET v2 d’Azure Cosmos DB](/dotnet/api/microsoft.azure.documents.attachment)
+- Obtenir des références pour l’utilisation de pièces jointes via le [kit de développement logiciel (SDK) Java v2 d’Azure Cosmos DB](/java/api/com.microsoft.azure.documentdb.attachment)
 - Obtenir des références pour l’utilisation de pièces jointes via l’[API REST d’Azure Cosmos DB](/rest/api/cosmos-db/attachments)
