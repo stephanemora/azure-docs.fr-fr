@@ -9,12 +9,12 @@ author: rolyon
 ms.author: rolyon
 ms.date: 02/25/2021
 ms.custom: generated
-ms.openlocfilehash: 90c0be8e6df3e489595bdafed1f29d1ed0ef00f8
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: baa783d0dfb54e0e606e3f6c6d5397941ae7b7bc
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101724504"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103011627"
 ---
 # <a name="azure-built-in-roles"></a>Rôles intégrés Azure
 
@@ -6702,7 +6702,7 @@ Vous permet de lire les abonnements aux événements EventGrid. [En savoir plus]
 
 ### <a name="fhir-data-contributor"></a>Contributeur aux données FHIR
 
-Ce rôle accorde à l’utilisateur ou au principal un accès complet aux données FHIR [En savoir plus](../healthcare-apis/configure-azure-rbac.md)
+Ce rôle accorde à l’utilisateur ou au principal un accès complet aux données FHIR [En savoir plus](../healthcare-apis/fhir/configure-azure-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -6741,7 +6741,7 @@ Ce rôle accorde à l’utilisateur ou au principal un accès complet aux donné
 
 ### <a name="fhir-data-exporter"></a>Exportateur de données FHIR
 
-Ce rôle permet à l’utilisateur ou au principal de lire et d’exporter des données FHIR [En savoir plus](../healthcare-apis/configure-azure-rbac.md)
+Ce rôle permet à l’utilisateur ou au principal de lire et d’exporter des données FHIR [En savoir plus](../healthcare-apis/fhir/configure-azure-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -6782,7 +6782,7 @@ Ce rôle permet à l’utilisateur ou au principal de lire et d’exporter des d
 
 ### <a name="fhir-data-reader"></a>Lecteur de données FHIR
 
-Ce rôle permet à l’utilisateur ou au principal de lire des données FHIR [En savoir plus](../healthcare-apis/configure-azure-rbac.md)
+Ce rôle permet à l’utilisateur ou au principal de lire des données FHIR [En savoir plus](../healthcare-apis/fhir/configure-azure-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -6821,7 +6821,7 @@ Ce rôle permet à l’utilisateur ou au principal de lire des données FHIR [En
 
 ### <a name="fhir-data-writer"></a>Enregistreur de données FHIR
 
-Ce rôle permet à l’utilisateur ou au principal de lire et d’écrire des données FHIR [En savoir plus](../healthcare-apis/configure-azure-rbac.md)
+Ce rôle permet à l’utilisateur ou au principal de lire et d’écrire des données FHIR [En savoir plus](../healthcare-apis/fhir/configure-azure-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |

@@ -1,7 +1,7 @@
 ---
 title: H264 - Vitesse de transmission multiple - 1 080 pixels - Audio 5.1 | Microsoft Docs
 description: Cette rubrique offre une vue d’ensemble de la présélection de tâches **H264 - Vitesse de transmission multiple - 1 080 pixels – Audio 5.1**.
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2019
-ms.author: juliako
-ms.openlocfilehash: 806f175db2abefd6bebcd875c7adf4eb22f57f58
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: 8c69d581cff9a71dc56df34ca76fdc95535d097e
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89257362"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103014772"
 ---
 # <a name="h264-multiple-bitrate-1080p-audio-51"></a>H264 – Vitesse de transmission multiple – 1 080 pixels – Audio 5.1
 
@@ -32,7 +32,7 @@ ms.locfileid: "89257362"
  Cette présélection produit un ensemble de 8 fichiers MP4 alignés sur le groupe d’images, de 6 000 kbit/s à 400 kbit/s, et de l’audio AAC 5.1. Pour plus d’informations sur le profil, la vitesse de transmission, la fréquence d’échantillonnage, etc. de cette présélection, examinez le code XML ou JSON présenté ci-dessous. Pour connaître la signification des différents éléments et les valeurs valides pour chaque élément, consultez [Schéma Media Encoder Standard](media-services-mes-schema.md).  
   
 > [!NOTE]
->  Lorsque vous modifiez les valeurs `Width` et `Height` sur les couches, assurez-vous que les proportions demeurent constantes. Par exemple : 1 920 x 1 080, 1 280 x 720, 1 080 x 576, 640 x 360. Vous ne devez pas utiliser un mélange de proportions, comme : 1 280 x 720, 720 x 480, 640 x 360.  
+>  Lorsque vous modifiez les valeurs `Width` et `Height` sur les couches, assurez-vous que les proportions demeurent constantes. Par exemple : 1920x1080, 1280x720, 1080x576, 640x360. Vous ne devez pas utiliser un mélange de proportions, comme : 1280x720, 720x480, 640x360.  
   
  XML  
   

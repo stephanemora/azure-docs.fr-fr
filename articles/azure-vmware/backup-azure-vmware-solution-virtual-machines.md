@@ -3,12 +3,12 @@ title: Sauvegarder des machines virtuelles Azure VMware Solution avec le serveur
 description: Configurez votre environnement Azure VMware Solution pour sauvegarder des machines virtuelles à l’aide du serveur de sauvegarde Azure.
 ms.topic: how-to
 ms.date: 02/04/2021
-ms.openlocfilehash: ea2164ba19703660e54879c25b975342d824662c
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 163065556b7dbc979d68613744ea827c209d9fda
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99585022"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102618914"
 ---
 # <a name="back-up-azure-vmware-solution-vms-with-azure-backup-server"></a>Sauvegarder des machines virtuelles Azure VMware Solution avec le serveur de sauvegarde Azure
 
@@ -73,7 +73,7 @@ Sur VMware 6.7 et ultérieur, TLS est le protocole de communication activé.
 
 1. Copiez les paramètres de registre suivants, puis collez-les dans le Bloc-notes. Enregistrez ensuite le fichier au format TLS.REG sans l’extension .txt.
 
-   ```text
+   ```
    
    Windows Registry Editor Version 5.00
    

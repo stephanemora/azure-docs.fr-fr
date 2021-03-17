@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: 86e4bb52f2a97bf36dc4be86289bd513a9f05091
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: bb7769298940095900da25e61e13612b92bad00c
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99538253"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103419097"
 ---
 # <a name="what-is-ipv6-for-azure-virtual-network"></a>Qu’est-ce que le protocole IPv6 pour réseau virtuel Azure ?
 
@@ -77,8 +77,7 @@ La version actuelle du protocole IPv6 pour réseau virtuel Azure présente les l
 - IPv6 pour réseau virtuel Azure est disponible dans les régions US Government et toutes les régions commerciales Azure dans le monde avec toutes les méthodes de déploiement.  
 - Les passerelles ExpressRoute PEUVENT être utilisées pour le trafic IPv4 uniquement dans un réseau virtuel où le protocole IPv6 est activé.  La prise en charge du trafic IPv6 est incluse dans notre feuille de route.   
 - Les passerelles VPN ne peuvent PAS être utilisés dans un réseau virtuel où le protocole IPv6 est activé, que ce soit directement ou appairé avec « UseRemoteGateway ».
-- La plateforme Azure (AKS, etc.) ne prend pas en charge la communication IPv6 pour les conteneurs.  
-- La charge d’IPv6 peut être équilibrée uniquement vers l’interface réseau principale (carte réseau) sur les machines virtuelles Azure. L’équilibrage de charge pour le trafic IPv6 vers les cartes réseau secondaires n’est pas pris en charge.    
+- La plateforme Azure (AKS, etc.) ne prend pas en charge la communication IPv6 pour les conteneurs. 
 - Les machines virtuelles ou groupes de machines virtuelles identiques exclusivement IPv6 ne sont pas pris en charge, chaque carte réseau doit inclure au moins une configuration IP IPv4. 
 - Lorsque vous ajoutez IPv6 à des déploiements IPv4 existants, les plages IPv6 ne peuvent pas être ajoutées à un réseau virtuel avec des liens de navigation vers les ressources qui existent déjà.  
 - Le DNS direct pour IPv6 est actuellement pris en charge pour le DNS public Azure, mais le DNS inversé ne l’est pas encore.   

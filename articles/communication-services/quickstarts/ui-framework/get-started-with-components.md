@@ -4,15 +4,15 @@ titleSuffix: An Azure Communication Services quickstart
 description: Dans ce guide de démarrage rapide, vous allez découvrir comment démarrer avec les composants de base de l’infrastructure d’interface utilisateur
 author: ddematheu2
 ms.author: dademath
-ms.date: 11/16/2020
+ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 01fa817bd5173abc3b51e708b69b787c8b655e90
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 6f4a8e8f26e88a73fc73c309ef336813282589f3
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99539712"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103488174"
 ---
 # <a name="quickstart-get-started-with-ui-framework-base-components"></a>Démarrage rapide : Bien démarrer avec les composants de base de l’infrastructure d’interface utilisateur
 
@@ -38,7 +38,7 @@ L’infrastructure d’interface utilisateur nécessite qu’un environnement Re
 
 ### <a name="set-up-react-app"></a>Configurer une application React
 
-Dans le cadre de ce démarrage rapide, nous allons utiliser le modèle create-react-app. Pour plus d'informations, consultez les pages suivantes : [Bien démarrer avec React](https://reactjs.org/docs/create-a-new-react-app.html)
+Dans le cadre de ce guide de démarrage rapide, nous allons utiliser le modèle create-react-app. Pour plus d'informations, consultez les pages suivantes : [Bien démarrer avec React](https://reactjs.org/docs/create-a-new-react-app.html)
 
 ```console
 
@@ -48,7 +48,7 @@ cd my-app
 
 ```
 
-À la fin de ce processus, vous devez disposer d’une application complète dans le dossier `my-app`. Pour ce démarrage rapide, nous allons modifier des fichiers se trouvant dans le dossier `src`.
+À la fin de ce processus, vous devez disposer d’une application complète dans le dossier `my-app`. Pour ce guide de démarrage rapide, nous allons modifier des fichiers se trouvant dans le dossier `src`.
 
 ### <a name="install-the-package"></a>Installer le package
 

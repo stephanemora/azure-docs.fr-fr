@@ -1,7 +1,7 @@
 ---
 title: Schéma Media Encoder Standard | Microsoft Docs
 description: Cet article décrit certains des éléments et types du schéma XML sur lequel les préréglages Media Encoder Standard sont basés.
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2019
-ms.author: juliako
-ms.openlocfilehash: 35f79702b7aad51b764ce2edb37c3c76d1fe98e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: f82e0c3f76dba05c3404b11e07c7130119ce0b9d
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89261510"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103015656"
 ---
 # <a name="media-encoder-standard-schema"></a>Schéma Media Encoder Standard
 

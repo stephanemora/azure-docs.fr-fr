@@ -12,14 +12,16 @@ ms.custom:
 - amqp
 - mqtt
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: 894398d63e326db3c6ee9de9bebc426a6e621600
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 1070a4c8daecfedae513f2fd8738c27abfb33078
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024668"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200583"
 ---
 # <a name="configure-the-api-proxy-module-for-your-gateway-hierarchy-scenario-preview"></a>Configuration du module proxy d’API pour un scénario de hiérarchie de passerelle (préversion)
+
+[!INCLUDE [iot-edge-version-202011](../../includes/iot-edge-version-202011.md)]
 
 Le module proxy d’API offre aux appareils IoT Edge la possibilité d’envoyer des requêtes HTTP par le biais de passerelles au lieu d’établir des connexions directes aux services cloud. Cet article présente les options de configuration qui vous permettent de personnaliser le module en fonction des exigences de votre hiérarchie de passerelle.
 

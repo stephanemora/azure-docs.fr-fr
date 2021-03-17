@@ -2,19 +2,19 @@
 title: Guide de reprise d’activité pour Azure Form Recognizer
 titleSuffix: Azure Cognitive Services
 description: Découvrez comment utiliser l’API de copie de modèle pour sauvegarder vos ressources Form Recognizer.
-author: PatrickFarley
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 05/27/2020
-ms.author: pafarley
-ms.openlocfilehash: 0343402d92498bff56250027086cbf2ceb258f0f
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.date: 03/15/2021
+ms.author: lajanuar
+ms.openlocfilehash: b5eb776a7807f48ae6c1a0e3c5879da1f6823830
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102427162"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103466913"
 ---
 # <a name="back-up-and-recover-your-form-recognizer-models"></a>Sauvegarder et récupérer vos modèles Form Recognizer
 
@@ -39,9 +39,6 @@ Le processus de copie d’un modèle personnalisé se compose des étapes suivan
 1. Tout d’abord, vous émettez une demande d’autorisation de copie vers la ressource cible&mdash;autrement dit, la ressource qui recevra le modèle copié. Vous obtenez l’URL du modèle cible qui vient d’être créé, qui recevra les données copiées.
 1. Ensuite, vous envoyez la demande de copie à la ressource source&mdash;la ressource qui contient le modèle à copier. Vous obtenez une URL que vous pouvez interroger pour suivre la progression de l’opération.
 1. Vous utilisez vos informations d’identification de ressource source pour interroger l’URL de progression jusqu’à ce que l’opération soit couronnée de succès. Vous pouvez également interroger le nouvel ID de modèle dans la ressource cible pour obtenir l’état du nouveau modèle.
-
-> [!CAUTION]
-> L’API de copie ne prend actuellement pas en charge les ID de modèle pour les [modèles personnalisés composés](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/Compose). La composition de modèles est une fonctionnalité d’évaluation dans la préversion v2.1-preview.2. 
 
 ## <a name="generate-copy-authorization-request"></a>Générer la demande d’autorisation de copie
 
@@ -165,4 +162,4 @@ curl -i GET "https://<SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT>/formrecognizer/v
 ## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce guide, vous avez appris à utiliser l’API de copie pour sauvegarder vos modèles personnalisés dans une ressource Form Recognizer secondaire. Explorez à présent la documentation de référence sur les API pour voir ce que vous pouvez faire d’autre avec Form Recognizer.
-* [Documentation de référence sur l’API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm)
+* [Documentation de référence sur l’API REST](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeWithCustomForm)

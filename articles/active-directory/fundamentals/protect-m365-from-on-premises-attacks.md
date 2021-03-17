@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 319ab7343792be92005611d26acc382df711bf1e
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: e6d548f4d792d8980e2aa5040b09530eaf7868c4
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/10/2021
-ms.locfileid: "102565063"
+ms.locfileid: "102609904"
 ---
 # <a name="protecting-microsoft-365-from-on-premises-attacks"></a>Protéger Microsoft 365 des attaques locales
 
@@ -203,7 +203,7 @@ Utilisez l’accès conditionnel Azure AD pour interpréter les signaux et les u
 
 * Utilisez l’accès conditionnel pour [bloquer les protocoles d’authentification hérités](../conditional-access/howto-conditional-access-policy-block-legacy.md) lorsque cela est possible. En outre, désactivez les protocoles d’authentification hérités au niveau de l’application en utilisant une configuration spécifique à l’application.
 
-   Pour plus d’informations, consultez [Protocoles d’authentification hérités](../fundamentals/auth-sync-overview.md). Vous pouvez également consulter les informations spécifiques à [Exchange Online](/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online#how-basic-authentication-works-in-exchange-online) et [SharePoint Online](/powershell/module/sharepoint-online/set-spotenant?view=sharepoint-ps).
+   Pour plus d’informations, consultez [Protocoles d’authentification hérités](../fundamentals/auth-sync-overview.md). Vous pouvez également consulter les informations spécifiques à [Exchange Online](/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online#how-basic-authentication-works-in-exchange-online) et [SharePoint Online](/powershell/module/sharepoint-online/set-spotenant).
 
 * Implémentez les [configurations recommandées pour l’identité et l’accès aux appareils](/microsoft-365/security/office-365-security/identity-access-policies).
 

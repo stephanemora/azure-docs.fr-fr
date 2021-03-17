@@ -9,14 +9,16 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mqtt
-ms.openlocfilehash: e5b1950935e6279995b44c2e07931519e82359d2
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: ffe2f2b7f94d546cdfe393170da2fd2ca6ac0149
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102040632"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103490991"
 ---
 # <a name="understand-how-azure-iot-edge-uses-certificates"></a>Comprendre Azure IoT Edge utilise les certificats
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Les certificats IoT Edge sont utilisés par les modules et les appareils IoT en aval afin de vérifier l’identité et la légitimité du module d’exécution du [hub IoT Edge](iot-edge-runtime.md#iot-edge-hub). Ces vérifications permettent une connexion sécurisée TLS entre le runtime, les modules et les appareils IoT. Tout comme IoT Hub, IoT Edge nécessite une connexion sécurisée et chiffrée à partir d’appareils IoT en aval (ou feuilles) et de modules IoT Edge. Pour établir une connexion TLS sécurisée, le module du hub IoT Edge présente une chaîne d’approbation de serveur aux clients qui se connectent pour que ces derniers puissent vérifier son identité.
 
@@ -90,7 +92,7 @@ On peut raisonnablement se demander pourquoi IoT Edge a besoin d’un certifica
 
 ## <a name="devtest-implications"></a>Implications en matière de développement/test
 
-Pour faciliter les scénarios de développement et de test, Microsoft fournit un ensemble de [scripts de commodité](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates) permettant de générer des certificats hors production appropriés pour IoT Edge dans le scénario de passerelle transparente. Pour obtenir des exemples de fonctionnement des scripts, consultez [Créer des certificats de démonstration pour tester les fonctionnalités des appareils IoT Edge](how-to-create-test-certificates.md).
+Pour faciliter les scénarios de développement et de test, Microsoft fournit un ensemble de [scripts de commodité](https://github.com/Azure/iotedge/tree/master/tools/CACertificates) permettant de générer des certificats hors production appropriés pour IoT Edge dans le scénario de passerelle transparente. Pour obtenir des exemples de fonctionnement des scripts, consultez [Créer des certificats de démonstration pour tester les fonctionnalités des appareils IoT Edge](how-to-create-test-certificates.md).
 
 >[!Tip]
 > Pour connecter vos appareils IoT feuille et applications utilisant notre Kit de développement logiciel (SDK) d’appareil IoT via IoT Edge, vous devez ajouter le paramètre GatewayHostName facultatif à la fin de la chaîne de connexion de l’appareil. Lorsque le certificat de serveur Edge Hub est généré, il est basé sur une version en minuscules du hostname indiqué dans le fichier config. Par conséquent, pour que les noms correspondent et que la vérification du certificat TLS réussisse, vous devez entrer le paramètre GatewayHostName en minuscules.

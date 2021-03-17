@@ -3,7 +3,7 @@ title: Codecs et formats Media Encoder Standard - Azure
 description: Cette article fournit une vue d’ensemble des codecs et formats Media Encoder Standard.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.reviewer: anilmur
-ms.openlocfilehash: 78236a334b6c75f823819c70c0cdbb75bb30191d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7aada042254a2794602002614df51646be90c7cd
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89257430"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103013140"
 ---
 # <a name="media-encoder-standard-formats-and-codecs"></a>Codecs et formats standard de l’encodeur multimédia
 
@@ -34,16 +34,16 @@ Ce document contient la liste des formats de fichier d’importation et d’expo
 ## <a name="input-containerfile-formats"></a>Formats de conteneurs/fichiers d’entrée
 | Formats de fichier (extensions de fichier) | Prise en charge |
 | --- | --- |
-| FLV (avec les codecs H.264 et AAC) (.flv) |Oui |
-| MXF    (.mxf) |Oui |
-| GXF    (.gxf) |Oui |
-| MPEG2-PS, MPEG2-TS, 3GP (.ts, .ps, .3gp, .3gpp, .mpg) |Oui |
-| Windows Media Video (WMV)/ASF (.wmv, .asf) |Oui |
-| AVI (8 bits/10 bits non compressé) (.avi) |Oui |
-| MP4 (.mp4, .m4a, .m4v)/ISMV (.isma, .ismv) |Oui |
-| [Microsoft Digital Video Recording (DVR-MS)](/previous-versions/windows/desktop/mstv/about-the-dvr-ms-file-format) (.dvr-ms) |Oui |
-| Matroska/WebM (.mkv) |Oui |
-| WAVE/WAV (.wav) |Oui |
+| FLV (avec les codecs H.264 et AAC) (.flv) |Yes |
+| MXF    (.mxf) |Yes |
+| GXF    (.gxf) |Yes |
+| MPEG2-PS, MPEG2-TS, 3GP (.ts, .ps, .3gp, .3gpp, .mpg) |Yes |
+| Windows Media Video (WMV)/ASF (.wmv, .asf) |Yes |
+| AVI (8 bits/10 bits non compressé) (.avi) |Yes |
+| MP4 (.mp4, .m4a, .m4v)/ISMV (.isma, .ismv) |Yes |
+| [Microsoft Digital Video Recording (DVR-MS)](/previous-versions/windows/desktop/mstv/about-the-dvr-ms-file-format) (.dvr-ms) |Yes |
+| Matroska/WebM (.mkv) |Yes |
+| WAVE/WAV (.wav) |Yes |
 | QuickTime (.mov) |Oui |
 
 > [!NOTE]
@@ -56,7 +56,7 @@ Media Encoder Standard prend en charge la transmission des formats audio suivant
 
 * Fichiers MXF, GXF et QuickTime contenant des pistes audio avec des échantillons Interleaved Stereo ou 5.1
 
-or
+ou
 
 * Fichiers MXF, GXF et QuickTime où l’audio est transmis sous forme de pistes PCM distinctes, mais où le mappage de canaux (vers la stéréo ou 5.1) peut être déduit des métadonnées du fichier
 
@@ -66,15 +66,15 @@ or
 | AVC 8 bits/10 bits, jusqu'à 4:2:2, y compris AVCIntra |8 bits 4:2:0 et 4:2:2 |
 | Avid DNxHD (dans MXF) |Oui |
 | DVCPro/DVCProHD (dans MXF) |Oui |
-| Vidéo numérique (dans les fichiers AVI) |Oui |
-| JPEG 2000 |Oui |
+| Vidéo numérique (dans les fichiers AVI) |Yes |
+| JPEG 2000 |Yes |
 | MPEG-2 (jusqu’au profil 422 et haut niveau ; y compris les variantes telles que XDCAM, XDCAM HD, XDCAM IMX, CableLabs® et D10) |Jusqu’à un profil de 422 |
 | MPEG-1 |Oui |
 | VC-1/WMV9 |Oui |
 | Canopus HQ/HQX |Non |
 | MPEG-4 partie 2 |Oui |
 | [Theora](https://en.wikipedia.org/wiki/Theora) |Oui |
-| YUV420 non compressé ou mezzanine |Oui |
+| YUV420 non compressé ou mezzanine |Yes |
 | Apple ProRes 422 |Oui |
 | Apple ProRes 422 LT |Oui |
 | Apple ProRes 422 HQ |Oui |
@@ -94,7 +94,7 @@ or
 | [FLAC](https://en.wikipedia.org/wiki/FLAC)</a> |Oui |
 | [Opus](https://go.microsoft.com/fwlink/?LinkId=822667) |Oui |
 | [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a> |Oui |
-| AMR (adaptive multi-rate) |Oui |
+| AMR (adaptive multi-rate) |Yes |
 | AES (SMPTE 331M et 302M, AES3-2003) |Non |
 | Dolby® E |Non |
 | Dolby® Digital (AC3) |Non |
@@ -105,7 +105,7 @@ Le tableau suivant répertorie les codecs et les formats de fichiers pris en cha
 
 | Format de fichier | Codec vidéo | Codec audio |
 | --- | --- | --- |
-| MP4 <br/><br/>(y compris les conteneurs MP4 à vitesses de transmission multiples) |H.264 (profils High, Main et Baseline) |AAC-LC, HE-AAC v1, HE-AAC v2 |
+| MP4  <br/><br/>(y compris les conteneurs MP4 à vitesses de transmission multiples) |H.264 (profils High, Main et Baseline) |AAC-LC, HE-AAC v1, HE-AAC v2 |
 | MPEG2-TS |H.264 (profils High, Main et Baseline) |AAC-LC, HE-AAC v1, HE-AAC v2 |
 
 ## <a name="media-services-learning-paths"></a>Parcours d’apprentissage de Media Services

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: a84942337b3c8eb5f7509f61f9ba5bcd564d8bb3
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: ceac1e7b5e8efa7e87ecf6e1f4c9dd8286c87e98
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97653076"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102614069"
 ---
 # <a name="team-data-science-process-for-developer-operations"></a>Processus TDSP pour les opérations de développement (DevOps)
 
@@ -74,7 +74,7 @@ Le tableau suivant fournit des conseils basés sur le niveau pour vous aider à 
 |  |  | [Cette référence explique comment créer un pipeline de données pour votre solution, que vous pouvez enregistrer comme modèle JSON en tant que « package »](../../data-factory/v1/data-factory-introduction.md) | Azure Data Factory | Intermédiaire | Arrière-plan de calcul général, expérience des projets de données |
 |  |  | [Cette rubrique décrit la structure d’un modèle Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) | Azure Resource Manager | Intermédiaire | Vous êtes familiarisé avec la plateforme Microsoft Azure |
 |  |  | [DSC est une plateforme de gestion dans PowerShell qui vous permet de gérer votre infrastructure de développement et informatique avec une configuration comme un code, enregistré sous forme de package. Cette référence constitue une vue d’ensemble de cette rubrique](/powershell/scripting/dsc/overview/overview) | PowerShell Desired State Configuration | Intermédiaire | Codage PowerShell, familiarisé avec les architectures d’entreprise, les scripts |
-|  | Libérer | [Cet article de référence d’en-tête contient des concepts de création, de test et de mise en production des environnements CI/CD](/azure/devops/pipelines/?view=azure-devops) | Visual Studio Codespace | Expérimenté | Développement de logiciels, familiarisé avec les environnements CI/CD, familiarisé avec un SDLC |
+|  | Libérer | [Cet article de référence d’en-tête contient des concepts de création, de test et de mise en production des environnements CI/CD](/azure/devops/pipelines/) | Visual Studio Codespace | Expérimenté | Développement de logiciels, familiarisé avec les environnements CI/CD, familiarisé avec un SDLC |
 |  |  | [Utilisez la référence précédente pour Runbooks pour automatiser la gestion des mises en production à l’aide de System Center](/system-center/orchestrator/automate-runbooks) | System Center | Expérimenté | Expérience avec System Center Orchestrator |
 |  |  | [Cet article vous aidera à déterminer la meilleure solution pour déployer les fichiers pour votre application web, un serveur principal d’application mobile ou une application API sur Azure App Service, puis vous orienter vers des ressources appropriées avec des instructions spécifiques destinées à votre option préférée](../../app-service/deploy-local-git.md) | Déploiement de Microsoft Azure | Intermédiaire | Développement de logiciels, expérience de la plateforme Microsoft Azure |
 |  | Moniteur | [Cette référence explique Application Insights et comment l’ajouter à vos solutions d’analytique avancée](../../azure-monitor/app/app-insights-overview.md) | Application Insights | Intermédiaire | Développement de logiciels, vous êtes familiarisé avec la plateforme Microsoft Azure |

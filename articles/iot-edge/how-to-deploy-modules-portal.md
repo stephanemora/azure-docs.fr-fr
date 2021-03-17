@@ -8,14 +8,16 @@ ms.date: 10/13/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ef3f09648e0d9101d07c6d8941ee7f79ae97b2b8
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 9248c9578d94b000c04c82b33eeeb089e55a26ef
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048030"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200314"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-the-azure-portal"></a>Déployer des modules Azure IoT Edge à partir du portail Azure
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Une fois que vous avez créé des modules IoT Edge avec votre logique métier, vous pouvez les déployer sur vos appareils afin qu’ils opèrent à la périphérie. Si plusieurs modules fonctionnent ensemble pour collecter et traiter les données, vous pouvez les déployer tous à la fois et déclarer les règles de routage qui les connectent.
 
@@ -35,7 +37,7 @@ Un manifeste de déploiement est un document JSON qui décrit les modules à dé
 Le portail Azure comprend un Assistant qui vous guide à travers la création du manifeste de déploiement, vous évitant de générer le document JSON manuellement. Il comporte trois étapes : **Ajouter des modules**, **Spécifier des routes** et **Vérifier le déploiement**.
 
 >[!NOTE]
->La procédure décrite dans cet article reflète la dernière version de schéma du hub et de l’agent IoT Edge. La version de schéma 1.1 a été publiée avec IoT Edge version 1.0.10 et active les fonctionnalités d’ordre de démarrage des modules et de hiérarchisation des itinéraires.
+>La procédure décrite dans cet article reflète la dernière version de schéma du hub et de l’agent IoT Edge. La version de schéma 1.1 a été publiée avec IoT Edge version 1.0.10 ; elle fournit les fonctionnalités d’ordre de démarrage des modules et de hiérarchisation des routes.
 >
 >Si vous déployez vers un appareil exécutant la version 1.0.9 ou une version antérieure, modifiez les **paramètres du runtime** dans l’étape **Modules** de l’Assistant pour utiliser la version 1.0 du schéma.
 
@@ -66,7 +68,7 @@ Le portail Azure comprend un Assistant qui vous guide à travers la création du
 
 Sous l’onglet **Routes**, vous définissez la manière dont les messages sont transmis entre les modules et le hub IoT. Les messages sont construits à l’aide de paires nom/valeur. Par défaut, le premier déploiement d’un nouvel appareil inclut un itinéraire nommé **route** et défini sous la forme **FROM /messages/\* INTO $upstream**, ce qui signifie que tous les messages issus des modules sont envoyés à votre hub IoT.  
 
-Les paramètres **Priorité** et **Durée de vie** sont des paramètres facultatifs que vous pouvez inclure dans une définition d’itinéraire. Le paramètre Priorité vous permet de choisir les itinéraires dont les messages doivent être traités en premier ou les itinéraires à traiter en dernier. La priorité est déterminée en définissant un nombre entre 0 et 9, 0 étant la priorité la plus haute. La paramètre Durée de vie vous permet de déclarer la durée de conservation des messages dans cet itinéraire avant qu’ils soient traités ou supprimés de la file d’attente.
+Les paramètres **Priorité** et **Durée de vie** sont des paramètres facultatifs que vous pouvez inclure dans une définition d’itinéraire. Le paramètre Priorité vous permet de choisir les routes dont les messages doivent être traités en premier ou au contraire, les routes à traiter en dernier. La priorité est déterminée en définissant un nombre entre 0 et 9, 0 étant la priorité la plus haute. Le paramètre Durée de vie vous permet de déclarer la durée de conservation des messages dans cette route avant qu’ils soient traités ou supprimés de la file d’attente.
 
 Pour plus d’informations sur la création d’itinéraires, consultez [Déclarer des itinéraires](module-composition.md#declare-routes).
 

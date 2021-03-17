@@ -3,7 +3,7 @@ title: Charger des fichiers dans un compte Azure Media Services à l’aide de
 description: Apprenez à obtenir du contenu multimédia dans Media Services en créant et en chargeant des ressources à l’aide de REST.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
-ms.author: juliako
-ms.openlocfilehash: 49863bec4cbd367b6b309ef5a79e7287cb53ee5b
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.date: 3/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: 9f27a427df07302840ce719d35c7876f9dc17dbf
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042977"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103012936"
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>Charger des fichiers dans un compte Media Services à l’aide de REST
 
@@ -68,7 +68,7 @@ Pour savoir comment configurer Postman pour ce didacticiel, consultez [Configure
 
 1. Ajoutez des valeurs de connexion à votre environnement. 
 
-    Certaines variables qui font partie de l’ [environnement](postman-environment.md) **MediaServices** doivent être définies manuellement avant de pouvoir commencer l’exécution d’opérations définies dans la [collection](postman-collection.md).
+    Certaines variables qui font partie de l’[environnement](postman-environment.md) **MediaServices** doivent être définies manuellement avant de pouvoir commencer l’exécution d’opérations définies dans la [collection](postman-collection.md).
 
     Pour obtenir des valeurs pour les cinq premières variables, consultez [Accéder à l’API Azure Media Services avec l’authentification Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
 
@@ -90,7 +90,7 @@ Pour savoir comment configurer Postman pour ce didacticiel, consultez [Configure
         ]
     }
     ```
-4. À gauche de la fenêtre **Postman** , cliquez sur **1. Obtenir un jeton d’authentification AAD** -> **Obtenir un jeton Azure AD pour le principal du service**.
+4. À gauche de la fenêtre **Postman**, cliquez sur **1. Obtenir un jeton d’authentification AAD** -> **Obtenir un jeton Azure AD pour le principal du service**.
 
     La partie de l’URL est remplie avec la variable d’environnement **AzureADSTSEndpoint** (plus haut dans ce tutoriel, vous avez défini les valeurs des variables d’environnement prenant en charge la collection).
 
@@ -191,9 +191,9 @@ La demande de chargement ne fait pas partie de la collection **AzureMedia**.
 Créer et configurer une nouvelle demande :
 1. Appuyez sur **+** pour créer un onglet de demande.
 2. Sélectionnez l’opération **PUT** et collez **{{UploadURL}}** dans l’URL.
-2. Ne modifiez pas l’onglet **Autorisation** (ne le définissez pas sur **Jetons du porteur** ).
-3. Dans l’onglet **En-têtes** , spécifiez : **Clé**  : « x-ms-blob-type » et **Valeur**  : « BlockBlob ».
-2. Sous l’onglet **Corps** , cliquez sur **Binaire**.
+2. Ne modifiez pas l’onglet **Autorisation** (ne le définissez pas sur **Jetons du porteur**).
+3. Dans l’onglet **En-têtes**, spécifiez : **Clé** : « x-ms-blob-type » et **Valeur** : « BlockBlob ».
+2. Sous l’onglet **Corps**, cliquez sur **Binaire**.
 4. Sélectionnez le fichier portant le nom que vous avez spécifié dans la variable d’environnement **MediaFileName**.
 5. Appuyez sur **Envoyer**.
 

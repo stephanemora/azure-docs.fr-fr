@@ -9,12 +9,12 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: daveba
-ms.openlocfilehash: ebd8839fd17f79bc53b5093af83d457bb23712d9
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: cd46bb1c6905747ffb98c7e950f66e648c541534
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102452048"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103601761"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Gestion des applications Azure Active Directory : Nouveautés
 
@@ -33,7 +33,6 @@ Nouveautés de la documentation relative à la gestion des applications Azure Ac
 - [Accorder le consentement de l’administrateur au niveau locataire à une application](grant-admin-consent.md)
 - [Déplacement de l’authentification d’application des services de fédération Active Directory (AD FS) vers Azure Active Directory](migrate-adfs-apps-to-azure.md)
 - [Tutoriel : Ajouter une application locale pour un accès à distance via le proxy d’application d’Azure Active Directory](application-proxy-add-on-premises-application.md)
-- [Problèmes de connexion aux applications configurées pour l’authentification unique basée sur SAML](application-sign-in-problem-federated-sso-gallery.md)
 - [Utiliser des restrictions liées au locataire pour gérer l’accès aux applications cloud SaaS](tenant-restrictions.md)
 
 ## <a name="january-2021"></a>Janvier 2021
@@ -84,7 +83,6 @@ Nouveautés de la documentation relative à la gestion des applications Azure Ac
 
 ### <a name="updated-articles"></a>Articles mis à jour
 - [Gestion des applications Azure Active Directory : Nouveautés](whats-new-docs.md)
-- [Problèmes de connexion aux applications configurées pour l’authentification unique basée sur SAML](application-sign-in-problem-federated-sso-gallery.md)
 
 
 ## <a name="october-2020"></a>Octobre 2020
@@ -99,7 +97,6 @@ Nouveautés de la documentation relative à la gestion des applications Azure Ac
 
 ### <a name="updated-articles"></a>Articles mis à jour
 
-- [Problèmes de connexion aux applications configurées pour l’authentification unique basée sur SAML](application-sign-in-problem-federated-sso-gallery.md)
 - [Problèmes lors de l’installation du connecteur d’agent de proxy d’application](application-proxy-connector-installation-problem.md)
 - [Déplacement de l’authentification d’application des services de fédération Active Directory (AD FS) vers Azure Active Directory](migrate-adfs-apps-to-azure.md)
 - [Configurer le consentement de l’utilisateur final pour une application](configure-user-consent.md)

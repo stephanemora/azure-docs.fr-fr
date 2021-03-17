@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 49d9b91df896646da7bf36e077d9f3c9187137dd
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: b41bcda7381e5811ef1e1f91c102d8c85f50b3b5
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95021794"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103196910"
 ---
 # <a name="debug-errors-when-running-a-custom-commands-application"></a>Déboguer les erreurs lors de l’exécution d’une application Commandes personnalisées
 
@@ -28,7 +28,7 @@ Si vous exécutez une application Commandes personnalisées à partir d’une [a
 | Code d'erreur | Détails |
 | ------- | -------- |
 | [401](#error-401) | AuthenticationFailure : WebSocket Upgrade failed with an authentication error |
-| [1002](#error-1002)] | Le serveur a retourné le code d'état '404' alors que le code d'état attendu était '101'. |
+| [1002](#error-1002) | Le serveur a retourné le code d'état '404' alors que le code d'état attendu était '101'. |
 
 ### <a name="error-401"></a>Erreur 401
 - La région spécifiée dans l’application cliente ne correspond pas à la région de l’application Commandes personnalisées

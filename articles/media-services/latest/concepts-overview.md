@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: b425cd9268b336a8926e4fad9cb1f288f4fe3e87
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 2d388cf6c776e6d30a487ce9e14ba1601dce1d23
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897915"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103491603"
 ---
 # <a name="media-services-terminology-and-concepts"></a>Terminologie et concepts de Media Services
 
@@ -26,10 +26,6 @@ ms.locfileid: "98897915"
 Cet article présente brièvement les concepts et la terminologie d’Azure Media Services. Il contient également des liens qui renvoient à des articles présentant une explication détaillée des concepts et des fonctionnalités de Media Services v3.
 
 Il est recommandé d’examiner les concepts fondamentaux décrits dans ces rubriques avant de commencer le développement.
-
-> [!NOTE]
-> Actuellement, vous pouvez utiliser le [Portail Azure](https://portal.azure.com/) pour gérer les [événements en direct](live-events-outputs-concept.md) Media Services v3, afficher (mais pas gérer) les [éléments multimédias](assets-concept.md) v3 et [obtenir des informations sur l’accès aux API](./access-api-howto.md).
-> Pour toutes les autres tâches de gestion (par exemple, les [transformations et travaux](transforms-jobs-concept.md) et la [protection de contenu](content-protection-overview.md)), utilisez l’[API REST](/rest/api/media/accountfilters), l’interface [CLI](/cli/azure/ams) ou l’un des [SDK](media-services-apis-overview.md#sdks) pris en charge.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -51,7 +47,7 @@ Il est recommandé d’examiner les concepts fondamentaux décrits dans ces rubr
 |Protection du contenu|Media Services vous permet de transmettre votre contenu en direct ou à la demande chiffré dynamiquement avec la norme Advanced Encryption Standard (AES-128) ou l’un des trois principaux systèmes DRM : Microsoft PlayReady, Google Widevine et Apple FairPlay. Media Services fournit également un service de distribution de clés AES et licences (PlayReady, Widevine et FairPlay) DRM aux clients autorisés. <br/><br/>Si vous spécifiez des options de chiffrement sur votre flux, créez la **stratégie de clé de contenu**, puis associez-la à votre **localisateur de streaming**. La **stratégie de clé de contenu** vous permet de configurer le mode de remise de la clé de contenu aux clients finals.<br/><br/> Essayez de réutiliser des stratégies chaque fois que les mêmes options sont nécessaires.| [Stratégies de clé de contenu](content-key-policy-concept.md)<br/><br/>[Protection du contenu](content-protection-overview.md)|
 |Vidéo en flux continu|Media Services vous permet de transmettre des événements en direct auprès de vos clients dans le cloud Azure. Les **événements en direct** sont chargés de la réception et du traitement des flux vidéo en direct. Quand vous créez un **événement en direct**, un point de terminaison d’entrée est également créé. Vous pouvez utiliser ce point de terminaison pour envoyer un signal en direct à partir d’un encodeur à distance. Une fois que le flux transite dans **l’événement en direct**, vous pouvez commencer l’événement de streaming en créant un **élément multimédia**, une **sortie en direct** et un **localisateur de streaming**. La **sortie en direct** archive le flux dans **l’élément multimédia** et le met à la disposition des observateurs via le **point de terminaison de streaming**. Un événement en direct peut être défini sur *Pass-through* (un encodeur live local envoie un flux à vitesse de transmission multiple) ou sur *Live Encoding* (un encodeur live local envoie un flux à vitesse de transmission unique). |[Vue d’ensemble du streaming en direct](live-streaming-overview.md)<br/><br/>[Événements en direct et sorties en direct](live-events-outputs-concept.md)|
 |Surveillance avec Event Grid|Pour afficher la progression du travail, utilisez **Event Grid**. Media Services émet aussi les types d’événements en direct. Avec Event Grid, vos applications peuvent écouter les événements de presque tous les services Azure ou de toute source personnalisée, et y réagir. |[Traitement des événements Event Grid](reacting-to-media-services-events.md)<br/><br/>[Schémas](media-services-event-schemas.md)|
-|Surveillance avec Azure Monitor|Surveillez les métriques et les journaux de diagnostic qui vous aident à comprendre le fonctionnement de vos applications avec Azure Monitor.|[Métriques et journaux de diagnostic](media-services-metrics-diagnostic-logs.md)<br/><br/>[Schémas des journaux de diagnostic](media-services-diagnostic-logs-schema.md)|
+|Surveillance avec Azure Monitor|Surveillez les métriques et les journaux de diagnostic qui vous aident à comprendre le fonctionnement de vos applications avec Azure Monitor.|[Métriques et journaux de diagnostic](monitoring/monitor-media-services-data-reference.md)<br/><br/>[Schémas des journaux de diagnostic](monitoring/monitor-media-services-data-reference.md)|
 |Clients Player|Vous pouvez utiliser Lecteur multimédia Azure pour lire des contenus multimédias diffusés en continu par Media Services sur une grande variété de navigateurs et d’appareils. Lecteur multimédia Azure exploite les normes du secteur, telles que HTML5, Media Source Extensions (MSE) et Encrypted Media Extensions (EME), pour offrir une expérience enrichie de diffusion en continu adaptative. |[Présentation du lecteur multimédia Azure](use-azure-media-player.md)|
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>Poser des questions, envoyer des commentaires, obtenir des mises à jour

@@ -3,20 +3,20 @@ title: Gérer les comptes Azure Media Services v2 | Microsoft Docs
 description: Pour commencer à gérer, chiffrer, coder, analyser, gérer et diffuser en continu du contenu multimédia dans Azure, vous devez créer un compte Media Services. Cet article explique comment gérer les comptes Azure Media Services v2.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 07/05/2019
-ms.author: juliako
-ms.openlocfilehash: 167028cda6962445373b22c5f3d0a9e56c3e608a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: a097b186a2287ec13866c8a5ee9420641b44d131
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89255408"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103015945"
 ---
 # <a name="manage-azure-media-services-v2-accounts"></a>Gérer les comptes Azure Media Services v2
 

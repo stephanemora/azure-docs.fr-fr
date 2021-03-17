@@ -3,12 +3,12 @@ title: Créer une fonction en Go ou Rust avec Visual Studio Code – Azure Funct
 description: Apprenez à créer une fonction Go comme gestionnaire personnalisé Azure Functions, puis à publier le projet local sur un hébergement serverless dans Azure Functions, à l’aide de l’extension Azure Functions dans Visual Studio code.
 ms.topic: quickstart
 ms.date: 12/4/2020
-ms.openlocfilehash: 1142ff76425e2e4bff0d3881be1378d9da07806e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 8b53031315cce3651a2de581d71da6ef6fe909c1
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101704733"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103470368"
 ---
 # <a name="quickstart-create-a-go-or-rust-function-in-azure-using-visual-studio-code"></a>Démarrage rapide : Créer une fonction Go ou Rust dans Azure à l’aide de Visual Studio Code
 
@@ -141,8 +141,8 @@ Le fichier *function.json* dans le dossier *HttpExample* déclare une fonction d
 
     ```toml
     [dependencies]
-    warp = "0.2"
-    tokio = { version = "0.2", features = ["full"] }
+    warp = "0.3"
+    tokio = { version = "1", features = ["rt", "macros", "rt-multi-thread"] }
     ```
 
 1. Dans *src/main.rs*, ajoutez le code suivant et enregistrez le fichier. Il s’agit de votre gestionnaire personnalisé Rust.

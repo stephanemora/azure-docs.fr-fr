@@ -5,12 +5,12 @@ author: spelluru
 ms.topic: article
 ms.date: 10/14/2020
 ms.author: spelluru
-ms.openlocfilehash: f8729d0a947ebf2fd918a478fb3354e6d84fe1e3
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: 177c0eff7d0e7df254df4cc6c77c0a0cf674147d
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95803101"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103201545"
 ---
 # <a name="service-bus-messaging-samples"></a>Exemples de messagerie Service Bus
 Les exemples de messagerie Service Bus illustrent des fonctionnalités clés de la [messagerie Service Bus](https://azure.microsoft.com/services/service-bus/). Actuellement, vous trouverez les exemples aux emplacements suivants :
@@ -33,10 +33,15 @@ Les exemples de messagerie Service Bus illustrent des fonctionnalités clés de 
 | -------------------- | ----------------------- |
 | azure.servicebus | https://docs.microsoft.com/samples/azure/azure-sdk-for-python/servicebus-samples/ |
 
+## <a name="typescript-samples"></a>Exemples TypeScript
+| Paquet | Emplacement des exemples | 
+| ------- | ---------------- | 
+| @azure/service-bus | https://docs.microsoft.com/samples/azure/azure-sdk-for-js/service-bus-typescript/ | 
+
 ## <a name="javascript-samples"></a>Exemples JavaScript
 | Paquet | Emplacement des exemples | 
 | ------- | ---------------- | 
-| azure/service-bus | https://docs.microsoft.com/samples/azure/azure-sdk-for-js/service-bus-javascript/ | 
+| @azure/service-bus | https://docs.microsoft.com/samples/azure/azure-sdk-for-js/service-bus-javascript/ | 
 
 ## <a name="go-samples"></a>Exemples Go
 | Paquet | Emplacement des exemples | 

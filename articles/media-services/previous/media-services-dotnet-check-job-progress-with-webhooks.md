@@ -3,7 +3,7 @@ title: Utiliser Azure WebHooks pour surveiller les notifications de travaux Medi
 description: Découvrez comment utiliser Azure Webhooks pour surveiller les notifications de travaux Media Services. L’exemple de code est écrit en C# et utilise le kit SDK Media Services pour .NET.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: a61fe157-81b1-45c1-89f2-224b7ef55869
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e99d2c2676d05772106296d8b960dd55fd30501c
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: 5ae1bdfeeffdb904ba80ed42919e4f51411871c3
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98696470"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103016149"
 ---
 # <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>Utiliser Azure Webhooks pour surveiller les notifications de travaux Media Services avec .NET
 
@@ -45,7 +45,7 @@ Cet article montre comment
 
 Vous trouverez la définition des différentes fonctions Media Services .NET Azure Functions (notamment celle dont il est question dans cet article) [ici](https://github.com/Azure-Samples/media-services-dotnet-functions-integration).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Les éléments suivants sont requis pour suivre le didacticiel :
 
@@ -64,7 +64,7 @@ Lorsque vous développez des fonctions Media Services, il est utile d’ajouter 
 
 La section [Paramètres de l’application](media-services-dotnet-how-to-use-azure-functions.md#configure-function-app-settings) définit les paramètres utilisés dans le webhook défini dans cet article. De même, ajoutez les paramètres suivants aux paramètres de l’application. 
 
-|Name|Définition|Exemple| 
+|Nom|Définition|Exemple| 
 |---|---|---|
 |SigningKey |Clé de signature.| j0txf1f8msjytzvpe40nxbpxdcxtqcgxy0nt|
 |WebHookEndpoint | Adresse de point de terminaison webhook. Une fois que votre fonction webhook est créée, vous pouvez copier l’URL à partir du lien **Obtenir l’URL de la fonction**. | https:\//juliakofuncapp.azurewebsites.net/api/Notification_Webhook_Function?code=iN2phdrTnCxmvaKExFWOTulfnm4C71mMLIy8tzLr7Zvf6Z22HHIK5g==.|
@@ -75,7 +75,7 @@ Une fois votre Function App déployée, vous pouvez la retrouver parmi les fonct
 
 1. Sélectionnez votre Function App et cliquez sur **Nouvelle fonction**.
 2. Sélectionnez le code **C#** et le scénario **API et webhooks**. 
-3. Sélectionnez **Webhook générique - C#** .
+3. Sélectionnez **Webhook générique - C#**.
 4. Nommez votre webhook, puis appuyez sur **Créer**.
 
 ### <a name="files"></a>Fichiers

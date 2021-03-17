@@ -8,31 +8,33 @@ ms.date: 01/30/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 81db9c7e729aa0be67a807d9d77a3cccb8f41604
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3989ec4ca2b5c9d7385841604678791b20c1d102
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85194788"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103489980"
 ---
 # <a name="understand-iot-edge-automatic-deployments-for-single-devices-or-at-scale"></a>Comprendre les déploiements automatiques IoT Edge pour un seul ou de nombreux appareils
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Les déploiements automatiques et les déploiements en couches facilitent la gestion et la configuration de nombreux modules sur les appareils IoT Edge.
 
 Azure IoT Edge propose deux méthodes de configuration des modules à exécuter sur des appareils IoT Edge. La première consiste à déployer les modules sur la base de chaque appareil. Vous créez un manifeste de déploiement, puis vous l’appliquez à un appareil donné par nom. La seconde méthode consiste à déployer automatiquement les modules sur tous les appareils inscrits répondant à un ensemble de conditions définies. Vous créez un manifeste de déploiement, puis définissez les appareils auxquels il s’applique en fonction des [indicateurs](../iot-edge/how-to-deploy-at-scale.md#identify-devices-using-tags) dans le jumeau d'appareil.
 
-Cet article se concentre sur la configuration et la supervision de flottes d’appareils, collectivement appelées *déploiements automatiques IoT Edge*. Les étapes de déploiement de base sont les suivantes :
+Cet article se concentre sur la configuration et la supervision de flottes d’appareils, collectivement appelées *déploiements automatiques IoT Edge*.  Les étapes de déploiement de base sont les suivantes :
 
-1. Un opérateur définit un déploiement décrivant un ensemble de modules, ainsi que les appareils cibles. Chaque déploiement possède un manifeste de déploiement qui reflète ces informations.
+1. Un opérateur définit un déploiement décrivant un ensemble de modules, ainsi que les appareils cibles.  Chaque déploiement possède un manifeste de déploiement qui reflète ces informations.
 2. Le service de IoT Hub communique avec tous les appareils ciblés pour les configurer avec les modules souhaités.
-3. Le service IoT Hub récupère l’état des appareils IoT Edge et les met à la disposition de l’opérateur.  Par exemple, un opérateur voit quand un appareil Edge n’est pas correctement configuré ou si un module échoue en cours de runtime.
+3. Le service IoT Hub récupère l’état des appareils IoT Edge et les met à la disposition de l’opérateur.    Par exemple, un opérateur voit quand un appareil Edge n’est pas correctement configuré ou si un module échoue en cours de runtime.
 4. À tout moment, les nouveaux appareils IoT Edge qui remplissent les conditions de ciblage sont configurés pour le déploiement.
 
 Cet article décrit chaque composant impliqué dans la configuration et la surveillance d’un déploiement. Pour connaître la procédure de création et de mise à jour d’un déploiement, consultez [Déployer et surveiller des modules IoT Edge à l’échelle](how-to-deploy-at-scale.md).
 
 ## <a name="deployment"></a>Déploiement
 
-Un déploiement automatique IoT Edge assigne des images de module IoT Edge à exécuter en tant qu’instances sur un ensemble ciblé d’appareils IoT Edge. Il fonctionne en configurant un manifeste de déploiement IoT Edge pour inclure une liste de modules comprenant les paramètres d’initialisation correspondants. Un déploiement peut être affecté à un appareil unique (basé sur l’ID de l’appareil) ou à un groupe d’appareils (basé sur des balises). Lorsqu’un appareil IoT Edge reçoit un manifeste de déploiement, il télécharge et installe les images conteneurs dans les référentiels conteneurs respectifs, puis les configure en conséquence. Une fois qu’un déploiement est créé, un opérateur peut surveiller l’état de déploiement pour voir si les appareils ciblés sont configurés correctement.
+Un déploiement automatique IoT Edge assigne des images de module IoT Edge à exécuter en tant qu’instances sur un ensemble ciblé d’appareils IoT Edge. Il fonctionne en configurant un manifeste de déploiement IoT Edge pour inclure une liste de modules comprenant les paramètres d’initialisation correspondants.  Un déploiement peut être affecté à un appareil unique (basé sur l’ID de l’appareil) ou à un groupe d’appareils (basé sur des balises).  Lorsqu’un appareil IoT Edge reçoit un manifeste de déploiement, il télécharge et installe les images conteneurs dans les référentiels conteneurs respectifs, puis les configure en conséquence.  Une fois qu’un déploiement est créé, un opérateur peut surveiller l’état de déploiement pour voir si les appareils ciblés sont configurés correctement.
 
 Seuls les appareils IoT Edge peuvent être configurés avec un déploiement. L’appareil destiné à recevoir le déploiement doit satisfaire aux prérequis suivants :
 
@@ -42,7 +44,7 @@ Seuls les appareils IoT Edge peuvent être configurés avec un déploiement. L�
 
 ### <a name="deployment-manifest"></a>Manifeste de déploiement
 
-Un manifeste de déploiement est un document JSON qui décrit les modules devant être configurés sur les appareils IoT Edge ciblés. Il contient les métadonnées de configuration pour tous les modules, y compris les modules système requis (en particulier l’agent de IoT Edge et l’hub IoT Edge).  
+Un manifeste de déploiement est un document JSON qui décrit les modules devant être configurés sur les appareils IoT Edge ciblés. Il contient les métadonnées de configuration pour tous les modules, y compris les modules système requis (en particulier l’agent de IoT Edge et l’hub IoT Edge).  
 
 Les métadonnées de configuration pour chaque module incluent :
 
@@ -81,11 +83,11 @@ Prenez en compte les contraintes suivantes lorsque vous créez une condition cib
 
 ### <a name="priority"></a>Priority
 
-Une priorité définit si un déploiement doit être appliqué à un appareil ciblé par rapport à d’autres déploiements. Une priorité de déploiement est un entier positif. Plus le nombre est élevé, plus la priorité est supérieure. Si un périphérique IoT Edge est ciblé par plusieurs déploiements, le déploiement avec la priorité la plus élevée s’applique.  Les déploiements avec une priorité plus faible ne sont pas appliqués, ni fusionnés.  Si un périphérique est ciblé par au moins deux déploiements de priorité égale, c’est le déploiement créé le plus récemment (déterminé par l’horodatage de création) qui s’applique.
+Une priorité définit si un déploiement doit être appliqué à un appareil ciblé par rapport à d’autres déploiements. Une priorité de déploiement est un entier positif. Plus le nombre est élevé, plus la priorité est supérieure. Si un périphérique IoT Edge est ciblé par plusieurs déploiements, le déploiement avec la priorité la plus élevée s’applique.    Les déploiements avec une priorité plus faible ne sont pas appliqués, ni fusionnés.    Si un périphérique est ciblé par au moins deux déploiements de priorité égale, c’est le déploiement créé le plus récemment (déterminé par l’horodatage de création) qui s’applique.
 
 ### <a name="labels"></a>Étiquettes
 
-Les étiquettes sont des paires clé-valeur de type chaîne que vous pouvez utiliser pour filtrer et grouper les déploiements. Un déploiement peut avoir plusieurs étiquettes. Les étiquettes sont facultatives et n’ont aucun impact sur la configuration des appareils IoT Edge.
+Les étiquettes sont des paires clé-valeur de type chaîne que vous pouvez utiliser pour filtrer et grouper les déploiements.  Un déploiement peut avoir plusieurs étiquettes. Les étiquettes sont facultatives et n’ont aucun impact sur la configuration des appareils IoT Edge.
 
 ### <a name="metrics"></a>Mesures
 
@@ -174,7 +176,7 @@ Un déploiement progressif est un processus global par lequel un opérateur dép
 
 Un déploiement progressif est exécuté dans les phases et étapes suivantes :
 
-1. Établissez un environnement de tests d’appareils IoT Edge en les approvisionnant et en paramétrant une balise de jumeau d’appareil comme `tag.environment='test'`. L’environnement de test doit refléter l’environnement de production que le déploiement va cibler.
+1. Établissez un environnement de tests d’appareils IoT Edge en les approvisionnant et en paramétrant une balise de jumeau d’appareil comme `tag.environment='test'`.  L’environnement de test doit refléter l’environnement de production que le déploiement va cibler.
 2. Créez un déploiement comprenant les modules et les configurations souhaités. La condition de ciblage doit cibler l’environnement de test des appareils IoT Edge.
 3. Validez la nouvelle configuration du module dans l’environnement de test.
 4. Mettez à jour le déploiement pour inclure un sous-ensemble d’appareils de production IoT Edge en ajoutant une nouvelle balise à la condition de ciblage. En outre, assurez-vous que la priorité pour le déploiement est supérieure aux autres déploiements actuellement ciblés sur ces appareils.
@@ -183,7 +185,7 @@ Un déploiement progressif est exécuté dans les phases et étapes suivantes :
 
 ## <a name="rollback"></a>Restauration
 
-Les déploiements peuvent être restaurés en cas d’erreur ou de mauvaise configuration. Étant donné qu’un déploiement définit la configuration de module absolue pour un appareil IoT Edge, un déploiement supplémentaire doit cibler le même appareil à une priorité inférieure, même si l’objectif est de supprimer tous les modules.  
+Les déploiements peuvent être restaurés en cas d’erreur ou de mauvaise configuration.  Étant donné qu’un déploiement définit la configuration de module absolue pour un appareil IoT Edge, un déploiement supplémentaire doit cibler le même appareil à une priorité inférieure, même si l’objectif est de supprimer tous les modules.  
 
 La suppression d’un déploiement ne supprime pas les modules des appareils ciblés. Un autre déploiement doit définir une nouvelle configuration pour les appareils, même s’il s’agit d’un déploiement vide.
 

@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: a51121b9dd9c7dcb894399fd9ad5f49cc5e07f3a
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: 3626ca4cc3e7377f1c6778bc77e5e48ef0dcad0c
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102486607"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103439193"
 ---
 ## <a name="add-managed-identity-to-your-communication-services-solution-js"></a>Ajouter une identité managée à votre solution Communication Services (JS)
 
@@ -23,8 +23,8 @@ Ajoutez les directives `import` suivantes à votre code pour utiliser les biblio
 
 ```typescript
 import { DefaultAzureCredential } from "@azure/identity";
-import { CommunicationIdentityClient } from "@azure/communication-identity";
-import { SmsClient } from "@azure/communication-sms";
+import { CommunicationIdentityClient, CommunicationUserToken } from "@azure/communication-identity";
+import { SmsClient, SmsSendRequest } from "@azure/communication-sms";
 ```
 
 Les exemples ci-dessous utilisent [DefaultAzureCredential](/javascript/api/azure.identity.defaultazurecredential). Ces informations d’identification sont appropriées pour les environnements de production et de développement.
@@ -39,7 +39,7 @@ L’exemple de code suivant montre comment créer un objet client de service ave
 export async function createIdentityAndIssueToken(resourceEndpoint: string): Promise<CommunicationUserToken> {
      let credential = new DefaultAzureCredential();
      const client = new CommunicationIdentityClient(resourceEndpoint, credential);
-     return await client.createUserWithToken(["chat"]);
+     return await client.createUserAndToken(["chat"]);
 }
 ```
 
@@ -51,7 +51,7 @@ L’exemple de code suivant montre comment créer un objet client de service ave
 export async function sendSms(resourceEndpoint: string, fromNumber: any, toNumber: any, message: string) {
      let credential = new DefaultAzureCredential();
      const smsClient = new SmsClient(resourceEndpoint, credential);
-     const sendRequest: SendRequest = { 
+     const sendRequest: SmsSendRequest = { 
           from: fromNumber, 
           to: [toNumber], 
           message: message 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: c55314764f973a5a015a2bfc02815a58ce659901
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ee7ccb126eb04e168ccc213f0429d41a76a8bc2f
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101734033"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103021247"
 ---
 **Volume et rétention de collecte de données** 
 
@@ -57,6 +57,7 @@ ms.locfileid: "101734033"
 | Taux maximum de requêtes | 200 requêtes par 30 secondes par utilisateur Azure AD ou adresse IP du client | Consultez [Limites de taux](https://dev.loganalytics.io/documentation/Using-the-API/Limits) pour plus d’informations. |
 
 **Connecteur des journaux Azure Monitor**
+
 | Category | Limite | Commentaires |
 |:---|:---|:---|
 | Nombre maximal d’enregistrements | 500 000 | |
