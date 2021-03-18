@@ -3,12 +3,12 @@ title: Utilisation de Azure DevTest Labs dans plusieurs laboratoires et abonne
 description: Découvrez comment rendre compte de l’utilisation d’Azure DevTest Labs dans plusieurs labos et abonnements.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: d789b9849ec798a396e99420649792937422470f
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 1e4d1f0abb5596c7fd9d22740bf052827c2ca666
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98789936"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102452643"
 ---
 # <a name="report-azure-devtest-labs-usage-across-multiple-labs-and-subscriptions"></a>Rendre compte de l’utilisation d’Azure DevTest Labs dans plusieurs labos et abonnements
 
@@ -25,7 +25,7 @@ Cette section explique comment exporter l’utilisation des ressources pour un l
 Avant de pouvoir exporter l’utilisation des ressources de DevTest Labs, vous devez configurer un compte Stockage Azure pour stocker les différents fichiers contenant les données d’utilisation. Les deux méthodes couramment utilisées pour exporter des données sont les suivantes :
 
 * [API REST DevTest Labs](/rest/api/dtl/labs/exportresourceusage) 
-* Le module PowerShell AZ.Resource [Invoke-AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction?view=azps-2.5.0&viewFallbackFrom=azps-2.3.2) avec l’action de `exportResourceUsage`, l’ID de ressource de labo et les paramètres nécessaires. 
+* Le module PowerShell AZ.Resource [Invoke-AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction) avec l’action de `exportResourceUsage`, l’ID de ressource de labo et les paramètres nécessaires. 
 
     L’article [Exporter ou supprimer des données personnelles](personal-data-delete-export.md) contient un exemple de script PowerShell avec des informations détaillées sur les données exportées. 
 
@@ -65,7 +65,7 @@ Vous pouvez utiliser un stockage à long terme pour effectuer toute manipulation
 * création de regroupements complexes ;
 * agrégation des données.
 
-Voici des solutions de stockage courantes : [SQL Server](https://azure.microsoft.com/services/sql-database/), [Azure Data Lake](https://azure.microsoft.com/services/storage/data-lake-storage/) et [CosmosDB](https://azure.microsoft.com/services/cosmos-db/). Le choix de la solution de stockage à long terme dépend de vos préférences. Vous pouvez envisager de choisir l’outil en fonction de ce qu’il offre en termes de possibilité d’interaction lors de la visualisation des données.
+Voici quelques solutions de stockage courantes : [SQL Server](https://azure.microsoft.com/services/sql-database/), [Azure Data Lake](https://azure.microsoft.com/services/storage/data-lake-storage/) et [Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). Le choix de la solution de stockage à long terme dépend de vos préférences. Vous pouvez envisager de choisir l’outil en fonction de ce qu’il offre en termes de possibilité d’interaction lors de la visualisation des données.
 
 ## <a name="visualizing-data-and-gathering-insights"></a>Visualisation des données et collecte d’informations
 

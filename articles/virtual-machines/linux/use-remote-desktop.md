@@ -1,27 +1,29 @@
 ---
 title: Utiliser xrdp avec Linux
 description: Découvrez comment installer et configurer le Bureau à distance (xrdp) pour effectuer une connexion à une machine virtuelle Linux dans Azure à l’aide des outils graphiques
-services: virtual-machines-linux
+services: virtual-machines
 author: cynthn
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.collection: linux
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 03/01/2021
+ms.date: 03/03/2021
 ms.author: cynthn
-ms.openlocfilehash: 448e9f6487b5afc51be9b3dee8e07007c8534a0b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 1f7eb3b38b4ae04e81839fce2b14c1a84f3f0204
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101695173"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102564592"
 ---
-# <a name="install-and-configure-xrdp-to-use-remote-desktop-with-a-linux-vm"></a>Installer et configurer xrdp pour utiliser le Bureau à distance avec une machine virtuelle Linux
+# <a name="install-and-configure-xrdp-to-use-remote-desktop-with-ubuntu"></a>Installer et configurer xrdp pour utiliser le Bureau à distance avec Ubuntu
 
-Les machines virtuelles (VM) Linux dans Azure sont généralement gérées à partir de la ligne de commande à l’aide d’une connexion Secure Shell (SSH). Si vous découvrez Linux, ou si vous souhaitez des scénarios de dépannage rapides, l’utilisation du Bureau à distance peut se révéler plus facile. Cet article explique comment installer et configurer un environnement de bureau ([xfce](https://www.xfce.org)) et le Bureau à distance ([xrdp](http://xrdp.org)) pour votre machine virtuelle Linux à l’aide du modèle de déploiement Resource Manager.
+Les machines virtuelles (VM) Linux dans Azure sont généralement gérées à partir de la ligne de commande à l’aide d’une connexion Secure Shell (SSH). Si vous découvrez Linux, ou si vous souhaitez des scénarios de dépannage rapides, l’utilisation du Bureau à distance peut se révéler plus facile. Cet article explique comment installer et configurer un environnement de bureau ([xfce](https://www.xfce.org)) et le Bureau à distance ([xrdp](http://xrdp.org)) pour votre machine virtuelle Linux exécutant Ubuntu.
 
+L’article a été écrit et testé à l’aide d’une machine virtuelle Ubuntu 18.04. 
 
 ## <a name="prerequisites"></a>Prérequis
+
 Cet article nécessite que vous disposiez d’une machine virtuelle Ubuntu 18.04 LTS dans Azure. Si vous avez besoin créer une machine virtuelle, utilisez l’une des méthodes suivantes :
 
 - [Azure CLI](quick-create-cli.md)

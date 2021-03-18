@@ -1,20 +1,20 @@
 ---
 title: Copier des données dans Dynamics (Common Data Service)
-description: Découvrez comment copier des données à partir de Microsoft Dynamics CRM ou Microsoft Dynamics 365 (Common Data Service) vers des banques de données réceptrices prises en charge ou à partir de banques de données sources prises en charge vers Dynamics CRM ou Dynamics 365 à l’aide de l’activité de copie disponible dans un pipeline de fabrique de données.
+description: Découvrez comment copier des données à partir de Microsoft Dynamics CRM ou Microsoft Dynamics 365 (Common Data Service/Microsoft Dataverse) vers des magasins de données récepteurs pris en charge ou à partir de magasins de données sources pris en charge vers Dynamics CRM ou Dynamics 365 à l’aide de l’activité de copie disponible dans un pipeline de Data Factory.
 ms.service: data-factory
 ms.topic: conceptual
 ms.author: jingwang
 author: linda33wj
 ms.custom: seo-lt-2019
-ms.date: 02/02/2021
-ms.openlocfilehash: d238a232d719c75244e6f9b825272957d2a4a4bc
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 03/08/2021
+ms.openlocfilehash: b1e7511f7666455592b6d5f463a316c3354ec76b
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100380999"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102447433"
 ---
-# <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Copier des données à partir et vers Dynamics 365 (Common Data Service) ou Dynamics CRM à l’aide d’Azure Data Factory
+# <a name="copy-data-from-and-to-dynamics-365-common-data-servicemicrosoft-dataverse-or-dynamics-crm-by-using-azure-data-factory"></a>Copier des données depuis et vers Dynamics 365 (Common Data Service/Microsoft Dataverse) ou Dynamics CRM à l’aide d’Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -27,7 +27,7 @@ Ce connecteur est pris en charge pour les activités suivantes :
 - [Activité de copie](copy-activity-overview.md) avec [prise en charge de la matrice de source/récepteur](copy-activity-overview.md)
 - [Activité de recherche](control-flow-lookup-activity.md)
 
-Vous pouvez copier des données à partir de Dynamics 365 (Common Data Service) ou Dynamics CRM vers toute banque de données réceptrice prise en charge. Vous pouvez également copier des données à partir de n’importe quelle banque de données source prise en charge vers Dynamics 365 (Common Data Service) ou Dynamics CRM. Pour obtenir la liste des magasins de données prises en charge par l'activité de copie en tant que sources et récepteurs, consultez la table [Magasins de données pris en charge](copy-activity-overview.md#supported-data-stores-and-formats).
+Vous pouvez copier des données à partir de Dynamics 365 (Common Data Service/Microsoft Dataverse) ou Dynamics CRM vers tout magasin de données récepteur pris en charge. Vous pouvez également copier des données à partir de n’importe quelle banque de données source prise en charge vers Dynamics 365 (Common Data Service) ou Dynamics CRM. Pour obtenir la liste des magasins de données prises en charge par l'activité de copie en tant que sources et récepteurs, consultez la table [Magasins de données pris en charge](copy-activity-overview.md#supported-data-stores-and-formats).
 
 Ce connecteur Dynamics prend en charge Dynamics versions 7 à 9, aussi bien en ligne qu’en local. Plus précisément :
 
@@ -363,6 +363,32 @@ La combinaison optimale de **writeBatchSize** et **parallelCopies** dépend du s
         }
     }
 ]
+```
+
+## <a name="retrieving-data-from-views"></a>Récupération des données à partir des vues
+
+Pour récupérer des données à partir des vues Dynamics, vous devez obtenir la requête enregistrée de la vue et utiliser la requête pour obtenir les données.
+
+Il existe deux entités qui stockent différents types de vues : « requête enregistrée » stocke la vue système et « requête utilisateur » stocke la vue utilisateur. Pour obtenir les informations des vues, reportez-vous à la requête FetchXML suivante en remplaçant « TARGETENTITY » par `savedquery` ou `userquery`. Chaque type d’entité a plus d’attributs disponibles que vous pouvez ajouter à la requête en fonction de vos besoins. En savoir plus sur [l’entité savedquery](https://docs.microsoft.com/dynamics365/customer-engagement/web-api/savedquery) et [l’entité userquery](https://docs.microsoft.com/dynamics365/customer-engagement/web-api/userquery).
+
+```xml
+<fetch top="5000" >
+  <entity name="<TARGETENTITY>">
+    <attribute name="name" />
+    <attribute name="fetchxml" />
+    <attribute name="returnedtypecode" />
+    <attribute name="querytype" />
+  </entity>
+</fetch>
+```
+
+Vous pouvez également ajouter des filtres pour filtrer les vues. Par exemple, ajoutez le filtre suivant pour obtenir une vue nommée « Mes comptes actifs » dans l’entité de compte.
+
+```xml
+<filter type="and" >
+    <condition attribute="returnedtypecode" operator="eq" value="1" />
+    <condition attribute="name" operator="eq" value="My Active Accounts" />
+</filter>
 ```
 
 ## <a name="data-type-mapping-for-dynamics"></a>Mappage de type de données pour Dynamics

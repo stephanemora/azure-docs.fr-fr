@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/09/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 155df45d975a30991edc80d587445d699a8d2695
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 8a1a2d7f5272def78cd162da1f6ac0265d4fb30b
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100103224"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102517734"
 ---
 # <a name="desktop-app-that-calls-web-apis-app-registration"></a>Application de bureau qui appelle des API web : Inscription d'application
 
@@ -43,7 +43,7 @@ Les URI de redirection à utiliser dans une application de bureau dépendent du 
 - Si vous utilisez l’authentification interactive ou le flux de code d’appareil, utilisez `https://login.microsoftonline.com/common/oauth2/nativeclient`. Pour obtenir cette configuration, sélectionnez l’URL correspondante dans la section **Authentification** pour votre application.
 
   > [!IMPORTANT]
-  > L’utilisation de `https://login.microsoftonline.com/common/oauth2/nativeclient` comme URI de redirection est recommandée comme bonne pratique de sécurité.  Si aucun URI de redirection n’est spécifié, MSAL.NET utilise `urn:ietf:wg:oauth:2.0:oob` par défaut, qui n’est pas recommandé.  Ce paramètre par défaut sera mis à jour en tant que changement cassant dans la prochaine version majeure.
+  > L’utilisation de `https://login.microsoftonline.com/common/oauth2/nativeclient` comme URI de redirection est recommandée comme bonne pratique de sécurité.  Si aucun URI de redirection n’est spécifié, MSAL.NET utilise `urn:ietf:wg:oauth:2.0:oob` par défaut, ce qui n’est pas recommandé.  Ce paramètre par défaut sera mis à jour en tant que changement cassant dans la prochaine version majeure.
 
 - Si vous générez une application Objective-C ou Swift native pour macOS, enregistrez l’URI de redirection en fonction de l’identificateur de bundle de votre application, au format suivant : `msauth.<your.app.bundle.id>://auth`. Remplacez `<your.app.bundle.id>` par l’identificateur de bundle de votre application.
 - Si votre application n’utilise que l’authentification Windows intégrée ou un mot de passe et un nom d’utilisateur, vous n’avez pas besoin d’inscrire d’URI de redirection pour votre application. Ces flux effectuent un aller-retour vers le point de terminaison de la plateforme d’identités Microsoft v2.0. Votre application ne sera pas rappelée sur un URI spécifique.

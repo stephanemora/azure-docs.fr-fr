@@ -9,12 +9,12 @@ ms.subservice: monitoring
 ms.date: 11/30/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: f801d25a0d0f70daaaac1ade3e8966cf5f53affc
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: ac5b1df5ff246623b73dbc41d18216396e6ed7ef
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101672753"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102549853"
 ---
 # <a name="use-azure-monitor-with-your-azure-synapse-analytics-workspace"></a>Utilisez Azure Monitor avec votre espace de travail Azure Synapse Analytics
 
@@ -75,10 +75,10 @@ Voici quelques-unes des métriques émises par les pools Apache Spark :
 
 | **Mesure**                           | **Catégorie de métrique, nom d’affichage**                  | **Unité** | **Types d’agrégation** | **Description**                |
 |--------------------------------------|------------------------------------------|----------|----------------------|--------------------------------|
-| BigDataPoolApplicationsEnded  | Applications Apache Spark terminées  | Count | Sum (default) | Nombre d’applications de pool Apache Spark terminées |
+| BigDataPoolApplicationsEnded  | Applications Apache Spark terminées  | Nombre | Sum (default) | Nombre d’applications de pool Apache Spark terminées |
 | BigDataPoolAllocatedCores     | Nombre de vCores alloués au pool Apache Spark                 | Nombre | Max (default), Min, Avg | VCores alloués pour un pool Apache Spark |
 | BigDataPoolAllocatedMemory    | Quantité de mémoire (Go) allouée au pool Apache Spark            | Nombre | Max (default), Min, Avg | Mémoire allouée au pool Apache Spark (Go) |
-| BigDataPoolApplicationsActive | Applications Apache Spark actives | Count | Max (default), Min, Avg | Nombre d’applications actives du pool Apache Spark |
+| BigDataPoolApplicationsActive | Applications Apache Spark actives | Nombre | Max (default), Min, Avg | Nombre d’applications actives du pool Apache Spark |
 
 ## <a name="alerts"></a>Alertes
 
@@ -171,7 +171,7 @@ Créez ou ajoutez des paramètres de diagnostic pour votre espace de travail, un
 1. Nommez votre paramètre, sélectionnez **Envoyer à Log Analytics**, puis sélectionnez un espace de travail dans **Espace de travail Log Analytics**.
 
     > [!NOTE]
-    > Étant donné qu’une table de journal Azure ne peut pas comporter plus de 500 colonnes, nous vous **recommandons vivement** de sélectionner le _mode spécifique de la ressource_. Pour plus d’informations, consultez [Limitations connues de Log Analytics](../../azure-monitor/essentials/resource-logs.md#column-limit-in-azurediagnostics).
+    > Étant donné qu’une table de journal Azure ne peut pas comporter plus de 500 colonnes, nous vous **recommandons vivement** de sélectionner le _mode spécifique de la ressource_. Pour plus d’informations, consultez [Référence des journaux Diagnostics Azure](/azure-monitor/reference/tables/azurediagnostics#additionalfields-column).
 
 1. Sélectionnez **Enregistrer**.
 

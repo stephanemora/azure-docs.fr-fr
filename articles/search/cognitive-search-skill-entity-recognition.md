@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: ddfca965ea32ca726df39f894ba45f9580225d9d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3300d68c6356cb7cdd56a9ad79eb0ac011942eb2
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91542459"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102547898"
 ---
 #    <a name="entity-recognition-cognitive-skill"></a>Compétence cognitive Reconnaissance d’entités
 
@@ -187,10 +187,10 @@ Les paramètres respectent la casse et sont tous facultatifs.
 }
 ```
 
-Notez que les décalages renvoyés pour les entités dans la sortie de cette qualification le sont directement à partir de l'[API Analyse de texte](../cognitive-services/text-analytics/overview.md), ce qui signifie que si vous les utilisez pour indexer dans la chaîne d'origine, vous devez utiliser la classe [StringInfo](/dotnet/api/system.globalization.stringinfo) dans .NET afin d'extraire le bon contenu.  [Pour plus d'informations, cliquez ici](../cognitive-services/text-analytics/concepts/text-offsets.md).
+Notez que les décalages renvoyés pour les entités dans la sortie de cette qualification le sont directement à partir de l'[API Analyse de texte](../cognitive-services/text-analytics/overview.md), ce qui signifie que si vous les utilisez pour indexer dans la chaîne d'origine, vous devez utiliser la classe [StringInfo](/dotnet/api/system.globalization.stringinfo) dans .NET afin d'extraire le bon contenu.  [Pour plus d’informations, cliquez ici.](../cognitive-services/text-analytics/concepts/text-offsets.md)
 
-## <a name="error-cases"></a>Cas d’erreur
-Si le code de langue du document n’est pas pris en charge, une erreur est retournée et aucune entité n’est extraite.
+## <a name="warning-cases"></a>Cas d’avertissement
+Si le code de langue du document n’est pas pris en charge, un avertissement est retourné et aucune entité n’est extraite.
 
 ## <a name="see-also"></a>Voir aussi
 

@@ -5,12 +5,12 @@ ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 5fa729ae68d091d9810430bdc0ea55ce1c876b25
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 44e18be9d66131ad5f4a3ebcc039621ec9e9dbe6
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100586267"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102452252"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Activer la journalisation des diagnostics pour les applications dans Azure App Service
 ## <a name="overview"></a>Vue d’ensemble
@@ -116,7 +116,7 @@ Dans votre code d’application, vous utilisez les fonctionnalités de journalis
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
     ```
 
-- Par défaut, ASP.NET Core utilise le fournisseur de journalisation [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices). Pour plus d’informations, consultez l’article [ASP.NET Core logging in Azure](/aspnet/core/fundamentals/logging/) (Journalisation ASP.NET Core dans Azure).
+- Par défaut, ASP.NET Core utilise le fournisseur de journalisation [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices). Pour plus d’informations, consultez l’article [ASP.NET Core logging in Azure](/aspnet/core/fundamentals/logging/) (Journalisation ASP.NET Core dans Azure). Pour plus d’informations sur la journalisation du kit SDK WebJobs, consultez [Prise en main du kit SDK Azure WebJobs](/azure/app-service/webjobs-sdk-get-started#enable-console-logging)
 
 ## <a name="stream-logs"></a>Diffuser les journaux d’activité en continu
 
@@ -134,19 +134,17 @@ Pour diffuser les journaux dans le [portail Azure](https://portal.azure.com), ac
 
 Pour diffuser les journaux en temps réel dans [Cloud Shell](../cloud-shell/overview.md), utilisez la commande suivante :
 
+> [!IMPORTANT]
+> Cette commande peut ne pas fonctionner avec les applications web hébergées dans un plan App Service Linux.
+
 ```azurecli-interactive
 az webapp log tail --name appname --resource-group myResourceGroup
 ```
 
-Pour filtrer des événements spécifiques, tels que des erreurs, utilisez le paramètre **--Filter** . Par exemple :
+Pour filtrer des types de journaux spécifiques, tels que HTTP, utilisez le paramètre **--Provider**. Par exemple :
 
 ```azurecli-interactive
-az webapp log tail --name appname --resource-group myResourceGroup --filter Error
-```
-Pour filtrer des types de journaux spécifiques, tels que HTTP, utilisez le paramètre **--Path** . Par exemple :
-
-```azurecli-interactive
-az webapp log tail --name appname --resource-group myResourceGroup --path http
+az webapp log tail --name appname --resource-group myResourceGroup --provider http
 ```
 
 ### <a name="in-local-terminal"></a>Dans le terminal local

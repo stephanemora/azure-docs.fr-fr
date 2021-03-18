@@ -3,14 +3,14 @@ title: Gérer des pré-scripts et des post-scripts dans votre déploiement Updat
 description: Cet article explique comment configurer et gérer des pré-scripts et des post-scripts pour les déploiements de mises à jour.
 services: automation
 ms.subservice: update-management
-ms.date: 12/17/2020
+ms.date: 03/08/2021
 ms.topic: conceptual
-ms.openlocfilehash: 3ca1dec1b6139f3192edb09f8748c8f23a9d399e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ce60c773626d951062de3cc830b898e3b875f3cb
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101701499"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102485535"
 ---
 # <a name="manage-pre-scripts-and-post-scripts"></a>Gérer des pré-scripts et des post-scripts
 
@@ -19,6 +19,8 @@ Les pré-scripts et les post-scripts sont des runbooks à exécuter dans votre c
 ## <a name="pre-script-and-post-script-requirements"></a>Configuration requise pour les pré-scripts et les post-scripts
 
 Pour être utilisé en tant que pré-script ou post-script, un runbook doit être importé dans votre compte Automation et [publié](../manage-runbooks.md#publish-a-runbook).
+
+Actuellement, seuls les runbooks PowerShell et Python 2 sont pris en charge en tant que pré-scripts et post-scripts. Les autres types de runbook tels que Python 3, Graphical, PowerShell Workflow, Graphical PowerShell ne sont actuellement pas pris en charge en tant que pré-scripts et post-scripts.
 
 ## <a name="pre-script-and-post-script-parameters"></a>Paramètres des pré-script et des post-scripts
 
@@ -91,9 +93,6 @@ Un exemple complet avec toutes les propriétés est disponible ici : [Obtenir l
 > [!NOTE]
 > L’objet `SoftwareUpdateConfigurationRunContext` peut contenir des entrées en double pour les machines. De ce fait, il se peut que les pré-scripts et les post-scripts s’exécutent plusieurs fois sur la même machine. Pour éviter ce comportement, utilisez le paramètre `Sort-Object -Unique` pour sélectionner uniquement les noms de machine virtuelle uniques.
 
-> [!NOTE]
-> Actuellement, seuls les runbooks PowerShell sont pris en charge en tant que pré/post-scripts. Les autres types de runbook tels que Python, Graphical, PowerShell Workflow, Graphical PowerShell ne sont actuellement pas pris en charge en tant que pré/post-scripts.
-
 ## <a name="use-a-pre-script-or-post-script-in-a-deployment"></a>Utiliser un pré-script ou d’un post-script dans un déploiement
 
 Pour utiliser un pré-script ou un post-script dans un déploiement de mises à jour, commencez par créer un déploiement de mises à jour. Sélectionnez **Pre-scripts + Post-scripts**. Cette action ouvre la page **Select Pre-scripts + Post-scripts** (Sélectionner des pré-scripts et post-scripts).
@@ -120,7 +119,7 @@ Lorsque vous sélectionnez l’exécution du déploiement de mises à jour, vous
 
 ## <a name="stop-a-deployment"></a>Arrêter un déploiement
 
-Si vous souhaitez arrêter un déploiement basé sur un pré-script, vous devez [lever](../automation-runbook-execution.md#throw) une exception. Si vous ne le faites pas, le post-script et le déploiement continueront de s’exécuter. L’extrait de code suivant montre comment lever une exception.
+Si vous souhaitez arrêter un déploiement basé sur un pré-script, vous devez [lever](../automation-runbook-execution.md#throw) une exception. Si vous ne le faites pas, le post-script et le déploiement continueront de s’exécuter. L’extrait de code suivant montre comment lever une exception à l’aide de PowerShell.
 
 ```powershell
 #In this case, we want to terminate the patch job if any run fails.
@@ -134,6 +133,8 @@ foreach($summary in $finalStatus)
     }
 }
 ```
+
+Dans Python 2, la gestion des exceptions est managée dans un bloc [try](https://www.python-course.eu/exception_handling.php).
 
 ## <a name="interact-with-machines"></a>Interagir avec des machines
 
@@ -169,6 +170,13 @@ if (<My custom error logic>)
     #Throw an error to fail the patch deployment.
     throw "There was an error, abort deployment"
 }
+```
+
+Dans Python 2, si vous souhaitez générer une erreur quand une certaine condition se produit, utilisez une instruction [raise](https://docs.python.org/2.7/reference/simple_stmts.html#the-raise-statement).
+
+```python
+If (<My custom error logic>)
+   raise Exception('Something happened.')
 ```
 
 ## <a name="samples"></a>Exemples

@@ -5,24 +5,24 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/18/2019
-ms.openlocfilehash: 6037ef9c539c3c57f2ba5a19f371237159d1bf69
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 56ef6563982c315d34cfeb87070b9ebfa3d27a30
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102030883"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102500425"
 ---
 # <a name="log-data-ingestion-time-in-azure-monitor"></a>Durée d’ingestion de données de journal dans Azure Monitor
 Azure Monitor est un service de données à grande échelle servant des milliers de clients envoyant des téraoctets de données chaque mois à un rythme croissant. Les utilisateurs se demandent souvent quel est le délai nécessaire pour que les données de journal soient disponibles une fois qu’elles ont été collectées. Cet article explique les différents facteurs qui affectent cette latence.
 
 ## <a name="typical-latency"></a>Latence classique
-La latence fait référence au délai qui s’écoule entre l’heure à laquelle les données sont créées sur le système analysé et l’heure à laquelle elles sont disponibles pour analyse dans Azure Monitor. Le temps de latence habituel pour ingérer des données de journal est compris entre 2 et 5 minutes. La latence spécifique pour des données particulières dépend de divers facteurs expliqués ci-dessous.
+La latence fait référence au délai qui s’écoule entre l’heure à laquelle les données sont créées sur le système analysé et l’heure à laquelle elles sont disponibles pour analyse dans Azure Monitor. Le temps de latence habituel pour ingérer des données de journal est compris entre 20 secondes et 3 minutes. Toutefois, la latence spécifique pour des données particulières dépend de divers facteurs expliqués ci-dessous.
 
 
 ## <a name="factors-affecting-latency"></a>Facteurs qui affectent la latence
 Le temps total d’ingestion pour un jeu de données particulier peut être divisé en plusieurs durées (voir ci-dessous). 
 
-- Délai de l’agent : délai nécessaire pour découvrir un événement, le collecter et l’envoyer au point d’ingestion Azure Monitor sous forme d’enregistrement de journal. Dans la plupart des cas, ce processus est géré par un agent.
+- Délai de l’agent : délai nécessaire pour détecter un événement, le collecter et l’envoyer au point d’ingestion des journaux Azure Monitor sous forme d’enregistrement de journal. Dans la plupart des cas, ce processus est géré par un agent. Une latence supplémentaire peut être introduite par le réseau.
 - Délai du pipeline : délai nécessaire pour que le pipeline d’ingestion traite l’enregistrement de journal. Cela inclut l’analyse des propriétés de l’événement et l’ajout éventuel des informations calculées.
 - Délai d’indexation : délai nécessaire à l’ingestion d’un enregistrement de journal dans le magasin Big Data Azure Monitor.
 
@@ -36,16 +36,17 @@ Les solutions de gestion et les agents utilisent différentes stratégies pour c
 - La solution Active Directory Replication effectue son évaluation tous les cinq jours, tandis que la solution Active Directory Assessment effectue une évaluation hebdomadaire de votre infrastructure Active Directory. L’agent collecte ces journaux d’activité uniquement lorsque l’évaluation est effectuée.
 
 ### <a name="agent-upload-frequency"></a>Fréquence de chargement de l’agent
-Pour vous assurer que l’agent Log Analytics est léger, l’agent met en mémoire tampon les journaux d’activité et les charge régulièrement dans Azure Monitor. La fréquence de chargement varie entre 30 secondes et 2 minutes en fonction du type de données. La plupart des données sont chargées en moins d’une minute. Les conditions du réseau peuvent affecter négativement la latence nécessaire à ces données pour atteindre le point d’ingestion Azure Monitor.
+Pour vous assurer que l’agent Log Analytics est léger, l’agent met en mémoire tampon les journaux d’activité et les charge régulièrement dans Azure Monitor. La fréquence de chargement varie entre 30 secondes et 2 minutes en fonction du type de données. La plupart des données sont chargées en moins d’une minute. 
+
+### <a name="network"></a>Réseau
+Les conditions du réseau peuvent affecter négativement la latence nécessaire à ces données pour atteindre le point d’ingestion des journaux Azure Monitor.
 
 ### <a name="azure-activity-logs-resource-logs-and-metrics"></a>Journaux d’activité Azure, journaux de ressources et métriques
-Les données Azure mettent un certain délai à être disponibles au point d’ingestion Log Analytics en vue de leur traitement :
+Les données Azure mettent un certain temps à être disponibles au point d’ingestion des journaux Azure Monitor en vue de leur traitement :
 
-- La mise à disposition des données des journaux de ressources prend 2 à 15 minutes, suivant le service Azure. Consultez la [requête ci-dessous](#checking-ingestion-time) pour examiner cette latence dans votre environnement.
-- L’envoi des métriques de la plateforme Azure au point d’ingestion Log Analytics prend 3 minutes.
-- L’envoi des données du journal d’activité au point d’ingestion Log Analytics prend entre 10 et 15 minutes.
-
-Une fois disponibles au point d’ingestion, les données peuvent être interrogées au terme d’un délai supplémentaire de 2 à 5 minutes.
+- Les journaux de ressources ajoutent généralement 30 à 90 secondes en fonction du service Azure. Certains services Azure (plus précisément Azure SQL Database et le réseau virtuel Azure) envoient actuellement leurs journaux à un intervalle de 5 minutes. Nous travaillons actuellement pour améliorer ce délai. Consultez la [requête ci-dessous](#checking-ingestion-time) pour examiner cette latence dans votre environnement.
+- Les indicateurs de performance de la plateforme Azure prennent 3 minutes supplémentaires pour être exportés vers le point d’ingestion des journaux Azure Monitor.
+- Les données du journal d’activité peuvent prendre de 10 à 15 minutes supplémentaires si l’intégration héritée est utilisée. Nous vous recommandons d’utiliser les paramètres de diagnostic au niveau de l’abonnement pour ingérer les journaux d’activité dans les journaux Azure Monitor, ce qui entraîne une latence supplémentaire d’environ 30 secondes.
 
 ### <a name="management-solutions-collection"></a>Collecte des solutions de gestion
 Certaines solutions ne collectent pas leurs données à partir d’un agent et peuvent utiliser une méthode de collecte qui introduit une latence supplémentaire. Certaines solutions collectent des données à intervalles réguliers sans tenter d’effectuer une collecte en temps quasi-réel. Voici quelques exemples :
@@ -56,6 +57,9 @@ Certaines solutions ne collectent pas leurs données à partir d’un agent et p
 Reportez-vous à la documentation de chaque solution afin de déterminer sa fréquence de collecte.
 
 ### <a name="pipeline-process-time"></a>Délai du processus de pipeline
+
+Une fois qu’elles sont disponibles au point d’ingestion, les données peuvent être interrogées après un délai supplémentaire de 30 à 60 secondes.
+
 Une fois que les enregistrements de journal sont ingérés dans le pipeline de Azure Monitor (tel qu’il est identifié dans la propriété [_TimeReceived](./log-standard-columns.md#_timereceived)), ils sont écrits dans un stockage temporaire pour garantir l’isolation des locataires et pour vous assurer que les données ne sont pas perdues. Ce processus ajoute généralement 5 à 15 secondes. Certaines solutions de gestion implémentent des algorithmes plus lourds pour agréger les données et dériver des insights à mesure que les données affluent. Par exemple, Network Performance Monitor agrège les données entrantes toutes les 3 minutes, en ajoutant au final une latence de 3 minutes. Un autre processus qui ajoute une latence est le processus qui gère les journaux d’activité personnalisés. Dans certains cas, ce processus peut ajouter quelques minutes de latence aux journaux d’activité qui sont collectés à partir de fichiers par l’agent.
 
 ### <a name="new-custom-data-types-provisioning"></a>Provisionnement des nouveaux types de données personnalisées
@@ -141,4 +145,4 @@ Heartbeat
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Consultez le [contrat de niveau de service (SLA)](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_1/) Azure Monitor.
+* Consultez le [contrat de niveau de service (SLA)](https://azure.microsoft.com/en-us/support/legal/sla/monitor/v1_3/) Azure Monitor.

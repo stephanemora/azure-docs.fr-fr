@@ -12,81 +12,96 @@ ms.date: 05/23/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
-ms.openlocfilehash: c72a305a7000052be4f11c9c24a76db94de47ace
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 43990952f6cbe90c729ac2df421c682fe8d42b1b
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101650105"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102517931"
 ---
 # <a name="support-and-help-options-for-developers"></a>Options d’aide et de support pour les développeurs
 
-Que vous implémentiez une nouvelle fonctionnalité dans votre application ou que vous commenciez à vous familiariser avec Azure Active Directory (Azure AD), les identités Microsoft ou l'API Microsoft Graph, vous pouvez être amené à rechercher de l'aide auprès de la Communauté ou à vous renseigner sur les options de support qui sont à votre disposition en tant que développeur. Cet article vous présente ces options, notamment :
+Que vous implémentiez une nouvelle fonctionnalité dans votre application ou que vous commenciez à vous familiariser avec Azure Active Directory (Azure AD), les identités Microsoft ou l'API Microsoft Graph, vous pouvez être amené à rechercher de l'aide auprès de la Communauté ou à vous renseigner sur les options de support qui sont à votre disposition en tant que développeur. Voici quelques suggestions pour obtenir de l’aide lors du développement de vos solutions de Plateforme d’identités Microsoft.
 
-> [!div class="checklist"]
-> * Effectuer une recherche pour savoir si votre question ou votre problème a déjà été traité par la Communauté, ou s'il existe déjà une documentation sur la fonctionnalité que vous essayez d'implémenter
-> * Dans certains cas, vous pouvez simplement souhaiter utiliser nos outils de support afin de résoudre un problème particulier
-> * Si vous ne trouvez pas la solution à votre problème, vous avez la possibilité de poser une question sur *Microsoft Q&A*
-> * Si vous rencontrez des difficultés avec l’une de nos bibliothèques d’authentification, signalez un problème *GitHub*
-> * Enfin, si vous voulez vous entretenir avec une personne, ouvrez une demande de support
+## <a name="create-an-azure-support-request"></a>Créer une demande de support Azure
 
-## <a name="search"></a>Recherche
+<div class='icon is-large'>
+    <img alt='Azure support' src='https://docs.microsoft.com/media/logos/logo_azure.svg'>
+</div>
 
-Si vous avez une question relative au développement, la réponse peut se trouver dans la documentation, dans les [exemples GitHub](https://github.com/azure-samples) ou dans les réponses aux questions posées sur [Microsoft Q&A](/answers/products/).
+Découvrez l’éventail des [options de support Azure et choisissez le plan](https://azure.microsoft.com/support/plans) qui vous convient, que vous soyez un développeur qui commence à explorer le cloud ou une grande organisation déployant des applications stratégiques et critiques. Les clients Azure peuvent créer et gérer des demandes de support dans le Portail Azure.
 
-### <a name="scoped-search"></a>Recherche étendue
+- Si vous disposez déjà d’un plan de support Azure, [ouvrez une demande de support ici](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-Pour des résultats plus rapides, élargissez votre recherche à [Microsoft Q&A](/answers/products/), à la documentation et aux exemples de code en utilisant la requête suivante dans votre moteur de recherche habituel :
-
-```
-{Your Search Terms} (site:http://www.docs.microsoft.com/answers/products/ OR site:docs.microsoft.com OR site:github.com/azure-samples OR site:cloudidentity.com OR site:developer.microsoft.com/graph)
-```
-
-Sachant que *{Your Search Terms}* correspond aux mots clés de votre recherche.
-
-## <a name="use-the-development-support-tools"></a>Utiliser les outils de support de développement
-
-| Outil  | Description  |
-|---------|---------|
-| [jwt.ms](https://jwt.ms) | Collez un ID ou un jeton d'accès pour décoder les noms et les valeurs des revendications. |
-| [Afficheur Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer)| Cet outil vous permet de soumettre des requêtes et de voir les réponses par rapport à l'API Microsoft Graph. |
+- Si vous n’êtes pas un client Azure, vous pouvez également ouvrir une demande de support auprès de Microsoft via [notre assistance commerciale](https://support.serviceshub.microsoft.com/supportforbusiness).
 
 ## <a name="post-a-question-to-microsoft-qa"></a>Publier une question sur Microsoft Q&A
+<div class='icon is-large'>
+    <img alt='Microsoft Q&A' src='./media/common/question-mark-icon.png'>
+</div>             
 
-[Microsoft Q&A](/answers/products/) est le canal de prédilection pour les questions de développement. Les membres de la communauté des développeurs et de l'équipe Microsoft y apportent directement leur contribution en vous aidant à résoudre vos problèmes.
+Recevez des réponses à vos questions sur le développement d’applications d’identité directement de la part des ingénieurs Microsoft, des professionnels MVP (Most Valuable Professionals) et des membres de notre communauté d’experts.
 
-Si vous ne trouvez pas de réponse à votre question par l’intermédiaire de la recherche, soumettez une nouvelle question sur [Microsoft Q&A](/answers/products/). Utilisez l'une des balises suivantes lorsque vous posez une question pour permettre à la communauté d'identifier votre question et d'y répondre plus rapidement :
+[Microsoft Q&A](/answers/products/) est la source recommandée d’Azure pour le support de la communauté.
 
-|Composant/zone  | Balises |
-|---------|---------|
-| Bibliothèque ADAL | [[adal]](/answers/topics/azure-ad-adal-deprecation.html) |
-| Bibliothèque MSAL     | [[msal]](/answers/topics/azure-ad-msal.html) |
-| Intergiciel (middleware) OWIN  | [[azure-active-directory]](/answers/topics/azure-active-directory.html) |
-| [Azure B2B](../external-identities/what-is-b2b.md)  | [[azure-ad-b2b]](/answers/topics/azure-ad-b2b.html) |
-| [Azure B2C](https://azure.microsoft.com/services/active-directory-b2c/)  | [[azure-ad-b2c]](/answers/topics/azure-ad-b2c.html) |
-| [API Microsoft Graph](https://developer.microsoft.com/graph/) | [[azure-ad-graph]](/answers/topics/azure-ad-graph.html) |
-| Toute autre zone liée à des sujets sur l’authentification ou les autorisations | [[azure-active-directory]](/answers/topics/azure-active-directory.html) |
+Si vous ne trouvez pas de solution à votre problème en effectuant une recherche dans Microsoft Q&A, envoyez une nouvelle question. Utilisez l’une des étiquettes suivantes quand vous posez votre [question de haute qualité](https://docs.microsoft.com/answers/articles/24951/how-to-write-a-quality-question.html) :
 
-Les publications suivantes de [Microsoft Q&A](/answers/products/) contiennent des conseils sur la formulation des questions et sur l’ajout de code source. Suivez ces recommandations pour que les membres de la communauté étudient votre question et y répondent rapidement :
-
-* [Comment poser une bonne question](/answers/articles/24951/how-to-write-a-quality-question.html)
-* [Comment créer un exemple minimal, complet et vérifiable](/answers/articles/24907/how-to-write-a-quality-answer.html)
+| Composant/zone| Balises  |
+|------------|---------------------------|
+| Bibliothèque d’authentification Active Directory (ADAL)                              | [[adal]](https://docs.microsoft.com/answers/topics/azure-ad-adal-deprecation.html)                |
+| Bibliothèque d’authentification Microsoft (MSAL)                                     | [[msal]](https://docs.microsoft.com/answers/topics/azure-ad-msal.html)                            |
+| Ouvrir l’intergiciel Open Web Interface pour .NET (OWIN)                               | [[azure-active-directory]](https://docs.microsoft.com/answers/topics/azure-active-directory.html) |
+| [Azure AD B2B / External Identities](../external-identities/what-is-b2b.md) | [[azure-ad-b2b]](https://docs.microsoft.com/answers/topics/azure-ad-b2b.html)                     |
+| [Azure AD B2C](https://azure.microsoft.com/services/active-directory-b2c/)  | [[azure-ad-b2c]](https://docs.microsoft.com/answers/topics/azure-ad-b2c.html)                     |
+| [API Microsoft Graph](https://developer.microsoft.com/graph/)               | [[azure-ad-graph]](https://docs.microsoft.com/answers/topics/azure-ad-graph.html)                 |
+| Toutes les autres zones d’authentification et d’autorisation                            | [[azure-active-directory]](https://docs.microsoft.com/answers/topics/azure-active-directory.html) |
 
 ## <a name="create-a-github-issue"></a>Créer un problème GitHub
 
-Si vous découvrez un bogue ou un problème lié à nos bibliothèques, signalez-le dans nos référentiels GitHub. Nos bibliothèques étant open source, vous pouvez également soumettre une demande de tirage (pull request).
+<div class='icon is-large'>
+    <img alt='GitHub-image' src='./media/common/github.svg'>
+</div>
 
-Pour obtenir la liste des bibliothèques et de leurs référentiels GitHub, consultez les informations suivantes :
+Si vous avez besoin d’aide pour l’une des bibliothèques d’authentification Microsoft (MSAL), ouvrez un problème dans le référentiel correspondant sur GitHub.
 
-* Bibliothèques [ADAL (Azure Active Directory Authentication Library)](../azuread-dev/active-directory-authentication-libraries.md) et référentiels GitHub
-* Bibliothèques [MSAL (Microsoft Authentication Library)](reference-v2-libraries.md) et référentiels GitHub
+| Bibliothèque MSAL | URL des problèmes GitHub|
+| --- | --- |
+| MSAL pour Android | https://github.com/AzureAD/microsoft-authentication-library-for-android/issues |
+| MSAL Angular | https://github.com/AzureAD/microsoft-authentication-library-for-js/issues |
+| MSAL pour iOS et macOS| https://github.com/AzureAD/microsoft-authentication-library-for-objc/issues |
+| MSAL Java | https://github.com/AzureAD/microsoft-authentication-library-for-java/issues |
+| MSAL.js | https://github.com/AzureAD/microsoft-authentication-library-for-js/issues |
+|MSAL.NET| https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues |
+| MSAL Node | https://github.com/AzureAD/microsoft-authentication-library-for-js/issues |
+| MSAL Python | https://github.com/AzureAD/microsoft-authentication-library-for-python/issues |
+| MSAL React | https://github.com/AzureAD/microsoft-authentication-library-for-js/issues |
 
-## <a name="open-a-support-request"></a>Ouverture d’une demande de support
+## <a name="submit-feedback-on-azure-feedback"></a>Envoyer des commentaires sur Azure Feedback
 
-Si vous avez besoin de vous entretenir avec quelqu’un, vous pouvez ouvrir une demande de support. Si vous êtes un client Azure, plusieurs options de support s’offrent à vous. Pour comparer les formules, consultez [cette page](https://azure.microsoft.com/support/plans/). Le support technique des développeurs est également disponible pour les clients Azure. Pour obtenir plus d’informations sur l’achat de formules d’assistance Developer Support, consultez [cette page](https://azure.microsoft.com/support/plans/developer/).
+<div class='icon is-large'>
+    <img alt='UserVoice' src='https://docs.microsoft.com/media/logos/logo-uservoice.svg'>
+</div>
 
-* Si vous disposez déjà d’une formule d’assistance Azure, [ouvrez une demande de support ici](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
+Pour demander de nouvelles fonctionnalités, publiez-les sur Azure Feedback. Partagez vos idées pour améliorer le fonctionnement de la Plateforme d’identités Microsoft pour les applications que vous développez.
 
-* Si vous n’êtes pas un client Azure, vous pouvez également ouvrir une demande de support auprès de Microsoft via [notre assistance commerciale](https://support.serviceshub.microsoft.com/supportforbusiness).
+| Service                       | URL Azure Feedback |
+|-------------------------------|---------------|
+| Azure Active Directory | https://feedback.azure.com/forums/169401-azure-active-directory |
+| Azure Active Directory – Expériences des développeurs             | https://feedback.azure.com/forums/169401-azure-active-directory?category_id=164757 |
+| Azure Active Directory – Authentification             | https://feedback.azure.com/forums/169401-azure-active-directory?category_id=167256 |
 
-Vous avez aussi la possibilité de vous adresser à un [agent virtuel](https://support.microsoft.com/contactus/?ws=support) pour obtenir une assistance ou poser des questions.
+## <a name="stay-informed-of-updates-and-new-releases"></a>Rester informé des mises à jour et des nouvelles versions
+
+<div class='icon is-large'>
+    <img alt='Stay informed' src='https://docs.microsoft.com/media/common/i_blog.svg'>
+</div>
+
+- [Mises à jour Azure](https://azure.microsoft.com/updates/?category=identity) : découvrez les mises à jour de produits, la feuille de route et les annonces importantes.
+
+- [Nouveautés dans la documentation](https://docs.microsoft.com/azure/active-directory/develop/whats-new-docs) : découvrez les nouveautés de la documentation sur la Plateforme d’identités Microsoft.
+
+- [Blog Azure Active Directory Identity](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/bg-p/Identity) : consultez les actualités et obtenez des informations sur Azure AD.
+
+- [Tech Community](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/bg-p/Identity/) : partagez vos expériences, participez et apprenez auprès des experts.
+
+

@@ -11,30 +11,28 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: pim
-ms.date: 02/11/2021
+ms.date: 03/09/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8f05ca02068c82a3839b22b698e49a7be818a56
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 4276b48584ecbad91794de58abafd7e3367f6877
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100370544"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102564031"
 ---
 # <a name="create-an-access-review-of-azure-resource-roles-in-privileged-identity-management"></a>Créer une révision d’accès des rôles de ressources Azure dans Privileged Identity Management
 
-L’accès aux rôles de ressources Azure privilégiés pour les employés change au fil du temps. Pour réduire les risques associés aux attributions de rôles obsolètes, vous devez vérifier les accès régulièrement. Vous pouvez utiliser Azure Active Directory (Azure AD) Privileged Identity Management (PIM) pour créer des révisions d’accès pour les rôles de ressources Azure privilégiés. Vous pouvez également configurer des révisions d’accès périodiques qui interviennent automatiquement.
+Les besoins d’accès aux rôles de ressources Azure privilégiés des employés évoluent au fil du temps. Pour réduire les risques associés aux attributions de rôles obsolètes, vous devez vérifier les accès régulièrement. Vous pouvez utiliser Azure Active Directory (Azure AD) Privileged Identity Management (PIM) pour créer des révisions d’accès pour l’accès privilégié aux rôles de ressources Azure. Vous pouvez également configurer des révisions d’accès périodiques qui interviennent automatiquement. Cet article explique comment créer une ou plusieurs révisions d’accès.
 
-Cet article explique comment créer une ou plusieurs révisions d’accès pour les rôles de ressources Azure privilégiés.
-
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisite-role"></a>Rôle prérequis
 
  Pour créer des révisions d’accès, vous devez être affecté au rôle Azure [Propriétaire](../../role-based-access-control/built-in-roles.md#owner) ou [Administrateur de l’accès utilisateur](../../role-based-access-control/built-in-roles.md#user-access-administrator) pour la ressource.
 
 ## <a name="open-access-reviews"></a>Ouvrir les révisions d’accès
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com/) à l’aide d’un nom d’utilisateur qui est membre du rôle Administrateur de rôle privilégié.
+1. Connectez-vous au [portail Azure](https://portal.azure.com/) avec un utilisateur auquel est attribué l’un des rôles prérequis.
 
 1. Ouvrez **Azure AD Privileged Identity Management**.
 

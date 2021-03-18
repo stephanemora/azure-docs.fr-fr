@@ -10,16 +10,16 @@ ms.reviewer: msangapu;suwatch;pbatum;naren.soni
 ms.custom: seodec18
 zone_pivot_groups: app-service-webjob
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 4737f0f19acf199190df02386ecb2ece65fa571e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 0d49323e2bc3c0522b1fb9ad49ffcc14f476e2dc
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101743178"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102452796"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Exécuter des tâches en arrière-plan avec WebJobs dans Azure App Service
 
-Le concept des [tâches en arrière-plan](./webjobs-create-ieux-conceptual.md) exécutées sur Azure est assuré par des tâches web Azure App Service. Découvrez comment déployer des <abbr title="Programme ou script dans la même instance qu’une application web, application API ou application mobile.">WebJobs</abbr> avec le [portail Azure](https://portal.azure.com) pour charger un fichier exécutable ou un script. 
+Le concept des [tâches en arrière-plan](./webjobs-create-ieux-conceptual.md) exécutées sur Azure est assuré par WebJobs dans Azure App Service. Découvrez comment déployer des <abbr title="Programme ou script dans la même instance qu’une application web, application API ou application mobile.">WebJobs</abbr> avec le [portail Azure](https://portal.azure.com) pour charger un fichier exécutable ou un script. 
 
 Trois types de tâches web sont pris en charge :
 

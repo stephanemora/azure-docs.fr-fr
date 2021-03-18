@@ -5,12 +5,12 @@ ms.date: 06/10/2019
 ms.topic: conceptual
 hide_comments: true
 hideEdit: true
-ms.openlocfilehash: 0eedd5ce67e96c9d732cf24cbe56a8c3c5e92aaa
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 28abe5dbd9064fb0a6bc1b3f167830672deacdcc
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880489"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102452694"
 ---
 # <a name="service-fabric-releases"></a>Versions de Azure Service Fabric
 
@@ -48,6 +48,7 @@ Nous sommes ravis d’annoncer que la version 7.2 du runtime Service Fabric a c
 | 10 novembre 2020  | Azure Service Fabric 7.2 Third Refresh Release | [Notes de publication](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-72CU3-releasenotes.md) |
 | 2 décembre 2020 | [Azure Service Fabric 7.2 Fourth Refresh Release](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-7-2-fourth-refresh-release/ba-p/1950584) | [Notes de publication](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-72CU4.md)
 | 25 janvier 2021 | [Cinquième mise en production actualisée d’Azure Service Fabric 7.2](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-7-2-fifth-refresh-release/ba-p/2096575) | [Notes de publication](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-72CU5-ReleaseNotes.md)
+| 17 février 2021 | [Sixième mise en production actualisée d’Azure Service Fabric 7.2](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-sixth-refresh-release/ba-p/2144685) | [Notes de publication](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-72CU6-ReleaseNotes.md)
 
 ## <a name="previous-versions"></a>Versions précédentes
 
@@ -70,7 +71,7 @@ Nous avons également publié des mises à jour jusqu’à la date de fin de sup
       -  réduisent les coûts globaux (les disques sont gratuits et n’impliquent aucun coût de stockage supplémentaire).
 - La prise en charge de la déclaration de [**certificats de point de terminaison d’applications Service Fabric par nom commun d’objet**](./service-fabric-service-manifest-resources.md).
 - [**Prise en charge des sondes d’intégrité pour les services en conteneur**](./probes-codepackage.md) : Prise en charge du mécanisme Probe Liveness pour les applications en conteneur. Le diagnostic Probe Liveness vous aide à annoncer l’activité de l’application en conteneur et lorsqu’il ne répond pas dans les délais, cela entraîne un redémarrage. 
-- [**Prise en charge des packages de code d’initialiseur**](./initializer-codepackages.md) pour les [conteneurs](https://review.docs.microsoft.com/azure/service-fabric/service-fabric-containers-overview) et les applications [d’exécutables invités](https://review.docs.microsoft.com/azure/service-fabric/service-fabric-guest-executables-introduction). Cela permet d’exécuter des packages de code (par exemple, des conteneurs), dans un ordre spécifié, afin d’effectuer l’initialisation du package de services.
+- [**Prise en charge des packages de code d’initialiseur**](./initializer-codepackages.md) pour les [conteneurs](/azure/service-fabric/service-fabric-containers-overview) et les applications [d’exécutables invités](/azure/service-fabric/service-fabric-guest-executables-introduction). Cela permet d’exécuter des packages de code (par exemple, des conteneurs), dans un ordre spécifié, afin d’effectuer l’initialisation du package de services.
 - **FabricObserver et ClusterObserver** sont des applications sans état qui capturent les données de télémétrie Service Fabric liées à différents aspects d’un cluster SF. Ces deux applications sont prêtes à être déployées sur des clusters de production Windows pour capturer une télémétrie riche avec prise en charge implémentée d’ApplicationInsights, d’EventSource et de LogAnalytics.
     - [**FabricObserver (FO) 2.0**](https://github.com/microsoft/service-fabric-observer) : s’exécute sur tous les nœuds, génère des événements d’intégrité, émet la télémétrie quand les seuils d’utilisation des ressources configurés par l’utilisateur sont atteints. Cette version contient plusieurs améliorations au niveau de la surveillance, de la gestion des données, des détails des événements d’intégrité et de la télémétrie structurée.
      - [**ClusterObserver (CO) 1.1**](https://github.com/microsoft/service-fabric-observer/tree/master/ClusterObserver) : s’exécute sur un nœud, capture la télémétrie d’intégrité au niveau du cluster. Dans cette version, ClusterObserver surveille également l’état des nœuds et émet des données de télémétrie quand le nœud est en panne/en cours de désactivation/désactivé pendant une période plus longue que celle spécifiée par l’utilisateur.

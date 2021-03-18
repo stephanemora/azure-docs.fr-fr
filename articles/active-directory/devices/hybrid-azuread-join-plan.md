@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c4ed5dfee80c33009874361ae6b4d23ec00bc26
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: cadba181ea7d6a12ca64c78f3c7c58654d5f756f
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99573328"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102500806"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Procédure : Planifier l’implémentation de la jonction Azure AD Hybride
 
@@ -95,6 +95,7 @@ La première étape de la planification consiste à examiner l’environnement e
 Si vos appareils Windows 10 joints à un domaine sont [inscrits sur Azure AD](overview.md#getting-devices-in-azure-ad) auprès de votre locataire, cela peut entraîner un double état : appareil joint à Azure AD Hybride et appareil inscrit sur Azure AD. Nous vous recommandons de procéder à une mise à niveau vers Windows 10 1803 (avec KB4489894 appliqué) ou version ultérieure pour répondre automatiquement à ce scénario. Dans les versions antérieures à 1803, vous devrez supprimer manuellement l’état « appareil inscrit sur Azure AD » avant d’activer une jonction Azure AD Hybride. Dans les versions 1803 et ultérieures, les modifications suivantes ont été apportées pour éviter ce double état :
 
 - Tout état existant inscrit sur Azure AD pour un utilisateur est automatiquement supprimé <i>dès lors que l’appareil est joint à Azure AD Hybride et que le même utilisateur se connecte</i>. Par exemple, si l’utilisateur A a un état Azure AD inscrit sur l’appareil, le double état de l’utilisateur A est nettoyé uniquement lorsque l’utilisateur A se connecte à l’appareil. S’il y a plusieurs utilisateurs sur le même appareil, le double état est nettoyé individuellement quand ces utilisateurs se connectent. En plus de supprimer l’état inscrit auprès d’Azure AD, Windows 10 désinscrit également l’appareil d’Intune ou d’autres GPM, si l’inscription s’est produite dans le cadre de l’inscription d’Azure AD via l’inscription automatique.
+- L’état inscrit auprès d’Azure AD sur tous les comptes locaux sur l’appareil n’est pas affecté par cette modification. S’applique uniquement aux comptes de domaine. L’état inscrit auprès d’Azure AD sur les comptes locaux n’est donc pas supprimé automatiquement, même après l’ouverture de session de l’utilisateur, car l’utilisateur n’est pas un utilisateur de domaine. 
 - Vous pouvez éviter que votre appareil joint au domaine soit inscrit à Azure AD en ajoutant la valeur de registre suivante à HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin: "BlockAADWorkplaceJoin"=dword:00000001.
 - Dans Windows 10 1803, si vous avez configuré Windows Hello Entreprise, l’utilisateur doit reconfigurer Windows Hello Entreprise après le nettoyage de double état. Ce problème a été résolu avec KB4512509
 
@@ -170,7 +171,7 @@ Le tableau ci-dessous fournit des détails sur la prise en charge de ces UPN AD 
 | ----- | ----- | ----- | ----- |
 | Routable | Adresses IP fédérées | À partir de la version 1703 | Mise à la disposition générale |
 | Non routable | Adresses IP fédérées | À partir de la version 1803 | Mise à la disposition générale |
-| Routable | Adresses IP gérées | À partir de la version 1803 | Mis à la disposition générale, Azure AD SSPR sur l’écran de verrouillage Windows n'est pas pris en charge |
+| Routable | Adresses IP gérées | À partir de la version 1803 | Mis à la disposition générale, Azure AD SSPR sur l’écran de verrouillage Windows n’est pas pris en charge. Le nom UPN local doit être synchronisé avec l’attribut `onPremisesUserPrincipalName` dans Azure AD |
 | Non routable | Adresses IP gérées | Non pris en charge | |
 
 ## <a name="next-steps"></a>Étapes suivantes

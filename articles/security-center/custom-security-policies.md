@@ -1,27 +1,32 @@
 ---
 title: Créer des stratégies de sécurité personnalisées dans Azure Security Center | Microsoft Docs
 description: Définitions de stratégie Azure personnalisées surveillées dans Azure Security Center.
-services: security-center
 author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 12/03/2020
+ms.date: 02/25/2021
 ms.author: memildin
-ms.openlocfilehash: 8d2b43ab57ea7a3b1dc1d13bcdea9932ccecb9dc
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+zone_pivot_groups: manage-asc-initiatives
+ms.openlocfilehash: a901e71da640f8413e5714ad59073324f582c1b9
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96559029"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102441055"
 ---
-# <a name="using-custom-security-policies"></a>Utilisation de stratégies de sécurité personnalisées
+# <a name="create-custom-security-initiatives-and-policies"></a>Créer des stratégies et des initiatives de sécurité personnalisées
 
 Pour vous aider à sécuriser vos systèmes et votre environnement, Azure Security Center génère des recommandations de sécurité. Ces recommandations sont basées sur les meilleures pratiques du secteur, qui sont incorporées à la stratégie de sécurité par défaut générique fournie à tous les clients. Elles peuvent également provenir des connaissances que Security Center a des normes et réglementations du secteur.
 
 Avec cette fonctionnalité, vous pouvez ajouter vos propres initiatives *personnalisées*. Vous recevez ensuite des recommandations si votre environnement ne suit pas les stratégies que vous créez. Toutes les initiatives personnalisées que vous créez apparaîtront à côté des initiatives intégrées dans le tableau de bord de conformité à la réglementation, comme décrit dans le tutoriel [Améliorer votre conformité aux normes](security-center-compliance-dashboard.md).
 
 Comme nous l’avons vu dans la [documentation Azure Policy](../governance/policy/concepts/definition-structure.md#definition-location), quand vous spécifiez un emplacement pour votre initiative personnalisée, il doit correspondre à un groupe d’administration ou à un abonnement. 
+
+> [!TIP]
+> Pour obtenir une vue d’ensemble des concepts clés de cette page, consultez [Présentation des stratégies de sécurité, des initiatives et des recommandations](security-policy-concept.md).
+
+::: zone pivot="azure-portal"
 
 ## <a name="to-add-a-custom-initiative-to-your-subscription"></a>Pour ajouter une initiative personnalisée à votre abonnement 
 
@@ -68,6 +73,113 @@ Comme nous l’avons vu dans la [documentation Azure Policy](../governance/polic
 1. Pour afficher les recommandations qui en résultent pour votre stratégie, cliquez sur **Recommandations** dans la barre latérale pour ouvrir la page de recommandations. Les recommandations apparaissent avec une étiquette « Personnalisée » et sont disponibles dans un délai d’une heure environ.
 
     [![Recommandations personnalisées](media/custom-security-policies/custom-policy-recommendations.png)](media/custom-security-policies/custom-policy-recommendations-in-context.png#lightbox)
+
+::: zone-end
+
+::: zone pivot="rest-api"
+
+## <a name="configure-a-security-policy-in-azure-policy-using-the-rest-api"></a>Configurer une stratégie de sécurité dans Azure Policy à l’aide de l’API REST
+
+Dans le cadre de l’intégration native à Azure Policy, Azure Security Center vous permet de tirer parti de l’API REST d’Azure Policy pour créer des affectations de stratégie. Les instructions suivantes vous guident tout au long de la création d’affectations de stratégies, ainsi que de la personnalisation d’affectations existantes. 
+
+Concepts importants utilisés dans Azure Policy : 
+
+- Une **définition de stratégie** est une règle 
+
+- Une **initiative** est une collection de définitions de stratégie (règles) 
+
+- Une **affectation** est l’application d’une initiative ou d’une stratégie à une étendue spécifique (groupe d’administration, abonnement, etc.) 
+
+Security Center dispose d’une initiative intégrée, Azure Security Benchmark, qui inclut toutes ses stratégies de sécurité. Pour évaluer les stratégies de Security Center sur vos ressources Azure, vous devez créer une affectation sur le groupe d’administration ou un abonnement que vous voulez évaluer.
+
+L’initiative intégrée a toutes les stratégies de Security Center activées par défaut. Vous pouvez choisir de désactiver certaines stratégies de l’initiative intégrée. Par exemple, pour appliquer toutes les stratégies de Security Center à l’exception de **Pare-feu d’application web**, changez la valeur du paramètre d’effet de la stratégie à **Désactivé**.
+
+## <a name="api-examples"></a>Exemples d'API
+
+Dans les exemples suivants, remplacez les variables suivantes :
+
+- **{scope}** entrez le nom du groupe d’administration ou de l’abonnement auquel vous appliquez la stratégie
+- **{policyAssignmentName}** entrez le nom de l’attribution de stratégie appropriée
+- **{name}** entrez votre nom ou le nom de l’administrateur qui a approuvé le changement de stratégie
+
+Cet exemple vous montre comment affecter l’initiative Security Center intégrée sur un abonnement ou un groupe d’administration :
+ 
+ ```
+    PUT  
+    https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
+
+    Request Body (JSON) 
+
+    { 
+
+      "properties":{ 
+
+    "displayName":"Enable Monitoring in Azure Security Center", 
+
+    "metadata":{ 
+
+    "assignedBy":"{Name}" 
+
+    }, 
+
+    "policyDefinitionId":"/providers/Microsoft.Authorization/policySetDefinitions/1f3afdf9-d0c9-4c3d-847f-89da613e70a8", 
+
+    "parameters":{}, 
+
+    } 
+
+    } 
+ ```
+
+Cet exemple vous montre comment affecter l’initiative Security Center intégrée sur un abonnement, avec les stratégies suivantes désactivées : 
+
+- Mises à jour système (“systemUpdatesMonitoringEffect”) 
+
+- Configurations de sécurité (« systemConfigurationsMonitoringEffect ») 
+
+- Protection du point de terminaison (« endpointProtectionMonitoringEffect ») 
+
+ ```
+    PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
+    
+    Request Body (JSON) 
+    
+    { 
+    
+      "properties":{ 
+    
+    "displayName":"Enable Monitoring in Azure Security Center", 
+    
+    "metadata":{ 
+    
+    "assignedBy":"{Name}" 
+    
+    }, 
+    
+    "policyDefinitionId":"/providers/Microsoft.Authorization/policySetDefinitions/1f3afdf9-d0c9-4c3d-847f-89da613e70a8", 
+    
+    "parameters":{ 
+    
+    "systemUpdatesMonitoringEffect":{"value":"Disabled"}, 
+    
+    "systemConfigurationsMonitoringEffect":{"value":"Disabled"}, 
+    
+    "endpointProtectionMonitoringEffect":{"value":"Disabled"}, 
+    
+    }, 
+    
+     } 
+    
+    } 
+ ```
+Cet exemple vous montre comment supprimer une affectation :
+ ```
+    DELETE   
+    https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
+ ```
+
+::: zone-end
+
 
 ## <a name="enhance-your-custom-recommendations-with-detailed-information"></a>Améliorez vos recommandations personnalisées grâce à des informations détaillées
 
