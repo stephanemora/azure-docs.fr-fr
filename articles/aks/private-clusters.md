@@ -3,13 +3,13 @@ title: Créer un cluster Azure Kubernetes Service privé
 description: Découvrez comment créer un cluster Azure Kubernetes Service (AKS) privé
 services: container-service
 ms.topic: article
-ms.date: 7/17/2020
-ms.openlocfilehash: f0c74c1b3715fd3f5c83c3a9231009e622b87927
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.date: 3/5/2021
+ms.openlocfilehash: 190658e23ee02651e64c3718824315c0265c0f04
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102181225"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102556534"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>Créer un cluster Azure Kubernetes Service privé
 
@@ -70,19 +70,26 @@ Où `--enable-private-cluster` est un indicateur obligatoire pour un cluster pri
 
 Les paramètres suivants peuvent être utilisés pour configurer une zone de DNS privé.
 
-1. « System » correspond à la valeur par défaut. Si l’argument --private-dns-zone est omis, AKS crée une zone de DNS privé dans le groupe de ressources du nœud.
-2. « None » signifie qu’AKS ne crée pas de zone de DNS privé.  Cela requiert l’apport de votre propre serveur DNS et la configuration de la résolution DNS pour le nom de domaine complet privé.  Si vous ne configurez pas la résolution DNS, le DNS ne peut être résolu qu’au sein des nœuds de l’agent et provoquera des problèmes de cluster après le déploiement.
-3. Le « nom de zone de DNS privé personnalisé » doit être au format suivant pour le cloud mondial Azure : `privatelink.<region>.azmk8s.io`. Vous aurez besoin de l’ID de la ressource de cette zone DNS privée.  De plus, vous aurez besoin d’une identité affectée par l’utilisateur ou d’un principal de service disposant au minimum du rôle `private dns zone contributor` pour la zone DNS privée personnalisée.
+- « System » correspond à la valeur par défaut. Si l’argument --private-dns-zone est omis, AKS crée une zone de DNS privé dans le groupe de ressources du nœud.
+- « None » signifie qu’AKS ne crée pas de zone de DNS privé.  Cela requiert l’apport de votre propre serveur DNS et la configuration de la résolution DNS pour le nom de domaine complet privé.  Si vous ne configurez pas la résolution DNS, le DNS ne peut être résolu qu’au sein des nœuds de l’agent et provoquera des problèmes de cluster après le déploiement. 
+- « CUSTOM_PRIVATE_DNS_ZONE_RESOURCE_ID » vous oblige à créer une zone DNS privée au format suivant pour le cloud global Azure : `privatelink.<region>.azmk8s.io`. À partir de maintenant, vous allez avoir besoin de l’ID de ressource de la zone DNS privée.  De plus, vous aurez besoin d’une identité affectée par l’utilisateur ou d’un principal de service disposant au minimum du rôle `private dns zone contributor`.
+- « fqdn-subdomain » peut être utilisé avec « CUSTOM_PRIVATE_DNS_ZONE_RESOURCE_ID » uniquement pour fournir des fonctionnalités de sous-domaine à `privatelink.<region>.azmk8s.io`
 
 ### <a name="prerequisites"></a>Prérequis
 
-* Version préliminaire AKS 0.4.71 ou ultérieure
+* AKS Preview version 0.5.3 ou ultérieure
 * API version 2020-11-01 ou ultérieure
 
 ### <a name="create-a-private-aks-cluster-with-private-dns-zone-preview"></a>Créer un cluster AKS privé avec zone DNS privé (préversion)
 
 ```azurecli-interactive
-az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --enable-managed-identity --assign-identity <ResourceId> --private-dns-zone [none|system|custom private dns zone ResourceId]
+az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --enable-managed-identity --assign-identity <ResourceId> --private-dns-zone [system|none]
+```
+
+### <a name="create-a-private-aks-cluster-with-a-custom-private-dns-zone-preview"></a>Créer un cluster AKS privé avec zone DNS privée personnalisée (préversion)
+
+```azurecli-interactive
+az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --enable-managed-identity --assign-identity <ResourceId> --private-dns-zone <custom private dns zone ResourceId> --fqdn-subdomain <subdomain-name>
 ```
 ## <a name="options-for-connecting-to-the-private-cluster"></a>Options de connexion au cluster privé
 
@@ -142,5 +149,5 @@ Comme indiqué, l’appairage de réseaux virtuels est un moyen d’accéder à 
 [virtual-network-peering]: ../virtual-network/virtual-network-peering-overview.md
 [azure-bastion]: ../bastion/tutorial-create-host-portal.md
 [express-route-or-vpn]: ../expressroute/expressroute-about-virtual-network-gateways.md
-[devops-agents]: /azure/devops/pipelines/agents/agents?view=azure-devops
+[devops-agents]: /azure/devops/pipelines/agents/agents
 [availability-zones]: availability-zones.md

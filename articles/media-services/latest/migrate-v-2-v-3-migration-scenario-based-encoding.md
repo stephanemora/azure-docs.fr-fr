@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: media
 ms.date: 1/14/2020
 ms.author: inhenkel
-ms.openlocfilehash: 671991a936fd0330c31017dd5f64e7b5eca9b3f4
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: e093e22e2f1db3b432fdf328a077e56a8e56d92b
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/10/2021
-ms.locfileid: "102563657"
+ms.locfileid: "102612493"
 ---
 # <a name="encoding-scenario-based-migration-guidance"></a>Recommandations en matière de migration basées sur un scénario d’encodage
 
@@ -58,7 +58,7 @@ Cliquez sur l’image ci-dessous pour afficher une version plus volumineuse.
 
 ### <a name="v3-encoding-workflow"></a>Flux de travail d’encodage v3
 
-[![Flux de travail d’encodage pour V3](./media/migration-guide/V3-pretty.svg) ](./media/migration-guide/V3-pretty.svg#lightbox)
+[![Flux de travail d’encodage pour v3](./media/migration-guide/V3-pretty.svg)](./media/migration-guide/V3-pretty.svg#lightbox)
 
 1. Configurer
     1. Créez une ressource ou utilisez une ressource existante. Si vous utilisez une nouvelle ressource, chargez le contenu vers celle-ci. Si vous utilisez une ressource existante, vous devez encoder des fichiers qui existent déjà dans la ressource. Vous *ne devez pas charger plus de contenu dans cette ressource.*
