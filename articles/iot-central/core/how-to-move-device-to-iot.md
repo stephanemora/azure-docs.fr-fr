@@ -7,12 +7,12 @@ ms.date: 02/20/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: f5a7693eeced1028d84598a6db3728776f845f7e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 543c3f1c72857098540cc2a77e8a0093b907b799
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101741614"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102210833"
 ---
 # <a name="how-to-transfer-a-device-to-azure-iot-central-from-iot-hub"></a>Transférer un appareil vers Azure IoT Central à partir d’IoT Hub
 
@@ -26,7 +26,7 @@ Un appareil peut être connecté directement à un hub IoT à l’aide d’une c
 
 ## <a name="to-move-the-device-to-azure-iot-central"></a>Pour déplacer l’appareil vers Azure IoT Central
 
-Pour connecter un appareil à IoT Central à partir de l’IOT Hub, un appareil doit être mis à jour avec :
+Pour connecter un appareil à IoT Central à partir du hub IoT, un appareil doit être mis à jour avec :
 
 * L’[ID d’étendue](../../iot-dps/concepts-service.md) de l'application IoT Central.
 * Une clé dérivée de la clé [SAS du groupe](concepts-get-connected.md) ou du [certificat X. 509](../../iot-hub/iot-hub-x509ca-overview.md)

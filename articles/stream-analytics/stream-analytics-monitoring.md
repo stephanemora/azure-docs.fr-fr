@@ -5,14 +5,14 @@ author: sidramadoss
 ms.author: sidram
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 06/21/2018
+ms.date: 03/08/2021
 ms.custom: seodec18
-ms.openlocfilehash: 3356e0bdd45b6a213ef5ef4a814e64585d8e8924
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6d3558511721a91c3a195cb510a1a00d5d8a9a51
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101726765"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487876"
 ---
 # <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>Présentation de la surveillance des tâches Stream Analytics et des requêtes
 
@@ -30,7 +30,7 @@ Une fenêtre s’affiche comme suit :
 | ---------------------- | ---------------------------------------- |
 | Événements d'entrée en backlog       | Nombre d’événements d’entrée qui sont en backlog. Une valeur non nulle pour cette métrique implique que votre travail n’est pas en mesure de suivre le nombre d’événements entrants. Si cette valeur est croissante ou constamment différente de zéro, vous devez effectuer un scale-out de votre travail. Vous trouverez plus d’informations en consultant [Comprendre et ajuster les unités de diffusion en continu](stream-analytics-streaming-unit-consumption.md). |
 | Erreurs de conversion de données | Nombre d’événements de sortie qui n’ont pas pu être convertis dans le schéma de sortie attendu. La stratégie de l’erreur peut être modifiée sur 'Drop' pour supprimer les événements confrontés à ce scénario. |
-| % d’utilisation du processeur (préversion)       | Pourcentage d’utilisation du processeur par votre tâche. Si cette métrique est systématiquement supérieure à 80%, cela peut signifier que votre tâche est limitée par l’utilisation du processeur et que des événements d’entrée risquent d’être retardés. Vous pouvez augmenter le nombre d’unités de diffusion allouées à votre tâche afin de limiter ces problèmes. |
+| % d’utilisation du processeur (préversion)       | Pourcentage d’utilisation du processeur par votre tâche. Même si cette valeur est très élevée (90 % ou plus), vous ne devez pas augmenter le nombre de SU uniquement sur la base de cette métrique. Si le nombre d’événements d’entrée en backlog ou de délais en filigrane augmente, vous pouvez utiliser cette métrique de pourcentage d’utilisation du processeur pour déterminer si le processeur constitue le goulot d’étranglement. Il est possible que cette métrique présente des pics intermittents. Nous vous recommandons d’effectuer des tests de mise à l’échelle afin de déterminer la limite supérieure de votre tâche au-delà de laquelle les entrées passent en backlog ou les délais en filigrane augmentent en raison d’un goulot d’étranglement au niveau du processeur. |
 | Événements d’entrée précoces       | Événements dont l’horodatage d’application est antérieure à leur heure d’arrivée de plus de 5 minutes. |
 | Requêtes de fonction ayant échoué | Nombre d’appels à la fonction Azure Machine Learning ayant échoué (le cas échéant). |
 | Événements de fonction        | Nombre d’événements envoyés à la fonction Azure Machine Learning (le cas échéant). |

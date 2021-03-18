@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: b1158a614da9ba32f628aba5dd2ed2cc71b4b455
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 2a5ba6cb0778e0c013f150d787d694b23f0497bd
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98947030"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102218007"
 ---
 # <a name="profile-live-azure-app-service-apps-with-application-insights"></a>Profiler des applications Azure App Service en production avec Application Insights
 
@@ -25,8 +25,12 @@ Pour activer Profiler pour une application, suivez les instructions ci-dessous. 
 
 Application Insights Profiler est préinstallé dans le cadre de l’exécution d’App Service. Les étapes ci-dessous vous montrent comment l’activer pour votre App Service. Suivez ces étapes même si vous avez inclus le SDK App Insights dans votre application au moment de la génération.
 
+> [!NOTE]
+> L’installation sans code d’Application Insights Profiler suit la politique de support .NET Core.
+> Pour plus d’informations sur les runtimes pris en charge, consultez [Politique de support .NET Core](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).
+
 1. Accédez au panneau de configuration Azure pour votre App Service.
-1. Activez le paramètre « Always On » pour votre service d’application. Pour accéder à ce paramètre, allez dans la page **Paramètres**, **Configuration** (voir la capture d’écran de l’étape suivante), puis cliquez sur l’onglet **Paramètres généraux**.
+1. Activez le paramètre « Always On » pour votre service d’application. Pour accéder à ce paramètre, allez dans la page **Paramètres**, **Configuration** (voir la capture d’écran de l’étape suivante), puis sélectionnez l’onglet **Paramètres généraux**.
 1. Accédez à la page **Paramètres > Application Insights**.
 
    ![Activer App Insights sur le portail App Services](./media/profiler/AppInsights-AppServices.png)
@@ -52,18 +56,18 @@ Voici les paramètres nécessaires pour activer le profileur :
 
 Vous pouvez définir ces valeurs à l’aide de [modèles Azure Resource Manager](./azure-web-apps.md#app-service-application-settings-with-azure-resource-manager), d’[Azure PowerShell](/powershell/module/az.websites/set-azwebapp) ou d’[Azure CLI](/cli/azure/webapp/config/appsettings).
 
-### <a name="enabling-profiler-for-other-clouds-manually"></a>Activation manuelle de Profiler pour d’autres clouds
+## <a name="enable-profiler-for-other-clouds"></a>Activer Profiler pour d’autres Clouds
 
-Si vous souhaitez activer Profiler pour d’autres clouds, utilisez les paramètres d’application ci-dessous.
+Actuellement, seules les régions [Azure Government](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure#application-insights) et [Azure Chine](https://docs.microsoft.com/azure/china/resources-developer-guide) nécessitent des modifications de leurs points de terminaison.
 
-|Paramètre d'application    | US Government Values| China Cloud |   
+|Paramètre d'application    | Cloud US Government | China Cloud |   
 |---------------|---------------------|-------------|
 |ApplicationInsightsProfilerEndpoint         | `https://profiler.monitor.azure.us`    | `https://profiler.monitor.azure.cn` |
 |ApplicationInsightsEndpoint | `https://dc.applicationinsights.us` | `https://dc.applicationinsights.azure.cn` |
 
 ## <a name="disable-profiler"></a>Désactiver Profiler
 
-Pour arrêter ou redémarrer Profiler pour l’instance d’une application individuelle, sous **WebJobs**, arrêtez ou redémarrez la tâche web nommée ApplicationInsightsProfiler3. Même si le profileur est désactivé à l’aide du commutateur sur la page Application Insights comme décrit ci-dessus, le processus du profileur s’exécutera toujours. Le profileur vérifiera s’il est activé. S’il est désactivé, il passe en mode veille pendant un certain temps avant de vérifier à nouveau. Il n’effectue aucun profilage s’il est désactivé. Si vous désactivez cette tâche web, le processus du profileur ne s’exécutera pas du tout, même pour vérifier s’il est activé.
+Si vous souhaitez arrêter ou redémarrer Profiler pour une instance d’application, dans la barre latérale gauche, sélectionnez **WebJobs**, puis arrêtez le WebJob nommé `ApplicationInsightsProfiler3`.
 
   ![Désactiver Profiler pour une tâche web][disable-profiler-webjob]
 

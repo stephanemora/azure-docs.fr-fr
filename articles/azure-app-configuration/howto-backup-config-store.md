@@ -10,12 +10,12 @@ ms.custom: devx-track-dotnet, devx-track-azurecli
 ms.topic: how-to
 ms.date: 04/27/2020
 ms.author: avgupta
-ms.openlocfilehash: 04edf2eeb231ff1444c732840def2b78b1373e79
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: b3e0bcad7beccc31e1772fbb24ffad7f502b8140
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94565923"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102454241"
 ---
 # <a name="back-up-app-configuration-stores-automatically"></a>Sauvegarder automatiquement des magasins App Configuration
 
@@ -137,7 +137,7 @@ Pour faciliter la sauvegarde de vos données, nous avons [testé et publié une 
 
 Si l’exemple de code fourni précédemment ne répond pas à vos besoins, vous pouvez également créer votre propre fonction. Votre fonction doit être en mesure d’exécuter les tâches suivantes pour effectuer la sauvegarde :
 - Lire régulièrement le contenu de votre file d’attente pour voir si elle contient des notifications d’Event Grid. Pour plus d’informations sur l’implémentation, consultez [Kit SDK de la file d’attente de stockage](../storage/queues/storage-quickstart-queues-dotnet.md).
-- Si votre file d’attente contient des [notifications d’événements d’Event Grid](./concept-app-configuration-event.md?branch=pr-en-us-112982#event-schema), extraire toutes les informations `<key, label>` uniques des messages d’événement. La combinaison de la clé et de l’étiquette est l’identificateur unique pour les modifications de paires clé-valeur dans le magasin principal.
+- Si votre file d’attente contient des [notifications d’événements d’Event Grid](./concept-app-configuration-event.md#event-schema), extraire toutes les informations `<key, label>` uniques des messages d’événement. La combinaison de la clé et de l’étiquette est l’identificateur unique pour les modifications de paires clé-valeur dans le magasin principal.
 - Lire tous les paramètres du magasin principal. Mettre à jour uniquement les paramètres du magasin secondaire qui ont un événement correspondant dans la file d’attente. Supprimer tous les paramètres du magasin secondaire qui étaient présents dans la file d’attente, mais pas dans le magasin principal. Vous pouvez utiliser le [Kit de développement logiciel (SDK) App Configuration](https://github.com/Azure/AppConfiguration#sdks) pour accéder par programmation à vos magasins de configuration.
 - Supprimer les messages de la file d’attente si aucune exception n’a été levée lors du traitement.
 - Implémenter la gestion des erreurs en fonction de vos besoins. Reportez-vous à l’exemple de code précédent pour voir quelques exceptions courantes que vous pouvez gérer.
@@ -177,7 +177,7 @@ az functionapp identity assign --name $functionAppName --resource-group $resourc
 ```
 
 > [!NOTE]
-> Pour effectuer les opérations de création de ressource et de gestion des rôles nécessaires, votre compte doit bénéficier des autorisations `Owner` avec l’étendue appropriée (votre abonnement ou groupe de ressources). Si vous avez besoin d’aide pour l’attribution de rôle, découvrez [comment ajouter ou supprimer des attributions de rôles Azure en utilisant le portail Azure](../role-based-access-control/role-assignments-portal.md).
+> Pour effectuer les opérations de création de ressource et de gestion des rôles nécessaires, votre compte doit bénéficier des autorisations `Owner` avec l’étendue appropriée (votre abonnement ou groupe de ressources). Si vous avez besoin d’aide pour l’attribution de rôle, découvrez [comment attribuer des rôles Azure à l’aide du portail Azure](../role-based-access-control/role-assignments-portal.md).
 
 Utilisez les commandes suivantes ou le [portail Azure](./howto-integrate-azure-managed-service-identity.md#grant-access-to-app-configuration) pour accorder à l’identité managée de votre application de fonction l’accès à vos magasins App Configuration. Utilisez ces rôles :
 - Attribuez le rôle `App Configuration Data Reader` dans le magasin App Configuration principal.

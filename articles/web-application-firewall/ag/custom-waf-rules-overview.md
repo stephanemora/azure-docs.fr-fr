@@ -7,12 +7,12 @@ author: vhorne
 ms.service: web-application-firewall
 ms.date: 04/14/2020
 ms.author: victorh
-ms.openlocfilehash: c0f802f5113e38e811c110ee913099e76fa7be0b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9a5f64687937479d65f94010bbe4f0a5f1cf5ca2
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81383810"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102548221"
 ---
 # <a name="custom-rules-for-web-application-firewall-v2-on-azure-application-gateway"></a>Règles personnalisées du pare-feu d’applications web v2 sur Azure Application Gateway
 
@@ -26,7 +26,7 @@ Les règles personnalisées prennent en charge l’utilisation de la logique de 
 
 Différentes conditions de correspondance au sein de la même règle sont toujours composées à l’aide de **et**. Par exemple, bloquer le trafic à partir d’une adresse IP spécifique, et seulement si un certain navigateur est utilisé.
 
-Si vous souhaitez **ou** deux conditions différentes, les deux conditions doivent se trouver dans des règles différentes. Par exemple, bloquer le trafic à partir d’une adresse IP spécifique, ou seulement si un certain navigateur est utilisé.
+Si vous voulez utiliser **or** entre deux conditions différentes, ces conditions doivent se trouver dans des règles différentes. Par exemple, bloquer le trafic à partir d’une adresse IP spécifique, ou seulement si un certain navigateur est utilisé.
 
 > [!NOTE]
 > Le nombre maximal de règles personnalisées WAF est de 100. Pour en savoir plus sur les limites de la passerelle Application Gateway, consultez [Limites, quotas et contraintes applicables aux services et abonnements Azure](../../azure-resource-manager/management/azure-subscription-service-limits.md#application-gateway-limits).
@@ -73,7 +73,7 @@ Le `$BlockRule` précédent est mis en correspondance avec la règle personnalis
               }
             ],
             "operator": "Contains",
-            "negationConditon": false,
+            "negationCondition": false,
             "matchValues": [
               "evilbot"
             ],

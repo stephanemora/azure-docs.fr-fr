@@ -16,12 +16,12 @@ ms.date: 09/16/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7b70e8a408c22be0331bfd0dcbe01830b072ab8
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 7b6bc00af8d54c8748dd82b934974282e0e8da0e
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91449966"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102426958"
 ---
 # <a name="change-request-settings-for-an-access-package-in-azure-ad-entitlement-management"></a>Modifier les paramètres de demande d'un package d'accès dans la fonctionnalité de gestion des droits d'utilisation Azure AD
 
@@ -198,7 +198,7 @@ Pour modifier les paramètres de demande et d’approbation d’un package d’a
 
 1. Cliquez sur **Suivant**.
 
-1. Si vous souhaitez exiger des demandeurs qu'ils fournissent des informations supplémentaires lors de la demande d'accès à un package d'accès, suivez les étapes décrites dans []() pour configurer les informations relatives au demandeur (préversion).
+1. Si vous souhaitez exiger que les demandeurs fournissent des informations supplémentaires lors de la demande d’accès à un package d’accès, utilisez les étapes fournies dans [Modifier les paramètres d’approbation et d’informations sur le demandeur (préversion) d’un package d’accès dans la fonctionnalité de gestion des droits d’utilisation Azure AD](entitlement-management-access-package-approval-policy.md#collect-additional-requestor-information-for-approval-preview) pour configurer les informations du demandeur (préversion).
 
 1. Configurez les paramètres de cycle de vie.
 

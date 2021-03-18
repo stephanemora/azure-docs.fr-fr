@@ -4,14 +4,14 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 091e4dc0759ce1b227349d5d1b6b08b9eda66ee0
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 72050ff4887642ba16d52948c1c1253ca01443c0
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96017341"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102473710"
 ---
-* La conversion nécessite un redémarrage de la machine virtuelle. Par conséquent, planifiez la migration de vos machines virtuelles au cours d’une fenêtre de maintenance préexistante. 
+* La conversion redémarre la machine virtuelle. Par conséquent, planifiez la migration de vos machines virtuelles pendant une fenêtre de maintenance préexistante. 
 
 * Vous ne pouvez pas annuler la conversion. 
 

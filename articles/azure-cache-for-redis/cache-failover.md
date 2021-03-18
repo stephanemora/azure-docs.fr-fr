@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/18/2019
-ms.openlocfilehash: 7cfa7257e64421c30c359bb34044988bbb5af1dd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc7c70fa2e7131f09f621e992d537e0b120061ef
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87093083"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102210731"
 ---
 # <a name="failover-and-patching-for-azure-cache-for-redis"></a>Basculement et mise à jour corrective pour Azure Cache pour Redis
 
@@ -72,6 +72,10 @@ La plupart des bibliothèques clientes tentent de se reconnecter au cache si ell
 Étant donné que vous ne pouvez pas éviter complètement les basculements, écrivez vos applications clientes à des fins de résilience à des arrêts de connexion et des demandes ayant échoué. Bien que la plupart des bibliothèques de clients se reconnectent automatiquement au point de terminaison de cache, seules quelques-unes retentent les requêtes ayant échoué. Selon le scénario de l’application, il peut être utile d’utiliser la logique de nouvelle tentative avec retrait.
 
 Pour tester la résilience d’une application cliente, utilisez un [redémarrage](cache-administration.md#reboot) comme déclencheur manuel pour les interruptions de connexion. En outre, nous vous recommandons de [planifier des mises à jour](cache-administration.md#schedule-updates) sur un cache. Demandez au service de gestion d’appliquer des correctifs de runtime Redis pendant les fenêtres hebdomadaires spécifiées. Ces fenêtres correspondent généralement à des périodes où le trafic de l’application cliente est faible pour éviter les incidents potentiels.
+
+### <a name="can-i-be-notified-in-advance-of-a-planned-maintenance"></a>Puis-je être notifié à l’avance d’une maintenance planifiée ?
+
+Azure Cache pour Redis publie désormais des notifications via un canal de publication et d’abonnement appelé [AzureRedisEvents](https://github.com/Azure/AzureCacheForRedis/blob/main/AzureRedisEvents.md), environ 30 secondes avant les mises à jour planifiées. Il s’agit de notifications de runtime, qui sont spécialement conçues pour les applications pouvant utiliser des solutions en vue de contourner le cache ou les commandes de mémoire tampon, par exemple pendant les mises à jour planifiées. Ce mécanisme ne peut pas vous avertir plusieurs jours ni même plusieurs heures à l’avance.
 
 ### <a name="client-network-configuration-changes"></a>Modifications de la configuration réseau du client
 

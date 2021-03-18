@@ -2,18 +2,19 @@
 title: Vue d’ensemble de la prise en charge de cloud-init pour les machines virtuelles Linux dans Azure
 description: Vue d’ensemble des fonctionnalités cloud-init permettant de configurer une machine virtuelle lors de l’approvisionnement dans Azure.
 author: danielsollondon
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.subservice: extensions
+ms.collection: linux
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 10/14/2020
+ms.date: 02/14/2021
 ms.author: danis
-ms.openlocfilehash: 87cb4a233470fadc9cde616790aff0d5cd7b151b
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: ac907c2ea2ae53bd192c01232c66e0467025daae
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096655"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102563231"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Prise en charge cloud-init pour les machines virtuelles dans Azure
 Cet article décrit la prise en charge existante pour [cloud-init](https://cloudinit.readthedocs.io) destinée à la configuration d’une machine virtuelle ou de groupes de machines virtuelles identiques au moment du provisionnement dans Azure. Ces configurations cloud-init sont exécutées au premier démarrage une fois que les ressources ont été approvisionnées par Azure.  
@@ -121,13 +122,13 @@ Il est aussi simple de déployer une machine virtuelle cloud-init que de référ
 
 La première étape du déploiement de cette image est la création d’un groupe de ressources avec la commande [az group create](/cli/azure/group). Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées. 
 
-L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l’emplacement *eastus* .
+L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l’emplacement *eastus*.
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
 ```
 
-Il est ensuite question de créer un fichier dans l’interpréteur de commandes actuel, nommé *cloud-init.txt* , et de le coller dans la configuration suivante. Pour cet exemple, créez le fichier dans Cloud Shell et non sur votre ordinateur local. Vous pouvez utiliser l’éditeur de votre choix. Entrez `sensible-editor cloud-init.txt` pour créer le fichier et afficher la liste des éditeurs disponibles. Choisissez le n°1 pour utiliser l’éditeur **nano** . Vérifiez que l’intégralité du fichier cloud-init est copiée, en particulier la première ligne :
+Il est ensuite question de créer un fichier dans l’interpréteur de commandes actuel, nommé *cloud-init.txt*, et de le coller dans la configuration suivante. Pour cet exemple, créez le fichier dans Cloud Shell et non sur votre ordinateur local. Vous pouvez utiliser l’éditeur de votre choix. Entrez `sensible-editor cloud-init.txt` pour créer le fichier et afficher la liste des éditeurs disponibles. Choisissez le n°1 pour utiliser l’éditeur **nano**. Vérifiez que l’intégralité du fichier cloud-init est copiée, en particulier la première ligne :
 
 ```yaml
 #cloud-config
@@ -135,6 +136,10 @@ package_upgrade: true
 packages:
   - httpd
 ```
+> [!NOTE]
+> cloud-init a plusieurs [types d’entrée](https://cloudinit.readthedocs.io/en/latest/topics/format.html). Il utilise la première ligne de customData/userData pour indiquer comment il doit traiter l’entrée. Par exemple, `#cloud-config` indique que le contenu doit être traité comme une configuration cloud-init.
+
+
 Appuyez sur `ctrl-X` pour quitter le fichier, saisissez `y` pour l’enregistrer, puis appuyez sur `enter` pour confirmer le nom lors de la sortie.
 
 Enfin, vous devez créer une machine virtuelle avec la commande [az vm create](/cli/azure/vm). 
@@ -155,7 +160,7 @@ Lorsque la machine virtuelle est créée, l’interface de ligne de commande Azu
 Vous pouvez également déployer une machine virtuelle compatible avec cloud-init en transférant les [paramètres dans le modèle ARM](../../azure-resource-manager/templates/deploy-cli.md#inline-parameters).
 
 ## <a name="troubleshooting-cloud-init"></a>Résolution des problèmes cloud-init
-Une fois la machine virtuelle configurée, cloud-init est exécuté dans l’ensemble des modules et des scripts définis dans `--custom-data` pour la configuration de la machine virtuelle.  Si vous devez corriger des erreurs ou des omissions dans la configuration, vous devez chercher le nom du module (`disk_setup` ou `runcmd` par exemple) dans le journal cloud-init, situé dans **/var/log/cloud-init.log** .
+Une fois la machine virtuelle configurée, cloud-init est exécuté dans l’ensemble des modules et des scripts définis dans `--custom-data` pour la configuration de la machine virtuelle.  Si vous devez corriger des erreurs ou des omissions dans la configuration, vous devez chercher le nom du module (`disk_setup` ou `runcmd` par exemple) dans le journal cloud-init, situé dans **/var/log/cloud-init.log**.
 
 > [!NOTE]
 > Toutes les défaillances de module n’entraînent pas d’échec irrécupérable de configuration cloud-init. Par exemple, si vous utilisez le module `runcmd`, si le script est mis en échec, cloud-init fera tout de même état d’une réussite de configuration permise par l’exécution du module runcmd.

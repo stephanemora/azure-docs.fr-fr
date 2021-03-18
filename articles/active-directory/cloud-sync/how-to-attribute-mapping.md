@@ -1,6 +1,6 @@
 ---
-title: Éditeur d’attribut de synchronisation cloud Azure AD Connect
-description: Cet article explique comment utiliser l’éditeur d’attributs.
+title: Mappage d’attributs dans la synchronisation cloud Azure AD Connect
+description: Cet article explique comment utiliser la fonctionnalité de synchronisation cloud d’Azure AD Connect pour mapper des attributs.
 services: active-directory
 author: billmath
 manager: daveba
@@ -11,97 +11,97 @@ ms.date: 01/21/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6d2adbd0fe0715cb22ac158d1804f53384f8b94
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: cdb043374cf6252da3929c8f0cda6c0a4be558b7
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98682103"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102555208"
 ---
-# <a name="azure-ad-connect-cloud-sync-attribute-mapping"></a>Mappage d’attribut de synchronisation cloud Azure AD Connect
+# <a name="attribute-mapping-in-azure-ad-connect-cloud-sync"></a>Mappage d’attributs dans la synchronisation cloud Azure AD Connect
 
-La synchronisation cloud Azure AD Connect offre une nouvelle fonctionnalité qui vous permet de mapper facilement les attributs entre vos objets utilisateur/groupe locaux et les objets dans Azure AD.  Cette fonctionnalité a été ajoutée à la configuration de la synchronisation cloud.
+Vous pouvez utiliser la fonctionnalité de synchronisation cloud d’Azure Active Directory (Azure AD) Connect pour mapper les attributs de vos objets utilisateur ou groupe locaux sur deux des objets Azure AD. Cette fonctionnalité a été ajoutée à la configuration de la synchronisation cloud.
 
-Vous pouvez personnaliser les mappages d’attributs par défaut en fonction des besoins de votre organisation. Vous pouvez ainsi modifier ou supprimer des mappages d’attributs existants ou en créer de nouveaux.  Pour obtenir la liste des attributs qui sont synchronisés, consultez [Attributs synchronisés](../hybrid/reference-connect-sync-attributes-synchronized.md?context=azure%2factive-directory%2fcloud-provisioning%2fcontext%2fcp-context/hybrid/reference-connect-sync-attributes-synchronized.md).
+Vous pouvez personnaliser (modifier, supprimer ou créer) les mappages d’attributs par défaut en fonction de vos besoins métier. Pour obtenir la liste des attributs qui sont synchronisés, consultez [Attributs synchronisés avec Azure Active Directory](../hybrid/reference-connect-sync-attributes-synchronized.md?context=azure%2factive-directory%2fcloud-provisioning%2fcontext%2fcp-context/hybrid/reference-connect-sync-attributes-synchronized.md).
 
-## <a name="understanding-attribute-mapping-types"></a>Présentation des types de mappages d’attributs
-Avec les mappages d’attributs, vous contrôlez la façon dont les attributs sont renseignés dans Azure AD.
-Quatre différents types de mappages sont pris en charge :
+## <a name="understand-types-of-attribute-mapping"></a>Comprendre les types de mappage d’attributs
+Avec le mappage des attributs, vous pouvez contrôler la façon dont les attributs sont renseignés dans Azure AD. Azure AD prend en charge quatre types de mappage :
 
-- **Direct** : l’attribut cible est renseigné avec la valeur d’un attribut de l’objet lié dans AD.
-- **Constant** : l’attribut cible est renseigné avec une chaîne spécifique que vous avez spécifiée.
-- **Expression** : l’attribut cible est renseigné en fonction du résultat d’une expression semblable à un script.
-  Pour plus d’informations, consultez l’article [Écriture d’expressions pour les mappages d’attributs](reference-expressions.md).
-- **Aucun** : l’attribut cible reste inchangé. Toutefois, si l’attribut cible est vide, il est renseigné avec la valeur par défaut que vous spécifiez.
+- **Direct** : l’attribut cible est renseigné avec la valeur d’un attribut de l’objet lié dans Active Directory.
+- **Constant** : l’attribut cible est renseigné avec une chaîne que vous spécifiez.
+- **Expression** : l’attribut cible est renseigné en fonction du résultat d’une expression de type script. Pour plus d’informations, consultez [Écriture d’expressions pour les mappages d’attributs dans Azure Active Directory](reference-expressions.md).
+- **Aucun** : l’attribut cible reste inchangé. Toutefois, si l’attribut cible est vide, il est renseigné avec la valeur par défaut que vous spécifiez.
 
-Avec ces quatre types de base, les mappages d’attributs personnalisés prennent en charge le concept d’affectation de valeur **par défaut** facultative. L’affectation de valeur par défaut garantit qu’un attribut cible est renseigné avec une valeur s’il n’existe aucune valeur dans Azure AD ou sur l’objet cible. La configuration la plus courante consiste à laisser ce champ vide.
+En plus de ces types de base, les mappages d’attributs personnalisés prennent en charge l’affectation de valeur *par défaut* facultative. L’affectation d’une valeur par défaut garantit qu’un attribut cible sera renseigné avec une valeur si Azure AD ou l’objet cible n’ont pas encore de valeur. La configuration la plus courante consiste à laisser ce champ vide.
 
-## <a name="understanding-attribute-mapping-properties"></a>Présentation des propriétés de mappage d’attributs
+## <a name="understand-properties-of-attribute-mapping"></a>Comprendre les propriétés du mappage d’attributs
 
-La section précédente vous a présenté la propriété de type de mappage d’attributs.
-Outre cette propriété, les mappages d’attributs prennent en charge les attributs suivants :
+Outre cette propriété de type, les mappages d’attributs prennent en charge les attributs suivants :
 
-- **Attribut source** : attribut utilisateur du système source (par exemple, Active Directory).
-- **Attribut cible** : attribut utilisateur dans le système cible (par exemple, Azure Active Directory).
-- **Valeur par défaut si null (facultatif)**  : la valeur qui sera passée au système cible si l’attribut source est null. Cette valeur sera configurée uniquement lors de la création d’un utilisateur. La « valeur par défaut si null » ne sera pas configurée lors de la mise à jour d’un utilisateur existant.  
-- **Appliquer ce mappage**
-  - **Toujours** : appliquez ce mappage à la création de l’utilisateur et aux actions de mise à jour.
-  - **Lors de la création uniquement** : appliquez ce mappage uniquement aux actions de création d’utilisateur.
+- **Attribut source** : attribut utilisateur du système source (exemple, Active Directory).
+- **Attribut cible** : attribut utilisateur dans le système cible (exemple : Azure Active Directory).
+- **Valeur par défaut si Null (facultatif)**  : la valeur qui sera passée au système cible si l’attribut source est Null. Cette valeur est provisionnée uniquement lors de la création d’un utilisateur. Elle n’est pas provisionnée lorsque vous mettez à jour un utilisateur existant.  
+- **Appliquer ce mappage** :
+  - **Toujours** : appliquez ce mappage lors de la création de l’utilisateur et lors de sa mise à jour.
+  - **Lors de la création uniquement** : appliquez ce mappage uniquement aux actions de création d’utilisateur.
 
 > [!NOTE]
-> Ce document explique comment utiliser le Portail Azure pour mapper des attributs.  Pour plus d’informations sur l’utilisation de Graph, consultez [Transformations](how-to-transformation.md)
+> Cet article explique comment utiliser le portail Azure pour mapper des attributs.  Pour plus d’informations sur l’utilisation de Microsoft Graph, consultez [Transformations](how-to-transformation.md).
 
-## <a name="using-attribute-mapping"></a>Utilisation du mappage d’attributs
+## <a name="add-an-attribute-mapping"></a>Ajouter un mappage d’attributs
 
-Pour utiliser la nouvelle fonctionnalité, suivez les étapes ci-dessous.
+Pour utiliser les nouvelles fonctionnalités, effectuez les étapes suivantes :
 
 1.  Dans le portail Azure, sélectionnez **Azure Active Directory**.
 2.  Sélectionnez ensuite **Azure AD Connect**.
 3.  Sélectionnez **Gérer la synchronisation cloud**.
 
-    ![Gérer le provisionnement](media/how-to-install/install-6.png)
+    ![Capture d’écran montrant le lien permettant de gérer la synchronisation cloud.](media/how-to-install/install-6.png)
 
 4. Sous **Configuration**, sélectionnez votre configuration.
-5. Sélectionnez **Cliquez pour modifier les mappages**.  L’écran de mappage d’attributs s’ouvre.
+5. Sélectionnez **Cliquez pour modifier les mappages**.  Ce lien permet d’ouvrir la page **Mappages d’attributs**.
 
-    ![Ajout d'attributs](media/how-to-attribute-mapping/mapping-6.png)
+    ![Capture d’écran montrant le lien permettant d’ajouter des attributs.](media/how-to-attribute-mapping/mapping-6.png)
 
-6.  Cliquez sur **Ajouter un attribut**.
+6.  Sélectionnez **Ajouter un attribut**.
 
-    ![Type de mappage](media/how-to-attribute-mapping/mapping-1.png)
+    ![Capture d’écran montrant le bouton permettant d’ajouter un attribut, ainsi que des listes d’attributs et des types de mappages.](media/how-to-attribute-mapping/mapping-1.png)
 
-7. Sélectionnez le **Type de mappage**.  Dans cet exemple, nous utilisons Expression.
-8.  Entrez l’expression dans la zone.  Pour cet exemple, nous utilisons : `Replace([mail], "@contoso.com", , ,"", ,).`
-9.  Entrez l’attribut cible.  Dans cet exemple, nous utilisons ExtensionAttribute15.
-10. Sélectionnez le moment de l’application, puis cliquez sur **Appliquer**
+7. Sélectionnez le type de mappage. Pour cet exemple, nous utilisons **Expression**.
+8. Entrez l’expression dans la zone. Pour cet exemple, nous utilisons `Replace([mail], "@contoso.com", , ,"", ,)`.
+9. Entrez l’attribut cible. Pour cet exemple, nous utilisons **ExtensionAttribute15**.
+10. Sélectionnez à quel moment vous souhaitez appliquer ce mappage, puis sélectionnez **Appliquer**.
 
-    ![Modifier les mappages](media/how-to-attribute-mapping/mapping-2a.png)
+    ![Capture d’écran montrant les champs renseignés pour la création d’un mappage d’attributs.](media/how-to-attribute-mapping/mapping-2a.png)
 
-11. De retour sur l’écran de mappage d’attributs, vous devriez voir votre nouveau mappage d’attribut.  
-12. Cliquez sur **Enregistrer le schéma**.
+11. Quand vous retournez dans l’écran **Mappages d’attributs**, vous devez voir votre nouveau mappage d’attributs.  
+12. Sélectionnez **Enregistrer le schéma**.
 
-    ![Enregistrer le schéma](media/how-to-attribute-mapping/mapping-3.png)
+    ![Capture d’écran montrant le bouton Enregistrer le schéma.](media/how-to-attribute-mapping/mapping-3.png)
 
 ## <a name="test-your-attribute-mapping"></a>Tester votre mappage d’attributs
 
-Pour tester votre mappage d’attributs, vous pouvez utiliser [l’approvisionnement à la demande](how-to-on-demand-provision.md).  Dans la liste 
+Pour tester votre mappage d’attributs, vous pouvez utiliser le [provisionnement à la demande](how-to-on-demand-provision.md) : 
 
 1. Dans le portail Azure, sélectionnez **Azure Active Directory**.
 2. Sélectionnez ensuite **Azure AD Connect**.
 3. Sélectionnez **Gérer le provisionnement**.
 4. Sous **Configuration**, sélectionnez votre configuration.
-5. Sous **Valider**, cliquez sur le bouton **Approvisionner un utilisateur**. 
-6. Sur l’écran d’approvisionnement à la demande.  Entrez le **nom unique** d’un utilisateur ou d’un groupe, puis cliquez sur le bouton **Approvisionner**.  
-7. Une fois l’opération terminée, vous devriez voir un écran de réussite et 4 cases à cocher vertes indiquant que l’approvisionnement a réussi.  
+5. Sous **Valider**, sélectionnez le bouton **Provisionner un utilisateur**. 
+6. Dans l’écran **Provisionner à la demande**, entrez le nom unique d’un utilisateur ou d’un groupe, puis sélectionnez le bouton **Provisionner**. 
 
-    ![Réussite de l’approvisionnement](media/how-to-attribute-mapping/mapping-4.png)
+   L’écran indique que le provisionnement est en cours.
 
-8. Sous **Exécuter l’action** cliquez sur **Afficher les détails**.  À droite, vous devriez voir le nouvel attribut synchronisé et l’expression appliquée.
+   ![Capture d’écran montrant que le provisionnement est en cours.](media/how-to-attribute-mapping/mapping-4.png)
 
-  ![Action à effectuer](media/how-to-attribute-mapping/mapping-5.png)
+8. Une fois le provisionnement terminé, un écran de confirmation s’affiche avec quatre coches vertes. 
+
+   Sous **Exécuter l’action**, sélectionnez **Afficher les détails**. À droite, vous devriez voir le nouvel attribut synchronisé et l’expression appliquée.
+
+   ![Capture d’écran indiquant la réussite de l’opération et les informations d’exportation.](media/how-to-attribute-mapping/mapping-5.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Qu’est-ce que la synchronisation cloud Azure AD Connect ?](what-is-cloud-sync.md)
 - [Écriture d’expressions pour les mappages d’attributs](reference-expressions.md)
-- [Attributs qui sont synchronisés](../hybrid/reference-connect-sync-attributes-synchronized.md?context=azure%2factive-directory%2fcloud-provisioning%2fcontext%2fcp-context/hybrid/reference-connect-sync-attributes-synchronized.md)
+- [Attributs synchronisés avec Azure Active Directory](../hybrid/reference-connect-sync-attributes-synchronized.md?context=azure%2factive-directory%2fcloud-provisioning%2fcontext%2fcp-context/hybrid/reference-connect-sync-attributes-synchronized.md)

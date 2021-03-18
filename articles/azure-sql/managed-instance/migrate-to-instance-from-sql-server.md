@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: ''
 ms.date: 07/11/2019
-ms.openlocfilehash: 2761b97e595f5e11b00e75cd778ee269b12bfcae
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 49d37a5537ada260eae453bbb5f81716d42657a5
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917798"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102565818"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-managed-instance"></a>Migration d’une instance SQL Server vers Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -59,6 +59,26 @@ Si vous avez résolu tous les bloqueurs de migration identifiés et que vous pou
 - Les nouvelles fonctionnalités que vous utilisez, comme les groupes de basculement automatique ou la technologie TDE, peuvent avoir une incidence sur l’utilisation du processeur et des E/S.
 
 SQL Managed Instance garantit une disponibilité de 99,99 % même dans les scénarios critiques, afin que la surcharge engendrée par ces fonctionnalités ne puissent pas être désactivée. Pour plus d’informations, consultez [les causes racines susceptibles de provoquer des performances différentes sur SQL Server et Azure SQL Managed Instance](https://azure.microsoft.com/blog/key-causes-of-performance-differences-between-sql-managed-instance-and-sql-server/).
+
+#### <a name="in-memory-oltp-memory-optimized-tables"></a>OLTP en mémoire (tables à mémoire optimisée)
+
+SQL Server fournit la fonctionnalité OLTP en mémoire qui permet d’utiliser des tables à mémoire optimisée, des types de tables à mémoire optimisée, ainsi que des modules SQL compilés nativement, pour exécuter des charges de travail qui exigent un traitement transactionnel à débit élevé et à faible latence. 
+
+> [!IMPORTANT]
+> La fonctionnalité OLTP en mémoire est prise en charge uniquement dans le niveau « Critique pour l’entreprise » d’Azure SQL Managed Instance (et non dans le niveau « Usage général »).
+
+Si vous avez des tables à mémoire optimisée ou des types de tables à mémoire optimisée dans votre instance locale de SQL Server, et si souhaitez passer à Azure SQL Managed Instance, vous devez :
+
+- Choisir le niveau « Critique pour l’entreprise » pour votre instance cible d’Azure SQL Managed Instance qui prend en charge la fonctionnalité OLTP en mémoire, ou
+- Si vous souhaitez effectuer une migration vers le niveau « Usage général » dans Azure SQL Managed Instance, supprimez les tables à mémoire optimisée, les types de tables à mémoire optimisée et les modules SQL compilés nativement qui interagissent avec les objets à mémoire optimisée avant d’effectuer la migration de vos bases de données. La requête T-SQL suivante peut être utilisée pour identifier tous les objets qui doivent être supprimés avant la migration vers le niveau « Usage général » :
+
+```tsql
+SELECT * FROM sys.tables WHERE is_memory_optimized=1
+SELECT * FROM sys.table_types WHERE is_memory_optimized=1
+SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
+```
+
+Pour plus d’informations sur les technologies en mémoire, consultez [Optimiser les performances en utilisant les technologies en mémoire d’Azure SQL Database et Azure SQL Managed Instance](https://docs.microsoft.com/azure/azure-sql/in-memory-oltp-overview).
 
 ### <a name="create-a-performance-baseline"></a>Créer un référentiel de performance
 

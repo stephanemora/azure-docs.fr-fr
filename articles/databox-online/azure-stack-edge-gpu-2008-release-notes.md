@@ -6,22 +6,24 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 09/07/2020
+ms.date: 03/05/2021
 ms.author: alkohli
-ms.openlocfilehash: 25db4e7f3e4e1f7056979c4c40c6ffc61f340439
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: dd72865e35318c7ff43dc17b7c92b9cc2f3e9790
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96345369"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102436853"
 ---
 # <a name="azure-stack-edge-pro-with-gpu-preview-release-notes"></a>Notes de publication d’Azure Stack Edge Pro avec GPU (préversion)
+
+[!INCLUDE [applies-to-Pro-GPU-sku](../../includes/azure-stack-edge-applies-to-gpu-sku.md)]
 
 Les notes de publication suivantes identifient des problèmes critiques, résolus ou non, de la préversion 2008 pour vos appareils Azure Stack Edge Pro avec GPU.
 
 Les notes de publication sont régulièrement mises à jour ; les problèmes critiques nécessitant une solution de contournement sont ajoutés au fur et à mesure de leur découverte. Avant de déployer votre appareil Azure Stack Edge Pro, lisez attentivement les informations contenues dans les notes de version.
 
-Cet article s’applique à la version logicielle suivante, **Azure Stack Edge Pro 2008**. 
+Cet article s’applique à la version logicielle suivante, **Azure Stack Edge Pro 2008**.
 
 <!--- **2.1.1328.1904**-->
 
@@ -51,7 +53,7 @@ Le tableau suivant fournit un résumé de problèmes connus de l’appareil Azur
 |**10.**|Kubernetes |Le port 31000 est réservé au tableau de bord Kubernetes. De même, dans la configuration par défaut, les adresses IP 172.28.0.1 et 172.28.0.10 sont réservées respectivement pour le service Kubernetes et le service DNS de base.|N’utilisez pas d’adresses IP réservées.|
 |**11.**|Kubernetes |Kubernetes n’autorise pas actuellement les services LoadBalancer multiprotocoles. Par exemple, un service DNS devant écouter à la fois les protocoles TCP et UDP. |Pour contourner cette limitation de Kubernetes avec MetalLB, deux services (un pour TCP, un pour UDP) peuvent être créés sur le même sélecteur de pod. Ces services utilisent la même clé de partage et spec.loadBalancerIP pour partager la même adresse IP. Des adresses IP peuvent également être partagées si vous avez plus de services qu’il n’y d’adresses IP disponibles. <br> Pour plus d’informations, voir [Partage d’adresse IP](https://metallb.universe.tf/usage/#ip-address-sharing).|
 |**12.**|Cluster Kubernetes|Les modules existants de la place de marché Azure IoT Edge ne sont pas exécutés sur le cluster Kubernetes en tant que plateforme d’hébergement pour IoT Edge sur un appareil Azure Stack Edge.|Les modules doivent être modifiés avant leur déploiement sur l’appareil Azure Stack Edge. Pour plus d’informations, consultez Modifier des modules Azure IoT Edge de la place de marché pour les exécuter sur des appareils Azure Stack Edge.<!-- insert link-->|
-|**13.**|Kubernetes |Les montages de liaison basés sur des fichiers ne sont pas pris en charge avec Azure IoT Edge sur Kubernetes sur un appareil Azure Stack Edge.|IoT Edge utilise une couche de traduction pour convertir des options de `ContainerCreate` en constructions Kubernetes. La création de `Binds` mappe au répertoire hostpath. Par conséquent, des montages de liaison basés sur des fichiers ne peuvent pas être liés à des chemins d’accès dans des conteneurs IoT Edge.|
+|**13.**|Kubernetes |Les montages de liaison basés sur des fichiers ne sont pas pris en charge avec Azure IoT Edge sur Kubernetes sur un appareil Azure Stack Edge.|IoT Edge utilise une couche de traduction pour convertir des options de `ContainerCreate` en constructions Kubernetes. La création de `Binds` mappe au répertoire `hostpath`. Par conséquent, des montages de liaison basés sur des fichiers ne peuvent pas être liés à des chemins dans des conteneurs IoT Edge.|
 |**14.**|Kubernetes |Si vous apportez vos propres certificats pour IoT Edge et les ajoutez sur votre appareil Azure Stack Edge, les nouveaux certificats ne sont pas sélectionnés dans le cadre de la mise à jour des graphiques Helm.|Pour contourner ce problème, [connectez-vous à l’interface PowerShell de l’appareil](azure-stack-edge-gpu-connect-powershell-interface.md). Redémarrez les pods `iotedged` et `edgehub`.|
 |**15.**|Certificats |Dans certains cas, la mise à jour de l’état des certificats dans l’interface utilisateur locale peut prendre plusieurs secondes. |Les scénarios suivants dans l’interface utilisateur locale peuvent être affectés.<ul><li>Colonne **État** dans la page **Certificats**.</li><li>Vignette **Sécurité** dans la page **Démarrer**.</li><li>Vignette **Configuration** dans la page **Vue d’ensemble**.</li></ul>  |
 

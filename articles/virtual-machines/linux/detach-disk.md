@@ -2,18 +2,19 @@
 title: Détacher un disque de données d’une machine virtuelle Linux - Azure
 description: Apprenez à détacher un disque de données d’une machine virtuelle dans Azure à l’aide d’Azure CLI ou du portail Azure.
 author: roygara
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.topic: how-to
 ms.date: 07/18/2018
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 7e618475d7d0160bce5aee39c267bb191a3a9f0a
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 29a2cbbf2c390b81aa62b064a7cf93decbaa7457
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897137"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102565986"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-linux-virtual-machine"></a>Comment détacher un disque de données d’une machine virtuelle Linux
 
@@ -108,13 +109,10 @@ Le disque reste dans le stockage, mais il n’est plus attaché à une machine v
 
 1. Dans le menu de gauche, sélectionnez **Machines virtuelles**.
 1. Dans le panneau de la machine virtuelle, sélectionnez **Disques**.
-1. En haut du panneau **Disques**, sélectionnez **Modifier**.
-1. Dans le panneau **Disques**, à l’extrême droite du disque de données que vous souhaitez détacher, cliquez sur le bouton détacher ![image du bouton détacher](./media/detach-disk/detach.png).
-1. Une fois que le disque a été supprimé, cliquez sur **Enregistrer** en haut du panneau.
+1. Dans le panneau **Disques**, à l’extrême droite du disque de données que vous voulez détacher, sélectionnez le bouton **X** pour détacher le disque.
+1. Une fois le disque supprimé, sélectionnez **Enregistrer** en haut du panneau.
 
-Le disque reste dans le stockage, mais il n’est plus attaché à une machine virtuelle.
-
-
+Le disque reste dans le stockage, mais il n’est plus attaché à une machine virtuelle. Le disque n’est pas supprimé.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Si vous souhaitez réutiliser le disque de données, vous pouvez simplement l’[attacher à une autre machine virtuelle](add-disk.md).

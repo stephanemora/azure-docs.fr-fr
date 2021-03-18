@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/08/2021
+ms.date: 03/05/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: 674a336e79f118d543590fb7514b6bebef72cf47
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: f157b44e92289d0e9c5b88108550c144344c5206
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100390179"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102211139"
 ---
 # <a name="soft-delete-for-containers-preview"></a>Suppression réversible pour les conteneurs (préversion)
 
@@ -27,8 +27,8 @@ Pour la protection de bout en bout de vos données de blobs, Microsoft recommand
 - Gestion des versions des objets blob, pour gérer automatiquement les versions précédentes d’un objet blob. Lorsque le contrôle de version est activé, vous pouvez restaurer une version antérieure d’un objet blob pour récupérer vos données si celles-ci ont été modifiées ou supprimées par erreur. Pour savoir comment activer le contrôle de version des blobs, consultez [Activer et gérer le contrôle de version des blobs](versioning-enable.md).
 - Suppression réversible de blob, pour restaurer un blob ou une version supprimés. Pour savoir comment activer la suppression réversible de blob, consultez [Activer et gérer la suppression réversible pour les blobs](soft-delete-blob-enable.md).
 
-> [!WARNING]
-> La suppression d’un compte de stockage est irréversible. La suppression réversible d’un conteneur n’a pas pour effet de protéger contre la suppression d’un compte de stockage, mais uniquement contre la suppression de conteneurs dans ce compte. Pour empêcher toute suppression d’un compte de stockage, configurez un verrou sur la ressource du compte de stockage. Pour plus d’informations sur le verrouillage des ressources Azure Resource Manager, consultez [Verrouiller les ressources pour empêcher les modifications inattendues](../../azure-resource-manager/management/lock-resources.md).
+> [!IMPORTANT]
+> La suppression réversible de conteneur est actuellement en **préversion**. Consultez l’[Avenant aux conditions d’utilisation des préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) pour connaître les conditions juridiques qui s’appliquent aux fonctionnalités Azure disponibles en version bêta, en préversion ou qui ne sont pas encore en phase de disponibilité générale.
 
 ## <a name="how-container-soft-delete-works"></a>Fonctionnement de la suppression réversible de conteneur
 
@@ -46,14 +46,14 @@ Une fois la période de rétention expirée, le conteneur est définitivement su
 
 La désactivation de la suppression réversible de conteneur n’entraîne pas la suppression définitive des conteneurs qui ont été précédemment supprimés de manière réversible. Tous les conteneurs supprimés de manière réversible seront définitivement supprimés à l’expiration de la période de rétention qui était en vigueur au moment de leur suppression.
 
+> [!IMPORTANT]
+> La suppression réversible d’un conteneur n’a pas pour effet de protéger contre la suppression d’un compte de stockage, mais uniquement contre la suppression de conteneurs dans ce compte. Pour empêcher toute suppression d’un compte de stockage, configurez un verrou sur la ressource du compte de stockage. Pour plus d’informations sur le verrouillage des ressources Azure Resource Manager, consultez [Verrouiller les ressources pour empêcher les modifications inattendues](../../azure-resource-manager/management/lock-resources.md).
+
 ## <a name="about-the-preview"></a>À propos de la préversion
 
 La suppression réversible de conteneur est disponible en préversion dans toutes les régions Azure.
 
-> [!IMPORTANT]
-> La préversion de la suppression réversible de conteneur est destinée uniquement à une utilisation hors production. Les contrats SLA (contrats de niveau de service) de production ne sont actuellement pas disponibles.
-
-La version 2019-12-12 et les versions ultérieures de l’API REST de Stockage Azure prennent en charge la suppression réversible de conteneur.
+La version 2019-12-12 ou les versions ultérieures de l’API REST Stockage Azure prennent en charge la suppression réversible de conteneur.
 
 ### <a name="storage-account-support"></a>Prise en charge du compte de stockage
 

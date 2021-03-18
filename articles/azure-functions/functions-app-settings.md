@@ -3,12 +3,12 @@ title: Informations de référence sur les paramètres d’application d’Azure
 description: Documentation de référence pour les paramètres d’application ou les variables d’environnement d’Azure Functions.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 8cb3e12c48adf1273c58f4914e34590e21b9d3cc
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 6fa8e2d9fb2270d53d8c0419ac7b4d88d79f30fd
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100378296"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102425700"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Informations de référence sur les paramètres d’application d’Azure Functions
 
@@ -80,7 +80,7 @@ Lorsque `AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES` a la valeur `true`, l�
 
 ## <a name="azure_functions_environment"></a>AZURE_FUNCTIONS_ENVIRONMENT
 
-Dans la version 2.x et les versions ultérieures du runtime Functions, configure le comportement de l’application en fonction de l’environnement d’exécution. Cette valeur est [lue lors de l’initialisation](https://github.com/Azure/azure-functions-host/blob/dev/src/WebJobs.Script.WebHost/Program.cs#L43). Vous pouvez définir `AZURE_FUNCTIONS_ENVIRONMENT` sur n’importe quelle valeur, mais [trois valeurs](/dotnet/api/microsoft.aspnetcore.hosting.environmentname) sont prises en charge : [Développement](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.development), [Préproduction](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.staging) et [Production](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.production). Lorsque `AZURE_FUNCTIONS_ENVIRONMENT` n’est pas défini, la valeur `Development` par défaut est sur un environnement local et `Production` sur Azure. Ce paramètre doit être utilisé à la place de `ASPNETCORE_ENVIRONMENT` pour définir l’environnement d’exécution. 
+Dans la version 2.x et les versions ultérieures du runtime Functions, configure le comportement de l’application en fonction de l’environnement d’exécution. Cette valeur est lue pendant l’initialisation et peut être librement définie. Seules les valeurs de `Development`, `Staging` et `Production` sont honorées par le runtime. Lorsque ce paramètre d’application n’est pas présent lors de l’exécution dans Azure, l’environnement est supposé être `Production`. Utilisez ce paramètre au lieu de `ASPNETCORE_ENVIRONMENT` si vous avez besoin de sélectionner un environnement d’exécution d’Azure autre que `Production`. Azure Functions Core Tools définit `AZURE_FUNCTIONS_ENVIRONMENT` sur `Development` lors d’une exécution sur un ordinateur local, et cette valeur ne peut pas être substituée dans le fichier local.settings.json. Pour plus d’informations, consultez [Classes et méthodes de démarrage basées sur l’environnement](/aspnet/core/fundamentals/environments#environment-based-startup-class-and-methods).
 
 ## <a name="azurefunctionsjobhost__"></a>AzureFunctionsJobHost__\*
 
@@ -159,11 +159,11 @@ Détermine si la modification est activée dans le portail Azure. Les valeurs va
 
 ## <a name="functions_extension_version"></a>FUNCTIONS\_EXTENSION\_VERSION
 
-Version du runtime Azure Functions à utiliser dans cette application de fonction. Un tilde accompagné d’une version principale désigne l’utilisation de la version la plus récente de cette version principale (par exemple, « ~2 »). Lorsque de nouvelles versions sont disponibles pour une même version principale, elles sont automatiquement installées dans l’application de fonction. Pour épingler l’application à une version spécifique, utilisez le numéro de version complet (par exemple, « 2.0.12345 »). La valeur par défaut est « ~2 ». La valeur `~1` épingle votre application à la version 1.x du runtime.
+Version du runtime Functions qui héberge votre application de fonction. Un tilde (`~`) suivi d’une version principale signifie que la version la plus récente de cette version principale est utilisée (par exemple, « ~3 »). Lorsque de nouvelles versions sont disponibles pour une même version principale, elles sont automatiquement installées dans l’application de fonction. Pour épingler l’application à une version spécifique, utilisez le numéro de version complet (par exemple, « 3.0.12345 »). La valeur par défaut est « ~3 ». La valeur `~1` épingle votre application à la version 1.x du runtime. Pour plus d’informations, consultez [Vue d’ensemble des versions du runtime Azure Functions](functions-versions.md).
 
 |Clé|Exemple de valeur|
 |---|------------|
-|FUNCTIONS\_EXTENSION\_VERSION|~2|
+|FUNCTIONS\_EXTENSION\_VERSION|~3|
 
 ## <a name="functions_v2_compatibility_mode"></a>FUNCTIONS\_V2\_COMPATIBILITY\_MODE
 

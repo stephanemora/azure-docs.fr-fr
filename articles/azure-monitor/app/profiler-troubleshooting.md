@@ -6,19 +6,25 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 05a2eaeb3b716988a8ae1eddcaa5a5a58cc3776a
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 622a83c6d91bf2a30c2844e3279d6fd4b89d429f
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98675694"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102213791"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Résoudre les problèmes d’activation ou d’affichage d’Application Insights Profiler
 
-> [!CAUTION]
-> Il existe un bogue qui exécute le profileur pour les applications ASP.NET Core sur Azure App Service. Nous avons un correctif, mais cela prendra quelques semaines pour le déployer à l’échelle mondiale. Vous pouvez contourner le bogue en ajoutant le Kit de développement logiciel (SDK) Application Insights à votre application en suivant les instructions [ici](./asp-net-core.md#enable-application-insights-server-side-telemetry-visual-studio).
-
 ## <a name="general-troubleshooting"></a><a id="troubleshooting"></a>Résolution de problèmes générale
+
+### <a name="make-sure-youre-using-the-appropriate-profiler-endpoint"></a>Vérifier que vous utilisez le bon point de terminaison Profiler
+
+Actuellement, seules les régions [Azure Government](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure#application-insights) et [Azure Chine](https://docs.microsoft.com/azure/china/resources-developer-guide) nécessitent des modifications de leurs points de terminaison.
+
+|Paramètre d'application    | Cloud US Government | China Cloud |   
+|---------------|---------------------|-------------|
+|ApplicationInsightsProfilerEndpoint         | `https://profiler.monitor.azure.us`    | `https://profiler.monitor.azure.cn` |
+|ApplicationInsightsEndpoint | `https://dc.applicationinsights.us` | `https://dc.applicationinsights.azure.cn` |
 
 ### <a name="profiles-are-uploaded-only-if-there-are-requests-to-your-application-while-profiler-is-running"></a>Les profils sont chargés uniquement si des demandes sont envoyées à votre application quand Profiler est en cours d’exécution
 
@@ -67,6 +73,7 @@ Généralement, le thread qui passe rapidement à un état d’attente attend si
 Soumettez un ticket de support dans le portail. Veillez à indiquer l’ID de corrélation du message d’erreur.
 
 ## <a name="troubleshoot-profiler-on-azure-app-service"></a>Résoudre les problèmes de Profiler dans Azure App Service
+
 Pour que Profiler fonctionne correctement :
 * Votre plan de service d’application web doit être au niveau De base ou supérieur.
 * Votre application web doit avoir Application Insights activé.
@@ -95,6 +102,10 @@ Si Profiler ne fonctionne pas, téléchargez le journal et envoyez-le à notre �
 
 ### <a name="check-the-diagnostic-services-site-extension-status-page"></a>Vérifier la page d’état de l’extension de site Services de diagnostic
 Si Profiler a été activé via le [volet Application Insights](profiler.md) du portail, il a été activé par l’extension de site Services de diagnostic.
+
+> [!NOTE]
+> L’installation sans code d’Application Insights Profiler suit la politique de support .NET Core.
+> Pour plus d’informations sur les runtimes pris en charge, consultez [Politique de support .NET Core](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).
 
 Vous pouvez consulter la page d’état de cette extension en accédant à l’URL suivante : `https://{site-name}.scm.azurewebsites.net/DiagnosticServices`.
 
@@ -140,7 +151,7 @@ Si vous redéployez votre application web sur une ressource Web Apps avec Profil
 
 *Répertoire non vide 'D:\\home\\site\\wwwroot\\App_Data\\jobs’*
 
-Cette erreur se produit si vous exécutez Web Deploy à partir de scripts ou d’Azure Pipelines. La solution consiste à ajouter les paramètres de déploiement supplémentaires suivants à la tâche Web Deploy :
+Cette erreur se produit si vous exécutez Web Deploy à partir de scripts ou d’Azure Pipelines. La solution consiste à ajouter les paramètres de déploiement suivants à la tâche Web Deploy :
 
 ```
 -skip:Directory='.*\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler.*' -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data\\jobs\\continuous$' -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data\\jobs$'  -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data$'

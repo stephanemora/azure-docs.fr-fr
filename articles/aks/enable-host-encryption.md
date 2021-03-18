@@ -3,13 +3,13 @@ title: Activer le chiffrement basé sur l’hôte sur Azure Kubernetes Service (
 description: Découvrez comment configurer un chiffrement basé sur l’hôte dans un cluster Azure Kubernetes service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 01/27/2021
-ms.openlocfilehash: ac28c698a766f1f3febaff582038906f658d58dd
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.date: 03/03/2021
+ms.openlocfilehash: f4e599ae7aa81c15f86d0e8b1c934824010ea45b
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99071848"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102430153"
 ---
 # <a name="host-based-encryption-on-azure-kubernetes-service-aks-preview"></a>Activer le chiffrement basé sur l’hôte sur Azure Kubernetes Service (AKS) (préversion)
 
@@ -26,6 +26,13 @@ Cette fonctionnalité ne peut être définie qu’au moment de la création du c
 ### <a name="prerequisites"></a>Prérequis
 
 - Vérifiez que l'extension CLI `aks-preview` version 0.4.73 ou ultérieure est installée.
+- Vérifiez que l’indicateur de fonctionnalité `EnableEncryptionAtHostPreview` sous `Microsoft.ContainerService` est activé.
+
+Afin de pouvoir utiliser le chiffrement sur l'hôte pour vos machines virtuelles ou groupes de machines virtuelles identiques, vous devez activer la fonctionnalité dans votre abonnement. Envoyez un e-mail à **encryptionAtHost@microsoft.com** avec vos ID d’abonnement afin d’activer la fonctionnalité pour vos abonnements. 
+
+> [!IMPORTANT]
+> Vous devez envoyer un e-mail à l’adresse **encryptionAtHost@microsoft.com** avec vos ID d’abonnement afin que la fonctionnalité soit activée pour les ressources de calcul. Vous ne pouvez pas l’activer vous-même pour les ressources de calcul.
+
 
 ### <a name="install-aks-preview-cli-extension"></a>Installer l’extension CLI de préversion d’aks
 
@@ -41,7 +48,7 @@ az extension update --name aks-preview
 
 ### <a name="limitations"></a>Limites
 
-- Ne peut être activé que sur les nouveaux pools de nœuds ou les nouveaux clusters.
+- Ne peut être activé que sur les nouveaux pools de nœuds.
 - Ne peut être activé que dans les [régions Azure][supported-regions] qui prennent en charge le chiffrement côté serveur des disques managés Azure et uniquement avec des [tailles de machine virtuelle spécifiques prises en charge][supported-sizes].
 - Requiert un cluster AKS et un pool de nœuds basés sur Virtual Machine Scale Sets (VMSS) comme *type d’ensemble de machines virtuelles*.
 

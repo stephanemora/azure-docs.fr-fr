@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 2d97d02aec84fec92e29e971cd5c667c847b2541
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 733b2375a26b0157f88bc148b52932e2f3e3f2e2
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100368045"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102488271"
 ---
 # <a name="migration-overview-sql-server-to-sql-database"></a>Vue d’ensemble de la migration : de SQL Server vers SQL Database
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
@@ -104,6 +104,7 @@ Le tableau suivant liste les outils de migration recommandés :
 
 |Technology | Description|
 |---------|---------|
+| [Azure Migrate](/azure/migrate/how-to-create-azure-sql-assessment) | Azure Migrate pour Azure SQL vous permet de découvrir et d’évaluer votre patrimoine de données SQL à grande échelle lorsque vous êtes sur VMware, en vous fournissant des recommandations concernant le déploiement Azure SQL, le dimensionnement de la cible et les estimations mensuelles. | 
 |[Assistant Migration de données (DMA)](/sql/dma/dma-migrateonpremsqltosqldb)|L’Assistant Migration de données est un outil de bureau qui effectue des évaluations homogènes de SQL Server et des migrations vers Azure SQL Database (à la fois le schéma et les données). L’outil peut être installé sur un serveur local ou sur votre ordinateur local, sous réserve qu’il dispose d’une connectivité avec vos bases de données sources. Le processus de migration est un déplacement de données logiques entre les objets de la base de données source et ceux de la base de données cible. </br> - Migration de bases de données uniques (à la fois le schéma et les données)|
 |[Azure Database Migration Service (DMS)](../../../dms/tutorial-sql-server-to-azure-sql.md)|Service Azure interne vous permettant de migrer vos bases de données SQL Server vers Azure SQL Database à partir du portail Azure ou de manière automatisée avec PowerShell. Azure DMS vous impose de sélectionner un réseau virtuel Azure par défaut pendant le provisionnement pour vérifier qu’il existe une connectivité avec vos bases de données SQL Server sources. </br> - Migration de bases de données uniques ou à grande échelle. |
 | | |

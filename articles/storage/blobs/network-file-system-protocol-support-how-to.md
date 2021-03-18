@@ -9,16 +9,16 @@ ms.date: 08/04/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: db946dcc0fc8571f7b6aa191909155baccf7d1a2
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 8ed63a508447104f9073c986debfae73ba7de89f
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878576"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102428641"
 ---
 # <a name="mount-blob-storage-by-using-the-network-file-system-nfs-30-protocol-preview"></a>Monter le stockage Blob à l’aide du protocole NFS (Network File System) 3.0 (préversion)
 
-Vous pouvez monter un conteneur dans le stockage Blob à partir d’une machine virtuelle Azure basée sur Linux ou Windows ou d’un système Linux ou Windows qui s’exécute localement à l’aide du protocole NFS 3.0. Cet article fournit un guide pas à pas. Pour en savoir plus sur la prise en charge du protocole NFS 3.0 dans le stockage Blob, consultez [Prise en charge du protocole NFS (Network File System) 3.0 dans le stockage Blob Azure (préversion)](network-file-system-protocol-support.md).
+Vous pouvez monter un conteneur dans le stockage Blob à partir d’une machine virtuelle Azure basée sur Linux ou d’un système Linux qui s’exécute localement à l’aide du protocole NFS 3.0. Cet article fournit un guide pas à pas. Pour en savoir plus sur la prise en charge du protocole NFS 3.0 dans le stockage Blob, consultez [Prise en charge du protocole NFS (Network File System) 3.0 dans le stockage Blob Azure (préversion)](network-file-system-protocol-support.md).
 
 ## <a name="step-1-register-the-nfs-30-protocol-feature-with-your-subscription"></a>Étape 1 : Inscrivez la fonctionnalité de protocole NFS 3.0 avec votre abonnement
 
@@ -107,9 +107,7 @@ Créez un conteneur dans votre compte de stockage à l’aide de l’un de ces o
 
 ## <a name="step-7-mount-the-container"></a>Étape 7 : Montez le conteneur
 
-Créez un répertoire sur votre système Windows ou Linux, puis montez un conteneur dans le compte de stockage.
-
-### <a name="linux"></a>[Linux](#tab/linux)
+Créez un répertoire sur votre système Linux, puis montez un conteneur dans le compte de stockage.
 
 1. Sur un système Linux, créez un répertoire.
 
@@ -126,32 +124,6 @@ Créez un répertoire sur votre système Windows ou Linux, puis montez un conten
    - Remplacez la valeur d’espace réservé `<storage-account-name>` qui s’affiche dans cette commande par le nom de votre compte de stockage.  
 
    - Remplacez l’espace réservé `<container-name>` par le nom de votre conteneur.
-
-
-### <a name="windows"></a>[Windows](#tab/windows)
-
-1. Ouvrez la boîte de dialogue **Fonctionnalités Windows**, puis activez la fonctionnalité **Client pour NFS**. 
-
-   ![Caractéristique du client pour NFS](media/network-file-system-protocol-how-to/client-for-network-files-system-feature.png)
-
-2. Ouvrez une fenêtre **d’invite de commandes** (cmd.exe). Montez ensuite un conteneur à l’aide de la commande [mount](/windows-server/administration/windows-commands/mount).
-
-   ```
-   mount -o nolock <storage-account-name>.blob.core.windows.net:/<storage-account-name>/<container-name> *
-   ```
-
-   - Remplacez la valeur d’espace réservé `<storage-account-name>` qui s’affiche dans cette commande par le nom de votre compte de stockage.  
-
-   - Remplacez l’espace réservé `<container-name>` par le nom de votre conteneur.
-
-3. Si vous avez besoin d’autorisations en écriture, vous devrez peut-être modifier l’UID et le GID par défaut utilisés par Windows pour se connecter au partage. Pour ce faire, exécutez les commandes PowerShell en tant qu’administrateur :
-
-   ```
-   New-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\ClientForNFS\CurrentVersion\Default -Name AnonymousUid -PropertyType DWord -Value 0
-   New-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\ClientForNFS\CurrentVersion\Default -Name AnonymousGid -PropertyType DWord -Value 0
-   ```
-   
-   - Redémarrez le service client NFS ou redémarrez le serveur après avoir effectué cette modification.
 
 ---
 

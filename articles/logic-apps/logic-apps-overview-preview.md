@@ -1,32 +1,32 @@
 ---
 title: Vue d’ensemble de la préversion Azure Logic Apps
-description: Azure Logic Apps (préversion) est une solution cloud permettant de créer des workflows avec état et sans état automatisés qui intègrent des applications, des données, des services et des systèmes avec un minimum de code pour les scénarios de niveau entreprise.
+description: Azure Logic Apps (préversion) est une solution cloud permettant de créer des workflows avec état et sans état, monolocataires et automatisés qui intègrent des applications, des données, des services et des systèmes avec un minimum de code pour les scénarios de niveau entreprise.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 03/02/2021
-ms.openlocfilehash: 9d8d3cb4bf68f7da2bddabd21272d1011ce92f66
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/08/2021
+ms.openlocfilehash: d53a36d99c9a54fdfef7baceb50edb4e8f5ae4c8
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101715205"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102561855"
 ---
 # <a name="overview-azure-logic-apps-preview"></a>Présentation : Préversion Azure Logic Apps
 
 > [!IMPORTANT]
 > Cette fonctionnalité en préversion publique est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Grâce à Azure Logic Apps (préversion), vous pouvez créer des solutions d’automatisation et d’intégration entre les applications, les données, les services cloud et les systèmes en créant et en exécutant des applications logiques qui incluent des [workflows *avec état* et *sans état*](#stateful-stateless) à l’aide du nouveau type de ressource **Application logique (préversion)** . Grâce à ce nouveau type d’application logique, vous pouvez créer plusieurs workflows alimentés par le runtime d’Azure Logic Apps (préversion) remanié, qui offre de la portabilité, de meilleures performances et de la flexibilité pour le déploiement et l’exécution dans divers environnements d’hébergement, non seulement dans Azure, mais également dans les conteneurs Docker.
+Grâce à Azure Logic Apps (préversion), vous pouvez créer des solutions d’automatisation et d’intégration entre les applications, les données, les services cloud et les systèmes en créant et en exécutant des applications logiques monolocataires avec le nouveau type de ressource **Application logique (préversion)** . À l’aide de ce type d’application logique monolocataire, vous pouvez créer plusieurs workflows [*avec état* et *sans état*](#stateful-stateless) alimentés par le runtime remanié d’Azure Logic Apps (préversion), qui offre de la portabilité, de meilleures performances et de la flexibilité pour le déploiement et l’exécution dans divers environnements d’hébergement, incluant non seulement Azure, mais également les conteneurs Docker.
 
-Comment est-ce possible ? Le runtime remanié utilise le [modèle d’extensibilité d’Azure Functions](../azure-functions/functions-bindings-register.md) et est hébergé en tant qu’extension sur le runtime d’Azure Functions. Cette architecture signifie que vous pouvez exécuter le nouveau type d’application logique partout où Azure Functions s’exécute. Vous pouvez héberger le runtime remanié sur pratiquement toutes les topologies de réseau et choisir n’importe quelle taille de calcul disponible pour gérer la charge de travail nécessaire requise par vos workflows. Pour plus d’informations, consultez [Introduction à Azure Functions](../azure-functions/functions-overview.md) et [Déclencheurs et liaisons Azure Functions](../azure-functions/functions-triggers-bindings.md).
+Comment est-ce possible ? Le runtime remanié utilise le [modèle d’extensibilité d’Azure Functions](../azure-functions/functions-bindings-register.md) et est hébergé en tant qu’extension sur le runtime d’Azure Functions. Cette architecture signifie que vous pouvez exécuter le type d’application logique monolocataire partout où Azure Functions s’exécute. Vous pouvez héberger le runtime remanié sur pratiquement toutes les topologies de réseau et choisir n’importe quelle taille de calcul disponible pour gérer la charge de travail nécessaire requise par vos workflows. Pour plus d’informations, consultez [Introduction à Azure Functions](../azure-functions/functions-overview.md) et [Déclencheurs et liaisons Azure Functions](../azure-functions/functions-triggers-bindings.md).
 
-Vous pouvez créer la ressource **Application logique (préversion)** en [commençant dans le portail Azure](create-stateful-stateless-workflows-azure-portal.md) ou en [créant un projet dans Visual Studio Code à l’aide de l’extension Azure Logic Apps (préversion)](create-stateful-stateless-workflows-visual-studio-code.md). En outre, dans Visual Studio Code, vous pouvez générer *et exécuter localement* vos workflows dans votre environnement de développement. Que vous utilisiez le portail ou Visual Studio Code, vous pouvez déployer et exécuter le nouveau type d’application logique dans les mêmes types d’environnements d’hébergement.
+Vous pouvez créer la ressource **Application logique (préversion)** en [commençant dans le portail Azure](create-stateful-stateless-workflows-azure-portal.md) ou en [créant un projet dans Visual Studio Code à l’aide de l’extension Azure Logic Apps (préversion)](create-stateful-stateless-workflows-visual-studio-code.md). En outre, dans Visual Studio Code, vous pouvez générer *et exécuter localement* vos workflows dans votre environnement de développement. Que vous utilisiez le portail ou Visual Studio Code, vous pouvez déployer et exécuter le type d’application logique monolocataire dans les mêmes types d’environnements d’hébergement.
 
 Cette présentation couvre les sujets suivants :
 
-* [Différences entre Azure Logic Apps (préversion), l’environnement mutualisé d’Azure Logic Apps et l’environnement du service d’intégration](#preview-differences).
+* [Différences entre Azure Logic Apps (préversion), l’environnement multilocataire d’Azure Logic Apps et l’environnement du service d’intégration](#preview-differences).
 
 * [Différences entre les workflows avec état et sans état](#stateful-stateless), notamment les différences de comportement entre [les workflows avec état et sans état imbriqués](#nested-behavior).
 
@@ -48,7 +48,7 @@ Pour plus d’informations, consultez ces autres rubriques :
 
 ## <a name="how-does-azure-logic-apps-preview-differ"></a>En quoi Azure Logic Apps (préversion) est-il différent ?
 
-Le runtime d’Azure Logic Apps (préversion) utilise l’extensibilité d’[Azure Functions](../azure-functions/functions-overview.md) et est hébergé en tant qu’extension sur le runtime d’Azure Functions. Cette architecture signifie que vous pouvez exécuter le nouveau type d’application logique partout où Azure Functions s’exécute. Vous pouvez héberger le runtime d’Azure Logic Apps (préversion) sur pratiquement toutes les topologies de réseau possibles et choisir n’importe quelle taille de calcul disponible pour gérer la charge de travail dont votre workflow a besoin. Pour plus d’informations sur l’extensibilité d’Azure Functions, consultez [Kit de développement logiciel (SDK) WebJobs : Création de liaisons d’entrée et de sortie personnalisées](https://github.com/Azure/azure-webjobs-sdk/wiki/Creating-custom-input-and-output-bindings).
+Le runtime d’Azure Logic Apps (préversion) utilise l’extensibilité d’[Azure Functions](../azure-functions/functions-overview.md) et est hébergé en tant qu’extension sur le runtime d’Azure Functions. Cette architecture signifie que vous pouvez exécuter le type d’application logique monolocataire partout où Azure Functions s’exécute. Vous pouvez héberger le runtime d’Azure Logic Apps (préversion) sur pratiquement toutes les topologies de réseau possibles et choisir n’importe quelle taille de calcul disponible pour gérer la charge de travail dont votre workflow a besoin. Pour plus d’informations sur l’extensibilité d’Azure Functions, consultez [Kit de développement logiciel (SDK) WebJobs : Création de liaisons d’entrée et de sortie personnalisées](https://github.com/Azure/azure-webjobs-sdk/wiki/Creating-custom-input-and-output-bindings).
 
 Avec cette nouvelle approche, le runtime d’Azure Logic Apps (préversion) et vos workflows font tous deux partie de votre application que vous pouvez empaqueter ensemble. Cette capacité vous permet de déployer et d’exécuter vos workflows en copiant simplement les artefacts dans l’environnement d’hébergement et en démarrant votre application. Cette approche offre également une expérience plus standardisée pour la création de pipelines de déploiement autour des projets de workflow pour l’exécution des tests et validations requis avant le déploiement des modifications dans les environnements de production. Pour plus d’informations, consultez [Azure Logic Apps s’exécutant partout – Présentation approfondie du runtime](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-runtime-deep-dive/ba-p/1835564).
 
@@ -57,15 +57,17 @@ Le tableau suivant résume les différences dans la manière dont les workflows 
 | Environnement | Partage et consommation des ressources |
 |-------------|----------------------------------|
 | Azure Logic Apps (mutualisé) | Les workflows *de clients se trouvant dans plusieurs locataires* partagent le même traitement (calcul), le même stockage, le même réseau, et ainsi de suite. |
-| Azure Logic Apps (préversion) | Les workflows qui se trouvent *dans la même application logique* partagent le même traitement (calcul), le même stockage, le même réseau, et ainsi de suite. |
+| Azure Logic Apps (préversion, monolocataire) | Les workflows qui se trouvent *dans la même application logique et qui sont monolocataires* partagent le même traitement (calcul), le même stockage, le même réseau, et ainsi de suite. |
 | Environnement de service d’intégration (non disponible dans le préversion) | Les workflows qui se trouvent *dans le même environnement* partagent le même traitement (calcul), le même stockage, le même réseau, et ainsi de suite. |
 ||||
 
-En attendant, vous pouvez toujours créer le type d’application logique d’origine dans le portail Azure et dans Visual Studio Code à l’aide de l’extension Azure Logic Apps d’origine. Bien que les expériences de développement diffèrent entre le type d’application logique d’origine et le nouveau type d’application logique, votre abonnement Azure peut inclure les deux types. Vous pouvez afficher toutes les applications logiques déployées dans votre abonnement Azure et y accéder, mais elles sont organisées dans leurs propres catégories et sections.
+En attendant, vous pouvez toujours créer le type d’application logique multilocataire dans le portail Azure et dans Visual Studio Code à l’aide de l’extension Azure Logic Apps multilocataire. Bien que les expériences de développement diffèrent entre les types d’applications logiques monolocataires et multilocataires, votre abonnement Azure peut inclure les deux types. Vous pouvez afficher toutes les applications logiques déployées dans votre abonnement Azure et y accéder, mais elles sont organisées dans leurs propres catégories et sections.
 
 <a name="stateful-stateless"></a>
 
 ## <a name="stateful-and-stateless-workflows"></a>Workflows avec état et sans état
+
+Avec le type d’application logique monolocataire, vous pouvez créer ces types de workflows dans la même application logique :
 
 * *Avec état*
 
@@ -118,9 +120,13 @@ Ce tableau spécifie le comportement du flux de travail enfant selon que les flu
 
 Azure Logic Apps (préversion) comprend de nombreuses capacités actuelles et supplémentaires, par exemple :
 
-* Créez des applications logiques et leurs workflows à partir de [plus de 390 connecteurs](/connectors/connector-reference/connector-reference-logicapps-connectors) pour les applications et services SaaS (Software-as-a-service) et PaaS (Platform-as-a-service), ainsi que des connecteurs pour les systèmes locaux.
+* Créez des applications logiques et leurs workflows à partir de [plus de 400 connecteurs](/connectors/connector-reference/connector-reference-logicapps-connectors) pour les applications et services SaaS (Software-as-a-service) et PaaS (Platform-as-a-service), ainsi que des connecteurs pour les systèmes locaux.
 
-  * Certains connecteurs gérés, tels qu’Azure Service Bus, Azure Event Hubs et SQL Server, s’exécutent de la même façon que les déclencheurs et les actions intégrés qui sont natifs au runtime d’Azure Logic Apps (préversion), par exemple, le déclencheur Requête et l’action HTTP. Pour plus d’informations, consultez [Azure Logic Apps s’exécutant partout – Extensibilité de connecteur intégré](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272).
+  * Certains connecteurs managés, tels qu’Azure Service Bus, Azure Event Hubs, SQL Server et MQ, s’exécutent de la même façon que les déclencheurs et les actions intégrés qui sont natifs au runtime d’Azure Logic Apps (préversion), par exemple le déclencheur Requête et l’action HTTP.
+
+  * Créez vos propres connecteurs intégrés pour tous les services dont vous avez besoin à l’aide du [framework d’extensibilité de la préversion](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272). Comme pour les connecteurs intégrés tels qu’Azure Service Bus et SQL Server, mais contrairement aux [connecteurs personnalisés](../connectors/apis-list.md#custom-apis-and-connectors) qui ne sont actuellement pas pris en charge pour la préversion, ces connecteurs offrent un débit plus élevé, une faible latence, une connectivité locale et s’exécutent en mode natif dans le même processus que le runtime en préversion.
+
+    La fonctionnalité de création n’est actuellement disponible que dans Visual Studio Code, mais elle n’est pas activée par défaut. Pour créer ces connecteurs, [changez votre projet basé sur bundle d’extensions (Node.js) en projet basé sur package NuGet (.NET)](create-stateful-stateless-workflows-visual-studio-code.md#enable-built-in-connector-authoring). Pour plus d’informations, consultez [Azure Logic Apps s’exécutant partout – Extensibilité de connecteur intégré](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272).
 
   * Vous pouvez utiliser les actions B2B pour Liquid Operations et XML Operations sans compte d’intégration. Pour utiliser ces actions, vous devez disposer de cartes Liquid, de cartes XML ou de schémas XML que vous pouvez charger par le biais des actions respectives dans le portail Azure ou ajouter au dossier **Artefacts** de votre projet Visual Studio Code à l’aide des dossiers **Cartes** et **Schémas**.
 
@@ -145,24 +151,24 @@ Azure Logic Apps (préversion) comprend de nombreuses capacités actuelles et su
 
   * [Azure Logic Apps s’exécutant partout – Capacités réseau avec Azure Logic Apps (préversion)](https://techcommunity.microsoft.com/t5/integrations-on-azure/logic-apps-anywhere-networking-possibilities-with-logic-app/ba-p/2105047)
 
-* Régénérez les clés d’accès pour les connexions gérées utilisées par les workflows individuels dans une ressource **Application logique (préversion)** . Pour cette tâche, [suivez les mêmes étapes que pour la ressource **Logic Apps**, mais au niveau du workflow individuel](logic-apps-securing-a-logic-app.md#regenerate-access-keys), et non au niveau de la ressource de l’application logique.
+* Regénérez les clés d’accès pour les connexions managées utilisées par les workflows individuels dans la ressource **Application logique (préversion)** monolocataire. Pour cette tâche, [suivez les mêmes étapes que pour la ressource **Logic Apps** multilocataire, mais au niveau du workflow individuel](logic-apps-securing-a-logic-app.md#regenerate-access-keys), et non au niveau de la ressource de l’application logique.
 
-* Ajoutez des branches parallèles dans le nouveau concepteur en suivant les mêmes étapes que le concepteur hors préversion.
- 
+* Ajoutez des branches parallèles dans le concepteur monolocataire en suivant les mêmes étapes que pour le concepteur multilocataire.
+
 Pour plus d’informations, consultez [Fonctionnalités modifiées, limitées, indisponibles et non prises en charge](#limited-unavailable-unsupported), ainsi que la [page sur les problèmes connus de la préversion publique de Logic Apps dans GitHub](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md).
 
 <a name="pricing-model"></a>
 
 ## <a name="pricing-model"></a>Modèle de tarification
 
-Quand vous créez le nouveau type d’application logique dans le portail Azure ou que vous le déployez à partir de Visual Studio Code, vous devez choisir un plan d’hébergement, [App Service ou Premium](../azure-functions/functions-scale.md), pour votre application logique. Ce plan détermine le modèle de tarification qui s’applique à l’exécution de votre application logique. Si vous sélectionnez le plan App Service, vous devez également choisir un [niveau tarifaire](../app-service/overview-hosting-plans.md).
+Quand vous créez le type d’application logique monolocataire dans le portail Azure ou que vous le déployez à partir de Visual Studio Code, vous devez choisir un plan d’hébergement, [App Service ou Premium](../azure-functions/functions-scale.md), pour votre application logique. Ce plan détermine le modèle de tarification qui s’applique à l’exécution de votre application logique. Si vous sélectionnez le plan App Service, vous devez également choisir un [niveau tarifaire](../app-service/overview-hosting-plans.md).
 
 Les workflows *avec état* utilisant un [stockage externe](../azure-functions/storage-considerations.md#storage-account-requirements), la [tarification de Stockage Azure](https://azure.microsoft.com/pricing/details/storage/) s’applique aux transactions de stockage que le runtime d’Azure Logic Apps (préversion) exécute. Par exemple, des files d’attente sont utilisées pour la planification, tandis que des tables et blobs sont utilisés pour stocker les états de flux de travail.
 
 > [!NOTE]
 > Pendant la préversion publique, l’exécution d’applications logiques sur App Service n’occasionne pas de frais *supplémentaires* en plus du coût du plan sélectionné.
 
-Pour plus d’informations sur les modèles de tarification qui s’appliquent à ce nouveau type de ressource, consultez les rubriques suivantes :
+Pour plus d’informations sur les modèles tarifaires qui s’appliquent au type de ressource monolocataire, consultez les rubriques suivantes :
 
 * [Échelle et hébergement dans Azure Functions](../azure-functions/functions-scale.md)
 * [Montez une application en puissance dans Azure App Service](../app-service/manage-scale-up.md)
@@ -193,16 +199,14 @@ Dans Azure Logic Apps (préversion), ces capacités ont changé, ou elles sont a
 
     * Les [*déclencheurs* de la passerelle de données locale](../connectors/apis-list.md#on-premises-connectors) ne sont pas disponibles, mais les actions de la passerelle *le sont*.
 
-    * Les [connecteurs personnalisés](../connectors/apis-list.md#custom-apis-and-connectors) ne sont pas disponibles.
-
     * L’action intégrée, [Azure Functions – Choisir une fonction Azure](logic-apps-azure-functions.md) est désormais **Azure Function Operations – Appeler une fonction Azure**. Cette action ne fonctionne actuellement que pour les fonctions créées à partir du modèle **Déclencheur HTTP**.
 
       Dans le portail Azure, vous pouvez sélectionner une fonction de déclencheur HTTP à laquelle vous avez accès en créant une connexion via l’expérience utilisateur. Si vous inspectez la définition JSON de l’action de fonction en mode code ou le fichier **workflow.json**, l’action fait référence à la fonction à l’aide d’une référence `connectionName`. Cette version extrait les informations de la fonction en tant que connexion, que vous pouvez trouver dans le fichier **connections.json** de votre projet, qui est disponible après la création d’une connexion.
 
       > [!NOTE]
-      > Dans la préversion, l’action de la fonction ne prend en charge que l’authentification par chaîne de requête. Azure Logic Apps (préversion) obtient la clé par défaut de la fonction lors de l’établissement de la connexion, stocke cette clé dans les paramètres de votre application et utilise la clé pour l’authentification lors de l’appel de la fonction.
+      > Dans la version monolocataire, l’action de la fonction ne prend en charge que l’authentification par chaîne de requête. Azure Logic Apps (préversion) obtient la clé par défaut de la fonction lors de l’établissement de la connexion, stocke cette clé dans les paramètres de votre application et utilise la clé pour l’authentification lors de l’appel de la fonction.
       >
-      > Comme avec la version d’origine, si vous renouvelez cette clé, par exemple par le biais de l’expérience Azure Functions dans le portail, l’action de la fonction ne fonctionnera plus en raison de la clé devenue non valide. Pour résoudre ce problème, vous devez recréer la connexion à la fonction que vous souhaitez appeler ou mettre à jour les paramètres de votre application avec la nouvelle clé.
+      > Comme avec la version multilocataire, si vous renouvelez cette clé, par exemple par le biais de l’expérience Azure Functions dans le portail, l’action de la fonction ne marchera plus en raison de la clé devenue non valide. Pour résoudre ce problème, vous devez recréer la connexion à la fonction que vous souhaitez appeler ou mettre à jour les paramètres de votre application avec la nouvelle clé.
 
     * L’action intégrée, [Code inlined – Exécuter du code JavaScript](logic-apps-add-run-inline-code.md) est désormais **Opérations de code inlined – Exécuter du code JavaScript inlined**.
 
@@ -218,7 +222,9 @@ Dans Azure Logic Apps (préversion), ces capacités ont changé, ou elles sont a
 
     * L’action intégrée, [Azure Logic Apps – Choisir un workflow d’application logique](logic-apps-http-endpoint.md) est désormais **Workflow Operations – Appeler un workflow dans cette application de workflow**.
 
-* **Disponibilité du plan d’hébergement** : Si vous créez un nouveau type de ressource **Application logique (préversion)** dans le portail Azure ou que vous le déployez à partir de Visual Studio Code, vous pouvez uniquement utiliser le plan d’hébergement Premium ou App Service dans Azure. Les plans d’hébergement dits de consommation ne sont pas disponibles ni pris en charge pour le déploiement de ce type de ressource. Vous pouvez effectuer le déploiement de Visual Studio Code vers un conteneur Docker, mais pas vers un [environnement de service d’intégration (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
+* Les [connecteurs personnalisés](../connectors/apis-list.md#custom-apis-and-connectors) ne sont actuellement pas pris en charge pour la préversion.
+
+* **Disponibilité du plan d’hébergement** : que vous créiez le type de ressource **Application logique (préversion)** monolocataire dans le portail Azure ou que vous le déployiez à partir de Visual Studio Code, vous pouvez uniquement utiliser le plan d’hébergement Premium ou App Service dans Azure. Les plans d’hébergement dits de consommation ne sont pas disponibles ni pris en charge pour le déploiement de ce type de ressource. Vous pouvez effectuer le déploiement de Visual Studio Code vers un conteneur Docker, mais pas vers un [environnement de service d’intégration (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
 
 * **Débogage des points d’arrêt dans Visual Studio Code** : Bien que vous puissiez ajouter et utiliser des points d’arrêt à l’intérieur du fichier **workflow.json** pour un workflow, les points d’arrêt sont pris en charge uniquement pour les actions pour le moment, et non pour les déclencheurs. Pour plus d’informations, consultez [Créer des workflows avec état et sans état dans Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md#manage-breakpoints).
 
@@ -229,6 +235,17 @@ Dans Azure Logic Apps (préversion), ces capacités ont changé, ou elles sont a
    * Pour afficher l’historique des exécutions, ouvrez le workflow dans votre application logique. Dans le menu du workflow, sous **Développeur**, sélectionnez **Superviser**.
 
    * Pour passer en revue l’historique des déclencheurs, ouvrez le workflow dans votre application logique. Dans le menu du workflow, sous **Développeur**, sélectionnez **Historique des déclencheurs**.
+
+<a name="firewall-permissions"></a>
+
+## <a name="permit-traffic-in-strict-network-and-firewall-scenarios"></a>Autoriser le trafic dans les scénarios de réseau et de pare-feu stricts
+
+Si votre environnement a des exigences réseau strictes ou des pare-feu qui limitent le trafic, vous devez autoriser l’accès pour toutes les connexions de déclencheur ou d’action dans vos workflows d’application logique.
+
+Pour trouver les noms de domaine complets (FQDN) de ces connexions, consultez les sections correspondantes dans les rubriques suivantes :
+
+* [Autorisations de pare-feu pour les applications logiques monolocataires - Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md#firewall-setup)
+* [Autorisations de pare-feu pour les applications logiques monolocataires - Portail Azure](create-stateful-stateless-workflows-azure-portal.md#firewall-setup)
 
 <a name="limits"></a>
 

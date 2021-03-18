@@ -9,13 +9,13 @@ ms.topic: how-to
 author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
-ms.date: 11/06/2020
-ms.openlocfilehash: a9dfd185af012314ddc481b598f181b6760640ec
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/19/2021
+ms.openlocfilehash: 9205301cb77941e4ea7ca026710d44ba82f6a937
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101690938"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103563842"
 ---
 # <a name="migration-guide-sql-server-to-sql-database"></a>Guide de migration : de SQL Server vers SQL Database
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
@@ -58,6 +58,8 @@ Vous pouvez également utiliser  [Microsoft Assessment and Planning Toolkit (�
 Pour plus d’informations sur les outils utilisables au cours de la phase de découverte, consultez [Services et outils disponibles pour les scénarios de migration de données](../../../dms/dms-tools-matrix.md). 
 
 ### <a name="assess"></a>Évaluer 
+
+[!INCLUDE [assess-estate-with-azure-migrate](../../../../includes/azure-migrate-to-assess-sql-data-estate.md)]
 
 Une fois les sources de données découvertes, évaluez les bases de données SQL Server locales que vous pouvez migrer vers Azure SQL Database pour identifier les obstacles ou les problèmes de compatibilité liés à la migration. 
 
@@ -157,10 +159,10 @@ Pour accélérer la migration vers Azure SQL Database, vous devez prendre en com
 |  | Contention de ressources | Recommandation |
 |--|--|--|
 | **Source (généralement en local)** |Le goulot d’étranglement principal au cours de la migration dans la source est dû aux E/S de données et à la latence sur le fichier de données qui doit être analysé avec précaution.  |En fonction des E/S de données et de la latence du fichier de données et selon qu’il s’agit d’une machine virtuelle ou d’un serveur physique, vous devez faire appel à l’administrateur du stockage et explorer les options permettant d’atténuer le goulot d’étranglement. |
-|**Cible (Azure SQL Database)**|Le plus grand facteur limitant est le taux de génération des journaux et la latence du fichier journal. Avec Azure SQL Database, vous pouvez obtenir un taux de génération de journal maximal de 96 Mo/s. | Pour accélérer la migration, effectuer un scale-up de la base de données SQL cible vers le niveau « Critique pour l’entreprise Gen5 8 vcores » pour obtenir le taux maximal de génération de journaux de 96 Mo/s et obtenir une faible latence pour le fichier journal. Le niveau de service [Hyperscale](../../database/service-tier-hyperscale.md) fournit un taux de journalisation de 100 Mo/s, quel que soit le niveau de service choisi. |
+|**Cible (Azure SQL Database)**|Le plus grand facteur limitant est le taux de génération des journaux et la latence du fichier journal. Avec Azure SQL Database, vous pouvez obtenir un taux de génération de journal maximal de 96 Mo/s. | Pour accélérer la migration, effectuez un scale-up de la base de données SQL cible vers le niveau « Critique pour l’entreprise Gen5 8 vCores » pour obtenir le taux maximal de génération de journaux de 96 Mo/s et obtenir une faible latence pour le fichier journal. Le niveau de service [Hyperscale](../../database/service-tier-hyperscale.md) fournit un taux de journalisation de 100 Mo/s, quel que soit le niveau de service choisi. |
 |**Réseau** |La bande passante réseau nécessaire est égale au taux maximal d’ingestion des journaux de 96 Mo/s (768 Mo/s). |En fonction de la connectivité réseau entre votre centre de données local et Azure, vérifiez que la bande passante réseau (en général [Azure ExpressRoute](../../../expressroute/expressroute-introduction.md#bandwidth-options)) prend en charge le taux maximal d’ingestion des journaux. |
 |**Machine virtuelle utilisée pour l’Assistant Migration de données (DMA)** |Le processeur est le principal goulot d’étranglement de la machine virtuelle exécutant l’Assistant Migration de données. |Éléments à prendre en compte pour accélérer la migration des données : </br>- Utiliser des machines virtuelles Azure nécessitant beaucoup de ressources système </br>- Utiliser au moins une machine virtuelle F8s_v2 (8 vCores) pour l’exécution de l’Assistant Migration de données </br>- S’assurer que la machine virtuelle s’exécute dans la même région Azure que la cible |
-|**Azure Database Migration Service (DMS)** |Considérations relatives à la contention des ressources de calcul et aux objets de base de données pour DMS |Utilisez le niveau Premium 4 vCores. DMS s’occupe automatiquement des objets de base de données tels que les clés étrangères, les déclencheurs, les contraintes et les index non cluster et n’a besoin d’aucune intervention manuelle.  |
+|**Azure Database Migration Service (DMS)** |Considérations relatives à la contention des ressources de calcul et aux objets de base de données pour DMS |Utilisez le niveau Premium 4 vCores. DMS s’occupe automatiquement des objets de base de données tels que les clés étrangères, les déclencheurs, les contraintes et les index non-cluster, et n’a besoin d’aucune intervention manuelle.  |
 
 
 ## <a name="post-migration"></a>Postmigration
@@ -181,9 +183,6 @@ L’approche de test pour la migration de base de données comprend les activit�
 1. **Configurer un environnement de test**: l’environnement de test doit contenir une copie de la base de données source et de la base de données cible. Veillez à isoler l’environnement de test.
 1. **Exécuter des tests de validation** : exécutez les tests de validation sur la source et sur la cible, puis analysez les résultats.
 1. **Exécuter des tests de performances**: exécutez un test de performances sur la source et sur la cible, puis analysez et comparez les résultats.
-
-   > [!NOTE]
-   > Pour obtenir de l’aide sur le développement et l’exécution de tests de validation post-migration, envisagez d’utiliser la Solution de qualité des données disponible dans le partenaire [QuerySurge](https://www.querysurge.com/company/partners/microsoft). 
 
 
 ## <a name="leverage-advanced-features"></a>Tirer parti des fonctionnalités avancées 

@@ -4,12 +4,12 @@ description: Cet article explique comment rédiger du code pour Azure Event Hubs
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a299813620ee90591d8c9491991237f75f2e9382
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 32c3c05b61d2ee8fc79d7c863ddbe84de5fe7e2b
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98623046"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102432738"
 ---
 # <a name="net-programming-guide-for-azure-event-hubs-legacy-microsoftazureeventhubs-package"></a>Guide de programmation .NET pour Azure Event Hubs (package Microsoft.Azure.EventHubs hérité)
 Cet article décrit quelques scénarios courants de l’écriture de code à l’aide du service Azure Event Hubs. Il suppose une connaissance préalable des concentrateurs d’événements. Pour une vue d’ensemble conceptuelle des concentrateurs d’événements, consultez [Vue d'ensemble des concentrateurs d’événements](./event-hubs-about.md).
@@ -73,21 +73,7 @@ for (var i = 0; i < numMessagesToSend; i++)
 > [!NOTE]
 > Si vous n’êtes pas familiarisé avec les partitions, consultez [cet article](event-hubs-features.md#partitions). 
 
-Lors de l’envoi des données d’événement, vous pouvez spécifier une valeur hachée afin de produire une affectation de partition. Vous spécifiez la partition à l’aide de la propriété [PartitionSender.PartitionID](/dotnet/api/microsoft.azure.eventhubs.partitionsender.partitionid). Toutefois, la décision d’utiliser des partitions implique d’effectuer un choix entre disponibilité et cohérence. 
-
-### <a name="availability-considerations"></a>Considérations relatives à la disponibilité
-
-L’utilisation d’une clé de partition est facultative, et vous devez réfléchir attentivement au besoin d’en utiliser une ou non. Si vous ne spécifiez pas de clé de partition lors de la publication d’un événement, Event Hubs équilibre la charge entre les partitions. Dans de nombreux cas, l’utilisation d’une clé de partition est un bon choix si l’ordre des événements est important. Lorsque vous utilisez une clé de partition, les partitions nécessitent une disponibilité sur un nœud unique, et des interruptions peuvent se produire dans le temps, par exemple, lors du redémarrage et de la correction des nœuds de calcul. Par conséquent, si vous définissez un ID de partition et que cette partition devient indisponible pour une raison quelconque, une tentative d’accès aux données de la partition échouera. Si la haute disponibilité est une priorité, ne spécifiez pas de clé de partition. Dans ce cas, les événements sont envoyés aux partitions à l’aide d’un algorithme d’équilibrage de charge interne. Dans ce scénario, vous effectuez un choix explicite entre la disponibilité (aucun ID de partition) et la cohérence (épinglage d’événements à un ID de partition).
-
-Une autre considération peut être la gestion des retards dans le traitement des événements. Dans certains cas, il est préférable de supprimer les données et d’effectuer une nouvelle tentative plutôt que d’essayer de poursuivre le traitement, ce qui peut entraîner davantage de retards de traitement en aval. Par exemple, avec un téléscripteur pour le marché boursier, il est préférable d’attendre les données à jour complètes, mais dans une conversation en direct ou un scénario VOIP, vous préférerez plutôt obtenir les données rapidement, même incomplètes.
-
-Étant donné ces considérations relatives à la disponibilité, dans ces scénarios vous pouvez choisir l’une des stratégies de gestion des erreurs suivantes :
-
-- Arrêter (arrêter la lecture à partir de concentrateurs d’événements jusqu’à la résolution des problèmes)
-- Supprimer (les messages ne sont pas importants, les supprimer)
-- Réessayer (effectuer une nouvelle tentative pour les messages selon vos besoins)
-
-Pour obtenir plus d’informations et consulter une discussion concernant les compromis entre la disponibilité et la cohérence, consultez [Disponibilité et cohérence dans Event Hubs](event-hubs-availability-and-consistency.md). 
+Lors de l’envoi des données d’événement, vous pouvez spécifier une valeur hachée afin de produire une affectation de partition. Vous spécifiez la partition à l’aide de la propriété [PartitionSender.PartitionID](/dotnet/api/microsoft.azure.eventhubs.partitionsender.partitionid). Toutefois, la décision d’utiliser des partitions implique d’effectuer un choix entre disponibilité et cohérence. Pour plus d’informations, consultez [Disponibilité et cohérence](event-hubs-availability-and-consistency.md).
 
 ## <a name="batch-event-send-operations"></a>Opérations d'envoi d’événements par lot
 

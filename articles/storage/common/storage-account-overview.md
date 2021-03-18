@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/08/2021
+ms.date: 03/09/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 5cf43310c68c8446b9465a39d85f84c8273a68d8
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 24d955b0d1c53f57f5927f9e893b6ecd75fb3ca8
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98051222"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102561889"
 ---
 # <a name="storage-account-overview"></a>Vue d’ensemble du compte de stockage
 
@@ -71,7 +71,7 @@ Les comptes de stockage v2 à usage général prennent en charge les dernières 
 - Tables
 
 > [!NOTE]
-> Microsoft recommande d’utiliser des comptes de stockage universels v2 pour la plupart des scénarios. Vous pouvez facilement mettre à niveau un compte de stockage universel v1 ou un compte de stockage d’objets blob vers un compte universel v2, sans que cela nécessite un temps d’arrêt ou la copie de données.
+> Microsoft recommande d’utiliser des comptes de stockage universels v2 pour la plupart des scénarios. Vous pouvez facilement mettre à niveau un compte de stockage universel v1 ou un compte de stockage d’objets blob vers un compte universel v2, sans que cela nécessite un temps d’arrêt ou la copie de données. Toutefois, la mise à niveau ne peut pas être annulée.
 >
 > Pour plus d’informations sur la mise à niveau vers un compte universel v2, consultez [Mettre à niveau vers un compte de stockage universel v2](storage-account-upgrade.md).
 
@@ -87,13 +87,18 @@ Les comptes de stockage universels v1 offrent un accès à tous les services des
 - Files d’attente
 - Tables
 
-Microsoft recommande des comptes v2 universels pour la plupart des scénarios. Vous pouvez utiliser des comptes v1 universels pour les scénarios suivants :
+Vous pouvez utiliser des comptes v1 universels pour les scénarios suivants :
 
 - Si vos applications nécessitent le modèle de déploiement Azure Classic. Les comptes universels v2 et les comptes de stockage d’objets blob prennent uniquement en charge le modèle de déploiement Azure Resource Manager.
 
 - Vos applications sont gourmandes en transactions ou utilisent beaucoup de bande passante de géoréplication, mais ne nécessitent pas une capacité importante. Dans ce cas, le compte universel v1 constitue le choix le plus économique.
 
 - Vous utilisez une version de l’[API REST du service Stockage](/rest/api/storageservices/Versioning-for-the-Azure-Storage-Services) antérieure à celle du 14/02/2014 ou une bibliothèque de client avec une version inférieure à 4.x. Vous ne pouvez pas mettre à niveau votre application.
+
+> [!NOTE]
+> Bien que Microsoft recommande les comptes v2 universels pour la plupart des scénarios, Microsoft continuera à prendre en charge les comptes v1 universels pour les clients nouveaux et existants. Vous pouvez créer des comptes de stockage v1 universels dans de nouvelles régions chaque fois que Stockage Azure est disponible dans ces régions. Microsoft ne prévoie pas actuellement de déprécier la prise en charge des comptes v1 universels, et fournira un préavis d’au moins un an avant de déprécier toute fonctionnalité Stockage Azure. Microsoft continuera à fournir des mises à jour de sécurité pour les comptes v1 universels, mais aucun nouveau développement de fonctionnalité n’est attendu pour ce type de compte.
+>
+> À compter du 1er octobre 2020, les tarifs des comptes v1 universels dans les nouvelles régions Stockage Azure sont équivalents à ceux des comptes v2 universels dans ces régions. Les tarifs dans les régions Stockage Azure existantes n’ont pas changé. Pour plus d’informations sur les tarifs des comptes v1 universels dans une région spécifique, consultez la page sur la tarification de Stockage Azure. Choisissez votre région puis, en regard de **Offres et tarifs**, sélectionnez **Autre**.
 
 ### <a name="blockblobstorage-accounts"></a>Comptes BlockBlobStorage
 

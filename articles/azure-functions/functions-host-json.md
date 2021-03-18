@@ -3,12 +3,12 @@ title: Informations de référence sur le fichier host.json pour Azure Functions
 description: Documentation de référence pour le fichier host.json d’Azure Functions avec le runtime v2.
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 7ab60fb364eb3268a03c04bb4950251ae030f015
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: cbedf2212c52d8f1996d3cce0d96d494313ea525
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100374046"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102608816"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Informations de référence sur le fichier host.json pour Azure Functions 2.x et ultérieur 
 
@@ -253,7 +253,7 @@ Le paramètre de configuration se trouve dans les [liaisons de Durable Functions
 
 ## <a name="eventhub"></a>eventHub
 
-Les paramètres de configuration se trouvent dans les [déclencheurs et liaisons Event Hub](functions-bindings-event-hubs-trigger.md#host-json). 
+Les paramètres de configuration se trouvent dans les [déclencheurs et liaisons Event Hub](functions-bindings-event-hubs.md#host-json). 
 
 ## <a name="extensions"></a>extensions
 
@@ -345,7 +345,7 @@ Contrôle les comportements de journalisation de l’application de fonction, y 
 |Propriété  |Default | Description |
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|Définit le niveau de journalisation de fichiers activé.  Options : `never`, `always`, `debugOnly`. |
-|logLevel|n/a|Objet qui définit le filtrage par catégorie du journal pour les fonctions de l’application. Les versions 2.x et ultérieures suivent la disposition d’ASP.NET Core pour le filtrage des catégories du journal. Ce paramètre vous permet de filtrer la journalisation pour des fonctions spécifiques. Pour plus d’informations, consultez [Filtrage de journal](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1&preserve-view=true#log-filtering) dans la documentation ASP.NET Core. |
+|logLevel|n/a|Objet qui définit le filtrage par catégorie du journal pour les fonctions de l’application. Ce paramètre vous permet de filtrer la journalisation pour des fonctions spécifiques. Pour plus d’informations, consultez [Configurer les niveaux de journalisation](configure-monitoring.md#configure-log-levels). |
 |console|n/a| Le paramètre de journalisation de la [console](#console). |
 |applicationInsights|n/a| Le paramètre [applicationInsights](#applicationinsights). |
 

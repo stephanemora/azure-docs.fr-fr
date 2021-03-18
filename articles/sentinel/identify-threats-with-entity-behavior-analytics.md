@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/25/2021
+ms.date: 02/10/2021
 ms.author: yelevin
-ms.openlocfilehash: 458c801e1434832bf65da669ca89cb5c5eebe2e8
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: bf7a17d96d31fd4214d5465a5739acc9ce9a9d53
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807561"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102455499"
 ---
 # <a name="identify-advanced-threats-with-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Identifier les menaces avancées avec l’analyse du comportement des utilisateurs et des entités (User and Entity Behavior Analytics, UEBA) dans Azure Sentinel
 
@@ -68,41 +68,9 @@ Azure Sentinel présente des artefacts qui aident vos analystes de sécurité à
 
 Pour vois comment cela fonctionne, découvrez comment l’analyse du comportement est utilisée dans [Microsoft Cloud App Security](https://techcommunity.microsoft.com/t5/microsoft-security-and/prioritize-user-investigations-in-cloud-app-security/ba-p/700136).
 
-## <a name="entities-in-azure-sentinel"></a>Entités dans Azure Sentinel
+## <a name="entity-pages"></a>Pages d’entité
 
-### <a name="entity-identifiers"></a>Identificateurs d’entité
-
-Lorsque des alertes sont envoyées à Azure Sentinel, elles incluent des éléments de données qu’Azure Sentinel identifie et classe comme des entités, tels que des comptes d'utilisateur, des hôtes, des adresses IP, etc. À l’occasion, cette identification peut être un défi si l’alerte ne contient pas suffisamment d’informations sur l’entité.
-
-Par exemple, les comptes d’utilisateurs peuvent être identifiés de plusieurs façons : à l’aide de l’identifiant numérique (GUID) d’un compte Azure AD, ou de sa valeur User Principal Name (UPN), ou encore, à l’aide d’une combinaison de son nom d'utilisateur et de son nom de domaine NT. Des sources de données différentes peuvent identifier le même utilisateur de manières différentes. Par conséquent, chaque fois que cela est possible, Azure Sentinel fusionne ces identificateurs dans une entité unique afin que celle-ci puisse être correctement identifiée.
-
-Il peut toutefois arriver que l’un de vos fournisseurs de ressources crée une alerte dans laquelle une entité n’est pas suffisamment identifiée, par exemple,dans le cas d’un nom d’utilisateur sans le contexte du nom de domaine. Dans un tel cas, l’entité utilisateur ne peut pas être fusionnée avec d’autres instances du même compte utilisateur, qui seraient identifiées comme une entité distincte, et ces deux entités resteraient séparées au lieu d’être unifiées.
-
-Afin de minimiser le risque que cela se produise, vous devez vérifier que tous vos fournisseurs d'alertes identifient correctement les entités dans les alertes qu'ils produisent. En outre, la synchronisation d’entités de compte d’utilisateur avec Azure Active Directory peut créer un répertoire d’unification, qui sera en mesure de fusionner les entités de compte d’utilisateur.
-
-Les types d’entités suivants sont actuellement identifiés dans Azure Sentinel :
-
-- Compte d’utilisateur (compte)
-- Host
-- Adresse IP (IP)
-- Programme malveillant
-- Fichier
-- Process
-- Application Cloud (CloudApplication)
-- Nom de domaine (DNS)
-- Ressource Azure
-- Fichier (FileHash)
-- Clé de Registre
-- Valeur de Registre
-- Groupe de sécurité
-- URL
-- Appareil IoT
-- Mailbox
-- Cluster de messagerie
-- Message électronique
-- E-mail d'envoi
-
-### <a name="entity-pages"></a>Pages d’entité
+Apprenez en davantage sur les [entités dans Azure Sentinel](entities-in-azure-sentinel.md) et consultez la liste complète des [entités et identificateurs pris en charge](entities-reference.md).
 
 Lorsque vous rencontrez une entité (les entités sont actuellement limitées à des utilisateurs et des hôtes) dans une recherche, une alerte ou une investigation, vous pouvez sélectionner l’entité et être redirigé vers une **page d’entité**, à savoir une feuille de données remplie d’informations utiles sur cette entité. Les types d’informations que contient cette page incluent des faits de base sur l’entité, une chronologie d’événements notables liés à cette entité, ainsi que des insights sur le comportement de l’entité.
  
@@ -131,20 +99,23 @@ Les types d’éléments suivants sont inclus dans la chronologie :
  
 ### <a name="entity-insights"></a>Insights sur l’entité
  
-Les insights d’entité sont des requêtes définie par les chercheurs en matière de sécurité de Microsoft pour aider vos analystes à investiguer plus efficacement. Les insights sont présentées dans la page de l’entité. Elles fournissent des informations de sécurité précieuses sur les hôtes et les utilisateurs, sous la forme de graphiques et de données tabulaires. Les informations étant disponibles ici, vous n’avez pas à passer par Log Analytics. Les insights contiennent des données concernant les connexions, les ajouts de groupes, les événements anormaux et bien plus. Elles incluent également des algorithmes d’apprentissage automatique avancés pour détecter les comportements anormaux. Les insights sont basées sur les types de données suivants :
-- syslog
-- SecurityEvent
-- Journaux d’audit
-- Journaux de connexion
-- Activité Office
-- Analyse du comportement des utilisateurs et des entités (UEBA) 
- 
+Les insights d’entité sont des requêtes définie par les chercheurs en matière de sécurité de Microsoft pour aider vos analystes à investiguer plus efficacement. Les insights sont présentées dans la page de l’entité. Elles fournissent des informations de sécurité précieuses sur les hôtes et les utilisateurs, sous la forme de graphiques et de données tabulaires. Les informations étant disponibles ici, vous n’avez pas à passer par Log Analytics. Les insights contiennent des données relatives aux connexions, aux ajouts de groupes, aux événements anormaux, et ainsi de suite. Ils incluent également des algorithmes de Machine Learning avancés pour détecter les comportements anormaux. 
+
+Les insights reposent sur les sources de données suivantes :
+- Syslog (Linux)
+- SecurityEvent (Windows)
+- AuditLogs (Azure AD)
+- SigninLogs (Azure AD)
+- OfficeActivity (Office 365)
+- BehaviorAnalytics (Azure Sentinel UEBA)
+- Heartbeat (Azure Monitor Agent)
+- CommonSecurityLog (Azure Sentinel)
+
 ### <a name="how-to-use-entity-pages"></a>Comment utiliser les pages d’entité
 
 Les pages d’entité sont conçues pour faire partie de plusieurs scénarios d’utilisation. Elles sont accessibles à partir de la gestion des incidents, du graphique d’examen, des signets ou directement à partir de la page de recherche d’entité sous **Analyse du comportement des entités** dans le menu principal d’Azure Sentinel.
 
 :::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/entity-pages-use-cases.png" alt-text="Cas d’usage de page d’entité":::
-
 
 ## <a name="data-schema"></a>Schéma de données
 

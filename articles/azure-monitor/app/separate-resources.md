@@ -3,12 +3,12 @@ title: 'Guide pratique pour concevoir votre déploiement Application Insights :
 description: Télémétrie directe de différentes ressources pour les tampons de développement, de test et de production.
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: 3964cddcf27a4b2c7397b508ccb3cc8928bd04ad
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 9a60981e692a45dd3630073300b206289cfd2a30
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100589526"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102424663"
 ---
 # <a name="how-many-application-insights-resources-should-i-deploy"></a>Combien de ressources Application Insights déployer
 
@@ -32,6 +32,9 @@ Chaque ressource Application Insights est accompagnée de métriques prêtes à 
 -   Si vous n’avez pas besoin de gérer la facturation/les quotas différemment entre les composants.
 -   Si cela ne pose pas de problème qu’une clé API ait le même accès aux données à partir de tous les composants. Et que 10 clés API suffisent pour répondre aux besoins de tous.
 -   Si cela ne pose pas de problème d’avoir les mêmes paramètres d’intégration d’élément de travail et de détection intelligente parmi tous les rôles.
+
+> [!NOTE]
+> Si vous souhaitez fusionner plusieurs ressources Application Insights, vous pouvez faire pointer vos composants d’application existants vers une nouvelle ressource Application Insights fusionnée. Les données de télémétrie stockées dans votre ancienne ressource ne seront pas transférées vers la nouvelle ressource. Par conséquent, supprimez l’ancienne ressource uniquement lorsque vous avez suffisamment de données de télémétrie dans la nouvelle ressource pour la continuité de l’activité.
 
 ### <a name="other-things-to-keep-in-mind"></a>Autres points à prendre en compte
 

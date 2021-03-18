@@ -3,18 +3,18 @@ title: Diagnostiquer et résoudre des problèmes lors de l’utilisation du Kit 
 description: Utilisez des fonctionnalités telles que la journalisation côté client et d’autres outils tiers pour identifier, diagnostiquer et résoudre des problèmes liés à Azure Cosmos DB lors de l’utilisation du Kit de développement logiciel .NET.
 author: anfeldma-ms
 ms.service: cosmos-db
-ms.date: 02/05/2021
+ms.date: 03/05/2021
 ms.author: anfeldma
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 04813b9d70557314e619fded5294644f5f6fadf5
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: 1f7548b355353eb77419f4d1760b40ba02eeddda
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99831244"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102442194"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>Diagnostiquer et résoudre des problèmes lors de l’utilisation du Kit de développement logiciel (SDK) Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -91,14 +91,49 @@ Si votre application est déployée sur des [Machines virtuelles Azure sans adre
 * Assignez une [adresse IP publique à votre machine virtuelle Azure](../load-balancer/troubleshoot-outbound-connection.md#assignilpip).
 
 ### <a name="high-network-latency"></a><a name="high-network-latency"></a>Latence réseau élevée
-Une latence réseau élevée peut être identifiée à l’aide de la [chaîne de diagnostic](/dotnet/api/microsoft.azure.documents.client.resourceresponsebase.requestdiagnosticsstring?preserve-view=true&view=azure-dotnet) dans le Kit de développement logiciel (SDK) V2 ou des [diagnostics](/dotnet/api/microsoft.azure.cosmos.responsemessage.diagnostics?preserve-view=true&view=azure-dotnet#Microsoft_Azure_Cosmos_ResponseMessage_Diagnostics) dans le SDK V3.
+Une latence réseau élevée peut être identifiée à l’aide de la [chaîne de diagnostic](/dotnet/api/microsoft.azure.documents.client.resourceresponsebase.requestdiagnosticsstring) dans le Kit de développement logiciel (SDK) V2 ou des [diagnostics](/dotnet/api/microsoft.azure.cosmos.responsemessage.diagnostics#Microsoft_Azure_Cosmos_ResponseMessage_Diagnostics) dans le SDK V3.
 
-Si aucun [délai d’expiration](troubleshoot-dot-net-sdk-request-timeout.md) n’est présent et que les diagnostics affichent des requêtes uniques pour lesquelles la latence élevée est évidente sur la différence entre `ResponseTime` et `RequestStartTime`, comme ceci (> à 300 millisecondes dans cet exemple) :
+Si aucun [délai d’expiration](troubleshoot-dot-net-sdk-request-timeout.md) n’est présent et que les diagnostics affichent des demandes uniques pour lesquelles la latence élevée est évidente.
+
+# <a name="v3-sdk"></a>[SDK V3](#tab/diagnostics-v3)
+
+Les diagnostics peuvent être obtenus à partir de n’importe quel `ResponseMessage`, `ItemResponse`, `FeedResponse`ou `CosmosException` par la propriété `Diagnostics` :
+
+```csharp
+ItemResponse<MyItem> response = await container.CreateItemAsync<MyItem>(item);
+Console.WriteLine(response.Diagnostics.ToString());
+```
+
+Les interactions réseau dans les diagnostics sont notamment :
+
+```json
+{
+    "name": "Microsoft.Azure.Documents.ServerStoreModel Transport Request",
+    "id": "0e026cca-15d3-4cf6-bb07-48be02e1e82e",
+    "component": "Transport",
+    "start time": "12: 58: 20: 032",
+    "duration in milliseconds": 1638.5957
+}
+```
+
+Où `duration in milliseconds` affiche la latence.
+
+# <a name="v2-sdk"></a>[SDK V2](#tab/diagnostics-v2)
+
+Les diagnostics sont disponibles lorsque le client est configuré en [mode direct](sql-sdk-connection-modes.md), par le biais de la propriété `RequestDiagnosticsString` :
+
+```csharp
+ResourceResponse<Document> response = await client.ReadDocumentAsync(documentLink, new RequestOptions() { PartitionKey = new PartitionKey(partitionKey) });
+Console.WriteLine(response.RequestDiagnosticsString);
+```
+
+Et la latence se situe sur la différence entre `ResponseTime` et `RequestStartTime` :
 
 ```bash
 RequestStartTime: 2020-03-09T22:44:49.5373624Z, RequestEndTime: 2020-03-09T22:44:49.9279906Z,  Number of regions attempted:1
 ResponseTime: 2020-03-09T22:44:49.9279906Z, StoreResult: StorePhysicalAddress: rntbd://..., ...
 ```
+--- 
 
 Cette latence peut avoir plusieurs causes :
 

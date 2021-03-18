@@ -3,12 +3,12 @@ title: Glossaire du service Sauvegarde Azure
 description: Cet article définit des termes qui peuvent être utiles lors de l’utilisation du service Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 12/21/2020
-ms.openlocfilehash: 5b575e0f56c9cf39987e9e77850ab1d9b2e80d93
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: fb46415c8bdb463556d57004e37d741c1b9a9b57
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98723912"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102502023"
 ---
 # <a name="azure-backup-glossary"></a>Glossaire du service Sauvegarde Azure
 
@@ -299,6 +299,18 @@ Sauvegarde les fichiers du système d’exploitation. Cette sauvegarde vous perm
 ## <a name="tenant"></a>Locataire
 
 Le locataire est la représentation d’une organisation. Il s’agit d’une instance dédiée d’Azure AD, reçue par une organisation ou un développeur d’applications lors de la création d’une relation avec Microsoft, comme une inscription à Azure, Microsoft Intune ou Microsoft 365.
+
+## <a name="tier"></a>Niveau
+
+Azure Backup prend en charge les niveaux de stockage de sauvegarde suivants :
+
+### <a name="snapshot-tier"></a>Niveau Instantané
+
+(terme spécifique aux charges de travail) Dans la première phase de la sauvegarde de machine virtuelle, l’instantané est stocké en même temps que les données du disque. Cette forme de stockage correspond au niveau Instantané. Les restaurations du niveau Instantané sont plus rapides (que celles opérées à partir d’un coffre), car elles font l’économie du temps d’attente nécessaire pour la copie des instantanés à partir du coffre avant le déclenchement de la restauration.
+
+### <a name="vault-standard-tier"></a>Niveau Coffre Standard
+
+Les données de sauvegarde de toutes les charges de travail prises en charge par la Sauvegarde Azure sont stockées dans des coffres qui contiennent le stockage de sauvegarde. Celui-ci est constitué d’un ensemble de comptes de stockage géré par Azure Backup et dont la mise à l’échelle est automatique. Le niveau Coffre Standard est un niveau de stockage en ligne qui vous permet de stocker une copie isolée des données de sauvegarde dans un locataire géré par Microsoft, ce qui crée une couche supplémentaire de protection. Pour les charges de travail qui prennent en charge le niveau Instantané, une copie des données de sauvegarde se trouve à la fois dans le niveau Instantané et dans le niveau Coffre Standard. Le niveau Coffre Standard garantit que les données de sauvegarde seront disponibles, même si la source de données en cours de sauvegarde est supprimée ou compromise.
 
 ## <a name="unmanaged-disk"></a>Disque non managé
 

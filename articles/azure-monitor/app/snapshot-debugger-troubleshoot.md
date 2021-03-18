@@ -6,17 +6,54 @@ author: cweining
 ms.author: cweining
 ms.date: 03/07/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 6e926211a0d86fef55608ede574dca53487f267c
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: a285f26a406caa88d91da5647b3b79cffc9b614f
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98732725"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102217412"
 ---
 # <a name="troubleshoot-problems-enabling-application-insights-snapshot-debugger-or-viewing-snapshots"></a><a id="troubleshooting"></a> Résoudre les problèmes d’activation du Débogueur de capture instantanée Application Insights ou d’affichage d’instantanés
 Si vous avez activé Débogueur de capture instantanée Application Insights pour votre application, mais que vous ne voyez pas de captures instantanées pour les exceptions, vous pouvez utiliser ces instructions pour résoudre les problèmes.
 
 Il peut y avoir de nombreuses raisons différentes pour lesquelles les captures instantanées ne sont pas générées. Vous pouvez commencer par exécuter le contrôle d’intégrité de capture instantanée pour identifier certaines des causes courantes possibles.
+
+## <a name="make-sure-youre-using-the-appropriate-snapshot-debugger-endpoint"></a>Vérifier que vous utilisez le bon point de terminaison du Débogueur de capture instantanée
+
+Actuellement, seules les régions [Azure Government](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure#application-insights) et [Azure Chine](https://docs.microsoft.com/azure/china/resources-developer-guide) nécessitent des modifications de leurs points de terminaison.
+
+Pour App Service et les applications qui utilisent le SDK Application Insights, vous devez mettre à jour la chaîne de connexion à l’aide des valeurs de substitution prises en charge pour le Débogueur de capture instantanée, comme indiqué ci-dessous :
+
+|Propriété de chaîne de connexion    | Cloud US Government | China Cloud |   
+|---------------|---------------------|-------------|
+|SnapshotEndpoint         | `https://snapshot.monitor.azure.us`    | `https://snapshot.monitor.azure.cn` |
+
+Pour plus d’informations sur les autres substitutions de connexion, consultez la [documentation Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net#connection-string-with-explicit-endpoint-overrides).
+
+Pour Function App, vous devez mettre à jour `host.json` à l’aide des valeurs de substitution prises en charge ci-dessous :
+
+|Propriété    | Cloud US Government | China Cloud |   
+|---------------|---------------------|-------------|
+|AgentEndpoint         | `https://snapshot.monitor.azure.us`    | `https://snapshot.monitor.azure.cn` |
+
+Voici un exemple d’un `host.json` mis à jour avec le point de terminaison de l’agent cloud US Government :
+```json
+{
+  "version": "2.0",
+  "logging": {
+    "applicationInsights": {
+      "samplingExcludedTypes": "Request",
+      "samplingSettings": {
+        "isEnabled": true
+      },
+      "snapshotConfiguration": {
+        "isEnabled": true,
+        "agentEndpoint": "https://snapshot.monitor.azure.us"
+      }
+    }
+  }
+}
+```
 
 ## <a name="use-the-snapshot-health-check"></a>Utiliser le contrôle d’intégrité de capture instantanée
 Plusieurs problèmes courants empêchent l’affichage du message Ouvrir l’instantané de débogage. L’utilisation d’un collecteur de captures instantanées obsolète, par exemple lié à l’atteinte de la limite de chargement quotidienne, entraîne un temps de téléchargement important. Utilisez le contrôle d’intégrité de capture instantanée pour résoudre des problèmes courants.
@@ -35,9 +72,10 @@ Si cela ne résout pas le problème, consultez les étapes de dépannage manuel 
 
 Assurez-vous que vous utilisez la clé d’instrumentation correcte dans votre application publiée. En règle générale, la clé d’instrumentation est lue à partir du fichier ApplicationInsights.config. Vérifiez que la valeur est identique à la clé d’instrumentation de la ressource Application Insights que vous voyez dans le portail.
 
-## <a name="check-ssl-client-settings-aspnet"></a><a id="SSL"></a>Vérifier les paramètres du client SSL (ASP.NET)
+## <a name="check-tlsssl-client-settings-aspnet"></a><a id="SSL"></a>Vérifier les paramètres du client TLS/SSL (ASP.NET)
 
-Si vous avez une application ASP.NET hébergée dans Azure App Service ou IIS sur une machine virtuelle, votre application risque d’échouer à se connecter au service Débogueur de capture instantanée en raison d’un protocole de sécurité SSL manquant.
+Si vous avez une application ASP.NET qui est hébergée dans Azure App Service ou IIS sur une machine virtuelle, votre application risque de ne pas pouvoir se connecter au service Débogueur de capture instantanée en raison d’un protocole de sécurité SSL manquant.
+
 [Le point de terminaison Débogueur de capture instantanée nécessite la version 1.2 du protocole TLS](snapshot-debugger-upgrade.md?toc=/azure/azure-monitor/toc.json). L’ensemble des protocoles de sécurité SSL est l’un des quirks activés par la valeur httpRuntime targetFramework dans la section system.web de web.config. Si la valeur de httpRuntime targetFramework est 4.5.2 ou inférieure, TLS 1.2 n’est pas inclus par défaut.
 
 > [!NOTE]
@@ -64,6 +102,10 @@ Si vous utilisez une préversion de .NET Core ou que votre application fait réf
 
 ## <a name="check-the-diagnostic-services-site-extension-status-page"></a>Vérifier la page d’état de l’extension de site Services de diagnostic
 Si Débogueur de capture instantanée a été activé via le [volet Application Insights](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json) du portail, il a été activé par l’extension de site Services de diagnostic.
+
+> [!NOTE]
+> L’installation sans code du Débogueur de capture instantanée Application Insights suit la politique de support .NET Core.
+> Pour plus d’informations sur les runtimes pris en charge, consultez [Politique de support .NET Core](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).
 
 Vous pouvez consulter la page d’état de cette extension en accédant à l’URL suivante : `https://{site-name}.scm.azurewebsites.net/DiagnosticServices`.
 

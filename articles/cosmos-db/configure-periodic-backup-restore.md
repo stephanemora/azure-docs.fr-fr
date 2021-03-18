@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 185320868c491d98df5fb6e31d9a627157431944
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 69a9f0a82f5c19504564825e47f69ab8414e0909
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99526999"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102565831"
 ---
 # <a name="configure-azure-cosmos-db-account-with-periodic-backup"></a>Configurer un compte Azure Cosmos DB avec une sauvegarde périodique
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -115,7 +115,7 @@ Si vous approvisionnez le débit au niveau de la base de données, le processus 
 Les principaux qui font partie du rôle [CosmosdbBackupOperator](../role-based-access-control/built-in-roles.md#cosmosbackupoperator), propriétaire ou contributeur sont autorisés à demander une restauration ou à modifier la période de rétention.
 
 ## <a name="understanding-costs-of-extra-backups"></a>Comprendre les coûts des sauvegardes supplémentaires
-Deux sauvegardes sont effectuées gratuitement, et les sauvegardes supplémentaires sont facturées selon la tarification régionale pour le stockage de sauvegarde décrite dans [Tarification du stockage de sauvegarde](https://azure.microsoft.com/en-us/pricing/details/cosmos-db/). Par exemple, si la rétention de la sauvegarde est configurée sur 240 heures, c’est-à-dire 10 jours, avec un intervalle de sauvegarde de 24 heures. Cela implique 10 copies des données de sauvegarde. En supposant 1 To de données pour la région USA Ouest 2, le coût s’élève à 1000 x 0,12, soit 120 USD pour le stockage de sauvegarde dans le mois donné. 
+Deux sauvegardes sont effectuées gratuitement, et les sauvegardes supplémentaires sont facturées selon la tarification régionale pour le stockage de sauvegarde décrite dans [Tarification du stockage de sauvegarde](https://azure.microsoft.com/en-us/pricing/details/cosmos-db/). Par exemple, si la rétention de la sauvegarde est configurée sur 240 heures, c’est-à-dire 10 jours, avec un intervalle de sauvegarde de 24 heures. Cela implique 10 copies des données de sauvegarde. En supposant 1 To de données pour la région USA Ouest 2, le coût s’élève à 0,12 x 1 000 x 8 pour le stockage de sauvegarde d’un mois donné. 
 
 
 ## <a name="options-to-manage-your-own-backups"></a>Options pour gérer vos propres sauvegardes

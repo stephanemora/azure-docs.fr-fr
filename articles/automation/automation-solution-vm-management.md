@@ -5,16 +5,16 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: e58f63b6ed7fb26a4e3b3069773810c5e5b7cdc3
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: e9a5427f7c3a057f291067ac83d3d9032d7e693d
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101732273"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102559356"
 ---
 # <a name="startstop-vms-during-off-hours-overview"></a>Vue d’ensemble de Start/Stop VMs during off-hours
 
-La fonctionnalité Start/Stop VMs during off-hours démarre ou arrête les machines virtuelles Azure activées. Elle démarre ou arrête les machines selon une planification définie par l’utilisateur. En outre, elle fournit des informations via Azure les Azure journaux Azure Monitor et peut envoyer des e-mails à l’aide de [groupes d’actions](../azure-monitor/alerts/action-groups.md). La fonctionnalité peut être activée sur Azure Resource Manager et les machines virtuelles classiques dans la plupart des scénarios. 
+La fonctionnalité Start/Stop VMs during off-hours démarre ou arrête les machines virtuelles Azure activées. Elle démarre ou arrête les machines selon une planification définie par l’utilisateur. En outre, elle fournit des informations via Azure les Azure journaux Azure Monitor et peut envoyer des e-mails à l’aide de [groupes d’actions](../azure-monitor/alerts/action-groups.md). La fonctionnalité peut être activée sur Azure Resource Manager et les machines virtuelles classiques dans la plupart des scénarios.
 
 Cette fonctionnalité utilise l’applet de commande [Start-AzVm](/powershell/module/az.compute/start-azvm) pour démarrer des machines virtuelles. Elle utilise [Stop-AzVM](/powershell/module/az.compute/stop-azvm) pour l’arrêt des machines virtuelles.
 
@@ -34,6 +34,9 @@ Les limitations de la fonctionnalité actuelle sont les suivantes :
 
 - Elle permet de gérer les machines virtuelles de toutes les régions, mais seulement dans le même abonnement que le compte Azure Automation.
 - Elle est disponible dans Azure et Azure Government pour toutes les régions qui prennent en charge un espace de travail Log Analytics, un compte Azure Automation et les alertes. À l’heure actuelle, les régions Azure Government ne gèrent pas les fonctionnalités de messagerie électronique.
+
+> [!NOTE]
+> Avant que vous n’installiez cette version, nous voudrions vous parler de la [prochaine version](https://github.com/microsoft/startstopv2-deployments), qui est actuellement en préversion.  Cette nouvelle version (v2) offre les mêmes fonctionnalités que celle-ci, mais elle est conçue pour tirer parti des dernières technologies Azure. Elle comprend de nouvelles fonctionnalités fréquemment demandées par les clients, comme la prise en charge de plusieurs abonnements à partir d’une même opération de démarrage ou d’arrêt d’une instance.
 
 ## <a name="prerequisites"></a>Prérequis
 

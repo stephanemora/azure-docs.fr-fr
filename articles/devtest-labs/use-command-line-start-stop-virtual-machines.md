@@ -3,12 +3,12 @@ title: Utiliser des outils en ligne de commande pour démarrer et arrêter des m
 description: Découvrez comment utiliser les outils de ligne de commande pour démarrer et arrêter des machines virtuelles dans Azure DevTest Labs.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: e5a42658f2b83f101271f158c9af70833601b56d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ddc1620cf86fa203b2f0e31359f9fd262df8916
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85476414"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102499541"
 ---
 # <a name="use-command-line-tools-to-start-and-stop-azure-devtest-labs-virtual-machines"></a>Utiliser des outils de ligne de commande pour démarrer et arrêter des machines virtuelles Azure DevTest Labs
 Cet article vous montre comment utiliser Azure PowerShell ou Azure CLI pour démarrer ou arrêter des machines virtuelles dans un labo Azure DevTest Labs. Vous pouvez créer des scripts PowerShell/CLI pour automatiser ces opérations. 
@@ -29,7 +29,7 @@ Toutefois, dans certains scénarios, il peut être souhaitable d’automatiser l
 > [!NOTE]
 > Le script suivant utilise le module Azure PowerShell Az. 
 
-Les scripts PowerShell suivants démarrent une machine virtuelle dans un labo. [Invoke-AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction?view=azps-1.7.0) est au cœur de ce script. Le paramètre **ResourceId** est l’ID de ressource qualifiée pour la machine virtuelle dans le labo. Le paramètre **Action** permet de définir les options **Démarrer** ou **Arrêter** en fonction des besoins.
+Les scripts PowerShell suivants démarrent une machine virtuelle dans un labo. [Invoke-AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction) est au cœur de ce script. Le paramètre **ResourceId** est l’ID de ressource qualifiée pour la machine virtuelle dans le labo. Le paramètre **Action** permet de définir les options **Démarrer** ou **Arrêter** en fonction des besoins.
 
 ```powershell
 # The id of the subscription
@@ -66,7 +66,7 @@ else {
 
 
 ## <a name="azure-cli"></a>Azure CLI
-[Azure CLI](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest) est un autre moyen d’automatiser le démarrage et l’arrêt des machines virtuelles DevTest Labs. Azure CLI peut être [installé](/cli/azure/install-azure-cli?view=azure-cli-latest) sur différents systèmes d’exploitation. Le script suivant vous fournit les commandes pour démarrer et arrêter une machine virtuelle dans un labo. 
+[Azure CLI](/cli/azure/get-started-with-azure-cli) est un autre moyen d’automatiser le démarrage et l’arrêt des machines virtuelles DevTest Labs. Azure CLI peut être [installé](/cli/azure/install-azure-cli) sur différents systèmes d’exploitation. Le script suivant vous fournit les commandes pour démarrer et arrêter une machine virtuelle dans un labo. 
 
 ```azurecli
 # Sign in to Azure

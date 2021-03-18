@@ -1,16 +1,16 @@
 ---
-title: Obtenir des Insights à l’aide du Centre de sauvegarde
-description: Découvrez comment analyser des tendances historiques et obtenir des insights plus approfondies sur vos sauvegardes avec le Centre de sauvegarde.
+title: Obtenir des insights avec le Centre de sauvegarde
+description: Découvrez comment analyser des tendances historiques et obtenir des insights plus approfondis au sujet de vos sauvegardes avec le Centre de sauvegarde.
 ms.topic: conceptual
 ms.date: 09/01/2020
-ms.openlocfilehash: 47158e53e6248b2b9cef4ff6fd6b5da5972786eb
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: c48173749a9b47be7eeb906e9f8eec716e0cb200
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101719455"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102506007"
 ---
-# <a name="obtain-insights-using-backup-center"></a>Obtenir des insights à l’aide du Centre de sauvegarde
+# <a name="obtain-insights-using-backup-center"></a>Obtenir des insights avec le Centre de sauvegarde
 
 Pour analyser les tendances historiques et obtenir des insights plus approfondies sur vos sauvegardes, le Centre de sauvegarde fournit une interface pour les [Rapports de sauvegarde](configure-reports.md), qui utilise des [journaux Azure Monitor](../azure-monitor/logs/data-platform-logs.md) et des [classeurs Azure](../azure-monitor/visualize/workbooks-overview.md). La solution Rapports de sauvegarde offre les fonctionnalités suivantes :
 
@@ -34,9 +34,9 @@ Pour analyser les tendances historiques et obtenir des insights plus approfondie
 
 [Découvrez comment configurer des paramètres de diagnostic à grande échelle pour vos coffres](./configure-reports.md#get-started)
 
-### <a name="view-backup-reports-in-the-backup-center-portal"></a>Afficher la solution Rapports de sauvegarde dans le portail du Centre de sauvegarde
+### <a name="view-backup-reports-in-the-backup-center-portal"></a>Afficher les rapports de sauvegarde dans le portail du Centre de sauvegarde
 
-La sélection de l’option de menu **Rapports de sauvegarde** dans le Centre de sauvegarde a pour effet d’ouvrir les rapports. Choisissez un ou plusieurs espaces de travail Log Analytics pour afficher et analyser les informations essentielles sur vos sauvegardes.
+Pour ouvrir les rapports, sélectionnez l’option de menu **Rapports de sauvegarde** dans le Centre de sauvegarde. Choisissez un ou plusieurs espaces de travail Log Analytics pour afficher et analyser les informations essentielles sur vos sauvegardes.
 
 ![Rapports de sauvegarde dans le Centre de sauvegarde](./media/backup-center-obtain-insights/backup-center-backup-reports.png)
 
@@ -44,17 +44,19 @@ Voici les affichages disponibles :
 
 1. **Résumé** : cet onglet donne une vue d’ensemble globale de votre espace de sauvegarde. [En savoir plus](./configure-reports.md#summary)
 
-1. **Éléments de sauvegarde** : cet onglet fournit des informations et des tendances sur le stockage cloud consommé au niveau d’un élément de sauvegarde. [En savoir plus](./configure-reports.md#backup-items)
+2. **Éléments de sauvegarde** : cet onglet fournit des informations et des tendances sur le stockage cloud consommé au niveau d’un élément de sauvegarde. [En savoir plus](./configure-reports.md#backup-items)
 
-1. **Utilisation** : cet onglet indique les principaux paramètres de facturation pour vos sauvegardes. [En savoir plus](./configure-reports.md#usage)
+3. **Utilisation** : cet onglet indique les principaux paramètres de facturation pour vos sauvegardes. [En savoir plus](./configure-reports.md#usage)
 
-1. **Travaux** : cet onglet indique les tendances durables sur les travaux, par exemple le nombre de travaux ayant échoué par jour et les principales causes d’échec. [En savoir plus](./configure-reports.md#jobs)
+4. **Travaux** : cet onglet indique les tendances durables sur les travaux, par exemple le nombre de travaux ayant échoué par jour et les principales causes d’échec. [En savoir plus](./configure-reports.md#jobs)
 
-1. **Stratégies** : cet onglet fournit des informations sur toutes les stratégies actives, par exemple le nombre d’éléments associés et le stockage cloud total consommé par les éléments sauvegardés dans le cadre d’une stratégie donnée. [En savoir plus](./configure-reports.md#policies)
+5. **Stratégies** : cet onglet fournit des informations sur toutes les stratégies actives, par exemple le nombre d’éléments associés et le stockage cloud total consommé par les éléments sauvegardés dans le cadre d’une stratégie donnée. [En savoir plus](./configure-reports.md#policies)
 
-1. **Optimiser** : cet onglet vous permet d’obtenir une visibilité sur les opportunités potentielles d’optimisation des coûts pour vos sauvegardes. [En savoir plus](./configure-reports.md#optimize)
+6. **Optimiser** : cet onglet vous permet d’obtenir une visibilité sur les opportunités potentielles d’optimisation des coûts pour vos sauvegardes. [En savoir plus](./configure-reports.md#optimize)
 
-1. **Adhésion à la stratégie** : utilisez cet onglet pour obtenir une visibilité sur le fait que chaque instance de sauvegarde a eu au moins une sauvegarde réussie par jour.
+7. **Adhésion à la stratégie** : utilisez cet onglet pour obtenir une visibilité sur le fait que chaque instance de sauvegarde a eu au moins une sauvegarde réussie par jour. [En savoir plus](./configure-reports.md#policy-adherence)
+
+Vous pouvez également configurer des e-mails pour tous ces rapports à l’aide de la fonctionnalité [Envoyer le rapport par e-mail](backup-reports-email.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

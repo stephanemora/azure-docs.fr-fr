@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 02/18/2020
-ms.openlocfilehash: 1f619e1eac58f70642117dabafc266d1bc250609
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ac2b535b2e6b7a6b4169d08dd1768d69e685a216
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101690411"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102561991"
 ---
 # <a name="migration-overview-sql-server-to-sql-managed-instance"></a>Vue d’ensemble de la migration : de SQL Server vers SQL Managed Instance
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -63,7 +63,9 @@ Voici quelques lignes directrices générales pour vous aider à choisir le bon 
 Vous pouvez choisir des ressources de calcul et de stockage pendant le déploiement et en changer par la suite via le [portail Azure](../../database/scale-resources.md) sans temps d’arrêt pour votre application. 
 
 > [!IMPORTANT]
-> Toute différence dans la [configuration requise du réseau virtuel d’instances gérées](../../managed-instance/connectivity-architecture-overview.md#network-requirements) peut vous empêcher de créer de nouvelles instances ou d’utiliser celles qui existent déjà. En savoir plus sur la [création de nouveaux réseaux](../../managed-instance/virtual-network-subnet-create-arm-template.md) et sur la [configuration des réseaux existants](../../managed-instance/vnet-existing-add-subnet.md?branch=release-ignite-arc-data). 
+> Toute différence dans la [configuration requise du réseau virtuel d’instances gérées](../../managed-instance/connectivity-architecture-overview.md#network-requirements) peut vous empêcher de créer de nouvelles instances ou d’utiliser celles qui existent déjà. En savoir plus sur la [création de nouveaux réseaux](../../managed-instance/virtual-network-subnet-create-arm-template.md) et sur la [configuration des réseaux existants](../../managed-instance/vnet-existing-add-subnet.md). 
+
+Un autre point important à prendre en compte dans la sélection du niveau de service cible dans Azure SQL Managed Instance (Usage général ou Critique pour l’entreprise) est la disponibilité de certaines fonctionnalités comme l’OLTP en mémoire, qui est uniquement disponible dans le niveau Critique pour l’entreprise. 
 
 ### <a name="sql-server-vm-alternative"></a>Alternative à la machine virtuelle SQL Server
 
@@ -88,9 +90,10 @@ Le tableau suivant liste les outils de migration recommandés :
 
 |Technology | Description|
 |---------|---------|
+| [Azure Migrate](/azure/migrate/how-to-create-azure-sql-assessment) | Azure Migrate pour Azure SQL vous permet de découvrir et d’évaluer votre patrimoine de données SQL à grande échelle lorsque vous êtes sur VMware, en vous fournissant des recommandations concernant le déploiement Azure SQL, le dimensionnement de la cible et les estimations mensuelles. | 
 |[Azure Database Migration Service (DMS)](../../../dms/tutorial-sql-server-to-managed-instance.md)  | Service Azure interne qui prend en charge la migration en mode hors connexion pour les applications qui peuvent se permettre un temps d’arrêt pendant le processus de migration. Contrairement à la migration continue en mode en ligne, la migration en mode hors connexion exécute une restauration unique d’une sauvegarde complète de la base de données de la source vers la cible. | 
 |[Sauvegarde et restauration natives](../../managed-instance/restore-sample-database-quickstart.md) | SQL Managed Instance prend en charge la restauration des sauvegardes de base de données SQL Server natives (fichiers .bak), ce qui en fait l’option de migration la plus simple pour les clients qui peuvent fournir des sauvegardes complètes de base de données sur le stockage Azure. Les sauvegardes complètes et différentielles sont également prises en charge et documentées dans la [section sur les ressources de migration](#migration-assets) plus loin dans cet article.| 
-|[Service LRS](../../managed-instance/log-replay-service-migrate.md) | Il s’agit d’un service cloud activé pour Managed Instance basé sur la technologie de copie des journaux de transaction SQL Server, ce qui en fait une option de migration pour les clients qui peuvent fournir des sauvegardes complètes, différentielles et de journaux de base de données dans le stockage Azure. Le service LRS est utilisé pour restaurer les fichiers de sauvegarde à partir du Stockage Blob Azure vers SQL Managed Instance.| 
+|[Service LRS](../../managed-instance/log-replay-service-migrate.md) | Il s’agit d’un service cloud compatible avec Managed Instance et basé sur la technologie de copie des journaux de transaction SQL Server, ce qui en fait une option de migration pour les clients qui peuvent fournir des sauvegardes complètes, différentielles et de journaux de base de données dans le stockage Azure. Le service LRS est utilisé pour restaurer les fichiers de sauvegarde à partir du Stockage Blob Azure vers SQL Managed Instance.| 
 | | |
 
 ### <a name="alternative-tools"></a>Autres outils
@@ -190,6 +193,26 @@ Lors de la migration de bases de données protégées par  [Transparent Data E
 #### <a name="system-databases"></a>Bases de données système
 
 La restauration de bases de données système n’est pas prise en charge. Pour migrer des objets au niveau de l’instance (stockés dans des bases de données MASTER ou msdb), scriptez-les en utilisant le langage Transact-SQL (T-SQL), puis recréez-les sur l’instance gérée cible. 
+
+#### <a name="in-memory-oltp-memory-optimized-tables"></a>OLTP en mémoire (tables à mémoire optimisée)
+
+SQL Server fournit la fonctionnalité OLTP en mémoire qui permet d’utiliser des tables à mémoire optimisée, des types de tables à mémoire optimisée, ainsi que des modules SQL compilés nativement, pour exécuter des charges de travail qui exigent un traitement transactionnel à débit élevé et à faible latence. 
+
+> [!IMPORTANT]
+> La fonctionnalité OLTP en mémoire est prise en charge uniquement dans le niveau « Critique pour l’entreprise » d’Azure SQL Managed Instance (et non dans le niveau « Usage général »).
+
+Si vous avez des tables à mémoire optimisée ou des types de tables à mémoire optimisée dans votre instance locale de SQL Server, et si souhaitez passer à Azure SQL Managed Instance, vous devez :
+
+- Choisir le niveau « Critique pour l’entreprise » pour votre instance cible d’Azure SQL Managed Instance qui prend en charge la fonctionnalité OLTP en mémoire, ou
+- Si vous souhaitez effectuer une migration vers le niveau « Usage général » dans Azure SQL Managed Instance, supprimez les tables à mémoire optimisée, les types de tables à mémoire optimisée et les modules SQL compilés nativement qui interagissent avec les objets à mémoire optimisée avant d’effectuer la migration de vos bases de données. La requête T-SQL suivante peut être utilisée pour identifier tous les objets qui doivent être supprimés avant la migration vers le niveau « Usage général » :
+
+```tsql
+SELECT * FROM sys.tables WHERE is_memory_optimized=1
+SELECT * FROM sys.table_types WHERE is_memory_optimized=1
+SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
+```
+
+Pour plus d’informations sur les technologies en mémoire, consultez [Optimiser les performances en utilisant les technologies en mémoire d’Azure SQL Database et Azure SQL Managed Instance](https://docs.microsoft.com/azure/azure-sql/in-memory-oltp-overview).
 
 ## <a name="leverage-advanced-features"></a>Tirer parti des fonctionnalités avancées 
 

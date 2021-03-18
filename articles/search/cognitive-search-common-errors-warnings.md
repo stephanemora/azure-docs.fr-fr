@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 6625cd5ad91826ac5cdf8ec63382e9f94d8a2c08
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: 3ba0abe8510291351c10ba085ba7e42b8197d886
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97895937"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102553236"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Résoudre les erreurs et les avertissements courants de l’indexeur dans la Recherche cognitive Azure
 
@@ -236,6 +236,8 @@ Si vous souhaitez fournir une valeur par défaut en cas d’entrée manquante, v
 
 ## <a name="warning--skill-input-languagecode-has-the-following-language-codes-xyz-at-least-one-of-which-is-invalid"></a>Avertissement :  L'entrée de compétence 'languageCode' contient les codes de langue suivants 'X,Y,Z', dont au moins un élément n’est pas valide.
 Une ou plusieurs des valeurs passées dans l'entrée optionnelle `languageCode` d'une compétence en aval n'est pas prise en charge. Cela peut se produire si vous passez la sortie de [LanguageDetectionSkill](cognitive-search-skill-language-detection.md) à des compétences ultérieures, et que la sortie comporte plus de langues que celles prises en charge dans ces compétences en aval.
+
+Notez que vous pouvez également recevoir un avertissement similaire à celui-ci si une entrée `countryHint` non valide est passée à LanguageDetectionSkill. Si cela se produit, vérifiez que le champ que vous utilisez à partir de votre source de données pour cette entrée contient des codes de pays à deux lettres ISO 3166-1 alpha-2 valides. Si certains sont valides et d’autres ne le sont pas, poursuivez avec les instructions suivantes, mais remplacez `languageCode` par `countryHint` et `defaultLanguageCode` par `defaultCountryHint` pour correspondre à votre cas d’usage.
 
 Si vous savez que votre jeu de données utilise une seule langue, vous devriez supprimer [LanguageDetectionSkill](cognitive-search-skill-language-detection.md) et l’entrée de compétence `languageCode`, puis utiliser plutôt `defaultLanguageCode` pour ce paramètre de compétence, en supposant que la langue est prise en charge pour cette compétence.
 

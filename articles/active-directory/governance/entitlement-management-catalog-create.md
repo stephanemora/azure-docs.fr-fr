@@ -3,7 +3,7 @@ title: Créer et gérer un catalogue de ressources dans la gestion des droits d'
 description: Découvrez comment créer un conteneur de ressources et de packages d’accès dans la gestion des droits d’utilisation Azure Active Directory.
 services: active-directory
 documentationCenter: ''
-author: barclayn
+author: ajburnle
 manager: daveba
 editor: HANKI
 ms.service: active-directory
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
 ms.date: 12/23/2020
-ms.author: barclayn
+ms.author: ajburnle
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b87fdd7c73d089c46d456491c02d49cb6f8883d
-ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
+ms.openlocfilehash: 3c6f37a1b5cc16c80af8316cfeae164d58ea9796
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97745961"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102552165"
 ---
 # <a name="create-and-manage-a-catalog-of-resources-in-azure-ad-entitlement-management"></a>Créer et gérer un catalogue de ressources dans la gestion des droits d’utilisation Azure AD
 
@@ -80,6 +80,14 @@ Pour inclure des ressources dans un package d’accès, les ressources doivent e
 1. Lorsque vous avez terminé, cliquez sur **Ajouter**.
 
     Ces ressources peuvent désormais être incluses dans des packages d’accès du catalogue.
+
+### <a name="add-a-multi-geo-sharepoint-site"></a>Ajouter un site SharePoint multigéographique
+
+1. Si les capacités [multigéographiques](https://docs.microsoft.com/microsoft-365/enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-microsoft-365) sont activées pour SharePoint, sélectionnez l’environnement à partir duquel vous souhaitez sélectionner des sites.
+    
+    :::image type="content" source="media/entitlement-management-catalog-create/sharepoint-multigeo-select.png" alt-text="Package d’accès – Ajouter des rôles de ressources – Sélectionner des sites multigéographiques SharePoint":::
+
+1. Sélectionnez ensuite les sites que vous souhaitez ajouter au catalogue. 
 
 ### <a name="adding-a-resource-to-a-catalog-programmatically"></a>Ajouter une ressource à un catalogue par programmation
 

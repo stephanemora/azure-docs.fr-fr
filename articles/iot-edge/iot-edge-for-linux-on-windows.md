@@ -10,18 +10,20 @@ ms.topic: conceptual
 ms.date: 01/20/2021
 ms.author: kgremban
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: ebe0ac1151f3a1f43072f2832e2f433182ccc82d
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 9d6bb9da67f66f46e5c72d5d64b8b6c111c98e08
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98633565"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102215355"
 ---
 # <a name="what-is-azure-iot-edge-for-linux-on-windows-preview"></a>Qu’est-ce qu’Azure IoT Edge pour Linux sur Windows (préversion)
 
 Azure IoT Edge pour Linux sur Windows vous permet d’exécuter des charges de travail Linux en conteneur avec des applications Windows dans des déploiements IoT Windows. Les entreprises qui s’appuient sur l’IoT Windows pour alimenter leurs appareils périphériques peuvent désormais tirer parti des solutions d’analytique natives Cloud créées dans Linux.
 
 IoT Edge pour Linux sur Windows fonctionne en exécutant une machine virtuelle Linux sur un appareil Windows. La machine virtuelle Linux est préinstallée avec le runtime IoT Edge. Tout module IoT Edge déployé sur l’appareil s’exécute à l’intérieur de la machine virtuelle. Pendant ce temps, les applications Windows s’exécutant sur l’appareil hôte Windows peuvent communiquer avec les modules s’exécutant sur la machine virtuelle Linux.
+
+[Bien démarrer](how-to-install-iot-edge-on-windows.md) avec la préversion dès aujourd’hui.
 
 >[!NOTE]
 >Nous vous invitons à participer à notre [enquête produit](https://aka.ms/AzEFLOW-Registration) pour nous aider à améliorer Azure IoT Edge pour Linux sur Windows en fonction de votre expérience et de vos objectifs en lien avec l’IoT Edge. Vous pouvez également utiliser cette enquête pour vous inscrire à de futures annonces concernant Azure IoT Edge pour Linux sur Windows.
@@ -56,7 +58,7 @@ Actuellement, IoT Edge pour Linux sur Windows utilise la préversion de Windows 
 
 Utilisez les canaux de support et de commentaires d’IoT Edge pour obtenir de l’aide concernant IoT Edge pour Linux sur Windows.
 
-**Signalement des bogues** : vous pouvez signaler des bogues sur la [page des problèmes ](https://github.com/azure/iotedge/issues) du projet open source IoT Edge. 
+**Signalement des bogues** : vous pouvez signaler des bogues sur la [page des problèmes](https://github.com/azure/iotedge/issues) du projet open source IoT Edge. 
 
 **Équipe de support technique Microsoft** : les utilisateurs qui ont un [plan de support](https://azure.microsoft.com/support/plans/) peuvent solliciter l’équipe de support technique Microsoft en créant un ticket de support directement à partir du [portail Azure](https://ms.portal.azure.com/signin/index/?feature.settingsportalinstance=mpac).
 

@@ -6,13 +6,13 @@ ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 01/19/2021
-ms.openlocfilehash: b86414758c3b644725e5aa29ca3b314f489508aa
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/09/2021
+ms.openlocfilehash: 37ac292acc76c681ea38b2ae881ff8cd2ae5ec3c
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101693524"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102502444"
 ---
 # <a name="automatically-label-your-data-in-azure-purview"></a>Étiquetage automatique de données dans Azure Purview
 
@@ -38,7 +38,7 @@ En revanche, les **étiquettes de confidentialité** sont appliquées quand une 
 
 Les étiquettes de confidentialité proposées dans Azure Purview peuvent être appliquées automatiquement aux fichiers et aux colonnes de base de données.
 
-Pour plus d'informations, consultez les pages suivantes :
+Pour plus d’informations, consultez :
 
 - [En savoir plus sur les étiquettes de confidentialité](/microsoft-365/compliance/sensitivity-labels) dans la documentation de Microsoft 365
 - [Présentation des règles d’étiquetage automatique](#what-are-auto-labeling-rules)
@@ -76,7 +76,7 @@ Pour plus d’informations, consultez la [documentation Découverte et classific
 
 Si vous ne disposez pas encore d’étiquettes de confidentialité, vous devez les créer et les rendre accessibles à Azure Purview. Il est également possible de modifier les étiquettes de confidentialité existantes pour les rendre accessibles à Azure Purview.
 
-Pour plus d'informations, consultez les pages suivantes :
+Pour plus d’informations, consultez :
 
 - [Exigences en termes de licence](#licensing-requirements)
 - [Extension des étiquettes de confidentialité à Azure Purview](#extending-sensitivity-labels-to-azure-purview)
@@ -114,13 +114,24 @@ Par exemple :
 Une fois que vous avez étendu l’étiquetage aux ressources dans Azure Purview, vous pouvez sélectionner les étiquettes à rendre disponibles dans Purview. Pour plus d’informations, consultez [Création d’étiquettes de confidentialité ou modification d’étiquettes existantes](#creating-new-sensitivity-labels-or-modifying-existing-labels).
 ### <a name="creating-new-sensitivity-labels-or-modifying-existing-labels"></a>Création d’étiquettes de confidentialité ou modification d’étiquettes existantes
 
+Lorsque vous utilisez des étiquettes de confidentialité pour les applications Office sur Windows, macOS, iOS et Android, les utilisateurs voient les nouvelles étiquettes dans les quatre heures qui suivent, et dans l’heure qui suit pour Office sur le web. Toutefois, la réplication des modifications sur l’ensemble des applications et services peut prendre jusqu’à 24 heures.
+
+> [!IMPORTANT]
+> Ne supprimez pas une étiquette à moins d’en connaître l’impact sur vos utilisateurs. Pour plus d’informations, consultez [Suppression d’étiquettes](/microsoft-365/compliance/create-sensitivity-labels#removing-and-deleting-labels) dans la documentation de Microsoft 365.
+>
+
+**Pour créer des étiquettes de confidentialité ou modifier des étiquettes existantes** :
+
 1. Ouvrez le [Centre de sécurité et conformité Microsoft 365](https://protection.office.com/homepage). 
 
 1. Sous **Solutions**, sélectionnez **Information Protection**, puis **Créer une étiquette**. 
 
     :::image type="content" source="media/create-sensitivity-label/create-sensitivity-label-full-small.png" alt-text="Création d’étiquettes de confidentialité dans le Centre de sécurité et conformité Microsoft 365" lightbox="media/create-sensitivity-label/create-sensitivity-label-full.png":::
 
-1. Donnez un nom à l’étiquette. Ensuite, sous **Définir l’étendue de cette étiquette**, sélectionnez **Fichiers et e-mails**, puis **Ressources Azure Purview**.
+1. Donnez un nom à l’étiquette. Ensuite, sous **Définir l’étendue de cette étiquette** :
+
+    - Dans tous les cas, sélectionnez **Ressources Azure Purview**.
+    - Pour étiqueter des fichiers, sélectionnez également **Fichiers et e-mails**. Cette option n’est pas nécessaire pour étiqueter uniquement des ressources de base de données. 
     
     :::image type="content" source="media/create-sensitivity-label/create-label-scope-small.png" alt-text="Création de l’étiquette dans le Centre de sécurité et conformité Microsoft 365" lightbox="media/create-sensitivity-label/create-label-scope.png":::
 
@@ -149,10 +160,6 @@ Une fois que vous avez étendu l’étiquetage aux ressources dans Azure Purview
 
     Pour plus d’informations, consultez [Priorité des étiquettes (ordre significatif)](/microsoft-365/compliance/sensitivity-labels#label-priority-order-matters) dans la documentation de Microsoft 365.
 
-> [!IMPORTANT]
-> Ne supprimez pas une étiquette à moins d’en connaître l’impact sur vos utilisateurs. 
->
-> Pour plus d’informations, consultez [Suppression d’étiquettes](/microsoft-365/compliance/create-sensitivity-labels#removing-and-deleting-labels) dans la documentation de Microsoft 365.
 
 Ensuite, [analysez vos données pour appliquer automatiquement des étiquettes](#scan-your-data-to-apply-labels-automatically), puis passez aux opérations suivantes :
 

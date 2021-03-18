@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60d71c44ebaba5b0cbcb03afa41ad15237dceaef
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 4a2a69b5013ab8e1bc4637f21ce484a132d37834
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96547472"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102455710"
 ---
 # <a name="configure-the-expiration-policy-for-microsoft-365-groups"></a>Configurer la stratégie d’expiration pour les groupes Microsoft 365
 
@@ -42,7 +42,7 @@ Pour plus d’informations sur le téléchargement et l’installation des apple
 
 ## <a name="activity-based-automatic-renewal"></a>Renouvellement automatique en fonction de l’activité
 
-Grâce à l’intelligence Azure AD, les groupes sont maintenant automatiquement renouvelés selon qu’ils ont été utilisés récemment ou non. Cette fonctionnalité évite aux propriétaires de groupes une action manuelle, car elle s’appuie sur l’activité des utilisateurs dans les groupes sur plusieurs services Microsoft 365, comme Outlook, SharePoint ou Teams. Par exemple, si un propriétaire ou un membre de groupe effectue une opération comme charger un document dans SharePoint, visiter un canal Teams ou envoyer un e-mail au groupe dans Outlook, le groupe est automatiquement renouvelé et le propriétaire ne reçoit aucune notification de renouvellement.
+Grâce à l’intelligence Azure AD, les groupes sont maintenant automatiquement renouvelés selon qu’ils ont été utilisés récemment ou non. Cette fonctionnalité évite aux propriétaires de groupes une action manuelle, car elle s’appuie sur l’activité des utilisateurs dans les groupes sur plusieurs services Microsoft 365, comme Outlook, SharePoint ou Teams. Par exemple, si un propriétaire ou un membre de groupe effectue une opération comme charger un document dans SharePoint, visiter un canal Teams ou envoyer un e-mail au groupe dans Outlook, le groupe est renouvelé automatiquement environ 35 jours avant son expiration, et le propriétaire ne reçoit aucune notification de renouvellement.
 
 ### <a name="activities-that-automatically-renew-group-expiration"></a>Activités qui renouvellent automatiquement l’expiration du groupe
 
@@ -172,7 +172,7 @@ Voici des exemples de la façon dont vous pouvez utiliser les applets de command
    Remove-AzureADMSGroupLifecyclePolicy -Id "26fcc232-d1c3-4375-b68d-15c296f1f077"
    ```
   
-Les applets de commande suivantes peuvent être utilisées pour configurer la stratégie plus en détail. Pour plus d’informations, consultez la [documentation PowerShell](/powershell/module/azuread/?branch=master&view=azureadps-2.0-preview#groups).
+Les applets de commande suivantes peuvent être utilisées pour configurer la stratégie plus en détail. Pour plus d’informations, consultez la [documentation PowerShell](/powershell/module/azuread/?view=azureadps-2.0-preview#groups).
 
 - Get-AzureADMSGroupLifecyclePolicy
 - New-AzureADMSGroupLifecyclePolicy

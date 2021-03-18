@@ -2,18 +2,19 @@
 title: Mapper des disques Azure à des disques invités de machine virtuelle Linux
 description: Identifier les disques Azure qui sous-tendent les disques invités d’une machine virtuelle Linux.
 author: timbasham
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.subservice: disks
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 11/17/2020
 ms.author: tibasham
-ms.openlocfilehash: 4f0e48bf1c14728c54d4e89f30700017b0420d7d
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.collection: linux
+ms.openlocfilehash: bc6c6273ab3d1a4403763e4ed0a8c491995fb2df
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96523295"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102556721"
 ---
 # <a name="how-to-map-azure-disks-to-linux-vm-guest-disks"></a>Mapper des disques Azure à des disques invités de machine virtuelle Linux
 
@@ -23,7 +24,7 @@ Vous devrez peut-être identifier les disques Azure qui sous-tendent les disques
 
 Un numéro d’unité logique (LUN) est un numéro utilisé pour identifier un périphérique de stockage spécifique. Chaque périphérique de stockage reçoit un identificateur numérique unique, en commençant à zéro. Le chemin d’accès complet à un périphérique est représenté par le numéro de bus, le numéro d’ID cible et le numéro d’unité logique (LUN). 
 
-Par exemple : ***Bus Number 0, Target ID 0, LUN 3** _
+Exemple : ***Bus Number 0, Target ID 0, LUN 3***
 
 Pour notre exercice, le LUN suffit.
 
@@ -36,7 +37,7 @@ Vous trouverez ci-dessous deux méthodes pour rechercher le LUN d’un disque da
 1. Connexion à la machine virtuelle
 1. `sudo lsscsi`
 
-La première colonne indiquée affiche le LUN au format [Hôte:Canal:Cible:_*LUN**].
+La première colonne indiquée affiche le LUN (numéro d’unité logique) au format [Hôte:Canal:Cible:**LUN**].
 
 ### <a name="listing-block-devices"></a>Liste des appareils de traitement par blocs
 

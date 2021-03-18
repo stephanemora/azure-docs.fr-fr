@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: da21359b56b9e5b9d6e971032d06f8bae94efce0
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 13460fad0ed106f5c0590df961ceca54cb04cd7b
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98682136"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102427179"
 ---
 # <a name="plan-a-conditional-access-deployment"></a>Planifier un déploiement d’accès conditionnel
 
@@ -72,6 +72,7 @@ Les ressources suivantes peuvent être utiles lorsque vous vous familiarisez ave
 * [Qu’est-ce que l’accès conditionnel ?](https://youtu.be/ffMAw2IVO7A)
 * [Comment déployer l’accès conditionnel](https://youtu.be/c_izIRNJNuk)
 * [Comment déployer des stratégies d’accès conditionnel pour les utilisateurs finaux ?](https://youtu.be/0_Fze7Zpyvc)
+* [Comment inclure ou exclure des utilisateurs des stratégies d’accès conditionnel](https://youtu.be/5DsW1hB3Jqs)
 * [L’accès conditionnel et les contrôles d’appareil](https://youtu.be/NcONUf-jeS4)
 * [Accès conditionnel avec Azure AD MFA](https://youtu.be/Tbc-SU97G-w)
 * [Conditional Access in Enterprise Mobility + Security](https://youtu.be/A7IrxAH87wc) (Accès conditionnel dans Enterprise Mobility + Security)

@@ -12,18 +12,18 @@ ms.custom:
 - mqtt
 - 'Role: IoT Device'
 - 'Role: Cloud Development'
-ms.openlocfilehash: 9921ed500f831f2a002335fe83eae8f1bb47ecd4
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 8a65619d65e1a3655d3ef8a295749a705e6a79e1
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97095336"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102431276"
 ---
 # <a name="understand-and-use-azure-iot-hub-sdks"></a>Comprendre et utiliser les kits Azure IoT Hub SDK
 
 Il existe deux catégories de kits de développement logiciel (SDK) permettant de travailler avec IoT Hub :
 
-* Les kits SDK **IoT Hub Device** vous permettent de générer des applications qui s’exécutent sur vos appareils IoT à l’aide d’un client d’appareil ou d’un client de module. Ces applications envoient des données de télémétrie à votre hub IoT et reçoivent le cas échéant des messages ou des mises à jour de tâche, de méthode ou de jumeau de ce hub IoT.  Vous pouvez également utiliser un client de module afin de créer des [modules](../iot-edge/iot-edge-modules.md) pour le [runtime Azure IoT Edge](../iot-edge/about-iot-edge.md).
+* Les kits SDK **IoT Hub Device** vous permettent de générer des applications qui s’exécutent sur vos appareils IoT à l’aide d’un client d’appareil ou d’un client de module. Ces applications envoient des données de télémétrie à votre hub IoT et reçoivent le cas échéant des messages ou des mises à jour de tâche, de méthode ou de jumeau de ce hub IoT. Vous pouvez utiliser ces kits SDK afin de créer des applications d’appareil qui utilisent des conventions et des modèles [Azure IoT Plug-and-Play](../iot-pnp/overview-iot-plug-and-play.md) pour publier leurs fonctionnalités sur des applications compatibles avec IoT Plug-and-Play. Vous pouvez également utiliser un client de module afin de créer des [modules](../iot-edge/iot-edge-modules.md) pour le [runtime Azure IoT Edge](../iot-edge/about-iot-edge.md).
 
 * Les kits SDK **IoT Hub Service** vous permettent de créer des applications back-end pour gérer votre hub IoT et, si vous le souhaitez, d’envoyer des messages, de planifier des tâches, d’appeler des méthodes directes ou d’envoyer les mises à jour de propriétés souhaitées à vos modules ou appareils IoT.
 
@@ -51,8 +51,8 @@ Kit Azure IoT device SDK pour .NET :
 
 * Téléchargement à partir de [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/).  L’espace de noms est Microsoft.Azure.Devices.Clients, qui contient des clients IoT Hub Device (DeviceClient, ModuleClient).
 * [Code source](https://github.com/Azure/azure-iot-sdk-csharp)
-* [Informations de référence sur l'API](/dotnet/api/microsoft.azure.devices?view=azure-dotnet)
-* [Informations de référence sur les modules](/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet)
+* [Informations de référence sur l'API](/dotnet/api/microsoft.azure.devices)
+* [Informations de référence sur les modules](/dotnet/api/microsoft.azure.devices.client.moduleclient)
 
 
 Azure IoT Hub device SDK pour Embedded C (ANSI C - C99) :
@@ -78,14 +78,14 @@ Kit Azure IoT device SDK pour Java :
 * Ajout au projet [Maven](https://github.com/Azure/azure-iot-sdk-java/blob/master/doc/java-devbox-setup.md#for-the-device-sdk)
 * [Code source](https://github.com/Azure/azure-iot-sdk-java)
 * [Informations de référence sur l'API](/java/api/com.microsoft.azure.sdk.iot.device)
-* [Informations de référence sur les modules](/java/api/com.microsoft.azure.sdk.iot.device.moduleclient?view=azure-java-stable)
+* [Informations de référence sur les modules](/java/api/com.microsoft.azure.sdk.iot.device.moduleclient)
 
 Kit Azure IoT device SDK pour Node.js :
 
 * Installation à partir de [npm](https://www.npmjs.com/package/azure-iot-device)
 * [Code source](https://github.com/Azure/azure-iot-sdk-node)
-* [Informations de référence sur l'API](/javascript/api/azure-iot-device/?view=azure-iot-typescript-latest)
-* [Informations de référence sur les modules](/javascript/api/azure-iot-device/moduleclient?view=azure-node-latest)
+* [Informations de référence sur l'API](/javascript/api/azure-iot-device/?view=azure-iot-typescript-latest&preserve-view=true)
+* [Informations de référence sur les modules](/javascript/api/azure-iot-device/moduleclient)
 
 Kit Azure IoT device SDK pour Python :
 
@@ -119,7 +119,7 @@ Kit Azure IoT Hub service SDK pour Node.js :
 
 * Téléchargement à partir de [npm](https://www.npmjs.com/package/azure-iothub)
 * [Code source](https://github.com/Azure/azure-iot-sdk-node)
-* [Informations de référence sur l'API](/javascript/api/azure-iothub/?view=azure-iot-typescript-latest)
+* [Informations de référence sur l'API](/javascript/api/azure-iothub/?view=azure-iot-typescript-latest&preserve-view=true)
 
 Kit Azure IoT Hub service SDK pour Python :
 
@@ -153,7 +153,7 @@ Kits de développement logiciel (SDK) de services et d’appareils d’approvisi
 
 * téléchargement à partir de [Device SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Client/) et [Service SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/) à partir de NuGet.
 * [Code source](https://github.com/Azure/azure-iot-sdk-csharp/)
-* [Informations de référence sur l'API](/dotnet/api/microsoft.azure.devices.provisioning.client?view=azure-dotnet)
+* [Informations de référence sur l'API](/dotnet/api/microsoft.azure.devices.provisioning.client)
 
 Kits de développement logiciel (SDK) de services et d’appareils d’approvisionnement Azure pour C :
 
@@ -165,12 +165,12 @@ Kits de développement logiciel (SDK) de services et d’appareils d’approvisi
 
 * Ajout au projet [Maven](https://github.com/Azure/azure-iot-sdk-java/blob/master/doc/java-devbox-setup.md#for-the-service-sdk)
 * [Code source](https://github.com/Azure/azure-iot-sdk-java/blob/master/provisioning)
-* [Informations de référence sur l'API](/java/api/com.microsoft.azure.sdk.iot.provisioning.device?view=azure-java-stable)
+* [Informations de référence sur l'API](/java/api/com.microsoft.azure.sdk.iot.provisioning.device)
 
 Kits de développement logiciel (SDK) de services et d’appareils d’approvisionnement Azure pour Node.js :
 
 * [Code source](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning)
-* [Informations de référence sur l'API](/javascript/api/overview/azure/iothubdeviceprovisioning?view=azure-node-latest)
+* [Informations de référence sur l'API](/javascript/api/overview/azure/iothubdeviceprovisioning)
 * Téléchargement de [Device SDK](https://badge.fury.io/js/azure-iot-provisioning-device) et [Service SDK](https://badge.fury.io/js/azure-iot-provisioning-service) à partir de npm
 
 Kits de développement logiciel (SDK) de services et d’appareils d’approvisionnement Azure pour Python :

@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 02/16/2021
 ms.custom: template-concept
-ms.openlocfilehash: 8a9ed564012e8b530436152d931f5a5f6470ff98
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: d0cdabb3b22d642a7903810181106b09c549e1a2
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102098364"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102218160"
 ---
 # <a name="azure-percept-ai-models"></a>Modèles IA Azure Percept
 
@@ -29,9 +29,9 @@ Azure Percept Studio contient des exemples de modèles pour les applications sui
 
 Avec les modèles préentraînés, aucune programmation ou collecte de données d’entraînement n’est nécessaire. Il vous suffit de déployer le modèle souhaité sur votre Azure Percept DK à partir du portail et d’ouvrir le flux vidéo de votre devkit pour voir l’inférence de modèle en action. La télémétrie d’inférence de modèle est également accessible par le biais de l’outil [Azure IOT Explorer](https://github.com/Azure/azure-iot-explorer/releases).
 
-## <a name="pre-built-solutions"></a>Solutions prédéfinies
+## <a name="reference-solutions"></a>Solutions de référence
 
-Une [solution d’analytique spatiale prédéfinie pour la détection de personnes](https://github.com/george-moore/Santa-Cruz-AI-App) est également disponible. La solution prédéfinie est une application IA open source qui fournit le comptage des personnes en fonction de la périphérie, avec des événements d’entrée/sortie de zone définis par l’utilisateur. La sortie vidéo et IA de l’appareil Edge local est envoyée à [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/), tandis que l’interface utilisateur s’exécute en tant que site web Azure. L’inférence IA est fournie par un modèle d’intelligence artificielle open source pour la détection de personnes.
+Une [solution de référence pour le comptage des personnes](https://github.com/microsoft/Azure-Percept-Reference-Solutions/tree/main/people-detection-app) est également disponible. Cette solution de référence est une application d’IA open source qui permet le comptage des personnes en fonction de la périphérie, avec des événements d’entrée et de sortie de zone définis par l’utilisateur. La sortie vidéo et IA de l’appareil de périphérie local est envoyée à [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/), tandis que l’interface utilisateur s’exécute en tant que site web Azure. L’inférence IA est fournie par un modèle d’intelligence artificielle open source pour la détection de personnes.
 
 :::image type="content" source="./media/overview-ai-models/people-detector.gif" alt-text="Image gif de solution prédéfinie d’analytique spatiale.":::
 

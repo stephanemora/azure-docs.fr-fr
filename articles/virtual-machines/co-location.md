@@ -1,24 +1,21 @@
 ---
-title: Colocalisation de machines virtuelles
-description: Découvrez comment colocaliser des ressources de machine virtuelle Azure pour une meilleure latence.
+title: Groupes de placements de proximité
+description: Découvrez l’utilisation des groupes de placement de proximité dans Azure.
 author: cynthn
 ms.author: cynthn
 ms.service: virtual-machines
+ms.subservice: proximity-placement-groups
 ms.topic: conceptual
-ms.date: 12/07/2020
+ms.date: 3/07/2021
 ms.reviewer: zivr
-ms.openlocfilehash: e193b7d084723ad50ddc0d1a40e0b6c8a111af73
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 1a65a1e4ecd989f3a7c4968c424472c3c6dfe472
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96923991"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102559072"
 ---
-# <a name="co-locate-resources-for-improved-latency"></a>Colocalisation des ressources pour une latence améliorée
-
-Lors du déploiement de votre application dans Azure, la répartition des instances sur différentes régions ou zones de disponibilité crée une latence réseau, ce qui peut avoir un impact sur les performances globales de votre application. 
-
-## <a name="proximity-placement-groups"></a>Groupes de placements de proximité
+# <a name="proximity-placement-groups"></a>Groupes de placements de proximité
 
 Le fait de placer les machines virtuelles dans une seule région réduit la distance physique entre les instances. Le fait de les placer dans une zone de disponibilité unique les rapproche également physiquement. Cependant, à mesure que l’empreinte Azure augmente, une seule zone de disponibilité peut s’étendre sur plusieurs centres de données physiques, ce qui peut entraîner une latence réseau qui peut affecter votre application. 
 

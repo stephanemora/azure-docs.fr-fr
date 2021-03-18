@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/26/2019
+ms.date: 03/03/2021
 ms.author: duau
-ms.openlocfilehash: fa8dba12a050e42e258e4224f29e379ff53f09d8
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0d4f1ed6bab5775c44b2a745e1edc5fc07e0c06d
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100576679"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102215457"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Forum Aux Questions (FAQ) relatif à Traffic Manager
 
@@ -306,7 +306,7 @@ Le prix de la fonctionnalité Affichage du trafic est basé sur le nombre de poi
 
 L’utilisation de points de terminaison à partir de plusieurs abonnements n’est pas possible avec Azure Web Apps. Azure Web Apps requiert que tout nom de domaine personnalisé utilisé avec Web Apps ne soit utilisé que dans un seul abonnement. Il n’est pas possible d’utiliser des applications web à partir de plusieurs abonnements portant le même nom de domaine.
 
-Pour les autres types de point de terminaison, il est possible d’utiliser Traffic Manager avec des points de terminaison provenant de plusieurs abonnements. Dans Resource Manager, vous pouvez ajouter à Traffic Manager des points de terminaison de n’importe quel abonnement tant que la personne qui configure le profil Traffic Manager dispose d’un accès en lecture au point de terminaison. Ces autorisations peuvent être accordées à l’aide du [contrôle d’accès en fonction du rôle d’Azure (Azure RBAC)](../role-based-access-control/role-assignments-portal.md). Les points de terminaison d’autres abonnements peuvent être ajoutés à l’aide d’[Azure PowerShell](/powershell/module/az.trafficmanager/new-aztrafficmanagerendpoint) ou [Azure CLI](/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-create).
+Pour les autres types de point de terminaison, il est possible d’utiliser Traffic Manager avec des points de terminaison provenant de plusieurs abonnements. Dans Resource Manager, vous pouvez ajouter à Traffic Manager des points de terminaison de n’importe quel abonnement tant que la personne qui configure le profil Traffic Manager dispose d’un accès en lecture au point de terminaison. Ces autorisations peuvent être accordées à l’aide du [contrôle d’accès en fonction du rôle d’Azure (Azure RBAC)](../role-based-access-control/role-assignments-portal.md). Les points de terminaison d’autres abonnements peuvent être ajoutés à l’aide d’[Azure PowerShell](/powershell/module/az.trafficmanager/new-aztrafficmanagerendpoint) ou [Azure CLI](/cli/azure/network/traffic-manager/endpoint#az-network-traffic-manager-endpoint-create).
 
 ### <a name="can-i-use-traffic-manager-with-cloud-service-staging-slots"></a>Puis-je utiliser Traffic Manager avec les emplacements intermédiaires de services cloud ?
 
@@ -447,7 +447,18 @@ Si aucun paramètre d’en-tête hôte personnalisé n’est fourni, l’en-têt
 
 ### <a name="what-are-the-ip-addresses-from-which-the-health-checks-originate"></a>Quelles sont les adresses IP à l’origine des contrôles d’intégrité ?
 
-Cliquez [ici](https://azuretrafficmanagerdata.blob.core.windows.net/probes/azure/probe-ip-ranges.json) pour afficher le fichier JSON qui répertorie les adresses IP à partir desquelles peuvent provenir les contrôles de Traffic Manager. Examinez les adresses IP du fichier JSON pour vérifier que les connexions entrantes à partir de ces adresses IP sont autorisées aux points de terminaison pour vérifier leur état d’intégrité.
+Cliquez [ici](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview) pour découvrir comment récupérer la liste des adresses IP à partir desquelles peuvent provenir les contrôles d’intégrité de Traffic Manager. Vous pouvez utiliser l’API REST, Azure CLI ou Azure PowerShell pour récupérer la liste la plus récente. Examinez les adresses IP listées pour vérifier que les connexions entrantes à partir de ces adresses IP sont autorisées aux points de terminaison pour vérifier leur état d’intégrité.
+
+Exemple d’utilisation d’Azure PowerShell :
+
+```azurepowershell-interactive
+$serviceTags = Get-AzNetworkServiceTag -Location eastus
+$result = $serviceTags.Values | Where-Object { $_.Name -eq "AzureTrafficManager" }
+$result.Properties.AddressPrefixes
+```
+
+> [!NOTE]
+> Les adresses IP publiques peuvent changer sans préavis. Veillez à récupérer les informations les plus récentes à l’aide de l’API de détection d’étiquettes de service ou du fichier JSON téléchargeable.
 
 ### <a name="how-many-health-checks-to-my-endpoint-can-i-expect-from-traffic-manager"></a>Combien de contrôles d’intégrité de mon point de terminaison Traffic Manager effectue-t-il ?
 

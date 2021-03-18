@@ -9,12 +9,12 @@ ms.date: 01/02/2019
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: 42d388aed618a5a92212152166573719c9e973c6
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 36a94f780fa5c196e28730c051e161633ed3ee3d
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100371020"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102431055"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Points de terminaison de service de réseau virtuel pour Azure Key Vault
 
@@ -27,7 +27,7 @@ Il existe une exception importante à cette restriction. Si un utilisateur a cho
 Vous pouvez configurer des [pare-feux et réseaux virtuels Key Vault](network-security.md) pour refuser par défaut l’accès au trafic en provenance de tous les réseaux (y compris le trafic Internet). Vous pouvez accorder l’accès au trafic en provenance de réseaux virtuels Azure ou de plages d’adresses IP Internet publiques spécifiques, ce qui vous permet de créer une limite réseau sécurisée pour vos applications.
 
 > [!NOTE]
-> Les règles de pare-feu et de réseau virtuel Key Vault s’appliquent seulement au [plan de données](secure-your-key-vault.md#data-plane-access-control) de Key Vault. Les opérations du plan de contrôle Key Vault (comme les opérations de création, de suppression et de modification, la définition de stratégies d’accès, la définition de pare-feux et de règles de réseau virtuel) ne sont pas affectées par les règles de pare-feux et de réseau virtuel.
+> Les règles de pare-feu et de réseau virtuel Key Vault s’appliquent seulement au [plan de données](secure-your-key-vault.md#data-plane-access-control) de Key Vault. Les opérations du plan de contrôle Key Vault (comme les opérations de création, de suppression et de modification, la définition de stratégies d’accès, la définition de pare-feu et de règles de réseau virtuel ainsi que le déploiement de secrets et de clés par le biais de modèles ARM) ne sont pas affectées par les règles de pare-feu et de réseau virtuel.
 
 Voici quelques exemples d’utilisation de points de terminaison de service :
 
@@ -43,7 +43,6 @@ Voici une liste de services approuvés qui sont autorisés à accéder à un cof
 | --- | --- |
 |Service de déploiement de machines virtuelles Azure|[Déployer des certificats sur des machines virtuelles à partir d’un coffre de clés géré par le client](/archive/blogs/kv/updated-deploy-certificates-to-vms-from-customer-managed-key-vault)|
 |Service de déploiement modèle Azure Resource Manager|[Passage de valeurs sécurisées lors du déploiement](../../azure-resource-manager/templates/key-vault-parameter.md)|
-|Référence SKU Azure Application Gateway v2|[Arrêt TLS avec certificats Key Vault](../../application-gateway/key-vault-certs.md)|
 |Service de chiffrement de volume Azure Disk Encryption|Autoriser l’accès à la clé BitLocker (machine virtuelle Windows) ou à la phrase secrète DM (machine virtuelle Linux), et à la clé de chiffrement lors du déploiement de machines virtuelles. Ceci active [Azure Disk Encryption](../../security/fundamentals/encryption-overview.md).|
 |Sauvegarde Azure|Autoriser la sauvegarde et restauration des clés et des secrets pertinents lors de la sauvegarde de Machines virtuelles Azure avec [Sauvegarde Azure](../../backup/backup-overview.md).|
 |Exchange Online et SharePoint Online|Autoriser l’accès à la clé du client pour Azure Storage Service Encryption avec une [clé de client](/microsoft-365/compliance/customer-key-overview).|

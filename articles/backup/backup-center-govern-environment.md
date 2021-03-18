@@ -3,16 +3,16 @@ title: Gérer votre espace de sauvegarde à l’aide du Centre de sauvegarde
 description: Apprenez à gérer votre environnement Azure pour vous assurer que toutes vos ressources sont conformes du point de vue de la sauvegarde avec le Centre de sauvegarde.
 ms.topic: conceptual
 ms.date: 09/01/2020
-ms.openlocfilehash: 67b0591c7d7146d162687018854365d338105d76
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 283c99c4b17683850f71b25fb2006784e43f3b8f
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98893844"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102506204"
 ---
-# <a name="govern-your-backup-estate-using-backup-center-preview"></a>Gérer votre espace de sauvegarde à l’aide du Centre de sauvegarde (préversion)
+# <a name="govern-your-backup-estate-using-backup-center"></a>Gérer votre espace de sauvegarde à l’aide du Centre de sauvegarde
 
-Le Centre de sauvegarde vous aide à gérer votre environnement Azure pour vous assurer que toutes vos ressources sont conformes du point de vue de la sauvegarde. Voici quelques-unes des fonctionnalités de gouvernance du Centre de sauvegarde :
+Le Centre de sauvegarde vous aide à gérer votre environnement Azure en vue de garantir que toutes vos ressources sont conformes du point de vue de la sauvegarde. Voici quelques-unes des fonctionnalités de gouvernance du Centre de sauvegarde :
 
 * Afficher et affecter des stratégies Azure pour la sauvegarde
 

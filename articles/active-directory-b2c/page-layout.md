@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 08/24/2020
+ms.date: 03/09/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 491549933817a127a92180b0e4b455e461e4d3a2
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: b15c63545c71d4513abe9102b4de165e2ab5857a
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99492244"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102499847"
 ---
 # <a name="page-layout-versions"></a>Versions des mises en page
 
@@ -74,9 +74,12 @@ Les packages de mise en page sont régulièrement mis à jour afin d’ajouter d
 
 ## <a name="unified-sign-in-sign-up-page-with-password-reset-link-unifiedssp"></a>Page d’inscription à la connexion unifiée avec lien de réinitialisation de mot de passe (unifiedssp)
 
+> [!TIP]
+> Si vous localisez votre page pour prendre en charge plusieurs paramètres régionaux ou langues dans un flux utilisateur. L’article [ID de localisation](localization-string-ids.md) fournit la liste des ID de localisation que vous pouvez utiliser pour la version de page que vous sélectionnez.
+
 **2.1.2**
 - Correction du problème d’encodage de la localisation pour des langues telles que l’espagnol et le français.
-- Possibilité d’utiliser le lien « mot de passe oublié » comme échange de revendications tel qu’un fournisseur d’identité sociale.
+- Possibilité d’utiliser le lien « mot de passe oublié » comme échange de revendications. Pour plus d’informations, consultez [Réinitialisation de mot de passe en libre service](add-password-reset-policy.md#self-service-password-reset-recommended).
 
 **2.1.1**
 - Ajout d’un élément `heading` UXString en plus de `intro` à afficher sur la page en tant que titre. Cet élément est masqué par défaut.

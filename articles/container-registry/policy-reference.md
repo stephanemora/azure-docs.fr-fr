@@ -1,18 +1,18 @@
 ---
 title: Définitions de stratégie intégrées pour Azure Container Registry
 description: Liste les définitions de stratégie intégrées d’Azure Policy pour Azure Container Registry. Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de vos ressources Azure.
-ms.date: 02/09/2021
+ms.date: 03/10/2021
 ms.topic: reference
 author: dlepow
 ms.author: danlep
 ms.service: container-registry
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 4f3210fb46d5b4a772cdbb125cc5481d7cdd5995
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: b97cd1a834ec58814e0f7ceb9330b80767c8e599
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100092999"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102618274"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-container-registry"></a>Définitions intégrées d’Azure Policy pour Azure Container Registry
 
@@ -26,6 +26,7 @@ Le nom de chaque définition de stratégie intégrée est un lien vers la défin
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+- Consultez les instructions pour [affecter des stratégies et vérifier la conformité](container-registry-azure-policy.md).
 - Consultez les définitions intégrées dans le [dépôt Azure Policy de GitHub](https://github.com/Azure/azure-policy).
 - Consultez la [Structure de définition Azure Policy](../governance/policy/concepts/definition-structure.md).
 - Consultez la page [Compréhension des effets de Policy](../governance/policy/concepts/effects.md).

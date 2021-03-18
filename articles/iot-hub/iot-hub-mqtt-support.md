@@ -15,12 +15,12 @@ ms.custom:
 - contperf-fy21q1
 - fasttrack-edit
 - iot
-ms.openlocfilehash: d206f40380ddb60a53ec8af2802a65af94f5820d
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: cbc4bbf73c65d4d7eddad556f3776bc0bbd653ba
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97027796"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102431259"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Communication avec votre IoT Hub à l’aide du protocole MQTT
 
@@ -55,9 +55,9 @@ Le tableau suivant contient des liens vers des exemples de code pour chaque lang
 | Langage | Paramètre de protocole MQTT | Paramètre de protocole MQTT sur Web Sockets
 | --- | --- | --- |
 | [Node.JS](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device.js) | azure-iot-device-mqtt.Mqtt | azure-iot-device-mqtt.MqttWs |
-| [Java](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java) |[IotHubClientProtocol](/java/api/com.microsoft.azure.sdk.iot.device.iothubclientprotocol?view=azure-java-stable).MQTT | IotHubClientProtocol.MQTT_WS |
+| [Java](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java) |[IotHubClientProtocol](/java/api/com.microsoft.azure.sdk.iot.device.iothubclientprotocol).MQTT | IotHubClientProtocol.MQTT_WS |
 | [C](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_client_sample_mqtt_dm) | [MQTT_Protocol](/azure/iot-hub/iot-c-sdk-ref/iothubtransportmqtt-h/mqtt-protocol) | [MQTT_WebSocket_Protocol](/azure/iot-hub/iot-c-sdk-ref/iothubtransportmqtt-websockets-h/mqtt-websocket-protocol) |
-| [C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/device/samples) | [TransportType](/dotnet/api/microsoft.azure.devices.client.transporttype?view=azure-dotnet).Mqtt | TransportType.Mqtt utilise MQTT sur Web Sockets en cas d’échec de MQTT. Pour spécifier MQTT sur Web Sockets uniquement, utilisez TransportType.Mqtt_WebSocket_Only |
+| [C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/device/samples) | [TransportType](/dotnet/api/microsoft.azure.devices.client.transporttype).Mqtt | TransportType.Mqtt utilise MQTT sur Web Sockets en cas d’échec de MQTT. Pour spécifier MQTT sur Web Sockets uniquement, utilisez TransportType.Mqtt_WebSocket_Only |
 | [Python](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples) | Prend en charge MQTT par défaut | Ajoutez `websockets=True` dans l’appel pour créer le client |
 
 Le fragment suivant montre comment spécifier le protocole MQTT sur Web Sockets quand vous utilisez le kit Azure IoT Node.js SDK :
@@ -111,6 +111,8 @@ Le [référentiel Exemple de MQTT IoT](https://github.com/Azure-Samples/IoTMQTTS
 
 Ces exemples utilisent la bibliothèque Eclipse Mosquitto pour envoyer des messages au répartiteur MQTT implémenté dans le hub IoT.
 
+Pour découvrir comment adapter les exemples afin d’utiliser les conventions [Azure IoT Plug-and-Play](../iot-pnp/overview-iot-plug-and-play.md), consultez [Tutoriel - Utiliser MQTT pour développer un client d’appareil IoT Plug-and-Play](../iot-pnp/tutorial-use-mqtt.md).
+
 Ce référentiel contient les éléments suivants :
 
 **Pour Windows :**
@@ -158,7 +160,7 @@ Si un appareil ne peut pas utiliser les Kits device SDK, il peut toujours se con
 
   Pour plus d’informations sur la génération de jetons de signature d’accès partagé, consultez la section consacrée aux appareils de [Utilisation de jetons de sécurité IoT Hub](iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app).
 
-  Lors du test, vous pouvez également utiliser [Azure IoT Tools pour Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) multiplateforme ou de la commande d’extension CLI [az iot hub generate-sas-token](/cli/azure/ext/azure-iot/iot/hub?view=azure-cli-latest#ext-azure-iot-az-iot-hub-generate-sas-token) afin de générer rapidement un jeton de signature d’accès partagé que vous pouvez copier et coller dans votre propre code.
+  Lors du test, vous pouvez également utiliser [Azure IoT Tools pour Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) multiplateforme ou de la commande d’extension CLI [az iot hub generate-sas-token](/cli/azure/ext/azure-iot/iot/hub#ext-azure-iot-az-iot-hub-generate-sas-token) afin de générer rapidement un jeton de signature d’accès partagé que vous pouvez copier et coller dans votre propre code.
 
 ### <a name="for-azure-iot-tools"></a>Pour Azure IoT Tools
 

@@ -5,12 +5,12 @@ description: Découvrez comment installer et configurer un contrôleur d’entr�
 services: container-service
 ms.topic: article
 ms.date: 08/17/2020
-ms.openlocfilehash: 58cda3f2bfc76f00deaa85347c059040e39f9ef5
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: fa6572ddc694cb892f48cb3e618c176f087524f6
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98729011"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102506563"
 ---
 # <a name="create-an-ingress-controller-with-a-static-public-ip-address-in-azure-kubernetes-service-aks"></a>Créer un contrôleur d’entrée avec une adresse IP publique statique dans Azure Kubernetes Service (AKS)
 
@@ -50,7 +50,7 @@ az network public-ip create --resource-group MC_myResourceGroup_myAKSCluster_eas
 ```
 
 > [!NOTE]
-> Les commandes ci-dessus créent une adresse IP qui sera supprimée si vous supprimez votre cluster AKS. Vous pouvez également créer une adresse IP dans un autre groupe de ressources qui peut être géré séparément de votre cluster AKS. Dans ce cas, veillez à ce que le principal du service utilisé par le cluster AKS dispose de permissions déléguées sur l’autre groupe de ressources, par exemple, *Contributeur réseau*. Pour plus d’informations, consultez [Utiliser une adresse IP publique statique et une étiquette DNS avec l’équilibreur de charge AKS][aks-static-ip].
+> Les commandes ci-dessus créent une adresse IP qui sera supprimée si vous supprimez votre cluster AKS. Vous pouvez également créer une adresse IP dans un autre groupe de ressources qui peut être géré séparément de votre cluster AKS. Si vous créez une adresse IP dans un autre groupe de ressources, vérifiez que l’identité de cluster utilisée par le cluster AKS dispose bien de permissions déléguées sur l’autre groupe de ressources, par exemple, *Contributeur réseau*. Pour plus d’informations, consultez [Utiliser une adresse IP publique statique et une étiquette DNS avec l’équilibreur de charge AKS][aks-static-ip].
 
 À présent, déployez le graphique *nginx-ingress* avec Helm. Pour renforcer la redondance, deux réplicas des contrôleurs d’entrée NGINX sont déployés avec le paramètre `--set controller.replicaCount`. Pour tirer pleinement parti de l’exécution de réplicas des contrôleurs d’entrée, vérifiez que votre cluster AKS comprend plusieurs nœuds.
 

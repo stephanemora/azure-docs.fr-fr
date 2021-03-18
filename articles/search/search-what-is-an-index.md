@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/03/2021
-ms.openlocfilehash: d0cc7630a3bea67a99c3cb65d2015e934e8ac2da
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.date: 03/05/2021
+ms.openlocfilehash: 96594d573c308727217f537e5421dcb79f02c2ff
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99539092"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102433792"
 ---
 # <a name="creating-search-indexes-in-azure-cognitive-search"></a>Création d’index de recherche dans Recherche cognitive Azure
 
@@ -61,7 +61,7 @@ Parmi les autres éléments, citons les [suggesteurs](index-add-suggesters.md), 
 
 ## <a name="choose-a-client"></a>Choisir un client
 
-Il existe plusieurs méthodes pour créer un index de recherche. Nous vous recommandons le portail Azure ou les API REST pour les premières étapes de développement et les tests de preuve de concept.
+Il existe plusieurs façons de créer un index de recherche. Nous vous recommandons le portail Azure ou les kits SDK pour les premières étapes de développement et les tests de preuve de concept.
 
 Pendant le développement, prévoyez des régénérations fréquentes. Comme les structures physiques sont créées dans le service, il est nécessaire de [supprimer et de recréer les index](search-howto-reindex.md) pour la plupart des modifications apportées à une définition de champ existante. Vous pouvez envisager de travailler sur une partie de vos données pour regénérer plus rapidement.
 
@@ -110,7 +110,7 @@ Pour Recherche cognitive, les Kits de développement logiciel (SDK) Azure implé
 
 Un document de recherche est défini par la collection `fields`. Vous aurez besoin de champs pour les requêtes et les clés. Vous aurez probablement également besoin de champs pour prendre en charge les filtres, les facettes et les tris. Vous pouvez également avoir besoin de champs pour des données qu’un utilisateur ne voit jamais, par exemple des champs pour les marges bénéficiaires ou les promotions marketing que vous pouvez utiliser pour modifier le rang de recherche.
 
-Un champ de type Edm.String doit être désigné comme clé de document. Il est utilisé pour identifier de manière unique chaque document de recherche. Vous pouvez récupérer un document par sa clé pour remplir une page de détails.  
+Un champ de type Edm.String doit être désigné comme clé de document. Il est utilisé pour identifier de manière unique chaque document de recherche, et respecte la casse. Vous pouvez récupérer un document par sa clé pour remplir une page de détails.
 
 Si les données entrantes sont de nature hiérarchique, attribuez le type de données [Type complexe](search-howto-complex-data-types.md) pour représenter les structures imbriquées. L’exemple de jeu de données intégré, Hotels, illustre des types complexes utilisant une adresse (contenant plusieurs sous-champs) qui entretient une relation un-à-un avec chaque hôtel, et une collection complexe Rooms, où plusieurs chambres sont associées à chaque hôtel. 
 

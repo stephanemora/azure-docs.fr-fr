@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: bd911868028825164cdd9627bf6b5c6d56de7164
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 28940272d39a08d790fe2cd913df808b02e7f426
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98679616"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102441888"
 ---
 # <a name="azure-synapse-sql-architecture"></a>Architecture Azure Synapse SQL 
 
@@ -37,7 +37,7 @@ Le nœud de contrôle Azure Synapse SQL utilise un moteur de requêtes distribu�
 
 Le nœud de contrôle de pool SQL serverless utilise le moteur de traitement des requêtes distribuées (DQP) pour optimiser et orchestrer l’exécution distribuée de la requête utilisateur en la fractionnant en requêtes plus petites qui seront exécutées sur des nœuds de calcul. Chaque petite requête est appelée tâche et représente une unité d’exécution distribuée. Elle lit les fichiers à partir du stockage, joint les résultats à partir d’autres tâches, regroupe ou organise les données récupérées à partir d’autres tâches. 
 
-Les nœuds de calcul stockent toutes les données utilisateur dans un stockage Azure et exécutent les requêtes parallèles. Le service de déplacement de données (DMS) est un service interne de niveau système, qui déplace les données entre les nœuds en fonction des besoins pour exécuter des requêtes en parallèle et retourner des résultats précis. 
+Les nœuds de calcul stockent toutes les données utilisateur dans Stockage Azure et exécutent les requêtes parallèles. Le service de déplacement de données (DMS) est un service interne de niveau système, qui déplace les données entre les nœuds en fonction des besoins pour exécuter des requêtes en parallèle et retourner des résultats précis. 
 
 Avec le stockage et le calcul découplés, lorsque vous utilisez SQL Synapse, vous pouvez tirer parti du dimensionnement indépendant de la puissance de calcul, quels que soient vos besoins en stockage. Pour un pool SQL serverless, la mise à l’échelle s’effectue automatiquement, tandis que pour un pool SQL dédié, vous pouvez :
 
@@ -49,7 +49,7 @@ Avec le stockage et le calcul découplés, lorsque vous utilisez SQL Synapse, vo
 
 SQL Synapse met à profit Stockage Azure pour sécuriser vos données utilisateur. Étant donné que vos données sont stockées et gérées par Stockage Azure, votre consommation de stockage est facturée séparément. 
 
-Un pool SQL serverless vous permet d’interroger les fichiers de votre lac de données en lecture seule, tandis qu’un pool SQL vous permet également d’ingérer des données. Lorsque des données sont ingérées dans le pool SQL dédié, elles sont partitionnées en **distributions** pour optimiser les performances du système. Vous pouvez choisir le modèle de partitionnement à utiliser pour distribuer les données lorsque vous définissez la table. Les modèles de partitionnement pris en charge sont les suivants :
+Un pool SQL serverless vous permet d’interroger vos fichiers de lac de données, tandis qu’un pool SQL dédié vous permet d’interroger et d’ingérer des données à partir de vos fichiers de lac de données. Lorsque des données sont ingérées dans le pool SQL dédié, elles sont partitionnées en **distributions** pour optimiser les performances du système. Vous pouvez choisir le modèle de partitionnement à utiliser pour distribuer les données lorsque vous définissez la table. Les modèles de partitionnement pris en charge sont les suivants :
 
 * Hachage
 * Tourniquet (round robin)
@@ -107,7 +107,7 @@ Une table distribuée de type tourniquet (round robin) distribue uniformément l
 ## <a name="replicated-tables"></a>Tables répliquées
 Une table répliquée offre les performances de requête les plus rapides pour des petites tables.
 
-Une copie complète d’une table répliquée est mise en cache sur chaque nœud de calcul. Par conséquent, la réplication d’une table a pour effet d’éviter la nécessité de transférer des données entre nœuds de calcul avant une jointure ou une agrégation. Des tables répliquées sont utilisées de façon optimale avec des tables de petite taille. Un espace de stockage supplémentaire est nécessaire, et une surcharge additionnelle est engagée lors de l’écriture de données, ce qui rend peu pratique l’usage de tables volumineuses. 
+Une copie complète d’une table répliquée est mise en cache sur chaque nœud de calcul. Ainsi, la réplication d’une table évite le transfert de données entre des nœuds de calcul avant une jointure ou une agrégation. Des tables répliquées sont utilisées de façon optimale avec des tables de petite taille. Un espace de stockage supplémentaire est nécessaire, et une surcharge additionnelle est engagée lors de l’écriture de données, ce qui rend peu pratique l’usage de tables volumineuses. 
 
 Le diagramme ci-dessous présente une table répliquée qui est mise en cache sur la première distribution sur chaque nœud de calcul. 
 
@@ -115,4 +115,4 @@ Le diagramme ci-dessous présente une table répliquée qui est mise en cache su
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-À présent que vous en savez un peu plus sur Synapse SQL, découvrez comment [créer un pool SQL dédié](../quickstart-create-sql-pool-portal.md) et [charger des exemples de données](../sql-data-warehouse/sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md) (./sql-data-warehouse-load-sample-databases.md) rapidement. Vous pouvez également commencer [à utiliser un pool SQL serverless](../quickstart-sql-on-demand.md). Si vous n’êtes pas encore familiarisé avec Azure, vous pouvez vous appuyer sur le [Glossaire Azure](../../azure-glossary-cloud-terminology.md) lorsque vous rencontrez de nouveaux termes. 
+À présent que vous en savez un peu plus sur Synapse SQL, découvrez comment [créer un pool SQL dédié](../quickstart-create-sql-pool-portal.md) et [charger des exemples de données](../sql-data-warehouse/sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md) (./sql-data-warehouse-load-sample-databases.md) rapidement. Vous pouvez également commencer à [utiliser un pool SQL serverless](../quickstart-sql-on-demand.md). Si vous n’êtes pas encore familiarisé avec Azure, vous pouvez vous appuyer sur le [Glossaire Azure](../../azure-glossary-cloud-terminology.md) lorsque vous rencontrez de nouveaux termes. 

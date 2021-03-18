@@ -1,19 +1,18 @@
 ---
 title: Détails de la structure des définitions de stratégies
 description: Décrit comment les définitions de stratégie permettent d’établir des conventions pour les ressources Azure dans votre organisation.
-ms.date: 10/22/2020
+ms.date: 02/17/2021
 ms.topic: conceptual
-ms.openlocfilehash: 607d1d85dbb370305d0337cc311433c37e36c4c0
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: cebba214671cfab75a3f44720578b51febacdfcd
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99493309"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102215066"
 ---
 # <a name="azure-policy-definition-structure"></a>Structure de définition Azure Policy
 
-Azure Policy établit des conventions pour les ressources. Les définitions de stratégie décrivent les [conditions](#conditions) de la conformité des ressources et l’effet à exécuter si une condition est remplie. Une condition compare un [champ](#fields) ou une [valeur](#value) de propriété de ressource à une valeur requise. Les champs de propriétés de ressources sont accessibles à l’aide d’[alias](#aliases). Quand un champ de propriété de ressource est un tableau, un [alias de tableau](#understanding-the--alias) spécial peut être utilisé pour sélectionner les valeurs de tous les membres du tableau et appliquer à chacune d’elles une condition.
-Apprenez-en davantage sur les [conditions](#conditions).
+Azure Policy établit des conventions pour les ressources. Les définitions de stratégie décrivent les [conditions](#conditions) de la conformité des ressources et l’effet à exécuter si une condition est remplie. Une condition compare un [champ](#fields) ou une [valeur](#value) de propriété de ressource à une valeur requise. Les champs de propriétés de ressources sont accessibles à l’aide d’[alias](#aliases). Quand un champ de propriété de ressource est un tableau, un [alias de tableau](#understanding-the--alias) spécial peut être utilisé pour sélectionner les valeurs de tous les membres du tableau et appliquer à chacune d’elles une condition. Apprenez-en davantage sur les [conditions](#conditions).
 
 En définissant des conventions, vous pouvez contrôler les coûts et gérer plus facilement vos ressources. Par exemple, vous pouvez spécifier que seuls certains types de machines virtuelles sont autorisés. Vous pouvez aussi exiger que les ressources soient marquées avec une balise particulière. Les ressources enfants héritent des attributions de stratégie. Si une attribution de stratégie est appliquée à un groupe de ressources, elle s’applique à toutes les ressources appartenant à ce groupe de ressources.
 
@@ -118,7 +117,7 @@ Les modes Fournisseur de ressources suivants sont actuellement pris en charge en
 
 ## <a name="metadata"></a>Métadonnées
 
-La propriété facultative `metadata` stocke les informations relatives à la définition de stratégie. Les clients peuvent définir toutes les propriétés et valeurs utiles à leur organisation dans `metadata`. Cependant, certaines propriétés _communes_ sont utilisées par Azure Policy et dans les éléments intégrés.
+La propriété facultative `metadata` stocke les informations relatives à la définition de stratégie. Les clients peuvent définir toutes les propriétés et valeurs utiles à leur organisation dans `metadata`. Cependant, certaines propriétés _communes_ sont utilisées par Azure Policy et dans les éléments intégrés. Chaque `metadata` a une limite de 1024 caractères.
 
 ### <a name="common-metadata-properties"></a>Propriétés de métadonnées communes
 
@@ -151,7 +150,7 @@ Un paramètre possède les propriétés suivantes qui sont utilisées dans la d�
   - `assignPermissions`: (Facultatif) Définissez l’option sur _True_ pour que le portail Azure crée des attributions de rôles lors de l’attribution de stratégie. Cette propriété est utile si vous souhaitez attribuer des autorisations en dehors de l’étendue d’attribution. Il existe une attribution de rôle par définition de rôle dans la stratégie (ou par définition de rôle dans toutes les stratégies dans l’initiative). La valeur du paramètre doit être une ressource ou une étendue valide.
 - `defaultValue`: (Facultatif) Définit la valeur du paramètre dans une affectation si aucune valeur n’est fournie.
   Obligatoire lors de la mise à jour d’une définition de stratégie existante qui est affectée.
-- `allowedValues`: (Facultatif) Fournit le tableau des valeurs que le paramètre accepte pendant l’attribution.
+- `allowedValues`: (Facultatif) Fournit le tableau des valeurs que le paramètre accepte pendant l’attribution. Les comparaisons de valeurs autorisées respectent la casse. 
 
 Par exemple, vous pouvez définir une définition de stratégie qui limite les emplacements sur lesquels les ressources peuvent être déployées. Le paramètre **allowedLocations** pourrait s’appliquer à cette définition de stratégie. Ce paramètre serait utilisé par chaque affectation de la définition de la stratégie pour limiter les valeurs acceptées. L’utilisation de **strongType** permet d’améliorer l’expérience lors de l’affectation via le portail :
 
@@ -286,15 +285,13 @@ Une condition évalue si une valeur répond à certains critères. Les condition
 
 Pour **less**, **lessOrEquals**, **greater** et **greaterOrEquals**, si le type de propriété ne correspond pas au type de condition, une erreur est générée. Les comparaisons de chaînes sont effectuées à l’aide de `InvariantCultureIgnoreCase`.
 
-Avec les conditions **like** et **notLike**, un caractère générique `*` est indiqué dans la valeur.
-Celle-ci ne doit pas en comporter plus d’un (`*`).
+Avec les conditions **like** et **notLike**, un caractère générique `*` est indiqué dans la valeur. Celle-ci ne doit pas en comporter plus d’un (`*`).
 
 Si vous utilisez les conditions **match** et **notMatch**, entrez `#` pour trouver un chiffre, `?` pour une lettre, `.` pour un caractère et tout autre caractère pour représenter ce caractère réel. **match** et **notMatch** sont sensibles à la casse. Cependant, toutes les autres conditions qui évaluent une _stringValue_ ne sont pas sensibles à la casse. Des alternatives non sensibles à la casse sont disponibles dans **matchInsensitively** et **notMatchInsensitively**.
 
 ### <a name="fields"></a>Champs
 
-Conditions vérifiant si les valeurs des propriétés dans la charge utile de la demande de ressource répondent à certains critères peuvent être formées à l’aide d’une expression **Field**.
-Les champs suivants sont pris en charge :
+Conditions vérifiant si les valeurs des propriétés dans la charge utile de la demande de ressource répondent à certains critères peuvent être formées à l’aide d’une expression **Field**. Les champs suivants sont pris en charge :
 
 - `name`
 - `fullName`
@@ -324,8 +321,7 @@ Les champs suivants sont pris en charge :
 > `tags.<tagName>`, `tags[tagName]` et `tags[tag.with.dots]` sont toujours des manières acceptables de déclarer un champ de balises. Toutefois, les expressions préférées sont celles répertoriées ci-dessus.
 
 > [!NOTE]
-> Dans des expressions **field** faisant référence à un **\[\*\]alias**, chaque élément du groupe est évalué individuellement avec des opérateurs **and** logiques entre les éléments.
-> Pour plus d’informations, consultez [Références aux propriétés des ressources de tableau](../how-to/author-policies-for-arrays.md#referencing-array-resource-properties).
+> Dans des expressions **field** faisant référence à un **\[\*\]alias**, chaque élément du groupe est évalué individuellement avec des opérateurs **and** logiques entre les éléments. Pour plus d’informations, consultez [Références aux propriétés des ressources de tableau](../how-to/author-policies-for-arrays.md#referencing-array-resource-properties).
 
 #### <a name="use-tags-with-parameters"></a>Utiliser des balises avec des paramètres
 
@@ -472,6 +468,7 @@ Les expressions **field count** peuvent énumérer le même groupe de champs jus
 Pour plus d’informations sur l’utilisation des propriétés de groupe dans Azure Policy, notamment une explication détaillée de la façon dont l’expression **field count** est évaluée, consultez [Références aux propriétés des ressources de groupe](../how-to/author-policies-for-arrays.md#referencing-array-resource-properties).
 
 #### <a name="value-count"></a>Value count
+
 Dénombre le nombre de membres d’un groupe qui satisfont à une condition. Le groupe peut être un groupe littéral ou une [référence à un paramètre de groupe](#using-a-parameter-value). La structure de l’expression **value count** est la suivante :
 
 ```json
@@ -500,19 +497,19 @@ Les limites suivantes sont appliquées :
 
 #### <a name="the-current-function"></a>Fonction current
 
-La fonction `current()` n’est disponible qu’à l’intérieur de la condition `count.where`. Elle retourne la valeur du membre du groupe qui est actuellement énuméré l’évaluation de l’expression **count**.
+La fonction `current()` n’est disponible qu’à l’intérieur de la condition `count.where`. Elle retourne la valeur du membre du groupe qui est actuellement énuméré par l’évaluation de l’expression **count**.
 
 **Utilisation de value count**
 
 - `current(<index name defined in count.name>)`. Par exemple : `current('arrayMember')`.
-- `current()`. Autorisé uniquement lorsque l’expression **value count** n’est pas un enfant d’un autre expression **count**. Retourne la même valeur que ci-dessus.
+- `current()`. Autorisé uniquement lorsque l’expression **value count** n’est pas un enfant d’une autre expression **count**. Retourne la même valeur que ci-dessus.
 
 Si la valeur retournée par l’appel est un objet, les accesseurs de propriété sont pris en charge. Par exemple : `current('objectArrayMember').property`.
 
 **Field count usage**
 
 - `current(<the array alias defined in count.field>)`. Par exemple : `current('Microsoft.Test/resource/enumeratedArray[*]')`.
-- `current()`. Autorisé uniquement lorsque l’expression **field count** n’est pas un enfant d’un autre expression **count**. Retourne la même valeur que ci-dessus.
+- `current()`. Autorisé uniquement lorsque l’expression **field count** n’est pas un enfant d’une autre expression **count**. Retourne la même valeur que ci-dessus.
 - `current(<alias of a property of the array member>)`. Par exemple : `current('Microsoft.Test/resource/enumeratedArray[*].property')`.
 
 #### <a name="field-count-examples"></a>Exemples d’expression field count
@@ -648,7 +645,7 @@ Exemple 1 : vérifier si le nom de ressource correspond à l’un des modèles d
 }
 ```
 
-Exemple 2 : vérifier si le nom de ressource correspond à l’un des modèles de nom donné. La fonction `current()` ne spécifie pas de nom d’index. Le résultat est le même que l’exemple précédent.
+Exemple 2 : vérifier si le nom de ressource correspond à l’un des modèles de nom donné. La fonction `current()` ne spécifie pas de nom d’index. Le résultat est le même que celui de l’exemple précédent.
 
 ```json
 {
@@ -769,7 +766,7 @@ Azure Policy prend en charge les types d’effet suivants :
 - **deny** : génère un événement dans le journal d’activité et fait échouer la requête.
 - **DeployIfNotExists** : déploie une ressource connexe si elle n’existe pas déjà
 - **disabled** : n’évalue pas la conformité des ressources à la règle de stratégie.
-- **Modify** : ajoute, met à jour ou supprime les étiquettes définies dans une ressource
+- **Modify** : ajoute, met à jour ou supprime les étiquettes définies dans une ressource ou un abonnement
 - **EnforceOPAConstraint** (déconseillé) : configure le contrôleur des admissions Open Policy Agent avec Gatekeeper v3 pour les clusters Kubernetes automanagés sur Azure
 - **EnforceRegoPolicy** (déconseillé) : configure le contrôleur des admissions Open Policy Agent avec Gatekeeper v2 dans Azure Kubernetes Service
 
@@ -822,18 +819,18 @@ Les fonctions suivantes sont disponibles uniquement dans les règles de stratég
   ```
 
 - `ipRangeContains(range, targetRange)`
-    - **range** : Chaîne [obligatoire] ; chaîne spécifiant une plage d’adresses IP.
-    - **targetRange** : Chaîne [obligatoire] ; chaîne spécifiant une plage d’adresses IP.
+  - **range** : Chaîne [obligatoire] ; chaîne spécifiant une plage d’adresses IP.
+  - **targetRange** : Chaîne [obligatoire] ; chaîne spécifiant une plage d’adresses IP.
 
-    Retourne une valeur indiquant si la plage d’adresses IP donnée contient la plage d’adresses IP cible. Les plages vides ou la combinaison entre familles d’adresses IP ne sont pas autorisées et entraînent l’échec de l’évaluation.
+  Retourne une valeur indiquant si la plage d’adresses IP donnée contient la plage d’adresses IP cible. Les plages vides ou la combinaison entre familles d’adresses IP ne sont pas autorisées et entraînent l’échec de l’évaluation.
 
-    Formats pris en charge :
-    - Adresse IP unique (exemples : `10.0.0.0`, `2001:0DB8::3:FFFE`)
-    - Plage CIDR (exemples : `10.0.0.0/24`, `2001:0DB8::/110`)
-    - Plage définie par les adresses IP de début et de fin (exemples : `192.168.0.1-192.168.0.9`, `2001:0DB8::-2001:0DB8::3:FFFF`)
+  Formats pris en charge :
+  - Adresse IP unique (exemples : `10.0.0.0`, `2001:0DB8::3:FFFE`)
+  - Plage CIDR (exemples : `10.0.0.0/24`, `2001:0DB8::/110`)
+  - Plage définie par les adresses IP de début et de fin (exemples : `192.168.0.1-192.168.0.9`, `2001:0DB8::-2001:0DB8::3:FFFF`)
 
 - `current(indexName)`
-    - Fonction spéciale utilisable uniquement dans les [expressions count](#count).
+  - Fonction spéciale utilisable uniquement dans les [expressions count](#count).
 
 #### <a name="policy-function-example"></a>Exemple de fonction de stratégie
 

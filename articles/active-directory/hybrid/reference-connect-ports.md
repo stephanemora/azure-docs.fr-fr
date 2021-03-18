@@ -16,12 +16,12 @@ ms.date: 03/04/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: da318840426d1c0b94eab06b89ff3152df9d26fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 681d92ed162feff0510067556d7eeaa47b12d988
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80331088"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102520028"
 ---
 # <a name="hybrid-identity-required-ports-and-protocols"></a>Ports et protocoles nécessaires à l’identité hybride
 Le document suivant est une référence technique sur les ports et les protocoles nécessaires à l’implémentation d’une solution d’identité hybride. Consultez la figure ci-dessous et reportez-vous au tableau correspondant.
@@ -39,7 +39,7 @@ Ce tableau décrit les ports et les protocoles nécessaires à la communication 
 | LDAP |389 (TCP/UDP) |Utilisé pour l’importation de données à partir d’AD. Les données sont chiffrées à l’aide de Kerberos Sign & Seal. |
 | SMB | 445 (TCP) |Utilisé par l’authentification unique transparente pour créer un compte d’ordinateur dans la forêt AD. |
 | LDAP/SSL |636 (TCP/UDP) |Utilisé pour l’importation de données à partir d’AD. Le transfert de données est signé et chiffré. Utilisé uniquement si vous utilisez TLS. |
-| RPC |49152-65535 (port RPC aléatoire élevé)(CP) |Utilisé pendant la configuration initiale d’Azure AD Connect au moment d’établir une liaison avec les forêts AD, ainsi que pendant la synchronisation du mot de passe. Pour plus d’informations, consultez les sections [KB929851](https://support.microsoft.com/kb/929851), [KB832017](https://support.microsoft.com/kb/832017) et [KB224196](https://support.microsoft.com/kb/224196). |
+| RPC |49152-65535 (port RPC aléatoire élevé)(CP) |Utilisé pendant la configuration initiale d’Azure AD Connect au moment d’établir une liaison avec les forêts AD, ainsi que pendant la synchronisation du mot de passe. Si le port dynamique a été modifié, vous devez ouvrir ce port. Pour plus d’informations, consultez les sections [KB929851](https://support.microsoft.com/kb/929851), [KB832017](https://support.microsoft.com/kb/832017) et [KB224196](https://support.microsoft.com/kb/224196). |
 |WinRM  | 5985 (TCP) |Utilisé uniquement si vous installez AD FS avec l’assistant de connexion gMSA par Azure AD Connect|
 |Services web AD DS | 9389 (TCP) |Utilisé uniquement si vous installez AD FS avec l’assistant de connexion gMSA par Azure AD Connect |
 
@@ -81,7 +81,7 @@ Ce tableau décrit les ports et les protocoles nécessaires à la communication 
 Les tableaux suivants décrivent les ports et les protocoles nécessaires à la communication entre Azure AD Connect et Azure AD.
 
 ### <a name="table-6a---pass-through-authentication-with-sso"></a>Tableau 6a - Authentification directe avec authentification unique (SSO)
-|Protocol|Numéro de port|Description
+|Protocole|Numéro de port|Description
 | --- | --- | ---
 |HTTP|80|Active le trafic HTTP sortant pour valider la sécurité, comme SSL. Également nécessaire pour que la fonctionnalité de mise à jour automatique du connecteur fonctionne correctement.
 |HTTPS|443| Active le trafic HTTPS sortant pour les opérations telles que l’activation et la désactivation de la fonctionnalité, l’inscription des connecteurs, le téléchargement des mises à jour du connecteur et la gestion des demandes de connexion de tous les utilisateurs.
@@ -90,7 +90,7 @@ En outre, Azure AD Connect doit être en mesure d’établir des connexions IP d
 
 ### <a name="table-6b---password-hash-sync-with-sso"></a>Tableau 6b - synchronisation du hachage de mot de passe avec authentification unique
 
-|Protocol|Numéro de port|Description
+|Protocole|Numéro de port|Description
 | --- | --- | ---
 |HTTPS|443| Active l’inscription à l’authentification unique (obligatoire uniquement pour le processus d’inscription SSO).
 

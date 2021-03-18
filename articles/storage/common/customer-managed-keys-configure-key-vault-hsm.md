@@ -6,25 +6,28 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/21/2020
+ms.date: 03/05/2021
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 2f57e801720c6b546a58b216422629d192e8d2e6
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: f9be9272a898ad48f3553d4c5e48952e1fcdde81
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843313"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102218636"
 ---
 # <a name="configure-encryption-with-customer-managed-keys-stored-in-azure-key-vault-managed-hsm-preview"></a>Configurer le chiffrement avec des clés gérées par le client stockées dans un module HSM géré par Azure Key Vault Azure (préversion)
 
-Le stockage Azure chiffre toutes les données dans un compte de stockage au repos. Par défaut, les données sont chiffrées avec des clés managées par Microsoft Pour mieux contrôler les clés de chiffrement, vous pouvez gérer vos propres clés. Les clés gérées par le client doivent être stockées dans Azure Key Vault ou dans un module de sécurité matériel (HSM) géré par Azure Key Vault Azure (préversion). Un module HSM géré par Azure Key Vault est un module HSM certifié FIPS 140-2 de niveau 3.
+Le stockage Azure chiffre toutes les données dans un compte de stockage au repos. Par défaut, les données sont chiffrées avec des clés managées par Microsoft Pour un contrôle supplémentaire des clés de chiffrement, vous pouvez gérer vos propres clés. Les clés gérées par le client doivent être stockées dans Azure Key Vault ou dans un module de sécurité matériel (HSM) géré par Azure Key Vault Azure (préversion). Un module HSM géré par Azure Key Vault est un module HSM certifié FIPS 140-2 de niveau 3.
 
 Cet article explique comment configurer le chiffrement avec des clés gérées par le client stockées dans un module HSM géré à l'aide d'Azure CLI. Pour savoir comment configurer le chiffrement avec des clés gérées par le client stockées dans un coffre de clés, consultez [Configurer le chiffrement avec des clés gérées par le client stockées dans Azure Key Vault](customer-managed-keys-configure-key-vault.md).
 
-> [!NOTE]
+> [!IMPORTANT]
+>
+> Le chiffrement avec des clés gérées par le client stockées dans Azure Key Vault Managed HSM est actuellement en **PRÉVERSION**. Consultez l’[Avenant aux conditions d’utilisation des préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) pour connaître les conditions juridiques qui s’appliquent aux fonctionnalités Azure disponibles en version bêta, en préversion ou qui ne sont pas encore en phase de disponibilité générale.
+>
 > Azure Key Vault et le module HSM géré par Azure Key Vault prennent en charge les mêmes API et interfaces de gestion pour la configuration.
 
 ## <a name="assign-an-identity-to-the-storage-account"></a>Affecter une identité au compte de stockage

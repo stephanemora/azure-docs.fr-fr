@@ -3,14 +3,14 @@ title: Simulation de déploiement de modèle
 description: Déterminez les modifications qui seront apportées à vos ressources avant de déployer un modèle Azure Resource Manager.
 author: tfitzmac
 ms.topic: conceptual
-ms.date: 02/05/2021
+ms.date: 03/09/2021
 ms.author: tomfitz
-ms.openlocfilehash: 8122fa5c00a61017b5f358a112c94a5299539cee
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: 3f35f00e5fcd26c7aa4bb685dc80f48eabb88b6d
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99591622"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102547932"
 ---
 # <a name="arm-template-deployment-what-if-operation"></a>Opération what-if de déploiement de modèle ARM
 
@@ -391,8 +391,6 @@ Vous pouvez utiliser l’opération de simulation par le biais des Kits de déve
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+- Pour utiliser l’opération de simulation dans un pipeline, consultez [Test ARM templates with What-If in a pipeline](https://4bes.nl/2021/03/06/test-arm-templates-with-what-if/).
 - Si vous constatez que l’opération de simulation génère des résultats incorrects, signalez les problèmes via [https://aka.ms/whatifissues](https://aka.ms/whatifissues).
 - Pour suivre un module Microsoft Learn couvrant l’utilisation des simulations, consultez [Prévisualisation des modifications et validation des ressources Azure à l’aide de simulations et du kit de ressources de test de modèle ARM](/learn/modules/arm-template-test/).
-- Pour déployer des modèles avec Azure PowerShell, consultez [Déployer des ressources avec des modèles ARM et Azure PowerShell](deploy-powershell.md).
-- Pour déployer des modèles avec Azure CLI, consultez [Déployer des ressources avec des modèles ARM et Azure CLI](deploy-cli.md).
-- Pour déployer des modèles avec REST, consultez [Déployer des ressources avec des modèles ARM et l’API REST Resource Manager](deploy-rest.md).

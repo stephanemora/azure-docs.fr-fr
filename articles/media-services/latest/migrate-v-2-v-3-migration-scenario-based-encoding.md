@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: media
 ms.date: 1/14/2020
 ms.author: inhenkel
-ms.openlocfilehash: ab819239572fd99fdf5ff3bf23f81eb3cdff3b9a
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 671991a936fd0330c31017dd5f64e7b5eca9b3f4
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98940105"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102563657"
 ---
 # <a name="encoding-scenario-based-migration-guidance"></a>Recommandations en matière de migration basées sur un scénario d’encodage
 
@@ -41,7 +41,7 @@ Prenez quelques minutes pour examiner les organigrammes ci-dessous, qui présent
 
 Cliquez sur l’image ci-dessous pour afficher une version plus volumineuse.
 
-[ ![Flux de travail d’encodage pour v2](./media/migration-guide/V2-pretty.svg) ](./media/migration-guide/V2-pretty.svg#lightbox)
+[![Flux de travail d’encodage pour V2](./media/migration-guide/V2-pretty.svg) ](./media/migration-guide/V2-pretty.svg#lightbox)
 
 1. Configuration
     1. Créez un ressource ou utilisez une ressource existante. Si vous utilisez une nouvelle ressource, chargez le contenu vers celle-ci. Si vous utilisez une ressource existante, vous devez encoder des fichiers qui existent déjà dans la ressource.
@@ -58,10 +58,10 @@ Cliquez sur l’image ci-dessous pour afficher une version plus volumineuse.
 
 ### <a name="v3-encoding-workflow"></a>Flux de travail d’encodage v3
 
-[ ![Flux de travail d’encodage pour v3](./media/migration-guide/V3-pretty.svg) ](./media/migration-guide/V3-pretty.svg#lightbox)
+[![Flux de travail d’encodage pour V3](./media/migration-guide/V3-pretty.svg) ](./media/migration-guide/V3-pretty.svg#lightbox)
 
 1. Configurer
-    1. Créez un ressource ou utilisez une ressource existante. Si vous utilisez une nouvelle ressource, chargez le contenu vers celle-ci. Si vous utilisez une ressource existante, vous devez encoder des fichiers qui existent déjà dans la ressource. Vous *ne devez pas charger plus de contenu dans cette ressource.*
+    1. Créez une ressource ou utilisez une ressource existante. Si vous utilisez une nouvelle ressource, chargez le contenu vers celle-ci. Si vous utilisez une ressource existante, vous devez encoder des fichiers qui existent déjà dans la ressource. Vous *ne devez pas charger plus de contenu dans cette ressource.*
     1. Créez une ressource de sortie.  La ressource de sortie est l’emplacement où seront stockés les fichiers encodés et les métadonnées d’entrée et de sortie.
     1. Obtenez les valeurs pour la transformation :
         - présélection d’encodeur Standard ;
@@ -84,17 +84,6 @@ Cliquez sur l’image ci-dessous pour afficher une version plus volumineuse.
 Si votre code V2 a appelé l’encodeur Standard avec une présélection personnalisée, vous commencez par créer une transformation avec la présélection d’encodeur Standard personnalisé avant de soumettre un travail.
 
 Les présélections personnalisées sont désormais JSON et ne sont plus basées sur XML. Recréez votre présélection en JSON, en suivant le schéma de présélection personnalisée, tel que défini dans la documentation de l’[API Transform Open (Swagger)](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2020-05-01/examples/transforms-create.json).
-
-
-<!-- removed because this is covered in the tutorials
-Common custom [encoding](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2020-05-01/Encoding.json) scenarios:
-        1. Create a custom Single Bitrate MP4 encode
-        1. Create a custom [Adaptive Bitrate Encoding Ladder](autogen-bitrate-ladder.md)
-        1. Creating Sprite Thumbnails
-        1. Creating Thumbnails (see below for your preferred method)
-        1. [Sub Clipping](subclip-video-rest-howto.md)
-        1. Cropping
--->
 
 ## <a name="input-and-output-metadata-files-from-an-encoding-job"></a>Fichiers de métadonnées d’entrée et de sortie d’une tâche d’encodage
 
@@ -153,7 +142,7 @@ Pour les clients qui utilisent le processeur indexeur v1 dans l’API v2, vous d
 
 ## <a name="samples"></a>Exemples
 
-Vous pouvez également [comparer le code v2 et v3 dans les exemples de code](migrate-v-2-v-3-migration-samples.md).
+Vous pouvez aussi [comparer les codes V2 et V3 dans les exemples de code](migrate-v-2-v-3-migration-samples.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

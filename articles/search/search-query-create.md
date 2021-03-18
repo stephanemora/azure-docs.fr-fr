@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/03/2021
-ms.openlocfilehash: b013c66feefade077c85194ba3b1ff04ff4c4aa5
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 5a89e9ae05b0733c865d537ffeb1714d3b3ebef1
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99536830"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102489359"
 ---
 # <a name="creating-queries-in-azure-cognitive-search"></a>Création de requêtes dans Recherche cognitive Azure
 
@@ -21,18 +21,21 @@ Si vous générez une requête pour la première fois, cet article décrit les a
 
 ## <a name="whats-a-query-request"></a>Qu’est-ce qu’une demande de requête ?
 
-Il s’agit d’une requête en lecture seule sur la collection de documents d’un index de recherche unique. Elle spécifie un « queryType » et une expression de requête via le paramètre « search ». L’expression de requête peut comporter des termes de recherche, une expression entre guillemets et des opérateurs.
+Il s’agit d’une requête en lecture seule sur la collection de documents d’un index de recherche unique. Elle spécifie un paramètre de recherche qui contient l’expression de requête, composée de termes, d’expressions entre guillemets et d’opérateurs.
 
-Une requête peut également avoir la valeur « count » pour retourner le nombre de correspondances trouvées dans l’index, « select » pour choisir les champs retournés dans les résultats de la recherche et « orderby » pour trier les résultats. L’exemple suivant donne une idée générale d’une demande de requête en indiquant un sous-ensemble des paramètres disponibles. Pour plus d’informations sur la composition des requêtes, consultez [Types de requêtes et compositions](search-query-overview.md) et [Rechercher dans des documents (REST)](/rest/api/searchservice/search-documents).
+Des paramètres supplémentaires fournissent davantage de définition à la requête et à la réponse. Par exemple, « searchFields » limite l’exécution des requêtes à des champs spécifiques, « select » spécifie les champs qui sont retournés dans les résultats, et « count » retourne le nombre de correspondances trouvées dans l’index.
+
+L’exemple suivant donne une idée générale d’une demande de requête en indiquant un sous-ensemble des paramètres disponibles. Pour plus d’informations sur la composition des requêtes, consultez [Types de requêtes et compositions](search-query-overview.md) et [Rechercher dans des documents (REST)](/rest/api/searchservice/search-documents).
 
 ```http
 POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30
 {
-    "queryType": "simple"
-    "search": "`New York` +restaurant",
-    "select": "HotelId, HotelName, Description, Rating, Address/City, Tags",
-    "count": "true",
-    "orderby": "Rating desc"
+    "search": "NY +view",
+    "queryType": "simple",
+    "searchMode": "all",
+    "searchFields": "HotelName, Description, Address/City, Address/StateProvince, Tags",
+    "select": "HotelName, Description, Address/City, Address/StateProvince, Tags",
+    "count": "true"
 }
 ```
 

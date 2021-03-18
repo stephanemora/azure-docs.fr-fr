@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/10/2020
+ms.date: 03/05/2021
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 4b25458cc934097b5477c174ae7ecc47762e2929
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2097c1743e07b5563bc75d3d1cce48aa11b98e5f
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91280298"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102216341"
 ---
 # <a name="enable-and-manage-soft-delete-for-containers-preview"></a>Activer et gérer la suppression réversible pour les conteneurs (préversion)
 
@@ -23,6 +23,10 @@ La suppression réversible de conteneur (préversion) protège vos données cont
 S’il existe une possibilité de modification ou de suppression accidentelles de vos données par une application ou un autre utilisateur du compte de stockage, Microsoft vous recommande d’activer la suppression réversible de conteneur. Cet article explique comment activer la suppression réversible pour les conteneurs. Pour plus d’informations sur la suppression réversible de conteneur, notamment sur la façon de s’inscrire à la préversion, consultez [Suppression réversible pour les conteneurs (préversion)](soft-delete-container-overview.md).
 
 Pour la protection des données de bout en bout, Microsoft vous recommande également d’activer la suppression réversible pour les blobs et le contrôle de version des blobs. Pour savoir comment activer la suppression réversible pour les blobs, consultez [Activer et gérer la suppression réversible pour les blobs](soft-delete-blob-enable.md). Pour savoir comment activer le contrôle de version des blobs, consultez [Contrôle de version des blobs](versioning-overview.md).
+
+> [!IMPORTANT]
+>
+> La suppression réversible de conteneur est actuellement en **préversion**. Consultez l’[Avenant aux conditions d’utilisation des préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) pour connaître les conditions juridiques qui s’appliquent aux fonctionnalités Azure disponibles en version bêta, en préversion ou qui ne sont pas encore en phase de disponibilité générale.
 
 ## <a name="enable-container-soft-delete"></a>Activer la suppression réversible de conteneur
 
@@ -42,12 +46,12 @@ Pour activer la suppression réversible de conteneur pour votre compte de stocka
 
 # <a name="template"></a>[Modèle](#tab/template)
 
-Pour activer la suppression réversible de conteneur avec un modèle Resource Manager, créez un modèle qui définit la propriété  **containerDeleteRetentionPolicy**. Les étapes suivantes montrent comment créer un modèle dans le Portail Azure.
+Pour activer la suppression réversible de conteneur avec un modèle Resource Manager, créez un modèle qui définit la propriété **containerDeleteRetentionPolicy**. Les étapes suivantes montrent comment créer un modèle dans le Portail Azure.
 
-1. Dans le portail Azure, choisissez  **Créer une ressource**.
-1. Dans  **Rechercher dans la Place de marché**, saisissez  **déploiement de modèle**, puis appuyez sur  **ENTRÉE**.
-1. Choisissez  **Template deployment**,  **Créer**, puis  **Créer votre propre modèle dans l’éditeur**.
-1. Dans l’éditeur de modèle, collez le code JSON suivant. Remplacez l’espace réservé  `<account-name>` par le nom de votre compte de stockage.
+1. Dans le Portail Azure, choisissez **Créer une ressource**.
+1. Dans **Rechercher sur la Place de marché**, tapez **déploiement de modèle**, puis appuyez sur **Entrée**.
+1. Choisissez **Template deployment**, **Créer**, puis **Créer votre propre modèle dans l’éditeur**.
+1. Dans l’éditeur de modèle, collez le code JSON suivant. Remplacez la valeur d’espace réservé `<account-name>` par le nom de votre compte de stockage.
 
     ```json
     {
@@ -75,7 +79,7 @@ Pour activer la suppression réversible de conteneur avec un modèle Resource Ma
 
 1. Spécifiez la période de rétention. La valeur par défaut est 7.
 1. Enregistrez le modèle.
-1. Spécifiez le groupe de ressources du compte, puis choisissez le bouton  **Vérifier + créer** pour déployer le modèle et activer la suppression réversible de conteneur.
+1. Spécifiez le groupe de ressources du compte, puis choisissez le bouton **Vérifier + créer** pour déployer le modèle et activer la suppression réversible de conteneur.
 
 ## <a name="view-soft-deleted-containers"></a>Afficher les conteneurs supprimés de manière réversible
 
@@ -86,7 +90,7 @@ Pour afficher les conteneurs supprimés de manière réversible dans le portail 
 1. Accédez à votre compte de stockage dans le portail Azure et affichez la liste de vos conteneurs.
 1. Activez le bouton bascule Afficher les conteneurs supprimés pour inclure les conteneurs supprimés dans la liste.
 
-    :::image type="content" source="media/soft-delete-container-enable/soft-delete-container-portal-list.png" alt-text="Capture d’écran représentant l’activation de la suppression réversible de conteneur dans le portail Azure":::
+    :::image type="content" source="media/soft-delete-container-enable/soft-delete-container-portal-list.png" alt-text="Capture d’écran montrant comment afficher les conteneurs supprimés de manière réversible dans le portail Azure":::
 
 ## <a name="restore-a-soft-deleted-container"></a>Restaurer un conteneur supprimé de manière réversible
 
@@ -95,7 +99,7 @@ Vous pouvez restaurer un conteneur supprimé de manière réversible et son cont
 1. Accédez à votre compte de stockage dans le portail Azure et affichez la liste de vos conteneurs.
 1. Affichez le menu contextuel du conteneur que vous souhaitez restaurer, puis choisissez **Annuler la suppression** dans le menu.
 
-    :::image type="content" source="media/soft-delete-container-enable/soft-delete-container-portal-restore.png" alt-text="Capture d’écran représentant l’activation de la suppression réversible de conteneur dans le portail Azure":::
+    :::image type="content" source="media/soft-delete-container-enable/soft-delete-container-portal-restore.png" alt-text="Capture d’écran montrant comment restaurer un conteneur supprimé de manière réversible dans le portail Azure":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

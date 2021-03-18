@@ -9,14 +9,16 @@ ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 7924b06b9056a53fa9861fcd0df516845662b34b
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 1a78db821c0fab01ad5d6752216a8f7682fb2c46
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341564"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200495"
 ---
 # <a name="access-built-in-metrics"></a>Accéder aux métriques intégrées
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Les composants du runtime IoT Edge, le hub IoT Edge Hub et l’agent IoT Edge, produisent des métriques intégrées au [format d’exposition Prometheus](https://prometheus.io/docs/instrumenting/exposition_formats/). Accédez à ces métriques à distance pour analyser et comprendre l’intégrité d’un appareil IoT Edge.
 
@@ -44,7 +46,9 @@ Accédez aux métriques à partir de l’hôte en exposant et en mappant le port
 Choisissez des numéros de port d’hôte différents et uniques si vous mappez les points de terminaison des métriques d’edgeHub et d’edgeAgent.
 
 > [!NOTE]
-> Si vous souhaitez désactiver les métriques, définissez la variable d’environnement `MetricsEnabled` sur `false` pour **edgeAgent**.
+> La variable d’environnement `httpSettings__enabled` ne doit pas être définie sur `false` afin que les métriques intégrées soient disponibles pour la collecte.
+>
+> Les variables d’environnement qui peuvent être utilisées pour désactiver les métriques sont listées dans la [documentation du dépôt azure/iotedge](https://github.com/Azure/iotedge/blob/master/doc/EnvironmentVariables.md).
 
 ## <a name="available-metrics"></a>Métriques disponibles
 

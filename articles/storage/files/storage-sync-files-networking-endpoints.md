@@ -8,12 +8,12 @@ ms.date: 5/11/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 64d66e1b9eab225b38ee21306fea6f9534a708f3
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 97ccbd0858a7b85c4b5d1e460f67416d8139e49a
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98673844"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102218602"
 ---
 # <a name="configuring-azure-file-sync-network-endpoints"></a>Configuration des points de terminaison réseau Azure File Sync
 Azure Files et Azure File Sync fournissent deux principaux types de points de terminaison pour l’accès aux partages de fichiers Azure : 
@@ -34,7 +34,7 @@ Cet article suppose que vous avez :
 
 De plus :
 - Si vous envisagez d’utiliser Azure PowerShell, [installez-en la dernière version](/powershell/azure/install-az-ps).
-- Si vous envisagez d’utiliser Azure CLI, [installez-en la dernière version](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
+- Si vous envisagez d’utiliser Azure CLI, [installez-en la dernière version](/cli/azure/install-azure-cli).
 
 ## <a name="create-the-private-endpoints"></a>Créer les points de terminaison privés
 Lorsque vous créez un point de terminaison privé pour une ressource Azure, les ressources suivantes sont déployées :
@@ -125,7 +125,7 @@ Address: 192.168.0.5
 
 ---
 
-### <a name="create-the-storage-sync-private-endpoint"></a>Créer le point de terminaison privé de synchronisation de stockage
+### <a name="create-the-storage-sync-service-private-endpoint"></a>Créer le point de terminaison privé du service de synchronisation de stockage
 > [!Important]  
 > Pour pouvoir utiliser des points de terminaison privés sur la ressource de service de synchronisation de stockage, vous devez utiliser l’agent Azure File Sync version 10.1 ou ultérieure. Les versions d’agent antérieures à 10.1 ne prennent pas en charge les points de terminaison privés sur le service de synchronisation de stockage. Toutes les versions antérieures de l’agent prennent en charge les points de terminaison privés sur la ressource du compte de stockage.
 
@@ -597,19 +597,44 @@ Pour désactiver l’accès au point de terminaison public du service de synchro
 $storageSyncServiceResourceGroupName = "<storage-sync-service-resource-group>"
 $storageSyncServiceName = "<storage-sync-service>"
 
-$storageSyncService = Get-AzResource `
-        -ResourceGroupName $storageSyncServiceResourceGroupName `
-        -ResourceName $storageSyncServiceName `
-        -ResourceType "Microsoft.StorageSync/storageSyncServices"
-
-$storageSyncService.Properties.incomingTrafficPolicy = "AllowVirtualNetworksOnly"
-$storageSyncService = $storageSyncService | Set-AzResource -Confirm:$false -Force -UsePatchSemantics
+Set-AzStorageSyncService `
+    -ResourceGroupName $storageSyncServiceResourceGroupName `
+    -Name $storageSyncServiceName `
+    -IncomingTrafficPolicy AllowVirtualNetworksOnly
 ```
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 L’interface Azure CLI ne prend pas en charge la définition de la propriété `incomingTrafficPolicy` sur le service de synchronisation de stockage. Sélectionnez l’onglet Azure PowerShell pour obtenir des instructions sur la façon de désactiver le point de terminaison public du service de synchronisation du stockage.
 
 ---
+
+## <a name="azure-policy"></a>Azure Policy
+Azure Policy permet d’appliquer les normes de l’organisation et d’évaluer la conformité par rapport à ces normes à grande échelle. Azure Files et Azure File Sync exposent plusieurs stratégies réseau d’audit et de correction utiles qui vous aident à superviser et à automatiser votre déploiement.
+
+Les stratégies auditent votre environnement et vous alertent si vos comptes de stockage ou services de synchronisation de stockage divergent du comportement défini, par exemple si un point de terminaison public est activé alors que votre stratégie a été définie de façon à ce que les points de terminaison publics soient désactivés. Les stratégies de modification/déploiement vont au-delà et permettent de modifier de manière proactive une ressource (telle que le service de synchronisation de stockage) ou de déployer des ressources (telles que des points de terminaison privés) afin d’être en adéquation avec les stratégies.
+
+Les stratégies prédéfinies suivantes sont disponibles pour Azure Files et Azure File Sync :
+
+| Action | Service | Condition | Nom de stratégie |
+|-|-|-|-|
+| Audit | Azure Files | Le point de terminaison public du compte de stockage est activé. Pour plus d’informations, consultez [Désactiver l’accès au point de terminaison public du compte de stockage](#disable-access-to-the-storage-account-public-endpoint). | Les comptes de stockage doivent limiter l’accès réseau |
+| Audit | Azure File Sync | Le point de terminaison public du service de synchronisation de stockage est activé. Pour plus d’informations, consultez [Désactiver l’accès au point de terminaison public du service de synchronisation de stockage](#disable-access-to-the-storage-sync-service-public-endpoint). | L’accès au réseau public doit être désactivé pour Azure File Sync |
+| Audit | Azure Files | Le compte de stockage a besoin d’au moins un point de terminaison privé. Pour plus d’informations, consultez [Créer le point de terminaison privé du compte de stockage](#create-the-storage-account-private-endpoint). | Le compte de stockage doit utiliser une connexion de liaison privée |
+| Audit | Azure File Sync | Le service de synchronisation de stockage a besoin d’au moins un point de terminaison privé. Pour plus d’informations, consultez [Créer le point de terminaison privé du service de synchronisation de stockage](#create-the-storage-sync-service-private-endpoint). | Azure File Sync doit utiliser une liaison privée |
+| Modifier | Azure File Sync | Désactiver le point de terminaison public du service de synchronisation de stockage. | Modifier - Configurer Azure File Sync pour désactiver l’accès au réseau public |
+| Déployer | Azure File Sync | Déployer un point de terminaison privé pour le service de synchronisation de stockage. | Configurer Azure File Sync avec des points de terminaison privés |
+| Déployer | Azure File Sync | Déployer un enregistrement A dans la zone DNS privatelink.afs.azure.net. | Configurer Azure File Sync pour utiliser des zones DNS privées |
+
+### <a name="set-up-a-private-endpoint-deployment-policy"></a>Configurer une stratégie de déploiement de points de terminaison privé
+Pour configurer une stratégie de déploiement de points de terminaison privé, accédez au [portail Azure](https://portal.azure.com/) et recherchez **Stratégie**. Le centre Azure Policy doit être l’un des premiers résultats. Accédez à **Création** > **Définitions** dans la table des matières du centre de stratégie. Le volet **Définitions** qui s’affiche contient les stratégies prédéfinies pour tous les services Azure. Pour trouver la stratégie spécifique, sélectionnez la catégorie **Stockage** dans le filtre de catégorie, ou recherchez **Configurer Azure File Sync avec des points de terminaison privés**. Sélectionnez **...** et **Attribuer** pour créer une nouvelle stratégie à partir de la définition.
+
+Le panneau **Informations de base** de l’Assistant **Attribuer la stratégie** vous permet de définir une étendue, une liste d’exclusion de ressource ou de groupe de ressources, et de donner à votre stratégie un nom convivial pour vous aider à la distinguer. Vous n’avez pas besoin de modifier ces éléments pour que la stratégie fonctionne, mais vous pouvez le faire si vous souhaitez apporter des modifications. Sélectionnez **Suivant** pour accéder à la page **Paramètres**. 
+
+Dans le panneau **Paramètres**, sélectionnez **...** en regard de la liste déroulante **privateEndpointSubnetId** pour sélectionner le réseau virtuel et le sous-réseau où les points de terminaison privés pour vos ressources de service de synchronisation de stockage doivent être déployés. L’Assistant peut mettre plusieurs secondes à charger les réseaux virtuels disponibles dans votre abonnement. Sélectionnez le réseau/sous-réseau virtuel approprié pour votre environnement, puis cliquez sur **Sélectionner**. Sélectionnez **Suivant** pour accéder au panneau **Correction**.
+
+Pour que le point de terminaison privé soit déployé quand un service de synchronisation de stockage sans point de terminaison privé est identifié, vous devez sélectionner la **tâche Créer une correction** dans la page **Correction**. Pour finir, sélectionnez **Vérifier + créer** pour passer en revue l’attribution de stratégie et **Créer** pour la créer.
+
+L’attribution de stratégie résultante sera exécutée régulièrement, et risque de ne pas être exécutée immédiatement après sa création.
 
 ## <a name="see-also"></a>Voir aussi
 - [Planification d’un déploiement de synchronisation de fichiers Azure](storage-sync-files-planning.md)

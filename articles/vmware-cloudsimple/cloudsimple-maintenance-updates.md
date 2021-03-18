@@ -4,17 +4,17 @@ titleSuffix: Azure VMware Solution by CloudSimple
 description: Décrit le processus de service CloudSimple pour les mises à jour et maintenance planifiée.
 author: sharaths-cs
 ms.author: dikamath
-ms.date: 03/04/2021
+ms.date: 03/09/2021
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 814a901fba065e36ea3ba9e3a6fe1175365de6c5
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: 1cbd708f6c1f5159655099d5d72900ab0c608147
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102120706"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102522306"
 ---
 # <a name="cloudsimple-maintenance-and-updates"></a>Maintenance et mises à jour CloudSimple
 
@@ -102,7 +102,7 @@ Il existe plusieurs mises à jour de logiciels :
 
 CloudSimple teste les mises à jour de sécurité critiques dès qu’elles sont mises à disposition par VMware. 
 
-CloudSimple propose des mises à jour de maintenance trimestrielles des composants logiciels VMware. Lorsqu’une nouvelle version majeure d’un logiciel de VMware est disponible, CloudSimple se coordonne avec les clients pour trouver une fenêtre de maintenance adaptée à la mise à niveau.
+Les solutions de contournement VMware documentées sont implémentées à la place de l’installation d’un patch correspondant jusqu’à ce que les prochaines mises à jour planifiées soient déployées. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

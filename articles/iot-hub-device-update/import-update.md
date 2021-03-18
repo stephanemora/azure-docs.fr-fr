@@ -6,15 +6,15 @@ ms.author: andbrown
 ms.date: 2/11/2021
 ms.topic: how-to
 ms.service: iot-hub-device-update
-ms.openlocfilehash: c83221743e0566d783c38c40aaf92111a0cd80f7
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 6502728a14ea825fadfde107e61f235db5619ae0
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102030730"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102507277"
 ---
 # <a name="import-new-update"></a>Importer une nouvelle mise à jour
-Découvrez comment importer une nouvelle mise à jour dans Device Update pour IoT Hub.
+Découvrez comment importer une nouvelle mise à jour dans Device Update pour IoT Hub. Si vous ne l’avez pas déjà fait, veillez à vous familiariser avec les [concepts d’importation](import-concepts.md) de base.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -57,11 +57,11 @@ Découvrez comment importer une nouvelle mise à jour dans Device Update pour Io
 
     | Paramètre | Description |
     | --------- | ----------- |
-    | deviceManufacturer | Fabricant de l’appareil avec lequel la mise à jour est compatible, par exemple, Contoso
-    | deviceModel | Modèle de l’appareil avec lequel la mise à jour est compatible, par exemple, Toaster
-    | updateProvider | Partie fournisseur de l’identité de la mise à jour, par exemple, Fabrikam
-    | updateName | Partie nom de l’identité de la mise à jour, par exemple, ImageUpdate
-    | updateVersion | Version de la mise à jour, par exemple, 2.0
+    | deviceManufacturer | Fabricant de l’appareil avec lequel la mise à jour est compatible, par exemple Contoso. Doit correspondre à la [propriété de l’appareil](https://docs.microsoft.com/azure/iot-hub-device-update/device-update-plug-and-play#device-properties) _manufacturer_
+    | deviceModel | Modèle de l’appareil avec lequel la mise à jour est compatible, par exemple Toaster. Doit correspondre à la [propriété de l’appareil](https://docs.microsoft.com/azure/iot-hub-device-update/device-update-plug-and-play#device-properties) _model_
+    | updateProvider | Entité qui crée ou qui est directement responsable de la mise à jour. Souvent, il s’agit d’un nom d’entreprise.
+    | updateName | Identificateur d’une classe de mises à jour. La classe peut être une chose quelconque que vous choisissez. Elle correspond souvent à un nom d’appareil ou de modèle.
+    | updateVersion | Numéro de version qui distingue cette mise à jour d’autres mises à jour ayant le même fournisseur et le même nom. Peut correspondre ou non à une version d’un composant logiciel individuel sur l’appareil.
     | updateType | <ul><li>Spécifier `microsoft/swupdate:1` pour une mise à jour d’image</li><li>Spécifier `microsoft/apt:1` pour une mise à jour de package</li></ul>
     | installedCriteria | <ul><li>Spécifier la valeur de SWVersion pour le type de mise à jour `microsoft/swupdate:1`</li><li>Spécifier la valeur recommandée pour le type de mise à jour `microsoft/apt:1`
     | updateFilePath(s) | Chemin du ou des fichiers de mise à jour sur votre ordinateur

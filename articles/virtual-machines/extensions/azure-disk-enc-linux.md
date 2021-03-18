@@ -1,25 +1,19 @@
 ---
 title: Azure Disk Encryption pour Linux
 description: Déploiement d’Azure Disk Encryption pour Linux sur une machine virtuelle à l’aide d’une extension de machine virtuelle.
-services: virtual-machines-linux
-documentationcenter: ''
-author: ejarvi
-manager: gwallace
-editor: ''
-ms.assetid: ''
-ms.service: virtual-machines-linux
-ms.subservice: extensions
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
-ms.date: 03/19/2020
+ms.service: virtual-machines
+ms.subservice: disks
+author: ejarvi
 ms.author: ejarvi
-ms.openlocfilehash: 61f8fd3d671bbd66d2dc5656e9a467b06798d280
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.date: 03/19/2020
+ms.collection: linux
+ms.openlocfilehash: 7c79391e3459804a4b5ce72c2230d17af3269641
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968415"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102566258"
 ---
 # <a name="azure-disk-encryption-for-linux-microsoftazuresecurityazurediskencryptionforlinux"></a>Azure Disk Encryption pour Linux (Microsoft.Azure.Security.AzureDiskEncryptionForLinux)
 
@@ -44,7 +38,7 @@ Il existe deux versions du schéma d’extension pour Azure Disk Encryption (ADE
 
 Pour pouvoir sélectionner un schéma cible, vous devez définir la propriété `typeHandlerVersion` sur la version du schéma que vous souhaitez utiliser.
 
-### <a name="schema-v11-no-aad-recommended"></a>Schéma v1.1 : sans AAD (recommandé)
+### <a name="schema-v11-no-aad-recommended"></a>Schéma v1.1 : sans AAD (recommandé)
 
 Le schéma v1.1 est recommandé et n’exige pas de propriétés Azure Active Directory (AAD).
 

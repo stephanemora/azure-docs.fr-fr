@@ -4,16 +4,16 @@ description: Azure Functions prend en charge plusieurs versions du runtime. Déc
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 12/09/2019
-ms.openlocfilehash: 935291c461e275902cb6905c4440fe4d289f0c16
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: b37cf33a96452f9f3e86f853d3d87fd3b4b3879c
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97653348"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102431843"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Vue d’ensemble des versions du runtime Azure Functions
 
-Azure Functions prend actuellement en charge trois versions de l’hôte du runtime : 1.x, 2.x et 3.x. Les trois versions sont prises en charge pour les scénarios de production.  
+Azure Functions prend en charge trois versions de l’hôte du runtime : 3.x, 2.x et 1.x. Les trois versions sont prises en charge pour les scénarios de production.  
 
 > [!IMPORTANT]
 > La version 1.x est en mode maintenance et ne prend en charge que le développement dans le Portail Azure, dans le portail Azure Stack Hub ou localement sur des ordinateurs Windows. Les améliorations sont fournies uniquement dans les versions ultérieures. 
@@ -30,7 +30,69 @@ Le tableau suivant montre les langages de programmation actuellement pris en cha
 
 ## <a name="run-on-a-specific-version"></a><a name="creating-1x-apps"></a>Exécuter sur une version spécifique
 
-Par défaut, les applications de fonction créées dans le portail Azure et par l’interface Azure CLI sont configurées pour la version 3.x. Vous pouvez modifier cette version en fonction de vos besoins. Vous pouvez changer la version du runtime en 1.x seulement après avoir créé votre application de fonction, mais avant d’ajouter des fonctions.  Le passage entre 2.x et 3.x est autorisé même avec les applications qui ont des fonctions, mais il est néanmoins recommandé de tester d’abord dans une nouvelle application.
+Par défaut, les applications de fonction créées dans le portail Azure et par l’interface Azure CLI sont configurées pour la version 3.x. Vous pouvez modifier cette version en fonction de vos besoins. Vous pouvez repasser à la version 1.x du runtime seulement après avoir créé votre application de fonction et avant d’ajouter des fonctions.  Le passage de la version 2.x à la version 3.x est autorisé, même avec les applications qui contiennent déjà des fonctions. Avant de faire passer une application qui comprend des fonctions de la version 2.x à la version 3.x, tenez compte des [changements cassants qui ont été effectués entre les versions 2.x et 3.x](#breaking-changes-between-2x-and-3x). 
+
+Avant d’apporter une modification à la version principale du runtime, vous devez d’abord tester votre code en le déployant sur une autre application de fonction qui s’exécute sur la dernière version principale. Ce test permet de vérifier que le code s’exécute correctement après la mise à niveau. 
+
+Le passage de la version v3.x à la version v2.x n’est pas pris en charge. Lorsque cela est possible, vous devez toujours exécuter vos applications sur la dernière version prise en charge du runtime Functions. 
+
+### <a name="changing-version-of-apps-in-azure"></a>Changement de la version des applications dans Azure
+
+La version du runtime Functions utilisée par les applications publiées dans Azure dépend du paramètre d’application [`FUNCTIONS_EXTENSION_VERSION`](functions-app-settings.md#functions_extension_version). Les valeurs des versions majeures du runtime suivantes sont prises en charge :
+
+| Valeur | Cible du runtime |
+| ------ | -------- |
+| `~3` | 3.x |
+| `~2` | 2.x |
+| `~1` | 1.x |
+
+>[!IMPORTANT]
+> Ne modifiez pas arbitrairement ce paramètre, car d’autres modifications des paramètres de l’application et d’autres modifications du code dans vos fonctions peuvent être nécessaires.
+
+Pour en savoir plus, voir [Comment cibler des versions du runtime Azure Functions](set-runtime-version.md).  
+
+### <a name="pinning-to-a-specific-minor-version"></a>Épinglage sur une version mineure spécifique
+
+Pour résoudre les problèmes liés à l’exécution de votre application de fonction sur la version principale la plus récente, vous devez épingler votre application à une version mineure spécifique. Cela vous donne le temps de faire le nécessaire pour que votre application s’exécute correctement sur la dernière version majeure. La façon dont vous épinglez l’application à une version mineure n’est pas la même dans Windows et dans Linux. Pour en savoir plus, voir [Comment cibler des versions du runtime Azure Functions](set-runtime-version.md).
+
+Les versions mineures les plus anciennes sont régulièrement supprimées de Functions. Pour obtenir les dernières informations sur les versions Azure Functions, notamment sur la suppression des versions mineures les plus anciennes, surveillez les [annonces Azure App Service](https://github.com/Azure/app-service-announcements/issues). 
+
+### <a name="pinning-to-version-20"></a>Épinglage sur la version ~2.0
+
+Les applications de fonction .NET qui sont exécutées sur la version 2.x (`~2`) sont automatiquement mises à niveau pour s’exécuter sur .NET Core 3.1, qui est une version de .NET Core 3 avec prise en charge à long terme. En exécutant vos fonctions .NET sur .NET Core 3.1, vous pouvez tirer parti des dernières mises à jour de sécurité et améliorations produit. 
+
+Les applications de fonction épinglées à `~2.0` continuent de s’exécuter sur .NET Core 2.2, qui ne reçoit plus de mises à jour de sécurité ni aucune autre mise à jour. Pour plus d’informations, consultez [Considérations relatives à Functions v2.x](functions-dotnet-class-library.md#functions-v2x-considerations).   
+
+## <a name="migrating-from-2x-to-3x"></a>Migration de 2.x vers 3.x
+
+Azure Functions version 3.x offre une compatibilité descendante forte avec la version 2.x.  De nombreuses applications doivent normalement être mise à niveau sans problème vers 3.x, sans aucune modification du code.  Si le passage à 3. x est encouragé, veillez néanmoins à effectuer des tests intensifs avant de changer la version majeure dans les applications de production.
+
+### <a name="breaking-changes-between-2x-and-3x"></a>Changements cassants entre 2.x et 3.x
+
+Voici les changements à prendre en considération avant de mettre à niveau une application 2.x vers 3.x.
+
+#### <a name="javascript"></a>JavaScript
+
+* Les liaisons de sortie affectées via `context.done` ou des valeurs de retour se comportent désormais de la même façon qu’une définition dans `context.bindings`.
+
+* L’objet de déclencheur de minuteur est en casse mixte au lieu de la casse Pascal
+
+* Les fonctions déclenchées par Event Hub avec un `dataType` binaire reçoivent un tableau de `binary` au lieu d’un tableau de `string`.
+
+* La charge utile des requêtes HTTP n’est plus accessible via `context.bindingData.req`.  Elle néanmoins toujours accessible en tant que paramètre d’entrée, `context.req`, et dans `context.bindings`.
+
+* Node.js 8 n’est plus pris en charge et ne s’exécute pas dans les fonctions 3.x.
+
+#### <a name="net-core"></a>.NET Core
+
+Lorsque vous exécutez des fonctions de la bibliothèque de classes .NET, la principale différence entre les versions se trouve au niveau du runtime .NET Core. Functions version 2.x est conçu pour s’exécuter sur .NET Core 2.2, et la version 3.x est conçue pour s’exécuter sur .NET Core 3.1.  
+
+* [Les opérations de serveur synchrones sont désactivées par défaut](/dotnet/core/compatibility/2.2-3.0#http-synchronous-io-disabled-in-all-servers).
+
+* Changements cassants de .NET Core dans la [version 3.1](/dotnet/core/compatibility/3.1) et la [version 3.0](/dotnet/core/compatibility/3.0), qui ne sont pas relatifs à Functions, mais qui peuvent quand même affecter votre application.
+
+>[!NOTE]
+>En raison des problèmes de prise en charge de .NET Core 2.2, les applications de fonction épinglées à la version 2 (`~2`) s’exécutent essentiellement sur .NET Core 3.1. Pour plus d’informations, consultez [Mode de compatibilité Functions v2.x](functions-dotnet-class-library.md#functions-v2x-considerations).
 
 ## <a name="migrating-from-1x-to-later-versions"></a>Migration de la version 1.x vers les versions ultérieures
 
@@ -68,43 +130,6 @@ Les modifications suivantes ont été apportées à la version 2.x :
 
 * Le format d’URL des webhooks de déclencheur Event Grid a été remplacé par `https://{app}/runtime/webhooks/{triggerName}`.
 
-## <a name="migrating-from-2x-to-3x"></a>Migration de 2.x vers 3.x
-
-Azure Functions version 3.x offre une compatibilité descendante forte avec la version 2.x.  De nombreuses applications doivent normalement être mise à niveau sans problème vers 3.x, sans aucune modification du code.  Si le passage à 3. x est encouragé, veillez néanmoins à effectuer des tests intensifs avant de changer la version majeure dans les applications de production.
-
-### <a name="breaking-changes-between-2x-and-3x"></a>Changements cassants entre 2.x et 3.x
-
-Voici les changements à prendre en considération avant de mettre à niveau une application 2.x vers 3.x.
-
-#### <a name="javascript"></a>JavaScript
-
-* Les liaisons de sortie affectées via `context.done` ou des valeurs de retour se comportent désormais de la même façon qu’une définition dans `context.bindings`.
-
-* L’objet de déclencheur de minuteur est en casse mixte au lieu de la casse Pascal
-
-* Les fonctions déclenchées par Event Hub avec un `dataType` binaire reçoivent un tableau de `binary` au lieu d’un tableau de `string`.
-
-* La charge utile des requêtes HTTP n’est plus accessible via `context.bindingData.req`.  Elle néanmoins toujours accessible en tant que paramètre d’entrée, `context.req`, et dans `context.bindings`.
-
-* Node.js 8 n’est plus pris en charge et ne s’exécute pas dans les fonctions 3.x.
-
-#### <a name="net"></a>.NET
-
-* [Les opérations de serveur synchrones sont désactivées par défaut](/dotnet/core/compatibility/2.2-3.0#http-synchronous-io-disabled-in-all-servers).
-
-### <a name="changing-version-of-apps-in-azure"></a>Changement de la version des applications dans Azure
-
-La version du runtime Functions utilisée par les applications publiées dans Azure dépend du paramètre d’application [`FUNCTIONS_EXTENSION_VERSION`](functions-app-settings.md#functions_extension_version). Les valeurs des versions majeures du runtime suivantes sont prises en charge :
-
-| Valeur | Cible du runtime |
-| ------ | -------- |
-| `~3` | 3.x |
-| `~2` | 2.x |
-| `~1` | 1.x |
-
->[!IMPORTANT]
-> Ne modifiez pas arbitrairement ce paramètre, car d’autres modifications des paramètres de l’application et d’autres modifications du code dans vos fonctions peuvent être nécessaires.
-
 ### <a name="locally-developed-application-versions"></a>Versions d’une application développée en local
 
 Vous pouvez effectuer les mises à jour suivantes sur les applications de fonction afin de changer localement les versions ciblées.
@@ -112,20 +137,6 @@ Vous pouvez effectuer les mises à jour suivantes sur les applications de foncti
 #### <a name="visual-studio-runtime-versions"></a>Versions du runtime Visual Studio
 
 Dans Visual Studio, vous sélectionnez la version du runtime au moment de créer un projet. Azure Functions Tools pour Visual Studio prend en charge les trois versions majeures du runtime. La version appropriée est utilisée au moment du débogage et de la publication, en fonction des paramètres de projet. Les paramètres de version sont définis dans le fichier `.csproj`, dans les propriétés suivantes :
-
-##### <a name="version-1x"></a>Version 1.x
-
-```xml
-<TargetFramework>net472</TargetFramework>
-<AzureFunctionsVersion>v1</AzureFunctionsVersion>
-```
-
-##### <a name="version-2x"></a>Version 2.x
-
-```xml
-<TargetFramework>netcoreapp2.1</TargetFramework>
-<AzureFunctionsVersion>v2</AzureFunctionsVersion>
-```
 
 ##### <a name="version-3x"></a>Version 3.x
 
@@ -137,16 +148,30 @@ Dans Visual Studio, vous sélectionnez la version du runtime au moment de créer
 > [!NOTE]
 > Azure Functions 3.x et .NET nécessitent que l’extension `Microsoft.NET.Sdk.Functions` soit au moins `3.0.0`.
 
+##### <a name="version-2x"></a>Version 2.x
+
+```xml
+<TargetFramework>netcoreapp2.1</TargetFramework>
+<AzureFunctionsVersion>v2</AzureFunctionsVersion>
+```
+
+##### <a name="version-1x"></a>Version 1.x
+
+```xml
+<TargetFramework>net472</TargetFramework>
+<AzureFunctionsVersion>v1</AzureFunctionsVersion>
+```
+
 ###### <a name="updating-2x-apps-to-3x-in-visual-studio"></a>Mise à jour des applications 2.x vers 3.x dans Visual Studio
 
-Vous pouvez ouvrir une fonction existante ciblant 2.x et passer à 3.x en modifiant le fichier `.csproj` et en mettant à jour les valeurs ci-dessus.  Visual Studio gère automatiquement pour vous les versions du runtime en fonction des métadonnées du projet.  C’est néanmoins possible si vous n’ayez jamais créé d’application 3.x avant que Visual Studio ne dispose des modèles et du runtime pour 3.x sur votre machine.  Ceci peut se présenter soi-même avec une erreur comme « Aucun runtime Functions disponible ne correspond à la version spécifiée dans le projet ».  Pour récupérer les modèles et le runtime les plus récents, effectuez l’expérience de création d’un projet de fonction.  Quand vous accédez à l’écran de sélection de la version et du modèle, attendez que Visual Studio termine la récupération des modèles les plus récents.  Une fois les derniers modèles .NET Core 3 disponibles et affichés, vous devez être en mesure d’exécuter et de déboguer les projets configurés pour la version 3.x.
+Vous pouvez ouvrir une fonction existante ciblant 2.x et passer à 3.x en modifiant le fichier `.csproj` et en mettant à jour les valeurs ci-dessus.  Visual Studio gère automatiquement pour vous les versions du runtime en fonction des métadonnées du projet.  C’est néanmoins possible si vous n’ayez jamais créé d’application 3.x avant que Visual Studio ne dispose des modèles et du runtime pour 3.x sur votre machine.  Ceci peut se présenter soi-même avec une erreur comme « Aucun runtime Functions disponible ne correspond à la version spécifiée dans le projet ».  Pour récupérer les modèles et le runtime les plus récents, effectuez l’expérience de création d’un projet de fonction.  Quand vous accédez à l’écran de sélection de la version et du modèle, attendez que Visual Studio termine la récupération des modèles les plus récents. Une fois les derniers modèles .NET Core 3 disponibles et affichés, vous pouvez exécuter et déboguer les projets configurés pour la version 3.x.
 
 > [!IMPORTANT]
 > Les fonctions en version 3.x peuvent être développées dans Visual Studio seulement si vous utilisez Visual Studio version 16.4 ou ultérieure.
 
 #### <a name="vs-code-and-azure-functions-core-tools"></a>VS Code et Azure Functions Core Tools
 
-[Azure Functions Core Tools](functions-run-local.md) est utilisé pour développer la ligne de commande et également par [l’extension Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) pour Visual Studio Code. Pour développer pour la version 3.x, installez la version 3.x de Core Tools. Le développement en version 2.x nécessite la version 2.x de Core Tools, etc. Pour plus d’informations, voir [Installer Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools).
+[Azure Functions Core Tools](functions-run-local.md) est utilisé pour développer la ligne de commande, ainsi que par l’[extension Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) pour Visual Studio Code. Pour développer pour la version 3.x, installez la version 3.x de Core Tools. Le développement en version 2.x nécessite la version 2.x de Core Tools, etc. Pour plus d’informations, voir [Installer Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools).
 
 Pour un développement avec Visual Studio Code, vous devrez peut-être également mettre à jour le paramètre utilisateur pour `azureFunctions.projectRuntime` afin qu’il corresponde à la version des outils installés.  Ce paramètre met également à jour les modèles et les langages utilisés lors de la création de l’application de fonction.  Pour créer des applications dans `~3`, vous devez mettre à jour le paramètre utilisateur `azureFunctions.projectRuntime` sur `~3`.
 

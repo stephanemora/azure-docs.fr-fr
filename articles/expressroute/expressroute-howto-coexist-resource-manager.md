@@ -5,15 +5,15 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 12/11/2019
+ms.date: 03/06/2021
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: edbd36ad3444795ade4b3f8d29d8473b21a2fda8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 15ec8417ba5e2858b45176f0a214f6126209f942
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91651511"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102449745"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-using-powershell"></a>Configurer ExpressRoute des connexions coexistantes de site à site en utilisant PowerShell
 > [!div class="op_single_selector"]
@@ -36,16 +36,18 @@ Les étapes de configuration de ces deux scénarios sont décrites dans cet arti
 >
 
 ## <a name="limits-and-limitations"></a>Limites et limitations
-* **Le routage de transit n’est pas pris en charge.** Vous ne pouvez effectuer de routage (via Azure) entre votre réseau local connecté via le réseau VPN de site à site et votre réseau local connecté via ExpressRoute.
-* **La passerelle de référence de base n’est pas prise en charge.** Vous devez utiliser une passerelle de référence SKU autre que De base pour la [passerelle ExpressRoute](expressroute-about-virtual-network-gateways.md) et la [passerelle VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 * **Seule la passerelle VPN basée sur un itinéraire est prise en charge.** Vous devez utiliser une [passerelle VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) basée sur un itinéraire. Vous pouvez également utiliser une passerelle VPN basée sur un itinéraire avec une connexion VPN configurée pour les « sélecteurs de trafic basés sur des stratégies », comme décrit dans [se connecter à plusieurs périphériques VPN basés sur des stratégies](../vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md).
-* L’**itinéraire statique doit être configuré pour votre passerelle VPN.** Si votre réseau local est connecté à la fois à ExpressRoute et à un VPN de site à site, vous devez avoir configuré un itinéraire statique sur votre réseau local pour acheminer la connexion VPN de site à site vers l’Internet public.
-* **La passerelle VPN est ASN 65515 par défaut si elle n’est pas spécifié.** La passerelle VPN Azure prend en charge le protocole de routage BGP. Vous pouvez spécifier le numéro ASN pour un réseau virtuel en ajoutant le commutateur -Asn. Si vous ne spécifiez pas ce paramètre, le numéro ASN par défaut est 65515. Vous pouvez utiliser n’importe quel numéro ASN pour la configuration, mais si vous sélectionnez autre chose que 65515, vous devez réinitialiser la passerelle pour que le paramètre prenne effet.
+* **L’ASN de la passerelle VPN Azure doit être défini sur 65515.** La passerelle VPN Azure prend en charge le protocole de routage BGP. Pour qu’ExpressRoute et Azure VPN fonctionnent ensemble, vous devez conserver la valeur par défaut (65515) du numéro ASN de votre passerelle Azure VPN. Si vous avez précédemment sélectionné un ASN autre que 65515 et que vous changez le paramètre en lui affectant la valeur 65515, vous devez réinitialiser la passerelle VPN pour que le paramètre prenne effet.
 * **Le sous-réseau de la passerelle doit correspondre à /27 ou à un préfixe plus court**, (tel que /26,/25), à défaut de quoi un message d’erreur s’affiche lorsque vous ajoutez la passerelle de réseau virtuel ExpressRoute.
+* **La coexistence dans un réseau virtuel à double pile n’est pas prise en charge.** Si vous utilisez la prise en charge IPv6 ExpressRoute et une passerelle ExpressRoute à double pile, la coexistence avec la passerelle VPN n’est pas possible.
 
 ## <a name="configuration-designs"></a>Modèles de configuration
 ### <a name="configure-a-site-to-site-vpn-as-a-failover-path-for-expressroute"></a>Configurer un réseau VPN de site à site comme un chemin d’accès de basculement pour ExpressRoute
 Vous pouvez configurer une connexion VPN de site à site en tant que sauvegarde pour ExpressRoute. Cette connexion s’applique uniquement aux réseaux virtuels liés au chemin de peering privé Azure. Il n’existe aucune solution de basculement basée sur des réseaux VPN pour les services accessibles via le peering Azure Microsoft. Le circuit ExpressRoute est toujours le lien principal. Si le circuit ExpressRoute échoue, les données circulent via le chemin du réseau VPN de site à site uniquement. Pour éviter un routage asymétrique, la configuration de votre réseau local doit également privilégier le circuit ExpressRoute via la connexion VPN de site à site. Vous pouvez préférer le chemin d’accès ExpressRoute en définissant une préférence locale plus élevée pour les itinéraires recevant ExpressRoute. 
+
+>[!NOTE]
+> Si le peering Microsoft ExpressRoute est activé, vous pouvez recevoir l’adresse IP publique de votre passerelle Azure VPN sur la connexion ExpressRoute. Pour configurer votre connexion VPN site à site en tant que secours, vous devez configurer votre réseau local afin que la connexion VPN soit routée vers Internet.
+>
 
 > [!NOTE]
 > Bien que le circuit ExpressRoute soit préférable au réseau VPN de site à site lorsque les deux itinéraires sont identiques, Azure utilise la correspondance de préfixe la plus longue pour choisir l’itinéraire vers la destination du paquet.
@@ -260,8 +262,11 @@ Vous pouvez suivre les étapes ci-dessous pour ajouter une configuration point �
    $p2sCertData = [System.Convert]::ToBase64String($p2sCertToUpload.RawData) 
    Add-AzVpnClientRootCertificate -VpnClientRootCertificateName $p2sCertFullName -VirtualNetworkGatewayname $azureVpn.Name -ResourceGroupName $resgrp.ResourceGroupName -PublicCertData $p2sCertData
    ```
-
 Pour plus d’informations sur le réseau VPN point à site, consultez la rubrique [Configuration d’une connexion point à site](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md).
+
+## <a name="to-enable-transit-routing-between-expressroute-and-azure-vpn"></a>Pour activer le routage de transit entre ExpressRoute et Azure VPN
+Si vous souhaitez activer la connectivité entre l’un de vos réseaux locaux connectés à ExpressRoute et un autre de vos réseaux locaux connecté à une connexion VPN site à site, vous devez configurer le [serveur de routage Azure](../route-server/expressroute-vpn-support.md).
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d'informations sur ExpressRoute, consultez la [FAQ sur ExpressRoute](expressroute-faqs.md).

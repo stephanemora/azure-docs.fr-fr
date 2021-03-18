@@ -3,21 +3,22 @@ title: Créer un modèle de générateur d’images Azure (préversion)
 description: Découvrez comment créer un modèle à utiliser avec le générateur d’images Azure.
 author: danielsollondon
 ms.author: danis
-ms.date: 08/13/2020
+ms.date: 03/02/2021
 ms.topic: reference
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: image-builder
+ms.collection: linux
 ms.reviewer: cynthn
-ms.openlocfilehash: 9ae477dd04237e285915157615dcb6a6b841ca99
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: a3138da0ecbcabaeb7ef910975afc3b7005e5b50
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98678253"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102519705"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Aperçu : Créer un modèle de générateur d’images Azure 
 
-Le générateur d’images Azure utilise un fichier .json pour transmettre des informations au service du générateur d’images. Dans cet article, nous allons vous présenter les sections du fichier json pour que vous puissiez créer le vôtre. Pour voir des exemples de fichiers .json complets, consultez [GitHub sur le générateur d’images Azure](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts).
+Le générateur d’images Azure utilise un fichier .json pour transmettre des informations au service du générateur d’images. Dans cet article, nous allons vous présenter les sections du fichier json pour que vous puissiez créer le vôtre. Pour voir des exemples de fichiers .json complets, consultez [GitHub sur le générateur d’images Azure](https://github.com/Azure/azvmimagebuilder/tree/main/quickquickstarts).
 
 Voici le format de modèle de base :
 
@@ -248,7 +249,7 @@ Lorsque vous utilisez `customize` :
 - En cas d’échec d’un personnalisateur, l’ensemble du composant de personnalisation échoue et renvoie une erreur.
 - Il est vivement recommandé de tester rigoureusement le script avant de l’utiliser dans un modèle. Le débogage du script sur votre propre machine virtuelle en sera simplifié.
 - Ne placez pas de données sensibles dans les scripts. 
-- Les emplacements de script doivent être accessibles publiquement, sauf si vous utilisez [MSI](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage).
+- Les emplacements de script doivent être accessibles publiquement, sauf si vous utilisez [MSI](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-user-assigned-identity).
 
 ```json
         "customize": [
@@ -308,11 +309,28 @@ Propriétés de personnalisation :
 - **sha256Checksum** - Valeur de la somme de contrôle sha256 du fichier. Vous la générez localement, puis Image Builder vérifie la somme de contrôle et valide.
     * Pour générer la somme de contrôle sha256, à l’aide d’un terminal sur Mac/Linux, exécutez la commande : `sha256sum <fileName>`
 
-
-Pour que les commandes s’exécutent avec des privilèges de super utilisateur, elles doivent être précédées du préfixe `sudo`.
-
 > [!NOTE]
 > Les commandes inline sont stockées au sein de la définition du modèle d’image. Vous pouvez les voir lorsque vous videz la définition de l’image, et elles sont également accessibles au Support Microsoft dans le cadre de la résolution d’un cas de support. Il est fortement recommandé de déplacer les commandes et les valeurs sensibles dans des scripts et d’utiliser une identité d’utilisateur pour l’authentification auprès du Stockage Azure.
+
+#### <a name="super-user-privileges"></a>Privilèges de super utilisateur
+Pour que les commandes s’exécutent avec des privilèges de super utilisateur, elles doivent être précédées de `sudo`. Vous pouvez les ajouter dans des scripts ou utiliser des commandes inline, par exemple :
+```json
+                "type": "Shell",
+                "name": "setupBuildPath",
+                "inline": [
+                    "sudo mkdir /buildArtifacts",
+                    "sudo cp /tmp/index.html /buildArtifacts/index.html"
+```
+Exemple de script utilisant sudo que vous pouvez référencer à l’aide de scriptUri :
+```bash
+#!/bin/bash -e
+
+echo "Telemetry: creating files"
+mkdir /myfiles
+
+echo "Telemetry: running sudo 'as-is' in a script"
+sudo touch /myfiles/somethingElevated.txt
+```
 
 ### <a name="windows-restart-customizer"></a>Personnalisateur de redémarrage Windows 
 Le personnalisateur de redémarrage vous permet de redémarrer une machine virtuelle Windows et d’attendre qu’elle revienne en ligne, vous permettant ainsi d’installer un logiciel qui nécessite un redémarrage.  
@@ -373,7 +391,7 @@ Propriétés de personnalisation :
 - **validExitCodes** - Facultatif. Des codes valides peuvent être retournés par le script/la commande en ligne, permettant ainsi d’éviter le signalement d’un échec du script/de la commande en ligne.
 - **runElevated** - Facultatif, booléen avec prise en charge de l’exécution de commandes et de scripts avec des autorisations élevées.
 - **sha256Checksum** - Valeur de la somme de contrôle sha256 du fichier. Vous la générez localement, puis Image Builder vérifie la somme de contrôle et valide.
-    * Pour générer la somme de contrôle sha256, utiliser une commande PowerShell [Get-Hash](/powershell/module/microsoft.powershell.utility/get-filehash?view=powershell-6) sur Windows
+    * Pour générer la somme de contrôle sha256, utiliser une commande PowerShell [Get-Hash](/powershell/module/microsoft.powershell.utility/get-filehash) sur Windows
 
 
 ### <a name="file-customizer"></a>Personnalisateur de fichier
@@ -397,6 +415,10 @@ Système d’exploitation pris en charge : Linux et Windows
 Propriétés du personnalisateur de fichier :
 
 - **sourceUri** - Point de terminaison de stockage accessible, il peut s’agir de GitHub ou de Stockage Azure. Vous pouvez uniquement télécharger un fichier, pas un répertoire complet. Si vous devez télécharger un répertoire, utilisez un fichier compressé, puis décompressez-le à l’aide du personnalisateur de l’interpréteur de commandes ou PowerShell. 
+
+> [!NOTE]
+> Si la valeur sourceUri est un compte de Stockage Azure, que l’objet blob est marqué, ou non, comme public, vous devez accorder les autorisations d’identité managée de l’utilisateur pour un accès en lecture sur l’objet blob. Pour définir les autorisations de stockage, consultez cet [exemple](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-user-assigned-identity#create-a-resource-group).
+
 - **destination** - Nom de destination complet et nom du fichier. Le chemin d’accès et les sous-répertoires référencés doivent exister, utilisez les personnalisateurs de l’interpréteur de commandes ou PowerShell pour les définir au préalable. Vous pouvez utiliser les personnalisateurs de script pour créer le chemin d’accès. 
 
 Cela est pris en charge par les répertoires Windows et les chemins d’accès Linux, mais à quelques différences près : 
@@ -408,8 +430,6 @@ Si une erreur se produit lors de la tentative de téléchargement du fichier, ou
 
 > [!NOTE]
 > le Personnalisateur de fichier est uniquement adapté au téléchargement de fichiers de petite taille (moins de 20 Mo); Pour le téléchargement de fichiers plus volumineux, utilisez un script ou une commande incluse, le code d’utilisation pour télécharger des fichiers, tel que `wget` ou `curl` pour Linux et `Invoke-WebRequest` pour Windows.
-
-Les fichiers dans le personnalisateur de fichier peuvent être téléchargés depuis le Stockage Azure à l’aide de [MSI](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage).
 
 ### <a name="windows-update-customizer"></a>Personnalisateur de Windows Update
 Ce personnalisateur est basé sur [le provisionneur Windows Update de la communauté](https://packer.io/docs/provisioners/community-supported.html) pour Packer, un projet open source géré par la communauté Packer. Microsoft teste et valide le provisionneur à l’aide du service Image Builder et prend en charge l’examen des problèmes rencontrés, et travaille à la résolution des problèmes, mais le projet open source n’est pas officiellement pris en charge par Microsoft. Pour obtenir une documentation détaillée et une aide sur le provisionneur de Windows Update, consultez le référentiel du projet.
@@ -436,7 +456,7 @@ Propriétés de personnalisation :
 - **updateLimit** : facultatif, définit le nombre de mises à jour pouvant être installées, par défaut 1 000.
  
 > [!NOTE]
-> Le personnalisateur de Windows Update peut échouer si des redémarrages de Windows sont en suspens ou si des installations d’applications sont en cours. En général, vous pouvez voir cette erreur dans le fichier customization.log, `System.Runtime.InteropServices.COMException (0x80240016): Exception from HRESULT: 0x80240016`. Nous vous recommandons vivement d’envisager l’ajout au redémarrage de Windows et/ou de laisser aux applications suffisamment de temps pour accomplir leurs installations à l’aide de la commande [sleep] ou de commandes d’attente (https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/start-sleep?view=powershell-7) ) dans les commandes ou scripts Inline avant d’exécuter Windows Update.
+> Le personnalisateur de Windows Update peut échouer si des redémarrages de Windows sont en suspens ou si des installations d’applications sont en cours. En général, vous pouvez voir cette erreur dans le fichier customization.log, `System.Runtime.InteropServices.COMException (0x80240016): Exception from HRESULT: 0x80240016`. Nous vous recommandons vivement d’ajouter un redémarrage de Windows et/ou de laisser aux applications suffisamment de temps pour effectuer leurs installations à l’aide des commandes [sleep](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/start-sleep) ou wait dans les scripts ou commandes inline avant d’exécuter Windows Update.
 
 ### <a name="generalize"></a>Généraliser 
 Le générateur d’images Azure exécute également du code de « déprovisionnement » à la fin de chaque phase de personnalisation d’image, pour « généraliser » l’image. La généralisation est un processus dans lequel l’image est configurée pour pouvoir être réutilisée afin de créer plusieurs machines virtuelles. Pour les machines virtuelles Windows, le générateur d’images Azure utilise Sysprep. Pour Linux, le générateur d’images Azure exécute « waagent-deprovision ». 
@@ -677,4 +697,4 @@ az resource invoke-action \
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Il existe des exemples de fichiers .json pour différents scénarios dans le [GitHub de générateur d’images Azure](https://github.com/danielsollondon/azvmimagebuilder).
+Il existe des exemples de fichiers .json pour différents scénarios dans le [GitHub de générateur d’images Azure](https://github.com/azure/azvmimagebuilder).

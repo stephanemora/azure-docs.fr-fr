@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 05/22/2020
 ms.author: shants
-ms.openlocfilehash: 3cf126caaaa0c518574418aca194ebd82cc4d6b9
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 51df72e31acaadc83f4c094b99fa938377e5f023
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91972065"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102500000"
 ---
 # <a name="maintenance-for-virtual-machines-in-azure"></a>Maintenance des machines virtuelles dans Azure
 
@@ -23,7 +23,7 @@ Les mises à jour affectent rarement les machines virtuelles hébergées. Lorsqu
 - Si une mise à jour sans redémarrage est possible, la machine virtuelle est en pause pendant la mise à jour de l’hôte ou fait l’objet d’une migration dynamique vers un hôte déjà mis à jour. 
 - Si la maintenance nécessite un redémarrage, vous êtes averti de la maintenance planifiée. Azure vous permet également de disposer d’un intervalle de temps durant lequel vous pouvez démarrer la maintenance vous-même, au moment qui vous convient. La période de maintenance manuelle est généralement de 35 jours, sauf si la maintenance est urgente. Azure investit dans des technologies qui permettent de réduire le nombre de cas où une maintenance de la plateforme exige que les machines virtuelles soient redémarrées. Pour plus d’informations sur la procédure de gestion de la maintenance planifiée, consultez Gestion des notifications de maintenance planifiée à l’aide d’Azure [CLI](maintenance-notifications-cli.md), de [PowerShell](maintenance-notifications-powershell.md) ou du [portail](maintenance-notifications-portal.md).
 
-Cette page décrit la façon dont Azure effectue les deux types de maintenance. Pour plus d’informations sur les événements non planifiés (interruptions), consultez  [Gérer la disponibilité des machines virtuelles pour Windows](./manage-availability.md) ou l’article correspondant pour [Linux](./manage-availability.md).
+Cette page décrit la façon dont Azure effectue les deux types de maintenance. Pour plus d’informations sur les événements non planifiés (interruptions), consultez [Gérer la disponibilité des machines virtuelles pour Windows](./availability.md) ou l’article correspondant pour [Linux](./availability.md).
 
 Dans une machine virtuelle, vous pouvez recevoir une notification concernant une maintenance à venir [à l’aide de Scheduled Events pour Windows](./windows/scheduled-events.md) ou pour [Linux](./linux/scheduled-events.md).
 
@@ -87,7 +87,7 @@ Au sein d’un groupe à haute disponibilité, les machines virtuelles individue
 
 Les *groupes de machines virtuelles identiques* sont des ressources de calcul Azure que vous pouvez utiliser pour déployer et gérer un ensemble de machines virtuelles identiques en tant que ressource unique. Le groupe identique est automatiquement déployé dans les domaines de mise à jour, comme les machines virtuelles dans un groupe à haute disponibilité. Comme pour les groupes à haute disponibilité, un seul UD est mis à jour à un moment donné dans les groupes identiques durant la maintenance planifiée.
 
-Pour plus d’informations sur la configuration de vos machines virtuelles pour la haute disponibilité, consultez  [Gérer la disponibilité de vos machines virtuelles pour Windows](./manage-availability.md) ou l’article correspondant pour [Linux](./manage-availability.md).
+Pour plus d’informations sur la configuration de vos machines virtuelles pour la haute disponibilité, consultez [Gérer la disponibilité de vos machines virtuelles pour Windows](./availability.md) ou l’article correspondant pour [Linux](./availability.md).
 
 #### <a name="availability-zones"></a>Zones de disponibilité
 

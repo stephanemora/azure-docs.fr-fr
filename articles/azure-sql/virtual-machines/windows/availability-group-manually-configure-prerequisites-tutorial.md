@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 869c4ac5cde7d1e50be0f2f738d8a0ce6de5e625
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: f5739604537ccc67e2cf57310269369909038d67
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98951713"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102508740"
 ---
 # <a name="tutorial-prerequisites-for-creating-availability-groups-on-sql-server-on-azure-virtual-machines"></a>Tutoriel : Prérequis de la création de groupes de disponibilité sur SQL Server sur des machines virtuelles Azure
 
@@ -145,7 +145,7 @@ Le tableau suivant récapitule les paramètres de configuration du réseau :
 
 ## <a name="create-availability-sets"></a>Créer des groupes à haute disponibilité
 
-Avant de créer des machines virtuelles, vous devez créer des groupes à haute disponibilité. Les groupes à haute disponibilité réduisent le temps d’arrêt lors des événements de maintenance planifiée et non planifiée. Un groupe à haute disponibilité Azure est un groupe de ressources logique qu’Azure place dans des domaines de mise à jour et d’erreur physiques. Un domaine d’erreur garantit que les membres du groupe à haute disponibilité disposent de ressources réseau et d’une alimentation distinctes. Un domaine de mise à jour permet de s’assurer que les membres du groupe à haute disponibilité ne sont pas arrêtés simultanément pour maintenance. Pour plus d’informations, consultez [Gestion de la disponibilité des machines virtuelles](../../../virtual-machines/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Avant de créer des machines virtuelles, vous devez créer des groupes à haute disponibilité. Les groupes à haute disponibilité réduisent le temps d’arrêt lors des événements de maintenance planifiée et non planifiée. Un groupe à haute disponibilité Azure est un groupe de ressources logique qu’Azure place dans des domaines de mise à jour et d’erreur physiques. Un domaine d’erreur garantit que les membres du groupe à haute disponibilité disposent de ressources réseau et d’une alimentation distinctes. Un domaine de mise à jour permet de s’assurer que les membres du groupe à haute disponibilité ne sont pas arrêtés simultanément pour maintenance. Pour plus d’informations, consultez [Gestion de la disponibilité des machines virtuelles](../../../virtual-machines/availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Vous avez besoin de deux groupes à haute disponibilité. L’un pour les contrôleurs de domaine. L’autre pour les machines virtuelles SQL Server.
 
@@ -205,7 +205,7 @@ Le tableau suivant indique les paramètres relatifs à ces deux machines :
 | **Compte de stockage de diagnostics** |*Créé automatiquement* |
 
    >[!IMPORTANT]
-   >Vous pouvez uniquement placer une machine virtuelle dans un groupe de disponibilité lors de sa création. Vous ne pouvez pas modifier le groupe à haute disponibilité après la création d’une machine virtuelle. Consultez la rubrique [Gérer la disponibilité des machines virtuelles](../../../virtual-machines/manage-availability.md).
+   >Vous pouvez uniquement placer une machine virtuelle dans un groupe de disponibilité lors de sa création. Vous ne pouvez pas modifier le groupe à haute disponibilité après la création d’une machine virtuelle. Consultez la rubrique [Gérer la disponibilité des machines virtuelles](../../../virtual-machines/availability.md).
 
 Azure crée les machines virtuelles.
 
@@ -383,7 +383,7 @@ Avant de continuer, envisagez les décisions de conception suivantes.
 
 * **Stockage - Azure Disques managés**
 
-   Pour le stockage de la machine virtuelle, utilisez Azure Disques managés. Microsoft recommande des machines virtuelles de la fonctionnalité Disques managés pour SQL Server. La fonctionnalité Disques managés gère le stockage en arrière-plan. En outre, lorsque les machines virtuelles avec la fonctionnalité Disques managés sont dans le même groupe à haute disponibilité, Azure distribue les ressources de stockage pour fournir une redondance appropriée. Pour plus d’informations, voir la page [Azure Managed Disks overview](../../../virtual-machines/managed-disks-overview.md) (Vue d’ensemble d’Azure Disques managés). Pour plus de détails sur la fonctionnalité Disques managés dans un groupe à haute disponibilité, consultez [Utilisation de la fonctionnalité Disques managés pour les machines virtuelles dans le groupe à haute disponibilité](../../../virtual-machines/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
+   Pour le stockage de la machine virtuelle, utilisez Azure Disques managés. Microsoft recommande des machines virtuelles de la fonctionnalité Disques managés pour SQL Server. La fonctionnalité Disques managés gère le stockage en arrière-plan. En outre, lorsque les machines virtuelles avec la fonctionnalité Disques managés sont dans le même groupe à haute disponibilité, Azure distribue les ressources de stockage pour fournir une redondance appropriée. Pour plus d’informations, voir la page [Azure Managed Disks overview](../../../virtual-machines/managed-disks-overview.md) (Vue d’ensemble d’Azure Disques managés). Pour plus de détails sur la fonctionnalité Disques managés dans un groupe à haute disponibilité, consultez [Utilisation de la fonctionnalité Disques managés pour les machines virtuelles dans le groupe à haute disponibilité](../../../virtual-machines/availability.md).
 
 * **Réseau - Adresses IP privées en production**
 

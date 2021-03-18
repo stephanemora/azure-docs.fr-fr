@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/11/2020
 ms.author: mohitku
 ms.reviewer: tyao
-ms.openlocfilehash: 4c710792dd7966fad76b33954fdf7c2253cf18f0
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: b2f551257fb6869d5dec47014be3a8522b61b9fa
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96488236"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102506631"
 ---
 # <a name="tuning-web-application-firewall-waf-for-azure-front-door"></a>Paramétrage du pare-feu d’applications web (WAF) pour Azure Front Door
  
@@ -38,9 +38,17 @@ UserId=20&captchaId=7&captchaId=15&comment="1=1"&rating=3
 
 Si vous tentez la demande, le WAF bloque le trafic qui contient votre chaîne *1=1* dans n’importe quel paramètre ou champ. Il s’agit d’une chaîne souvent associée à une attaque par injection de code SQL. Vous pouvez parcourir les journaux et trouver l’horodatage de la demande et les règles responsables du blocage/mise en correspondance.
  
-Dans l’exemple suivant, nous explorons un journal `FrontdoorWebApplicationFirewallLog` créé en raison d’une correspondance de règle.
+Dans l’exemple suivant, nous explorons un journal `FrontdoorWebApplicationFirewallLog` créé en raison d’une correspondance de règle. La requête Log Analytics suivante peut être utilisée pour rechercher les demandes qui ont été bloquées au cours des dernières 24 heures :
+
+```kusto
+AzureDiagnostics
+| where Category == 'FrontdoorWebApplicationFirewallLog'
+| where TimeGenerated > ago(1d)
+| where action_s == 'Block'
+
+```
  
-Dans le champ « requestUri », vous pouvez voir que la requête a été élaborée précisément pour `/api/Feedbacks/`. En poussant plus loin notre exploration, nous trouvons l’ID de règle `942110` dans le champ « ruleName ». Avec l’ID de règle, vous pouvez accéder au [référentiel officiel de OWASP ModSecurity Core Rule Set](https://github.com/coreruleset/coreruleset) et effectuer une recherche sur cet [ID de règle](https://github.com/coreruleset/coreruleset/blob/v3.1/dev/rules/REQUEST-942-APPLICATION-ATTACK-SQLI.conf), afin d’examiner son code et de comprendre exactement la mise en correspondance de cette règle. 
+Dans le champ `requestUri`, vous pouvez voir que la demande a été effectuée spécifiquement à `/api/Feedbacks/`. En poussant plus loin notre exploration, nous trouvons l’ID de règle `942110` dans le champ `ruleName`. Avec l’ID de règle, vous pouvez accéder au [référentiel officiel de OWASP ModSecurity Core Rule Set](https://github.com/coreruleset/coreruleset) et effectuer une recherche sur cet [ID de règle](https://github.com/coreruleset/coreruleset/blob/v3.1/dev/rules/REQUEST-942-APPLICATION-ATTACK-SQLI.conf), afin d’examiner son code et de comprendre exactement la mise en correspondance de cette règle. 
  
 Ensuite, en vérifiant le champ `action`, nous nous apercevons que cette règle est définie pour bloquer les requêtes en cas de correspondance, et nous constatons que la requête a en fait été bloquée par le WAF, car `policyMode` est défini sur `prevention`. 
  
@@ -136,7 +144,7 @@ Un des avantages de l’utilisation d’une liste d’exclusion réside dans le 
  
 Il est important de considérer une exclusion comme un paramètre global. Cela signifie que l’exclusion configurée s’appliquera à tout le trafic transitant par votre WAF, et pas seulement à une application web ou un URI particulier. Un problème peut se poser, par exemple si *1=1* est une requête valide dans le corps pour une application web donnée, mais pas pour les autres subissant la même stratégie WAF. S’il est judicieux d’utiliser différentes listes d’exclusion pour différentes applications, prévoyez d’utiliser des stratégies WAF différentes pour chaque application, et de les appliquer au serveur front-end de chaque application.
  
-Lors de la configuration des listes d’exclusions pour les règles gérées, vous pouvez choisir d’exclure toutes les règles d’un ensemble de règles, toutes les règles d’un groupe de règles ou une règle seule. Une liste d’exclusions peut être configurée à l’aide de [PowerShell](/powershell/module/az.frontdoor/New-AzFrontDoorWafManagedRuleExclusionObject?view=azps-4.7.0&viewFallbackFrom=azps-3.5.0), de l’interface [Azure CLI](/cli/azure/ext/front-door/network/front-door/waf-policy/managed-rules/exclusion?view=azure-cli-latest#ext_front_door_az_network_front_door_waf_policy_managed_rules_exclusion_add), de l’[API REST](/rest/api/frontdoorservice/webapplicationfirewall/policies/createorupdate) ou du portail Azure.
+Lors de la configuration des listes d’exclusions pour les règles gérées, vous pouvez choisir d’exclure toutes les règles d’un ensemble de règles, toutes les règles d’un groupe de règles ou une règle seule. Une liste d’exclusions peut être configurée à l’aide de [PowerShell](/powershell/module/az.frontdoor/New-AzFrontDoorWafManagedRuleExclusionObject), de l’interface [Azure CLI](/cli/azure/ext/front-door/network/front-door/waf-policy/managed-rules/exclusion#ext_front_door_az_network_front_door_waf_policy_managed_rules_exclusion_add), de l’[API REST](/rest/api/frontdoorservice/webapplicationfirewall/policies/createorupdate) ou du portail Azure.
 
 * Exclusions au niveau de la règle
   * L’application d’exclusions au niveau de la règle signifie que les exclusions spécifiées ne seront pas analysées par rapport à cette seule règle uniquement, mais qu’elles seront toujours analysées par toutes les autres règles de l’ensemble de règles. En matière d’exclusions, il s’agit du niveau le plus granulaire, et il peut être utilisé pour affiner le paramétrage de l’ensemble de règles gérées, en fonction des informations que vous trouvez dans les journaux WAF lors de la résolution d’un problème d’événement.
@@ -193,9 +201,12 @@ La désactivation d’une règle présente un avantage lorsque vous êtes sûr q
  
 Par contre, la désactivation d’une règle est un paramètre global qui s’applique à tous les hôtes front-end associés à la stratégie WAF. Lorsque vous choisissez de désactiver une règle, vous risquez de laisser des vulnérabilités exposées sans protection ni détection pour d’autres hôtes front-end associés à la stratégie WAF.
  
-Si vous souhaitez utiliser Azure PowerShell pour désactiver une règle gérée, consultez la documentation de l’objet [`PSAzureManagedRuleOverride`](/powershell/module/az.frontdoor/new-azfrontdoorwafmanagedruleoverrideobject?preserve-view=true&view=azps-4.7.0). Si vous souhaitez utiliser l’interface Azure CLI, consultez la documentation [`az network front-door waf-policy managed-rules override`](/cli/azure/ext/front-door/network/front-door/waf-policy/managed-rules/override?preserve-view=true&view=azure-cli-latest).
+Si vous souhaitez utiliser Azure PowerShell pour désactiver une règle gérée, consultez la documentation de l’objet [`PSAzureManagedRuleOverride`](/powershell/module/az.frontdoor/new-azfrontdoorwafmanagedruleoverrideobject). Si vous souhaitez utiliser l’interface Azure CLI, consultez la documentation [`az network front-door waf-policy managed-rules override`](/cli/azure/ext/front-door/network/front-door/waf-policy/managed-rules/override).
 
 ![Règles WAF](../media/waf-front-door-tuning/waf-rules.png)
+
+> [!TIP]
+> Il est judicieux de documenter tous les changements que vous apportez à votre stratégie WAF. Incluez des exemples de demandes pour illustrer la détection des faux positifs et expliquez clairement pourquoi vous avez ajouté une règle personnalisée, désactivé une règle ou un ensemble de règles, ou ajouté une exception. Cette documentation peut être utile si vous reconcevez votre application à l’avenir et que vous devez vérifier que vos changements sont toujours valides. Cela peut également être utile si vous êtes déjà audité ou si vous avez besoin de justifier la raison pour laquelle vous avez reconfiguré la stratégie WAF à partir de ses paramètres par défaut.
 
 ## <a name="finding-request-fields"></a>Recherche de champs de requête
 

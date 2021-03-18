@@ -4,23 +4,28 @@ description: Découvrez comment créer une étendue de chiffrement pour isoler d
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 09/17/2020
+ms.date: 03/05/2021
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: e77b58f7741af42f00b2a1831157405b12fa24ff
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: d5590ff275ce821c81f5751f4d92972c49adaafc
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96017404"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102209589"
 ---
 # <a name="create-and-manage-encryption-scopes-preview"></a>Créer et gérer des étendues de chiffrement (version préliminaire)
 
 Les étendues de chiffrement (version préliminaire) vous permettent de gérer le chiffrement au niveau d’un objet blob ou d’un conteneur individuel. Une étendue de chiffrement isole les données blob dans une enclave sécurisée dans un compte de stockage. Vous pouvez utiliser des étendues de chiffrement pour créer des limites sécurisées entre les données qui résident dans le même compte de stockage mais qui appartiennent à des clients différents. Pour plus d’informations sur les étendues de chiffrement, consultez [Étendues de chiffrement pour le stockage d’objets blob (version préliminaire)](encryption-scope-overview.md).
 
 Cet article montre comment créer une étendue de chiffrement. Il montre également comment spécifier une étendue de chiffrement lorsque vous créez un objet blob ou un conteneur.
+
+> [!IMPORTANT]
+> Les étendues de chiffrement sont actuellement en **PRÉVERSION**. Consultez l’[Avenant aux conditions d’utilisation des préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) pour connaître les conditions juridiques qui s’appliquent aux fonctionnalités Azure disponibles en version bêta, en préversion ou qui ne sont pas encore en phase de disponibilité générale.
+>
+> Pour éviter les coûts inattendus, veillez à désactiver les étendues de chiffrement dont vous n’avez pas besoin.
 
 [!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 

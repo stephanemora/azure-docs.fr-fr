@@ -10,18 +10,18 @@ ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7fafeae02bce001d473b0ed916624046a559a795
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 8e33c87d53580d96363ba15bccbc889370f2479d
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101648796"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102212907"
 ---
 # <a name="authentication-methods-in-azure-active-directory---microsoft-authenticator-app"></a>Méthodes d’authentification dans Azure Active Directory - Application Microsoft Authenticator
 
 L’application Microsoft Authenticator fournit un niveau de sécurité supplémentaire pour votre compte Azure AD professionnel ou scolaire, ou pour votre compte Microsoft. Elle est disponible pour [Android](https://go.microsoft.com/fwlink/?linkid=866594) et [iOS](https://go.microsoft.com/fwlink/?linkid=866594). Avec l'application Microsoft Authenticator, les utilisateurs peuvent s'authentifier sans mot de passe lors de la connexion, ou avec une option de vérification supplémentaire lors de la réinitialisation du mot de passe en libre-service (SSPR) ou d'événements Azure AD Multi-Factor Authentication.
 
-Les utilisateurs peuvent recevoir une notification par le biais de l’application mobile leur permettant d’accepter ou de refuser. Ils peuvent également utiliser l’application Authenticator pour générer un code de vérification OATH pouvant être entré dans une interface de connexion. Si vous activez à la fois la notification et le code de vérification, les utilisateurs s’enregistrant sur l’application Authenticator peuvent utiliser une des deux méthodes pour vérifier leur identité.
+Les utilisateurs peuvent recevoir une notification par le biais de l’application mobile leur permettant d’accepter ou de refuser. Ils peuvent également utiliser l’application Authenticator pour générer un code de vérification OAUTH pouvant être entré dans une interface de connexion. Si vous activez à la fois la notification et le code de vérification, les utilisateurs s’enregistrant sur l’application Authenticator peuvent utiliser une des deux méthodes pour vérifier leur identité.
 
 Pour utiliser l’application Authenticator dans une invite de connexion au lieu de la combinaison nom d’utilisateur/mot de passe, consultez [Activer la connexion sans mot de passe avec l’application Microsoft Authenticator](howto-authentication-passwordless-phone.md).
 

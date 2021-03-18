@@ -4,17 +4,17 @@ description: Apprenez à diagnostiquer et corriger des exceptions de dépassemen
 author: j82w
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.date: 08/06/2020
+ms.date: 03/05/2021
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: c8d448cf335f328b5ae55579fd30127ef0e37e9d
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: c8d35f7c666562022f503b2777f30f84193d0231
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340496"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102440001"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-net-sdk-request-timeout-exceptions"></a>Diagnostiquer et résoudre les exceptions de dépassement de délai de demande avec le SDK .NET
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -41,6 +41,22 @@ La liste suivante répertorie les causes connues et les solutions pour les excep
 
 ### <a name="high-cpu-utilization"></a>Utilisation élevée du processeur
 L'utilisation élevée du processeur est le cas le plus courant. Pour une latence optimale, l'utilisation du processeur doit être d'environ 40 %. Utilisez 10 secondes comme intervalle pour superviser l'utilisation maximale (non moyenne) du processeur. Les pics d'utilisation du processeur sont plus courants avec les requêtes entre partitions où il peut y avoir plusieurs connexions pour une seule requête.
+
+Si l’erreur contient des informations sur `TransportException`, elle peut également contenir `CPU History` :
+
+```
+CPU history: 
+(2020-08-28T00:40:09.1769900Z 0.114), 
+(2020-08-28T00:40:19.1763818Z 1.732), 
+(2020-08-28T00:40:29.1759235Z 0.000), 
+(2020-08-28T00:40:39.1763208Z 0.063), 
+(2020-08-28T00:40:49.1767057Z 0.648), 
+(2020-08-28T00:40:59.1689401Z 0.137), 
+CPU count: 8)
+```
+
+* Si les mesures du processeur dépassent 70 %, le délai d’expiration est probablement provoqué par un épuisement du processeur. Dans ce cas, la solution consiste à examiner la source de l’utilisation élevée du processeur et à la réduire, ou à augmenter les ressources de la machine.
+* Si les mesures du processeur ne se produisent pas toutes les 10 secondes (par exemple, les intervalles ou les temps de mesure indiquent un plus grand laps de temps entre les mesures), la cause est la privation de thread. Dans ce cas, la solution consiste à étudier la ou les sources de la privation de thread (threads potentiellement verrouillés) ou à augmenter les ressources de la ou des machines.
 
 #### <a name="solution"></a>Solution :
 L'application cliente qui utilise le SDK doit faire l'objet d'un scale-up ou d'un scale-out.
@@ -91,5 +107,5 @@ L’application doit être en mesure de gérer les défaillances temporaires et 
 Contactez [Support Azure](https://aka.ms/azure-support).
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Diagnostiquer et résoudre](troubleshoot-dot-net-sdk.md) des problèmes lors de l'utilisation du kit de développement logiciel (SDK) .NET Azure Cosmos DB.
-* Découvrez les recommandations relatives aux performances pour [.NET v3](performance-tips-dotnet-sdk-v3-sql.md) et [.NET v2](performance-tips.md).
+* [Diagnostiquer et résoudre](troubleshoot-dot-net-sdk.md) des problèmes lors de l’utilisation du kit de développement logiciel (SDK) .NET Azure Cosmos DB.
+* Découvrez les recommandations relatives aux performances pour [.NET V3](performance-tips-dotnet-sdk-v3-sql.md) et [.NET V2](performance-tips.md).

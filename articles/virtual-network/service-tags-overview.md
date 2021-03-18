@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/30/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: 41db671e4ab76dc56dc2c01f4852640acfe3fd83
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 18b79b105bcc4b5b0b65fc6f7d6b602ffff55561
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100389737"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102455820"
 ---
 # <a name="virtual-network-service-tags"></a>Balises de service du réseau virtuel
 <a name="network-service-tags"></a>
@@ -53,6 +53,7 @@ Par défaut, les balises de service reflètent les plages pour l’ensemble du C
 | **AzureActiveDirectory** | Azure Active Directory | Règle de trafic sortant | Non | Oui |
 | **AzureActiveDirectoryDomainServices** | Trafic de gestion pour les déploiements dédiés vers Azure Active Directory Domain Services. | Les deux | Non | Oui |
 | **AzureAdvancedThreatProtection** | Azure Advanced Threat Protection. | Règle de trafic sortant | Non | Non |
+| **AzureAPIForFHIR** | API Azure pour FHIR (Fast Healthcare Interoperability Resources).<br/><br/> *Remarque : Cette étiquette n’est actuellement pas configurable sur le portail Azure*.| Règle de trafic sortant | Non | Non |
 | **AzureArcInfrastructure** | Serveurs Azure Arc, Kubernetes Azure Arc et trafic Guest Configuration.<br/><br/>*Remarque :* Cette balise a une dépendance vis-à-vis des balises **AzureActiveDirectory**, **AzureTrafficManager** et **AzureResourceManager**. *Cette balise n’est actuellement pas configurable sur le portail Azure*.| Règle de trafic sortant | Non | Oui |
 | **AzureBackup** |Sauvegarde Azure.<br/><br/>*Remarque :* Cette balise est dotée d’une dépendance par rapport aux balises **Storage** and **AzureActiveDirectory**. | Règle de trafic sortant | Non | Oui |
 | **AzureBotService** | Service Azure Bot. | Règle de trafic sortant | Non | Non |
@@ -130,7 +131,7 @@ Vous pouvez obtenir la balise de service et les informations de plage actuelles 
 Vous pouvez récupérer par programmation la liste actuelle des balises de service ainsi que les informations relatives aux plages d’adresses IP :
 
 - [REST](/rest/api/virtualnetwork/servicetags/list)
-- [Azure PowerShell](/powershell/module/az.network/Get-AzNetworkServiceTag?viewFallbackFrom=azps-2.3.2)
+- [Azure PowerShell](/powershell/module/az.network/Get-AzNetworkServiceTag)
 - [Azure CLI](/cli/azure/network#az-network-list-service-tags)
 
 > [!NOTE]
@@ -152,7 +153,7 @@ Les plages d’adresses IP de ces fichiers sont en notation CIDR.
 
 ### <a name="tips"></a>Conseils 
 - Vous pouvez détecter les mises à jour d’une publication à l’autre en notant les valeurs *changeNumber* augmentées dans le fichier JSON. Chaque sous-section (par exemple, **Storage.WestUS**) a sa propre valeur *changeNumber* qui est incrémentée au fur et à mesure que des modifications sont effectuées. Le niveau supérieur de la valeur *changeNumber* du fichier est incrémenté lorsque l’une des sous-sections est modifiée.
-- Pour obtenir des exemples d’analyse des informations de balise de service (par exemple, obtenir toutes les plages d’adresses pour le stockage dans la région WestUS), reportez-vous à la documentation relative à l’[API Service Tag Discovery PowerShell](/powershell/module/az.network/Get-AzNetworkServiceTag?viewFallbackFrom=azps-2.3.2).
+- Pour obtenir des exemples d’analyse des informations de balise de service (par exemple, obtenir toutes les plages d’adresses pour le stockage dans la région WestUS), reportez-vous à la documentation relative à l’[API Service Tag Discovery PowerShell](/powershell/module/az.network/Get-AzNetworkServiceTag).
 - Lorsque de nouvelles adresses IP sont ajoutées aux balises de service, elles ne sont pas utilisées dans Azure pendant au moins une semaine. Cela vous donne le temps de mettre à jour les systèmes qui peuvent avoir besoin d’effectuer le suivi des adresses IP associées aux balises de service.
 
 ## <a name="next-steps"></a>Étapes suivantes

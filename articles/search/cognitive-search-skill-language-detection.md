@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: 087989638193bb59001ed33c4ee253d61682d8bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 078a9312a7ee1b3b0eafd000928ed74348a540c3
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88935991"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102548051"
 ---
 #   <a name="language-detection-cognitive-skill"></a>Compétence cognitive Détection de la langue
 
@@ -21,7 +21,7 @@ La compétence **Détection de langue** détecte la langue du texte d’entrée 
 
 Cette fonctionnalité est particulièrement utile lorsqu’il est nécessaire d’indiquer la langue du texte en entrée dans d’autres compétences (par exemple, la [compétence Analyse des sentiments](cognitive-search-skill-sentiment.md) ou la [compétence Fractionnement de texte](cognitive-search-skill-textsplit.md)).
 
-La détection de la langue s’appuie sur les bibliothèques de traitement en langage naturel de Bing, qui dépassent le nombre de [langues et régions prises en charge](../cognitive-services/text-analytics/language-support.md) répertoriées pour le service Analyse de texte. La liste exacte des langues n’est pas publiée, mais inclut toutes les langues courantes, ainsi que les variantes, dialectes et certaines langues régionales et culturelles. Si vous avez du contenu exprimé dans une langue moins fréquemment utilisée, vous pouvez [essayer l’API Détection de langue](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) pour voir si elle retourne un code. La réponse pour les langues qui ne peuvent pas être détectées est `unknown`.
+La détection de la langue s’appuie sur les bibliothèques de traitement en langage naturel de Bing, qui dépassent le nombre de [langues et régions prises en charge](../cognitive-services/text-analytics/language-support.md) répertoriées pour le service Analyse de texte. La liste exacte des langues n’est pas publiée, mais inclut toutes les langues courantes, ainsi que les variantes, dialectes et certaines langues régionales et culturelles. Si vous avez du contenu exprimé dans une langue moins fréquemment utilisée, vous pouvez [essayer l’API Détection de langue](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Languages) pour voir si elle retourne un code. La réponse pour les langues qui ne peuvent pas être détectées est `(Unknown)`.
 
 > [!NOTE]
 > Si vous élargissez le champ en augmentant la fréquence des traitements, en ajoutant des documents supplémentaires ou en ajoutant plusieurs algorithmes d’IA, vous devez [attacher une ressource Cognitive Services facturable](cognitive-search-attach-cognitive-services.md). Des frais s’appliquent durant l’appel des API dans Cognitive Services ainsi que pour l’extraction d’images dans le cadre de la phase de craquage de document de la Recherche cognitive Azure. L’extraction de texte à partir des documents est gratuite.
@@ -35,6 +35,15 @@ Microsoft.Skills.Text.LanguageDetectionSkill
 ## <a name="data-limits"></a>Limites de données
 La taille maximale d’un enregistrement doit être de 50 000 caractères telle que mesurée par [`String.Length`](/dotnet/api/system.string.length). Si vous avez besoin de découper vos données avant de les envoyer à la compétence de détection de langage, vous pouvez utiliser la [compétence Fractionnement de texte](cognitive-search-skill-textsplit.md).
 
+## <a name="skill-parameters"></a>Paramètres de la compétence
+
+Les paramètres respectent la casse.
+
+| Entrées | Description |
+|---------------------|-------------|
+| `defaultCountryHint` | (Facultatif) Un code de pays à deux lettres ISO 3166-1 alpha-2 peut être fourni comme indicateur pour le modèle de détection de langue s’il ne peut pas lever l’ambiguïté de la langue. Pour plus d’informations, consultez la [documentation d’Analyse de texte](../cognitive-services/text-analytics/how-tos/text-analytics-how-to-language-detection.md#ambiguous-content) dans cette rubrique. Plus précisément, le paramètre `defaultCountryHint` est utilisé avec les documents qui ne spécifient pas l’entrée `countryHint` explicitement.  |
+| `modelVersion`   | (Facultatif) Version du modèle à utiliser lors de l’appel du service Analyse de texte. Si rien n’est spécifié, la dernière version disponible est utilisée par défaut. Nous vous recommandons de ne pas spécifier cette valeur, sauf nécessité absolue. Pour plus d’informations, consultez [Contrôle de version de modèle dans l’API Analyse de texte](../cognitive-services/text-analytics/concepts/model-versioning.md). |
+
 ## <a name="skill-inputs"></a>Entrées de la compétence
 
 Les paramètres respectent la casse.
@@ -42,6 +51,7 @@ Les paramètres respectent la casse.
 | Entrées     | Description |
 |--------------------|-------------|
 | `text` | Texte à analyser.|
+| `countryHint` | Code de pays à deux lettres ISO 3166-1 alpha-2 à utiliser comme indicateur pour le modèle de détection de langue s’il ne peut pas lever l’ambiguïté de la langue. Pour plus d’informations, consultez la [documentation d’Analyse de texte](../cognitive-services/text-analytics/how-tos/text-analytics-how-to-language-detection.md#ambiguous-content) dans cette rubrique. |
 
 ## <a name="skill-outputs"></a>Sorties de la compétence
 
@@ -60,6 +70,10 @@ Les paramètres respectent la casse.
       {
         "name": "text",
         "source": "/document/text"
+      },
+      {
+        "name": "countryHint",
+        "source": "/document/countryHint"
       }
     ],
     "outputs": [
@@ -98,6 +112,14 @@ Les paramètres respectent la casse.
            {
              "text": "Estamos muy felices de estar con ustedes."
            }
+      },
+      {
+        "recordId": "3",
+        "data":
+           {
+             "text": "impossible",
+             "countryHint": "fr"
+           }
       }
     ]
 ```
@@ -125,14 +147,19 @@ Les paramètres respectent la casse.
               "languageName": "Spanish",
               "score": 1,
             }
+      },
+      {
+        "recordId": "3",
+        "data":
+            {
+              "languageCode": "fr",
+              "languageName": "French",
+              "score": 1,
+            }
       }
     ]
 }
 ```
-
-
-## <a name="error-cases"></a>Cas d’erreur
-Si le texte est exprimé dans une langue non prise en charge, une erreur est générée et aucun identificateur de langue n’est retourné.
 
 ## <a name="see-also"></a>Voir aussi
 

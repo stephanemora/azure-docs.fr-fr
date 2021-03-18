@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c4c654f70af2188264465d97abded9cae95e9275
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 9d5671626e05145f79c3ad5fc0ecdb5628ac9421
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100364577"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102427128"
 ---
 # <a name="conditional-access-users-and-groups"></a>Accès conditionnel : Utilisateurs et groupes
 
-Une stratégie d’accès conditionnel doit inclure une attribution d’utilisateur comme l’un des signaux dans le processus de décision. Les utilisateurs peuvent être inclus ou exclus des stratégies d’accès conditionnel. Azure Active Directory évalue toutes les stratégies et vérifie que toutes les conditions requises sont remplies avant d’accorder l’accès à l’utilisateur.
+Une stratégie d’accès conditionnel doit inclure une attribution d’utilisateur comme l’un des signaux dans le processus de décision. Les utilisateurs peuvent être inclus ou exclus des stratégies d’accès conditionnel. Azure Active Directory évalue toutes les stratégies et vérifie que toutes les conditions requises sont remplies avant d’accorder l’accès à l’utilisateur. En plus de cet article, nous avons une vidéo expliquant comment [inclure ou exclure des utilisateurs des stratégies d’accès conditionnel](https://www.youtube.com/watch?v=5DsW1hB3Jqs), et qui vous guide tout au long de la procédure décrite ci-dessous. 
 
 ![Utilisateur comme signal dans les décisions prises par l’accès conditionnel](./media/concept-conditional-access-users-groups/conditional-access-users-and-groups.png)
 

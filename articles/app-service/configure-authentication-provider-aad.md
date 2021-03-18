@@ -5,35 +5,29 @@ ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 04/14/2020
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: 3d1e0eb90005abf69d90b46acc59e0258c9914c6
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 2805500e4a4c98ad7b8360393e7d69ad9fb704a3
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98630028"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102563334"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-azure-ad-login"></a>Configurer votre application App Service ou Azure Functions pour utiliser une connexion Azure AD
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
-Cet article vous montre comment configurer Azure App Service ou Azure Functions pour utiliser Azure Active Directory (Azure AD) comme fournisseur d’authentification.
-
-> [!NOTE]
-> La configuration rapide configure une inscription d’application AAD V1. Si vous souhaitez utiliser [Azure Active Directory v2.0](../active-directory/develop/v2-overview.md) (notamment [MSAL](../active-directory/develop/msal-overview.md)), suivez les [instructions de configuration avancée](#advanced).
-
-Adoptez ces bonnes pratiques pour configurer votre application et l’authentification :
-
-- Donnez à chaque application App Service ses propres autorisations et son propre consentement.
-- Configurez chaque application App Service avec sa propre inscription.
-- Évitez de partager des autorisations entre des environnements en utilisant des inscriptions d’application distinctes pour des emplacements de déploiement distincts. Dans le cadre des tests d’un nouveau code, cette pratique peut permettre d’éviter que des problèmes n’affectent l’application de production.
-
-> [!NOTE]
-> Cette fonctionnalité n’est pas disponible actuellement dans le plan de consommation Linux pour Azure Functions
+Cet article explique comment configurer l’authentification pour Azure App Service ou Azure Functions afin que votre application utilise Azure Active Directory (Azure AD) comme fournisseur d’authentification pour la connexion des utilisateurs.
 
 ## <a name="configure-with-express-settings"></a><a name="express"> </a>Configurer avec des paramètres express
 
+L’option **Express** est conçue pour simplifier l’authentification et ne nécessite que quelques clics.
+
+Les paramètres Express créent automatiquement une inscription d’application qui utilise le point de terminaison Azure Active Directory v1. Pour utiliser [Azure Active Directory v2.0](../active-directory/develop/v2-overview.md) (notamment [MSAL](../active-directory/develop/msal-overview.md)), suivez les [instructions de configuration avancée](#advanced).
+
 > [!NOTE]
 > L’option **Express** n’est pas disponible pour les clouds du secteur publique.
+
+Pour activer l’authentification à l’aide de l’option **Express**, effectuez les étapes suivantes :
 
 1. Dans le [Azure portal], recherchez et sélectionnez **App Services**, puis sélectionnez votre application.
 2. Dans la barre de navigation gauche, sélectionnez **Authentification/Autorisation**  > **sur**.
@@ -58,27 +52,24 @@ Pour obtenir un exemple de configuration d’une connexion Azure AD pour une ap
 
 ## <a name="configure-with-advanced-settings"></a><a name="advanced"></a>Configurer avec des paramètres avancés
 
-Vous pouvez configurer les paramètres de l’application manuellement si vous souhaitez utiliser une inscription d’application à partir d’un locataire Azure AD différent. Pour effectuer cette configuration personnalisée :
-
-1. Créer une inscription dans Azure AD.
-2. Fournir certains des détails d’inscription à App Service.
+Pour qu’Azure AD soit le fournisseur d’authentification de votre application, vous devez inscrire votre application auprès de celui-ci. L’option Express le fait automatiquement. L’option Avancé vous permet d’inscrire manuellement votre application, de personnaliser l’inscription et de saisir manuellement les détails de l’inscription dans App Service. Cette option est utile, par exemple, si vous souhaitez utiliser une inscription d’application provenant d’un locataire Azure AD différent de celui où se trouve l’application App Service.
 
 ### <a name="create-an-app-registration-in-azure-ad-for-your-app-service-app"></a><a name="register"></a>Créer une inscription d’application dans Azure AD pour votre application App Service
 
-Vous avez besoin des informations suivantes quand vous configurez votre application App Service :
+Tout d’abord, vous allez créer votre inscription d’application. Au cours de cette opération, recueillez les informations suivantes, car vous en aurez besoin plus tard pour configurer l’authentification dans l’application App Service :
 
 - ID client
 - ID client
 - Clé secrète client (facultative)
 - URI d’ID d’application
 
-Procédez comme suit :
+Pour inscrire l’application, effectuez les étapes suivantes :
 
 1. Connectez-vous au [Azure portal], recherchez et sélectionnez **App Services**, puis sélectionnez votre application. Notez l’**URL** de votre application. Vous allez l’utiliser pour configurer l’inscription de votre application Azure Active Directory.
-1. Sélectionnez **Azure Active Directory** > **Inscriptions d’applications** > **Nouvelle inscription**.
+1. Dans le menu du portail, sélectionnez **Azure Active Directory**, accédez à l’onglet **Inscriptions d’applications**, puis sélectionnez **Nouvelle inscription**.
 1. Sur la page **Inscrire une application**, entrez un **Nom** pour votre inscription d'application.
 1. Sous **URI de redirection**, sélectionnez **Web**, puis entrez `<app-url>/.auth/login/aad/callback`. Par exemple : `https://contoso.azurewebsites.net/.auth/login/aad/callback`.
-1. Sélectionnez **S’INSCRIRE**.
+1. Sélectionnez **Inscription**.
 1. Une fois l’inscription d’application créée, copiez l’**ID de l’application (client)** et l’**ID de l’annuaire (locataire)** pour plus tard.
 1. Sélectionnez **Authentification**. Sous **Octroi implicite**, activez **Jetons d’ID** pour autoriser les connexions utilisateur OpenID Connect à partir d’App Service.
 1. (Facultatif) Sélectionnez **Personnalisation**. Dans **URL de la page d’accueil**, entrez l’URL de votre application App Service, puis sélectionnez **Enregistrer**.
@@ -113,9 +104,13 @@ Procédez comme suit :
 
 Vous êtes maintenant prêt à utiliser Azure Active Directory à des fins d’authentification dans votre application App Service.
 
-## <a name="configure-a-native-client-application"></a>Configurer une application cliente native
+## <a name="configure-client-apps-to-access-your-app-service"></a>Configurer des applications clientes pour qu’elles accèdent à votre application App Service
 
-Vous pouvez inscrire des clients natifs pour permettre une authentification au niveau des API Web hébergées dans votre application en utilisant une bibliothèque de client comme la **Bibliothèque d’authentification Active Directory**.
+Dans la section précédente, vous avez inscrit votre application App Service ou Azure Functions pour authentifier les utilisateurs. Cette section explique comment inscrire des applications clientes ou démon natives afin qu’elles puissent demander l’accès aux API exposées par votre application App Service pour le compte d’utilisateurs ou pour elles-mêmes. Il n’est pas nécessaire d’effectuer les étapes de cette section si vous souhaitez uniquement authentifier les utilisateurs.
+
+### <a name="native-client-application"></a>Application cliente native
+
+Vous pouvez inscrire des clients natifs afin qu’ils puissent demander l’accès aux API de votre application App Service pour le compte d’un utilisateur connecté.
 
 1. Dans le [Azure portal], sélectionnez **Active Directory** > **Inscriptions d’applications** > **Nouvelle inscription**.
 1. Sur la page **Inscrire une application**, entrez un **Nom** pour votre inscription d'application.
@@ -129,9 +124,9 @@ Vous pouvez inscrire des clients natifs pour permettre une authentification au n
 1. Sélectionnez l’inscription d'application que vous avez créée précédemment pour votre application App Service. Si celle-ci n’apparaît pas, vérifiez que vous avez ajouté l’étendue **user_impersonation** dans [Créer une inscription d’application dans Azure AD pour votre application App Service](#register).
 1. Sous **Autorisations déléguées**, sélectionnez **user_impersonation**, puis **Ajouter des autorisations**.
 
-Vous avez maintenant configuré une application cliente native qui peut accéder à votre application App Service au nom d’un utilisateur.
+Vous avez maintenant configuré une application cliente native qui peut demander l’accès à votre application App Service pour le compte d’un utilisateur.
 
-## <a name="configure-a-daemon-client-application-for-service-to-service-calls"></a>Configurer une application cliente de démon pour des appels de service à service
+### <a name="daemon-client-application-service-to-service-calls"></a>Application cliente démon (appels de service à service)
 
 Votre application peut acquérir un jeton pour appeler une API web hébergée dans votre App Service ou application de fonction pour son propre compte (et non pour le compte d’un utilisateur). Ce scénario est utile pour les applications de démon non interactives qui effectuent des tâches sans utilisateur connecté. Il utilise l’octroi d’[informations d’identification du client](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md) OAuth 2.0 standard.
 
@@ -155,6 +150,14 @@ Vous pouvez maintenant [demander un jeton d’accès à l’aide de l’ID clien
 1. Dans le code de l’App Service ou de l’application de fonction cibles, vous pouvez désormais vérifier que les rôles attendus sont présents dans le jeton (cela n’est pas effectué par la fonction Authentification/autorisation App Service). Pour plus d’informations, consultez la section [Revendications d’utilisateurs d’accès](app-service-authentication-how-to.md#access-user-claims).
 
 Vous avez maintenant configuré une application cliente démon qui peut accéder à votre application App Service en utilisant sa propre identité.
+
+## <a name="best-practices"></a>Meilleures pratiques
+
+Quelle que soit la configuration que vous utilisez pour configurer l’authentification, les bonnes pratiques suivantes garantissent la sécurisation de votre locataire et de vos applications :
+
+- Donnez à chaque application App Service ses propres autorisations et son propre consentement.
+- Configurez chaque application App Service avec sa propre inscription.
+- Évitez de partager des autorisations entre des environnements en utilisant des inscriptions d’application distinctes pour des emplacements de déploiement distincts. Dans le cadre des tests d’un nouveau code, cette pratique peut permettre d’éviter que des problèmes n’affectent l’application de production.
 
 ## <a name="next-steps"></a><a name="related-content"> </a>Étapes suivantes
 

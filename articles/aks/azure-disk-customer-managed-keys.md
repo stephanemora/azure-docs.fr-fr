@@ -4,12 +4,12 @@ description: BYOK (Bring Your Own Keys) pour chiffrer les disques de données et
 services: container-service
 ms.topic: article
 ms.date: 09/01/2020
-ms.openlocfilehash: 60a7e36039500ccb8a46fd1f5998c23c37174689
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 4b1c311132cc812ccb2bbbc95c4b7414b108008c
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98728133"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102499201"
 ---
 # <a name="bring-your-own-keys-byok-with-azure-disks-in-azure-kubernetes-service-aks"></a>BYOK (Bring Your Own Keys) avec des disques Azure dans Azure Kubernetes Service (AKS)
 
@@ -93,7 +93,7 @@ Quand de nouveaux pools de nœuds sont ajoutés au cluster créé ci-dessus, la 
 La clé de chiffrement du disque du système d’exploitation sera utilisée pour chiffrer le disque de données si la clé n’est pas fournie pour le disque de données à partir de v 1.17.2, et vous pouvez également chiffrer les disques de données AKS avec les autres clés.
 
 > [!IMPORTANT]
-> Vérifiez que vous disposez des informations d’identification AKS appropriées. Le principal du service doit disposer d’un accès de contributeur au groupe de ressources où diskencryptionset est déployé. Sinon, vous obtenez une erreur suggérant que le principal du service ne dispose pas d’autorisations.
+> Vérifiez que vous disposez des informations d’identification AKS appropriées. L’identité managée doit disposer d’un accès de contributeur au groupe de ressources où diskencryptionset est déployé. Sinon, vous obtenez une erreur suggérant que l’identité managée ne dispose pas d’autorisations.
 
 ```azurecli-interactive
 # Retrieve your Azure Subscription Id from id property as shown below

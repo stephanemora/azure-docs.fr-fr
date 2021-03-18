@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla, rarayudu
 ms.topic: conceptual
-ms.date: 02/12/2021
-ms.openlocfilehash: d7ed3fb268920d6f4d015886c560b2d9fcbdc632
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.date: 03/09/2021
+ms.openlocfilehash: 7b082c226b38633d6c34ee2fe4d5227252b2bfcb
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100104499"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102556381"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Accès et données sécurisés dans Azure Logic Apps
 
@@ -203,20 +203,24 @@ Dans le [portail Azure](https://portal.azure.com), ajoutez une ou plusieurs stra
    | Propriété | Obligatoire | Description |
    |----------|----------|-------------|
    | **Nom de la stratégie** | Oui | Nom que vous voulez utiliser pour la stratégie d’autorisation |
-   | **Revendications** | Oui | Types de revendications et valeurs que votre application logique accepte des appels entrants. La valeur de la revendication est limitée à un [nombre maximal de caractères](logic-apps-limits-and-config.md#authentication-limits). Voici les types de revendications disponibles : <p><p>- **Émetteur** <br>- **Audience** <br>- **Subject** <br>- **ID JWT** (ID JSON Web Token) <p><p>Au minimum, la liste **Revendications** doit inclure la revendication **Émetteur**, dont la valeur commence par `https://sts.windows.net/` ou `https://login.microsoftonline.com/` en tant qu’ID d’émetteur Azure AD. Pour plus d’informations sur ces types de revendication, consultez [Revendications dans les jetons de sécurité Azure AD](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). Vous pouvez également spécifier vos propres type et valeur de revendication. |
+   | **Revendications** | Oui | Types de revendications et valeurs que votre application logique accepte des appels entrants. La valeur de la revendication est limitée à un [nombre maximal de caractères](logic-apps-limits-and-config.md#authentication-limits). Voici les types de revendications disponibles : <p><p>- **Émetteur** <br>- **Audience** <br>- **Subject** <br>- **ID JWT** (identificateur JSON Web Token) <p><p>Au minimum, la liste **Revendications** doit inclure la revendication **Émetteur**, dont la valeur commence par `https://sts.windows.net/` ou `https://login.microsoftonline.com/` en tant qu’ID d’émetteur Azure AD. Pour plus d’informations sur ces types de revendication, consultez [Revendications dans les jetons de sécurité Azure AD](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). Vous pouvez également spécifier vos propres type et valeur de revendication. |
    |||
 
 1. Pour ajouter une autre revendication, sélectionnez l’une des options suivantes :
 
    * Pour ajouter un autre type de revendication, sélectionnez **Ajouter une revendication standard**, sélectionnez le type de revendication, puis spécifiez sa valeur.
 
-   * Pour ajouter votre propre revendication, sélectionnez **Ajouter une revendication personnalisée** et spécifiez la valeur de revendication personnalisée.
+   * Pour ajouter votre propre revendication, sélectionnez **Ajouter une revendication personnalisée**. Pour plus d'informations, consultez [Guide pratique pour fournir des revendications facultatives à votre application](../active-directory/develop/active-directory-optional-claims.md). Votre revendication personnalisée est ensuite stockée dans le cadre de votre ID JWT, par exemple `"tid": "72f988bf-86f1-41af-91ab-2d7cd011db47"`. 
 
 1. Pour ajouter une autre stratégie d’autorisation, sélectionnez **Ajouter une stratégie**. Répétez les étapes précédentes pour configurer la stratégie.
 
 1. Quand vous avez terminé, sélectionnez **Enregistrer**.
 
 1. Pour inclure l’en-tête `Authorization` du jeton d’accès dans les sorties du déclencheur basé sur une demande, consultez [Inclure l’en-tête « Authorization » dans les sorties du déclencheur de demande](#include-auth-header).
+
+
+Les propriétés de workflow telles que les stratégies n’apparaissent pas dans la vue de code de votre application logique dans le portail Azure. Pour accéder à vos stratégies par programmation, appelez l’API suivante via Azure Resource Manager (ARM) : `https://management.azure.com/subscriptions/{Azure-subscription-ID}/resourceGroups/{Azure-resource-group-name}/providers/Microsoft.Logic/workflows/{your-workflow-name}?api-version=2016-10-01&_=1612212851820`. Veillez à remplacer les valeurs d’espace réservé par votre ID d’abonnement Azure, le nom du groupe de ressources et le nom du workflow.
+
 
 <a name="define-authorization-policy-template"></a>
 
@@ -349,9 +353,9 @@ Dans le [portail Azure](https://portal.azure.com), ce filtre affecte les déclen
 
 Dans votre modèle ARM, spécifiez les plages d’adresses IP entrantes autorisées dans la définition de ressource de votre application logique à l’aide de la section `accessControl`. Dans cette section, utilisez les sections `triggers`, `actions` et éventuellement `contents` comme il convient en incluant la section `allowedCallerIpAddresses` avec la propriété `addressRange` et définissez la valeur de la propriété sur la plage d’adresses IP autorisées au format *x.x.x.x/x* ou *x.x.x.x-x.x.x.x*.
 
-* Si votre application logique imbriquée utilise l’option **Uniquement les autres Logic Apps**, qui autorise les appels entrants uniquement à partir d’autres applications logiques qui utilisent l’action Azure Logic Apps, définissez la propriété `addressRange` sur un tableau vide ( **[]** ).
+* Si votre application logique imbriquée utilise l’option **Uniquement les autres Logic Apps**, qui autorise les appels entrants uniquement à partir d’autres applications logiques qui utilisent l’action Azure Logic Apps intégrée, définissez la propriété `allowedCallerIpAddresses` sur un tableau vide ( **[]** ) et *omettez* la propriété `addressRange`.
 
-* Si votre application logique imbriquée utilise l’option **Plages d’adresses IP spécifiques** pour d’autres appels entrants, comme d’autres applications logiques qui utilisent l’action HTTP, définissez la propriété `addressRange` sur la plage d’adresses IP autorisées.
+* Si votre application logique imbriquée utilise l’option **Plages d’adresses IP spécifiques** pour d’autres appels entrants, comme d’autres applications logiques qui utilisent l’action HTTP, incluez la section `allowedCallerIpAddresses` et définissez la propriété `addressRange` sur la plage d’adresses IP autorisées.
 
 Cet exemple montre une définition de ressource pour une application logique imbriquée qui autorise les appels entrants uniquement à partir d’applications logiques qui utilisent l’action Azure Logic Apps intégrée :
 
@@ -378,18 +382,14 @@ Cet exemple montre une définition de ressource pour une application logique imb
             },
             "accessControl": {
                "triggers": {
-                  "allowedCallerIpAddresses": [
-                     {
-                        "addressRange": []
-                     }
-                  ]
+                  "allowedCallerIpAddresses": []
                },
                "actions": {
-                  "allowedCallerIpAddresses": [
-                     {
-                        "addressRange": []
-                     }
-                  ]
+                  "allowedCallerIpAddresses": []
+               },
+               // Optional
+               "contents": {
+                  "allowedCallerIpAddresses": []
                }
             },
             "endpointsConfiguration": {}
@@ -933,7 +933,7 @@ Ce tableau identifie les types d’authentification disponibles sur les déclenc
 | [Certificat client](#client-certificate-authentication) | Gestion des API Azure, Azure App Service, HTTP, HTTP + Swagger, Webhook HTTP |
 | [OAuth Active Directory](#azure-active-directory-oauth-authentication) | Gestion des API Azure, Azure App Service, Azure Functions, HTTP, HTTP + Swagger, Webhook HTTP |
 | [Brut](#raw-authentication) | Gestion des API Azure, Azure App Service, Azure Functions, HTTP, HTTP + Swagger, Webhook HTTP |
-| [Identité gérée](#managed-identity-authentication) | **Déclencheurs et actions intégrés** <p><p>Gestion des API Azure, Azure App Service, Azure Functions, HTTP, Webhook HTTP <p><p>**Connecteurs gérés** <p><p>Azure AD Identity Protection, Azure Automation, Instance de conteneur Azure, Azure Data Explorer, Azure Data Factory, Azure Data Lake, Azure Event Grid, Azure IoT Central V3, Azure Key Vault, Azure Log Analytics, Journaux Azure Monitor, Azure Resource Manager, Azure Sentinel, HTTP avec Azure AD <p><p>**Remarque** : La prise en charge des connecteurs managés est actuellement en préversion. |
+| [Identité gérée](#managed-identity-authentication) | **Déclencheurs et actions intégrés** <p><p>Gestion des API Azure, Azure App Service, Azure Functions, HTTP, Webhook HTTP <p><p>**Connecteurs gérés** <p><p>Azure AD Identity Protection, Azure Automation, Instance de conteneur Azure, Azure Data Explorer, Azure Data Factory, Azure Data Lake, Azure Event Grid, Azure IoT Central V3, Azure Key Vault, Azure Resource Manager, Azure Sentinel, HTTP avec Azure AD <p><p>**Remarque** : La prise en charge des connecteurs managés est actuellement en préversion. |
 |||
 
 <a name="basic-authentication"></a>

@@ -6,12 +6,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: bwren
-ms.openlocfilehash: cb4f1ecdada68218c104558a85277417641906f6
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 2435e4ed16889d9d4701b6047c0a1f602ee7ae91
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102033010"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102558693"
 ---
 # <a name="azure-resource-logs"></a>Journaux de ressources Azure
 Les journaux de ressources Azure sont des [journaux de plateforme](../essentials/platform-logs-overview.md) qui fournissent des insights sur les opérations qui ont été effectuées au sein d’une ressource Azure. Le contenu des journaux de ressources varie en fonction du service Azure et du type de ressource. Les journaux d’activité de ressources ne sont pas collectées par défaut. Vous devez créer un paramètre de diagnostic pour chaque ressource Azure afin d’envoyer ses journaux de ressources vers un espace de travail Log Analytics pour les utiliser avec les [journaux Azure Monitor](../logs/data-platform-logs.md), vers Azure Event Hubs pour les transférer à l’extérieur d’Azure ou vers un stockage Azure à des fins d’archivage.
@@ -28,11 +28,11 @@ Consultez [Créer des paramètres de diagnostic pour envoyer des journaux et des
 
 [Créez un paramètre de diagnostic](../essentials/diagnostic-settings.md) pour envoyer des journaux de ressources à un espace de travail Log Analytics. Ces données sont stockées dans des tables comme décrit dans [Structure des journaux Azure Monitor](../logs/data-platform-logs.md). Les tables utilisées par les journaux de ressources dépendent du type de collection que la ressource utilise :
 
-- Diagnostics Azure - Toutes les données sont écrites dans la table _AzureDiagnostics_.
+- Diagnostics Azure - Toutes les données sont écrites dans la table [AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagnostics).
 - Spécifique à la ressource - Les données sont écrites dans une table individuelle pour chaque catégorie de la ressource.
 
 ### <a name="azure-diagnostics-mode"></a>Mode Diagnostics Azure 
-Dans ce mode, toutes les données, quel que soit le paramètre de diagnostic, sont collectées dans la table _AzureDiagnostics_. Il s’agit de la méthode héritée qu'utilise aujourd’hui la plupart des services Azure. De nombreuses ressources envoyant des données à la même table, son schéma constitue le sur-ensemble des schémas des différents types de données collectés.
+Dans ce mode, toutes les données, quel que soit le paramètre de diagnostic, sont collectées dans la table [AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagnostics). Il s’agit de la méthode héritée qu'utilise aujourd’hui la plupart des services Azure. De nombreuses ressources envoyant des données à la même table, son schéma constitue le sur-ensemble des schémas des différents types de données collectés. Pour plus d’informations sur la structure de ce tableau et son fonctionnement avec un nombre potentiellement important de colonnes, consultez la [référence AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagnostics).
 
 Prenons l’exemple suivant dans lequel les paramètres de diagnostic sont collectés dans le même espace de travail pour les types de données suivants :
 
@@ -95,16 +95,6 @@ La plupart des ressources Azure écrivent des données dans l’espace de travai
 Vous pouvez modifier un paramètre de diagnostic existant sur le mode Spécifique à la ressource. Dans ce cas, les données déjà collectées sont conservées dans la table _AzureDiagnostics_ jusqu’à leur suppression conformément au paramètre de conservation pour l'espace de travail. Les nouvelles données sont collectées dans la table dédiée. Utilisez l’opérateur [union](/azure/kusto/query/unionoperator) pour interroger les données dans les deux tables.
 
 Consultez régulièrement le blog [Mises à jour Azure](https://azure.microsoft.com/updates/) pour vous tenir informé des annonces relatives aux services Azure prenant en charge le mode Spécifique à la ressource.
-
-### <a name="column-limit-in-azurediagnostics"></a>Limite de colonnes dans AzureDiagnostics
-Dans les journaux d'activité Azure Monitor, les propriétés sont limitées à 500. Une fois cette limite atteinte, toutes les lignes contenant des données avec plus de 500 propriétés sont supprimées au moment de l'ingestion. La table *AzureDiagnostics* est particulièrement sensible à cette limite car elle comprend les propriétés de tous les services Azure qui y écrivent.
-
-Si vous collectez des journaux de ressources à partir de plusieurs services, _AzureDiagnostics_ peut dépasser cette limite et certaines données n’y seront pas consignées. En attendant que tous les services Azure prennent en charge le mode Spécifique à la ressources, il vous est conseillé de configurer les ressources de manière à ce qu'elles écrivent dans plusieurs espaces de travail afin d'éviter d’atteindre la limite de 500 colonnes.
-
-### <a name="azure-data-factory"></a>Azure Data Factory
-Du fait de son ensemble détaillé de journaux, Azure Data Factory est un service connu pour écrire un grand nombre de colonnes et peut amener _AzureDiagnostics_ à dépasser sa limite. Pour tous les paramètres de diagnostic configurés avant l’activation du mode Spécifique à la ressource, une colonne est créée pour chaque paramètre utilisateur portant un nom unique par rapport à une activité. D’autres colonnes sont créées en raison de la nature détaillée des entrées et des sorties d’activité.
- 
-Vous devez migrer vos journaux pour utiliser le mode Spécifique à la ressource dans les meilleurs délais. Si vous ne pouvez pas le faire immédiatement, une alternative temporaire consiste à isoler les journaux Azure Data Factory dans leur propre espace de travail afin de minimiser les risques d'impact de ceux-ci sur d'autres types de journaux collectés dans vos espaces de travail.
 
 
 ## <a name="send-to-azure-event-hubs"></a>Envoyer à Azure Event Hubs

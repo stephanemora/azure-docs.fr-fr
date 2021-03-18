@@ -4,12 +4,12 @@ description: Symptômes, causes et résolution des défaillances de la Sauvegard
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: dd6f4d7884b120d2f8b5ea3f3ccb8d5385dd0880
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 0313394ad149460f82c98c63cab95b922b4a3da2
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93377103"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102519603"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Résoudre les problèmes d’une Sauvegarde Azure : Problèmes d’agent ou d’extension
 
@@ -23,7 +23,7 @@ Les échecs de sauvegarde les plus courants peuvent se résoudre de manière aut
 
 ### <a name="step-1-check-azure-vm-health"></a>Étape 1 : Vérifier l’intégrité de la machine virtuelle Azure
 
-- **Assurez-vous que l’état d’approvisionnement de la machine virtuelle Azure est « en cours d’exécution »**  : Si l’[état d’approvisionnement de la machine virtuelle](../virtual-machines/states-lifecycle.md#provisioning-states) est **Arrêté/Libéré/En cours de mise à jour**, cela interfère avec l’opération de sauvegarde. Ouvrez *Portail Azure > Machine virtuelle > Vue d’ensemble >* et vérifiez l’état de la machine virtuelle pour vous assurer qu’elle est **en cours d’exécution** et faites une nouvelle tentative de sauvegarde.
+- **Assurez-vous que l’état d’approvisionnement de la machine virtuelle Azure est « en cours d’exécution »**  : Si l’[état d’approvisionnement de la machine virtuelle](../virtual-machines/states-billing.md) est **Arrêté/Libéré/En cours de mise à jour**, cela interfère avec l’opération de sauvegarde. Ouvrez *Portail Azure > Machine virtuelle > Vue d’ensemble >* et vérifiez l’état de la machine virtuelle pour vous assurer qu’elle est **en cours d’exécution** et faites une nouvelle tentative de sauvegarde.
 - **Passez en revue les mises à jour ou redémarrages du système d’exploitation en attente** : Assurez-vous qu’il n’existe aucune mise à jour du système d’exploitation ni redémarrages en attente sur la machine virtuelle.
 
 ### <a name="step-2-check-azure-vm-guest-agent-service-health"></a>Étape 2 : Vérifier l’intégrité du service de l’agent invité de la machine virtuelle Azure
@@ -53,11 +53,11 @@ Sauvegarde Azure se sert de l’extension de capture instantanée de machine vir
 
 - **Vérifiez si l’antivirus bloque l’extension** : Certains logiciels antivirus peuvent empêcher l’exécution d’extensions.
   
-  Au moment de l’échec de la sauvegarde, vérifiez s’il existe des entrées de journal dans **_Journaux des applications de l’observateur d’événements_* _ avec le _*_nom de l’application défaillante : IaaSBcdrExtension.exe_*_. Si vous voyez des entrées, il se peut que l’antivirus configuré dans la machine virtuelle restreigne l’exécution de l’extension de sauvegarde. Effectuez un test en excluant les répertoires suivants dans la configuration de l’antivirus et relancez l’opération de sauvegarde.
+  Au moment de l’échec de la sauvegarde, vérifiez s’il existe des entrées de journal dans ***Journaux des applications de l’observateur d’événements** _ avec _*_faulting application name: IaaSBcdrExtension.exe_**. Si vous voyez des entrées, il se peut que l’antivirus configuré dans la machine virtuelle restreigne l’exécution de l’extension de sauvegarde. Effectuez un test en excluant les répertoires suivants dans la configuration de l’antivirus et relancez l’opération de sauvegarde.
   - `C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot`
   - `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot`
 
-- _*Vérifiez si l’accès au réseau est requis** : Les paquets d’extensions sont téléchargés à partir du référentiel d’extensions de Stockage Azure, et les chargements d’état d’extension sont publiés sur Stockage Azure. [Plus d’informations](../virtual-machines/extensions/features-windows.md#network-access)
+- **Vérifiez si l’accès au réseau est requis** : Les paquets d’extensions sont téléchargés à partir du référentiel d’extensions de Stockage Azure, et les chargements d’état d’extension sont publiés sur Stockage Azure. [Plus d’informations](../virtual-machines/extensions/features-windows.md#network-access)
   - Si vous utilisez une version non prise en charge de l’agent, vous devez autoriser l’accès sortant vers le Stockage Azure dans cette région à partir de la machine virtuelle.
   - Si vous avez bloqué l’accès à l’adresse `168.63.129.16` à l’aide du pare-feu invité ou avec un proxy, les extensions échouent, que vous utilisiez ou non une version prise en charge. Les ports 80, 443 et 32526 sont nécessaires. [En savoir plus](../virtual-machines/extensions/features-windows.md#network-access).
 
@@ -101,7 +101,7 @@ Après avoir enregistré et planifié une machine virtuelle pour le service Sauv
 **Code d’erreur** : UserErrorVmProvisioningStateFailed<br>
 **Message d’erreur** : Échec de l’approvisionnement de la machine virtuelle<br>
 
-Cette erreur se produit lorsqu’un des échecs d’extension met la machine virtuelle en état d’échec d’approvisionnement.<br>**Ouvrez Portail Azure > Machine virtuelle > Paramètres > Extensions > État de l’extension** et vérifiez que toutes les extensions sont à l’état **Approvisionnement réussi**. Pour plus d’informations, consultez [États de provisionnement](../virtual-machines/states-lifecycle.md#provisioning-states).
+Cette erreur se produit lorsqu’un des échecs d’extension met la machine virtuelle en état d’échec d’approvisionnement.<br>**Ouvrez Portail Azure > Machine virtuelle > Paramètres > Extensions > État de l’extension** et vérifiez que toutes les extensions sont à l’état **Approvisionnement réussi**. Pour plus d’informations, consultez [États de provisionnement](../virtual-machines/states-billing.md).
 
 - Si une extension est à l’état d’échec, cela peut interférer avec la sauvegarde. Assurez-vous que ces problèmes d’extension sont résolus et recommencez l’opération de sauvegarde.
 - Si l’état de provisionnement de machine virtuelle est En cours de mise à jour, il peut interférer avec la sauvegarde. Vérifiez qu’il est sain et réessayez l’opération de sauvegarde.

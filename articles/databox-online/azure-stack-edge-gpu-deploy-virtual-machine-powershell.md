@@ -6,22 +6,24 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/22/2021
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: d4a4a2e6e04f8f6247df663aba033d387e66c437
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 28988af0c1b3b5e4e5ce359abb617a66af816d69
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100546888"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102439814"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-device-via-azure-powershell"></a>Déployer des machines virtuelles sur votre appareil Azure Stack Edge via Azure PowerShell
 
-Cet article explique comment créer et gérer une machine virtuelle sur votre appareil Azure Stack Edge à l’aide d’Azure PowerShell. Cet article s'applique aux appareils Azure Stack Edge Pro GPU, Azure Stack Edge Pro R et Azure Stack Edge Mini R.
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
+
+Cet article explique comment créer et gérer une machine virtuelle sur votre appareil Azure Stack Edge à l’aide d’Azure PowerShell. Les informations s’appliquent aux appareils Azure Stack Edge Pro avec GPU (unité de traitement graphique), Azure Stack Edge Pro R et Azure Stack Edge Mini R.
 
 ## <a name="vm-deployment-workflow"></a>Workflow du déploiement de machine virtuelle
 
-Voici à quoi ressemble le workflow de déploiement :
+Le workflow du déploiement est affiché dans le diagramme suivant :
 
 ![Diagramme du workflow de déploiement d’une machine virtuelle.](media/azure-stack-edge-gpu-deploy-virtual-machine-powershell/vm-workflow-r.svg)
 
@@ -30,18 +32,18 @@ Voici à quoi ressemble le workflow de déploiement :
 [!INCLUDE [azure-stack-edge-gateway-deploy-vm-prerequisites](../../includes/azure-stack-edge-gateway-deploy-virtual-machine-prerequisites.md)]
 
 
-## <a name="query-for-built-in-subscription-on-the-device"></a>Interroger l’abonnement intégré sur l’appareil
+## <a name="query-for-a-built-in-subscription-on-the-device"></a>Rechercher un abonnement intégré sur l’appareil
 
-Pour Azure Resource Manager, un seul abonnement fixe visible par l’utilisateur est pris en charge. Cet abonnement est unique par appareil et le nom ou ID d’abonnement ne peut pas être modifié.
+Pour Azure Resource Manager, un seul abonnement fixe visible par l’utilisateur est pris en charge. Cet abonnement est unique par appareil, et le nom et l’ID de l’abonnement ne peuvent pas être modifiés.
 
-Cet abonnement contient toutes les ressources créées nécessaires à la création de la machine virtuelle. 
+L’abonnement contient toutes les ressources nécessaires à la création de la machine virtuelle. 
 
 > [!IMPORTANT]
-> Cet abonnement est créé quand vous activez des machines virtuelles à partir du portail Azure et il réside localement sur votre appareil.
+> L’abonnement est créé quand vous activez des machines virtuelles à partir du portail Azure, et il réside localement sur votre appareil.
 
-Cet abonnement est utilisé pour déployer les machines virtuelles.
+L’abonnement est utilisé pour déployer les machines virtuelles.
 
-1.  Pour lister cet abonnement, tapez :
+1.  Pour lister l’abonnement, exécutez la commande suivante :
 
     ```powershell
     Get-AzureRmSubscription
@@ -59,7 +61,7 @@ Cet abonnement est utilisé pour déployer les machines virtuelles.
     PS C:\windows\system32>
     ```
         
-1. Obtenez la liste des fournisseurs de ressources inscrits qui s’exécutent sur l’appareil. Cette liste comprend généralement le calcul, le réseau et le stockage.
+1. Obtenez une liste des fournisseurs de ressources inscrits qui s’exécutent sur l’appareil. La liste comprend habituellement le calcul, le réseau et le stockage.
 
     ```powershell
     Get-AzureRMResourceProvider
@@ -125,7 +127,7 @@ New-AzureRmStorageAccount -Name <Storage account name> -ResourceGroupName <Resou
 ```
 
 > [!NOTE]
-> À l’aide de Azure Resource Manager, vous pouvez uniquement créer des comptes de stockage locaux, tels que le stockage localement redondant (Standard ou Premium). Pour créer des comptes de stockage hiérarchisés, consultez [Didacticiel : Transférer des données par le biais de comptes de stockage avec Azure Stack Edge Pro avec GPU](azure-stack-edge-j-series-deploy-add-storage-accounts.md).
+> Avec Azure Resource Manager, vous pouvez uniquement créer des comptes de stockage locaux, tels que le stockage localement redondant (Standard ou Premium). Pour créer des comptes de stockage hiérarchisés, consultez [Tutoriel : Transférer des données par le biais de comptes de stockage avec Azure Stack Edge Pro avec GPU](azure-stack-edge-j-series-deploy-add-storage-accounts.md).
 
 Voici un exemple de sortie :
 
@@ -158,7 +160,7 @@ Context                : Microsoft.WindowsAzure.Commands.Common.Storage.LazyAzur
 ExtendedProperties     : {}
 ```
 
-Pour obtenir la clé du compte de stockage, exécutez la commande `Get-AzureRmStorageAccountKey`. Voici un exemple de sortie de cette commande :
+Pour obtenir la clé du compte de stockage, exécutez la commande `Get-AzureRmStorageAccountKey`. Voici un exemple de sortie :
 
 ```powershell
 PS C:\Users\Administrator> Get-AzureRmStorageAccountKey
@@ -177,19 +179,19 @@ key2 gd34TcaDzDgsY9JtDNMUgLDOItUU0Qur3CBo6Q...
 
 ## <a name="add-the-blob-uri-to-the-host-file"></a>Ajouter l’URI d’objet blob au fichier hôte
 
-Vous avez déjà ajouté l’URI d’objet blob dans le fichier hosts du client que vous utilisez pour vous connecter au stockage Blob Azure dans la section [Modifier le fichier hosts pour la résolution de noms de point de terminaison](azure-stack-edge-j-series-connect-resource-manager.md#step-5-modify-host-file-for-endpoint-name-resolution). Cette entrée a été utilisée pour ajouter l’URI de l’objet blob :
+Vous avez déjà ajouté l’URI de blob dans le fichier hosts du client que vous utilisez pour vous connecter au stockage Blob Azure dans « Étape 5 : Modifier le fichier hosts pour la résolution de noms de point de terminaison » de [Déployer des machines virtuelles sur votre appareil Azure Stack Edge via Azure PowerShell](azure-stack-edge-j-series-connect-resource-manager.md#step-5-modify-host-file-for-endpoint-name-resolution). Cette entrée a été utilisée pour ajouter l’URI de l’objet blob :
 
 \<Azure consistent network services VIP \> \<storage name\>.blob.\<appliance name\>.\<dnsdomain\>
 
 ## <a name="install-certificates"></a>Installer des certificats
 
-Si vous utilisez *https*, vous devez installer les certificats appropriés sur votre appareil. Dans ce cas, installez le certificat de point de terminaison d’objet blob. Pour plus d’informations, voir la procédure de création et de chargement de certificats dans [Utiliser des certificats avec des appareils Azure Stack Edge Pro avec GPU](azure-stack-edge-gpu-manage-certificates.md).
+Si vous utilisez HTTPS, vous devez installer les certificats appropriés sur votre appareil. Ici, vous installez le certificat du point de terminaison de blob. Pour plus d’informations, consultez [Utiliser des certificats avec votre appareil Azure Stack Edge Pro avec GPU](azure-stack-edge-gpu-manage-certificates.md).
 
 ## <a name="upload-a-vhd"></a>Télécharger un disque dur virtuel
 
-Copiez les images de disque à utiliser dans des objets blob de pages dans le compte de stockage local que vous avez créé lors des étapes précédentes. Vous pouvez utiliser un outil comme [AzCopy](../storage/common/storage-use-azcopy-v10.md) pour charger le disque dur virtuel sur le compte de stockage. 
+Copiez les images de disque à utiliser dans des objets blob de pages dans le compte de stockage local que vous avez créé précédemment. Vous pouvez utiliser un outil comme [AzCopy](../storage/common/storage-use-azcopy-v10.md) pour charger le disque dur virtuel (VHD) sur le compte de stockage. 
 
-<!--Before you use AzCopy, make sure that the [AzCopy is configured correctly](#configure-azcopy) for use with the blob storage REST API version that you are using with your Azure Stack Edge Pro device.
+<!--Before you use AzCopy, make sure that the [AzCopy is configured correctly](#configure-azcopy) for use with the blob storage REST API version that you're using with your Azure Stack Edge Pro device.
 
 ```powershell
 AzCopy /Source:<sourceDirectoryForVHD> /Dest:<blobContainerUri> /DestKey:<storageAccountKey> /Y /S /V /NC:32  /BlobType:page /destType:blob 
@@ -198,9 +200,9 @@ AzCopy /Source:<sourceDirectoryForVHD> /Dest:<blobContainerUri> /DestKey:<storag
 > [!NOTE]
 > Set `BlobType` to `page` for creating a managed disk out of VHD. Set `BlobType` to `block` when you're writing to tiered storage accounts by using AzCopy.
 
-You can download the disk images from Azure Marketplace. For detailed steps, see [Get the virtual disk image from Azure Marketplace](azure-stack-edge-j-series-create-virtual-machine-image.md).
+You can download the disk images from Azure Marketplace. For more information, see [Get the virtual disk image from Azure Marketplace](azure-stack-edge-j-series-create-virtual-machine-image.md).
 
-Here's a sample output using AzCopy 7.3. For more information on this command, see [Upload VHD file to storage account using AzCopy](../devtest-labs/devtest-lab-upload-vhd-using-azcopy.md).
+Here's some example output that uses AzCopy 7.3. For more information about this command, see [Upload VHD file to storage account by using AzCopy](../devtest-labs/devtest-lab-upload-vhd-using-azcopy.md).
 
 
 ```powershell
@@ -240,9 +242,9 @@ $StorageAccountSAS = New-AzureStorageAccountSASToken -Service Blob,File,Queue,Ta
 C:\AzCopy.exe  cp "$VHDPath\$VHDFile" "$endPoint$ContainerName$StorageAccountSAS"
 ```
 
-## <a name="create-managed-disks-from-the-vhd"></a>Créer des disques managés à partir du disque dur virtuel
+## <a name="create-a-managed-disk-from-the-vhd"></a>Créer un disque géré à partir du disque dur virtuel
 
-Créez un disque managé à partir du disque dur virtuel chargé.
+Pour créer un disque managé à partir du disque dur virtuel chargé, exécutez la commande suivante :
 
 ```powershell
 $DiskConfig = New-AzureRmDiskConfig -Location DBELocal -CreateOption Import -SourceUri "Source URL for your VHD"
@@ -256,7 +258,7 @@ $DiskConfig = New-AzureRmDiskConfig -Location DBELocal -CreateOption Import –S
 New-AzureRMDisk -ResourceGroupName <Resource group name> -DiskName <Disk name> -Disk $DiskConfig
 ```
 
-Voici un exemple de sortie. Pour plus d’informations sur cette applet de commande, accédez à [New-AzureRmDisk](/powershell/module/azurerm.compute/new-azurermdisk?view=azurermps-6.13.0&preserve-view=true).
+Voici un exemple de sortie. Pour plus d’informations sur cette applet de commande, consultez [New-AzureRmDisk](/powershell/module/azurerm.compute/new-azurermdisk?view=azurermps-6.13.0&preserve-view=true).
 
 ```powershell
 Tags               :
@@ -282,7 +284,7 @@ Tags               : {}
 
 ## <a name="create-a-vm-image-from-the-image-managed-disk"></a>Créer une image de machine virtuelle à partir de l’image de disque managé
 
-Utilisez la commande suivante pour créer une image de machine virtuelle à partir du disque managé. Remplacez les valeurs \< \> par les noms de votre choix.
+Pour créer une image de machine virtuelle à partir du disque managé, exécutez la commande suivante. Remplacez *\<Disk name>* , *\<OS type>* et *\<Disk size>* par des valeurs réelles.
 
 ```powershell
 $imageConfig = New-AzureRmImageConfig -Location DBELocal
@@ -296,7 +298,7 @@ Set-AzureRmImageOsDisk -Image $imageConfig -OsType 'Linux' -OsState 'Generalized
 New-AzureRmImage -Image $imageConfig -ImageName <Image name>  -ResourceGroupName <Resource group name>
 ```
 
-Voici un exemple de sortie. Pour plus d’informations sur cette applet de commande, accédez à [New-AzureRmImage](/powershell/module/azurerm.compute/new-azurermimage?view=azurermps-6.13.0&preserve-view=true).
+Voici un exemple de sortie. Pour plus d’informations sur cette applet de commande, consultez [New-AzureRmImage](/powershell/module/azurerm.compute/new-azurermimage?view=azurermps-6.13.0&preserve-view=true).
 
 ```powershell
 New-AzureRmImage -Image Microsoft.Azure.Commands.Compute.Automation.Models.PSImage -ImageName ig191113014333  -ResourceGroupName rg191113014333
@@ -312,9 +314,9 @@ Location             : dbelocal
 Tags                 : {}
 ```
 
-## <a name="create-vm-with-previously-created-resources"></a>Créer une machine virtuelle avec des ressources créées précédemment
+## <a name="create-your-vm-with-previously-created-resources"></a>Créer votre machine virtuelle avec des ressources créées précédemment
 
-Vous devez créer un seul réseau virtuel et associer une interface réseau virtuelle avant de créer et déployer la machine virtuelle.
+Avant de créer et déployer la machine virtuelle, vous devez créer un réseau virtuel et lui associer une interface de réseau virtuel.
 
 > [!IMPORTANT]
 > Les règles suivantes s’appliquent :
@@ -324,7 +326,9 @@ Vous devez créer un seul réseau virtuel et associer une interface réseau virt
 
 ### <a name="query-the-automatically-created-virtual-network"></a>Interroger le réseau virtuel créé automatiquement
 
-Lorsque vous activez le calcul à partir de l’interface utilisateur locale de votre appareil, un réseau virtuel `ASEVNET` est créé automatiquement sous le groupe de ressources `ASERG`. Utilisez la commande suivante pour interroger le réseau virtuel existant :
+Lorsque vous activez le calcul à partir de l’interface utilisateur locale de votre appareil, un réseau virtuel `ASEVNET` est créé automatiquement sous le groupe de ressources `ASERG`. 
+
+Utilisez la commande suivante pour interroger le réseau virtuel existant :
 
 ```powershell
 $aRmVN = Get-AzureRMVirtualNetwork -Name ASEVNET -ResourceGroupName ASERG 
@@ -337,14 +341,14 @@ $aRmVN = New-AzureRmVirtualNetwork -ResourceGroupName <Resource group name> -Nam
 
 ### <a name="create-a-virtual-network-interface-card"></a>Créer une carte d’interface réseau virtuelle
 
-Voici la commande permettant de créer une carte d’interface réseau virtuelle à l’aide de l’ID de sous-réseau du réseau virtuel :
+Pour créer une carte d’interface de réseau virtuel à l’aide de l’ID de sous-réseau du réseau virtuel, exécutez la commande suivante :
 
 ```powershell
 $ipConfig = New-AzureRmNetworkInterfaceIpConfig -Name <IP config Name> -SubnetId $aRmVN.Subnets[0].Id -PrivateIpAddress <Private IP>
 $Nic = New-AzureRmNetworkInterface -Name <Nic name> -ResourceGroupName <Resource group name> -Location DBELocal -IpConfiguration $ipConfig
 ```
 
-Voici un exemple de sortie de ces commandes :
+Voici un exemple de sortie :
 
 ```powershell
 PS C:\Users\Administrator> $subNetId=New-AzureRmVirtualNetworkSubnetConfig -Name my-ase-subnet -AddressPrefix "5.5.0.0/16"
@@ -406,7 +410,7 @@ Primary                     : True
 MacAddress                  : 00155D18E432                :
 ```
 
-Lorsque vous créez une carte réseau virtuelle pour une machine virtuelle, vous pouvez transmettre l’adresse IP publique. Dans ce cas, l’adresse IP publique retourne l’adresse IP privée. 
+Pendant que vous créez une carte d’interface de réseau virtuel pour une machine virtuelle, vous pouvez éventuellement transmettre l’IP publique. Dans ce cas, l’adresse IP publique retourne l’adresse IP privée. 
 
 ```powershell
 New-AzureRmPublicIPAddress -Name <Public IP> -ResourceGroupName <ResourceGroupName> -AllocationMethod Static -Location DBELocal
@@ -421,9 +425,11 @@ Vous pouvez maintenant utiliser l’image de machine virtuelle pour créer une m
 ```powershell
 $pass = ConvertTo-SecureString "<Password>" -AsPlainText -Force;
 $cred = New-Object System.Management.Automation.PSCredential("<Enter username>", $pass)
+```
 
-You will use this username, password to login to the VM, once it is created and powered up.
+Une fois que vous avez créé et mis sous tension la machine virtuelle, vous allez utiliser le nom d’utilisateur et le mot de passe suivants pour vous y connecter.
 
+```powershell
 $VirtualMachine = New-AzureRmVMConfig -VMName <VM name> -VMSize "Standard_D1_v2"
 
 $VirtualMachine = Set-AzureRmVMOperatingSystem -VM $VirtualMachine -<OS type> -ComputerName <Your computer Name> -Credential $cred
@@ -441,19 +447,19 @@ $VirtualMachine = Set-AzureRmVMSourceImage -VM $VirtualMachine -Id $image
 New-AzureRmVM -ResourceGroupName <Resource Group Name> -Location DBELocal -VM $VirtualMachine -Verbose
 ```
 
-## <a name="connect-to-a-vm"></a>Se connecter à une machine virtuelle
+## <a name="connect-to-the-vm"></a>Connexion à la machine virtuelle
 
-Selon que vous avez créé une machine virtuelle Windows ou Linux, les étapes de connexion peuvent être différentes.
+Selon que vous avez créé une machine virtuelle Windows ou Linux, les instructions de connexion peuvent être différentes.
 
-### <a name="connect-to-linux-vm"></a>Se connecter à une machine virtuelle Linux
+### <a name="connect-to-a-linux-vm"></a>Se connecter à une machine virtuelle Linux
 
-Suivez ces étapes pour vous connecter à une machine virtuelle Linux.
+Pour vous connecter à une machine virtuelle Linux, procédez comme suit :
 
 [!INCLUDE [azure-stack-edge-gateway-connect-vm](../../includes/azure-stack-edge-gateway-connect-virtual-machine-linux.md)]
 
-### <a name="connect-to-windows-vm"></a>Se connecter à une machine virtuelle Windows
+### <a name="connect-to-a-windows-vm"></a>Se connecter à une machine virtuelle Windows
 
-Suivez ces étapes pour vous connecter à une machine virtuelle Windows.
+Pour vous connecter à une machine virtuelle Windows, procédez comme suit :
 
 [!INCLUDE [azure-stack-edge-gateway-connect-vm](../../includes/azure-stack-edge-gateway-connect-virtual-machine-windows.md)]
 
@@ -475,16 +481,16 @@ If you used a public IP address during VM creation, you can use that IP to conne
 ```powershell
 $publicIp = Get-AzureRmPublicIpAddress -Name <Public IP> -ResourceGroupName <Resource group name>
 ```
-The public IP in this case is the same as the private IP that you passed during the virtual network interface creation.-->
+The public IP in this instance is the same as the private IP that you passed during the virtual network interface creation.-->
 
 
 ## <a name="manage-the-vm"></a>Gérer la machine virtuelle
 
 Les sections suivantes décrivent quelques-unes des opérations courantes que vous pouvez créer sur votre appareil Azure Stack Edge Pro.
 
-### <a name="list-vms-running-on-the-device"></a>Lister les machines virtuelles en cours d’exécution sur l’appareil
+### <a name="list-vms-that-are-running-on-the-device"></a>Lister les machines virtuelles en cours d’exécution sur l’appareil
 
-Pour retourner la liste de toutes les machines virtuelles en cours d’exécution sur votre appareil Azure Stack Edge, exécutez la commande suivante :
+Pour retourner une liste de toutes les machines virtuelles en cours d’exécution sur votre appareil Azure Stack Edge, exécutez la commande suivante :
 
 
 `Get-AzureRmVM -ResourceGroupName <String> -Name <String>`
@@ -492,27 +498,26 @@ Pour retourner la liste de toutes les machines virtuelles en cours d’exécutio
 
 ### <a name="turn-on-the-vm"></a>Activer la machine virtuelle
 
-Exécutez la cmdlet suivante pour activer une machine virtuelle en cours d’exécution sur votre appareil :
-
+Pour activer une machine virtuelle en cours d’exécution sur votre appareil, exécutez l’applet de commande suivante :
 
 `Start-AzureRmVM [-Name] <String> [-ResourceGroupName] <String>`
 
-Pour plus d’informations sur cette applet de commande, accédez à [Start-AzureRmVM](/powershell/module/azurerm.compute/start-azurermvm?view=azurermps-6.13.0&preserve-view=true).
+Pour plus d’informations sur cette applet de commande, consultez [Start-AzureRmVM](/powershell/module/azurerm.compute/start-azurermvm?view=azurermps-6.13.0&preserve-view=true).
 
 ### <a name="suspend-or-shut-down-the-vm"></a>Interrompre ou arrêter la machine virtuelle
 
-Exécutez la cmdlet suivante pour arrêter une machine virtuelle en cours d’exécution sur votre appareil :
+Pour arrêter une machine virtuelle en cours d’exécution sur votre appareil, exécutez l’applet de commande suivante :
 
 
 ```powershell
 Stop-AzureRmVM [-Name] <String> [-StayProvisioned] [-ResourceGroupName] <String>
 ```
 
-Pour plus d’informations sur cette applet de commande, accédez à [Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm?view=azurermps-6.13.0&preserve-view=true).
+Pour plus d’informations sur cette applet de commande, consultez [Stop-AzureRmVM cmdlet](/powershell/module/azurerm.compute/stop-azurermvm?view=azurermps-6.13.0&preserve-view=true).
 
 ### <a name="add-a-data-disk"></a>Ajouter un disque de données
 
-Si les exigences en matière de charge de travail qui pèsent sur votre machine virtuelle augmentent, vous devrez peut-être ajouter un disque de données.
+Si les besoins en charge de travail sur votre machine virtuelle augmentent, vous devrez peut-être ajouter un disque de données. Pour cela, exécutez la commande suivante :
 
 ```powershell
 Add-AzureRmVMDataDisk -VM $VirtualMachine -Name "disk1" -VhdUri "https://contoso.blob.core.windows.net/vhds/diskstandard03.vhd" -LUN 0 -Caching ReadOnly -DiskSizeinGB 1 -CreateOption Empty 
@@ -522,13 +527,13 @@ Update-AzureRmVM -ResourceGroupName "<Resource Group Name string>" -VM $VirtualM
 
 ### <a name="delete-the-vm"></a>Supprimer la machine virtuelle
 
-Exécutez l’applet de commande suivante pour supprimer une machine virtuelle de votre appareil :
+Pour supprimer une machine virtuelle de votre appareil, exécutez l’applet de commande suivante :
 
 ```powershell
 Remove-AzureRmVM [-Name] <String> [-ResourceGroupName] <String>
 ```
 
-Pour plus d’informations sur cette applet de commande, accédez à [Remove-AzureRmVm](/powershell/module/azurerm.compute/remove-azurermvm?view=azurermps-6.13.0&preserve-view=true).
+Pour plus d’informations sur cette applet de commande, consultez [Remove-AzureRmVm cmdlet](/powershell/module/azurerm.compute/remove-azurermvm?view=azurermps-6.13.0&preserve-view=true).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

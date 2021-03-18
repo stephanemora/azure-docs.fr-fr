@@ -6,23 +6,24 @@ services: container-service
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: a655c8c145b4f3812dae9f1a4ec1e5eebbe44809
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: d1021352f3555f49b165eed60214e11b1a8d07d9
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348472"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102508178"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Créer et configurer un cluster Azure Kubernetes Service (AKS) pour utiliser des nœuds virtuels à l’aide de l’interface de ligne de commande Azure
 
 Cet article explique comment utiliser l’interface Azure CLI pour créer et configurer les ressources de réseau virtuel et un cluster AKS, puis activer des nœuds virtuels.
 
-> [!NOTE]
-> [Cet article](virtual-nodes.md) vous donne une vue d’ensemble de la disponibilité par région et des limitations pour utiliser des nœuds virtuels.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
 Les nœuds virtuels permettent la communication réseau entre les pods qui s’exécutent dans Azure Container Instances (ACI) et le cluster AKS. Pour que cette communication ait lieu, un sous-réseau de réseau virtuel est créé et des permissions déléguées sont assignées. Les nœuds virtuels ne fonctionnent qu’avec des clusters AKS créés avec un réseau *avancé* (Azure CNI). Par défaut, les clusters AKS sont créés avec un réseau *simple* (kubenet). Cet article vous montre comment créer un réseau virtuel et des sous-réseaux, puis déployer un cluster AKS qui utilise un réseau avancé.
+
+> [!IMPORTANT]
+> Avant d’utiliser des nœuds virtuels avec AKS, passez en revue les [limitations relatives aux nœuds virtuels AKS][virtual-nodes-aks] et les [limitations d’ACI relatives aux réseaux virtuels][virtual-nodes-networking-aci]. Ces limitations affectent l’emplacement, la configuration réseau, ainsi que d’autres informations de configuration du cluster AKS et des nœuds virtuels.
 
 Si vous n’avez pas encore utilisé ACI, inscrivez le fournisseur de services avec votre abonnement. Vous pouvez vérifier l’état d’inscription du fournisseur d’ACI à l’aide de la commande [az provider list][az-provider-list], comme dans l’exemple suivant :
 
@@ -62,7 +63,7 @@ az group create --name myResourceGroup --location westus
 
 ## <a name="create-a-virtual-network"></a>Créez un réseau virtuel
 
-Utilisez la commande [az network vnet create][az-network-vnet-create] pour créer un réseau virtuel. L’exemple suivant crée un réseau virtuel nommé *myVnet* avec un préfixe d’adresse de *10.0.0.0/8* et un sous-réseau nommé *myAKSSubnet*. Par défaut, le préfixe d’adresse de ce sous-réseau est *10.240.0.0/16*  :
+Utilisez la commande [az network vnet create][az-network-vnet-create] pour créer un réseau virtuel. L’exemple suivant crée un réseau virtuel nommé *myVnet* avec un préfixe d’adresse de *10.0.0.0/8* et un sous-réseau nommé *myAKSSubnet*. Par défaut, le préfixe d’adresse de ce sous-réseau est *10.240.0.0/16* :
 
 ```azurecli-interactive
 az network vnet create \
@@ -85,7 +86,7 @@ az network vnet subnet create \
 
 ## <a name="create-a-service-principal-or-use-a-managed-identity"></a>Créer un principal de service ou utiliser une identité managée
 
-Pour permettre à un cluster AKS d’interagir avec d’autres ressources Azure, un principal du service Azure Active Directory est utilisé. Ce principal du service peut être créé automatiquement par Azure CLI ou le portail, ou vous pouvez en précréer un et lui affecter des autorisations supplémentaires. Pour les autorisations, vous pouvez également utiliser une identité managée au lieu d’un principal de service. Pour plus d’informations, consultez [Utiliser des identités managées](use-managed-identity.md).
+Pour permettre à un cluster AKS d’interagir avec d’autres ressources Azure, une identité de cluster est automatiquement utilisée. Cette identité de cluster peut être créée automatiquement par Azure CLI ou le portail. Vous pouvez également en précréer une et lui attribuer des autorisations supplémentaires. Par défaut, cette identité de cluster est une identité managée. Pour plus d’informations, consultez [Utiliser des identités managées](use-managed-identity.md). Vous pouvez également utiliser un principal de service comme identité de cluster. Les étapes suivantes vous montrent comment créer et affecter manuellement le principal du service à votre cluster.
 
 Créez un principal du service à l’aide de la commande [az ad sp create-for-rbac][az-ad-sp-create-for-rbac]. Le paramètre `--skip-assignment` limite l’affectation d’autorisations supplémentaires.
 
@@ -175,7 +176,7 @@ Pour vérifier la connexion à votre cluster, utilisez la commande [kubectl get]
 kubectl get nodes
 ```
 
-L’exemple de sortie suivant illustre l’unique nœud de machine virtuelle créé, puis le nœud virtuel Linux, *virtual-node-aci-linux*  :
+L’exemple de sortie suivant illustre l’unique nœud de machine virtuelle créé, puis le nœud virtuel Linux, *virtual-node-aci-linux* :
 
 ```output
 NAME                          STATUS    ROLES     AGE       VERSION
@@ -352,3 +353,5 @@ Les nœuds virtuels constituent souvent l’un des composants d’une solution d
 [aks-basic-ingress]: ingress-basic.md
 [az-provider-list]: /cli/azure/provider#az-provider-list
 [az-provider-register]: /cli/azure/provider#az-provider-register
+[virtual-nodes-aks]: virtual-nodes.md
+[virtual-nodes-networking-aci]: ../container-instances/container-instances-virtual-network-concepts.md

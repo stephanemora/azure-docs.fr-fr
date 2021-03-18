@@ -4,12 +4,12 @@ description: Découvrez comment créer et gérer plusieurs pools de nœuds pour 
 services: container-service
 ms.topic: article
 ms.date: 04/08/2020
-ms.openlocfilehash: 07c4628a17d2c76e8e4608c9c6d059a81a9c378f
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 3e029695e9dce79473ada0bae3e7f0bbfd30db89
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/05/2021
-ms.locfileid: "102182857"
+ms.locfileid: "102218483"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Créer et gérer plusieurs pools de nœuds pour un cluster dans Azure Kubernetes Service (AKS)
 
@@ -130,9 +130,11 @@ Une charge de travail peut nécessiter le fractionnement des nœuds d'un cluster
 #### <a name="limitations"></a>Limites
 
 * Tous les sous-réseaux attribués aux pools de nœuds doivent appartenir au même réseau virtuel.
-* Les pods système doivent avoir accès à tous les nœuds du cluster pour fournir les fonctionnalités critiques telles que la résolution DNS via coreDNS.
-* Dans le cadre de la préversion, l'attribution d'un sous-réseau unique par pool de nœuds est limitée à Azure CNI.
-* L'utilisation de stratégies réseau avec un sous-réseau unique par pool de nœuds n'est pas prise en charge dans le cadre de la préversion.
+* Les pods système doivent avoir accès à tous les nœuds ou pods du cluster afin de fournir les fonctionnalités critiques telles que la résolution DNS et le proxy de tunneling kubectl logs/exec/port-forward.
+* Si vous développez votre réseau virtuel après la création du cluster, vous devez mettre à jour votre cluster (vous pouvez effectuer n’importe quelle opération de cluster managé, sauf les opérations de pool de nœuds qui ne comptent pas) avant d’ajouter un sous-réseau en dehors du CIDR d’origine. AKS générera une erreur pour l’option Ajouter maintenant du pool d’agents, même si celle-ci était autorisée auparavant. Si vous ne savez pas comment rapprocher votre cluster, ouvrez un ticket de support. 
+* La stratégie réseau Calico n’est pas prise en charge. 
+* La stratégie réseau Azure n’est pas prise en charge.
+* Kube-proxy attend un CIDR contigu, qu’il utilise pour trois optimisations. Pour plus d’informations, consultez [K.E.P.](https://github.com/kubernetes/enhancements/blob/master/keps/sig-network/20191104-iptables-no-cluster-cidr.md ) et [--cluster-cidr](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/). Dans Azure CNI, le sous-réseau de votre premier nœud est attribué à kube-proxy. 
 
 Pour créer un pool de nœuds avec un sous-réseau dédié, transmettez l'ID de ressource du sous-réseau en tant que paramètre supplémentaire lors de la création du pool de nœuds.
 

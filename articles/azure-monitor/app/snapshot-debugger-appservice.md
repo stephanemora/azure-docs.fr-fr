@@ -6,16 +6,20 @@ author: cweining
 ms.author: cweining
 ms.date: 03/26/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 421f80493a9cb88e8bbbddc06aa9a24042b64b17
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: 5a637a6f355be32f82878a52a30c77d020190651
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97695462"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102211615"
 ---
 # <a name="enable-snapshot-debugger-for-net-apps-in-azure-app-service"></a>Activer le Débogueur de capture instantanée pour les applications .NET dans Azure App Service
 
-Le Débogueur de capture instantanée fonctionne actuellement pour les applications ASP.NET et ASP.NET Core s’exécutant sur Azure App Service sur des plans de service Windows. Lorsque vous utilisez le Débogueur de capture instantanée, nous vous recommandons d'exécuter votre application au niveau de service De base (ou supérieur). Pour la plupart des applications, la mémoire disponible ou l’espace disque avec les niveaux de service Gratuit et Partagé est insuffisant pour enregistrer les captures instantanées.
+Le Débogueur de capture instantanée prend en charge les applications ASP.NET et ASP.NET Core qui s’exécutent sur Azure App Service dans des plans de service Windows.
+
+Lorsque vous utilisez le Débogueur de capture instantanée, nous vous recommandons d’exécuter votre application au niveau de service De base ou supérieur.
+
+Pour la plupart des applications, la mémoire disponible ou l’espace disque avec les niveaux de service Gratuit et Partagé est insuffisant pour enregistrer les captures instantanées.
 
 ## <a name="enable-snapshot-debugger"></a><a id="installation"></a> Activer le Débogueur de capture instantanée
 Pour activer le Débogueur de capture instantanée pour une application, suivez les instructions ci-dessous.
@@ -28,7 +32,10 @@ Si vous exécutez un autre type de service Azure, voici les instructions à suiv
 * [Machines virtuelles ou physiques locales](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 
 > [!NOTE]
-> Si vous utilisez une préversion de .NET Core ou que votre application fait référence au Kit de développement logiciel (SDK) Application Insights, directement ou indirectement via un assembly dépendant, suivez d’abord les instructions pour [activer Débogueur de capture instantanée pour d’autres environnements](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) pour inclure le package NuGet [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) avec l’application, puis effectuez le reste des instructions ci-dessous. 
+> Si vous utilisez une préversion de .NET Core ou si votre application référence le SDK Application Insights, directement ou indirectement via un assembly dépendant, suivez les instructions permettant d’[activer le Débogueur de capture instantanée pour d’autres environnements](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) en vue d’inclure le package NuGet [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) avec l’application, puis suivez le reste des instructions ci-dessous. 
+>
+> L’installation sans code du Débogueur de capture instantanée Application Insights suit la politique de support .NET Core.
+> Pour plus d’informations sur les runtimes pris en charge, consultez [Politique de support .NET Core](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).
 
 Débogueur de capture instantanée est préinstallé dans le cadre du runtime d’App Services, mais vous devez l’activer pour obtenir des captures instantanées pour votre application App Service.
 
@@ -46,6 +53,16 @@ Une fois que vous avez déployé une application, suivez les étapes ci-dessous 
 4. Le Débogueur de capture instantanée est maintenant activé à l’aide d’un paramètre d’application App Services.
 
     ![Paramètre d’application pour le Débogueur de capture instantanée][snapshot-debugger-app-setting]
+
+## <a name="enable-snapshot-debugger-for-other-clouds"></a>Activer le Débogueur de capture instantanée pour les autres clouds
+
+Seules les régions [Azure Government](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure#application-insights) et [Azure Chine](https://docs.microsoft.com/azure/china/resources-developer-guide) nécessitent la modification de leurs points de terminaison par le biais d’une chaîne de connexion Application Insights.
+
+|Propriété de chaîne de connexion    | Cloud US Government | China Cloud |   
+|---------------|---------------------|-------------|
+|SnapshotEndpoint         | `https://snapshot.monitor.azure.us`    | `https://snapshot.monitor.azure.cn` |
+
+Pour plus d’informations sur les autres substitutions de connexion, consultez la [documentation Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net#connection-string-with-explicit-endpoint-overrides).
 
 ## <a name="disable-snapshot-debugger"></a>Désactiver le Débogueur de capture instantanée
 

@@ -3,25 +3,25 @@ title: Surveiller et utiliser les sauvegardes avec le Centre de sauvegarde
 description: Cet article explique comment surveiller et utiliser les sauvegardes à grande échelle à l’aide du Centre de sauvegarde
 ms.topic: conceptual
 ms.date: 09/01/2020
-ms.openlocfilehash: 1c40f7804a0f0bb7694e6df205648d3ad20ad80e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 86b81110d6abeb1425e18ee45dfe65a96f69687d
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101719540"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102506123"
 ---
-# <a name="monitor-and-operate-backups-using-backup-center"></a>Surveiller et utiliser les sauvegardes avec le Centre de sauvegarde
+# <a name="monitor-and-operate-backups-using-backup-center"></a>Superviser et utiliser des sauvegardes avec le Centre de sauvegarde
 
-En tant qu’administrateur de sauvegarde, vous pouvez utiliser le Centre de sauvegarde comme volet unique pour surveiller vos travaux et l’inventaire des sauvegardes quotidiennement. Vous pouvez également utiliser le Centre de sauvegarde pour effectuer vos opérations courantes, telles que la réponse à des demandes de sauvegarde à la demande, la restauration des sauvegardes, la création de stratégies de sauvegarde, etc.
+En tant qu’administrateur de sauvegarde, vous pouvez utiliser le Centre de sauvegarde comme volet unique pour superviser vos travaux et l’inventaire des sauvegardes quotidiennement. Vous pouvez également utiliser le Centre de sauvegarde pour effectuer vos opérations courantes, telles que la réponse à des demandes de sauvegarde à la demande, la restauration des sauvegardes, la création de stratégies de sauvegarde, etc.
 
 ## <a name="supported-scenarios"></a>Scénarios pris en charge
 
-* Le Centre de sauvegarde est actuellement pris en charge pour la sauvegarde des machines virtuelles Azure, la sauvegarde de machines virtuelles SQL dans Azure, la sauvegarde de machines virtuelles SAP HANA dans Azure, la sauvegarde Azure Files, la sauvegarde des blobs Azure, la sauvegarde des disques managés Azure et la sauvegarde des serveurs Azure Database pour PostgreSQL.
+* Le Centre de sauvegarde est actuellement pris en charge pour la sauvegarde des machines virtuelles Azure, la sauvegarde des machines virtuelles SQL dans Azure, la sauvegarde des machines virtuelles SAP HANA dans Azure, la sauvegarde Azure Files, la sauvegarde des blobs Azure, la sauvegarde des disques managés Azure et la sauvegarde des serveurs Azure Database pour PostgreSQL.
 * Reportez-vous à la [matrice de prise en charge ](backup-center-support-matrix.md) pour obtenir une liste détaillée des scénarios pris en charge et non pris en charge.
 
 ## <a name="backup-instances"></a>Instances de sauvegarde
 
-Le Centre de sauvegarde facilite la recherche et la détectabilité des instances de sauvegarde dans l’ensemble de votre espace de sauvegarde.
+Le Centre de sauvegarde facilite la recherche et la découvertibilité des instances de sauvegarde dans l’ensemble de votre espace de sauvegarde.
 
 La sélection de l’onglet **Instances de sauvegarde** du Centre de sauvegarde vous permet d’afficher les détails relatifs à toutes les instances de sauvegarde auxquelles vous avez accès.
 

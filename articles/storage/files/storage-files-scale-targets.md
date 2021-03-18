@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 6ef255d78d3dd3ff6fcc5eba7aad522018185299
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: ffc5f49e357591b41a18ae15c5551c1f447095fb
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100518893"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102440307"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Objectifs de performance et d’extensibilité d'Azure Files
 [Azure Files](storage-files-introduction.md) offre des partages de fichiers entièrement gérés dans le cloud, accessibles à l’aide des protocoles SMB et de système de fichiers NFS. Cet article présente les objectifs de performance et d’extensibilité pour Azure Files et Azure File Sync.
@@ -126,10 +126,21 @@ Pour vous aider à planifier votre déploiement pour chacune des phases, voici l
 | Débit de téléchargement d’espace de noms | 400 objets par seconde |
 
 ### <a name="initial-one-time-provisioning"></a>Provisionnement initial unique
+
 **Énumération initiale des modifications cloud** : Lors de la création d’un groupe de synchronisation, l’énumération initiale des modifications cloud est la première étape qui s’exécutera. Dans ce processus, le système énumère tous les éléments du partage de fichiers Azure. Pendant ce processus, il n’y aura aucune activité de synchronisation, c’est-à-dire qu’aucun élément ne sera téléchargé du point de terminaison cloud vers le point de terminaison de serveur et qu’aucun élément ne sera chargé du point de terminaison de serveur vers le point de terminaison cloud. L’activité de synchronisation reprendra une fois l’énumération initiale des modifications cloud terminée.
 Le taux de performances est de 20 objets par seconde. Les clients peuvent estimer le temps nécessaire pour effectuer l’énumération initiale des modifications cloud en déterminant le nombre d’éléments dans le partage cloud et en utilisant les formules suivantes pour obtenir la durée en jours. 
 
    **Durée (en jours) de l’énumération initiale des modifications cloud = (Nombre d’objets dans le point de terminaison cloud)/(20 * 60 * 60 * 24)**
+
+**Synchronisation initiale des données de Windows Server vers le partage de fichiers Azure** : de nombreux déploiements Azure File Sync commencent avec un partage de fichiers Azure vide, car toutes les données se trouvent sur le serveur Windows. Dans ce cas, l’énumération initiale de la modification cloud est rapide, et la plupart du temps est consacrée à la synchronisation des modifications de Windows Server vers le ou les partages de fichiers Azure. 
+
+Pendant que la synchronisation charge des données sur le partage de fichiers Azure, il n’y a aucun temps d’arrêt sur le serveur de fichiers local, et les administrateurs peuvent [configurer des limites réseau](https://docs.microsoft.com/azure/storage/files/storage-sync-files-server-registration#set-azure-file-sync-network-limits) afin de limiter la quantité de bande passante utilisée pour le chargement des données en arrière-plan.
+
+La synchronisation initiale est généralement limitée par le taux de chargement initial de 20 fichiers par seconde par groupe de synchronisation. Les clients peuvent estimer le temps nécessaire pour charger toutes leurs données sur Azure à l’aide de la formule suivante, qui donne la durée en jours :  
+
+   **Durée (en jours) du chargement de fichiers vers un groupe de synchronisation = (Nombre d’objets dans le point de terminaison cloud)/(20 * 60 * 60 * 24)**
+
+Le fractionnement de vos données en plusieurs points de terminaison de serveur et groupes de synchronisation peut accélérer le chargement initial des données, car le chargement peut être effectué en parallèle pour plusieurs groupes de synchronisation à un taux de 20 éléments par seconde. Ainsi, deux groupes de synchronisation s’exécutent à un taux combiné de 40 éléments par seconde. La durée totale de l’opération correspondra à l’estimation de la durée pour le groupe de synchronisation ayant le plus de fichiers à synchroniser.
 
 **Débit de téléchargement d’espace de noms** : Lorsqu’un nouveau point de terminaison de serveur est ajouté à un groupe de synchronisation existant, l’agent Azure File Sync ne télécharge aucun contenu de fichier à partir du point de terminaison cloud. Il synchronise d’abord l’espace de noms complet, puis déclenche un rappel en arrière-plan pour télécharger les fichiers dans leur intégralité ou, si la hiérarchisation cloud est activée, sur la stratégie de hiérarchisation de cloud définie sur le point de terminaison.
 

@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: a9bb87206ccb0dca56c1744d5578eac7a17418c7
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: e8641cada03577cf22e6627bdf53b2a8a0e836ef
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101726391"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102216381"
 ---
 # <a name="azure-functions-http-trigger"></a>Déclencheur HTTP Azure Functions
 
@@ -596,7 +596,7 @@ Avec cette configuration, la fonction est désormais adressable avec l’itinér
 http://<APP_NAME>.azurewebsites.net/api/products/electronics/357
 ```
 
-Cette configuration permet au code de la fonction de prendre en charge deux paramètres dans l'adresse, _category_ et _id_.
+Cette configuration permet au code de la fonction de prendre en charge deux paramètres dans l'adresse, _category_ et _id_. Pour plus d’informations sur la façon dont les paramètres de routage sont tokenisés dans une URL, consultez [Routage dans ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/routing#route-constraint-reference).
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -888,7 +888,7 @@ Pour sécuriser complètement vos points de terminaison de fonction en productio
 
 [!INCLUDE [functions-deploy-isolation](../../includes/functions-deploy-isolation.md)]
 
-## <a name="webhooks"></a>Webhooks
+## <a name="webhooks"></a>webhooks
 
 > [!NOTE]
 > Le mode Webhook est disponible seulement pour la version 1.x du runtime Functions. Cette modification a été apportée afin d’améliorer les performances des déclencheurs HTTP dans les versions 2.x et ultérieures.

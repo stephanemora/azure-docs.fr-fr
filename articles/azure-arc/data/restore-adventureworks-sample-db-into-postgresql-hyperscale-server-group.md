@@ -1,5 +1,5 @@
 ---
-title: Restaurer l’exemple de base de données AdventureWorks avec PostgreSQL Hyperscale activé par Azure Arc
+title: Importer l’exemple de base de données AdventureWorks dans PostgreSQL Hyperscale avec Azure Arc
 description: Restaurer l’exemple de base de données AdventureWorks avec PostgreSQL Hyperscale activé par Azure Arc
 services: azure-arc
 ms.service: azure-arc
@@ -9,14 +9,14 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: b1ee779be118fcafd0efa2bd2718ece1c34c50d1
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: a9efa17fb782d5a913493907b66973272e4e0356
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97954326"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102441786"
 ---
-# <a name="restore-the-adventureworks-sample-database-to-azure-arc-enabled-postgresql-hyperscale"></a>Restaurer l’exemple de base de données AdventureWorks avec PostgreSQL Hyperscale activé par Azure Arc
+# <a name="import-the-adventureworks-sample-database-to-azure-arc-enabled-postgresql-hyperscale"></a>Importer l’exemple de base de données AdventureWorks dans PostgreSQL Hyperscale avec Azure Arc
 
 [AdventureWorks](/sql/samples/adventureworks-install-configure) est un exemple de base de données contenant une base de données OLTP utilisée dans des tutoriels et pour des exemples. Il est fourni et géré par Microsoft dans le [Dépôt GitHub d’échantillons SQL Server](https://github.com/microsoft/sql-server-samples/tree/master/samples/databases).
 
@@ -24,7 +24,7 @@ Un projet open source a converti la base de données AdventureWorks pour qu’el
 - [Projet d’origine](https://github.com/lorint/AdventureWorks-for-Postgres)
 - [Suivre sur le projet qui convertit les fichiers CSV afin qu’ils soient compatibles avec PostgreSQL](https://github.com/NorfolkDataSci/adventure-works-postgres)
 
-Ce document décrit un processus simple pour récupérer l’exemple de base de données AdventureWorks dans votre groupe de serveurs PostgreSQL Hyperscale.
+Ce document décrit un processus simple permettant d’importer l’exemple de base de données AdventureWorks dans votre groupe de serveurs PostgreSQL Hyperscale.
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
@@ -38,7 +38,7 @@ Exécutez une commande comme celle-ci pour télécharger le fichier en remplaça
 >  Pour télécharger le fichier à partir de GitHub, votre conteneur doit disposer d’une connexion Internet sur le port 443.
 
 > [!NOTE]
->  Utilisez le nom pod du nœud coordinateur du groupe de serveurs Postgres Hyperscale. Son nom est <server group name>-0.  Si vous n’êtes pas sûr du nom de pod, exécutez la commande `kubectl get pod`
+>  Utilisez le nom pod du nœud coordinateur du groupe de serveurs Postgres Hyperscale. Son nom est <server group name>c-0 (par exemple, postgres01c-0, où c représente le nœud coordinateur).  Si vous n’êtes pas sûr du nom de pod, exécutez la commande `kubectl get pod`
 
 ```console
 kubectl exec <PostgreSQL pod name> -n <namespace name> -c postgres  -- /bin/bash -c "cd /tmp && curl -k -O https://raw.githubusercontent.com/microsoft/azure_arc/main/azure_arc_data_jumpstart/aks/arm_template/postgres_hs/AdventureWorks.sql"
@@ -47,7 +47,7 @@ kubectl exec <PostgreSQL pod name> -n <namespace name> -c postgres  -- /bin/bash
 #kubectl exec postgres02-0 -n arc -c postgres -- /bin/bash -c "cd /tmp && curl -k -O https://raw.githubusercontent.com/microsoft/azure_arc/main/azure_arc_data_jumpstart/aks/arm_template/postgres_hs/AdventureWorks.sql"
 ```
 
-## <a name="step-2-restore-the-adventureworks-database"></a>Étape 2 : Restaurer la base de données AdventureWorks
+## <a name="step-2-import-the-adventureworks-database"></a>Étape 2 : Importer la base de données AdventureWorks
 
 Vous pouvez également exécuter une commande exec kubectl pour utiliser l’outil d’interface de ligne de commande psql qui est inclus dans les conteneurs de groupe de serveurs PostgreSQL Hyperscale afin de créer et charger la base de données.
 
@@ -60,7 +60,7 @@ kubectl exec <PostgreSQL pod name> -n <namespace name> -c postgres -- psql --use
 #kubectl exec postgres02-0 -n arc -c postgres -- psql --username postgres -c 'CREATE DATABASE "adventureworks";'
 ```
 
-Exécutez ensuite une commande comme celle-ci pour restaurer la base de données en remplaçant la valeur du nom de pod et du nom d’espace de noms avant de l’exécuter.
+Exécutez ensuite une commande comme celle-ci pour importer la base de données en remplaçant la valeur du nom de pod et du nom d’espace de noms avant de l’exécuter.
 
 ```console
 kubectl exec <PostgreSQL pod name> -n <namespace name> -c postgres -- psql --username postgres -d adventureworks -f /tmp/AdventureWorks.sql

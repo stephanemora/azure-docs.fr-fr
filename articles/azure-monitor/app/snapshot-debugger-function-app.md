@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: cweining
 ms.author: cweining
 ms.date: 12/18/2020
-ms.openlocfilehash: d86455eae0834f29099c7d5c96f8326408daf519
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: ac25962cac36a149807b67a44b3b88a4f40c954a
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98675527"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102211938"
 ---
 # <a name="enable-snapshot-debugger-for-net-and-net-core-apps-in-azure-functions"></a>Activer le Débogueur de capture instantanée pour les applications .NET et .NET Core dans Azure Functions
 
@@ -123,6 +123,35 @@ Fichier hôte
   }
 }
 ```
+
+## <a name="enable-snapshot-debugger-for-other-clouds"></a>Activer le Débogueur de capture instantanée pour les autres clouds
+
+Actuellement, seules les régions [Azure Government](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure#application-insights) et [Azure Chine](https://docs.microsoft.com/azure/china/resources-developer-guide) nécessitent des modifications de leurs points de terminaison.
+
+Voici un exemple d’un `host.json` mis à jour avec le point de terminaison de l’agent cloud US Government :
+```json
+{
+  "version": "2.0",
+  "logging": {
+    "applicationInsights": {
+      "samplingExcludedTypes": "Request",
+      "samplingSettings": {
+        "isEnabled": true
+      },
+      "snapshotConfiguration": {
+        "isEnabled": true,
+        "agentEndpoint": "https://snapshot.monitor.azure.us"
+      }
+    }
+  }
+}
+```
+
+Voici les valeurs de substitution prises en charge pour le point de terminaison de l’agent Débogueur de capture instantanée :
+
+|Propriété    | Cloud US Government | China Cloud |   
+|---------------|---------------------|-------------|
+|AgentEndpoint         | `https://snapshot.monitor.azure.us`    | `https://snapshot.monitor.azure.cn` |
 
 ## <a name="disable-snapshot-debugger"></a>Désactiver le Débogueur de capture instantanée
 

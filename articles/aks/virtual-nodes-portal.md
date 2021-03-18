@@ -5,12 +5,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 4c67d3608d2128385c273425ea495a02fa5a8c45
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 06a3e7263b2e03cfc37f7ba3c733e07536b5d473
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102180902"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102501802"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Créer et configurer un cluster Azure Kubernetes Service (AKS) pour utiliser des nœuds virtuels sur le Portail Azure
 
@@ -64,7 +64,7 @@ Sur la page **Mise à l’échelle**, sélectionnez *Activé* sous **Nœuds virt
 
 ![Créer un cluster AKS et activer les nœuds virtuels](media/virtual-nodes-portal/enable-virtual-nodes.png)
 
-Par défaut, un principal de service Azure Active Directory est créé. Il a pour fonctions la communication entre les clusters et la compatibilité avec d’autres services Azure. Pour les autorisations, vous pouvez également utiliser une identité managée au lieu d’un principal de service. Pour plus d’informations, consultez [Utiliser des identités managées](use-managed-identity.md).
+Une identité de cluster est créée par défaut. Cette identité de cluster est utilisée pour la communication entre les clusters et l’intégration à d’autres services Azure. Par défaut, cette identité de cluster est une identité managée. Pour plus d’informations, consultez [Utiliser des identités managées](use-managed-identity.md). Vous pouvez également utiliser un principal de service comme identité de cluster.
 
 Le cluster est également configuré pour offrir une mise en réseau avancée. Les nœuds virtuels sont paramétrés de façon à utiliser leur propre sous-réseau de réseau virtuel Azure. Ce sous-réseau possède des permissions déléguées pour se connecter à des ressources Azure entre le cluster AKS. Si vous ne disposez pas de sous-réseau délégué, le Portail Azure crée et configure le réseau virtuel Azure et le sous-réseau d’une manière compatible avec les nœuds virtuels.
 

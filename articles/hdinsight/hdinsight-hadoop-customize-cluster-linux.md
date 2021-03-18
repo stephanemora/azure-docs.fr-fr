@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-azurecli, contperf-fy21q2
 ms.date: 09/02/2020
-ms.openlocfilehash: 46be3349490f04660d4fc8b69e4cdc295d8ecc1c
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: ed1277df0ebfa42d6ee95d58fa568241b291656b
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98945805"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102434676"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Personnaliser des clusters Azure HDInsight à l’aide d’actions de script
 
@@ -68,7 +68,7 @@ Une personne disposant au moins d’un accès Contributeur à l’abonnement Azu
 Obtenez plus d’informations sur le fonctionnement de la gestion des accès :
 
 - [Bien démarrer avec la gestion des accès dans le portail Azure](../role-based-access-control/overview.md)
-- [Utiliser les attributions de rôle pour gérer l’accès à vos ressources d’abonnement Azure](../role-based-access-control/role-assignments-portal.md)
+- [Attribuer des rôles Azure pour gérer l’accès aux ressources de votre abonnement Azure](../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="methods-for-using-script-actions"></a>Méthodes d’utilisation des actions de script
 
@@ -198,7 +198,7 @@ La création du cluster peut prendre plusieurs minutes.
 
 ### <a name="use-a-script-action-during-cluster-creation-from-the-hdinsight-net-sdk"></a>Utiliser une action de script lors de la création d’un cluster à l’aide du kit HDInsight .NET SDK
 
-Le kit HDInsight .NET SDK fournit des bibliothèques clientes qui facilitent l’utilisation d’HDInsight à partir d’une application .NET. Pour obtenir un exemple de code, consultez [Actions de script](/dotnet/api/overview/azure/hdinsight?view=azure-dotnet&preserve-view=true#script-actions).
+Le kit HDInsight .NET SDK fournit des bibliothèques clientes qui facilitent l’utilisation d’HDInsight à partir d’une application .NET. Pour obtenir un exemple de code, consultez [Actions de script](/dotnet/api/overview/azure/hdinsight#script-actions).
 
 ## <a name="script-action-to-a-running-cluster"></a>Action de script sur un cluster en cours d’exécution
 

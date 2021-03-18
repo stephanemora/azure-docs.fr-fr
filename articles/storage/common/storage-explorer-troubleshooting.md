@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 07/28/2020
 ms.author: delhan
-ms.openlocfilehash: 9a20db58846ca48afb4fb256adae58e1fccdff3a
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 15df9b38abe35fe3eefad2fa160e1c1f16fe7aa7
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98875734"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102439457"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guide de résolution des problèmes de l’Explorateur de stockage Azure
 
@@ -58,14 +58,22 @@ Si vous ne disposez d’un rôle qui accorde une autorisation d’accès à la c
 
 ### <a name="what-if-i-cant-get-the-management-layer-permissions-i-need-from-my-administrator"></a>Que se passe-t-il si je n’obtiens pas les autorisations d’accès à la couche de gestion que mon administrateur doit me fournir ?
 
-Si vous souhaitez accéder à des files d’attente ou des conteneurs d’objets BLOB, vous pouvez les attacher à ces ressources à l’aide de vos informations d’identification Azure.
+Si vous souhaitez accéder à des conteneurs d’objets blob, à des conteneurs ou répertoires ADLS Gen2, ou à des files d’attente, vous pouvez les attacher à ces ressources à l’aide de vos informations d’identification Azure.
 
 1. Ouvrez la boîte de dialogue de connexion.
-2. Sélectionnez « Ajouter une ressource avec Azure Active Directory (Azure AD) ». Sélectionnez Suivant.
-3. Sélectionnez le compte d’utilisateur et le locataire associés à la ressource à laquelle vous effectuez l’attachement. Sélectionnez Suivant.
-4. Sélectionnez le type de ressource, entrez l’URL de la ressource, puis entrez un nom d’affichage unique pour la connexion. Sélectionnez Suivant, puis Se connecter.
+1. Sélectionnez le type de ressource auquel vous voulez vous connecter.
+1. Sélectionnez **Se connecter à l’aide d’Azure Active Directory (Azure AD)** . Sélectionnez **Suivant**.
+1. Sélectionnez le compte d’utilisateur et le locataire associés à la ressource à laquelle vous effectuez l’attachement. Sélectionnez **Suivant**.
+1. Entrez l’URL de la ressource, puis entrez un nom d’affichage unique pour la connexion. Sélectionnez **Suivant**, puis **Se connecter**.
 
-Pour les autres types de ressource, nous n’avons actuellement pas de solution liée à Azure RBAC. En guise de moyen de contournement, vous pouvez demander un URI SAP à [attacher à votre ressource](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=linux#use-a-shared-access-signature-uri).
+Pour les autres types de ressource, nous n’avons actuellement pas de solution liée à Azure RBAC. En guise de solution de contournement, vous pouvez demander une URL SAS, puis l’attacher à votre ressource en effectuant les étapes suivantes :
+
+1. Ouvrez la boîte de dialogue de connexion.
+1. Sélectionnez le type de ressource auquel vous voulez vous connecter.
+1. Sélectionnez **Signature d’accès partagé (SAS)** . Sélectionnez **Suivant**.
+1. Entrez l’URL SAS que vous avez reçue, et entrez un nom d’affichage unique pour la connexion. Sélectionnez **Suivant**, puis **Se connecter**.
+ 
+Pour plus d’informations sur l’attachement à des ressources, consultez [Attacher à une ressource individuelle](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=linux#attach-to-an-individual-resource).
 
 ### <a name="recommended-azure-built-in-roles"></a>Rôles intégrés Azure recommandés
 

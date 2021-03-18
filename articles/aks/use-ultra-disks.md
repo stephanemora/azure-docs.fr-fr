@@ -4,12 +4,12 @@ description: Découvrez les procédure d’activation et de configuration de dis
 services: container-service
 ms.topic: article
 ms.date: 07/10/2020
-ms.openlocfilehash: d66b806adb7285e0ce2a21d8fe9254b3dbe89bcb
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: c743162ed3f75386287e050443e82069e797ced9
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102178845"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102502567"
 ---
 # <a name="use-azure-ultra-disks-on-azure-kubernetes-service-preview"></a>Utiliser des disques Ultra Azure dans Azure Kubernetes Service (version préliminaire)
 
@@ -84,7 +84,7 @@ Si vous souhaitez créer des clusters sans prise en charge des disques Ultra, vo
 
 ## <a name="enable-ultra-disks-on-an-existing-cluster"></a>Activer les disques Ultra sur un cluster existant
 
-Vous pouvez activer les disques Ultra sur les clusters existants en ajoutant un nouveau pool de nœuds à votre cluster qui prend en charge les disques Ultra. Configurez un nouveau pool de nœuds pour utiliser le chiffrement basé sur l’hôte à l’aide de l’indicateur `--aks-custom-headers`.
+Vous pouvez activer les disques Ultra sur les clusters existants en ajoutant un nouveau pool de nœuds à votre cluster qui prend en charge les disques Ultra. Configurez un nouveau pool de nœuds pour utiliser des disques Ultra à l’aide de l’indicateur `--aks-custom-headers`.
 
 ```azurecli
 az aks nodepool add --name ultradisk --cluster-name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_L8s_v2 --zones 1 2 --node-count 2 --aks-custom-headers EnableUltraSSD=true

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2020
 ms.author: Zhchia
-ms.openlocfilehash: 4e43ebba9f5f3d0c52d1d03bbf6baca92d5b87a4
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 0a9615e6bcb350732ccd7b2cf27dad3b46a7e4b3
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96178685"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102427009"
 ---
 # <a name="tutorial-configure-github-ae-for-automatic-user-provisioning"></a>Tutoriel : Configurer GitHub AE pour l’approvisionnement automatique d’utilisateurs
 
@@ -32,6 +32,7 @@ Ce tutoriel décrit les étapes à suivre dans GitHub AE et Azure Active Directo
 > * Création d’utilisateurs dans GitHub AE
 > * Suppression d’utilisateurs dans GitHub AE quand ils n’ont plus besoin d’accès
 > * Maintien de la synchronisation des attributs utilisateur entre Azure AD et GitHub AE
+> * Provisionner des groupes et des appartenances aux groupes dans GitHub AE
 > * Authentification unique auprès de [GitHub AE](./github-ae-tutorial.md) (recommandé)
 
 ## <a name="prerequisites"></a>Prérequis
@@ -59,7 +60,7 @@ Ajoutez GitHub AE à partir de la galerie d’applications Azure AD pour pouvoi
 
 Le service d’approvisionnement Azure AD vous permet de définir l’étendue des utilisateurs approvisionnés en fonction de l’affectation à l’application et/ou en fonction des attributs de l’utilisateur et/ou du groupe. Si vous choisissez de définir l’étendue de l’approvisionnement pour votre application en fonction de l’affectation, vous pouvez utiliser les [étapes](../manage-apps/assign-user-or-group-access-portal.md) suivantes pour affecter des utilisateurs et/ou des groupes à l’application. Si vous choisissez de définir l’étendue de l’approvisionnement en fonction uniquement des attributs de l’utilisateur et/ou du groupe, vous pouvez utiliser un filtre d’étendue comme décrit [ici](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
-* Quand vous attribuez des utilisateurs à GitHub AE, vous devez sélectionner un rôle différent du rôle **Accès par défaut**. Les utilisateurs disposant du rôle Accès par défaut sont exclus de l’approvisionnement et sont marqués comme non autorisés dans les journaux de configuration. Si le seul rôle disponible dans l’application est le rôle d’accès par défaut, vous pouvez [mettre à jour le manifeste de l’application](../develop/howto-add-app-roles-in-azure-ad-apps.md) pour ajouter des rôles supplémentaires. 
+* Quand vous attribuez des utilisateurs et des groupes à GitHub AE, vous devez sélectionner un autre rôle que le rôle **Accès par défaut**. Les utilisateurs disposant du rôle Accès par défaut sont exclus de l’approvisionnement et sont marqués comme non autorisés dans les journaux de configuration. Si le seul rôle disponible dans l’application est le rôle d’accès par défaut, vous pouvez [mettre à jour le manifeste de l’application](../develop/howto-add-app-roles-in-azure-ad-apps.md) pour ajouter des rôles supplémentaires. 
 
 * Commencez progressivement. Testez avec un petit ensemble d’utilisateurs et/ou de groupes avant d’effectuer un déploiement général. Lorsque l’étendue de l’approvisionnement est définie sur les utilisateurs et/ou les groupes affectés, vous pouvez contrôler cela en affectant un ou deux utilisateurs et/ou groupes à l’application. Lorsque l’étendue est définie sur tous les utilisateurs et groupes, vous pouvez spécifier un [filtre d’étendue basé sur l’attribut](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
@@ -111,17 +112,27 @@ Cette section vous guide tout au long des étapes de configuration du service d�
    |name.formatted|String|
    |displayName|String|
 
-10. Pour configurer des filtres d’étendue, reportez-vous aux instructions suivantes fournies dans [Approvisionnement d’applications basé sur les attributs avec filtres d’étendue](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+10. Sous la section **Mappages**, sélectionnez **Synchroniser les groupes Azure Active Directory avec GitHub AE**.
 
-11. Pour activer le service d’approvisionnement Azure AD pour GitHub AE, définissez **l’état d’approvisionnement** sur **Activé** dans la section **Paramètres**.
+11. Dans la section **Mappages des attributs**, vérifiez les attributs de groupes qui sont synchronisés entre Azure AD et GitHub AE. Les attributs sélectionnés comme propriétés de **Correspondance** sont utilisés pour la mise en correspondance des groupes dans GitHub AE, dans le cadre des opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
+
+      |Attribut|Type|
+      |---|---|
+      |displayName|String|
+      |externalId|String|
+      |membres|Informations de référence|
+
+12. Pour configurer des filtres d’étendue, reportez-vous aux instructions suivantes fournies dans [Approvisionnement d’applications basé sur les attributs avec filtres d’étendue](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+
+13. Pour activer le service d’approvisionnement Azure AD pour GitHub AE, définissez **l’état d’approvisionnement** sur **Activé** dans la section **Paramètres**.
 
     ![État d’approvisionnement activé](common/provisioning-toggle-on.png)
 
-12. Définissez les utilisateurs et/ou les groupes que vous souhaitez approvisionner sur GitHub AE en choisissant les valeurs souhaitées dans **Étendue** dans la section **Paramètres**.
+14. Définissez les utilisateurs et/ou les groupes que vous souhaitez approvisionner sur GitHub AE en choisissant les valeurs souhaitées dans **Étendue** dans la section **Paramètres**.
 
     ![Étendue de l’approvisionnement](common/provisioning-scope.png)
 
-13. Lorsque vous êtes prêt à effectuer l’approvisionnement, cliquez sur **Enregistrer**.
+15. Lorsque vous êtes prêt à effectuer l’approvisionnement, cliquez sur **Enregistrer**.
 
     ![Enregistrement de la configuration de l’approvisionnement](common/provisioning-configuration-save.png)
 
@@ -133,6 +144,10 @@ Une fois que vous avez configuré l’approvisionnement, utilisez les ressources
 1. Utilisez les [journaux d’approvisionnement](../reports-monitoring/concept-provisioning-logs.md) pour déterminer quels utilisateurs ont été configurés avec succès ou échoué.
 2. Consultez la [barre de progression](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) pour afficher l’état du cycle d’approvisionnement et quand il se termine
 3. Si la configuration de l’approvisionnement semble se trouver dans un état non sain, l’application passe en quarantaine. Pour en savoir plus sur les états de quarantaine, cliquez [ici](../app-provisioning/application-provisioning-quarantine-status.md).  
+
+## <a name="change-log"></a>Journal des modifications
+
+* 18/02/2021 - Ajout de la prise en charge du provisionnement de groupes.
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

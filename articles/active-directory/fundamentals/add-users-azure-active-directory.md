@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 11/12/2019
+ms.date: 03/05/2021
 ms.author: ajburnle
-ms.reviewer: jeffsta
+ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de529a8ffb0c72854904717c71dbc322c919f1a8
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 51f1b122cb005f47e9816db3b403a35f4f502248
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95996693"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102426822"
 ---
 # <a name="add-or-delete-users-using-azure-active-directory"></a>Ajouter ou supprimer des utilisateurs à l’aide d’Azure Active Directory
 
@@ -74,6 +74,9 @@ Si vous avez un environnement avec Azure Active Directory (cloud) et Windows Ser
 
 Vous pouvez supprimer un utilisateur existant à l’aide du portail Azure Active Directory.
 
+>[!Note]
+>Pour supprimer des utilisateurs de votre organisation, vous devez disposer du rôle Administrateur général ou Administrateur d’utilisateurs. Les administrateurs généraux peuvent supprimer tous les utilisateurs, y compris les autres administrateurs. Les administrateurs d’utilisateurs peuvent supprimer tous les utilisateurs non administrateurs, les administrateurs du support technique et les autres administrateurs d’utilisateurs. Pour plus d’informations, consultez [Autorisations des rôles d’administrateur dans Azure AD](https://docs.microsoft.com/azure/active-directory/roles/permissions-reference).
+
 Pour supprimer un utilisateur, effectuez les étapes suivantes :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/) à l'aide d'un compte d'administrateur d'utilisateurs de l'organisation.
@@ -91,7 +94,7 @@ L’utilisateur est supprimé et n’apparaît plus sur la page **Utilisateurs :
 Lorsqu'un utilisateur est supprimé, toutes les licences utilisées par celui-ci sont mises à la disposition d'autres utilisateurs.
 
 >[!Note]
->Vous devez utiliser Windows Server Active Directory pour mettre à jour l’identité, les informations de contact ou sur l’emploi des utilisateurs dont la source d’autorité est Windows Server Active Directory. Une fois la mise à jour terminée, vous devez attendre la fin du prochain cycle de synchronisation pour constater les modifications.
+>Pour mettre à jour l’identité, les informations de contact ou les informations concernant le poste des utilisateurs dont la source d’autorité est Windows Server Active Directory, vous devez utiliser Windows Server Active Directory. Une fois la mise à jour terminée, vous devez attendre la fin du prochain cycle de synchronisation pour constater les modifications.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

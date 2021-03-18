@@ -3,16 +3,16 @@ title: Effectuer des actions à l’aide du Centre de sauvegarde
 description: Cet article explique comment effectuer des actions à l’aide du Centre de sauvegarde.
 ms.topic: conceptual
 ms.date: 09/07/2020
-ms.openlocfilehash: 06229eb0b8cb76482035d3dfe1949c3ab8354f17
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 8c21475e5a52cdce7e38bbeb9d00df3c3ac3a752
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98894573"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102506447"
 ---
-# <a name="perform-actions-using-backup-center-preview"></a>Effectuer des actions à l’aide du Centre de sauvegarde (préversion)
+# <a name="perform-actions-using-backup-center"></a>Effectuer des actions à l’aide du Centre de sauvegarde
 
-Le Centre de sauvegarde vous permet d’effectuer des actions de sauvegarde de clés à partir d’une interface centrale sans devoir accéder à un coffre individuel. Voici quelques actions que vous pouvez effectuer à partir du Centre de sauvegarde :
+Le Centre de sauvegarde vous permet d’effectuer des actions de sauvegarde de clés à partir d’une interface centralisée, sans devoir accéder à un coffre en particulier. Voici quelques actions que vous pouvez effectuer à partir du Centre de sauvegarde :
 
 * Configurer la sauvegarde pour vos sources de données
 * Restaurer une instance de sauvegarde
@@ -23,7 +23,7 @@ Le Centre de sauvegarde vous permet d’effectuer des actions de sauvegarde de c
 
 ## <a name="supported-scenarios"></a>Scénarios pris en charge
 
-* Le Centre de sauvegarde est actuellement pris en charge pour la sauvegarde des machines virtuelles Azure, la sauvegarde de machines virtuelles SQL dans Azure, la sauvegarde de machines virtuelles SAP HANA dans Azure, et la sauvegarde des serveurs Azure Database pour PostgreSQL.
+* Le Centre de sauvegarde est actuellement pris en charge pour la sauvegarde des machines virtuelles Azure, la sauvegarde des machines virtuelles SQL dans Azure, la sauvegarde des machines virtuelles SAP HANA dans Azure, la sauvegarde Azure Files et la sauvegarde des serveurs Azure Database pour PostgreSQL.
 * Reportez-vous à la [matrice de prise en charge ](backup-center-support-matrix.md) pour obtenir une liste détaillée des scénarios pris en charge et non pris en charge.
 
 ## <a name="configure-backup"></a>Configurer une sauvegarde
@@ -116,7 +116,7 @@ Selon le type de source de données que vous souhaitez sauvegarder, suivez les i
 
 Le Centre de sauvegarde vous permet de rechercher des instances de sauvegarde au sein de votre espace de sauvegarde et d’exécuter des opérations de sauvegarde à la demande.
 
-Pour déclencher une sauvegarde à la demande, accédez au Centre de sauvegarde et sélectionnez l’élément de menu **Instances de sauvegarde**. La sélection de cette option vous permet d’afficher les détails relatifs à toutes les instances de sauvegarde auxquelles vous avez accès. Vous pouvez rechercher l’instance de sauvegarde que vous souhaitez sauvegarder. Cliquez avec le bouton droit sur un élément de la grille pour ouvrir une liste des actions disponibles. Sélectionnez l’option **Sauvegarder maintenant** pour exécuter une sauvegarde à la demande.
+Pour déclencher une sauvegarde à la demande, accédez au Centre de sauvegarde, puis sélectionnez l’élément de menu **Instances de sauvegarde**. La sélection de cette option vous permet d’afficher les détails relatifs à toutes les instances de sauvegarde auxquelles vous avez accès. Vous pouvez rechercher l’instance de sauvegarde que vous souhaitez sauvegarder. Cliquez avec le bouton droit sur un élément de la grille pour ouvrir une liste des actions disponibles. Sélectionnez l’option **Sauvegarder maintenant** pour exécuter une sauvegarde à la demande.
 
 ![Sauvegarde à la demande](./media/backup-center-actions/backup-center-on-demand-backup.png)
 
@@ -128,7 +128,7 @@ Pour déclencher une sauvegarde à la demande, accédez au Centre de sauvegarde 
 
 Dans certains scénarios, vous pouvez être amené à arrêter la sauvegarde d’une instance de sauvegarde, par exemple lorsque la ressource sous-jacente en cours de sauvegarde n’existe plus.
 
-Pour déclencher une sauvegarde à la demande, accédez au Centre de sauvegarde et sélectionnez l’élément de menu **Instances de sauvegarde**. Ce faisant, tous les détails relatifs aux instances de sauvegarde auxquelles vous avez accès s’affichent. Vous pouvez rechercher l’instance de sauvegarde que vous souhaitez sauvegarder. Cliquez avec le bouton droit sur un élément de la grille pour ouvrir une liste des actions disponibles. Sélectionnez l’option **Arrêter la sauvegarde** pour arrêter la sauvegarde de l’instance de sauvegarde.
+Pour déclencher une sauvegarde à la demande, accédez au Centre de sauvegarde, puis sélectionnez l’élément de menu **Instances de sauvegarde**. Ce faisant, tous les détails relatifs aux instances de sauvegarde auxquelles vous avez accès s’affichent. Vous pouvez rechercher l’instance de sauvegarde que vous souhaitez sauvegarder. Cliquez avec le bouton droit sur un élément de la grille pour ouvrir une liste des actions disponibles. Sélectionnez l’option **Arrêter la sauvegarde** pour arrêter la sauvegarde de l’instance de sauvegarde.
 
 ![Arrêter la protection](./media/backup-center-actions/backup-center-stop-protection.png)
 

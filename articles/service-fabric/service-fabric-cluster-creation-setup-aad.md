@@ -3,12 +3,12 @@ title: Configuration d’Azure Active Directory pour l’authentification des cl
 description: Découvrez comment configurer Azure Active Directory (Azure AD) pour authentifier les clients des clusters Service Fabric.
 ms.topic: conceptual
 ms.date: 6/28/2019
-ms.openlocfilehash: 537a81a090828d3fcc9dde6032f1d4eb2df9b4e4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a1f89e144f9cef12c5bff87befb00a88bad8d7d9
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86258773"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102215967"
 ---
 # <a name="set-up-azure-active-directory-for-client-authentication"></a>Configuration d’Azure Active Directory pour l’authentification des clients
 
@@ -27,7 +27,7 @@ Un cluster Service Fabric offre plusieurs points d’entrée pour ses fonctionna
 
 
 ## <a name="prerequisites"></a>Prérequis
-Dans cet article, nous partons du principe que vous avez déjà créé un locataire. Si ce n’est pas le cas, commencez par lire [Guide pratique pour obtenir un locataire Azure Active Directory][active-directory-howto-tenant].
+Dans cet article, nous partons du principe que vous avez déjà créé un locataire. Si ce n’est pas le cas, commencez par lire [Obtention d’un client Azure Active Directory][active-directory-howto-tenant].
 
 Pour simplifier certaines des étapes impliquées dans la configuration d’Azure AD avec un cluster Service Fabric, nous avons créé un ensemble de scripts Windows PowerShell.
 
@@ -57,7 +57,7 @@ Le paramètre *WebApplicationReplyUrl* est le point de terminaison par défaut q
 
 https://&lt;cluster_domain&gt;:19080/Explorer
 
-Vous êtes invité à vous connecter à un compte qui dispose de privilèges d’administration pour le locataire Azure AD. Une fois que vous vous êtes connecté, le script crée les applications web et native pour représenter votre cluster Service Fabric. Si vous regardez les applications du locataire dans le [portail Azure][azure-portal], vous devez voir deux nouvelles entrées :
+Vous êtes invité à vous connecter à un compte qui dispose de privilèges d’administration pour le locataire Azure AD. Une fois que vous vous êtes connecté, le script crée les applications web et native pour représenter votre cluster Service Fabric. Si vous examinez les applications du client dans le [Portail Azure][azure-portal], vous devez voir deux nouvelles entrées :
 
    * *ClusterName*\_Cluster
    * *ClusterName*\_Client
@@ -87,16 +87,16 @@ Aucun rôle n’a été affecté à l’utilisateur dans l’application Azure A
 #### <a name="solution"></a>Solution
 Suivez les instructions de configuration d’Azure AD et affectez des rôles utilisateur. Nous vous recommandons également d’activer l’option Affectation de l’utilisateur requise pour accéder à l’application, comme le fait `SetupApplications.ps1`.
 
-### <a name="connection-with-powershell-fails-with-an-error-the-specified-credentials-are-invalid"></a>La connexion à PowerShell échoue avec l’erreur suivante : « Les informations d’identification spécifiées sont non valides ».
+### <a name="connection-with-powershell-fails-with-an-error-the-specified-credentials-are-invalid"></a>La connexion avec PowerShell échoue avec un message d’erreur : « Les informations d’identification spécifiées ne sont pas valides »
 #### <a name="problem"></a>Problème
-Lorsque vous utilisez PowerShell pour vous connecter au cluster à l’aide du mode de sécurité « AzureActiveDirectory », une fois que vous vous êtes connecté à Azure AD, la connexion échoue avec le message d’erreur suivant : « Les informations d’identification spécifiées sont non valides ».
+Lorsque vous utilisez PowerShell pour vous connecter au cluster à l’aide du mode de sécurité « AzureActiveDirectory », une fois que vous vous êtes connecté à Azure AD, la connexion échoue avec un message d’erreur : « Les informations d’identification spécifiées ne sont pas valides. »
 
 #### <a name="solution"></a>Solution
 La solution est la même que pour le problème précédent.
 
-### <a name="service-fabric-explorer-returns-a-failure-when-you-sign-in-aadsts50011"></a>Service Fabric Explorer retourne un code d’échec lors de la connexion : « AADSTS50011 »
+### <a name="service-fabric-explorer-returns-a-failure-when-you-sign-in-aadsts50011"></a>Lorsque vous vous connectez, Service Fabric Explorer renvoie un message d’échec : « AADSTS50011 »
 #### <a name="problem"></a>Problème
-Lorsque vous essayez de vous connecter à Azure AD dans Service Fabric Explorer, la page retourne un message d’échec : « AADSTS50011 : L’adresse de réponse &lt;url&gt; ne correspond pas aux adresses de réponse configurées pour l’application : &lt;guid&gt; ».
+Lorsque vous essayez de vous connecter à Azure AD dans Service Fabric Explorer, la page renvoie un message d’échec : « AADSTS50011 : l’adresse de réponse &lt;url&gt; ne correspond pas aux adresses de réponse configurées pour l’application : &lt;guid&gt;. »
 
 ![L’adresse de réponse SFX ne correspond pas][sfx-reply-address-not-match]
 
@@ -110,7 +110,7 @@ Dans la page d’inscription d’application Azure AD pour votre cluster, sélec
 
 ### <a name="connecting-to-the-cluster-using-azure-ad-authentication-via-powershell-gives-an-error-when-you-sign-in-aadsts50011"></a>La connexion au cluster à l’aide de l’authentification Azure AD via PowerShell génère une erreur lorsque vous vous connectez : « AADSTS50011 »
 #### <a name="problem"></a>Problème
-Quand vous essayez de vous connecter à un cluster Service Fabric à l’aide d’Azure AD via PowerShell, la page de connexion renvoie un message d’erreur : « AADSTS50011 : L’URL de réponse spécifiée dans la requête ne correspond pas aux URL de réponse configurées pour l’application : &lt;guid&gt;. »
+Quand vous essayez de vous connecter à un cluster Service Fabric à l’aide d’Azure AD via PowerShell, la page de connexion retourne un message d’erreur : « AADSTS50011 : L’URL de réponse spécifiée dans la requête ne correspond pas aux URL de réponse configurées pour l’application : &lt; guid &gt; ».
 
 #### <a name="reason"></a>Motif
 À l’instar du problème précédent, PowerShell tente de s’authentifier auprès d’Azure AD, qui fournit une URL de redirection qui n’est pas répertoriée dans la liste **URL de réponse** de l’application Azure AD.  
@@ -138,7 +138,7 @@ Après avoir configuré les applications Azure Active Directory et défini les r
 
 
 <!-- Links -->
-[azure-CLI]:https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest
+[azure-CLI]:https://docs.microsoft.com/cli/azure/get-started-with-azure-cli
 [azure-portal]: https://portal.azure.com/
 [service-fabric-cluster-security]: service-fabric-cluster-security.md
 [active-directory-howto-tenant]:../active-directory/develop/quickstart-create-new-tenant.md

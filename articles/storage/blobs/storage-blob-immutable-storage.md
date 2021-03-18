@@ -9,12 +9,12 @@ ms.date: 02/01/2021
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: ad660ee69bb568e1a76d59344cf31fbf044aaae9
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 8d04d1bd758480ec33a7480e4045d28ed750f22e
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100581433"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102430936"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>Stocker des données blob critiques pour l’entreprise avec un stockage immuable
 
@@ -44,13 +44,13 @@ Le stockage immuable prend en charge les fonctionnalités suivantes :
 
 - **Prise en charge de tous les niveaux d’objets blob** : Les stratégies WORM sont indépendantes du niveau de Stockage Blob Azure et s’appliquent à tous les niveaux (chaud, froid et archive). Les clients peuvent transférer les données au niveau ayant le coût le plus adapté à leurs charges de travail tout en conservant l’immuabilité des données.
 
-- **Configuration au niveau du conteneur** : Les utilisateurs peuvent configurer des stratégies de conservation limitée dans le temps et des balises de conservation légale au niveau du conteneur. Grâce à de simples paramètres au niveau du conteneur, ils ont la possibilité de créer et verrouiller des stratégies de conservation limitée dans le temps, d’étendre les périodes de conservation, de définir et supprimer des archivages juridiques, etc. Ces stratégies s’appliquent à tous les objets blob du conteneur, anciens ou nouveaux.
+- **Configuration au niveau du conteneur** : Les utilisateurs peuvent configurer des stratégies de conservation limitée dans le temps et des balises de conservation légale au niveau du conteneur. Grâce à de simples paramètres au niveau du conteneur, ils ont la possibilité de créer et verrouiller des stratégies de conservation limitée dans le temps, d’étendre les périodes de conservation, de définir et supprimer des archivages juridiques, etc. Ces stratégies s’appliquent à tous les objets blob du conteneur, anciens ou nouveaux. Pour un compte prenant en charge HNS, ces stratégies s’appliquent également à tous les répertoires d’un conteneur.
 
 - **Prise en charge des enregistrements d’audit** : chaque conteneur comprend un journal d’audit de stratégie. Il présente jusqu’à sept commandes pour les stratégies de conservation limitée dans le temps verrouillées, et contient l’ID utilisateur, le type commande, les valeurs d’horodatage et l’intervalle de rétention. En ce qui concerne les stratégies d’archivage juridique, il comporte l’identifiant utilisateur, le type de commande, les timestamps et les balises d’archivage juridique. Ce journal est conservé pendant toute la durée de vie de la stratégie, conformément aux instructions réglementaires SEC 17a-4(f). Le [Journal d’activité Azure](../../azure-monitor/essentials/platform-logs-overview.md) est un journal plus complet de toutes les activités du plan de contrôle tandis que les [journaux de ressources Azure](../../azure-monitor/essentials/platform-logs-overview.md) mémorisent et affichent les opérations du plan de données. Il est de la responsabilité de l’utilisateur de stocker ces journaux d’activité de manière persistante, car ceux-ci peuvent être nécessaires à des fins réglementaires ou autres.
 
 ## <a name="how-it-works"></a>Fonctionnement
 
-Le stockage immuable du Stockage Blob Azure prend en charge deux types de stratégies WORM ou immuables : la conservation limitée dans le temps et l’archivage juridique. Lorsqu’une stratégie de conservation limitée dans le temps ou d’archivage juridique est appliquée sur un conteneur, tous les objets blob existants prennent l’état WORM immuable en moins de 30 secondes. Tous les nouveaux objets blob chargés dans ce conteneur protégé par une stratégie ont également cet état. Une fois que tous les objets blob sont à l’état immuable, la stratégie immuable est confirmée et aucune opération de remplacement ou de suppression n’est autorisée dans le conteneur immuable.
+Le stockage immuable du Stockage Blob Azure prend en charge deux types de stratégies WORM ou immuables : la conservation limitée dans le temps et l’archivage juridique. Lorsqu’une stratégie de conservation limitée dans le temps ou d’archivage juridique est appliquée sur un conteneur, tous les objets blob existants prennent l’état WORM immuable en moins de 30 secondes. Tous les nouveaux objets blob chargés dans ce conteneur protégé par une stratégie ont également cet état. Une fois que tous les objets blob sont à l’état immuable, la stratégie immuable est confirmée et aucune opération de remplacement ou de suppression n’est autorisée dans le conteneur immuable. Dans le cas d’un compte prenant en charge HNS, les objets blob ne peuvent pas être renommés ou déplacés vers un autre répertoire.
 
 La suppression du conteneur et du compte de stockage n’est pas non plus autorisée si le conteneur contient des objets blob protégés par une conservation légale ou une stratégie limitée dans le temps verrouillée. Une stratégie de conservation légale vous protège contre la suppression des objets blob, des conteneurs et des comptes de stockage. Les stratégies limitées dans le temps verrouillées et déverrouillées assurent une protection contre la suppression des objets blob pendant la durée spécifiée. Les stratégies limitées dans le temps verrouillées et déverrouillées assurent une protection contre la suppression des conteneurs à condition qu’ils contiennent au moins un objet blob. Seul un conteneur assorti d’une stratégie limitée dans le temps *verrouillée* assure une protection contre la suppression des comptes de stockage ; les conteneurs assortis de stratégies limitées dans le temps déverrouillées n’offrent pas de conformité ni de protection contre la suppression des comptes de stockage.
 
@@ -175,6 +175,9 @@ Oui. Lors de la définition initiale d’une stratégie de conservation limitée
 **Puis-je utiliser la suppression réversible en même temps que les stratégies de blob immuable ?**
 
 Oui, si vos exigences de conformité autorisent l’activation de la suppression réversible. [La suppression réversible pour le Stockage Blob Azure](./soft-delete-blob-overview.md) s’applique à tous les conteneurs d’un compte de stockage, indépendamment de la conservation légale ou d’une stratégie de rétention limitée dans le temps. Nous recommandons d’activer la suppression réversible pour une protection supplémentaire avant d’appliquer et de confirmer toutes les stratégies WORM immuables.
+
+**Pour un compte prenant en charge HNS, puis-je renommer ou déplacer un objet blob lorsqu’il est à l’état immuable ?**
+Non. Le nom et la structure de répertoires sont considérés comme des données de niveau conteneur importantes qui ne peuvent pas être modifiées une fois la stratégie immuable en place. Le renommage et le déplacement sont uniquement disponibles pour les comptes prenant en charge HNS de manière générale.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

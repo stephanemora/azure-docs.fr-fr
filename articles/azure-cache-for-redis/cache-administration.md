@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/05/2017
 ms.author: yegu
-ms.openlocfilehash: 156dfd1d9553e369357eb68225e722222a59d847
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0a79b0b5b5f21d1c75fec6b062f1ca91cfe9dd1f
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91838668"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102219197"
 ---
 # <a name="how-to-administer-azure-cache-for-redis"></a>Guide pratique pour administrer le Cache Azure pour Redis
 Cette rubrique explique comment effectuer des tâches d’administration comme le [redémarrage](#reboot) et la [planification des mises à jour](#schedule-updates) de vos instances du Cache Azure pour Redis.
@@ -57,6 +57,8 @@ Oui, toutes les connexions client sont effacées si vous réinitialisez le cache
 > 
 > 
 
+
+
 ### <a name="will-i-lose-data-from-my-cache-if-i-do-a-reboot"></a>Vais-je perdre les données dans mon cache si je redémarre ?
 Si vous redémarrez les nœuds **Master** et **Réplica**, toutes les données du cache (ou dans cette partition, si vous utilisez un cache Premium avec activation du clustering) peuvent être perdues, mais cela n’est pas systématique. Si vous avez configuré la [persistance des données](cache-how-to-premium-persistence.md), la sauvegarde la plus récente est restaurée au moment où le cache est de nouveau en ligne. Toutefois, toute écriture de cache intervenue après cette sauvegarde est perdue.
 
@@ -69,8 +71,9 @@ Oui. Pour connaître les instructions PowerShell, voir [Redémarrer un Cache Azu
 Le panneau **Planification de mises à jour** vous permet de désigner une fenêtre de maintenance pour votre instance de cache. Une fenêtre de maintenance vous permet de contrôler le ou les jours et l’heure ou les heures d’une semaine où la ou les machines virtuelles hébergeant votre cache peuvent être mises à jour. Le cache Azure Cache pour Redis s’efforce de démarrer et de terminer la mise à jour du logiciel serveur Redis dans la fenêtre de temps que vous avez définie.
 
 > [!NOTE] 
-> Notez que la fenêtre de maintenance s’applique uniquement aux mises à jour du serveur Redis et non à toutes les mises à jour d’Azure ou celles du système d’exploitation des machines virtuelles qui hébergent le cache.
+> La fenêtre de maintenance s’applique aux mises à jour du serveur Redis, ainsi qu’aux mises à jour du système d’exploitation des machines virtuelles qui hébergent le cache. La fenêtre de maintenance ne s’applique pas aux mises à jour du système d’exploitation hôte pour les hôtes qui hébergent des machines virtuelles de cache ou d’autres composants Azure Networking. Dans de rares cas, lorsque des caches sont hébergés sur des modèles plus anciens (si votre cache se trouve sur un modèle plus ancien, le nom DNS du cache correspondra au suffixe « cloudapp.net », « chinacloudapp.cn », « usgovcloudapi.net » ou « cloudapi.de »), la fenêtre de maintenance ne s’appliquera pas non plus aux mises à jour du système d’exploitation invité.
 >
+
 
 ![Planifier les mises à jour](./media/cache-administration/redis-schedule-updates.png)
 

@@ -7,14 +7,23 @@ ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: f95585237bbee743083b855dd78cc850c4daffe8
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: ff26318cafdf493579961fc718643f831ae9efeb
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102202686"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102564252"
 ---
 # <a name="migrate-from-linux-to-a-hybrid-cloud-deployment-with-azure-file-sync"></a>Migrer de Linux vers un déploiement de cloud hybride avec Azure File Sync
+
+Cet article sur la migration, comme d’autres, comporte les mots clés NFS et Azure File Sync. Vérifiez qu’il s’applique à votre scénario :
+
+> [!div class="checklist"]
+> * Source de données : stockage NAS (Network-Attached Storage)
+> * Itinéraire de migration : serveur Linux avec Samba &rArr; Windows Server 2012 R2 ou version ultérieure &rArr; synchronisation avec le ou les partages de fichiers Azure
+> * Mise en cache des fichiers en local : oui, l’objectif final est un déploiement Azure File Sync.
+
+Si votre scénario est différent, consultez le [tableau des guides de migration](storage-files-migration-overview.md#migration-guides).
 
 Azure File Sync fonctionne sur des instances Windows Servers avec un stockage en attachement direct (DAS). Il ne prend en charge ni la synchronisation vers et depuis des clients Linux, ni un partage SMB (Server Message Block) distant, ni des partages NFS (Network File System).
 
@@ -22,13 +31,13 @@ Par conséquent, la transformation de vos services de fichiers en un déploiemen
 
 ## <a name="migration-goals"></a>Objectifs de la migration
 
-L’objectif est de déplacer les partages que vous avez sur votre serveur Samba Linux vers une instance Windows Server. Utilisez ensuite Azure File Sync pour un déploiement de cloud hybride. Cette migration doit être effectuée de manière à garantir l’intégrité des données de production, ainsi que la disponibilité pendant la migration. Garantir la disponibilité implique de garder les temps d’arrêt à un niveau minimal pour qu’ils respectent les fenêtres de maintenance habituelles ou ne les dépassent que légèrement.
+L’objectif est de déplacer les partages que vous avez sur votre serveur Samba Linux vers une instance Windows Server. Utilisez ensuite Azure File Sync pour un déploiement de cloud hybride. Cette migration doit être effectuée de manière à garantir l’intégrité des données de production et la disponibilité pendant la migration. Garantir la disponibilité implique de garder les temps d’arrêt à un niveau minimal pour qu’ils respectent les fenêtres de maintenance habituelles ou ne les dépassent que légèrement.
 
 ## <a name="migration-overview"></a>Vue d’ensemble de la migration
 
 Comme mentionné dans l’[article de présentation de la migration](storage-files-migration-overview.md) Azure Files, il est important d’utiliser l’outil de copie et l’approche appropriés. Votre serveur Samba Linux expose les partages SMB directement sur votre réseau local. Robocopy, intégré à Windows Server, est la meilleure façon de déplacer vos fichiers dans ce scénario de migration.
 
-Si vous n’exécutez pas Samba sur votre serveur Linux et que vous souhaitez plutôt migrer des dossiers vers un déploiement hybride sur Windows Server, vous pouvez utiliser les outils de copie de Linux au lieu de Robocopy. Si vous le faites, tenez compte des capacités de fidélité dans votre outil de copie de fichiers. Consultez la [section sur les bases de la migration](storage-files-migration-overview.md#migration-basics) dans l’article de présentation de la migration pour savoir ce qu’il faut rechercher dans un outil de copie.
+Si vous n’exécutez pas Samba sur votre serveur Linux et que vous souhaitez plutôt migrer des dossiers vers un déploiement hybride sur Windows Server, vous pouvez utiliser les outils de copie de Linux au lieu de Robocopy. Tenez compte des capacités de fidélité de votre outil de copie. Consultez la [section sur les bases de la migration](storage-files-migration-overview.md#migration-basics) dans l’article de présentation de la migration pour savoir ce qu’il faut rechercher dans un outil de copie.
 
 ## <a name="phase-1-identify-how-many-azure-file-shares-you-need"></a>Phase 1 : Identifier le nombre de partages de fichiers Azure dont vous avez besoin
 
@@ -39,11 +48,13 @@ Si vous n’exécutez pas Samba sur votre serveur Linux et que vous souhaitez pl
 * Créez une instance Windows Server 2019 comme machine virtuelle ou comme serveur physique. Windows Server 2012 R2 est la configuration minimale requise. Un cluster de basculement Windows Server est également pris en charge.
 * Approvisionnez ou ajoutez un stockage en attachement direct (DAS). Le stockage attaché au réseau (NAS) n’est pas pris en charge.
 
-  Si vous utilisez la fonctionnalité de [hiérarchisation cloud](storage-sync-cloud-tiering-overview.md) d’Azure File Sync, la quantité de stockage que vous approvisionnez peut être inférieure à celle que vous utilisez actuellement sur votre serveur Samba Linux. Toutefois, lorsque vous copiez vos fichiers de l’espace plus grand du serveur Samba Linux vers le volume plus petit de Windows Server à une étape ultérieure, vous devrez travailler par lots :
+  Si vous utilisez la fonctionnalité de [hiérarchisation cloud](storage-sync-cloud-tiering-overview.md) d’Azure File Sync, la quantité de stockage que vous approvisionnez peut être inférieure à celle que vous utilisez actuellement sur votre serveur Samba Linux. 
+
+La quantité de stockage que vous provisionnez peut être inférieure à celle que vous utilisez actuellement sur votre serveur Linux Samba. Avec ce choix de configuration, il est également nécessaire d’utiliser la fonctionnalité de [hiérarchisation Cloud](storage-sync-cloud-tiering-overview.md) d’Azure File Sync. Toutefois, lorsque vous copiez vos fichiers de l’espace plus grand du serveur Samba Linux vers le volume plus petit de Windows Server à une étape ultérieure, vous devrez travailler par lots :
 
   1. Déplacez un ensemble de fichiers qui tiennent sur le disque.
   2. Autorisez la synchronisation des fichiers et la hiérarchisation cloud.
-  3. Lorsque de l’espace libre est créé sur le volume, passez au lot de fichiers suivant. 
+  3. Lorsque de l’espace libre est créé sur le volume, passez au lot de fichiers suivant. Vous pouvez également consulter la commande RoboCopy dans la [section RoboCopy](#phase-7-robocopy) à venir pour utiliser le nouveau commutateur `/LFSM`. Si ce commutateur permet de simplifier considérablement les travaux RoboCopy, il n’est pas compatible avec d’autres commutateurs RoboCopy dont vous dépendez peut-être.
     
   Vous pouvez éviter cette approche de traitement par lot en approvisionnant sur l’instance Windows Server un espace équivalent à celui que vos fichiers occupent sur le serveur Samba Linux. Envisagez d’activer la déduplication sur Windows. Si vous ne souhaitez pas valider définitivement cette grande quantité de stockage sur votre instance Windows Server, vous pouvez réduire la taille du volume après la migration et avant d’ajuster les stratégies de hiérarchisation cloud. Cela crée un cache local plus petit de vos partages de fichiers Azure.
 
@@ -100,78 +111,9 @@ La commande Robocopy suivante copie les fichiers de votre stockage de votre serv
 
 Si vous avez configuré moins de stockage sur votre instance Windows Server que ce que vos fichiers occupent sur le serveur Samba Linux, cela signifie que vous avez configuré la hiérarchisation cloud. Quand le volume Windows Server local se remplit, la [hiérarchisation cloud](storage-sync-cloud-tiering-overview.md) commence et hiérarchise les fichiers qui ont déjà été correctement synchronisés. La hiérarchisation cloud génère suffisamment d’espace pour poursuivre la copie à partir du serveur Samba Linux. La hiérarchisation cloud effectue une vérification toutes les heures pour déterminer ce qui a été synchronisé et libérer de l’espace disque pour atteindre la stratégie d’un espace de volume libre de 99 %.
 
-Il est possible que Robocopy déplace les fichiers plus rapidement que vous ne pouvez les synchroniser dans le cloud et les hiérarchiser localement, ce qui vous amène à manquer d’espace disque local. Dans ce cas, Robocopy échoue. Nous vous recommandons de traiter les partages dans une séquence qui empêche le problème de survenir. Par exemple, envisagez de ne pas démarrer les travaux Robocopy pour tous les partages en même temps. Vous pouvez également envisager de déplacer les partages pour lesquels l’espace libre est actuellement suffisant sur l’instance Windows Server. Si votre travail Robocopy échoue, vous pouvez toujours réexécuter la commande tant que vous utilisez l’option de mise en miroir/vidage suivante :
+Il est possible que Robocopy déplace les fichiers plus rapidement que vous ne pouvez les synchroniser dans le cloud et les hiérarchiser localement, ce qui vous amène à manquer d’espace disque local. Dans ce cas, Robocopy échoue. Nous vous recommandons de traiter les partages dans une séquence qui empêche le problème de survenir. Par exemple, envisagez de ne pas démarrer les travaux Robocopy pour tous les partages en même temps. Vous pouvez également envisager de déplacer les partages pour lesquels l’espace libre est actuellement suffisant sur l’instance Windows Server. Si votre travail RoboCopy échoue, vous pouvez toujours réexécuter la commande tant que vous utilisez l’option de mise en miroir/vidage suivante :
 
-```console
-Robocopy /MT:32 /UNILOG:<file name> /TEE /B /MIR /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
-```
-
-Arrière-plan :
-
-:::row:::
-   :::column span="1":::
-      /MT
-   :::column-end:::
-   :::column span="1":::
-      Permet à Robocopy de s’exécuter en multithread. La valeur par défaut est 8, la valeur maximale est 128.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /UNILOG:\<file name\>
-   :::column-end:::
-   :::column span="1":::
-      Renvoie l’état au fichier journal au format Unicode (remplace le journal existant).
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /TEE
-   :::column-end:::
-   :::column span="1":::
-      Génère les sorties dans une fenêtre de console. Utilisé conjointement avec la sortie dans un fichier journal.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /B
-   :::column-end:::
-   :::column span="1":::
-      Exécute Robocopy dans le même mode qu’une application de sauvegarde. Permet à Robocopy de déplacer des fichiers pour lesquels l’utilisateur actuel n’a pas d’autorisations.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /MIR
-   :::column-end:::
-   :::column span="1":::
-      Permet l’exécution de cette commande Robocopy plusieurs fois, de manière séquentielle, sur la même cible/destination. La commande identifie et omet ce qui a déjà été copié. Seuls les modifications, ajouts et suppressions effectués depuis la dernière exécution sont traités. Si la commande n’a pas encore été exécutée, rien n’est ignoré. L’indicateur **/MIR** est une excellente option pour les emplacements sources qui sont toujours activement utilisés et qui évoluent.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /COPY:copyflag[s]
-   :::column-end:::
-   :::column span="1":::
-      Fidélité de la copie de fichier (la valeur par défaut est /COPY:DAT). Les indicateurs de copie sont : D = données, A = attributs, T = horodatages, S = sécurité = ACL NTFS, O = informations propriétaire, U=informations audit.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /COPYALL
-   :::column-end:::
-   :::column span="1":::
-      Informations de fichier COPY ALL (équivalent de /COPY:DATSOU).
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /DCOPY:copyflag[s]
-   :::column-end:::
-   :::column span="1":::
-      Fidélité de la copie des répertoires (la valeur par défaut est /DCOPY:DA). Les indicateurs de copie sont : D = données, A = attributs, T = horodatages.
-   :::column-end:::
-:::row-end:::
+[!INCLUDE [storage-files-migration-robocopy](../../../includes/storage-files-migration-robocopy.md)]
 
 ## <a name="phase-8-user-cut-over"></a>Phase 8 : Transfert de l’utilisateur
 

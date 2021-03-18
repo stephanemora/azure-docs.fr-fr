@@ -1,14 +1,14 @@
 ---
 title: Comprendre le langage de requête
 description: Décrit les tables Resource Graph et les fonctions, opérateurs et types de données Kusto disponibles, utilisables avec Azure Resource Graph.
-ms.date: 01/14/2021
+ms.date: 03/10/2021
 ms.topic: conceptual
-ms.openlocfilehash: 137b5c40097d7de82e156b4a0869d7257d3e9964
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: f6cb13814fe725ff0253a0a5bf0098f0080fa407
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624756"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102633799"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Présentation du langage de requête Azure Resource Graph
 
@@ -32,7 +32,9 @@ Resource Graph fournit plusieurs tables contenant les données qu’il stocke su
 |ResourceContainers |Oui |Inclut les données et les types de ressources d’abonnement (en préversion : `Microsoft.Resources/subscriptions`) et de groupe de ressources (`Microsoft.Resources/subscriptions/resourcegroups`). |
 |AdvisorResources |Oui (préversion) |Inclut les ressources _associées_ à `Microsoft.Advisor`. |
 |AlertsManagementResources |Oui (préversion) |Inclut les ressources _associées_ à `Microsoft.AlertsManagement`. |
+|ExtendedLocationResources |Non |Inclut les ressources _associées_ à `Microsoft.ExtendedLocation`. |
 |GuestConfigurationResources |Non |Inclut les ressources _associées_ à `Microsoft.GuestConfiguration`. |
+|KubernetesConfigurationResources |Non |Inclut les ressources _associées_ à `Microsoft.KubernetesConfiguration`. |
 |MaintenanceResources |Partielle, joindre _à_ uniquement. (préversion) |Inclut les ressources _associées_ à `Microsoft.Maintenance`. |
 |PatchAssessmentResources|Non |Comprend des ressources _associées_ à l’évaluation des correctifs de machines virtuelles Azure. |
 |PatchInstallationResources|Non |Comprend des ressources _associées_ à l’installation de correctifs de machines virtuelles Azure. |
@@ -40,6 +42,7 @@ Resource Graph fournit plusieurs tables contenant les données qu’il stocke su
 |RecoveryServicesResources |Partielle, joindre _à_ uniquement. (préversion) |Comprend des ressources _associées_ à `Microsoft.DataProtection` et `Microsoft.RecoveryServices`. |
 |SecurityResources |Partielle, joindre _à_ uniquement. (préversion) |Inclut les ressources _associées_ à `Microsoft.Security`. |
 |ServiceHealthResources |Non |Inclut les ressources _associées_ à `Microsoft.ResourceHealth`. |
+|WorkloadMonitorResources |Non |Inclut les ressources _associées_ à `Microsoft.WorkloadMonitor`. |
 
 Pour obtenir une liste complète, y compris les types de ressources, consultez [Référence : Tables et types de ressources pris en charge](../reference/supported-tables-resources.md).
 

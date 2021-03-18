@@ -3,17 +3,17 @@ title: Série HBv2 – Machines virtuelles Microsoft Azure
 description: Spécifications pour les machines virtuelles de la série HBv2.
 author: vermagit
 ms.service: virtual-machines
-ms.subservice: hpc
+ms.subservice: vm-sizes-hpc
 ms.topic: conceptual
 ms.date: 10/09/2020
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: 5bcb3d8a6928127de5f0f25e92c8de3a6e510c15
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: edc0e7cb0c7e2f9deb6e8af785fb98be1a1d9968
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101671285"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102566003"
 ---
 # <a name="hbv2-series"></a>Série HBv2
 
@@ -26,7 +26,7 @@ Les machines virtuelles d’origine de la série HBv2 sont dotées de la technol
 [Migration dynamique](maintenance-and-updates.md) : Non pris en charge<br>
 [Mises à jour avec préservation de la mémoire](maintenance-and-updates.md) : Non pris en charge<br>
 [Génération de machine virtuelle prise en charge](generation-2.md) : Génération 1<br>
-[Performances réseau accélérées](../virtual-network/create-vm-accelerated-networking-cli.md) : Pris en charge<br>
+[Performances réseau accélérées](../virtual-network/create-vm-accelerated-networking-cli.md) : prises en charge ([En savoir plus](https://techcommunity.microsoft.com/t5/azure-compute/accelerated-networking-on-hb-hc-hbv2-and-ndv2/ba-p/2067965) sur les performances et les problèmes potentiels) <br>
 [Disques de système d’exploitation éphémères](ephemeral-os-disks.md) : Non pris en charge <br>
 <br>
 

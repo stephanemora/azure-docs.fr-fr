@@ -10,12 +10,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: eab1ebb3bf66b28bae80fbf16eaf24dbbc63bfb0
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 588c6548afb07fb8ee3de5152c240ddd9ea2293b
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101690530"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102430188"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Migration du trafic des bases de données Azure SQL Database vers des passerelles plus récentes
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,6 +29,18 @@ Les informations les plus récentes seront conservées dans la table [Adresses I
 ## <a name="status-updates"></a>Mises à jour d’état
 
 # <a name="in-progress"></a>[En cours](#tab/in-progress-ip)
+
+## <a name="april-2021"></a>Avril 2021
+De nouvelles passerelles SQL sont ajoutées aux régions suivantes :
+- Norvège Est : 51.120.96.33
+- Asie Sud-Est : 13.67.16.193
+- Afrique du Sud Nord : 102.133.152.32
+- Corée Sud : 52.231.151.96
+- USA Centre Nord : 52.162.105.9
+- Australie Sud-Est : 13.77.49.32 
+
+Ces passerelles SQL devraient commencer à accepter le trafic client à partir du 5 avril 2021.
+
 ## <a name="march-2021"></a>Mars 2021
 Les passerelles SQL suivantes dans plusieurs régions sont en cours de désactivation :
 
