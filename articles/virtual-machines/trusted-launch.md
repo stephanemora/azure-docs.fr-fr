@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/26/2021
 ms.reviewer: cynthn
 ms.custom: template-concept; references_regions
-ms.openlocfilehash: 1af1593074363673ff2e3f8bc804998ddd63d432
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 449eb1d65e0104e6c5c74a78901cf29c5aeb3e57
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/10/2021
-ms.locfileid: "102564422"
+ms.locfileid: "102609088"
 ---
 # <a name="trusted-launch-for-azure-virtual-machines-preview"></a>Lancement fiable pour les machines virtuelles Azure (préversion)
 
@@ -40,7 +40,6 @@ Azure propose le lancement fiable pour améliorer de manière fluide la sécurit
 
 **Tailles prises en charge** : toutes les tailles de machine virtuelle de [2e génération](generation-2.md) sauf :
 
-- HBv3 
 - Série Lsv2 
 - Série M 
 - Série Mv2 
@@ -55,7 +54,7 @@ Azure propose le lancement fiable pour améliorer de manière fluide la sécurit
 - Windows Server 2019
 - Windows Server 2016
 - Windows 10 Professionnel
-- Windows 10 Entreprise
+- Windows 10 Entreprise
 
 **Régions** : 
 - États-Unis - partie centrale méridionale
@@ -117,7 +116,7 @@ Si vos machines virtuelles sont correctement configurées avec la fonctionnalit�
     - S’agit-il de la version exacte du pilote attendu ? Les fichiers binaires du pilote sont-ils intacts ? S’il s’agit d’un pilote tiers, le fournisseur a-t-il réussi les tests de conformité du système d’exploitation pour obtenir la signature ?
 
 
-## <a name="faq"></a>Forum Aux Questions
+## <a name="faq"></a>Forum aux questions
 
 Questions fréquentes sur le lancement fiable.
 
