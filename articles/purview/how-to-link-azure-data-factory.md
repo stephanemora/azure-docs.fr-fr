@@ -6,13 +6,13 @@ ms.author: csugunan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 11/22/2020
-ms.openlocfilehash: 010cfc307d2b2c10c31168fce73673fb1fb611b8
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.date: 03/08/2021
+ms.openlocfilehash: 8812806e535e8e34ca07fdb13e6223bfa0c91d6b
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807646"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102449609"
 ---
 # <a name="how-to-connect-azure-data-factory-and-azure-purview"></a>Guide pratique pour se connecter à Azure Data Factory et Azure Purview
 
@@ -38,7 +38,7 @@ Plusieurs fabriques de données Azure peuvent se connecter à un même Data Cata
  >- Contributeur
  >- Propriétaire
  >- Lecteur
- >- Administrateur de l’accès utilisateur
+ >- Administrateur de l'accès utilisateur
 
 ## <a name="create-new-data-factory-connection"></a>Créer une connexion Data Factory
 
@@ -73,7 +73,7 @@ Suivez les étapes ci-dessous pour connecter un compte Data Factory existant à 
 
 Lorsqu’un utilisateur Purview inscrit un Data Factory auquel il a accès, les événements suivants se produisent dans le serveur principal :
 
-1. Le **Data Factory MSI** est ajouté au rôle RBAC Purview : **Curateur de données Purview**.
+1. **L’identité managée Data Factory** est ajoutée au rôle RBAC Purview **Curateur de données Purview**.
 
     :::image type="content" source="./media/how-to-link-azure-data-factory/adf-msi.png" alt-text="Capture d’écran montrant Azure Data Factory MSI." lightbox="./media/how-to-link-azure-data-factory/adf-msi.png":::
      
@@ -88,76 +88,92 @@ Pour supprimer une connexion Data Factory, effectuez les étapes suivantes :
 
     :::image type="content" source="./media/how-to-link-azure-data-factory/remove-data-factory-connection.png" alt-text="Capture d’écran montrant comment sélectionner des fabriques de données pour supprimer la connexion." lightbox="./media/how-to-link-azure-data-factory/remove-data-factory-connection.png":::
 
-## <a name="configure-a-self-hosted-ir-to-collect-lineage-from-on-prem-sql"></a>Configurer un IR auto-hébergé pour recueillir la traçabilité à partir de SQL local
+## <a name="configure-a-self-hosted-integration-runtime-to-collect-lineage"></a>Configuration d’un runtime d’intégration auto-hébergé pour collecter la traçabilité
 
-Le traçabilité de l’activité Copy Data Factory est disponible pour les bases de données SQL locales. Si vous exécutez un runtime d’intégration auto-hébergé pour le déplacement des données avec Azure Data Factory et que vous souhaitez capturer la traçabilité dans Azure Purview, vérifiez que la version est 4.8.7418.1 ou ultérieure. Pour plus d’informations sur le runtime d’intégration auto-hébergé, consultez [Créer et configurer un runtime d’intégration auto-hébergé](../data-factory/create-self-hosted-integration-runtime.md).
+La traçabilité de l’activité Copy Data Factory est disponible pour les magasins de données locaux comme les bases de données SQL. Si vous exécutez un runtime d’intégration auto-hébergé pour le déplacement des données avec Azure Data Factory et que vous souhaitez capturer la traçabilité dans Azure Purview, vérifiez que la version est supérieure ou égale à 5.0. Pour plus d’informations sur le runtime d’intégration auto-hébergé, consultez [Créer et configurer un runtime d’intégration auto-hébergé](../data-factory/create-self-hosted-integration-runtime.md).
 
 ## <a name="supported-azure-data-factory-activities"></a>Activités Azure Data Factory prises en charge
 
 Azure Purview capture la traçabilité du runtime à partir des activités Azure Data Factory suivantes :
 
-- Copier des données
-- Data Flow
-- Exécuter le Package SSIS
+- [Copier les données](../data-factory/copy-activity-overview.md)
+- [Flux de données](../data-factory/concepts-data-flow-overview.md)
+- [Exécuter le Package SSIS](../data-factory/how-to-invoke-ssis-package-ssis-activity.md)
 
 > [!IMPORTANT]
 > Azure Purview supprime la traçabilité si la source ou la destination utilise un système de stockage de données non pris en charge.
 
 L’intégration entre Data Factory et Purview ne prend en charge qu’un sous-ensemble des systèmes de données pris en charge par Data Factory, comme décrit dans les sections suivantes.
 
-### <a name="data-factory-copy-data-support"></a>Prise en charge de la copie de données Data Factory
+### <a name="data-factory-copy-activity-support"></a>Prise en charge de l’activité Copy Data Factory
 
-| Système de stockage de données | Prise en charge en tant que source | 
+| Banque de données | Prise en charge | 
 | ------------------- | ------------------- | 
-| ADLS Gen1 | Oui | 
-| ADLS Gen2 | Oui | 
-| Objets blob Azure | Oui |
-| Azure Cosmos DB (API SQL) | Oui | 
-| Azure Cosmos DB (API Mongo) | Oui |
+| Stockage Blob Azure | Oui |
 | Recherche cognitive Azure | Oui | 
-| Explorateur de données Azure | Oui | 
+| Azure Cosmos DB\* (API SQL) | Oui | 
+| API d’Azure Cosmos DB pour MongoDB\* | Oui |
+| Azure Data Explorer\* | Oui | 
+| Azure Data Lake Storage Gen1 | Oui | 
+| Azure Data Lake Storage Gen2 | Oui | 
 | Azure Database for Maria DB \* | Oui | 
-| Azure Database pour MYSQL \* | Oui | 
+| Azure Database pour MySQL\* | Oui | 
 | Azure Database pour PostgreSQL \* | Oui |
 | Stockage Fichier Azure | Oui | 
-| Stockage de table Azure | Oui |
 | Azure SQL Database \* | Oui | 
-| Azure SQL Database Managed Instance \* | Oui | 
-| Azure Synapse Analytics (anciennement SQL DW) \* | Oui | 
-| SQL Server local  \* | Oui | 
+| Azure SQL Managed Instance\* | Oui | 
+| Azure Synapse Analytics\* | Oui | 
+| Stockage de table Azure | Oui |
 | Amazon S3 | Oui | 
-| Teradata | Oui | 
-| Connecteur de table SAP | Oui |
-| SAP ECC | Oui | 
-| Hive | Oui | 
+| Hive\* | Oui | 
+| SAP ECC\* | Oui |
+| SAP Table | Oui |
+| SQL Server \* | Oui | 
+| Teradata\* | Oui |
+
+*\* Azure Purview ne prend pas en charge à l’heure actuelle les requêtes ni les procédures stockées pour la traçabilité et l’analyse. La traçabilité est limitée aux sources de table et de vue uniquement.*
 
 > [!Note]
 > La fonctionnalité de traçabilité implique certaines surcharges de performances dans l’activité de copie Data Factory. Ceux qui configurent des connexions Data Factory dans Purview constateront peut-être que certaines tâches de copie prennent davantage de temps. Le plus souvent, l’impact est négligeable, voire nul. Veuillez contacter le support en indiquant la comparaison de durée si les travaux de copie prennent beaucoup plus de temps que d’habitude.
 
+#### <a name="known-limitations-on-copy-activity-lineage"></a>Limitations connues de la traçabilité de l’activité Copy
+
+Si vous utilisez les fonctionnalités suivantes de l’activité Copy, la traçabilité n’est pas encore prise en charge :
+
+- Copie de données dans Azure Data Lake Storage Gen1 au format binaire
+- Copie de données dans Azure Synapse Analytics avec PolyBase ou l’instruction COPY
+- Paramètre de compression pour les fichiers binaires, texte délimité, Excel, JSON et XML
+- Options de partition source pour Azure SQL Database, Azure SQL Managed Instance, Azure Synapse Analytics, SQL Server et la table SAP
+- Option de détection de partition source pour les magasins basés sur des fichiers
+- Copie de données dans un récepteur basé sur des fichiers avec paramètre de nombre maximal de lignes par fichier
+- Ajout de colonnes supplémentaires pendant la copie
+
 ### <a name="data-factory-data-flow-support"></a>Prise en charge de Data Flow dans Data Factory
 
-| Système de stockage de données | Prise en charge |
+| Banque de données | Prise en charge |
 | ------------------- | ------------------- | 
-| ADLS Gen1 | Oui |
-| ADLS Gen2 | Oui |
-| Objets blob Azure | Oui |
+| Stockage Blob Azure | Oui |
+| Azure Data Lake Storage Gen1 | Oui |
+| Azure Data Lake Storage Gen2 | Oui |
 | Azure SQL Database \* | Oui |
-| Azure Synapse Analytics (anciennement SQL DW) \* | Oui |
+| Azure Synapse Analytics\* | Oui |
+
+*\* Azure Purview ne prend pas en charge à l’heure actuelle les requêtes ni les procédures stockées pour la traçabilité et l’analyse. La traçabilité est limitée aux sources de table et de vue uniquement.*
 
 ### <a name="data-factory-execute-ssis-package-support"></a>Prise en charge de l’exécution d’un package SSIS dans Data Factory
 
-| Système de stockage de données | Prise en charge |
+| Banque de données | Prise en charge |
 | ------------------- | ------------------- |
-| Objets blob Azure | Oui |
-| ADLS Gen1 | Oui |
-| ADLS Gen2 | Oui |
-| Azure SQL Database \* | Oui |
-| Azure SQL Database Managed Instance \*| Oui |
-| Azure Synapse Analytics (anciennement SQL DW) \* | Oui |
-| SQL Server local \* | Oui |
+| Stockage Blob Azure | Oui |
+| Azure Data Lake Storage Gen1 | Oui |
+| Azure Data Lake Storage Gen2 | Oui |
 | Stockage Fichier Azure | Oui |
+| Azure SQL Database \* | Oui |
+| Azure SQL Managed Instance\*| Oui |
+| Azure Synapse Analytics\* | Oui |
+| SQL Server \* | Oui |
 
-*\* Pour les scénarios SQL (Azure et locaux), Azure Purview ne prend pas en charge les procédures stockées ou les scripts pour la traçabilité ou l’analyse. La traçabilité est limitée aux sources de table et de vue uniquement.*
+*\* Azure Purview ne prend pas en charge à l’heure actuelle les requêtes ni les procédures stockées pour la traçabilité et l’analyse. La traçabilité est limitée aux sources de table et de vue uniquement.*
 
 > [!Note]
 > Azure Data Lake Storage Gen2 est maintenant en disponibilité générale. Nous vous recommandons de commencer à l’utiliser dès aujourd'hui. Pour plus d’informations, consultez la [page du produit](https://azure.microsoft.com/en-us/services/storage/data-lake-storage/).
@@ -172,7 +188,7 @@ Voici quelques autres méthodes permettant de rechercher des informations dans l
 
 - Sous l’onglet **Traçabilité**, pointez sur des formes pour afficher un aperçu des informations supplémentaires sur la ressource dans l’info-bulle.
 - Sélectionnez le nœud ou la périphérie pour afficher le type de ressource auquel il appartient ou pour basculer d’une ressource à une autre.
-- Les colonnes d’un jeu de données sont affichées sur le côté gauche de l’onglet **Traçabilité**. Pour plus d’informations sur la traçabilité au niveau des colonnes, consultez [Traçabilité au niveau des colonnes](catalog-lineage-user-guide.md#column-level-lineage).
+- Les colonnes d’un jeu de données sont affichées sur le côté gauche de l’onglet **Traçabilité**. Pour plus d’informations sur la traçabilité au niveau des colonnes, consultez [Traçabilité des colonnes de jeu de données](catalog-lineage-user-guide.md#dataset-column-lineage).
 
 ### <a name="data-lineage-for-11-operations"></a>Traçabilité des données pour les opérations 1:1
 

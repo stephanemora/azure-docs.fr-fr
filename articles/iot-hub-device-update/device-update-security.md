@@ -6,12 +6,12 @@ ms.author: lichris
 ms.date: 2/11/2021
 ms.topic: conceptual
 ms.service: iot-hub
-ms.openlocfilehash: cf05d5f93180db91658d0e94a23359edd5b0f7ad
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 86b2dbe6a28d1440f93788eb40e133d9b62d3f0c
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101678331"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102489427"
 ---
 # <a name="device-update-security-model"></a>Modèle de sécurité de Device Update
 
@@ -54,7 +54,7 @@ L’utilisation de clés racine et de signature permet à Microsoft de déployer
 
 ### <a name="json-web-signature-jws"></a>Signature web JSON (JWS)
 
-La `updateManifestSignature` est utilisée pour vérifier que les informations contenues dans le `updateManifest` n’ont pas été falsifiées. La `updateManifestSignature` est générée à l’aide d’une signature web JSON avec des clés web JSON, ce qui permet de vérifier la source. La signature est une chaîne encodée en Base64Url avec trois sections délimitées par « . ».  Reportez-vous aux méthodes d’assistance jws_util.h pour analyser et vérifier les clés et les jetons JSON.
+La `updateManifestSignature` est utilisée pour vérifier que les informations contenues dans le `updateManifest` n’ont pas été falsifiées. La `updateManifestSignature` est générée à l’aide d’une signature web JSON avec des clés web JSON, ce qui permet de vérifier la source. La signature est une chaîne encodée en Base64Url avec trois sections délimitées par « . ».  Reportez-vous aux [méthodes d’assistance jws_util.h](https://github.com/Azure/iot-hub-device-update/tree/main/src/utils/jws_utils) pour analyser et vérifier les clés et jetons JSON.
 
 La signature web JSON est une [norme proposée par l’IETF](https://tools.ietf.org/html/rfc7515) largement utilisée pour la signature de contenu à l’aide de structures de données JSON. Elle offre un moyen de garantir l’intégrité des données en vérifiant la signature des données. Pour plus d’informations, consultez le document [RFC 7515](https://www.rfc-editor.org/info/rfc7515) sur la signature web JSON (JWS).
 

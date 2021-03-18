@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 03/02/2021
-ms.openlocfilehash: 0850830e6f8101feae80154a0e245196a690f276
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.date: 03/08/2021
+ms.openlocfilehash: f7f8082cc9120345336610d5cb49741140d3b606
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102050237"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102557010"
 ---
 # <a name="create-stateful-and-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>Créer des workflows avec état et sans état dans Visual Studio Code à l’aide de l’extension Azure Logic Apps (préversion)
 
@@ -33,6 +33,8 @@ Cet article explique comment créer votre application logique et un workflow dan
 * Ajoutez un déclencheur et une action.
 
 * Exécutez, testez, déboguez et passez en revue l’historique des exécutions localement.
+
+* Recherchez les détails relatifs au nom de domaine pour l’accès au pare-feu.
 
 * Déployez sur Azure, ce qui implique éventuellement l’activation d’Application Insights.
 
@@ -280,6 +282,7 @@ Avant de pouvoir créer votre application logique, créez un projet local afin d
    1. Remplacez la valeur de la propriété `AzureWebJobsStorage` par la chaîne de connexion de votre compte de stockage que vous avez enregistrée précédemment, par exemple :
 
       Avant :
+
       ```json
       {
          "IsEncrypted": false,
@@ -291,6 +294,7 @@ Avant de pouvoir créer votre application logique, créez un projet local afin d
       ```
 
       Après :
+
       ```json
       {
          "IsEncrypted": false,
@@ -302,6 +306,25 @@ Avant de pouvoir créer votre application logique, créez un projet local afin d
       ```
 
    1. Quand vous avez terminé, veillez à enregistrer vos modifications.
+
+<a name="enable-built-in-connector-authoring"></a>
+
+## <a name="enable-built-in-connector-authoring"></a>Activer la création de connecteurs intégrés
+
+Vous pouvez créer vos propres connecteurs intégrés pour tous les services dont vous avez besoin à l’aide du [framework d’extensibilité de la préversion](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272). Comme pour les connecteurs intégrés tels qu’Azure Service Bus et SQL Server, ces connecteurs offrent un débit plus élevé, une faible latence, une connectivité locale et s’exécutent en mode natif dans le même processus que le runtime en préversion.
+
+Actuellement, la fonctionnalité de création est uniquement disponible dans Visual Studio Code, mais elle n’est pas activée par défaut. Pour créer ces connecteurs, vous devez d’abord convertir votre projet de l’extension (Node.js) en projet basé sur un package NuGet (.NET).
+
+> [!IMPORTANT]
+> Cette action relève d’une opération unidirectionnelle irréversible.
+
+1. Dans le volet Explorateur, à la racine de votre projet, placez le pointeur de la souris sur une zone vide sous tous les autres fichiers et dossiers, ouvrez le menu contextuel, puis sélectionnez **Convertir en projet d’application logique NuGet**.
+
+   ![Capture d’écran montrant le volet Explorateur avec le menu contextuel du projet ouvert à partir d’une zone vide dans la fenêtre du projet.](./media/create-stateful-stateless-workflows-visual-studio-code/convert-logic-app-project.png)
+
+1. Lorsque l’invite s’affiche, confirmez la conversion du projet.
+
+1. Pour continuer, passez en revue et suivez les étapes décrites dans l’article [Azure Logic Apps s’exécutant partout – Extensibilité de connecteur intégré](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272).
 
 <a name="open-workflow-definition-designer"></a>
 
@@ -555,7 +578,7 @@ Pour ajouter un point d’arrêt, procédez comme suit :
 
 1. Pour passer en revue les informations disponibles lorsqu’un point d’arrêt est atteint, dans la vue Exécution, examinez le volet **Variables**.
 
-1. Pour continuer l’exécution du workflow, dans la barre d’outils de débogage, sélectionnez **Continuer** (bouton Lecture). 
+1. Pour continuer l’exécution du workflow, dans la barre d’outils de débogage, sélectionnez **Continuer** (bouton Lecture).
 
 Vous pouvez ajouter et supprimer des points d’arrêt à tout moment pendant l’exécution du workflow. Toutefois, si vous mettez à jour le fichier **workflow.json** après le démarrage de l’exécution, les points d’arrêt ne sont pas automatiquement mis à jour. Pour mettre à jour les points d’arrêt, redémarrez l’application logique.
 
@@ -737,6 +760,55 @@ Une fois que vous avez mis à jour votre application logique, vous pouvez effect
    ![Capture d’écran montrant l’état de chaque étape du flux de travail mis à jour, ainsi que les entrées et sorties de l’action « Réponse » développée.](./media/create-stateful-stateless-workflows-visual-studio-code/run-history-details-rerun.png)
 
 1. Pour arrêter la session de débogage, dans le menu **Exécuter**, sélectionnez **Arrêter le débogage** (Maj + F5).
+
+<a name="firewall-setup"></a>
+
+##  <a name="find-domain-names-for-firewall-access"></a>Rechercher les noms de domaine pour l’accès au pare-feu
+
+Avant de déployer et d’exécuter le workflow de votre application logique dans le portail Azure, si votre environnement présente des exigences réseau strictes ou des pare-feu qui limitent le trafic, vous devez définir des autorisations pour les connexions de déclencheur ou d’action présentes dans votre workflow.
+
+Pour rechercher les noms de domaine complets (FQDN) de ces connexions, procédez comme suit :
+
+1. Dans votre projet d’application logique, ouvrez le fichier **connections.json** créé après avoir ajouté le premier déclencheur ou action basé sur une connexion à votre workflow, et recherchez l'objet `managedApiConnections`.
+
+1. Pour chaque connexion que vous avez créée, recherchez, copiez et enregistrez la valeur de la propriété `connectionRuntimeUrl` dans un lieu sûr afin de configurer votre pare-feu à l’aide de ces informations.
+
+   Cet exemple de fichier **connections.json** contient deux connexions, une connexion AS2 et une connexion Office 365 avec les valeurs `connectionRuntimeUrl` suivantes :
+
+   * AS2 : `"connectionRuntimeUrl": https://9d51d1ffc9f77572.00.common.logic-{Azure-region}.azure-apihub.net/apim/as2/11d3fec26c87435a80737460c85f42ba`
+
+   * Office 365 : `"connectionRuntimeUrl": https://9d51d1ffc9f77572.00.common.logic-{Azure-region}.azure-apihub.net/apim/office365/668073340efe481192096ac27e7d467f`
+
+   ```json
+   {
+      "managedApiConnections": {
+         "as2": {
+            "api": {
+               "id": "/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{Azure-region}/managedApis/as2"
+            },
+            "connection": {
+               "id": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{Azure-resource-group}/providers/Microsoft.Web/connections/{connection-resource-name}"
+            },
+            "connectionRuntimeUrl": https://9d51d1ffc9f77572.00.common.logic-{Azure-region}.azure-apihub.net/apim/as2/11d3fec26c87435a80737460c85f42ba,
+            "authentication": {
+               "type":"ManagedServiceIdentity"
+            }
+         },
+         "office365": {
+            "api": {
+               "id": "/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{Azure-region}/managedApis/office365"
+            },
+            "connection": {
+               "id": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{Azure-resource-group}/providers/Microsoft.Web/connections/{connection-resource-name}"
+            },
+            "connectionRuntimeUrl": https://9d51d1ffc9f77572.00.common.logic-{Azure-region}.azure-apihub.net/apim/office365/668073340efe481192096ac27e7d467f,
+            "authentication": {
+               "type":"ManagedServiceIdentity"
+            }
+         }
+      }
+   }
+   ```
 
 <a name="deploy-azure"></a>
 
@@ -1348,6 +1420,7 @@ Quand vous essayez de démarrer une session de débogage, vous recevez l’erreu
 1. Dans la tâche suivante, supprimez la ligne, `"dependsOn: "generateDebugSymbols"`, ainsi que la virgule qui termine la ligne précédente, par exemple :
 
    Avant :
+
    ```json
     {
       "type": "func",
@@ -1359,6 +1432,7 @@ Quand vous essayez de démarrer une session de débogage, vous recevez l’erreu
    ```
 
    Après :
+
    ```json
     {
       "type": "func",

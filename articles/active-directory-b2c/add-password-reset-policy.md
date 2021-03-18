@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/02/2021
+ms.date: 03/08/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: b82d573b7d8a65447d75aa8f017c87795bbef6cd
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: fa34e8ea71c307b75a3f345861f8ed99d131b3fd
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102171652"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102447926"
 ---
 # <a name="set-up-a-password-reset-flow-in-azure-active-directory-b2c"></a>Configuration d’un flux de réinitialisation de mot de passe dans Azure Active Directory B2C.
 
@@ -203,6 +203,24 @@ Dans votre parcours utilisateur, vous pouvez représenter le sous-parcours Mot d
     ```xml
     <ClaimsExchange Id="ForgotPasswordExchange" TechnicalProfileReferenceId="ForgotPassword" />
     ```
+    
+1. Ajoutez l’étape d’orchestration suivante entre l’étape en cours et la suivante. La nouvelle étape d’orchestration vérifie si la revendication `isForgotPassword` existe. Si la revendication existe, elle appelle le [sous-parcours de réinitialisation de mot de passe](#add-the-password-reset-sub-journey). 
+
+    ```xml
+    <OrchestrationStep Order="3" Type="InvokeSubJourney">
+      <Preconditions>
+        <Precondition Type="ClaimsExist" ExecuteActionsIf="false">
+          <Value>isForgotPassword</Value>
+          <Action>SkipThisOrchestrationStep</Action>
+        </Precondition>
+      </Preconditions>
+      <JourneyList>
+        <Candidate SubJourneyReferenceId="PasswordReset" />
+      </JourneyList>
+    </OrchestrationStep>
+    ```
+    
+1. Après avoir ajouté la nouvelle étape d’orchestration, renumérotez les étapes séquentiellement sans sauter d’entiers de 1 à N.
 
 ### <a name="set-the-user-journey-to-be-executed"></a>Définir le parcours utilisateur à exécuter
 
@@ -262,7 +280,7 @@ Dans le schéma suivant :
 1. L’utilisateur sélectionne le lien **Vous avez oublié votre mot de passe ?** . Azure AD B2C retourne le code d’erreur AADB2C90118 à l’application.
 1. L’application gère le code d’erreur et lance une nouvelle demande d’autorisation. La demande d’autorisation spécifie le nom de la stratégie de réinitialisation du mot de passe, par exemple **B2C_1_pwd_reset**.
 
-![Flux de réinitialisation de mot de passe](./media/add-password-reset-policy/password-reset-flow-legacy.png)
+![Flux d’utilisateur de réinitialisation de mot de passe hérité](./media/add-password-reset-policy/password-reset-flow-legacy.png)
 
 Pour voir un exemple, examinons un [simple exemple ASP.NET](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-DotNet-SUSI) qui illustre la liaison des flux d’utilisateur.
 

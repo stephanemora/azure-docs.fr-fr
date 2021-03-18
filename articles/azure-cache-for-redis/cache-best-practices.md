@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: joncole
-ms.openlocfilehash: 1b62777ec647efc6d5aded573e681cadd6475b47
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 84a6bba390b0f6b101bd8243cf47b79af9618999
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97654793"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521643"
 ---
 # <a name="best-practices-for-azure-cache-for-redis"></a>Bonnes pratiques en matière d’utilisation du cache Azure pour Redis 
 En suivant ces bonnes pratiques, vous pouvez optimiser les performances et la rentabilité d’utilisation de votre instance du cache Azure pour Redis.
@@ -30,6 +30,8 @@ En suivant ces bonnes pratiques, vous pouvez optimiser les performances et la re
  * **Placez votre instance de cache et votre application dans la même région.**  La connexion à un cache situé dans une autre région peut considérablement augmenter la latence et diminuer la fiabilité.  Vous pouvez vous connecter en dehors d’Azure, mais cela est déconseillé, *en particulier si vous utilisez Redis comme cache*.  Si vous utilisez Redis simplement comme magasin de clés/valeurs, la latence n’est sans doute pas votre première préoccupation. 
 
  * **Réutilisez les connexions.**  La création de connexions supplémentaires est un processus coûteux qui augmente la latence. C’est pourquoi il est conseillé de réutiliser le plus souvent possible les connexions existantes. Si vous choisissez de créer d’autres connexions, assurez-vous de fermer les anciennes connexions avant de les libérer (même dans les langages de mémoire managée comme .NET ou Java).
+
+* **Utilisez le traitement en pipeline.**  Essayez de choisir un client Redis prenant en charge le [traitement en pipeline Redis](https://redis.io/topics/pipelining) afin de tirer le meilleur parti du réseau et d’obtenir le meilleur débit possible.
 
  * **Configurez votre bibliothèque cliente pour qu’elle observe un *délai de connexion* d’au moins 15 secondes**, afin de laisser au système le temps de se connecter même dans des conditions de forte sollicitation du processeur.  La définition du délai de connexion à une valeur inférieure ne garantit pas que la connexion puisse être établie dans ce laps de temps.  Si un problème se produit (forte utilisation du processeur du client ou du serveur, par exemple), un délai de connexion trop court fait échouer la tentative de connexion. Ce comportement aggrave souvent une situation déjà détériorée.  Au lieu d’améliorer la situation, la diminution des délais d’attente aggrave le problème en forçant le système à redémarrer le processus de tentative de reconnexion, avec le risque de générer au final une boucle *connexion -> échec -> nouvelle tentative*. Nous conseillons généralement de conserver un délai de connexion d’au moins 15 secondes. En effet, il est préférable d’attendre 15 ou 20 secondes et que la première tentative de connexion réussisse, plutôt que de faire plusieurs tentatives rapprochées qui échouent. Avec ce genre de boucle de nouvelles tentatives, votre système peut en fin de compte rester indisponible durant plus longtemps que si vous lui accordez initialement plus de temps.  
      > [!NOTE]
@@ -51,7 +53,7 @@ Il y a plusieurs points à prendre en compte en ce qui concerne l’utilisation 
 ## <a name="client-library-specific-guidance"></a>Conseils pour la bibliothèque cliente
  * [StackExchange.Redis (.NET)](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-stackexchange-redis-md)
  * [Java - Quel client dois-je utiliser ?](https://gist.github.com/warrenzhu25/1beb02a09b6afd41dff2c27c53918ce7#file-azure-redis-java-best-practices-md)
- * [Lettuce (Java)](https://gist.github.com/warrenzhu25/181ccac7fa70411f7eb72aff23aa8a6a#file-azure-redis-lettuce-best-practices-md)
+ * [Lettuce (Java)](https://github.com/Azure/AzureCacheForRedis/blob/main/Lettuce%20Best%20Practices.md)
  * [Jedis (Java)](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-java-jedis-md)
  * [Node.JS](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-node-js-md)
  * [PHP](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-php-md)
@@ -73,6 +75,8 @@ Si vous souhaitez tester le comportement de votre code dans des conditions d’e
  * La machine virtuelle cliente utilisée pour le test doit se trouver **dans la même région** que votre instance de cache Redis.
  * **Nous vous conseillons d’utiliser des machines virtuelles Dv2** pour votre client, car elles sont matériellement plus performantes et offrent de meilleurs résultats.
  * Assurez-vous que la machine virtuelle cliente que vous utilisez **possède au moins autant de puissance de calcul et de bande passante* que le cache testé. 
+ * **Testez dans les conditions de basculement** de votre cache. Il est important de vous assurer que vous ne testez pas les performances de votre cache uniquement dans des conditions d’état stable. Testez également les conditions de basculement et mesurez la charge UC/Serveur de votre cache pendant ce temps. Vous pouvez lancer un basculement en [redémarrant le nœud principal](cache-administration.md#reboot). Cela vous permettra de voir comment votre application se comporte en termes de débit et de latence dans des conditions de basculement (à savoir, durant les mises à jour, voire des événements non planifiés). Dans l’idéal, vous ne souhaitez pas voir un pic de charge UC/Serveur dépassant 80 %, même en cas de basculement, compte tenu de l’impact que cela peut avoir sur les performances.
+ * **Certaines tailles de cache** sont hébergées sur des machines virtuelles à 4 cœurs, voire plus. Cela permet de distribuer le chiffrement/déchiffrement TLS, ainsi que les charges de travail de connexion/déconnexion TLS sur plusieurs cœurs afin de réduire l’utilisation globale du processeur sur les machines virtuelles du cache.  [De plus amples informations sur les tailles de machine virtuelle et les cœurs sont disponibles ici](cache-planning-faq.md#azure-cache-for-redis-performance).
  * **Activez VRSS** sur la machine cliente si vous êtes sur Windows.  [Vous trouverez plus d’informations ici](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn383582(v=ws.11)).  Exemple de script PowerShell :
      >PowerShell -ExecutionPolicy Unrestricted Enable-NetAdapterRSS -Name (    Get-NetAdapter).Name 
 

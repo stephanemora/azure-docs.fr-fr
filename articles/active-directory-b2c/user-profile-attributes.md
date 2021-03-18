@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/04/2021
+ms.date: 03/09/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: db2715f0827203dac505fa4dc15c22bdab953010
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: 7dfad71d05a882e3a3941a96e12489adb5fb3234
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102120213"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102500527"
 ---
 # <a name="user-profile-attributes"></a>Attributs de profil utilisateur
 
@@ -69,8 +69,8 @@ Le tableau ci-dessous répertorie les attributs de [type de ressource utilisateu
 |passwordPolicies     |String|Stratégie du passe du compte. Il s’agit d’une chaîne composée d’un nom de stratégie différent, séparé par une virgule. Par exemple : « DisablePasswordExpiration, DisableStrongPassword ».|Non|Non|Persistant, Sortie|
 |physicalDeliveryOfficeName (officeLocation)|String|Emplacement du bureau de l’utilisateur. Longueur max. : 128.|Oui|Non|Persistant, Sortie|
 |postalCode      |String|Code postal correspondant à l’adresse postale de l’utilisateur. Le code postal est spécifique au pays ou à la région de l’utilisateur. Aux États-Unis, cet attribut contient le code ZIP. Longueur max. : 40.|Oui|Non|Persistant, Sortie|
-|preferredLanguage    |String|Langue préférée pour l’utilisateur. Doit suivre le code ISO 639-1. Par exemple, « en-US ».|Non|Non|Persistant, Sortie|
-|refreshTokensValidFromDateTime|DateTime|Les jetons d’actualisation émis avant cet instant ne sont pas valides et les applications reçoivent une erreur lors de l’utilisation d’un jeton d’actualisation non valide pour acquérir un nouveau jeton d’accès. Dans ce cas, l’application doit acquérir un nouveau jeton d’actualisation en effectuant une demande au point de terminaison d’autorisation. Lecture seule.|Non|Non|Output|
+|preferredLanguage    |String|Langue préférée pour l’utilisateur. Le format de langue par défaut est basé sur la norme RFC 4646. Le nom est la combinaison entre un code de culture à deux lettres minuscules ISO 639 associé à la langue et un code de sous-culture à deux lettres majuscules ISO 3166 associé au pays ou à la région. Exemples : « fr-FR », « es-ES ».|Non|Non|Persistant, Sortie|
+|refreshTokensValidFromDateTime (signInSessionsValidFromDateTime)|DateTime|Les jetons d’actualisation émis avant cet instant ne sont pas valides et les applications reçoivent une erreur lors de l’utilisation d’un jeton d’actualisation non valide pour acquérir un nouveau jeton d’accès. Dans ce cas, l’application doit acquérir un nouveau jeton d’actualisation en effectuant une demande au point de terminaison d’autorisation. Lecture seule.|Non|Non|Output|
 |signInNames ([Identities](#identities-attribute)) |String|Nom de connexion unique de l’utilisateur de compte local de tout type dans le répertoire. Utilisez cet attribut pour obtenir un utilisateur avec une valeur de connexion sans spécifier le type de compte local.|Non|Non|Entrée|
 |signInNames.userName ([Identities](#identities-attribute)) |String|Nom d’utilisateur unique de l’utilisateur du compte local dans le répertoire. Utilisez cet attribut pour créer ou obtenir un utilisateur avec un nom d’utilisateur de connexion spécifique. Si vous spécifiez cela dans PersistedClaims seul pendant l’opération Patch, les autres types de signInNames sont supprimés. Si vous souhaitez ajouter un nouveau type de signInNames, vous devez également conserver les signInNames existants.|Non|Non|Entrée, Persistant, Sortie|
 |signInNames.phoneNumber ([Identities](#identities-attribute)) |String|Numéro de téléphone unique de l’utilisateur du compte local dans le répertoire. Utilisez cet attribut pour créer ou obtenir un utilisateur avec un numéro de téléphone de connexion spécifique. Si vous spécifiez cet attribut dans PersistedClaims seul pendant l’opération Patch, les autres types de signInNames sont supprimés. Si vous souhaitez ajouter un nouveau type de signInNames, vous devez également conserver les signInNames existants.|Non|Non|Entrée, Persistant, Sortie|

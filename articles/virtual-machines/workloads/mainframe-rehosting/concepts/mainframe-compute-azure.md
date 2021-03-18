@@ -5,13 +5,13 @@ author: njray
 ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
-ms.service: multiple
-ms.openlocfilehash: 04ec652c6e7ce8de003a464c6427439cf1519eab
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.service: virtual-machines
+ms.openlocfilehash: 32f259f20e0e24b4d5346c598e23fdc2df48dee6
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97092667"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102556432"
 ---
 # <a name="move-mainframe-compute-to-azure"></a>Déplacer le calcul mainframe vers Azure
 
@@ -43,7 +43,7 @@ Un processeur mainframe peut être configuré avec l’un des types suivants :
 
 ## <a name="scaling-mainframe-compute-up-and-out"></a>Montée en puissance et augmentation du calcul mainframe
 
-Les mainframes IBM offrent la possibilité de mettre à l'échelle jusqu'à 240 cœurs (la taille z14 actuelle pour un seul système). De plus, les mainframes IBM peuvent effectuer un scale-out grâce à une fonctionnalité appelée Coupling Facility (CF). La fonctionnalité CF permet à plusieurs systèmes mainframe d'accéder simultanément aux mêmes données. Grâce à CF, la technologie Mainframe Parallel Sysplex regroupe les processeurs mainframe en clusters. Au moment de la rédaction de ce guide, la fonction Parallel Sysplex prenait en charge 32 groupes de 64 processeurs chacun. Jusqu'à 2 048 processeurs peuvent être regroupés de cette manière pour effectuer un scale-out de la capacité de calcul.
+Les mainframes IBM offrent la possibilité de mettre à l'échelle jusqu'à 240 cœurs (la taille z14 actuelle pour un seul système). De plus, la taille des mainframes IBM peut être augmentée grâce à une fonctionnalité appelée Coupling Facility (CF). La fonctionnalité CF permet à plusieurs systèmes mainframe d'accéder simultanément aux mêmes données. Grâce à CF, la technologie Mainframe Parallel Sysplex regroupe les processeurs mainframe en clusters. Au moment de la rédaction de ce guide, la fonction Parallel Sysplex prenait en charge 32 groupes de 64 processeurs chacun. Jusqu'à 2 048 processeurs peuvent être regroupés de cette manière pour augmenter la capacité de calcul.
 
 CF permet aux clusters de calcul de partager des données avec un accès direct. Elle est utilisé pour verrouiller les informations, les informations en cache et la liste des ressources de données partagées. Un système Parallel Sysplex avec une ou plusieurs CF peut être considéré comme un cluster de calcul « tout partagé » avec montée en puissance. Pour plus d’informations sur ces fonctionnalités, consultez [Parallel Sysplex sur IBM Z](https://www.ibm.com/it-infrastructure/z/technologies/parallel-sysplex-resources) sur le site web d’IBM.
 
@@ -92,7 +92,7 @@ L'approche consiste à migrer les LPAR vers des machines virtuelles individuelle
 
 ## <a name="azure-compute-scale-out"></a>Montée en charge du calcul Azure
 
-L'un des avantages d'une solution basée sur Azure est la possibilité d’effectuer un scale-out. Cette montée en charge permet à une application de disposer d'une capacité de calcul presque illimitée. Azure prend en charge plusieurs méthodes pour effectuer un scale-out de la puissance de calcul :
+L'un des avantages d'une solution basée sur Azure est la possibilité d’effectuer un scale-out. Cette montée en charge permet à une application de disposer d'une capacité de calcul presque illimitée. Azure prend en charge plusieurs méthodes pour augmenter la puissance de calcul :
 
 - **Équilibrage de la charge sur un cluster.** Dans ce scénario, une application peut utiliser un [ équilibreur de charge](../../../../load-balancer/load-balancer-overview.md) ou un gestionnaire de ressources pour répartir la charge de travail entre plusieurs machines virtuelles dans un cluster. Si une plus grande capacité de calcul est nécessaire, des machines virtuelles supplémentaires sont ajoutées au cluster.
 

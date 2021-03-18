@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/09/2020
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: c98b47507a7543002f00aae82370f5ea0043510d
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: c5c50787ef3e287d164e051ece26da4e83199d47
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97954275"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102555633"
 ---
 # <a name="customers-dashboard-in-commercial-marketplace-analytics"></a>Tableau de bord Clients dans l’analytique de la Place de marché commerciale
 
@@ -142,28 +142,28 @@ Notez les points suivants :
 
 _**Tableau 1 : dictionnaire des termes relatifs aux données**_
 
-| Nom de la colonne | Nom de l’attribut | Définition |
-| ------------ | ------------- | ------------- |
-| ID d’abonnement de la Place de marché | ID d’abonnement de la Place de marché | Identificateur unique associé à l’abonnement Azure que le client a utilisé pour acheter votre offre de la Place de marché commerciale. Pour les offres d’infrastructure, il s’agit du GUID de l’abonnement Azure du client. Pour les offres SaaS, il est représenté par des zéros, car les achats SaaS ne nécessitent pas d’abonnement Azure. |
-| DateAcquired | Date d'acquisition | Date à laquelle le client a acheté pour la première fois une offre que vous avez publiée. |
-| DateLost | Date d'annulation | Date à laquelle le client a annulé la dernière des offres achetées. |
-| Nom du fournisseur | Nom du fournisseur | Nom du fournisseur impliqué dans la relation entre Microsoft et le client. Si le client est une entreprise passant par un revendeur, ce sera le revendeur. Si un fournisseur de solutions cloud (CSP) est impliqué, ce sera le CSP. |
-| Adresse e-mail du fournisseur | Adresse e-mail du fournisseur | Adresse e-mail du fournisseur impliqué dans la relation entre Microsoft et le client. Si le client est une entreprise passant par un revendeur, ce sera le revendeur. Si un fournisseur de solutions cloud (CSP) est impliqué, ce sera le CSP. |
-| FirstName | Prénom du client | Prénom fourni par le client. Le prénom peut être différent du prénom fourni dans l’abonnement Azure d’un client. |
-| LastName | Nom du client | Nom fourni par le client. Le prénom peut être différent du prénom fourni dans l’abonnement Azure d’un client. |
-| E-mail | Adresse e-mail du client | Adresse e-mail fournie par le client final. L’adresse e-mail peut être différente de l’adresse e-mail fournie dans l’abonnement Azure d’un client. |
-| Nom de la société du client | Nom de la société du client | Nom de société fourni par le client. Le nom peut être différent du nom de la ville fournie dans l’abonnement Azure d’un client. |
-| CustomerCity | Ville du client | Nom de ville fourni par le client final. La ville peut être différente de la ville fournie dans l’abonnement Azure d’un client. |
-| Code postal du client | Code postal du client | Code postal fourni par le client. Le code postal peut être différent du code postal fourni dans l’abonnement Azure d’un client. |
-| CustomerCommunicationCulture | Langue de communication du client | Langue dans laquelle le client préfère communiquer. |
-| CustomerCountryRegion | Pays/Région du client | Nom de pays/région fourni par le client. Ce nom peut être différent du nom du pays ou de la région fourni dans l’abonnement Azure d’un client. |
-| AzureLicenseType | Type de licence Azure | Type de contrat de licence utilisé par les clients pour acheter Azure. Également appelé _canal_. Les valeurs possibles sont les suivantes :<ul><li>Fournisseur de solutions cloud</li><li>Enterprise</li><li>entreprise, via un revendeur</li><li>paiement à l’utilisation</li></ul> |
-| PromotionalCustomers | Acceptation des messages promotionnels | La valeur indique si le client a accepté les messages promotionnels provenant d’éditeurs de manière proactive. À ce stade, nous n'offrons pas cette possibilité aux clients. Par conséquent, nous avons indiqué « Non » sur le tableau. Une mise à jour interviendra après le déploiement de cette fonctionnalité. |
-| customerState | État du client | État de résidence fourni par le client. L’État peut être différent de l’État fourni dans l’abonnement Azure d’un client. |
-| CommerceRootCustomer | Client racine de commerce | Un ID de compte de facturation peut être associé à plusieurs ID de client.<br>Une combinaison d’un ID de compte de facturation et d’un ID de client peut être associée à plusieurs abonnements de la Place de marché commerciale.<br>Le Client racine de commerce est le nom du client de l’abonnement. |
-| Customer Id | ID de client | Identificateur unique attribué à un client. Un client peut avoir zéro ou plusieurs abonnements de la Place de marché Azure. |
-| ID de compte de facturation | ID de compte de facturation | L’identifiant du compte sur lequel la facturation est générée. Mappez l’**ID de compte de facturation** à l’**ID client** pour connecter votre rapport de transactions de paiement avec les rapports Client, Commande et Utilisation. |
-||||
+| Nom de colonne dans<br>interface utilisateur | Nom de l’attribut | Définition | Nom de colonne dans les<br>rapports d’accès programmatique |
+| ------------ | ------------- | ------------- | ------------- |
+| ID d’abonnement de la Place de marché | ID d’abonnement de la Place de marché | Identificateur unique associé à l’abonnement Azure que le client a utilisé pour acheter votre offre de la Place de marché commerciale. Pour les offres d’infrastructure, il s’agit du GUID de l’abonnement Azure du client. Pour les offres SaaS, il est représenté par des zéros, car les achats SaaS ne nécessitent pas d’abonnement Azure. | MarketplaceSubscriptionId |
+| DateAcquired | Date d'acquisition | Date à laquelle le client a acheté pour la première fois une offre que vous avez publiée. | DateAcquired |
+| DateLost | Date d'annulation | Date à laquelle le client a annulé la dernière des offres achetées. | DateLost |
+| Nom du fournisseur | Nom du fournisseur | Nom du fournisseur impliqué dans la relation entre Microsoft et le client. Si le client est une entreprise passant par un revendeur, ce sera le revendeur. Si un fournisseur de solutions cloud (CSP) est impliqué, ce sera le CSP. | ProviderName |
+| Adresse e-mail du fournisseur | Adresse e-mail du fournisseur | Adresse e-mail du fournisseur impliqué dans la relation entre Microsoft et le client. Si le client est une entreprise passant par un revendeur, ce sera le revendeur. Si un fournisseur de solutions cloud (CSP) est impliqué, ce sera le CSP. | ProviderEmail |
+| FirstName | Prénom du client | Prénom fourni par le client. Le prénom peut être différent du prénom fourni dans l’abonnement Azure d’un client. | FirstName |
+| LastName | Nom du client | Nom fourni par le client. Le prénom peut être différent du prénom fourni dans l’abonnement Azure d’un client. | LastName |
+| E-mail | Adresse e-mail du client | Adresse e-mail fournie par le client final. L’adresse e-mail peut être différente de l’adresse e-mail fournie dans l’abonnement Azure d’un client. | E-mail |
+| Nom de la société du client | Nom de la société du client | Nom de société fourni par le client. Le nom peut être différent du nom de la ville fournie dans l’abonnement Azure d’un client. | Nom de CustomerCompany |
+| CustomerCity | Ville du client | Nom de ville fourni par le client final. La ville peut être différente de la ville fournie dans l’abonnement Azure d’un client. | CustomerCity |
+| Code postal du client | Code postal du client | Code postal fourni par le client. Le code postal peut être différent du code postal fourni dans l’abonnement Azure d’un client. | Code postal du client |
+| CustomerCommunicationCulture | Langue de communication du client | Langue dans laquelle le client préfère communiquer. | CustomerCommunicationCulture |
+| CustomerCountryRegion | Pays/Région du client | Nom de pays/région fourni par le client. Ce nom peut être différent du nom du pays ou de la région fourni dans l’abonnement Azure d’un client. | CustomerCountryRegion |
+| AzureLicenseType | Type de licence Azure | Type de contrat de licence utilisé par les clients pour acheter Azure. Également appelé _canal_. Les valeurs possibles sont les suivantes :<ul><li>Fournisseur de solutions cloud</li><li>Enterprise</li><li>entreprise, via un revendeur</li><li>paiement à l’utilisation</li></ul> | AzureLicenseType |
+| PromotionalCustomers | Acceptation des messages promotionnels | La valeur indique si le client a accepté les messages promotionnels provenant d’éditeurs de manière proactive. À ce stade, nous n'offrons pas cette possibilité aux clients. Par conséquent, nous avons indiqué « Non » sur le tableau. Une mise à jour interviendra après le déploiement de cette fonctionnalité. | PromotionalCustomers |
+| customerState | État du client | État de résidence fourni par le client. L’État peut être différent de l’État fourni dans l’abonnement Azure d’un client. | customerState |
+| CommerceRootCustomer | Client racine de commerce | Un ID de compte de facturation peut être associé à plusieurs ID de client.<br>Une combinaison d’un ID de compte de facturation et d’un ID de client peut être associée à plusieurs abonnements de la Place de marché commerciale.<br>Le Client racine de commerce est le nom du client de l’abonnement. | CommerceRootCustomer |
+| ID de client | ID de client | Identificateur unique attribué à un client. Un client peut avoir zéro ou plusieurs abonnements de la Place de marché Azure. | CustomerId |
+| ID de compte de facturation | ID de compte de facturation | L’identifiant du compte sur lequel la facturation est générée. Mappez l’**ID de compte de facturation** à l’**ID client** pour connecter votre rapport de transactions de paiement avec les rapports Client, Commande et Utilisation. | BillingAccountId |
+|||||
 
 ### <a name="customers-page-filters"></a>Filtres de la page Clients
 

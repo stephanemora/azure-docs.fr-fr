@@ -3,18 +3,18 @@ title: Partager des images de machine virtuelle avec les galeries partagées
 description: Découvrez comment utiliser les galeries d’images partagées pour partager des images de machine virtuelle Linux au sein de votre organisation.
 author: axayjo
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: shared-image-gallery
 ms.topic: conceptual
 ms.workload: infrastructure
 ms.date: 10/14/2020
 ms.author: akjosh
 ms.reviewer: cynthn
-ms.openlocfilehash: 3022e9c694d70359a90e71ecd1232e9274f92f10
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 225aca8c4695db33e504a5857acb856f4e01d1f1
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98730320"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102551060"
 ---
 # <a name="shared-image-galleries-overview"></a>Vue d’ensemble des galeries d’images partagées
 
@@ -24,7 +24,7 @@ Shared Image Gallery est un service qui vous permet de structurer et d’organis
 - la gestion de versions et le regroupement d’images pour faciliter la gestion ;
 - des images hautement disponibles avec des comptes ZRS (Zone Redundant Storage) dans les régions qui prennent en charge les zones de disponibilité Azure Le stockage redondant interzone (ZRS) offre une meilleure résilience en cas de défaillances de zones.
 - Prise en charge du stockage Premium (Premium_LRS).
-- le partage entre différents abonnements, voire entre locataires Active Directory, à l’aide du contrôle d’accès en fonction du rôle (RBAC) ;
+- Le partage entre différents abonnements, voire entre locataires Active Directory (AD), à l’aide du contrôle d’accès en fonction du rôle (RBAC) Azure.
 - la mise à l’échelle de vos déploiements avec des réplicas d’image dans chaque région.
 
 Celle-ci vous permet de partager vos images avec différents utilisateurs, principaux de service ou groupes Active Directory au sein de votre organisation. Il est possible de répliquer des images partagées dans plusieurs régions, pour une mise à l’échelle plus rapide de vos déploiements.
@@ -104,7 +104,7 @@ Les machines virtuelles spécialisées n'ont pas été soumises à un processus 
 
 ## <a name="regional-support"></a>Prise en charge régionale
 
-Toutes les régions publiques peuvent être choisies comme cibles. Cependant, pour que vous puissiez effectuer la réplication dans les régions Australie Centre et Australie Centre 2, votre abonnement doit être ajouté à la liste verte. Pour demander l’ajout d’un abonnement à la liste verte, accédez à : https://azure.microsoft.com/global-infrastructure/australia/contact/
+Toutes les régions publiques peuvent être choisies comme cibles. Cependant, pour que vous puissiez effectuer la réplication dans les régions Australie Centre et Australie Centre 2, votre abonnement doit être ajouté à la liste verte. Pour demander l’ajout d’un abonnement à la liste verte, accédez à : https://docs.microsoft.com/azure/virtual-machines/shared-image-galleries#regional-support
 
 ## <a name="limits"></a>limites 
 
@@ -146,14 +146,14 @@ Les régions sur lesquelles est répliquée une version d’image partagée peuv
 
 ## <a name="access"></a>Accès
 
-Tout comme la Galerie d’images partagées, la définition d’image et la version d’image sont des ressources, qui peuvent être partagées à l’aide des contrôle d’accès en fonction du rôle (RBAC) Azure natifs intégrés. Le contrôle d’accès en fonction du rôle (RBAC) vous permet de partager ces ressources avec d’autres utilisateurs, principaux de service et groupes. Vous pouvez même partager l’accès avec des personnes en dehors du locataire au sein duquel ils ont été créés. Un utilisateur disposant d’un accès à la version d’image partagée peut déployer une machine virtuelle ou un groupe de machines virtuelles identiques.  La matrice de partage suivante vous aide à comprendre les éléments auxquels l’utilisateur a accès :
+Tout comme la Galerie d’images partagées, la définition d’image et la version d’image sont des ressources, qui peuvent être partagées à l’aide des contrôle d’accès en fonction du rôle (RBAC) Azure natifs intégrés. Azure RBAC permet de partager ces ressources avec d’autres utilisateurs, principaux de service et groupes. Vous pouvez même partager l’accès avec des personnes en dehors du locataire au sein duquel ils ont été créés. Un utilisateur disposant d’un accès à la version d’image partagée peut déployer une machine virtuelle ou un groupe de machines virtuelles identiques.  La matrice de partage suivante vous aide à comprendre les éléments auxquels l’utilisateur a accès :
 
 | Partagé avec l’utilisateur     | Galerie d’images partagées | Définition de l’image | Version d’image |
 |----------------------|----------------------|--------------|----------------------|
 | Galerie d’images partagées | Oui                  | Oui          | Oui                  |
 | Définition de l’image     | Non                   | Oui          | Oui                  |
 
-Nous vous recommandons de partager les images au niveau de la galerie, afin de proposer une expérience optimale. Nous vous déconseillons de partager des versions d’images individuelles. Pour en savoir plus sur le contrôle d’accès en fonction du rôle (RBAC), consultez la section relative à la [gestion de l’accès aux ressources Azure à l’aide du contrôle d’accès en fonction du rôle (RBAC)](../role-based-access-control/role-assignments-portal.md).
+Nous vous recommandons de partager les images au niveau de la galerie, afin de proposer une expérience optimale. Nous vous déconseillons de partager des versions d’images individuelles. Pour plus d’informations sur Azure RBAC, consultez [Attribution de rôles Azure](../role-based-access-control/role-assignments-portal.md).
 
 Les images peuvent également être partagées à grande échelle, même entre les locataires, via l’inscription d’une application multilocataire. Pour en savoir plus sur le partage d’images entre les locataires, consultez « Partager des images de machine virtuelle de la galerie entre des locataires Azure » à l’aide d’[Azure CLI](./linux/share-images-across-tenants.md) ou de [PowerShell](./windows/share-images-across-tenants.md).
 
@@ -325,4 +325,3 @@ En outre, vous pouvez publier et étiqueter vos questions avec `azure-virtual-ma
 ## <a name="next-steps"></a>Étapes suivantes
 
 Découvrez comment déployer des images partagées avec [Azure CLI](shared-images-cli.md) et [PowerShell](shared-images-powershell.md).
-

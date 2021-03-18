@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/21/2021
+ms.date: 03/09/2021
 ms.author: b-juche
-ms.openlocfilehash: ec6a03673112dfb5397f6fae947f1fbf65fd6791
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 6d9d56a7f6d1e265508081f735e2dbc379f195fb
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881416"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102552029"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Questions fréquentes (FAQ) sur Azure NetApp Files
 
@@ -110,7 +110,7 @@ Azure NetApp Files fournit des métriques de performance des volumes. Vous pouve
 
 ### <a name="whats-the-performance-impact-of-kerberos-on-nfsv41"></a>Quel est l’impact de Kerberos sur les performances de NFSv4.1 ?
 
-Pour plus d’informations sur les options de sécurité pour NFSv4.1, les vecteurs de performances testés et l’impact sur les performances attendu, consultez [Impact de Kerberos sur les performances de NFSv4.1](configure-kerberos-encryption.md#kerberos_performance). 
+Pour plus d’informations sur les options de sécurité pour NFSv4.1, les vecteurs de performances testés et l’impact sur les performances attendu, consultez [Impact de Kerberos sur les performances des volumes NFSv4.1](performance-impact-kerberos.md). 
 
 ## <a name="nfs-faqs"></a>Questions fréquentes sur NFS
 
@@ -147,6 +147,16 @@ Assurez-vous que `CaseSensitiveLookup` est activé sur le client Windows pour ac
 2. Montez le volume sur le serveur Windows.   
     Exemple :   
     `Mount -o rsize=1024 -o wsize=1024 -o mtype=hard \\10.x.x.x\testvol X:*`
+
+### <a name="how-does-azure-netapp-files-support-nfsv41-file-locking"></a>Comment Azure NetApp Files prend-il en charge le verrouillage de fichiers NFSv 4.1 ? 
+
+Pour les clients NFSv 4.1, Azure NetApp Files prend en charge le mécanisme de verrouillage de fichiers NFSv 4.1 qui maintient l’état de tous les verrous de fichier sous un modèle basé sur un bail. 
+
+Selon la norme RFC 3530, Azure NetApp Files définit une période de bail unique pour l’ensemble des états conservés par un client NFS. Si le client ne renouvelle pas son bail au cours de la période définie, tous les états associés à son bail sont libérés par le serveur.  
+
+Par exemple, si un client montant un volume cesse de répondre ou se bloque au-delà des délais d’attente, les verrous sont libérés. Le client peut renouveler son bail de manière explicite ou implicite en effectuant des opérations telles que la lecture d’un fichier.   
+
+Une période de grâce définit une période de traitement spécial durant laquelle les clients peuvent tenter de récupérer leur état de verrouillage lors d’une récupération de serveur. Le délai d’expiration par défaut des baux est de 30 secondes, avec une période de grâce de 45 secondes. Passé ce délai, le bail du client est libéré.   
 
 ## <a name="smb-faqs"></a>Questions fréquentes sur SMB
 

@@ -11,12 +11,12 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 765bfe0f805ae4219110d689e8f7f8fd54a26cf3
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 94187f2f94581b4ff48ddb0cd014dc26268fcf15
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96173934"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102500510"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>Planification du déploiement de la réinitialisation de mot de passe en libre-service Azure Active Directory
 
@@ -25,7 +25,7 @@ ms.locfileid: "96173934"
 >
 > **Si vous êtes un utilisateur final et que vous devez revenir à votre compte, accédez à [https://aka.ms/sspr](https://aka.ms/sspr)** .
 
-La [réinitialisation de mot de passe en libre-service (SSPR)](https://www.youtube.com/watch?v=tnb2Qf4hTP8) est une fonctionnalité d'Azure Active Directory qui permet aux utilisateurs de réinitialiser leurs mots de passe sans solliciter l'aide du personnel informatique. Les utilisateurs peuvent rapidement débloquer leur compte et continuer à travailler, quels que soient l'heure ou l'endroit où ils se trouvent. En permettant aux employés de débloquer leur compte eux-mêmes, votre organisation peut réduire les pertes de productivité et les coûts de support élevés liés aux problèmes de mot de passe les plus courants.
+La [réinitialisation de mot de passe en libre-service (SSPR)](https://www.youtube.com/watch?v=pS3XwfxJrMo) est une fonctionnalité d'Azure Active Directory qui permet aux utilisateurs de réinitialiser leurs mots de passe sans solliciter l'aide du personnel informatique. Les utilisateurs peuvent rapidement débloquer leur compte et continuer à travailler, quels que soient l'heure ou l'endroit où ils se trouvent. En permettant aux employés de débloquer leur compte eux-mêmes, votre organisation peut réduire les pertes de productivité et les coûts de support élevés liés aux problèmes de mot de passe les plus courants.
 
 La SSPR comprend les fonctionnalités suivantes :
 
@@ -78,6 +78,7 @@ Pour plus d'informations sur les prix, consultez [Tarifs Azure Active Directory]
 | Vidéos| [Offrez une meilleure extensibilité informatique à vos utilisateurs](https://youtu.be/g9RpRnylxS8) 
 | |[Qu'est-ce que la réinitialisation de mot de passe en libre-service ?](https://youtu.be/hc97Yx5PJiM)|
 | |[Déployer la réinitialisation de mot de passe en libre-service](https://www.youtube.com/watch?v=Pa0eyqjEjvQ&index=18&list=PLLasX02E8BPBm1xNMRdvP6GtA6otQUqp0)|
+| |[Guide pratique pour activer et configurer SSPR dans Azure AD](https://www.youtube.com/watch?v=rA8TvhNcCvQ)|
 | |[Configurer la réinitialisation de mot de passe en libre-service pour les utilisateurs dans Azure AD](https://azure.microsoft.com/resources/videos/self-service-password-reset-azure-ad/) |
 | |[[Préparer les utilisateurs à] inscrire [leurs] informations de sécurité pour Azure Active Directory](https://youtu.be/gXuh0XS18wA) |
 | Cours en ligne|[Gestion des identités dans Microsoft Azure Active Directory](https://www.pluralsight.com/courses/microsoft-azure-active-directory-managing-identities) Utilisez la SSPR pour offrir à vos utilisateurs une expérience moderne et protégée. Consultez notamment le module « [Gestion des utilisateurs et des groupes Azure Active Directory](https://app.pluralsight.com/library/courses/microsoft-azure-active-directory-managing-identities/table-of-contents) ». |

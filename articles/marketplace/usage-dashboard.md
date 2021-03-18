@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/09/2020
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: 9f798751065d4889569f4b798ac864342f3e54ef
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 765f4f358d593cd5fcc021fbf4ec2276c422c4d8
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98934390"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102555123"
 ---
 # <a name="usage-dashboard-in-commercial-marketplace-analytics"></a>Tableau de bord Utilisation dans les données d’analytique de la Place de marché commerciale
 
@@ -117,46 +117,45 @@ Le tableau des **détails de l’utilisation** présente une liste numérotée d
 
 _**Tableau 1 : dictionnaire des termes relatifs aux données**_
 
-| Nom de la colonne | Nom de l’attribut | Définition |
-| ------------ | ------------- | ------------- |
-| ID d’abonnement de la Place de marché | ID d’abonnement de la Place de marché | Identificateur unique associé à l’abonnement Azure que le client a utilisé pour acheter votre offre de la Place de marché commerciale. Anciennement, GUID d’abonnement Azure. |
-| MonthStartDate | Date de début du mois | Mois de l’achat. |
-| Type d’offre | Type d’offre | Type de l’offre de la place de marché commerciale. |
-| Type de licence Azure | Type de licence Azure | Type de contrat de licence utilisé par les clients pour acheter Azure. Également appelé Canal. Les valeurs possibles sont les suivantes :<ui><li>Fournisseur de solutions cloud</li><li>Enterprise</li><li>entreprise, via un revendeur</li><li>paiement à l’utilisation</li></ul> |
-| Type de licence de la Place de marché | Type de licence de la Place de marché | Mode de facturation de l’offre de la place de marché commerciale. Les valeurs possibles sont les suivantes :<ul><li>facturé via Azure</li><li>BYOL (apportez votre propre licence)</li><li>Gratuit</li><li>Microsoft en tant que revendeur</li></ul> |
-| SKU | SKU | Plan associé à l’offre. |
-| Pays du client | Pays/Région du client | Nom de pays/région fourni par le client. Ce nom peut être différent du nom du pays ou de la région fourni dans l’abonnement Azure d’un client. |
-| Référence SKU en préversion | Référence SKU en préversion | Indique si la référence SKU est étiquetée comme « préversion ». La valeur est « Oui » si la référence SKU a été étiquetée en conséquence, et seuls les abonnements Azure que vous avez autorisés peuvent déployer et utiliser cette image. La valeur est « Non » si la référence SKU n’a pas été identifiée en tant que « préversion ». |
-| Type de facturation de la référence SKU | Type de facturation de la référence SKU | Type de facturation associé à chaque référence SKU de l’offre. Les valeurs possibles sont les suivantes :<ul><li>Gratuit</li><li>Payant</li></ul> |
-| IsInternal | Déprécié | Déprécié |
-| Taille de la machine virtuelle | Taille de la machine virtuelle | Pour les types d’offres basés sur une machine virtuelle, taille de la machine virtuelle associée à la référence SKU de l’offre. |
-| Nom de l’instance cloud | Nom de l’instance cloud | Instance de Microsoft Cloud sur laquelle des machines virtuelles ont été déployées. |
-| ServicePlanName | Déprécié | Déconseillé (même définition que SKU) |
-| Nom de l’offre | Nom de l’offre | Nom de l’offre de la place de marché commerciale. |
-| DeploymentMethod | Déprécié | Déconseillé (même définition que Type d’offre)
- |
-| Nom de la société du client | Nom de la société du client | Nom de société fourni par le client. Le nom peut être différent du nom indiqué dans l’abonnement Azure du client. |
-| Date d'utilisation | Date d'utilisation | Date de génération d’événements d’utilisation pour les ressources à l’utilisation. |
-| IsMultisolution | Est de type multisolution | Indique si l’offre est de type multisolution. |
-| Nouveau client | Déprécié | Déprécié |
-| Taille de base | Taille de base | Nombre de cœurs associés à l’offre basée sur une machine virtuelle. |
-| Type d'utilisation | Type d'utilisation | Indique si l’événement d’utilisation associé à l’offre fait partie de la liste suivante :<ul><li>Utilisation normalisée</li><li>Utilisation brute</li><li>Utilisation facturée à l’usage</li></ul> |
-| Date de fin d'essai | Date de fin d'essai | La date de fin de la période d’essai de cette commande approche ou est dépassée. |
-| Devise du client (DC) | Devise du client | Devise utilisée par le client pour les transactions de la place de marché commerciale. |
-| Prix (DC) | Price | Prix unitaire de la référence SKU dans la devise du client. |
-| Devise de paiement (DE) | Devise de paiement | Devise configurée par l’éditeur dans laquelle il est payé pour les événements d’utilisation associés à la ressource. |
-| Prix estimé (DE) | Prix estimé | Prix unitaire de la référence SKU dans la devise configurée par l’éditeur. |
-| Référence d’utilisation | Référence d’utilisation | GUID concaténé servant à connecter le rapport Utilisation (dans l’analytique de la place de marché commerciale) au rapport Transaction de paiement. La Référence d’utilisation est liée à OrderId et à LineItemId dans le rapport Transaction de paiement. |
-| Unité d’utilisation | Unité d’utilisation | Unité de consommation associée à la référence SKU. |
-| Customer Id | ID de client | Identificateur unique attribué à un client. Un client peut avoir zéro ou plusieurs abonnements de la Place de marché Azure. |
-| ID de compte de facturation | ID de compte de facturation | L’identifiant du compte sur lequel la facturation est générée. Mappez l’**ID de compte de facturation** à l’**ID client** pour connecter votre rapport de transactions de paiement avec les rapports Client, Commande et Utilisation. |
-| Quantité d’utilisation | Quantité d’utilisation | Nombre total d’unités d’utilisation consommées par la ressource déployée par le client.<br>Dépend de l’élément Type d’utilisation. Par exemple, si le Type d’utilisation est Utilisation normalisée, la quantité d’utilisation correspond à une utilisation normalisée. |
-| NormalizedUsage | Utilisation normalisée | Nombre total d’unités d’utilisation normalisées consommées par la ressource déployée par le client.<br>Les heures d’utilisation normalisée correspondent aux heures d’utilisation normalisées pour prendre en compte le nombre de cœurs de machines virtuelles ([nombre de cœurs de machines virtuelles] x [heures d’utilisation brute]). Les machines virtuelles désignées sous le nom de « SHAREDCORE » utilisent 1/6 (ou 0,1666) comme multiplicateur [nombre de cœurs de machines virtuelles]. |
-| MeteredUsage | Utilisation facturée à l’usage | Nombre total d’unités d’utilisation consommées selon les compteurs configurés avec l’offre déployée par le client. |
-| RawUsage | Utilisation brute | Nombre total d’unités d’utilisation brute consommées par la ressource déployée par le client.<br>Les heures d’utilisation brute correspondent à la durée, en unités d’utilisation, pendant laquelle les machines virtuelles ont été utilisées. |
-| Estimation des frais d’extension (DC) | Frais étendus estimés dans la devise du client | Frais associés à l’utilisation. La colonne correspond au produit entre Prix et Quantité d’utilisation. |
-| Estimation des frais d’extension (DE) | Frais étendus estimés dans la devise de paiement | Frais associés à l’utilisation. La colonne correspond au produit entre Prix estimé et Quantité d’utilisation. |
-||||
+| Nom de colonne dans<br>interface utilisateur | Nom de l’attribut | Définition | Nom de colonne dans les<br>rapports d’accès programmatique |
+| ------------ | ------------- | ------------- | ------------- |
+| ID d’abonnement de la Place de marché | ID d’abonnement de la Place de marché | Identificateur unique associé à l’abonnement Azure que le client a utilisé pour acheter votre offre de la Place de marché commerciale. Anciennement, GUID d’abonnement Azure. | MarketplaceSubscriptionId |
+| MonthStartDate | Date de début du mois | Mois de l’achat. | MonthStartDate |
+| Type d’offre | Type d’offre | Type de l’offre de la place de marché commerciale. | OfferType |
+| Type de licence Azure | Type de licence Azure | Type de contrat de licence utilisé par les clients pour acheter Azure. Également appelé Canal. Les valeurs possibles sont les suivantes :<ui><li>Fournisseur de solutions cloud</li><li>Enterprise</li><li>entreprise, via un revendeur</li><li>paiement à l’utilisation</li></ul> | AzureLicenseType |
+| Type de licence de la Place de marché | Type de licence de la Place de marché | Mode de facturation de l’offre de la place de marché commerciale. Les valeurs possibles sont les suivantes :<ul><li>facturé via Azure</li><li>BYOL (apportez votre propre licence)</li><li>Gratuit</li><li>Microsoft en tant que revendeur</li></ul> | MarketplaceLicenseType |
+| SKU | SKU | Plan associé à l’offre. | SKU |
+| Pays du client | Pays/Région du client | Nom de pays/région fourni par le client. Ce nom peut être différent du nom du pays ou de la région fourni dans l’abonnement Azure d’un client. | CustomerCountry |
+| Référence SKU en préversion | Référence SKU en préversion | Indique si la référence SKU est étiquetée comme « préversion ». La valeur est « Oui » si la référence SKU a été étiquetée en conséquence, et seuls les abonnements Azure que vous avez autorisés peuvent déployer et utiliser cette image. La valeur est « Non » si la référence SKU n’a pas été identifiée en tant que « préversion ». | IsPreviewSKU |
+| Type de facturation de la référence SKU | Type de facturation de la référence SKU | Type de facturation associé à chaque référence SKU de l’offre. Les valeurs possibles sont les suivantes :<ul><li>Gratuit</li><li>Payant</li></ul> | SKUBillingType |
+| IsInternal | Déprécié | Déprécié | Déprécié |
+| Taille de la machine virtuelle | Taille de la machine virtuelle | Pour les types d’offres basés sur une machine virtuelle, taille de la machine virtuelle associée à la référence SKU de l’offre. | VMSize |
+| Nom de l’instance cloud | Nom de l’instance cloud | Instance de Microsoft Cloud sur laquelle des machines virtuelles ont été déployées. | CloudInstanceName |
+| ServicePlanName | Déprécié | Déconseillé (même définition que SKU) | ServicePlanName |
+| Nom de l’offre | Nom de l’offre | Nom de l’offre de la place de marché commerciale. | OfferName |
+| DeploymentMethod | Déprécié | Déconseillé (même définition que Type d’offre) | DeploymentMethod |
+| Nom de la société du client | Nom de la société du client | Nom de société fourni par le client. Le nom peut être différent du nom indiqué dans l’abonnement Azure du client. | CustomerCompanyName |
+| Date d'utilisation | Date d'utilisation | Date de génération d’événements d’utilisation pour les ressources à l’utilisation. | UsageDate |
+| IsMultisolution | Est de type multisolution | Indique si l’offre est de type multisolution. | IsMultisolution |
+| Nouveau client | Déprécié | Déprécié | IsNewCustomer |
+| Taille de base | Taille de base | Nombre de cœurs associés à l’offre basée sur une machine virtuelle. | CoreSize |
+| Type d'utilisation | Type d'utilisation | Indique si l’événement d’utilisation associé à l’offre fait partie de la liste suivante :<ul><li>Utilisation normalisée</li><li>Utilisation brute</li><li>Utilisation facturée à l’usage</li></ul> | UsageType |
+| Date de fin d'essai | Date de fin d'essai | La date de fin de la période d’essai de cette commande approche ou est dépassée. | TrialEndDate |
+| Devise du client (DC) | Devise du client | Devise utilisée par le client pour les transactions de la place de marché commerciale. | CustomerCurrencyCC |
+| Prix (DC) | Price | Prix unitaire de la référence SKU dans la devise du client. | PriceCC |
+| Devise de paiement (DE) | Devise de paiement | Devise configurée par l’éditeur dans laquelle il est payé pour les événements d’utilisation associés à la ressource. | PayoutCurrencyPC |
+| Prix estimé (DE) | Prix estimé | Prix unitaire de la référence SKU dans la devise configurée par l’éditeur. | EstimatedPricePC |
+| Référence d’utilisation | Référence d’utilisation | GUID concaténé servant à connecter le rapport Utilisation (dans l’analytique de la place de marché commerciale) au rapport Transaction de paiement. La Référence d’utilisation est liée à OrderId et à LineItemId dans le rapport Transaction de paiement. | UsageReference |
+| Unité d’utilisation | Unité d’utilisation | Unité de consommation associée à la référence SKU. | UsageUnit |
+| ID de client | ID de client | Identificateur unique attribué à un client. Un client peut avoir zéro ou plusieurs abonnements de la Place de marché Azure. | CustomerId |
+| ID de compte de facturation | ID de compte de facturation | L’identifiant du compte sur lequel la facturation est générée. Mappez l’**ID de compte de facturation** à l’**ID client** pour connecter votre rapport de transactions de paiement avec les rapports Client, Commande et Utilisation. | BillingAccountId |
+| Quantité d’utilisation | Quantité d’utilisation | Nombre total d’unités d’utilisation consommées par la ressource déployée par le client.<br>Dépend de l’élément Type d’utilisation. Par exemple, si le Type d’utilisation est Utilisation normalisée, la quantité d’utilisation correspond à une utilisation normalisée. | UsageQuantity |
+| NormalizedUsage | Utilisation normalisée | Nombre total d’unités d’utilisation normalisées consommées par la ressource déployée par le client.<br>Les heures d’utilisation normalisée correspondent aux heures d’utilisation normalisées pour prendre en compte le nombre de cœurs de machines virtuelles ([nombre de cœurs de machines virtuelles] x [heures d’utilisation brute]). Les machines virtuelles désignées sous le nom de « SHAREDCORE » utilisent 1/6 (ou 0,1666) comme multiplicateur [nombre de cœurs de machines virtuelles]. | NormalizedUsage |
+| MeteredUsage | Utilisation facturée à l’usage | Nombre total d’unités d’utilisation consommées selon les compteurs configurés avec l’offre déployée par le client. | MeteredUsage |
+| RawUsage | Utilisation brute | Nombre total d’unités d’utilisation brute consommées par la ressource déployée par le client.<br>Les heures d’utilisation brute correspondent à la durée, en unités d’utilisation, pendant laquelle les machines virtuelles ont été utilisées. | RawUsage |
+| Estimation des frais d’extension (DC) | Frais étendus estimés dans la devise du client | Frais associés à l’utilisation. La colonne correspond au produit entre Prix et Quantité d’utilisation. | EstimatedExtendedChargeCC |
+| Estimation des frais d’extension (DE) | Frais étendus estimés dans la devise de paiement | Frais associés à l’utilisation. La colonne correspond au produit entre Prix estimé et Quantité d’utilisation. | EstimatedExtended ChargePC |
+|||||
 
 ### <a name="usage-page-filters"></a>Filtres de la page Utilisation
 

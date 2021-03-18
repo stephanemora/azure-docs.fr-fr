@@ -8,14 +8,14 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 02/28/2021
+ms.date: 03/09/2021
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: 8635e3590d4196e407dfc591a55ee240806358ed
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 82445ce7c1ebfc365459bbeba7e04d660221eaf2
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101691516"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102551663"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Audit pour Azure SQL Database et Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -58,6 +58,11 @@ Une stratégie d’audit peut être définie pour une base de données spécifiq
 
 - Si *l’audit du serveur est activé*, il *s’applique toujours à la base de données*. La base de données est auditée, quels que soient les paramètres d’audit de la base de données.
 
+- Lorsque la stratégie d’audit est définie au niveau de la base de données sur un espace de travail Log Analytics ou une destination Event Hub, les opérations suivantes ne conservent pas la stratégie d’audit au niveau de la base de données source :
+    - [Copie de base de données](database-copy.md)
+    - [Restauration dans le temps](recovery-using-backups.md)
+    - [Géoréplication](active-geo-replication-overview.md) (la base de données secondaire ne reçoit pas d’audit de niveau base de données)
+
 - L’activation de l’audit dans la base de données, en plus de son activation sur le serveur, ne remplace *pas* et ne modifie pas non plus les paramètres d'audit du serveur. Les deux audits coexistent. En d’autres termes, la base de données est auditée deux fois en parallèle (une fois par la stratégie du serveur et une autre fois par la stratégie de la base de données).
 
    > [!NOTE]
@@ -94,7 +99,8 @@ L’audit Azure SQL Database et Azure Synapse stocke 4 000 caractères de donn�
 La section suivante décrit la configuration de l’audit à l’aide du portail Azure.
 
   > [!NOTE]
-  > L’activation de l’audit sur un pool SQL dédié suspendu n’est pas possible. Pour activer l’audit, annulez l’interruption du pool SQL dédié. En savoir plus sur le [pool SQL dédié](../..//synapse-analytics/sql/best-practices-sql-pool.md).
+  > - L’activation de l’audit sur un pool SQL dédié suspendu n’est pas possible. Pour activer l’audit, annulez l’interruption du pool SQL dédié. En savoir plus sur le [pool SQL dédié](../..//synapse-analytics/sql/best-practices-sql-pool.md).
+  > - Lorsque l’audit est configuré sur un espace de travail Log Analytics ou une destination Event Hub avec la cmdlet Portail Azure ou PowerShell, un [paramètre de diagnostic](../../azure-monitor/essentials/diagnostic-settings.md) est créé avec la catégorie « SQLSecurityAuditEvents » activée.
 
 1. Accédez au [portail Azure](https://portal.azure.com).
 2. Accédez à **Audit** sous l’en-tête Sécurité dans votre volet **SQL Database** ou **SQL Server**.
@@ -104,18 +110,18 @@ La section suivante décrit la configuration de l’audit à l’aide du portail
 
 4. Si vous préférez activer l’audit au niveau base de données, définissez **Audit** sur **ACTIVÉ**. Si l’audit d’objets du serveur est activé, l’audit configuré pour la base de données coexiste avec celui-ci.
 
-5. Vous disposez de plusieurs options pour configurer l’emplacement d’écriture des journaux d’audit. Vous pouvez écrire des journaux dans un compte de stockage Azure ou dans un espace de travail Log Analytics pour qu’ils soient consommés par des journaux d’activité Azure Monitor (préversion), ou dans un Event Hub pour qu’ils soient consommés par cet Event Hub (préversion). Vous pouvez associer ces options comme vous le souhaitez. Les journaux d’audit seront écrits dans chacun des emplacements choisis.
+5. Vous disposez de plusieurs options pour configurer l’emplacement d’écriture des journaux d’audit. Vous pouvez écrire des journaux d’activité dans un compte de stockage Azure ou dans un espace de travail Log Analytics pour qu’ils soient consommés par des journaux Azure Monitor, ou dans un hub d’événements pour qu’ils soient consommés par ce hub. Vous pouvez associer ces options comme vous le souhaitez. Les journaux d’audit seront écrits dans chacun des emplacements choisis.
   
    ![Options de stockage](./media/auditing-overview/auditing-select-destination.png)
 
-### <a name="auditing-of-microsoft-support-operations-preview"></a><a id="auditing-of-microsoft-support-operations"></a>Audit des opérations de Support Microsoft (Préversion)
+### <a name="auditing-of-microsoft-support-operations"></a><a id="auditing-of-microsoft-support-operations"></a>Audit des opérations de Support Microsoft
 
-L’audit des opérations de Support Microsoft (Préversion) pour Azure SQL Server vous permet d’auditer les opérations des ingénieurs du support technique de Microsoft quand ils ont besoin d’accéder à votre serveur au cours d’une demande de support. L’utilisation de cette fonctionnalité, ainsi que votre audit, permet une plus grande transparence pour votre personnel, ainsi que la détection des anomalies, la visualisation des tendances et la protection contre la perte de données.
+L’audit des opérations de Support Microsoft pour Azure SQL Server vous permet d’auditer les opérations des ingénieurs du Support Microsoft quand ils ont besoin d’accéder à votre serveur au cours d’une demande de support. L’utilisation de cette fonctionnalité, ainsi que votre audit, permet une plus grande transparence pour votre personnel, ainsi que la détection des anomalies, la visualisation des tendances et la protection contre la perte de données.
 
-Pour activer l’audit des opérations de Support Microsoft (Préversion), accédez à **Auditing** (Audit) sous l’en-tête Security (Sécurité) de votre volet **Azure SQL Server**, puis basculez **Auditing of Microsoft support operations (Preview)** (Audit des opérations de Microsoft Support (Préversion)) sur **ON** (ACTIF).
+Pour activer l’audit des opérations de Support Microsoft, accédez à **Audit** sous l’en-tête Sécurité de votre volet **Serveur SQL Azure**, puis basculez **Audit des opérations de Support Microsoft** sur **Actif**.
 
   > [!IMPORTANT]
-  > L’audit des opérations de Support Microsoft (Préversion) ne prend pas en charge la destination du compte de stockage. Pour activer cette capacité, vous devez configurer un espace de travail Log Analytics ou une destination Event Hub.
+  > L’audit des opérations de Support Microsoft ne prend pas en charge la destination du compte de stockage. Pour activer cette capacité, vous devez configurer un espace de travail Log Analytics ou une destination Event Hub.
 
 ![Capture d’écran des opérations de Support Microsoft](./media/auditing-overview/support-operations.png)
 
@@ -137,7 +143,7 @@ Pour configurer l’écriture des journaux d’audit dans un compte de stockage,
 
 ### <a name="audit-to-log-analytics-destination"></a><a id="audit-log-analytics-destination"></a>Écriture des journaux d’audit dans Log Analytics
   
-Pour configurer l’écriture des journaux d’audit dans un espace de travail Log Analytics, sélectionnez **Log Analytics (préversion)** , puis ouvrez **Détails de Log Analytics**. Sélectionnez ou créez l’espace de travail Log Analytics où les journaux d’activité doivent être écrits, puis cliquez sur **OK**.
+Pour configurer l’écriture des journaux d’audit dans un espace de travail Log Analytics, sélectionnez **Log Analytics**, puis ouvrez **Détails de Log Analytics**. Sélectionnez ou créez l’espace de travail Log Analytics où les journaux d’activité doivent être écrits, puis cliquez sur **OK**.
 
    ![LogAnalyticsworkspace](./media/auditing-overview/auditing_select_oms.png)
 
@@ -145,7 +151,7 @@ Pour plus d’informations sur l’espace de travail Azure Monitor Log Analytics
    
 ### <a name="audit-to-event-hub-destination"></a><a id="audit-event-hub-destination"></a>Écriture des journaux d’audit dans Event Hub
 
-Pour configurer l’écriture des journaux d’audit dans un hub d’événements, sélectionnez **Hub d’événements (préversion)** , puis ouvrez **Détails du hub d’événements**. Sélectionnez le hub d’événements dans lequel les journaux d’activité doivent être écrits, puis cliquez sur **OK**. Veillez à ce que le hub d’événements se trouve dans la même région que votre base de données et votre serveur.
+Pour configurer l’écriture des journaux d’audit dans un hub d’événements, sélectionnez **Event Hub**, puis ouvrez **Détails d’Event Hub**. Sélectionnez le hub d’événements dans lequel les journaux d’activité doivent être écrits, puis cliquez sur **OK**. Veillez à ce que le hub d’événements se trouve dans la même région que votre base de données et votre serveur.
 
    ![Eventhub](./media/auditing-overview/auditing_select_event_hub.png)
 
@@ -278,8 +284,8 @@ Prise en charge de la stratégie étendue avec la clause WHERE pour un filtrage 
 
 ### <a name="using-azure-cli"></a>Utilisation de l’interface de ligne de commande Azure
 
-- [Gérer la stratégie d’audit d’un serveur](/cli/azure/sql/server/audit-policy?view=azure-cli-latest)
-- [Gérer la stratégie d’audit d’une base de données](/cli/azure/sql/db/audit-policy?view=azure-cli-latest)
+- [Gérer la stratégie d’audit d’un serveur](/cli/azure/sql/server/audit-policy)
+- [Gérer la stratégie d’audit d’une base de données](/cli/azure/sql/db/audit-policy)
 
 ### <a name="using-azure-resource-manager-templates"></a>Utilisation de modèles Azure Resource Manager
 

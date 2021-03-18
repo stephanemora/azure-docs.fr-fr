@@ -7,14 +7,14 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
-ms.date: 02/01/2021
+ms.date: 03/08/2021
 tags: connectors
-ms.openlocfilehash: e52c4acb4b59414e89e87bf5a6ee2cfae8207cae
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: b9238d099c7b33e904c2fc8de3c4fc08369f1f36
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101712451"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102489835"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Se connecter aux systèmes SAP à partir d’Azure Logic Apps
 
@@ -30,7 +30,7 @@ Cet article explique comment vous pouvez accéder à vos ressources SAP à parti
 
     * Si vous exécutez votre application logique dans une instance Azure multilocataire, consultez les [prérequis pour une instance multilocataire](#multi-tenant-azure-prerequisites).
 
-    * Si vous exécutez votre application logique dans un [environnement de service d’intégration (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) de niveau Premium, consultez les [prérequis ISE](#ise-prerequisites).
+    * Si vous exécutez votre application logique dans un [environnement de service d’intégration (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) de niveau Premium, consultez les [prérequis des environnements ISE](#ise-prerequisites).
 
 * Un [serveur d’applications SAP](https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server) ou un [serveur de messages SAP](https://help.sap.com/saphelp_nw70/helpdata/en/40/c235c15ab7468bb31599cc759179ef/frameset.htm) auquel vous souhaitez accéder à partir de Logic Apps. Pour plus d’informations sur les serveurs SAP et les actions SAP que vous pouvez utiliser avec le connecteur, consultez [Compatibilité SAP](#sap-compatibility).
 
@@ -473,6 +473,23 @@ Votre application logique est maintenant prête à recevoir des messages de votr
 > [!NOTE]
 > Le déclencheur SAP n’est pas un déclencheur d’interrogation : il s’agit d’un déclencheur basé sur un webhook. Si vous utilisez la passerelle de données, le déclencheur est appelé depuis la passerelle de données seulement s’il existe un message : aucune interrogation n’est donc nécessaire.
 
+Si vous recevez une erreur **500 Bad Gateway** avec un message du type **service « sapgw00 » inconnu**, remplacez le nom de votre service de passerelle dans votre configuration de déclencheur et de connexion d’API par son numéro de port. Dans l’exemple d’erreur suivant, `sapgw00` doit être remplacé par un numéro de port réel, par exemple `3300`. 
+
+```json
+"body": {
+   "error": {
+      "code": 500,
+      "source": "EXAMPLE-FLOW-NAME.eastus.environments.microsoftazurelogicapps.net",
+      "clientRequestId": "00000000-0000-0000-0000-000000000000",
+      "message": "BadGateway",
+      "innerError": {
+         "error": {
+            "code": "UnhandledException",
+            "message": "\nERROR service 'sapgw00' unknown\nTIME Wed Nov 11 19:37:50 2020\nRELEASE 721\nCOMPONENT NI (network interface)\nVERSION 40\nRC -3\nMODULE ninti.c\nLINE 933\nDETAIL NiPGetServByName: 'sapgw00' not found\nSYSTEM CALL getaddrinfo\nCOUNTER 1\n\nRETURN CODE: 20"
+         }
+      }
+```
+
 #### <a name="parameters"></a>Paramètres
 
 Avec les entrées de chaîne et de nombre simples, le connecteur SAP accepte les paramètres de table suivants (entrées `Type=ITAB`) :
@@ -616,6 +633,14 @@ Pour envoyer des Idocs de SAP à votre application logique, vous avez besoin de 
     * Pour votre **Destination RFC**, entrez un nom.
     
     * Sous l’onglet **Paramètres techniques**, pour **Type d’activation**, sélectionnez **Programme de serveur inscrit**. Pour votre **ID de programme**, entrez une valeur. Dans SAP, le déclencheur de votre application logique sera enregistré à l’aide de cet identificateur.
+
+    > [!IMPORTANT]
+    > **L’ID de programme** SAP respecte la casse. Veillez à utiliser systématiquement le même format de casse pour votre **ID de programme** lorsque vous configurez votre application logique et votre serveur SAP. Dans le cas contraire, vous risquez de recevoir les erreurs suivantes dans le moniteur tRFC (T-Code SM58) lorsque vous tentez d’envoyer un IDoc à SAP :
+    >
+    > * **Fonction IDOC_INBOUND_ASYNCHRONOUS introuvable**
+    > * **Client RFC non ABAP (type de partenaire) non pris en charge**
+    >
+    > Pour plus d’informations sur SAP, consultez les notes suivantes (connexion obligatoire) : <https://launchpad.support.sap.com/#/notes/2399329> et <https://launchpad.support.sap.com/#/notes/353597>.
     
     * Sous l’onglet **Unicode**, pour **Type de communication avec le système cible**, sélectionnez **Unicode**.
 
@@ -727,11 +752,27 @@ Vous pouvez configurer SAP pour [envoyer des IDocs sous forme de paquets](https:
 
 Voici un exemple montrant comment extraire des IDocs individuels d’un paquet à l’aide de la [fonction `xpath()`](./workflow-definition-language-functions-reference.md#xpath) :
 
-1. Avant de commencer, vous devez disposer d'une application logique avec un déclencheur SAP. Si vous n’avez pas encore cette application logique, suivez les étapes précédentes de cette rubrique pour [configurer une application logique avec un déclencheur SAP](#receive-message-from-sap).
+1. Avant de commencer, vous devez disposer d'une application logique avec un déclencheur SAP. Si votre application logique n’en comporte pas déjà, suivez les étapes précédentes de cette rubrique pour [configurer une application logique avec un déclencheur SAP](#receive-message-from-sap).
+
+    > [!IMPORTANT]
+    > **L’ID de programme** SAP respecte la casse. Veillez à utiliser systématiquement le même format de casse pour votre **ID de programme** lorsque vous configurez votre application logique et votre serveur SAP. Dans le cas contraire, vous risquez de recevoir les erreurs suivantes dans le moniteur tRFC (T-Code SM58) lorsque vous tentez d’envoyer un IDoc à SAP :
+    >
+    > * **Fonction IDOC_INBOUND_ASYNCHRONOUS introuvable**
+    > * **Client RFC non ABAP (type de partenaire) non pris en charge**
+    >
+    > Pour plus d’informations sur SAP, consultez les notes suivantes (connexion obligatoire) : <https://launchpad.support.sap.com/#/notes/2399329> et <https://launchpad.support.sap.com/#/notes/353597>.
 
    Par exemple :
 
    ![Ajouter un déclencheur SAP à une application logique](./media/logic-apps-using-sap-connector/first-step-trigger.png)
+
+1. [Ajoutez une action de réponse à votre application logique](/azure/connectors/connectors-native-reqres#add-a-response-action) pour répondre immédiatement à l’état de votre demande SAP. Il est recommandé d’ajouter cette action juste après votre déclencheur, pour libérer le canal de communication avec votre serveur SAP. Choisissez l’un des codes de statut suivants (`statusCode`) à utiliser dans votre action de réponse :
+
+    * **202 Accepté**, qui signifie que la demande a été acceptée pour traitement, mais que celui-ci n’a pas encore été effectué.
+
+    * **204 Aucun contenu**, qui signifie que le serveur a bien répondu à la demande et qu’il n’y a pas de contenu supplémentaire à envoyer dans le corps de la charge utile de la réponse. 
+
+    * **200 OK**. Ce code de statut contient toujours une charge utile, même si le serveur génère un corps de charge utile de longueur nulle. 
 
 1. Récupérez l’espace de noms racine à partir de l’IDoc XML que votre application logique reçoit de SAP. Pour extraire cet espace de noms du document XML, ajoutez une étape qui crée une variable de chaîne locale et stocke cet espace de noms à l'aide d'une expression `xpath()` :
 
@@ -1296,11 +1337,18 @@ Si vous rencontrez un problème d’envoi d’IDocs en double à SAP à partir d
 
 ## <a name="known-issues-and-limitations"></a>Problèmes connus et limitations
 
-Voici les problèmes et limitations connus pour le connecteur SAP (non-ISE) managé :
+Voici les problèmes et limitations connus pour le connecteur SAP (non-ISE) managé : 
 
-* Le déclencheur SAP ne prend pas en charge les clusters de passerelle de données. Dans certains cas de basculement, le nœud de la passerelle de données qui communique avec le système SAP peut différer du nœud actif, ce qui entraîne un comportement inattendu. Pour les scénarios d’envoi, les clusters de passerelles de données sont pris en charge.
+* En général, le déclencheur SAP ne prend pas en charge les clusters de passerelles de données. Dans certains cas de basculement, le nœud de la passerelle de données qui communique avec le système SAP peut différer du nœud actif, ce qui entraîne un comportement inattendu.
+
+  * Les clusters de passerelles de données en mode de basculement sont pris en charge dans les scénarios d’envoi. 
+
+  * Les clusters de passerelles de données en mode d’équilibrage de charge ne sont pas pris en charge par les actions SAP avec état, à savoir : **Création d’une session avec état**, **Validation d’une transaction BAPI**, **Restauration d’une transaction BAPI**, **Fermeture d’une session avec état** et toutes les actions qui spécifient une valeur **ID de session**. Les communications avec état doivent rester sur le même nœud de cluster de passerelles de données. 
+
+  * Pour les actions SAP avec état, utilisez la passerelle de données en mode non cluster ou dans un cluster configuré pour le basculement uniquement.
 
 * Le connecteur SAP ne prend actuellement pas en charge les chaînes de routeur SAP. La passerelle de données locale doit exister sur le même réseau local que le système SAP que vous voulez connecter.
+
 
 ## <a name="connector-reference"></a>Référence de connecteur
 

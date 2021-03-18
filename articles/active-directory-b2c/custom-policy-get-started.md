@@ -12,12 +12,12 @@ ms.date: 02/28/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9612a26d7ac2e7a059655636fc1a2a7a43e3b8d7
-ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
+ms.openlocfilehash: 2d6c76a15ee62c26e0d0261c6b0d2d1e27443a40
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100526236"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102518040"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Bien démarrer avec les stratégies personnalisées dans Azure Active Directory B2C
 
@@ -30,6 +30,10 @@ Les [stratégies personnalisées](custom-policy-overview.md) sont des fichiers d
 - Si vous n’en avez pas, [créez un locataire Azure AD B2C](tutorial-create-tenant.md) qui est lié à votre abonnement Azure.
 - [Inscrivez votre application](tutorial-register-applications.md) dans le locataire que vous avez créé afin qu’il puisse communiquer avec Azure AD B2C.
 - Effectuez les étapes décrites dans [Configurer l’inscription et la connexion avec un compte Facebook](identity-provider-facebook.md) pour configurer une application Facebook. Bien qu’une application Facebook ne soit pas requise pour l’utilisation de stratégies personnalisées, elle est utilisée dans cette procédure pas à pas pour illustrer l’activation de la connexion à partir de réseaux sociaux dans une stratégie personnalisée.
+
+> [!TIP]
+> Cet article explique comment configurer manuellement votre locataire. Vous pouvez automatiser l’ensemble du processus à partir de cet article. L’automatisation permettra de déployer le [pack de démarrage SocialAndLocalAccountsWithMFA](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack) Azure AD B2C, qui fournira les parcours Inscription et connexion, Réinitialisation de mot de passe et Modification de profil. Pour automatiser la procédure pas à pas ci-dessous, accédez à [l’application d’installation IEF](https://aka.ms/iefsetup) et suivez les instructions.
+
 
 ## <a name="add-signing-and-encryption-keys"></a>Ajouter des clés de signature et de chiffrement
 

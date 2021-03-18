@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 11/12/2020
+ms.date: 03/05/2021
 ms.author: alkohli
-ms.openlocfilehash: 53ef73c70f5d20133e7b408ad7af91c3778e5568
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 4d75986880075f6eb07aa31b9322bdae15535802
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98787449"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102437602"
 ---
 # <a name="enable-azure-arc-on-kubernetes-cluster-on-your-azure-stack-edge-pro-gpu-device"></a>Activer Azure Arc sur un cluster Kubernetes sur votre appareil avec GPU Azure Stack Edge Pro
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 Cet article explique comment activer Azure Arc sur un cluster Kubernetes existant sur votre appareil Azure Stack Edge Pro. 
 
@@ -86,7 +88,7 @@ Vous pouvez également inscrire des fournisseurs de ressources via `az cli`. Pou
 
 1. Pour créer un principal de service, utilisez la commande suivante via `az cli`.
 
-    `az ad sp create-for-rbac --skip assignment --name "<Informative name for service principal>"`  
+    `az ad sp create-for-rbac --skip-assignment --name "<Informative name for service principal>"`  
 
     Pour plus d’informations sur la façon de se connecter à `az cli`, [démarrez Cloud Shell dans le portail Azure](../cloud-shell/quickstart-powershell.md#start-cloud-shell).
 
@@ -228,4 +230,4 @@ Pour supprimer la gestion d’Azure Arc, procédez comme suit :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour comprendre comment exécuter un déploiement Azure Arc, consultez [Déployer une application PHP Guestbook sans état avec Redis via GitOps sur un appareil Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-stateless-application-git-ops-guestbook.md).
+Pour comprendre comment exécuter un déploiement Azure Arc, consultez [Déploiement d’une application PHP `Guestbook` sans état avec Redis via GitOps sur un appareil Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-stateless-application-git-ops-guestbook.md).

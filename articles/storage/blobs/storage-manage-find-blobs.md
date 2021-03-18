@@ -3,18 +3,18 @@ title: Gérer et rechercher des données Azure Blob à l’aide de balises d’i
 description: Découvrez comment utiliser des balises d’index de blobs pour catégoriser, gérer et interroger afin de découvrir des objets blob.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 10/19/2020
+ms.date: 03/05/2021
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: klaasl
 ms.custom: references_regions
-ms.openlocfilehash: 4f84c3c2f6fc671a8cb6ac70313361540e3dd815
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: bfaee493c25f882b8beeed565a155db93efd0083
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95523278"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102431752"
 ---
 # <a name="manage-and-find-azure-blob-data-with-blob-index-tags-preview"></a>Gérer et rechercher des données Azure Blob à l’aide de balises d’index de blob (préversion)
 
@@ -29,6 +29,9 @@ Les balises d’index de blob vous permettent d’effectuer les actions suivante
 
 Imaginez un scénario dans lequel vous avez des millions de blobs dans votre compte de stockage, accessibles par de nombreuses applications différentes. Vous souhaitez rechercher toutes les données associées à un projet. Vous n’êtes pas certain de l’étendue concernée, car les données peuvent être réparties sur plusieurs conteneurs avec des conventions d’affectation de noms différentes. Toutefois, vos applications chargent toutes les données avec des balises en fonction de leur projet. Au lieu de rechercher parmi des millions de blobs et de comparer les noms et les propriétés, vous pouvez utiliser `Project = Contoso` comme critère de découverte. Un index de blob filtrera tous les conteneurs sur l’ensemble de votre compte de stockage pour rechercher et renvoyer rapidement un simple ensemble de 50 blobs à partir de `Project = Contoso`.
 
+> [!IMPORTANT]
+> Les balises d’index d’objets blob sont actuellement en **PRÉVERSION**. Pour connaître les conditions juridiques qui s’appliquent aux fonctionnalités Azure en version bêta, en préversion ou plus généralement non encore en disponibilité générale, consultez [l’Avenant aux conditions d’utilisation des préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 Pour bien démarrer, consultez des exemples d’utilisation d’un index de blob dans [Utiliser des balises d’index de blob pour gérer et rechercher des données](storage-blob-index-how-to.md).
 
 ## <a name="blob-index-tags-and-data-management"></a>Étiquettes d’index d’objet blob et gestion des données
@@ -42,7 +45,6 @@ Considérez les cinq objets blob suivants dans votre compte de stockage :
 - *photos/bannerphoto.png*
 - *archives/completed/2019review.pdf*
 - *logs/2020/01/01/logfile.txt*
-
 
 Ces blobs sont séparés à l’aide d’un préfixe de *nom de conteneur/dossier virtuel/blob*. Vous pouvez définir un attribut de balise d’index `Project = Contoso` sur ces cinq blobs pour les classer ensemble tout en maintenant leur organisation de préfixe actuelle. L’ajout de balises d’index évite d’avoir à déplacer les données en exposant la capacité de filtrer et de rechercher des données à l’aide de l’index.
 

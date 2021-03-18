@@ -7,21 +7,30 @@ ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 2d531edeeae9e0dd7e392cae66d9e4d41c68dfa2
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 86e79302716fa502d8562dd563b0a5c5fb220a67
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98882261"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102547547"
 ---
 # <a name="migrate-from-network-attached-storage-nas-to-a-hybrid-cloud-deployment-with-azure-file-sync"></a>Migrer de Network Attached Storage (NAS) vers un déploiement de cloud hybride avec Azure File Sync
+
+Cet article sur la migration, comme d’autres, comporte les mots clés NAS et Azure File Sync. Vérifiez qu’il s’applique à votre scénario :
+
+> [!div class="checklist"]
+> * Source de données : stockage NAS (Network-Attached Storage)
+> * Itinéraire de migration : NAS &rArr; Windows Server &rArr; - Téléchargement et synchronisation avec le(s) partage(s) de fichiers Azure
+> * Mise en cache de fichiers locaux : Oui, l’objectif final étant un déploiement Azure File Sync.
+
+Si votre scénario est différent, consultez le [tableau des guides de migration](storage-files-migration-overview.md#migration-guides).
 
 Azure File Sync fonctionne sur les emplacements DAS (Direct Attached Storage) et ne prend pas en charge la synchronisation avec les emplacements NAS (Network Attached Storage).
 En fait, la migration de vos fichiers est nécessaire et cet article vous guide tout au long de la planification et de l’exécution de cette migration.
 
 ## <a name="migration-goals"></a>Objectifs de la migration
 
-L’objectif est de déplacer les partages que vous avez sur votre appliance NAS vers un Windows Server. Utilisez ensuite Azure File Sync pour un déploiement de cloud hybride. Cette migration doit être effectuée de manière à garantir l’intégrité des données de production, ainsi que la disponibilité pendant la migration. Garantir la disponibilité implique de garder les temps d’arrêt à un niveau minimal pour qu’ils respectent les fenêtres de maintenance habituelles ou ne les dépassent que légèrement.
+L’objectif est de déplacer les partages que vous avez sur votre appliance NAS vers un Windows Server. Utilisez ensuite Azure File Sync pour un déploiement de cloud hybride. En règle générale, les migrations doivent être effectuées de manière à garantir l’intégrité des données de production, ainsi que la disponibilité pendant la migration. Garantir la disponibilité implique de garder les temps d’arrêt à un niveau minimal pour qu’ils respectent les fenêtres de maintenance habituelles ou ne les dépassent que légèrement.
 
 ## <a name="migration-overview"></a>Vue d’ensemble de la migration
 
@@ -45,12 +54,12 @@ Comme mentionné dans l’[article de présentation de la migration](storage-fil
 * Créez un serveur Windows Server 2019 (ou au minimum 2012R2) comme machine virtuelle ou serveur physique. Un cluster de basculement Windows Server est également pris en charge.
 * Provisionnez ou ajoutez un stockage DAS (Direct Attached Storage). Notez que les dispositifs de stockage NAS ne sont pas pris en charge.
 
-    La quantité de stockage que vous approvisionnez peut être inférieure à celle que vous utilisez actuellement sur votre appliance NAS, si vous utilisez la fonctionnalité de [hiérarchisation cloud](storage-sync-cloud-tiering.md) d’Azure File Sync.
+    La quantité de stockage que vous approvisionnez peut être inférieure à celle que vous utilisez sur votre appliance NAS. Ce choix de configuration implique que vous utilisiez également la fonctionnalité de [hiérarchisation cloud](storage-sync-cloud-tiering-overview.md) d’Azure File Sync.
     Toutefois, lorsque vous copiez vos fichiers de l’espace NAS plus grand vers le volume plus petit de Windows Server à une étape ultérieure, vous devrez travailler par lots :
 
     1. Déplacer un ensemble de fichiers qui tiennent sur le disque
     2. Autoriser la synchronisation des fichiers et la hiérarchisation cloud
-    3. Lorsque de l’espace libre est créé sur le volume, passez au lot de fichiers suivant. 
+    3. Lorsque de l’espace libre est créé sur le volume, passez au lot de fichiers suivant. Vous pouvez également consulter la commande RoboCopy dans la [section Robocopy](#phase-7-robocopy) suivante pour utiliser le nouveau commutateur `/LFSM`. `/LFSM` simplifie considérablement vos travaux Robocopy, mais il n’est pas compatible avec certains autres commutateurs Robocopy dont vous pouvez dépendre.
     
     Vous pouvez éviter cette approche de traitement par lot en approvisionnant sur le Windows Server un espace équivalent à celui que vos fichiers occupent sur l’appliance NAS. Envisagez la déduplication sur NAS/Windows. Si vous ne souhaitez pas valider définitivement cette grande quantité de stockage sur votre Windows Server, vous pouvez réduire la taille du volume après la migration et avant d’ajuster les stratégies de hiérarchisation cloud. Cela crée un cache local plus petit de vos partages de fichiers Azure.
 
@@ -105,79 +114,10 @@ Exécutez la première copie locale vers votre dossier Windows Server cible :
 
 La commande RoboCopy suivante copie les fichiers de votre stockage NAS vers votre dossier cible Windows Server. Le serveur Windows Server va le synchroniser avec le(s) partage(s) de fichiers Azure. 
 
-Si vous avez configuré moins de stockage sur votre Windows Server que ce que vos fichiers occupent sur l’appliance NAS, cela signifie que vous avez configuré la hiérarchisation cloud. Quand le volume Windows Server local se remplit, la [hiérarchisation cloud](storage-sync-cloud-tiering.md) intervient et hiérarchise les fichiers qui ont déjà été correctement synchronisés. La hiérarchisation cloud génère suffisamment d’espace pour poursuivre la copie à partir de l’appliance NAS. La hiérarchisation cloud effectue une vérification toutes les heures pour déterminer ce qui a été synchronisé et libérer de l’espace disque pour atteindre l’espace de volume libre de 99 %.
+Si vous avez configuré moins de stockage sur votre Windows Server que ce que vos fichiers occupent sur l’appliance NAS, cela signifie que vous avez configuré la hiérarchisation cloud. Quand le volume Windows Server local se remplit, la [hiérarchisation cloud](storage-sync-cloud-tiering-overview.md) intervient et hiérarchise les fichiers qui ont déjà été correctement synchronisés. La hiérarchisation cloud génère suffisamment d’espace pour poursuivre la copie à partir de l’appliance NAS. La hiérarchisation cloud effectue une vérification toutes les heures pour déterminer ce qui a été synchronisé et libérer de l’espace disque pour atteindre l’espace de volume libre de 99 %.
 Il est possible que RoboCopy déplace les fichiers plus rapidement que vous ne pouvez les synchroniser dans le cloud et le niveau local, ce qui réduit l’espace disque local. RoboCopy échoue. Il est recommandé de traiter les partages dans une séquence qui empêche cela. Par exemple, ne pas démarrer les travaux RoboCopy pour tous les partages en même temps ou déplacer uniquement les partages qui correspondent à la quantité actuelle d’espace libre sur le Windows Server, pour n’en citer que quelques-uns.
 
-```console
-Robocopy /MT:32 /UNILOG:<file name> /TEE /B /MIR /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
-```
-
-Arrière-plan :
-
-:::row:::
-   :::column span="1":::
-      /MT
-   :::column-end:::
-   :::column span="1":::
-      Permet à RoboCopy de s’exécuter en multithread. La valeur par défaut est 8, le maximum est 128.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /UNILOG:\<file name\>
-   :::column-end:::
-   :::column span="1":::
-      Renvoie l’état au fichier LOG au format UNICODE (remplace le journal existant).
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /TEE
-   :::column-end:::
-   :::column span="1":::
-      Génère les sorties dans la fenêtre de la console. Utilisé conjointement avec la sortie dans un fichier journal.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /B
-   :::column-end:::
-   :::column span="1":::
-      Exécute RoboCopy dans le même mode qu’une application de sauvegarde. Permet à RoboCopy de déplacer des fichiers pour lesquels l’utilisateur actuel n’a pas d’autorisations.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /MIR
-   :::column-end:::
-   :::column span="1":::
-      Permet d’exécuter cette commande RoboCopy plusieurs fois, de manière séquentielle, sur la même cible/destination. La commande identifie et ignore ce qui a déjà été copié. Seuls les modifications, ajouts et « *suppressions* » effectués depuis la dernière exécution sont traités. Si la commande n’a pas encore été exécutée, rien n’est ignoré. L’indicateur */MIR* est une excellente option pour les emplacements sources qui sont toujours activement utilisés et qui évoluent.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /COPY:copyflag[s]
-   :::column-end:::
-   :::column span="1":::
-      Fidélité de la copie de fichier (la valeur par défaut est /COPY:DAT), indicateurs de copie : D=Données, A=Attributs, T=Horodatages, S=Sécurité=ACL NTFS, O=Informations propriétaire, U=Informations audit
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /COPYALL
-   :::column-end:::
-   :::column span="1":::
-      Copie de toutes les informations de fichier (équivalent à /COPY:DATSOU)
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /DCOPY:copyflag[s]
-   :::column-end:::
-   :::column span="1":::
-      Fidélité de la copie des répertoires (la valeur par défaut est /DCOPY:DA), indicateurs de copie : D=Données, A=Attributs, T=Horodatages
-   :::column-end:::
-:::row-end:::
+[!INCLUDE [storage-files-migration-robocopy](../../../includes/storage-files-migration-robocopy.md)]
 
 ## <a name="phase-8-user-cut-over"></a>Phase 8 : Transfert de l’utilisateur
 
@@ -196,7 +136,7 @@ Elle s’exécute plus rapidement la deuxième fois. En effet, elle doit déplac
 
 Répétez cette procédure jusqu’à ce que vous considériez que le temps d’arrêt nécessaire à la réalisation d’une RoboCopy pour un emplacement spécifique est dans une fenêtre acceptable.
 
-Dès lors que vous considérez que le temps d’arrêt est acceptable et que vous êtes prêt à mettre l’emplacement NAS hors connexion : Pour mettre l’accès utilisateur hors connexion, vous avez la possibilité de modifier les listes de contrôle d’accès (ACL, access-control list) sur la racine de partage, de sorte que les utilisateurs ne puissent plus accéder à l’emplacement, ou d’effectuer une autre étape appropriée qui empêche le contenu d’être modifié dans ce dossier sur votre emplacement NAS.
+Dès lors que vous considérez que le temps d’arrêt est acceptable, vous devez supprimer l’accès utilisateur à vos partages NAS. Pour ce faire, vous pouvez utiliser n’importe quelle étape empêchant les utilisateurs de modifier la structure des fichiers et des dossiers, ainsi que leur contenu. Par exemple, vous pouvez faire pointer votre DFS-Namespace vers un emplacement non existant ou modifier les listes de contrôle d’accès racine sur le partage.
 
 Exécutez une dernière fois la commande RoboCopy pour traiter toutes les modifications qui n’ont pas encore été prises en compte.
 La durée de cette dernière étape dépend de la vitesse d’analyse de RoboCopy. Vous pouvez estimer la durée d’exécution (correspondant au temps d’arrêt) en mesurant la durée de l’exécution précédente.
@@ -208,13 +148,13 @@ Vous avez terminé la migration d’un partage/groupe de partages vers une racin
 Vous pouvez essayer d’exécuter quelques-unes de ces copies en parallèle. Nous vous recommandons de traiter l’étendue d’un partage de fichiers Azure à la fois.
 
 > [!WARNING]
-> Quand vous avez déplacé toutes les données de votre emplacement NAS vers le serveur Windows Server et que la migration est terminée : revenez à ***tous** les groupes de synchronisation dans le Portail Azure et définissez le pourcentage d’espace de volume libre assuré par la hiérarchisation cloud sur une valeur mieux adaptée à l’utilisation du cache, par exemple 20 %. 
+> Lorsque vous avez déplacé toutes les données de votre emplacement NAS vers le serveur Windows Server et que la migration est terminée : revenez à ***tous*** les groupes de synchronisation dans le portail Azure et définissez le pourcentage d’espace de volume libre assuré par la hiérarchisation cloud sur une valeur mieux adaptée à l’utilisation du cache, par exemple 20 %. 
 
 La stratégie de libération d’espace de volume par hiérarchisation cloud agit au niveau du volume avec potentiellement plusieurs points de terminaison pour la synchronisation à partir du volume. Si vous oubliez de définir l’espace libre sur un point de terminaison de serveur, la synchronisation continue d’appliquer la règle la plus restrictive et tente de conserver un espace disque disponible de 99 %. Dans ce cas, vous n’obtiendrez pas les performances attendues du cache local, sauf si vous souhaitez seulement disposer de l’espace de noms pour un volume contenant uniquement des données d’archivage rarement sollicitées et que vous réservez le reste de l’espace de stockage pour un autre scénario.
 
 ## <a name="troubleshoot"></a>Dépanner
 
-Le problème que vous êtes le plus susceptible de rencontrer est un échec de la commande RoboCopy de type _« Volume plein » côté Windows Server. Toutes les heures, la hiérarchisation cloud retire le contenu du disque Windows Server local, qui a été synchronisé. Son objectif est d’atteindre 99 % d’espace libre sur le volume.
+Le problème que vous êtes le plus susceptible de rencontrer est un échec de la commande RoboCopy de type *« Volume plein »* côté Windows Server. Toutes les heures, la hiérarchisation cloud retire le contenu du disque Windows Server local, qui a été synchronisé. Son objectif est d’atteindre 99 % d’espace libre sur le volume.
 
 Laissez la synchronisation s’effectuer et la hiérarchisation cloud libérer l’espace disque. Vous pouvez observer l’opération dans l’Explorateur de fichiers sur votre serveur Windows Server.
 

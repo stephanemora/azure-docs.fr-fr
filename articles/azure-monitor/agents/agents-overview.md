@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/12/2021
-ms.openlocfilehash: b8cfb483f2b06c072707c57ff45b7ad995a22eb4
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: a2f6023b86b96266be8e625fd5b0d6625500e3fc
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102034436"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102551468"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Vue d’ensemble des agents Azure Monitor
 
@@ -152,10 +152,10 @@ Les tableaux suivants listent les systèmes d’exploitation pris en charge par 
 
 ### <a name="linux"></a>Linux
 
-| Système d’exploitation | Agent Azure Monitor | Agent Log Analytics | Agent de dépendances | Extension Diagnostics | 
+| Système d’exploitation | Agent Azure Monitor<sup>1</sup> | Agent Log Analytics<sup>1</sup> | Agent de dépendances | Extension Diagnostics<sup>2</sup>| 
 |:---|:---:|:---:|:---:|:---:
 | Amazon Linux 2017.09                                        |   | X |   |   |
-| CentOS Linux 8 <sup>1</sup> <sup>2</sup>                    | X | X | X |   |
+| CentOS Linux 8                                              | X<sup>3</sup> | X | X |   |
 | CentOS Linux 7                                              | X | X | X | X |
 | CentOS Linux 6                                              |   | X |   |   |
 | CentOS Linux 6.5+                                           |   | X | X | X |
@@ -164,26 +164,28 @@ Les tableaux suivants listent les systèmes d’exploitation pris en charge par 
 | Debian 8                                                    |   | X | X |   |
 | Debian 7                                                    |   |   |   | X |
 | OpenSUSE 13.1+                                              |   |   |   | X |
-| Oracle Linux 8 <sup>1</sup> <sup>2</sup>                    | X | X |   |   |
+| Oracle Linux 8                                              | X<sup>3</sup> | X |   |   |
 | Oracle Linux 7                                              | X | X |   | X |
 | Oracle Linux 6                                              |   | X |   |   |
 | Oracle Linux 6.4+                                           |   | X |   | X |
-| Red Hat Enterprise Linux Server 8 <sup>1</sup> <sup>2</sup> | X | X | X |   |
+| Red Hat Enterprise Linux Server 8                           | X<sup>3</sup> | X | X |   |
 | Red Hat Enterprise Linux Server 7                           | X | X | X | X |
 | Red Hat Enterprise Linux Server 6                           |   | X | X |   |
 | Red Hat Enterprise Linux Server 6.7+                        |   | X | X | X |
-| SUSE Linux Enterprise Server 15.2 <sup>1</sup> <sup>2</sup> | X |   |   |   |
-| SUSE Linux Enterprise Server 15.1 <sup>1</sup> <sup>2</sup> | X | X |   |   |
+| SUSE Linux Enterprise Server 15.2                           | X<sup>3</sup> |   |   |   |
+| SUSE Linux Enterprise Server 15.1                           | X<sup>3</sup> | X |   |   |
 | SUSE Linux Enterprise Server 15                             | X | X | X |   |
 | SUSE Linux Enterprise Server 12                             | X | X | X | X |
-| Ubuntu 20.04 LTS <sup>1</sup>                               | X | X | X |   |
+| Ubuntu 20.04 LTS                                            | X | X | X |   |
 | Ubuntu 18.04 LTS                                            | X | X | X | X |
 | Ubuntu 16.04 LTS                                            | X | X | X | X |
 | Ubuntu 14.04 LTS                                            |   | X |   | X |
 
-<sup>1</sup> Nécessite l’installation de Python 3 sur la machine.
+<sup>1</sup> Exige l’installation de Python (2 or 3) sur la machine.
 
-<sup>2</sup> Problème connu de collecte d’événements Syslog. Seules les données de performances sont actuellement prises en charge.
+<sup>2</sup> Exige l’installation de Python 2 sur la machine.
+
+<sup>3</sup> Problème connu lié à la collecte d’événements Syslog. Seules les données de performances sont actuellement prises en charge.
 #### <a name="dependency-agent-linux-kernel-support"></a>Prise en charge du noyau Linux par Dependency Agent
 
 Sachant que Dependency Agent fonctionne au niveau du noyau, la prise en charge dépend aussi de la version du noyau. Le tableau suivant liste les versions majeures et mineures du système d’exploitation Linux ainsi que les versions de noyau prises en charge pour Dependency Agent.

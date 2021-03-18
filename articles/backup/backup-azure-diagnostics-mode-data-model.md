@@ -3,12 +3,12 @@ title: Modèles de données des journaux Azure Monitor
 description: Dans cet article, découvrez les détails du modèle de données Azure Monitor Log Analytics pour les données de Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.openlocfilehash: 1fcb4eb0c584f792132f19c8c4d66289342aa36e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 004c5a6c0c2c4dcfcf13134bd5a5143ba647048f
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89020947"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102500986"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Modèle de données Log Analytics pour les données de sauvegarde Azure
 
@@ -18,7 +18,8 @@ Utilisez le modèle de données Log Analytics pour créer des alertes personnali
 
 > [!NOTE]
 >
-> Ce modèle de données fait référence au mode Diagnostics Azure pour envoyer des événements de diagnostic à Log Analytics (LA). Pour découvrir le modèle de données pour le nouveau mode spécifique aux ressources, vous pouvez vous reporter à l’article suivant : [Modèle de données pour les événements de diagnostics de Sauvegarde Azure](./backup-azure-reports-data-model.md)
+> * Ce modèle de données fait référence au mode Diagnostics Azure pour envoyer des événements de diagnostic à Log Analytics (LA). Pour découvrir le modèle de données pour le nouveau mode spécifique aux ressources, vous pouvez vous reporter à l’article suivant : [Modèle de données pour les événements de diagnostics de Sauvegarde Azure](./backup-azure-reports-data-model.md)
+> * Pour créer des vues Rapports personnalisées, il est recommandé d’utiliser des [fonctions système sur des journaux Azure Monitor](backup-reports-system-functions.md) au lieu de travailler avec les tables brutes indiquées ci-dessous.
 
 ## <a name="using-azure-backup-data-model"></a>Utilisation du modèle de données de sauvegarde Azure
 
@@ -96,7 +97,7 @@ Ce tableau fournit des détails sur les associations d’éléments de sauvegard
 | --- | --- | --- |
 | EventName_s |Texte |Ce champ représente le nom de cet événement. Il s’agit toujours d’AzureBackupCentralReport |  
 | BackupItemUniqueId_s |Texte |ID unique de l’élément de sauvegarde |
-| SchemaVersion_s |Texte |Ce champ indique la version actuelle du schéma Il s’agit de **V2** |
+| SchemaVersion_s |Texte |Ce champ indique la version actuelle du schéma. Il s’agit de **V2** |
 | State_s |Texte |État actuel de l’objet association d’éléments de sauvegarde, par exemple, Actif, Supprimé |
 | BackupManagementType_s |Texte |Type de fournisseur pour le serveur exécutant la sauvegarde, par exemple, Machine virtuelle IaaS, Dossier de fichiers |
 | BackupItemSourceSize_s |Texte | Taille frontale de l’élément de sauvegarde |
@@ -462,7 +463,7 @@ Voici quelques exemples pour vous aider à écrire des requêtes sur des donnée
 
 ## <a name="v1-schema-vs-v2-schema"></a>Schéma v1 et schéma v2
 
-Précédemment, les données de diagnostic pour l’agent de sauvegarde Azure et la sauvegarde de machine virtuelle Azure étaient envoyées dans la table Azure Diagnostics dans un schéma appelé ***schéma v1***. Par la suite, de nouvelles colonnes ont été ajoutées pour prendre en charge d’autres scénarios et charges de travail, et les données de diagnostic ont été déplacées dans un nouveau schéma appelé ***schéma v2***.  
+Précédemment, les données de diagnostic de l’agent de Sauvegarde Azure et de la sauvegarde de machine virtuelle Azure étaient envoyées à la table Azure Diagnostics dans un schéma appelé ***schéma v1** _. Par la suite, de nouvelles colonnes ont été ajoutées pour prendre en charge d’autres scénarios et charges de travail. Les données de diagnostic ont alors été déplacées dans un nouveau schéma appelé _*_schéma v2_**.  
 
 Pour des raisons de compatibilité descendante, les données de diagnostic pour l’agent de sauvegarde Azure et la sauvegarde de machine virtuelle Azure sont actuellement envoyées à la table Azure Diagnostics à la fois dans les schémas v1 et v2 (le schéma v1 se dirigeant vers la dépréciation). Vous pouvez identifier les enregistrements Log Analytics du schéma v1 en filtrant les enregistrements pour SchemaVersion_s=="V1" dans vos requêtes de journal.
 
@@ -495,4 +496,4 @@ Comme le schéma V1 est sur le point d’être déprécié, nous vous recommando
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Une fois que vous avez passé en revue le modèle de données, vous pouvez commencer à [créer des requêtes personnalisées](../azure-monitor/learn/tutorial-logs-dashboards.md) dans les journaux Azure Monitor pour créer votre propre tableau de bord.
+Une fois que vous avez passé en revue le modèle de données, vous pouvez commencer à [créer des requêtes personnalisées](../azure-monitor/visualize/tutorial-logs-dashboards.md) dans les journaux Azure Monitor pour créer votre propre tableau de bord.

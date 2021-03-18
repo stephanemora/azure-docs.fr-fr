@@ -6,14 +6,14 @@ ms.suite: integration
 author: divyaswarnkar
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: article
-ms.date: 01/07/2021
+ms.date: 03/08/2021
 tags: connectors
-ms.openlocfilehash: 388d747da692160ab6d0a89c0c35de348d921486
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 983e0d34692d67302e11c35abac590fefd610b2e
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98016760"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102449626"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Superviser, créer et gérer des fichiers SFTP à l’aide de SSH et d’Azure Logic Apps
 
@@ -103,10 +103,10 @@ Voici les autres principales différences entre le connecteur SFTP-SSH et le con
   >
   > * **Empreinte digitale** : MD5
   >
-  > Après avoir ajouté le déclencheur SFTP-SSH ou l’action souhaitée pour votre application logique, vous devez fournir les informations de connexion pour votre serveur SFTP. Quand vous fournissez votre clé privée SSH pour cette connexion, **_vous ne devez pas entrer ou modifier manuellement la clé_* _, car ceci pourrait entraîner l’échec de la connexion. Veillez plutôt à _*_copier la clé_*_ à partir de votre fichier de clé privée SSH, puis à la _*_coller_*_ dans les informations de connexion. 
+  > Après avoir ajouté le déclencheur SFTP-SSH ou l’action souhaitée pour votre application logique, vous devez fournir les informations de connexion pour votre serveur SFTP. Quand vous fournissez votre clé privée SSH pour cette connexion, ***vous ne devez pas entrer ou modifier manuellement la clé***, car ceci pourrait entraîner l’échec de la connexion. Veillez plutôt à ***copier la clé*** à partir de votre fichier de clé privée SSH, puis à la ***coller*** dans les informations de connexion. 
   > Pour plus d’informations, consultez la section [Se connecter à SFTP avec SSH](#connect) plus loin dans cet article.
 
-_ Des connaissances de base [en création d’applications logiques](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* Des connaissances de base en [création d’applications logiques](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 * L’application logique à partir de laquelle vous souhaitez accéder à votre compte SFTP. Pour démarrer avec un déclencheur SFTP-SSH, [créez une application logique vide](../logic-apps/quickstart-create-first-logic-app-workflow.md). Pour utiliser une action SFTP-SSH, démarrez votre application logique avec un autre déclencheur, par exemple, le déclencheur **Périodicité**.
 
@@ -130,7 +130,7 @@ Quand un déclencheur détecte un nouveau fichier, il vérifie que le nouveau fi
 
 ### <a name="trigger-recurrence-shift-and-drift"></a>Décalage et dérive de la périodicité du déclencheur
 
-Les déclencheurs basés sur la connexion, où vous devez d’abord créer une connexion, par exemple le déclencheur SFTP-SSH, diffèrent des déclencheurs intégrés qui s’exécutent en mode natif dans Azure Logic Apps, tels que le [déclencheur de récurrence](../connectors/connectors-native-recurrence.md). Dans les déclencheurs récurrents basés sur la connexion, la planification de la périodicité n'est pas le seul pilote à contrôler l'exécution, et le fuseau horaire détermine uniquement l'heure de début initiale. Les exécutions suivantes dépendent de la planification de la périodicité, de la dernière exécution du déclencheur *et* d'autres facteurs qui peuvent décaler les heures d'exécution ou produire un comportement inattendu, par exemple le non-respect du calendrier fixé lors des passages à l'heure d'été et à l'heure d'hiver. Pour que l'heure fixée pour la périodicité ne change pas au moment du passage à l'heure d'été, ajustez la périodicité manuellement afin que votre application logique continue de s'exécuter à l'heure prévue. Sinon, l'heure de début est avancée d'une heure lors du passage à l'heure d'été et reculée d'une heure lors du passage à l'heure d'hiver. Pour plus d’informations, consultez [Périodicité des déclencheurs basés sur la connexion](../connectors/apis-list.md#recurrence-connection-based).
+Les déclencheurs basés sur la connexion, où vous devez d’abord créer une connexion, par exemple le déclencheur SFTP-SSH, diffèrent des déclencheurs intégrés qui s’exécutent en mode natif dans Azure Logic Apps, tels que le [déclencheur de récurrence](../connectors/connectors-native-recurrence.md). Dans les déclencheurs récurrents basés sur la connexion, la planification de la périodicité n'est pas le seul pilote à contrôler l'exécution, et le fuseau horaire détermine uniquement l'heure de début initiale. Les exécutions suivantes dépendent de la planification de la périodicité, de la dernière exécution du déclencheur *et* d’autres facteurs qui peuvent décaler les heures d’exécution ou produire un comportement inattendu, par exemple le non-respect du calendrier fixé lors des passages à l’heure d’été et à l’heure d’hiver. Pour que l'heure fixée pour la périodicité ne change pas au moment du passage à l'heure d'été, ajustez la périodicité manuellement afin que votre application logique continue de s'exécuter à l'heure prévue. Sinon, l'heure de début est avancée d'une heure lors du passage à l'heure d'été et reculée d'une heure lors du passage à l'heure d'hiver. Pour plus d’informations, consultez [Périodicité des déclencheurs basés sur la connexion](../connectors/apis-list.md#recurrence-connection-based).
 
 <a name="convert-to-openssh"></a>
 
@@ -170,7 +170,15 @@ Si votre clé privée est au format PuTTY (qui utilise l’extension de nom de f
 
 ## <a name="considerations"></a>Considérations
 
-Cette section décrit les considérations à prendre en compte pour les déclencheurs et actions de ce connecteur.
+Cette section décrit les considérations à prendre en compte pour utiliser les déclencheurs et les actions de ce connecteur.
+
+<a name="different-folders-trigger-processing-file-storage"></a>
+
+### <a name="use-different-sftp-folders-for-file-upload-and-processing"></a>Utilisation de différents dossiers SFTP pour le chargement et le traitement des fichiers
+
+Sur votre serveur SFTP, veillez à utiliser des dossiers distincts pour stocker les fichiers chargés et pour que le déclencheur les surveille à des fins de traitement. Il vous faut donc un moyen de déplacer des fichiers entre ces dossiers. Dans le cas contraire, le déclencheur ne se déclenche pas et se comporte de manière imprévisible, par exemple en ignorant un nombre aléatoire de fichiers traités.
+
+Si ce problème se produit, supprimez les fichiers du dossier surveillé par le déclencheur et utilisez un autre dossier pour stocker les fichiers chargés.
 
 <a name="create-file"></a>
 
@@ -208,9 +216,9 @@ Pour créer un fichier sur votre serveur SFTP, vous pouvez utiliser l’action S
 
    1. Sélectionnez **Edition** > **Copier**.
 
-   1. Dans le déclencheur SFTP-SSH ou l’action que vous avez ajoutés, collez la clé *complète* que vous avez copiée dans la propriété **Clé privée SSH**, qui prend en charge plusieurs lignes.  **_Veillez à coller_* _ la clé. _*_N’entrez pas ni ne modifiez la clé manuellement_*_.
+   1. Dans le déclencheur SFTP-SSH ou l’action que vous avez ajoutés, collez la clé *complète* que vous avez copiée dans la propriété **Clé privée SSH**, qui prend en charge plusieurs lignes.  **_Veillez à coller_ *_ la clé. _* _Vous ne devez pas l’entrer ni la modifier manuellement_**.
 
-1. Après avoir entré les informations de connexion, sélectionnez _*Créer**.
+1. Après avoir entré les informations de connexion, sélectionnez **Créer**.
 
 1. Fournissez maintenant les informations nécessaires pour le déclencheur ou l’action sélectionnés et continuez à générer le flux de travail de votre application logique.
 

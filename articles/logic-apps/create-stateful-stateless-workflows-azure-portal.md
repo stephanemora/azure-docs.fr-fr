@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 03/02/2021
-ms.openlocfilehash: 3cf5047dbb79f6d8b35b0fe089069a20ab4a50a6
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/08/2021
+ms.openlocfilehash: ff938d29d998b6fcf0b2cfae72a9a9e685a10dc5
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101736341"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102563944"
 ---
 # <a name="create-stateful-and-stateless-workflows-in-the-azure-portal-with-azure-logic-apps-preview"></a>Créer des workflows avec état et sans état dans le portail Azure à l’aide d’Azure Logic Apps (préversion)
 
@@ -236,7 +236,33 @@ Avant de pouvoir ajouter un déclencheur à un workflow vide, assurez-vous que l
 
 1. Enregistrez votre travail. Dans la barre d’outils du Concepteur, sélectionnez **Enregistrer**.
 
-Ensuite, pour tester votre workflow, déclenchez manuellement une exécution.
+1. Si votre environnement présente des exigences réseau strictes ou des pare-feu limitant le trafic, vous devez définir des autorisations pour les connexions de déclencheur ou d’action présentes dans votre workflow. Pour rechercher le nom complet 
+
+   Sinon, pour tester votre workflow, [déclenchez manuellement une exécution](#trigger-workflow).
+
+<a name="firewall-setup"></a>
+
+##  <a name="find-domain-names-for-firewall-access"></a>Rechercher les noms de domaine pour l’accès au pare-feu
+
+Avant de déployer votre application logique et d’exécuter votre workflow dans le portail Azure, si votre environnement présente des exigences réseau strictes ou des pare-feu limitant le trafic, vous devez définir des autorisations pour les connexions de déclencheur ou d’action présentes dans votre application logique.
+
+Pour rechercher les noms de domaine complets (FQDN) de ces connexions, procédez comme suit :
+
+1. Dans le menu de votre application logique, sous **Workflows**, sélectionnez **Connexions**. Sous l’onglet **Connexions d’API**, sélectionnez le nom de ressource de la connexion, par exemple :
+
+   ![Capture d’écran montrant le portail Azure et le menu de l’application logique avec le nom de ressource de la connexion « Connexions » et « offic365 » sélectionné.](./media/create-stateful-stateless-workflows-azure-portal/logic-app-connections.png)
+
+1. Développez suffisamment votre navigateur pour afficher **Vue JSON** dans l’angle supérieur droit, puis sélectionnez **Vue JSON**.
+
+   ![Capture d’écran montrant le portail Azure et le volet Connexion d’Api avec «Vue JSON» sélectionnée.](./media/create-stateful-stateless-workflows-azure-portal/logic-app-connection-view-json.png)
+
+1. Recherchez, copiez et enregistrez la valeur de la propriété `connectionRuntimeUrl` dans un lieu sûr pour configurer votre pare-feu à l’aide de ces informations.
+
+   ![Capture d’écran montrant la valeur de la propriété « connectionRuntimeUrl » sélectionnée.](./media/create-stateful-stateless-workflows-azure-portal/logic-app-connection-runtime-url.png)
+
+1. Pour chaque connexion, répétez les étapes qui conviennent.
+
+<a name="trigger-workflow"></a>
 
 ## <a name="trigger-the-workflow"></a>Déclencher le workflow
 

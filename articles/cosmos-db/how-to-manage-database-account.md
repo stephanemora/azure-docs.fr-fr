@@ -5,14 +5,14 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 09/18/2020
+ms.date: 01/06/2021
 ms.author: mjbrown
-ms.openlocfilehash: d8763a794d2fb96d0c464fb1249b9eb400fd23e7
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: d542e2b4e5db86fd3354514790e718f0694a09a5
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93339867"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102489750"
 ---
 # <a name="manage-an-azure-cosmos-account"></a>Gérer un compte Azure Cosmos
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -45,7 +45,7 @@ Veuillez consulter [Créer un compte Azure Cosmos DB avec des modèles Azure Res
 
 1. Accédez à votre compte Azure Cosmos, puis ouvrez le menu **Répliquer les données globalement**.
 
-1. Pour ajouter des régions, sélectionnez les hexagones sur la carte avec l’étiquette **+** correspondante. Sinon, pour ajouter une région, sélectionnez l’option **+ Ajouter une région** , puis choisissez une région dans le menu déroulant.
+1. Pour ajouter des régions, sélectionnez les hexagones sur la carte avec l’étiquette **+** correspondante. Sinon, pour ajouter une région, sélectionnez l’option **+ Ajouter une région**, puis choisissez une région dans le menu déroulant.
 
 1. Pour supprimer des régions, désactivez une ou plusieurs régions à partir de la carte en sélectionnant les hexagones bleus avec des coches. Vous pouvez aussi sélectionner l’icône de la « Corbeille » (🗑) en regard de la région, sur le côté droit.
 
@@ -153,7 +153,7 @@ L’option de basculement automatique permet à Azure Cosmos DB de basculer vers
 
    :::image type="content" source="./media/how-to-manage-database-account/replicate-data-globally.png" alt-text="Menu pour répliquer les données globalement":::
 
-3. Dans le volet **Basculement automatique** , vérifiez que l’option **Activer le basculement automatique** est définie sur **ACTIVÉ**. 
+3. Dans le volet **Basculement automatique**, vérifiez que l’option **Activer le basculement automatique** est définie sur **ACTIVÉ**. 
 
 4. Sélectionnez **Enregistrer**.
 
@@ -182,7 +182,7 @@ Une fois qu’un compte Cosmos est configuré pour le basculement automatique, l
 
    :::image type="content" source="./media/how-to-manage-database-account/replicate-data-globally.png" alt-text="Menu pour répliquer les données globalement":::
 
-3. Dans le volet **Basculement automatique** , vérifiez que l’option **Activer le basculement automatique** est définie sur **ACTIVÉ**.
+3. Dans le volet **Basculement automatique**, vérifiez que l’option **Activer le basculement automatique** est définie sur **ACTIVÉ**.
 
 4. Pour modifier la priorité de basculement, faites glisser les régions de lecture via les trois points à gauche de la ligne qui s’affichent quand vous placez le curseur dessus.
 
@@ -206,7 +206,7 @@ Veuillez consulter [Définir la priorité de basculement avec PowerShell](manage
 Le processus de basculement manuel implique de changer la région d’écriture du compte (priorité de basculement = 0) pour une autre région configurée pour le compte.
 
 > [!NOTE]
-> Les comptes dotés de plusieurs régions d’écriture ne peuvent pas être basculés manuellement. Pour les applications qui utilisent le SDK Azure Cosmos, celui-ci détecte le moment où une région devient indisponible, puis redirige automatiquement vers la région la plus proche si vous utilisez une API d’hébergement multiple dans le SDK.
+> Les comptes dotés de plusieurs régions d’écriture ne peuvent pas être basculés manuellement. Dans le cas des applications qui utilisent le kit SDK Azure Cosmos, celui-ci détecte le moment où une région devient indisponible, puis redirige automatiquement vers la région la plus proche.
 
 ### <a name="azure-portal"></a><a id="enable-manual-failover-via-portal"></a>Portail Azure
 
@@ -216,7 +216,7 @@ Le processus de basculement manuel implique de changer la région d’écriture 
 
    :::image type="content" source="./media/how-to-manage-database-account/replicate-data-globally.png" alt-text="Menu pour répliquer les données globalement":::
 
-3. Dans le menu **Basculement manuel** , sélectionnez votre nouvelle région d’écriture. Sélectionnez la case à cocher pour indiquer que vous comprenez que cette option modifie votre région d’écriture.
+3. Dans le menu **Basculement manuel**, sélectionnez votre nouvelle région d’écriture. Sélectionnez la case à cocher pour indiquer que vous comprenez que cette option modifie votre région d’écriture.
 
 4. Pour déclencher le basculement, sélectionnez **OK**.
 

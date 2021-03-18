@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/11/2020
+ms.date: 03/09/2021
 ms.author: tamram
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 50a0894898dcdc817ee253ad326b88a9bb61b9d6
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 85520032e9bc63b6296e40dd1c1055e36762dcc8
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97357362"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102555004"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Mettre à niveau vers un compte de stockage v2 à usage général
 
@@ -24,6 +24,15 @@ La mise à niveau vers un compte de stockage v2 à usage général à partir d�
 
 > [!IMPORTANT]
 > La mise à niveau d’un compte de stockage v1 universel ou d’objets blob vers un compte v2 universel est définitive et ne peut pas être annulée.
+
+> [!NOTE]
+> Bien que Microsoft recommande les comptes v2 universels pour la plupart des scénarios, Microsoft continuera à prendre en charge les comptes v1 universels pour les clients nouveaux et existants. Vous pouvez créer des comptes de stockage v1 universels dans de nouvelles régions chaque fois que le Stockage Azure est disponible dans ces régions. Actuellement, Microsoft ne prévoit pas de déprécier la prise en charge des comptes v1 universels, et fournira un préavis d’au moins un an avant de déprécier toute fonctionnalité du Stockage Azure. Microsoft continuera à fournir des mises à jour de sécurité pour les comptes v1 universels, mais aucun nouveau développement de fonctionnalité n’est attendu pour ce type de compte.
+>
+> Depuis le 1er octobre 2020, les tarifs des comptes v1 universels dans les nouvelles régions Stockage Azure sont équivalents à ceux des comptes v2 universels dans ces régions. Les tarifs dans les régions Stockage Azure existantes n’ont pas changé. Pour plus d’informations sur les tarifs des comptes v1 universels dans une région spécifique, consultez la page sur la tarification du Stockage Azure. Choisissez votre région puis, en regard de **Offres et tarifs**, sélectionnez **Autre**.
+
+## <a name="upgrade-an-account"></a>Mettre à niveau un compte
+
+Pour mettre à niveau un compte de stockage d’objets blob ou v1 à usage général vers un compte v2 à usage général, utilisez le portail Azure, PowerShell ou Azure CLI.
 
 # <a name="portal"></a>[Portail](#tab/azure-portal)
 
@@ -47,6 +56,7 @@ Ensuite, appelez la commande suivante pour mettre à niveau le compte, en rempla
 ```powershell
 Set-AzStorageAccount -ResourceGroupName <resource-group> -Name <storage-account> -UpgradeToStorageV2 -AccessTier <Hot/Cool>
 ```
+
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Pour mettre à niveau un compte v1 à usage général vers un compte v2 à usage général à l’aide d’Azure CLI, commencez par installer la dernière version d’Azure CLI. Pour plus d’informations sur l’installation de l’interface de ligne de commande, consultez l’article [Installer Azure CLI 2.0](/cli/azure/install-azure-cli).

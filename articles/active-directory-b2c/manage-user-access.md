@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/15/2020
+ms.date: 03/09/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: fadc739f16ce9690a735be22758f58857ff8b9ff
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 0ee26e7fe74d87f7b20f9a28b049b8043b376273
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94951619"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102518052"
 ---
 # <a name="manage-user-access-in-azure-active-directory-b2c"></a>Gérer l’accès utilisateur dans Azure Active Directory B2C
 
@@ -83,7 +83,53 @@ Si une application a recueilli les données sur la date de naissance et le pays/
 - Si un utilisateur est connu en tant qu’adulte, mettez à jour l’attribut **ageGroup** du répertoire avec la valeur **Adult**.
 - Si un utilisateur est connu en tant que mineur, mettez à jour l’attribut de répertoire **ageGroup** avec la valeur **Minor** et définissez **consentProvidedForMinor**, selon le cas.
 
-Pour plus d’informations sur la collecte des données de date de naissance, consultez [Utiliser la liaison en fonction de l’âge dans Azure AD B2C](basic-age-gating.md).
+## <a name="minor-calculation-rules"></a>Règles de calcul mineures
+
+La vérification de l’âge implique deux valeurs d’âge : l’âge auquel un utilisateur n’est plus considéré comme mineur et l’âge auquel un mineur doit obtenir un accord parental. Le tableau suivant liste les règles d’âge utilisées pour déterminer si un utilisateur est mineur et s’il a besoin d’un accord parental.
+
+| Pays/région | Nom du pays/de la région | Accord parental | Majorité |
+| -------------- | ------------------- | ----------------- | --------- |
+| Default | None | None | 18 |
+| AE | Émirats Arabes Unis | None | 21 |
+| AT | Autriche | 14 | 18 |
+| BE | Belgique | 14 | 18 |
+| BG | Bulgarie | 16 | 18 |
+| BH | Bahreïn | None | 21 |
+| CM | Cameroun | None | 21 |
+| CY | Chypre | 16 | 18 |
+| CZ | République tchèque | 16 | 18 |
+| DE | Allemagne | 16 | 18 |
+| DK | Danemark | 16 | 18 |
+| EE | Estonie | 16 | 18 |
+| EG | Égypte | None | 21 |
+| ES | Espagne | 13 | 18 |
+| FR | France | 16 | 18 |
+| Go | Royaume-Uni | 13 | 18 |
+| GR | Grèce | 16 | 18 |
+| HR | Croatie | 16 | 18 |
+| HU | Hongrie | 16 | 18 |
+| IE | Irlande | 13 | 18 |
+| IT | Italie | 16 | 18 |
+| KR | Corée, République de | 14 | 18 |
+| LT | Lituanie | 16 | 18 |
+| LU | Luxembourg | 16 | 18 |
+| LV | Lettonie | 16 | 18 |
+| MT | Malte | 16 | 18 |
+| N/D | Namibie | None | 21 |
+| NL | Pays-Bas | 16 | 18 |
+| PL | Pologne | 13 | 18 |
+| PT | Portugal | 16 | 18 |
+| RO | Roumanie | 16 | 18 |
+| SE | Suède | 13 | 18 |
+| SG | Singapour | None | 21 |
+| SI | Slovénie | 16 | 18 |
+| SK | Slovaquie | 16 | 18 |
+| TD | Tchad | None | 21 |
+| MJ | Thaïlande | None | 20 |
+| TW | Taïwan | None | 20 |
+| US | États-Unis | 13 | 18 |
+
+
 
 ## <a name="capture-terms-of-use-agreement"></a>Capturer l’acceptation des conditions d’utilisation
 
@@ -175,5 +221,6 @@ Voici un exemple de consentement pour des conditions d’utilisation basées sur
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+- [Activation de la vérification de l’âge dans Azure AD B2C](age-gating.md)
 - Pour savoir comment supprimer et exporter des données utilisateur, consultez [Gérer les données utilisateur](manage-user-data.md).
 - Pour obtenir un exemple de stratégie personnalisée qui implémente une invite de conditions d’utilisation, consultez [Une stratégie IEF B2C personnalisée - S’inscrire et se connecter avec une invite de commandes « Conditions d’utilisation »](https://github.com/azure-ad-b2c/samples/tree/master/policies/sign-in-sign-up-versioned-tou).

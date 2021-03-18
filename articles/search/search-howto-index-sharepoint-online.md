@@ -8,12 +8,12 @@ ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/01/2021
-ms.openlocfilehash: 558df115043d76acf865f19611e8c4cd322e00a7
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 5a44c40838b7f7fa9ca499ade49317ff9ce828fe
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101678403"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102498895"
 ---
 # <a name="how-to-configure-sharepoint-online-indexing-in-cognitive-search-preview"></a>Comment configurer l’indexation SharePoint Online dans le service Recherche cognitive (préversion)
 
@@ -23,6 +23,9 @@ ms.locfileid: "101678403"
 > Les fonctionnalités en préversion sont fournies sans contrat de niveau de service et ne sont pas recommandées pour les charges de travail de production. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 > 
 > L’[API REST version 2020-06-30-Preview](search-api-preview.md) fournit cette fonctionnalité. Il n’y a actuellement pas de prise en charge du portail ou du SDK.
+
+> [!NOTE]
+> SharePoint Online prend en charge un modèle d’autorisation granulaire qui détermine l’accès par utilisateur au niveau du document. L’indexeur SharePoint Online n’extrait pas ces autorisations dans l’index de recherche, et la Recherche cognitive ne prend pas en charge l’autorisation au niveau du document. Lorsqu’un document est indexé de SharePoint Online vers un service de recherche, le contenu est accessible à toute personne disposant d’un accès en lecture à l’index. Si vous avez besoin d’autorisations au niveau du document, examinez les filtres de sécurité pour découper les résultats du contenu non autorisé. Pour plus d’informations, consultez [Découpage de sécurité à l’aide d’identités Active Directory](search-security-trimming-for-azure-search-with-aad.md).
 
 Cet article explique comment utiliser le service Recherche cognitive Azure pour indexer des documents (fichiers PDF, documents Microsoft Office et plusieurs autres formats courants) stockés dans des bibliothèques de documents SharePoint Online. Tout d’abord, il présente les concepts de base de la définition et de la configuration de l’indexeur. Ensuite, il offre une exploration plus approfondie des comportements et des scénarios que vous êtes susceptible de rencontrer.
 
@@ -163,7 +166,16 @@ La création de l’indexeur s’effectue en quelques étapes :
         {
           "name" : "sharepoint-indexer",
           "dataSourceName" : "sharepoint-datasource",
-          "targetIndexName" : "sharepoint-index"
+          "targetIndexName" : "sharepoint-index",
+          "fieldMappings" : [
+            { 
+              "sourceFieldName" : "metadata_spo_site_library_item_id", 
+              "targetFieldName" : "id", 
+              "mappingFunction" : { 
+                "name" : "base64Encode" 
+              } 
+            }
+          ]
         }
     
     ```

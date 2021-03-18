@@ -1,6 +1,6 @@
 ---
 title: Planification d’un déploiement Azure File Sync | Microsoft Docs
-description: Planifiez un déploiement avec Azure File Sync, un service qui vous permet de mettre en cache un certain nombre de partages de fichiers Azure sur un serveur Windows local ou une machine virtuelle cloud.
+description: Planifiez un déploiement avec Azure File Sync, un service qui vous permet de mettre en cache plusieurs partages de fichiers Azure sur un serveur Windows local ou une machine virtuelle cloud.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
@@ -8,12 +8,12 @@ ms.date: 01/29/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 65293df5fae523bff36240273afb93c4dd8485df
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 51814ba36eec7b1f7d8b95ce80210d93b4cbec3f
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99219474"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102564218"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planification d’un déploiement de synchronisation de fichiers Azure
 
@@ -22,7 +22,7 @@ ms.locfileid: "99219474"
         [![Interview et démo de présentation d’Azure File Sync - cliquez pour lancer la lecture](./media/storage-sync-files-planning/azure-file-sync-interview-video-snapshot.png)](https://www.youtube.com/watch?v=nfWLO7F52-s)
     :::column-end:::
     :::column:::
-        Azure File Sync est un service qui vous permet de mettre en cache un certain nombre de partages de fichiers Azure sur un serveur Windows local ou une machine virtuelle cloud. 
+        Azure File Sync est un service qui permet de mettre en cache plusieurs partages de fichiers Azure sur un serveur Windows local ou une machine virtuelle cloud. 
         
         Cet article vous présente les concepts et fonctionnalités d’Azure File Sync. Une fois que vous êtes familiarisé avec Azure File Sync, vous pouvez consulter le [Guide de déploiement Azure File Sync](storage-sync-files-deployment-guide.md) pour tester ce service.        
     :::column-end:::
@@ -52,16 +52,19 @@ Pour créer un groupe de synchronisation dans un service de synchronisation de s
 Un groupe de synchronisation contient un point de terminaison cloud, ou un partage de fichiers Azure, et au moins un point de terminaison de serveur. L'objet point de terminaison de serveur contient les paramètres de configuration de la fonctionnalité de **hiérarchisation cloud**, qui fournit la fonctionnalité de mise en cache d'Azure File Sync. Pour la synchronisation avec un partage de fichiers Azure, le compte de stockage contenant le partage de fichiers Azure doit se trouver dans la même région Azure que le service de synchronisation de stockage.
 
 > [!Important]  
-> Vous pouvez apporter des modifications à un point de terminaison cloud ou un point de terminaison de serveur dans le groupe de synchronisation, et synchroniser vos fichiers avec les autres points de terminaison du groupe de synchronisation. Si vous apportez une modification au point de terminaison cloud (partage de fichiers Azure) directement, cette modification doit être détectée au préalable par un travail de détection des modifications Azure File Sync. Un travail de détection des modifications est lancé pour un point de terminaison cloud toutes les 24 heures uniquement. Pour plus d’informations, consultez [Questions fréquentes (FAQ) sur Azure Files](storage-files-faq.md#afs-change-detection).
+> Vous pouvez apporter des modifications à l’espace de noms d’un point de terminaison cloud ou d’un point de terminaison de serveur du groupe de synchronisation et faire en sorte que vos fichiers soient synchronisés avec les autres points de terminaison du groupe. Si vous apportez une modification au point de terminaison cloud (partage de fichiers Azure) directement, cette modification doit être détectée au préalable par un travail de détection des modifications Azure File Sync. Un travail de détection des modifications est lancé pour un point de terminaison cloud toutes les 24 heures uniquement. Pour plus d’informations, consultez [Questions fréquentes (FAQ) sur Azure Files](storage-files-faq.md#afs-change-detection).
 
-### <a name="management-guidance"></a>Conseils de gestion
-Lors du déploiement d'Azure File Sync, suivez les recommandations ci-dessous :
+### <a name="consider-the-count-of-storage-sync-services-needed"></a>Prise en compte du nombre de services de synchronisation de stockage nécessaires
+Dans une section précédente, nous avons abordé la ressource principale à configurer pour Azure File Sync : un *service de synchronisation de stockage*. Un serveur Windows ne peut être inscrit qu’à un seul service de synchronisation de stockage. Par conséquent, il est souvent préférable de déployer un seul service de synchronisation de stockage et d’y inscrire tous les serveurs. 
 
-- Déployez les partages de fichiers Azure en respectant une correspondance 1:1 avec les partages de fichiers Windows. L'objet point de terminaison de serveur vous offre une grande flexibilité pour configurer la topologie de synchronisation du côté serveur de la relation de synchronisation. Pour simplifier la gestion, faites correspondre le chemin du point de terminaison de serveur avec le chemin du partage de fichiers Windows. 
+Ne créez plusieurs services de synchronisation de stockage que dans les cas suivants :
+* Vous possédez des ensembles distincts de serveurs qui ne doivent jamais s’échanger de données. Dans ce cas, concevez le système de façon à exclure certains ensembles de serveurs à synchroniser avec un partage de fichiers Azure déjà utilisé comme point de terminaison cloud dans un groupe de synchronisation au sein d’un autre service de synchronisation de stockage. En d’autres termes, les serveurs Windows inscrits auprès d’un autre service de synchronisation de stockage ne peuvent pas se synchroniser avec le même partage de fichiers Azure.
+* Vous avez besoin de plus de serveurs inscrits ou de groupes de synchronisation que ne peut en prendre en charge un seul service de synchronisation de stockage. Pour plus d’informations, consultez [Cibles de mise à l’échelle Azure File Sync](storage-files-scale-targets.md#azure-file-sync-scale-targets).
 
-- Utilisez le moins de services de synchronisation de stockage possible. Cela simplifiera la gestion lorsque vous aurez des groupes de synchronisation contenant plusieurs points de terminaison de serveur, car une instance de Windows Server ne peut être inscrite qu'auprès d'un seul service de synchronisation de stockage à la fois. 
+## <a name="plan-for-balanced-sync-topologies"></a>Planification de topologies de synchronisation équilibrée
+Avant de déployer des ressources, il est important de planifier ce que vous allez synchroniser sur un serveur local et avec quel partage de fichiers Azure. Le fait de créer un plan vous aidera à déterminer le nombre de comptes de stockage, de partages de fichiers Azure et de ressources de synchronisation dont vous aurez besoin. Ces considérations sont toujours pertinentes, même si vos données ne résident pas sur un serveur Windows ou sur le serveur que vous souhaitez utiliser à long terme. La [section migration](#migration) peut vous aider à déterminer les chemins de migration adaptés à votre situation.
 
-- Lors du déploiement de partages de fichiers Azure, soyez attentif aux limitations d'IOPS d'un compte de stockage. Dans l'idéal, une correspondance 1:1 doit être respectée entre les partages de fichiers et les comptes de stockage, mais cela n'est pas toujours possible en raison des différentes limites et restrictions imposées par votre organisation et Azure. Lorsqu'il est impossible de déployer un seul partage de fichiers sur un seul compte de stockage, il convient d'identifier les partages qui seront plus ou moins actifs afin de veiller à ce que les plus actifs ne soient pas regroupés sur le même compte de stockage.
+[!INCLUDE [storage-files-migration-namespace-mapping](../../../includes/storage-files-migration-namespace-mapping.md)]
 
 ## <a name="windows-file-server-considerations"></a>Considérations relatives aux serveurs de fichiers Windows
 Pour activer la fonctionnalité de synchronisation sur Windows Server, vous devez installer l'agent téléchargeable Azure File Sync. L’agent Azure File Sync fournit deux composants principaux : `FileSyncSvc.exe`, le service Windows en arrière-plan chargé de la supervision des modifications sur les points de terminaison de serveur et du lancement des sessions de synchronisation, et `StorageSync.sys`, un filtre de système de fichiers qui permet la hiérarchisation cloud et une récupération d’urgence rapide.  
@@ -203,7 +206,7 @@ Azure File Sync ne prend pas en charge la déduplication des données et la hié
 - Si la déduplication des données est activée sur un volume une fois la hiérarchisation cloud activée, la tâche d’optimisation de la déduplication initiale permettra d’optimiser les fichiers qui ne sont pas déjà hiérarchisés dans le volume et aura l’impact suivant sur la hiérarchisation cloud :
     - La stratégie d’espace disponible continuera à hiérarchiser les fichiers en fonction de l’espace disponible sur le volume à l’aide de la carte thermique.
     - La stratégie de date ignorera la hiérarchisation des fichiers qui ont été éligibles pour la hiérarchisation en raison de l’accès de la tâche d’optimisation de la déduplication aux fichiers.
-- En ce qui concerne les tâches d’optimisation de la déduplication en cours, la hiérarchisation cloud avec la stratégie de date sera retardée par le paramètre [MinimumFileAgeDays](/powershell/module/deduplication/set-dedupvolume?view=win10-ps) de déduplication des données, si le fichier n’est pas déjà hiérarchisé. 
+- En ce qui concerne les tâches d’optimisation de la déduplication en cours, la hiérarchisation cloud avec la stratégie de date sera retardée par le paramètre [MinimumFileAgeDays](/powershell/module/deduplication/set-dedupvolume) de déduplication des données, si le fichier n’est pas déjà hiérarchisé. 
     - Exemple : Si la valeur du paramètre MinimumFileAgeDays est de sept jours et la valeur de la stratégie de date de la hiérarchisation cloud est de 30 jours, la stratégie de date hiérarchisera les fichiers après 37 jours.
     - Remarque : Une fois un fichier hiérarchisé par Azure File Sync, la tâche d’optimisation de la déduplication ignorera le fichier.
 - Si un serveur exécutant Windows Server 2012 R2 avec l’agent Azure File Sync installé est mis à niveau vers Windows Server 2016 ou Windows Server 2019, les étapes suivantes doivent être effectuées pour prendre en charge la déduplication des données et la hiérarchisation cloud sur le même volume :  
@@ -239,6 +242,16 @@ Si la hiérarchisation cloud est activée sur un point de terminaison de serveur
 
 ### <a name="other-hierarchical-storage-management-hsm-solutions"></a>Autres solutions de gestion hiérarchique du stockage (HSM)
 Aucune autre solution HSM ne doit être utilisée avec Azure File Sync.
+
+## <a name="performance-and-scalability"></a>Performances et extensibilité
+
+Étant donné que l’agent Azure File Sync s’exécute sur un ordinateur Windows Server qui se connecte aux partages de fichiers Azure, les performances de synchronisation réelles dépendent de plusieurs facteurs dans votre infrastructure : Windows Server et la configuration de disque sous-jacente, la bande passante réseau entre le serveur et le stockage Azure, la taille des fichiers, la taille totale du jeu de données et l’activité sur le jeu de données. Comme Azure File Sync fonctionne au niveau du fichier, les caractéristiques de performances d’une solution Azure File Sync est exprimée de façon optimale en nombre d’objets (fichiers et répertoires) traités par seconde.
+
+Les modifications apportées au partage de fichiers Azure avec le portail Azure ou SMB ne sont pas immédiatement détectées et répliquées comme le sont des modifications apportées au point de terminaison de serveur. Azure Files n’a pas encore de notifications ou journalisation des modifications. Il n’existe donc aucun moyen de lancer automatiquement une session de synchronisation lorsque des fichiers sont modifiés. Sur Windows Server, Azure File Sync utilise la [journalisation du nombre de séquences de mise à jour de Windows](https://docs.microsoft.com/windows/win32/fileio/change-journals) pour lancer automatiquement une session de synchronisation en cas de modification des fichiers.
+
+Pour détecter les modifications apportées au partage de fichiers Azure, Azure File Sync a une tâche planifiée appelée tâche de détection des modifications. Une tâche de détection des modifications énumère tous les fichiers inclus dans le partage de fichiers, puis les compare à la version de synchronisation de ces fichiers. Lorsque la tâche de détection des modifications détermine que des fichiers ont changé, Azure File Sync lance une session de synchronisation. La tâche de détection des modifications est lancée toutes les 24 heures. Étant donné que la tâche de détection des modifications fonctionne en énumérant chaque fichier dans le partage de fichiers Azure, elle prend plus de temps dans les espaces de noms de grande taille que dans les plus petits. Pour des espaces de noms de grande taille, plus de 24 heures peuvent être nécessaires pour déterminer les fichiers qui ont été modifiés.
+
+Pour plus d’informations, consultez [Métriques de niveau de performance Azure file Sync](storage-files-scale-targets.md#azure-file-sync-performance-metrics) et [Cibles de mise à l’échelle Azure File Sync](storage-files-scale-targets.md#azure-file-sync-scale-targets).
 
 ## <a name="identity"></a>Identité
 Azure File Sync fonctionne avec votre identité AD standard sans aucune configuration particulière en plus de la configuration de la synchronisation. En utilisant Azure File Sync, vous vous attendez probablement à ce que la plupart des accès passent par les serveurs de mise en cache Azure File Sync plutôt que par le partage de fichiers Azure. Comme les points de terminaison de serveur se trouvent sur Windows Server, et que Windows Server prend en charge AD et les listes de contrôle d’accès de type Windows depuis longtemps, la seule chose à faire est de s’assurer que les serveurs de fichiers Windows inscrits auprès du service de synchronisation de stockage sont joints au domaine. Azure File Sync stocke les listes de contrôle d'accès sur les fichiers du partage de fichiers Azure et les réplique sur tous les points de terminaison de serveur.
@@ -320,15 +333,9 @@ Pour demander l’accès à ces régions, suivez le processus décrit dans [ce d
 > Les options de stockage géoredondant et de stockage géoredondant interzone permettent de basculer manuellement le stockage vers la région secondaire. Cette opération est réservée aux situations d'urgence liées à l'utilisation d'Azure File Sync en raison de la probabilité accrue de perte de données. En cas de sinistre, si vous souhaitez procéder à un basculement manuel du stockage, vous devez déposer une demande de support auprès de Microsoft pour qu'Azure File Sync reprenne la synchronisation avec le point de terminaison secondaire.
 
 ## <a name="migration"></a>Migration
-Si vous disposez déjà d'un serveur de fichiers Windows, Azure File Sync peut y être installé sans qu'il soit nécessaire de déplacer les données vers un nouveau serveur. Si vous envisagez de migrer vers un nouveau serveur de fichiers Windows dans le cadre de l'adoption d'Azure File Sync, plusieurs approches sont possibles pour déplacer les données :
+Si vous disposez déjà d’un serveur de fichiers Windows 2012 R2 (ou version ultérieure), Azure File Sync peut y être installé directement sans qu’il soit nécessaire de déplacer les données vers un nouveau serveur. Si vous envisagez de migrer vers un nouveau serveur de fichiers Windows dans le cadre de l’adoption d’Azure File Sync, ou si vos données sont actuellement situées sur un stockage NAS (Network-Attached Storage), il existe plusieurs approches possibles de migration pour utiliser Azure File Sync avec ces données. Tout dépend de l’emplacement de vos données. 
 
-- Créez des points de terminaison de serveur pour l'ancien et le nouveau partages de fichiers, puis laissez Azure File Sync synchroniser les données entre les points de terminaison de serveur. L'avantage de cette approche est qu'elle facilite l'augmentation de la capacité de stockage sur votre nouveau serveur de fichiers, car Azure File Sync est compatible avec la hiérarchisation cloud. Lorsque vous êtes prêt, vous pouvez migrer les utilisateurs finaux vers le partage de fichiers du nouveau serveur et supprimer le point de terminaison de serveur de l'ancien partage de fichiers.
-
-- Créez un point de terminaison de serveur sur le nouveau serveur de fichiers uniquement, et copiez-y les données de l'ancien partage de fichiers à l'aide de `robocopy`. En fonction de la topologie des partages de fichiers sur votre nouveau serveur (nombre de partages sur chaque volume, disponibilités de chaque volume, etc.), vous devrez peut-être prévoir temporairement du stockage supplémentaire car il est probable que l'opération `robocopy` de votre ancien serveur vers votre nouveau serveur au sein de votre centre de données local se termine avant qu'Azure File Sync n'ait transféré les données vers Azure.
-
-Il est également possible d'utiliser Data Box pour migrer des données vers un déploiement Azure File Sync. Généralement, les clients qui souhaitent utiliser Data Box pour ingérer des données pensent que cela accélérera leur déploiement ou résoudra les problèmes de bande passante limitée. L'utilisation d'une instance de Data Box pour ingérer des données dans votre déploiement Azure File Sync peut effectivement réduire l'utilisation de la bande passante. En revanche, dans la plupart des scénarios, un chargement de données en ligne via l'une des méthodes décrites ci-dessus sera probablement plus rapide. Pour en savoir plus sur l'utilisation de Data Box pour ingérer des données dans votre déploiement Azure File Sync, consultez [Migrer des données vers Azure File Sync avec Azure Data Box](storage-sync-offline-data-transfer.md).
-
-Lors de la migration des données vers leur nouveau déploiement Azure File Sync, les clients commettent souvent l'erreur de copier les données directement sur le partage de fichiers Azure plutôt que sur leurs serveurs de fichiers Windows. Bien qu'Azure File Sync identifie tous les nouveaux fichiers sur le partage de fichiers Azure, et les synchronise avec vos partages de fichiers Windows, cette opération est généralement beaucoup plus lente que le chargement de données via le serveur de fichiers Windows. Quand vous utilisez des outils de copie Azure tels qu’AzCopy, il est important d’utiliser la version la plus récente. Pour une vue d’ensemble des outils de copie Azure qui vous garantissent de pouvoir copier toutes les métadonnées importantes d’un fichier telles que les horodatages et les listes ACL, consultez le [tableau des outils de copie de fichiers](storage-files-migration-overview.md#file-copy-tools).
+Pour des instructions détaillées relatives à votre scénario, consultez l’article [Vue d’ensemble d’Azure File Sync et de la migration de partages de fichiers Azure](storage-files-migration-overview.md).
 
 ## <a name="antivirus"></a>Antivirus
 Du fait que les antivirus analysent les fichiers pour détecter la présence éventuelle de code malveillant connu, ils peuvent provoquer le rappel de fichiers hiérarchisés, occasionnant ainsi des frais de sortie conséquents. Dans les versions 4.0 et ultérieures de l'agent Azure File Sync, les fichiers hiérarchisés sont dotés de l'attribut Windows sécurisé FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS. Nous vous recommandons de contacter l'éditeur de votre logiciel pour savoir comment configurer la solution de manière à ignorer la lecture des fichiers dotés cet attribut (la plupart le font automatiquement). 
@@ -342,6 +349,9 @@ Les solutions antivirus internes de Microsoft, Windows Defender et System Center
 Si la hiérarchisation cloud est activée, vous ne devez pas utiliser de solutions qui sauvegardent directement le point de terminaison du serveur ou une machine virtuelle sur laquelle se trouve le point de terminaison de serveur. La hiérarchisation cloud entraîne le stockage d’un seul sous-ensemble de vos données sur le point de terminaison du serveur, avec le jeu de données complet résidant dans votre partage de fichiers Azure. Selon la solution de sauvegarde utilisée, les fichiers hiérarchisés soit sont ignorés et ne sont pas sauvegardés (parce qu’ils ont l’attribut FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS défini), soit sont rappelés sur le disque, ce qui entraîne des frais de sortie élevés. Nous vous recommandons d’utiliser une solution de sauvegarde cloud pour sauvegarder le partage de fichiers Azure directement. Pour plus d’informations, consultez [À propos de la sauvegarde des partages de fichiers Azure](../../backup/azure-file-share-backup-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) ou contactez votre fournisseur de sauvegarde pour déterminer s’il prend en charge la sauvegarde des partages de fichiers Azure.
 
 Si vous préférez utiliser une solution de sauvegarde locale, les sauvegardes doivent être effectuées sur un serveur dans le groupe de synchronisation pour lequel la hiérarchisation cloud est désactivée. Lorsque vous effectuez une restauration, utilisez les options de restauration au niveau du volume ou au niveau du fichier. Les fichiers restaurés en utilisant l’option de restauration au niveau du fichier seront synchronisés avec tous les points de terminaison dans le groupe de synchronisation et les fichiers existants seront remplacés par la version restaurée à partir de la sauvegarde.  Les restaurations au niveau du volume ne remplaceront pas les versions plus récentes des fichiers dans le partage de fichiers Azure ou d’autres points de terminaison serveur.
+
+> [!WARNING]
+> Le commutateur RoboCopy /B n’est pas pris en charge avec Azure File Sync. Utilisé avec un point de terminaison de serveur Azure File Sync comme source, il risque d’entraîner une corruption de fichiers.
 
 > [!Note]  
 > La restauration complète peut engendrer des résultats inattendus et n’est pas prise en charge actuellement.

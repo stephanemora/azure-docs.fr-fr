@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: glenga
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 1cb5e99558d6bf1a5baa21d05d45415855c61cb5
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 7714b090399b0b184e2e216ff6da7b10f2bf4386
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101743181"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102452269"
 ---
 # <a name="webjobs-run-background-tasks-in-azure-app-service"></a>Les tâches web exécutent des tâches en arrière-plan dans Azure App Service
 
@@ -60,4 +60,4 @@ Les types de fichiers suivants sont pris en charge :
 ## <a name="next-steps"></a>Étapes suivantes
 
 * En savoir plus sur la [création d’une tâche web](./webjobs-create-ieux.md)
-* Afficher l’historique des journaux des tâches Web](./webjobs-create-ieux-view-log.md)
+* Afficher l’historique des journaux de [tâches web](./webjobs-create-ieux-view-log.md)

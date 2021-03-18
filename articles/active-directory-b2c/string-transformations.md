@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 11/03/2020
+ms.date: 03/08/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4e74c33a18baff3e1cb39328ce265f16975ef1b5
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 85574b7d33af6d9abfe25f5af4d811255f08ce4b
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994840"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102452235"
 ---
 # <a name="string-claims-transformations"></a>Transformations de revendications de chaînes
 
@@ -149,6 +149,42 @@ Utilisez cette transformation de revendication pour définir une chaîne de vale
     - **value** : Contoso terms of service...
 - Revendications de sortie :
     - **createdClaim** : le ClaimType TOS contient la valeur « Contoso terms of service... ».
+
+## <a name="copyclaimifpredicatematch"></a>CopyClaimIfPredicateMatch
+
+Copiez la valeur d’une revendication vers une autre si la valeur de la revendication d’entrée correspond au prédicat de revendication de sortie. 
+
+| Élément | TransformationClaimType | Type de données | Notes |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | inputClaim | string | Type de revendication à copier. |
+| OutputClaim | outputClaim | string | Type de revendication généré une fois que cette transformation de revendications a été appelée. La valeur de la revendication d’entrée est vérifiée par rapport à ce prédicat de revendication. |
+
+Dans l’exemple suivant, la valeur de la revendication signInName est copiée dans la revendication phoneNumber si et seulement si signInName est un numéro de téléphone. Pour obtenir l’exemple complet, consultez la stratégie de pack de démarrage [Connexion par numéro de téléphone ou e-mail](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/blob/master/scenarios/phone-number-passwordless/Phone_Email_Base.xml).
+
+```xml
+<ClaimsTransformation Id="SetPhoneNumberIfPredicateMatch" TransformationMethod="CopyClaimIfPredicateMatch">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="signInName" TransformationClaimType="inputClaim" />
+  </InputClaims>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="phoneNumber" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+### <a name="example-1"></a>Exemple 1
+
+- Revendications d’entrée :
+    - **inputClaim** : bob@contoso.com
+- Revendications de sortie :
+    - **outputClaim**: la revendication de sortie ne sera pas modifiée par rapport à sa valeur d’origine.
+
+### <a name="example-2"></a>Exemple 2
+
+- Revendications d’entrée :
+    - **inputClaim** : +11234567890
+- Revendications de sortie :
+    - **outputClaim** : +11234567890
 
 ## <a name="compareclaims"></a>CompareClaims
 
@@ -290,6 +326,77 @@ L’exemple suivant génère une valeur entière aléatoire comprise entre 0 et 
     - **outputClaim** : OTP_853
 
 
+## <a name="formatlocalizedstring"></a>FormatLocalizedString
+
+Met en forme plusieurs revendications en fonction d’une chaîne de format localisée fournie. Cette transformation utilise la méthode C# `String.Format`.
+
+
+| Élément | TransformationClaimType | Type de données | Notes |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaims |  |string | Collection de revendications d’entrée qui fonctionne comme des paramètres {0}, {1} et {2} au format de chaîne. |
+| InputParameter | stringFormatId | string |  `StringId` d’une [chaîne localisée](localization.md).   |
+| OutputClaim | outputClaim | string | ClaimType généré après que cette transformation de revendication a été appelée. |
+
+> [!NOTE]
+> La taille maximale autorisée pour le format de chaîne est de 4 000.
+
+Pour utiliser la transformation de revendications FormatLocalizedString, procédez comme suit :
+
+1. Définissez une [chaîne de localisation](localization.md) et associez-la à un [profil technique autodéclaré](self-asserted-technical-profile.md).
+1. La valeur `ElementType` de l’élément `LocalizedString` doit être définie sur `FormatLocalizedStringTransformationClaimType`.
+1. `StringId` est un identificateur unique que vous définissez en vue de l’utiliser plus tard dans votre transformation de revendications `stringFormatId`.
+1. Dans la transformation de revendications, spécifiez la liste des revendications à définir avec la chaîne localisée. Ensuite, définissez `stringFormatId` sur la valeur `StringId` de l’élément de la chaîne localisée. 
+1. Dans un [profil technique autodéclaré](self-asserted-technical-profile.md), ou une transformation de revendications d’entrée ou de sortie d’un [contrôle d’affichage](display-controls.md), faites référence à votre transformation de revendications.
+
+
+L’exemple suivant génère un message d’erreur lorsqu’un compte se trouve déjà dans le répertoire. Dans l’exemple sont définies des chaînes localisées pour l’anglais (par défaut) et l’espagnol.
+
+```xml
+<Localization Enabled="true">
+  <SupportedLanguages DefaultLanguage="en" MergeBehavior="Append">
+    <SupportedLanguage>en</SupportedLanguage>
+    <SupportedLanguage>es</SupportedLanguage>
+   </SupportedLanguages>
+
+  <LocalizedResources Id="api.localaccountsignup.en">
+    <LocalizedStrings>
+      <LocalizedString ElementType="FormatLocalizedStringTransformationClaimType" StringId="ResponseMessge_EmailExists">The email '{0}' is already an account in this organization. Click Next to sign in with that account.</LocalizedString>
+      </LocalizedStrings>
+    </LocalizedResources>
+  <LocalizedResources Id="api.localaccountsignup.es">
+    <LocalizedStrings>
+      <LocalizedString ElementType="FormatLocalizedStringTransformationClaimType" StringId="ResponseMessge_EmailExists">Este correo electrónico "{0}" ya es una cuenta de esta organización. Haga clic en Siguiente para iniciar sesión con esa cuenta.</LocalizedString>
+    </LocalizedStrings>
+  </LocalizedResources>
+</Localization>
+```
+
+La transformation de revendications crée un message de réponse basé sur la chaîne localisée. Ce message contient l’adresse e-mail de l’utilisateur intégrée dans la chaîne localisée *ResponseMessge_EmailExists*.
+
+```xml
+<ClaimsTransformation Id="SetResponseMessageForEmailAlreadyExists" TransformationMethod="FormatLocalizedString">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="email" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter Id="stringFormatId" DataType="string" Value="ResponseMessge_EmailExists" />
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="responseMsg" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+### <a name="example"></a>Exemple
+
+- Revendications d’entrée :
+    - **inputClaim** : sarah@contoso.com
+- Paramètres d’entrée :
+    - **stringFormat** : ResponseMessge_EmailExists
+- Revendications de sortie :
+  - **outputClaim** : L’e-mail « sarah@contoso.com » est déjà un compte dans cette organisation. Cliquez sur Suivant pour vous connecter avec ce compte.
+
+
 ## <a name="formatstringclaim"></a>FormatStringClaim
 
 Met en forme une revendication en fonction de la chaîne de format fournie. Cette transformation utilise la méthode C# `String.Format`.
@@ -299,6 +406,9 @@ Met en forme une revendication en fonction de la chaîne de format fournie. Cett
 | InputClaim | inputClaim |string |ClaimType qui agit en tant que paramètre {0} de format de chaîne. |
 | InputParameter | stringFormat | string | Format de chaîne, y compris le paramètre {0}. Ce paramètre d’entrée prend en charge les [expressions de transformation de revendications de chaînes](string-transformations.md#string-claim-transformations-expressions).  |
 | OutputClaim | outputClaim | string | ClaimType généré après que cette transformation de revendication a été appelée. |
+
+> [!NOTE]
+> La taille maximale autorisée pour le format de chaîne est de 4 000.
 
 Utilisez cette transformation de revendication pour mettre en forme une chaîne avec un paramètre {0}. L’exemple suivant crée un **userPrincipalName**. Tous les profils techniques de fournisseurs d’identité sociale, tels que `Facebook-OAUTH` appellent **CreateUserPrincipalName** pour générer un **userPrincipalName**.
 
@@ -335,6 +445,9 @@ Met en forme deux revendications en fonction de la chaîne de format fournie. Ce
 | InputClaim | inputClaim | string | ClaimType qui agit en tant que paramètre {1} de format de chaîne. |
 | InputParameter | stringFormat | string | Format de chaîne, y compris les paramètres {0} et {1}. Ce paramètre d’entrée prend en charge les [expressions de transformation de revendications de chaînes](string-transformations.md#string-claim-transformations-expressions).   |
 | OutputClaim | outputClaim | string | ClaimType généré après que cette transformation de revendication a été appelée. |
+
+> [!NOTE]
+> La taille maximale autorisée pour le format de chaîne est de 4 000.
 
 Utilisez cette transformation de revendication pour mettre en forme une chaîne avec deux paramètres, {0} et {1}. L’exemple suivant crée un **displayName** au format spécifié :
 

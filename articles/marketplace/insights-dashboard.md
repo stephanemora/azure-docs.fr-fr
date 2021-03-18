@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/09/2020
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: 9089fee7565633b198043efeed929fc7446437d5
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: a8a53a54d30df9a2f7079d705f754e554328c3f7
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96458284"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102553933"
 ---
 # <a name="marketplace-insights-dashboard-in-commercial-marketplace-analytics"></a>Tableau de bord Insights de la Place de marché dans les données d’analytique de la Place de marché commerciale
 
@@ -28,7 +28,7 @@ Le tableau de bord Insights sur la Place de marché présente une vue d’ensemb
 
 - Tendance des visites de la page
 - Tendance des appels d’actions
-- Visites de page et appels d’actions par rapport aux offres, domaines de référence et ID de campagne
+- Visites de page et appels d’actions par rapport aux offres, domaines de référence et ID de campagne
 - Insights sur la Place de marché par zone géographique
 - Insights sur la place de marché – Tableau des détails
 
@@ -103,6 +103,19 @@ Ce tableau affiche la liste des visites de page et des appels d’actions des pa
 
 > [!TIP]
 > Vous pouvez utiliser l’icône de téléchargement située dans l’angle supérieur droit d’un widget pour télécharger les données. Vous pouvez fournir des commentaires sur chacun des widgets en cliquant l’icône de « pouce vers le haut » ou de « pouce vers le bas ».
+
+| Nom de colonne dans<br>interface utilisateur | Nom de l’attribut | Définition | Nom de colonne dans les<br>rapports d’accès programmatique |
+| ------------ | ------------- | ------------- | ------------- |
+| Date | Date de visite | Date de visite de la page et/ou génération d’événement clic CTA sur la page de l’offre dans la place de marché Azure et/ou AppSource. | Date |
+| Nom de l’offre | Nom de l’offre | Nom de l’offre de la place de marché commerciale. | OfferName |
+| Domaine de référence | Domaine de référence | Nom du domaine de référence à partir duquel la visite de la page est intervenue. Si aucun domaine de référence n’est capturé pour la visite de page, l’entrée correspondante est « Domaine de référence non présent ». |  ReferralDomain |
+| Nom du pays | Nom du pays | Nom du pays à partir duquel la visite de page est intervenue. | CountryName |
+| Visites de page | Visites de page | Nombre de visites de page associées au nom de l’offre à une date spécifique. | PageVisits |
+| Obtenir maintenant | Obtenir maintenant | Nombre de clics sur le CTA « Obtenir maintenant » sur la page de l’offre à une date spécifique. | GetItNow |
+| Me contacter | Me contacter | Nombre de clics sur le CTA « Me contacter » sur la page de l’offre à une date spécifique. | ContactMe |
+| Version d’évaluation | Version d’évaluation | Nombre de clics sur le CTA « Test Drive » sur la page de l’offre à une date spécifique. | TestDrive |
+| Version d’évaluation gratuite | Version d’évaluation gratuite | Nombre de clics sur le CTA « Essai gratuit » sur la page de l’offre à une date spécifique. | FreeTrial |
+|||||
 
 ## <a name="next-steps"></a>Étapes suivantes
 

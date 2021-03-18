@@ -5,16 +5,16 @@ author: khyewei
 ms.author: khwei
 ms.reviewer: cynthn
 ms.service: virtual-machines
-ms.subservice: security
+ms.subservice: trusted-launch
 ms.topic: how-to
-ms.date: 03/02/2021
+ms.date: 03/03/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 4c4ad2a1350632d381cc258049ee85c87766f9b5
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: f5e361d32cf2ab436f92ce2ca86a054a6dd3337e
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101694119"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102553746"
 ---
 # <a name="deploy-a-vm-with-trusted-launch-enabled-preview"></a>Déployer une machine virtuelle avec le lancement fiable activé (préversion)
 
@@ -37,7 +37,7 @@ Créez une machine virtuelle avec le lancement fiable activé.
 1. Dans la page **Machines virtuelles**, sélectionnez **Ajouter**, puis **Machine virtuelle**.
 1. Sous **Détails du projet**, vérifiez que l’abonnement approprié est sélectionné.
 1. Sous **Groupe de ressources**, sélectionnez **Créer** et spécifiez un nom pour votre groupe de ressources ou sélectionnez un groupe de ressources existant dans la liste déroulante.
-1. Sous **Détails de l’instance**, spécifiez un nom pour la machine virtuelle et choisissez une région qui prend en charge le lancement fiable.
+1. Sous **Détails de l’instance**, spécifiez un nom pour la machine virtuelle et choisissez une région qui prend en charge le [lancement fiable](trusted-launch.md#public-preview-limitations).
 1. Sous **Image**, sélectionnez une [image qui prend en charge le lancement fiable](trusted-launch.md#public-preview-limitations). Vous ne verrez peut-être que la version Gen 1 de l’image. Ce n’est pas un problème. Passez à l’étape suivante.
 1. Basculez vers l’onglet **Avancé** en le sélectionnant en haut de la page.
 1. Faites défiler jusqu’à la section **Génération de machine virtuelle**, puis sélectionnez **Gen 2**.
@@ -140,7 +140,7 @@ Pour obtenir des recommandations sur vTPM et l’amorçage sécurisé pour les m
 
 Dans certains cas, vous devrez peut-être signer des éléments pour l’amorçage sécurisé UEFI.  Par exemple, vous devrez peut-être suivre [la procédure de signature d’éléments pour l’amorçage sécurisé](https://ubuntu.com/blog/how-to-sign-things-for-secure-boot) pour Ubuntu. Dans ce cas, vous devez entrer les clés d’inscription de l’utilitaire MOK pour votre machine virtuelle. Pour ce faire, vous devez utiliser la console série Azure pour accéder à l’utilitaire MOK.
 
-1. Activez la console série Azure pour Linux. Pour plus d’informations, consultez [Console série pour Linux](serial-console-linux.md).
+1. Activez la console série Azure pour Linux. Pour plus d’informations, consultez [Console série pour Linux](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/serial-console-linux).
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Recherchez **Machines virtuelles** et sélectionnez votre machine virtuelle dans la liste.
 1. Dans le menu de gauche, sous **Support + dépannage**, sélectionnez **Console série**. Une page s’ouvre à droite, avec la console série.

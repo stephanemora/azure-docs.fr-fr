@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 2fdebffbf9643febc08cba997b3a5a5fc4bb5998
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 8aafb08ff0ccc9391071f796450e69f87de279ba
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97652311"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102547830"
 ---
 #   <a name="key-phrase-extraction-cognitive-skill"></a>Compétence cognitive Extraction de phrases clés
 
@@ -41,6 +41,7 @@ Les paramètres respectent la casse.
 |---------------------|-------------|
 | `defaultLanguageCode` | (Facultatif) Code de langue à appliquer aux documents qui ne spécifient pas explicitement une langue.  Si le code de langue par défaut n’est pas spécifié, l’anglais (en) est utilisé comme code de langue par défaut. <br/> Voir la [Liste complète des langues prises en charge](../cognitive-services/text-analytics/language-support.md). |
 | `maxKeyPhraseCount`   | (Facultatif) Nombre maximal de phrases clés à produire. |
+| `modelVersion`   | (Facultatif) Version du modèle à utiliser pour appeler le service Analyse de texte. Si rien n’est spécifié, c’est la dernière version disponible qui est utilisée par défaut. Nous vous recommandons de ne pas spécifier cette valeur, sauf nécessité absolue. Pour plus d’informations, consultez [Contrôle de version de modèle dans l’API Analyse de texte](../cognitive-services/text-analytics/concepts/model-versioning.md). |
 
 ## <a name="skill-inputs"></a>Entrées de la compétence
 
@@ -109,8 +110,8 @@ Dans l’exemple ci-dessus, la sortie de votre compétence sera écrite dans un 
 
 Vous pouvez utiliser « document/myKeyPhrases » comme entrée dans d’autres compétences, ou comme source d’un [mappage de champs de sortie](cognitive-search-output-field-mapping.md).
 
-## <a name="errors-and-warnings"></a>Erreurs et avertissements
-Si vous indiquez un code de langue non pris en charge, une erreur est générée et les phrases clés ne sont pas extraites.
+## <a name="warnings"></a>Avertissements
+Si vous indiquez un code de langue non pris en charge, un avertissement est généré, et les phrases clés ne sont pas extraites.
 Si votre texte est vide, un avertissement est généré.
 Si votre texte comprend plus de 50 000 caractères, seuls les 50 000 premiers caractères sont analysés et un avertissement est émis.
 

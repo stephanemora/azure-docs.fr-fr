@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/09/2020
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: 31216db98cc02724ac3625eb1a8fa18b0f75c6ee
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: ed12e470f3f3d8c1035c1e4e2e0fa7a3b33e2369
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955023"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102561379"
 ---
 # <a name="orders-dashboard-in-commercial-marketplace-analytics"></a>Tableau de bord Commandes dans l’analytique de la place de marché commerciale
 
@@ -111,32 +111,32 @@ Le tableau Détails des commandes présente la liste numérotée des 1 000 pre
 - Appliquez des filtres au tableau **Détails des commandes** pour afficher uniquement les données qui vous intéressent. Filtrez les données par pays/région, type de licence Azure, type de licence de Place de marché commerciale, type d’offre, état de la commande, évaluations gratuites, ID d’abonnement de Place de marché commerciale, ID de client et nom de société.
 - Lorsqu’une offre est achetée par un client protégé, les informations contenues dans **Données détaillées des commandes** sont masquées (************).
 
-**_Tableau 1 : Dictionnaire des termes relatifs aux données_* _
+***Tableau 1 : Dictionnaire des termes relatifs aux données***
 
-| Nom de la colonne | Nom de l’attribut | Définition |
-| ------------ | ------------- | ------------- |
-| ID d’abonnement de la Place de marché | ID d’abonnement de la Place de marché | Identificateur unique associé à l’abonnement Azure que le client a utilisé pour acheter votre offre de la Place de marché commerciale. Pour les offres d’infrastructure, il s’agit du GUID de l’abonnement Azure du client. Pour les offres SaaS, il est représenté par des zéros, car les achats SaaS ne nécessitent pas d’abonnement Azure. |
-| MonthStartDate | Date de début du mois | Date de début du mois représente le mois d’achat. |
-| Type d’offre | Type d’offre | Type de l’offre de la place de marché commerciale. |
-| Type de licence Azure | Type de licence Azure | Type de contrat de licence utilisé par les clients pour acheter Azure. Également appelé canal. Les valeurs possibles sont les suivantes :<ul><li>Fournisseur de solutions cloud</li><li>Enterprise</li><li>entreprise, via un revendeur</li><li>paiement à l’utilisation</li></ul> |
-| Type de licence de la Place de marché | Type de licence de la Place de marché | Mode de facturation de l’offre de la place de marché commerciale. Les différentes valeurs sont les suivantes :<ul><li>facturé via Azure</li><li>BYOL (apportez votre propre licence)</li><li>Gratuit</li><li>Microsoft en tant que revendeur</li></ul> |
-| SKU | SKU | Plan associé à l’offre |
-| Pays du client | Pays/Région du client | Nom de pays/région fourni par le client. Ce nom peut être différent du nom du pays ou de la région fourni dans l’abonnement Azure d’un client. |
-| Référence SKU en préversion | Référence SKU en préversion | La valeur indique si vous avez étiqueté la référence SKU en tant que « préversion ». La valeur est « Oui » si la référence SKU a été étiquetée en conséquence, et seuls les abonnements Azure que vous avez autorisés peuvent déployer et utiliser cette image. La valeur est « Non » si la référence SKU n’a pas été identifiée en tant que « préversion ». |
-| ID de commande | ID de commande | Identificateur unique de la commande du client pour votre service de la place de marché commerciale. Les offres basées sur l’utilisation de machines virtuelles ne sont pas associées à une commande. |
-| Order Quantity | Order Quantity | Nombre de ressources associées à l’ID de commande pour les commandes actives |
-| Nom de l’instance cloud | Nom de l’instance cloud | Instance de Microsoft Cloud sur laquelle des machines virtuelles ont été déployées. |
-| Nouveau client | Nouveau client | La valeur identifie si un nouveau client a acheté une ou plusieurs de vos offres pour la première fois. La valeur est « Oui » si le mois calendaire correspond avec la « date d’acquisition ». La valeur est « Non » si le client a acheté une de vos offres avant le mois calendaire signalé. |
-| État de la commande | État de la commande | État d’une commande de la place de marché commerciale au moment de la dernière actualisation des données. |
-| Date d’annulation de la commande | Date d’annulation de la commande | Date à laquelle la commande passée sur la place de marché commerciale a été annulée. |
-| Nom de la société du client | Nom de la société du client | Nom de société fourni par le client. Le nom peut être différent du nom de la ville fournie dans l’abonnement Azure d’un client. |
-| Date de la commande | Date de la commande | Date à laquelle la commande de la place de marché commerciale a été passée. |
-| Nom de l’offre | Nom de l’offre | Nom de l’offre de la place de marché commerciale. |
-| Date de fin d'essai | Date de fin d'essai | La date de fin de la période d’essai de cette commande approche ou est dépassée. |
-| Customer Id | ID de client | Identificateur unique attribué à un client. Un client peut avoir zéro ou plusieurs abonnements de la Place de marché Azure. |
-| ID de compte de facturation | ID de compte de facturation | L’identifiant du compte sur lequel la facturation est générée. Mappez l’_ *ID de compte de facturation** à l’**ID client** pour connecter votre rapport de transactions de paiement avec les rapports Client, Commande et Utilisation. |
-| AssetCount | Nombre de ressources | Nombre de ressources associées à l’ID de commande. |
-||||
+| Nom de colonne dans<br>interface utilisateur | Nom de l’attribut | Définition | Nom de colonne dans les<br>rapports d’accès programmatique |
+| ------------ | ------------- | ------------- | ------------- |
+| ID d’abonnement de la Place de marché | ID d’abonnement de la Place de marché | Identificateur unique associé à l’abonnement Azure que le client a utilisé pour acheter votre offre de la Place de marché commerciale. Pour les offres d’infrastructure, il s’agit du GUID de l’abonnement Azure du client. Pour les offres SaaS, il est représenté par des zéros, car les achats SaaS ne nécessitent pas d’abonnement Azure. | ID d’abonnement de la Place de marché |
+| MonthStartDate | Date de début du mois | Date de début du mois représente le mois d’achat. Le format est aaaa-mm-jj. | MonthStartDate |
+| Type d’offre | Type d’offre | Type de l’offre de la place de marché commerciale. | OfferType |
+| Type de licence Azure | Type de licence Azure | Type de contrat de licence utilisé par les clients pour acheter Azure. Également appelé canal. Les valeurs possibles sont les suivantes :<ul><li>Fournisseur de solutions cloud</li><li>Enterprise</li><li>entreprise, via un revendeur</li><li>paiement à l’utilisation</li></ul> | AzureLicenseType |
+| Type de licence de la Place de marché | Type de licence de la Place de marché | Mode de facturation de l’offre de la place de marché commerciale. Les différentes valeurs sont les suivantes :<ul><li>facturé via Azure</li><li>BYOL (apportez votre propre licence)</li><li>Gratuit</li><li>Microsoft en tant que revendeur</li></ul> | MarketplaceLicenseType |
+| SKU | SKU | Plan associé à l’offre | SKU |
+| Pays du client | Pays/Région du client | Nom de pays/région fourni par le client. Ce nom peut être différent du nom du pays ou de la région fourni dans l’abonnement Azure d’un client. | CustomerCountry |
+| Référence SKU en préversion | Référence SKU en préversion | La valeur indique si vous avez étiqueté la référence SKU en tant que « préversion ». La valeur est « Oui » si la référence SKU a été étiquetée en conséquence, et seuls les abonnements Azure que vous avez autorisés peuvent déployer et utiliser cette image. La valeur est « Non » si la référence SKU n’a pas été identifiée en tant que « préversion ». | IsPreviewSKU |
+| ID de commande | ID de commande | Identificateur unique de la commande du client pour votre service de la place de marché commerciale. Les offres basées sur l’utilisation de machines virtuelles ne sont pas associées à une commande. | OrderId |
+| Order Quantity | Order Quantity | Nombre de ressources associées à l’ID de commande pour les commandes actives | OrderQuantity |
+| Nom de l’instance cloud | Nom de l’instance cloud | Instance de Microsoft Cloud sur laquelle des machines virtuelles ont été déployées. | CloudInstanceName |
+| Nouveau client | Nouveau client | La valeur identifie si un nouveau client a acheté une ou plusieurs de vos offres pour la première fois. La valeur est « Oui » si le mois calendaire correspond avec la « date d’acquisition ». La valeur est « Non » si le client a acheté une de vos offres avant le mois calendaire signalé. | IsNewCustomer |
+| État de la commande | État de la commande | État d’une commande de la place de marché commerciale au moment de la dernière actualisation des données. | OrderStatus |
+| Date d’annulation de la commande | Date d’annulation de la commande | Date à laquelle la commande passée sur la place de marché commerciale a été annulée. | OrderCancelDate |
+| Nom de la société du client | Nom de la société du client | Nom de société fourni par le client. Le nom peut être différent du nom de la ville fournie dans l’abonnement Azure d’un client. | CustomerCompanyName |
+| Date de la commande | Date de la commande | Date à laquelle la commande de la place de marché commerciale a été passée. Le format est aaaa-mm-jj. | OrderPurchaseDate |
+| Nom de l’offre | Nom de l’offre | Nom de l’offre de la place de marché commerciale. | OfferName |
+| Date de fin d'essai | Date de fin d'essai | La date de fin de la période d’essai de cette commande approche ou est dépassée. | TrialEndDate |
+| ID de client | ID de client | Identificateur unique attribué à un client. Un client peut avoir zéro ou plusieurs abonnements de la Place de marché Azure. | CustomerId |
+| ID de compte de facturation | ID de compte de facturation | L’identifiant du compte sur lequel la facturation est générée. Mappez l’**ID de compte de facturation** à l’**ID client** pour connecter votre rapport de transactions de paiement avec les rapports Client, Commande et Utilisation. | BillingAccountId |
+| AssetCount | Nombre de ressources | Nombre de ressources associées à l’ID de commande. | Déprécié |
+|||||
 
 ### <a name="orders-page-filters"></a>Filtres de page des commandes
 

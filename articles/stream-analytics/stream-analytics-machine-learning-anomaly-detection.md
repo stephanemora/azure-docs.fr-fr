@@ -2,16 +2,16 @@
 title: Détection d’anomalies dans Azure Stream Analytics
 description: Cet article décrit comment utiliser Azure Stream Analytics et Azure Machine Learning pour détecter les anomalies.
 ms.service: stream-analytics
-author: jasonwhowell
-ms.author: jasonh
+author: jseb225
+ms.author: jeanb
 ms.topic: how-to
 ms.date: 06/21/2019
-ms.openlocfilehash: 78730b011e508f98779b9e00624882466d6a03a0
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: ec37ea6cbb1c1c6693aab1f6855948d32b85e95b
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102178490"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102441191"
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Détection d’anomalies dans Azure Stream Analytics
 
@@ -29,7 +29,7 @@ La vidéo suivante montre comment détecter une anomalie en temps réel à l’a
 
 ## <a name="model-behavior"></a>Comportement du modèle
 
-En règle générale, la précision du modèle s’améliore avec l’augmentation des données dans la fenêtre glissante. Les données de la fenêtre glissante spécifiée sont traitées comme si elles faisaient partie de la plage normale de valeurs pour cette période. Le modèle ne prend en considération que l’historique des événements de la fenêtre glissante pour vérifier si l’événement actuel est anormal. À mesure que la fenêtre glissante se déplace, les anciennes valeurs sont supprimées de la formation du modèle.
+En règle générale, la précision du modèle s’améliore avec l’augmentation des données dans la fenêtre glissante. Les données de la fenêtre glissante spécifiée sont traitées comme si elles faisaient partie de la plage normale de valeurs pour cette période. Le modèle ne prend en considération que l’historique des événements de la fenêtre glissante pour vérifier si l’événement actuel est anormal. À mesure que la fenêtre glissante se déplace, les anciennes valeurs sont supprimées de l’entraînement du modèle.
 
 Les fonctions établissent une certaine normale selon ce qu’elles ont déjà vu jusqu’à présent. Les valeurs hors norme sont identifiées par la comparaison par rapport à la normale établie au sein du niveau de confiance. La taille de la fenêtre doit être basée sur le nombre minimal d’événements requis pour former le modèle à un comportement normal afin qu’il puisse reconnaître une anomalie lorsqu’elle se produit.
 
@@ -123,12 +123,12 @@ La taille de l’historique, la durée de la fenêtre et la charge totale d’é
 
 windowDuration (en ms) = 1000 * historySize / (total d'événements d'entrée par seconde / nombre de partitions d’entrée)
 
-Lors du partitionnement de la fonction par deviceId, ajoutez « PARTITION par deviceId » à l’appel de la fonction de détection des anomalies.
+Lors du partitionnement de la fonction par deviceId, ajoutez « PARTITION BY deviceId » à l’appel de la fonction de détection d’anomalie.
 
 ### <a name="observations"></a>Observations
 Le tableau suivant présente les observations de débit pour un seul nœud (6 SU) pour le cas non partitionné :
 
-| Taille de l’historique (événements) | Durée de la fenêtre (ms) | Nombre total d’événements d’entrée par seconde |
+| Taille de l’historique (événements)    | Durée de la fenêtre (ms) | Nombre total d’événements d’entrée par seconde |
 | --------------------- | -------------------- | -------------------------- |
 | 60 | 55 | 2 200 |
 | 600 | 728 | 1 650 |
