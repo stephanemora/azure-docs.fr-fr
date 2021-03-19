@@ -12,12 +12,12 @@ ms.custom:
 - mqtt
 - 'Role: IoT Device'
 - 'Role: Cloud Development'
-ms.openlocfilehash: 8a65619d65e1a3655d3ef8a295749a705e6a79e1
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: d35535c87ca20bfc573995bf15f79bc149619776
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102431276"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102611587"
 ---
 # <a name="understand-and-use-azure-iot-hub-sdks"></a>Comprendre et utiliser les kits Azure IoT Hub SDK
 
@@ -84,7 +84,7 @@ Kit Azure IoT device SDK pour Node.js :
 
 * Installation à partir de [npm](https://www.npmjs.com/package/azure-iot-device)
 * [Code source](https://github.com/Azure/azure-iot-sdk-node)
-* [Informations de référence sur l'API](/javascript/api/azure-iot-device/?view=azure-iot-typescript-latest&preserve-view=true)
+* [Informations de référence sur l'API](/javascript/api/azure-iot-device/)
 * [Informations de référence sur les modules](/javascript/api/azure-iot-device/moduleclient)
 
 Kit Azure IoT device SDK pour Python :
@@ -119,7 +119,7 @@ Kit Azure IoT Hub service SDK pour Node.js :
 
 * Téléchargement à partir de [npm](https://www.npmjs.com/package/azure-iothub)
 * [Code source](https://github.com/Azure/azure-iot-sdk-node)
-* [Informations de référence sur l'API](/javascript/api/azure-iothub/?view=azure-iot-typescript-latest&preserve-view=true)
+* [Informations de référence sur l'API](/javascript/api/azure-iothub/)
 
 Kit Azure IoT Hub service SDK pour Python :
 
