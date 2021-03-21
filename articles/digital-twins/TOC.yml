@@ -173,6 +173,8 @@
               href: /python/api/azure-digitaltwins-core/azure.digitaltwins.core
     - name: Interface CLI Digital Twins
       href: /cli/azure/ext/azure-iot/dt
+    - name: Spécification DTDL v2
+      href: 'https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md'
 - name: Ressources
   items:
     - name: Limites du service Digital Twins
@@ -212,9 +214,9 @@
             - name: Kit SDK Python - Code source
               href: 'https://github.com/Azure/azure-sdk-for-python/tree/release/v3/sdk/digitaltwins/azure-mgmt-digitaltwins'
             - name: Kit SDK Go - GoDoc
-              href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/digitaltwins/mgmt/2020-10-31/digitaltwins'
+              href: 'https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/services/digitaltwins/mgmt'
             - name: Go - Code source
-              href: 'https://github.com/Azure/azure-sdk-for-go/tree/master/services/digitaltwins/mgmt/2020-10-31/digitaltwins'
+              href: 'https://github.com/Azure/azure-sdk-for-go/tree/master/services/digitaltwins/mgmt'
         - name: Plan de données
           items:
             - name: Plan de données Swagger
@@ -275,8 +277,6 @@
           href: /samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/
     - name: DTDL
       items:
-        - name: Spécification DTDL v2
-          href: 'https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md'
         - name: "Extension DTDL pour VS\_Code"
           href: 'https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl'
         - name: Bibliothèque de l’analyseur DTDL - NuGet
