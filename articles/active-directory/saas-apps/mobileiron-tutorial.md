@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/12/2021
+ms.date: 02/15/2021
 ms.author: jeedes
-ms.openlocfilehash: 5561a4cdeef725eba7e48d7767aa0ee5d3c6d9cf
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: c47092b1488a79805db69308bcb9a8efde1c0d58
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98625446"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101653024"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mobileiron"></a>Didacticiel : Intégration de Azure Active Directory à MobileIron
 
@@ -28,16 +28,16 @@ ms.locfileid: "98625446"
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour configurer l’intégration de Azure AD à MobileIron, vous avez besoin des éléments suivants :
+Pour commencer, vous devez disposer de ce qui suit :
 
-* Un abonnement Azure AD Si vous n’avez pas d’environnement Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
-* Abonnement MobileIron pour lequel l’authentification unique est activée
+* Un abonnement Azure AD Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
+* Un abonnement MobileIron pour lequel l’authentification unique est activée.
 
 ## <a name="scenario-description"></a>Description du scénario
 
 Dans ce didacticiel, vous configurez et testez l’authentification unique Azure AD dans un environnement de test.
 
-* MobileIron prend en charge l’authentification unique initiée par **le fournisseur de services et le fournisseur d’identité**
+* MobileIron prend en charge l’authentification unique initiée par **un fournisseur de services et un fournisseur d’identité**.
 
 ## <a name="add-mobileiron-from-the-gallery"></a>Ajouter MobileIron à partir de la galerie
 
@@ -131,7 +131,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
     ![Bouton de métadonnées d’administrateur de la page Configurer l’authentification unique](./media/MobileIron-tutorial/tutorial_MobileIron_adminmetadata.png)
 
 
-##  <a name="create-mobileiron-test-user"></a>Créer un utilisateur de test MobileIron
+### <a name="create-mobileiron-test-user"></a>Créer un utilisateur de test MobileIron
 
 Pour se connecter à MobileIron, les utilisateurs de Azure AD doivent être approvisionnés dans MobileIron.  
 Dans le cas de MobileIron, l’approvisionnement est une tâche manuelle.
@@ -157,15 +157,16 @@ Dans le cas de MobileIron, l’approvisionnement est une tâche manuelle.
     d. Cliquez sur **Done**.
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO)
+
 Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
 
-## <a name="sp-initiated"></a>Lancée par le fournisseur de services :
+### <a name="sp-initiated"></a>Lancée par le fournisseur de services :
 
 * Cliquez sur **Tester cette application** dans le portail Azure. Cette opération redirige vers l’URL d’authentification MobileIron, où vous pouvez lancer le processus de connexion.  
 
 * Accédez directement à l’URL d’authentification MobileIron pour lancer le processus de connexion.
 
-##  <a name="idp-initiated"></a>Lancée par le fournisseur d’identité :
+### <a name="idp-initiated"></a>Lancée par le fournisseur d’identité :
 
 * Dans le portail Azure, cliquez sur **Tester cette application**. Vous êtes alors automatiquement connecté à l’instance MobileIron pour laquelle vous avez configuré l’authentification unique.
 

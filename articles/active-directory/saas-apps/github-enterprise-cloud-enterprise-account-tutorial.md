@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/29/2020
+ms.date: 02/12/2021
 ms.author: jeedes
-ms.openlocfilehash: d88cbb79b42637721412dd0a35c231782a896721
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 7360ad5abc7342043152c2da11038b624b0bfadc
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96029844"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101649962"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-github-enterprise-cloud---enterprise-account"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory avec GitHub Enterprise Cloud – Enterprise Account
 
@@ -24,29 +24,27 @@ Ce didacticiel explique comment intégrer le compte GitHub Enterprise Cloud-Ente
 
 * Contrôler qui dans Azure AD a accès à un compte GitHub Enterprise et à toute organisation au sein du compte Enterprise.
 
-Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
 Pour commencer, vous devez disposer de ce qui suit :
 
 * Un abonnement Azure AD Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
-* Un [compte GitHub Enterprise](https://docs.github.com/en/free-pro-team@latest/github/setting-up-and-managing-your-enterprise/about-enterprise-accounts)
+* Un [compte GitHub Enterprise](https://docs.github.com/en/free-pro-team@latest/github/setting-up-and-managing-your-enterprise/about-enterprise-accounts).
 * Un compte d’utilisateur GitHub qui est propriétaire d’un compte Enterprise. 
 
 ## <a name="scenario-description"></a>Description du scénario
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
-* GitHub Enterprise Cloud – Enterprise Account prend en charge l’authentification unique initiée par un **fournisseur de services** et un **fournisseur d’ID**.
-* GitHub Enterprise Cloud – Enterprise Account prend en charge l’approvisionnement **juste-à-temps** d’utilisateurs.
-* Une fois que vous avez configuré GitHub Enterprise Cloud – Enterprise Account, vous pouvez appliquer un contrôle de session qui protège l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+* GitHub Enterprise Cloud – Enterprise Account prend en charge l’authentification unique initiée par un **fournisseur de services** et un **fournisseur d’identité**.
+* GitHub Enterprise Cloud – Enterprise Account prend en charge l’attribution d’utilisateurs **juste-à-temps**.
 
 ## <a name="adding-github-enterprise-cloud---enterprise-account-from-the-gallery"></a>Ajouter GitHub Enterprise Cloud – Enterprise Account à partir de la galerie
 
 Pour configurer l’intégration de GitHub Enterprise Cloud – Enterprise Account dans Azure AD, vous devez ajouter GitHub Enterprise Cloud – Enterprise Account à partir de la galerie à votre liste d’applications SaaS managées.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
+1. Connectez-vous au portail Azure avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
 1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory**.
 1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
 1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
@@ -58,21 +56,21 @@ Pour configurer l’intégration de GitHub Enterprise Cloud – Enterprise Accou
 
 Configurez et testez l’authentification unique Azure AD avec GitHub Enterprise Cloud – Enterprise Account avec un utilisateur de test nommé **B.Simon**. Pour que l’authentification unique fonctionne, vous devez établir une relation entre un utilisateur Azure AD et l’utilisateur associé dans GitHub Enterprise Cloud – Enterprise Account.
 
-Pour configurer et tester l’authentification unique Azure AD avec GitHub Enterprise Cloud – Enterprise Account, vous devez accomplir les opérations suivantes :
+Pour configurer et tester l’authentification unique Azure AD avec GitHub Enterprise Cloud – Enterprise Account, procédez comme suit :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-sso)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
     1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
-    1. **[Affecter votre utilisateur Azure AD et le compte d’utilisateur de test à l’application GitHub](#assign-the-azure-ad-test-user)** pour permettre à votre compte d’utilisateur et à l’utilisateur de test `B.Simon` d’utiliser l’authentification unique Azure AD.
+    1. **[Affecter votre utilisateur Azure AD et le compte d’utilisateur de test à l’application GitHub](#assign-your-azure-ad-user-and-the-test-user-account-to-the-github-app)** pour permettre à votre compte d’utilisateur et à l’utilisateur de test `B.Simon` d’utiliser l’authentification unique Azure AD.
 1. **[Activer et tester SAML pour le compte Enterprise et ses organisations](#enable-and-test-saml-for-the-enterprise-account-and-its-organizations)** afin de configurer les paramètres d’authentification unique côté application.
-    1. **[Tester l’authentification unique avec un autre compte de membre de l’organisation ou propriétaire de compte Enterprise](#test-sso)** pour vérifier si la configuration fonctionne.
+    1. **[Tester l’authentification unique avec un autre compte de membre de l’organisation ou propriétaire de compte Enterprise](#test-sso-with-another-enterprise-account-owner-or-organization-member-account)** pour vérifier si la configuration fonctionne.
 
 ## <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
 
 Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
-1. Dans le [portail Azure](https://portal.azure.com/), dans la page d’intégration de l’application **GitHub Enterprise Cloud – Enterprise Account**, recherchez la section **Gérer**, puis sélectionnez **Authentification unique**.
+1. Dans le portail Azure, accédez à la page d’intégration de l’application **GitHub Enterprise Cloud – Enterprise Account**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
-1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de crayon de **Configuration SAML de base** afin de modifier les paramètres.
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
@@ -118,15 +116,9 @@ Dans cette section, vous allez autoriser `B.Simon` et votre compte d’utilisate
 1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 1. Dans la liste des applications, sélectionnez **GitHub Enterprise Cloud – Enterprise Account**.
 1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
-
-   ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
-
 1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
-
-    ![Lien Ajouter un utilisateur](common/add-assign-user.png)
-
 1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B. Simon** et votre compte d’utilisateur dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
-1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+1. Si vous attendez qu’un rôle soit attribué aux utilisateurs, vous pouvez le sélectionner dans la liste déroulante **Sélectionner un rôle** . Si aucun rôle n’a été configuré pour cette application, vous voyez le rôle « Accès par défaut » sélectionné.
 1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
 ## <a name="enable-and-test-saml-for-the-enterprise-account-and-its-organizations"></a>Activer et tester SAML pour le compte Enterprise et ses organisations
@@ -156,16 +148,6 @@ Pour tester l’accès à l’organisation GitHub sous le compte Enterprise avec
 1. Connectez-vous à Azure AD avec le compte d’utilisateur de `B.Simon`.
 1. Accédez à l’organisation GitHub. L’utilisateur doit être invité à s’authentifier via SAML. Après une authentification SAML réussie, `B.Simon` doit être en mesure d’accéder aux ressources de l’organisation. 
 
-## <a name="additional-resources"></a>Ressources supplémentaires
+## <a name="next-steps"></a>Étapes suivantes
 
-- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](./tutorial-list.md)
-
-- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
-
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](../conditional-access/overview.md)
-
-- [Essayer GitHub Enterprise Cloud – Enterprise Account avec Azure AD](https://aad.portal.azure.com/)
-
-- [Qu’est-ce que le contrôle de session dans Microsoft Cloud App Security ?](/cloud-app-security/proxy-intro-aad)
-
-- [Comment protéger GitHub Enterprise Cloud – Enterprise Account avec une visibilité et des contrôles avancés](/cloud-app-security/proxy-intro-aad)
+Une fois que vous avez configuré GitHub Enterprise Cloud – Enterprise Account, vous pouvez appliquer un contrôle de session qui protège l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

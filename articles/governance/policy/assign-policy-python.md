@@ -1,15 +1,15 @@
 ---
 title: "Démarrage rapide : Nouvelle attribution de stratégie à l'aide de Python"
 description: Dans ce guide de démarrage rapide, vous allez utiliser Python pour créer une attribution Azure Policy afin d'identifier les ressources non conformes.
-ms.date: 10/14/2020
+ms.date: 03/02/2021
 ms.topic: quickstart
 ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: aa67b3a2bae2beb62daa6e64871411ee760f802b
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: e600f97dafdd1040c22b6e4d9e333f638334b663
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94832194"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101742328"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-python"></a>Démarrage rapide : Créer une attribution de stratégie pour identifier les ressources non conformes à l'aide de Python
 
@@ -40,7 +40,7 @@ Pour permettre à Python de fonctionner avec Azure Policy, la bibliothèque doit
    az login
    ```
 
-1. Dans votre environnement Python, installez les bibliothèques requises pour Azure Resource Graph :
+1. Dans votre environnement Python, installez les bibliothèques requises pour Azure Policy :
 
    ```bash
    # Add the Python library for Python
@@ -65,7 +65,7 @@ Pour permettre à Python de fonctionner avec Azure Policy, la bibliothèque doit
 
 ## <a name="create-a-policy-assignment"></a>Créer une affectation de stratégie
 
-Dans ce guide de démarrage rapide, vous allez créer une attribution de stratégie et attribuer la définition **Auditer les machines virtuelles qui n'utilisent aucun disque managé** (`06a78e20-9358-41c9-923c-fb736d382a4d`). Cette stratégie identifie les ressources qui ne sont pas conformes aux conditions définies dans sa définition.
+Dans ce démarrage rapide, vous allez créer une attribution de stratégie et attribuer la définition de stratégie **Auditer les machines virtuelles n’utilisant aucun disque managé.** (`06a78e20-9358-41c9-923c-fb736d382a4d`). Cette stratégie identifie les ressources qui ne sont pas conformes aux conditions définies dans sa définition.
 
 Exécutez le code suivant pour créer une nouvelle attribution de stratégie :
 
@@ -94,8 +94,8 @@ Les commandes précédentes utilisent les informations suivantes :
 Détails de l'attribution :
 - **display_name** : nom d'affichage de l'attribution de stratégie. Dans ce cas, nous allons utiliser l’affectation _Audit VMs without managed disks_ (Auditer les machines virtuelles sans disques managés).
 - **policy_definition_id** : chemin de la définition de stratégie, sur lequel vous vous basez pour créer l'attribution. Dans ce cas, il s’agit de l’ID de la définition de stratégie _Auditer les machines virtuelles qui n’utilisent pas de disques managés_. Dans cet exemple, la définition de stratégie est intégrée et le chemin n'inclut pas d'informations sur le groupe d'administration ou l'abonnement.
-- **scope** : une étendue détermine les ressources ou le groupe de ressources sur lesquels l'attribution de stratégie est appliquée. Cette étendue peut aller d'un groupe d'administration à une ressource individuelle. Veillez à remplacer `{scope}` par l'un des modèles suivants :
-  - Groupe d'administration : `/providers/Microsoft.Management/managementGroups/{managementGroup}`
+- **scope** : une étendue détermine les ressources ou le groupe de ressources sur lesquels l'attribution de stratégie est appliquée. Cette étendue peut aller d'un groupe d'administration à une ressource individuelle. Veillez à remplacer `{scope}` par l’un des modèles suivants :
+  - Groupe d’administration : `/providers/Microsoft.Management/managementGroups/{managementGroup}`
   - Abonnement : `/subscriptions/{subscriptionId}`
   - Groupe de ressources : `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}`
   - Ressource : `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]`

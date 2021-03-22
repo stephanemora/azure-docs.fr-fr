@@ -1,21 +1,21 @@
 ---
 title: 'Démarrage rapide : Appeler Microsoft Graph dans une application console Node.js | Azure'
 titleSuffix: Microsoft identity platform
-description: Dans ce guide de démarrage rapide, vous allez découvrir comment une application console Node.js peut obtenir un jeton d’accès et appeler une API protégée par un point de terminaison de plateforme d’identités Microsoft, en utilisant l’identité propre de l’application
+description: Dans ce démarrage rapide, vous téléchargez et exécutez un exemple de code qui montre comment une application console Node.js peut obtenir un jeton d’accès et appeler une API protégée par un point de terminaison de la plateforme d’identités Microsoft, en utilisant l’identité propre de l’application.
 services: active-directory
 author: derisen
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
-ms.date: 02/11/2021
+ms.date: 02/17/2021
 ms.author: v-doeris
-ms.openlocfilehash: c550cc8009f0138b9f1803399fbc592b34efbfab
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 4360810d460c5fc8598ce302ad8b82f65d2d819e
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100562014"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101653743"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-nodejs-console-app-using-apps-identity"></a>Démarrage rapide : Acquérir un jeton et appeler l’API Microsoft Graph à partir d’une application console Node.js en utilisant l’identité de l’application
 
@@ -29,12 +29,12 @@ Ce guide de démarrage rapide utilise la [bibliothèque d’authentification Mic
 * [Visual Studio Code](https://code.visualstudio.com/download) ou un autre éditeur de code
 
 > [!div renderon="docs"]
-> ## <a name="register-and-download-your-quickstart-application"></a>Inscrire et télécharger votre application de démarrage rapide
+> ## <a name="register-and-download-the-sample-application"></a>Inscrire et télécharger l’exemple d’application
 >
 > Suivez les étapes ci-dessous pour commencer.
 >
 > [!div renderon="docs"]
-> #### <a name="step-1-register-your-application"></a>Étape 1 : Inscrivez votre application
+> #### <a name="step-1-register-the-application"></a>Étape 1 : Enregistrement de l’application
 > Pour inscrire votre application et ajouter manuellement les informations d’inscription de l’application à votre solution, procédez comme suit :
 >
 > 1. Connectez-vous au <a href="https://portal.azure.com/" target="_blank">portail Azure</a>.
@@ -50,9 +50,9 @@ Ce guide de démarrage rapide utilise la [bibliothèque d’authentification Mic
 > 1. Sous le nœud **Utilisateur**, sélectionnez **User.Read.All**, puis sélectionnez **Ajouter des autorisations**.
 
 > [!div class="sxs-lookup" renderon="portal"]
-> ### <a name="download-and-configure-your-quickstart-app"></a>Télécharger et configurer votre application de démarrage rapide
+> ### <a name="download-and-configure-the-sample-app"></a>Télécharger et configurer l’exemple d’application
 >
-> #### <a name="step-1-configure-your-application-in-azure-portal"></a>Étape 1 : Configurer votre application dans le portail Azure
+> #### <a name="step-1-configure-the-application-in-azure-portal"></a>Étape 1 : Configurer l’application dans le portail Azure
 > Pour que l’exemple de code fonctionne dans ce guide de démarrage rapide, vous devez créer un secret client et ajouter l’autorisation d’application **User.Read.All** de l’API Graph.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Apporter ces modifications pour moi]()
@@ -60,7 +60,7 @@ Ce guide de démarrage rapide utilise la [bibliothèque d’authentification Mic
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![Déjà configuré](media/quickstart-v2-netcore-daemon/green-check.png) Votre application est configurée avec ces attributs.
 
-#### <a name="step-2-download-your-nodejs-project"></a>Étape 2 : Télécharger votre projet Node.js
+#### <a name="step-2-download-the-nodejs-sample-project"></a>Étape 2 : Télécharger l’exemple de projet Node.js
 
 > [!div renderon="docs"]
 > [Téléchargez l’exemple de code](https://github.com/azure-samples/ms-identity-javascript-nodejs-console/archive/main.zip).
@@ -73,7 +73,7 @@ Ce guide de démarrage rapide utilise la [bibliothèque d’authentification Mic
 > > `Enter_the_Supported_Account_Info_Here`
 
 > [!div renderon="docs"]
-> #### <a name="step-3-configure-your-nodejs-project"></a>Étape 3 : Configurer votre projet Node.js
+> #### <a name="step-3-configure-the-nodejs-sample-project"></a>Étape 3 : Configurer l’exemple de projet Node.js
 >
 > 1. Extrayez le fichier zip dans un dossier local proche de la racine du disque, par exemple *C:\Azure-Samples*.
 > 1. Éditez *.env* et remplacez les valeurs des champs `TENANT_ID`, `CLIENT_ID` et `CLIENT_SECRET` par l’extrait de code suivant :
@@ -89,7 +89,7 @@ Ce guide de démarrage rapide utilise la [bibliothèque d’authentification Mic
 >    - `Enter_the_Client_Secret_Here` - remplacez cette valeur par le secret client que vous avez créé précédemment. Pour générer une nouvelle clé, utilisez **Certificats et secrets** dans les paramètres d’inscription de l’application dans le portail Azure.
 >
 > > [!WARNING]
-> > Tout secret en texte clair dans le code source présente un risque accru pour la sécurité. Cet article utilise un secret client en texte clair uniquement pour des raisons de simplicité. Utilisez les [informations d’identification de certificat](active-directory-certificate-credentials.md) au lieu des secrets client dans vos applications clientes confidentielles, en particulier celles que vous prévoyez de déployer en production.
+> > Tout secret en texte clair dans le code source présente un risque accru pour la sécurité. Cet article utilise un secret client en texte clair uniquement pour rester simple. Utilisez les [informations d’identification de certificat](active-directory-certificate-credentials.md) au lieu des secrets client dans vos applications clientes confidentielles, en particulier celles que vous prévoyez de déployer en production.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-admin-consent"></a>Étape 3 : Consentement de l’administrateur
@@ -172,7 +172,7 @@ const msalConfig = {
         clientId: "Enter_the_Application_Id_Here",
         authority: "https://login.microsoftonline.com/Enter_the_Tenant_Id_Here",
         clientSecret: "Enter_the_Client_Secret_Here",
-   } 
+   }
 };
 const cca = new msal.ConfidentialClientApplication(msalConfig);
 ```

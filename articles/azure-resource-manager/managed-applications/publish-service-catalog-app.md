@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurecli
 ms.date: 04/14/2020
 ms.author: tomfitz
-ms.openlocfilehash: 342fa722d704933f22cec00a46d11ccc38fc6e4d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b255cafb9040f87c902fe6c094c3e0db3d461e4b
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91650644"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101093641"
 ---
 # <a name="quickstart-create-and-publish-a-managed-application-definition"></a>Démarrage rapide : Créer et publier une définition d’application gérée
 
@@ -401,7 +401,7 @@ Vous pouvez vérifier que les fichiers de définition d’application sont enreg
 
 ## <a name="make-sure-users-can-see-your-definition"></a>Assurez-vous que les utilisateurs peuvent voir votre définition.
 
-Vous avez accès à la définition de l’application managée, mais vous souhaitez vous assurer que d’autres utilisateurs de votre organisation peuvent y accéder. Accordez-leur au moins le rôle Lecteur dans la définition. Ils ont peut-être hérité de ce niveau d’accès suite à l’abonnement ou au groupe de ressources. Pour vérifier qui a accès à la définition et ajouter des utilisateurs ou des groupes, consultez [Ajouter ou supprimer des attributions de rôle Azure à l’aide du Portail Azure](../../role-based-access-control/role-assignments-portal.md).
+Vous avez accès à la définition de l’application managée, mais vous souhaitez vous assurer que d’autres utilisateurs de votre organisation peuvent y accéder. Accordez-leur au moins le rôle Lecteur dans la définition. Ils ont peut-être hérité de ce niveau d’accès suite à l’abonnement ou au groupe de ressources. Pour vérifier qui a accès à la définition et ajouter des utilisateurs ou des groupes, consultez [Attribuer des rôles Azure à l’aide du portail Azure](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

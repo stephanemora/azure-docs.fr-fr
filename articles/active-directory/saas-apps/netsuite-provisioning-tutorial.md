@@ -10,19 +10,19 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 294870d3448886b9cea573a0e79b3ac436941f89
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: b1c03bafd6d97dd6a60defee00d4efe854315631
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98696487"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101648082"
 ---
 # <a name="tutorial-configuring-netsuite-for-automatic-user-provisioning"></a>Tutoriel : Configuration de NetSuite pour l’approvisionnement automatique d’utilisateurs
 
 L’objectif de ce tutoriel est de vous montrer la procédure à suivre dans NetSuite OneWorld et Azure AD pour provisionner et déprovisionner automatiquement des comptes utilisateur d’Azure AD vers NetSuite.
 
 > [!WARNING]
-> Cette intégration de provisionnement cessera de fonctionner en février 2020 en raison d’une modification apportée aux API NetSuite dont se sert Microsoft pour provisionner les utilisateurs dans NetSuite. De ce fait, la fonctionnalité de provisionnement de l’application NetSuite sera bientôt supprimée de la Galerie d’applications d’entreprise Azure Active Directory. La fonctionnalité d’authentification unique (SSO) de l’application reste intacte. Si Microsoft collabore actuellement avec NetSuite pour créer une nouvelle intégration de provisionnement modernisée, aucune date d’arrivée ne peut pour l’heure être communiquée.
+> Cette intégration de l’approvisionnement cessera de fonctionner avec la publication de la mise à jour de NetSuite du printemps 2021 en raison d’une modification apportée aux API NetSuite dont se sert Microsoft pour approvisionner les utilisateurs dans NetSuite.  Cette mise à jour atteindra les clients NetSuite entre février et avril 2021. De ce fait, la fonctionnalité de provisionnement de l’application NetSuite sera bientôt supprimée de la Galerie d’applications d’entreprise Azure Active Directory. La fonctionnalité d’authentification unique (SSO) de l’application reste intacte. Si Microsoft collabore actuellement avec NetSuite pour créer une nouvelle intégration de provisionnement modernisée, aucune date d’arrivée ne peut pour l’heure être communiquée.
 
 ## <a name="prerequisites"></a>Prérequis
 

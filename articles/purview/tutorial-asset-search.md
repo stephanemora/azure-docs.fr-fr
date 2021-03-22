@@ -6,13 +6,13 @@ ms.author: daperlov
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
-ms.date: 12/01/2020
-ms.openlocfilehash: f778a55c206e012884b44c1fea0a63e2de6b481a
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.date: 02/22/2020
+ms.openlocfilehash: 5285d5b2c7cbe6845fb6043fa1096f94254602e7
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97693339"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101677837"
 ---
 # <a name="tutorial-navigate-the-azure-purview-preview-home-page-and-search-for-an-asset"></a>Tutoriel : Parcourir la page d’accueil d’Azure Purview (préversion) et rechercher une ressource
 
@@ -45,7 +45,7 @@ Les étapes suivantes vous guideront dans la page d’accueil d’Azure Purview.
 
 1. Accédez à votre ressource Azure Purview dans le portail Azure, puis sélectionnez **Ouvrir Purview Studio**. Vous êtes automatiquement dirigé vers la page d’accueil de Purview Studio.
 
-   La partie supérieure de la page d’accueil affiche le nom de votre catalogue et un ensemble d’analytiques du catalogue. Elles comprennent le nombre d’utilisateurs, de ressources de données et de termes de glossaire. Le résumé indique qu’il existe plus de 200 ressources au total et 113 termes de glossaire. Ce nombre est actualisé à mesure que votre organisation analyse et ajoute d’autres termes à Azure Purview.
+   La partie supérieure de la page d’accueil affiche le nom de votre catalogue et un ensemble d’analytiques du catalogue. Elles comprennent le nombre de sources, de ressources de données et de termes de glossaire. Le résumé indique qu’il existe plus de 200 ressources au total et 113 termes de glossaire. Ce nombre est actualisé à mesure que votre organisation analyse et ajoute d’autres termes à Azure Purview.
 
    :::image type="content" source="./media/tutorial-asset-search/purview-home-page.png" alt-text="Capture d’écran montrant la page d’accueil d’Azure Purview":::
 

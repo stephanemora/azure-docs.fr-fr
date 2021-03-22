@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: overview
-ms.date: 12/02/2020
+ms.date: 02/18/2021
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c60d54a905f460eb5c26c2f183cd22b175a5b3c4
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: c25504e3313234ac6b6f80a6e00c77fce28b1400
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96860811"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102174527"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Règles d’appartenance de groupe dynamique dans Azure Active Directory
 
@@ -279,6 +279,14 @@ L’expression suivante sélectionne tous les utilisateurs qui disposent d’un 
 user.assignedPlans -any (assignedPlan.service -eq "SCO" -and assignedPlan.capabilityStatus -eq "Enabled")
 ```
 
+#### <a name="example-3"></a>Exemple 3
+
+L’expression suivante sélectionne tous les utilisateurs qui n’ont pas de plan de service attribué :
+
+```
+user.assignedPlans -all (assignedPlan.servicePlanId -eq "")
+```
+
 ### <a name="using-the-underscore-_-syntax"></a>Utilisation de la syntaxe de trait de soulignement (\_)
 
 La syntaxe de trait de soulignement (\_) correspond aux occurrences d’une valeur spécifique dans une des propriétés de collection de chaîne à valeurs multiples pour ajouter des utilisateurs ou des appareils à un groupe dynamique. Elle est utilisée avec les opérateurs -any ou -all.
@@ -378,8 +386,8 @@ Les attributs d’appareil suivants peuvent être utilisés.
  ----- | ----- | ----------------
  accountEnabled | true false | (device.accountEnabled -eq true)
  displayName | Toute valeur de chaîne. |(device.displayName -eq "Rob iPhone")
- deviceOSType | Toute valeur de chaîne. | (device.deviceOSType -eq "iPad") ou (device.deviceOSType -eq "iPhone")<br>(device.deviceOSType -contains "AndroidEnterprise")<br>(device.deviceOSType -eq "AndroidForWork")
- deviceOSVersion | Toute valeur de chaîne. | (device.deviceOSVersion -eq "9.1")
+ deviceOSType | Toute valeur de chaîne. | (device.deviceOSType -eq "iPad") ou (device.deviceOSType -eq "iPhone")<br>(device.deviceOSType -contains "AndroidEnterprise")<br>(device.deviceOSType -eq "AndroidForWork")<br>(device.deviceOSType -eq "Windows")
+ deviceOSVersion | Toute valeur de chaîne. | (device.deviceOSVersion -eq "9.1")<br>(device.deviceOSVersion -eq "10.0.17763.0")
  deviceCategory | Un nom de catégorie d’appareil valide. | (device.deviceCategory -eq "BYOD")
  deviceManufacturer | Toute valeur de chaîne. | (device.deviceManufacturer -eq "Samsung")
  deviceModel | Toute valeur de chaîne. | (device.deviceModel -eq "iPad Air")

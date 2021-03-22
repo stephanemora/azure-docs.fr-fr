@@ -6,14 +6,14 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: overview
-ms.date: 12/15/2020
+ms.date: 02/24/2021
 ms.author: banders
-ms.openlocfilehash: 0e45e9741e92bb9e1fe23af79695cae06e64e871
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 7c2cf88eed3d8b727147f57ef9e2b52afd07de59
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98602062"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102039136"
 ---
 # <a name="what-are-azure-reservations"></a>Qu’est-ce qu’une réservation Azure ?
 
@@ -91,7 +91,8 @@ Pour plus d’informations, consultez [Échanges et remboursements en libre-serv
 - **Instance de machine virtuelle réservée** : une réservation couvre uniquement les coûts de calcul de machine virtuelle et de services cloud. Une réservation ne couvre pas les frais de logiciels, de réseau, de stockage ou liés à Windows.
 - **Capacité réservée de stockage Azure** : une réservation couvre la capacité de stockage pour les comptes de stockage standard pour le stockage d’objets blob ou le stockage Azure Data Lake Gen2. La réservation ne couvre pas les taux de bande passante ou de transaction.
 - **La capacité réservée Azure Cosmos DB** : une réservation couvre le débit provisionné pour vos ressources. Elle ne couvre pas les frais de stockage et de réseau.
-- **vCore réservé SQL Database** : couvre à la fois SQL Managed Instance et les pools élastiques/bases de données uniques SQL Database. seuls les coûts de calcul sont inclus dans une réservation. La licence SQL est facturée séparément. 
+- **Flux de données Azure Data Factory** : une réservation couvre le coût du runtime d’intégration pour le type de calcul et le nombre de cœurs que vous achetez.
+- **vCore réservé SQL Database** : couvre à la fois SQL Managed Instance et les pools élastiques/bases de données uniques SQL Database. seuls les coûts de calcul sont inclus dans une réservation. La licence SQL est facturée séparément.
 - **Azure Synapse Analytics** : une réservation couvre l’utilisation de cDWU. Elle ne couvre pas les frais de stockage ou de réseau associés à l’utilisation d’Azure Synapse Analytics.
 - **Azure Databricks** : une réservation couvre uniquement l’utilisation de DBU. Les autres frais, comme le calcul, le stockage et le réseau, sont facturés séparément.
 - **Frais de timbre App service** : Une réservation couvre l’utilisation des timbres. Elle ne s’applique pas aux workers, si bien que toutes les autres ressources associées aux timbres sont facturées séparément.

@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc,subject-armqs
 ms.date: 10/14/2020
 ms.author: sebansal
-ms.openlocfilehash: 566ddae3893a5499ddefe0ccd1ade8caff4567c2
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: d68ec580f25bfd5f9c1a994efc15abd8835ac8a5
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97934983"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101093506"
 ---
 # <a name="quickstart-create-an-azure-key-vault-and-a-key-by-using-arm-template-preview"></a>Démarrage rapide : Créer un coffre de clés Azure et une clé à l’aide d’un modèle ARM (préversion)
 
@@ -26,7 +26,7 @@ ms.locfileid: "97934983"
 Pour effectuer ce qui est décrit dans cet article :
 
 - Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
-- Un rôle RBAC intégré doit être attribué à l’utilisateur, par exemple Contributeur. [En savoir plus ici](../../role-based-access-control/role-assignments-portal.md)
+- Un rôle intégré Azure doit être attribué à l’utilisateur, par exemple Contributeur. [En savoir plus ici](../../role-based-access-control/role-assignments-portal.md)
 - Le modèle requiert votre ID objet utilisateur Azure AD pour la configuration des autorisations. La procédure suivante permet d’obtenir l’ID de l’objet (GUID).
 
     1. Exécutez la commande Azure PowerShell ou Azure CLI ci-dessous en sélectionnant **Essayer**, puis collez le script dans le volet de l’interpréteur de commandes. Pour coller le script, cliquez avec le bouton droit dans l’interpréteur de commandes, puis sélectionnez **Coller**.

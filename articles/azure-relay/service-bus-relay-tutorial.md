@@ -4,12 +4,12 @@ description: Ce tutoriel explique comment exposer un service WCF REST local à u
 ms.topic: tutorial
 ms.custom: devx-track-dotnet
 ms.date: 06/23/2020
-ms.openlocfilehash: bb2b9b5ed7c263762cc24b8eb2e6d66215147c4c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7669bc07ad91933cd31bd2ccd10eaf830d98de7c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88935702"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710785"
 ---
 # <a name="tutorial-expose-an-on-premises-wcf-rest-service-to-external-client-by-using-azure-wcf-relay"></a>Tutoriel : Exposer un service WCF REST local sur un client externe en utilisant Azure WCF Relay
 
@@ -185,7 +185,7 @@ Le fichier de configuration est similaire à un fichier de configuration WCF. Il
 1. Dans les balises `<system.serviceModel>`, ajouter un élément `<services>`. Vous pouvez définir plusieurs applications de relais dans un même fichier de configuration. Toutefois, ce didacticiel n’en définit qu’un seul.
 
     ```xml
-    <?xmlversion="1.0"encoding="utf-8"?>
+    <?xmlversion="1.0" encoding="utf-8"?>
     <configuration>
       <system.serviceModel>
         <services>
@@ -513,7 +513,7 @@ Dans cette étape, vous allez créer un fichier *App.config* d’une application
 1. Dans l’élément `system.serviceModel`, ajoutez un élément `<client>`.
 
     ```xml
-    <?xmlversion="1.0"encoding="utf-8"?>
+    <?xmlversion="1.0" encoding="utf-8"?>
     <configuration>
       <system.serviceModel>
         <client>

@@ -6,15 +6,15 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc, contperf-fy21q1
-ms.date: 02/16/2021
+ms.date: 03/10/2021
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: 56d04abe73020cef09383d4f79a58f037c266a93
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 0982f0293b452c29a1c9fbb46cb24d47e70c0f5e
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100547994"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102615565"
 ---
 # <a name="what-is-azure-firewall"></a>Qu’est-ce qu’un pare-feu Azure ?
 
@@ -55,7 +55,8 @@ Les problèmes connus du service Pare-feu Azure sont les suivants :
 
 |Problème  |Description  |Limitation des risques  |
 |---------|---------|---------|
-Les règles de filtrage réseau pour les protocoles autres que TCP/UDP (par exemple ICMP) ne fonctionnent pas pour le trafic lié à Internet.|Les règles de filtrage réseau des protocoles autres que TCP/UDP ne fonctionnent pas avec SNAT pour votre adresse IP publique. Les protocoles autres que TCP/UDP sont pris en charge entre les sous-réseaux du rayon et les réseaux virtuels.|Le service Pare-feu Azure utilise Standard Load Balancer, [qui ne prend pas en charge SNAT pour les protocoles IP pour le moment](../load-balancer/load-balancer-overview.md). Nous étudions les possibilités de prendre en charge ce scénario dans une prochaine version.|
+|Si vous mettez à jour une règle de l’adresse IP au groupe IP ou vice-versa en utilisant le portail, les deux types sont enregistrés, mais un seul est présenté sur le portail.|Ce problème se produit avec les règles classiques.<br><br>Lorsque vous utilisez le portail pour mettre à jour le type de source d’une règle NAT d’une adresse IP à un groupe IP ou vice-versa, il enregistre les deux types dans le serveur principal, mais présente uniquement le type récemment mis à jour.<br><br>Le même problème se pose lorsque vous mettez à jour le type de destination d’une règle de réseau ou d’application de l’adresse IP au type de groupe IP ou vice-versa.|Un correctif du portail est prévu pour mars 2021.<br><br>En attendant, utilisez Azure PowerShell, Azure CLI ou l’API pour modifier une règle d’une adresse IP à un groupe IP ou vice-versa.|
+|Les règles de filtrage réseau pour les protocoles autres que TCP/UDP (par exemple ICMP) ne fonctionnent pas pour le trafic lié à Internet.|Les règles de filtrage réseau des protocoles autres que TCP/UDP ne fonctionnent pas avec SNAT pour votre adresse IP publique. Les protocoles autres que TCP/UDP sont pris en charge entre les sous-réseaux du rayon et les réseaux virtuels.|Le service Pare-feu Azure utilise Standard Load Balancer, [qui ne prend pas en charge SNAT pour les protocoles IP pour le moment](../load-balancer/load-balancer-overview.md). Nous étudions les possibilités de prendre en charge ce scénario dans une prochaine version.|
 |Protocole ICMP non pris en charge par PowerShell et l’interface de ligne de commande|Azure PowerShell et l’interface CLI ne prennent pas en charge le protocole ICMP en tant que protocole valide dans les règles de réseau.|Il est toujours possible d’utiliser le protocole ICMP par le biais du portail et de l’API REST. Nous travaillons actuellement à ajouter à PowerShell et à l’interface de ligne de commande la prise en charge du protocole ICMP.|
 |Les balises FQDN requièrent une définition protocole : port|Les règles d’application avec des balises FQDN requièrent une définition port : protocole.|Vous pouvez utiliser **https** en tant que valeur port : protocole. Nous travaillons actuellement à rendre ce champ facultatif lorsque des balises FQDN sont utilisées.|
 |Le déplacement d’un pare-feu vers un autre groupe de ressources ou un autre abonnement n’est pas pris en charge|Le déplacement d’un pare-feu vers un autre groupe de ressources ou un autre abonnement n’est pas pris en charge.|La prise en charge de cette fonctionnalité figure sur notre feuille de route. Pour déplacer un pare-feu vers un autre groupe de ressources ou un autre abonnement, vous devez supprimer l’instance actuelle et la recréer dans le nouveau groupe de ressources ou le nouvel abonnement.|
@@ -82,6 +83,6 @@ Les règles de filtrage réseau pour les protocoles autres que TCP/UDP (par exem
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+- [Démarrage rapide : Créer un pare-feu Azure et une stratégie de pare-feu - Modèle ARM](../firewall-manager/quick-firewall-policy.md)
+- [Démarrage rapide : Déployer un pare-feu Azure avec Zones de disponibilité - Modèle ARM](deploy-template.md)
 - [Tutoriel : Déployer et configurer un pare-feu Azure à l’aide du portail Azure](tutorial-firewall-deploy-portal.md)
-- [Déployer Pare-feu Azure à l’aide d’un modèle](deploy-template.md)
-- [Créer un environnement de test pour Pare-feu Azure](scripts/sample-create-firewall-test.md)

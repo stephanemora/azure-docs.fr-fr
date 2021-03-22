@@ -4,12 +4,12 @@ description: Découvrez comment utiliser les informations collectées au cours d
 ms.topic: tutorial
 ms.custom: contperf-fy21q3
 ms.date: 02/17/2021
-ms.openlocfilehash: bfd057a19ebe26a66d11b52ddf17c285a1f9a308
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 6f1e587894d51eae2af4e9f76114f53f27ffefe1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100652732"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703854"
 ---
 # <a name="deploy-and-configure-azure-vmware-solution"></a>Déployer et configurer Azure VMware Solution
 
@@ -62,7 +62,14 @@ Dans cet exemple, le réseau 10.74.72.0/22 entré pendant le déploiement dériv
 
 Connectez-vous au serveur de rebond que vous avez créé à l’étape précédente. Une fois que vous êtes connecté, ouvrez un navigateur web et connectez-vous à vCenter et à NSX-T Manager.  
 
-Vous pouvez identifier les adresses IP et les informations d’identification de vCenter et de la console NSX-T Manager dans le portail Azure.  Sélectionnez votre cloud privé puis, dans la vue **Vue d’ensemble**, sélectionnez **Identité > Par défaut**. 
+Vous pouvez identifier les adresses IP et les informations d’identification de vCenter et de la console NSX-T Manager dans le portail Azure.  Sélectionnez votre cloud privé, puis **Gérer** > **Identité**.
+
+>[!TIP]
+>Sélectionnez **Générer un nouveau mot de passe** pour générer de nouveaux mots de passe vCenter et NSX-T.
+
+:::image type="content" source="media/tutorial-access-private-cloud/ss4-display-identity.png" alt-text="Affichez les URL et les informations d’identification vCenter et NSX Manager du cloud privé." border="true":::
+
+
 
 ## <a name="create-a-network-segment-on-azure-vmware-solution"></a>Créez un segment réseau dans Azure VMware Solution
 

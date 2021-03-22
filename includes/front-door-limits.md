@@ -5,15 +5,15 @@ services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: include
-ms.date: 05/09/2019
-ms.author: sharadag
+ms.date: 02/18/2021
+ms.author: duau
 ms.custom: include file
-ms.openlocfilehash: 361fb18574e90fc46e45bff8914c51ee1afa2f96
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 53d837883daefddd5fa3f0f543eae1d116a5e86a
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89411739"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101102935"
 ---
 | Ressource | Limite |
 | --- | --- |
@@ -35,6 +35,31 @@ ms.locfileid: "89411739"
 | Longueur du nom de cookie du pare-feu d’applications web | 256 |
 | Taille du corps de la requête HTTP inspectée du pare-feu d'applications web | 128 Ko |
 | Longueur du corps de la réponse personnalisée du pare-feu d’applications web | 2 Ko |
+
+### <a name="azure-front-door-standardpremium-preview-service-limits"></a>Limites du service Azure Front Door Standard/Premium (préversion)
+
+*** *Maximum de **500** profils Standard et Premium au total par abonnement.*
+
+| Ressource | Limite du SKU Standard | Limite du SKU Premium |
+| --- | --- | --- |
+| Nombre maximal de points de terminaison par profil  | 10 | 25 |
+| Nombre maximal de domaines personnalisés par profil | 100 | 200 |
+| Nombre maximal de groupes d’origins par profil | 100 | 200 |
+| Nombre maximal de secrets par profil | 100 | 200 |
+| Nombre maximal de stratégies de sécurité par profil | 100 | 200 |
+| Nombre maximal d’ensembles de règles par profil | 100 | 200 |
+| Nombre maximal de règles par ensemble de règles | 100 | 100 |
+| Nombre maximal d’origins par groupe d’origine | 50 | 50 |
+| Nombre maximal d’itinéraires par point de terminaison | 100 | 200 |
+| Conditions de correspondance du pare-feu d'applications web par règle personnalisée | 10 | 10 |
+| Plages d’adresses IP du pare-feu d'applications web par condition de correspondance | 600 | 600 |
+| Valeurs de correspondance de chaîne du pare-feu d'applications web par condition de correspondance | 10 | 10 |
+| Longueur de valeur de correspondance de chaîne du pare-feu d'applications web | 256 | 256 |
+| Longueur de nom de paramètre du corps POST du pare-feu d’applications web | 256 | 256 |
+| Longueur du nom d’en-tête HTTP du pare-feu d’applications web | 256 | 256 |
+| Longueur du nom de cookie du pare-feu d’applications web | 256 | 256|
+| Taille du corps de la requête HTTP inspectée du pare-feu d'applications web | 128 Ko | 128 Ko |
+| Longueur du corps de la réponse personnalisée du pare-feu d’applications web | 2 Ko | 2 Ko |
 
 ### <a name="timeout-values"></a>Valeurs de délai d’expiration
 #### <a name="client-to-front-door"></a>Du client à Front Door

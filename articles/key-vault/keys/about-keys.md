@@ -8,23 +8,23 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: overview
-ms.date: 09/15/2020
+ms.date: 02/17/2021
 ms.author: ambapat
-ms.openlocfilehash: 2ae7b28d5e9e7a520ee8cbd090b6681d5ad7015a
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 3c4bb61217c7b972220a55a4837c2b3db980f2ca
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422754"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095995"
 ---
 # <a name="about-keys"></a>À propos des clés
 
-Azure Key Vault fournit deux types de ressources pour stocker et gérer les clés de chiffrement :
+Azure Key Vault fournit deux types de ressources pour stocker et gérer les clés de chiffrement. Les coffres prennent en charge les clés protégées par logiciel et celles protégées par HSM (module de sécurité matériel). Les HSM managés prennent uniquement en charge les clés protégées par HSM. 
 
 |Type de ressource|Méthodes de protection des clés|URL de base du point de terminaison de plan de données|
 |--|--|--|
 | **Coffres** | Protégés par logiciel<br/><br/>et<br/><br/>Protégés par HSM (avec la référence SKU Premium)</li></ul> | https://{nom-coffre}.vault.azure.net |
-| **Pools HSM managés** | Protégés par HSM | https://{nom-hsm}.managedhsm.azure.net |
+| **Modules HSM managés** | Protégés par HSM | https://{nom-hsm}.managedhsm.azure.net |
 ||||
 
 - **Coffres** : ils fournissent une solution de gestion des clés adaptée aux scénarios d’applications cloud les plus courants. Cette solution est peu coûteuse, facile à déployer, multilocataire, résiliente aux zones (si disponible) et à haute disponibilité.
@@ -45,7 +45,7 @@ Les spécifications JWK/JWA de base sont également étendues pour rendre les ty
 Les clés protégées par HSM (aussi appelées clés HSM) sont traitées dans un HSM (module de sécurité matériel) et restent toujours dans les limites de la protection par HSM. 
 
 - Les coffres utilisent des HSM conformes à la norme **FIPS 140-2 niveau 2** pour protéger les clés HSM dans une infrastructure back-end HSM partagée. 
-- Les pools HSM managés utilisent des HSM conformes à la norme **FIPS 140-2 niveau 3** pour protéger vos clés. Chaque pool HSM est une instance monolocataire isolée qui a son propre [domaine de sécurité](../managed-hsm/security-domain.md), offrant ainsi une isolation de chiffrement complète de tous les autres pools HSM partageant la même infrastructure matérielle.
+- Les HSM managés utilisent des modules HSM conformes à la norme **FIPS 140-2 niveau 3** pour protéger vos clés. Chaque pool HSM est une instance monolocataire isolée qui a son propre [domaine de sécurité](../managed-hsm/security-domain.md), offrant ainsi une isolation de chiffrement complète de tous les autres modules HSM partageant la même infrastructure matérielle.
 
 Ces clés sont protégées dans des pools HSM monolocataires. Vous pouvez importer une clé RSA, EC et symétrique sous forme logicielle ou en l’exportant à partir d’un matériel HSM pris en charge. Vous pouvez aussi générer des clés dans les pools HSM. Lorsque vous importez des clés HSM en utilisant la méthode décrite dans la [spécification BYOK (Bring Your Own Key)](../keys/byok-specification.md), vous sécurisez les éléments de clé de transport dans des pools HSM managés. 
 
@@ -53,24 +53,35 @@ Pour plus d’informations sur les frontières géographiques, consultez [Centre
 
 ## <a name="key-types-and-protection-methods"></a>Types de clés et méthodes de protection
 
-Key Vault prend en charge les clés RSA, EC et symétriques. 
+Key Vault prend en charge les clés RSA et EC. Un HSM managé prend en charge les clés RSA, EC et symétriques. 
 
 ### <a name="hsm-protected-keys"></a>Clés protégées par HSM
 
-|Type de clé|Coffres (SKU Premium uniquement)|Pools de HSM managés|
-|--|--|--|--|
-**EC-HSM** : clé Elliptic Curve|HSM FIPS 140-2 niveau 2|HSM FIPS 140-2 niveau 3
-**RSA-HSM** : clé RSA|HSM FIPS 140-2 niveau 2|HSM FIPS 140-2 niveau 3
-**oct-HSM** : Symétrique|Non pris en charge|HSM FIPS 140-2 niveau 3
-||||
+|Type de clé|Coffres (SKU Premium uniquement)|Modules HSM managés|
+|--|--|--|
+|**EC-HSM** : clé Elliptic Curve | Prise en charge | Prise en charge|
+|**RSA-HSM** : clé RSA|Prise en charge|Prise en charge|
+|**oct-HSM** : clé symétrique|Non pris en charge|Prise en charge|
+|||
 
 ### <a name="software-protected-keys"></a>Clés protégées par logiciel
 
-|Type de clé|Coffres|Pools de HSM managés|
-|--|--|--|--|
-**RSA** : clé RSA « protégée par logiciel »|FIPS 140-2 niveau 1|Non pris en charge
-**EC** : clé Elliptic Curve « protégée par logiciel »|FIPS 140-2 niveau 1|Non pris en charge
-||||
+|Type de clé|Coffres|Modules HSM managés|
+|--|--|--|
+**RSA** : clé RSA « protégée par logiciel »|Prise en charge|Non pris en charge
+**EC** : clé Elliptic Curve « protégée par logiciel »|Prise en charge|Non pris en charge
+|||
+
+### <a name="compliance"></a>Conformité
+
+|Type et destination de la clé|Conformité|
+|---|---|
+|Clés protégées par logiciel dans des coffres (SKU Premium et Standard) | FIPS 140-2 niveau 1|
+|Clés protégées par HSM dans des coffres (SKU Premium)| FIPS 140-2 niveau 2|
+|Clés protégées par HSM dans un HSM managé|FIPS 140-2 niveau 3|
+|||
+
+
 
 Pour plus d’informations sur chaque type de clé, mais aussi sur les algorithmes, les opérations, les attributs et les étiquettes, consultez [Types de clés, algorithmes et opérations](about-keys-details.md).
 

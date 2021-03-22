@@ -1,5 +1,5 @@
 ---
-title: Vue d’ensemble du portefeuille d’agents et prise en charge des OS (préversion)
+title: Vue d’ensemble du portefeuille d’agents et prise en charge des OS
 description: Azure Defender pour IoT fournit un vaste portefeuille d’agents en fonction du type d’appareil.
 author: shhazam-ms
 manager: rkarlin
@@ -7,14 +7,14 @@ ms.author: shhazam
 ms.date: 1/20/2021
 ms.topic: quickstart
 ms.service: azure
-ms.openlocfilehash: f731b034b5d4f795bae51107e9ff4e2e90788d7d
-ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
+ms.openlocfilehash: e2897018d1695bde665e1d1aca180e5268851a0b
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99810068"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102120145"
 ---
-# <a name="agent-portfolio-overview-and-os-support-preview"></a>Vue d’ensemble du portefeuille d’agents et prise en charge des OS (préversion)
+# <a name="agent-portfolio-overview-and-os-support"></a>Vue d’ensemble du portefeuille d’agents et prise en charge des OS 
 
 Azure Defender pour IoT fournit un vaste portefeuille d’agents en fonction du type d’appareil. 
 
@@ -38,4 +38,4 @@ Le micro-agent Azure Defender pour IoT est intégré au composant Azure RTOS Net
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez-en plus sur la [Vue d’ensemble du micro-agent autonome (préversion)](concept-standalone-micro-agent-overview.md).
+Découvrez-en plus sur la [vue d’ensemble du micro-agent autonome](concept-standalone-micro-agent-overview.md).

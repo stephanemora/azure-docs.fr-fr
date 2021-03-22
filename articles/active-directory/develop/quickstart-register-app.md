@@ -12,12 +12,12 @@ ms.date: 09/03/2020
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, contperf-fy21q1, contperf-fy21q2
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 027d1bf005ac052bf48e2c0aa3a4a71fc29f36f2
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: c72ae2a2e6dbd2278bdd78f26c145386be22764e
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101647436"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175428"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Démarrage rapide : Inscrire une application avec la plateforme d’identités Microsoft
 
@@ -40,7 +40,8 @@ Effectuez les étapes suivantes pour créer l’inscription d’application :
 1. Si vous avez accès à plusieurs locataires, dans le menu supérieur, utilisez le filtre **Annuaire + abonnement** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: pour sélectionner le locataire dans lequel vous voulez inscrire une application.
 1. Recherchez et sélectionnez **Azure Active Directory**.
 1. Sous **Gérer**, sélectionnez **Inscriptions d’applications** > **Nouvelle inscription**.
-1. Entrez un **nom** pour votre application. Les utilisateurs de votre application peuvent voir ce nom. Vous pourrez le changer plus tard.
+1. Entrez un **nom** d’affichage pour votre application. Les utilisateurs de votre application peuvent voir le nom d’affichage lorsqu’ils l’utilisent, par exemple lors de la connexion.
+    Vous pouvez modifier le nom d’affichage à tout moment, et plusieurs inscriptions d’applications peuvent partager le même nom. L’ID d’application (client) généré automatiquement par l’inscription de l’application, et non son nom d’affichage, identifie de manière unique votre application au sein de la plateforme d’identités.
 1. Spécifiez les personnes qui peuvent utiliser l’application ; elles sont parfois appelées *audience de connexion*.
 
     | Types de comptes pris en charge | Description |

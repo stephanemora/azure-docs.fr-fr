@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/18/2021
+ms.date: 02/15/2021
 ms.author: jeedes
-ms.openlocfilehash: 745a82300cbbc87070a117cd8dd094236821aee7
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 390ccfa828ebaa0d3dec15990ffeb60cbb24360e
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98625396"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101648575"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-overdrive"></a>Didacticiel : Intégration d’Azure Active Directory avec Overdrive
 
@@ -37,9 +37,9 @@ Pour commencer, vous devez disposer de ce qui suit :
 
 Dans ce didacticiel, vous configurez et testez l’authentification unique Azure AD dans un environnement de test.
 
-* Overdrive prend en charge l’authentification unique lancée par le **fournisseur de services**
+* Overdrive prend en charge l’authentification unique initiée par **un fournisseur de services**.
 
-* Overdrive prend en charge l’attribution d’utilisateurs **Juste-à-temps**
+* Overdrive prend en charge l’attribution d’utilisateurs **juste-à-temps**.
 
 ## <a name="add-overdrive-from-the-gallery"></a>Ajouter Overdrive à partir de la galerie
 
@@ -65,7 +65,7 @@ Pour configurer et tester l’authentification unique Azure AD avec Overdrive, 
     1. **[Créer un utilisateur de test Overdrive](#create-overdrive-test-user)** pour avoir un équivalent de B.Simon dans Overdrive qui soit lié à la représentation Azure AD de l’utilisateur.
 1. **[Tester l’authentification unique](#test-sso)** pour vérifier si la configuration fonctionne.
 
-### <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
+## <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
 
 Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
@@ -121,7 +121,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 7. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
-### <a name="configure-overdrive-sso"></a>Configurer l’authentification unique Overdrive
+## <a name="configure-overdrive-sso"></a>Configurer l’authentification unique Overdrive
 
 Pour configurer l’authentification unique côté **Overdrive**, vous devez envoyer le **XML des métadonnées de fédération** téléchargé et les URL copiées dans le portail Azure à l’[équipe du support technique Overdrive](https://help.overdrive.com/). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
@@ -133,7 +133,7 @@ Dans cette section, un utilisateur appelé Britta Simon est créé dans Overdriv
 >Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte d’utilisateur fournis par OverDrive pour provisionner des comptes d’utilisateurs Azure AD.
 >
 
-### <a name="test-sso"></a>Tester l’authentification unique (SSO)
+## <a name="test-sso"></a>Tester l’authentification unique (SSO)
 
 Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
 
@@ -141,8 +141,8 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Accédez directement à l’URL de connexion à Overdrive, puis lancez le flux de connexion.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette Overdrive dans Mes applications, vous êtes redirigé vers l’URL de connexion à Overdrive. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette Overdrive dans Mes applications, vous êtes redirigé vers l’URL de connexion à Overdrive. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Après avoir configuré Overdrive, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Après avoir configuré Overdrive, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

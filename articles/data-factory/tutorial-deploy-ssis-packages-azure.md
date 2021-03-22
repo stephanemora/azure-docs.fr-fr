@@ -4,15 +4,15 @@ description: Découvrez comment provisionner le runtime d’intégration Azure-S
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 10/13/2020
+ms.date: 02/22/2021
 author: swinarko
 ms.author: sawinark
-ms.openlocfilehash: e0b84bb65e71b023121a5deae8295ddaf8879311
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 7c439d71806d2deba508ce35131f21ebfbd7a3ec
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100391352"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101740407"
 ---
 # <a name="provision-the-azure-ssis-integration-runtime-in-azure-data-factory"></a>Provisionner le runtime d’intégration Azure-SSIS dans Azure Data Factory
 
@@ -149,6 +149,12 @@ Si vous cochez la case, effectuez les étapes suivantes pour apporter votre prop
    1. Pour **Nom d’utilisateur administrateur**, entrez le nom d’utilisateur d’authentification SQL de votre serveur de base de données pour héberger le catalogue SSISDB. 
 
    1. Pour **Mot de passe administrateur**, entrez le mot de passe d’authentification SQL de votre serveur de base de données pour héberger le catalogue SSISDB. 
+
+   1. Cochez la case **Utiliser la paire Azure-SSIS Integration Runtime de secours double avec le basculement SSISDB** pour configurer une paire d’IR Azure-SSIS de secours double qui fonctionne en synchronisation avec le groupe de basculement Azure SQL Database/Managed Instance pour la continuité d’activité et reprise d’activité (BCDR).
+   
+      Si vous cochez cette case, entrez un nom pour identifier votre paire d’IR Azure-SSIS principal et secondaire dans la zone de texte **Nom de la paire de secours double**. Vous devez entrer le même nom de paire lors de la création de vos IR Azure-SSIS principal et secondaire.
+
+      Pour plus d’informations, consultez [Configurer votre IR Azure-SSIS pour la BCDR](./configure-bcdr-azure-ssis-integration-runtime.md).
 
    1. Pour **Niveau de service de base de données de catalogue**, sélectionnez le niveau de service de votre serveur de base de données pour héberger le catalogue SSISDB. Sélectionnez le niveau De base, Standard ou Premium, ou sélectionnez un nom de pool élastique.
 

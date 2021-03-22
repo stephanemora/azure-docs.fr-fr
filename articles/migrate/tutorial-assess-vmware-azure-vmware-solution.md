@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: MVC
-ms.openlocfilehash: e57084dab00210802edbd46e3380313e034eb036
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: c1c56edacbc777b5e8b53da588bc763201379964
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98566790"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718804"
 ---
 # <a name="tutorial-assess-vmware-vms-for-migration-to-avs"></a>Tutoriel : Évaluer les machines virtuelles VMware pour les migrer vers AVS
 
@@ -50,6 +50,9 @@ Déterminez si vous souhaitez exécuter une évaluation à l’aide de critères
 **Telle quelle locale** | Pour une évaluation basée sur les données de configuration ou les métadonnées de l’ordinateur.  | La taille de nœud recommandée dans AVS est basée sur la taille de la machine virtuelle locale, ainsi que sur les paramètres que vous spécifiez dans l’évaluation pour le type de nœud, le type de stockage et le paramètre Échecs à tolérer.
 **Basée sur les performances** | Pour une évaluation basée sur les données de performances dynamiques collectées. | La taille de nœud recommandée dans AVS est basée sur les données d’utilisation du processeur et de la mémoire, ainsi que sur les paramètres que vous spécifiez dans l’évaluation pour le type de nœud, le type de stockage et le paramètre Échecs à tolérer.
 
+> [!NOTE]
+> L’évaluation Azure VMware Solution (AVS) ne peut être créée que pour des machines virtuelles VMware.
+
 ## <a name="run-an-assessment"></a>Exécuter une évaluation
 
 Exécutez une évaluation comme suit :
@@ -60,7 +63,7 @@ Exécutez une évaluation comme suit :
 
 1. Dans **Azure Migrate : Server Assessment**, cliquez sur **Évaluer**.
 
-1. Dans **Évaluer les serveurs** > **Type d’évaluation**, sélectionnez **Azure VMware Solution (AVS) (préversion)** .
+1. Dans **Évaluer les serveurs** > **Type d’évaluation**, sélectionnez **Azure VMware Solution (AVS)** .
 
 1. Dans **Source de découverte** :
 
@@ -76,14 +79,14 @@ Exécutez une évaluation comme suit :
 
     - Dans **Emplacement cible**, sélectionnez la région Azure vers laquelle vous souhaitez effectuer la migration.
        - Les recommandations concernant la taille et le coût sont basées sur l’emplacement que vous spécifiez.
-       - Actuellement, vous pouvez effectuer une évaluation pour quatre régions (Australie Est, USA Est, Europe Ouest, USA Ouest).
    - Le **type de stockage** est défini par défaut sur **vSAN**. Il s’agit du type de stockage par défaut pour un cloud privé AVS.
    - Les **instances réservées** ne sont pas prises en charge pour les nœuds AVS.
 1. Dans **Taille de la machine virtuelle** :
     - Le **type de nœud** est défini par défaut sur **AV36**. Azure Migrate recommande le type des nœuds nécessaires à la migration des machines virtuelles vers AVS.
     - Dans **Paramètre FTT, niveau RAID**, sélectionnez une combinaison de valeurs Échecs à tolérer et RAID.  L’option Échecs à tolérer sélectionnée associée à la configuration de disque de machine virtuelle locale détermine le stockage vSAN total nécessaire dans AVS.
     - Dans **Surabonnement pour les processeurs** , spécifiez combien de cœurs virtuels doivent être associés à un même cœur physique dans le nœud AVS. Un surabonnement supérieur à 4:1 peut entraîner une dégradation des performances. Toutefois, il peut être utilisé pour les charges de travail de type serveur web.
-
+    - Dans **Facteur de surengagement de la mémoire**, spécifiez le rapport entre la mémoire et l’engagement sur le cluster. La valeur 1 représente une utilisation de 100 % de la mémoire. Par exemple, 0,5 correspond à 50 % et 2 correspond à une utilisation de 200 % de la mémoire disponible. Vous ne pouvez ajouter que des valeurs comprises entre 0,5 et 10, avec un seul chiffre après la virgule.
+    - Dans **Facteur de déduplication et de compression**, spécifiez le facteur de déduplication et de compression anticipé pour vos charges de travail. La valeur réelle peut être obtenue à partir de la configuration du stockage ou du vSAN local et peut varier en fonction de la charge de travail. La valeur 3 signifie 3x, donc pour 300 Go sur disque, seuls 100 Go de stockage sont utilisés. La valeur 1 signifie qu’il n’y a pas de déduplication ni de compression. Vous ne pouvez ajouter que des valeurs comprises entre 1 et 10, avec un seul chiffre après la virgule.
 1. Dans **Taille du nœud** : 
     - Dans **Critère de dimensionnement**, indiquez si vous souhaitez baser l’évaluation sur les métadonnées statiques ou sur les données de performances. Si vous utilisez des données de performances :
         - Dans **Historique des performances**, indiquez la période de données sur laquelle vous souhaitez baser l’évaluation.
@@ -127,7 +130,6 @@ Une évaluation AVS décrit les éléments suivants :
 - Nombre de nœuds AVS: Estimation du nombre de nœuds AVS requis pour exécuter les machines virtuelles.
 - Utilisation des nœuds AVS: Utilisation estimée du processeur, de la mémoire et du stockage sur tous les nœuds.
     - L’utilisation comprend la factorisation initiale dans le cadre des opérations de gestion de cluster suivantes, par exemple vCenter Server, NSX Manager (grand), NSX Edge,HCX Manager (si HCX est déployé) et l’appliance IX, qui consomment environ 44 processeurs virtuels (11 processeurs), 75 Go de RAM et 722 Go de stockage avant compression et déduplication. 
-    - La mémoire, la déduplication et la compression sont actuellement définies ainsi : 100 % d’utilisation pour la mémoire, un rapport de déduplication de 1,5 et une compression qui constituera dans les prochaines versions une entrée définie par l’utilisateur. Ce dernier pourra de cette manière ajuster le dimensionnement qu’il souhaite.
 - Estimation des coûts mensuels : Les coûts mensuels estimés pour tous les nœuds Azure VMware Solution (AVS) exécutant les machines virtuelles locales.
 
 ## <a name="view-an-assessment"></a>Voir une évaluation
@@ -155,7 +157,7 @@ Pour voir une évaluation :
 
 3. Examinez l’outil suggéré.
 
-    - VMware HCX ou Enterprise : Pour les machines VMware, la solution VMWare Hybrid Cloud Extension (HCX) est l’outil de migration suggéré pour déplacer votre charge de travail locale vers votre cloud privé Azure VMware Solution (AVS). En savoir plus.
+    - VMware HCX ou Enterprise : pour les machines VMware, la solution VMware Hybrid Cloud Extension (HCX) est l’outil de migration recommandé pour migrer votre charge de travail locale vers votre cloud privé Azure VMware Solution (AVS). En savoir plus.
     - Inconnue : Pour les machines importées via un fichier CSV, l’outil de migration par défaut est inconnu. Pour les machines VMware, il est cependant suggéré d’utiliser la solution VMware Hybrid Cloud Extension (HCX).
 4. Cliquez sur un état Préparé pour Azure VMware Solution. Vous pouvez voir les informations relatives à l’état de préparation des machines virtuelles et explorer ces dernières en détail, notamment en ce qui concerne les valeurs pour le calcul, le stockage et le réseau.
 
@@ -167,7 +169,7 @@ Ce résumé d’évaluation montre une estimation des coûts de calcul et de sto
 
     - Les estimations de coût se basent sur le nombre total de nœuds AVS nécessaires en tenant compte des besoins en ressources de toutes les machines virtuelles.
     - Étant donné que les tarifs AVS sont donnés pour un nœud, le coût total n’indique pas la répartition entre les coûts de calcul et les coûts de stockage.
-    - L’estimation des coûts porte sur l’exécution des machines virtuelles locales dans AVS. Azure Migrate Server Assessment ne prend pas en compte les coûts PaaS ou SaaS.
+    - L’estimation des coûts porte sur l’exécution des machines virtuelles locales dans AVS. L’évaluation AVS ne prend pas en compte les coûts PaaS ni SaaS.
 
 2. Passez en revue les estimations des coûts de stockage mensuels. Cette vue montre les coûts de stockage agrégés pour le groupe évalué, répartis selon les différents types de disque de stockage. 
 3. Vous pouvez consulter le détail des coûts de machines virtuelles spécifiques.

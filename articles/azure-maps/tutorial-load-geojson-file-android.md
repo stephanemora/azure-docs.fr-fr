@@ -8,12 +8,13 @@ ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: b527cd7b3f841b6cb3dcf2dce6930f3bd9bcc184
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+zone_pivot_groups: azure-maps-android
+ms.openlocfilehash: 8300a7c120ce816c8068a88fa69f4f978fa664ca
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97681236"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102034504"
 ---
 # <a name="tutorial-load-geojson-data-into-azure-maps-android-sdk"></a>Tutoriel : Charger des données GeoJSON dans le kit Android SDK Azure Maps
 
@@ -31,13 +32,16 @@ Ce tutoriel vous guide tout au long du processus d’importation d’un fichier�
 
 ### <a name="import-geojson-data-from-web-or-assets-folder"></a>Importer des données GeoJSON à partir d’un dossier web ou de ressources
 
-La plupart des fichiers GeoJSON wrappent toutes les données dans une `FeatureCollection`. Sachant cela, si les fichiers GeoJSON sont chargés dans l’application sous la forme d’une chaîne, ils peuvent être passés dans la méthode `fromJson` statique de la collection de fonctionnalités, qui désérialisera la chaîne en un objet `FeatureCollection` GeoJSON pouvant être ajouté à la carte.
+La plupart des fichiers GeoJSON wrappent toutes les données dans une `FeatureCollection`. Sachant cela, si les fichiers GeoJSON sont chargés dans l’application sous la forme d’une chaîne, ils peuvent être transmis dans la méthode `fromJson` statique de la collection de fonctionnalités, qui désérialisera la chaîne en un objet `FeatureCollection` GeoJSON pouvant être ajouté à la carte.
 
 Les étapes suivantes expliquent comment importer un fichier GeoJSON dans l’application et le désérialiser en tant qu’objet `FeatureCollection` GeoJSON.
 
 1. Suivez le [Démarrage rapide : Créer une application Android](quick-android-map.md), car les étapes qui suivent s’appuient sur cette application.
 2. Dans le panneau de projet d’Android Studio, cliquez avec le bouton droit sur le dossier **app**, puis accédez à `New > Folder > Assets Folder`.
 3. Glissez-déposez le fichier GeoJSON [Sample Points of Interest](https://raw.githubusercontent.com/Azure-Samples/AzureMapsCodeSamples/master/AzureMapsCodeSamples/Common/data/geojson/SamplePoiDataSet.json) dans le dossier des ressources.
+
+::: zone pivot="programming-language-java-android"
+
 4. Créez un fichier appelé **Utils.java**, puis ajoutez-y le code qui suit. Ce code fournit une méthode statique appelée `importData` qui importe de façon asynchrone un fichier à partir du dossier `assets` de l’application ou à partir du web à l’aide d’une URL sous forme de chaîne, puis le retourne au thread d’interface utilisateur à l’aide d’une méthode de rappel simple.
 
     ```java
@@ -248,7 +252,7 @@ Les étapes suivantes expliquent comment importer un fichier GeoJSON dans l’a
         });
     ```
 
-6. Maintenant que nous avons du code pour charger les données GeoJSON dans la carte à l’aide d’une source de données, nous devons spécifier comment ces données doivent être affichées sur la carte. Il existe différents calques de rendu pour les données de point. Les calques les plus couramment utilisés sont le [calque de bulles](map-add-bubble-layer-android.md), le [calque de symboles](how-to-add-symbol-to-android-map.md) et le [calque de carte thermique](map-add-heat-map-layer-android.md). Ajoutez le code suivant pour afficher les données dans un calque de bulles, dans le rappel de l’événement `mapControl.onReady`, après le code permettant d’importer les données.
+6. À l’aide du code permettant de charger les données GeoJSON d’une source de données, nous devons maintenant spécifier de quelle manière ces données doivent être affichées sur la carte. Il existe différents calques de rendu pour les données de point. Les calques les plus couramment utilisés sont le [calque de bulles](map-add-bubble-layer-android.md), le [calque de symboles](how-to-add-symbol-to-android-map.md) et le [calque de carte thermique](map-add-heat-map-layer-android.md). Ajoutez le code suivant pour afficher les données dans un calque de bulles, dans le rappel de l’événement `mapControl.onReady`, après le code permettant d’importer les données.
 
     ```java
     //Create a layer and add it to the map.
@@ -256,10 +260,122 @@ Les étapes suivantes expliquent comment importer un fichier GeoJSON dans l’a
     map.layers.add(layer);
     ```
 
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+4. Créez un fichier appelé **Utils.kt**, puis ajoutez-y le code qui suit. Ce code fournit une méthode statique appelée `importData` qui importe de façon asynchrone un fichier à partir du dossier `assets` de l’application ou à partir du web à l’aide d’une URL sous forme de chaîne, puis le retourne au thread d’interface utilisateur à l’aide d’une méthode de rappel simple.
+
+    ```kotlin
+    //Modify the package name as needed to align with your application.
+    package com.example.myapplication;
+
+    import android.content.Context
+    import android.os.Handler
+    import android.os.Looper
+    import android.webkit.URLUtil
+    import java.net.URL
+    import java.util.concurrent.ExecutorService
+    import java.util.concurrent.Executors
+    
+    class Utils {
+        companion object {
+    
+            /**
+             * Imports data from a web url or asset file name and returns it to a callback.
+             * @param urlOrFileName A web url or asset file name that points to data to load.
+             * @param context The context of the app.
+             * @param callback The callback function to return the data to.
+             */
+            fun importData(urlOrFileName: String?, context: Context, callback: (String?) -> Unit) {
+                importData(urlOrFileName, context, callback, null)
+            }
+    
+            /**
+             * Imports data from a web url or asset file name and returns it to a callback.
+             * @param urlOrFileName A web url or asset file name that points to data to load.
+             * @param context The context of the app.
+             * @param callback The callback function to return the data to.
+             * @param error A callback function to return errors to.
+             */
+            public fun importData(urlOrFileName: String?, context: Context, callback: (String?) -> Unit, error: ((String?) -> Unit)?) {
+                if (urlOrFileName != null && callback != null) {
+                    val executor: ExecutorService = Executors.newSingleThreadExecutor()
+                    val handler = Handler(Looper.getMainLooper())
+                    executor.execute {
+                        var data: String? = null
+                        
+                        try {
+                            data = if (URLUtil.isNetworkUrl(urlOrFileName)) {
+                                URL(urlOrFileName).readText()
+                            } else { //Assume file is in assets folder.
+                                context.assets.open(urlOrFileName).bufferedReader().use{
+                                    it.readText()
+                                }
+                            }
+    
+                            handler.post {
+                                //Ensure the resulting data string is not null or empty.
+                                if (data != null && !data.isEmpty()) {
+                                    callback(data)
+                                } else {
+                                    error!!("No data imported.")
+                                }
+                            }
+                        } catch (e: Exception) {
+                            error!!(e.message)
+                        }
+                    }
+                }
+            }
+        }
+    }
+    ```
+
+5. Accédez au fichier **MainActivity.kt**, puis ajoutez le code suivant dans le rappel de l’événement `mapControl.onReady`, qui se trouve à l’intérieur de la méthode `onCreate`. Ce code utilise l’utilitaire d’importation pour lire le fichier **SamplePoiDataSet.json** comme une chaîne, puis le désérialise comme une collection de fonctionnalités à l’aide de la méthode statique `fromJson` de la classe `FeatureCollection`. Ce code calcule également le cadre englobant pour toutes les données de la collection de fonctionnalités, et utilise les résultats pour indiquer à l’appareil photo de la carte de faire un focus sur les données.
+
+    ```kotlin
+    //Create a data source and add it to the map.
+    DataSource source = new DataSource();
+    map.sources.add(source);
+    
+    //Import the GeoJSON data and add it to the data source.
+    Utils.importData("SamplePoiDataSet.json", this) { 
+        result: String? ->
+            //Parse the data as a GeoJSON Feature Collection.
+             val fc = FeatureCollection.fromJson(result!!)
+    
+            //Add the feature collection to the data source.
+            source.add(fc)
+    
+            //Optionally, update the maps camera to focus in on the data.
+    
+            //Calculate the bounding box of all the data in the Feature Collection.
+            val bbox = MapMath.fromData(fc);
+
+            //Update the maps camera so it is focused on the data.
+            map.setCamera(
+                bounds(bbox),
+
+                //Padding added to account for pixel size of rendered points.
+                padding(20)
+            )
+        }
+    ```
+
+6. À l’aide du code permettant de charger les données GeoJSON d’une source de données, nous devons maintenant spécifier de quelle manière ces données doivent être affichées sur la carte. Il existe différents calques de rendu pour les données de point. Les calques les plus couramment utilisés sont le [calque de bulles](map-add-bubble-layer-android.md), le [calque de symboles](how-to-add-symbol-to-android-map.md) et le [calque de carte thermique](map-add-heat-map-layer-android.md). Ajoutez le code suivant pour afficher les données dans un calque de bulles, dans le rappel de l’événement `mapControl.onReady`, après le code permettant d’importer les données.
+
+    ```kotlin
+    //Create a layer and add it to the map.
+    val layer = new BubbleLayer(source)
+    map.layers.add(layer)
+    ```
+
+::: zone-end
+
 7. Exécutez l'application. Une carte s’affichera avec au centre les États-Unis et des cercles superposés pour chaque localisation du fichier GeoJSON.
 
     ![Carte des États-Unis montrant les données contenues dans un fichier GeoJSON](media/tutorial-load-geojson-file-android/android-import-geojson.png)
-
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 01/14/2021
 ms.author: jamesmantu
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: 2f43d2979ad9770c63504d46666dffd78f761a73
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: fb7479f7e3b9ac631c164bbddf65ed8be3bab438
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102097106"
+ms.locfileid: "102122644"
 ---
 # <a name="quickstart-sign-in-and-get-an-access-token-in-an-angular-spa-using-the-auth-code-flow"></a>Démarrage rapide : Connecter et obtenir un jeton d’accès dans une application monopage (SPA) Angular à l’aide du flux du code d’authentification
 
@@ -27,7 +27,8 @@ Consultez [Fonctionnement de l’exemple](#how-the-sample-works) pour obtenir un
 
 Ce guide de démarrage rapide utilise MSAL Angular v2 avec le flux du code d’autorisation. Pour obtenir un guide de démarrage rapide similaire qui utilise MSAL Angular 1.x avec le flux implicite, consultez [Démarrage rapide : Connexion d’utilisateurs dans des applications monopages JavaScript](./quickstart-v2-angular.md).
 
-Cette fonctionnalité [!INCLUDE [active-directory-develop-preview](../../../includes/active-directory-develop-preview.md)]
+> [!IMPORTANT]
+> MSAL Angular v2 [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/21/2020
 ms.author: duau
-ms.openlocfilehash: 6c6d33a36c4a0b71932e8c19c8f6dd105c33817c
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 17677ea89b04659de66b9bda35975b96ff33473a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368330"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101740781"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Tutoriel : Configurer HTTPS sur un domaine personnalisé Front Door
 
@@ -59,11 +59,11 @@ Lorsque vous utilisez un certificat géré par Azure Front Door, la fonctionnali
 
 Pour activer HTTPS sur un domaine personnalisé, suivez ces étapes :
 
-1. Dans le [portail Azure](https://portal.azure.com), accédez à votre profil **Front Door** .
+1. Dans le [portail Azure](https://portal.azure.com), accédez à votre profil **Front Door**.
 
 2. Dans la liste des hôtes frontend, sélectionnez le domaine personnalisé pour lequel vous souhaitez activer le protocole HTTPS.
 
-3. Sous la section **HTTPS sur un domaine personnalisé** , cliquez sur **Activé** , puis sélectionnez **Porte d’entrée managée** en tant que source du certificat.
+3. Sous la section **HTTPS sur un domaine personnalisé**, cliquez sur **Activé**, puis sélectionnez **Porte d’entrée managée** en tant que source du certificat.
 
 4. Cliquez sur Enregistrer.
 
@@ -84,7 +84,7 @@ Vous pouvez utiliser votre propre certificat pour activer la fonctionnalité HTT
 > [!WARNING]
 > Azure Front Door ne prend actuellement en charge que les comptes Key Vault dans le même abonnement que la configuration Front Door. Le choix d’un Key Vault sous un autre abonnement que votre porte d’entrée entraîne un échec.
 
-2. Certificats Azure Key Vault : si vous disposez déjà d’un certificat, vous pouvez le charger directement vers votre compte Azure Key Vault. Vous pouvez également en créer un directement à l’aide d’Azure Key Vault à partir d’une des autorités de certification (CA) partenaires de ce coffre Azure Key Vault. Chargez votre certificat en tant qu’objet de **certificat** et non en tant que **secret** .
+2. Certificats Azure Key Vault : si vous disposez déjà d’un certificat, vous pouvez le charger directement vers votre compte Azure Key Vault. Vous pouvez également en créer un directement à l’aide d’Azure Key Vault à partir d’une des autorités de certification (CA) partenaires de ce coffre Azure Key Vault. Chargez votre certificat en tant qu’objet de **certificat** et non en tant que **secret**.
 
 > [!NOTE]
 > Pour votre propre certificat TLS/SSL, Front Door ne prend pas en charge les certificats avec des algorithmes de chiffrement EC.
@@ -106,15 +106,15 @@ Inscrivez le principal du service pour Azure Front Door en tant qu’application
  
 Accordez à Azure Front Door l’autorisation d’accéder aux certificats de votre compte Azure Key Vault.
 
-1. Dans votre compte de coffre de clés, sous PARAMÈTRES, sélectionnez **Stratégies d’accès** , puis **Ajouter nouveau** pour créer une stratégie.
+1. Dans votre compte de coffre de clés, sous PARAMÈTRES, sélectionnez **Stratégies d’accès**, puis **Ajouter nouveau** pour créer une stratégie.
 
-2. Dans **Sélectionner le principal** , recherchez **ad0e1c7e-6d38-4ba4-9efd-0bc77ba9f037** , puis choisissez **Microsoft.Azure.Frontdoor** . Cliquez sur **Sélectionner** .
+2. Dans **Sélectionner le principal**, recherchez **ad0e1c7e-6d38-4ba4-9efd-0bc77ba9f037**, puis choisissez **Microsoft.Azure.Frontdoor**. Cliquez sur **Sélectionner**.
 
-3. Sous **Autorisations du secret** , sélectionnez **Obtenir** pour permettre à Front Door de récupérer le certificat.
+3. Sous **Autorisations du secret**, sélectionnez **Obtenir** pour permettre à Front Door de récupérer le certificat.
 
-4. Sous **Autorisations de certificat** , sélectionnez **Obtenir** pour permettre à Front Door de récupérer le certificat.
+4. Sous **Autorisations de certificat**, sélectionnez **Obtenir** pour permettre à Front Door de récupérer le certificat.
 
-5. Sélectionnez **OK** . 
+5. Sélectionnez **OK**. 
 
     Azure Front Door peut désormais accéder à ce coffre de clés et aux certificats qui sont stockés dans ce coffre de clés.
  
@@ -126,19 +126,14 @@ Accordez à Azure Front Door l’autorisation d’accéder aux certificats de vo
 
     La page **Domaine personnalisé** s’affiche.
 
-3. Sous Type de gestion de certificats, sélectionnez **Utiliser mon propre certificat** . 
+3. Sous Type de gestion de certificats, sélectionnez **Utiliser mon propre certificat**. 
 
 4. Azure Front Door nécessite que l’abonnement du compte Key Vault soit identique à celui de Front Door. Sélectionnez un coffre de clés, un certificat (secret) et une version du certificat.
 
     Azure Front Door liste les informations suivantes : 
     - les comptes du coffre de clés de votre ID d’abonnement ; 
     - les certificats (secrets) dans le coffre de clés sélectionné ; 
-    - les versions disponibles du certificat. 
-
-> [!NOTE]
-> Si vous laissez la version de certificat vide, vous obtiendrez :
-> - La version la plus récente du certificat qui est sélectionné.
-> - La rotation automatique des certificats pour la toute dernière version en date, quand une version plus récente du certificat est disponible dans votre coffre de clés.
+    - les versions disponibles du certificat.
  
 5. Lorsque vous utilisez votre propre certificat, la validation du domaine n’est pas nécessaire. Passez à [En attente de la propagation](#wait-for-propagation).
 
@@ -252,11 +247,11 @@ Dans les étapes précédentes, vous avez activé le protocole HTTPS sur votre d
 
 ### <a name="disable-the-https-feature"></a>Désactiver la fonctionnalité HTTPS 
 
-1. Dans le [portail Azure](https://portal.azure.com), accédez à votre configuration **Azure Front Door** .
+1. Dans le [portail Azure](https://portal.azure.com), accédez à votre configuration **Azure Front Door**.
 
 2. Dans la liste d’hôtes frontend, cliquez sur le domaine personnalisé pour lequel vous souhaitez désactiver HTTPS.
 
-3. Cliquez sur **Désactiver** pour désactiver HTTPS, puis cliquez sur **Enregistrer** .
+3. Cliquez sur **Désactiver** pour désactiver HTTPS, puis cliquez sur **Enregistrer**.
 
 ### <a name="wait-for-propagation"></a>En attente de la propagation
 
@@ -278,9 +273,9 @@ Dans ce didacticiel, vous avez appris à :
 
 * Charger un certificat sur Key Vault.
 * Valider un domaine.
-* Activer HTTPS pour votre domaine personnalisé.
+* Activer le protocole HTTPS pour votre domaine personnalisé.
 
-Pour savoir comment configurer une stratégie de géofiltrage destinée à votre Front Door, passez au tutoriel suivant.
+Pour savoir comment configurer une stratégie de géofiltrage destinée à votre instance Front Door, passez au tutoriel suivant.
 
 > [!div class="nextstepaction"]
 > [Configurer une stratégie de géofiltrage](front-door-geo-filtering.md)

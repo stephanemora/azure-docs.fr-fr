@@ -8,18 +8,22 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 6424fc0ff49566fad949b3fba4718acb2bad4cd3
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: c3ee643d525cb5394369aba3b0e803bd1a94c852
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91362767"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102036232"
 ---
 # <a name="organize-costs-by-customizing-your-billing-account"></a>Organiser les coûts en personnalisant votre compte de facturation
 
 Votre compte de facturation pour le contrat client Microsoft vous permet d’organiser vos coûts en fonction de vos besoins, que ce soit par département, par projet ou par environnement de développement.
 
 Cet article explique comment utiliser le Portail Azure pour organiser vos coûts. Il s’applique à un compte de facturation associé à un contrat client Microsoft. [Vérifiez que vous avez accès à un contrat client Microsoft](#check-access-to-a-microsoft-customer-agreement).
+
+Regardez la vidéo [Organiser les coûts en personnalisant votre compte de facturation Contrat client Microsoft](https://www.youtube.com/watch?v=7RxTfShGHwU) pour savoir comment organiser les coûts pour votre compte de facturation.
+
+>[!VIDEO https://www.youtube.com/embed/7RxTfShGHwU]
 
 ## <a name="structure-your-account-with-billing-profiles-and-invoice-sections"></a>Structurer votre compte à l’aide de profils de facturation et de sections de facture
 

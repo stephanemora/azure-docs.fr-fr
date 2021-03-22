@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 07/15/2020
+ms.date: 02/19/2021
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 40e4a3d3a819280255ee931e5e12206f99ef28fe
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 54900b7b9089d4a4c6cbc742ecf09aa19ff2a550
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98051511"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101741954"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Tutoriel : Déployer et configurer un pare-feu Azure à l’aide du portail Azure
 
@@ -62,30 +62,32 @@ Le groupe de ressources contient toutes les ressources utilisées dans ce didact
 
 1. Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.azure.com).
 2. Dans le menu du Portail Azure, sélectionnez **Groupes de ressources** ou recherchez et sélectionnez *Groupes de ressources* dans n’importe quelle page. Sélectionnez ensuite **Ajouter**.
-3. Dans **Nom du groupe de ressources**, entrez *Test-FW-RG*.
 4. Pour **Abonnement**, sélectionnez votre abonnement.
-5. Pour **Emplacement du groupe de ressources**, sélectionnez un emplacement. Toutes les autres ressources que vous créez doivent se trouver dans le même emplacement.
-6. Sélectionnez **Create** (Créer).
+1. Dans **Nom du groupe de ressources**, entrez *Test-FW-RG*.
+1. Pour **Emplacement du groupe de ressources**, sélectionnez un emplacement. Toutes les autres ressources que vous créez doivent se trouver dans le même emplacement.
+1. Sélectionnez **Revoir + créer**.
+1. Sélectionnez **Create** (Créer).
 
 ### <a name="create-a-vnet"></a>Créer un réseau virtuel
 
-Ce réseau virtuel contient trois sous-réseaux.
+Ce réseau virtuel aura trois sous-réseaux.
 
 > [!NOTE]
 > La taille du sous-réseau AzureFirewallSubnet est /26. Pour plus d’informations sur la taille du sous-réseau, consultez le [FAQ Pare-feu Azure](firewall-faq.yml#why-does-azure-firewall-need-a--26-subnet-size).
 
 1. Dans le menu du Portail Azure ou dans la page **Accueil**, sélectionnez **Créer une ressource**.
 1. Sélectionnez **Mise en réseau** > **Réseau virtuel**.
-2. Pour **Abonnement**, sélectionnez votre abonnement.
-3. Pour **Groupe de ressources**, sélectionnez **Test-FW-RG**.
-4. Pour **Nom**, entrez **Test-FW-VN**.
-5. Pour **Région**, sélectionnez le même emplacement que celui utilisé précédemment.
-6. Sélectionnez **Suivant : adresses IP**.
-7. Pour **Espace d’adressage IPv4**, entrez **10.0.0.0/16**.
-8. Sous **Sous-réseau**, sélectionnez **Par défaut**.
-9. Sous **Nom du sous-réseau**, entrez **AzureFirewallSubnet**. Le pare-feu se trouvera dans ce sous-réseau et le nom du sous-réseau **doit** être AzureFirewallSubnet.
-10. Pour **Plage d’adresses**, tapez **10.0.1.0/26**.
-11. Sélectionnez **Enregistrer**.
+1. Sélectionnez **Create** (Créer).
+1. Pour **Abonnement**, sélectionnez votre abonnement.
+1. Pour **Groupe de ressources**, sélectionnez **Test-FW-RG**.
+1. Pour **Nom**, entrez **Test-FW-VN**.
+1. Pour **Région**, sélectionnez le même emplacement que celui utilisé précédemment.
+1. Sélectionnez **Suivant : adresses IP**.
+1. Pour **Espace d’adressage IPv4**, entrez **10.0.0.0/16**.
+1. Sous **Sous-réseau**, sélectionnez **Par défaut**.
+1. Sous **Nom du sous-réseau**, entrez **AzureFirewallSubnet**. Le pare-feu se trouvera dans ce sous-réseau et le nom du sous-réseau **doit** être AzureFirewallSubnet.
+1. Pour **Plage d’adresses**, tapez **10.0.1.0/26**.
+1. Sélectionnez **Enregistrer**.
 
    Créez ensuite un sous-réseau pour le serveur de la charge de travail.
 
@@ -101,8 +103,7 @@ Ce réseau virtuel contient trois sous-réseaux.
 À présent, créez la machine virtuelle de charge de travail et placez-la dans le sous-réseau **Workload-SN**.
 
 1. Dans le menu du Portail Azure ou dans la page **Accueil**, sélectionnez **Créer une ressource**.
-2. Sélectionnez **Compute**, puis **Machine virtuelle**.
-3. Sélectionnez **Windows Server 2016 Datacenter** dans la liste Proposé.
+2. Sélectionnez **Windows Server 2016 Datacenter**.
 4. Entrez ces valeurs pour la machine virtuelle :
 
    |Paramètre  |Valeur  |
@@ -120,7 +121,7 @@ Ce réseau virtuel contient trois sous-réseaux.
 8. Assurez-vous que **Test-FW-VN** est sélectionné pour le réseau virtuel et que le sous-réseau est **Workload-SN**.
 9. Pour **Adresse IP publique**, sélectionnez **Aucune**.
 11. Acceptez les autres valeurs par défaut, puis sélectionnez **Suivant : Gestion**.
-12. Sélectionnez **Désactivé** pour désactiver les diagnostics de démarrage. Acceptez les autres valeurs par défaut, puis sélectionnez **Vérifier + créer**.
+12. Sélectionnez **Désactiver** pour désactiver les diagnostics de démarrage. Acceptez les autres valeurs par défaut, puis sélectionnez **Vérifier + créer**.
 13. Vérifiez les paramètres sur la page de récapitulatif, puis sélectionnez **Créer**.
 
 ## <a name="deploy-the-firewall"></a>Déployer le pare-feu
@@ -132,16 +133,17 @@ Déployez le pare-feu dans le réseau virtuel.
 3. Sélectionnez **Pare-feu**, puis **Créer**.
 4. Sur la page **Créer un pare-feu**, utilisez le tableau suivant pour configurer le pare-feu :
 
-   |Paramètre  |Valeur  |
+   |Paramètre  |Value  |
    |---------|---------|
    |Abonnement     |\<your subscription\>|
    |Resource group     |**Test-FW-RG** |
    |Nom     |**Test-FW01**|
-   |Emplacement     |Sélectionnez le même emplacement que celui utilisé précédemment|
+   |Région     |Sélectionnez le même emplacement que celui utilisé précédemment|
+   |Gestion de pare-feu|**Utiliser des règles de pare-feu (classique) pour gérer ce pare-feu**|
    |Choisir un réseau virtuel     |**Utiliser l’existant** : **Test-FW-VN**|
    |Adresse IP publique     |**Ajouter nouveau**<br>**Nom** : **fw-pip**|
 
-5. Sélectionnez **Revoir + créer**.
+5. Acceptez les autres valeurs par défaut, puis sélectionnez **Vérifier + créer**.
 6. Passez en revue le récapitulatif, puis sélectionnez **Créer** pour créer le pare-feu.
 
    Le déploiement nécessite quelques minutes.
@@ -155,15 +157,18 @@ Pour le sous-réseau **Workload-SN**, configurez l’itinéraire sortant par dé
 1. Dans le menu du Portail Azure, sélectionnez **Tous les services** ou recherchez et sélectionnez *Tous les services* dans n’importe quelle page.
 2. Sous **Mise en réseau**, sélectionnez **Tables d’itinéraires**.
 3. Sélectionnez **Ajouter**.
-4. Pour **Nom**, entrez **Firewall-route**.
 5. Pour **Abonnement**, sélectionnez votre abonnement.
 6. Pour **Groupe de ressources**, sélectionnez **Test-FW-RG**.
-7. Pour **Emplacement**, sélectionnez le même emplacement que celui utilisé précédemment.
-8. Sélectionnez **Create** (Créer).
-9. Sélectionnez **Actualiser**, puis la table d’itinéraires **Firewall-route**.
-10. Sélectionnez **Sous-réseaux**, puis **Associer**.
-11. Sélectionnez **Réseau virtuel** > **Test-FW-VN**.
-12. Pour **Sous-réseau**, sélectionnez **Workload-SN**. Veillez à ne sélectionner que le sous-réseau **Workload-SN** pour cette route, sinon votre pare-feu ne fonctionnera pas correctement.
+7. Pour **Région**, sélectionnez le même emplacement que celui utilisé précédemment.
+4. Pour **Nom**, entrez **Firewall-route**.
+1. Sélectionnez **Revoir + créer**.
+1. Sélectionnez **Create** (Créer).
+
+Une fois le déploiement terminé, sélectionnez **Accéder à la ressource**.
+
+1. Sur la page de Firewall-route, sélectionnez **Sous-réseaux**, puis sélectionnez **Associer**.
+1. Sélectionnez **Réseau virtuel** > **Test-FW-VN**.
+1. Pour **Sous-réseau**, sélectionnez **Workload-SN**. Veillez à ne sélectionner que le sous-réseau **Workload-SN** pour cette route, sinon votre pare-feu ne fonctionnera pas correctement.
 
 13. Sélectionnez **OK**.
 14. Sélectionnez **Itinéraires**, puis **Ajouter**.
@@ -180,7 +185,7 @@ Pour le sous-réseau **Workload-SN**, configurez l’itinéraire sortant par dé
 Il s’agit de la règle d’application qui autorise un accès sortant à `www.google.com`.
 
 1. Ouvrez **Test-FW-RG**, puis sélectionnez le pare-feu **Test-FW01**.
-2. Sur la page **Test-FW01**, sous **Paramètres**, sélectionnez **Règles**.
+2. Sur la page **Test-FW01**, sous **Paramètres**, sélectionnez **Règles (classique)** .
 3. Sélectionnez l’onglet **Collection de règles d’application**.
 4. Sélectionnez **Ajouter une collection de règles d’application**.
 5. Pour **Nom**, entrez **App-Coll01**.
@@ -226,8 +231,8 @@ Cette règle vous permet de connecter un Bureau à distance à la machine virtue
 5. Sous **Règles**, pour **Nom**, entrez **rdp-nat**.
 6. Pour **Protocole**, sélectionnez **TCP**.
 7. Pour **Type de source**, sélectionnez **Adresse IP**.
-8. Pour **Source**, tapez * *\** _.
-9. Pour _*Adresse de destination**, tapez l’adresse IP publique du pare-feu.
+8. Pour **Source**, tapez **\*** .
+9. Pour **Adresse de destination**, tapez l’adresse IP publique du pare-feu.
 10. Pour **Ports de destination**, tapez **3389**.
 11. Pou **Adresse traduite**, saisissez l’adresse IP privée de **Srv-work**.
 12. Dans le champ **Port traduit**, tapez **3389**.

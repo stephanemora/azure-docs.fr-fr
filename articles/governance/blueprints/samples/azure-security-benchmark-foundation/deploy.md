@@ -1,14 +1,14 @@
 ---
 title: Déployer l’exemple de blueprint Azure Security Benchmark Foundation
 description: Étapes de déploiement de l’exemple de blueprint Azure Security Benchmark Foundation et informations détaillées sur les paramètres d’artefact de blueprint.
-ms.date: 02/12/2020
+ms.date: 02/18/2020
 ms.topic: sample
-ms.openlocfilehash: 84c157d696dc8ababe1f252136672ea600e604af
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: e48f3da383bdb6d5c9960595f3c0fdcabc27dc75
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100633952"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101740679"
 ---
 # <a name="deploy-the-azure-security-benchmark-foundation-blueprint-sample"></a>Déployer l’exemple de blueprint Azure Security Benchmark Foundation
 
@@ -92,6 +92,9 @@ Une fois que la copie de l’exemple de blueprint a été **publiée**, elle peu
      - **Nom de Network Watcher** : nom de la ressource Network Watcher
      - **Nom du groupe de ressources Network Watcher** : nom du groupe de ressources Network Watcher
      - **Activer la protection DDos** : entrez « true » ou « false » pour spécifier si la protection DDoS est activée ou non dans le réseau virtuel
+     
+    > [!NOTE] 
+    > Si Network Watcher est déjà activé, il est recommandé d’utiliser le groupe de ressources Network Watcher existant. Vous devez également fournir l’emplacement du groupe de ressources Network Watcher existant pour le paramètre d’artefact **Emplacement du groupe de ressources Network Watcher**.
 
    - Paramètres d'artefact
 
@@ -132,8 +135,14 @@ Le tableau suivant fournit la liste des paramètres de blueprint :
 |Modèle de spoke de réseau virtuel Azure|Modèle Resource Manager|Noms d’adresses de sous-réseau (facultatif)|Tableau de noms de sous-réseaux à déployer sur le réseau virtuel de spoke ; par exemple, « subnet1 », « subnet2 »|
 |Modèle de spoke de réseau virtuel Azure|Modèle Resource Manager|Préfixes d’adresses de sous-réseau (facultatif)|Tableau de préfixes d’adresses IP pour les sous-réseaux facultatifs pour le réseau virtuel de spoke ; par exemple, « 10.0.7.0/24 », « 10.0.8.0/24 »|
 |Modèle de spoke de réseau virtuel Azure|Modèle Resource Manager|Déployer un spoke|Entrez « true » ou « false » pour spécifier si l’attribution déploie les composants spoke de l’architecture|
-|Modèle Azure Network Watcher|Modèle Resource Manager|Emplacement Network Watcher|Si Network Watcher est déjà activé, la valeur de ce paramètre **doit** correspondre à l’emplacement du groupe de ressources Network Watcher existant.|
-|Modèle Azure Network Watcher|Modèle Resource Manager|Emplacement du groupe de ressources Network Watcher|Si Network Watcher est déjà activé, la valeur de ce paramètre **doit** correspondre au nom du groupe de ressources Network Watcher existant.|
+|Modèle Azure Network Watcher|Modèle Resource Manager|Emplacement Network Watcher|Emplacement de la ressource Network Watcher|
+|Modèle Azure Network Watcher|Modèle Resource Manager|Emplacement du groupe de ressources Network Watcher|Si Network Watcher est déjà activé, la valeur de ce paramètre **doit** correspondre à l’emplacement du groupe de ressources Network Watcher existant.|
+
+## <a name="troubleshooting"></a>Résolution des problèmes
+
+Si vous rencontrez l’erreur `The resource group 'NetworkWatcherRG' failed to deploy due to the
+following error: Invalid resource group location '{location}'. The Resource group already exists in
+location '{location}'.`, vérifiez que le paramètre de blueprint **Nom du groupe de ressources Network Watcher** spécifie le nom du groupe de ressources Network Watcher existant et que le paramètre d’artefact **Emplacement du groupe de ressources Network Watcher** spécifie l’emplacement du groupe de ressources Network Watcher existant.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: f70116847a8743cf8b3cb56ff35f9d913f13f359
-ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
+ms.openlocfilehash: de179ab2fe1c02b3912262ee57fbb41a23d56164
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98562350"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101715438"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Démarrage rapide : Créer un équilibreur de charge interne pour équilibrer la charge de machines virtuelles en utilisant le portail Azure
 
@@ -68,7 +68,7 @@ Dans cette section, vous allez créer un réseau virtuel et un sous-réseau.
     | Groupe de ressources   | Sélectionnez **CreateIntLBQS-rg**. |
     | **Détails de l’instance** |                                                                 |
     | Nom             | Entrez **myVNet**                                    |
-    | Région           | Sélectionnez **Europe Ouest** |
+    | Région           | Sélectionnez **(Europe) Europe Ouest** |
 
 3. Sélectionnez l’onglet **Adresses IP**, ou sélectionnez le bouton **Suivant : Adresses IP** au bas de la page.
 
@@ -106,16 +106,17 @@ Dans cette section, vous allez créer un réseau virtuel et un sous-réseau.
 
 ## <a name="create-load-balancer"></a>Créer un équilibreur de charge
 
-1. Dans l’angle supérieur gauche de l’écran, cliquez sur **Créer une ressource** > **Mise en réseau** > **Load Balancer**.
+1. Sélectionnez **Créer une ressource**. 
+2. Dans la zone de recherche, entrez **Équilibreur de charge**. Sélectionnez **Équilibreur de charge** dans les résultats de recherche.
+3. Dans la page **Équilibreur de charge**, sélectionnez **Créer**.
+4. Sur la page **Créer un équilibreur de charge**, entrez ou sélectionnez les informations suivantes : 
 
-2. Dans l’onglet **Fonctions de base** de la page **Créer un équilibreur de charge**, entrez ou sélectionnez les informations suivantes : 
-
-    | Paramètre                 | Valeur                                              |
+    | Paramètre                 | Value                                              |
     | ---                     | ---                                                |
     | Abonnement               | Sélectionnez votre abonnement.    |    
     | Resource group         | Sélectionnez **CreateIntLBQS-rg** créé à l’étape précédente.|
     | Nom                   | Entrez **myLoadBalancer**                                   |
-    | Région         | Sélectionnez **Europe Ouest**.                                        |
+    | Région         | Sélectionnez **(Europe) Europe Ouest**.                                        |
     | Type          | sélectionnez **Interne**.                                        |
     | SKU           | sélectionnez **Standard**. |
     | Réseau virtuel | Sélectionnez **myVNet** créé à l’étape précédente. |
@@ -161,7 +162,7 @@ Créez une sonde d’intégrité nommée **myHealthProbe** pour surveiller l’i
 
 2. Sous **Paramètres**, sélectionnez **Sondes d’intégrité**, puis **Ajouter**.
     
-    | Paramètre | Valeur |
+    | Paramètre | Value |
     | ------- | ----- |
     | Nom | Entrez **MyHealthProbe**. |
     | Protocol | Sélectionnez **HTTP**. |
@@ -189,7 +190,7 @@ Dans cette section, vous allez créer une règle d’équilibreur de charge :
 
 3. Pour configurer la règle d’équilibrage de charge, utilisez les valeurs suivantes :
     
-    | Paramètre | Valeur |
+    | Paramètre | Value |
     | ------- | ----- |
     | Nom | Entrez **MyHTTPRule**. |
     | Version de l’adresse IP | Sélectionnez **IPv4** |
@@ -221,14 +222,14 @@ Ces machines virtuelles sont ajoutées au pool de back-ends de l’équilibreur 
    
 2. Dans **Créer une machine virtuelle**, tapez ou sélectionnez les valeurs sous l’onglet **De base** :
 
-    | Paramètre | Valeur                                          |
+    | Paramètre | Value                                          |
     |-----------------------|----------------------------------|
     | **Détails du projet** |  |
     | Abonnement | Sélectionner votre abonnement Azure |
     | Groupe de ressources | Sélectionnez **CreateIntLBQS-rg**. |
     | **Détails de l’instance** |  |
     | Nom de la machine virtuelle | Entrez **myVM1** |
-    | Région | Sélectionnez **Europe Ouest** |
+    | Région | Sélectionnez **(Europe) Europe Ouest** |
     | Options de disponibilité | Sélectionnez **Zones de disponibilité** |
     | Zone de disponibilité | Sélectionnez **1** |
     | Image | Sélectionnez **Windows Server 2019 Datacenter** |
@@ -243,7 +244,7 @@ Ces machines virtuelles sont ajoutées au pool de back-ends de l’équilibreur 
   
 4. Sous l’onglet Réseau, sélectionnez ou entrez :
 
-    | Paramètre | Valeur |
+    | Paramètre | Value |
     |-|-|
     | **Interface réseau** |  |
     | Réseau virtuel | **myVNet** |
@@ -303,7 +304,7 @@ Dans cette section, vous allez créer un réseau virtuel et un sous-réseau.
     | Groupe de ressources   | Sélectionnez **CreateIntLBQS-rg**. |
     | **Détails de l’instance** |                                                                 |
     | Nom             | Entrez **myVNet**                                    |
-    | Région           | Sélectionnez **Europe Ouest** |
+    | Région           | Sélectionnez **(Europe) Europe Ouest** |
 
 3. Sélectionnez l’onglet **Adresses IP**, ou sélectionnez le bouton **Suivant : Adresses IP** au bas de la page.
 
@@ -345,12 +346,12 @@ Dans cette section, vous allez créer un réseau virtuel et un sous-réseau.
 
 2. Dans l’onglet **Fonctions de base** de la page **Créer un équilibreur de charge**, entrez ou sélectionnez les informations suivantes : 
 
-    | Paramètre                 | Valeur                                              |
+    | Paramètre                 | Value                                              |
     | ---                     | ---                                                |
     | Abonnement               | Sélectionnez votre abonnement.    |    
     | Resource group         | Sélectionnez **CreateIntLBQS-rg** créé à l’étape précédente.|
     | Nom                   | Entrez **myLoadBalancer**                                   |
-    | Région         | Sélectionnez **Europe Ouest**.                                        |
+    | Région         | Sélectionnez **(Europe) Europe Ouest**.                                        |
     | Type          | sélectionnez **Interne**.                                        |
     | SKU           | Sélectionnez **De base** |
     | Réseau virtuel | Sélectionnez **myVNet** créé à l’étape précédente. |
@@ -383,7 +384,7 @@ Créez le pool d’adresses principal **myBackendPool** afin d’inclure des mac
 
 3. Dans la page **Ajouter un pool de back-ends**, entrez ou sélectionnez :
     
-    | Paramètre | Valeur |
+    | Paramètre | Value |
     | ------- | ----- |
     | Nom | Entrez **myBackendPool**. |
     | Réseau virtuel | Sélectionnez **myVNet**. |
@@ -403,7 +404,7 @@ Créez une sonde d’intégrité nommée **myHealthProbe** pour surveiller l’i
 
 2. Sous **Paramètres**, sélectionnez **Sondes d’intégrité**, puis **Ajouter**.
     
-    | Paramètre | Valeur |
+    | Paramètre | Value |
     | ------- | ----- |
     | Nom | Entrez **MyHealthProbe**. |
     | Protocol | Sélectionnez **HTTP**. |
@@ -431,7 +432,7 @@ Dans cette section, vous allez créer une règle d’équilibreur de charge :
 
 3. Pour configurer la règle d’équilibrage de charge, utilisez les valeurs suivantes :
     
-    | Paramètre | Valeur |
+    | Paramètre | Value |
     | ------- | ----- |
     | Nom | Entrez **MyHTTPRule**. |
     | Version de l’adresse IP | Sélectionnez **IPv4** |
@@ -465,7 +466,7 @@ Ces machines virtuelles sont ajoutées au pool de back-ends de l’équilibreur 
    
 2. Dans **Créer une machine virtuelle**, tapez ou sélectionnez les valeurs sous l’onglet **De base** :
 
-    | Paramètre | Valeur                                          |
+    | Paramètre | Value                                          |
     |-----------------------|----------------------------------|
     | **Détails du projet** |  |
     | Abonnement | Sélectionner votre abonnement Azure |
@@ -487,7 +488,7 @@ Ces machines virtuelles sont ajoutées au pool de back-ends de l’équilibreur 
   
 4. Sous l’onglet Réseau, sélectionnez ou entrez :
 
-    | Paramètre | Valeur |
+    | Paramètre | Value |
     |-|-|
     | **Interface réseau** |  |
     | Réseau virtuel | Sélectionnez **myVNet** |
@@ -537,7 +538,7 @@ Dans cette section, vous allez créer une machine virtuelle nommée **myTestVM**
    
 2. Dans **Créer une machine virtuelle**, tapez ou sélectionnez les valeurs sous l’onglet **De base** :
 
-    | Paramètre | Valeur                                          |
+    | Paramètre | Value                                          |
     |-----------------------|----------------------------------|
     | **Détails du projet** |  |
     | Abonnement | Sélectionner votre abonnement Azure |
@@ -558,7 +559,7 @@ Dans cette section, vous allez créer une machine virtuelle nommée **myTestVM**
   
 4. Sous l’onglet Réseau, sélectionnez ou entrez :
 
-    | Paramètre | Valeur |
+    | Paramètre | Value |
     |-|-|
     | **Interface réseau** |  |
     | Réseau virtuel | **myVNet** |

@@ -7,12 +7,12 @@ ms.date: 9/23/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: b7457e258cf8a9936e9a63ab9eec9edc0b54d3eb
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: 36c32c4eefdaa1c7604f2b0f19e98cf6a6d4310d
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98797737"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102096528"
 ---
 # <a name="introduction-to-azure-defender-for-servers"></a>Présentation d’Azure Defender pour les serveurs
 
@@ -27,7 +27,7 @@ Sous Linux, Azure Defender collecte les enregistrements d’audit à partir des 
 
 Les fonctionnalités de détection et de protection des menaces fournies avec Azure Defender pour les serveurs sont les suivantes :
 
-- **Licence intégrée pour Microsoft Defender pour point de terminaison (Windows uniquement)**  : Azure Defender pour les serveurs comprend [Microsoft Defender pour point de terminaison](https://www.microsoft.com/microsoft-365/security/endpoint-defender). Ensemble, ils offrent des fonctionnalités EDR (protection évolutive des points de terminaison) complètes. [Plus d’informations](security-center-wdatp.md)
+- **Licence intégrée pour Microsoft Defender pour point de terminaison (Windows uniquement)**  : Azure Defender pour les serveurs comprend [Microsoft Defender pour point de terminaison](https://www.microsoft.com/microsoft-365/security/endpoint-defender). Ensemble, ils offrent des fonctionnalités EDR (protection évolutive des points de terminaison) complètes. Pour plus d’informations, consultez [Protéger vos points de terminaison](security-center-wdatp.md).
 
     Quand Microsoft Defender pour point de terminaison détecte une menace, il déclenche une alerte. L’alerte s’affiche dans Security Center. À partir de Security Center, vous pouvez également accéder à la console Microsoft Defender pour point de terminaison et effectuer un examen détaillé pour découvrir l’étendue de l’attaque. Découvrez-en plus sur Microsoft Defender pour point de terminaison.
 
@@ -36,25 +36,25 @@ Les fonctionnalités de détection et de protection des menaces fournies avec Az
 
 - **Analyse d’évaluation de la vulnérabilité pour les machines virtuelles**  : l’analyseur de vulnérabilité inclus avec Azure Security Center est alimenté par Qualys. 
 
-    L’analyseur de Qualys est l’un des outils de référence pour identifier en temps réel les vulnérabilités dans vos machines virtuelles Azure. Vous n’avez pas besoin d’une licence Qualys ni même de compte Qualys : tout est traité de manière fluide dans Security Center. [Plus d’informations](deploy-vulnerability-assessment-vm.md)
+    L’analyseur de Qualys est l’un des outils de référence pour identifier en temps réel les vulnérabilités de vos machines virtuelles Azure et hybrides. Vous n’avez pas besoin d’une licence Qualys ni même de compte Qualys : tout est traité de manière fluide dans Security Center. Pour plus d’informations, consultez [Solution intégrée d’évaluation des vulnérabilités d’Azure Defender pour les machines Azure et hybrides](deploy-vulnerability-assessment-vm.md).
 
 - **Accès juste-à-temps (JAT) des machines virtuelles** : les acteurs des menaces repèrent activement les machines accessibles avec des ports de gestion ouverts, par exemple RDP ou SSH. Toutes vos machines virtuelles sont des cibles potentielles pour une attaque. Lorsqu’une machine virtuelle est compromise, elle est utilisée comme point d’entrée pour attaquer d’autres ressources au sein de votre environnement.
 
-    Lorsque vous activez Azure Defender pour les serveurs, vous pouvez utiliser l’accès juste-à-temps aux machines virtuelles pour verrouiller le trafic entrant vers vos machines virtuelles, ce qui réduit l’exposition aux attaques et facilite la connexion aux machines virtuelles en cas de besoin. [Plus d’informations](just-in-time-explained.md)
+    Lorsque vous activez Azure Defender pour les serveurs, vous pouvez utiliser l’accès juste-à-temps aux machines virtuelles pour verrouiller le trafic entrant vers vos machines virtuelles, ce qui réduit l’exposition aux attaques et facilite la connexion aux machines virtuelles en cas de besoin. Pour plus d’informations, consultez [Fonctionnement de l’accès aux machines virtuelles juste-à-temps](just-in-time-explained.md).
 
 - **Monitoring d’intégrité de fichier (FIM)**  : le Monitoring d’intégrité de fichier (FIM), également appelé Monitoring des modifications, recherche les modifications qui sont apportées aux fichiers et registres du système d’exploitation, ainsi qu’aux logiciels d’application et autres systèmes, et qui peuvent indiquer une attaque. Une méthode de comparaison est utilisée pour déterminer si l’état actuel du fichier est différent de la dernière analyse du fichier. Vous pouvez tirer parti de cette comparaison pour vérifier si des modifications suspectes ou valides ont été apportées à vos fichiers.
 
-    Lorsque vous activez Azure Defender pour les serveurs, vous pouvez utiliser FIM pour valider l’intégrité des fichiers Windows, des registres Windows et des fichiers Linux. [Plus d’informations](security-center-file-integrity-monitoring.md)
+    Lorsque vous activez Azure Defender pour les serveurs, vous pouvez utiliser FIM pour valider l’intégrité des fichiers Windows, des registres Windows et des fichiers Linux. Pour plus d’informations, consultez [Monitoring d’intégrité de fichier dans Azure Security Center](security-center-file-integrity-monitoring.md).
 
 - **Contrôles d’application adaptatifs (AAC)**  les contrôles d’application adaptatifs sont une solution intelligente et automatisée permettant la définition de listes vertes d’applications réputées sécurisées pour vos ordinateurs.
 
-    Lorsque vous avez activé et configuré des contrôles d’application adaptatifs, vous obtenez des alertes de sécurité si une autre application que celles que vous avez définies comme sécurisées s’exécute. [Plus d’informations](security-center-adaptive-application.md)
+    Lorsque vous avez activé et configuré des contrôles d’application adaptatifs, vous obtenez des alertes de sécurité si une autre application que celles que vous avez définies comme sécurisées s’exécute. Pour plus d’informations, consultez [Utiliser des contrôles d’application adaptatifs pour réduire les surfaces d’attaque de vos machines](security-center-adaptive-application.md).
 
 - **Sécurisation adaptative du réseau (ANH)**  : l’application de groupes de sécurité réseau (NSG) pour filtrer le trafic vers et depuis des ressources améliore votre posture de sécurité réseau. Il peut toutefois rester des cas dans lesquels le trafic réel qui transite via le groupe de sécurité réseau est un sous-ensemble des règles NSG définies. Dans ces cas, une amélioration supplémentaire de la posture de sécurité est possible en renforçant les règles NSG en fonction des modèles de trafic réel.
 
-    Le renforcement du réseau adaptatif fournit des suggestions visant à renforcer encore les règles NSG. Il utilise un algorithme de Machine Learning factorisé dans le trafic réel, appelé une configuration approuvée, l’intelligence des menaces et d’autres indicateurs de compromis, puis fournit des suggestions pour autoriser uniquement le trafic provenant de tuples IP/port spécifiques. [Plus d’informations](security-center-adaptive-network-hardening.md)
+    Le renforcement du réseau adaptatif fournit des suggestions visant à renforcer encore les règles NSG. Il utilise un algorithme de Machine Learning factorisé dans le trafic réel, appelé une configuration approuvée, l’intelligence des menaces et d’autres indicateurs de compromis, puis fournit des suggestions pour autoriser uniquement le trafic provenant de tuples IP/port spécifiques. Pour plus d’informations, consultez [Améliorer votre posture de sécurité réseau avec le renforcement du réseau adaptatif](security-center-adaptive-network-hardening.md).
 
-- **Sécurisation de l’hôte Docker** : Azure Security Center identifie les conteneurs non managés qui sont hébergés sur des machines virtuelles IaaS Linux, ou d’autres machines Linux exécutant des conteneurs Docker. Security Center évalue en continu les configurations de ces conteneurs. Il les compare ensuite au document de référence Center for Internet Security (CIS) Docker Benchmark. Security Center inclut la totalité des règles définies dans le CIS Docker Benchmark et vous envoie une alerte si vos conteneurs ne satisfont pas à tous les contrôles. [Plus d’informations](harden-docker-hosts.md)
+- **Sécurisation de l’hôte Docker** : Azure Security Center identifie les conteneurs non managés qui sont hébergés sur des machines virtuelles IaaS Linux, ou d’autres machines Linux exécutant des conteneurs Docker. Security Center évalue en continu les configurations de ces conteneurs. Il les compare ensuite au document de référence Center for Internet Security (CIS) Docker Benchmark. Security Center inclut la totalité des règles définies dans le CIS Docker Benchmark et vous envoie une alerte si vos conteneurs ne satisfont pas à tous les contrôles. Pour plus d’informations, consultez [Renforcer vos hôtes Docker](harden-docker-hosts.md).
 
 - **Détection d’attaques sans fichier (Windows uniquement)**  : les attaques sans fichier injectent des charges utiles malveillantes en mémoire pour ne pas être détectées par les techniques d’analyse sur disque. La charge utile de l’attaquant est alors conservée dans la mémoire des processus compromis et effectue un large éventail d’activités malveillantes.
 
@@ -97,4 +97,4 @@ Pour des informations connexes, consultez les articles suivants :
 - Qu’une alerte soit générée par Security Center ou reçue par Security Center à partir d’un autre produit de sécurité, vous pouvez l’exporter. Pour exporter vos alertes vers Azure Sentinel (ou un système SIEM tiers) ou tout autre outil externe, suivez les instructions indiquées dans [Exportation d’alertes vers SIEM](continuous-export.md).
 
 - > [!div class="nextstepaction"]
-    > [Activer Azure Defender](security-center-pricing.md#enable-azure-defender)
+    > [Activer Azure Defender](enable-azure-defender.md)

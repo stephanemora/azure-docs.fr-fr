@@ -6,14 +6,14 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: quickstart
-ms.date: 10/15/2020
+ms.date: 02/18/2021
 ms.author: cherylmc
-ms.openlocfilehash: 325f39b695d80c14ed7097d071380b937458546c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 8aeba13954283ca35c3eb0060a0e588ba6a7adbe
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96021484"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101707136"
 ---
 # <a name="quickstart-connect-to-a-vm-securely-through-a-browser-via-private-ip-address"></a>Démarrage rapide : Se connecter de manière sécurisée à une machine virtuelle par le biais d’un navigateur via une adresse IP privée
 
@@ -46,21 +46,21 @@ Lors de la création de cette configuration, vous pouvez utiliser les exemples d
 |**Nom** | **Valeur** |
 | --- | --- |
 | Machine virtuelle| TestVM |
-| Resource group | TestRG |
+| Resource group | TestRG1 |
 | Région | USA Est |
-| Réseau virtuel | TestVNet1 |
-| Espace d’adressage | 10.0.0.0/16 |
-| Sous-réseaux | Front-end : 10.0.0.0/24 |
+| Réseau virtuel | VNet1 |
+| Espace d’adressage | 10.1.0.0/16 |
+| Sous-réseaux | Front-end : 10.1.0.0/24 |
 
 **Valeurs Azure Bastion :**
 
 |**Nom** | **Valeur** |
 | --- | --- |
-| Nom | TestVNet1-bastion |
+| Nom | VNet1-bastion |
 | + Nom du sous-réseau | AzureBastionSubnet |
-| Adresses AzureBastionSubnet | Un sous-réseau dans votre espace d’adressage de réseau virtuel avec un masque de sous-réseau /27. Par exemple, 10.0.1.0/27.  |
+| Adresses AzureBastionSubnet | Un sous-réseau dans votre espace d’adressage de réseau virtuel avec un masque de sous-réseau /27. Par exemple, 10.1.1.0/27.  |
 | Adresse IP publique |  Création |
-| Nom de l’adresse IP publique | VNet1BastionPIP  |
+| Nom de l’adresse IP publique | VNet1-ip  |
 | Référence SKU d’adresse IP publique |  standard  |
 | Affectation  | statique |
 
@@ -71,34 +71,34 @@ Il existe différentes manières de configurer un hôte bastion. Dans les étape
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Accédez à la machine virtuelle à laquelle vous voulez vous connecter, puis sélectionnez **Se connecter**.
 
-   :::image type="content" source="./media/quickstart-host-portal/vm-settings.png" alt-text="Paramètres de machine virtuelle" lightbox="./media/quickstart-host-portal/vm-settings.png":::
+   :::image type="content" source="./media/quickstart-host-portal/vm-connect.png" alt-text="Capture d’écran des paramètres de la machine virtuelle." lightbox="./media/quickstart-host-portal/vm-connect.png":::
 1. Dans la liste déroulante, sélectionnez **Bastion**.
+
+   :::image type="content" source="./media/quickstart-host-portal/bastion.png" alt-text="Capture d’écran de la liste déroulante Bastion." lightbox="./media/quickstart-host-portal/bastion.png":::
 1. Dans la page **TestVM | Se connecter**, sélectionnez **Utiliser Bastion**.
 
-   :::image type="content" source="./media/quickstart-host-portal/select-bastion.png" alt-text="Sélectionner Bastion" border="false":::
+   :::image type="content" source="./media/quickstart-host-portal/select-bastion.png" alt-text="Capture d’écran de la rubrique Utiliser Bastion.":::
 
-1. Dans la page **Bastion**, renseignez les champs suivants :
+1. Sur la page **Se connecter à l’aide d’Azure Bastion**, configurez les valeurs.
 
-   * **Nom** : nommez l’hôte bastion.
-   * **Sous-réseau** : Il s’agit de l’espace d’adressage de réseau virtuel sur lequel la ressource Bastion sera déployée. Le sous-réseau doit être créé avec le nom **AzureBastionSubnet**. Utilisez un sous-réseau de /27 ou plus (/27, /26, /25, etc.).
-   * Sélectionnez **Gérer la configuration du sous-réseau**.
-1. Dans la page **Sous-réseaux**, sélectionnez **+ Sous-réseau**.
+   * **Étape 1 :** Les valeurs sont préremplies, car vous créez l’hôte bastion directement à partir de votre machine virtuelle.
 
-   :::image type="content" source="./media/quickstart-host-portal/subnet.png" alt-text="+ Sous-réseau":::
-    
-1. Dans la page **Ajouter un sous-réseau**, pour **Nom**, tapez **AzureBastionSubnet**.
-   * Pour la plage d’adresses de sous-réseau, choisissez une adresse de sous-réseau qui se trouve dans votre espace d’adressage de réseau virtuel.
-   * N’ajustez pas les autres paramètres. Sélectionnez **OK** pour accepter et enregistrer les changements de sous-réseau.
+   * **Étape 2 :** L’espace d’adressage est prérempli avec un espace d’adressage suggéré. AzureBastionSubnet doit avoir un espace d’adressage de /27 ou plus (/26, /25, etc.).
 
-   :::image type="content" source="./media/quickstart-host-portal/add-subnet.png" alt-text="Ajouter un sous-réseau":::
-1. Cliquez sur le bouton Précédent de votre navigateur pour revenir à la page **Bastion**, puis continuez à spécifier des valeurs.
-   * **Adresse IP publique** : Laissez l’option **Créer** définie.
-   * **Nom de l’adresse IP publique** : Nom de la ressource de l’adresse IP publique.
-   * **Attribution** : Statique par défaut. Vous ne pouvez pas utiliser une attribution Dynamique pour Azure Bastion.
+   :::image type="content" source="./media/quickstart-host-portal/create-subnet.png" alt-text="Capture d’écran de la création du sous-réseau Bastion.":::
+
+1. Cliquez sur **Créer un sous-réseau** pour créer AzureBastionSubnet.
+1. Une fois le sous-réseau créé, la page passe automatiquement à l’**étape 3**. Pour l’étape 3, utilisez les valeurs suivantes :
+
+   * **Nom :** nommez l’hôte bastion.
+   * **Adresse IP publique** : sélectionnez **Créer**.
+   * **Nom de l’IP publique :** nom de la ressource d’IP publique.
+   * **SKU de l’IP publique :** préconfiguré sur **Standard**.
+   * **Attribution :** préconfiguré sur **Statique**. Vous ne pouvez pas utiliser une attribution Dynamique pour Azure Bastion.
    * **Groupe de ressources** : Le même groupe de ressources que la machine virtuelle.
 
-   :::image type="content" source="./media/quickstart-host-portal/validate.png" alt-text="Créer l’hôte bastion":::
-1. Sélectionnez **Créer** pour créer l’hôte bastion. Azure valide vos paramètres, puis crée l’hôte. La création et le déploiement de l’hôte et de ses ressources prennent environ 5 minutes.
+   :::image type="content" source="./media/quickstart-host-portal/create-bastion.png" alt-text="Capture d’écran de l’étape 3.":::
+1. Après avoir renseigné les valeurs, sélectionnez **Créer Azure Bastion à l’aide des valeurs par défaut**. Azure valide vos paramètres, puis crée l’hôte. La création et le déploiement de l’hôte et de ses ressources prennent environ 5 minutes.
 
 ## <a name="connect"></a><a name="connect"></a>Connexion
 
@@ -106,7 +106,7 @@ Une fois Bastion déployé sur le réseau virtuel, l’écran devient la page de
 
 1. Entrez le nom d’utilisateur et le mot de passe pour votre machine virtuelle. puis **Connecter**.
 
-   :::image type="content" source="./media/quickstart-host-portal/connect-vm.png" alt-text="Capture d’écran montrant la boîte de dialogue Se connecter à l’aide d’Azure Bastion":::
+   :::image type="content" source="./media/quickstart-host-portal/connect.png" alt-text="Capture d’écran montrant la boîte de dialogue Se connecter à l’aide d’Azure Bastion":::
 1. La connexion RDP à cette machine virtuelle s’ouvre directement dans le portail Azure (via le protocole HTML5) à l’aide du port 443 et le service Bastion.
 
    :::image type="content" source="./media/quickstart-host-portal/connected.png" alt-text="Connexion RDP":::

@@ -4,17 +4,17 @@ description: Vous utilisez les fonctionnalités d’Azure Cost Management + Fact
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/28/2021
+ms.date: 03/03/2021
 ms.topic: overview
 ms.service: cost-management-billing
 ms.subservice: common
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: a070b2329777accab6f62b767f74dbc28e5d2623
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 9fe658a1755ce3731f220ec656845da1f861fa9b
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99051091"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050531"
 ---
 # <a name="what-is-azure-cost-management--billing"></a>Présentation d’Azure Cost Management + Facturation
 
@@ -33,6 +33,8 @@ Avec les produits et services Azure, vous payez uniquement ce que vous utilisez.
 
 Pour découvrir plus en détail comment une organisation doit approcher la gestion des coûts, consultez l’article [Bonnes pratiques pour Azure Cost Management](./costs/cost-mgt-best-practices.md).
 
+![Diagramme du processus d’optimisation de Cost Management and Billing.](./media/cost-management-optimization-process.png)
+
 ## <a name="understand-azure-billing"></a>Comprendre la facturation Azure
 
 Les fonctionnalités de la facturation Azure permettent d’examiner vos factures et de gérer l’accès aux informations de facturation. Dans les grandes entreprises, les équipes chargées de l’approvisionnement et des finances s’occupent généralement des tâches de facturation.
@@ -48,32 +50,6 @@ Le portail Azure prend en charge les types de comptes de facturation suivants :
 - **Contrat Entreprise** : Un compte de facturation pour un Contrat Entreprise est créé quand votre organisation signe un Contrat Entreprise (EA) pour utiliser Azure.
 
 - **Contrat client Microsoft** : Un compte de facturation pour un Contrat client Microsoft est créé lorsque votre organisation signe un Contrat client Microsoft avec un commercial Microsoft. Des clients dans certaines régions, qui s’inscrivent via le site web Azure pour un compte avec tarifs de paiement à l’utilisation ou mettent à niveau leur [compte gratuit Azure](./manage/create-free-services.md), peuvent avoir un compte de facturation pour un Contrat client Microsoft.
-
-### <a name="scopes-for-billing-accounts"></a>Étendues pour les comptes de facturation
-Une étendue est un nœud à l’intérieur d’un compte de facturation que vous utilisez pour afficher et gérer la facturation. C’est là que vous gérez les données de facturation, les paiements, les factures, et effectuez la gestion des comptes de manière générale.
-
-#### <a name="microsoft-online-services-program"></a>Programme Microsoft Online Services
-
-|Étendue  |Définition  |
-|---------|---------|
-|Compte de facturation     | Représente un seul propriétaire (administrateur de compte) pour un ou plusieurs abonnements Azure. Un administrateur de compte est autorisé à effectuer diverses tâches de facturation comme créer des abonnements, afficher des factures ou modifier la facturation des abonnements.  |
-|Abonnement     |  Représente un regroupement de ressources Azure. La facture est générée dans l’étendue de l’abonnement. Il a ses propres modes de paiement qui permettent de régler la facture associée.|
-
-#### <a name="enterprise-agreement"></a>Contrat Entreprise
-
-|Étendue  |Définition  |
-|---------|---------|
-|Compte de facturation    | Représente l’inscription à un Contrat Entreprise. La facture est générée dans l’étendue du compte de facturation. Il est structuré à l’aide des services et des comptes d’inscription.  |
-|department     |  Regroupement facultatif des comptes d’inscription.      |
-|Compte d’inscription     |  Représente un seul propriétaire de compte. Les abonnements Azure sont créés dans l’étendue des comptes d’inscription.  |
-
-#### <a name="microsoft-customer-agreement"></a>Contrat client Microsoft
-
-|Étendue  |Tâches  |
-|---------|---------|
-|Compte de facturation     |   Représente un contrat client pour plusieurs produits et services Microsoft. Le compte de facturation est structuré à l’aide de profils de facturation et de sections de facture.   |
-|Profil de facturation     |  Représente une facture et ses modes de paiement. La facture est générée dans cette étendue. Le profil de facturation peut comprendre plusieurs sections de facture.      |
-|Section de facture     |   Représente un groupe de coûts dans une facture. Les abonnements et autres achats sont associés à l’étendue de la section Facture.    |
 
 ## <a name="understand-azure-cost-management"></a>Présentation d’Azure Cost Management
 

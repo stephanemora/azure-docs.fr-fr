@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/14/2020
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: 59329fccda77f16e4a595e9b1789ef684c5cbf95
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 44245bc3cd9fd1afcfe9a74d60e2f51135a247ee
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98256316"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734037"
 ---
 ### <a name="networking-limits---azure-resource-manager"></a><a name="azure-resource-manager-virtual-networking-limits"></a>Limites de mise en réseau - Azure Resource Manager
 Les limites suivantes s’appliquent uniquement aux ressources de réseau gérées par le biais d’**Azure Resource Manager** par région et par abonnement. Découvrez comment [afficher l’utilisation actuelle de vos ressources par rapport aux limites de votre abonnement](../articles/networking/check-usage-against-limits.md).
@@ -23,7 +23,7 @@ Les limites suivantes s’appliquent uniquement aux ressources de réseau géré
 
 | Ressource | Limite | 
 | --- | --- |
-| Réseaux virtuels |1 000 |
+| Réseaux virtuels |1 000 |
 | Nombre de sous-réseaux par réseau virtuel |3 000 |
 | Peerings VNet par réseau virtuel |500 |
 | [Passerelles de réseau virtuel (passerelles VPN) par réseau virtuel](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku) |1 |
@@ -69,7 +69,7 @@ Les limites suivantes s’appliquent uniquement aux ressources de réseau géré
 | Ressource                                | Limite         |
 |-----------------------------------------|-------------------------------|
 | Équilibreurs de charge                          | 1 000                         |
-| Règles par ressource                      | 1 500                         |
+| Règles (Load Balancer + NAT entrant) par ressource                      | 1 500                         |
 | Règles par groupe de sécurité réseau (sur l’ensemble des adresses IP sur une carte réseau) | 300                           |
 | Configurations d’adresses IP frontales              | 600                           |
 | Taille de pool de serveur principal                       | 1 000 configurations d’adresses IP, réseau virtuel unique |
@@ -78,7 +78,7 @@ Les limites suivantes s’appliquent uniquement aux ressources de réseau géré
 | Règles de trafic sortant par Load Balancer        | 600                           |
 | Équilibreurs de charge par machine virtuelle                   | 2 (1 public et 1 interne)   |
 
-<sup>1</sup>La limite est fixée à 150 ressources, toute combinaison de ressources de machines virtuelles autonomes, ressources de groupes à haute disponibilité et groupes de placement de groupes de machines virtuelles identiques.
+<sup>1</sup> La limite est fixée à 150 ressources, dans toute combinaison de ressources de machines virtuelles autonomes, de ressources de groupes à haute disponibilité et de groupes de sélection élective de groupes de machines virtuelles identiques.
 
 **Load Balancer de base**
 
@@ -87,10 +87,12 @@ Les limites suivantes s’appliquent uniquement aux ressources de réseau géré
 | Équilibreurs de charge                          | 1 000                        |
 | Règles par ressource                      | 250                          |
 | Règles par groupe de sécurité réseau (sur l’ensemble des adresses IP sur une carte réseau) | 300                          |
-| Configurations d’adresses IP frontales              | 200                          |
+| Configurations d’adresses IP frontales<sup>2<sup>  | 200                          |
 | Taille de pool de serveur principal                       | 300 configurations d’adresses IP, groupe à haute disponibilité |
 | Groupes à haute disponibilité par Load Balancer     | 1                            |
 | Équilibreurs de charge par machine virtuelle                   | 2 (1 public et 1 interne)  |
+
+<sup>2</sup> La limite d’une seule ressource discrète dans un pool back-end (machine virtuelle autonome, groupe à haute disponibilité ou groupe de sélection élective de groupes de machines virtuelles identiques) consiste à avoir jusqu’à 250 configurations d’adresses IP frontales sur un seul équilibreur de charge public de base et un seul équilibreur de charge interne de base.
 
 <a name="virtual-networking-limits-classic"></a>Les limites suivantes s’appliquent uniquement aux ressources de réseau gérées par le biais du modèle de déploiement **classique** par abonnement. Découvrez comment [afficher l’utilisation actuelle de vos ressources par rapport aux limites de votre abonnement](../articles/networking/check-usage-against-limits.md).
 

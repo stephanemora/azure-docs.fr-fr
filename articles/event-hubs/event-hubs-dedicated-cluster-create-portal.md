@@ -3,17 +3,17 @@ title: Créer un cluster dédié Event Hubs à l’aide du portail Azure
 description: Dans ce guide de démarrage rapide, vous allez apprendre à créer un cluster Azure Event Hubs à l’aide du Portail Azure.
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: 2759d1e25519b69311c369f3f58239cc0889a9a7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6ff4ee1f098407ba8b3cd2727410bdfc842db89a
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88927763"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102040088"
 ---
-# <a name="quickstart-create-a-dedicated-event-hubs-cluster-using-azure-portal"></a>Démarrage rapide : Créer un cluster dédié Event Hubs à l’aide du portail Azure 
+# <a name="quickstart-create-a-dedicated-event-hubs-cluster-using-azure-portal"></a>Démarrage rapide : Créer un cluster Event Hubs dédié à l’aide de Portail Azure 
 Les clusters Event Hubs offrent des déploiements à locataire unique pour les clients aux besoins de streaming les plus pointus. Cette offre a un SLA de 99,99 % garanti et n'est disponible sur que notre niveau de tarification dédié. Un [cluster Event Hubs](event-hubs-dedicated-overview.md) peut recevoir des millions d’événements par seconde avec une garantie de capacité et de latence inférieure à la seconde. Les espaces de noms et les Event Hubs créées au sein d’un cluster comprennent toutes les fonctionnalités de l’offre standard et bien davantage, mais sans aucune limite d’entrée. L’offre dédiée comprend également la fameuse fonctionnalité [Event Hubs Capture](event-hubs-capture-overview.md) sans supplément, ce qui permet de charger automatiquement par lots des flux de dans le [Stockage Blob Azure](../storage/blobs/storage-blobs-introduction.md) ou [Azure Data Lake Storage Gen 1](../data-lake-store/data-lake-store-overview.md).
 
-Les clusters dédiés sont mis en service et facturés par **unités de capacité (CU)** , une quantité pré-allouée d'UC et de ressources mémoire. Vous pouvez acheter 1, 2, 4, 8, 12, 16 ou 20 unités de capacité pour chaque cluster. Dans ce démarrage rapide, nous vous guiderons dans la création d’un cluster Event Hubs 1 CU via le portail Azure.
+Les clusters dédiés sont mis en service et facturés par **unités de capacité (CU)**, une quantité pré-allouée d'UC et de ressources mémoire. Vous pouvez acheter 1, 2, 4, 8, 12, 16 ou 20 unités de capacité pour chaque cluster. Dans ce démarrage rapide, nous vous guiderons dans la création d’un cluster Event Hubs 1 CU via le portail Azure.
 
 > [!NOTE]
 > Cette expérience libre-service est actuellement disponible en préversion dans le [portail Azure](https://aka.ms/eventhubsclusterquickstart). Si vous avez des questions sur l’offre dédiée, veuillez contacter [l’équipe Event Hubs](mailto:askeventhubs@microsoft.com).
@@ -30,10 +30,13 @@ Pour suivre ce guide de démarrage rapide, veillez à avoir :
 ## <a name="create-an-event-hubs-dedicated-cluster"></a>Créer un cluster Event Hubs Dedicated
 Un cluster Event Hubs fournit un conteneur d’étendue unique dans laquelle vous pouvez créer un ou plusieurs espaces de noms. Dans la phase de préversion de l'expérience en libre-service du portail, vous pouvez créer des clusters à 1 unité de capacité dans les régions sélectionnées. Si vous avez besoin d’un cluster supérieur à 1 unité de capacité, vous pouvez soumettre une demande de support Azure pour faire évoluer votre cluster après sa création.
 
-Pour créer un cluster dans votre groupe de ressources à l’aide du portail, procédez comme suit :
+> [!IMPORTANT]
+> Vous ne pourrez pas supprimer le cluster pendant au moins quatre heures après sa création. Par conséquent, quatre heures minimum d’utilisation du cluster vous seront facturées. Pour plus d’informations sur la tarification, consultez la page [Tarification – Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/). 
+
+Pour créer un cluster dans votre groupe de ressources à l’aide du portail Azure, procédez comme suit :
 
 1. Suivez [ce lien](https://aka.ms/eventhubsclusterquickstart) pour créer un cluster sur le portail Azure. À l’inverse, sélectionnez **Tous les services** dans le volet de navigation gauche, puis tapez « Clusters Event Hubs » dans la barre de recherche et sélectionnez « Clusters Event Hubs » dans la liste des résultats.
-2. Sur la page **Créer un cluster**, configurez ce qui suit :
+2. Sur la page **Créer un cluster**, configurez les paramètres suivants :
     1. Entrez un **nom pour le cluster**. Le système vérifie immédiatement si le nom est disponible.
     2. Sélectionnez l’**abonnement** dans lequel vous souhaitez créer le cluster.
     3. Sélectionnez le **groupe de ressources** dans lequel vous souhaitez créer le cluster.
@@ -55,7 +58,7 @@ Pour créer un cluster dans votre groupe de ressources à l’aide du portail, p
 1. Pour créer un espace de noms dans un cluster, sur la page **Cluster Event Hubs** de votre cluster, sélectionnez **+Espace de noms** dans le menu supérieur.
 
     ![Page de gestion de cluster - bouton ajouter un espace de noms](./media/event-hubs-dedicated-cluster-create-portal/cluster-management-page-add-namespace-button.png)
-2. Sur la page de création d'un espace de noms, effectuez les opérations suivantes :
+2. Sur la page **Créer un espace de noms**, procédez comme suit :
     1. Entrez un **nom pour l’espace de noms**.  Le système vérifie si le nom est disponible.
     2. L’espace de noms hérite des propriétés suivantes :
         1. Identifiant d’abonnement
@@ -89,9 +92,12 @@ Si vous souhaitez modifier la taille de votre cluster après la création ou si 
 
  ## <a name="delete-a-dedicated-cluster"></a>Supprimer un cluster dédié
  
-1. Pour supprimer le cluster, sélectionnez **Supprimer** dans le menu supérieur. Veuillez noter que votre cluster est facturé pour un minimum de 4 heures d’utilisation après sa création. 
-2. Une demande de confirmation de suppression s'affiche.
-3. Tapez le **nom du cluster**, puis sélectionnez **Supprimer** pour supprimer le cluster.
+1. Pour supprimer le cluster, sélectionnez **Supprimer** dans le menu supérieur. 
+
+    > [!IMPORTANT]
+    > Vous ne pourrez pas supprimer le cluster pendant au moins quatre heures après sa création. Par conséquent, quatre heures minimum d’utilisation du cluster vous seront facturées. Pour plus d’informations sur la tarification, consultez la page [Tarification – Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/).     
+1. Une demande de confirmation de suppression s'affiche.
+1. Tapez le **nom du cluster**, puis sélectionnez **Supprimer** pour supprimer le cluster.
 
     ![Page Supprimer un cluster](./media/event-hubs-dedicated-cluster-create-portal/delete-cluster-page.png)
 

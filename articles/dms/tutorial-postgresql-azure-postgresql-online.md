@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019, devx-track-azurecli
 ms.topic: tutorial
 ms.date: 04/11/2020
-ms.openlocfilehash: c79e32ed48ebdc4fbb05de91a5d4b900408fb154
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: bb4dd08b4f30982ec4572fd4e130a89112578175
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258742"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102203553"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-db-for-postgresql-online-using-dms-via-the-azure-cli"></a>Tutoriel : Effectuer la migration en ligne de PostgreSQL vers Azure DB pour PostgreSQL via Azure CLI à l’aide de DMS
 
@@ -58,11 +58,11 @@ Pour suivre ce didacticiel, vous devez effectuer les opérations suivantes :
     >
     > Cette configuration est nécessaire car Azure Database Migration Service ne dispose pas d’une connectivité Internet.
 
-* Vérifiez que les règles NSG (groupe de sécurité réseau) de votre réseau virtuel ne bloquent pas les ports de communication sortants suivants vers Azure Database Migration Service : 443, 53, 9354, 445, 12000. Pour plus d’informations sur le filtrage du trafic de groupe de sécurité réseau de réseau virtuel, consultez l’article [Filtrer le trafic avec les groupes de sécurité réseau](../virtual-network/virtual-network-vnet-plan-design-arm.md).
-* Configurez votre [pare-feu Windows pour accéder au moteur de base de données](https://docs.microsoft.com/azure/postgresql/concepts-firewall-rules).
+* Vérifiez que les règles de groupe de sécurité réseau (NSG) de votre réseau virtuel ne bloquent pas le port de sortie 443 de ServiceTag pour ServiceBus, Storage et AzureMonitor. Pour plus d’informations sur le filtrage du trafic de groupe de sécurité réseau de réseau virtuel, consultez l’article [Filtrer le trafic avec les groupes de sécurité réseau](../virtual-network/virtual-network-vnet-plan-design-arm.md).
+* Configurez votre [pare-feu Windows pour accéder au moteur de base de données](/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 * Ouvrez votre pare-feu Windows pour permettre à Azure Database Migration Service d’accéder au serveur PostgreSQL source, par défaut le port TCP 5432.
 * Lorsque vous utilisez une appliance de pare-feu devant vos bases de données sources, vous devrez peut-être ajouter des règles de pare-feu pour permettre à Azure Database Migration Service d’accéder aux bases de données sources pour la migration.
-* Créez une [règle de pare-feu](https://docs.microsoft.com/azure/postgresql/concepts-firewall-rules) de niveau serveur pour Azure Database pour PostgreSQL afin de permettre à Azure Database Migration Service d’accéder aux bases de données cibles. Fournissez la plage de sous-réseau du réseau virtuel utilisé pour Azure Database Migration Service.
+* Créez une [règle de pare-feu](../postgresql/concepts-firewall-rules.md) de niveau serveur pour Azure Database pour PostgreSQL afin de permettre à Azure Database Migration Service d’accéder aux bases de données cibles. Fournissez la plage de sous-réseau du réseau virtuel utilisé pour Azure Database Migration Service.
 * Il existe deux méthodes pour appeler l’interface CLI :
 
   * Dans l’angle supérieur droit du portail Azure, sélectionnez le bouton Cloud Shell :
@@ -71,7 +71,7 @@ Pour suivre ce didacticiel, vous devez effectuer les opérations suivantes :
 
   * Installez et exécutez l’interface CLI localement. CLI 2.0 est l’outil en ligne de commande pour la gestion des ressources Azure.
 
-       Pour télécharger l’interface CLI, suivez les instructions fournies dans l’article [Installer Azure CLI 2.0](/cli/azure/install-azure-cli?view=azure-cli-latest). Cet article répertorie également les plateformes qui prennent en charge CLI 2.0.
+       Pour télécharger l’interface CLI, suivez les instructions fournies dans l’article [Installer Azure CLI 2.0](/cli/azure/install-azure-cli). Cet article répertorie également les plateformes qui prennent en charge CLI 2.0.
 
        Pour configurer Sous-système Windows pour Linux (WSL), suivez les instructions du [Guide d’installation de Windows 10](/windows/wsl/install-win10)
 

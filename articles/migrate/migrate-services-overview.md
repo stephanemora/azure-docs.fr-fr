@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: overview
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: a5fa6b1c75bee562394af42fcea9ebfabeb732f0
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 858f006de7425a9fa8bea25e356a148b877aa30d
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100389533"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102040598"
 ---
 # <a name="about-azure-migrate"></a>À propos d’Azure Migrate
 
@@ -37,7 +37,7 @@ Le hub Azure Migrate comprend ces outils :
 --- | --- | ---
 **Azure Migrate : Server Assessment** | Évaluez des serveurs. | Découvrez et évaluez les machines virtuelles VMware, les machines virtuelles Hyper-V et les serveurs physiques locaux pour les préparer à une migration vers Azure.
 **Azure Migrate : Server Migration** | Migrez des serveurs. | Migrez des machines virtuelles VMware, des machines virtuelles Hyper-V, des serveurs physiques, d’autres machines virtualisées ainsi que des machines virtuelles de cloud public vers Azure.
-**Assistant de migration des données** | Évaluez les bases de données SQL Server pour la migration vers Azure SQL Database, Azure SQL Managed Instance ou des machines virtuelles Azure exécutant SQL Server. | Assistant Migration de données aide à identifier les problèmes potentiels bloquant la migration. Il identifie les fonctionnalités non prises en charge, les nouvelles fonctionnalités dont vous pouvez bénéficier après la migration, et le chemin approprié pour la migration de base de données. [Plus d’informations](/sql/dma/dma-overview?view=sql-server-2017)
+**Assistant de migration des données** | Évaluez les bases de données SQL Server pour la migration vers Azure SQL Database, Azure SQL Managed Instance ou des machines virtuelles Azure exécutant SQL Server. | Assistant Migration de données aide à identifier les problèmes potentiels bloquant la migration. Il identifie les fonctionnalités non prises en charge, les nouvelles fonctionnalités dont vous pouvez bénéficier après la migration, et le chemin approprié pour la migration de base de données. [Plus d’informations](/sql/dma/dma-overview)
 **Azure Database Migration Service** | Migrez des bases de données locales vers des machines virtuelles Azure exécutant SQL Server, Azure SQL Database ou des instances managées SQL. | [En savoir plus](../dms/dms-overview.md) sur Database Migration Service.
 **Movere** | Évaluez des serveurs. | [En savoir plus](#movere) sur Movere.
 **Assistant Migration d’applications web** | Évaluez les applications web locales et migrez-les vers Azure. |  utilisez l’Assistant Migration Azure App Service pour évaluer les sites web locaux en vue de leur migration vers Azure App Service.<br/><br/> Utilisez Migration Assistant pour migrer des applications web .NET et PHP vers Azure. [En savoir plus](https://appmigration.microsoft.com/) sur Azure App Service Migration Assistant.
@@ -78,6 +78,9 @@ L’outil d’évaluation de serveur utilise une [appliance Azure Migrate](migra
 - L’appliance découvre des machines locales. Elle envoie aussi continuellement les métadonnées et les données de performances des machines vers Azure Migrate.
 - La découverte de l’appliance se fait sans agent. Rien n’est installé sur les machines découvertes.
 - Une fois la découverte effectuée, vous pouvez regrouper les machines découvertes et exécuter des évaluations pour chaque groupe.
+
+> [!Note]
+> La découverte et l’évaluation d’instances et de bases de données SQL Server s’exécutant dans votre environnement VMware sont actuellement en préversion. Pour tester cette fonctionnalité, utilisez [**ce lien**](https://go.microsoft.com/fwlink/?linkid=2155668) afin de créer un projet dans la région **Australie Est**. Si vous avez déjà un projet en Australie Est et si vous souhaitez tester cette fonctionnalité, vérifiez que vous avez effectué ces [**prérequis**](how-to-discover-sql-existing-project.md) dans le portail.
 
 ## <a name="azure-migrate-server-migration-tool"></a>Azure Migrate : Outil Server Migration
 

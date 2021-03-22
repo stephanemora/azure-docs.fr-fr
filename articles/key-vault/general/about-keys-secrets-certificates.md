@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: overview
 ms.date: 04/17/2020
 ms.author: mbaldwin
-ms.openlocfilehash: e0a45bde32fed651c4b38d203b3c75a6d928e7c5
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: f2a33b4011b0bb89ca17010fc787aebe8c17fc92
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96327081"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183928"
 ---
 # <a name="azure-key-vault-keys-secrets-and-certificates-overview"></a>Vue d’ensemble des clés, secrets et certificats Azure Key Vault
 
@@ -44,7 +44,7 @@ Clés protégées par logiciel|/keys|Prise en charge|Non pris en charge
 **Autres types d’objets**||
 Secrets|/secrets|Prise en charge|Non pris en charge
 Certificats|/certificates|Prise en charge|Non pris en charge
-Clés de compte de stockage|/storageaccount|Prise en charge|Non pris en charge
+Clés de compte de stockage|/storage|Prise en charge|Non pris en charge
 |||
 - **Clés de chiffrement** : Prend en charge plusieurs algorithmes et types de clés, et permet l’utilisation de clés protégées par logiciel et par HSM. Pour plus d’informations sur les clés, consultez [À propos des clés](../keys/about-keys.md).
 - **Secrets** : Fournit un stockage sécurisé des secrets, comme les mots de passe et les chaînes de connexion de base de données. Pour plus d’informations, consultez [À propos des secrets](../secrets/about-secrets.md).

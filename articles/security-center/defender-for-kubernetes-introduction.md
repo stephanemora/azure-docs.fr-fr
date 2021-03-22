@@ -7,12 +7,12 @@ ms.date: 02/07/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 0878686e203960a0b7f33c19cc64e82319997684
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 83d0215ebca9d60d61937cb20bb82c7ccb30aac1
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100590449"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102100625"
 ---
 # <a name="introduction-to-azure-defender-for-kubernetes"></a>Présentation d’Azure Defender pour Kubernetes
 
@@ -29,7 +29,7 @@ La détection des menaces au niveau de l’hôte sur les nœuds AKS Linux est di
 |Aspect|Détails|
 |----|:----|
 |État de sortie :|Disponibilité générale (GA)|
-|Prix :|**Azure Defender pour Kubernetes** est facturé conformément aux indications de la [page des tarifs](security-center-pricing.md).|
+|Prix :|**Azure Defender pour Kubernetes** est facturé conformément à la [tarification de Security Center](https://azure.microsoft.com/pricing/details/security-center/)|
 |Rôles et autorisations obligatoires :|L’**administrateur de sécurité** peut ignorer les alertes.<br>Le **Lecteur de sécurité** peut afficher les résultats.|
 |Clouds :|![Oui](./media/icons/yes-icon.png) Clouds commerciaux<br>![Oui](./media/icons/yes-icon.png) National/souverain (US Gov, Chine Gov, autres Gov)|
 |||
@@ -79,7 +79,7 @@ Si vos clusters exécutent déjà l’agent Azure Monitor pour conteneurs, vous 
 Dans cet article, vous avez découvert la protection Kubernetes de Security Center, notamment Azure Defender pour Kubernetes. 
 
 > [!div class="nextstepaction"]
-> [Activer Azure Defender](security-center-pricing.md#enable-azure-defender)
+> [Activer Azure Defender](enable-azure-defender.md)
 
 Pour des informations connexes, consultez les articles suivants : 
 

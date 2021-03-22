@@ -6,14 +6,14 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 12/15/2020
+ms.date: 02/24/2021
 ms.author: banders
-ms.openlocfilehash: 8c69f477f363654b8bd707949f0a5b4c46a4e8df
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 477dff9db28672f8231710af34786ac387f43b71
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97561102"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050339"
 ---
 # <a name="view-azure-reservations"></a>Voir les réservations Azure
 
@@ -38,17 +38,24 @@ Pour permettre à d’autres personnes de gérer des réservations, vous avez le
     1. Tapez l’adresse e-mail de l’utilisateur à ajouter comme propriétaire.
     1. Sélectionnez l’utilisateur, puis **Enregistrer**.
 
-- Ajouter un utilisateur en tant qu’administrateur de facturation à un Accord Entreprise ou à un Contrat client Microsoft :
-    - Pour un Accord Entreprise, ajoutez des utilisateurs avec le rôle d’_Administrateur d’entreprise_ qui permet d’afficher et de gérer tous les ordres de réservation qui s’appliquent à l’Accord Entreprise. Les utilisateurs détenant le rôle d’_Administrateur d’entreprise (lecture seule)_ peuvent uniquement afficher la réservation. Les administrateurs de service et les propriétaires de compte ne peuvent pas afficher les réservations _à moins_ d’être explicitement ajoutés à celles-ci à l’aide du contrôle d’accès (IAM). Pour plus d’informations, consultez [Gestion des rôles Azure Enterprise](../manage/understand-ea-roles.md).
+- Ajouter un utilisateur en tant qu’administrateur de facturation à un Contrat Entreprise ou à un Contrat client Microsoft :
+    - Pour un Contrat Entreprise, ajoutez des utilisateurs avec le rôle d’_Administrateur d’entreprise_ qui permet d’afficher et de gérer tous les ordres de réservation qui s’appliquent au Contrat Entreprise. Les utilisateurs détenant le rôle d’_Administrateur d’entreprise (lecture seule)_ peuvent uniquement afficher la réservation. Les administrateurs de service et les propriétaires de compte ne peuvent pas afficher les réservations _à moins_ d’être explicitement ajoutés à celles-ci à l’aide du contrôle d’accès (IAM). Pour plus d’informations, consultez [Gestion des rôles Azure Enterprise](../manage/understand-ea-roles.md).
 
-        _Les administrateurs d’entreprise peuvent prendre possession d’un ordre de réservation et ils peuvent ajouter d’autres utilisateurs à une réservation à l’aide du contrôle d’accès (IAM)._
+        _Les administrateurs d’entreprise peuvent prendre possession d’un ordre de réservation et peuvent ajouter d’autres utilisateurs à une réservation à l’aide du contrôle d’accès (IAM)._
     - Pour un Contrat client Microsoft, les utilisateurs détenant le rôle de propriétaire du profil de facturation ou le rôle de contributeur du profil de facturation peuvent gérer l’ensemble des achats de réservation effectués à l’aide du profil de facturation. Les lecteurs de profil de facturation et les gestionnaires de facture peuvent voir toutes les réservations qui sont réglées avec le profil de facturation. Toutefois, ils ne peuvent apporter aucune modification aux réservations.
     Pour plus d’informations, consultez [Rôles et tâches liés au profil de facturation](../manage/understand-mca-roles.md#billing-profile-roles-and-tasks).
 
 ### <a name="how-billing-administrators-view-or-manage-reservations"></a>Comment les administrateurs de facturation affichent ou gèrent les réservations
 
-1. Accédez à **Cost Management + Billing** puis, sur le côté gauche de la page, sélectionnez **Transactions de réservation**.
-2. Si vous disposez des autorisations de facturation nécessaires, vous pouvez afficher et gérer les réservations. Si vous ne voyez aucune réservation, assurez-vous que vous êtes connecté à l’aide du locataire Azure AD dans lequel les réservations ont été créées.
+Si vous avez accès à des réservations ou à des commandes de réservation avec un accès Azure RBAC, vous ne verrez peut-être qu’un sous-ensemble de transactions de réservation, voire aucune, lorsque vous accédez à Réservations. Procédez comme suit pour afficher et gérer toutes les réservations et transactions de réservation.
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com) et accédez à **Cost Management and Billing**.
+    - Si vous êtes un administrateur d’entreprise, dans le menu de gauche, sélectionnez **Étendues de facturation**, puis, dans la liste des étendues de facturation, sélectionnez-en une.
+    - Si vous êtes propriétaire d’un profil de facturation Contrat client Microsoft, dans le menu de gauche, sélectionnez **Profils de facturation**. Dans la liste des profils de facturation, sélectionnez-en un.
+1. Dans le menu de gauche, sélectionnez **Transactions de réservation**. La liste des transactions de réservation est affichée.
+1. Une bannière en haut de la page indique *Les administrateurs de facturation peuvent désormais gérer les réservations. Cliquez ici pour gérer les réservations.* Sélectionnez la bannière.
+1. La liste complète des réservations pour votre profil d’inscription ou de facturation d’administrateur d’entreprise s’affiche.
+1. Si vous souhaitez prendre possession d’une réservation, sélectionnez-la. Ensuite, dans la page Configuration des autorisations, sélectionnez **Accorder l’accès**. Vous recevez un accès propriétaire à la réservation et à la commande de réservation.
 
 ## <a name="view-reservation-and-utilization-in-the-azure-portal"></a>Afficher la réservation et l’utilisation dans le portail Azure
 

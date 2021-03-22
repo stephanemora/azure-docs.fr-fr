@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 10/28/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7882fc6a6823a93d09c04a8ae2c19005df4843d8
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 37768b994d4b61ee728e04352f027a6f5a478341
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98917091"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102031614"
 ---
 # <a name="what-is-azure-synapse-analytics"></a>Qu’est-ce qu’Azure Synapse Analytics ?
 
@@ -64,13 +64,13 @@ Azure Synapse offre aux entreprises une méthode unique pour gérer les ressourc
 * Contrôle d’accès fin sur les données et le code
 * Tableau de bord unique pour superviser les ressources, l’utilisation et les utilisateurs dans SQL et Spark
 
-### <a name="synapse-studio"></a>Synapse Studio
+### <a name="unified-experience"></a>Expérience unifiée
 
-**Synapse Studio** est une expérience native dans le web qui regroupe dans un seul et même endroit tout ce dont les ingénieurs de données ont besoin pour effectuer les tâches nécessaires à la création d’une solution complète.
+**Synapse Studio** est l’expérience utilisateur qui associe tout pour les ingénieurs de données. Elle leur permet d’effectuer toutes les tâches nécessaires à l’élaboration d’une solution d’analyse complète.
 
-* Créer une solution d’analytique de bout en bout en un seul endroit : ingestion, exploration, préparation, orchestration, visualisation
-* Productivité de pointe pour les ingénieurs de données écrivant du code SQL ou Spark : création, débogage et optimisation des performances
-* Intégrer aux processus CI/CD d’entreprise
+* Principales tâches des ingénieurs de données à un même emplacement : ingérer, explorer, préparer, orchestrer, visualiser
+* Productivité de pointe pour l’écriture de code SQL ou Spark : création, débogage et optimisation des performances
+* Intégrer au processus CI/CD d’entreprise
 
 ## <a name="engage-with-the-synapse-engineering-team"></a>Collaborer avec l’équipe d’ingénierie de Synapse
 

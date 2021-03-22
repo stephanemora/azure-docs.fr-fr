@@ -8,12 +8,12 @@ ms.author: nmurav
 ms.date: 12/11/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: d2df7255980ca00d405cf80a9fff69ff0511bd17
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 5ffc655cebb19b755b990171ab662576ac541793
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101659305"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102174289"
 ---
 # <a name="call-flow-topologies"></a>Topologies des flux d’appels
 Cet article décrit les topologies de flux d’appels Azure Communication Services. Si vous êtes un client d’entreprise intégrant Communication Services dans un réseau que vous gérez, vous avez tout intérêt à lire cet article. Pour une présentation des flux d’appels Communication Services, consultez la [documentation conceptuelle sur les flux d’appels](./call-flows.md).
@@ -152,7 +152,7 @@ La signalisation entre le VPN et le réseau client utilise le flux 2*. La signa
 
 ### <a name="vpn-user-to-internal-user-direct-media"></a>D’un utilisateur VPN vers un utilisateur interne (transmission multimédia directe)
 
-:::image type="content" source="./media/call-flows/vpn-to-internal-direct-media.png" alt-text="Flux d’appel un-à-un avec un utilisateur VPN et une transmission multimédia directe":::
+:::image type="content" source="./media/call-flows/vpn-to-internal-direct-media.png" alt-text="Flux d’appel un-à-un (utilisateur interne) avec un utilisateur VPN et une transmission multimédia directe":::
 
 *Figure 6 – D’un utilisateur VPN vers un utilisateur interne (transmission multimédia directe)*
 
@@ -162,7 +162,7 @@ Cette transmission multimédia est bidirectionnelle. La direction du flux 2 ver
 
 ### <a name="vpn-user-to-external-user-direct-media"></a>D’un utilisateur VPN vers un utilisateur externe (transmission multimédia directe)
 
-:::image type="content" source="./media/call-flows/vpn-user-to-external-user.png" alt-text="Flux d’appel un-à-un avec un utilisateur VPN et une transmission multimédia directe":::
+:::image type="content" source="./media/call-flows/vpn-user-to-external-user.png" alt-text="Flux d’appel un-à-un (utilisateur externe) avec un utilisateur VPN et une transmission multimédia directe":::
 
 *Figure 7 – D’un utilisateur VPN vers un utilisateur externe (transmission multimédia directe)*
 

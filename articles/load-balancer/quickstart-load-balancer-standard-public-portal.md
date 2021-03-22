@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/22/2020
+ms.date: 02/22/2021
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 8827171788bd83a202b3607537204c71c34f29e0
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 634f09c7862f6e3e2f147094503f5a574476ef91
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97511839"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102034385"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Démarrage rapide : Créer un équilibreur de charge de base public pour équiper la charge de machines virtuelles en utilisant le portail Azure
 
@@ -49,26 +49,29 @@ Dans cette section, vous créez un équilibreur de charge qui équilibre la char
 
 Quand vous créez un équilibreur de charge public, vous créez une adresse IP publique configurée en tant que front-end (nommée **LoadBalancerFrontend** par défaut) pour l’équilibreur de charge.
 
-1. Dans l’angle supérieur gauche de l’écran, cliquez sur **Créer une ressource** > **Mise en réseau** > **Load Balancer**.
-
-2. Dans l’onglet **Fonctions de base** de la page **Créer un équilibreur de charge**, entrez ou sélectionnez les informations suivantes : 
+1. Sélectionnez **Créer une ressource**. 
+2. Dans la zone de recherche, entrez **Équilibreur de charge**. Sélectionnez **Équilibreur de charge** dans les résultats de recherche.
+3. Dans la page **Équilibreur de charge**, sélectionnez **Créer**.
+4. Sur la page **Créer un équilibreur de charge**, entrez ou sélectionnez les informations suivantes : 
 
     | Paramètre                 | Valeur                                              |
     | ---                     | ---                                                |
-    | Subscription               | Sélectionnez votre abonnement.    |    
+    | Abonnement               | Sélectionnez votre abonnement.    |    
     | Resource group         | Sélectionnez **Créer**, puis entrez **CreatePubLBQS-rg** dans la zone de texte.|
     | Nom                   | Entrez **myLoadBalancer**                                   |
-    | Région         | Sélectionnez **Europe Ouest**.                                        |
+    | Région         | Sélectionnez **(Europe) Europe Ouest**.                                        |
     | Type          | Sélectionnez **Public**.                                        |
-    | SKU           | sélectionnez **Standard**. |
+    | SKU           | Conservez la valeur par défaut **Standard**. |
+    | Niveau          | Conservez la valeur par défaut **Régional**. |
     | Adresse IP publique | Sélectionnez **Créer nouveau**. Si vous avez une adresse IP publique existante que vous souhaitez utiliser, sélectionnez **Utiliser l’existant**. |
     | Nom de l’adresse IP publique | Tapez **myPublicIP** dans la zone de texte.|
     | Zone de disponibilité | Sélectionnez **Redondant interzone** pour créer un équilibreur de charge résilient. Pour créer un équilibreur de charge zonal, sélectionnez une zone spécifique parmi 1, 2 ou 3 |
     | Ajouter une adresse IPv6 publique | Sélectionnez **Non**. </br> Pour plus d’informations sur les adresses IPv6 et l’équilibreur de charge, consultez [Qu’est-ce que le protocole IPv6 pour réseau virtuel Azure ?](../virtual-network/ipv6-overview.md)  |
+    | Préférence de routage | Laissez la valeur par défaut **Microsoft network**. </br> Pour plus d’informations sur la préférence de routage, consultez la section [Qu’est-ce qu’une préférence de routage (préversion) ?](../virtual-network/routing-preference-overview.md). |
 
-3. Acceptez les valeurs par défaut pour les paramètres restants, puis sélectionnez **Vérifier + créer**.
+5. Acceptez les valeurs par défaut pour les paramètres restants, puis sélectionnez **Vérifier + créer**.
 
-4. Sous l’onglet **Review + create (Vérifier + créer)** , sélectionnez **Créer**.   
+6. Sous l’onglet **Review + create (Vérifier + créer)** , sélectionnez **Créer**.   
     
     :::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/create-standard-load-balancer.png" alt-text="Créer un équilibreur de charge standard" border="true":::
  
@@ -334,13 +337,14 @@ Dans cette section, vous créez un équilibreur de charge qui équilibre la char
 
 Quand vous créez un équilibreur de charge public, vous créez une adresse IP publique configurée en tant que front-end (nommée **LoadBalancerFrontend** par défaut) pour l’équilibreur de charge.
 
-1. Dans l’angle supérieur gauche de l’écran, cliquez sur **Créer une ressource** > **Mise en réseau** > **Load Balancer**.
-
-2. Dans l’onglet **Fonctions de base** de la page **Créer un équilibreur de charge**, entrez ou sélectionnez les informations suivantes : 
+1. Sélectionnez **Créer une ressource**. 
+2. Dans la zone de recherche, entrez **Équilibreur de charge**. Sélectionnez **Équilibreur de charge** dans les résultats de recherche.
+3. Dans la page **Équilibreur de charge**, sélectionnez **Créer**.
+4. Sur la page **Créer un équilibreur de charge**, entrez ou sélectionnez les informations suivantes : 
 
     | Paramètre                 | Valeur                                              |
     | ---                     | ---                                                |
-    | Subscription               | Sélectionnez votre abonnement.    |    
+    | Abonnement               | Sélectionnez votre abonnement.    |    
     | Resource group         | Sélectionnez **Créer**, puis tapez **CreatePubLBQS-rg** dans la zone de texte.|
     | Nom                   | Entrez **myLoadBalancer**                                   |
     | Région         | Sélectionnez **Europe Ouest**.                                        |
@@ -351,9 +355,9 @@ Quand vous créez un équilibreur de charge public, vous créez une adresse IP 
     | Affectation | Sélectionnez **Dynamique** |
     | Ajouter une adresse IPv6 publique | Sélectionnez **Non**. </br> Pour plus d’informations sur les adresses IPv6 et l’équilibreur de charge, consultez [Qu’est-ce que le protocole IPv6 pour réseau virtuel Azure ?](../virtual-network/ipv6-overview.md)  |
 
-3. Acceptez les valeurs par défaut pour les paramètres restants, puis sélectionnez **Vérifier + créer**.
+5. Acceptez les valeurs par défaut pour les paramètres restants, puis sélectionnez **Vérifier + créer**.
 
-4. Sous l’onglet **Review + create (Vérifier + créer)** , sélectionnez **Créer**.   
+6. Sous l’onglet **Review + create (Vérifier + créer)** , sélectionnez **Créer**.   
 
     :::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/create-basic-load-balancer.png" alt-text="Créer un équilibreur de charge de base" border="true":::
 

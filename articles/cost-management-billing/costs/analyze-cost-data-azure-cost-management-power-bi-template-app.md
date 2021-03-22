@@ -3,17 +3,17 @@ title: Analyser les coûts d’Azure avec l’application Power BI
 description: Cet article explique comment installer et utiliser l’application Power BI Azure Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 1/29/2021
+ms.date: 02/19/2021
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: benshy
-ms.openlocfilehash: d3439f5a86c445898d95191a32496b5f0c86be0b
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: b08ff57f964ef7bc3712c930c222a10ed0f89ef4
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99070155"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102045107"
 ---
 # <a name="analyze-cost-with-the-azure-cost-management-power-bi-app-for-enterprise-agreements-ea"></a>Analyser les coûts avec l’application Power BI Azure Cost Management pour les Contrats Entreprise
 
@@ -36,24 +36,23 @@ L’application limite les possibilités de personnalisation. Si vous souhaitez 
 Pour installer l’application :
 
 1. Ouvrez [Application Power BI Azure Cost Management](https://aka.ms/costmgmt/ACMApp).
-2. Dans la page AppSource de Power BI, sélectionnez **Obtenir**.
-3. Sélectionnez **Continuer** pour accepter les conditions d’utilisation et la politique de confidentialité.
-4. Dans la zone **Installer cette application Power BI**, sélectionnez **Installer**.
-5. Si nécessaire, créez un espace de travail et sélectionnez **Continuer**.
-6. Une fois l’installation terminée, une notification apparaît, indiquant que votre nouvelle application est prête.
-7. Sélectionnez **Accéder à l’application**.
-8. Dans **Démarrer avec votre nouvelle application**, sous **Connecter vos données**, sélectionnez **Connecter**.  
-  ![Démarrer avec votre nouvelle application - Connecter](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/connect-data2.png)
-9. Dans la boîte de dialogue qui apparaît, entrez votre numéro d’inscription Contrat Entreprise pour **BillingProfileIdOrEnrollmentNumber**. Spécifiez le nombre de mois de données à obtenir. Conservez la valeur d’**Étendue** par défaut de **Numéro d’inscription**, puis sélectionnez **Suivant**.  
-  ![Entrer les informations d’inscription du Contrat Entreprise](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-number.png)  
-10. La boîte de dialogue suivante se connecte à Azure et obtient les données nécessaires pour les recommandations d’instances réservées. *Laissez les valeurs par défaut comme elles sont configurées* et sélectionnez **Sign in** (Se connecter).  
-  ![Capture d’écran illustrant la boîte de dialogue Se connecter à l’application Azure Cost Management avec les valeurs par défaut.](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit.png)  
-11. La dernière étape de l’installation est de se connecter à votre inscription Contrat Entreprise ; elle nécessite un compte [Administrateur d’entreprise](../manage/understand-ea-roles.md). Sélectionnez **Sign in** (Se connecter) pour vous authentifier avec votre inscription Contrat Entreprise. Cette étape lance également une action d’actualisation des données dans Power BI.  
-  ![Se connecter à l’inscription Contrat Entreprise](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-auth.png)  
+1. Dans la page AppSource de Power BI, sélectionnez **Obtenir**.
+1. Sélectionnez **Continuer** pour accepter les conditions d’utilisation et la politique de confidentialité.
+1. Dans la zone **Installer cette application Power BI**, sélectionnez **Installer**.
+1. Si nécessaire, créez un espace de travail et sélectionnez **Continuer**.
+1. Une fois l’installation terminée, une notification apparaît, indiquant que votre nouvelle application est prête.
+1. Sélectionnez l’application que vous avez installée.
+1. Sur la page Prise en main, sélectionnez **Connecter vos données**.
+    :::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/connect-your-data.png" alt-text="Capture d’écran mettant en évidence le lien Connecter vos données." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/connect-your-data.png" :::
+1. Dans la boîte de dialogue qui apparaît, entrez votre numéro d’inscription Contrat Entreprise pour **BillingProfileIdOrEnrollmentNumber**. Spécifiez le nombre de mois de données à obtenir. Conservez la valeur d’**Étendue** par défaut de **Numéro d’inscription**, puis sélectionnez **Suivant**.  
+    :::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-number.png" alt-text="Capture d’écran montrant où vous entrez vos informations d’inscription d’administrateur d’entreprise." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-number.png" :::
+1. La boîte de dialogue suivante se connecte à Azure et obtient des données. *Laissez les valeurs par défaut telles qu’elles sont configurées* et sélectionnez **Se connecter et continuer**.  
+    :::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit.png" alt-text="Capture d’écran illustrant la boîte de dialogue Se connecter à l’application Azure Cost Management avec les valeurs par défaut." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit.png" :::
+1. La dernière étape de l’installation est de se connecter à votre inscription Contrat Entreprise ; elle nécessite un compte [Administrateur d’entreprise](../manage/understand-ea-roles.md). Laissez toutes les valeurs par défaut. Sélectionnez **Se connecter**.  
+    :::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-auth.png" alt-text="Capture d’écran illustrant la boîte de dialogue Se connecter à l’application Azure Cost Management avec les valeurs par défaut avec lesquelles se connecter." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-auth.png" :::
+1. Vous êtes invité à vous authentifier à l’aide de votre inscription d’administrateur d’entreprise. Authentifiez-vous avec Power BI. Une fois que vous êtes authentifié, le rafraîchissement des données Power BI commence.
     > [!NOTE]
     > Le processus d’actualisation des données peut prendre un certain temps. Sa durée dépend du nombre de mois spécifiés et de la quantité de données à synchroniser.
-12. Pour vérifier l’état d’actualisation des données, sélectionnez l’onglet **Datasets** (Jeux de données) dans l’espace de travail. Regardez ensuite l’horodatage Actualisé. S’il est toujours en cours de mise à jour, vous voyez un indicateur montrant que l’actualisation est en cours.  
-  ![Actualiser les données](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/data-refresh2.png)
 
 Une fois l’actualisation des données terminée, sélectionnez l’application Azure Cost Management pour visualiser les rapports créés au préalable.
 
@@ -78,11 +77,11 @@ Les rapports suivants sont disponibles dans l’application.
 
 **Utilisation d’Azure Hybrid Benefit sur Windows Server** - Le rapport montre le nombre de machines virtuelles pour lesquelles Azure Hybrid Benefit activée. Il montre également le nombre de cœurs/processeurs virtuels utilisés par les machines virtuelles.
 
-![Rapport complet Azure Hybrid Benefit](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ahb-report-full.png)
+:::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ahb-report-full.png" alt-text="Capture d’écran montrant le rapport complet d’Azure Hybrid Benefits." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ahb-report-full.png" :::
 
 Le rapport identifie également les machines virtuelles Windows où Hybrid Benefit est **Activé** mais où il y a _moins de_ 8 processeurs virtuels. Il montre aussi les endroits où Hybrid Benefit est **non activé** et qui ont 8 processeurs virtuels _ou plus_. Ces informations vous aident à utiliser pleinement Hybrid Benefit. Appliquez l’avantage à vos machines virtuelles les plus coûteuses pour optimiser vos économies potentielles.
 
-![Avantages Azure Hybrid Benefit : Moins de 8 processeurs virtuels et processeurs virtuels non activés](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ahb-report.png)
+:::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ahb-report.png" alt-text="Capture d’écran montrant les zones Moins de 8 processeurs virtuels et Processeurs virtuels non activés du rapport d’Azure Hybrid Benefits." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ahb-report.png" :::
 
 **RI Chargeback** (Refacturation des instances réservées) - Le rapport vous aide à comprendre où et dans quelle mesure un avantage des instances réservées est appliqué par région, par abonnement, par groupe de ressources ou par ressource. Le rapport utilise les données d’utilisation amorties pour montrer la vue.
 
@@ -105,7 +104,7 @@ Vous pouvez utiliser les données d’utilisation amorties comme base pour les d
 
 Pour utiliser le rapport, sélectionnez le filtre d’exploration.
 
-![Rapport de couverture des instances réservées de machines virtuelles - Sélection de l’exploration](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ri-drill-down2.png)
+:::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ri-drill-down2.png" alt-text="Capture d’écran montrant l’option Sélectionner le filtre d’exploration dans le rapport de couverture des instances de machine virtuelle réservée." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ri-drill-down2.png" :::
 
 Sélectionnez la région que vous voulez analyser. Sélectionnez ensuite le groupe de flexibilité de taille d’instance, etc.
 
@@ -118,7 +117,7 @@ Le tableau des recommandations fournit des recommandations pour l’achat des r�
 
 Les valeurs de _Normalized Size_ (Taille normalisée) et de _Recommended Quantity Normalized_ (Quantité normalisée recommandée) vous aident à normaliser l’achat à la plus petite taille possible pour un groupe de flexibilité de taille d’instance. Les informations sont utiles si vous prévoyez d’acheter une seule réservation pour toutes les tailles dans le groupe de flexibilité de taille d’instance.
 
-![Recommandations pour les instances réservées](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ri-recomendations.png)
+:::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ri-recommendations.png" alt-text="Capture d’écran montrant le rapport de recommandations relatif aux instances de machine virtuelle réservée." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ri-recommendations.png" :::
 
 **VM RI Coverage (single recommendation)** (Couverture des instances réservées de machines virtuelles [recommandation unique]) - Le rapport est divisé entre l’utilisation des machines virtuelles à la demande et l’utilisation des machines virtuelles des instances réservées sur la période de temps sélectionnée. Il fournit des recommandations pour les achats d’instances réservées de machines virtuelles au niveau d’une étendue d’abonnement.
 
@@ -151,7 +150,7 @@ La valeur de l’**étendue** par défaut `Enrollment Number` a été modifiée 
 
 Reconnectez-vous à Cost Management et définissez la valeur de l’**étendue** sur `Enrollment Number`. N’entrez pas le numéro d’inscription de votre organisation, mais tapez plutôt `Enrollment Number` exactement comme il apparaît dans l’image suivante.
 
-![Entrer les informations d’inscription du Contrat Entreprise](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-number.png)  
+:::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-number-troubleshoot.png" alt-text="Capture d’écran montrant que le texte par défaut du numéro d’inscription ne doit pas être modifié." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-number-troubleshoot.png" :::
 
 ### <a name="budgetamount-error"></a>Erreur BudgetAmount
 
@@ -166,12 +165,11 @@ Data source error: The 'budgetAmount' column does not exist in the rowset. Table
 
 #### <a name="cause"></a>Cause
 
-Cette erreur se produit en raison d’un bogue avec les métadonnées sous-jacentes. Le problème est lié à l’absence de budget disponible sous **Gestion des coûts > Budget** dans le portail Azure. La résolution du bogue est en cours de déploiement sur Power BI Desktop et le service Power BI. 
+Cette erreur se produit en raison d’un bogue avec les métadonnées sous-jacentes. Le problème est lié à l’absence de budget disponible sous **Gestion des coûts > Budget** dans le portail Azure. La résolution du bogue est en cours de déploiement sur Power BI Desktop et le service Power BI.
 
 #### <a name="solution"></a>Solution
 
 - Tant que le bogue n’a pas été corrigé, vous pouvez contourner le problème en ajoutant un budget de test dans le portail Azure au niveau du compte de facturation/de l’inscription EA. Le budget de test débloque la connexion avec Power BI. Pour plus d’informations sur la création d’un budget, consultez [Tutoriel : Créer et gérer des budgets Azure](tutorial-acm-create-budgets.md).
-
 
 ### <a name="invalid-credentials-for-azureblob-error"></a>Erreur d’informations d’identification non valides pour AzureBlob
 
@@ -183,15 +181,14 @@ Failed to update data source credentials: The credentials provided for the Azure
 
 #### <a name="cause"></a>Cause
 
-Cette erreur se produit si vous changez la méthode d’authentification pour la connexion blob AutoFitComboMeter.
+Cette erreur se produit si vous changez la méthode d’authentification pour la connexion de votre source de données.
 
 #### <a name="solution"></a>Solution
 
 1. Connectez-vous à vos données.
 1. Après avoir entré votre inscription EA et le nombre de mois, veillez à conserver la valeur par défaut **Anonyme** pour la méthode d’authentification et **Aucun** pour le paramètre niveau de confidentialité.  
-  ![Capture d’écran illustrant la boîte de dialogue Se connecter à l’application Azure Cost Management avec les valeurs Anonyme et Aucun.](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit-troubleshoot.png)  
+  :::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit-troubleshoot.png" alt-text="Capture d’écran illustrant la boîte de dialogue Se connecter à l’application Azure Cost Management avec les valeurs Anonyme et Aucun." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit-troubleshoot.png" :::
 1. Dans la page suivante, définissez **OAuth2** pour la méthode d’authentification et **Aucun** pour le niveau de confidentialité. Ensuite, connectez-vous pour vous authentifier auprès de votre inscription. Cette étape lance également une action d’actualisation des données Power BI.
-
 
 ## <a name="data-reference"></a>Référence de données
 

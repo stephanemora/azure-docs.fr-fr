@@ -13,12 +13,12 @@ ms.date: 09/03/2020
 ms.author: marsma
 ms.custom: aaddev, contperf-fy21q1
 ms.reviewer: lenalepa, aragra, sureshja
-ms.openlocfilehash: bd6acc5d3b7cd6e88b56e4a922e777adca031538
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 0b064e8491b5d4fa988e9f476143cc0711e3934a
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100102561"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100651372"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-a-web-api"></a>Démarrage rapide : Configurer une application cliente pour accéder à une API web
 
@@ -110,7 +110,7 @@ Certaines autorisations, comme *Files.Read.All* de Microsoft Graph, exigent un c
 
 ### <a name="configure-client-credentials"></a>Configurer les informations d’identification du client
 
-Les applications qui utilisent des autorisations d’application s’authentifient eux-mêmes en utilisant leurs propres informations d’identification, sans qu’aucune interaction utilisateur ne soit nécessaire. Pour que votre application (ou API) puisse accéder à Microsoft Graph, à votre propre API web ou à toute autre API en utilisant des autorisations d’application, vous devez configurer les informations d’identification de cette application cliente.
+Les applications qui utilisent des autorisations d’application s’authentifient eux-mêmes en utilisant leurs propres informations d’identification, sans qu’aucune interaction utilisateur ne soit nécessaire. Pour que votre application (ou API) puisse accéder à Microsoft Graph, à votre propre API web ou à une autre API en utilisant des permissions d’application, vous devez configurer les informations d’identification de cette application cliente.
 
 Pour plus d’informations sur la configuration des informations d’identification d’une application, consultez la section [Ajouter des informations d’identification](quickstart-register-app.md#add-credentials) du guide de [Démarrage rapide : Inscrire une application avec la plateforme des identités Microsoft](quickstart-register-app.md).
 

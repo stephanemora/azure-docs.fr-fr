@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: dac5a434d7f7c62d7a20e971294992ea91c79d2b
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 9ac53dab29feddd36a95b8b2b041caaf5c3598d5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98625013"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720135"
 ---
 # <a name="tutorial-use-creator-preview-to-create-indoor-maps"></a>Tutoriel : Utiliser Creator (préversion) pour créer des cartes d’intérieur
 
@@ -116,6 +116,7 @@ L’API de chargement de données est une transaction de longue durée qui impl�
 
     >[!IMPORTANT]
     > Les url d’API dans ce document peuvent devoir être ajustées en fonction de l'emplacement de votre ressource du Créateur. Pour plus d’informations, consultez [Accéder aux services de Creator (préversion)](how-to-manage-creator.md#access-to-creator-services).
+    > Si vous recevez une erreur avec le code `"RequiresCreatorResource"`, assurez-vous d’avoir [configuré une ressource Azure Maps Creator](how-to-manage-creator.md) dans votre compte Azure Maps.
 
 3. Cliquez sur le bouton **Envoyer**, puis attendez que la requête soit traitée. Une fois la requête terminée, accédez à l’onglet **En-têtes** de la réponse, puis recherchez la clé **Emplacement**. Copiez la valeur de la clé **Emplacement** qui est `status URL` pour la demande de conversion. Vous en aurez besoin lors de l'étape suivante.
 
@@ -314,7 +315,7 @@ Un tileset est un ensemble de vignettes vectorielles qui s’affichent sur la ca
     https://atlas.microsoft.com/featureState/stateset?api-version=1.0&datasetId={datasetId}&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-3. Dans les **En-têtes** de la requête **POST**, définissez `Content-Type` sur `application/json`. Dans le **Corps**, fournissez les styles ci-dessous pour refléter les modifications apportées aux *états* `occupied` et `temperature`. Quand vous avez terminé, cliquez sur **Envoyer**.
+3. Dans les **En-têtes** de la requête **POST**, définissez `Content-Type` sur `application/json`. Dans le **Corps**, fournissez les styles json bruts ci-dessous pour refléter les modifications apportées aux *états* `occupied` et `temperature`. Quand vous avez terminé, cliquez sur **Envoyer**.
 
     ```json
     {

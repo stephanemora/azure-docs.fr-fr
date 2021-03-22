@@ -2,18 +2,18 @@
 title: Créer une base de données Oracle dans une machine virtuelle Azure | Microsoft Docs
 description: Configurez et exécutez rapidement une base de données Oracle Database 12c dans votre environnement Azure.
 author: dbakevlar
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: oracle
+ms.collection: linux
 ms.topic: quickstart
 ms.date: 10/05/2020
 ms.author: kegorman
-ms.reviewer: cynthn
-ms.openlocfilehash: a202c8d176d6b9a8893a7bc5aaad6771942dda04
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: 8964248bb23b2b615c7e73e26d730fbd79b4e9e7
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99063060"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102184455"
 ---
 # <a name="create-an-oracle-database-in-an-azure-vm"></a>Créer une base de données Oracle dans une machine virtuelle Azure
 
@@ -188,16 +188,16 @@ Dans cette tâche, vous devez configurer certains points de terminaison externes
    echo "/dev/sdc1               /u02                    ext4    defaults        0 0" >> /etc/fstab
    ```
    
-10. Mettez à jour le fichier * **/etc/hosts** _ avec l’adresse IP publique et le nom d’hôte.
+10. Mettez à jour le fichier ***/etc/hosts*** avec l’IP publique et le nom d’hôte.
 
-    Changez _*_« Public IP » et « VMname »_*_ en les remplaçant par les valeurs réelles :
+    Changez ***« Public IP » et « VMname »*** en les remplaçant par les valeurs réelles :
   
     ```bash
     echo "<Public IP> <VMname>.eastus.cloudapp.azure.com <VMname>" >> /etc/hosts
     ```
 11. Mettez à jour le fichier de nom d’hôte
     
-    Utilisez la commande suivante pour ajouter le nom de domaine de la machine virtuelle au fichier _ */etc/hostname**. Cela suppose que vous avez créé votre groupe de ressources et votre machine virtuelle dans la région **eastus** :
+    Utilisez la commande suivante pour ajouter le nom de domaine de la machine virtuelle au fichier **/etc/hostname**. Cela suppose que vous avez créé votre groupe de ressources et votre machine virtuelle dans la région **eastus** :
     
     ```bash
     sed -i 's/$/\.eastus\.cloudapp\.azure\.com &/' /etc/hostname
@@ -221,12 +221,12 @@ Le logiciel Oracle est déjà installé sur l’image Place de marché. Créer u
 1.  Passez à l’utilisateur **oracle** :
 
     ```bash
-    $ sudo su - oracle
+    sudo su - oracle
     ```
 2. Démarrer l’écouteur de bases de données
 
    ```bash
-   $ lsnrctl start
+   lsnrctl start
    ```
    Le résultat ressemble à ce qui suit :
   

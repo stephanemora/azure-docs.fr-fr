@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 02/15/2021
-ms.openlocfilehash: 8a61ad1599a2d4d1aeaf8b36d2f92d95ec1896a0
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: e183d81355d4db81e677f34b02330ddb9b631957
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100573047"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100651984"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Démarrage rapide : Créer un service Recherche cognitive Azure dans le portail
 
 [Recherche cognitive Azure](search-what-is-azure-search.md) est une ressource Azure qui permet d’ajouter une expérience de recherche en texte intégral à des applications personnalisées. Vous pouvez facilement l’intégrer à d’autres services Azure qui fournissent des données ou un traitement supplémentaire, avec des applications situées sur des serveurs réseau ou avec des logiciels s’exécutant sur d’autres plateformes cloud.
 
-Vous pouvez créer un service de recherche en utilisant le [portail Azure](https://portal.azure.com/), ce qui est expliqué dans cet article. Vous pouvez aussi utiliser [Azure PowerShell](search-manage-powershell.md), [Azure CLI](/cli/azure/search) ou un [modèle de service Azure Resource Manager](https://azure.microsoft.com/resources/templates/101-azure-search-create/).
+Vous pouvez créer un service de recherche en utilisant le [portail Azure](https://portal.azure.com/), ce qui est expliqué dans cet article. Vous pouvez aussi utiliser [Azure PowerShell](search-manage-powershell.md), [Azure CLI](/cli/azure/search), l’[API REST de gestion](/rest/api/searchmanagement/) ou un [modèle de service Azure Resource Manager](https://azure.microsoft.com/resources/templates/101-azure-search-create/).
 
 [![GIF animé](./media/search-create-service-portal/AnimatedGif-AzureSearch-small.gif)](./media/search-create-service-portal/AnimatedGif-AzureSearch.gif#lightbox)
 
@@ -85,7 +85,7 @@ Configuration requise du nom du service :
 
 Recherche cognitive Azure est disponible dans la plupart des régions, comme indiqué dans [Disponibilité des produits par région](https://azure.microsoft.com/global-infrastructure/services/?products=search). En général, si vous utilisez plusieurs services Azure, choisissez une région qui héberge aussi votre service de données ou d’application. Cela réduit au minimum voire évite les frais de bande passante pour les données sortantes. Il n’y a aucuns frais liés aux données sortantes lorsque les services se trouvent dans la même région.
 
-+ [L’enrichissement par IA](cognitive-search-concept-intro.md) nécessite que Cognitive Services se trouve dans la même région physique que Recherche cognitive Azure. Par conséquent, certaines régions ne fournissent pas les deux fonctionnalités. La page [Disponibilité des produits par région](https://azure.microsoft.com/global-infrastructure/services/?products=search) indique une double disponibilité en montrant deux coches empilées. Pour une combinaison non disponible, il n’y a pas de coche :
++ [L’enrichissement par IA](cognitive-search-concept-intro.md) nécessite que Cognitive Services se trouve dans la même région physique que Recherche cognitive Azure. Seules quelques régions ne proposent pas les deux. La page [Disponibilité des produits par région](https://azure.microsoft.com/global-infrastructure/services/?products=search) indique une double disponibilité en montrant deux coches empilées. Pour une combinaison non disponible, il n’y a pas de coche :
 
   :::image type="content" source="media/search-create-service-portal/region-availability.png" alt-text="Disponibilité régionale" border="true":::
 

@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.topic: conceptual
 ms.date: 05/22/2020
 ms.author: victorh
-ms.openlocfilehash: e3b3b7a058fbd1235619c01e0dca24a3de9036db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 66ca039a449e355e47563b689f5f44cced164fea
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89231433"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101724147"
 ---
 # <a name="azure-web-application-firewall-on-azure-front-door"></a>Pare-feu d’applications web Azure sur Azure Front Door
 
@@ -23,6 +23,8 @@ La solution WAF sur Front Door est mondiale et centralisée. Il est déployé su
 WAF empêche les attaques malveillantes proches des sources d’attaque avant qu’elles entrent dans votre réseau virtuel. Vous bénéficiez d’une protection globale à grande échelle sans sacrifier les performances. Une stratégie WAF est facile à lier à un profil Front Door dans votre abonnement. De nouvelles règles peuvent être déployées en quelques minutes : vous pouvez donc répondre rapidement aux modèles de menaces changeants.
 
 ![Pare-feu d’applications web (WAF) d’Azure](../media/overview/wafoverview.png)
+
+Azure Front Door introduit [deux nouveaux SKU en préversion](https://docs.microsoft.com/azure/frontdoor/standard-premium/overview) : Front Door Standard et Front Door Premium. Le WAF est intégré en mode natif au SKU Front Door Premium avec des capacités complètes. Pour le SKU Front Door Standard, seules les [règles personnalisées](https://docs.microsoft.com/azure/web-application-firewall/afds/afds-overview#custom-authored-rules) sont prises en charge.
 
 ## <a name="waf-policy-and-rules"></a>Stratégie et règles WAF
 

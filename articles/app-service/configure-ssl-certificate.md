@@ -3,15 +3,15 @@ title: Ajouter et gérer des certificats TLS/SSL
 description: Créez un certificat gratuit, importez un certificat App Service, importez un certificat Key Vault, ou achetez un certificat App Service dans Azure App Service.
 tags: buy-ssl-certificates
 ms.topic: tutorial
-ms.date: 10/25/2019
+ms.date: 03/02/2021
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: e563981d3a68375105256aa6015aa94ada91326b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: d6f6db34239cf8c77b6e43d4426d889fa12c0690
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101711703"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102051342"
 ---
 # <a name="add-a-tlsssl-certificate-in-azure-app-service"></a>Ajouter un certificat TLS/SSL dans Azure App Service
 
@@ -26,7 +26,7 @@ Le tableau suivant répertorie les options permettant d’ajouter des certificat
 
 |Option|Description|
 |-|-|
-| Créer un certificat managé App Service gratuit (préversion) | Certificat privé facile à utiliser si vous devez simplement sécuriser votre `www` [domaine personnalisé](app-service-web-tutorial-custom-domain.md) ou tout autre domaine non nu dans App Service. |
+| Créer un certificat managé App Service gratuit (préversion) | Certificat privé gratuit et facile à utiliser si vous devez simplement sécuriser votre [domaine personnalisé](app-service-web-tutorial-custom-domain.md) dans App Service. |
 | Acheter un certificat App Service | Certificat privé managé par Azure. Il combine la simplicité d’une gestion automatisée et la flexibilité des options de renouvellement et d’exportation. |
 | Importer un certificat à partir de Key Vault | Utile si vous utilisez [Azure Key Vault](../key-vault/index.yml) pour gérer vos [certificats PKCS12](https://wikipedia.org/wiki/PKCS_12). Consultez [Exigences concernant les certificats privés](#private-certificate-requirements). |
 | Téléchargement d’un certificat privé | Si vous disposez déjà d’un certificat privé provenant d’un fournisseur tiers, vous pouvez le charger. Consultez [Exigences concernant les certificats privés](#private-certificate-requirements). |
@@ -34,19 +34,17 @@ Le tableau suivant répertorie les options permettant d’ajouter des certificat
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour effectuer les étapes de ce guide pratique, vous devez au préalable :
-
 - [Créez une application App Service](./index.yml).
-- Certificat gratuit uniquement : mappez un sous-domaine (par exemple, `www.contoso.com`) à App Service avec un [enregistrement CNAME](app-service-web-tutorial-custom-domain.md#map-a-cname-record).
+- Pour un certificat privé, assurez-vous qu’il répond [à toutes les exigences d’App Service](#private-certificate-requirements).
+- **Certificat gratuit uniquement** :
+    - Mappez le domaine pour lequel vous souhaitez un certificat à App Service. Pour plus d’informations, consultez [Tutoriel : Mapper un nom DNS personnalisé existant à Azure App Service](app-service-web-tutorial-custom-domain.md).
+    - Pour un domaine racine (par exemple, contoso.com), assurez-vous que votre application n’a aucune [restriction d’adresse IP](app-service-ip-restrictions.md) configurée. La création du certificat et son renouvellement périodique pour un domaine racine dépendent de l’accessibilité de votre application depuis l’Internet.
 
 ## <a name="private-certificate-requirements"></a>Exigences concernant les certificats privés
 
-> [!NOTE]
-> Azure Web Apps ne prend **pas** en charge AES256, et tous les fichiers pfx doivent être chiffrés avec TripleDES.
+Le [certificat managé App Service gratuit](#create-a-free-managed-certificate-preview) et le [certificat App Service](#import-an-app-service-certificate) répondent déjà aux exigences d’App Service. Si vous choisissez de charger ou d’importer un certificat privé dans App Service, votre certificat doit :
 
-Le [certificat managé App Service gratuit](#create-a-free-certificate-preview) et le [certificat App Service](#import-an-app-service-certificate) répondent déjà aux exigences App Service. Si vous choisissez de charger ou d’importer un certificat privé dans App Service, votre certificat doit :
-
-* Avoir été exporté sous la forme d’un [fichier PFX protégé par mot de passe](https://en.wikipedia.org/w/index.php?title=X.509&section=4#Certificate_filename_extensions)
+* Être exporté en tant que [fichier PFX protégé par mot de passe](https://en.wikipedia.org/w/index.php?title=X.509&section=4#Certificate_filename_extensions), chiffré par Triple-DES.
 * Contenir une clé privée d’au moins 2048 bits de long
 * Contenir tous les certificats intermédiaires dans la chaîne de certificats
 
@@ -60,21 +58,21 @@ Pour sécuriser un domaine personnalisé dans une liaison TLS/SSL, votre certif
 
 [!INCLUDE [Prepare your web app](../../includes/app-service-ssl-prepare-app.md)]
 
-## <a name="create-a-free-certificate-preview"></a>Créer un certificat gratuit (préversion)
+## <a name="create-a-free-managed-certificate-preview"></a>Créer un certificat managé gratuit (préversion)
+
+> [!NOTE]
+> Avant de créer un certificat managé gratuit, assurez-vous que vous avez [rempli les conditions préalables](#prerequisites) pour votre application.
 
 Le certificat managé App Service gratuit est une solution clé en main pour la sécurisation de votre nom DNS personnalisé dans App Service. Il s’agit d’un certificat TLS/SSL entièrement fonctionnel géré par App Service et renouvelé automatiquement. Le certificat gratuit comprend les limitations suivantes :
 
 - Ne prend pas en charge les certificats avec caractères génériques.
-- Il ne prend pas en charge les domaines nus.
 - Il n’est pas exportable.
-- N’est pas pris en charge sur App Service Environment (ASE)
-- Ne prend pas en charge les enregistrements A. Par exemple, le renouvellement automatique ne fonctionne pas avec les enregistrements A.
+- N’est pas pris en charge sur App Service Environment (ASE).
+- N’est pas pris en charge avec les domaines racine intégrés à Traffic Manager.
 
 > [!NOTE]
 > Le certificat gratuit est émis par DigiCert. Pour certains domaines de niveau supérieur, vous devez autoriser explicitement DigiCert comme émetteur de certificat en créant un [enregistrement de domaine CAA](https://wikipedia.org/wiki/DNS_Certification_Authority_Authorization) avec la valeur : `0 issue digicert.com`.
 > 
-
-Pour créer un certificat managé App Service gratuit :
 
 Sur le <a href="https://portal.azure.com" target="_blank">portail Azure</a>, dans le menu de gauche, sélectionnez **App Services** >  **\<app-name>** .
 
@@ -82,7 +80,7 @@ Dans le panneau de navigation de gauche de votre application, sélectionnez **Pa
 
 ![Créer un certificat gratuit dans App Service](./media/configure-ssl-certificate/create-free-cert.png)
 
-Tous les domaines non nus correctement mappés à votre application avec un enregistrement CNAME sont listés dans la boîte de dialogue. Sélectionnez le domaine personnalisé pour lequel créer un certificat gratuit, puis sélectionnez **Créer**. Vous ne pouvez créer qu’un seul certificat pour chaque domaine personnalisé pris en charge.
+Sélectionnez le domaine personnalisé pour lequel créer un certificat gratuit, puis sélectionnez **Créer**. Vous ne pouvez créer qu’un seul certificat pour chaque domaine personnalisé pris en charge.
 
 Une fois l’opération terminée, le certificat s’affiche dans la liste **Certificats à clé privée**.
 

@@ -4,15 +4,15 @@ description: Déployez Azure Spring Cloud dans un réseau virtuel (injection de 
 author: MikeDodaro
 ms.author: brendm
 ms.service: spring-cloud
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 07/21/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 73dd60dba50d3bd29cda0f538462884822054cf9
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 82dcd8c59c55a2866b51fd6dee896ea1298b6cf6
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880595"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102031801"
 ---
 # <a name="deploy-azure-spring-cloud-in-a-virtual-network"></a>Déployer Azure Spring Cloud dans un réseau virtuel
 
@@ -50,7 +50,7 @@ Le réseau virtuel dans lequel vous déployez votre instance Azure Spring Cloud 
     * Un pour vos applications de microservices Spring Boot.
     * Il existe une relation un-à-un entre ces sous-réseaux et une instance Azure Spring Cloud. Utilisez un nouveau sous-réseau pour chaque instance de service que vous déployez. Chaque sous-réseau ne peut inclure qu’une seule instance de service.
 * **Espace d’adressage** : blocs CIDR jusqu’à */28* pour le sous-réseau du runtime du service et le sous-réseau des applications de microservices Spring Boot.
-* **Table de routage** : aucune table de routage existante ne doit être associée aux sous-réseaux.
+* **Table de routage** : par défaut, les sous-réseaux n’ont pas besoin d’être associés à des tables de routage existantes. Vous pouvez [apporter votre propre table de routage](#bring-your-own-route-table).
 
 Les procédures suivantes décrivent la configuration du réseau virtuel pour contenir l’instance d’Azure Spring Cloud.
 
@@ -179,6 +179,26 @@ Ce tableau indique le nombre maximal d’instances d’application prises en cha
 Pour les sous-réseaux, cinq adresses IP sont réservées par Azure et au moins quatre adresses sont requises par Azure Spring Cloud. Au moins neuf adresses IP sont requises, si bien que /29 et /30 ne sont pas opérationnelles.
 
 Pour un sous-réseau du runtime du service, la taille minimale est /28. Cette taille n’a aucun impact sur le nombre d’instances d’application.
+
+## <a name="bring-your-own-route-table"></a>Apporter votre propre table de routage
+
+Azure Spring Cloud prend en charge l’utilisation des sous-réseaux et des tables de routage existants.
+
+Si vos sous-réseaux personnalisés ne contiennent pas de tables de routage, Azure Spring Cloud en crée pour chacun des sous-réseaux et y ajoute des règles tout au long du cycle de vie de l’instance. Si vos sous-réseaux personnalisés contiennent des tables de routage, Azure Spring Cloud reconnaît les tables de routage existantes pendant les opérations de l’instance et ajoute ou met à jour des règles en conséquence pour les opérations.
+
+> [!Warning] 
+> Des règles personnalisées peuvent être ajoutées aux tables de routage personnalisées et mises à jour. Toutefois, les règles sont ajoutées par Azure Spring Cloud et elles ne doivent pas être mises à jour ni supprimées. Les règles telles que 0.0.0.0/0 doivent toujours exister sur une table de route donnée et être mappées à la cible de votre passerelle Internet, telle qu’une appliance virtuelle réseau ou une autre passerelle de sortie. Lors de la mise à jour des règles, soyez prudent si seules vos règles personnalisées sont modifiées.
+
+
+### <a name="route-table-requirements"></a>Spécifications des tables de routage
+
+Les tables de routage auxquelles votre réseau virtuel personnalisé est associé doivent remplir les conditions suivantes :
+
+* Vous pouvez associer vos tables de routage Azure à votre réseau virtuel uniquement lorsque vous créez une nouvelle instance de service Azure Spring Cloud. Vous ne pouvez pas choisir d’utiliser une autre table de routage après la création de l’instance Azure Spring Cloud.
+* Le sous-réseau d’application de microservices et le sous-réseau du runtime du service doivent être associés à des tables de routage différentes ou à aucune d’entre elles.
+* Les autorisations doivent être attribuées avant la création de l’instance. Veillez à accorder l’autorisation *Propriétaire Azure Spring Cloud* à vos tables de routage.
+* La ressource de table de route associée ne peut pas être mise à jour après la création du cluster. Même si la ressource de table de route ne peut pas être mise à jour, les règles personnalisées peuvent être modifiées dans la table de route.
+* Vous ne pouvez pas réutiliser une table de routage avec plusieurs instances en raison de règles d’acheminement pouvant entrer en conflit.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

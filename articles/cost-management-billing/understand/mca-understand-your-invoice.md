@@ -9,18 +9,22 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 766136731cb92b1bd4f0965d4929b1ac5eda14dc
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 996c974473c53833dd26abae2fb61585999f33b4
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690491"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050441"
 ---
 # <a name="terms-in-your-microsoft-customer-agreement-invoice"></a>Termes de votre facture de Contrat client Microsoft
 
 Cet article s’applique à un compte de facturation associé à un contrat client Microsoft. [Vérifiez que vous avez accès à un contrat client Microsoft](#check-access-to-a-microsoft-customer-agreement).
 
 Votre facture fournit un résumé de vos frais et des instructions pour le paiement. Elle est disponible au téléchargement au format PDF (.pdf) à partir du [portail Azure](https://portal.azure.com/) ou peut être envoyée par courrier électronique. Pour plus d’informations, consultez [Afficher et télécharger votre facture Microsoft Azure](download-azure-invoice.md).
+
+Regardez la vidéo [Comprendre votre facture Contrat client Microsoft](https://www.youtube.com/watch?v=e2LGZZ7GubA) pour en savoir plus sur votre facture et sur la façon d’analyser les frais sur celle-ci.
+
+>[!VIDEO https://www.youtube.com/embed/e2LGZZ7GubA]
 
 ## <a name="billing-period"></a>Période de facturation
 
@@ -44,7 +48,7 @@ Le **récapitulatif de la facture** se trouve en haut de la première page et af
 | Numéro de bon de commande nombre |Numéro de commande facultatif, attribué par vous pour le suivi |
 | Numéro de facture |Numéro de facture unique généré par Microsoft, utilisé à des fins de suivi. |
 | Date de facture |Date à laquelle la facture a été générée, généralement cinq à douze jours après la fin du cycle de facturation. Vous pouvez vérifier la date de votre facture dans les propriétés du profil de facturation.|
-| Conditions de paiement |Mode de paiement de votre facture Microsoft. La mention *30 jours nets* signifie que le règlement doit être effectué dans les 30 jours suivant la date de facturation. |
+| Modalités de paiement |Mode de paiement de votre facture Microsoft. La mention *30 jours nets* signifie que le règlement doit être effectué dans les 30 jours suivant la date de facturation. |
 
 ### <a name="billing-summary"></a>Récapitulatif de facturation
 
@@ -104,6 +108,6 @@ Si vous avez des questions ou besoin d’aide, [créez une demande de support](h
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Comprendre les frais indiqués sur la facture de votre profil de facturation](review-customer-agreement-bill.md)
-- [Obtention de votre facture Azure et de vos données d’utilisation quotidienne](../manage/download-azure-invoice-daily-usage-date.md)
+- [Comment obtenir votre facture Azure et vos données d’utilisation quotidienne](../manage/download-azure-invoice-daily-usage-date.md)
 - [Afficher les tarifs Azure de votre organisation](../manage/ea-pricing.md)
 - [Afficher les documents de taxe de votre contrat de client de Microsoft](mca-download-tax-document.md)

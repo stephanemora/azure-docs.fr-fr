@@ -2,13 +2,13 @@
 title: Tutoriel - Accéder à votre cloud privé
 description: Découvrez comment accéder à un cloud privé Azure VMware Solution
 ms.topic: tutorial
-ms.date: 09/21/2020
-ms.openlocfilehash: b7f21dbba5256712607241bb1258962fc22418fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 02/22/2021
+ms.openlocfilehash: 456767a9edd78a70a0aba45c7b44a2150a2217a1
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91578414"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102045001"
 ---
 # <a name="tutorial-access-an-azure-vmware-solution-private-cloud"></a>Tutoriel : Accéder à un cloud privé Azure VMware Solution
 
@@ -30,11 +30,14 @@ Dans ce tutoriel, vous allez apprendre à :
 
 1. À partir de la jumpbox, connectez-vous au client vSphere avec VMware vCenter SSO à l’aide d’un nom d’utilisateur d’administrateur cloud et vérifiez que l’interface utilisateur s’affiche correctement.
 
-1. Dans le portail Azure, sélectionnez votre cloud privé puis, dans la vue **Vue d’ensemble**, sélectionnez **Identité > Par défaut**. 
+1. Dans le portail Azure, sélectionnez votre cloud privé, puis **Gérer** > **Identité**. 
 
    Les URL et les informations d’identification de l’utilisateur pour le cloud privé vCenter et NSX-T Manager s’affichent.
 
-   :::image type="content" source="media/tutorial-access-private-cloud/ss4-display-identity.png" alt-text="Affichez les URL et les informations d’identification vCenter et NSX Manager du cloud privé." border="true":::
+   >[!TIP]
+   >Sélectionnez **Générer un nouveau mot de passe** pour générer de nouveaux mots de passe vCenter et NSX-T.
+
+   :::image type="content" source="media/tutorial-access-private-cloud/ss4-display-identity.png" alt-text="Affichez les URL et les informations d’identification vCenter et NSX Manager du cloud privé." border="true" lightbox="media/tutorial-access-private-cloud/ss4-display-identity.png":::
 
 1. Accédez à la machine virtuelle que vous avez créée à l’étape précédente et connectez-vous à cette machine. 
 
@@ -44,13 +47,13 @@ Dans ce tutoriel, vous allez apprendre à :
 
 1. Sous l’onglet vCenter, entrez les informations d’identification de l’utilisateur `cloudadmin@vmcp.local` de l’étape précédente.
 
-   :::image type="content" source="media/tutorial-access-private-cloud/ss5-vcenter-login.png" alt-text="Affichez les URL et les informations d’identification vCenter et NSX Manager du cloud privé." border="true":::
+   :::image type="content" source="media/tutorial-access-private-cloud/ss5-vcenter-login.png" alt-text="Connectez-vous au vCenter du cloud privé." border="true":::
 
-   :::image type="content" source="media/tutorial-access-private-cloud/ss6-vsphere-client-home.png" alt-text="Affichez les URL et les informations d’identification vCenter et NSX Manager du cloud privé." border="true":::
+   :::image type="content" source="media/tutorial-access-private-cloud/ss6-vsphere-client-home.png" alt-text="Portail vCenter." border="true":::
 
 1. Sous le deuxième onglet du navigateur, connectez-vous à NSX-T Manager.
 
-   :::image type="content" source="media/tutorial-access-private-cloud/ss10-nsx-manager-home.png" alt-text="Affichez les URL et les informations d’identification vCenter et NSX Manager du cloud privé." border="true":::
+   :::image type="content" source="media/tutorial-access-private-cloud/ss10-nsx-manager-home.png" alt-text="Sous le deuxième onglet du navigateur, connectez-vous à NSX-T Manager." border="true":::
 
 
 

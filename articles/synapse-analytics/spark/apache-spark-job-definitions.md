@@ -8,12 +8,12 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 10/16/2020
-ms.openlocfilehash: 3f1e3fd360197310a89a67d43053649d904aeb18
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: d125bca5ed67476897eec7cd32a586776d8b1ea8
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101677623"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102176618"
 ---
 # <a name="tutorial-create-apache-spark-job-definition-in-synapse-studio"></a>Tutoriel : Créer une définition de travail Apache Spark dans Synapse Studio
 
@@ -34,7 +34,7 @@ Avant de commencer le didacticiel, veillez à disposer des éléments suivants :
 
 * Un espace de travail Azure Synapse Analytics. Pour obtenir des instructions, consultez [Créer un espace de travail Azure Synapse Analytics](../../machine-learning/how-to-manage-workspace.md).
 * Pool Apache Spark serverless.
-* Un compte de stockage ADLS Gen2. Vous devez être le **propriétaire des données Blob du stockage** du système de fichiers ADLS Gen2 que vous souhaitez utiliser. Si ce n’est pas le cas, vous devez ajouter l’autorisation manuellement.
+* Un compte de stockage ADLS Gen2. Vous devez être le **contributeur aux données Blob du stockage** du système de fichiers ADLS Gen2 que vous souhaitez utiliser. Si ce n’est pas le cas, vous devez ajouter l’autorisation manuellement.
 * Si vous ne souhaitez pas utiliser le stockage par défaut de l’espace de travail, liez le compte de stockage ADLS Gen2 nécessaire à Synapse Studio. 
 
 ## <a name="create-an-apache-spark-job-definition-for-pyspark-python"></a>Créer une définition de travail Apache Spark pour PySpark (Python)
@@ -162,7 +162,7 @@ Dans cette section, vous créez une définition de travail Apache Spark pour .NE
 
 ## <a name="submit-an-apache-spark-job-definition-as-a-batch-job"></a>Envoyer une définition de travail Apache Spark en tant que traitement par lots
 
-Après avoir créé une définition de travail Apache Spark, vous pouvez l’envoyer à un pool Apache Spark. Vérifiez que vous êtes bien le **propriétaire des données Blob du stockage** du système de fichiers ADLS Gen2 que vous souhaitez utiliser. Si ce n’est pas le cas, vous devez ajouter l’autorisation manuellement.
+Après avoir créé une définition de travail Apache Spark, vous pouvez l’envoyer à un pool Apache Spark. Vérifiez que vous êtes bien le **contributeur aux données Blob du stockage** du système de fichiers ADLS Gen2 que vous souhaitez utiliser. Si ce n’est pas le cas, vous devez ajouter l’autorisation manuellement.
 
 ### <a name="scenario-1-submit-apache-spark-job-definition"></a>Scénario 1 : Envoyer une définition de travail Apache Spark
  1. Ouvrez une fenêtre de définition de travail Apache Spark en sélectionnant la définition concernée.

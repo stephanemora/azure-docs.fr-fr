@@ -111,6 +111,8 @@
           href: speech-synthesis-markup.md
         - name: Synthétiser la voix avec l’API Audio long
           href: long-audio-api.md
+        - name: Obtenir des événements de pose faciale pour la synchronisation labiale
+          href: how-to-speech-synthesis-viseme.md
     - name: Personnalisation
       items:
         - name: Portail Custom Voice

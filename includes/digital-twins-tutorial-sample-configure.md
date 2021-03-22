@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 5/25/2020
 ms.author: baanders
-ms.openlocfilehash: f5b332415f1abf7d4c1002bdd4f3bfcef12f1267
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ff9d1f0ff75a6df6c115ecfe2b8c5f71b12049e4
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96023252"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102036150"
 ---
 ## <a name="configure-the-sample-project"></a>Configurer l’exemple de projet
 
@@ -22,7 +22,7 @@ Une fois dans le dossier, accédez à _AdtSampleApp_. Ouvrez _**AdtE2ESample.sln
 
 Dans Visual Studio, sélectionnez le fichier _SampleClientApp > **appsettings.json**_ pour l’ouvrir dans la fenêtre d’édition. Il s’agit d’un fichier JSON prédéfini avec les variables de configuration nécessaires pour exécuter le projet.
 
-Dans le corps du fichier, remplacez `instanceUrl` par l’URL *hostName* de votre instance Azure Digital Twins (en plaçant *https://* devant, comme indiqué ci-dessous).
+Dans le corps du fichier, remplacez `instanceUrl` par l’*URL hostName* de votre instance Azure Digital Twins (en ajoutant **_https://_** devant *hostName*, comme indiqué ci-dessous).
 
 ```json
 {
@@ -32,7 +32,7 @@ Dans le corps du fichier, remplacez `instanceUrl` par l’URL *hostName* de votr
 
 Enregistrez et fermez le fichier. 
 
-Ensuite, configurez le fichier *appsettings.json* à copier dans le répertoire de sortie lorsque vous créez *SampleClientApp*. Pour ce faire, sélectionnez avec le bouton droit le fichier *appsettings.json*, puis choisissez *Propriétés*. Dans l’inspecteur *Propriétés*, remplacez la valeur de la propriété *Copier dans le répertoire de sortie* par *Copier si plus récent*.
+Ensuite, configurez le fichier *appsettings.json* à copier dans le répertoire de sortie lorsque vous créez *SampleClientApp*. Pour ce faire, sélectionnez avec le bouton droit le fichier *appsettings.json*, puis choisissez **Propriétés**. Dans l’inspecteur **Propriétés**, recherchez la propriété *Copier dans le répertoire de sortie*. Remplacez la valeur par **Copier si plus récent** si ce n’est pas déjà le cas.
 
 :::image type="content" source="../articles/digital-twins/media/includes/copy-config.png" alt-text="Extrait de la fenêtre Visual Studio, qui affiche le volet Explorateur de solutions avec le fichier appsettings.json mis en évidence, ainsi que le volet Propriétés avec la propriété « Copier dans le répertoire de sortie » définie sur « Copier si plus récent »" border="false" lightbox="../articles/digital-twins/media/includes/copy-config.png":::
 

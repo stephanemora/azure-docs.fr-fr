@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 10/19/2020
 ms.author: banders
-ms.openlocfilehash: aaa94f66f1b0441e025013369b3b674d799d4847
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 0c5ecb61b5b34864aa89c1f0e760e96c383a269f
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203260"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101091479"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-to-your-mpa-account"></a>Obtenir la propriété de facturation des abonnements Azure associés à votre compte MPA
 
@@ -21,7 +21,7 @@ Afin de fournir une seule facture combinée pour les services managés et la con
 
 Cette fonctionnalité est disponible uniquement pour les partenaires CSP à facturation directe qui sont certifiés [Azure Expert MSP](https://partner.microsoft.com/membership/azure-expert-msp). Elle est soumise à la gouvernance et aux stratégies Microsoft, et peut nécessiter un examen et une approbation supplémentaires pour certains clients.
 
-Pour demander la propriété de facturation, vous devez avoir le rôle **Administrateur général** ou **Agents d’administration** . Pour plus d’informations, consultez [Espace partenaires - Affecter des rôles et des autorisations aux utilisateurs](/partner-center/permissions-overview).
+Pour demander la propriété de facturation, vous devez avoir le rôle **Administrateur général** ou **Agents d’administration**. Pour plus d’informations, consultez [Espace partenaires - Affecter des rôles et des autorisations aux utilisateurs](/partner-center/permissions-overview).
 
 Cet article concerne les comptes de facturation associés aux Contrats Partenaire Microsoft. Ces comptes sont créés pour permettre aux fournisseurs de solutions Cloud (ou CSP) de gérer la facturation de leurs clients dans la nouvelle expérience de commerce. La nouvelle expérience est disponible uniquement pour les partenaires ayant au moins un client qui a accepté un Contrat client Microsoft (MCA) et qui possède un plan Azure. [Vérifiez si vous avez accès à un Contrat Partenaire Microsoft](#check-access-to-a-microsoft-partner-agreement).
 
@@ -34,18 +34,18 @@ Cet article concerne les comptes de facturation associés aux Contrats Partenair
 ## <a name="request-billing-ownership"></a>Demander la propriété de facturation
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) à l’aide des informations d’identification de l’agent d’administration CSP dans le locataire CSP.
-1. Recherchez **Gestion des coûts + facturation** .  
+1. Recherchez **Gestion des coûts + facturation**.  
     ![Capture d’écran montrant la recherche, sur le portail Azure, de « cost management + billing » pour demander la propriété de facturation.](./media/mpa-request-ownership/search-cmb.png)
 1. Sélectionnez **Clients** dans la partie gauche, puis sélectionnez un client dans la liste.  
     [![Capture d’écran montrant la sélection de clients](./media/mpa-request-ownership/mpa-select-customers.png)](./media/mpa-request-ownership/mpa-select-customers.png#lightbox)
-1. Sélectionnez **Demandes de transfert** dans la partie inférieure gauche, puis sélectionnez **Ajouter une nouvelle demande** .  
+1. Sélectionnez **Demandes de transfert** dans la partie inférieure gauche, puis sélectionnez **Ajouter une nouvelle demande**.  
     [![Capture d’écran montrant la sélection des demandes de transfert](./media/mpa-request-ownership/mpa-select-transfer-requests.png)](./media/mpa-request-ownership/mpa-select-transfer-requests.png#lightbox)
-1. Entrez l’adresse e-mail de l’utilisateur dans l’organisation du client qui doit accepter la demande de transfert. L’utilisateur doit être propriétaire d’un compte dans un Contrat Entreprise. Sélectionnez **Envoyer la demande de transfert** .  
+1. Entrez l’adresse e-mail de l’utilisateur dans l’organisation du client qui doit accepter la demande de transfert. L’utilisateur doit être propriétaire d’un compte dans un Contrat Entreprise. Sélectionnez **Envoyer la demande de transfert**.  
     [![Capture d’écran montrant l’envoi d’une demande de transfert](./media/mpa-request-ownership/mpa-send-transfer-requests.png)](./media/mpa-request-ownership/mpa-send-transfer-requests.png#lightbox)
 1. L’utilisateur reçoit un e-mail contenant des instructions pour l’examen de votre demande de transfert.  
     ![Capture d’écran de l’e-mail invitant à examiner une demande de transfert](./media/mpa-request-ownership/mpa-review-transfer-request-email.png)
 1. Pour approuver la demande de transfert, l’utilisateur sélectionne le lien figurant dans l’e-mail, puis suit les instructions.  
-    [![Capture d’écran montrant l’examen d’une demande de transfert](./media/mpa-request-ownership/review-transfer-requests.png)](./media/mpa-request-ownership/review-transfer-requests.png#lightbox) L’utilisateur peut sélectionner le compte de facturation à partir duquel il souhaite transférer les produits Azure. Une fois sélectionnés, les produits éligibles qui peuvent être transférés sont affichés. **Remarque :** Les abonnements désactivés ne peuvent pas être transférés et s’affichent dans la liste « Produits Azure non transférables », le cas échéant. Une fois que les produits Azure à transférer sont sélectionnés, sélectionnez **Valider** .
+    [![Capture d’écran montrant l’examen d’une demande de transfert](./media/mpa-request-ownership/review-transfer-requests.png)](./media/mpa-request-ownership/review-transfer-requests.png#lightbox) L’utilisateur peut sélectionner le compte de facturation à partir duquel il souhaite transférer les produits Azure. Une fois sélectionnés, les produits éligibles qui peuvent être transférés sont affichés. **Remarque :** Les abonnements désactivés ne peuvent pas être transférés et s’affichent dans la liste « Produits Azure non transférables », le cas échéant. Une fois que les produits Azure à transférer sont sélectionnés, sélectionnez **Valider**.
 1. La zone **Résultat de la validation du transfert** indique l’impact des produits Azure qui vont être transférés. Voici les états possibles :
     * **Réussite** - La validation pour ce produit Azure a réussi et il peut être transféré.
     * **Avertissement** - Un avertissement s’affiche pour le produit Azure sélectionné. Même si le produit peut encore être transféré, cette opération aura un impact dont l’utilisateur doit être conscient s’il souhaite prendre des mesures d’atténuation. Par exemple, l’abonnement Azure transféré bénéficie d’une instance réservée. Après le transfert, l’abonnement ne bénéficie plus de cet avantage. Pour optimiser les économies, vérifiez que l’instance réservée est associée à un autre abonnement qui peut tirer parti de ses avantages. Au lieu de cela, l’utilisateur peut également choisir de revenir à la page de sélection et de désélectionner cet abonnement Azure.
@@ -55,7 +55,7 @@ Cet article concerne les comptes de facturation associés aux Contrats Partenair
 ## <a name="check-the-transfer-request-status"></a>Vérifier l’état d’une demande de transfert
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-1. Recherchez **Gestion des coûts + facturation** .  
+1. Recherchez **Gestion des coûts + facturation**.  
     ![Capture d’écran montrant la recherche, sur le portail Azure, de « cost management + billing » pour demander le statut de transfert.](./media/mpa-request-ownership/billing-search-cost-management-billing.png)
 1. Sélectionnez **Clients** dans la partie gauche.  
     [![Capture d’écran montrant la sélection de clients](./media/mpa-request-ownership/mpa-select-customers.png)](./media/mpa-request-ownership/mpa-select-customers.png#lightbox)
@@ -174,4 +174,4 @@ Si vous avez toujours besoin d’aide, [contactez le support technique](https://
 ## <a name="next-steps"></a>Étapes suivantes
 
 * La propriété de facturation des abonnements Azure vous a été transférée. Suivez les frais liés à ces abonnements dans le [Portail Microsoft Azure](https://portal.azure.com).
-* Demandez au client un accès aux abonnements Azure transférés. [Ajouter ou supprimer des attributions de rôles Azure à l’aide du portail Azure](../../role-based-access-control/role-assignments-portal.md).
+* Demandez au client un accès aux abonnements Azure transférés. [Attribuez des rôles Azure à l’aide du portail Azure](../../role-based-access-control/role-assignments-portal.md).

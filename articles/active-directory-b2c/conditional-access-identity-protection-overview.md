@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: overview
-ms.date: 09/01/2020
+ms.date: 03/03/2021
 ms.author: mimart
 author: msmimart
 manager: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b17706f908613336714bb7daf08fdf3bfd5eaf64
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: e2ec8af824d573493d1da743923956e587ded62e
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96928390"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102033824"
 ---
 # <a name="identity-protection-and-conditional-access-for-azure-ad-b2c"></a>Identity Protection et accès conditionnel pour Azure AD B2C
 
@@ -49,21 +49,21 @@ Identity Protection et l’accès conditionnel dans Azure AD B2C fonctionnent g�
 
 - Dans les locataires Azure AD B2C, les détections des risques Identity Protection sont disponibles uniquement pour les comptes B2C locaux, et non pour les identités sociales telles que Google ou Facebook.
 
-- Dans les locataires Azure AD B2C, un sous-ensemble des détections des risques Identity Protection est disponible. Consultez [Configurer Identity Protection](conditional-access-identity-protection-setup.md#set-up-identity-protection).
+- Dans les locataires Azure AD B2C, un sous-ensemble des détections des risques Identity Protection est disponible. Consultez [Examiner les risques avec Identity Protection](identity-protection-investigate-risk.md)et [Ajouter un accès conditionnel à des flux d’utilisateurs](conditional-access-user-flow.md).
 
 - La fonctionnalité de conformité de l’appareil de l’accès conditionnel n’est pas disponible dans les locataires Azure AD B2C.
 
 
 ## <a name="integrate-conditional-access-with-user-flows-and-custom-policies"></a>Intégrer l’accès conditionnel avec des flux d’utilisateurs et des stratégies personnalisées
 
-Dans Azure AD B2C, vous pouvez déclencher des conditions d’accès conditionnel à partir de flux d’utilisateurs intégrés. Vous pouvez également incorporer l’accès conditionnel dans des stratégies personnalisées. Comme avec d’autres aspects du flux d’utilisateur B2C, la messagerie de l’expérience de l’utilisateur final peut être personnalisée en fonction des alternatives de voix, de marque et d’atténuation de votre organisation. Consultez [Définir un profil technique d’accès conditionnel](conditional-access-technical-profile.md).
+Dans Azure AD B2C, vous pouvez déclencher des conditions d’accès conditionnel à partir de flux d’utilisateurs intégrés. Vous pouvez également incorporer l’accès conditionnel dans des stratégies personnalisées. Comme avec d’autres aspects du flux d’utilisateur B2C, la messagerie de l’expérience de l’utilisateur final peut être personnalisée en fonction des alternatives de voix, de marque et d’atténuation de votre organisation. Consultez [Ajouter un accès conditionnel à des flux d’utilisateurs](conditional-access-user-flow.md).
 
 ## <a name="microsoft-graph-api"></a>API Microsoft Graph
 
-Vous pouvez également gérer les stratégies d’accès conditionnel dans Azure AD B2C avec l’API Microsoft Graph. Pour plus d’informations, consultez la [documentation relative à l’accès conditionnel](../active-directory/conditional-access/overview.md) et la [référence Microsoft Graph](/graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta).
+Vous pouvez également gérer les stratégies d’accès conditionnel dans Azure AD B2C avec l’API Microsoft Graph. Pour plus d’informations, consultez la [documentation relative à l’accès conditionnel](../active-directory/conditional-access/overview.md) et les [opérations Microsoft Graph](microsoft-graph-operations.md#conditional-access).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Configurer Identity Protection et l’accès conditionnel pour Azure AD B2C](conditional-access-identity-protection-setup.md)
+- [Ajouter un accès conditionnel à des flux d’utilisateurs](conditional-access-user-flow.md)
 - [En savoir plus sur Identity Protection dans Azure AD](../active-directory/identity-protection/overview-identity-protection.md)
 - [En savoir plus sur l’accès conditionnel](../active-directory/conditional-access/overview.md)

@@ -9,144 +9,136 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/31/2018
+ms.date: 02/11/2021
 ms.author: jeedes
-ms.openlocfilehash: ab720430af0341f3a42d9f4d4dc19b9469872211
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 96118a840c57932ae8e99b084766bf12493d9f7a
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675599"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101652693"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-solarwinds-service-desk-previously-samanage"></a>Tutoriel : Intégration d’Azure Active Directory à SolarWinds Service Desk (précédemment Samanage)
 
-Dans ce tutoriel, vous allez apprendre à intégrer SolarWinds à Azure Active Directory (Azure AD).
-L’intégration de SolarWinds à Azure AD vous offre les avantages suivants :
+Dans ce tutoriel, vous allez apprendre à intégrer SolarWinds à Azure Active Directory (Azure AD). Quand vous intégrez SolarWinds à Azure AD, vous pouvez :
 
-* Vous pouvez contrôler dans Azure AD qui a accès à SolarWinds.
-* Vous pouvez permettre aux utilisateurs de se connecter automatiquement à SolarWinds (par le biais de l’authentification unique) avec leur compte Azure AD.
-* Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
+* Contrôler dans Azure AD qui a accès à SolarWinds.
+* Permettre à vos utilisateurs de se connecter automatiquement à SolarWinds avec leur compte Azure AD.
+* Gérer vos comptes à un emplacement central : le Portail Azure.
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
-Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
+## <a name="prerequisites"></a>Prérequis
 
-## <a name="prerequisites"></a>Conditions préalables requises
+Pour commencer, vous devez disposer de ce qui suit :
 
-Pour configurer l’intégration d’Azure AD à SolarWinds Service Desk (précédemment Samanage), vous avez besoin des éléments suivants :
-
-* Un abonnement Azure AD Si vous n’avez pas d’environnement Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
-* Abonnement Samanage pour lequel l’authentification unique est activée
+* Un abonnement Azure AD Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
+* Un abonnement SolarWinds pour lequel l’authentification unique est activée.
 
 ## <a name="scenario-description"></a>Description du scénario
 
 Dans ce didacticiel, vous configurez et testez l’authentification unique Azure AD dans un environnement de test.
 
-* SolarWinds prend en charge l’authentification unique initiée par le **fournisseur de services** .
+* SolarWinds prend en charge l’authentification unique initiée par **un fournisseur de services**.
 
-## <a name="adding-solarwinds-from-the-gallery"></a>Ajout de SolarWinds à partir de la galerie
+## <a name="add-solarwinds-from-the-gallery"></a>Ajouter SolarWinds à partir de la galerie
 
 Pour configurer l’intégration de SolarWinds à Azure AD, vous devez ajouter SolarWinds à votre liste d’applications SaaS gérées, à partir de la galerie.
 
-**Pour ajouter SolarWinds à partir de la galerie, effectuez les étapes suivantes :**
+1. Connectez-vous au portail Azure avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
+1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory**.
+1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
+1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
+1. Dans la section **Ajouter à partir de la galerie**, saisissez **SolarWinds** dans la zone de recherche.
+1. Sélectionnez **SolarWinds** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
-1. Dans le panneau de navigation gauche du **[portail Azure](https://portal.azure.com)** , sélectionnez l’icône **Azure Active Directory** .
+## <a name="configure-and-test-azure-ad-sso-for-solarwinds"></a>Configurer et tester l’authentification unique Azure AD pour SolarWinds
 
-    ![Bouton Azure Active Directory](common/select-azuread.png)
+Configurez et testez l’authentification unique Azure AD avec SolarWinds à l’aide d’un utilisateur de test appelé **B.Simon**. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur associé dans SolarWinds.
 
-2. Accédez à **Applications d’entreprise** , puis sélectionnez l’option **Toutes les applications** .
+Pour configurer et tester l’authentification unique Azure AD avec SolarWinds, effectuez les étapes suivantes :
 
-    ![Panneau Applications d’entreprise](common/enterprise-applications.png)
+1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-sso)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+    1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
+    1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à B. Simon d’utiliser l’authentification unique Azure AD.
+1. **[Configurer l’authentification unique SolarWinds](#configure-solarwinds-sso)** pour configurer les paramètres d’authentification unique côté application.
+    1. **[Créer un utilisateur de test SolarWinds](#create-solarwinds-test-user)** pour avoir dans SolarWinds un équivalent de B.Simon qui soit lié à la représentation Azure AD de l’utilisateur.
+1. **[Tester l’authentification unique](#test-sso)** pour vérifier si la configuration fonctionne.
 
-3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
+## <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
 
-    ![Bouton Nouvelle application](common/add-new-app.png)
+Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
-4. Dans la zone de recherche, tapez **SolarWinds** , sélectionnez **SolarWinds** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+1. Dans le portail Azure, accédez à la page d’intégration de l’application **SolarWinds**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
+1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de crayon de **Configuration SAML de base** afin de modifier les paramètres.
 
-     ![SolarWinds dans la liste des résultats](common/search-new-app.png)
+   ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
+4. Dans la section **Configuration SAML de base**, effectuez les étapes suivantes :
 
-Dans cette section, vous configurez et testez l’authentification unique Azure AD avec SolarWinds pour un utilisateur de test appelé **Britta Simon** .
-Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur associé dans SolarWinds.
-
-Pour configurer et tester l’authentification unique Azure AD avec SolarWinds, vous devez suivre les indications des sections suivantes :
-
-1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Configurer l’authentification unique SolarWinds Service Desk](#configure-solarwinds-single-sign-on)** pour configurer les paramètres de l’authentification unique côté application.
-3. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Créer un utilisateur de test SolarWinds Service Desk](#create-solarwinds-test-user)** pour disposer, dans SolarWinds Service Desk, d’un équivalent de B. Simon lié à la représentation Azure AD de l’utilisateur.
-6. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
-
-### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
-
-Dans cette section, vous activez l’authentification unique Azure AD dans le portail Azure.
-
-Pour configurer l’authentification unique Azure AD avec SolarWinds, effectuez les étapes suivantes :
-
-1. Dans la page d’intégration de l’application **SolarWinds** du [portail Azure](https://portal.azure.com/), sélectionnez **Authentification unique** .
-
-    ![Lien Configurer l’authentification unique](common/select-sso.png)
-
-2. Dans la boîte de dialogue **Sélectionner une méthode d’authentification unique** , sélectionnez le mode **SAML/WS-Fed** afin d’activer l’authentification unique.
-
-    ![Mode de sélection de l’authentification unique](common/select-saml-option.png)
-
-3. Dans la page **Configurer l’authentification unique avec SAML** , cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue **Configuration SAML de base** .
-
-    ![Modifier la configuration SAML de base](common/edit-urls.png)
-
-4. Dans la section **Configuration SAML de base** , effectuez les étapes suivantes :
-
-    ![Informations d’authentification unique dans Domaine et URL Samanage](common/sp-identifier.png)
-
-    a. Dans la zone de texte **URL de connexion** , saisissez une URL au format suivant : `https://<Company Name>.samanage.com/saml_login/<Company Name>`
+    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<Company Name>.samanage.com/saml_login/<Company Name>`
 
     b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `https://<Company Name>.samanage.com`
 
     > [!NOTE] 
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeur avec l’URL de connexion et l’identificateur réels. La procédure est expliquée plus loin dans le didacticiel. Pour plus de détails, contactez l’[équipe de support technique Samanage](https://www.samanage.com/support). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-4. Dans la page **Configurer l’authentification unique avec SAML** , dans la section **Certificat de signature SAML** , cliquez sur **Télécharger** pour télécharger le **Certificat (Base64)** en fonction des options définies par rapport à vos besoins, puis enregistrez-le sur votre ordinateur.
+4. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le **Certificat (Base64)** en fonction des options définies par rapport à vos besoins, puis enregistrez-le sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/certificatebase64.png)
 
-6. Dans la section **Configurer SolarWinds** , copiez l’URL ou les URL appropriées en fonction de vos besoins.
+6. Dans la section **Configurer SolarWinds**, copiez l’URL ou les URL appropriées en fonction de vos besoins.
 
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
 
-    a. URL de connexion
+### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD 
 
-    b. Identificateur Azure AD
+Dans cette section, vous allez créer un utilisateur de test appelé B. Simon dans le portail Azure.
 
-    c. URL de déconnexion
+1. Dans le volet gauche du Portail Azure, sélectionnez **Azure Active Directory**, **Utilisateurs**, puis **Tous les utilisateurs**.
+1. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
+1. Dans les propriétés **Utilisateur**, effectuez les étapes suivantes :
+   1. Dans le champ **Nom**, entrez `B.Simon`.  
+   1. Dans le champ **Nom de l’utilisateur**, entrez username@companydomain.extension. Par exemple : `B.Simon@contoso.com`.
+   1. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
+   1. Cliquez sur **Créer**.
+
+### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
+
+Dans cette section, vous allez autoriser B.Simon à utiliser l’authentification unique Azure en lui accordant l’accès à SolarWinds.
+
+1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
+1. Dans la liste des applications, sélectionnez **SolarWinds**.
+1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
+1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
+1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
+1. Si vous attendez qu’un rôle soit attribué aux utilisateurs, vous pouvez le sélectionner dans la liste déroulante **Sélectionner un rôle** . Si aucun rôle n’a été configuré pour cette application, vous voyez le rôle « Accès par défaut » sélectionné.
+1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
 <a name="configure-solarwinds-single-sign-on"></a>
 
-### <a name="configure-solarwinds-service-desk-single-sign-on"></a>Configurer l’authentification unique SolarWinds Service Desk
+## <a name="configure-solarwinds-sso"></a>Configurer l’authentification unique SolarWinds
 
 1. Dans une autre fenêtre de navigateur web, connectez-vous au site de votre entreprise SolarWinds en tant qu’administrateur.
 
 2. Cliquez sur **Dashboard** et sélectionnez **Setup** dans le volet de navigation de gauche.
    
-    ![Tableau de bord](./media/samanage-tutorial/tutorial_samanage_001.png "Tableau de bord")
+    ![Tableau de bord](./media/samanage-tutorial/tutorial-samanage-1.png "Tableau de bord")
 
-3. Cliquez sur **Single Sign-On** .
+3. Cliquez sur **Single Sign-On**.
    
-    ![Authentification unique](./media/samanage-tutorial/tutorial_samanage_002.png "Single Sign on")
+    ![Authentification unique](./media/samanage-tutorial/tutorial-samanage-2.png "Single Sign on")
 
 4. Accédez à la section **Login using SAML** (Connexion avec SAML), puis procédez comme suit :
    
-    ![Connexion avec SAML](./media/samanage-tutorial/tutorial_samanage_003.png "Login using SAML")
+    ![Connexion avec SAML](./media/samanage-tutorial/tutorial-samanage-3.png "Login using SAML")
  
-    a. Cliquez sur **Enable Single Sign-On with SAML** (Activer l’authentification unique avec SAML).  
+    a. Cliquez sur **Enable Single Sign-On with SAML**(Activer l’authentification unique avec SAML).  
  
-    b. Dans la zone de texte **Identity Provider URL** (URL du fournisseur d’identité), collez la valeur de l’ **identificateur Azure AD** que vous avez copiée à partir du portail Azure.    
+    b. Dans la zone de texte **Identity Provider URL** (URL du fournisseur d’identité), collez la valeur de l’**identificateur Azure AD** que vous avez copiée à partir du portail Azure.    
  
-    c. Vérifiez que l’URL de connexion ( **Login URL** ) correspond à l’ **URL de connexion** de la section **Configuration SAML de base** dans le portail Azure.
+    c. Vérifiez que l’URL de connexion (**Login URL**) correspond à l’**URL de connexion** de la section **Configuration SAML de base** dans le portail Azure.
  
-    d. Dans la zone de texte **Logout URL** (URL de déconnexion), collez la valeur d’ **URL de déconnexion** que vous avez copiée à partir du portail Azure.
+    d. Dans la zone de texte **Logout URL** (URL de déconnexion), collez la valeur d’**URL de déconnexion** que vous avez copiée à partir du portail Azure.
  
     e. Dans la zone de texte **SAML Issuer** (Émetteur SAML), saisissez l’URI d’ID d’application défini dans votre fournisseur d’identité.
  
@@ -154,56 +146,7 @@ Pour configurer l’authentification unique Azure AD avec SolarWinds, effectuez
  
     g. Cliquez sur **Create users if they do not exist in SolarWinds** (Créer des utilisateurs s’il n’en n’existe pas dans SolarWinds).
  
-    h. Cliquez sur **Update** .
-
-### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD 
-
-L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
-
-1. Dans le volet gauche du portail Azure, sélectionnez **Azure Active Directory** , sélectionnez **Utilisateurs** , puis sélectionnez **Tous les utilisateurs** .
-
-    ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](common/users.png)
-
-2. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
-
-    ![Bouton Nouvel utilisateur](common/new-user.png)
-
-3. Dans les propriétés de l’utilisateur, effectuez les étapes suivantes.
-
-    ![Boîte de dialogue Utilisateur](common/user-properties.png)
-
-    a. Dans le champ **Nom** , entrez **BrittaSimon** .
-  
-    b. Dans le champ **Nom d’utilisateur** , tapez **brittasimon\@domainedevotreentreprise.extension** .  
-    Par exemple : BrittaSimon@contoso.com
-
-    c. Cochez la case **Afficher le mot de passe** , puis notez la valeur affichée dans le champ Mot de passe.
-
-    d. Cliquez sur **Créer** .
-
-### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
-
-Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en accordant l’accès à SolarWinds.
-
-1. Dans le portail Azure, sélectionnez **Applications d’entreprise** , **Toutes les applications** , puis **SolarWinds** .
-
-    ![Panneau Applications d’entreprise](common/enterprise-applications.png)
-
-2. Dans la liste des applications, sélectionnez **SolarWinds** .
-
-3. Dans le menu de gauche, sélectionnez **Utilisateurs et groupes** .
-
-    ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
-
-4. Cliquez sur le bouton **Ajouter un utilisateur** , puis sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution** .
-
-    ![Volet Ajouter une attribution](common/add-assign-user.png)
-
-5. Dans la boîte de dialogue **Utilisateurs et groupes** , sélectionnez **Britta Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
-
-6. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle** , sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
-
-7. Dans la boîte de dialogue **Ajouter une attribution** , cliquez sur le bouton **Attribuer** .
+    h. Cliquez sur **Update**.
 
 ### <a name="create-solarwinds-test-user"></a>Créer un utilisateur de test SolarWinds
 
@@ -216,33 +159,33 @@ Dans le cas de SolarWinds, le provisionnement est une tâche manuelle.
 
 2. Cliquez sur **Dashboard** et sélectionnez **Setup** dans le volet de navigation gauche.
    
-    ![Paramétrage](./media/samanage-tutorial/tutorial_samanage_001.png "Installation")
+    ![Paramétrage](./media/samanage-tutorial/tutorial-samanage-1.png "Installation")
 
-3. Cliquez sur l'onglet **Utilisateurs** .
+3. Cliquez sur l'onglet **Utilisateurs**.
    
-    ![Utilisateurs](./media/samanage-tutorial/tutorial_samanage_006.png "Utilisateurs")
+    ![Utilisateurs](./media/samanage-tutorial/tutorial-samanage-6.png "Utilisateurs")
 
-4. Cliquez sur **Nouvel utilisateur** .
+4. Cliquez sur **Nouvel utilisateur**.
    
-    ![Nouvel utilisateur](./media/samanage-tutorial/tutorial_samanage_007.png "Nouvel utilisateur")
+    ![Nouvel utilisateur](./media/samanage-tutorial/tutorial-samanage-7.png "Nouvel utilisateur")
 
-5. Entrez le **Nom** et l’ **Adresse e-mail** du compte Azure Active Directory que vous souhaitez approvisionner, puis cliquez sur **Create user** (Créer un utilisateur).
+5. Entrez le **Nom** et l’**Adresse e-mail** du compte Azure Active Directory que vous souhaitez approvisionner, puis cliquez sur **Create user** (Créer un utilisateur).
    
-    ![Create User](./media/samanage-tutorial/tutorial_samanage_008.png "Create User") (Créer un utilisateur)
+    ![Create User](./media/samanage-tutorial/tutorial-samanage-8.png "Create User") (Créer un utilisateur)
    
    >[!NOTE]
    >Le titulaire du compte Azure Active Directory reçoit un message électronique contenant un lien à suivre pour confirmer son compte et l’activer. Vous pouvez utiliser tout autre outil ou API de création de compte d’utilisateur fournis par SolarWinds pour provisionner des comptes d’utilisateur Azure Active Directory.
 
-### <a name="test-single-sign-on"></a>Tester l’authentification unique 
+## <a name="test-sso"></a>Tester l’authentification unique (SSO)
 
-Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
+Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
 
-Quand vous cliquez sur la vignette SolarWinds dans le volet d’accès, vous devez vous connecter automatiquement à l’application SolarWinds pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+* Cliquez sur **Tester cette application** dans le portail Azure. Vous êtes alors redirigé vers l’URL de connexion à SolarWinds, d’où vous pouvez lancer le flux de connexion. 
 
-## <a name="additional-resources"></a>Ressources supplémentaires
+* Accédez directement à l’URL de connexion à SolarWinds pour lancer le flux de connexion.
 
-- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](./tutorial-list.md)
+* Vous pouvez utiliser Mes applications de Microsoft. Le fait de cliquer sur la vignette SolarWinds dans Mes applications vous redirige vers l’URL de connexion à SolarWinds. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
+## <a name="next-steps"></a>Étapes suivantes
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](../conditional-access/overview.md)
+Après avoir configuré SolarWinds, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

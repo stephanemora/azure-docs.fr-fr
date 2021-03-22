@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 01/22/2021
+ms.date: 03/03/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: 277b1a46ad480be8313f6971dc600d3dd911c09d
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: b108e757ed9fe9ab7038cae4240f0f749ac19675
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98762355"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102036042"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-pro-with-gpu"></a>Tutoriel : Préparer le déploiement d'Azure Stack Edge Pro avec GPU 
 
@@ -92,7 +92,7 @@ Avant de déployer un appareil physique, assurez-vous que :
 
 Avant de commencer, assurez-vous que :
 
-- Le réseau de votre centre de données est configuré conformément à la configuration réseau nécessaire pour votre appareil Azure Stack Edge Pro. Pour plus d'informations, consultez la [Configuration système nécessaire pour Azure Stack Edge Pro](azure-stack-edge-system-requirements.md).
+- Le réseau de votre centre de données est configuré conformément à la configuration réseau nécessaire pour votre appareil Azure Stack Edge Pro. Pour plus d'informations, consultez [Configuration système nécessaire pour Azure Stack Edge Pro](azure-stack-edge-system-requirements.md).
 
 - Pour utiliser votre appareil Azure Stack Edge Pro dans des conditions normales, vous avez :
 
@@ -102,6 +102,8 @@ Avant de commencer, assurez-vous que :
 ## <a name="create-a-new-resource"></a>Créer une nouvelle ressource
 
 Si vous disposez d’une ressource Azure Stack Edge existante pour gérer votre appareil physique, ignorez cette étape et passez à la section [Obtenir la clé d’activation](#get-the-activation-key).
+
+### <a name="portal"></a>[Portail](#tab/azure-portal)
 
 Pour créer une ressource Azure Stack Edge, suivez ces étapes dans le portail Azure.
 
@@ -143,7 +145,7 @@ Pour créer une ressource Azure Stack Edge, suivez ces étapes dans le portail A
 
         ![Créer une ressource 6](media/azure-stack-edge-gpu-deploy-prep/create-resource-6.png)
 
-    - Si vous commandez un nouvel appareil, entrez le nom du contact, la société, l’adresse de livraison de l’appareil et les informations de contact.
+    - Si vous commandez un nouvel appareil, entrez le nom du contact, la société, l’adresse de livraison de l’appareil et les coordonnées.
 
         ![Créer une ressource 7](media/azure-stack-edge-gpu-deploy-prep/create-resource-7.png)
 
@@ -171,6 +173,51 @@ Une fois la commande passée, Microsoft l’examine et vous communique (par e-ma
 > Si vous souhaitez créer plusieurs commandes à la fois ou cloner une commande existante, vous pouvez utiliser les [scripts dans les exemples Azure](https://github.com/Azure-Samples/azure-stack-edge-order). Pour plus d’informations, consultez le fichier README.
 
 Si vous rencontrez des problèmes pendant le processus de commande, consultez [Résoudre les problèmes de commande](azure-stack-edge-troubleshoot-ordering.md).
+
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Si nécessaire, préparez votre environnement pour Azure CLI.
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+Pour créer une ressource Azure Stack Edge, exécutez les commandes suivantes dans Azure CLI.
+
+1. Créez un groupe de ressources à l’aide de la commande [az group create](/cli/azure/group#az_group_create) ou utilisez un groupe de ressources existant :
+
+   ```azurecli
+   az group create --name myasepgpu1 --location eastus
+   ```
+
+1. Pour créer un appareil, utilisez la commande [az databoxedge device create](/cli/azure/databoxedge/device#az_databoxedge_device_create) :
+
+   ```azurecli
+   az databoxedge device create --resource-group myasepgpu1 \
+      --device-name myasegpu1 --location eastus --sku EdgeP_Base
+   ```
+
+   Choisissez l’emplacement le plus proche de la région géographique dans laquelle vous souhaitez déployer votre appareil. La région stocke les métadonnées uniquement pour la gestion des appareils. Les données réelles peuvent être stockées dans n’importe quel compte de stockage.
+
+   Pour obtenir la liste complète des régions où la ressource Azure Stack Edge est disponible, consultez [Disponibilité des produits Azure par région](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Si vous utilisez Azure Government, toutes les régions administratives sont disponibles, comme indiqué dans [Régions Azure](https://azure.microsoft.com/global-infrastructure/regions/).
+
+1. Pour créer une commande, exécutez la commande [az databoxedge order create](/cli/azure/databoxedge/order#az_databoxedge_order_create) :
+
+   ```azurecli 
+   az databoxedge order create --resource-group myasepgpu1 \
+      --device-name myasegpu1 --company-name "Contoso" \
+      --address-line1 "1020 Enterprise Way" --city "Sunnyvale" \
+      --state "California" --country "United States" --postal-code 94089 \
+      --contact-person "Gus Poland" --email-list gus@contoso.com --phone 4085555555
+   ```
+
+La création de la ressource prend quelques minutes. Pour voir votre commande, exécutez la commande [az databoxedge order show](/cli/azure/databoxedge/order#az_databoxedge_order_show) :
+
+```azurecli
+az databoxedge order show --resource-group myasepgpu1 --device-name myasegpu1 
+```
+
+Une fois la commande passée, Microsoft l’examine et vous communique les détails de l’expédition par e-mail.
+
+---
 
 ## <a name="get-the-activation-key"></a>Obtenir la clé d'activation
 

@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: sample
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 8642f4284770df54704a4e7066054d3bb4640486
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: a75896dde7a23ea346e0af73ed145094e78812ca
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96545866"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101654491"
 ---
 # <a name="azure-active-directory-b2c-code-samples"></a>Exemples de code Azure Active Directory B2C
 
@@ -27,8 +27,8 @@ Les tableaux suivants fournissent des liens vers des exemples pour des applicati
 |--------| ----------- |
 | [ios-swift-native-msal](https://github.com/Azure-Samples/active-directory-b2c-ios-swift-native-msal) | Un exemple iOS dans Swift qui authentifie les utilisateurs Azure AD B2C et appelle une API à l’aide d’OAuth 2.0 |
 | [android-native-msal](https://github.com/Azure-Samples/ms-identity-android-java#b2cmodefragment-class) | Une application Android simple expliquant comment utiliser MSAL pour authentifier les utilisateurs via Azure Active Directory B2C et accéder à une API web avec les jetons générés. |
-| [ios-native-appauth](https://github.com/Azure-Samples/active-directory-b2c-ios-native-appauth) | Un exemple qui montre comment vous pouvez utiliser une bibliothèque tierce pour générer une application iOS en Objective-C qui authentifie les utilisateurs d’identités Microsoft auprès de notre service d’identité Azure AD B2C. |
-| [android-native-appauth](https://github.com/Azure-Samples/active-directory-b2c-android-native-appauth) | Un exemple qui montre comment vous pouvez utiliser une bibliothèque tierce pour générer une application Android qui authentifie les utilisateurs d’identités Microsoft auprès de notre service d’identité B2C et qui appelle une API web à l’aide de jetons d’accès OAuth 2.0. |
+| [ios-native-appauth](https://github.com/Azure-Samples/active-directory-b2c-ios-native-appauth) | Un exemple qui montre la façon dont vous pouvez utiliser une bibliothèque tierce pour générer une application iOS en Objective-C qui authentifie les utilisateurs d’identités Microsoft auprès de notre service d’identité Azure AD B2C. |
+| [android-native-appauth](https://github.com/Azure-Samples/active-directory-b2c-android-native-appauth) | Un exemple qui montre la façon dont vous pouvez utiliser une bibliothèque tierce pour générer une application Android qui authentifie les utilisateurs d’identités Microsoft auprès de notre service d’identité B2C et qui appelle une API web à l’aide de jetons d’accès OAuth 2.0. |
 | [dotnet-desktop](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop) | Un exemple qui montre comment une application .NET de bureau Windows (WPF) peut connecter un utilisateur à l’aide d’Azure AD B2C, récupérer un jeton d’accès à l’aide de MSAL.NET et appeler une API. |
 | [xamarin-native](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native) | Une application Xamarin Forms simple expliquant comment utiliser MSAL pour authentifier les utilisateurs via Azure Active Directory B2C et accéder à une API web avec les jetons générés. |
 
@@ -47,8 +47,16 @@ Les tableaux suivants fournissent des liens vers des exemples pour des applicati
 
 | Exemple | Description |
 |--------| ----------- |
-| [ms-identity-b2c-javascript-spa](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa) | Une application monopage (SPA) appelant une API web. L’authentification est effectuée avec Azure AD B2C en utilisant MSAL.js. Cet exemple utilise le flux de code d’autorisation avec PKCE. |
-| [javascript-msal-singlepageapp](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp) | Une application monopage (SPA) appelant une API web. L’authentification est effectuée avec Azure AD B2C en utilisant MSAL.js. Cet exemple utilise le flux implicite.|
+| [ms-identity-b2c-javascript-spa](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa) | Application monopage (SPA) appelant une API web. L’authentification est effectuée avec Azure AD B2C en utilisant MSAL.js. Cet exemple utilise le flux de code d’autorisation avec PKCE. |
+| [javascript-nodejs-management](https://github.com/Azure-Samples/ms-identity-b2c-javascript-nodejs-management/tree/main/Chapter1) | Une application monopage (SPA) appelant Microsoft Graph pour gérer les utilisateurs dans un répertoire B2C. L’authentification est effectuée avec Azure AD B2C en utilisant MSAL.js. Cet exemple utilise le flux de code d’autorisation avec PKCE.|
+| [javascript-msal-singlepageapp](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp) | Application monopage (SPA) appelant une API web. L’authentification est effectuée avec Azure AD B2C en utilisant MSAL.js. Cet exemple utilise le flux implicite.|
+
+## <a name="consoledaemon-apps"></a>Applications console/démon
+
+| Exemple | Description |
+|--------| ----------- |
+| [javascript-nodejs-management](https://github.com/Azure-Samples/ms-identity-b2c-javascript-nodejs-management/tree/main/Chapter2) | Une application démon de console Express et Node.js appelant Microsoft Graph avec sa propre identité pour gérer les utilisateurs dans un répertoire B2C. L’authentification est effectuée avec Azure AD B2C en utilisant MSAL Node. Cet exemple utilise le flux de code d’autorisation.|
+| [dotnetcore-b2c-account-management](https://github.com/Azure-Samples/ms-identity-dotnetcore-b2c-account-management) | Une application console .NET Core appelant Microsoft Graph avec sa propre identité pour gérer les utilisateurs dans un répertoire B2C. L’authentification est effectuée avec Azure AD B2C en utilisant MSAL.NET. Cet exemple utilise le flux de code d’autorisation.|
 
 ## <a name="saml-test-application"></a>Application de test SAML
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/20/2019
 ms.author: robinsh
 ms.custom: mqtt, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: ddc212e99c0e55156f56df6bf77e122408a727f9
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 7ae85fa2559b8313bd35a761945bff946563e935
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624053"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102199779"
 ---
 # <a name="tutorial-use-azure-iot-hub-message-enrichments"></a>Tutoriel : Utiliser des enrichissements de messages IoT Hub
 
@@ -32,7 +32,7 @@ Dans le cadre de ce tutoriel, vous allez effectuer les tâches suivantes :
 **Utiliser des enrichissements de messages IoT Hub**
 > [!div class="checklist"]
 > * Première méthode : Créez des ressources et configurez le routage des messages à l’aide d’Azure CLI. Configurez manuellement les enrichissements de messages à l’aide du [Portail Azure](https://portal.azure.com).
-> * Deuxième méthode : Créez des ressources et configurez le routage et les enrichissements des messages à l’aide d’un modèle Resource Manager. 
+> * Seconde méthode : Créez des ressources et configurez le routage et les enrichissements des messages à l’aide d’un modèle Resource Manager. 
 > * Exécutez une application qui simule l’envoi de messages par un appareil IoT au hub.
 > * Affichez les résultats et vérifiez que les enrichissements de messages fonctionnent comme prévu.
 
@@ -42,7 +42,7 @@ Dans le cadre de ce tutoriel, vous allez effectuer les tâches suivantes :
 
 - Installer [Visual Studio](https://www.visualstudio.com/).
 
-- Vérifiez que le port 8883 est ouvert sur votre pare-feu. L'exemple d’appareil de ce tutoriel utilise le protocole MQTT qui communique sur le port 8883. Dans certains environnements réseau professionnels et scolaires, ce port peut être bloqué. Pour plus d'informations sur les différentes façons de contourner ce problème, consultez [Connexion à IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+- Assurez-vous que le port 8883 est ouvert dans votre pare-feu. L'exemple d’appareil de ce tutoriel utilise le protocole MQTT qui communique sur le port 8883. Dans certains environnements réseau professionnels et scolaires, ce port peut être bloqué. Pour plus d’informations sur les différentes façons de contourner ce problème, consultez [Connexion à IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
@@ -279,7 +279,7 @@ az iot hub route create \
 ## <a name="create-and-configure-by-using-a-resource-manager-template"></a>Créer et configurer à l’aide d’un modèle Resource Manager
 Vous pouvez utiliser un modèle Resource Manager pour créer et configurer les ressources, le routage des messages et les enrichissements de messages.
 
-1. Connectez-vous au portail Azure. Sélectionnez **+ Créer une ressource** pour afficher une zone de recherche. Entrez *template deployment* et lancez la recherche. Dans le volet de résultats, sélectionnez **Template deployment (déployer à l’aide d’un modèle personnalisé)** .
+1. Connectez-vous au portail Azure. Sélectionnez **+ Créer une ressource** pour afficher une zone de recherche. Entrez *template deployment* et lancez la recherche. Dans le volet de résultats, sélectionnez **Template deployment (déployer à l’aide d’un modèle personnalisé)**.
 
    ![Template deployment dans le Portail Azure](./media/tutorial-message-enrichments/template-select-deployment.png)
 
@@ -386,7 +386,7 @@ Pour supprimer toutes les ressources que vous avez créées dans ce tutoriel, su
 
 ### <a name="use-the-azure-cli-to-clean-up-resources"></a>Utiliser Azure CLI pour nettoyer des ressources
 
-Pour supprimer le groupe de ressources, utilisez la commande [az group delete](/cli/azure/group?view=azure-cli-latest#az-group-delete&preserve-view=true). N’oubliez pas que `$resourceGroup` a été défini sur **ContosoResourcesMsgEn** au début de ce didacticiel.
+Pour supprimer le groupe de ressources, utilisez la commande [az group delete](/cli/azure/group#az-group-delete). N’oubliez pas que `$resourceGroup` a été défini sur **ContosoResourcesMsgEn** au début de ce didacticiel.
 
 ```azurecli-interactive
 az group delete --name $resourceGroup
@@ -400,7 +400,7 @@ Dans ce tutoriel, vous avez configuré et testé l’ajout d’enrichissements a
 
 > [!div class="checklist"]
 > * Première méthode : Créez des ressources et configurez le routage des messages à l’aide d’Azure CLI. Configurez manuellement les enrichissements de messages à l’aide du [Portail Azure](https://portal.azure.com).
-> * Deuxième méthode : Créez des ressources et configurez le routage et les enrichissements des messages à l’aide d’un modèle Azure Resource Manager.
+> * Seconde méthode : Créez des ressources et configurez le routage et les enrichissements des messages à l’aide d’un modèle Azure Resource Manager.
 > * Exécutez une application qui simule l’envoi de messages par un appareil IoT au hub.
 > * Affichez les résultats et vérifiez que les enrichissements de messages fonctionnent comme prévu.
 

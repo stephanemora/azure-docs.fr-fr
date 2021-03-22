@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 09/30/2020
 ms.author: rolyon
 ms.custom: contperf-fy21q1, azuread-video-2020
-ms.openlocfilehash: 5bf9b79621ae1cd2c73f2e3ce18b0780bcdd2a71
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 4241e476b2f778ff63057d0491b5dc8666c7520c
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100559343"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100650862"
 ---
 # <a name="what-is-azure-role-based-access-control-azure-rbac"></a>Qu’est-ce que le contrôle d’accès en fonction du rôle Azure (RBAC Azure) ?
 
@@ -86,7 +86,7 @@ Pour plus d’informations, consultez [Étapes pour attribuer un rôle Azure](ro
 
 ## <a name="multiple-role-assignments"></a>Attributions de rôles multiples
 
-Que se passe-t-il si plusieurs attributions de rôles se chevauchent ? Le contrôle RBAC Azure étant un modèle additif, vos autorisations effectives correspondent à la somme de vos attributions de rôles. Prenons l’exemple suivant où un utilisateur reçoit le rôle Contributeur pour l’étendue de l’abonnement et le rôle Lecteur pour un groupe de ressources. La somme des autorisations du rôle Contributeur et des autorisations du rôle Lecteur correspond effectivement au rôle Contributeur pour le groupe de ressources. Ainsi, dans ce cas, l’attribution du rôle Lecteur n’a aucun impact.
+Que se passe-t-il si plusieurs attributions de rôles se chevauchent ? Le contrôle RBAC Azure étant un modèle additif, vos autorisations effectives correspondent à la somme de vos attributions de rôles. Prenons l’exemple suivant où un utilisateur reçoit le rôle Contributeur pour l’étendue de l’abonnement et le rôle Lecteur pour un groupe de ressources. La somme des autorisations du rôle Contributeur et des autorisations du rôle Lecteur correspond effectivement au rôle Contributeur pour l’abonnement. Ainsi, dans ce cas, l’attribution du rôle Lecteur n’a aucun impact.
 
 ![Attributions de rôles multiples](./media/overview/rbac-multiple-roles.png)
 

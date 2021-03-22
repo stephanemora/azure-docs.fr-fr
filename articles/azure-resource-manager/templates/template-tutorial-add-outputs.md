@@ -6,12 +6,12 @@ ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 7acfb168462354017168ee333ea0b1ecaea434c1
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 7e022822f1306a5351cef43498f00a0ac0f2ef63
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97107122"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101707283"
 ---
 # <a name="tutorial-add-outputs-to-your-arm-template"></a>Tutoriel : Ajouter des sorties à votre modèle ARM
 
@@ -45,7 +45,7 @@ Le type de valeur retournée est défini sur `object`, ce qui signifie qu’il r
 
 Il utilise la fonction [reference](template-functions-resource.md#reference) pour récupérer l’état d’exécution du compte de stockage. Pour obtenir l’état d’exécution d’une ressource, vous transmettez le nom ou l’ID d’une ressource. Dans ce cas, vous utilisez la même variable que celle que vous avez utilisée pour créer le nom du compte de stockage.
 
-Finalement, il retourne la propriété `primaryEndpoints` à partir du compte de stockage.
+Enfin, il retourne la propriété `primaryEndpoints` du compte de stockage.
 
 ## <a name="deploy-template"></a>Déployer un modèle
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/16/2020
 ms.author: chez
 ms.custom: include file
-ms.openlocfilehash: 1e8d13e7cf302c486bab291ef6482216122b62a3
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 10aa9b06af439fe701c53ef736ec691167560f95
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94680887"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102109177"
 ---
 Azure Data Factory est un service mutualisé qui possède, par défaut, les limites suivantes pour garantir la protection des abonnements clients contre les autres charges de travail. Pour augmenter les limites jusqu'à la limite maximale pour votre abonnement, contactez le support.
 
@@ -58,7 +58,7 @@ Azure Data Factory est un service mutualisé qui possède, par défaut, les lim
 | -------- | ------ |
 | Groupe de régions 1 | USA Centre, USA Est, USA Est 2, Europe Nord, Europe Ouest, USA Ouest, USA Ouest 2 |
 | Groupe de régions 2 | Australie Est, Australie Sud-Est, Brésil Sud, Inde Centre, Japon Est, USA Centre Nord, USA Centre Sud, Asie Sud-Est, USA Centre-Ouest |
-| Groupe de régions 3 | Canada Centre, Asie Est, France Centre, Corée Centre, Royaume-Uni Sud |
+| Groupe de régions 3 | Autres régions |
 
 <sup>3</sup> Les objets pipeline, jeu de données et service lié représentent un regroupement logique de votre charge de travail. Les limites de ces objets ne sont pas liées à la quantité de données que vous pouvez déplacer ou traiter à l’aide d’Azure Data Factory. Data Factory est conçu pour permettre une mise à l’échelle de plusieurs pétaoctets de données.
 

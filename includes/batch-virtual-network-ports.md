@@ -13,18 +13,16 @@ ms.tgt_pltfrm: na
 ms.date: 01/13/2021
 ms.author: jenhayes
 ms.custom: include file
-ms.openlocfilehash: 08e7463f4657b2ae5d6da1017c14226e97af7605
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.openlocfilehash: c625253585cc99c035852b8b9042f939284bad19
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98165737"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750734"
 ---
 ### <a name="general-requirements"></a>Conditions générales
 
 * Le réseau virtuel doit se trouver dans la même région et le même abonnement que le compte Batch utilisé pour créer le pool.
-
-* Le pool utilisant le réseau virtuel peut avoir un maximum de 4096 nœuds.
 
 * Le sous-réseau spécifié pour le pool doit avoir suffisamment d’adresses IP non attribuées pour contenir le nombre de machines virtuelles ciblées pour le pool, autrement dit, la somme des propriétés `targetDedicatedNodes` et `targetLowPriorityNodes` du pool. Si le sous-réseau ne dispose pas de suffisamment d’adresses IP non attribuées, le pool alloue partiellement les nœuds de calcul, et une erreur de redimensionnement se produit.
 
@@ -67,6 +65,9 @@ Vous n’avez pas besoin de spécifier des groupes de sécurité réseau au nive
 
 Configurez le trafic entrant sur le port 3389 (Windows) ou 22 (Linux) uniquement si vous avez besoin d’autoriser l’accès à distance aux nœuds de calcul depuis des sources externes. Vous devrez peut-être activer les règles du port 22 sur Linux si vous avez besoin de la prise en charge des tâches multi-instances avec certains runtimes MPI. Le fait d’autoriser le trafic sur ces ports n’est pas strictement nécessaire pour que les nœuds de calcul du pool soient utilisables.
 
+> [!WARNING]
+> Les adresses IP du service Batch peuvent changer au fil du temps. Par conséquent, nous vous recommandons vivement d’utiliser l’étiquette de service `BatchNodeManagement` (ou une variante régionale) pour les règles NSG indiquées dans les tableaux suivants. Évitez de renseigner les règles NSG avec des adresses IP spécifiques du service Batch.
+
 **Règles de sécurité entrantes**
 
 | Adresses IP sources | Balise du service source | Ports source | Destination | Ports de destination | Protocol | Action |
@@ -74,16 +75,19 @@ Configurez le trafic entrant sur le port 3389 (Windows) ou 22 (Linux) uniquemen
 | N/A | [Étiquette de service](../articles/virtual-network/network-security-groups-overview.md#service-tags) `BatchNodeManagement` (si vous utilisez une variante régionale, dans la même région que votre compte Batch) | * | Quelconque | 29876-29877 | TCP | Allow |
 | Adresses IP sources utilisateurs pour accéder à distance à des nœuds de calcul et/ou à un sous-réseau de nœuds de calcul pour les tâches multi-instances de Linux, si nécessaire. | N/A | * | Quelconque | 3389 (Windows), 22 (Linux) | TCP | Allow |
 
-> [!WARNING]
-> Les adresses IP du service Batch peuvent changer au fil du temps. Par conséquent, il est fortement recommandé d’utiliser l’étiquette de service `BatchNodeManagement` (ou une variante régionale) pour les règles de groupe de sécurité réseau. Évitez de renseigner les règles NSG avec des adresses IP spécifiques du service Batch.
-
 **Règles de sécurité de trafic entrant**
 
 | Source | Ports source | Destination | Identification de destination | Ports de destination | Protocol | Action |
 | --- | --- | --- | --- | --- | --- | --- |
 | Quelconque | * | [Balise du service](../articles/virtual-network/network-security-groups-overview.md#service-tags) | `Storage` (si vous utilisez une variante régionale, dans la même région que votre compte Batch) | 443 | TCP | Allow |
+| Quelconque | * | [Balise du service](../articles/virtual-network/network-security-groups-overview.md#service-tags) | `BatchNodeManagement` (si vous utilisez une variante régionale, dans la même région que votre compte Batch) | 443 | TCP | Allow |
+
+Une sortie vers `BatchNodeManagement` est requise pour contacter le service Batch à partir des nœuds de calcul, par exemple pour les tâches du gestionnaire de travaux.
 
 ### <a name="pools-in-the-cloud-services-configuration"></a>Pools dans la configuration des services cloud
+
+> [!WARNING]
+> Les pools de configuration des services cloud sont déconseillés. Utilisez à la place des pools de configuration de machines virtuelles.
 
 **Réseaux virtuels pris en charge** : réseaux virtuels classiques uniquement
 

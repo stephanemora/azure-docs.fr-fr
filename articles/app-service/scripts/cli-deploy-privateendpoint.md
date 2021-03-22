@@ -9,12 +9,12 @@ ms.date: 07/06/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
-ms.openlocfilehash: 21f937d95c6cd0dafa27daae50d7a74648af7bdc
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: acebc75b579b13ebb2cfad0e18057245781165ad
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97006104"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175275"
 ---
 # <a name="create-an-app-service-app-and-deploy-private-endpoint-using-azure-cli"></a>Créer une application App Service et déployer un point de terminaison privé à l’aide d’Azure CLI
 
@@ -52,7 +52,7 @@ az appservice plan create \
 ## <a name="create-a-web-app"></a>Créer une application web
 
 Maintenant que vous disposez d’un plan App Service, vous pouvez déployer une application web.
-Créez une application web avec [az appservice plan create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create.
+Créez une application web à l’aide de la commande [az appservice plan create](/cli/azure/webapp#az-webapp-create.
 Cet exemple crée une application web nommée *mySiteName* dans le plan nommé *myAppServicePlan*.
 
 ```azurecli-interactive

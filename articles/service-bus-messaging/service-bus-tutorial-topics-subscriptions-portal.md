@@ -6,12 +6,12 @@ ms.author: spelluru
 ms.date: 10/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f2c8d107c6de4965472c3fb04ff626841fb1f6ea
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: d0a94f346f9d3cf7a05a1ca6e1b37d4d008f3e75
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95810737"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102179661"
 ---
 # <a name="tutorial-update-inventory-using-azure-portal-and-topicssubscriptions"></a>Tutoriel : mise à jour de l’inventaire à l’aide du portail Azure et des rubriques/abonnements
 
@@ -97,7 +97,7 @@ Pour exécuter le code, procédez comme suit :
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Lorsqu’il n’est plus nécessaire, supprimez l’espace de noms et la file d’attente. Pour ce faire, sélectionnez ces ressources sur le portail et cliquez sur **Supprimer**.
+Lorsqu’ils ne sont plus nécessaires, supprimez l’espace de noms et la rubrique. Pour ce faire, sélectionnez ces ressources sur le portail et cliquez sur **Supprimer**.
 
 ## <a name="understand-the-sample-code"></a>Comprendre l’exemple de code
 

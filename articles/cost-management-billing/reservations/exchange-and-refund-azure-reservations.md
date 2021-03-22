@@ -5,18 +5,28 @@ author: yashesvi
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 12/15/2020
+ms.date: 02/24/2021
 ms.author: banders
-ms.openlocfilehash: 045ab35a35aa4caefb1e1bcbbf7bf78b726c09f7
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 9015cbcd669665467d3836112b152aa504176f2b
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98601455"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102035991"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Échanges et remboursements en libre-service de réservations Azure
 
-Les réservations Azure offrent la flexibilité nécessaire pour répondre à vos besoins en constante évolution. Vous pouvez échanger une réservation pour une autre réservation du même type. Par exemple, vous pouvez échanger une réservation de machine virtuelle pour acheter une autre réservation pour une autre région ou taille de machine virtuelle. De même, une réservation de base de données SQL PaaS peut être échangée en vue d’acheter une autre réservation pour n’importe quel type de base de données SQL PaaS ou région. Vous pouvez également rembourser des réservations, mais la somme totale de tous les engagements de réservation annulés dans votre étendue de facturation (par exemple, Contrat Entreprise, Contrat client Microsoft et Contrat Partenaire Microsoft) ne peut pas dépasser 50 000 USD dans une période de 12 mois. La capacité réservée Azure Databricks, la solution Azure VMware par réservation CloudSimple, la réservation de shift ouvert Azure Red Hat, les offres Red Hat et les offres SUSE Linux ne sont pas éligibles aux remboursements.
+Les réservations Azure offrent la flexibilité nécessaire pour répondre à vos besoins en constante évolution. Vous pouvez échanger des réservations pour une autre réservation du même type. Par exemple, vous pouvez renvoyer plusieurs réservations de calcul, notamment Azure Dedicated Host, Azure VMware Solution et Machines virtuelles Microsoft Azure, les unes avec les autres en même temps. En d’autres termes, les produits de réservation sont interchangeables les uns avec les autres s’ils sont du même type de réservation. Dans un autre exemple, vous pouvez échanger plusieurs types de réservation de bases de données SQL, y compris Managed Instance et Pool élastique, les uns avec les autres.
+
+Toutefois, vous ne pouvez pas échanger des réservations différentes. Par exemple, vous ne pouvez pas échanger une réservation de Cosmos DB contre une réservation de SQL Database.
+
+Vous pouvez également échanger une réservation pour acheter une autre réservation d’un type similaire dans une autre région. Par exemple, vous pouvez échanger une réservation qui se trouve dans la région USA Ouest 2 contre une réservation dans la région Europe Ouest.
+
+Lorsque vous échangez une réservation, vous pouvez en modifier la durée d’un an à trois ans.
+
+Vous pouvez également rembourser des réservations, mais la somme totale de tous les engagements de réservation annulés dans votre étendue de facturation (par exemple, Contrat Entreprise, Contrat client Microsoft et Contrat Partenaire Microsoft) ne peut pas dépasser 50 000 USD dans une période de 12 mois.
+
+La capacité réservée Azure Databricks, la solution Azure VMware par réservation CloudSimple, la réservation de shift ouvert Azure Red Hat, les offres Red Hat et les offres SUSE Linux ne sont pas éligibles aux remboursements.
 
 L’échange en libre service et la fonctionnalité d’annulation n’est pas disponible pour les clients Contrat Entreprise de l’administration américaine. Les autres types d’abonnements US Government, notamment les abonnements avec paiement à l’utilisation et les abonnements de fournisseur de solutions cloud sont pris en charge.
 
@@ -37,9 +47,26 @@ Vous pouvez échanger votre réservation à partir du [portail Azure](https://po
 
 Pour obtenir le remboursement d’une réservation, accédez à **Détails de la réservation** et sélectionnez **Remboursement**.
 
+## <a name="exchange-multiple-reservations"></a>Échange de plusieurs réservations
+
+Vous pouvez retourner des types de réservations similaires en une seule action.
+
+Lorsque vous échangez des réservations, le montant en devise du nouvel achat doit être supérieur au montant du remboursement. Si le montant de votre nouvel achat est inférieur au montant du remboursement, vous obtenez une erreur. Si vous voyez l’erreur, réduisez la quantité que vous souhaitez renvoyer ou augmentez le montant à acheter.
+
+1. Connectez-vous au portail Azure et accédez à **Réservations**.
+1. Dans la liste des réservations, cochez la case de chaque réservation que vous souhaitez échanger.
+1. En haut de la page, sélectionnez **Échanger**.
+1. Si nécessaire, modifiez la quantité à retourner pour chaque réservation.
+1. Si vous sélectionnez le remplissage automatique de la quantité renvoyée, vous pouvez choisir **Tout rembourser** pour remplir la liste avec la quantité totale que vous possédez pour chaque réservation ou **Optimiser l’utilisation (7 jours)** pour remplir la liste avec une quantité qui optimise l’utilisation en fonction des sept derniers jours d’utilisation. **Sélectionnez Appliquer**.
+1. En bas de la page, sélectionnez **Suivant : Acheter**.
+1. Sous l’onglet des achats, sélectionnez les produits disponibles que vous souhaitez échanger. Vous pouvez sélectionner plusieurs produits de types différents.
+1. Dans le volet Sélectionner le produit que vous souhaitez acheter, sélectionnez les produits de votre choix, puis sélectionnez **Ajouter au panier** et **Fermer**.
+1. Quand vous avez terminé, sélectionnez **Suivant : Vérifier**.
+1. Vérifiez les réservations à retourner et les nouvelles réservations à acheter, puis sélectionnez **Confirmer l’échange**.
+
 ## <a name="exchange-non-premium-storage-for-premium-storage"></a>Échanger un stockage non Premium contre un stockage Premium
 
-Vous pouvez échanger une réservation achetée pour une taille de machine virtuelle qui ne prend pas en charge le stockage Premium au profit d’une taille de machine virtuelle correspondante qui assure cette prise en charge. Par exemple, une machine virtuelle _F1_ contre une machine virtuelle _F1s_. Pour effectuer l’échange, accédez à Détails de la réservation, puis sélectionnez **Échanger**. L’échange ne réinitialise pas la période de l’instance réservée et ne crée pas de transaction. 
+Vous pouvez échanger une réservation achetée pour une taille de machine virtuelle qui ne prend pas en charge le stockage Premium au profit d’une taille de machine virtuelle correspondante qui assure cette prise en charge. Par exemple, une machine virtuelle _F1_ contre une machine virtuelle _F1s_. Pour effectuer l’échange, accédez à Détails de la réservation, puis sélectionnez **Échanger**. L’échange ne réinitialise pas la période de l’instance réservée et ne crée pas de transaction.
 
 ## <a name="how-transactions-are-processed"></a>Mode de traitement des transactions
 

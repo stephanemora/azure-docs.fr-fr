@@ -12,19 +12,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/03/2020
 ms.author: kumud
-ms.openlocfilehash: e1efd02d60ba874178f24da2b441fc122e4a1912
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 849127ed0846928a77795ac0a1ea3f7a091468b5
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98218532"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100635946"
 ---
 # <a name="what-is-azure-virtual-network"></a>Présentation du réseau virtuel Azure
 
 Le réseau virtuel Azure (VNet) est le bloc de construction fondamental pour votre réseau privé dans Azure. Le réseau virtuel permet à de nombreux types de ressources Azure, telles que les machines virtuelles (VM) Azure, de communiquer de manière sécurisée entre elles, avec Internet et avec les réseaux locaux. Un réseau virtuel est similaire à un réseau traditionnel que vous utiliseriez dans votre propre centre de données, mais avec les avantages supplémentaires de l’infrastructure Azure, tels que la mise à l’échelle, la disponibilité et l’isolation.
 
 ## <a name="why-use-an-azure-virtual-network"></a>Pourquoi utiliser un réseau virtuel Azure ?
-Le réseau virtuel Azure permet aux ressources Azure de communiquer de manière sécurisée entre elles, avec Internet et sur des réseaux locaux. Les principaux scénarios qui vous permettent de constituer un réseau virtuel incluent la communication des ressources Azure avec Internet, la communication entre les ressources Azure, la communication avec les ressources locales, le filtrage du trafic réseau, le routage du trafic réseau et l’intégration aux services Azure.
+Le réseau virtuel Azure permet aux ressources Azure de communiquer de manière sécurisée entre elles, avec Internet et sur des réseaux locaux. Les principaux scénarios que vous pouvez réaliser avec un réseau virtuel incluent la communication des ressources Azure avec Internet, la communication entre les ressources Azure, la communication avec les ressources locales, le filtrage du trafic, le routage du trafic et l’intégration aux services Azure.
 
 ### <a name="communicate-with-the-internet"></a>Communiquer avec Internet
 

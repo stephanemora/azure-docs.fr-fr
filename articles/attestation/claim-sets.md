@@ -7,26 +7,27 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: eb08bb262806cb662822a75898196546a5c1058e
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 23bcfcb92a7fa642e111a67bf92c1306a606bb2a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98762543"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704801"
 ---
 # <a name="claim-sets"></a>Ensembles de revendications
 
 Les revendications générées dans le processus d’attestation d’enclaves à l’aide de Microsoft Azure Attestation peuvent être réparties dans les catégories ci-dessous :
 
-- **Revendications entrantes** : Revendications générées par Microsoft Azure Attestation après l’analyse de la preuve d’attestation et qui peuvent être utilisées par les auteurs de stratégie pour définir des règles d’autorisation dans une stratégie personnalisée
+- **Revendications entrantes** : Les revendications générées par Microsoft Azure Attestation après l’analyse de la preuve d’attestation et qui peuvent être utilisées par les auteurs de stratégie pour définir des règles d’autorisation dans une stratégie personnalisée
 
-- **Revendications sortantes** : Revendications générées par Azure Attestation et contenant toutes les revendications qui se trouvent dans le jeton d’attestation
+- **Revendications sortantes** : Les revendications générées par Azure Attestation et contenant toutes les revendications qui se trouvent dans le jeton d’attestation
 
-- **revendications de propriété** : revendications créées en tant que sortie par Azure Attestation. Cette catégorie contient toutes les revendications qui représentent les propriétés du jeton d’attestation, telles que l’encodage du rapport, la durée de validité du rapport, etc.
+- **Revendications de propriété** : Les revendications créées en tant que sortie par Azure Attestation. Cette catégorie contient toutes les revendications qui représentent les propriétés du jeton d’attestation, telles que l’encodage du rapport, la durée de validité du rapport, etc.
 
 ### <a name="common-incoming-claims-across-all-attestation-types"></a>Revendications entrantes communes à tous les types d’attestations
 
-Les revendications ci-dessous sont générées par Azure Attestation et peuvent être utilisées pour définir des règles d’autorisation dans une stratégie personnalisée :
+Les revendications ci-dessous sont générées par Azure Attestation et peuvent être utilisées par les auteurs de stratégie pour définir des règles d’autorisation dans une stratégie personnalisée pour tous les types d’attestation.
+
 - **x-ms-ver** : version du schéma JWT (valeur « 1.0 » attendue)
 - **x-ms-attestation-type** : valeur de chaîne représentant le type d’attestation 
 - **x-ms-policy-hash** : hachage de stratégie d’évaluation Azure Attestation calculé comme BASE64URL(SHA256(UTF8(BASE64URL(UTF8(policy text)))))
@@ -44,7 +45,9 @@ policy_signer | x-ms-policy-signer
 
 ### <a name="common-outgoing-claims-across-all-attestation-types"></a>Revendications sortantes communes à tous les types d’attestations
 
-Les revendications ci-dessous sont définies par le document [IETF JWT](https://tools.ietf.org/html/rfc7519) et utilisées par Azure Attestation dans l’objet de réponse :
+Les revendications ci-dessous sont incluses dans le jeton d’attestation pour tous les types d’attestations par le service.
+
+Source : Comme défini par [IETF JWT](https://tools.ietf.org/html/rfc7519)
 
 - **Revendication « jti » (ID JWT)**
 - **Revendication « iss » (émetteur)**
@@ -52,10 +55,12 @@ Les revendications ci-dessous sont définies par le document [IETF JWT](https://
 - **Revendication « exp » (délai d’expiration)**
 - **Revendication « nbf » (pas avant)**
 
-Les revendications ci-dessous sont définies par le document [IETF EAT](https://tools.ietf.org/html/draft-ietf-rats-eat-03#page-9) et utilisées par Azure Attestation dans l’objet de réponse :
+Source : Comme défini par [IETF EAT](https://tools.ietf.org/html/draft-ietf-rats-eat-03#page-9)
+
 - **« Revendication nonce » (nonce)**
 
-Les revendications ci-dessous sont générées par défaut en fonction des revendications entrantes
+Les revendications ci-dessous sont incluses dans le jeton d’attestation par défaut en fonction des revendications entrantes :
+
 - **x-ms-ver** : version du schéma JWT (valeur « 1.0 » attendue)
 - **x-ms-attestation-type** : valeur de chaîne représentant le type d’attestation 
 - **x-ms-policy-hash** : valeur de chaîne contenant le hachage SHA256 du texte de la stratégie calculé par BASE64URL(SHA256(UTF8(BASE64URL(UTF8(texte de la stratégie)))))
@@ -65,7 +70,8 @@ Les revendications ci-dessous sont générées par défaut en fonction des reven
 
 ### <a name="incoming-claims-specific-to-sgx-attestation"></a>Revendications entrantes propres à l’attestation SGX
 
-Les revendications ci-dessous sont générées par le service pour l’attestation SGX et peuvent être utilisées pour définir des règles d’autorisation dans une stratégie personnalisée :
+Les revendications ci-dessous sont générées par Azure Attestation et peuvent être utilisées par les auteurs de stratégie pour définir des règles d’autorisation dans une stratégie personnalisée pour l’attestation SGX.
+
 - **x-ms-sgx-is-debuggable** : valeur booléenne qui indique si le débogage est activé ou non pour l’enclave.
 - **x-ms-sgx-product-id**
 - **x-ms-sgx-mrsigner** : valeur encodée hexadécimale du champ « mrsigner » de la déclaration
@@ -74,7 +80,8 @@ Les revendications ci-dessous sont générées par le service pour l’attestati
 
 ### <a name="outgoing-claims-specific-to-sgx-attestation"></a>Revendications sortantes propres à l’attestation SGX
 
-Les revendications ci-dessous sont générées par le service et incluses dans l’objet de réponse pour l’attestation SGX :
+Les revendications ci-dessous sont générées par le service et incluses dans le jeton d’attestation pour l’attestation SGX.
+
 - **x-ms-sgx-is-debuggable** : valeur booléenne qui indique si le débogage est activé ou non pour l’enclave.
 - **x-ms-sgx-product-id**
 - **x-ms-sgx-mrsigner** : valeur encodée hexadécimale du champ « mrsigner » de la déclaration

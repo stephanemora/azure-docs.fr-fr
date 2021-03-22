@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/05/2021
 ms.author: banders
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 2fb1a8c3e583a4bdc88f2b61844e9bcb16dc7cdf
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: c3142fd41830487453a3cc980a87cdca72cf7213
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100367195"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101094139"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Transfert de la propriété de facturation d’un abonnement Azure à un autre compte
 
@@ -66,7 +66,7 @@ Les abonnements Visual Studio et Microsoft Partner Network bénéficient chaque 
 
 Si vous avez accepté la propriété de la facturation d’un abonnement Azure, nous vous recommandons de passer en revue ces étapes suivantes :
 
-1. Passez en revue et mettez à jour l’administrateur de service, les coadministrateurs et les attributions de rôles Azure. Pour plus d’informations, consultez [Ajout ou modification des administrateurs d’abonnements Azure](add-change-subscription-administrator.md) et [Ajouter ou supprimer des attributions de rôle Azure à l’aide du portail Azure](../../role-based-access-control/role-assignments-portal.md).
+1. Passez en revue et mettez à jour l’administrateur de service, les coadministrateurs et les attributions de rôles Azure. Pour plus d’informations, consultez [Ajouter ou modifier les administrateurs d’abonnements Azure](add-change-subscription-administrator.md) et [Attribuer des rôles Azure à l’aide du portail Azure](../../role-based-access-control/role-assignments-portal.md).
 1. Mettez à jour les informations d’identification associées aux services de cet abonnement, notamment :
    1. Certificats de gestion accordant à l’utilisateur des droits d’administrateur sur les ressources d’abonnement. Pour plus d'informations, consultez [Créer et télécharger un certificat de gestion pour Microsoft Azure](../../cloud-services/cloud-services-certs-create.md)
    1. Touches d’accès rapide pour les services tels que Storage. Pour plus d’informations, consultez [À propos des comptes de stockage Azure](../../storage/common/storage-account-create.md).
@@ -126,4 +126,4 @@ Si vous avez des questions ou besoin d’aide, [créez une demande de support](h
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Passez en revue et mettez à jour l’administrateur de service, les coadministrateurs et les attributions de rôles Azure. Pour plus d’informations, consultez [Ajout ou modification des administrateurs d’abonnements Azure](add-change-subscription-administrator.md) et [Ajouter ou supprimer des attributions de rôle Azure à l’aide du portail Azure](../../role-based-access-control/role-assignments-portal.md).
+- Passez en revue et mettez à jour l’administrateur de service, les coadministrateurs et les attributions de rôles Azure. Pour plus d’informations, consultez [Ajouter ou modifier les administrateurs d’abonnements Azure](add-change-subscription-administrator.md) et [Attribuer des rôles Azure à l’aide du portail Azure](../../role-based-access-control/role-assignments-portal.md).
