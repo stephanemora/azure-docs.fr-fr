@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 02/21/2020
 ms.author: cshoe
-ms.openlocfilehash: dadd86521a7b6c20dab2ed036555b798b869344c
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 9fca69804220021ca7935e562f2026c11749515a
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102511054"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102623458"
 ---
 Utilisez la liaison de sortie Event Hubs pour écrire des événements dans un flux d’événements du hub d’événements. Vous devez disposer de l’autorisation d’envoi à un hub d’événements pour y écrire les événements.
 
@@ -250,7 +250,7 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 |**name** | n/a | Nom de variable utilisé dans le code de la fonction qui représente l’événement. |
 |**path** |**EventHubName** | Functions 1.x uniquement. Nom du hub d’événements. Lorsque le nom d’Event Hub est également présent dans la chaîne de connexion, sa valeur remplace cette propriété lors de l’exécution. |
 |**eventHubName** |**EventHubName** | Functions 2.x et versions ultérieures. Nom du hub d’événements. Lorsque le nom d’Event Hub est également présent dans la chaîne de connexion, sa valeur remplace cette propriété lors de l’exécution. |
-|**connection** |**Connection** | Le nom d’un paramètre d’application qui contient la chaîne de connexion à l’espace de noms du hub d’événements. Copiez cette chaîne de connexion en cliquant sur le bouton **Informations de connexion** pour *l’espace de noms*, et non pour le hub d’événements lui-même. Cette chaîne de connexion doit disposer d’autorisations d’envoi pour envoyer le message au flux d’événements.|
+|**connection** |**Connection** | Le nom d’un paramètre d’application qui contient la chaîne de connexion à l’espace de noms du hub d’événements. Copiez cette chaîne de connexion en cliquant sur le bouton **Informations de connexion** pour [l’espace de noms](../articles/event-hubs/event-hubs-create.md#create-an-event-hubs-namespace), et non pour le hub d’événements lui-même. Cette chaîne de connexion doit disposer d’autorisations d’envoi pour envoyer le message au flux d’événements. <br><br>Si vous utilisez la [version 5.x ou ultérieure de l’extension](../articles/azure-functions/functions-bindings-event-hubs.md#event-hubs-extension-5x-and-higher), au lieu d’une chaîne de connexion, vous pouvez fournir une référence à une section de configuration qui définit la connexion. Consultez [Connexions](../articles/azure-functions/functions-reference.md#connections).|
 
 [!INCLUDE [app settings to local.settings.json](../articles/azure-functions/../../includes/functions-app-settings-local.md)]
 
@@ -258,11 +258,39 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 
 # <a name="c"></a>[C#](#tab/csharp)
 
+### <a name="default"></a>Default
+
+Vous pouvez utiliser les types de paramètres suivants pour la liaison de sortie d’Event Hub :
+
+* `string`
+* `byte[]`
+* `POCO`
+* `EventData` - Les propriétés par défaut d’EventData sont fournies pour l'[espace de noms Microsoft.Azure.EventHubs](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet).
+
 Envoyez des messages en utilisant un paramètre de méthode comme `out string paramName`. Dans Script C#, `paramName` est la valeur spécifiée dans la propriété `name` de *function.json*. Pour écrire plusieurs messages, vous pouvez utiliser `ICollector<string>` ou `IAsyncCollector<string>` à la place de `out string`.
+
+### <a name="additional-types"></a>Autres types 
+Les applications utilisant la version 5.0.0 ou ultérieure de l’extension Event Hub utilisent le type `EventData` dans [Azure.Messaging.EventHubs](https://docs.microsoft.com/dotnet/api/azure.messaging.eventhubs.eventdata?view=azure-dotnet) au lieu de celui de l’[espace de noms Microsoft.Azure.EventHubs](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet). Cette version ne prend plus en charge le type hérité `Body`, mais elle prend désormais en charge les types suivants :
+
+- [EventBody](https://docs.microsoft.com/dotnet/api/azure.messaging.eventhubs.eventdata.eventbody?view=azure-dotnet)
 
 # <a name="c-script"></a>[Script C#](#tab/csharp-script)
 
+### <a name="default"></a>Default
+
+Vous pouvez utiliser les types de paramètres suivants pour la liaison de sortie d’Event Hub :
+
+* `string`
+* `byte[]`
+* `POCO`
+* `EventData` - Les propriétés par défaut d’EventData sont fournies pour l'[espace de noms Microsoft.Azure.EventHubs](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet).
+
 Envoyez des messages en utilisant un paramètre de méthode comme `out string paramName`. Dans Script C#, `paramName` est la valeur spécifiée dans la propriété `name` de *function.json*. Pour écrire plusieurs messages, vous pouvez utiliser `ICollector<string>` ou `IAsyncCollector<string>` à la place de `out string`.
+
+### <a name="additional-types"></a>Autres types 
+Les applications utilisant la version 5.0.0 ou ultérieure de l’extension Event Hub utilisent le type `EventData` dans [Azure.Messaging.EventHubs](https://docs.microsoft.com/dotnet/api/azure.messaging.eventhubs.eventdata?view=azure-dotnet) au lieu de celui de l’[espace de noms Microsoft.Azure.EventHubs](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet). Cette version ne prend plus en charge le type hérité `Body`, mais elle prend désormais en charge les types suivants :
+
+- [EventBody](https://docs.microsoft.com/dotnet/api/azure.messaging.eventhubs.eventdata.eventbody?view=azure-dotnet)
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 

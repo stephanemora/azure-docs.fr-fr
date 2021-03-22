@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 30b30697750a0b9068cfcde19ea4bf9c474f9ad9
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: aec60218774f3f8e293a5e5ab8c03707d117c2a0
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102424561"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102634972"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Tutoriel : Créer une solution de bout en bout
 
@@ -120,6 +120,8 @@ Cette action a pour effet d’ouvrir le Gestionnaire de package NuGet. Sélectio
 De retour dans la fenêtre de Visual Studio où le projet _**AdtE2ESample**_ est ouvert, recherchez le projet _**SampleFunctionsApp**_ dans le volet *Explorateur de solutions*.
 
 [!INCLUDE [digital-twins-publish-azure-function.md](../../includes/digital-twins-publish-azure-function.md)]
+
+Pour que votre application de fonction puisse accéder à Azure Digital Twins, elle devra disposer d’une identité managée par le système avec les autorisations nécessaires pour accéder à votre instance d’Azure Digital Twins. Vous allez maintenant configurer cela.
 
 ### <a name="assign-permissions-to-the-function-app"></a>Attribuer des autorisations à l’application de fonction
 

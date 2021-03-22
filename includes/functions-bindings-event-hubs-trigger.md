@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 03/05/2019
 ms.author: cshoe
-ms.openlocfilehash: 0cd514c852e13b83a679821ca2d940e4ed112bd8
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 145db7693db126d4e114e8c8a885ea7fd7809e69
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95560310"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102608906"
 ---
 Utilisez le déclencheur de fonction pour répondre à un événement envoyé à un flux d’événements d’un hub d’événements. Vous devez disposer de l’accès en lecture au hub d’événements sous-jacent pour configurer le déclencheur. Une fois la fonction déclenchée, le message passé à la fonction est du type chaîne.
 
@@ -360,9 +360,59 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 |**eventHubName** |**EventHubName** | Functions 2.x et versions ultérieures. Nom du hub d’événements. Lorsque le nom d’Event Hub est également présent dans la chaîne de connexion, sa valeur remplace cette propriété lors de l’exécution. Peut être référencé via les [paramètres d’application](../articles/azure-functions/functions-bindings-expressions-patterns.md#binding-expressions---app-settings) `%eventHubName%` |
 |**consumerGroup** |**ConsumerGroup** | Propriété facultative qui définit le [groupe de consommateurs](../articles/event-hubs/event-hubs-features.md#event-consumers) utilisé pour l’abonnement à des événements dans le hub. En cas d’omission, le groupe de consommateurs `$Default` est utilisé. |
 |**cardinalité** | n/a | Utilisé pour toutes les autres langages non-C#. Définissez sur `many` afin d’activer le traitement par lot.  Si omis ou défini sur `one`, un message unique est transmis à la fonction.<br><br>En C#, cette propriété est affectée automatiquement chaque fois que le déclencheur a un tableau pour le type.|
-|**connection** |**Connection** | Le nom d’un paramètre d’application qui contient la chaîne de connexion à l’espace de noms du hub d’événements. Copiez cette chaîne de connexion en cliquant sur le bouton **Informations de connexion** pour [l’espace de noms](../articles/event-hubs/event-hubs-create.md#create-an-event-hubs-namespace), et non pour le hub d’événements lui-même. Cette chaîne de connexion doit avoir au moins des droits de lecture pour activer le déclencheur.|
+|**connection** |**Connection** | Le nom d’un paramètre d’application qui contient la chaîne de connexion à l’espace de noms du hub d’événements. Copiez cette chaîne de connexion en cliquant sur le bouton **Informations de connexion** pour [l’espace de noms](../articles/event-hubs/event-hubs-create.md#create-an-event-hubs-namespace), et non pour le hub d’événements lui-même. Cette chaîne de connexion doit avoir au moins des droits de lecture pour activer le déclencheur.<br><br>Si vous utilisez la [version 5.x ou ultérieure de l’extension](../articles/azure-functions/functions-bindings-event-hubs.md#event-hubs-extension-5x-and-higher), au lieu d’une chaîne de connexion, vous pouvez fournir une référence à une section de configuration qui définit la connexion. Consultez [Connexions](../articles/azure-functions/functions-reference.md#connections).|
 
 [!INCLUDE [app settings to local.settings.json](../articles/azure-functions/../../includes/functions-app-settings-local.md)]
+
+## <a name="usage"></a>Usage
+
+# <a name="c"></a>[C#](#tab/csharp)
+
+### <a name="default"></a>Default
+
+Vous pouvez utiliser les types de paramètres suivants pour le hub d’événements déclencheur :
+
+* `string`
+* `byte[]`
+* `POCO`
+* `EventData` - Les propriétés par défaut d’EventData sont fournies pour l'[espace de noms Microsoft.Azure.EventHubs](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet).
+
+### <a name="additional-types"></a>Autres types 
+Les applications utilisant la version 5.0.0 ou ultérieure de l’extension Event Hub utilisent le type `EventData` dans [Azure.Messaging.EventHubs](https://docs.microsoft.com/dotnet/api/azure.messaging.eventhubs.eventdata?view=azure-dotnet) au lieu de celui de l’[espace de noms Microsoft.Azure.EventHubs](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet). Cette version ne prend plus en charge le type hérité `Body`, mais elle prend désormais en charge les types suivants :
+
+- [EventBody](https://docs.microsoft.com/dotnet/api/azure.messaging.eventhubs.eventdata.eventbody?view=azure-dotnet)
+
+# <a name="c-script"></a>[Script C#](#tab/csharp-script)
+
+### <a name="default"></a>Default
+
+Vous pouvez utiliser les types de paramètres suivants pour le hub d’événements déclencheur :
+
+* `string`
+* `byte[]`
+* `POCO`
+* `EventData` - Les propriétés par défaut d’EventData sont fournies pour l'[espace de noms Microsoft.Azure.EventHubs](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet).
+
+### <a name="additional-types"></a>Autres types 
+Les applications utilisant la version 5.0.0 ou ultérieure de l’extension Event Hub utilisent le type `EventData` dans [Azure.Messaging.EventHubs](https://docs.microsoft.com/dotnet/api/azure.messaging.eventhubs.eventdata?view=azure-dotnet) au lieu de celui de l’[espace de noms Microsoft.Azure.EventHubs](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet). Cette version ne prend plus en charge le type hérité `Body`, mais elle prend désormais en charge les types suivants :
+
+- [EventBody](https://docs.microsoft.com/dotnet/api/azure.messaging.eventhubs.eventdata.eventbody?view=azure-dotnet)
+
+# <a name="java"></a>[Java](#tab/java)
+
+Pour plus d'informations, consultez l’[exemple de déclencheur](#example) Java.
+
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+Pour plus d'informations, consultez l’[exemple de déclencheur](#example) Javascript.
+
+# <a name="python"></a>[Python](#tab/python)
+
+Pour plus d'informations, consultez l’[exemple de déclencheur](#example) Python.
+
+
+---
+
 
 ## <a name="event-metadata"></a>Métadonnées d’événement
 
@@ -379,10 +429,3 @@ Le déclencheur Event Hubs fournit plusieurs [propriétés de métadonnées](../
 |`SystemProperties`|`IDictionary<String,Object>`|Les propriétés système, y compris les données d’événement.|
 
 Consultez les [exemples de code](#example) qui utilisent ces propriétés précédemment dans cet article.
-
-## <a name="hostjson-properties"></a>Propriétés host.json
-<a name="host-json"></a>
-
-Le fichier [host.json](../articles/azure-functions/functions-host-json.md#eventhub) contient les paramètres qui contrôlent le comportement du déclencheur Event Hubs. La configuration diffère selon la version d’Azure Functions.
-
-[!INCLUDE [functions-host-json-event-hubs](../articles/azure-functions/../../includes/functions-host-json-event-hubs.md)]

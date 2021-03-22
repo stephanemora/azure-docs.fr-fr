@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/10/2020
 ms.author: memildin
-ms.openlocfilehash: 31472b0a0eedee03d5cfcb6ff47a97033a8c78e0
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: 9db276425d510316c41126f8e942a1e2a362ea35
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98796066"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102101288"
 ---
 # <a name="enable-security-center-on-all-subscriptions-in-a-management-group"></a>Activer Security Center sur tous les abonnements d’un groupe d’administration
 
@@ -60,7 +60,7 @@ Vous pouvez modifier la définition Azure Policy de plusieurs façons :
     La définition fournie définit *un* des paramètres de tarif ci-dessous comme étant conforme. Cela signifie qu’un abonnement défini sur « standard » ou « free » (gratuit) est conforme.
 
     > [!TIP]
-    > Quand un plan Azure Defender est activé, il est décrit comme étant associé au paramètre « Standard ». Quand il est désactivé, il est « Gratuit ». [Découvrez-en plus sur les plans Azure Defender](security-center-pricing.md).
+    > Quand un plan Azure Defender est activé, il est décrit dans une définition de stratégie comme étant associé au paramètre « Standard ». Quand il est désactivé, il est « Gratuit ». Pour en savoir plus sur les différences entre ces plans, consultez [Security Center gratuit ou Azure Defender activé](security-center-pricing.md). 
 
     ```
     "existenceCondition": {
@@ -98,4 +98,4 @@ Vous pouvez modifier la définition Azure Policy de plusieurs façons :
 Maintenant que vous avez intégré un groupe d’administration entier, activez les protections avancées d’Azure Defender. 
 
 > [!div class="nextstepaction"]
-> [Activation d’Azure Defender](security-center-pricing.md#enable-azure-defender)
+> [Activation d’Azure Defender](enable-azure-defender.md)

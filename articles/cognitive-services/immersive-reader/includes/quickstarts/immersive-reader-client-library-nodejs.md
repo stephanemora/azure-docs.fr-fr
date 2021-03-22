@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 09/14/2020
 ms.author: nitinme
 ms.custom: devx-track-js
-ms.openlocfilehash: c34ed97339076a4412f8b6bf36ddf342205c88be
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ffef03457f9d3faf385bd0a924474dfa6efc4121
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91377326"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102619238"
 ---
 Le [Lecteur immersif](https://www.onenote.com/learningtools) est un outil qui permet d’implémenter des techniques éprouvées pour améliorer la compréhension dans le cadre de l’apprentissage de la lecture, l’apprentissage d’une langue et pour les personnes avec des difficultés d’apprentissage, comme la dyslexie. Vous pouvez utiliser le Lecteur immersif dans vos applications pour isoler du texte afin d’améliorer le focus, afficher des images pour les mots couramment utilisés, mettre en évidence des parties d’un discours, lire le texte sélectionné à voix haute, traduire des mots et des expressions en temps réel, etc.
 
@@ -256,4 +256,5 @@ Lorsque vous cliquez sur le bouton « Lecteur immersif », vous verrez le lect
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Explorer le [SDK Lecteur Immersif](https://github.com/microsoft/immersive-reader-sdk) et la [référence du SDK Lecteur immersif](../../reference.md)
+> [!div class="nextstepaction"]
+> [Créer une ressource et configurer AAD](../../how-to-create-immersive-reader.md)

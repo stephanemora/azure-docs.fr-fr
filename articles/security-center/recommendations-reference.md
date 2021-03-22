@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 02/16/2021
 ms.author: memildin
 ms.custom: generated
-ms.openlocfilehash: ecc9279b66f7dca431cc8c33a47b07a6349d8ed6
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d484802b35ffec26d1248e51b365ac9041fc7934
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100574479"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102100404"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>Recommandations de sécurité - Guide de référence
 
@@ -49,7 +49,7 @@ Votre degré de sécurisation est basé sur le nombre de recommandations Securit
 |Recommandation|Description et stratégie associée|severity|Correction rapide activée ? ([en savoir plus](security-center-remediate-recommendations.md#quick-fix-remediation))|Type de ressource|
 |----|----|----|----|----|
 |**L’accès à App Services doit être limité**|Limitez l'accès à App Services en modifiant la configuration du réseau pour empêcher le trafic entrant provenant de plages trop larges.<br>(Stratégie associée : [Préversion] : L’accès à App Services doit être limité)|Élevé|N|App Service|
-|**Les règles relatives aux applications web doivent être renforcées sur les groupes de sécurité réseau IaaS**|Renforcez le groupe de sécurité réseau (NSG) des machines virtuelles qui exécutent des applications web lorsque les règles NSG sont trop permissives en ce qui concerne les ports des applications web.<br>(Stratégie associée : Les règles de groupe de sécurité réseau pour les applications web IaaS doivent être renforcées)|Élevé|N|Machine virtuelle|
+|**Les règles relatives aux applications web doivent être renforcées sur les groupes de sécurité réseau IaaS**|Renforcez le groupe de sécurité réseau (NSG) des machines virtuelles qui exécutent des applications web lorsque les règles NSG sont trop permissives en ce qui concerne les ports des applications web.<br>(Stratégie associée : Les règles de groupe de sécurité réseau pour les applications web IaaS doivent être renforcées)|Élevé|N|Machine virtuelle|
 |**Des stratégies de sécurité de pod doivent être définies pour réduire le vecteur d’attaque en supprimant les privilèges d’application inutiles (préversion)**|Définissez des stratégies de sécurité de pod pour réduire le vecteur d’attaque en supprimant les privilèges d’application inutiles. Il est recommandé de configurer des stratégies de sécurité de pod afin que les pods ne puissent accéder qu’aux ressources auxquelles ils sont autorisés à accéder.<br>(Stratégie associée : [Préversion] : Des stratégies de sécurité de pods doivent être définies sur les services Kubernetes)|Moyenne|N|Ressources de calcul (conteneurs)|
 |**Installer Azure Security Center pour le module de sécurité IoT afin d’obtenir une meilleure visibilité sur vos appareils IoT**|Installez Azure Security Center pour le module de sécurité IoT afin d’obtenir une meilleure visibilité sur vos appareils IoT.|Faible|N|Appareil IoT|
 
@@ -57,5 +57,5 @@ Votre degré de sécurisation est basé sur le nombre de recommandations Securit
 
 Pour en savoir plus sur les recommandations, consultez les articles suivants :
 
-- [Recommandations de sécurité dans Azure Security Center](security-center-recommendations.md)
-- [Protection de votre réseau dans Azure Security Center](security-center-network-recommendations.md)
+- [Présentation des stratégies de sécurité, des initiatives et des recommandations](security-policy-concept.md).
+- [Consulter vos recommandations de sécurité](security-center-recommendations.md).

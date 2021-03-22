@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 09/14/2020
 ms.custom: devx-track-java, devx-track-js
 ms.author: dylankil
-ms.openlocfilehash: 29bacfff2e7b555143c0483f9b7e4b4f61c9e973
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 7119e1d029bb682f004e65323df5b50087c0634c
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97612629"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102619251"
 ---
 Le [Lecteur immersif](https://www.onenote.com/learningtools) est un outil qui permet d’implémenter des techniques éprouvées pour améliorer la compréhension dans le cadre de l’apprentissage de la lecture, l’apprentissage d’une langue et pour les personnes avec des difficultés d’apprentissage, comme la dyslexie. Vous pouvez utiliser le Lecteur immersif dans vos applications pour isoler du texte afin d’améliorer le focus, afficher des images pour les mots couramment utilisés, mettre en évidence des parties d’un discours, lire le texte sélectionné à voix haute, traduire des mots et des expressions en temps réel, etc.
 
@@ -1391,4 +1391,5 @@ Utilisez Android Studio pour exécuter l’application sur un émulateur d’app
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Explorez le [kit SDK Lecteur Immersif](https://github.com/microsoft/immersive-reader-sdk) et la [référence du kit SDK Lecteur immersif](../../reference.md).
+> [!div class="nextstepaction"]
+> [Créer une ressource et configurer AAD](../../how-to-create-immersive-reader.md)

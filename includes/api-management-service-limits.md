@@ -6,15 +6,15 @@ author: vladvino
 ms.assetid: 1b813833-39c8-46be-8666-fd0960cfbf04
 ms.service: api-management
 ms.topic: include
-ms.date: 01/11/2021
+ms.date: 02/19/2021
 ms.author: vlvinogr
 ms.custom: include file
-ms.openlocfilehash: 78890c0596642b629482a6d24d17d83fb8ebc9a0
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: ebaca1f39b16e4a06b5dcaa4e5f1de07122c6c89
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98147591"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103622281"
 ---
 | Ressource | Limite |
 | ---------------------------------------------------------------------- | -------------------------- |
@@ -34,6 +34,8 @@ ms.locfileid: "98147591"
 | Taille maximale de la charge utile mise en mémoire tampon<sup>8</sup> | 2 Mio |
 | Taille maximale de l’URL de requête<sup>9</sup> | 4096 octets |
 | Longueur maximale du segment de chemin d’URL<sup>10</sup> | 260 caractères |
+| Taille maximale du schéma d’API utilisé par la [stratégie de validation](../articles/api-management/validation-policies.md)<sup>10</sup> | 4 Mo |
+| Taille maximale du corps de la requête ou de la réponse dans la [stratégie de validation du contenu](../articles/api-management/validation-policies.md#validate-content) | 100 Ko |
 | Nombre maximal de passerelles auto-hébergées<sup>11</sup> | 25 |
 
 <sup>1</sup>Les limites de mise à l’échelle varient selon le niveau tarifaire. Pour plus de détails sur les niveaux tarifaires et leurs limites de mise à l’échelle, consultez [Tarification de la gestion des API](https://azure.microsoft.com/pricing/details/api-management/).<br/>
@@ -45,5 +47,5 @@ ms.locfileid: "98147591"
 <sup>7</sup>Les certificats d’autorité de certification ne sont pas pris en charge dans le niveau Consommation.<br/>
 <sup>8</sup>Cette limite s’applique au niveau Consommation uniquement. Il n’existe aucune limite dans ces catégories pour les autres niveaux.<br/>
 <sup>9</sup> S’applique au niveau Consommation uniquement. Comprend une chaîne de requête longue allant jusqu’à 2048 octets.<br/>
-<sup>10</sup> Pour relever cette limite, contactez le [support](https://azure.microsoft.com/support/options/).<br/>
+<sup>10</sup> Pour augmenter cette limite, contactez le [support](https://azure.microsoft.com/support/options/).<br/>
 <sup>11</sup>Les passerelles auto-hébergées sont prises en charge uniquement dans les niveaux Développeur et Premium. Cette limite s’applique au nombre de [ressources des passerelles auto-hébergées](/rest/api/apimanagement/2019-12-01/gateway). Pour augmenter cette limite, contactez le [support](https://azure.microsoft.com/support/options/). Notez que le nombre de nœuds (ou réplicas) associés à une ressource de passerelle auto-hébergée est illimité dans le niveau Premium, mais limité à un seul nœud dans le niveau Développeur.

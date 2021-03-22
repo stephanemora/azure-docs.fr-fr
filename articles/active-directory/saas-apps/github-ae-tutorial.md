@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/18/2021
 ms.author: jeedes
-ms.openlocfilehash: 1d66396b2d97a7f33158f91025f5735c7714cd65
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 537378ef11333bd8942a61ab2bbb4e8a251c2b59
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99221045"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103196866"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-github-ae"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à GitHub AE
 
@@ -101,9 +101,9 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Cliquez sur **Sélectionnez des groupes** et recherchez le **Groupe** pour lequel vous souhaitez inclure cette revendication, dont les membres doivent être administrateurs pour GHAE.
 
-1. Sélectionnez **Attribut** pour **Source** et entrez **true** pour **Valeur**. 
+1. Sélectionnez **Attribut** pour **Source** et entrez **true** (sans guillemets) pour **Valeur**. 
 
-10. Cliquez sur **Enregistrer**.
+1. Cliquez sur **Enregistrer**.
 
     ![gérer la revendication](./media/github-ae-tutorial/administrator.png)
 
@@ -112,7 +112,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **Certificat (en base64)** , puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
-    ![Lien Téléchargement de certificat](common/certificateBase64.png)
+    ![Lien Téléchargement de certificat](common/certificatebase64.png)
 
 1. Dans la section **Configurer GitHub AE**, copiez l’URL ou les URL appropriées en fonction de vos besoins.
 
