@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 1/21/2021
 ms.author: baanders
-ms.openlocfilehash: 59506b1d1d3fbbc5a532c597d46dc92ee3c2e98e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 9f8ca9ab6dc184abb8d9dcd25ebe87cbd7761722
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101750885"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102630262"
 ---
 Pour publier le projet sur une application de fonction dans Azure, cliquez avec le bouton droit sur le projet dans l’*Explorateur de solutions*, puis sélectionnez **Publier**.
 
@@ -57,6 +57,4 @@ Dans le volet *Publier* qui s’ouvre de nouveau dans la fenêtre principale de 
 >
 > Suivez les invites pour effectuer une mise à niveau vers la dernière version du runtime Azure Functions. Ce problème peut se produire si vous utilisez une version plus ancienne de Visual Studio.
 
-Votre application de fonction est maintenant publiée sur Azure. 
-
-Pour que votre application de fonction puisse accéder à Azure Digital Twins, elle devra disposer d’une identité managée par le système avec les autorisations nécessaires pour accéder à votre instance d’Azure Digital Twins. Vous allez maintenant configurer cela.
+Votre application de fonction est maintenant publiée sur Azure.

@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 71217e6379c02191311f5d93cb439d9da20080bc
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a606956483ddb7c7f3a4f3cef8728ade508ab461
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101706960"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103574269"
 ---
 # <a name="deploy-a-cloud-service-extended-support-using-arm-templates"></a>Déployer un service cloud (support étendu) à l’aide de modèles ARM
 
@@ -44,6 +44,9 @@ Ce tutoriel explique comment créer un déploiement d’un service cloud (suppor
 
 ## <a name="deploy-a-cloud-service-extended-support"></a>Déployer un service cloud (support étendu)
 
+> [!NOTE]
+> Une autre façon de déployer votre service cloud (prise en charge étendue) consiste à utiliser le [portail Azure](https://portal.azure.com). Vous pouvez télécharger le modèle ARM généré par le biais du portail pour vos futurs déploiements.
+ 
 1. Créez un réseau virtuel. Le nom du réseau virtuel doit correspondre aux références figurant dans le fichier de configuration de service (.cscfg). Si vous utilisez un réseau virtuel existant, omettez cette section dans le modèle ARM.
 
     ```json

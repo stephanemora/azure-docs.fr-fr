@@ -9,14 +9,16 @@ ms.date: 07/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 8e64233ce1d59512e38ce6c366eba889392c4623
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 8da5c24265a43eaaf1ecfe80649b6f4fea588b3f
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101736489"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103464058"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>Tutoriel : Effectuer la classification d'images en périphérie avec le service Vision personnalisée
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Grâce à Azure IoT Edge, votre solution IoT peut gagner en efficacité, via le déplacement des charges de travail en dehors du cloud et vers la périphérie. Cette fonctionnalité s’avère particulièrement utile pour les services qui traitent de nombreuses données, comme les modèles de vision par ordinateur. [Custom Vision](../cognitive-services/custom-vision-service/overview.md) vous permet de créer des classifieurs d’images personnalisés et de les déployer en tant que conteneurs sur des appareils. En fonctionnant de concert, ces deux services vous permettent de rechercher des insights à partir de flux vidéo ou d’images sans avoir à transférer toutes les données hors site au préalable. Custom Vision fournit un classifieur qui compare une image par rapport à un modèle entraîné pour générer des insights.
 
@@ -42,10 +44,10 @@ Dans ce tutoriel, vous allez apprendre à :
 >[!TIP]
 >Ce tutoriel est une version simplifiée de l’exemple de projet [Custom Vision and Azure IoT Edge on a Raspberry Pi 3](https://github.com/Azure-Samples/custom-vision-service-iot-edge-raspberry-pi). Ce tutoriel a été conçu pour s’exécuter sur une machine virtuelle du cloud. Il utilise des images statiques pour entraîner et tester le classifieur d’images, ce qui est utile pour une personne qui commence tout juste à évaluer Custom Vision sur IoT Edge. L’exemple de projet utilise du matériel physique et configure un flux de caméra en direct pour entraîner et tester le classifieur d’images, ce qui est utile pour une personne qui souhaite essayer un scénario plus détaillé et plus concret.
 
-Avant de commencer ce tutoriel, vous devez avoir effectué celui qui précède afin de configurer votre environnement pour le développement de conteneur Linux : [Développer des modules IoT Edge pour les appareils Linux](tutorial-develop-for-linux.md). En suivant ce tutoriel, les conditions préalables suivantes doivent être remplies :
+Avant de commencer ce tutoriel, vous devez avoir effectué celui qui précède pour configurer votre environnement pour le développement de conteneur Linux : [Développer des modules IoT Edge avec des conteneurs Linux](tutorial-develop-for-linux.md). En suivant ce tutoriel, les conditions préalables suivantes doivent être remplies :
 
 * Un niveau gratuit ou standard [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) dans Azure.
-* Un [appareil Linux exécutant Azure IoT Edge](quickstart-linux.md).
+* Un appareil exécutant Azure IoT Edge. Vous pouvez utiliser les guides de démarrage rapide pour configurer un [appareil Linux](quickstart-linux.md) ou un [appareil Windows](quickstart.md).
 * Un registre de conteneurs tel qu’[Azure Container Registry](../container-registry/index.yml).
 * [Visual Studio Code](https://code.visualstudio.com/) configuré avec [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 * [Docker CE](https://docs.docker.com/install/) configuré pour exécuter des conteneurs Linux.

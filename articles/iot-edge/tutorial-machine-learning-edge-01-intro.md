@@ -8,16 +8,21 @@ ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b23324a7226d4b3de4908bd78a8f19c799e59f06
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 67cc470b4f7f119b7f5b86bcb82ea284ab662dfe
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96932181"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103463236"
 ---
 # <a name="tutorial-an-end-to-end-solution-using-azure-machine-learning-and-iot-edge"></a>Tutoriel : Une solution de bout en bout à l’aide d’Azure Machine Learning et IoT Edge
 
+[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
+
 Souvent, les applications IoT souhaitent tirer parti du cloud intelligent et de la périphérie intelligente. Dans ce didacticiel, nous vous guidons durant l’apprentissage d’un modèle Machine Learning avec les données collectées à partir d’appareils IoT dans le cloud, suivi du déploiement de ce modèle sur IoT Edge. Pour finir, nous verrons comment assurer périodiquement la maintenance et l’affinement de ce modèle.
+
+>[!NOTE]
+>Les concepts abordés dans cet ensemble de tutoriels s’appliquent à toutes les versions d’IoT Edge, mais l’exemple d’appareil que vous créez pour tester le scénario exécute IoT Edge version 1.1.
 
 L’objectif principal de ce didacticiel consiste à expliquer comment fonctionne le traitement des données IoT avec le Machine Learning, en particulier en périphérie. Même si nous abordons plusieurs aspects du flux de travail Machine Learning, ce didacticiel n’est pas une présentation exhaustive du Machine Learning. Par exemple, nous ne verrons pas comment créer un modèle hautement optimisé pour notre cas d’usage : nous nous contenterons de présenter le processus de création et l’utilisation d’un modèle viable pour le traitement des données IoT.
 
@@ -69,9 +74,9 @@ Les données utilisées dans ce didacticiel provient du [jeu de données de simu
 
 Voici ce qu’en dit le fichier Readme (Lisez-moi) :
 
-***Scénario expérimental** _
+***Scénario expérimental***
 
-_Ces jeux de données se composent de plusieurs séries chronologiques multidimensionnelles. Chaque jeu de données est divisé en sous-ensembles d’entraînement et de test. Chaque série chronologique provient d’un moteur différent : ainsi, les données peuvent être considérées comme provenant d’un parc de moteurs du même type. Chaque moteur a un niveau d’usure initial différent et des variations de fabrication, que l’utilisateur ne connaît pas. Cette usure et ces variations sont considérées comme normales. Elles ne sont donc pas considérées comme étant des conditions d’erreurs. Trois paramètres opérationnels ont un effet important sur les performances du moteur. Ces paramètres sont également inclus dans les données. Les données sont contaminées par le bruit du capteur.*
+*Ces jeux de données se composent de plusieurs séries chronologiques multidimensionnelles. Chaque jeu de données est divisé en sous-ensembles d’entraînement et de test. Chaque série chronologique provient d’un moteur différent : ainsi, les données peuvent être considérées comme provenant d’un parc de moteurs du même type. Chaque moteur a un niveau d’usure initial différent et des variations de fabrication, que l’utilisateur ne connaît pas. Cette usure et ces variations sont considérées comme normales. Elles ne sont donc pas considérées comme étant des conditions d’erreurs. Trois paramètres opérationnels ont un effet important sur les performances du moteur. Ces paramètres sont également inclus dans les données. Les données sont contaminées par le bruit du capteur.*
 
 *Le moteur fonctionne normalement au début de chaque série chronologique et développe une erreur à un moment donné. Dans le jeu d’apprentissage, la grandeur de l’erreur augmente jusqu’à la défaillance du système. Dans le jeu de test, la série chronologique se termine peu de temps avant la défaillance du système. L’objectif de cette comparaison est d’établir une prévision du nombre de cycles opérationnels restants avant que la défaillance survienne dans le jeu de test. Cela permettra de prévoir le nombre de cycles opérationnels après le dernier cycle pendant lesquels le moteur continuera de fonctionner. Un vecteur des valeurs réelles de la durée de vie restante est également fourni pour les données de test.*
 
@@ -105,7 +110,7 @@ L’image ci-dessous représente une synthèse des étapes de ce didacticiel :
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Ce tutoriel fait partie d’un ensemble où chaque article s’appuie sur le travail effectué dans les articles précédents. Ne nettoyez pas les ressources avant d’avoir terminé le dernier tutoriel.
+Ce tutoriel fait partie d’une série où chaque article s’appuie sur le travail effectué dans les articles précédents. Ne nettoyez pas les ressources avant d’avoir terminé le dernier tutoriel.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

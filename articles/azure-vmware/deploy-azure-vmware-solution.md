@@ -4,12 +4,12 @@ description: Découvrez comment utiliser les informations collectées au cours d
 ms.topic: tutorial
 ms.custom: contperf-fy21q3
 ms.date: 02/17/2021
-ms.openlocfilehash: 6f1e587894d51eae2af4e9f76114f53f27ffefe1
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 48b6927407a95d41603c3032f298ffc28def9693
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101703854"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103462454"
 ---
 # <a name="deploy-and-configure-azure-vmware-solution"></a>Déployer et configurer Azure VMware Solution
 
@@ -35,7 +35,7 @@ Après le déploiement d’Azure VMware Solution, vous allez créer le serveur d
 
 :::image type="content" source="media/pre-deployment/jump-box-diagram.png" alt-text="Créer la jumpbox Azure VMware Solution" border="false" lightbox="media/pre-deployment/jump-box-diagram.png":::
 
-Pour créer une machine virtuelle dans le réseau virtuel que vous avez [identifié ou créé dans le cadre du processus de déploiement](production-ready-deployment-steps.md#attach-virtual-network-to-azure-vmware-solution), suivez les instructions ci-dessous : 
+Pour créer une machine virtuelle dans le réseau virtuel que vous avez [identifié ou créé dans le cadre du processus de déploiement](production-ready-deployment-steps.md#attach-azure-virtual-network-to-azure-vmware-solution), suivez les instructions ci-dessous : 
 
 [!INCLUDE [create-avs-jump-box-steps](includes/create-jump-box-steps.md)]
 
@@ -52,7 +52,7 @@ Si vous n’avez pas défini de réseau virtuel à l’étape de déploiement et
 
 Le serveur de rebond se trouve dans le réseau virtuel où Azure VMware Solution se connecte via son circuit ExpressRoute.  Dans Azure, accédez à l’interface réseau du serveur de rebond et [affichez les itinéraires effectifs](../virtual-network/manage-route-table.md#view-effective-routes).
 
-Dans la liste des itinéraires effectifs, vous devriez voir les réseaux créés dans le cadre du déploiement d’Azure VMware Solution. Vous verrez plusieurs réseaux dérivés du [réseau `/22` que vous avez défini](production-ready-deployment-steps.md#ip-address-segment) lors de la [création d’un cloud privé](#create-an-azure-vmware-solution-private-cloud).  
+Dans la liste des itinéraires effectifs, vous devriez voir les réseaux créés dans le cadre du déploiement d’Azure VMware Solution. Vous verrez plusieurs réseaux dérivés du [réseau `/22` que vous avez défini](production-ready-deployment-steps.md#ip-address-segment-for-private-cloud-management) lors de la [création d’un cloud privé](#create-an-azure-vmware-solution-private-cloud).  
 
 :::image type="content" source="media/pre-deployment/azure-vmware-solution-effective-routes.png" alt-text="Vérifiez les itinéraires réseau publiés à partir de Azure VMware Solution sur un réseau virtuel Azure" lightbox="media/pre-deployment/azure-vmware-solution-effective-routes.png":::
 

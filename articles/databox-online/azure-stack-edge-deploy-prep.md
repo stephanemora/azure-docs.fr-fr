@@ -6,21 +6,21 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 01/22/2021
+ms.date: 03/16/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: 07b526d443b5f1b41bc6f811b7cccc0fbc6165ee
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 9ceba84cb3bbe52dc5ba51d0f4945f5bad0a5034
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98761717"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103573947"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-pro"></a>Tutoriel : Préparer le déploiement d’Azure Stack Edge Pro  
 
-Ce tutoriel est le premier d’une série de tutoriels permettant de déployer entièrement Azure Stack Edge Pro. Il explique comment préparer le portail Azure pour déployer une ressource Azure Stack Edge.
+Ce tutoriel est le premier d’une série de tutoriels permettant de déployer entièrement Azure Stack Edge Pro. Il explique comment préparer le portail Azure pour déployer une ressource Azure Stack Edge. 
 
-Vous avez besoin de privilèges d’administrateur pour terminer le processus d’installation et de configuration. La préparation du portail prend moins de 10 minutes.
+Vous avez besoin de privilèges d’administrateur pour terminer le processus d’installation et de configuration. La préparation du portail prend moins de 10 minutes.  
 
 Dans ce tutoriel, vous allez apprendre à :
 
@@ -87,68 +87,64 @@ Avant de commencer, assurez-vous que :
   * Une bande passante de chargement de minimum 10 Mbits/s pour s’assurer que l’appareil reste à jour.
   * Une bande passante de chargement et de téléchargement de minimum 20 Mbits/s dédiée pour transférer des fichiers.
 
-## <a name="create-a-new-resource"></a>Créer une nouvelle ressource
+## <a name="create-new-resource-for-existing-device"></a>Créer une ressource pour l’appareil existant
 
-Si vous disposez d’une ressource Azure Stack Edge existante pour gérer votre appareil physique, ignorez cette étape et passez à la section [Obtenir la clé d’activation](#get-the-activation-key).
+Si vous êtes client Azure Stack Edge Pro et que vous devez remplacer ou réinitialiser votre appareil existant, utilisez la procédure suivante pour créer une ressource.
 
-Pour créer une ressource Azure Stack Edge, suivez ces étapes dans le portail Azure.
+Si vous êtes un nouveau client, nous vous recommandons d’explorer en utilisant des appareils Azure Stack Edge Pro avec GPU pour vos charges de travail. Pour plus d’informations, consultez [Qu’est-ce qu’Azure Stack Edge Pro avec GPU](azure-stack-edge-gpu-overview.md). Pour plus d’informations sur la commande d’un appareil Azure Stack Edge Pro avec GPU, accédez à [Créer une ressource pour Azure Stack Edge Pro avec GPU](azure-stack-edge-gpu-deploy-prep.md?tabs=azure-portal#create-a-new-resource).
 
-1. Utilisez vos informations d’identification Microsoft Azure pour vous connecter : 
+Pour créer une ressource Azure Stack Edge Pro pour un appareil existant, suivez ces étapes dans le portail Azure.
+
+1. Utilisez vos informations d’identification Microsoft Azure pour vous connecter :
 
     - Au portail Azure à cette URL : [https://portal.azure.com](https://portal.azure.com)
     - Ou bien, au portail Azure Government à cette URL : [https://portal.azure.us](https://portal.azure.us) Pour plus d’informations, accédez à [Se connecter à Azure Government à l’aide du portail](../azure-government/documentation-government-get-started-connect-with-portal.md).
 
-2. Dans le volet de gauche, sélectionnez **+ Créer une ressource**. Recherchez et sélectionnez **Azure Stack Edge / Data Box Gateway**. Sélectionnez **Create** (Créer).
-3. Sélectionnez l'abonnement que vous souhaitez utiliser pour l'appareil Azure Stack Edge Pro. Sélectionnez la région dans laquelle vous souhaitez déployer la ressource Azure Stack Edge. Pour obtenir la liste complète des régions où la ressource Azure Stack Edge est disponible, consultez [Disponibilité des produits Azure par région](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all).
+1. Sélectionnez **+ Créer une ressource**. Recherchez et sélectionnez **Azure Stack Edge**. Sélectionnez ensuite **Créer**.
 
-    Choisissez l’emplacement le plus proche de la région géographique dans laquelle vous souhaitez déployer votre appareil. La région stocke les métadonnées uniquement pour la gestion des appareils. Les données réelles peuvent être stockées dans n’importe quel compte de stockage.
+1. Sélectionnez l’abonnement pour l’appareil Azure Stack Edge Pro et le pays vers lequel l’appareil doit être expédié dans **Expédier à**.
+
+   ![Sélectionner l’abonnement et le pays de destination pour votre appareil](media/azure-stack-edge-deploy-prep/create-fpga-existing-resource-01.png)
+
+
+1. Dans la liste des types d’appareils qui s’affiche, sélectionnez **Azure Stack Edge Pro - FPGA**. Choisissez ensuite **Sélectionner**. 
+
+   Le type d’appareil **Azure Stack Edge Pro - FPGA** s’affiche uniquement si vous avez un appareil existant. Si vous devez commander un nouvel appareil, accédez à [Créer une ressource pour Azure Stack Edge Pro - GPU](azure-stack-edge-gpu-deploy-prep.md?tabs=azure-portal#create-a-new-resource).
+
+   ![Rechercher le service Azure Stack Edge](media/azure-stack-edge-deploy-prep/create-fpga-existing-resource-02.png)
+
+1. Sous l’onglet **Général** :
+
+   1. Entrez ou sélectionnez les **détails du projet** suivants.
     
-    Dans l’option **Azure Stack Edge Pro**, sélectionnez **Créer**.
+       |Paramètre  |Valeur  |
+       |---------|---------|
+       |Abonnement    |Cette valeur est automatiquement renseignée en fonction de la sélection antérieure. L’abonnement est lié à votre compte de facturation. |
+       |Resource group  |Sélectionnez un groupe existant ou créez-en un.<br>Obtenez plus d’informations sur les [groupes de ressources Azure](../azure-resource-manager/management/overview.md).     |
 
-    ![Rechercher le service Azure Stack Edge](media/azure-stack-edge-deploy-prep/data-box-edge-sku.png)
+   1. Entrez ou sélectionnez les **détails de l’instance** suivants.
 
-3. Sous l’onglet **Bases**, entrez ou sélectionnez les **détails du projet** suivants.
-    
-    |Paramètre  |Value  |
-    |---------|---------|
-    |Abonnement    |Ce champ est automatiquement renseigné en fonction de la sélection antérieure. L’abonnement est lié à votre compte de facturation. |
-    |Resource group  |Sélectionnez un groupe existant ou créez-en un.<br>Obtenez plus d’informations sur les [groupes de ressources Azure](../azure-resource-manager/management/overview.md).     |
+       |Paramètre  |Valeur  |
+       |---------|---------|
+       |Nom   | Entrez un nom reconnaissable pour identifier la ressource.<br>Le nom peut comporter entre 2 et 50 caractères, dont des lettres, des chiffres et des traits d’union.<br> Le nom doit commencer et se terminer par une lettre ou un chiffre.        |
+       |Région     |Pour obtenir la liste complète des régions où la ressource Azure Stack Edge est disponible, consultez [Disponibilité des produits Azure par région](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Si vous utilisez Azure Government, toutes les régions administratives sont disponibles, comme indiqué dans [Régions Azure](https://azure.microsoft.com/global-infrastructure/regions/).<br> Choisissez l’emplacement le plus proche de la région géographique dans laquelle vous souhaitez déployer votre appareil.|
 
-4. Entrez ou sélectionnez les **détails de l’instance** suivants.
+   1. Sélectionnez **Revoir + créer**.
 
-    |Paramètre  |Valeur  |
-    |---------|---------|
-    |Nom   | Entrez un nom reconnaissable pour identifier la ressource.<br>Le nom peut comporter entre 2 et 50 caractères, dont des lettres, des chiffres et des traits d’union.<br> Le nom doit commencer et se terminer par une lettre ou un chiffre.        |
-    |Région     |Pour obtenir la liste complète des régions où la ressource Azure Stack Edge est disponible, consultez [Disponibilité des produits Azure par région](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Si vous utilisez Azure Government, toutes les régions administratives sont disponibles, comme indiqué dans [Régions Azure](https://azure.microsoft.com/global-infrastructure/regions/).<br> Choisissez l’emplacement le plus proche de la région géographique dans laquelle vous souhaitez déployer votre appareil.|
+    ![Détails du projet et de l’instance](media/azure-stack-edge-deploy-prep/create-fpga-existing-resource-03.png)
 
-    ![Détails du projet et de l’instance](media/azure-stack-edge-deploy-prep/data-box-edge-resource.png)
+1. Sous l’onglet **Vérifier + créer**, passez en revue les **Conditions d’utilisation**, les **Détails de la tarification** et les détails de votre ressource. Sélectionnez ensuite **Créer**.
 
-5. Sélectionnez **Suivant : Adresse de livraison**.
+    ![Passer en revue les détails de la ressource Azure Stack Edge et les conditions de confidentialité](media/azure-stack-edge-deploy-prep/create-fpga-existing-resource-04.png)
 
-    - Si vous disposez déjà d’un appareil, cochez la case **J’ai un appareil Azure Stack Edge**.
-    - Si vous commandez un nouvel appareil, entrez le nom du contact, la société, l’adresse de livraison de l’appareil et les informations de contact.
+1. La création de la ressource prend quelques minutes. Un message vous informe que la ressource a été créée et déployée. Sélectionnez **Accéder à la ressource**.
 
-    ![Adresse de livraison du nouvel appareil](media/azure-stack-edge-deploy-prep/data-box-edge-resource1.png)
-
-6. Sélectionnez **Suivant : Vérifier + créer**.
-
-7. Sous l’onglet **Vérifier + créer**, passez en revue les **Détails de la tarification**, les **Conditions d’utilisation** et les détails de votre ressource. Cochez la case **J’ai pris connaissance des conditions de confidentialité**.
-
-    ![Passer en revue les détails de la ressource Azure Stack Edge et les conditions de confidentialité](media/azure-stack-edge-deploy-prep/data-box-edge-resource2.png)
-
-8. Sélectionnez **Create** (Créer).
-
-   La création de la ressource prend quelques minutes. Un message vous informe que la ressource a été créée et déployée. Sélectionnez **Accéder à la ressource**.
-
-   ![Accéder à la ressource Azure Stack Edge](media/azure-stack-edge-deploy-prep/data-box-edge-resource3.png)
+   ![Accéder à la ressource Azure Stack Edge](media/azure-stack-edge-deploy-prep/data-box-edge-resource-01.png)
 
 Une fois la commande passée, Microsoft l’examine et vous communique (par e-mail) les détails de l’expédition.
 
-![Notification relative à l’examen de la commande Azure Stack Edge Pro](media/azure-stack-edge-deploy-prep/data-box-edge-resource4.png)
+![Notification relative à l’examen de la commande Azure Stack Edge Pro](media/azure-stack-edge-deploy-prep/data-box-edge-resource-02.png)
 
-
-> [!NOTE]
-> Si vous souhaitez créer plusieurs commandes à la fois ou cloner une commande existante, vous pouvez utiliser les [scripts dans les exemples Azure](https://github.com/Azure-Samples/azure-stack-edge-order). Pour plus d’informations, consultez le fichier README.
 
 ## <a name="get-the-activation-key"></a>Obtenir la clé d'activation
 
@@ -156,7 +152,7 @@ Une fois que la ressource Azure Stack Edge est active et en cours d’exécution
 
 1. Accédez à la ressource que vous avez créée, puis sélectionnez **Vue d’ensemble**. Une notification s’affiche pour vous avertir que votre commande est en cours de traitement.
 
-    ![Sélectionner Vue d’ensemble](media/azure-stack-edge-deploy-prep/data-box-edge-select-devicesetup.png)
+    ![Sélectionner Vue d’ensemble](media/azure-stack-edge-deploy-prep/data-box-edge-select-device-setup.png)
 
 2. Une fois la commande traitée et l’appareil expédié, le contenu de la page **Vue d’ensemble** est mis à jour. Acceptez le **nom Azure Key Vault** par défaut ou entrez-en un nouveau. Sélectionnez **Générer la clé d’activation**. Sélectionnez l’icône de copie pour copier la clé et l’enregistrer pour une utilisation ultérieure.
 

@@ -3,15 +3,15 @@ title: 'Démarrage rapide : Rejoindre une réunion Teams à partir d’une appl
 description: Dans ce tutoriel, vous allez découvrir comment rejoindre une réunion Teams à l’aide de la bibliothèque de client Azure Communication Services Calling pour Android.
 author: chpalm
 ms.author: mikben
-ms.date: 02/18/2021
+ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: be68b8336861891c6704702379892460fd3b7400
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 82e64af5cec8641abacf5afa323fc38382a124c4
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101660036"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103487987"
 ---
 Dans ce démarrage rapide, vous allez découvrir comment rejoindre une réunion Teams à l’aide de la bibliothèque de client Azure Communication Services Calling pour Android.
 

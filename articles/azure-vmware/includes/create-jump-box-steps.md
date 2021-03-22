@@ -2,13 +2,13 @@
 title: Créer la jumpbox Azure VMware Solution
 description: Procédure pour créer la jumpbox Azure VMware Solution.
 ms.topic: include
-ms.date: 09/28/2020
-ms.openlocfilehash: 5d5a5d82cf6e70e7ad55bcfa10c7f85372131c87
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/13/2021
+ms.openlocfilehash: f746e11763e1df1686f3134960dea167bf1c9908
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91578413"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103462245"
 ---
 <!-- Used in deploy-azure-vmware-solution.md and tutorial-access-private-cloud.md -->
 
@@ -33,9 +33,8 @@ ms.locfileid: "91578413"
    | **Nom d’utilisateur** | Entrez le nom d’utilisateur pour la connexion à la machine virtuelle. |
    | **Mot de passe** | Entrez le mot de passe pour la connexion à la machine virtuelle. |
    | **Confirmer le mot de passe** | Entrez le mot de passe pour la connexion à la machine virtuelle. |
-   | **Ports d’entrée publics** | Sélectionnez **Aucun**. Si vous sélectionnez Aucun, vous pouvez utiliser l’[accès JIT](../../security-center/security-center-just-in-time.md#jit-configure) pour contrôler l’accès à la machine virtuelle seulement quand vous voulez y accéder.  |
+   | **Ports d’entrée publics** | Sélectionnez **Aucun**. Si vous sélectionnez Aucun, vous pouvez utiliser l’[accès JIT](../../security-center/security-center-just-in-time.md#jit-configure) pour contrôler l’accès à la machine virtuelle seulement quand vous voulez y accéder. Vous pouvez également utiliser un [bastion Azure](../../bastion/tutorial-create-host-portal.md) si vous souhaitez accéder au serveur de rebond de façon sécurisée à partir d’Internet sans exposer de port réseau.  |
 
 
 1. Une fois la validation réussie, sélectionnez **Créer** pour démarrer le processus de création de la machine virtuelle.
 
-   :::image type="content" source="../media/tutorial-access-private-cloud/ss11-review-create-wjb01.png" alt-text="Ajoutez une nouvelle machine virtuelle Windows 10 pour une jumpbox." border="true":::

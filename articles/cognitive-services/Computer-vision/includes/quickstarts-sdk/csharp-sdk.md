@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 12/15/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e2c4da612d937488817af3b81d3b99e13cce1d41
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 0509ba61e21fa38daf1747124000c8d1270cc4db
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102444464"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103622197"
 ---
 <a name="HOLTop"></a>
 
@@ -83,21 +83,20 @@ dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --ver
 > [!TIP]
 > Vous voulez voir l’intégralité du fichier de code de démarrage rapide à la fois ? Vous le trouverez sur [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/ComputerVisionQuickstart.cs), qui contient les exemples de code utilisés dans ce guide de démarrage rapide.
 
-À partir du répertoire de projet, ouvrez le fichier *ComputerVisionQuickstart.cs* dans votre éditeur ou votre IDE favori. Ajoutez les directives `using` suivantes :
+À partir du répertoire de projet, ouvrez le fichier *Program.cs* dans votre éditeur ou votre IDE favori.
 
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_using)]
+### <a name="find-the-subscription-key-and-endpoint"></a>Rechercher la clé d’abonnement et le point de terminaison
 
-Dans la classe **Program** de l’application, créez des variables pour le point de terminaison et la clé Azure de votre ressource.
+Accédez au portail Azure. Si la ressource Vision par ordinateur que vous avez créée dans la section **Prérequis** a été déployée, cliquez sur le bouton **Accéder à la ressource** sous **Étapes suivantes**. Votre clé d’abonnement et votre point de terminaison se trouvent dans la page **Clé et point de terminaison** de la ressource, sous **Gestion des ressources**. 
 
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_vars)]
+Dans la classe **Program** de l’application, créez des variables pour votre clé et votre point de terminaison Vision par ordinateur. Collez votre clé d’abonnement et votre point de terminaison dans le code suivant à l’endroit indiqué. Votre point de terminaison Vision par ordinateur a le format `https://<your_computer_vision_resource_name>.cognitiveservices.azure.com/`.
+
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_using_and_vars)]
 
 > [!IMPORTANT]
-> Accédez au portail Azure. Si la ressource Vision par ordinateur que vous avez créée dans la section **Prérequis** a été déployée, cliquez sur le bouton **Accéder à la ressource** sous **Étapes suivantes**. La clé et le point de terminaison se trouvent dans la page **Clé et point de terminaison** de la ressource, sous **Gestion des ressources**. 
->
-> N’oubliez pas de supprimer la clé de votre code une fois que vous avez terminé, et ne la postez jamais publiquement. Pour la production, envisagez d’utiliser une méthode de stockage et d’accès sécurisée pour vos informations d’identification. Pour plus d’informations, consultez l’article sur la [sécurité](../../../cognitive-services-security.md) de Cognitive Services.
+> N’oubliez pas de supprimer la clé d’abonnement de votre code une fois que vous avez terminé, et ne la publiez jamais publiquement. Pour la production, envisagez d’utiliser une méthode de stockage et d’accès sécurisée pour vos informations d’identification. Par exemple, [Azure Key Vault](../../../../key-vault/general/overview.md).
 
 Dans la méthode `Main` de l’application, ajoutez des appels pour les méthodes utilisées dans ce guide de démarrage rapide. Vous les créerez ultérieurement.
-
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_client)]
 
@@ -128,10 +127,7 @@ Ces extraits de code vous montrent comment effectuer les tâches suivantes avec 
 
 ## <a name="authenticate-the-client"></a>Authentifier le client
 
-> [!NOTE]
-> Ce guide de démarrage rapide suppose que vous avez [créé des variables d’environnement](../../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) pour votre clé et votre point de terminaison Vision par ordinateur nommées `COMPUTER_VISION_SUBSCRIPTION_KEY` et `COMPUTER_VISION_ENDPOINT`.
-
-Dans une nouvelle méthode de la classe **Programme**, instanciez un client avec votre point de terminaison et la clé. Créez un objet **[ApiKeyServiceClientCredentials](/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.apikeyserviceclientcredentials)** avec votre clé et utilisez-le avec votre point de terminaison pour créer un objet **[ComputerVisionClient](/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclient)** .
+Dans une nouvelle méthode de la classe **Program**, instanciez un client avec votre point de terminaison et votre clé d’abonnement. Créez un objet **[ApiKeyServiceClientCredentials](/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.apikeyserviceclientcredentials)** avec votre clé d’abonnement, et utilisez-le avec votre point de terminaison pour créer un objet **[ComputerVisionClient](/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclient)** .
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_auth)]
 

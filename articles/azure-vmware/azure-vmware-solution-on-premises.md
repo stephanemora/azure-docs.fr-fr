@@ -2,13 +2,13 @@
 title: Connecter Azure VMware Solution à votre environnement local
 description: Apprenez à connecter Azure VMware Solution à votre environnement local.
 ms.topic: tutorial
-ms.date: 12/28/2020
-ms.openlocfilehash: 753835b0206d8bbabe42b057fa40a2d6c4c8c414
-ms.sourcegitcommit: 31d242b611a2887e0af1fc501a7d808c933a6bf6
+ms.date: 03/13/2021
+ms.openlocfilehash: 0b26dc4756cb37544c2b2f8c5a75df0ac1a9d629
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97809681"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103491790"
 ---
 # <a name="connect-azure-vmware-solution-to-your-on-premises-environment"></a>Connecter Azure VMware Solution à votre environnement local
 
@@ -17,7 +17,7 @@ Dans cet article, vous allez continuer à utiliser les [informations recueillies
 Avant de commencer, sachez qu'il existe deux prérequis pour connecter Azure VMware Solution à votre environnement local :
 
 - Un circuit ExpressRoute entre votre environnement local et Azure
-- Un bloc d'adresses réseau /29 qui ne se chevauchent pas pour le peering d'ExpressRoute Global Reach, que vous avez défini dans le cadre de la [phase de planification](production-ready-deployment-steps.md)
+- Un bloc d’adresses réseau CIDR /29 qui ne se chevauchent pas pour le peering d’ExpressRoute Global Reach, que vous avez défini dans le cadre de la [phase de planification](production-ready-deployment-steps.md)
 
 >[!NOTE]
 > Vous pouvez vous connecter par le biais d’un VPN. Cela dit, ce type de connexion n’est pas abordé dans ce guide de démarrage rapide.
@@ -25,6 +25,10 @@ Avant de commencer, sachez qu'il existe deux prérequis pour connecter Azure VMw
 ## <a name="establish-an-expressroute-global-reach-connection"></a>Établir une connexion ExpressRoute Global Reach
 
 Pour établir une connectivité locale avec votre cloud privé Azure VMware Solution à l'aide d'ExpressRoute Global Reach, suivez le tutoriel [​​Peering d'environnements locaux avec un cloud privé](tutorial-expressroute-global-reach-private-cloud.md).
+
+Ce tutoriel aboutit à une connexion, comme indiqué dans le diagramme.
+
+:::image type="content" source="media/pre-deployment/azure-vmware-solution-on-premises-diagram.png" alt-text="Diagramme de la connectivité du réseau local ExpressRoute Global Reach" lightbox="media/pre-deployment/azure-vmware-solution-on-premises-diagram.png" border="false":::
 
 ## <a name="verify-on-premises-network-connectivity"></a>Vérifier la connectivité réseau locale
 

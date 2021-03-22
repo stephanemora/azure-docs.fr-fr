@@ -2,13 +2,13 @@
 title: Tutoriel - Liste de vérification pour la planification réseau
 description: Découvrez la configuration réseau requise pour la connectivité réseau et les ports réseau dans Azure VMware Solution.
 ms.topic: tutorial
-ms.date: 01/27/2021
-ms.openlocfilehash: f493443da617f5f76771e5d1b2b3b190b37f9b5d
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.date: 03/13/2021
+ms.openlocfilehash: 8cee5fa24aab8bd7fe6a9527f9c8e7cdff997511
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98918583"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103462063"
 ---
 # <a name="networking-planning-checklist-for-azure-vmware-solution"></a>Liste de vérification pour la planification réseau pour Azure VMware Solution 
 
@@ -89,13 +89,12 @@ Les applications et les charges de travail exécutées dans un environnement de 
 
 Utilisez le service DHCP intégré à NSX ou un serveur DHCP local dans le cloud privé au lieu de router le trafic DHCP de diffusion sur le réseau étendu (WAN) vers l’emplacement local.
 
+Pour plus d’informations, consultez l’article [Fournir des services DHCP au segment réseau NSX-T](deploy-azure-vmware-solution.md#optional-provide-dhcp-services-to-nsx-t-network-segment).
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez découvert les conditions requises et les éléments à prendre en compte pour déployer un cloud privé Azure VMware Solution. 
-
-
-Une fois que le réseau approprié est en place, passez au tutoriel suivant pour créer votre cloud privé Azure VMware Solution.
+Dans ce tutoriel, vous avez découvert les conditions requises et les éléments à prendre en compte pour déployer un cloud privé Azure VMware Solution. Une fois que le réseau approprié est en place, passez au tutoriel suivant pour créer votre cloud privé Azure VMware Solution.
 
 > [!div class="nextstepaction"]
 > [Créer un cloud privé Azure VMware Solution](tutorial-create-private-cloud.md)

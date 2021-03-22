@@ -8,21 +8,22 @@ ms.author: arthiaga
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
+ms.subservice: migration-guide
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 01/24/2020
-ms.openlocfilehash: 09bcc85c0640bf0061ec0c872161cbc9afe51da6
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 2be824c89ac1e6b900dc9b67e046e2be2c7f8919
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101742124"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103562822"
 ---
 # <a name="tutorial-migrate-oracle-to-azure-database-for-postgresql-online-using-dms-preview"></a>Tutoriel : Migrer Oracle vers Azure Database pour PostgreSQL en ligne à l’aide de DMS (préversion)
 
 > [!IMPORTANT]
-> Le scénario de migration « Oracle vers Azure Database pour PostgreSQL » (actuellement en préversion) ne sera plus disponible après le 1er mai 2021. Nous continuerons à assurer un support via des outils alternatifs (tels que Ora2pg) et fournissons la meilleure expérience de migration pour les migrations d’Oracle vers PostgreSQL. Pour connaître les meilleures pratiques en matière de migration, consultez [Guide de migration d’Oracle vers Azure Database pour PostgreSQL] (https://aka.ms/OracletoPGguide). 
+> Le scénario de migration **Oracle vers Azure Database pour PostgreSQL** (préversion) ne sera plus disponible après le 1er mai 2021. Nous continuerons à assurer un support via des outils alternatifs (tels que Ora2pg) et fournissons la meilleure expérience de migration pour les migrations d’Oracle vers PostgreSQL. Pour connaître les bonnes pratiques en matière de migration, consultez [Guide de migration d’Oracle vers Azure Database pour PostgreSQL](https://aka.ms/OracletoPGguide). 
 
 Vous pouvez utiliser Azure Database Migration Service pour migrer les bases de données Oracle hébergées localement ou sur des machines virtuelles vers [Azure Database pour PostgreSQL](../postgresql/index.yml) avec un temps d’arrêt minimal. En d’autres termes, vous pouvez effectuer la migration avec un temps d’arrêt minimal de l’application. Dans ce tutoriel, vous allez migrer l’exemple de base de données **HR** à partir d’une instance locale ou sur machines virtuelles d’Oracle 11g vers Azure Database pour PostgreSQL à l’aide de l’activité de migration en ligne dans Azure Database Migration Service.
 

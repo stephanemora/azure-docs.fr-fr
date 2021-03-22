@@ -9,18 +9,23 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: e46105f5889f4925be9873fd8613021fe5e8ac2d
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: b5ff515f5a6d25285009f6579570aa3afa5a711f
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920760"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103463355"
 ---
-# <a name="tutorial-develop-iot-edge-modules-for-windows-devices"></a>Tutoriel : Développer des modules IoT Edge pour les appareils Windows
+# <a name="tutorial-develop-iot-edge-modules-using-windows-containers"></a>Tutoriel : Développer des modules IoT Edge avec des conteneurs Windows
+
+[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
 
 Utilisez Visual Studio pour développer et déployer du code sur des appareils Windows exécutant IoT Edge.
 
-Dans le guide de démarrage rapide, vous avez créé un appareil IoT Edge à l’aide d’une machine virtuelle Windows et déployé un module prédéfini à partir de la Place de marché Azure. Ce tutoriel vous montre comment développer et déployer votre propre code sur un appareil IoT Edge. Il constitue un bon préambule aux autres tutoriels, qui abordent plus en détail des langages de programmation ou des services Azure spécifiques.
+>[!NOTE]
+>IoT Edge 1.1 LTS est le dernier canal à prendre en charge les conteneurs Windows. À partir de la version 1.2, les conteneurs Windows ne sont pas pris en charge. Envisagez d'utiliser ou de migrer vers [IoT Edge pour Linux sur Windows](iot-edge-for-linux-on-windows.md) pour exécuter IoT Edge sur les appareils Windows.
+
+Ce tutoriel vous montre comment développer et déployer votre propre code sur un appareil IoT Edge. Il constitue un bon préambule aux autres tutoriels, qui abordent plus en détail des langages de programmation ou des services Azure spécifiques.
 
 Ce tutoriel utilise l’exemple de déploiement d’un **module C# sur un appareil Windows**. Cet exemple a été choisi, car il s’agit du scénario de développement le plus courant. Si vous aimeriez développer dans un autre langage ou que vous prévoyez de déployer des services Azure en tant que modules, ce didacticiel est également utile pour en savoir plus sur les outils de développement. Après avoir assimilé les concepts de développement, vous pouvez choisir un langage ou un service Azure spécifique pour vous plonger dans les détails.
 
@@ -44,8 +49,8 @@ Une machine de développement :
 
 Un appareil Azure IoT Edge sur Windows :
 
-* Nous vous déconseillons d’exécuter IoT Edge sur votre machine de développement ; utilisez un appareil distinct à la place. Cette distinction entre machine de développement et appareil IoT Edge reflète plus fidèlement un scénario de déploiement réel et aide à assimiler les différents concepts.
-* Si vous ne disposez pas d’un deuxième appareil, suivez l’article de démarrage rapide permettant de créer un appareil IoT Edge dans Azure avec une [machine virtuelle Windows](quickstart.md).
+* [Installer et gérer Azure IoT Edge avec des conteneurs Windows](how-to-install-iot-edge-windows-on-windows.md).
+* Nous vous déconseillons d’exécuter IoT Edge sur votre machine de développement ; utilisez un appareil distinct à la place dans la mesure du possible. Cette distinction entre machine de développement et appareil IoT Edge reflète plus fidèlement un scénario de déploiement réel et aide à assimiler les différents concepts.
 
 Ressources cloud :
 

@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 12/02/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: c8221a15ddd92276c105f1e441c8da722655d576
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 914fe0bbf04fa8835cbe96e5bbb83604f0d07bc2
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102444885"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103622149"
 ---
 Utilisez l’API REST Vision par ordinateur pour :
 
@@ -40,17 +40,21 @@ Utilisez l’API REST Vision par ordinateur pour :
 Pour analyser les différentes caractéristiques visuelles d’une image, effectuez les étapes suivantes :
 
 1. Copiez la commande ci-après dans un éditeur de texte.
+1. Accédez au portail Azure. Si la ressource Vision par ordinateur que vous avez créée dans la section **Prérequis** a été déployée, cliquez sur le bouton **Accéder à la ressource** sous **Étapes suivantes**. Votre clé d’abonnement et votre point de terminaison se trouvent dans la page **Clé et point de terminaison** de la ressource, sous **Gestion des ressources**.
 1. Modifiez la commande comme ci-dessous :
-    1. Remplacez la valeur de `<subscriptionKey>` par votre clé d’abonnement.
-    1. Remplacez la première partie de l’URL de la demande (`westcentralus`) par le texte de votre propre URL de point de terminaison.
+    1. Remplacez la valeur de `PASTE_YOUR_COMPUTER_VISION_SUBSCRIPTION_KEY_HERE` par votre clé d’abonnement.
+    1. Remplacez la première partie de l’URL de la requête (`PASTE_YOUR_COMPUTER_VISION_ENDPOINT_HERE`) par votre propre point de terminaison Vision par ordinateur. Votre point de terminaison Vision par ordinateur a le format `https://<your_computer_vision_resource_name>.cognitiveservices.azure.com/`.
         [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
     1. Éventuellement, changez l’URL d’image dans le corps de la requête (`http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg\`) par l’URL d’une autre image à analyser.
 1. Ouvrir une fenêtre d’invite de commandes.
 1. Collez la commande à partir de l’éditeur de texte dans la fenêtre d’invite de commandes, puis exécutez la commande.
 
 ```bash
-curl -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "https://westcentralus.api.cognitive.microsoft.com/vision/v3.1/analyze?visualFeatures=Categories,Description&details=Landmarks" -d "{\"url\":\"http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg\"}"
+curl -H "Ocp-Apim-Subscription-Key: PASTE_YOUR_COMPUTER_VISION_SUBSCRIPTION_KEY_HERE" -H "Content-Type: application/json" "PASTE_YOUR_COMPUTER_VISION_ENDPOINT_HERE/vision/v3.1/analyze?visualFeatures=Categories,Description&details=Landmarks" -d "{\"url\":\"http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg\"}"
 ```
+
+> [!IMPORTANT]
+> N’oubliez pas de supprimer la clé d’abonnement de votre code une fois que vous avez terminé, et ne la publiez jamais publiquement. Pour la production, envisagez d’utiliser une méthode de stockage et d’accès sécurisée pour vos informations d’identification. Par exemple, [Azure Key Vault](../../../key-vault/general/overview.md).
 
 ### <a name="examine-the-response"></a>Examiner la réponse
 

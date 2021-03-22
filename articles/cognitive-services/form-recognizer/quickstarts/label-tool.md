@@ -7,16 +7,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 01/29/2021
+ms.date: 03/15/2021
 ms.author: lajanuar
 ms.custom: cog-serv-seo-aug-2020
 keywords: traitement de documents
-ms.openlocfilehash: f07e3b6142ad99ba3b9e64e4733109a7e5ae04f9
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 89de0752b3015fb8132bfa50c7dbdce174061bcc
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102425735"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103467265"
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
@@ -33,7 +33,7 @@ Dans ce démarrage rapide, vous allez utiliser l’API REST Form Recognizer avec
 Pour suivre cette procédure de démarrage rapide, vous avez besoin des éléments suivants :
 
 * Abonnement Azure - [En créer un gratuitement](https://azure.microsoft.com/free/cognitive-services)
-* Une fois que vous avez votre abonnement Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="créez une ressource Form Recognizer"  target="_blank">créer une ressource Form Recognizer</a> sur le portail Azure pour obtenir votre clé et votre point de terminaison. Une fois le déploiement effectué, cliquez sur **Accéder à la ressource**.
+* Une fois que vous avez votre abonnement Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="créez une ressource Form Recognizer"  target="_blank">créer une ressource Form Recognizer</a> sur le portail Azure pour obtenir votre clé et votre point de terminaison. À la fin du déploiement, sélectionnez **Accéder à la ressource**.
   * Vous aurez besoin de la clé et du point de terminaison de la ressource que vous créez pour connecter votre application à l’API Form Recognizer. Vous collerez votre clé et votre point de terminaison dans le code ci-dessous plus loin dans le guide de démarrage rapide.
   * Vous pouvez utiliser le niveau tarifaire Gratuit (`F0`) pour tester le service, puis passer par la suite à un niveau payant pour la production.
 * Au minimum un ensemble de six formulaires du même type. Vous allez utiliser ces données pour entraîner le modèle et tester un formulaire. Pour ce guide de démarrage rapide, vous pouvez utiliser un [exemple de jeu de données](https://go.microsoft.com/fwlink/?linkid=2090451) (téléchargez et extrayez *sample_data.zip*). Chargez les fichiers d’apprentissage à la racine d’un conteneur de stockage d’objets blob dans un compte Stockage Azure offrant un niveau de performance standard.
@@ -124,7 +124,7 @@ Tout d’abord, vérifiez que tous les documents d’entraînement ont le même 
 
 ### <a name="configure-cross-domain-resource-sharing-cors"></a>Configurer le partage des ressources inter-domaines (CORS)
 
-Activez CORS sur votre compte de stockage. Sélectionnez votre compte de stockage dans le portail Azure, puis cliquez sur l’onglet **CORS** dans le volet gauche. Sur la ligne inférieure, renseignez les valeurs suivantes. Cliquez ensuite sur **Enregistrer** en haut.
+Activez CORS sur votre compte de stockage. Sélectionnez votre compte de stockage dans le portail Azure, puis choisissez l’onglet **CORS** dans le volet gauche. Sur la ligne inférieure, renseignez les valeurs suivantes. Sélectionnez **Enregistrer** en haut.
 
 * Origines autorisées = *
 * Méthodes autorisées = \[tout sélectionner\]
@@ -137,11 +137,11 @@ Activez CORS sur votre compte de stockage. Sélectionnez votre compte de stockag
 
 ## <a name="connect-to-the-sample-labeling-tool"></a>Se connecter à l’outil d’étiquetage des exemples
 
-L’outil d’étiquetage des exemples se connecte à une source (où se trouvent vos formulaires d’origine) et à une cible (vers laquelle il exporte les étiquettes et les données de sortie créées).
+ L’outil d’étiquetage des exemples se connecte à une source (vos formulaires chargés d’origine) et à une cible (données de sortie et étiquettes créées).
 
 Les connexions peuvent être configurées et partagées entre les projets. Elles utilisent un modèle de fournisseur extensible, ce qui vous permet d’ajouter facilement de nouveaux fournisseurs sources/cibles.
 
-Pour créer une connexion, cliquez sur l’icône **Nouvelles connexions** (fiche électrique) dans la barre de navigation de gauche.
+Pour créer une connexion, sélectionnez l’icône **Nouvelles connexions** (fiche électrique) dans la barre de navigation gauche.
 
 Renseignez les champs avec les valeurs suivantes :
 
@@ -153,13 +153,12 @@ Renseignez les champs avec les valeurs suivantes :
 
 :::image type="content" source="../media/label-tool/connections.png" alt-text="Paramètres de connexion de l’outil d’étiquetage des exemples.":::
 
-
 ## <a name="create-a-new-project"></a>Création d'un projet
 
 Dans l’outil d’étiquetage des exemples, les projets stockent vos configurations et paramètres. Créez un projet et renseignez les champs avec les valeurs suivantes :
 
 * **Display Name** (Nom d’affichage) : nom d’affichage du projet
-* **Security Token** (Jeton de sécurité) : certains paramètres de projet peuvent inclure des valeurs sensibles, telles que des clés API ou d’autres secrets partagés. Chaque projet génère un jeton de sécurité qui peut être utilisé pour chiffrer/déchiffrer les paramètres de projet sensibles. Vous trouvez les jetons de sécurité dans les paramètres de l’application, en cliquant sur l’icône d’engrenage en bas de la barre de navigation gauche.
+* **Security Token** (Jeton de sécurité) : certains paramètres de projet peuvent inclure des valeurs sensibles, telles que des clés API ou d’autres secrets partagés. Chaque projet génère un jeton de sécurité qui peut être utilisé pour chiffrer/déchiffrer les paramètres de projet sensibles. Vous pouvez accéder aux jetons de sécurité dans les paramètres de l’application, en sélectionnant l’icône d’engrenage en bas de la barre de navigation gauche.
 * **Source Connection** (Connexion source) : connexion au Stockage Blob Azure que vous avez créée à l’étape précédente et que vous souhaitez utiliser pour ce projet.
 * **Folder Path** (Chemin du dossier) : (facultatif) Si vos formulaires sources se trouvent dans un dossier sur le conteneur d’objets blob, spécifiez le nom du dossier ici.
 * **Form Recognizer Service Uri** (URI du service Form Recognizer) : votre URL de point de terminaison Form Recognizer.
@@ -176,26 +175,28 @@ Quand vous créez ou ouvrez un projet, la fenêtre principale de l’éditeur d�
 * Le volet principal de l’éditeur, qui vous permet d’appliquer des étiquettes.
 * Le volet de l’éditeur d’étiquettes, qui permet aux utilisateurs de modifier, de verrouiller, de réorganiser et de supprimer des étiquettes.
 
-### <a name="identify-text-elements"></a>Identifier les éléments de texte
+### <a name="identify-text-and-tables"></a>Identifier du texte et des tables 
 
-Cliquez sur **Run OCR on all files** (Exécuter l’OCR sur tous les fichiers) dans le volet gauche pour obtenir des informations de disposition du texte pour chaque document. L’outil d’étiquetage dessine des rectangles englobants autour de chaque élément de texte.
+Sélectionnez **Run OCR on all files** (Exécuter l’OCR sur tous les fichiers) dans le volet gauche pour obtenir les informations sur la disposition du texte et des tables pour chaque document. L’outil d’étiquetage dessine des rectangles englobants autour de chaque élément de texte.
 
-Il indique aussi les tables qui ont été automatiquement extraites. Cliquez sur l’icône de table/grille à gauche du document pour voir la table extraite. Dans ce démarrage rapide, le contenu des tables étant automatiquement extrait, nous n’étiquèterons pas le contenu des tables et ferons confiance à l’extraction automatisée.
+L’outil d’étiquetage indique aussi les tables qui ont été automatiquement extraites. Sélectionnez l’icône de table/grille à gauche du document pour voir la table extraite. Dans ce démarrage rapide, le contenu des tables étant automatiquement extrait, nous n’étiquèterons pas le contenu des tables et ferons confiance à l’extraction automatisée.
 
 :::image type="content" source="../media/label-tool/table-extraction.png" alt-text="Visualisation d’une table dans l’outil d'étiquetage des exemples.":::
+
+Dans v2.1, si votre document d’entraînement n’a pas de valeur renseignée, vous pouvez dessiner une zone là où la valeur devrait être. Utilisez la **zone de dessin** située dans le coin supérieur gauche de la fenêtre pour rendre la région étiquetable.
 
 ### <a name="apply-labels-to-text"></a>Appliquer des étiquettes à du texte
 
 Vous allez ensuite créer des balises (étiquettes) et les appliquer aux éléments de texte que vous souhaitez que le modèle analyse.
 
-### <a name="v21-preview"></a>[v2.1 (préversion)](#tab/v2-1)
+### <a name="v20"></a>[v2.0](#tab/v2-1)  
 
-1. Tout d’abord, utilisez le volet de l’éditeur d’étiquettes pour créer les étiquettes que vous souhaitez identifier :
-   * Cliquez sur **+** pour créer une étiquette.
-   * Entrez le nom de l’étiquette.
-   * Appuyez sur Entrée pour enregistrer l’étiquette.
-1. Dans l’éditeur principal, cliquez pour sélectionner des mots parmi les éléments de texte en surbrillance. Dans l’API _v2.1 preview.2_, vous pouvez aussi cliquer pour sélectionner des _marques de sélection_ comme des cases d’option et des cases à cocher en tant que paires clé-valeur. Form Recognizer détermine si la marque de sélection est « sélectionnée » ou « non sélectionnée » en tant que valeur.
-1. Cliquez sur l’étiquette que vous souhaitez appliquer ou appuyez sur la touche du clavier correspondante. Les touches numériques sont affectées comme touches d’accès rapide pour les 10 premières étiquettes. Vous pouvez réorganiser vos étiquettes à l’aide des icônes de flèches haut et bas dans le volet de l’éditeur d’étiquettes.
+1. Tout d’abord, utilisez le volet de l’éditeur d’étiquettes pour créer les étiquettes que vous souhaitez identifier.
+   1. Sélectionnez **+** pour créer une étiquette.
+   1. Entrez le nom de l’étiquette.
+   1. Appuyez sur Entrée pour enregistrer l’étiquette.
+1. Dans l’éditeur principal, sélectionnez des mots parmi les éléments de texte en surbrillance ou dans une région que vous avez dessinée.
+1. Sélectionnez l’étiquette que vous souhaitez appliquer, ou appuyez sur la touche du clavier correspondante. Les touches numériques sont affectées comme touches d’accès rapide pour les 10 premières étiquettes. Vous pouvez réorganiser vos étiquettes à l’aide des icônes de flèches haut et bas dans le volet de l’éditeur d’étiquettes.
     > [!Tip]
     > Gardez à l’esprit les conseils suivants quand vous étiquetez vos formulaires :
     >
@@ -212,11 +213,11 @@ Vous allez ensuite créer des balises (étiquettes) et les appliquer aux éléme
 ### <a name="v20"></a>[v2.0](#tab/v2-0)
 
 1. Tout d’abord, utilisez le volet de l’éditeur d’étiquettes pour créer les étiquettes que vous souhaitez identifier.
-   1. Cliquez sur **+** pour créer une étiquette.
+   1. Sélectionnez **+** pour créer une étiquette.
    1. Entrez le nom de l’étiquette.
    1. Appuyez sur Entrée pour enregistrer l’étiquette.
-1. Dans l’éditeur principal, cliquez pour sélectionner des mots parmi les éléments de texte en surbrillance.
-1. Cliquez sur l’étiquette que vous souhaitez appliquer ou appuyez sur la touche du clavier correspondante. Les touches numériques sont affectées comme touches d’accès rapide pour les 10 premières étiquettes. Vous pouvez réorganiser vos étiquettes à l’aide des icônes de flèches haut et bas dans le volet de l’éditeur d’étiquettes.
+1. Dans l’éditeur principal, sélectionnez des mots parmi les éléments de texte en surbrillance.
+1. Sélectionnez l’étiquette que vous souhaitez appliquer, ou appuyez sur la touche du clavier correspondante. Les touches numériques sont affectées comme touches d’accès rapide pour les 10 premières étiquettes. Vous pouvez réorganiser vos étiquettes à l’aide des icônes de flèches haut et bas dans le volet de l’éditeur d’étiquettes.
     > [!Tip]
     > Gardez à l’esprit les conseils suivants quand vous étiquetez vos formulaires :
     >
@@ -231,6 +232,7 @@ Vous allez ensuite créer des balises (étiquettes) et les appliquer aux éléme
 >
 
 ---
+---
 
 :::image type="content" source="../media/label-tool/main-editor-2-1.png" alt-text="Fenêtre principale de l’éditeur de l’outil d’étiquetage des exemples.":::
 
@@ -238,7 +240,7 @@ Effectuez les étapes ci-dessus pour étiqueter au moins cinq de vos formulaires
 
 ### <a name="specify-tag-value-types"></a>Spécifier des types de valeurs d’étiquettes
 
-Si vous le souhaitez, vous pouvez définir le type de données attendu pour chaque étiquette. Ouvrez le menu contextuel à droite d’une étiquette et sélectionnez un type dans le menu. Cette fonctionnalité permet à l’algorithme de détection d’effectuer certaines hypothèses qui amélioreront la justesse de la détection de texte. Elle garantit également que les valeurs détectées sont retournées dans un format normalisé dans la sortie JSON finale. Les informations sur le type de valeur sont enregistrées dans le fichier *fields.json* sous le même chemin que vos fichiers d’étiquette.
+Vous pouvez définir le type de données attendu pour chaque étiquette. Ouvrez le menu contextuel à droite d’une étiquette et sélectionnez un type dans le menu. Cette fonctionnalité permet à l’algorithme de détection d’effectuer des hypothèses qui amélioreront la justesse de la détection de texte. Elle garantit également que les valeurs détectées sont retournées dans un format normalisé dans la sortie JSON finale. Les informations sur le type de valeur sont enregistrées dans le fichier **fields.json** sous le même chemin que vos fichiers d’étiquette.
 
 > [!div class="mx-imgBorder"]
 > ![Sélection d'un type valeur avec l'outil d'étiquetage des exemples](../media/whats-new/value-type.png)
@@ -285,9 +287,19 @@ Les types et variantes de valeurs suivants sont actuellement pris en charge :
 > * 01Jan2020
 > * 01 Jan 2020
 
+### <a name="label-tables-v21-only"></a>Étiqueter des tables (v2.1 uniquement)
+
+Il peut arriver que vos données se prêtent mieux à un étiquetage en tant que table plutôt que paires clé-valeur. Dans ce cas, vous pouvez créer une étiquette de table en cliquant sur « Add a new table tag », spécifier si la table aura un nombre de lignes fixe ou variable en fonction du document, et définir le schéma.
+
+:::image type="content" source="../media/label-tool/table-tag.png" alt-text="Configuration d’une étiquette de table.":::
+
+Une fois que vous avez défini votre étiquette de table, étiquetez les valeurs de cellules.
+
+:::image type="content" source="../media/table-labeling.png" alt-text="Étiquetage d’une table.":::
+
 ## <a name="train-a-custom-model"></a>Entraîner un modèle personnalisé
 
-Dans le volet gauche, cliquez sur l’icône d’entraînement (wagon) pour ouvrir la page Training (Entraînement). Cliquez ensuite sur le bouton **Train** pour commencer l’entraînement du modèle. Une fois le processus d’entraînement terminé, les informations suivantes s’affichent :
+Choisissez l’icône d’entraînement dans le volet gauche pour ouvrir la page Training (Entraînement). Sélectionnez ensuite le bouton **Train** pour commencer l’entraînement du modèle. Une fois le processus d’entraînement terminé, les informations suivantes s’affichent :
 
 * **Model ID** : ID du modèle qui a été créé et entraîné. Chaque appel d’entraînement crée un modèle avec son propre ID. Copiez cette chaîne dans un emplacement sûr. Vous en aurez besoin si vous souhaitez effectuer des appels de prédiction via l’[API REST](./client-library.md?pivots=programming-language-rest-api) pi une [bibliothèque de client](./client-library.md).
 * **Average Accuracy** : justesse moyenne du modèle. Vous pouvez améliorer la justesse du modèle en étiquetant des formulaires supplémentaires et en effectuant un nouvel entraînement pour créer un modèle. Nous vous recommandons de commencer par étiqueter cinq formulaires et d’ajouter des formulaires en fonction des besoins.
@@ -305,10 +317,10 @@ Une fois l’entraînement terminé, examinez la valeur **Average Accuracy**. Si
 
 ### <a name="v21-preview"></a>[v2.1 (préversion)](#tab/v2-1)
 
-Avec Model Compose (Composition de modèles), vous pouvez composer jusqu’à 100 modèles pour un même ID de modèle. Quand vous appelez la fonction d’analyse avec cet ID de modèle composé, Form Recognizer classifie d’abord le formulaire soumis, en le rapprochant du modèle qui correspond le mieux, puis retourne les résultats pour ce modèle. Cela est utile quand les formulaires entrants sont susceptibles d’appartenir à l’un des différents modèles.
+Avec Model Compose (Composition de modèles), vous pouvez composer jusqu’à 100 modèles pour un même ID de modèle. Quand vous appelez la fonction d’analyse avec le `modelID` composé, Form Recognizer classifie d’abord le formulaire soumis, choisit le modèle qui correspond le mieux, puis retourne les résultats pour ce modèle. Cette opération est utile quand les formulaires entrants sont susceptibles d’appartenir à l’un des différents modèles.
 
-Pour composer des modèles dans l’outil d’étiquetage des exemples, cliquez sur l’icône Model Compose (flèche de fusion) à gauche. À gauche, sélectionnez les modèles que vous souhaitez composer ensemble. Les modèles présentant une icône de flèche sont déjà des modèles composés.
-Cliquez sur le bouton « Compose » (Composer). Dans la fenêtre contextuelle, nommez votre nouveau modèle composé, puis cliquez sur « Compose » (Composer). Une fois l’opération terminée, le nouveau modèle composé apparaît dans la liste.
+Pour composer des modèles dans l’outil d’étiquetage des exemples, sélectionnez l’icône Model Compose (flèche de fusion) à gauche. À gauche, sélectionnez les modèles que vous souhaitez composer ensemble. Les modèles présentant une icône de flèche sont déjà des modèles composés.
+Choisissez le **bouton Compose**. Dans la fenêtre contextuelle, nommez votre nouveau modèle composé, puis sélectionnez **Compose**. Une fois l’opération terminée, le nouveau modèle composé doit apparaître dans la liste.
 
 :::image type="content" source="../media/label-tool/model-compose.png" alt-text="Vue UX de composition de modèles.":::
 
@@ -320,16 +332,16 @@ Cette fonctionnalité est actuellement disponible dans v2.1. preview.
 
 ## <a name="analyze-a-form"></a>Analyser un formulaire
 
-Cliquez sur l’icône de prédiction (ampoule) sur la gauche pour tester votre modèle. Chargez un document de formulaire que vous n’avez pas utilisé dans le processus d’entraînement. Cliquez ensuite sur le bouton **Predict** à droite pour obtenir les prédictions de clé/valeur pour le formulaire. L’outil applique des étiquettes dans les cadres englobants et signale la confiance de chaque étiquette.
+Sélectionnez l’icône de prédiction (ampoule) sur la gauche pour tester votre modèle. Chargez un document de formulaire que vous n’avez pas utilisé dans le processus d’entraînement. Choisissez ensuite le bouton **Predict** à droite pour obtenir les prédictions de clé/valeur pour le formulaire. L’outil applique des étiquettes dans les cadres englobants et signale la confiance de chaque étiquette.
 
 > [!TIP]
 > Vous pouvez également exécuter l’API Analyze (Analyser) avec un appel REST. Pour savoir comment procéder, consultez [Effectuer un entraînement avec des étiquettes à l’aide de Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md).
 
 ## <a name="improve-results"></a>Améliorer les résultats
 
-Selon la justesse signalée, vous souhaiterez peut-être effectuer d’autres entraînements pour améliorer le modèle. Une fois que vous avez effectué une prédiction, examinez les valeurs de confiance de chacune des étiquettes appliquées. Si la valeur d’entraînement de la justesse moyenne était élevée, mais que les scores de confiance sont faibles (ou que les résultats sont imprécis), vous devez ajouter le fichier utilisé pour la prédiction dans le jeu d’entraînement, l’étiqueter et renouveler l’entraînement.
+Selon la justesse signalée, vous souhaiterez peut-être effectuer d’autres entraînements pour améliorer le modèle. Une fois que vous avez effectué une prédiction, examinez les valeurs de confiance de chacune des étiquettes appliquées. Si la valeur d’entraînement de justesse moyenne est élevée, alors que les scores de confiance sont faibles (ou les résultats imprécis), vous devez ajouter le fichier de prédiction au jeu d’entraînement, l’étiqueter et renouveler l’entraînement.
 
-La justesse moyenne signalée, les scores de confiance et la justesse réelle peuvent être incohérents quand les documents analysés diffèrent de ceux utilisés dans l’entraînement. N’oubliez pas que certains documents peuvent sembler similaires aux yeux de l’utilisateur, mais distincts du point de vue du modèle IA. Par exemple, vous pouvez effectuer l’entraînement avec un type de formulaire qui a deux variantes, où le jeu d’entraînement est constitué de 20 % de variante A et de 80 % de variante B. Au cours de la prédiction, les scores de confiance des documents de variante A sont susceptibles d’être inférieurs.
+La justesse moyenne signalée, les scores de confiance et la justesse réelle peuvent être incohérents quand les documents analysés diffèrent de ceux utilisés lors de l’entraînement. N’oubliez pas que certains documents peuvent sembler similaires aux yeux de l’utilisateur, mais distincts du point de vue du modèle IA. Par exemple, vous pouvez effectuer l’entraînement avec un type de formulaire qui a deux variantes, où le jeu d’entraînement est constitué de 20 % de variante A et de 80 % de variante B. Au cours de la prédiction, les scores de confiance des documents de variante A sont susceptibles d’être inférieurs.
 
 ## <a name="save-a-project-and-resume-later"></a>Enregistrer un projet et le reprendre plus tard
 
@@ -341,11 +353,11 @@ Accédez à la page des paramètres du projet (icône en forme de curseurs) et p
 
 ### <a name="restore-project-credentials"></a>Restaurer les informations d’identification du projet
 
-Quand vous souhaitez reprendre votre projet, vous devez d’abord créer une connexion au même conteneur de stockage d’objets blob. Pour ce faire, répétez les étapes ci-dessus. Ensuite, accédez à la page des paramètres de l’application (icône en forme d’engrenage) et vérifiez si le jeton de sécurité de votre projet y figure. Si ce n’est pas le cas, ajoutez un nouveau jeton de sécurité et copiez le nom et la clé de votre jeton obtenus à l’étape précédente. Cliquez ensuite sur Save Settings (Enregistrer les paramètres).
+Quand vous souhaitez reprendre votre projet, vous devez d’abord créer une connexion au même conteneur de stockage d’objets blob. Pour ce faire, répétez les étapes ci-dessus. Ensuite, accédez à la page des paramètres de l’application (icône en forme d’engrenage) et vérifiez si le jeton de sécurité de votre projet y figure. Si ce n’est pas le cas, ajoutez un nouveau jeton de sécurité et copiez le nom et la clé de votre jeton obtenus à l’étape précédente. Sélectionnez **Save** pour conserver vos paramètres.
 
 ### <a name="resume-a-project"></a>Reprendre un projet
 
-Enfin, accédez à la page principale (icône en forme de maison), puis cliquez sur Open Cloud Project (Ouvrir le projet cloud). Sélectionnez ensuite la connexion au stockage d’objets blob, puis le fichier *.fott* de votre projet. L’application chargera tous les paramètres du projet, car elle contient le jeton de sécurité.
+Pour finir, accédez à la page principale (icône en forme de maison), puis sélectionnez **Open Cloud Project** (Ouvrir le projet cloud). Sélectionnez ensuite la connexion au stockage d’objets blob, puis le fichier **.fott** de votre projet. L’application chargera tous les paramètres du projet, car elle contient le jeton de sécurité.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

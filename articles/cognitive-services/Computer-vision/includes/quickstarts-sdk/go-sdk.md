@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: include
 ms.date: 12/15/2020
 ms.author: pafarley
-ms.openlocfilehash: d9b77e96bc5cdf284eeedcaae67369356d43fc08
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 9cb46a57792ecdd650a8a9f5025a5055257057ec
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102445013"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103622243"
 ---
 <a name="HOLTop"></a>
 
@@ -78,13 +78,23 @@ cd src
 touch sample-app.go
 ```
 
-Ouvrez `sample-app.go` dans l’éditeur de texte ou l’environnement de développement intégré de votre choix. Ajoutez ensuite le nom du package et importez les bibliothèques suivantes :
+> [!TIP]
+> Vous voulez voir l’intégralité du fichier de code de démarrage rapide à la fois ? Vous le trouverez sur [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/go/ComputerVision/ComputerVisionQuickstart.go), qui contient les exemples de code utilisés dans ce guide de démarrage rapide.
 
-[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_imports)]
+Ouvrez `sample-app.go` dans l’éditeur de texte ou l’environnement de développement intégré de votre choix.
 
-Vous devez également déclarer un contexte à la racine de votre script. Vous aurez besoin de cet objet pour exécuter la plupart des appels de fonction Vision par ordinateur :
+Déclarez un contexte à la racine de votre script. Vous aurez besoin de cet objet pour exécuter la plupart des appels de fonction Vision par ordinateur.
 
-[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_context)]
+### <a name="find-the-subscription-key-and-endpoint"></a>Rechercher la clé d’abonnement et le point de terminaison
+
+Accédez au portail Azure. Si la ressource Vision par ordinateur que vous avez créée dans la section **Prérequis** a été déployée, cliquez sur le bouton **Accéder à la ressource** sous **Étapes suivantes**. Votre clé d’abonnement et votre point de terminaison se trouvent dans la page **Clé et point de terminaison** de la ressource, sous **Gestion des ressources**. 
+
+Créez des variables pour votre clé d’abonnement et votre point de terminaison Vision par ordinateur. Collez votre clé d’abonnement et votre point de terminaison dans le code suivant à l’endroit indiqué. Votre point de terminaison Vision par ordinateur a le format `https://<your_computer_vision_resource_name>.cognitiveservices.azure.com/`.
+
+[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_imports_and_vars)]
+
+> [!IMPORTANT]
+> N’oubliez pas de supprimer la clé d’abonnement de votre code une fois que vous avez terminé, et ne la publiez jamais publiquement. Pour la production, envisagez d’utiliser une méthode de stockage et d’accès sécurisée pour vos informations d’identification. Par exemple, [Azure Key Vault](../../../../key-vault/general/overview.md).
 
 Ensuite, vous commencerez à ajouter du code pour effectuer différentes opérations Vision par ordinateur.
 

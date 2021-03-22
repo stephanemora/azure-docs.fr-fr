@@ -4,15 +4,15 @@ description: Guide pratique pour créer un pool d’hôtes Windows Virtual Deskt
 author: Heidilohr
 ms.topic: tutorial
 ms.custom: references_regions
-ms.date: 02/17/2021
+ms.date: 03/10/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 46a029a3b803428d6250b74059190f66183be452
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 60566b95447c1b69fb257435f45a11524ac5d8b2
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100651457"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102617339"
 ---
 # <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>Tutoriel : Créer un pool d’hôtes avec le portail Azure
 
@@ -101,18 +101,16 @@ Pour configurer votre machine virtuelle durant le processus de création du pool
 
 1. Sous **Groupe de ressources**, choisissez le groupe de ressources dans lequel vous souhaitez créer les machines virtuelles. Il peut s’agir d’un groupe de ressources différent de celui que vous avez utilisé pour le pool d’hôtes.
 
-2. Choisissez l’**emplacement de machine virtuelle** où vous souhaitez créer les machines virtuelles. Elle peut être identique ou différente de la région que vous avez sélectionnée pour le pool d’hôtes.
+2. Après cela, spécifiez un **Préfixe de nom** pour nommer les machines virtuelles créées par le processus de création. Le suffixe sera `-` avec des nombres commençant à 0.
 
-3. Ensuite, choisissez la **taille de machine virtuelle** que vous souhaitez utiliser. Vous pouvez soit conserver la taille par défaut, soit sélectionner **Modifier la taille** pour changer de taille. Si vous sélectionnez **Modifier la taille**, dans la fenêtre qui s’affiche, choisissez la taille de la machine virtuelle adaptée à votre charge de travail.
+3. Choisissez l’**emplacement de machine virtuelle** où vous souhaitez créer les machines virtuelles. Elle peut être identique ou différente de la région que vous avez sélectionnée pour le pool d’hôtes.
+   
+4. Ensuite, choisissez l’option de disponibilité qui correspond le mieux à vos besoins. Pour en découvrir plus sur l’option qui vous convient, consultez [Options de disponibilité pour les machines virtuelles dans Azure](../virtual-machines/availability.md) et [notre Forum aux questions](faq.md#which-availability-option-is-best-for-me).
+   
+   > [!div class="mx-imgBorder"]
+   > [Capture d’écran du menu déroulant des options de disponibilité. L’option « Zone de disponibilité » est mise en évidence.](media/availability-zone.png)
 
-4. Sous **Nombre de machines virtuelles**, indiquez le nombre de machines virtuelles que vous souhaitez créer pour votre pool d’hôtes.
-
-    >[!NOTE]
-    >Le processus de création peut créer jusqu’à 400 machines virtuelles lors de la configuration de votre pool d’hôtes, et chaque processus de création de machine virtuelle crée quatre objets dans votre groupe de ressources. Étant donné que le processus de création ne vérifie pas le quota de votre abonnement, vérifiez que le nombre de machines virtuelles que vous entrez se trouve dans les limites d’API et de machines virtuelles Azure pour votre groupe de ressources et votre abonnement. Vous pourrez ajouter d’autres machines virtuelles une fois que vous autre terminé la création de votre pool d’hôtes.
-
-5. Après cela, spécifiez un **Préfixe de nom** pour nommer les machines virtuelles créées par le processus de création. Le suffixe sera `-` avec des nombres commençant à 0.
-
-6. Ensuite, choisissez l’image qui doit être utilisée pour créer la machine virtuelle. Vous pouvez choisir **Galerie** ou **Objet blob de stockage**.
+5. Ensuite, choisissez l’image qui doit être utilisée pour créer la machine virtuelle. Vous pouvez choisir **Galerie** ou **Objet blob de stockage**.
 
     - Si vous choisissez **Galerie**, sélectionnez l’une des images recommandées dans le menu déroulant :
 
@@ -122,23 +120,30 @@ Pour configurer votre machine virtuelle durant le processus de création du pool
       - Windows 10 Entreprise multisession, version 2004
       - Windows 10 Entreprise multisession, version 2004 + Microsoft 365 Apps
 
-     Si vous ne voyez pas l’image souhaitée, sélectionnez **Parcourir toutes les images et tous les disques** afin de pouvoir sélectionner une autre image dans votre galerie ou une image fournie par Microsoft ou d’autres éditeurs. Vérifiez que l’image choisie fait partie des [images de système d’exploitation prises en charge](overview.md#supported-virtual-machine-os-images).
+      Si vous ne voyez pas l’image souhaitée, sélectionnez **Voir toutes les images** afin de pouvoir sélectionner une autre image dans votre galerie ou une image fournie par Microsoft ou d’autres éditeurs. Vérifiez que l’image choisie fait partie des [images de système d’exploitation prises en charge](overview.md#supported-virtual-machine-os-images).
 
-     > [!div class="mx-imgBorder"]
-     > ![Capture d’écran de la Place de marché avec une liste d’images Microsoft.](media/marketplace-images.png)
+      > [!div class="mx-imgBorder"]
+      > ![Capture d’écran de la Place de marché avec une liste d’images Microsoft.](media/marketplace-images.png)
 
-     Vous pouvez également accéder à **Mes éléments** et choisir une image personnalisée que vous avez déjà chargée.
+      Vous pouvez également accéder à **Mes éléments** et choisir une image personnalisée que vous avez déjà chargée.
 
-     > [!div class="mx-imgBorder"]
-     > ![Capture d’écran de l’onglet Mes éléments.](media/my-items.png)
+      > [!div class="mx-imgBorder"]
+      > ![Capture d’écran de l’onglet Mes éléments.](media/my-items.png)
 
-    - Si vous choisissez **Objet blob de stockage**, vous pouvez tirer parti de votre propre build d’image via Hyper-V ou sur une machine virtuelle Azure. Il vous suffit d’entrer l’emplacement de l’image dans l’objet blob de stockage sous la forme d’un URI.
+    - Si vous choisissez **Objet blob de stockage**, vous pouvez utiliser votre propre build d’image via Hyper-V ou sur une machine virtuelle Azure. Il vous suffit d’entrer l’emplacement de l’image dans l’objet blob de stockage sous la forme d’un URI.
+   
+   L’emplacement de l’image est indépendant de l’option de disponibilité, mais la résilience de zone de l’image détermine si cette image peut être utilisée avec une zone de disponibilité. Si vous sélectionnez une zone de disponibilité lors de la création de votre image, veillez à utiliser une image de la galerie avec la résilience de zone activée. Pour en découvrir plus sur l’option de résilience de zone que vous devez utiliser, consultez le [Forum aux questions](faq.md#which-availability-option-is-best-for-me).
 
-7. Choisissez le type de disques de système d’exploitation que vous souhaitez que vos machines virtuelles utilisent : SSD Standard, SSD Premium ou HDD Standard.
+6. Ensuite, choisissez la **taille de machine virtuelle** que vous souhaitez utiliser. Vous pouvez soit conserver la taille par défaut, soit sélectionner **Modifier la taille** pour changer de taille. Si vous sélectionnez **Modifier la taille**, dans la fenêtre qui s’affiche, choisissez la taille de la machine virtuelle adaptée à votre charge de travail.
 
-8. Sous Réseau et sécurité, sélectionnez le **réseau virtuel** et le **sous-réseau** où vous souhaitez placer les machines virtuelles que vous créez. Vérifiez que le réseau virtuel peut se connecter au contrôleur de domaine, car vous devrez joindre les machines virtuelles qui se trouvent sur le réseau virtuel au domaine. Les serveurs DNS du réseau virtuel que vous avez sélectionné doivent être configurés pour utiliser l’adresse IP du contrôleur de domaine.
+7. Sous **Nombre de machines virtuelles**, indiquez le nombre de machines virtuelles que vous souhaitez créer pour votre pool d’hôtes.
 
-9. Ensuite, indiquez si vous souhaitez utiliser une adresse IP publique pour les machines virtuelles. Nous vous recommandons de sélectionner **Non**, car une adresse IP privée est plus sécurisée.
+    >[!NOTE]
+    >Le processus de création peut créer jusqu’à 400 machines virtuelles lors de la configuration de votre pool d’hôtes, et chaque processus de création de machine virtuelle crée quatre objets dans votre groupe de ressources. Étant donné que le processus de création ne vérifie pas le quota de votre abonnement, vérifiez que le nombre de machines virtuelles que vous entrez se trouve dans les limites d’API et de machines virtuelles Azure pour votre groupe de ressources et votre abonnement. Vous pourrez ajouter d’autres machines virtuelles une fois que vous autre terminé la création de votre pool d’hôtes.
+
+8. Choisissez le type de disques de système d’exploitation que vous souhaitez que vos machines virtuelles utilisent : SSD Standard, SSD Premium ou HDD Standard.
+
+9. Sous Réseau et sécurité, sélectionnez le **réseau virtuel** et le **sous-réseau** où vous souhaitez placer les machines virtuelles que vous créez. Vérifiez que le réseau virtuel peut se connecter au contrôleur de domaine, car vous devrez joindre les machines virtuelles qui se trouvent sur le réseau virtuel au domaine. Les serveurs DNS du réseau virtuel que vous avez sélectionné doivent être configurés pour utiliser l’adresse IP du contrôleur de domaine.
 
 10. Sélectionnez le type de groupe de sécurité souhaité : **De base**, **Avancé** ou **Aucun**.
 
@@ -154,9 +159,9 @@ Pour configurer votre machine virtuelle durant le processus de création du pool
 
 11. Après cela, indiquez si vous souhaitez que les machines virtuelles soient jointes à un domaine et une unité d’organisation spécifiques. Si vous choisissez **Oui**, spécifiez le domaine à joindre. Vous pouvez éventuellement ajouter une unité d’organisation spécifique à laquelle doivent appartenir les machines virtuelles. Si vous choisissez **Non**, les machines virtuelles sont jointes au domaine correspondant au suffixe de l’**UPN de jonction de domaine AD**.
 
-  - Lorsque vous spécifiez une unité d’organisation, veillez à utiliser le chemin complet (nom unique) sans guillemets.
+    - Quand vous spécifiez une unité d’organisation, veillez à utiliser le chemin complet (nom unique) sans guillemets.
 
-12. Sous Compte d’administrateur, entrez les informations d’identification de l’administrateur de domaine Active Directory du réseau virtuel que vous avez sélectionné. L’authentification multifacteur (MFA) ne peut pas être activée sur ce compte. Lors de la jointure à un domaine Azure Active Directory Domain Services (Azure AD DS), le compte doit faire partie du groupe d’administrateurs Azure AD DC et le mot de passe du compte doit fonctionner dans Azure AD DS.
+12. Sous Compte d’administrateur de domaine, entrez les informations d’identification de l’administrateur de domaine Active Directory du réseau virtuel que vous avez sélectionné. L’authentification multifacteur (MFA) ne peut pas être activée sur ce compte. Lors de la jointure à un domaine Azure Active Directory Domain Services (Azure AD DS), le compte doit faire partie du groupe d’administrateurs Azure AD DC et le mot de passe du compte doit fonctionner dans Azure AD DS.
 
 13. Sélectionnez **Suivant : Espace de travail >** .
 

@@ -9,14 +9,16 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: fd297ec5cfb7831a438fc51e72e3c2fc163eff49
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 292c82624103fc2eae46d8aecb5e85b2181e7938
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88271275"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103463049"
 ---
 # <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>Tutoriel : Déployer Azure Machine Learning en tant que module IoT Edge (préversion)
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Utilisez Azure Notebooks pour développer un module Machine Learning et déployez-le sur un appareil Linux exécutant Azure IoT Edge.
 Vous pouvez utiliser des modules IoT Edge pour déployer du code qui implémente votre logique métier directement sur vos appareils IoT Edge. Ce tutoriel vous guide tout au long du déploiement d’un module Azure Machine Learning qui prédit l’échec d’un appareil à partir des données de température de machine simulée. Pour plus d'informations sur Azure Machine Learning sur IoT Edge, consultez la [documentation Azure Machine Learning](../machine-learning/how-to-deploy-and-where.md).
@@ -41,7 +43,7 @@ Dans ce tutoriel, vous allez apprendre à :
 
 Un appareil Azure IoT Edge :
 
-* Vous pouvez utiliser votre machine virtuelle Azure en tant qu’appareil IoT Edge. Pour cela, suivez les étapes décrites dans le guide de démarrage rapide pour [Linux](quickstart-linux.md).
+* Vous pouvez utiliser les guides de démarrage rapide pour configurer un [appareil Linux](quickstart-linux.md) ou un [appareil Windows](quickstart.md).
 * Le module Azure Machine Learning ne prend pas en charge les conteneurs Windows.
 * Le module Azure Machine Learning ne prend pas en charge les processeurs ARM.
 

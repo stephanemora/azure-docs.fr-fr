@@ -1,7 +1,7 @@
 ---
 title: Créer une ressource Cognitive Services avec Azure CLI
 titleSuffix: Azure Cognitive Services
-description: Commencez à utiliser Azure Cognitive Services en créant et en vous abonnant à une ressource avec Azure CLI.
+description: Commencez à utiliser Azure Cognitive Services en créant et en vous abonnant à une ressource à l’aide de l’interface de ligne de commande Azure.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ keywords: services cognitifs, intelligence cognitive, solutions cognitives, serv
 ms.topic: quickstart
 ms.date: 09/14/2020
 ms.author: aahi
-ms.openlocfilehash: 95d74601ca912647eadd1bd4e1045108be6b2adb
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: c1e8b260f6c06d8f26f5ba99b4fb02edfa5e8656
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102050067"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103472112"
 ---
 # <a name="quickstart-create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>Démarrage rapide : Créer une ressource Cognitive Services avec Azure CLI
 
@@ -99,16 +99,6 @@ Lorsque vous créez une nouvelle ressource, vous devez connaître le « type �
 | Form Recognizer            | `FormRecognizer`          |
 | Ink Recognizer             | `InkRecognizer`           |
 
-### <a name="search"></a>Recherche
-
-| Service            | Type                  |
-|--------------------|-----------------------|
-| Suggestion automatique Bing   | `Bing.Autosuggest.v7` |
-| Recherche personnalisée Bing | `Bing.CustomSearch`   |
-| Recherche d’entité Bing | `Bing.EntitySearch`   |
-| Bing Search        | `Bing.Search.v7`      |
-| Vérification orthographique Bing   | `Bing.SpellCheck.v7`  |
-
 ### <a name="speech"></a>Speech
 
 | Service            | Type                 |
@@ -181,7 +171,7 @@ Utilisez la commande [az cognitiveservices account keys list](/cli/azure/cogniti
 Les niveaux tarifaires (et le montant facturé) sont basés sur le nombre de transactions que vous envoyez à l’aide de vos informations d’authentification. Chaque niveau tarifaire spécifie :
 * le nombre maximal de transactions par seconde (TPS) autorisées ;
 * les fonctionnalités de service activées dans le niveau tarifaire ;
-* le coût d’un nombre prédéfini de transactions. Si vous dépassez ce nombre, des frais supplémentaires vous seront facturés, comme indiqué dans les [détails de la tarification](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/) de votre service.
+* Le coût d’un nombre prédéfini de transactions. Si vous dépassez ce nombre, des frais supplémentaires vous seront facturés, comme indiqué dans les [détails de la tarification](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/) de votre service.
 
 ## <a name="get-current-quota-usage-for-your-resource"></a>Obtenir le rapport d’utilisation des quotas actuel pour votre ressource
 

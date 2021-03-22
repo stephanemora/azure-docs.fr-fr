@@ -10,16 +10,18 @@ ms.date: 08/04/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 402b61bb0845532d601e9f5dcaaf55eacce685d1
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: d6a95dae91ef3e6aa7d39cf8af51c355a87ea73a
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94959371"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103462726"
 ---
-# <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-for-linux-devices"></a>Tutoriel : Développer et déployer un module IoT Edge Python pour des appareils Linux
+# <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-using-linux-containers"></a>Tutoriel : Développer et déployer un module IoT Edge Python avec des conteneurs Linux
 
-Utilisez Visual Studio Code pour écrire du code Python et le déployer sur un appareil Linux exécutant Azure IoT Edge.
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+
+Utilisez Visual Studio Code pour écrire du code Python et le déployer sur un appareil exécutant Azure IoT Edge.
 
 Vous pouvez utiliser des modules Azure IoT Edge pour déployer un code qui implémente votre logique métier directement sur vos appareils IoT Edge. Ce tutoriel vous guide dans la création et le déploiement d’un module IoT Edge qui filtre des données de capteur sur l’appareil IoT Edge que vous configurez dans le guide de démarrage rapide. Dans ce tutoriel, vous allez apprendre à :
 
@@ -36,19 +38,21 @@ Le module IoT Edge que vous créez dans ce didacticiel filtre les données de te
 
 ## <a name="prerequisites"></a>Prérequis
 
-Ce tutoriel montre comment développer un module en **Python** à l’aide de **Visual Studio Code** et le déployer sur un **appareil Linux**. IoT Edge ne prend pas en charge les modules Python pour appareils Windows.
+Ce tutoriel montre comment développer un module en **Python** à l’aide de **Visual Studio Code** et le déployer sur un appareil IoT Edge.
 
-Utilisez le tableau suivant afin de comprendre les options dont vous disposez pour développer et déployer des modules en Python sur des appareils Linux :
+IoT Edge ne prend pas en charge les modules Python avec des conteneurs Windows.
+
+Le tableau suivant présente les options dont vous disposez pour développer et déployer des modules Python avec des conteneurs Linux :
 
 | Python | Visual Studio Code | Visual Studio 2017/2019 |
 | - | ------------------ | ------------------ |
 | **Linux AMD64** | ![Utilisez VS Code pour modules Python sur Linux AMD64](./media/tutorial-c-module/green-check.png) |  |
 | **Linux ARM32** | ![Utilisez VS Code pour modules Python sur Linux ARM32](./media/tutorial-c-module/green-check.png) |  |
 
-Avant de commencer ce tutoriel, vous devez avoir effectué celui qui précède pour configurer votre environnement de développement pour le développement de conteneur Linux : [Développer des modules IoT Edge pour les appareils Linux](tutorial-develop-for-linux.md). En suivant ce tutoriel, les conditions préalables suivantes doivent être remplies :
+Avant de commencer ce tutoriel, vous devez avoir effectué celui qui précède pour configurer votre environnement de développement pour le développement de conteneur Linux : [Développer des modules IoT Edge avec des conteneurs Linux](tutorial-develop-for-linux.md). En suivant ce tutoriel, les conditions préalables suivantes doivent être remplies :
 
 * Un niveau gratuit ou standard [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) dans Azure.
-* Un [appareil Linux exécutant Azure IoT Edge](quickstart-linux.md).
+* Un appareil exécutant Azure IoT Edge. Vous pouvez utiliser les guides de démarrage rapide pour configurer un [appareil Linux](quickstart-linux.md) ou un [appareil Windows](quickstart.md).
 * Un registre de conteneurs tel qu’[Azure Container Registry](../container-registry/index.yml).
 * [Visual Studio Code](https://code.visualstudio.com/) configuré avec [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 * [Docker CE](https://docs.docker.com/install/) configuré pour exécuter des conteneurs Linux.

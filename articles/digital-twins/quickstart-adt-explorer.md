@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/24/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: f1b25b853977b3a1f4871e232a562d6a3cfd2fae
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: feeb3e63375e918498e704add6dac672d6a46de3
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102434200"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103574575"
 ---
 # <a name="quickstart---explore-a-sample-azure-digital-twins-scenario-using-azure-digital-twins-explorer"></a>Démarrage rapide - Explorer un exemple de scénario Azure Digital Twins avec Azure Digital Twins Explorer
 
@@ -93,13 +93,15 @@ Ouvrez une fenêtre de console dans l’emplacement de dossier **Azure_Digital_T
 
 1. Entrez l’URL de l’instance Azure Digital Twins que vous avez recueillie plus tôt dans la section [Configurer une instance Azure Digital Twins](#set-up-an-azure-digital-twins-instance), au format *https://{nom d’hôte de l’instance}* .
 
->[!NOTE]
-> Vous pouvez consulter ou modifier ces informations à tout moment en sélectionnant cette même icône afin de rouvrir la zone **Se connecter**. Les valeurs que vous avez passées auront été conservées.
-
 > [!TIP]
 > Si un message d’erreur `SignalRService.subscribe` apparaît quand vous vous connectez, vérifiez que votre URL Azure Digital Twins commence par *https://* .
+>
+> Si une erreur d’authentification s’affiche, vous souhaiterez peut-être vérifier vos **variables d’environnement** pour être sûr que les informations d’identification qui y figurent sont valides pour Azure Digital Twins. `DefaultAzureCredential` tente de procéder à l’authentification par rapport aux types d’informations d’identification dans un [ordre spécifique](/dotnet/api/overview/azure/identity-readme#defaultazurecredential), et les variables d’environnement sont évaluées en premier.
 
 Si la fenêtre contextuelle **Autorisations demandées** Microsoft s’affiche, autorisez l’application, puis cliquez sur Accepter pour continuer.
+
+>[!NOTE]
+> Vous pouvez consulter ou modifier ces informations à tout moment en sélectionnant cette même icône afin de rouvrir la zone **Se connecter**. Les valeurs que vous avez passées auront été conservées.
 
 ## <a name="add-the-sample-data"></a>Ajouter les exemples de données
 

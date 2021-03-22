@@ -11,14 +11,14 @@ ms.topic: include
 ms.date: 09/14/2020
 ms.author: dylankil
 ms.custom: devx-track-js
-ms.openlocfilehash: e29aff97d510dfed178e32aa319e5cb51ae9786c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: fa28d5779c05af615479e3143713badb7842f6c6
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91376858"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102619222"
 ---
-Le [Lecteur immersif](https://www.onenote.com/learningtools) est un outil qui permet d’implémenter des techniques éprouvées pour améliorer la compréhension dans le cadre de l’apprentissage de la lecture, l’apprentissage d’une langue et pour les personnes avec des difficultés d’apprentissage, comme la dyslexie. Vous pouvez utiliser le Lecteur immersif dans vos applications pour isoler du texte afin d’améliorer le focus, afficher des images pour les mots couramment utilisés, mettre en évidence des parties d’une discours parlé, lire le texte sélectionné à voix haute, traduire des mots et des expressions en temps réel, etc.
+Le [Lecteur immersif](https://www.onenote.com/learningtools) est un outil qui permet d’implémenter des techniques éprouvées pour améliorer la compréhension dans le cadre de l’apprentissage de la lecture, l’apprentissage d’une langue et pour les personnes avec des difficultés d’apprentissage, comme la dyslexie. Vous pouvez utiliser le Lecteur immersif dans vos applications pour isoler du texte afin d’améliorer le focus, afficher des images pour les mots couramment utilisés, mettre en évidence des parties d’un discours, lire le texte sélectionné à voix haute, traduire des mots et des expressions en temps réel, etc.
 
 Dans ce guide de démarrage rapide, vous créez une application Android à partir de zéro et vous intégrez le lecteur immersif. Un exemple complet et fonctionnel de ce guide de démarrage rapide est disponible [sur GitHub](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/quickstart-kotlin).
 
@@ -613,4 +613,5 @@ Utilisez Android Studio pour exécuter l’application sur un émulateur d’app
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Explorez le [kit SDK Lecteur Immersif](https://github.com/microsoft/immersive-reader-sdk) et la [référence du kit SDK Lecteur immersif](../../reference.md).
+> [!div class="nextstepaction"]
+> [Créer une ressource et configurer AAD](../../how-to-create-immersive-reader.md)

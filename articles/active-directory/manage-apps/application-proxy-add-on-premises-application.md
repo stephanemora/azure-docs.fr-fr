@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/09/2021
+ms.date: 02/17/2021
 ms.author: kenwith
 ms.reviewer: japere
 ms.custom: contperf-fy21q3-portal
-ms.openlocfilehash: 6bd44ea0217f11a156598a1a6f3703e528dd82d4
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 6a7f50268a09ae451b1e9dda2ca354ded31efb68
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100095169"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200751"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Tutoriel : Ajouter une application locale pour un accès à distance via le service Proxy d'application d'Azure Active Directory
 
@@ -67,11 +67,11 @@ Pour bénéficier d'une haute disponibilité dans votre environnement de product
 > La clé peut être définie par le biais de PowerShell à l’aide de la commande suivante.
 > ```
 > Set-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp\' -Name EnableDefaultHTTP2 -Value 0
->
+> ```
 
 #### <a name="recommendations-for-the-connector-server"></a>Recommandations pour le serveur de connecteurs
 
-1. Placez physiquement le serveur de connecteurs à proximité des serveurs d'applications afin d'optimiser les performances entre le connecteur et l'application. Pour plus d'informations, consultez [Considérations sur la topologie réseau](application-proxy-network-topology.md).
+1. Placez physiquement le serveur de connecteurs à proximité des serveurs d'applications afin d'optimiser les performances entre le connecteur et l'application. Pour plus d’informations, consultez [Optimiser le flux de trafic avec le proxy d’application Azure Active Directory](application-proxy-network-topology.md).
 1. Le serveur de connecteurs et les serveurs d’applications web doivent appartenir au même domaine Active Directory ou chevaucher des domaines approbateurs. Les serveurs doivent impérativement se trouver dans le même domaine ou dans des domaines approbateurs pour utiliser l’authentification unique avec l’authentification Windows intégrée (IWA) et la délégation Kerberos contrainte (KCD). Si le serveur de connecteurs et les serveurs d'applications web se trouvent dans des domaines Active Directory différents, vous devez utiliser la délégation basée sur les ressources pour l'authentification unique. Pour plus d’informations, consultez [KCD pour l’authentification unique avec le proxy d’application](application-proxy-configure-single-sign-on-with-kcd.md).
 
 > [!WARNING]
@@ -115,10 +115,10 @@ Tout d’abord, activez la communication avec les centres de données Azure afin
 
 Ouvrez les ports suivants pour le trafic **sortant**.
 
-   | Numéro de port | Utilisation |
-   | --- | --- |
-   | 80 | Téléchargement de la liste de révocation de certificats lors de la validation du certificat TLS/SSL |
-   | 443 | Toutes les communications sortantes avec le service de proxy d’application |
+| Numéro de port | Utilisation |
+| ----------- | ------------------------------------------------------------ |
+| 80          | Téléchargement de la liste de révocation de certificats lors de la validation du certificat TLS/SSL |
+| 443         | Toutes les communications sortantes avec le service de proxy d’application |
 
 Si votre pare-feu régule le trafic en fonction des utilisateurs d'origine, ouvrez également les ports 80 et 443 au trafic provenant des services Windows exécutés en tant que service réseau.
 
@@ -127,11 +127,11 @@ Si votre pare-feu régule le trafic en fonction des utilisateurs d'origine, ouvr
 Autorisez l'accès aux URL suivantes :
 
 | URL | Port | Utilisation |
-| --- | --- | --- |
-| &ast;.msappproxy.net<br>&ast;.servicebus.windows.net | 443/HTTPS | Communication entre le connecteur et le service cloud Proxy d'application |
-| crl3.digicert.com<br>crl4.digicert.com<br>ocsp.digicert.com<br>crl.microsoft.com<br>oneocsp.microsoft.com<br>ocsp.msocsp.com<br> | 80/HTTP |Le connecteur utilise ces URL pour vérifier les certificats. |
-| login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>&ast;.microsoftonline.com<br>&ast;.microsoftonline-p.com<br>&ast;.msauth.net<br>&ast;.msauthimages.net<br>&ast;.msecnd.net<br>&ast;.msftauth.net<br>&ast;.msftauthimages.net<br>&ast;.phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctldl.windowsupdate.com<br>www.microsoft.com/pkiops | 443/HTTPS |Le connecteur utilise ces URL lors du processus d'inscription. |
-| ctldl.windowsupdate.com | 80/HTTP |Le connecteur utilise cette URL lors du processus d’inscription. |
+| ------------------------------------------------------------ | --------- | ------------------------------------------------------------ |
+| &ast;.msappproxy.net<br>&ast;.servicebus.windows.net         | 443/HTTPS | Communication entre le connecteur et le service cloud Proxy d'application |
+| crl3.digicert.com<br>crl4.digicert.com<br>ocsp.digicert.com<br>crl.microsoft.com<br>oneocsp.microsoft.com<br>ocsp.msocsp.com<br> | 80/HTTP   | Le connecteur utilise ces URL pour vérifier les certificats.        |
+| login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>&ast;.microsoftonline.com<br>&ast;.microsoftonline-p.com<br>&ast;.msauth.net<br>&ast;.msauthimages.net<br>&ast;.msecnd.net<br>&ast;.msftauth.net<br>&ast;.msftauthimages.net<br>&ast;.phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctldl.windowsupdate.com<br>www.microsoft.com/pkiops | 443/HTTPS | Le connecteur utilise ces URL lors du processus d'inscription. |
+| ctldl.windowsupdate.com                                      | 80/HTTP   | Le connecteur utilise cette URL lors du processus d’inscription. |
 
 Vous pouvez autoriser les connexions à &ast;.msappproxy.net, &ast;.servicebus.windows.net et les autres URL ci-dessus si votre pare-feu ou proxy vous permet de configurer des règles d’accès basées sur des suffixes de domaine. Si ce n’est pas le cas, vous devez autoriser l’accès aux [Plages d’adresses IP et étiquettes des services Azure – Cloud public](https://www.microsoft.com/download/details.aspx?id=56519). Ces dernières sont mises à jour chaque semaine.
 
@@ -157,6 +157,7 @@ Pour installer le connecteur :
 1. Lisez les conditions d'utilisation du service. Quand vous êtes prêt, sélectionnez **Accepter les conditions d’utilisation et télécharger**.
 1. En bas de la fenêtre, sélectionnez **Exécuter** pour installer le connecteur. Un Assistant d'installation s'ouvre.
 1. Suivez les instructions de l’Assistant pour installer le service. Lorsque vous êtes invité à inscrire le connecteur auprès du service Proxy d'application de votre client Azure AD, fournissez vos informations d'identification d'administrateur d'application.
+   
     - Pour Internet Explorer (IE), si l'option **Configuration de sécurité renforcée d'Internet Explorer** est **Activée**, l'écran d'inscription peut ne pas s'afficher. Suivez les instructions du message d’erreur pour obtenir l’accès. Assurez-vous que l’option **Configuration de sécurité renforcée d’Internet Explorer** est **Désactivée**.
 
 ### <a name="general-remarks"></a>Remarques générales
@@ -164,6 +165,8 @@ Pour installer le connecteur :
 Si vous avez déjà installé un connecteur, réinstallez-le pour obtenir la dernière version. Pour avoir des informations sur les versions précédentes et les changements qu’elles incluent, consultez [Proxy d’application : historique des versions](application-proxy-release-version-history.md).
 
 Si vous choisissez d'utiliser plusieurs serveurs Windows pour vos applications locales, vous devez installer et inscrire le connecteur sur chaque serveur. Vous pouvez organiser les connecteurs en groupes de connecteurs. Pour plus d'informations, consultez [Groupes de connecteurs](application-proxy-connector-groups.md).
+
+Si vous avez installé des connecteurs dans différentes régions, vous pouvez optimiser le trafic en sélectionnant la région de service cloud de proxy d’application la plus proche à utiliser avec chaque groupe de connecteurs (consultez [Optimiser le flux de trafic avec le proxy d’application Azure Active Directory](application-proxy-network-topology.md)).
 
 Si votre organisation utilise des serveurs proxy pour se connecter à Internet, vous devez les configurer pour le proxy d’application.  Pour plus d’informations, consultez [Utiliser des serveurs proxy locaux existants](application-proxy-configure-connectors-with-proxy-servers.md). 
 
@@ -208,20 +211,20 @@ Maintenant que vous avez préparé votre environnement et installé un connecteu
 4. Sélectionnez le bouton **Ajouter une application locale** qui s’affiche à mi-chemin dans la page dans la section **Applications locales**. Vous pouvez également sélectionner **Créer votre propre application** en haut de la page, puis sélectionner **Configurer le proxy d’application pour un accès à distance sécurisé à une application locale**.
 5. Dans la section **Ajouter votre propre application locale**, fournissez les informations suivantes relatives à votre application :
 
-    | Champ | Description |
-    | :---- | :---------- |
+    | Champ  | Description |
+    | :--------------------- | :----------------------------------------------------------- |
     | **Nom** | Nom de l’application qui apparaîtra dans Mes applications et sur le portail Azure. |
     | **URL interne** | URL permettant d'accéder à l'application depuis votre réseau privé. Vous pouvez spécifier un chemin spécifique sur le serveur principal à publier, alors que le reste du serveur n’est pas publié. De cette façon, vous pouvez publier des sites différents sur le même serveur en tant qu’applications distinctes et donner à chacun d’eux son propre nom et ses propres règles d’accès.<br><br>Si vous publiez un chemin d’accès, vérifiez qu’il inclut l’ensemble des images, des scripts et des feuilles de style nécessaires pour votre application. Par exemple, si votre application est sur https:\//yourapp/app et utilise des images situées dans https:\//yourapp/media, vous devez publier https:\//yourapp/ comme chemin d’accès. Cette URL interne n’est pas nécessairement la page d’accueil que vos utilisateurs voient. Pour plus d’informations, consultez [Définir une page d’accueil personnalisée pour les applications publiées](application-proxy-configure-custom-home-page.md). |
-    | **URL externe** | Adresse permettant aux utilisateurs d'accéder à l'application de l'extérieur de votre réseau. Si vous ne souhaitez pas utiliser le domaine de proxy d’application par défaut, lisez la documentation relative aux [domaines personnalisés dans le proxy d’application Azure AD](application-proxy-configure-custom-domain.md).|
+    | **URL externe** | Adresse permettant aux utilisateurs d'accéder à l'application de l'extérieur de votre réseau. Si vous ne souhaitez pas utiliser le domaine de proxy d’application par défaut, lisez la documentation relative aux [domaines personnalisés dans le proxy d’application Azure AD](application-proxy-configure-custom-domain.md). |
     | **Pré-authentification** | Façon dont le service Proxy d'application vérifie les utilisateurs avant de leur donner accès à votre application.<br><br>**Azure Active Directory** : le service Proxy d'application redirige les utilisateurs pour la connexion à Azure AD, qui authentifie leurs autorisations pour le répertoire et l'application. Nous vous recommandons de conserver cette option par défaut, qui vous permet d’utiliser les fonctionnalités de sécurité Azure AD, comme l’accès conditionnel et l’authentification multifacteur. **Azure Active Directory** est nécessaire pour la supervision de l’application avec Microsoft Cloud App Security.<br><br>**Direct** : les utilisateurs n’ont pas besoin de s’authentifier auprès d’Azure AD pour accéder à l’application. Vous pouvez toujours configurer les exigences d’authentification sur le serveur principal. |
-    | **Groupe de connecteurs** | Les connecteurs gèrent l'accès à distance à votre application et les groupes de connecteurs vous aident à organiser des connecteurs et des applications par région, réseau ou objectif. Si aucun groupe de connecteurs n’est encore créé, votre application est assignée au groupe **Par défaut**.<br><br>Si votre application utilise des WebSockets pour se connecter, tous les connecteurs du groupe doivent être de la version 1.5.612.0 ou ultérieure.|
+    | **Groupe de connecteurs** | Les connecteurs gèrent l'accès à distance à votre application et les groupes de connecteurs vous aident à organiser des connecteurs et des applications par région, réseau ou objectif. Si aucun groupe de connecteurs n’est encore créé, votre application est assignée au groupe **Par défaut**.<br><br>Si votre application utilise des WebSockets pour se connecter, tous les connecteurs du groupe doivent être de la version 1.5.612.0 ou ultérieure. |
 
 6. Si nécessaire, configurez des **paramètres supplémentaires**. Pour la plupart des applications, vous devez conserver ces paramètres dans leur état par défaut. 
 
     | Champ | Description |
-    | :---- | :---------- |
+    | :------------------------------ | :----------------------------------------------------------- |
     | **Expiration de l'application principale** | Définissez cette valeur sur **Long** uniquement si l'authentification et la connexion de votre application sont lentes. Par défaut, le délai d’expiration de l’application principale est de 85 secondes. Si cette valeur est trop importante, le délai d’expiration de l’application principale passe à 180 secondes. |
-    | **Utiliser un cookie HTTP-only** | Définissez cette valeur sur **Oui** pour que les cookies du service Proxy d'application incluent un indicateur HTTPOnly dans l'en-tête de réponse HTTP. Si vous utilisez les services Bureau à distance, définissez cette valeur sur **Non**.|
+    | **Utiliser un cookie HTTP-only** | Définissez cette valeur sur **Oui** pour que les cookies du service Proxy d'application incluent un indicateur HTTPOnly dans l'en-tête de réponse HTTP. Si vous utilisez les services Bureau à distance, définissez cette valeur sur **Non**. |
     | **Utiliser un cookie sécurisé**| Définissez cette valeur sur **Oui** pour transmettre les cookies sur un canal sécurisé, comme une requête HTTPS chiffrée.
     | **Utiliser un cookie persistant**| Conservez cette valeur sur **Non**. Utilisez ce paramètre uniquement pour les applications qui ne peuvent pas partager de cookies entre les processus. Pour plus d’informations sur les paramètres de cookies, consultez [Paramètres de cookies pour l’accès aux applications locales dans Azure Active Directory](./application-proxy-configure-cookie-settings.md).
     | **Traduire l'URL dans les en-têtes** | Conservez la valeur **Oui**, sauf si votre application a demandé l'en-tête d'hôte d'origine dans la requête d'authentification. |

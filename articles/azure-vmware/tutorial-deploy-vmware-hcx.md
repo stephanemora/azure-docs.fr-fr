@@ -2,13 +2,13 @@
 title: Didacticiel - Déployer et configurer VMware HCX
 description: Découvrez comment déployer et configurer une solution VMware HCX (Hybrid Cloud Extension) pour votre cloud privé Azure VMware Solution.
 ms.topic: tutorial
-ms.date: 11/25/2020
-ms.openlocfilehash: a8b089ce834d5b49e4ad32081a58e371835e8602
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.date: 03/13/2021
+ms.openlocfilehash: d1b0792ab9b9975edf45ab8addb81410e1da4107
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102488298"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103462289"
 ---
 # <a name="deploy-and-configure-vmware-hcx"></a>Déployer et configurer VMware HCX
 
@@ -183,7 +183,7 @@ Vous pouvez connecter ou appairer le gestionnaire de cloud VMware HCX d’Azure 
 
 1. Sous **Infrastructure**, sélectionnez **Site Pairing** (Couplage de sites), puis sélectionnez l’option **Connect To Remote Site** (Connexion au site distant) (au milieu de l’écran). 
 
-1. Entrez l’adresse IP ou l’URL du Gestionnaire de clouds HCX d’Azure VMware Solution que vous avez notée précédemment `https://x.x.x.9`, le nom d’utilisateur Azure VMware Solution cloudadmin@vsphere.local et le mot de passe associé. Sélectionnez **Connecter**.
+1. Entrez l’adresse IP ou l’URL du Gestionnaire de clouds HCX d’Azure VMware Solution que vous avez notée `https://x.x.x.9`, le nom d’utilisateur Azure VMware Solution cloudadmin\@vsphere.local et le mot de passe associé. Sélectionnez **Connecter**.
 
    > [!NOTE]
    > Pour établir une paire de sites :

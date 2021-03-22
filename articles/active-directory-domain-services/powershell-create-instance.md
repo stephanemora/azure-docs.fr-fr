@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: sample
-ms.date: 02/04/2021
+ms.date: 03/10/2021
 ms.author: justinha
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e79bbb2ac6febb39fec27aa6ac3c82ff58f81122
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 8056e95b731b1818e10d7415cb813d6aba0ec7fa
+ms.sourcegitcommit: 6776f0a27e2000fb1acb34a8dddc67af01ac14ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99575820"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103149065"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-powershell"></a>Activer Azure Active Directory Domain Services à l’aide de PowerShell
 
@@ -39,6 +39,13 @@ Pour effectuer ce qui est décrit dans cet article, vous avez besoin des ressour
     * Veillez à vous connecter à votre locataire Azure AD à l’aide de l’applet de commande [Connect-AzureAD][Connect-AzureAD].
 * Vous devez disposer des privilèges d’*Administrateur global* dans votre locataire Azure AD pour activer Azure AD DS.
 * Vous avez besoin de privilèges de *Contributeur* dans votre abonnement Azure pour créer les ressources Azure AD DS nécessaires.
+
+  > [!IMPORTANT]
+  > Tant que le module PowerShell **Az.ADDomainServices** est en préversion, vous devez l’installer séparément à l’aide de l’applet de commande `Install-Module`.
+
+  ```azurepowershell-interactive
+  Install-Module -Name Az.ADDomainServices
+  ```
 
 ## <a name="create-required-azure-ad-resources"></a>Créer les ressources Azure AD nécessaires
 
@@ -93,13 +100,13 @@ Add-AzureADGroupMember -ObjectId $GroupObjectId.ObjectId -RefObjectId $UserObjec
 
 Dans un premier temps, inscrivez le fournisseur de ressources Azure AD Domain Services à l’aide de l’applet de commande [Register-AzResourceProvider][Register-AzResourceProvider] :
 
-```powershell
+```azurepowershell-interactive
 Register-AzResourceProvider -ProviderNamespace Microsoft.AAD
 ```
 
 Créez ensuite un groupe de ressources avec l’applet de commande [New-AzResourceGroup][New-AzResourceGroup]. Dans l’exemple suivant, le groupe de ressources est nommé *myResourceGroup* et est créé dans la région *westus*. Utilisez votre propre nom et la région souhaitée :
 
-```powershell
+```azurepowershell-interactive
 $ResourceGroupName = "myResourceGroup"
 $AzureLocation = "westus"
 
@@ -113,7 +120,7 @@ Créez le réseau virtuel et des sous-réseaux pour Azure AD Domain Services. De
 
 Créez les sous-réseaux à l’aide de l’applet de commande [New-AzVirtualNetworkSubnetConfig][New-AzVirtualNetworkSubnetConfig], puis créez le réseau virtuel à l’aide de l’applet de commande [New-AzVirtualNetwork][New-AzVirtualNetwork].
 
-```powershell
+```azurepowershell-interactive
 $VnetName = "myVnet"
 
 # Create the dedicated subnet for Azure AD Domain Services.
@@ -142,7 +149,7 @@ Azure AD DS a besoin d’un groupe de sécurité réseau pour sécuriser les por
 
 Les cmdlets PowerShell suivantes utilisent [New-AzNetworkSecurityRuleConfig][New-AzNetworkSecurityRuleConfig] pour créer les règles, puis [New-AzNetworkSecurityGroup][New-AzNetworkSecurityGroup] pour créer le groupe de sécurité réseau. Le groupe de sécurité réseau et les règles sont ensuite associés au sous-réseau de réseau virtuel à l’aide de la cmdlet [Set-AzVirtualNetworkSubnetConfig][Set-AzVirtualNetworkSubnetConfig].
 
-```powershell
+```azurepowershell-interactive
 $NSGName = "aaddsNSG"
 
 # Create a rule to allow inbound TCP port 3389 traffic from Microsoft secure access workstations for troubleshooting
@@ -196,17 +203,24 @@ Les Zones de disponibilité sont des emplacements physiques uniques au sein d’
 
 Vous ne devez rien configurer pour la répartition d’Azure AD DS entre les zones. La plateforme Azure gère automatiquement la répartition de zone des ressources. Pour plus d’informations et pour connaître la disponibilité régionale, voir [Zones de disponibilité dans Azure][availability-zones].
 
-```powershell
+```azurepowershell-interactive
 $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
 $ManagedDomainName = "aaddscontoso.com"
 
 # Enable Azure AD Domain Services for the directory.
-New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.AAD/DomainServices/$ManagedDomainName" `
-  -ApiVersion "2017-06-01" `
-  -Location $AzureLocation `
-  -Properties @{"DomainName"=$ManagedDomainName; `
-    "SubnetId"="/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Network/virtualNetworks/$VnetName/subnets/DomainServices"} `
-  -Force -Verbose
+$replicaSetParams = @{
+  Location = $AzureLocation
+  SubnetId = "/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Network/virtualNetworks/$VnetName/subnets/DomainServices"
+}
+$replicaSet = New-AzADDomainServiceReplicaSetObject @replicaSetParams
+
+$domainServiceParams = @{
+  Name = $ManagedDomainName
+  ResourceGroupName = $ResourceGroupName
+  DomainName = $ManagedDomainName
+  ReplicaSet = $replicaSet
+}
+New-AzADDomainService @domainServiceParams
 ```
 
 Créer la ressource et retourner le contrôle à l’invite PowerShell prend quelques minutes. Le provisionnement du domaine managé se poursuit en arrière-plan et le déploiement peut prendre jusqu’à une heure. Dans le portail Azure, la page **Vue d’ensemble** de votre domaine managé indique l’état actuel tout au long de cette phase de déploiement.
@@ -224,7 +238,7 @@ Le script PowerShell complet suivant regroupe toutes les tâches présentées da
 > [!NOTE]
 > Pour activer Azure AD DS, vous devez être administrateur général du locataire Azure AD. Vous avez aussi besoin au moins de privilèges *Contributeur* dans l’abonnement Azure.
 
-```powershell
+```azurepowershell-interactive
 # Change the following values to match your deployment.
 $AaddsAdminUserUpn = "admin@contoso.onmicrosoft.com"
 $ResourceGroupName = "myResourceGroup"
@@ -292,7 +306,7 @@ $Vnet=New-AzVirtualNetwork `
   -Name $VnetName `
   -AddressPrefix 10.0.0.0/16 `
   -Subnet $AaddsSubnet,$WorkloadSubnet
-  
+
 $NSGName = "aaddsNSG"
 
 # Create a rule to allow inbound TCP port 3389 traffic from Microsoft secure access workstations for troubleshooting
@@ -336,12 +350,19 @@ Set-AzVirtualNetworkSubnetConfig -Name $SubnetName `
 $vnet | Set-AzVirtualNetwork
 
 # Enable Azure AD Domain Services for the directory.
-New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.AAD/DomainServices/$ManagedDomainName" `
-  -ApiVersion "2017-06-01" `
-  -Location $AzureLocation `
-  -Properties @{"DomainName"=$ManagedDomainName; `
-    "SubnetId"="/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Network/virtualNetworks/$VnetName/subnets/DomainServices"} `
-  -Force -Verbose
+$replicaSetParams = @{
+  Location = $AzureLocation
+  SubnetId = "/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Network/virtualNetworks/$VnetName/subnets/DomainServices"
+}
+$replicaSet = New-AzADDomainServiceReplicaSetObject @replicaSetParams
+
+$domainServiceParams = @{
+  Name = $ManagedDomainName
+  ResourceGroupName = $ResourceGroupName
+  DomainName = $ManagedDomainName
+  ReplicaSet = $replicaSet
+}
+New-AzADDomainService @domainServiceParams
 ```
 
 Créer la ressource et retourner le contrôle à l’invite PowerShell prend quelques minutes. Le provisionnement du domaine managé se poursuit en arrière-plan et le déploiement peut prendre jusqu’à une heure. Dans le portail Azure, la page **Vue d’ensemble** de votre domaine managé indique l’état actuel tout au long de cette phase de déploiement.

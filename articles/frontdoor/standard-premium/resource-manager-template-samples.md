@@ -6,13 +6,13 @@ author: johndowns
 ms.author: jodowns
 ms.service: frontdoor
 ms.topic: sample
-ms.date: 03/05/2021
-ms.openlocfilehash: 393c15761c16dbf04d2af48fe13c0bc41b2e15b1
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.date: 03/16/2021
+ms.openlocfilehash: 241c4c713890af0db8fce74b0817b5bdcf9a1403
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102510316"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103573793"
 ---
 # <a name="azure-resource-manager-templates-for-azure-front-door"></a>Modèles Azure Resource Manager pour Azure Front Door
 
@@ -34,4 +34,8 @@ Le tableau suivant comprend des liens vers des modèles Azure Resource Manager p
 |**Stockage**| **Description** |
 | [Site web statique de stockage](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-storage-static-website) | Crée un compte Stockage Azure et un site web statique avec un point de terminaison public et un profil Front Door.  |
 | [Objets blob de stockage avec Private Link](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-premium-storage-blobs-private-link) | Crée un compte Stockage Azure et un conteneur d’objets blob avec un point de terminaison privé et un profil Front Door.  |
+|**Application Gateway**| **Description** |
+| [Application Gateway](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-application-gateway-public) | Crée une passerelle applicative et un profil Front Door. |
+|**Machine virtuelle**| **Description** |
+| [Machine virtuelle avec service Private Link](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-premium-vm-private-link) | Crée une machine virtuelle et un service Private Link ainsi qu’un profil Front Door. |
 | | |

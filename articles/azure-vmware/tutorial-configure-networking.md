@@ -2,13 +2,13 @@
 title: Tutoriel - Configurer le réseau pour votre cloud privé VMware dans Azure
 description: Découvrir comment créer et configurer le réseau nécessaire au déploiement de votre cloud privé dans Azure
 ms.topic: tutorial
-ms.date: 02/23/2021
-ms.openlocfilehash: 8871e678ba43aa69eb49c02e386bfb47c6871de7
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.date: 03/13/2021
+ms.openlocfilehash: c609d191191cd9de111e83fe62761b149405cccc
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102044973"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103494352"
 ---
 # <a name="tutorial-configure-networking-for-your-vmware-private-cloud-in-azure"></a>Tutoriel : Configurer le réseau pour votre cloud privé VMware dans Azure
 

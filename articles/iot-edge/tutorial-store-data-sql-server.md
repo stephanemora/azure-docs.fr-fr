@@ -9,14 +9,16 @@ ms.date: 08/04/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: a8d09f762002c89d225ccc00eac83da336850a3c
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: e5aeda35ed4110807f17c11e93b31d0b3998846e
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047945"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103461111"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>Tutoriel : Stocker des données en périphérie avec les bases de données SQL Server
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Déployez un module SQL Server pour stocker des données sur un appareil Linux exécutant Azure IoT Edge.
 
@@ -40,7 +42,7 @@ Dans ce tutoriel, vous allez apprendre à :
 Avant de commencer ce tutoriel, vous devez avoir effectué celui qui précède pour configurer votre environnement de développement pour le développement de conteneur Linux : [Développer des modules IoT Edge pour les appareils Linux](tutorial-develop-for-linux.md). En suivant ce tutoriel, les conditions préalables suivantes doivent être remplies :
 
 * Un niveau gratuit ou standard [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) dans Azure.
-* Un [appareil Linux AMD64 exécutant Azure IoT Edge](quickstart-linux.md).
+* Un appareil AMD64 exécutant Azure IoT Edge. Vous pouvez utiliser les guides de démarrage rapide pour configurer un [appareil Linux](quickstart-linux.md) ou un [appareil Windows](quickstart.md).
   * Les appareils ARM, comme Raspberry Pis, ne peuvent pas exécuter SQL Server. Si vous souhaitez utiliser SQL sur un appareil ARM, vous pouvez vous inscrire pour essayer [Azure SQL Edge](https://azure.microsoft.com/services/sql-edge/) en préversion.
 * Un registre de conteneurs tel qu’[Azure Container Registry](../container-registry/index.yml).
 * [Visual Studio Code](https://code.visualstudio.com/) configuré avec [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).

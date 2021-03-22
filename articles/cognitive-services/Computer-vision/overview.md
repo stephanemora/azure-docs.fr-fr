@@ -15,12 +15,12 @@ ms.custom:
 - cog-serv-seo-aug-2020
 - contperf-fy21q2
 keywords: vision par ordinateur, applications de vision par ordinateur, service vision par ordinateur
-ms.openlocfilehash: 69edbf558b4bd452c67478bac828bfde26be5a70
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 804dacc4351da9e04ac75b2484b4330901a69271
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99575938"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103488480"
 ---
 # <a name="what-is-computer-vision"></a>Qu’est-ce que le service Vision par ordinateur ?
 
@@ -29,6 +29,12 @@ ms.locfileid: "99575938"
 Le service Vision par ordinateur d’Azure vous donne accès à des algorithmes avancés permettant de traiter des images et de retourner des informations en fonction des caractéristique visuelles qui vous intéressent. Par exemple, Vision par ordinateur peut déterminer si une image contient du contenu pour adultes, identifier des marques ou des objets spécifiques ou trouver des visages humains.
 
 Vous pouvez créer des applications Vision par ordinateur par le biais d’un [kit SDK de bibliothèque de client](./quickstarts-sdk/client-library.md) ou en appelant directement l’[API REST](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005). Cette page couvre globalement ce que vous pouvez faire avec le service Vision par ordinateur.
+
+Cette documentation contient les types d’articles suivants :
+* Les [guides de démarrage rapide](./quickstarts-sdk/client-library.md) sont des instructions pas à pas qui vous permettent d’effectuer des appels au service et d’obtenir des résultats en peu de temps. 
+* Les [guides patiques](./Vision-API-How-to-Topics/HowToCallVisionAPI.md) contiennent des instructions sur l’utilisation du service de manière plus spécifique ou personnalisée.
+* Les [articles conceptuels](concept-recognizing-text.md) fournissent des explications approfondies sur les fonctions et fonctionnalités du service.
+* Les [tutoriels](./tutorials/storage-lab-tutorial.md) sont des guides plus longs qui montrent comment utiliser ce service en tant que composant dans des solutions métier plus larges.
 
 ## <a name="optical-character-recognition-ocr"></a>Reconnaissance optique des caractères (OCR)
 

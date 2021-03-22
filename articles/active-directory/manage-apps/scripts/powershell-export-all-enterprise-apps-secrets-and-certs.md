@@ -11,15 +11,15 @@ ms.topic: sample
 ms.date: 03/09/2021
 ms.author: kenwith
 ms.reviewer: mifarca
-ms.openlocfilehash: 5c0b661f80bf7100215b25a66e5b5337af01ba75
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 20caefe74a7c047fb8690bb1d9e6f4eb9da7e9b7
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102583320"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102635193"
 ---
 # <a name="export-secrets-and-certificates-for-enterprise-apps"></a>Exporter les secrets et certificats des applications d’entreprise
-Cet exemple de script PowerShell exporte tous les secrets et certificats des applications d’entreprise spécifiées, de votre annuaire vers un fichier CSV.
+Cet exemple de script PowerShell exporte tous les secrets, certificats et propriétaires des applications d’entreprise spécifiées, de votre annuaire vers un fichier CSV.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
@@ -36,8 +36,9 @@ Vous pouvez modifier la variable « $Path » directement dans PowerShell, avec
 
 | Commande | Notes |
 |---|---|
-| [Get-AzureADApplication](/powershell/module/azuread/get-azureadapplication?view=azureadps-2.0&preserve-view=true) | Récupère une application dans votre annuaire. |
-| [Get-AzureADApplicationOwner](/powershell/module/azuread/Get-AzureADApplicationOwner?view=azureadps-2.0&preserve-view=true) | Récupère les propriétaires d’une application dans votre annuaire. |
+| [Get-AzureADServicePrincipal](/powershell/module/azuread/Get-azureADServicePrincipal?view=azureadps-2.0&preserve-view=true) | Récupère une application d’entreprise à partir de votre annuaire. |
+| [Get-AzureADServicePrincipalOwner](/powershell/module/azuread/Get-AzureADServicePrincipalOwner?view=azureadps-2.0&preserve-view=true) | Récupère les propriétaires d’une application d’entreprise à partir de votre annuaire. |
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

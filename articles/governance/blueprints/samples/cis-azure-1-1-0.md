@@ -1,26 +1,26 @@
 ---
-title: Exemple de blueprint CIS Microsoft Azure Foundations Benchmark
-description: Vue d’ensemble de l’exemple de blueprint CIS Microsoft Azure Foundations Benchmark. Cet exemple de blueprint aide les clients à évaluer des contrôles spécifiques.
-ms.date: 01/27/2021
+title: Exemple de blueprint CIS Microsoft Azure Foundations Benchmark v1.1.0
+description: Vue d’ensemble de l’exemple de blueprint CIS Microsoft Azure Foundations Benchmark v1.1.0 Cet exemple de blueprint aide les clients à évaluer des contrôles spécifiques.
+ms.date: 03/11/2021
 ms.topic: sample
-ms.openlocfilehash: fc9e2443cd1e413588487646d6400ae1f2185208
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: b6188d96971329a83bc82042a1f840bd893354eb
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98918414"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103197798"
 ---
-# <a name="cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>Exemple de blueprint CIS Microsoft Azure Foundations Benchmark
+# <a name="cis-microsoft-azure-foundations-benchmark-v110-blueprint-sample"></a>Exemple de blueprint CIS Microsoft Azure Foundations Benchmark v1.1.0
 
-L’exemple de blueprint CIS Microsoft Azure Foundations Benchmark fournit des garde-fou de gouvernance avec [Azure Policy](../../policy/overview.md), qui vous aident à évaluer les recommandations spécifiques de CIS Microsoft Azure Foundations Benchmark. Avec ce blueprint, les clients peuvent déployer un ensemble de stratégies pour toute architecture déployée par Azure devant implémenter des recommandations de CIS Microsoft Azure Foundations Benchmark.
+L’exemple de blueprint CIS Microsoft Azure Foundations Benchmark v1.1.0 fournit des garde-fou de gouvernance avec [Azure Policy](../../policy/overview.md), qui vous aident à évaluer les recommandations spécifiques de CIS Microsoft Azure Foundations Benchmark. Avec ce blueprint, les clients peuvent déployer un ensemble de stratégies pour toute architecture déployée par Azure devant implémenter des recommandations de CIS Microsoft Azure Foundations Benchmark v1.1.0.
 
 ## <a name="recommendation-mapping"></a>Correspondances des recommandations
 
-Le [mappage de recommandations Azure Policy](../../policy/samples/cis-azure-1-1-0.md) fournit des détails sur les définitions de stratégie incluses dans ce blueprint et sur la façon dont ces définitions de stratégie sont mappées aux **domaines de conformité** et aux **contrôles** dans CIS Microsoft Azure Foundations Benchmark v1.1.0. Quand des ressources sont attribuées à une architecture, elles sont évaluées par Azure Policy pour savoir si elles sont en conformité avec les définitions de stratégies affectées. Pour plus d’informations, consultez [Présentation d’Azure Policy](../../policy/overview.md).
+Le [mappage de recommandations Azure Policy](../../policy/samples/cis-azure-1-1-0.md) fournit des détails sur les définitions de stratégie incluses dans ce blueprint et sur la façon dont ces définitions de stratégie sont mappées aux **recommandations** dans CIS Microsoft Azure Foundations Benchmark v1.1.0. Quand des ressources sont attribuées à une architecture, elles sont évaluées par Azure Policy pour savoir si elles sont en conformité avec les stratégies affectées. Pour plus d’informations, consultez [Présentation d’Azure Policy](../../policy/overview.md).
 
 ## <a name="deploy"></a>Déployer
 
-Pour déployer l’exemple de blueprint CIS Microsoft Azure Foundations Benchmark d’Azure Blueprints, vous devez effectuer les étapes suivantes :
+Pour déployer l’exemple de blueprint CIS Microsoft Azure Foundations Benchmark v1.1.0 d’Azure Blueprints, vous devez effectuer les étapes suivantes :
 
 > [!div class="checklist"]
 > - Créer un blueprint à partir de l’exemple
@@ -50,7 +50,7 @@ Commencez par implémenter l’exemple de blueprint. Pour cela, créez un bluepr
 
 ### <a name="publish-the-sample-copy"></a>Publier la copie de l’exemple
 
-Votre copie de l’exemple de blueprint est à présent créée dans votre environnement. Elle est créée en mode **Brouillon** et doit être **publiée** avant de pouvoir être attribuée et déployée. Vous pouvez personnaliser la copie de l’exemple de blueprint en fonction de votre environnement et de vos besoins, mais ces modifications peuvent l’éloigner de son alignement avec les recommandations de CIS Microsoft Azure Foundations Benchmark.
+Votre copie de l’exemple de blueprint est à présent créée dans votre environnement. Elle est créée en mode **Brouillon** et doit être **publiée** avant de pouvoir être attribuée et déployée. Vous pouvez personnaliser la copie de l’exemple de blueprint en fonction de votre environnement et de vos besoins, mais ces modifications peuvent l’éloigner de son alignement avec les recommandations de CIS Microsoft Azure Foundations Benchmark v1.1.0.
 
 1. Sélectionnez **Tous les services** dans le volet gauche. Recherchez et sélectionnez **Blueprints**.
 
@@ -101,8 +101,8 @@ Le tableau suivant fournit la liste des paramètres d’artefact de blueprint :
 
 |Nom de l’artefact|Type d’artefact|Nom du paramètre|Description|
 |-|-|-|-|
-|Auditer les recommandations de CIS Microsoft Azure Foundations Benchmark 1.1.0 et déployer des extensions de machine virtuelle de prise en charge spécifiques|Affectation de rôle|Liste des régions où Network Watcher doit être activé|Liste des régions séparées par des points-virgules. Pour consulter la liste complète des régions, utilisez Get-AzLocation. Ex : eastus; eastus2|
-|Auditer les recommandations de CIS Microsoft Azure Foundations Benchmark 1.1.0 et déployer des extensions de machine virtuelle de prise en charge spécifiques|Affectation de rôle|Liste des extensions de machine virtuelle approuvées pour utilisation|Liste des extensions séparées par des points-virgules. Pour voir la liste complète des extensions de machine virtuelle, utilisez Get-AzVMExtensionImage. Exemple : AzureDiskEncryption; IaaSAntimalware|
+|Auditer les recommandations de CIS Microsoft Azure Foundations Benchmark v1.1.0 et déployer des extensions de machine virtuelle de prise en charge spécifiques|Affectation de rôle|Liste des régions où Network Watcher doit être activé|Liste des régions séparées par des points-virgules. Pour consulter la liste complète des régions, utilisez Get-AzLocation. Ex : eastus; eastus2|
+|Auditer les recommandations de CIS Microsoft Azure Foundations Benchmark v1.1.0 et déployer des extensions de machine virtuelle de prise en charge spécifiques|Affectation de rôle|Liste des extensions de machine virtuelle approuvées pour utilisation|Liste des extensions séparées par des points-virgules. Pour voir la liste complète des extensions de machine virtuelle, utilisez Get-AzVMExtensionImage. Exemple : AzureDiskEncryption; IaaSAntimalware|
 
 ## <a name="next-steps"></a>Étapes suivantes
 

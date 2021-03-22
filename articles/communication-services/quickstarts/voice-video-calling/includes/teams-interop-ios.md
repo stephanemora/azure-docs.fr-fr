@@ -3,15 +3,15 @@ title: 'Démarrage rapide : Rejoindre une réunion Teams à partir d’une appl
 description: Dans ce tutoriel, vous allez découvrir comment rejoindre une réunion Teams à l’aide de la bibliothèque de client Azure Communication Services Calling pour iOS.
 author: chpalm
 ms.author: mikben
-ms.date: 02/18/2021
+ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: f23ceacb33b2f9a8e94ea0d75b61e7a040cac461
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 68f1abb5335386634874d9696738a8e552ebbe9c
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101660064"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103487985"
 ---
 Dans ce démarrage rapide, vous allez découvrir comment rejoindre une réunion Teams à l’aide de la bibliothèque de client Azure Communication Services Calling pour iOS.
 

@@ -9,18 +9,20 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: b352bd92ecc69ca68a6870d3a59ef5e0cdd1daba
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: fea8f52ebf40ba8195de134098693f90315bb384
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920853"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103461417"
 ---
-# <a name="tutorial-develop-iot-edge-modules-for-linux-devices"></a>Tutoriel : Développer des modules IoT Edge pour les appareils Linux
+# <a name="tutorial-develop-iot-edge-modules-with-linux-containers"></a>Tutoriel : Développer des modules IoT Edge avec des conteneurs Linux
 
-Utilisez Visual Studio Code pour développer et déployer du code sur des appareils Linux exécutant IoT Edge.
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
-Dans le guide de démarrage rapide, vous avez créé un appareil IoT Edge à l’aide d’une machine virtuelle Linux et déployé un module à partir de la Place de marché Azure. Ce tutoriel vous montre pas à pas comment développer et déployer votre propre code sur un appareil IoT Edge. Cet article constitue un bon préambule aux autres tutoriels qui abordent plus en détail des langages de programmation ou des services Azure spécifiques.
+Utilisez Visual Studio Code pour développer et déployer du code sur des appareils exécutant IoT Edge.
+
+Dans le guide de démarrage rapide, vous avez créé un appareil IoT Edge et déployé un module à partir de la Place de marché Azure. Ce tutoriel vous montre pas à pas comment développer et déployer votre propre code sur un appareil IoT Edge. Cet article constitue un bon préambule aux autres tutoriels qui abordent plus en détail des langages de programmation ou des services Azure spécifiques.
 
 Ce tutoriel utilise l’exemple de déploiement d’un **module C# sur un appareil Linux**. Cet exemple a été choisi, car il s’agit du scénario le plus courant pour les développeurs de solutions IoT Edge. Même si vous prévoyez d’utiliser un autre langage ou de déployer un service Azure, ce didacticiel est également utile pour en savoir plus sur les outils de développement et les concepts. Suivez cette introduction au processus de développement, puis choisissez votre langage ou service Azure préféré pour vous plonger dans les détails.
 
@@ -44,7 +46,7 @@ Une machine de développement :
 * [Extension C# pour Visual Studio Code (développée par OmniSharp)](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
 * [SDK .NET Core 2.1](https://www.microsoft.com/net/download).
 
-Un appareil Azure IoT Edge sur Linux :
+Un appareil Azure IoT Edge :
 
 * Nous vous déconseillons d’exécuter IoT Edge sur votre machine de développement ; utilisez un appareil distinct à la place. Cette distinction entre machine de développement et appareil IoT Edge reflète plus fidèlement un scénario de déploiement réel et aide à assimiler les différents concepts.
 * Si vous ne disposez pas d’un deuxième appareil, suivez l’article de démarrage rapide permettant de créer un appareil IoT Edge dans Azure avec une [machine virtuelle Linux](quickstart-linux.md).
@@ -61,7 +63,10 @@ Ce tutoriel présente le développement d’un module IoT Edge. Un *module IoT E
 
 Lors du développement d’un module IoT Edge, il est important de comprendre la différence entre la machine de développement et l’appareil IoT Edge cible où le module sera finalement déployé. Le conteneur que vous générez pour le stockage du code du module doit correspondre au système d’exploitation (OS) de l’*appareil cible*. Par exemple, le scénario le plus courant est le développement d’un module sur un ordinateur Windows avec l’intention de cibler un appareil Linux exécutant IoT Edge. Dans ce cas, le système d’exploitation du conteneur est Linux. À mesure que vous parcourez ce tutoriel, gardez à l’esprit la différence entre *système d’exploitation de la machine de développement* et *système d’exploitation du conteneur*.
 
-Ce tutoriel cible les appareils Linux exécutant IoT Edge. Vous pouvez utiliser le système d’exploitation de votre choix, à condition que votre machine de développement exécute des conteneurs Linux. Visual Studio Code étant recommandé pour développer pour les appareils Linux, nous allons l’utiliser dans le cadre de ce tutoriel. Vous pouvez aussi bien utiliser Visual Studio, bien qu’il existe des différences de prise en charge entre les deux outils.
+>[!TIP]
+>Si vous utilisez [IoT Edge pour Linux sur Windows](iot-edge-for-linux-on-windows.md), l’*appareil cible* dans votre scénario est la machine virtuelle Linux, et non l’hôte Windows.
+
+Ce tutoriel cible les appareils exécutant IoT Edge avec des conteneurs Linux. Vous pouvez utiliser le système d’exploitation de votre choix, à condition que votre machine de développement exécute des conteneurs Linux. Visual Studio Code étant recommandé pour développer avec des conteneurs Linux, nous allons l’utiliser dans le cadre de ce tutoriel. Vous pouvez aussi bien utiliser Visual Studio, bien qu’il existe des différences de prise en charge entre les deux outils.
 
 Le tableau suivant liste les scénarios de développement pris en charge pour des **conteneurs Linux** dans Visual Studio Code et Visual Studio.
 

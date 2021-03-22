@@ -6,32 +6,32 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 02/10/2021
+ms.date: 03/11/2021
 ms.author: alkohli
-ms.openlocfilehash: 1db6574f8ca22b6fe60899f00700ee19d61eab3b
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 24d6528a105d593d1cb4c9c66d981c8787f85633
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100382818"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103573272"
 ---
 # <a name="migrate-workloads-from-an-azure-stack-edge-pro-fpga-to-an-azure-stack-edge-pro-gpu"></a>Migrer les charges de travail d’un appareil Azure Stack Edge Pro FPGA vers un appareil Azure Stack Edge Pro GPU
 
-Cet article explique comment migrer les charges de travail et les données d’un appareil Azure Stack Edge Pro FPGA vers un appareil Azure Stack Edge Pro GPU. La procédure de migration comprend une vue d’ensemble de la migration (notamment une comparaison des deux appareils), les considérations relatives à la migration, les étapes détaillées, la vérification et enfin le nettoyage.
+Cet article explique comment migrer les charges de travail et les données d’un appareil Azure Stack Edge Pro FPGA vers un appareil Azure Stack Edge Pro GPU. Le processus de migration commence par une comparaison des deux appareils, un plan de migration et une révision des considérations sur la migration. La procédure de migration fournit des étapes détaillées qui se terminent par une vérification et un nettoyage des appareils.
 
-<!--Azure Stack Edge Pro FPGA devices will reach end-of-life in February 2024. If you are considering new deployments, we recommend that you explore Azure Stack Edge Pro GPU devices for your workloads.-->
+[!INCLUDE [Azure Stack Edge Pro FPGA end-of-life](../../includes/azure-stack-edge-fpga-eol.md)]
 
 ## <a name="about-migration"></a>À propos de la migration
 
 La migration désigne le processus de déplacement des charges de travail et des données des applications d’un emplacement de stockage à un autre. Cela implique de réaliser une copie exacte des données actuelles d’une organisation d’un dispositif de stockage sur un autre (de préférence sans interrompre ni désactiver les applications actives), puis de rediriger toutes les activités d’entrée/sortie (E/S) vers le nouvel appareil. 
 
-Ce guide de migration fournit une description pas à pas des étapes à effectuer pour migrer les données d’un appareil Azure Stack Edge Pro FPGA vers un appareil Azure Stack Edge Pro GPU. Ce document s’adresse aux professionnels des technologies de l’information et aux travailleurs du savoir ayant pour responsabilités l’exploitation, le déploiement et la gestion des appareils Azure Stack Edge dans le centre de données. 
+Ce guide de migration fournit une description pas à pas des étapes à effectuer pour migrer les données d’un appareil Azure Stack Edge Pro FPGA vers un appareil Azure Stack Edge Pro GPU. Ce document s’adresse aux professionnels des technologies de l’information et aux travailleurs du savoir ayant pour responsabilités l’exploitation, le déploiement et la gestion des appareils Azure Stack Edge dans le centre de données.
 
 Dans cet article, l’appareil Azure Stack Edge Pro FPGA est désigné comme l’appareil *source* et l’appareil Azure Stack Edge Pro GPU comme l’appareil *cible*. 
 
 ## <a name="comparison-summary"></a>Résumé de la comparaison
 
-Cette section récapitule et compare les fonctionnalités des appareils Azure Stack Edge Pro GPU et Azure Stack Edge Pro FPGA. Le matériel des appareils source et cible est en grande partie identique, les seules différences se situant au niveau de la carte d’accélération matérielle et de la capacité de stockage. 
+Cette section récapitule et compare les fonctionnalités des appareils Azure Stack Edge Pro GPU et Azure Stack Edge Pro FPGA. Le matériel des appareils source et cible est en grande partie identique, seules la carte d’accélération matérielle et la capacité de stockage peuvent différer.<!--Please verify: These components MAY, but need not necessarily, differ?-->
 
 |    Fonctionnalité  | Azure Stack Edge Pro GPU (appareil cible)  | Azure Stack Edge Pro FPGA (appareil source)|
 |----------------|-----------------------|------------------------|
@@ -55,7 +55,7 @@ Pour créer votre plan de migration, prenez en compte les informations suivantes
 
 Avant de poursuivre la migration, prenez en compte les informations suivantes : 
 
-- Un appareil Azure Stack Edge Pro GPU ne peut pas être activé sur une ressource Azure Stack Edge Pro FPGA. Une ressource doit être créée pour l’appareil Azure Stack Edge Pro GPU, comme décrit dans la section sur la [création d’une commande d’appareil Azure Stack Edge Pro GPU](azure-stack-edge-gpu-deploy-prep.md#create-a-new-resource).
+- Un appareil Azure Stack Edge Pro GPU ne peut pas être activé sur une ressource Azure Stack Edge Pro FPGA. Vous devez créer une ressource pour l’appareil Azure Stack Edge Pro GPU, comme décrit dans [Créer une commande d’appareil Azure Stack Edge Pro GPU](azure-stack-edge-gpu-deploy-prep.md#create-a-new-resource).
 - Les modèles de Machine Learning déployés sur l’appareil source qui utilisent le FPGA doivent être modifiés pour l’appareil cible avec GPU. Pour obtenir de l’aide sur les modèles, vous pouvez contacter le support Microsoft. Les modèles personnalisés déployés sur l’appareil source qui n’utilisent pas le FPGA (ils utilisent uniquement le processeur) doivent fonctionner tels quels sur l’appareil cible (avec le processeur).
 - Les modules IoT Edge déployés sur l’appareil source peuvent nécessiter des modifications pour qu’ils puissent être déployés sur l’appareil cible. 
 - L’appareil source prend en charge les protocoles NFS 3.0 et 4.1. L’appareil cible prend uniquement en charge le protocole NFS 3.0.
@@ -99,7 +99,7 @@ Le cloud Edge partage les données hiérarchisées de votre appareil vers Azure.
 
 - Dressez la liste de tous les partages et utilisateurs du cloud Edge sur l’appareil source.
 - Dressez la liste de toutes les planifications de bande passante dont vous disposez. Vous recréerez ces planifications de bande passante sur votre appareil cible.
-- En fonction de la bande passante réseau disponible, configurez les planifications de bande passante sur votre appareil afin de maximiser les données hiérarchisées dans le cloud. Cela a pour effet de minimiser les données locales sur l’appareil.
+- En fonction de la bande passante réseau disponible, configurez les planifications de bande passante sur votre appareil afin de maximiser les données hiérarchisées dans le cloud. Cela réduit les données locales sur l’appareil.
 - Vérifiez que les partages sont entièrement hiérarchisés dans le cloud. Pour cela, examinez l’état du partage dans le portail Azure.  
 
 #### <a name="data-in-edge-local-shares"></a>Données dans les partages locaux Edge
@@ -107,7 +107,7 @@ Le cloud Edge partage les données hiérarchisées de votre appareil vers Azure.
 Les données dans les partages locaux Edge restent sur l’appareil. Effectuez ces étapes sur votre appareil *source* par le biais du portail Azure. 
 
 - Faites la liste des partages locaux Edge présents sur l’appareil.
-- Étant donné qu’il s’agit d’une migration ponctuelle des données, créez une copie des données du partage local Edge sur un autre serveur local. Vous pouvez utiliser des outils de copie tels que `robocopy` (SMB) ou `rsync` (NFS) pour copier les données. Vous avez peut-être déjà déployé une solution tierce de protection des données pour sauvegarder les données de vos partages locaux. Les solutions tierces suivantes sont prises en charge pour une utilisation avec des appareils Azure Stack Edge Pro FPGA :
+- Étant donné que vous effectuerez une migration ponctuelle des données, créez une copie des données du partage local Edge sur un autre serveur local. Vous pouvez utiliser des outils de copie tels que `robocopy` (SMB) ou `rsync` (NFS) pour copier les données. Vous avez peut-être déjà déployé une solution tierce de protection des données pour sauvegarder les données de vos partages locaux. Les solutions tierces suivantes sont prises en charge pour une utilisation avec des appareils Azure Stack Edge Pro FPGA :
 
     | Logiciels tiers           | Référence à la solution                               |
     |--------------------------------|---------------------------------------------------------|
@@ -157,9 +157,9 @@ Vous allez maintenant copier les données de l’appareil source dans les partag
 
 Pour synchroniser les données sur les partages cloud Edge sur votre appareil cible, effectuez les étapes suivantes :
 
-1. [Ajoutez des partages](azure-stack-edge-j-series-manage-shares.md#add-a-share) correspondant aux noms de partage créés sur l’appareil source. Assurez-vous que, lors de la création des partages, la valeur du paramètre **Sélectionner le conteneur blob** est définie sur **Utilisez l’existant**, puis sélectionnez le conteneur utilisé avec l’appareil précédent.
+1. [Ajoutez des partages](azure-stack-edge-j-series-manage-shares.md#add-a-share) correspondant aux noms de partage créés sur l’appareil source. Quand vous créez les partages, assurez-vous que le paramètre **Sélectionner un conteneur d’objets blob** est défini sur **Utiliser l’existant**, puis sélectionnez le conteneur utilisé avec l’appareil précédent.
 1. [Ajoutez des utilisateurs](azure-stack-edge-j-series-manage-users.md#add-a-user) qui avaient accès à l’appareil précédent.
-1. [Actualisez le partage](azure-stack-edge-j-series-manage-shares.md#refresh-shares) de données à partir d’Azure. Cela a pour effet d’extraire toutes les données cloud du conteneur existant vers les partages.
+1. [Actualisez le partage](azure-stack-edge-j-series-manage-shares.md#refresh-shares) de données à partir d’Azure. L’actualisation du partage extrait toutes les données cloud du conteneur existant vers les partages.
 1. Recréez les planifications de bande passante à associer à vos partages. Pour obtenir des instructions détaillées, consultez [Ajouter une planification de bande passante](azure-stack-edge-j-series-manage-bandwidth-schedules.md#add-a-schedule) .
 
 
@@ -172,12 +172,12 @@ Une fois que l’appareil de remplacement est entièrement configuré, activez l
 Pour récupérer les données à partir de partages locaux, procédez comme suit :
 
 1. [Configurez le calcul sur l’appareil](azure-stack-edge-gpu-deploy-configure-compute.md).
-1. Ajoutez tous les partages locaux sur l’appareil cible. Consultez les étapes détaillées dans [Ajouter un partage local](azure-stack-edge-j-series-manage-shares.md#add-a-local-share).
+1. Ajoutez tous les partages locaux sur l’appareil cible. Consultez les étapes détaillées dans [Ajouter un partage local](azure-stack-edge-gpu-manage-shares.md#add-a-local-share).
 1. L’accès aux partages SMB sur l’appareil source utilise les adresses IP, tandis que vous utilisez le nom de l’appareil sur l’appareil cible. Consultez [Se connecter à un partage SMB sur Azure Stack Edge Pro GPU](azure-stack-edge-j-series-deploy-add-shares.md#connect-to-an-smb-share). Pour vous connecter à des partages NFS sur l’appareil cible, vous devez utiliser les nouvelles adresses IP associées à l’appareil. Consultez [Se connecter à un partage NFS sur Azure Stack Edge Pro GPU](azure-stack-edge-j-series-deploy-add-shares.md#connect-to-an-nfs-share). 
 
-    Si vous avez copié les données de vos partages sur un serveur intermédiaire avec SMB/NFS, vous pouvez copier ces données sur les partages de l’appareil cible. Vous pouvez également copier les données directement de l’appareil source si les appareils source et cible sont *en ligne*.
+    Si vous avez copié les données des partages sur un serveur intermédiaire avec SMB ou NFS, vous pouvez copier les données depuis ce serveur vers les partages de l’appareil cible. Si les appareils source et cible sont *en ligne*, vous pouvez également copier les données directement de l’appareil source.
 
-    Si vous avez utilisé un logiciel tiers pour sauvegarder les données dans les partages locaux, vous devez exécuter la procédure de récupération fournie par la solution de protection des données de votre choix. Consultez les références dans le tableau suivant.
+    Si vous avez utilisé un logiciel tiers pour sauvegarder les données dans les partages locaux, vous devez exécuter la procédure de récupération qui est fournie par la solution de protection des données de votre choix. Consultez les références dans le tableau suivant.
 
     | Logiciels tiers           | Référence à la solution                               |
     |--------------------------------|---------------------------------------------------------|

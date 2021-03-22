@@ -1,18 +1,18 @@
 ---
-title: Tutoriel – Créer et déployer un cloud privé Azure VMware Solution
+title: 'Tutoriel : Déployer un cloud privé Azure VMware Solution'
 description: Découvrez comment créer et déployer un cloud privé Azure VMware Solution
 ms.topic: tutorial
 ms.date: 02/22/2021
-ms.openlocfilehash: 2afd88bca05a9bcab309faff373bedf6a22e9f4b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ed916305cd1a67162f07c24e3bf97766e5389b74
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101725400"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103462165"
 ---
-# <a name="tutorial-create-an-azure-vmware-solution-private-cloud"></a>Tutoriel : Créer un cloud privé Azure VMware Solution
+# <a name="tutorial-deploy-an-azure-vmware-solution-private-cloud"></a>Tutoriel : Déployer un cloud privé Azure VMware Solution
 
-Dans ce tutoriel, vous allez découvrir comment créer et déployer un cloud privé Azure VMware Solution. Le déploiement initial minimal est de trois hôtes. Des hôtes supplémentaires peuvent être ajoutés un à la fois, jusqu’à un maximum de 16 hôtes par cluster. 
+Azure VMware Solution vous donne la possibilité de déployer un cluster vSphere dans Azure. Le déploiement initial minimal est de trois hôtes. Des hôtes supplémentaires peuvent être ajoutés un à la fois, jusqu’à un maximum de 16 hôtes par cluster.
 
 Comme Azure VMware Solution ne vous permet pas de gérer votre cloud privé avec votre vCenter local au lancement, vous devez effectuer une configuration supplémentaire. Ces procédures et les prérequis associés sont traités dans ce tutoriel.
 
@@ -48,7 +48,7 @@ Sélectionnez **Essayer** dans le coin supérieur droit d’un bloc de code. Vou
 
 #### <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
-Créez un groupe de ressources avec la commande `[az group create](/cli/azure/group)`. Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées. L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l’emplacement *eastus* :
+Créez un groupe de ressources avec la commande ['az group create'](/cli/azure/group). Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées. L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l’emplacement *eastus* :
 
 ```azurecli-interactive
 

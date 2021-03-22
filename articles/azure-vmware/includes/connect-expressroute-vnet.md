@@ -3,12 +3,12 @@ title: Connecter ExpressRoute à la passerelle de réseau virtuel
 description: Procédure pour connecter ExpressRoute à la passerelle de réseau virtuel.
 ms.topic: include
 ms.date: 12/08/2020
-ms.openlocfilehash: 5f9a565a7662041dbd85e61388129496fa376962
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 6e2e3748dbfd8d69b53dcc4c3a09809756ac48dc
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96861513"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103494350"
 ---
 <!-- Used in deploy-azure-vmware-solution.md and tutorial-configure-networking.md -->
 
@@ -16,7 +16,7 @@ ms.locfileid: "96861513"
 
 1. Copiez la clé d’autorisation. S’il n’existe pas de clé d’autorisation, vous devez en créer une. Sélectionnez **+ Demander une clé d’autorisation**.
 
-   :::image type="content" source="../media/expressroute-global-reach/start-request-auth-key.png" alt-text="Copiez la clé d’autorisation. S’il n’existe pas de clé d’autorisation, vous devez en créer une. Sélectionnez + Demander une clé d’autorisation." border="true" lightbox="../media/expressroute-global-reach/start-request-auth-key.png":::
+   :::image type="content" source="../media/expressroute-global-reach/start-request-authorization-key.png" alt-text="Copiez la clé d’autorisation. S’il n’existe pas de clé d’autorisation, vous devez en créer une. Sélectionnez + Demander une clé d’autorisation." border="true" lightbox="../media/expressroute-global-reach/start-request-authorization-key.png":::
 
 1. Accédez à la passerelle de réseau virtuel que vous avez créée à l’étape précédente et, sous **Paramètres**, sélectionnez **Connexions**. Dans la page **Connexions**, sélectionnez **+ Ajouter**.
 
@@ -31,6 +31,8 @@ ms.locfileid: "96861513"
    | **Clé d’autorisation**  | Copiez et collez la clé d’autorisation à partir de l’onglet ExpressRoute pour votre groupe de ressources. |
    | **URI du circuit pair**  | Copiez et collez l’ID ExpressRoute à partir de l’onglet ExpressRoute pour votre groupe de ressources.  |
 
-   :::image type="content" source="../media/expressroute-global-reach/open-cloud-shell.png" alt-text="Dans la page Ajouter une connexion, spécifiez des valeurs pour les champs, puis sélectionnez OK." border="true" lightbox="../media/expressroute-global-reach/open-cloud-shell.png":::
+   :::image type="content" source="../media/expressroute-global-reach/expressroute-add-connection.png" alt-text="Capture d’écran de la page Ajouter une connexion qui permet de connecter ExpressRoute à la passerelle de réseau virtuel":::
 
 Ceci crée la connexion entre votre circuit ExpressRoute et votre réseau virtuel.
+
+:::image type="content" source="../media/expressroute-global-reach/virtual-network-gateway-connections.png" alt-text="Capture d’écran des connexions de passerelle de réseau virtuel":::

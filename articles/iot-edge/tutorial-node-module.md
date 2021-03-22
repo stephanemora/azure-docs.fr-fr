@@ -9,16 +9,18 @@ ms.date: 07/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, devx-track-python, devx-track-js
-ms.openlocfilehash: 5c8918995675cae8e70ca9fc1efb0cf4c7cb233b
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: a8a6d09819aaa65645da3d4d697866609c226723
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94959405"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103461145"
 ---
-# <a name="tutorial-develop-and-deploy-a-nodejs-iot-edge-module-for-linux-devices"></a>Tutoriel : Développer et déployer un module IoT Edge Node.js pour des appareils Linux
+# <a name="tutorial-develop-and-deploy-a-nodejs-iot-edge-module-using-linux-containers"></a>Tutoriel : Développer et déployer un module IoT Edge Node.js avec des conteneurs Linux
 
-Utilisez Visual Studio Code pour écrire du code Node.js et le déployer sur un appareil Linux exécutant Azure IoT Edge.
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+
+Utilisez Visual Studio Code pour écrire du code Node.js et le déployer sur un appareil exécutant Azure IoT Edge.
 
 Vous pouvez utiliser des modules IoT Edge pour déployer du code qui implémente votre logique métier directement sur vos appareils IoT Edge. Ce tutoriel vous guide dans la création et le déploiement d’un module IoT Edge qui filtre des données de capteur. Vous utiliserez l’appareil IoT Edge que vous avez créé dans les guides de démarrage rapide. Dans ce tutoriel, vous allez apprendre à :
 
@@ -35,7 +37,9 @@ Le module IoT Edge que vous créez dans ce tutoriel filtre les données de temp�
 
 ## <a name="prerequisites"></a>Prérequis
 
-Ce tutoriel montre comment développer un module dans **Node.js** à l’aide de **Visual Studio Code** et comment le déployer dans un **appareil Linux**. IoT Edge ne prend pas en charge les modules Node.js pour appareils Windows.
+Ce tutoriel montre comment développer un module en **Node.js** à l’aide de **Visual Studio Code** et le déployer sur un appareil IoT Edge.
+
+IoT Edge ne prend pas en charge les modules Node.js avec des conteneurs Windows.
 
 Utilisez le tableau suivant pour comprendre les options dont vous disposez pour développer et déployer des modules Node.js :
 
@@ -44,10 +48,10 @@ Utilisez le tableau suivant pour comprendre les options dont vous disposez pour 
 | **Linux AMD64** | ![Utilisez VS Code pour modules Node.js sur Linux AMD64](./media/tutorial-c-module/green-check.png) |  |
 | **Linux ARM32** | ![Utilisez VS Code pour modules Node.js sur Linux AMD32](./media/tutorial-c-module/green-check.png) |  |
 
-Avant de commencer ce tutoriel, vous devez avoir effectué celui qui précède pour configurer votre environnement de développement pour le développement de conteneur Linux : [Développer des modules IoT Edge pour les appareils Linux](tutorial-develop-for-linux.md). Si vous avez suivi l’un ou l’autre de ces tutoriels, la configuration requise doit être la suivante :
+Avant de commencer ce tutoriel, vous devez avoir effectué celui qui précède pour configurer votre environnement de développement pour le développement de conteneur Linux : [Développer des modules IoT Edge avec des conteneurs Linux](tutorial-develop-for-linux.md). En suivant ce tutoriel, les conditions préalables suivantes doivent être remplies :
 
 * Un niveau gratuit ou standard [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) dans Azure.
-* Un [appareil Linux exécutant Azure IoT Edge](quickstart-linux.md).
+* Un appareil exécutant Azure IoT Edge. Vous pouvez utiliser les guides de démarrage rapide pour configurer un [appareil Linux](quickstart-linux.md) ou un [appareil Windows](quickstart.md).
 * Un registre de conteneurs tel qu’[Azure Container Registry](../container-registry/index.yml).
 * [Visual Studio Code](https://code.visualstudio.com/) configuré avec [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 * [Docker CE](https://docs.docker.com/install/) configuré pour exécuter des conteneurs Linux.

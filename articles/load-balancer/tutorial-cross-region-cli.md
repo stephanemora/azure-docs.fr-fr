@@ -7,12 +7,12 @@ ms.author: allensu
 ms.service: load-balancer
 ms.topic: tutorial
 ms.date: 03/04/2021
-ms.openlocfilehash: c41dc65b920c80d25a81a09f4550e76a8fd1095a
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 83efb428a94d49b77ecd923d4868afe034374b5f
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102204197"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103225181"
 ---
 # <a name="tutorial-create-a-cross-region-azure-load-balancer-using-azure-cli"></a>Tutoriel : Créer un équilibreur de charge Azure interrégional à l’aide d’Azure CLI
 
@@ -81,23 +81,6 @@ Créez un équilibreur de charge interrégional à l’aide de la commande [az n
     --backend-pool-name myBackEndPool-CR     
 ```
 
-### <a name="create-the-health-probe"></a>Créer la sonde d’intégrité
-
-Créez une sonde d’intégrité pour équilibreur de charge interrégional à l’aide de la commande [az network cross-region lb probe create](/cli/azure/network/cross-region-lb/probe#az_network_cross_region_lb_probe_create) :
-
-* Nommée **myHealthProbe-CR**.
-* Protocole **Tcp**.
-* Port **80**.
-
-```azurecli-interactive
-  az network cross-region lb probe create \
-    --lb-name myLoadBalancer-CR \
-    --name myHealthProbe-CR \
-    --port 80 \
-    --protocol Tcp \
-    --resource-group myResourceGroupLB-CR
-```
-
 ### <a name="create-the-load-balancer-rule"></a>Créer la règle d’équilibreur de charge
 
 Une règle d’équilibreur de charge définit les éléments suivants :
@@ -122,8 +105,7 @@ Créez une règle d’équilibreur de charge à l’aide de la commande [az netw
     --protocol tcp \
     --resource-group myResourceGroupLB-CR \
     --backend-pool-name myBackEndPool-CR \
-    --frontend-ip-name myFrontEnd-CR \
-    --probe-name myHealthProbe-CR
+    --frontend-ip-name myFrontEnd-CR
 ```
 
 ## <a name="create-backend-pool"></a>Créer le pool principal
@@ -204,7 +186,6 @@ Lorsque vous n’en avez plus besoin, utilisez la commande [az group delete](/cl
 Dans ce tutoriel, vous allez :
 
 * Vous avez créé un équilibreur de charge interrégional.
-* Vous avez créé une sonde d’intégrité.
 * Vous avez créé une règle d’équilibrage de charge.
 * Vous avez ajouté des équilibreurs de charge régionaux au pool de back-ends de l’équilibreur de charge interrégional.
 * Vous avez testé l’équilibreur de charge.

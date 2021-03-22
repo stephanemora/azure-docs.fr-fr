@@ -9,12 +9,12 @@ author: peterclu
 ms.author: peterlu
 ms.date: 08/24/2020
 adobe-target: true
-ms.openlocfilehash: 320840277483776dfc74b98ab70410503008df67
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 48c4b2a73628ab2105e23054d747e28acc105d01
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100374233"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103563184"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>Qu’est-ce que le studio Azure Machine Learning ?
 
@@ -76,31 +76,26 @@ Même si vous êtes un développeur expérimenté, le studio peut vous aider à 
 
 ## <a name="ml-studio-classic-vs-azure-machine-learning-studio"></a>ML Studio (classique) et studio Azure Machine Learning
 
-Lancé en 2015, **ML Studio (classique)** a été notre premier concepteur Machine Learning de type glisser-déposer. C’est un service autonome qui offre seulement une expérience visuelle. Studio (classique) n’interagit pas avec Azure Machine Learning.
+Lancé en 2015, **ML Studio (classique)** a été notre premier concepteur Machine Learning de type glisser-déposer. 
+
+**ML Studio (classic)** est un service autonome qui offre seulement une expérience visuelle. Studio (classique) n’interagit pas avec Azure Machine Learning.
 
 **Azure Machine Learning** est un service distinct et moderne qui fournit une plateforme de science des données complète. Il prend en charge à la fois les expériences Code First et celles avec peu de code.
 
 Le **studio Azure Machine Learning** est un portail web *dans* Azure Machine Learning qui propose des options sans code ou avec peu de code pour créer des projets et gérer les ressources. 
 
-Nous recommandons aux nouveaux utilisateurs de choisir **Azure Machine Learning** au lieu de ML Studio (classique) pour bénéficier de tous les outils de science des données les plus récents.
+Nous recommandons aux nouveaux utilisateurs de choisir **Azure Machine Learning** au lieu de ML Studio (classique) pour bénéficier de tous les outils de science des données les plus récents. Si vous utilisez déjà ML Studio (classic), pensez à la [migration vers Azure Machine Learning](classic/migrate-overview.md).
+
+Voici quelques-uns des avantages que vous tirerez du passage à Azure Machine Learning :
+
+- Clusters de calcul scalables pour un entraînement à grande échelle
+- Sécurité et gouvernance d’entreprise
+- Interopérabilité avec de nombreux outils open source populaires
+- MLOps de bout en bout
 
 ### <a name="feature-comparison"></a>Comparaison des fonctionnalités
 
-Le tableau suivant récapitule les principales différences entre ML Studio (classique) et Azure Machine Learning.
-
-| Fonctionnalité | ML Studio (classique) | Azure Machine Learning |
-|---| --- | --- |
-| Interface de glisser-déplacer | Expérience classique | Expérience mise à jour : [concepteur Azure Machine Learning](concept-designer.md)| 
-| SDK de code | Non pris en charge | Intégration totale aux SDK [R](/python/api/overview/azure/ml/) et [Python pour Azure Machine Learning](https://github.com/Azure/azureml-sdk-for-r) |
-| Expérience | Évolutive (limite de 10 Go de données de formation) | Mise à l’échelle avec cible de calcul |
-| Cibles de calcul d’entraînement | Cible de calcul propriétaire, prise en charge CPU uniquement | Vaste gamme de [cibles de calcul d’entraînement](concept-compute-target.md#train) personnalisables. Processeurs et processeurs graphiques pris en charge | 
-| Cibles de calcul de déploiement | Format de service web propriétaire, non personnalisable | Vaste gamme de [cibles de calcul de déploiement](concept-compute-target.md#deploy) personnalisables. Processeurs et processeurs graphiques pris en charge |
-| Pipeline ML | Non pris en charge | Création de [pipelines](concept-ml-pipelines.md) modulaires et flexibles pour automatiser les workflows |
-| MLOps | Gestion et déploiement des modèles de base ; déploiement de processeur uniquement | Gestion de versions des entités (modèle, données, workflows), automatisation des workflows, intégration aux outils CI/CD, déploiements de processeur et de GPU, [etc.](concept-model-management-and-deployment.md) |
-| Format de modèle | Format propriétaire, Studio (classique) uniquement | Plusieurs formats pris en charge selon le type de tâche d’entraînement |
-| Entraînement de modèle automatisé et optimisation des hyperparamètres |  Non pris en charge | [Pris en charge](concept-automated-ml.md). Options Code First et sans code. | 
-| Détection de la dérive de données | Non pris en charge | [Pris en charge](how-to-monitor-datasets.md) |
-| Projets d'étiquetage de données | Non pris en charge | [Pris en charge](how-to-create-labeling-projects.md) |
+[!INCLUDE [aml-compare-classic](../../includes/machine-learning-compare-classic-aml.md)]
 
 ## <a name="troubleshooting"></a>Résolution des problèmes
 
