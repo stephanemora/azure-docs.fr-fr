@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 89f234ece2f7437e4a9d4092334e3dd3690e288d
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: a7949324cd4ad0459aa5ba111037b2f580da9cf8
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258097"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103601710"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Planifier un déploiement de l’authentification unique
 
@@ -291,17 +291,12 @@ Les liens suivants présentent des scénarios de dépannage. Vous pouvez créer 
 
 - [Problème de connexion à une application Microsoft](./application-sign-in-problem-first-party-microsoft.md)
 
-#### <a name="sso-issues-for-applications-listed-in-the-azure-application-gallery"></a>Problèmes d’authentification unique pour des applications listées dans la galerie d’applications Azure
+#### <a name="sso-issues-for-applications"></a>Problèmes d’authentification unique pour les applications
 
-- [Problème d’authentification unique par mot de passe pour des applications listées dans la galerie d’applications Azure](./troubleshoot-password-based-sso.md) 
+- [Problème avec l’authentification unique par mot de passe pour les applications](./troubleshoot-password-based-sso.md) 
 
-- [Problème d’authentification unique fédérée pour des applications listées dans la galerie d’applications Azure](./application-sign-in-problem-federated-sso-gallery.md)   
+- [Problèmes de connexion aux applications configurées pour l’authentification unique basée sur SAML](/troubleshoot/azure/active-directory/troubleshoot-sign-in-saml-based-apps)   
 
-#### <a name="sso-issues-for-applications-not-listed-in-the-azure-application-gallery"></a>Problèmes d’authentification unique pour des applications non listées dans la galerie d’applications Azure
-
-- [Problème d’authentification unique par mot de passe pour des applications non listées dans la galerie d’applications Azure](./troubleshoot-password-based-sso.md) 
-
-- [Problème d’authentification unique fédérée pour des applications non listées dans la galerie d’applications Azure](./application-sign-in-problem-federated-sso-gallery.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

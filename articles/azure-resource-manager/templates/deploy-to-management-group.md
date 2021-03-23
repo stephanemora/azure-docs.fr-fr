@@ -2,13 +2,13 @@
 title: Déployer des ressources dans un groupe d’administration
 description: Décrit comment déployer des ressources au niveau du groupe d’administration dans un modèle Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 01/13/2021
-ms.openlocfilehash: a203dd2c52bdc889452a6755fb025c7ed5721a59
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.date: 03/16/2021
+ms.openlocfilehash: b14dc3622a6ad6519968bd2998aa354a850f2515
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99491625"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103601591"
 ---
 # <a name="management-group-deployments-with-arm-templates"></a>Déploiements de groupes d’administration avec des modèles Resource Manager
 
@@ -219,6 +219,8 @@ L’exemple d’après crée un nouveau groupe d’administration dans le groupe
     }
 }
 ```
+
+Pour déployer un modèle qui déplace un abonnement Azure existant vers un nouveau groupe d’administration, consultez [Déplacer des abonnements dans un modèle ARM](../../governance/management-groups/manage.md#move-subscriptions-in-arm-template)
 
 ## <a name="azure-policy"></a>Azure Policy
 

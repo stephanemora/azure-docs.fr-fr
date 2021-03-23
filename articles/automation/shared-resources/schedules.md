@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 09/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: 844a45c9b596522b949443b6edc311308da7806c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f40e3d555d6e1472b9d2368a114ee27d588f6383
+ms.sourcegitcommit: 6776f0a27e2000fb1acb34a8dddc67af01ac14ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90004610"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103149475"
 ---
 # <a name="manage-schedules-in-azure-automation"></a>Gérer les planifications dans Azure Automation
 
@@ -119,6 +119,47 @@ L’exemple suivant montre comment créer une planification périodique qui s’
 ```azurepowershell-interactive
 $StartTime = (Get-Date "18:00:00").AddDays(1)
 New-AzAutomationSchedule -AutomationAccountName "TestAzureAuto" -Name "1st, 15th and Last" -StartTime $StartTime -DaysOfMonth @("One", "Fifteenth", "Last") -ResourceGroupName "TestAzureAuto" -MonthInterval 1
+```
+
+## <a name="create-a-schedule-with-a-resource-manager-template"></a>Créer une planification avec un modèle Resource Manager
+
+Dans cet exemple, nous utilisons un modèle Automation Resource Manager (ARM) qui crée une planification de travail. Pour obtenir des informations générales sur ce modèle pour gérer les planifications de travaux Automation, consultez [Guide de référence du modèle Microsoft.Automation automationAccounts/jobSchedules](/templates/microsoft.automation/automationaccounts/jobschedules#quickstart-templates).
+
+Copiez ce fichier de modèle dans un éditeur de texte :
+
+```json
+{
+  "name": "5d5f3a05-111d-4892-8dcc-9064fa591b96",
+  "type": "Microsoft.Automation/automationAccounts/jobSchedules",
+  "apiVersion": "2015-10-31",
+  "properties": {
+    "schedule": {
+      "name": "scheduleName"
+    },
+    "runbook": {
+      "name": "runbookName"
+    },
+    "runOn": "hybridWorkerGroup",
+    "parameters": {}
+  }
+}
+```
+
+Modifiez les valeurs de paramètre suivantes et enregistrez le modèle en tant que fichier JSON :
+
+* Nom de l’objet de la planification du travail : un GUID (identificateur global unique) est utilisé comme nom d’objet de planification de travail.
+
+   >[!IMPORTANT]
+   > Pour chaque planification de travail déployée avec un modèle ARM, le GUID doit être unique. Même si vous replanifiez une planification existante, vous devez modifier le GUID. Cela s’applique même si vous avez précédemment supprimé une planification de travail existante qui a été créée avec le même modèle. La réutilisation du même GUID entraîne l’échec d’un déploiement.</br></br>
+   > Certains services en ligne peuvent générer un nouveau GUID pour vous, comme le [Générateur de GUID gratuit en ligne](https://guidgenerator.com/).
+
+* Nom de la planification : représente le nom de la planification du travail Automation qui sera liée au runbook spécifié.
+* Nom du runbook : représente le nom du runbook Automation auquel la planification de travail doit être associée.
+
+Une fois le fichier enregistré, vous pouvez créer la planification de travail de runbook à l’aide de la commande PowerShell suivante. La commande utilise le paramètre `TemplateFile` pour spécifier le chemin d’accès et le nom de fichier du modèle.
+
+```powershell
+New-AzResourceGroupDeployment -ResourceGroupName "ContosoEngineering" -TemplateFile "<path>\RunbookJobSchedule.json"
 ```
 
 ## <a name="link-a-schedule-to-a-runbook"></a>Lier une planification à un Runbook

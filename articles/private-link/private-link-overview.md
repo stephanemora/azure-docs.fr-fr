@@ -2,18 +2,18 @@
 title: Qu’est-ce que Liaison privée Azure ?
 description: Vue d’ensemble des fonctionnalités, de l’architecture et de l’implémentation d’Azure Private Link. Découvrez comment les points de terminaison privés Azure et le service Azure Private Link fonctionnent et comment les utiliser.
 services: private-link
-author: malopMSFT
+author: asudbring
 ms.service: private-link
 ms.topic: overview
-ms.date: 01/28/2021
+ms.date: 03/15/2021
 ms.author: allensu
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 34168a02b5a2d2dfe74e2a5839e0bfddcf684222
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6a85bfe7b3390b32fc220000b0c710b5a4e35067
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101712179"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103496488"
 ---
 # <a name="what-is-azure-private-link"></a>Qu’est-ce que Liaison privée Azure ? 
 Azure Private Link vous permet d’accéder aux services Azure PaaS (par exemple Stockage Azure et SQL Database) ainsi qu’aux services de partenaires ou de clients hébergés par Azure sur un [point de terminaison privé](private-endpoint-overview.md) dans votre réseau virtuel.
@@ -21,7 +21,7 @@ Azure Private Link vous permet d’accéder aux services Azure PaaS (par exemple
 Le trafic entre votre réseau virtuel et le service transite par le réseau principal de Microsoft. L’exposition de votre service à l’Internet public n’est plus nécessaire. Vous pouvez créer votre propre [service de liaison privée](private-link-service-overview.md) dans votre réseau virtuel et le distribuer à vos clients. La configuration et la consommation à l’aide d’Azure Private Link est cohérente entre le service Azure PaaS, les services appartenant au client et les services de partenaires partagés.
 
 > [!IMPORTANT]
-> Azure Private Link est maintenant en disponibilité générale. Le point de terminaison privé et le service Private Link (service derrière l’équilibreur de charge standard) sont tous les deux en disponibilité générale. Différentes versions d’Azure PaaS seront intégrées à Azure Private Link à différentes échéances. Consultez la section [Disponibilité](#availability) de cet article pour connaître l’état précis d’Azure PaaS sur Private Link. Pour en savoir plus sur les limitations connues, consultez [Point de terminaison privé](private-endpoint-overview.md#limitations) et [Service Liaison privée](private-link-service-overview.md#limitations). 
+> Azure Private Link est maintenant en disponibilité générale. Le point de terminaison privé et le service Private Link (service derrière l’équilibreur de charge standard) sont tous les deux en disponibilité générale. Différentes versions d’Azure PaaS seront intégrées à Azure Private Link à différentes échéances. Consultez [Disponibilité de Private Link](availability.md) pour obtenir l’état précis d’Azure PaaS sur Private Link. Pour en savoir plus sur les limitations connues, consultez [Point de terminaison privé](private-endpoint-overview.md#limitations) et [Service Liaison privée](private-link-service-overview.md#limitations). 
 
 :::image type="content" source="./media/private-link-overview/private-link-center.png" alt-text="Centre Azure Private Link dans le portail Azure" border="false":::
 
@@ -38,44 +38,8 @@ Le service Liaison privée Azure offre les avantages suivants :
 - **Extension à vos propres services** : Activez les mêmes expériences et fonctionnalités pour afficher votre service en privé aux consommateurs dans Azure. En plaçant votre service derrière une instance Azure Load Balancer standard, vous pouvez l’activer pour Private Link. Le consommateur peut alors se connecter directement à votre service à l’aide d’un point de terminaison privé dans son propre réseau virtuel. Vous pouvez gérer les demandes de connexion à l’aide d’un flux d’appels d’approbation. Azure Private Link fonctionne pour les consommateurs et services appartenant à différents locataires Azure Active Directory. 
 
 ## <a name="availability"></a>Disponibilité 
- Le tableau suivant liste les services Private Link et les régions où ils sont disponibles. 
 
-|Services pris en charge  |Régions disponibles | Considérations supplémentaires | Statut  |
-|:-------------------|:-----------------|:----------------|:--------|
-|Services Private Link derrière l’instance Azure Load Balancer standard | Toutes les régions publiques<br/> Toutes les régions administratives<br/>Toutes les régions de Chine  | Pris en charge avec Standard Load Balancer | GA <br/> [Découvrez comment créer un service Private Link.](create-private-link-service-portal.md) |
-| Stockage Blob Azure (Data Lake Storage Gen2 inclus)       |  Toutes les régions publiques<br/> Toutes les régions administratives       |  Pris en charge avec le type de compte V2 universel | GA <br/> [Découvrez comment créer un point de terminaison privé pour Stockage Blob.](tutorial-private-endpoint-storage-portal.md)  |
-| Azure Files | Toutes les régions publiques<br/> Toutes les régions administratives      | |   GA <br/> [Découvrez comment créer des points de terminaison réseau Azure Files.](../storage/files/storage-files-networking-endpoints.md)   |
-| Azure File Sync | Toutes les régions publiques      | |   GA <br/> [Découvrez comment créer des points de terminaison réseau Azure Files.](../storage/files/storage-sync-files-networking-endpoints.md)   |
-| Stockage File d’attente Azure       |  Toutes les régions publiques<br/> Toutes les régions administratives       |  Pris en charge avec le type de compte V2 universel | GA <br/> [Découvrez comment créer un point de terminaison privé pour Stockage File d’attente.](tutorial-private-endpoint-storage-portal.md) |
-| Stockage Table Azure       |  Toutes les régions publiques<br/> Toutes les régions administratives       |  Pris en charge avec le type de compte V2 universel | GA <br/> [Découvrez comment créer un point de terminaison privé pour Stockage Table.](tutorial-private-endpoint-storage-portal.md)  |
-|  Azure SQL Database         | Toutes les régions publiques <br/> Toutes les régions administratives<br/>Toutes les régions de Chine      |  Pris en charge pour la [stratégie de connexion](../azure-sql/database/connectivity-architecture.md#connection-policy) Proxy | GA <br/> [Découvrez comment créer un point de terminaison privé pour Azure SQL](create-private-endpoint-portal.md)      |
-|Azure Synapse Analytics| Toutes les régions publiques <br/> Toutes les régions administratives |  Pris en charge pour la [stratégie de connexion](../azure-sql/database/connectivity-architecture.md#connection-policy) Proxy |GA <br/> [Découvrez comment créer un point de terminaison privé pour Azure Synapse Analytics.](../azure-sql/database/private-endpoint-overview.md)|
-|Azure Cosmos DB|  Toutes les régions publiques<br/> Toutes les régions administratives</br> Toutes les régions de Chine | |GA <br/> [Découvrez comment créer un point de terminaison privé pour Cosmos DB.](./tutorial-private-endpoint-cosmosdb-portal.md)|
-|  Azure Database pour PostgreSQL - Serveur unique         | Toutes les régions publiques <br/> Toutes les régions administratives<br/>Toutes les régions de Chine     | Prise en charge des niveaux tarifaires Usage général et À mémoire optimisée | GA <br/> [Découvrez comment créer un point de terminaison privé pour Azure Database pour PostgreSQL.](../postgresql/concepts-data-access-and-security-private-link.md)      |
-|  Azure Database pour MySQL         | Toutes les régions publiques<br/> Toutes les régions administratives<br/>Toutes les régions de Chine      |  | GA <br/> [Découvrez comment créer un point de terminaison privé pour Azure Database pour MySQL.](../mysql/concepts-data-access-security-private-link.md)     |
-|  Azure Database for MariaDB         | Toutes les régions publiques<br/> Toutes les régions administratives<br/>Toutes les régions de Chine     |  | GA <br/> [Découvrez comment créer un point de terminaison privé pour Azure Database for MariaDB.](../mariadb/concepts-data-access-security-private-link.md)      |
-|  Azure Digital Twins         | Toutes les régions publiques prises en charge par Azure Digital Twins     |  | Préversion <br/> [Découvrez comment créer un point de terminaison privé pour Azure Digital Twins.](../digital-twins/how-to-enable-private-link-portal.md)      |
-|  Azure Key Vault         | Toutes les régions publiques<br/> Toutes les régions administratives      |  | GA   <br/> [Découvrez comment créer un point de terminaison privé pour Azure Key Vault.](../key-vault/general/private-link-service.md)   |
-|Azure Kubernetes Service - API Kubernetes | Toutes les régions publiques      |  | GA   <br/> [Découvrez comment créer un point de terminaison privé pour Azure Kubernetes Service.](../aks/private-clusters.md)   |
-|Recherche Azure | Toutes les régions publiques <br/> Toutes les régions administratives | Pris en charge avec le service en mode privé | GA   <br/> [Découvrez comment créer un point de terminaison privé pour Recherche Azure.](../search/service-create-private-endpoint.md)    |
-|Azure Container Registry | Toutes les régions publiques<br/> Toutes les régions administratives    | Pris en charge avec le niveau Premium du registre de conteneurs. [Sélectionner des niveaux](../container-registry/container-registry-skus.md)| GA   <br/> [Découvrez comment créer un point de terminaison privé pour Azure Container Registry.](../container-registry/container-registry-private-link.md)   |
-|Azure App Configuration | Toutes les régions publiques      |  | PRÉVERSION  </br> [Découvrez comment créer un point de terminaison privé pour Azure App Configuration](../azure-app-configuration/concept-private-endpoint.md) |
-|Sauvegarde Azure | Toutes les régions publiques<br/> Toutes les régions administratives   |  | GA   <br/> [Découvrez comment créer un point de terminaison privé pour Sauvegarde Azure.](../backup/private-endpoints.md)   |
-|Azure Event Hub | Toutes les régions publiques<br/>Toutes les régions administratives      |   | GA   <br/> [Découvrez comment créer un point de terminaison privé pour Azure Event Hub.](../event-hubs/private-link-service.md)  |
-|Azure Service Bus | Toutes les régions publiques<br/>Toutes les régions administratives  | Pris en charge avec le niveau Premium d’Azure Service Bus. [Sélectionner des niveaux](../service-bus-messaging/service-bus-premium-messaging.md) | GA   <br/> [Découvrez comment créer un point de terminaison privé pour Azure Service Bus.](../service-bus-messaging/private-link-service.md)    |
-|Azure Relay | Toutes les régions publiques      |  | PRÉVERSION <br/> [Découvrez comment créer un point de terminaison privé pour Azure Relay.](../azure-relay/private-link-service.md)  |
-|Azure Event Grid| Toutes les régions publiques<br/> Toutes les régions administratives       |  | GA   <br/> [Découvrez comment créer un point de terminaison privé pour Azure Event Grid.](../event-grid/network-security.md) |
-|Azure Web Apps | Toutes les régions publiques      | Pris en charge avec le plan PremiumV2, PremiumV3 ou Function Premium  | GA   <br/> [Découvrez comment créer un point de terminaison privé pour Azure Web Apps.](./tutorial-private-endpoint-webapp-portal.md)   |
-|Azure Machine Learning | Toutes les régions publiques    |  | GA   <br/> [Découvrez comment créer un point de terminaison privé pour Azure Machine Learning.](../machine-learning/how-to-configure-private-link.md)   |
-| Azure Automation  | Toutes les régions publiques<br/> Toutes les régions administratives |  | PRÉVERSION </br> [Découvrez comment créer un point de terminaison privé pour Azure Automation.](../automation/how-to/private-link-security.md)| |
-| Azure IoT Hub | Toutes les régions publiques    |  | GA   <br/> [Découvrez comment créer un point de terminaison privé pour Azure IoT Hub.](../iot-hub/virtual-network-support.md) |
-| Azure SignalR | USA EST, USA CENTRE SUD,<br/>USA OUEST 2, Toutes les régions de Chine      |  | PRÉVERSION   <br/> [Découvrez comment créer un point de terminaison privé pour Azure SignalR.](../azure-signalr/howto-private-endpoints.md)   |
-| Azure Monitor <br/>(Log Analytics & Application Insights) | Toutes les régions publiques      |  | GA   <br/> [Découvrez comment créer un point de terminaison privé pour Azure Monitor.](../azure-monitor/logs/private-link-security.md)   | 
-| Azure Batch | Toutes les régions publiques sauf : Allemagne CENTRE, Allemagne NORD-EST <br/> Toutes les régions administratives  | | GA <br/> [Découvrez comment créer un point de terminaison privé pour Azure Batch.](../batch/private-connectivity.md) |
-|Azure Data Factory | Toutes les régions publiques<br/> Toutes les régions administratives<br/>Toutes les régions de Chine    | Les informations d’identification doivent être stockées dans un coffre de clés Azure| GA   <br/> [Découvrez comment créer un point de terminaison privé pour Azure Data Factory.](../data-factory/data-factory-private-link.md)   |
-|Disques managés Azure | Toutes les régions publiques<br/> Toutes les régions administratives<br/>Toutes les régions de Chine    | [Cliquez ici pour connaître les limitations connues](../virtual-machines/disks-enable-private-links-for-import-export-portal.md#limitations) | GA   <br/> [Découvrez comment créer un point de terminaison privé pour Disques managés Azure.](../virtual-machines/disks-enable-private-links-for-import-export-portal.md)   |
-
-
+Pour plus d’informations sur les services Azure qui prennent en charge Private Link, consultez [Disponibilité d’Azure Private Link](availability.md).
 
 Pour obtenir les notifications les plus récentes, consultez la [page relative aux mises à jour d’Azure Private Link](https://azure.microsoft.com/updates/?product=private-link).
 

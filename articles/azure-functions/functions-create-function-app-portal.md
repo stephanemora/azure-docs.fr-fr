@@ -4,12 +4,12 @@ description: Apprenez à créer votre première fonction Azure pour une exécuti
 ms.topic: how-to
 ms.date: 03/26/2020
 ms.custom: devx-track-csharp, mvc, devcenter, cc996988-fb4f-47
-ms.openlocfilehash: 8d394a6f71fc5d31bd72a67a876a24a500a7cf01
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6ca187181d68d7924f97ebfac08e81dec77251e9
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101732177"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103492112"
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Créer votre première fonction à l’aide du Portail Azure
 
@@ -42,13 +42,11 @@ Créez ensuite une fonction dans la nouvelle application de fonction.
 
 1. Dans le menu de gauche de la fenêtre **Fonctions**, sélectionnez **Fonctions**, puis **Ajouter** dans le menu supérieur. 
  
-1. Dans la fenêtre **Nouvelle fonction**, sélectionnez **Déclencheur http**.
+1. Dans la fenêtre **Ajouter une fonction**, sélectionnez le modèle **Déclencheur HTTP**.
 
     ![Choisir une fonction de déclencheur HTTP](./media/functions-create-first-azure-function/function-app-select-http-trigger.png)
 
-1. Dans la fenêtre **Nouvelle fonction**, acceptez le nom par défaut pour la **Nouvelle fonction** ou entrez un nouveau nom. 
-
-1. Choisissez **Anonyme** dans la liste déroulante **Niveau d’autorisation**, puis sélectionnez **Créer une fonction**.
+1. Sous **Détails du modèle**, utilisez `HttpExample` pour **Nouvelle fonction**, choisissez **Anonyme** dans la liste déroulante **[Niveau d’autorisation](functions-bindings-http-webhook-trigger.md#authorization-keys)** , puis sélectionnez **Ajouter**.
 
     Azure crée la fonction de déclencheur HTTP. Vous pouvez maintenant exécuter la nouvelle fonction en envoyant une requête HTTP.
 

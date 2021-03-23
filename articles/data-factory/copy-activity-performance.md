@@ -1,18 +1,23 @@
 ---
 title: Guide sur les performances et la scalabilité de l’activité de copie
 description: Découvrez les facteurs clés ayant des répercussions sur les performances du déplacement de données dans Azure Data Factory lorsque vous utilisez l’activité de copie.
+services: data-factory
+documentationcenter: ''
 ms.author: jingwang
 author: linda33wj
+manager: shwang
+ms.reviewer: douglasl
 ms.service: data-factory
+ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/15/2020
-ms.openlocfilehash: 1c166b99243e5a6ee576100b8470aa38b9535c7a
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: cba248d3f254c9bb97c66ff7a3d39275b4b912c4
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100387663"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102616075"
 ---
 # <a name="copy-activity-performance-and-scalability-guide"></a>Guide sur les performances et la scalabilité de l’activité de copie
 
@@ -48,8 +53,8 @@ Azure Data Factory offre une architecture serverless qui permet un parallélisme
 
 Cette architecture vous permet de développer des pipelines qui optimisent le débit des déplacements de données pour votre environnement. Ces pipelines utilisent pleinement les ressources suivantes :
 
-* Bande passante réseau
-* Opérations d’entrée/sortie par seconde (IOPS) sur le stockage et bande passante
+* Bande passante réseau entre les magasins de données source et de destination
+* Opérations d’entrée/sortie du magasin de données source ou de destination par seconde (IOPS) et bande passante
 
 Cette utilisation complète signifie que vous pouvez estimer le débit global en mesurant le débit minimal disponible avec les ressources suivantes :
 
@@ -57,7 +62,7 @@ Cette utilisation complète signifie que vous pouvez estimer le débit global en
 * Banque de données de destination
 * Bande passante réseau entre les magasins de données source et de destination
 
-Le tableau ci-dessous calcule la durée de la copie. La durée dépend de la taille des données et de la limite de bande passante pour votre environnement.
+Le tableau ci-dessous calcule la durée de la copie. La durée dépend de la taille des données et de la limite de bande passante réseau/de magasin de données pour votre environnement.
 
 &nbsp;
 

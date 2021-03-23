@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/22/2020
 ms.author: marsma
 ms.custom: aaddev, scenarios:getting-started, languages:js, devx-track-js
-ms.openlocfilehash: 5ca8c41dc1e6a05975227555abd91f5d6725285a
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: d6be9753cbcb2a6be9836b27f82f1b60068570b8
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101092188"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103224977"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-node-web-app-using-the-auth-code-flow"></a>Démarrage rapide : Connecter des utilisateurs et obtenir un jeton d’accès dans une application web Node à l’aide du flux de code d’authentification
 
@@ -48,6 +48,15 @@ Ce guide de démarrage rapide utilise la bibliothèque d’authentification Micr
 > 1. Dans la page **Vue d’ensemble**, notez la valeur de **ID d’application (client)** pour une utilisation ultérieure.
 > 1. Sous **Gérer**, sélectionnez **Certificats et secrets** > **Nouveau secret client**.  Laissez la description vide et conservez l’expiration par défaut, puis sélectionnez **Ajouter**.
 > 1. Notez la **Valeur** de la **clé secrète client** pour une utilisation ultérieure.
+
+> [!div class="sxs-lookup" renderon="portal"]
+> #### <a name="step-1-configure-the-application-in-azure-portal"></a>Étape 1 : Configurer l’application dans le portail Azure
+> Pour que l’exemple de code de ce démarrage rapide fonctionne, vous devez créer un secret client et ajouter une URL de réponse sous la forme **http://localhost:3000/redirect** .
+> > [!div renderon="portal" id="makechanges" class="nextstepaction"]
+> > [Apporter cette modification pour moi]()
+>
+> > [!div id="appconfigured" class="alert alert-info"]
+> > ![Déjà configuré](media/quickstart-v2-windows-desktop/green-check.png) Votre application est configurée avec ces attributs.
 
 #### <a name="step-2-download-the-project"></a>Étape 2 : Téléchargez le projet
 
@@ -91,16 +100,17 @@ Ce guide de démarrage rapide utilise la bibliothèque d’authentification Micr
 > Modifiez les valeurs de la section `config` de la façon suivante :
 >
 > - `Enter_the_Application_Id_Here` est **l’ID d’application (client)** de l’application que vous avez inscrite.
+>
+>    Pour connaître les valeurs de l’**ID d’application (client)** , consultez la page **Vue d’ensemble** de l’inscription d’application dans le portail Azure.
 > - `Enter_the_Client_Secret_Here` est la valeur **Valeur** de la **Clé secrète client** pour l’application que vous avez inscrite.
+>
+>    Pour récupérer ou générer une nouvelle **Clé secrète client**, sous **Gérer**, sélectionnez **Certificats et secrets**.
 >
 > La valeur `authority` par défaut représente le cloud Azure principal (global) :
 >
 > ```javascript
 > authority: "https://login.microsoftonline.com/common",
 > ```
->
-> > [!TIP]
-> > Pour connaître les valeurs de l’**ID d’application (client)** , consultez la page **Vue d’ensemble** de l’inscription d’application dans le portail Azure. Accédez à **Certificats et secrets** pour récupérer ou générer une nouvelle **Clé secrète client**.
 >
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Étape 3 : Votre application est configurée et prête à être exécutée

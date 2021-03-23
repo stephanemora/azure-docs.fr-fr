@@ -11,18 +11,20 @@ author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7099de23b825fa7af203dff9696bb53e23a099c8
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: a1dee21182349108c44f9d498417d3b760ac4913
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96741114"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103600860"
 ---
 # <a name="troubleshoot-self-service-password-reset-in-azure-active-directory"></a>Résoudre les problèmes relatifs à la réinitialisation de mot de passe en libre-service dans Azure Active Directory
 
 La réinitialisation de mot de passe en libre-service (SSPR) Azure Active Directory (Azure AD) permet aux utilisateurs de réinitialiser leur mot de passe dans le cloud.
 
-Si vous rencontrez des problèmes avec SSPR, les étapes de résolution des problèmes et les erreurs courantes suivantes peuvent vous aider. Si vous ne trouvez pas la réponse à votre problème, [nos équipes du support technique sont toujours disponibles](#contact-microsoft-support) pour vous aider davantage.
+Si vous rencontrez des problèmes avec SSPR, les étapes de résolution des problèmes et les erreurs courantes suivantes peuvent vous aider. Vous pouvez également regarder cette brève vidéo sur la [Résolution des six messages d’erreur utilisateur final SSPR les plus courants](https://www.youtube.com/watch?v=9RPrNVLzT8I&list=PL3ZTgFEc7LyuS8615yo39LtXR7j1GCerW&index=1).
+
+Si vous ne trouvez pas la réponse à votre problème, [nos équipes du support technique sont toujours disponibles](#contact-microsoft-support) pour vous aider davantage.
 
 ## <a name="sspr-configuration-in-the-azure-portal"></a>Configuration de la solution SSPR sur le portail Azure
 

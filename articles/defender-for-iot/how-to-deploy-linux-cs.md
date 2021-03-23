@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
-ms.openlocfilehash: ec26cd0b66b6d08d8bd686d8f3e5ad8011df10b1
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: f2251ef79f568677d6ef09d918cb61ffeba07888
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102449762"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103494544"
 ---
 # <a name="deploy-defender-for-iot-c-based-security-agent-for-linux"></a>Déployer l’agent de sécurité Defender pour IoT basé sur C# pour Linux
 
@@ -38,7 +38,7 @@ Pour d’autres plateformes et versions de l’agent, consultez [Choisir l’age
 
 1. Pour déployer l’agent de sécurité, les droits d’administrateur local sont requis sur l’ordinateur sur lequel vous souhaitez effectuer l’installation.
 
-1. [Créez un module de sécurité](quickstart-create-security-twin.md) pour l’appareil.
+1. [Créez un micro-agent Defender-IoT](quickstart-create-security-twin.md) pour l’appareil.
 
 ## <a name="installation"></a>Installation
 

@@ -1,6 +1,6 @@
 ---
-title: 'Démarrage rapide : Suspendre et reprendre le calcul dans le pool SQL Synapse avec Azure PowerShell'
-description: Vous pouvez utiliser Azure PowerShell pour suspendre et reprendre le pool SQL Synapse (entrepôt de données). ressources de calcul.
+title: 'Démarrage rapide : Suspendre et reprendre le calcul dans un pool SQL dédié (anciennement SQL DW) avec Azure PowerShell'
+description: Vous pouvez utiliser Azure PowerShell pour suspendre et reprendre le pool SQL dédié (anciennement SQL DW). ressources de calcul.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -11,23 +11,23 @@ ms.date: 03/20/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse, devx-track-azurepowershell
-ms.openlocfilehash: 6022974b80a7f691edc9b9a11b972035b203187c
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 0851bbf990e78e32a1b4330719ad82bd6a7d3703
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121037"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103600908"
 ---
-# <a name="quickstart-pause-and-resume-compute-in-synapse-sql-pool-with-azure-powershell"></a>Démarrage rapide : Suspendre et reprendre le calcul dans le pool SQL Synapse avec Azure PowerShell
+# <a name="quickstart-pause-and-resume-compute-in-dedicated-sql-pool-formerly-sql-dw-with-azure-powershell"></a>Démarrage rapide : Suspendre et reprendre le calcul dans un pool SQL dédié (anciennement SQL DW) avec Azure PowerShell
 
-Vous pouvez utiliser Azure PowerShell pour suspendre et reprendre les ressources de calcul du pool SQL Synapse (entrepôt de données).
+Vous pouvez utiliser Azure PowerShell pour suspendre et reprendre les ressources de calcul du pool SQL dédié (anciennement SQL DW).
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Ce guide de démarrage rapide part du principe que vous avez déjà un pool SQL que vous pouvez mettre en pause et reprendre. Si vous devez en créer un, vous pouvez utiliser [Créer et connecter - Portail](create-data-warehouse-portal.md) pour créer un pool SQL nommé **mySampleDataWarehouse**.
+Ce guide de démarrage rapide part du principe que vous disposez déjà d’un pool SQL dédié (anciennement SQL DW) que vous pouvez mettre en pause et reprendre. Si vous devez en créer un, vous pouvez utiliser [Créer et connecter – Portail](create-data-warehouse-portal.md) pour créer un pool SQL dédié (anciennement SQL DW) nommé **mySampleDataWarehouse**.
 
 ## <a name="log-in-to-azure"></a>Connexion à Azure
 
@@ -49,11 +49,11 @@ Si vous devez utiliser un autre abonnement que celui par défaut, exécutez [Set
 Set-AzContext -SubscriptionName "MySubscription"
 ```
 
-## <a name="look-up-sql-pool-information"></a>Rechercher des informations sur le pool SQL
+## <a name="look-up-dedicated-sql-pool-formerly-sql-dw-information"></a>Rechercher des informations sur les pools SQL dédiés (anciennement SQL DW)
 
-Recherchez le nom de la base de données, le nom du serveur et le groupe de ressources du pool SQL que vous envisagez de mettre en pause et de reprendre.
+Trouvez le nom de la base de données, le nom du serveur et le groupe de ressources pour le pool SQL dédié (anciennement SQL DW) que vous prévoyez de mettre en pause et reprendre.
 
-Suivez ces étapes pour rechercher des informations de localisation de votre pool SQL :
+Suivez ces étapes pour trouver les informations d’emplacement de votre pool SQL dédié (anciennement SQL DW) :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 1. Cliquez sur **Azure Synapse Analytics (anciennement SQL DW)** dans la page de gauche du portail Azure.
@@ -61,7 +61,7 @@ Suivez ces étapes pour rechercher des informations de localisation de votre poo
 
     ![Nom du serveur et groupe de ressources](./media/pause-and-resume-compute-powershell/locate-data-warehouse-information.png)
 
-1. Notez le nom du pool SQL, qui correspond à celui de la base de données. Notez également le nom du serveur et le groupe de ressources.
+1. Notez le nom du pool SQL dédié (anciennement SQL DW), à savoir le nom de la base de données. Notez également le nom du serveur et le groupe de ressources.
 1. Utilisez uniquement la première partie du nom du serveur dans les applets de commande PowerShell. Dans l’image précédente, le nom complet du serveur est sqlpoolservername.database.windows.net. Nous utilisons **sqlpoolservername** comme nom de serveur dans l’applet de commande PowerShell.
 
 ## <a name="pause-compute"></a>Suspension du calcul
@@ -75,7 +75,7 @@ Pour suspendre une base de données, utilisez la cmdlet [Suspend-AzureRmSqlDatab
 
 ```Powershell
 Suspend-AzSqlDatabase –ResourceGroupName "myResourceGroup" `
-–ServerName "nsqlpoolservername" –DatabaseName "mySampleDataWarehouse"
+–ServerName "sqlpoolservername" –DatabaseName "mySampleDataWarehouse"
 ```
 
 L’exemple suivant récupère la base de données dans l’objet $database. Il canalise ensuite l’objet vers [Suspend-AzSqlDatabase](/powershell/module/az.sql/suspend-azsqldatabase?toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Les résultats sont stockés dans l'objet resultDatabase. La dernière commande affiche les résultats.
@@ -107,7 +107,7 @@ $resultDatabase
 
 ## <a name="check-status-of-your-sql-pool-operation"></a>Vérifier l’état de fonctionnement du pool SQL
 
-Pour vérifier l’état de votre pool SQL, utilisez la cmdlet [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/Get-AzSqlDatabaseActivity?toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+Pour vérifier l’état de votre pool SQL dédié (anciennement SQL DW), utilisez la cmdlet [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/Get-AzSqlDatabaseActivity?toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 ```Powershell
 Get-AzSqlDatabaseActivity -ResourceGroupName "myResourceGroup" -ServerName "sqlpoolservername" -DatabaseName "mySampleDataWarehouse"
@@ -115,7 +115,7 @@ Get-AzSqlDatabaseActivity -ResourceGroupName "myResourceGroup" -ServerName "sqlp
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Les unités Data Warehouse Unit et les données stockées dans votre pool SQL vous sont facturées. Ces ressources de calcul et de stockage sont facturées séparément.
+Les unités Data Warehouse Unit et les données stockées dans votre pool SQL dédié (anciennement SQL DW) vous sont facturées. Ces ressources de calcul et de stockage sont facturées séparément.
 
 - Si vous souhaitez conserver les données dans le stockage, suspendez le calcul.
 - Si vous voulez éviter des frais à venir, vous pouvez supprimer le pool SQL.
@@ -136,4 +136,4 @@ Suivez ces étapes pour nettoyer les ressources selon vos besoins.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus sur le pool SQL, consultez l’article [Charger des données dans un pool SQL](./load-data-from-azure-blob-storage-using-copy.md). Pour plus d’informations sur la gestion des capacités de calcul, consultez l’article [Vue d’ensemble de la gestion du calcul](sql-data-warehouse-manage-compute-overview.md).
+Pour en savoir plus sur le pool SQL, lisez l’article [Charger des données dans un pool SQL dédié (anciennement SQL DW)](./load-data-from-azure-blob-storage-using-copy.md). Pour plus d’informations sur la gestion des capacités de calcul, consultez l’article [Vue d’ensemble de la gestion du calcul](sql-data-warehouse-manage-compute-overview.md).

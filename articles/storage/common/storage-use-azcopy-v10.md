@@ -8,12 +8,12 @@ ms.date: 12/08/2020
 ms.author: normesta
 ms.subservice: common
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: bec221f762213fa8576ccef30e9b6a27aa708f01
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 826effb152d3f069e0a7c5b8e169f7083117ed22
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98944138"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103494493"
 ---
 # <a name="get-started-with-azcopy"></a>Bien démarrer avec AzCopy
 
@@ -101,13 +101,17 @@ Pour en savoir plus sur les jetons SAS et savoir comment en obtenir un, voir [Ut
 
 Une fois que vous avez autorisé votre identité ou obtenu un jeton SAP, vous pouvez commencer le transfert des données.
 
+> [!NOTE]
+> Le paramètre [Transfert sécurisé requis](storage-require-secure-transfer.md) d’un compte de stockage détermine si la connexion à un compte de stockage est sécurisée à l’aide du protocole TLS (Transport Layer Security). Ce paramètre est activé par défaut.   
+
 Pour obtenir des exemples de commandes, consultez l’un de ces articles.
 
 | Service | Article |
 |--------|-----------|
 |Stockage Blob Azure |[Charger des fichiers dans Stockage Blob Azure](storage-use-azcopy-blobs-upload.md)<br><br>[Télécharger des blobs depuis Stockage Blob Azure](storage-use-azcopy-blobs-download.md)<br><br>[Copier des blobs entre des comptes de stockage Azure](storage-use-azcopy-blobs-copy.md)<br><br>[Synchroniser avec Stockage Blob Azure](storage-use-azcopy-blobs-synchronize.md)|
 |Azure Files |[Transférer des données avec AzCopy et le stockage de fichiers](storage-use-azcopy-files.md)|
-|Amazon S3|[Transférer des données avec AzCopy et des compartiments Amazon S3](storage-use-azcopy-s3.md)|
+|Amazon S3|[Copier des données d’Amazon S3 vers Stockage Azure](storage-use-azcopy-s3.md)|
+|Google Cloud Storage|[Copier des données de Google Cloud Storage vers Azure Storage (préversion)](storage-use-azcopy-google-cloud.md)|
 |Stockage Azure Stack|[Transfert de données avec AzCopy et le stockage Azure Stack](/azure-stack/user/azure-stack-storage-transfer#azcopy)|
 
 ## <a name="use-in-a-script"></a>Utiliser dans un script

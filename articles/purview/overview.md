@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 11/30/2020
-ms.openlocfilehash: 77da3406897c31e48d808541f1f9d579eb0a9cb7
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 3fadfa9d4467209ddbe997afabba27a3752f685d
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97401540"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103419930"
 ---
 # <a name="what-is-azure-purview"></a>Qu’est-ce qu’Azure Purview ?
 
@@ -69,6 +69,9 @@ Après avoir inscrit une source de données, vous pouvez enrichir ses métadonn�
 La détection, la compréhension et l’utilisation des sources de données sont le principal objectif de l’inscription des sources. Les utilisateurs professionnels peuvent avoir besoin de données pour le décisionnel, le développement d’applications, la science des données ou toute autre tâche nécessitant des données adéquates. Ils utilisent l’expérience de découverte du catalogue de données pour rechercher rapidement des données correspondant à leurs besoins, pour comprendre les données afin d’évaluer leur pertinence par rapport à l’utilisation et pour utiliser les données en ouvrant la source de données dans l’outil de leur choix.
 
 Dans le même temps, les utilisateurs peuvent contribuer au catalogue en balisant, en documentant et en annotant les sources de données qui ont déjà été enregistrées. Ils peuvent également enregistrer de nouvelles sources de données, qui sont ensuite détectées, comprises et utilisées par la communauté d’utilisateurs du catalogue.
+
+## <a name="in-region-data-residency"></a>Résidence des données dans la région
+Azure Purview ne déplace pas et ne stocke pas les données client en dehors de la région dans laquelle il a été déployé.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

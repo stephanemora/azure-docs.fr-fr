@@ -2,14 +2,14 @@
 author: alkohli
 ms.service: databox
 ms.topic: include
-ms.date: 01/04/2021
+ms.date: 03/12/2021
 ms.author: alkohli
-ms.openlocfilehash: 5f39f727deaf3a53db5e2928e5af23779c298318
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: 0c7e011cf8445164e0931f71e390813c9134dd89
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97911593"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200960"
 ---
 1. Sur le [portail Azure](https://portal.azure.com/), sélectionnez votre ressource Azure Stack Edge, puis accédez à la **Vue d’ensemble**. Votre appareil doit être en ligne. Accédez à **Passerelle de stockage cloud > Comptes de stockage**.
 
@@ -19,18 +19,17 @@ ms.locfileid: "97911593"
 
 3. Dans le volet **Ajouter un compte de stockage Edge**, spécifiez les paramètres suivants :
 
-    a. Un nom unique pour le compte de stockage Edge sur votre appareil. Les noms de compte de stockage ne peuvent contenir que des lettres minuscules et des chiffres. Les caractères spéciaux ne sont pas autorisés. Le nom du compte de stockage doit être unique au sein de l’appareil (pas entre les appareils).
+    1. Fournissez un nom unique pour le compte de stockage Edge sur votre appareil. Les noms de compte de stockage ne peuvent contenir que des lettres minuscules et des chiffres. Les caractères spéciaux ne sont pas autorisés. Le nom du compte de stockage doit être unique au sein de l’appareil (pas entre les appareils).
 
-    b. Une description facultative des informations sur les données que le compte de stockage contient.  
+    2. Fournissez une description facultative des informations sur les données que le compte de stockage contient.  
     
-    c. Par défaut, le compte de stockage Edge est mappé à un compte Stockage Azure dans le cloud et les données du compte de stockage sont automatiquement envoyées vers le cloud. Spécifiez le compte de stockage Azure auquel votre compte de stockage Edge est mappé.  
+    3. Par défaut, le compte de stockage Edge est mappé à un compte Stockage Azure dans le cloud et les données du compte de stockage sont automatiquement envoyées vers le cloud. Spécifiez le compte de stockage Azure auquel votre compte de stockage Edge est mappé.
 
-    d. Créez ensuite un conteneur ou sélectionnez un conteneur existant dans le compte de stockage Azure. Toutes les données de l’appareil qui sont écrites dans le compte de stockage Edge sont automatiquement téléchargées vers le conteneur de stockage sélectionné dans le compte Stockage Azure mappé.
+    4. Créez un conteneur ou sélectionnez un conteneur existant dans le compte de stockage Azure. Toutes les données de l’appareil qui sont écrites dans le compte de stockage Edge sont automatiquement téléchargées vers le conteneur de stockage sélectionné dans le compte Stockage Azure mappé.
 
-    <!--![Add a storage account](media/azure-stack-edge-gateway-add-storage-account/add-storage-account-2.png)-->
+    5. Une fois que toutes les options de compte de stockage sont spécifiées, sélectionnez **Ajouter** pour créer le compte de stockage Edge. Un message s’affiche pour vous informer quand le compte de stockage Edge correctement créé. Le nouveau compte de stockage Edge est ensuite affiché dans la liste des comptes de stockage dans le Portail Azure.
 
-    e. Une fois que toutes les options de compte de stockage sont spécifiées, sélectionnez **Ajouter** pour créer le compte de stockage Edge. Un message s’affiche pour vous informer quand le compte de stockage Edge correctement créé. Le nouveau compte de stockage Edge est ensuite affiché dans la liste des comptes de stockage dans le Portail Azure. 
-
+    <!--[Add a storage account](media/azure-stack-edge-gateway-add-storage-account/add-storage-account-2.png)-->
     
 4. Si vous sélectionnez ce nouveau compte de stockage et que vous accédez à **Clés d’accès**, vous pouvez trouver le point de terminaison de service Blob et le nom du compte de stockage correspondant. Copiez ces informations, car ces valeurs, ainsi que les clés d’accès, vous aideront à vous connecter au compte de stockage Edge.
 

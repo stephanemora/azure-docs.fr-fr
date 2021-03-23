@@ -10,14 +10,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/19/2017
+ms.date: 02/17/2021
 ms.author: apimpm
-ms.openlocfilehash: 312a496a5acda05a6b04a0bb47abb101f4ffcc8e
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: e809efa9da32da5fe9ca296608c602e770f78265
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107587"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103562346"
 ---
 # <a name="api-management-policies"></a>Stratégies API Management
 Cette section est une ressource de référence au sujet des stratégies Gestion des API suivantes. Pour plus d'informations sur l'ajout et la configuration des stratégies, consultez la page [Stratégies dans Gestion des API](api-management-howto-policies.md).
@@ -32,8 +32,8 @@ Cette section est une ressource de référence au sujet des stratégies Gestion 
     -   [Check HTTP header](api-management-access-restriction-policies.md#CheckHTTPHeader) : applique l’existence et/ou la valeur d’un en-tête HTTP.
     -   [Limit call rate by subscription](api-management-access-restriction-policies.md#LimitCallRate) : empêche les pics d’utilisation de l’API en limitant le débit d’appels par abonnement.
     -   [Limit call rate by key](api-management-access-restriction-policies.md#LimitCallRateByKey) : empêche les pics d’utilisation de l’API en limitant le débit d’appels par clé.
-    -   [Restrict caller IPs](api-management-access-restriction-policies.md#RestrictCallerIPs) : filtre (autorise/rejette) les appels de certaines adresses IP et/ou plages d’adresses en particulier.
-    -   [Set usage quota by subscription](api-management-access-restriction-policies.md#SetUsageQuota) : vous permet d’appliquer un volume d’appels et/ou un quota de bande passante renouvelable ou illimité par abonnement.
+    -   [Restrict caller IPs](api-management-access-restriction-policies.md#RestrictCallerIPs) : filtre (autorise/rejette) les appels de certaines adresses IP spécifiques et/ou de certaines plages d’adresses.
+    -   [Set usage quota by subscription](api-management-access-restriction-policies.md#SetUsageQuota) : vous permet d’appliquer un volume d’appel et/ou un quota de bande passante renouvelable ou illimité par abonnement.
     -   [Set usage quota by key](api-management-access-restriction-policies.md#SetUsageQuotaByKey) : vous permet d’appliquer un volume d’appel et/ou un quota de bande passante renouvelable ou illimité par clé.
     -   [Validate JWT](api-management-access-restriction-policies.md#ValidateJWT) : applique l’existence et la validité d’un JWT extrait d’un en-tête HTTP ou d’un paramètre de requête spécifié.
 -   [Stratégies avancées](api-management-advanced-policies.md#AdvancedPolicies)
@@ -81,6 +81,12 @@ Cette section est une ressource de référence au sujet des stratégies Gestion 
     - [Envoyer une demande à un service](api-management-dapr-policies.md#invoke) : utilise le runtime Dapr pour localiser et communiquer de manière fiable avec un microservice Dapr.
     -  [Envoyer un message à une rubrique Publier/S’abonner](api-management-dapr-policies.md#pubsub) : utilise le runtime Dapr pour publier un message dans une rubrique Publier/S’abonner.
     -  [Déclencher la liaison de sortie](api-management-dapr-policies.md#bind) : utilise le runtime Dapr pour appeler un système externe par le biais d’une liaison de sortie.
+- [Stratégies de validation](validation-policies.md)
+    - [Valider le contenu ](validation-policies.md#validate-content) : valide la taille ou le schéma JSON d’une requête ou d’un corps de réponse par rapport au schéma d’API.
+. 
+    - [Valider les paramètres](validation-policies.md#validate-parameters) : valide les paramètres d’en-tête de requête, de la requête ou du chemin par rapport au schéma d’API.
+    - [Valider les en-têtes](validation-policies.md#validate-headers) : valide les en-têtes de réponse par rapport au schéma d’API.
+    - [Valider le code d’état](validation-policies.md#validate-status-code) : valide les codes d’état HTTP dans les réponses par rapport au schéma d’API.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur l’utilisation de stratégies, consultez les pages :

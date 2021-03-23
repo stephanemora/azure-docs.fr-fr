@@ -7,26 +7,26 @@ author: ChristopherHouser
 ms.author: chrishou
 ms.reviewer: valthom, estfan, logicappspm
 ms.topic: article
-ms.date: 05/14/2020
+ms.date: 03/10/2021
 tags: connectors
-ms.openlocfilehash: e9e554fdc092e49f5a87049de0e3dc3163105f58
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a07eb6e592c68794f0e4038a7cf9a42bd396b47a
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85609501"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103495230"
 ---
 # <a name="connect-to-an-ibm-mq-server-from-azure-logic-apps"></a>Se connecter à un serveur IBM MQ depuis Azure Logic Apps
 
-Le connecteur IBM MQ envoie et récupère les messages stockés dans un serveur IBM MQ local ou dans Azure. Ce connecteur inclut un client Microsoft MQ qui communique avec un serveur IBM MQ distant sur un réseau TCP/IP. Cet article offre un guide de démarrage pour l’utilisation du connecteur MQ. Vous pouvez commencer par parcourir un message dans une file d’attente, avant de tenter les autres actions.
+Le connecteur MQ envoie et récupère les messages stockés dans un serveur MQ local ou dans Azure. Ce connecteur inclut un client Microsoft MQ qui communique avec un serveur IBM MQ distant sur un réseau TCP/IP. Cet article offre un guide de démarrage pour l’utilisation du connecteur MQ. Vous pouvez commencer par parcourir un message dans une file d’attente, avant de tenter les autres actions.
 
-Le connecteur IBM MQ inclut ces actions, mais ne fournit aucun déclencheur :
+Le connecteur MQ inclut ces actions, mais ne fournit aucun déclencheur :
 
-- Parcourez un seul message sans le supprimer du serveur IBM MQ.
-- Parcourez un lot de messages sans supprimer ceux-ci du serveur IBM MQ.
-- Recevez un message unique et supprimez le message à partir du serveur IBM MQ.
-- Recevez un lot de messages et supprimez les messages du serveur IBM MQ.
-- Envoyez un message unique au serveur IBM MQ.
+- Parcourez un seul message sans le supprimer du serveur MQ.
+- Parcourez un lot de messages sans supprimer ceux-ci du serveur MQ.
+- Recevez un message unique et supprimez le message à partir du serveur MQ.
+- Recevez un lot de messages et supprimez les messages du serveur MQ.
+- Envoyez un message unique au serveur MQ.
 
 Voici les versions d’IBM WebSphere MQ officiellement prises en charge :
 
@@ -37,15 +37,20 @@ Voici les versions d’IBM WebSphere MQ officiellement prises en charge :
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Si vous utilisez un serveur MQ local, [installez la passerelle de données locale](../logic-apps/logic-apps-gateway-install.md) sur un serveur au sein de votre réseau. Pour que le connecteur MQ fonctionne, .NET Framework 4.6 doit également être installé sur le serveur sur lequel la passerelle de données locale est installée.
+* Si vous utilisez un serveur MQ local, vous devez [installer la passerelle de données locale](../logic-apps/logic-apps-gateway-install.md) sur un serveur au sein de votre réseau.
 
-  Une fois que vous avez terminé l’installation de la passerelle, vous devez également créer une ressource dans Azure pour la passerelle de données locale. Pour plus d’informations, consultez [Configurer la connexion à la passerelle de données](../logic-apps/logic-apps-gateway-connection.md).
+  > [!NOTE]
+  > Si votre serveur MQ est disponible publiquement ou dans Azure, vous n’avez pas à utiliser la passerelle de données.
 
-  Si votre serveur MQ est disponible publiquement ou dans Azure, vous n’avez pas à utiliser la passerelle de données.
+  * Pour que le connecteur MQ fonctionne, le serveur sur lequel vous installez la passerelle de données locale doit également avoir .NET Framework 4.6 installé.
+  
+  * Après avoir installé la passerelle de données locale, vous devez également [créer une ressource de passerelle Azure pour la passerelle de données locale](../logic-apps/logic-apps-gateway-connection.md) que le connecteur MQ utilise pour accéder à votre serveur MQ local.
 
-* L’application logique dans laquelle vous souhaitez ajouter l’action MQ. Cette application logique doit utiliser le même emplacement que la connexion de votre passerelle de données locale et vous devez avoir un déclencheur qui démarre votre workflow.
+* L’application logique où vous souhaitez utiliser le connecteur MQ. Le connecteur MQ ne possède aucun déclencheur. Vous devez donc d’abord en ajouter un à votre application logique. Par exemple, vous pouvez utiliser le [déclencheur Recurrence](../connectors/connectors-native-recurrence.md). Si vous débutez avec les applications logiques, essayez ce [Démarrage rapide pour créer votre première application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-  Le connecteur MQ ne possède aucun déclencheur. Vous devez donc d’abord en ajouter un à votre application logique. Par exemple, vous pouvez utiliser le déclencheur Recurrence. Si vous débutez avec les applications logiques, essayez ce [Démarrage rapide pour créer votre première application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+## <a name="limitations"></a>Limites
+
+Le connecteur MQ ne prend pas en charge ou n’utilise pas le champ **Format** du message et n’effectue pas de conversions de jeux de caractères. Le connecteur place uniquement les données qui apparaissent dans le champ de message dans un message JSON, et envoie le message.
 
 <a name="create-connection"></a>
 
@@ -61,7 +66,7 @@ Si vous n’avez pas encore de connexion à MQ lorsque vous ajoutez une action M
 
    * Pour **Serveur**, vous pouvez entrer le nom du serveur MQ, ou l’adresse IP suivie par un signe deux-points et le numéro de port.
 
-   * Pour utiliser le protocole SSL, sélectionnez **Activer SSL ?** .
+   * Pour utiliser TLS (Transport Layer Security) ou SSL (Secure Sockets Layer) (SSL), sélectionnez **Activer SSL ?** .
 
      Actuellement, le connecteur MQ prend uniquement en charge l’authentification serveur, et pas l’authentification client. Pour plus d’informations, consultez [Problèmes de connexion et d’authentification](#connection-problems).
 
@@ -185,7 +190,7 @@ L’action **Recevoir des messages** a les mêmes entrées et sorties que l’ac
 
 ## <a name="connector-reference"></a>Référence de connecteur
 
-Pour obtenir des détails techniques, les actions et les limites, qui sont fournis par la description OpenAPI du connecteur (anciennement Swagger), consultez la [page de référence du connecteur](/connectors/mq/).
+Pour obtenir des détails techniques, les actions et les limites, qui sont fournis par le fichier OpenAPI du connecteur (anciennement Swagger), consultez la [page de référence du connecteur](/connectors/mq/).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

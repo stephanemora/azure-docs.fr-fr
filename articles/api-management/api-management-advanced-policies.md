@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 3a37cde79cef59eaf9c3ef130bfbae9cff958bd7
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 03529fd3c0231617c477f4f16773039a02386683
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96919438"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103562482"
 ---
 # <a name="api-management-advanced-policies"></a>Stratégies avancées de la Gestion des API
 
@@ -918,7 +918,7 @@ Les expressions utilisées dans la stratégie `set-variable` doivent renvoyer un
 La stratégie `trace` ajoute une trace personnalisée à la sortie API Inspector, aux données de télémétrie Application Insights et/ou aux journaux de ressources.
 
 -   La stratégie ajoute une trace personnalisée à la sortie [API Inspector](./api-management-howto-api-inspector.md) quand le suivi est déclenché, c.-à-d. que l’en-tête de demande `Ocp-Apim-Trace` est présent et a la valeur true et que l’en-tête de requête `Ocp-Apim-Subscription-Key` est présent et contient une clé valide qui autorise le suivi.
--   La stratégie crée des données de télémétrie [Trace](../azure-monitor/app/data-model-trace-telemetry.md) dans Application Insights, quand l’intégration à [Application Insights](./api-management-howto-app-insights.md) est activée et que le niveau `severity` spécifié dans la stratégie est supérieur ou égal au niveau `verbosity` spécifié dans le paramètre du diagnostic.
+-   La stratégie crée des données de télémétrie [Trace](../azure-monitor/app/data-model-trace-telemetry.md) dans Application Insights, quand l’intégration à [Application Insights](./api-management-howto-app-insights.md) est activée et que la `severity` spécifiée dans la stratégie est supérieur ou égal à la `verbosity` spécifiée dans le paramètre du diagnostic.
 -   La stratégie ajoute une propriété dans l’entrée du journal quand les [journaux de ressources](./api-management-howto-use-azure-monitor.md#activity-logs) sont activés et que le niveau de gravité spécifié dans la stratégie est supérieur ou égal au niveau de verbosité spécifié dans le paramètre du diagnostic.
 
 ### <a name="policy-statement"></a>Instruction de la stratégie

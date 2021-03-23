@@ -5,19 +5,47 @@ author: vermagit
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 03/12/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: d560b261e058d01040616f3c59ede60e5986c672
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 9185f502a7d9dd7ab00a149fb2f3365372b350cc
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101666966"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103470737"
 ---
 # <a name="scaling-hpc-applications"></a>Mise à l’échelle d’applications HPC
 
 Pour bénéficier de performances de scale-out et de montée en puissance optimales pour les applications HPC sur Azure, vous devez régler les performances et effectuer différentes tentatives d’optimisation en fonction d’une charge de travail spécifique. Cette section et les pages spécifiques à la série de machines virtuelles offrent des conseils généraux pour la mise à l’échelle de vos applications.
+
+## <a name="optimally-scaling-mpi"></a>Mise à l’échelle optimale de MPI 
+
+Les suggestions suivantes s’appliquent pour une mise à l’échelle optimale de l’efficacité, des performances et de la cohérence :
+
+- Pour les tâches de mise à l’échelle plus petites (connexions < 256 k), utilisez l’option :
+   ```bash
+   UCX_TLS=rc,sm
+   ```
+
+- Pour les tâches de mise à l’échelle plus grandes (connexions > 256 k), utilisez l’option :
+   ```bash
+   UCX_TLS=dc,sm
+   ```
+
+- Dans le paragraphe ci-dessus, pour calculer le nombre de connexions pour votre travail MPI, utilisez :
+   ```bash
+   Max Connections = (processes per node) x (number of nodes per job) x (number of nodes per job) 
+   ```
+
+## <a name="process-pinning"></a>Épinglage de processus
+
+- Le code confidentiel effectue un traitement sur les cœurs à l’aide d’une approche d’épinglage (soit l’inverse d’une approche d’auto-équilibrage). 
+- Il est préférable d’opter pour une liaison via Numa/Core/HwThread que pour la liaison par défaut.
+- Pour les applications parallèles hybrides (OpenMP+MPI), utilisez 4 threads et 1 rang MPI par CCX sur les tailles de machine virtuelle HB et HBv2.
+- Pour les applications entièrement MPI, essayez d’utiliser 1 à 4 rangs MPI par CCX, pour des performances optimales sur les tailles de machine virtuelle HB et HBv2.
+- Certaines applications extrêmement sensibles à la bande passante peuvent tirer parti de l’utilisation d’un nombre réduit de cœurs par CCX. Pour ces applications, l’utilisation de 3 ou 2 cœurs par CCI peut permettre de réduire les contentions au niveau de la bande passante de la mémoire et générer dans le monde réel des performances plus élevées ou une évolutivité plus importante. En particulier, MPI Allreduce peut tirer parti de cette approche.
+- Pour des exécutions à plus grande échelle, nous vous recommandons d’utiliser des transports UD, ou des transports hybrides RC+UD. De nombreuses bibliothèques/bibliothèques de runtime MPI effectuent cette opération en interne (comme UCX ou MVAPICH2). Vérifier vos configurations de transport pour les exécutions à grande échelle.
 
 ## <a name="compiling-applications"></a>Compilation d’applications
 
@@ -68,17 +96,6 @@ Pour HPC, AMD recommande le compilateur GCC 7.3 ou une version ultérieure. Les 
 ```bash
 gcc $(OPTIMIZATIONS) $(OMP) $(STACK) $(STREAM_PARAMETERS) stream.c -o stream.gcc
 ```
-
-## <a name="scaling-applications"></a>Mise à l’échelle d’applications 
-
-Les suggestions suivantes s’appliquent pour une mise à l’échelle optimale de l’efficacité, des performances et de la cohérence :
-
-* Le code confidentiel effectue un traitement sur le cœurs 0 à 59 à l’aide d’une approche d’épinglage (soit l’inverse d’une approche d’auto-équilibrage). 
-* Il est préférable d’opter pour une liaison via Numa/Core/HwThread que pour la liaison par défaut.
-* Pour les applications parallèles hybrides (OpenMP+MPI), utilisez 4 threads et 1 rang MPI par CCX.
-* Pour les applications entièrement MPI, essayez d’utiliser 1 à 4 rangs MPI par CCX, pour des performances optimales.
-* Certaines applications extrêmement sensibles à la bande passante peuvent tirer parti de l’utilisation d’un nombre réduit de cœurs par CCX. Pour ces applications, l’utilisation de 3 ou 2 cœurs par CCI peut permettre de réduire les contentions au niveau de la bande passante de la mémoire et générer dans le monde réel des performances plus élevées ou une évolutivité plus importante. En particulier, MPI Allreduce peut en tirer parti.
-* Pour des exécutions à plus grande échelle, nous vous recommandons d’utiliser des transports UD, ou des transports hybrides RC+UD. De nombreuses bibliothèques/bibliothèques de runtime MPI effectuent cette opération en interne (comme UCX ou MVAPICH2). Vérifier vos configurations de transport pour les exécutions à grande échelle.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 11/22/2020
 ms.author: allensu
 ms:custom: seodec18
-ms.openlocfilehash: 27a2b764ebf420c91c57c6f5f762f656b1040a91
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: 2052669d3d1ae2bdb7aa1687c4dc348c9420d126
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99594550"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102615361"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-powershell"></a>Démarrage rapide : Créer un équilibreur de charge public pour équilibrer la charge des machines virtuelles à l’aide d’Azure PowerShell
 
@@ -368,7 +368,7 @@ New-AzPublicIpAddress @publicipout
 
 * Créez une configuration IP front-end avec [Add-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/add-azloadbalancerfrontendipconfig).
 
-* Créez un pool sortant avec [Add-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/add-azloadbalancerbackendaddresspoolconfig). 
+* Créez un pool sortant d’adresses de principal avec [Add-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/add-azloadbalancerbackendaddresspoolconfig). 
 
 * Appliquez le pool et l’adresse IP front-end à l’équilibreur de charge avec [Set-AzLoadBalancer](/powershell/module/az.network/set-azloadbalancer).
 *  Créez une règle de trafic sortant pour le pool principal sortant avec [Add-AzLoadBalancerOutboundRuleConfig](/powershell/module/az.network/new-azloadbalanceroutboundruleconfig). 

@@ -5,15 +5,15 @@ author: chpalm
 manager: anvalent
 services: azure-communication-services
 ms.author: chpalm
-ms.date: 10/03/2020
+ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 6fbc20ec7145a474d9f3aada153f2d012aba34f8
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 933b5605cf38be90d419673a94e23e4c36f0ef36
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102561345"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103495706"
 ---
 # <a name="region-availability-and-data-residency"></a>Disponibilité des régions et résidence des données
 
@@ -51,12 +51,14 @@ L’utilisation du portail Azure ou d’API Azure Resource Manager avec Communic
 
 ### <a name="telephone-number-management"></a>Gestion des numéros de téléphone
 
-Azure Communication Services gère un répertoire de numéros de téléphone associés à une ressource Communication Services. Utilisez ces API pour récupérer des numéros de téléphone et les supprimer :
+Azure Communication Services gère un répertoire de numéros de téléphone associés à une ressource Communication Services. Utilisez les [API d’administration de numéros de téléphone](/rest/api/communication/phonenumberadministration) pour récupérer des numéros de téléphone et les supprimer :
+
+- `Get All Phone Numbers`
 - `Release Phone Number`
 
 ### <a name="chat"></a>Conversation
 
-Les threads et les messages de conversation sont conservés jusqu’à ce qu’ils soient explicitement supprimés. Un thread totalement inactif est automatiquement supprimé au bout de 30 jours. Utilisez des [API de conversation](/rest/api/communication/chat/deletechatmessage/deletechatmessage) pour obtenir, lister, mettre à jour et supprimer des messages.
+Les threads et les messages de conversation sont conservés jusqu’à ce qu’ils soient explicitement supprimés. Un thread totalement inactif est automatiquement supprimé au bout de 30 jours. Utilisez des [API de conversation](/rest/api/communication/chat/chatthread) pour obtenir, lister, mettre à jour et supprimer des messages.
 
 - `Get Thread`
 - `Get Message`

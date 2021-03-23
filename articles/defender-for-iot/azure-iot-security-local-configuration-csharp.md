@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/08/2020
 ms.author: v-ekrieg
-ms.openlocfilehash: 13c16407481d4fa6f7d468a73051cc4945e6314e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 14237894a38725ee07deca3b5f46cbe0ecfce4cd
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91851231"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103493218"
 ---
 # <a name="understanding-the-local-configuration-file-c-agent"></a>Compréhension du fichier de configuration local (agent C#)
 
@@ -84,7 +84,7 @@ Pour Windows :
 
 | Nom de la configuration | Valeurs possibles | Détails |
 |:-----------|:---------------|:--------|
-| moduleName | string | Nom de l’identité du module de sécurité. Ce nom doit correspondre à celui de l’identité du module dans l’appareil. |
+| moduleName | string | Nom de l’identité du micro-agent Defender-IoT. Ce nom doit correspondre à celui de l’identité du module dans l’appareil. |
 | deviceId | string | ID de l’appareil (comme inscrit dans Azure IoT Hub). |
 | schedulerInterval | Chaîne TimeSpan | Intervalle du planificateur interne. |
 | gatewayHostname | string | Nom d’hôte du hub Azure Iot Hub. En général, il s’agit de <mon-hub>.azure-devices.net |

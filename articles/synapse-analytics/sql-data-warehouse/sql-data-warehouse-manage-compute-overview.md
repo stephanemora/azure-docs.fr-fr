@@ -1,6 +1,6 @@
 ---
 title: Gérer la ressource de calcul pour un pool SQL dédié (anciennement SQL DW)
-description: Découvrez les capacités de scale-out des performances pour un pool SQL dédié (anciennement SQL DW) dans Azure Synapse Analytics. Effectuez un scale-out en ajustant la valeur DWU ou allégez les coûts en interrompant le pool SQL dédié.
+description: Découvrez les capacités de scale-out des performances pour un pool SQL dédié (anciennement SQL DW) dans Azure Synapse Analytics. Effectuez un scale-out en ajustant la valeur DWU ou allégez les coûts en interrompant le pool SQL dédié (précédemment SQL DW).
 services: synapse-analytics
 author: ronortloff
 manager: craigg
@@ -11,12 +11,12 @@ ms.date: 11/12/2019
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 4a2ce18f4a02ccaadf66a96049b00f3837b927e4
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 20087fbf4d5c37f1501df08cc294a10ddb9118e1
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98677035"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103601812"
 ---
 # <a name="manage-compute-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Gérer le calcul pour un pool SQL dédié (anciennement SQL DW) dans Azure Synapse Analytics
 

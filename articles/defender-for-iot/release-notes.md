@@ -11,33 +11,39 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/08/2021
+ms.date: 03/14/2021
 ms.author: shhazam
-ms.openlocfilehash: f15c4ed6bb7da5cd33eca96c171bfada68092b35
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: ef72be60b6294ad4e1fca2ce9c0e3c66b64ac687
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99820668"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103493953"
 ---
 # <a name="whats-new-in-azure-defender-for-iot"></a>Nouveautés d’Azure Defender pour IoT
 
 Cet article répertorie les nouvelles fonctionnalités et améliorations apportées à Defender pour IoT.
 
 Ces fonctionnalités sont en PRÉVERSION. Les [Conditions d’utilisation supplémentaires des préversions Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) incluent des conditions légales supplémentaires qui s’appliquent aux fonctionnalités Azure en version bêta, en préversion ou pas encore disponibles dans la version en disponibilité générale.
-## <a name="february-2021"></a>Février 2021
+## <a name="march-2021"></a>Mars 2021
 
-### <a name="sensor---enhanced-custom-alert-rules"></a>Capteur - Règles d’alerte personnalisées améliorées
+### <a name="sensor---enhanced-custom-alert-rules-public-preview"></a>Capteur - Règles d’alerte personnalisée améliorées (préversion publique)
 
 Vous pouvez maintenant créer des règles d’alerte personnalisées en fonction du jour, du groupe de jours et de l’heure à laquelle l’activité réseau a été détectée.  L’utilisation de conditions de règle de jour et d’heure est utile, par exemple dans les cas où la gravité de l’alerte est dérivée du moment où l’événement d’alerte a lieu. Créez par exemple une règle personnalisée qui déclenche une alerte de gravité élevée lorsque l’activité réseau est détectée le week-end ou le soir.
 
-Cette fonctionnalité est disponible sur le capteur avec la version 10.1.
+Cette fonctionnalité est disponible sur le capteur avec la version 10.2.
 
-### <a name="on-premises-management-console---export-alerts"></a>Console de gestion locale - Exporter les alertes
+### <a name="on-premises-management-console---export-alerts-public-preview"></a>Console de gestion sur site - Exporter les alertes (préversion publique)
 
 Les informations d’alerte peuvent maintenant être exportées vers un fichier. csv à partir de la console de gestion locale. Vous pouvez exporter les informations de toutes les alertes détectées ou exporter des informations en fonction de la vue filtrée.
 
-Cette fonctionnalité est disponible sur la console de gestion locale avec la version 10.1.
+Cette fonctionnalité est disponible sur la console de gestion locale avec la version 10.2.
+
+### <a name="add-second-network-interface-to-on-premises-management-console-public-preview"></a>Ajouter une deuxième interface réseau à la console de gestion locale (préversion publique)
+
+Vous pouvez maintenant améliorer la sécurité de votre déploiement en ajoutant une deuxième interface réseau à votre console de gestion locale. Cette fonctionnalité permet à votre gestion sur site d’avoir ses capteurs connectés sur un réseau sécurisé, tout en permettant à vos utilisateurs d’accéder à la console de gestion sur site via une deuxième interface réseau distincte.
+
+Cette fonctionnalité est disponible sur la console de gestion locale avec la version 10.2.
 ### <a name="device-builder---new-micro-agent-public-preview"></a>Générateur d’appareils - Nouveau micro-agent (préversion publique)
 
 Un nouveau module Générateur d’appareils est disponible. Le module, désigné sous le terme de micro-agent, offre les éléments suivants :
@@ -48,7 +54,7 @@ Un nouveau module Générateur d’appareils est disponible. Le module, désign�
 - **Gestion de la posture de sécurité** : surveillez de manière proactive la posture de sécurité de vos appareils IoT.
 - **Détection continue des menaces IoT/OT en temps réel** : détectez les menaces, telles que les botnets, les tentatives d’attaque par force brute, les cryptomineurs et l’activité réseau suspecte
 
-La documentation du module de sécurité déconseillé sera déplacée dans le dossier *Solution basée sur les agents pour les générateurs d’appareils > Classique*.
+La documentation du micro-agent Defender-IoT déconseillé sera déplacée dans le dossier *Solution basée sur les agents pour les générateurs d’appareils > Classique*.
 
 Cet ensemble de fonctionnalités est disponible avec la version cloud de la préversion publique actuelle.
 

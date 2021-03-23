@@ -3,14 +3,14 @@ title: Sécurité des données Azure Automation
 description: Cet article vous aide à découvrir comment Azure Automation protège votre confidentialité et sécurise vos données.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 03/02/2021
+ms.date: 03/10/2021
 ms.topic: conceptual
-ms.openlocfilehash: 2bdf25ef24f1fbf4aaf4dec154ea6af3421b915a
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: e41e9af418b08210f5f0f40de9951d03711dc8e7
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102050815"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102616114"
 ---
 # <a name="management-of-azure-automation-data"></a>Gestion des données Azure Automation
 
@@ -26,7 +26,7 @@ Pour garantir la sécurité des données en transit vers Azure Automation, nous 
 
 * Nœuds DSC
 
-Les versions antérieures de TLS/SSL (Secure Sockets Layer) se sont avérées vulnérables et bien qu’elles fonctionnent encore pour assurer la compatibilité descendante, elles sont **déconseillées**. Nous ne recommandons pas de configurer explicitement votre agent de façon à ce qu’il utilise uniquement TLS 1.2, sauf en cas de nécessité absolue, car cela peut annuler les fonctionnalités de sécurité au niveau de la plateforme qui vous permettent de détecter automatiquement et de tirer parti des protocoles plus sécurisés et plus récents dès qu’ils sont disponibles, tels que TLS 1.3.
+Les versions antérieures de TLS/SSL (Secure Sockets Layer) se sont avérées vulnérables et bien qu’elles fonctionnent encore pour assurer la compatibilité descendante, elles sont **déconseillées**. Nous ne recommandons pas de configurer explicitement votre agent de façon à ce qu’il utilise uniquement TLS 1.2, sauf en cas de nécessité, car cela peut annuler les fonctionnalités de sécurité au niveau de la plateforme qui vous permettent de détecter automatiquement et de tirer parti des protocoles plus sécurisés et plus récents dès qu’ils sont disponibles, tels que TLS 1.3.
 
 Pour plus d’informations sur la prise en charge du protocole TLS 1.2 avec l’agent Log Analytics pour Windows et Linux, qui est une dépendance pour le rôle Runbook Worker hybride, consultez [Vue d’ensemble de l’agent Log Analytics – TLS 1.2](..//azure-monitor/agents/log-analytics-agent.md#tls-12-protocol).
 
@@ -41,7 +41,7 @@ Pour plus d’informations sur la prise en charge du protocole TLS 1.2 avec l’
 
 ## <a name="data-retention"></a>Conservation des données
 
-Quand vous supprimez une ressource dans Azure Automation, elle est conservée pendant un certain nombre de jours à des fins d’audit avant d’être supprimée définitivement. Vous ne pouvez ni voir ni utiliser la ressource pendant cette période. Cette stratégie vaut aussi pour les ressources qui appartiennent à un compte Automation supprimé. La stratégie de rétention s’applique à tous les utilisateurs et ne peut actuellement pas être personnalisée. Cependant, si vous souhaitez conserver les données sur une plus longue période, vous pouvez [transférer les données de tâches Azure Automation dans des journaux Azure Monitor](automation-manage-send-joblogs-log-analytics.md).
+Quand vous supprimez une ressource dans Azure Automation, elle est conservée pendant de nombreux jours à des fins d’audit avant d’être supprimée définitivement. Vous ne pouvez ni voir ni utiliser la ressource pendant cette période. Cette stratégie vaut aussi pour les ressources qui appartiennent à un compte Automation supprimé. La stratégie de rétention s’applique à tous les utilisateurs et ne peut actuellement pas être personnalisée. Cependant, si vous souhaitez conserver les données sur une plus longue période, vous pouvez [transférer les données de tâches Azure Automation dans des journaux Azure Monitor](automation-manage-send-joblogs-log-analytics.md).
 
 Le tableau suivant récapitule la stratégie de rétention pour les différentes ressources.
 
@@ -68,7 +68,7 @@ Vous pouvez exporter vos Runbooks vers vos fichiers de script en utilisant soit 
 
 ### <a name="integration-modules"></a>Modules d'intégration
 
-Vous ne pouvez pas exporter de modules d’intégration à partir d’Azure Automation. Vous devez les rendre accessibles en dehors du compte Automation.
+Vous ne pouvez pas exporter les modules d’intégration à partir d’Azure Automation, ils doivent être mis à disposition en dehors du compte Automation.
 
 ### <a name="assets"></a>Éléments multimédias
 
@@ -84,7 +84,10 @@ Vous pouvez exporter vos configurations DSC dans des fichiers de script en utili
 
 La géoréplication est une fonctionnalité standard des comptes Azure Automation. Au moment de configurer votre compte, vous choisissez une région primaire. Le service de géoréplication interne d’Automation affecte alors automatiquement une région secondaire au compte. Les données de compte de la région primaire sont sauvegardées en continu dans la région secondaire. La liste complète des régions primaires et secondaires se trouve dans [Continuité et reprise d’activité : régions jumelées d’Azure](../best-practices-availability-paired-regions.md).
 
-La sauvegarde créée par le service de géoréplication Automation est une copie complète de ressources, configurations et autre objets analogues Automation. Cette sauvegarde peut être utilisée si la région primaire perd des données à la suite d’une défaillance. Dans le cas peu probable d’une perte des données d’une région primaire, Microsoft tente de les récupérer. Si la récupération de ces données primaires échoue, le basculement automatique est utilisé et vous êtes informé de la situation par l’intermédiaire de votre abonnement Azure.
+La sauvegarde créée par le service de géoréplication Automation est une copie complète de ressources, configurations et autre objets analogues Automation. Cette sauvegarde peut être utilisée si la région primaire perd des données à la suite d’une défaillance. Dans le cas peu probable d’une perte des données d’une région primaire, Microsoft tente de les récupérer.
+
+> [!NOTE]
+> Azure Automation stocke les données client dans la région sélectionnée par le client. À des fins de continuité d’activité et reprise d’activité, pour toutes les régions, à l’exception de Brésil Sud et Asie Sud-Est, les données Azure Automation sont stockées dans une région différente (région appariée Azure). Dans le cas de la région Brésil Sud (État de Sao Paulo) de la géographie Brésil et de la région Asie Sud-Est (Singapour) de la géographie Asie-Pacifique, nous stockons les données Azure Automation dans la même région afin de répondre aux exigences de résidence des données pour ces régions.
 
 Le service de géoréplication Automation n’est pas directement accessible aux clients externes en cas de défaillance régionale. Si vous voulez conserver les runbooks et la configuration Automation à l’occasion de défaillances régionales :
 

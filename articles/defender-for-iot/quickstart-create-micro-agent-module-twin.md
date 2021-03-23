@@ -1,5 +1,5 @@
 ---
-title: Créer un jumeau de module pour le micro-agent Defender pour IoT
+title: Créer un jumeau de module pour le micro-agent Defender IoT (préversion)
 titleSuffix: Azure Defender for IoT
 description: Découvrez comment créer des jumeaux de module DefenderIotMicroAgent individuels pour les nouveaux appareils.
 author: shhazam-ms
@@ -8,14 +8,14 @@ ms.author: shhazam
 ms.date: 1/20/2021
 ms.topic: quickstart
 ms.service: azure
-ms.openlocfilehash: ea82fea89a9e81e66be6b3060aad067d3ceb8f5f
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: e1c2f4e79b9f0f0ba1ec0da0c5a2a29cdc8bc6d7
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102123001"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103489877"
 ---
-# <a name="create-a-defender-iot-micro-agent-module-twin"></a>Créer un jumeau de module pour le micro-agent Defender pour IoT 
+# <a name="create-a-defender-iot-micro-agent-module-twin-preview"></a>Créer un jumeau de module pour le micro-agent Defender IoT (préversion)
 
 Vous pouvez créer des jumeaux de module  **DefenderIotMicroAgent** individuels pour les nouveaux appareils. Vous pouvez également créer des jumeaux de module par lot pour tous les appareils d’un hub IoT. 
 
@@ -27,9 +27,9 @@ Defender pour IoT a la possibilité d’être entièrement intégré à votre p
 
 Découvrez-en plus sur le concept de  [jumeaux d’appareil](../iot-hub/iot-hub-devguide-device-twins.md)  dans Azure IoT Hub. 
 
-## <a name="security-module-twins"></a>Jumeaux de module de sécurité 
+## <a name="defender-iot-micro-agent-twins"></a>Jumeaux du micro-agent Defender IoT 
 
-Defender pour IoT utilise un jumeau de module de sécurité pour chaque appareil. Le jumeau de module de sécurité contient toutes les informations relatives à la sécurité des appareils pour chaque appareil spécifique de votre solution. Les propriétés de sécurité des appareils sont configurées par le biais d’un jumeau de module de sécurité dédié pour une communication plus sécurisée, ce qui permet les mises à jour et une maintenance nécessitant moins de ressources. 
+Defender pour IoT utilise un jumeau de micro-agent Defender-IoT pour chaque appareil. Le jumeau du micro-agent Defender IoT contient toutes les informations relatives à la sécurité des appareils pour chaque appareil spécifique de votre solution. Les propriétés de sécurité des appareils sont configurées par le biais d’un jumeau du micro-agent Defender IoT dédié pour une communication plus sécurisée, ce qui permet les mises à jour et une maintenance nécessitant moins de ressources. 
 
 ## <a name="understanding-defenderiotmicroagent-module-twins"></a>Présentation des jumeaux de module DefenderIotMicroAgent 
 
@@ -39,9 +39,9 @@ Defender pour IoT offre la possibilité d’intégrer totalement votre plateform
 
 Pour en savoir plus sur le concept général des jumeaux de module dans Azure IoT Hub, consultez  [Jumeaux de module IoT Hub](../iot-hub/iot-hub-devguide-module-twins.md).
 
-Defender pour IoT utilise le mécanisme de jumelage de module et gère le jumeau de module de sécurité nommé `DefenderIotMicroAgent` pour chacun de vos appareils. 
+Defender pour IoT utilise le mécanisme de jumelage de module et gère le jumeau du micro-agent Defender IoT nommé `DefenderIotMicroAgent` pour chacun de vos appareils. 
 
-Pour tirer pleinement parti de toutes les fonctionnalités de Defender pour IoT, vous devez créer, configurer et utiliser les jumeaux de module de sécurité pour chaque appareil du service. 
+Pour tirer pleinement parti de toutes les fonctionnalités de Defender pour IoT, vous devez créer, configurer et utiliser les jumeaux du micro-agent Defender IoT pour chaque appareil du service. 
 
 ## <a name="create-defenderiotmicroagent-module-twin"></a>Créer un jumeau de module DefenderIotMicroAgent 
 
@@ -49,7 +49,7 @@ Les jumeaux de module **DefenderIotMicroAgent** peuvent être créées en modifi
 
 Pour créer manuellement un jumeau de module  **DefenderIotMicroAgent** destiné à un appareil : 
 
-1. Dans votre hub IoT, recherchez et sélectionnez l’appareil sur lequel créer un jumeau de module de sécurité. 
+1. Dans votre hub IoT, recherchez et sélectionnez l’appareil sur lequel créer un jumeau de micro-agent Defender-IoT. 
 
 1. Sélectionnez **Ajouter l’identité de module**. 
 
@@ -59,7 +59,7 @@ Pour créer manuellement un jumeau de module  **DefenderIotMicroAgent** destin
 
 ## <a name="verify-the-creation-of-a-module-twin"></a>Vérifier la création d’un jumeau de module 
 
-Pour vérifier l’existence d’un jumeau de module de sécurité pour un appareil particulier : 
+Pour vérifier l’existence d’un jumeau de micro-agent Defender-IoT pour un appareil particulier : 
 
 1. Dans votre hub Azure IoT, sélectionnez **Appareils IoT** dans le menu **Explorateurs**.  
 

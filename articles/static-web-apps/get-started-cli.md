@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 08/13/2020
 ms.author: cshoe
-ms.openlocfilehash: 0de65c4546f5e87377b119370ee629f5a365b24e
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 98b40218d168133193410174bcc158ab8698c381
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100650528"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103225385"
 ---
 # <a name="quickstart-building-your-first-static-site-using-the-azure-cli"></a>Démarrage rapide : Création de votre premier site statique à l’aide de l’interface Azure CLI
 
@@ -104,8 +104,13 @@ Maintenant que le dépôt est constitué, vous pouvez créer une application web
     ```
 
     ---
+    
+    > [!IMPORTANT]
+    > L’URL transmise au paramètre `s` ne doit pas inclure le suffixe `.git`.
 
-    - `<RESOURCE_GROUP_NAME>`: Remplacez cette valeur par un nom de groupe de ressources Azure existant.
+    - `<RESOURCE_GROUP_NAME>`Remplacez cette valeur par un [nom de groupe de ressources Azure](../azure-resource-manager/management/manage-resources-cli.md) existant.
+
+      - Consultez la documentation [az group](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az_group_list) pour plus d’informations sur l’énumération des groupes de ressources.
 
     - `<YOUR_GITHUB_ACCOUNT_NAME>`: Remplacez cette valeur par votre nom d’utilisateur GitHub.
 

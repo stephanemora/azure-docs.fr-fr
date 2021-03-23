@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: v-erkel
-ms.openlocfilehash: 77bd5e3b7a258ef83e5de4ec645ea70578fb9dfb
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 50fdab1fa8def1b4e3b9a9d59d3b2593e5526c65
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94657089"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103472040"
 ---
 # <a name="create-an-azure-hpc-cache"></a>Créer un cache Azure HPC Cache
 
@@ -59,7 +59,7 @@ Azure HPC Cache gère les fichiers mis en cache et préchargés pour maximiser l
 
 ## <a name="enable-azure-key-vault-encryption-optional"></a>Activer le chiffrement Azure Key Vault (facultatif)
 
-Si votre cache se trouve dans une région qui prend en charge les clés de chiffrement gérées par le client, la page **Clés de chiffrement de disque** s’affiche entre les onglets **Cache** et **Balises**. Consultez [Disponibilité régionale](hpc-cache-overview.md#region-availability) pour en savoir plus sur la prise en charge des régions.
+La page **Clés de chiffrement de disque** s’affiche entre les onglets **Cache** et **Étiquettes**.<!-- Read [Regional availability](hpc-cache-overview.md#region-availability) to learn more about region support. -->
 
 Si vous souhaitez gérer les clés de chiffrement utilisées pour votre stockage de cache, fournissez vos informations Azure Key Vault sur la page **Clés de chiffrement de disque**. Le coffre de clés doit se trouver dans la même région et dans le même abonnement que le cache.
 
@@ -132,11 +132,11 @@ nets/<cache_subnet_name>"``
 
   | Taille du cache | Standard_2G | Standard_4G | Standard_8G |
   |------------|-------------|-------------|-------------|
-  | 3072 Go    | oui         | Non          | Non          |
-  | 6144 Go    | oui         | Oui         | Non          |
-  | 12288 Go   | oui         | oui         | oui         |
-  | 24576 Go   | Non          | oui         | oui         |
-  | <49152 Go   | Non          | Non          | oui         |
+  | 3072 Go    | oui         | non          | Non          |
+  | 6144 Go    | Oui         | Oui         | Non          |
+  | 12288 Go   | oui         | Oui         | oui         |
+  | 24576 Go   | Non          | Oui         | oui         |
+  | <49152 Go   | Non          | non          | oui         |
 
   Pour obtenir des informations importantes sur la tarification, le débit et la taille de votre cache en fonction de votre flux de travail, consultez la section **Définir la capacité du cache** sous l’onglet Instructions du portail.
 
@@ -235,11 +235,11 @@ nets/<cache_subnet_name>"`
 
   | Taille du cache | Standard_2G | Standard_4G | Standard_8G |
   |------------|-------------|-------------|-------------|
-  | 3072 Go    | oui         | Non          | Non          |
+  | 3072 Go    | oui         | non          | Non          |
   | 6144 Go    | Oui         | Oui         | non          |
   | 12 288 Go   | Oui         | Oui         | Oui         |
   | 24 576 Go   | non          | Oui         | Oui         |
-  | 49 152 Go   | non          | Non          | oui         |
+  | 49 152 Go   | non          | non          | oui         |
 
   Pour obtenir des informations importantes sur la tarification, le débit et la taille de votre cache en fonction de votre flux de travail, consultez la section **Définir la capacité du cache** sous l’onglet Instructions du portail.
 

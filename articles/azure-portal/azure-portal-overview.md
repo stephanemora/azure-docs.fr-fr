@@ -2,14 +2,14 @@
 title: Présentation du portail Azure
 description: Le portail Azure est une interface utilisateur graphique que vous pouvez utiliser pour gérer vos services Azure. Découvrez comment explorer et rechercher des ressources dans le portail Azure.
 keywords: portail
-ms.date: 12/20/2019
+ms.date: 03/12/2021
 ms.topic: overview
-ms.openlocfilehash: 1e9cf1a9609b9d4f30e51094f1d0542335ead0e2
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 8f61934e6af150c18d1331c2b28e2686641967d1
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96745925"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103563992"
 ---
 # <a name="azure-portal-overview"></a>Présentation du portail Azure
 
@@ -75,7 +75,7 @@ La figure ci-dessous étiquette les éléments de base du portail Azure, qui son
 
 ## <a name="get-started-with-services"></a>Prise en main des services
 
-Si vous êtes un nouvel abonné, vous devez créer une ressource avant de pouvoir la gérer. Sélectionnez **+ Créer une ressource** pour voir les services disponibles dans la Place de marché Azure. Vous y trouverez des applications et des services provenant de centaines de fournisseurs, tous certifiés pour s’exécuter sur Azure.
+Si vous êtes un nouvel abonné, vous devez créer une ressource avant de pouvoir la gérer. Sélectionnez **+ Créer une ressource** pour voir les services disponibles dans la Place de marché Azure. Vous y trouverez des centaines d’applications et de services provenant de nombreux fournisseurs, tous certifiés pour s’exécuter sur Azure.
 
 Nous avons prérempli vos favoris dans la barre latérale avec des liens vers des services couramment utilisés.  Pour voir tous les services disponibles, sélectionnez **Tous les services** dans la barre latérale.
 

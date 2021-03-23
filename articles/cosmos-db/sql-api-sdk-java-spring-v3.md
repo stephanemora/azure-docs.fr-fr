@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 02/28/2021
-ms.author: anfeldma
+ms.date: 03/15/2021
+ms.author: kuthapar
 ms.custom: devx-track-java
-ms.openlocfilehash: 9c3209895902a11ad0b9f29ff28e9ac7f845b101
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 3c740aa00b158c7ddbca3e4f61d79e37978223c2
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101692723"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103493609"
 ---
 # <a name="spring-data-azure-cosmos-db-v3-for-core-sql-api-release-notes-and-resources"></a>Spring Data Azure Cosmos DB v3 pour l’API Core (SQL) : Notes de publication et ressources
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -40,7 +40,13 @@ ms.locfileid: "101692723"
 
 Spring Data Azure Cosmos DB v3 pour Core (SQL) permet aux développeurs d’utiliser Azure Cosmos DB dans des applications Spring. Spring Data Azure Cosmos DB expose l’interface de données Spring pour manipuler les bases de données et les collections, travailler avec des documents et émettre des requêtes. Les API synchrones et asynchrones (réactives) sont prises en charge dans le même artefact Maven. 
 
-Spring Data Azure Cosmos DB est dépendant de l’infrastructure Spring Data. L’équipe du Kit de développement logiciel (SDK) Azure Cosmos DB publie des artefacts Maven pour les versions 2.2 et 2.3 de Spring Data.
+> [!IMPORTANT]
+> Spring Data Azure Cosmos DB est dépendant de l’infrastructure Spring Data.
+> 
+> Les versions azure-spring-data-cosmos 3.0.0 à 3.4.0 prennent en charge les versions 2.2 et 2.3 de Spring Data.
+> 
+> Les versions azure-spring-data-cosmos 3.5.0 et ultérieures prennent en charge les versions 2.4.3 et ultérieures de Spring Data.
+>
 
 [Spring Framework](https://spring.io/projects/spring-framework) est un modèle de programmation et de configuration qui rationalise le développement d’applications Java. Spring rationalise la « plomberie » des applications en injectant des dépendances. De nombreux développeurs apprécient Spring, car il rend la création et le test d’applications plus simples. [Spring Boot](https://spring.io/projects/spring-boot) étend cette prise en charge de la plomberie en vue du développement d’applications web et de microservices. [Spring Data](https://spring.io/projects/spring-data) est un modèle de programmation et une infrastructure permettant l’accès à des magasins de données tels qu’Azure Cosmos DB à partir du contexte d’une application Spring ou Spring Boot. 
 

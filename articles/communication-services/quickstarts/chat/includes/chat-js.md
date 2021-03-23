@@ -6,16 +6,16 @@ author: mikben
 manager: mikben
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 9/1/2020
+ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 18282bbe902599c471775a853704e459ea44bac1
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 9f62f262e1baa70982e667379a9bf4357197ecb4
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101661642"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103495402"
 ---
 ## <a name="prerequisites"></a>Prérequis
 Avant de commencer, assurez-vous de :
@@ -140,22 +140,22 @@ Utilisez la méthode `createThread` pour créer un fil de conversation.
 - Utilisez `topic` pour attribuer un sujet à cette conversation. Les sujets peuvent être mis à jour après la création du thread de conversation à l’aide de la fonction `UpdateThread`.
 - Utilisez `participants` pour lister les participants à ajouter au fil de conversation.
 
-Une fois résolue, la méthode `createChatThread` retourne une `CreateChatThreadResponse`. Ce modèle contient une propriété `chatThread` où vous pouvez accéder à l’`id` du fil nouvellement créé. Vous pouvez ensuite utiliser l’`id` pour obtenir une instance de `ChatThreadClient`. Le `ChatThreadClient` peut ensuite être utilisé pour effectuer une opération dans le fil, comme envoyer des messages ou lister les participants.
+Une fois résolue, la méthode `createChatThread` retourne une `CreateChatThreadResult`. Ce modèle contient une propriété `chatThread` où vous pouvez accéder à l’`id` du fil nouvellement créé. Vous pouvez ensuite utiliser l’`id` pour obtenir une instance de `ChatThreadClient`. Le `ChatThreadClient` peut ensuite être utilisé pour effectuer une opération dans le fil, comme envoyer des messages ou lister les participants.
 
 ```JavaScript
 async function createChatThread() {
     let createThreadRequest = {
         topic: 'Preparation for London conference',
         participants: [{
-                    user: { communicationUserId: '<USER_ID_FOR_JACK>' },
+                    id: { communicationUserId: '<USER_ID_FOR_JACK>' },
                     displayName: 'Jack'
                 }, {
-                    user: { communicationUserId: '<USER_ID_FOR_GEETA>' },
+                    id: { communicationUserId: '<USER_ID_FOR_GEETA>' },
                     displayName: 'Geeta'
                 }]
     };
-    let createThreadResponse = await chatClient.createChatThread(createThreadRequest);
-    let threadId = createThreadResponse.chatThread.id;
+    let createChatThreadResult = await chatClient.createChatThread(createThreadRequest);
+    let threadId = createChatThreadResult.chatThread.id;
     return threadId;
     }
 
@@ -184,7 +184,7 @@ Thread created: <thread_id>
 La méthode `getChatThreadClient` retourne un `chatThreadClient` pour un fil qui existe déjà. Elle peut être utilisée pour effectuer des opérations sur le fil créé : ajout de participants, envoi d’un message, etc. threadId est l’ID unique du fil de conversation existant.
 
 ```JavaScript
-let chatThreadClient = await chatClient.getChatThreadClient(threadId);
+let chatThreadClient = chatClient.getChatThreadClient(threadId);
 console.log(`Chat Thread client for threadId:${threadId}`);
 
 ```
@@ -195,35 +195,33 @@ Chat Thread client for threadId: <threadId>
 
 ## <a name="send-a-message-to-a-chat-thread"></a>Envoyer un message à un fil de conversation
 
-Utilisez la méthode `sendMessage` pour envoyer un message de conversation au fil que vous venez de créer, identifié par threadId.
+Utilisez la méthode `sendMessage` pour envoyer un message à un fil identifié par threadId.
 
-`sendMessageRequest` décrit les champs obligatoires de la demande de message de conversation :
+`sendMessageRequest` est utilisé pour décrire la demande de message :
 
 - Utilisez `content` pour fournir le contenu du message de conversation ;
 
-`sendMessageOptions` décrit les champs facultatifs de la demande de message de conversation :
+`sendMessageOptions` sert à décrire les paramètres facultatifs de l’opération :
 
-- Utilisez `priority` pour spécifier le niveau de priorité du message de conversation, par exemple « Normal » ou « Élevé ». Cette propriété peut être utilisée pour afficher un indicateur d’interface destiné à attirer l’attention de l’utilisateur destinataire de votre application sur le message, ou pour exécuter une logique métier personnalisée.
 - Utilisez `senderDisplayName` pour spécifier le nom d’affichage de l’expéditeur ;
+- Utilisez `type` pour spécifier le type de message, par exemple « text » ou « html » ;
 
-La réponse `sendChatMessageResult` contient un ID, qui est l’ID unique de ce message.
+`SendChatMessageResult` est la réponse retournée à la suite de l’envoi du message; elle contient un ID, qui est l’ID unique du message.
 
 ```JavaScript
-
 let sendMessageRequest =
 {
     content: 'Hello Geeta! Can you share the deck for the conference?'
 };
 let sendMessageOptions =
 {
-    priority: 'Normal',
-    senderDisplayName : 'Jack'
+    senderDisplayName : 'Jack',
+    type: 'text'
 };
 let sendChatMessageResult = await chatThreadClient.sendMessage(sendMessageRequest, sendMessageOptions);
 let messageId = sendChatMessageResult.id;
-console.log(`Message sent!, message id:${messageId}`);
-
 ```
+
 Ajoutez ce code à la place du commentaire `<SEND MESSAGE TO A CHAT THREAD>` dans **client.js**, actualisez l’onglet du navigateur et examinez la console.
 ```console
 Message sent!, message id:<number>
@@ -286,7 +284,7 @@ Une fois qu’un fil de conversation est créé, vous pouvez y ajouter des utili
 Avant d’appeler la méthode `addParticipants`, vérifiez que vous avez acquis un nouveau jeton d’accès et une identité pour cet utilisateur. L’utilisateur aura besoin de ce jeton d’accès pour initialiser son client de conversation.
 
 `addParticipantsRequest` décrit l’objet de demande où `participants` liste les participants à ajouter au fil de conversation ;
-- `user`, obligatoire, est l’utilisateur de communication à ajouter au fil de conversation.
+- `id`, obligatoire, est l’identificateur de communication à ajouter au fil de conversation.
 - `displayName`, facultatif, est le nom d’affichage pour le participant au fil.
 - `shareHistoryTime`, facultatif, est le moment à partir duquel l’historique de conversation est partagé avec le participant. Pour partager l’historique depuis le début du fil de conversation, attribuez à cette propriété une date égale ou antérieure à la date de création du fil. Pour ne pas partager l’historique antérieur au moment où le participant a été ajouté, définissez-la sur l’heure actuelle. Pour partager l’historique partiel, attribuez-lui la date de votre choix.
 
@@ -296,7 +294,7 @@ let addParticipantsRequest =
 {
     participants: [
         {
-            user: { communicationUserId: '<NEW_PARTICIPANT_USER_ID>' },
+            id: { communicationUserId: '<NEW_PARTICIPANT_USER_ID>' },
             displayName: 'Jane'
         }
     ]

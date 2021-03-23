@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 2/25/2021
-ms.openlocfilehash: 3ae81a9c05f0c88a52db6409bf870ee0427f09db
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 37f6a779e7dd83a6aa61de9850ad3b49b57393f9
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101696051"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103010438"
 ---
 # <a name="register-and-scan-oracle-source-preview"></a>Inscrire et analyser une source Oracle (préversion)
 
@@ -31,7 +31,7 @@ La source Oracle prend en charge l’**Analyse complète** pour extraire les mé
 
 3.  Vérifiez que le package \"Visual C++ Redistributable 2012 Update 4\" est installé sur la machine dotée du runtime d’intégration auto-hébergé. S\'il n’est pas déjà installé, vous pouvez le télécharger [ici](https://www.microsoft.com/download/details.aspx?id=30679).
 
-4.  Vous devrez télécharger manuellement un pilote Oracle JDBC nommé « oracle.jdbc.driver.OracleDriver\' » sur la machine virtuelle où s’exécute le runtime d’intégration auto-hébergé.
+4.  Vous devez télécharger manuellement le pilote Oracle JDBC [ici](https://www.oracle.com/database/technologies/appdev/jdbc-downloads.html) sur la machine virtuelle où s’exécute le runtime d’intégration auto-hébergé.
 
     > [!Note] 
     > Le pilote doit être accessible à tous les comptes de la machine virtuelle. Ne l’installez pas dans un compte d’utilisateur.

@@ -7,22 +7,25 @@ ms.reviewer: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 11/09/2019
-ms.openlocfilehash: b0f564f68a638e7efd1cd1ce9116a26f4d19f277
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 03/11/2021
+ms.openlocfilehash: 5deaef04330e21c8d9c580bf2a16814d4e902f6a
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96497042"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199868"
 ---
 # <a name="transform-data-using-mapping-data-flows"></a>Transformer des données avec des flux de données de mappage
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Si vous débutez avec Azure Data Factory, consultez [Présentation d’Azure Data Factory](introduction.md).
 
 Dans ce tutoriel, vous allez utiliser l’interface utilisateur Azure Data Factory pour créer un pipeline qui copie et transforme des données d’une source Azure Data Lake Storage (ADLS) Gen2 en récepteur ADLS Gen2 à l’aide d’un flux de données de mappage. Le modèle de configuration utilisé dans ce tutoriel peut être développé lors d’une transformation de données à l’aide d’un flux de données de mappage.
 
+ >[!NOTE]
+   >Ce didacticiel est conçu pour le mappage des flux de données en général. Les flux de données sont disponibles à la fois dans Azure Data Factory et Synapse Pipelines. Si vous ne connaissez pas les flux de données dans Azure Synapse Pipelines, consultez [Flux de données avec Azure Synapse Pipelines](https://docs.microsoft.com/azure/synapse-analytics/concepts-data-flow-overview) 
+   
 Dans ce tutoriel, vous effectuez les étapes suivantes :
 
 > [!div class="checklist"]

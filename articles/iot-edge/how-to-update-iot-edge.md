@@ -9,14 +9,16 @@ ms.date: 03/01/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9c311826c2b17f8e9f95d1ef31980922154635b9
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 6d4840dcbe67a0bd94c74b43164c24e0c45e9daf
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102042315"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200652"
 ---
 # <a name="update-the-iot-edge-security-daemon-and-runtime"></a>Mettre à jour le runtime et le démon de sécurité IoT Edge
+
+[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
 
 Chaque fois que le service IoT Edge publiera de nouvelles versions, vous pourrez mettre à jour vos appareils IoT Edge pour obtenir les dernières fonctionnalités et améliorations de la sécurité. Cet article fournit des informations sur la façon de mettre à jour vos appareils IoT Edge quand une nouvelle version est disponible.
 
@@ -120,8 +122,9 @@ Si vous souhaitez effectuer une mise à jour vers la version la plus récente d�
 # <a name="windows"></a>[Windows](#tab/windows)
 
 <!-- 1.1 -->
-:::moniker range="iotedge-2018-06"
-Avec IoT Edge pour Linux sur Windows, IoT Edge s’exécute sur une machine virtuelle Linux hébergée sur un appareil Windows. Cette machine virtuelle est préinstallée avec IoT Edge et gérée avec Microsoft Update pour maintenir les composants à jour. Aucune mise à jour n’est disponible actuellement.
+::: moniker range="iotedge-2018-06"
+
+Avec IoT Edge pour Linux sur Windows, IoT Edge s’exécute sur une machine virtuelle Linux hébergée sur un appareil Windows. Cette machine virtuelle est préinstallée avec IoT Edge et gérée avec Microsoft Update pour maintenir les composants à jour. Si les mises à jour automatiques sont activées, les nouvelles mises à jour sont téléchargées et installées lorsqu’elles deviennent disponibles.
 
 Avec IoT Edge pour Windows, IoT Edge s’exécute directement sur l’appareil Windows. Pour obtenir des instructions de mise à jour avec des scripts PowerShell, consultez [Installation et gestion d’Azure IoT Edge pour Windows](how-to-install-iot-edge-windows-on-windows.md).
 :::moniker-end

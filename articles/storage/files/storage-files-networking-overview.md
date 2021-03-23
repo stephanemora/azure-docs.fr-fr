@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 02/22/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 7164c3dd5c98544f3cb2944cb33cfd0e9703e36d
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: cec386b798b843a5badc9d52d9c71bd7df54b59a
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90563333"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103601931"
 ---
 # <a name="azure-files-networking-considerations"></a>Considérations relatives à la mise en réseau Azure Files 
 Vous pouvez vous connecter à un partage de fichiers Azure de deux manières :
@@ -25,6 +25,15 @@ Cet article explique comment configurer la mise en réseau lorsque votre cas d�
 La configuration réseau des partages de fichiers Azure s’effectue sur le compte de stockage Azure. Un compte de stockage est une construction de gestion qui représente un pool de stockage partagé dans lequel vous pouvez déployer plusieurs partages de fichiers, ainsi que d’autres ressources de stockage, telles que des conteneurs d’objets blob ou des files d’attente. Les comptes de stockage présentent plusieurs paramètres qui permettent sécuriser l’accès réseau à vos partages de fichiers : points de terminaison réseau, paramètres de pare-feu de compte de stockage et chiffrement en transit. 
 
 Avant d’entamer la lecture de ce guide conceptuel, nous vous recommandons de lire [Planification d’un déploiement Azure Files](storage-files-planning.md).
+
+:::row:::
+    :::column:::
+        <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/jd49W33DxkQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    :::column-end:::
+    :::column:::
+        Cette vidéo montre comment exposer directement et de façon sécurisée les partages de fichiers Azure aux travailleurs de l’information et aux applications, en cinq étapes simples. Les sections ci-dessous fournissent des liens et un contexte supplémentaire à la documentation référencée dans la vidéo.
+   :::column-end:::
+:::row-end:::
 
 ## <a name="accessing-your-azure-file-shares"></a>Accès à vos partages de fichiers Azure
 Quand vous déployez un partage de fichiers Azure dans un compte de stockage, le partage de fichiers est immédiatement accessible via le point de terminaison public du compte de stockage. Cela signifie que les demandes authentifiées, comme celles qui sont autorisées par l’identité d’ouverture de session d’un utilisateur, peuvent provenir de l’intérieur ou de l’extérieur d’Azure en toute sécurité. 

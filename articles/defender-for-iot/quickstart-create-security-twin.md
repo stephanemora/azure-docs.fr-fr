@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/21/2021
 ms.author: shhazam
-ms.openlocfilehash: 832c8e426b57e6b447ef805f2868a6d42abe3d9d
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: cfd5192a78c34caf5acbe4576f5a00ab314acb61
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102449694"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103489894"
 ---
 # <a name="quickstart-create-an-azureiotsecurity-module-twin"></a>Démarrage rapide : Créer un jumeau de module azureiotsecurity
 
@@ -26,7 +26,7 @@ Ce guide de démarrage rapide explique comment créer des jumeaux de module _azu
 
 ## <a name="prerequisites"></a>Prérequis
 
-Aucun
+None
 
 ## <a name="understanding-azureiotsecurity-module-twins"></a>Présentation des jumeaux de module azureiotsecurity
 
@@ -39,9 +39,9 @@ Consultez [Jumeaux de module IoT Hub](../iot-hub/iot-hub-devguide-module-twins.m
 
 Defender pour IoT utilise le mécanisme de jumelage de module et gère un jumeau de module de sécurité nommé _azureiotsecurity_ pour chacun de vos appareils.
 
-Le jumeau de module de sécurité contient toutes les informations relatives à la sécurité de l’appareil pour chacun de vos appareils.
+Le jumeau de micro-agent Defender-IoT contient toutes les informations relatives à la sécurité de l’appareil pour chacun de vos appareils.
 
-Afin de tirer pleinement parti des fonctionnalités de Defender pour IoT, vous devez créer, configurer et utiliser ce jumeau de module de sécurité pour chaque appareil dans le service.
+Afin de tirer pleinement parti des fonctionnalités de Defender pour IoT, vous devez créer, configurer et utiliser ce jumeau du micro-agent Defender IoT pour chaque appareil dans le service.
 
 ## <a name="create-azureiotsecurity-module-twin"></a>Créer un jumeau de module azureiotsecurity
 

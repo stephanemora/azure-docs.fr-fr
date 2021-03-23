@@ -8,12 +8,12 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 01/28/2021
 ms.author: allensu
-ms.openlocfilehash: 0218bfef66e779a31d999c8d58bc1ce2691f46d4
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: ac21e1f00dc2a5580b90a1a5eb43da05288e800a
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102179219"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103489421"
 ---
 # <a name="backend-pool-management"></a>Gestion du pool back-end
 Le pool back-end est un composant essentiel de l’équilibreur de charge. Il définit le groupe de ressources qui va servir le trafic pour une règle d’équilibrage de charge donnée.
@@ -250,7 +250,11 @@ Corps de la demande JSON :
 ```
 
 ### <a name="resource-manager-template"></a>Modèle Resource Manager
+
 Suivez ce [modèle Resource Manager de démarrage rapide](https://github.com/Azure/azure-quickstart-templates/tree/master/101-load-balancer-standard-create/) pour déployer un équilibreur de charge et des machines virtuelles, puis ajouter les machines virtuelles au pool back-end par le biais d’une interface réseau.
+
+Suivez ce [modèle Resource Manager de démarrage rapide](https://github.com/Azure/azure-quickstart-templates/tree/master/101-load-balancer-ip-configured-backend-pool) pour déployer un équilibreur de charge et des machines virtuelles, puis ajouter les machines virtuelles au pool back-end par le biais d’une adresse IP.
+
 
 ## <a name="configure-backend-pool-by-ip-address-and-virtual-network"></a>Configurer le pool back-end par adresse IP et réseau virtuel
 Dans les scénarios avec des pools de back-ends préremplis, utilisez l’adresse IP et le réseau virtuel.

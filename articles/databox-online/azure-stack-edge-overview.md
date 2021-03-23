@@ -6,22 +6,24 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 09/09/2020
+ms.date: 03/15/2021
 ms.author: alkohli
-ms.openlocfilehash: 51469c23574f55c102f0c6fb98e5aa5178b59a4a
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 3973235991a16d118b47d7289f3a1825621a9023
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96455745"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103574677"
 ---
 # <a name="what-is-azure-stack-edge-pro-with-fpga"></a>Qu’est-ce qu’Azure Stack Edge Pro avec FPGA ?
 
-[!INCLUDE [data-box-edge-gateway-rename-note](../../includes/data-box-edge-gateway-rename-note.md)]
+[!INCLUDE [Azure Stack Edge Pro FPGA end-of-life](../../includes/azure-stack-edge-fpga-eol.md)]
 
-Azure Stack Edge Pro avec FPGA est un appareil de computing en périphérie qui prend en charge l’IA et présente des fonctionnalités de transfert de données via le réseau. Cet article vous fournit une vue d’ensemble de la solution Azure Stack Edge Pro avec FPGA, ses avantages, ses principales fonctionnalités et les scénarios dans lesquels vous pouvez déployer cet appareil.
+Azure Stack Edge Pro avec FPGA est un appareil de computing en périphérie qui prend en charge l’IA et présente des fonctionnalités de transfert de données via le réseau. Cet article vous fournit une vue d’ensemble de la solution Azure Stack Edge Pro avec FPGA, ses avantages, ses principales fonctionnalités et les scénarios de déploiement.
 
-Azure Stack Edge Pro avec FPGA est une solution de matériel en tant que service. Microsoft fournit un appareil géré dans le cloud avec un FPGA (Field Programmable Gate Array) intégré, qui permet une inférence accélérée de l’IA et possède toutes les fonctionnalités d’une passerelle de stockage réseau. 
+Azure Stack Edge Pro avec FPGA est une solution de matériel en tant que service. Microsoft fournit un appareil géré dans le cloud avec un FPGA (Field Programmable Gate Array) intégré, qui permet une inférence accélérée de l’IA et possède toutes les fonctionnalités d’une passerelle de stockage réseau.
+
+Azure Data Box Edge a été renommé Azure Stack Edge.
 
 ## <a name="use-cases"></a>Cas d'utilisation
 
@@ -62,11 +64,13 @@ La solution Azure Stack Edge Pro se compose d’une ressource Azure Stack Edge, 
 
 * **Appareil physique Azure Stack Edge Pro** : un serveur 1U monté en rack, fourni par Microsoft qui peut être configuré pour envoyer des données vers Azure.
     
-* **Ressource Azure Stack Edge** : ressource du portail Azure, qui vous permet de gérer un appareil Azure Stack Edge Pro à partir d’une interface web accessible depuis divers emplacements géographiques. Utilisez la ressource Azure Stack Edge pour créer et gérer des ressources, afficher et gérer les appareils et les alertes, et gérer les partages.  
+* **Ressource Azure Stack Edge** : ressource du portail Azure, qui vous permet de gérer un appareil Azure Stack Edge Pro à partir d’une interface web accessible depuis divers emplacements géographiques. Utilisez la ressource Azure Stack Edge pour créer et gérer des ressources, afficher et gérer les appareils et les alertes, et gérer les partages.
+  
+   <!--[The Azure Stack Edge service in Azure portal](media/data-box-overview/data-box-Edge-service1.png)-->
 
-    <!--![The Azure Stack Edge service in Azure portal](media/data-box-overview/data-box-Edge-service1.png)-->
+   Alors qu’Azure Stack Edge Pro approche sa fin de vie, aucune commande n’est prise pour les nouveaux appareils Azure Stack Edge Pro. Si vous êtes un nouveau client, nous vous recommandons d’explorer à l’aide des appareils Azure Stack Edge Pro avec GPU pour vos charges de travail. Pour plus d’informations, consultez [Qu’est-ce qu’Azure Stack Edge Pro avec GPU](azure-stack-edge-gpu-overview.md). Pour plus d’informations sur la commande d’un appareil Azure Stack Edge Pro avec GPU, accédez à [Créer une ressource pour Azure Stack Edge Pro avec GPU](azure-stack-edge-gpu-deploy-prep.md?tabs=azure-portal#create-a-new-resource).
 
-    Pour plus d’informations, accédez à la section vous expliquant comment [Créer une commande pour votre appareil Azure Stack Edge Pro](azure-stack-edge-deploy-prep.md#create-a-new-resource).
+   Si vous êtes un client existant, vous pouvez toujours créer une nouvelle ressource Azure Stack Edge Pro si vous devez remplacer ou réinitialiser votre appareil Azure Stack Edge Pro existant. Pour plus d’instructions, consultez [Créer une commande pour votre appareil Azure Stack Edge Pro](azure-stack-edge-deploy-prep.md#create-new-resource-for-existing-device).
 
 * **Interface utilisateur web locale Azure Stack Edge Pro** : utilisez l’interface utilisateur web locale pour exécuter des diagnostics, arrêter et redémarrer l’appareil Azure Stack Edge Pro, afficher les journaux d’activité de copie, et contactez le support Microsoft pour créer une demande de service.
 
@@ -86,4 +90,4 @@ L’appareil physique Azure Stack Edge Pro, la ressource Azure et le compte de s
 
 - Relire les [Conditions requises pour le système Azure Stack Edge Pro](azure-stack-edge-system-requirements.md).
 - Comprendre les [limites d’Azure Stack Edge Pro](azure-stack-edge-limits.md).
-- Déployer [Azure Stack Edge Pro](azure-stack-edge-deploy-prep.md) dans le portail Azure.
+- Déployer [Azure Stack Edge Pro](azure-stack-edge-deploy-prep.md) sur le portail Azure.

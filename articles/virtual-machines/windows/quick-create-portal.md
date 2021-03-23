@@ -6,15 +6,15 @@ ms.service: virtual-machines
 ms.collection: windows
 ms.topic: quickstart
 ms.workload: infrastructure
-ms.date: 11/05/2019
+ms.date: 03/15/2021
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 5e52fab081a94ad58e91c629f4092ae889d38e7a
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 0ba28d003f359af12de6242c6d2444fb8adab0d7
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102560920"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103562752"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-in-the-azure-portal"></a>Démarrage rapide : Créer une machine virtuelle Windows dans le portail Azure
 
@@ -30,12 +30,12 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
 
 1. Tapez **machines virtuelles** dans la zone de recherche.
 1. Sous **Services**, sélectionnez **Machines virtuelles**.
-1. Sur la page **Machines virtuelles**, sélectionnez **Ajouter**. 
+1. Sur la page **Machines virtuelles**, sélectionnez **Ajouter**, puis **Machine virtuelle**. 
 1. Sous l’onglet **De base**, sous **Détails du projet**, vérifiez que l’abonnement approprié est sélectionné, puis choisissez **Créer** pour créer un groupe de ressources. Tapez *myResourceGroup* comme nom. 
 
     ![Capture d’écran de la section Détails du projet montrant où vous sélectionnez l’abonnement Azure et le groupe de ressources pour la machine virtuelle](./media/quick-create-portal/project-details.png)
 
-1. Sous **Détails de l’instance**, tapez *myVM* comme **Nom de la machine virtuelle**, puis choisissez *USA Est* comme **Région** et *Centre de données Windows Server 2019* pour **Image**. Conservez les autres valeurs par défaut.
+1. Sous **Détails de l’instance**, tapez *myVM* comme **Nom de la machine virtuelle**, puis choisissez *USA Est* comme **Région**. Choisissez *Windows Server 2019 Datacenter* pour l’**Image** et *Standard_DS1_v2* pour la **Taille**. Conservez les autres valeurs par défaut.
 
     ![Capture d’écran de la section Détails de l’instance où vous spécifiez un nom pour la machine virtuelle et où vous sélectionnez sa région, son image et sa taille](./media/quick-create-portal/instance-details.png)
 
@@ -51,16 +51,21 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
 
     ![Capture d’écran montrant le bouton Vérifier + créer en bas de la page](./media/quick-create-portal/review-create.png)
 
+1. Une fois la validation exécutez, sélectionnez le bouton **Créer** en bas de la page.
+
+1. Une fois le déploiement effectué, sélectionnez **Accéder à la ressource**.
+
+    ![Capture d’écran montrant l’étape suivante d’accès à la ressource](./media/quick-create-portal/next-steps.png)
 
 ## <a name="connect-to-virtual-machine"></a>Connexion à la machine virtuelle
 
 Créez une connexion Bureau à distance à la machine virtuelle. Ces instructions expliquent comment se connecter à la machine virtuelle à partir d’un ordinateur Windows. Sur un Mac, vous avez besoin d’un client RDP similaire à ce [Client Bureau à distance](https://apps.apple.com/app/microsoft-remote-desktop/id1295203466?mt=12) disponible sur le Mac App Store.
 
-1. Sélectionnez le bouton **Se connecter** sur la page de vue d’ensemble de votre machine virtuelle. 
+1. Sélectionnez le bouton **Se connecter** sur la page de vue d’ensemble de votre machine virtuelle, puis **RDP**. 
 
     ![Capture d’écran de la page de vue d’ensemble de la machine virtuelle montrant l’emplacement du bouton Se connecter](./media/quick-create-portal/portal-quick-start-9.png)
     
-2. Sur la page **Se connecter à la machine virtuelle**, conservez les options par défaut pour vous connecter par adresse IP sur le port 3389 et cliquez sur **Télécharger le fichier RDP**.
+2. Sur la page **Se connecter avec RDP**, conservez les options par défaut pour vous connecter par adresse IP sur le port 3389 et cliquez sur **Télécharger le fichier RDP**.
 
 2. Ouvrez le fichier RDP téléchargé et, à l’invite, cliquez sur **Se connecter**. 
 
@@ -81,7 +86,7 @@ Une fois terminé, fermez la connexion RDP à la machine virtuelle.
 
 ## <a name="view-the-iis-welcome-page"></a>Afficher la page d’accueil IIS
 
-Dans le portail, sélectionnez la machine virtuelle et dans la vue d’ensemble de la machine virtuelle, utilisez le bouton **Cliquer pour copier** à droite de l’adresse IP pour la copier-coller dans un onglet de navigateur. La page d’accueil IIS par défaut s’ouvre et devrait ressembler à ceci :
+Dans le portail, sélectionnez la machine virtuelle puis, dans la vue d’ensemble de la machine virtuelle, pointez sur l’adresse IP pour afficher **Copier dans le presse-papiers**. Copiez l’adresse IP et collez-la dans un onglet de navigateur. La page d’accueil IIS par défaut s’ouvre et devrait ressembler à ceci :
 
 ![Capture d’écran du site IIS par défaut dans un navigateur](./media/quick-create-powershell/default-iis-website.png)
 
@@ -89,7 +94,7 @@ Dans le portail, sélectionnez la machine virtuelle et dans la vue d’ensemble 
 
 Dès que vous n’en avez plus besoin, vous pouvez supprimer le groupe de ressources, la machine virtuelle et toutes les ressources associées. 
 
-Sélectionnez le groupe de ressources de la machine virtuelle, puis sélectionnez **Supprimer**. Confirmez le nom du groupe de ressources pour terminer la suppression des ressources.
+Accédez au groupe de ressources de la machine virtuelle, puis sélectionnez **Supprimer le groupe de ressources**. Confirmez le nom du groupe de ressources pour terminer la suppression des ressources.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

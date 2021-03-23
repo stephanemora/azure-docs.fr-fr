@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 05/13/2019
+ms.date: 03/12/2021
 ms.author: kenwith
-ms.openlocfilehash: 62d035b85850f8ac455a85fd93e4d081bbd386e1
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 0f8369c80a7a219b159f31aacb7d10a0dd009d00
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99256083"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103418672"
 ---
 # <a name="sync-an-attribute-from-your-on-premises-active-directory-to-azure-ad-for-provisioning-to-an-application"></a>Synchronisez un attribut à partir d’un répertoire Active Directory local vers Azure AD pour la configuration vers une application donnée
 
@@ -23,9 +23,9 @@ Lors de la personnalisation des mappages d’attributs pour la configuration uti
 
 Azure AD doit contenir toutes les données requises pour créer un profil utilisateur lors de la configuration des comptes utilisateur d’Azure AD vers une application SaaS. Pour rendre les données disponibles, vous devez parfois synchroniser les attributs de votre répertoire AD local vers Azure AD. Azure AD Connect synchronise automatiquement certains attributs avec Azure AD, mais pas tous. En outre, certains attributs (tels que SAMAccountName) qui sont synchronisés par défaut peuvent ne pas être exposés par le biais de l'API Microsoft Graph. Dans ce cas, vous pouvez utiliser la fonctionnalité d’extension de répertoire Azure AD Connect pour synchroniser l’attribut avec Azure AD. De cette façon, l'attribut est visible pour l'API Microsoft Graph et le service de configuration Azure AD.
 
-Si les données dont vous avez besoin pour la configuration se trouvent dans Active Directory, mais ne sont pas disponibles pour la configuration à cause des raisons décrites ci-dessus, procédez comme suit.
+Si les données dont vous avez besoin pour l’approvisionnement se trouvent dans Active Directory mais ne sont pas disponibles pour l’approvisionnement pour les raisons décrites ci-dessus, vous pouvez utiliser Azure AD Connect ou PowerShell pour créer des attributs d’extension. 
  
-## <a name="sync-an-attribute"></a>Synchroniser un attribut 
+## <a name="create-an-extension-attribute-using-azure-ad-connect"></a>Créer un attribut d’extension à l’aide d’Azure AD Connect
 
 1. Ouvrez l’Assistant Azure AD Connect et sélectionnez Tâches, puis **Personnaliser les options de synchronisation**.
 
@@ -51,6 +51,33 @@ Si les données dont vous avez besoin pour la configuration se trouvent dans Act
 
 > [!NOTE]
 > À l’heure actuelle, il n’est pas possible de configurer les attributs de référence à partir du répertoire AD local, comme **managedby** ou **DN/DistinguishedName**. Vous pouvez demander cette fonctionnalité sur [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory). 
+
+## <a name="create-an-extension-attribute-using-powershell"></a>Créer un attribut d’extension à l’aide de PowerShell
+Créer une extension personnalisée à l’aide de PowerShell et attribuer une valeur à un utilisateur. 
+
+```
+#Connect to your Azure AD tenant   
+Connect-AzureAD
+
+#Create an application (you can instead use an existing application if you would like)
+$App = New-AzureADApplication -DisplayName “test app name” -IdentifierUris https://testapp
+
+#Create a service principal
+New-AzureADServicePrincipal -AppId $App.AppId
+
+#Create an extension property
+New-AzureADApplicationExtensionProperty -ObjectId $App.ObjectId -Name “TestAttributeName” -DataType “String” -TargetObjects “User”
+
+#List users in your tenant to determine the objectid for your user
+Get-AzureADUser
+
+#Set a value for the extension property on the user. Replace the objectid with the id of the user and the extension name with the value from the previous step
+Set-AzureADUserExtension -objectid 0ccf8df6-62f1-4175-9e55-73da9e742690 -ExtensionName “extension_6552753978624005a48638a778921fan3_TestAttributeName”
+
+#Verify that the attribute was added correctly.
+Get-AzureADUser -ObjectId 0ccf8df6-62f1-4175-9e55-73da9e742690 | Select -ExpandProperty ExtensionProperty
+
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

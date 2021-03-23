@@ -4,14 +4,14 @@ description: Configuration des services d’annuaire pour l’accès client aux 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 12/22/2020
+ms.date: 03/15/2021
 ms.author: v-erkel
-ms.openlocfilehash: 28265861c98cceaedf7d2662f6526a9f62fe68de
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: fd5dce0760953bf19c72e1a1062a9c03ffe861e7
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97803763"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103563368"
 ---
 # <a name="configure-directory-services"></a>Configurer les services d’annuaire
 
@@ -75,13 +75,13 @@ Le serveur et le ND de base sont les seuls paramètres obligatoires pour que LDA
 
 Dans la section **Accès sécurisé**, vous pouvez activer le chiffrement et la validation des certificats pour la connexion LDAP. Après avoir cliqué sur **Oui** pour activer le chiffrement, vous disposez des options suivantes :
 
-* **Exiger un certificat valide** : lorsque cette valeur est définie, le certificat du serveur LDAP est vérifié par rapport à l’autorité de certification définie dans le champ URI ci-dessous.
+* **Valider le certificat** : lorsque cette valeur est définie, le certificat du serveur LDAP est vérifié par rapport à l’autorité de certification définie dans le champ URI ci-dessous.
 
 * **URI du certificat d’autorité de certification** : spécifiez le chemin d’accès au certificat faisant autorité. Il peut s’agir d’un lien vers un certificat validé par l’autorité de certification ou vers un certificat auto-signé. Ce champ est obligatoire pour utiliser le paramètre Certificats validés en externe.
 
 * **Télécharger automatiquement le certificat** : choisissez **Oui** si vous souhaitez essayer de télécharger un certificat dès que vous envoyez ces paramètres.
 
-Renseignez la section **Informations d’identification** si vous souhaitez utiliser des informations d’identification statiques pour la sécurité LDAP.
+Renseignez la section **Informations d’identification** si vous souhaitez utiliser des informations d’identification statiques pour la sécurité LDAP. Ces informations sont chiffrées lorsqu’elles sont stockées et ne peuvent pas être interrogées.
 
 * **Nom unique de la liaison** : entrez le nom unique de la liaison à utiliser pour s’authentifier au serveur LDAP. (Utilisez le format DN.)
 * **Mot de passe de la liaison** : indiquez le mot de passe du nom unique de la liaison.

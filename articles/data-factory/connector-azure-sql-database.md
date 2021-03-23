@@ -6,13 +6,13 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/11/2021
-ms.openlocfilehash: 07fbc7b1137d7eaf8a73a806c6a3714fab274df0
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 03/15/2021
+ms.openlocfilehash: d64b1413267a62daa46a112e706a4381189baf77
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100393103"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103564340"
 ---
 # <a name="copy-and-transform-data-in-azure-sql-database-by-using-azure-data-factory"></a>Copier et transformer des données dans Azure SQL Database à l’aide d’Azure Data Factory
 
@@ -643,7 +643,12 @@ Les paramètres spécifiques à Azure SQL Database sont disponibles dans l’ong
 
 **Requête** : Si vous sélectionnez Requête dans le champ Entrée, entrez une requête SQL pour votre source. Ce paramètre remplace toute table que vous avez choisie dans le jeu de données. Les clauses **Order By** ne sont pas prises en charge ici, mais vous pouvez définir une instruction SELECT FROM complète. Vous pouvez également utiliser des fonctions de table définies par l’utilisateur. **select * from udfGetData()** est une fonction UDF dans SQL qui retourne une table. Cette requête génère une table source que vous pouvez utiliser dans votre flux de données. L’utilisation de requêtes est également un excellent moyen de réduire les lignes pour les tests ou les recherches.
 
+**Procédure stockée** : choisissez cette option si vous souhaitez générer une projection et des données source à partir d’une procédure stockée exécutée à partir de votre base de données source. Vous pouvez entrer le schéma, le nom de la procédure et les paramètres, ou cliquer sur Actualiser pour demander à ADF de découvrir les schémas et les noms des procédures. Ensuite, vous pouvez cliquer sur Importer pour importer tous les paramètres de procédure avec la forme ``@paraName``.
+
+![Procédure stockée](media/data-flow/stored-procedure-2.png "Procédure stockée")
+
 - Exemple SQL : ```Select * from MyTable where customerId > 1000 and customerId < 2000```
+- Exemple de SQL paramétrisé : ``"select * from {$tablename} where orderyear > {$year}"``
 
 **Taille du lot** : entrez la taille de lot que doivent avoir les lectures créées à partir d’un large volume de données.
 
@@ -772,7 +777,7 @@ Plus précisément :
         Driver={ODBC Driver 17 for SQL Server};Server=<serverName>;Database=<databaseName>;ColumnEncryption=Enabled;KeyStoreAuthentication=KeyVaultClientSecret;KeyStorePrincipalId=<servicePrincipalKey>;KeyStoreSecret=<servicePrincipalKey>
         ```
 
-    - Pour utiliser **l’authentification d’identité managée Data Factory** : 
+    - Si vous exécutez des runtimes d’intégration auto-hébergés sur une machine virtuelle Azure, vous pouvez utiliser l’**authentification d’identité managée** avec l’identité de la machine virtuelle Azure :
 
         1. Respectez les mêmes [conditions préalables](#managed-identity) pour créer un utilisateur de base de données pour l’identité managée et accorder le rôle approprié dans votre base de données.
         2. Dans le service lié, spécifiez la chaîne de connexion ODBC comme indiqué ci-dessous, puis sélectionnez l’authentification **anonyme**, car la chaîne de connexion elle-même indique `Authentication=ActiveDirectoryMsi`.

@@ -6,14 +6,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 03/02/2021
+ms.date: 03/12/2021
 ms.custom: references_regions
-ms.openlocfilehash: 36f10bebfc42ae5e9e75206392e8a5f8ccef563a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: b4dc8ab44d341b293c044843e6dff2a3b6d3102c
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101694595"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103233546"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Nouveauté dans Recherche cognitive Azure
 
@@ -23,7 +23,7 @@ Découvrir les nouveautés du service. Marquez cette page pour rester au fait de
 
 |Fonctionnalité&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Description | Disponibilité  |
 |------------------------------|---------------|---------------|
-| [Recherche sémantique](semantic-search-overview.md) | Ensemble de fonctionnalités liées aux requêtes qui améliorent la pertinence des résultats de recherche sans le moindre effort. En modifiant légèrement une demande de recherche, vous pouvez essayer ces fonctionnalités sur des index existants.</br></br>La [requête sémantique](semantic-how-to-query-request.md) est un nouveau type de requête qui tire parti des avancées en matière de traitement en langage naturel pour améliorer le classement, ainsi que pour comprendre l’intention de la requête de fournir des réponses, des légendes et des mises en surbrillance sémantiques.</br></br>Le [classement et les réponses sémantiques (réponses, légendes et mises en surbrillance)](semantic-how-to-query-response.md) font référence au modèle qui évalue les résultats et à la capacité du modèle à ajouter une structure à la réponse. | Préversion publique ([sur demande](https://aka.ms/SemanticSearchPreviewSignup)). </br></br>Utilisez l’API [Search Documents (REST)](/rest/api/searchservice/preview-api/search-documents) (api-version=2020-06-30-Preview) et l’[Explorateur de recherche](search-explorer.md) dans le portail Azure. </br></br>Des restrictions de région et de niveau s’appliquent. |
+| [Recherche sémantique](semantic-search-overview.md) | Ensemble de fonctionnalités liées aux requêtes qui améliorent significativement la pertinence des résultats de recherche sans le moindre effort. </br></br>Le [classement sémantique](semantic-ranking.md) calcule les scores de pertinence en utilisant la signification sémantique des mots et du contenu. </br></br>Les [légendes sémantiques](semantic-how-to-query-request.md) sont des passages pertinents du document qui résument le mieux le document, avec des surlignages sur les termes ou expressions les plus importants. </br></br>Les [réponses sémantiques](semantic-answers.md) sont des passages clés, extraits d’un document de recherche, qui sont formulés comme une réponse directe à une requête qui ressemble à une question. | Préversion publique ([sur demande](https://aka.ms/SemanticSearchPreviewSignup)). </br></br>Utilisez l’API [Search Documents (REST)](/rest/api/searchservice/preview-api/search-documents) (api-version=2020-06-30-Preview) et l’[Explorateur de recherche](search-explorer.md) dans le portail Azure. </br></br>Des restrictions de région et de niveau s’appliquent. |
 | [Vérification orthographique des termes de la requête](speller-how-to-add.md) | Vous pouvez appliquer la vérification orthographique aux termes de la requête avant que ceux-ci ne parviennent au moteur de recherche. L’option `speller` fonctionne avec n’importe quel type de requête (simple, complète ou sémantique). |  Préversion publique, REST uniquement, api-version=2020-06-30-Preview|
 | [Indexeur SharePoint Online](search-howto-index-sharepoint-online.md) | Cet indexeur vous connecte à un site SharePoint Online, ce qui vous permet d’indexer le contenu d’une bibliothèque de documents. | Préversion publique, REST uniquement, api-version=2020-06-30-Preview |
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/25/2021
 ms.author: shhazam
-ms.openlocfilehash: afe62e5cf255df28ea395405fc894ec5c15bb18c
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: e6d83dafbe4b7f7013ab32039acaff7d8faa4a91
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102449711"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103487749"
 ---
 # <a name="quickstart-configure-your-azure-defender-for-iot-solution"></a>Démarrage rapide : Configurer votre solution Azure Defender pour IoT
 
@@ -60,7 +60,7 @@ Defender pour IoT supervise désormais les groupes de ressources que vous avez r
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Passez à l’article suivant pour savoir comment créer des modules de sécurité...
+Allez à l’article suivant pour découvrir comment créer des micro-agents Defender-IoT...
 
 > [!div class="nextstepaction"]
-> [Créer des modules de sécurité](quickstart-create-security-twin.md)
+> [Créer des micro-agents Defender-IoT](quickstart-create-security-twin.md)

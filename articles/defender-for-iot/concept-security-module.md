@@ -1,6 +1,6 @@
 ---
-title: Jumeaux d'appareil et de module de sécurité
-description: En savoir plus sur le concept des jumeaux de module de sécurité et la manière dont ils sont utilisés dans Defender pour IoT.
+title: Micro-agent Defender-IoT et jumeaux d’appareil
+description: Découvrez le concept de jumeaux de micro-agent Defender-IoT et leur utilisation dans Defender pour IoT.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/24/2019
 ms.author: mlottner
-ms.openlocfilehash: feb84a1261e37600c68d8e372162033d4021f564
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 552da329b90b102a13ef53158ec81be87684c1fc
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100522918"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103493184"
 ---
-# <a name="security-module"></a>Module de sécurité
+# <a name="defender-iot-micro-agent"></a>Micro-agent Defender-IoT
 
 Cet article explique la manière dont Defender pour IoT utilise les jumeaux et les modules d’appareils.
 
@@ -32,15 +32,15 @@ Defender pour IoT offre une intégration complète à votre plateforme de gestio
 
 En savoir plus sur le concept de [jumeaux d’appareils](../iot-hub/iot-hub-devguide-device-twins.md) dans Azure IoT Hub.
 
-## <a name="security-module-twins"></a>Jumeaux de module de sécurité
+## <a name="defender-iot-micro-agent-twins"></a>Jumeaux de micro-agent Defender-IoT
 
-Defender pour IoT conserve un jumeau de module de sécurité pour chaque appareil du service.
-Le jumeau de module de sécurité contient toutes les informations relatives à la sécurité de l’appareil pour chaque appareil spécifique de votre solution.
-Les propriétés de sécurité d’appareil sont conservées dans un jumeau de module de sécurité dédié, pour une communication plus sûre et pour permettre des mises à jour et une maintenance nécessitant moins de ressources.
+Defender pour IoT maintient un jumeau de micro-agent Defender-IoT pour chaque appareil dans le service.
+Le jumeau de micro-agent Defender-IoT contient toutes les informations relatives à la sécurité de l’appareil pour chaque appareil spécifique de votre solution.
+Les propriétés de sécurité d’appareil sont conservées dans un jumeau de micro-agent Defender-IoT dédié, pour une communication plus sûre et pour permettre des mises à jour et une maintenance nécessitant moins de ressources.
 
-Consultez [Créer un jumeau de module de sécurité](quickstart-create-security-twin.md) et [Configurer des agents de sécurité](how-to-agent-configuration.md) pour découvrir comment créer, personnaliser et configurer le jumeau. Consultez [Comprendre les jumeaux de module IoT Hub](../iot-hub/iot-hub-devguide-module-twins.md) pour en savoir plus sur le concept des jumeaux de module dans IoT Hub.
+Consultez [Créer un jumeau de micro-agent Defender-IoT](quickstart-create-security-twin.md) et [Configurer des agents de sécurité](how-to-agent-configuration.md) pour découvrir comment créer, personnaliser et configurer le jumeau. Consultez [Comprendre les jumeaux de module IoT Hub](../iot-hub/iot-hub-devguide-module-twins.md) pour en savoir plus sur le concept des jumeaux de module dans IoT Hub.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="see-also"></a>Voir aussi
 
 - [Vue d’ensemble de Defender pour IoT](overview.md)
 - [Déployer des agents de sécurité](how-to-deploy-agent.md)

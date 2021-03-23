@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/31/2020
-ms.openlocfilehash: 9b2466bbe061dc147d020104b13da197840fe40a
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 07a959d4e8ba41652ba4e31ad59cf852659a5926
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102030781"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199763"
 ---
 # <a name="using-functions-in-azure-monitor-log-queries"></a>Utilisation de fonctions dans les requêtes de journal Azure Monitor
 
@@ -27,7 +27,7 @@ Pour créer une fonction avec Log Analytics sur le portail Azure, cliquez sur **
 | Alias de fonction | Nom court pour utiliser la fonction dans d’autres requêtes. Ne peut pas contenir d’espaces et doit être unique. |
 | Category       | Catégorie pour organiser les fonctions et les requêtes enregistrées dans l’**Explorateur de requêtes**. |
 
-
+Vous pouvez également créer des fonctions à l’aide de l’[API REST](/rest/api/loganalytics/savedsearches/createorupdate) ou de [PowerShell](/powershell/module/az.operationalinsights/new-azoperationalinsightssavedsearch).
 
 
 ## <a name="use-a-function"></a>Utiliser une fonction

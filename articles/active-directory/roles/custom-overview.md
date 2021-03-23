@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b66b004a0371b76f82d525972feefab9c89efb2d
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 3fad2c683890776908afbfbf15ee91d46d564783
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98742044"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103466760"
 ---
 # <a name="overview-of-role-based-access-control-in-azure-active-directory"></a>Vue d’ensemble du contrôle d’accès en fonction du rôle dans Azure Active Directory
 
@@ -60,7 +60,7 @@ Une attribution de rôle est une ressource Azure AD qui associe une *définition
 - Définition de rôle
 - Étendue des ressources
 
-Vous pouvez [créer des attributions de rôles](custom-create.md) à l’aide du portail Azure, d’Azure AD PowerShell ou de l’API Graph. Vous pouvez également [Afficher les attributions d’un rôle personnalisé](custom-view-assignments.md#view-the-assignments-of-a-role).
+Vous pouvez [créer des attributions de rôles](custom-create.md) à l’aide du portail Azure, d’Azure AD PowerShell ou de l’API Graph. Vous pouvez également [énumérer les attributions de rôles](view-assignments.md).
 
 Le diagramme suivant montre un exemple d’attribution de rôle. Dans cet exemple, Chris Green s’est vu attribuer le rôle personnalisé d’administrateur d’inscription des applications dans l’étendue de l’inscription de l’application Contoso Widget Builder. Cette attribution accorde à Chris les autorisations du rôle administrateur d’inscription d’application sur cette inscription d’application spécifique uniquement.
 
@@ -89,4 +89,4 @@ L’utilisation de rôles intégrés dans Azure AD est gratuite, par contre les 
 
 - [Comprendre les rôles Azure AD](concept-understand-roles.md)
 - Créer des attributions de rôles personnalisés à l’aide du [portail Azure, d’Azure AD PowerShell et de l’API Graph](custom-create.md)
-- [Afficher les attributions d’un rôle personnalisé](custom-view-assignments.md)
+- [Répertorier les attributions de rôles](view-assignments.md)

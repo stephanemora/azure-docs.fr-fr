@@ -10,12 +10,12 @@ ms.author: migreene
 ms.date: 08/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8c834caa2285135b7d39c440489b42c366418042
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5833308f03d328d988ac818d83ff5ee618a4c79c
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86186467"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103563570"
 ---
 # <a name="convert-configurations-to-composite-resources"></a>Convertir des configurations en ressources composites
 
@@ -59,4 +59,4 @@ Pour tester la création automatique de ressources composites pour DSC, accédez
 
 - Pour comprendre DSC PowerShell, consultez [Vue d’ensemble de la fonctionnalité Desired State Configuration de Windows PowerShell](/powershell/scripting/dsc/overview/overview).
 - Découvrez les ressources DSC PowerShell dans [Ressources DSC](/powershell/scripting/dsc/resources/resources).
-- Pour plus d’informations sur la configuration du Configuration Manager local, consultez [Configuration du Configuration Manager local](/powershell/scripting/dsc/managing-nodes/metaconfig).
+- Pour plus d’informations sur la configuration du Configuration Manager local, consultez [configuration du Configuration Manager local](/powershell/scripting/dsc/managing-nodes/metaconfig).

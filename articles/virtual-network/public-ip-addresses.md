@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/28/2020
 ms.author: allensu
-ms.openlocfilehash: f2818965013e44cbbe3202887bf79a737dbbbb58
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: ffdd673cc8a357a7156fb3b3e932c524c831db15
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99806955"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103418060"
 ---
 # <a name="public-ip-addresses"></a>Adresses IP publiques
 
@@ -162,14 +162,17 @@ La [passerelle VPN Azure](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2
 * Réseaux virtuels Azure
 * Réseaux locaux. 
 
-Une adresse IP publique est assignée à une passerelle VPN pour lui permettre de communiquer avec le réseau distant. Vous pouvez uniquement affecter une adresse IP publique de base *dynamique* à une passerelle VPN.
+Une adresse IP publique est assignée à une passerelle VPN pour lui permettre de communiquer avec le réseau distant. 
+
+* Affectez une adresse IP publique de base **dynamique** à une configuration frontale de SKU VPNGW 1-5.
+* Affectez une adresse IP publique **statique** standard à une configuration frontale de SKU VPNGwAZ 1-5.
 
 ## <a name="application-gateways"></a>Passerelles d’application
 
 Vous pouvez associer une adresse IP publique à une [Application Gateway](../application-gateway/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)Azure en l’affectant à la configuration **frontale** de la passerelle. 
 
 * Affectez une adresse IP publique de base **dynamique** à une configuration frontale de passerelle d’application V1. 
-* Affectez une adresse de référence SKU **statique** à une configuration frontale V2.
+* Affectez une adresse IP publique **statique** standard à une configuration frontale V2.
 
 ## <a name="azure-firewall"></a>Pare-feu Azure
 

@@ -2,20 +2,20 @@
 title: Fichier include
 description: Fichier include
 services: azure-communication-services
-author: dademath
-manager: nimag
+author: bertong
+manager: ankita
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 07/28/2020
+ms.date: 03/11/2021
 ms.topic: include
 ms.custom: include file
-ms.author: dademath
-ms.openlocfilehash: ad8266d936c272ee2f6bad254738622c3f81bf03
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.author: bertong
+ms.openlocfilehash: 0d142c477e1de2a2a34a8abfd948800cc0b607ee
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91757129"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103622209"
 ---
 Commencez avec Azure Communication Services en utilisant la bibliothèque de client Communication Services SMS JavaScript pour envoyer des SMS.
 
@@ -29,7 +29,7 @@ Le fait de suivre ce guide de démarrage rapide entraîne une petite dépense de
 
 - Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Node.js](https://nodejs.org/) versions Active LTS et Maintenance LTS (8.11.1 et 10.14.1 recommandées).
-- Une ressource Communication Services active et une chaîne de connexion. [Créez une ressource Communication Services](../../create-communication-resource.md).
+- Une ressource Communication Services active et la chaîne de connexion. [Créez une ressource Communication Services](../../create-communication-resource.md).
 - Un numéro de téléphone permettant de recevoir des SMS. [Obtenez un numéro de téléphone](../get-phone-number.md).
 
 ### <a name="prerequisite-check"></a>Vérification du prérequis
@@ -72,8 +72,9 @@ Les classes et les interfaces suivantes gèrent certaines des principales foncti
 | Nom                                  | Description                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
 | SmsClient | Cette classe est nécessaire pour toutes les fonctionnalités SMS. Vous l’instanciez avec vos informations d’abonnement et vous l’utilisez pour envoyer des SMS. |
-| SendSmsOptions | Cette interface fournit des options permettant de configurer la création de rapports de remise. Si `enable_delivery_report` est défini sur `true`, un événement est émis quand la remise a réussi. |
-| SendMessageRequest | Cette interface est le modèle de génération de la demande par SMS (par exemple, configurer les numéros de téléphone d’origine et de destination, ainsi que le contenu du SMS). |
+| SmsSendResult               | Cette classe contient le résultat du service SMS.                                          |
+| SmsSendOptions | Cette interface fournit des options permettant de configurer la création de rapports de remise. Si `enableDeliveryReport` est défini sur `true`, un événement est émis quand la remise a réussi. |
+| SmsSendRequest | Cette interface est le modèle de génération de la demande par SMS (par exemple, configurer les numéros de téléphone d’origine et de destination, ainsi que le contenu du SMS). |
 
 ## <a name="authenticate-the-client"></a>Authentifier le client
 
@@ -92,27 +93,66 @@ const connectionString = process.env['COMMUNICATION_SERVICES_CONNECTION_STRING']
 const smsClient = new SmsClient(connectionString);
 ```
 
-## <a name="send-an-sms-message"></a>Envoyer un message SMS
+## <a name="send-a-1n-sms-message"></a>Envoyer un message SMS 1:N
 
-Envoyez un SMS en appelant la méthode `send`. Ajoutez ce code à la fin du fichier **send-sms.js** :
+Pour envoyer un message SMS à une liste de destinataires, appelez la fonction `send` à partir du SmsClient avec une liste de numéros de téléphone de destinataire (si vous souhaitez envoyer un message à un destinataire unique, n’incluez qu’un seul numéro dans la liste). Ajoutez ce code à la fin du fichier **send-sms.js** :
 
 ```javascript
 async function main() {
-  await smsClient.send({
-    from: "<leased-phone-number>",
-    to: ["<to-phone-number>"],
-    message: "Hello World 👋🏻 via Sms"
-  }, {
-    enableDeliveryReport: true //Optional parameter
+  const sendResults = await smsClient.send({
+    from: "<from-phone-number>",
+    to: ["<to-phone-number-1>", "<to-phone-number-2>"],
+    message: "Hello World 👋🏻 via SMS"
   });
+
+  // individual messages can encounter errors during sending
+  // use the "successful" property to verify
+  for (const sendResult of sendResults) {
+    if (sendResult.successful) {
+      console.log("Success: ", sendResult);
+    } else {
+      console.error("Something went wrong when trying to send this message: ", sendResult);
+    }
+  }
+}
+
+main();
+```
+Vous devez remplacer `<from-phone-number>` par un numéro de téléphone permettant de recevoir des SMS associé à votre ressource Communication Services et `<to-phone-number>` par le numéro de téléphone auquel vous souhaitez envoyer un message.
+
+## <a name="send-a-1n-sms-message-with-options"></a>Envoyer un message SMS 1:N avec des options
+
+Vous pouvez également transmettre un objet d’options pour spécifier si le rapport de remise doit être activé et pour définir des balises personnalisées.
+
+```javascript
+
+async function main() {
+  await smsClient.send({
+    from: "<from-phone-number>",
+    to: ["<to-phone-number-1>", "<to-phone-number-2>"],
+    message: "Weekly Promotion!"
+  }, {
+    //Optional parameter
+    enableDeliveryReport: true,
+    tag: "marketing"
+  });
+
+  // individual messages can encounter errors during sending
+  // use the "successful" property to verify
+  for (const sendResult of sendResults) {
+    if (sendResult.successful) {
+      console.log("Success: ", sendResult);
+    } else {
+      console.error("Something went wrong when trying to send this message: ", sendResult);
+    }
+  }
 }
 
 main();
 ```
 
-Vous devez remplacer `<leased-phone-number>` par un numéro de téléphone permettant de recevoir des SMS associé à votre ressource Communication Services et `<to-phone-number>` par le numéro de téléphone auquel vous souhaitez envoyer un message.
-
 Le paramètre `enableDeliveryReport` est un paramètre facultatif que vous pouvez utiliser pour configurer la création de rapports de remise. C’est utile pour les scénarios où vous souhaitez émettre des événements quand des SMS sont remis. Consultez le guide de démarrage rapide [Gérer les événements SMS](../handle-sms-events.md) pour configurer la création de rapports de remise pour vos SMS.
+`tag` est un paramètre facultatif que vous pouvez utiliser pour appliquer une balise au rapport de remise.
 
 ## <a name="run-the-code"></a>Exécuter le code
 

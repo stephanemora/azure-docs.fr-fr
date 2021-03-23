@@ -1,16 +1,16 @@
 ---
 title: Comment planifier un déploiement à grande échelle de serveurs avec Azure Arc
 description: Découvrez comment activer un grand nombre de machines sur des serveurs avec Azure Arc afin de simplifier la configuration de fonctionnalités essentielles de sécurité, de gestion et de surveillance dans Azure.
-ms.date: 02/23/2021
+ms.date: 03/12/2021
 ms.topic: conceptual
-ms.openlocfilehash: 0e77fc00f94f2f46c60bb2c5dcecc10a4e2e3bc5
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 63e224180cff8cab6e700bc72b8a5c39a7f26857
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102032226"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103461298"
 ---
-# <a name="planing-for-an-at-scale-deployment-of-azure-arc-enabled-servers"></a>Planification d’un déploiement à grande échelle de serveurs avec Azure Arc
+# <a name="plan-and-deploy-arc-enabled-servers-at-scale"></a>Planifier et déployer des serveurs compatibles Arc à l’échelle
 
 Le déploiement d’un service d’infrastructure informatique ou d’une application métier est un défi pour toute entreprise. Pour opérer la migration correctement et éviter les mauvaises surprises et les coûts imprévus, vous devez la planifier minutieusement afin de vous assurer que vous êtes aussi prêt que possible. La planification du déploiement à grande échelle de serveurs avec Azure Arc doit couvrir les critères de conception et de déploiement à remplir pour pouvoir accomplir correctement les tâches de prise en charge d’un déploiement à grande échelle.
 
@@ -67,7 +67,7 @@ Au cours de cette phase, des ingénieurs système ou administrateurs activent le
 
 ## <a name="phase-2-deploy-arc-enabled-servers"></a>Phase 2 : déployer des serveurs avec Arc
 
-Ensuite, nous élargissons la fondation posée lors de la phase 1 en préparant le déploiement et en effectuant l’installation de l’agent.
+Ensuite, nous développons la fondation posée en phase 1 en préparant et en déployant l’agent Connected Machine des serveurs compatibles Arc.
 
 |Tâche |Detail |Duration |
 |-----|-------|---------|

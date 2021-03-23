@@ -13,12 +13,12 @@ ms.date: 11/15/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: marsma, aragra, lenalepa, sureshja
-ms.openlocfilehash: a0543905f41abc9c21327159d63f7adaa5b025dc
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: e04884c078bd9a5693ddcbc4e71470bb23e13d60
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101645889"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199790"
 ---
 # <a name="how-to-remove-an-application-registered-with-the-microsoft-identity-platform"></a>Guide pratique pour supprimer une application inscrite à l’aide de la plateforme d’identités Microsoft
 
@@ -47,7 +47,8 @@ Pour supprimer une application, vous devez être listé en tant que propriétair
 1. Recherchez et sélectionnez **Azure Active Directory**. 
 1. Sous **Gérer**, sélectionnez **Inscriptions d’applications**, puis sélectionnez l’application que vous souhaitez configurer. Une fois l’application sélectionnée, vous pourrez voir sa page **Vue d’ensemble**.
 1. À partir de la page **Vue d’ensemble**, sélectionnez **Supprimer**.
-1. Sélectionnez **Oui** pour confirmer que vous souhaitez supprimer l’application.
+1. Lisez les conséquences de la suppression.  Activez la case à cocher si elle apparaît en bas du volet.
+1. Sélectionnez **Supprimer** pour confirmer que vous souhaitez supprimer l’application.
 
 ## <a name="remove-an-application-authored-by-another-organization"></a>Supprimer une application créée par une autre organisation
 

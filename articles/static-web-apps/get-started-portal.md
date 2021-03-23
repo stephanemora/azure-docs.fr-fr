@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 09/03/2020
 ms.author: cshoe
-ms.openlocfilehash: c54a56843be5121e16449d95fb18c24901a95a8d
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: b19c37a45131e3689fdc9726d186f220ab5ba9fe
+ms.sourcegitcommit: 6776f0a27e2000fb1acb34a8dddc67af01ac14ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100650561"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103149526"
 ---
 # <a name="quickstart-building-your-first-static-site-in-the-azure-portal"></a>Démarrage rapide : Création de votre premier site statique dans le portail Azure
 
@@ -115,9 +115,9 @@ Si vous ne prévoyez pas de continuer à utiliser cette application, vous pouvez
 
 1. Ouvrez le [portail Azure](https://portal.azure.com)
 1. Recherchez **my-first-web-static-app** dans la barre de recherche supérieure.
-1. Sélectionnez le nom de l’application.
-1. Sélectionnez le bouton **Supprimer**.
-1. Sélectionnez **Oui** pour confirmer la suppression.
+1. Sélectionnez le nom de l’application
+1. Sélectionnez le bouton **Supprimer**
+1. Sélectionnez **Oui** pour confirmer l’action de suppression (cette action peut prendre quelques minutes)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -7,14 +7,14 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 01/29/2021
+ms.date: 03/12/2021
 ms.custom: devx-track-python
-ms.openlocfilehash: eb5de33fd41d3a454f4d0b8d44325ed30f9c5d47
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: 8b9c4792fa6dbdc70f657ce3c5f1757473a22fda
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99071628"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103225215"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-python-using-jupyter-notebook"></a>Démarrage rapide : Créer un index Recherche cognitive Azure en Python à l’aide de Jupyter Notebook
 
@@ -271,9 +271,9 @@ Pour charger des documents, créez une collection de documents à l’aide d’u
 
 ## <a name="3---search-an-index"></a>3 – Rechercher dans un index
 
-Cette étape vous montre comment interroger un index à l’aide de la [recherche dans des documents (REST)](/rest/api/searchservice/search-documents).
+Cette étape vous montre comment interroger un index à l’aide de la méthode **search** de la [classe search.client](/python/api/azure-search-documents/azure.search.documents.searchclient).
 
-1. Pour cette opération, utilisez search_client. Cette requête exécute une recherche vide (`search=*`), qui retourne une liste non classée (score de recherche = 1.0) de documents arbitraires. Étant donné qu’il n’y a aucun critère, tous les documents sont inclus dans les résultats. Cette requête affiche uniquement deux des champs de chaque document. Elle ajoute également `include_total_count=True` pour obtenir le nombre total de documents (4) dans les résultats.
+1. L’étape suivante exécute une recherche vide (`search=*`), qui retourne une liste non classée (score de recherche = 1.0) de documents arbitraires. Étant donné qu’il n’y a aucun critère, tous les documents sont inclus dans les résultats. Cette requête affiche uniquement deux des champs de chaque document. Elle ajoute également `include_total_count=True` pour obtenir le nombre total de documents (4) dans les résultats.
 
     ```python
     results =  search_client.search(search_text="*", include_total_count=True)

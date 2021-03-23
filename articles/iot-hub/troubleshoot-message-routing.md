@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: asrastog
-ms.openlocfilehash: 29127a9dff42c0f733e3721d1ea5fea7350e774e
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 3abff5645775d724042acba3ee2461c7cad771a7
+ms.sourcegitcommit: 6776f0a27e2000fb1acb34a8dddc67af01ac14ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547353"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103149662"
 ---
 # <a name="troubleshooting-message-routing"></a>Résoudre les problèmes de routage des messages
 
@@ -37,11 +37,11 @@ Pour résoudre ce problème, analysez les éléments suivants.
 
 #### <a name="the-routing-metrics-for-this-endpoint"></a>Les métriques de routage pour ce point de terminaison
 
-Toutes les [métriques IoT Hub](monitor-iot-hub-reference.md#routing-metrics) liées au routage sont précédées de *Routage* . Vous pouvez combiner les informations de plusieurs métriques pour identifier la cause racine des problèmes. Par exemple, utilisez la métrique **Routage : tentatives de livraison** pour identifier le nombre de messages qui ont été livrés à un point de terminaison ou supprimés quand ils ne correspondaient pas aux requêtes sur aucun des itinéraires et que l’itinéraire de secours était désactivé. Vérifiez la métrique de **latence du routage** pour déterminer si la latence de la livraison des messages est stable ou en constante augmentation. Une latence croissante peut indiquer un problème avec un point de terminaison spécifique et nous vous recommandons de vérifier [l’intégrité du point de terminaison](#the-health-of-the-endpoint). Ces métriques de routage ont également des [dimensions](monitor-iot-hub-reference.md#metric-dimensions) qui fournissent des détails sur la métrique comme le type de point de terminaison, le nom du point de terminaison spécifique et la raison pour laquelle le message n’a pas été livré.
+Toutes les [métriques IoT Hub](monitor-iot-hub-reference.md#routing-metrics) liées au routage sont précédées de *Routage*. Vous pouvez combiner les informations de plusieurs métriques pour identifier la cause racine des problèmes. Par exemple, utilisez la métrique **Routage : tentatives de livraison** pour identifier le nombre de messages qui ont été livrés à un point de terminaison ou supprimés quand ils ne correspondaient pas aux requêtes sur aucun des itinéraires et que l’itinéraire de secours était désactivé. Vérifiez la métrique de **latence du routage** pour déterminer si la latence de la livraison des messages est stable ou en constante augmentation. Une latence croissante peut indiquer un problème avec un point de terminaison spécifique et nous vous recommandons de vérifier [l’intégrité du point de terminaison](#the-health-of-the-endpoint). Ces métriques de routage ont également des [dimensions](monitor-iot-hub-reference.md#metric-dimensions) qui fournissent des détails sur la métrique comme le type de point de terminaison, le nom du point de terminaison spécifique et la raison pour laquelle le message n’a pas été livré.
 
 #### <a name="the-resource-logs-for-any-operational-issues"></a>Les journaux de ressource pour les problèmes opérationnels
 
-Observez les [**Journaux de ressources des** routes](monitor-iot-hub-reference.md#routes) pour obtenir plus d’informations sur les [opérations](#operation-names) de routage et de point de terminaison ou identifier les erreurs et le [code d’erreur](#common-error-codes) correspondant pour mieux comprendre le problème. Par exemple, le nom de l’opération **RouteEvaluationError** dans le journal indique que l’itinéraire n’a pas pu être évalué en raison d’un problème avec le format du message. Utilisez les conseils fournis pour les [noms d’opération](#operation-names) spécifiques pour résoudre le problème. Lorsqu’un événement est consigné comme une erreur, le journal fournit également plus d’informations sur la raison de l’échec de l’évaluation. Par exemple, si le nom de l’opération est **EndpointUnhealthy** , un [code d’erreur](#common-error-codes) de 403004 indique que l’espace du point de terminaison est insuffisant.
+Observez les [**Journaux de ressources des** routes](monitor-iot-hub-reference.md#routes) pour obtenir plus d’informations sur les [opérations](#operation-names) de routage et de point de terminaison ou identifier les erreurs et le [code d’erreur](#common-error-codes) correspondant pour mieux comprendre le problème. Par exemple, le nom de l’opération **RouteEvaluationError** dans le journal indique que l’itinéraire n’a pas pu être évalué en raison d’un problème avec le format du message. Utilisez les conseils fournis pour les [noms d’opération](#operation-names) spécifiques pour résoudre le problème. Lorsqu’un événement est consigné comme une erreur, le journal fournit également plus d’informations sur la raison de l’échec de l’évaluation. Par exemple, si le nom de l’opération est **EndpointUnhealthy**, un [code d’erreur](#common-error-codes) de 403004 indique que l’espace du point de terminaison est insuffisant.
 
 #### <a name="the-health-of-the-endpoint"></a>L’intégrité du point de terminaison
 
@@ -53,7 +53,7 @@ Pour résoudre ce problème, analysez les éléments suivants.
 
 #### <a name="was-a-new-route-created"></a>Une nouvelle route a-t-elle été créée ?
 
-Une fois qu’une route est créée, les données cessent de circuler vers le point de terminaison intégré, sauf si une route est créée vers ce point de terminaison. Pour garantir que la circulation des messages vers le point de terminaison intégré malgré l’ajout d’une nouvelle route, configurez une route vers le point de terminaison *d’événements* . 
+Une fois qu’une route est créée, les données cessent de circuler vers le point de terminaison intégré, sauf si une route est créée vers ce point de terminaison. Pour garantir que la circulation des messages vers le point de terminaison intégré malgré l’ajout d’une nouvelle route, configurez une route vers le point de terminaison *d’événements*. 
 
 #### <a name="was-the-fallback-route-disabled"></a>L’itinéraire de secours a-t-elle été désactivée ?
 
@@ -82,4 +82,4 @@ Voici les noms des opérations et les codes d’erreur consignés dans les [jour
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si vous avez besoin d’aide supplémentaire, vous avez la possibilité de contacter les experts Azure sur [les forums MSDN Azure et Stack Overflow](https://azure.microsoft.com/support/forums/). Vous pouvez également signaler un incident au support Azure. Accédez au [site du support Azure](https://azure.microsoft.com/support/options/) , puis cliquez sur **Obtenir un support** .
+Si vous avez besoin d’aide supplémentaire, vous avez la possibilité de contacter les experts Azure sur les [forums Microsoft Q&A et Stack Overflow](https://azure.microsoft.com/support/forums/). Vous pouvez également signaler un incident au support Azure. Accédez au [site du support Azure](https://azure.microsoft.com/support/options/) , puis cliquez sur **Obtenir un support**.

@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 06/03/2020
+ms.date: 03/12/2021
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 3a9e4c8f3dd9e4cf291388bc102ae9a73d8de6dd
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 0fd0aa19d52adb4bf06c9d21d4182e27497a531b
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93131562"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103471758"
 ---
 # <a name="sign-in-to-your-accounts-using-the-microsoft-authenticator-app"></a>Vous connecter à vos comptes à l’aide de l’application Microsoft Authenticator
 
@@ -51,9 +51,12 @@ La connexion par téléphone est disponible uniquement sur les appareils iOS et 
 
 Ouvrez l’application Microsoft Authenticator, accédez à votre compte scolaire ou professionnel, puis activez la connexion par téléphone.
 
-- **Lorsque vous appuyez sur la vignette de compte** , vous pouvez voir un affichage plein écran du compte. Si vous voyez **Connexion par téléphone activée** , cela signifie que vous avez fini de configurer la connexion sans votre mot de passe. Si vous voyez **Activer la connexion par téléphone** , appuyez dessus pour activer la connexion par téléphone.
-- **Si vous avez déjà utilisé l’application pour la vérification à deux facteurs** , vous pouvez appuyer sur la vignette de compte pour voir un affichage plein écran du compte. Ensuite, appuyez sur **Activer la connexion par téléphone** pour activer la connexion par téléphone.
+- **Lorsque vous appuyez sur la vignette de compte**, vous pouvez voir un affichage plein écran du compte. Si vous voyez **Connexion par téléphone activée**, cela signifie que vous avez fini de configurer la connexion sans votre mot de passe. Si vous voyez **Activer la connexion par téléphone**, appuyez dessus pour activer la connexion par téléphone.
+- **Si vous avez déjà utilisé l’application pour la vérification à deux facteurs**, vous pouvez appuyer sur la vignette de compte pour voir un affichage plein écran du compte. Ensuite, appuyez sur **Activer la connexion par téléphone** pour activer la connexion par téléphone.
 - **Si vous ne trouvez pas votre compte professionnel ou scolaire** sur l’écran **Comptes** de l’application, cela signifie que vous ne l’avez pas encore ajouté à l’application. Ajoutez votre compte professionnel ou scolaire en suivant les étapes décrites dans [Ajouter votre compte professionnel ou scolaire](user-help-auth-app-add-work-school-account.md).
+
+> [!NOTE]
+> Microsoft ne prend pas en charge une combinaison d’inscription d’appareil et d’authentification basée sur un certificat. Au lieu de cela, l’utilisateur doit enregistrer l’appareil manuellement via les paramètres d’authentification avant de se connecter.
 
 Une fois que vous avez activé la connexion par téléphone, vous pouvez vous connecter en utilisant uniquement l’application Microsoft Authenticator. Voici comment faire :
 
@@ -82,8 +85,8 @@ Vous pouvez activer la connexion par téléphone pour votre compte Microsoft per
 
 Ouvrez l’application Microsoft Authenticator, accédez à votre compte scolaire ou professionnel, puis activez la connexion par téléphone.
 
-- **Lorsque vous appuyez sur la vignette de compte** , vous pouvez voir un affichage plein écran du compte. Si vous voyez **Connexion par téléphone activée** , cela signifie que vous avez fini de configurer la connexion sans votre mot de passe. Si vous voyez **Activer la connexion par téléphone** , appuyez dessus pour activer la connexion par téléphone.
-- **Si vous utilisez déjà l’application pour la vérification à deux facteurs** , vous pouvez appuyer sur la vignette de compte pour voir un affichage plein écran du compte. Ensuite, appuyez sur **Activer la connexion par téléphone** pour activer la connexion par téléphone.
+- **Lorsque vous appuyez sur la vignette de compte**, vous pouvez voir un affichage plein écran du compte. Si vous voyez **Connexion par téléphone activée**, cela signifie que vous avez fini de configurer la connexion sans votre mot de passe. Si vous voyez **Activer la connexion par téléphone**, appuyez dessus pour activer la connexion par téléphone.
+- **Si vous utilisez déjà l’application pour la vérification à deux facteurs**, vous pouvez appuyer sur la vignette de compte pour voir un affichage plein écran du compte. Ensuite, appuyez sur **Activer la connexion par téléphone** pour activer la connexion par téléphone.
 - **Si vous ne trouvez pas votre compte** sur l’écran **Comptes** de l’application, cela signifie que vous ne l’avez pas encore ajouté à l’application. Ajoutez votre compte Microsoft personnel en suivant les étapes décrites dans l’article [Ajouter des comptes Microsoft personnels](user-help-auth-app-add-personal-ms-account.md).
 
 ### <a name="sign-in-to-your-account-using-phone-sign-in"></a>Vous connecter à votre compte à l’aide de la connexion par téléphone

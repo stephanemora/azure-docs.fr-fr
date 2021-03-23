@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: overview
 ms.date: 12/17/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 8b1c4077c036cbb75738115437d29ffd14b160ff
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: c898444659c2ce071163e9ab774a4534f8c51a9c
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101723671"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102632048"
 ---
 # <a name="entity-functions"></a>Fonctions d’entité
 
@@ -18,7 +18,7 @@ Les fonctions d’entité définissent les opérations pour la lecture et la mis
 Les entités offrent un moyen d’effectuer un scale-out des applications, en distribuant le travail entre plusieurs entités, chacune avec un état de taille modeste.
 
 > [!NOTE]
-> Les fonctions d’entité et les fonctionnalités associées ne sont disponibles que dans Durable Functions 2.0 et les versions ultérieures. Elles sont actuellement prises en charge dans .NET et JavaScript.
+> Les fonctions d’entité et les fonctionnalités associées ne sont disponibles que dans [Durable Functions 2.0](durable-functions-versions.md#migrate-from-1x-to-2x) et les versions ultérieures. Elles sont actuellement prises en charge dans .NET, JavaScript et Python.
 
 ## <a name="general-concepts"></a>Concepts généraux
 
@@ -189,7 +189,6 @@ def entity_function(context: df.DurableEntityContext):
     elif operation == "get":
         context.set_result(current_value)
     context.set_state(current_value)
-
 
 
 main = df.Entity.create(entity_function)

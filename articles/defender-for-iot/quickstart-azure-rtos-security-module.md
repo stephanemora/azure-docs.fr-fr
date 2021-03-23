@@ -1,6 +1,6 @@
 ---
-title: 'Démarrage rapide : Configurer et activer le module de sécurité pour Azure RTOS'
-description: Dans ce guide de démarrage rapide, vous allez découvrir comment intégrer et activer le module de sécurité pour le service Azure RTOS dans votre hub Azure IoT.
+title: 'Démarrage rapide : Configurer et activer le micro-agent Defender-IoT pour Azure RTOS'
+description: Découvrez comment intégrer et activer le micro-agent Defender-IoT pour le service Azure RTOS dans votre hub Azure IoT.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2021
 ms.author: shhazam
-ms.openlocfilehash: 19a439ec48d4a8705ffb46db7ca037b51449083d
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: 3c1af1128b99cbd3263ddffc834eb27ab9dec564
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102447297"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103489843"
 ---
-# <a name="quickstart-security-module-for-azure-rtos"></a>Démarrage rapide : Module de sécurité pour Azure RTOS 
+# <a name="quickstart-defender-iot-micro-agent-for-azure-rtos-preview"></a>Démarrage rapide : Micro-agent Defender IoT pour Azure RTOS (préversion)
 
-Cet article décrit les prérequis avant de commencer et explique comment activer le module de sécurité pour le service Azure RTOS sur un hub IoT. Si vous n’avez pas de hub IoT, pour commencer, voir [Créer un hub IoT à l’aide du portail Azure](../iot-hub/iot-hub-create-through-portal.md).
+Cet article décrit les prérequis avant de commencer et explique comment activer le micro-agent Defender IoT pour le service Azure RTOS sur un hub IoT. Si vous n’avez pas de hub IoT, pour commencer, voir [Créer un hub IoT à l’aide du portail Azure](../iot-hub/iot-hub-create-through-portal.md).
 
 ## <a name="prerequisites"></a>Prérequis 
 
@@ -32,7 +32,7 @@ Cet article décrit les prérequis avant de commencer et explique comment active
 - NXP i.MX RT1060 EVK
 - Puce SAM E54 Xplained Pro EVK
 
-Téléchargez, compilez et exécutez l’un des fichiers .zip pour le tableau et l’outil spécifiques (IAR, IDE semi ou PC) de votre choix à partir du [module de sécurité pour la ressource GitHub Azure RTOS](https://github.com/azure-rtos/azure-iot-preview/releases).
+Téléchargez, compilez et exécutez un des fichiers .zip pour le tableau et l’outil spécifiques (IAR, IDE semi ou PC) de votre choix à partir du [micro-agent Defender IoT pour la ressource GitHub Azure RTOS](https://github.com/azure-rtos/azure-iot-preview/releases).
 
 ### <a name="azure-resources"></a>Ressources Azure
 
@@ -52,11 +52,11 @@ Une connexion au hub IoT est nécessaire pour commencer.
 
 Les informations d’identification de connexion sont extraites des paramètres **HOST_NAME**, **DEVICE_ID** et **DEVICE_SYMMETRIC_KEY** de la configuration de l’application utilisateur.
 
-Le module de sécurité pour Azure RTOS utilise des connexions middleware Azure IoT basées sur le protocole **MQTT**.
+Le micro-agent Defender-IoT pour Azure RTOS utilise des connexions middleware Azure IoT basées sur le protocole **MQTT**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Passez à l’article suivant pour terminer la configuration et la personnalisation de votre solution.
 
 > [!div class="nextstepaction"]
-> [Configurer le module de sécurité pour Azure RTOS](how-to-azure-rtos-security-module.md)
+> [Configurer et personnaliser le micro-agent Defender pour IoT pour Azure RTOS (préversion)](how-to-azure-rtos-security-module.md)

@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Bien démarrer avec Visual Studio Code'
+title: 'Démarrage rapide : Bien démarrer avec Recherche cognitive Azure à l’aide de Visual Studio Code'
 titleSuffix: Azure Cognitive Search
 description: Découvrez comment installer et utiliser l’extension Visual Studio Code pour Recherche cognitive Azure.
 author: dereklegenzoff
@@ -7,21 +7,19 @@ manager: luisca
 ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 01/12/2021
-ms.openlocfilehash: 7a613dd6cba55831b02a60f833088b6c34bfc4a7
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.date: 03/10/2021
+ms.openlocfilehash: 3237a32a90e3964644ff84958a065656cdf7f3ab
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98122688"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103015843"
 ---
-# <a name="get-started-with-visual-studio-code-and-azure-cognitive-search"></a>Bien démarrer avec Visual Studio Code et Recherche cognitive Azure
+# <a name="get-started-with-azure-cognitive-search-using-visual-studio-code"></a>Bien démarrer avec Recherche cognitive Azure à l’aide de Visual Studio Code
 
-Cet article explique comment formuler des requêtes API REST de façon interactive à l’aide des [API REST de la Recherche cognitive Azure](/rest/api/searchservice) et d’un API client pour envoyer et recevoir les requêtes. Avec un API client et ces instructions, vous pouvez envoyer des requêtes et afficher les réponses avant d’écrire un code.
+Cet article explique comment formuler des requêtes d’API REST de manière interactive à l’aide des [API REST Azure Cognitive Search](/rest/api/searchservice) et de [Visual Studio Code ](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurecognitivesearch). Avec l’[Extension Visual Studio Code pour Recherche cognitive Azure (préversion)](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurecognitivesearch) et ces instructions, vous pouvez envoyer des requêtes et afficher les réponses avant d’écrire du code.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
-
-Cet article utilise une extension Visual Studio Code (préversion) pour les API REST Recherche cognitive Azure.
 
 > [!IMPORTANT] 
 > Cette fonctionnalité est actuellement disponible en préversion publique. Les fonctionnalités en préversion sont fournies sans contrat de niveau de service et ne sont pas recommandées pour les charges de travail de production. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
@@ -35,18 +33,6 @@ Les services et outils suivants sont indispensables dans ce guide de démarrage 
 + [Recherche cognitive Azure pour Visual Studio Code (préversion)](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurecognitivesearch)
 
 + [Créez un service Recherche cognitive Azure](search-create-service-portal.md) ou [recherchez un service existant](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) dans votre abonnement actuel. Vous pouvez utiliser un service gratuit pour ce guide de démarrage rapide. 
-
-## <a name="copy-a-key-and-url"></a>Copier une clé et une URL
-
-Les appels REST requièrent l’URL du service et une clé d’accès et ce, sur chaque demande. Un service de recherche est créé avec les deux. Ainsi, si vous avez ajouté la Recherche cognitive Azure à votre abonnement, effectuez ce qui suit pour obtenir les informations nécessaires :
-
-1. [Connectez-vous au portail Azure](https://portal.azure.com/), puis dans la page **Vue d’ensemble** du service de recherche, récupérez l’URL. Voici un exemple de point de terminaison : `https://mydemo.search.windows.net`.
-
-1. Dans **Paramètres** > **Clés**, obtenez une clé d’administration pour avoir des droits d’accès complets sur le service. Il existe deux clés d’administration interchangeables, fournies pour assurer la continuité de l’activité au cas où vous deviez en remplacer une. Vous pouvez utiliser la clé primaire ou secondaire sur les demandes d’ajout, de modification et de suppression d’objets.
-
-![Obtenir un point de terminaison et une clé d’accès HTTP](media/search-get-started-rest/get-url-key.png "Obtenir un point de terminaison et une clé d’accès HTTP")
-
-Toutes les demandes nécessitent une clé API sur chaque demande envoyée à votre service. L’utilisation d’une clé valide permet d’établir, en fonction de chaque demande, une relation de confiance entre l’application qui envoie la demande et le service qui en assure le traitement.
 
 ## <a name="install-the-extension"></a>Installer l’extension
 

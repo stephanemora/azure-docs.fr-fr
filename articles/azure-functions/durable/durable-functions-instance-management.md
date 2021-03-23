@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 16fecf5ce0d4551125ded4ba05fcbc41530efaf1
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 7329962d547fcb0635e3a9af3d80e562da59f7f2
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102430562"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199785"
 ---
 # <a name="manage-instances-in-durable-functions-in-azure"></a>Gérer des instances dans Durable Functions dans Azure
 
@@ -202,6 +202,9 @@ La méthode renvoie un objet avec les propriétés suivantes :
   * **Échec** : Échec de l’instance avec une erreur.
   * **Terminé** : L’instance a été brusquement arrêtée.
 * **History** : L’historique d’exécution de l’orchestration. Ce champ est renseigné uniquement si `showHistory` est défini sur `true`.
+
+> [!NOTE]
+> Un orchestrateur n’est pas marqué comme `Completed` avant que toutes ses tâches planifiées soient terminées _et_ que l’orchestrateur ait renvoyé son résultat. En d’autres termes, il n’est pas suffisant qu’un orchestrateur atteigne son instruction `return` pour qu’il soit marqué comme `Completed`. Cela s’avère particulièrement pertinent dans les cas où `WhenAny` est utilisé : ces orchestrateurs sont souvent `return` avant l’exécution de toutes les tâches planifiées.
 
 Cette méthode renvoie `null` (.NET), `undefined` (JavaScript) ou `None` (Python) si l’instance n’existe pas.
 

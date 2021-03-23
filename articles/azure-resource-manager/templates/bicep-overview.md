@@ -2,19 +2,19 @@
 title: Langage Bicep pour les modèles Azure Resource Manager
 description: Décrit le langage Bicep pour le déploiement d’infrastructure sur Azure via des modèles Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 03/03/2021
-ms.openlocfilehash: 2fb13bca9e9d456889185d512ee2fc9d4cbbe673
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.date: 03/12/2021
+ms.openlocfilehash: 599cb378da51c5d13e7db3cf45cacf750c5843cc
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102036382"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103419828"
 ---
 # <a name="what-is-bicep-preview"></a>Qu’est-ce que Bicep (préversion) ?
 
-Bicep est un langage permettant de déployer de manière déclarative des ressources Azure. Il simplifie l’expérience de création en fournissant une syntaxe concise et une meilleure prise en charge de la réutilisation du code. Bicep est un langage spécifique à un domaine (DSL), ce qui signifie qu’il est conçu pour un scénario ou un domaine particulier. Bicep n’est pas conçu comme un langage de programmation général pour l’écriture d’applications.
+Bicep est un langage permettant de déployer de manière déclarative des ressources Azure. Vous pouvez utiliser Bicep au lieu de JSON pour développer vos modèles Azure Resource Manager (modèles ARM). Bicep simplifie l’expérience de création en fournissant une syntaxe concise, une meilleure prise en charge de la réutilisation du code et une cohérence des types améliorée. Bicep est un langage spécifique à un domaine (DSL), ce qui signifie qu’il est conçu pour un scénario ou un domaine particulier. Il n’est pas conçu comme un langage de programmation général pour l’écriture d’applications.
 
-Par le passé, vous développiez des modèles Azure Resource Manager (modèles ARM) avec JSON. La syntaxe JSON pour la création de modèle peut être détaillée et nécessiter une expression complexe. Bicep améliore cette expérience sans perdre aucune des fonctionnalités d’un modèle JSON. Il s’agit d’une abstraction transparente sur le JSON pour les modèles ARM. Chaque fichier Bicep se compile en un modèle ARM standard. Les types de ressources, les versions d’API et les propriétés qui sont valides dans un modèle ARM sont valides dans un fichier Bicep.
+La syntaxe JSON pour la création de modèle peut être détaillée et nécessiter une expression complexe. Bicep améliore cette expérience sans perdre aucune des fonctionnalités d’un modèle JSON. Il s’agit d’une abstraction transparente sur le JSON pour les modèles ARM. Chaque fichier Bicep se compile en un modèle ARM standard. Les types de ressources, les versions d’API et les propriétés qui sont valides dans un modèle ARM sont valides dans un fichier Bicep. Il existe quelques [limitations connues](#known-limitations) dans la version actuelle.
 
 ## <a name="get-started"></a>Bien démarrer
 
@@ -24,7 +24,7 @@ Une fois les outils installés, essayez le [tutoriel Bicep](./bicep-tutorial-cre
 
 Pour afficher les fichiers JSON et Bicep équivalents côte à côte, consultez le [Terrain de jeu de Bicep](https://aka.ms/bicepdemo).
 
-Si vous avez un modèle ARM existant que vous souhaitez convertir en code Bicep, consultez [Décompiler JSON vers Bicep](compare-template-syntax.md#decompile-json-to-bicep).
+Si vous disposez d’un modèle ARM existant que vous souhaitez le convertir en Bicep, consultez [Conversion de modèles ARM entre JSON et Bicep](bicep-decompile.md).
 
 ## <a name="bicep-improvements"></a>Améliorations apportées à Bicep
 
@@ -55,7 +55,15 @@ Avec Bicep, vous pouvez scinder votre projet en plusieurs modules.
 
 La structure du fichier Bicep est plus flexible celle du modèle JSON. Vous pouvez déclarer des paramètres, des variables et des sorties n’importe où dans le fichier. Dans JSON, vous devez déclarer l’ensemble des paramètres, variables et sorties dans les sections correspondantes du modèle.
 
-L’extension VS Code pour Bicep offre une validation plus riche et IntelliSense. Par exemple, l’extension dispose d’IntelliSense pour l’obtention des propriétés d’une ressource.
+L’extension VS Code pour Bicep offre une validation plus riche et IntelliSense. Par exemple, vous pouvez utiliser IntelliSense avec l’extension pour l’obtention des propriétés d’une ressource.
+
+## <a name="known-limitations"></a>Limitations connues
+
+Les limites suivantes existent actuellement :
+
+* Impossible de définir le mode ou la taille de lot sur les boucles de copie.
+* Impossible de combiner des boucles et des conditions.
+* Les objets et tableaux sur une seule ligne, comme `['a', 'b', 'c']`, ne sont pas pris en charge.
 
 ## <a name="faq"></a>Questions fréquentes (FAQ)
 
@@ -81,7 +89,7 @@ Bicep est un langage DSL axé sur le déploiement de solutions complètes sur Az
 
 Ils continueront de fonctionner comme ils l’ont toujours fait. Vous n’avez pas besoin d’apporter de modifications. Nous continuerons à prendre en charge le langage JSON du modèle ARM sous-jacent. Les fichiers Bicep se compilent en un JSON qui est envoyé à Azure pour le déploiement.
 
-Lorsque vous êtes prêt, vous pouvez [convertir les fichiers JSON en langage Bicep](compare-template-syntax.md#decompile-json-to-bicep).
+Lorsque vous êtes prêt, vous pouvez [convertir les fichiers JSON en langage Bicep](bicep-decompile.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

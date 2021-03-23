@@ -7,12 +7,12 @@ ms.date: 09/25/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: a75ecac20c553f697585648c5654d375b85e5183
-ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
+ms.openlocfilehash: 25f00024fb7371fd08bf6c4ceec3177cfaca029b
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100535193"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103572806"
 ---
 # <a name="key-vault-authentication-fundamentals"></a>Concepts de base de l’authentification Key Vault
 

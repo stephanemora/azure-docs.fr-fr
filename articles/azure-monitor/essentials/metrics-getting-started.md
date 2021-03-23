@@ -6,12 +6,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: vitalyg
-ms.openlocfilehash: e3d8d6529eb943566118cc67eab549cb32891cd8
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: fee71f9ebfc69c19adc026fce5cd78b6a8b5240b
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102037232"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103490287"
 ---
 # <a name="getting-started-with-azure-metrics-explorer"></a>Prise en main d’Azure Metrics Explorer
 
@@ -63,6 +63,20 @@ Le [filtrage](../essentials/metrics-charts.md#filters) et le [fractionnement](..
 - Le **fractionnement** contrôle si le graphique affiche des lignes distinctes pour chaque valeur d’une dimension ou agrège les valeurs dans une seule ligne. Par exemple, vous pouvez voir une ligne pour le temps de réponse moyen sur toutes les instances de serveur, ou voir des lignes distinctes pour chaque serveur. Vous devrez appliquer le fractionnement à la dimension d’*instance de serveur* pour voir des lignes distinctes.
 
 Consultez les [exemples de graphiques](../essentials/metric-chart-samples.md) auxquels un filtrage et un fractionnement sont appliqués. L’article décrit les étapes utilisées pour configurer les graphiques.
+
+## <a name="share-your-metric-chart"></a>Partager votre graphique de métriques
+Il existe actuellement deux façons de partager votre graphique de métriques. Vous trouverez ci-dessous des instructions sur la façon de partager des informations à partir de vos graphiques de métriques par le biais d’Excel et d’un lien.
+ 
+### <a name="download-to-excel"></a>Télécharger vers Excel
+Cliquez sur « Partager » et sélectionnez « Télécharger vers Excel ». Votre téléchargement devrait commencer immédiatement.
+
+![Capture d’écran montrant comment partager un graphique de métriques via Excel](./media/metrics-getting-started/share-excel.png)
+
+### <a name="share-a-link"></a>Partager un lien
+Cliquez sur « Partager » et sélectionnez « Copier le lien ». Vous devriez recevoir une notification indiquant que le lien a été copié avec succès.
+
+![Capture d’écran montrant comment partager un graphique de métriques via un lien](./media/metrics-getting-started/share-link.png)
+
 
 ## <a name="advanced-chart-settings"></a>Paramètres de graphique avancés
 

@@ -2,20 +2,20 @@
 title: Fichier include
 description: Fichier include
 services: azure-communication-services
-author: danieldoolabh
-manager: nimag
+author: lakshmans
+manager: ankita
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 09/03/2020
+ms.date: 03/11/2021
 ms.topic: include
 ms.custom: include file
-ms.author: dadoolab
-ms.openlocfilehash: a24d9531b7b2d2d2f31eec275da7db7e48b9c74a
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.author: lakshmans
+ms.openlocfilehash: e8424f6b5b7617b00de6dedbece3325f3c5513c8
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96615870"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103622223"
 ---
 Commencez avec Azure Communication Services en utilisant la bibliothèque de client Communication Services SMS Python pour envoyer des SMS.
 
@@ -29,7 +29,7 @@ Le fait de suivre ce guide de démarrage rapide entraîne une petite dépense de
 
 - Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - [Python](https://www.python.org/downloads/) 2.7, 3.5 ou ultérieur.
-- Une ressource Communication Services active et une chaîne de connexion. [Créez une ressource Communication Services](../../create-communication-resource.md).
+- Une ressource Communication Services active et la chaîne de connexion. [Créez une ressource Communication Services](../../create-communication-resource.md).
 - Un numéro de téléphone permettant de recevoir des SMS. [Obtenez un numéro de téléphone](../get-phone-number.md).
 
 ### <a name="prerequisite-check"></a>Vérification du prérequis
@@ -51,8 +51,6 @@ Utilisez un éditeur de texte pour créer un fichier appelé **send-sms.py** dan
 
 ```python
 import os
-from azure.communication.sms import PhoneNumber
-from azure.communication.sms import SendSmsOptions
 from azure.communication.sms import SmsClient
 
 try:
@@ -76,12 +74,12 @@ Les classes et les interfaces suivantes gèrent certaines des principales foncti
 
 | Nom                                  | Description                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
-| SmsClient | Cette classe est nécessaire pour toutes les fonctionnalités SMS. Vous l’instanciez avec vos informations d’abonnement et vous l’utilisez pour envoyer des SMS. |
-| SendSmsOptions | Cette classe fournit des options permettant de configurer la création de rapports de remise. Si enable_delivery_report est défini sur True, un événement est émis quand la remise a réussi |
+| SmsClient | Cette classe est nécessaire pour toutes les fonctionnalités SMS. Vous l’instanciez avec vos informations d’abonnement et vous l’utilisez pour envoyer des SMS.                                                                                                                 |
+| SmsSendResult               | Cette classe contient le résultat du service SMS.                                          |
 
 ## <a name="authenticate-the-client"></a>Authentifier le client
 
-Instanciez un **SmsClient** avec votre chaîne de connexion. Le code ci-dessous récupère la chaîne de connexion pour la ressource à partir d’une variable d’environnement nommée `COMMUNICATION_SERVICES_CONNECTION_STRING`. Découvrez comment [gérer la chaîne de connexion de votre ressource](../../create-communication-resource.md#store-your-connection-string).
+Instanciez un **SmsClient** avec votre chaîne de connexion. Le code ci-dessous récupère la chaîne de connexion pour la ressource à partir d’une variable d’environnement nommée `COMMUNICATION_SERVICES_CONNECTION_STRING`. Découvrez comment [gérer la chaîne de connexion de la ressource](../../create-communication-resource.md#store-your-connection-string).
 
 ```python
 # This code demonstrates how to fetch your connection string
@@ -92,24 +90,47 @@ connection_string = os.getenv('COMMUNICATION_SERVICES_CONNECTION_STRING')
 sms_client = SmsClient.from_connection_string(connection_string)
 ```
 
-## <a name="send-an-sms-message"></a>Envoyer un message SMS
+## <a name="send-a-11-sms-message"></a>Envoi d’un message SMS 1:1
 
-Envoyez un SMS en appelant la méthode Send. Ajoutez ce code à la fin du bloc `try` dans **send-sms.py** :
+Pour envoyer un message SMS à un seul destinataire, appelez la méthode ```send``` à partir du **SmsClient** avec un numéro de téléphone de destinataire unique. Vous pouvez également transmettre des paramètres facultatifs pour spécifier si le rapport de remise doit être activé et pour définir des balises personnalisées. Ajoutez ce code à la fin du bloc `try` dans **send-sms.py** :
 
 ```python
 
 # calling send() with sms values
-sms_response = sms_client.send(
-        from_phone_number=PhoneNumber("<leased-phone-number>"),
-        to_phone_numbers=[PhoneNumber("<to-phone-number>")],
-        message="Hello World via SMS",
-        send_sms_options=SendSmsOptions(enable_delivery_report=True)) # optional property
+sms_responses = sms_client.send(
+    from_="<from-phone-number>",
+    to="<to-phone-number>,
+    message="Hello World via SMS",
+    enable_delivery_report=True, # optional property
+    tag="custom-tag") # optional property
 
 ```
 
-Vous devez remplacer `<leased-phone-number>` par un numéro de téléphone permettant de recevoir des SMS associé à votre service de communication et `<to-phone-number>` par le numéro de téléphone auquel vous souhaitez envoyer un message. 
+Vous devez remplacer `<from-phone-number>` par un numéro de téléphone permettant de recevoir des SMS associé à votre service de communication et `<to-phone-number>` par le numéro de téléphone auquel vous souhaitez envoyer un message. 
 
-Le paramètre `send_sms_options` est un paramètre facultatif que vous pouvez utiliser pour configurer la création de rapports de remise. C’est utile pour les scénarios où vous souhaitez émettre des événements quand des SMS sont remis. Consultez le guide de démarrage rapide [Gérer les événements SMS](../handle-sms-events.md) pour configurer la création de rapports de remise pour vos SMS.
+## <a name="send-a-1n-sms-message"></a>Envoyer un message SMS 1:N
+
+Pour envoyer un message SMS à une liste de destinataires, appelez la méthode ```send``` à partir du **SmsClient** avec une liste de numéros de téléphone de destinataire. Vous pouvez également transmettre des paramètres facultatifs pour spécifier si le rapport de remise doit être activé et pour définir des balises personnalisées. Ajoutez ce code à la fin du bloc `try` dans **send-sms.py** :
+
+```python
+
+# calling send() with sms values
+sms_responses = sms_client.send(
+    from_="<from-phone-number>",
+    to=["<to-phone-number-1>", "<to-phone-number-2>"],
+    message="Hello World via SMS",
+    enable_delivery_report=True, # optional property
+    tag="custom-tag") # optional property
+
+```
+
+Vous devez remplacer `<from-phone-number>` par un numéro de téléphone permettant de recevoir des SMS associé à votre service de communication et `<to-phone-number-1>` et `<to-phone-number-2>` par les numéros de téléphone auxquels vous souhaitez envoyer un message. 
+
+## <a name="optional-parameters"></a>Paramètres facultatifs
+
+Le paramètre `enable_delivery_report` est un paramètre facultatif que vous pouvez utiliser pour configurer la création de rapports de remise. C’est utile pour les scénarios où vous souhaitez émettre des événements quand des SMS sont remis. Consultez le guide de démarrage rapide [Gérer les événements SMS](../handle-sms-events.md) pour configurer la création de rapports de remise pour vos SMS.
+
+Le paramètre `tag` est un paramètre facultatif que vous pouvez utiliser pour configurer le balisage personnalisé.
 
 ## <a name="run-the-code"></a>Exécuter le code
 

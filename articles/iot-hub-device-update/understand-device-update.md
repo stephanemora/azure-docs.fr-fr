@@ -6,12 +6,12 @@ ms.author: vimeht
 ms.date: 2/11/2021
 ms.topic: overview
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 0d12ce74cb961148776d81b3d7cabc281bbc59fc
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 60dfd448a66ca67a241f97570c91f683323a7d6d
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101664211"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103232373"
 ---
 # <a name="device-update-for-iot-hub-preview-overview"></a>Présentation de Device Update pour IoT Hub (préversion)
 
@@ -23,10 +23,11 @@ Pour tirer pleinement parti de la transformation numérique IoT, les clients ont
 
 ## <a name="support-for-a-wide-range-of-iot-devices"></a>Prise en charge d’un large choix d’appareils IoT
 
-Device Update pour IoT Hub est conçu pour offrir un déploiement de mises à jour optimisé et des opérations rationalisées grâce à son intégration avec [Azure IoT Hub](https://azure.microsoft.com/en-us/services/iot-hub/). Cette intégration facilite l’adoption de Device Update sur une solution existante. Elle fournit une solution hébergée dans le cloud pour se connecter à pratiquement tout appareil. Device Update prend en charge une large gamme de systèmes d’exploitation IoT, notamment Linux et [Azure RTOS](https://azure.microsoft.com/en-us/services/rtos/) (système d’exploitation en temps réel). Celle-ci peut s’étendre par le biais de l’open source. 
+
+Device Update pour IoT Hub est conçu pour offrir un déploiement de mises à jour optimisé et des opérations rationalisées grâce à son intégration avec [Azure IoT Hub](https://azure.microsoft.com/en-us/services/iot-hub/). Cette intégration facilite l’adoption de Device Update sur une solution existante. Elle fournit une solution hébergée dans le cloud pour se connecter à pratiquement tout appareil. Device Update prend en charge une large gamme de systèmes d’exploitation IoT, notamment Linux et [Azure RTOS](https://azure.microsoft.com/en-us/services/rtos/) (système d’exploitation en temps réel). Celle-ci peut s’étendre par le biais de l’open source. Nous développons une mise à jour des appareils pour les offres IoT Hub avec nos partenaires de semi-conducteurs, dont STMicroelectronics, NXP, Renesas et Microchip. Consultez les [exemples](https://github.com/azure-rtos/samples/tree/PublicPreview/ADU) de panneaux d’évaluation des semiconducteurs clés qui incluent des guides de prise en main pour apprendre à configurer, générer et déployer des mises à jour OTA sur les appareils de classe MCU. 
 
 Un fichier binaire de simulateur d’agent Device Update et des images Yocto de référence Raspberry Pi sont fournis.
-Device Update pour IoT Hub prend également en charge la mise à jour des appareils Azure IoT Edge. Un agent Device Update est fourni pour la plateforme Ubuntu Server 18.04 amd64. Device Update pour IoT Hub fournit également du code open source si vous n’exécutez pas l’une des plateformes ci-dessus. Vous pouvez ainsi porter l’agent sur la distribution que vous exécutez.
+Device Update pour IoT Hub prend également en charge la mise à jour des appareils Azure IoT Edge. Un agent Device Update est fourni pour la plateforme Ubuntu Server 18.04 amd64. Device Update pour IoT Hub fournit également du code open source si vous n’exécutez pas l’une des plateformes ci-dessus. Vous pouvez porter l’agent vers la distribution que vous exécutez.
 
 Device Update fonctionne avec IoT Plug-and-Play (PnP) et peut gérer tous les appareils qui prennent en charge les interfaces PnP nécessaires. Pour plus d’informations, consultez [Device Update pour IoT Hub et IoT Plug-and-Play](device-update-plug-and-play.md).
 
@@ -79,7 +80,7 @@ Quand une commande de mise à jour est reçue sur un appareil, elle exécute la 
 
 ### <a name="importing"></a>Importation en cours
 
-L’importation correspond à la capacité d’importer votre mise à jour dans Device Update. Device Update prend en charge le déploiement d’une seule mise à jour par appareil. Cela s’avère idéal pour les mises à jour d’image complète qui s’applique à une partition de système d’exploitation entière en une seule fois, ou à un manifeste apt qui décrit tous les packages à mettre à jour sur votre appareil. Pour importer des mises à jour dans Device Update, commencez par créer un manifeste d’importation qui décrit la mise à jour, puis chargez le ou les fichiers de mise à jour et le manifeste d’importation sur un emplacement accessible sur Internet. Ensuite, vous pouvez utiliser le portail Azure ou l’API REST Device Update Import pour lancer le processus asynchrone d’importation des mises à jour. Device Update permet de charger les fichiers, de les traiter et de les rendre disponibles pour une distribution vers des appareils IoT.
+L’importation est la manière dont vos mises à jour sont ingérées dans la mise à jour de l’appareil afin qu’elles puissent être déployées sur les appareils. Device Update prend en charge le déploiement d’une seule mise à jour par appareil. Cela s’avère idéal pour les mises à jour d’image complète qui s’applique à une partition de système d’exploitation entière en une seule fois, ou à un manifeste apt qui décrit tous les packages à mettre à jour sur votre appareil. Pour importer des mises à jour dans Device Update, commencez par créer un manifeste d’importation qui décrit la mise à jour, puis chargez le ou les fichiers de mise à jour et le manifeste d’importation sur un emplacement accessible sur Internet. Ensuite, vous pouvez utiliser le portail Azure ou l’[API REST Device Update Import](https://github.com/Azure/iot-hub-device-update/tree/main/docs/publish-api-reference) pour lancer le processus asynchrone d’importation des mises à jour. Device Update permet de charger les fichiers, de les traiter et de les rendre disponibles pour une distribution vers des appareils IoT.
 
 Si le contenu est sensible, protégez le téléchargement à l’aide d’une signature d’accès partagé (SAS), comme une SAS ad hoc pour Stockage Blob Azure. [En savoir plus sur SAS](https://docs.microsoft.com/azure/storage/common/storage-sas-overview)
 

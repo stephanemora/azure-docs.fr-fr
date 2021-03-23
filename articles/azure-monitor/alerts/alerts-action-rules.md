@@ -2,13 +2,13 @@
 title: Règles d’action pour les alertes Azure Monitor
 description: Pour comprendre ce que sont les règles d’action dans Azure Monitor, et comment les configurer et les gérer.
 ms.topic: conceptual
-ms.date: 04/25/2019
-ms.openlocfilehash: 07d179f557671a515a7933b64a25e6d41f75219b
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.date: 03/15/2021
+ms.openlocfilehash: f70d798270ad82193f7ae5935d34f8f418d35e05
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102045613"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103471680"
 ---
 # <a name="action-rules-preview"></a>Règles d’action (préversion)
 
@@ -61,19 +61,33 @@ Choisissez en premier lieu l’étendue (abonnement Azure, groupe de ressources 
 
 ### <a name="filter-criteria"></a>Critères de filtre
 
-Vous pouvez aussi définir des filtres pour les limiter à un sous-ensemble d’alertes spécifique.
+Vous pouvez éventuellement définir des filtres afin que la règle s’applique à un sous-ensemble spécifique d’alertes ou à des événements spécifiques sur chaque alerte (par exemple, uniquement « Déclenchée » ou uniquement « Résolue »).
 
 Les filtres disponibles sont :
 
-* **Gravité** : option permettant de sélectionner une ou plusieurs gravités d’alerte. En définissant **Sev1**, la règle d’action s’applique à toutes les alertes définies sur Sev1.
-* **Service de surveillance** : filtre basé sur le service de supervision d’origine. Ce filtre est également à sélection multiple. Par exemple, si **Service de supervision = « Application Insights »** , cela signifie que la règle d’action s’applique à toutes les alertes basées sur Application Insights.
-* **Type de ressource** :  filtre basé sur un type de ressource spécifique. Ce filtre est également à sélection multiple. Par exemple, si **Type de ressource = « Machines virtuelles »** , cela signifie que la règle d’action s’applique à toutes les machines virtuelles.
-* **ID de règle d’alerte** : option permettant de filtrer des règles d’alerte spécifiques via l’ID Resource Manager de la règle d’alerte.
-* **Condition de surveillance** :  filtre pour les instances d’alerte avec la condition de supervision **Déclenché** ou **Résolu**.
-* **Description** : correspondance d’expression régulière (regex) qui définit une correspondance de chaîne par rapport à la description, définie dans le cadre de la règle d’alerte. Par exemple, **la description contient « prod »** correspond à toutes les alertes contenant la chaîne « prod » dans leur description.
-* **Contexte de l’alerte (charge utile)**  : correspondance d’expression régulière qui définit une correspondance de chaîne par rapport aux champs de contexte d’alerte de la charge utile d’une alerte. Par exemple, **le contexte de l’alerte (charge utile) contient « Computer-01 »** correspond à toutes les alertes dont les charges utiles contiennent la chaîne « Computer-01 ».
+* **Niveau de gravité**  
+Cette règle s’applique uniquement aux alertes avec les gravités sélectionnées.  
+Par exemple, **severity = Sev1** signifie que la règle s’applique uniquement aux alertes avec une gravité de Sev1.
+* **Service de surveillance**  
+Cette règle s’applique uniquement aux alertes provenant des services de surveillance sélectionnés.  
+Par exemple, **monitor service = “Azure Backup”** signifie que la règle s’appliquera uniquement aux alertes de sauvegarde (provenant de Sauvegarde Azure).
+* **Type de ressource**  
+Cette règle s’applique uniquement aux alertes sur les types de ressources sélectionnés.  
+Par exemple, **resource type = “Virtual Machines”** signifie que la règle ne s’appliquera qu’aux alertes sur les machines virtuelles.
+* **ID de la règle d’alerte**  
+Cette règle s’applique uniquement aux alertes provenant d’une règle d’alerte spécifique. La valeur doit être l’ID Resource Manager de la règle d’alerte.  
+Par exemple, la règle **alert rule ID = "/subscriptions/SubId1/resourceGroups/RG1/providers/microsoft.insights/metricalerts/API-Latency"** signifie que cette règle s’applique uniquement aux alertes provenant de la règle d’alerte de métrique « API-Latency ».  
+_Remarque : vous pouvez obtenir l’ID de règle d’alerte approprié en répertoriant vos règles d’alerte à partir de l’interface CLI ou en ouvrant une règle d’alerte spécifique dans le portail, en cliquant sur « Propriétés » et en copiant la valeur « ID de ressource »._
+* **Condition de surveillance**  
+Cette règle s’applique uniquement aux événements d’alerte avec la condition d’analyse spécifiée, **Déclenchée** ou **Résolue**.
+* **Description**  
+Cette règle s’applique uniquement aux alertes qui contiennent une chaîne spécifique dans le champ Description de l’alerte. Ce champ contient la description de la règle d’alerte.  
+Par exemple, **description contains ’prod’** signifie que la règle ne mettra en correspondance que les alertes contenant la chaîne « prod » dans leur description.
+* **Contexte de l’alerte (charge utile)**  
+Cette règle s’applique uniquement aux alertes qui contiennent une ou plusieurs valeurs spécifiques dans les champs de contexte d’alerte.  
+Par exemple, **alert context (payload) contains ’Computer-01’** signifie que la règle s’applique uniquement aux alertes dont la charge utile contient la chaîne « Computer-01 ».
 
-Ces filtres sont appliqués conjointement l’un à l’autre. Par exemple, si vous définissez **« Type de ressource » = Machines virtuelles** et **« Gravité » = Sev0**, vous filtrez toutes les alertes **Sev0** de vos machines virtuelles uniquement.
+Si vous définissez plusieurs filtres dans une règle, tous les filtres s’appliquent. Par exemple, si vous définissez **resource type’ = Virtual Machines** et **severity’ = Sev0**, la règle s’applique uniquement aux alertes de Sev0 sur les machines virtuelles.
 
 ![Filtres de règle d’action](media/alerts-action-rules/action-rules-new-rule-creation-flow-filters.png)
 

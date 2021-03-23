@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/07/2019
 ms.author: mlottner
-ms.openlocfilehash: 04fe87cd69efc4c064b8fbdc596a5f9e187abbb1
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: bced45474a3a851bc5785f662c0b2e50ae3a380c
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100102238"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103491076"
 ---
 # <a name="azure-defender-for-iot-baseline-and-custom-checks"></a>Base de référence d'Azure Defender pour IoT et vérifications personnalisées
 
@@ -42,7 +42,7 @@ Pour les vérifications personnalisées de référence, une liste personnalisée
 
 1. Chargez le fichier de **vérifications personnalisées de base de référence** sur l’appareil.
 
-1. Ajoutez des propriétés de base de référence au module de sécurité, puis cliquez sur **Enregistrer**.
+1. Ajoutez des propriétés de ligne de base au micro-agent Defender-IoT et cliquez sur **Enregistrer**.
 
 ### <a name="baseline-custom-check-file-example"></a>Exemple de fichier de vérifications personnalisées de base de référence
 

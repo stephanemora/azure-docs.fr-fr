@@ -7,20 +7,22 @@ ms.date: 11/22/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: bf8b8554aa2ea1d6d06f58f726ca65f77499ec5f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c748034145781f639da244b16e3df7053da3d5d2
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91440049"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103489963"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices"></a>Comprendre les fonctionnalités hors connexion étendues pour les appareils, modules et appareils enfants IoT Edge
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Azure IoT Edge prend en charge les opérations hors connexion étendues sur vos appareils IoT Edge et permet également certaines opérations hors connexion sur les appareils enfants non IoT Edge. Dès lors qu’un appareil IoT Edge s’est connecté au moins une fois à IoT Hub, cet appareil et tous les appareils enfants peuvent continuer à fonctionner même s’ils sont déconnectés de façon prolongée ou intermittente.
 
 ## <a name="how-it-works"></a>Fonctionnement
 
-Quand un appareil IoT Edge passe en mode hors connexion, le hub IoT Edge assure trois rôles. Tout d’abord, il stocke tous les messages à acheminer en amont jusqu’à ce que l’appareil puisse se reconnecter. Ensuite, il authentifie, pour le compte d’IoT Hub, les modules et les appareils enfants afin qu’ils puissent continuer à fonctionner. Enfin, il rend possible la communication entre les appareils enfants qui communiquent normalement par le biais d’IoT Hub.
+Quand un appareil IoT Edge passe en mode hors connexion, le hub IoT Edge assure trois rôles. Tout d’abord, il stocke tous les messages à acheminer en amont jusqu’à ce que l’appareil puisse se reconnecter. Secundo, il agit au nom d’IoT Hub pour authentifier les modules et les appareils enfants pour leur permettre de continuer de fonctionner. Tertio, il autorise les communications entre les appareils enfants qui normalement passeraient par IoT Hub.
 
 L’exemple de scénario IoT Edge suivant montre le fonctionnement en mode hors connexion :
 
@@ -66,7 +68,7 @@ Vous pouvez déclarer les relations parent-enfant au moment où vous créez un a
 
    ![Gérer les appareils enfants à partir de la page de détails de l’appareil IoT Edge](./media/offline-capabilities/manage-child-devices.png)
 
-#### <a name="option-2-use-the-az-command-line-tool"></a>Option n°2 : Utiliser l’outil de ligne de commande `az`
+#### <a name="option-2-use-the-az-command-line-tool"></a>Option 2 : Utiliser l’outil en ligne de commande `az`
 
 À l’aide de l’interface de ligne de commande [Azure](/cli/azure/) avec l’[extension IoT](https://github.com/azure/azure-iot-cli-extension) (v0.7.0 ou version ultérieure), vous pouvez gérer les relations parent-enfant avec les sous-commandes [device-identity](/cli/azure/ext/azure-iot/iot/hub/device-identity). L’exemple ci-dessous utilise une requête pour affecter tous les appareils non IoT Edge dans le hub à des appareils enfants d’un appareil IoT Edge.
 
@@ -84,16 +86,16 @@ device_list=$(az iot hub query \
 
 # Add all IoT devices to IoT Edge (as child)
 az iot hub device-identity add-children \
-  --device-id $egde_device \
-  --child-list $device_list \
-  --hub-name replace-with-hub-name \
-  --resource-group replace-with-rg-name \
-  --subscription replace-with-sub-name
+  --device-id $egde_device \
+  --child-list $device_list \
+  --hub-name replace-with-hub-name \
+  --resource-group replace-with-rg-name \
+  --subscription replace-with-sub-name
 ```
 
 Vous pouvez modifier la [requête](../iot-hub/iot-hub-devguide-query-language.md) pour sélectionner un autre sous-ensemble des appareils. L’exécution de la commande peut prendre plusieurs secondes si vous spécifiez un grand nombre d’appareils.
 
-#### <a name="option-3-use-iot-hub-service-sdk"></a>Option 3 : Utiliser le SDK IoT Hub Service
+#### <a name="option-3-use-iot-hub-service-sdk"></a>Option 3 : Utiliser le kit de développement logiciel (SDK) IoT Hub Service
 
 Enfin, vous pouvez gérer les relations parent-enfants par programme en utilisant le SDK IoT Hub Service C#, Java ou Node.js. Voici un [exemple d’affectation d’un appareil enfant](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/e2e/test/iothub/service/RegistryManagerE2ETests.cs) avec le SDK C#.
 

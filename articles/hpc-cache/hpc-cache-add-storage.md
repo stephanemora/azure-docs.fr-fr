@@ -4,20 +4,20 @@ description: Comment définir des cibles de stockage pour qu’Azure HPC Cache p
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 01/28/2021
+ms.date: 03/15/2021
 ms.author: v-erkel
-ms.openlocfilehash: b4df5863cc746490f13685a8d412232217af3bc8
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: bba6745a4cc0be30648e23501f9a9e2f0cc6c8db
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99054363"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103563236"
 ---
 # <a name="add-storage-targets"></a>Ajouter des cibles de stockage
 
 Les *cibles de stockage* constituent un stockage back-end pour des fichiers accessibles via un Azure HPC Cache. Vous pouvez ajouter un stockage NFS (comme un système local), ou stocker des données dans un objet blob Azure.
 
-Vous pouvez définir jusqu’à dix cibles de stockage différentes pour un même cache. Le cache présente toutes les cibles de stockage d’un espace de noms agrégé.
+Vous pouvez définir jusqu’à 20 cibles de stockage différentes pour un même cache. Le cache présente toutes les cibles de stockage d’un espace de noms agrégé.
 
 Les chemins d’accès à l’espace de noms sont configurés séparément une fois que vous avez ajouté les cibles de stockage. En général, une cible de stockage NFS peut comporter jusqu’à dix chemins d’accès aux espaces de noms, ou plus pour certaines configurations volumineuses. Pour plus d’informations, consultez [chemins d’accès à l’espace de noms NFS](add-namespace-paths.md#nfs-namespace-paths) .
 
@@ -29,7 +29,7 @@ Ajoutez des cibles de stockage après avoir créé votre cache. Procédez comme 
 1. Définir une cible de stockage (informations disponibles dans cet article)
 1. [Créer les chemins d’accès côté client](add-namespace-paths.md) (pour l’[espace de noms agrégé](hpc-cache-namespace.md))
 
-La procédure d’ajout d’une cible de stockage est légèrement différente selon que vous ajoutez du stockage Blob Azure ou une exportation NFS. Vous trouverez ci-dessous des informations détaillées pour chacune de ces options.
+La procédure d’ajout d’une cible de stockage est légèrement différente selon le type de stockage utilisé. Vous trouverez ci-dessous des informations détaillées pour chacune de ces options.
 
 Cliquez sur l’image ci-dessous pour regarder une [vidéo de démonstration](https://azure.microsoft.com/resources/videos/set-up-hpc-cache/) montrant comment créer un cache et ajouter une cible de stockage à partir du portail Azure.
 
@@ -40,6 +40,9 @@ Cliquez sur l’image ci-dessous pour regarder une [vidéo de démonstration](ht
 Les nouvelles cibles de stockage Blob nécessitent un conteneur d’objets blob vide ou un conteneur comprenant des données au format du système de fichiers cloud Azure HPC Cache. Pour plus d’informations sur le préchargement d’un conteneur d’objets blob, consultez [Déplacer les données dans le stockage d’objets blob Azure](hpc-cache-ingest.md).
 
 Sur le portail Azure, la page **Ajouter une cible de stockage** offre la possibilité de créer un conteneur d’objets blob juste avant de l’ajouter.
+
+> [!NOTE]
+> Pour le stockage Blob monté sur NFS, utilisez le type [Cible de stockage ADLS-NFS](#).
 
 ### <a name="portal"></a>[Portail](#tab/azure-portal)
 
@@ -161,38 +164,50 @@ Une cible de stockage NFS a des paramètres différents d’une cible de stockag
 > Avant de créer une cible de stockage NFS, assurez-vous que votre système de stockage est accessible à partir de l’Azure HPC Cache et répond aux exigences d’autorisation. La création d’une cible de stockage échoue si le cache ne peut pas accéder au système de stockage. Pour plus d’informations, consultez [Conditions requises pour le stockage NFS](hpc-cache-prerequisites.md#nfs-storage-requirements) et [Résolution des problèmes de configuration NAS et des cibles de stockage NFS](troubleshoot-nas.md).
 
 ### <a name="choose-a-usage-model"></a>Choisir un modèle d’utilisation
-<!-- referenced from GUI - update aka.ms link if you change this heading -->
+<!-- referenced from GUI - update aka.ms link to point at new article when published -->
 
-Lorsque vous créez une cible de stockage qui pointe vers un système de stockage NFS, vous devez choisir le modèle d’utilisation de cette cible. Ce modèle détermine la façon dont vos données sont mises en cache.
+Lorsque vous créez une cible de stockage qui utilise NFS pour atteindre son système de stockage, vous devez choisir un modèle d’utilisation pour cette cible. Ce modèle détermine la façon dont vos données sont mises en cache.
+
+Pour plus d’informations sur l’ensemble de ces paramètres, consultez [Comprendre les modèles d’utilisation](cache-usage-models.md).
 
 Les modèles d’utilisation intégrés vous permettent de choisir la manière d’équilibrer la vitesse de réponse avec le risque d’obtenir des données obsolètes. Si vous souhaitez optimiser la vitesse de lecture des fichiers, vous pourriez ne pas vous préoccuper du fait que les fichiers dans le cache sont vérifiés par rapport aux fichiers sur le serveur principal. En revanche, si vous souhaitez vous assurer que vos fichiers sont toujours à jour avec le stockage étendu, choisissez un modèle qui effectue des vérifications fréquemment.
 
-Vous disposez de trois options :
+Ces trois options couvrent la plupart des situations :
 
-* **Lire les écritures lourdes et peu fréquentes** : utilisez cette option si vous souhaitez accélérer l’accès en lecture aux fichiers qui sont statiques ou rarement modifiés.
+* **Nombreuses lectures, écritures peu fréquentes** : accélère l’accès en lecture aux fichiers statiques ou rarement modifiés.
 
-  Cette option met en cache les fichiers que les clients lisent, mais transmet immédiatement les écritures au stockage backend. Les fichiers stockés dans le cache ne sont pas comparés automatiquement aux fichiers sur le volume de stockage NFS. (Pour en savoir plus, consultez la remarque ci-dessous concernant la vérification du serveur principal.)
+  Cette option met en cache les fichiers des lectures client, mais transmet immédiatement les écritures client au stockage principal. Les fichiers stockés dans le cache ne sont pas comparés automatiquement aux fichiers sur le volume de stockage NFS.
 
   N’utilisez pas cette option s’il existe un risque de modification directe d’un fichier sur le système de stockage sans l’avoir d’abord écrit dans le cache. Si cela se produit, la version mise en cache du fichier n’est pas synchronisée avec le fichier sur le serveur principal.
 
-* **Opérations d’écriture supérieures à 15 %**  : cette option accélère les performances de lecture et d’écriture. Quand vous utilisez cette option, tous les clients doivent accéder aux fichiers par le biais d’Azure HPC Cache au lieu de monter le stockage backend directement. Les fichiers mis en cache comportent des modifications récentes qui ne sont pas stockées sur le backend.
+* **Opérations d’écriture supérieures à 15 %**  : cette option accélère les performances de lecture et d’écriture.
 
-  Dans ce modèle d’utilisation, les fichiers figurant dans le cache ne sont vérifiés par rapport aux fichiers se trouvant dans le stockage principal que toutes les huit heures. La version mise en cache du fichier est supposée être plus récente. Un fichier modifié dans le cache est écrit dans le système de stockage back-end après qu’il est resté dans le cache pendant une heure sans aucune modification supplémentaire.
+  Les lectures et écritures du client sont mises en cache. Les fichiers du cache sont supposés être plus récents que les fichiers sur le système de stockage principal. Les fichiers mis en cache ne sont automatiquement vérifiés par rapport aux fichiers du stockage principal que toutes les huit heures. Les fichiers modifiés dans le cache sont écrits dans le système de stockage principal une fois qu’ils se trouvent dans le cache pendant 20 minutes sans aucune modification supplémentaire.
 
-* **Les clients écrivent dans la cible NFS en ignorant le cache** : choisissez cette option si des clients dans votre workflow écrivent des données directement dans le système de stockage sans écrire au préalable dans le cache, ou si vous voulez optimiser la cohérence des données. Les fichiers demandés par les clients sont mis en cache, mais toute modification apportée à ces fichiers à partir du client est immédiatement retransmise au système de stockage backend.
+  N’utilisez pas cette option si un client monte directement le volume de stockage principal, car il existe un risque que des fichiers soient obsolètes.
 
-  Avec ce modèle d’utilisation, les fichiers du cache sont fréquemment comparés aux versions backend pour y rechercher des mises à jour. Cette vérification permet de modifier les fichiers en dehors du cache tout en conservant la cohérence des données.
+* **Les clients écrivent dans la cible NFS en ignorant le cache** : choisissez cette option si des clients dans votre workflow écrivent des données directement dans le système de stockage sans écrire au préalable dans le cache, ou si vous voulez optimiser la cohérence des données.
 
-Ce tableau récapitule les différences entre les modèles d’utilisation :
+  Les fichiers demandés par les clients sont mis en cache, mais toute modification apportée à ces fichiers à partir du client est immédiatement retransmise au système de stockage backend. Les fichiers du cache sont fréquemment comparés aux versions backend pour y rechercher des mises à jour. Cette vérification assure la cohérence des données lorsque les fichiers sont modifiés directement sur le système de stockage plutôt que dans le cache.
 
-| Modèle d’utilisation                   | Mode de mise en cache | Vérification backend | Délai maximal d’écriture différée |
-|-------------------------------|--------------|-----------------------|--------------------------|
-| Lire les écritures lourdes et peu fréquentes | Lire         | Jamais                 | None                     |
-| Opérations d’écriture supérieures à 15 %       | Lecture/écriture   | 8 heures               | 1 heure                   |
-| Les clients ignorent le cache      | Lire         | 30 secondes            | None                     |
+Pour plus d’informations sur les autres options, consultez [Comprendre les modèles d’utilisation](cache-usage-models.md).
+
+Ce tableau résume les différences entre les modèles d’utilisation :
+
+[!INCLUDE [usage-models-table.md](includes/usage-models-table.md)]
+
+<!-- | Usage model | Caching mode | Back-end verification | Maximum write-back delay |
+|--|--|--|--|
+| Read heavy, infrequent writes | Read | Never | None |
+| Greater than 15% writes | Read/write | 8 hours | 20 minutes |
+| Clients bypass the cache | Read | 30 seconds | None |
+| Greater than 15% writes, frequent back-end checking (30 seconds) | Read/write | 30 seconds | 20 minutes |
+| Greater than 15% writes, frequent back-end checking (60 seconds) | Read/write | 60 seconds | 20 minutes |
+| Greater than 15% writes, frequent write-back | Read/write | 30 seconds | 30 seconds |
+| Read heavy, checking the backing server every 3 hours | Read | 3 hours | None | -->
 
 > [!NOTE]
-> La valeur **Vérification du serveur principal** s’affiche lorsque le cache compare automatiquement ses fichiers aux fichiers sources dans le stockage étendu. Toutefois, vous pouvez forcer Azure HPC Cache à comparer les fichiers en effectuant une opération d’annuaire incluant une demande readdirplus. Readdirplus est une API NFS standard (également appelée lecture étendue) qui retourne des métadonnées d’annuaire, ce qui amène le cache à comparer et à mettre à jour les fichiers.
+> La valeur **Vérification du serveur principal** s’affiche lorsque le cache compare automatiquement ses fichiers aux fichiers sources dans le stockage étendu. Toutefois, vous pouvez déclencher une comparaison en envoyant une requête client qui comprend une opération readdirplus sur le système de stockage principal. Readdirplus est une API NFS standard (également appelée lecture étendue) qui retourne des métadonnées d’annuaire, ce qui amène le cache à comparer et à mettre à jour les fichiers.
 
 ### <a name="create-an-nfs-storage-target"></a>Créer une cible de stockage NFS
 
@@ -291,6 +306,43 @@ Sortie :
 ```
 
 ---
+
+## <a name="add-a-new-adls-nfs-storage-target-preview"></a>Ajouter une cible de stockage ADLS-NFS (PRÉVERSION)
+
+Les cibles de stockage ADLS-NFS utilisent des conteneurs d’objets Blob Azure qui prennent en charge le protocole NFS 3.0.
+
+> [!NOTE]
+> La prise en charge du protocole NFS 3.0 dans Stockage Blob Azure est en préversion publique. La disponibilité est limitée et les fonctionnalités peuvent changer entre maintenant et le moment où la fonctionnalité sera proposée en disponibilité générale. N’utilisez pas la technologie en préversion dans des systèmes de production.
+>
+> Consultez [Prise en charge du protocole NFS 3.0](../storage/blobs/network-file-system-protocol-support.md) pour obtenir les dernières informations.
+
+Les cibles de stockage ADLS-NFS ont des similarités avec les cibles de stockage d’objets Blob et avec les cibles de stockage NFS. Par exemple :
+
+* Comme pour une cible de stockage d’objets Blob, vous devez accorder à Azure HPC Cache l’autorisation d’[accéder à votre compte de stockage](#add-the-access-control-roles-to-your-account).
+* À l’instar d’une cible de stockage NFS, vous devez définir un [modèle d’utilisation](#choose-a-usage-model) du cache.
+* Étant donné que les conteneurs d’objets Blob compatibles NFS possèdent une structure hiérarchique compatible NFS, vous n’avez pas besoin d’utiliser le cache pour ingérer les données, et les conteneurs sont lisibles par d’autres systèmes NFS. Vous pouvez précharger des données dans un conteneur ADLS-NFS, les ajouter à un cache HPC en tant que cible de stockage, puis accéder aux données ultérieurement à partir de l’extérieur d’un cache HPC. Lorsque vous utilisez un conteneur d’objets Blob standard en tant que cible de stockage du cache HPC, les données sont écrites dans un format propriétaire et sont accessibles uniquement à partir d’autres produits compatibles avec le Azure HPC Cache.
+
+Avant de pouvoir créer une cible de stockage ADLS-NFS, vous devez créer un compte de stockage compatible NFS. Suivez les conseils dans [Conditions préalables pour Azure HPC Cache](hpc-cache-prerequisites.md#nfs-mounted-blob-adls-nfs-storage-requirements-preview) et les instructions dans [Monter le stockage Blob à l’aide de NFS](../storage/blobs/network-file-system-protocol-support-how-to.md). Une fois votre compte de stockage configuré, vous pouvez créer un conteneur lors de la création de la cible de stockage.
+
+Pour créer une cible de stockage ADLS-NFS, ouvrez la page **Ajouter une cible de stockage** dans le portail Azure. (Des méthodes supplémentaires sont en cours de développement.)
+
+![Capture d’écran de la page Ajouter la cible de stockage avec le type de cible défini sur ADLS-NFS](media/add-adls-target.png)
+
+Entrez les informations suivantes.
+
+* **Nom de la cible de stockage** - Définissez un nom permettant d’identifier cette cible de stockage dans Azure HPC Cache.
+* **Type de cible** - Choisissez **ADLS-NFS**.
+* **Compte de stockage** : sélectionnez le compte que vous souhaitez utiliser. Si votre compte de stockage NFS ne figure pas dans la liste, vérifiez qu’il est conforme aux conditions préalables et que le cache peut y accéder.
+
+  Vous devez autoriser l’instance de cache à accéder au compte de stockage, en suivant la procédure décrite dans [Ajouter les rôles d’accès](#add-the-access-control-roles-to-your-account).
+
+* **Conteneur de stockage** : sélectionnez le conteneur d’objets blob compatible NFS pour cette cible ou cliquez sur **Créer nouveau**.
+
+* **Modèle d’utilisation** : choisissez l’un des profils de mise en cache des données en fonction de votre workflow, comme décrit dans [Choisir un modèle d’utilisation](#choose-a-usage-model) précédemment.
+
+Lorsque vous avez terminé, cliquez sur **OK** pour ajouter la cible de stockage.
+
+<!-- **** -->
 
 ## <a name="view-storage-targets"></a>Afficher les cibles de stockage
 

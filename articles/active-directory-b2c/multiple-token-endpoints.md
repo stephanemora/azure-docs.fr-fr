@@ -1,5 +1,5 @@
 ---
-title: Migrer des API web OWIN vers b2clogin.com
+title: Migrer des API Web basées sur OWIN vers b2clogin.com ou un domaine personnalisé
 titleSuffix: Azure AD B2C
 description: Découvrez comment permettre à une API web .NET de prendre en charge les jetons émis par plusieurs émetteurs de jetons pendant que vous migrez vos applications vers b2clogin.com.
 services: active-directory-b2c
@@ -8,26 +8,23 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/31/2019
+ms.date: 03/15/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c362ce256259606c85af0a7e13ccde1715bb012b
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 860f167913211ee7c511e515937f29ba5bf954cf
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94953931"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103491559"
 ---
-# <a name="migrate-an-owin-based-web-api-to-b2clogincom"></a>Migrer une API web OWIN vers b2clogin.com
+# <a name="migrate-an-owin-based-web-api-to-b2clogincom-or-a-custom-domain"></a>Migrer une API Web basée sur OWIN vers b2clogin.com ou un domaine personnalisé
 
-Cet article décrit une technique permettant d’activer la prise en charge de plusieurs émetteurs de jetons dans des API web qui implémentent l’[interface OWIN (Open Web interface for .NET)](http://owin.org/). La prise en charge de plusieurs points de terminaison de jeton s’avère utile quand vous migrez des API Azure AD B2C (Azure Active Directory B2C) et leurs applications de *login.microsoftonline.com* vers *b2clogin.com*.
+Cet article décrit une technique permettant d’activer la prise en charge de plusieurs émetteurs de jetons dans des API web qui implémentent l’[interface OWIN (Open Web interface for .NET)](http://owin.org/). La prise en charge de plusieurs points de terminaison de jeton s’avère utile quand vous migrez des API Azure AD B2C (Azure Active Directory B2C) et leurs applications d’un domaine à l’autre. Par exemple, de *login.microsoftonline.com* à *b2clogin.com*, ou à un [domaine personnalisé](custom-domain.md).
 
-En ajoutant la prise en charge dans votre API en vue d’accepter les jetons émis par b2clogin.com et login.microsoftonline.com, vous pouvez migrer vos applications web de manière échelonnée avant de supprimer la prise en charge des jetons émis par login.microsoftonline.com à partir de l’API.
+En ajoutant la prise en charge dans votre API en vue d’accepter les jetons émis par b2clogin.com, login.microsoftonline.com ou un domaine personnalisé, vous pouvez migrer vos applications web de manière échelonnée avant de supprimer la prise en charge des jetons émis par login.microsoftonline.com à partir de l’API.
 
 Les sections suivantes présentent un exemple d’activation de plusieurs émetteurs dans une API web qui utilise les composants intergiciels (middleware) [Microsoft OWIN][katana] (Katana). Bien que les exemples de code soient spécifiques à l’intergiciel Microsoft OWIN, la technique générale doit s’appliquer aux autres bibliothèques OWIN.
-
-> [!NOTE]
-> Cet article s’adresse aux clients Azure AD B2C ayant actuellement des API et des applications déployées qui font référence à `login.microsoftonline.com` et qui souhaitent migrer vers le point de terminaison `b2clogin.com` recommandé. Si vous configurez une nouvelle application, utilisez [b2clogin.com](b2clogin.md) comme indiqué.
 
 ## <a name="prerequisites"></a>Conditions préalables requises
 
@@ -88,7 +85,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
 Dans cette section, vous allez mettre à jour le code pour spécifier que les deux points de terminaison de l’émetteur du jeton sont valides.
 
 1. Ouvrez la solution **B2C-WebAPI-DotNet.sln** dans Visual Studio
-1. Dans le projet **TaskService**, ouvrez le fichier *TaskService\\App_Start\\**Startup.Auth.cs** _ dans votre éditeur.
+1. Dans le projet **TaskService**, ouvrez le fichier *TaskService\\App_Start\\ **Startup.Auth.cs**.* dans votre éditeur
 1. Ajoutez la directive `using` suivante en haut du fichier :
 
     `using System.Collections.Generic;`
@@ -102,12 +99,13 @@ Dans cette section, vous allez mettre à jour le code pour spécifier que les de
         AuthenticationType = Startup.DefaultPolicy,
         ValidIssuers = new List<string> {
             "https://login.microsoftonline.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/v2.0/",
-            "https://{your-b2c-tenant}.b2clogin.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/v2.0/"
+            "https://{your-b2c-tenant}.b2clogin.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/v2.0/"//,
+            //"https://your-custom-domain/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/v2.0/"
         }
     };
     ```
 
-`TokenValidationParameters` est fourni par MSAL.net et est utilisé par l’intergiciel OWIN dans la section de code suivante dans _Startup.auth.cs*. Lorsque plusieurs émetteurs valides sont spécifiés, le pipeline d’application OWIN est conscient que les deux points de terminaison de jeton sont des émetteurs valides.
+`TokenValidationParameters` est fourni par MSAL.net et est utilisé par l’intergiciel OWIN dans la section de code suivante dans *Startup.auth.cs*. Lorsque plusieurs émetteurs valides sont spécifiés, le pipeline d’application OWIN est conscient que les deux points de terminaison de jeton sont des émetteurs valides.
 
 ```csharp
 app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions
@@ -142,6 +140,13 @@ Après (remplacez `{your-b2c-tenant}` par le nom de votre locataire B2C) :
 ```
 
 Lorsque les chaînes de point de terminaison sont construites lors de l’exécution de l’application web, les points de terminaison basés sur b2clogin.com sont utilisés lors de la demande de jetons.
+
+Lors de l’utilisation d’un domaine personnalisé :
+
+```xml
+<!-- Custom domain -->
+<add key="ida:AadInstance" value="https://custom-domain/{0}/{1}" />
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

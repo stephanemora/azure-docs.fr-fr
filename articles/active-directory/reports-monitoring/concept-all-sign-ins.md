@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 09/23/2020
+ms.date: 03/16/2021
 ms.author: markvi
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36e6642e230fa809630751e224ff9384ea8524d1
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 185638d683699403c304603d968cfe84e32a55b5
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319779"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103574558"
 ---
 # <a name="azure-active-directory-sign-in-activity-reports---preview"></a>Rapports d’activité de connexion Azure Active Directory – Préversion
 
@@ -125,7 +125,12 @@ Chaque onglet du panneau des connexions affiche les colonnes par défaut ci-dess
 
 Les connexions utilisateur interactives sont des connexions où un utilisateur fournit un facteur d’authentification à Azure AD ou interagit directement avec Azure AD ou une application auxiliaire telle que l’application Microsoft Authenticator. Les facteurs que les utilisateurs fournissent incluent des mots de passe, des réponses à des demandes d’authentification multifacteur, des facteurs biométriques ou des codes QR qu’un utilisateur fournit à Azure AD ou à une application auxiliaire.
 
-Ce rapport comprend également des connexions fédérées de fournisseurs d’identité qui sont fédérés à Azure AD.  
+> [!NOTE]
+> Ce rapport comprend également des connexions fédérées de fournisseurs d’identité qui sont fédérés à Azure AD.  
+
+
+
+Remarque : le rapport de connexions utilisateur interactives contenait auparavant des connexions non interactives de clients Microsoft Exchange. Bien que ces connexions ne soient pas interactives, elles étaient incluses dans le rapport des connexions utilisateur interactives pour une meilleure visibilité. Une fois le rapport de connexions utilisateur non interactives entré en préversion publique en novembre 2020, les journaux des événements de connexion non interactive ont été déplacés vers le rapport de connexions utilisateur non interactives pour une plus grande précision. 
 
 
 **Taille du rapport :** petite <br> 

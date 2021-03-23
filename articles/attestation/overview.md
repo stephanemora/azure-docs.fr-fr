@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
 ms.custom: references_regions
-ms.openlocfilehash: 85585b771d9c0ed7c6fcdba9cfef7b589a987c8c
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 020ba74948a062d23d61272ee912eb3364180f1e
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99429260"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102617996"
 ---
 # <a name="microsoft-azure-attestation"></a>Microsoft Azure Attestation 
 
@@ -78,10 +78,10 @@ La [continuité d’activité et reprise d’activité](../best-practices-availa
 Les clusters déployés dans deux régions fonctionnent indépendamment dans des conditions normales. Dans le cas d’une défaillance ou d’une panne d’une région, voici ce qui se produit :
 
 - La BCDR d’Azure Attestation fournit un basculement transparent dans lequel les clients n’ont pas besoin d’effectuer d’étape supplémentaire pour la récupération.
-- [Azure Traffic Manager](../traffic-manager/index.yml) pour la région détecte que la sonde d’intégrité est détériorée et définit le point de terminaison sur la région associée.
+- [Azure Traffic Manager](../traffic-manager/index.yml) pour la région détecte que la sonde d’intégrité est détériorée et définit le point de terminaison sur la région associée
 - Les connexions existantes ne fonctionnent pas et reçoivent une erreur serveur interne ou connaissent des problèmes de délai d’attente.
-- Toutes les opérations du plan de contrôle sont bloquées. Les clients ne sont pas en mesure de créer des fournisseurs d’attestations et de mettre à jour les stratégies dans la région primaire.
-- Toutes les opérations de plan de données, y compris les appels d’attestation, continuent de fonctionner dans la région primaire.
+- Toutes les opérations du plan de contrôle sont bloquées. Les clients ne sont pas en mesure de créer des fournisseurs d’attestations dans la région primaire
+- Toutes les opérations de plan de données, y compris les appels d’attestation et la configuration de stratégie, seront traitées par la région secondaire. Les clients peuvent continuer à travailler sur les opérations de plan de données avec l’URI d’origine correspondant à la région primaire
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Découvrez les [concepts de base d’Azure Attestation](basic-concepts.md).

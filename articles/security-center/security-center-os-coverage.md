@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: overview
 ms.date: 03/31/2020
 ms.author: memildin
-ms.openlocfilehash: 65f383b37b6fb5c89fb987f179d7900eb667d76e
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: 88dc0760f320a99b0cbc99b7637dc34dd11dfecc
+ms.sourcegitcommit: 33ac5cd254c33659f668a76a2e295fddcd5d194d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102438282"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103465444"
 ---
 # <a name="supported-platforms"></a>Plateformes prises en charge 
 
@@ -51,7 +51,7 @@ Des machines virtuelles sont également créées dans un abonnement client dans 
 
 Les machines virtuelles s’exécutant dans un service cloud sont également prises en charge. Seuls les rôles de travail et web des services cloud en cours d’exécution dans des emplacements de production sont surveillés. Pour en savoir plus sur les services cloud, consultez [Vue d’ensemble d’Azure Cloud Services](../cloud-services/cloud-services-choose-me.md).
 
-La protection des machines virtuelles résidant dans Azure Stack est également prise en charge. Pour plus d’informations sur l’intégration de Security Center avec Azure Stack, consultez [Intégrer vos machines virtuelles Azure Stack à Security Center](quickstart-onboard-machines.md). 
+La protection des machines virtuelles résidant dans Azure Stack Hub est également prise en charge. Pour plus d’informations sur l’intégration de Security Center avec Azure Stack Hub, consultez [Intégrer vos machines virtuelles Azure Stack Hub à Security Center](quickstart-onboard-machines.md?pivots=azure-portal#onboard-your-azure-stack-hub-vms). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
