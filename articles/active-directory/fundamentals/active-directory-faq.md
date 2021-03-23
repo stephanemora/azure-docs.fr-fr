@@ -13,12 +13,12 @@ ms.date: 11/12/2018
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a8fcb14ac397791822c3a9065275dbfb2b3b7dd
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: a3b9f76eba9697d6ad47ecf8dc51689538923f88
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96860420"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101094473"
 ---
 # <a name="frequently-asked-questions-about-azure-active-directory"></a>Questions fréquentes (FAQ) sur Azure Active Directory
 Azure Active Directory (Azure AD) est une solution IDaaS (Identity as a Service) complète qui couvre tous les aspects de l’identité, la gestion des accès et la sécurité.
@@ -51,7 +51,7 @@ Les services Azure AD payants comme Enterprise Mobility + Security complètent 
 
 **R :** Par défaut, le rôle Propriétaire de ressources Azure est affecté à la personne qui souscrit un abonnement Azure. Un Propriétaire peut utiliser un compte Microsoft ou un compte professionnel ou scolaire provenant du répertoire auquel l’abonnement Azure est associé.  Ce rôle est autorisé à gérer les services sur le portail Azure.
 
-Si d’autres personnes doivent se connecter et accéder aux services à l’aide de l’abonnement, vous pouvez leur assigner le [rôle intégré](../../role-based-access-control/built-in-roles.md) approprié. Pour obtenir des informations supplémentaires, consultez [Ajouter ou supprimer des attributions de rôles Azure à l’aide du portail Azure](../../role-based-access-control/role-assignments-portal.md).
+Si d’autres personnes doivent se connecter et accéder aux services à l’aide de l’abonnement, vous pouvez leur assigner le [rôle intégré](../../role-based-access-control/built-in-roles.md) approprié. Pour plus d’informations, consultez [Attribuer des rôles Azure à l’aide du portail Azure](../../role-based-access-control/role-assignments-portal.md).
 
 Par défaut, le rôle d’administrateur général de l’annuaire est affecté à la personne qui souscrit un abonnement Azure. L’Administrateur général a accès à toutes les fonctionnalités de répertoire d’Azure AD. Azure AD dispose d’un autre ensemble de rôles d’administrateur qui permet de gérer le répertoire et les fonctionnalités liées à l’identité. Ces administrateurs ont accès à diverses fonctionnalités dans le portail Azure. Le rôle de l’administrateur détermine les opérations qu’il peut effectuer : créer ou modifier des utilisateurs, assigner des rôles d’administrateur à d’autres personnes, réinitialiser les mots de passe utilisateur, gérer les licences utilisateur et les domaines, etc.  Pour plus d’informations sur les administrateurs de répertoires Azure AD et leurs rôles, consultez [Attribuer des rôles d’administrateur à un utilisateur dans Azure Active Directory](active-directory-users-assign-role-azure-portal.md) et [Attribution de rôles d’administrateur dans Azure Active Directory](../roles/permissions-reference.md).
 

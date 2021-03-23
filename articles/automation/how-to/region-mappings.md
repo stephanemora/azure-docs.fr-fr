@@ -1,20 +1,24 @@
 ---
 title: Régions prises en charge pour l’espace de travail Log Analytics lié
 description: Cet article décrit les mappages des régions prises en charge entre un compte Automation et un espace de travail Log Analytics en relation avec certaines fonctionnalités d’Azure Automation.
-ms.date: 01/21/2021
+ms.date: 02/17/2021
 services: automation
 ms.topic: conceptual
 ms.custom: references_regions
-ms.openlocfilehash: 3b744127b51b0e0db63c158feaf463af4cd0bdcf
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 0599dcb57b46d1e48b4035acac8b64edbbe06912
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98704319"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720169"
 ---
 # <a name="supported-regions-for-linked-log-analytics-workspace"></a>Régions prises en charge pour l’espace de travail Log Analytics lié
 
 Dans Azure Automation, vous pouvez activer les fonctionnalités Update Management, Change Tracking and Inventory et Start/Stop VMs during off-hours pour vos serveurs et machines virtuelles. Ces fonctionnalités dépendent d’un espace de travail Log Analytics et nécessitent donc de lier l’espace de travail à un compte Automation. Toutefois, seules certaines régions sont prises en charge pour les lier ensemble. En général, le mappage n’est *pas* applicable si vous envisagez de lier un compte Automation à un espace de travail pour lequel ces fonctionnalités ne sont pas activées.
+
+Les mappages abordés ici s’appliquent uniquement à la liaison de l’espace de travail Log Analytics à un compte Automation. Ils ne s’appliquent pas aux machines virtuelles qui sont connectées à l’espace de travail lié au compte Automation. Les machines virtuelles ne sont pas limitées aux régions prises en charge par l’espace de travail Log Analytics donné. Elles peuvent se situer dans n’importe quelle région. N’oubliez pas que si les machines virtuelles se trouvent dans une autre région, cela peut affecter les exigences réglementaires locales et nationales, ou les exigences de conformité de votre entreprise. Avoir des machines virtuelles dans une autre région peut également introduire des frais de bande passante des données.
+
+Avant de connecter des machines virtuelles à un espace de travail dans une autre région, vous devez passer en revue les exigences et les coûts potentiels pour confirmer et comprendre les implications juridiques et financières.
 
 Cet article fournit les mappages pris en charge afin d’activer et d’utiliser correctement ces fonctionnalités dans votre compte Automation.
 

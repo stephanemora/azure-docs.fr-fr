@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/25/2021
-ms.openlocfilehash: 3e12bef7569110084cd059b0dfde8562bd914823
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 5b906bdbd07d59d2acc88f6b30f0db6b6cbc961a
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102030764"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103562244"
 ---
 # <a name="standard-columns-in-azure-monitor-logs"></a>Colonnes standard dans les journaux Azure Monitor
 Les données des journaux Azure Monitor sont [stockées sous la forme d’un jeu d’enregistrements dans un espace de travail Log Analytics ou dans une application Application Insights](../logs/data-platform-logs.md), chacun ayant un type de données particulier associé à un ensemble unique de colonnes. De nombreux types de données comportent des colonnes standard qui sont communes à plusieurs types. Cet article décrit ces colonnes et fournit des exemples sur la façon dont vous pouvez les utiliser dans des requêtes.
@@ -132,7 +132,7 @@ L’exécution d’analyses sur différents types de données étant coûteuse, 
 
 Il est toujours plus efficace d’utiliser la colonne \_SubscriptionId que de l’extraire en analysant la colonne \_ResourceId.
 
-## <a name="_substriptionid"></a>\_SubstriptionId
+## <a name="_subscriptionid"></a>\_SubscriptionId
 La colonne **\_SubscriptionId** contient l’ID d’abonnement de la ressource à laquelle l’enregistrement est associé. Vous disposez ainsi d’une colonne standard à utiliser pour étendre votre requête aux enregistrements d’une ressource particulière seulement, ou pour comparer différents abonnements.
 
 Pour les ressources Azure, la valeur de **__SubscriptionId** est la partie de l’abonnement de l’[URL d’ID de la ressource Azure](../../azure-resource-manager/templates/template-functions-resource.md). La colonne se limite aux ressources Azure, notamment les ressources [Azure Arc](../../azure-arc/overview.md), ou aux journaux personnalisés qui indiquent l’ID de la ressource lors de l’ingestion.

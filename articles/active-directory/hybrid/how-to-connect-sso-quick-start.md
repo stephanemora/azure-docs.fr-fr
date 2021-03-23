@@ -16,12 +16,12 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59cc50274b291c23aeec4620ec7a09312cc0c1fb
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: e49ed356f294baca6e339faeebe92ca02b2723df
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98762256"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101644780"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quickstart"></a>Authentification unique transparente Azure Active Directory : Démarrage rapide
 
@@ -161,10 +161,10 @@ Il y a deux façons de modifier les paramètres de la zone Intranet des utilisat
     ![Capture d’écran montrant « Registre » sélectionné et « Élément de Registre » sélectionné.](./media/how-to-connect-sso-quick-start/sso15.png)
 
 4. Entrez les valeurs suivantes dans les champs appropriés et cliquez sur **OK**.
-   - **Chemin de la clé** : **_Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\microsoftazuread-sso.com\autologon_* _
-   - _*Nom de la valeur** : **_https_*_
-   - _*Type de valeur** : **_REG_DWORD_*_
-   - _*Données de la valeur** : **_00000001_*_
+   - **Chemin de la clé** : **_Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\microsoftazuread-sso.com\autologon_**
+   - **Nom de la valeur** : **_https_**
+   - **Type de valeur** : **_REG_DWORD_**
+   - **Données de la valeur** : **_00000001_**
  
      ![Capture d’écran montrant la fenêtre « Nouvelles propriétés de Registre ».](./media/how-to-connect-sso-quick-start/sso16.png)
  
@@ -176,7 +176,7 @@ Il y a deux façons de modifier les paramètres de la zone Intranet des utilisat
 
 Mozilla Firefox n'utilise pas automatiquement l’authentification Kerberos. Chaque utilisateur doit ajouter manuellement l’URL Azure AD à ses paramètres Firefox comme suit :
 1. Exécutez Firefox et entrez `about:config` dans la barre d’adresses. Ignorez les notifications que vous voyez.
-2. Recherchez la préférence _ *network.negotiate-auth.trusted-uris**. Cette préférence répertorie les sites de confiance de Firefox pour l’authentification Kerberos.
+2. Recherchez la préférence **network.negotiate-auth.trusted-URI**. Cette préférence répertorie les sites de confiance de Firefox pour l’authentification Kerberos.
 3. Cliquez avec le bouton droit et sélectionnez **Modifier**.
 4. Entrez `https://autologon.microsoftazuread-sso.com` dans le champ.
 5. Sélectionnez **OK** puis rouvrez le navigateur.
@@ -205,7 +205,7 @@ L’utilisation des extensions de stratégie de groupe Active Directory tierces 
 
 #### <a name="known-browser-limitations"></a>Limitations connues du navigateur
 
-L’authentification unique transparente ne fonctionne pas en mode de navigation privée sur Firefox et Microsoft Edge. Par ailleurs, il ne fonctionne pas sur Internet Explorer si le navigateur en cours d’utilisation est en mode Protection améliorée. Pour la prochaine version de Microsoft Edge basé sur Chromium, elle ne fonctionnera pas en mode InPrivate et Guest de par sa conception.
+L’authentification unique transparente ne fonctionne pas en mode de navigation privée sur les navigateurs Firefox et Microsoft Edge (hérité). Par ailleurs, il ne fonctionne pas sur Internet Explorer si le navigateur en cours d’utilisation est en mode Protection améliorée. L’authentification unique transparente prend en charge la prochaine version de Microsoft Edge basée sur Chromium et est conçue pour fonctionner en modes InPrivate et Invité.
 
 ## <a name="step-4-test-the-feature"></a>Étape 4 : Tester la fonctionnalité
 
@@ -216,10 +216,10 @@ Pour tester la fonctionnalité d’un utilisateur spécifique, assurez-vous que 
   - Vous avez [déployé la fonctionnalité](#step-3-roll-out-the-feature) pour cet utilisateur via la stratégie de groupe.
 
 Pour tester le scénario dans lequel l’utilisateur entre uniquement le nom d’utilisateur, mais pas le mot de passe :
-   - Connectez-vous à `https://myapps.microsoft.com/` dans une nouvelle session de navigateur privée.
+   - Connectez-vous à https://myapps.microsoft.com/. Veillez à vider le cache du navigateur ou à utiliser une nouvelle session de navigation privée avec l’un des navigateurs pris en charge en mode privé.
 
 Pour tester le scénario dans lequel l’utilisateur n’a pas à entrer le nom d’utilisateur ou le mot de passe, effectuez l'une des étapes suivantes : 
-   - Connectez-vous à `https://myapps.microsoft.com/contoso.onmicrosoft.com` dans une nouvelle session de navigateur privée. Remplacez *contoso* par le nom de votre locataire.
+   - Connectez-vous à `https://myapps.microsoft.com/contoso.onmicrosoft.com`. Veillez à vider le cache du navigateur ou à utiliser une nouvelle session de navigation privée avec l’un des navigateurs pris en charge en mode privé. Remplacez *contoso* par le nom de votre locataire.
    - Connectez-vous à `https://myapps.microsoft.com/contoso.com` dans une nouvelle session de navigateur privée. Remplacez *contoso.com* par un domaine vérifié (pas un domaine fédéré) dans votre locataire.
 
 ## <a name="step-5-roll-over-keys"></a>Étape 5 : Substituer les clés

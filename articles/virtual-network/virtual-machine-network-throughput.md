@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 4/26/2019
 ms.author: steveesp
 ms.reviewer: kumud, mareat
-ms.openlocfilehash: 280b3cbef8307691b0d50c4a26f6dca18b7fb65b
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: cb128f9269895f04d1e0dad8e0c8d06c481e86c6
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98233863"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576171"
 ---
 # <a name="virtual-machine-network-bandwidth"></a>Bande passante réseau des machines virtuelles
 
@@ -55,12 +55,12 @@ Le transfert de données entre les points de terminaison nécessite la création
 ## <a name="flow-limits-and-active-connections-recommendations"></a>Recommandations relatives aux limites de flux et aux connexions actives
 
 Aujourd’hui, la pile réseau Azure prend en charge 1 million de flux au total (500 000 entrants et 500 000 sortants) pour une machine virtuelle. Le nombre total de connexions actives pouvant être gérées par une machine virtuelle dans différents scénarios est le suivant.
-- Les machines virtuelles appartenant au réseau virtuel peuvent gérer 500 000 **_connexions actives_* _ pour toutes les tailles de machine virtuelle avec 500 000 _*_flux actifs dans chaque direction_*_.  
-- Les machines virtuelles avec des appliances virtuelles réseau telles qu’une passerelle, un proxy ou un pare-feu peuvent gérer 250 000 _*_connexions actives_*_ avec 500 000 _ *_flux actifs dans chaque direction_** en raison du transfert et de la création de nouveaux flux supplémentaires sur la configuration de la nouvelle connexion jusqu’au tronçon suivant, comme indiqué dans le diagramme ci-dessus. 
+- Les machines virtuelles appartenant au réseau virtuel peuvent gérer 500 000 **connexions actives** pour toutes les tailles de machine virtuelle avec 500 000 _flux actifs dans chaque direction_.  
+- Les machines virtuelles avec des appliances virtuelles réseau, telles qu’une passerelle, un proxy, un pare-feu, peuvent gérer 250 000 **connexions actives** avec 500 000 *_flux actifs dans chaque direction_*, en raison du transfert et de la création de nouveaux flux supplémentaires sur la configuration de la nouvelle connexion jusqu’au tronçon suivant, comme indiqué dans le diagramme ci-dessus. 
 
 Une fois cette limite atteinte, les connexions supplémentaires sont supprimées. Le taux d’établissement et de fin de connexions peut également affecter le niveau de performance réseau, car l’établissement et la fin des connexions partagent l’UC avec les routines de traitement de paquets. Nous vous recommandons d’évaluer les charges de travail pour les modèles de trafic attendus et d’effectuer un scale-out de manière appropriée en fonction de vos besoins en matière de niveau de performance.
 
-Des métriques permettant de suivre le nombre de flux réseau et le taux de création des flux sur votre machine virtuelle ou sur des instances de VMSS sont disponibles dans [Azure Monitor](../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachines).
+Des métriques permettant de suivre le nombre de flux réseau et le taux de création des flux sur votre machine virtuelle ou sur des instances de VMSS sont disponibles dans [Azure Monitor](../azure-monitor/essentials/metrics-supported.md#microsoftcomputevirtualmachines).
 
 ![Capture d’écran montrant la page Métriques d’Azure Monitor avec un graphique en courbes et des totaux pour les flux entrants et sortants.](media/virtual-machine-network-throughput/azure-monitor-flow-metrics.png)
 

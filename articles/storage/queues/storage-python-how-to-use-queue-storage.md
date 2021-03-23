@@ -1,20 +1,20 @@
 ---
-title: Guide pratique pour utiliser Stockage Files d’attente à partir de Python - Stockage Azure
+title: Guide pratique pour utiliser Stockage Files d’attente à partir de Python
 description: Apprenez à utiliser le Stockage File d'attente Azure à partir de Python pour créer et supprimer des files d'attente, ainsi que pour insérer, récupérer et supprimer des messages.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.reviewer: dineshm
-ms.date: 01/19/2021
+ms.date: 02/16/2021
 ms.topic: how-to
 ms.service: storage
 ms.subservice: queues
 ms.custom: seo-javascript-october2019, devx-track-python
-ms.openlocfilehash: 82d18fd79b10a8500cfd9191f143438d69fda401
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 8c30d05cf49162155f84961e1fd8a32361444ba5
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98600801"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653259"
 ---
 # <a name="how-to-use-azure-queue-storage-from-python"></a>Guide pratique pour utiliser Stockage Files d’attente à partir de Python
 
@@ -22,9 +22,9 @@ ms.locfileid: "98600801"
 
 ## <a name="overview"></a>Vue d’ensemble
 
-Cet article présente des scénarios courants d’utilisation du service Stockage File d’attente Azure. Les scénarios traités comprennent l'insertion, la consultation rapide, la récupération et la suppression de messages de la file d'attente. Le code de création et de suppression de files d'attente est également abordé.
+Cet article présente des scénarios courants d’utilisation du service Stockage File d’attente Azure. Les scénarios traités comprennent l’insertion, la consultation rapide, la récupération et la suppression de messages de la file d’attente. Le code de création et de suppression de files d'attente est également abordé.
 
-Les exemples de cet article sont écrits en Python et utilisent la [bibliothèque de client Stockage File d'attente Azure pour Python](https://github.com/Azure/Azure-SDK-for-Python/tree/master/sdk/storage/azure-storage-queue). Pour plus d’informations sur les files d’attente, consultez la section [Étapes suivantes](#next-steps).
+Les exemples de cet article sont écrits en Python et utilisent la [bibliothèque de client Stockage File d'attente Azure pour Python](https://github.com/azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue). Pour plus d’informations sur les files d’attente, consultez la section [Étapes suivantes](#next-steps).
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
@@ -117,6 +117,26 @@ queue_service.create_queue(queue_name)
 
 ---
 
+Les messages de la file d’attente Azure sont stockés sous forme de texte. Si vous souhaitez stocker des données binaires, configurez les fonctions d'encodage et de décodage Base64 avant de placer un message dans la file d'attente.
+
+# <a name="python-v12"></a>[Python v12](#tab/python)
+
+Configurez les fonctions d’encodage et de décodage en Base64 lors de la création de l’objet client.
+
+:::code language="python" source="~/azure-storage-snippets/queues/howto/python/python-v12/python-howto-v12.py" id="Snippet_EncodeMessage":::
+
+# <a name="python-v2"></a>[Python v2](#tab/python2)
+
+Configurez les fonctions d’encodage et de décodage base64 sur un objet Stockage File d'attente.
+
+```python
+# Setup Base64 encoding and decoding functions
+queue_service.encode_function = QueueMessageFormat.binary_base64encode
+queue_service.decode_function = QueueMessageFormat.binary_base64decode
+```
+
+---
+
 ## <a name="insert-a-message-into-a-queue"></a>Insertion d'un message dans une file d'attente
 
 # <a name="python-v12"></a>[Python v12](#tab/python)
@@ -133,26 +153,6 @@ Pour insérer un message dans une file d’attente, utilisez la méthode [`put_m
 message = u"Hello, World"
 print("Adding message: " + message)
 queue_service.put_message(queue_name, message)
-```
-
----
-
-Les messages de la file d’attente Azure sont stockés sous forme de texte. Si vous souhaitez stocker des données binaires, configurez les fonctions d'encodage et de décodage Base64 avant de placer un message dans la file d'attente.
-
-# <a name="python-v12"></a>[Python v12](#tab/python)
-
-Configurez les fonctions d'encodage et de décodage Base64 sur l'objet client de la file d'attente.
-
-:::code language="python" source="~/azure-storage-snippets/queues/howto/python/python-v12/python-howto-v12.py" id="Snippet_EncodeMessage":::
-
-# <a name="python-v2"></a>[Python v2](#tab/python2)
-
-Configurez les fonctions d’encodage et de décodage base64 sur un objet Stockage File d'attente.
-
-```python
-# Setup Base64 encoding and decoding functions
-queue_service.encode_function = QueueMessageFormat.binary_base64encode
-queue_service.decode_function = QueueMessageFormat.binary_base64decode
 ```
 
 ---

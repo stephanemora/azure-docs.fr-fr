@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f2b059bb6ae63d7f427ce970b2538da922e2dec
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 46cc8ef1158c02190f905cbe8eb1d12ea7be50a2
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94837261"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101644933"
 ---
 # <a name="what-is-a-primary-refresh-token"></a>Qu’est-ce qu’un jeton d’actualisation principal ?
 
@@ -103,7 +103,7 @@ Un PRT est protégé via une liaison à l’appareil sur lequel l’utilisateur 
 * **À la première connexion** : À la première connexion, un PRT est émis via signature de demande en utilisant la clé d’appareil générée de manière chiffrée au moment de l’inscription de l’appareil. Sur un appareil avec TPM valide et fonctionnel, la clé d’appareil est sécurisée par le TPM, empêchant tout accès malveillant. Aucun PRT n’est émis si la signature de clé d’appareil correspondante ne peut pas être validée.
 * **Au cours des demandes et des renouvellements de jeton** : Lorsqu’un PRT est émis, Azure AD émet également une clé de session chiffrée sur l’appareil. Elle est chiffrée à l’aide de la clé de transport publique (tkpub) générée et envoyée à Azure AD dans le cadre de l’inscription de l’appareil. Cette clé de session peut uniquement être déchiffrée par la clé de transport privée (tkpriv) sécurisée par le TPM. La clé de session est la clé de preuve de possession (POP) pour toutes les demandes envoyées à Azure AD.  La clé de session est également protégée par le TPM et aucun autre composant du système d’exploitation ne peut y accéder. Les demandes de jeton ou les demandes de renouvellement de PRT sont signées en toute sécurité par cette clé de session via le TPM. Par conséquent, elles ne peuvent pas être altérées. Azure AD invalidera toutes les demandes de l’appareil non signées par la clé de session correspondante.
 
-En sécurisant ces clés avec le TPM, les personnes malveillantes ne peuvent pas dérober les clés ni relire le PRT ailleurs, car le TPM n’est pas accessible même si le pirate est en possession physique de l’appareil.  Par conséquent, l’utilisation d’un TPM renforce considérablement la sécurité des appareils joints à Azure AD, à Azure AD hybride et inscrits dans Azure AD et les protège contre le vol d’informations d’identification. Pour des performances et une fiabilité améliorées, TPM 2.0 est la version recommandée dans tous les scénarios d’inscription d’appareils Azure AD sous Windows 10.
+En sécurisant ces clés avec le module TPM, nous améliorons la sécurité du PRT en empêchant les personnes malveillantes de voler les clés ou de relire le PRT.  Ainsi, l’utilisation d’un TPM renforce considérablement la sécurité des appareils joints à Azure AD, à Azure AD Hybride et inscrits dans Azure AD et les protège contre le vol d’informations d’identification. Pour des performances et une fiabilité améliorées, TPM 2.0 est la version recommandée dans tous les scénarios d’inscription d’appareils Azure AD sous Windows 10. En raison de problèmes de fiabilité, à partir de la mise à jour 1903 de Windows 10, Azure AD n’utilise TPM 1.2 pour aucune des clés mentionnées plus haut. 
 
 ### <a name="how-are-app-tokens-and-browser-cookies-protected"></a>Comment les jetons d’application et les cookies de navigateur sont-ils protégés ?
 
@@ -111,7 +111,7 @@ En sécurisant ces clés avec le TPM, les personnes malveillantes ne peuvent pas
 
 **Cookies de navigateur** : Dans Windows 10, Azure AD prend en charge l’authentification unique de navigateur dans Internet Explorer et Microsoft Edge en natif, et dans Google Chrome via l’extension Windows 10 Accounts. Ce dispositif de sécurité est conçu non seulement pour protéger les cookies, mais également les points de terminaison sur lesquels les cookies sont envoyés. Les cookies de navigateur sont protégés de la même façon que les PRT, c’est-à-dire en utilisant la clé de session pour signer et protéger les cookies.
 
-Lorsqu’un utilisateur lance une interaction de navigateur, le navigateur (ou l’extension) appelle un hôte de client natif COM. L’hôte de client natif garantit que la page provient de l’un des domaines autorisés. Le navigateur pourrait envoyer d’autres paramètres à l’hôte de client natif, y compris une valeur à usage unique, toutefois, l’hôte de client natif garantit la validation du nom d’hôte. L’hôte de client natif demande un cookie de PRT au plug-in CloudAP, qui le crée et le signe avec la clé de session protégée par le TPM. Comme le cookie de PRT est signé par la clé de session, il ne peut pas être altéré. Ce cookie de PRT est inclus dans l’en-tête de demande afin qu’Azure AD valide l’appareil qui en est à l’origine. Dans le navigateur Chrome, seule l’extension explicitement définie dans le manifeste de l’hôte de client natif peut l’appeler, ce qui empêche les extensions arbitraires de faire ces demandes. Une fois qu’Azure AD valide le cookie de PRT, il émet un cookie de session sur le navigateur. Ce cookie de session contient également la même clé de session que celle émise avec un PRT. Lors des demandes suivantes, la clé de session est validée, ce qui lie le cookie à l’appareil et empêche les relectures à partir d’un autre emplacement.
+Lorsqu’un utilisateur lance une interaction de navigateur, le navigateur (ou l’extension) appelle un hôte de client natif COM. L’hôte de client natif garantit que la page provient de l’un des domaines autorisés. Le navigateur pourrait envoyer d’autres paramètres à l’hôte de client natif, y compris une valeur à usage unique, toutefois, l’hôte de client natif garantit la validation du nom d’hôte. L’hôte de client natif demande un cookie de PRT au plug-in CloudAP, qui le crée et le signe avec la clé de session protégée par le TPM. Comme le cookie de PRT est signé par la clé de session, il est très difficile à falsifier. Ce cookie de PRT est inclus dans l’en-tête de demande afin qu’Azure AD valide l’appareil qui en est à l’origine. Dans le navigateur Chrome, seule l’extension explicitement définie dans le manifeste de l’hôte de client natif peut l’appeler, ce qui empêche les extensions arbitraires de faire ces demandes. Une fois qu’Azure AD valide le cookie de PRT, il émet un cookie de session sur le navigateur. Ce cookie de session contient également la même clé de session que celle émise avec un PRT. Lors des demandes suivantes, la clé de session est validée, ce qui lie le cookie à l’appareil et empêche les relectures à partir d’un autre emplacement.
 
 ## <a name="when-does-a-prt-get-an-mfa-claim"></a>Dans quels cas les PRT reçoivent-ils une revendication MFA ?
 
@@ -196,7 +196,7 @@ Les diagrammes suivants illustrent les détails sous-jacents de l’émission, d
 | Un | Un utilisateur ouvre une session Windows avec ses informations d’identification pour obtenir un PRT. Une fois que l’utilisateur ouvre le navigateur, ce dernier (ou une extension) charge les URL du Registre. |
 | B | Lorsqu’un utilisateur ouvre une URL de connexion Azure AD, le navigateur ou l’extension compare l’URL avec celles obtenues à partir du Registre. Si elles correspondent, le navigateur appelle l’hôte de client natif pour obtenir un jeton. |
 | C | L’hôte de client natif vérifie l’appartenance de l’URL aux fournisseurs d’identités Microsoft (compte Microsoft ou Azure AD), extrait une valeur à usage unique envoyée de l’URL et effectue un appel au plug-in CloudAP pour obtenir un cookie de PRT. |
-| D | Le plug-in CloudAP crée le cookie de PRT, se connecte avec la clé de session liée au TPM et le renvoie à l’hôte de client natif. Comme le cookie est signé par la clé de session, il ne peut pas être altéré. |
+| D | Le plug-in CloudAP crée le cookie de PRT, se connecte avec la clé de session liée au TPM et le renvoie à l’hôte de client natif. |
 | E | L’hôte de client natif renvoie ce cookie de PRT au navigateur, qui l’inclut dans l’en-tête de demande x-ms-RefreshTokenCredential et demande les jetons à Azure AD. |
 | F | Azure AD valide la signature de clé de session sur le cookie de PRT, vérifie la valeur à usage unique, s’assure que l’appareil est valide dans le locataire et émet un jeton d’ID pour la page web et un cookie de session chiffré pour le navigateur. |
 

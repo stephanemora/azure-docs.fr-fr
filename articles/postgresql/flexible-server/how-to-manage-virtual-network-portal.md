@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
-ms.openlocfilehash: 46d8fe6427b2a3e7811719792ac4bf67ddbcc3c5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 746f15d2d712f4b571d3f27e3535c69f5f4f9732
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90930707"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101732766"
 ---
 # <a name="create-and-manage-virtual-networks-for-azure-database-for-postgresql---flexible-server-using-the-azure-portal"></a>Créer et gérer des réseaux virtuels pour le serveur flexible Azure Database pour PostgreSQL à l'aide du Portail Azure
 
@@ -33,7 +33,14 @@ Pour créer un serveur flexible dans un réseau virtuel, vous avez besoin des é
     > [!Note]
     > Le réseau virtuel et le sous-réseau doivent se trouver dans la même région et le même abonnement que votre serveur flexible.
 
--  Pour [déléguer un sous-réseau](../../virtual-network/manage-subnet-delegation.md#delegate-a-subnet-to-an-azure-service) à **Microsoft.DBforPostgreSQL/flexibleServers**. Cette délégation spécifie que seuls les serveurs flexibles Azure Database pour PostgreSQL peuvent utiliser ce sous-réseau. Aucun autre type de ressource Azure ne peut se trouver dans le sous-réseau délégué.
+-  Pour [déléguer un sous-réseau](../../virtual-network/manage-subnet-delegation.md#delegate-a-subnet-to-an-azure-service) à **Microsoft.DBforPostgreSQL/flexibleServers**. Cette délégation spécifie que seuls les serveurs flexibles Azure Database pour PostgreSQL peuvent utiliser ce sous-réseau. Aucun autre type de ressource Azure ne peut se trouver sur le sous-réseau délégué.
+-  Ajoutez `Microsoft.Storage` au point de terminaison de service pour le sous-réseau délégué aux serveurs Flexible. Voici les étapes qui permettent d’effectuer cette opération :
+     1. Accédez à la page de votre réseau virtuel.
+     2. Sélectionnez le réseau virtuel dans lequel vous envisagez de déployer votre serveur flexible.
+     3. Choisissez le sous-réseau qui est délégué pour le serveur flexible.
+     4. Sur l’écran d’extraction, sous **Point de terminaison de service**, choisissez `Microsoft.storage` dans la liste déroulante.
+     5. Enregistrez les modifications.
+
 
 ## <a name="create-azure-database-for-postgresql---flexible-server-in-an-already-existing-virtual-network"></a>Créer un serveur flexible Azure Database pour PostgreSQL dans un réseau virtuel déjà existant
 

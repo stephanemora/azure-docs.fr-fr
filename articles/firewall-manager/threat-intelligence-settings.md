@@ -7,12 +7,12 @@ ms.service: firewall-manager
 ms.topic: article
 ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: a663c5f3bcf3492c4a9bc74fe93c6ed6a86137ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7ede1c917bb44dd31aa59855a0b7c83eb478700a
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90530639"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100651717"
 ---
 # <a name="azure-firewall-threat-intelligence-configuration"></a>Configuration de la Threat Intelligence du Pare-feu Azure
 
@@ -22,23 +22,35 @@ Si vous avez configuré le filtrage basé sur la Threat Intelligence, les règle
 
 :::image type="content" source="media/threat-intelligence-settings/threat-intelligence-policy.png" alt-text="Stratégie d’informations sur les menaces":::
 
-## <a name="threat-intelligence-mode"></a>Mode de renseignement sur les menaces
+## <a name="threat-intelligence-mode"></a>Mode Renseignement sur les menaces
 
-Vous pouvez vous contenter d'enregistrer une alerte lorsqu'une règle est déclenchée ou vous pouvez choisir le mode d'alerte et le mode de refus.
+Vous pouvez configurer le renseignement sur les menaces selon un des trois modes décrits dans le tableau suivant. Par défaut, le filtrage basé sur la Threat Intelligence est activé en mode d'alerte.
 
-Par défaut, le filtrage basé sur la Threat Intelligence est activé en mode d'alerte.
+|Mode |Description  |
+|---------|---------|
+|`Off`     | La fonctionnalité de renseignement sur les menaces n’est pas activée pour votre pare-feu. |
+|`Alert only`     | Vous allez recevoir des alertes à haut niveau de confiance pour le trafic qui traverse votre pare-feu en provenance ou à destination d’adresses IP ou de domaines malveillants connus. |
+|`Alert and deny`     | Le trafic est bloqué et vous allez recevoir des alertes à haut niveau de confiance quand du trafic tente de traverser votre pare-feu en provenance ou à destination d’adresses IP ou de domaines malveillants connus. |
 
-## <a name="allowed-list-addresses"></a>Adresses de la liste autorisée
+> [!NOTE]
+> Le mode Renseignement sur les menaces est hérité des stratégies parentes par les stratégies enfants. Une stratégie enfant doit être configurée avec le même mode ou un mode plus strict que la stratégie parente.
 
-Vous pouvez configurer une liste d’adresses IP autorisées afin que les informations sur les menaces ne filtrent pas les adresses, les plages ou les sous-réseaux que vous spécifiez.
+## <a name="allowlist-addresses"></a>Adresses de la liste d’autorisations
 
+Le renseignement sur les menaces peut déclencher des faux positifs et bloquer du trafic qui est en fait valide. Vous pouvez configurer une liste d’adresses IP autorisées afin que les informations sur les menaces ne filtrent pas les adresses, les plages ou les sous-réseaux que vous spécifiez.  
 
+![Adresses de la liste d’autorisations](media/threat-intelligence-settings/allow-list.png)
+
+Vous pouvez mettre à jour la liste d’autorisations avec plusieurs entrées à la fois en chargeant un fichier CSV. Le fichier CSV peut contenir seulement des adresses IP et des plages. Le fichier ne peut pas contenir d’en-têtes.
+
+> [!NOTE]
+> Les adresses de la liste d’autorisations du renseignement sur les menaces sont héritées des stratégies parentes par les stratégies enfants. Toute adresse IP ou plage ajoutée à une stratégie parente s’applique également à toutes les stratégies enfants.
 
 ## <a name="logs"></a>Journaux d’activité
 
-L'extrait de journal suivant montre une règle déclenchée :
+L’extrait de journal suivant montre une règle déclenchée pour le trafic sortant vers un site malveillant :
 
-```
+```json
 {
     "category": "AzureFirewallNetworkRule",
     "time": "2018-04-16T23:45:04.8295030Z",

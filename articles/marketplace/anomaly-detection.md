@@ -1,34 +1,32 @@
 ---
-title: Détection d’anomalie pour la facturation à l’usage | Place de marché Azure
-description: Découvrez comment la détection d’anomalie automatique pour la facturation à l’usage vous aide à vérifier que vos clients sont facturés correctement pour l’utilisation facturée à l’usage de votre offre commerciale de la place de marché.
+title: Gérer les anomalies de facturation mesurée dans l’Espace partenaires | Place de marché Azure
+description: Découvrez comment la détection d’anomalie automatique pour la facturation mesurée vous aide à vérifier que vos clients sont facturés conformément à l’utilisation mesurée de vos offres commerciales de la place de marché.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 1/09/2021
+ms.date: 2/18/2021
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: d4fb88854359dcd6e383b47d2a8ce4e9c91f867a
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.openlocfilehash: 1ff6262a75261c575082f3fc48d588c868ad0b51
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99989192"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101092524"
 ---
-# <a name="anomaly-detection-for-metered-billing"></a>Détection d’anomalie pour la facturation à l’usage
+# <a name="manage-metered-billing-anomalies-in-partner-center"></a>Gérer les anomalies de facturation mesurée dans l’Espace partenaires
 
-Cet article fournit des détails sur le service de mesure de la place de marché et la fonctionnalité de détection d’anomalie automatique associée afin de garantir que nous facturerons correctement les clients selon leur usage. L’option de facturation à l’usage est actuellement disponible pour les offres[SaaS (Software as a service)](plan-saas-offer.md) et les [applications Azure](plan-azure-application-offer.md#types-of-plans) avec un plan d’application managée. Cette option vous permet de créer des offres dans le cadre du programme commercial de la place de marché qui sont facturées en fonction d’unités non standard.
+L’option de facturation mesurée personnalisée est disponible pour les offres[SaaS (Software as a service)](plan-saas-offer.md) et les [applications Azure](plan-azure-application-offer.md#types-of-plans) avec un plan d’application managée.
 
-Les partenaires qui ont des compteurs personnalisés déployés pour des applications SaaS et managées peuvent observer l’écart entre le comportement d’utilisation attendu et les anomalies pour les _événements de dépassement_ sur des _compteurs personnalisés_ spécifiques dans l’Espace partenaires. Pour atténuer le risque, notre Espace partenaires utilise un service de détection d’anomalie qui applique des algorithmes de Machine Learning pour déterminer le comportement normal de la facturation à l’usage, analyser l’utilisation de la facturation à l’usage et détecter les anomalies avec une intervention minimale de l’utilisateur. À l’aide de _modèles de détection d’anomalie_ sur les jeux de données facturés à l’usage, l’Espace partenaires a pour but d’informer le serveur de publication lorsque l’utilisation signalée dépasse l’utilisation prévue.
+Si vous utilisez l’option de facturation mesurée pour créer des offres dans le programme de la place de marché commerciale qui vous permet de facturer l’utilisation en fonction d’unités non standard, vous devez savoir quand votre client a utilisé un service plus que prévu.
 
-## <a name="usability-experience"></a>Expérience de convivialité
+## <a name="use-the-anomaly-detection-feature"></a>Utiliser la fonctionnalité Détection d’anomalie
 
-Microsoft fait appel au partenaire pour signaler le dépassement d’utilisation par le client de ses offres SaaS ou d’applications managées par Azure avant que Microsoft ne facture le client. En cas de signalement d’utilisation incorrecte, le client peut recevoir une facture incorrecte, mettant à mal la crédibilité de Microsoft et du partenaire.
+Microsoft fait appel au partenaire (vous) pour signaler le dépassement d’utilisation par votre client de ses offres SaaS ou d’applications managées par Azure avant que Microsoft ne facture le client. En cas de signalement d’utilisation incorrecte, le client peut recevoir une facture incorrecte, mettant à mal la crédibilité de Microsoft et du partenaire.
 
-Pour limiter ce risque, une fonctionnalité de détection d’anomalie automatisée est fournie pour les applications SaaS et les plans d’application managée Azure. Cette fonctionnalité est un modèle Machine Learning qui surveille de manière proactive l’utilisation selon la facturation à l’usage et prédit la valeur attendue de l’utilisation dans la plage prévue. Si l’usage dépasse la plage attendue, cela est considéré comme une anomalie et une notification d’alerte est envoyée au partenaire sur la page Vue d’ensemble de l’offre dans le programme commercial de la place de marché de l’Espace partenaires.
+Pour vous assurer que vos clients sont facturés correctement, utilisez la fonctionnalité **Détection d’anomalie** pour les applications SaaS et les plans d’application managée Azure. Cette fonctionnalité supervise l’utilisation selon la facturation mesurée et prédit la valeur attendue de l’utilisation dans la plage prévue. Si l’utilisation dépasse la plage attendue, cela est considéré comme inattendu (une anomalie) et vous recevez une notification d’alerte sur votre page Vue d’ensemble de l’offre dans le programme commercial de la place de marché de l’Espace partenaires. Vous pouvez suivre l’utilisation quotidienne de vos clients pour chaque dimension de compteur personnalisée que vous avez définie.
 
-Le modèle Machine Learning analyse le dépassement quotidien de l’utilisation. Le serveur de publication peut voir toutes les anomalies signalées par rapport au dépassement d’usage des clients pour chaque dimension de métrique personnalisée de l’offre.
-
-### <a name="view-and-manage-metered-usage-anomalies"></a>Afficher et gérer les anomalies liées à l’utilisation facturée à l’usage
+## <a name="view-and-manage-metered-usage-anomalies"></a>Afficher et gérer les anomalies liées à l’utilisation facturée à l’usage
 
 1. Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard/home).
 1. Dans le menu de navigation de gauche, sélectionnez **Place de marché commerciale** > **Analyser**.
@@ -82,3 +80,4 @@ Après avoir marqué un dépassement d’utilisation comme une anomalie ou recon
 ## <a name="see-also"></a>Voir également
 - [Facturation à l’usage pour SaaS à l’aide du service de mesure de la consommation de la Place de marché commerciale](./partner-center-portal/saas-metered-billing.md)
 - [Facturation des applications managées basée sur des mesures](./partner-center-portal/azure-app-metered-billing.md)
+- [Service de détection des anomalies pour la facturation à l’usage](./partner-center-portal/anomaly-detection-service-for-metered-billing.md)

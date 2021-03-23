@@ -1,29 +1,35 @@
 ---
 title: Joindre Cognitive Services à un ensemble de compétences
 titleSuffix: Azure Cognitive Search
-description: Instructions à suivre pour attacher un abonnement Cognitive Services tout-en-un à un pipeline d’enrichissement par IA dans Recherche cognitive Azure.
-manager: nitinme
+description: Découvrez comment attacher un abonnement Cognitive Services tout-en-un à un pipeline d’enrichissement par IA dans la Recherche cognitive Azure.
 author: LuisCabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/17/2019
-ms.openlocfilehash: c9f6a5ebc4f3242181196bd40b62f7522d025b84
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 02/16/2021
+ms.openlocfilehash: 77735166fafe9d39dff483baa89a4b31db31275d
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88924975"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577929"
 ---
-# <a name="attach-a-cognitive-services-resource-to-a-skillset-in-azure-cognitive-search"></a>Attacher une ressource Cognitive Services à un ensemble de compétences dans Recherche cognitive Azure 
+# <a name="attach-a-cognitive-services-resource-to-a-skillset-in-azure-cognitive-search"></a>Attacher une ressource Cognitive Services à un ensemble de compétences dans Recherche cognitive Azure
 
-Lors de la configuration d’un pipeline d’enrichissement dans la Recherche cognitive Azure, vous pouvez enrichir un nombre limité de documents gratuitement. Vous pouvez également associer une ressource Cognitive Services facturable pour des charges de travail plus volumineuses et plus fréquentes.
+Lorsque vous configurez un [pipeline d’enrichissement par IA](cognitive-search-concept-intro.md) dans la Recherche cognitive Azure, vous pouvez enrichir un nombre limité de documents gratuitement. Vous pouvez également associer une ressource Cognitive Services « tout-en-un » facturable pour des charges de travail plus volumineuses et plus fréquentes. Un abonnement « tout-en-un » fait référence à « Cognitive Services » en tant qu’offre, plutôt qu’à des services individuels, avec accès accordé par le biais d’une clé d’API unique.
 
-Dans cet article, vous allez apprendre à joindre une ressource en affectant une clé à un ensemble de compétences qui définit un pipeline d’enrichissement.
+Une ressource Cognitive Services « tout-en-un » pilote les [compétences prédéfinies](cognitive-search-predefined-skills.md) que vous pouvez inclure dans un ensemble de compétences :
 
-## <a name="resources-used-during-enrichment"></a>Ressources utilisées pendant l’enrichissement
++ [Vision par ordinateur](https://azure.microsoft.com/services/cognitive-services/computer-vision/) pour l’analyse d’images et la reconnaissance optique de caractères (OCR)
++ [Analyse de texte](https://azure.microsoft.com/services/cognitive-services/text-analytics/) pour la détection de la langue, la reconnaissance des entités, l’analyse des sentiments et l’extraction des expressions clés
++ [Traduction de texte](https://azure.microsoft.com/services/cognitive-services/translator-text-api/)
 
-La Recherche cognitive Azure a une dépendance vis-à-vis de Cognitive Services, y compris [Vision par ordinateur](https://azure.microsoft.com/services/cognitive-services/computer-vision/), pour l’analyse d’images et la reconnaissance optique de caractères (OCR), [Analyse de texte](https://azure.microsoft.com/services/cognitive-services/text-analytics/) pour le traitement en langage naturel et d’autres enrichissements tels que la [Traduction de texte](https://azure.microsoft.com/services/cognitive-services/translator-text-api/). Dans le contexte de l’enrichissement dans la Recherche cognitive Azure, ces algorithmes d’IA sont encapsulés dans une *qualification*, placés dans un *ensemble de qualifications* et référencés par un *indexeur* lors de l’indexation.
+Une clé Cognitive Services « tout-en-un » est facultative dans la définition d’un ensemble de compétences. Lorsque le nombre de transactions quotidiennes est inférieur à 20 par jour, le coût est absorbé. Toutefois, lorsque les transactions dépassent ce nombre, une clé de ressource valide est exigée pour que le traitement puisse continuer.
+
+Toute clé de ressource « tout-en-un » est valide. En interne, un service de recherche utilisera la ressource colocalisée dans la même région physique, même si la clé « tout-en-un » est destinée à une ressource située dans une autre région. La page [Disponibilité des produits](https://azure.microsoft.com/global-infrastructure/services/?products=search) affiche côte à côte les disponibilités régionales.
+
+> [!NOTE]
+> Si vous omettez des compétences prédéfinies dans un ensemble de compétences, Cognitive Services n’est pas accessible ; vous ne serez pas facturé, même si l’ensemble de compétences spécifie une clé.
 
 ## <a name="how-billing-works"></a>Comment la facturation fonctionne
 
@@ -37,9 +43,9 @@ La Recherche cognitive Azure a une dépendance vis-à-vis de Cognitive Services,
 
 ## <a name="same-region-requirement"></a>Exigence de même région
 
-Recherche cognitive Azure et Azure Cognitive Services doivent obligatoirement exister au sein de la même région. Autrement, vous obtenez ce message lors de l’exécution : `"Provided key is not a valid CognitiveServices type key for the region of your search service."` 
+Recherche cognitive et Cognitive Services doivent être présents dans la même région physique, comme indiqué sur la page [Disponibilité des produits](https://azure.microsoft.com/global-infrastructure/services/?products=search). La plupart des régions qui offrent Recherche cognitive proposent également Cognitive Services.
 
-Il n’existe aucun moyen de changer un service de région. Si vous obtenez cette erreur, vous devez créer une ressource Cognitive Services située dans la même région que le service Recherche cognitive Azure.
+Si vous essayez l’enrichissement par IA dans une région qui ne présente pas les deux services, le message suivant s’affiche : « La clé fournie n’est pas une clé de type CognitiveServices valide pour la région de votre service de recherche ».
 
 > [!NOTE]
 > Certaines compétences intégrées sont basées sur des services cognitifs non régionaux (par exemple la [compétence de traduction de texte](cognitive-search-skill-text-translation.md)). L’utilisation d’une compétence non régionale signifie que votre requête peut être desservie dans une région autre que la région de la Recherche cognitive Azure. Pour plus d’informations sur les services non régionaux, consultez la page [Produit Cognitive Services par région](https://aka.ms/allinoneregioninfo).
@@ -48,19 +54,11 @@ Il n’existe aucun moyen de changer un service de région. Si vous obtenez cett
 
 Vous pouvez utiliser une option de traitement gratuite, limitée aux exercices des guides de démarrage rapide et des tutoriels d’enrichissement par IA.
 
-Les ressources du niveau tarifaire Gratuit (enrichissements limités) sont limitées à 20 documents par jour, par indexeur. Vous pouvez supprimer et recréer l’indexeur pour réinitialiser le compteur.
+Les ressources du niveau tarifaire Gratuit (enrichissements limités) sont limitées à 20 documents par jour, par indexeur. Vous pouvez [réinitialiser l’indexeur](search-howto-run-reset-indexers.md) pour réinitialiser le compteur.
 
-1. Ouvrez l’Assistant Importation de données :
+Si vous utilisez l’Assistant **Importation de données** pour l’enrichissement par IA, vous trouverez les options « Attacher Cognitive Services » sur la page **Ajouter l’enrichissement par IA (facultatif)** .
 
-   ![Ouvrir l’Assistant Importation de données](media/search-get-started-portal/import-data-cmd.png "Ouvrir l’Assistant Importation de données")
-
-1. Choisissez une source de données, puis passez à **Ajouter l’enrichissement par IA (facultatif)** . Pour suivre une procédure pas à pas de cet Assistant, consultez [Créer un index dans le Portail Azure](search-get-started-portal.md).
-
-1. Développez **Attacher Cognitive Services**, puis sélectionnez **Gratuit (enrichissements limités)** .
-
-   ![Section Attacher Cognitive Services développée](./media/cognitive-search-attach-cognitive-services/attach1.png "Section Attacher Cognitive Services développée")
-
-1. Vous pouvez maintenant passer aux étapes suivantes, notamment **Ajouter les compétences cognitives**.
+![Section Attacher Cognitive Services développée](./media/cognitive-search-attach-cognitive-services/attach1.png "Section Attacher Cognitive Services développée")
 
 ## <a name="use-billable-resources"></a>Utiliser des ressources facturables
 
@@ -68,13 +66,13 @@ Pour les charges de travail créant plus de 20 enrichissements par jour, veillez
 
 Vous n’êtes facturé que pour les qualifications qui appellent les API Cognitive Services. Vous n’êtes pas facturé pour les [qualifications personnalisées](cognitive-search-create-custom-skill-example.md) ou des qualifications telles que [Fusion de texte](cognitive-search-skill-textmerger.md), [Séparateur de texte ](cognitive-search-skill-textsplit.md) et [Modélisateur](cognitive-search-skill-shaper.md) qui ne sont pas basées sur des API.
 
-1. Ouvrez l’Assistant Importation de données, choisissez une source de données, puis passez à **Ajouter l’enrichissement par IA (facultatif)** .
+Si vous utilisez l’Assistant **Importation de données**, vous pouvez configurer une ressource facturable à partir de la page **Ajouter l’enrichissement par IA (facultatif)** .
 
 1. Développez **Attacher Cognitive Services**, puis sélectionnez **Créer une ressource Cognitive Services**. Un nouvel onglet s’ouvre pour vous permettre de créer la ressource :
 
-   ![Créez une ressource Cognitive Services](./media/cognitive-search-attach-cognitive-services/cog-services-create.png "Créer une ressource Cognitive Services")
+   ![Créer une ressource Cognitive Services](./media/cognitive-search-attach-cognitive-services/cog-services-create.png "Créer une ressource Cognitive Services")
 
-1. Dans la liste **Emplacement**, sélectionnez la région où se trouve votre service Recherche cognitive Azure. Veillez à utiliser cette région à des fins de performances. L’utilisation de cette région évite également les frais de bande passante sortante entre les différentes régions.
+1. Dans la liste **Emplacement**, sélectionnez la région qui contient votre service de recherche.
 
 1. Dans la liste **Niveau tarifaire**, sélectionnez **S0** pour obtenir la collection complète de fonctionnalités Cognitive Services, y compris les fonctionnalités Vision et Langue qui sous-tendent les compétences prédéfinies fournies par Recherche cognitive Azure.
 
@@ -86,7 +84,7 @@ Vous n’êtes facturé que pour les qualifications qui appellent les API Cognit
 
 1. Sélectionnez **Créer** pour approvisionner la nouvelle ressource Cognitive Services.
 
-1. Revenez à l’onglet précédent contenant l’Assistant Importation de données. Sélectionnez **Actualiser** pour afficher la ressource Cognitive Services, puis sélectionnez-la :
+1. Revenez à l’onglet précédent. Sélectionnez **Actualiser** pour afficher la ressource Cognitive Services, puis sélectionnez-la :
 
    ![Sélectionner la ressource Cognitive Services](./media/cognitive-search-attach-cognitive-services/attach2.png "Sélectionner la ressource Cognitive Services")
 
@@ -96,7 +94,7 @@ Vous n’êtes facturé que pour les qualifications qui appellent les API Cognit
 
 Si vous avez un ensemble de qualifications existant, vous pouvez l’attacher à une ressource Cognitive Services nouvelle ou différente.
 
-1. Dans la page **Vue d’ensemble du service**, sélectionnez l’onglet **Ensembles de qualifications** :
+1. Dans la page de la vue d’ensemble du service de recherche, sélectionnez **Ensembles de compétences** :
 
    ![Onglet Ensemble de compétences](./media/cognitive-search-attach-cognitive-services/attach-existing1.png "Onglet Ensemble de compétences")
 
@@ -116,8 +114,6 @@ L’exemple ci-après illustre ce modèle. Notez la section `cognitiveServices` 
 PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2020-06-30
 api-key: [admin key]
 Content-Type: application/json
-```
-```json
 {
     "name": "skillset name",
     "skills": 
@@ -146,7 +142,7 @@ Content-Type: application/json
 }
 ```
 
-## <a name="example-estimate-costs"></a>Exemple : Estimer les coûts
+## <a name="example-estimate-costs"></a>Exemple : Estimer les coûts
 
 Pour estimer les coûts associés à l’indexation de recherche cognitive, commencez par vous représenter à quoi ressemble un document moyen afin de pouvoir donner une approximation. Par exemple, vous pourriez faire une approximation :
 
@@ -168,6 +164,7 @@ Les prix indiqués dans cet article sont hypothétiques. Ils sont utilisés pour
 En additionnant tout cela, l’ingestion de 1 000 documents PDF de ce type avec l’ensemble de qualifications décrit vous reviendrait à environ 57 USD.
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 + [Page de tarification de Recherche cognitive Azure](https://azure.microsoft.com/pricing/details/search/)
 + [Guide pratique pour définir un ensemble de compétences](cognitive-search-defining-skillset.md)
 + [Créer un jeu de compétences (REST)](/rest/api/searchservice/create-skillset)

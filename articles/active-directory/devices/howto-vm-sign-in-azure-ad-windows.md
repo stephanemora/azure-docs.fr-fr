@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions, devx-track-azurecli
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e22e5fc4bc7211d905dbe8775b0ef6e893bd2cc
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: ee392666a6c6807497eeac2a2291dac915c4e136
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98761007"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101644304"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Se connecter à une machine virtuelle Windows dans Azure via l’authentification Azure Active Directory (préversion)
 
@@ -62,10 +62,10 @@ Les régions Azure suivantes sont actuellement prises en charge dans la prévers
 
 Pour activer l’authentification Azure AD pour vos machines virtuelles Windows dans Azure, vous devez vous assurer que la configuration de votre réseau de machines virtuelles autorise un accès sortant aux points de terminaison suivants sur le port TCP 443 :
 
-- https:\//enterpriseregistration.windows.net
-- https:\//login.microsoftonline.com
-- https:\//device.login.microsoftonline.com
-- https:\//pas.windows.net
+- `https://enterpriseregistration.windows.net`
+- `https://login.microsoftonline.com`
+- `https://device.login.microsoftonline.com`
+- `https://pas.windows.net`
 
 ## <a name="enabling-azure-ad-login-in-for-windows-vm-in-azure"></a>Activation de la connexion Azure AD dans pour les machines virtuelles Windows dans Azure
 
@@ -98,9 +98,9 @@ Pour créer une machine virtuelle Windows Server 2019 Datacenter dans Azure avec
 
 Azure Cloud Shell est un interpréteur de commandes interactif et gratuit que vous pouvez utiliser pour exécuter les étapes de cet article. Il contient des outils Azure courants préinstallés et configurés pour être utilisés avec votre compte. Cliquez simplement sur le bouton Copier pour copier le code, collez-le dans Cloud Shell, puis appuyez sur Entrée pour l’exécuter. Cloud Shell peut être ouvert de plusieurs façons :
 
-Sélectionnez Essayer dans le coin supérieur droit d’un bloc de code.
-Ouvrez Cloud Shell dans votre navigateur.
-Sélectionnez le bouton Cloud Shell dans le menu en haut à droite du [Portail Azure](https://portal.azure.com).
+- Sélectionnez **Essayer** dans le coin supérieur droit d’un bloc de code.
+- Ouvrez Cloud Shell dans votre navigateur.
+- Sélectionnez le bouton Cloud Shell dans le menu en haut à droite du [Portail Azure](https://portal.azure.com).
 
 Si vous choisissez d’installer et d’utiliser l’interface CLI localement, cet article vous demande d’exécuter Azure CLI version 2.0.31 ou ultérieure. Pour déterminer la version, exécutez la commande az--version. Si vous devez l’installer ou la mettre à niveau, consultez l’article [Installer Azure CLI](/cli/azure/install-azure-cli).
 
@@ -127,7 +127,7 @@ az vm create \
 
 La création de la machine virtuelle et des ressources de support ne nécessite que quelques minutes.
 
-Enfin, installez l’extension de machine virtuelle de connexion Azure AD pour activer la connexion Azure AD pour la machine virtuelle Windows. Les extensions de machine virtuelle sont de petites applications permettant d’exécuter des tâches de configuration et d’automatisation post-déploiement sur des machines virtuelles Azure. Utilisez l’ensemble [az vm extension](/cli/azure/vm/extension#az-vm-extension-set) pour installer l’extension AADLoginForWindows sur la machine virtuelle nommée myVM dans le groupe de ressources myResourceGroup :
+Enfin, installez l’extension de machine virtuelle de connexion Azure AD pour activer la connexion Azure AD pour la machine virtuelle Windows. Les extensions de machine virtuelle sont de petites applications permettant d’exécuter des tâches de configuration et d’automatisation post-déploiement sur des machines virtuelles Azure. Utilisez l’ensemble [az vm extension](/cli/azure/vm/extension#az-vm-extension-set) pour installer l’extension AADLoginForWindows sur la machine virtuelle nommée `myVM` dans le groupe de ressources `myResourceGroup` :
 
 > [!NOTE]
 > Vous pouvez installer l’extension AADLoginForWindows sur une machine virtuelle existante Windows Server 2019 ou Windows 10 1809 et versions ultérieures existante l’activer pour l’authentification Azure AD. Vous trouverez ci-dessous un exemple d’interface CLI AZ.
@@ -194,13 +194,13 @@ az role assignment create \
 
 Pour plus d’informations sur l’utilisation du contrôle d’accès en fonction du rôle (RBAC) d’Azure pour gérer l’accès aux ressources de votre abonnement Azure, consultez les articles suivants :
 
-- [Ajouter ou supprimer des attributions de rôle Azure à l’aide d’Azure CLI](../../role-based-access-control/role-assignments-cli.md)
-- [Ajouter ou supprimer des attributions de rôles Azure avec le portail Azure](../../role-based-access-control/role-assignments-portal.md)
-- [Ajoutez ou supprimez des attributions de rôles Azure à l’aide d’Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
+- [Attribuer des rôles Azure à l’aide d’Azure CLI](../../role-based-access-control/role-assignments-cli.md)
+- [Attribuer des rôles Azure à l’aide du portail Azure](../../role-based-access-control/role-assignments-portal.md)
+- [Attribuer des rôles Azure à l’aide d’Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
 ## <a name="using-conditional-access"></a>Utilisation d’un accès conditionnel
 
-Vous pouvez appliquer des stratégies d’accès conditionnel, telles qu’une authentification multifacteur ou une vérification du risque de connexion utilisateur, avant d’autoriser l’accès à des machines virtuelles Windows dans Azure qui sont activées avec une connexion à Azure AD. Pour appliquer une stratégie d’accès conditionnel, vous devez sélectionner l’application « Connexion à une machine virtuelle Microsoft Azure » à partir de l’option d’affectation d’applications ou actions cloud, puis utiliser le risque de connexion comme condition et/ou exiger une authentification multifacteur comme contrôle pour l’octroi d’accès. 
+Vous pouvez appliquer des stratégies d’accès conditionnel, telles qu’une authentification multifacteur ou une vérification du risque de connexion utilisateur, avant d’autoriser l’accès à des machines virtuelles Windows dans Azure qui sont activées avec une connexion à Azure AD. Pour appliquer une stratégie d’accès conditionnel, vous devez sélectionner l’application « Connexion à une machine virtuelle Microsoft Azure » à partir de l’option d’affectation d’applications ou actions cloud, puis utiliser le risque de connexion comme condition et/ou exiger une authentification multifacteur comme contrôle pour l’octroi d’accès. 
 
 > [!NOTE]
 > Si vous utilisez « Exiger l’authentification multifacteur » comme contrôle pour l’octroi d’accès pour demander l’accès à l’application « Connexion à une machine virtuelle Microsoft Azure », vous devez fournir une revendication d’authentification multifacteur avec le client qui lance la session Bureau à distance (RDP) sur la machine virtuelle Windows cible dans Azure. La seule façon d’y parvenir sur un client Windows 10 est d’utiliser le code PIN Windows Hello Entreprise ou une authentification biométrique avec le client RDP. La prise en charge de l’authentification biométrique a été ajoutée au client RDP dans Windows 10 version 1809. Le Bureau à distance utilisant l’authentification Windows Hello Entreprise est disponible uniquement pour les déploiements qui utilisent le modèle approuvé de certificat et qui ne sont actuellement pas disponibles pour le modèle approuvé de clé.
@@ -211,7 +211,7 @@ Vous pouvez appliquer des stratégies d’accès conditionnel, telles qu’une a
 ## <a name="log-in-using-azure-ad-credentials-to-a-windows-vm"></a>Se connecter à l’aide des informations d’identification Azure AD sur une machine virtuelle Windows
 
 > [!IMPORTANT]
-> La connexion à distance aux machines virtuelles jointes à Azure AD n’est autorisée qu’à partir des PC Windows 10 qui sont soit inscrits sur Azure AD (build minimale 20H1 requise), soit joints à Azure AD ou joints à Azure AD par une jointure hybride Azure AD au **même** annuaire que la machine virtuelle. En outre, pour se connecter via RDP à l’aide d’informations d’identification Azure AD, l’utilisateur doit appartenir à l’un des deux rôles Azure, Connexion de l’administrateur aux machines virtuelles ou Connexion de l’utilisateur aux machines virtuelles. Si vous utilisez un PC Windows 10 inscrit dans Azure AD, vous devez entrer les informations d’identification au format AzureAD\UPN (par exemple, AzureAD\john@contoso.com). À ce stade, vous ne pouvez pas utiliser le service Azure Bastion pour vous connecter à l’aide de l’authentification Azure Active Directory avec l’extension AADLoginForWindows. Seul le protocole RDP direct est pris en charge.
+> La connexion à distance aux machines virtuelles jointes à Azure AD n’est autorisée qu’à partir des PC Windows 10 qui sont soit inscrits sur Azure AD (build minimale 20H1 requise), soit joints à Azure AD ou joints à Azure AD par une jointure hybride Azure AD au **même** annuaire que la machine virtuelle. En outre, pour se connecter via RDP à l’aide d’informations d’identification Azure AD, l’utilisateur doit appartenir à l’un des deux rôles Azure, Connexion de l’administrateur aux machines virtuelles ou Connexion de l’utilisateur aux machines virtuelles. Si vous utilisez un PC Windows 10 inscrit dans Azure AD, vous devez entrer les informations d’identification au format `AzureAD\UPN` (par exemple, `AzureAD\john@contoso.com`). À ce stade, vous ne pouvez pas utiliser le service Azure Bastion pour vous connecter à l’aide de l’authentification Azure Active Directory avec l’extension AADLoginForWindows. Seul le protocole RDP direct est pris en charge.
 
 Pour vous connecter à votre machine virtuelle Windows Server 2019 à l’aide d’Azure AD : 
 
@@ -233,12 +233,12 @@ Vous êtes à présent connecté à la machine virtuelle Azure Windows Server 2
 
 L’extension AADLoginForWindows doit être installée correctement pour que la machine virtuelle termine le processus de jonction Azure AD. Procédez comme suit si l’extension de machine virtuelle ne s’installe pas correctement.
 
-1. Connectez-vous via RDP à la machine virtuelle à l’aide du compte Administrateur local et examinez le fichier CommandExecution.log sous  
+1. Connectez-vous par RDP à la machine virtuelle à l’aide du compte Administrateur local et examinez le fichier `CommandExecution.log` sous :
    
-   C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.ActiveDirectory.AADLoginForWindows\0.3.1.0. 
+   `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.ActiveDirectory.AADLoginForWindows\0.3.1.0.`
 
    > [!NOTE]
-   > Si l’extension redémarre après l’échec initial, le journal contenant l’erreur de déploiement est enregistré sous CommandExecution_YYYYMMDDHHMMSSSSS.log. "
+   > Si l’extension redémarre après l’échec initial, le journal contenant l’erreur de déploiement est enregistré sous `CommandExecution_YYYYMMDDHHMMSSSSS.log`. "
 1. Ouvrez une invite de commandes PowerShell sur la machine virtuelle et vérifiez que ces requêtes par rapport au point de terminaison Instance Metadata Service (IMDS) en cours d’exécution sur l’hôte Azure sont renvoyées :
 
    | Commande à exécuter | Sortie attendue |
@@ -248,61 +248,61 @@ L’extension AADLoginForWindows doit être installée correctement pour que la 
    | `curl -H @{"Metadata"="true"} "http://169.254.169.254/metadata/identity/oauth2/token?resource=urn:ms-drs:enterpriseregistration.windows.net&api-version=2018-02-01"` | Jeton d’accès valide émis par Azure Active Directory pour l’identité managée qui est attribuée à cette machine virtuelle |
 
    > [!NOTE]
-   > Le jeton d’accès peut être décodé à l’aide d’un outil tel que [http://calebb.net/](http://calebb.net/). Vérifiez que l’« appid » dans le jeton d’accès correspond à l’identité managée attribuée à la machine virtuelle.
+   > Le jeton d’accès peut être décodé à l’aide d’un outil tel que [calebb.net](http://calebb.net/). Vérifiez que l’`appid` dans le jeton d’accès correspond à l’identité managée attribuée à la machine virtuelle.
 
 1. Vérifiez que les points de terminaison requis sont accessibles à partir de la machine virtuelle à l’aide de la ligne de commande :
    
-   - curl https:\//login.microsoftonline.com/ -D –
-   - curl https:\//login.microsoftonline.com/`<TenantID>`/ -D –
+   - `curl https://login.microsoftonline.com/ -D -`
+   - `curl https://login.microsoftonline.com/<TenantID>/ -D -`
 
    > [!NOTE]
    > Remplacez `<TenantID>` par l’ID de locataire Azure AD associé à l’abonnement Azure.
 
-   - curl https:\//enterpriseregistration.windows.net/ -D -
-   - curl https:\//device.login.microsoftonline.com/ -D -
-   - curl https:\//pas.windows.net/ -D -
+   - `curl https://enterpriseregistration.windows.net/ -D -`
+   - `curl https://device.login.microsoftonline.com/ -D -`
+   - `curl https://pas.windows.net/ -D -`
 
 1. L’état de l’appareil peut être affiché en exécutant `dsregcmd /status`. L’objectif est que l’état de l’appareil s’affiche comme `AzureAdJoined : YES`.
 
    > [!NOTE]
-   > L’activité de jointure Azure AD est capturée dans la visionneuse d’événements sous le journal Registration\Admin de l’appareil de l’utilisateur.
+   > L’activité de jointure Azure AD est capturée dans l’observateur d’événements dans le journal `User Device Registration\Admin`.
 
 Si l’extension AADLoginForWindows échoue avec un code d’erreur spécifique, vous pouvez effectuer les étapes suivantes :
 
 #### <a name="issue-1-aadloginforwindows-extension-fails-to-install-with-terminal-error-code-1007-and-exit-code--2145648574"></a>Problème 1 : Échec de l’installation de l’extension AADLoginForWindows avec le code d’erreur de terminal « 1007 » et le code de sortie :-2145648574.
 
-Ce code de sortie se traduit par DSREG_E_MSI_TENANTID_UNAVAILABLE, car l’extension est incapable d’interroger les informations du locataire Azure AD.
+Ce code de sortie se traduit par `DSREG_E_MSI_TENANTID_UNAVAILABLE`, car l’extension est incapable d’interroger les informations du locataire Azure AD.
 
 1. Vérifiez que la machine virtuelle Azure peut récupérer le TenantID à partir d’Instance Metadata Service.
 
    - Connectez-vous via RDP à la machine virtuelle en tant qu’administrateur local et vérifiez que le point de terminaison retourne un ID de locataire valide en exécutant cette commande à partir d’une ligne de commande élevée sur la machine virtuelle :
       
-      - curl -H Metadata:true http://169.254.169.254/metadata/identity/info?api-version=2018-02-01
+      - `curl -H Metadata:true http://169.254.169.254/metadata/identity/info?api-version=2018-02-01`
 
 1. L’administrateur de machines virtuelles tente d’installer l’extension AADLoginForWindows, mais une identité managée affectée par le système n’a pas d’abord activé la machine virtuelle. Accédez au panneau Identité de la machine virtuelle. Dans l’onglet Affectée par le système, vérifiez qu’État est activé.
 
 #### <a name="issue-2-aadloginforwindows-extension-fails-to-install-with-exit-code--2145648607"></a>Problème2 : Échec de l’installation de l’extension AADLoginForWindows avec le code de sortie :-2145648607.
 
-Ce code de sortie se traduit par DSREG_AUTOJOIN_DISC_FAILED, car l’extension n’est pas en mesure d’atteindre le point de terminaison `https://enterpriseregistration.windows.net`.
+Ce code de sortie se traduit par `DSREG_AUTOJOIN_DISC_FAILED`, car l’extension n’est pas en mesure d’atteindre le point de terminaison `https://enterpriseregistration.windows.net`.
 
 1. Vérifiez que les points de terminaison requis sont accessibles à partir de la machine virtuelle à l’aide de la ligne de commande :
 
-   - curl https:\//login.microsoftonline.com/ -D –
-   - curl https:\//login.microsoftonline.com/`<TenantID>`/ -D –
+   - `curl https://login.microsoftonline.com/ -D -`
+   - `curl https://login.microsoftonline.com/<TenantID>/ -D -`
    
    > [!NOTE]
-   > Remplacez `<TenantID>` par l’ID de locataire Azure AD associé à l’abonnement Azure. Si vous devez trouver l’ID de locataire, vous pouvez pointer sur le nom de votre compte pour obtenir l’ID de locataire/répertoire, ou sélectionnez Azure Active Directory > Propriétés > ID de répertoire dans le Portail Azure.
+   > Remplacez `<TenantID>` par l’ID de locataire Azure AD associé à l’abonnement Azure. Si vous devez trouver l’ID de locataire, vous pouvez pointer sur le nom de votre compte pour obtenir l’ID de locataire/répertoire ou sélectionner **Azure Active Directory > Propriétés > ID de répertoire** dans le portail Azure.
 
-   - curl https:\//enterpriseregistration.windows.net/ -D -
-   - curl https:\//device.login.microsoftonline.com/ -D -
-   - curl https:\//pas.windows.net/ -D -
+   - `curl https://enterpriseregistration.windows.net/ -D -`
+   - `curl https://device.login.microsoftonline.com/ -D -`
+   - `curl https://pas.windows.net/ -D -`
 
 1. Si l’une des commandes échoue avec le message « Impossible de résoudre `<URL>` hôte », essayez d’exécuter cette commande pour déterminer le serveur DNS utilisé par la machine virtuelle.
    
    `nslookup <URL>`
 
    > [!NOTE] 
-   > Remplacez `<URL>` par les noms de domaine complets utilisés par les points de terminaison, tels que « login.microsoftonline.com ».
+   > Remplacez `<URL>` par les noms de domaine complets utilisés par les points de terminaison tels que `login.microsoftonline.com`.
 
 1. Ensuite, vérifiez si la spécification d’un serveur DNS public permet à la commande de fonctionner correctement :
 
@@ -322,7 +322,7 @@ Certaines erreurs courantes se produisent lorsque vous essayez de vous connecter
 
 L’état de l’appareil et de la SSO peut être affiché en exécutant `dsregcmd /status`. L’objectif est que l’état de l’appareil s’affiche comme `AzureAdJoined : YES` et `SSO State` comme `AzureAdPrt : YES`.
 
-En outre, la connexion RDP à l’aide de comptes Azure AD est capturée dans la visionneuse d’événements sous les journaux d’événements AAD\Operational.
+En outre, la connexion RDP à l’aide de comptes Azure AD est capturée dans l’observateur d’événements dans les journaux d’événements `AAD\Operational`.
 
 #### <a name="azure-role-not-assigned"></a>rôle Azure non attribué
 
@@ -341,18 +341,18 @@ Vérifiez que vous disposez de [stratégies Azure RBAC configurées](../../virtu
 
 Si le message d’erreur suivant s’affiche lorsque vous établissez une connexion Bureau à distance à votre machine virtuelle : 
 
-- Vos informations d’identification n’ont pas fonctionné
+- Vos informations d'identification n'ont pas fonctionné.
 
 ![Vos informations d’identification n’ont pas fonctionné](./media/howto-vm-sign-in-azure-ad-windows/your-credentials-did-not-work.png)
 
 Vérifiez que le PC Windows 10 que vous utilisez pour établir la connexion Bureau à distance est un ordinateur qui est soit joint à Azure AD, soit hybride joint à Azure AD au même répertoire Azure AD auquel votre machine virtuelle est jointe. Pour plus d’informations sur l’identité d’appareil, consultez l’article [Présentation de l’identité d’appareil](./overview.md).
 
 > [!NOTE]
-> La build 20H1 de Windows 10 a ajouté la prise en charge d’un PC inscrit dans Azure AD pour initier une connexion RDP à votre machine virtuelle. Lorsque vous utilisez un PC inscrit dans Azure AD (pas joint à Azure AD ou joint à Azure AD par une jointure hybride) comme client RDP pour initier des connexions à votre machine virtuelle, vous devez entrer des informations d’identification au format AzureAD\UPn (par exemple, AzureAD\john@contoso.com).
+> La build 20H1 de Windows 10 a ajouté la prise en charge d’un PC inscrit dans Azure AD pour initier une connexion RDP à votre machine virtuelle. Quand vous utilisez un PC inscrit dans Azure AD (pas un PC joint à Azure AD ni un PC avec jointure hybride Azure AD) comme client RDP pour initier des connexions à votre machine virtuelle, vous devez entrer les informations d’identification au format `AzureAD\UPN` (par exemple, `AzureAD\john@contoso.com`).
 
 Vérifiez que l’extension AADLoginForWindows n’a pas été désinstallée une fois la jointure Azure AD terminée.
 
-En outre, assurez-vous que la stratégie de sécurité « Sécurité réseau : Autoriser les demandes d’authentification PKU2U pour cet ordinateur pour utiliser les identités en ligne » est activée sur le serveur *et* le client.
+En outre, assurez-vous que la stratégie de sécurité « Sécurité réseau : Autoriser les demandes d’authentification PKU2U pour cet ordinateur pour utiliser les identités en ligne » est activée sur le serveur **et** le client.
  
 #### <a name="mfa-sign-in-method-required"></a>Méthode de connexion MFA requise
 
@@ -367,7 +367,7 @@ Si vous avez configuré une stratégie d’accès conditionnel qui requiert un a
 Si vous n’avez pas déployé Windows Hello Entreprise et si ce n’est pas possible pour l’instant, vous pouvez exclure l’exigence d’authentification multifacteur en configurant la stratégie d’accès conditionnel qui exclut l’application « Connexion à une machine virtuelle Microsoft Azure » de la liste des applications cloud qui exigent une authentification MFA. Pour en savoir plus sur Windows Hello Entreprise, consultez [vue d’ensemble de Windows Hello Entreprise](/windows/security/identity-protection/hello-for-business/hello-identity-verification).
 
 > [!NOTE]
-> L’authentification par code confidentiel Windows Hello Entreprise avec le Bureau à distance a été prise en charge par Windows 10 pour plusieurs versions, mais la prise en charge de l’authentification biométrique avec le Bureau à distance a été ajoutée dans Windows 10 version 1809. L’authentification Windows Hello Entreprise lors de l’utilisation du Bureau à distance n’est disponible que pour les déploiements qui utilisent le modèle approuvé de certificat et qui ne sont actuellement pas disponibles pour le modèle approuvé de clé.
+> L’authentification par code confidentiel Windows Hello Entreprise avec le Bureau à distance a été prise en charge par Windows 10 pour plusieurs versions, mais la prise en charge de l’authentification biométrique avec le Bureau à distance a été ajoutée dans Windows 10 version 1809. L’authentification Windows Hello Entreprise lors de l’utilisation du Bureau à distance n’est disponible que pour les déploiements qui utilisent le modèle approuvé de certificat et qui ne sont actuellement pas disponibles pour le modèle approuvé de clé.
  
 ## <a name="preview-feedback"></a>Commentaires de la préversion
 
@@ -375,4 +375,4 @@ Partagez vos commentaires sur cette fonctionnalité d’évaluation ou signalez 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur Azure Active Directory, consultez [Qu’est-ce qu’Azure Active Directory ?](../fundamentals/active-directory-whatis.md)
+Pour plus d’informations sur Azure Active Directory, consultez [Qu’est-ce qu’Azure Active Directory ?](../fundamentals/active-directory-whatis.md).

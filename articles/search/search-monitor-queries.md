@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/18/2020
-ms.openlocfilehash: a5589a46a63437fb395db280222f8a9e84775df3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 169a90c12b30e0d083ce5c53ab7c6dd2495c4c23
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88935073"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592379"
 ---
 # <a name="monitor-query-requests-in-azure-cognitive-search"></a>Surveiller les demandes de requête dans Recherche cognitive Azure
 
@@ -42,7 +42,7 @@ Les requêtes sont souvent exécutées en quelques millisecondes, par conséquen
 | Count | Nombre de métriques émises dans le journal pendant l'intervalle d'une minute. |
 | Maximale | Nombre maximum de requêtes de recherche par seconde enregistrées en une minute. |
 | Minimum | Nombre minimum de requêtes de recherche par seconde enregistrées en une minute.  |
-| SUM | Somme de toutes les requêtes exécutées pendant l'intervalle d'une minute.  |
+| Sum | Somme de toutes les requêtes exécutées pendant l'intervalle d'une minute.  |
 
 Par exemple, sur une minute, le schéma peut être le suivant : une seconde de charge élevée, qui représente votre valeur SearchQueriesPerSecond maximale, puis 58 secondes de charge moyenne, et enfin une seconde avec une seule requête, qui représente la valeur minimale.
 
@@ -62,7 +62,7 @@ Autre exemple : si un nœud émet 100 métriques, sachant que la valeur de cha
 | Minimum | Requête la plus courte de l'échantillon.  | 
 | Total | Durée d'exécution totale de toutes les requêtes de l'échantillon, exécutées dans l'intervalle (une minute).  |
 
-Penchons-nous sur l'exemple suivant de métriques de **latence de recherche** : 86 requêtes ont été échantillonnées, avec une durée moyenne de 23,26 millisecondes. Un minimum de 0 indique que certaines requêtes ont été abandonnées. La requête la plus longue s'est exécutée en 1 000 millisecondes. La durée d'exécution totale a été de 2 secondes.
+Prenons l’exemple suivant de métriques de **latence de recherche** : 86 requêtes ont été échantillonnées, avec une durée moyenne de 23,26 millisecondes. Un minimum de 0 indique que certaines requêtes ont été abandonnées. La requête la plus longue s'est exécutée en 1 000 millisecondes. La durée d'exécution totale a été de 2 secondes.
 
 ![Agrégations de latence](./media/search-monitor-usage/metrics-latency.png "Agrégations de latence")
 
@@ -90,7 +90,7 @@ Pour confirmer les requêtes limitées, utilisez la métrique **Requêtes de rec
 | Minimum | Pourcentage de requêtes abandonnées pendant l'intervalle. |
 | Total | Pourcentage de requêtes abandonnées pendant l'intervalle. |
 
-Pour **Pourcentage de requêtes de recherche limitées**, les valeurs minimales, maximales, moyennes et totales seront identiques : il s'agit du pourcentage de requêtes de recherche qui ont été limitées, en fonction du nombre total de requêtes de recherche pendant une minute.
+Pour **Pourcentage de requêtes de recherche limitées**, les valeurs minimales, maximales, moyennes et totales seront identiques : il s’agit du pourcentage de requêtes de recherche qui ont été limitées, en fonction du nombre total de requêtes de recherche pendant une minute.
 
 Dans la capture d'écran suivante, la première valeur correspond au nombre de métriques envoyées au journal. Les agrégations supplémentaires, qui apparaissent en haut ou en pointant sur la métrique, incluent la moyenne, le maximum et le total. Dans cet exemple, aucune demande n'a été abandonnée.
 
@@ -100,7 +100,7 @@ Dans la capture d'écran suivante, la première valeur correspond au nombre de m
 
 Pour un aperçu rapide des valeurs actuelles, l'onglet **Surveillance** de la page de présentation du service affiche trois mesures (**Latence de recherche**, **Requêtes de recherche par seconde (par unité de recherche)** , **Pourcentage de requêtes de recherche limitées**) sur des intervalles fixes mesurés en heures, jours et semaines, avec la possibilité de modifier le type d'agrégation.
 
-Pour une exploration plus approfondie, ouvrez Metrics Explorer à partir du menu **Surveillance**. Vous pourrez ainsi ajouter des données, effectuer un zoom sur celles-ci et les visualiser afin d'explorer les tendances ou les anomalies. Pour en savoir plus sur Metrics Explorer, suivez ce [tutoriel consacré à la création d'un graphique de métriques](../azure-monitor/learn/tutorial-metrics-explorer.md).
+Pour une exploration plus approfondie, ouvrez Metrics Explorer à partir du menu **Surveillance**. Vous pourrez ainsi ajouter des données, effectuer un zoom sur celles-ci et les visualiser afin d'explorer les tendances ou les anomalies. Pour en savoir plus sur Metrics Explorer, suivez ce [tutoriel consacré à la création d'un graphique de métriques](../azure-monitor/essentials/tutorial-metrics-explorer.md).
 
 1. Dans la section Surveillance, sélectionnez **Métriques** pour ouvrir Metrics Explorer en veillant à ce que l'étendue soit définie en fonction de votre service de recherche.
 
@@ -181,7 +181,7 @@ Lorsque vous repoussez les limites d'une configuration réplica-partition partic
 
    ![Détails de l'alerte](./media/search-monitor-usage/alert-details.png "Détails de l’alerte")
 
-Si vous avez spécifié une notification par e-mail, vous recevrez un e-mail de « Microsoft Azure » dont l'objet sera : « Azure : Gravité activée : 3 `<your rule name>` ».
+Si vous avez spécifié une notification par e-mail, vous recevrez un e-mail de « Microsoft Azure » dont l’objet sera : « Azure : Gravité activée 3 `<your rule name>` ».
 
 <!-- ## Report query data
 
@@ -192,4 +192,4 @@ Power BI is an analytical reporting tool useful for visualizing data, including 
 Si ce n’est déjà fait, passez en revue les principes de base de la surveillance des services de recherche pour en savoir plus sur les différentes capacités de surveillance disponibles.
 
 > [!div class="nextstepaction"]
-> [Surveiller les opérations et l'activité dans Recherche cognitive Azure](search-monitor-usage.md)
+> [Surveiller les opérations et l’activité dans Recherche cognitive Azure](search-monitor-usage.md)

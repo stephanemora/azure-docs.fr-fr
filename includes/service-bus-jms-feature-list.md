@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 6/9/2020
 ms.author: aschhab
 ms.custom: include file
-ms.openlocfilehash: 9030080d0b8c8e032cb2992a62275efcdb04aabc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 574507fcc6a3c05919c441bd6d0ec9c573d4b6ae
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87798135"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652601"
 ---
 Le tableau suivant présente les fonctionnalités Java Message Service (JMS) actuellement prises en charge par Azure Service Bus. Il présente également des fonctionnalités non prises en charge.
 
@@ -34,4 +34,5 @@ Le tableau suivant présente les fonctionnalités Java Message Service (JMS) act
 | Sélecteurs de messages | dépend du consommateur créé | **Pris en charge** |
 | Délai de livraison (messages planifiés) | <ul> <li> JMSProducer.setDeliveryDelay( long deliveryDelay) </li> </ul>|**Pris en charge**|
 | Message créé |<ul> <li> JMSContext.createMessage() </li> <li> JMSContext.createBytesMessage() </li> <li> JMSContext.createMapMessage() </li> <li> JMSContext.createObjectMessage( Serializable object) </li> <li> JMSContext.createStreamMessage() </li> <li> JMSContext.createTextMessage() </li> <li> JMSContext.createTextMessage( String text) </li> </ul>| **Pris en charge** |
+| Transactions entre entités |<ul> <li> Connection.createSession(true, Session.SESSION_TRANSACTED) </li> </ul> | **Pris en charge** |
 | Transactions distribuées || Non pris en charge |

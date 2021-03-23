@@ -1,17 +1,20 @@
 ---
 title: Développement et débogage itératifs dans Azure Data Factory
 description: Apprenez à développer et à déboguer des pipelines Data Factory de façon itérative dans l’expérience utilisateur ADF
-ms.date: 10/29/2020
+ms.date: 02/23/2021
 ms.topic: conceptual
 ms.service: data-factory
-author: dcstwh
-ms.author: weetok
-ms.openlocfilehash: 90f3f57fa527c8aaeb32a7dcf41f461ff5f0bf77
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+services: data-factory
+documentationcenter: ''
+ms.workload: data-services
+author: kromerm
+ms.author: makromer
+ms.openlocfilehash: ef47d311f5f096db962ea27792e7871dbf0ef81a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100392525"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101712946"
 ---
 # <a name="iterative-development-and-debugging-with-azure-data-factory"></a>Développement et débogage itératifs dans Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -73,6 +76,8 @@ Les flux de données de mappage vous permettent de créer une logique de transfo
 Vous pouvez superviser les sessions de débogage du flux de données qui sont actives dans une fabrique dans l’expérience **Superviser**.
 
 ![Afficher les sessions de débogage du flux de données](media/iterative-development-debugging/view-dataflow-debug-sessions.png)
+
+L’aperçu des données dans le concepteur de flux de données et le débogage du pipeline des flux de données sont conçus pour fonctionner de façon optimale avec de petits échantillons de données. Toutefois, si vous devez tester votre logique dans un pipeline ou un flux de données sur de grandes quantités de données, augmentez la taille de l’instance Azure Integration Runtime utilisée dans la session de débogage avec davantage de cœurs et au minimum un calcul à usage général.
  
 ### <a name="debugging-a-pipeline-with-a-data-flow-activity"></a>Débogage d’un pipeline avec une activité de flux de données
 
@@ -83,7 +88,7 @@ L’utilisation d’une session de débogage existante réduira considérablemen
 L’utilisation de l’exécution d’activité permettra de créer un nouveau cluster en utilisant les paramètres spécifiés dans le runtime d’intégration de chaque activité de flux de données. Cela permet d’isoler chaque travail ; cette méthode doit être utilisée pour des charges de travail complexes ou des tests de performance. Vous pouvez également contrôler le temps jusqu’au dernier octet dans Azure IR, afin que les ressources de cluster utilisées pour le débogage restent disponibles pendant cette période pour traiter des demandes de travaux supplémentaires.
 
 > [!NOTE]
-> Si vous avez un pipeline avec des flux de données s’exécutant en parallèle, choisissez « Use Activity Runtime » (Utiliser le runtime d’activité), afin que Data Factory puisse utiliser le Runtime d’intégration que vous avez sélectionné dans votre activité de flux de données. Les flux de données pourront ainsi s’exécuter sur plusieurs clusters et prendre en charge vos exécutions de flux de données parallèles.
+> Si, dans votre pipeline, des flux de données s’exécutent en parallèle ou doivent être testés avec de grands jeux de données, choisissez « Utiliser le runtime d’activité » pour que Data Factory puisse utiliser le Runtime d’intégration que vous avez sélectionné dans votre activité de flux de données. Les flux de données pourront ainsi s’exécuter sur plusieurs clusters et prendre en charge vos exécutions de flux de données parallèles.
 
 ![Exécution d’un pipeline avec un flux de données](media/iterative-development-debugging/iterative-development-dataflow.png)
 

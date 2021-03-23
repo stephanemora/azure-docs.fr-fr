@@ -3,17 +3,17 @@ title: Diagnostiquer et résoudre les problèmes de disponibilité des Kits de d
 description: Découvrez tout ce qu’il y a à savoir sur le comportement de disponibilité du Kit de développement logiciel (SDK) Azure Cosmos lors de son utilisation dans des environnements multirégionaux.
 author: ealsur
 ms.service: cosmos-db
-ms.date: 02/16/2021
+ms.date: 02/18/2021
 ms.author: maquaran
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 34c6e7ad8473f02f2772c84ea63aee2a41b97306
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 0720eb01920e39a9bee27e4d00d97acba55b0ad5
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100559699"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101661424"
 ---
 # <a name="diagnose-and-troubleshoot-the-availability-of-azure-cosmos-sdks-in-multiregional-environments"></a>Diagnostiquer et résoudre les problèmes de disponibilité des Kits de développement logiciel (SDK) Azure Cosmos dans les environnements multirégionaux
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -43,7 +43,17 @@ Si vous **ne définissez pas de région préférée**, le client du Kit de déve
 | Régions d’écriture multiples | Région primaire  | Région primaire  |
 
 > [!NOTE]
-> La région primaire fait référence à la première région de la [liste des régions du compte Azure Cosmos](distribute-data-globally.md)
+> La région primaire fait référence à la première région de la [liste des régions du compte Azure Cosmos](distribute-data-globally.md).
+> Si les valeurs spécifiées comme préférences régionales ne correspondent à aucune région Azure existante, elles sont ignorées. S’ils correspondent à une région existante mais que le compte n’y est pas répliqué, le client se connecte à la région préférée suivante qui correspond ou à la région primaire.
+
+> [!WARNING]
+> La logique de basculement et de disponibilité décrite dans ce document peut être désactivée sur la configuration du client, ce qui n’est pas recommandé, sauf si l’application utilisateur va gérer elle-même les erreurs de disponibilité. Voici ce qu’il faut faire pour y parvenir :
+>
+> * Définition de la propriété [ConnectionPolicy.EnableEndpointRediscovery](/dotnet/api/microsoft.azure.documents.client.connectionpolicy.enableendpointdiscovery) dans le SDK .NET V2 sur false.
+> * Définition de la propriété [CosmosClientOptions.LimitToEndpoint](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.limittoendpoint) dans le SDK .NET V3 sur true.
+> * Définition de la méthode [CosmosClientBuilder.endpointDiscoveryEnabled](/java/api/com.azure.cosmos.cosmosclientbuilder.endpointdiscoveryenabled) dans le SDK Java V4 sur false.
+> * Définition du paramètre [CosmosClient.enable_endpoint_discovery](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient) dans le SDK Python sur false.
+> * Définition du paramètre [CosmosClientOptions.ConnectionPolicy.enableEndpointDiscovery](/javascript/api/@azure/cosmos/connectionpolicy#enableEndpointDiscovery) dans le SDK JS sur false.
 
 Dans des circonstances normales, le client du Kit de développement logiciel (SDK) se connecte à la région préférée (si une préférence régionale est définie) ou à la région primaire (si aucune préférence n’est définie) et les opérations sont limitées à cette région, sauf si l’un des scénarios ci-dessous se produit.
 
@@ -59,7 +69,7 @@ Pour obtenir des informations complètes sur les garanties de contrat SLA au cou
 
 ## <a name="removing-a-region-from-the-account"></a><a id="remove-region"></a>Suppression d’une région du compte
 
-Lorsque vous supprimez une région d’un compte Azure Cosmos, tout client SDK qui utilise activement le compte détectera la suppression de la région grâce à un code de réponse principale. Le client marque ensuite le point de terminaison régional comme non disponible. Le client réitère l’opération en cours et toutes les opérations ultérieures sont acheminées de manière permanente vers la région suivante par ordre de préférence.
+Lorsque vous supprimez une région d’un compte Azure Cosmos, tout client SDK qui utilise activement le compte détectera la suppression de la région grâce à un code de réponse principale. Le client marque ensuite le point de terminaison régional comme non disponible. Le client réitère l’opération en cours et toutes les opérations ultérieures sont acheminées de manière permanente vers la région suivante par ordre de préférence. Si la liste de préférences ne comportait qu’une seule entrée (ou si elle était vide), mais que le compte a d’autres régions disponibles, elle sera routée vers la région suivante dans la liste du compte.
 
 ## <a name="adding-a-region-to-an-account"></a>Ajout d’une région à un compte
 

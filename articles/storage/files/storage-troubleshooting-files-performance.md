@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 11/16/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 54b92c24b5a50ef1674dcb47df555b27259a350b
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 9f858549f36d196c6412aec549d0ab2e2d864145
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100393851"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103417669"
 ---
 # <a name="troubleshoot-azure-file-shares-performance-issues"></a>Résoudre les problèmes de performances des partages de fichiers Azure
 
@@ -39,7 +39,8 @@ Pour vérifier si votre partage est limité, vous pouvez accéder aux métriques
     Pour les partages de fichiers standard, les types de réponse suivants sont consignés si une requête est limitée :
 
     - SuccessWithThrottling
-    - ClientThrottlingError
+    - SuccessWithShareIopsThrottling
+    - ClientShareIopsThrottlingError
 
     Pour les partages de fichiers premium, les types de réponse suivants sont consignés si une requête est limitée :
 
@@ -50,7 +51,7 @@ Pour vérifier si votre partage est limité, vous pouvez accéder aux métriques
     - ClientShareIngressThrottlingError
     - ClientShareIopsThrottlingError
 
-    Pour en savoir plus sur chaque type de réponse, consultez [Dimensions de mesures](https://docs.microsoft.com/azure/storage/files/storage-files-monitoring-reference#metrics-dimensions).
+    Pour en savoir plus sur chaque type de réponse, consultez [Dimensions de mesures](./storage-files-monitoring-reference.md#metrics-dimensions).
 
     ![Capture d’écran des options de métriques pour les partages de fichiers premium, montrant un filtre de propriété « Type de réponse ».](media/storage-troubleshooting-premium-fileshares/metrics.png)
 
@@ -244,7 +245,8 @@ Pour vérifier cela, vous pouvez utiliser les métriques Azure dans le portail 
     Pour les partages de fichiers standard, sélectionnez les types de réponse suivants :
 
     - SuccessWithThrottling
-    - ClientThrottlingError
+    - SuccessWithShareIopsThrottling
+    - ClientShareIopsThrottlingError
 
     Pour les partages de fichiers premium, sélectionnez les types de réponse suivants :
 
@@ -258,13 +260,12 @@ Pour vérifier cela, vous pouvez utiliser les métriques Azure dans le portail 
    > [!NOTE]
    > Si les types de réponse ne sont pas répertoriés dans la liste déroulante **Valeurs de dimension**, cela signifie que la ressource n’a pas été limitée. Pour ajouter les valeurs de dimension, à côté de la liste déroulante **Valeurs de dimension**, sélectionnez **Ajouter une valeur personnalisée**, entrez le type de réponse (par exemple, **SuccessWithThrottling**), sélectionnez **OK**, puis répétez ces étapes pour ajouter tous les types de réponses pertinents à votre partage de fichiers.
 
-8. Cliquez sur la liste déroulante **Nom de la dimension** et sélectionnez **Partage de fichiers**.
-9. Cliquez sur la liste déroulante **Valeurs de dimension**, puis sélectionnez le ou les partages de fichiers pour lesquels vous souhaitez recevoir une alerte.
-
+8. Pour les **partages de fichiers Premium**, cliquez sur la liste déroulante **Nom de la dimension** et sélectionnez **Partage de fichiers**. Pour les **partages de fichiers standard**, passez à l'**étape 10**.
 
    > [!NOTE]
-   > Si le partage de fichiers est un partage de fichiers standard, sélectionnez **Toutes les valeurs actuelles et futures**. La liste déroulante des valeurs de dimension ne répertorie pas les partages de fichiers, car les métriques par partage ne sont pas disponibles pour les partages de fichiers standard. Les alertes de limitation pour les partages de fichiers standard sont déclenchées si un partage de fichiers au sein du compte de stockage est limité et l’alerte n’identifiera pas quel partage de fichiers a été limité. Étant donné que les métriques par partage ne sont pas disponibles pour les partages de fichiers standard, il est recommandé de disposer d’un partage de fichiers par compte de stockage.
+   > Si le partage de fichiers est un partage standard, la dimension **Partage de fichiers** ne répertorie pas le(s) partage(s) de fichiers, car les métriques par partage ne sont pas disponibles pour les partages de fichiers standard. Les alertes de limitation pour les partages de fichiers standard sont déclenchées si un partage de fichiers au sein du compte de stockage est limité et l’alerte n’identifiera pas quel partage de fichiers a été limité. Étant donné que les métriques par partage ne sont pas disponibles pour les partages de fichiers standard, il est recommandé de disposer d’un partage de fichiers par compte de stockage.
 
+9. Cliquez sur la liste déroulante **Valeurs de dimension**, puis sélectionnez le ou les partages de fichiers pour lesquels vous souhaitez recevoir une alerte.
 10. Définissez les **paramètres d’alerte** (valeur de seuil, opérateur, granularité d’agrégation et fréquence), puis cliquez sur **Terminé**.
 
     > [!TIP]

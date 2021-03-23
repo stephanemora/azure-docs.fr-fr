@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 02/28/2018
 ms.author: allensu
-ms.openlocfilehash: ceed62d466627d6a23554229bd6f4b96c674c7e9
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 11a2dbfc9c6da60e4dd96f65d2a20165a3663e8c
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95993667"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103601540"
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Compression des fichiers dans Azure CDN pour améliorer les performances
 La compression de fichiers est une méthode simple et efficace qui vise à améliorer la vitesse de transfert des fichiers et à accroître les performances de chargement des pages en réduisant la taille des fichiers avant leur envoi à partir du serveur. La compression de fichiers peut réduire les coûts de bande passante et offre à vos utilisateurs davantage de réactivité.
@@ -63,10 +63,6 @@ Les niveaux Standard et Premium de CDN fournissent les mêmes fonctionnalités, 
 
    > [!TIP]
    > Bien que cela soit possible, il n’est pas recommandé d’appliquer la compression aux formats compressés. Par exemple, ZIP, MP3, MP4 ou JPG.
-   > 
-
-   > [!NOTE]
-   > La modification de la liste par défaut des types MIME n’est actuellement pas prise en charge dans Azure CDN Standard fourni par Microsoft.
    > 
 
 5. Une fois vos modifications effectuées, sélectionnez **Enregistrer**.
@@ -153,10 +149,10 @@ Les tableaux suivants décrivent le comportement de compression du CDN Azure pou
 ### <a name="compression-is-enabled-and-file-is-eligible-for-compression"></a>La compression est activée et le fichier est éligible pour la compression
 | Format demandé par le client (via l’en-tête Accept-Encoding) | Format de fichier mis en cache | Réponse du CDN au client | Notes |
 | --- | --- | --- | --- |
-| Compressé |Compressé |Compressé |Transcode CDN entre les formats pris en charge. |
+| Compressé |Compressé |Compressé |Transcode CDN entre les formats pris en charge. <br/>**Azure CDN de Microsoft** ne prend pas en charge le transcodage entre les formats et extrait à la place des données de l’origine, les compresse et les met en cache séparément pour le format. |
 | Compressé |Non compressé |Compressé |CDN effectue une compression. |
 | Compressé |Non mis en cache |Compressé |CDN effectue une compression si l’origine renvoie un fichier non compressé. <br/>**Azure CDN fourni par Verizon** transmet le fichier non compressé à la première demande, puis compresse et met en cache le fichier pour les demandes suivantes. <br/>Les fichiers avec l’en-tête `Cache-Control: no-cache` ne sont jamais compressés. |
-| Non compressé |Compressé |Non compressé |CDN effectue la décompression. |
+| Non compressé |Compressé |Non compressé |CDN effectue la décompression. <br/>**Azure CDN de Microsoft** ne prend pas en charge la décompression et extrait à la place des données de l’origine et les met en cache séparément pour les clients non compressés. |
 | Non compressé |Non compressé |Non compressé | |
 | Non compressé |Non mis en cache |Non compressé | |
 

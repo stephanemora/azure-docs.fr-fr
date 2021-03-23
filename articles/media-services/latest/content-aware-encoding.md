@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8c63ada9621fc1485742a7683fd6742f0e896854
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: ce18e71ced320c408933caeb39b469d5885bd6ba
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954427"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095938"
 ---
 # <a name="use-the-content-aware-encoding-preset-to-find-the-optimal-bitrate-value-for-a-given-resolution"></a>Utiliser la présélection de l’encodage sensible au contenu pour rechercher la valeur optimale de vitesse de transmission pour une résolution donnée
 
@@ -29,7 +29,7 @@ Vous devez être conscient du contenu que vous traitez et personnaliser ou ajust
 
 La présélection [Adaptive Streaming](autogen-bitrate-ladder.md) (diffusion en continu adaptative) de Microsoft résout le problème de variabilité de la qualité et de la résolution des vidéos sources. Nos clients bénéficient d’une grande variété de contenus, certains en 1080p, d’autres en 720p, et quelques-uns en SD voire à des résolutions inférieures. En outre, tout le contenu source n’affiche pas les mezzanines haute qualité proposées par les studios de cinéma ou de télévision. La présélection Adaptive Streaming résout ces problèmes en s'assurant que l'échelle de débit ne dépasse jamais la résolution ou le débit moyen de la mezzanine en entrée. Toutefois, cette présélection n’examine pas les propriétés sources autres que la résolution et la vitesse de transmission.
 
-## <a name="the-content-aware-encoding"></a>Encodage sensible au contenu 
+## <a name="the-content-aware-encoding"></a>Encodage sensible au contenu
 
 La présélection d’encodage sensible au contenu étend le mécanisme de diffusion en continu à vitesse de transmission adaptative, en incorporant une logique personnalisée permettant à l’encodeur de rechercher la valeur optimale de vitesse de transmission pour une résolution donnée, mais sans nécessiter une analyse informatique complète. Cette présélection produit un ensemble de fichiers MP4 alignés sur le groupe d’images. Étant donné un contenu d’entrée, le service effectue une analyse initiale légère du contenu d’entrée et utilise les résultats pour déterminer le nombre optimal de couches, le débit approprié et les paramètres de résolution pour la livraison par diffusion en continu adaptative. Cette présélection est particulièrement efficace pour les vidéos de complexité faible et moyenne, où les fichiers de sortie sont à des vitesses de transmission inférieures à la présélection Diffusion en continu adaptative, mais à une qualité qui offre toujours une bonne expérience aux viewers. La sortie contiendra des fichiers MP4 avec vidéo et audio entrelacées.
 
@@ -57,7 +57,7 @@ Voici les résultats pour une autre catégorie de contenu source, où l’encode
 
 Vous pouvez créer des transformations qui utilisent cette présélection comme suit. 
 
-Consultez la section [Étapes suivantes](#next-steps) pour accéder à des didacticiels qui utilisent la transformation des sorties. La ressource de sortie peut être fournie à partir de points de terminaison de streaming Media Services dans des protocoles tels que MPEG-DASH et HLS (comme indiqué dans les didacticiels).
+Consultez la section [Étapes suivantes](#next-steps) pour accéder à des tutoriels qui utilisent la transformation des sorties. La ressource de sortie peut être fournie à partir de points de terminaison de streaming Media Services dans des protocoles tels que MPEG-DASH et HLS (comme indiqué dans les didacticiels).
 
 > [!NOTE]
 > Veillez à utiliser la présélection **ContentAwareEncoding**, et non ContentAwareEncodingExperimental.

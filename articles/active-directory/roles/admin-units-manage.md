@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 537847d84b417814bddb16cf5b961bdb221af488
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 0706fad1e5340625c32eab691ac3e4d58eeafc9f
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98740446"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103012101"
 ---
 # <a name="manage-administrative-units-in-azure-active-directory"></a>Gérer des unités administratives dans Azure Active Directory
 
@@ -38,7 +38,7 @@ Pour un contrôle administratif plus précis dans Azure Active Directory (Azure 
     ![Capture d’écran montrant le lien « Accorder un consentement administrateur pour Afficheur Graph ».](./media/admin-units-manage/select-graph-explorer.png)
 
 
-1. Utilisez la préversion d'Azure AD PowerShell.
+1. Utilisez [Azure AD PowerShell](https://www.powershellgallery.com/packages/AzureAD/).
 
 ## <a name="add-an-administrative-unit"></a>Ajouter une unité administrative
 
@@ -58,7 +58,7 @@ Vous pouvez ajouter une unité administrative à l’aide du portail Azure ou de
 
 ### <a name="use-powershell"></a>Utiliser PowerShell
 
-Installez Azure AD PowerShell (préversion) avant d’essayer d’exécuter les commandes suivantes :
+Installez [Azure AD PowerShell](https://www.powershellgallery.com/packages/AzureAD/) avant d’essayer d’exécuter les commandes suivantes :
 
 ```powershell
 Connect-AzureAD
@@ -69,10 +69,15 @@ Vous pouvez modifier les valeurs entre guillemets si nécessaire.
 
 ### <a name="use-microsoft-graph"></a>Utiliser Microsoft Graph
 
+Requête
+
 ```http
-Http Request
 POST /administrativeUnits
-Request body
+```
+
+Corps
+
+```http
 {
   "displayName": "North America Operations",
   "description": "North America Operations administration"
@@ -94,18 +99,23 @@ Dans Azure AD, vous pouvez supprimer une unité administrative dont vous n’ave
 ### <a name="use-powershell"></a>Utiliser PowerShell
 
 ```powershell
-$delau = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'DeleteMe Admin Unit'"
-Remove-AzureADMSAdministrativeUnit -ObjectId $delau.ObjectId
+$adminUnitObj = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'DeleteMe Admin Unit'"
+Remove-AzureADMSAdministrativeUnit -ObjectId $adminUnitObj.ObjectId
 ```
 
 Vous pouvez modifier les valeurs entre guillemets si nécessaire, en fonction de l’environnement spécifique.
 
 ### <a name="use-the-graph-api"></a>Utiliser l’API Graph
 
+Requête
+
 ```http
-HTTP request
-DELETE /administrativeUnits/{Admin id}
-Request body
+DELETE /administrativeUnits/{admin-unit-id}
+```
+
+body
+
+```http
 {}
 ```
 

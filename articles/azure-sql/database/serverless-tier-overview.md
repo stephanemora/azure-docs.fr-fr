@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein
-ms.date: 12/8/2020
-ms.openlocfilehash: 1b8be7fc6295c6332d26718b5752d2fd8f2a6f73
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 2/22/2021
+ms.openlocfilehash: 4dd7bbe613b30df2611bfe6631950e121235204a
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100393239"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101658586"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database serverless
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -103,11 +103,11 @@ Notez que lorsque l’utilisation du processeur est faible, l’utilisation du c
 
 La taille du cache SQL augmente à mesure que des données sont extraites du disque, de la même manière et au même rythme que pour des bases de données provisionnées. Quand la base de données est occupée, le cache est autorisé à grossir sans contrainte jusqu’à la limite de mémoire maximale.
 
-## <a name="auto-pause-and-auto-resume"></a>Mise en pause automatique et reprise automatique
+## <a name="auto-pausing-and-auto-resuming"></a>Mise en pause automatique et reprise automatique
 
-### <a name="auto-pause"></a>Mise en pause automatique
+### <a name="auto-pausing"></a>Mise en pause automatique
 
-Une mise en pause automatique est déclenchée si toutes les conditions suivantes sont remplies pendant la durée du délai de la mise en pause automatique :
+Une mise en pause automatique est déclenchée si toutes les conditions suivantes sont remplies pendant la durée du délai de mise en pause automatique :
 
 - Nombre de sessions = 0
 - Processeur = 0 pour la charge de travail utilisateur exécutée dans le pool d’utilisateurs

@@ -8,16 +8,16 @@ ms.service: storage
 ms.subservice: common
 ms.topic: how-to
 ms.reviewer: klaasl
-ms.openlocfilehash: 10d4e99d7bbebb6bc7d7def308e233507ed99ce9
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.openlocfilehash: 637f748882b3ac84127c8b71761a06629e1e0957
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98166446"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653830"
 ---
 # <a name="manage-the-default-access-tier-of-an-azure-storage-account"></a>Gestion du niveau d’accès par défaut d’un compte de stockage Azure
 
-Chaque compte de stockage Azure dispose d’un niveau d’accès par défaut (chaud, froid ou archive), attribué lors de la création du compte de stockage. Le niveau d’accès par défaut est chaud.
+Chaque compte de stockage Azure dispose d’un niveau d’accès par défaut, chaud ou froid. attribué lors de la création du compte de stockage. Le niveau d’accès par défaut est chaud.
 
 Il est possible de modifier le niveau du compte par défaut en définissant l’attribut **Niveau d’accès** du compte de stockage. La modification s’applique à tous les objets stockés dans le compte pour lesquels aucun niveau explicite n’est défini. Passer du niveau de compte chaud au niveau froid implique des opérations d’écriture (par 10 000) pour tous les blobs sans niveau défini dans les comptes GPv2 uniquement, tandis que le passage du niveau froid au niveau chaud entraîne des frais d’opérations de lecture (par 10 000) et d’extraction de données (par Go) pour tous les blobs dans des comptes Stockage Blob et GPv2.
 

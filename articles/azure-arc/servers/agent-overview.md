@@ -1,14 +1,14 @@
 ---
 title: Présentation de l’agent Connected Machine Windows
 description: Cet article fournit une présentation détaillée de l’agent des serveurs avec Azure Arc disponible, qui prend en charge la surveillance de machines virtuelles hébergées dans des environnements hybrides.
-ms.date: 02/16/2021
+ms.date: 02/18/2021
 ms.topic: conceptual
-ms.openlocfilehash: 82562bf3b1f8392e56a53ba0f968a76b050e7b13
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: ebd9412849b4a0b3081e892d7472e598ca6e8365
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100558508"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101651091"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Présentation de l’agent des serveurs activés par Azure Arc
 
@@ -69,6 +69,10 @@ L’agent Azure Connected Machine pour Windows et Linux peut être mis à niveau
 
 ## <a name="prerequisites"></a>Prérequis
 
+### <a name="supported-environments"></a>Environnements pris en charge
+
+Les serveurs activés pour Arc prennent en charge l’installation de l’agent Machine connectée sur n’importe quel serveur physique et machine virtuelle hébergée *en dehors* d’Azure. Ceci comprend les machines virtuelles s’exécutant sur des plateformes comme VMware, Azure Stack HCI et d’autres environnements cloud. Les serveurs activés pour Arc ne prennent pas en charge l’installation de l’agent sur les machines virtuelles qui s’exécutent dans Azure, ni sur les machines virtuelles qui s’exécutent sur Azure Stack Hub ou Azure Stack Edge, car elles sont déjà modélisées en tant que machines virtuelles Azure.
+
 ### <a name="supported-operating-systems"></a>Systèmes d’exploitation pris en charge
 
 Les versions suivantes des systèmes d’exploitation Windows et Linux sont officiellement prises en charge pour l’agent Azure Connected Machine :
@@ -110,7 +114,7 @@ Pour garantir la sécurité des données en transit vers Azure, nous vous encour
 L’agent Connected Machine pour Linux et Windows communique en sortie de manière sécurisée vers Azure Arc sur le port TCP 443. Si la machine se connecte via un pare-feu ou un serveur proxy pour communiquer sur Internet, consultez les éléments ci-dessous pour comprendre la configuration réseau requise.
 
 > [!NOTE]
-> Les serveurs avec Arc activé ne prennent pas en charge l’utilisation d’une passerelle [Log Analytics](../../azure-monitor/platform/gateway.md) en tant que proxy pour l’agent de l’ordinateur connecté.
+> Les serveurs avec Arc activé ne prennent pas en charge l’utilisation d’une passerelle [Log Analytics](../../azure-monitor/agents/gateway.md) en tant que proxy pour l’agent de l’ordinateur connecté.
 >
 
 Si la connectivité sortante est restreinte par votre pare-feu ou votre serveur proxy, vérifiez que les URL listées ci-dessous ne sont pas bloquées. Lorsque vous n’autorisez que les plages d’adresses IP ou les noms de domaine nécessaires pour que l’agent communique avec le service, vous devez également autoriser l’accès aux URL et étiquettes de service suivantes.

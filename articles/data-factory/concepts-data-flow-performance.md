@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 01/29/2021
-ms.openlocfilehash: 01c448165e6d1f4d6103c61387298f2d9eb40254
-ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
+ms.date: 03/15/2021
+ms.openlocfilehash: dd5b857c274e757f70920f244786df61c2770085
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99222931"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103561683"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guide des performances et du réglage du mappage de flux de données
 
@@ -259,6 +259,8 @@ Lors de l’écriture dans CosmosDB, la modification du débit et de la taille d
 Dans les transformations Joins, Exists et Lookups, si un ou les deux flux de données sont suffisamment petits pour tenir dans la mémoire de nœud worker, vous pouvez optimiser les performances en activant la **Diffusion**. Un diffusion a lieu quand vous envoyez de petites trames de données à tous les nœuds du cluster. Cela permet au moteur Spark d’effectuer une jointure sans remanier les données dans le grand flux. Par défaut, le moteur Spark détermine automatiquement s’il faut ou non diffuser un côté d’une jointure. Si vous êtes familiarisé avec vos données entrantes et savez qu’un flux sera beaucoup plus petit que l’autre, vous pouvez sélectionner une diffusion **Fixe**. Une diffusion fixe force Spark à diffuser le flux sélectionné. 
 
 Si la taille des données diffusées est trop importante pour le nœud Spark, il se peut que vous rencontriez une erreur de mémoire insuffisante. Pour éviter les erreurs de mémoire insuffisante, utilisez des clusters **à mémoire optimisée**. Si vous rencontrez des délais d’expiration de diffusion au cours d’exécutions de flux de données, vous pouvez désactiver l’optimisation de la diffusion. Toutefois, cela se traduit par des flux de données plus lents.
+
+Lorsque vous utilisez des sources de données dont la requête peut prendre plus de temps, comme les requêtes de base de données volumineuses, il est recommandé de désactiver la diffusion pour les jointures. La source avec des temps de requête longs peut entraîner des délais d’attente Spark lorsque le cluster tente de diffuser des nœuds de calcul. La désactivation de la diffusion est également conseillée lorsque vous avez un flux dans votre flux de données qui regroupe des valeurs à utiliser ultérieurement dans une transformation de recherche. Ce modèle peut troubler l’optimiseur Spark et provoquer des délais d’attente.
 
 ![Optimisation de la transformation de jointure (Join)](media/data-flow/joinoptimize.png "Optimisation de la jointure")
 

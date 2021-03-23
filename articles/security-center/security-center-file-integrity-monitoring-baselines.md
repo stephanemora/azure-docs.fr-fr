@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/22/2020
+ms.date: 02/17/2021
 ms.author: memildin
-ms.openlocfilehash: 89230b6aca9e225c28a1efd0b99476b35f4d8db0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f160948a06d8a3175158e0100345ee2a330048c
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91439553"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100634694"
 ---
 # <a name="compare-baselines-using-file-integrity-monitoring-fim"></a>Comparer des lignes de base avec le Monitoring d'intégrité de fichier (FIM)
 
@@ -62,23 +62,22 @@ Dans un premier temps, le Monitoring d'intégrité de fichier identifie les cara
 > [!NOTE]
 > Pour en savoir plus sur les paramètres de registre pris en charge par les différentes versions du système d’exploitation, consultez la [feuille de calcul de référence Paramètres de stratégie de groupe](https://www.microsoft.com/download/confirmation.aspx?id=25250).
 
-*Pour configurer le Monitoring intégré de fichier pour surveiller les lignes de base de registre :*
+Pour configurer le Monitoring intégré de fichier pour surveiller les lignes de base de registre :
 
-1. Dans la fenêtre **Ajouter le Registre Windows pour Change Tracking**, dans la zone de texte **Clé de Registre Windows**, entrez la clé de Registre.
+1. À partir de la fenêtre **Ajouter le Registre Windows pour Change Tracking**, dans la zone de texte **Clé de Registre Windows**, entrez la clé de Registre suivante :
 
-    <code>
-
+    ```
     HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Netlogon\Parameters
-    </code>
+    ```
 
-      ![Activer le Monitoring intégré de fichier sur un registre](./media/security-center-file-integrity-monitoring-baselines/baselines-add-registry.png)
+    :::image type="content" source="./media/security-center-file-integrity-monitoring-baselines/baselines-add-registry.png" alt-text="Activer le Monitoring intégré de fichier sur un registre":::
 
 ## <a name="track-changes-to-windows-files"></a>Suivre les modifications apportées aux fichiers Windows
 
 1. Dans la fenêtre **Ajouter le fichier Windows pour Change Tracking**, dans la zone de texte **Entrer le chemin d'accès**, entrez le dossier contenant les fichiers que vous souhaitez suivre. Dans l’exemple de la figure suivante, **Contoso Web App** se trouve sous le lecteur D:\ dans la structure de dossiers **ContosWebApp**.  
 1. Créez une entrée de fichier Windows personnalisée en entrant un nom pour la classe de paramètres, en activant la récursion et en spécifiant le dossier supérieur avec un suffixe de caractère générique (*).
 
-    ![Activer FIM sur un fichier](./media/security-center-file-integrity-monitoring-baselines/baselines-add-file.png)
+    :::image type="content" source="./media/security-center-file-integrity-monitoring-baselines/baselines-add-file.png" alt-text="Activer FIM sur un fichier":::
 
 ## <a name="retrieve-change-data"></a>Récupérer les données modifiées
 

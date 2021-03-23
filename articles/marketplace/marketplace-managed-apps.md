@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: msjogarrig
 ms.author: jogarrig
 ms.date: 09/04/2020
-ms.openlocfilehash: d4fb3354b7035149b80191528b2f5335b593b764
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 09badebab86da8e4fd8d35307aa6648a26e91821
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96433543"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103232254"
 ---
 # <a name="publishing-guide-for-azure-managed-applications"></a>Guide de publication pour les applications managées Azure
 
@@ -33,8 +33,8 @@ Utilisez le type d’offre d’application managée dans les conditions suivante
 |Spécifications |Détails  |
 |---------|---------|
 |Abonnement Azure | Les applications gérées doivent être déployées dans l’abonnement d’un client, mais elles peuvent être gérées par un tiers. |
-|Facturation et mesure    |  Les ressources sont fournies dans l’abonnement Azure d’un client. Les machines virtuelles qui utilisent le modèle de paiement à l’utilisation font l’objet de transactions avec le client par le biais de Microsoft et sont facturées dans le cadre de l’abonnement Azure du client. <br><br> Pour les machines virtuelles BYOL (apportez votre propre licence), Microsoft facture tous les frais d’infrastructure engagés dans l’abonnement client, mais vous effectuez la transaction de vos frais de licence logicielle directement avec le client.        |
-|Un disque dur virtuel (VHD) compatible avec Azure    |   Les machines virtuelles doivent être basées sur Windows ou Linux.<br><br>Pour plus d’informations sur la création d’un disque dur virtuel Linux, consultez [Distributions Linux approuvées sur Azure](../virtual-machines/linux/endorsed-distros.md).<br><br>Pour plus d’informations sur la création d’un disque dur virtuel Windows, consultez [Créer une offre d’application Azure](./create-new-azure-apps-offer.md). |
+|Facturation et mesure    |  Les ressources sont fournies dans l’abonnement Azure d’un client. Les machines virtuelles qui utilisent le modèle de paiement à l’utilisation font l’objet de transactions avec le client par le biais de Microsoft et sont facturées dans le cadre de l’abonnement Azure du client. <br><br> Pour les ressources Azure BYOL (apportez votre propre licence), Microsoft facture tous les frais d’infrastructure engagés dans l’abonnement client, mais vous effectuez la transaction de vos frais de licence logicielle directement avec le client.        |
+|Un package d’application managée Azure    |   Modèle Azure Resource Manager configuré et Créer une définition d’interface utilisateur qui seront utilisés pour déployer votre application dans l’abonnement du client.<br><br>Pour plus d’informations sur la création d’une application managée, consultez [Vue d’ensemble des applications managées](../azure-resource-manager/managed-applications/publish-service-catalog-app.md).|
 
 ---
 

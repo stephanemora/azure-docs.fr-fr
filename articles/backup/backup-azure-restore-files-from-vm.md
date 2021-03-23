@@ -4,12 +4,12 @@ description: Dans cet article, découvrez comment récupérer des fichiers et de
 ms.topic: conceptual
 ms.date: 03/12/2020
 ms.custom: references_regions
-ms.openlocfilehash: 9bd66c1e3c89c8974adc3970f8595e5100878088
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: c5a027773a55347b71c1e6a66d24d7fdb99220d0
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98567131"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101725507"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Récupérer des fichiers à partir d’une sauvegarde de machine virtuelle Azure
 
@@ -76,6 +76,11 @@ Vous ne pouvez pas exécuter l’exécutable téléchargé sur une machine virtu
 ### <a name="virtual-machine-backups-having-large-disks"></a>Sauvegardes de machines virtuelles avec des disques de grande taille
 
 Si la machine sauvegardée possède un grand nombre de disques (>16) ou des disques de grande taille (>4 To chacun), il n’est pas recommandé d’exécuter le script sur la même machine pour la restauration, car cela aura un impact significatif sur la machine virtuelle. Au lieu de cela, il est recommandé d’avoir une machine virtuelle distincte uniquement pour la récupération de fichiers (machines virtuelles Azure VM D2v3), puis de l’arrêter lorsqu’elle n’est pas nécessaire. 
+
+Voici les conditions à respecter pour restaurer des fichiers à partir de machines virtuelles sauvegardées dont le disque est volumineux :<br>
+[Système d’exploitation Windows](#for-backed-up-vms-with-large-disks-windows)<br>
+[Système d’exploitation Linux](#for-backed-up-vms-with-large-disks-linux)
+
 
 ## <a name="step-3-os-requirements-to-successfully-run-the-script"></a>Étape 3 : Configuration requise du système d’exploitation pour exécuter correctement le script
 

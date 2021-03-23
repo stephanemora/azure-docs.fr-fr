@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/09/2020
+ms.date: 02/18/2021
 ms.author: b-juche
-ms.openlocfilehash: b7e40eb936a6151f0f31c34c5a8030153a87f08c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 6ff87d046c60f588e133010895ec3e7ce08cb71f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100571105"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101740560"
 ---
 # <a name="configure-nfsv41-kerberos-encryption-for-azure-netapp-files"></a>Configurer le chiffrement Kerberos NFSv4.1 pour Azure NetApp Files
 
@@ -112,66 +112,11 @@ Suivez les instructions dans [Configurer un client NFS pour Azure NetApp Files](
 
 ## <a name="performance-impact-of-kerberos-on-nfsv41"></a><a name="kerberos_performance"></a>Impact de Kerberos sur les performances de NFSv4.1 
 
-Cette section vous aide à comprendre l’impact de Kerberos sur les performances de NFSv4.1.
-
-### <a name="available-security-options"></a>Options de sécurité disponibles 
-
-Les options de sécurité actuellement disponibles pour les volumes NFSv4.1 sont les suivantes : 
-
-* **sec = sys** utilise des UID et GID UNIX locaux à l’aide d’AUTH_SYS pour authentifier les opérations NFS.
-* **sec = krb5** utilise Kerberos V5 au lieu des UID et GID UNIX locaux pour authentifier les utilisateurs.
-* **sec=krb5i** utilise Kerberos V5 pour authentifier les utilisateurs et effectuer des vérifications d’intégrité des opérations NFS qui utilisent des sommes de contrôle sécurisées pour prévenir la falsification de données.
-* **s = krb5p** utilise Kerberos V5 pour authentifier les utilisateurs et effectuer des vérifications d’intégrité. Il chiffre le trafic NFS pour empêcher l’espionnage du trafic. Cette option est le paramètre le plus sécurisé, mais elle implique également la surcharge de performance la plus importante.
-
-### <a name="performance-vectors-tested"></a>Vecteurs de performances testés
-
-Cette section décrit l’impact des différentes options de `sec=*` sur les performances côté client uniquement.
-
-* L’impact sur les performances a été testé à deux niveaux : faible concurrence (faible charge) et concurrence élevée (limites supérieures d’E/S et débit).  
-* Trois types de charges de travail ont été testés :  
-    * Lecture/écriture aléatoire de petites opérations (à l’aide de FIO)
-    * Lecture/écriture aléatoire de grandes opérations (à l’aide de FIO)
-    * Charge de travail importante de métadonnées telle que générée par les applications, par exemple, git
-
-### <a name="expected-performance-impact"></a>Impact des performances attendues 
-
-Il existe deux zones principales : la charge faible et la limite supérieure. Les listes suivantes décrivent l’impact sur les performances de paramètre de sécurité à paramètre de sécurité et de scénario à scénario. Toutes les comparaisons sont effectuées par rapport au paramètre de sécurité `sec=sys`. Le test a été effectué sur un seul volume, à l’aide d’un seul client. 
-
-Impact de krb5 sur les performances :
-
-* Concurrence faible (R/W) :
-    * La latence séquentielle a augmenté de 0,3 ms.
-    * La latence d’E/S aléatoire a augmenté de 0,2 ms.
-    * La latence d’E/S de métadonnées a augmenté de 0,2 ms.
-* Concurrence élevée (R/W) : 
-    * Le débit séquentiel maximal n’a pas été affecté par krb5.
-    * Le taux d’E/S maximal aléatoire a baissé de 30 % pour les charges de travail en lecture seule avec l’impact global dégringolant à zéro lorsque la charge de travail passe en écriture seule. 
-    * La charge de travail de métadonnées maximale a baissé de 30 %.
-
-Impact de krb5 sur les performances : 
-
-* Concurrence faible (R/W) :
-    * La latence séquentielle a augmenté de 0,5 ms.
-    * La latence d’E/S aléatoire a augmenté de 0,2 ms.
-    * La latence d’E/S de métadonnées a augmenté de 0,2 ms.
-* Concurrence élevée (R/W) : 
-    * Débit séquentiel maximal réduit de 70 % en général, quel que soit le mélange de la charge de travail.
-    * Le taux d’E/S maximal aléatoire a baissé de 50 % pour les charges de travail en lecture seule avec l’impact global diminuant de 25 % lorsque la charge de travail passe en écriture seule. 
-    * La charge de travail de métadonnées maximale a baissé de 30 %.
-
-Impact de krb5 sur les performances :
-
-* Concurrence faible (R/W) :
-    * La latence séquentielle a augmenté de 0,8 ms.
-    * La latence d’E/S aléatoire a augmenté de 0,2 ms.
-    * La latence d’E/S de métadonnées a augmenté de 0,2 ms.
-* Concurrence élevée (R/W) : 
-    * Débit séquentiel maximal réduit de 85 % en général, quel que soit le mélange de la charge de travail. 
-    * Le taux d’E/S maximal aléatoire a baissé de 65 % pour les charges de travail en lecture seule avec l’impact global diminuant de 43 % lorsque la charge de travail passe en écriture seule. 
-    * La charge de travail de métadonnées maximale a baissé de 30 %.
+Vous devez comprendre les options de sécurité disponibles pour les volumes NFSv4.1, les vecteurs de performances testés et l’impact attendu de Kerberos sur les performances. Pour plus d’informations, consultez [Impact de Kerberos sur les performances des volumes NFSv4.1](performance-impact-kerberos.md).  
 
 ## <a name="next-steps"></a>Étapes suivantes  
 
+* [Impact de Kerberos sur les performances des volumes NFSv4.1](performance-impact-kerberos.md)
 * [Résoudre les problèmes de volume Kerberos NFSv4.1](troubleshoot-nfsv41-kerberos-volumes.md)
 * [Questions fréquentes (FAQ) sur Azure NetApp Files](azure-netapp-files-faqs.md)
 * [Créer un volume NFS pour Azure NetApp Files](azure-netapp-files-create-volumes.md)

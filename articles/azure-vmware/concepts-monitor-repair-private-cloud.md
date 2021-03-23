@@ -3,13 +3,13 @@ title: Concepts – Surveiller et réparer des clouds privés Azure VMware Solut
 description: Découvrez comment Azure VMware Solution surveille et répare les serveurs VMware ESXi sur un cloud privé Azure VMware Solution.
 ms.topic: conceptual
 ms.custom: contperf-fy21q2
-ms.date: 02/03/2021
-ms.openlocfilehash: 6174df429fd9b21c7f685c8ba14e6d5c0bba4c83
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.date: 02/16/2021
+ms.openlocfilehash: 59319b5598be9770e82b9676a28444648230a019
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99538956"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100633136"
 ---
 # <a name="monitor-and-repair-azure-vmware-solution-private-clouds"></a>Surveiller et réparer des clouds privés Azure VMware Solution
 
@@ -17,7 +17,7 @@ Azure VMware Solution surveille continuellement les serveurs VMware ESXi sur un 
 
 ## <a name="what-azure-vmware-solution-monitors"></a>Éléments surveillés par Azure VMware Solution
 
-Azure VMware Solution surveille les éléments suivants pour détecter des conditions d’échec sur l’hôte :  
+Azure VMware Solution supervise les conditions suivantes sur l’hôte :  
 
 - État des processeurs 
 - État de la mémoire 
@@ -37,9 +37,9 @@ Azure VMware Solution surveille les éléments suivants pour détecter des condi
 
 ## <a name="azure-vmware-solution-host-remediation"></a>Correction de l’hôte Azure VMware Solution  
 
-Quand Azure VMware Solution détecte une dégradation ou une défaillance sur un nœud Azure VMware Solution sur le cloud privé d’un locataire, un processus de correction de l’hôte est déclenché. La correction de l’hôte implique le remplacement du nœud défaillant par un nouveau nœud sain.  
+Quand Azure VMware Solution détecte une dégradation ou une défaillance sur un nœud Azure VMware Solution, il déclenche un processus de correction de l’hôte. La correction de l’hôte implique le remplacement du nœud défaillant par un nouveau nœud sain.  
 
-Le processus de correction de l’hôte commence par l’ajout d’un nouveau nœud sain dans le cluster. Ensuite, lorsque cela est possible, l’hôte défectueux est placé en mode de maintenance VMware vSphere. VMware vMotion est utilisé pour déplacer les machines virtuelles de l’hôte défaillant vers d’autres serveurs disponibles dans le cluster, permettant ainsi éventuellement une migration dynamique des charges de travail sans temps d’arrêt. Dans les scénarios où l’hôte défaillant ne peut pas être placé en mode de maintenance, l’hôte est supprimé du cluster.
+Le processus de correction de l’hôte commence par l’ajout d’un nouveau nœud sain dans le cluster. Ensuite, lorsque cela est possible, l’hôte défectueux est placé en mode de maintenance VMware vSphere. VMware vMotion déplace les machines virtuelles de l’hôte défaillant vers d’autres serveurs disponibles dans le cluster, permettant ainsi une migration dynamique des charges de travail sans temps d’arrêt. Si l’hôte défaillant ne peut pas être placé en mode de maintenance, l’hôte est supprimé du cluster.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

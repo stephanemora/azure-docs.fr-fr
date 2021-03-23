@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: 5f82e8b7359b90d5127e2c20a2b89cc5ad739a56
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: de3738573bb9bb6f045a45d290c74ba9e6902a5e
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99624757"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103561955"
 ---
 # <a name="continuous-integration-and-delivery-for-azure-synapse-workspace"></a>Intégration et livraison continues pour l’espace de travail Azure Synapse
 
@@ -125,6 +125,140 @@ Utilisez l’extension de [déploiement d’espace de travail Synapse](https://m
 Après avoir enregistré toutes les modifications, vous pouvez sélectionner **Créer une version** pour créer manuellement une mise en production. Pour automatiser la création des mises en production, consultez les [déclencheurs de mise en production Azure DevOps](/azure/devops/pipelines/release/triggers).
 
    ![Sélectionner Créer une mise en production](media/release-creation-manually.png)
+
+## <a name="use-custom-parameters-of-the-workspace-template"></a>Utiliser des paramètres personnalisés du modèle d’espace de travail 
+
+Vous utilisez CI/CD automatisé et souhaitez modifier certaines propriétés pendant le déploiement mais celles-ci ne sont pas paramétrables par défaut. Dans ce cas, vous pouvez remplacer le modèle de paramètres par défaut.
+
+Pour remplacer le modèle de paramètres par défaut, vous devez créer un modèle de paramètres personnalisé, un fichier nommé **template-parameters-definition.json** dans le dossier racine de votre branche de collaboration git. Vous devez utiliser ce nom de fichier exact. Lors de la publication à partir de la branche de collaboration, l’espace de travail Synapse lit ce fichier et utilise sa configuration pour générer les paramètres. Si aucun fichier n’est trouvé, le modèle de paramètres par défaut est utilisé.
+
+### <a name="custom-parameter-syntax"></a>Syntaxe de paramètre personnalisé
+
+Voici quelques instructions pour créer le fichier de paramètres personnalisés :
+
+* Entrez le chemin d’accès de propriété sous le type d’entité correspondant.
+* Définir un nom de propriété sur `*` indique que vous souhaitez paramétrer toutes les propriétés dans celle-ci (uniquement jusqu’au premier niveau, pas de manière récursive). Vous pouvez également fournir des exceptions à cette configuration.
+* Définir la valeur d’une propriété sous forme de chaîne indique que vous souhaitez paramétrer la propriété. Utilisez le format `<action>:<name>:<stype>`.
+   *  `<action>` peut être l’un des caractères suivants :
+      * `=` permet de conserver la valeur actuelle en tant que valeur par défaut pour le paramètre.
+      * `-` permet de ne pas conserver la valeur par défaut pour le paramètre.
+      * `|` est un cas particulier pour les secrets Azure Key Vault pour les chaînes de connexion ou les clés.
+   * `<name>` correspond au nom du paramètre. S’il est vide, il prend le nom du Si la valeur commence par un caractère `-`, le nom est abrégé. Par exemple, `AzureStorage1_properties_typeProperties_connectionString` serait abrégé en `AzureStorage1_connectionString`.
+   * `<stype>` correspond au type de paramètre. Si `<stype>` est vide, le type par défaut est `string`. Valeurs prises en charge : `string`, `securestring`, `int`, `bool`, `object`, `secureobject` et `array`.
+* La spécification d’un tableau dans le fichier indique que la propriété correspondante dans le modèle est un tableau. Synapse itère au sein de tous les objets du tableau à l’aide de la définition spécifiée. Le second objet, une chaîne, correspond alors au nom de la propriété et sert de nom au paramètre pour chaque itération.
+* Une définition ne peut pas être spécifique à une instance de ressource. Toute définition s’applique à toutes les ressources de ce type.
+* Par défaut, toutes les chaînes sécurisées, telles que les secrets Key Vault, et les chaînes sécurisées, telles que les chaînes de connexion, les clés et les jetons, sont paramétrables.
+
+### <a name="parameter-template-definition-samples"></a>Exemples de définition de modèle de paramètres 
+
+Voici un exemple de définition de modèle de paramètres :
+
+```json
+{
+"Microsoft.Synapse/workspaces/notebooks": {
+        "properties":{
+            "bigDataPool":{
+                "referenceName": "="
+            }
+        }
+    },
+    "Microsoft.Synapse/workspaces/sqlscripts": {
+     "properties": {
+         "content":{
+             "currentConnection":{
+                    "*":"-"
+                 }
+            } 
+        }
+    },
+    "Microsoft.Synapse/workspaces/pipelines": {
+        "properties": {
+            "activities": [{
+                 "typeProperties": {
+                    "waitTimeInSeconds": "-::int",
+                    "headers": "=::object"
+                }
+            }]
+        }
+    },
+    "Microsoft.Synapse/workspaces/integrationRuntimes": {
+        "properties": {
+            "typeProperties": {
+                "*": "="
+            }
+        }
+    },
+    "Microsoft.Synapse/workspaces/triggers": {
+        "properties": {
+            "typeProperties": {
+                "recurrence": {
+                    "*": "=",
+                    "interval": "=:triggerSuffix:int",
+                    "frequency": "=:-freq"
+                },
+                "maxConcurrency": "="
+            }
+        }
+    },
+    "Microsoft.Synapse/workspaces/linkedServices": {
+        "*": {
+            "properties": {
+                "typeProperties": {
+                     "*": "="
+                }
+            }
+        },
+        "AzureDataLakeStore": {
+            "properties": {
+                "typeProperties": {
+                    "dataLakeStoreUri": "="
+                }
+            }
+        }
+    },
+    "Microsoft.Synapse/workspaces/datasets": {
+        "properties": {
+            "typeProperties": {
+                "*": "="
+            }
+        }
+    }
+}
+```
+Voici une explication de la façon dont le modèle précédent est construit, décomposé par type de ressource.
+
+#### <a name="notebooks"></a>Notebooks 
+
+* Toute propriété du chemin d’accès `properties/bigDataPool/referenceName` est paramétrable avec sa valeur par défaut. Vous pouvez paramétrer le pool Spark attaché pour chaque fichier de bloc-notes. 
+
+#### <a name="sql-scripts"></a>Scripts SQL 
+
+* Les propriétés (poolName et databaseName) dans le chemin d’accès `properties/content/currentConnection` sont paramétrables en tant que chaînes sans les valeurs par défaut dans le modèle. 
+
+#### <a name="pipelines"></a>Pipelines
+
+* Toute propriété du chemin `activities/typeProperties/waitTimeInSeconds` est paramétrable. Toute activité dans un pipeline qui a une propriété au niveau du code nommée `waitTimeInSeconds` (par exemple, l’activité `Wait`) est paramétrable en tant que nombre, avec un nom par défaut. Mais elle n’a pas de valeur par défaut dans le modèle Resource Manager. Il s’agit d’une entrée obligatoire lors du déploiement de Resource Manager.
+* De même, une propriété appelée `headers` (par exemple, dans une activité `Web`) est paramétrable avec le type `object` (Objet). Elle a une valeur par défaut, qui est la même que celle de la fabrique source.
+
+#### <a name="integrationruntimes"></a>IntegrationRuntimes
+
+* Toutes les propriétés, sous le chemin `typeProperties` sont paramétrables avec des valeurs par défaut respectives. Par exemple, deux propriétés existent sous les propriétés de type `IntegrationRuntimes` : `computeProperties` et `ssisProperties`. Les deux types de propriété sont créés avec leurs valeurs et types (objet) par défaut respectifs.
+
+#### <a name="triggers"></a>Déclencheurs
+
+* Sous `typeProperties`, deux propriétés sont paramétrables. La première est `maxConcurrency`, qui est spécifiée pour avoir une valeur par défaut et est de type `string`. Elle porte le nom de paramètre par défaut `<entityName>_properties_typeProperties_maxConcurrency`.
+* La propriété `recurrence` est également paramétrable. Sous celle-ci, toutes les propriétés à ce niveau sont spécifiées pour être paramétrables sous forme de chaînes, avec des valeurs et noms de paramètres par défaut. La propriété `interval` est une exception, qui est paramétrée en tant que type `int`. Le nom du paramètre a pour suffixe `<entityName>_properties_typeProperties_recurrence_triggerSuffix`. De même, la propriété `freq` est une chaîne et peut être paramétrée en tant que chaîne. La propriété `freq` est toutefois paramétrable sans valeur par défaut. Le nom est abrégé et suivi d’un suffixe. Par exemple : `<entityName>_freq`.
+
+#### <a name="linkedservices"></a>LinkedServices
+
+* Les services liés sont uniques. Étant donné que les services liés et les jeux de données sont de types différents, vous pouvez fournir une personnalisation spécifique au type. Dans cet exemple, pour tous les services liés de type `AzureDataLakeStore`, un modèle spécifique est appliqué. Pour tous les autres (via `*`), un autre modèle est appliqué.
+* La propriété `connectionString` est paramétrée en tant que valeur `securestring`. Elle n’a pas de valeur par défaut. Elle a un nom de paramètre raccourci doté du suffixe `connectionString`.
+* La propriété `secretAccessKey` se trouve être un `AzureKeyVaultSecret` (par exemple, dans un service lié Amazon S3). Elle est paramétrable automatiquement en tant que secret Azure Key Vault et extraite du coffre de clés configuré. Vous pouvez également paramétrer le coffre de clés proprement dit.
+
+#### <a name="datasets"></a>Groupes de données
+
+* La personnalisation spécifique au type est disponible pour les jeux de données, mais vous pouvez fournir une configuration sans avoir explicitement de configuration au niveau \*. Dans l’exemple précédent, toutes les propriétés du jeu de données sous `typeProperties` sont paramétrables.
+
 
 ## <a name="best-practices-for-cicd"></a>Meilleures pratiques pour CI/CD
 

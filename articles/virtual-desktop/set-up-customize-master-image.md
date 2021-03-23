@@ -6,19 +6,19 @@ ms.topic: how-to
 ms.date: 01/19/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 33af83934e8ecc5745f2edad3a7832a870406452
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: ca92e6e888ead6bbd79c7a8d524516ee95e8c45d
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98602378"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101092933"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Préparer et personnaliser une image de disque dur virtuel principale
 
 Cet article vous indique comment préparer une image de disque dur virtuel (VHD) principal pour la télécharger dans Azure, y compris comment créer des machines virtuelles (VM) et installer des logiciels dessus. Ces instructions concernent une configuration spécifique à Windows Virtual Desktop, que vous pouvez utiliser avec les processus existants de votre organisation.
 
 >[!IMPORTANT]
->Nous vous recommandons d’utiliser une image de la Bibliothèque d’images Azure. Toutefois, si vous devez utiliser une image personnalisée, assurez-vous que l’agent Windows Virtual Desktop n’est pas déjà installé sur votre appareil. L’utilisation d’une image personnalisée avec l’agent Windows Virtual Desktop peut entraîner des problèmes avec l’image.  
+>Nous vous recommandons d’utiliser une image de la Bibliothèque d’images Azure. Toutefois, si vous devez utiliser une image personnalisée, assurez-vous que l’agent Windows Virtual Desktop n’est pas déjà installé sur votre machine virtuelle. L’utilisation d’une image personnalisée avec l’agent Windows Virtual Desktop peut entraîner des problèmes avec l’image, comme des blocages d’inscription et de connexions de session utilisateur.  
 
 ## <a name="create-a-vm"></a>Créer une machine virtuelle
 
@@ -216,3 +216,5 @@ Maintenant que vous avez une image, vous pouvez créer ou mettre à jour des poo
 - [Créer un pool d’hôtes avec PowerShell](create-host-pools-powershell.md)
 - [Créer un conteneur de profils pour un pool hôte à l’aide d’un partage de fichiers](create-host-pools-user-profile.md)
 - [Configurer la méthode d’équilibrage de charge de Windows Virtual Desktop](configure-host-pool-load-balancing.md)
+
+Si vous rencontrez un problème de connectivité après avoir préparé ou personnalisé votre image de disque dur virtuel, consultez le [Guide de résolution des problèmes](troubleshoot-agent.md#your-issue-isnt-listed-here-or-wasnt-resolved) pour obtenir de l’aide.

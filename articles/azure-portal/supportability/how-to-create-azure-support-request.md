@@ -4,16 +4,16 @@ description: Les clients qui ont besoin d’aide peuvent utiliser le portail Azu
 ms.assetid: fd6841ea-c1d5-4bb7-86bd-0c708d193b89
 ms.topic: how-to
 ms.date: 06/25/2020
-ms.openlocfilehash: 11ca7925ce1664b5586ab8ec0fb523a2d562ee80
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 71aba8f2769a75805f47d90b71a8db4eeb26a97a
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96745585"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652392"
 ---
 # <a name="create-an-azure-support-request"></a>Créer une demande de support Azure
 
-Azure vous permet de créer et gérer les demandes de support, également appelées tickets de support. Vous pouvez créer et gérer des demandes dans le [portail Azure](https://portal.azure.com), comme décrit dans cet article. Vous pouvez également créer et gérer des demandes par programme, à l’aide de l’[API REST de ticket de support Azure](/rest/api/support).
+Azure vous permet de créer et gérer les demandes de support, également appelées tickets de support. Vous pouvez créer et gérer des demandes dans le [portail Azure](https://portal.azure.com), comme décrit dans cet article. Vous pouvez également créer et gérer des demandes par programmation, en utilisant l’[API REST de ticket de support Azure](/rest/api/support) ou [Azure CLI](/cli/azure/azure-cli-support-request).
 
 > [!NOTE]
 > L’URL du portail Azure est spécifique au cloud Azure sur lequel votre organisation est déployée.
