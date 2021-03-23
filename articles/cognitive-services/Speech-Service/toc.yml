@@ -39,30 +39,30 @@
           href: migrate-v2-to-v3.md
         - name: Évaluer la prononciation
           href: how-to-pronunciation-assessment.md
+        - name: Personnalisation
+          items:
+            - name: "Qu’est-ce que Custom Speech\_?"
+              href: custom-speech-overview.md
+            - name: Tester un modèle avec des fichiers audio dans Speech Studio
+              href: quickstarts/speech-studio-test-model.md
+            - name: Préparer des données pour Custom Speech
+              href: how-to-custom-speech-test-and-train.md
+            - name: Inspecter des données Custom Speech
+              href: how-to-custom-speech-inspect-data.md
+            - name: Évaluer et améliorer la justesse de Custom Speech
+              href: how-to-custom-speech-evaluate-data.md
+            - name: Entraîner et déployer un modèle Custom Speech
+              href: how-to-custom-speech-train-model.md
+            - name: CI/CD pour Custom Speech
+              href: how-to-custom-speech-continuous-integration-continuous-deployment.md
+            - name: Créer des transcriptions étiquetées par l’homme
+              href: how-to-custom-speech-human-labeled-transcriptions.md
+            - name: Cycle de vie des modèles et des points de terminaison
+              href: how-to-custom-speech-model-and-endpoint-lifecycle.md
     - name: Tutoriels
       items:
         - name: Améliorer la précision avec des modèles de locataire
           href: tutorial-tenant-model.md
-    - name: Personnalisation
-      items:
-        - name: "Qu’est-ce que Custom Speech\_?"
-          href: custom-speech-overview.md
-        - name: Tester un modèle avec des fichiers audio dans Speech Studio
-          href: quickstarts/speech-studio-test-model.md
-        - name: Préparer des données pour Custom Speech
-          href: how-to-custom-speech-test-and-train.md
-        - name: Inspecter des données Custom Speech
-          href: how-to-custom-speech-inspect-data.md
-        - name: Évaluer et améliorer la justesse de Custom Speech
-          href: how-to-custom-speech-evaluate-data.md
-        - name: Entraîner et déployer un modèle Custom Speech
-          href: how-to-custom-speech-train-model.md
-        - name: CI/CD pour Custom Speech
-          href: how-to-custom-speech-continuous-integration-continuous-deployment.md
-        - name: Créer des transcriptions étiquetées par l’homme
-          href: how-to-custom-speech-human-labeled-transcriptions.md
-        - name: Cycle de vie des modèles et des points de terminaison
-          href: how-to-custom-speech-model-and-endpoint-lifecycle.md
     - name: Informations de référence
       items:
         - name: C++
@@ -71,6 +71,9 @@
         - name: C#
           displayName: 'CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation'
           href: /dotnet/api/microsoft.cognitiveservices.speech
+        - name: Go
+          displayName: 'Go SDK, Go dev kit,reference,reference docs,ref documentation'
+          href: 'https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go'
         - name: Java
           displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
           href: /java/api/com.microsoft.cognitiveservices.speech
@@ -113,25 +116,25 @@
           href: long-audio-api.md
         - name: Obtenir des événements de pose faciale pour la synchronisation labiale
           href: how-to-speech-synthesis-viseme.md
-    - name: Personnalisation
-      items:
-        - name: Portail Custom Voice
+        - name: Personnalisation
           items:
-            - name: "Qu’est-ce qu’une voix neuronale personnalisée\_?"
-              href: custom-neural-voice.md
-            - name: Bien démarrer avec Custom Voice
-              displayName: 'custom voice, neural voice'
-              href: how-to-custom-voice.md
-            - name: Préparer les données
-              href: how-to-custom-voice-prepare-data.md
-            - name: Créer et utiliser des modèles Custom Voice
-              href: how-to-custom-voice-create-voice.md
-            - name: Enregistrement d’échantillons vocaux
-              href: record-custom-voice-samples.md
-        - name: Création de contenu audio
-          items:
+            - name: Portail Custom Voice
+              items:
+                - name: "Qu’est-ce qu’une voix neuronale personnalisée\_?"
+                  href: custom-neural-voice.md
+                - name: Bien démarrer avec Custom Voice
+                  displayName: 'custom voice, neural voice'
+                  href: how-to-custom-voice.md
+                - name: Préparer les données
+                  href: how-to-custom-voice-prepare-data.md
+                - name: Créer et utiliser des modèles Custom Voice
+                  href: how-to-custom-voice-create-voice.md
+                - name: Enregistrement d’échantillons vocaux
+                  href: record-custom-voice-samples.md
             - name: Création de contenu audio
-              href: how-to-audio-content-creation.md
+              items:
+                - name: Création de contenu audio
+                  href: how-to-audio-content-creation.md
     - name: Utilisation responsable de l’IA
       items:
         - name: Voix neuronale personnalisée
