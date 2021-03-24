@@ -6,12 +6,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/25/2021
 ms.author: jingwang
-ms.openlocfilehash: 91cb10d601f0a44cf9895fffe558c03fdbe06eef
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: bd8fc3383d6d9a0afb7733cb94643623e6879d23
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101710224"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102178539"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Activité d’obtention des métadonnées dans Azure Data Factory
 
@@ -83,8 +83,14 @@ Vous pouvez spécifier les types de métadonnées suivants dans la liste de cham
 | columnCount | Nombre de colonnes dans le fichier ou la table relationnelle. |
 | exists| Indique si un fichier, un dossier ou une table existe ou non. Si `exists` est spécifié dans la liste de champs de l’activité d’obtention des métadonnées, l’activité n’échouera pas, même si le fichier, le dossier ou la table n’existe pas. `exists: false` sera alors retourné dans la sortie. |
 
->[!TIP]
->Si vous souhaitez vérifier qu’un fichier, un dossier ou une table existe, spécifiez `exists` dans la liste de champs de l’activité d’obtention des métadonnées. Vous pouvez ensuite vérifier le résultat de `exists: true/false` dans la sortie de l’activité. Si `exists` n’est pas spécifié dans la liste de champs, l’activité d’obtention des métadonnées échouera si l’objet est introuvable.
+> [!TIP]
+> Si vous souhaitez vérifier qu’un fichier, un dossier ou une table existe, spécifiez `exists` dans la liste de champs de l’activité d’obtention des métadonnées. Vous pouvez ensuite vérifier le résultat de `exists: true/false` dans la sortie de l’activité. Si `exists` n’est pas spécifié dans la liste de champs, l’activité d’obtention des métadonnées échouera si l’objet est introuvable.
+
+> [!NOTE]
+> Quand vous récupérez des métadonnées à partir de magasins de fichiers et configurez `modifiedDatetimeStart` ou `modifiedDatetimeEnd`, le `childItems` dans la sortie inclut uniquement les fichiers du chemin donné, dont l’heure de dernière modification est comprise dans la plage spécifiée. Les éléments des sous-dossiers ne sont pas inclus.
+
+> [!NOTE]
+> Pour que la liste de champs **Structure** fournisse la structure de données réelle pour les jeux de données de format texte et Excel délimités, vous devez activer la propriété `First Row as Header`, qui est prise en charge uniquement pour ces sources de données.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -160,7 +166,7 @@ Actuellement, l’activité d’obtention des métadonnées peut retourner les t
 Propriété | Description | Obligatoire
 -------- | ----------- | --------
 fieldList | Les types d’informations de métadonnées requis. Pour plus d’informations sur les métadonnées prises en charge, consultez la section [Options de métadonnées](#metadata-options) de cet article. | Oui 
-dataset | Le jeu de données de référence à partir duquel les métadonnées doivent être récupérées par l’activité d’obtention des métadonnées. Pour plus d’informations sur les connecteurs pris en charge, consultez la section [Fonctionnalités](#capabilities). Reportez-vous aux rubriques spécifiques aux connecteurs pour plus d’informations sur la syntaxe de jeu de données. | Oui
+dataset | Le jeu de données de référence à partir duquel les métadonnées doivent être récupérées par l’activité d’obtention des métadonnées. Pour plus d’informations sur les connecteurs pris en charge, consultez la section [Fonctionnalités](#supported-capabilities). Reportez-vous aux rubriques spécifiques aux connecteurs pour plus d’informations sur la syntaxe de jeu de données. | Oui
 formatSettings | S’applique lors de l’utilisation du type de format Jeu de données. | Non
 storeSettings | S’applique lors de l’utilisation du type de format Jeu de données. | Non
 

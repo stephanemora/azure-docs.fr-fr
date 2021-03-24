@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/07/2020
 ms.author: barclayn
 ms.custom: include file
-ms.openlocfilehash: cbcd4b459faa3bf67f591cc7afab0bf0027062e1
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 0b1606e4506e7a1781426632d1f22221f7028b88
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96842303"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102194002"
 ---
 ## <a name="create-one-or-more-access-reviews"></a>Créer une ou plusieurs révisions d’accès
 
@@ -53,7 +53,7 @@ ms.locfileid: "96842303"
 
     - **Utilisateurs sélectionnés** : utilisez cette option lorsque vous ne savez pas qui a besoin de l’accès. Avec cette option, vous pouvez affecter la révision à un propriétaire de ressource ou un responsable de groupe.
     - **Membres (auto)** : utilisez cette option pour demander aux utilisateurs de réviser leurs propres attributions de rôles.
-    - **Manager (préversion)**  : utilisez cette option pour que le manager de l’utilisateur révise son attribution de rôle. En sélectionnant Manager (préversion), vous aurez également la possibilité de spécifier un réviseur de secours. Les réviseurs de secours sont invités à réviser un utilisateur lorsque celui-ci n’a aucun manager spécifié dans le répertoire.
+    - **Manager** : utilisez cette option pour que le manager de l’utilisateur révise son attribution de rôle. En sélectionnant Manager, vous aurez également la possibilité d’indiquer un réviseur de secours. Les réviseurs de secours sont invités à réviser un utilisateur lorsque celui-ci n’a aucun manager spécifié dans le répertoire.
 
 ### <a name="upon-completion-settings"></a>Paramètres de saisie semi-automatique
 

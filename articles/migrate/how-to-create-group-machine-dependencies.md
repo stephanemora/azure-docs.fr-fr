@@ -6,30 +6,30 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 11/25/2020
-ms.openlocfilehash: 1a3f2ae4829c7f4ae41d31e2a2fc35d79adf3d4c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 772602a11878276da3b81b84e7f4016997375077
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100596699"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183061"
 ---
 # <a name="set-up-dependency-visualization"></a>Configurer la visualisation des dépendances
 
-Cet article explique comment configurer l’analyse des dépendances basée sur les agents dans l’outil Azure Migrate : évaluation de serveur. L’[analyse des dépendances](concepts-dependency-visualization.md) vous permet d’identifier et de comprendre les dépendances entre les machines que vous souhaitez évaluer et faire migrer vers Azure.
+Cet article explique comment configurer l’analyse des dépendances basée sur les agents dans l’outil Azure Migrate : évaluation de serveur. L’[analyse des dépendances](concepts-dependency-visualization.md) vous permet d’identifier et de comprendre les dépendances entre les machines que vous souhaitez évaluer et faire migrer vers Azure.
 
 ## <a name="before-you-start"></a>Avant de commencer
 
 - Examinez les exigences de support et de déploiement pour l’analyse des dépendances basées sur l’agent pour :
     - [Machines virtuelles VMware](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agent-based)
     - [Serveurs physiques](migrate-support-matrix-physical.md#agent-based-dependency-analysis-requirements)
-    - [Machines virtuelles Hyper-V](migrate-support-matrix-hyper-v.md#agent-based-dependency-analysis-requirements).
+    - [Machines virtuelles Hyper-V](migrate-support-matrix-hyper-v.md#agent-based-dependency-analysis-requirements)
 - Assurez-vous que vous remplissez les critères suivants :
     - Vous disposez d’un projet Azure Migrate. Si ce n’est pas le cas, [créez-en un](./create-manage-projects.md) maintenant.
-    - Vous avez [ajouté](how-to-assess.md) l’outil Azure Migrate : Évaluation de serveurs au projet.
-    - Vous avez configuré une [appliance Azure Migrate](migrate-appliance.md) pour découvrir les machines locales. L’appliance découvre les machines locales, puis envoie les métadonnées et les données de performances à Azure Migrate : évaluation de serveur. Configurer une appliance pour :
-        - Machines virtuelles [VMware](how-to-set-up-appliance-vmware.md).
-        - Machines virtuelles [Hyper-V](how-to-set-up-appliance-hyper-v.md).
-        - [Serveurs physiques](how-to-set-up-appliance-physical.md).
+    - Vous avez [ajouté](how-to-assess.md) l’outil Azure Migrate : Évaluation de serveurs au projet.
+    - Vous avez configuré une [appliance Azure Migrate](migrate-appliance.md) pour découvrir les machines locales. L’appliance découvre les machines locales et envoie les métadonnées et les données de performances à Azure Migrate : Server Assessment. Configurer une appliance pour :
+        - Machines virtuelles [VMware](how-to-set-up-appliance-vmware.md)
+        - Machines virtuelles [Hyper-V](how-to-set-up-appliance-hyper-v.md)
+        - [Serveurs physiques](how-to-set-up-appliance-physical.md)
 - Pour utiliser la visualisation des dépendances, associez un [espace de travail Log Analytics](../azure-monitor/logs/manage-access.md) à un projet Azure Migrate :
     - Vous pouvez joindre un espace de travail uniquement après avoir configuré l’appliance Azure Migrate et découvert les machines dans le projet Azure Migrate.
     - Veillez à disposer d’un espace de travail dans l’abonnement qui contient le projet Azure Migrate.

@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: reference
-ms.date: 01/13/2021
-ms.openlocfilehash: 4ed5a26e1f871f7ac5fd8f29f0a66bc39a8013a1
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.date: 02/18/2021
+ms.openlocfilehash: 484ee9e67aa2adc11529f8a2239a813b3b12f7b2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99507246"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702485"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Guide de référence sur l’utilisation des fonctions dans les expressions pour Azure Logic Apps et Power Automate
 
@@ -282,7 +282,7 @@ Pour obtenir des informations complètes sur chaque fonction, consultez la [list
 | [multipartBody](../logic-apps/workflow-definition-language-functions-reference.md#multipartBody) | Renvoyer le corps correspondant à une partie spécifique de la sortie d’une action qui comporte plusieurs parties. |
 | [outputs](../logic-apps/workflow-definition-language-functions-reference.md#outputs) | Retourne la sortie d’une action lors de l’exécution. |
 | [parameters](../logic-apps/workflow-definition-language-functions-reference.md#parameters) | Retourne la valeur d’un paramètre décrit dans la définition de votre flux de travail. |
-| [result](../logic-apps/workflow-definition-language-functions-reference.md#result) | Retourne les entrées et les sorties de toutes les actions à l’intérieur de l’action délimitée spécifiée, comme `For_each`, `Until` et `Scope`. |
+| [result](../logic-apps/workflow-definition-language-functions-reference.md#result) | Retourne les entrées et les sorties des actions de niveau supérieur à l’intérieur de l’action délimitée spécifiée, comme `For_each`, `Until` et `Scope`. |
 | [trigger](../logic-apps/workflow-definition-language-functions-reference.md#trigger) | Renvoyer la sortie d’un déclencheur lors de l’exécution ou d’autres paires nom-valeur JSON. Voir aussi [triggerOutputs](#triggerOutputs) et [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody). |
 | [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody) | Renvoyer la sortie `body` d’un déclencheur lors de l’exécution. Voir [trigger](../logic-apps/workflow-definition-language-functions-reference.md#trigger). |
 | [triggerFormDataValue](../logic-apps/workflow-definition-language-functions-reference.md#triggerFormDataValue) | Renvoyer une valeur unique correspondant à un nom de clé dans la sortie *form-data* ou *form-encoded* d’un déclencheur. |
@@ -3451,7 +3451,12 @@ Voici l’objet JSON mis à jour :
 
 ### <a name="result"></a>result
 
-Retourne les entrées et les sorties de toutes les actions à l’intérieur de l’action délimitée spécifiée, comme une action `For_each`, `Until` ou `Scope`. Cette fonction est utile pour retourner les résultats d’une action qui a échoué, pour vous permettre de diagnostiquer et de gérer les exceptions. Pour plus d’informations, consultez [Obtenir le contexte et les résultats des échecs](../logic-apps/logic-apps-exception-handling.md#get-results-from-failures).
+Retourne les résultats des actions de niveau supérieur à l’intérieur de l’action délimitée spécifiée, comme l’action `For_each`, `Until` ou `Scope`. La fonction `result()` accepte un seul paramètre, le nom de l’étendue, et elle retourne un tableau contenant les informations des actions de premier niveau dans cette étendue. Ces objets d’action incluent les mêmes attributs que ceux retournés par la fonction `actions()`, comme l’heure de début, l’heure de fin, l’état, les entrées, les ID de corrélation et les sorties de l’action.
+
+> [!NOTE]
+> Cette fonction retourne des informations *uniquement* à partir des actions de premier niveau dans l’action délimitée, et non pas à partir d’actions imbriquées plus approfondies telles que les actions de condition ou de basculement.
+
+Par exemple, vous pouvez utiliser cette fonction pour obtenir les résultats des actions ayant échoué afin de pouvoir diagnostiquer et gérer les exceptions. Pour plus d’informations, consultez [Obtenir le contexte et les résultats des échecs](../logic-apps/logic-apps-exception-handling.md#get-results-from-failures).
 
 ```
 result('<scopedActionName>')
@@ -3459,12 +3464,12 @@ result('<scopedActionName>')
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*scopedActionName*> | Oui | String | Nom de l’action délimitée de laquelle retourner les entrées et les sorties de toutes les actions internes |
+| <*scopedActionName*> | Oui | String | Nom de l’action délimitée dans l’étendue de laquelle vous voulez voir les entrées et les sorties des actions de niveau supérieur |
 ||||
 
 | Valeur retournée | Type | Description |
 | ------------ | ---- | ----------- |
-| <*array-object*> | Objet tableau | Tableau qui contient des tableaux d’entrées et de sorties de chaque action qui apparaît à l’intérieur de l’action délimitée spécifiée |
+| <*array-object*> | Objet tableau | Tableau qui contient des tableaux d’entrées et de sorties de chaque action de niveau supérieur dans l’étendue spécifiée |
 ||||
 
 *Exemple*

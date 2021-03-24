@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/09/2020
 ms.author: justinha
-ms.openlocfilehash: 80011b2ae2a70ce4c540ac31897cc8be4a6580c3
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 4caf804a274956556d6e9ca396c8f08594b11a87
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96618618"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101092881"
 ---
 # <a name="known-issues-common-alerts-and-resolutions-in-azure-active-directory-domain-services"></a>Problèmes connus : Alertes courantes et résolutions dans Azure Active Directory Domain Services
 
@@ -162,7 +162,7 @@ Cette erreur est irrécupérable. Pour résoudre l’alerte, [supprimez votre do
 
 Certains principaux de service générés automatiquement sont utilisés afin de gérer et de créer des ressources pour un domaine managé. Si les autorisations d’accès pour l’un de ces principaux de service sont modifiées, le domaine ne pourra pas gérer correctement les ressources. Les étapes suivantes montrent comment comprendre et accorder des autorisations d’accès à un principal de service :
 
-1. Apprenez-en davantage sur le [contrôle d’accès en fonction du rôle et sur la façon d’accorder un accès aux applications dans le portail Azure](../role-based-access-control/role-assignments-portal.md).
+1. Apprenez-en davantage sur le [contrôle d’accès en fonction du rôle Azure et sur la façon d’accorder un accès aux applications dans le portail Azure](../role-based-access-control/role-assignments-portal.md).
 2. Passez en revue l’accès dont dispose le principal de service avec l’ID *abba844e-bc0e-44b0-947a-dc74e5d09022* et accordez l’accès qui a été refusé précédemment.
 
 ## <a name="aadds112-not-enough-ip-address-in-the-managed-domain"></a>AADDS112 : Nombre insuffisant d’adresses IP dans le domaine managé

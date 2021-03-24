@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 08/27/2020
-ms.openlocfilehash: c7a24dbe93bf0096e327804be07acc3f67d2f03b
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 3a678f6280b5f2d0fd372e75bfbeb6eb2e9b1577
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94985754"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100634292"
 ---
 # <a name="creating-and-using-active-geo-replication---azure-sql-database"></a>Création et utilisation de la géoréplication active - Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -25,6 +25,9 @@ La géoréplication active est une fonctionnalité Azure SQL Database qui vous p
 
 > [!NOTE]
 > La géoréplication active n’est pas prise en charge par Azure SQL Managed Instance. Pour le basculement géographique d’instances de SQL Managed Instance, utilisez des [groupes de basculement automatique](auto-failover-group-overview.md).
+
+> [!NOTE]
+> Pour migrer des bases de données SQL depuis Azure Allemagne en utilisant la géoréplication active, consultez [Migrer une base de données SQL en utilisant la géoréplication active](../../germany/germany-migration-databases.md#migrate-sql-database-using-active-geo-replication).
 
 La géoréplication active est conçue comme une solution de continuité d’activité qui permet à l’application d’effectuer une reprise d’activité rapide au niveau des bases de données individuelles en cas de panne régionale ou à plus grande échelle. Si la géoréplication est activée, l’application peut lancer le basculement vers une base de données secondaire dans une autre région Azure. Jusqu’à quatre bases de données secondaires sont prises en charge dans des régions identiques ou différentes, et les bases de données secondaires peuvent également servir pour les requêtes d’accès en lecture seule. Le basculement doit être lancé manuellement par l’application ou l’utilisateur. Après le basculement, la nouvelle base de données primaire présente un point de terminaison de connexion différent.
 
@@ -292,6 +295,9 @@ Comme indiqué plus haut, la géoréplication active peut aussi être gérée pa
 | [Liens de réplication - Liste par base de données](/rest/api/sql/replicationlinks/listbydatabase) | Obtient tous les liens de réplication pour une base de données donnée dans un partenariat de géo-réplication. Récupère les informations visibles dans la vue de catalogue sys.geo_replication_links. |
 | [Supprimer un lien de réplication](/rest/api/sql/replicationlinks/delete) | Supprime un lien de réplication de base de données. Opération impossible pendant le basculement. |
 |  | |
+
+
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -4,12 +4,12 @@ description: Fournit un résumé des limitations et des paramètres de prise en 
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.custom: references_regions
-ms.openlocfilehash: 9e20c21694678acf7be13ccbbe9cce9af38c32c5
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 655a90ebc3164f076c333760beffcef5acefcd91
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98915707"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103225545"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matrice de prise en charge pour Sauvegarde Azure
 
@@ -40,6 +40,7 @@ Le tableau suivant décrit les fonctionnalités des coffres Recovery Services :
 **Déplacer des données entre des coffres** | Le déplacement de données sauvegardées entre des coffres n’est pas pris en charge.
 **Modifier le type de stockage de coffre** | Vous pouvez modifier le type de réplication de stockage (stockage géoredondant ou stockage localement redondant) pour un coffre avant le stockage des sauvegardes. Une fois que les sauvegardes commencent dans le coffre, le type de réplication ne peut pas être modifié.
 **Stockage redondant interzone (ZRS)** | Disponible dans les régions Royaume-Uni Sud (UKS) et Asie Sud-Est (SEA).
+**Points de terminaison privés** | Consultez [cette section](https://docs.microsoft.com/azure/backup/private-endpoints#before-you-start) afin de connaître la configuration requise pour créer des points de terminaison privés pour un coffre Recovery Services.  
 
 ## <a name="on-premises-backup-support"></a>Prise en charge des sauvegardes locales
 
@@ -150,8 +151,8 @@ Une fonctionnalité de restauration inter-régions a été ajoutée au service S
 
 | Type de gestion des sauvegardes | Prise en charge                                                    | Régions prises en charge |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |
-| Azure VM               | Prise en charge pour les machines virtuelles Azure dotées à la fois de disques managés et non managés. Non pris en charge pour les machines virtuelles classiques. | Disponible dans toutes les régions publiques Azure à l’exception des régions France Centre, Australie Centre, Afrique du Sud Nord, Émirats arabes unis Nord, Suisse Nord, Allemagne Centre-Ouest et Norvège Est. <br>Pour plus d’informations sur l’utilisation dans ces régions, contactez [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) |
-| SQL /SAP HANA | En préversion                                                      | Disponible dans toutes les régions publiques Azure à l’exception des régions France Centre, Australie Centre, Afrique du Sud Nord, Émirats arabes unis Nord, Suisse Nord, Allemagne Centre-Ouest et Norvège Est. <br>Pour plus d’informations sur l’utilisation dans ces régions, contactez [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) |
+| Azure VM               | Prise en charge pour les machines virtuelles Azure dotées à la fois de disques managés et non managés. Non pris en charge pour les machines virtuelles classiques. | Disponible dans toutes les régions publiques Azure et dans les régions souveraines, à l’exception des régions France Centre, Australie Centre, Afrique du Sud Nord, Émirats arabes unis Nord, Suisse Nord, Allemagne Centre-Ouest et Norvège Est. <br>Pour plus d’informations sur l’utilisation dans ces régions, contactez [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) |
+| SQL /SAP HANA | En préversion                                                      | Disponible dans toutes les régions publiques Azure et dans les régions souveraines, à l’exception des régions France Centre, Australie Centre, Afrique du Sud Nord, Émirats arabes unis Nord, Suisse Nord, Allemagne Centre-Ouest et Norvège Est. <br>Pour plus d’informations sur l’utilisation dans ces régions, contactez [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) |
 | Agent MARS/En local  | Non                                                           | N/A               |
 | AFS (partages de fichiers Azure)                 | Non                                                           | N/A               |
 

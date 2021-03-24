@@ -8,15 +8,15 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 11/12/2020
+ms.date: 03/04/2021
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a0b7330485d3152a588d43added7d9feaa5c2a14
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 3a3c2812a4ecfa1a80539804122042bc2dc2f3a2
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "95994488"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102199184"
 ---
 # <a name="upload-and-index-your-videos"></a>Charger et indexer vos vidéos  
 
@@ -83,18 +83,22 @@ Ce paramètre vous permet de spécifier un ID qui sera associé à la vidéo. L�
 
 #### <a name="indexingpreset"></a>indexingPreset
 
-Utilisez ce paramètre si des enregistrements bruts ou externes contiennent un bruit de fond. Ce paramètre est utilisé pour configurer le processus d’indexation. Vous pouvez spécifier les valeurs suivantes :
+Utilisez ce paramètre pour définir le pack d’IA que vous souhaitez appliquer à votre fichier audio ou vidéo. Ce paramètre est utilisé pour configurer le processus d’indexation. Vous pouvez spécifier les valeurs suivantes :
 
-- `AudioOnly` – Permet d’indexer et d’extraire des insights de l’audio uniquement (la vidéo est ignorée)
-- `VideoOnly` – Permet d’indexer et d’extraire des insights de la vidéo uniquement (l’audio est ignoré)
-- `Default` – Permet d’indexer et d’extraire des insights de l’audio et de la vidéo
-- `DefaultWithNoiseReduction` – Permet d’indexer et d’extraire des insights de l’audio et vidéo, tout en appliquant des algorithmes de réduction du bruit sur les flux audio
+- `AudioOnly` – Permet d’indexer et d’extraire des insights de l’audio uniquement (la vidéo est ignorée).
+- `VideoOnly` – Permet d’indexer et d’extraire des insights de la vidéo uniquement (l’audio est ignoré).
+- `Default` – Permet d’indexer et d’extraire des insights de l’audio et de la vidéo.
+- `DefaultWithNoiseReduction` – Permet d’indexer et d’extraire des insights de l’audio et vidéo, tout en appliquant des algorithmes de réduction du bruit sur les flux audio.
+
+    La valeur `DefaultWithNoiseReduction` est maintenant mappée à la présélection par défaut (déconseillée).
+- `BasicAudio` — Permet d’indexer et d’extraire des insights à l’aide de l’audio uniquement (la vidéo est ignorée), y compris uniquement les fonctionnalités audio de base (transcription, traduction, format de légendes et de sous-titres).
+ - `AdvancedAudio` — Permet d’indexer et d’extraire des insights en utilisant uniquement l’audio (la vidéo est ignorée), y compris les fonctionnalités audio avancées (détection des événements audio) en plus de l’analyse audio standard.
 
 > [!NOTE]
 > Video Indexer prend en charge jusqu’à deux pistes audio. Si le fichier contient plus de pistes audio, elles sont traitées comme une seule piste.<br/>
 Si vous souhaitez indexer les pistes séparément, vous devez extraire le fichier audio approprié et l’indexer comme `AudioOnly`.
 
-Le prix dépend de l’option d’indexation sélectionnée.  
+Le prix dépend de l’option d’indexation sélectionnée. Pour plus d'informations, consultez la page [Tarification Media Services](https://azure.microsoft.com/pricing/details/media-services/).
 
 #### <a name="priority"></a>priority
 

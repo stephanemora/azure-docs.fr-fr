@@ -12,12 +12,12 @@ ms.date: 02/01/2021
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: b948de6ad9e07a650df98ef38104c02462ab532d
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: b82d3963ed12e0d5dc6acd75555a3a7e8f20eeb0
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99428029"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175343"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Codes d’erreur d’authentification et d’autorisation Azure AD
 
@@ -95,7 +95,7 @@ Par exemple, si vous avez reçu le code d’erreur « AADSTS50058 », effectue
 | AADSTS50000 | TokenIssuanceError : il existe un problème avec le service d’inscription. [Ouvrez un ticket de support](../fundamentals/active-directory-troubleshooting-support-howto.md) pour résoudre ce problème. |
 | AADSTS50001 | InvalidResource : la ressource est désactivée ou n’existe pas. Vérifiez le code de votre application pour vous assurer que vous avez spécifié l’URL de ressource exacte pour la ressource à laquelle vous essayez d’accéder.  |
 | AADSTS50002 | NotAllowedTenant : la connexion a échoué en raison d’un accès proxy restreint sur le locataire. Si s’agit de votre propre stratégie de locataire, vous pouvez modifier les paramètres de locataire restreints pour résoudre ce problème. |
-| AADSTS500021 | L’accès au locataire « {tenant} » est refusé. AADSTS500021 indique que la fonctionnalité de restriction du locataire est configurée et que l’utilisateur tente d’accéder à un locataire qui ne figure pas dans la liste des locataires autorisés spécifiés dans l’en-tête `Restrict-Access-To-Tenant`. Pour plus d’informations, consultez [Utiliser des restrictions liées au locataire pour gérer l’accès aux applications cloud SaaS](/azure/active-directory/manage-apps/tenant-restrictions).|
+| AADSTS500021 | L’accès au locataire « {tenant} » est refusé. AADSTS500021 indique que la fonctionnalité de restriction du locataire est configurée et que l’utilisateur tente d’accéder à un locataire qui ne figure pas dans la liste des locataires autorisés spécifiés dans l’en-tête `Restrict-Access-To-Tenant`. Pour plus d’informations, consultez [Utiliser des restrictions liées au locataire pour gérer l’accès aux applications cloud SaaS](../manage-apps/tenant-restrictions.md).|
 | AADSTS50003 | MissingSigningKey : la connexion a échoué en raison d’une clé de signature ou d’un certificat manquant. Il n’existe peut-être aucune clé de signature configurée dans l’application. Consultez les résolutions présentées dans [../manage-apps/application-sign-in-problem-federated-sso-gallery.md#certificate-or-key-not-configured](../manage-apps/application-sign-in-problem-federated-sso-gallery.md#certificate-or-key-not-configured). Si vous rencontrez toujours des problèmes, contactez le propriétaire ou l’administrateur de l’application. |
 | AADSTS50005 | DevicePolicyError : l’utilisateur a essayé de se connecter à un appareil à partir d’une plateforme qui n’est actuellement pas prise en charge via la stratégie d’accès conditionnel. |
 | AADSTS50006 | InvalidSignature : la vérification de la signature a échoué en raison d’une signature non valide. |
@@ -168,6 +168,7 @@ Par exemple, si vous avez reçu le code d’erreur « AADSTS50058 », effectue
 | AADSTS50168 | ChromeBrowserSsoInterruptRequired : le client est capable d’obtenir un jeton d’authentification unique via l’extension des comptes Windows 10, mais le jeton est introuvable dans la requête ou bien le jeton fourni a expiré. |
 | AADSTS50169 | InvalidRequestBadRealm : le domaine n’est pas un domaine configuré de l’espace de noms de service actuel. |
 | AADSTS50170 | MissingExternalClaimsProviderMapping : le mappage des contrôles externes est manquant. |
+| AADSTS50173 | FreshTokenNeeded : l’octroi fourni a expiré en raison de sa révocation et un nouveau jeton d’authentification est nécessaire. Un administrateur ou un utilisateur a révoqué les jetons pour cet utilisateur, ce qui entraîne l’échec des actualisations de jetons suivantes et nécessite une nouvelle authentification. L’utilisateur doit se connecter à nouveau. |
 | AADSTS50177 | ExternalChallengeNotSupportedForPassthroughUsers : la vérification externe n’est pas prise en charge pour les utilisateurs de PassThrough. |
 | AADSTS50178 | SessionControlNotSupportedForPassthroughUsers : le contrôle de session n’est pas pris en charge pour les utilisateurs de PassThrough. |
 | AADSTS50180 | WindowsIntegratedAuthMissing : l’authentification Windows intégrée est nécessaire. Activez le locataire pour l’authentification unique transparente. |
@@ -186,6 +187,7 @@ Par exemple, si vous avez reçu le code d’erreur « AADSTS50058 », effectue
 | AADSTS53002 | ApplicationUsedIsNotAnApprovedApp : l’application utilisée n’est pas une application approuvée pour l’accès conditionnel. L’utilisateur doit utiliser une des options de la liste des applications approuvées afin d’obtenir l’accès. |
 | AADSTS53003 | BlockedByConditionalAccess : l’accès a été bloqué par des stratégies d’accès conditionnel. La stratégie d’accès n’autorise pas l’émission de jeton. |
 | AADSTS53004 | ProofUpBlockedDueToRisk : l’utilisateur doit terminer le processus d’inscription de l’authentification multifacteur pour accéder à ce contenu. L’utilisateur doit s’inscrire à l’authentification multifacteur. |
+| AADSTS53011 | Utilisateur bloqué en raison d’un risque sur le locataire de base. |
 | AADSTS54000 | MinorUserBlockedLegalAgeGroupRule |
 | AADSTS65001 | DelegationDoesNotExist : l’utilisateur ou l’administrateur n’a pas accepté d’utiliser l’application avec ID X. Envoyez une requête d’autorisation interactive pour cet utilisateur et cette ressource. |
 | AADSTS65004 | UserDeclinedConsent : l’utilisateur a refusé de donner son consentement pour accéder à l’application. Demandez à l’utilisateur de réessayer de se connecter et de donner son consentement à l’application.|

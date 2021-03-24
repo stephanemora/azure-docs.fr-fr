@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 6455e4c9fa9460e47e3be7c860f89be540a514b0
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 240d3872536e6974d7f65eed22dace6816844e9e
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96453079"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200203"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-stack-edge-pro"></a>Gérer l’accès, la puissance et le mode de connectivité d’Azure Stack Edge Pro
 
@@ -61,7 +61,7 @@ Pour créer votre ressource Azure Stack Edge/Data Box Gateway, IoT Hub et Stocka
 
 ### <a name="manage-microsoft-graph-api-permissions"></a>Gérer les autorisations pour l’API Microsoft Graph
 
-Quand vous générez la clé d’activation pour l’appareil Azure Stack Edge Pro ou vous effectuez des opérations qui nécessitent des informations d’identification, vous devez disposer d’autorisations sur l’API Graph d’Azure Active Directory. Les opérations nécessitant des informations d’identification peuvent être les suivantes :
+Quand vous générez la clé d’activation pour l’appareil Azure Stack Edge Pro ou que vous effectuez des opérations qui nécessitent des informations d’identification, vous devez disposer d’autorisations sur l’API Graph d’Azure Active Directory. Les opérations nécessitant des informations d’identification peuvent être les suivantes :
 
 -  Création d’un partage avec un compte de stockage associé.
 -  Création d’un utilisateur qui peut accéder aux partages se trouvant sur l’appareil.
@@ -80,7 +80,7 @@ Vous n’avez pas besoin d’accorder des autorisations d’accès au niveau de 
 
 Avant d’essayer de créer une ressource, vérifiez que le fournisseur de ressources est inscrit dans l’abonnement. Si le fournisseur de ressources n’est pas inscrit, vous devez vérifier que l’utilisateur qui crée la ressource dispose de droits suffisants pour inscrire le fournisseur de ressources nécessaire sur le niveau de l’abonnement. Si vous ne l’avez pas fait également, l’erreur suivante s’affiche :
 
-*L’abonnement \<Subscription name> ne dispose pas des autorisations nécessaires pour inscrire les fournisseurs de ressources : Microsoft.DataBoxEdge.*
+*L’abonnement \<Subscription name> ne dispose pas des autorisations nécessaires pour inscrire le fournisseur de ressources : Microsoft.DataBoxEdge.*
 
 
 Pour obtenir une liste des fournisseurs de ressources inscrits dans l’abonnement actuel, exécutez la commande suivante :
@@ -103,7 +103,7 @@ Hormis le mode entièrement connecté par défaut, votre appareil peut égalemen
 
 - **Entièrement connecté** : c’est le mode normal par défaut dans lequel l’appareil fonctionne. Le chargement et le téléchargement cloud de données sont tous les deux activés dans ce mode. Vous pouvez utiliser le portail Azure ou l’interface utilisateur web locale pour gérer l’appareil.
 
-- **Partiellement déconnecté** : dans ce mode, l’appareil ne peut pas charger ou télécharger de données de partage. Il est en revanche possible de le gérer à l’aide du portail Azure.
+- **Partiellement connecté** : dans ce mode, l'appareil ne peut pas charger ou télécharger de données de partage. Il est en revanche possible de le gérer via le portail Azure.
 
     Ce mode est généralement utilisé sur un réseau satellite limité, dans l’objectif de réduire la consommation de bande passante réseau. Une consommation réseau minimale peut subsister pour les opérations de monitoring des appareils.
 

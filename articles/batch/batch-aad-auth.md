@@ -4,12 +4,12 @@ description: Batch prend en charge Azure AD pour l’authentification auprès du
 ms.topic: how-to
 ms.date: 10/20/2020
 ms.custom: has-adal-ref
-ms.openlocfilehash: 784e92eaa2cd672d511177066befcfd7effc7ca4
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 2ceefa538c44208750da8986fcf3d161f0c0865f
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95252638"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102180018"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Authentification de solutions de service Batch avec Active Directory
 
@@ -41,7 +41,7 @@ Pour s’authentifier avec Azure AD, vous utilisez ce point de terminaison avec 
 >
 > Le point de terminaison spécifique du client est facultatif lorsque vous vous authentifiez à l’aide de l’authentification intégrée, mais est recommandé. Vous pouvez toutefois utiliser également le point de terminaison commun Azure AD. Le point de terminaison commun fournit une interface de collecte d’informations d’identification générique lorsqu’un client spécifique n’est pas spécifié. Le point de terminaison commun est `https://login.microsoftonline.com/common`.
 
-Pour plus d’informations sur les points de terminaison de Azure AD, consultez [Authentification et autorisation]()../active-directory/develop/authentication-vs-authorization.md).
+Pour plus d’informations sur les points de terminaison Azure AD, consultez [Authentification ou autorisation](../active-directory/develop/authentication-vs-authorization.md).
 
 ### <a name="batch-resource-endpoint"></a>Point de terminaison de ressource Batch
 

@@ -3,12 +3,12 @@ title: Schéma d’abonnement à Azure Event Grid
 description: Cet article décrit les propriétés d’abonnement à un événement avec Azure Event Grid. Schéma d’abonnement à Event Grid.
 ms.topic: reference
 ms.date: 07/07/2020
-ms.openlocfilehash: 21016627e545cc4935b4ac213df675e894c12d95
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f6e33171cbba65cfeaca49ab6a8954be8bb89acb
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86119070"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102199949"
 ---
 # <a name="event-grid-subscription-schema"></a>Schéma d’abonnement à Event Grid
 
@@ -25,13 +25,13 @@ PUT /subscriptions/{subscription-id}/resourceGroups/examplegroup/providers/Micro
 ``` 
 
 Le nom de l’abonnement aux événements doit contenir entre 3 et 64 caractères et ne peut contenir que les caractères a-z, A-Z, 0-9 et "-". L’article décrit les propriétés et le schéma pour le corps de la requête.
- 
+ 
 ## <a name="event-subscription-properties"></a>Propriétés de l’abonnement aux événements
 
 | Propriété | Type | Description |
 | -------- | ---- | ----------- |
 | destination | object | Objet qui définit le point de terminaison. |
-| Filter | object | Champ facultatif pour filtrer les types d’événements. |
+| filter | object | Champ facultatif pour filtrer les types d’événements. |
 
 ### <a name="destination-object"></a>objet de destination
 
@@ -48,6 +48,7 @@ Le nom de l’abonnement aux événements doit contenir entre 3 et 64 caractère
 | subjectBeginsWith | string | Filtre de correspondance de préfixe appliqué au champ objet du message de l’événement. La chaîne vide ou par défaut représente une correspondance générale. | 
 | subjectEndsWith | string | Filtre de correspondance de suffixe appliqué au champ objet du message de l’événement. La chaîne vide ou par défaut représente une correspondance générale. |
 | isSubjectCaseSensitive | string | Contrôle la correspondance sensible à la casse pour les filtres. |
+| enableAdvancedFilteringOnArrays | boolean | Permet d’utiliser des tableaux pour les clés dans le filtrage avancé. Pour plus d’informations, consultez [Filtrage avancé](event-filtering.md#advanced-filtering). |
 
 
 ## <a name="example-subscription-schema"></a>Exemple de schéma d’abonnement

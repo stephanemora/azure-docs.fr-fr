@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2021
 ms.author: allensu
-ms.openlocfilehash: fbde2b95b7aca205f164dc45c1f0170cc4da74fb
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 29584a9453fa052745f417cba0bbe940766c30e9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100581900"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699077"
 ---
 # <a name="standard-load-balancer-diagnostics-with-metrics-alerts-and-resource-health"></a>Diagnostics Azure Standard Load Balancer avec les métriques, les alertes et l’intégrité des ressources
 
@@ -72,18 +72,7 @@ Pour afficher les métriques de vos ressources de Load Balancer Standard :
 
 ### <a name="retrieve-multi-dimensional-metrics-programmatically-via-apis"></a>Récupérer les métriques multidimensionnelles par programme via des API
 
-Pour obtenir des instructions relatives à l’API permettant de récupérer les définitions et valeurs de métrique multidimensionnelle, consultez [Procédure pas à pas d’utilisation de l’API REST d’Azure Monitor](../azure-monitor/essentials/rest-api-walkthrough.md#retrieve-metric-definitions-multi-dimensional-api). Ces métriques peuvent être écrites dans un compte de stockage en ajoutant un [paramètre de diagnostic](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) pour la catégorie « Toutes les métriques ». 
-
-### <a name="configure-alerts-for-multi-dimensional-metrics"></a>Configurer des alertes pour des métriques multidimensionnelles ###
-
-Azure Standard Load Balancer prend en charge des alertes facilement configurables pour les métriques multidimensionnelles. Configurez des seuils personnalisés pour des métriques spécifiques afin de déclencher des alertes avec différents niveaux de gravité et de bénéficier d’une expérience de supervision des ressources sans toucher.
-
-Pour configurer des alertes :
-1. Accédez au sous-panneau d’alerte pour l’équilibreur de charge.
-1. Créer une nouvelle règle d’alerte
-    1.  Configurez une condition d’alerte.
-    1.  (Facultatif) Ajoutez un groupe d’actions pour la réparation automatisée.
-    1.  Affectez la gravité, le nom et la description de l’alerte qui active la réaction intuitive.
+Pour obtenir des instructions relatives à l’API permettant de récupérer les définitions et valeurs de métrique multidimensionnelle, consultez [Procédure pas à pas d’utilisation de l’API REST d’Azure Monitor](../azure-monitor/essentials/rest-api-walkthrough.md#retrieve-metric-definitions-multi-dimensional-api). Ces métriques peuvent être écrites dans un compte de stockage en ajoutant un [paramètre de diagnostic](../azure-monitor/essentials/diagnostic-settings.md) pour la catégorie « Toutes les métriques ». 
 
 ### <a name="common-diagnostic-scenarios-and-recommended-views"></a><a name = "DiagnosticScenarios"></a>Scénarios de diagnostic courants et vues recommandées
 
@@ -228,6 +217,32 @@ Ce graphique affiche les informations suivantes :
 Le graphique permet aux clients de dépanner eux-mêmes le déploiement sans devoir deviner ou demander de l’aide sur d’autres problèmes. Le service n’était pas disponible, car les sondes d’intégrité ont échoué en raison d’une configuration incorrecte ou de l’échec d’une application.
 </details>
 
+## <a name="configure-alerts-for-multi-dimensional-metrics"></a>Configurer des alertes pour des métriques multidimensionnelles ###
+
+Azure Standard Load Balancer prend en charge des alertes facilement configurables pour les métriques multidimensionnelles. Configurez des seuils personnalisés pour des métriques spécifiques afin de déclencher des alertes avec différents niveaux de gravité et de bénéficier d’une expérience de supervision des ressources sans toucher.
+
+Pour configurer des alertes :
+1. Accédez au sous-panneau d’alerte pour l’équilibreur de charge.
+1. Créer une nouvelle règle d’alerte
+    1.  Configurez une condition d’alerte.
+    1.  (Facultatif) Ajoutez un groupe d’actions pour la réparation automatisée.
+    1.  Affectez la gravité, le nom et la description de l’alerte qui active la réaction intuitive.
+
+### <a name="inbound-availability-alerting"></a>Alertes de disponibilité entrante
+Pour définir une alerte de disponibilité entrante, vous pouvez créer deux alertes distinctes à l’aide des métriques de disponibilité du chemin d’accès aux données et d’état de la sonde d’intégrité. Les clients peuvent avoir des scénarios différents qui nécessitent une logique d’alerte spécifique, mais les exemples ci-dessous conviennent à la plupart des configurations.
+
+La disponibilité du chemin d’accès aux données vous permet de déclencher des alertes chaque fois qu’une règle d’équilibrage de charge spécifique n’est plus disponible. Vous pouvez configurer cette alerte en définissant une condition d’alerte pour la disponibilité et le fractionnement des chemins d’accès aux données en fonction de toutes les valeurs actuelles et futures à la fois pour le port frontal et l’adresse IP frontale. La définition de la logique d’alerte sur une valeur inférieure ou égale à 0 entraîne le déclenchement de cette alerte chaque fois qu’une règle d’équilibrage de charge ne répond plus. Définissez la granularité de l’agrégation et la fréquence de l’évaluation en fonction de l’évaluation souhaitée. 
+
+L’état de la sonde d’intégrité vous avertit lorsqu’une instance principale donnée ne répond pas à la sonde d’intégrité après une longue période. Configurez votre condition d’alerte pour utiliser la métrique d’état de la sonde d’intégrité et la fractionner par l’adresse IP principale et le port principal. Cela vous permettra de créer une alerte distincte pour la capacité de chaque instance principale à distribuer le trafic sur un port spécifique. Utilisez le type d’agrégation **Average** et définissez la valeur de seuil selon la fréquence à laquelle votre instance principale est détectée et ce que vous considérez comme étant votre seuil d’intégrité. 
+
+Vous pouvez également créer une alerte pour un niveau de pool principal en ne fractionnant pas les dimensions et en utilisant le type d’agrégation **Average** . Cela vous permettra de définir des règles d’alerte telles qu’une alerte quand 50 % des membres de mon pool principal ne sont pas intègres.
+
+### <a name="outbound-availability-alerting"></a>Alertes de disponibilité sortante
+Pour configurer la disponibilité sortante, vous pouvez définir deux alertes distinctes en utilisant les métriques Nombre de connexions SNAT et Port SNAT utilisé.
+
+Pour détecter les échecs de connexion sortante, configurez une alerte à l’aide de la métrique Nombre de connexions SNAT et du filtre État de la connexion = Échec. Utilisez l’agrégation **Total** . Vous pouvez également fractionner cette métrique par l’adresse IP principale définie sur toutes les valeurs actuelles et futures afin de créer une alerte distincte pour chaque instance principale qui rencontre des échecs de connexion. Définissez le seuil sur une valeur supérieure à zéro ou un nombre plus élevé si vous prévoyez de rencontrer des échecs de connexion sortante.
+
+La métrique Ports SNAT utilisés vous permet de créer une alerte en cas de risque plus élevé d’épuisement des ressources SNAT et d’échec d’une connexion sortante. Veillez à effectuer un fractionnement par adresse IP principale et protocole pour cette alerte, puis utilisez l’agrégation **Average**. Définissez le seuil sur une valeur supérieure à un pourcentage du nombre de ports que vous avez alloués par instance que vous jugez non sécurisés. Par exemple, vous pouvez configurer une alerte de faible gravité lorsqu’une instance principale utilise 75 % de ses ports alloués, et un niveau de gravité élevé quand elle utilise 90 % ou 100 % de ses ports alloués.  
 ## <a name="resource-health-status"></a><a name = "ResourceHealth"></a>État d’intégrité des ressources
 
 L’état d’intégrité des ressources de niveau Standard de Load Balancer est indiqué dans la page **Intégrité des ressources** existante sous **Monitor > État du service**. Il est évalué toutes les **deux minutes** en mesurant la disponibilité du chemin d'accès aux données, qui détermine si vos points de terminaison d'équilibrage de charge frontend sont disponibles.
@@ -235,8 +250,8 @@ L’état d’intégrité des ressources de niveau Standard de Load Balancer est
 | État d’intégrité des ressources | Description |
 | --- | --- |
 | Disponible | Votre ressource d’équilibreur de charge standard est intègre et disponible. |
-| Détérioré | Votre équilibreur de charge standard présente des événements lancés par la plateforme ou l’utilisateur qui nuisent aux performances. La métrique Disponibilité du chemin de données a fait état d’une intégrité inférieure à 90 %, mais supérieure à 25 % pendant au moins deux minutes. L’impact sur les performances que vous allez subir sera de niveau modéré à grave. [Suivez le guide de résolution des problèmes RHC](https://docs.microsoft.com/azure/load-balancer/troubleshoot-rhc) pour déterminer si des événements déclenchés par l'utilisateur ont un impact sur votre disponibilité.
-| Non disponible | Votre ressource d’équilibreur de charge standard n’est pas intègre. La métrique Disponibilité du chemin des données a fait état d’une intégrité inférieure à 25 % pendant au moins deux minutes. Vous allez subir un impact sur les performances significatif ou un défaut de disponibilité pour la connectivité entrante. Des événements utilisateur ou plateforme peuvent être à l’origine de l’indisponibilité. [Suivez le guide de résolution des problèmes RHC](https://docs.microsoft.com/azure/load-balancer/troubleshoot-rhc) pour déterminer si des événements déclenchés par l'utilisateur ont un impact sur votre disponibilité. |
+| Détérioré | Votre équilibreur de charge standard présente des événements lancés par la plateforme ou l’utilisateur qui nuisent aux performances. La métrique Disponibilité du chemin de données a fait état d’une intégrité inférieure à 90 %, mais supérieure à 25 % pendant au moins deux minutes. L’impact sur les performances que vous allez subir sera de niveau modéré à grave. [Suivez le guide de résolution des problèmes RHC](./troubleshoot-rhc.md) pour déterminer si des événements déclenchés par l'utilisateur ont un impact sur votre disponibilité.
+| Non disponible | Votre ressource d’équilibreur de charge standard n’est pas intègre. La métrique Disponibilité du chemin des données a fait état d’une intégrité inférieure à 25 % pendant au moins deux minutes. Vous allez subir un impact sur les performances significatif ou un défaut de disponibilité pour la connectivité entrante. Des événements utilisateur ou plateforme peuvent être à l’origine de l’indisponibilité. [Suivez le guide de résolution des problèmes RHC](./troubleshoot-rhc.md) pour déterminer si des événements déclenchés par l'utilisateur ont un impact sur votre disponibilité. |
 | Unknown | L’état d’intégrité de votre ressource d’équilibrage de charge standard n’a pas encore été mis à jour ou n’a pas encore reçu d’informations de disponibilité du chemin de données au cours des 10 dernières minutes. Cet état devrait être transitoire et passer à un état correct dès que des données seront reçues. |
 
 Pour afficher l’intégrité de vos ressources Load Balancer Standard public :
@@ -263,7 +278,7 @@ La description de l’état d’intégrité de ressource générique est disponi
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- En savoir plus sur l’utilisation d’[Insights](https://docs.microsoft.com/azure/load-balancer/load-balancer-insights) pour voir ces métriques préconfigurées pour votre équilibreur de charge.
+- En savoir plus sur l’utilisation d’[Insights](./load-balancer-insights.md) pour voir ces métriques préconfigurées pour votre équilibreur de charge.
 - En savoir plus sur l’[équilibreur de charge standard](./load-balancer-overview.md).
 - En savoir plus sur la [connectivité sortante de votre équilibreur de charge](./load-balancer-outbound-connections.md).
 - Découvrez [Azure Monitor](../azure-monitor/overview.md).

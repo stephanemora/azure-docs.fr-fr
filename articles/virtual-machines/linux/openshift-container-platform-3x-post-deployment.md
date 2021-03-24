@@ -3,19 +3,20 @@ title: Tâches post-déploiement d’OpenShift Container Platform 3.11 dans Azu
 description: Tâches supplémentaires à effectuer après le déploiement d’un cluster OpenShift Container Platform 3.11.
 author: haroldwongms
 manager: mdotson
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: openshift
+ms.collection: linux
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
 ms.custom: devx-track-ansible, devx-track-azurecli
-ms.openlocfilehash: dd967ad08b628f9073edfe548033f7e97845d047
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c3f9aaa15a697202aa76c563ed62bf37443d69ec
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96016061"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101669390"
 ---
 # <a name="post-deployment-tasks"></a>Tâches de post-déploiement
 
@@ -34,11 +35,11 @@ Pour utiliser Azure Active Directory à des fins d’authentification, vous deve
 
 Ces étapes utilisent Azure CLI pour créer l’inscription d’application et l’interface graphique utilisateur (portail) pour définir les autorisations. Pour créer l’inscription d’application, cinq éléments d’information sont nécessaires :
 
-- Nom complet : nom d’inscription de l’application (par exemple : OCPAzureAD)
+- Nom complet : nom d’inscription d’application (par exemple : OCPAzureAD)
 - Page d’accueil : URL de la console OpenShift (par exemple, `https://masterdns343khhde.westus.cloudapp.azure.com/console`)
-- URL d’identificateur : URL de la console OpenShift (par exemple, `https://masterdns343khhde.westus.cloudapp.azure.com/console`)
-- URL de réponse : URL publique maître et nom d’inscription de l’application (par exemple, `https://masterdns343khhde.westus.cloudapp.azure.com/oauth2callback/OCPAzureAD`)
-- Mot de passe : mot de passe sécurisé (utilisez un mot de passe fort)
+- URI de l’identificateur : URL de la console OpenShift (par exemple, `https://masterdns343khhde.westus.cloudapp.azure.com/console`)
+- URL de réponse : URL publique principale et nom d’inscription de l’application (par exemple, `https://masterdns343khhde.westus.cloudapp.azure.com/oauth2callback/OCPAzureAD`)
+- Mot de passe : mot de passe sécurisé (Utilisez un mot de passe fort.)
 
 L’exemple suivant crée une inscription d’application à l’aide des informations précédentes :
 
@@ -68,7 +69,7 @@ Si la commande aboutit, vous obtenez une sortie JSON similaire à la suivante :
 
 Prenez note de la propriété appId renvoyée par la commande. Vous en aurez besoin pour une étape suivante.
 
-Dans le portail Azure :
+Dans le portail Azure :
 
 1. Sélectionnez **Azure Active Directory** > **Inscription d’application**.
 2. Recherchez votre inscription d’application (par exemple : OCPAzureAD).
@@ -78,11 +79,11 @@ Dans le portail Azure :
 
    ![Inscription d’application](media/openshift-post-deployment/app-registration.png)
 
-6. Cliquez sur l’étape 1 : Sélectionner une API, puis cliquez sur **Windows Azure Active Directory (Microsoft.Azure.ActiveDirectory)** . Cliquez sur **Sélectionner** en bas.
+6. Cliquez sur Étape 1 : sélectionnez API, cliquez sur **Windows Azure Active Directory (Microsoft.Azure.ActiveDirectory)**. Cliquez sur **Sélectionner** en bas.
 
    ![Inscription d’application - Sélectionner une API](media/openshift-post-deployment/app-registration-select-api.png)
 
-7. Sur l’étape 2 : Sélectionner des autorisations, sélectionnez **Activer la connexion et lire le profil utilisateur** sous **Autorisations déléguées**, puis cliquez sur **Sélectionner**.
+7. À l’étape 2 : sélectionnez Autorisations, sélectionnez **Activer la connexion et lire le profil utilisateur** sous **Autorisations déléguées**, puis cliquez sur **Sélectionner**.
 
    ![Accès à l’inscription d’application](media/openshift-post-deployment/app-registration-access.png)
 
@@ -160,7 +161,7 @@ Il y a trois façons d’ajouter l’agent Log Analytics dans OpenShift.
 - Activer l’extension de machine virtuelle Azure Monitor sur chaque nœud OpenShift
 - Installer l’agent Log Analytics en tant que daemon-set OpenShift
 
-Pour plus d’informations, lisez les [instructions](../../azure-monitor/insights/containers.md#configure-a-log-analytics-agent-for-red-hat-openshift) complètes.
+Pour plus d’informations, lisez les [instructions](../../azure-monitor/containers/containers.md#configure-a-log-analytics-agent-for-red-hat-openshift) complètes.
 
 ## <a name="configure-metrics-and-logging"></a>Configurer les métriques et la journalisation
 

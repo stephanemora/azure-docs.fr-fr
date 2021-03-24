@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/20/2020
-ms.openlocfilehash: ac93d835b8dbdd5a12d031825dcb879160df5e95
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: b9a207ffa14a18a5f4421fd21cebed28290b5ea6
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96575344"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183078"
 ---
 # <a name="asset-insights-on-your-data-in-azure-purview"></a>Insights relatifs aux ressources en lien avec vos données dans Azure Purview
 
@@ -40,7 +40,7 @@ Pour plus d’informations, consultez [Gérer des sources de données dans Azure
 Dans Azure Purview, vous pouvez inscrire et analyser les types de sources. Une fois l’analyse terminée, vous pouvez afficher la distribution des ressources dans la zone Insights relatifs aux ressources, qui vous indique l’état de votre patrimoine de données par classification et par jeux de ressources. Cette zone vous indique également s’il y a une modification de la taille des données.
 
 > [!NOTE]
-> Une fois que vous avez analysé vos types de sources, donnez une heure aux insights relatifs aux ressources pour qu’ils tiennent compte des nouvelles ressources.
+> Une fois que vous avez analysé vos types de sources, donnez 3 à 8 heures aux insights relatifs aux ressources pour qu’ils tiennent compte des nouvelles ressources. Le retard peut être dû à un trafic élevé dans la région de déploiement ou la taille de votre charge de travail. Pour plus d’informations, contactez l’équipe de support technique du champ.
 
 1. Accédez à votre ressource Azure Purview dans le portail Azure.
 
@@ -94,7 +94,7 @@ Les deux graphes suivants dans les insights relatifs aux ressources montrent une
 
 1. Sélectionnez le chemin d’accès pour afficher la liste des ressources.
 
-Le deuxième graphe des types de source basés sur des fichiers est intitulé **_Fichiers non associés à un jeu de ressources_**. Si vous vous attendez à ce que tous les fichiers soient regroupés dans un jeu de ressources, ce graphe peut vous aider à découvrir les ressources qui n’ont pas été regroupées. Les ressources manquantes peuvent indiquer la présence du mauvais modèle de fichier dans le dossier. Suivez les mêmes étapes que dans d’autres graphes pour afficher plus de détails sur les fichiers.
+Le deuxième graphe des types de source basés sur des fichiers est intitulé ***Fichiers non associés à un jeu de ressources***. Si vous vous attendez à ce que tous les fichiers soient regroupés dans un jeu de ressources, ce graphe peut vous aider à découvrir les ressources qui n’ont pas été regroupées. Les ressources manquantes peuvent indiquer la présence du mauvais modèle de fichier dans le dossier. Suivez les mêmes étapes que dans d’autres graphes pour afficher plus de détails sur les fichiers.
 
    :::image type="content" source="./media/asset-insights/file-based-assets.png" alt-text="Afficher les ressources basées sur des fichiers":::  
 

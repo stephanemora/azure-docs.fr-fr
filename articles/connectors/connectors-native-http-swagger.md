@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 11/01/2019
 tags: connectors
-ms.openlocfilehash: af98811e158b9613e41389e08e19cb36797aa272
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 810aaae9634a7de8d07b6d49edd0c6c2eda96754
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790591"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101730879"
 ---
 # <a name="call-rest-endpoints-by-using-azure-logic-apps"></a>Appeler des points de terminaison REST à l'aide d'Azure Logic Apps
 
@@ -46,17 +46,17 @@ Ce déclencheur intégré envoie une requête HTTP vers une URL de fichier Swagg
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com). Ouvrez votre application logique vide dans le Concepteur d’application logique.
 
-1. Dans la zone de recherche du Concepteur, entrez le filtre « swagger ». Dans la liste **Déclencheurs** , sélectionnez le déclencheur **HTTP + Swagger**.
+1. Dans la zone de recherche du Concepteur, entrez le filtre « swagger ». Dans la liste **Déclencheurs**, sélectionnez le déclencheur **HTTP + Swagger**.
 
    ![Sélectionner un déclencheur HTTP + Swagger](./media/connectors-native-http-swagger/select-http-swagger-trigger.png)
 
-1. Dans la zone **URL DU POINT DE TERMINAISON SWAGGER** , entrez l’URL du fichier Swagger, puis sélectionnez **Suivant**.
+1. Dans la zone **URL DU POINT DE TERMINAISON SWAGGER**, entrez l’URL du fichier Swagger, puis sélectionnez **Suivant**.
 
    Cet exemple utilise l’URL Swagger qui se trouve dans la région USA Ouest pour l'[API Visage Cognitive Services](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) :
 
    `https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/export?DocumentFormat=Swagger&ApiName=Face%20API%20-%20V1.0`
 
-   ![Capture d’écran montrant le concepteur d’application logique avec le déclencheur « HTTP + Swagger » et la propriété « URL du point de terminaison Swagger » définie sur une valeur URL.](./media/connectors-native-http-swagger/http-swagger-trigger-parameters.png)
+   ![Capture d’écran illustrant le concepteur d’application logique avec le déclencheur « HTTP + Swagger » et la propriété « URL du point de terminaison Swagger » définie sur une valeur URL.](./media/connectors-native-http-swagger/http-swagger-trigger-parameters.png)
 
 1. Lorsque le concepteur affiche les opérations décrites par le fichier Swagger, sélectionnez l’opération que vous souhaitez utiliser.
 
@@ -68,7 +68,7 @@ Ce déclencheur intégré envoie une requête HTTP vers une URL de fichier Swagg
 
    ![Capture d’écran montrant le concepteur d’application logique avec le déclencheur « HTTP + Swagger » qui affiche l’opération « Visage - Détecter ».](./media/connectors-native-http-swagger/http-swagger-trigger-operation-details.png)
 
-1. Pour ajouter d’autres paramètres disponibles, ouvrez la liste **Ajouter un nouveau paramètre** , puis sélectionnez les paramètres de votre choix.
+1. Pour ajouter d’autres paramètres disponibles, ouvrez la liste **Ajouter un nouveau paramètre**, puis sélectionnez les paramètres de votre choix.
 
    Pour en savoir plus sur les types d’authentification disponibles pour HTTP + Swagger, consultez [Ajouter l’authentification aux appels sortants](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
@@ -86,11 +86,11 @@ Cette action intégrée effectue une requête HTTP vers l'URL du fichier Swagger
 
    Pour ajouter une action entre des étapes, placez votre pointeur au-dessus de la flèche qui les sépare. Cliquez sur le signe ( **+** ) qui s’affiche, puis sélectionnez **Ajouter une action**.
 
-1. Dans la zone de recherche du Concepteur, entrez le filtre « swagger ». Dans la liste **Actions** , sélectionnez **HTTP + Swagger**.
+1. Dans la zone de recherche du Concepteur, entrez le filtre « swagger ». Dans la liste **Actions**, sélectionnez **HTTP + Swagger**.
 
     ![Sélectionnez une action HTTP + Swagger](./media/connectors-native-http-swagger/select-http-swagger-action.png)
 
-1. Dans la zone **URL DU POINT DE TERMINAISON SWAGGER** , entrez l’URL du fichier Swagger, puis sélectionnez **Suivant**.
+1. Dans la zone **URL DU POINT DE TERMINAISON SWAGGER**, entrez l’URL du fichier Swagger, puis sélectionnez **Suivant**.
 
    Cet exemple utilise l’URL Swagger qui se trouve dans la région USA Ouest pour l'[API Visage Cognitive Services](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) :
 
@@ -108,7 +108,7 @@ Cette action intégrée effectue une requête HTTP vers l'URL du fichier Swagger
 
    ![Détails de l’opération](./media/connectors-native-http-swagger/http-swagger-action-operation-details.png)
 
-1. Pour ajouter d’autres paramètres disponibles, ouvrez la liste **Ajouter un nouveau paramètre** , puis sélectionnez les paramètres de votre choix.
+1. Pour ajouter d’autres paramètres disponibles, ouvrez la liste **Ajouter un nouveau paramètre**, puis sélectionnez les paramètres de votre choix.
 
    Pour en savoir plus sur les types d’authentification disponibles pour HTTP + Swagger, consultez [Ajouter l’authentification aux appels sortants](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
@@ -122,7 +122,7 @@ Pour référencer un fichier Swagger non hébergé ou ne répondant pas aux exig
 
 1. [Création d’un compte de stockage Azure](../storage/common/storage-account-create.md).
 
-1. À présent, activez CORS pour l’objet blob. Dans le menu de votre compte de stockage, sélectionnez **CORS**. Dans l'onglet **Service BLOB** , spécifiez ces valeurs, puis sélectionnez **Enregistrer**.
+1. À présent, activez CORS pour l’objet blob. Dans le menu de votre compte de stockage, sélectionnez **CORS**. Dans l'onglet **Service BLOB**, spécifiez ces valeurs, puis sélectionnez **Enregistrer**.
 
    | Propriété | Valeur |
    |----------|-------|
@@ -135,7 +135,7 @@ Pour référencer un fichier Swagger non hébergé ou ne répondant pas aux exig
 
    Bien que cet exemple utilise le [portail Azure](https://portal.azure.com), vous pouvez utiliser un outil comme [Explorateur Stockage Azure](https://storageexplorer.com/), ou configurer automatiquement ce paramètre à l’aide de cet exemple de [script PowerShell](https://github.com/logicappsio/EnableCORSAzureBlob/blob/master/EnableCORSAzureBlob.ps1).
 
-1. [Créez un conteneur d’objets blob](../storage/blobs/storage-quickstart-blobs-portal.md). Dans le volet **Vue d’ensemble** du conteneur, sélectionnez **Modifier le niveau accès**. Dans la liste **Niveau d’accès public** , sélectionnez **Blob (accès en lecture anonyme pour les objets blob uniquement)** , puis **OK**.
+1. [Créez un conteneur d’objets blob](../storage/blobs/storage-quickstart-blobs-portal.md). Dans le volet **Vue d’ensemble** du conteneur, sélectionnez **Modifier le niveau accès**. Dans la liste **Niveau d’accès public**, sélectionnez **Blob (accès en lecture anonyme pour les objets blob uniquement)** , puis **OK**.
 
 1. [Téléchargez le fichier Swagger dans le conteneur d’objets blob](../storage/blobs/storage-quickstart-blobs-portal.md#upload-a-block-blob), via le [portail Azure](https://portal.azure.com) ou [Explorateur Stockage Azure](https://storageexplorer.com/).
 

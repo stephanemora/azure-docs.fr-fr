@@ -3,12 +3,12 @@ title: Modifier les paramètres de cluster Azure Service Fabric
 description: Cet article décrit les paramètres de structure et les stratégies de mise à niveau de la structure que vous pouvez personnaliser.
 ms.topic: reference
 ms.date: 08/30/2019
-ms.openlocfilehash: 34a63a86bc10a787ef077b9067c3fba5a9e4da25
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: fed66c1a1908977fbe9769c1aec77945bc38c3dc
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98919780"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183401"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personnaliser les paramètres de cluster Service Fabric
 Cet article décrit les différents paramètres de structure personnalisables d’un cluster Service Fabric. Pour des clusters hébergés dans Azure, vous pouvez personnaliser les paramètres via le [portail Azure](https://portal.azure.com) ou en utilisant un modèle Azure Resource Manager. Pour plus d’informations, voir [Mettre à niveau la configuration d’un cluster Azure](service-fabric-cluster-config-upgrade-azure.md). Pour personnaliser les paramètres d’un cluster autonome, mettez à jour le fichier *ClusterConfig.json* et effectuez une mise à niveau de configuration sur le cluster. Pour plus d’informations, voir [Mettre à niveau la configuration d’un cluster autonome](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -130,7 +130,7 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 |EnableTelemetry |Valeur booléenne (valeur par défaut : true) | Dynamique |Ce paramètre active ou désactive la télémétrie. |
 |FailuresOnlyHttpTelemetry | Valeur booléenne (valeur par défaut : false) | Dynamique | Si la capture de télémétrie HTTP est activée, capturez uniquement les requêtes ayant échoué. Cela a pour but de réduire le nombre d’événements générés pour la télémétrie. |
 |HttpTelemetryCapturePercentage | Entier, valeur par défaut : 50 | Dynamique | Si la capture de télémétrie HTTP est activée, capturez uniquement un pourcentage aléatoire de requêtes. Cela a pour but de réduire le nombre d’événements générés pour la télémétrie. |
-|MaxDiskQuotaInMB |Entier (valeur par défaut : 65536) | Dynamique |Quota de disque (en Mo) pour les fichiers journaux de Windows Fabric. |
+|MaxDiskQuotaInMB |Entier (valeur par défaut : 65536) | Dynamique |Quota de disque (en Mo) pour les fichiers journaux de Windows et Linux. |
 |ProducerInstances |String | Dynamique |Liste des instances de producteur DCA. |
 
 ## <a name="dnsservice"></a>DnsService

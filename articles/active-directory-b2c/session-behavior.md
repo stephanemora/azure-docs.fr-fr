@@ -7,17 +7,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/14/2020
+ms.date: 03/04/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: ad9bd8dec94660d94cf3a106d31dafdad06f47a8
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: c19f6f8c59ac38bf46999372497205e0c33ebac4
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97584508"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175105"
 ---
 # <a name="configure-session-behavior-in-azure-active-directory-b2c"></a>Configurer le comportement de session dans Azure Active Directory B2C
 
@@ -71,9 +71,9 @@ La session d’application peut être une session basée sur un cookie stockée 
 
 Vous pouvez configurer le comportement de la session Azure AD B2C, notamment les éléments suivants :
 
-- **Durée de vie de la session de l’application web (minutes)**  : durée pendant laquelle le cookie de session Azure AD B2C est stocké sur le navigateur de l’utilisateur après une authentification réussie. Vous pouvez définir la durée de vie de la session sur une valeur comprise entre 15 et 720 minutes.
+- **Durée de vie de la session de l’application web (minutes)**  : durée pendant laquelle le cookie de session Azure AD B2C est stocké sur le navigateur de l’utilisateur après une authentification réussie. Vous pouvez définir la durée de vie de la session à 24 heures maximum.
 
-- **Délai d’expiration de session d’application web** : indique comment une session est étendue par le paramètre Durée de vie de la session ou le paramètre Maintenir la connexion.
+- **Délai d’expiration de session d’application web** : indique comment une session est étendue par le paramètre de durée de vie de la session ou par le paramètre Maintenir la connexion.
   - **Continue** : indique que la session est étendue chaque fois que l’utilisateur effectue une authentification basée sur un cookie (valeur par défaut).
   - **Absolue** : indique que l’utilisateur est obligé de se réauthentifier après la période spécifiée.
 
@@ -82,9 +82,7 @@ Vous pouvez configurer le comportement de la session Azure AD B2C, notamment le
   - **Application**: ce paramètre vous permet de maintenir une session utilisateur exclusivement pour une application, indépendamment des autres applications. Par exemple, vous pouvez utiliser ce paramètre si vous voulez que l’utilisateur se connecte à Contoso Pharmacy, que l’utilisateur y soit ou non déjà connecté.
   - **Stratégie** : ce paramètre vous permet de maintenir une session utilisateur exclusivement pour un flux d’utilisateur, indépendamment des applications qui l’utilisent. Par exemple, si l’utilisateur s’est déjà connecté et a effectué une étape d’authentification multifacteur, il peut obtenir l’accès à des parties plus sécurisées de plusieurs applications tant que la session liée au flux d’utilisateur n’expire pas.
   - **Désactivé** : ce paramètre oblige l’utilisateur à réexécuter tout le flux d’utilisateur à chaque exécution de la stratégie.
-::: zone pivot="b2c-custom-policy"
-- **Maintenir la connexion** : étend la durée de vie de la session à l’aide d’un cookie persistant. La session reste active lorsque l’utilisateur ferme et rouvre le navigateur. La session est révoquée uniquement quand un utilisateur se déconnecte. La fonctionnalité Maintenir la connexion s’applique uniquement à la connexion avec des comptes locaux. La fonctionnalité Maintenir la connexion prend le pas sur la durée de vie de la session. Si la fonctionnalité Maintenir la connexion est activée et que l’utilisateur la sélectionne, elle détermine la date d’expiration de la session. 
-::: zone-end
+- **Maintenir la connexion** : étend la durée de vie de la session à l’aide d’un cookie persistant. Si cette fonctionnalité est activée et que l’utilisateur la sélectionne, la session reste active même après que l’utilisateur a fermé et rouvert le navigateur. La session est révoquée uniquement quand un utilisateur se déconnecte. La fonctionnalité Maintenir la connexion s’applique uniquement à la connexion avec des comptes locaux. La fonctionnalité Maintenir la connexion est prioritaire sur la durée de vie de la session.
 
 ::: zone pivot="b2c-user-flow"
 
@@ -112,12 +110,43 @@ Pour changer le comportement des sessions et les configurations de SSO, vous dev
    <SessionExpiryInSeconds>86400</SessionExpiryInSeconds>
 </UserJourneyBehaviors>
 ```
+::: zone-end
 
 ## <a name="enable-keep-me-signed-in-kmsi"></a>Activer le maintien de la connexion (KMSI)
 
-Vous pouvez activer la fonctionnalité Maintenir la connexion pour les utilisateurs de vos applications web et natives qui ont des comptes locaux dans votre annuaire Azure AD B2C (Azure Active Directory B2C). Cette fonctionnalité accorde l’accès aux utilisateurs qui retournent dans votre application sans avoir à entrer une nouvelle fois leur nom d’utilisateur et leur mot de passe. Cet accès est révoqué lorsque l’utilisateur se déconnecte.
+Vous pouvez activer la fonctionnalité Maintenir la connexion pour les utilisateurs de vos applications web et natives qui ont des comptes locaux dans votre répertoire Azure AD B2C. Lorsque vous activez la fonctionnalité, les utilisateurs peuvent choisir de rester connectés afin que la session reste active après avoir fermé le navigateur. Ils peuvent ensuite rouvrir le navigateur sans avoir à entrer à nouveau leur nom d’utilisateur et leur mot de passe. Cet accès est révoqué lorsque l’utilisateur se déconnecte.
 
 ![Exemple de page de connexion avec la case à cocher Maintenir la connexion](./media/session-behavior/keep-me-signed-in.png)
+
+
+::: zone pivot="b2c-user-flow"
+
+La fonction Maintenir la connexion est configurable au niveau du flux de l’utilisateur individuel. Avant d’activer la fonction Maintenir la connexion pour vos flux d’utilisateurs, prenez en compte les éléments suivants :
+
+- Maintenir la connexion est pris en charge uniquement pour les versions **recommandées** des flux d’utilisateur d’inscription et de connexion (SUSI), de connexion et de modification de profil. Si vous disposez actuellement de versions **Standard** ou **Préversion héritée (v2)** de ces flux d’utilisateur et que vous voulez activer Maintenir la connexion, vous devrez créer des versions **recommandées** de ces flux.
+- Maintenir la connexion n’est pas pris en charge avec les flux d’utilisateur de réinitialisation de mot de passe ou d’inscription.
+- Si vous souhaitez activer Maintenir la connexion pour toutes les applications de votre locataire, nous vous recommandons d’activer cette fonctionnalité pour tous les flux d’utilisateurs de votre locataire. Étant donné qu’un utilisateur peut être présenté avec plusieurs stratégies au cours d’une session, il est possible qu’un utilisateur n’ait pas la fonction Maintenir la connexion activée, ce qui supprime le cookie Maintenir la connexion de la session.
+- La fonction Maintenir la connexion ne doit pas être activée sur les ordinateurs publics.
+
+### <a name="configure-kmsi-for-a-user-flow"></a>Configurer Maintenir la connexion pour un flux utilisateur
+
+Pour activer Maintenir la connexion pour votre flux utilisateur :
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
+2. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez le filtre  **Répertoire + abonnement**  dans le menu du haut, puis choisissez le répertoire qui contient votre locataire Azure AD B2C.
+3. Choisissez  **Tous les services**  dans le coin supérieur gauche du Portail Azure, puis recherchez et sélectionnez  **Azure AD B2C**.
+4. Sélectionnez  **Flux utilisateur (stratégies)** .
+5. Ouvrez le flux utilisateur que vous avez créé précédemment.
+6. Sélectionnez  **Propriétés**.
+
+7. Sous  **Comportement de session**, sélectionnez **Activer la session Maintenir la connexion**. En regard de **Maintenir la session de connexion (jours)** , entrez une valeur comprise entre 1 et 90 pour indiquer le nombre de jours pendant lesquels une session peut rester ouverte.
+
+
+   ![Activer Maintenir ma connexion dans la session](media/session-behavior/enable-keep-me-signed-in.png)
+
+::: zone-end
+
+::: zone pivot="b2c-custom-policy"
 
 Vous ne devez pas activer cette option sur les ordinateurs publics.
 
@@ -165,7 +194,7 @@ Pour ajouter la case à cocher Maintenir la connexion dans les pages d’inscrip
 
 ### <a name="configure-a-relying-party-file"></a>Configurer un fichier de partie de confiance
 
-Mettez à jour le fichier de partie de confiance qui lance le parcours utilisateur que vous avez créé.
+Mettez à jour le fichier de partie de confiance qui lance le parcours utilisateur que vous avez créé. Le paramètre keepAliveInDays vous permet de configurer la façon dont le cookie de session de maintien de la connexion (KMSI) doit persister. Par exemple, si vous définissez la valeur sur 30, le cookie de session KMSI sera conservé pendant 30 jours. La plage de la valeur est comprise entre 1 et 90 jours.
 
 1. Ouvrez votre fichier de stratégie personnalisée. Par exemple *SignUpOrSignin.xml*.
 1. S’il n’existe pas déjà, ajoutez un nœud enfant `<UserJourneyBehaviors>` au nœud `<RelyingParty>`. Il doit être placé immédiatement après `<DefaultUserJourney ReferenceId="User journey Id" />`, par exemple : `<DefaultUserJourney ReferenceId="SignUpOrSignIn" />`.
@@ -222,7 +251,7 @@ Lors d’une demande de déconnexion, Azure AD B2C effectue les opérations suiv
 3. Tente de se déconnecter des fournisseurs d’identité fédérés :
    - OpenId Connect : si le point de terminaison de configuration connu du fournisseur d’identité spécifie un emplacement `end_session_endpoint`.
    - OAuth2 : si les [métadonnées du fournisseur d’identité](oauth2-technical-profile.md#metadata) contiennent l’emplacement `end_session_endpoint`.
-   - SAML : si les [métadonnées du fournisseur d’identité](saml-identity-provider-technical-profile.md#metadata) contiennent l’emplacement `SingleLogoutService`.
+   - SAML : si les [métadonnées du fournisseur d’identité](identity-provider-generic-saml.md) contiennent l’emplacement `SingleLogoutService`.
 4. Si vous le souhaitez, se déconnecte d’autres applications. Pour plus d’informations, consultez la section [Déconnexion unique](#single-sign-out).
 
 > [!NOTE]

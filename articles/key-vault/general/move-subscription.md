@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/05/2020
 ms.author: mbaldwin
 Customer intent: As a key vault administrator, I want to move my vault to another subscription.
-ms.openlocfilehash: 23be8e667d435c2d91d32ebeac30b1e96b45a77e
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: a84627b2b426385d21ad72b85780db86e7dd5ee3
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98790289"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101096077"
 ---
 # <a name="moving-an-azure-key-vault-to-another-subscription"></a>Déplacement d’un coffre Azure Key Vault vers un nouvel abonnement
 
@@ -106,9 +106,9 @@ Pour attribuer des stratégies, consultez :
 - [Attribuer une stratégie d’accès à l’aide de PowerShell](assign-access-policy-powershell.md)
 
 Pour ajouter des attributions de rôles, consultez :
-- [Ajouter une attribution de rôle à l’aide du portail](../../role-based-access-control/role-assignments-portal.md)
-- [Ajouter une attribution de rôle à l’aide d’Azure CLI](../../role-based-access-control/role-assignments-cli.md)
-- [Ajouter une attribution de rôle à l’aide de PowerShell](../../role-based-access-control/role-assignments-powershell.md)
+- [Attribuer des rôles Azure à l’aide du portail Azure](../../role-based-access-control/role-assignments-portal.md)
+- [Attribuer des rôles Azure à l’aide d’Azure CLI](../../role-based-access-control/role-assignments-cli.md)
+- [Attribuer des rôles Azure à l’aide de PowerShell](../../role-based-access-control/role-assignments-powershell.md)
 
 
 ### <a name="update-managed-identities"></a>Mettre à jour les identités managées

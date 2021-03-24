@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: reference
-ms.date: 5/4/2020
+ms.date: 2/22/2021
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 94c34e6f7cb24ff749e5de95f1c28a496700af80
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: c5e7f556f37a1d6d53e0a938490f1099a7be776a
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96348719"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101647419"
 ---
 # <a name="whats-new-for-authentication"></a>Quelles sont les nouveautés en matière d’authentification ?
 
@@ -35,7 +35,28 @@ Le système d’authentification modifie et ajoute des fonctionnalités en perma
 
 ## <a name="upcoming-changes"></a>Changements à venir
 
-Aucun n’est planifié pour l’instant.  Pour connaître les changements qui sont en production ou qui vont y être, consultez les changements ci-dessous.
+### <a name="conditional-access-will-only-trigger-for-explicitly-requested-scopes"></a>L’accès conditionnel se déclenchera uniquement pour les étendues demandées explicitement
+
+**Date d’effet** : mars 2021
+
+**Points de terminaison impactés** : v2.0
+
+**Protocole impacté** : tous les flux utilisant le [consentement dynamique](v2-permissions-and-consent.md#requesting-individual-user-consent)
+
+Les applications qui utilisent le consentement dynamique bénéficient aujourd’hui de toutes les autorisations pour lesquelles elles ont reçu un consentement, même si elles n’ont pas été demandées explicitement dans le paramètre `scope`.  Cela peut, par exemple, forcer une application qui demande `user.read` uniquement, mais qui a reçu le consentement pour `files.read` à passer l’accès conditionnel attribué à l’autorisation `files.read`. 
+
+Afin de réduire le nombre d’invites d’accès conditionnel inutiles, Azure AD change la façon dont les étendues non demandées sont fournies aux applications pour que seules les étendues demandées explicitement déclenchent l’accès conditionnel. Cette modification peut entraîner l’arrêt des applications qui s’appuyaient sur le comportement précédent d’Azure AD (fourniture de l’ensemble des autorisations, même non demandées), car des autorisations manqueront aux jetons qu’elles demandent.
+
+Les applications recevront désormais des jetons d’accès avec une combinaison d’autorisations : celles demandées et celles dont elles ont reçu le consentement, qui n’exigent pas d’invite d’accès conditionnel.  Les étendues du jeton d’accès sont reflétées dans le paramètre `scope` de la réponse du jeton. 
+
+**Exemples**
+
+Une application a le consentement pour `user.read`, `files.readwrite` et `tasks.read`. Des stratégies d’accès conditionnel sont appliquées à `files.readwrite`, mais pas aux deux autres. Si une application émet une demande de jeton pour `scope=user.read` et que l’utilisateur actuellement connecté n’a pas passé de stratégie d’accès conditionnel, le jeton obtenu sera valable pour les autorisations `user.read` et `tasks.read`. `tasks.read` est inclus, car l’application a le consentement pour cette autorisation, et elle ne nécessite pas l’application d’une stratégie d’accès conditionnel. 
+
+Si l’application demande ensuite `scope=files.readwrite`, l’accès conditionnel requis par le locataire se déclenche, forçant l’application à afficher une invite d’authentification interactive permettant de satisfaire la stratégie d’accès conditionnel.  Le jeton retourné inclura les trois étendues. 
+
+Si l’application émet ensuite une dernière demande pour l’une des trois étendues (par exemple, `scope=tasks.read`), Azure AD déterminera que l’utilisateur a déjà satisfait aux stratégies d’accès conditionnel nécessaires pour `files.readwrite` et émettre de nouveau un jeton incluant les trois autorisations. 
+
 
 ## <a name="may-2020"></a>Mai 2020
 

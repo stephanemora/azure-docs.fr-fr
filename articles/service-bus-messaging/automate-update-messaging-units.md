@@ -2,13 +2,13 @@
 title: Azure Service Bus – Mettre à jour automatiquement les unités de messagerie
 description: Cet article vous explique de quelle façon vous pouvez mettre à jour automatiquement les unités de messagerie d’un espace de noms Service Bus.
 ms.topic: how-to
-ms.date: 09/15/2020
-ms.openlocfilehash: 594f9987bfa5a7a439fb862a0345d0004785b189
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/03/2021
+ms.openlocfilehash: 7fc3aca82b8f01d70dec4fc2dac7842895417ec9
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101720594"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102177953"
 ---
 # <a name="automatically-update-messaging-units-of-an-azure-service-bus-namespace"></a>Mettre à jour automatiquement les unités de messagerie d’un espace de noms Azure Service Bus 
 La mise à l’échelle automatique vous permet de disposer de la bonne quantité de ressources en cours d’exécution pour gérer la charge sur votre application. Elle vous permet d’ajouter des ressources pour gérer les augmentations de charge et d’économiser de l’argent en supprimant les ressources qui sont inactives. Pour en savoir plus sur la fonctionnalité de mise à l’échelle automatique d’Azure Monitor, consultez [Vue d’ensemble de la mise à l’échelle automatique dans Microsoft Azure](../azure-monitor/autoscale/autoscale-overview.md). 
@@ -136,8 +136,14 @@ La section précédente vous montre comment ajouter une condition par défaut po
     
     :::image type="content" source="./media/automate-update-messaging-units/repeat-specific-days-2.png" alt-text="Mettre à l’échelle sur des unités de messagerie spécifiques - Répéter des jours spécifiques":::
 
-> [!IMPORTANT]
-> Pour en savoir plus sur le fonctionnement des paramètres de mise à l’échelle automatique, en particulier sur le choix d’un profil ou d’une condition et l’évaluation de plusieurs règles, consultez [Comprendre les paramètres de mise à l’échelle automatique](../azure-monitor/autoscale/autoscale-understanding-settings.md).          
+    
+    Pour en savoir plus sur le fonctionnement des paramètres de mise à l’échelle automatique, en particulier sur le choix d’un profil ou d’une condition et l’évaluation de plusieurs règles, consultez [Comprendre les paramètres de mise à l’échelle automatique](../azure-monitor/autoscale/autoscale-understanding-settings.md).          
+
+    > [!NOTE]
+    > - Les métriques que vous examinez pour prendre des décisions sur la mise à l’échelle automatique peuvent avoir 5 à 10 minutes. Lorsque vous travaillez avec des charges de travail imprévisibles, nous vous recommandons d’utiliser des durées plus courtes pour monter en puissance et des durées plus longues pour descendre en puissance (> 10 minutes). Ainsi, vous vous assurez d’avoir assez d’unités de messagerie pour les charges de travail imprévisibles. 
+    > 
+    > - Si vous constatez des défaillances en raison d’un manque de capacité (aucune unité de messagerie disponible), envoyez-nous un ticket de support.  
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur les unités de messagerie, consultez l’article relatif à la [messagerie Premium](service-bus-premium-messaging.md).

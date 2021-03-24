@@ -4,12 +4,12 @@ description: Les types de nœuds, la durabilité, la fiabilité et d’autres é
 ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: pepogors
-ms.openlocfilehash: 03ec9b411f13f22a74b864a745acfed922e78b12
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: b3361337bb0cf60e47efe198aad7aa8cc20ae7b3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98790696"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714933"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Considérations en matière de planification de la capacité du cluster Service Fabric
 
@@ -39,21 +39,21 @@ Le type de nœud principal est configuré à l’aide de l’attribut `isPrimary
 
 Le nombre de types de nœuds initiaux dépend de l’objectif de votre cluster et des applications et services qui s’y exécutent. Considérez les questions suivantes :
 
-* ***Votre application inclut-elle plusieurs services ? Si oui, ces services doivent-ils être publics ou accessibles sur Internet ?** _
+* ***Votre application inclut-elle plusieurs services ? Si oui, ces services doivent-ils être publics ou accessibles sur Internet ?***
 
     Les applications standard contiennent un service de passerelle frontale qui reçoit des entrées d’un client, et un ou plusieurs services principaux qui communiquent avec les services frontaux avec des réseaux entre les différents services. Ces cas requièrent généralement trois types de nœuds : un type de nœud principal et deux types de nœuds non principaux (un pour le service frontal et un pour le service principal).
 
-_ ***Vos services (qui composent votre application) ont-ils des besoins d’infrastructure différents tels qu’une RAM plus volumineuse ou des cycles processeur plus élevés ?** _
+* ***Vos services (qui composent votre application) ont-ils des besoins d’infrastructure différents tels qu’une RAM plus volumineuse ou des cycles processeur plus élevés ?***
 
-    Often, front-end service can run on smaller VMs (VM sizes like D2) that have ports open to the internet.  Computationally intensive back-end services might need to run on larger VMs (with VM sizes like D4, D6, D15) that are not internet-facing. Defining different node types for these services allow you to make more efficient and secure use of underlying Service Fabric VMs, and enables them to scale them independently. For more on estimating the amount of resources you'll need, see [Capacity planning for Service Fabric applications](service-fabric-capacity-planning.md)
+    Souvent, le service frontal peut s’exécuter sur des machines virtuelles plus petites (par exemple, de taille D2) ayant des ports ouverts sur Internet.  Les services principaux intensifs doivent s’exécuter sur des machines virtuelles plus grandes (par exemple, de taille D4, D6, D15) qui ne sont pas connectées à Internet. La définition de différents types de nœuds pour ces services vous permet d’utiliser plus efficacement les machines virtuelles Service Fabric sous-jacentes et de les mettre à l’échelle de manière indépendante. Pour plus d’informations sur l’estimation de la quantité de ressources dont vous avez besoin, consultez [Planification de la capacité pour les applications Service Fabric](service-fabric-capacity-planning.md)
 
-_ ***L’un de vos services d’application devra-t-il évoluer au-delà de 100 nœuds ?** _
+* ***L’un de vos services d’application devra-t-il évoluer au-delà de 100 nœuds ?***
 
-    A single node type can't reliably scale beyond 100 nodes per virtual machine scale set for Service Fabric applications. Running more than 100 nodes requires additional virtual machine scale sets (and therefore additional node types).
+    Un type de nœud unique ne peut pas évoluer de manière fiable au-delà de 100 nœuds par groupe de machines virtuelles identiques pour les applications Service Fabric. L’exécution de plus de 100 nœuds nécessite des groupes de machines virtuelles identiques supplémentaires (et par conséquent des types de nœuds supplémentaires).
 
-_ ***Votre cluster sera-t-il déployé sur plusieurs Zones de disponibilité ?** _
+* ***Votre cluster sera-t-il déployé sur plusieurs Zones de disponibilité ?***
 
-    Service Fabric supports clusters that span across [Availability Zones](../availability-zones/az-overview.md) by deploying node types that are pinned to specific zones, ensuring high-availability of your applications. Availability Zones require additional node type planning and minimum requirements. For details, see [Recommended topology for primary node type of Service Fabric clusters spanning across Availability Zones](service-fabric-cross-availability-zones.md#recommended-topology-for-primary-node-type-of-azure-service-fabric-clusters-spanning-across-availability-zones). 
+    Service Fabric prend en charge les clusters qui s’étendent sur des [Zones de disponibilité](../availability-zones/az-overview.md) en déployant des types de nœuds qui sont épinglés à des zones spécifiques pour assurer une haute disponibilité de vos applications. Les Zones de disponibilité nécessitent une planification supplémentaire du type de nœud et des exigences minimales. Pour plus d’informations, consultez [Topologie recommandée de type de nœud principal de clusters Azure Service Fabric s’étendant sur des zones de disponibilité](service-fabric-cross-availability-zones.md#recommended-topology-for-primary-node-type-of-azure-service-fabric-clusters-spanning-across-availability-zones). 
 
 Lorsque vous déterminez le nombre et les propriétés des types de nœuds pour la création initiale de votre cluster, gardez à l'esprit que vous pouvez toujours ajouter, modifier ou supprimer des types de nœuds (non principaux) une fois que votre cluster est déployé. [Les types de nœuds principaux peuvent également être modifiés](service-fabric-scale-up-primary-node-type.md) dans les clusters en cours d’exécution (bien que de telles opérations exigent beaucoup de planification et de prudence dans les environnements de production).
 
@@ -61,7 +61,7 @@ Une autre considération pour les propriétés de votre type de nœud est le niv
 
 ## <a name="durability-characteristics-of-the-cluster"></a>Caractéristiques de durabilité du cluster
 
-Le _niveau de durabilité* désigne les privilèges que vos VM Service Fabric ont avec l'infrastructure Azure sous-jacente. Ce privilège permet à Service Fabric de suspendre toute demande de l’infrastructure au niveau de la machine virtuelle (par exemple, un redémarrage, une réinitialisation ou une migration) qui influe sur la configuration requise du quorum Service Fabric pour les services système et vos services avec état.
+Le *niveau de durabilité* désigne les privilèges que vos VM Service Fabric ont avec l'infrastructure Azure sous-jacente. Ce privilège permet à Service Fabric de suspendre toute demande de l’infrastructure au niveau de la machine virtuelle (par exemple, un redémarrage, une réinitialisation ou une migration) qui influe sur la configuration requise du quorum Service Fabric pour les services système et vos services avec état.
 
 > [!IMPORTANT]
 > Le niveau de durabilité est défini par type de nœud. Si rien n'est spécifié, le niveau *Bronze* sera utilisé, mais il ne prévoit pas de mise à niveau automatique du système d'exploitation. Les niveaux *Argent* ou *Or* sont recommandés pour les charges de travail de production.
@@ -73,6 +73,9 @@ Le tableau ci-dessous présente les niveaux de durabilité de Service Fabric, le
 | Or             | 5                              | Tailles des nœuds complets dédiées à un seul client (par exemple, L32s, GS5, G5, DS15_v2, D15_v2) | Peuvent être différées jusqu’à ce qu’elles soient approuvées par le cluster Service Fabric | Peuvent être suspendues pendant 2 heures par domaine de mise à niveau pour accorder du temps supplémentaire pour la récupération de réplicas à partir d’échecs précédents |
 | Argent           | 5                              | Machines virtuelles avec un seul cœur ou plus avec un disque SSD local d’au moins 50 Go                      | Peuvent être différées jusqu’à ce qu’elles soient approuvées par le cluster Service Fabric | Ne peuvent pas être différées pour quelque durée que ce soit                                                    |
 | Bronze          | 1                              | Machines virtuelles avec un disque SSD local d’au moins 50 Go                                              | Ne sont pas différées par le cluster Service Fabric           | Ne peuvent pas être différées pour quelque durée que ce soit                                                    |
+
+> [!NOTE]
+> Le nombre minimal de machines virtuelles indiqué ci-dessus est requis pour chaque niveau de durabilité. Nous avons effectué des validations sur place, qui empêcheront la création ou la modification de groupes de machines virtuelles identiques qui ne répondent pas à ces exigences.
 
 > [!WARNING]
 > Avec la durabilité Bronze, la mise à jour automatique de l'image du système d'exploitation n'est pas disponible. Bien que l'[application Patch Orchestration](service-fabric-patch-orchestration-application.md) (destinée uniquement aux clusters hébergés non-Azure) *ne soit pas recommandée* pour les niveaux de durabilité Argent ou supérieurs, il s’agit de votre seule option pour automatiser les mises à jour Windows en ce qui concerne les domaines de mise à niveau de Service Fabric.

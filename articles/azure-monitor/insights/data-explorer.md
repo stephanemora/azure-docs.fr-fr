@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 01/05/2021
 author: lgayhardt
 ms.author: lagayhar
-ms.openlocfilehash: 6276527230cf889b471887fdb3da70e06a2fc8d6
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: dcfe12b30e336863c8e112d9ad675a2f57fe48f4
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100582352"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102179134"
 ---
 # <a name="azure-monitor-for-azure-data-explorer-preview"></a>Azure Monitor pour Azure Data Explorer (préversion)
 
@@ -103,10 +103,10 @@ L’onglet **Métriques clés** affiche une vue unifiée de certaines métriques
 
 L’onglet **Utilisation** permet aux utilisateurs d’approfondir les performances des commandes et des requêtes du cluster. Dans cette page, vous pouvez :
  
- - Identifier les utilisateurs et les applications qui envoient le plus de requêtes ou qui consomment le plus de ressources processeur et mémoire (afin d’identifier les utilisateurs qui soumettent les requêtes les plus lourdes que le cluster devra traiter).
- - Identifier les principaux utilisateurs et les principales applications par requêtes ayant échoué.
- - Identifier les modifications récentes du nombre de requêtes par rapport à la moyenne quotidienne historique (au cours des 16 derniers jours), par utilisateur et par application.
- - Identifier les tendances et les pics de requêtes, de mémoire et de consommation du processeur par type d’utilisateur, d’application et de commande.
+ - Identifiez les groupes de charge de travail, les utilisateurs et les applications qui envoient le plus de requêtes ou qui consomment le plus de ressources processeur et mémoire (afin d’identifier les charges de travail qui soumettent les requêtes les plus lourdes que le cluster devra traiter).
+ - Identifiez les principaux groupes de charge de travail, utilisateurs et les principales applications par requêtes ayant échoué.
+ - Identifiez les modifications récentes du nombre de requêtes par rapport à la moyenne quotidienne dans l’historique (au cours des 16 derniers jours),par groupe de charge de travail, par utilisateur et par application.
+ - Identifiez les tendances et les pics de requêtes, de mémoire et de consommation du processeur par type de groupe de charge de travail, d’utilisateur, d’application et de commande.
 
 [![Capture d’écran de l’affichage des opérations avec des graphiques en anneau de la principale application par nombre de commandes et de requêtes, top des principaux par nombre de commandes et requêtes, et principales commandes par types de commande](./media/data-explorer/usage.png)](./media/data-explorer/usage.png#lightbox)
 

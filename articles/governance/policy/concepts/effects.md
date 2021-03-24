@@ -1,14 +1,14 @@
 ---
 title: Comprendre le fonctionnement des effets
 description: Les définitions Azure Policy ont différents effets qui déterminent la manière dont la conformité est gérée et rapportée.
-ms.date: 10/05/2020
+ms.date: 02/17/2021
 ms.topic: conceptual
-ms.openlocfilehash: e72e94766dce2660409e729bc43eb107fb9ab39a
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 67445b3d0d63b3827f82822de00412bdab67c5ab
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97883076"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101741818"
 ---
 # <a name="understand-azure-policy-effects"></a>Comprendre les effets d’Azure Policy
 
@@ -266,8 +266,7 @@ Comme pour AuditIfNotExists, une définition de stratégie DeployIfNotExists ex�
 
 ### <a name="deployifnotexists-evaluation"></a>Évaluation DeployIfNotExists
 
-DeployIfNotExists s’exécute environ 15 minutes après qu’un fournisseur de ressources a traité une requête de création ou de mise à jour de ressource et a renvoyé un code d’état de réussite. Un déploiement de modèle est déclenché s’il n’existe pas de ressources connexes ou si les ressources définies par **ExistenceCondition** ne retournent pas de valeur true.
-La durée du déploiement dépend de la complexité des ressources incluses dans le modèle.
+DeployIfNotExists s’exécute environ 15 minutes après qu’un fournisseur de ressources a traité une requête de création ou de mise à jour d’un abonnement ou une requête de ressource et a retourné un code d’état de réussite. Un déploiement de modèle est déclenché s’il n’existe pas de ressources connexes ou si les ressources définies par **ExistenceCondition** ne retournent pas de valeur true. La durée du déploiement dépend de la complexité des ressources incluses dans le modèle.
 
 Au cours d’un cycle d’évaluation, les définitions de stratégie ayant un effet DeployIfNotExists sur les ressources sont marquées comme non conformes, mais aucune action n’est effectuée sur ces ressources. Les ressources non conformes existantes peuvent être corrigées à l’aide d’une [tâche de correction](../how-to/remediate-resources.md).
 
@@ -482,8 +481,7 @@ Exemple : Règle de contrôle d’admission Gatekeeper v2 pour autoriser uniquem
 
 ## <a name="modify"></a>Modifier
 
-Modify est utilisé pour ajouter, mettre à jour ou supprimer les propriétés ou étiquettes d’une ressource lors d’une création ou d’une mise à jour.
-Un exemple courant consiste à mettre à jour les étiquettes des ressources telles que costCenter. Les ressources non conformes existantes peuvent être corrigées à l’aide d’une [tâche de correction](../how-to/remediate-resources.md). Une même règle Modify peut avoir autant d’opérations que vous le souhaitez.
+L’option Modifier est utilisée pour ajouter, mettre à jour ou supprimer les propriétés ou les étiquettes d’un abonnement ou d’une ressource lors d’une création ou d’une mise à jour. Un exemple courant consiste à mettre à jour les étiquettes des ressources telles que costCenter. Les ressources non conformes existantes peuvent être corrigées à l’aide d’une [tâche de correction](../how-to/remediate-resources.md). Une même règle Modify peut avoir autant d’opérations que vous le souhaitez.
 
 Les opérations suivantes sont prises en charge par Modify :
 

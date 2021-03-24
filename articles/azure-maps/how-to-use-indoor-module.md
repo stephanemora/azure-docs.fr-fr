@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
-ms.openlocfilehash: bc80b7dfd433911ef13906db38f59a76827db258
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: e527cf5fa6a7caaeaf56ea19d684dd0830d5ca8a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905279"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708677"
 ---
 # <a name="use-the-azure-maps-indoor-maps-module"></a>Utiliser le module Cartes d’intérieur d’Azure Maps
 
@@ -67,7 +67,7 @@ const subscriptionKey = "<Your Azure Maps Primary Subscription Key>";
 
 const map = new atlas.Map("map-id", {
   //use your facility's location
-  center: [-122.13315, 47.63637],
+  center: [-122.13203, 47.63645],
   //or, you can use bounds: [# west, # south, # east, # north] and replace # with your map's bounds
   style: "blank",
   view: 'Auto',
@@ -84,24 +84,24 @@ const map = new atlas.Map("map-id", {
 Pour charger les tilesets d’intérieur et le style de la carte des vignettes, vous devez instancier le *Gestionnaire d’intérieur*. Instanciez le *Gestionnaire d’intérieur* en fournissant l’*objet Map* et l’ID `tilesetId` correspondant. Si vous souhaitez prendre en charge l’[application de style de carte dynamique](indoor-map-dynamic-styling.md), vous devez passer l’ID `statesetId`. Le nom de la variable `statesetId` respecte la casse. Votre code doit ressembler au code JavaScript ci-dessous.
 
 ```javascript
-const tilesetId = "";
-const statesetId = "";
+const tilesetId = "<tilesetId>";
+const statesetId = "<statesetId>";
 
 const indoorManager = new atlas.indoor.IndoorManager(map, {
-    tilesetId: "<tilesetId>",
-    statesetId: "<statesetId>" // Optional
+    tilesetId: tilesetId,
+    statesetId: statesetId // Optional
 });
 ```
 
 Pour activer le sondage de données d’état que vous fournissez, vous devez spécifier l’ID `statesetId` et appeler `indoorManager.setDynamicStyling(true)`. Le sondage de données d’état vous permet de mettre à jour de façon dynamique l’état de propriétés dynamiques ou *états*. Par exemple, une caractéristique telle qu’une salle peut avoir une propriété dynamique (*état*) nommée `occupancy`. Votre application peut interroger tout changement d’*état* pour refléter la modification à l’intérieur de la carte visuelle. Le code ci-dessous montre comment activer le sondage d’état :
 
 ```javascript
-const tilesetId = "";
-const statesetId = "";
+const tilesetId = "<tilesetId>";
+const statesetId = "<statesetId>";
 
 const indoorManager = new atlas.indoor.IndoorManager(map, {
-    tilesetId: "<tilesetId>",
-    statesetId: "<statesetId>" // Optional
+    tilesetId: tilesetId,
+    statesetId: statesetId // Optional
 });
 
 if (statesetId.length > 0) {
@@ -218,9 +218,9 @@ Votre fichier doit maintenant ressembler au code HTML ci-dessous.
         });
 
         const indoorManager = new atlas.indoor.IndoorManager(map, {
-          levelControl, //level picker
-          tilesetId,
-          statesetId, //optional
+          levelControl: levelControl, //level picker
+          tilesetId: tilesetId,
+          statesetId: statesetId // Optional
         });
 
         if (statesetId.length > 0) {
@@ -244,6 +244,8 @@ Votre fichier doit maintenant ressembler au code HTML ci-dessous.
 Pour afficher votre carte d’intérieur, chargez-la dans un navigateur web. Elle doit ressembler à l’image ci-dessous. Si vous cliquez sur la caractéristique stairwell, le *sélecteur de niveau* s’affiche dans l’angle supérieur droit.
 
   ![image de carte d’intérieur](media/how-to-use-indoor-module/indoor-map-graphic.png)
+
+[Voir la démonstration en direct](https://azuremapscodesamples.azurewebsites.net/?sample=Creator%20indoor%20maps)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

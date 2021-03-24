@@ -2,17 +2,17 @@
 title: Filtres de rubrique Azure Service Bus | Microsoft Docs
 description: Cet article explique comment les abonnés peuvent définir les messages qu’ils souhaitent recevoir d’une rubrique en spécifiant des filtres.
 ms.topic: conceptual
-ms.date: 01/22/2021
-ms.openlocfilehash: 63cf6e67d4fa32c5c7f52f569094e1165554108c
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.date: 02/17/2021
+ms.openlocfilehash: f28b26ee112b47b9782823f6c79670dee9a3f082
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98742962"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100651661"
 ---
 # <a name="topic-filters-and-actions"></a>Actions et filtres de rubrique
 
-Les abonnés peuvent définir les messages qu’ils veulent recevoir d’une rubrique. Ces messages sont spécifiés sous la forme d’une ou de plusieurs règles d’abonnement nommées. Chaque règle se compose d’une condition de **filtre** qui sélectionne des messages spécifiques et contient **éventuellement** une **action** qui annote le message sélectionné. 
+Les abonnés peuvent définir les messages qu’ils veulent recevoir d’une rubrique. Ces messages sont spécifiés sous la forme d’une ou de plusieurs règles d’abonnement nommées. Chaque règle se compose d’une **condition de filtre** qui sélectionne des messages spécifiques et contient **éventuellement** une **action** qui annote le message sélectionné. 
 
 Toutes les règles **sans action** sont combinées à l’aide d’une condition `OR` et donnent lieu à un **message unique** sur l’abonnement, même si vous avez plusieurs règles correspondantes. 
 
@@ -32,9 +32,7 @@ Chaque nouvel abonnement à une rubrique est associé à une règle d’abonneme
 Service Bus prend en charge trois conditions de filtre :
 
 -   *Filtres SQL* : **SqlFilter** contient une expression conditionnelle de type SQL qui est évaluée dans le répartiteur par rapport aux propriétés utilisateur et système des messages entrants. Toutes les propriétés système doivent avoir le préfixe `sys.` dans l’expression conditionnelle. Le [sous-ensemble du langage SQL pour les conditions de filtre](service-bus-messaging-sql-filter.md) recherche la présence de propriétés (`EXISTS`), de valeurs Null (`IS NULL`), d’opérateurs de relation logiques NOT/AND/OR, d’une arithmétique numérique simple et de critères spéciaux de texte simples avec `LIKE`.
-
 -   *Filtres booléens* : **TrueFilter** et **FalseFilter** sélectionnent tous les messages entrants (**true**) ou aucun des messages entrants (**false**) de l’abonnement. Ces deux filtres sont dérivés du filtre SQL. 
-
 -   *Filtres de corrélation* : **CorrelationFilter** contient un ensemble de conditions qui sont mises en correspondance par rapport à une ou plusieurs propriétés utilisateur et système d’un message entrant. En général, la mise en correspondance s’effectue par rapport à la propriété **CorrelationId**, mais l’application peut également choisir de le faire par rapport aux propriétés suivantes :
 
     - **ContentType**
@@ -66,7 +64,8 @@ Le partitionnement utilise des filtres pour distribuer les messages aux différe
 
 Le routage utilise des filtres pour distribuer les messages aux différents abonnements à la rubrique de manière prévisible, mais pas nécessairement en mode mutuellement exclusif. Utilisés conjointement avec la fonctionnalité de [transfert automatique](service-bus-auto-forwarding.md), les filtres de rubrique permettent de créer des graphiques de routage complexes dans un espace de noms Service Bus pour la distribution de messages dans une région Azure. Avec Azure Functions ou Azure Logic Apps servant de pont entre les espaces de noms Azure Service Bus, vous pouvez créer des topologies globales complexes avec une intégration directe dans les applications métier.
 
-[!INCLUDE [service-bus-filter-examples](../../includes/service-bus-filter-examples.md)]
+## <a name="examples"></a>Exemples
+Pour obtenir des exemples, consultez [Exemples de filtres Service Bus](service-bus-filter-examples.md).
 
 
 

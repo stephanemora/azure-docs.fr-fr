@@ -1,17 +1,17 @@
 ---
 title: Codes d’erreur du client pour Device Update pour Azure IoT Hub | Microsoft Docs
 description: Ce document fournit un tableau des codes d’erreur du client pour divers composants Device Update.
-author: lichris
+author: chrisjlin
 ms.author: lichris
 ms.date: 2/18/2021
 ms.topic: reference
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 5251d0cb09e40305d1efd89c31d3af0fa36ad385
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: dbdddc7cee0c3664a83501ba619a38e1cc44e1f3
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101678333"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200337"
 ---
 # <a name="device-update-for-iot-hub-error-codes"></a>Codes d’erreur de Device Update pour IoT Hub
 
@@ -59,26 +59,19 @@ La représentation hexadécimale non signée de `-536870781` est `FFFFFFFF E0000
 ## <a name="delivery-optimization-agent"></a>Agent d’optimisation de la distribution
 Le tableau suivant répertorie les codes d’erreur relatifs au composant d’optimisation de la distribution (DO) du client Device Update. Le composant DO est chargé de télécharger le contenu de mise à jour sur l’appareil IoT.
 
-Le code d’erreur DO peut être obtenu en examinant les exceptions levées en réponse à un appel d’API.
+Le code d’erreur DO peut être obtenu en examinant les exceptions levées en réponse à un appel d’API. Tous les codes d'erreur DO peuvent être identifiés par le préfixe 0x80D0.
 
 | Code d'erreur  | Erreur de chaîne                       | Type                 | Description |
 |-------------|------------------------------------|----------------------|-------------|
 | 0x80D01001L | DO_E_NO_SERVICE                    | n/a                  | L’optimisation de la distribution n’a pas pu fournir le service |
 | 0x80D02002L | DO_E_DOWNLOAD_NO_PROGRESS          | Télécharger le travail         | Le téléchargement d’un fichier n’a pas progressé dans la période définie |
-| 0x80D02003L | DO_E_JOB_NOT_FOUND                 | Télécharger le travail         | Travail introuvable |
-| 0x80D02005L | DO_E_NO_DOWNLOADS                  | Télécharger le travail         | Aucun téléchargement n’existe actuellement |
-| 0x80D0200CL | DO_E_JOB_TOO_OLD                   | Télécharger le travail         | Le travail n’était pas terminé ou a été annulé avant d’atteindre le seuil d’âge maximal |
 | 0x80D02011L | DO_E_UNKNOWN_PROPERTY_ID           | Télécharger le travail         | Méthode SetProperty() ou GetProperty() appelée avec un ID de propriété inconnu |
 | 0x80D02012L | DO_E_READ_ONLY_PROPERTY            | Télécharger le travail         | Impossible d’appeler la méthode SetProperty() sur une propriété en lecture seule |
 | 0x80D02013L | DO_E_INVALID_STATE                 | Télécharger le travail         | L’opération demandée n’est pas autorisée dans l’état actuel du travail. Le travail a peut-être été annulé ou a terminé son transfert. Il est maintenant en lecture seule. |
 | 0x80D02018L | DO_E_FILE_DOWNLOADSINK_UNSPECIFIED | Télécharger le travail         | Impossible de démarrer un téléchargement, car aucun récepteur de téléchargement (fichier local ou interface de flux) n’a été spécifié |
 | 0x80D02200L | DO_E_DOWNLOAD_NO_URI               | Interface IDODownload| Le téléchargement a été démarré sans fournir d’URI |
 | 0x80D03805L | DO_E_BLOCKED_BY_NO_NETWORK         | Conditions transitoires | Téléchargement suspendu en raison d’une perte de connectivité réseau |
-| 0x80D05001L | DO_E_HTTP_BLOCKSIZE_MISMATCH       | HTTP                 | Le serveur HTTP a retourné une réponse avec une taille des données différente de celle demandée |
-| 0x80D05002L | DO_E_HTTP_CERT_VALIDATION          | HTTP                 | Échec de la validation du certificat du serveur HTTP |
-| 0x80D05010L | DO_E_INVALID_RANGE                 | HTTP                 | La plage d’octets spécifiée est non valide |
-| 0x80D05011L | DO_E_INSUFFICIENT_RANGE_SUPPORT    | HTTP                 | Le serveur ne prend pas en charge le protocole HTTP requis. L’optimisation de la distribution (DO) exige que le serveur prenne en charge l’en-tête de protocole Range |
-| 0x80D05012L | DO_E_OVERLAPPING_RANGES            | HTTP                 | La liste de plages d’octets contient des plages qui se chevauchent, ce qui n’est pas pris en charge |
+
 ## <a name="device-update-content-service"></a>Service de contenu Device Update
 Le tableau suivant liste les codes d’erreur relatifs au composant de service de contenu du service Device Update. Le composant de service de contenu est responsable de la gestion de l’importation du contenu de mise à jour.
 

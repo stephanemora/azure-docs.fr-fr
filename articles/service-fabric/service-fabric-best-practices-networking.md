@@ -5,12 +5,12 @@ author: chrpap
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: chrpap
-ms.openlocfilehash: b8db69792b31fd82646757423e669e39e8539d06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: caba864e77822ccab649f694df7e63e0ee5d6e51
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91630700"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101732562"
 ---
 # <a name="networking"></a>Mise en réseau
 
@@ -39,7 +39,7 @@ Optimisez les performances de votre machine virtuelle avec la mise en réseau ac
 ```
 Un cluster Service Fabric peut être configuré sur [Linux avec mise en réseau accélérée](../virtual-network/create-vm-accelerated-networking-cli.md), et [Windows avec mise en réseau accélérée](../virtual-network/create-vm-accelerated-networking-powershell.md).
 
-La mise en réseau accélérée est prise en charge pour les références SKU de la série de machines virtuelles Azure : D/DSv2, D/DSv3, E/ESv3, F/FS, FSv2 et Ms/Mms. La mise en réseau accélérée a été testée avec succès à l’aide de la référence SKU Standard_DS8_v3 pour un cluster Service Fabric Windows le 23/01/2019 et à l’aide de la référence SKU Standard_DS12_v2 pour un cluster Service Fabric Linux le 29/01/2019.
+La mise en réseau accélérée est prise en charge pour les références SKU de la série de machines virtuelles Azure : D/DSv2, D/DSv3, E/ESv3, F/FS, FSv2 et Ms/Mms. La mise en réseau accélérée a été testée avec succès à l’aide de la référence SKU Standard_DS8_v3 pour un cluster Service Fabric Windows le 23/01/2019 et à l’aide de la référence SKU Standard_DS12_v2 pour un cluster Service Fabric Linux le 29/01/2019. Veuillez noter que la mise en réseau accélérée nécessite au moins 4 processeurs virtuels. 
 
 Pour activer la mise en réseau accélérée sur un cluster Service Fabric existant, vous devez d’abord [mettre à l'échelle ce cluster en ajoutant un groupe de machines virtuelles identiques](./virtual-machine-scale-set-scale-node-type-scale-out.md), afin d'effectuer ce qui suit :
 1. Approvisionner un type de nœud avec mise en réseau accélérée activée

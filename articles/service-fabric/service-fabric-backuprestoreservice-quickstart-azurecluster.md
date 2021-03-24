@@ -3,12 +3,12 @@ title: Sauvegarde et restauration périodiques dans Azure Service Fabric
 description: Utilisez la fonctionnalité de sauvegarde et de restauration périodiques de Service Fabric pour activer la sauvegarde périodique des données de votre application.
 ms.topic: conceptual
 ms.date: 5/24/2019
-ms.openlocfilehash: 2d167b261f9b5915a970b4c219113f0765c039cb
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 42097b50277e78b3f0e8f5e61a2bf70cc08dbc02
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98927997"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103198724"
 ---
 # <a name="periodic-backup-and-restore-in-an-azure-service-fabric-cluster"></a>Sauvegarde et restauration périodiques dans un cluster Azure Service Fabric
 > [!div class="op_single_selector"]
@@ -43,7 +43,7 @@ Service Fabric fournit un ensemble d’API pour obtenir les fonctions suivantes 
 - Suspendre temporairement les sauvegardes
 - Gérer la rétention des sauvegardes (à venir)
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 * Cluster Service Fabric avec Fabric version 6.4 ou ultérieure. Consultez cet [article](service-fabric-cluster-creation-via-arm.md) pour la procédure de création d’un cluster Service Fabric à l’aide du modèle de ressource Azure.
 * Certificat X.509 pour le chiffrement des secrets nécessaire pour se connecter au stockage pour stocker les sauvegardes. Consultez [l’article](service-fabric-cluster-creation-via-arm.md) pour savoir comment obtenir ou créer un certificat X.509.
 * Application avec état fiable Service Fabric générée avec le kit SDK Service Fabric version 3.0 ou ultérieure. Pour les applications qui ciblent .NET Core 2.0, l’application doit être générée à l’aide du SDK Service Fabric version 3.1 ou ultérieure.
@@ -215,6 +215,7 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 ``` 
 
 #### <a name="using-service-fabric-explorer"></a>Utiliser Service Fabric Explorer
+Assurez-vous que le [mode avancé](service-fabric-visualizing-your-cluster.md#backup-and-restore) de Service Fabric Explorer est activé 
 
 1. Sélectionnez une application et accédez à Action. Cliquez sur Activer/Mettre à jour la sauvegarde de l’application.
 

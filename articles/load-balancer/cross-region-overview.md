@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: allensu
 ms.custom: references_regions
-ms.openlocfilehash: 89bf920a5a5dd833425f1b41bd206beaae9d30fd
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: b0e51d11797bc5767f19b25a92a2d29a66ea1bb2
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98946254"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102176720"
 ---
 # <a name="cross-region-load-balancer-preview"></a>Équilibreur de charge inter-région (préversion)
 
@@ -28,14 +28,14 @@ Azure Standard Load Balancer prend en charge l'équilibrage de charge inter-rég
 
 * Trafic entrant en provenance de plusieurs régions.
 * [Basculement global instantané](#regional-redundancy) vers le prochain déploiement régional optimal.
-* Distribution de la charge des différentes régions vers la région Azure la plus proche avec [latence ultra](#ultra-low-latency).
+* Distribution de la charge des différentes régions vers la région Azure la plus proche avec [la très faible latence](#ultra-low-latency).
 * Possibilité de [scale-up/scale-down](#ability-to-scale-updown-behind-a-single-endpoint) derrière un point de terminaison unique.
 * [Adresse IP statique](#static-ip)
 * [Conservation de l'adresse IP du client](#client-ip-preservation)
 * [Tirer parti de la solution d'équilibrage de charge existante](#build-cross-region-solution-on-existing-azure-load-balancer) sans aucun besoin d'apprentissage
 
 > [!IMPORTANT]
-> L’équilibrage de charge inter-région est actuellement en préversion et peut être déployé dans le portail. Connectez-vous à **https://preview.portal.azure.com** pour voir et déployer la fonctionnalité. </br> </br>
+> L’équilibreur de charge entre les régions est actuellement en préversion.
 > Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 L'équilibrage de charge inter-région offre les mêmes avantages que l'équilibreur de charge standard régional en termes de hautes performances et de faible latence. 
@@ -79,7 +79,7 @@ Pour plus d’informations, consultez [Configuration du mode de distribution pou
 
 ### <a name="ability-to-scale-updown-behind-a-single-endpoint"></a>Possibilité de scale-up/scale-down derrière un point de terminaison unique
 
-Lorsque vous exposez le point de terminaison global d'un équilibreur de charge inter-région aux clients, vous pouvez ajouter ou supprimer des déploiements régionaux derrière le point de terminaison global sans impact sur les clients. 
+Lorsque vous exposez le point de terminaison global d’un équilibreur de charge inter-région aux clients, vous pouvez ajouter ou supprimer des déploiements régionaux derrière le point de terminaison global sans interruption. 
 
 <!---To learn about how to add or remove a regional deployment from the backend, read more [here](TODO: Insert CLI doc here).--->
 
@@ -94,7 +94,7 @@ Le pool principal de l'équilibreur de charge inter-région contient un ou plusi
 
 Ajoutez vos déploiements d'équilibreurs de charge existants à un équilibreur de charge inter-région pour bénéficier d'un déploiement inter-région hautement disponible.
 
-La **région d'accueil** est celle où l'équilibreur de charge inter-région est déployé. Cette région ne détermine en rien la façon dont le trafic sera acheminé. En cas de défaillance d'une région d'accueil, le flux du trafic n'est pas impacté.
+La **région d'accueil** est celle où l'équilibreur de charge inter-région est déployé. Cette région ne détermine en rien la façon dont le trafic sera acheminé. Si une région d’hébergement tombe en panne, le flux de trafic n’est pas affecté.
 
 ### <a name="home-regions"></a>Régions d'accueil
 * USA Est 2
@@ -137,13 +137,13 @@ L'équilibreur de charge inter-région achemine le trafic vers l'équilibreur de
 
 * Les configurations IP frontales inter-région sont uniquement publiques. Les serveurs frontaux internes ne sont actuellement pas pris en charge.
 
-* Aucun équilibreur de charge privé ou interne ne peut pas être ajouté au pool principal de l'équilibreur de charge inter-région 
+* Aucun équilibreur de charge privé ou interne ne peut pas être ajouté au pool principal de l’équilibreur de charge inter-région 
 
 * Les configurations IP frontales IPv6 inter-région ne sont pas prises en charge. 
 
 * Il est actuellement impossible de configurer une sonde d'intégrité. Une sonde d'intégrité par défaut collecte automatiquement les informations de disponibilité relatives à l'équilibreur de charge régional toutes les 20 secondes. 
 
-* Actuellement, Azure Kubernetes Service (AKS) ne peut pas être intégré avec un équilibreur de charge inter-régions. Une perte de connectivité devrait se produire lors de la configuration d’un équilibreur de charge inter-régions devant un équilibreur de charge public déployé avec AKS.
+* L’intégration au service Azure Kubernetes (AKS) est actuellement indisponible. Une perte de connectivité se produit lors du déploiement d’un équilibreur de charge entre les régions avec l’équilibreur de charge standard quand le cluster AKS est déployé dans le serveur principal.
 
 ## <a name="pricing-and-sla"></a>Tarifs et contrat SLA
 Équilibreur de charge inter-région, partage le [contrat de niveau de service](https://azure.microsoft.com/support/legal/sla/load-balancer/v1_0/ ) de l'équilibreur de charge standard.

@@ -1,45 +1,30 @@
 ---
-title: À propos des dépôts et des images
-description: Introduction aux concepts clés des registres de conteneurs Azure, des référentiels et des images conteneur.
+title: À propos des registres, des référentiels, des images et des artefacts
+description: Introduction aux concepts clés des registres de conteneurs Azure, des référentiels et images conteneur et d’autres artefacts.
 ms.topic: article
-ms.date: 06/16/2020
-ms.openlocfilehash: 0cc7df22236c60bd473385d92c8db563be68f688
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.date: 01/29/2021
+ms.openlocfilehash: 991be79b10b6061f2034eb19e4e139af65aef3cf
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100008517"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100578126"
 ---
-# <a name="about-registries-repositories-and-images"></a>À propos des registres, des dépôts et des images
+# <a name="about-registries-repositories-and-artifacts"></a>À propos des registres, des référentiels et des artefacts
 
 Cet article présente les concepts clés des registres de conteneurs, des référentiels, des images conteneur et les artefacts associés. 
 
+:::image type="content" source="media/container-registry-concepts/registry-elements.png" alt-text="Registre, référentiels et artefacts":::
+
 ## <a name="registry"></a>Registre
 
-Un *registre* de conteneurs est un service qui stocke et distribue des images conteneur. Docker Hub est un registre de conteneur public qui prend en charge de la communauté open source et sert de catalogue général d’images. Azure Container Registry fournit aux utilisateurs un contrôle direct de leurs images, avec l’authentification intégrée, la[géo-réplication](container-registry-geo-replication.md) prenant en charge la distribution mondiale et la fiabilité pour les déploiements proches du réseau, la [configuration du pare-feu et de réseau virtuel](container-registry-vnet.md), le [verrouillage des étiquettes](container-registry-image-lock.md), et de nombreuses autres fonctionnalités améliorées. 
+Un *registre* de conteneurs est un service qui stocke et distribue des images conteneur et des artefacts associés. Docker Hub est un exemple de registre de conteneurs public qui sert de catalogue général d’images conteneur Docker. Azure Container Registry fournit aux utilisateurs un contrôle direct du contenu de leurs conteneurs, avec l’authentification intégrée, la[géoréplication](container-registry-geo-replication.md) prenant en charge la distribution mondiale et la fiabilité pour les déploiements proches du réseau, la [configuration du réseau virtuel avec Private Link](container-registry-private-link.md), le [verrouillage des étiquettes](container-registry-image-lock.md), et de nombreuses autres fonctionnalités avancées. 
 
-En plus des images conteneur Docker, Azure Container Registry prend en charger les[artefacts de contenu](container-registry-image-formats.md) connexes, y compris les formats d’image Open Container Initiative (OCI).
+En plus des images conteneur compatibles avec Docker, Azure Container Registry prend en charge différents [artefacts de contenu](container-registry-image-formats.md), y compris les charts Helm et le format d’image OCI (Open Container Initiative).
 
-## <a name="content-addressable-elements-of-an-artifact"></a>Éléments adressables de contenu d’un artefact
+## <a name="repository"></a>Référentiel
 
-L’adressage d’un artefact dans un registre de conteneurs Azure inclut les éléments suivants. 
-
-`[loginUrl]/[repository:][tag]`
-
-* **loginUrl** - nom complet de l’hôte de registre. L’hôte de registre dans un registre de conteneurs Azure est au format *myregistry*. azurecr.io (tout en minuscules). Vous devez spécifier le loginUrl lors de l’utilisation de Docker ou d’autres outils de client pour les artefacts de tirage (pull) ou d’envoi (push) à un registre de conteneurs Azure. 
-* **référentiel** : nom d’un regroupement logique d’une ou de plusieurs images ou artefacts associés, par exemple les images d’une application ou d’un système d’exploitation de base. Peut inclure un chemin d’accès d’*espace de noms*. 
-* **étiquette** : identificateur d’une version spécifique d’une image ou d’un artefact stocké dans un référentiel.
-
-Par exemple, le nom complet d’une image dans un registre de conteneurs Azure peut se présenter comme :
-
-*myregistry.azurecr.io/marketing/campaign10-18/email-sender:v2*
-
-Pour plus d’informations sur ces éléments, consultez les sections suivantes.
-
-## <a name="repository-name"></a>Nom du dépôt
-
-Un *référentiel* est une collection d’images conteneur ou d’autres artefacts ayant le même nom, mais des étiquettes différentes. Par exemple, les trois images suivantes se trouvent dans le référentiel « acr-helloworld » :
-
+Un *référentiel* est une collection d’images conteneur ou d’autres artefacts dans un registre ayant le même nom, mais des étiquettes différentes. Par exemple, les trois images suivantes se trouvent dans le référentiel `acr-helloworld` :
 
 - *acr-helloworld:latest*
 - *acr-helloworld:v1*
@@ -57,7 +42,7 @@ Les noms de référentiel ne peuvent inclure que des caractères alphanumérique
 
 Pour connaître les règles complètes de nommage de référentiel, consultez la [spécification de distribution Open Container Initiative](https://github.com/docker/distribution/blob/master/docs/spec/api.md#overview).
 
-## <a name="image"></a>Image
+## <a name="artifact"></a>Artefact
 
 Une image conteneur (ou un autre artefact qui se trouve dans le registre) est associée à une ou plusieurs étiquettes, est constituée d’un ou plusieurs calques, et est identifiable par son manifeste. Comprendre comment ces composants sont liés entre eux peut vous aider à gérer de manière efficace votre registre.
 
@@ -73,15 +58,17 @@ Pour connaître les règles de nommage d’étiquette, consultez la [documentati
 
 ### <a name="layer"></a>Couche
 
-Les images conteneur sont constituées d’un ou plusieurs *calques*, correspondant chacun à une ligne dans le fichier Dockerfile qui définit l’image. Les images d’un registre ont des calques en commun, dans le but d’accroître l’efficacité du stockage. Par exemple, des images situées dans des référentiels différents peuvent partager le même calque de base Alpine Linux, qui n’est stocké qu’une seule fois dans le registre.
+Les images conteneur et les artefacts sont constitués d’une ou plusieurs *couches*. Les différents types d’artefacts définissent les couches différemment. Par exemple, dans une image conteneur Docker, chaque couche correspond à une ligne dans le fichier Dockerfile qui définit l’image :
 
-Le partage des calques optimise également la distribution des calques vers les nœuds qui contiennent plusieurs images ayant des calques en commun. Par exemple, si une image déjà présente dans un nœud a comme base un calque Alpine Linux, le prochain tirage (pull) d’une autre image référençant le même calque ne va pas transférer le calque vers le nœud. Au lieu de cela, il va référencer le calque déjà présent dans le nœud.
+:::image type="content" source="media/container-registry-concepts/container-image-layers.png" alt-text="Couches d’une image conteneur":::
+
+Les artefacts d’un registre partagent des couches communes, ce qui augmente l’efficacité du stockage. Par exemple, plusieurs images dans des référentiels différents peuvent partager une couche de base ASP.NET Core, mais une seule copie de cette couche est stockée dans le registre. Le partage des couches optimise également la distribution des couches sur les nœuds, avec plusieurs artefacts partageant des couches communes. Si une image déjà présente sur un nœud a comme base une couche ASP.NET Core, le tirage suivant d’une autre image référençant la même couche ne va pas transférer la couche au nœud. Au lieu de cela, il va référencer le calque déjà présent dans le nœud.
 
 Pour fournir une isolation sécurisée et une protection contre la manipulation de calques potentiels, les calques ne sont pas partagés entre les registres.
 
 ### <a name="manifest"></a>Manifeste
 
-Chaque image conteneur (ou artefact) envoyée (push) à un registre de conteneurs est associée à un *manifeste*. Le manifeste, qui est généré par le registre lorsque l’image est envoyée, identifie l’image de façon unique et spécifie ses calques. 
+Chaque image conteneur (ou artefact) envoyée (push) à un registre de conteneurs est associée à un *manifeste*. Le manifeste, qui est généré par le registre quand l’image est tirée, identifie les artefacts de façon univoque et spécifie les couches. Vous pouvez lister les manifestes d’un référentiel avec la commande Azure CLI [az acr repository show-manifests][az-acr-repository-show-manifests]. 
 
 Un manifeste de base pour une image `hello-world` Linux se présente comme suit :
 
@@ -145,20 +132,56 @@ az acr repository show-manifests --name myregistry --repository acr-helloworld
 
 ### <a name="manifest-digest"></a>Code de hachage de manifeste
 
-Les manifestes sont identifiables par un code de hachage SHA-256 unique, appelé *code de hachage de manifeste*. Chaque image (ou artefact), qu’elle soit ou non associée à une étiquette, est identifiable par son code de hachage. La valeur du code de hachage est unique, même si les données de calque de l’image sont identiques à celles d’une autre image. Ce mécanisme permet d’envoyer (push) à plusieurs reprises des images ayant la même étiquette vers le registre. Par exemple, vous pouvez envoyer `myimage:latest` à plusieurs reprises vers votre registre sans vous tromper, car chaque image est identifiable par son propre code de hachage.
+Les manifestes sont identifiables par un code de hachage SHA-256 unique, appelé *code de hachage de manifeste*. Chaque image (ou artefact), qu’elle soit ou non associée à une étiquette, est identifiable par son code de hachage. La valeur du code de hachage est unique, même si les données de couche de l’image sont identiques à celles d’un autre artefact. Ce mécanisme permet d’envoyer (push) à plusieurs reprises des images ayant la même étiquette vers le registre. Par exemple, vous pouvez envoyer `myimage:latest` à plusieurs reprises vers votre registre sans vous tromper, car chaque image est identifiable par son propre code de hachage.
 
-Vous pouvez tirer (pull) une image à partir du registre en spécifiant son code de hachage dans l’opération de tirage. Certains systèmes peuvent être configurés pour tirer en fonction du code de hachage, car celui-ci garantit la version de l’image tirée, même si une image avec la même étiquette est ensuite envoyée (push) vers le registre.
-
-Voici un exemple de tirage d’une image à partir du référentiel « acr-helloworld » en fonction du code de hachage du manifeste :
-
-`docker pull myregistry.azurecr.io/acr-helloworld@sha256:0a2e01852872580b2c2fea9380ff8d7b637d3928783c55beb3f21a6e58d5d108`
+Vous pouvez tirer (pull) une image à partir d’un registre en spécifiant son code de hachage dans l’opération de tirage. Certains systèmes peuvent être configurés pour tirer en fonction du code de hachage, car celui-ci garantit la version de l’image tirée, même si une image avec la même étiquette est ensuite poussée (push) au registre.
 
 > [!IMPORTANT]
-> Si vous envoyez plusieurs fois des images modifiées ayant une même étiquette, vous risquez de créer des images orphelines (c’est-à-dire sans étiquette), mais qui occupent toujours de l’espace dans votre registre. Lorsque vous répertoriez les images par étiquette, les images sans étiquette ne s’affichent pas dans Azure CLI ni dans le portail Azure. Toutefois, leurs calques se trouvent toujours dans le registre et consomment de l’espace de stockage. La suppression d’une image sans balise libère de l’espace dans le Registre lorsque le manifeste est le seul ou le dernier à pointer vers une couche particulière. Pour plus d’informations sur la libération d’espace utilisé par les images non balisées, consultez [Supprimer des images conteneur dans Azure Container Registry](container-registry-delete.md).
+> Si vous poussez (push) plusieurs fois des artefacts modifiés avec des étiquettes identiques, vous risquez de créer des images « orphelines » (des artefacts sans étiquette), mais qui occupent encore de l’espace dans votre registre. Lorsque vous répertoriez les images par étiquette, les images sans étiquette ne s’affichent pas dans Azure CLI ni dans le portail Azure. Toutefois, leurs calques se trouvent toujours dans le registre et consomment de l’espace de stockage. La suppression d’une image sans balise libère de l’espace dans le Registre lorsque le manifeste est le seul ou le dernier à pointer vers une couche particulière. Pour plus d’informations sur la libération d’espace utilisé par les images non balisées, consultez [Supprimer des images conteneur dans Azure Container Registry](container-registry-delete.md).
+
+## <a name="addressing-an-artifact"></a>Adressage d’un artefact
+
+Pour adresser un artefact de registre pour les opérations de poussée (push) et de tirage (pull) avec Docker ou d’autres outils clients, combinez le nom de registre complet, le nom du référentiel (y compris le chemin de l’espace de noms, le cas échéant), et une étiquette d’artefact ou un code de hachage de manifeste. Pour plus d’explications sur ces termes, consultez les sections précédentes.
+
+  **Adresse par étiquette** : `[loginServerUrl]/[repository][:tag]`
+    
+  **Adresse par code de hachage** : `[loginServerUrl]/[repository@sha256][:digest]`  
+
+Quand vous utilisez Docker ou d’autres outils clients pour tirer ou envoyer des artefacts à un registre de conteneurs Azure, utilisez l’URL complète du registre, qui est également appelée « nom du *serveur de connexion* ». Dans le cloud Azure, l’URL complète d’un registre de conteneurs Azure est au format `myregistry.azurecr.io` (tout en minuscules).
+
+> [!NOTE]
+> * Vous ne pouvez pas spécifier un numéro de port dans l’URL du serveur de connexion du registre, par exemple `myregistry.azurecr.io:443`. 
+> * L’étiquette `latest` est utilisée par défaut si vous n’en fournissez pas une dans votre commande.  
+
+   
+### <a name="push-by-tag"></a>Poussée (push) par étiquette
+
+Exemples : 
+
+   `docker push myregistry.azurecr.io/samples/myimage:20210106`
+
+   `docker push myregistry.azurecr.io/marketing/email-sender`
+
+### <a name="pull-by-tag"></a>Tirage (pull) par étiquette
+
+Exemple : 
+
+  `docker pull myregistry.azurecr.io/marketing/campaign10-18/email-sender:v2`
+
+### <a name="pull-by-manifest-digest"></a>Tirage (pull) par code de hachage de manifeste
+
+
+Exemple :
+
+  `docker pull myregistry.azurecr.io/acr-helloworld@sha256:0a2e01852872580b2c2fea9380ff8d7b637d3928783c55beb3f21a6e58d5d108`
+
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En savoir plus sur le [stockage d’images](container-registry-storage.md) et la [prise en charge des formats de contenu](container-registry-image-formats.md) dans Azure Container Registry.
+En savoir plus sur le [stockage de registre](container-registry-storage.md) et les [formats de contenu pris en charge](container-registry-image-formats.md) dans Azure Container Registry.
+
+Découvrez comment [envoyer et tirer](container-registry-get-started-docker-cli.md) des images dans Azure Container Registry.
 
 <!-- LINKS - Internal -->
 [az-acr-repository-show-manifests]: /cli/azure/acr/repository#az-acr-repository-show-manifests

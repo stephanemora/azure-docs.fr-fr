@@ -4,21 +4,26 @@ description: Apprendre à contrôler les admissions pod à l’aide de PodSecuri
 services: container-service
 ms.topic: article
 ms.date: 02/12/2021
-ms.openlocfilehash: 23c436cb3ddf970939ab9d7b936a4e03e1fbb7ff
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: cb317e5e0d1f558121e675f569bad37811768ca6
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100371224"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102180307"
 ---
 # <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>Aperçu - Sécuriser votre cluster à l’aide de stratégies de sécurité des pods dans Azure Kubernetes Service (AKS)
 
 > [!WARNING]
-> **La fonctionnalité décrite dans ce document, Stratégie de sécurité des pods (préversion), sera bientôt déconseillée et ne sera plus disponible après le 30 juin 2021** ; elle sera remplacée par [Azure Policy pour AKS](use-pod-security-on-azure-policy.md). La date de dépréciation a été repoussée (il s’agit initialement du 15 octobre 2020).
+> **La fonctionnalité décrite dans ce document, Stratégie de sécurité des pods (préversion), sera bientôt déconseillée et ne sera plus disponible après le 30 juin 2021** ; elle sera remplacée par [Azure Policy pour AKS](use-azure-policy.md). La date de dépréciation a été repoussée (il s’agit initialement du 15 octobre 2020).
 >
 > Une fois que la stratégie de sécurité des pods (préversion) sera déconseillée, vous devrez désactiver la fonctionnalité sur tous les clusters existants à l’aide de la fonctionnalité déconseillée pour effectuer les futures mises à niveau de cluster et continuer à bénéficier du support Azure.
 >
-> Il est vivement recommandé de commencer à tester des scénarios avec Azure Policy pour AKS, qui propose des stratégies intégrées permettant de sécuriser les pods et des initiatives intégrées qui correspondent aux stratégies de sécurité des pods. Cliquez ici pour en savoir plus sur la [migration vers Azure Policy à partir de la stratégie de sécurité des pods (préversion)](use-pod-security-on-azure-policy.md#migrate-from-kubernetes-pod-security-policy-to-azure-policy).
+> Il est vivement recommandé de commencer à tester des scénarios avec Azure Policy pour AKS, qui propose des stratégies intégrées permettant de sécuriser les pods et des initiatives intégrées qui correspondent aux stratégies de sécurité des pods. Pour migrer à partir d’une stratégie de sécurité des pods, vous devez effectuer les actions suivantes sur un cluster.
+> 
+> 1. [Désactivez la stratégie de sécurité des pods](#clean-up-resources) sur le cluster
+> 1. Installez le [module complémentaire Azure Policy][kubernetes-policy-reference]
+> 1. Activez les stratégies Azure souhaitées à partir des [stratégies intégrées disponibles][policy-samples]
+> 1. Consultez les [changements de comportement entre la stratégie de sécurité des pods et Azure Policy](#behavior-changes-between-pod-security-policy-and-azure-policy)
 
 Pour améliorer la sécurité de votre cluster AKS, vous pouvez limiter les pods pouvant être planifiés. Les pods qui demandent des ressources non autorisées ne sont pas exécutés dans le cluster AKS. Vous définissez cet accès à l’aide de stratégies de sécurité des pods. Cet article explique comment utiliser des stratégies de sécurité des pods pour limiter le déploiement de pods dans AKS.
 
@@ -77,6 +82,26 @@ Lorsque vous activez la stratégie de sécurité des pods dans un cluster AKS, c
 * Activer la fonctionnalité de stratégie de sécurité des pods
 
 Pour montrer comment les stratégies par défaut limitent les déploiements de pods, dans cet article, nous allons tout d’abord activer la fonctionnalité de stratégies de sécurité des pods, puis créer une stratégie personnalisée.
+
+### <a name="behavior-changes-between-pod-security-policy-and-azure-policy"></a>Changements de comportement entre la stratégie de sécurité des pods et Azure Policy
+
+Vous trouverez ci-dessous un résumé des changements de comportement entre la stratégie de sécurité des pods et Azure Policy.
+
+|Scénario| Stratégie de sécurité des pods | Azure Policy |
+|---|---|---|
+|Installation|Activez la fonctionnalité de stratégie de sécurité des pods |Installez le module complémentaire Azure Policy
+|Déployer des stratégies| Déployer la ressource de stratégie de sécurité des pods| Affectez des stratégies Azure à l’étendue de l’abonnement ou du groupe de ressources. Le module complémentaire Azure Policy est requis pour les applications de ressources Kubernetes.
+| Stratégies par défaut | Lorsque la stratégie de sécurité des pods est activée dans AKS, les stratégies privilégiées et non restreintes par défaut sont appliquées. | Après l’activation du module complémentaire Azure Policy, aucune stratégie n’est appliquée par défaut. Vous devez explicitement activer les stratégies dans Azure Policy.
+| Qui peut créer et attribuer une stratégie | L’administrateur de cluster crée une ressource de stratégie de sécurité des pods | Les utilisateurs doivent avoir un rôle minimal d’autorisations « propriétaire » ou « contributeur de stratégie de ressource » sur le groupe de ressources du cluster AKS. - Via l’API, les utilisateurs peuvent affecter des stratégies dans l’étendue de la ressource de cluster AKS. Les utilisateurs doivent avoir un rôle minimal d’autorisations « propriétaire » ou « contributeur de stratégie de ressource » sur le groupe de ressources du cluster AKS. - Dans le portail Azure, les stratégies peuvent être appliquées au niveau du groupe d’administration, de l’abonnement ou du groupe de ressources.
+| Autorisation des stratégies| Les utilisateurs et les comptes de service requièrent des autorisations explicites pour utiliser des stratégies de sécurité des pods. | Aucune affectation supplémentaire n’est requise pour autoriser des stratégies. Une fois les stratégies affectées dans Azure, tous les utilisateurs du cluster peuvent utiliser ces stratégies.
+| Applicabilité de la stratégie | L’utilisateur administrateur ignore la mise en œuvre des stratégies de sécurité des pods. | Tous les utilisateurs (administrateur & non-administrateur) voient les mêmes stratégies. Il n’existe aucune casse particulière basée sur les utilisateurs. L’application de stratégie peut être exclue au niveau de l’espace de noms.
+| Étendue de la stratégie | Les stratégies de sécurité des pods n'ont pas d'espace de noms | Les modèles de contrainte utilisés par Azure Policy n’ont pas d’espaces de noms.
+| Action Refus/Audit/Mutation | Les stratégies de sécurité des pods prennent uniquement en charge les actions de refus. La mutation peut être effectuée avec des valeurs par défaut sur les demandes de création. La validation peut être effectuée pendant les demandes de mise à jour.| Azure Policy prend en charge les actions d’audit et de refus. La mutation n’est pas encore prise en charge, mais planifiée.
+| Conformité à la stratégie de sécurité des pods | Il n’existe aucune visibilité sur la conformité des pods qui existaient avant l’activation de la stratégie de sécurité des pods. Les pods non conformes créés après l’activation des stratégies de sécurité des pods sont refusés. | Les pods non conformes qui existaient avant l’application des stratégies Azure s’affichent dans les violations de stratégie. Les pods non conformes créées après l’activation des stratégies Azure sont refusées si les stratégies sont définies avec un effet de refus.
+| Comment afficher les stratégies sur le cluster | `kubectl get psp` | `kubectl get constrainttemplate` -Toutes les stratégies sont retournées.
+| Norme de stratégie de sécurité des pods - Privilégiée | Une ressource de stratégie de sécurité des pods privilégiée est créée par défaut lors de l’activation de la fonctionnalité. | Le mode Privilégié n’implique aucune restriction, par conséquent, il équivaut à ne pas avoir d’affectation Azure Policy.
+| [Norme de stratégie de sécurité des pods - Ligne de base/Par défaut](https://kubernetes.io/docs/concepts/security/pod-security-standards/#baseline-default) | L’utilisateur installe une ressource de ligne de base de stratégie de sécurité des pods. | Azure Policy fournit une [initiative de ligne de base intégrée](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2Fa8640138-9b0a-4a28-b8cb-1666c838647d) qui correspond à la stratégie de sécurité des pods de base.
+| [Norme de stratégie de sécurité des pods - Restreinte](https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted) | L’utilisateur installe une ressource de ligne de base pour la stratégie de sécurité des pods. | Azure Policy fournit une [initiative de ligne de base intégrée](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2F42b8ef37-b724-4e24-bbc8-7a7708edfe00) qui correspond à la stratégie de sécurité des pods restreinte.
 
 ## <a name="enable-pod-security-policy-on-an-aks-cluster"></a>Activer la stratégie de sécurité des pods sur un cluster AKS
 
@@ -453,3 +478,4 @@ Pour plus d’informations sur la limitation du trafic réseau des pods, consult
 [aks-faq]: faq.md
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
+[policy-samples]: ./policy-reference.md#microsoftcontainerservice

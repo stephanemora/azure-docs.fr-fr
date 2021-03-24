@@ -3,15 +3,15 @@ title: Créer des tâches d'automatisation pour gérer et surveiller les ressour
 description: Configurez des tâches automatisées pour gérer les ressources Azure et surveiller les coûts en créant des workflows exécutés sur Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: deli, jonfan, logicappspm
+ms.reviewer: logicappspm
 ms.topic: conceptual
-ms.date: 09/23/2020
-ms.openlocfilehash: 2b3b40b5958df52dabf92155a1de809578f1d374
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.date: 02/19/2021
+ms.openlocfilehash: 8180fe8554e5fff83e4caef8c245839518649ca1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92201118"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719047"
 ---
 # <a name="manage-azure-resources-and-monitor-costs-by-creating-automation-tasks-preview"></a>Gérer les ressources Azure et surveiller les coûts en créant des tâches d'automatisation (préversion)
 
@@ -71,13 +71,15 @@ Actuellement, vous pouvez créer une tâche d'automatisation au niveau des resso
 
    ![Capture d'écran du volet « Tâches » du compte de stockage où « Ajouter » est sélectionné sur la barre d'outils](./media/create-automation-tasks-azure-resources/add-automation-task.png)
 
-1. Dans le volet **Ajouter une tâche**, sous **Sélectionner un modèle**, sélectionnez le modèle de tâche que vous souhaitez créer, puis sélectionnez **Suivant : Authentification**.
+1. Dans le volet **Ajouter une tâche**, sous **Sélectionner un modèle**, sélectionnez le modèle de tâche que vous souhaitez créer. Si la page suivante ne s’affiche pas, sélectionnez **Suivant : Authentification**.
 
    Cet exemple se poursuit avec la sélection du modèle de tâche **Envoyer le coût mensuel de la ressource**.
 
    ![Capture d'écran présentant les sélections « Envoyer le coût mensuel de la ressource » et « Suivant : Authentification »](./media/create-automation-tasks-azure-resources/select-task-template.png)
 
-1. Sous **Authentification**, dans la section **Connexions**, sélectionnez **Créer** pour chaque connexion afin de pouvoir fournir les informations d'authentification correspondantes. Les types de connexions varient en fonction de la tâche.
+1. Sous **Authentification**, dans la section **Connexions**, sélectionnez **Créer** pour chacune des connexions qui apparaissent dans la tâche afin de pouvoir fournir toutes les informations d’authentification. Les types de connexions varient en fonction de la tâche.
+
+   Cet exemple ne montre qu’une seule des connexions requises par cette tâche.
 
    ![Capture d'écran sur laquelle l'option « Créer » est sélectionnée pour la connexion Azure Resource Manager](./media/create-automation-tasks-azure-resources/create-authenticate-connections.png)
 
@@ -89,7 +91,7 @@ Actuellement, vous pouvez créer une tâche d'automatisation au niveau des resso
 
    ![Capture d'écran présentant une connexion créée avec succès](./media/create-automation-tasks-azure-resources/create-connection-success.png)
 
-1. Après avoir authentifié toutes les connexions requises, sélectionnez **Suivant : Configuration**.
+1. Après avoir authentifié toutes les connexions, sélectionnez **Suivant : Configuration** si la page suivante n’apparaît pas.
 
 1. Sous **Configuration**, donnez un nom à la tâche et renseignez les autres informations requises. Sélectionnez **Créer** lorsque vous avez terminé.
 
@@ -265,7 +267,7 @@ Lorsque vous modifiez le workflow sous-jacent d'une tâche d'automatisation, vos
 
 ## <a name="provide-feedback"></a>Fournir un feedback
 
-Nous attendons vos remarques ! Pour nous signaler des bogues, nous faire part de vos commentaires ou nous poser des questions sur cette préversion, [contactez l'équipe Azure Logic Apps](mailto:logicapps@microsoft.com).
+Nous attendons vos remarques ! Pour nous signaler des bogues, nous faire part de vos commentaires ou nous poser des questions sur cette préversion, [contactez l'équipe Azure Logic Apps](mailto:logicappspm@microsoft.com).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

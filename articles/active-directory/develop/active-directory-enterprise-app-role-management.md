@@ -10,14 +10,14 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/07/2020
+ms.date: 02/15/2021
 ms.author: jeedes
-ms.openlocfilehash: 38673df29dd50e77acc4b4d106d69a82cad9c040
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 3c1b4b3d57bdce4a66adb35717f46d8989ee2453
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100104346"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101648813"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Procédure : Configurer les revendications de rôle émises dans le jeton SAML pour les applications d'entreprise
 
@@ -27,6 +27,9 @@ Grâce à Azure Active Directory (Azure AD), vous pouvez personnaliser le type d
 
 - Un abonnement Azure AD avec l’installation des répertoires.
 - Un abonnement pour lequel l’authentification unique (SSO) est activée. Vous devez configurer l’authentification unique avec votre application.
+
+> [!NOTE]
+> Cet article explique comment créer/mettre à jour/supprimer des rôles d’application sur le principal du service à l’aide d’API dans Azure AD. Si vous souhaitez utiliser la nouvelle interface utilisateur pour les rôles d’application, consultez les informations détaillées [ici](./howto-add-app-roles-in-azure-ad-apps.md).
 
 ## <a name="when-to-use-this-feature"></a>Quand utiliser cette fonctionnalité
 

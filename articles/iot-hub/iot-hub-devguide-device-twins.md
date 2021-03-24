@@ -11,12 +11,12 @@ ms.date: 09/29/2020
 ms.custom:
 - mqtt
 - 'Role: Cloud Development'
-ms.openlocfilehash: b83faecb16ac09a47a0ade25474f7a5b3ecd4296
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: fff4b9157c30203f47c65a74b211e3dbf6426d92
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400926"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101093030"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Comprendre et utiliser les jumeaux d’appareil IoT Hub
 
@@ -42,6 +42,8 @@ Vous pouvez utiliser des jumeaux d’appareil pour répondre aux besoins suivant
 Pour des conseils sur l’utilisation des propriétés rapportées, des messages appareil-à-cloud ou du chargement de fichiers, consultez [Recommandations sur les communications appareil-à-cloud](iot-hub-devguide-d2c-guidance.md).
 
 Pour des conseils sur l’utilisation des propriétés souhaitées, des méthodes directes ou des messages cloud-à-appareil, consultez [Recommandations sur les communications cloud-à-appareil](iot-hub-devguide-c2d-guidance.md).
+
+Pour découvrir dans quelle mesure les jumeaux d’appareil sont liés au modèle d’appareil utilisé par un appareil Azure IoT Plug-and-Play, consultez [Comprendre les jumeaux numériques IoT Plug-and-Play](../iot-pnp/concepts-digital-twin.md).
 
 ## <a name="device-twins"></a>Jumeaux d’appareil
 

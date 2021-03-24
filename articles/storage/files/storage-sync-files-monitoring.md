@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/28/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: d1e51552acdd869a3f304a6d48e18e9d2aa6c782
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 272a642f70849b85be00d2507109eb97935c0dde
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100576782"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102202499"
 ---
 # <a name="monitor-azure-file-sync"></a>Superviser Azure File Sync
 
@@ -111,7 +111,7 @@ Pour afficher l’intégrité d’un **point de terminaison de serveur**  dans l
 
 - L’**intégrité du point de terminaison de serveur** et l’**activité de synchronisation** dans le portail sont basées sur les événements de synchronisation qui sont enregistrés dans le journal d’événements de télémétrie sur le serveur (ID 9102 et 9302). Si une session de synchronisation échoue à cause d’une erreur transitoire, telle qu’une erreur annulée, le point de terminaison de serveur apparaît toujours comme **sain** sur le portail tant que la session de synchronisation progresse (les fichiers sont appliqués). L’événement ID 9302 est l’événement de progression de la synchronisation et l’événement ID 9102 est consigné une fois la session de synchronisation terminée.  Pour plus d'informations, consultez [Intégrité de la synchronisation](./storage-sync-files-troubleshoot.md?tabs=server%252cazure-portal#broken-sync) et [Progression de la synchronisation](./storage-sync-files-troubleshoot.md?tabs=server%252cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session). Si l’intégrité du point de terminaison de serveur affiche une **Erreur** ou **Aucune activité**, consultez la [documentation sur la résolution des problèmes](./storage-sync-files-troubleshoot.md?tabs=portal1%252cazure-portal#common-sync-errors) pour obtenir de l’aide.
 - Le nombre de fichiers **non synchronisés** dans le portail est basé sur l’ID d’événement 9121 qui est consigné dans le journal des événements de télémétrie sur le serveur. Cet événement est journalisé pour chaque erreur par élément une fois la session de synchronisation terminée. Pour résoudre ce type d’erreur, consultez [Comment puis-je voir s’il existe des fichiers ou dossiers qui ne sont pas synchronisés ?](./storage-sync-files-troubleshoot.md?tabs=server%252cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing).
-- Pour visualiser l’**efficacité de la hiérarchisation cloud** dans le portail, accédez à la section **Propriétés du point de terminaison de serveur**, puis à la section **Hiérarchisation cloud**. Les données fournies pour l’efficacité de la hiérarchisation cloud sont basées sur l’événement ID 9071 qui est consigné dans le journal des événements de télémétrie sur le serveur. Pour plus d’informations, consultez [Vue d’ensemble de la hiérarchisation cloud](./storage-sync-cloud-tiering.md).
+- Pour visualiser l’**efficacité de la hiérarchisation cloud** dans le portail, accédez à la section **Propriétés du point de terminaison de serveur**, puis à la section **Hiérarchisation cloud**. Les données fournies pour l’efficacité de la hiérarchisation cloud sont basées sur l’événement ID 9071 qui est consigné dans le journal des événements de télémétrie sur le serveur. Pour plus d’informations, consultez [Surveiller la hiérarchisation Cloud](./storage-sync-monitor-cloud-tiering.md).
 - Pour visualiser les **fichiers non hiérarchisés** et les **erreurs de rappel** dans le portail, accédez à la section **Propriétés du point de terminaison de serveur**, puis à la section **Hiérarchisation cloud**. Les **fichiers non hiérarchisés** sont basés sur l’ID d’événement 9003 qui est consigné dans le journal des événements de télémétrie sur le serveur et les **erreurs de rappel** sont basées sur l’ID d’événement 9006. Pour examiner les fichiers qui ne peuvent pas être hiérarchisés ou rappelés, consultez [Résoudre les problèmes de hiérarchisation de fichiers](./storage-sync-files-troubleshoot.md?tabs=portal1%252cazure-portal#how-to-troubleshoot-files-that-fail-to-tier) et [Résoudre les problèmes de hiérarchisation de fichiers](./storage-sync-files-troubleshoot.md?tabs=portal1%252cazure-portal#how-to-troubleshoot-files-that-fail-to-be-recalled).
 
 ### <a name="metric-charts"></a>Graphiques de métrique

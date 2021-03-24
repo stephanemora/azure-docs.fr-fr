@@ -6,13 +6,13 @@ author: kromerm
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/04/2020
-ms.openlocfilehash: 5b2197950d5dbb95bd0a90f15506756ee3ed0b2d
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 02/19/2021
+ms.openlocfilehash: 0aa472aca40acbaf3f8c8a09469d08fe6b37187a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100369830"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699757"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>Mode de débogage du mappage de flux de données
 
@@ -39,9 +39,9 @@ Dans la plupart des cas, nous vous recommandons de créer vos flux de données e
 
 ## <a name="cluster-status"></a>État du cluster
 
-L’indicateur d’état du cluster en haut de l’aire de conception devient vert quand le cluster est prêt pour le débogage. Si votre cluster est déjà chaud, l’indicateur vert apparaît presque instantanément. Si votre cluster n’est pas en cours d’exécution quand vous entrez en mode débogage, vous devez attendre 5 à 7 minutes avant que le cluster ne soit opérationnel. L’indicateur tournera jusqu’à être prêt.
+L’indicateur d’état du cluster en haut de l’aire de conception devient vert quand le cluster est prêt pour le débogage. Si votre cluster est déjà chaud, l’indicateur vert apparaît presque instantanément. Si votre cluster n’était pas déjà en cours d’exécution lorsque vous avez activé le mode de débogage, le cluster Spark effectue un démarrage à froid. L’indicateur tournera jusqu’à ce que l’environnement soit prêt pour le débogage interactif.
 
-Une fois le débogage terminé, désactivez-le à l’aide du commutateur pour que votre cluster Azure Databricks puisse se terminer. Vous n’êtes alors plus facturé pour l’activité de débogage.
+Une fois le débogage terminé, désactivez-le à l’aide du commutateur pour que votre cluster Spark puisse se terminer. Vous n’êtes alors plus facturé pour l’activité de débogage.
 
 ## <a name="debug-settings"></a>Paramètres de débogage
 
@@ -50,6 +50,8 @@ Une fois que vous activez le mode débogage, vous pouvez modifier la façon dont
 ![Paramètres de débogage](media/data-flow/debug-settings.png "Paramètres de débogage")
 
 Si vous avez des paramètres dans votre flux de données ou dans l’un de ses jeux de données référencés, vous pouvez spécifier les valeurs à utiliser pendant le débogage en sélectionnant l'onglet **Paramètres**.
+
+Utilisez les paramètres d’échantillonnage disponibles ici pour pointer vers des exemples de fichiers ou pour échantillonner des tables de données afin de ne pas avoir à modifier vos jeux de données sources. À l’aide d’un exemple de fichier ou de table disponible ici, vous pouvez conserver les mêmes paramètres de logique et de propriété dans votre flux de données, sans quitter le sous-ensemble de données.
 
 ![Configuration des paramètres de débogage](media/data-flow/debug-settings2.png "Configuration des paramètres de débogage")
 

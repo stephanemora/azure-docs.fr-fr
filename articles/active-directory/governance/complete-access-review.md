@@ -16,12 +16,12 @@ ms.date: 02/08/2021
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f1abbabb9197011b826e58d518ddff4364edab7
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: e31b9ce115ebe0723a9d082aaddd8056e486ed27
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100008197"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102176975"
 ---
 # <a name="complete-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Effectuer une révision d’accès des groupes et applications dans les révisions d’accès Azure AD
 
@@ -59,7 +59,7 @@ Vous pouvez suivre la progression des révisions effectuées par les réviseurs.
     ![Réviser l’accès invité dans les groupes Microsoft 365](./media/complete-access-review/all-company-group-results.png)
 
 
-    Si vous affichez une révision d’accès qui révise l’accès invité dans les groupes Microsoft 365 (préversion), le panneau Vue d’ensemble répertorie chaque groupe dans la révision. 
+    Si vous affichez une révision d’accès qui révise l’accès invité dans les groupes Microsoft 365, le panneau Vue d’ensemble répertorie chaque groupe dans la révision. 
    
     ![Réviser l’accès invité dans les groupes Microsoft 365](./media/complete-access-review/review-guest-access-across-365-groups.png)
 

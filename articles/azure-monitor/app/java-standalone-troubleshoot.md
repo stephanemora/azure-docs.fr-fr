@@ -4,12 +4,12 @@ description: Découvrez comment résoudre les problèmes liés à l’agent Java
 ms.topic: conceptual
 ms.date: 11/30/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 286354ecf508dec7b9ba7633bf3b5c7ddc6bfd91
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 45f45e71546909b71c71c66303c1459edd74548f
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101737055"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102199609"
 ---
 # <a name="troubleshooting-guide-azure-monitor-application-insights-for-java"></a>Guide de résolution des problèmes : Azure Monitor Application Insights pour Java
 
@@ -45,7 +45,7 @@ La journalisation n’est capturée que si elle respecte, premièrement, le seui
 
 La meilleure façon de savoir si une instruction de journalisation particulière respecte le seuil configuré des frameworks de journalisation est de confirmer qu’elle apparaît dans le journal des applications (par exemple, fichier ou console).
 
-Notez également que, si une exception est transmise à l’enregistreur d’événements, le message de journal (et l’exception) s’affichent dans le portail Azure dans la table `exceptions` au lieu de la table `traces`.
+Si un objet d’exception est transmis à l’enregistreur d’événements, le message de journal (et les détails de l’objet d’exception) s’affiche dans le Portail Azure dans la table `exceptions` au lieu de la table `traces`.
 
 Pour plus d’informations, consultez la [configuration de la journalisation collectée automatiquement](./java-standalone-config.md#auto-collected-logging).
 

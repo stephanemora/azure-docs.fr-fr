@@ -2,18 +2,19 @@
 title: Sauvegarder et récupérer une base de données Oracle Database 19c sur une machine virtuelle Linux Azure à l'aide du service Sauvegarde Azure
 description: Apprenez à sauvegarder et récupérer une base de données Oracle Database 19c à l'aide du service Sauvegarde Azure.
 author: cro27
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: oracle
+ms.collection: linux
 ms.topic: article
 ms.date: 01/28/2021
 ms.author: cholse
 ms.reviewer: dbakevlar
-ms.openlocfilehash: ac045694e8975509635e03221a8cb9cc84446b55
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 90f86a198ad36c2961f77336092d863953ee45ba
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99806407"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101673885"
 ---
 # <a name="back-up-and-recover-an-oracle-database-19c-database-on-an-azure-linux-vm-using-azure-backup"></a>Sauvegarder et récupérer une base de données Oracle Database 19c sur une machine virtuelle Linux Azure à l'aide du service Sauvegarde Azure
 
@@ -199,13 +200,13 @@ Cette étape part du principe que vous disposez d'une instance d'Oracle (*test*)
      RMAN> backup as compressed backupset database plus archivelog;
      ```
 
-## <a name="using-azure-backup"></a>Utilisation du service Sauvegarde Azure
+## <a name="using-azure-backup-preview"></a>Utilisation de Sauvegarde Azure (Préversion)
 
 Le service de sauvegarde Azure fournit des solutions simples, sécurisées et rentables pour sauvegarder vos données et les récupérer à partir du cloud Microsoft Azure. Le service Sauvegarde Azure fournit des sauvegardes indépendantes et isolées pour éviter une destruction accidentelle des données d’origine. Les sauvegardes sont stockées dans un coffre Recovery Services avec gestion intégrée des points de récupération. La configuration et la scalabilité sont simples : les sauvegardes sont optimisées, et vous pouvez facilement effectuer des restaurations en fonction des besoins.
 
-Le service Sauvegarde Azure fournit une [infrastructure](../../../backup/backup-azure-linux-app-consistent.md) permettant d'assurer la cohérence des applications lors des sauvegardes de machines virtuelles Windows et Linux pour diverses applications comme Oracle, MySQL, Mongo DB, SAP HANA et PostGreSQL. Cela implique l'appel d'un pré-script (pour suspendre les applications) avant la capture instantanée des disques, et l'appel d'un post-script (commandes permettant de libérer les applications) au terme de la capture instantanée, pour rétablir les applications en mode normal. Des exemples de pré-scripts et de post-scripts sont fournis sur GitHub, mais la création et la maintenance de ceux-ci relèvent de votre responsabilité. 
+Le service Sauvegarde Azure fournit un [framework](../../../backup/backup-azure-linux-app-consistent.md) qui permet d’assurer la cohérence des applications lors de sauvegardes de machines virtuelles Windows et Linux pour diverses applications comme Oracle, MySQL, Mongo DB et PostGreSQL. Cela implique l'appel d'un pré-script (pour suspendre les applications) avant la capture instantanée des disques, et l'appel d'un post-script (commandes permettant de libérer les applications) au terme de la capture instantanée, pour rétablir les applications en mode normal. Des exemples de pré-scripts et de post-scripts sont fournis sur GitHub, mais la création et la maintenance de ceux-ci relèvent de votre responsabilité.
 
-Le service Sauvegarde Azure fournit désormais une infrastructure améliorée qui offre des pré-scripts et post-scripts empaquetés pour certaines applications. Il suffit aux utilisateurs du service Sauvegarde Azure de nommer l'application, après quoi la fonctionnalité de sauvegarde des machines virtuelles Azure appelle automatiquement les pré/post-scripts appropriés. Les pré-scripts et post-scripts empaquetés sont gérés par l'équipe du service Sauvegarde Azure. Les utilisateurs sont ainsi assurés de la prise en charge, de la propriété et de la validité de ces scripts. Les applications actuellement prises en charge pour l'infrastructure améliorée sont *Oracle* et *MySQL*.
+Désormais, le service Sauvegarde Azure propose un framework enrichi de pré-scripts et de post-scripts (**actuellement en préversion**), qui consiste à fournir des pré-scripts et post-scripts empaquetés pour des applications sélectionnées. Il suffit aux utilisateurs du service Sauvegarde Azure de nommer l'application, après quoi la fonctionnalité de sauvegarde des machines virtuelles Azure appelle automatiquement les pré/post-scripts appropriés. Les pré-scripts et post-scripts empaquetés sont gérés par l'équipe du service Sauvegarde Azure. Les utilisateurs sont ainsi assurés de la prise en charge, de la propriété et de la validité de ces scripts. Les applications actuellement prises en charge pour l'infrastructure améliorée sont *Oracle* et *MySQL*.
 
 Dans cette section, vous allez utiliser l'infrastructure améliorée du service Sauvegarde Azure pour prendre des captures instantanées cohérentes avec les applications de votre machine virtuelle et de la base de données Oracle exécutée. La base de données est placée en mode de sauvegarde, ce qui permet d'effectuer une sauvegarde en ligne cohérente sur le plan transactionnel pendant que le service Sauvegarde Azure prend une capture instantanée des disques de la machine virtuelle. La capture instantanée étant une copie complète du stockage, et non un instantané incrémentiel ou de copie sur écriture, il s'agit d'un support efficace à partir duquel restaurer votre base de données. L'avantage des captures instantanées cohérentes avec les applications Sauvegarde Azure est qu'elles sont prises extrêmement rapidement, quelle que soit la taille de votre base de données, et une capture instantanée peut être utilisée pour les opérations de restauration dès qu'elle est prise, sans avoir à attendre qu'elle soit transférée vers le coffre Recovery Services.
 
@@ -314,7 +315,7 @@ Pour utiliser le service Sauvegarde Azure afin de sauvegarder la base de donnée
    sudo su -
    ```
 
-2. Créez un répertoire pour les sauvegardes cohérentes avec les applications :
+2. Recherchez le dossier « etc/azure ». S’il est absent, créez un répertoire de travail pour les sauvegardes de cohérence des applications :
 
    ```bash
    if [ ! -d "/etc/azure" ]; then
@@ -322,7 +323,7 @@ Pour utiliser le service Sauvegarde Azure afin de sauvegarder la base de donnée
    fi
    ```
 
-3. Créez dans le répertoire */etc/azure* un fichier nommé *workload.conf* avec le contenu suivant, qui doit commencer par `[workload]`. La commande suivante crée le fichier et renseigne le contenu :
+3. Recherchez « workload.conf » dans le dossier. S’il est absent, créez dans le répertoire */etc/azure* un fichier nommé *workload.conf* avec le contenu suivant, qui doit commencer par `[workload]`. Si le fichier est déjà présent, modifiez les champs de manière à le faire correspondre au contenu suivant. Sinon, la commande suivante peut créer le fichier et renseigner le contenu :
 
    ```bash
    echo "[workload]
@@ -330,14 +331,6 @@ Pour utiliser le service Sauvegarde Azure afin de sauvegarder la base de donnée
    command_path = /u01/app/oracle/product/19.0.0/dbhome_1/bin/
    timeout = 90
    linux_user = azbackup" > /etc/azure/workload.conf
-   ```
-
-4. Téléchargez les scripts preOracleMaster.sql et postOracleMaster.sql à partir du [référentiel GitHub](https://github.com/Azure/azure-linux-extensions/tree/master/VMBackup/main/workloadPatch/DefaultScripts) et copiez-les dans le répertoire */etc/azure*.
-
-5. Modifiez les autorisations des fichiers.
-
-```bash
-   chmod 744 workload.conf preOracleMaster.sql postOracleMaster.sql 
    ```
 
 ### <a name="trigger-an-application-consistent-backup-of-the-vm"></a>Déclencher une sauvegarde cohérente avec les applications de la machine virtuelle
@@ -970,4 +963,4 @@ az group delete --name rg-oracle
 
 [Tutoriel : Créer des machines virtuelles hautement disponibles](../../linux/create-cli-complete.md)
 
-[Explorer des exemples Azure CLI de déploiement de machines virtuelles](../../linux/cli-samples.md)
+[Explorer des exemples Azure CLI de déploiement de machines virtuelles](https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine)

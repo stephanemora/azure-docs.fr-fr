@@ -6,12 +6,12 @@ ms.date: 03/29/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 811827c1053349d4fa80a25e5cf362331e5d87bc
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: b695df29b7a4704ee9e4e25e402fa0de8f2b7685
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100383175"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103008210"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights"></a>Supervision des applications Java sans code avec Azure Monitor Application Insights
 
@@ -323,4 +323,29 @@ import com.microsoft.applicationinsights.web.internal.ThreadContext;
 
 RequestTelemetry requestTelemetry = ThreadContext.getRequestTelemetryContext().getHttpRequestTelemetry();
 requestTelemetry.setName("myname");
+```
+
+### <a name="get-the-request-telemetry-id-and-the-operation-id-using-the-2x-sdk"></a>Procurez-vous l'ID de la télémétrie de requête et l'ID de l'opération à l'aide du kit de développement logiciel (SDK) 2.x
+
+> [!NOTE]
+> Cette fonctionnalité n'est disponible qu'à partir de la version 3.0.3-BETA
+
+Ajoutez `applicationinsights-web-2.6.2.jar` à votre application (toutes les versions 2.x sont prises en charge par Application Insights pour Java 3.0, mais il est préférable d’utiliser la dernière version si vous avez le choix) :
+
+```xml
+<dependency>
+  <groupId>com.microsoft.azure</groupId>
+  <artifactId>applicationinsights-web</artifactId>
+  <version>2.6.2</version>
+</dependency>
+```
+
+et procurez-vous l'ID de la télémétrie de requête et l'ID de l'opération à partir de votre code :
+
+```java
+import com.microsoft.applicationinsights.web.internal.ThreadContext;
+
+RequestTelemetry requestTelemetry = ThreadContext.getRequestTelemetryContext().getHttpRequestTelemetry();
+String requestId = requestTelemetry.getId();
+String operationId = requestTelemetry.getContext().getOperation().getId();
 ```

@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, sstein
 ms.date: 12/9/2020
-ms.openlocfilehash: f50042caf21630c5054ead76825e49b820405c5b
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: c478edf95ae345d64da630400fbf63ac613b73a6
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98732692"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653633"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-databases-in-azure-sql-database"></a>Les pools élastiques vous aident à gérer et à mettre à l’échelle plusieurs bases de données dans Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -90,15 +90,10 @@ Pour connaître les niveaux de service et les limites de ressources de chacun de
 Les étapes suivantes peuvent vous aider à estimer si un pool est plus économique que les bases de données uniques :
 
 1. Pour estimer le nombre d’eDTU ou de vCore nécessaires pour le pool, procédez de la manière suivante :
-
-Modèle d’achat DTU :
-
-MAX(<*Nombre total de bases de données* X *Utilisation moyenne de DTU par base de données*>, <*Nombre de bases de données connaissant un pic simultané* X *Utilisation maximale de DTU par base de données*>)
-
-Pour le modèle d’achat vCore :
-
-MAX(<*Nombre total de bases de données* X *Utilisation moyenne des vCores par base de données*>, <*Nombre de bases de données connaissant un pic simultané* X *Utilisation maximale des vCores par base de données*>)
-
+   - Pour le modèle d’achat DTU :
+     - MAX(<*Nombre total de bases de données* &times; *Utilisation moyenne des DTU par base de données*>, <*Nombre de bases de données connaissant un pic simultané* &times; *Utilisation maximale des DTU par base de données*>)
+   - Pour le modèle d’achat vCore :
+     - MAX(<*Nombre total de bases de données* &times; *Utilisation moyenne des vCores par base de données*>, <*Nombre de bases de données connaissant un pic simultané* &times; *Utilisation maximale des vCores par base de données*>)
 2. Estimez l’espace de stockage total nécessaire au pool en ajoutant la taille des données nécessaires à toutes les bases de données du pool. Pour le modèle d’achat DTU, déterminez ensuite la taille du pool d’eDTU qui fournit cette quantité de stockage.
 3. Pour le modèle d’achat DTU, prenez la plus grande des estimations d’eDTU de l’étape 1 et de l’étape 2. Pour le modèle d’achat vCore, prenez l’estimation vCore de l’étape 1.
 4. Dans la [page des prix de SQL Database](https://azure.microsoft.com/pricing/details/sql-database/), recherchez le plus petit pool dont la taille est supérieure à l’estimation de l’étape 3.

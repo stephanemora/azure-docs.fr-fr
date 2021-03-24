@@ -5,15 +5,15 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/16/2020
+ms.date: 02/17/2021
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 2a1455c5956297a19d640146879f93b61d035139
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: d8ef616ef059424846d5c42a91262881b8f6d30b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98185901"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101701805"
 ---
 # <a name="access-control-lists-acls-in-azure-data-lake-storage-gen2"></a>Listes de contrôle d’accès (ACL) dans Azure Data Lake Storage Gen2
 
@@ -28,18 +28,20 @@ Vous pouvez associer un [principal de sécurité](../../role-based-access-contro
 > [!NOTE]
 > Les listes de contrôle d’accès s’appliquent uniquement aux principaux de sécurité dans le même locataire et ne s’appliquent pas aux utilisateurs qui utilisent l’authentification par jeton de clé partagée ou de signature d’accès partagé (SAS). En effet, aucune identité n’est associée à l’appelant. Par conséquent, aucune permission basée sur une autorisation de principal de sécurité ne peut être accordée.  
 
+<a id="set-access-control-lists"></a>
+
 ## <a name="how-to-set-acls"></a>Comment définir des listes de contrôle d’accès
 
 Pour définir des autorisations au niveau des fichiers et des répertoires, consultez l’un des articles suivants :
 
 | Environnement | Article |
 |--------|-----------|
-|Explorateur de stockage Azure |[Utiliser l’Explorateur Stockage Azure pour gérer les répertoires, les fichiers et les listes de contrôle d’accès dans Azure Data Lake Storage Gen2](data-lake-storage-explorer.md#managing-access)|
-|.NET |[Utiliser .NET pour gérer les répertoires, les fichiers et les listes de contrôle d’accès dans Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-dotnet.md#manage-access-control-lists-acls)|
-|Java|[Utilisez Java pour gérer les répertoires, les fichiers et les listes de contrôle d’accès dans Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-java.md#manage-access-control-lists-acls)|
-|Python|[Utilisez Python pour gérer les répertoires, les fichiers et les listes de contrôle d’accès dans Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-python.md#manage-access-control-lists-acls)|
-|PowerShell|[Utiliser PowerShell pour gérer les répertoires, les fichiers et les listes de contrôle d’accès dans Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-powershell.md#manage-access-control-lists-acls)|
-|Azure CLI|[Utiliser Azure CLI pour les fichiers et les listes de contrôle d’accès dans Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-cli.md#manage-access-control-lists-acls)|
+|Explorateur de stockage Azure |[Utiliser l’Explorateur Stockage Azure pour définir des listes de contrôle d’accès dans Azure Data Lake Storage Gen2](data-lake-storage-explorer-acl.md)|
+|.NET |[Utiliser .NET pour définir des listes de contrôle d’accès dans Azure Data Lake Storage Gen2](data-lake-storage-acl-dotnet.md)|
+|Java|[Utiliser Java pour définir des listes de contrôle d’accès dans Azure Data Lake Storage Gen2](data-lake-storage-acl-java.md)|
+|Python|[Utiliser Python pour définir des listes de contrôle d’accès dans Azure Data Lake Storage Gen2](data-lake-storage-acl-python.md)|
+|PowerShell|[Utiliser PowerShell pour définir des listes de contrôle d’accès dans Azure Data Lake Storage Gen2](data-lake-storage-acl-powershell.md)|
+|Azure CLI|[Utiliser Azure CLI pour définir des listes de contrôle d’accès dans Azure Data Lake Storage Gen2](data-lake-storage-acl-cli.md)|
 |API REST |[Chemin d’accès – Mise à jour](/rest/api/storageservices/datalakestoragegen2/path/update)|
 
 > [!IMPORTANT]
@@ -273,7 +275,7 @@ Pour savoir comment le système évalue le RBAC et les ACL Azure pour prendre de
 
 ### <a name="what-are-the-limits-for-azure-role-assignments-and-acl-entries"></a>Quelles sont les limites sur les affectations de rôle Azure et les entrées ACL ?
 
-Le tableau suivant fournit une vue de synthèse des limites à prendre en compte lors de l’utilisation d’Azure RBAC pour gérer les autorisations « grossièrement granulaires » (autorisations qui s’appliquent aux comptes de stockage ou aux conteneurs) et l’utilisation des ACL pour gérer les autorisations « affinées » (autorisations qui s’appliquent aux fichiers et aux répertoires). Utilisez des groupes de sécurité pour les attributions des ACL. En utilisant des groupes, vous êtes moins susceptible de dépasser le nombre maximal d’attributions de rôles par abonnement et le nombre maximal d’entrées ACl par fichier ou par répertoire. 
+Le tableau suivant fournit une vue de synthèse des limites à prendre en compte lors de l’utilisation d’Azure RBAC pour gérer les autorisations « grossièrement granulaires » (autorisations qui s’appliquent aux comptes de stockage ou aux conteneurs) et l’utilisation des ACL pour gérer les autorisations « affinées » (autorisations qui s’appliquent aux fichiers et aux répertoires). Utilisez des groupes de sécurité pour les attributions des ACL. En utilisant des groupes, vous êtes moins susceptible de dépasser le nombre maximal d’attributions de rôles par abonnement et le nombre maximal d’entrées ACL par fichier ou par répertoire. 
 
 [!INCLUDE [Security groups](../../../includes/azure-storage-data-lake-rbac-acl-limits.md)] 
 
@@ -283,7 +285,7 @@ Les affectations de rôle Azure peuvent être héritées. Les affectations passe
 
 ### <a name="does-data-lake-storage-gen2-support-inheritance-of-acls"></a>Data Lake Storage Gen2 prend-il en charge l’héritage des ACL ?
 
-Les ACL par défaut peuvent être utilisées pour définir les ACL des sous-répertoires et fichiers enfants nouvellement créés sous le répertoire parent. Pour mettre à jour les listes de contrôle d’accès pour les éléments enfants existants, vous devez ajouter, mettre à jour ou supprimer les listes de contrôle d’accès de manière récursive pour la hiérarchie de répertoires souhaitée. Pour plus d’informations, consultez [Définir des listes de contrôle d’accès (ACL) de manière récursive pour Azure Data Lake Storage Gen2](recursive-access-control-lists.md). 
+Les ACL par défaut peuvent être utilisées pour définir les ACL des sous-répertoires et fichiers enfants nouvellement créés sous le répertoire parent. Pour mettre à jour les listes de contrôle d’accès pour les éléments enfants existants, vous devez ajouter, mettre à jour ou supprimer les listes de contrôle d’accès de manière récursive pour la hiérarchie de répertoires souhaitée. Pour plus d’informations, consultez [Définir des listes de contrôle d’accès (ACL) de manière récursive pour Azure Data Lake Storage Gen2](#set-access-control-lists). 
 
 ### <a name="which-permissions-are-required-to-recursively-delete-a-directory-and-its-contents"></a>Quelles sont les autorisations nécessaires pour supprimer de manière récursive un répertoire et son contenu ?
 
