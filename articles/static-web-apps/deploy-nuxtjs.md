@@ -9,10 +9,10 @@ ms.date: 05/08/2020
 ms.author: chnwamba
 ms.custom: devx-track-js
 ms.openlocfilehash: 8f21f5fa8ee9035fe594cecff37a63b1ef2115cc
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97563464"
 ---
 # <a name="deploy-server-rendered-nuxtjs-websites-on-azure-static-web-apps-preview"></a>Déployer des sites Web Nuxt.js rendus côté serveur sur Azure Static Web Apps Preview
@@ -120,9 +120,9 @@ La procédure suivante vous indique comment lier Azure Static Web Apps à l’ap
 
 1. Accédez au [portail Azure](https://portal.azure.com).
 1. Cliquez sur **Create a Resource** (Créer une ressource).
-1. Recherchez **Static Web Apps**.
-1. Cliquez sur **Static Web Apps (Preview)** (Static Web Apps (Préversion))
-1. Cliquez sur **Create** (Créer)
+1. Recherchez **Applications web statiques**
+1. Cliquez sur **Static Web Apps (Preview)** (Static Web Apps (préversion))
+1. Cliquez sur **Créer**
 
 1. Sélectionnez un abonnement dans la liste déroulante *Subscription* (Abonnement) ou utilisez la valeur par défaut.
 1. Cliquez sur le lien **New (Nouveau)** sous la liste déroulante *Resource group* (Groupe de ressources). Dans *New resource group name* (Nouveau nom de groupe de ressources), tapez **mystaticsite**, puis cliquez sur **OK**.

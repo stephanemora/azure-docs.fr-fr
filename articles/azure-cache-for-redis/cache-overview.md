@@ -7,10 +7,10 @@ ms.service: cache
 ms.topic: overview
 ms.date: 02/08/2021
 ms.openlocfilehash: 5a0389b1074737728bd0ffa5d6db90d077a9f45f
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101652165"
 ---
 # <a name="about-azure-cache-for-redis"></a>À propos du cache Azure pour Redis
@@ -50,7 +50,7 @@ Les niveaux suivants sont proposés pour le cache Azure pour Redis :
 ### <a name="feature-comparison"></a>Comparaison des fonctionnalités
 La page [Tarifs d’Azure Cache pour Redis](https://azure.microsoft.com/pricing/details/cache/) fournit une comparaison détaillée des différents niveaux. Le tableau suivant décrit quelques-unes des fonctionnalités prises en charge par niveau :
 
-| Description de la fonctionnalité | De base | standard | Premium | Enterprise | Enterprise Flash |
+| Description de la fonctionnalité | De base | Standard | Premium | Enterprise | Enterprise Flash |
 | ------------------- | :-----: | :------: | :---: | :---: | :---: |
 | [Contrat de niveau de service (SLA)](https://azure.microsoft.com/support/legal/sla/cache/v1_0/) |-|✔|✔|✔|✔|
 | Chiffrement des données |✔|✔|✔|✔|✔|

@@ -1,27 +1,26 @@
 ---
-title: Options d'aide et de support pour les développeurs d'applications Azure AD
-description: Apprenez à vous procurer aide et support pour les questions liées au développement et les problèmes rencontrés lors de la création d'applications qui s'intègrent à des identités Microsoft (compte Azure Active Directory et Microsoft)
+title: Options de support et d’aide pour les développeurs de la plateforme d’identité Microsoft | Azure
+description: Découvrez où obtenir de l’aide et trouvez des réponses à vos questions au fur et à mesure que vous créez des solutions IAM (Identity and Access Management) qui s’intègrent à Azure Active Directory (Azure AD) et à d’autres composants de la plateforme d’identité Microsoft.
 services: active-directory
-author: rwike77
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/23/2019
-ms.author: ryanwi
+ms.date: 03/09/2021
+ms.author: marsma
 ms.reviewer: jmprieur, saeeda
-ms.custom: aaddev
-ms.openlocfilehash: 43990952f6cbe90c729ac2df421c682fe8d42b1b
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 8b0d6ffc00a140073c2dfb5789fbf9760e1767c9
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102517931"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103462760"
 ---
 # <a name="support-and-help-options-for-developers"></a>Options d’aide et de support pour les développeurs
 
-Que vous implémentiez une nouvelle fonctionnalité dans votre application ou que vous commenciez à vous familiariser avec Azure Active Directory (Azure AD), les identités Microsoft ou l'API Microsoft Graph, vous pouvez être amené à rechercher de l'aide auprès de la Communauté ou à vous renseigner sur les options de support qui sont à votre disposition en tant que développeur. Voici quelques suggestions pour obtenir de l’aide lors du développement de vos solutions de Plateforme d’identités Microsoft.
+Si vous avez besoin d’une réponse à une question ou d’aide pour résoudre un problème non traité dans notre documentation, vous pouvez contacter des experts afin d’obtenir de l’aide. Voici plusieurs suggestions permettant d’obtenir des réponses à vos questions au fur et à mesure que vous développez des applications qui s’intègrent à la plateforme d’identité Microsoft.
 
 ## <a name="create-an-azure-support-request"></a>Créer une demande de support Azure
 
@@ -33,9 +32,10 @@ Découvrez l’éventail des [options de support Azure et choisissez le plan](ht
 
 - Si vous disposez déjà d’un plan de support Azure, [ouvrez une demande de support ici](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-- Si vous n’êtes pas un client Azure, vous pouvez également ouvrir une demande de support auprès de Microsoft via [notre assistance commerciale](https://support.serviceshub.microsoft.com/supportforbusiness).
+- Si vous n’êtes pas un client Azure, vous pouvez ouvrir une demande de support auprès du [Support Microsoft pour l’entreprise](https://support.serviceshub.microsoft.com/supportforbusiness).
 
 ## <a name="post-a-question-to-microsoft-qa"></a>Publier une question sur Microsoft Q&A
+
 <div class='icon is-large'>
     <img alt='Microsoft Q&A' src='./media/common/question-mark-icon.png'>
 </div>             

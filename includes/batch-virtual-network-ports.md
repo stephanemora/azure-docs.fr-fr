@@ -10,15 +10,15 @@ ms.service: batch
 ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
-ms.date: 01/13/2021
+ms.date: 02/16/2021
 ms.author: jenhayes
 ms.custom: include file
-ms.openlocfilehash: c625253585cc99c035852b8b9042f939284bad19
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: baf146bdd89d45c5d7e1ed359822a35d383b7b6c
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101750734"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103561910"
 ---
 ### <a name="general-requirements"></a>Conditions générales
 
@@ -42,10 +42,10 @@ Les exigences de réseau virtuel supplémentaires diffèrent si le pool Batch es
 
 **Autorisations** : vérifiez si vos stratégies ou verrous de sécurité l’abonnement ou le groupe de ressources du réseau virtuel restreignent les autorisations d’un utilisateur pour gérer le réseau virtuel.
 
-**Ressources de mise en réseau supplémentaires** : Batch alloue automatiquement des ressources de mise en réseau supplémentaires dans le groupe de ressources contenant le réseau virtuel.
+**Ressources de mise en réseau supplémentaires** : Batch crée automatiquement des ressources de mise en réseau supplémentaires dans le groupe de ressources contenant le réseau virtuel.
 
 > [!IMPORTANT]
-> Pour chaque 100 nœuds dédiés ou de faible priorité, Batch alloue : un groupe de sécurité réseau (NSG), une adresse IP publique et un équilibreur de charge. Ces ressources sont limitées par les [quotas de ressources](../articles/azure-resource-manager/management/azure-subscription-service-limits.md) de l’abonnement. Pour les grands pools, vous devrez peut-être demander une augmentation du quota pour une ou plusieurs de ces ressources.
+> Pour chaque ensemble de 100 nœuds dédiés ou de faible priorité, Batch crée ce qui suit : un groupe de sécurité réseau (NSG), une adresse IP publique et un équilibreur de charge. Ces ressources sont limitées par les [quotas de ressources](../articles/azure-resource-manager/management/azure-subscription-service-limits.md) de l’abonnement. Pour les grands pools, vous devrez peut-être demander une augmentation du quota pour une ou plusieurs de ces ressources.
 
 #### <a name="network-security-groups-batch-default"></a>Groupes de sécurité réseau : configuration Batch par défaut
 

@@ -6,10 +6,10 @@ ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: article
 ms.openlocfilehash: fb26a669229ac140aba262032f8ce84ef9f37727
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99593381"
 ---
 # <a name="color-materials"></a>Matériaux couleur
@@ -33,9 +33,9 @@ Ces propriétés sont communes à tous les matériaux :
 
 * **textureCoordinateScale** et **textureCoordinateOffset :** l’échelle est multipliée par les coordonnées de la texture UV, le décalage y est ajouté. Peut être utilisée pour étirer et décaler les textures. La valeur par défaut de l’échelle est de (1, 1) et le décalage est de (0, 0).
 
-* **useVertexColor :** si le maillage comprend des couleurs :::no-loc text="vertex"::: et que cette option est activée, la couleur :::no-loc text="vertex"::: des maillages est multipliée par *albedoColor* et *albedoMap*. Par défaut *useVertexColor* est désactivée.
+* **useVertexColor :** si le maillage comprend des couleurs :::no-loc text="vertex"::: et que cette option est activée, la couleur :::no-loc text="vertex"::: des maillages est multipliée par *albedoColor* et *albedoMap*. Par défaut, *useVertexColor* est désactivé.
 
-* **isDoubleSided :** si la bilatéralité est définie sur true, les triangles bénéficiant de ce matériau sont rendus même si la caméra regarde vers les faces arrière. Par défaut, cette option est désactivée. Consultez aussi le [ rendu :::no-loc text="Single-sided":::](single-sided-rendering.md).
+* **isDoubleSided :** si la bilatéralité est définie sur true, les triangles bénéficiant de ce matériau sont rendus même si la caméra regarde vers les faces arrière. Par défaut, cette option est désactivée. Consultez aussi le [:::no-loc text="Single-sided"::: rendu](single-sided-rendering.md).
 
 * **TransparencyWritesDepth :** Si l’indicateur TransparencyWritesDepth est défini sur le matériau et que celui-ci est transparent, les objets utilisant ce matériau contribueront également au tampon de profondeur final. Consultez la propriété des matériaux de couleur *transparencyMode* dans la section suivante. L’activation de cette fonctionnalité est recommandée si votre cas d’usage a besoin d’une [Reprojection en phase tardive](late-stage-reprojection.md) plus plausible des scènes entièrement transparentes. Pour les scènes opaques/transparentes mixtes, ce réglage peut introduire un comportement ou des artefacts de reprojection invraisemblables. Pour cette raison, le réglage par défaut et recommandé pour le cas d’usage général est de désactiver cet indicateur. Les valeurs de profondeur écrites sont extraites de la couche de profondeur par pixel de l’objet qui est le plus proche de l’appareil photo.
 

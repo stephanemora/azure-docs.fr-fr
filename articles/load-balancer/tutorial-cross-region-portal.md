@@ -7,12 +7,12 @@ ms.author: allensu
 ms.service: load-balancer
 ms.topic: tutorial
 ms.date: 02/24/2021
-ms.openlocfilehash: 9107ef6100a3c362eae982412d54a981851bcb42
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: c16123fae63b89eff57b5c91864d9a947e01b386
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102561396"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104576915"
 ---
 # <a name="tutorial-create-a-cross-region-azure-load-balancer-using-the-azure-portal"></a>Tutoriel : Créer un équilibreur de charge Azure inter-région à l’aide du portail Azure
 
@@ -41,7 +41,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="sign-in-to-azure-portal"></a>Se connecter au portail Azure
 
-[Connectez-vous](https://preview.portal.azure.com) au portail Azure en préversion.
+[Connectez-vous](https://portal.azure.com) au portail Azure.
 
 ## <a name="create-cross-region-load-balancer"></a>Créer un équilibreur de charge interrégional
 
@@ -54,7 +54,7 @@ Dans cette section, vous allez créer un équilibreur de charge interrégional e
 
     | Paramètre                 | Valeur                                              |
     | ---                     | ---                                                |
-    | Abonnement               | Sélectionnez votre abonnement.    |    
+    | Subscription               | Sélectionnez votre abonnement.    |    
     | Resource group         | Sélectionnez **Créer**, puis entrez **CreateCRLBTutorial-rg** dans la zone de texte.|
     | Nom                   | Entrez **myLoadBalancer-CR**.                                   |
     | Région         | Sélectionnez **(USA) USA Ouest**.                                        |

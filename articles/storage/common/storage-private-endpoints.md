@@ -3,19 +3,19 @@ title: Utiliser des points de terminaison privés
 titleSuffix: Azure Storage
 description: Vue d’ensemble des points de terminaison privés pour un accès sécurisé aux comptes de stockage à partir de réseaux virtuels.
 services: storage
-author: santoshc
+author: normesta
 ms.service: storage
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.author: santoshc
+ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 4ee0b71b63735d8417c11cba8d2a551c8da8b47f
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 13e274a0d43ba4399e039d1280aa5ada3c94afe5
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102564286"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103601472"
 ---
 # <a name="use-private-endpoints-for-azure-storage"></a>Utiliser des points de terminaison privés pour Stockage Azure
 
@@ -55,7 +55,9 @@ Vous pouvez sécuriser votre compte de stockage pour accepter uniquement les con
 
 Lorsque vous créez un point de terminaison privé, vous devez spécifier le compte de stockage et le service de stockage auxquels il se connecte. 
 
-Vous avez besoin d’un point de terminaison privé distinct pour chacune des ressources de stockage auxquelles vous devez accéder, à savoir [Objets Blob](../blobs/storage-blobs-overview.md), [Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md), [Fichiers](../files/storage-files-introduction.md), [Files d’attente](../queues/storage-queues-introduction.md), [Tables](../tables/table-storage-overview.md) et [Sites web statiques](../blobs/storage-blob-static-website.md). Si vous créez un point de terminaison privé pour la ressource de stockage Data Lake Storage Gen2, vous devez également en créer un pour la ressource de stockage Objets Blob. En effet, les opérations qui ciblent le point de terminaison Data Lake Storage Gen2 peuvent être redirigées vers le point de terminaison d’objet blob. En créant un point de terminaison privé pour les deux ressources, vous vous assurez que les opérations réussissent.
+Vous avez besoin d’un point de terminaison privé distinct pour chacune des ressources de stockage auxquelles vous devez accéder, à savoir [Objets Blob](../blobs/storage-blobs-overview.md), [Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md), [Fichiers](../files/storage-files-introduction.md), [Files d’attente](../queues/storage-queues-introduction.md), [Tables](../tables/table-storage-overview.md) et [Sites web statiques](../blobs/storage-blob-static-website.md). Sur le point de terminaison privé, ces services de stockage sont définis en tant que **sous-ressource cible** du compte de stockage associé. 
+
+Si vous créez un point de terminaison privé pour la ressource de stockage Data Lake Storage Gen2, vous devez également en créer un pour la ressource de stockage Objets Blob. En effet, les opérations qui ciblent le point de terminaison Data Lake Storage Gen2 peuvent être redirigées vers le point de terminaison d’objet blob. En créant un point de terminaison privé pour les deux ressources, vous vous assurez que les opérations réussissent.
 
 > [!TIP]
 > Créez un point de terminaison privé distinct pour l’instance secondaire du service de stockage afin d’améliorer les performances de lecture sur les comptes RA-GRS.
@@ -111,16 +113,16 @@ Si vous utilisez un serveur DNS personnalisé sur votre réseau, les clients doi
 > [!TIP]
 > Lorsque vous utilisez un serveur DNS personnalisé ou local, configurez votre serveur DNS de façon à résoudre le nom du compte de stockage dans le sous-domaine `privatelink` vers l’adresse IP du point de terminaison privé. Pour ce faire, vous pouvez déléguer le sous-domaine `privatelink` à la zone DNS privée du réseau virtuel, ou configurer la zone DNS sur votre serveur DNS et ajouter les enregistrements A DNS.
 
-Les noms des zones DNS recommandés pour les points de terminaison privés pour les services de stockage sont les suivants :
+Les noms de zone DNS recommandés pour les points de terminaison privés des services de stockage et les sous-ressources cibles de point de terminaison associées sont les suivants :
 
-| Service de stockage        | Nom de la zone                            |
-| :--------------------- | :----------------------------------- |
-| Service d'objets blob           | `privatelink.blob.core.windows.net`  |
-| Data Lake Storage Gen2 | `privatelink.dfs.core.windows.net`   |
-| Service Fichier           | `privatelink.file.core.windows.net`  |
-| Service File d’attente          | `privatelink.queue.core.windows.net` |
-| Service Table          | `privatelink.table.core.windows.net` |
-| Sites web statiques        | `privatelink.web.core.windows.net`   |
+| Service de stockage        | Sous-ressource cible | Nom de la zone                            |
+| :--------------------- | :------------------ | :----------------------------------- |
+| Service d'objets blob           | objet BLOB                | `privatelink.blob.core.windows.net`  |
+| Data Lake Storage Gen2 | dfs                 | `privatelink.dfs.core.windows.net`   |
+| Service Fichier           | fichier                | `privatelink.file.core.windows.net`  |
+| Service File d’attente          | queue               | `privatelink.queue.core.windows.net` |
+| Service Table          | table               | `privatelink.table.core.windows.net` |
+| Sites web statiques        | web                 | `privatelink.web.core.windows.net`   |
 
 Pour plus d’informations sur la configuration de votre propre serveur DNS pour la prise en charge des points de terminaison privés, reportez-vous aux articles suivants :
 
@@ -144,6 +146,12 @@ Cette contrainte résulte des modifications DNS effectuées lorsque le compte A2
 ### <a name="network-security-group-rules-for-subnets-with-private-endpoints"></a>Règles de groupe de sécurité réseau pour les sous-réseaux avec des points de terminaison privés
 
 Actuellement, vous ne pouvez pas configurer de règles de [groupe de sécurité réseau](../../virtual-network/network-security-groups-overview.md) (NSG, Network Security Group) ni de routes définies par l’utilisateur pour des points de terminaison privés. Les règles NSG appliquées au sous-réseau qui héberge le point de terminaison privé ne sont pas appliquées au point de terminaison privé. Elles s’appliquent uniquement à d’autres points de terminaison (par exemple les contrôleurs d’interface réseau). Une solution de contournement limitée pour ce problème consiste à implémenter vos règles d’accès pour les points de terminaison privés sur les sous-réseaux sources, bien que cette approche puisse nécessiter une charge de gestion supérieure.
+
+### <a name="copying-blobs-between-storage-accounts"></a>Copie des objets blob entre des comptes de stockage
+
+Vous pouvez copier des objets blob entre des comptes de stockage à l’aide de points de terminaison privés uniquement si vous utilisez l’API REST Azure ou des outils utilisant l’API REST. Ces outils incluent AzCopy, Explorateur Stockage, Azure PowerShell, Azure CLI et les kits de développement logiciel (SDK) Stockage Blob Azure. 
+
+Seuls les points de terminaison privés ciblant la ressource de stockage Blob sont pris en charge. Les points de terminaison privés ciblant Data Lake Storage Gen2 ou la ressource de fichier ne sont pas pris en charge pour le moment. De même, la copie entre comptes de stockage à l’aide du protocole NFS (Network File System) n’est pas encore prise en charge. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

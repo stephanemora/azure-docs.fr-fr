@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/05/2021
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 16d2bf39d61961e2f83910735db1d0ddf1c91849
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: f22d97f8a4ab5e5b6e275c405cce523e8a7b8e72
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99627363"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101656548"
 ---
 # <a name="how-does-azure-cosmos-db-provide-high-availability"></a>Comment Azure Cosmos DB fournit-il une haute disponibilité ?
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -80,7 +80,7 @@ Dans les rares cas de panne régionale, Azure Cosmos DB s’assure que votre bas
 
 * Pendant une panne de la région de lecture, les comptes Azure Cosmos utilisant un niveau de cohérence ou une cohérence forte avec au moins trois régions de lecture restent hautement disponibles pour les lectures et les écritures.
 
-* Les comptes Azure Cosmos utilisant une cohérence forte avec trois régions ou moins au total (une en écriture, deux en lecture) perdent la disponibilité en écriture en cas de défaillance de la région de lecture. Toutefois, les clients avec quatre régions au maximum peuvent s’abonner à l’utilisation de quorums de lecture dynamiques en soumettant un ticket de support. Les comptes qui maintiennent au moins deux régions de lecture dans cette configuration assurent la disponibilité des écritures.
+* Les comptes Azure Cosmos utilisant une cohérence forte avec trois régions (une en écriture, deux en lecture) vont conserver une disponibilité en écriture en cas de défaillance de la région en lecture. Pour les comptes avec deux régions et le basculement automatique activés, le compte cesse d’accepter les écritures jusqu’à ce que la région soit marquée en échec et que le basculement automatique se produise.
 
 * La région impactée est automatiquement déconnectée et marquée comme étant hors connexion. Les [Kits de développement logiciel (SDK) Azure Cosmos DB](sql-api-sdk-dotnet.md) redirigent les appels de lecture vers la prochaine région disponible dans la liste des régions préférées.
 
@@ -110,7 +110,7 @@ Le tableau suivant récapitule la fonctionnalité de haute disponibilité des di
 |Contrat SLA de disponibilité en lecture  | 99,99 % | 99,995 % | 99,995 % | 99, 999 % |
 |Défaillances de zone - Perte de données | Perte de données | Aucune perte de données | Aucune perte de données | Aucune perte de données |
 |Défaillances de zone – Disponibilité | Perte de disponibilité | Aucune perte de disponibilité | Aucune perte de disponibilité | Aucune perte de disponibilité |
-|Panne régionale - Perte de données | Perte de données |  Perte de données | Dépend du niveau de cohérence. Pour plus d’informations, consultez [Compromis entre cohérence, disponibilité et performance](consistency-levels-tradeoffs.md). | Dépend du niveau de cohérence. Pour plus d’informations, consultez [Compromis entre cohérence, disponibilité et performance](consistency-levels-tradeoffs.md).
+|Panne régionale - Perte de données | Perte de données |  Perte de données | Dépend du niveau de cohérence. Pour plus d’informations, consultez [Compromis entre cohérence, disponibilité et performance](./consistency-levels.md). | Dépend du niveau de cohérence. Pour plus d’informations, consultez [Compromis entre cohérence, disponibilité et performance](./consistency-levels.md).
 |Panne régionale - Disponibilité | Perte de disponibilité | Perte de disponibilité | Aucune perte de disponibilité pour échec dans la région de lecture, temporaire pour échec dans la région d’écriture | Aucune perte de disponibilité |
 |Prix (***1** _) | N/A | Unités de requête approvisionnées x taux de 1,25 | Unités de requête approvisionnées x taux de 1,25 (_*_2_**) | Taux d’écriture multirégion |
 

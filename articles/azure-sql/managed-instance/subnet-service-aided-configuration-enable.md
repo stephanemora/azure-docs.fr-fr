@@ -11,10 +11,10 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.date: 03/12/2020
 ms.openlocfilehash: 67b398194d9094cd99fccaa85ed0df3be362ce2b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91618010"
 ---
 # <a name="enabling-service-aided-subnet-configuration-for-azure-sql-managed-instance"></a>Activer la configuration de sous-réseau assistée par le service pour Azure SQL Managed Instance
@@ -22,7 +22,7 @@ ms.locfileid: "91618010"
 
 La configuration de sous-réseau assistée par le service fournit une gestion automatique de la configuration de réseau pour les sous-réseaux hébergeant des instances gérées. Avec la configuration de sous-réseau assistée par service, l’utilisateur continue de contrôler totalement l'accès au trafic de données (TDS), tandis que l'instance gérée assume la responsabilité de garantir un flux ininterrompu du trafic de gestion afin de respecter le contrat de niveau de service.
 
-Les groupes de sécurité réseau et les règles de table de routage configurés automatiquement sont visibles par le client et annotés avec le préfixe _Microsoft.Sql-managedInstances_UseOnly__.
+Les groupes de sécurité réseau et les règles de table de routage configurés automatiquement sont visibles par le client et annotés avec le préfixe _Microsoft.Sql-managedInstances_UseOnly_ _.
 
 La configuration assistée par le service est automatiquement activée après activation de la [délégation de sous-réseau](../../virtual-network/subnet-delegation-overview.md) pour le fournisseur de ressources `Microsoft.Sql/managedInstances`.
 

@@ -6,12 +6,12 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
 ms.custom: references_regions
-ms.openlocfilehash: 30be0343b7c3282e3ce4da165225ab8209d07f4a
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: 98f53ec1b6506a6d47146377e837576254f445e2
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102452405"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103601064"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-it-service-management-solution"></a>Connexion d’Azure aux outils ITSM avec la solution de gestion des services informatiques
 
@@ -90,7 +90,7 @@ Les groupes d’actions offrent une méthode modulaire et réutilisable pour dé
 
 ## <a name="define-a-template"></a>Définir un modèle
 
-Certains types d’éléments de travail peuvent utiliser des modèles que vous définissez dans l’outil ITSM. L’utilisation de modèles vous permet de définir des champs qui seront automatiquement renseignés en fonction de valeurs fixes d’un groupe d’actions. Vous pouvez définir le modèle que vous souhaitez utiliser dans le cadre de la définition d’un groupe d’actions.
+Certains types d’éléments de travail peuvent utiliser des modèles que vous définissez dans l’outil ITSM. L’utilisation de modèles vous permet de définir des champs qui seront automatiquement renseignés en fonction de valeurs fixes d’un groupe d’actions. Vous pouvez définir le modèle que vous souhaitez utiliser dans le cadre de la définition d’un groupe d’actions. Vous trouverez dans la documentation ServiceNow des informations sur la création de modèles (ici) [https://docs.servicenow.com/bundle/paris-platform-administration/page/administer/form-administration/task/t_CreateATemplateUsingTheTmplForm.html ].
 
 Pour créer un groupe d’actions :
 

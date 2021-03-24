@@ -5,10 +5,10 @@ ms.assetid: 361daf37-598c-4703-8d78-c77dbef91643
 ms.topic: conceptual
 ms.date: 09/25/2019
 ms.openlocfilehash: e49c235e11eea17fdd1a7ff7751cc0493934d725
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "83123665"
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Déploiement continu pour Azure Functions
@@ -42,7 +42,7 @@ Pour configurer le déploiement continu d’une Function App existante, procéde
 
 3. Dans GitHub, sélectionnez **Autoriser AzureAppService**.
 
-    :::image type="content" source="./media/functions-continuous-deployment/authorize.png" alt-text="Centre de déploiement Azure App Service":::
+    :::image type="content" source="./media/functions-continuous-deployment/authorize.png" alt-text="Autoriser Azure App Service":::
 
     Entrez votre mot de passe GitHub, puis sélectionnez **Continuer**.
 
@@ -55,7 +55,7 @@ Pour configurer le déploiement continu d’une Function App existante, procéde
 
 5. Configurez les informations spécifiques à l’option de contrôle de code source que vous avez spécifiée. Pour GitHub, vous devez entrer ou sélectionner des valeurs pour **Organisation**, **Dépôt** et **Branche**. Les valeurs sont basées sur l’emplacement de votre code. Sélectionnez ensuite **Continuer**.
 
-    :::image type="content" source="./media/functions-continuous-deployment/github-specifics.png" alt-text="Centre de déploiement Azure App Service":::
+    :::image type="content" source="./media/functions-continuous-deployment/github-specifics.png" alt-text="Configurer GitHub":::
 
 6. Vérifiez tous les détails, puis sélectionnez **Terminer** pour achever la configuration de votre déploiement.
 

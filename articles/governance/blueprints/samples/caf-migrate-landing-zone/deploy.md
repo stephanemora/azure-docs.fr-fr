@@ -4,10 +4,10 @@ description: Étapes de déploiement pour l’exemple de blueprint de zone d’a
 ms.date: 03/12/2021
 ms.topic: sample
 ms.openlocfilehash: d5aed1d492fea102598a22921d04ed8681c727cb
-ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/15/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103470113"
 ---
 # <a name="deploy-the-microsoft-cloud-adoption-framework-for-azure-migrate-landing-zone-blueprint-sample"></a>Déployer l’exemple de blueprint de zone d’accueil de migration du framework d’adoption de Microsoft Cloud pour Azure

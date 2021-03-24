@@ -1,6 +1,6 @@
 ---
-title: API Module de sécurité pour Azure RTOS
-description: API de référence pour le module de sécurité pour Azure RTOS.
+title: API du micro-agent Defender-IoT pour Azure RTOS
+description: API de référence pour le micro-agent Defender-IoT pour Azure RTOS.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/07/2020
 ms.author: mlottner
-ms.openlocfilehash: cec28f9290808836ec2dfd334b23fe8c76df03fc
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: 9a285636ba10f7ca0668f597d0e9016cff73494a
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102120060"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103494289"
 ---
-# <a name="security-module-for-azure-rtos-api"></a>API Module de sécurité pour Azure RTOS 
+# <a name="defender-iot-micro-agent-for-azure-rtos-api-preview"></a>Micro-agent Defender-IoT pour Azure RTOS (préversion)
 
-Cette API est conçue pour être utilisée uniquement avec le module de sécurité pour Azure RTOS. Pour obtenir des ressources supplémentaires, consultez le [référentiel GitHub sur le module de sécurité pour Azure RTOS](https://github.com/azure-rtos/azure-iot-preview/releases). 
+Cette API est conçue pour être utilisée uniquement avec le micro-agent Defender-IoT pour Azure RTOS. Pour accéder à des ressources supplémentaires, consultez la [ressource GitHub pour le micro-agent Defender-IoT pour Azure RTOS](https://github.com/azure-rtos/azure-iot-preview/releases). 
 
-## <a name="enable-security-module-for-azure-rtos"></a>Activer le module de sécurité pour Azure RTOS
+## <a name="enable-defender-iot-micro-agent-for-azure-rtos"></a>Activer le micro-agent Defender-IoT pour Azure RTOS
 
 **nx_azure_iot_security_module_enable**
 
@@ -36,7 +36,7 @@ UINT nx_azure_iot_security_module_enable(NX_AZURE_IOT *nx_azure_iot_ptr);
 
 ### <a name="description"></a>Description
 
-Cette routine active le sous-système du module de sécurité Azure IoT. Une machine à états interne gère la collecte d’événements de sécurité et les transmet à Azure IoT Hub. Une seule instance de NX_AZURE_IOT_SECURITY_MODULE est requise pour gérer la collecte de données.
+Cette routine active le sous-système du micro-agent Defender-IoT Azure IoT. Une machine à états interne gère la collecte d’événements de sécurité et les transmet à Azure IoT Hub. Une seule instance de NX_AZURE_IOT_SECURITY_MODULE est requise pour gérer la collecte de données.
 
 ### <a name="parameters"></a>Paramètres
 
@@ -56,7 +56,7 @@ Cette routine active le sous-système du module de sécurité Azure IoT. Une mac
 
 Threads
 
-## <a name="disable-azure-iot-security-module"></a>Désactiver le module de sécurité Azure IoT
+## <a name="disable-azure-iot-defender-iot-micro-agent"></a>Désactiver le micro-agent Defender-IoT Azure IoT
 
 **nx_azure_iot_security_module_disable**
 
@@ -69,7 +69,7 @@ UINT nx_azure_iot_security_module_disable(NX_AZURE_IOT *nx_azure_iot_ptr);
 
 ### <a name="description"></a>Description
 
-Cette routine désactive le sous-système du module de sécurité Azure IoT.
+Cette routine désactive le sous-système du micro-agent Defender-IoT Azure IoT.
 
 ### <a name="parameters"></a>Paramètres
 
@@ -92,6 +92,6 @@ Threads
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus sur la prise en main du module de sécurité pour Azure RTOS, consultez les articles suivants :
+Pour en savoir plus sur la prise en main du micro-agent Defender-IoT pour Azure RTOS, consultez les articles suivants :
 
-- Consultez la page [Présentation du module de sécurité Defender pour IoT pour Azure RTOS (préversion)](iot-security-azure-rtos.md).
+- Consultez la [présentation](iot-security-azure-rtos.md) du micro-agent Defender-IoT pour Azure RTOS d’Azure Defender pour IoT.

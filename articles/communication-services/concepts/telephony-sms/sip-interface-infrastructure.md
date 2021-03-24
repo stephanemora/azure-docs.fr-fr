@@ -9,10 +9,10 @@ ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
 ms.openlocfilehash: ede650ae072ef53ed40a9372a292ab69fe8cc1af
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103492725"
 ---
 # <a name="sip-interface-infrastructure-requirements"></a>Exigences d’infrastructure de l’interface SIP 
@@ -158,12 +158,12 @@ La plage de ports des processeurs multimédias est indiquée dans le tableau sui
 
 ## <a name="media-traffic-media-processors-geography"></a>Traffic multimédia : Emplacement géographique des processeurs multimédias
 
-Le trafic multimédia transite par des composants appelés processeurs multimédias. Les processeurs multimédias sont placés dans les mêmes centres de données que les proxys SIP. En outre, il existe d’autres processeurs multimédias pour optimiser le flux multimédia. Par exemple, nous n’avons pas de composant proxy SIP en Australie (SIP transite via Singapour ou Hong Kong (R.A.S.)), mais nous avons un processeur multimédia local en Australie. La nécessité d’utiliser des processeurs multimédias localement est dictée par la latence que nous expérimentons en envoyant du trafic longue distance, par exemple de l’Australie à Singapour ou à Hong-Kong (R.A.S.). Bien que la latence dans l’exemple de trafic transitant de l’Australie à Hong Kong (R.A.S.) ou à Singapour soit acceptable pour préserver une qualité d’appel correcte pour le trafic SIP, ce n’est pas le cas pour le trafic multimédia en temps réel.
+Le trafic multimédia transite par des composants appelés processeurs multimédias. Les processeurs multimédias sont placés dans les mêmes centres de données que les proxys SIP. En outre, il existe d’autres processeurs multimédias pour optimiser le flux multimédia. Par exemple, nous n’avons pas de composant proxy SIP en Australie (SIP transite via Singapour ou Hong Kong, R.A.S.), mais nous avons un processeur multimédia local en Australie. La nécessité d’utiliser des processeurs multimédias localement est dictée par la latence que nous expérimentons en envoyant du trafic longue distance, par exemple de l’Australie à Singapour ou à Hong-Kong (R.A.S.). Bien que la latence dans l’exemple de trafic transitant de l’Australie à Hong Kong (R.A.S.) ou à Singapour soit acceptable pour préserver une qualité d’appel correcte pour le trafic SIP, ce n’est pas le cas pour le trafic multimédia en temps réel.
 
 Emplacements où les composants Proxy SIP et Processeur multimédia sont tous deux déployés :
 - USA (deux dans les centres de données USA Ouest et USA Est)
 - Europe (centres de données d’Amsterdam et de Dublin)
-- Asie (centre de données de Singapour et de Hong Kong (R.A.S.))
+- Asie (centre de données de Singapour et de Hong Kong, R.A.S.)
 - Australie (centres de données Australie Est et Sud-Ouest)
 
 Emplacements où seuls des processeurs multimédias sont déployés (SIP transite via le centre de données le plus proche listé ci-dessus) :

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 08/30/2019
 ms.author: wolfma
 ms.openlocfilehash: c7332177795a45331749225e0f3dc3856e28a6a2
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96001091"
 ---
 Pour créer un projet Visual Studio pour le développement Windows, vous devez créer le projet, configurer Visual Studio pour le développement de bureau .NET, installer le SDK Speech et choisir l’architecture cible.
@@ -21,7 +21,7 @@ Pour commencer, créez le projet dans Visual Studio et assurez-vous que Visual S
 
 1. Dans la fenêtre Démarrer, sélectionnez **Créer un projet**. 
 
-1. Dans la fenêtre **Créer un projet**, choisissez **Application console (.NET Framework)** , puis cliquez sur **Suivant**.
+1. Dans la fenêtre **Créer un projet**, choisissez **Application console (.NET Framework)**, puis cliquez sur **Suivant**.
 
 1. Dans la fenêtre **Configurer votre nouveau projet**, entrez *helloworld* dans **Nom du projet**, choisissez ou créez le chemin du répertoire dans **Emplacement**, puis sélectionnez **Créer**.
 

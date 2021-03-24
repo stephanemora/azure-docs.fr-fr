@@ -4,16 +4,16 @@ description: Comment créer et appliquer des stratégies d’accès personnalis�
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 12/28/2020
+ms.date: 03/11/2021
 ms.author: v-erkel
-ms.openlocfilehash: 795b194eb7cd31e633128c22ddffe808b32e07da
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: eb9e71cc8ec463077e3b12b8738203a4945a2eab
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97802408"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103471784"
 ---
-# <a name="use-client-access-policies"></a>Utiliser les stratégies d’accès client
+# <a name="control-client-access"></a>Contrôler l’accès client
 
 Cet article explique comment créer et appliquer des stratégies d’accès client personnalisées pour vos cibles de stockage.
 
@@ -23,7 +23,7 @@ Les stratégies d’accès sont appliquées à un chemin d’accès d’espace d
 
 Cette fonctionnalité est destinée aux flux de travail où vous devez contrôler la façon dont les différents groupes de clients accèdent aux cibles de stockage.
 
-Si vous n’avez pas besoin d’un contrôle fin sur l’accès à la cible de stockage, vous pouvez utiliser la stratégie par défaut ou vous pouvez personnaliser la stratégie par défaut avec des règles supplémentaires.
+Si vous n’avez pas besoin d’un contrôle fin sur l’accès à la cible de stockage, vous pouvez utiliser la stratégie par défaut ou vous pouvez personnaliser la stratégie par défaut avec des règles supplémentaires. Par exemple, si vous souhaitez activer le squash racine pour tous les clients qui se connectent via le cache, vous pouvez modifier la stratégie nommée **par défaut** pour ajouter le paramètre de squash racine.
 
 ## <a name="create-a-client-access-policy"></a>Création d’une stratégie d’accès stockée
 
@@ -81,15 +81,21 @@ Activez cette case à cocher pour permettre aux clients spécifiés de monter di
 
 Indiquez si vous souhaitez ou non définir l’écrasement de la racine pour les clients qui correspondent à cette règle.
 
-Cette valeur vous permet d’autoriser l’écrasement de la racine au niveau de l’exportation de stockage. Vous pouvez également [définir l’écrasement de la racine au niveau du cache](configuration.md#configure-root-squash).
+Ce paramètre contrôle la manière dont Azure HPC Cache traite les requêtes de l’utilisateur racine sur les ordinateurs clients. Lorsque le squash racine est activé, les utilisateurs racine d’un client sont automatiquement mappés à un utilisateur sans privilège lorsqu’ils envoient des demandes via Azure HPC Cache. Cela empêche également les requêtes de clients d’utiliser les bits d’autorisation set-UID.
 
-Si vous activez l’écrasement de la racine, vous devez également définir la valeur d’ID utilisateur anonyme sur l’une des options suivantes :
+Si le squash racine est désactivé, une requête de l’utilisateur racine client (UID 0) est transmise à un système de stockage NFS principal en tant que racine. Cette configuration peut permettre un accès inapproprié aux fichiers.
 
-* **-2** (personne)
-* **65534** (personne)
-* **-1** (aucun accès)
-* **65535** (aucun accès)
+La définition du squash racine pour les demandes clientes peut aider à compenser le paramètre ``no_root_squash`` requis sur les systèmes NAS utilisés comme cibles de stockage. (En savoir plus sur la [configuration requise pour les cibles de stockage NFS](hpc-cache-prerequisites.md#nfs-storage-requirements).) Il peut également améliorer la sécurité lorsqu’il est utilisé avec des cibles de stockage Blob Azure.
+
+Si vous activez le squash racine, vous devez également définir la valeur d’ID utilisateur anonyme. Le portail accepte des valeurs entières comprises entre 0 et 4294967295. (Les anciennes valeurs -2 et -1 sont prises en charge pour la compatibilité descendante, mais elles ne sont pas recommandées pour les nouvelles configurations.)
+
+Ces valeurs sont mappées à des valeurs utilisateur spécifiques :
+
+* **-2** ou **65534** (personne)
+* **-1** ou **65535** (aucun accès)
 * **0** (racine sans privilège)
+
+Votre système de stockage peut avoir d’autres valeurs avec des significations spéciales.
 
 ## <a name="update-access-policies"></a>Mettre à jour les stratégies d’accès
 

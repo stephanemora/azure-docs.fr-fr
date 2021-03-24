@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 10/06/2020
+ms.date: 03/08/2021
 ms.author: alkohli
-ms.openlocfilehash: 27af230f8fa157f76865bd38a48c17640491d7db
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 580e5aab7b7ac1edcfee58345291afcb9eb0e977
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896187"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103562159"
 ---
 # <a name="manage-an-azure-stack-edge-pro-gpu-device-via-windows-powershell"></a>Gérer un appareil Azure Stack Edge Pro avec GPU via Windows PowerShell
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 La solution Azure Stack Edge Pro vous permet de traiter des données et de les envoyer à Azure via le réseau. Cet article décrit certaines des tâches de gestion et de configuration pour votre appareil Azure Stack Edge Pro. Vous pouvez utiliser le portail Azure, l'interface utilisateur locale ou l'interface Windows PowerShell pour gérer votre appareil.
 
@@ -24,30 +26,12 @@ Cet article se concentre sur la façon dont vous pouvez vous connecter à l’in
 
 ## <a name="connect-to-the-powershell-interface"></a>Connexion à l’interface PowerShell
 
-[!INCLUDE [Connect to admin runspace](../../includes/data-box-edge-gateway-connect-minishell.md)]
+[!INCLUDE [Connect to admin runspace](../../includes/azure-stack-edge-gateway-connect-minishell.md)]
 
 ## <a name="create-a-support-package"></a>Création d’un package de prise en charge
 
 [!INCLUDE [Create a support package](../../includes/data-box-edge-gateway-create-support-package.md)]
 
-<!--## Upload certificate
-
-[!INCLUDE [Upload certificate](../../includes/data-box-edge-gateway-upload-certificate.md)]
-
-You can also upload IoT Edge certificates to enable a secure connection between your IoT Edge device and the downstream devices that may connect to it. There are three IoT Edge certificates (*.pem* format) that you need to install:
-
-- Root CA certificate or the owner CA
-- Device CA certificate
-- Device key certificate
-
-The following example shows the usage of this cmdlet to install IoT Edge certificates:
-
-```
-Set-HcsCertificate -Scope IotEdge -RootCACertificateFilePath "\\hcfs\root-ca-cert.pem" -DeviceCertificateFilePath "\\hcfs\device-ca-cert.pem\" -DeviceKeyFilePath "\\hcfs\device-key-cert.pem" -Credential "username"
-```
-When you run this cmdlet, you will be prompted to provide the password for the network share.
-
-For more information on certificates, go to [Azure IoT Edge certificates](../iot-edge/iot-edge-certs.md) or [Install certificates on a gateway](../iot-edge/how-to-create-transparent-gateway.md).-->
 
 ## <a name="view-device-information"></a>Affichage des informations sur l’appareil
  
@@ -86,17 +70,8 @@ Si le rôle de calcul est configuré sur votre appareil, vous pouvez également 
 
 Un service multiprocessus (MPS) sur les GPU Nvidia fournit un mécanisme dans lequel les GPU peuvent être partagés par plusieurs tâches, où chaque tâche est se voit attribuer un certain pourcentage des ressources du GPU. MPS est une fonctionnalité en préversion sur votre appareil Azure Stack Edge Pro avec GPU. Pour activer MPS sur votre appareil, procédez comme suit :
 
-1. Avant de commencer, assurez-vous que : 
+[!INCLUDE [Enable MPS](../../includes/azure-stack-edge-gateway-enable-mps.md)]
 
-    1. Vous avez configuré et [Activé votre appareil Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-activate.md) avec une ressource Azure Stack Edge Pro/Data Box Gateway dans Azure.
-    1. Vous avez [Configuré le calcul sur cet appareil dans le portail Azure](azure-stack-edge-deploy-configure-compute.md#configure-compute).
-    
-1. [Connectez-vous à l’interface PowerShell](#connect-to-the-powershell-interface).
-1. Utilisez la commande suivante pour activer un MPS sur votre appareil.
-
-    ```powershell
-    Start-HcsGpuMPS
-    ```
 
 ## <a name="reset-your-device"></a>Réinitialisation de votre appareil
 
@@ -148,46 +123,14 @@ Id                                   PodSubnet    ServiceSubnet
 [10.100.10.10]: PS>
 ```
 
-
 ## <a name="debug-kubernetes-issues-related-to-iot-edge"></a>Déboguer les problèmes Kubernetes liés à IoT Edge
 
-<!--When the Kubernetes cluster is created, there are two system namespaces created: `iotedge` and `azure-arc`. --> 
+Avant de commencer, vous devez disposer des éléments suivants :
 
-<!--### Create config file for system namespace
-
-To troubleshoot, first create the `config` file corresponding to the `iotedge` namespace with `aseuser`.
-
-Run the `Get-HcsKubernetesUserConfig -AseUser` command and save the output as `config` file (no file extension). Save the file in the `.kube` folder of your user profile on the local machine.
-
-Following is the sample output of the `Get-HcsKubernetesUserConfig` command.
-
-```PowerShell
-[10.100.10.10]: PS>Get-HcsKubernetesUserConfig -AseUser
-apiVersion: v1
-clusters:
-- cluster:
-    certificate-authority-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUN5RENDQWJDZ0F3SUJBZ0lCQURBTkJna3Foa2lHOXcwQkFRc0ZBREFWTVJNd0VRWURWUVFERXdwcmRXSmwKY201bGRHVnpNQjRYRFRJd01EVXhNekl4TkRRME5sb1hEVE13TURVeE1USXhORFEwTmxvd0ZURVRNQkVHQTFVRQpBeE1LYTNWaVpYSnVaWFJsY3pDQ0FTSXdEUVlKS29aSWh2Y05BUUVCQlFBRGdnRVBBRENDQVFvQ2dnRUJBS0M1CjlJbzRSU2hudG90QUdxdjNTYmRjOVd4UmJDYlRzWXU5S0RQeU9xanVoZE1UUE9PcmROOGNoa0x4NEFyZkZaU1AKZithUmhpdWZqSE56bWhucnkvZlprRGdqQzQzRmV5UHZzcTZXeVVDV0FEK2JBdi9wSkJDbkg2MldoWGNLZ1BVMApqU1k0ZkpXenNFbzBaREhoeUszSGN3MkxkbmdmaEpEanBQRFJBNkRWb2pIaktPb29OT1J1dURvUHpiOTg2dGhUCkZaQXJMZjRvZXRzTEk1ZzFYRTNzZzM1YVhyU0g3N2JPYVVsTGpYTzFYSnpFZlZWZ3BMWE5xR1ZqTXhBMVU2b1MKMXVJL0d1K1ArY
-===========CUT=========================================CUT===================
-    server: https://compute.myasegpu1.wdshcsso.com:6443
-    name: kubernetes
-contexts:
-- context:
-    cluster: kubernetes
-    user: aseuser
-    name: aseuser@kubernetes
-current-context: aseuser@kubernetes
-kind: Config
-preferences: {}
-users:
-- name: aseuser
-    user:
-    client-certificate-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUMwRENDQWJpZ0F3SUJBZ0lJY1hOTXRPU2VwbG93RFFZSktvWklodmNOQVFFTEJRQXdGVEVUTUJFR0ExVUUKQXhNS2EzVmlaWEp1WlhSbGN6QWVGdzB5TURBMU1UTXlNVFEwTkRaYUZ3MHlNVEExTVRNeU1UVXhNVEphTUJJeApFREFPQmdOVkJBTVRCMkZ6WlhWelpYSXdnZ0VpTUEwR0NTcUdTSWIzRFFFQkFRVUFBNElCRHdBd2dnRUtBb0lCCkFRRHVjQ1pKdm9qNFIrc0U3a1EyYmVjNEJkTXdpUEhmU2R2WnNDVVY0aTRRZGY1Yzd0dkE3OVRSZkRLQTY1d08Kd0h0QWdlK3lLK0hIQ1Qyd09RbWtNek1RNjZwVFEzUlE0eVdtRDZHR1cWZWMExBR1hFUUxWWHRuTUdGCi0tLS0tRU5EIFJTQSBQUklWQVRFIEtFWS0tLS0tCg==
-
-[10.100.10.10]: PS>
-```
--->
-
-Sur un appareil Azure Stack Edge Pro sur lequel le rôle de calcul est configuré, vous pouvez dépanner ou surveiller l’appareil à l’aide de deux jeux de commandes distincts.
+- Réseau de calcul configuré. Consultez [Tutoriel : configurer le réseau pour Azure Stack Edge Pro avec GPU](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md).
+- Rôle de calcul configuré sur votre appareil.
+    
+Sur un appareil Azure Stack Edge Pro sur lequel le rôle de calcul est configuré, vous pouvez dépanner ou superviser l’appareil à l’aide de deux ensembles de commandes distincts.
 
 - À l’aide des commandes `iotedge`. Ces commandes sont disponibles pour les opérations de base pour votre appareil.
 - À l’aide des commandes `kubectl`. Ces commandes sont disponibles pour un ensemble complet d’opérations pour votre appareil.
@@ -218,6 +161,7 @@ Le tableau ci-après contient une brève description des commandes disponibles p
 |`logs`     | Extraire les journaux d’un module        |
 |`restart`     | Arrêter et redémarrer un module         |
 
+#### <a name="list-all-iot-edge-modules"></a>Répertorier tous les modules IoT Edge
 
 Pour répertorier tous les modules en cours d’exécution sur votre appareil, utilisez la commande `iotedge list`.
 
@@ -237,7 +181,64 @@ webserverapp           Running Up 10 days  nginx:stable                         
 
 [10.100.10.10]: PS>
 ```
+#### <a name="restart-modules"></a>Redémarrer les modules
 
+Vous pouvez utiliser la commande `list` pour répertorier tous les modules en cours d’exécution sur votre appareil. Identifiez ensuite le nom du module que vous souhaitez redémarrer et utilisez-le avec la `restart` commande.
+
+Voici un exemple de sortie de la procédure de redémarrage d’un module. En fonction de la description relative à la durée d’exécution du module, vous pouvez voir que `cuda-sample1` a été redémarré.
+
+```powershell
+[10.100.10.10]: PS>iotedge list
+
+NAME         STATUS  DESCRIPTION CONFIG                                          EXTERNAL-IP PORT(S)
+----         ------  ----------- ------                                          ----------- -------
+edgehub      Running Up 5 days   mcr.microsoft.com/azureiotedge-hub:1.0          10.57.48.62 443:31457/TCP,5671:308
+                                                                                             81/TCP,8883:31753/TCP
+iotedged     Running Up 7 days   azureiotedge/azureiotedge-iotedged:0.1.0-beta13 <none>      35000/TCP,35001/TCP
+cuda-sample2 Running Up 1 days   nvidia/samples:nbody
+edgeagent    Running Up 7 days   azureiotedge/azureiotedge-agent:0.1.0-beta13
+cuda-sample1 Running Up 1 days   nvidia/samples:nbody
+
+[10.100.10.10]: PS>iotedge restart cuda-sample1
+[10.100.10.10]: PS>iotedge list
+
+NAME         STATUS  DESCRIPTION  CONFIG                                          EXTERNAL-IP PORT(S)
+----         ------  -----------  ------                                          ----------- -------
+edgehub      Running Up 5 days    mcr.microsoft.com/azureiotedge-hub:1.0          10.57.48.62 443:31457/TCP,5671:30
+                                                                                              881/TCP,8883:31753/TC
+                                                                                              P
+iotedged     Running Up 7 days    azureiotedge/azureiotedge-iotedged:0.1.0-beta13 <none>      35000/TCP,35001/TCP
+cuda-sample2 Running Up 1 days    nvidia/samples:nbody
+edgeagent    Running Up 7 days    azureiotedge/azureiotedge-agent:0.1.0-beta13
+cuda-sample1 Running Up 4 minutes nvidia/samples:nbody
+
+[10.100.10.10]: PS>
+
+```
+
+#### <a name="get-module-logs"></a>Obtenir les journaux des modules
+
+Utilisez la commande `logs` pour obtenir les journaux des modules IoT Edge en cours d’exécution sur votre appareil. 
+
+Si une erreur s’est produite lors de la création de l’image de conteneur ou lors de l’extraction de l’image, exécutez `logs edgeagent`. `edgeagent` est le conteneur de runtime IoT Edge qui est responsable de la mise en service des autres conteneurs. Étant donné que `logs edgeagent` vide les journaux, un bon moyen de voir les erreurs récentes consiste à utiliser l’option `--tail `0`. 
+
+Voici un exemple de sortie.
+
+```powershell
+[10.100.10.10]: PS>iotedge logs cuda-sample2 --tail 10
+[10.100.10.10]: PS>iotedge logs edgeagent --tail 10
+<6> 2021-02-25 00:52:54.828 +00:00 [INF] - Executing command: "Report EdgeDeployment status: [Success]"
+<6> 2021-02-25 00:52:54.829 +00:00 [INF] - Plan execution ended for deployment 11
+<6> 2021-02-25 00:53:00.191 +00:00 [INF] - Plan execution started for deployment 11
+<6> 2021-02-25 00:53:00.191 +00:00 [INF] - Executing command: "Create an EdgeDeployment with modules: [cuda-sample2, edgeAgent, edgeHub, cuda-sample1]"
+<6> 2021-02-25 00:53:00.212 +00:00 [INF] - Executing command: "Report EdgeDeployment status: [Success]"
+<6> 2021-02-25 00:53:00.212 +00:00 [INF] - Plan execution ended for deployment 11
+<6> 2021-02-25 00:53:05.319 +00:00 [INF] - Plan execution started for deployment 11
+<6> 2021-02-25 00:53:05.319 +00:00 [INF] - Executing command: "Create an EdgeDeployment with modules: [cuda-sample2, edgeAgent, edgeHub, cuda-sample1]"
+<6> 2021-02-25 00:53:05.412 +00:00 [INF] - Executing command: "Report EdgeDeployment status: [Success]"
+<6> 2021-02-25 00:53:05.412 +00:00 [INF] - Plan execution ended for deployment 11
+[10.100.10.10]: PS>
+```
 
 ### <a name="use-kubectl-commands"></a>Utiliser des commandes kubectl
 
@@ -532,8 +533,8 @@ Lorsque vous modifiez la mémoire et l’utilisation du processeur, suivez ces i
 
 - La mémoire par défaut correspond à 25 % de la spécification de l’appareil.
 - Le nombre de processeurs par défaut représente 30 % de la spécification de l’appareil.
-- Lorsque vous modifiez les valeurs de mémoire et de nombre de processeurs, nous vous recommandons de faire varier les valeurs de mémoire de l’appareil et de nombre de processeurs entre 15 % et 65 %. 
-- Nous vous conseillons d’utiliser une limite supérieure de 65 % afin de disposer de suffisamment de ressources pour les composants système. 
+- Quand vous modifiez les valeurs de mémoire et de nombre de processeurs, nous vous recommandons de faire varier les valeurs de mémoire de l’appareil et de nombre de processeurs entre 15 % et 60 %. 
+- Nous vous conseillons d’utiliser une limite supérieure de 60 % afin de disposer de suffisamment de ressources pour les composants système. 
 
 ## <a name="connect-to-bmc"></a>Se connecter au contrôleur BMC
 
