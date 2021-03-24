@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 08a8dde815a6dea5d69e5e2a385cbaa03fba681a
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: 0c1b67e42e7988a836ec58ac022b11d736210bca
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99832692"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865619"
 ---
 # <a name="deploy-a-cloud-service-extended-support-using-azure-powershell"></a>Déployer un service cloud (support étendu) à l’aide d’Azure PowerShell
 
@@ -88,7 +88,7 @@ Consultez les [prérequis du déploiement](deploy-prerequisite.md) de Cloud Serv
     $networkProfile = @{loadBalancerConfiguration = $loadBalancerConfig} 
     ```
  
-9. Création d’un coffre de clés. Ce coffre de clés sera utilisé pour stocker les certificats associés aux rôles de service cloud (support étendu). Vérifiez que vous avez activé « Stratégies d’accès » (dans le portail) pour l’accès à « Machines virtuelles Azure pour le déploiement » et « Azure Resource Manager pour le déploiement de modèles ». Le coffre de clés doit se trouver dans la même région et le même abonnement que le service cloud et avoir un nom unique. Pour plus d’informations, consultez [Utiliser des certificats avec Azure Cloud Services (support étendu)](certificates-and-key-vault.md).
+9. Création d’un coffre de clés. Ce coffre de clés sera utilisé pour stocker les certificats associés aux rôles de service cloud (support étendu). Le coffre de clés doit se trouver dans la même région et le même abonnement que le service cloud et avoir un nom unique. Pour plus d’informations, consultez [Utiliser des certificats avec Azure Cloud Services (support étendu)](certificates-and-key-vault.md).
 
     ```powershell
     New-AzKeyVault -Name "ContosKeyVault” -ResourceGroupName “ContosOrg” -Location “East US” 
@@ -97,6 +97,7 @@ Consultez les [prérequis du déploiement](deploy-prerequisite.md) de Cloud Serv
 10. Chargez la stratégie d’accès au coffre de clés et accordez des autorisations de certificat à votre compte d’utilisateur. 
 
     ```powershell
+    Set-AzKeyVaultAccessPolicy -VaultName 'ContosKeyVault' -ResourceGroupName 'ContosOrg' -EnabledForDeployment
     Set-AzKeyVaultAccessPolicy -VaultName 'ContosKeyVault' -ResourceGroupName 'ContosOrg' -UserPrincipalName 'user@domain.com' -PermissionsToCertificates create,get,list,delete 
     ```
 

@@ -4,10 +4,10 @@ description: Découvrez comment vous pouvez utiliser Azure Data Box pour amorcer
 ms.topic: conceptual
 ms.date: 1/27/2020
 ms.openlocfilehash: e789b6c9f4ff2e8cd168e6b5c138d423911d4743
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96752581"
 ---
 # <a name="azure-backup-offline-backup-by-using-azure-data-box"></a>Sauvegarde hors connexion Sauvegarde Microsoft Azure avec Azure Data Box

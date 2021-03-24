@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 4f4a8fb82a42c5121105ddf7bb9d3d886b531350
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: b84b7387411e7df8e092a2e810591697319f9554
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321339"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104774675"
 ---
 # <a name="advanced-data-exploration-and-modeling-with-spark"></a>Modélisation et exploration avancées des données avec Spark
 
@@ -35,7 +35,8 @@ Une façon courante d’effectuer l’optimisation hyperparamétrique, utilisée
 
 Les modèles que nous utilisons incluent une régression logistique, une régression linéaire, des forêts aléatoires et des arbres GBT (Gradient Boosted Tree) :
 
-* [régression linéaire avec SGD](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.regression.LinearRegressionWithSGD) est un modèle de régression linéaire qui utilise la méthode SGD (Stochastic Gradient Descent), l’optimisation et la mise à l’échelle des caractéristiques pour prédire le montant des pourboires payés. 
+* [régression linéaire avec SGD](https://spark.apache.org/docs/latest/api/python/reference/api/pyspark.mllib.regression.LinearRegressionWithSGD.html#pyspark.mllib.regression.LinearRegressionWithSGD
+) est un modèle de régression linéaire qui utilise la méthode SGD (Stochastic Gradient Descent), l’optimisation et la mise à l’échelle des caractéristiques pour prédire le montant des pourboires payés. 
 * [régression logistique avec LBFGS](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.classification.LogisticRegressionWithLBFGS) , ou régression « logit », est un modèle de régression qui s’utilise quand la variable dépendante est catégorielle, pour la classification des données. LBFGS est un algorithme d’optimisation de Quasi-Newton qui correspond approximativement à l’algorithme BFGS (Broyden–Fletcher–Goldfarb–Shanno) avec une quantité limitée de mémoire informatique et qui est largement utilisé dans l’apprentissage automatique (Machine Learning).
 * [forêts aléatoires](https://spark.apache.org/docs/latest/mllib-ensembles.html#Random-Forests) sont des ensembles d’arbres de décision.  Elles combinent de nombreux arbres de décision pour réduire le risque de surajustement. Les forêts aléatoires sont utilisées pour la régression et la classification, peuvent gérer des caractéristiques catégorielles, et peuvent être étendues au paramètre de classification multiclasse. Elles ne requièrent aucune mise à l’échelle des caractéristiques, et peuvent capturer des non-linéarités ainsi que des interactions entre caractéristiques. Les forêts aléatoires constituent l’un des modèles Machine Learning les plus performants pour la classification et la régression.
 * Les [Gradient Boosting Trees](https://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBT) sont des ensembles d’arbres de décision. Ils effectuent l’apprentissage des arbres de décision de façon itérative pour réduire une fonction de perte. Les GBT sont utilisés pour la régression et la classification. Ils peuvent gérer des caractéristiques catégorielles, ne requièrent aucune mise à l’échelle des fonctionnalités et peuvent capturer des non-linéarités ainsi que des interactions entre fonctionnalités. Ils s’utilisent également dans le paramétrage de classification multiclasse.
@@ -764,7 +765,7 @@ Durée d’exécution de la cellule ci-dessus : 2,67 secondes
 
 **Tracer la courbe ROC.**
 
-*predictionAndLabelsDF* est inscrit en tant que table, *tmp_results* , dans la cellule précédente. *tmp_results* peut être utilisé pour effectuer des requêtes et envoyer des résultats à la trame de données sqlResults à des fins de traçage. Voici le code.
+*predictionAndLabelsDF* est inscrit en tant que table, *tmp_results*, dans la cellule précédente. *tmp_results* peut être utilisé pour effectuer des requêtes et envoyer des résultats à la trame de données sqlResults à des fins de traçage. Voici le code.
 
 ```python
 # QUERY RESULTS                              
@@ -895,7 +896,7 @@ Durée d’exécution de la cellule ci-dessus : 107,98 secondes
 
 **Tracer la courbe ROC.**
 
-*predictionAndLabelsDF* est inscrit en tant que table, *tmp_results* , dans la cellule précédente. *tmp_results* peut être utilisé pour effectuer des requêtes et envoyer des résultats à la trame de données sqlResults à des fins de traçage. Voici le code.
+*predictionAndLabelsDF* est inscrit en tant que table, *tmp_results*, dans la cellule précédente. *tmp_results* peut être utilisé pour effectuer des requêtes et envoyer des résultats à la trame de données sqlResults à des fins de traçage. Voici le code.
 
 ```python
 # QUERY RESULTS

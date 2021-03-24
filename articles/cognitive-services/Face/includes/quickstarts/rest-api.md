@@ -10,10 +10,10 @@ ms.topic: include
 ms.date: 12/06/2020
 ms.author: pafarley
 ms.openlocfilehash: 5523d89548ba08dfc5a43f5c21b5a12a5e5955c3
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102510917"
 ---
 Commencez à utiliser la reconnaissance faciale avec l’API REST Visage. Le service Visage vous donne accès à des algorithmes avancés pour la détection et la reconnaissance des visages dans des images.

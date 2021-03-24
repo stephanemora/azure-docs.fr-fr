@@ -10,17 +10,17 @@ ms.author: grhuynh
 ms.topic: conceptual
 ms.date: 02/05/2018
 ms.openlocfilehash: b426015906a8e17674123c0c3ad2fccb9c43798f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "72248571"
 ---
 # <a name="submit-a-workflow-using-multiple-inputs-from-the-same-sample"></a>Soumettre un workflow à l’aide d’entrées multiples d’un seul exemple
 
 Cet article montre comment soumettre un workflow dans le service Microsoft Genomics si votre fichier d’entrée est constitué de plusieurs fichiers FASTQ ou BAM **provenant du même échantillon**. Par exemple, si vous avez exécuté le **même échantillon** dans plusieurs couloirs sur le séquenceur, celui-ci peut sortir une paire de fichiers FASTQ pour chaque couloir. Au lieu d’effectuer une concaténation de ces fichiers FASTQ avant l’alignement et l’appel des variants, vous pouvez directement soumettre toutes ces entrées au client `msgen`. La sortie depuis le client `msgen` serait un **ensemble unique** de fichiers, y compris des fichiers .bam, .bai et .vcf. 
 
-Sachez toutefois qu’il est **impossible** de combiner les fichiers FASTQ et BAM dans la même soumission. En outre, vous **ne pouvez pas**  envoyer plusieurs fichiers FASTQ ou BAM par plusieurs personnes. 
+Sachez toutefois qu’il est **impossible** de combiner les fichiers FASTQ et BAM dans la même soumission. En outre, vous **ne pouvez pas** envoyer plusieurs fichiers FASTQ ou BAM par plusieurs personnes. 
 
 Cette article suppose que vous avez déjà installé et exécuté le client `msgen`, et que vous savez comment utiliser Stockage Azure. Si vous avez correctement soumis un workflow à l’aide de l’exemple de données fourni, vous êtes prêt à appliquer la procédure décrite dans cet article. 
 
@@ -28,7 +28,7 @@ Cette article suppose que vous avez déjà installé et exécuté le client `msg
 ## <a name="multiple-bam-files"></a>Fichiers BAM multiples
 
 ### <a name="upload-your-input-files-to-azure-storage"></a>Télécharger vos fichiers d’entrée dans Stockage Azure
-Supposons que votre entrée soit constituée de plusieurs fichiers BAM, *reads.bam*, *additional_reads.bam* et *yet_more_reads.bam*, et que vous les ayez téléchargé dans votre compte de stockage *myaccount* dans Azure. Vous disposez de l’URL d’API et de votre clé d’accès. Vos sorties doivent être hébergées sous **https://<span></span>myaccount.blob.core<span></span>.windows<span></span>.net<span></span>/outputs<span></span>** .
+Supposons que votre entrée soit constituée de plusieurs fichiers BAM, *reads.bam*, *additional_reads.bam* et *yet_more_reads.bam*, et que vous les ayez téléchargé dans votre compte de stockage *myaccount* dans Azure. Vous disposez de l’URL d’API et de votre clé d’accès. Vos sorties doivent être hébergées sous **https://<span></span>myaccount.blob.core <span></span>.windows <span></span>.net <span></span>/outputs <span></span>**.
 
 
 ### <a name="submit-your-job-to-the-msgen-client"></a>Envoyer votre tâche au client `msgen` 
@@ -91,7 +91,7 @@ Envoyez le fichier `config.txt` avec cet appel : `msgen submit -f config.txt`
 ## <a name="multiple-paired-fastq-files"></a>Plusieurs fichiers FASTQ appariés
 
 ### <a name="upload-your-input-files-to-azure-storage"></a>Télécharger vos fichiers d’entrée dans Stockage Azure
-Supposons que vous disposiez de plusieurs fichiers FASTQ dans votre entrée, *reads_1.fq.gz* et *reads_2.fq.gz*, *additional_reads_1.fq.gz* et *additional_reads_2.fq.gz*, ainsi que *yet_more_reads_1.fq.gz* et *yet_more_reads_2.fq.gz*. Vous les avez téléchargés dans votre compte de stockage *myaccount*dans Azure, et vous disposez de l’URL d’API et de votre clé d’accès. Vos sorties doivent être hébergées sous **https://<span></span>myaccount.blob.core<span></span>.windows<span></span>.net<span></span>/outputs<span></span>** .
+Supposons que vous disposiez de plusieurs fichiers FASTQ dans votre entrée, *reads_1.fq.gz* et *reads_2.fq.gz*, *additional_reads_1.fq.gz* et *additional_reads_2.fq.gz*, ainsi que *yet_more_reads_1.fq.gz* et *yet_more_reads_2.fq.gz*. Vous les avez téléchargés dans votre compte de stockage *myaccount* dans Azure, et vous disposez de l’URL d’API et de votre clé d’accès. Vos sorties doivent être hébergées sous **https://<span></span>myaccount.blob.core <span></span>.windows <span></span>.net <span></span>/outputs <span></span>**.
 
 
 ### <a name="submit-your-job-to-the-msgen-client"></a>Envoyer votre tâche au client `msgen` 

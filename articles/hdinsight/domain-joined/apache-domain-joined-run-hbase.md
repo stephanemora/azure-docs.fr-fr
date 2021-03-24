@@ -4,12 +4,12 @@ description: Didacticiel - Découvrez comment configurer des stratégies Apache 
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 09/04/2019
-ms.openlocfilehash: deefda126602e9b276b74752330a14cc3eb2aa95
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: a18e0b252facb4f00d9ba5c9b6bfe9fe6aefe1ef
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98933715"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866996"
 ---
 # <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package"></a>Tutoriel : Configurer des stratégies Apache HBase dans HDInsight avec le Pack Sécurité Entreprise
 
@@ -86,7 +86,7 @@ Vous pouvez utiliser SSH pour vous connecter à des clusters HBase, puis utilise
     scan 'Customers'
     ```
 
-    ![Sortie de l’interpréteur de commandes HBase Hadoop HDInsight](./media/apache-domain-joined-run-hbase/hbase-shell-scan-table.png)
+    :::image type="content" source="./media/apache-domain-joined-run-hbase/hbase-shell-scan-table.png" alt-text="Sortie de l’interpréteur de commandes HBase Hadoop HDInsight" border="true":::
 
 ## <a name="create-ranger-policies"></a>Création de stratégies Ranger
 
@@ -94,11 +94,11 @@ Créez une stratégie Ranger pour **sales_user1** et **marketing_user1**.
 
 1. Ouvrez **l’interface utilisateur de l’administrateur Ranger**. Cliquez sur **\<ClusterName>_hbase** sous **HBase**.
 
-   ![Interface utilisateur d’administration Apache Ranger HDInsight](./media/apache-domain-joined-run-hbase/apache-ranger-admin-login.png)
+   :::image type="content" source="./media/apache-domain-joined-run-hbase/apache-ranger-admin-login.png" alt-text="Interface utilisateur d’administration Apache Ranger HDInsight" border="true":::
 
 2. L’écran **List of Policies** (Liste des stratégies) affiche toutes les stratégies Ranger qui ont été créées pour ce cluster. Il est possible qu’une stratégie préconfigurée figure dans la liste. Cliquez sur **Add New Policy** (Ajouter une nouvelle stratégie).
 
-    ![Liste des stratégies Apache Ranger pour HBase](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policies-list.png)
+    :::image type="content" source="./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policies-list.png" alt-text="Liste des stratégies Apache Ranger pour HBase" border="true":::
 
 3. Dans l’écran **Create Policy** (Créer une stratégie), entrez les valeurs suivantes :
 
@@ -117,7 +117,7 @@ Créez une stratégie Ranger pour **sales_user1** et **marketing_user1**.
    * `*` indique zéro, une ou plusieurs occurrences des caractères.
    * `?` indique n’importe quel caractère individuel.
 
-   ![créer une stratégie Apache Ranger pour sales](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-sales.png)
+   :::image type="content" source="./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-sales.png" alt-text="créer une stratégie Apache Ranger pour sales" border="true":::
 
    >[!NOTE]
    >Attendez quelques instants pour que Ranger se synchronise avec Azure AD si un utilisateur du domaine n’est pas renseigné automatiquement dans **Sélectionner un utilisateur**.
@@ -136,7 +136,7 @@ Créez une stratégie Ranger pour **sales_user1** et **marketing_user1**.
    |Sélectionner un utilisateur  | marketing_user1 |
    |Autorisations  | Lire |
 
-   ![créer une stratégie Apache Ranger pour marketing](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-marketing.png)  
+   :::image type="content" source="./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-marketing.png" alt-text="créer une stratégie Apache Ranger pour marketing" border="true":::  
 
 6. Cliquez sur **Ajouter** pour enregistrer la stratégie.
 
@@ -226,7 +226,7 @@ En fonction des stratégies Ranger configurées, **sales_user1** peut voir toute
 
 1. Consultez les événements d’accès de l’audit à partir de l’interface utilisateur de Ranger.
 
-   ![Audit de stratégie de l’interface utilisateur Ranger HDInsight](./media/apache-domain-joined-run-hbase/apache-ranger-admin-audit.png)
+   :::image type="content" source="./media/apache-domain-joined-run-hbase/apache-ranger-admin-audit.png" alt-text="Audit de stratégie de l’interface utilisateur Ranger HDInsight" border="true":::
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

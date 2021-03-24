@@ -10,14 +10,16 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: 65d95533e4cff02866111881f036225f9f544852
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: c06120d1a2e8aa6aa0c006c6f40fed6fab44c5b7
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101719013"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200693"
 ---
 # <a name="retrieve-logs-from-iot-edge-deployments"></a>Récupérer les journaux des déploiements IoT Edge
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Récupérez les journaux de vos déploiements IoT Edge sans avoir besoin d’un accès physique ou SSH à l’appareil à l’aide des méthodes directes incluses dans le module de l’agent IoT Edge. Les méthodes directes sont implémentées sur l’appareil, puis peuvent être appelées à partir du cloud. L’agent IoT Edge comprend des méthodes directes qui vous aident à surveiller et gérer vos appareils IoT Edge à distance. Les méthodes directes présentées dans cet article sont généralement disponibles avec la version 1.0.10.
 
@@ -35,7 +37,7 @@ Bien qu’il ne soit pas obligatoire, pour une meilleure compatibilité avec cet
 
 `{Timestamp}` doit être au format `yyyy-MM-dd hh:mm:ss.fff zzz`, et `{Log Level}` doit suivre le tableau ci-dessous, qui dérive ses niveaux de gravité du [Code de gravité dans la norme Syslog](https://wikipedia.org/wiki/Syslog#Severity_level).
 
-| Value | Gravité |
+| Valeur | Gravité |
 |-|-|
 | 0 | Urgence |
 | 1 | Alerte |
@@ -74,7 +76,7 @@ Cette méthode accepte une charge utile JSON avec le schéma suivant :
     }
 ```
 
-| Nom | Type | Description |
+| Name | Type | Description |
 |-|-|-|
 | schemaVersion | string | Paramètre à définir sur `1.0` |
 | items | Tableau JSON | Tableau avec les tuples `id` et `filter`. |
@@ -183,7 +185,7 @@ Cette méthode accepte une charge utile JSON similaire à **GetModuleLogs**, ave
     }
 ```
 
-| Nom | Type | Description |
+| Name | Type | Description |
 |-|-|-|
 | sasURL | chaîne (URI) | [URL de signature d’accès partagé avec accès en écriture au conteneur Stockage Blob Azure](/archive/blogs/jpsanders/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer). |
 
@@ -197,7 +199,7 @@ Une demande réussie de chargement des journaux retourne un message **« État�
     }
 ```
 
-| Nom | Type | Description |
+| Name | Type | Description |
 |-|-|-|
 | status | string | `NotStarted`, `Running`, `Completed`, `Failed` ou `Unknown`. |
 | message | string | Message en cas d’erreur, chaîne vide dans le cas contraire. |
@@ -300,7 +302,7 @@ Cette méthode accepte une charge utile JSON avec le schéma suivant :
     }
 ```
 
-| Nom | Type | Description |
+| Name | Type | Description |
 |-|-|-|
 | schemaVersion | string | Paramètre à définir sur `1.0` |
 | sasURL | chaîne (URI) | [URL de signature d’accès partagé avec accès en écriture au conteneur Stockage Blob Azure](/archive/blogs/jpsanders/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer). |
@@ -321,7 +323,7 @@ Une demande réussie de chargement des journaux retourne un message **« État�
     }
 ```
 
-| Nom | Type | Description |
+| Name | Type | Description |
 |-|-|-|
 | status | string | `NotStarted`, `Running`, `Completed`, `Failed` ou `Unknown`. |
 | message | string | Message en cas d’erreur, chaîne vide dans le cas contraire. |
@@ -379,7 +381,7 @@ Une demande réussie de chargement des journaux retourne un message **« État�
     }
 ```
 
-| Nom | Type | Description |
+| Name | Type | Description |
 |-|-|-|
 | status | string | `NotStarted`, `Running`, `Completed`, `Failed` ou `Unknown`. |
 | message | string | Message en cas d’erreur, chaîne vide dans le cas contraire. |

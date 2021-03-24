@@ -11,10 +11,10 @@ ms.author: mireks
 ms.reviewer: vanto
 ms.date: 11/06/2019
 ms.openlocfilehash: 9161bf4f99ddfed479451d2091458ab309aa2c17
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92788619"
 ---
 # <a name="tutorial-security-in-azure-sql-managed-instance-using-azure-ad-server-principals-logins"></a>Tutoriel : Sécurité dans Azure SQL Managed Instance à l’aide de principaux de serveur (connexions) Azure AD
@@ -74,7 +74,7 @@ Consultez les articles suivants pour obtenir des exemples de connexion à SQL Ma
 
 1. Connectez-vous à votre instance managée à l’aide d’un compte de connexion SQL standard (non Azure AD) de type `sysadmin` ou d’un administrateur Azure AD pour SQL Managed Instance, à l’aide de [SQL Server Management Studio ](point-to-site-p2s-configure.md#connect-with-ssms).
 
-2. Dans l’ **Explorateur d’objets** , cliquez avec le bouton droit sur le serveur, puis choisissez **Nouvelle requête** .
+2. Dans l’**Explorateur d’objets**, cliquez avec le bouton droit sur le serveur, puis choisissez **Nouvelle requête**.
 
 3. Dans la fenêtre de requête, utilisez la syntaxe suivante afin de créer une connexion pour un compte Azure AD local :
 
@@ -120,14 +120,14 @@ Pour créer d’autres principaux de serveur (connexions) Azure AD, des rôles 
 
 - Pour permettre au principal de serveur (connexion) Azure AD créé de créer d’autres connexions pour d’autres utilisateurs, groupes ou applications Azure AD, attribuez le rôle serveur `sysadmin` ou `securityadmin` à la connexion.
 - Au minimum, l’autorisation **ALTER ANY LOGIN** doit être octroyée au principal de serveur (connexion) Azure AD pour permettre la création d’autres principaux de serveur (connexions) Azure AD.
-- Par défaut, l’autorisation standard accordée aux principaux de serveur (connexions) Azure AD créés dans la base de données MASTER est la suivante : **CONNECT SQL** et **VIEW ANY DATABASE** .
+- Par défaut, l’autorisation standard accordée aux principaux de serveur (connexions) Azure AD créés dans la base de données MASTER est la suivante : **CONNECT SQL** et **VIEW ANY DATABASE**.
 - Le rôle serveur `sysadmin` peut être attribué à de nombreux principaux de serveur (connexions) Azure AD au sein d’une instance managée.
 
 Pour ajouter la connexion au rôle serveur `sysadmin` :
 
 1. Reconnectez-vous à l’instance managée ou utilisez la connexion `sysadmin` existante à l’administrateur Azure AD ou au principal SQL.
 
-1. Dans l’ **Explorateur d’objets** , cliquez avec le bouton droit sur le serveur, puis choisissez **Nouvelle requête** .
+1. Dans l’**Explorateur d’objets**, cliquez avec le bouton droit sur le serveur, puis choisissez **Nouvelle requête**.
 
 1. Attribuez le rôle serveur `sysadmin` au principal de serveur (connexion) Azure AD à l’aide de la syntaxe T-SQL suivante :
 
@@ -145,7 +145,7 @@ Pour ajouter la connexion au rôle serveur `sysadmin` :
 
 ## <a name="create-additional-azure-ad-server-principals-logins-using-ssms"></a>Créer des principaux de serveur (connexions) Azure AD supplémentaires à l’aide de SSMS
 
-Une fois le principal de serveur (connexion) Azure AD créé et doté des privilèges `sysadmin`, il peut créer des connexions supplémentaires à l’aide de la clause **FROM EXTERNAL PROVIDER** et de **CREATE LOGIN** .
+Une fois le principal de serveur (connexion) Azure AD créé et doté des privilèges `sysadmin`, il peut créer des connexions supplémentaires à l’aide de la clause **FROM EXTERNAL PROVIDER** et de **CREATE LOGIN**.
 
 1. Connectez-vous à l’instance managée avec le principal de serveur (connexion) Azure AD, à l’aide de SQL Server Management Studio. Entrez le nom d’hôte de votre instance managée SQL. Pour l’authentification dans SSMS, vous avez le choix entre trois options quand vous vous connectez avec un compte Azure AD :
 
@@ -157,11 +157,11 @@ Une fois le principal de serveur (connexion) Azure AD créé et doté des privi
 
      Pour plus d’informations, consultez [Authentification universelle (prise en charge de SSMS pour Multi-Factor Authentication)](../database/authentication-mfa-ssms-overview.md).
 
-1. Sélectionnez **Active Directory - Authentification universelle avec MFA** . Cela entraîne l’ouverture de la fenêtre de connexion Multi-Factor Authentication. Connectez-vous avec votre mot de passe Azure AD.
+1. Sélectionnez **Active Directory - Authentification universelle avec MFA**. Cela entraîne l’ouverture de la fenêtre de connexion Multi-Factor Authentication. Connectez-vous avec votre mot de passe Azure AD.
 
     ![Capture d’écran de la fenêtre de connexion Multi-Factor Authentication avec le curseur dans le champ Entrer le mot de passe.](./media/aad-security-configure-tutorial/mfa-login-prompt.png)
 
-1. Dans l’ **Explorateur d’objets** SSMS, cliquez avec le bouton droit sur le serveur, puis choisissez **Nouvelle requête** .
+1. Dans l’**Explorateur d’objets** SSMS, cliquez avec le bouton droit sur le serveur, puis choisissez **Nouvelle requête**.
 1. Dans la fenêtre de requête, utilisez la syntaxe suivante afin de créer une connexion pour un autre compte Azure AD local :
 
     ```sql
@@ -183,8 +183,8 @@ Une fois le principal de serveur (connexion) Azure AD créé et doté des privi
     ```
 
 1. Créez une base de données dans l’instance managée à l’aide de la syntaxe [CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current). Cette base de données va être utilisée pour tester les connexions des utilisateurs dans la prochaine section.
-    1. Dans l’ **Explorateur d’objets** , cliquez avec le bouton droit sur le serveur, puis choisissez **Nouvelle requête** .
-    1. Dans la fenêtre de requête, utilisez la syntaxe suivante pour créer une base de données nommée **MyMITestDB** .
+    1. Dans l’**Explorateur d’objets**, cliquez avec le bouton droit sur le serveur, puis choisissez **Nouvelle requête**.
+    1. Dans la fenêtre de requête, utilisez la syntaxe suivante pour créer une base de données nommée **MyMITestDB**.
 
         ```sql
         CREATE DATABASE MyMITestDB;
@@ -205,7 +205,7 @@ Une fois le principal de serveur (connexion) Azure AD créé et doté des privi
     ```
 
 1. À des fins de test, connectez-vous à l’instance managée à l’aide de la connexion ou du groupe que vous venez de créer. Ouvrez une nouvelle connexion à l’instance managée, puis utilisez le nouveau nom de connexion au moment de l’authentification.
-1. Dans l’ **Explorateur d’objets** , cliquez avec le bouton droit sur le serveur, puis choisissez **Nouvelle requête** pour la nouvelle connexion.
+1. Dans l’**Explorateur d’objets**, cliquez avec le bouton droit sur le serveur, puis choisissez **Nouvelle requête** pour la nouvelle connexion.
 1. Consultez les autorisations du serveur pour le principal de serveur (connexion) Azure AD créé en exécutant la commande suivante :
 
       ```sql
@@ -214,7 +214,7 @@ Une fois le principal de serveur (connexion) Azure AD créé et doté des privi
       ```
 
 > [!NOTE]
-> Les utilisateurs invités Azure AD sont pris en charge pour les connexions SQL Managed Instance uniquement quand ils sont ajoutés en tant que membres d’un groupe Azure AD. Un utilisateur invité Azure AD est un compte invité dans l’instance Azure AD à laquelle appartient l’instance managée, à partir d’une autre instance Azure AD. Par exemple, joe@contoso.com (compte Azure AD) ou steve@outlook.com (compte Microsoft) peuvent être ajoutés à un groupe dans l’instance Azure AD aadsqlmi. Une fois les utilisateurs ajoutés à un groupe, vous pouvez créer une connexion dans la base de données **MASTER** SQL Managed Instance pour le groupe à l’aide de la syntaxe **CREATE LOGIN** . Les utilisateurs invités membres de ce groupe peuvent se connecter à l’instance managée à l’aide de leurs connexions actuelles (par exemple joe@contoso.com ou steve@outlook.com).
+> Les utilisateurs invités Azure AD sont pris en charge pour les connexions SQL Managed Instance uniquement quand ils sont ajoutés en tant que membres d’un groupe Azure AD. Un utilisateur invité Azure AD est un compte invité dans l’instance Azure AD à laquelle appartient l’instance managée, à partir d’une autre instance Azure AD. Par exemple, joe@contoso.com (compte Azure AD) ou steve@outlook.com (compte Microsoft) peuvent être ajoutés à un groupe dans l’instance Azure AD aadsqlmi. Une fois les utilisateurs ajoutés à un groupe, vous pouvez créer une connexion dans la base de données **MASTER** SQL Managed Instance pour le groupe à l’aide de la syntaxe **CREATE LOGIN**. Les utilisateurs invités membres de ce groupe peuvent se connecter à l’instance managée à l’aide de leurs connexions actuelles (par exemple joe@contoso.com ou steve@outlook.com).
 
 ## <a name="create-an-azure-ad-user-from-the-azure-ad-server-principal-login"></a>Créer un utilisateur Azure AD à partir du principal de serveur (connexion) Azure AD
 
@@ -229,7 +229,7 @@ Pour plus d’informations sur l’octroi d’autorisations de base de données,
 ### <a name="create-an-azure-ad-user-and-create-a-sample-table"></a>Créer un utilisateur Azure AD et un exemple de table
 
 1. Connectez-vous à votre instance managée à l’aide d’un compte `sysadmin` à l’aide de SQL Server Management Studio.
-1. Dans l’ **Explorateur d’objets** , cliquez avec le bouton droit sur le serveur, puis choisissez **Nouvelle requête** .
+1. Dans l’**Explorateur d’objets**, cliquez avec le bouton droit sur le serveur, puis choisissez **Nouvelle requête**.
 1. Dans la fenêtre de requête, utilisez la syntaxe suivante pour créer un utilisateur Azure AD à partir d’un principal de serveur (connexion) Azure AD :
 
     ```sql
@@ -259,10 +259,10 @@ Pour plus d’informations sur l’octroi d’autorisations de base de données,
     GO
     ```
 
-    Tous les utilisateurs appartenant à *mygroup* peuvent accéder à la base de données **MyMITestDB** .
+    Tous les utilisateurs appartenant à *mygroup* peuvent accéder à la base de données **MyMITestDB**.
 
     > [!IMPORTANT]
-    > Quand vous créez un **USER** à partir d’un principal de serveur (connexion) Azure AD, spécifiez le même user_name que le login_name à partir de **LOGIN** .
+    > Quand vous créez un **USER** à partir d’un principal de serveur (connexion) Azure AD, spécifiez le même user_name que le login_name à partir de **LOGIN**.
 
     Pour plus d’informations, consultez [CREATE USER](/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current).
 
@@ -295,7 +295,7 @@ Pour que les utilisateurs puissent voir les données de la base de données, nou
 
 1. Connectez-vous à votre instance managée à l’aide d’un compte `sysadmin` à l’aide de SQL Server Management Studio.
 
-1. Dans l’ **Explorateur d’objets** , cliquez avec le bouton droit sur le serveur, puis choisissez **Nouvelle requête** .
+1. Dans l’**Explorateur d’objets**, cliquez avec le bouton droit sur le serveur, puis choisissez **Nouvelle requête**.
 
 1. Attribuez le rôle de base de données `db_datareader` à l’utilisateur Azure AD à l’aide de la syntaxe T-SQL suivante :
 
@@ -305,7 +305,7 @@ Pour que les utilisateurs puissent voir les données de la base de données, nou
     GO
     ```
 
-    L’exemple suivant fournit à l’utilisateur bob@aadsqlmi.net et au groupe _mygroup_ les autorisations `db_datareader` pour la base de données **MyMITestDB**  :
+    L’exemple suivant fournit à l’utilisateur bob@aadsqlmi.net et au groupe _mygroup_ les autorisations `db_datareader` pour la base de données **MyMITestDB** :
 
     ```sql
     USE MyMITestDB
@@ -324,7 +324,7 @@ Pour que les utilisateurs puissent voir les données de la base de données, nou
     ```
 
 1. Créez une connexion à l’instance managée à l’aide de l’utilisateur ajouté au rôle `db_datareader`.
-1. Développez la base de données dans l’ **Explorateur d’objets** pour voir la table.
+1. Développez la base de données dans l’**Explorateur d’objets** pour voir la table.
 
     ![Capture d’écran de l’Explorateur d’objets dans SSMS montrant la structure des dossiers pour les tables dans MyMITestDB. Le dossier dbo.TestTable est mis en évidence.](./media/aad-security-configure-tutorial/ssms-test-table.png)
 
@@ -347,7 +347,7 @@ SQL Managed Instance prend en charge l’emprunt d’identité des principaux au
 
 1. Connectez-vous à votre instance managée à l’aide d’un compte `sysadmin` à l’aide de SQL Server Management Studio.
 
-1. Dans l’ **Explorateur d’objets** , cliquez avec le bouton droit sur le serveur, puis choisissez **Nouvelle requête** .
+1. Dans l’**Explorateur d’objets**, cliquez avec le bouton droit sur le serveur, puis choisissez **Nouvelle requête**.
 
 1. Dans la fenêtre de requête, utilisez la commande suivante pour créer une procédure stockée :
 
@@ -361,7 +361,7 @@ SQL Managed Instance prend en charge l’emprunt d’identité des principaux au
     GO
     ```
 
-1. Utilisez la commande suivante pour voir que l’utilisateur dont vous empruntez l’identité durant l’exécution de la procédure stockée est **bob\@aadsqlmi.net** .
+1. Utilisez la commande suivante pour voir que l’utilisateur dont vous empruntez l’identité durant l’exécution de la procédure stockée est **bob\@aadsqlmi.net**.
 
     ```sql
     Exec dbo.usp_Demo
@@ -388,8 +388,8 @@ SQL Managed Instance prend en charge l’emprunt d’identité des principaux au
 Les requêtes de bases de données croisées sont prises en charge pour les comptes Azure AD avec des principaux de serveur (connexions) Azure AD. Pour tester une requête de base de données croisée avec un groupe Azure AD, nous devons créer une autre base de données et une autre table. Vous pouvez ignorer la création d’une autre base de données et d’une autre table, si elles existent déjà.
 
 1. Connectez-vous à votre instance managée à l’aide d’un compte `sysadmin` à l’aide de SQL Server Management Studio.
-1. Dans l’ **Explorateur d’objets** , cliquez avec le bouton droit sur le serveur, puis choisissez **Nouvelle requête** .
-1. Dans la fenêtre de requête, utilisez la commande suivante pour créer une base de données nommée **MyMITestDB2** et une table nommée **TestTable2**  :
+1. Dans l’**Explorateur d’objets**, cliquez avec le bouton droit sur le serveur, puis choisissez **Nouvelle requête**.
+1. Dans la fenêtre de requête, utilisez la commande suivante pour créer une base de données nommée **MyMITestDB2** et une table nommée **TestTable2** :
 
     ```sql
     CREATE DATABASE MyMITestDB2;
@@ -405,7 +405,7 @@ Les requêtes de bases de données croisées sont prises en charge pour les comp
     );
     ```
 
-1. Dans une nouvelle fenêtre de requête, exécutez la commande suivante pour créer l’utilisateur _mygroup_ dans la nouvelle base de données **MyMITestDB2** , puis accordez à _mygroup_ des autorisations SELECT sur cette base de données :
+1. Dans une nouvelle fenêtre de requête, exécutez la commande suivante pour créer l’utilisateur _mygroup_ dans la nouvelle base de données **MyMITestDB2**, puis accordez à _mygroup_ des autorisations SELECT sur cette base de données :
 
     ```sql
     USE MyMITestDB2
@@ -416,7 +416,7 @@ Les requêtes de bases de données croisées sont prises en charge pour les comp
     GO
     ```
 
-1. Connectez-vous à l’instance managée à l’aide de SQL Server Management Studio en tant que membre du groupe Azure AD _mygroup_ . Ouvrez une nouvelle fenêtre de requête et exécutez l’instruction SELECT pour bases de données croisées :
+1. Connectez-vous à l’instance managée à l’aide de SQL Server Management Studio en tant que membre du groupe Azure AD _mygroup_. Ouvrez une nouvelle fenêtre de requête et exécutez l’instruction SELECT pour bases de données croisées :
 
     ```sql
     USE MyMITestDB
@@ -424,7 +424,7 @@ Les requêtes de bases de données croisées sont prises en charge pour les comp
     GO
     ```
 
-    Vous devez voir les résultats de la table dans **TestTable2** .
+    Vous devez voir les résultats de la table dans **TestTable2**.
 
 ## <a name="additional-supported-scenarios"></a>Autres scénarios pris en charge
 

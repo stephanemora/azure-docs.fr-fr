@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
 ms.openlocfilehash: 6bf3eccec70619bf73397e315c6d851f753ec52f
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92521830"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-uberflip"></a>Tutoriel : Intégration d’Azure Active Directory à Uberflip
@@ -55,7 +55,7 @@ Pour configurer l’intégration d’Uberflip dans Azure AD, vous devez ajouter 
 
    ![Option Azure Active Directory](common/select-azuread.png)
 
-1. Accédez à **Applications d’entreprise** , puis sélectionnez **Toutes les applications**.
+1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
 
    ![Volet Applications d’entreprise](common/enterprise-applications.png)
 
@@ -63,7 +63,7 @@ Pour configurer l’intégration d’Uberflip dans Azure AD, vous devez ajouter 
 
    ![Option Nouvelle application](common/add-new-app.png)
 
-1. Dans la zone de recherche, entrez **Uberflip**. Dans les résultats de recherche, sélectionnez **Uberflip** , puis **Ajouter** pour ajouter l’application.
+1. Dans la zone de recherche, entrez **Uberflip**. Dans les résultats de recherche, sélectionnez **Uberflip**, puis **Ajouter** pour ajouter l’application.
 
    ![Uberflip dans la liste des résultats](common/search-new-app.png)
 
@@ -86,19 +86,19 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
 
 Pour configurer l’authentification unique Azure AD avec Uberflip, effectuez les étapes suivantes :
 
-1. Dans le [portail Azure](https://portal.azure.com/), dans la page d’intégration de l’application **Uberflip** , sélectionnez **Authentification unique**.
+1. Dans le [portail Azure](https://portal.azure.com/), dans la page d’intégration de l’application **Uberflip**, sélectionnez **Authentification unique**.
 
     ![Configurer l’option d’authentification unique](common/select-sso.png)
 
-1. Dans le volet **Sélectionner une méthode d’authentification unique** , sélectionnez le mode **SAML/WS-Fed** pour activer l’authentification unique.
+1. Dans le volet **Sélectionner une méthode d’authentification unique**, sélectionnez le mode **SAML/WS-Fed** pour activer l’authentification unique.
 
     ![Mode de sélection de l’authentification unique](common/select-saml-option.png)
 
-1. Dans le volet **Configurer l’authentification unique avec SAML** , sélectionnez **Modifier** (icône de crayon) pour ouvrir le volet **Configuration SAML de base**.
+1. Dans le volet **Configurer l’authentification unique avec SAML**, sélectionnez **Modifier** (icône de crayon) pour ouvrir le volet **Configuration SAML de base**.
 
    ![Capture d’écran montrant Configuration SAML de base où vous pouvez entrer une URL de réponse](common/edit-urls.png)
 
-1. Dans le volet **Configuration SAML de base** , effectuez l’une des étapes suivantes, selon le mode d’authentification unique que vous souhaitez configurer :
+1. Dans le volet **Configuration SAML de base**, effectuez l’une des étapes suivantes, selon le mode d’authentification unique que vous souhaitez configurer :
 
    * Pour configurer l’application en mode d’authentification unique initiée par le fournisseur d’identité (IDP), dans la zone **URL de réponse (URL Assertion Consumer Service)** , entrez une URL selon le modèle suivant :
 
@@ -109,17 +109,17 @@ Pour configurer l’authentification unique Azure AD avec Uberflip, effectuez le
      > [!NOTE]
      > Cette valeur n’est pas réelle. Mettez à jour la valeur avec l’URL de réponse réelle. Pour obtenir la valeur réelle, contactez l’[équipe de support technique Uberflip](mailto:support@uberflip.com). Vous pouvez aussi vous référer aux modèles figurant dans le volet **Configuration SAML de base** sur le portail Azure.
 
-   * Pour configurer l’application en mode d’authentification unique initiée par le fournisseur de services (SP), sélectionnez **Définir des URL supplémentaires** puis, dans la zone **URL de connexion** , entrez cette URL :
+   * Pour configurer l’application en mode d’authentification unique initiée par le fournisseur de services (SP), sélectionnez **Définir des URL supplémentaires** puis, dans la zone **URL de connexion**, entrez cette URL :
 
      `https://app.uberflip.com/users/login`
 
      ![Capture d’écran montrant Définir des URL supplémentaires, où vous pouvez entrer une URL de connexion.](common/both-signonurl.png)
 
-1. Dans le volet **Configurer l’authentification unique avec SAML** , dans la section **Certificat de signature SAML** , sélectionnez **Télécharger** pour télécharger le fichier **XML de métadonnées de fédération** à partir des options données et enregistrez-le sur votre ordinateur.
+1. Dans le volet **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, sélectionnez **Télécharger** pour télécharger le fichier **XML de métadonnées de fédération** à partir des options données et enregistrez-le sur votre ordinateur.
 
    ![Option de téléchargement du fichier XML de métadonnées de fédération](common/metadataxml.png)
 
-1. Dans le volet **Configurer Uberflip** , copiez la ou les URL dont vous avez besoin :
+1. Dans le volet **Configurer Uberflip**, copiez la ou les URL dont vous avez besoin :
 
    * **URL de connexion**
    * **Identificateur Azure AD**
@@ -143,15 +143,15 @@ Dans cette section, créez un utilisateur de test nommé B. Simon dans le portai
 
     ![Option Nouvel utilisateur](common/new-user.png)
 
-1. Dans le volet **Utilisateur** , effectuez les étapes suivantes :
+1. Dans le volet **Utilisateur**, effectuez les étapes suivantes :
 
     ![Volet Utilisateur](common/user-properties.png)
 
-    1. Dans la zone **Nom** , entrez **BSimon**.
+    1. Dans la zone **Nom**, entrez **BSimon**.
   
-    1. Dans la zone **Nom d’utilisateur** , entrez **BSimon\@\<yourcompanydomain>.\<extension>** . Par exemple **BSimon\@contoso.com**.
+    1. Dans la zone **Nom d’utilisateur**, entrez **BSimon\@\<yourcompanydomain>.\<extension>** . Par exemple **BSimon\@contoso.com**.
 
-    1. Cochez la case **Afficher le mot de passe** , puis notez la valeur affichée dans le champ **Mot de passe**.
+    1. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
 
     1. Sélectionnez **Create** (Créer).
 
@@ -167,19 +167,19 @@ Dans cette section, vous allez autoriser B. Simon à utiliser l’authentificati
 
     ![Uberflip dans la liste des applications](common/all-applications.png)
 
-1. Dans le volet gauche, sous **GÉRER** , sélectionnez **Utilisateurs et groupes**.
+1. Dans le volet gauche, sous **GÉRER**, sélectionnez **Utilisateurs et groupes**.
 
     ![Option « Utilisateurs et groupes »](common/users-groups-blade.png)
 
-1. Sélectionnez **+ Ajouter un utilisateur** , puis **Utilisateurs et groupes** dans le volet **Ajouter une attribution**.
+1. Sélectionnez **+ Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans le volet **Ajouter une attribution**.
 
     ![Volet Ajouter une attribution](common/add-assign-user.png)
 
-1. Dans le volet **Utilisateurs et groupes** , sélectionnez **B Simon** dans la liste **Utilisateurs** , puis choisissez **Sélectionner** au bas du volet.
+1. Dans le volet **Utilisateurs et groupes**, sélectionnez **B Simon** dans la liste **Utilisateurs**, puis choisissez **Sélectionner** au bas du volet.
 
-1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans le volet **Sélectionner un rôle** , sélectionnez le rôle approprié pour l’utilisateur dans la liste. Au bas du volet, choisissez **Sélectionner**.
+1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans le volet **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste. Au bas du volet, choisissez **Sélectionner**.
 
-1. Dans le volet **Ajouter une attribution** , sélectionnez **Attribuer**.
+1. Dans le volet **Ajouter une attribution**, sélectionnez **Attribuer**.
 
 ### <a name="create-an-uberflip-test-user"></a>Créer un utilisateur de test Uberflip
 

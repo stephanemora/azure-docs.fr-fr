@@ -7,10 +7,10 @@ ms.date: 01/27/2020
 ms.topic: how-to
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
 ms.openlocfilehash: b5b5e8c11bfe164aaa3539742dac8c4d267c69e1
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96745602"
 ---
 # <a name="classic-deployment-model"></a>Modèle de déploiement classique
@@ -37,7 +37,7 @@ Suivez les instructions ci-dessous pour créer une demande de support en utilisa
 
    ![Créer une demande de support dans le portail Azure](./media/resource-manager-core-quotas-request/new-support-request.png)
 
-1. Dans **Type de problème**, sélectionnez **Limites du service et de l’abonnement (quotas)** .
+1. Dans **Type de problème**, sélectionnez **Limites du service et de l’abonnement (quotas)**.
 
    ![Sélectionner des quotas comme le type de problème](./media/resource-manager-core-quotas-request/select-quota-issue-type.png)
 

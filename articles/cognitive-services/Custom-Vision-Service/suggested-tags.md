@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/29/2019
 ms.author: pafarley
 ms.openlocfilehash: 94ca47e6114e4f8c3485f6072facd07c25e4b96a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "73647754"
 ---
 # <a name="label-images-faster-with-smart-labeler"></a>Étiqueter les images plus rapidement avec Smart Labeler
@@ -70,4 +70,4 @@ Les étapes suivantes montrent comment utiliser Smart Labeler :
 Suivez un guide de démarrage rapide pour commencer à créer et entraîner un projet Custom Vision.
 
 * [Créer un classifieur](getting-started-build-a-classifier.md)
-* [Créer un détecteur d’objets](get-started-build-detector.md)
+* [Créer un détecteur d’objet](get-started-build-detector.md)

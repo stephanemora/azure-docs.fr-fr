@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
 ms.openlocfilehash: 4d6274f3e1356a8ff8a997e830f0ebee43f50cff
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92893014"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-policystat"></a>Tutoriel : Intégration d’Azure Active Directory avec PolicyStat
@@ -58,7 +58,7 @@ Pour configurer l’intégration de PolicyStat à Azure AD, vous devez ajouter P
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
-2. Accédez à **Applications d’entreprise** , puis sélectionnez l’option **Toutes les applications**.
+2. Accédez à **Applications d’entreprise**, puis sélectionnez l’option **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -66,7 +66,7 @@ Pour configurer l’intégration de PolicyStat à Azure AD, vous devez ajouter P
 
     ![Bouton Nouvelle application](common/add-new-app.png)
 
-4. Dans la zone de recherche, tapez **PolicyStat** , sélectionnez **PolicyStat** dans le panneau de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+4. Dans la zone de recherche, tapez **PolicyStat**, sélectionnez **PolicyStat** dans le panneau de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
      ![PolicyStat dans la liste des résultats](common/search-new-app.png)
 
@@ -89,30 +89,30 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
 
 Pour configurer l’authentification unique Azure AD avec PolicyStat, effectuez les étapes suivantes :
 
-1. Dans le [portail Azure](https://portal.azure.com/), dans la page d’intégration de l’application **PolicyStat** , sélectionnez **Authentification unique**.
+1. Dans le [portail Azure](https://portal.azure.com/), dans la page d’intégration de l’application **PolicyStat**, sélectionnez **Authentification unique**.
 
     ![Lien Configurer l’authentification unique](common/select-sso.png)
 
-2. Dans la boîte de dialogue **Sélectionner une méthode d’authentification unique** , sélectionnez le mode **SAML/WS-Fed** afin d’activer l’authentification unique.
+2. Dans la boîte de dialogue **Sélectionner une méthode d’authentification unique**, sélectionnez le mode **SAML/WS-Fed** afin d’activer l’authentification unique.
 
     ![Mode de sélection de l’authentification unique](common/select-saml-option.png)
 
-3. Dans la page **Configurer l’authentification unique avec SAML** , cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue **Configuration SAML de base**.
+3. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue **Configuration SAML de base**.
 
     ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-4. Dans la section **Configuration SAML de base** , effectuez les étapes suivantes :
+4. Dans la section **Configuration SAML de base**, effectuez les étapes suivantes :
 
     ![Informations d’authentification unique dans Domaine et URL PolicyStat](common/sp-identifier.png)
 
-    a. Dans la zone de texte **URL de connexion** , saisissez une URL au format suivant : `https://<companyname>.policystat.com`
+    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<companyname>.policystat.com`
 
     b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `https://<companyname>.policystat.com/saml2/metadata/`
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez l’[équipe de support technique PolicyStat](http://www.policystat.com/support/). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-4. Sur la page **Configurer l’authentification unique avec SAML** , dans la section **Certificat de signature SAML** , cliquez sur **Télécharger** pour télécharger le fichier **XML de métadonnées de fédération** en fonction des options définies selon vos besoins, puis enregistrez-le sur votre ordinateur.
+4. Sur la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le fichier **XML de métadonnées de fédération** en fonction des options définies selon vos besoins, puis enregistrez-le sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/metadataxml.png)
 
@@ -120,9 +120,9 @@ Pour configurer l’authentification unique Azure AD avec PolicyStat, effectuez 
 
     ![Capture d’écran montrant la boîte de dialogue « Attributs utilisateur » avec l’icône « Modifier » sélectionnée.](common/edit-attribute.png)
 
-6. En plus de ce qui précède, l’application PolicyStat s’attend à ce que quelques attributs supplémentaires soient repassés dans la réponse SAML. Dans la section **Revendications des utilisateurs** de la boîte de dialogue **Attributs utilisateur** , effectuez les étapes suivantes pour ajouter le jeton SAML comme indiqué dans le tableau ci-dessous :
+6. En plus de ce qui précède, l’application PolicyStat s’attend à ce que quelques attributs supplémentaires soient repassés dans la réponse SAML. Dans la section **Revendications des utilisateurs** de la boîte de dialogue **Attributs utilisateur**, effectuez les étapes suivantes pour ajouter le jeton SAML comme indiqué dans le tableau ci-dessous :
 
-    | Nom | Attribut source |
+    | Name | Attribut source |
     |------------------- | -------------------- |
     | uid | ExtractMailPrefix([mail]) |
 
@@ -132,19 +132,19 @@ Pour configurer l’authentification unique Azure AD avec PolicyStat, effectuez 
 
     ![Capture d’écran montrant la boîte de dialogue « Gérer les revendications des utilisateurs » avec les zones de texte « Nom », « Transformation » et « Paramètre » mises en évidence, et le bouton « Enregistrer » sélectionné.](./media/policystat-tutorial/attribute01.png)
 
-    b. Dans la zone de texte **Attribut** , indiquez le nom d’attribut pour cette ligne.
+    b. Dans la zone de texte **Attribut**, indiquez le nom d’attribut pour cette ligne.
 
     c. Laissez le champ **Espace de noms** vide.
 
     d. Sélectionner Source comme **Transformation**.
 
-    e. Dans la liste **Transformation** , tapez la valeur d’attribut affichée pour cette ligne.
+    e. Dans la liste **Transformation**, tapez la valeur d’attribut affichée pour cette ligne.
     
-    f. Dans la liste **Paramètre 1** , tapez la valeur d’attribut affichée pour cette ligne.
+    f. Dans la liste **Paramètre 1**, tapez la valeur d’attribut affichée pour cette ligne.
 
     g. Cliquez sur **Enregistrer**.
 
-7. Dans la section **Configurer PolicyStat** , copiez la ou les URL appropriées en fonction de vos besoins.
+7. Dans la section **Configurer PolicyStat**, copiez la ou les URL appropriées en fonction de vos besoins.
 
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
 
@@ -158,11 +158,11 @@ Pour configurer l’authentification unique Azure AD avec PolicyStat, effectuez 
 
 1. Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise PolicyStat en tant qu’administrateur.
 
-2. Cliquez sur l’onglet **Admin** , puis sur **Single Sign-On Configuration** dans le volet de navigation de gauche.
+2. Cliquez sur l’onglet **Admin**, puis sur **Single Sign-On Configuration** dans le volet de navigation de gauche.
    
     ![Menu Administrateur](./media/policystat-tutorial/ic808633.png "Menu Administrateur")
 
-3. Cliquez sur **Your IDP Metadata** , puis, dans la section **Your IDP Metadata** , procédez comme suit :
+3. Cliquez sur **Your IDP Metadata**, puis, dans la section **Your IDP Metadata**, procédez comme suit :
    
     ![Capture d’écran montrant l’action « Your IDP Metadata » sélectionnée](./media/policystat-tutorial/ic808636.png "Single Sign-On Configuration")
    
@@ -170,19 +170,19 @@ Pour configurer l’authentification unique Azure AD avec PolicyStat, effectuez 
 
     b. Cliquez sur **Enregistrer les modifications**.
 
-4. Cliquez sur **Configure Attributes** , puis, dans la section **Configure Attributes** , procédez comme suit :
+4. Cliquez sur **Configure Attributes**, puis, dans la section **Configure Attributes**, procédez comme suit :
    
-    a. Dans la zone de texte **Username Attribute** , entrez **uid**.
+    a. Dans la zone de texte **Username Attribute**, entrez **uid**.
 
-    b. Dans la zone de texte **First Name Attribute** , tapez votre revendication d’attribut de prénom obtenue à partir d’Azure **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`** .
+    b. Dans la zone de texte **First Name Attribute**, tapez votre revendication d’attribut de prénom obtenue à partir d’Azure **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`** .
 
-    c. Dans la zone de texte **Last Name Attribute** , tapez votre revendication d’attribut de nom obtenue à partir d’Azure **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`** .
+    c. Dans la zone de texte **Last Name Attribute**, tapez votre revendication d’attribut de nom obtenue à partir d’Azure **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`** .
 
-    d. Dans la zone de texte **Email Attribute** , tapez votre revendication d’attribut d’e-mail obtenue à partir d’Azure **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`** .
+    d. Dans la zone de texte **Email Attribute**, tapez votre revendication d’attribut d’e-mail obtenue à partir d’Azure **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`** .
 
     e. Cliquez sur **Enregistrer les modifications**.
 
-5. Dans la section **Setup** , sélectionnez **Enable Single Sign-on Integration**.
+5. Dans la section **Setup**, sélectionnez **Enable Single Sign-on Integration**.
    
     ![Configuration de l’authentification unique](./media/policystat-tutorial/ic808634.png "Single Sign-On Configuration")
 
@@ -191,7 +191,7 @@ Pour configurer l’authentification unique Azure AD avec PolicyStat, effectuez 
 
 Dans cette section, vous allez autoriser votre propre compte à utiliser l’authentification unique Azure en lui accordant l’accès à PolicyStat.
 
-1. Dans le portail Azure, sélectionnez **Applications d’entreprise** , **Toutes les applications** , puis **PolicyStat**.
+1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, **Toutes les applications**, puis **PolicyStat**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -203,15 +203,15 @@ Dans cette section, vous allez autoriser votre propre compte à utiliser l’aut
 
     ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
 
-4. Cliquez sur le bouton **Ajouter un utilisateur** , puis sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
+4. Cliquez sur le bouton **Ajouter un utilisateur**, puis sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
 
     ![Volet Ajouter une attribution](common/add-assign-user.png)
 
-5. Dans la boîte de dialogue **Utilisateurs et groupes** , sélectionnez votre compte dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
+5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez votre compte dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
 
-6. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle** , sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+6. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
 
-7. Dans la boîte de dialogue **Ajouter une attribution** , cliquez sur le bouton **Attribuer**.
+7. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
 ### <a name="create-policystat-test-user"></a>Créer un utilisateur de test PolicyStat
 

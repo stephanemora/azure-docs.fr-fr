@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
 ms.openlocfilehash: 68e961336d7e86f9983fea49044137894ab0f985
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92895077"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-yodeck"></a>Tutoriel : Intégration d’Azure Active Directory à Yodeck
@@ -53,7 +53,7 @@ Pour configurer l’intégration de Yodeck avec Azure AD, vous devez ajouter Yo
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
-2. Accédez à **Applications d’entreprise** , puis sélectionnez l’option **Toutes les applications**.
+2. Accédez à **Applications d’entreprise**, puis sélectionnez l’option **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -61,7 +61,7 @@ Pour configurer l’intégration de Yodeck avec Azure AD, vous devez ajouter Yo
 
     ![Bouton Nouvelle application](common/add-new-app.png)
 
-4. Dans la zone de recherche, tapez **Yodeck** , sélectionnez **Yodeck** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+4. Dans la zone de recherche, tapez **Yodeck**, sélectionnez **Yodeck** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
      ![Yodeck dans la liste des résultats](common/search-new-app.png)
 
@@ -85,37 +85,37 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
 
 Pour configurer l’authentification unique Azure AD avec Yodeck, effectuez les étapes suivantes :
 
-1. Dans le [Portail Azure](https://portal.azure.com/), dans la page d’intégration de l’application **Yodeck** , sélectionnez **Authentification unique**.
+1. Dans le [Portail Azure](https://portal.azure.com/), dans la page d’intégration de l’application **Yodeck**, sélectionnez **Authentification unique**.
 
     ![Lien Configurer l’authentification unique](common/select-sso.png)
 
-2. Dans la boîte de dialogue **Sélectionner une méthode d’authentification unique** , sélectionnez le mode **SAML/WS-Fed** afin d’activer l’authentification unique.
+2. Dans la boîte de dialogue **Sélectionner une méthode d’authentification unique**, sélectionnez le mode **SAML/WS-Fed** afin d’activer l’authentification unique.
 
     ![Mode de sélection de l’authentification unique](common/select-saml-option.png)
 
-3. Dans la page **Configurer l’authentification unique avec SAML** , cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue **Configuration SAML de base**.
+3. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue **Configuration SAML de base**.
 
     ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-4. Dans la section **Configuration SAML de base** , si vous souhaitez configurer l’application en mode lancé par le **fournisseur d’identité** , effectuez l’étape suivante :
+4. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode lancé par le **fournisseur d’identité**, effectuez l’étape suivante :
 
     ![Informations d’authentification unique dans Domaine et URL Yodeck](common/idp-identifier.png)
 
-    Dans la zone de texte **Identificateur** , tapez une URL :  `https://app.yodeck.com/api/v1/account/metadata/`
+    Dans la zone de texte **Identificateur**, tapez une URL :  `https://app.yodeck.com/api/v1/account/metadata/`
 
-5. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services** , cliquez sur **Définir des URL supplémentaires** , puis effectuez les étapes suivantes :
+5. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
 
     ![Capture d’écran montrant la Configuration SAML de base avec le lien Charger un fichier de métadonnées.](common/both-preintegrated-signon.png)
 
-    Dans la zone de texte **URL de connexion** , tapez une URL : `https://app.yodeck.com/login`
+    Dans la zone de texte **URL de connexion**, tapez une URL : `https://app.yodeck.com/login`
 
-6. Dans la page **Configurer l’authentification unique avec SAML** , dans la section **Certificat de signature SAML** , cliquez sur le bouton Copier pour copier l’ **URL des métadonnées de fédération d’application** , puis enregistrez-la sur votre ordinateur.
+6. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur le bouton Copier pour copier l’**URL des métadonnées de fédération d’application**, puis enregistrez-la sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/copy-metadataurl.png)
 
 ### <a name="configure-yodeck-single-sign-on"></a>Configurer l’authentification unique Yodeck
 
-1. Pour automatiser la configuration dans **Yodeck** , vous devez installer l’ **extension de navigateur de connexion sécurisée à Mes applications** en cliquant sur **Installer l’extension**.
+1. Pour automatiser la configuration dans **Yodeck**, vous devez installer l’**extension de navigateur de connexion sécurisée à Mes applications** en cliquant sur **Installer l’extension**.
 
     ![Capture d’écran montrant le bouton Installer l’extension.](./media/target-process-tutorial/install_extension.png)
 
@@ -137,9 +137,9 @@ Pour configurer l’authentification unique Azure AD avec Yodeck, effectuez les 
 
     a. Sélectionnez **Import from URL**.
 
-    b. Dans la zone de texte **URL** , collez la valeur **URL des métadonnées de fédération de l’application** que vous avez copiée dans le portail Azure, puis cliquez sur **Import**.
+    b. Dans la zone de texte **URL**, collez la valeur **URL des métadonnées de fédération de l’application** que vous avez copiée dans le portail Azure, puis cliquez sur **Import**.
     
-    c. Une fois l’ **URL des métadonnées de fédération de l’application** importée, les champs restants sont renseignés automatiquement.
+    c. Une fois l’**URL des métadonnées de fédération de l’application** importée, les champs restants sont renseignés automatiquement.
 
     d. Cliquez sur **Enregistrer**.
 
@@ -147,7 +147,7 @@ Pour configurer l’authentification unique Azure AD avec Yodeck, effectuez les 
 
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
 
-1. Dans le volet gauche du portail Azure, sélectionnez **Azure Active Directory** , sélectionnez **Utilisateurs** , puis sélectionnez **Tous les utilisateurs**.
+1. Dans le volet gauche du portail Azure, sélectionnez **Azure Active Directory**, sélectionnez **Utilisateurs**, puis sélectionnez **Tous les utilisateurs**.
 
     ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](common/users.png)
 
@@ -159,11 +159,11 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     ![Boîte de dialogue Utilisateur](common/user-properties.png)
 
-    a. Dans le champ **Nom** , entrez **BrittaSimon**.
+    a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur** , tapez brittasimon@yourcompanydomain.extension. Par exemple : BrittaSimon@contoso.com
+    b. Dans le champ **Nom d’utilisateur**, tapez brittasimon@yourcompanydomain.extension. Par exemple : BrittaSimon@contoso.com
 
-    c. Cochez la case **Afficher le mot de passe** , puis notez la valeur affichée dans le champ Mot de passe.
+    c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
     d. Cliquez sur **Créer**.
 
@@ -171,7 +171,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Yodeck.
 
-1. Dans le Portail Azure, sélectionnez **Applications d’entreprise** , **Toutes les applications** , puis **Yodeck**.
+1. Dans le Portail Azure, sélectionnez **Applications d’entreprise**, **Toutes les applications**, puis **Yodeck**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -183,15 +183,15 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
     ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
 
-4. Cliquez sur le bouton **Ajouter un utilisateur** , puis sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
+4. Cliquez sur le bouton **Ajouter un utilisateur**, puis sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
 
     ![Volet Ajouter une attribution](common/add-assign-user.png)
 
-5. Dans la boîte de dialogue **Utilisateurs et groupes** , sélectionnez **Britta Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
 
-6. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle** , sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+6. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
 
-7. Dans la boîte de dialogue **Ajouter une attribution** , cliquez sur le bouton **Attribuer**.
+7. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
 ### <a name="create-yodeck-test-user"></a>Créer un utilisateur de test Yodeck
 
@@ -209,13 +209,13 @@ Pour se connecter à Yodeck, les utilisateurs d’Azure AD doivent être approvi
 
     ![Capture d’écran montrant le bouton Users.](./media/yodeck-tutorial/user2.png)
 
-4. Dans la page de boîte de dialogue **Détails de l'utilisateur** , procédez comme suit :
+4. Dans la page de boîte de dialogue **Détails de l'utilisateur**, procédez comme suit :
 
     ![Capture d’écran montrant l’onglet User Details où vous pouvez effectuer ces étapes.](./media/yodeck-tutorial/user3.png)
 
-    a. Dans la zone de texte **First Name** , entrez le prénom de l’utilisateur, par exemple **Britta**.
+    a. Dans la zone de texte **First Name**, entrez le prénom de l’utilisateur, par exemple **Britta**.
 
-    b. Dans la zone de texte **Last Name** , tapez le nom de l’utilisateur, par exemple **Simon**.
+    b. Dans la zone de texte **Last Name**, tapez le nom de l’utilisateur, par exemple **Simon**.
 
     c. Dans la zone de texte **Email** (E-mail), tapez l’adresse e-mail d’un utilisateur, par exemple, brittasimon@contoso.com.
 

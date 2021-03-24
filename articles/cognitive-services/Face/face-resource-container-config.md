@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: 2f608843e27b79d02697df8e2a7f2aba6695e10a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "80878423"
 ---
 # <a name="configure-face-docker-containers"></a>Configurer des conteneurs Docker Visage
@@ -61,7 +61,7 @@ Pensez à ajouter le routage _Visage_ à l’URI de point de terminaison, comme 
 
 Les paramètres de configuration de la section `CloudAI` fournissent des options de conteneur propres à votre conteneur. Les paramètres et les objets suivants sont pris en charge pour le conteneur Visage dans la section `CloudAI`
 
-| Nom | Type de données | Description |
+| Name | Type de données | Description |
 |------|-----------|-------------|
 | `Storage` | Object | Scénario de stockage utilisé par le conteneur Visage. Pour plus d’informations sur les scénarios de stockage et les paramètres associés pour les objets `Storage`, consultez [Paramètres de scénario de stockage](#storage-scenario-settings). |
 
@@ -80,7 +80,7 @@ Le conteneur Visage stocke des données d’objet blob, de cache, de métadonné
 
 Les scénarios de stockage et les paramètres de configuration associés sont gérés par l’objet `Storage`, sous la section de configuration `CloudAI`. Les paramètres de configuration suivants sont disponibles dans l’objet `Storage` :
 
-| Nom | Type de données | Description |
+| Name | Type de données | Description |
 |------|-----------|-------------|
 | `StorageScenario` | String | Scénario de stockage pris en charge par le conteneur. Les valeurs disponibles sont les suivantes :<br/>`Memory` - Valeur par défaut. Le conteneur utilise un stockage non persistant, non réparti et en mémoire pour une utilisation temporaire sur un nœud unique. Si le conteneur est arrêté ou supprimé, son stockage est détruit.<br/>`Azure` - Le conteneur utilise des ressources Azure pour le stockage. Si le conteneur est arrêté ou supprimé, son stockage est conservé.|
 | `ConnectionStringOfAzureStorage` | String | Chaîne de connexion de la ressource Stockage Azure utilisée par le conteneur.<br/>Ce paramètre s’applique uniquement si `Azure` est spécifié pour le paramètre de configuration `StorageScenario`. |

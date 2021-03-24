@@ -9,10 +9,10 @@ ms.date: 05/08/2020
 ms.author: aapowell
 ms.custom: devx-track-js
 ms.openlocfilehash: 4430ed34858077b13b4fec69756c1c7e9f3ef7ac
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "100652355"
 ---
 # <a name="tutorial-publish-a-gatsby-site-to-azure-static-web-apps-preview"></a>Tutoriel : Publier un site Gatsby dans Azure Static Web Apps Preview
@@ -86,7 +86,7 @@ Les étapes suivantes vous montrent comment créer une application Static Web Ap
 
 1. Accéder au [portail Azure](https://portal.azure.com)
 1. Cliquez sur **Create a Resource** (Créer une ressource).
-1. Recherchez **Static Web Apps**.
+1. Recherchez **Applications web statiques**
 1. Cliquez sur **Static Web Apps (Preview)** (Static Web Apps (préversion))
 1. Cliquez sur **Créer**
 
