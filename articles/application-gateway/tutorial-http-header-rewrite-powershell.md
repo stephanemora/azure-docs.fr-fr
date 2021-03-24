@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: absha
 ms.openlocfilehash: 4a1a122eb7b5b0abcc47cd321c74267a1a4aecda
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93396853"
 ---
 # <a name="create-an-application-gateway-and-rewrite-http-headers"></a>Créer une passerelle d’application et réécrire des en-têtes HTTP
@@ -30,7 +30,7 @@ Dans cet article, vous apprendrez comment :
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour cet article, vous devez exécuter Azure PowerShell localement. Vous devez avoir installé la version du module Az 1.0.0 ou version ultérieure. Exécutez `Import-Module Az`, puis`Get-Module Az` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-az-ps). Après avoir vérifié la version PowerShell, exécutez `Login-AzAccount` pour créer une connexion avec Azure.
 
@@ -52,7 +52,7 @@ $rg = "<rg name>"
 New-AzResourceGroup -Name $rg -Location $location
 ```
 
-## <a name="create-a-virtual-network"></a>Créez un réseau virtuel
+## <a name="create-a-virtual-network"></a>Créer un réseau virtuel
 
 Créez un réseau virtuel composé d'un sous-réseau dédié pour une passerelle d'application avec mise à l'échelle automatique. Actuellement, une seule passerelle d’application de mise à l’échelle automatique peut être déployée dans chaque sous-réseau dédié.
 
@@ -107,11 +107,11 @@ $setting = New-AzApplicationGatewayBackendHttpSettings -Name "BackendHttpSetting
 
 Configurez les nouveaux objets requis pour réécrire les en-têtes HTTP :
 
-- **RequestHeaderConfiguration**  : cet objet est utilisé pour spécifier les champs d’en-tête de requête que vous souhaitez réécrire et la nouvelle valeur de réécriture des en-têtes d’origine.
-- **ResponseHeaderConfiguration**  : cet objet est utilisé pour spécifier les champs d’en-tête de réponse que vous souhaitez réécrire et la nouvelle valeur de réécriture des en-têtes d’origine.
-- **ActionSet**  : cet objet contient les configurations des en-têtes de requête et de réponse spécifiés ci-dessus. 
-- **RewriteRule**  : cet objet contient tous les *actionSets* spécifiés ci-dessus. 
-- **RewriteRuleSet**  : cet objet contient toutes les *rewriteRules* et devra être attaché à une règle d’acheminement des requêtes, qu’elles soient basiques ou basées sur un chemin d’accès.
+- **RequestHeaderConfiguration** : cet objet est utilisé pour spécifier les champs d’en-tête de requête que vous souhaitez réécrire et la nouvelle valeur de réécriture des en-têtes d’origine.
+- **ResponseHeaderConfiguration** : cet objet est utilisé pour spécifier les champs d’en-tête de réponse que vous souhaitez réécrire et la nouvelle valeur de réécriture des en-têtes d’origine.
+- **ActionSet** : cet objet contient les configurations des en-têtes de requête et de réponse spécifiés ci-dessus. 
+- **RewriteRule** : cet objet contient tous les *actionSets* spécifiés ci-dessus. 
+- **RewriteRuleSet** : cet objet contient toutes les *rewriteRules* et devra être attaché à une règle d’acheminement des requêtes, qu’elles soient basiques ou basées sur un chemin d’accès.
 
    ```azurepowershell
    $requestHeaderConfiguration = New-AzApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "X-isThroughProxy" -HeaderValue "True"

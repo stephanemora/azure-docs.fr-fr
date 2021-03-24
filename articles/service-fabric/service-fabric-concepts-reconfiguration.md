@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: aprameyr
 ms.openlocfilehash: bd46a7776495624affef77a44fcf68334750ba17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "75609993"
 ---
 # <a name="reconfiguration-in-azure-service-fabric"></a>Reconfiguration dans Azure Service Fabric
@@ -51,6 +51,6 @@ Utilisez les rapports d’intégrité à partir des composants système, tels qu
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur les concepts propres à Service Fabric, consultez les articles suivants :
 
-- [Cycle de vie des Reliable Services - C#](service-fabric-reliable-services-lifecycle.md)
+- [Cycle de vie de Reliable Services - C#](service-fabric-reliable-services-lifecycle.md)
 - [Rapports d’intégrité du système](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 - [Réplicas et instances](service-fabric-concepts-replica-lifecycle.md)

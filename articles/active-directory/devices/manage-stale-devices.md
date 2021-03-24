@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d12679e64d690614aaf788837a02af007448f83d
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93393674"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>Procédure : Gérer les appareils obsolètes dans Azure AD
@@ -98,7 +98,7 @@ Vos appareils joints à une version hybride d’Azure AD doivent respecter vos s
 Pour nettoyer l’environnement Azure AD :
 
 - **Appareils Windows 10** : désactivez ou supprimez les appareils Windows 10 dans votre environnement AD local, et laissez Azure AD Connect synchroniser l’état modifié des appareils sur Azure AD.
-- **Windows 7/8**  : commencez par désactiver ou supprimer les appareils Windows 7/8 dans votre service AD local. Vous ne pouvez pas utiliser Azure AD Connect pour désactiver ou supprimer des appareils Windows 7/8 dans Azure AD. Au lieu de cela, quand vous apportez la modification à votre service local, vous devez désactiver/supprimer les appareils dans Azure AD.
+- **Windows 7/8** : commencez par désactiver ou supprimer les appareils Windows 7/8 dans votre service AD local. Vous ne pouvez pas utiliser Azure AD Connect pour désactiver ou supprimer des appareils Windows 7/8 dans Azure AD. Au lieu de cela, quand vous apportez la modification à votre service local, vous devez désactiver/supprimer les appareils dans Azure AD.
 
 > [!NOTE]
 >* La suppression d’appareils dans votre service AD local ou Azure AD ne supprime pas l’inscription sur le client. Elle empêche uniquement d’accéder aux ressources en utilisant l’appareil en tant qu’identité (accès conditionnel, par exemple). Pour plus d’informations, reportez-vous à la section sur la [suppression de l’inscription sur le client](faq.md#hybrid-azure-ad-join-faq).

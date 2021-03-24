@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: b826c986a0af26bb79fb0823e4e8626f0165d460
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86250020"
 ---
 # <a name="azure-api-management-page-controls"></a>Contrôles de page Gestion des API Azure
@@ -105,7 +105,7 @@ Pour plus d’informations sur l’utilisation de modèles, consultez la page [G
 ### <a name="developer-portal-templates"></a>Modèles du portail des développeurs  
  Le contrôle `paging-control` peut être utilisé dans les modèles suivants du portail des développeurs :  
   
--   [Liste d’API](api-management-api-templates.md#APIList)  
+-   [Liste des API](api-management-api-templates.md#APIList)  
   
 -   [Liste des problèmes](api-management-issue-templates.md#IssueList)  
   
@@ -147,7 +147,7 @@ Pour plus d’informations sur l’utilisation de modèles, consultez la page [G
 ### <a name="developer-portal-templates"></a>Modèles du portail des développeurs  
  Le contrôle `search-control` peut être utilisé dans les modèles suivants du portail des développeurs :  
   
--   [Liste d’API](api-management-api-templates.md#APIList)  
+-   [Liste des API](api-management-api-templates.md#APIList)  
   
 -   [Liste de produits](api-management-product-templates.md#ProductList)  
   

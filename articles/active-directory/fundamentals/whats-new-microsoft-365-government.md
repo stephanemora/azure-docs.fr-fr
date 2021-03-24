@@ -14,10 +14,10 @@ ms.date: 05/07/2019
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a0efc4bc8f89b0fbefbba171d80a3f8a1ed5e7f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89318928"
 ---
 # <a name="whats-new-for-azure-active-directory-in-microsoft-365-government"></a>Nouveautés d’Azure Active Directory dans Microsoft 365 Government
@@ -63,7 +63,7 @@ La table suivante répertorie les points de terminaison pour tous les clients :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations, voir les articles suivants :
+Pour plus d’informations, consultez les articles suivants :
 
 - [Qu’est-ce qu’Azure Government ?](../../azure-government/documentation-government-welcome.md)
 

@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
 ms.openlocfilehash: 3b424ece9207328d87068160f78ebc78a3bd1a8d
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93395221"
 ---
 # <a name="configure-replication-to-azure-sql-edge"></a>Configurer la réplication sur Azure SQL Edge 
@@ -51,7 +51,7 @@ La configuration requise et les bonnes pratiques suivantes sont importantes à c
 Vous pouvez initialiser votre instance avec des données de référence qui changent au fil du temps. Par exemple, vous souhaiterez peut-être mettre à jour les modèles de machine learning sur votre instance d’Azure SQL Edge, une fois qu’ils ont été entraînés sur une instance de SQL Server. Voici comment initialiser votre instance dans un tel scénario :
 
 1. Créez une publication de réplication transactionnelle sur une base de données SQL Server.  
-2. Sur l’instance de SQL Server, utilisez l’ **Assistant Nouvel abonnement** ou des instructions Transact-SQL pour créer une émission de données sur l’abonnement à Azure SQL Edge.  
+2. Sur l’instance de SQL Server, utilisez l’**Assistant Nouvel abonnement** ou des instructions Transact-SQL pour créer une émission de données sur l’abonnement à Azure SQL Edge.  
 3. Vous pouvez initialiser la base de données répliquée sur Azure SQL Edge à l’aide d’une capture instantanée générée par l’agent d’instantané et distribuée par l’agent de distribution. Vous pouvez également effectuer l’initialisation à l’aide d’une sauvegarde de la base de données à partir du serveur de publication. Gardez à l’esprit que si la sauvegarde de la base de données contient des objets ou fonctionnalités non pris en charge par Azure SQL Edge, l’opération de restauration échoue.
 
 ## <a name="limitations"></a>Limites
@@ -83,7 +83,7 @@ Les options suivantes ne sont pas prises en charge par les abonnements Azure SQL
 Créez une publication et un abonnement par émission de données. Pour plus d'informations, consultez les pages suivantes :
   
 - [Créer une publication](/sql/relational-databases/replication/publish/create-a-publication)
-- [Créez un abonnement par émission de données](/sql/relational-databases/replication/create-a-push-subscription/) en utilisant le nom et l’adresse IP du serveur Azure SQL Edge comme abonné (par exemple, **myEdgeinstance, 1433** ) et un nom de base de données de l’instance d’Azure SQL Edge comme base de données de destination (par exemple, **AdventureWorks** ).  
+- [Créez un abonnement par émission de données](/sql/relational-databases/replication/create-a-push-subscription/) en utilisant le nom et l’adresse IP du serveur Azure SQL Edge comme abonné (par exemple, **myEdgeinstance, 1433**) et un nom de base de données de l’instance d’Azure SQL Edge comme base de données de destination (par exemple, **AdventureWorks**).  
 
 ## <a name="next-steps"></a>Étapes suivantes  
 

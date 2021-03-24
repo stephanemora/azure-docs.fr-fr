@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0a655f355bb77d937f4daff2f8987769416ebd8c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89279667"
 ---
 # <a name="getting-started-with-azure-ad-connect-using-express-settings"></a>Prise en main d’Azure AD Connect à l’aide de paramètres express
@@ -33,7 +33,7 @@ Si la configuration rapide ne correspond pas à votre topologie, consultez la [d
 Vous pouvez voir ces étapes en action dans la section [vidéos](#videos) .
 
 1. Connectez-vous en tant qu’administrateur local au serveur sur lequel vous souhaitez installer Azure AD Connect. Il doit s’agir du serveur que vous choisissez comme serveur de synchronisation.
-2. Accédez à **AzureADConnect.msi**et double-cliquez sur ce fichier.
+2. Accédez à **AzureADConnect.msi** et double-cliquez sur ce fichier.
 3. Sur l'écran d’accueil, sélectionnez la case pour accepter les termes du contrat de licence et cliquez sur **Continuer**.  
 4. Sur l'écran Paramètres Express, cliquez sur **Utiliser les paramètres Express**.  
    ![Bienvenue dans Azure AD Connect](./media/how-to-connect-install-express/express.png)

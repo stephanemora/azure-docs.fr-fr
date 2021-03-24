@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 09/03/2020
 ms.custom: subject-moving-resources
 ms.openlocfilehash: 60a182764639341fcda159356dd9fe6c65cfabd9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89463265"
 ---
 # <a name="move-an-azure-relay-namespace-to-another-region"></a>Déplacer un espace de noms Azure Relay vers une autre région
@@ -39,7 +39,7 @@ Pour commencer, exportez un modèle Resource Manager. Ce modèle contient des pa
 1. Recherchez `location`, puis remplacez la valeur de la propriété par le nouveau nom de la région. Pour obtenir les codes d’emplacement, consultez [Emplacements Azure](https://azure.microsoft.com/global-infrastructure/locations/). Le code d’une région correspond au nom de la région sans espace, par exemple `West US` correspond à `westus`.
 1. Supprimez les définitions des ressources de **relais WCF dynamique** (type : `Microsoft.Relay/namespaces/WcfRelays`). Les relais WCF dynamiques sont ceux dont la propriété **isDynamic** a la valeur **true** sur la page **Relais**. Dans l’exemple suivant, **echoservice** est un relais WCF dynamique et sa définition doit être supprimée du modèle. 
 
-    :::image type="content" source="./media/move-across-regions/dynamic-relays.png" alt-text="Télécharger un modèle Resource Manager":::
+    :::image type="content" source="./media/move-across-regions/dynamic-relays.png" alt-text="Relais dynamiques":::
 
 ## <a name="move"></a>Déplacer
 Déployez le modèle pour créer un espace de noms Relais dans la région cible. 
@@ -47,19 +47,19 @@ Déployez le modèle pour créer un espace de noms Relais dans la région cible.
 1. Dans le portail Azure, sélectionnez **Créer une ressource**.
 2. Dans **Rechercher sur la Place de marché**, entrez **template deployment** pour le texte recherché, sélectionnez **Déploiement de modèle (déployer à l’aide de modèles personnalisés)** , puis appuyez sur **Entrée**.
 
-    :::image type="content" source="./media/move-across-regions/new-template-deployment.png" alt-text="Télécharger un modèle Resource Manager":::    
+    :::image type="content" source="./media/move-across-regions/new-template-deployment.png" alt-text="Nouveau déploiement de modèle":::    
 1. Sur la page **Déploiement de modèle**, sélectionnez **Créer**.
 
-    :::image type="content" source="./media/move-across-regions/template-deployment-create-button.png" alt-text="Télécharger un modèle Resource Manager":::        
+    :::image type="content" source="./media/move-across-regions/template-deployment-create-button.png" alt-text="Nouveau déploiement de modèle - Bouton Créer":::        
 1. Sur la page **Déploiement personnalisé**, sélectionnez **Créer votre propre modèle dans l’éditeur**.
 
-    :::image type="content" source="./media/move-across-regions/build-template-link.png" alt-text="Télécharger un modèle Resource Manager":::            
+    :::image type="content" source="./media/move-across-regions/build-template-link.png" alt-text="Créer votre propre modèle dans l’éditeur - lien":::            
 1. Sur la page **Modifier un modèle**, sélectionnez **Charger le fichier**, puis suivez les instructions pour charger le fichier **template.json** que vous avez téléchargé dans la section précédente.
 
-    :::image type="content" source="./media/move-across-regions/select-template.png" alt-text="Télécharger un modèle Resource Manager":::                
+    :::image type="content" source="./media/move-across-regions/select-template.png" alt-text="Sélectionner un modèle":::                
 1. Sélectionnez **Enregistrer** pour enregistrer le modèle. 
 
-    :::image type="content" source="./media/move-across-regions/save-template.png" alt-text="Télécharger un modèle Resource Manager":::                    
+    :::image type="content" source="./media/move-across-regions/save-template.png" alt-text="Enregistrer un modèle":::                    
 1. Dans la page **Déploiement personnalisé**, procédez comme suit : 
     1. Sélectionnez un **abonnement** Azure. 
     2. Sélectionnez un **groupe de ressources** ou créez-en un. 
@@ -67,16 +67,16 @@ Déployez le modèle pour créer un espace de noms Relais dans la région cible.
     4. Entrez un nouveau **nom pour l’espace de noms**.
     1. Sélectionnez **Revoir + créer**. 
 
-        :::image type="content" source="./media/move-across-regions/deploy-template.png" alt-text="Télécharger un modèle Resource Manager":::
+        :::image type="content" source="./media/move-across-regions/deploy-template.png" alt-text="Déployer le modèle Azure Resource Manager":::
     1. En bas de la page **Vérifier + créer**, sélectionnez **Créer**. 
     
 ## <a name="verify"></a>Vérification
 1. Une fois le déploiement terminé, sélectionnez **Accéder au groupe de ressources**.
 
-    :::image type="content" source="./media/move-across-regions/resource-group-navigation-link.png" alt-text="Télécharger un modèle Resource Manager":::    
+    :::image type="content" source="./media/move-across-regions/resource-group-navigation-link.png" alt-text="Lien Accéder au groupe de ressources":::    
 1. Dans la page **Groupe de ressources**, sélectionnez l’espace de noms Azure Relay. 
 
-    :::image type="content" source="./media/move-across-regions/select-namespace.png" alt-text="Télécharger un modèle Resource Manager":::    
+    :::image type="content" source="./media/move-across-regions/select-namespace.png" alt-text="Sélectionner un espace de noms Azure Relay":::    
 1. Sur la page **Espace de noms Azure Relay**, dans le menu de gauche, sélectionnez **Connexions hybrides** ou **Relais WCF** pour vérifier que les connexions hybrides et les relais WCF sont créés. Si vous avez oublié de supprimer des définitions pour des relais WCF dynamiques avant d’importer le modèle, supprimez-les de la page **Relais WCF**. Les relais WCF dynamiques sont créés automatiquement lorsque les clients se connectent à l’espace de noms Relais. 
 
 ## <a name="discard-or-clean-up"></a>Ignorer ou nettoyer

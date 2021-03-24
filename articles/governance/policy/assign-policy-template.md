@@ -5,10 +5,10 @@ ms.date: 08/17/2020
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.openlocfilehash: c32f833520a811d47129196ae4d67c92bad7e21f
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89651421"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-an-arm-template"></a>Créer une affectation de stratégie pour identifier des ressources non conformes à l’aide d’un modèle ARM
@@ -49,7 +49,7 @@ La ressource définie dans le modèle est :
 
 1. Sélectionnez ou entrez les valeurs suivantes :
 
-   | Name | Valeur |
+   | Nom | Value |
    |------|-------|
    | Abonnement | Sélectionnez votre abonnement Azure. |
    | Resource group | Sélectionnez **Créer**, spécifiez un nom, puis sélectionnez **OK**. Dans la capture d’écran, le nom du groupe de ressources est _mypolicyquickstart\<Date in MMDD\>rg_. |
@@ -72,7 +72,7 @@ Ressources supplémentaires :
 
 Sélectionnez **Conformité** dans la partie gauche de la page. Recherchez ensuite l’affectation de stratégie _Auditer les machines virtuelles qui n’utilisent pas de disques managés_ que vous avez créée.
 
-:::image type="content" source="./media/assign-policy-template/policy-compliance.png" alt-text="Bouton pour déployer le modèle Resource Manager pour l’affectation d’une stratégie Azure à Azure." border="false":::
+:::image type="content" source="./media/assign-policy-template/policy-compliance.png" alt-text="Capture d’écran des détails de conformité dans la page Conformité à la stratégie." border="false":::
 
 Si des ressources existantes ne sont pas conformes à cette nouvelle affectation, elles apparaissent sous **Ressources non conformes**.
 
@@ -86,7 +86,7 @@ Pour supprimer l’affectation créée, procédez comme suit :
 
 1. Cliquez avec le bouton droit sur l’affectation de stratégie _Auditer les machines virtuelles qui n’utilisent pas de disques managés_ et sélectionnez **Supprimer l’attribution**.
 
-   :::image type="content" source="./media/assign-policy-template/delete-assignment.png" alt-text="Bouton pour déployer le modèle Resource Manager pour l’affectation d’une stratégie Azure à Azure." border="false":::
+   :::image type="content" source="./media/assign-policy-template/delete-assignment.png" alt-text="Capture d’écran de l’utilisation du menu contextuel pour supprimer une affectation à partir de la page Conformité." border="false":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

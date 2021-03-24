@@ -10,10 +10,10 @@ ms.date: 11/30/2020
 ms.author: mahi
 ms.reviewer: mahi
 ms.openlocfilehash: ac5b1df5ff246623b73dbc41d18216396e6ed7ef
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102549853"
 ---
 # <a name="use-azure-monitor-with-your-azure-synapse-analytics-workspace"></a>Utilisez Azure Monitor avec votre espace de travail Azure Synapse Analytics
@@ -75,10 +75,10 @@ Voici quelques-unes des métriques émises par les pools Apache Spark :
 
 | **Mesure**                           | **Catégorie de métrique, nom d’affichage**                  | **Unité** | **Types d’agrégation** | **Description**                |
 |--------------------------------------|------------------------------------------|----------|----------------------|--------------------------------|
-| BigDataPoolApplicationsEnded  | Applications Apache Spark terminées  | Nombre | Sum (default) | Nombre d’applications de pool Apache Spark terminées |
+| BigDataPoolApplicationsEnded  | Applications Apache Spark terminées  | Count | Sum (default) | Nombre d’applications de pool Apache Spark terminées |
 | BigDataPoolAllocatedCores     | Nombre de vCores alloués au pool Apache Spark                 | Nombre | Max (default), Min, Avg | VCores alloués pour un pool Apache Spark |
 | BigDataPoolAllocatedMemory    | Quantité de mémoire (Go) allouée au pool Apache Spark            | Nombre | Max (default), Min, Avg | Mémoire allouée au pool Apache Spark (Go) |
-| BigDataPoolApplicationsActive | Applications Apache Spark actives | Nombre | Max (default), Min, Avg | Nombre d’applications actives du pool Apache Spark |
+| BigDataPoolApplicationsActive | Applications Apache Spark actives | Count | Max (default), Min, Avg | Nombre d’applications actives du pool Apache Spark |
 
 ## <a name="alerts"></a>Alertes
 

@@ -4,10 +4,10 @@ description: Le serveur de sauvegarde Azure vous permet de sauvegarder et de res
 ms.topic: conceptual
 ms.date: 06/07/2020
 ms.openlocfilehash: 1e237e63b92468fafff4f8f8f525d1388840d162
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89378319"
 ---
 # <a name="back-up-a-sharepoint-farm-on-azure-stack"></a>Sauvegarder une batterie de serveurs SharePoint dans Azure Stack
@@ -172,7 +172,7 @@ Dans l’exemple ci-dessous, *l’élément de récupération SharePoint* a ét�
     Le serveur de sauvegarde Azure connecte la base de données de contenu, qui héberge l’élément SharePoint, à l’instance SQL Server temporaire. À partir de la base de données de contenu, l’élément est restauré et stocké à l’emplacement du fichier intermédiaire sur le serveur de sauvegarde Azure. L’élément récupéré situé à l’emplacement intermédiaire doit maintenant être exporté vers l’emplacement intermédiaire sur la batterie de serveurs SharePoint.
 
     ![Emplacement intermédiaire2](./media/backup-azure-backup-sharepoint/staging-location2.png)
-10. Sélectionnez **Spécifier les options de récupération**et appliquez des paramètres de sécurité à la batterie de serveurs SharePoint, ou appliquez les paramètres de sécurité du point de récupération. Sélectionnez **Suivant**.
+10. Sélectionnez **Spécifier les options de récupération** et appliquez des paramètres de sécurité à la batterie de serveurs SharePoint, ou appliquez les paramètres de sécurité du point de récupération. Sélectionnez **Suivant**.
 
     ![Options de récupération](./media/backup-azure-backup-sharepoint/recovery-options.png)
 

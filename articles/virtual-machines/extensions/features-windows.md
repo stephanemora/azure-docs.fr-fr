@@ -8,12 +8,12 @@ author: amjads1
 ms.author: amjads
 ms.collection: windows
 ms.date: 03/30/2018
-ms.openlocfilehash: eb1b05afbaa57fb86033c568142da32443adc1f9
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: b9b10e2ed58a41cee99e7e6ef1c3994035460407
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102559777"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104601858"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Extensions et fonctionnalités de machine virtuelle pour Windows
 
@@ -120,7 +120,7 @@ Set-AzVMCustomScriptExtension -ResourceGroupName "myResourceGroup" `
     -Run "Create-File.ps1" -Location "West US"
 ```
 
-Dans l’exemple ci-après, l’extension d’accès aux machines virtuelles (VMAccess) est utilisée pour redéfinir le mot de passe d’administration d’une machine virtuelle Windows sur un mot de passe temporaire. Pour plus d’informations sur l’extension d’accès aux machines virtuelles, consultez [Réinitialiser le service Bureau à distance pour une machine virtuelle Windows](../troubleshooting/reset-rdp.md). Après avoir exécuté cette extension, vous devrez réinitialiser le mot de passe lors de votre première connexion :
+Dans l’exemple ci-après, l’extension d’accès aux machines virtuelles (VMAccess) est utilisée pour redéfinir le mot de passe d’administration d’une machine virtuelle Windows sur un mot de passe temporaire. Pour plus d’informations sur l’extension d’accès aux machines virtuelles, consultez [Réinitialiser le service Bureau à distance pour une machine virtuelle Windows](/troubleshoot/azure/virtual-machines/reset-rdp). Après avoir exécuté cette extension, vous devrez réinitialiser le mot de passe lors de votre première connexion :
 
 ```powershell
 $cred=Get-Credential

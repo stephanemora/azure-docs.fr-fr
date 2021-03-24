@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive, devx-track-csharp
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.openlocfilehash: 86e279fef9561397343b3e6cb55ac335a5b39542
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: e5f328d6be52732c30478eb49360efb13919a23e
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98942847"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104872215"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>Gérer les clusters Apache Hadoop dans HDInsight avec le SDK .NET
 
@@ -18,7 +18,7 @@ ms.locfileid: "98942847"
 
 Apprenez à gérer des clusters HDInsight à l’aide du [Kit de développement logiciel (SDK) HDInsight.NET](/dotnet/api/overview/azure/hdinsight)
 
-**Prérequis**
+**Conditions préalables**
 
 Avant de commencer cet article, vous devez disposer des éléments suivants :
 
@@ -167,7 +167,7 @@ Impact de la modification du nombre de nœuds de données pour chaque type de cl
     
     L’interface utilisateur web de Storm est disponible dans le cluster HDInsight :
     
-    ![Rééquilibrage de mise à l’échelle HDInsight Storm](./media/hdinsight-administer-use-powershell/hdinsight-portal-scale-cluster-storm-rebalance.png)
+    :::image type="content" source="./media/hdinsight-administer-use-powershell/hdinsight-portal-scale-cluster-storm-rebalance.png" alt-text="Rééquilibrage de mise à l’échelle HDInsight Storm":::
     
     Voici un exemple relatif à l'utilisation de la commande de l'interface en ligne de commande pour rééquilibrer la topologie Storm :
     

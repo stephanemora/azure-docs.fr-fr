@@ -6,10 +6,10 @@ ms.topic: troubleshooting
 ms.date: 07/31/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 0ee2e783a7a9443db4c96817cf611272667c675a
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98944409"
 ---
 # <a name="converting-service-principal-certificate-contents-to-base-64-encoded-string-format-in-hdinsight"></a>Conversion du contenu du certificat du principal de service au format de chaîne encodé en base 64 Azure HDInsight
@@ -20,7 +20,7 @@ Cet article décrit les éventuelles solutions à appliquer pour résoudre les p
 
 Vous recevez un message d’erreur indiquant que l’entrée n’est pas une chaîne en base 64 valide, car elle contient un caractère qui n’est pas en base 64, plus de deux caractères de remplissage ou un caractère autre qu’un espace blanc parmi les caractères de remplissage.
 
-## <a name="cause"></a>Cause :
+## <a name="cause"></a>Cause
 
 Lorsque vous utilisez PowerShell ou le déploiement d’un modèle Azure pour créer des clusters avec Data Lake en tant que stockage principal ou supplémentaire, le contenu du certificat du principal de service fourni pour accéder au compte de stockage Data Lake est au format de base 64. Une conversion incorrecte du contenu du certificat pfx en chaîne codée en base 64 peut générer cette erreur.
 

@@ -10,15 +10,15 @@ ms.topic: conceptual
 ms.date: 07/27/2020
 ms.author: justinha
 ms.openlocfilehash: ebfc2476b7955b926f86094de03973155386eb8f
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96619965"
 ---
 # <a name="create-an-azure-active-directory-domain-services-resource-forest-and-outbound-forest-trust-to-an-on-premises-domain-using-azure-powershell"></a>Créer une forêt de ressources Azure Active Directory Domain Services et une approbation de forêt sortante vers un domaine local à l’aide d’Azure PowerShell
 
-Dans les environnements ne permettant pas la synchronisation des hachages de mot de passe, ou en présence d’utilisateurs se connectant exclusivement à l’aide de cartes à puce et ne connaissant pas leur mot de passe, vous pouvez utiliser une forêt de ressources dans Azure Active Directory Domain Services (Azure AD DS). Une forêt de ressources utilise une approbation unidirectionnelle sortante entre Azure AD DS et un ou plusieurs environnements AD DS locaux. Cette relation d’approbation permet aux utilisateurs, applications et ordinateurs de s’authentifier auprès d’un domaine local à partir du domaine managé Azure AD DS. Dans une forêt de ressources, les codes de hachage de mot de passe ne sont jamais synchronisés.
+Dans les environnements ne permettant pas la synchronisation des hachages de mot de passe, ou en présence d’utilisateurs se connectant exclusivement à l’aide de cartes à puce et ne connaissant pas leur mot de passe, vous pouvez utiliser une forêt de ressources dans Azure Active Directory Domain Services (Azure AD DS). Une forêt de ressources utilise une approbation unidirectionnelle sortante entre Azure AD DS et un ou plusieurs environnements AD DS locaux. Cette relation d’approbation permet aux utilisateurs, applications et ordinateurs de s’authentifier auprès d’un domaine local à partir du domaine managé Azure AD DS. Dans une forêt de ressources, les hachages de mots de passe ne sont jamais synchronisés.
 
 ![Diagramme d'approbation de forêt entre Azure AD DS et les instances AD DS locales](./media/concepts-resource-forest/resource-forest-trust-relationship.png)
 

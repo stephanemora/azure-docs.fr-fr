@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
 ms.openlocfilehash: 9c0a6700a476d4f7f875af5373e3c99bc4e25af2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90930086"
 ---
 # <a name="syssp_cleanup_data_retention-transact-sql"></a>sys.sp_cleanup_data_retention (Transact-SQL)
@@ -48,6 +48,6 @@ sys.sp_cleanup_data_retention
  Requiert les autorisations db_owner.
 
 ## <a name="next-steps"></a>Étapes suivantes
-- [Conservation des données et purge automatique des données](data-retention-overview.md)
+- [Rétention de données et purge automatique des données](data-retention-overview.md)
 - [Gérer les données historiques avec la stratégie de conservation](data-retention-cleanup.md) 
 - [Activer et désactiver la conservation des données](data-retention-enable-disable.md)

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 868ad3d1c6e7e7ef2cf32dcf675bc471a614f3ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86243152"
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Référence du modèle de données du modèle Gestion des API Azure
@@ -37,7 +37,7 @@ Cette rubrique décrit les représentations de type et d’entité des élément
 -   [Attachment](#Attachment)  
 -   [Code sample](#Sample)  
 -   [Commentaire](#Comment)  
--   [Filtering](#Filtering)  
+-   [Filtrage](#Filtering)  
 -   [En-tête](#Header)  
 -   [Demande HTTP](#HTTPRequest)  
 -   [Réponse HTTP](#HTTPResponse)  
@@ -49,11 +49,11 @@ Cette rubrique décrit les représentations de type et d’entité des élément
 -   [Paramètre](#Parameter)  
 -   [Produit](#Product)  
 -   [Fournisseur](#Provider)  
--   [Representation](#Representation)  
+-   [Représentation](#Representation)  
 -   [Abonnement](#Subscription)  
 -   [Subscription summary](#SubscriptionSummary)  
 -   [User account info](#UserAccountInfo)  
--   [Connexion utilisateur](#UseSignIn)  
+-   [Connexion de l’utilisateur](#UseSignIn)  
 -   [Inscription utilisateur](#UserSignUp)  
   
 ##  <a name="api"></a><a name="API"></a> API  
@@ -111,7 +111,7 @@ Cette rubrique décrit les représentations de type et d’entité des élément
   
 |Propriété|Type|Description|  
 |--------------|----------|-----------------|  
-|`title`|string|Nom de l’opération.|  
+|`title`|string|Nom de l'opération.|  
 |`snippet`|string|Cette propriété est déconseillée et ne doit pas être utilisée.|  
 |`brush`|string|Modèle de coloration de la syntaxe de code à utiliser pour afficher l’exemple de code. Les valeurs autorisées sont `plain`, `php`, `java`, `xml`, `objc`, `python`, `ruby` et `csharp`.|  
 |`template`|string|Nom de ce modèle d’exemple de code.|  
@@ -278,7 +278,7 @@ Cette rubrique décrit les représentations de type et d’entité des élément
 |`contentType`|string|Spécifie un type de contenu inscrit ou personnalisé pour cette représentation, par exemple, `application/xml`.|  
 |`sample`|string|Exemple de la représentation.|  
   
-##  <a name="subscription"></a><a name="Subscription"></a> Subscription  
+##  <a name="subscription"></a>Abonnement <a name="Subscription"></a>  
  L’entité `subscription` a les propriétés suivantes :  
   
 |Propriété|Type|Description|  
@@ -319,7 +319,7 @@ Cette rubrique décrit les représentations de type et d’entité des élément
 |--------------|----------|-----------------|  
 |`FirstName`|string|Prénom. Ne doit pas être vide. La longueur maximale est de 100 caractères.|  
 |`LastName`|string|Nom. Ne doit pas être vide. La longueur maximale est de 100 caractères.|  
-|`Email`|string|Adresse de messagerie. Ne doit pas être vide et doit être unique au sein de l’instance de service. La longueur maximale est de 254 caractères.|  
+|`Email`|string|Adresse e-mail. Ne doit pas être vide et doit être unique au sein de l’instance de service. La longueur maximale est de 254 caractères.|  
 |`Password`|string|Mot de passe du compte d’utilisateur.|  
 |`NameIdentifier`|string|Identificateur du compte, identique à l’adresse de messagerie de l’utilisateur.|  
 |`ProviderName`|string|Nom du fournisseur d’authentification.|  
@@ -330,7 +330,7 @@ Cette rubrique décrit les représentations de type et d’entité des élément
   
 |Propriété|Type|Description|  
 |--------------|----------|-----------------|  
-|`Email`|string|Adresse de messagerie. Ne doit pas être vide et doit être unique au sein de l’instance de service. La longueur maximale est de 254 caractères.|  
+|`Email`|string|Adresse e-mail. Ne doit pas être vide et doit être unique au sein de l’instance de service. La longueur maximale est de 254 caractères.|  
 |`Password`|string|Mot de passe du compte d’utilisateur.|  
 |`ReturnUrl`|string|URL de la page sur laquelle l’utilisateur a cliqué sur Se connecter.|  
 |`RememberMe`|boolean|Indique si les informations de l’utilisateur actuel doivent être enregistrées.|  
@@ -354,7 +354,7 @@ Cette rubrique décrit les représentations de type et d’entité des élément
 |`UserRegistrationTerms`|string|Conditions qu’un utilisateur doit accepter pour pouvoir se connecter.|  
 |`UserRegistrationTermsOptions`|nombre|Valeur utilisée par le contrôle [d’inscription](api-management-page-controls.md#sign-up).|  
 |`ConsentAccepted`|boolean|Valeur utilisée par le contrôle [d’inscription](api-management-page-controls.md#sign-up).|  
-|`Email`|string|Adresse de messagerie. Ne doit pas être vide et doit être unique au sein de l’instance de service. La longueur maximale est de 254 caractères.|  
+|`Email`|string|Adresse e-mail. Ne doit pas être vide et doit être unique au sein de l’instance de service. La longueur maximale est de 254 caractères.|  
 |`FirstName`|string|Prénom. Ne doit pas être vide. La longueur maximale est de 100 caractères.|  
 |`LastName`|string|Nom. Ne doit pas être vide. La longueur maximale est de 100 caractères.|  
 |`UserData`|string|Valeur utilisée par le contrôle [d’inscription](api-management-page-controls.md#sign-up).|  

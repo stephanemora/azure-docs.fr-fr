@@ -4,10 +4,10 @@ description: Découvrez comment utiliser des identités managées dans Azure pou
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 0f3e4b4d7030eb26c25b291e03caaa430d1979c4
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98185782"
 ---
 # <a name="use-azure-managed-identities-to-deploy-environments-in-a-lab"></a>Utiliser des identités managées Azure pour déployer des environnements dans un labo 

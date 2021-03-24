@@ -16,10 +16,10 @@ ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1c1a6957d347681f1c7dd9979429fffb153ccb39
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96546605"
 ---
 # <a name="assign-licenses-to-users-by-group-membership-in-azure-active-directory"></a>Affecter des licences aux utilisateurs par appartenance aux groupes dans Azure Active Directory
@@ -33,7 +33,7 @@ Dans cet exemple, l’organisation Azure AD contient un groupe de sécurité app
 >
 > Pour l’affectation d’une licence à un groupe, tous les utilisateurs sans emplacement d’utilisation spécifié héritent de l’emplacement du répertoire. Si vos utilisateurs sont situés à plusieurs emplacements, nous vous recommandons de définir systématiquement l’emplacement d’utilisation dans le cadre de votre flux de création d’utilisateur dans Azure AD (par exemple, par le biais d’une configuration AAD Connect). Cela garantit que le résultat de l’affectation de licence est toujours correct et que les utilisateurs ne reçoivent pas de services à des emplacements non autorisés.
 
-## <a name="step-1-assign-the-required-licenses"></a>Étape 1 : Affecter les licences requises
+## <a name="step-1-assign-the-required-licenses"></a>Étape 1 : Affecter les licences requises
 
 1. Connectez-vous au [**Centre d’administration Azure AD**](https://aad.portal.azure.com) avec un compte administrateur de licences. Pour gérer les licences, le compte doit être un rôle administrateur de licences, administrateur d’utilisateurs ou administrateur général.
 
@@ -79,7 +79,7 @@ Lorsque vous attribuez des licences à un groupe, Azure AD traite tous les memb
 
    [Lisez cette section](licensing-group-advanced.md#use-audit-logs-to-monitor-group-based-licensing-activity) pour en savoir plus sur l’utilisation des journaux d’audit pour analyser les modifications apportées par une gestion des licences basée sur un groupe.
 
-## <a name="step-3-check-for-license-problems-and-resolve-them"></a>Étape 3 : Rechercher des problèmes de licences et les résoudre
+## <a name="step-3-check-for-license-problems-and-resolve-them"></a>Étape 3 : Rechercher des problèmes de licences et les résoudre
 
 1. Accédez à **Azure Active Directory** > **Groupes** et recherchez les groupes auquel les licences ont été affectées.
 1. Dans la page du groupe, sélectionnez **Licences**. La notification en haut de la page indique que des licences n’ont pas pu être affectées à 10 utilisateurs. Ouvrez cette notification pour accéder à une liste de tous les utilisateurs associés à une erreur de licence pour ce groupe.

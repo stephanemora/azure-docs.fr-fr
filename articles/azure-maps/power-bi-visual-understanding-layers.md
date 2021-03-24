@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendle
 ms.custom: ''
 ms.openlocfilehash: a5c7296a0e7b7f6ea33c1f4a669675efd90f9e9a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86261386"
 ---
 # <a name="understanding-layers-in-the-azure-maps-power-bi-visual"></a>Présentation des calques dans le visuel Power BI Azure Maps
@@ -89,10 +89,10 @@ Changez l’affichage de vos données sur la carte :
 > [!div class="nextstepaction"]
 > [Ajouter un calque de graphique à barres](power-bi-visual-add-bar-chart-layer.md)
 
-Ajoutez davantage de contexte à la carte :
+Ajouter davantage de contexte à la carte :
 
 > [!div class="nextstepaction"]
-> [Ajouter un calque de référence](power-bi-visual-add-reference-layer.md)
+> [Ajouter une couche de référence](power-bi-visual-add-reference-layer.md)
 
 > [!div class="nextstepaction"]
 > [Ajouter une couche de mosaïques](power-bi-visual-add-tile-layer.md)

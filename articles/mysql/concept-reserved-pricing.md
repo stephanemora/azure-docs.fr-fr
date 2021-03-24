@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.openlocfilehash: b1f51cd9e9f310c68834c16f83c182250a1a4eaf
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/20/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98598034"
 ---
 # <a name="prepay-for-azure-database-for-mysql-compute-resources-with-reserved-capacity"></a>Acompte pour les ressources de calcul Azure Database pour MySQL avec une capacité réservée
@@ -50,7 +50,7 @@ Le tableau suivant décrit les champs requis.
 
 | Champ | Description |
 | :------------ | :------- |
-| Abonnement   | L’abonnement utilisé pour payer la réservation de capacité réservée Azure Database pour MySQL. Les coûts initiaux de la réservation de capacité réservée Azure Database pour MySQL sont facturés selon le mode de paiement défini sur l’abonnement. Le type d’abonnement doit être Accord Entreprise (numéros de l’offre : MS-AZR-0017P ou MS-AZR-0148p) ou un accord individuel avec paiement à l’utilisation (numéros de l’offre : MS-AZR-0003P ou MS-AZR-0023P). Pour une souscription entreprise, les frais sont déduits du solde de Paiement anticipé Azure (précédemment appelé « engagement financier ») de l’inscription ou facturés comme dépassement. Pour un abonnement individuel avec paiement à l’utilisation, les frais sont facturés sur le mode de paiement par carte de crédit ou par facture sur l’abonnement.
+| Abonnement   | L’abonnement utilisé pour payer la réservation de capacité réservée Azure Database pour MySQL. Les coûts initiaux de la réservation de capacité réservée Azure Database pour MySQL sont facturés selon le mode de paiement défini sur l’abonnement. Le type d’abonnement doit être Accord Entreprise (numéros de l’offre : MS-AZR-0017P ou MS-AZR-0148p) ou un accord individuel avec paiement à l’utilisation (numéros de l’offre : MS-AZR-0003P ou MS-AZR-0023P). Pour un abonnement d’entreprise, les frais sont déduits du Paiement anticipé Azure (précédemment appelé « solde de l’engagement financier ») de l’inscription ou facturés comme dépassement. Pour un abonnement individuel avec paiement à l’utilisation, les frais sont facturés sur le mode de paiement par carte de crédit ou par facture sur l’abonnement.
 | Étendue | L’étendue de la réservation vCore peut couvrir un seul abonnement ou plusieurs abonnements (étendue partagée). Si vous sélectionnez : </br></br> **Partagé** : la remise de réservation vCore est appliquée aux serveurs Azure Database pour MySQL en cours d’exécution dans tous les abonnements de votre contexte de facturation. Pour les clients Entreprise, l'étendue partagée correspond à l'inscription et inclut tous les abonnements compris dans l'inscription. Pour les clients Paiement à l’utilisation, l’étendue partagée correspond à tous les abonnements Paiement à l’utilisation créés par l’administrateur de compte.</br></br> **Abonnement unique** : la remise de réservation vCore est appliquée aux serveurs Azure Database pour MySQL inclus dans cet abonnement. </br></br> **Groupe de ressources unique** : la remise de réservation est appliquée aux serveurs Azure Database pour MySQL inclus dans l’abonnement sélectionné et dans le groupe de ressources sélectionné dans cet abonnement.
 | Région | La région Azure couverte par la réservation de capacité réservée Azure Database pour MySQL.
 | Type de déploiement | Le type de ressource Azure Database pour MySQL pour laquelle vous voulez acheter la réservation.

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: d1607ef4ff277f9c9cdb55db3e58da1052a00756
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: cec391ba998165af4dd9339b719a3b73cb330c16
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102558393"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104601788"
 ---
 # <a name="enable-azure-disk-encryption-with-azure-ad-on-linux-vms-previous-release"></a>Activer Azure Disk Encryption avec Azure AD sur des machines virtuelles Linux (version précédente)
 
@@ -210,7 +210,7 @@ Nous recommandons une installation LVM-on-crypt. Pour tous les exemples suivants
 - Ajoutez les disques de données qui constitueront la machine virtuelle.
 - Formatez, montez et ajoutez ces disques au fichier fstab.
 
-    1. Formatez le disque nouvellement ajouté. Nous utilisons ici des liens symboliques générés par Azure. L’utilisation de liens symboliques évite les problèmes liés à la modification des noms des périphériques. Pour plus d’informations, consultez [Résoudre les problèmes relatifs aux noms des appareils](../troubleshooting/troubleshoot-device-names-problems.md).
+    1. Formatez le disque nouvellement ajouté. Nous utilisons ici des liens symboliques générés par Azure. L’utilisation de liens symboliques évite les problèmes liés à la modification des noms des périphériques. Pour plus d’informations, consultez [Résoudre les problèmes relatifs aux noms des appareils](/troubleshoot/azure/virtual-machines/troubleshoot-device-names-problems).
     
         ```console
         mkfs -t ext4 /dev/disk/azure/scsi1/lun0
@@ -266,7 +266,7 @@ New-AzVM -VM $VirtualMachine -ResourceGroupName "MyVirtualMachineResourceGroup"
 Vous pouvez ajouter un nouveau disque de données en utilisant [az vm disk attach](add-disk.md) ou [via le Portail Azure](attach-disk-portal.md). Avant de pouvoir chiffrer, vous devez d’abord monter le disque de données nouvellement attaché. Vous devez demander le chiffrement du lecteur de données, car le lecteur sera inutilisable pendant que le chiffrement est en cours. 
 
 ### <a name="enable-encryption-on-a-newly-added-disk-with-the-azure-cli"></a>Activer le chiffrement sur un disque nouvellement ajouté à l’aide d’Azure CLI
- Si la machine virtuelle a déjà été chiffrée avec « All », le paramètre --volume-type doit rester « All ». All inclut les disques de système d’exploitation et de données. Si la machine virtuelle a déjà été chiffrée avec le type de volume « OS », le paramètre --volume-type doit être changé en « All » afin que le système d’exploitation et le nouveau disque de données soient inclus. Si la machine virtuelle a été chiffrée avec uniquement le type de volume « Data », le paramètre « Data » peut être conservé comme illustré ici. L’ajout et l’attachement d’un nouveau disque de données à une machine virtuelle ne constituent pas une préparation suffisante pour le chiffrement. Le disque nouvellement attaché doit aussi être formaté et monté correctement au sein de la machine virtuelle avant que vous n’activiez le chiffrement. Sur Linux, le disque doit être monté dans /etc/fstab avec un [nom de périphérique de bloc persistant](../troubleshooting/troubleshoot-device-names-problems.md). 
+ Si la machine virtuelle a déjà été chiffrée avec « All », le paramètre --volume-type doit rester « All ». All inclut les disques de système d’exploitation et de données. Si la machine virtuelle a déjà été chiffrée avec le type de volume « OS », le paramètre --volume-type doit être changé en « All » afin que le système d’exploitation et le nouveau disque de données soient inclus. Si la machine virtuelle a été chiffrée avec uniquement le type de volume « Data », le paramètre « Data » peut être conservé comme illustré ici. L’ajout et l’attachement d’un nouveau disque de données à une machine virtuelle ne constituent pas une préparation suffisante pour le chiffrement. Le disque nouvellement attaché doit aussi être formaté et monté correctement au sein de la machine virtuelle avant que vous n’activiez le chiffrement. Sur Linux, le disque doit être monté dans /etc/fstab avec un [nom de périphérique de bloc persistant](/troubleshoot/azure/virtual-machines/troubleshoot-device-names-problems). 
 
 Contrairement à la syntaxe de PowerShell, l’interface CLI ne nécessite pas que vous fournissiez une version de séquence unique lors de l’activation du chiffrement. L’interface CLI génère automatiquement et utilise sa propre valeur de version de séquence unique.
 

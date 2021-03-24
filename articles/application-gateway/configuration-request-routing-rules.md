@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 09/09/2020
 ms.author: surmb
 ms.openlocfilehash: 047ce9b33836e2c23a37b1383942323d7c382485
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93397533"
 ---
 # <a name="application-gateway-request-routing-rules"></a>Règles de routage des requêtes Application Gateway
 
-Quand vous créez une passerelle d’application à l’aide du portail Azure, vous créez une règle par défaut ( *rule1* ). Cette règle lie l’écouteur par défaut ( *appGatewayHttpListener* ) au pool de back-ends par défaut ( *appGatewayBackendPool* ) et aux paramètres HTTP du back-end par défaut ( *appGatewayBackendHttpSettings* ). Après avoir créé la passerelle, vous pouvez modifier les paramètres de la règle par défaut ou créer des règles.
+Quand vous créez une passerelle d’application à l’aide du portail Azure, vous créez une règle par défaut (*rule1*). Cette règle lie l’écouteur par défaut (*appGatewayHttpListener*) au pool de back-ends par défaut (*appGatewayBackendPool*) et aux paramètres HTTP du back-end par défaut ( *appGatewayBackendHttpSettings*). Après avoir créé la passerelle, vous pouvez modifier les paramètres de la règle par défaut ou créer des règles.
 
 ## <a name="rule-type"></a>Type de règle
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: mayg
 ms.openlocfilehash: 528a24bb64aa8d323b5d63a27af0a52ccdf1abb6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86132315"
 ---
 # <a name="set-up-disaster-recovery-for-active-directory-and-dns"></a>Configurer la reprise d’activité pour Active Directory et DNS
@@ -79,7 +79,7 @@ La plupart des applications nécessitent la présence d’un contrôleur de doma
 1. Créez un réseau isolé. Par défaut, tout réseau virtuel que vous créez dans Azure est isolé d’autres réseaux. Nous vous recommandons d’utiliser pour ce réseau la plage d’adresses IP que vous utilisez dans votre réseau de production. N’activez pas la connectivité de site à site sur ce réseau.
 1. Fournissez une adresse IP DNS dans le réseau isolé. Utilisez l’adresse IP que vous prévoyez pour la machine virtuelle du DNS. Si vous répliquez sur Azure, fournissez l’adresse IP de la machine virtuelle utilisée lors du basculement. Pour entrer l’adresse IP, dans la machine virtuelle répliquée, dans les paramètres **Calcul et réseau**, sélectionnez les paramètres **Adresse IP cible**.
 
-   :::image type="content" source="./media/site-recovery-active-directory/azure-test-network.png" alt-text="Réseau Azure":::
+   :::image type="content" source="./media/site-recovery-active-directory/azure-test-network.png" alt-text="Réseau de test Azure":::
 
    > [!TIP]
    > Site Recovery tente de créer les machines virtuelles de test dans un sous-réseau du même nom, et en utilisant l’adresse IP fournie dans les paramètres **Calcul et réseau** de la machine virtuelle. Si aucun sous-réseau du même nom n’est disponible dans le réseau virtuel Azure fourni pour le test de basculement, la machine virtuelle de test est créée dans le sous-réseau en première position dans l’ordre alphabétique.
@@ -118,21 +118,21 @@ Si des dispositifs de protection de la virtualisation sont déclenchés après u
 
 - La valeur **GenerationID** change :
 
-  :::image type="content" source="./media/site-recovery-active-directory/Event2170.png" alt-text="Réseau Azure":::
+  :::image type="content" source="./media/site-recovery-active-directory/Event2170.png" alt-text="Changement de l’ID de génération":::
 
 - La valeur **InvocationID** change :
 
-  :::image type="content" source="./media/site-recovery-active-directory/Event1109.png" alt-text="Réseau Azure":::
+  :::image type="content" source="./media/site-recovery-active-directory/Event1109.png" alt-text="Changement de l’ID d’appel":::
 
 - Le dossier `SYSVOL` et les partages `NETLOGON` ne sont pas disponibles.
 
-  :::image type="content" source="./media/site-recovery-active-directory/sysvolshare.png" alt-text="Réseau Azure":::
+  :::image type="content" source="./media/site-recovery-active-directory/sysvolshare.png" alt-text="Partage du dossier SYSVOL":::
 
-  :::image type="content" source="./media/site-recovery-active-directory/Event13565.png" alt-text="Réseau Azure":::
+  :::image type="content" source="./media/site-recovery-active-directory/Event13565.png" alt-text="Dossier SYSVOL NtFrs":::
 
 - Les bases de données DFSR sont supprimées.
 
-  :::image type="content" source="./media/site-recovery-active-directory/Event2208.png" alt-text="Réseau Azure":::
+  :::image type="content" source="./media/site-recovery-active-directory/Event2208.png" alt-text="Les bases de données DFSR sont supprimées":::
 
 ### <a name="troubleshoot-domain-controller-issues-during-test-failover"></a>Résoudre les problèmes liés au contrôleur de domaine survenant pendant un test de basculement
 

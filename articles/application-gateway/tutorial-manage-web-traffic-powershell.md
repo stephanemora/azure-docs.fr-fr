@@ -9,10 +9,10 @@ ms.date: 07/19/2019
 ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: 7e410218117aa0d21167b6d615a3835aeec470e7
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93397108"
 ---
 # <a name="manage-web-traffic-with-an-application-gateway-using-azure-powershell"></a>Gérer le trafic web avec une passerelle d’application en utilisant Azure PowerShell
@@ -75,7 +75,7 @@ $pip = New-AzPublicIpAddress `
 
 Dans cette section, vous créez des ressources qui prennent en charge la passerelle d’application avant de créer cette dernière. Les ressources que vous créez sont les suivantes :
 
-- *Configurations IP et port frontend*  : associe le sous-réseau que vous avez créé précédemment pour la passerelle d’application et assigne un port à utiliser pour y accéder.
+- *Configurations IP et port frontend* : associe le sous-réseau que vous avez créé précédemment pour la passerelle d’application et assigne un port à utiliser pour y accéder.
 - *Pool par défaut* : toutes les passerelles d’application doivent avoir au moins un pool principal de serveurs.
 - *Écouteur et règle par défaut* : l’écouteur par défaut écoute le trafic sur le port assigné et la règle par défaut envoie le trafic au pool par défaut.
 

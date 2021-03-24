@@ -10,10 +10,10 @@ ms.date: 01/17/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Azure Stack Edge Pro in datacenter so I can use it to transfer data to Azure.
 ms.openlocfilehash: 9aa02521d91d41380b1bdac3efe50ab3d196a856
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90894194"
 ---
 # <a name="tutorial-install-azure-stack-edge-pro"></a>Tutoriel : Installer Azure Stack Edge Pro
@@ -42,7 +42,7 @@ Avant de commencer, assurez-vous que :
     * Vous avez créé la clé d’activation pour activer votre appareil auprès de la ressource Azure Stack Edge.
 
  
-### <a name="for-the-azure-stack-edge-pro-physical-device"></a>Pour l'appareil physique Azure Stack Edge Pro
+### <a name="for-the-azure-stack-edge-pro-physical-device"></a>Pour l’appareil physique Azure Stack Edge Pro
 
 Avant de déployer un appareil :
 
@@ -58,7 +58,7 @@ Avant de déployer un appareil :
 
 Avant de commencer :
 
-- Passez en revue la configuration réseau nécessaire pour déployer Azure Stack Edge Pro, et configurez le réseau du centre de données conformément aux exigences. Pour plus d'informations, consultez [Configuration réseau d'Azure Stack Edge Pro](azure-stack-edge-system-requirements.md#networking-port-requirements).
+- Passez en revue la configuration réseau nécessaire pour le déploiement d’Azure Stack Edge Pro, et configurez le réseau du centre de données conformément aux exigences. Pour plus d’informations, consultez [Configuration réseau pour Azure Stack Edge Pro](azure-stack-edge-system-requirements.md#networking-port-requirements).
 
 - Assurez-vous que la bande passante Internet minimale est de 20 Mbits/s pour un fonctionnement optimal de l’appareil.
 
@@ -157,7 +157,7 @@ Identifiez les éléments d’installation de l’assemblage du kit de rails :
 
 ## <a name="cable-the-device"></a>Câblage de l’appareil
 
-Acheminez les câbles, puis branchez votre appareil. Les procédures suivantes expliquent comment effectuer le câblage d'alimentation et de réseau de votre appareil Azure Stack Edge Pro.
+Acheminez les câbles, puis branchez votre appareil. Les procédures suivantes expliquent comment effectuer le câblage d’alimentation et de réseau de votre appareil Azure Stack Edge Pro.
 
 Avant de commencer à câbler votre appareil, vous avez besoin des éléments suivants :
 
@@ -170,7 +170,7 @@ Avant de commencer à câbler votre appareil, vous avez besoin des éléments su
 > [!NOTE]
 > - Si vous ne connectez qu’une seule interface de réseau, nous vous recommandons d’utiliser une interface réseau 25/10-GbE telle que PORT 3, PORT 4, PORT 5 ou PORT 6 pour envoyer des données à Azure. 
 > - Pour de meilleures performances et pour gérer d’importants volumes de données, pensez à connecter tous les ports de données.
-> - L'appareil Azure Stack Edge Pro doit être connecté au réseau du centre de données pour pouvoir ingérer les informations provenant des serveurs des sources de données.
+> - L’appareil Azure Stack Edge Pro doit être connecté au réseau du centre de données pour pouvoir ingérer les informations provenant des serveurs des sources de données.
 
 Sur votre appareil Azure Stack Edge Pro :
 
@@ -216,9 +216,9 @@ Effectuez les étapes suivantes pour brancher l’alimentation et le réseau de 
 Dans ce tutoriel, vous avez approfondi vos connaissances sur Azure Stack Edge Pro et avez notamment appris à :
 
 > [!div class="checklist"]
-> * Déballer l’appareil
-> * Monter l’appareil en rack
-> * Câbler l’appareil
+> * Déballez l’appareil
+> * Montage de l’appareil en rack
+> * Câblage de l’appareil
 
 Passez au didacticiel suivant pour savoir comment connecter, configurer et activer votre appareil.
 

@@ -4,10 +4,10 @@ description: Cet article explique comment déplacer un cluster dédié Azure Eve
 ms.topic: how-to
 ms.date: 09/01/2020
 ms.openlocfilehash: 94be44ee8f9442a3a65e899d7a58524b2570f194
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89380362"
 ---
 # <a name="move-an-azure-event-hubs-dedicated-cluster-to-another-region"></a>Déplacer un cluster dédié Azure Event Hubs vers une autre région
@@ -50,7 +50,7 @@ Déployez le modèle pour créer un cluster dédié Event Hubs dans la région c
     4. Dans la section **SETTINGS** , procédez comme suit :    
         1. Entrez le nouveau **nom de cluster**. 
 
-            :::image type="content" source="./media/move-cluster-across-regions/deploy-template.png" alt-text="Télécharger un modèle Resource Manager":::
+            :::image type="content" source="./media/move-cluster-across-regions/deploy-template.png" alt-text="Déployer le modèle Azure Resource Manager":::
     5. Au bas de la page, sélectionnez **Examiner et créer**. 
     1. Dans la page **Vérifier + créer**, passez en revue les paramètres, puis sélectionnez **Créer**.  
 

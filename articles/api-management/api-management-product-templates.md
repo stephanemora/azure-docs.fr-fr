@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 4c8cd4aa3e91c5d69c40e47683818ed8bc9be338
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86249901"
 ---
 # <a name="product-templates-in-azure-api-management"></a>Modèles Produit dans Gestion des API Azure
@@ -83,7 +83,7 @@ Gestion des API Azure vous offre la possibilité de personnaliser le contenu des
 |--------------|----------|-----------------|  
 |Pagination|Entité [Paging](api-management-template-data-model-reference.md#Paging).|Informations de pagination de la collection de produits.|  
 |Filtrage|Entité [Filtering](api-management-template-data-model-reference.md#Filtering).|Informations de filtrage de la page Liste de produits.|  
-|Products|Collection d’entités [Product](api-management-template-data-model-reference.md#Product).|Produits visibles par l’utilisateur actuel.|  
+|Produits|Collection d’entités [Product](api-management-template-data-model-reference.md#Product).|Produits visibles par l’utilisateur actuel.|  
   
 ### <a name="sample-template-data"></a>Données d’un exemple de modèle  
   
@@ -209,7 +209,7 @@ Gestion des API Azure vous offre la possibilité de personnaliser le contenu des
 |Produit|[Produit](api-management-template-data-model-reference.md#Product)|Produit spécifié.|  
 |IsDeveloperSubscribed|boolean|Si l’utilisateur actuel est abonné à ce produit.|  
 |SubscriptionState|nombre|État de l’abonnement. Les états possibles sont :<br /><br /> -   `0 - suspended` : l’abonnement est bloqué et l’abonné ne peut appeler aucune API du produit.<br />-   `1 - active` : l’abonnement est actif.<br />-   `2 - expired` : l’abonnement a atteint sa date d’expiration et a été désactivé.<br />-   `3 - submitted` : la demande d’abonnement a été effectuée par le développeur, mais n’a pas encore été approuvée ou rejetée.<br />-   `4 - rejected` : la demande d’abonnement a été refusée par un administrateur.<br />-   `5 - cancelled` : l’abonnement a été annulé par le développeur ou l’administrateur.|  
-|limites|tableau|Cette propriété est déconseillée et ne doit pas être utilisée.|  
+|Limites|tableau|Cette propriété est déconseillée et ne doit pas être utilisée.|  
 |DelegatedSubscriptionEnabled|boolean|Indique si la [délégation](./api-management-howto-setup-delegation.md) est activée pour cet abonnement.|  
 |DelegatedSubscriptionUrl|string|Si la délégation est activée, indique l’URL de l’abonnement délégué.|  
 |IsAgreed|boolean|Si le produit est associé à un contrat, indique si l’utilisateur actuel a accepté les termes du contrat.|  
