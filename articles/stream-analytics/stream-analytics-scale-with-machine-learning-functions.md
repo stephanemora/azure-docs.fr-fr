@@ -5,13 +5,13 @@ author: jseb225
 ms.author: jeanb
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 03/16/2020
-ms.openlocfilehash: b9768bacf8d29b37f479ea080afddd494b506262
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.date: 01/15/2021
+ms.openlocfilehash: 1ee1411aba7724d76ed8626de9b8b038d02339dc
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98013938"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103574252"
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-studio-classic-functions"></a>Mettre à l’échelle votre travail Stream Analytics avec des fonctions Azure Machine Learning Studio (classique)
 
@@ -24,7 +24,7 @@ Cet article explique comment mettre efficacement à l’échelle des travaux Azu
 
 Une fonction Machine Learning studio (classique) dans Stream Analytics peut être utilisée comme un appel de fonction standard dans le langage de requête Stream Analytics. En arrière-plan toutefois, ces appels de fonction constituent en fait des demandes de service web studio (classique).
 
-Il est possible d’améliorer le débit des demandes de service web studio (classique) en traitant « par lots » plusieurs lignes dans le même appel d’API de service web. Ce regroupement est appelé un mini-lot. Pour plus d’informations, consultez [Services web Azure Machine Learning Studio (classique)](../machine-learning/classic/consume-web-services.md). La prise en charge de studio (classique) dans Stream Analytics est en préversion.
+Il est possible d’améliorer le débit des demandes de service web studio (classique) en traitant « par lots » plusieurs lignes dans le même appel d’API de service web. Ce regroupement est appelé un mini-lot. Pour plus d’informations, consultez [Services web Azure Machine Learning Studio (classique)](../machine-learning/classic/consume-web-services.md). Prise en charge de Studio (classique) dans Stream Analytics
 
 ## <a name="configure-a-stream-analytics-job-with-studio-classic-functions"></a>Configuration d’un travail Stream Analytics avec des fonctions studio (classique)
 
@@ -51,7 +51,7 @@ Pour traiter 200 000 événements par seconde, le travail Stream Analytics a bes
 
 ![Mise à l’échelle de Stream Analytics avec des fonctions studio (classique) – Exemple de deux travaux](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-00.png "Mise à l’échelle de Stream Analytics avec des fonctions studio (classique) – Exemple de deux travaux")
 
-Généralement, **_B_* _ pour la taille de lot, _*_L_*_ pour la latence du service web en millisecondes pour la taille de lot B, le débit d’un travail Stream Analytics avec _*_N_*_ unités de diffusion en continu est le suivant :
+Généralement, ***B** _ pour la taille de lot, _*_L_*_ pour la latence du service web en millisecondes pour la taille de lot B, le débit d’un travail Stream Analytics avec _ *_N_** unités de diffusion en continu est le suivant :
 
 ![Mise à l’échelle de Stream Analytics avec des fonctions studio (classique) – Formule](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-02.png "Mise à l’échelle de Stream Analytics avec des fonctions studio (classique) – Formule")
 
@@ -62,7 +62,7 @@ Pour plus d’informations sur ce paramètre, consultez l’article [Mise à l�
 ## <a name="example--sentiment-analysis"></a>Exemple – Analyse de sentiments
 L’exemple suivant comprend un travail Stream Analytics avec la fonction studio (classique) d’analyse des sentiments (cf. [Tutoriel d’intégration de Machine Learning studio (classique) à Stream Analytics](stream-analytics-machine-learning-integration-tutorial.md)).
 
-La requête est une requête simple entièrement partitionnée suivie de la fonction _ *sentiment**, comme indiqué dans l’exemple suivant :
+La requête est une requête simple entièrement partitionnée suivie de la fonction **sentiment**, comme indiqué dans l’exemple suivant :
 
 ```SQL
     WITH subquery AS (

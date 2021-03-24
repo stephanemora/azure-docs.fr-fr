@@ -1,26 +1,26 @@
 ---
-title: Comprendre les concepts du référentiel de modèles d’appareil | Microsoft Docs
-description: En tant que développeur de solutions ou professionnel de l’informatique, découvrez les concepts de base du référentiel de modèles d’appareil.
+title: Comprendre les concepts du référentiel des modèles d’appareils | Microsoft Docs
+description: En tant que développeur de solutions ou professionnel de l’informatique, découvrez les concepts de base du référentiel des modèles d’appareils.
 author: rido-min
 ms.author: rmpablos
 ms.date: 11/17/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: b567efe2541bb33c905def73bb78398799b4ed69
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: 1a58a2f69b9c6c6742c4b9daf32dd0e13341aac1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94920540"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101742141"
 ---
-# <a name="device-model-repository"></a>Référentiel de modèles d’appareil
+# <a name="device-models-repository"></a>Référentiel des modèles d’appareils
 
-Le référentiel de modèles d’appareil (DMR) permet aux fabricants d’appareils de gérer et de partager les modèles d’appareil IoT Plug-and-Play. Les modèles d’appareil sont des documents LD JSON définis à l’aide du [langage DTDL (Digital Twins Modeling Language)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
+Le référentiel des modèles d’appareils (DMR) permet aux fabricants d’appareils de gérer et de partager les modèles d’appareil IoT Plug-and-Play. Les modèles d’appareil sont des documents LD JSON définis à l’aide du [langage DTDL (Digital Twins Modeling Language)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
 
 Le système DMR définit un modèle pour stocker les interfaces DTDL dans une structure de dossiers en fonction de l’identificateur de modèle de jumeau d’appareil (DTMI). Vous pouvez localiser une interface dans le DMR en convertissant le DTMI en chemin d’accès relatif. Par exemple, le DTMI `dtmi:com:example:Thermostat;1` se traduit par `/dtmi/com/example/thermostat-1.json`.
 
-## <a name="public-device-model-repository"></a>Référentiel de modèles d’appareil public
+## <a name="public-device-models-repository"></a>Référentiel des modèles d’appareils publics
 
 Microsoft héberge un DMR public avec les caractéristiques suivantes :
 
@@ -28,7 +28,7 @@ Microsoft héberge un DMR public avec les caractéristiques suivantes :
 - Immuabilité.  Une fois publiée, une interface ne peut pas être mise à jour.
 - Hyperscale. Microsoft fournit l’infrastructure nécessaire pour créer un point de terminaison sécurisé et évolutif où vous pouvez publier et utiliser des modèles d’appareil.
 
-## <a name="custom-device-model-repository"></a>Référentiel de modèles d’appareil personnalisé
+## <a name="custom-device-models-repository"></a>Référentiel des modèles d’appareils personnalisés
 
 Utilisez le même modèle DMR pour créer un DMR personnalisé dans n’importe quel support de stockage, comme un système de fichiers local ou des serveurs web HTTP personnalisés. Vous pouvez récupérer des modèles d’appareil à partir du DMR personnalisé de la même façon que vous le faites à partir du DRM public, en modifiant l’URL de base utilisée pour accéder au DMR.
 
@@ -37,9 +37,9 @@ Utilisez le même modèle DMR pour créer un DMR personnalisé dans n’importe 
 
 ## <a name="public-models"></a>Modèles publics
 
-Les modèles d’appareil publics stockés dans le référentiel de modèles sont librement accessibles pour que tous les utilisent et les intègrent à leurs applications. Les modèles d’appareil publics permettent aux fabricants d’appareils et aux développeurs de solutions de partager et de réutiliser leurs modèles d’appareils IoT Plug-and-Play dans un écosystème ouvert.
+Les modèles d’appareils publics stockés dans le référentiel des modèles sont librement accessibles pour que tous les utilisent et les intègrent à leurs applications. Les modèles d’appareil publics permettent aux fabricants d’appareils et aux développeurs de solutions de partager et de réutiliser leurs modèles d’appareils IoT Plug-and-Play dans un écosystème ouvert.
 
-Pour obtenir des instructions sur la publication d’un modèle dans le référentiel de modèles afin de le rendre public, reportez-vous à la section [Publier un modèle](#publish-a-model).
+Pour obtenir des instructions sur la publication d’un modèle dans le référentiel des modèles afin de le rendre public, reportez-vous à la section [Publier un modèle](#publish-a-model).
 
 Les utilisateurs peuvent parcourir, rechercher et afficher des interfaces publiques à partir du [référentiel GitHub](https://github.com/Azure/iot-plugandplay-models) officiel.
 

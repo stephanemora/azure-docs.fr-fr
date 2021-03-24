@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: 460380d9435528dcd8cbb3f877c8034fdc34f50c
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: f4d65c97bfccd223453583b25ee0586c5bc0b1ec
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98134145"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101091443"
 ---
 # <a name="faq-about-using-azure-database-migration-service"></a>Questions fréquentes (FAQ) sur l’utilisation d’Azure Database Migration Service
 
@@ -62,7 +62,7 @@ Il existe plusieurs prérequis pour garantir qu’Azure Database Migration Servi
 Les conditions préalables associées à Azure Database Migration Service communes à tous les scénarios de migration pris en charge incluent le besoin de :
 
 * Créez un Réseau virtuel Microsoft Azure pour Azure Database Migration Service à l’aide du modèle de déploiement Azure Resource Manager, qui fournit une connectivité site à site à vos serveurs sources locaux via [ExpressRoute](../expressroute/expressroute-introduction.md) ou un [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
-* Assurez-vous que les règles de groupe de sécurité de votre réseau virtuel ne bloquent pas les ports de communication suivants : 443, 53, 5671 à 5672, 9350 à 9354, 445, 12000. Pour plus d’informations sur le filtrage du trafic de groupe de sécurité réseau de réseau virtuel, consultez l’article [Filtrer le trafic avec les groupes de sécurité réseau](../virtual-network/virtual-network-vnet-plan-design-arm.md).
+* Vérifiez que vos règles de groupe de sécurité réseau du réseau virtuel ne bloquent pas le port 443 pour ServiceTags de ServiceBus, Stockage et Azure Monitor. Pour plus d’informations sur le filtrage du trafic de groupe de sécurité réseau de réseau virtuel, consultez l’article [Filtrer le trafic avec les groupes de sécurité réseau](../virtual-network/virtual-network-vnet-plan-design-arm.md).
 * Lorsque vous utilisez une appliance de pare-feu devant vos bases de données sources, vous devrez peut-être ajouter des règles de pare-feu pour permettre à Azure Database Migration Service d’accéder aux bases de données sources pour la migration.
 
 Pour obtenir la liste de tous les prérequis permettant des scénarios de migration spécifiques à l’aide d’Azure Database Migration Service, consultez les tutoriels associés dans la [documentation](./dms-overview.md) d’Azure Database Migration Service sur docs.microsoft.com.

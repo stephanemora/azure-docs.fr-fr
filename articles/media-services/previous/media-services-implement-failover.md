@@ -3,7 +3,7 @@ title: Implémentation d’un basculement de diffusion en continu avec Azure Med
 description: Cet article explique comment implémenter un scénario de streaming de basculement avec Azure Media Services.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 68cd107b2606643d712c4de94b6d1a82e8ee614a
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 1636e49099851337d82494ebe168b8ec5194fa20
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97657258"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103011933"
 ---
 # <a name="implement-failover-streaming-with-media-services-v2"></a>Implémenter le streaming de basculement avec Media Services v2
 
@@ -56,7 +56,7 @@ Les considérations suivantes s'appliquent :
 ## <a name="prerequisites"></a>Prérequis
 
 * Deux comptes Media Services dans un abonnement Azure nouveau ou existant. Consultez [Comment créer un compte Media Services](media-services-portal-create-account.md).
-* Système d’exploitation : Windows 7, Windows 2008 R2 ou Windows 8.
+* Systèmes d’exploitation : Windows 7, Windows 2008 R2 ou Windows 8.
 * .NET Framework 4.5 ou .NET Framework 4.
 * Visual Studio 2010 SP1 ou version ultérieure (Professional, Premium, Ultimate ou Express).
 

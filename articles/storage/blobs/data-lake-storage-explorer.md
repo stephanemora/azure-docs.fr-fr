@@ -5,19 +5,19 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/05/2021
+ms.date: 02/17/2021
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 5ccef241a37e63467b681d5fd12c65072cb92e58
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: e6147918e7cd56aed5b5b333a8e9825a34d60fd4
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99626455"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652273"
 ---
-# <a name="use-azure-storage-explorer-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Utiliser l'Explorateur Stockage Azure pour gérer les répertoires, les fichiers et les listes de contrôle d'accès dans Azure Data Lake Storage Gen2
+# <a name="use-azure-storage-explorer-to-manage-directories-and-files-in-azure-data-lake-storage-gen2"></a>Utiliser l’Explorateur Stockage Azure pour gérer les répertoires et les fichiers dans Azure Data Lake Storage Gen2
 
-Cet article explique comment utiliser [l’Explorateur Stockage Azure](https://azure.microsoft.com/features/storage-explorer/) pour créer et gérer des répertoires, des fichiers et des listes de contrôle d’accès (ACL) sur des comptes de stockage pour lesquels un espace de noms hiérarchique est activé.
+Cet article explique comment utiliser l’[Explorateur Azure Storage](https://azure.microsoft.com/features/storage-explorer/) pour créer et gérer des répertoires et des fichiers sur les comptes de stockage pour lesquels un espace de noms hiérarchique (HNS) est activé.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -26,6 +26,9 @@ Cet article explique comment utiliser [l’Explorateur Stockage Azure](https://a
 - Un compte de stockage doté d’un espace de noms hiérarchique (HNS) activé. Pour créer un test, suivez [ces](../common/storage-account-create.md) instructions.
 
 - Explorateur Stockage Azure installé sur votre ordinateur local. Pour installer l’Explorateur Stockage Azure pour Windows, Macintosh ou Linux, consultez [Explorateur Stockage Azure](https://azure.microsoft.com/features/storage-explorer/).
+
+> [!NOTE]
+> L’Explorateur Stockage utilise à la fois les [points de terminaison](../common/storage-private-endpoints.md#private-endpoints-for-azure-storage) d’objet blob (blob) et de Data Lake Storage Gen2 (DFS) lors de l’utilisation d’Azure Data Lake Storage Gen2. Si l’accès à Azure Data Lake Storage Gen2 est configuré à l’aide de points de terminaison privés, assurez-vous que deux points de terminaison privés sont créés pour le compte de stockage : un avec la sous-ressource cible `blob` et l’autre avec la sous-ressource cible `dfs`.
 
 ## <a name="sign-in-to-storage-explorer"></a>Se connecter à l’Explorateur Stockage
 
@@ -77,41 +80,9 @@ Dans l’application **Explorateur Stockage Azure**, sélectionnez un répertoir
 
 Pour télécharger un fichier à l'aide de l'**Explorateur Stockage Azure**, sélectionnez le fichier, puis choisissez **Télécharger** sur le ruban. La boîte de dialogue qui s’ouvre vous permet de saisir un nom de fichier. Sélectionnez **Enregistrer** pour lancer le téléchargement d'un fichier à l'emplacement local.
 
-<a id="managing-access"></a>
-
-## <a name="manage-acls"></a>Gestion des listes ACL
-
-Cliquez avec le bouton droit sur le conteneur, un répertoire ou un fichier, puis sur **Gérer les listes de contrôle d’accès**.  La capture d’écran suivante montre le menu tel qu’il apparaît lorsque l’on clique avec le bouton droit sur un répertoire.
-
-> [!div class="mx-imgBorder"]
-> ![Clic droit sur un répertoire dans l’Explorateur Stockage Azure](./media/data-lake-storage-explorer/manage-access-control-list-option.png)
-
-La boîte de dialogue **Gérer l’accès** permet de gérer les autorisations du propriétaire et du groupe de propriétaires. Elle vous permet également d’ajouter de nouveaux utilisateurs et groupes à la liste de contrôle d’accès pour lesquels vous pouvez ensuite gérer les autorisations.
-
-> [!div class="mx-imgBorder"]
-> ![Boîte de dialogue Gérer l’accès](./media/data-lake-storage-explorer/manage-access-dialog-box.png)
-
-Pour ajouter un nouvel utilisateur ou un nouveau groupe à la liste de contrôle d’accès, sélectionnez le bouton **Ajouter**. Entrez ensuite l’entrée Azure Active Directory (AAD) correspondante que vous souhaitez ajouter à la liste, puis sélectionnez **Ajouter**.  L’utilisateur ou le groupe apparaît alors dans le champ **Utilisateurs et groupes**, ce qui vous permet de commencer à gérer leurs autorisations.
-
-> [!NOTE]
-> Créer un groupe de sécurité dans AAD et mettre à jour les autorisations au niveau du groupe plutôt qu’au niveau des utilisateurs individuels est recommandé et constitue une meilleure pratique. Pour plus d’informations sur cette recommandation et d’autres meilleures pratiques, consultez [Modèle de contrôle d’accès dans Azure Data Lake Storage Gen2](data-lake-storage-access-control-model.md).
-
-Utilisez les contrôles de type case à cocher pour définir l’accès et les listes ACL par défaut. Pour plus d’informations sur la différence entre ces types de listes ACL, consultez [Types de listes ACL](data-lake-storage-access-control.md#types-of-acls).
-
-<a id="apply-acls-recursively"></a>
-
-## <a name="apply-acls-recursively"></a>Application récursive de listes ACL
-
-Il est possible d’appliquer récursivement des listes ACL au niveau des éléments enfants existants d’un répertoire parent sans avoir à apporter ces modifications individuellement à chaque élément enfant.
-
-Pour appliquer des entrées ACL de manière récursive, cliquez avec le bouton droit sur le conteneur ou un répertoire, puis cliquez sur **Propagation des listes de contrôle d’accès**.  La capture d’écran suivante montre le menu tel qu’il apparaît lorsque l’on clique avec le bouton droit sur un répertoire.
-
-> [!div class="mx-imgBorder"]
-> ![Clic droit sur un répertoire et choix du paramètre de propagation du contrôle d’accès](./media/data-lake-storage-explorer/propagate-access-control-list-option.png)
-
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez les listes de contrôle d'accès disponibles dans Data Lake Storage Gen2.
+Découvrir comment gérer les autorisations de fichiers et de répertoires en définissant des listes de contrôle d’accès (ACL)
 
 > [!div class="nextstepaction"]
-> [Contrôle d’accès dans Azure Data Lake Storage Gen2](./data-lake-storage-access-control.md)
+> [Utiliser l’Explorateur Stockage Azure pour gérer les listes de contrôle d’accès dans Azure Data Lake Storage Gen2](./data-lake-storage-explorer-acl.md)

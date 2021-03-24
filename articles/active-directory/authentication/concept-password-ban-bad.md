@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b019c12103a0324e21ef7c06b0c7a5d7fe14e6ec
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 740201b84323f5a01ab01bb21ec458a19832e499
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743885"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652018"
 ---
 # <a name="eliminate-bad-passwords-using-azure-active-directory-password-protection"></a>Éliminer les mauvais mots de passe à l’aide de Protection de mots de passe d’Azure Active Directory
 
@@ -174,7 +174,7 @@ Prenons l’exemple suivant :
 L'étape suivante consiste à détecter toutes les occurrences de mots de passe interdits dans le nouveau mot de passe normalisé de l'utilisateur. Des points sont attribués en fonction des critères suivants :
 
 1. Chaque mot de passe interdit trouvé dans le mot de passe d’un utilisateur reçoit un point.
-1. Chaque caractère unique restant reçoit un point.
+1. Chaque caractère restant qui ne fait pas partie d’un mot de passe interdit reçoit un point.
 1. Un mot de passe doit recevoir au moins cinq (5) points pour être accepté.
 
 Pour les deux exemples de scénarios suivants, nous partons du principe que Contoso utilise Protection de mots de passe d’Azure AD et que « contoso » figure dans sa liste personnalisée de mots de passe interdits. Nous supposons également que « blank » figure sur la liste globale.

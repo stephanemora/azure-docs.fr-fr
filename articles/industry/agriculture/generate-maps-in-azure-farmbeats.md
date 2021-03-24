@@ -4,21 +4,21 @@ description: Cet article décrit comment générer des cartes dans Azure FarmBea
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
-ms.author: v-umha
-ms.openlocfilehash: 92228c691c323bc0b9621dfc7413d86c5c2669e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: v-ummehabiba
+ms.openlocfilehash: d0176fd337abd37f97a6dbe5cf7c68ccf94114d0
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84709060"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102173862"
 ---
 # <a name="generate-maps"></a>Générer des cartes
 
 Vous pouvez générer les cartes suivantes dans Azure FarmBeats à l’aide de l’imagerie satellite et des entrées de données des capteurs. Les cartes vous permettent de voir l’emplacement géographique de votre exploitation agricole et de déterminer l’emplacement approprié de vos appareils.
 
-  - **Cartes d’emplacement des capteurs** : Fournit des recommandations sur le nombre de capteurs à utiliser et où les placer dans l’exploitation agricole.
-  - **Carte d’indices satellite** : Indique l’indice de végétation et l’indice de teneur en eau pour une exploitation agricole.
-  - **Carte thermique d’humidité du sol** : Indique la distribution de l’humidité du sol en fusionnant les données satellite et les données des capteurs.
+  - **Carte d’emplacement des capteurs** : fournit des recommandations sur le nombre de capteurs à utiliser dans votre ferme et vous aide à déterminer leur emplacement.
+  - **Carte d’indices satellite** : indique l’indice de végétation et l’indice de teneur en eau pour une ferme.
+  - **Carte thermique d’humidité du sol** : indique la distribution de l’humidité du sol en fusionnant les données satellite et les données des capteurs.
 
 ## <a name="sensor-placement-map"></a>Cartes d’emplacement des capteurs
 
@@ -51,7 +51,7 @@ Cette section décrit en détail les procédures de création de cartes d’empl
 > [!NOTE]
 > Vous pouvez lancer la création d’une carte d’emplacement des capteurs à partir de la page **Cartes** ou du menu déroulant **Générer des cartes de précision** de la page **Détails de l’exploitation agricole**.
 
-Effectuez les opérations suivantes.
+Procédez comme suit.
 
 1. Dans la page d’accueil, sélectionnez **Maps** dans le menu de navigation de gauche.
 2. Sélectionnez **Créer des cartes**, puis, dans le menu déroulant, sélectionnez **Emplacement des capteurs**.
@@ -75,7 +75,7 @@ Effectuez les opérations suivantes.
 
 ### <a name="view-and-download-a-sensor-placement-map"></a>Afficher et télécharger une carte d’emplacement des capteurs
 
-Effectuez les opérations suivantes.
+Procédez comme suit.
 
 1. Dans la page d’accueil, sélectionnez **Maps** dans le menu de navigation de gauche.
 
@@ -86,7 +86,7 @@ Effectuez les opérations suivantes.
 
     ![Fenêtre Filtrer](./media/get-sensor-data-from-sensor-partner/view-download-filter-1.png)
 
-3. Dans les menus déroulants, sélectionnez les valeurs **Type**, **Date**et **Nom**. Sélectionnez ensuite **Appliquer** pour rechercher la carte que vous souhaitez afficher.
+3. Dans les menus déroulants, sélectionnez les valeurs **Type**, **Date** et **Nom**. Sélectionnez ensuite **Appliquer** pour rechercher la carte que vous souhaitez afficher.
   La date de création du travail est indiquée au format type_nomferme_AAAA-MM-JJ.
 4. Faites défiler la liste des cartes disponibles à l’aide des barres de navigation en bas de la page.
 5. Sélectionnez la carte à afficher. Une fenêtre indépendante affiche l’aperçu de la carte sélectionnée.
@@ -110,7 +110,7 @@ FarmBeats vous offre la possibilité de générer des cartes NDVI, d’indice de
 
 ## <a name="create-a-satellite-indices-map"></a>Créer une carte d’indices satellite
 
-Effectuez les opérations suivantes.
+Procédez comme suit.
 
 1. Dans la page d’accueil, sélectionnez **Maps** dans le menu de navigation de gauche.
 2. Sélectionnez **Créer des cartes**, puis, dans le menu déroulant, sélectionnez **Indices satellite**.
@@ -136,7 +136,7 @@ Effectuez les opérations suivantes.
 
 ### <a name="view-and-download-a-map"></a>Afficher et télécharger une carte
 
-Effectuez les opérations suivantes.
+Procédez comme suit.
 
 1. Dans la page d’accueil, sélectionnez **Maps** dans le menu de navigation de gauche.
 
@@ -146,7 +146,7 @@ Effectuez les opérations suivantes.
 
     ![La fenêtre Filtrer affiche les critères de recherche](./media/get-sensor-data-from-sensor-partner/view-download-filter-1.png)
 
-3. Dans les menus déroulants, sélectionnez les valeurs **Type**, **Date**et **Nom**. Sélectionnez ensuite **Appliquer** pour rechercher la carte que vous souhaitez afficher.
+3. Dans les menus déroulants, sélectionnez les valeurs **Type**, **Date** et **Nom**. Sélectionnez ensuite **Appliquer** pour rechercher la carte que vous souhaitez afficher.
   La date de création du travail est indiquée au format type_nomferme_AAAA-MM-JJ.
 
 4. Faites défiler la liste des cartes disponibles à l’aide des barres de navigation en bas de la page.
@@ -161,7 +161,7 @@ Effectuez les opérations suivantes.
 
 ## <a name="soil-moisture-heatmap"></a>Carte thermique d’humidité du sol
 
-L’humidité du sol fait référence à l’eau qui est retenue dans les espaces entre les particules de sol. La carte thermique d’humidité du sol vous permet de comprendre les données d’humidité du sol sur votre exploitation agricole à l’aide d’images haute résolution, indépendamment de la profondeur. Pour générer une carte thermique d’humidité du sol précise et exploitable, vous devez déployer des capteurs de façon uniforme. Tous les capteurs doivent provenir du même fournisseur. Les méthodes de mesure de l’humidité du sol et l’étalonnage diffèrent selon les fournisseurs. La carte thermique est générée pour une profondeur spécifique à l’aide des capteurs déployés à cette profondeur.
+L’humidité du sol fait référence à l’eau qui est retenue dans les espaces entre les particules de sol.La carte thermique d’humidité du sol vous permet de comprendre les données d’humidité du sol sur votre exploitation agricole à l’aide d’images haute résolution, indépendamment de la profondeur. Pour générer une carte thermique d’humidité du sol précise et exploitable, vous devez déployer des capteurs de façon uniforme. Tous les capteurs doivent provenir du même fournisseur. Les méthodes de mesure de l’humidité du sol et l’étalonnage diffèrent selon les fournisseurs. La carte thermique est générée pour une profondeur spécifique à l’aide des capteurs déployés à cette profondeur.
 
 ### <a name="before-you-begin"></a>Avant de commencer
 
@@ -175,7 +175,7 @@ Respectez les prérequis suivants avant d’essayer de générer une carte therm
 
 ## <a name="create-a-soil-moisture-heatmap"></a>Créer une carte thermique d’humidité du sol
 
-Effectuez les opérations suivantes.
+Procédez comme suit.
 
 1. Dans la page d’accueil, sélectionnez **Cartes** dans le menu de navigation de gauche pour afficher la page **Cartes**.
 2. Sélectionnez **Créer des cartes**, puis, dans le menu déroulant, sélectionnez **Humidité du sol**.
@@ -203,7 +203,7 @@ Pour trouver la mesure de capteur, accédez à **Capteurs** et sélectionnez un 
 
 ### <a name="view-and-download-a-map"></a>Afficher et télécharger une carte
 
-Effectuez les opérations suivantes.
+Procédez comme suit.
 
 1. Dans la page d’accueil, sélectionnez **Maps** dans le menu de navigation de gauche.
 
@@ -213,7 +213,7 @@ Effectuez les opérations suivantes.
 
     ![Sélectionner Filtrer dans le volet de navigation gauche](./media/get-sensor-data-from-sensor-partner/view-download-filter-1.png)
 
-3.  Dans les menus déroulants, sélectionnez les valeurs **Type**, **Date**et **Nom**. Sélectionnez ensuite **Appliquer** pour rechercher la carte que vous souhaitez afficher. La date de création du travail est indiquée au format type_nomferme_AAAA-MM-JJ.
+3.  Dans les menus déroulants, sélectionnez les valeurs **Type**, **Date** et **Nom**. Sélectionnez ensuite **Appliquer** pour rechercher la carte que vous souhaitez afficher. La date de création du travail est indiquée au format type_nomferme_AAAA-MM-JJ.
 4. Sélectionnez l’icône de **tri** à côté des en-têtes du tableau pour effectuer un tri selon les critères **Exploitation agricole**, **Date**, **Date de création**, **ID de travail** et **Type de travail**.
 5. Faites défiler la liste des cartes disponibles à l’aide des boutons de navigation en bas de la page.
 6. Sélectionnez la carte à afficher. Une fenêtre indépendante affiche l’aperçu de la carte sélectionnée.

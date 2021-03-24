@@ -6,19 +6,18 @@ documentationcenter: ''
 author: hermanndms
 manager: juergent
 editor: ''
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/01/2020
 ms.author: juergent
-ms.openlocfilehash: 70b0f8178a94735a6ef37a225044984508cc2233
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 0ff226a156721382a289af0f2a8a0f898a57bab9
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97617134"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101667971"
 ---
 # <a name="sap-hana-azure-backup-on-file-level"></a>Sauvegarde SAP HANA sur Azure au niveau fichier
 
@@ -91,7 +90,7 @@ Quand vous explorez la copie de sauvegardes effectuées à partir de disques loc
 
 ## <a name="copy-sap-hana-backup-files-to-nfs-share"></a>Copier les fichiers de sauvegarde SAP HANA vers le partage NFS
 
-Microsoft Azure offre des partages NFS avec [Azure NetApp Files](https://azure.microsoft.com/services/netapp/). Vous pouvez créer plusieurs volumes d’une capacité d’une douzaine de To pour stocker et gérer les sauvegardes. Vous pouvez également créer des instantanés de ces volumes avec la technologie de NetApp. Azure NetApp Files (ANF) est disponible selon trois niveaux de service offrant différents débits de stockage. Pour en savoir plus, consultez l’article [Niveaux de service pour Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-service-levels.md). Vous pouvez créer et monter un volume NFS à partir d’ANF comme décrit dans l’article [Démarrage rapide : Configurer Azure NetApp Files et créer un volume NFS](../../../azure-netapp-files/azure-netapp-files-quickstart-set-up-account-create-volumes.md?tabs=azure-portal).
+Microsoft Azure offre des partages NFS avec [Azure NetApp Files](https://azure.microsoft.com/services/netapp/). Vous pouvez créer plusieurs volumes d’une capacité d’une douzaine de To pour stocker et gérer les sauvegardes. Vous pouvez également créer des instantanés de ces volumes avec la technologie de NetApp. Azure NetApp Files (ANF) est disponible selon trois niveaux de service offrant différents débits de stockage. Pour en savoir plus, consultez l’article [Niveaux de service pour Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-service-levels.md). Vous pouvez créer et monter un volume NFS à partir d’ANF, comme décrit dans l’article [Démarrage rapide : Configurer Azure NetApp Files et créer un volume NFS](../../../azure-netapp-files/azure-netapp-files-quickstart-set-up-account-create-volumes.md?tabs=azure-portal).
 
 Au-delà de l’utilisation de volumes NFS natifs d’Azure avec ANF, vous disposez de différentes méthodes pour créer vos propres déploiements fournissant des partages NFS sur Azure. Elles présentent toutes le même inconvénient : vous devez déployer et gérer ces solutions vous-même. Certaines de ces méthodes sont documentées dans les articles suivants :
 

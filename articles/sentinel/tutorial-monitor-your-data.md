@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/04/2020
 ms.author: yelevin
-ms.openlocfilehash: 63a9a6dc9f052c01a7440f616f0baeaab083ad73
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3a07670e3348f74fb5c6eaec57f5e9da627e8c09
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91843071"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100586719"
 ---
 # <a name="tutorial-visualize-and-monitor-your-data"></a>Tutoriel : Visualiser et superviser vos données
 
 
 
-Après avoir [connecté vos sources de données](quickstart-onboard.md) à Azure Sentinel, vous pouvez visualiser et superviser les données grâce à l’adoption par Azure Sentinel de classeurs Azure Monitor, ce qui vous offre une grande souplesse pour créer des tableaux de bord personnalisés. Même si les classeurs s’affichent différemment dans Azure Sentinel, il peut être utile de savoir [créer des rapports interactifs avec les classeurs Azure Monitor](../azure-monitor/platform/workbooks-overview.md). Azure Sentinel vous permet de créer des classeurs personnalisés sur l’ensemble de vos données. Il est également fourni avec des modèles de classeurs intégrés avec lesquels vous obtenez rapidement des insights sur vos données dès que vous connectez une source de données.
+Après avoir [connecté vos sources de données](quickstart-onboard.md) à Azure Sentinel, vous pouvez visualiser et superviser les données grâce à l’adoption par Azure Sentinel de classeurs Azure Monitor, ce qui vous offre une grande souplesse pour créer des tableaux de bord personnalisés. Même si les classeurs s’affichent différemment dans Azure Sentinel, il peut être utile de savoir [créer des rapports interactifs avec les classeurs Azure Monitor](../azure-monitor/visualize/workbooks-overview.md). Azure Sentinel vous permet de créer des classeurs personnalisés sur l’ensemble de vos données. Il est également fourni avec des modèles de classeurs intégrés avec lesquels vous obtenez rapidement des insights sur vos données dès que vous connectez une source de données.
 
 
 Ce tutoriel vous aide à visualiser vos données dans Azure Sentinel.
@@ -52,7 +52,7 @@ Ce tutoriel vous aide à visualiser vos données dans Azure Sentinel.
    > Cette opération crée une ressource Azure basée sur le modèle associé et enregistre le fichier JSON du modèle sans les données.
 
 
-1. Sélectionnez **Afficher le classeur enregistré**. Ensuite, cliquez sur le bouton **Modifier** en haut. Vous pouvez maintenant modifier le classeur et le personnaliser en fonction de vos besoins. Pour plus d’informations sur la personnalisation du classeur, consultez [Créer des rapports interactifs avec les classeurs Azure Monitor](../azure-monitor/platform/workbooks-overview.md).
+1. Sélectionnez **Afficher le classeur enregistré**. Ensuite, cliquez sur le bouton **Modifier** en haut. Vous pouvez maintenant modifier le classeur et le personnaliser en fonction de vos besoins. Pour plus d’informations sur la personnalisation du classeur, consultez [Créer des rapports interactifs avec les classeurs Azure Monitor](../azure-monitor/visualize/workbooks-overview.md).
 ![afficher les classeurs](./media/tutorial-monitor-data/workbook-graph.png)
 1. Quand vous avez terminé vos modifications, enregistrez le classeur. 
 
@@ -64,7 +64,7 @@ Ce tutoriel vous aide à visualiser vos données dans Azure Sentinel.
 1. Accédez à **Classeurs**, puis sélectionnez **Ajouter un classeur** pour créer un classeur entièrement nouveau.
   ![Screenshot that shows the New workbook screen.](./media/tutorial-monitor-data/create-workbook.png)
 
-1. Pour modifier le classeur, sélectionnez **Modifier**, puis ajoutez du texte, des requêtes et des paramètres selon vos besoins. Pour plus d’informations sur la personnalisation du classeur, consultez [Créer des rapports interactifs avec les classeurs Azure Monitor](../azure-monitor/platform/workbooks-overview.md). 
+1. Pour modifier le classeur, sélectionnez **Modifier**, puis ajoutez du texte, des requêtes et des paramètres selon vos besoins. Pour plus d’informations sur la personnalisation du classeur, consultez [Créer des rapports interactifs avec les classeurs Azure Monitor](../azure-monitor/visualize/workbooks-overview.md). 
 
 1. Quand vous créez une requête, assurez-vous que l’option **Source de données** est définie sur **Journaux** et **Type de ressource** sur **Log Analytics**, puis choisissez le ou les espaces de travail appropriés. 
 

@@ -1,19 +1,15 @@
 ---
 title: Gérer des clusters du Pack Sécurité Entreprise – Azure HDInsight
 description: Découvrez comment gérer des clusters Azure HDInsight avec le Pack Sécurité Entreprise.
-author: omidm1
-ms.author: omidm
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive
 ms.date: 12/04/2019
-ms.openlocfilehash: 3dcb5d7ed75bda8422ba3bd461b08d3bfb2d974f
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: b0f8ba4adfa4b08c23d3f69fa4e2b01f4580bb19
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92541007"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101742209"
 ---
 # <a name="manage-hdinsight-clusters-with-enterprise-security-package"></a>Gérer des clusters HDInsight avec le pack Sécurité Entreprise
 
@@ -51,7 +47,7 @@ La sécurité et l’isolement des utilisateurs sont des aspects importants pour
 
 |Charge de travail|Scénario|Méthode d'accès|
 |--------|--------|-------------|
-|Apache Hadoop|Hive – Travaux/requêtes interactifs  |<ul><li>[Beeline](#beeline)</li><li>[Affichage Hive](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Visual Studio Tools](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
+|Apache Hadoop|Hive – Travaux/requêtes interactifs    |<ul><li>[Beeline](#beeline)</li><li>[Affichage Hive](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Visual Studio Tools](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
 |Apache Spark|Travaux/requêtes interactifs, PySpark interactif|<ul><li>[Beeline](#beeline)</li><li>[Zeppelin avec Livy](../spark/apache-spark-zeppelin-notebook.md)</li><li>[Affichage Hive](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Visual Studio Tools](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
 |Apache Spark|Scénarios de traitement par lots – Spark Submit, PySpark|<ul><li>[Livy](../spark/apache-spark-livy-rest-interface.md)</li></ul>|
 |Requête interactive (LLAP)|Interactive|<ul><li>[Beeline](#beeline)</li><li>[Affichage Hive](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Visual Studio Tools](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
@@ -87,7 +83,7 @@ Pour rechercher le nom de domaine complet d’un nœud principal, utilisez les i
 
 Pendant la création d’un cluster HDInsight non ESP, deux comptes d’utilisateurs sont créés :
 
-- **Administrateur Ambari** : ce compte est également appelé *utilisateur Hadoop* ou *utilisateur HTTP* . Ce compte peut être utilisé pour se connecter à Ambari à l’adresse `https://CLUSTERNAME.azurehdinsight.net`. Il peut également être utilisé pour exécuter des requêtes sur des vues Ambari, exécuter des travaux à l’aide d’outils externes (par exemple, PowerShell, Templeton, Visual Studio) et s’authentifier avec le pilote ODBC Hive et les outils décisionnels (par exemple, Excel, Power BI ou Tableau).
+- **Administrateur Ambari** : ce compte est également appelé *utilisateur Hadoop* ou *utilisateur HTTP*. Ce compte peut être utilisé pour se connecter à Ambari à l’adresse `https://CLUSTERNAME.azurehdinsight.net`. Il peut également être utilisé pour exécuter des requêtes sur des vues Ambari, exécuter des travaux à l’aide d’outils externes (par exemple, PowerShell, Templeton, Visual Studio) et s’authentifier avec le pilote ODBC Hive et les outils décisionnels (par exemple, Excel, Power BI ou Tableau).
 
 Un cluster HDInsight avec ESP compte trois nouveaux utilisateurs, en plus de l’administrateur Ambari.
 
@@ -117,7 +113,7 @@ Le pack Sécurité Entreprise HDInsight contient les rôles suivants :
 **Pour voir les autorisations de ces rôles.**
 
 1. Ouvrez l’interface utilisateur de gestion Ambari.  Reportez-vous à [Ouverture de l’interface utilisateur de gestion Ambari](#open-the-ambari-management-ui).
-2. Dans le menu de gauche, sélectionnez **Rôles** .
+2. Dans le menu de gauche, sélectionnez **Rôles**.
 3. Sélectionnez le point d’interrogation bleu pour afficher les autorisations :
 
     ![Autorisations des rôles HDInsight ESP](./media/apache-domain-joined-manage/hdinsight-domain-joined-roles-permissions.png)
@@ -157,7 +153,7 @@ Le pack Sécurité Entreprise HDInsight contient les rôles suivants :
     ![Affichages Hive de l’interface utilisateur de gestion Ambari pour HDInsight ESP](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-hive-views.png)
 
 4. Sélectionnez le lien **Hive View** (Affichage Hive) pour configurer les affichages Hive.
-5. Faites défiler jusqu’à la section **Autorisations** .
+5. Faites défiler jusqu’à la section **Autorisations**.
 
     ![Autorisations de configuration des affichages Hive de l’interface utilisateur de gestion Ambari pour HDInsight ESP](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-hive-views-permissions.png)
 
@@ -168,7 +164,7 @@ Le pack Sécurité Entreprise HDInsight contient les rôles suivants :
  Pour afficher la liste des rôles et de leurs autorisations, consultez Rôles des clusters HDInsight avec ESP.
 
 1. Ouvrez l’interface utilisateur de gestion Ambari.  Reportez-vous à [Ouverture de l’interface utilisateur de gestion Ambari](#open-the-ambari-management-ui).
-2. Dans le menu de gauche, sélectionnez **Rôles** .
+2. Dans le menu de gauche, sélectionnez **Rôles**.
 3. Sélectionnez **Add User** (Ajouter un utilisateur) ou **Add Group** (Ajouter un groupe) pour affecter des utilisateurs et des groupes aux différents rôles.
 
 ## <a name="next-steps"></a>Étapes suivantes

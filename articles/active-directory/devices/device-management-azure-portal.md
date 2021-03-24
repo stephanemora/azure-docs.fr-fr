@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: hafowler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0aea468c64f70bd7f35dd25206faa9ea33459999
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 23c74a8a35255162c7c9ddee6c917d4d98d83b89
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101688907"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103561649"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Gérer les identités de l’appareil à l’aide du portail Microsoft Azure
 
@@ -169,6 +169,10 @@ Pour afficher ou gérer les paramètres d’un appareil dans le portail Azure, v
 
 > [!NOTE]
 > Le paramètre **Devices to be Azure AD joined or Azure AD registered require Multi-Factor Authentication** (Les appareils qui doivent être joints ou inscrits à Azure AD nécessitent l’authentification multifacteur) s’applique aux appareils joints à Azure AD (sauf exception) et aux appareils inscrits à Azure AD. Il ne s’applique ni aux appareils à jointure hybride Azure AD, ni aux [machines virtuelles à jointure Azure AD dans Azure](./howto-vm-sign-in-azure-ad-windows.md#enabling-azure-ad-login-in-for-windows-vm-in-azure), ni aux appareils à jointure Azure AD suivant le [mode de déploiement automatique Windows Autopilot](/mem/autopilot/self-deploying).
+
+> [!IMPORTANT]
+> - Nous vous recommandons d’utiliser l’action de l’utilisateur [« Inscrire ou joindre des appareils »](../conditional-access/concept-conditional-access-cloud-apps.md#user-actions) dans l’accès conditionnel pour appliquer l’authentification multifacteur pour la jonction ou l’inscription d’un appareil. 
+> - Vous devez définir ce paramètre sur **Non** si vous utilisez la stratégie d’accès conditionnel pour exiger l’authentification multifacteur. 
 
 - **Nombre maximal d’appareils par utilisateur** : ce paramètre vous permet de sélectionner le nombre maximal d’appareils joints à Azure AD ou inscrits à Azure AD et qu’un utilisateur peut avoir dans Azure AD. Si un utilisateur atteint ce quota, il ne pourra pas ajouter d’autres appareils tant qu’un ou plusieurs appareils existants n’auront pas été supprimés. La valeur par défaut est de **50**.
 

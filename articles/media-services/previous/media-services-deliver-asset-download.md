@@ -3,7 +3,7 @@ title: Télécharger des éléments multimédias Media Services sur votre ordina
 description: Découvrez comment télécharger des éléments multimédias sur votre ordinateur. Les exemples de code sont écrits en C# et utilisent le Kit de développement logiciel (SDK) Media Services pour .NET.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: 8908a1dd-3ffb-4f18-955d-4c8e2d82fc5d
@@ -12,17 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5ad40feacdccc847ed66caed3d586db2490b0b50
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 60f91e97a9bce1427b4ed8d251fe297d9eb7d969
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89266525"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103016659"
 ---
-# <a name="how-to-deliver-an-asset-by-download"></a>Procédure : Fourniture d’un élément multimédia par téléchargement
+# <a name="how-to-deliver-an-asset-by-download"></a>Fournir un élément multimédia par téléchargement
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 

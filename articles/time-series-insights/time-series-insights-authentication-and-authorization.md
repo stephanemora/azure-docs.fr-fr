@@ -11,19 +11,16 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/23/2021
 ms.custom: seodec18, has-adal-ref
-ms.openlocfilehash: 02d9edd555566f86fd8bb09cf4acef4956ae53e4
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 88fd575d40cc31f12f052158bda0aed9a5335555
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102041210"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103009264"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Authentification et autorisation pour l’API Insights Azure Time Series
 
-Selon les besoins de votre entreprise, votre solution peut inclure une ou plusieurs applications clientes que vous utilisez pour interagir avec les [API](/rest/api/time-series-insights/reference-data-access-overview) de votre environnement Azure Time Series Insights. Azure Time Series Insights effectue l’authentification à l’aide de [jetons de sécurité Azure AD basés sur OAUTH 2.0](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims). Pour authentifier vos clients, vous devez obtenir un jeton du porteur avec les autorisations appropriées et le transmettre avec vos appels d’API. Ce document décrit plusieurs méthodes d’obtention d’informations d’identification que vous pouvez utiliser pour obtenir un jeton du porteur et vous authentifier.
-
-
-  Ce document explique comment inscrire une application dans Azure Active Directory à l’aide du nouveau panneau Azure Active Directory. Les applications inscrites dans Azure Active Directory permettent aux utilisateurs de s'authentifier et d'utiliser l'API Azure Time Series Insight associée à un environnement Azure Time Series Insights.
+Selon les besoins de votre entreprise, votre solution peut inclure une ou plusieurs applications clientes que vous utilisez pour interagir avec les [API](/rest/api/time-series-insights/reference-data-access-overview) de votre environnement Azure Time Series Insights. Azure Time Series Insights effectue l’authentification à l’aide de [jetons de sécurité Azure AD basés sur OAUTH 2.0](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims). Pour authentifier vos clients, vous devez obtenir un jeton du porteur avec les autorisations appropriées et le transmettre avec vos appels d’API. Ce document décrit plusieurs méthodes permettant d’obtenir des informations d’identification puis un jeton de porteur afin de s’authentifier, ce qui comprend l’utilisation d’une identité managée et l’inscription d’une application Azure Active Directory.
 
 ## <a name="managed-identities"></a>Identités managées
 
@@ -108,10 +105,7 @@ Une fois que votre identité managée ou votre inscription d’application ont �
 
 Lors de l’accès à partir de Azure App Service ou de Functions, suivez les instructions fournies dans [Obtenir des jetons pour les ressources Azure](../app-service/overview-managed-identity.md).
 
-> [!TIP]
-> Pour les fonctions et applications .NET, la façon la plus simple d’utiliser une identité managée consiste à recourir à la [Bibliothèque de client Azure Identity](/dotnet/api/overview/azure/identity-readme) pour .NET. 
-
-Pour les applications et les fonctions .NET, la façon la plus simple pour utiliser une identité managée consiste à passer par le package Microsoft.Azure.Services.AppAuthentication. Ce package est populaire en raison de sa simplicité et de ses avantages en matière de sécurité. Les développeurs peuvent écrire du code une seule fois et laisser la bibliothèque de client déterminer comment s’authentifier en fonction de l’environnement d’application, selon qu’il s’agit d’une station de travail de développeur utilisant un compte de développeur ou déployée dans Azure à l’aide d’une identité de service managée. Pour obtenir des conseils sur la migration à partir de la bibliothèque AppAuthentication prédécesseur, lisez [Guide de migration AppAuthentication vers Azure.Identity](/dotnet/api/overview/azure/app-auth-migration).
+Pour les fonctions et applications .NET, la façon la plus simple d’utiliser une identité managée consiste à recourir à la [Bibliothèque de client Azure Identity](/dotnet/api/overview/azure/identity-readme) pour .NET. Cette bibliothèque client est populaire en raison de sa simplicité et de ses avantages en matière de sécurité. Les développeurs peuvent écrire du code une seule fois et laisser la bibliothèque de client déterminer comment s’authentifier en fonction de l’environnement d’application, selon qu’il s’agit d’une station de travail de développeur utilisant un compte de développeur ou déployée dans Azure à l’aide d’une identité de service managée. Pour obtenir des conseils sur la migration à partir de la bibliothèque AppAuthentication prédécesseur, lisez [Guide de migration AppAuthentication vers Azure.Identity](/dotnet/api/overview/azure/app-auth-migration).
 
 Demandez un jeton pour Azure Time Series Insights en utilisant le langage C# et la bibliothèque de client d’identité Azure pour .NET :
 

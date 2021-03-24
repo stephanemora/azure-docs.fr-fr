@@ -7,12 +7,12 @@ ms.date: 01/22/2021
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 4012c7417345678717800f4fdede95947e00b828
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 374ddaa088fba9ae7035f170562e06b7f07eae47
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756710"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709374"
 ---
 # <a name="exempting-resources-and-recommendations-from-your-secure-score"></a>Exempter une ressource des recommandations et du degré de sécurisation 
 
@@ -24,7 +24,7 @@ Parfois, une ressource sera répertoriée et ne devrait pas être incluse. D’a
 
 Dans ce cas, vous pouvez créer une exemption pour une recommandation pour :
 
-- **Exempter une ressource** pour qu’elle ne soit plus listée parmi les ressources non saines et n’affecte pas votre degré de sécurisation. La ressource sera répertoriée comme non applicable, avec le motif « exemptée » et la justification spécifique de votre choix.
+- **Exempter une ressource** pour qu’elle ne soit plus listée parmi les ressources non saines et n’affecte pas votre degré de sécurisation. La ressource sera listée comme non applicable, avec le motif « exemptée » et la justification de votre choix.
 
 - **Exempter un abonnement ou un groupe d’administration** pour que la recommandation n’impacte pas votre degré de sécurisation et ne s’affiche plus pour l’abonnement ou le groupe d’administration. Cela concerne les ressources existantes et futures. La recommandation sera signalée avec la justification que vous avez choisie pour l’étendue sélectionnée.
 
@@ -110,9 +110,9 @@ Comme expliqué plus haut sur cette page, les règles d'exemption constituent un
 
 Pour garder une trace de la façon dont vos utilisateurs exercent cette fonctionnalité, nous avons créé un modèle Azure Resource Manager (ARM) qui déploie un guide opérationnel d'application logique et toutes les connexions API nécessaires pour vous avertir lorsqu'une exemption a été créée.
 
-- Pour en savoir plus sur le manuel, consultez ce billet dans les [blogs de la communauté technique](https://techcommunity.microsoft.com/t5/azure-security-center/how-to-keep-track-of-resource-exemptions-in-azure-security/ba-p/1770580)
+- Pour en savoir plus sur le playbook, consultez le billet de blog de la communauté technique, intitulé [How to keep track of Resource Exemptions in Azure Security Center](https://techcommunity.microsoft.com/t5/azure-security-center/how-to-keep-track-of-resource-exemptions-in-azure-security/ba-p/1770580) (Suivi des exemptions de ressources dans Azure Security Center)
 - Vous trouverez le modèle ARM dans le [référentiel GitHub Azure Security Center](https://github.com/Azure/Azure-Security-Center/tree/master/Workflow%20automation/Notify-ResourceExemption)
-- Vous pouvez cliquer sur [ici](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Security-Center%2Fmaster%2FWorkflow%2520automation%2FNotify-ResourceExemption%2Fazuredeploy.json) pour déployer tous les composants nécessaires. 
+- Pour déployer tous les composants nécessaires, [utilisez ce processus automatisé](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Security-Center%2Fmaster%2FWorkflow%2520automation%2FNotify-ResourceExemption%2Fazuredeploy.json)
 
 
 ## <a name="find-recommendations-with-exemptions-using-azure-resource-graph"></a>Rechercher des recommandations avec des exemptions à l’aide d’Azure Resource Graph

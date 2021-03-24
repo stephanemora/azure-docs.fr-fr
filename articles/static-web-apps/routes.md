@@ -7,14 +7,17 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 0cece3f531d50356fdefb81a598109d7c067c5ed
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 5cbcbcf8914a663a6d039abecd6a4488eaf677b2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98805953"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101739642"
 ---
 # <a name="routes-in-azure-static-web-apps-preview"></a>Itinéraires dans Azure Static Web Apps - Préversion
+
+> [!IMPORTANT]
+> Les fonctionnalités définies dans le fichier *routes.json* sont désormais déconseillées. Il est recommandé de les implémenter à l’aide du [fichier de configuration](./configuration.md#routes) d’Azure Static Web Apps.
 
 Le routage dans Azure Static Web Apps définit les règles d’acheminement principales et le comportement d’autorisation pour le contenu statique et les API<sup>1</sup>. Les règles sont définies sous la forme d’un tableau de règles dans le fichier _routes.json_.
 
@@ -29,6 +32,9 @@ La rubrique relative au routage a de nombreux points communs avec les concepts d
 Pour obtenir des détails, consultez [l’exemple de fichier de routage](#example-route-file).
 
 ## <a name="location"></a>Emplacement
+
+> [!IMPORTANT]
+> Les fonctionnalités définies dans le fichier *routes.json* sont désormais déconseillées. Il est recommandé de les implémenter à l’aide du [fichier de configuration](./configuration.md#routes) d’Azure Static Web Apps.
 
 Le fichier _routes.json_ doit exister à la racine du dossier de l’artefact de build de l’application. Si votre application web comprend une étape de compilation qui copie les fichiers compilés d’un dossier donné vers votre dossier d’artefacts de build, le fichier _routes.json_ doit exister dans ce dossier.
 
@@ -46,6 +52,9 @@ Le tableau ci-dessus est uniquement représentatif de quelques bibliothèques et
 
 ## <a name="defining-routes"></a>Définition des itinéraires
 
+> [!IMPORTANT]
+> Les fonctionnalités définies dans le fichier *routes.json* sont désormais déconseillées. Il est recommandé de les implémenter à l’aide du [fichier de configuration](./configuration.md#routes) d’Azure Static Web Apps.
+
 Les itinéraires sont définis dans le fichier _routes.json_ sous la forme d’un tableau de règles d’acheminement sur la propriété `routes`. Chaque règle est composée d’un modèle d’itinéraire, ainsi que d’une ou plusieurs des propriétés facultatives de la règle. Pour obtenir des exemples d’utilisation, consultez l’[exemple de fichier de routage](#example-route-file).
 
 | Propriété de la règle  | Obligatoire | Valeur par défaut | Commentaire                                                      |
@@ -56,6 +65,9 @@ Les itinéraires sont définis dans le fichier _routes.json_ sous la forme d’u
 | `statusCode`   | Non       | 200           | La réponse de [code d’état HTTP](https://wikipedia.org/wiki/List_of_HTTP_status_codes) pour la demande. |
 
 ## <a name="securing-routes-with-roles"></a>Sécurisation des itinéraires avec des rôles
+
+> [!IMPORTANT]
+> Les fonctionnalités définies dans le fichier *routes.json* sont désormais déconseillées. Il est recommandé de les implémenter à l’aide du [fichier de configuration](./configuration.md#routes) d’Azure Static Web Apps.
 
 Les itinéraires sont sécurisés en y ajoutant un ou plusieurs noms de rôles dans le tableau `allowedRoles` de la règle. Pour obtenir des exemples d’utilisation, consultez l’[exemple de fichier de routage](#example-route-file).
 
@@ -77,10 +89,13 @@ Vous pouvez créer des rôles en fonction des besoins dans le tableau `allowedRo
 }
 ```
 
-- Vous disposez d’un contrôle total sur les noms de rôles ; il n’existe aucune liste à laquelle vos rôles doivent adhérer.
+- Vous avez un contrôle total sur les noms de rôles ; il n’existe pas de liste à laquelle vos rôles doivent adhérer.
 - Les utilisateurs individuels sont associés à des rôles par le biais des [invitations](authentication-authorization.md).
 
 ## <a name="wildcards"></a>Caractères génériques
+
+> [!IMPORTANT]
+> Les fonctionnalités définies dans le fichier *routes.json* sont désormais déconseillées. Il est recommandé de les implémenter à l’aide du [fichier de configuration](./configuration.md#routes) d’Azure Static Web Apps.
 
 Les règles génériques correspondent à toutes les requêtes dans un modèle d’itinéraire donné. Si vous définissez une valeur de `serve` dans votre règle, le fichier ou le chemin d’accès nommé est pris en charge comme réponse.
 
@@ -109,6 +124,9 @@ Vous pouvez également sécuriser les itinéraires avec des caractères généri
 
 ## <a name="fallback-routes"></a>Itinéraires de secours
 
+> [!IMPORTANT]
+> Les fonctionnalités définies dans le fichier *routes.json* sont désormais déconseillées. Il est recommandé de les implémenter à l’aide du [fichier de configuration](./configuration.md#routes) d’Azure Static Web Apps.
+
 Les applications monopages, qu’elles utilisent des bibliothèques ou des frameworks JavaScript front-end, ou des plateformes WebAssembly comme Blazor, s’appuient souvent sur le routage côté client pour la navigation dans les applications web. Ces règles d’acheminement côté client mettent à jour l’emplacement de la fenêtre du navigateur sans effectuer de demande au serveur. Si vous actualisez la page ou si vous accédez directement aux emplacements générés par les règles d’acheminement côté client, un itinéraire de secours côté serveur est requis pour servir la page HTML appropriée.
 
 Voici un exemple classique d’itinéraire de secours :
@@ -128,6 +146,9 @@ Voici un exemple classique d’itinéraire de secours :
 L’itinéraire de secours doit être listé en dernier dans vos règles d’acheminement, car il intercepte toutes les requêtes non interceptées par les règles définies précédemment.
 
 ## <a name="redirects"></a>Redirection
+
+> [!IMPORTANT]
+> Les fonctionnalités définies dans le fichier *routes.json* sont désormais déconseillées. Il est recommandé de les implémenter à l’aide du [fichier de configuration](./configuration.md#routes) d’Azure Static Web Apps.
 
 Vous pouvez utiliser les codes d’état HTTP [301](https://en.wikipedia.org/wiki/HTTP_301) et [302](https://en.wikipedia.org/wiki/HTTP_302) pour rediriger les demandes d’un itinéraire vers un autre.
 
@@ -153,6 +174,9 @@ Les redirections fonctionnent également avec les chemins d’accès qui ne déf
 
 ## <a name="custom-error-pages"></a>Pages d’erreur personnalisées
 
+> [!IMPORTANT]
+> Les fonctionnalités définies dans le fichier *routes.json* sont désormais déconseillées. Il est recommandé de les implémenter à l’aide du [fichier de configuration](./configuration.md#routes) d’Azure Static Web Apps.
+
 Les utilisateurs peuvent rencontrer plusieurs situations qui peuvent provoquer une erreur. À l’aide du tableau `platformErrorOverrides`, vous pouvez fournir une expérience personnalisée en réponse à ces erreurs. Reportez-vous à l’[exemple de fichier de route](#example-route-file) pour le placement du tableau dans le fichier _routes.json_.
 
 > [!NOTE]
@@ -171,6 +195,9 @@ Le tableau ci-après répertorie les remplacements d’erreur de plateforme disp
 | `Unauthorized_Unknown` | 401 | Un problème inconnu s’est produite lors de la tentative d’authentification de l’utilisateur. Cette erreur peut être due au fait que l’utilisateur n’est pas reconnu, car il n’a pas accordé son consentement à l’application.|
 
 ## <a name="custom-mime-types"></a>Types MIME personnalisés
+
+> [!IMPORTANT]
+> Les fonctionnalités définies dans le fichier *routes.json* sont désormais déconseillées. Il est recommandé de les implémenter à l’aide du [fichier de configuration](./configuration.md#routes) d’Azure Static Web Apps.
 
 L’objet `mimeTypes`, répertorié au même niveau que le tableau `routes`, vous permet d’associer des [types MIME](https://developer.mozilla.org/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types) à des extensions de fichier.
 
@@ -194,6 +221,9 @@ Les considérations suivantes sont importantes quand vous utilisez des types MIM
 > Comme Static Web Apps comprend les applications Blazor et les types MIME attendus pour les fichiers WASM et DLL, vous n’avez pas besoin d’ajouter des mappages pour eux.
 
 ## <a name="default-headers"></a>En-têtes par défaut
+
+> [!IMPORTANT]
+> Les fonctionnalités définies dans le fichier *routes.json* sont désormais déconseillées. Il est recommandé de les implémenter à l’aide du [fichier de configuration](./configuration.md#routes) d’Azure Static Web Apps.
 
 L’objet `defaultHeaders`, répertorié au même niveau que le tableau `routes`, vous permet d’ajouter, de modifier ou de supprimer des [en-têtes de réponse](https://developer.mozilla.org/docs/Web/HTTP/Headers).
 
@@ -221,6 +251,9 @@ Les considérations suivantes sont importantes quand vous utilisez des en-têtes
 - Les en-têtes définis dans _routes.json_ s’appliquent uniquement au contenu statique. Vous pouvez personnaliser les en-têtes de réponse d’un point de terminaison d’API dans le code de la fonction.
 
 ## <a name="example-route-file"></a>Exemple de fichier de routage
+
+> [!IMPORTANT]
+> Les fonctionnalités définies dans le fichier *routes.json* sont désormais déconseillées. Il est recommandé de les implémenter à l’aide du [fichier de configuration](./configuration.md#routes) d’Azure Static Web Apps.
 
 L’exemple suivant montre comment créer des règles d’acheminement pour le contenu statique et les API dans un fichier _routes.json_. Certains itinéraires utilisent le [dossier système _/.auth_](authentication-authorization.md) qui accède aux points de terminaison liés à l’authentification.
 

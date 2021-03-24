@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 06/22/2020
 ms.author: rogarana
-ms.openlocfilehash: 9807563c768b82c823ff754aaa679ddc917bf62d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3aa7ab2fd3217377e9c56c8c71a1c1acc959bcd9
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87535057"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103472268"
 ---
 # <a name="part-four-mount-a-file-share-from-a-domain-joined-vm"></a>Partie 4 : Monter un partage de fichiers à partir d’une machine virtuelle jointe à un domaine
 
@@ -28,10 +28,10 @@ Connectez-vous au client en utilisant les informations d’identification auxque
 
 Avant de monter le partage de fichiers, assurez-vous que vous avez tenu compte des composants requis ci-après :
 
-- Si vous montez le partage de fichiers à partir d’un client qui l’a précédemment monté à l’aide de votre clé de compte de stockage, assurez-vous que vous avez déconnecté le partage et supprimé les informations d’identification persistantes de la clé de compte de stockage, et que vous utilisez actuellement des informations d’identification relatives à AD DS pour l’authentification.
+- Si vous montez le partage de fichiers à partir d’un client qui l’a précédemment monté à l’aide de votre clé de compte de stockage, assurez-vous que vous avez déconnecté le partage et supprimé les informations d’identification persistantes de la clé de compte de stockage, et que vous utilisez actuellement des informations d’identification relatives à AD DS pour l’authentification. Pour obtenir des instructions sur la suppression du partage monté avec la clé de compte de stockage, reportez-vous à la [page Forum aux questions](https://docs.microsoft.com/azure/storage/files/storage-files-faq#ad-ds--azure-ad-ds-authentication).
 - Votre client doit pouvoir visualiser votre instance AD DS. Si votre machine ou machine virtuelle ne se trouve pas sur le réseau géré par votre instance AD DS, vous devez activer le VPN de façon à atteindre AD DS à des fins d’authentification.
 
-Remplacez les valeurs d’espace réservé par vos propres valeurs, puis utilisez la commande suivante pour monter le partage de fichiers Azure :
+Remplacez les valeurs d’espace réservé par vos propres valeurs, puis utilisez la commande suivante pour monter le partage de fichiers Azure. Vous devez toujours effectuer le montage à l’aide du chemin d’accès indiqué ci-dessous. L’utilisation de CNAME pour le montage de fichiers n’est pas prise en charge pour l’authentification basée sur l’identité (AD DS ou Azure AD DS).
 
 ```PSH
 # Always mount your share using.file.core.windows.net, even if you setup a private endpoint for your share.

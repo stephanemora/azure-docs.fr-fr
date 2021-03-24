@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: mingshen
 author: mingshen-ms
 ms.date: 06/10/2020
-ms.openlocfilehash: 909b818c60932f5b1d6071ea1ccf0ee4c76173b4
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: ac3e07c67ca82c2960de1c4341a714b33751bfc1
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92280543"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101092400"
 ---
 # <a name="anomaly-detection-service-for-metered-billing"></a>Service de détection d’anomalie pour la facturation à l’usage
 
@@ -50,32 +50,37 @@ Le modèle fonctionne en générant des intervalles de confiance rétrospectifs.
 
 ## <a name="anomaly-detection-notification"></a>Notification de détection d’anomalie
 
-Nous envoyons chaque semaine des notifications de détection d’anomalie par e-mail. Cela comprend toutes les anomalies détectées cette semaine-là pour tous les compteurs et tous les clients. Cet e-mail est envoyé aux contacts **Ingénierie** et **Support** fournis lors de la création de l’offre.
+Vous pouvez évaluer, gérer et reconnaître les anomalies dans l’Espace partenaires. Pour en savoir plus, consultez [Gérer les anomalies de facturation mesurée dans l’Espace partenaires](../anomaly-detection.md).
 
-Vous êtes tenu de vérifier si les anomalies détectées sont des problèmes réels et, le cas échéant, de contacter Microsoft pour signaler l’utilisation incorrecte (voir la section support ci-dessous).
+Pour vérifier que vos clients ne font pas l’objet d’une surfacturation pour l’utilisation mesurée, vous devez investiguer si les anomalies détectées sont des problèmes réels. Si tel est le cas, vous pouvez reconnaître l’utilisation incorrecte dans l’Espace partenaires.
 
-Si vous confirmez que les anomalies détectées relèvent d’une utilisation normale, aucune autre action n’est nécessaire de votre part. Toutefois, si une anomalie représente un risque financier potentiellement élevé, nous pouvons être amenés à vous contacter pour confirmer l’utilisation.  
+Nous vous recommandons de vérifier si les anomalies détectées correspondent à une utilisation normale. Cela permet d’améliorer les données d’anomalies que nous vous fournissons. Si une anomalie représente un risque financier potentiellement élevé, nous pouvons être amenés à vous contacter pour confirmer l’utilisation.
 
 ## <a name="when-and-how-to-get-support"></a>Quand et comment obtenir une assistance
 
-Si vous avez envoyé des chiffres d’utilisation incorrects à Microsoft et que cela a abouti ou aboutira à une sous-facturation du client, Microsoft n’enverra pas de facture au client pour une utilisation sous-déclarée et ne vous paiera pas pour cette utilisation. Vous devrez supporter la perte de chiffre d’affaires due à la sous-déclaration.
+Si vous nous avez envoyé une utilisation mesurée incorrecte et que cela a abouti ou aboutira à une sous-facturation du client, nous n’enverrons pas de facture au client pour une utilisation sous-déclarée et ne vous paierons pas pour cette utilisation. Vous devrez supporter la perte de chiffre d’affaires due à la sous-déclaration.
 
-Si un des cas suivants s’applique, vous pouvez ouvrir un ticket de support pour demander un remboursement ou un ajustement de la facturation pour vos clients :
+Si l’un des cas suivants s’applique, vous pouvez ajuster le montant d’utilisation dans l’Espace partenaires, ce qui entraînera un remboursement ou un ajustement de facturation pour vos clients :
 
-- Vous avez confirmé qu’une des anomalies que nous avons trouvées est un problème réel et que l’utilisation incorrecte aboutirait à une **surfacturation** du client.
-- Vous constatez que vous nous avez envoyé des chiffres d’utilisation incorrects et que ceux-ci aboutiraient à une **surfacturation** du client.
-- Vous souhaitez demander un remboursement pour les frais relatifs à l’utilisation de la facturation à l’usage de votre client.
+- Vous avez confirmé qu’une des anomalies que nous avons trouvées est un problème réel et que l’utilisation incorrecte aboutirait à une surfacturation du client.
+- Vous constatez que vous nous avez envoyé des chiffres d’utilisation incorrects et que ceux-ci aboutiraient à une surfacturation du client.
 
-Pour envoyer un ticket :
+Pour envoyer un ticket de support lié à des anomalies de facturation mesurée :
 
-1. Accédez à la page de support. Dans la **zone Parlez-nous de votre problème**, entrez « Chiffres d’utilisation incorrects ».
-2. Dans les rubriques de support, dans la liste déroulante des résultats de la recherche, sélectionnez l’une des options suivantes :
-    - **Marketplace commercial** > **Facturation à l’usage** > **Chiffres d’utilisation incorrects envoyés pour l’offre Applications Azure** ; ou
-    - **Marketplace commercial** > **Facturation à l’usage** > **Chiffres d’utilisation incorrects envoyés pour une offre SaaS**.
-3. Sous **Étape suivante**, sélectionnez le bouton **Examiner les solutions** pour être redirigé vers Espace partenaires et vous y connecter afin de soumettre un ticket de support.
+1. Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) à l’aide de votre compte professionnel.
+1. Dans le menu en haut à droite de la page, sélectionnez l’icône **Support**. Le volet **Aide et support** s’affiche sur le côté droit de la page.
+1. Pour obtenir de l’aide concernant le marketplace commercial, sélectionnez **Marketplace commercial**.
+   ![Illustre le volet de support.](../media/support/commercial-marketplace-support-pane.png)
+1. Dans la zone **Résumé du problème**, entrez **Place de marché commerciale > Facturation mesurée**.
+1. Dans la zone **Type de problème**, sélectionnez l’une des options suivantes :
+    - **Place de marché commerciale > Facturation mesurée > Chiffres d’utilisation incorrects envoyés pour l’offre Applications Azure**
+    - **Place de marché commerciale > Facturation mesurée > Chiffres d’utilisation incorrects envoyés pour une offre SaaS**
+1. Sous **Étape suivante**, sélectionnez **Passer les solutions en revue**.
+1. Passez en revue les documents recommandés éventuels ou sélectionnez **Fournir les détails du problème** pour envoyer un ticket de support.
 
 Pour plus d’options de support à destination des éditeurs, consultez [Support technique pour le programme du marketplace commercial dans Espace partenaires](../support.md).
 
-## <a name="next-step"></a>Étape suivante
+## <a name="next-steps"></a>Étapes suivantes
 
 - En savoir plus sur l’[API du service de mesure de la consommation du marketplace](marketplace-metering-service-apis.md).
+- [Gérer les anomalies de facturation mesurée dans l’Espace partenaires](../anomaly-detection.md)

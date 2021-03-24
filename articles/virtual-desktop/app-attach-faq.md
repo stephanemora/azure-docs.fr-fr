@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 78c21e9515965f1c15315967f6a19a0df2838dc2
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 395c274630131c2ae5f451443913e1e69c7c422a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97591193"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738699"
 ---
 # <a name="msix-app-attach-faq"></a>FAS sur l’attachement d’application MSIX
 
@@ -61,7 +61,7 @@ Toutes les machines virtuelles d’un pool hôte qui utilise l’attachement d�
 
 ## <a name="can-i-use-msix-app-attach-for-http-or-https"></a>Puis-je utiliser l’attachement d’application MSIX pour HTTP ou HTTPs ?
 
-Toutes les machines virtuelles d’un pool hôte qui utilise l’attachement d’application MSIX doivent avoir des autorisations de lecture sur le partage de fichiers où sont stockées les images MSIX. Si Azure Files est utilisé, le contrôle RBAC et les autorisations NTFS doivent être accordés.
+L’utilisation de l’attachement d’application MSIX sur HTTP ou HTTPs n’est actuellement pas prise en charge.
 
 ## <a name="can-i-restage-the-same-msix-application"></a>Puis-je effectuer une copie intermédiaire de la même application MSIX ?
 
@@ -69,7 +69,7 @@ Oui. Vous pouvez effectuer une nouvelle copie intermédiaire d’applications, c
 
 ## <a name="does-msix-app-attach-support-self-signed-certificates"></a>L’attachement d’application MSIX prend-il en charge les certificats auto-signés ?
 
-L’utilisation de l’attachement d’application MSIX sur HTTP ou HTTPs n’est actuellement pas prise en charge.
+Oui. Vous devez installer le certificat auto-signé sur toutes les machines virtuelles hôtes de session où l’attachement d’application MSIX est utilisé pour héberger l’application auto-signée.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

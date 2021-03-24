@@ -4,15 +4,15 @@ description: Cet article liste les recommandations de sécurité d’Azure Secur
 author: memildin
 ms.service: security-center
 ms.topic: reference
-ms.date: 02/16/2021
+ms.date: 03/14/2021
 ms.author: memildin
 ms.custom: generated
-ms.openlocfilehash: d484802b35ffec26d1248e51b365ac9041fc7934
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: b4fe575039c6e913ca20198f204b6529f6c482c7
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102100404"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103466191"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>Recommandations de sécurité - Guide de référence
 
@@ -28,9 +28,17 @@ Votre degré de sécurisation est basé sur le nombre de recommandations Securit
 > Si la description d’une recommandation indique « aucune stratégie associée », cela est généralement dû au fait que cette recommandation est dépendante d’une autre recommandation et de _sa_ stratégie. Par exemple, la recommandation « Les échecs d’intégrité d’Endpoint Protection doivent être corrigés... », s’appuie sur la recommandation qui vérifie si une solution Endpoint Protection est _installée_ en premier lieu (« La solution Endpoint Protection doit être installée... »). La recommandation sous-jacente _est associée_ à une stratégie.
 > Limiter les stratégies à la recommandation de base simplifie la gestion des stratégies.
 
+## <a name="appservices-recommendations"></a><a name='recs-appservices'></a>Recommandations AppServices
+
+[!INCLUDE [asc-recs-appservices](../../includes/asc-recs-appservices.md)]
+
 ## <a name="compute-recommendations"></a><a name='recs-compute'></a>Recommandations relatives au calcul
 
 [!INCLUDE [asc-recs-compute](../../includes/asc-recs-compute.md)]
+
+## <a name="container-recommendations"></a><a name='recs-container'></a>Recommandations relatives aux conteneurs
+
+[!INCLUDE [asc-recs-container](../../includes/asc-recs-container.md)]
 
 ## <a name="data-recommendations"></a><a name='recs-data'></a>Recommandations relatives aux données
 
@@ -58,4 +66,4 @@ Votre degré de sécurisation est basé sur le nombre de recommandations Securit
 Pour en savoir plus sur les recommandations, consultez les articles suivants :
 
 - [Présentation des stratégies de sécurité, des initiatives et des recommandations](security-policy-concept.md).
-- [Consulter vos recommandations de sécurité](security-center-recommendations.md).
+- [Consulter vos recommandations de sécurité](security-center-recommendations.md)

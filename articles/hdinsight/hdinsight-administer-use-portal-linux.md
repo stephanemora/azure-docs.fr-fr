@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/24/2020
-ms.openlocfilehash: 5d308bfbe605e5ec3bed3bf5d6506ccafc53836e
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: e21361b6d491f53f41754831d2bdf896ef2719db
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98942818"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101091430"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gérer des clusters Apache Hadoop dans HDInsight à l’aide du portail Azure
 
@@ -54,7 +54,7 @@ Sélectionnez le nom de votre cluster dans la page [**Clusters HDInsight**](#sho
     |---|---|
     |Vue d’ensemble|fournit des informations générales sur votre cluster.|
     |Journal d’activité|afficher et interroger les journaux d’activité.|
-    |Contrôle d’accès (IAM)|utiliser des attributions de rôles.  Consultez [Utiliser les attributions de rôle pour gérer l’accès à vos ressources d’abonnement Azure](../role-based-access-control/role-assignments-portal.md).|
+    |Contrôle d’accès (IAM)|utiliser des attributions de rôles.  Consultez [Affecter des rôles Azure pour gérer l’accès à vos ressources d’abonnement Azure](../role-based-access-control/role-assignments-portal.md).|
     |Balises|permet de spécifier des paires clé/valeur pour définir une taxonomie personnalisée de vos services cloud. Vous pouvez par exemple créer une clé nommée **projet**, puis utiliser une valeur commune pour tous les services associés à un projet spécifique.|
     |Diagnostiquer et résoudre les problèmes|affiche des informations sur la résolution des problèmes.|
     |Démarrage rapide|affiche des informations qui vous aident à bien démarrer avec HDInsight.|

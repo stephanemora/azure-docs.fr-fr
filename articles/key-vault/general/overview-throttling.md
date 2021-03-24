@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 5b60f290f6d3ca184e25edd2984ad5b2d1ff2bdf
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 7bdc3ac517df6b73fba7231cfe0fdc9855803782
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289681"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175751"
 ---
 # <a name="azure-key-vault-throttling-guidance"></a>Aide sur la limitation de requêtes Azure Key Vault
 
@@ -24,7 +24,7 @@ Les limites varient selon les scénarios. Par exemple, si vous réalisez un volu
 
 ## <a name="how-does-key-vault-handle-its-limits"></a>Comment Key Vault gère-t-il ses limites ?
 
-Les limites de service dans Key Vault empêchent l’usage abusif des ressources et garantissent la qualité du service pour tous les clients de Key Vault. En cas de dépassement d’un seuil de service, Key Vault limite toutes les autres requêtes de ce client sur une période donnée et retourne le code d’état HTTP 429 (Trop de requêtes), indiquant l’échec de la requête. Les requêtes qui ont échoué et retourné une erreur 429 sont comptabilisées dans les limites appliquées par Key Vault. 
+Les limites de service dans Key Vault empêchent l’usage abusif des ressources et garantissent la qualité du service pour tous les clients de Key Vault. En cas de dépassement d’un seuil de service, Key Vault limite toutes les autres requêtes de ce client sur une période donnée et retourne le code d’état HTTP 429 (Trop de requêtes), indiquant l’échec de la requête. Les requêtes qui ont échoué et retourné une erreur 429 ne sont pas comptabilisées dans les limites appliquées par Key Vault. 
 
 Key Vault a été conçu à l’origine pour stocker et récupérer vos secrets au moment du déploiement.  Le monde a évolué et Key Vault est maintenant utilisé au moment de l’exécution pour stocker et récupérer les secrets ; par ailleurs, les applications et les services cherchent souvent à utiliser Key Vault comme une base de données.  Les limites actuelles ne sont pas adaptées aux débits élevés.
 
@@ -47,8 +47,8 @@ Si les conseils ou bonnes pratiques ci-dessus ne vous permettent pas de résoudr
 
 Si une capacité supplémentaire est approuvée, notez les conséquences suivantes d’une augmentation de la capacité :
 1. Modifications du modèle de cohérence des données. Une fois qu’un coffre est autorisé avec une capacité de débit supplémentaire, la cohérence des données du service Key Vault garantit l’application des modifications (ce qui est nécessaire pour traiter un volume RPS plus élevé qui ne peut pas l’être par le service Stockage Azure sous-jacent).  En résumé :
-  1. **Sans autorisation**  : le service Key Vault reflètera les résultats d’une opération d’écriture (par exemple, SecretSet, CreateKey) immédiatement dans les appels suivants (par exemple, SecretGet, KeySign).
-  1. **Avec autorisation**  : le service Key Vault reflètera les résultats d’une opération d’écriture (par exemple, SecretSet, CreateKey) dans un délai de 60 secondes dans les appels suivants (par exemple, SecretGet, KeySign).
+  1. **Sans autorisation** : le service Key Vault reflètera les résultats d’une opération d’écriture (par exemple, SecretSet, CreateKey) immédiatement dans les appels suivants (par exemple, SecretGet, KeySign).
+  1. **Avec autorisation** : le service Key Vault reflètera les résultats d’une opération d’écriture (par exemple, SecretSet, CreateKey) dans un délai de 60 secondes dans les appels suivants (par exemple, SecretGet, KeySign).
 1. Le code client doit respecter la stratégie de backoff entre les nouvelles tentatives (code de réponse 429). Le code client qui appelle le service Key Vault ne doit pas réessayer les requêtes de Key Vault immédiatement après avoir reçu un code de réponse 429.  La présente aide sur la limitation de requêtes Azure Key Vault vous conseille d’appliquer un backoff exponentiel pour les codes de réponse HTTP 429 reçus.
 
 Si vous avez un scénario valide justifiant une limitation supérieure, contactez-nous.

@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/17/2018
-ms.openlocfilehash: d5a067272caf9b072117ba57b7b16f8d78a8b456
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: b16a2fc9f107a8420fb7d05667807a869fa3e00a
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791645"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102172755"
 ---
 # <a name="multi-model-capabilities-of-azure-sql-database--sql-managed-instance"></a>Fonctionnalités multimodèles d'Azure SQL Database et SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -87,7 +87,7 @@ Pour plus d'informations, consultez [Utiliser des données JSON](database/json-f
 
 Vous pouvez utiliser des modèles de document au lieu de modèles relationnels dans certains cas bien spécifiques :
 
-- Une normalisation élevée du schéma n’apporte pas d’avantages significatifs, car vous accédez à tous les champs d’objets en même temps, ou ne mettez jamais à jour les parties normalisées des objets. Par ailleurs, le modèle normalisé augmente la complexité de vos requêtes en raison du nombre important de tables que vous devez joindre pour obtenir les données.
+- Une normalisation élevée du schéma n’apporte pas d’avantages significatifs, car vous accédez à tous les champs d’objets en même temps, et ne mettez jamais à jour les parties normalisées des objets. Par ailleurs, le modèle normalisé augmente la complexité de vos requêtes en raison du nombre important de tables que vous devez joindre pour obtenir les données.
 - Vous travaillez avec des applications qui utilisent en mode natif des documents JSON qui sont des modèles de communication ou de données, et vous ne souhaitez pas introduire de couches supplémentaires qui transforment des données relationnelles en JSON et inversement.
 - Vous devez simplifier votre modèle de données en dénormalisant les tables enfant ou les modèles Entité-Objet-Valeur.
 - Vous devez charger ou exporter des données stockées au format JSON sans outil supplémentaire analysant les données.
@@ -124,7 +124,7 @@ Le moteur de base de données SQL Server offre une plateforme puissante pour le 
 
 Vous pouvez utiliser des modèles de document au lieu de modèles relationnels dans certains cas bien spécifiques :
 
-- Une normalisation élevée du schéma n’apporte pas d’avantages significatifs, car vous accédez à tous les champs d’objets en même temps, ou ne mettez jamais à jour les parties normalisées des objets. Par ailleurs, le modèle normalisé augmente la complexité de vos requêtes en raison du nombre important de tables que vous devez joindre pour obtenir les données.
+- Une normalisation élevée du schéma n’apporte pas d’avantages significatifs, car vous accédez à tous les champs d’objets en même temps, et ne mettez jamais à jour les parties normalisées des objets. Par ailleurs, le modèle normalisé augmente la complexité de vos requêtes en raison du nombre important de tables que vous devez joindre pour obtenir les données.
 - Vous travaillez avec des applications qui utilisent en mode natif des documents XML qui sont des modèles de communication ou de données, et vous ne souhaitez pas introduire de couches supplémentaires qui transforment des données relationnelles en XML et inversement.
 - Vous devez simplifier votre modèle de données en dénormalisant les tables enfant ou les modèles Entité-Objet-Valeur.
 - Vous devez charger ou exporter des données stockées au format XML sans outil supplémentaire analysant les données.

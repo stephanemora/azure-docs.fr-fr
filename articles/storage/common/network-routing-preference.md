@@ -1,26 +1,26 @@
 ---
-title: Configurer une préférence de routage réseau (préversion)
+title: Préférence de routage réseau
 titleSuffix: Azure Storage
-description: Configurez une préférence de routage réseau (préversion) pour votre compte de stockage Azure afin de spécifier comment le trafic réseau est acheminé vers votre compte à partir de clients sur Internet.
+description: La préférence de routage réseau vous permet de spécifier la façon dont le trafic réseau est acheminé vers votre compte à partir de clients sur Internet.
 services: storage
 author: santoshc
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/12/2020
+ms.date: 02/11/2021
 ms.author: santoshc
-ms.reviewer: tamram
+ms.reviewer: normesta
 ms.subservice: common
 ms.custom: references_regions
-ms.openlocfilehash: 601c8dfb4b4e2f16da5c560f67e2d251a5d3072a
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 6b6c90259c552895360281b393e15773c6e101e3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100362741"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726935"
 ---
-# <a name="configure-network-routing-preference-for-azure-storage-preview"></a>Configurer une préférence de routage réseau pour le service Stockage Azure (préversion)
+# <a name="network-routing-preference-for-azure-storage"></a>Préférence de routage réseau pour Stockage Azure
 
-Vous pouvez configurer une [préférence de routage](../../virtual-network/routing-preference-overview.md) réseau (préversion) pour votre compte de stockage Azure afin de spécifier comment le trafic réseau est acheminé vers votre compte à partir de clients sur Internet. Par défaut, le trafic provenant d’Internet est routé vers le point de terminaison public de votre compte de stockage sur le [réseau Microsoft mondial](../../networking/microsoft-global-network.md). Le stockage Azure fournit des options supplémentaires pour configurer la façon dont le trafic est acheminé vers votre compte de stockage.
+Vous pouvez configurer une [préférence de routage](../../virtual-network/routing-preference-overview.md) réseau pour votre compte de stockage Azure afin de spécifier comment le trafic réseau est acheminé vers votre compte à partir de clients sur Internet. Par défaut, le trafic provenant d’Internet est routé vers le point de terminaison public de votre compte de stockage sur le [réseau Microsoft mondial](../../networking/microsoft-global-network.md). Le stockage Azure fournit des options supplémentaires pour configurer la façon dont le trafic est acheminé vers votre compte de stockage.
 
 La configuration d’une préférence de routage vous offre la possibilité d’optimiser votre trafic pour obtenir des performances réseau d’exception ou un coût plus avantageux. Lorsque vous configurez une préférence de routage, vous spécifiez la manière dont le trafic est acheminé vers le point de terminaison public de votre compte de stockage par défaut. Vous pouvez également publier des points de terminaison spécifiques d’un itinéraire pour votre compte de stockage.
 
@@ -37,9 +37,11 @@ Le diagramme suivant montre comment le trafic circule entre le client et le comp
 
 ![Vue d’ensemble des options de routage pour le service Stockage Azure](media/network-routing-preference/routing-options-diagram.png)
 
-Pour plus d’informations sur la préférences de routage dans Azure, consultez [Qu’est-ce qu’une préférence de routage (préversion) ?](../../virtual-network/routing-preference-overview.md).
+Pour plus d’informations sur la préférence de routage dans Azure, consultez [Qu’est-ce qu’une préférence de routage ?](../../virtual-network/routing-preference-overview.md).
 
 ## <a name="routing-configuration"></a>Configuration de routage
+
+Pour obtenir des instructions pas à pas sur la configuration de la préférence de routage et les points de terminaison propres à l’itinéraire, consultez [Configuration d’une préférence de routage réseau pour le Stockage Azure](configure-network-routing-preference.md).
 
 Vous pouvez choisir entre le routage réseau Microsoft mondial et le routage Internet comme préférence de routage par défaut pour le point de terminaison public de votre compte de stockage. La préférence de routage par défaut s’applique à tout le trafic provenant de clients extérieurs à Azure, et affecte les points de terminaison pour Azure Data Lake Storage Gen2, Stockage Blob, Azure Files et les sites web statiques. La configuration de la préférence de routage n’est pas prise en charge pour les files d’attente ou les tables Azure.
 
@@ -65,7 +67,7 @@ Si vous disposez d’un compte de stockage géoredondant avec accès en lecture 
 
 Vous pouvez copier les chaînes de connexion pour les points de terminaison spécifiques de l’itinéraire publiés via le [portail Azure](https://portal.azure.com). Ces chaînes de connexion sont utilisables pour l’autorisation par clé partagée avec tous les kits de développement logiciel (SDK) et API de Azure Storage existants.
 
-## <a name="about-the-preview"></a>À propos de la préversion
+## <a name="regional-availability"></a>Disponibilité régionale
 
 La préférence de routage pour le service Stockage Azure est disponible dans les régions suivantes :
 
@@ -100,16 +102,17 @@ La préférence de routage pour le service Stockage Azure est disponible dans le
 - Australie Est 
 - Sud-Australie Est 
 
-Les problèmes connus suivants affectent la préversion de la préférence de routage pour le service Stockage Azure :
+Les problèmes connus suivants affectent la préférence de routage pour le service Stockage Azure :
 
 - Les demandes d’accès au point de terminaison spécifique de l’itinéraire pour le réseau Microsoft mondial échouent avec l’erreur HTTP 404 ou une erreur équivalente. Le routage sur le réseau Microsoft mondial fonctionne comme prévu quand il est défini comme préférence de routage par défaut pour le point de terminaison public.
 
 ## <a name="pricing-and-billing"></a>Tarification et facturation
 
-Pour plus de détails sur la tarification et la facturation, consultez la section **Tarification** dans [Qu’est-ce qu’une préférence de routage (préversion) ?](../../virtual-network/routing-preference-overview.md#pricing).
+Pour plus de détails sur la tarification et la facturation, consultez la section **Tarification** dans [Qu’est-ce qu’une préférence de routage ?](../../virtual-network/routing-preference-overview.md#pricing).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Qu’est-ce qu’une préférence de routage (préversion) ?](../../virtual-network/routing-preference-overview.md)
+- [Qu’est-ce qu’une préférence de routage ?](../../virtual-network/routing-preference-overview.md)
+- [Configurer la préférence de routage réseau](configure-network-routing-preference.md)
 - [Configurer des pare-feu et des réseaux virtuels dans Stockage Azure](storage-network-security.md)
 - [Recommandations de sécurité pour Stockage Blob](../blobs/security-recommendations.md)

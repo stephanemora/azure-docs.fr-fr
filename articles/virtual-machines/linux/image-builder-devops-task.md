@@ -6,13 +6,14 @@ ms.author: danis
 ms.date: 01/27/2021
 ms.topic: article
 ms.service: virtual-machines
-ms.subservice: imaging
-ms.openlocfilehash: 56f1e78e0f2bbba15b50664b88bd8808731e6836
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.subservice: image-builder
+ms.collection: linux
+ms.openlocfilehash: d02a5c6bc194009d459647721dab16be0dcade84
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807612"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101670478"
 ---
 # <a name="azure-image-builder-service-devops-task"></a>Tâche DevOps du service Azure Image Builder
 
@@ -21,7 +22,7 @@ Cet article vous explique comment utiliser une tâche Azure DevOps pour injecter
 ## <a name="devops-task-versions"></a>Versions des tâches DevOps
 Il existe deux tâches DevOps Azure VM Image Builder (AIB) :
 
-* [La tâche « stable » AIB](https://marketplace.visualstudio.com/items?itemName=AzureImageBuilder.devOps-task-for-azure-image-builder), qui nous permet de placer les dernières mises à jour et fonctionnalités, d’autoriser les clients à les tester avant de les promouvoir à la tâche « stable », environ 1 semaine plus tard. 
+* [La tâche « stable » AIB](https://marketplace.visualstudio.com/items?itemName=AzureImageBuilder.devOps-task-for-azure-image-builder), qui est la dernière build stable ayant été testée, et dont la télémétrie ne présente aucun problème. 
 
 
 * [La tâche « instable » AIB](https://marketplace.visualstudio.com/items?itemName=AzureImageBuilder.devOps-task-for-azure-image-builder-canary), qui nous permet de placer les dernières mises à jour et fonctionnalités, d’autoriser les clients à les tester avant de les promouvoir à la tâche « stable ». S’il n’y a aucun problème signalé et que notre télémétrie n’indique aucun problème, environ 1 semaine plus tard, nous allons promouvoir le code de tâche sur « stable ». 

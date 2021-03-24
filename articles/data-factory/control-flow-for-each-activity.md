@@ -7,12 +7,12 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/23/2019
-ms.openlocfilehash: c59108752677fc33e28578c3c679be24108806d5
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: aeabd74117f99c7cac9bde0eda02b9627caf0804
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100385606"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102177779"
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>Activité ForEach dans Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -483,6 +483,7 @@ Voici quelques limitations de l’activité ForEach et des suggestions de soluti
 |---|---|
 | Vous ne pouvez pas imbriquer une boucle ForEach à l’intérieur d’une autre boucle ForEach (ou une boucle Until). | Concevez un pipeline à deux niveaux où le pipeline externe contenant la boucle ForEach externe itère sur un pipeline interne contenant la boucle imbriquée. |
 | Pour chaque activité ForEach, `batchCount` a une valeur maximale de 50 pour le traitement parallèle et un maximum de 100 000 éléments. | Concevez un pipeline à deux niveaux où le pipeline externe contenant l’activité ForEach itère sur un pipeline interne. |
+| SetVariable ne peut pas être utilisé dans une activité ForEach qui s’exécute en parallèle, car les variables sont générales pour l’ensemble du pipeline. Elles ne sont pas étendues à une activité ForEach ou à une autre activité. | Envisagez d’utiliser ForEach séquentiel ou d’exécuter le pipeline d’exécution dans ForEach (variable/paramètre géré dans le pipeline enfant).|
 | | |
 
 ## <a name="next-steps"></a>Étapes suivantes

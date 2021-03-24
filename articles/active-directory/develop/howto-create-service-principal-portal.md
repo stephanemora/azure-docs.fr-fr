@@ -12,12 +12,12 @@ ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: 8a4a4153261b93b3b17641e8561962c274570bd0
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 6adc3a8af90f6f05f640de97b8fa74c8d40e0329
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100104210"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175540"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Procédure : Utiliser le portail pour créer une application et un principal du service Azure AD pouvant accéder aux ressources
 
@@ -45,7 +45,7 @@ Vous devez disposer d’autorisations suffisantes pour inscrire une application 
 1. Dans le volet gauche, sélectionnez **Paramètres utilisateur**.
 1. Vérifiez le paramètre **Inscriptions d’applications**. Cette valeur peut uniquement être définie par un administrateur. Si la valeur est **Oui**, tous les utilisateurs dans le locataire Azure AD peuvent inscrire une application.
 
-Si le paramètre d’inscriptions d’applications est défini sur **Non**, seuls les utilisateurs ayant un rôle d’administrateur peuvent inscrire ces types d’applications. Reportez-vous aux [rôles disponibles](../roles/permissions-reference.md#available-roles) et aux [autorisations de rôle](../roles/permissions-reference.md#role-permissions) pour en savoir plus sur les rôles administrateur disponibles et les autorisations spécifiques dans Azure AD qui sont attribuées à chaque rôle. Si le rôle Utilisateur est attribué à votre compte mais que le paramètre d’inscription d’application est limité aux utilisateurs administrateurs, demandez à votre administrateur de vous attribuer l’un des rôles Administrateur pouvant créer et gérer tous les aspects des inscriptions d’application ou autoriser les utilisateurs à inscrire des applications.
+Si le paramètre d’inscriptions d’applications est défini sur **Non**, seuls les utilisateurs ayant un rôle d’administrateur peuvent inscrire ces types d’applications. Reportez-vous aux [rôles intégrés Azure AD](../roles/permissions-reference.md#all-roles) pour en savoir plus sur les rôles Administrateur disponibles et les autorisations spécifiques dans Azure AD qui sont attribuées à chaque rôle. Si le rôle Utilisateur est attribué à votre compte mais que le paramètre d’inscription d’application est limité aux utilisateurs administrateurs, demandez à votre administrateur de vous attribuer l’un des rôles Administrateur pouvant créer et gérer tous les aspects des inscriptions d’application ou autoriser les utilisateurs à inscrire des applications.
 
 ### <a name="check-azure-subscription-permissions"></a>Vérifier les autorisations d’abonnement Azure
 
@@ -84,6 +84,9 @@ Passons directement à la création de l’identité. Si vous rencontrez un prob
    ![Saisissez un nom pour votre application](./media/howto-create-service-principal-portal/create-app.png)
 
 Vous avez créé votre application Azure AD et le principal de service.
+
+> [!NOTE]
+> Vous pouvez inscrire plusieurs applications portant le même nom dans Azure AD, mais les applications doivent avoir des ID d’application (client) différents.
 
 ## <a name="assign-a-role-to-the-application"></a>Attribuer un rôle à l’application
 

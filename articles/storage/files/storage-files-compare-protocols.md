@@ -8,12 +8,12 @@ ms.date: 12/04/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: e914bcece9a30270d12d5c2cc09d3fd1014783c6
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 482e6c9f2e25b867574090a1f34e95f466916ba9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97916505"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711839"
 ---
 # <a name="azure-file-share-protocols"></a>Protocoles de partage de fichiers Azure
 
@@ -26,6 +26,7 @@ Azure Files offre deux protocoles pour la connexion et le montage de vos partage
 |Protocoles d’accès     |NFS 4.1         |SMB 2.1, SMB 3.0         |
 |Système d’exploitation recommandé     |Noyau Linux version 4.3+         |Windows 2008 R2+, noyau Linux version 4.11+         |
 |[Niveaux disponibles](storage-files-planning.md#storage-tiers)     |Stockage Premium         |Stockage Premium, transaction optimisée, accès chaud, accès froid         |
+|Modèle de facturation         |[Payer la capacité approvisionnée](https://docs.microsoft.com/azure/storage/files/understanding-billing#provisioned-model)         |[Payer la capacité approvisionnée pour le niveau Premium](https://docs.microsoft.com/azure/storage/files/understanding-billing#provisioned-model), [Paiement à l'utilisation pour le niveau Standard](https://docs.microsoft.com/azure/storage/files/understanding-billing#pay-as-you-go-model)         |
 |[Redondance](storage-files-planning.md#redundancy)     |LRS, ZRS         |LRS, ZRS, GRS         |
 |Authentification     |Authentification basée sur l’hôte uniquement        |Authentification basée sur l’identité, authentification basée sur l’utilisateur         |
 |Autorisations     |Autorisations de style UNIX         |Autorisations de style NTFS         |

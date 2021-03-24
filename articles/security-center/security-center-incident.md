@@ -6,14 +6,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 06/15/2020
+ms.date: 02/17/2021
 ms.author: memildin
-ms.openlocfilehash: 2b5dc30de19704b5e8950515cfa6224b4bbdbaf0
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 722a508679c74f9d62df07575ffa1006528f4398
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341344"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652101"
 ---
 # <a name="manage-security-incidents-in-azure-security-center"></a>Gérer les incidents de sécurité dans Azure Security Center
 
@@ -29,11 +29,19 @@ Dans le Centre de sécurité, un incident de sécurité est un regroupement de t
 
 ## <a name="managing-security-incidents"></a>Gestion des incidents de sécurité
 
-1. Sur la page de présentation de Security Center, sélectionnez la vignette **Alertes de sécurité**. Les incidents et les alertes sont répertoriés. Notez que l’icône des incidents de sécurité est différente de celle des alertes de sécurité.
+1. Sur la page des alertes de Security Center, utilisez le bouton **Ajouter un filtre** pour filtrer, par nom d’alerte, le nom de l’alerte **Incident de sécurité détecté sur plusieurs ressources**. 
 
-    ![Afficher les incidents de sécurité](./media/security-center-managing-and-responding-alerts/security-center-manage-alerts.png)
+    :::image type="content" source="media/security-center-incident/locating-incidents.png" alt-text="Recherche des incidents sur la page des alertes dans Azure Security Center":::
 
-1. Pour afficher les détails, sélectionnez un incident. La page **Incident de sécurité** affiche plus de détails. 
+    La liste est désormais filtrée pour afficher uniquement les incidents. Notez que l’icône des incidents de sécurité est différente de celle des alertes de sécurité.
+
+    :::image type="content" source="media/security-center-incident/incidents-list.png" alt-text="Liste des incidents sur la page des alertes dans Azure Security Center":::
+
+1. Pour consulter les détails d’un incident, sélectionnez-le dans la liste. Un volet latéral s’affiche avec plus de détails sur l’incident.
+
+    :::image type="content" source="media/security-center-incident/incident-quick-peek.png" alt-text="Volet latéral présentant les détails de l’incident":::
+
+1. Pour voir plus de détails, sélectionnez **Afficher les détails complets**.
 
     [![Répondre aux incidents de sécurité dans Azure Security Center](media/security-center-incident/incident-details.png)](media/security-center-incident/incident-details.png#lightbox)
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
-ms.openlocfilehash: 91f93faded7c18a1bc24f17053231f9011080c57
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 014bbe4421bf00f35b2d80505cea288e75f8ca94
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102036241"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103224671"
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-azure-vms"></a>Forum aux questions concernant SQL Server sur des machines virtuelles Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -244,6 +244,10 @@ Cet article fournit des réponses à certaines des questions les plus courantes 
 1. **Les transactions distribuées avec MSDTC sont-elles prises en charge sur les machines virtuelles SQL Server ?**
    
     Oui. Le DTC local est pris en charge pour SQL Server 2016 SP2 et versions ultérieures. Cependant, les applications utilisant des groupes de disponibilité AlwaysOn doivent être testées, car les transactions en cours au moment d’un basculement échouent et doivent être relancées. Le DTC en cluster est disponible à partir de Windows Server 2019. 
+    
+1. **La machine virtuelle Azure SQL déplace-t-elle ou stocke-t-elle des données client en dehors de la région ?**
+
+   Non. En fait, la machine virtuelle Azure SQL et l'extension SQL IaaS Agent ne stockent aucune donnée client.
 
 ## <a name="sql-server-iaas-agent-extension"></a>Extension SQL Server IaaS Agent
 

@@ -13,12 +13,12 @@ ms.date: 05/18/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: d0282e4f52db8557364cdabe197fa0da63204e42
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: bf469b79fa532978e904a54f32c80280706ee7cb
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98752646"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102174578"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-resource-owner-password-credentials"></a>Plateforme d’identités Microsoft et informations d’identification du mot de passe du propriétaire de la ressource OAuth 2.0
 
@@ -34,6 +34,7 @@ La plateforme d’identité Microsoft prend en charge l’[octroi des informatio
 > * Les comptes qui n’ont pas de mots de passe ne peuvent pas se connecter via ROPC. Pour ce scénario, nous vous recommandons d’utiliser à la place un autre flux pour votre application.
 > * Si les utilisateurs doivent utiliser l’[authentification multifacteur (MFA)](../authentication/concept-mfa-howitworks.md) pour se connecter à l’application, ils seront au lieu de cela bloqués.
 > * ROPC n’est pas pris en charge dans les scénarios de la [fédération d’identités hybrides](../hybrid/whatis-fed.md) (par exemple, Azure AD et ADFS utilisés pour authentifier des comptes locaux). Si les utilisateurs sont redirigés en pleine page vers des fournisseurs d’identité locaux, Azure AD n’est pas en mesure de tester le nom d’utilisateur et le mot de passe par rapport à ce fournisseur d’identité. [L’authentification directe](../hybrid/how-to-connect-pta.md) est toutefois prise en charge avec ROPC.
+> * Voici une exception à un scénario d’identité hybride : la stratégie de découverte du domaine d’accueil avec l’ensemble AllowCloudPasswordValidation défini sur TRUE permettra au flux ROPC de fonctionner pour les utilisateurs fédérés lorsque le mot de passe local est synchronisé avec le Cloud. Pour plus d’informations, consultez [Activer l’authentification ROPC directe des utilisateurs fédérés pour les applications héritées](../manage-apps/configure-authentication-for-federated-users-portal.md#enable-direct-ropc-authentication-of-federated-users-for-legacy-applications).
 
 ## <a name="protocol-diagram"></a>Schéma de protocole
 

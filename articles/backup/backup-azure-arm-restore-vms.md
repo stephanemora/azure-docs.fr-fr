@@ -4,12 +4,12 @@ description: Restaurer une machine virtuelle Azure à partir d’un point de ré
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: c15b2dc39202c6f8386031bcf055688aa2d279df
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 506c764250347bfccc3f80dcb055f1203583748c
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101722685"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103016523"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Comment restaurer des données de machine virtuelle Azure dans le Portail Azure
 
@@ -181,7 +181,7 @@ Actuellement, la région secondaire [RPO](azure-backup-glossary.md#rpo-recovery-
 
 Les [machines virtuelles épinglées à une zone Azure](../virtual-machines/windows/create-portal-availability-zone.md) peuvent être restaurées dans des [zones de disponibilité](../availability-zones/az-overview.md) de la même région.
 
-Dans le processus de restauration, l’option **Zone de disponibilité** s’affiche. Vous voyez d’abord votre zone par défaut. Pour choisir une autre zone, choisissez le numéro de la zone de votre choix. Si la zone épinglée n’est pas disponible, vous ne pouvez pas restaurer les données dans une autre zone, car les données sauvegardées ne sont pas répliquées de façon zonale.
+Dans le processus de restauration, l’option **Zone de disponibilité** s’affiche. Vous voyez d’abord votre zone par défaut. Pour choisir une autre zone, choisissez le numéro de la zone de votre choix. Si la zone épinglée n’est pas disponible, vous ne pouvez pas restaurer les données dans une autre zone, car les données sauvegardées ne sont pas répliquées de façon zonale. La restauration dans les zones de disponibilité n'est possible qu'à partir des points de récupération du niveau coffre.
 
 ![Choisir une zone de disponibilité](./media/backup-azure-arm-restore-vms/cross-zonal-restore.png)
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: cynthn
-ms.openlocfilehash: d09f27eebba5db2edb56185b658c8ae2b06e42d3
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 21038a8d1eabfcca21329c093b866607f0343070
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102552267"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200002"
 ---
 # <a name="use-windows-client-in-azure-for-devtest-scenarios"></a>Utilisation d’un client Windows dans Azure pour les scénarios de développement et/ou test
 Vous pouvez utiliser Windows 7, Windows 8 ou Windows 10 Entreprise (x64) dans Azure pour des scénarios de développement / de test à condition de disposer d’un abonnement Visual Studio (anciennement MSDN) approprié. 
@@ -41,10 +41,10 @@ Le tableau suivant décrit en détail les ID d’offres admissibles pour le dép
 | [Enterprise Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148p/) |0148P | Windows 10 Entreprise N (x64) <br> Windows 8.1 Entreprise N (x64) <br> Windows 7 Entreprise N avec SP1 (x64) |
 
 ## <a name="check-your-azure-subscription"></a>Vérification de votre abonnement Azure
-Si vous ne connaissez pas votre ID d’offre, vous pouvez l’obtenir via le portail Azure de l’une des manières suivantes :  
+Si vous ne connaissez pas votre ID d'offre, vous pouvez l'obtenir via le portail Azure.  
 - Sur la fenêtre *Abonnements* : ![Détails de l’ID de l’offre dans le portail Azure](./media/client-images/offer-id-azure-portal.png) 
-- Vous pouvez également cliquer sur **Facturation**, puis sur votre ID d’abonnement. L’ID de l’offre apparaît sur la fenêtre *Facturation*.
-Vous pouvez également voir l’ID d’offre dans [l’onglet « Abonnements »](https://account.windowsazure.com/Subscriptions) du portail de compte Azure : ![Détails de l’ID de l’offre dans le portail de compte Azure](./media/client-images/offer-id-azure-account-portal.png) 
+- Vous pouvez également cliquer sur **Facturation**, puis sur votre ID d’abonnement. L’ID de l’offre apparaît sur la fenêtre *Facturation*. 
+- Vous pouvez également voir l’ID d’offre dans [l’onglet « Abonnements »](https://account.windowsazure.com/Subscriptions) du portail de compte Azure : ![Détails de l’ID de l’offre dans le portail de compte Azure](./media/client-images/offer-id-azure-account-portal.png) 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Vous pouvez désormais déployer vos machines virtuelles à l’aide de [PowerShell](quick-create-powershell.md), de [modèles Resource Manager](ps-template.md) ou de [Visual Studio](../../azure-resource-manager/templates/create-visual-studio-deployment-project.md).

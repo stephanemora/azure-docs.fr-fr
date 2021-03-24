@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/12/2020
-ms.openlocfilehash: d8e6c4b2addf9745b2ddabe8f6fdad9d82dce59f
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: ca25bbb72ff853f819f3e8ce4e0092ddb762b156
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97503948"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183809"
 ---
 # <a name="use-purview-studio"></a>Utiliser Purview Studio
 
@@ -38,7 +38,7 @@ Cet article donne une vue d’ensemble des principales fonctionnalités d’Azur
 
 Dans la liste suivante figurent les principales fonctionnalités de la **page d’accueil**. Chacun des numéros de la liste correspond à un nombre encadré dans la capture d’écran précédente.
 
-1. Nom convivial du catalogue. Vous pouvez définir le nom du catalogue dans **Centre de gestion** > * *Informations sur le compte*.
+1. Nom convivial du catalogue. Vous pouvez définir le nom du catalogue dans **Centre de gestion** > **Informations sur le compte**.
 
 2. L’analytique du catalogue indique les volumes suivants :
     - Utilisateurs, groupes et applications

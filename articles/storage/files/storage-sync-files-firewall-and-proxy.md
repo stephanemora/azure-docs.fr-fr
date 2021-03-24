@@ -4,15 +4,15 @@ description: Comprenez les paramètres de proxy et de pare-feu locaux d’Azure 
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/30/2020
+ms.date: 3/02/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 01ac42cce29f941a90631936ece025f02afedeaf
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: f0dbe7f32f14eb4da3d591811d619eb2e9bea397
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98673618"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101729638"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Paramètres de proxy et de pare-feu d’Azure File Sync
 Azure File Sync connecte vos serveurs locaux à Azure Files, activant des fonctionnalités de synchronisation multisite et de hiérarchisation cloud. Pour cela, un serveur local doit donc être connecté à Internet. Un administrateur informatique doit déterminer la meilleure voie d’accès aux services cloud Azure pour le serveur.
@@ -50,6 +50,30 @@ Commandes PowerShell pour configurer les paramètres de proxy spécifiques à l
 ```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 Set-StorageSyncProxyConfiguration -Address <url> -Port <port number> -ProxyCredential <credentials>
+```
+Par exemple, si votre serveur proxy requiert une authentification avec un nom d’utilisateur et un mot de passe, exécutez les commandes PowerShell suivantes :
+
+```powershell
+# IP address or name of the proxy server.
+$Address="127.0.0.1"  
+
+# The port to use for the connection to the proxy.
+$Port=8080
+
+# The user name for a proxy.
+$UserName="user_name" 
+
+# Please type or paste a string with a password for the proxy.
+$SecurePassword = Read-Host -AsSecureString
+
+$Creds = New-Object System.Management.Automation.PSCredential ($UserName, $SecurePassword)
+
+# Please verify that you have entered the password correctly.
+Write-Host $Creds.GetNetworkCredential().Password
+
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
+
+Set-StorageSyncProxyConfiguration -Address $Address -Port $Port -ProxyCredential $Creds
 ```
 **Les configurations de proxy au niveau des machines** sont transparentes pour l’agent Azure File Sync, car l’ensemble du trafic du serveur est acheminé à travers ce proxy.
 
@@ -99,8 +123,8 @@ Le tableau suivant décrit les domaines requis pour la communication :
 | **Azure Active Directory** | https://secure.aadcdn.microsoftonline-p.com | Utilisez l’URL du point de terminaison public. | L’accès à cette URL est assuré par la bibliothèque d’authentification Active Directory que l’interface utilisateur d’inscription du serveur Azure File Sync utilise pour se connecter à l’administrateur. |
 | **Stockage Azure** | &ast;.core.windows.net | &ast;.core.usgovcloudapi.net | Quand le serveur télécharge un fichier, il effectue ce déplacement de données plus efficacement quand il communique directement avec le partage de fichiers Azure dans le compte de stockage. Le serveur présente une clé SAS qui permet uniquement un accès ciblé au partage de fichiers. |
 | **Azure File Sync** | &ast;.one.microsoft.com<br>&ast;.afs.azure.net | &ast;.afs.azure.us | Après l’inscription initiale du serveur, le serveur reçoit une URL régionale pour l’instance du service Azure File Sync dans cette région. Le serveur peut utiliser cette URL pour communiquer directement et plus efficacement avec l’instance qui gère sa synchronisation. |
-| **Infrastructure à clé publique Microsoft** | https://www.microsoft.com/pki/mscorp/cps<br><http://ocsp.msocsp.com> | https://www.microsoft.com/pki/mscorp/cps<br><http://ocsp.msocsp.com> | Une fois que l’agent Azure File Sync est installé, l’URL de l’infrastructure à clé publique est utilisée pour télécharger les certificats intermédiaires qui sont nécessaires pour communiquer avec le service Azure File Sync et le partage de fichiers Azure. L’URL OCSP est utilisée pour vérifier l’état d’un certificat. |
-| **Microsoft Update** | &ast;.update.microsoft.com<br>&ast;.download.windowsupdate.com<br>&ast;.dl.delivery.mp.microsoft.com<br>&ast;.emdl.ws.microsoft.com | &ast;.update.microsoft.com<br>&ast;.download.windowsupdate.com<br>&ast;.dl.delivery.mp.microsoft.com<br>&ast;.emdl.ws.microsoft.com | Une fois l’agent Azure File Sync installé, les URL de Microsoft Update sont utilisées pour télécharger les mises à jour de l’agent Azure File Sync. |
+| **Infrastructure à clé publique Microsoft** |  https://www.microsoft.com/pki/mscorp/cps<br>http://crl.microsoft.com/pki/mscorp/crl/<br>http://mscrl.microsoft.com/pki/mscorp/crl/<br>http://ocsp.msocsp.com<br>http://ocsp.digicert.com/<br>http://crl3.digicert.com/ | https://www.microsoft.com/pki/mscorp/cps<br>http://crl.microsoft.com/pki/mscorp/crl/<br>http://mscrl.microsoft.com/pki/mscorp/crl/<br>http://ocsp.msocsp.com<br>http://ocsp.digicert.com/<br>http://crl3.digicert.com/ | Une fois que l’agent Azure File Sync est installé, l’URL de l’infrastructure à clé publique est utilisée pour télécharger les certificats intermédiaires qui sont nécessaires pour communiquer avec le service Azure File Sync et le partage de fichiers Azure. L’URL OCSP est utilisée pour vérifier l’état d’un certificat. |
+| **Microsoft Update** | &ast;.update.microsoft.com<br>&ast;.download.windowsupdate.com<br>&ast;.ctldl.windowsupdate.com<br>&ast;.dl.delivery.mp.microsoft.com<br>&ast;.emdl.ws.microsoft.com | &ast;.update.microsoft.com<br>&ast;.download.windowsupdate.com<br>&ast;.ctldl.windowsupdate.com<br>&ast;.dl.delivery.mp.microsoft.com<br>&ast;.emdl.ws.microsoft.com | Une fois l’agent Azure File Sync installé, les URL de Microsoft Update sont utilisées pour télécharger les mises à jour de l’agent Azure File Sync. |
 
 > [!Important]
 > Lorsque le trafic est autorisé vers &ast;.afs.azure.net, il n’est possible que vers le service de synchronisation. Aucun autre service Microsoft n’utilise ce domaine.

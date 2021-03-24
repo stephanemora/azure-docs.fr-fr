@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 2/5/2021
-ms.openlocfilehash: 3cc29e0bd806ab76c4980128df5a89761e465fe7
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.openlocfilehash: d1a0873552ac9043d8f584f38ecd41c5e8543489
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99988377"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102202755"
 ---
 # <a name="custom-classifications-in-azure-purview"></a>Classifications personnalisées dans Azure Purview 
 
@@ -91,24 +91,50 @@ Pour créer une règle de classification personnalisée, procédez comme suit :
 
     :::image type="content" source="media/create-a-custom-classification-and-classification-rule/newclassificationrule.png" alt-text="Ajout d’une nouvelle règle de classification" border="true":::
 
-5. La boîte de dialogue **Nouvelle règle de classification** s’ouvre. Renseignez les informations de configuration de la nouvelle règle.
+5. La boîte de dialogue **Nouvelle règle de classification** s’ouvre. Renseignez les champs et déterminez si vous souhaitez créer une **règle d’expression régulière** ou une **règle de dictionnaire**.
 
-    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/createclassificationrule.png" alt-text="Création d’une règle de classification" border="true":::
+    |Champ     |Description  |
+    |---------|---------|
+    |Nom   |    Obligatoire. 100 caractères maximum.    |
+    |Description      |facultatif. 256 caractères maximum.    |
+    |Nom de la classification    | Obligatoire. Sélectionnez le nom de la classification dans la liste déroulante pour indiquer à l’analyseur de l’appliquer si une correspondance est trouvée.        |
+    |État   |  Obligatoire. Les options sont activées ou désactivées. Elles sont par défaut activées.    |
 
-|Champ     |Description  |
-|---------|---------|
-|Nom   |    Obligatoire. 100 caractères maximum.    |
-|Description      |facultatif. 256 caractères maximum.    |
-|Nom de la classification    | Obligatoire. Sélectionnez le nom de la classification dans la liste déroulante pour indiquer à l’analyseur de l’appliquer si une correspondance est trouvée.        |
-|État   |  Obligatoire. Les options sont activées ou désactivées. Elles sont par défaut activées.    |
-|Modèle de données    |facultatif. Expression régulière représentant les données stockées dans le champ de données. La limite est très élevée. Dans l’exemple précédent, les modèles de données testent un ID d’employé correspondant littéralement au mot `Employee{GUID}`.  |
-|Modèle de colonne    |facultatif. Expression régulière représentant les noms de colonnes à faire correspondre. La limite est très élevée.          |
+    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/create-new-classification-rule.png" alt-text="Création d’une règle de classification" border="true":::
 
-Sous **Modèle de données** se trouvent deux options :
+### <a name="creating-a-regular-expression-rule"></a>Création d’une règle d’expression régulière
 
-- **Seuil de correspondances distinctes** : nombre total de valeurs de données distinctes qui doivent se trouver dans une colonne pour que l’analyseur exécute le modèle de données dessus. La valeur suggérée est 8. Elle peut être ajustée manuellement dans une plage comprise entre 2 et 32. Le système a besoin de cette valeur afin de veiller à ce que la colonne contienne suffisamment de données pour que l’analyseur puisse les classer avec précision. Par exemple, une colonne qui comporte plusieurs lignes contenant toutes la valeur 1 ne sera pas classée. Les colonnes dont une ligne comprend une valeur et les autres lignes des valeurs Null ne sont pas non plus classées. Si vous spécifiez plusieurs modèles, cette valeur s’applique à chacun d’eux.
+1. Si vous créez une règle d’expression régulière, vous verrez l’écran suivant. Vous pouvez éventuellement télécharger un fichier qui sera utilisé afin de générer des **modèles regex suggérés** pour votre règle.
 
-- **Seuil de correspondances minimales** : paramètre permettant de définir le pourcentage minimal de correspondances de valeurs de données dans une colonne qui doivent être trouvées par l’analyseur pour que la classification soit appliquée. La valeur suggérée est 60 %. Vous devez faire attention à ce paramètre. Si vous réduisez le niveau au-dessous de 60 %, vous risquez d’introduire des classifications faussement positives dans votre catalogue. Si vous spécifiez plusieurs modèles de données, ce paramètre est désactivé et la valeur fixée à 60 %.
+    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/create-new-regex-rule.png" alt-text="Créer une règle regex" border="true":::
+
+1. Si vous décidez de générer un modèle regex suggéré, après avoir téléchargé un fichier, sélectionnez l’un des modèles suggérés et cliquez sur **Ajouter aux modèles** pour utiliser les modèles de données et de colonnes suggérés. Vous pouvez modifier les modèles suggérés ou faire vos propres modèles sans télécharger de fichier.
+
+    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/suggested-regex.png" alt-text="Générer une expression régulière suggérée" border="true":::
+
+    |Champ     |Description  |
+    |---------|---------|
+    |Modèle de données    |facultatif. Expression régulière représentant les données stockées dans le champ de données. La limite est très élevée. Dans l’exemple précédent, les modèles de données testent un ID d’employé correspondant littéralement au mot `Employee{GUID}`.  |
+    |Modèle de colonne    |facultatif. Expression régulière représentant les noms de colonnes à faire correspondre. La limite est très élevée.          |
+
+1. Sous **Modèle de données**, vous pouvez définir deux seuils :
+
+    - **Seuil de correspondances distinctes** : nombre total de valeurs de données distinctes qui doivent se trouver dans une colonne pour que l’analyseur exécute le modèle de données dessus. La valeur suggérée est 8. Elle peut être ajustée manuellement dans une plage comprise entre 2 et 32. Le système a besoin de cette valeur afin de veiller à ce que la colonne contienne suffisamment de données pour que l’analyseur puisse les classer avec précision. Par exemple, une colonne qui comporte plusieurs lignes contenant toutes la valeur 1 ne sera pas classée. Les colonnes dont une ligne comprend une valeur et les autres lignes des valeurs Null ne sont pas non plus classées. Si vous spécifiez plusieurs modèles, cette valeur s’applique à chacun d’eux.
+
+    - **Seuil de correspondances minimales** : paramètre permettant de définir le pourcentage minimal de correspondances de valeurs de données distinctes dans une colonne qui doivent être trouvées par l’analyseur pour que la classification soit appliquée. La valeur suggérée est 60 %. Vous devez faire attention à ce paramètre. Si vous réduisez le niveau au-dessous de 60 %, vous risquez d’introduire des classifications faussement positives dans votre catalogue. Si vous spécifiez plusieurs modèles de données, ce paramètre est désactivé et la valeur fixée à 60 %.
+
+1. Vous pouvez maintenant vérifier votre règle et la **créer**.
+    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/verify-rule.png" alt-text="Vérifier la règle avant de la créer" border="true":::
+
+### <a name="creating-a-dictionary-rule"></a>Création d’une règle de dictionnaire
+
+1.  Si vous créez une règle de dictionnaire, l’écran suivant s’affiche. Téléchargez un fichier qui contient toutes les valeurs possibles pour la classification que vous créez dans une seule colonne.
+
+    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/dictionary-rule.png" alt-text="Créer une règle de dictionnaire" border="true":::
+
+1.  Une fois le dictionnaire généré, vous pouvez ajuster les seuils de correspondance distincte et minimale, puis soumettre la règle.
+
+    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/dictionary-generated.png" alt-text="Créer une règle de dictionnaire" border="true":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

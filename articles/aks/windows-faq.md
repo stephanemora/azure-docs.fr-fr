@@ -5,12 +5,12 @@ description: Consultez la foire aux questions lorsque vous exécutez des pools d
 services: container-service
 ms.topic: article
 ms.date: 10/12/2020
-ms.openlocfilehash: b20ebe82556bb4db6844511ec0953f4d4e75f383
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: cc5a5ec2bbfb64a1e787277bf67579bad0543cd6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100574744"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101739574"
 ---
 # <a name="frequently-asked-questions-for-windows-server-node-pools-in-aks"></a>Foire aux questions relative aux pools de nœuds Windows Server dans AKS
 
@@ -54,6 +54,8 @@ Afin d’obtenir les derniers correctifs pour les nœuds Windows, vous pouvez so
 
 Les clusters AKS comportant des pools de nœuds doivent utiliser le modèle de mise en réseau (avancé) d’Azure CNI. La mise en réseau Kubenet (de base) n’est pas prise en charge. Pour plus d’informations sur les différences dans les modèles de réseau, consultez [Concepts réseau pour les applications dans AKS][azure-network-models]. Le modèle de réseau Azure CNI nécessite une planification supplémentaire et considérations relatives à la gestion des adresses IP. Pour plus d’informations sur la façon de planifier et implémenter Azure CNI, consultez [Configurer le réseau Azure CNI dans AKS][configure-azure-cni].
 
+Les nœuds Windows sur les clusters AKS ont également l’option [Retour direct du serveur (DSR)][dsr] activée par défaut lorsque Calico est activé.
+
 ## <a name="is-preserving-the-client-source-ip-supported"></a>La conservation de l’adresse IP source du client est-elle prise en charge ?
 
 À l’heure actuelle, la [préservation de l’adresse IP source du client][client-source-ip] n’est pas prise en charge avec les nœuds Windows.
@@ -91,7 +93,7 @@ Le nom ne peut pas compter plus de 6 (six) caractères. Il s’agit d’une limi
 
 ## <a name="are-all-features-supported-with-windows-nodes"></a>Toutes les fonctionnalités sont-elles prises en charge avec les nœuds Windows ?
 
-Les stratégies réseau et Kubenet ne sont actuellement pas pris en charge avec des nœuds Windows.
+Kubenet n’est actuellement pas pris en charge sur les nœuds Windows.
 
 ## <a name="can-i-run-ingress-controllers-on-windows-nodes"></a>Puis-je exécuter des contrôleurs d’entrée sur des nœuds Windows ?
 
@@ -197,3 +199,4 @@ Pour vous lancer avec des conteneurs Windows Server dans AKS, [créez un pool de
 [managed-identity]: use-managed-identity.md
 [hybrid-vms]: ../virtual-machines/windows/hybrid-use-benefit-licensing.md
 [resource-groups]: faq.md#why-are-two-resource-groups-created-with-aks
+[dsr]: ../load-balancer/load-balancer-multivip-overview.md#rule-type-2-backend-port-reuse-by-using-floating-ip

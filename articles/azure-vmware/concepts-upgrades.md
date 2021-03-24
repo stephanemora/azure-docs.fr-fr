@@ -2,17 +2,17 @@
 title: Concepts – Mises à jour et mises à niveau des clouds privés
 description: Découvrez les processus et fonctionnalités clés de mise à niveau dans Azure VMware Solution.
 ms.topic: conceptual
-ms.date: 02/02/2021
-ms.openlocfilehash: 78d4b566aa9156cdddfdcd69b50ebfd1d10aa784
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.date: 02/16/2021
+ms.openlocfilehash: d93453cbf6ad744844a04cd298cc18ad181cc0b0
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100006699"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100634990"
 ---
 # <a name="azure-vmware-solution-private-cloud-updates-and-upgrades"></a>Mises à jour et mises à niveau des clouds privés Azure VMware Solution
 
-L’un des principaux avantages des clouds privés d’Azure VMware Solution réside dans le fait que la plateforme est tenue à jour pour vous. La maintenance de la plateforme comprend les mises à jour automatisées vers une offre groupée de logiciels validée VMware, ce qui aide à garantir que vous utilisez la dernière version en date des logiciels de cloud privé Azure VMware Solution validés.
+Un avantage des clouds privés Azure VMware Solution est que la plateforme est maintenue pour vous. La maintenance comprend des mises à jour automatisées vers un bundle de logiciels validée par VMware, ce qui aide à garantir que vous utilisez la dernière version des logiciels de cloud privé d’Azure VMware Solution.
 
 Plus précisément, un cloud privé Azure VMware Solution inclut :
 
@@ -22,7 +22,7 @@ Plus précisément, un cloud privé Azure VMware Solution inclut :
 - Un magasin de données VMware vSAN pour les machines virtuelles de charge de travail vSphere  
 - VMware HCX pour la mobilité des charges de travail  
 
-En plus de ces composants, un cloud privé Azure VMware Solution comprend des ressources dans le réseau sous-jacent Azure, requises pour la connectivité et pour faire fonctionner le cloud privé. Azure VMware Solution surveille en permanence l’intégrité des composants sous-jacents et VMware. Quand Azure VMware Solution détecte une défaillance, elle entreprend des actions pour réparer les composants défaillants. 
+Un cloud privé Azure VMware Solution comprend aussi des ressources dans le réseau sous-jacent Azure, qui sont nécessaires pour la connectivité et pour exploiter le cloud privé. Azure VMware Solution surveille en permanence l’intégrité des composants sous-jacents et VMware. Quand Azure VMware Solution détecte une défaillance, elle entreprend des actions pour réparer les composants défaillants. 
 
 ## <a name="what-components-get-updated"></a>Quels composants sont-ils mis à jour ?   
 
@@ -46,12 +46,12 @@ Vous serez averti avant et après l’application des correctifs sur vos clouds 
 
 ## <a name="vmware-appliance-backup"></a>Sauvegarde d’une appliance VMware 
 
-En plus d’effectuer des mises à jour, Azure VMware Solution effectue une sauvegarde de la configuration de ces composants VMware :
+Azure VMware Solution effectue également une sauvegarde de la configuration des composants VMware suivants :
 
 - Serveur vCenter 
 - Gestionnaire NSX-T 
 
-En cas d’échec, Azure VMware Solution peut les restaurer à partir de la sauvegarde de la configuration. 
+En cas d’échec, Azure VMware Solution peut restaurer ces composants à partir de la sauvegarde de la configuration. 
 
 Pour plus d’informations sur les versions des logiciels VMware, consultez l’[article sur les concepts des clusters et des clouds privés](concepts-private-clouds-clusters.md) ainsi que les [Questions fréquentes (FAQ)](faq.yml).
 

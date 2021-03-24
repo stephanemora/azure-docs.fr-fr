@@ -10,12 +10,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: eb1891b7201d8e1d3d18b0e01817ee943ae6341f
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 9d00b6aa09ef19b1e6892e0e90536e45dd3bce79
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100548180"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718520"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-for-microsoft-azure-storage"></a>Chiffrement côté client et Azure Key Vault pour Microsoft Azure Storage
 
@@ -132,6 +132,8 @@ Il existe deux packages nécessaires pour l’intégration du coffre de clés :
 * Azure.Core contient les interfaces `IKeyEncryptionKey` et `IKeyEncryptionKeyResolver`. La bibliothèque cliente de stockage pour .NET le définit déjà en tant que dépendance.
 * Azure.Security.KeyVault.Keys (v4. x) contient le client REST de coffre de clés, ainsi que les clients de chiffrement utilisés avec le chiffrement côté client.
 
+Le coffre de clés est conçu pour les clés principales de valeur élevée et les seuils de limitation par coffre de clés sont définies avec cela à l’esprit. À compter de la version 4.1.0 d’Azure.Security.KeyVault.Keys, il n’existe pas d’implémentation `IKeyEncryptionKeyResolver` qui prenne en charge la mise en cache de clés. Si la mise en cache est nécessaire en raison de limitations, [cet exemple](https://docs.microsoft.com/samples/azure/azure-sdk-for-net/azure-key-vault-proxy/) peut être suivi pour injecter une couche de mise en cache dans une instance `Azure.Security.KeyVault.Keys.Cryptography.KeyResolver`.
+
 # <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 
 Il existe trois packages de coffre de clés :
@@ -140,15 +142,15 @@ Il existe trois packages de coffre de clés :
 * Microsoft.Azure.KeyVault (v3.x) contient le client REST du coffre de clés.
 * Microsoft.Azure.KeyVault.Extensions (v3.x) contient le code d’extension qui inclut des implémentations d’algorithmes de chiffrement, RSAKey et SymmetricKey. Il repose sur les espaces de noms Core et KeyVault, et fournit une fonctionnalité permettant de définir un programme de résolution d’agrégation (lorsque les utilisateurs veulent utiliser plusieurs fournisseurs de clés) et un programme de résolution de clé de mise en cache. Bien que la bibliothèque cliente de stockage ne dépende pas directement de ce package, si les utilisateurs veulent utiliser Azure Key Vault pour stocker leurs clés ou utiliser les extensions du coffre de clés pour recourir aux fournisseurs de chiffrement en local et dans le cloud, ils ont besoin de ce package.
 
-Vous trouverez plus d’informations concernant l’utilisation de Key Vault dans la v11 dans les [exemples de code de chiffrement dans la v11](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples).
-
----
-
 Le coffre de clés est conçu pour les clés principales de valeur élevée et les seuils de limitation par coffre de clés sont définies avec cela à l’esprit. Lors du chiffrement côté client avec le coffre de clés, il est préférable d’utiliser les clés principales Symmetric stockées en tant que secrets dans le coffre de clés et mises en cache localement. Les utilisateurs doivent procéder comme suit :
 
 1. Créer un secret hors connexion et le télécharger dans le coffre de clés.
 2. Utiliser l’identificateur de base du secret comme paramètre pour résoudre la version actuelle du secret pour le chiffrement et mettre en cache ces informations localement. Utiliser CachingKeyResolver pour la mise en cache ; les utilisateurs ne doivent pas implémenter leur propre programme logique de mise en cache.
 3. Utiliser le programme de résolution de mise en cache en tant qu’entrée lors de la création de la stratégie de chiffrement.
+
+Vous trouverez plus d’informations concernant l’utilisation de Key Vault dans la v11 dans les [exemples de code de chiffrement dans la v11](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples).
+
+---
 
 ## <a name="best-practices"></a>Meilleures pratiques
 

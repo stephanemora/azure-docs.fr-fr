@@ -10,12 +10,12 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: 69f7ec5114ad650f33eae740a54a3821b76ef2ac
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.openlocfilehash: 65d95533e4cff02866111881f036225f9f544852
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99475537"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719013"
 ---
 # <a name="retrieve-logs-from-iot-edge-deployments"></a>Récupérer les journaux des déploiements IoT Edge
 
@@ -33,7 +33,18 @@ Bien qu’il ne soit pas obligatoire, pour une meilleure compatibilité avec cet
 <{Log Level}> {Timestamp} {Message Text}
 ```
 
-`{Log Level}` doit respecter le [format Niveau de gravité Syslog](https://wikipedia.org/wiki/Syslog#Severity_level) et `{Timestamp}` doit être formaté comme `yyyy-MM-dd hh:mm:ss.fff zzz`.
+`{Timestamp}` doit être au format `yyyy-MM-dd hh:mm:ss.fff zzz`, et `{Log Level}` doit suivre le tableau ci-dessous, qui dérive ses niveaux de gravité du [Code de gravité dans la norme Syslog](https://wikipedia.org/wiki/Syslog#Severity_level).
+
+| Value | Gravité |
+|-|-|
+| 0 | Urgence |
+| 1 | Alerte |
+| 2 | Critique |
+| 3 | Error |
+| 4 | Avertissement |
+| 5 | Avis |
+| 6 | Informationnel |
+| 7 | Débogage |
 
 La [classe de journalisation dans IoT Edge](https://github.com/Azure/iotedge/blob/master/edge-util/src/Microsoft.Azure.Devices.Edge.Util/Logger.cs) sert d’implémentation canonique.
 
@@ -63,7 +74,7 @@ Cette méthode accepte une charge utile JSON avec le schéma suivant :
     }
 ```
 
-| Name | Type | Description |
+| Nom | Type | Description |
 |-|-|-|
 | schemaVersion | string | Paramètre à définir sur `1.0` |
 | items | Tableau JSON | Tableau avec les tuples `id` et `filter`. |

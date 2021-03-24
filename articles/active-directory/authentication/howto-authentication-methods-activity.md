@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 02/25/2021
+ms.date: 03/04/2021
 ms.author: justinha
 author: sopand
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbe69967d84777091aec0bbbf1626b98f5018d0e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: b0865fb2bda04f5a7e9ba2ef73a717946fa656a5
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101692876"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175309"
 ---
 # <a name="authentication-methods-activity"></a>Activité des méthodes d’authentification 
 
@@ -26,10 +26,17 @@ Le nouveau tableau de bord Activité des méthodes d'authentification permet aux
 
 ## <a name="permissions-and-licenses"></a>Autorisations et licences
 
-Les rôles suivants peuvent accéder à l’utilisation et aux informations :
+Les rôles intégrés et personnalisés avec les autorisations suivantes peuvent accéder au panneau Activité des méthodes d’authentification et aux API :
+
+- Microsoft.directory/auditLogs/allProperties/read
+- Microsoft.directory/signInReports/allProperties/read
+
+Les rôles suivants disposent des autorisations requises :
 
 - Lecteur de rapports
 - Lecteur de sécurité
+- Lecteur général
+- Opérateur de sécurité
 - Security Administrator
 - Administrateur général
 
@@ -122,11 +129,12 @@ Le rapport détaillé de l’inscription affiche les informations suivantes pour
 - État (Réussite, Échec)
 - Motif de l'échec (explication)
 
-  ![Capture d'écran de la page Utilisation](media/how-to-authentication-methods-usage-insights/registration-and-reset-logs.png)
+  ![Capture d’écran des événements d’inscription et de réinitialisation](media/how-to-authentication-methods-usage-insights/registration-and-reset-logs.png)
 
 ## <a name="limitations"></a>Limites
 
-Les inscriptions au Passe d'accès temporaire (TAP) ne figurent pas dans l'onglet Inscription du rapport, car elles ne sont valables que pour une courte période.
+- Les données du rapport ne sont pas mises à jour en temps réel et peuvent refléter une latence allant jusqu’à quelques heures.
+- Les inscriptions au Passe d’accès temporaire ne figurent pas dans l’onglet Inscription du rapport, car elles ne sont valables que pour une courte période.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

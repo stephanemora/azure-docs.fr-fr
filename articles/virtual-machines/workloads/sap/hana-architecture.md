@@ -6,20 +6,19 @@ documentationcenter: ''
 author: msjuergent
 manager: juergent
 editor: ''
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/25/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cd81139c15e6bba65fe9b9a53a2e8e950ebd754b
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: f45b84360c941e879461500a033ada3642fd5cbb
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201754"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101671608"
 ---
 # <a name="sap-hana-large-instances-architecture-on-azure"></a>Architecture SAP HANA (grandes instances) sur Azure
 
@@ -40,7 +39,7 @@ L’architecture présentée est divisée en trois sections :
 
    Les services réseau Azure permettent de regrouper des systèmes SAP ainsi que d’autres applications dans des réseaux virtuels. Ces réseaux virtuels se connectent à des systèmes locaux et à SAP HANA sur Azure (grandes instances).
 
-   Pour les bases de données et les applications SAP NetWeaver prises en charge pour être exécutées dans Azure, voir [Remarque sur la prise en charge SAP n° 1928533 – Applications SAP sur Azure : Produits et types de machines virtuelles Azure pris en charge](https://launchpad.support.sap.com/#/notes/1928533). Pour la documentation sur le déploiement des solutions SAP sur Azure, consultez :
+   Pour les bases de données et les applications SAP NetWeaver prises en charge pour être exécutées dans Azure, consultez [Remarque sur la prise en charge SAP n° 1928533 - Applications SAP sur Azure : types de machines virtuelles Azure et produits pris en charge](https://launchpad.support.sap.com/#/notes/1928533). Pour la documentation sur le déploiement des solutions SAP sur Azure, consultez :
 
   -  [Utiliser SAP sur des machines virtuelles Windows](./get-started.md?toc=/azure/virtual-machines/linux/toc.json)
   -  [Utiliser des solutions SAP sur des machines virtuelles Azure](get-started.md)
@@ -50,8 +49,8 @@ L’architecture présentée est divisée en trois sections :
 Le tampon de grande instance Azure combine les composants suivants :
 
 - **Calcul** : serveurs basés sur différentes générations de processeurs Intel Xeon qui offrent la capacité de calcul nécessaire et sont certifiés SAP HANA.
-- **Réseau** : structure réseau haut débit unifiée qui relie les composants de calcul, de stockage et LAN.
-- **Stockage** : infrastructure de stockage accessible via une infrastructure de réseau unifiée. La capacité de stockage spécifique fournie varie selon la configuration SAP HANA sur Azure (grandes instances) spécifique déployée. Une capacité de stockage supplémentaire est disponible pour un coût mensuel supérieur.
+- **Réseau** : une structure réseau haut débit unifiée qui relie le calcul, le stockage et les composants LAN.
+- **Stockage** : une infrastructure de stockage accessible via une structure réseau unifiée. La capacité de stockage spécifique fournie varie selon la configuration SAP HANA sur Azure (grandes instances) spécifique déployée. Une capacité de stockage supplémentaire est disponible pour un coût mensuel supérieur.
 
 Dans l’infrastructure multilocataire du tampon de grande instance, les clients sont déployés en tant que locataires isolés. Au moment du déploiement de l’abonné, nommez un abonnement Azure au sein de votre inscription Azure. Cet abonnement Azure correspond à la grande instance HANA facturée. Ces locataires ont une relation 1:1 avec l’abonnement Azure. En termes de réseau, il est possible d’accéder à une unité de grande instance HANA déployée sur un abonné dans une région Azure à partir de différents réseaux virtuels qui appartiennent à différents abonnements Azure. Ces abonnements Azure doivent appartenir à la même inscription Azure. 
 

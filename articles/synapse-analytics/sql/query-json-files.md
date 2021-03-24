@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 56d9c621579e19cf2c32562560e40fe42ff3989b
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 5fcf688bbe8a5be2fc10b70950990b7b6ca71df8
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101677509"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103225589"
 ---
 # <a name="query-json-files-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Interroger des fichiers JSON à l’aide d’un pool SQL serverless dans Azure Synapse Analytics
 
@@ -126,12 +126,13 @@ Les exemples de requêtes lisent les fichiers *json* contenant des documents ave
 
 ### <a name="query-json-files-using-json_value"></a>Interroger des fichiers JSON à l’aide de JSON_VALUE
 
-La requête ci-dessous vous montre comment utiliser [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?view=azure-sqldw-latest&preserve-view=true) pour récupérer des valeurs scalaires (titre, éditeur) dans des document JSON :
+La requête ci-dessous montre comment utiliser [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?view=azure-sqldw-latest&preserve-view=true) pour récupérer des valeurs scalaires (`date_rep`, `countries_and_territories`, `cases`) à partir d'un document JSON :
 
 ```sql
 select
     JSON_VALUE(doc, '$.date_rep') AS date_reported,
     JSON_VALUE(doc, '$.countries_and_territories') AS country,
+    CAST(JSON_VALUE(doc, '$.deaths') AS INT) as fatal,
     JSON_VALUE(doc, '$.cases') as cases,
     doc
 from openrowset(
@@ -143,6 +144,8 @@ from openrowset(
     ) with (doc nvarchar(max)) as rows
 order by JSON_VALUE(doc, '$.geo_id') desc
 ```
+
+Une fois que vous avez extrait les propriétés JSON d'un document JSON, vous pouvez définir des alias de colonne et éventuellement convertir la valeur textuelle en un certain type.
 
 ### <a name="query-json-files-using-openjson"></a>Interroger des fichiers JSON à l’aide de OPENJSON
 
@@ -166,6 +169,10 @@ from openrowset(
 where country = 'Serbia'
 order by country, date_rep desc;
 ```
+Les résultats sont fonctionnellement identiques à ceux renvoyés par la fonction `JSON_VALUE`. Dans certains cas, `OPENJSON` peut avoir un avantage sur `JSON_VALUE` :
+- Dans la clause `WITH`, vous pouvez explicitement définir les alias de colonne et les types de chaque propriété. Vous n'avez pas besoin de placer la fonction `CAST` dans chaque colonne de la liste `SELECT`.
+- `OPENJSON` peut être plus rapide si vous renvoyez un grand nombre de propriétés. Si vous ne renvoyez que 1 ou 2 propriétés, la fonction `OPENJSON` risque d'être en surcharge.
+- Utilisez la fonction `OPENJSON` si vous devez analyser le tableau à partir de chaque document et le joindre à la ligne parente.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

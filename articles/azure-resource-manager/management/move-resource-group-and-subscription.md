@@ -4,12 +4,12 @@ description: Utilisez Azure Resource Manager ou une API REST pour déplacer d
 ms.topic: conceptual
 ms.date: 09/15/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: cd05fe045532ee1b1f1fb88e502d786daabf9365
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aca1e5255c89e99a2c996e072e5106da8dc3eef9
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319552"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101093628"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>Déplacer des ressources vers un nouveau groupe de ressource ou un nouvel abonnement
 
@@ -37,7 +37,7 @@ Plusieurs étapes importantes doivent être effectuées avant de déplacer une r
 
 1. Si vous déplacez une ressource à laquelle un rôle Azure est affecté directement (ou est affecté à une ressource enfant de cette ressource), l’attribution de rôle n’est pas déplacée et devient orpheline. Après le déplacement, vous devez recréer l’attribution de rôle. Finalement, l’attribution de rôle orpheline sera automatiquement supprimée, mais il est recommandé de supprimer l’attribution de rôle avant de déplacer la ressource.
 
-    Pour plus d’informations sur la gestion des attributions de rôles, consultez [Répertorier les attributions de rôle](../../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-at-a-scope) et [Ajouter ou supprimer des attributions de rôle](../../role-based-access-control/role-assignments-portal.md).
+    Pour plus d’informations sur la gestion des attributions de rôles, consultez [Lister les attributions de rôle Azure](../../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-at-a-scope) et [Attribuer des rôles Azure](../../role-based-access-control/role-assignments-portal.md).
 
 1. Les abonnements source et de destination doivent être actifs. Si vous rencontrez des problèmes lors de l’activation d’un compte qui a été désactivé, [créez une demande de support Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). Sélectionnez **Gestion des abonnements** comme type de problème.
 
@@ -178,11 +178,11 @@ Lorsque vous affichez le groupe de ressources, l’option Déplacer est désacti
 
 Pour activer l’option Déplacer, sélectionnez les ressources que vous souhaitez déplacer. Pour sélectionner toutes les ressources, activez la case à cocher en haut de la liste. Ou sélectionnez les ressources individuellement. Après avoir sélectionné les ressources, l’option Déplacer est activée.
 
-:::image type="content" source="./media/move-resource-group-and-subscription/select-resources.png" alt-text="option Déplacer désactivée":::
+:::image type="content" source="./media/move-resource-group-and-subscription/select-resources.png" alt-text="sélectionner des ressources":::
 
 Sélectionnez le bouton **Déplacer**.
 
-:::image type="content" source="./media/move-resource-group-and-subscription/move-options.png" alt-text="option Déplacer désactivée":::
+:::image type="content" source="./media/move-resource-group-and-subscription/move-options.png" alt-text="options move":::
 
 Ce bouton vous donne trois options :
 
@@ -194,11 +194,11 @@ Indiquez si vous déplacez les ressources vers un nouveau groupe de ressources o
 
 Sélectionnez le groupe de ressources de destination. Confirmez que vous devez mettre à jour les scripts de ces ressources et sélectionnez **OK**. Si vous avez choisi de passer à un nouvel abonnement, vous devez également sélectionner l’abonnement de destination.
 
-:::image type="content" source="./media/move-resource-group-and-subscription/move-destination.png" alt-text="option Déplacer désactivée":::
+:::image type="content" source="./media/move-resource-group-and-subscription/move-destination.png" alt-text="sélectionner la destination":::
 
 Après avoir vérifié que les ressources peuvent être déplacées, vous voyez une notification indiquant que l’opération de déplacement est en cours d’exécution.
 
-:::image type="content" source="./media/move-resource-group-and-subscription/move-notification.png" alt-text="option Déplacer désactivée":::
+:::image type="content" source="./media/move-resource-group-and-subscription/move-notification.png" alt-text="notification":::
 
 Lorsque l’opération est terminée, vous êtes informé du résultat.
 

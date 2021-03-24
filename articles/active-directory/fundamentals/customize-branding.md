@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: kexia
 ms.custom: it-pro, seodec18, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb138ade0f579a7545c0910646b6adfb7d5ac02a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4b69daf9e9fbbb3f6d6597a8e8349dc8bec61fbf
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95996659"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103008772"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>Personnaliser la page de connexion Azure Active Directory de votre organisation
 Utilisez le logo et la palette de couleurs personnalisée de votre organisation pour offrir une apparence cohérente à vos pages de connexion Azure Active Directory (Azure AD). Vos pages de connexion s’affichent quand les utilisateurs se connectent aux applications web de votre organisation, comme Microsoft 365, qui utilisent Azure AD comme fournisseur d’identité.
@@ -58,7 +58,7 @@ Votre personnalisation ne s’affiche pas immédiatement quand vos utilisateurs 
 
         - **Logo de bannière.** Sélectionnez une version .png ou .jpg de votre logo, qui apparaît sur la page de connexion une fois que l’utilisateur a entré un nom d’utilisateur et sur la page du portail **Mes applications**.
             
-            L’image ne peut pas faire plus de 60 pixels de haut ou 280 pixels de large. Nous vous recommandons d’utiliser une image transparente dans la mesure où l’arrière-plan peut ne pas correspondre à l’arrière-plan de votre logo. Nous vous recommandons également de ne pas ajouter de marge intérieure autour de l’image afin que votre logo ne semble pas trop petit.
+            L'image ne doit pas dépasser 60 pixels de haut ou 280 pixels de large, et le fichier ne doit pas être supérieur à 10 Ko. Nous vous recommandons d’utiliser une image transparente dans la mesure où l’arrière-plan peut ne pas correspondre à l’arrière-plan de votre logo. Nous vous recommandons également de ne pas ajouter de marge intérieure autour de l’image afin que votre logo ne semble pas trop petit. 
 
         - **Indication sur le nom d’utilisateur.** Entrez le texte d’indication qui s’affiche pour les utilisateurs ayant oublié leur nom d’utilisateur. Ce texte doit être au format Unicode, ne comporter aucun lien ni code, et ne pas dépasser 64 caractères. Si des invités se connectent à votre application, nous vous suggérons de ne pas ajouter cet indicateur.
 

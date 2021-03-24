@@ -5,28 +5,28 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: de5fa6c881f808bcd580f6fae3329d579573d876
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: eae5b5e1430f4e9bf1db62a4413e3b7abe3744cc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98931532"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699315"
 ---
 # <a name="troubleshoot-a-slow-or-failing-job-on-a-hdinsight-cluster"></a>Détecter un problème de travail lent ou défaillant sur un cluster HDInsight
 
-En cas de ralentissement ou d’échec d’une application traitant des données sur un cluster HDInsight avec un code d’erreur, vous disposez de plusieurs options de résolution des problèmes. Si l’exécution de vos travaux prend plus de temps que prévu ou si vous constatez généralement des temps de réponse assez longs, il est possible que ces problèmes soient imputables à des défaillances en amont à de votre cluster (par exemple, les services sur lesquels s’exécute le cluster). Mais une mise à l’échelle insuffisante est la cause la plus courante de ces ralentissements. Lorsque vous créez un cluster HDInsight, sélectionnez les [tailles de machine virtuelle](hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters) appropriées.
+En cas de ralentissement ou d’échec d’une application traitant des données sur un cluster HDInsight avec un code d’erreur, vous disposez de plusieurs options de résolution des problèmes. Si l’exécution de vos travaux prend plus de temps que prévu ou si vous constatez généralement des temps de réponse assez longs, il est possible que ces problèmes soient imputables à des défaillances en amont à de votre cluster (par exemple, les services sur lesquels s’exécute le cluster). Mais une mise à l’échelle insuffisante est la cause la plus courante de ces ralentissements. Lorsque vous créez un cluster HDInsight, sélectionnez les [tailles de machine virtuelle](hdinsight-supported-node-configuration.md) appropriées.
 
 Pour diagnostiquer un cluster lent ou défaillant, essayez de recueillir des informations sur tous les aspects de l’environnement, notamment les services Azure associés, la configuration du cluster ou encore les informations relatives à l’exécution du travail. Pour diagnostiquer les problèmes, le mieux est d’essayer de reproduire l’état d’erreur sur un autre cluster.
 
-* Étape 1 : Recueillir des données sur le problème.
-* Étape 2 : Valider l’environnement du cluster HDInsight.
-* Étape 3 : Contrôler l’état d’intégrité de votre cluster.
-* Étape 4 : Examiner la pile et les versions de l’environnement.
-* Étape 5 : Examiner les fichiers journaux du cluster.
-* Étape 6 : Vérifier les paramètres de configuration.
-* Étape 7 : Reproduire la défaillance sur un autre cluster.
+* Étape 1 : recueillir des données sur le problème.
+* Étape 2 : valider l’environnement du cluster HDInsight.
+* Étape 3 : contrôler l’état d’intégrité de votre cluster.
+* Étape 4 : examiner la pile et les versions de l’environnement.
+* Étape 5 : examiner les fichiers journaux du cluster.
+* Étape 6 : vérifier les paramètres de configuration.
+* Étape 7 : reproduire la défaillance sur un autre cluster.
 
-## <a name="step-1-gather-data-about-the-issue"></a>Étape 1 : Recueillir des données sur le problème
+## <a name="step-1-gather-data-about-the-issue"></a>Étape 1 : recueillir des données sur le problème
 
 HDInsight fournit de nombreux outils que vous pouvez utiliser pour identifier et résoudre les problèmes liés aux clusters. Les étapes suivantes vous guident tout au long de l’utilisation de ces outils et vous fournissent des suggestions pour localiser le problème.
 
@@ -62,11 +62,11 @@ az hdinsight show --resource-group <ResourceGroup> --name <ClusterName>
 
 Une autre option consiste à utiliser PowerShell. Pour en savoir plus, consultez la page [Gestion des clusters Apache Hadoop dans HDInsight au moyen d’Azure PowerShell](hdinsight-administer-use-powershell.md).
 
-## <a name="step-2-validate-the-hdinsight-cluster-environment"></a>Étape 2 : Valider l’environnement du cluster HDInsight
+## <a name="step-2-validate-the-hdinsight-cluster-environment"></a>Étape 2 : valider l’environnement du cluster HDInsight
 
 Chaque cluster HDInsight s’appuie sur divers services Azure ainsi que sur des logiciels open source tels que Apache HBase et Apache Spark. Les clusters HDInsight peuvent également appeler d’autres services Azure, comme les réseaux virtuels Azure.  Une défaillance de cluster peut être liée soit à l’un des services en cours d’exécution sur votre cluster, soit à un service externe.  Un changement de configuration d’un service de cluster peut également provoquer une défaillance du cluster.
 
-### <a name="service-details"></a>Détails du service
+### <a name="service-details"></a>Détails sur le service
 
 * Vérifiez les versions de bibliothèques open source.
 * Recherchez les [interruptions de service Azure](https://azure.microsoft.com/status/).  
@@ -98,7 +98,7 @@ Comparez la version de votre cluster à la dernière version de HDInsight. Chaqu
 
 Si votre cluster subit des ralentissements, pensez à redémarrer vos services par le biais de l’interface utilisateur Ambari ou d’Azure Classic CLI. Le cluster peut rencontrer des erreurs transitoires, auquel cas un redémarrage offre le moyen le plus rapide pour stabiliser votre environnement et éventuellement en améliorer les performances.
 
-## <a name="step-3-view-your-clusters-health"></a>Étape 3 : Contrôler l’état d’intégrité de votre cluster
+## <a name="step-3-view-your-clusters-health"></a>Étape 3 : contrôler l’état d’intégrité de votre cluster
 
 Les clusters HDInsight sont composées de différents types de nœuds en cours d’exécution sur des instances de machine virtuelle. Chaque nœud peut être analysé pour identifier des problèmes de ressources insuffisantes, des problèmes de connectivité réseau et d’autres problèmes susceptibles de ralentir le cluster. Chaque cluster contient deux nœuds principaux et la plupart des types de cluster comportent à la fois des nœuds de travail et des nœuds de périphérie. 
 
@@ -179,7 +179,7 @@ Au niveau de YARN, il existe deux types de délais d’expiration :
 
 2. Le traitement YARN peut prendre beaucoup de temps, ce qui peut entraîner des délais d’attente.
 
-    * Répertorier tous les travaux : Ce type d’appel prend beaucoup de temps. Cet appel énumère les applications à partir de YARN ResourceManager et, pour chaque application exécutée, récupère l’état auprès de YARN JobHistoryServer. Cet appel peut expirer si le nombre de travaux atteint une valeur importante.
+    * Répertorier tous les travaux : ce type d’appel prend beaucoup de temps. Cet appel énumère les applications à partir de YARN ResourceManager et, pour chaque application exécutée, récupère l’état auprès de YARN JobHistoryServer. Cet appel peut expirer si le nombre de travaux atteint une valeur importante.
 
     * Répertorier les travaux de plus de sept jours : HDInsight YARN JobHistoryServer est configuré pour conserver les informations relatives aux travaux exécutés pendant une durée de sept jours (valeur `mapreduce.jobhistory.max-age-ms`). Une tentative d’énumération des travaux supprimés conduit à l’expiration du délai d’attente.
 
@@ -201,13 +201,13 @@ Pour diagnostiquer ces problèmes :
 
     Templeton récupère la sortie de la console de travail en tant que `stderr` dans `statusdir`, ce qui est souvent utile pour le dépannage. `stderr` contient l’identifiant d’application YARN de la requête réelle.
 
-## <a name="step-4-review-the-environment-stack-and-versions"></a>Étape 4 : Examiner la pile et les versions de l’environnement
+## <a name="step-4-review-the-environment-stack-and-versions"></a>Étape 4 : examiner la pile et les versions de l’environnement
 
 La page **Pile et version** de l’interface utilisateur Ambari fournit des informations sur la configuration des services du cluster et sur l’historique de version des services.  Des versions incorrectes de la bibliothèque de services Hadoop peuvent être une cause de défaillance du cluster.  Dans l’interface utilisateur Ambari, sélectionnez le menu **Admin**, puis **Piles et versions**.  Sélectionnez l’onglet **Versions** sur la page pour afficher des informations sur la version du service :
 
 ![Apache Ambari - Piles et versions](./media/hdinsight-troubleshoot-failed-cluster/ambari-stack-versions.png)
 
-## <a name="step-5-examine-the-log-files"></a>Étape 5 : Examiner les fichiers journaux
+## <a name="step-5-examine-the-log-files"></a>Étape 5 : examiner les fichiers journaux
 
 De nombreux types de fichiers journaux d’activité sont générés à partir des nombreux services et composants qui composent un cluster HDInsight. Les [fichiers journaux WebHCat](#check-your-webhcat-service) ont été décrits précédemment. Il existe d’autres fichiers journaux utiles que vous pouvez examiner pour réduire les problèmes liés à votre cluster, comme décrit ci-dessous.
 
@@ -239,13 +239,13 @@ Un cluster HDInsight génère des fichiers journaux d’activité qui sont écri
 
 Les dumps de tas contiennent un instantané de la mémoire de l’application, y compris les valeurs des variables à ce moment précis, ce qui peut être utile pour diagnostiquer des problèmes qui se produisent lors de l’exécution. Pour plus d’informations, consultez la page [Activer les dumps de tas pour les services Apache Hadoop sur HDInsight sur Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md).
 
-## <a name="step-6-check-configuration-settings"></a>Étape 6 : Vérifier les paramètres de configuration
+## <a name="step-6-check-configuration-settings"></a>Étape 6 : vérifier les paramètres de configuration
 
 Les clusters HDInsight sont préconfigurés avec les paramètres par défaut pour les services connexes, tels que Hadoop, Hive, HBase, etc. Selon le type de cluster, sa configuration matérielle, son nombre de nœuds, les types de travaux que vous exécutez et les données sur lesquelles vous travaillez (ainsi que la manière dont ces données sont traitées), vous devrez peut-être optimiser votre configuration.
 
 Pour savoir en détail comment optimiser les configurations des performances dans la plupart des scénarios, consultez la section [Optimiser les configurations de cluster avec Apache Ambari](hdinsight-changing-configs-via-ambari.md). Si vous utilisez Spark, consultez la section [Optimiser les performances des tâches Apache Spark](spark/apache-spark-perf.md). 
 
-## <a name="step-7-reproduce-the-failure-on-a-different-cluster"></a>Étape 7 : Reproduire la défaillance sur un autre cluster
+## <a name="step-7-reproduce-the-failure-on-a-different-cluster"></a>Étape 7 : reproduire la défaillance sur un autre cluster
 
 Pour aider à diagnostiquer l’origine d’une erreur de cluster, démarrez un nouveau cluster avec la même configuration, puis soumettez de nouveau une à une les étapes du travail qui a échoué. Vérifiez les résultats de chaque étape avant de traiter l’étape suivante. Cette méthode vous donne la possibilité de corriger et de réexécuter une seule étape ayant échoué. Cette méthode présente également l’avantage de charger vos données d’entrée une seule fois.
 

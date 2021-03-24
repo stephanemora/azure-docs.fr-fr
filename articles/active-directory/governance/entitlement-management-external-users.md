@@ -16,12 +16,12 @@ ms.date: 12/23/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b356d5dff453b598eeb773af1a56fc50193e9e16
-ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
+ms.openlocfilehash: c7c78dcbc34deca769739f82964df41ebfc596ea
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97746658"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102176788"
 ---
 # <a name="govern-access-for-external-users-in-azure-ad-entitlement-management"></a>Régir l’accès des utilisateurs externes dans la gestion des droits d’utilisation Azure AD
 
@@ -84,7 +84,7 @@ Pour vous assurer que les personnes extérieures à votre organisation peuvent d
 - Autoriser les invités à inviter d’autres invités dans votre répertoire signifie que des invitations d’invités peuvent se produire en dehors de la gestion des droits d’utilisation. Nous vous recommandons de définir **Les invités peuvent inviter** sur **Non** pour autoriser uniquement les invitations correctement régies.
 - Si vous utilisez la liste verte B2B, vous devez vous assurer que tous les domaines que vous souhaitez associer à la gestion des droits d’utilisation sont ajoutés à la liste. De même, si vous utilisez la liste d’exclusion B2B, vous devez vous assurer que tous les domaines auxquels vous souhaitez vous associer ne sont pas ajoutés à la liste.
 - Si vous créez une stratégie de gestion des droits d'utilisation pour **Tous les utilisateurs** (toutes les organisations connectées + tous les nouveaux utilisateurs externes) et qu’un utilisateur n’appartient pas à une organisation connectée dans votre annuaire, une organisation connectée est automatiquement créée pour celui-ci quand il demande le package. Tout paramètre de liste d’autorisation ou de refus B2B que vous avez est prioritaire. Par conséquent, veillez à inclure les domaines que vous prévoyez d’inclure dans cette stratégie dans votre liste verte si vous en utilisez une, et excluez-les de votre liste d’exclusion si vous utilisez une liste d’exclusion.
-- Si vous souhaitez créer une stratégie de gestion des droits d’utilisation incluant **Tous les utilisateurs** (toutes les organisations connectées + tous les nouveaux utilisateurs externes), vous devez d’abord activer l’authentification par code secret à usage unique d’e-mail pour votre répertoire. Pour plus d’informations, consultez [Authentification par code secret à usage unique d’e-mail (préversion)](../external-identities/one-time-passcode.md).
+- Si vous souhaitez créer une stratégie de gestion des droits d’utilisation incluant **Tous les utilisateurs** (toutes les organisations connectées + tous les nouveaux utilisateurs externes), vous devez d’abord activer l’authentification par code secret à usage unique d’e-mail pour votre répertoire. Pour plus d’informations, consultez [Authentification par envoi d’un code secret à usage unique par e-mail](../external-identities/one-time-passcode.md).
 - Pour plus d’informations sur les paramètres de collaboration B2B externe Azure AD, consultez [Permettre une collaboration B2B externe et gérer les utilisateurs autorisés à en inviter d’autres](../external-identities/delegate-invitations.md).
 
     ![Paramètres de collaboration externe Azure AD](./media/entitlement-management-external-users/collaboration-settings.png)

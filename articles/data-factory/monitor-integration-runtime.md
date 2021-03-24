@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 08/11/2020
 author: dcstwh
 ms.author: weetok
-ms.openlocfilehash: a52fad39e19bdf2edf110990c8f0e392ec5803ce
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 1cb4fcaa51e1a59ee9d09eb178faf9b250173709
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100377497"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101740021"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Surveiller un runtime d’intégration dans Azure Data Factory
 
@@ -224,7 +224,17 @@ Pour superviser votre runtime Azure-SSIS IR sur le Portail Azure, accédez à la
 
 ![Supervision de tous les runtimes d’intégration](media/monitor-integration-runtime/monitor-integration-runtimes.png)
 
-Ensuite, sélectionnez le nom de votre runtime Azure-SSIS IR pour ouvrir sa page de supervision, sur laquelle vous pouvez voir ses propriétés et états globaux/propres aux nœuds. Sur cette page, en fonction de la façon dont vous configurez les paramètres généraux, de déploiement et avancés de votre Azure-SSIS IR, vous trouverez différentes vignettes d’informations/fonctionnelles.  Les vignettes d’information **TYPE** et **RÉGION** affichent respectivement le type et la région de votre Azure-SSIS IR. La vignette d’information **TAILLE DE NŒUD** affiche la référence SKU (série edition_VM tier_VM SSIS), le nombre de cœurs de processeur et la taille de RAM par nœud pour votre Azure-SSIS IR. La vignette d’information **NŒUD(S) EN COURS D’EXÉCUTION / DEMANDÉ(S)** compare le nombre de nœuds en cours d’exécution au nombre total de nœuds précédemment demandés pour votre Azure-SSIS IR. Les vignettes fonctionnelles sont décrites plus en détail ci-dessous.
+Ensuite, sélectionnez le nom de votre runtime Azure-SSIS IR pour ouvrir sa page de supervision, sur laquelle vous pouvez voir ses propriétés et états globaux/propres aux nœuds. Sur cette page, en fonction de la façon dont vous configurez les paramètres généraux, de déploiement et avancés de votre Azure-SSIS IR, vous trouverez différentes vignettes d’informations/fonctionnelles.
+
+Les vignettes d’information **TYPE** et **RÉGION** affichent respectivement le type et la région de votre Azure-SSIS IR.
+
+La vignette d’information **TAILLE DE NŒUD** affiche la référence SKU (série edition_VM tier_VM SSIS), le nombre de cœurs de processeur et la taille de RAM par nœud pour votre Azure-SSIS IR. 
+
+La vignette d’information **NŒUD(S) EN COURS D’EXÉCUTION / DEMANDÉ(S)** compare le nombre de nœuds en cours d’exécution au nombre total de nœuds précédemment demandés pour votre Azure-SSIS IR.
+
+La vignette d’information **RÔLE/PAIRE DE SECOURS DOUBLE** indique le nom de votre paire IR Azure-SSIS de secours double qui fonctionne en synchronisation avec le groupe de basculement Azure SQL Database/Managed Instance pour la continuité d’activité et la reprise d’activité (BCDR) et le rôle principal/secondaire actuel de votre IR Azure-SSIS. En cas de basculement SSISDB, vos IR Azure-SSIS principal et secondaire échangent leurs rôles (consultez [Configuration de votre IR Azure-SSIS pour BCDR](./configure-bcdr-azure-ssis-integration-runtime.md)).
+
+Les vignettes fonctionnelles sont décrites plus en détail ci-dessous.
 
 ![Supervision du runtime Azure-SSIS IR](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime.png)
 
@@ -254,13 +264,13 @@ Si vous joignez votre runtime Azure-SSIS IR à un réseau virtuel, la vignette *
 
 Sur la vignette **DIAGNOSTIQUER LA CONNECTIVITÉ** de la page de supervision de votre runtime Azure-SSIS IR, vous pouvez sélectionner le lien **Tester la connexion** pour ouvrir une fenêtre vous permettant de vérifier les connexions entre votre runtime Azure-SSIS IR et les magasins de packages/configuration/données correspondants, ainsi que les services de gestion, au moyen de leur nom de domaine complet (FQDN)/adresse IP et de leur port désigné (consultez [Test des connexions à partir d’un runtime Azure-SSIS IR](./ssis-integration-runtime-diagnose-connectivity-faq.md)).
 
-![Capture d’écran montrant où tester les connexions entre Azure-SSIS IR et les magasins de données, configurations et packages concernés.](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-diagnose.png)
+![Supervision du runtime Azure-SSIS IR – Vignette DIAGNOSTIQUER](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-diagnose.png)
 
 #### <a name="static-public-ip-addresses-tile"></a>Vignette ADRESSES IP PUBLIQUES STATIQUES
 
 Si vous apportez vos propres adresses IP publiques statiques pour Azure-SSIS IR, la vignette **ADRESSES IP PUBLIQUES STATIQUES** apparaît sur votre page d’analyse de Azure-SSIS IR (voir [Intégration de vos propres adresses IP publiques statiques pour Azure-SSIS IR](./join-azure-ssis-integration-runtime-virtual-network.md#publicIP)). Sur cette vignette, vous pouvez sélectionner des liens désignant vos premières/deuxième adresses IP publiques statiques pour Azure-SSIS IR pour afficher une fenêtre contextuelle, dans laquelle vous pouvez copier leur ID de ressource (`/subscriptions/YourAzureSubscripton/resourceGroups/YourResourceGroup/providers/Microsoft.Network/publicIPAddresses/YourPublicIPAddress`) à partir d’une zone de texte. Dans la fenêtre contextuelle, vous pouvez également sélectionner le lien **Afficher votre premier/deuxième paramètre d’adresse IP publique statique** pour gérer votre première/deuxième adresse IP publique statique dans le Portail Azure.
 
-![Capture d’écran montrant où désigner votre première ou votre deuxième adresse IP publique statique.](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-static.png)
+![Supervision de votre IR Azure-SSIS – Vignette STATIQUE](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-static.png)
 
 #### <a name="package-stores-tile"></a>Vignette MAGASINS DE PACKAGES
 
@@ -272,7 +282,7 @@ Si vous utilisez un modèle de déploiement de package selon lequel les packages
 
 En cas de problèmes liés au démarrage/à l’arrêt/à la maintenance/à la mise à niveau de votre runtime Azure-SSIS IR, une vignette **ERREUR(S)** supplémentaire apparaît sur la page de supervision de votre runtime Azure-SSIS IR. Sur cette vignette, vous pouvez sélectionner un lien désignant le nombre d’erreurs générées par votre runtime Azure-SSIS IR pour afficher une fenêtre vous permettant de voir ces erreurs plus en détail et de les copier pour trouver les solutions recommandées dans notre guide de dépannage (consultez [Résolution des problèmes d’un runtime Azure-SSIS IR](./ssis-integration-runtime-management-troubleshoot.md)).
 
-![Supervision du runtime Azure-SSIS IR – Vignette DIAGNOSTIQUER](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-error.png)
+![Supervision de votre IR Azure-SSIS – Vignette ERREUR](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-error.png)
 
 ### <a name="monitor-the-azure-ssis-integration-runtime-with-azure-monitor"></a>Supervision d’Azure-SSIS Integration Runtime avec Azure Monitor
 

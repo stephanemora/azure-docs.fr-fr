@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 5a2540aeb36cfcb2048ec994bbb486badc8a68d1
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 4ab4e40e1dd4bbaf9ae73ab545285f5ae6261e27
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97358807"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102201768"
 ---
 # <a name="cluster-configuration-best-practices-sql-server-on-azure-vms"></a>Meilleures pratiques en matière de configuration de cluster (SQL Server sur des machines virtuelles Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -76,9 +76,7 @@ Pour commencer, consultez [Configurer un témoin de cloud](/windows-server/failo
 
 ### <a name="file-share-witness"></a>Témoin de partage de fichiers
 
-Un témoin de partage de fichiers est un partage de fichiers SMB qui est généralement configuré sur un serveur de fichiers exécutant Windows Server. Il conserve les informations de clustering dans un fichier witness.log, mais ne stocke pas de copie de la base de données de clusters. Dans Azure, vous pouvez configurer un [partage de fichiers Azure](../../../storage/files/storage-how-to-create-file-share.md) à utiliser comme témoin de partage de fichiers, ou vous pouvez utiliser un partage de fichiers sur une machine virtuelle distincte.
-
-Si vous envisagez d’utiliser un partage de fichiers Azure, vous pouvez le monter en suivant le même processus que pour le [montage du partage de fichiers Premium](failover-cluster-instance-premium-file-share-manually-configure.md#mount-premium-file-share). 
+Un témoin de partage de fichiers est un partage de fichiers SMB qui est généralement configuré sur un serveur de fichiers exécutant Windows Server. Il conserve les informations de clustering dans un fichier witness.log, mais ne stocke pas de copie de la base de données de clusters. Dans Azure, vous pouvez configurer un partage de fichiers sur une machine virtuelle séparée.
 
 Pour commencer, consultez [Configurer un témoin de partage de fichiers](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum).
 

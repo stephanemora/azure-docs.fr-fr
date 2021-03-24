@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 739e1dea23f87403a4aded50d5c9f254a55c64cc
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 2d4286cc8bc08eaf7d0b376a8b7789c8c8db183d
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101737611"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102202635"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Questions fréquentes (FAQ) sur Azure Files
 [Azure Files](storage-files-introduction.md) offre des partages de fichiers pleinement managés dans le cloud qui sont accessibles via le [protocole SMB (Server Message Block)](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) standard et le [protocole NFS (Network File System)](https://en.wikipedia.org/wiki/Network_File_System) (préversion). Vous pouvez monter des partages de fichiers Azure simultanément sur des déploiements cloud ou locaux de Windows, Linux et macOS. Vous pouvez également mettre en cache des partages de fichiers Azure sur des ordinateurs Windows Server à l’aide d’Azure File Sync pour bénéficier d’un accès rapide proche de l’endroit où les données sont utilisées.
@@ -119,26 +119,38 @@ Cet article répond à des questions courantes sur les fonctionnalités d’Azur
 
 * <a id="sizeondisk-versus-size"></a>
   **Pourquoi la propriété *Taille* sur le disque pour un fichier ne correspond-elle pas à la propriété *Taille* après l’utilisation d’Azure File Sync ?**  
-  Voir [Introduction à la hiérarchisation cloud](storage-sync-cloud-tiering.md#sizeondisk-versus-size).
+  Consultez [Comprender la hiérarchisation Cloud Azure File Sync](storage-sync-cloud-tiering-overview.md#tiered-vs-locally-cached-file-behavior).
 
 * <a id="is-my-file-tiered"></a>
   **Comment puis-je savoir si un fichier a été hiérarchisé ?**  
-  Voir [Introduction à la hiérarchisation cloud](storage-sync-cloud-tiering.md#is-my-file-tiered).
+  Consultez [Comment gérer des fichiers hiérarchisés Azure File Sync](storage-sync-how-to-manage-tiered-files.md#how-to-check-if-your-files-are-being-tiered).
 
 * <a id="afs-recall-file"></a>**Un fichier que je souhaite utiliser a été hiérarchisé. Comment puis-je rappeler le fichier sur le disque pour l’utiliser localement ?**  
-  Voir [Introduction à la hiérarchisation cloud](storage-sync-cloud-tiering.md#afs-recall-file).
+  Consultez [Comment gérer des fichiers hiérarchisés Azure File Sync](storage-sync-how-to-manage-tiered-files.md#how-to-recall-a-tiered-file-to-disk).
 
 * <a id="afs-force-tiering"></a>
   **Comment faire pour imposer la hiérarchisation d’un fichier ou répertoire ?**  
-  Voir [Introduction à la hiérarchisation cloud](storage-sync-cloud-tiering.md#afs-force-tiering).
+  Consultez [Comment gérer des fichiers hiérarchisés Azure File Sync](storage-sync-how-to-manage-tiered-files.md#how-to-force-a-file-or-directory-to-be-tiered).
 
 * <a id="afs-effective-vfs"></a>
   **Comment *l’espace libre du volume* est-il interprété quand il y a plusieurs points de terminaison de serveur sur un volume ?**  
-  Voir [Introduction à la hiérarchisation cloud](storage-sync-cloud-tiering.md#afs-effective-vfs).
+  Consultez [Choisir des stratégies de hiérarchisation Cloud Azure File Sync](storage-sync-cloud-tiering-policy.md#multiple-server-endpoints-on-a-local-volume).
   
 * <a id="afs-tiered-files-tiering-disabled"></a>
   **La hiérarchisation cloud est désactivée. Pourquoi y a-t-il des fichiers hiérarchisés dans l’emplacement du point de terminaison de serveur ?**  
-  Voir [Introduction à la hiérarchisation cloud](storage-sync-cloud-tiering.md#afs-tiering-disabled).
+    Il existe deux raisons pour lesquelles des fichiers hiérarchisés peuvent se trouver à l’emplacement du point de terminaison de serveur :
+
+    - Lorsque vous ajoutez un nouveau point de terminaison de serveur à un groupe de synchronisation existant, si vous choisissez l’option rappeler l’espace de noms ou rappeler l’espace de noms uniquement pour le mode de téléchargement initial, les fichiers s’affichent comme étant hiérarchisés jusqu’à ce qu’ils soient téléchargés localement. Pour éviter cela, sélectionnez l’option Éviter les fichiers hiérarchisés pour le mode de téléchargement initial. Pour rappeler manuellement des fichiers, utilisez la cmdlet [Invoke-StorageSyncFileRecall](storage-sync-how-to-manage-tiered-files.md#how-to-recall-a-tiered-file-to-disk).
+
+    - Si la hiérarchisation cloud a été activée sur le point de terminaison de serveur, puis désactivée, les fichiers restent hiérarchisés jusqu’à ce qu’ils soient accessibles.
+
+* <a id="afs-tiered-files-not-showing-thumbnails"></a>
+  **Pourquoi mes fichiers hiérarchisés n’affichent-ils pas de miniatures ou d’aperçus dans l’Explorateur Windows ?**  
+    Pour les fichiers hiérarchisés, les miniatures et aperçus ne sont pas visibles au niveau de votre point de terminaison de serveur. Ce comportement est normal puisque la fonctionnalité de cache des miniatures dans Windows ignore intentionnellement la lecture des fichiers avec l’attribut hors connexion. En cas d'activation de la hiérarchisation cloud, la lecture des fichiers hiérarchisés entraînerait leur téléchargement (rappel).
+
+    Ce comportement n’est pas spécifique à Azure File Sync. L’Explorateur Windows affiche une « croix grise » pour tous les fichiers dont l’attribut est hors connexion. L’icône X s’affiche lors de l’accès aux fichiers sur SMB. Pour obtenir une explication détaillée de ce comportement, consultez [https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105](https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105).
+
+    Pour plus d’informations sur la gestion des fichiers hiérarchisés, consultez [Comment gérer des fichiers hiérarchisés](storage-sync-how-to-manage-tiered-files.md).
 
 * <a id="afs-files-excluded"></a>
   **Quels fichiers ou dossiers sont automatiquement exclus par Azure File Sync ?**  
@@ -274,7 +286,7 @@ Cet article répond à des questions courantes sur les fonctionnalités d’Azur
     2.  Ouvrez la console « Domaines et approbations Active Directory ».
     3.  Cliquez avec le bouton droit sur le domaine pour lequel vous souhaitez accéder au partage de fichiers, puis cliquez sur l’onglet « Approbations » et sélectionnez le domaine de la forêt B dans les approbations sortantes. Si vous n’avez pas configuré d’approbation entre les deux forêts, vous devez commencer par le faire.
     4.  Cliquez sur « Propriétés... », puis « Routage des suffixes de noms ».
-    5.  Vérifiez si le suffixe « *.file.core.windows.net » s’affiche. Si ce n’est pas le cas, cliquez sur « Actualiser ».
+    5.  Vérifiez que le suffixe « *.file.core.windows.net » s’affiche. Si ce n’est pas le cas, cliquez sur « Actualiser ».
     6.  Sélectionnez « *.file.core.windows.net » et cliquez sur « Activer », puis sur « Appliquer ».
 
 * <a id=""></a>

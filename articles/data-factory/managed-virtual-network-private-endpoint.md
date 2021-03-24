@@ -9,12 +9,12 @@ ms.custom:
 - seo-lt-2019
 - references_regions
 ms.date: 07/15/2020
-ms.openlocfilehash: d950b05dd34788c2c5ef0b34b8ec8ac0b20ad4b6
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: b6000d8ff3eb35d678a94adc021efcadf8a77f81
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100379571"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699627"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Réseau virtuel managé Azure Data Factory (préversion)
 
@@ -113,6 +113,8 @@ Les sources de données suivantes sont prises en charge pour établir une connex
 ### <a name="linked-service-creation-of-azure-key-vault"></a>Création d’un service lié à Azure Key Vault 
 - Lorsque vous créez un service lié pour Azure Key Vault, il n’existe aucune référence Azure Integration Runtime. Vous ne pouvez donc pas créer de point de terminaison privé pendant la création du service lié d’Azure Key Vault. Toutefois, lorsque vous créez un service lié pour des magasins de données qui fait référence au service lié Azure Key Vault et que ce service lié fait référence à Azure Integration Runtime avec un réseau virtuel managé activé, vous pouvez créer un point de terminaison privé pour le service lié Azure Key Vault lors de la création. 
 - L’opération **Tester la connexion** du service lié d’Azure Key Vault valide uniquement le format d’URL, mais n’effectue aucune opération sur le réseau.
+- La colonne **Utilisant un point de terminaison privé** est toujours indiquée comme vide, même si vous créez un point de terminaison privé pour Azure Key Vault.
+![Point de terminaison privé pour AKV](./media/managed-vnet/akv-pe.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
