@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 02/10/2021
 ms.author: apimpm
-ms.openlocfilehash: f6ea02c32ec7fcb694d63f29c63c3880a7cfff9e
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: dc3d3b4658bd9a26363b6d41377d448059e30c0f
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100546650"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889669"
 ---
 # <a name="tutorial-publish-multiple-versions-of-your-api"></a>Tutoriel : Publier plusieurs versions de votre API 
 
@@ -60,7 +60,7 @@ Entrez les valeurs du tableau suivant. Sélectionnez ensuite **Créer** pour cr�
 
 
 
-|Paramètre   |Valeur  |Description  |
+|Paramètre   |Value  |Description  |
 |---------|---------|---------|
 |**Nom**     |  *demo-conference-api-v1*       |  Nom unique dans votre instance Gestion des API.<br/><br/>Une version étant de fait une nouvelle API basée sur la [révision](api-management-get-started-revise-api.md) d’une API, ce paramètre est le nom de la nouvelle API.   |
 |**Schéma de gestion de version**     |  **Chemin d’accès**       |  Façon dont les appelants spécifient la version de l’API.     |
@@ -105,7 +105,7 @@ az apim api versionset list --resource-group apim-hello-word-resource-group \
 
 Lorsque le portail Azure crée un ensemble de versions pour vous, il attribue un nom alphanumérique, qui apparaît dans la colonne **Nom** de la liste. Utilisez ce nom dans les autres commandes Azure CLI.
 
-Pour afficher les détails d’un ensemble de versions, exécutez la commande [az apim api versionset show](/api/versionset#az_apim_api_versionset_show) :
+Pour afficher les détails d’un ensemble de versions, exécutez la commande [az apim api versionset show](/cli/azure/apim/api/versionset#az_apim_api_versionset_show) :
 
 ```azurecli
 az apim api versionset show --resource-group apim-hello-word-resource-group \

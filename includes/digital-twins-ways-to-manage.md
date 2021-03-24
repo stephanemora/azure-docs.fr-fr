@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 11/11/2020
 ms.author: baanders
 ms.openlocfilehash: 02f6c59a76a3fdb7bd4360570b29d7b40a1aff8d
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102473675"
 ---
 Cet article montre comment effectuer différentes opérations de gestion à l’aide du [**kit SDK** .NET (C#) Azure Digital Twins](/dotnet/api/overview/azure/digitaltwins/management). Vous pouvez également créer les mêmes appels de gestion à l’aide des autres kits SDK de langage décrits dans [*Guide pratique : Utiliser les kits SDK et les API Azure Digital Twins*](../articles/digital-twins/how-to-use-apis-sdks.md).

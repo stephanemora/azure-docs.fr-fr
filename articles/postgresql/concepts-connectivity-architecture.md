@@ -6,12 +6,12 @@ ms.author: bahusse
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 2/11/2021
-ms.openlocfilehash: 0c8f55b6eeba4319b0ce9e39085912b8c4829235
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 104e6503ba47d17c17cfec2b4e62ec3f69f18330
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101720798"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200013"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-postgresql"></a>Architecture de connectivité dans Azure Database pour PostgreSQL
 Cet article présente l’architecture de connectivité d’Azure Database pour PostgreSQL, ainsi que la façon dont le trafic est redirigé vers votre instance de base de données Azure Database pour PostgreSQL à partir de clients au sein d’Azure et en dehors.
@@ -60,7 +60,9 @@ Le tableau suivant répertorie les adresses IP de la passerelle Azure Database 
 | France Centre | 40.79.137.0, 40.79.129.1  | | |
 | France Sud | 40.79.177.0     | | |
 | Centre de l’Allemagne | 51.4.144.100     | | |
+| Allemagne Nord | 51.116.56.0 | |
 | Nord-Est de l’Allemagne | 51.5.144.179  | | |
+| Allemagne Centre-Ouest | 51.116.152.0 | |
 | Inde Centre | 104.211.96.159     | | |
 | Sud de l’Inde | 104.211.224.146  | | |
 | Inde Ouest | 104.211.160.80    | | |
@@ -74,6 +76,8 @@ Le tableau suivant répertorie les adresses IP de la passerelle Azure Database 
 | Afrique du Sud Ouest | 102.133.24.0   | | |
 | États-Unis - partie centrale méridionale |104.214.16.39, 20.45.120.0  |13.66.62.124  |23.98.162.75 |
 | Asie Sud-Est | 40.78.233.2, 23.98.80.12     | 104.43.15.0 | |
+| Suisse Nord | 51.107.56.0 ||
+| Suisse Ouest | 51.107.152.0| ||
 | Émirats arabes unis Centre | 20.37.72.64  | | |
 | Émirats arabes unis Nord | 65.52.248.0    | | |
 | Sud du Royaume-Uni | 51.140.184.11   | | |
@@ -83,6 +87,37 @@ Le tableau suivant répertorie les adresses IP de la passerelle Azure Database 
 | USA Ouest |13.86.216.212, 13.86.217.212 |104.42.238.205  | 23.99.34.75|
 | USA Ouest 2 | 13.66.226.202  | | |
 ||||
+
+## <a name="frequently-asked-questions"></a>Forum aux questions
+
+### <a name="what-you-need-to-know-about-this-planned-maintenance"></a>Que devez-vous savoir sur cette maintenance planifiée ?
+Il s'agit simplement d'un changement de DNS ; elle est donc transparente pour les clients. Lorsque l'adresse IP du nom de domaine complet est modifiée sur le serveur DNS, le cache du DNS local est actualisé dans les 5 minutes. Cette opération est automatiquement effectuée par les systèmes d'exploitation. Après l'actualisation du DNS local, toutes les nouvelles connexions s'effectuent avec la nouvelle adresse IP et toutes les connexions existantes sont maintenues avec l'ancienne adresse IP (jusqu'à la mise hors service complète des anciennes adresses IP). La mise hors service de l'ancienne adresse IP intervient dans les trois à quatre semaines ; elle ne doit donc avoir aucun effet sur les applications clientes.
+
+### <a name="what-are-we-decommissioning"></a>Que mettons-nous hors service ?
+Seuls les nœuds de passerelle sont mis hors service. Lorsque les utilisateurs se connectent à leurs serveurs, le premier arrêt de la connexion s'effectue au niveau du nœud de passerelle, avant que la connexion ne soit transférée vers le serveur. Nous mettons hors service les anciens anneaux de passerelle (et non les anneaux de locataire sur lesquels le serveur est en cours d'exécution). Pour plus de précisions, reportez-vous à l'[architecture de connectivité](#connectivity-architecture).
+
+### <a name="how-can-you-validate-if-your-connections-are-going-to-old-gateway-nodes-or-new-gateway-nodes"></a>Comment déterminer si vos connexions sont dirigées vers d'anciens ou de nouveaux nœuds de passerelle ?
+Effectuez un test ping sur le nom de domaine complet de votre serveur, par exemple ``ping xxx.postgres.database.azure.com``. Si l'adresse IP renvoyée est l'une de celles qui sont répertoriées sous Adresses IP de passerelle (en cours de mise hors service) dans le document ci-dessus, cela signifie que votre connexion passe par l'ancienne passerelle. En revanche, si l'adresse IP renvoyée est l'une de celles qui sont répertoriées sous Adresses IP de passerelle, cela signifie que votre connexion passe par la nouvelle passerelle.
+
+Vous pouvez également effectuer un test [PSPing](https://docs.microsoft.com/sysinternals/downloads/psping) ou TCPPing sur le serveur de base de données à partir de votre application cliente avec le port 3306 et vous assurer que l'adresse IP renvoyée ne correspond pas à l'une des adresses IP en cours de mise hors service.
+
+### <a name="how-do-i-know-when-the-maintenance-is-over-and-will-i-get-another-notification-when-old-ip-addresses-are-decommissioned"></a>Comment savoir quand la maintenance est terminée ? Et recevrai-je une autre notification lorsque les anciennes adresses IP seront mises hors service ?
+Vous recevrez un e-mail pour vous informer du début des travaux de maintenance. La maintenance peut prendre jusqu'à un mois en fonction du nombre de serveurs que nous devons migrer dans toutes les régions. Préparez votre client pour qu'il se connecte au serveur de base de données à l'aide du nom de domaine complet ou en utilisant la nouvelle adresse IP figurant dans le tableau ci-dessus. 
+
+### <a name="what-do-i-do-if-my-client-applications-are-still-connecting-to-old-gateway-server-"></a>Que dois-je faire si mes applications clientes se connectent toujours à l'ancien serveur de passerelle ?
+Cela indique que vos applications se connectent au serveur en utilisant une adresse IP statique au lieu du nom de domaine complet. Examinez les chaînes de connexion et le paramètre de regroupement de connexions, le paramètre AKS, voire le code source.
+
+### <a name="is-there-any-impact-for-my-application-connections"></a>Y a-t-il un impact sur les connexions de mes applications ?
+Cette maintenance n'est qu'un changement de DNS ; elle est donc transparente pour le client. Une fois le cache du DNS actualisé dans le client (ce qui est automatiquement effectué par le système d'exploitation), toutes les nouvelles connexions s'effectuent avec la nouvelle adresse IP et toutes les connexions existantes sont maintenues jusqu'à ce que l'ancienne adresse IP soit complètement mise hors service, ce qui intervient généralement quelques semaines plus tard. Dans ce cas, la logique de nouvelle tentative n'est pas nécessaire. Cela dit, il est intéressant de savoir qu'elle a été configurée pour l'application. Utilisez le nom de domaine complet pour vous connecter au serveur de base de données, ou activez la liste des nouvelles « Adresses IP de passerelle » dans la chaîne de connexion de votre application.
+Cette opération de maintenance ne supprime pas les connexions existantes. Elle se contente de diriger les nouvelles demandes de connexion vers le nouvel anneau de passerelle.
+
+### <a name="can-i-request-for-a-specific-time-window-for-the-maintenance"></a>Puis-je demander une fenêtre de temps spécifique pour la maintenance ? 
+Étant donné que la migration doit être transparente et sans impact sur la connectivité du client, la majorité des utilisateurs ne devraient être confrontés à aucun problème. Examinez votre application de manière proactive, et veillez à utiliser le nom de domaine complet pour vous connecter au serveur de base de données ou à activer la liste des nouvelles « Adresses IP de passerelle » dans la chaîne de connexion de votre application.
+
+### <a name="i-am-using-private-link-will-my-connections-get-affected"></a>J'utilise une liaison privée, mes connexions seront-elles affectées ?
+Non, il s'agit d'une mise hors service du matériel de passerelle qui n'a aucun rapport avec les liaisons privées ou les adresses IP privées. Elle n'affectera que les adresses IP publiques mentionnées sous les adresses IP en cours de mise hors service.
+
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

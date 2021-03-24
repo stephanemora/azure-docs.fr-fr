@@ -4,10 +4,10 @@ description: Pourquoi créer des applications cloud avec une approche de microse
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.openlocfilehash: d20e04820c87a7390d9c20e511259ee9860c27f5
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96575650"
 ---
 # <a name="why-use-a-microservices-approach-to-building-applications"></a>Pourquoi utiliser une approche de microservices pour la conception d’applications ?
@@ -42,7 +42,7 @@ L’inconvénient des microservices est qu’ils entraînent une gestion accrue 
 
 Les normes permettent à l’approche de microservices de fonctionner, en définissant la façon de communiquer et en tolérant uniquement les éléments qu’un service doit vous fournir, au lieu d’adopter des contrats rigides. Il est important de définir ces contrats en amont dans la conception, car les services sont mis à jour indépendamment les uns des autres. Une autre description a été formulée pour la conception avec une approche de microservices : « la SOA affinée ».
 
-***Dans sa forme la plus simple, l’approche de conception de microservices fait référence à une fédération découplée des services, avec des modifications indépendantes pour chacun et des normes de communication définies.** _
+***Dans sa forme la plus simple, l’approche de conception de microservices fait référence à une fédération découplée des services, avec des modifications indépendantes pour chacun et des normes de communication définies.***
 
 Tandis qu’un nombre croissant d’applications cloud sont produites, les gens ont découvert que cette décomposition de l’application globale en services axés sur un scénario indépendant constitue une meilleure approche à long terme.
 
@@ -66,7 +66,7 @@ Lorsque vous utilisez une approche de microservices, vous composez votre applica
 
 Il existe plusieurs définitions du terme « microservice ». Cependant, la plupart des ces caractéristiques de microservices font l’objet d’un large consensus :
 
-_ Ils encapsulent un scénario client ou d’entreprise. Quel problème résolvez-vous ?
+* Ils encapsulent un scénario client ou d’entreprise. Quel problème résolvez-vous ?
 * Ils sont développés par une petite équipe d’ingénierie.
 * Ils peuvent être écrits dans n’importe quel langage de programmation, en utilisant n’importe quelle infrastructure.
 * Ils se composent d’un code et éventuellement d’un état, gérés indépendamment en termes de contrôle des versions, de déploiement et de mise à l’échelle.
@@ -76,7 +76,7 @@ _ Ils encapsulent un scénario client ou d’entreprise. Quel problème résolve
 
 En résumé :
 
-***Les applications de microservice sont composées de services d’envergure modeste, évolutifs, dont les versions sont gérées indépendamment et qui communiquent entre eux via des protocoles standard avec des interfaces bien définies.** _
+***Les applications de microservice sont composées de services d’envergure modeste, évolutifs, dont les versions sont gérées indépendamment et qui communiquent entre eux via des protocoles standard avec des interfaces bien définies.***
 
 ### <a name="written-in-any-programming-language-using-any-framework"></a>Ils peuvent être écrits dans n’importe quel langage de programmation, en utilisant n’importe quelle infrastructure.
 
@@ -94,9 +94,9 @@ Revenons un instant à notre comparaison entre les approches monolithiques et de
 
 ![Stockage de l’état de la plateforme Service Fabric][Image2]
 
-_*_L’approche monolithique, située sur la gauche, possède une base de données unique et des niveaux de technologies spécifiques._*_
+***L’approche monolithique, située sur la gauche, possède une base de données unique et des niveaux de technologies spécifiques.***
 
-_*_L’approche des microservices, située sur la droite, comprend un graphique de microservices interconnectés, où l’état est généralement limité au microservice et aux différentes technologies utilisés._*_
+***L’approche des microservices, située sur la droite, comprend un graphique de microservices interconnectés, où l’état est généralement limité au microservice et aux différentes technologies utilisés.***
 
 Dans l’approche monolithique, l’application utilise généralement une base de données unique. L’avantage de l’utilisation d’une base de données est qu’il s’agit d’un seul emplacement, ce qui facilite le déploiement. Chaque composant peut avoir une seule table pour stocker son état. Les équipes doivent être rigoureuses en ce qui concerne la séparation de l’état, qui représente un véritable défi. Inévitablement, il est tentant d’ajouter une nouvelle colonne à une table cliente existante, de joindre les tables et de créer des dépendances au niveau de la couche de stockage. Une fois cela effectué, vous ne pouvez pas mettre à l’échelle les composants individuels.
 
@@ -136,18 +136,18 @@ Pour consulter notre guide sur la conception et le développement de microservic
 
 Azure Service Fabric est apparu lorsque Microsoft est passé de la fourniture de produits prêts à l’emploi, généralement monolithique, à la prestation de services. L’expérience de création et d’utilisation de services d’envergure tels qu’Azure SQL Database et Azure Cosmos DB a permis de façonner Service Fabric. La plateforme a évolué au fil du temps, à mesure de son adoption davantage de services. Service Fabric ne devait pas s’exécuter seulement dans Azure, mais également dans les déploiements Windows Server autonomes.
 
-_*_L’objectif de Service Fabric est de résoudre les problèmes complexes de création et d’exécution d’un service et d’utiliser les ressources d’infrastructure efficacement, afin que les équipes puissent résoudre les problèmes métier avec une approche de microservices._*_
+***L’objectif de Service Fabric est de résoudre les problèmes complexes de création et d’exécution d’un service et d’utiliser les ressources d’infrastructure efficacement, afin que les équipes puissent résoudre les problèmes métier avec une approche de microservices.***
 
 Cette courte vidéo présente Service Fabric et les microservices :
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Service-Fabric/player]
 
 Service Fabric vous aide à créer des applications avec une approche de microservices en fournissant ce qui suit :
 
-_ Une plateforme qui fournit des services système pour déployer, mettre à niveau, détecter les services en panne, router les messages, ainsi que pour gérer l’état et surveiller l’intégrité.
+* Une plateforme qui fournit des services système pour déployer, mettre à niveau, détecter les services en panne, router les messages, ainsi que pour gérer l’état et surveiller l’intégrité.
 * La possibilité de déployer des applications exécutées dans des conteneurs ou en tant que processus. Service Fabric est un conteneur et orchestrateur de processus.
 * Des API de programmation productives qui vous permettent de créer des applications en tant que microservices : [ASP.NET Core, Reliable Actors et Reliable Services](service-fabric-choose-framework.md). Par exemple, vous pouvez obtenir des informations sur l’intégrité et les diagnostics, ou tirer parti de la haute disponibilité intégrée.
 
-***Service Fabric est indifférent à la façon dont vous créez votre service. Vous pouvez utiliser la technologie de votre choix. Toutefois, il intègre des API de programmation qui facilitent la création de microservices.** _
+***Service Fabric est indifférent à la façon dont vous créez votre service. Vous pouvez utiliser la technologie de votre choix. Toutefois, il intègre des API de programmation qui facilitent la création de microservices.***
 
 ### <a name="migrating-existing-applications-to-service-fabric"></a>Migrer des applications existantes vers Service Fabric
 
@@ -161,7 +161,7 @@ Service Fabric vous permet de réutiliser le code existant, puis de le modernise
 
 ![Migration vers les microservices][Image3]
 
-N’oubliez pas, vous pouvez _vous arrêter et reprendre à chacune de ces étapes*. Vous n’avez pas à passer immédiatement à l’étape suivante. 
+N’oubliez pas, vous pouvez *vous arrêter et reprendre à chacune de ces étapes*. Vous n’avez pas à passer immédiatement à l’étape suivante. 
 
 Penchons-nous sur des exemples de chacune de ces étapes.
 

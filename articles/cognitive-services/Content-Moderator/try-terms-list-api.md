@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
 ms.openlocfilehash: f1dfe88741a304da92901d3997c746654336ef54
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85800038"
 ---
 # <a name="moderate-with-custom-term-lists-in-the-api-console"></a>Modérer avec des listes de termes personnalisées dans la console d’API
@@ -38,7 +38,7 @@ Vous pouvez utiliser l’API Gestion des listes pour effectuer les tâches suiva
 
 ## <a name="use-the-api-console"></a>Utiliser la console d’API
 
-Avant de pouvoir tester l’API dans la console en ligne, vous avez besoin de votre clé d’abonnement. Cette clé se trouve sous l’onglet **Paramètres**, dans la zone **Ocp-Apim-Subscription-Key**. Pour plus d’informations, consultez la [vue d’ensemble ](overview.md) de Content Moderator.
+Avant de pouvoir tester l’API dans la console en ligne, vous avez besoin de votre clé d’abonnement. Cette clé se trouve sous l’onglet **Paramètres**, dans la zone **Ocp-Apim-Subscription-Key**. Pour plus d’informations, consultez [What is Content Moderator?](overview.md) (Présentation de Content Moderator).
 
 ## <a name="refresh-search-index"></a>Actualiser l’index de recherche
 

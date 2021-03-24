@@ -32,7 +32,7 @@
       items:
         - name: Conteneurs
           items:
-            - name: Support pour les conteneurs
+            - name: Conteneurs Cognitive Services
               href: cognitive-services-container-support.md
             - name: Étiquettes d’image conteneur et notes de publication
               href: ./containers/container-image-tags.md

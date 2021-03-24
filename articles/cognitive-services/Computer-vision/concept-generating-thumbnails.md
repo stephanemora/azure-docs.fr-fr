@@ -12,10 +12,10 @@ ms.date: 03/11/2018
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 4874910f37b49990a659b48af0cf27921c3fcd5e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "68945236"
 ---
 # <a name="generating-smart-cropped-thumbnails-with-computer-vision"></a>Génération de miniatures rognées intelligemment avec Vision par ordinateur
@@ -42,7 +42,7 @@ La miniature générée varie considérablement selon les paramètres de hauteur
 
 Le tableau suivant montre les miniatures standard générées par l’API Vision par ordinateur pour les exemples d’images. Les miniatures ont été générées pour une hauteur et une largeur cibles de 50 pixels, avec l’option de rognage intelligent activée.
 
-| Image | Miniature |
+| Image | Thumbnail |
 |-------|-----------|
 |![Montagne en extérieur au coucher du soleil, avec la silhouette d’une personne](./Images/mountain_vista.png) | ![Miniature représentant une montagne en extérieur au coucher du soleil, avec la silhouette d’une personne](./Images/mountain_vista_thumbnail.png) |
 |![Fleur blanche sur fond vert](./Images/flower.png) | ![Miniature Analyse Vision fleur](./Images/flower_thumbnail.png) |

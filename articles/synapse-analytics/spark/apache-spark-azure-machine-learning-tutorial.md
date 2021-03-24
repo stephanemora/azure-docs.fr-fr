@@ -10,10 +10,10 @@ ms.date: 06/30/2020
 ms.author: midesa
 ms.reviewer: jrasnick
 ms.openlocfilehash: 89309cfe427183d594a5cc2f76332ae150d4f803
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102498674"
 ---
 # <a name="tutorial-train-a-model-in-python-with-automated-machine-learning"></a>Tutoriel : Entraîner un modèle dans Python avec le Machine Learning automatisé

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/21/2021
+ms.date: 03/15/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: rateller
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9430066ad92b4d0b69bd07c763e3f7b5d6e889a
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: 8e9052502eba71f025bb6724278b7001173c5217
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98693534"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103491615"
 ---
 # <a name="configure-and-enable-users-for-sms-based-authentication-using-azure-active-directory"></a>Configurer l’authentification utilisateur par SMS via Azure Active Directory 
 
@@ -34,9 +34,9 @@ Pour faire ce qui est décrit dans cet article, vous avez besoin des ressources 
     * Si nécessaire, [créez un locataire Azure Active Directory][create-azure-ad-tenant] ou [associez un abonnement Azure à votre compte][associate-azure-ad-tenant].
 * Vous devez disposer de privilèges d’*administrateur général* dans votre locataire Azure AD pour activer l’authentification par SMS.
 * Chaque utilisateur activé dans la stratégie de méthode d’authentification par SMS doit disposer d’une licence, même s’il ne l’utilise pas. Chaque utilisateur activé doit avoir l’une des licences Azure AD, EMS ou Microsoft 365 suivantes :
-    * [Azure AD Premium P1 ou P2][azuread-licensing]
     * [Microsoft 365 (M365) F1 ou F3][m365-firstline-workers-licensing]
     * [Enterprise Mobility + Security (EMS) E3 ou E5][ems-licensing] ou [Microsoft 365 (M365) E3 ou E5][m365-licensing]
+    * [Office 365 F3][o365-f3]
 
 ## <a name="limitations"></a>Limites
 
