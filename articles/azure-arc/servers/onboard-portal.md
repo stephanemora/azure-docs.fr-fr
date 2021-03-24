@@ -3,12 +3,12 @@ title: Connecter des machines hybrides à Azure à partir du portail Azure
 description: Cet article explique comment installer l’agent et connecter des machines à Azure à l’aide d’Azure Arc enabled servers dans le portail Azure.
 ms.date: 11/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 97962f7fd9816e398f017555d7043cf65db00ed8
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d7a89db7b8a42476a312a8f9a96c5ad230b140a2
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100584949"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183146"
 ---
 # <a name="connect-hybrid-machines-to-azure-from-the-azure-portal"></a>Connecter des machines hybrides à Azure à partir du portail Azure
 
@@ -22,7 +22,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="generate-the-installation-script-from-the-azure-portal"></a>Générer le script d’installation à partir du portail Azure
 
-Le script permettant d’automatiser le téléchargement et l’installation, et d’établir la connexion avec Azure Arc, est disponible sur le portail Azure. Pour effectuer le processus, procédez comme suit :
+Le script permettant d’automatiser le téléchargement et l’installation, et d’établir la connexion avec Azure Arc, est disponible sur le portail Azure. Pour terminer le processus, procédez comme suit :
 
 1. À partir de votre navigateur, accédez au [portail Azure](https://portal.azure.com).
 
@@ -38,7 +38,7 @@ Le script permettant d’automatiser le téléchargement et l’installation, et
 
     1. Dans la liste déroulante **Groupe de ressources**, sélectionnez le groupe de ressources à partir duquel sera gérée la machine.
     1. Dans la liste déroulante **Région**, sélectionnez la région Azure dans laquelle seront stockées les métadonnées des serveurs.
-    1. Dans la liste déroulante **Système d’exploitation**, sélectionnez le système d’exploitation sur lequel le script doit s’exécuter.
+    1. Dans la liste déroulante **Système d’exploitation**, sélectionnez le système d’exploitation sur lequel le script est configuré pour s’exécuter.
     1. Si la machine passe par un serveur proxy pour se connecter à Internet, spécifiez l’adresse IP du serveur proxy ou le nom et le numéro de port que la machine doit utiliser pour communiquer avec le serveur proxy. Saisissez la valeur au format `http://<proxyURL>:<proxyport>`.
     1. Sélectionnez **Suivant : Balises**.
 
@@ -164,8 +164,8 @@ Une fois que vous avez installé l’agent et que vous l’avez configuré pour 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour plus d’informations sur la résolution des problèmes, consultez le [guide Résoudre les problèmes de l’agent Connected Machine](troubleshoot-agent-onboard.md).
+- Pour plus d’informations sur la résolution des problèmes, consultez le [guide Résoudre les problèmes de l’agent Connected Machine](troubleshoot-agent-onboard.md).
 
-* Apprenez à gérer votre machine à l’aide d’[Azure Policy](../../governance/policy/overview.md), par exemple pour la [configuration invité](../../governance/policy/concepts/guest-configuration.md) des machines virtuelles, pour vérifier que l’ordinateur crée des rapports sur l’espace de travail Log Analytics prévu, pour activer l’analyse d’[Azure Monitor sur des machines virtuelles](../../azure-monitor/vm/vminsights-enable-policy.md) et bien plus encore.
+- Apprenez à gérer votre machine à l’aide d’[Azure Policy](../../governance/policy/overview.md), par exemple pour la [configuration invité](../../governance/policy/concepts/guest-configuration.md) des machines virtuelles, pour vérifier que l’ordinateur crée des rapports sur l’espace de travail Log Analytics prévu, pour activer l’analyse d’[Azure Monitor pour machines virtuelles](../../azure-monitor/vm/vminsights-enable-policy.md) et bien plus encore.
 
-* En savoir plus sur [l’agent Log Analytics](../../azure-monitor/agents/log-analytics-agent.md). L’agent Log Analytics pour Windows et Linux est nécessaire quand vous souhaitez collecter des données de supervision du système d’exploitation et de la charge de travail, gérer les ressources à l’aide de runbooks Automation ou de fonctionnalités comme Update Management, ou utiliser d’autres services Azure comme [Azure Security Center](../../security-center/security-center-introduction.md).
+- En savoir plus sur [l’agent Log Analytics](../../azure-monitor/agents/log-analytics-agent.md). L’agent Log Analytics pour Windows et Linux est nécessaire quand vous souhaitez collecter des données de supervision du système d’exploitation et de la charge de travail avec Azure Monitor pour machines virtuelles, gérer les ressources à l’aide de runbooks Automation ou de fonctionnalités comme Update Management, ou utiliser d’autres services Azure comme [Azure Security Center](../../security-center/security-center-introduction.md).

@@ -1,14 +1,14 @@
 ---
 title: Messagerie Azure Service Bus - files d’attente, rubriques et abonnements
 description: Cet article fournit une vue d’ensemble des entités de messagerie Azure Service Bus (file d’attente, rubriques et abonnements).
-ms.topic: article
-ms.date: 11/04/2020
-ms.openlocfilehash: 54b6a1fd2d4e8e5ef5bb6522374646257213e4b4
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.topic: conceptual
+ms.date: 02/16/2021
+ms.openlocfilehash: b8fb68509ad920fc6911290377f49b89ec610b58
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95791604"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101096335"
 ---
 # <a name="service-bus-queues-topics-and-subscriptions"></a>Files d’attente, rubriques et abonnements Service Bus
 Azure Service Bus prend en charge un ensemble de technologies interlogicielles Cloud orientées messages, notamment une mise en file d'attente des messages fiable et une messagerie de publication/abonnement durable. Ces capacités de messagerie répartie peuvent être considérées comme des fonctionnalités de messagerie découplée prenant en charge la publication-abonnement, le découplage temporel et les scénarios d’équilibrage de charge qui utilisent la charge de travail de messagerie Service Bus. La communication découplée présente de nombreux avantages. Par exemple, les clients et les serveurs peuvent se connecter en fonction des besoins et exécuter leurs opérations de manière asynchrone.
@@ -26,19 +26,19 @@ L’utilisation de files d’attente comme intermédiaire entre les producteurs 
 Vous pouvez créer des files d’attente en utilisant le [portail Azure](service-bus-quickstart-portal.md), [PowerShell](service-bus-quickstart-powershell.md), [l’interface CLI](service-bus-quickstart-cli.md) ou les [modèles Resource Manager](service-bus-resource-manager-namespace-queue.md). Ensuite, envoyez et recevez des messages à l’aide de clients écrits en [C#](service-bus-dotnet-get-started-with-queues.md), [Java](service-bus-java-how-to-use-queues.md), [Python](service-bus-python-how-to-use-queues.md), [JavaScript](service-bus-nodejs-how-to-use-queues.md), [PHP](service-bus-php-how-to-use-queues.md) et [Ruby](service-bus-ruby-how-to-use-queues.md). 
 
 ### <a name="receive-modes"></a>Modes de réception
-Service Bus propose deux modes différents de réception des messages : **ReceiveAndDelete** et **PeekLock**. En mode [ReceiveAndDelete](/dotnet/api/microsoft.azure.servicebus.receivemode), lorsque Service Bus reçoit la demande du consommateur, il marque ce message comme étant consommé et le renvoie à l’application du consommateur. Ce mode est le modèle le plus simple. Il fonctionne mieux pour les scénarios dans lesquels l’application peut tolérer l’absence de traitement d’un message en cas d’échec. Pour comprendre ce comportement, imaginez un scénario selon lequel le consommateur émet la demande de réception et subit un incident avant de la traiter. Comme Service Bus marque le message comme étant consommé, l’application commence à consommer des messages lors du redémarrage. Elle manquera le message qu’elle a consommé avant l’incident.
+Service Bus propose deux modes différents de réception des messages.
 
-En mode [PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode), la réception devient une opération en deux étapes, qui autorise une prise en charge des applications qui ne peuvent pas se permettre de manquer des messages. Lorsque Service Bus reçoit la demande, il effectue les opérations suivantes :
+- **Réception et suppression**. Dans ce mode, lorsque Service Bus reçoit la requête du consommateur, il marque le message comme étant consommé et le retourne à l’application du consommateur. Ce mode est le modèle le plus simple. Il fonctionne mieux pour les scénarios dans lesquels l’application peut tolérer l’absence de traitement d’un message en cas d’échec. Pour comprendre ce comportement, imaginez un scénario selon lequel le consommateur émet la demande de réception et subit un incident avant de la traiter. Comme Service Bus marque le message comme étant consommé, l’application commence à consommer des messages lors du redémarrage. Elle manquera le message qu’elle a consommé avant l’incident.
+- **Verrouillage du passage furtif**. Dans ce mode, la réception devient une opération en deux étapes, qui autorise une prise en charge des applications ne pouvant pas se permettre de manquer des messages. 
+    1. Le service recherche le message suivant à consommer, le **verrouille** pour veiller à ce que d’autres consommateurs ne le reçoivent pas, puis retourne le message à l’application. 
+    1. Une fois que l’application a terminé le traitement du message, elle demande à Service Bus d’effectuer la deuxième étape du processus de réception. Le service, par conséquent, **marque le message comme étant consommé**. 
 
-1. Recherche le message suivant à consommer.
-1. Le verrouille pour empêcher d’autres consommateurs de le recevoir.
-1. Ensuite, retourne le message à l’application. 
+        Si l’application ne parvient pas à traiter le message pour une raison quelconque, elle peut demander au service Service Bus d’**abandonner** le message. Service Bus **déverrouille** le message et le met à disposition pour être à nouveau reçu, soit par le même consommateur, soit par un consommateur concurrent. De plus, un **délai d’attente** est associé au verrou. Si l’application ne parvient pas à traiter le message dans le temps imparti, Service Bus déverrouille le message et le rend à nouveau disponible en réception.
 
-Une fois que l’application a terminé de traiter le message ou qu’elle l’a stocké de façon fiable pour un traitement ultérieur, elle exécute la deuxième étape du processus de réception en appelant [`CompleteAsync`](/dotnet/api/microsoft.azure.servicebus.queueclient.completeasync) sur le message. Lorsque Service Bus reçoit la requête **CompleteAsync**, il marque le message comme étant consommé.
+        Si l’application subit un incident après le traitement du message, mais avant de demander au service Service Bus de clôturer le message, celui-ci livre à nouveau le message à l’application lorsqu’elle redémarre. Ce processus est souvent appelé le traitement **Au moins une fois**. Autrement dit, chaque message est traité au moins une fois. Toutefois, dans certaines circonstances, un même message peut être remis une nouvelle fois. Si votre scénario ne peut pas tolérer un traitement dupliqué, ajoutez une logique supplémentaire dans votre application pour détecter les doublons. Pour en savoir plus, consultez [Détection des doublons](duplicate-detection.md). Cette fonctionnalité est connue sous le nom de traitement **une seule fois**.
 
-Si l’application ne peut pas traiter le message pour une raison quelconque, elle peut appeler la méthode [`AbandonAsync`](/dotnet/api/microsoft.azure.servicebus.queueclient.abandonasync) sur le message reçu (au lieu de [`CompleteAsync`](/dotnet/api/microsoft.azure.servicebus.queueclient.completeasync)). Cette méthode permet à Service Bus de déverrouiller le message et de faire en sorte qu’il puisse être à nouveau reçu, soit par le même consommateur, soit par un consommateur concurrent. Ensuite, il y a un délai d’attente associé au verrou. Si l’application ne parvient pas à traiter le message dans le temps imparti, Service Bus déverrouille le message et le rend à nouveau disponible en réception.
-
-Si l’application subit un incident après le traitement du message, mais avant qu’elle appelle [`CompleteAsync`](/dotnet/api/microsoft.azure.servicebus.queueclient.completeasync), Service Bus livre à nouveau le message à l’application lorsqu’elle redémarre. Ce processus est souvent appelé le traitement **Au moins une fois**. Autrement dit, chaque message est traité au moins une fois. Toutefois, dans certaines circonstances, un même message peut être remis une nouvelle fois. Si votre scénario ne peut pas tolérer un traitement dupliqué, ajoutez une logique supplémentaire dans votre application pour détecter les doublons. Pour ce faire, vous pouvez utiliser la propriété [MessageId](/dotnet/api/microsoft.azure.servicebus.message.messageid) du message, qui reste constante entre les tentatives de remise. Cette fonctionnalité est connue sous le nom de traitement **une seule fois**.
+        > [!NOTE]
+        > Pour plus d’informations sur ces deux modes, consultez la rubrique sur le [Règlement des opérations de réception](message-transfers-locks-settlement.md#settling-receive-operations).
 
 ## <a name="topics-and-subscriptions"></a>Rubriques et abonnements
 Une file d’attente autorise le traitement d’un message par un seul consommateur. Contrairement aux files d’attente, les rubriques et les abonnements fournissent une forme de communication de type un-à-plusieurs dans un modèle de **publication et abonnement**. Cela est utile pour la mise à l’échelle d’un grand nombre de destinataires. Chaque message publié est mis à disposition de tous les abonnements inscrits auprès de la rubrique. L’éditeur envoie un message à une rubrique et un ou plusieurs abonnés reçoivent une copie du message, en fonction des règles de filtre définies pour ces abonnements. Les abonnements peuvent utiliser des filtres supplémentaires pour restreindre les messages qu’ils souhaitent recevoir. Les éditeurs envoient des messages à une rubrique de la même façon qu’ils envoient des messages à une file d’attente. Toutefois, les consommateurs ne reçoivent pas de messages directement de la rubrique. Au lieu de cela, les consommateurs reçoivent des messages des abonnements de la rubrique. Un abonnement à une rubrique ressemble à une file d’attente virtuelle recevant des copies des messages envoyés à la rubrique. Les consommateurs reçoivent des messages d’un abonnement de la même manière qu’ils reçoivent des messages d’une file d’attente.
@@ -55,7 +55,7 @@ Pour un exemple complet et concret, voir [TopicSubscriptionWithRuleOperationsSam
 
 Pour plus d’informations sur les valeurs de filtre possibles, consultez la documentation des classes [SqlFilter](/dotnet/api/microsoft.azure.servicebus.sqlfilter) et [SqlRuleAction](/dotnet/api/microsoft.azure.servicebus.sqlruleaction).
 
-## <a name="java-message-service-jms-20-entities-preview"></a>Entités de Java Message Service (JMS) 2.0 (préversion)
+## <a name="java-message-service-jms-20-entities"></a>Entités Java message service (JMS) 2.0
 Les entités suivantes sont accessibles via l’API Java Message Service (JMS) 2.0.
 
   * Files d’attente temporaires
