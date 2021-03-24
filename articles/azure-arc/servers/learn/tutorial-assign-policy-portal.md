@@ -4,10 +4,10 @@ description: Dans ce tutoriel, vous allez utiliser le portail Azure pour créer 
 ms.topic: tutorial
 ms.date: 10/07/2020
 ms.openlocfilehash: 9a07e490525ce532f8f843b30b3b83715e65ce3c
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91826588"
 ---
 # <a name="tutorial-create-a-policy-assignment-to-identify-non-compliant-resources"></a>Tutoriel : Créer une affectation de stratégie pour identifier les ressources non conformes
@@ -30,11 +30,11 @@ Dans ce tutoriel, vous créez une affectation de stratégie et vous affectez la 
 
 1. Sélectionnez **Affectations** du côté gauche de la page Azure Policy. Une affectation est une stratégie qui a été affectée pour être appliquée dans une étendue spécifique.
 
-   :::image type="content" source="./media/tutorial-assign-policy-portal/select-assignment.png" alt-text="Rechercher Stratégie dans Tous les services" border="false":::
+   :::image type="content" source="./media/tutorial-assign-policy-portal/select-assignment.png" alt-text="Page de sélection des affectations à partir de la page de vue d’ensemble de la stratégie" border="false":::
 
-1. Sélectionnez **Assigner une stratégie** en haut de la page**Stratégie - Affectations**.
+1. Sélectionnez **Assigner une stratégie** en haut de la page **Stratégie - Affectations**.
 
-   :::image type="content" source="./media/tutorial-assign-policy-portal/select-assign-policy.png" alt-text="Rechercher Stratégie dans Tous les services" border="false":::
+   :::image type="content" source="./media/tutorial-assign-policy-portal/select-assign-policy.png" alt-text="Affecter une définition de stratégie à partir de la page Affectations" border="false":::
 
 1. Dans la page **Assigner une stratégie**, sélectionnez **l’étendue** en cliquant sur les points de suspension et en sélectionnant un groupe d’administration ou un abonnement. Sélectionnez éventuellement un groupe de ressources. Une étendue détermine les ressources ou le regroupement de ressources sur lequel la stratégie est appliquée. Cliquez ensuite sur **Sélectionner** dans le bas de la page **Étendue**.
 
@@ -52,7 +52,7 @@ Dans ce tutoriel, vous créez une affectation de stratégie et vous affectez la 
 
 1. Dans la liste des définitions de stratégie, recherchez la définition _\[Préversion] : L’agent Log Analytics doit être installé sur vos machines Azure Arc Windows_ si vous avez activé l’agent Serveurs avec Arc sur une machine Windows. Pour un ordinateur Linux, recherchez la définition de stratégie correspondante _\[Préversion] : L’agent Log Analytics doit être installé sur vos machines Azure Arc Linux_. Cliquez sur cette stratégie, puis sur **Sélectionner**.
 
-   :::image type="content" source="./media/tutorial-assign-policy-portal/select-available-definition.png" alt-text="Rechercher Stratégie dans Tous les services" border="false":::
+   :::image type="content" source="./media/tutorial-assign-policy-portal/select-available-definition.png" alt-text="Rechercher la définition de stratégie appropriée" border="false":::
 
 1. Le **Nom de l’attribution** est automatiquement rempli avec le nom de stratégie que vous avez sélectionné, mais vous pouvez le modifier. Pour cet exemple, laissez _\[Préversion] : L’agent Log Analytics doit être installé sur vos machines Azure Arc Windows_ ou _\[Préversion] : L’agent Log Analytics doit être installé sur vos machines Azure Arc Linux_ en fonction de celui que vous avez sélectionné. Vous pouvez également ajouter une **Description** (facultatif). La description fournit des détails sur cette affectation de stratégie.
    Le champ **Affectée par** est automatiquement renseigné en fonction de l’utilisateur connecté. Ce champ étant facultatif, vous pouvez entrer des valeurs personnalisées.
@@ -67,7 +67,7 @@ Vous êtes maintenant prêt à identifier les ressources non conformes pour comp
 
 Sélectionnez **Conformité** dans la partie gauche de la page. Recherchez ensuite l’affectation de stratégie **\[Préversion] : L’agent Log Analytics doit être installé sur vos machines Azure Arc Windows** ou **\[Préversion] : L’agent Log Analytics doit être installé sur vos machines Azure Arc Linux** que vous avez créée.
 
-:::image type="content" source="./media/tutorial-assign-policy-portal/policy-compliance.png" alt-text="Rechercher Stratégie dans Tous les services" border="false":::
+:::image type="content" source="./media/tutorial-assign-policy-portal/policy-compliance.png" alt-text="Détails de la conformité dans la page Conformité à la stratégie" border="false":::
 
 Si des ressources existantes ne sont pas conformes à cette nouvelle affectation, elles apparaissent sous **Ressources non conformes**.
 
@@ -91,7 +91,7 @@ Pour supprimer l’affectation créée, procédez comme suit :
 
 1. Cliquez avec le bouton droit sur l’affectation de stratégie, puis sélectionnez **Supprimer l’attribution**.
 
-   :::image type="content" source="./media/tutorial-assign-policy-portal/delete-assignment.png" alt-text="Rechercher Stratégie dans Tous les services" border="false":::
+   :::image type="content" source="./media/tutorial-assign-policy-portal/delete-assignment.png" alt-text="Supprimer une affectation dans la page Conformité" border="false":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

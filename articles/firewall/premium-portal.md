@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/16/2021
 ms.author: victorh
 ms.openlocfilehash: 3d56fc73faeb0d48ba7e5b21449c61d6213afa40
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100549414"
 ---
 # <a name="azure-firewall-premium-preview-in-the-azure-portal"></a>Pare-feu Azure Premium - Préversion dans le portail Azure

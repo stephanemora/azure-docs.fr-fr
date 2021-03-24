@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 11/07/2019
 ms.author: Zhchia
 ms.openlocfilehash: 46766a7439185714648572f3f1b9d51ef96abba6
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94357468"
 ---
 # <a name="tutorial-configure-netskope-user-authentication-for-automatic-user-provisioning"></a>Tutoriel : Configurer Netskope User Authentication pour l’approvisionnement automatique d’utilisateurs
@@ -54,19 +54,19 @@ Avant de configurer et d’activer l’approvisionnement automatique d’utilisa
 
     ![Console d’administration Netskope User Authentication](media/netskope-administrator-console-provisioning-tutorial/admin.png)
 
-2.  Accédez à **Outils**. Dans le menu **Outils** , accédez à **Outils Active Directory > INTÉGRATION SCIM**.
+2.  Accédez à **Outils**. Dans le menu **Outils**, accédez à **Outils Active Directory > INTÉGRATION SCIM**.
 
     ![Outils Netskope User Authentication](media/netskope-administrator-console-provisioning-tutorial/tools.png)
 
     ![Netskope User Authentication - Ajouter SCIM](media/netskope-administrator-console-provisioning-tutorial/directory.png)
 
-3. Défilez vers le bas, puis cliquez sur le bouton **Ajouter un jeton**. Dans la boîte de dialogue **Ajouter un nom de client OAuth** , indiquez un **NOM DE CLIENT** , puis cliquez sur le bouton **Enregistrer**.
+3. Défilez vers le bas, puis cliquez sur le bouton **Ajouter un jeton**. Dans la boîte de dialogue **Ajouter un nom de client OAuth**, indiquez un **NOM DE CLIENT**, puis cliquez sur le bouton **Enregistrer**.
 
     ![Netskope User Authentication - Ajouter un jeton](media/netskope-administrator-console-provisioning-tutorial/add.png)
 
     ![Nom du client Netskope User Authentication](media/netskope-administrator-console-provisioning-tutorial/clientname.png)
 
-3.  Copiez l’ **URL du serveur SCIM** et le **JETON**. Ces valeurs doivent être entrées dans les champs URL de locataire et Jeton secret respectivement de l’onglet Approvisionnement de votre application Netskope User Authentication application sur le portail Azure.
+3.  Copiez l’**URL du serveur SCIM** et le **JETON**. Ces valeurs doivent être entrées dans les champs URL de locataire et Jeton secret respectivement de l’onglet Approvisionnement de votre application Netskope User Authentication application sur le portail Azure.
 
     ![Netskope User Authentication - Créer un jeton](media/netskope-administrator-console-provisioning-tutorial/token.png)
 
@@ -80,7 +80,7 @@ Avant de configurer Netskope User Authentication pour l’approvisionnement auto
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
-2. Accédez à **Applications d’entreprise** , puis sélectionnez **Toutes les applications**.
+2. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -88,7 +88,7 @@ Avant de configurer Netskope User Authentication pour l’approvisionnement auto
 
     ![Bouton Nouvelle application](common/add-new-app.png)
 
-4. Dans la zone de recherche, entrez **Netskope User Authentication** , sélectionnez **Netskope User Authentication** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+4. Dans la zone de recherche, entrez **Netskope User Authentication**, sélectionnez **Netskope User Authentication** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
     ![Netskope User Authentication dans la liste des résultats](common/search-new-app.png)
 
@@ -104,7 +104,7 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 ### <a name="to-configure-automatic-user-provisioning-for-netskope-user-authentication-in-azure-ad"></a>Pour configurer l’approvisionnement automatique d’utilisateurs pour Netskope User Authentication dans Azure AD :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise** , puis **Toutes les applications**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -120,29 +120,29 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
     ![Capture d’écran de la liste déroulante Mode de provisionnement avec l’option Automatique en évidence.](common/provisioning-automatic.png)
 
-5. Dans la section **Informations d’identification Administrateur** , entrez la valeur **URL du serveur SCIM** récupérée précédemment dans **URL de locataire**. Saisissez la valeur de **TOKEN** récupérée précédemment dans **Jeton secret**. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à Netskope User Authentication. Si la connexion échoue, vérifiez que votre compte Netskope User Authentication dispose d’autorisations d’administrateur et réessayez.
+5. Dans la section **Informations d’identification Administrateur**, entrez la valeur **URL du serveur SCIM** récupérée précédemment dans **URL de locataire**. Saisissez la valeur de **TOKEN** récupérée précédemment dans **Jeton secret**. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à Netskope User Authentication. Si la connexion échoue, vérifiez que votre compte Netskope User Authentication dispose d’autorisations d’administrateur et réessayez.
 
     ![URL de locataire + Jeton](common/provisioning-testconnection-tenanturltoken.png)
 
-6. Dans le champ **E-mail de notification** , entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement, puis cochez la case **Envoyer une notification par e-mail en cas de défaillance**.
+6. Dans le champ **E-mail de notification**, entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement, puis cochez la case **Envoyer une notification par e-mail en cas de défaillance**.
 
     ![E-mail de notification](common/provisioning-notification-email.png)
 
 7. Cliquez sur **Enregistrer**.
 
-8. Dans la section **Mappages** , sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec Netskope User Authentication**.
+8. Dans la section **Mappages**, sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec Netskope User Authentication**.
 
     ![Mappages d’utilisateurs Netskope User Authentication](media/netskope-administrator-console-provisioning-tutorial/usermappings.png)
 
-9. Dans la section **Mappages des attributs** , passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et Netskope User Authentication. Les attributs sélectionnés en tant que propriétés de **Correspondance** servent à faire correspondre les comptes utilisateur dans Netskope User Authentication, en vue d’opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
+9. Dans la section **Mappages des attributs**, passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et Netskope User Authentication. Les attributs sélectionnés en tant que propriétés de **Correspondance** servent à faire correspondre les comptes utilisateur dans Netskope User Authentication, en vue d’opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
     ![Attributs utilisateur Netskope User Authentication](media/netskope-administrator-console-provisioning-tutorial/userattributes.png)
 
-10. Dans la section **Mappages** , sélectionnez **Synchroniser les groupes Azure Active Directory avec Netskope User Authentication**.
+10. Dans la section **Mappages**, sélectionnez **Synchroniser les groupes Azure Active Directory avec Netskope User Authentication**.
 
     ![Mappages de groupes Netskope User Authentication](media/netskope-administrator-console-provisioning-tutorial/groupmappings.png)
 
-11. Dans la section **Mappages des attributs** , passez en revue les attributs de groupe qui sont synchronisés entre Azure AD et Netskope User Authentication. Les attributs sélectionnés en tant que propriétés de **Correspondance** servent à faire correspondre les groupes dans Netskope User Authentication, en vue d’opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
+11. Dans la section **Mappages des attributs**, passez en revue les attributs de groupe qui sont synchronisés entre Azure AD et Netskope User Authentication. Les attributs sélectionnés en tant que propriétés de **Correspondance** servent à faire correspondre les groupes dans Netskope User Authentication, en vue d’opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
     ![Attributs des groupes Netskope User Authentication](media/netskope-administrator-console-provisioning-tutorial/groupattributes.png)
 

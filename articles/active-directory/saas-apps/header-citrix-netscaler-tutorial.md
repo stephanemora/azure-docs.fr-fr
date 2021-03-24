@@ -12,15 +12,15 @@ ms.topic: tutorial
 ms.date: 12/16/2020
 ms.author: jeedes
 ms.openlocfilehash: 9cab0597aeb3bc28f391de558240e5d894f5a49c
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98735229"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-citrix-adc-header-based-authentication"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Citrix ADC (authentification par en-tête)
 
-Ce tutoriel explique comment intégrer Citrix ADC à Azure Active Directory (Azure AD). Quand vous intégrez Citrix ADC à Azure AD, vous pouvez :
+Ce tutoriel explique comment intégrer Citrix ADC à Azure Active Directory (Azure AD). Quand vous intégrez Citrix ADC avec Azure AD, vous pouvez :
 
 * Contrôler dans Azure AD qui a accès à Citrix ADC.
 * Permettre à vos utilisateurs de se connecter automatiquement à Citrix ADC avec leur compte Azure AD.
@@ -185,7 +185,7 @@ Pour créer un serveur virtuel :
     
 1. Sélectionnez **Ajouter**.
 
-    ![Configuration de Citrix ADC - Volet Services](./media/header-citrix-netscaler-tutorial/web01.png)
+    ![Configuration de Citrix ADC - volet Services](./media/header-citrix-netscaler-tutorial/web01.png)
 
 1. Définissez les valeurs suivantes pour le serveur web qui exécute les applications :
 
@@ -213,7 +213,7 @@ Pour configurer l’équilibrage de charge :
 
 1. Sélectionnez **OK**.
 
-    ![Configuration de Citrix ADC - Volet Paramètres de base](./media/header-citrix-netscaler-tutorial/load01.png)
+    ![Configuration de Citrix ADC - volet Paramètres de base](./media/header-citrix-netscaler-tutorial/load01.png)
 
 ### <a name="bind-the-virtual-server"></a>Lier le serveur virtuel
 
@@ -221,11 +221,11 @@ Pour lier l’équilibreur de charge au serveur virtuel :
 
 1. Dans le volet **Services et groupes de services**, sélectionnez **Aucune liaison de service de serveur virtuel d’équilibrage de charge**.
 
-   ![Configuration de Citrix ADC - Volet Liaison de service de serveur virtuel d’équilibrage de charge](./media/header-citrix-netscaler-tutorial/bind01.png)
+   ![Configuration de Citrix ADC - volet Liaison de service de serveur virtuel d’équilibrage de charge](./media/header-citrix-netscaler-tutorial/bind01.png)
 
 1. Vérifiez les paramètres comme indiqué dans la capture d’écran suivante, puis sélectionnez **Fermer**.
 
-   ![Configuration de Citrix ADC - Vérifier la liaison des services de serveur virtuel](./media/header-citrix-netscaler-tutorial/bind02.png)
+   ![Configuration de Citrix ADC - vérifier la liaison des services de serveur virtuel](./media/header-citrix-netscaler-tutorial/bind02.png)
 
 ### <a name="bind-the-certificate"></a>Lier le certificat
 
@@ -233,11 +233,11 @@ Pour publier ce service en tant que TLS, liez le certificat serveur, puis testez
 
 1. Sous **Certificat**, sélectionnez **Aucun certificat de serveur**.
 
-   ![Configuration de Citrix ADC - Volet Certificat de serveur](./media/header-citrix-netscaler-tutorial/bind03.png)
+   ![Configuration de Citrix ADC - volet Certificat de serveur](./media/header-citrix-netscaler-tutorial/bind03.png)
 
 1. Vérifiez les paramètres comme indiqué dans la capture d’écran suivante, puis sélectionnez **Fermer**.
 
-   ![Configuration de Citrix ADC - Vérifier le certificat](./media/header-citrix-netscaler-tutorial/bind04.png)
+   ![Configuration de Citrix ADC - vérifier le certificat](./media/header-citrix-netscaler-tutorial/bind04.png)
 
 ## <a name="citrix-adc-saml-profile"></a>Profil SAML de Citrix ADC
 
@@ -257,7 +257,7 @@ Pour créer une stratégie d’authentification :
     * **Action** : Entrez **SAML**, puis sélectionnez **Ajouter**.
     * **Expression** :  Entrez **true**.     
     
-    ![Configuration de Citrix ADC - Volet Créer une stratégie d’authentification](./media/header-citrix-netscaler-tutorial/policy01.png)
+    ![Configuration de Citrix ADC - volet Créer une stratégie d’authentification](./media/header-citrix-netscaler-tutorial/policy01.png)
 
 1. Sélectionnez **Create** (Créer).
 
@@ -277,7 +277,7 @@ Pour créer un serveur SAML d’authentification, accédez au volet **Créer un 
 
 1. Sélectionnez **Create** (Créer).
 
-![Configuration de Citrix ADC - Volet Créer un serveur SAML d’authentification](./media/header-citrix-netscaler-tutorial/server01.png)
+![Configuration de Citrix ADC - volet Créer un serveur SAML d’authentification](./media/header-citrix-netscaler-tutorial/server01.png)
 
 ### <a name="create-an-authentication-virtual-server"></a>Créer un serveur virtuel d’authentification
 
@@ -303,15 +303,15 @@ Modifiez deux sections pour le serveur virtuel d’authentification :
 
 1.  Dans le volet **Stratégies d’authentification avancées**, sélectionnez **Aucune stratégie d’authentification**.
 
-    ![Configuration de Citrix ADC - Volet Stratégies d’authentification avancées](./media/header-citrix-netscaler-tutorial/virtual01.png)
+    ![Configuration de Citrix ADC - volet Stratégies d’authentification avancées](./media/header-citrix-netscaler-tutorial/virtual01.png)
 
 1. Dans le volet **Liaison des stratégies**, sélectionnez la stratégie d’authentification, puis sélectionnez **Lier**.
 
-    ![Configuration de Citrix ADC - Volet Liaison des stratégies](./media/header-citrix-netscaler-tutorial/virtual02.png)
+    ![Configuration de Citrix ADC - volet Liaison des stratégies](./media/header-citrix-netscaler-tutorial/virtual02.png)
 
 1. Dans le volet **Serveurs virtuels basés sur un formulaire**, sélectionnez **Aucun serveur virtuel d’équilibrage de charge**.
 
-    ![Configuration de Citrix ADC - Volet Serveurs virtuels basés sur un formulaire](./media/header-citrix-netscaler-tutorial/virtual03.png)
+    ![Configuration de Citrix ADC - volet Serveurs virtuels basés sur un formulaire](./media/header-citrix-netscaler-tutorial/virtual03.png)
 
 1. Dans **Nom de domaine complet d’authentification**, entrez un nom de domaine complet (FQDN) (obligatoire).
 
@@ -319,7 +319,7 @@ Modifiez deux sections pour le serveur virtuel d’authentification :
 
 1. Sélectionnez **Lier**.
 
-    ![Configuration de Citrix ADC - Volet Liaison de serveur virtuel d’équilibrage de charge](./media/header-citrix-netscaler-tutorial/virtual04.png)
+    ![Configuration de Citrix ADC - volet Liaison de serveur virtuel d’équilibrage de charge](./media/header-citrix-netscaler-tutorial/virtual04.png)
 
     > [!NOTE]
     > Veillez à sélectionner **Terminé** dans le volet **Configuration du serveur virtuel d’authentification**.
@@ -388,7 +388,7 @@ Pour lier une stratégie de réécriture à un serveur virtuel à l’aide de l�
 
 1.  Cochez la case située en regard du nom de la stratégie que vous voulez lier à ce serveur virtuel.
  
-    ![Configuration de Citrix ADC - Volet Liaison de stratégie de trafic de serveur virtuel d’équilibrage de charge](./media/header-citrix-netscaler-tutorial/header08.png)
+    ![Configuration de Citrix ADC - volet Liaison de stratégie de trafic de serveur virtuel d’équilibrage de charge](./media/header-citrix-netscaler-tutorial/header08.png)
 
 1. Dans la boîte de dialogue **Choisir un type** :
 
@@ -418,18 +418,18 @@ Pour lier une stratégie de réécriture à un serveur virtuel à l’aide de l�
 
 ### <a name="create-a-citrix-adc-test-user"></a>Créer un utilisateur de test Citrix ADC
 
-Dans cette section, un utilisateur appelé B.Simon est créé dans Citrix ADC. Citrix ADC prend en charge le provisionnement d’utilisateurs juste-à-temps, option activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. S’il n’existe pas encore d’utilisateur dans Citrix ADC, un utilisateur est créé après l’authentification.
+Dans cette section, un utilisateur appelé B.Simon est créé dans Citrix ADC. Citrix ADC prend en charge l’attribution d’utilisateurs juste-à-temps, qui est activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. Si l’utilisateur souhaité n’existe pas déjà dans Citrix ADC, il est créé après l’authentification.
 
 > [!NOTE]
-> Si vous avez besoin de créer un utilisateur manuellement, contactez l’[équipe du support technique Citrix ADC](https://www.citrix.com/contact/technical-support.html).
+> Si vous avez besoin de créer un utilisateur manuellement, contactez l’[équipe du support technique de Citrix ADC](https://www.citrix.com/contact/technical-support.html).
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 
 Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
 
-* Cliquez sur **Tester cette application** dans le portail Azure. Vous êtes alors redirigé vers l’URL de connexion Citrix ADC à partir de laquelle vous pouvez lancer le flux de connexion. 
+* Cliquez sur **Tester cette application** dans le portail Azure. Cette opération redirige vers l’URL de connexion Citrix ADC, où vous pouvez lancer le processus de connexion. 
 
-* Accédez directement à l’URL de connexion Citrix ADC pour y lancer le flux de connexion.
+* Accédez directement à l’URL de connexion Citrix ADC pour lancer le processus de connexion.
 
 * Vous pouvez utiliser Mes applications de Microsoft. Le fait de cliquer sur la vignette Citrix ADC dans Mes applications vous redirige vers l’URL de connexion Citrix ADC. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
 

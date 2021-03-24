@@ -5,15 +5,15 @@ keywords: azure app service, application web, linux, oss
 author: msangapu-msft
 ms.assetid: 66f9988f-8ffa-414a-9137-3a9b15a5573c
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 02/23/2021
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 7178b8079bbb2411e0b38c3ef59a9981fb2d55be
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: 8e9dd76b60d05b9fa5e3a4aaf7ccc6663f4a969b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97005237"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709034"
 ---
 # <a name="open-an-ssh-session-to-a-linux-container-in-azure-app-service"></a>Ouvrir une session SSH sur un conteneur Linux dans Azure App Service
 
@@ -49,6 +49,13 @@ az webapp create-remote-connection --subscription <subscription-id> --resource-g
 
 > [!TIP]
 > `&` à la fin de la commande est simplement présent pour des raisons pratiques si vous utilisez Cloud Shell. Il exécute le processus en arrière-plan afin que vous puissiez exécuter la commande suivante dans le même interpréteur de commandes.
+
+> [!NOTE]
+> Si cette commande échoue, vérifiez que le [débogage à distance](https://medium.com/@auchenberg/introducing-remote-debugging-of-node-js-apps-on-azure-app-service-from-vs-code-in-public-preview-9b8d83a6e1f0) est *désactivé* à l’aide de la commande suivante :
+>
+> ```azurecli-interactive
+> az webapp config set --resource-group <resource-group-name> -n <app-name> --remote-debugging-enabled=false
+> ```
 
 La sortie de commande vous donne les informations dont vous avez besoin pour ouvrir une session SSH.
 

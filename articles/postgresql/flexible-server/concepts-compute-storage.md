@@ -5,13 +5,13 @@ author: lfittl-msft
 ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/22/2020
-ms.openlocfilehash: a3c8c8b2316a206ba837c0b32fd699dc0ed1eeea
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.date: 02/19/2021
+ms.openlocfilehash: b76b6ff788d3d7f44db33af96944d528282f0ac7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100519386"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101712213"
 ---
 # <a name="compute-and-storage-options-in-azure-database-for-postgresql---flexible-server"></a>Options de calcul et de stockage dans le serveur flexible Azure Database pour PostgreSQL
 
@@ -119,6 +119,9 @@ Vous pouvez surveiller votre consommation d’E/S dans le Portail Azure ou à l�
 |E64s_v3             |18 000 E/S par seconde                               |120|240|500 |1100|2300 |5 000 |7500 |7500 |16000 |18000 |
 
 Lorsqu’elles sont marquées d’un \*, les E/S par seconde sont limitées par le type de machine virtuelle que vous avez sélectionné. Sinon, les E/S par seconde sont limitées par la taille de stockage sélectionnée.
+
+>[!NOTE]
+> Vous pouvez constater des IOPS supérieures dans les métriques en raison du bursting de disque. Pour plus d’informations, consultez la [documentation](https://docs.microsoft.com/azure/virtual-machines/disk-bursting#disk-level-bursting). 
 
 ### <a name="maximum-io-bandwidth-mibsec-for-your-configuration"></a>Bande passante d’E/S maximale (Mio/s) pour votre configuration
 

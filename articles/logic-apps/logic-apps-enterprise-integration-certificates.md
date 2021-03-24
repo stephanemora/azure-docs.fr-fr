@@ -9,10 +9,10 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/17/2018
 ms.openlocfilehash: 03fc17c0d071cef4c8de92c6b50d60d961d18aef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91565257"
 ---
 # <a name="improve-security-for-b2b-messages-by-using-certificates"></a>Améliorer la sécurité des messages B2B à l’aide de certificats
@@ -44,7 +44,7 @@ Pour utiliser un *certificat public* dans vos applications logiques avec fonctio
 
 3. Sous **Certificats**, choisissez **Ajouter**. Sous **Ajouter un certificat**, fournissez les détails de votre certificat. Une fois que vous avez terminé, sélectionnez **OK**.
 
-   | Propriété | Valeur | Description | 
+   | Propriété | Value | Description | 
    |----------|-------|-------------|
    | **Nom** | <*certificate-name*> | Le nom de votre certificat, « publicCert » dans cet exemple | 
    | **Type de certificat** | Public | Le type de votre certificat |
@@ -83,7 +83,7 @@ Une fois que vous avez défini les propriétés dans les [contrats](logic-apps-e
 
 5. Sous **Certificats**, choisissez **Ajouter**. Sous **Ajouter un certificat**, fournissez les détails de votre certificat. Une fois que vous avez terminé, sélectionnez **OK**.
 
-   | Propriété | Valeur | Description | 
+   | Propriété | Value | Description | 
    |----------|-------|-------------|
    | **Nom** | <*certificate-name*> | Le nom de votre certificat, « privateCert » dans cet exemple | 
    | **Type de certificat** | Privé | Le type de votre certificat |

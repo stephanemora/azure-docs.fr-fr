@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 06/08/2020
 ms.custom: mvc, devx-track-azurepowershell
 ms.openlocfilehash: 91351c0b2982c6ee0e96cc1433c0fadf67e3bcc0
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96010654"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql---single-server-using-powershell"></a>Démarrage rapide : Créer une base de données Azure Database pour PostgreSQL (serveur unique) à l’aide de PowerShell
@@ -98,7 +98,7 @@ Choisissez le niveau tarifaire De base si votre charge de travail n’a pas beso
 
 ## <a name="configure-a-firewall-rule"></a>Configurer une règle de pare-feu
 
-Créez une règle de pare-feu au niveau du serveur Azure Database pour PostgreSQL en utilisant l’applet de commande `New-AzPostgreSqlFirewallRule`. Une règle de pare-feu au niveau du serveur permet à une application externe, comme l’outil en ligne de commande `psql` ou PostgreSQL Workbench, de se connecter à votre serveur par le biais du pare-feu du service Azure Database pour PostgreSQL.
+Créez une règle de pare-feu au niveau du serveur Azure Database pour PostgreSQL en utilisant l’applet de commande `New-AzPostgreSqlFirewallRule`. Une règle de pare-feu au niveau du serveur permet à une application externe, comme l’outil de ligne de commande `psql` ou PostgreSQL Workbench, de se connecter à votre serveur via le pare-feu du service Azure Database pour PostgreSQL.
 
 L’exemple suivant crée une règle de pare-feu appelée **AllowMyIP** qui autorise les connexions depuis une adresse IP spécifique, 192.168.0.1. Remplacez une adresse IP ou une plage d’adresses IP qui correspond à l’emplacement à partir duquel vous vous connectez.
 

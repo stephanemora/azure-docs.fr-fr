@@ -4,15 +4,15 @@ description: En savoir plus sur l’architecture de la solution, la préparation
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 01/03/2021
+ms.date: 02/18/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 4ceedf4d05c6f92e5c32da95f8b54fc6c95de01c
-ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
+ms.openlocfilehash: 0f85eebbfa8fcdfd9ad6e31a564f27b5d9bfbdfc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100526508"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733242"
 ---
 # <a name="about-azure-defender-for-iot-network-setup"></a>À propos de la configuration du réseau d’Azure Defender pour IoT
 
@@ -22,7 +22,7 @@ Azure Defender pour IoT assure la surveillance continue des menaces ICS et la d
 
 **Console de gestion locale Defender pour IoT** : La console de gestion locale fournit une vue consolidée de tous les périphériques réseau. Elle fournit une vue en temps réel des principaux indicateurs de risque IoT et OT et des alertes dans toutes vos installations. Étroitement intégrée à vos workflows SOC et à vos guides opérationnels, elle permet de hiérarchiser facilement les activités d’atténuation et de corréler les menaces entre les différents sites. 
 
-**Portail Defender pour IoT :** L’application Defender pour IoT peut vous aider à acheter des appliances de solution, à installer et à mettre à jour des logiciels et à mettre à jour les packages TI. 
+**Portail Defender pour IoT :** l’application Defender pour IoT peut vous aider à acheter des appliances de solution, à installer et à mettre à jour des logiciels et à mettre à jour les packages TI. 
 
 Cet article fournit des informations sur l’architecture de la solution, la préparation du réseau, les conditions préalables, et bien plus encore pour vous aider à configurer votre réseau de façon à ce qu’il fonctionne avec les appliances Defender pour IoT. Les lecteurs qui utilisent les informations de cet article doivent maîtriser le fonctionnement et la gestion des réseaux OT et IoT. Par exemple : les ingénieurs en automatisation, les directeurs d’usine, les fournisseurs de services d’infrastructure de réseau OT, les équipes de cybersécurité, les responsables de la sécurité des systèmes d’information ou les directeurs des systèmes d’information.
 

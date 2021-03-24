@@ -9,10 +9,10 @@ ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
 ms.openlocfilehash: 3baea92d78cf15c35d2fb36692dab1edfd950699
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98743931"
 ---
 # <a name="what-is-the-azure-cloud-service-model-and-how-do-i-package-it"></a>Qu’est-ce que le modèle Cloud Service Azure et comment créer un package ?
@@ -88,28 +88,28 @@ Le fichier **ServiceDefinition.csdef** spécifie les paramètres qui sont utilis
 Vous pouvez vous reporter au [Schéma de définition de service](schema-csdef-file.md)) pour mieux comprendre le schéma XML utilisé ici. Toutefois, voici une brève explication de certains éléments :
 
 **Sites**  
-Contient les définitions des sites ou applications web hébergés dans IIS 7.0.
+ Contient les définitions des sites ou applications web hébergés dans IIS 7.0.
 
 **InputEndpoints**  
-Contient les définitions des points de terminaison qui permettent de contacter le service cloud.
+ Contient les définitions des points de terminaison qui permettent de contacter le service cloud.
 
 **InternalEndpoints**  
-Contient les définitions des points de terminaison qui sont utilisés par les instances de rôle pour communiquer entre eux.
+ Contient les définitions des points de terminaison qui sont utilisés par les instances de rôle pour communiquer entre eux.
 
 **ConfigurationSettings**  
-Contient les définitions de paramètre des fonctionnalités d’un rôle spécifique.
+ Contient les définitions de paramètre des fonctionnalités d’un rôle spécifique.
 
 **Certificates**  
-Contient les définitions des certificats nécessaires à un rôle. L’exemple de code précédent illustre un certificat qui est utilisé pour la configuration d’Azure Connect.
+ Contient les définitions des certificats nécessaires à un rôle. L’exemple de code précédent illustre un certificat qui est utilisé pour la configuration d’Azure Connect.
 
 **LocalResources**  
-Contient les définitions des ressources de stockage local. Une ressource de stockage local est un répertoire réservé dans le système de fichiers de la machine virtuelle dans lequel s’exécute l’instance d’un rôle.
+ Contient les définitions des ressources de stockage local. Une ressource de stockage local est un répertoire réservé dans le système de fichiers de la machine virtuelle dans lequel s’exécute l’instance d’un rôle.
 
-**Imports**  
-Contient les définitions des modules importés. L’exemple de code précédent illustre les modules Connexion Bureau à distance et Azure Connect.
+**Importations**  
+ Contient les définitions des modules importés. L’exemple de code précédent illustre les modules Connexion Bureau à distance et Azure Connect.
 
 **Startup**  
-Contient les tâches qui sont exécutées au démarrage du rôle. Les tâches sont définies dans un fichier .cmd ou exécutable.
+ Contient les tâches qui sont exécutées au démarrage du rôle. Les tâches sont définies dans un fichier .cmd ou exécutable.
 
 <a name="cscfg"></a>
 
@@ -139,13 +139,13 @@ Le fichier de configuration de service n’est pas fourni dans le package de l�
 Vous pouvez vous reporter au [schéma de configuration de service](schema-cscfg-file.md) pour mieux comprendre le schéma XML utilisé ici. Toutefois, voici une brève explication des éléments :
 
 **Instances**  
-Configure le nombre d’instances du rôle en cours d’exécution. Pour empêcher le service cloud d’être potentiellement indisponible pendant les mises à niveau, il est conseillé de déployer plusieurs instances de vos rôles web. En déployant plus d’une instance, vous respectez les recommandations du [contrat de niveau de service de Calcul Azure](https://azure.microsoft.com/support/legal/sla/), ce qui garantit une connectivité externe à 99,95 % pour les rôles Internet lorsque deux instances de rôle au moins sont déployées pour un service.
+ Configure le nombre d’instances du rôle en cours d’exécution. Pour empêcher le service cloud d’être potentiellement indisponible pendant les mises à niveau, il est conseillé de déployer plusieurs instances de vos rôles web. En déployant plus d’une instance, vous respectez les recommandations du [contrat de niveau de service de Calcul Azure](https://azure.microsoft.com/support/legal/sla/), ce qui garantit une connectivité externe à 99,95 % pour les rôles Internet lorsque deux instances de rôle au moins sont déployées pour un service.
 
 **ConfigurationSettings**  
-Configure les paramètres des instances en cours d’exécution d’un rôle. Le nom des éléments `<Setting>` doit correspondre aux définitions de paramètre dans le fichier de définition de service.
+ Configure les paramètres des instances en cours d’exécution d’un rôle. Le nom des éléments `<Setting>` doit correspondre aux définitions de paramètre dans le fichier de définition de service.
 
 **Certificates**  
-Configure les certificats utilisés par le service. L’exemple de code précédent montre comment définir le certificat pour le module RemoteAccess. La valeur de l’attribut *thumbprint* doit être définie sur l’empreinte numérique du certificat à utiliser.
+ Configure les certificats utilisés par le service. L’exemple de code précédent montre comment définir le certificat pour le module RemoteAccess. La valeur de l'attribut *thumbprint* doit être définie en fonction de l'empreinte numérique du certificat à utiliser.
 
 <p/>
 
@@ -196,11 +196,11 @@ L’exemple suivant illustre la configuration d’un rôle web avec un site web 
 Vous pouvez mettre à jour la configuration du service cloud pendant son exécution dans Azure, sans le mettre hors connexion. Pour modifier les informations de configuration, vous pouvez charger un nouveau fichier de configuration ou modifier le fichier de configuration existant et l’appliquer à votre service en cours d’exécution. Les modifications suivantes peuvent être apportées à la configuration d’un service :
 
 * **Modification des valeurs des paramètres de configuration**  
-  Lorsqu’un paramètre de configuration est changé, une instance de rôle peut choisir d’appliquer la modification pendant que l’instance est en ligne ou de recycler l’instance normalement et d’appliquer la modification pendant qu’elle est hors connexion.
+   Lorsqu’un paramètre de configuration est changé, une instance de rôle peut choisir d’appliquer la modification pendant que l’instance est en ligne ou de recycler l’instance normalement et d’appliquer la modification pendant qu’elle est hors connexion.
 * **Modification de la topologie de service des instances de rôle**  
-  Les modifications de la topologie n’affectent pas les instances en cours d’exécution, sauf lorsqu’une instance est supprimée. Généralement, vous n’avez pas besoin de recycler les instances restantes, mais vous pouvez choisir de recycler des instances de rôle en réponse à une modification de la topologie.
+   Les modifications de la topologie n’affectent pas les instances en cours d’exécution, sauf lorsqu’une instance est supprimée. Généralement, vous n’avez pas besoin de recycler les instances restantes, mais vous pouvez choisir de recycler des instances de rôle en réponse à une modification de la topologie.
 * **Modification de l’empreinte de certificat**  
-  Vous ne pouvez mettre à jour un certificat que lorsqu’une instance de rôle est hors connexion. Si un certificat est ajouté, supprimé ou modifié pendant qu’une instance de rôle est en ligne, Azure la met normalement hors connexion pour mettre à jour le certificat avant de la remettre en ligne une fois la modification effectuée.
+   Vous ne pouvez mettre à jour un certificat que lorsqu’une instance de rôle est hors connexion. Si un certificat est ajouté, supprimé ou modifié pendant qu’une instance de rôle est en ligne, Azure la met normalement hors connexion pour mettre à jour le certificat avant de la remettre en ligne une fois la modification effectuée.
 
 ### <a name="handling-configuration-changes-with-service-runtime-events"></a>Gestion des modifications de configuration à l’aide des événements de service Runtime
 La bibliothèque Runtime Azure inclut l’espace de noms Microsoft.WindowsAzure.ServiceRuntime, qui fournit des classes pour interagir avec l’environnement Azure à partir d’un rôle. La classe RoleEnvironment définit les événements suivants qui sont déclenchés avant et après une modification de la configuration :

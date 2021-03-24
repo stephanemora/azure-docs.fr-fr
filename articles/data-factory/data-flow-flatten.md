@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.openlocfilehash: a0e75957a0ab49394dab56f2b7fb847dee4b43cb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "81413673"
 ---
 # <a name="flatten-transformation-in-mapping-data-flow"></a>Transformation d’aplatissement dans le flux de données de mappage
@@ -70,7 +70,7 @@ Reportez-vous à l’objet JSON suivant pour les exemples ci-dessous de transfor
 | --------- | ----------- | ---------- |
 | goods.customers | None | name <br> customer = goods.customer |
 
-#### <a name="output"></a>Output
+#### <a name="output"></a>Sortie
 
 ```
 { 'MSFT', 'government'}
@@ -88,7 +88,7 @@ Reportez-vous à l’objet JSON suivant pour les exemples ci-dessous de transfor
 | --------- | ----------- | ---------- |
 | goods.orders.shipped.orderItems | None | name <br> orderId = goods.orders.orderId <br> itemName = goods.orders.shipped.orderItems.itemName <br> itemQty = goods.orders.shipped.orderItems.itemQty <br> location = location |
 
-#### <a name="output"></a>Output
+#### <a name="output"></a>Sortie
 
 ```
 { 'MSFT', 1, 'Laptop', 20, 'Redmond'}
@@ -109,7 +109,7 @@ Reportez-vous à l’objet JSON suivant pour les exemples ci-dessous de transfor
 | --------- | ----------- | ---------- |
 | goods.orders | goods.orders | name <br> goods.orders.shipped.orderItems.itemName <br> goods.customers <br> location |
 
-#### <a name="output"></a>Output
+#### <a name="output"></a>Sortie
 
 ```
 { 'MSFT', ['Laptop','Charger'], ['government','distributer','retail'], 'Redmond'}
@@ -125,7 +125,7 @@ Reportez-vous à l’objet JSON suivant pour les exemples ci-dessous de transfor
 | --------- | ----------- | ---------- |
 | goods.orders.shipped.orderItem | goods.orders |name <br> orderId = goods.orders.orderId <br> itemName = goods.orders.shipped.orderItems.itemName <br> itemQty = goods.orders.shipped.orderItems.itemQty <br> location = location |
 
-#### <a name="output"></a>Output
+#### <a name="output"></a>Sortie
 
 ```
 { 'MSFT', 1, 'Laptop', 20, 'Redmond'}

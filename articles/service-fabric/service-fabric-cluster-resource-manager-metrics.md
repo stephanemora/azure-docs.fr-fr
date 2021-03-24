@@ -7,10 +7,10 @@ ms.date: 08/18/2017
 ms.author: masnider
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 2a7dedea2937c9cafb4216da3628aa1360ad6993
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92173000"
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>Gestion de la consommation des ressources et des charges dans Service Fabric à l’aide de mesures
@@ -138,11 +138,11 @@ Rappel : si vous voulez simplement utiliser les mesures par défaut, vous n’a
 ## <a name="load"></a>Load
 La définition de mesures a pour but de représenter certaines charges. Une *charge* correspond à la quantité d’une mesure spécifique qui est consommée par une instance ou un réplica de service sur un nœud donné. La charge peut être configurée en presque n’importe quel point. Par exemple :
 
-  - La charge peut être définie lors de la création d’un service. Ce type de configuration de chargement est appelé _charge par défaut_ .
-  - Les informations sur les mesures, notamment les charges par défaut, d’un service peuvent être mises à jour une fois le service créé. Cette mise à jour de métrique est effectuée par la _mise à jour d’un service_ .
-  - Les charges d’une partition donnée peuvent être réinitialisées aux valeurs par défaut pour ce service. Cette mise à jour de métrique est nommée _Réinitialisation d’une charge de partition_ .
-  - La charge peut être dynamiquement signalée pour chaque objet de service lors de l’exécution. Cette mise à jour de métrique est nommée _Signalement de charge_ .
-  - Le chargement des réplicas ou instances de la partition peut également être mis à jour en signalant des valeurs de chargement via un appel d’API Fabric. Cette mise à jour de métrique est nommée _Signalement de charge pour une partition_ .
+  - La charge peut être définie lors de la création d’un service. Ce type de configuration de chargement est appelé _charge par défaut_.
+  - Les informations sur les mesures, notamment les charges par défaut, d’un service peuvent être mises à jour une fois le service créé. Cette mise à jour de métrique est effectuée par la _mise à jour d’un service_.
+  - Les charges d’une partition donnée peuvent être réinitialisées aux valeurs par défaut pour ce service. Cette mise à jour de métrique est nommée _Réinitialisation d’une charge de partition_.
+  - La charge peut être dynamiquement signalée pour chaque objet de service lors de l’exécution. Cette mise à jour de métrique est nommée _Signalement de charge_.
+  - Le chargement des réplicas ou instances de la partition peut également être mis à jour en signalant des valeurs de chargement via un appel d’API Fabric. Cette mise à jour de métrique est nommée _Signalement de charge pour une partition_.
 
 Toutes ces stratégies peuvent être utilisées dans le même service pendant sa durée de vie.
 
@@ -236,7 +236,7 @@ OperationResult<UpdatePartitionLoadResultList> updatePartitionLoadResults =
         cancellationToken);
 ```
 
-Dans cet exemple, vous allez effectuer une mise à jour de la dernière charge signalée pour une partition _53df3d7f-5471-403b-b736-bde6ad584f42_ . La charge du réplica principal d’une mesure _CustomMetricName0_ est mise à jour avec la valeur 100. En même temps, la charge pour la même mesure pour un réplica secondaire spécifique situé sur le nœud _NodeName0_ sera mise à jour avec la valeur 200.
+Dans cet exemple, vous allez effectuer une mise à jour de la dernière charge signalée pour une partition _53df3d7f-5471-403b-b736-bde6ad584f42_. La charge du réplica principal d’une mesure _CustomMetricName0_ est mise à jour avec la valeur 100. En même temps, la charge pour la même mesure pour un réplica secondaire spécifique situé sur le nœud _NodeName0_ sera mise à jour avec la valeur 200.
 
 ### <a name="updating-a-services-metric-configuration"></a>Mise à jour de la configuration des mesures d’un service
 La liste des mesures associées au service et les propriétés de ces mesures peuvent être mises à jour dynamiquement pendant que le service est en ligne. Cela permet une meilleure expérimentation et plus de flexibilité. Voici quelques exemples :

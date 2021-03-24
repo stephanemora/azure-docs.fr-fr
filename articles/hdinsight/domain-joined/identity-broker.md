@@ -4,12 +4,12 @@ description: Découvrez le broker d’ID Azure HDInsight pour simplifier l’aut
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/03/2020
-ms.openlocfilehash: 47ba11260c3b58566963e5a3ffac80ca461a8a23
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: c5bc5bc702dbd54bbad43aa4e1c6c8650c18e088
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98946825"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104863188"
 ---
 # <a name="azure-hdinsight-id-broker-hib"></a>Broker d’ID Azure HDInsight
 
@@ -34,7 +34,7 @@ Utilisez le tableau suivant pour déterminer la meilleure option d’authentific
 
 Le diagramme suivant illustre le flux d’authentification OAuth moderne pour tous les utilisateurs, y compris les utilisateurs fédérés, après l’activation du broker d’ID HDInsight :
 
-:::image type="content" source="media/identity-broker/identity-broker-architecture.png" alt-text="Diagramme illustrant le flux d’authentification avec le broker d’ID HDInsight.":::
+:::image type="content" source="media/identity-broker/identity-broker-architecture.png" alt-text="Diagramme illustrant le flux d’authentification avec le broker d’ID HDInsight." border="false":::
 
 Dans ce diagramme, le client (autrement dit, un navigateur ou une application) doit d’abord acquérir le jeton OAuth. Il présente ensuite le jeton à la passerelle dans une requête HTTP. Si vous êtes déjà connecté à d’autres services Azure, tels que le portail Azure, vous pouvez vous connecter à votre cluster HDInsight avec une expérience d’authentification unique.
 
@@ -42,8 +42,7 @@ Il existe toujours de nombreuses applications héritées qui prennent uniquement
 
 Le diagramme suivant illustre le flux d’authentification de base pour les utilisateurs fédérés. Tout d’abord, la passerelle tente d’effectuer l’authentification à l’aide du [flux ROPC](../../active-directory/develop/v2-oauth-ropc.md). Si aucun hachage de mot de passe n’est synchronisé avec Azure AD, la passerelle retourne à la découverte du point de terminaison AD FS et termine l’authentification en accédant au point de terminaison AD FS.
 
-:::image type="content" source="media/identity-broker/basic-authentication.png" alt-text="Diagramme illustrant l’architecture avec l’authentification de base.":::
-
+:::image type="content" source="media/identity-broker/basic-authentication.png" alt-text="Diagramme illustrant l’architecture avec l’authentification de base." border="false":::
 
 ## <a name="enable-hdinsight-id-broker"></a>Activer le broker d’ID HDInsight
 
@@ -55,7 +54,7 @@ Pour créer un cluster Pack Sécurité Entreprise avec le broker d’ID HDInsigh
 
 La fonctionnalité de broker d’ID HDInsight ajoute une machine virtuelle supplémentaire au cluster. Cette machine virtuelle est le nœud du broker d’ID HDInsight et comprend des composants serveur pour prendre en charge l’authentification. Le nœud du broker d’ID HDInsight est joint au domaine Azure AD DS.
 
-![Diagramme illustrant l’option permettant d’activer le broker d’ID HDInsight.](./media/identity-broker/identity-broker-enable.png)
+:::image type="content" source="./media/identity-broker/identity-broker-enable.png" alt-text="Diagramme illustrant l’option permettant d’activer le broker d’ID HDInsight." border="true":::
 
 ### <a name="use-azure-resource-manager-templates"></a>Utiliser les modèles Azure Resource Manager
 

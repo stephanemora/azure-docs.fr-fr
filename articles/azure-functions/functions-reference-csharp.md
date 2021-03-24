@@ -7,17 +7,17 @@ ms.custom: devx-track-csharp
 ms.date: 12/12/2017
 ms.author: cshoe
 ms.openlocfilehash: 48614640660da6d85face5ea416d267fa9f59515
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92164837"
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Informations de référence pour les développeurs de scripts C# (.csx) Azure Functions
 
 <!-- When updating this article, make corresponding changes to any duplicate content in functions-dotnet-class-library.md -->
 
-Cet article est une introduction au développement d’Azure Functions à l’aide de scripts C# ( *.csx* ).
+Cet article est une introduction au développement d’Azure Functions à l’aide de scripts C# ( *.csx*).
 
 Azure Functions prend en charge le langage de programmation C#, mais également le langage de script C#. Pour plus d’informations sur l’[utilisation de C# dans un projet de bibliothèque de classes Visual Studio](functions-develop-vs.md), consultez les [informations de référence pour les développeurs C#](functions-dotnet-class-library.md).
 
@@ -56,7 +56,7 @@ Les extensions de liaison nécessaires dans la [version 2.x et ultérieure](fun
 
 ## <a name="binding-to-arguments"></a>Liaison aux arguments
 
-Les données d’entrée ou de sortie sont liées à un paramètre de fonction de script C# via la propriété `name` du fichier de configuration *function.json* . L’exemple suivant montre un fichier *function.json* et un fichier *run.csx* pour une fonction déclenchée par une file d’attente. Le paramètre qui reçoit les données du message de file d’attente s’appelle `myQueueItem`, car il s’agit de la valeur de la propriété `name`.
+Les données d’entrée ou de sortie sont liées à un paramètre de fonction de script C# via la propriété `name` du fichier de configuration *function.json*. L’exemple suivant montre un fichier *function.json* et un fichier *run.csx* pour une fonction déclenchée par une file d’attente. Le paramètre qui reçoit les données du message de file d’attente s’appelle `myQueueItem`, car il s’agit de la valeur de la propriété `name`.
 
 ```json
 {
@@ -117,9 +117,9 @@ Des méthodes getter et setter doivent être définies pour chaque propriété d
 
 ## <a name="reusing-csx-code"></a>Réutilisation du code .csx
 
-Vous pouvez utiliser des classes et des méthodes définies dans d’autres fichiers *.csx* au sein de votre fichier *run.csx* . Pour ce faire, utilisez les directives `#load` dans votre fichier *run.csx* . Dans l’exemple suivant, une routine de journalisation nommée `MyLogger` est partagée dans *myLogger.csx* et chargés dans *run.csx* à l’aide de la directive`#load` :
+Vous pouvez utiliser des classes et des méthodes définies dans d’autres fichiers *.csx* au sein de votre fichier *run.csx*. Pour ce faire, utilisez les directives `#load` dans votre fichier *run.csx*. Dans l’exemple suivant, une routine de journalisation nommée `MyLogger` est partagée dans *myLogger.csx* et chargés dans *run.csx* à l’aide de la directive`#load` :
 
-Exemple *run.csx* :
+Exemple *run.csx*:
 
 ```csharp
 #load "mylogger.csx"
@@ -133,7 +133,7 @@ public static void Run(TimerInfo myTimer, ILogger log)
 }
 ```
 
-Exemple *mylogger.csx* :
+Exemple *mylogger.csx*:
 
 ```csharp
 public static void MyLogger(ILogger log, string logtext)
@@ -187,7 +187,7 @@ public static void Run(Order myQueueItem, out Order outputQueueItem, ILogger log
 }
 ```
 
-Exemple avec *order.csx*  :
+Exemple avec *order.csx* :
 
 ```cs
 public class Order
@@ -213,13 +213,13 @@ Vous pouvez utiliser un chemin d’accès relatif avec la directive `#load` :
 
 * `#load "mylogger.csx"` charge un fichier situé dans le dossier de la fonction.
 * `#load "loadedfiles\mylogger.csx"` charge un fichier situé dans un dossier du dossier de la fonction.
-* `#load "..\shared\mylogger.csx"` charge un fichier situé dans un dossier situé au même niveau que le dossier de la fonction, c’est-à-dire directement sous *wwwroot* .
+* `#load "..\shared\mylogger.csx"` charge un fichier situé dans un dossier situé au même niveau que le dossier de la fonction, c’est-à-dire directement sous *wwwroot*.
 
-La directive `#load` ne fonctionne qu’avec des fichiers *.csx* , et non avec des fichiers *.cs* .
+La directive `#load` ne fonctionne qu’avec des fichiers *.csx*, et non avec des fichiers *.cs*.
 
 ## <a name="binding-to-method-return-value"></a>Liaison à une valeur renvoyée par la méthode
 
-Vous pouvez utiliser une valeur renvoyée par la méthode pour une liaison de sortie, en utilisant le nom `$return` dans *function.json* . Pour obtenir des exemples, consultez [Déclencheurs et liaisons](./functions-bindings-return-value.md).
+Vous pouvez utiliser une valeur renvoyée par la méthode pour une liaison de sortie, en utilisant le nom `$return` dans *function.json*. Pour obtenir des exemples, consultez [Déclencheurs et liaisons](./functions-bindings-return-value.md).
 
 Utilisez la valeur de retour seulement si une exécution réussie de la fonction aboutit toujours à une valeur de retour à passer à la liaison de sortie. Sinon, utilisez `ICollector` ou `IAsyncCollector`, comme illustré dans la section suivante.
 
@@ -368,7 +368,7 @@ Les assemblys suivants peuvent être référencés par nom simple (par exemple, 
 
 ## <a name="referencing-custom-assemblies"></a>Référencer des assemblys personnalisés
 
-Pour référencer un assembly personnalisé, vous pouvez utiliser soit un assembly *partagé* , soit un assembly  *privé* :
+Pour référencer un assembly personnalisé, vous pouvez utiliser soit un assembly *partagé*, soit un assembly *privé* :
 
 * Les assemblys partagés sont communs à toutes les fonctions d’une application de fonction. Pour référencer un assembly personnalisé, chargez-le dans un dossier nommé `bin` dans le [dossier racine de votre application de fonction](functions-reference.md#folder-structure) (wwwroot).
 
@@ -381,7 +381,7 @@ Pour plus d’informations sur le téléchargement de fichiers vers votre conten
 Le répertoire qui contient le fichier de script de la fonction est automatiquement surveillé pour détecter les modifications apportées aux assemblys. Pour surveiller les modifications des assemblys dans d’autres répertoires, ajoutez-les à la liste `watchDirectories` dans [host.json](functions-host-json.md).
 
 ## <a name="using-nuget-packages"></a>Utiliser des packages NuGet
-Pour utiliser des packages NuGet dans une fonction C# 2.x et ultérieur, chargez un fichier *function.proj* dans le dossier de la fonction du système de fichiers de l’application de fonction. Voici un exemple de fichier *function.proj* qui ajoute une référence à *Microsoft.ProjectOxford.Face* version *1.1.0*  :
+Pour utiliser des packages NuGet dans une fonction C# 2.x et ultérieur, chargez un fichier *function.proj* dans le dossier de la fonction du système de fichiers de l’application de fonction. Voici un exemple de fichier *function.proj* qui ajoute une référence à *Microsoft.ProjectOxford.Face* version *1.1.0* :
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -398,9 +398,9 @@ Pour utiliser des packages NuGet dans une fonction C# 2.x et ultérieur, charg
 Pour utiliser un flux NuGet personnalisé, spécifiez-le dans un fichier *Nuget.Config* à la racine de l’application de fonction. Pour plus d’informations, consultez la page [Configurer le comportement de NuGet](/nuget/consume-packages/configuring-nuget-behavior).
 
 > [!NOTE]
-> Dans les fonctions C# 1.0, les packages NuGet sont référencés avec un fichier *project.json* au lieu d’un fichier *function.proj* .
+> Dans les fonctions C# 1.0, les packages NuGet sont référencés avec un fichier *project.json* au lieu d’un fichier *function.proj*.
 
-Pour les fonctions 1.x, utilisez un fichier *project.json* à la place. Voici un exemple de fichier *project.json*  :
+Pour les fonctions 1.x, utilisez un fichier *project.json* à la place. Voici un exemple de fichier *project.json* :
 
 ```json
 {
@@ -417,7 +417,7 @@ Pour les fonctions 1.x, utilisez un fichier *project.json* à la place. Voici u
 ### <a name="using-a-functionproj-file"></a>Utilisation d’un fichier function.proj
 
 1. Ouvrez la fonction sur le Portail Azure. L’onglet journaux d’activité affiche la sortie d’installation du package.
-2. Pour charger un fichier *function.json* , utilisez l’une des méthodes décrites dans la section [ Guide pratique pour mettre à jour les fichiers d’application de fonction](functions-reference.md#fileupdate) de la rubrique Informations de référence pour les développeurs sur Azure Functions.
+2. Pour charger un fichier *function.json*, utilisez l’une des méthodes décrites dans la section [ Guide pratique pour mettre à jour les fichiers d’application de fonction](functions-reference.md#fileupdate) de la rubrique Informations de référence pour les développeurs sur Azure Functions.
 3. Une fois le fichier *function.proj* chargé, une sortie semblable à l’exemple ci-après s’affiche dans le journal de diffusion en continu de votre fonction :
 
 ```
@@ -455,7 +455,7 @@ public static string GetEnvironmentVariable(string name)
 
 ## <a name="binding-at-runtime"></a>Liaison au runtime
 
-Avec C# et d’autres langages .NET, vous pouvez utiliser un schéma de liaison [impératif](https://en.wikipedia.org/wiki/Imperative_programming), par opposition aux liaisons [*déclaratives*](https://en.wikipedia.org/wiki/Declarative_programming) dans *function.json* . La liaison impérative est utile lorsque les paramètres de liaison doivent être calculés au moment du runtime plutôt que lors de la conception. Avec ce modèle, vous pouvez effectuer une liaison à la volée avec une liaison d’entrée et de sortie prise en charge dans le code de votre fonction.
+Avec C# et d’autres langages .NET, vous pouvez utiliser un schéma de liaison [impératif](https://en.wikipedia.org/wiki/Imperative_programming), par opposition aux liaisons [*déclaratives*](https://en.wikipedia.org/wiki/Declarative_programming) dans *function.json*. La liaison impérative est utile lorsque les paramètres de liaison doivent être calculés au moment du runtime plutôt que lors de la conception. Avec ce modèle, vous pouvez effectuer une liaison à la volée avec une liaison d’entrée et de sortie prise en charge dans le code de votre fonction.
 
 Définissez une liaison impérative comme suit :
 

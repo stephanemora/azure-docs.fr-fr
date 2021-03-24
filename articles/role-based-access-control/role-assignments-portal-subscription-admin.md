@@ -10,10 +10,10 @@ ms.workload: identity
 ms.date: 01/11/2021
 ms.author: rolyon
 ms.openlocfilehash: dec5888127ed1fc291bec244a44cfb71e343e3bb
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100556829"
 ---
 # <a name="assign-a-user-as-an-administrator-of-an-azure-subscription"></a>Attribuer à un utilisateur le rôle d’administrateur d’un abonnement Azure
@@ -90,5 +90,5 @@ Le rôle [Propriétaire](built-in-roles.md#owner) octroie un accès total à la 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Attribuer des rôles Azure à l’aide du portail Azure](role-assignments-portal.md)
-- [Répertorier les attributions de rôles Azure à l’aide du portail Azure](role-assignments-list-portal.md)
+- [Répertorier les attributions de rôle Azure à l’aide du portail Azure](role-assignments-list-portal.md)
 - [Organiser vos ressources avec des groupes d’administration Azure](../governance/management-groups/overview.md)

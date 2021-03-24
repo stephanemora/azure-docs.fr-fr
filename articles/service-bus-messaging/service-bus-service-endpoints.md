@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 02/12/2021
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 2e00c9429ab3e39f95bc5ce6df072a99e4f02b86
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100559572"
 ---
 # <a name="allow-access-to-azure-service-bus-namespace-from-specific-virtual-networks"></a>Autoriser l’accès à un espace de noms Azure Service Bus à partir de réseaux virtuels spécifiques
@@ -200,7 +200,7 @@ Modèle :
 Pour déployer le modèle, suivez les instructions pour [Azure Resource Manager][lnk-deploy].
 
 > [!IMPORTANT]
-> S’il n’existe aucune règle d’adresse IP et de réseau virtuel, tout le trafic transite dans l’espace de noms, même si vous définissez `defaultAction` sur `deny`.  L’espace de noms est accessible via l’Internet public (à l’aide de la clé d’accès). Spécifiez au moins une règle d’adresse IP ou une règle de réseau virtuel pour l’espace de noms afin d’autoriser le trafic uniquement à partir des adresses IP ou du sous-réseau d’un réseau virtuel.  
+> S’il n’existe aucune règle d’adresse IP et de réseau virtuel, tout le trafic transite dans l’espace de noms, même si vous définissez `defaultAction` sur `deny`.  L’espace de noms est accessible via l’Internet public (à l’aide de la clé d’accès). Spécifiez au moins une règle d’adresse IP ou une règle de réseau virtuel pour l’espace de noms afin d’autoriser le trafic uniquement à partir des adresses IP ou du sous-réseau d’un réseau virtuel spécifié.  
 
 ## <a name="next-steps"></a>Étapes suivantes
 

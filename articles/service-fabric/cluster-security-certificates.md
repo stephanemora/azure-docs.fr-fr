@@ -3,12 +3,12 @@ title: Authentification basée sur un certificat X.509 dans un cluster Service F
 description: Découvrez-en davantage sur l’authentification basée sur les certificats dans les clusters Service Fabric et sur la façon de détecter, atténuer et résoudre les problèmes liés aux certificats.
 ms.topic: conceptual
 ms.date: 03/16/2020
-ms.openlocfilehash: 8af0246e0e576f9877c4c5e3b1f1a4314ae29827
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: 2d94e5cc78afbabde38eb38e0c4f89381bd67167
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97901247"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101729689"
 ---
 # <a name="x509-certificate-based-authentication-in-service-fabric-clusters"></a>Authentification basée sur un certificat X.509 dans des clusters Service Fabric
 
@@ -182,7 +182,7 @@ Il a été mentionné précédemment que les paramètres de sécurité d’un cl
 
 Comme indiqué précédemment, la validation de certificat implique toujours la génération et l’évaluation de la chaîne du certificat. Pour les certificats émis par une autorité de certification, cet appel d’API de système d’exploitation apparemment simple implique généralement plusieurs appels sortants à différents points de terminaison de l’infrastructure à clé publique (PKI) émettrice, la mise en cache des réponses, etc. Compte tenu de la prévalence des appels de validation de certificat dans un cluster Service Fabric, tout problème dans les points de terminaison de l’infrastructure à clé publique peut entraîner une réduction de la disponibilité du cluster, voire un effondrement direct. Si les appels sortants ne peuvent pas être supprimés (voir ci-dessous dans la section FAQ pour plus d’informations sur ce point), vous pouvez utiliser les paramètres suivants pour masquer les erreurs de validation provoquées par les appels infructueux à la liste de révocation de certificats.
 
-  * CrlCheckingFlag : sous la section 'Security', une chaîne convertie en UINT. La valeur de ce paramètre est utilisée par Service Fabric pour masquer les erreurs d’état de la chaîne de certificats en modifiant le comportement de la création de chaînes. Elle est transmise à l’appel Win32 CryptoAPI [CertGetCertificateChain](/windows/win32/api/wincrypt/nf-wincrypt-certgetcertificatechain) en tant que paramètre 'dwFlags' et peut être définie sur n’importe quelle combinaison valide d’indicateurs acceptés par la fonction. La valeur 0 force le runtime Service Fabric à ignorer toutes les erreurs d’état de confiance, ce qui n’est pas recommandé, car son utilisation représente une exposition significative de sécurité. La valeur par défaut est 0x40000000 (CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT).
+  * CrlCheckingFlag : sous la section « Security », chaîne convertie en UINT. La valeur de ce paramètre est utilisée par Service Fabric pour masquer les erreurs d’état de la chaîne de certificats en modifiant le comportement de la création de chaînes. Elle est transmise à l’appel Win32 CryptoAPI [CertGetCertificateChain](/windows/win32/api/wincrypt/nf-wincrypt-certgetcertificatechain) en tant que paramètre 'dwFlags' et peut être définie sur n’importe quelle combinaison valide d’indicateurs acceptés par la fonction. La valeur 0 force le runtime Service Fabric à ignorer toutes les erreurs d’état de confiance, ce qui n’est pas recommandé, car son utilisation représente une exposition significative de sécurité. La valeur par défaut est 0x40000000 (CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT).
 
   Quand l’utiliser : pour les tests locaux, avec des certificats autosignés ou des certificats de développeur qui ne sont pas entièrement formés/ne disposent pas d’une infrastructure de clé publique appropriée pour prendre en charge les certificats. Peut également être utilisé comme atténuation dans les environnements en « air gap » pendant la transition entre les infrastructures à clé publique.
 
@@ -197,7 +197,7 @@ Comme indiqué précédemment, la validation de certificat implique toujours la 
     </Section>
   ```
 
-  * IgnoreCrlOfflineError : sous la section « Security », un booléen avec la valeur par défaut 'false'. Représente un raccourci pour supprimer un état d’erreur de création de chaîne ’revocation offline' (ou un état d’erreur de validation de stratégie de chaîne ultérieur).
+  * IgnoreCrlOfflineError : sous la section « Security », booléen avec la valeur par défaut 'false'. Représente un raccourci pour supprimer un état d’erreur de création de chaîne ’revocation offline' (ou un état d’erreur de validation de stratégie de chaîne ultérieur).
 
   Quand l’utiliser : pour les tests locaux ou avec des certificats de développeur qui ne sont pas sauvegardés par une infrastructure à clé publique appropriée. À utiliser en tant qu’atténuation dans les environnements en « air gap » ou lorsque l’infrastructure à clé publique est connue pour être inaccessible.
 
@@ -208,7 +208,7 @@ Comme indiqué précédemment, la validation de certificat implique toujours la 
     </Section>
   ```
 
-  Autres paramètres notables (tous dans la section 'Security') :
+  Autres paramètres notables (tous dans la section « Security ») :
   * AcceptExpiredPinnedClusterCertificate : abordé dans la section dédiée à la validation des certificats basés sur l’empreinte numérique. Autorise l’acceptation des certificats de cluster autosignés arrivés à expiration. 
   * CertificateExpirySafetyMargin : intervalle, exprimé en minutes avant le timestamp NotAfter du certificat et au cours duquel le certificat est considéré comme étant à risque d’expiration. Service Fabric surveille le ou les certificats de cluster et émet régulièrement des rapports d’intégrité sur leur disponibilité restante. Pendant l’intervalle de « sécurité », les rapports d’intégrité sont élevés à l’état « avertissement ». La valeur par défaut est de 30 jours.
   * CertificateHealthReportingInterval : contrôle la fréquence des rapports d’intégrité relatifs au temps de validité restant des certificats de cluster. Les rapports ne seront émis qu’une seule fois par intervalle. La valeur est exprimée en secondes, avec une valeur par défaut de 8 heures.
