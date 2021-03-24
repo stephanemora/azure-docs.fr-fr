@@ -9,12 +9,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/15/2018
 ms.custom: mqtt, devx-track-azurecli
-ms.openlocfilehash: ba58f7897827cf7ce7f6156df1434733d89d7f42
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 5515d1084b28091cf7d20958cfca8af3f2664563
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844452"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102199490"
 ---
 # <a name="send-cloud-to-device-messages-from-an-iot-hub"></a>Envoyer des messages cloud-à-appareil à partir d’IoT Hub
 
@@ -63,7 +63,7 @@ Chaque message cloud-à-appareil est doté d’un délai d’expiration. Cette d
 * La propriété **ExpiryTimeUtc** dans le service
 * IoT Hub, via l’utilisation de la valeur *Durée de vie* par défaut spécifiée comme propriété IoT Hub
 
-Consultez [Options de configuration Cloud vers appareil](#cloud-to-device-configuration-options).
+Consultez [Options de configuration cloud-à-appareil](#cloud-to-device-configuration-options).
 
 Un moyen courant de tirer parti de l’expiration du message et d’éviter l’envoi de messages à des appareils déconnectés consiste à définir des valeurs de *durée de vie* courtes. Cette approche produit le même résultat que la gestion de l’état de connexion de l’appareil, mais s’avère plus efficace. Lorsque vous demandez des accusés de réception pour les messages, IoT Hub vous indique quels sont les appareils :
 
@@ -83,7 +83,7 @@ Lorsque vous envoyez un message cloud-à-appareil, le service peut demander la r
 
 Si la propriété **Ack** est définie sur *full* et que vous ne recevez pas de message de commentaire, cela signifie que le message de commentaire est arrivé à expiration. Le service ne peut pas savoir ce qui est arrivé au message d’origine. Dans la pratique, un service doit s'assurer qu'il peut traiter les commentaires avant leur expiration. Le délai d’expiration maximal est de deux jours, ce qui vous laisse le temps de faire refonctionner le service en cas de défaillance.
 
-Comme l’explique la section [Points de terminaison](iot-hub-devguide-endpoints.md), IoT Hub fournit des commentaires sous la forme de messages via un point de terminaison accessible au service ( */messages/servicebound/feedback*). La sémantique pour recevoir des commentaires est identique aux messages de cloud-à-appareil. Chaque fois que c’est possible, des commentaires de messages sont mis en lot dans un seul message, au format suivant :
+Comme l’explique la section [Points de terminaison](iot-hub-devguide-endpoints.md), IoT Hub fournit des commentaires sous la forme de messages via un point de terminaison accessible au service (*/messages/servicebound/feedback*). La sémantique pour recevoir des commentaires est identique aux messages de cloud-à-appareil. Chaque fois que c’est possible, des commentaires de messages sont mis en lot dans un seul message, au format suivant :
 
 | Propriété     | Description |
 | ------------ | ----------- |
@@ -97,7 +97,7 @@ Le corps est un tableau sérialisé JSON des enregistrements, chacun disposant d
 | ------------------ | ----------- |
 | EnqueuedTimeUtc    | Horodatage qui indique quand le résultat du message s’est produit (par exemple, le hub a reçu le message de commentaire, ou le message d’origine est arrivé à expiration) |
 | OriginalMessageId  | Valeur *MessageId* du message cloud-à-appareil auquel se rapportent ces informations de commentaire. |
-| StatusCode         | Chaîne obligatoire, utilisée dans les messages de commentaire générés par IoT Hub : <br/> *Success* <br/> *Expired* <br/> *DeliveryCountExceeded* <br/> *Rejected* <br/> *Purged* |
+| StatusCode         | Chaîne obligatoire, utilisée dans les messages de commentaire générés par IoT Hub : <br/> *Success* <br/> *Expired* <br/> *DeliveryCountExceeded* <br/> *Rejeté* <br/> *Purged* |
 | Description        | Valeurs de chaîne pour *StatusCode*. |
 | deviceId           | Valeur *DeviceId* de l’appareil cible du message cloud-à-appareil auquel se rapporte ce commentaire. |
 | DeviceGenerationId | Valeur *DeviceGenerationId* de l’appareil cible du message cloud-à-appareil auquel se rapporte ce commentaire. |
@@ -139,15 +139,15 @@ Chaque hub IoT expose les options de configuration suivantes pour la messagerie 
 | maxDeliveryCount          | Nombre de remises maximal pour les files d’attente par appareil cloud-à-appareil | 1 à 100 ; valeur par défaut : 10 |
 | feedback.ttlAsIso8601     | Rétention des messages de commentaire liés au service | Intervalle ISO_8601 de 2 jours maximum (minimum 1 minute) ; valeur par défaut : 1 heure |
 | feedback.maxDeliveryCount | Nombre de remises maximal pour la file d’attente de commentaires | 1 à 100 ; valeur par défaut : 10 |
-| feedback.lockDurationAsIso8601 | Nombre de remises maximal pour la file d’attente de commentaires | Intervalle ISO_8601 de 5 à 300 secondes (minimum 5 secondes) ; valeurs par défaut : 60 secondes. |
+| feedback.lockDurationAsIso8601 | Nombre de remises maximal pour la file d’attente de commentaires | Intervalle ISO_8601 de 5 à 300 secondes (minimum 5 secondes) ; valeurs par défaut : 60 secondes. |
 
 Vous pouvez définir les options de configuration de l’une des manières suivantes :
 
-* **Portail Azure**: Sous **Paramètres** dans votre hub IoT, sélectionnez **Points de terminaison intégrés**, puis développez **Messagerie cloud-à-appareil**. (La définition des propriétés **feedback.maxDeliveryCount** et **feedback.lockDurationAsIso8601** n’est actuellement pas prise en charge dans le Portail Azure.)
+* **Portail Azure** : Sous **Paramètres** dans votre hub IoT, sélectionnez **Points de terminaison intégrés**, puis développez **Messagerie Cloud-à-appareil**. (La définition des propriétés **feedback.maxDeliveryCount** et **feedback.lockDurationAsIso8601** n’est actuellement pas prise en charge dans le Portail Azure.)
 
     ![Définir les options de configuration pour la messagerie cloud-à-appareil dans le portail](./media/iot-hub-devguide-messages-c2d/c2d-configuration-portal.png)
 
-* **Azure CLI** : Utilisez la commande [az iot hub update](/cli/azure/iot/hub?view=azure-cli-latest#az-iot-hub-update) :
+* **Azure CLI** : utilisez la commande [az iot hub update](/cli/azure/iot/hub#az-iot-hub-update) :
 
     ```azurecli
     az iot hub update --name {your IoT hub name} \

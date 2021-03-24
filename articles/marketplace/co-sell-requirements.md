@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 2/24/2021
-ms.openlocfilehash: 9fb86b3d4a46a70d71aa0c3fe9fd1b4a1ea6f298
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.date: 3/12/2021
+ms.openlocfilehash: fa8f2b5e952ddd188f99d130c2154d4602191c2b
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102120128"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103225062"
 ---
 # <a name="co-sell-requirements"></a>Exigences en matière de co-vente
 
@@ -24,7 +24,7 @@ Ce tableau indique tous les statuts de co-vente possibles :
 | ------------ | ------------- |
 | Pas de co-vente prête | Les [conditions minimales requises pour le statut Prêt pour la co-vente](#requirements-for-co-sell-ready-status) ne sont pas remplies. |
 | Prêt pour la co-vente | Toutes les [conditions requises pour le statut Prêt pour la co-vente](#requirements-for-co-sell-ready-status) sont remplies. |
-| Co-vente Azure IP avec incentives | Les exigences en matière de co-vente sont satisfaites, en plus de [ces exigences supplémentaires](#requirements-for-ip-co-sell-incentivized-status). |
+| Co-vente Azure IP avec incentives | Les exigences en matière de co-vente sont satisfaites, en plus de [ces exigences supplémentaires](#requirements-for-azure-ip-co-sell-incentivized-status). |
 | Incentive Biz Apps ISV Connect Premium  | Ce statut s’applique aux offres Dynamics 365 et Power Apps. Il indique que toutes les [conditions requises pour ce statut](#requirements-for-biz-apps-isv-connect-premium-incentive-status) sont remplies. |
 |||
 
@@ -35,7 +35,7 @@ Pour obtenir le statut Prêt pour la co-vente, vous devez remplir les conditions
 **Tous les partenaires** :
 
 - Avoir un ID MPN et un [compte de Place de marché commerciale actif dans l’Espace partenaires](./partner-center-portal/create-account.md).
-- Vérifier que vous disposez d’un [profil métier](/partner-center/create-a-marketing-profile.md) complet dans l’Espace partenaires. En tant que partenaire Microsoft qualifié, votre profil métier vous aide à présenter votre activité aux clients qui recherchent vos solutions et votre expertise uniques afin de répondre à leurs besoins métier, et donc à générer des [références](/partner-center/referrals.md).
+- Vérifier que vous disposez d’un [profil métier](/partner-center/create-a-marketing-profile) complet dans l’Espace partenaires. En tant que partenaire Microsoft qualifié, votre profil métier vous aide à présenter votre activité aux clients qui recherchent vos solutions et votre expertise uniques afin de répondre à leurs besoins métier, et donc à générer des [références](/partner-center/referrals).
 - Compléter l’onglet **Co-vente avec Microsoft** et publier l’offre sur la Place de marché commerciale.
 - Fournir un contact commercial pour chaque zone géographique éligible à la co-vente ainsi que la nomenclature requise.
 
@@ -60,7 +60,7 @@ Nous mettons des modèles à votre disposition pour vous aider à créer ces doc
 
 Pour être éligible au statut Prêt pour la co-vente, votre offre ou solution doit être publiée et active dans au moins l’un des magasins en ligne de la Place de marché commerciale : Place de marché Microsoft Azure ou Microsoft AppSource. Pour plus d’informations sur la publication d’offres sur la Place de marché commerciale, consultez [Guide de publication par type d’offre](publisher-guide-by-offer-type.md). Si vous n’avez encore jamais publié d’offre sur la Place de marché commerciale, vérifiez que vous disposez d’un [compte de Place de marché commerciale](./partner-center-portal/create-account.md).
 
-## <a name="requirements-for-ip-co-sell-incentivized-status"></a>Conditions requises pour le statut Co-vente Azure IP avec incentives
+## <a name="requirements-for-azure-ip-co-sell-incentivized-status"></a>Conditions requises pour le statut Co-vente Azure IP avec incentives
 
 Le statut Co-vente Azure IP avec incentives s’applique aux types d’offres suivants :
 

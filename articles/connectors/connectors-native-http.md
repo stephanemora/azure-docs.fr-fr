@@ -3,16 +3,16 @@ title: Appeler des points de terminaison de service à l’aide de HTTP ou HTTPS
 description: Envoyer des requêtes HTTP ou HTTPS sortantes aux points de terminaison de service à partir d’Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: jonfan, logicappspm
+ms.reviewer: estfan, logicappspm, azla
 ms.topic: conceptual
-ms.date: 09/14/2020
+ms.date: 02/18/2021
 tags: connectors
-ms.openlocfilehash: f2835bda8ac7242b7a3ea4ea63401f26b9c8e426
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: dab5b755347e46d8d509e8014bba8f496ca9c900
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99062993"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719438"
 ---
 # <a name="call-service-endpoints-over-http-or-https-from-azure-logic-apps"></a>Appeler des points de terminaison HTTP ou HTTPS à partir d'Azure Logic Apps
 
@@ -249,8 +249,8 @@ Si un déclencheur HTTP ou une action contient les en-têtes ci-dessous, Logic A
 
 * En-têtes `Accept-*`, à l’exception de `Accept-version`
 * `Allow`
-* En-têtes `Content-*`, à l’exception de `Content-Disposition`, `Content-Encoding` et `Content-Type` lorsque vous utilisez des opérations POST et PUT, mais ne sont pas inclus pour les opérations GET
-* `Cookie`
+* En-têtes `Content-*`, à l’exception de `Content-Disposition`, `Content-Encoding` et `Content-Type`, qui sont respectés quand vous utilisez les opérations POST et PUT. Toutefois, Logic Apps supprime ces en-têtes quand vous utilisez l’opération GET.
+* En-tête `Cookie`, mais Logic Apps respecte toute valeur que vous spécifiez à l’aide de la propriété **Cookie**.
 * `Expires`
 * `Host`
 * `Last-Modified`

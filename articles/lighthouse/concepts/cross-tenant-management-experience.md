@@ -1,14 +1,14 @@
 ---
 title: Expériences de la gestion multilocataire
 description: La gestion des ressources déléguées Azure offre une expérience de gestion inter-locataires.
-ms.date: 02/08/2021
+ms.date: 03/04/2021
 ms.topic: conceptual
-ms.openlocfilehash: 644cac70ef6459a1b0be45e9ab8f2757fafddeed
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 4a20f6efde9c3b01b4a2d7a1f111de23aec87647
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101699247"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102177917"
 ---
 # <a name="cross-tenant-management-experiences"></a>Expériences de la gestion multilocataire
 
@@ -67,6 +67,7 @@ La plupart des tâches et des services peuvent être exécutés sur des ressourc
 [Sauvegarde Azure](../../backup/index.yml) :
 
 - Sauvegarder et restaurer des données client [à partir de charges de travail locales, de machines virtuelles Azure, de partages de fichiers Azure, etc.](../..//backup/backup-overview.md#what-can-i-back-up)
+- Afficher les données de toutes les ressources client déléguées dans le [Centre de sauvegarde](../../backup/backup-center-overview.md)
 - Utilisez l'[Explorateur de sauvegarde](../../backup/monitor-azure-backup-with-backup-explorer.md) pour visualiser les informations opérationnelles des éléments de sauvegarde (y compris les ressources Azure qui n'ont pas encore été configurées pour la sauvegarde) et les informations de supervision (travaux et alertes) des abonnements délégués. Pour l’instant, l’Explorateur de sauvegarde est uniquement disponible pour les données de machines virtuelles Azure.
 - Utilisez [Rapports de sauvegarde](../../backup/configure-reports.md) dans les abonnements délégués pour suivre les tendances historiques, analyser la consommation du stockage de sauvegarde et auditer les sauvegardes et les restaurations.
 
@@ -113,9 +114,11 @@ La plupart des tâches et des services peuvent être exécutés sur des ressourc
 [Azure Policy](../../governance/policy/index.yml) :
 
 - Créer et modifier des définitions de stratégie au sein d’abonnements délégués
+- Déployer des définitions et des affectations de stratégies sur plusieurs locataires
 - Affecter des définitions de stratégie définies par le client au sein d’abonnements délégués
 - Les clients voient les stratégies créées par le fournisseur de services en même temps que les stratégies qu’ils ont créées eux-mêmes
 - Peut [corriger deployIfNotExists ou modifier des affectations au sein du locataire géré](../how-to/deploy-policy-remediation.md)
+- Notez que l’affichage des détails de compatibilité pour les ressources non conformes dans les locataires client n’est pas pris en charge actuellement
 
 [Azure Resource Graph](../../governance/resource-graph/index.yml) :
 

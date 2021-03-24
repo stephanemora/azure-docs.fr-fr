@@ -3,12 +3,12 @@ title: Nœuds et pools dans Azure Batch
 description: En savoir plus sur les nœuds de calcul et les pools et leur utilisation dans un flux de travail Azure Batch du point de vue du développeur.
 ms.topic: conceptual
 ms.date: 11/20/2020
-ms.openlocfilehash: e55be57968eae2a371a21b214dbd15921641e31f
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: be38d4f91afcaa1ac31e9b9bbc6d2547da2ee99e
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98741772"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183656"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Nœuds et pools dans Azure Batch
 
@@ -74,6 +74,9 @@ La **configuration de machines virtuelles** indique que le pool est composé de 
 L’[agent de nœud de Batch](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md) est un programme qui s’exécute sur chaque nœud dans le pool et fournit l’interface de commande et de contrôle entre le nœud et le service Batch. Il existe différentes implémentations de l’agent de nœud pour différents systèmes d’exploitation, connues sous le nom de références. Lorsque vous créez un pool basé sur la configuration de machine virtuelle, vous devez spécifier la taille des nœuds, mais aussi la source et les images utilisées pour les créer, la **référence d’image de machine virtuelle** et la **référence SKU de l’agent du nœud** à installer sur les nœuds. Pour plus d’informations sur la spécification des propriétés de pool, voir [Configurer des nœuds de calcul Linux dans des pools Azure Batch](batch-linux-nodes.md). Vous pouvez éventuellement attacher un ou plusieurs disques de données vides au pool de machines virtuelles créé à partir d’images de la Place de Marché, ou inclure des disques de données dans des images personnalisées utilisées pour créer les machines virtuelles. Quand vous incluez des disques de données, vous devez monter et formater les disques à partir d’une machine virtuelle pour les utiliser.
 
 ### <a name="cloud-services-configuration"></a>Configuration des Services cloud
+
+> [!WARNING]
+> Les pools de configuration des services Cloud sont déconseillés. Utilisez à la place des pools de configuration de machines virtuelles.
 
 La **configuration des Services cloud** indique que le pool est composé de nœuds Azure Cloud Services. Les Services cloud fournissent uniquement des nœuds de calcul Windows.
 

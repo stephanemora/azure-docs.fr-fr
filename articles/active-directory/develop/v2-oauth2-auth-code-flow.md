@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/11/2021
+ms.date: 02/23/2021
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 2687141ea870b0af0a4405ebef2261c5a303c767
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: aeed031025b9c494b35886861c273e2a7f9d2ac4
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99584110"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101653726"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Plateforme d’identités Microsoft et flux de code d’autorisation OAuth
 
@@ -73,14 +73,14 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `tenant`    | Obligatoire    | La valeur `{tenant}` dans le chemin d’accès de la requête peut être utilisée pour contrôler les utilisateurs qui peuvent se connecter à l’application. Les valeurs autorisées sont `common`, `organizations`, `consumers` et les identificateurs du client. Pour plus d’informations, consultez les [principes de base du protocole](active-directory-v2-protocols.md#endpoints).  |
 | `client_id`   | Obligatoire    | L’**ID (client) d’application** attribué à votre application par l’environnement [Inscriptions d’applications du portail Azure](https://go.microsoft.com/fwlink/?linkid=2083908).  |
 | `response_type` | Obligatoire    | Doit inclure `code` pour le flux de code d’autorisation. Peut également inclure `id_token` ou `token` si vous utilisez le [flux hybride](#request-an-id-token-as-well-hybrid-flow). |
-| `redirect_uri`  | obligatoire | L’URI de redirection de votre application, vers lequel votre application peut envoyer et recevoir des réponses d’authentification. Il doit correspondre exactement à l’un des URI de redirection enregistrés dans le portail, auquel s’ajoute le codage dans une URL. Pour les applications natives et mobiles, vous devez utiliser la valeur par défaut `https://login.microsoftonline.com/common/oauth2/nativeclient`.   |
+| `redirect_uri`  | obligatoire | L’URI de redirection de votre application, vers lequel votre application peut envoyer et recevoir des réponses d’authentification. Il doit correspondre exactement à l’un des URI de redirection enregistrés dans le portail, auquel s’ajoute le codage dans une URL. Pour les applications mobiles et natives, vous devez utiliser l’une des valeurs recommandées : `https://login.microsoftonline.com/common/oauth2/nativeclient` pour les applications utilisant des navigateurs incorporés ou `http://localhost` pour les applications qui utilisent des navigateurs système. |
 | `scope`  | Obligatoire    | Liste séparée par des espaces d’ [étendues](v2-permissions-and-consent.md) pour lesquelles vous souhaitez que l’utilisateur donne son consentement.  Pour le tronçon `/authorize` de la requête, cela peut couvrir plusieurs ressources, ce qui permet à votre application d’obtenir le consentement pour les multiples API que vous souhaitez appeler. |
 | `response_mode`   | recommandé | Spécifie la méthode à utiliser pour envoyer le jeton résultant à votre application. Il peut s'agir d'une des méthodes suivantes :<br/><br/>- `query`<br/>- `fragment`<br/>- `form_post`<br/><br/>`query` fournit le code en tant que paramètre d’une chaîne de requête sur votre URI de redirection. Si vous demandez un jeton ID à l’aide du flux implicite, vous ne pouvez pas utiliser `query` comme indiqué dans les [spécifications OpenID](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#Combinations). Si vous ne demandez que le code, vous pouvez utiliser `query`, `fragment` ou `form_post`. `form_post` exécute une requête POST contenant le code pour votre URI de redirection. |
 | `state`                 | recommandé | Une valeur incluse dans la requête, qui sera également renvoyée dans la réponse de jeton. Il peut s’agir d’une chaîne du contenu de votre choix. Une valeur unique générée de manière aléatoire est généralement utilisée pour [empêcher les falsifications de requête intersite](https://tools.ietf.org/html/rfc6749#section-10.12). La valeur peut également encoder les informations sur l’état de l’utilisateur dans l’application avant la requête d’authentification, comme la page ou la vue sur laquelle il était. |
 | `prompt`  | facultatif    | Indique le type d’interaction utilisateur requis. Les seules valeurs valides pour l’instant sont `login`, `none` et `consent`.<br/><br/>- `prompt=login` oblige l'utilisateur à saisir ses informations d'identification lors de cette requête, annulant de fait l'authentification unique.<br/>Avec - `prompt=none`, c’est le comportement inverse. Cette valeur vous garantit qu’aucune invite interactive d’aucune sorte n’est présentée à l’utilisateur. Si la demande ne peut pas être exécutée en mode silencieux au moyen d’une authentification unique, la plateforme d’identités Microsoft renvoie une erreur `interaction_required`.<br/>- `prompt=consent` déclenche l'affichage de la boîte de dialogue de consentement OAuth après la connexion de l'utilisateur, afin de lui demander d'octroyer des autorisations d'accès à l'application.<br/>- `prompt=select_account` interrompt l’authentification unique en fournissant une expérience de sélection de compte répertoriant tous les comptes dans la session ou tout compte mémorisé, ou une option pour choisir d’utiliser un autre compte.<br/> |
 | `login_hint`  | facultatif    | Peut être utilisé pour remplir au préalable le champ réservé au nom d’utilisateur/à l’adresse électronique de la page de connexion de l’utilisateur si vous connaissez déjà son nom d’utilisateur. Les applications utilisent souvent ce paramètre au cours de la réauthentification, après avoir extrait le nom d’utilisateur à partir d’une connexion précédente à l’aide de la revendication `preferred_username`.   |
 | `domain_hint`  | facultatif    | S’il est inclus, ce paramètre ignore le processus de découverte par e-mail auquel l’utilisateur doit se soumettre sur la page de connexion, ce qui améliore légèrement l’expérience utilisateur, par exemple, en le dirigeant vers son fournisseur d’identité fédéré. Les applications utilisent souvent ce paramètre au cours de la réauthentification, en extrayant la revendication `tid` à partir d’une connexion précédente. Si la revendication `tid` est définie sur la valeur `9188040d-6c67-4c5b-b112-36a304b66dad`, vous devez utiliser `domain_hint=consumers`. Sinon, utilisez `domain_hint=organizations`.  |
-| `code_challenge`  | recommandé/obligatoire | Utilisé pour sécuriser l’octroi du code d’autorisation par PKCE (Proof Key for Code Exchange). Obligatoire si `code_challenge_method` est inclus. Pour plus d'informations, consultez le [RFC PKCE](https://tools.ietf.org/html/rfc7636). Cette option est désormais recommandée pour tous les types d’applications (natives, monopages et confidentielles clients comme des applications web). |
+| `code_challenge`  | recommandé/obligatoire | Utilisé pour sécuriser l’octroi du code d’autorisation par PKCE (Proof Key for Code Exchange). Obligatoire si `code_challenge_method` est inclus. Pour plus d'informations, consultez le [RFC PKCE](https://tools.ietf.org/html/rfc7636). Il s’agit désormais d’une recommandation pour tous les types d’application (clients publics et confidentiels) et d’une exigence de la Plateforme d’identités Microsoft pour les [applications monopages qui utilisent le flux de code d’autorisation](reference-third-party-cookies-spas.md). |
 | `code_challenge_method` | recommandé/obligatoire | La méthode utilisée pour encoder le `code_verifier` pour le paramètre `code_challenge`. Ce *DEVRAIT* être `S256`, mais la spécification autorise l’utilisation de `plain` si, pour une raison quelconque, le client ne peut pas prendre en charge SHA256. <br/><br/>S’il est exclu, `code_challenge` est censé être dans un texte en clair si `code_challenge` est inclus. La plateforme d’identités Microsoft prend en charge `plain` et `S256`. Pour plus d'informations, consultez le [RFC PKCE](https://tools.ietf.org/html/rfc7636). Cela est obligatoire pour les [applications monopages utilisant le flux de code d’autorisation](reference-third-party-cookies-spas.md).|
 
 
@@ -93,7 +93,7 @@ Une fois que l’utilisateur a procédé à l’authentification et accordé son
 Une réponse correcte utilisant `response_mode=query` se présente ainsi :
 
 ```HTTP
-GET https://login.microsoftonline.com/common/oauth2/nativeclient?
+GET http://localhost?
 code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...
 &state=12345
 ```
@@ -110,7 +110,7 @@ Vous pouvez également recevoir un jeton d’ID si vous en demandez un et avez a
 Les réponses d’erreur peuvent également être envoyées à l’élément `redirect_uri` , de manière à ce que l’application puisse les traiter de manière appropriée :
 
 ```HTTP
-GET https://login.microsoftonline.com/common/oauth2/nativeclient?
+GET http://localhost?
 error=access_denied
 &error_description=the+user+canceled+the+authentication
 ```
@@ -161,10 +161,10 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 |---------------|-------------|--------------|
 |`response_type`| Obligatoire | L’ajout de `id_token` indique au serveur que l’application aimerait un jeton d’ID dans la réponse du point de terminaison `/authorize`.  |
 |`scope`| Obligatoire | Pour les jetons d’ID, doit être mis à jour pour inclure les étendues de jeton d’ID : `openid` et éventuellement `profile` et `email`. |
-|`nonce`| Obligatoire|     Valeur incluse dans la requête, générée par l’application, qui sera incluse dans l’id_token résultant en tant que revendication. L’application peut ensuite vérifier cette valeur pour atténuer les attaques par relecture de jetons. La valeur est généralement une chaîne unique et aléatoire qui peut être utilisée pour identifier l’origine de la requête. |
-|`response_mode`| Recommandé | Spécifie la méthode à utiliser pour envoyer le jeton résultant à votre application. Par défaut, `query` pour seulement un code d’autorisation, mais `fragment` si la requête comprend un id_token `response_type`.|
+|`nonce`| Obligatoire|     Valeur incluse dans la requête, générée par l’application, qui sera incluse dans l’id_token résultant en tant que revendication. L’application peut ensuite vérifier cette valeur afin de contrer les attaques par relecture de jetons. La valeur est généralement une chaîne unique et aléatoire qui peut être utilisée pour identifier l’origine de la requête. |
+|`response_mode`| Recommandé | Spécifie la méthode à utiliser pour envoyer le jeton résultant à votre application. Par défaut, `query` pour seulement un code d’autorisation, mais `fragment` si la requête comprend un id_token `response_type`.  Toutefois, il est recommandé que les applications utilisent `form_post`, en particulier si `http:/localhost` est utilisé comme URI de redirection. |
 
-L’utilisation de `fragment` comme mode de réponse peut entraîner des problèmes pour les applications web qui lisent le code à partir de la redirection, dans la mesure où les navigateurs ne transmettent pas le fragment au serveur web.  Dans ces situations, il est recommandé que les applications utilisent le mode de réponse `form_post` pour s’assurer que toutes les données sont envoyées au serveur. 
+L’utilisation de `fragment` comme mode de réponse entraîne des problèmes pour les applications web qui lisent le code à partir de la redirection, dans la mesure où les navigateurs ne transmettent pas le fragment au serveur web.  Dans ces situations, les applications doivent utiliser le mode de réponse `form_post` pour garantir l’envoi de toutes les données au serveur. 
 
 #### <a name="successful-response"></a>Réponse correcte
 

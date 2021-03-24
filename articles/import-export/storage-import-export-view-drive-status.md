@@ -5,25 +5,36 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/14/2021
+ms.date: 03/04/2021
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 8333745b802f41b5a1b3dc07663870299800e3f6
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.custom: contperf-fy21q3
+ms.openlocfilehash: 8ef18ea663f3a77589d61ed89c50df38f5cf0d0e
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98705917"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102176145"
 ---
 # <a name="view-the-status-of-azure-importexport-jobs"></a>Voir l’état des tâches Azure Import/Export
 
 Cet article fournit des informations sur la vérification de l’état des lecteurs et des tâches Azure Import/Export. Le service Azure Import/Export est utilisé pour transférer de manière sécurisée de grandes quantités de données dans des objets blob Azure et Azure Files. Le service est également utilisé pour exporter des données du Stockage Blob Azure.  
 
 ## <a name="view-job-and-drive-status"></a>Voir l’état de la tâche et des lecteurs
-Vous pouvez suivre l’état de vos travaux d’importation ou d’exportation à partir du portail Azure en sélectionnant l’onglet **Importer/Exporter**. La liste de vos tâches s’affiche sur la page.
+Vous pouvez suivre l’état de vos travaux d’importation ou d’exportation à partir du Portail Azure sur l’onglet **Import/Export**.
+1. Connectez-vous sur https://portal.azure.com/.
+2. Recherchez les **tâches d’importation/exportation**.
 
-![Afficher l’état des tâches](./media/storage-import-export-service/jobstate.png)
+    ![Rechercher des tâches d’importation/exportation](./media/storage-import-export-view-drive-status/open-import-export-tab.png)
 
+ 3. La liste de vos tâches d’importation/d’exportation s’affiche sur la page.
+
+    ![Afficher l’état des tâches](./media/storage-import-export-view-drive-status/job-state.png)
+
+4. Sélectionnez et cliquez sur la tâche pour afficher ses détails.
+
+   ![Afficher l’état détaillé de la tâche](./media/storage-import-export-view-drive-status/job-detail.png)
+  
 ## <a name="view-job-status"></a>Afficher le statut de la tâche
 
 Selon la phase de traitement de votre lecteur, vous obtiendrez l’un des statuts suivants :
@@ -56,13 +67,13 @@ Le tableau suivant décrit chacun des états par lesquels le disque d’une tâc
 
 Cette image à partir du portail Azure affiche l’état du lecteur d’un exemple de travail :
 
-![Afficher l’état des disques](./media/storage-import-export-service/drivestate.png)
+![Afficher l’état des disques](./media/storage-import-export-view-drive-status/drive-state.png)
 
 Le tableau suivant décrit les états associés aux défaillances de disque et les mesures mises en œuvre pour chacun de ces états.
 
 | État du disque | Événement | Résolution / Étape suivante |
 |:--- |:--- |:--- |
-| NeverReceived (Jamais reçu) | Un lecteur marqué comme **NeverReceived** (parce qu’il n’a pas été reçu dans le cadre de l’expédition du travail) arrive dans une autre expédition. | L’équipe des opérations passe le lecteur à l’état **Reçu**. |
+| Jamais reçues | Un lecteur marqué comme **NeverReceived** (parce qu’il n’a pas été reçu dans le cadre de l’expédition du travail) arrive dans une autre expédition. | L’équipe des opérations passe le lecteur à l’état **Reçu**. |
 | N/A | Un lecteur qui n’est associé à aucune tâche arrive au centre de données dans le cadre d’un autre travail. | Le lecteur est marqué comme lecteur supplémentaire. Il vous est renvoyé quand le travail associé au package d’origine est terminé. |
 
 ## <a name="time-to-process-job"></a>Temps de traitement du travail

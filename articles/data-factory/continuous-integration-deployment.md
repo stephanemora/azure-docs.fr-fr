@@ -6,13 +6,13 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: maghan
 ms.topic: conceptual
-ms.date: 12/17/2020
-ms.openlocfilehash: c0d3ba8d9bea9fade58ed4a65c6d3ae43ef6acb3
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 02/18/2021
+ms.openlocfilehash: 2fd8911ca11ee6dfcf795347e1fe7f2c36a2b636
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100383600"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101716520"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Intégration et livraison continues dans Azure Data Factory
 
@@ -199,7 +199,7 @@ L’équipe Data Factory a fourni un [exemple de script de pré-déploiement et 
 
 ## <a name="use-custom-parameters-with-the-resource-manager-template"></a>Utiliser des paramètres personnalisés avec le modèle Resource Manager
 
-Si votre fabrique de développement dispose d’un dépôt Git associé, vous pouvez remplacer les paramètres du modèle Resource Manager par défaut du modèle Resource Manager généré en publiant ou exportant le modèle. Vous souhaiterez peut-être remplacer le modèle de paramétrage par défaut dans les scénarios suivants :
+Si votre fabrique de développement dispose d’un dépôt Git associé, vous pouvez remplacer les paramètres du modèle Resource Manager par défaut du modèle Resource Manager généré en publiant ou exportant le modèle. Vous souhaiterez peut-être remplacer la configuration de paramètre Resource Manager par défaut dans les scénarios suivants :
 
 * Vous utilisez CI/CD automatisé et souhaitez modifier certaines propriétés pendant le déploiement de Resource Manager, mais les propriétés ne sont pas paramétrables par défaut.
 * Votre fabrique est si volumineuse que le modèle Resource Manager par défaut n’est pas valide car il dépasse le nombre maximum autorisé de paramètres (256).
@@ -210,11 +210,14 @@ Si votre fabrique de développement dispose d’un dépôt Git associé, vous po
     * Refactorisez la logique dans le flux de données pour réduire les paramètres. Par exemple, si les paramètres de pipeline ont tous la même valeur, vous pouvez utiliser de simples paramètres globaux à la place.
     * Fractionnez une fabrique de données en plusieurs flux de données.
 
-Pour remplacer le modèle de paramétrage par défaut, accédez au hub de gestion et sélectionnez **Modèle de paramétrage** dans la section de contrôle de code source. Sélectionnez **Modifier le modèle** pour ouvrir l’éditeur de code du modèle de paramétrage. 
+Pour remplacer la configuration de paramètre Resource Manager par défaut, accédez au hub **Gérer** et sélectionnez **Modèle ARM** dans la section « Contrôle de code source ». Sous la section **Configuration de paramètre ARM**, cliquez sur l’icône **Modifier** dans « Modifier la configuration de paramètre » pour ouvrir l’éditeur de code de configuration de paramètre Resource Manager.
 
 ![Gérer les paramètres personnalisés](media/author-management-hub/management-hub-custom-parameters.png)
 
-La création d’un modèle de paramétrage personnalisé, crée un fichier nommé **arm-template-parameters-definition.json** dans le dossier racine de votre branche Git. Vous devez utiliser ce nom de fichier exact.
+> [!NOTE]
+> La **configuration de paramètre ARM** est uniquement activée en « mode GIT ». Actuellement, elle est désactivée en mode « en mode direct » ou en mode « Data Factory ».
+
+La création d’une configuration de paramètre Resource Manager personnalisée crée un fichier nommé **arm-template-parameters-definition.json** dans le dossier racine de votre branche git. Vous devez utiliser ce nom de fichier exact.
 
 ![Fichier des paramètres personnalisé](media/continuous-integration-deployment/custom-parameters.png)
 
@@ -223,7 +226,7 @@ Lors de la publication à partir de la branche de collaboration, Data Factory li
 Lors de l’exportation d’un modèle Resource Manager, Data Factory lit ce fichier à partir de la branche sur laquelle vous travaillez actuellement, et pas de la branche de collaboration. Vous pouvez créer ou modifier le fichier à partir d’une branche privée, dans laquelle vous pouvez tester vos modifications en sélectionnant **Exporter le modèle ARM** dans l’interface utilisateur. Vous pouvez ensuite fusionner le fichier dans la branche de collaboration.
 
 > [!NOTE]
-> Un modèle de paramétrage personnalisé ne change pas la limite de 256 paramètres du modèle ARM. Il vous permet de choisir et de diminuer le nombre de propriétés paramétrées.
+> Une configuration de paramètre Resource Manager personnalisée ne change pas la limite de 256 caractères du modèle ARM. Il vous permet de choisir et de diminuer le nombre de propriétés paramétrées.
 
 ### <a name="custom-parameter-syntax"></a>Syntaxe de paramètre personnalisé
 
@@ -244,7 +247,7 @@ Vous trouverez ci-dessous quelques recommandations à suivre lorsque vous créez
  
 ### <a name="sample-parameterization-template"></a>Exemple de modèle de paramétrage
 
-Voici un exemple de ce que à quoi peut ressembler un modèle de paramétrage :
+Voici un exemple de ce à quoi peut ressembler la configuration d’un paramètre Resource Manager :
 
 ```json
 {

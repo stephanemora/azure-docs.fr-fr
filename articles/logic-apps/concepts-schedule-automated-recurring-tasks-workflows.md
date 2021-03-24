@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: conceptual
-ms.date: 01/07/2021
-ms.openlocfilehash: fd0a779ec5ac5537dd3e3ed6a82cf818b42cff15
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.date: 02/16/2021
+ms.openlocfilehash: e9fbafa9f3c33d10496e84f61e1f2b97f6328d3b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98018790"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581816"
 ---
 # <a name="schedule-and-run-recurring-automated-tasks-processes-and-workflows-with-azure-logic-apps"></a>Créer et exécuter des tâches et des workflows récurrents avec Azure Logic Apps
 
@@ -90,8 +90,8 @@ Voici quelques modèles qui montrent comment vous pouvez contrôler la périodic
 | Heure de début | Périodicité sans planification | Périodicité avec planification (déclencheur Périodicité uniquement) |
 |------------|-----------------------------|----------------------------------------------------|
 | {aucune} | Exécute la première charge de travail instantanément. <p>Exécute les charges de travail suivantes en fonction de la dernière heure d’exécution. | Exécute la première charge de travail instantanément. <p>Exécute les charges de travail suivantes en fonction de la planification spécifiée. |
-| Heure de début dans le passé | Déclencheur de **périodicité** : Calcule le temps d’exécution en fonction de l’heure de début spécifiée et ignore les heures d’exécution passées. Exécute la première charge de travail à la prochaine heure d’exécution. <p>Exécute les charges de travail suivantes selon des calculs basés sur la dernière heure d’exécution. <p><p>Déclencheur **Fenêtre glissante** : Calcule le temps d’exécution en fonction de l’heure de début spécifiée et respecte les heures d’exécution passées. <p>Exécute les charges de travail suivantes selon des calculs basés sur l’heure de début spécifiée. <p><p>Pour une explication plus détaillée, consultez l’exemple fourni après ce tableau. | Exécute la première charge de travail *exactement* à l’heure de début, en fonction de la planification calculée à partir de l’heure de début. <p>Exécute les charges de travail suivantes en fonction de la planification spécifiée. <p>**Remarque :** Si vous spécifiez une périodicité avec une planification, sans spécifier d’heures ni de minutes, Logic Apps calcule les heures d’exécution suivantes en utilisant les heures ou les minutes (respectivement) de la première exécution. |
-| Heure de début actuelle ou future | Exécute la première charge de travail à l’heure de début spécifiée. <p>Exécute les charges de travail suivantes selon des calculs basés sur la dernière heure d’exécution. | Exécute la première charge de travail *exactement* à l’heure de début, en fonction de la planification calculée à partir de l’heure de début. <p>Exécute les charges de travail suivantes en fonction de la planification spécifiée. <p>**Remarque :** Si vous spécifiez une périodicité avec une planification, sans spécifier d’heures ni de minutes, Logic Apps calcule les heures d’exécution suivantes en utilisant les heures ou les minutes (respectivement) de la première exécution. |
+| Heure de début dans le passé | Déclencheur de **périodicité** : Calcule le temps d’exécution en fonction de l’heure de début spécifiée et ignore les heures d’exécution passées. <p><p>Exécute la première charge de travail à la prochaine heure d’exécution. <p><p>Exécute les charges de travail suivantes en fonction de la dernière heure d’exécution. <p><p>Déclencheur **Fenêtre glissante** : Calcule le temps d’exécution en fonction de l’heure de début spécifiée et respecte les heures d’exécution passées. <p><p>Exécute les charges de travail suivantes en fonction de l’heure de début spécifiée. <p><p>Pour une explication plus détaillée, consultez l’exemple fourni après ce tableau. | Exécute la première charge de travail *exactement* à l’heure de début, en fonction de la planification calculée à partir de l’heure de début. <p><p>Exécute les charges de travail suivantes en fonction de la planification spécifiée. <p><p>**Remarque :** Si vous spécifiez une périodicité avec une planification, sans spécifier d’heures ni de minutes, Logic Apps calcule les heures d’exécution suivantes en utilisant les heures ou les minutes (respectivement) de la première exécution. |
+| Heure de début actuelle ou future | Exécute la première charge de travail à l’heure de début spécifiée. <p><p>Déclencheur **Périodicité** : exécute les charges de travail suivantes en fonction de la dernière heure d’exécution. <p><p>Déclencheur **Fenêtre glissante** : exécute les charges de travail suivantes en fonction de l’heure de début spécifiée. | Exécute la première charge de travail *exactement* à l’heure de début, en fonction de la planification calculée à partir de l’heure de début. <p><p>Exécute les charges de travail suivantes en fonction de la planification spécifiée. <p>**Remarque :** Si vous spécifiez une périodicité avec une planification, sans spécifier d’heures ni de minutes, Logic Apps calcule les heures d’exécution suivantes en utilisant les heures ou les minutes (respectivement) de la première exécution. |
 ||||
 
 *Exemple d’heure de début passée et de périodicité, mais sans planification*

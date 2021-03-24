@@ -14,12 +14,12 @@ ms.date: 11/07/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: 585bdfdd7033f75e5beeba7246c8fbdd03a5e6e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2cb979491e247a4d44b9ae9ae27c433fb3f436d1
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86530030"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579222"
 ---
 # <a name="tutorial-send-push-notifications-to-specific-ios-devices-using-azure-notification-hubs"></a>Tutoriel : Envoyer des notifications Push vers des appareils iOS spécifiques avec Azure Notification Hubs
 
@@ -41,7 +41,7 @@ Dans ce tutoriel, vous effectuez les étapes suivantes :
 
 ## <a name="prerequisites"></a>Prérequis
 
-Cette rubrique s’appuie sur l’application que vous avez créée dans le [Tutoriel : Notifications Push vers des applications iOS avec Azure Notification Hubs][get-started]. Avant de commencer ce tutoriel, vous devez suivre le [Tutoriel : Notifications Push vers des applications iOS avec Azure Notification Hubs][get-started].
+Cette rubrique s’appuie sur l’application que vous avez créée dans le [Didacticiel : notifications Push vers des applications iOS à l’aide d’Azure Notification Hubs][get-started]. Avant de commencer ce didacticiel, vous devez déjà avoir effectué le [Didacticiel : notifications Push vers des applications iOS à l’aide d’Azure Notification Hubs][get-started].
 
 ## <a name="add-category-selection-to-the-app"></a>Ajout d’une sélection de catégories à l’application
 
@@ -51,7 +51,7 @@ La première étape consiste à ajouter à votre storyboard existant les éléme
 
    * une étiquette intitulée « Dernières nouvelles » ;
    * des étiquettes portant les intitulés de catégories « Monde », « Politiques », « Entreprise », « Technologies », « Science », « Sports » ;
-   * six commutateurs, un par catégorie, chacun défini sur **l’État** **désactivé** par défaut ;
+   * six commutateurs, un par catégorie, chacun défini sur **l’État****désactivé** par défaut ;
    * un bouton intitulé « S’abonner ».
 
      Votre storyboard doit ressembler à ce qui suit :
@@ -125,8 +125,6 @@ La première étape consiste à ajouter à votre storyboard existant les éléme
 
     - (void)subscribeWithCategories:(NSSet *)categories completion:(void (^)(NSError *))completion
     {
-        //[hub registerNativeWithDeviceToken:self.deviceToken tags:categories completion: completion];
-
         NSString* templateBodyAPNS = @"{\"aps\":{\"alert\":\"$(messageParam)\"}}";
 
         [hub registerTemplateWithDeviceToken:self.deviceToken name:@"simpleAPNSTemplate" 
@@ -245,7 +243,7 @@ L’application peut désormais stocker un ensemble de catégories dans le stock
 
 ## <a name="optional-send-tagged-notifications"></a>(Facultatif) Envoyer des notifications avec balises
 
-Si vous n’avez pas accès à Visual Studio, vous pouvez passer à la section suivante et envoyer des notifications à partir de l’application elle-même. Vous pouvez également envoyer la notification de modèle concernée sur le [Azure portal], dans l’onglet Débogage de votre centre Notification Hubs.
+Si vous n’avez pas accès à Visual Studio, vous pouvez passer à la section suivante et envoyer des notifications à partir de l’application elle-même. Vous pouvez également envoyer la notification de modèle concernée sur le [Portail Azure], dans l’onglet Débogage de votre centre Notification Hubs.
 
 [!INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
 

@@ -4,14 +4,14 @@ description: Découvrez comment utiliser Data Factory pour copier des données d
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 02/20/2021
 ms.author: jingwang
-ms.openlocfilehash: bba1ae991f2a4702a0d55a8dc3f6c7a44b9e7b65
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: ebafac024593767e884be908acbf0efb9ead50e9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100381339"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703301"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Copier des données depuis/vers Oracle à l’aide d’Azure Data Factory
 
@@ -363,7 +363,8 @@ Lorsque vous copiez des données à partir d’Oracle, les mappages suivants s�
 | LONG RAW |Byte[] |
 | NCHAR |String |
 | NCLOB |String |
-| NUMBER |Décimale, chaîne (si précision > 28) |
+| NUMBER (p,s) |Decimal, String (if p > 28) |
+| NUMBER sans précision ni échelle |Double |
 | NVARCHAR2 |String |
 | RAW |Byte[] |
 | ROWID |String |

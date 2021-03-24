@@ -2,18 +2,18 @@
 title: Architectures pour déployer des applications Oracle sur des machines virtuelles Azure | Microsoft Docs
 description: Architectures d'applications pour déployer des applications Oracle, notamment E-Business Suite, JD Edwards EnterpriseOne et PeopleSoft sur des machines virtuelles Microsoft Azure avec des bases de données dans Azure ou dans Oracle Cloud Infrastructure (OCI).
 author: dbakevlar
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: oracle
+ms.collection: linux
 ms.topic: article
 ms.date: 07/18/2019
 ms.author: kegorman
-ms.reviewer: cynthn
-ms.openlocfilehash: aa481090e3483e58f6a88304e3e9d8c1a16df3c7
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 862bb886c7ec5dfd40c7acdbae2f70f6698a711b
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965916"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101669932"
 ---
 # <a name="architectures-to-deploy-oracle-applications-on-azure"></a>Architectures pour déployer des applications Oracle sur Azure
 
@@ -118,7 +118,7 @@ Voici les composants de ce niveau :
  - **Serveur de déploiement** : ce serveur est principalement requis pour l'installation de JD Edwards EnterpriseOne. Pendant le processus d'installation, ce serveur sert de référentiel central pour les fichiers et paquets d'installation requis. Le logiciel est distribué ou déployé sur d'autres serveurs et clients depuis ce serveur.
  - **Client de développement** : ce serveur contient des composants qui s'exécutent dans un navigateur web ainsi que des applications natives.
 
-### <a name="presentation-tier"></a>Niveau de présentation
+### <a name="presentation-tier"></a>Niveau Présentation
 
 Ce niveau contient divers composants comme les services d’interface d’application (Application Interface Services ou AIS), l’infrastructure de développement d’application (Development Framework ou ADF) et les serveurs d’application Java (Java Application Servers ou JAS). Les serveurs de ce niveau communiquent avec les serveurs du niveau intermédiaire. Ils sont gérés par un équilibreur de charge qui achemine le trafic vers le serveur nécessaire selon le numéro de port et l'URL sur lesquels le trafic est reçu. Il est recommandé de déployer plusieurs instances de chaque type de serveur pour garantir une haute disponibilité.
 
@@ -156,7 +156,7 @@ Voici une architecture canonique de déploiement de la suite d'applications Peop
 
 ![Architecture PeopleSoft multicloud](media/oracle-oci-applications/peoplesoft-arch-cross-cloud.png)
 
-*Figure 5 : Architecture PeopleSoft multicloud*
+*Figure 5 : Architecture multicloud PeopleSoft*
 
 Dans cet exemple d’architecture, le réseau virtuel Azure est connecté au réseau cloud virtuel dans OCI en utilisant l'interconnexion multicloud. Le niveau d'application est configuré dans Azure, tandis que la base de données est configurée dans OCI. Il est recommandé de déployer chaque composant sur son propre sous-réseau avec des groupes de sécurité réseau pour autoriser le trafic uniquement à partir de sous-réseaux spécifiques sur des ports spécifiques.
 
@@ -164,13 +164,13 @@ L'architecture peut également être adaptée à un déploiement entièrement su
 
 ![Architecture Azure PeopleSoft](media/oracle-oci-applications/peoplesoft-arch-azure.png)
 
-*Figure 6 : Architecture Azure PeopleSoft*
+*Figure 6 : Architecture Azure PeopleSoft*
 
 Les sections suivantes décrivent les différents composants à un niveau élevé.
 
 [!INCLUDE [virtual-machines-oracle-applications-bastion](../../../../includes/virtual-machines-oracle-applications-bastion.md)]
 
-### <a name="application-tier"></a>Couche Application
+### <a name="application-tier"></a>Niveau Application
 
 Le niveau d'application contient des instances de serveurs d'application PeopleSoft, de serveurs web PeopleSoft, une recherche élastique et PeopleSoft Process Scheduler. Un équilibreur de charge Azure est configuré pour accepter les requêtes d’utilisateurs acheminées vers le serveur approprié dans le niveau d'application.
 

@@ -10,12 +10,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 521fd61f18d6673e21c23dbca4cfc12d2ee4bf0b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d9cbfc30b10373ad2a4f4304987dac426b5dcabe
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90930284"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101643573"
 ---
 # <a name="migrate-postgresql-database-to-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Migrer une base de données PostgreSQL vers un groupe de serveurs PostgreSQL Hyperscale activé par Azure Arc
 
@@ -53,20 +53,20 @@ Prenons la configuration suivante :
 
 - **Destination :**  
     un serveur Postgres s’exécutant dans un environnement Azure Arc et nommé postgres01. Il est de la version 12. Il n’a pas de base de données à l’exception de la base de données Postgres standard.  
-    :::image type="content" source="media/postgres-hyperscale/migrate-pg-destination.jpg" alt-text="Migrate-source":::
+    :::image type="content" source="media/postgres-hyperscale/migrate-pg-destination.jpg" alt-text="Migrate-destination":::
 
 
 ### <a name="take-a-backup-of-the-source-database-on-premises"></a>Effectuez une sauvegarde de la base de données localement
 
-:::image type="content" source="media/postgres-hyperscale/Migrate-PG-Source-Backup.jpg" alt-text="Migrate-source":::
+:::image type="content" source="media/postgres-hyperscale/Migrate-PG-Source-Backup.jpg" alt-text="Migrate-source-backup":::
 
 Configurez-la :
 1. Donnez-lui un nom de fichier : **MySourceBackup**
 2. Définissez le format sur **Personnalisé**
-:::image type="content" source="media/postgres-hyperscale/Migrate-PG-Source-Backup2.jpg" alt-text="Migrate-source":::
+:::image type="content" source="media/postgres-hyperscale/Migrate-PG-Source-Backup2.jpg" alt-text="Migrate-source-backup-configure":::
 
 La sauvegarde se termine correctement :  
-:::image type="content" source="media/postgres-hyperscale/Migrate-PG-Source-Backup3.jpg" alt-text="Migrate-source":::
+:::image type="content" source="media/postgres-hyperscale/Migrate-PG-Source-Backup3.jpg" alt-text="Migrate-source-backup-completed":::
 
 ### <a name="create-an-empty-database-on-the-destination-system-in-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Créez une base de données vide sur le système de destination dans votre groupe de serveurs PostgreSQL Hyperscale activé par Azure Arc
 
@@ -94,21 +94,23 @@ Une sortie semblable à la suivante est renvoyée :
 ]
 ```
 
-Donnez un nom à la base de données de destination **RESTORED_MyOnPremPostgresDB**  
-:::image type="content" source="media/postgres-hyperscale/migrate-pg-destination-dbcreate.jpg" alt-text="Migrate-destination-db-create"lightbox="media/postgres-hyperscale/migrate-pg-destination-dbcreate.jpg":::
+Nommons la base de données de destination **RESTORED_MyOnPremPostgresDB**.
+
+:::image type="content" source="media/postgres-hyperscale/migrate-pg-destination-dbcreate.jpg" alt-text="Migrate-destination-db-create" lightbox="media/postgres-hyperscale/migrate-pg-destination-dbcreate.jpg":::
 
 ### <a name="restore-the-database-in-your-arc-setup"></a>Restaurez la base de données dans votre configuration Arc
-:::image type="content" source="media/postgres-hyperscale/migrate-pg-destination-dbrestore.jpg" alt-text="Migrate-source":::
+
+:::image type="content" source="media/postgres-hyperscale/migrate-pg-destination-dbrestore.jpg" alt-text="Migratre-db-restore":::
 
 Configurez la restauration :
 1. Pointez sur le fichier qui contient la sauvegarde à restaurer : **MySourceBackup**
 2. Conservez le format défini sur **Personnalisé ou tar**
-   :::image type="content" source="media/postgres-hyperscale/migrate-pg-destination-dbrestore2.jpg" alt-text="Migrate-source":::
+   :::image type="content" source="media/postgres-hyperscale/migrate-pg-destination-dbrestore2.jpg" alt-text="Migrate-db-restore-configure":::
 
 3. Cliquez sur **Restaurer**.  
 
    La restauration a réussi.  
-   :::image type="content" source="media/postgres-hyperscale/migrate-pg-destination-dbrestore3.jpg" alt-text="Migrate-source":::
+   :::image type="content" source="media/postgres-hyperscale/migrate-pg-destination-dbrestore3.jpg" alt-text="Migrate-db-restore-completed":::
 
 ### <a name="verify-that-the-database-was-successfully-restored-in-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Vérifiez que la base de données a été correctement restaurée dans votre groupe de serveurs PostgreSQL Hyperscale activé par Azure Arc
 
@@ -118,7 +120,20 @@ Utilisez l'une des méthodes suivantes :
 
 Développez l’instance Postgres hébergée dans votre installation Azure Arc. Vous voyez la table dans la base de données que vous avez restaurée et, lorsque vous sélectionnez les données, elle affiche la même ligne que dans l’instance locale :
 
-   :::image type="content" source="media/postgres-hyperscale/migrate-pg-destination-dbrestoreverif.jpg" alt-text="Migrate-source"
+   :::image type="content" source="media/postgres-hyperscale/migrate-pg-destination-dbrestoreverif.jpg" alt-text="Migrate-db-restore-verification":::
+
+**À partir de `psql` à l’intérieur de votre configuration Azure Arc :**  
+
+Au sein de votre configuration Arc, vous pouvez utiliser `psql` pour vous connecter à votre instance Postgres, définir le contexte de la base de données sur `RESTORED_MyOnPremPostgresDB`, puis interroger les données :
+
+1. Répertoriez les points de terminaison à partir de votre chaîne de connexion `psql` :
+
+   ```console
+   azdata arc postgres endpoint list -n postgres01
+   [
+     {
+       "Description": "PostgreSQL Instance",
+       "Endpoint": "postgresql://postgres:<replace with password>@12.345.123.456:1234"
      },
      {
        "Description": "Log Search Dashboard",

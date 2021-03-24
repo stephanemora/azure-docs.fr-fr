@@ -2,14 +2,14 @@
 title: Vue d'ensemble du traitement des transactions dans Azure Service Bus
 description: Cet article offre une vue d'ensemble du traitement transactionnel et de la fonctionnalité « Envoyer par » dans Azure Service Bus.
 ms.topic: article
-ms.date: 10/28/2020
+ms.date: 03/03/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9a95a200b57d348109884a319b5433f0ffd5dde1
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: e2848f41d5557584b0f1a197b548a00a4aef1564
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98684789"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183741"
 ---
 # <a name="overview-of-service-bus-transaction-processing"></a>Vue d’ensemble du traitement des transactions Service Bus
 
@@ -42,6 +42,8 @@ Le traitement du message (exécution, abandon, lettre morte, report) se produit 
 Pour permettre la remise transactionnelle des données d’une file d’attente ou d’une rubrique à un processeur, puis à une autre file d’attente ou rubrique, Service Bus prend en charge les *transferts*. Dans une opération de transfert, un expéditeur envoie d’abord un message à une *file d’attente ou à une rubrique de transfert*. Celle-ci déplace immédiatement le message vers la file d’attente ou rubrique de destination prévue suivant une implémentation de transfert fiable (sur laquelle repose également la fonctionnalité de transfert automatique). Le message n’est jamais validé dans le journal de la file d’attente ou de la rubrique de transfert de façon à devenir accessible aux consommateurs de la file d’attente ou rubrique de transfert.
 
 La puissance de cette fonctionnalité transactionnelle se révèle lorsque la file d’attente ou la rubrique de transfert est elle-même la source des messages d’entrée de l’expéditeur. En d’autres termes, Service Bus peut transférer le message à la file d’attente ou à la rubrique de destination « via » la file d’attente ou rubrique de transfert, tout en effectuant une opération d’exécution complète (ou différée ou de lettres mortes) sur le message d’entrée, en une seule opération atomique. 
+
+Si vous devez recevoir un abonnement à une rubrique, puis l’envoyer vers une file d’attente ou une rubrique de la même transaction, l’entité de transfert doit être une rubrique. Dans ce scénario, démarrez l’étendue de la transaction sur la rubrique, recevez depuis l’abonnement dans l’étendue de la transaction et envoyez via la rubrique de transfert à une destination de file d’attente ou de rubrique. 
 
 ### <a name="see-it-in-code"></a>Apparence dans le code
 

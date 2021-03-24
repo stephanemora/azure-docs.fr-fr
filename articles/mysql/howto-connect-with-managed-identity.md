@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 74530b861b4dc7a35fa8b192ecc0e79ce5fa59c2
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 898f568d285c3b4b4360ea4dda8c63a1e0f13a42
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92742995"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101091791"
 ---
 # <a name="connect-with-managed-identity-to-azure-database-for-mysql"></a>Se connecter avec Managed Identity à Azure Database pour MySQL
 
@@ -31,7 +31,7 @@ Vous allez apprendre à effectuer les actions suivantes :
 ## <a name="prerequisites"></a>Prérequis
 
 - Si vous n’êtes pas familiarisé de la fonctionnalité identités managées pour ressources Azure, consultez cette [Vue d’ensemble](../../articles/active-directory/managed-identities-azure-resources/overview.md). Si vous n’avez pas encore de compte Azure, [Inscrivez-vous sur un compte gratuit](https://azure.microsoft.com/free/) avant de continuer.
-- Pour effectuer les opérations nécessaires de création de ressources et de gestion de rôles, votre compte doit disposer des autorisations « Propriétaire » au niveau de l’étendue appropriée (votre abonnement ou groupe de ressources). Si vous avez besoin d’aide concernant l’attribution de rôle, consultez [Utiliser un contrôle d’accès en fonction du rôle Azure (RBAC Azure) pour gérer l’accès aux ressources de votre abonnement Azure](../../articles/role-based-access-control/role-assignments-portal.md).
+- Pour effectuer les opérations nécessaires de création de ressources et de gestion de rôles, votre compte doit disposer des autorisations « Propriétaire » au niveau de l’étendue appropriée (votre abonnement ou groupe de ressources). Si vous avez besoin d’aide concernant l’attribution de rôle, consultez [Affecter des rôles Azure pour gérer l’accès à vos ressources d’abonnement Azure](../../articles/role-based-access-control/role-assignments-portal.md).
 - Vous avez besoin d’une machine virtuelle Azure (exécutant par exemple Ubuntu Linux) que vous souhaitez utiliser pour accéder à votre base de données à l’aide de Managed Identity
 - Vous avez besoin d’un serveur de base de données Azure Database pour MySQL sur lequel [Azure AD Authentication](howto-configure-sign-in-azure-ad-authentication.md) est configuré
 - Pour suivre cet exemple C#, vous devez d’abord suivre le guide pratique vous permettant de [vous connecter avec C#](connect-csharp.md)

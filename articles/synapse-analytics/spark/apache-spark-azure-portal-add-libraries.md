@@ -1,5 +1,5 @@
 ---
-title: Gestion des bibliothèques
+title: Gestion des packages
 description: Découvrez comment ajouter et gérer des bibliothèques utilisées par Apache Spark dans Azure Synapse Analytics.
 services: synapse-analytics
 author: midesa
@@ -9,12 +9,12 @@ ms.date: 03/01/2020
 ms.author: midesa
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: 955d7f8c2d2ce5ea126d4cce67b0e4e55152ac72
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: c6d720c3feec29eb32b1cfa9c31ea45839c98ec7
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101695088"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102176414"
 ---
 # <a name="manage-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Gérer des bibliothèques pour Apache Spark dans Azure Synapse Analytics
 Les bibliothèques fournissent du code réutilisable que vous pouvez inclure dans vos programmes ou projets. 
@@ -38,17 +38,18 @@ Lors du développement d’applications ou de modèles personnalisés, votre éq
 Dans Synapse, les packages d’espace de travail peuvent être des fichiers wheel ou jar personnalisés ou privés. Vous pouvez télécharger ces packages dans votre espace de travail et les attribuer par la suite à un pool Spark spécifique. Une fois attribués, ces packages d’espace de travail sont automatiquement installés sur toutes les sessions du pool Spark.
 
 Pour en savoir plus sur la gestion des bibliothèques d’espace de travail, consultez les guides pratiques suivants :
-- [Packages d’espace de travail Python : ](./apache-spark-manage-python-packages.md#Install-wheel-files) Téléchargez des fichiers wheel Python en tant que package d’espace de travail et ajoutez ultérieurement ces packages à des pools Apache Spark serverless spécifiques.
-- [Packages d’espace de travail Scala/Java (préversion) : ](./apache-spark-manage-scala-packages.md#Workspace-packages) Téléchargez des fichiers jar Scala et Java en tant que package d’espace de travail et ajoutez ultérieurement ces packages à des pools Apache Spark serverless spécifiques.
 
-## <a name="pool-management"></a>Gestion des pools
+- [Packages d’espace de travail Python (préversion) : ](./apache-spark-manage-python-packages.md#install-wheel-files) téléchargez des fichier wheel Python en tant que package d’espace de travail et ajoutez ultérieurement ces packages à des pools Apache Spark serverless spécifiques.
+- [Packages d’espace de travail Scala/Java (préversion) : ](./apache-spark-manage-scala-packages.md#workspace-packages) Téléchargez des fichiers jar Scala et Java en tant que package d’espace de travail et ajoutez ultérieurement ces packages à des pools Apache Spark serverless spécifiques.
+
+## <a name="pool-packages"></a>Packages de pools
 Dans certains cas, il se peut que vous souhaitiez normaliser l’ensemble des packages utilisés sur un pool Apache Spark donné. Cette normalisation peut se révéler utile si les mêmes packages sont généralement installés par plusieurs personnes de votre équipe. 
 
 Grâce aux fonctionnalités de gestion du pool Azure Synapse Analytics, vous pouvez configurer l’ensemble de bibliothèques par défaut que vous souhaitez installer sur un pool Apache Spark serverless donné. Ces bibliothèques sont installées en plus du [runtime de base](./apache-spark-version-support.md). 
 
 La gestion des pools est uniquement prise en charge pour Python pour le moment. Pour Python, les pools Synapse Spark utilisent Conda pour installer et gérer les dépendances du package Python. Lorsque vous spécifiez vos bibliothèques au niveau du pool, vous pouvez désormais fournir un fichier requirements.txt ou environment.yml. Le fichier config de cet environnement est utilisé chaque fois qu’une instance Spark est créée à partir de ce pool Spark. 
 
-Pour en savoir plus sur ces fonctionnalités, consultez la documentation sur la [gestion des pools Python](./apache-spark-manage-python-packages.md#Pool-libraries).
+Pour en savoir plus sur ces fonctionnalités, consultez la documentation sur la [gestion des pools Python](./apache-spark-manage-python-packages.md#pool-libraries).
 
 > [!IMPORTANT]
 > - Si le package que vous installez est volumineux ou si son installation prend beaucoup de temps, cela affecte le temps de démarrage de l’instance Spark.
@@ -60,9 +61,14 @@ Souvent, lors de l’analyse interactive des données ou de l’apprentissage au
 
 Les packages avec étendue de session permettent aux utilisateurs de définir les dépendances des packages au démarrage de leur session. Lorsque vous installez un package avec étendue de session, seule la session active peut accéder aux packages spécifiés. Par conséquent, ces packages avec étendue de session n’ont aucune incidence sur les autres sessions ou tâches qui utilisent le même pool Apache Spark. Par ailleurs, ces bibliothèques sont installées en plus des packages du runtime de base et du niveau du pool. 
 
+Ces packages sont ajoutés automatiquement à votre environnement Python. Les packages ne doivent pas être mentionnés dans votre fichier *requirements.txt*.
+
+Notez que cette méthode ne dispose actuellement que de fichiers `*.whl`. N’ajoutez pas de fichiers `*.tar.gz` au conteneur.
+
 Pour en savoir plus sur la gestion des packages avec étendue de session, consultez les guides pratiques suivants :
-- [Packages de session Python (préversion) :](./apache-spark-manage-python-packages.md#Session-scoped-libraries-(preview)) Au démarrage d’une session, fournissez un fichier *environment.yml* Conda pour installer des packages Python supplémentaires à partir de référentiels populaires. 
-- [Packages de session Scala/Java : ](./apache-spark-manage-scala-packages.md#Workspace-packages) Au démarrage de votre session, fournissez une liste de fichiers jar à installer à l’aide de ```%%configure```.
+
+- [Packages de session Python (préversion) :](./apache-spark-manage-python-packages.md) Au démarrage d’une session, fournissez un fichier *environment.yml* Conda pour installer des packages Python supplémentaires à partir de référentiels populaires. 
+- [Packages de session Scala/Java : ](./apache-spark-manage-scala-packages.md) Au démarrage de votre session, fournissez une liste de fichiers jar à installer à l’aide de `%%configure`.
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Afficher les bibliothèques par défaut : [Prise en charge des versions d’Apache Spark](apache-spark-version-support.md)

@@ -1,34 +1,34 @@
 ---
-title: Voir Live Data (préversion) avec Container Insights | Microsoft Docs
+title: Voir Live Data avec Container Insights | Microsoft Docs
 description: Cet article décrit la vue en temps réel des journaux, métriques de pod et événements Kubernetes, sans l’utilisation de kubectl, dans Container Insights.
 ms.topic: conceptual
-ms.date: 12/17/2020
+ms.date: 03/04/2021
 ms.custom: references_regions
-ms.openlocfilehash: 7e644680916097bc453c30be63a7db324df5f8f6
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 5277f5051e291e9058255d8920ac0be950389704
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101711227"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102203196"
 ---
 # <a name="how-to-view-kubernetes-logs-events-and-pod-metrics-in-real-time"></a>Comment voir les journaux, métriques de pod et événements Kubernetes en temps réel
 
-Container Insights comprend la fonctionnalité Live Data (préversion), une fonctionnalité de diagnostic avancé qui vous permet d’accéder directement aux journaux (stdout/stderror), métriques de pod et événements de conteneur Azure Kubernetes Service (AKS). Elle expose un accès direct aux `kubectl logs -c`, aux événements `kubectl get` et aux `kubectl top pods`. Un volet de la console affiche les journaux, les métriques et les événements générés par le moteur de conteneur, afin de faciliter la résolution des problèmes en temps réel.
+Container Insights comprend la fonctionnalité Live Data, une fonctionnalité de diagnostic avancé qui vous permet d’accéder directement aux journaux (stdout/stderror), métriques de pod et événements de conteneur Azure Kubernetes Service (AKS). Elle expose un accès direct aux `kubectl logs -c`, aux événements `kubectl get` et aux `kubectl top pods`. Un volet de la console affiche les journaux, les métriques et les événements générés par le moteur de conteneur, afin de faciliter la résolution des problèmes en temps réel.
 
 Cet article fournit une vue d’ensemble détaillée et vous aide à mieux comprendre l’utilisation de cette fonctionnalité.
 
-Pour obtenir de l’aide lors de la configuration ou de la résolution des problèmes se rapportant à la fonctionnalité Live Data (préversion), consultez notre [guide de configuration](container-insights-livedata-setup.md). Comme cette fonctionnalité accède directement à l’API Kubernetes, des informations supplémentaires sur le modèle d’authentification sont disponibles [ici](https://kubernetes.io/docs/concepts/overview/kubernetes-api/).
+Pour obtenir de l’aide lors de la configuration ou de la résolution des problèmes se rapportant à la fonctionnalité Live Data, consultez notre [guide de configuration](container-insights-livedata-setup.md). Comme cette fonctionnalité accède directement à l’API Kubernetes, des informations supplémentaires sur le modèle d’authentification sont disponibles [ici](https://kubernetes.io/docs/concepts/overview/kubernetes-api/).
 
-## <a name="view-deployment-live-logs-preview"></a>Afficher des journaux dynamiques de déploiement (préversion)
-Utilisez la procédure suivante pour afficher les journaux dynamiques pour des déploiements qui font partie de clusters AKS qui ne sont pas surveillés par Container Insights. Si votre cluster utilise Container Insights, utilisez le processus ci-dessous pour afficher les données actives pour des nœuds, contrôleurs, conteneurs et déploiements.
+## <a name="view-aks-resource-live-logs"></a>Afficher les journaux dynamiques des ressources AKS
+Respectez la procédure suivante pour afficher les journaux en temps réel pour les pods, les déploiements et les jeux de réplicas avec ou sans Container Insights à partir de l’affichage des ressources AKS.
 
 1. Dans le portail Azure, accédez au groupe de ressources du cluster AKS et sélectionnez votre ressource AKS.
 
 2. Sélectionnez **Charges de travail** dans la section **Ressources Kubernetes** du menu.
 
-3. Sélectionnez un déploiement sous l’onglet **Déploiements**.
+3. Sélectionnez un pod, un déploiement, un jeu de réplicas dans l’onglet respectif.
 
-4. Sélectionnez **Journaux dynamiques (préversion)** dans le menu du déploiement.
+4. Sélectionnez **Journaux dynamiques** dans le menu de ressources.
 
 5. Sélectionnez un pod pour démarrer la collecte des données actives.
 
@@ -44,12 +44,12 @@ Vous pouvez voir les données de journal en temps réel, à mesure qu’elles so
 
 3. Sélectionnez l’onglet **Nœuds**, **Contrôleurs** ou **Conteneurs**.
 
-4. Sélectionnez un objet dans la grille de performances, puis dans le volet des propriétés situé sur le côté droit, sélectionnez l’option **Afficher les données actives (préversion)** . Si le cluster AKS est configuré pour l’authentification unique avec Azure AD, vous êtes invité à vous authentifier lors de la première utilisation sur cette session de navigateur. Sélectionnez votre compte et finalisez l’authentification auprès d’Azure.
+4. Sélectionnez un objet dans la grille de performances, puis dans le volet des propriétés situé sur le côté droit, sélectionnez l’option **Afficher les données actives**. Si le cluster AKS est configuré pour l’authentification unique avec Azure AD, vous êtes invité à vous authentifier lors de la première utilisation sur cette session de navigateur. Sélectionnez votre compte et finalisez l’authentification auprès d’Azure.
 
     >[!NOTE]
     >Lorsque vous consultez les données depuis votre espace de travail Log Analytics en sélectionnant l’option **Afficher dans Analytics** du volet des propriétés, les résultats de la recherche dans les journaux peuvent éventuellement afficher des **Nœuds**, **Ensembles de démons**, **Jeux de réplicas**, **Travaux**, **Tâches Cron**, **Pods** et **Conteneurs** qui n’existent peut-être plus. Une tentative de recherche dans les journaux d’un conteneur qui n’est pas disponible dans `kubectl` échouera également ici. Pour en savoir plus sur la consultation des journaux, événements et métriques historiques, consultez la fonctionnalité [Voir dans Analytics](container-insights-log-search.md#search-logs-to-analyze-data).
 
-Une fois l’authentification réussie, le volet de la console Live Data (préversion) apparaît sous la grille des données de performances, dans laquelle vous pouvez voir des données de journal en flux continu. Si l’indicateur d’état de récupération affiche une coche verte tout à droite du volet, cela signifie que des données sont récupérables et que leur envoi en streaming vers votre console commence.
+Une fois l’authentification réussie, le volet de la console Live Data apparaît sous la grille des données de performances, dans laquelle vous pouvez voir des données de journal en flux continu. Si l’indicateur d’état de récupération affiche une coche verte tout à droite du volet, cela signifie que des données sont récupérables et que leur envoi en streaming vers votre console commence.
 
 ![Option Voir les données du volet des propriétés du nœud](./media/container-insights-livedata-overview/node-properties-pane.png)
 
@@ -57,20 +57,20 @@ Le titre du volet indique le nom du pod avec lequel le conteneur est groupé.
 
 ## <a name="view-events"></a>Afficher les événements
 
-Vous pouvez voir les données d’événement en temps réel, à mesure qu’elles sont générées par le moteur de conteneur depuis la vue **Nœuds**, **Contrôleurs**, **Conteneurs** et **Déploiements (préversion)** , lorsqu’un conteneur, pod, nœud, jeu de réplicas, ensemble de démons, travail, tâche Cron ou déploiement est sélectionné. Pour voir les événements, effectuez les étapes suivantes.
+Vous pouvez voir les données d’événement en temps réel, à mesure qu’elles sont générées par le moteur de conteneur depuis la vue **Nœuds**, **Contrôleurs**, **Conteneurs** et **Déploiements**, lorsqu’un conteneur, pod, nœud, jeu de réplicas, DaemonSet, tâche, tâche Cron ou déploiement est sélectionné. Pour voir les événements, effectuez les étapes suivantes.
 
 1. Dans le portail Azure, accédez au groupe de ressources du cluster AKS et sélectionnez votre ressource AKS.
 
 2. Dans le tableau de bord du cluster AKS, sous **Supervision** à gauche, choisissez **Insights**.
 
-3. Sélectionnez l’onglet **Nœuds**, **Contrôleurs**, **Conteneurs** ou **Déploiements (préversion)** .
+3. Sélectionnez l’onglet **Nœuds**, **Contrôleurs**, **Conteneurs** ou **Déploiements**.
 
-4. Sélectionnez un objet dans la grille de performances, puis dans le volet des propriétés situé sur le côté droit, sélectionnez l’option **Afficher les données actives (préversion)** . Si le cluster AKS est configuré pour l’authentification unique avec Azure AD, vous êtes invité à vous authentifier lors de la première utilisation sur cette session de navigateur. Sélectionnez votre compte et finalisez l’authentification auprès d’Azure.
+4. Sélectionnez un objet dans la grille de performances, puis dans le volet des propriétés situé sur le côté droit, sélectionnez l’option **Afficher les données actives**. Si le cluster AKS est configuré pour l’authentification unique avec Azure AD, vous êtes invité à vous authentifier lors de la première utilisation sur cette session de navigateur. Sélectionnez votre compte et finalisez l’authentification auprès d’Azure.
 
     >[!NOTE]
     >Lorsque vous consultez les données depuis votre espace de travail Log Analytics en sélectionnant l’option **Afficher dans Analytics** du volet des propriétés, les résultats de la recherche dans les journaux peuvent éventuellement afficher des **Nœuds**, **Ensembles de démons**, **Jeux de réplicas**, **Travaux**, **Tâches Cron**, **Pods** et **Conteneurs** qui n’existent peut-être plus. Une tentative de recherche dans les journaux d’un conteneur qui n’est pas disponible dans `kubectl` échouera également ici. Pour en savoir plus sur la consultation des journaux, événements et métriques historiques, consultez la fonctionnalité [Voir dans Analytics](container-insights-log-search.md#search-logs-to-analyze-data).
 
-Une fois l’authentification réussie, le volet de la console Live Data (préversion) apparaît sous la grille des données de performances. Si l’indicateur d’état de récupération affiche une coche verte tout à droite du volet, cela signifie que des données sont récupérables et que leur envoi en streaming vers votre console commence.
+Une fois l’authentification réussie, le volet de la console Live Data apparaît sous la grille des données de performances. Si l’indicateur d’état de récupération affiche une coche verte tout à droite du volet, cela signifie que des données sont récupérables et que leur envoi en streaming vers votre console commence.
 
 Si l’objet que vous avez sélectionné était un conteneur, sélectionnez l’option **Événements** dans le volet. Si vous avez sélectionné un nœud, un pod ou un contrôleur, l’affichage des événements est automatiquement sélectionné.
 
@@ -92,12 +92,12 @@ Vous pouvez voir les données de métrique en temps réel, à mesure qu’elles 
 
 3. Sélectionnez l’onglet **Nœuds** ou **Contrôleurs**.
 
-4. Sélectionnez un objet **Pod** dans la grille de performances, puis dans le volet des propriétés situé sur le côté droit, sélectionnez l’option **Afficher les données actives (préversion)** . Si le cluster AKS est configuré pour l’authentification unique avec Azure AD, vous êtes invité à vous authentifier lors de la première utilisation sur cette session de navigateur. Sélectionnez votre compte et finalisez l’authentification auprès d’Azure.
+4. Sélectionnez un objet **Pod** dans la grille de performances, puis dans le volet des propriétés situé sur le côté droit, sélectionnez l’option **Afficher les données actives**. Si le cluster AKS est configuré pour l’authentification unique avec Azure AD, vous êtes invité à vous authentifier lors de la première utilisation sur cette session de navigateur. Sélectionnez votre compte et finalisez l’authentification auprès d’Azure.
 
     >[!NOTE]
     >Lorsque vous consultez les données depuis votre espace de travail Log Analytics en sélectionnant l’option **Afficher dans Analytics** du volet des propriétés, les résultats de la recherche dans les journaux peuvent éventuellement afficher des **Nœuds**, **Ensembles de démons**, **Jeux de réplicas**, **Travaux**, **Tâches Cron**, **Pods** et **Conteneurs** qui n’existent peut-être plus. Une tentative de recherche dans les journaux d’un conteneur qui n’est pas disponible dans `kubectl` échouera également ici. Pour en savoir plus sur la consultation des journaux, événements et métriques historiques, consultez la fonctionnalité [Voir dans Analytics](container-insights-log-search.md#search-logs-to-analyze-data).
 
-Une fois l’authentification réussie, le volet de la console Live Data (préversion) apparaît sous la grille des données de performances. Les données de métriques sont récupérées, et leur envoi en streaming vers votre console commence pour leur présentation dans les deux graphiques. Le titre du volet indique le nom du pod avec lequel le conteneur est groupé.
+Une fois l’authentification réussie, le volet de la console Live Data apparaît sous la grille des données de performances. Les données de métriques sont récupérées, et leur envoi en streaming vers votre console commence pour leur présentation dans les deux graphiques. Le titre du volet indique le nom du pod avec lequel le conteneur est groupé.
 
 ![Exemple de métriques de l’affichage Pod](./media/container-insights-livedata-overview/pod-properties-live-metrics.png)
 
@@ -105,7 +105,7 @@ Une fois l’authentification réussie, le volet de la console Live Data (préve
 Les sections suivantes décrivent les fonctionnalités que vous pouvez utiliser dans les différentes vues de données actives.
 
 ### <a name="search"></a>Rechercher
-La fonctionnalité Live Data (préversion) comprend la fonctionnalité de recherche. Dans le champ **Rechercher**, vous pouvez filtrer les résultats en tapant un mot clé ou un terme ; tous les résultats correspondants sont mis en surbrillance pour permettre une consultation rapide. Lors de l’affichage d’événements, vous pouvez également limiter les résultats à l’aide du bouton **Filtrer** à droite de la barre de recherche. Selon la ressource que vous avez sélectionnée, un pod, un espace de noms ou un cluster sont répertoriés à partir desquels choisir.
+La fonctionnalité Live Data comprend la fonctionnalité de recherche. Dans le champ **Rechercher**, vous pouvez filtrer les résultats en tapant un mot clé ou un terme ; tous les résultats correspondants sont mis en surbrillance pour permettre une consultation rapide. Lors de l’affichage d’événements, vous pouvez également limiter les résultats à l’aide du bouton **Filtrer** à droite de la barre de recherche. Selon la ressource que vous avez sélectionnée, un pod, un espace de noms ou un cluster sont répertoriés à partir desquels choisir.
 
 ![Exemple de filtre du volet de la console Live Data](./media/container-insights-livedata-overview/livedata-pane-filter-example.png)
 
@@ -125,7 +125,7 @@ Pour suspendre le défilement automatique, et contrôler le comportement du vole
 >Nous recommandons uniquement de suspendre ou d’interrompre le défilement automatique pendant une brève période de temps, lors de la résolution d’un problème. Ces requêtes peuvent avoir un impact sur la disponibilité et la limitation de l’API Kubernetes sur votre cluster.
 
 >[!IMPORTANT]
->Aucune donnée n’est stockée de façon permanente pendant l’exécution de cette fonctionnalité. Toutes les informations capturées lors de la session sont supprimées lorsque vous la quittez, ou que vous fermez votre navigateur. Les données restent uniquement présentes pour la visualisation dans le laps de temps de cinq minutes de la fonctionnalité Métriques ; toutes les mesures datant de plus de cinq minutes sont également supprimées. La mémoire tampon de Live Data (préversion) interroge dans des limites raisonnables de l’utilisation de la mémoire.
+>Aucune donnée n’est stockée de façon permanente pendant l’exécution de cette fonctionnalité. Toutes les informations capturées lors de la session sont supprimées lorsque vous la quittez, ou que vous fermez votre navigateur. Les données restent uniquement présentes pour la visualisation dans le laps de temps de cinq minutes de la fonctionnalité Métriques ; toutes les mesures datant de plus de cinq minutes sont également supprimées. La mémoire tampon de Live Data interroge les limites raisonnables de l’utilisation de la mémoire.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -3,12 +3,12 @@ title: Syntaxe de filtre SQL pour les règles d’abonnement Azure Service Bus |
 description: Cet article fournit des détails sur la grammaire du filtre SQL. Un filtre SQL prend en charge un sous-ensemble de la norme SQL-92.
 ms.topic: article
 ms.date: 11/24/2020
-ms.openlocfilehash: 810d17d458de79c851b6f1ada4556a231bfd20eb
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 022f6cb1d698a10dc216db8d41c172691f7535ab
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98742979"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652939"
 ---
 # <a name="subscription-rule-sql-filter-syntax"></a>Syntaxe de filtre SQL pour les règles d’abonnement
 
@@ -269,8 +269,8 @@ Tenez compte de la sémantique [SqlFilter](/dotnet/api/microsoft.servicebus.mess
   
 -   Les opérateurs arithmétiques, tels que `+`, `-`, `*`, `/`, et `%` suivent la même sémantique que la liaison d’opérateur C# dans les promotions de type de données et les conversions implicites.
 
-
-[!INCLUDE [service-bus-filter-examples](../../includes/service-bus-filter-examples.md)]
+## <a name="examples"></a>Exemples
+Pour obtenir des exemples, consultez [Exemples de filtres Service Bus](service-bus-filter-examples.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2017
 ms.author: rohink
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 469fdbced4601c6ffb4b6aa35e8f943bcb5dde1b
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 5d902e0172a048527ce8f2fa9e22c5fc9bf22e0b
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965780"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102203621"
 ---
 # <a name="how-to-manage-dns-zones-in-azure-dns-using-the-azure-cli"></a>Gérer des zones DNS à l’aide de l’interface de ligne de commande Azure
 
@@ -47,7 +47,7 @@ Vérifiez que vous disposez des éléments ci-dessous avant de commencer votre c
 
 ### <a name="sign-in-to-your-azure-account"></a>Connexion à votre compte Azure
 
-Ouvrez une fenêtre de console et procédez à l’authentification à l’aide de vos informations d’identification. Pour plus d’informations, consultez [Se connecter à Azure avec la CLI Azure](/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
+Ouvrez une fenêtre de console et procédez à l’authentification à l’aide de vos informations d’identification. Pour plus d’informations, consultez [Se connecter à Azure avec la CLI Azure](/cli/azure/authenticate-azure-cli).
 
 ```
 az login
@@ -67,7 +67,7 @@ Parmi vos abonnements Azure, choisissez celui que vous souhaitez utiliser.
 az account set --subscription "subscription name"
 ```
 
-### <a name="optional-to-installuse-azure-dns-private-zones-feature"></a>Facultatif : Pour installer et utiliser la fonctionnalité Azure DNS Private Zones
+### <a name="optional-to-installuse-azure-dns-private-zones-feature"></a>Facultatif : pour installer et utiliser la fonctionnalité Azure DNS Private Zones
 La fonctionnalité Azure DNS Private Zones est proposée par le biais d’une extension d’Azure CLI. Installer l’extension d’Azure CLI « dns » 
 ```
 az extension add --name dns

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 02/10/2021
+ms.date: 02/20/2021
 ms.author: b-juche
-ms.openlocfilehash: 4d992bcc202dc8bdacdda6426371df1adb1ec3e6
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: a18c53d972fbb38dc0b0e557d14b2fbffbff15fa
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100379112"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102174357"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Gérer les instantanés avec Azure NetApp Files
 
@@ -68,7 +68,7 @@ La fonctionnalité **stratégie d’instantané** est actuellement en préversio
     ```azurepowershell-interactive
     Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSnapshotPolicy
     ```
-Vous pouvez également utiliser les [commandes Azure CLI](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) `az feature register` et `az feature show` pour inscrire la fonctionnalité et afficher l’état de l’inscription. 
+Vous pouvez également utiliser les [commandes Azure CLI](/cli/azure/feature) `az feature register` et `az feature show` pour inscrire la fonctionnalité et afficher l’état de l’inscription. 
 
 ### <a name="create-a-snapshot-policy"></a>Créer une stratégie de capture instantanée 
 
@@ -257,6 +257,9 @@ Vous trouverez l’option Rétablir le volume dans le menu Instantanés d’un v
 ## <a name="delete-snapshots"></a>Suppression d'instantanés  
 
 Vous pouvez supprimer les instantanés dont vous n'avez plus besoin. 
+
+> [!IMPORTANT]
+> L’opération de suppression d’un instantané est irréversible. Impossible de récupérer un instantané supprimé. 
 
 1. Accédez au menu **Instantanés** d’un volume. Cliquez avec le bouton droit sur l’instantané que vous voulez supprimer. Sélectionnez **Supprimer**.
 

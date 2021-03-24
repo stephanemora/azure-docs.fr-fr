@@ -3,15 +3,16 @@ title: Création d’un pool d’hôtes pour un environnement Windows Virtual De
 description: Découvrez comment détecter et résoudre les problèmes de locataire et de pool d’hôtes lors de la configuration d’un environnement Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 09/14/2020
+ms.custom: references_regions
+ms.date: 02/17/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 0a5439a9d1fd43154379c1dc1a95a6e98b6e877b
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: c31a32b32a685087c53198ec52af1188d0071cab
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98539641"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652443"
 ---
 # <a name="host-pool-creation"></a>Création d’un pool d’hôtes
 
@@ -49,9 +50,21 @@ Si votre opération dépasse la limite de quota, vous pouvez effectuer une des a
 
 ### <a name="error-cant-see-user-assignments-in-app-groups"></a>Erreur : Impossible de voir les affectations d’utilisateurs dans les groupes d’applications.
 
-Cause : Cette erreur se produit généralement après que vous avez déplacé l’abonnement d’un locataire Azure Active Directory (AD) vers un autre. Si vos anciennes attributions restent liées à l’ancien locataire Azure AD, le portail Azure en perd la trace.
+**Cause** : Cette erreur se produit généralement après que vous avez déplacé l’abonnement d’un locataire Azure Active Directory (AD) vers un autre. Si vos anciennes attributions restent liées à l’ancien locataire Azure AD, le portail Azure en perd la trace.
 
-Correctif : Vous devez réaffecter les utilisateurs aux groupes d’applications.
+**Correctif** : Vous devez réaffecter les utilisateurs aux groupes d’applications.
+
+### <a name="i-only-see-us-when-setting-the-location-for-my-service-objects"></a>Je ne vois que US lorsque je définis l’emplacement de mes objets de service
+
+**Cause** : Actuellement Azure ne prend pas en charge cette région pour le service Windows Virtual Desktop. Pour en savoir plus sur les zones géographiques que nous prenons en charge, consultez [Emplacements des données](data-locations.md). Si Windows Virtual Desktop prend en charge l’emplacement, mais qu’il n’apparaît toujours pas lorsque vous essayez de sélectionner un emplacement, cela signifie que votre fournisseur de ressources n’a pas encore été mis à jour.
+
+**Correctif** : Pour obtenir la liste des régions la plus récente, réinscrivez le fournisseur de ressources :
+
+1. Accédez à **Abonnements** et sélectionnez l’abonnement approprié.
+2. Sélectionnez **Fournisseurs de ressources**.
+3. Sélectionnez **Microsoft.DesktopVirtualization**, puis **Réinscrire** à partir du menu Action.
+
+Lorsque vous réinscrivez le fournisseur de ressources, vous ne voyez aucun état de commentaire ou de mise à jour spécifique de l’interface utilisateur. Le processus de réinscription n’interfère pas non plus avec vos environnements existants.
 
 ## <a name="azure-resource-manager-template-errors"></a>Erreurs de modèle Azure Resource Manager
 
