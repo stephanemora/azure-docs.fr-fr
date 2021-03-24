@@ -4,10 +4,10 @@ description: En savoir plus sur les nouvelles fonctionnalités de Sauvegarde Azu
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.openlocfilehash: 48c8c189d956c4003d24511a54975fe86a982832
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102095712"
 ---
 # <a name="whats-new-in-azure-backup"></a>Nouveautés de Sauvegarde Azure
@@ -54,7 +54,7 @@ Pour plus d’informations, consultez [Prise en charge du niveau Archive (préve
 
 ## <a name="backup-for-azure-blobs-in-preview"></a>Sauvegarde pour les objets blob Azure (en préversion)
 
-La sauvegarde opérationnelle pour objets blob est une solution de protection des données locale gérée qui vous permet de protéger vos objets blob de blocs contre différentes situations de perte de données telles que des altérations de données, des suppressions de blobs et la suppression accidentelle de compte de stockage. Les données sont stockées localement dans le compte de stockage source proprement dit, et peuvent être récupérées à un point dans le temps sélectionné si nécessaire. La solution offre ainsi un moyen simple, sécurisé et économique de protéger vos objets blob.
+La sauvegarde opérationnelle pour objets blob est une solution de protection des données locale gérée qui vous permet de protéger vos objets blob de blocs contre différentes situations de perte de données telles que des altérations de données, des suppressions de blobs et la suppression accidentelle de compte de stockage. Les données sont stockées localement dans le compte de stockage source proprement dit, et peuvent être récupérées au point dans le temps sélectionné si nécessaire. La solution offre ainsi un moyen simple, sécurisé et économique de protéger vos objets blob.
 
 La sauvegarde opérationnelle pour objets blob s’intègre avec le centre de sauvegarde, entre autres fonctionnalités de gestion des sauvegardes, pour fournir un volet unique pour vous aider à gérer, surveiller, exploiter et analyser les sauvegardes à grande échelle.
 

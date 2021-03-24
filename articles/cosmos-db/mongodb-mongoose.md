@@ -10,10 +10,10 @@ author: timsander1
 ms.author: tisande
 ms.custom: seodec18, devx-track-js
 ms.openlocfilehash: 8958699ae279d2613f8dbadca802ee2137407e75
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94442393"
 ---
 # <a name="connect-a-nodejs-mongoose-application-to-azure-cosmos-db"></a>Connecter une application Mongoose Node.js à Azure Cosmos DB
@@ -39,11 +39,11 @@ Passons à la création d’un compte Cosmos. Si vous avez déjà un compte que 
 
 ### <a name="create-a-database"></a>Création d'une base de données 
 Dans cette application, nous allons aborder deux façons de créer des collections dans Azure Cosmos DB : 
-- **Stockage de chaque modèle objet dans une collection distincte**  : Nous vous recommandons de [créer d’une base de données avec un débit dédié](set-throughput.md#set-throughput-on-a-database). L’utilisation de ce modèle de capacité vous offre une meilleure rentabilité.
+- **Stockage de chaque modèle objet dans une collection distincte** : Nous vous recommandons de [créer d’une base de données avec un débit dédié](set-throughput.md#set-throughput-on-a-database). L’utilisation de ce modèle de capacité vous offre une meilleure rentabilité.
 
     :::image type="content" source="./media/mongodb-mongoose/db-level-throughput.png" alt-text="Didacticiel Node.js : capture d’écran du Portail Azure, montrant comment créer une base de données dans Azure Data Explorer pour un compte Azure Cosmos DB, à utiliser avec le module Node Mongoose":::
 
-- **Stockage de tous les modèles objet dans une collection Cosmos DB unique**  : Si vous préférez stocker tous les modèles dans une seule collection, vous pouvez simplement créer une base de données sans sélectionner l’option Approvisionner le débit. L’utilisation de ce modèle de capacité crée chaque collection avec sa propre capacité de débit pour chaque modèle objet.
+- **Stockage de tous les modèles objet dans une collection Cosmos DB unique** : Si vous préférez stocker tous les modèles dans une seule collection, vous pouvez simplement créer une base de données sans sélectionner l’option Approvisionner le débit. L’utilisation de ce modèle de capacité crée chaque collection avec sa propre capacité de débit pour chaque modèle objet.
 
 Après avoir créé la base de données, vous utiliserez son nom dans la variable d’environnement `COSMOSDB_DBNAME` ci-dessous.
 

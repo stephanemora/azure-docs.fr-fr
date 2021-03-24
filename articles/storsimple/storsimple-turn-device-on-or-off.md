@@ -9,10 +9,10 @@ ms.date: 01/09/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: c8f4269235c494ff9dd8d1bf8e0ef940562f8927
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85515264"
 ---
 # <a name="turn-on-or-turn-off-your-storsimple-8000-series-device"></a>Activation ou désactivation de votre appareil StorSimple série 8000
@@ -131,7 +131,7 @@ Lorsque les deux câbles SCSI (SAS) sont retirés ou que la connexion entre le b
 10. Assurez-vous que la connexion du boîtier EBOD avec le boîtier principal est bonne en vérifiant que les témoins lumineux SAS (quatre par contrôleur EBOD) sont tous allumés.
 
 > [!IMPORTANT]
-> Si les câbles SAS sont défectueux ou si la connexion entre le boîtier EBOD et le boîtier principal n'est pas bonne, lorsque vous activez le système, celui-ci passera en mode de récupération. Dans ce cas, veuillez [contacter le support Microsoft](storsimple-8000-contact-microsoft-support.md) .
+> Si les câbles SAS sont défectueux ou si la connexion entre le boîtier EBOD et le boîtier principal n'est pas bonne, lorsque vous activez le système, celui-ci passera en mode de récupération. Si cela se produit, veuillez [contacter le support Microsoft](storsimple-8000-contact-microsoft-support.md).
 
 
 ## <a name="turn-off-a-running-device"></a>Désactiver un appareil en cours d'exécution
@@ -146,7 +146,7 @@ Pour arrêter l’appareil de façon correcte et contrôlée, vous pouvez utilis
 > [!IMPORTANT]
 > N'arrêtez pas un appareil en cours d'exécution à l'aide du bouton d'alimentation situé à l'arrière de l'appareil.
 > 
-> Avant d'arrêter l'appareil, assurez-vous que tous ses composants sont intègres. Dans le portail Azure, accédez à **Appareils** > **Surveiller** > **Intégrité matérielle** et assurez-vous que l’état de tous les composants est vert. Cela est vrai uniquement pour un système sain. Si le système est sur le point d’être arrêté pour procéder au remplacement d'un composant défaillant, vous verrez s'afficher un état Échec (rouge) ou un état Détérioré (jaune) pour les composants respectifs sous **État du matériel**.
+> Avant d'arrêter l'appareil, assurez-vous que tous ses composants sont intègres. Dans le portail Azure, accédez à **Appareils** > **Surveiller** > **Intégrité matérielle** et assurez-vous que l’état de tous les composants est vert. Cela est vrai uniquement pour un système sain. Quand vous arrêtez le système pour remplacer un composant défectueux, l'état indiqué pour le composant respectif sous **Statut du matériel** est Échec (rouge) ou Détérioré (jaune).
 > 
 > 
 

@@ -15,14 +15,14 @@ ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
 ms.openlocfilehash: 045cec85174a88d1d608a4adc679461008852768
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85514588"
 ---
 # <a name="replace-a-power-and-cooling-module-on-your-storsimple-device"></a>Remplacer un module d’alimentation et de refroidissement (PCM, Power and Cooling Module) sur votre appareil StorSimple
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 Le PCM de votre appareil Microsoft Azure StorSimple se compose d’une alimentation et de ventilateurs de refroidissement qui sont contrôlés par le boîtier principal et le boîtier EBOD. Il n’existe qu’un seul modèle de PCM certifié pour chaque boîtier. Le boîtier principal est certifié pour un PCM de 764 W et le boîtier EBOD est certifié pour un PCM de 580 W. Bien que les PCM du boîtier principal et du boîtier EBOD soient différents, la procédure de remplacement est identique.
 
 Ce didacticiel explique comment :
@@ -55,7 +55,7 @@ Suivez ces instructions quand vous êtes prêt à retirer PCM de votre appareil 
    * Si une alimentation dans PCM 0 est défectueuse, l’état de **Alimentation dans PCM 0** sera en rouge.
    * Si une alimentation dans PCM 1 est défectueuse, l’état de **Alimentation dans PCM 1** sera en rouge.
    * Si le ventilateur dans PCM 1 est défectueux, l’état de **Refroidissement 0 pour PCM 0** ou **Refroidissement 1 pour PCM 0** sera en rouge.
-2. Localisez le PCM défectueux à l’arrière du boîtier principal. Si vous exécutez un modèle 8600, identifiez le boîtier principal en examinant le numéro d’identification de l’unité système indiqué sur l’affichage LED du panneau avant. L’ID d’unité par défaut affiché sur le boîtier principal est **00**, alors que l’ID d’unité par défaut affiché sur le boîtier EBOD est **01**. Le diagramme et le tableau suivants expliquent le panneau avant de l’affichage LED.
+2. Localisez le PCM défectueux à l’arrière du boîtier principal. Si vous exécutez un modèle 8600, identifiez le boîtier principal en examinant le numéro d’identification de l’unité système indiqué sur l’affichage LED du panneau avant. L'ID d'unité par défaut affiché sur le boîtier principal est **00**, tandis que celui affiché sur le boîtier EBOD est **01**. Le diagramme et le tableau suivants expliquent le panneau avant de l’affichage LED.
    
     ![ID du système sur le panneau avant des opérations](./media/storsimple-power-cooling-module-replacement/IC740991.png)
    
@@ -68,7 +68,7 @@ Suivez ces instructions quand vous êtes prêt à retirer PCM de votre appareil 
    | 3 |Panne de module |
    | 4 |Erreur logique |
    | 5 |Affichage de l’ID de l’unité |
-3. Les voyants LED de surveillance à l’arrière du boîtier principal peuvent également être utilisés pour identifier le PCM défectueux. Consultez le diagramme et le tableau suivants pour comprendre comment utiliser les LED pour localiser le PCM défectueux. Par exemple, si la LED correspondant à **Ventilateur défectueux** est allumée, le ventilateur est défectueux. De même, si la LED correspondant à **Alimentation défectueuse** est allumée, l’alimentation est défectueuse. 
+3. Les voyants LED de surveillance à l’arrière du boîtier principal peuvent également être utilisés pour identifier le PCM défectueux. Consultez le diagramme et le tableau suivants pour comprendre comment utiliser les LED pour localiser le PCM défectueux. Par exemple, si la DEL correspondant à **Panne du ventilateur** est allumée, le ventilateur est tombé en panne. De même, si la DEL correspondant à **Panne d'alimentation** est allumée, le bloc d'alimentation est tombé en panne. 
    
     ![Fond de panier des voyants LED de surveillance du PCM de l’appareil](./media/storsimple-power-cooling-module-replacement/IC740992.png)
    

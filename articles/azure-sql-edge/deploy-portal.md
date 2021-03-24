@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
 ms.openlocfilehash: 5d7d232ada814d5d3c30e7b012c6289f847d641f
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93395085"
 ---
 # <a name="deploy-azure-sql-edge"></a>Déployer Azure SQL Edge 
@@ -50,14 +50,14 @@ La Place de marché Azure est un marché d’applications et de services en lign
    |IoT Hub   |  Nom de l’IoT Hub où l’appareil IoT Edge est inscrit. Sélectionnez ensuite l’option « Déployer sur un appareil »|
    |Nom de l’appareil IoT Edge  |  Nom de l’appareil IoT Edge sur lequel SQL Edge sera déployé |
 
-4. Dans la page **Définir des modules sur l’appareil** , cliquez sur le module Azure SQL Edge sous **Modules IoT Edge**. Le nom de module par défaut est défini sur *AzureSQLEdge*. 
+4. Dans la page **Définir des modules sur l’appareil**, cliquez sur le module Azure SQL Edge sous **Modules IoT Edge**. Le nom de module par défaut est défini sur *AzureSQLEdge*. 
 
-5. Dans la section *Paramètres du module* du panneau **Mettre à jour le module IoT Edge** , spécifiez les valeurs souhaitées pour *Nom du module IoT Edge* , *Stratégie de redémarrage* et *État souhaité*. 
+5. Dans la section *Paramètres du module* du panneau **Mettre à jour le module IoT Edge**, spécifiez les valeurs souhaitées pour *Nom du module IoT Edge*, *Stratégie de redémarrage* et *État souhaité*. 
 
    > [!IMPORTANT]    
-   > Ne modifiez pas ou ne mettez pas à jour les paramètres d’ **URI d’image** du module.
+   > Ne modifiez pas ou ne mettez pas à jour les paramètres d’**URI d’image** du module.
 
-6. Dans la section *Variables d’environnement* du panneau **Mettre à jour le module IoT Edge** , spécifiez les valeurs souhaitées pour les variables d’environnement. Pour obtenir la liste complète des variables d’environnement d’Azure SQL Edge, consultez [Configurer à l’aide de variables d’environnement](configure.md#configure-by-using-environment-variables). Les variables d’environnement par défaut suivantes sont définies pour le module. 
+6. Dans la section *Variables d’environnement* du panneau **Mettre à jour le module IoT Edge**, spécifiez les valeurs souhaitées pour les variables d’environnement. Pour obtenir la liste complète des variables d’environnement d’Azure SQL Edge, consultez [Configurer à l’aide de variables d’environnement](configure.md#configure-by-using-environment-variables). Les variables d’environnement par défaut suivantes sont définies pour le module. 
 
    |**Paramètre**  |**Description**|
    |---------|---------|
@@ -68,9 +68,9 @@ La Place de marché Azure est un marché d’applications et de services en lign
    > [!IMPORTANT]    
    > Ne modifiez pas ou ne mettez pas à jour la variable d’environnement **ACCEPT_EULA** pour le module.
 
-7. Dans la section *Options de création de conteneur* du panneau **Mettre à jour le module IoT Edge** , mettez à jour les options suivantes en fonction de l’exigence. 
+7. Dans la section *Options de création de conteneur* du panneau **Mettre à jour le module IoT Edge**, mettez à jour les options suivantes en fonction de l’exigence. 
    - **Port de l’hôte :** Mappez le port d’hôte spécifié au port 1433 (port SQL par défaut) dans le conteneur.
-   - **Liaisons** et **Montages**  : Si vous devez déployer plusieurs modules SQL Edge, veillez à mettre à jour l’option Montages pour créer une paire source-cible pour le volume persistant. Pour plus d’informations sur les montages et le volume, consultez [Utiliser des volumes](https://docs.docker.com/storage/volumes/) sur la documentation Docker. 
+   - **Liaisons** et **Montages** : Si vous devez déployer plusieurs modules SQL Edge, veillez à mettre à jour l’option Montages pour créer une paire source-cible pour le volume persistant. Pour plus d’informations sur les montages et le volume, consultez [Utiliser des volumes](https://docs.docker.com/storage/volumes/) sur la documentation Docker. 
 
    ```json
    {
@@ -106,13 +106,13 @@ La Place de marché Azure est un marché d’applications et de services en lign
    > [!IMPORTANT]    
    > Ne modifiez pas la variable d’environnement `PlanId` définie dans le paramètre Créer une configuration. Si vous modifiez cette valeur, le démarrage du conteneur Azure SQL Edge échouera. 
    
-8. Dans le volet **Mettre à jour le module IoT Edge** , cliquez sur **Mettre à jour**.
-9. Dans la page **Définir des modules sur l’appareil** , cliquez sur **Suivant : Itinéraires >** si vous devez définir des itinéraires pour votre déploiement. Sinon, cliquez sur **Vérifier + créer**. Pour plus d’informations sur la configuration d’itinéraires, consultez [Déployer des modules et établir des routes dans IoT Edge](../iot-edge/module-composition.md).
-11. Dans la page **Définir des modules sur l’appareil** , cliquez sur **Créer**.
+8. Dans le volet **Mettre à jour le module IoT Edge**, cliquez sur **Mettre à jour**.
+9. Dans la page **Définir des modules sur l’appareil**, cliquez sur **Suivant : Itinéraires >** si vous devez définir des itinéraires pour votre déploiement. Sinon, cliquez sur **Vérifier + créer**. Pour plus d’informations sur la configuration d’itinéraires, consultez [Déployer des modules et établir des routes dans IoT Edge](../iot-edge/module-composition.md).
+11. Dans la page **Définir des modules sur l’appareil**, cliquez sur **Créer**.
 
 ## <a name="connect-to-azure-sql-edge"></a>Se connecter à Azure SQL Edge
 
-La procédure suivante utilise l’outil en ligne de commande Azure SQL Edge, **sqlcmd** , dans le conteneur pour se connecter à Azure SQL Edge.
+La procédure suivante utilise l’outil en ligne de commande Azure SQL Edge, **sqlcmd**, dans le conteneur pour se connecter à Azure SQL Edge.
 
 > [!NOTE]      
 > Les outils en ligne de commande SQL (sqlcmd) ne sont pas disponibles dans la version ARM64 des conteneurs Azure SQL Edge.
@@ -132,7 +132,7 @@ La procédure suivante utilise l’outil en ligne de commande Azure SQL Edge, **
    > [!TIP]    
    > Vous pouvez omettre le mot de passe sur la ligne de commande pour être invité à l’entrer.
 
-3. Si l’opération réussit, vous devez accéder à une invite de commandes **sqlcmd**  : `1>`.
+3. Si l’opération réussit, vous devez accéder à une invite de commandes **sqlcmd** : `1>`.
 
 ## <a name="create-and-query-data"></a>Créer et interroger des données
 
@@ -142,7 +142,7 @@ Les sections suivantes vous guident lors de l’utilisation de **sqlcmd** et Tra
 
 La procédure suivante crée une base de données nommée `TestDB`.
 
-1. À partir de l’invite de commandes **sqlcmd** , collez la commande Transact-SQL suivante pour créer une base de données de test :
+1. À partir de l’invite de commandes **sqlcmd**, collez la commande Transact-SQL suivante pour créer une base de données de test :
 
    ```sql
    CREATE DATABASE TestDB
@@ -160,7 +160,7 @@ La procédure suivante crée une base de données nommée `TestDB`.
 
 Créez ensuite une table, `Inventory`, et insérez deux nouvelles lignes.
 
-1. À partir de l’invite de commandes **sqlcmd** , basculez le contexte vers la nouvelle base de données `TestDB` :
+1. À partir de l’invite de commandes **sqlcmd**, basculez le contexte vers la nouvelle base de données `TestDB` :
 
    ```sql
    USE TestDB
@@ -188,7 +188,7 @@ Créez ensuite une table, `Inventory`, et insérez deux nouvelles lignes.
 
 Exécutez maintenant une requête pour retourner des données de la table `Inventory`.
 
-1. Dans l’invite de commandes **sqlcmd** , entrez une requête qui retourne les lignes de la table `Inventory` dont la quantité est supérieure à 152 :
+1. Dans l’invite de commandes **sqlcmd**, entrez une requête qui retourne les lignes de la table `Inventory` dont la quantité est supérieure à 152 :
 
    ```sql
    SELECT * FROM Inventory WHERE quantity > 152;
@@ -202,7 +202,7 @@ Exécutez maintenant une requête pour retourner des données de la table `Inven
 
 ### <a name="exit-the-sqlcmd-command-prompt"></a>Quitter l’invite de commandes sqlcmd
 
-1. Pour mettre fin à votre session **sqlcmd** , tapez `QUIT` :
+1. Pour mettre fin à votre session **sqlcmd**, tapez `QUIT` :
 
    ```sql
    QUIT

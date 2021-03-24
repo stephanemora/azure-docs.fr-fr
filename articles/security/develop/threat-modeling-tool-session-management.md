@@ -17,10 +17,10 @@ ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: has-adal-ref, devx-track-js, devx-track-csharp
 ms.openlocfilehash: a1f4d4a3bb78da82753d651e1a73cf244096d5df
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94518099"
 ---
 # <a name="security-frame-session-management"></a>Infrastructure de sécurité : Gestion des sessions
@@ -45,7 +45,7 @@ ms.locfileid: "94518099"
 | **Informations de référence**              | N/A  |
 | **Étapes** | Si l’application s’appuie sur le jeton d’accès émis par Azure AD, le gestionnaire d’événements de déconnexion doit appeler |
 
-### <a name="example"></a> Exemple
+### <a name="example"></a>Exemple
 ```csharp
 HttpContext.GetOwinContext().Authentication.SignOut(OpenIdConnectAuthenticationDefaults.AuthenticationType, CookieAuthenticationDefaults.AuthenticationType)
 ```
@@ -275,7 +275,7 @@ Le code ci-après présente la configuration appropriée :
 | **Informations de référence**              | [XSRF/CSRF Prevention in ASP.NET MVC and Web Pages (Prévention des attaques XSRF/CSRF dans les pages MVC et Web ASP.NET)](https://www.asp.net/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages) |
 | **Étapes** | Formulaires anti-CSRF et MVC ASP.NET - Utilisez la méthode d’assistance `AntiForgeryToken` sur les vues ; placez un élément `Html.AntiForgeryToken()` dans le formulaire, par exemple,|
 
-### <a name="example"></a> Exemple
+### <a name="example"></a>Exemple
 ```csharp
 @using (Html.BeginForm("UserProfile", "SubmitUpdate")) { 
     @Html.ValidationSummary(true) 
@@ -283,7 +283,7 @@ Le code ci-après présente la configuration appropriée :
     <fieldset> 
 ```
 
-### <a name="example"></a> Exemple
+### <a name="example"></a>Exemple
 ```csharp
 <form action="/UserProfile/SubmitUpdate" method="post">
     <input name="__RequestVerificationToken" type="hidden" value="saTFWpkKN0BYazFtN6c4YbZAmsEwG0srqlUqqloi/fVgeV2ciIFVmelvzwRZpArs" />
@@ -416,7 +416,7 @@ void Page_Init (object sender, EventArgs e) {
 | **Informations de référence**              | [asdeqa](https://skf.azurewebsites.net/Mitigations/Details/wefr) |
 | **Étapes** | Quand l’application web est la partie de confiance et qu’ADFS est le service STS, la durée de vie des cookies d’authentification (jetons FedAuth) peut être définie par la configuration suivante dans le fichier web.config :|
 
-### <a name="example"></a> Exemple
+### <a name="example"></a>Exemple
 ```XML
   <system.identityModel.services>
     <federationConfiguration>
@@ -471,7 +471,7 @@ Set-ADFSRelyingPartyTrust -TargetName "<RelyingPartyWebApp>" -ClaimsProviderName
 | **Informations de référence**              | [Preventing Cross-Site Request Forgery (CSRF) Attacks in ASP.NET Web API (Prévenir les attaques de falsification de requête intersites (CSRF, Cross Site Request Forgery) dans les API Web ASP.NET)](https://www.asp.net/web-api/overview/security/preventing-cross-site-request-forgery-csrf-attacks) |
 | **Étapes** | Anti-CSRF et AJAX : le jeton de formulaire peut se révéler problématique pour les requêtes AJAX, car une requête AJAX risque d’envoyer des données JSON, et non des données de formulaire HTML. L’une des solutions consiste à envoyer les jetons dans un en-tête HTTP personnalisé. Le code ci-après utilise la syntaxe Razor pour générer les jetons, puis ajoute les jetons à une demande AJAX. |
 
-### <a name="example"></a> Exemple
+### <a name="example"></a>Exemple
 ```Javascript
 <script>
     @functions{

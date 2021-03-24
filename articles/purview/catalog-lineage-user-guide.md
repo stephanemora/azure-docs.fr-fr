@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/29/2020
-ms.openlocfilehash: 47c5ad18f50bd25dd3bf351090ffc9ef5d54f0b2
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 8b08a60d484aa3d52600b8aef2f53d6ca8a04f9b
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102202907"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952165"
 ---
 # <a name="azure-purview-data-catalog-lineage-user-guide"></a>Guide de l’utilisateur sur la traçabilité du Data Catalog dans Azure Purview
 
@@ -50,7 +50,7 @@ Les systèmes de données tels qu’Azure ML et Power BI signalent la traçabili
 
 ## <a name="get-started-with-lineage"></a>Prise en main de la traçabilité
 
-> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE1XVQS]
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RWxTAK]
 
 La traçabilité dans Purview inclut des jeux de données et des processus. Les jeux de données sont également appelés « nœuds », tandis que les processus peuvent également être appelés « périphéries » :
 

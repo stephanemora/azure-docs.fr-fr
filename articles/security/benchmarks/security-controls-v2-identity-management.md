@@ -8,10 +8,10 @@ ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: 4a36bd69ff5ddbc79e358d6f8a2c5b4d640c6d5c
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102051444"
 ---
 # <a name="security-control-v2-identity-management"></a>Contrôle de sécurité V2 : Gestion des identités

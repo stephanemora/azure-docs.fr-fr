@@ -10,17 +10,17 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.openlocfilehash: a1b317b651b0e17c07eb17dbdb8a7c6657d39564
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90971623"
 ---
 # <a name="how-to-configure-caching-for-incremental-enrichment-in-azure-cognitive-search"></a>Guide de configuration de la mise en cache pour l’enrichissement incrémentiel dans Recherche cognitive Azure
 
 > [!IMPORTANT] 
 > L’enrichissement incrémentiel est actuellement en préversion publique. Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
-> [Les préversions de l’API REST](search-api-preview.md) offrent cette fonctionnalité. Il n’y a pas de prise en charge de portail ou de SDK .NET pour l’instant.
+> [Les préversions de l'API REST](search-api-preview.md) offrent cette fonctionnalité. Il n’y a pas de prise en charge de portail ou de SDK .NET pour l’instant.
 
 Cet article explique comment ajouter la mise en cache à un pipeline d’enrichissement afin de pouvoir modifier les étapes de façon incrémentielle sans avoir à effectuer une régénération à chaque fois. Par défaut, un ensemble de compétences n'a pas d'état, et toute modification de sa composition nécessite une réexécution complète de l'indexeur. Grâce à l’enrichissement incrémentiel, l’indexeur peut déterminer les parties de l’arborescence de documents qui doivent être actualisées en fonction des modifications détectées dans l’ensemble de compétences ou les définitions de l’indexeur. La sortie traitée existante est conservée et réutilisée dans la mesure du possible. 
 

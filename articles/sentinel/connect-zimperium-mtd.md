@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 02/20/2020
 ms.author: yelevin
 ms.openlocfilehash: 7cbf1c52af1d2902ae0726fc0dd98dbf12cecc44
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/10/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100097447"
 ---
 # <a name="connect-your-zimperium-mobile-threat-defense-to-azure-sentinel"></a>Connectez votre Zimperium Mobile Threat Defense à Azure Sentinel
@@ -49,7 +49,7 @@ Zimperium Mobile Threat Defense peut intégrer et exporter des journaux directem
 4. Pour plus d’informations, voir le [portail du service clientèle de Zimperium](https://support.zimperium.com).
 
 
-## <a name="find-your-data"></a>Rechercher vos données
+## <a name="find-your-data"></a>Recherche de données
 
 Après l’établissement d’une connexion réussie, les données s’affichent dans Log Analytics sous CustomLogs ZimperiumThreatLog_CL et ZimperiumMitigationLog_CL.
 

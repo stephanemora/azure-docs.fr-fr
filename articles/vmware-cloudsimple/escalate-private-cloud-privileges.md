@@ -10,10 +10,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: c2215bd9a60fdcf76077c3a1f2a91631dc0dbe88
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97895820"
 ---
 # <a name="escalate-private-cloud-vcenter-privileges-from-the-cloudsimple-portal"></a>Élever les privilèges de vCenter pour votre cloud privé à partir du portail CloudSimple
@@ -88,5 +88,5 @@ Une fois que vos tâches administratives sont terminées, vous devez annuler l�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Configurer les sources d’identité vCenter pour utiliser Active Directory](./set-vcenter-identity.md)
+* [Configurer des sources d’identité vCenter pour utiliser Active Directory](./set-vcenter-identity.md)
 * Installer la solution de sauvegarde pour [sauvegarder des machines virtuelles de charge de travail](./backup-workloads-veeam.md)

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/03/2021
-ms.openlocfilehash: 97b0a4ca3e4fb94a21cbd30a27a3037f45fed782
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: c088625528190ad116676fbb51cec9f8de4b1578
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102487115"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104600800"
 ---
 # <a name="querying-in-azure-cognitive-search"></a>Interrogation dans Recherche cognitive Azure
 
@@ -71,7 +71,7 @@ Dans Recherche cognitive, la recherche en texte intégral repose sur le moteur d
 
 Lorsque des termes correspondants sont trouvés, le moteur de requête reconstitue un document de recherche contenant la correspondance à l’aide de la clé ou de l’ID du document pour assembler des valeurs de champ, classe les documents par ordre de pertinence, puis retourne les 50 premiers résultats (par défaut) dans la réponse, ou un autre nombre si vous avez spécifié **`top`** .
 
-Si vous implémentez la recherche en texte intégral, la compréhension de la manière dont votre contenu est segmenté en jetons vous aidera à déboguer les anomalies de requête. Les requêtes sur des chaînes comportant des traits d’union ou des caractères spéciaux peuvent nécessiter l’utilisation d’un analyseur autre que le moteur Lucene standard par défaut pour s’assurer que l’index contient les jetons appropriés. Vous pouvez remplacer l’analyseur par défaut en choisissant des [analyseurs de langage](index-add-language-analyzers.md#language-analyzer-list) ou des [analyseurs spécialisés](index-add-custom-analyzers.md#AnalyzerTable) qui modifient les paramètres d’analyse lexicale. Un analyseur [mot clé](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) traite par exemple tout le contenu d’un champ comme un jeton unique. Ceci est utile pour les données comme les codes postaux, les ID et certains noms de produit. Pour plus d’informations, consultez [Recherche de termes partiels et modèles avec des caractères spéciaux](search-query-partial-matching.md).
+Si vous implémentez la recherche en texte intégral, la compréhension de la manière dont votre contenu est segmenté en jetons vous aidera à déboguer les anomalies de requête. Les requêtes sur des chaînes comportant des traits d’union ou des caractères spéciaux peuvent nécessiter l’utilisation d’un analyseur autre que le moteur Lucene standard par défaut pour s’assurer que l’index contient les jetons appropriés. Vous pouvez remplacer l’analyseur par défaut en choisissant des [analyseurs de langage](index-add-language-analyzers.md#language-analyzer-list) ou des [analyseurs spécialisés](index-add-custom-analyzers.md#built-in-analyzers) qui modifient les paramètres d’analyse lexicale. Un analyseur [mot clé](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) traite par exemple tout le contenu d’un champ comme un jeton unique. Ceci est utile pour les données comme les codes postaux, les ID et certains noms de produit. Pour plus d’informations, consultez [Recherche de termes partiels et modèles avec des caractères spéciaux](search-query-partial-matching.md).
 
 Si vous prévoyez une utilisation intensive d’opérateurs booléens, ce qui est plus probable dans les index contenant des blocs de texte volumineux (un champ de contenu ou des descriptions longues), veillez à tester les requêtes avec le paramètre **`searchMode=Any|All`** pour évaluer l’impact de ce paramètre sur la recherche booléenne.
 

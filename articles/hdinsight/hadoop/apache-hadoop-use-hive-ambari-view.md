@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
-ms.openlocfilehash: 1f2dbef014f1b48b554e6bc30af83b936fe532a7
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 87a4d3960937450713747fa16bd473b4c34eff0e
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98944868"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104867863"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>Utiliser la vue Apache Ambari Hive avec Apache Hadoop dans HDInsight
 
@@ -18,7 +18,7 @@ ms.locfileid: "98944868"
 
 Découvrez comment exécuter des requêtes Hive avec la vue Apache Ambari Hive. L’affichage Hive vous permet de créer, d’optimiser et d’exécuter des requêtes Hive à partir du navigateur web.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Un cluster Hadoop sur HDInsight. Consultez [Bien démarrer avec HDInsight sur Linux](./apache-hadoop-linux-tutorial-get-started.md).
 
@@ -30,11 +30,11 @@ Un cluster Hadoop sur HDInsight. Consultez [Bien démarrer avec HDInsight sur Li
 
 1. Dans la liste des vues, sélectionnez __Affichage Hive__.
 
-    ![Apache Ambari - Sélectionner la vue Apache Hive](./media/apache-hadoop-use-hive-ambari-view/select-apache-hive-view.png)
+    :::image type="content" source="./media/apache-hadoop-use-hive-ambari-view/select-apache-hive-view.png" alt-text="Apache Ambari - Sélectionner la vue Apache Hive" border="true":::
 
     L’affiche Hive est similaire à ceci :
 
-    ![Image de la feuille de calcul de requête pour l’affichage Hive](./media/apache-hadoop-use-hive-ambari-view/ambari-worksheet-view.png)
+    :::image type="content" source="./media/apache-hadoop-use-hive-ambari-view/ambari-worksheet-view.png" alt-text="Image de la feuille de calcul de requête pour l’affichage Hive" border="true":::
 
 1. Dans l’onglet __Requête__ , collez les instructions HiveQL suivantes dans la feuille de calcul :
 
@@ -99,19 +99,19 @@ Sélectionnez l’onglet **Tez UI** (IU Tez) au-dessous de la feuille de calcul 
 
 L’onglet __Travaux__ affiche un historique des requêtes Hive.
 
-![Apache Hive - Afficher l’onglet d’historique des tâches](./media/apache-hadoop-use-hive-ambari-view/apache-hive-job-history.png)
+:::image type="content" source="./media/apache-hadoop-use-hive-ambari-view/apache-hive-job-history.png" alt-text="Apache Hive - Afficher l’onglet d’historique des tâches" border="true":::
 
 ## <a name="database-tables"></a>Tables de base de données
 
 Vous pouvez utiliser l’onglet __Tables__ onglet pour travailler avec des tables dans une base de données Hive.
 
-![Image de l’onglet Tables d’Apache Hive](./media/apache-hadoop-use-hive-ambari-view/hdinsight-tables-tab.png)
+:::image type="content" source="./media/apache-hadoop-use-hive-ambari-view/hdinsight-tables-tab.png" alt-text="Image de l’onglet Tables d’Apache Hive" border="true":::
 
 ## <a name="saved-queries"></a>Requêtes enregistrées
 
 À partir de l’onglet **Query** (Requête), vous pouvez éventuellement enregistrer des requêtes. Après avoir enregistré une requête, vous pouvez la réutiliser à partir de l’onglet __Saved Queries__ (Requêtes enregistrées).
 
-![Onglet Affichage des requêtes Apache Hive enregistrées](./media/apache-hadoop-use-hive-ambari-view/ambari-saved-queries.png)
+:::image type="content" source="./media/apache-hadoop-use-hive-ambari-view/ambari-saved-queries.png" alt-text="Onglet Affichage des requêtes Apache Hive enregistrées" border="true":::
 
 > [!TIP]  
 > Les requêtes enregistrées sont stockées dans le stockage en cluster par défaut. Vous pouvez rechercher les requêtes enregistrées sous le chemin `/user/<username>/hive/scripts`. Ces fichiers sont stockés en tant que fichiers `.hql` en texte brut.
@@ -124,7 +124,7 @@ Vous pouvez étendre Hive par l’intermédiaire de fonctions définies par l’
 
 Déclarez et enregistrez un ensemble de fonctions définies par l’utilisateur en utilisant l’onglet **UDF** en haut de l’affichage Hive. Ces UDF peuvent être utilisés avec les **l’éditeur de requête**.
 
-![Affichage de l’onglet UDF d’Apache Hive](./media/apache-hadoop-use-hive-ambari-view/user-defined-functions.png)
+:::image type="content" source="./media/apache-hadoop-use-hive-ambari-view/user-defined-functions.png" alt-text="Affichage de l’onglet UDF d’Apache Hive" border="true":::
 
 Un bouton **Insérer des UDF** apparaît au bas de **l’éditeur de requête**. Cette entrée affiche une liste déroulante des UDF définies dans l’affichage Hive. La sélection d’une fonction UDF ajoute des instructions HiveQL à votre requête pour activer l’UDF.
 

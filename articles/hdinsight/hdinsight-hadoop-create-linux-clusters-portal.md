@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 08/06/2020
-ms.openlocfilehash: c68d342cf21d69fa97ba3d5171ba596662fd845f
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 98d18044693bc6f4d23e04e9403e71686df39451
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98945815"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104872198"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-by-using-the-azure-portal"></a>Créer des clusters Linux dans HDInsight à l’aide du portail Azure
 
@@ -32,13 +32,13 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 1. Dans le menu du haut, sélectionnez **+ Créer une ressource**.
 
-    ![Créer un cluster dans le portail Azure](./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-create-resource.png "Création d’un cluster dans le portail Azure")
+    :::image type="content" source="./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-create-resource.png" alt-text="Créer un cluster dans le portail Azure":::
 
 1. Sélectionnez **Analyse** > **Azure HDInsight** pour accéder à la page **Créer un cluster HDInsight**.
 
 ## <a name="basics"></a>Concepts de base
 
-![HDInsight - Créer un cluster - Informations de base](./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-basics.png "Création d’un cluster dans le portail Azure")
+:::image type="content" source="./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-basics.png" alt-text="HDInsight - Créer un cluster - Informations de base":::
 
 Sous l’onglet **De base**, fournissez les informations suivantes :
 
@@ -63,7 +63,7 @@ Sélectionnez **Suivant : Stockage >>** pour passer à l’onglet suivant.
 > [!WARNING] 
 > À compter du 15 juin 2020, les clients ne seront pas en mesure de créer un principal de service à l’aide de HDInsight. Consultez [Créer un principal de service et des certificats](../active-directory/develop/howto-create-service-principal-portal.md) à l’aide d’Azure Active Directory.
 
-![HDInsight - Créer un cluster - Stockage](./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-storage.png "Création d’un cluster dans le portail Azure - Stockage")
+:::image type="content" source="./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-storage.png" alt-text="HDInsight - Créer un cluster - Stockage":::
 
 ### <a name="primary-storage"></a>Stockage principal
 
@@ -90,7 +90,7 @@ Sélectionnez **Suivant : Sécurité et réseau >>** pour passer à l’onglet 
 
 ## <a name="security--networking"></a>Sécurité + mise en réseau
 
-![HDInsight - Créer un cluster - Sécurité et réseau](./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-security-networking.png "HDInsight - Créer un cluster - Sécurité et réseau")
+:::image type="content" source="./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-security-networking.png" alt-text="HDInsight - Créer un cluster - Sécurité et réseau":::
 
 Sous l’onglet **Sécurité et réseau**, indiquez les informations suivantes :
 
@@ -107,7 +107,7 @@ Sélectionnez **Suivant : Configuration + prix >>** pour passer à l’onglet 
 
 ## <a name="configuration--pricing"></a>Configuration + prix
 
-![HDInsight - Créer un cluster - Configuration](./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-configuration.png "Onglet Configuration et prix")
+:::image type="content" source="./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-configuration.png" alt-text="HDInsight - Créer un cluster - Configuration":::
 
 Sous l’onglet **Configuration + prix**, indiquez les informations suivantes :
 
@@ -123,7 +123,7 @@ Sélectionnez **Vérifier + créer >>** pour valider la configuration du clus
 
 ## <a name="review--create"></a>Vérifier + créer
 
-![HDInsight - Créer un cluster - Résumé](./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-review-create-hadoop.png "Spécifier le nombre de nœuds de cluster")
+:::image type="content" source="./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-review-create-hadoop.png" alt-text="HDInsight - Créer un cluster - Résumé":::
 
 Passez en revue les paramètres. Sélectionnez **Créer** pour créer le cluster.
 
@@ -133,7 +133,7 @@ La création du cluster prend un certain temps (en règle générale, environ 20
 
 Quand vous avez terminé le processus de création, sélectionnez **Accéder à la ressource** dans la notification **Le déploiement a été effectué**. La fenêtre de cluster fournit les informations suivantes.
 
-![HDI - Vue d’ensemble des clusters dans le portail Azure](./media/hdinsight-hadoop-create-linux-clusters-portal/hdinsight-create-cluster-completed.png "Propriétés du cluster")
+:::image type="content" source="./media/hdinsight-hadoop-create-linux-clusters-portal/hdinsight-create-cluster-completed.png" alt-text="HDI - Vue d’ensemble des clusters dans le portail Azure":::
 
 Voici une description de quelques icônes présentes dans la fenêtre :
 

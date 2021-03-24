@@ -4,10 +4,10 @@ description: Découvrez comment spécifier les artefacts à installer obligatoir
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 0677f8bea35cb34735fdcf34e717eea349fad8bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85480301"
 ---
 # <a name="specify-mandatory-artifacts-for-your-lab-in-azure-devtest-labs"></a>Spécifier des artefacts obligatoires pour une instance Azure DevTest Labs
@@ -38,8 +38,8 @@ Les artefacts obligatoires des machines Windows et Linux peuvent être sélectio
 8. Répétez les étapes pour spécifier les artefacts obligatoires des machines virtuelles Linux. 
     
     ![Page des artefacts obligatoires – Artefacts Windows et Linux](media/devtest-lab-mandatory-artifacts/windows-linux-artifacts.png)
-9. Pour **supprimer** un artefact dans la liste, sélectionnez **… (points de suspension)**  à la fin de la ligne, puis **Supprimer**. 
-10. Pour **réorganiser** les artefacts dans la liste, placez le curseur de la souris sur l’artefact, sélectionnez les **… (points de suspension)**  qui apparaissent au début de la ligne et faites glisser l’élément vers la nouvelle position. 
+9. Pour **supprimer** un artefact dans la liste, sélectionnez **… (points de suspension)** à la fin de la ligne, puis **Supprimer**. 
+10. Pour **réorganiser** les artefacts dans la liste, placez le curseur de la souris sur l’artefact, sélectionnez les **… (points de suspension)** qui apparaissent au début de la ligne et faites glisser l’élément vers la nouvelle position. 
 11. Pour enregistrer les artefacts obligatoires dans l’instance lab, sélectionnez **Enregistrer**. 
 
     ![Pages des artefacts obligatoires – Enregistrer les artefacts dans l’instance lab](media/devtest-lab-mandatory-artifacts/save-to-lab.png)
@@ -54,7 +54,7 @@ Pour supprimer un artefact obligatoire d’une instance lab, effectuez les actio
 4. Sélectionnez le message indiquant le nombre d’artefacts obligatoires en haut. 
 
     ![Page des artefacts obligatoires – Sélectionner le message](media/devtest-lab-mandatory-artifacts/select-message-artifacts.png)
-5. Sur la page **Artefacts sélectionnés**, sélectionnez **… (points de suspension)**  pour l’artefact à supprimer, puis **supprimer**. 
+5. Sur la page **Artefacts sélectionnés**, sélectionnez **… (points de suspension)** pour l’artefact à supprimer, puis **supprimer**. 
     
     ![Pages des artefacts obligatoires – Supprimer un artefact](media/devtest-lab-mandatory-artifacts/remove-artifact.png)
 6. Cliquez sur **OK** pour fermer la page **Artefacts sélectionnés**. 

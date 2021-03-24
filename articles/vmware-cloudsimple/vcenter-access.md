@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 2e62042a84f7ac2615762e3d9b036e4340bd8c73
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97899114"
 ---
 # <a name="access-your-private-cloud-vcenter-portal"></a>Accéder au portail vCenter de votre cloud privé
@@ -24,7 +24,7 @@ Vous pouvez ouvrir le portail vCenter de votre cloud privé à partir du portai 
 Pour accéder au portail vCenter, une connexion réseau doit être établie et la résolution des noms DNS doit être activée.  Vous pouvez établir une connexion réseau vers votre cloud privé à l’aide de l’une des options ci-dessous.
 
 * [Connecter un réseau local à CloudSimple à l’aide d’ExpressRoute](on-premises-connection.md)
-* [Configurer une connexion VPN vers votre cloud privé CloudSimple](set-up-vpn.md)
+* [Configurer une connexion VPN vers votre cloud privé CloudSimple](set-up-vpn.md)
 
 Pour configurer la résolution des noms DNS des composants de l’infrastructure VMware de votre cloud privé, consultez [Configurer la résolution des noms DNS pour accéder au vCenter du cloud privé à partir de stations de travail locales](on-premises-dns-setup.md).
 

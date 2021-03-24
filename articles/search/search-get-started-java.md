@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 03/04/2021
 ms.custom: devx-track-java
-ms.openlocfilehash: f833c0539d4aa28033cd6f76c1ca7cec7f11f6b5
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: f52aaa0636c453c0def7cb97c203f17f0b11a221
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102124565"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104955293"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-java"></a>Démarrage rapide : Créer un index Recherche cognitive Azure en Java
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.locfileid: "102124565"
 > * [Python](search-get-started-python.md)
 > * [REST](search-get-started-rest.md)
 
-Générez une application console Java qui crée, charge et interroge un index de recherche à l’aide de [IntelliJ](https://www.jetbrains.com/idea/), du [SDK Java 11](/java/azure/jdk/) et de l’[API REST Recherche cognitive Azure](/rest/api/searchservice/). Cet article fournit des instructions pas à pas pour créer l’application. Vous pouvez aussi [télécharger et exécuter l’application complète](hhttps://github.com/Azure-Samples/azure-search-java-samples).
+Générez une application console Java qui crée, charge et interroge un index de recherche à l’aide de [IntelliJ](https://www.jetbrains.com/idea/), du [SDK Java 11](/java/azure/jdk/) et de l’[API REST Recherche cognitive Azure](/rest/api/searchservice/). Cet article fournit des instructions pas à pas pour créer l’application. Vous pouvez aussi [télécharger et exécuter l’application complète](https://github.com/Azure-Samples/azure-search-java-samples).
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 

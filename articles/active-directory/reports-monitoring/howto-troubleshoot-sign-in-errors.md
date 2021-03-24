@@ -15,10 +15,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4de9f5a21f38f741dcf65d285446d9482716d4f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85608124"
 ---
 # <a name="how-to-troubleshoot-sign-in-errors-using-azure-active-directory-reports"></a>Guide pratique pour résoudre les erreurs de connexion avec les rapports Azure Active Directory
@@ -32,7 +32,7 @@ Le [rapport des connexions](concept-sign-ins.md) dans Azure Active Directory (Az
 
 En outre, le rapport des connexions peut également vous aider à résoudre les échecs de connexion pour les utilisateurs de votre organisation. Dans ce guide, vous découvrez comment isoler un échec de connexion dans le rapport des connexions et comment l’utiliser pour comprendre la cause racine de l’échec.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Ce dont vous avez besoin :
 

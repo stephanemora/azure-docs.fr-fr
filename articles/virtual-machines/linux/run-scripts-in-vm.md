@@ -8,12 +8,12 @@ author: bobbytreed
 ms.author: robreed
 ms.date: 05/02/2018
 ms.topic: how-to
-ms.openlocfilehash: 9531b5b3d5f178e204d408c677e8908be86e3367
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 633f4fa6254b2db7a802bb29bffc83b271216d49
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102552862"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104601752"
 ---
 # <a name="run-scripts-in-your-linux-vm"></a>Exécuter des scripts dans votre machine virtuelle Linux
 
@@ -57,7 +57,7 @@ Le [Runbook Worker hybride](../../automation/automation-hybrid-runbook-worker.md
 
 ## <a name="serial-console"></a>Console série
 
-La [Console série](../troubleshooting/serial-console-linux.md) offre un accès direct à une machine virtuelle, semblable au fait de disposer d’un clavier connecté à la machine virtuelle.
+La [Console série](/troubleshoot/azure/virtual-machines/serial-console-linux) offre un accès direct à une machine virtuelle, semblable au fait de disposer d’un clavier connecté à la machine virtuelle.
 
 * Exécutez des commandes dans des machines Azure.
 * L’exécution peut se faire à l’aide d’une console basée sur texte vers la machine virtuelle dans le portail Azure.
@@ -71,4 +71,4 @@ En savoir plus sur les différentes fonctionnalités qui sont disponibles pour e
 * [Extension de script personnalisé](../extensions/custom-script-linux.md)
 * [Commande d’exécution](run-command.md)
 * [Runbook Worker hybride](../../automation/automation-hybrid-runbook-worker.md)
-* [Console série](../troubleshooting/serial-console-linux.md)
+* [Console série](/troubleshoot/azure/virtual-machines/serial-console-linux)

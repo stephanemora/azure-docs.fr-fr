@@ -16,10 +16,10 @@ ms.date: 10/30/2014
 ms.author: erikre
 ms.reviewer: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com
 ms.openlocfilehash: b3a9fee09d1eac6fb4d716af83c348cb2c21f7a9
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96023786"
 ---
 # <a name="how-to-use-the-sendgrid-email-service-from-php"></a>Utilisation du service de messagerie électronique SendGrid à partir de PHP
@@ -47,7 +47,7 @@ Pour plus d’informations, consultez [https://sendgrid.com][https://sendgrid.co
 
 L'utilisation de SendGrid dans une application Azure PHP ne nécessite ni configuration spéciale, ni codage particulier. SendGrid étant un service, l'accès s'effectue exactement de la même manière qu'il s'agisse d'une application cloud ou d'une application locale.
 
-## <a name="how-to-send-an-email"></a>Envoi d'un message électronique
+## <a name="how-to-send-an-email"></a>Procédure : envoyer un e-mail
 
 Vous pouvez envoyer un courrier électronique à l'aide de l'API SMTP ou de l'API web fournie par SendGrid.
 
@@ -162,7 +162,7 @@ Utilisez la [fonction curl][curl function] de PHP pour envoyer un courrier élec
 
 L'API web de SendGrid présente de nombreuses similitudes avec l'API REST. Cependant, il ne s'agit pas à proprement parler d'une API RESTful, dans la mesure où les verbes GET et POST peuvent être utilisés de manière interchangeable dans la plupart des appels.
 
-## <a name="how-to-add-an-attachment"></a>Ajout d'une pièce jointe
+## <a name="how-to-add-an-attachment"></a>Procédure : Ajout d'une pièce jointe
 
 ### <a name="smtp-api"></a>API SMTP
 

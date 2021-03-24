@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 02/18/2021
 ms.author: wieastbu
 ms.custom: fasttrack-new, fasttrack-update, devx-track-js
-ms.openlocfilehash: 812b54d10ea3cc3c405f534e36ac66abf3466808
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: baa6a0a6995e206924d14de25b98700e450f3a0c
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102449286"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104954919"
 ---
 # <a name="protect-spa-backend-with-oauth-20-azure-active-directory-b2c-and-azure-api-management"></a>Protéger le back-end d’une application monopage avec OAuth 2.0 à l’aide d’Azure Active Directory B2C et de Gestion des API Azure
 
@@ -195,7 +195,7 @@ Ouvrez le panneau Azure AD B2C dans le portail et effectuez les étapes ci-desso
 1. Collez le Point de terminaison de configuration OpenID reconnu de la stratégie d’inscription et de connexion vers la zone URL de l’émetteur (nous avions enregistré cette configuration).
 1. Cliquez sur « Afficher le secret », puis collez la clé secrète client de l’application back-end dans la zone correspondante.
 1. Sélectionnez OK. Vous revenez ainsi au panneau/à l’écran de sélection du fournisseur d’identité.
-1. Laissez [Magasin de jetons](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization#token-store) activé sous Paramètres avancés (par défaut).
+1. Laissez [Magasin de jetons](../app-service/overview-authentication-authorization.md#token-store) activé sous Paramètres avancés (par défaut).
 1. Cliquez sur « Enregistrer » (en haut à gauche du panneau).
 
    > [!IMPORTANT]

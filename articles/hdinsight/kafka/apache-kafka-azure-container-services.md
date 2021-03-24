@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/04/2019
-ms.openlocfilehash: d807b591229644984f6658cdacd0bf447759f292
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 2216eb5893b77761f4d31c5819d152ceeb985abc
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98933018"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104869648"
 ---
 # <a name="use-azure-kubernetes-service-with-apache-kafka-on-hdinsight"></a>Utiliser Azure Kubernetes Service avec Apache Kafka sur HDInsight
 
@@ -42,7 +42,7 @@ HDInsight et AKS utilisent un réseau virtuel Azure comme conteneur pour les res
 
 Le diagramme suivant illustre la topologie de réseau utilisée dans ce document :
 
-![HDInsight dans un réseau virtuel, AKS dans un autre avec un appairage](./media/apache-kafka-azure-container-services/kafka-aks-architecture.png)
+:::image type="content" source="./media/apache-kafka-azure-container-services/kafka-aks-architecture.png" alt-text="HDInsight dans un réseau virtuel, AKS dans un autre avec un appairage" border="false":::
 
 > [!IMPORTANT]  
 > La résolution de noms n’est pas activée entre les réseaux homologués, l’adressage IP est donc utilisé. Par défaut, Kafka sur HDInsight est configuré pour retourner les noms d’hôte à la place des adresses IP lorsque les clients se connectent. Les étapes décrites dans ce document modifient Kafka pour utiliser la publication IP à la place.
@@ -109,15 +109,15 @@ Suivez les étapes ci-dessous pour configurer Kafka afin qu’il publie des adre
 
 2. Pour afficher plus d’informations sur Kafka, sélectionnez __Kafka__ dans la liste sur la gauche.
 
-    ![Liste des services avec l’option Kafka en surbrillance](./media/apache-kafka-azure-container-services/select-kafka-service.png)
+    :::image type="content" source="./media/apache-kafka-azure-container-services/select-kafka-service.png" alt-text="Liste des services avec l’option Kafka en surbrillance" border="true":::
 
 3. Pour afficher la configuration Kafka, sélectionnez __Configurations__ en haut et au centre de la page.
 
-    ![Apache Ambari - Configuration des services](./media/apache-kafka-azure-container-services/select-kafka-config1.png)
+    :::image type="content" source="./media/apache-kafka-azure-container-services/select-kafka-config1.png" alt-text="Apache Ambari - Configuration des services" border="true":::
 
 4. Pour trouver la configuration __kafka-env__, entrez `kafka-env` dans le champ __Filtre__ situé en haut à droite.
 
-    ![Configuration Kafka, pour kafka-env](./media/apache-kafka-azure-container-services/search-for-kafka-env.png)
+    :::image type="content" source="./media/apache-kafka-azure-container-services/search-for-kafka-env.png" alt-text="Configuration Kafka, pour kafka-env" border="true":::
 
 5. Pour configurer Kafka afin qu’il publie des adresses IP, ajoutez le texte suivant au bas du champ __kafka-env-template__ :
 
@@ -135,15 +135,15 @@ Suivez les étapes ci-dessous pour configurer Kafka afin qu’il publie des adre
 
 8. Utilisez le bouton __Enregistrer__ pour enregistrer les modifications apportées à la configuration. Entrez un message texte décrivant les modifications. Sélectionnez __OK__ une fois les modifications apportées.
 
-    ![Apache Ambari - Enregistrement de la configuration](./media/apache-kafka-azure-container-services/save-configuration-button.png)
+    :::image type="content" source="./media/apache-kafka-azure-container-services/save-configuration-button.png" alt-text="Apache Ambari - Enregistrement de la configuration" border="true":::
 
 9. Pour éviter des erreurs lors du redémarrage de Kafka, utilisez le bouton __Service Actions__ (Actions du service) et sélectionnez __Activer le mode de maintenance__. Sélectionnez OK pour terminer cette opération.
 
-    ![Actions de service, avec l’option Activer le mode de maintenance en surbrillance](./media/apache-kafka-azure-container-services/turn-on-maintenance-mode.png)
+    :::image type="content" source="./media/apache-kafka-azure-container-services/turn-on-maintenance-mode.png" alt-text="Actions de service, avec l’option Activer le mode de maintenance en surbrillance" border="true":::
 
 10. Pour redémarrer Kafka, utilisez le bouton __Redémarrer__ et sélectionnez __Restart All Affected__ (Redémarrer tous les éléments affectés). Confirmez le redémarrage, puis utilisez le bouton __OK__ une fois l’opération terminée.
 
-    ![Bouton Redémarrer avec l’option Restart All Affected (Redémarrer tous les éléments affectés) en surbrillance](./media/apache-kafka-azure-container-services/restart-required-button.png)
+    :::image type="content" source="./media/apache-kafka-azure-container-services/restart-required-button.png" alt-text="Bouton Redémarrer avec l’option Restart All Affected (Redémarrer tous les éléments affectés) en surbrillance" border="true":::
 
 11. Pour désactiver le mode de maintenance, utilisez le bouton __Service Actions__ (Actions du service) et sélectionnez __Désactiver le mode de maintenance__. Sélectionnez **OK** pour terminer cette opération.
 
@@ -213,7 +213,7 @@ Suivez les étapes ci-dessous pour configurer Kafka afin qu’il publie des adre
 
 11. Ouvrez un navigateur web et entrez l’adresse IP externe pour le service. Vous accédez à une page similaire à l’image ci-dessous :
 
-    ![Image de page web de test Apache Kafka](./media/apache-kafka-azure-container-services/test-web-page-image1.png)
+    :::image type="content" source="./media/apache-kafka-azure-container-services/test-web-page-image1.png" alt-text="Image de page web de test Apache Kafka" border="true":::
 
 12. Entrez le texte dans le champ, puis sélectionnez le bouton __Envoyer__. Les données sont envoyées à Kafka. Ensuite, le consommateur Kafka dans l’application lit le message et l’ajoute à la section __Messages à partir de Kafka__.
 

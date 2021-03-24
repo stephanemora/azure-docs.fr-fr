@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 11/14/2019
 ms.author: absha
 ms.openlocfilehash: 548bda36ed2b167c159d32a575b63ecbf10b16dd
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93397567"
 ---
 # <a name="troubleshoot-azure-application-gateway-session-affinity-issues"></a>Résoudre des problèmes d’affinité de session dans Azure Application Gateway
@@ -40,9 +40,9 @@ Des problèmes d’affinité de session peuvent parfois se produire si vous oubl
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
-2. Dans le **volet de navigation gauche** , cliquez sur **Toutes les ressources**. Cliquez sur le nom de la passerelle d’application dans le panneau Toutes les ressources. Si l’abonnement sélectionné comprend déjà plusieurs ressources, vous pouvez entrer le nom de la passerelle d’application dans la zone **Filtrer par nom...** pour accéder facilement à la passerelle d’application.
+2. Dans le **volet de navigation gauche**, cliquez sur **Toutes les ressources**. Cliquez sur le nom de la passerelle d’application dans le panneau Toutes les ressources. Si l’abonnement sélectionné comprend déjà plusieurs ressources, vous pouvez entrer le nom de la passerelle d’application dans la zone **Filtrer par nom...** pour accéder facilement à la passerelle d’application.
 
-3. Sous **PARAMÈTRES** , sélectionnez **Paramètres HTTP**.
+3. Sous **PARAMÈTRES**, sélectionnez **Paramètres HTTP**.
 
    ![Capture d’écran qui montre PARAMÈTRES avec les paramètres HTTP sélectionnés.](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-1.png)
 
@@ -127,11 +127,11 @@ Activation de la journalisation avec le portail Azure
 
 #### <a name="view-and-analyze-the-application-gateway-access-logs"></a>Afficher et analyser les journaux d’accès Application Gateway
 
-1. Dans le portail Azure, sous l’affichage des ressources Application Gateway, dans la section **SURVEILLANCE** , sélectionnez **Journaux de diagnostic**.
+1. Dans le portail Azure, sous l’affichage des ressources Application Gateway, dans la section **SURVEILLANCE**, sélectionnez **Journaux de diagnostic**.
 
    ![Capture d’écran qui montre SUPERVISION avec Journaux de diagnostic sélectionné.](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-8.png)
 
-2. Sur le côté droit, dans la liste déroulante sous **Catégories de journal** , sélectionnez **ApplicationGatewayAccessLog**.  
+2. Sur le côté droit, dans la liste déroulante sous **Catégories de journal**, sélectionnez **ApplicationGatewayAccessLog**.  
 
    ![Capture d’écran qui montre la liste déroulante des catégories de journaux avec ApplicationGatewayAccessLog sélectionné.](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-9.png)
 
@@ -141,19 +141,19 @@ Activation de la journalisation avec le portail Azure
 
 5. Vérifiez les données suivantes :
 
-- **ClientIP**  : adresse IP du client qui se connecte.
-- **ClientPort**  : port source du client qui se connecte pour la demande.
-- **RequestQuery**  : serveur de destination où la demande est reçue.
-- **Acheminée par le serveur**  : instance de pool principal où la demande est reçue.
-- **X-AzureApplicationGateway-LOG-ID**  : ID de corrélation utilisé pour la requête. Peut être utilisée pour résoudre les problèmes de trafic sur les serveurs principaux. Par exemple : X-AzureApplicationGateway-CACHE-HIT=0&SERVER-ROUTED=10.0.2.4.
+- **ClientIP** : adresse IP du client qui se connecte.
+- **ClientPort** : port source du client qui se connecte pour la demande.
+- **RequestQuery** : serveur de destination où la demande est reçue.
+- **Acheminée par le serveur** : instance de pool principal où la demande est reçue.
+- **X-AzureApplicationGateway-LOG-ID** : ID de corrélation utilisé pour la requête. Peut être utilisée pour résoudre les problèmes de trafic sur les serveurs principaux. Par exemple : X-AzureApplicationGateway-CACHE-HIT=0&SERVER-ROUTED=10.0.2.4.
 
-  - **ÉTAT DU SERVEUR**  : code de réponse HTTP reçu par Application Gateway à partir du back-end.
+  - **ÉTAT DU SERVEUR** : code de réponse HTTP reçu par Application Gateway à partir du back-end.
 
   ![Capture d’écran qui montre l’état du serveur en texte brut, principalement masqué, avec clientPort et SERVER-ROUTED mis en évidence.](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-11.png)
 
 Si vous constatez que deux éléments proviennent des mêmes Adresse IP cliente et Port client et qu’ils sont envoyés au même serveur principal, cela signifie qu’Application Gateway a été configuré correctement.
 
-Si vous constatez que deux éléments proviennent des mêmes Adresse IP cliente et Port client et qu’ils sont envoyés à des serveurs principaux différents, ce qui signifie que la demande rebondit entre les serveurs principaux, consultez la section **L’application utilise une affinité basée sur les cookies, mais les demandes continuent de rebondir entre les serveurs principaux**  plus bas pour résoudre le problème.
+Si vous constatez que deux éléments proviennent des mêmes Adresse IP cliente et Port client et qu’ils sont envoyés à des serveurs principaux différents, ce qui signifie que la demande rebondit entre les serveurs principaux, consultez la section **L’application utilise une affinité basée sur les cookies, mais les demandes continuent de rebondir entre les serveurs principaux** plus bas pour résoudre le problème.
 
 ### <a name="use-web-debugger-to-capture-and-analyze-the-http-or-https-traffics"></a>Utiliser le débogueur web pour capturer et analyser les trafics HTTP ou HTTPS
 
@@ -174,7 +174,7 @@ Utilisez le débogueur web de votre choix. Dans cet exemple, nous allons utilise
 
     ![Capture d’écran qui montre le débogueur web Fiddler avec l’indicateur de capture mis en évidence.](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-13.png)
 
-4. Comme vous vous intéressez très probablement au trafic HTTPS déchiffré, vous pouvez activer le déchiffrement HTTPS en sélectionnant **Outils** > **Options Fiddler** , puis en activant la case **Déchiffrer le trafic HTTPS**.
+4. Comme vous vous intéressez très probablement au trafic HTTPS déchiffré, vous pouvez activer le déchiffrement HTTPS en sélectionnant **Outils** > **Options Fiddler**, puis en activant la case **Déchiffrer le trafic HTTPS**.
 
     ![Capture d’écran qui montre les options de Fiddler avec HTTP sélectionné et Decrypt HTTPS traffic sélectionné.](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-14.png)
 

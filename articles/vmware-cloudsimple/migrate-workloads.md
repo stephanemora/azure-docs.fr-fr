@@ -9,17 +9,17 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 851305775d14ed371440434b2fbe9334ec0a21b9
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97899318"
 ---
 # <a name="migrate-workload-vms-from-on-premises-vcenter-to-private-cloud-vcenter-environment"></a>Migrer des machines virtuelles de charge de travail d’un environnement vCenter local vers un environnement vCenter de cloud privé
 
 Pour migrer des machines virtuelles d’un centre de données local vers votre cloud privé CloudSimple, plusieurs options sont disponibles.  Le cloud privé fournit un accès natif à VMware vCenter. De plus, les outils pris en charge par VMware peuvent être utilisés pour la migration de la charge de travail. Cet article décrit certaines des options de migration de vCenter.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 La migration des machines virtuelles et des données à partir de votre centre de données local nécessite une connectivité réseau entre le centre de données et votre environnement de cloud privé.  Utilisez l’une des méthodes suivantes pour établir la connectivité réseau :
 

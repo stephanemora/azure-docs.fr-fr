@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: sutalasi
 ms.openlocfilehash: a4140a0b22f7ca8164d50cf60fe57c861f826eb4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86132507"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>Configurer la récupération d’urgence dans Azure pour les machines virtuelles Hyper-V à l’aide de PowerShell et de Azure Resource Manager
@@ -244,7 +244,7 @@ Avant de commencer, le compte de stockage spécifié doit se trouver dans la mê
 > 1. Créez un objet de dictionnaire à l’aide de l’applet de commande `New-Object "System.Collections.Generic.Dictionary``2[System.String,System.String]"` destiné à contenir le mappage de l’ID de disque au jeu de chiffrement de disque. Vous devez créer ces jeux de chiffrement de disque au préalable dans la région cible.
 > 1. Mettez à jour les propriétés des machines virtuelles à l’aide de l’applet de commande `Set-AzRecoveryServicesAsrReplicationProtectedItem` en passant l’objet du dictionnaire dans le paramètre **DiskIdToDiskEncryptionSetMap**.
 
-## <a name="step-8-run-a-test-failover"></a>Étape 8 : Exécution d’un test de basculement
+## <a name="step-8-run-a-test-failover"></a>Étape 8 : Exécuter un test de basculement
 
 1. Exécutez un test de basculement, en procédant comme suit :
 

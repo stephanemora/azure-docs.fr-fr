@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/03/2021
 ms.author: jeedes
-ms.openlocfilehash: 5d1c4d05748fd9efdc51e18396c8df14e12df63d
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 285aa2e1368b343c4784608d846a1f9af9b84c6b
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102193260"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104956228"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-onshape"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Onshape
 
@@ -74,26 +74,12 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Dans le portail Azure, accédez à la page d’intégration de l’application **Onshape**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
-1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de crayon de **Configuration SAML de base** afin de modifier les paramètres.
-
-   ![Modifier la configuration SAML de base](common/edit-urls.png)
-
-1. Dans la section **Configuration SAML de base**, l’utilisateur n’a rien à faire, car l’application est déjà intégrée à Azure.
-
-1. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
-
-    Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<SUBDOMAIN>.onshape.com`
-
-    > [!NOTE]
-    > Cette valeur n’est pas la valeur réelle. Mettez à jour la valeur avec l’URL de connexion réelle. Pour obtenir ces valeurs, contactez l’[équipe du support client d’Onshape](mailto:support@onshape.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
-
-1. Cliquez sur **Enregistrer**.
-
-1. L’application Onshape s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration des attributs de jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut.
+1. Si vous êtes invité à enregistrer votre paramètre d’authentification unique, sélectionnez **Oui**. 
+1. L’application Onshape attend les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration d’attributs de jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut.
 
     ![image](common/default-attributes.png)
 
-1. En plus de ce qui précède, l’application Onshape s’attend à ce que quelques attributs supplémentaires (présentés ci-dessous) soient retransmis dans la réponse SAML. Ces attributs sont également préremplis, mais vous pouvez les examiner pour voir s’ils répondent à vos besoins.
+1. Outre les informations ci-dessus, l’application Onshape attend que les quelques attributs supplémentaires ci-dessous lui soient transmis dans la réponse SAML. Ces attributs sont également préremplis, mais vous pouvez les examiner pour voir s’ils répondent à vos besoins.
     
     | Nom |  Attribut source|
     | --------------- | --------- |
@@ -102,7 +88,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     | companyName | <COMPANY_NAME> |
 
     > [!NOTE]
-    > Modifiez la valeur de la revendication « companyName » avec le « préfixe de domaine ». Par exemple, si le client accède à l’application Onshape à l’aide d’une URL telle que https://acme.onshape.com, son préfixe de domaine est « acme ». La valeur de l’attribut doit être uniquement le préfixe, et non le nom DNS entier.
+    > Vous _devez_ remplacer la valeur de l’attribut **CompanyName** par le *préfixe de domaine* de votre entreprise Onshape. Par exemple, si vous accédez à l’application Onshape à l’aide d’une URL telle que `https://acme.onshape.com`, votre préfixe de domaine est *acme*. La valeur de l’attribut doit être uniquement le préfixe, et non le nom DNS entier.
 
 1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **XML de métadonnées de fédération** et sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
@@ -137,7 +123,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 ## <a name="configure-onshape-sso"></a>Configurer l’authentification unique Onshape
 
-Pour configurer l’authentification unique côté **Onshape**, vous devez envoyer le **fichier XML des métadonnées de fédération** téléchargé et les URL appropriées, copiées à partir du portail Azure, à [l’équipe du support technique d’Onshape](mailto:support@onshape.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+Pour plus d’informations sur la configuration de l’authentification unique côté **Onshape**, consultez [Intégration avec Microsoft Azure AD](https://cad.onshape.com/help/Content/MS_AzureAD.htm).
 
 ### <a name="create-onshape-test-user"></a>Créer un utilisateur de test Onshape
 
@@ -157,11 +143,9 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Dans le portail Azure, cliquez sur **Tester cette application**. Vous êtes alors automatiquement connecté à l’instance d’Onshape pour laquelle vous avez configuré l’authentification unique. 
 
-Vous pouvez aussi utiliser Mes applications de Microsoft pour tester l’application dans n’importe quel mode. Si, quand vous cliquez sur la vignette Onshape dans Mes applications, le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour lancer le flux de connexion. S’il s’agit du mode Fournisseur d’identité, vous êtes automatiquement connecté à l’instance d’Onshape pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Vous pouvez aussi utiliser Mes applications de Microsoft pour tester l’application dans n’importe quel mode. Si, quand vous cliquez sur la vignette Onshape dans Mes applications, le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour lancer le flux de connexion. S’il s’agit du mode Fournisseur d’identité, vous êtes automatiquement connecté à l’instance d’Onshape pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Après avoir configuré Onshape, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Après avoir configuré Onshape, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

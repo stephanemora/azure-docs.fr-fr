@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/27/2021
-ms.openlocfilehash: f83767813ea3923d85db2ca3f0164776c610525e
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 85a4d6390087100d8d9521f6ac20dbace3a711eb
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98955018"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104955939"
 ---
 # <a name="javascript-code-samples-for-azure-cognitive-search"></a>Exemples de code JavaScript pour Recherche cognitive Azure
 
@@ -39,7 +39,6 @@ Les exemples de code de l’équipe de développement du kit SDK Azure illustren
 | [indexeurs](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/javascript/src/indexers) |  Montre comment créer, mettre à jour, obtenir, répertorier, réinitialiser et supprimer des [indexeurs](search-indexer-overview.md).|
 | [skillSet](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/javascript/src/skillSets) |   Montre comment créer, mettre à jour, obtenir, répertorier et supprimer des [ensembles de compétences](cognitive-search-working-with-skillsets.md) qui sont des indexeurs attachés, et qui effectuent un enrichissement basé sur l’intelligence artificielle pendant l’indexation. |
 | [synonymMaps](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/javascript/src/synonymMaps) | Montre comment créer, mettre à jour, obtenir, répertorier et supprimer des [cartes de synonymes](search-synonyms.md).  |
-| [Requêtes](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/search/search-documents/samples/javascript/src/readonlyQuery.js) | Montre l’exécution d’une requête sur un index public en lecture seule hébergé par Microsoft.  |
 
 ### <a name="typescript-samples"></a>Exemples TypeScript
 
@@ -50,7 +49,6 @@ Les exemples de code de l’équipe de développement du kit SDK Azure illustren
 | [indexeurs](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/typescript/src/indexers) |  Montre comment créer, mettre à jour, obtenir, répertorier, réinitialiser et supprimer des [indexeurs](search-indexer-overview.md).|
 | [skillSet](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/typescript/src/skillSets) |   Montre comment créer, mettre à jour, obtenir, répertorier et supprimer des [ensembles de compétences](cognitive-search-working-with-skillsets.md) qui sont des indexeurs attachés, et qui effectuent un enrichissement basé sur l’intelligence artificielle pendant l’indexation. |
 | [synonymMaps](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/typescript/src/synonymMaps) | Montre comment créer, mettre à jour, obtenir, répertorier et supprimer des [cartes de synonymes](search-synonyms.md).  |
-| [Requêtes](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/search/search-documents/samples/typescript/src/readonlyQuery.ts) | Montre l’exécution d’une requête sur un index public en lecture seule hébergé par Microsoft.  |
 
 ## <a name="doc-samples"></a>Exemples de documentation
 
@@ -65,7 +63,7 @@ Les exemples de code de l’équipe Recherche cognitive illustrent les fonctionn
 
 ## <a name="other-samples"></a>Autres exemples
 
-Les exemples suivants sont également publiés par l’équipe Recherche cognitive, mais ne sont pas référencés dans la documentation. Les fichiers Lisez-moi associés fournissent des instructions d’utilisation.
+Les exemples suivants sont également publiés par l’équipe Recherche cognitive, mais la documentation n’y fait pas référence. Les fichiers Lisez-moi associés indiquent les instructions d’utilisation.
 
 | Exemples | Description |
 |---------|-------------|

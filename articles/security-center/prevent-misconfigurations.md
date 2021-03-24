@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 02/04/2021
+ms.date: 03/17/2021
 ms.author: memildin
-ms.openlocfilehash: 5d172a73674195e7f64f5ef02322e2bd2d6314df
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: fabbd255f64e5614ae052c9d7c8d65fc35d45856
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102439525"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104600494"
 ---
 # <a name="prevent-misconfigurations-with-enforcedeny-recommendations"></a>Empêcher des configurations incorrectes à l’aide des recommandations Appliquer/Refuser
 
@@ -68,6 +68,7 @@ Ces recommandations peuvent être utilisées avec l’option **Appliquer** :
 - L’audit sur SQL Server doit être activé
 - Sauvegarde Azure doit être activé pour les machines virtuelles
 - Azure Defender pour SQL doit être activé sur vos serveurs SQL
+- Le module complémentaire Azure Policy pour Kubernetes doit être installé et activé sur vos clusters
 - Les journaux de diagnostic dans Azure Stream Analytics doivent être activés
 - Les journaux de diagnostic doivent être activés dans les comptes Batch
 - Les journaux de diagnostic dans Data Lake Analytics doivent être activés
