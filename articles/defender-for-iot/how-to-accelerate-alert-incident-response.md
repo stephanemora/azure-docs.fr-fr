@@ -1,18 +1,14 @@
 ---
 title: Accélérer les workflows d’alerte
 description: Améliorez les workflows d’alerte et d’incident.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/02/2020
-ms.service: azure
 ms.topic: how-to
-ms.openlocfilehash: 0a445abe0f448c28742282aedd1a886fae0f5a43
-ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
+ms.openlocfilehash: c12d1135b7a7bc87a38a609aeeb6ada8caa9a25e
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100526287"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104779118"
 ---
 # <a name="accelerate-alert-workflows"></a>Accélérer les workflows d’alerte
 
@@ -81,16 +77,29 @@ Ces champs doivent être configurés dans la solution du partenaire pour affiche
 ### <a name="default-alert-groups"></a>Groupes d’alertes par défaut
 
 Les groupes d’alertes suivants sont définis automatiquement :
-|  |  |  |
-|--|--|--|
-| Comportement de communication anormal | Alertes personnalisées | Accès à distance |
-| Comportement de communication HTTP anormal | Découverte | Commandes de redémarrage et d’arrêt |
-| Authentification | Modification du microprogramme | Analyser |
-| Comportement de communication non autorisé | Commandes non conformes | Trafic de capteur |
-| Anomalies de la bande passante | Accès à Internet | Suspicion de programme malveillant |
-| Dépassement de capacité de la mémoire tampon | Échecs d’opération | Suspicion d’activité malveillante |
-| Échecs de commande | Problèmes de fonctionnement |  |
-| Modifications de configuration | Programmation |  |
+
+- Comportement de communication anormal
+- Alertes personnalisées
+- Accès à distance
+- Comportement de communication HTTP anormal
+- Découverte
+- Commandes de redémarrage et d’arrêt
+- Authentification
+- Modification du microprogramme
+- Analyser
+- Comportement de communication non autorisé
+- Commandes non conformes
+- Trafic de capteur
+- Anomalies de la bande passante
+- Accès à Internet
+- Suspicion de programme malveillant
+- Dépassement de capacité de la mémoire tampon 
+- Échecs d’opération
+- Suspicion d’activité malveillante
+- Échecs de commande
+- Problèmes de fonctionnement
+- Modifications de configuration
+- Programmation
 
 Les groupes d’alertes sont prédéfinis. Pour plus d’informations sur les alertes associées aux groupes d’alertes et sur la création de groupes d’alertes personnalisés, contactez [Support Microsoft](https://support.microsoft.com/supportforbusiness/productselection?sapId=82c8f35-1b8e-f274-ec11-c6efdd6dd099).
 

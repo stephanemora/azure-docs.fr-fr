@@ -9,10 +9,10 @@ ms.date: 08/21/2019
 ms.author: sngun
 ms.reviewer: sngun
 ms.openlocfilehash: c26d21e74e9808fe65890b7f4eba31ee742552a4
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93339986"
 ---
 # <a name="migrate-data-from-cassandra-to-azure-cosmos-db-cassandra-api-account-using-blitzz"></a>Migrer des données de Cassandra vers un compte API Cassandra Azure Cosmos DB à l'aide de Blitzz
@@ -24,7 +24,7 @@ L'API Cassandra d'Azure Cosmos DB est devenue un excellent choix pour les charge
 
 * **Réduction significative des coûts :** vous pouvez réaliser des économies grâce à Azure Cosmos DB, notamment sur les machines virtuelles, la bande passante et les licences applicables. En outre, vous n'avez pas à gérer les coûts liés aux centres de données, aux serveurs, au stockage SSD, à la mise en réseau et à la consommation électrique. 
 
-* **Possibilité d'utiliser le code et les outils existants**  : Azure Cosmos DB fournit une compatibilité au niveau du protocole filaire avec les SDK et outils Cassandra existants. Cette compatibilité garantit la possibilité d’utiliser votre code base de code avec l’API Cassandra Azure Cosmos DB sans changements majeurs.
+* **Possibilité d'utiliser le code et les outils existants** : Azure Cosmos DB fournit une compatibilité au niveau du protocole filaire avec les SDK et outils Cassandra existants. Cette compatibilité garantit la possibilité d’utiliser votre code base de code avec l’API Cassandra Azure Cosmos DB sans changements majeurs.
 
 Il existe plusieurs façons de migrer des charges de travail de base de données d'une plateforme vers une autre. [Blitzz](https://www.blitzz.io) est un outil sûr et fiable qui permet de procéder à une migration sans interruption de différentes bases de données vers Azure Cosmos DB. Cet article décrit les étapes à suivre pour migrer des données d'une base de données Apache Cassandra vers l'API Cassandra Azure Cosmos DB à l'aide de Blitzz.
 
@@ -114,7 +114,7 @@ Cette section décrit les étapes à suivre pour configurer Blitzz et migrer les
    max-connections: 30
    ```
 
-1. Migrez ensuite les données à l'aide de Blitzz. Vous pouvez exécuter le replicant Blizz en mode **complet** ou **instantané**  :
+1. Migrez ensuite les données à l'aide de Blitzz. Vous pouvez exécuter le replicant Blizz en mode **complet** ou **instantané** :
 
    * **Mode complet** - Dans ce mode, l'outil de réplication continue de s'exécuter après la migration et surveille les modifications éventuelles sur le système Apache Cassandra source. S’il détecte des changements, ceux-ci sont répliqués sur le compte cible Azure Cosmos en temps réel.
 

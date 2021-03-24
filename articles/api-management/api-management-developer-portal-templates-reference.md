@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 9bbb7ef46fbde881c8968128870d24a03b046c23
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "73176795"
 ---
 # <a name="developer-portal-templates"></a>Modèles du portail des développeurs
@@ -33,7 +33,7 @@ Pour plus d’informations sur l’utilisation de modèles, consultez la page [G
 ##  <a name="developer-portal-templates"></a><a name="DeveloperPortalTemplates"></a> Modèles du portail des développeurs  
   
 -   [API](api-management-api-templates.md)  
-    -   [Liste d’API](api-management-api-templates.md#APIList)  
+    -   [Liste des API](api-management-api-templates.md#APIList)  
     -   [opération](api-management-api-templates.md#Product)  
     -   [Exemples de code](api-management-api-templates.md#CodeSamples)  
         -   [Curl](api-management-api-templates.md#Curl)  

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: alkohli
 ms.openlocfilehash: 59cce6d89bc863ad489a8ed37c7f284d3085c775
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "79117271"
 ---
 # <a name="azure-data-box-disk-security-and-data-protection"></a>Protection des données et sécurité Azure Data Box Disk
@@ -24,7 +24,7 @@ Cet article décrit les fonctionnalités de sécurité du disque Azure Data Box 
 La solution Microsoft Azure Data Box repose sur l’interaction de quatre composants principaux :
 
 - **Service Azure Data Box hébergé dans Azure** : le service de gestion qui vous permet de créer la commande des disques, de configurer les disques et de suivre la commande jusqu'à son achèvement.
-- **Disques Data Box**  : les disques physiques qui vous sont livrés pour importer vos données locales dans Azure. 
+- **Disques Data Box** : les disques physiques qui vous sont livrés pour importer vos données locales dans Azure. 
 - **Les clients/hôtes connectés aux disques** : les clients de votre infrastructure se connectant au disque Data Box via USB et contenant des données devant être protégées.
 - **Le stockage cloud** : emplacement dans le cloud Azure où les données sont stockées. Il s’agit généralement du compte de stockage lié à la ressource Azure Data Box que vous avez créée.
 
@@ -72,7 +72,7 @@ Azure Data Box Disk collecte et affiche des informations personnelles dans les i
 
   - Nom du contact
   - Numéro de téléphone
-  - Email
+  - E-mail
   - Adresse postale
   - City
   - Code postal

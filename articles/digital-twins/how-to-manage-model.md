@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 86efd7781c7353b4846c77eba01ed34fb63067ff
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 75911e91bb61b84d2e9315421f794739f2b5088b
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102433248"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104953695"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Gérer les modèles Azure Digital Twins
 
@@ -179,7 +179,7 @@ Choses que vous **pouvez** faire :
 * Lire les propriétés
 * Lire les relations sortantes
 * Ajouter et supprimer des relations entrantes (d’autres représentations peuvent toujours former des relations *vers* cette représentation)
-  - La `target` dans la définition de la relation peut toujours refléter le DTMI du modèle supprimé. Une relation sans cible définie peut également fonctionner ici.
+  - La `target` dans la définition de la relation peut toujours refléter le DTMI du modèle supprimé. Une relation sans cible définie peut également fonctionner ici.      
 * Supprimer des relations
 * Supprimer la représentation
 

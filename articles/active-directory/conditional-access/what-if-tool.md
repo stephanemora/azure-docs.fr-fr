@@ -11,28 +11,30 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3ac799203cade3a907acbe28dee3a8023891db2
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 119540738ac2703afd79891d9bf8a4a9ff0c7472
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93077640"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952760"
 ---
 # <a name="troubleshoot-using-the-what-if-tool-in-conditional-access"></a>Détecter un problème à l’aide de l’outil What If dans l’accès conditionnel
 
-L’[accès conditionnel](./overview.md) est une fonctionnalité d’Azure Active Directory (Azure AD) qui vous permet de contrôler la façon dont les utilisateurs autorisés accèdent à vos applications cloud. Comment savoir ce que vous pouvez attendre des stratégies d’accès conditionnel dans votre environnement ? Pour répondre à cette question, vous pouvez utiliser l’ **outil de simulation d’accès conditionnel**.
+L’[accès conditionnel](./overview.md) est une fonctionnalité d’Azure Active Directory (Azure AD) qui vous permet de contrôler la façon dont les utilisateurs autorisés accèdent à vos applications cloud. Comment savoir ce que vous pouvez attendre des stratégies d’accès conditionnel dans votre environnement ? Pour répondre à cette question, vous pouvez utiliser l’**outil de simulation d’accès conditionnel**.
 
 Cet article explique comment vous pouvez utiliser cet outil pour tester vos stratégies d’accès conditionnel.
 
+> [!VIDEO https://www.youtube.com/embed/M_iQVM-3C3E]
+
 ## <a name="what-it-is"></a>Présentation
 
-L’ **outil de simulation d’accès conditionnel** vous permet de comprendre l’impact de vos stratégies d’accès conditionnel sur votre environnement. Au lieu de tester vos stratégies en effectuant manuellement plusieurs connexions, cet outil vous permet d’évaluer une simulation de connexion d’un utilisateur. La simulation évalue l’impact cette connexion sur vos stratégies et génère un rapport de simulation. Le rapport répertorie non seulement les stratégies d’accès conditionnel appliquées, mais aussi les [stratégies classiques](policy-migration.md#classic-policies) si elles existent.    
+L’**outil de simulation d’accès conditionnel** vous permet de comprendre l’impact de vos stratégies d’accès conditionnel sur votre environnement. Au lieu de tester vos stratégies en effectuant manuellement plusieurs connexions, cet outil vous permet d’évaluer une simulation de connexion d’un utilisateur. La simulation évalue l’impact cette connexion sur vos stratégies et génère un rapport de simulation. Le rapport répertorie non seulement les stratégies d’accès conditionnel appliquées, mais aussi les [stratégies classiques](policy-migration.md#classic-policies) si elles existent.    
 
 L’outil de **simulation** permet de déterminer rapidement les stratégies qui s’appliquent à un utilisateur spécifique. Vous pouvez utiliser ces informations, par exemple, si vous avez besoin de résoudre un problème.    
 
 ## <a name="how-it-works"></a>Fonctionnement
 
-Dans l’ **outil de simulation d’accès conditionnel** , vous devez tout d’abord configurer les paramètres du scénario de connexion que vous souhaitez simuler. Ces paramètres comprennent ce qui suit :
+Dans l’**outil de simulation d’accès conditionnel**, vous devez tout d’abord configurer les paramètres du scénario de connexion que vous souhaitez simuler. Ces paramètres comprennent ce qui suit :
 
 - L’utilisateur que vous souhaitez tester 
 - Les applications cloud auxquelles l’utilisateur tente d’accéder

@@ -1,24 +1,14 @@
 ---
 title: Sélectionner et déployer des agents de sécurité
 description: Découvrez comment sélectionner et déployer des agents de sécurité Defender pour IoT sur des appareils IoT.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: mlottner
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 07/23/2019
-ms.author: mlottner
-ms.openlocfilehash: e35e3dd0bacc0b1e3a44d9338f612a70ca4b52bf
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: c71c92ffa79c844f3529265320b46eadd0c158cf
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103496522"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104778846"
 ---
 # <a name="select-and-deploy-a-security-agent-on-your-iot-device"></a>Sélectionner et de déployer un agent de sécurité sur votre appareil IoT
 

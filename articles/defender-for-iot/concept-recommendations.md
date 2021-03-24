@@ -1,54 +1,21 @@
 ---
-title: Recommandations de sécurité
-description: Découvrez le concept des recommandations de sécurité et la manière dont elles sont utilisées dans Defender pour IoT.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: shhazam-ms
-manager: rkarlin
-editor: ''
-ms.devlang: na
+title: Recommandations de sécurité pour IoT Hub
+description: Découvrez le concept des recommandations de sécurité et comment elles sont utilisées dans Defender pour IoT Hub.
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/25/2021
-ms.author: shhazam
-ms.openlocfilehash: 10246277715d23f42eb0bd17d19794b8d4503f3f
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.date: 02/16/2021
+ms.openlocfilehash: a9e33248354aab659694e39df605cc070fdaaf73
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100521864"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104779339"
 ---
-# <a name="security-recommendations"></a>Recommandations de sécurité
+# <a name="security-recommendations-for-iot-hub"></a>Recommandations de sécurité pour IoT Hub
 
 Defender pour IoT analyse vos ressources Azure et appareils IoT, et fournit des suggestions de sécurité visant à réduire votre surface d’attaque.
 Les recommandations de sécurité sont actionnables et visent à aider les clients à se conformer aux bonnes pratiques de sécurité.
 
-Vous trouverez dans cet article une liste de recommandations qui peuvent être déclenchées sur votre hub IoT et/ou sur des appareils IoT.
-
-## <a name="agent-based-recommendations"></a>Recommandations basées sur un agent :
-
-Les recommandations portant sur les appareils offrent des insights et des suggestions d’amélioration de la posture de sécurité des appareils.
-
-| severity | Name | source de données | Description |
-|--|--|--|--|
-| Moyenne | Ports ouverts sur l’appareil | Module de sécurité classique | Un point de terminaison d’écoute a été trouvé sur l’appareil. |
-| Moyenne | Stratégie de pare-feu permissive détectée dans l’une des chaînes | Module de sécurité classique | Une stratégie de pare-feu autorisée a été trouvée (ENTRÉE/SORTIE). Une stratégie de pare-feu doit par défaut refuser tout le trafic et définir des règles pour autoriser la communication nécessaire à l’appareil. |
-| Moyenne | Règle de pare-feu permissive détectée dans la chaîne d’entrée | Module de sécurité classique | Une règle contenant un modèle permissif pour un large éventail d’adresses IP ou de ports a été trouvée dans le pare-feu. |
-| Moyenne | Règle de pare-feu permissive détectée dans la chaîne de sortie | Module de sécurité classique | Une règle contenant un modèle permissif pour un large éventail d’adresses IP ou de ports a été trouvée dans le pare-feu. |
-| Moyenne | Échec de l’opération de validation du système par rapport à la référence | Module de sécurité classique | L’appareil n’est pas conforme aux [benchmarks CIS Linux](https://www.cisecurity.org/cis-benchmarks/). |
-
-### <a name="agent-based-operational-recommendations"></a>Recommandations opérationnelles basées sur un agent
-
-Les recommandations opérationnelles offrent des insights et des suggestions d’amélioration de la configuration de l’agent de sécurité.
-
-| severity | Name | source de données | Description |
-|--|--|--|--|
-| Faible | L’agent envoie des messages inutilisés | Module de sécurité classique | La taille d’au moins 10 % des messages de sécurité était inférieure à 4 Ko au cours des dernières 24 heures. |
-| Faible | Configuration du jumeau de sécurité non optimale | Module de sécurité classique | La configuration du jumeau de sécurité n’est pas optimale. |
-| Faible | Conflit de configuration du jumeau de sécurité | Module de sécurité classique | Des conflits ont été identifiés dans la configuration du jumeau de sécurité. |  |
-
+Vous trouverez dans cet article une liste de recommandations qui peuvent être déclenchées sur votre hub IoT.
 
 ## <a name="built-in-recommendations-in-iot-hub"></a>Recommandations intégrées dans IoT Hub
 

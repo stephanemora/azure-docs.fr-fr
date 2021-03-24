@@ -4,17 +4,17 @@ description: Découvrez comment convertir la stratégie de groupe issue de la s�
 ms.date: 08/17/2020
 ms.topic: how-to
 ms.openlocfilehash: 7f7e2af70efa6771d94d7ceaa14d1408175b1d12
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93348642"
 ---
 # <a name="how-to-create-guest-configuration-policy-definitions-from-group-policy-baseline-for-windows"></a>Comment créer des définitions de stratégie de configuration d’invité à partir de la stratégie de groupe de référence pour Windows
 
 Avant de créer des définitions de stratégie personnalisées, il est judicieux de lire les informations conceptuelles de la section [Azure Policy Guest Configuration](../concepts/guest-configuration.md). Pour en savoir plus sur la création de politiques Guest Configuration personnalisées pour Linux, consultez la page [Créer des stratégies Guest Configuration pour Linux](./guest-configuration-create-linux.md). Pour en savoir plus sur la création de politiques Guest Configuration personnalisées pour Windows, consultez la page [Créer des stratégies Guest Configuration pour Windows](./guest-configuration-create.md).
 
-Lors de l’audit Windows, Guest Configuration utilise un module de ressources [Desired State Configuration](/powershell/scripting/dsc/overview/overview) (DSC) pour créer le fichier de configuration. La configuration DSC définit la condition dans laquelle la machine doit se trouver. Si l’évaluation de la configuration est **non conforme** , l’effet de stratégie *auditIfNotExists* est déclenché.
+Lors de l’audit Windows, Guest Configuration utilise un module de ressources [Desired State Configuration](/powershell/scripting/dsc/overview/overview) (DSC) pour créer le fichier de configuration. La configuration DSC définit la condition dans laquelle la machine doit se trouver. Si l’évaluation de la configuration est **non conforme**, l’effet de stratégie *auditIfNotExists* est déclenché.
 L’[Azure Policy Guest Configuration](../concepts/guest-configuration.md) effectue uniquement un audit des paramètres à l’intérieur de la machine.
 
 > [!IMPORTANT]
@@ -29,7 +29,7 @@ Dans ce guide, nous allons passer en revue le processus de création d’un pack
 
 ## <a name="download-windows-server-2019-security-baseline-and-install-related-powershell-modules"></a>Télécharger la sécurité de base Windows Server 2019 et installer les modules PowerShell associés
 
-Pour installer les modules **DSC** , **GuestConfiguration** , **BaselineManagement** et les modules Azure associés dans PowerShell :
+Pour installer les modules **DSC**, **GuestConfiguration**, **BaselineManagement** et les modules Azure associés dans PowerShell :
 
 1. À partir d’une invite de commandes PowerShell, exécutez la commande suivante :
 

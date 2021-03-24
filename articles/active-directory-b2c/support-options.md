@@ -11,10 +11,10 @@ ms.date: 12/06/2016
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 5195241003b1ce4ea505002e2cc3c10410e6cde1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "78183718"
 ---
 # <a name="azure-active-directory-b2c-file-support-requests"></a>Azure Active Directory B2C : dépôt de demandes de support
@@ -35,9 +35,9 @@ Pour déposer des demandes de support pour Azure Active Directory B2C (Azure AD 
 1. Dans le panneau **Fonctions de base**, renseignez ces informations, puis cliquez sur **Suivant**.
 
     * Le **Type de problème** est **Technique**.
-    * Sélectionnez **l’Abonnement**approprié.
+    * Sélectionnez **l’Abonnement** approprié.
     * Le **Service** est **Active Directory**.
-    * Sélectionnez le **Plan de support**approprié. Si vous n’en avez pas, vous pouvez en adopter un [ici](https://azure.microsoft.com/support/plans/).
+    * Sélectionnez le **Plan de support** approprié. Si vous n’en avez pas, vous pouvez en adopter un [ici](https://azure.microsoft.com/support/plans/).
 
      ![Page Basics avec le bouton Suivant mis en surbrillance dans le portail Azure](./media/support-options/support-basics.png)
 
@@ -45,7 +45,7 @@ Pour déposer des demandes de support pour Azure Active Directory B2C (Azure AD 
 
     * Sélectionnez le niveau de **Gravité** approprié.
     * Le **Type de problème** est **B2C**.
-    * Sélectionnez la **Catégorie**appropriée.
+    * Sélectionnez la **Catégorie** appropriée.
     * Décrivez votre problème dans le champ **Détails** . Fournissez des détails comme le nom du client B2C, la description du problème, les messages d’erreur, les ID de corrélation (si disponibles), etc.
     * Dans le champ **Délai d’exécution** , renseignez la date et l’heure (avec le fuseau horaire) de survenue du problème.
     * Sous **Téléchargement de fichiers**, chargez l’ensemble des captures et des fichiers nécessaires à la résolution du problème.

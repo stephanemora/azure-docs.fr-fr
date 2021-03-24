@@ -1,21 +1,16 @@
 ---
-title: Agrégation des événements
-titleSuffix: Azure Defender for IoT
+title: Agrégation d’événements (préversion)
 description: Les agents de sécurité IoT collectent des données et événements système de votre appareil local, puis envoient ces données au cloud Azure à des fins de traitement et d’analyse.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 1/20/2021
 ms.topic: conceptual
-ms.service: azure
-ms.openlocfilehash: 53811c20330d96b279eeb24e1aa90248b60fcb32
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: c0280e97549009a1e4911c072a7a8ec052684b4e
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102120043"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104779322"
 ---
-# <a name="event-aggregation"></a>Agrégation des événements 
+# <a name="event-aggregation-preview"></a>Agrégation d’événements (préversion)
 
 Les agents de sécurité IoT collectent des données et événements système de votre appareil local, puis envoient ces données au cloud Azure à des fins de traitement et d’analyse. Le micro-agent Defender pour IoT collecte de nombreux types d’événements d’appareil, dont des événements liés à de nouveaux processus et connexions. De tels événements peuvent se produire fréquemment sur un appareil en une seconde. Si cette capacité est importante pour assurer une sécurité complète, le nombre de messages que les agents de sécurité envoient peut rapidement atteindre ou dépasser les limites de quotas et de coûts de votre IoT Hub. Toutefois, ces événements contiennent des informations de sécurité très précieuses, essentielles pour la protection de votre appareil. 
 

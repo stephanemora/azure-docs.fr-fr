@@ -1,18 +1,14 @@
 ---
 title: Transférer les informations d’alerte
 description: Vous pouvez envoyer des informations d’alerte à des systèmes partenaires en utilisant des règles de transfert.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/02/2020
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: 528ea5a6b05dea59cb397bf32297f05b6cdc9be2
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: bc405f7d4837bf81d9cfcd859d562b7152cfc54b
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100522731"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104778795"
 ---
 # <a name="forward-alert-information"></a>Transférer les informations d’alerte
 
@@ -203,6 +199,6 @@ L’administrateur peut avoir défini des règles d’exclusion d’alerte. Ces 
 
 Cela signifie que les règles de transfert que vous définissez peuvent être ignorées en fonction des règles d’exclusion créées par votre administrateur. Les règles d’exclusion sont définies dans la console de gestion locale.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="see-also"></a>Voir aussi
 
 [Accélérer les workflows d’alerte](how-to-accelerate-alert-incident-response.md)

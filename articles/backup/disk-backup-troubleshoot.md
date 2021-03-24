@@ -4,16 +4,16 @@ description: Découvrez comment résoudre des échecs de Sauvegarde sur disque A
 ms.topic: conceptual
 ms.date: 01/07/2021
 ms.openlocfilehash: 855c6c5b19b10bdb699a25f89ebc29001b7941ac
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98737725"
 ---
 # <a name="troubleshooting-backup-failures-in-azure-disk-backup-in-preview"></a>Résolution des échecs de Sauvegarde sur disque Azure (en préversion)
 
 >[!IMPORTANT]
->La Sauvegarde sur disque Azure est disponible en préversion sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Pour connaître la disponibilité par région, consultez la [matrice de prise en charge](disk-backup-support-matrix.md).
+>La Sauvegarde sur disque Azure est disponible en préversion sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Pour la disponibilité des régions, consultez la [matrice de prise en charge](disk-backup-support-matrix.md).
 >
 >[Remplissez ce formulaire](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR1vE8L51DIpDmziRt_893LVUNFlEWFJBN09PTDhEMjVHS05UWFkxUlUzUS4u) pour vous inscrire à la préversion.
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/09/2019
 ms.author: mayg
 ms.openlocfilehash: ba1979c940d4a92b3d1a7a52a4f356b2896ece55
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "74082618"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Exécuter le planificateur de déploiement Azure Site Recovery pour la reprise d’activité de Hyper-V sur Azure
@@ -157,7 +157,7 @@ Lorsque le nom et la clé du compte de stockage sont transmis, l’outil mesure 
 Azure Site Recovery ne prend pas en charge les machines virtuelles contenant des disques iSCSI et pass-through. L’outil ne peut pas détecter et profiler des disques iSCSI et pass-through joints aux machines virtuelles.
 
 ## <a name="generate-a-report"></a>Générer un rapport
-L’outil génère un fichier Microsoft Excel avec les macros activées (fichier XLSM) en tant que sortie du rapport. Il récapitule toutes les recommandations concernant le déploiement. Le rapport est intitulé DeploymentPlannerReport_*identificateur numérique unique*.xlsm et placé dans le répertoire spécifié.
+L’outil génère un fichier Microsoft Excel avec les macros activées (fichier XLSM) en tant que sortie du rapport. Il récapitule toutes les recommandations concernant le déploiement. Le rapport est intitulé DeploymentPlannerReport_ *identificateur numérique unique*.xlsm et placé dans le répertoire spécifié.
 
 À l’issue du profilage, vous pouvez exécuter l’outil en mode génération de rapport. 
 
@@ -292,7 +292,7 @@ ASRDeploymentPlanner.exe -Operation GetThroughput -Virtualization Hyper-V -Direc
 
 ### <a name="throughput-considerations"></a>Considérations de débit
 
-L’outil crée plusieurs fichiers asrvhdfile*nombre*.vhd de 64 Mo (où *nombre* représente le nombre de fichiers) dans le répertoire spécifié. L’outil charge ces fichiers sur le compte de stockage pour déterminer le débit. Une fois le débit mesuré, l’outil supprime tous les fichiers du compte de stockage et du serveur local. Si l’outil est interrompu pour une raison quelconque alors qu’il calcule le débit, cela ne supprime pas les fichiers du compte de stockage ou du serveur local. Vous devez les supprimer manuellement.
+L’outil crée plusieurs fichiers asrvhdfile *nombre*.vhd de 64 Mo (où *nombre* représente le nombre de fichiers) dans le répertoire spécifié. L’outil charge ces fichiers sur le compte de stockage pour déterminer le débit. Une fois le débit mesuré, l’outil supprime tous les fichiers du compte de stockage et du serveur local. Si l’outil est interrompu pour une raison quelconque alors qu’il calcule le débit, cela ne supprime pas les fichiers du compte de stockage ou du serveur local. Vous devez les supprimer manuellement.
 
 Le débit est mesuré à un point spécifié dans le temps. Il s’agit du débit maximal que Azure Site Recovery peut atteindre lors de la réplication, si tous les autres facteurs restent les mêmes. Par exemple, si une application commence à consommer davantage de bande passante sur le même réseau, le débit réel varie pendant la réplication. Le résultat du débit mesuré est différent si l’opération GetThroughput est exécutée lorsque les machines virtuelles protégées présentent des taux d’activité élevés. 
 

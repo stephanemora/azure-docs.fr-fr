@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 68251270b6273f5a07391138e5c7210f1c46ba5a
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93420527"
 ---
 # <a name="azure-ad-connect-when-you-have-an-existing-tenant"></a>Azure AD Connect : Quand vous avez un locataire existant
@@ -34,7 +34,7 @@ Vous pouvez gérer certains utilisateurs en local et d’autres dans le cloud. U
 Si vous avez commencé à gérer des utilisateurs dans Azure AD qui se trouvent également dans un répertoire AD local et que vous souhaitez ultérieurement utiliser Connect, il existe des considérations supplémentaires que vous devez prendre en compte.
 
 ## <a name="sync-with-existing-users-in-azure-ad"></a>Synchroniser avec les utilisateurs existants dans Azure AD
-Lorsque vous installez Azure AD Connect et démarrez la synchronisation, le service de synchronisation Azure AD (dans Azure AD) effectue une vérification de chaque nouvel objet et essaie de trouver un objet existant correspondant. Il existe trois attributs utilisés pour ce processus : **userPrincipalName** , **proxyAddresses** et **sourceAnchor**/**immutableID**. Une correspondance avec **userPrincipalName** et avec **proxyAddresses** est appelée une **correspondance souple**. Une correspondance avec **sourceAnchor** est appelée une **correspondance exacte**. Pour l’attribut **proxyAddresses** , seule la valeur avec **SMTP :** , c’est-à-dire l’adresse e-mail principale, est utilisée pour l’évaluation.
+Lorsque vous installez Azure AD Connect et démarrez la synchronisation, le service de synchronisation Azure AD (dans Azure AD) effectue une vérification de chaque nouvel objet et essaie de trouver un objet existant correspondant. Il existe trois attributs utilisés pour ce processus : **userPrincipalName**, **proxyAddresses** et **sourceAnchor**/**immutableID**. Une correspondance avec **userPrincipalName** et avec **proxyAddresses** est appelée une **correspondance souple**. Une correspondance avec **sourceAnchor** est appelée une **correspondance exacte**. Pour l’attribut **proxyAddresses**, seule la valeur avec **SMTP :** , c’est-à-dire l’adresse e-mail principale, est utilisée pour l’évaluation.
 
 La correspondance est évaluée uniquement pour les nouveaux objets provenant de Connect. Si vous modifiez un objet existant afin qu’il corresponde à l’un de ces attributs, une erreur s’affiche à la place.
 

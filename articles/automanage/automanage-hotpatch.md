@@ -3,17 +3,17 @@ title: Hotpatch pour Windows Server Azure Edition (préversion)
 description: Découvrez comment fonctionne Hotpatch pour Windows Server Azure Edition, et comment l’activer
 author: ju-shim
 ms.service: virtual-machines
-ms.subservice: automanage
+ms.subservice: hotpatch
 ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: jushiman
-ms.openlocfilehash: 710e6902be6ebe28caaf40fb446e4ee7cd2bf4dc
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 92b8bf240dfd73cc9191675db07f20816b7156a8
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101687564"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104953389"
 ---
 # <a name="hotpatch-for-new-virtual-machines-preview"></a>Patch à chaud pour les nouvelles machines virtuelles (préversion)
 
@@ -129,21 +129,21 @@ az provider register --namespace Microsoft.Compute
 
 ## <a name="patch-installation"></a>Installation du patch
 
-Durant la préversion, la [mise à jour corrective automatique de la machine virtuelle invitée](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching) est activé automatiquement pour toutes les machines virtuelles créées avec _Windows Server 2019 Datacenter : Azure Edition_. Quand la mise à jour corrective automatique de la machine virtuelle invitée est activée :
+Durant la préversion, la [mise à jour corrective automatique de la machine virtuelle invitée](../virtual-machines/automatic-vm-guest-patching.md) est activé automatiquement pour toutes les machines virtuelles créées avec _Windows Server 2019 Datacenter : Azure Edition_. Quand la mise à jour corrective automatique de la machine virtuelle invitée est activée :
 * Les patchs classés comme Critique ou Sécurité sont automatiquement téléchargés et appliqués sur la machine virtuelle.
 * Les patchs sont appliqués pendant les heures creuses dans le fuseau horaire de la machine virtuelle.
-* L’orchestration des patchs est gérée par Azure et les patchs sont appliqués selon les [principes de première disponibilité](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#availability-first-patching).
+* L’orchestration des patchs est gérée par Azure et les patchs sont appliqués selon les [principes de première disponibilité](../virtual-machines/automatic-vm-guest-patching.md#availability-first-patching).
 * L’intégrité des machines virtuelles, telle que déterminée par les signaux d’intégrité de la plateforme, est surveillée pour détecter les échecs de mise à jour corrective.
 
 ### <a name="how-does-automatic-vm-guest-patching-work"></a>Fonctionnement de la mise à jour corrective automatique de l’invité de machine virtuelle
 
-Quand la [mise à jour corrective automatique de la machine virtuelle invitée](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching) est activée sur une machine virtuelle, les patchs critiques et de sécurité disponibles sont téléchargés et appliqués automatiquement. Ce processus se lance automatiquement chaque mois quand de nouveaux patchs sont publiés. L’évaluation et l’installation des patchs sont automatiques, et le processus comprend le redémarrage de la machine virtuelle le cas échéant.
+Quand la [mise à jour corrective automatique de la machine virtuelle invitée](../virtual-machines/automatic-vm-guest-patching.md) est activée sur une machine virtuelle, les patchs critiques et de sécurité disponibles sont téléchargés et appliqués automatiquement. Ce processus se lance automatiquement chaque mois quand de nouveaux patchs sont publiés. L’évaluation et l’installation des patchs sont automatiques, et le processus comprend le redémarrage de la machine virtuelle le cas échéant.
 
 Une fois Hotpatch activé pour les machines virtuelles _Windows Server 2019 Datacenter : Azure Edition_, la plupart des mises à jour de sécurité mensuelles sont fournies sous forme de patchs à chaud qui ne nécessitent pas de redémarrage. Les dernières mises à jour cumulatives envoyées au cours des mois où sont publiées des bases de référence planifiées ou non nécessitent le redémarrage de la machine virtuelle. Des patchs critiques ou de sécurité supplémentaires peuvent également être disponibles périodiquement, ce qui nécessite parfois le redémarrage de la machine virtuelle.
 
 La machine virtuelle est évaluée automatiquement, régulièrement et plusieurs fois sur une période de 30 jours pour déterminer les patchs applicables. Cette évaluation automatique garantit que tous les patchs manquants sont découverts dès que possible.
 
-Les patchs sont installés dans les 30 jours qui suivent les publications de patchs mensuelles, selon les [principes de première disponibilité](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#availability-first-patching). Les patchs sont installés uniquement pendant les heures creuses de la machine virtuelle, en fonction de son fuseau horaire. La machine virtuelle doit fonctionner pendant les heures creuses pour que les patchs soient installés automatiquement. Si une machine virtuelle est mise hors tension pendant une évaluation périodique, elle est évaluée, et les patchs applicables sont installés automatiquement au cours de la prochaine évaluation périodique au moment de la mise sous tension de la machine virtuelle. La prochaine évaluation périodique a lieu généralement quelques jours après.
+Les patchs sont installés dans les 30 jours qui suivent les publications de patchs mensuelles, selon les [principes de première disponibilité](../virtual-machines/automatic-vm-guest-patching.md#availability-first-patching). Les patchs sont installés uniquement pendant les heures creuses de la machine virtuelle, en fonction de son fuseau horaire. La machine virtuelle doit fonctionner pendant les heures creuses pour que les patchs soient installés automatiquement. Si une machine virtuelle est mise hors tension pendant une évaluation périodique, elle est évaluée, et les patchs applicables sont installés automatiquement au cours de la prochaine évaluation périodique au moment de la mise sous tension de la machine virtuelle. La prochaine évaluation périodique a lieu généralement quelques jours après.
 
 Les mises à jour de définitions et autres patchs non classifiés comme critiques ou de sécurité ne sont pas installés via la mise à jour corrective automatique de la machine virtuelle invitée.
 
@@ -151,7 +151,7 @@ Les mises à jour de définitions et autres patchs non classifiés comme critiqu
 
 Pour voir l’état du patch de votre machine virtuelle, accédez à la section **Guest + host updates** (Mises à jour de l’hôte et de l’invité) pour votre machine virtuelle dans le portail Azure. Dans la section **Guest OS updates** (Mises à jour du système d’exploitation invité), cliquez sur Go to Hotpatch (Preview) (Accéder à Hotpatch (préversion)) pour voir l’état du dernier patch de votre machine virtuelle.
 
-Sur cet écran, vous verrez l’état de Hotpatch pour votre machine virtuelle. Vous pouvez également vérifier s’il existe des patchs pour votre machine virtuelle qui n’ont pas été installés. Comme indiqué dans la section « Installation des patchs » ci-dessus, toutes les mises à jour de sécurité et critiques sont automatiquement installées sur votre machine virtuelle via la fonctionnalité de [mise à jour corrective automatique de la machine virtuelle invitée](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching). Aucune action supplémentaire n’est nécessaire. Les patchs ayant d’autres classifications de mise à jour ne sont pas installés automatiquement. À la place, ils sont consultables dans la liste des patchs disponibles sous l’onglet Update Compliance. Vous pouvez également voir l’historique des déploiements de mises à jour sur votre machine virtuelle via l’historique des mises à jour. L’historique des mises à jour des 30 derniers jours s’affiche avec les détails relatifs à l’installation des patchs.
+Sur cet écran, vous verrez l’état de Hotpatch pour votre machine virtuelle. Vous pouvez également vérifier s’il existe des patchs pour votre machine virtuelle qui n’ont pas été installés. Comme indiqué dans la section « Installation des patchs » ci-dessus, toutes les mises à jour de sécurité et critiques sont automatiquement installées sur votre machine virtuelle via la fonctionnalité de [mise à jour corrective automatique de la machine virtuelle invitée](../virtual-machines/automatic-vm-guest-patching.md). Aucune action supplémentaire n’est nécessaire. Les patchs ayant d’autres classifications de mise à jour ne sont pas installés automatiquement. À la place, ils sont consultables dans la liste des patchs disponibles sous l’onglet Update Compliance. Vous pouvez également voir l’historique des déploiements de mises à jour sur votre machine virtuelle via l’historique des mises à jour. L’historique des mises à jour des 30 derniers jours s’affiche avec les détails relatifs à l’installation des patchs.
 
 
 :::image type="content" source="media\automanage-hotpatch\hotpatch-management-ui.png" alt-text="Gestion des patchs à chaud.":::
@@ -225,5 +225,5 @@ Il existe des points importants à prendre en compte pour l’exécution d’une
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Découvrez plus en détail Azure Update Management [ici](https://docs.microsoft.com/azure/automation/update-management/overview).
-* Découvrez plus en détail la mise à jour corrective automatique de la machine virtuelle invitée [ici](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching)
+* Découvrez plus en détail Azure Update Management [ici](../automation/update-management/overview.md).
+* Découvrez plus en détail la mise à jour corrective automatique de la machine virtuelle invitée [ici](../virtual-machines/automatic-vm-guest-patching.md)

@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 08/28/2020
 ms.openlocfilehash: eb6029b206e7d47789371ee81e75c4e05c69ee65
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89081615"
 ---
 # <a name="move-azure-event-grid-system-topics-to-another-region"></a>Déplacer des rubriques système Azure Event Grid vers une autre région
@@ -35,7 +35,22 @@ Pour commencer, exportez un modèle Resource Manager pour le groupe de ressource
     :::image type="content" source="./media/move-system-topics-across-regions/resource-group-page.png" alt-text="Page du groupe de ressources":::        
 3. Dans le menu de gauche, sélectionnez **Exporter le modèle** sous **Paramètres**, puis sélectionnez **Télécharger** dans la barre d’outils. 
 
-    :::image type="content" source="./media/move-system-topics-across-regions/export-template-menu.png" alt-text="Page du groupe de ressources"
+    :::image type="content" source="./media/move-system-topics-across-regions/export-template-menu.png" alt-text="Compte de stockage – Page Exporter le modèle":::        
+5. Localisez le fichier **.zip** que vous avez téléchargé à partir du portail, puis décompressez-le dans le dossier de votre choix. Ce fichier zip contient les fichiers JSON des modèles et paramètres. 
+1. Ouvrez le fichier **template.json** dans l’éditeur de votre choix. 
+1. L’URL du webhook n’est pas exportée vers le modèle. Par conséquent, procédez comme suit :
+    1. Dans le fichier de modèle, recherchez **webhook**. 
+    1. Dans la section **Propriétés**, ajoutez une virgule (`,`) à la fin de la dernière ligne. Dans cet exemple, il s’agit de `"preferredBatchSizeInKilobytes": 64`. 
+    1. Ajoutez la propriété `endpointUrl` avec la valeur définie sur l’URL de votre webhook, comme illustré dans l’exemple suivant. 
+
+        ```json
+        "destination": {
+            "properties": {
+                "maxEventsPerBatch": 1,
+                "preferredBatchSizeInKilobytes": 64,
+                "endpointUrl": "https://mysite.azurewebsites.net/api/updates"
+            },
+            "endpointType": "WebHook"
         }
         ```
 
@@ -76,7 +91,7 @@ Déployez le modèle pour créer un compte de stockage et une rubrique système 
     1. Pour le **nom de la rubrique système**, entrez un nom pour la rubrique système qui sera associée au compte de stockage.  
     1. Pour le **nom du compte de stockage**, entrez un nom pour le compte de stockage qui sera créé dans la région cible. 
 
-        :::image type="content" source="./media/move-system-topics-across-regions/deploy-template.png" alt-text="Page du groupe de ressources":::
+        :::image type="content" source="./media/move-system-topics-across-regions/deploy-template.png" alt-text="Déployer le modèle Azure Resource Manager":::
     5. Au bas de la page, sélectionnez **Examiner et créer**. 
     1. Dans la page **Vérifier + créer**, passez en revue les paramètres, puis sélectionnez **Créer**. 
 
@@ -95,7 +110,7 @@ Pour supprimer un groupe de ressources (source ou cible) à l’aide du portail 
 1. Dans la fenêtre de recherche en haut du portail Azure, saisissez **Groupes de ressources**, puis sélectionnez **Groupes de ressources** dans les résultats de la recherche. 
 2. Sélectionnez le groupe de ressources à supprimer, puis choisissez **Supprimer** dans la barre d’outils. 
 
-    :::image type="content" source="./media/move-system-topics-across-regions/delete-resource-group-button.png" alt-text="Page du groupe de ressources":::
+    :::image type="content" source="./media/move-system-topics-across-regions/delete-resource-group-button.png" alt-text="Supprimer un groupe de ressources":::
 3. Dans la page de confirmation, entrez le nom du groupe de ressources, puis sélectionnez **Supprimer**.  
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -105,4 +120,4 @@ Vous avez appris à déplacer une source d’événement Azure et sa rubrique sy
 - [Déplacer les domaines d’une région à une autre](move-domains-across-regions.md). 
 - [Déplacer des espaces de noms de partenaires d’une région à une autre](move-partner-namespaces-across-regions.md). 
 
-Pour plus d’informations sur le déplacement de ressources entre régions et la récupération d’urgence dans Azure, consultez l’article suivant : [Déplacer des ressources vers un nouveau groupe de ressource ou un nouvel abonnement](../azure-resource-manager/management/move-resource-group-and-subscription.md).
+Pour plus d’informations sur le déplacement de ressources entre régions et la récupération d’urgence dans Azure, consultez l’article suivant : [Déplacer des ressources vers un nouveau groupe de ressources ou un nouvel abonnement](../azure-resource-manager/management/move-resource-group-and-subscription.md).

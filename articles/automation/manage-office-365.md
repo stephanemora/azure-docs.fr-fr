@@ -5,10 +5,10 @@ services: automation
 ms.date: 11/05/2020
 ms.topic: conceptual
 ms.openlocfilehash: 70c8892969a3b13175c60a4e20e0cf9086112abe
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93398043"
 ---
 # <a name="manage-office-365-services"></a>Gérer les services Office 365
@@ -98,9 +98,9 @@ Vous pouvez utiliser votre script dans un runbook Azure Automation. Pour cet exe
 2. À partir de votre compte Automation, sélectionnez **Runbooks** sous **Automatisation des processus**.
 3. Sélectionnez le nouveau runbook et cliquez sur **Modifier**.
 4. Copiez votre script et collez-le dans l’éditeur de texte pour le runbook.
-5. Sélectionnez **Ressources** , développez **Informations d’identification** , puis vérifiez que les informations d’identification Office 365 sont présentes.
+5. Sélectionnez **Ressources**, développez **Informations d’identification**, puis vérifiez que les informations d’identification Office 365 sont présentes.
 6. Cliquez sur **Enregistrer**.
-7. Sélectionnez **Volet de test** , puis cliquez sur **Démarrer** pour commencer à tester votre runbook. Consultez [Gérer les runbooks dans Azure Automation](./manage-runbooks.md).
+7. Sélectionnez **Volet de test**, puis cliquez sur **Démarrer** pour commencer à tester votre runbook. Consultez [Gérer les runbooks dans Azure Automation](./manage-runbooks.md).
 8. Une fois le test terminé, quittez le volet de test.
 
 ## <a name="publish-and-schedule-the-runbook"></a>Publier et planifier le runbook
@@ -109,7 +109,7 @@ Pour publier et planifier votre runbook, consultez [Gérer les runbooks dans Azu
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour plus d’informations sur l’utilisation des informations d’identification, consultez [Gérer les informations d’identification dans Azure Automation](shared-resources/credentials.md).
-* Pour en savoir plus sur les modules, consultez [Gérer les modules dans Azure Automation](shared-resources/modules.md).
-* Si vous devez démarrer un runbook, consultez [Démarrer un runbook dans Azure Automation](start-runbooks.md).
+* Pour plus d’informations sur l’utilisation des informations d’identification, voir [Gérer les informations d’identification dans Azure Automation](shared-resources/credentials.md).
+* Pour en savoir plus sur les modules, voir [Gestion des modules dans Azure Automation](shared-resources/modules.md).
+* Si vous devez démarrer un runbook, voir [Démarrer un runbook dans Azure Automation](start-runbooks.md).
 * Pour plus d’informations sur PowerShell, consultez la [documentation PowerShell](/powershell/scripting/overview).

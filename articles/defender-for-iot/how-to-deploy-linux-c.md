@@ -1,24 +1,14 @@
 ---
 title: Installer et déployer l’agent Linux C
 description: Découvrez comment installer et déployer sur Linux l’agent de sécurité Defender pour IoT basé sur C.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: mlottner
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 07/23/2019
-ms.author: mlottner
-ms.openlocfilehash: f7f6b28070600ae53242181934ea903a486c25b4
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 6f59db7ff24412c66a6a4898b14272ea9540fdd2
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103494561"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104778812"
 ---
 # <a name="deploy-defender-for-iot-c-based-security-agent-for-linux"></a>Déployer l’agent de sécurité Defender pour IoT basé sur C pour Linux
 

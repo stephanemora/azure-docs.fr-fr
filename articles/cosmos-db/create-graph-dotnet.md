@@ -10,10 +10,10 @@ ms.date: 02/21/2020
 ms.author: chrande
 ms.custom: devx-track-dotnet
 ms.openlocfilehash: 1953f4a21df6f550320592fbe009834a7b573887
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93360528"
 ---
 # <a name="quickstart-build-a-net-framework-or-core-application-using-the-azure-cosmos-db-gremlin-api-account"></a>Démarrage rapide : Créer une application .NET Framework ou Core à l’aide du compte d’API Gremlin Azure Cosmos DB
@@ -105,15 +105,15 @@ Tous les extraits de code suivants proviennent du fichier Program.cs.
 
 Maintenant, retournez dans le portail Azure afin d’obtenir les informations de votre chaîne de connexion et de les copier dans l’application.
 
-1. À partir du [Portail Azure](https://portal.azure.com/), accédez à votre compte de base de données de graphiques. Dans l’onglet **Vue d’ensemble** , vous pouvez voir deux points de terminaison : 
+1. À partir du [Portail Azure](https://portal.azure.com/), accédez à votre compte de base de données de graphiques. Dans l’onglet **Vue d’ensemble**, vous pouvez voir deux points de terminaison : 
  
-   **URI du SDK .NET**  : cette valeur est utilisée quand vous vous connectez au compte de graphiques à l’aide de la bibliothèque Microsoft.Azure.Graphs. 
+   **URI du SDK .NET** : cette valeur est utilisée quand vous vous connectez au compte de graphiques à l’aide de la bibliothèque Microsoft.Azure.Graphs. 
 
-   **Point de terminaison Gremlin**  : cette valeur est utilisée lorsque vous vous connectez au compte de graphiques à l’aide de la bibliothèque Gremlin.Net.
+   **Point de terminaison Gremlin** : cette valeur est utilisée lorsque vous vous connectez au compte de graphiques à l’aide de la bibliothèque Gremlin.Net.
 
     :::image type="content" source="./media/create-graph-dotnet/endpoint.png" alt-text="Copier le point de terminaison":::
 
-   Pour exécuter cet exemple, copiez la valeur **Point de terminaison Gremlin** , supprimez le numéro de port à la fin, et l’URI devient `https://<your cosmos db account name>.gremlin.cosmosdb.azure.com`. La valeur de point de terminaison doit ressembler à `testgraphacct.gremlin.cosmosdb.azure.com`
+   Pour exécuter cet exemple, copiez la valeur **Point de terminaison Gremlin**, supprimez le numéro de port à la fin, et l’URI devient `https://<your cosmos db account name>.gremlin.cosmosdb.azure.com`. La valeur de point de terminaison doit ressembler à `testgraphacct.gremlin.cosmosdb.azure.com`
 
 1. Ensuite, à partir du portail Azure, copiez la valeur **CLÉ PRIMAIRE** sous l’onglet **Clés**. 
 

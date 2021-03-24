@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 12/24/2019
 ms.author: ramamill
 ms.openlocfilehash: 01aef3aca4f6967b1681bff9598c7dd7a24739cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84692517"
 ---
 # <a name="manage-vmware-vcenter-server"></a>Gérer un serveur VMware vCenter
@@ -38,7 +38,7 @@ Quand vous configurez la récupération d’urgence pour des machines virtuelles
 
 ### <a name="account-permissions"></a>Autorisations de compte
 
-|**Tâche** | **Compte** | **Autorisations** | **Détails**|
+|**Tâche** | **Compte** | **autorisations** | **Détails**|
 |--- | --- | --- | ---|
 |**Détection/migration des machines virtuelles (sans restauration automatique)** | Au moins un compte d’utilisateur en lecture seule. | Objet de centre de données -> Propager vers l’objet enfant, rôle = lecture seule | L’utilisateur est affecté au niveau du centre de données et a accès à tous les objets dans le centre de données.<br/><br/> Pour restreindre l’accès, attribuez le rôle **Aucun accès** avec l’objet **Propager vers enfant** aux objets enfants (hôtes vSphere, banques de données, machines virtuelles et réseaux).|
 |**Réplication/basculement** | Au moins un compte d’utilisateur en lecture seule. | Objet de centre de données -> Propager vers l’objet enfant, rôle = lecture seule | L’utilisateur est affecté au niveau du centre de données et a accès à tous les objets dans le centre de données.<br/><br/> Pour restreindre l’accès, attribuez le rôle **Aucun accès** avec l’objet **Propager vers enfant** aux objets enfants (hôtes vSphere, banques de données, machines virtuelles et réseaux).<br/><br/> Utile à des fins de migration, mais pas pour la réplication complète, le basculement et la restauration automatique.|

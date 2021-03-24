@@ -3,18 +3,19 @@ title: Créer des déclencheurs de fenêtre bascule dans Azure Data Factory
 description: Découvrez comment créer un déclencheur dans Azure Data Factory qui exécute un pipeline sur une fenêtre bascule.
 author: chez-charlie
 ms.author: chez
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/25/2020
-ms.openlocfilehash: f5bc9951229c61dd988f44b06b8fcd40881226ae
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: ad397b62adcbcf6a0e117950c0dc3be33e6522db
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100393698"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104779815"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>Créer un déclencheur qui exécute un pipeline sur une fenêtre bascule
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Cet article décrit les étapes permettant de créer, de démarrer et d’effectuer le monitoring d’un déclencheur de fenêtre bascule. Pour obtenir des informations générales sur les déclencheurs et les types pris en charge, consultez [Exécution de pipelines et déclencheurs](concepts-pipeline-execution-triggers.md).
@@ -220,7 +221,7 @@ Cette section montre comment utiliser Azure PowerShell pour créer, démarrer et
     ```powershell
     Set-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger" -DefinitionFile "C:\ADFv2QuickStartPSH\MyTrigger.json"
     ```
-    
+
 3. Vérifiez que l’état du déclencheur est **Stopped** avec l’applet de commande **Get-AzDataFactoryV2Trigger** :
 
     ```powershell
@@ -244,10 +245,11 @@ Cette section montre comment utiliser Azure PowerShell pour créer, démarrer et
     ```powershell
     Get-AzDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "MyTrigger" -TriggerRunStartedAfter "2017-12-08T00:00:00" -TriggerRunStartedBefore "2017-12-08T01:00:00"
     ```
-    
+
 Pour effectuer la surveillance des exécutions du déclencheur et du pipeline dans le portail Azure, consultez [Surveiller des exécutions de pipelines](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Vous trouverez des informations détaillées sur les déclencheurs sur la page [Exécution de pipelines et déclencheurs](concepts-pipeline-execution-triggers.md#trigger-execution).
-* [Créer une dépendance de déclencheur de fenêtre bascule](tumbling-window-trigger-dependency.md)
+* [Créez une dépendance de déclencheur de fenêtre bascule](tumbling-window-trigger-dependency.md).
+* Découvrez comment référencer les métadonnées d’un déclencheur dans le pipeline avec la section [Référencer les métadonnées de déclencheur dnas l’exécution de pipeline](how-to-use-trigger-parameterization.md)

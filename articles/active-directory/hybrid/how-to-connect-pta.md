@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0b8f613cb7c75d9dd6af1fcf62f9d484398072c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89279463"
 ---
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Connexion de l’utilisateur avec l’authentification directe Azure Active Directory
@@ -47,7 +47,7 @@ Vous pouvez combiner l’authentification directe avec la fonctionnalité [Authe
   - Des déploiements locaux ou une configuration réseau complexes ne sont pas nécessaires.
   - Seul un agent léger doit être installé localement.
   - Aucun frais de gestion. L’agent reçoit automatiquement des améliorations et correctifs de bogues.
-- *Sécuriser*
+- *Sécurisé*
   - Les mots de passe locaux ne sont jamais stockés dans le cloud sous quelque forme que ce soit.
   - Il protège vos comptes utilisateur en toute transparence avec les [stratégies d’accès conditionnel d’Azure AD](../conditional-access/overview.md), y compris l’authentification multifacteur (MFA), [en bloquant l’authentification héritée](../conditional-access/concept-conditional-access-conditions.md) et [en filtrant des attaques de mot de passe par recherche exhaustive](../authentication/howto-password-smart-lockout.md).
   - L’agent établit uniquement les connexions sortantes depuis votre réseau. Il n’est donc pas nécessaire d’installer l’agent dans un réseau de périmètre, également appelé DMZ.
@@ -73,10 +73,10 @@ Vous pouvez combiner l’authentification directe avec la fonctionnalité [Authe
 - [Démarrage rapide](how-to-connect-pta-quick-start.md) : commencez à utiliser l’authentification directe Azure AD.
 - [Migrer à partir d’AD FS vers l’authentification directe](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx?raw=true) : guide détaillé de la migration d’AD FS (ou d’autres technologies de fédération) vers l’authentification directe.
 - [Verrouillage intelligent](../authentication/howto-password-smart-lockout.md) : configurez la fonctionnalité Verrouillage intelligent sur votre locataire pour protéger les comptes d’utilisateur.
-- [Limitations actuelles](how-to-connect-pta-current-limitations.md) : découvrez les scénarios pris en charge et ceux qui ne le sont pas.
-- [Immersion technique](how-to-connect-pta-how-it-works.md) : découvrez comment fonctionne cette fonctionnalité.
-- [Questions fréquentes (FAQ)](how-to-connect-pta-faq.md) : réponses aux questions fréquentes.
-- [Résolution des problèmes](tshoot-connect-pass-through-authentication.md) : découvrez comment résoudre les problèmes courants susceptibles de se produire avec cette fonctionnalité.
-- [Immersion dans la sécurité](how-to-connect-pta-security-deep-dive.md) : informations techniques approfondies supplémentaires sur la fonctionnalité.
-- [Authentification unique fluide Azure AD](how-to-connect-sso.md) : explorez en détail cette fonctionnalité complémentaire.
+- [Limitations actuelles](how-to-connect-pta-current-limitations.md) : découvrez les scénarios pris en charge et ceux qui ne le sont pas.
+- [Immersion technique](how-to-connect-pta-how-it-works.md) : découvrez comment fonctionne cette fonctionnalité.
+- [Questions fréquentes (FAQ)](how-to-connect-pta-faq.md)  : réponses aux questions fréquentes.
+- [Résolution des problèmes](tshoot-connect-pass-through-authentication.md) : découvrez comment résoudre les problèmes courants susceptibles de survenir avec cette fonctionnalité.
+- [Immersion dans la sécurité](how-to-connect-pta-security-deep-dive.md) : informations techniques supplémentaires sur la fonctionnalité.
+- [Authentification unique transparente Azure AD](how-to-connect-sso.md) : explorez en détail cette fonctionnalité complémentaire.
 - [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) : pour le dépôt de nouvelles demandes de fonctionnalités.

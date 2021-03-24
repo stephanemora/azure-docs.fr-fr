@@ -1,24 +1,14 @@
 ---
 title: Configuration locale de l’agent de sécurité (C)
 description: Découvrez Defender pour les configurations locales de l’agent pour C.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: elazark
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 10/08/2020
-ms.author: v-ekrieg
-ms.openlocfilehash: 161bc008076de2bba62cd65c6c9bb106f648aa47
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: dc4ea30080711633e52f966b89a16f7246a30673
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103493235"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104779407"
 ---
 # <a name="understanding-the-localconfigurationjson-file---c-agent"></a>Fonctionnement du fichier LocalConfiguration.json - Agent C
 

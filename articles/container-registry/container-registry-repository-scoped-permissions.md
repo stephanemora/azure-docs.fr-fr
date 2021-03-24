@@ -4,10 +4,10 @@ description: Créer un jeton avec des autorisations étendues à des référenti
 ms.topic: article
 ms.date: 02/04/2021
 ms.openlocfilehash: ceec69d746f77ea7a23bc70d029c8b3736e7f292
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99988258"
 ---
 # <a name="create-a-token-with-repository-scoped-permissions"></a>Créer un jeton avec des autorisations délimitées par le référentiel

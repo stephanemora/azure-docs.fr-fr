@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 3/29/2019
 ms.author: sutalasi
 ms.openlocfilehash: 1570bd9dfa62caa749d5a3983b93c2555be058ec
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93348727"
 ---
 # <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>Configurer la récupération d’urgence pour des machines virtuelles Azure à l’aide d’Azure PowerShell
@@ -333,7 +333,7 @@ Un compte de stockage de cache est un compte de stockage standard situé dans la
 $EastUSCacheStorageAccount = New-AzStorageAccount -Name "a2acachestorage" -ResourceGroupName "A2AdemoRG" -Location 'East US' -SkuName Standard_LRS -Kind Storage
 ```
 
-Pour les machines virtuelles qui n’ **utilisent pas de disques managés** , le compte de stockage cible est le compte de stockage dans la région de récupération vers lequel les disques de la machine virtuelle sont répliqués. Le compte de stockage cible peut être un compte de stockage standard ou un compte de stockage premium. Sélectionnez le type de compte de stockage nécessaire en fonction du taux de modification des données (taux d’écriture d’E/S) pour les disques, ainsi que les limites d’évolution prises en charge par Azure Site Recovery pour ce type de stockage.
+Pour les machines virtuelles qui n’**utilisent pas de disques managés**, le compte de stockage cible est le compte de stockage dans la région de récupération vers lequel les disques de la machine virtuelle sont répliqués. Le compte de stockage cible peut être un compte de stockage standard ou un compte de stockage premium. Sélectionnez le type de compte de stockage nécessaire en fonction du taux de modification des données (taux d’écriture d’E/S) pour les disques, ainsi que les limites d’évolution prises en charge par Azure Site Recovery pour ce type de stockage.
 
 ```azurepowershell
 #Create Target storage account in the recovery region. In this case a Standard Storage account

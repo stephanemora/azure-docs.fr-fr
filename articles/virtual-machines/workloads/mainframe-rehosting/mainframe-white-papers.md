@@ -1,19 +1,20 @@
 ---
 title: Livres blancs Azure relatifs à l’utilisation de mainframes avec les machines virtuelles Azure et le Stockage Azure
 description: Procurez-vous des ressources sur la migration des mainframes, le réhébergement et le déplacement des systèmes IBM Z dans Microsoft Azure.
-services: multiple
+services: virtual-machines
+ms.service: virtual-machines
+ms.subservice: mainframe-rehosting
 documentationcenter: ''
 author: njray
 ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
-ms.service: multiple
-ms.openlocfilehash: dd91b4331a6093d1cf208893d5d88746707b473b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 03a075cb2098557d72f0d864da4df910f5bc5f8c
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74224737"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104954290"
 ---
 # <a name="azure-white-papers-about-mainframe-topics"></a>Livres blancs Azure relatifs aux mainframes
 

@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 04/30/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 7cd1c6b0b11ba291a36f49a2a9990a2755cdd74b
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 444639d9e36b67f25ed9b82bd68102273c66ae00
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102561923"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104951230"
 ---
 # <a name="quickstart-integrate-an-azure-storage-account-with-azure-cdn"></a>Démarrage rapide : Intégrer un compte de stockage Azure à Azure CDN
 
@@ -118,4 +118,4 @@ Au cours des étapes précédentes, vous avez créé un profil et un point de te
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Utiliser CDN pour le contenu statique du serveur à partir d’une application web](cdn-add-to-web-app.md)
+> [Tutoriel : Utiliser CDN pour délivrer du contenu statique à partir d’une application web](cdn-add-to-web-app.md)

@@ -8,10 +8,10 @@ ms.devlang: dotnet
 ms.topic: how-to
 ms.date: 07/16/2020
 ms.openlocfilehash: e29db7e31438bc7f6ac609384d0d9b92c275e813
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93339544"
 ---
 # <a name="create-alerts-for-azure-cosmos-db-using-azure-monitor"></a>Créer des alertes pour Azure Cosmos DB à l’aide d’Azure Monitor
@@ -41,17 +41,17 @@ Cette section explique comment créer une alerte lorsque vous recevez un code d�
 
    * Ouvrez le volet **Sélectionner une ressource** et configurez les éléments suivants :
 
-   * Choisir votre nom d’ **abonnement**.
+   * Choisir votre nom d’**abonnement**.
 
    * Sélectionnez **Comptes Azure Cosmos DB** pour le **type de ressource**.
 
-   * L’ **emplacement** de votre compte Azure Cosmos.
+   * L’**emplacement** de votre compte Azure Cosmos.
 
    * Une fois les détails renseignés, une liste de comptes Azure Cosmos dans l’étendue sélectionnée s’affiche. Choisissez celui pour lequel vous souhaitez configurer des alertes et sélectionnez **Terminé**.
 
-1. Remplissez la section **Condition**  :
+1. Remplissez la section **Condition** :
 
-   * Ouvrez le volet **Sélectionner une condition** pour ouvrir la page **Configurer la logique du signal** , et configurez les éléments suivants :
+   * Ouvrez le volet **Sélectionner une condition** pour ouvrir la page **Configurer la logique du signal**, et configurez les éléments suivants :
 
    * Sélectionnez un signal. Le **Type de signal** peut être **Métrique** ou **Journal d’activité**. Choisissez **Métrique** pour ce scénario. Vous souhaitez recevoir une alerte en cas de limitation du débit sur la métrique d’unités de requête totales.
 
@@ -63,9 +63,9 @@ Cette section explique comment créer une alerte lorsque vous recevez un code d�
 
    * Choisissez **StatusCode** comme **Nom de dimension**. Sélectionnez **Ajouter une valeur personnalisée** et définissez le code d’état sur 429.
 
-   * Dans le **Logique d'alerte** , définissez le **Seuil** sur **Statique**. Le seuil statique utilise une valeur de seuil définie par l’utilisateur pour évaluer la règle, tandis que les seuils dynamiques utilisent des algorithmes de Machine Learning intégrés pour apprendre continuellement le modèle de comportement de la métrique et calculer les seuils automatiquement.
+   * Dans le **Logique d'alerte**, définissez le **Seuil** sur **Statique**. Le seuil statique utilise une valeur de seuil définie par l’utilisateur pour évaluer la règle, tandis que les seuils dynamiques utilisent des algorithmes de Machine Learning intégrés pour apprendre continuellement le modèle de comportement de la métrique et calculer les seuils automatiquement.
 
-   * Définissez l’ **opérateur** sur **Supérieur à** , le **Type d’agrégation** sur **Total** et la **Valeur de seuil** sur **100**. Avec cette logique, si votre client voit plus de 100 demandes avec un code d’état 429, l’alerte est déclenchée. Vous pouvez également configurer le type d’agrégation, la granularité de l’agrégation et la fréquence d’évaluation en fonction de vos besoins.
+   * Définissez l’**opérateur** sur **Supérieur à**, le **Type d’agrégation** sur **Total** et la **Valeur de seuil** sur **100**. Avec cette logique, si votre client voit plus de 100 demandes avec un code d’état 429, l’alerte est déclenchée. Vous pouvez également configurer le type d’agrégation, la granularité de l’agrégation et la fréquence d’évaluation en fonction de vos besoins.
 
    * Après avoir rempli le formulaire, sélectionnez **Terminé**. La capture d’écran suivante montre les détails de la logique d’alerte :
 
@@ -73,11 +73,11 @@ Cette section explique comment créer une alerte lorsque vous recevez un code d�
 
 1. Renseignez la section **Groupe d’actions** :
 
-   * Sur le volet **Créer une règle** , sélectionnez un groupe d'actions existant, ou créez un nouveau groupe d’actions. Un groupe d’actions vous permet de définir l’action à exécuter lorsqu’une condition d’alerte se produit. Pour cet exemple, créez un nouveau groupe d’actions pour recevoir une notification par courrier électronique lorsque l’alerte est déclenchée. Ouvrez le volet **Ajouter un groupe d’actions** et renseignez les informations suivantes :
+   * Sur le volet **Créer une règle**, sélectionnez un groupe d'actions existant, ou créez un nouveau groupe d’actions. Un groupe d’actions vous permet de définir l’action à exécuter lorsqu’une condition d’alerte se produit. Pour cet exemple, créez un nouveau groupe d’actions pour recevoir une notification par courrier électronique lorsque l’alerte est déclenchée. Ouvrez le volet **Ajouter un groupe d’actions** et renseignez les informations suivantes :
 
-   * **Nom du groupe d’actions**  : le nom du groupe d’actions doit être unique au sein d’un groupe de ressources.
+   * **Nom du groupe d’actions** : le nom du groupe d’actions doit être unique au sein d’un groupe de ressources.
 
-   * **Nom court**  : le nom abrégé du groupe d’actions ; cette valeur est incluse dans les notifications par courrier électronique et SMS pour identifier le groupe d’actions qui était la source de la notification.
+   * **Nom court** : le nom abrégé du groupe d’actions ; cette valeur est incluse dans les notifications par courrier électronique et SMS pour identifier le groupe d’actions qui était la source de la notification.
 
    * Choisissez l’abonnement et le groupe de ressources dans lequel ce groupe d’actions sera créé.  
 
@@ -85,7 +85,7 @@ Cette section explique comment créer une alerte lorsque vous recevez un code d�
 
      :::image type="content" source="./media/create-alerts/configure-alert-action-type.png" alt-text="Configurer le type d’action, par exemple notification par courrier électronique, pour recevoir l’alerte":::
 
-1. Renseignez la section **Détails de la règle d’alerte**  :
+1. Renseignez la section **Détails de la règle d’alerte** :
 
    * Définissez le nom de la règle, fournissez une description facultative, choisissez un niveau de gravité pour la règle, indiquez si vous souhaitez activer la règle lors de la création de la règle, puis sélectionnez **Créer une alerte de règle** pour créer l’alerte de règle de la métrique.
 

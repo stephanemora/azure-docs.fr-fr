@@ -8,10 +8,10 @@ ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
 ms.openlocfilehash: 3e36de62b79788e2efdc3e9abf711924c4fba0c4
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93341805"
 ---
 # <a name="how-to-author-an-attestation-policy"></a>Guide pratique pour créer une stratégie d’attestation
@@ -36,7 +36,7 @@ issuancerules
  
 Un fichier de stratégie comporte trois sections, comme indiqué ci-dessus :
 
-- **version**  :  la version est le numéro de version de la grammaire qui est suivie. 
+- **version** :  la version est le numéro de version de la grammaire qui est suivie. 
 
     ```
     version=MajorVersion.MinorVersion   
@@ -44,9 +44,9 @@ Un fichier de stratégie comporte trois sections, comme indiqué ci-dessus :
 
     La seule version prise en charge est la version « 1.0 ».
 
-- **authorizationrules**  : collection de règles de revendication qui sont vérifiées en premier, pour déterminer si Azure Attestation doit passer à la section **issuancerules**. Les règles de revendication s’appliquent dans l’ordre dans lequel elles sont définies.
+- **authorizationrules** : collection de règles de revendication qui sont vérifiées en premier, pour déterminer si Azure Attestation doit passer à la section **issuancerules**. Les règles de revendication s’appliquent dans l’ordre dans lequel elles sont définies.
 
-- **issuancerules**  : collection de règles de revendication qui sont évaluées pour ajouter des informations supplémentaires au résultat de l’attestation, tel que défini dans la stratégie. Les règles de revendication s’appliquent dans l’ordre dans lequel elles sont définies et sont également facultatives.
+- **issuancerules** : collection de règles de revendication qui sont évaluées pour ajouter des informations supplémentaires au résultat de l’attestation, tel que défini dans la stratégie. Les règles de revendication s’appliquent dans l’ordre dans lequel elles sont définies et sont également facultatives.
 
 Pour plus d’informations, consultez [Revendication et règles de revendication](claim-rule-grammar.md).
    
@@ -128,8 +128,8 @@ Après avoir créé un fichier de stratégie, pour charger une stratégie au for
      ```
 
 2. (Facultatif) Signez la stratégie. Azure Attestation prend en charge les algorithmes suivants :
-     - **Aucun**  : ne pas signer la charge utile de la stratégie.
-     - **RS256**  : algorithme pris en charge pour signer la charge utile de la stratégie
+     - **Aucun** : ne pas signer la charge utile de la stratégie.
+     - **RS256** : algorithme pris en charge pour signer la charge utile de la stratégie
 
 3. Chargez la signature JWS et validez la stratégie.
      - Si le fichier de stratégie est exempt d’erreurs de syntaxe, il est accepté par le service.

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/09/2020
 ms.author: surmb
 ms.openlocfilehash: 15f68e8cbca65e7b970944f7ca5ef1952140cc6b
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93397637"
 ---
 # <a name="application-gateway-listener-configuration"></a>Configuration des écouteurs Application Gateway
@@ -20,7 +20,7 @@ ms.locfileid: "93397637"
 
 Un écouteur est une entité logique qui vérifie les demandes de connexion entrante en utilisant le port, le protocole, l’hôte et l’adresse IP. Quand vous configurez l’écouteur, vous devez entrer des valeurs qui correspondent aux valeurs indiquées dans la demande entrante sur la passerelle.
 
-Quand vous créez une passerelle d’application à l’aide du portail Azure, vous créez également un écouteur par défaut en choisissant le protocole et le port pour l’écouteur. Vous pouvez choisir d’activer ou non la prise en charge du protocole HTTP2 sur l’écouteur. Une fois que vous avez créé la passerelle d’application, vous pouvez modifier les paramètres de cet écouteur par défaut ( *appGatewayHttpListener* ) ou créer des écouteurs.
+Quand vous créez une passerelle d’application à l’aide du portail Azure, vous créez également un écouteur par défaut en choisissant le protocole et le port pour l’écouteur. Vous pouvez choisir d’activer ou non la prise en charge du protocole HTTP2 sur l’écouteur. Une fois que vous avez créé la passerelle d’application, vous pouvez modifier les paramètres de cet écouteur par défaut (*appGatewayHttpListener*) ou créer des écouteurs.
 
 ## <a name="listener-type"></a>Type d’écouteur
 
@@ -28,7 +28,7 @@ Quand vous créez un écouteur, vous choisissez entre le type [*de base* et le t
 
 - Si vous souhaitez que toutes vos demandes (pour tous les domaines) soient acceptées et transmises aux pools back-end, choisissez le type « de base ». Découvrez [comment créer une passerelle d’application avec un écouteur de base](./quick-create-portal.md).
 
-- Si vous souhaitez transférer les requêtes HTTP vers différents pools principaux en fonction de l’en-tête d’ *hôte* ou des noms d’hôte, choisissez le type d’écouteur « multisite » ; dans ce cas, vous devez également spécifier un nom d’hôte qui correspond à la demande entrante. En effet, Application Gateway s’appuie sur des en-têtes d’hôte HTTP 1.1 pour héberger plusieurs sites web sur la même adresse IP publique et le même port. Pour en savoir plus, consultez [Hébergement de plusieurs sites à l’aide d’Application Gateway](multiple-site-overview.md).
+- Si vous souhaitez transférer les requêtes HTTP vers différents pools principaux en fonction de l’en-tête d’*hôte* ou des noms d’hôte, choisissez le type d’écouteur « multisite » ; dans ce cas, vous devez également spécifier un nom d’hôte qui correspond à la demande entrante. En effet, Application Gateway s’appuie sur des en-têtes d’hôte HTTP 1.1 pour héberger plusieurs sites web sur la même adresse IP publique et le même port. Pour en savoir plus, consultez [Hébergement de plusieurs sites à l’aide d’Application Gateway](multiple-site-overview.md).
 
 ### <a name="order-of-processing-listeners"></a>Ordre de traitement des
 
@@ -87,7 +87,7 @@ Pour configurer une page d’erreur personnalisée globale, consultez [Configura
 
 ## <a name="tls-policy"></a>Stratégie de protocole TLS
 
-Vous pouvez centraliser la gestion des certificats TLS/SSL et réduire la surcharge de chiffrement-déchiffrement d’une batterie de serveurs back-end. Cette gestion TLS centralisée permet également de spécifier une stratégie TLS centrale adaptée à vos besoins de sécurité. Vous pouvez choisir une stratégie TLS *par défaut* , *prédéfinie* ou *personnalisée*.
+Vous pouvez centraliser la gestion des certificats TLS/SSL et réduire la surcharge de chiffrement-déchiffrement d’une batterie de serveurs back-end. Cette gestion TLS centralisée permet également de spécifier une stratégie TLS centrale adaptée à vos besoins de sécurité. Vous pouvez choisir une stratégie TLS *par défaut*, *prédéfinie* ou *personnalisée*.
 
 Vous configurez la stratégie TLS pour contrôler les versions du protocole TLS. Vous pouvez configurer une passerelle d’application afin qu’elle utilise une version de protocole minimale pour les négociations TLS à partir de TLS 1.0, TLS 1.1 et TLS 1.2. Par défaut, SSL 2.0 et 3.0 sont désactivés et ne sont pas configurables. Pour plus d’informations, consultez [Vue d’ensemble de la stratégie TLS Application Gateway](./application-gateway-ssl-policy-overview.md).
 

@@ -15,10 +15,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e4478c9c286c06d5d6c5593195a0e93abd286b8c
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92371509"
 ---
 # <a name="management-capabilities-for-azure-ad-roles-in-privileged-identity-management"></a>Fonctionnalités de gestion des rôles Azure AD dans Privileged Identity Management
@@ -29,7 +29,7 @@ Dans le cadre de la mise à jour en cours de déploiement, nous fusionnons les d
 
 ## <a name="time-bound-assignments"></a>Attributions limitées dans le temps
 
-Auparavant, il existait deux états possibles pour les attributions de rôles : *éligible* et *permanent* . Il est désormais également possible de définir une heure de début et de fin pour chaque type d’attribution. Cet ajout vous offre quatre états possibles pour une attribution :
+Auparavant, il existait deux états possibles pour les attributions de rôles : *éligible* et *permanent*. Il est désormais également possible de définir une heure de début et de fin pour chaque type d’attribution. Cet ajout vous offre quatre états possibles pour une attribution :
 
 - Éligible de façon permanente
 - Active de façon permanente
@@ -42,7 +42,7 @@ Dans la plupart des cas, même si vous ne souhaitez pas que les utilisateurs aie
 
 Nous ajoutons également de nouveaux paramètres pour les rôles Azure AD.
 
-- **Auparavant** , les paramètres d’activation ne pouvaient être configurés que rôle par rôle. Autrement dit, ils étaient appliqués à tous les utilisateurs éligibles pour un rôle spécifié.
+- **Auparavant**, les paramètres d’activation ne pouvaient être configurés que rôle par rôle. Autrement dit, ils étaient appliqués à tous les utilisateurs éligibles pour un rôle spécifié.
 - Il est **maintenant** possible de configurer si un utilisateur individuel doit effectuer une authentification multifacteur pour pouvoir activer un rôle. En outre, vous pouvez exercer un contrôle avancé de vos e-mails Privileged Identity Management relatifs à des rôles spécifiques.
 
 ## <a name="extend-and-renew-assignments"></a>Étendre et renouveler les attributions
@@ -50,7 +50,7 @@ Nous ajoutons également de nouveaux paramètres pour les rôles Azure AD.
 La première question qui se pose avec les attributions limitées dans le temps est la suivante : que se passe-t-il si un rôle expire ? Dans cette nouvelle version, nous proposons deux options pour ce scénario :
 
 - **Étendre** : lorsqu’une attribution de rôle arrive à expiration, l’utilisateur peut utiliser Privileged Identity Management pour demander une extension de cette attribution de rôle.
-- **Renouveler**  : lorsqu’une attribution de rôle est expirée, l’utilisateur peut utiliser Privileged Identity Management pour demander un renouvellement de cette attribution de rôle.
+- **Renouveler** : lorsqu’une attribution de rôle est expirée, l’utilisateur peut utiliser Privileged Identity Management pour demander un renouvellement de cette attribution de rôle.
 
 Ces deux actions utilisateur exigent l’approbation d’un Administrateur général ou d’un Administrateur de rôle privilégié. Les administrateurs n’ont plus besoin d’être spécialisés dans la gestion de ces expirations. Il leur suffit d’attendre les demandes d’extension ou de renouvellement et de les approuver si elles sont valides.
 

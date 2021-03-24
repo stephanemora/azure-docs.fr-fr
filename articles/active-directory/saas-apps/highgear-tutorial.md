@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/16/2019
 ms.author: jeedes
 ms.openlocfilehash: b3806d768e8335801e2dd097eac7a440b157de38
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92444677"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-highgear"></a>Tutoriel : Intégration d’Azure Active Directory à HighGear
@@ -49,11 +49,11 @@ Pour configurer l’intégration de HighGear à Azure AD, vous devez ajouter Hig
 
 **Pour ajouter HighGear à partir de la galerie, effectuez les étapes suivantes :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory** .
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
-2. Accédez à **Applications d’entreprise** , puis sélectionnez l’option **Toutes les applications** .
+2. Accédez à **Applications d’entreprise**, puis sélectionnez l’option **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -61,13 +61,13 @@ Pour configurer l’intégration de HighGear à Azure AD, vous devez ajouter Hig
 
     ![Bouton Nouvelle application](common/add-new-app.png)
 
-4. Dans la zone de recherche, tapez **HighGear** , sélectionnez **HighGear** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+4. Dans la zone de recherche, tapez **HighGear**, sélectionnez **HighGear** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
      ![HighGear dans la liste des résultats](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
 
-Dans cette section, vous pouvez apprendre à configurer et à tester l’authentification unique Azure AD auprès de votre système HighGear à l’aide d’un utilisateur de test appelé **Britta Simon** .
+Dans cette section, vous pouvez apprendre à configurer et à tester l’authentification unique Azure AD auprès de votre système HighGear à l’aide d’un utilisateur de test appelé **Britta Simon**.
 Pour que l’authentification unique fonctionne, une relation entre l’utilisateur Azure AD et l’utilisateur associé dans votre système HighGear doit être établie.
 
 Pour configurer et tester l’authentification unique Azure AD auprès de votre système HighGear, vous devez effectuer les modules suivants :
@@ -85,23 +85,23 @@ Dans cette section, vous pouvez apprendre à activer l’authentification unique
 
 Pour configurer l’authentification unique Azure AD auprès de votre système HighGear, effectuez les étapes suivantes :
 
-1. Dans le [portail Azure](https://portal.azure.com/), dans la page d’intégration de l’application **HighGear** , sélectionnez **Authentification unique** .
+1. Dans le [portail Azure](https://portal.azure.com/), dans la page d’intégration de l’application **HighGear**, sélectionnez **Authentification unique**.
 
     ![Lien Configurer l’authentification unique](common/select-sso.png)
 
-2. Dans la boîte de dialogue **Sélectionner une méthode d’authentification unique** , sélectionnez le mode **SAML/WS-Fed** afin d’activer l’authentification unique.
+2. Dans la boîte de dialogue **Sélectionner une méthode d’authentification unique**, sélectionnez le mode **SAML/WS-Fed** afin d’activer l’authentification unique.
 
     ![Mode de sélection de l’authentification unique](common/select-saml-option.png)
 
-3. Dans la page **Configurer l’authentification unique avec SAML** , cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue **Configuration SAML de base** .
+3. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue **Configuration SAML de base**.
 
     ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-4. Dans la section **Configuration SAML de base** , effectuez les étapes suivantes :
+4. Dans la section **Configuration SAML de base**, effectuez les étapes suivantes :
 
     ![Capture d’écran montrant Basic SAML Configuration, où vous pouvez entrer Identifier, et Reply URL, et sélectionner Save.](common/idp-intiated.png)
 
-    a. Dans la zone de texte **Identificateur** , collez la valeur du champ **Service Provider Entity ID** (ID d’entité du fournisseur de services) figurant dans la page Single Sign-On Settings (Paramètres d’authentification unique) au sein de votre système HighGear.
+    a. Dans la zone de texte **Identificateur**, collez la valeur du champ **Service Provider Entity ID** (ID d’entité du fournisseur de services) figurant dans la page Single Sign-On Settings (Paramètres d’authentification unique) au sein de votre système HighGear.
 
     ![Champ Service Provider Entity ID (ID d’entité du fournisseur de services)](media/highgear-tutorial/service-provider-entity-id-field.png)
     
@@ -110,26 +110,26 @@ Pour configurer l’authentification unique Azure AD auprès de votre système H
     
     ![Élément de menu Single Sign-On Settings (Paramètres d’authentification unique)](media/highgear-tutorial/single-sign-on-settings-menu-item.png)
 
-    b. Dans la zone de texte **URL de réponse** , collez la valeur du champ **Assertion Consumer Service (ACS) URL** (URL du service ACS) à partir de la page Single Sign-On Settings (Paramètres d’authentification unique) de votre système HighGear.
+    b. Dans la zone de texte **URL de réponse**, collez la valeur du champ **Assertion Consumer Service (ACS) URL** (URL du service ACS) à partir de la page Single Sign-On Settings (Paramètres d’authentification unique) de votre système HighGear.
 
     ![Champ Assertion Consumer Service (ACS) URL (URL du service ACS)](media/highgear-tutorial/assertion-consumer-service-url-field.png)
 
-    c. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services** , cliquez sur **Définir des URL supplémentaires** , puis effectuez les étapes suivantes :
+    c. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
 
      ![Capture d’écran montrant Set additional URLs, où vous pouvez entrer une URL de connexion.](common/metadata-upload-additional-signon.png)
 
-     Dans la zone de texte **URL de connexion** , collez la valeur du champ **Service Provider Entity ID** (ID d’entité du fournisseur de services) figurant dans la page Single Sign-On Settings (Paramètres d’authentification unique) au sein de votre système HighGear. (Cet ID d’entité est également l’URL de base du système HighGear qui doit être utilisée pour l’authentification démarrée par le fournisseur de services.)
+     Dans la zone de texte **URL de connexion**, collez la valeur du champ **Service Provider Entity ID** (ID d’entité du fournisseur de services) figurant dans la page Single Sign-On Settings (Paramètres d’authentification unique) au sein de votre système HighGear. (Cet ID d’entité est également l’URL de base du système HighGear qui doit être utilisée pour l’authentification démarrée par le fournisseur de services.)
 
     ![Champ Service Provider Entity ID (ID d’entité du fournisseur de services)](media/highgear-tutorial/service-provider-entity-id-field.png)
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL de réponse et l’URL de connexion réels à partir de la page **Single Sign-On Settings** (Paramètres d’authentification unique) de votre système HighGear. Si vous avez besoin d’aide, contactez l’[équipe du support technique HighGear](mailto:support@highgear.com).
 
-4. Dans la page **Configurer l’authentification unique avec SAML** , dans la section **Certificat de signature SAML** , cliquez sur **Télécharger** pour télécharger le **Certificat (Base64)** , puis enregistrez-le sur votre ordinateur. Vous en aurez besoin à une étape ultérieure de la configuration de l’authentification unique.
+4. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le **Certificat (Base64)** , puis enregistrez-le sur votre ordinateur. Vous en aurez besoin à une étape ultérieure de la configuration de l’authentification unique.
 
     ![Lien Téléchargement de certificat](common/certificatebase64.png)
 
-6. Dans la section **Configurer HighGear** , notez l’emplacement des URL suivantes.
+6. Dans la section **Configurer HighGear**, notez l’emplacement des URL suivantes.
 
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
 
@@ -163,7 +163,7 @@ Pour configurer HighGear pour l’authentification unique, veuillez vous connect
 
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
 
-1. Dans le volet gauche du portail Azure, sélectionnez **Azure Active Directory** , sélectionnez **Utilisateurs** , puis sélectionnez **Tous les utilisateurs** .
+1. Dans le volet gauche du portail Azure, sélectionnez **Azure Active Directory**, sélectionnez **Utilisateurs**, puis sélectionnez **Tous les utilisateurs**.
 
     ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](common/users.png)
 
@@ -175,46 +175,46 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     ![Boîte de dialogue Utilisateur](common/user-properties.png)
 
-    a. Dans le champ **Nom** , entrez **BrittaSimon** .
+    a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur** , tapez **brittasimon\@domainedevotreentreprise.extension** .  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple : BrittaSimon@contoso.com
 
-    c. Cochez la case **Afficher le mot de passe** , puis notez la valeur affichée dans le champ Mot de passe.
+    c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
-    d. Cliquez sur **Créer** .
+    d. Cliquez sur **Créer**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
 Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à HighGear.
 
-1. Dans le portail Azure, sélectionnez **Applications d’entreprise** , **Toutes les applications** , puis **HighGear** .
+1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, **Toutes les applications**, puis **HighGear**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
-2. Dans la liste des applications, sélectionnez **HighGear** .
+2. Dans la liste des applications, sélectionnez **HighGear**.
 
     ![Lien HighGear dans la liste des applications](common/all-applications.png)
 
-3. Dans le menu de gauche, sélectionnez **Utilisateurs et groupes** .
+3. Dans le menu de gauche, sélectionnez **Utilisateurs et groupes**.
 
     ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
 
-4. Cliquez sur le bouton **Ajouter un utilisateur** , puis sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution** .
+4. Cliquez sur le bouton **Ajouter un utilisateur**, puis sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
 
     ![Volet Ajouter une attribution](common/add-assign-user.png)
 
-5. Dans la boîte de dialogue **Utilisateurs et groupes** , sélectionnez **Britta Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
 
-6. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle** , sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+6. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
 
-7. Dans la boîte de dialogue **Ajouter une attribution** , cliquez sur le bouton **Attribuer** .
+7. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
 ### <a name="create-highgear-test-user"></a>Créer un utilisateur de test HighGear
 
 Pour créer un utilisateur de test HighGear afin de tester la configuration de l’authentification unique, connectez-vous à votre système HighGear.
 
-1. Cliquez sur le bouton **Create New Contact** .
+1. Cliquez sur le bouton **Create New Contact**.
 
     ![Bouton Create New Contact](media/highgear-tutorial/create-new-contact-button.png)
 
@@ -225,9 +225,9 @@ Pour créer un utilisateur de test HighGear afin de tester la configuration de l
     Dans le volet qui apparaît sur la droite, tapez les informations du nouvel utilisateur.  
     ![Formulaire de nouveau contact](media/highgear-tutorial/new-contact-form.png)
 
-3. Dans le champ **Name** , tapez un nom pour le contact. Par exemple : Britta Simon
+3. Dans le champ **Name**, tapez un nom pour le contact. Par exemple : Britta Simon
 
-4. Cliquez sur le menu **More Options** et sélectionnez l’élément de menu **Account Info** .
+4. Cliquez sur le menu **More Options** et sélectionnez l’élément de menu **Account Info**.
 
     ![Clic sur l’élément de menu Account Info](media/highgear-tutorial/account-info-menu-item.png)
 

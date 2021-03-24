@@ -1,18 +1,14 @@
 ---
 title: Créer des rapports d’exploration de données
 description: Générez des informations complètes et granulaires sur vos appareils réseau dans différentes couches telles que les protocoles, les versions de microprogramme ou les commandes de programmation.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 01/20/2021
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: 0738dc7f2b7012002fc6ddf5cc68dd0c8e42b04d
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 99754959e7a3a08b4d763b85b0b9315476969774
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100522477"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104779067"
 ---
 # <a name="sensor-data-mining-queries"></a>Requêtes d’exploration de données de capteur
 
@@ -285,7 +281,3 @@ Pour générer un rapport :
 3. Dans la liste déroulante de droite, sélectionnez le rapport que vous souhaitez générer.
 
 4. Pour créer un PDF des résultats du rapport, sélectionnez :::image type="icon" source="media/how-to-generate-reports/pdf-report-icon.png" border="false":::.
-
-## <a name="next-steps"></a>Étapes suivantes
-
-[Rapports de tendances et de statistiques des capteurs](how-to-create-trends-and-statistics-reports.md).

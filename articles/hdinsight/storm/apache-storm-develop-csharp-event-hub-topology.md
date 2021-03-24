@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 01/14/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4393c6797f5a164a063b55f8994d7d37d278f3c4
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: ee483872535c58bde521cf0a751058fdc2fecd40
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98929190"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104871450"
 ---
 # <a name="process-events-from-azure-event-hubs-with-apache-storm-on-hdinsight-c"></a>Traiter des événements issus d’Azure Event Hubs avec Apache Storm sur HDInsight (C#)
 
@@ -94,7 +94,7 @@ topologyBuilder.SetJavaBolt(
 
 Vous pouvez télécharger une version complète du projet créé dans cet article à partir de [GitHub](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub). Toutefois, vous devrez tout de même fournir des paramètres de configuration en suivant les étapes de cet article.
 
-### <a name="prerequisites"></a>Conditions préalables requises
+### <a name="prerequisites"></a>Prérequis
 
 * Un cluster Apache Storm sur HDInsight. Consultez la section [Création de clusters Apache Hadoop à l’aide du portail Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) et sélectionnez **Storm** dans le champ **Type de cluster**.
 
@@ -121,12 +121,12 @@ Event Hubs est la source de données pour cet exemple. Utilisez les informations
 
 1. Après avoir créé le hub d’événements, affichez les paramètres **EventHub** dans le portail Azure et sélectionnez **Stratégies d’accès partagé**. Sélectionnez **+ Ajouter** pour créer les stratégies suivantes :
 
-   | Name | Autorisations |
+   | Nom | Autorisations |
    | --- | --- |
    | writer |Envoyer |
    | reader |Écouter |
 
-    ![Capture d’écran de la fenêtre de stratégies d’accès partagé](./media/apache-storm-develop-csharp-event-hub-topology/share-access-policies.png)
+    :::image type="content" source="./media/apache-storm-develop-csharp-event-hub-topology/share-access-policies.png" alt-text="Capture d’écran de la fenêtre de stratégies d’accès partagé" border="true":::
 
 2. Sélectionnez les stratégies **reader** et **writer**. Copiez et enregistrez la valeur de clé primaire des deux stratégies, car elles sont utilisées ultérieurement.
 
@@ -168,15 +168,15 @@ Event Hubs est la source de données pour cet exemple. Utilisez les informations
 
 1. Dans **l’Explorateur de solutions**, cliquez avec le bouton droit de la souris sur le projet **EventHubReader** et sélectionnez **Envoyer à Storm sur HDInsight**.
 
-    ![Capture d’écran de l’Explorateur de solutions, avec l’option Envoyer à Storm sur HDInsight mise en surbrillance](./media/apache-storm-develop-csharp-event-hub-topology/submit-to-apache-storm.png)
+    :::image type="content" source="./media/apache-storm-develop-csharp-event-hub-topology/submit-to-apache-storm.png" alt-text="Capture d’écran de l’Explorateur de solutions, avec l’option Envoyer à Storm sur HDInsight mise en surbrillance" border="true":::
 
-2. Dans la boîte de dialogue **Envoyer la topologie**, sélectionnez votre **cluster Storm**. Développez **Configurations supplémentaires**, sélectionnez **Chemins d’accès aux fichiers Java**, sélectionnez **...** , puis choisissez le répertoire qui contient le fichier JAR que vous avez téléchargé précédemment. Pour finir, cliquez sur **Envoyer**.
+2. Dans la boîte de dialogue **Envoyer la topologie**, sélectionnez votre **cluster Storm**. Développez **Configurations supplémentaires**, sélectionnez **Chemins d’accès aux fichiers Java**, sélectionnez **...**, puis choisissez le répertoire qui contient le fichier JAR que vous avez téléchargé précédemment. Pour finir, cliquez sur **Envoyer**.
 
-    ![Capture d’écran de la boîte de dialogue Envoyer la topologie](./media/apache-storm-develop-csharp-event-hub-topology/submit-storm-topology.png)
+    :::image type="content" source="./media/apache-storm-develop-csharp-event-hub-topology/submit-storm-topology.png" alt-text="Capture d’écran de la boîte de dialogue Envoyer la topologie" border="true":::
 
 3. Une fois la topologie envoyée, la **Visionneuse de topologies Storm** apparaît. Sélectionnez la topologie **EventHubReader** dans le volet gauche pour afficher des informations sur la topologie.
 
-    ![Capture d’écran de la visionneuse de topologies Storm](./media/apache-storm-develop-csharp-event-hub-topology/storm-topology-viewer.png)
+    :::image type="content" source="./media/apache-storm-develop-csharp-event-hub-topology/storm-topology-viewer.png" alt-text="Capture d’écran de la visionneuse de topologies Storm" border="true":::
 
 4. Dans **l’Explorateur de solutions**, cliquez avec le bouton droit de la souris sur le projet **EventHubWriter** et sélectionnez **Envoyer à Storm sur HDInsight**.
 
@@ -200,7 +200,7 @@ Event Hubs est la source de données pour cet exemple. Utilisez les informations
 
 Pour arrêter les topologies, sélectionnez chaque topologie dans la **Visionneuse de topologies Storm**, puis cliquez sur **Supprimer**.
 
-![Capture d’écran de la visionneuse de topologies Storm avec le bouton Supprimer mis en surbrillance](./media/apache-storm-develop-csharp-event-hub-topology/kill-storm-topology1.png)
+:::image type="content" source="./media/apache-storm-develop-csharp-event-hub-topology/kill-storm-topology1.png" alt-text="Capture d’écran de la visionneuse de topologies Storm avec le bouton Supprimer mis en surbrillance" border="true":::
 
 ## <a name="delete-your-cluster"></a>Supprimer votre cluster
 

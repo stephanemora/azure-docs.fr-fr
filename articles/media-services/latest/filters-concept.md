@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.openlocfilehash: bb5561ced93c3f5a899c6e48fdab0f14e52914bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89291548"
 ---
 # <a name="filters"></a>Filtres
@@ -49,7 +49,7 @@ Selon votre scénario, vous choisissez le type de filtre le plus adapté (filtre
 
 Utilisez les propriétés suivantes pour décrire les filtres. 
 
-|Name|Description|
+|Nom|Description|
 |---|---|
 |firstQuality|Première qualité de vitesse de transmission du filtre.|
 |presentationTimeRange|Plage horaire de présentation. Cette propriété sert à filtrer les points de début/fin du manifeste, la durée de la fenêtre de présentation, et la position de départ du flux en direct. <br/>Pour plus d’informations, consultez [PresentationTimeRange](#presentationtimerange).|
@@ -59,7 +59,7 @@ Utilisez les propriétés suivantes pour décrire les filtres.
 
 Utilisez cette propriété avec les **filtres d’élément multimédia**. Il n’est pas recommandé de définir la propriété avec des **filtres de compte**.
 
-|Name|Description|
+|Nom|Description|
 |---|---|
 |**endTimestamp**|Applicable à la vidéo à la demande (VoD).<br/>Pour la présentation en streaming en direct, cette propriété est ignorée (mode silencieux) puis appliquée lorsque la présentation se termine et que le flux est transmis en VoD.<br/>Il s’agit d’une valeur longue qui représente un point de terminaison absolu de la présentation, arrondie au début GOP suivant le plus proche. L’unité étant l’échelle de temps, un endTimestamp de 1800000000 correspond à 3 minutes.<br/>Utilisez startTimestamp et endTimestamp pour découper les fragments qui seront présents dans la sélection (manifeste).<br/>Par exemple, startTimestamp = 40000000 et endTimestamp = 100000000 utilisant l'échelle de temps par défaut génèrent une playlist contenant des fragments entre 4 secondes et 10 secondes de la présentation VoD. Si un fragment approche la limite, le fragment entier sera inclus dans le manifeste.|
 |**forceEndTimestamp**|S’applique au streaming en direct uniquement.<br/>Indique si la propriété endTimestamp doit être présente. Si la valeur est true, la propriété endTimestamp doit être spécifiée, à défaut de quoi un code de requête incorrecte est renvoyé.<br/>Valeurs autorisées : false, true.|
@@ -74,7 +74,7 @@ Vous spécifiez une liste de conditions de propriétés de suivi de filtre (Filt
 
 Les conditions de propriétés de suivi de filtre décrivent les types de suivi, les valeurs (spécifiées dans le tableau suivant) et les opérations (Equal, NotEqual). 
 
-|Name|Description|
+|Nom|Description|
 |---|---|
 |**Bitrate**|Utilisez la vitesse de transmission de la piste pour le filtrage.<br/><br/>La valeur recommandée est une plage de vitesses de transmission, en bits par seconde. Par exemple, « 0-2427000 ».<br/><br/>Remarque : vous pouvez utiliser une valeur de vitesse de transmission spécifique, comme 250000 (bits par seconde), mais cette approche n'est pas recommandée car les vitesses de transmission exacts peuvent varier d’un élément multimédia à un autre.|
 |**FourCC**|Utilisez la valeur FourCC de la piste pour le filtrage.<br/><br/>La valeur est le premier élément du format de codecs, tel que spécifié dans [RFC 6381](https://tools.ietf.org/html/rfc6381). À l’heure actuelle, les codecs suivants sont pris en charge : <br/>Pour la vidéo : « avc1 », « hev1 », « hvc1 »<br/>Pour l’audio : « mp4a », « ec-3 »<br/><br/>Pour déterminer les valeurs FourCC des pistes d’un élément multimédia, obtenez et examinez le fichier manifeste.|

@@ -1,24 +1,14 @@
 ---
 title: 'Démarrage rapide : Vue d’ensemble des agents de sécurité'
 description: Dans ce guide de démarrage rapide, vous allez découvrir l’architecture des agents de sécurité utilisés dans le service Azure Defender pour IoT.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: shhazam-ms
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 01/24/2021
-ms.author: shhazam
-ms.openlocfilehash: de8c52372b2ef92dcf2abe357a40ef8947439a8a
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 2e7d7d1e6770667b1ce966724611cc003116409d
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103493956"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104778506"
 ---
 # <a name="quickstart-security-agent-reference-architecture"></a>Démarrage rapide : Architecture de référence des agents de sécurité
 

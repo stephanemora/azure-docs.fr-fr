@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 01/27/2017
 ms.openlocfilehash: 918516a5629f8570d54c641ffc29f2367937266f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "74792374"
 ---
 # <a name="decode-x12-messages-in-azure-logic-apps-with-enterprise-integration-pack"></a>Décoder des messages X12 dans Azure Logic Apps avec Enterprise Integration Pack
@@ -87,13 +87,13 @@ Le connecteur X12 Decode effectue les tâches suivantes :
   * Vérifie le numéro de contrôle du groupe par rapport aux autres numéros de contrôle de groupe dans l’échange.
   * Vérifie le numéro de contrôle du document informatisé par rapport aux autres numéros de contrôle de document informatisé dans ce groupe.
 * Fractionne l’échange en documents informatisés ou conserve l’échange entier :
-  * Scinder l’échange en documents informatisés : suspendre les documents informatisés en cas d’erreur : fractionne l’échange en documents informatisés et analyse chaque document informatisé. 
+  * Scinder l’échange en documents informatisés  - suspendre les documents informatisés en cas d’erreur : Scinde l’échange en documents informatisés et analyse chaque document informatisé. 
   L’action X12 Decode ne génère que les documents informatisés qui échouent à la validation `badMessages` et produit les documents informatisés restants en tant que `goodMessages`.
-  * Scinder l’échange en documents informatisés : suspendre l’échange en cas d’erreur : fractionne l’échange en documents informatisés et analyse chaque document informatisé. 
+  * Scinder l’échange en documents informatisés - suspendre l’échange en cas d’erreur : Scinde l’échange en documents informatisés et analyse chaque document informatisé. 
   Si la validation d’un ou de plusieurs documents informatisés de l’échange échoue, l’action X12 Decode génère tous les documents informatisés dans cet échange en tant que `badMessages`.
-  * Préserver l'échange : suspendre les documents informatisés en cas d'erreur : conserve l’échange et traite l’intégralité de l’échange par lot. 
+  * Préserver l’échange - suspendre les documents informatisés en cas d’erreur : Préserve l’échange et traite l’intégralité de l’échange par lot. 
   L’action X12 Decode ne génère que les documents informatisés qui échouent à la validation `badMessages` et produit les documents informatisés restants en tant que `goodMessages`.
-  * Préserver l’échange : suspendre l’échange en cas d’erreur : conserve l’échange et traite l’intégralité de l’échange par lot. 
+  * Préserver l’échange - suspendre l’échange en cas d’erreur : Préserve l’échange et traite l’intégralité de l’échange par lot. 
   Si la validation d’un ou de plusieurs documents informatisés de l’échange échoue, l’action X12 Decode génère tous les documents informatisés dans cet échange en tant que `badMessages`. 
 * Génère un accusé de réception fonctionnel et/ou technique (si configuré).
   * Suite à la validation de l’en-tête, un accusé de réception technique est généré. L’accusé de réception technique renvoie l’état du traitement de l’en-tête et du code de fin d’un échange par le récepteur de l’adresse.

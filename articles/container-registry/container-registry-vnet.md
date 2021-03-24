@@ -3,12 +3,12 @@ title: Restreindre l’accès avec un point de terminaison de service
 description: Restreignez l’accès à un registre de conteneurs Azure à l’aide d’un point de terminaison de service dans un réseau virtuel Azure. L’accès au point de terminaison de service est une fonctionnalité du niveau de service Premium.
 ms.topic: article
 ms.date: 05/04/2020
-ms.openlocfilehash: 5f9bc7c9a6c8f2061765510a6396611502fd4a2a
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: c49595ee4ee79aef264a87dd48bccd03f3d4f5a5
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93026222"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104773893"
 ---
 # <a name="restrict-access-to-a-container-registry-using-a-service-endpoint-in-an-azure-virtual-network"></a>Restreindre l’accès à un registre de conteneurs à l’aide d’un point de terminaison de service dans un réseau virtuel Azure
 
@@ -26,7 +26,6 @@ La configuration d’un point de terminaison de service du registre est disponib
 * Le développement futur des points de terminaison de service pour Azure Container Registry n’est pas planifié actuellement. Nous vous recommandons d’utiliser des [points de terminaison privés](container-registry-private-link.md) à la place.
 * Vous ne pouvez pas utiliser le portail Azure pour configurer des points de terminaison de service sur un registre.
 * Seul un cluster [Azure Kubernetes Service](../aks/intro-kubernetes.md) ou une [machine virtuelle](../virtual-machines/linux/overview.md) Azure peuvent être utilisés en tant qu’hôtes pour accéder à un registre de conteneurs dans un réseau virtuel. *Les autres services Azure, y compris Azure Container Instances, ne sont pas pris en charge.*
-* Chaque registre prend en charge un maximum de 100 règles d’accès réseau.
 * Les points de terminaison de service pour Azure Container Registry ne sont pas pris en charge dans le cloud Azure US Government ni le cloud Azure Chine.
 
 [!INCLUDE [container-registry-scanning-limitation](../../includes/container-registry-scanning-limitation.md)]
@@ -53,7 +52,7 @@ Dans cette section, configurez votre registre de conteneurs pour autoriser l’a
 
 ### <a name="add-a-service-endpoint-to-a-subnet"></a>Ajouter un point de terminaison de service à un sous-réseau
 
-Quand vous créez une machine virtuelle, Azure crée par défaut un réseau virtuel dans le même groupe de ressources. Le nom du réseau virtuel est basé sur le nom de la machine virtuelle. Par exemple, si vous nommez votre machine virtuelle *myDockerVM* , le nom de réseau virtuel par défaut est *myDockerVMVNET* , avec un sous-réseau nommé *myDockerVMSubnet*. Vérifiez cela à l’aide de la commande [az network vnet list][az-network-vnet-list] :
+Quand vous créez une machine virtuelle, Azure crée par défaut un réseau virtuel dans le même groupe de ressources. Le nom du réseau virtuel est basé sur le nom de la machine virtuelle. Par exemple, si vous nommez votre machine virtuelle *myDockerVM*, le nom de réseau virtuel par défaut est *myDockerVMVNET*, avec un sous-réseau nommé *myDockerVMSubnet*. Vérifiez cela à l’aide de la commande [az network vnet list][az-network-vnet-list] :
 
 ```azurecli
 az network vnet list \

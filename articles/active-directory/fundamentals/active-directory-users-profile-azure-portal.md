@@ -13,10 +13,10 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 27896bac6f5436fb6717e4bc1ab0a1f9381904ad
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92370914"
 ---
 # <a name="add-or-update-a-users-profile-information-using-azure-active-directory"></a>Ajouter ou mettre à jour les informations du profil utilisateur avec Azure Active Directory
@@ -28,7 +28,7 @@ Vous trouverez bien plus d’informations disponibles dans un profil utilisateur
 ## <a name="to-add-or-change-profile-information"></a>Ajouter ou modifier les informations de profil
 1. Connectez-vous au [portail Azure](https://portal.azure.com/) en tant qu’administrateur d’utilisateurs de l’organisation.
 
-2. Sélectionnez **Azure Active Directory** , **Utilisateurs** , puis un utilisateur. Par exemple, _Alain Charon_ .
+2. Sélectionnez **Azure Active Directory**, **Utilisateurs**, puis un utilisateur. Par exemple, _Alain Charon_.
 
     La page **Alain Charon - Profil** s’affiche.
 
@@ -38,19 +38,19 @@ Vous trouverez bien plus d’informations disponibles dans un profil utilisateur
 
     ![Page du profil utilisateur, montrant les zones modifiables](media/active-directory-users-profile-azure-portal/user-profile-edit.png)
 
-    - **Image du profil** . Sélectionnez une image miniature pour le compte de l’utilisateur. Cette image s’affiche dans Azure Active Directory et sur la page personnelle de l’utilisateur, comme la page myapps.microsoft.com.
+    - **Image du profil**. Sélectionnez une image miniature pour le compte de l’utilisateur. Cette image s’affiche dans Azure Active Directory et sur la page personnelle de l’utilisateur, comme la page myapps.microsoft.com.
 
-    - **Identité** . Ajoutez ou mettez à jour une valeur d’identité supplémentaire pour l’utilisateur, comme le nom de femme mariée. Vous pouvez définir ce nom indépendamment des valeurs du prénom et du nom. Par exemple, vous pouvez l’utiliser pour ajouter des initiales, un nom de société ou pour modifier la séquence des noms indiqués. Dans un autre exemple, pour deux utilisateurs dont les noms sont « Alain Davignon » vous pouvez utiliser la chaîne d’identité pour définir leurs noms comme « Alain B Davignon » et « Alain F Davignon (Contoso). »
+    - **Identité**. Ajoutez ou mettez à jour une valeur d’identité supplémentaire pour l’utilisateur, comme le nom de femme mariée. Vous pouvez définir ce nom indépendamment des valeurs du prénom et du nom. Par exemple, vous pouvez l’utiliser pour ajouter des initiales, un nom de société ou pour modifier la séquence des noms indiqués. Dans un autre exemple, pour deux utilisateurs dont les noms sont « Alain Davignon » vous pouvez utiliser la chaîne d’identité pour définir leurs noms comme « Alain B Davignon » et « Alain F Davignon (Contoso). »
 
-    - **Informations sur l’emploi** . Ajoutez toutes les informations relatives à l’emploi, telles que le poste de l’utilisateur, le département ou son responsable.
+    - **Informations sur l’emploi**. Ajoutez toutes les informations relatives à l’emploi, telles que le poste de l’utilisateur, le département ou son responsable.
 
-    - **Réglages** . Décidez si l’utilisateur peut se connecter au locataire Azure Active Directory. Vous pouvez aussi spécifier l’emplacement global de l’utilisateur.
+    - **Réglages**. Décidez si l’utilisateur peut se connecter au locataire Azure Active Directory. Vous pouvez aussi spécifier l’emplacement global de l’utilisateur.
 
-    - **Informations de contact** . Ajoutez toutes les informations de contact pertinentes pour l’utilisateur, à l’exception des coordonnées de téléphone ou de contact mobile de l’utilisateur (seul un administrateur général peut effectuer la mise à jour pour des utilisateurs dotés d’un rôle d’administrateur).
+    - **Informations de contact**. Ajoutez toutes les informations de contact pertinentes pour l’utilisateur, à l’exception des coordonnées de téléphone ou de contact mobile de l’utilisateur (seul un administrateur général peut effectuer la mise à jour pour des utilisateurs dotés d’un rôle d’administrateur).
 
-    - **Informations de contact d’authentification** . Vérifiez ces informations pour vous assurer que le numéro de téléphone et l’adresse e-mail de l’utilisateur sont valides. Azure Active Directory utilise ces informations pour s’assurer que l’utilisateur est véritablement un utilisateur lors de la connexion. Les informations de contact d’authentification ne peuvent être mises à jour que par l’administrateur général.
+    - **Informations de contact d’authentification**. Vérifiez ces informations pour vous assurer que le numéro de téléphone et l’adresse e-mail de l’utilisateur sont valides. Azure Active Directory utilise ces informations pour s’assurer que l’utilisateur est véritablement un utilisateur lors de la connexion. Les informations de contact d’authentification ne peuvent être mises à jour que par l’administrateur général.
 
-4. Sélectionnez **Enregistrer** .
+4. Sélectionnez **Enregistrer**.
 
     Toutes vos modifications sont enregistrées pour l’utilisateur.
 

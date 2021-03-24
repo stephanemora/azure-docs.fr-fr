@@ -14,10 +14,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: eb1c3bc9f89db3f4b694803a63293a5537d4b98b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89278750"
 ---
 # <a name="what-is-federation-with-azure-ad"></a>Qu’est-ce que la fédération avec Azure AD ?
@@ -37,7 +37,7 @@ Vous pouvez fédérer votre environnement local avec Azure AD et utiliser cette 
 
 - [Qu’est-ce que l’identité hybride ?](./whatis-hybrid-identity.md)
 - [Présentation d’Azure AD Connect et Connect Health](whatis-azure-ad-connect.md)
-- [Qu’est-ce que la synchronisation de hachage de mot de passe ?](whatis-phs.md)
+- [Qu’est-ce que la synchronisation de hachage de mot de passe ?](whatis-phs.md)
 - [Qu’est-ce que la fédération ?](whatis-fed.md)
 - [Qu’est-ce que l’authentification unique ?](how-to-connect-sso.md)
 - [Fonctionnement de la fédération](how-to-connect-fed-whatis.md)

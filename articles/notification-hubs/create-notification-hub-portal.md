@@ -12,10 +12,10 @@ ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 02/14/2019
 ms.openlocfilehash: 141812e83653b458a2562bf73b70117c39bf7be0
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92426556"
 ---
 # <a name="quickstart-create-an-azure-notification-hub-in-the-azure-portal"></a>Démarrage rapide : Créer un hub de notification Azure dans le portail Azure
@@ -35,16 +35,16 @@ Dans cette section, vous créez un espace de noms et un hub dans l’espace de n
 Dans cette section, vous créez un hub de notification dans un espace de noms existant.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-2. Sélectionnez **Tous les services** dans le menu de gauche, recherchez **Hub de notification** , sélectionnez l’ **étoile** (`*`) en regard d’ **Espaces de noms du hub de notification** pour l’ajouter à la section **FAVORIS** dans le menu de gauche. Sélectionnez **Espaces de noms du hub de notification**.
+2. Sélectionnez **Tous les services** dans le menu de gauche, recherchez **Hub de notification**, sélectionnez l’**étoile** (`*`) en regard d’**Espaces de noms du hub de notification** pour l’ajouter à la section **FAVORIS** dans le menu de gauche. Sélectionnez **Espaces de noms du hub de notification**.
 
       ![Portail Azure - sélectionner Espaces de noms du hub de notification](./media/create-notification-hub-portal/select-notification-hub-namespaces-all-services.png)
-3. Dans la page **Espaces de noms du hub de notification** , sélectionnez votre espace de noms dans la liste.
+3. Dans la page **Espaces de noms du hub de notification**, sélectionnez votre espace de noms dans la liste.
 
       ![Sélectionner votre espace de noms dans la liste](./media/create-notification-hub-portal/select-namespace.png)
-4. Dans la page **Espaces de noms du hub de notification** , sélectionnez **Ajouter un hub** dans la barre d’outils.
+4. Dans la page **Espaces de noms du hub de notification**, sélectionnez **Ajouter un hub** dans la barre d’outils.
 
       ![Espaces de noms du hub de notification - bouton Ajouter un hub](./media/create-notification-hub-portal/add-hub-button.png)
-5. Dans la page **Nouveau hub de notification** , entrez un nom pour le hub de notification, puis sélectionnez **OK**.
+5. Dans la page **Nouveau hub de notification**, entrez un nom pour le hub de notification, puis sélectionnez **OK**.
 
       ![Page Nouveau hub de notification -> entrer un nom pour votre hub](./media/create-notification-hub-portal/new-notification-hub-page.png)
 6. Sélectionnez **Notifications** (icône de cloche) en haut pour voir l’état du déploiement du nouveau hub. Sélectionnez **X** dans l’angle droit pour fermer la fenêtre de notification.

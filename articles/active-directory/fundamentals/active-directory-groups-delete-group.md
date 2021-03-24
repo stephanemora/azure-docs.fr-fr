@@ -14,10 +14,10 @@ ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9aed5f282ff7b5d573a6f8511f2fc4dbfd27135d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92371815"
 ---
 # <a name="delete-a-group-using-azure-active-directory"></a>Supprimer un groupe avec Azure Active Directory
@@ -32,13 +32,13 @@ Vous pouvez supprimer un groupe Azure Active Directory (Azure AD) pour différen
 ## <a name="to-delete-a-group"></a>Pour supprimer un groupe
 1. Connectez-vous au [portail Azure](https://portal.azure.com) à l’aide d’un compte d’administrateur général pour le répertoire.
 
-2. Sélectionnez **Azure Active Directory** , puis **Groupes** .
+2. Sélectionnez **Azure Active Directory**, puis **Groupes**.
 
-3. Sur la page **Groupes - Tous les groupes** , recherchez et sélectionnez le groupe que vous souhaitez supprimer. Pour ces étapes, nous allons utiliser **Stratégie GPM - Est** .
+3. Sur la page **Groupes - Tous les groupes**, recherchez et sélectionnez le groupe que vous souhaitez supprimer. Pour ces étapes, nous allons utiliser **Stratégie GPM - Est**.
 
     ![Page Groupes - Tous les groupes avec le nom de groupe en surbrillance](media/active-directory-groups-delete-group/group-all-groups-screen.png)
 
-4. Sur la page **Vue d’ensemble de la stratégie GPM - Est** , sélectionnez **Supprimer** .
+4. Sur la page **Vue d’ensemble de la stratégie GPM - Est**, sélectionnez **Supprimer**.
 
     Le groupe est supprimé de votre locataire Azure Active Directory.
 

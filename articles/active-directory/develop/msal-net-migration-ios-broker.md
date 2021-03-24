@@ -13,10 +13,10 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
 ms.openlocfilehash: b4eff5910ff5230902d497b55b2afbe6d605365a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89177429"
 ---
 # <a name="migrate-ios-applications-that-use-microsoft-authenticator-from-adalnet-to-msalnet"></a>Migrer des applications iOS d’ADAL.NET vers MSAL.NET en utilisant Microsoft Authenticator
@@ -242,7 +242,7 @@ Pour plus d’informations sur l’inscription de l’URI de redirection dans le
 
 ### <a name="step-7-set-the-entitlementsplist"></a>**Étape 7 : Définir les droits Entitlements.plist**
 
-Activer l’accès au trousseau dans le fichier de*Entitlements.plist* :
+Activer l’accès au trousseau dans le fichier de *Entitlements.plist* :
 
 ```xml
  <key>keychain-access-groups</key>

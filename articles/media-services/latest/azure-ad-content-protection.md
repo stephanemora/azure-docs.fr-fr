@@ -14,10 +14,10 @@ ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-js
 ms.openlocfilehash: 9415d66c49992bc31f773dec908a861f1126e714
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92427199"
 ---
 # <a name="tutorial-end-to-end-content-protection-using-azure-ad"></a>Tutoriel : Protection de contenu de bout en bout avec Azure AD
@@ -155,8 +155,8 @@ Choisissez un locataire Azure AD à utiliser pour l’exemple de bout en bout. 
 1. Dans le menu, sélectionnez **Inscriptions d’applications**.
 1. Cliquez sur **+ Nouvelle inscription**.
 1. Nommez l’application *LicenseDeliveryResource2* (où 2 indique les points de terminaison AAD v2).
-1. Sélectionnez **Comptes dans ce répertoire d’organisation uniquement ([ *nom de votre locataire* ] uniquement - Locataire unique)** . Si vous souhaitez activer l’accès à plusieurs locataires, sélectionnez l’une des autres options multilocataires.
-1. L’ **URI de redirection** est facultatif et peut être modifié ultérieurement.
+1. Sélectionnez **Comptes dans ce répertoire d’organisation uniquement ([*nom de votre locataire*] uniquement - Locataire unique)** . Si vous souhaitez activer l’accès à plusieurs locataires, sélectionnez l’une des autres options multilocataires.
+1. L’**URI de redirection** est facultatif et peut être modifié ultérieurement.
 1. Cliquez sur **S'inscrire**. La vue Inscriptions d’applications s’affiche.
 1. Dans le menu, sélectionnez **Manifeste**. La vue Manifeste s’affiche.
 1. Remplacez la valeur `accessTokenAcceptedVersion` par *2* (sans guillemets).
@@ -165,7 +165,7 @@ Choisissez un locataire Azure AD à utiliser pour l’exemple de bout en bout. 
 1. Dans le menu, sélectionnez **Exposer une API**. La vue Ajouter une étendue s’affiche (Azure fournit un URI d’ID d’application. Toutefois, si vous souhaitez le modifier, vous pouvez le faire dans le champ URI d’ID d’application).
 1. Cliquez sur **Enregistrer et continuer**. La vue changera. Pour chacun des paramètres de la colonne Paramètre du tableau ci-dessous, entrez la valeur de la colonne Valeur, puis cliquez sur **Ajouter une étendue**.
 
-| Paramètre | Valeur | Description |
+| Paramètre | Value | Description |
 | ------- | ----- | ----------- |
 | Nom de l’étendue | *DRM.License.Delivery* | Nom de l’étendue qui s’affiche quand l’accès à cette API est demandé, et qui s’affiche dans les jetons d’accès lorsque l’étendue a été accordée à une application cliente. Celui-ci doit être unique au sein de l’application. Pour générer le nom, il est recommandé d’utiliser « resource.operation.constraint » comme modèle. |
 | Qui peut donner son consentement ? | *Administrateurs et utilisateurs* | Détermine si les utilisateurs peuvent accepter cette étendue dans les annuaires où le consentement de l’utilisateur est activé. |
@@ -182,12 +182,12 @@ Choisissez un locataire Azure AD à utiliser pour l’exemple de bout en bout. 
 1. Dans le menu, sélectionnez **Inscriptions d’applications**.
 1. Cliquez sur **+ Nouvelle inscription**.
 1. Attribuez un nom à l’application cliente, par exemple, *AMS AAD Content Protection*.
-1. Sélectionnez **Comptes dans ce répertoire d’organisation uniquement ([ *nom de votre locataire* ] uniquement - Locataire unique)** . Si vous souhaitez activer l’accès à plusieurs locataires, sélectionnez l’une des autres options multilocataires.
-1. L’ **URI de redirection** est facultatif et peut être modifié ultérieurement.
+1. Sélectionnez **Comptes dans ce répertoire d’organisation uniquement ([*nom de votre locataire*] uniquement - Locataire unique)** . Si vous souhaitez activer l’accès à plusieurs locataires, sélectionnez l’une des autres options multilocataires.
+1. L’**URI de redirection** est facultatif et peut être modifié ultérieurement.
 1. Cliquez sur **S'inscrire**.
 1. Dans le menu, sélectionnez **Autorisations de l’API**.
 1. Cliquez sur **+ Ajouter une autorisation**. La vue Demander des autorisations d’API s’ouvre alors.
-1. Cliquez sur l’onglet **Mon API** , puis sélectionnez l’application *LicenseDeliveryResource2* que vous avez créée dans la dernière section.
+1. Cliquez sur l’onglet **Mon API**, puis sélectionnez l’application *LicenseDeliveryResource2* que vous avez créée dans la dernière section.
 1. Cliquez sur la flèche DRM, puis sélectionnez l’autorisation *DRM.License.Delivery*.
 1. Cliquez sur **Ajouter des autorisations**. La vue Ajouter des autorisations se ferme alors.
 1. Dans le menu, sélectionnez **Manifeste**. La vue Manifeste s’affiche.
@@ -250,7 +250,7 @@ Remplacez les valeurs `ida_AADOpenIdDiscoveryDocument`, `ida_audience` et `ida_i
 1. Sélectionnez le locataire AAD que vous avez utilisé précédemment, cliquez sur **Inscriptions d’applications** dans le menu, puis cliquez sur le lien **Points de terminaison**.
 1. Sélectionnez puis copiez la valeur du champ **Document de métadonnées OpenIdConnect** dans le code en tant que valeur `ida_AADOpenIdDiscoveryDocument`.
 1. La valeur `ida_audience` est l’ID de l’application (client) de l’application inscrite *LicenseDeliveryResource2*.
-1. La valeur `ida_issuer` est l’URL `https://login.microsoftonline.com/[tenant_id]/v2.0`. Remplacez [ *tenant_id* ] par l’ID de votre locataire.
+1. La valeur `ida_issuer` est l’URL `https://login.microsoftonline.com/[tenant_id]/v2.0`. Remplacez [*tenant_id*] par l’ID de votre locataire.
 
 ## <a name="set-up-the-sample-player-app"></a>Configurer l’exemple d’application de lecteur
 
@@ -268,8 +268,8 @@ Vous disposez de deux options pour configurer l’application de lecteur :
 1. Ouvrez le fichier JavaScript *public/javascript/constants.js*.
 1. Remplacez `OAUTH2_CONST.CLIENT_ID` par le `client_id` de votre application cliente inscrite dans le locataire AAD.  Vous trouverez le `client_id` dans la section Vue d’ensemble de l’application inscrite dans le portail Azure. Remarque : il s’agit de l’ID client, et non de l’ID d’objet.
 1. Remplacez `OAUTH2_CONST.TENANT_ID` par le `tenant_id` de votre locataire Azure AD. Pour trouver votre `tenant_id`, vous pouvez cliquer sur Azure Active Directory. Le tenant_id s’affichera dans la section Vue d’ensemble.
-1. Remplacez `OAUTH2_CONST.SCOPE` par l’étendue que vous avez ajoutée à votre application cliente inscrite. Vous pouvez trouver l’étendue en accédant à l’application cliente inscrite à partir du menu **Inscriptions d’applications** , puis en sélectionnant votre application cliente :
-    1. Sélectionnez votre application cliente, cliquez sur le menu **Autorisations de l’API** , puis sélectionnez l’étendue *DRM.License.Delivery* sous l’autorisation d’API *LicenseDeliveryResource2*. L’autorisation doit être au format suivant : *api://df4ed433-dbf0-4da6-b328-e1fe05786db5/DRM.License.Delivery*. **Important !** Conservez l’espace devant `offline_access` dans `OAUTH2_CONST.SCOPE`.
+1. Remplacez `OAUTH2_CONST.SCOPE` par l’étendue que vous avez ajoutée à votre application cliente inscrite. Vous pouvez trouver l’étendue en accédant à l’application cliente inscrite à partir du menu **Inscriptions d’applications**, puis en sélectionnant votre application cliente :
+    1. Sélectionnez votre application cliente, cliquez sur le menu **Autorisations de l’API**, puis sélectionnez l’étendue *DRM.License.Delivery* sous l’autorisation d’API *LicenseDeliveryResource2*. L’autorisation doit être au format suivant : *api://df4ed433-dbf0-4da6-b328-e1fe05786db5/DRM.License.Delivery*. **Important !** Conservez l’espace devant `offline_access` dans `OAUTH2_CONST.SCOPE`.
 1. Remplacez les deux chaînes constantes de `AMS_CONST`, comme indiqué ci-dessous. L’une est l’URL de streaming protégée de votre ressource de test, tandis que l’autre est l’URL du certificat d’application FPS permettant d’inclure le cas de test FairPlay. Sinon, vous pouvez conserver les valeurs de `AMS_CONST.APP_CERT_URL`. Ensuite, cliquez sur **Enregistrer**.
 
 ```javascript
@@ -307,7 +307,7 @@ Si vous envisagez d’utiliser une autre plateforme IDE/Web et/ou un serveur web
 1. Copiez les *dossiers* qui se trouvent dans le dossier *public* situé à la racine du nouveau répertoire.
 1. Remplacez les extensions des fichiers `.ejs` par `.html` (aucune variable côté serveur n’est utilisée pour que vous puissiez la remplacer sans prendre de risques).
 1. Ouvrez *index.html* dans VSC (ou dans un autre éditeur de code), puis modifiez les chemins `<script>` et `<link>` afin qu’ils reflètent l’emplacement des fichiers.  Si vous avez suivi les étapes précédentes, il vous suffit de supprimer le `\` dans le chemin.  Par exemple, `<script type="text/javascript" src="/javascript/constants.js"></script>` devient `<script type="text/javascript" src="javascript/constants.js"></script>`.
-1. Personnalisez les constantes dans le fichier *javascript/constants.js* , comme dans l’option 1.
+1. Personnalisez les constantes dans le fichier *javascript/constants.js*, comme dans l’option 1.
 
 ## <a name="common-customer-scenarios"></a>Scénarios clients courants
 
@@ -324,11 +324,11 @@ Il est courant qu’un sous-ensemble d’utilisateurs authentifiés soient autor
 1. Configurez deux comptes dans votre locataire. Vous pourriez les nommer *premium_user* et *basic_user*.
 1. Créez un groupe d’utilisateurs et appelez-le *PremiumGroup*.
 1. Ajoutez *premium_user* à *PremiumGroup* en tant que membre, mais n’ajoutez pas *basic_user* au groupe.
-1. Prenez note de l’ **ID d’objet** de *PremiumGroup*.
+1. Prenez note de l’**ID d’objet** de *PremiumGroup*.
 
 #### <a name="set-up-the-media-services-account"></a>Configurer le compte Media Services
 
-Modifiez `ContentKeyPolicyRestriction` (comme indiqué dans la section ci-dessus) en ajoutant une revendication nommée *groups* , où `ida_EntitledGroupObjectId` a comme valeur l’ID d’objet *PremiumGroup*  :
+Modifiez `ContentKeyPolicyRestriction` (comme indiqué dans la section ci-dessus) en ajoutant une revendication nommée *groups*, où `ida_EntitledGroupObjectId` a comme valeur l’ID d’objet *PremiumGroup* :
 
 ```dotnetcli
 

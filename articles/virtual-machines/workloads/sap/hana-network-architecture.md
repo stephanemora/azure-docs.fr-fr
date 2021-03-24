@@ -6,20 +6,19 @@ documentationcenter: ''
 author: msjuergent
 manager: bburns
 editor: ''
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5ed932488551918bb0bfeb7dc9ffcb2f59b6d152
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 92cfa5b2e399811754b57bda64569753ccfa6be8
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878899"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101668756"
 ---
 # <a name="sap-hana-large-instances-network-architecture"></a>Architecture réseau de SAP HANA (grandes instances)
 
@@ -74,9 +73,9 @@ Les différences dans les déploiements SAP dans Azure sont les suivantes :
 - L’architecture d’application SAP est plus sensible à la latence du réseau que les scénarios classiques dans lesquels les données sont échangées entre les machines locales et Azure.
 - La passerelle Azure ExpressRoute possède au moins deux connexions ExpressRoute. Un circuit connecté à partir de l’emplacement local et un autre connecté à partir de Grandes instances HANA. Cela ne laisse de place que pour deux circuits supplémentaires à partir de routeurs de périphérie d’entreprise Microsoft (MSEE) distincts pour se connecter via une passerelle ExpressRoute. Cette restriction est indépendante de l’utilisation d’ExpressRoute Fast Path. Tous les circuits connectés partagent la bande passante maximale pour les données entrantes en provenance de la passerelle ExpressRoute.
 
-Avec la Révision 3 des tampons Grande instance HANA, la latence du réseau rencontrée entre les machines virtuelles et les unités de grande instance HANA peut être supérieure à la latence standard aller-retour sur un réseau de machine virtuelle à machine virtuelle. En fonction de la région Azure, les valeurs mesurées peuvent dépasser une latence aller-retour de 0,7 ms, classée en dessous de la moyenne dans [Remarque SAP n° 1100926 - FAQ : Performances du réseau](https://launchpad.support.sap.com/#/notes/1100926/E). Selon la région Azure et l’outil utilisé pour mesurer la latence aller-retour entre une machine virtuelle Azure et une unité de grande instance SAP HANA, la latence mesurée peut avoisiner les 2 millisecondes maximum. Néanmoins, les clients déploient des applications SAP de production basées sur SAP HANA avec succès sur la grande instance SAP HANA. Vérifiez avoir testé minutieusement vos processus métier dans la Grande instance HANA Azure. Une nouvelle fonctionnalité nommée ExpressRoute Fast Path permet de réduire considérablement la latence réseau entre les Grandes instances HANA et les machines virtuelles de la couche Application en grande partie dans Azure (voir ci-dessous). 
+Avec la Révision 3 des tampons Grande instance HANA, la latence du réseau rencontrée entre les machines virtuelles et les unités de grande instance HANA peut être supérieure à la latence standard aller-retour sur un réseau de machine virtuelle à machine virtuelle. En fonction de la région Azure, les valeurs mesurées peuvent dépasser une latence aller-retour de 0,7 ms, classée en dessous de la moyenne dans [Remarque SAP n° 1100926 - FAQ : performances du réseau](https://launchpad.support.sap.com/#/notes/1100926/E). Selon la région Azure et l’outil utilisé pour mesurer la latence aller-retour entre une machine virtuelle Azure et une unité de grande instance SAP HANA, la latence mesurée peut avoisiner les 2 millisecondes maximum. Néanmoins, les clients déploient des applications SAP de production basées sur SAP HANA avec succès sur la grande instance SAP HANA. Vérifiez avoir testé minutieusement vos processus métier dans la Grande instance HANA Azure. Une nouvelle fonctionnalité nommée ExpressRoute Fast Path permet de réduire considérablement la latence réseau entre les Grandes instances HANA et les machines virtuelles de la couche Application en grande partie dans Azure (voir ci-dessous). 
 
-Avec la Révision 4 des tampons Grande instance HANA, la latence du réseau entre les machines virtuelles Azure déployées à proximité du tampon Grande instance Hana respecte la classification Moyenne ou Supérieure à la moyenne, tel qu’indiqué dans [Remarque SAP n° 1100926 - FAQ : Performances du réseau](https://launchpad.support.sap.com/#/notes/1100926/E) si le chemin rapide Azure ExpressRoute est configuré (voir ci-dessous). Pour déployer des machines virtuelles Azure à proximité des unités Grande instance Hana de la Révision 4, vous devez tirer parti des [groupes de placements de proximité Azure](../../co-location.md). La méthode d’utilisation des groupes de placement de proximité pour localiser la couche d’application SAP dans le même centre de données Azure que les unités de grande instance HANA hébergées en version 4 est décrite dans la section [Groupes de placement de proximité Azure pour une latence réseau optimale avec les applications SAP](sap-proximity-placement-scenarios.md).
+Avec la Révision 4 des tampons de grande instance HANA, la latence du réseau entre les machines virtuelles Azure déployées à proximité du tampon de grande instance HANA respecte la classification Moyenne ou Supérieure à la moyenne, tel qu’indiqué dans [Note SAP n° 1100926 - FAQ : Performances du réseau](https://launchpad.support.sap.com/#/notes/1100926/E) si le chemin rapide Azure ExpressRoute est configuré (voir ci-dessous). Pour déployer des machines virtuelles Azure à proximité des unités Grande instance Hana de la Révision 4, vous devez tirer parti des [groupes de placements de proximité Azure](../../co-location.md). La méthode d’utilisation des groupes de placement de proximité pour localiser la couche d’application SAP dans le même centre de données Azure que les unités de grande instance HANA hébergées en version 4 est décrite dans la section [Groupes de placement de proximité Azure pour une latence réseau optimale avec les applications SAP](sap-proximity-placement-scenarios.md).
 
 Afin d’offrir une latence réseau déterministe entre les machines virtuelles Azure et une Grande instance HANA, le choix de la référence SKU de la passerelle ExpressRoute est essentiel. Contrairement aux modèles de trafic entre machines locales et machines virtuelles, le modèle de trafic entre les machines virtuelles et la grande instance HANA peut développer des pics courts mais élevés de requêtes et de volumes de données à transmettre. Pour bien gérer ces pics, nous vous recommandons fortement d’utiliser la référence SKU de passerelle UltraPerformance. Pour les références SKU de Grande instance HANA de classe Type II, l’utilisation de la référence SKU de la passerelle UltraPerformance en tant que passerelle ExpressRoute est obligatoire.
 
