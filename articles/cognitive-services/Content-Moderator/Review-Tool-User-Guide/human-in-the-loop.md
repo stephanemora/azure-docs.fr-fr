@@ -11,10 +11,10 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.author: pafarley
 ms.openlocfilehash: ddf4d17cd2631f5bc299e392c46bd9065bb13744
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93146613"
 ---
 # <a name="content-moderator-review-tool"></a>Outil de révision de Content Moderator
@@ -34,7 +34,7 @@ Quand il est utilisé conjointement avec les API de modération assistée par or
 
 ## <a name="review-tool-dashboard"></a>Tableau de bord de l’outil de révision
 
-Dans l’onglet **Tableau de bord** , vous pouvez voir les métriques essentielles pour les révisions de contenu effectuées au sein de l’outil. Découvrez le nombre de révisions terminées, en attente et leur total pour le contenu vidéo, image et texte. 
+Dans l’onglet **Tableau de bord**, vous pouvez voir les métriques essentielles pour les révisions de contenu effectuées au sein de l’outil. Découvrez le nombre de révisions terminées, en attente et leur total pour le contenu vidéo, image et texte. 
 
 Le tableau **Pending reviews** montre la répartition des utilisateurs et des sous-équipes qui ont des révisions en attente ou terminées, ainsi que la durée de contrat SLA restante. Vous pouvez sélectionner les éléments du tableau pour accéder à leurs révisions. La zone de recherche située au-dessus du tableau vous permet de filtrer les résultats par nom d’équipe, tandis que l’icône de **filtre** vous permet de filtrer d’après d’autres métriques.
 

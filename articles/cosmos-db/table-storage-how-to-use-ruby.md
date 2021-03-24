@@ -10,10 +10,10 @@ author: sakash279
 ms.author: akshanka
 ms.reviewer: sngun
 ms.openlocfilehash: 2d0c8433fff58854cb77a4e806058eae1937e71b
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93101117"
 ---
 # <a name="how-to-use-azure-table-storage-and-the-azure-cosmos-db-table-api-with-ruby"></a>Comment utiliser le Stockage Table et l’API Table d’Azure Cosmos DB avec Ruby
@@ -76,7 +76,7 @@ Pour obtenir ces valeurs à partir d’un compte de stockage classique ou Resour
 
 ### <a name="add-an-azure-cosmos-db-connection"></a>Ajouter une connexion à Azure Cosmos DB
 
-Pour vous connecter à Azure Cosmos DB, copiez votre chaîne de connexion principale à partir du portail Azure, puis utilisez-la pour créer un objet **Client**. Vous pouvez transmettre l’objet **Client** lorsque vous créez un objet **TableService**  :
+Pour vous connecter à Azure Cosmos DB, copiez votre chaîne de connexion principale à partir du portail Azure, puis utilisez-la pour créer un objet **Client**. Vous pouvez transmettre l’objet **Client** lorsque vous créez un objet **TableService** :
 
 ```ruby
 common_client = Azure::Storage::Common::Client.create(storage_account_name:'myaccount', storage_access_key:'mykey', storage_table_host:'mycosmosdb_endpoint')
@@ -127,7 +127,7 @@ Avec **update_entity()** et **merge_entity()** , si l’entité que vous mettez 
 
 ## <a name="work-with-groups-of-entities"></a>Utilisation des groupes d'entités
 
-Il est parfois intéressant de soumettre un lot d'opérations simultanément pour assurer un traitement atomique par le serveur. Pour cela, vous devez d’abord créer un objet **Batch** , puis utiliser la méthode **execute_batch()** sur **TableService**. L'exemple ci-dessous présente l'envoi de deux entités avec RowKey 2 et 3 dans un lot. Notez qu'il ne s'applique qu'aux entités possédant le même élément PartitionKey.
+Il est parfois intéressant de soumettre un lot d'opérations simultanément pour assurer un traitement atomique par le serveur. Pour cela, vous devez d’abord créer un objet **Batch**, puis utiliser la méthode **execute_batch()** sur **TableService**. L'exemple ci-dessous présente l'envoi de deux entités avec RowKey 2 et 3 dans un lot. Notez qu'il ne s'applique qu'aux entités possédant le même élément PartitionKey.
 
 ```ruby
 azure_table_service = Azure::TableService.new
@@ -150,7 +150,7 @@ result = azure_table_service.get_entity("testtable", "test-partition-key",
 
 ## <a name="query-a-set-of-entities"></a>Interrogation d’un ensemble d’entités
 
-Pour interroger un ensemble d’entités dans une table, créez un objet de hachage de requête et utilisez la méthode **query_entities()** . L'exemple ci-dessous présente l'obtention de toutes les identités avec le même élément **PartitionKey** :
+Pour interroger un ensemble d’entités dans une table, créez un objet de hachage de requête et utilisez la méthode **query_entities()** . L'exemple ci-dessous présente l'obtention de toutes les identités avec le même élément **PartitionKey**:
 
 ```ruby
 query = { :filter => "PartitionKey eq 'test-partition-key'" }

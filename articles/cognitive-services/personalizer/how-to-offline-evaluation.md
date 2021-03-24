@@ -9,10 +9,10 @@ ms.subservice: personalizer
 ms.topic: how-to
 ms.date: 02/20/2020
 ms.openlocfilehash: a473085f9c94ca42a75d01b342d60cc33836b096
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88244837"
 ---
 # <a name="analyze-your-learning-loop-with-an-offline-evaluation"></a>Analysez votre boucle d’apprentissage avec une évaluation hors connexion
@@ -23,7 +23,7 @@ Les évaluations hors connexion vous permettent de mesurer l’efficacité de Pe
 
 Pour plus d’informations, consultez [Évaluations hors connexion](concepts-offline-evaluation.md).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Boucle Personalizer configurée
 * La boucle Personalizer doit avoir une quantité de données représentative : pour fournir un ordre de grandeur, nous recommandons au moins 50 000 événements dans ses journaux pour obtenir des résultats d’évaluation significatifs. Si vous le souhaitez, vous pouvez aussi avoir des fichiers de _stratégie d’apprentissage_ préalablement exportés que vous pouvez comparer et tester dans la même évaluation.
@@ -40,7 +40,7 @@ Pour plus d’informations, consultez [Évaluations hors connexion](concepts-off
     * Découverte d’optimisation définie sur **Oui**.
 
     > [!div class="mx-imgBorder"]
-    > ![Choisir les paramètres d’évaluation hors connexion](./media/offline-evaluation/create-an-evaluation-form.png)
+    > ![Choisissez les paramètres d’évaluation hors connexion](./media/offline-evaluation/create-an-evaluation-form.png)
 
 1. Démarrez l’Évaluation en sélectionnant **OK**.
 

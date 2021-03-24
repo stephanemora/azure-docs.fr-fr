@@ -11,10 +11,10 @@ ms.date: 08/12/2019
 ms.author: mbaldwin
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: cb7e047d998342125a52af5ea3ae1e88fe88d313
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93289892"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>Gérer Key Vault à l’aide de l’interface de ligne de commande Azure 
@@ -65,7 +65,7 @@ Consultez également les articles suivants afin de vous familiariser avec Azure 
 
 ## <a name="how-to-create-a-hardened-container-a-vault-in-azure"></a>Guide pratique pour créer un conteneur renforcé (un coffre) dans Azure
 
-Les coffres sont des conteneurs sécurisés secondés par des modules de sécurité matériels. Les coffres contribuent à réduire les risques de perte accidentelle des informations de sécurité en centralisant le stockage des secrets d’application. En outre, les coffres de clés contrôlent et journalisent l’accès à l’ensemble de leur contenu. Azure Key Vault peut traiter les requêtes et le renouvellement de certificats TLS et vous offre ainsi les fonctionnalités requises pour l’obtention d’une solution robuste en matière de gestion du cycle de vie des certificats. Dans les étapes suivantes, vous allez créer un coffre.
+Les coffres sont des conteneurs sécurisés secondés par des modules de sécurité matériels. Les coffres contribuent à réduire les risques de perte accidentelle des informations de sécurité en centralisant le stockage des secrets d’application. Par ailleurs, les coffres de clés contrôlent et journalisent l’accès à l’ensemble de leur contenu. Azure Key Vault peut traiter les requêtes et le renouvellement de certificats TLS et vous offre ainsi les fonctionnalités requises pour l’obtention d’une solution robuste en matière de gestion du cycle de vie des certificats. Dans les étapes suivantes, vous allez créer un coffre.
 
 ### <a name="connect-to-your-subscriptions"></a>Connexion à vos abonnements
 
@@ -120,7 +120,7 @@ az provider register -n Microsoft.KeyVault
 
 Utilisez la commande `az keyvault create` pour créer un coffre de clés. Ce script a trois paramètres obligatoires : un nom de groupe de ressources, un nom de coffre de clés et l’emplacement géographique.
 
-Pour créer un coffre avec le nom **ContosoKeyVault** , dans le groupe de ressources **ContosoResourceGroup** résidant à l’emplacement **Asie Est** , tapez : 
+Pour créer un coffre avec le nom **ContosoKeyVault**, dans le groupe de ressources **ContosoResourceGroup** résidant à l’emplacement **Asie Est**, tapez : 
 
 ```azurecli
 az keyvault create --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --location "East Asia"
@@ -128,8 +128,8 @@ az keyvault create --name "ContosoKeyVault" --resource-group "ContosoResourceGro
 
 La sortie de cette commande affiche les propriétés du coffre de clés que vous avez créé. Les deux propriétés les plus importantes sont :
 
-* **nom**  : dans l’exemple, le nom est ContosoKeyVault. Vous allez utiliser ce nom pour d’autres commandes Key Vault.
-* **vaultUri**  : dans l’exemple, l’URI est https://contosokeyvault.vault.azure.net. Les applications qui utilisent votre coffre via son API REST doivent utiliser cet URI.
+* **nom** : dans l’exemple, le nom est ContosoKeyVault. Vous allez utiliser ce nom pour d’autres commandes Key Vault.
+* **vaultUri** : dans l’exemple, l’URI est https://contosokeyvault.vault.azure.net. Les applications qui utilisent votre coffre via son API REST doivent utiliser cet URI.
 
 Votre compte Azure est pour l’instant le seul autorisé à effectuer des opérations sur ce À l’heure actuelle, personne d’autre n’y est autorisé.
 

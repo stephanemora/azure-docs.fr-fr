@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: pafarley
 ms.openlocfilehash: be28a10f8a96d21d64d08cfacee4543c065168ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85391755"
 ---
 # <a name="export-your-model-for-use-with-mobile-devices"></a>Exporter votre modèle pour l’utiliser avec des appareils mobiles
@@ -54,7 +54,7 @@ Pour convertir le domaine d'un modèle existant, procédez comme suit :
 1. Dans la section __Domaines__, sélectionnez un des domaines __compacts__. Sélectionnez __Enregistrer les modifications__. 
 
     > [!NOTE]
-    > Pour le kit de développement Vision AI, le projet doit être créé avec le domaine __Général (Compact)__ , et vous devez spécifier l'option **Kit de développement Vision AI** dans la section **Fonctionnalités d'exportation**.
+    > Pour le kit de développement Vision AI, le projet doit être créé avec le domaine __Général (Compact)__, et vous devez spécifier l'option **Kit de développement Vision AI** dans la section **Fonctionnalités d'exportation**.
 
     ![Image de la sélection des domaines](./media/export-your-model/domains.png)
 

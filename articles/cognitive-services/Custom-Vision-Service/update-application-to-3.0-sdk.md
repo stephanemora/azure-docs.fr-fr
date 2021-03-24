@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: areddish
 ms.openlocfilehash: c134f30b124113a23df0e73cd1bbc8209e335183
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "73647500"
 ---
 # <a name="update-to-the-30-api"></a>Mettre à jour vers l’API 3.0
@@ -44,14 +44,14 @@ Les API 2.x utilisaient l’itération par défaut ou un ID d’itération spéc
 
 ### <a name="publish-an-iteration"></a>Publier une itération
 
-Une fois qu’une itération est formée, vous pouvez la rendre disponible pour la prédiction à l’aide de la méthode **[PublishIteration](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.0/operations/5c82db28bf6a2b11a8247bbc)** . Pour publier une itération, vous aurez besoin de l’ID de ressource de prédiction, qui est disponible sur la page des paramètres du site web Custom Vision.
+Une fois qu’une itération est formée, vous pouvez la rendre disponible pour la prédiction à l’aide de la méthode **[PublishIteration](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.0/operations/5c82db28bf6a2b11a8247bbc)**. Pour publier une itération, vous aurez besoin de l’ID de ressource de prédiction, qui est disponible sur la page des paramètres du site web Custom Vision.
 
 ![Page des paramètres du site web Custom Vision avec l’ID de ressource de prédiction surlignée.](./media/update-application-to-3.0-sdk/prediction-id.png)
 
 > [!TIP]
 > Vous pouvez également obtenir cette information à partir du [portail Azure](https://portal.azure.com) en accédant à la ressource de prédiction Custom Vision et en sélectionnant **Propriétés**.
 
-Une fois que votre itération est publiée, les applications peuvent l’utiliser pour la prédiction en spécifiant le nom dans leur appel de l’API de prédiction. Pour rendre une itération non disponible pour les appels de prédiction, utilisez l’API **[UnpublishIteration](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.0/operations/5c771cdcbf6a2b18a0c3b81a)** .
+Une fois que votre itération est publiée, les applications peuvent l’utiliser pour la prédiction en spécifiant le nom dans leur appel de l’API de prédiction. Pour rendre une itération non disponible pour les appels de prédiction, utilisez l’API **[UnpublishIteration](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.0/operations/5c771cdcbf6a2b18a0c3b81a)**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

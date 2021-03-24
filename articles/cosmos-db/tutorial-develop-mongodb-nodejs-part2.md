@@ -11,10 +11,10 @@ ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
 ms.openlocfilehash: e3af713d6e120e66a0cde5116f4556bb8caedf55
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93097845"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---create-a-nodejs-express-app"></a>Créer une application Angular avec l’API d’Azure Cosmos DB pour MongoDB - Créer une application Express Node.js
@@ -82,9 +82,9 @@ Ce didacticiel requiert les éléments suivants :
 
 ## <a name="build-the-app-using-the-express-framework"></a>Générer l’application à l’aide de l’infrastructure Express
 
-1. Dans Visual Studio Code, dans le volet **Explorateur** , cliquez avec le bouton droit sur le dossier **src** , cliquez sur **Nouveau dossier** et nommez-le nouveau dossier *serveur*.
+1. Dans Visual Studio Code, dans le volet **Explorateur**, cliquez avec le bouton droit sur le dossier **src**, cliquez sur **Nouveau dossier** et nommez-le nouveau dossier *serveur*.
 
-2. Dans le volet **Explorateur** , cliquez avec le bouton droit sur le dossier **serveur** , cliquez sur **Nouveau fichier** et nommez-le *index.js*.
+2. Dans le volet **Explorateur**, cliquez avec le bouton droit sur le dossier **serveur**, cliquez sur **Nouveau fichier** et nommez-le *index.js*.
 
 3. Revenez à l’invite de commandes et utilisez la commande suivante pour installer l’analyseur de corps. Cela aide notre application à analyser les données JSON qui sont transmises aux API.
 
@@ -126,7 +126,7 @@ Ce didacticiel requiert les éléments suivants :
    app.listen(port, () => console.log(`API running on localhost:${port}`));
    ```
 
-5. Dans Visual Studio Code, dans le volet **Explorateur** , cliquez avec le bouton droit sur le dossier **serveur** , puis cliquez sur **Nouveau dossier**. Nommez le nouveau fichier *routes.js*. 
+5. Dans Visual Studio Code, dans le volet **Explorateur**, cliquez avec le bouton droit sur le dossier **serveur**, puis cliquez sur **Nouveau dossier**. Nommez le nouveau fichier *routes.js*. 
 
 6. Copiez le code suivant dans **routes.js**. Ce code :
    * Référence le routeur Express
