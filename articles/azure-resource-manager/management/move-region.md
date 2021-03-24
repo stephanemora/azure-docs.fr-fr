@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 09/10/2020
 ms.author: raynew
 ms.openlocfilehash: 7a71502ec361004079e0962d8bc6433316a4ba81
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90007636"
 ---
 # <a name="moving-azure-resources-across-regions"></a>Déplacement des ressources Azure entre les régions
@@ -34,10 +34,10 @@ Une fois les ressources déployées dans une région Azure spécifique, il exist
 Vous pouvez déplacer des ressources vers une autre région avec [Azure Resource Mover](../../resource-mover/overview.md). Resource Mover fournit :
 
 - Un hub unique pour déplacer des ressources entre les régions.
-- Une réduction de la complexité et du temps nécessaire aux déplacements. Tout ce dont vous avez besoin se trouve à un même emplacement.
+- Une réduction de la complexité et du temps de déplacement. Tout ce dont vous avez besoin se trouve à un même emplacement.
 - Une expérience simple et cohérente pour le déplacement des différents types de ressources Azure.
-- Un moyen simple d’identifier les dépendances des ressources que vous voulez déplacer. Ceci vous permet de déplacer des ressources associées ensemble, pour que tout fonctionne comme prévu dans la région cible après le déplacement.
-- Le nettoyage automatique des ressources dans la région source, si vous voulez les supprimer après le déplacement.
+- Un moyen simple d’identifier les dépendances des ressources que vous souhaitez déplacer. Cela vous permet de déplacer les ressources associées ensemble, pour que tout fonctionne comme prévu dans la région cible après le déplacement.
+- Le nettoyage automatique des ressources dans la région source, si vous souhaitez les supprimer après le déplacement
 - Tests. Vous pouvez essayer un déplacement, puis l’annuler si vous ne voulez pas effectuer un déplacement complet.
 
 Vous pouvez déplacer des ressources vers une autre région en utilisant deux méthodes différentes :

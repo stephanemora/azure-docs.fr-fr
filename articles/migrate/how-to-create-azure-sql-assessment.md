@@ -5,12 +5,12 @@ author: rashi-ms
 ms.author: rajosh
 ms.topic: tutorial
 ms.date: 02/07/2021
-ms.openlocfilehash: 14197516c0669055f756614b9559f1423703c6a8
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 21553adf81d5b34813785db7cd6bbe3caf71c210
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102053496"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104780483"
 ---
 # <a name="create-an-azure-sql-assessment"></a>Créer une évaluation Azure SQL
 
@@ -18,7 +18,7 @@ Dans le cadre de votre migration vers Azure, vous devez évaluer vos charges de 
 Cet article explique comment évaluer les instances SQL découvertes en vue de leur migration vers Azure SQL à l’aide de l’outil Azure Migrate : Détection et évaluation.
 
 > [!Note]
-> La découverte et l’évaluation d’instances et de bases de données SQL Server s’exécutant dans votre environnement VMware sont actuellement en préversion. Pour tester cette fonctionnalité, utilisez [**ce lien**](https://aka.ms/AzureMigrate/SQL) afin de créer un projet dans la région **Australie Est**. Si vous avez déjà un projet en Australie Est et si vous souhaitez tester cette fonctionnalité, vérifiez que vous avez effectué ces [**prérequis**](how-to-discover-sql-existing-project.md) dans le portail.
+> La découverte et l’évaluation d’instances et de bases de données SQL Server s’exécutant dans votre environnement VMware sont actuellement en préversion. 
 
 ## <a name="before-you-start"></a>Avant de commencer
 

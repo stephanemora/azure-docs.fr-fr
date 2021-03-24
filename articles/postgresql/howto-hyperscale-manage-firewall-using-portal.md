@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 9/11/2020
 ms.openlocfilehash: dadd04497eae0e91bdf5ea3caad38beda35f7fa3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91275419"
 ---
 # <a name="manage-firewall-rules-for-azure-database-for-postgresql---hyperscale-citus"></a>Gérer des règles de pare-feu dans Azure Database pour PostgreSQL - Hyperscale (Citus)
@@ -30,18 +30,18 @@ Pour parcourir ce guide pratique, vous avez besoin des éléments suivants :
 
 1. Dans la page du groupe de serveurs PostgreSQL, sous le titre Sécurité, cliquez sur **Réseaux** pour ouvrir les règles de pare-feu.
 
-   :::image type="content" source="./media/howto-hyperscale-manage-firewall-using-portal/1-connection-security.png" alt-text="Portail Azure - Onglet Réseaux":::
+   :::image type="content" source="./media/howto-hyperscale-manage-firewall-using-portal/1-connection-security.png" alt-text="Portail Azure - Cliquer sur Réseaux":::
 
 2. Cliquez sur **Ajouter l’adresse IP actuelle du client** pour créer une règle de pare-feu avec l’adresse IP publique de votre ordinateur, telle que détectée par le système Azure.
 
-   :::image type="content" source="./media/howto-hyperscale-manage-firewall-using-portal/2-add-my-ip.png" alt-text="Portail Azure - Onglet Réseaux":::
+   :::image type="content" source="./media/howto-hyperscale-manage-firewall-using-portal/2-add-my-ip.png" alt-text="Portail Azure - Cliquer sur Ajouter une adresse IP cliente":::
 
 Vous pouvez également cliquer sur **+ Ajouter 0.0.0.0 - 255.255.255.255** (à droite de l’option B) pour autoriser l’accès au port 5432 du nœud coordinateur non seulement à votre adresse IP, mais à l’ensemble du réseau Internet. Dans ce cas, les clients doivent toujours se connecter avec le nom d’utilisateur et le mot de passe corrects pour utiliser le cluster. Néanmoins, nous vous recommandons d’autoriser l’accès mondial uniquement sur de courtes périodes et pour des bases de données hors production.
 
 3. Vérifiez votre adresse IP avant d’enregistrer la configuration. Dans certains cas, l’adresse IP identifiée par le portail Azure diffère de l’adresse IP utilisée lors de l’accès à Internet et aux serveurs Azure. Par conséquent, vous devrez peut-être modifier l’adresse IP de début et l’adresse IP de fin pour que la règle fonctionne comme prévu.
    Utilisez un moteur de recherche ou tout autre outil en ligne pour vérifier votre adresse IP (par exemple, lancez une recherche sur « quelle est mon adresse IP »).
 
-   :::image type="content" source="./media/howto-hyperscale-manage-firewall-using-portal/3-what-is-my-ip.png" alt-text="Portail Azure - Onglet Réseaux":::
+   :::image type="content" source="./media/howto-hyperscale-manage-firewall-using-portal/3-what-is-my-ip.png" alt-text="Recherche Bing « quelle est mon adresse IP »":::
 
 4. Ajoutez des plages d’adresses supplémentaires. Dans les règles de pare-feu, vous pouvez spécifier une seule adresse IP ou une plage d’adresses. Si vous souhaitez limiter la règle à une seule adresse IP, saisissez la même adresse dans les champs d’adresse IP de début et d’adresse IP de fin. L’ouverture du pare-feu permet aux administrateurs, aux utilisateurs et aux applications d’accéder au nœud coordinateur sur le port 5432.
 

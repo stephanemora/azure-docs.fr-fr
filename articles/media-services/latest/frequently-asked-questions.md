@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 3ebff5a40528e9e3ea0e75c4b51529638de34b5d
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: d1c2fd2ac7f809b4a70a0edffbddfb6e733fed57
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102505764"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104871399"
 ---
 # <a name="media-services-v3-frequently-asked-questions"></a>Forum Aux Questions (FAQ) Media Services v3
 
@@ -47,12 +47,6 @@ Voir [Contrôle d'accès en fonction du rôle Azure (Azure RBAC) pour les compte
 ### <a name="how-do-i-stream-to-apple-ios-devices"></a>Comment diffuser en continu vers des appareils Apple iOS ?
 
 Vérifiez que **(format=m3u8-aapl)** est présent à la fin de votre chemin (après la partie **/manifest** de l’URL) pour indiquer au serveur d’origine de la diffusion en continu qu’il doit retourner du contenu HTTP Live Streaming (HLS) utilisable sur des appareils Apple iOS natifs. Pour plus d’informations, consultez [Distribution de contenu](dynamic-packaging-overview.md).
-
-### <a name="how-do-i-configure-media-reserved-units"></a>Comment configurer des unités réservées Multimédia ?
-
-Pour les travaux d’analyse audio et vidéo déclenchés par Media Services v3 ou Video Indexer, nous vous recommandons d’approvisionner votre compte avec des unité réservées Multimédia (MRU) 10 S3. Si vous avez besoin de plus de 10 MRU S3, ouvrez un ticket de support sur le [portail Azure](https://portal.azure.com/).
-
-Pour plus de détails, consultez [Mise à l’échelle du traitement multimédia](media-reserved-units-cli-how-to.md).
 
 ### <a name="what-is-the-recommended-method-to-process-videos"></a>Quelle est la méthode recommandée pour traiter les vidéos ?
 
@@ -86,12 +80,12 @@ Votre application web doit demander à l’utilisateur s’il souhaite mettre fi
 
 #### <a name="server-side"></a>Côté serveur
 
-Vous pouvez surveiller les événements en direct en vous abonnant à Azure Event Grid. Pour plus d’informations, consultez le [schéma d’événement Event Grid](media-services-event-schemas.md#live-event-types).
+Vous pouvez surveiller les événements en direct en vous abonnant à Azure Event Grid. Pour plus d’informations, consultez le [schéma d’événement Event Grid](monitoring/media-services-event-schemas.md#live-event-types).
 
 Vous pouvez :
 
-* [vous abonner](reacting-to-media-services-events.md) aux événements [Microsoft.Media.LiveEventEncoderDisconnected](media-services-event-schemas.md#liveeventencoderdisconnected) au niveau du flux et surveiller qu’aucune reconnexion ne survient pendant un certain temps pour arrêter et supprimer votre événement en direct ;
-* [vous abonner](reacting-to-media-services-events.md) aux [événements de pulsation](media-services-event-schemas.md#liveeventingestheartbeat) au niveau de la piste. Si toutes les pistes ont une vitesse de transmission entrante de 0 ou si le dernier timestamp n’augmente plus, vous pouvez arrêter en toute sécurité l’événement en direct. Les événements de pulsation sont générés toutes les 20 secondes pour chaque piste, ce qui peut être un peu trop détaillé.
+* [vous abonner](monitoring/reacting-to-media-services-events.md) aux événements [Microsoft.Media.LiveEventEncoderDisconnected](monitoring/media-services-event-schemas.md#liveeventencoderdisconnected) au niveau du flux et surveiller qu’aucune reconnexion ne survient pendant un certain temps pour arrêter et supprimer votre événement en direct ;
+* [vous abonner](monitoring/reacting-to-media-services-events.md) aux [événements de pulsation](monitoring/media-services-event-schemas.md#liveeventingestheartbeat) au niveau de la piste. Si toutes les pistes ont une vitesse de transmission entrante de 0 ou si le dernier timestamp n’augmente plus, vous pouvez arrêter en toute sécurité l’événement en direct. Les événements de pulsation sont générés toutes les 20 secondes pour chaque piste, ce qui peut être un peu trop détaillé.
 
 ###  <a name="how-do-i-insert-breaksvideos-and-image-slates-during-a-live-stream"></a>Comment insérer des pauses/vidéos et séquences d’images pendant un flux de données en direct ?
 

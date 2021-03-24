@@ -4,10 +4,10 @@ description: Décrit comment résoudre les erreurs de référence SKU non dispon
 ms.topic: troubleshooting
 ms.date: 02/18/2020
 ms.openlocfilehash: 5b0bbd653907c109eca526af86979013b3137cfa
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98737148"
 ---
 # <a name="resolve-errors-for-sku-not-available"></a>Résoudre les erreurs de référence SKU non disponible
@@ -26,7 +26,7 @@ Message: The requested tier for resource '<resource>' is currently not available
 for subscription '<subscriptionID>'. Please try another tier or deploy to a different location.
 ```
 
-## <a name="cause"></a>Cause :
+## <a name="cause"></a>Cause
 
 Vous recevez cette erreur lorsque la ressource de référence SKU que vous avez sélectionnée (par exemple, la taille de la machine virtuelle) n’est pas disponible pour l’emplacement que vous avez sélectionné.
 

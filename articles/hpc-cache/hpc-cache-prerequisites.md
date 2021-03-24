@@ -4,14 +4,14 @@ description: Prérequis à l’utilisation d’Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 11/05/2020
+ms.date: 03/15/2021
 ms.author: v-erkel
-ms.openlocfilehash: a31aee3f4548d3137fa1241aaa3a0f6171cf6895
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 7d40dcf80d9ec566146bbe46bc2cb3c558584fcd
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412508"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104775763"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Prérequis pour Azure HPC Cache
 
@@ -61,7 +61,7 @@ Le cache a besoin d’un accès DNS pour accéder aux ressources situées en de
 * Pour accéder aux points de terminaison du stockage Blob Azure et à d’autres ressources internes, vous avez besoin d’un serveur DNS basé sur Azure.
 * Pour accéder au stockage local, vous devez configurer un serveur DNS personnalisé capable de résoudre les noms d’hôte de votre stockage. Vous devez effectuer cette opération **avant** de créer le cache.
 
-Si vous avez uniquement besoin d’accéder au stockage Blob, vous pouvez utiliser le serveur DNS par défaut qui est fourni par Azure pour votre cache. Toutefois, si vous avez besoin d’accéder à d’autres ressources, vous devez créer un serveur DNS personnalisé et le configurer dans le but de transférer toutes les requêtes de résolution concernant Azure vers le serveur Azure DNS
+Si vous n’utilisez que le Stockage Blob, vous pouvez vous servir du serveur DNS par défaut qui est fourni par Azure pour votre cache. Toutefois, si vous avez besoin d’accéder au stockage ou à d’autres ressources en dehors d’Azure, nous vous recommandons de créer un serveur DNS personnalisé et de le configurer dans le but de transférer au serveur Azure DNS toutes les demandes de résolution propres à Azure.
 
 Pour utiliser un serveur DNS personnalisé, vous devez effectuer ces étapes de configuration avant de créer votre cache :
 
@@ -91,14 +91,18 @@ Consultez les prérequis liés aux autorisations avant de créer votre cache.
   Suivez les instructions fournies dans [Ajouter des cibles de stockage](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account).
 
 ## <a name="storage-infrastructure"></a>Infrastructure du stockage
+<!-- heading is linked in create storage target GUI as aka.ms/hpc-cache-prereq#storage-infrastructure - make sure to fix that if you change the wording of this heading -->
 
-Le cache prend en charge les conteneurs d’objets blob Azure et les exportations de stockage matériel NFS. Ajoutez des cibles de stockage après avoir créé le cache.
+Le cache prend en charge les conteneurs d’objets blob Azure, les exportations de stockage matériel NFS et les conteneurs d’objets blob ADLS montés NFS (actuellement en préversion). Ajoutez des cibles de stockage après avoir créé le cache.
 
 Chaque type de stockage possède des conditions préalables spécifiques.
 
 ### <a name="blob-storage-requirements"></a>Exigences relatives au stockage Blob
 
 Si vous souhaitez utiliser le stockage Blob Azure avec votre cache, vous aurez besoin d’un compte de stockage compatible, et soit d’un conteneur d’objets blob vide, soit d’un conteneur comprenant des données au format Azure HPC Cache. Pour plus d’informations, consultez [Déplacer des données vers le stockage Blob Azure](hpc-cache-ingest.md).
+
+> [!NOTE]
+> Des exigences différentes s’appliquent au stockage d’objets blob monté NFS. Pour plus d’informations, consultez [Exigences du stockage ADLS-NFS](#nfs-mounted-blob-adls-nfs-storage-requirements-preview).
 
 Créez le compte avant de tenter d’ajouter une cible de stockage. Vous pouvez créer un conteneur lorsque vous ajoutez la cible.
 
@@ -153,13 +157,6 @@ Pour plus d’informations, consultez [Résoudre les problèmes de configuration
 
   * Vérifiez les paramètres du pare-feu pour vous assurer qu’ils autorisent le trafic sur tous ces ports requis. Veillez à vérifier les pare-feux utilisés dans Azure ainsi que ceux de votre centre de données.
 
-* **Accès au répertoire :** Activez la commande `showmount` sur le système de stockage. Azure HPC Cache utilise cette commande pour vérifier que la configuration de votre cible de stockage pointe vers une exportation valide ainsi que pour s’assurer que plusieurs montages n’accèdent pas aux mêmes sous-répertoires (risque de collision de fichiers).
-
-  > [!NOTE]
-  > Si votre système de stockage NFS utilise le système d’exploitation ONTAP 9.2 de NetApp, **n’activez pas `showmount`** . [Contactez les services du Support Technique Microsoft](hpc-cache-support-ticket.md) pour obtenir de l’aide.
-
-  Pour en savoir plus sur l'accès aux listes de répertoires, consultez l'[article sur le dépannage de la cible de stockage NFS](troubleshoot-nas.md#enable-export-listing).
-
 * **Accès racine** (lecture/écriture) : Le cache se connecte au système principal en tant qu’identifiant utilisateur 0. Vérifiez ces paramètres sur votre système de stockage :
   
   * Activez `no_root_squash`. Cette option permet de s’assurer que l’utilisateur racine distant peut accéder aux fichiers appartenant à la racine.
@@ -169,6 +166,37 @@ Pour plus d’informations, consultez [Résoudre les problèmes de configuration
   * Si votre stockage comporte des exportations représentant des sous-répertoires d'une autre exportation, assurez-vous que le cache dispose d’un accès à la racine du segment le plus bas du chemin. Pour plus de détails, consultez l'article sur le dépannage de la cible de stockage NFS [Accès racine aux chemins d’accès aux répertoires](troubleshoot-nas.md#allow-root-access-on-directory-paths).
 
 * Le stockage back-end NFS doit être une plateforme matérielle ou logicielle compatible. Pour plus d’informations, contactez l’équipe Azure HPC Cache.
+
+### <a name="nfs-mounted-blob-adls-nfs-storage-requirements-preview"></a>Exigences du stockage d’objets blob monté NFS (ADLS-NFS) (PRÉVERSION)
+
+Azure HPC Cache peut également utiliser un conteneur d’objets blob monté avec le protocole NFS comme cible de stockage.
+
+> [!NOTE]
+> La prise en charge du protocole NFS 3.0 dans Stockage Blob Azure est en préversion publique. La disponibilité est limitée et les fonctionnalités peuvent changer entre maintenant et le moment où la fonctionnalité sera proposée en disponibilité générale. N’utilisez pas la technologie en préversion dans des systèmes de production.
+>
+> Pour plus d’informations sur cette fonctionnalité en préversion, consultez [Prise en charge du protocole NFS 3.0 dans le Stockage Blob Azure](../storage/blobs/network-file-system-protocol-support.md).
+
+Les exigences en matière de compte de stockage sont différentes pour une cible de stockage d’objets blob ADLS-NFS et pour une cible de stockage d’objets blob standard. Suivez avec soin les instructions de [Montage du stockage blob avec le protocole NFS (Network File System) 3.0](../storage/blobs/network-file-system-protocol-support-how-to.md) pour créer et configurer le compte de stockage compatible NFS.
+
+Il s’agit d’une vue d’ensemble générale de la procédure. Les étapes sont susceptibles de changer. Pour connaître les informations à jour, consultez toujours les [instructions ADLS-NFS](../storage/blobs/network-file-system-protocol-support-how-to.md).
+
+1. Vérifiez que les fonctionnalités dont vous avez besoin sont disponibles dans les régions où vous envisagez de travailler.
+
+1. Activez la fonctionnalité de protocole NFS pour votre abonnement, et ce, *avant* de créer le compte de stockage.
+
+1. Créez un réseau virtuel sécurisé (VNet) pour le compte de stockage. Utilisez le même réseau virtuel pour votre compte de stockage compatible NFS que pour votre instance Azure HPC Cache. (Ne choisissez pas le même sous-réseau que pour le cache.)
+
+1. Créez le compte de stockage.
+
+   * Au lieu d’utiliser les paramètres d’un compte de stockage d’objets blob standard, suivez les instructions contenues dans le [guide pratique](../storage/blobs/network-file-system-protocol-support-how-to.md). Le type de compte de stockage pris en charge peut varier selon la région Azure.
+
+   * Dans la section **Mise en réseau**, choisissez un point de terminaison privé dans le réseau virtuel sécurisé que vous avez créé (recommandé), ou bien un point de terminaison public avec accès restreint à partir du réseau virtuel sécurisé.
+
+   * N’oubliez pas d’effectuer la section **Avancé**, dans laquelle vous activez l’accès NFS.
+
+   * Autorisez l’application de cache à accéder à votre compte de stockage Azure (cf. [Autorisations](#permissions) plus haut). Vous pouvez effectuer cette opération la première fois que vous créez une cible de stockage. Suivez la procédure indiquée dans [Ajouter des cibles de stockage](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) pour accorder au cache les rôles d’accès requis.
+
+     Si vous n’êtes pas le propriétaire du compte de stockage, demandez au propriétaire d’effectuer cette étape.
 
 ## <a name="set-up-azure-cli-access-optional"></a>Configuration de l’accès Azure CLI (facultatif)
 

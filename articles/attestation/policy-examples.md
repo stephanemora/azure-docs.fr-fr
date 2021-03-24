@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 6a5460a691658bda1cd60e503be8c98433c9c343
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: de003025e98109599ecd69c0459e29950c9bd1fd
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101720152"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104950567"
 ---
 # <a name="examples-of-an-attestation-policy"></a>Exemples de stratégie d’attestation
 
@@ -35,9 +35,9 @@ c:[type=="x-ms-sgx-mrsigner"] => issue(type="<custom-name>", value=c.value);
 };
 
 ```
-Pour plus d’informations sur les revendications entrantes générées par Azure Attestation, consultez [ensembles de revendications](/azure/attestation/claim-sets). Des auteurs de stratégie peuvent utiliser des réclamations entrantes pour définir des règles d’autorisation dans une stratégie personnalisée. 
+Pour plus d’informations sur les revendications entrantes générées par Azure Attestation, consultez [ensembles de revendications](./claim-sets.md). Des auteurs de stratégie peuvent utiliser des réclamations entrantes pour définir des règles d’autorisation dans une stratégie personnalisée. 
 
-La section relative aux règles d’émission n’est pas obligatoire. Les utilisateurs peuvent utiliser cette section pour obtenir des revendications sortantes supplémentaires générées dans le jeton d’attestation avec des noms personnalisés. Pour plus d’informations sur les revendications sortantes générées par le service dans le jeton d’attestation, consultez les [ensembles de revendications](/azure/attestation/claim-sets).
+La section relative aux règles d’émission n’est pas obligatoire. Les utilisateurs peuvent utiliser cette section pour obtenir des revendications sortantes supplémentaires générées dans le jeton d’attestation avec des noms personnalisés. Pour plus d’informations sur les revendications sortantes générées par le service dans le jeton d’attestation, consultez les [ensembles de revendications](./claim-sets.md).
 
 ## <a name="default-policy-for-an-sgx-enclave"></a>Stratégie par défaut pour une enclave SGX
 
@@ -59,7 +59,7 @@ issuancerules
 };
 ```
 
-Les revendications utilisées dans la stratégie par défaut sont considérées comme dépréciées, mais sont entièrement prises en charge et continueront d’être incluses à l’avenir. Nous vous recommandons d’utiliser les noms des revendications non dépréciées. Pour plus d’informations sur les noms de revendications recommandés, consultez les [ensembles de revendications](/azure/attestation/claim-sets). 
+Les revendications utilisées dans la stratégie par défaut sont considérées comme dépréciées, mais sont entièrement prises en charge et continueront d’être incluses à l’avenir. Nous vous recommandons d’utiliser les noms des revendications non dépréciées. Pour plus d’informations sur les noms de revendications recommandés, consultez les [ensembles de revendications](./claim-sets.md). 
 
 ## <a name="sample-custom-policy-to-support-multiple-sgx-enclaves"></a>Exemple de stratégie personnalisée pour prendre en charge plusieurs enclaves SGX
 

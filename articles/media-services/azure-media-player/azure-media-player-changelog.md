@@ -6,11 +6,11 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
 ms.date: 09/23/2020
-ms.openlocfilehash: 9d126f591da1bffebbfd29119c56927cfbb21dcd
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: c63a8efc4bbcf6e5a124d439e6f9f91397e2fa53
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92370574"
 ---
 # <a name="changelog"></a>Journal des modifications
@@ -198,7 +198,7 @@ Retourner les erreurs significatives de remise de clé aux applications appelant
 
 ### <a name="changes"></a>Modifications ###
 
-- [Modification][Sous-titrage en direct] Changement du nom de l’API pour les sous-titres CEA de 608 à 708. Pour plus d’informations, consultez [Paramètres des sous-titres CEA708](/javascript/api/azuremediaplayer/cea708captionssettings)-->.
+- [Modification][Sous-titrage en direct] Changement du nom de l’API pour les sous-titres CEA de 608 à 708. Pour plus d’informations, consultez [Paramètres des sous-titres CEA708](/javascript/api/azuremediaplayer/amp.player.cea708captionssettings)-->.
 
 ## <a name="220-official-release"></a>2.2.0 (publication officielle) ##
 
@@ -727,7 +727,7 @@ Retourner les erreurs significatives de remise de clé aux applications appelant
 - [Correctif de bogue] Mise à jour de l’expérience de chargement de l’interface utilisateur pour le mode Lecture automatique
 - [Correctif de bogue] Problème de chargeur AMD et définition de conflits de méthode
 - [Correctif de bogue] Problème de chargement de l’application WP 8.1 Cordova
-- [Correctif de bogue] ProtectionType pris en charge par la plateforme/technologie de requêtes de contenu protégé afin de sélectionner la technologie appropriée pour la lecture.  Résolution du problème antérieur connu que le «  _contenu PlayReady sur chrome (bureau) / Safari 8 (sur OSX Yosemite) ne revient pas sur le lecteur Silverlight_  »
+- [Correctif de bogue] ProtectionType pris en charge par la plateforme/technologie de requêtes de contenu protégé afin de sélectionner la technologie appropriée pour la lecture.  Résolution du problème antérieur connu que le « _contenu PlayReady sur chrome (bureau) / Safari 8 (sur OSX Yosemite) ne revient pas sur le lecteur Silverlight_ »
 - [Correctif de bogue] Exception non interceptée sur WinServer 2012 R2 étant donné que Media Foundation n’est pas installé sur cette machine par défaut.  Tentative d’utilisation d’API de balises vidéo HTML qui ne sont pas implémentées, ce qui génère une erreur. L’atténuation actuelle consiste à intercepter cette erreur et à retourner false au lieu de lever l’erreur.
 - [Correctif de bogue] Obtention systématique du segment init après une recherche ou un échec http pour éviter les erreurs lors de la lecture
 - [Correctif de bogue] Désactivation du suivi de la progression simulée et des mises à jour de l’heure lors de la survenue de l’erreur.

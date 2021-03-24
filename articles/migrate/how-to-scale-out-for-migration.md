@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 03/02/2021
-ms.openlocfilehash: 6e81b3d62fb5b208c88257d7660f74ac25f099b8
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 1c93002a6dd97aadbf407713ab25091436bd85e0
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102047944"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102612063"
 ---
 # <a name="scale-agentless-migration-of-vmware-virtual-machines-to-azure"></a>Mettre à l’échelle une migration sans agent de machines virtuelles VMware vers Azure
 
@@ -147,10 +147,10 @@ Pour terminer l’inscription de l’appliance de montée en puissance parallèl
 1. Dans la fenêtre contextuelle ouverte à l’étape précédente, sélectionnez l’emplacement du fichier zip de configuration copié, puis cliquez sur **Enregistrer**.
 
 Une fois les fichiers importés, l’inscription de l’appliance de montée en puissance parallèle s’achève et l’horodateur de la dernière importation réussie s’affiche. Vous pouvez également consulter les détails de l’inscription en cliquant sur **Afficher les détails**.
-:::image type="content" source="./media/how-to-scale-out-for-migration/import-success.png" alt-text="Importation réussie":::
+:::image type="content" source="./media/how-to-scale-out-for-migration/import-success.png" alt-text="Capture d’écran montrant l’inscription de l’appliance de scale-out avec un projet Azure Migrate.":::
 
 À ce stade, vous devez vous revalider le fait que l’appliance de montée en puissance parallèle est en mesure de se connecter à votre serveur vCenter. Cliquez sur **Revalider** pour valider la connectivité vCenter Server à partir de l’appliance de montée en puissance parallèle.
-:::image type="content" source="./media/how-to-scale-out-for-migration/view-sources.png" alt-text="Importation réussie":::
+:::image type="content" source="./media/how-to-scale-out-for-migration/view-sources.png" alt-text="Capture d’écran montrant la vue des informations d’identification et sources de découverte à valider.":::
 
 > [!IMPORTANT]
 > Si vous modifiez les informations d’identification de vCenter Server sur l’appliance principale, veillez à réimporter les fichiers de configuration sur l’appliance de montée en puissance parallèle pour obtenir la configuration la plus récente et poursuivre les réplications en cours.<br/> Si vous n’avez plus besoin de l’appliance de montée en puissance parallèle, veillez à la désactiver. [**En savoir plus**](./common-questions-appliance.md) sur la désactivation de l’appliance de montée en puissance parallèle lorsque vous n’en avez pas besoin.

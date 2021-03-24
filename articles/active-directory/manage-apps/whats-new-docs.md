@@ -9,12 +9,12 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: daveba
-ms.openlocfilehash: cd46bb1c6905747ffb98c7e950f66e648c541534
-ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
+ms.openlocfilehash: 5b645efe2bbaadeca31b4a0a3b957ff53f5ed3aa
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103601761"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104775508"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Gestion des applications Azure Active Directory : Nouveautés
 
@@ -141,7 +141,6 @@ Nouveautés de la documentation relative à la gestion des applications Azure Ac
 
 ### <a name="new-articles"></a>Nouveaux articles
 - [Configurer l’authentification unique SAML](configure-saml-single-sign-on.md)
-- [Utilisation d’Azure AD pour les applications non répertoriées dans la galerie d’applications](non-gallery-apps.md)
 - [Télécharger maintenant – Ajouter une application à partir de la Place de marché Azure](get-it-now-azure-marketplace.md)
 - [Démarrage rapide : Configurer les propriétés d’une application dans votre locataire Azure Active Directory (Azure AD)](add-application-portal-configure.md)
 - [Démarrage rapide : Configurer l’authentification unique (SSO) d’une application dans votre locataire Azure Active Directory (Azure AD)](add-application-portal-setup-sso.md)

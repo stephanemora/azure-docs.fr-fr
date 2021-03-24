@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/8/2020
 ms.author: allensu
 ms.openlocfilehash: e1080aea12e70f4312fbee07b063d5a5cfbd1201
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89596208"
 ---
 # <a name="azure-load-balancer-portal-settings"></a>Paramètres du portail Azure Load Balancer
@@ -63,7 +63,7 @@ Si vous sélectionnez le type **Interne**, les informations suivantes s’affich
 | Affectation d’adresses IP | Les options sont **Statique** ou **Dynamique**. </br> Statique garantit que l’adresse IP ne change pas. Une adresse IP dynamique peut changer. |
 | Zone de disponibilité | Les options disponibles sont : </br> **Redondant dans une zone** </br> **Zone 1** </br> **Zone 2** </br> **Zone 3** </br> Pour créer un équilibreur de charge hautement disponible et résilient aux défaillances de zones de disponibilité, sélectionnez une IP **redondante interzone**. |
 
-:::image type="content" source="./media/manage/create-internal-load-balancer-basics.png" alt-text="Créer un équilibreur de charge public." border="true":::
+:::image type="content" source="./media/manage/create-internal-load-balancer-basics.png" alt-text="Créer un équilibreur de charge interne." border="true":::
 
 ## <a name="frontend-ip-configuration"></a>Configuration d’adresses IP frontales
 
@@ -80,7 +80,7 @@ Si vous souhaitez ajouter une configuration d’adresse IP frontale à votre é
 | Type IP | Le type d’adresse IP détermine si une adresse IP unique est associée à votre serveur frontal ou s’il s’agit d’une plage d’adresses IP utilisant un préfixe IP. </br> Un [préfixe d’IP publique](../virtual-network/public-ip-address-prefix.md) vous aide quand vous devez vous connecter au même point de terminaison à plusieurs reprises. Le préfixe garantit qu’un nombre suffisant de ports sont fournis pour faciliter la résolution des problèmes de port SNAT. |
 | IP publique (ou Préfixe si vous avez sélectionné Préfixe ci-dessus) | Sélectionnez ou créez une nouvelle IP publique (ou un nouveau préfixe) pour le serveur frontal de votre équilibreur de charge. |
 
-:::image type="content" source="./media/manage/frontend.png" alt-text="Créer un équilibreur de charge public." border="true":::
+:::image type="content" source="./media/manage/frontend.png" alt-text="Page Créer une configuration d’adresse IP frontale." border="true":::
 
 ## <a name="backend-pools"></a>Pools de back-ends
 
@@ -96,7 +96,7 @@ Si vous souhaitez ajouter un pool principal à votre équilibreur de charge, acc
 
 Vous pouvez ajouter des machines virtuelles ou des groupes de machines virtuelles identiques dans le pool principal de votre instance Azure Load Balancer. Créez d’abord les machines virtuelles ou les groupes de machines virtuelles identiques. Ensuite, ajoutez-les à l’équilibreur de charge dans le portail.
 
-:::image type="content" source="./media/manage/backend.png" alt-text="Créer un équilibreur de charge public." border="true":::
+:::image type="content" source="./media/manage/backend.png" alt-text="Page Créer un pool principal." border="true":::
 
 ## <a name="health-probes"></a>Sondes d’intégrité
 
@@ -112,7 +112,7 @@ Si vous souhaitez ajouter une sonde d’intégrité à votre équilibreur de cha
 | Intervalle | Nombre de secondes entre les tentatives de la sonde. </br> L’intervalle détermine la fréquence à laquelle la sonde d’intégrité tentera d’atteindre l’instance principale. </br> Si vous sélectionnez 5, la sonde effectuera une deuxième tentative après 5 secondes, et ainsi de suite. |
 | Seuil de défaillance sur le plan de l’intégrité | Nombre d’échecs de sonde consécutifs qui se produisent avant qu’une machine virtuelle soit considérée comme non saine.</br> Si vous sélectionnez 2, aucun flux n’est défini sur cette instance principale après deux échecs consécutifs. |
 
-:::image type="content" source="./media/manage/health-probe.png" alt-text="Créer un équilibreur de charge public." border="true":::
+:::image type="content" source="./media/manage/health-probe.png" alt-text="Ajouter une sonde d’intégrité." border="true":::
 
 ## <a name="load-balancing-rules"></a>Règles d’équilibrage de charge
 
@@ -136,7 +136,7 @@ Si vous souhaitez ajouter une règle d’équilibrage de charge à votre équili
 | IP flottante | « IP flottante » est le terme Azure désignant une partie de ce que l’on appelle le **retour direct du serveur (DSR)** . </br> La configuration DSR comprend deux parties : <br> 1. une topologie de flux ; </br> 2. Schéma de mappage d’adresses IP au niveau de la plateforme. </br></br> Azure Load Balancer fonctionne toujours dans une topologie de flux DSR, que l’IP flottante soit activée ou non. </br> Ce fonctionnement signifie que la partie sortante d’un flux est toujours correctement réécrite pour retourner directement à l’origine. </br> Sans adresse IP flottante, Azure expose un schéma traditionnel de mappage d’adresses IP d’équilibrage de charge : l’adresse IP des instances de machine virtuelle. </br> L’activation de l’IP flottante modifie le mappage des adresses IP à l’adresse IP frontale de l’équilibreur de charge afin de permettre davantage de flexibilité. </br> Pour plus d’informations, consultez [Serveurs frontaux multiples dans Azure Load Balancer](load-balancer-multivip-overview.md).|
 | Créer des règles de trafic sortant implicites | Sélectionnez **Non**. </br> Valeur par défaut : **disableOutboundSnat = false**  </br> Dans ce cas, le trafic sortant se produit via la même adresse IP frontale. </br></br> **disableOutboundSnat = true** </br>Dans ce cas, des règles de trafic sortant sont nécessaires pour le trafic sortant. |
 
-:::image type="content" source="./media/manage/load-balancing-rule.png" alt-text="Créer un équilibreur de charge public." border="true":::
+:::image type="content" source="./media/manage/load-balancing-rule.png" alt-text="Ajouter une règle d’équilibrage de charge." border="true":::
 
 ## <a name="inbound-nat-rules"></a>Règles NAT entrantes
 
@@ -163,7 +163,7 @@ Si vous souhaitez ajouter une règle NAT de trafic entrant à votre équilibreur
 | Machine virtuelle cible | Partie de la machine virtuelle du pool principal à laquelle vous souhaitez associer cette règle. |
 | Mappage de ports | Ce paramètre peut être défini par défaut ou personnalisé selon les préférences de votre application. |
 
-:::image type="content" source="./media/manage/inbound-nat-rule.png" alt-text="Créer un équilibreur de charge public." border="true":::
+:::image type="content" source="./media/manage/inbound-nat-rule.png" alt-text="Ajouter une règle NAT de trafic entrant." border="true":::
 
 ## <a name="outbound-rules"></a>Règles de trafic sortant
 
@@ -193,7 +193,7 @@ Si vous souhaitez ajouter une règle de trafic sortant à votre équilibreur de 
 | Choisir par | Sélectionnez **Ports par instance** |
 | Ports par instance | Entrez **10 000**. |
 
-:::image type="content" source="./media/manage/outbound-rule.png" alt-text="Créer un équilibreur de charge public." border="true":::
+:::image type="content" source="./media/manage/outbound-rule.png" alt-text="Ajouter une règle de trafic entrant ou sortant." border="true":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

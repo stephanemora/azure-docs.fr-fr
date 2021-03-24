@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: troubleshooting
 ms.date: 03/18/2020
 ms.author: v-erkel
-ms.openlocfilehash: d2a5ffa337f789c4edc3a34b3be81285337473e2
-ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
+ms.openlocfilehash: bb17918774d23dbeb2747fa55eefc4956812e254
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/15/2021
-ms.locfileid: "103471717"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104775695"
 ---
 # <a name="troubleshoot-nas-configuration-and-nfs-storage-target-issues"></a>Résolution des problèmes de configuration NAS et des cibles de stockage NFS
 
@@ -91,16 +91,15 @@ Le système de stockage back-end conserve les alias internes des descripteurs de
 
 Pour éviter cette éventuelle collision de fichiers dans plusieurs exportations, Azure HPC Cache monte automatiquement l’exportation la plus superficielle dans le chemin (``/ifs`` dans l’exemple) et utilise le descripteur de fichier fourni à partir de cette exportation. Si plusieurs exportations ont recours au même chemin de base, Azure HPC Cache a besoin d’un accès racine à ce chemin.
 
-## <a name="enable-export-listing"></a>Activation du listing des exportations
-<!-- link in prereqs article -->
+<!-- ## Enable export listing
 
-Le NAS doit lister ses exportations lorsque Azure HPC Cache le demande.
+The NAS must list its exports when the Azure HPC Cache queries it.
 
-Sur la plupart des systèmes de stockage NFS, vous pouvez tester ce comportement en envoyant la requête suivante à partir d’un client Linux : ``showmount -e <storage IP address>``.
+On most NFS storage systems, you can test this by sending the following query from a Linux client: ``showmount -e <storage IP address>``
 
-Utilisez si possible un client Linux du même réseau virtuel que votre cache.
+Use a Linux client from the same virtual network as your cache, if possible.
 
-Si cette commande ne liste pas les exportations, le cache aura des difficultés à se connecter à votre système de stockage. Rapprochez-vous de votre fournisseur NAS pour activer le listing des exportations.
+If that command doesn't list the exports, the cache will have trouble connecting to your storage system. Work with your NAS vendor to enable export listing.  -->
 
 ## <a name="adjust-vpn-packet-size-restrictions"></a>Ajustement des restrictions de taille des paquets VPN
 <!-- link in prereqs article and configuration article -->

@@ -12,10 +12,10 @@ manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5b820b8b9606795709d03414fa14ec29a1b5c519
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92441553"
 ---
 # <a name="dynamic-groups-and-azure-active-directory-b2b-collaboration"></a>Groupes dynamiques et Azure Active Directory B2B Collaboration
@@ -29,27 +29,27 @@ La [licence Azure AD Premium P1 ou P2](https://azure.microsoft.com/pricing/detai
 Vous pouvez créer un groupe contenant tous les utilisateurs d’un client à l’aide d’une règle d’appartenance. Lors de l’ajout ou de la suppression ultérieurs d’utilisateurs dans le client, l’appartenance du groupe est ajustée automatiquement.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en utilisant un compte attribué au rôle d'administrateur général ou d’administrateur d’utilisateurs dans le locataire.
-1. Sélectionnez **Azure Active Directory** .
-2. Sous **Gérer** , sélectionnez **Groupes** , puis **Nouveau groupe** .
-1. Sur la page **Nouveau groupe** , sous **Type de groupe** , sélectionnez **Sécurité** . Entrez un **nom** et une **description** pour le nouveau groupe. 
-2. Sous **Type d'appartenance** , sélectionnez **Utilisateur dynamique** , puis **Ajouter une requête dynamique** . 
-4. Au-dessus de la zone de texte **Syntaxe de la règle** , sélectionnez **Modifier** . Sur la page **Modifier la syntaxe de la règle** , entrez l’expression suivante dans la zone de texte :
+1. Sélectionnez **Azure Active Directory**.
+2. Sous **Gérer**, sélectionnez **Groupes**, puis **Nouveau groupe**.
+1. Sur la page **Nouveau groupe**, sous **Type de groupe**, sélectionnez **Sécurité**. Renseignez les champs **Nom du groupe** et **Description du groupe** pour le nouveau groupe. 
+2. Sous **Type d'appartenance**, sélectionnez **Utilisateur dynamique**, puis **Ajouter une requête dynamique**. 
+4. Au-dessus de la zone de texte **Syntaxe de la règle**, sélectionnez **Modifier**. Sur la page **Modifier la syntaxe de la règle**, entrez l’expression suivante dans la zone de texte :
 
    ```
    user.objectId -ne null
    ```
-1. Sélectionnez **OK** . La règle s’affiche dans la zone Syntaxe de la règle :
+1. Sélectionnez **OK**. La règle s’affiche dans la zone Syntaxe de la règle :
 
    ![Syntaxe de la règle du groupe dynamique « Tous les utilisateurs »](media/use-dynamic-groups/all-user-rule-syntax.png)
 
-1.  Sélectionnez **Enregistrer** . Le nouveau groupe dynamique inclut désormais les utilisateurs invités B2B, ainsi que les utilisateurs membres.
+1.  Sélectionnez **Enregistrer**. Le nouveau groupe dynamique inclut désormais les utilisateurs invités B2B, ainsi que les utilisateurs membres.
 
 
 1. Sélectionnez **Créer** sur la page **Nouveau groupe** pour créer le groupe.
 
 ## <a name="creating-a-group-of-members-only"></a>Création d’un groupe de membres uniquement
 
-Si vous souhaitez exclure de votre groupe les utilisateurs invités et y inclure uniquement les membres de votre locataire, créez un groupe dynamique comme décrit ci-dessus, mais dans la zone **Syntaxe de la règle** , entrez l’expression suivante :
+Si vous souhaitez exclure de votre groupe les utilisateurs invités et y inclure uniquement les membres de votre locataire, créez un groupe dynamique comme décrit ci-dessus, mais dans la zone **Syntaxe de la règle**, entrez l’expression suivante :
 
 ```
 (user.objectId -ne null) and (user.userType -eq "Member")
@@ -61,7 +61,7 @@ L’image suivante illustre la syntaxe de règle d'un groupe dynamique modifié 
 
 ## <a name="creating-a-group-of-guests-only"></a>Création d’un groupe d’invités uniquement
 
-Vous trouverez peut-être aussi utile de créer un groupe dynamique contenant uniquement les utilisateurs invités, afin de pouvoir leur appliquer des stratégies (telles que des stratégies d’accès conditionnel Azure AD). Créez un groupe dynamique comme décrit ci-dessus, mais dans la zone **Syntaxe de la règle** , entrez l’expression suivante :
+Vous trouverez peut-être aussi utile de créer un groupe dynamique contenant uniquement les utilisateurs invités, afin de pouvoir leur appliquer des stratégies (telles que des stratégies d’accès conditionnel Azure AD). Créez un groupe dynamique comme décrit ci-dessus, mais dans la zone **Syntaxe de la règle**, entrez l’expression suivante :
 
 ```
 (user.objectId -ne null) and (user.userType -eq "Guest")

@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/17/2019
-ms.openlocfilehash: 2b2dfe9da55548f2648f847a9d7c2cb3478e6bad
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 3bf036ff413f720f54deef1a62b502668d1d8ac6
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98931702"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104871994"
 ---
 # <a name="streaming-at-scale-in-hdinsight"></a>Diffusion en continu à l’échelle dans HDInsight
 
@@ -18,7 +18,7 @@ Les solutions Big Data en temps réel agissent sur des données qui sont en mouv
 
 Dans une application de streaming, une ou plusieurs sources de données génèrent des événements (parfois plusieurs millions par seconde) qui doivent être ingérés rapidement sans supprimer aucune information utile. Les événements entrants sont traités avec la *mise en mémoire tampon du flux*, également appelée *mise en file d’attente des événements*, par un service comme [Apache Kafka](kafka/apache-kafka-introduction.md) ou [Event Hubs](https://azure.microsoft.com/services/event-hubs/). Après avoir collecté les événements, vous pouvez analyser les données à l’aide d’un système d’analytique en temps réel dans la couche de *traitement du flux*, tel que [Apache Storm](storm/apache-storm-overview.md) ou [Apache Spark Streaming](spark/apache-spark-streaming-overview.md). Les données traitées peuvent être stockées dans des systèmes de stockage à long terme, comme [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), et affichées en temps réel sur un tableau de bord de décisionnel, tel que [Power BI](https://powerbi.microsoft.com), Tableau ou une page web personnalisée.
 
-![Modèles de streaming Azure HDInsight](./media/hdinsight-streaming-at-scale-overview/HDInsight-streaming-patterns.png)
+:::image type="content" source="./media/hdinsight-streaming-at-scale-overview/HDInsight-streaming-patterns.png" alt-text="Modèles de streaming Azure HDInsight":::
 
 ## <a name="apache-kafka"></a>Apache Kafka
 
@@ -60,7 +60,7 @@ Ces trois paramètres peuvent être configurés au niveau du cluster (pour toute
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Créer et surveiller une topologie Apache Storm dans Azure HDInsight à votre projet](storm/apache-storm-quickstart.md)
+* [Créer et surveiller une topologie Apache Storm dans Azure HDInsight](storm/apache-storm-quickstart.md)
 * [Exemples de topologies pour Apache Storm dans HDInsight](storm/apache-storm-example-topology.md)
 * [Présentation d’Apache Spark sur HDInsight](spark/apache-spark-overview.md)
 * [Démarrer avec Apache Kafka sur HDInsight](kafka/apache-kafka-get-started.md)

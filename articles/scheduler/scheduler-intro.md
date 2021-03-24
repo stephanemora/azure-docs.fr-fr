@@ -10,10 +10,10 @@ ms.reviewer: klam, estfan
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.openlocfilehash: 66ec285554299214122a4093837d3506bf642b13
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92368126"
 ---
 # <a name="what-is-azure-scheduler"></a>Présentation d’Azure Scheduler
@@ -31,7 +31,7 @@ Voici quelques scénarios où Scheduler peut vous aider :
 
 * Exécuter des actions d’application récurrentes : par exemple, collecter périodiquement des données de Twitter dans un flux.
 
-* Effectuer une maintenance quotidienne : par exemple, nettoyer quotidiennement les journaux d’activité, faire des sauvegardes et effectuer d’autres tâches de maintenance.
+* Effectuer une maintenance quotidienne : par exemple, élaguer quotidiennement les journaux d’activité, effectuer des sauvegardes et d’autres tâches de maintenance.
 
   Par exemple, en tant qu’administrateur, vous pouvez être amené à sauvegarder votre base de données à 1 h 00 tous les jours, pendant les neuf prochains mois.
 

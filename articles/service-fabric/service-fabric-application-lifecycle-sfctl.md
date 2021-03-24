@@ -6,17 +6,17 @@ ms.topic: conceptual
 ms.date: 07/31/2018
 ms.author: bikang
 ms.openlocfilehash: 7d361d44c349bc7a6e3c041f78d00ad66182fa15
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84711032"
 ---
 # <a name="manage-an-azure-service-fabric-application-by-using-azure-service-fabric-cli-sfctl"></a>Gérer une application Azure Service Fabric à l’aide d’Azure Service Fabric CLI (sfctl)
 
 Découvrez comment créer et supprimer des applications qui s’exécutent dans un cluster Azure Service Fabric.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Installez Service Fabric CLI. Sélectionnez ensuite votre cluster Service Fabric. Pour plus d’informations, consultez [Prise en main de Service Fabric CLI](service-fabric-cli.md).
 

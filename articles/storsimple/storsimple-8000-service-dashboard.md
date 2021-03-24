@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/27/2017
 ms.author: alkohli
 ms.openlocfilehash: 7b4b697b3d27b57212fc59396e1f8111e297d6cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85514950"
 ---
 # <a name="use-the-service-summary-blade-for-storsimple-8000-series-device"></a>Utiliser le panneau de synthèse du service pour un appareil de la gamme StorSimple 8000

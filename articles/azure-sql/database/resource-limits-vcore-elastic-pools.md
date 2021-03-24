@@ -12,10 +12,10 @@ ms.author: moslake
 ms.reviewer: sstein
 ms.date: 01/22/2021
 ms.openlocfilehash: 619f4deee81c97f2d7a0b4359e2b999c476b1ae2
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98737555"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-purchasing-model"></a>Limites de ressources pour les pools élastiques suivant le modèle d’achat vCore
@@ -179,7 +179,7 @@ Vous pouvez définir le niveau de service, la taille de calcul (objectif de serv
 |Mémoire (Go)|15,1|18,9|22,7|26,5|30,2|
 |Nombre maximal de bases de données par pool <sup>1</sup>|500|500|500|500|500|
 |Prise en charge de ColumnStore|Oui|Oui|Oui|Oui|Oui|
-|Stockage In-Memory OLTP (Go)|N/A|NON APPLICABLE|NON APPLICABLE|N/A|N/A|
+|Stockage In-Memory OLTP (Go)|N/A|N/A|N/A|N/A|N/A|
 |Taille maximale des données (Go)|1 024|1 024|1 024|1 024|1536|
 |Taille maximale du journal (Go)|336|336|336|336|512|
 |Taille maximale des données TempDB (Go)|333|333|333|333|333|
@@ -192,8 +192,8 @@ Vous pouvez définir le niveau de service, la taille de calcul (objectif de serv
 |Nombre maximal de sessions simultanées|30,000|30,000|30,000|30,000|30,000|
 |Choix du nombre minimal/maximal de cœurs virtuels de pool élastique par base de données|0-8|0-10|0-12|0-14|0-16|
 |Nombre de réplicas|1|1|1|1|1|
-|Plusieurs zones de disponibilités|NON APPLICABLE|NON APPLICABLE|NON APPLICABLE|NON APPLICABLE|NON APPLICABLE|
-|Lecture du Scale-out|N/A|NON APPLICABLE|NON APPLICABLE|NON APPLICABLE|N/A|
+|Plusieurs zones de disponibilités|N/A|N/A|N/A|N/A|N/A|
+|Lecture du Scale-out|N/A|N/A|N/A|N/A|N/A|
 |Stockage de sauvegarde inclus|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|
 
 
@@ -212,7 +212,7 @@ Vous pouvez définir le niveau de service, la taille de calcul (objectif de serv
 |Mémoire (Go)|34,0|37,8|45.4|60,5|68,0|136,0|
 |Nombre maximal de bases de données par pool <sup>1</sup>|500|500|500|500|500|
 |Prise en charge de ColumnStore|Oui|Oui|Oui|Oui|Oui|Oui|
-|Stockage In-Memory OLTP (Go)|NON APPLICABLE|NON APPLICABLE|NON APPLICABLE|NON APPLICABLE|NON APPLICABLE|NON APPLICABLE|
+|Stockage In-Memory OLTP (Go)|N/A|N/A|N/A|N/A|N/A|N/A|
 |Taille maximale des données (Go)|1536|1536|1536|3 072|3 072|4096|
 |Taille maximale du journal (Go)|512|512|512|1 024|1 024|1 024|
 |Taille maximale des données TempDB (Go)|83,25|92,5|111|148|166,5|333|
@@ -225,8 +225,8 @@ Vous pouvez définir le niveau de service, la taille de calcul (objectif de serv
 |Nombre maximal de sessions simultanées|30,000|30,000|30,000|30,000|30,000|30,000|
 |Choix du nombre minimal/maximal de cœurs virtuels de pool élastique par base de données|0-18|0-20|0-24|0-32|0-36|0-72|
 |Nombre de réplicas|1|1|1|1|1|1|
-|Plusieurs zones de disponibilités|NON APPLICABLE|NON APPLICABLE|NON APPLICABLE|NON APPLICABLE|NON APPLICABLE|NON APPLICABLE|
-|Lecture du Scale-out|N/A|NON APPLICABLE|NON APPLICABLE|NON APPLICABLE|NON APPLICABLE|N/A|
+|Plusieurs zones de disponibilités|N/A|N/A|N/A|N/A|N/A|N/A|
+|Lecture du Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|
 |Stockage de sauvegarde inclus|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|
 
 <sup>1</sup> Consultez [Gestion des ressources dans les pools élastiques denses](elastic-pool-resource-management.md) pour obtenir des informations supplémentaires.

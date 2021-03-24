@@ -3,12 +3,12 @@ title: Connaître les termes d’Azure BareMetal Infrastructure
 description: Connaître les termes d’Azure BareMetal Infrastructure.
 ms.topic: conceptual
 ms.date: 1/4/2021
-ms.openlocfilehash: fd7a39854c86f728ef152f8e7d858157e1ad26f4
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: b22a6cecb2647df3878cb8fd4ade93d9a7d963fd
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97861915"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104770884"
 ---
 # <a name="know-the-terms-for-baremetal-infrastructure"></a>Connaître les termes relatifs à BareMetal Infrastructure
 
@@ -23,4 +23,4 @@ Dans cet article, nous allons aborder des termes importants relatifs à BareMeta
 - **Tenant** : un client déployé dans le tampon Instance BareMetal est isolé dans un *locataire.* Un locataire est isolé des autres locataires dans la couche de mise en réseau, de stockage et de calcul. Les unités de stockage et compute assignées aux différents abonnés ne peuvent pas se voir ni communiquer entre elles au niveau du tampon Instance BareMetal. Un client peut opter pour des déploiements dans plusieurs locataires. Même dans ce cas, aucune communication n’est établie entre les locataires au niveau du tampon Instance BareMetal.
 
 ## <a name="next-steps"></a>Étapes suivantes
-En savoir plus sur l’[infrastructure BareMetal](workloads/sap/baremetal-overview-architecture.md) ou sur la façon d’[identifier et interagir avec des unités Instance BareMetal](workloads/sap/baremetal-infrastructure-portal.md). 
+En savoir plus sur l’[infrastructure BareMetal](concepts-baremetal-infrastructure-overview.md) ou sur la façon d’[identifier et interagir avec des unités Instance BareMetal](connect-baremetal-infrastructure.md). 

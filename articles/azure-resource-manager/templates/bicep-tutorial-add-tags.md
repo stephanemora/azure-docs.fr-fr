@@ -2,16 +2,16 @@
 title: 'Tutoriel : Ajouter des étiquettes aux ressources dans un fichier Bicep Azure Resource Manager'
 description: Ajoutez des étiquettes aux ressources que vous déployez dans vos fichiers Bicep. Les étiquettes vous permettent d’organiser logiquement les ressources.
 author: mumian
-ms.date: 03/01/2021
+ms.date: 03/10/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 05bb68609705ac4c13ad77d2c74db7c105ba23fb
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ea5e078eb692d002b3f86cd43663dd042d692611
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101742841"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102632598"
 ---
 # <a name="tutorial-add-tags-in-azure-resource-manager-bicep-files"></a>Tutoriel : Ajouter des étiquettes dans des fichiers Bicep Azure Resource Manager
 
@@ -37,7 +37,7 @@ Après avoir déployé ces ressources, vous pouvez avoir besoin d’effectuer un
 
 Vous étiquetez des ressources pour ajouter des valeurs qui vous aident à identifier leur utilisation. Par exemple, vous pouvez ajouter des étiquettes qui listent l’environnement et le projet. Vous pouvez ajouter des étiquettes qui identifient un centre de coûts ou l’équipe propriétaire de la ressource. Ajoutez des valeurs significatives pour votre organisation.
 
-L’exemple suivant met en évidence les modifications apportées au fichier Bicep. Copiez l’intégralité du fichier et remplacez votre fichier Bicep par son contenu.
+L’exemple suivant montre les modifications apportées au fichier Bicep. Copiez l’intégralité du fichier et remplacez votre fichier Bicep par son contenu.
 
 :::code language="bicep" source="~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.bicep" range="1-81" highlight="27-30,38,51,71":::
 

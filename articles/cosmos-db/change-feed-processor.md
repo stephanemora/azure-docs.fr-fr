@@ -11,10 +11,10 @@ ms.date: 10/12/2020
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 409b51682700a8b13b2840f171642bdcbee6f6d2
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93340224"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Processeur de flux de modification dans Azure Cosmos DB
@@ -106,7 +106,7 @@ Par défaut, lorsqu’un processeur de flux de modification démarre pour la pre
 
 ### <a name="reading-from-a-previous-date-and-time"></a>Lecture à partir d’une date et d’une heure précédentes
 
-Il est possible d’initialiser le processeur de flux de modification pour lire les modifications à partir d’une **date et d’une heure spécifiques** , en passant une instance `DateTime` dans l’extension de générateur `WithStartTime` :
+Il est possible d’initialiser le processeur de flux de modification pour lire les modifications à partir d’une **date et d’une heure spécifiques**, en passant une instance `DateTime` dans l’extension de générateur `WithStartTime` :
 
 [!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=TimeInitialization)]
 

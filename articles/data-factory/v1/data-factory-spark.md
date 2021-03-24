@@ -3,16 +3,16 @@ title: Appeler des programmes Spark à partir d’Azure Data Factory
 description: Apprenez à appeler des programmes Spark à partir d’une fabrique de données Azure à l’aide de l’activité MapReduce.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: a7fcccad039ff6d737e10cfc57ba97f914645a9d
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 644a0d645abb186731ddb1f408cd36e5b9ba3c3f
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100382665"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104780019"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Appeler des programmes Spark à partir des pipelines Azure Data Factory
 
@@ -330,7 +330,7 @@ Le tableau suivant décrit les propriétés JSON utilisées dans la définition 
 | rootPath | Conteneur d’objets Blob et dossier contenant le fichier Spark. Le nom de fichier est sensible à la casse. | Oui |
 | entryFilePath | Chemin d’accès relatif au dossier racine du code/package Spark. | Oui |
 | ClassName | Classe principale Java/Spark de l’application. | Non  |
-| arguments | Liste d’arguments de ligne de commande du programme Spark. | Non |
+| arguments | Liste d’arguments de ligne de commande du programme Spark. | Non  |
 | proxyUser | Compte d’utilisateur à emprunter pour exécuter le programme Spark. | Non  |
 | sparkConfig | Spécifiez les valeurs des propriétés de configuration de Spark lisétes dans la rubrique [Configuration Spark : Propriétés de l’application](https://spark.apache.org/docs/latest/configuration.html#available-properties). | Non  |
 | getDebugInfo | Spécifie quand les fichiers journaux de Spark sont copiés vers le stockage utilisé par le cluster HDInsight (ou) spécifié par sparkJobLinkedService. Les valeurs autorisées sont Aucun, Toujours ou Échec. La valeur par défaut est Aucun. | Non  |

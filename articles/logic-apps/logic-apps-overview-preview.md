@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 03/08/2021
-ms.openlocfilehash: d53a36d99c9a54fdfef7baceb50edb4e8f5ae4c8
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.date: 03/10/2021
+ms.openlocfilehash: 7120b6ff17657232c0e614f49b75bb24263712b7
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102561855"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102636333"
 ---
 # <a name="overview-azure-logic-apps-preview"></a>Présentation : Préversion Azure Logic Apps
 
@@ -59,7 +59,7 @@ Le tableau suivant résume les différences dans la manière dont les workflows 
 | Azure Logic Apps (mutualisé) | Les workflows *de clients se trouvant dans plusieurs locataires* partagent le même traitement (calcul), le même stockage, le même réseau, et ainsi de suite. |
 | Azure Logic Apps (préversion, monolocataire) | Les workflows qui se trouvent *dans la même application logique et qui sont monolocataires* partagent le même traitement (calcul), le même stockage, le même réseau, et ainsi de suite. |
 | Environnement de service d’intégration (non disponible dans le préversion) | Les workflows qui se trouvent *dans le même environnement* partagent le même traitement (calcul), le même stockage, le même réseau, et ainsi de suite. |
-||||
+|||
 
 En attendant, vous pouvez toujours créer le type d’application logique multilocataire dans le portail Azure et dans Visual Studio Code à l’aide de l’extension Azure Logic Apps multilocataire. Bien que les expériences de développement diffèrent entre les types d’applications logiques monolocataires et multilocataires, votre abonnement Azure peut inclure les deux types. Vous pouvez afficher toutes les applications logiques déployées dans votre abonnement Azure et y accéder, mais elles sont organisées dans leurs propres catégories et sections.
 
@@ -122,7 +122,10 @@ Azure Logic Apps (préversion) comprend de nombreuses capacités actuelles et su
 
 * Créez des applications logiques et leurs workflows à partir de [plus de 400 connecteurs](/connectors/connector-reference/connector-reference-logicapps-connectors) pour les applications et services SaaS (Software-as-a-service) et PaaS (Platform-as-a-service), ainsi que des connecteurs pour les systèmes locaux.
 
-  * Certains connecteurs managés, tels qu’Azure Service Bus, Azure Event Hubs, SQL Server et MQ, s’exécutent de la même façon que les déclencheurs et les actions intégrés qui sont natifs au runtime d’Azure Logic Apps (préversion), par exemple le déclencheur Requête et l’action HTTP.
+  * Certains connecteurs managés sont désormais disponibles en tant que versions intégrées, qui s’exécutent de la même façon que les déclencheurs et actions intégrés, tels que le déclencheur de requête et l’action HTTP, qui s’exécutent en mode natif sur le runtime Azure Logic Apps (préversion). Par exemple, ces nouveaux connecteurs intégrés incluent Azure Service Bus, Azure Event Hubs, SQL Server et MQ.
+
+    > [!NOTE]
+    > Pour le connecteur SQL Server intégré, seule l’action **Exécuter une requête** peut se connecter directement aux réseaux virtuels Azure sans avoir besoin de la [passerelle de données locale](logic-apps-gateway-connection.md).
 
   * Créez vos propres connecteurs intégrés pour tous les services dont vous avez besoin à l’aide du [framework d’extensibilité de la préversion](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272). Comme pour les connecteurs intégrés tels qu’Azure Service Bus et SQL Server, mais contrairement aux [connecteurs personnalisés](../connectors/apis-list.md#custom-apis-and-connectors) qui ne sont actuellement pas pris en charge pour la préversion, ces connecteurs offrent un débit plus élevé, une faible latence, une connectivité locale et s’exécutent en mode natif dans le même processus que le runtime en préversion.
 

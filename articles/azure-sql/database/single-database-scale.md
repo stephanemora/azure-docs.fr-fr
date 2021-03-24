@@ -11,12 +11,12 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: sstein
 ms.date: 02/22/2021
-ms.openlocfilehash: 2aba44f6c2f10ead1827e1b1411f3824a0ec2d6c
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: ce8d4bf36524e3e7e7b3b8c974aa189fa000d845
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101658552"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104773247"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Mettre à l’échelle des ressources de base de données unique dans Azure SQL Database
 
@@ -112,7 +112,7 @@ else {
 - Lors de la mise à niveau descendante d’une base de données pour laquelle la [géoréplication](active-geo-replication-configure-portal.md) est activée, vous devez commencer par mettre à niveau les bases de données primaires associées vers le niveau de service et la taille de calcul inférieurs souhaités avant de procéder à la mise à niveau descendante de la base de données secondaire (conseil général pour de meilleures performances). Lors de la rétrogradation vers une autre édition, il est impératif que la base de données primaire soit rétrogradée en premier.
 - Les offres de service de restauration sont différentes selon les niveaux de service. Si vous repassez au niveau de service **De base**, la rétention des fichiers de sauvegarde sera de plus courte durée. Consultez l’article relatif aux [sauvegardes Azure SQL Database](automated-backups-overview.md).
 - Les nouvelles propriétés de la base de données ne sont appliquées qu’une fois les modifications terminées.
-- Quand la copie des données est nécessaire pour mettre à l’échelle une base de données (voir [Latence](#latency)) lors de la modification du niveau de service, une forte utilisation des ressources simultanément avec l’opération de mise à l’échelle peut entraîner des temps de mise à l’échelle plus longs. Avec la [récupération de base de données accélérée](/sql/relational-databases/accelerated-database-recovery-concepts.md), l’annulation des transactions longues n’est pas une source importante de délai, mais une forte utilisation simultanée des ressources peut réduire les ressources de calcul, de stockage et de bande passante réseau pour la mise à l’échelle, en particulier pour les tailles de calcul les plus petites.
+- Quand la copie des données est nécessaire pour mettre à l’échelle une base de données (voir [Latence](#latency)) lors de la modification du niveau de service, une forte utilisation des ressources simultanément avec l’opération de mise à l’échelle peut entraîner des temps de mise à l’échelle plus longs. Avec la [récupération de base de données accélérée](/sql/relational-databases/accelerated-database-recovery-concepts), l’annulation des transactions longues n’est pas une source importante de délai, mais une forte utilisation simultanée des ressources peut réduire les ressources de calcul, de stockage et de bande passante réseau pour la mise à l’échelle, en particulier pour les tailles de calcul les plus petites.
 
 ## <a name="billing"></a>Facturation
 

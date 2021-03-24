@@ -12,10 +12,10 @@ ms.date: 09/26/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: e5184698cab1874f327173fb30cf527feee48cad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85384972"
 ---
 # <a name="manage-threats-to-resources-and-data-in-azure-active-directory-b2c"></a>Gérer les menaces aux ressources et aux données dans Azure Active Directory B2C
@@ -41,11 +41,11 @@ Pour gérer les paramètres de protection par mot de passe, y compris le seuil d
 1. Connectez-vous au [portail Azure](https://portal.azure.com)
 1. Utilisez le filtre **Annuaire + abonnement** dans le menu du haut pour sélectionner l’annuaire qui contient votre locataire Azure AD B2C.
 1. Dans le menu de gauche, sélectionnez **Azure AD B2C**. Ou sélectionnez **Tous les services**, puis recherchez et sélectionnez **Azure AD B2C**.
-1. Sous **Sécurité**, sélectionnez **Méthodes d’authentification (préversion)** , puis **Protection par mot de passe**.
+1. Sous **Sécurité**, sélectionnez **Méthodes d’authentification (préversion)**, puis **Protection par mot de passe**.
 1. Entrez les paramètres de protection de mot par passe souhaités, puis sélectionnez **Enregistrer**.
 
     ![Page de protection par mot de passe du portail Azure dans les paramètres Azure AD](./media/threat-management/portal-02-password-protection.png)
-    <br />*Réglage du seuil de verrouillage à 5 dans les paramètres de **Protection par mot de passe*** .
+    <br />*Réglage du seuil de verrouillage à 5 dans les paramètres de **Protection par mot de passe***.
 
 ## <a name="view-locked-out-accounts"></a>Afficher les comptes verrouillés
 

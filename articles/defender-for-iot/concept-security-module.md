@@ -1,24 +1,14 @@
 ---
 title: Micro-agent Defender-IoT et jumeaux d’appareil
 description: Découvrez le concept de jumeaux de micro-agent Defender-IoT et leur utilisation dans Defender pour IoT.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: mlottner
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 07/24/2019
-ms.author: mlottner
-ms.openlocfilehash: 552da329b90b102a13ef53158ec81be87684c1fc
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 1ed6faf03d168ed7a2a2f07733cb7e238d234915
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103493184"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104779169"
 ---
 # <a name="defender-iot-micro-agent"></a>Micro-agent Defender-IoT
 

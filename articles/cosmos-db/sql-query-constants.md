@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: tisande
 ms.openlocfilehash: b0973dca980b65b85ac66cc1b3c9ed45f0f9c779
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93339198"
 ---
 # <a name="azure-cosmos-db-sql-query-constants"></a>Constantes de requête SQL Azure Cosmos DB  
@@ -25,10 +25,10 @@ ms.locfileid: "93339198"
 |-|-|  
 |**Undefined**|Valeur unique : **Undefined**|  
 |**Null**|Valeur unique : **null**|  
-|**Booléen**|Valeurs : **false** , **true**.|  
+|**Booléen**|Valeurs : **false**, **true**.|  
 |**Nombre**|Un nombre à virgule flottante double précision répondant à la norme IEEE 754.|  
 |**Chaîne**|Une séquence de zéro ou plusieurs caractères Unicode. Les chaînes doivent figurer entre guillemets simples ou doubles.|  
-|**Tableau**|Une séquence de zéro ou plusieurs éléments. Chaque élément peut être une valeur de tout type de données scalaires, à l’exception de **Undefined**.|  
+|**Matrice**|Une séquence de zéro ou plusieurs éléments. Chaque élément peut être une valeur de tout type de données scalaires, à l’exception de **Undefined**.|  
 |**Object**|Un jeu non ordonné de zéro ou plusieurs paires nom/valeur. Le nom est une chaîne Unicode, la valeur peut être de n’importe quel type de données scalaire, sauf **Undefined**.|  
   
 ## <a name="syntax"></a><a name="bk_syntax"></a>Syntaxe
@@ -105,7 +105,7 @@ ms.locfileid: "93339198"
   
   Les séquences d’échappement suivantes sont autorisées :  
   
-|**Séquence d’échappement**|**Description**|**Caractères Unicode**|  
+|**Séquence d'échappement**|**Description**|**Caractère Unicode**|  
 |-|-|-|  
 |\\'|apostrophe (')|U+0027|  
 |\\"|guillemet (")|U+0022|  

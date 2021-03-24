@@ -10,10 +10,10 @@ ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-dotnet
 ms.openlocfilehash: a14503bc56777563b6360143efaa86a136b22278
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93340513"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-request-header-too-large-message"></a>Diagnostiquer et résoudre le message « En-tête de demande trop volumineux » dans Azure Cosmos DB
@@ -49,5 +49,5 @@ La requête incorrecte 400 se produit sur les opérations de requête où le jet
 1. Si le mode de connexion directe avec le protocole TCP n’est pas une option pour votre charge de travail, définissez l’option `ResponseContinuationTokenLimitInKb`. Vous pouvez trouver cette option dans `FeedOptions` pour la version v2 ou dans `QueryRequestOptions` pour la version v3.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Diagnostiquer et résoudre](troubleshoot-dot-net-sdk.md) les problèmes lors de l’utilisation du SDK .NET Azure Cosmos DB.
-* Découvrez les recommandations relatives aux performances pour [.NET v3](performance-tips-dotnet-sdk-v3-sql.md) et [.NET v2](performance-tips.md).
+* [Diagnostiquer et résoudre](troubleshoot-dot-net-sdk.md) des problèmes lors de l’utilisation du kit de développement logiciel (SDK) .NET Azure Cosmos DB.
+* Découvrez les recommandations relatives aux performances pour [.NET V3](performance-tips-dotnet-sdk-v3-sql.md) et [.NET V2](performance-tips.md).

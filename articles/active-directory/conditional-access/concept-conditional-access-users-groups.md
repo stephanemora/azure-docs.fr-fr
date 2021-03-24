@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 08/03/2020
+ms.date: 03/04/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d5671626e05145f79c3ad5fc0ecdb5628ac9421
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 7f316b17096e1241fe23cbf2c965122fd8966522
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102427128"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102630875"
 ---
 # <a name="conditional-access-users-and-groups"></a>Accès conditionnel : Utilisateurs et groupes
 
@@ -38,7 +38,7 @@ Les options suivantes sont disponibles pour l’inclusion lors de la création d
    - Tous les utilisateurs invités et externes
       - Cette sélection inclut tous les invités B2B et les utilisateurs externes, y compris tout utilisateur dont l’attribut `user type` est défini sur `guest`. Cette sélection s’applique également à tout utilisateur externe connecté à partir d’une autre organisation, telle qu’un fournisseur de solutions Cloud (CSP). 
    - Rôles d’annuaire
-      - Permet aux administrateurs de sélectionner des rôles d’annuaire Azure AD spécifiques utilisés pour déterminer l’attribution. Par exemple, les organisations peuvent créer une stratégie plus restrictive sur les utilisateurs qui ont le rôle d’administrateur général.
+      - Permet aux administrateurs de sélectionner des rôles d’annuaire Azure AD intégrés spécifiques utilisés pour déterminer l’attribution des stratégies. Par exemple, les organisations peuvent créer une stratégie plus restrictive sur les utilisateurs qui ont le rôle d’administrateur général. Les autres types de rôles ne sont pas pris en charge, y compris les rôles d’annuaire de portée d’unité administrative et les rôles personnalisés.
    - Utilisateurs et groupes
       - Permet le ciblage d’ensembles spécifiques d’utilisateurs. Par exemple, les organisations peuvent sélectionner un groupe qui contient tous les membres du service RH lorsqu’une application RH est sélectionnée en tant qu’application cloud. Un groupe peut être n’importe quel type de groupe dans Azure AD, y compris les groupes de sécurité et de distribution dynamiques ou affectés. La stratégie sera appliquée aux utilisateurs et groupes imbriqués.
 

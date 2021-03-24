@@ -9,10 +9,10 @@ author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
 ms.openlocfilehash: f55b225e615a3e7a5fbcf56b405054883d3b5413
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98741194"
 ---
 # <a name="common-cloud-service-classic-startup-tasks"></a>Tâches de démarrage courantes pour Cloud Services (classique)
@@ -87,7 +87,7 @@ Les sections pertinentes du fichier [ServiceDefinition.csdef] indiquées ici, av
 Le fichier de commandes *Startup.cmd* utilise *AppCmd.exe* pour ajouter une section de compression et une entrée de compression pour JSON au fichier *Web.config*. Le code **errorlevel** attendu 183 est défini sur zéro à l’aide du programme en ligne de commande VERIFY.EXE. Les codes errorlevel inattendus sont enregistrés dans StartupErrorLog.txt.
 
 ```cmd
-REM   **_ Add a compression section to the Web.config file. _*_
+REM   *** Add a compression section to the Web.config file. ***
 %windir%\system32\inetsrv\appcmd set config /section:urlCompression /doDynamicCompression:True /commit:apphost >> "%TEMP%\StartupLog.txt" 2>&1
 
 REM   ERRORLEVEL 183 occurs when trying to add a section that already exists. This error is expected if this
@@ -102,7 +102,7 @@ IF %ERRORLEVEL% NEQ 0 (
     GOTO ErrorExit
 )
 
-REM   _*_ Add compression for json. _*_
+REM   *** Add compression for json. ***
 %windir%\system32\inetsrv\appcmd set config  -section:system.webServer/httpCompression /+"dynamicTypes.[mimeType='application/json; charset=utf-8',enabled='True']" /commit:apphost >> "%TEMP%\StartupLog.txt" 2>&1
 IF %ERRORLEVEL% EQU 183 VERIFY > NUL
 IF %ERRORLEVEL% NEQ 0 (
@@ -110,10 +110,10 @@ IF %ERRORLEVEL% NEQ 0 (
     GOTO ErrorExit
 )
 
-REM   _*_ Exit batch file. _*_
+REM   *** Exit batch file. ***
 EXIT /b 0
 
-REM   _*_ Log error and exit _*_
+REM   *** Log error and exit ***
 :ErrorExit
 REM   Report the date, time, and ERRORLEVEL of the error.
 DATE /T >> "%TEMP%\StartupLog.txt" 2>&1
@@ -129,7 +129,7 @@ Le second pare-feu contrôle les connexions entre la machine virtuelle et les pr
 
 Azure crée des règles de pare-feu pour les processus démarrés au sein de vos rôles. Par exemple, quand vous démarrez un service ou un programme, Azure crée automatiquement les règles de pare-feu nécessaires pour permettre à ce service de communiquer avec Internet. Toutefois, si vous créez un service qui est démarré par un processus en dehors de votre rôle (par exemple, un service COM+ ou une tâche planifiée Windows), vous devez créer manuellement une règle de pare-feu pour autoriser l’accès à ce service. Ces règles de pare-feu peuvent être créées à l’aide d’une tâche de démarrage.
 
-Une tâche de démarrage qui crée une règle de pare-feu doit avoir [executionContext][Task] défini sur _*elevated**. Ajoutez la tâche de démarrage suivante au fichier [ServiceDefinition.csdef] .
+Une tâche de démarrage qui crée une règle de pare-feu doit avoir [executionContext][tâche] défini sur **elevated**. Ajoutez la tâche de démarrage suivante au fichier [ServiceDefinition.csdef] .
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">

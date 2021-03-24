@@ -9,10 +9,10 @@ ms.custom: subject-armqs
 ms.date: 08/28/2020
 ms.author: victorh
 ms.openlocfilehash: 7966cbe44fc8984cf3c3d9e2d08a11bf599ff158
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89079130"
 ---
 # <a name="quickstart-create-an-azure-firewall-and-ip-groups---arm-template"></a>Démarrage rapide : Créer un pare-feu Azure et des groupes IP - Modèle ARM
@@ -76,7 +76,7 @@ Dans le portail Azure, passez en revue les ressources déployées, en particulie
 
 :::image type="content" source="media/quick-create-ipgroup-template/ipgroups.png" alt-text="Groupes IP.":::
 
-:::image type="content" source="media/quick-create-ipgroup-template/network-rule.png" alt-text="Groupes IP.":::
+:::image type="content" source="media/quick-create-ipgroup-template/network-rule.png" alt-text="Règles de réseau.":::
 
 Pour en savoir plus sur les propriétés et la syntaxe JSON d’un pare-feu dans un modèle, consultez [Informations de référence sur le modèle Microsoft.Network/azureFirewalls](/azure/templates/Microsoft.Network/2019-11-01/azureFirewalls).
 

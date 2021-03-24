@@ -2,15 +2,15 @@
 title: 'Tutoriel : Exporter un modèle JSON à partir du portail Azure pour le développement de code Bicep'
 description: Découvrez comment utiliser un modèle JSON exporté pour procéder au développement de votre code Bicep.
 author: mumian
-ms.date: 03/01/2021
+ms.date: 03/10/2021
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 0cba91a8c021f4baa90d1a4264bf84d3c56930ec
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 3bc7ed4ada4f7810e9864778c7f76a0573c9dc89
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101742837"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102632547"
 ---
 # <a name="tutorial-use-exported-json-template-from-the-azure-portal"></a>Tutoriel : Utiliser un modèle JSON exporté à partir du portail Azure
 
@@ -79,7 +79,7 @@ Actuellement, le portail Azure prend uniquement en charge l’exportation de mod
 
 Le modèle exporté décompilé vous donne la majeure partie du code Bicep dont vous avez besoin, mais vous devez le personnaliser pour votre fichier Bicep. Portez une attention particulière aux différences de paramètres et de variables entre votre fichier Bicep et le fichier Bicep exporté. Bien entendu, le processus d’exportation ignore les paramètres et les variables que vous avez déjà définis dans votre fichier Bicep.
 
-L’exemple suivant met en évidence ce qui a été ajouté à votre fichier Bicep. Il contient le code exporté, ainsi que quelques modifications. Tout d’abord, il modifie le nom du paramètre pour qu’il corresponde à votre convention de nommage. Ensuite, il utilise votre paramètre location pour l’emplacement du plan App Service. Enfin, il supprime certaines propriétés où la valeur par défaut convient.
+L’exemple suivant montre les ajouts à votre fichier Bicep. Il contient le code exporté, ainsi que quelques modifications. Tout d’abord, il modifie le nom du paramètre pour qu’il corresponde à votre convention de nommage. Ensuite, il utilise votre paramètre location pour l’emplacement du plan App Service. Enfin, il supprime certaines propriétés où la valeur par défaut convient.
 
 Copiez l’intégralité du fichier et remplacez votre fichier Bicep par son contenu.
 

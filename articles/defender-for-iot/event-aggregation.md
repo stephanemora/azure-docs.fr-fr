@@ -1,26 +1,16 @@
 ---
-title: Agrégation d’événements classique du module de sécurité
+title: Agrégation classique d’événements Defender-IoT-micro-agent
 description: Découvrez l’agrégation d’événements Defender pour IoT.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: shhazam-ms
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 1/20/2021
-ms.author: shhazam
-ms.openlocfilehash: 0718c2637658e5519760a68f29c7a816b2aa61a1
-ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
+ms.date: 3/23/2021
+ms.openlocfilehash: e6c0f0e6e1f4027716ff8e3ca99f1c8803f33260
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99809216"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104779135"
 ---
-# <a name="security-module-classic-event-aggregation"></a>Agrégation d’événements classique du module de sécurité
+# <a name="defender-iot-micro-agent-classic-event-aggregation"></a>Agrégation classique d’événements Defender-IoT-micro-agent
 
 Les agents de sécurité Defender pour IoT recueillent des données et des événements système à partir de votre appareil local et envoient ces données au cloud Azure à des fins de traitement et d’analytique. L’agent de sécurité collecte de nombreux types d’événements d’appareil, notamment des événements relatifs aux nouveaux processus et aux nouvelles connexions. Des événements relatifs aux nouveaux processus et aux nouvelles connexions peuvent se produire fréquemment sur un appareil en une seconde, et ce, de façon légitime. Même si cette collecte d’événements est essentielle pour une sécurité robuste et complète, le nombre de messages que les agents de sécurité sont obligés d’envoyer peut rapidement atteindre ou dépasser vos limites de coût et votre quota IoT Hub. Toutefois, ces événements contiennent des informations de sécurité très précieuses qui sont essentielles à la protection de votre appareil.
 

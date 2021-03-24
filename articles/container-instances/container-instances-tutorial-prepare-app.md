@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 03/21/2018
 ms.custom: seodec18, mvc, devx-track-js
 ms.openlocfilehash: 1eca34fb5da50b15f15322a3b534556bcd3bda09
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91303112"
 ---
 # <a name="tutorial-create-a-container-image-for-deployment-to-azure-container-instances"></a>Tutoriel : Créer une image conteneur à déployer sur Azure Container Instances
@@ -55,13 +55,13 @@ RUN npm install
 CMD node /usr/src/app/index.js
 ```
 
-Utilisez la commande [docker build][docker-build] pour créer l’image conteneur, et étiquetez-la *aci-tutorial-app* :
+Utilisez la commande [docker build][docker-build] pour créer l’image de conteneur, et balisez-la *aci-tutorial-app* :
 
 ```bash
 docker build ./aci-helloworld -t aci-tutorial-app
 ```
 
-Le résultat de la commande [docker build][docker-build] est similaire à ce qui suit (tronqué pour une meilleure lisibilité) :
+Le résultat de la commande [docker build][docker-build] est similaire à ce qui suit (tronqué pour une meilleure lisibilité) :
 
 ```console
 $ docker build ./aci-helloworld -t aci-tutorial-app
@@ -83,7 +83,7 @@ Successfully built 6edad76d09e9
 Successfully tagged aci-tutorial-app:latest
 ```
 
-Utilisez la commande [docker images][docker-images] pour voir l’image générée :
+Utilisez la commande [docker images][docker-images] pour voir l’image générée :
 
 ```bash
 docker images
@@ -99,7 +99,7 @@ aci-tutorial-app    latest    5c745774dfa9    39 seconds ago    68.1 MB
 
 ## <a name="run-the-container-locally"></a>Exécutez localement le conteneur
 
-Avant de déployer le conteneur dans Azure Container Instances, utilisez [docker run][docker-run] pour l’exécuter localement et vérifiez qu’il fonctionne. Le commutateur `-d` permet l’exécution du conteneur en arrière-plan, tandis que `-p` vous permet de mapper un port arbitraire sur votre ordinateur vers le port 80 du conteneur.
+Avant d’essayer de déployer le conteneur dans Azure Container Instances, exécutez-le localement à l’aide de [docker run][docker-run] et vérifiez qu’il fonctionne. Le commutateur `-d` permet l’exécution du conteneur en arrière-plan, tandis que `-p` vous permet de mapper un port arbitraire sur votre ordinateur vers le port 80 du conteneur.
 
 ```bash
 docker run -d -p 8080:80 aci-tutorial-app
