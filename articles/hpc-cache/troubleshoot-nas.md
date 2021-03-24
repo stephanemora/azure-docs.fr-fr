@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: troubleshooting
 ms.date: 03/18/2020
 ms.author: v-erkel
-ms.openlocfilehash: efa163a2c10a7dc93bf5d26865a0e7eb43f11dea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d2a5ffa337f789c4edc3a34b3be81285337473e2
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87082764"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103471717"
 ---
 # <a name="troubleshoot-nas-configuration-and-nfs-storage-target-issues"></a>Résolution des problèmes de configuration NAS et des cibles de stockage NFS
 
@@ -64,7 +64,7 @@ Le moyen utilisé pour autoriser cet accès varie selon les systèmes de stocka
 Si vous utilisez des règles d’exportation, n’oubliez pas que le cache peut utiliser plusieurs adresses IP différentes du sous-réseau de cache. Autorisez l’accès à partir de toute la plage des adresses IP de sous-réseau possibles.
 
 > [!NOTE]
-> Par défaut, Azure HPC cache écrase l’accès racine. Pour plus d’informations, consultez [Configurer des paramètres de cache supplémentaires](configuration.md#configure-root-squash).
+> Bien que le cache ait besoin d’un accès racine au système de stockage principal, vous pouvez restreindre l’accès pour les clients qui se connectent via le cache. Pour plus d’informations, consultez la page sur le [contrôle de l’accès client](access-policies.md#root-squash).
 
 Avec votre fournisseur de stockage NAS, activez le niveau d’accès approprié pour le cache.
 

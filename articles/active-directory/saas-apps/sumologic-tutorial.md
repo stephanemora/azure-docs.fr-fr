@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/03/2020
 ms.author: jeedes
 ms.openlocfilehash: 2dcc52688cabebaa6eb813e3240150ea8774e716
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92521892"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sumologic"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory avec SumoLogic
@@ -47,9 +47,9 @@ Pour configurer l’intégration de SumoLogic dans Azure AD, vous devez ajouter 
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
 1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory**.
-1. Accédez à **Applications d’entreprise** , puis sélectionnez **Toutes les applications**.
+1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
 1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
-1. Dans la section **Ajouter à partir de la galerie** , tapez **SumoLogic** dans la zone de recherche.
+1. Dans la section **Ajouter à partir de la galerie**, tapez **SumoLogic** dans la zone de recherche.
 1. Sélectionnez **SumoLogic** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-sumologic"></a>Configurer et tester l’authentification unique Azure AD pour SumoLogic
@@ -69,15 +69,15 @@ Pour configurer et tester l’authentification unique Azure AD avec SumoLogic, 
 
 Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
-1. Dans le [Portail Azure](https://portal.azure.com/), accédez à la page d’intégration de l’application **SumoLogic** , recherchez la section **Gérer** et sélectionnez **Authentification unique**.
-1. Dans la page **Sélectionner une méthode d’authentification unique** , sélectionnez **SAML**.
-1. Dans la page **Configurer l’authentification unique avec SAML** , cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
+1. Dans le [Portail Azure](https://portal.azure.com/), accédez à la page d’intégration de l’application **SumoLogic**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
+1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-1. Dans la page **Configurer l’authentification unique avec SAML** , entrez les valeurs pour les champs suivants :
+1. Dans la page **Configurer l’authentification unique avec SAML**, entrez les valeurs pour les champs suivants :
 
-    a. Dans la zone de texte **Identificateur** , tapez une URL au format suivant :
+    a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant :
 
     - `https://service.sumologic.com`
     - `https://<tenantname>.us2.sumologic.com`
@@ -87,7 +87,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     - `https://<tenantname>.de.sumologic.com`
     - `https://<tenantname>.ca.sumologic.com`
 
-    b. Dans la zone de texte **URL de réponse** , tapez une URL au format suivant :
+    b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant :
 
     - `https://service.sumologic.com/sumo/saml/consume/<tenantname>`
     - `https://service.us2.sumologic.com/sumo/saml/consume/<tenantname>`
@@ -116,11 +116,11 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     > [!NOTE]
     > Cliquez [ici](../develop/active-directory-enterprise-app-role-management.md) pour savoir comment configurer un **rôle** dans Azure AD.
 
-1. Dans la page **Configurer l’authentification unique avec SAML** , dans la section **Certificat de signature SAML** , recherchez **Certificat (en base64)** , puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
+1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **Certificat (en base64)** , puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/certificatebase64.png)
 
-1. Dans la section **SumoLogic** , copiez la ou les URL appropriées en fonction de vos besoins.
+1. Dans la section **SumoLogic**, copiez la ou les URL appropriées en fonction de vos besoins.
 
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
 
@@ -128,31 +128,31 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 Dans cette section, vous allez créer un utilisateur de test appelé B. Simon dans le portail Azure.
 
-1. Dans le volet gauche du Portail Azure, sélectionnez **Azure Active Directory** , **Utilisateurs** , puis **Tous les utilisateurs**.
+1. Dans le volet gauche du Portail Azure, sélectionnez **Azure Active Directory**, **Utilisateurs**, puis **Tous les utilisateurs**.
 1. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
-1. Dans les propriétés **Utilisateur** , effectuez les étapes suivantes :
-   1. Dans le champ **Nom** , entrez `B.Simon`.  
-   1. Dans le champ **Nom de l’utilisateur** , entrez username@companydomain.extension. Par exemple : `B.Simon@contoso.com`.
-   1. Cochez la case **Afficher le mot de passe** , puis notez la valeur affichée dans le champ **Mot de passe**.
+1. Dans les propriétés **Utilisateur**, effectuez les étapes suivantes :
+   1. Dans le champ **Nom**, entrez `B.Simon`.  
+   1. Dans le champ **Nom de l’utilisateur**, entrez username@companydomain.extension. Par exemple : `B.Simon@contoso.com`.
+   1. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
    1. Cliquez sur **Créer**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
 Dans cette section, vous allez autoriser B.Simon à utiliser l’authentification unique Azure en lui accordant l’accès à SumoLogic.
 
-1. Dans le portail Azure, sélectionnez **Applications d’entreprise** , puis **Toutes les applications**.
+1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 1. Dans la liste des applications, sélectionnez **SumoLogic**.
 1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
 
    ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
 
-1. Sélectionnez **Ajouter un utilisateur** , puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
+1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
 
     ![Lien Ajouter un utilisateur](common/add-assign-user.png)
 
-1. Dans la boîte de dialogue **Utilisateurs et groupes** , sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
-1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle** , sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
-1. Dans la boîte de dialogue **Ajouter une attribution** , cliquez sur le bouton **Attribuer**.
+1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
+1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
 ## <a name="configure-sumologic-sso"></a>Configurer l’authentification unique SumoLogic
 
@@ -166,7 +166,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
     ![Paramètres de sécurité globaux](./media/sumologic-tutorial/ic778557.png "Paramètres de sécurité globaux")
 
-1. Dans la liste **Select a configuration or create a new one** , sélectionnez **Azure AD** , puis cliquez sur **Configure**.
+1. Dans la liste **Select a configuration or create a new one**, sélectionnez **Azure AD**, puis cliquez sur **Configure**.
 
     ![Capture d’écran montrant Configure SAML 2.0 où vous pouvez sélectionner Azure AD.](./media/sumologic-tutorial/ic778558.png "Configure SAML 2.0")
 
@@ -174,21 +174,21 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
     ![Capture d’écran montrant la boîte de dialogue Configure SAML 2.0 où vous pouvez entrer les valeurs décrites.](./media/sumologic-tutorial/ic778559.png "Configure SAML 2.0")
 
-    a. Dans la zone de texte **Configuration Name** , entrez **Azure AD**.
+    a. Dans la zone de texte **Configuration Name**, entrez **Azure AD**.
 
     b. Sélectionnez **Debug Mode**.
 
-    c. Dans la zone de texte **Issuer** (Émetteur), collez la valeur **Identificateur Azure AD** , que vous avez copiée à partir du portail Azure.
+    c. Dans la zone de texte **Issuer** (Émetteur), collez la valeur **Identificateur Azure AD**, que vous avez copiée à partir du portail Azure.
 
     d. Dans la zone de texte **Authn Request URL** (URL de la requête d’authentification), collez la valeur **URL de connexion** que vous avez copiée à partir du portail Azure.
 
     e. Ouvrez votre certificat codé en base 64 dans le bloc-notes, copiez son contenu dans le Presse-papiers et collez-le dans la zone de texte **X.509 Certificate** .
 
-    f. Dans **Email Attribute** , sélectionnez **Use SAML subject**.  
+    f. Dans **Email Attribute**, sélectionnez **Use SAML subject**.  
 
     g. Sélectionnez **SP initiated Login Configuration**.
 
-    h. Dans la zone de texte **Login Path** (Chemin d’accès de connexion), entrez **Azure** , puis cliquez sur **Save** (Enregistrer).
+    h. Dans la zone de texte **Login Path** (Chemin d’accès de connexion), entrez **Azure**, puis cliquez sur **Save** (Enregistrer).
 
 ### <a name="create-sumologic-test-user"></a>Créer un utilisateur de test SumoLogic
 
@@ -210,7 +210,7 @@ Pour se connecter à SumoLogic, les utilisateurs Azure AD doivent être provisio
 
     ![Nouvel utilisateur](./media/sumologic-tutorial/ic778563.png "Nouvel utilisateur")
 
-    a. Indiquez dans les zones de texte **First Name** , **Last Name** et **Email** le prénom, le nom et l’adresse e-mail du compte Azure AD valide que vous souhaitez approvisionner.
+    a. Indiquez dans les zones de texte **First Name**, **Last Name** et **Email** le prénom, le nom et l’adresse e-mail du compte Azure AD valide que vous souhaitez approvisionner.
   
     b. Sélectionnez un rôle
   

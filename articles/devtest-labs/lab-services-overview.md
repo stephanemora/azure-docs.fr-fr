@@ -4,10 +4,10 @@ description: Comparez Azure DevTest Labs et Azure Lab Services.
 ms.topic: overview
 ms.date: 06/26/2020
 ms.openlocfilehash: b1cd476faf6c457033ffeace03cd2e37b51e8578
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85480080"
 ---
 # <a name="compare-azure-devtest-labs-and-azure-lab-services"></a>Comparer Azure DevTest Labs et Azure Lab Services
@@ -66,9 +66,9 @@ Les sections suivantes décrivent plus en détail ces laboratoires.
 ## <a name="managed-lab-types"></a>Types de laboratoires gérés
 Azure Lab Services vous permet de créer des laboratoires dont l’infrastructure est gérée par Azure. Dans cet article, ces labos sont appelés types de labos managés. Les types de labos managés se déclinent en différents types adaptés à différents besoins. Actuellement, le seul type de labo managé pris en charge est le **labo de salle de classe**. 
 
-Les types de labos managés permettent de commencer sans délai, avec une procédure d’installation minimale. Le service gère lui-même toute l’infrastructure du laboratoire, du lancement des machines virtuelles à la gestion des erreurs, en passant par la mise à l’échelle de cette infrastructure. Pour créer un type de labo managé, par exemple un labo de salle de classe, commencez par créer un compte Lab pour votre organisation. Il sert de compte central, dans lequel sont gérés tous les laboratoires de l’entreprise. 
+Les types de labos managés permettent de commencer sans délai, avec une procédure d’installation minimale. Le service gère lui-même toute l’infrastructure du laboratoire, du lancement des machines virtuelles à la gestion des erreurs, en passant par la mise à l’échelle de cette infrastructure.  Pour créer un type de labo managé, par exemple un labo de salle de classe, commencez par créer un compte Lab pour votre organisation. Il sert de compte central, dans lequel sont gérés tous les laboratoires de l’entreprise. 
 
-Lorsque vous créez et utilisez des ressources Azure dans ces types de labos managés, le service crée et gère les ressources dans des abonnements Microsoft internes, et non dans votre propre abonnement Azure. Le service effectue le suivi de l’utilisation de ces ressources dans des abonnements Microsoft internes, utilisation qui est refacturée à votre abonnement Azure associé au compte Lab.   
+Lorsque vous créez et utilisez des ressources Azure dans ces types de labos managés, le service crée et gère les ressources dans des abonnements Microsoft internes, et non dans votre propre abonnement Azure. Le service effectue le suivi de l’utilisation de ces ressources dans des abonnements Microsoft internes, utilisation qui est refacturée à votre abonnement Azure associé au compte Lab.   
 
 Voici quelques **cas d’usage des types de labos managés** : 
 
@@ -79,7 +79,7 @@ Voici quelques **cas d’usage des types de labos managés** :
 
 
 ## <a name="devtest-labs"></a>DevTest Labs
-Certains cas de figure impliquent de gérer soi-même toute l’infrastructure et toute la configuration dans son propre abonnement. Pour cela, vous pouvez créer un laboratoire avec Azure DevTest Labs sur le Portail Azure. Il n’est pas nécessaire dans ce cas de créer un compte Lab. Ces labos n’apparaissent pas dans le compte Lab (qui sert aux types de labos managés).  
+Certains cas de figure impliquent de gérer soi-même toute l’infrastructure et toute la configuration dans son propre abonnement. Pour cela, vous pouvez créer un laboratoire avec Azure DevTest Labs sur le Portail Azure.  Il n’est pas nécessaire dans ce cas de créer un compte Lab. Ces labos n’apparaissent pas dans le compte Lab (qui sert aux types de labos managés).  
 
 Voici quelques **cas d’usage des laboratoires DevTest** : 
 
@@ -96,10 +96,10 @@ Le tableau suivant compare les deux types de laboratoires pris en charge par Azu
 
 | Fonctionnalités | Types de laboratoires gérés | DevTest Labs |
 | -------- | ----------------- | ---------- |
-| Gestion de l’infrastructure Azure dans le laboratoire |  Gérée automatiquement par le service. | Gérée par vos soins.  |
-| Résilience intégrée en cas de problèmes d’infrastructure | Gérée automatiquement par le service. | Gérée par vos soins.  |
+| Gestion de l’infrastructure Azure dans le laboratoire |  Gérée automatiquement par le service. | Gérée par vos soins.  |
+| Résilience intégrée en cas de problèmes d’infrastructure | Gérée automatiquement par le service. | Gérée par vos soins.  |
 | Gestion des abonnements | Le service gère l’allocation des ressources au sein des abonnements Microsoft sur lesquels il repose. La mise à l’échelle est gérée automatiquement par le service. | Gérée par vos soins dans votre propre abonnement Azure. Aucune mise à l’échelle automatique des abonnements. |
-| Déploiement Azure Resource Manager au sein du laboratoire | Non disponible | Disponible |
+| Déploiement Azure Resource Manager au sein du laboratoire | Non disponible | Disponible |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

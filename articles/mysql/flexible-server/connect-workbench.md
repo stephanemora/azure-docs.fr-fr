@@ -8,10 +8,10 @@ ms.custom: mvc
 ms.topic: quickstart
 ms.date: 9/21/2020
 ms.openlocfilehash: d604ca8c8979ec98b990f8002ce29d0df92ac2af
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90945067"
 ---
 # <a name="quickstart-use-mysql-workbench-to-connect-and-query-data-in-azure-database-for-mysql---flexible-server-preview"></a>Démarrage rapide : Utiliser MySQL Workbench pour se connecter et interroger des données dans Azure Database pour MySQL - Serveur flexible (préversion)
@@ -53,7 +53,7 @@ Pour se connecter au serveur flexible Azure Database pour MySQL à l’aide de M
 
 2. Dans la boîte de dialogue **Configurer une nouvelle connexion**, entrez les informations suivantes dans l’onglet **Paramètres** :
 
-    :::image type="content" source="./media/connect-workbench/2-setup-new-connection.png" alt-text="Azure Database for MySQL Flexible Server name":::
+    :::image type="content" source="./media/connect-workbench/2-setup-new-connection.png" alt-text="configurer une nouvelle connexion":::
 
     | **Paramètres** | **Valeur suggérée** | **Description du champ** |
     |---|---|---|
@@ -108,9 +108,9 @@ Pour se connecter au serveur flexible Azure Database pour MySQL à l’aide de M
 
     La capture d’écran montre un exemple de code SQL dans SQL Workbench et la sortie obtenue après son exécution.
 
-    :::image type="content" source="./media/connect-workbench/3-workbench-sql-tab.png" alt-text="Azure Database for MySQL Flexible Server name":::
+    :::image type="content" source="./media/connect-workbench/3-workbench-sql-tab.png" alt-text="Onglet Workbench MySQL de SQL pour exécuter l’exemple de code SQL":::
 
-2. Pour exécuter l’exemple de Code SQL, cliquez sur l’icône d’éclair dans la barre d’outils de l’onglet**Fichier SQL**.
+2. Pour exécuter l’exemple de Code SQL, cliquez sur l’icône d’éclair dans la barre d’outils de l’onglet **Fichier SQL**.
 3. Vous observerez trois onglets de résultats dans la section **Grille de résultats** au milieu de la page.
 4. La liste **Sortie** apparaît en bas de la page. L’état de chaque commande s’affiche.
 
@@ -119,5 +119,5 @@ Vous êtes à présent connecté au serveur flexible Azure Database pour MySQL �
 ## <a name="next-steps"></a>Étapes suivantes
 - [Connectivité chiffrée à l'aide du protocole TLS (Transport Layer Security) 1.2 dans Azure Database pour MySQL - Serveur flexible](./how-to-connect-tls-ssl.md)
 - En savoir plus sur la [Mise en réseau dans Azure Database pour MySQL - Serveur flexible](./concepts-networking.md)
-- [Créer et gérer des règles de pare-feu Azure Database pour MySQL - Serveur flexible à l'aide du portail Azure](./how-to-manage-firewall-portal.md)
+- [Créer et gérer des règles de pare-feu de serveur flexible Azure Database pour MySQL à l’aide du portail Azure](./how-to-manage-firewall-portal.md).
 - [Créer et gérer un réseau virtuel Azure Database pour MySQL - Serveur flexible à l'aide du portail Azure](./how-to-manage-virtual-network-portal.md)

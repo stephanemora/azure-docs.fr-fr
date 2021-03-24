@@ -6,15 +6,15 @@ ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
 ms.openlocfilehash: a25658677e436edf4d001599bb4981f527016596
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84697440"
 ---
 # <a name="azure-functions-http-output-bindings"></a>Liaisons de sortie HTTP Azure Functions
 
-Utilisez la liaison de sortie HTTP pour répondre à l’expéditeur de la demande HTTP. Cette liaison requiert un déclencheur HTTP, et vous permet de personnaliser la réponse associée à la demande du déclencheur.
+Utilisez la liaison de sortie HTTP pour répondre à l’expéditeur de la demande HTTP. Cette liaison nécessite un déclencheur HTTP et vous permet de personnaliser la réponse associée à la requête du déclencheur.
 
 La valeur de retour par défaut pour une fonction déclenchée par HTTP est :
 
@@ -31,7 +31,7 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 | **direction** | Cette propriété doit être définie sur `out`. |
 | **name** | Nom de variable utilisé dans le code de fonction pour la réponse, ou `$return` pour utiliser la valeur renvoyée. |
 
-## <a name="usage"></a>Usage
+## <a name="usage"></a>Utilisation
 
 Pour envoyer une réponse HTTP, utilisez les modèles de réponse standard du langage. Dans un script C# ou C#, choisissez le type de retour de fonction `IActionResult` ou `Task<IActionResult>`. En C#, aucun attribut de valeur renvoyée n’est requis.
 

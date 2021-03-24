@@ -4,10 +4,10 @@ description: Cet article fournit des informations sur l’authentification d’u
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: c4e19c0ab26d491ba0b95159e274383431aefaee
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92518226"
 ---
 # <a name="authenticate-and-authorize-an-application-with-azure-active-directory-to-access-azure-service-bus-entities"></a>Authentifier et autoriser une application avec Azure Active Directory pour accéder aux entités Azure Service Bus
@@ -43,10 +43,10 @@ Avant d’attribuer un rôle Azure à un principal de sécurité, déterminez l�
 
 La liste suivante décrit les niveaux auxquels vous pouvez étendre l’accès aux ressources Service Bus, en commençant par la plus petite étendue :
 
-- **File d’attente** , **rubrique** ou **abonnement**  : l’attribution de rôle s’applique à l’entité Service Bus spécifique. Actuellement, le Portail Azure ne prend pas en charge l’affectation d’utilisateurs, de groupes ou d’identités managées aux rôles Azure Service Bus au niveau de l’abonnement. 
-- **Espace de noms Service Bus**  : l’attribution de rôle s’étend à toute la topologie de Service Bus sous l’espace de noms et au groupe de consommateurs qui lui est associé.
-- **Groupe de ressources**  : l’attribution de rôle s’applique à toutes les ressources Service Bus sous le groupe de ressources.
-- **Abonnement** : l’attribution de rôle s’applique à toutes les ressources Service Bus dans tous les groupes de ressources de l’abonnement.
+- **File d’attente**, **rubrique** ou **abonnement** : l’attribution de rôle s’applique à l’entité Service Bus spécifique. Actuellement, le Portail Azure ne prend pas en charge l’affectation d’utilisateurs, de groupes ou d’identités managées aux rôles Azure Service Bus au niveau de l’abonnement. 
+- **Espace de noms Service Bus** : l’attribution de rôle s’étend à toute la topologie de Service Bus sous l’espace de noms et au groupe de consommateurs qui lui est associé.
+- **Groupe de ressources** : l’attribution de rôle s’applique à toutes les ressources Service Bus sous le groupe de ressources.
+- **Abonnement**: l’attribution de rôle s’applique à toutes les ressources Service Bus dans tous les groupes de ressources de l’abonnement.
 
 > [!NOTE]
 > Gardez à l’esprit que la propagation des attributions de rôles Azure peut prendre cinq minutes. 
@@ -68,7 +68,7 @@ Après avoir déterminé l’étendue appropriée pour une attribution de rôle,
 1. Sélectionnez l’onglet **Attributions de rôles** pour afficher la liste des attributions de rôles. Sélectionnez le bouton **Ajouter** dans la barre d’outils, puis sélectionnez **Ajouter une attribution de rôle**. 
 
     ![Ajouter un bouton à la barre d’outils](./media/authenticate-application/role-assignments-add-button.png)
-1. Sur la page **Ajouter une attribution de rôle** , procédez comme suit :
+1. Sur la page **Ajouter une attribution de rôle**, procédez comme suit :
     1. Sélectionnez le **rôle Service Bus** que vous souhaitez attribuer. 
     1. Recherchez le **principal de sécurité** (utilisateur, groupe, principal de service) auquel vous souhaitez attribuer le rôle.
     1. Sélectionnez **Enregistrer** pour enregistrer l’attribution de rôle. 
@@ -105,14 +105,14 @@ Une fois votre application inscrite, **l’ID (client) d’application** se trou
 Pour plus d’informations sur l’inscription d’une application dans Azure AD, consultez [Intégration d’applications à Azure Active Directory](../active-directory/develop/quickstart-register-app.md).
 
 > [!IMPORTANT]
-> Notez les valeurs de **TenantId** et **ApplicationId** , car vous en aurez besoin pour exécuter l’application.
+> Notez les valeurs de **TenantId** et **ApplicationId**, car vous en aurez besoin pour exécuter l’application.
 
 ### <a name="create-a-client-secret"></a>Créer une clé secrète client   
 L’application a besoin d’une clé secrète client pour prouver son identité lors de la requête de jeton. Pour ajouter le secret client, effectuez ces étapes.
 
 1. Accédez à la page d’inscription de votre application dans le portail Azure si vous n’y êtes pas déjà.
 1. Dans le menu de gauche, sélectionnez **Certificats et secrets**.
-1. Sous **Secrets client** , sélectionnez **Nouveau secret client** pour créer un secret.
+1. Sous **Secrets client**, sélectionnez **Nouveau secret client** pour créer un secret.
 
     ![Nouveau secret client (bouton)](./media/authenticate-application/new-client-secret-button.png)
 1. Entrez une description pour le secret, choisissez un intervalle d’expiration, puis sélectionnez **Ajouter**.
@@ -133,7 +133,7 @@ Pour obtenir la liste de scénarios pour lesquels l’acquisition de jetons est 
 ## <a name="sample-on-github"></a>Exemple sur GitHub
 Consultez l’exemple suivant sur GitHub : [Contrôle d'accès en fonction du rôle Azure pour Service Bus](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/RoleBasedAccessControl). 
 
-Utilisez l’option de **connexion avec le secret client** , et non l’option de **connexion de l’utilisateur interactif**. Si vous utilisez l’option du secret client, vous ne voyez pas de fenêtre indépendante s’afficher. L’application utilise l’ID de locataire et l’ID d’application pour l’authentification. 
+Utilisez l’option de **connexion avec le secret client**, et non l’option de **connexion de l’utilisateur interactif**. Si vous utilisez l’option du secret client, vous ne voyez pas de fenêtre indépendante s’afficher. L’application utilise l’ID de locataire et l’ID d’application pour l’authentification. 
 
 ### <a name="run-the-sample"></a>Exécution de l'exemple
 

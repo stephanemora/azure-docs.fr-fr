@@ -12,14 +12,16 @@ ms.custom:
 - amqp
 - mqtt
 - devx-track-js
-ms.openlocfilehash: 44fe128658b90d2327f17f22b2a33aaa1d4da1fc
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: dc2d2d3e92435c7a028b43a095f456c2c383ecb4
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102046123"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103199634"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>Connecter un appareil en aval à une passerelle Azure IoT Edge
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Cet article explique comment établir une connexion approuvée entre des appareils en aval et des passerelles transparentes IoT Edge. Dans un scénario de passerelle transparente, un ou plusieurs appareils peuvent transmettre leurs messages via un appareil de passerelle qui gère la connexion à IoT Hub.
 
@@ -44,7 +46,19 @@ Dans cet article, les termes *passerelle* et *passerelle IoT Edge* font référe
 
 ## <a name="prepare-a-downstream-device"></a>Préparer un appareil en aval
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 Un appareil en aval est une application ou une plateforme dont l’identité a été créée avec le service cloud Azure IoT Hub. Dans de nombreux cas, ces applications utilisent [Azure IoT device SDK](../iot-hub/iot-hub-devguide-sdks.md). Un appareil en aval peut même être une application fonctionnant sur l’appareil de passerelle IoT Edge proprement dit. Toutefois, un autre appareil IoT Edge ne peut pas se trouver en aval d’une passerelle IoT Edge.
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+Un appareil en aval est une application ou une plateforme dont l’identité a été créée avec le service cloud Azure IoT Hub. Dans de nombreux cas, ces applications utilisent [Azure IoT device SDK](../iot-hub/iot-hub-devguide-sdks.md). Un appareil en aval peut même être une application fonctionnant sur l’appareil de passerelle IoT Edge proprement dit.
+
+Cet article explique comment connecter un appareil IoT en tant qu’appareil en aval. Si votre appareil en aval est un appareil IoT Edge, consultez [Connexion d’un appareil IoT Edge en aval à une passerelle Azure IoT Edge](how-to-connect-downstream-iot-edge-device.md).
+:::moniker-end
+<!-- end 1.2 -->
 
 >[!NOTE]
 >Les appareils IoT inscrits auprès d'IoT Hub peuvent utiliser des [jumeaux de module](../iot-hub/iot-hub-devguide-module-twins.md) pour isoler des processus, matériels ou fonctions différents sur un même appareil. Les passerelles IoT Edge prennent en charge les connexions de modules en aval à l’aide de l’authentification par clé symétrique, mais pas à l’aide de l’authentification par certificat X.509.

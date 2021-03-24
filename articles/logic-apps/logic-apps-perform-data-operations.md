@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 09/20/2019
 ms.openlocfilehash: baa6e5732221d120ff71217a3a86a942794c53f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84710369"
 ---
 # <a name="perform-data-operations-in-azure-logic-apps"></a>Effectuer des opérations sur les données dans Azure Logic Apps
@@ -76,7 +76,7 @@ et crée cette sortie :
 
 `{"age":35,"fullName":"Owens,Sophie"}`
 
-Par exemple, procédez comme suit à l’aide du Concepteur d’application logique. Ou, si vous préférez travailler dans l’éditeur en mode Code, vous pouvez copier les exemples des définitions d’actions **Composer** et **Initialiser la variable** de cet article dans la définition de workflow sous-jacente de votre propre application logique : [Exemples de code pour des opérations de données - Composer](../logic-apps/logic-apps-data-operations-code-samples.md#compose-action-example) 
+Par exemple, procédez comme suit à l’aide du Concepteur d’application logique. Ou, si vous préférez travailler dans l’éditeur en mode Code, vous pouvez copier les exemples de définitions d’action **Composer** et **Initialiser la variable** de cet article dans la définition de flux de travail sous-jacente de votre propre application logique : [Exemples de codes d’opération sur les données - Composer](../logic-apps/logic-apps-data-operations-code-samples.md#compose-action-example) 
 
 1. Dans le [portail Azure](https://portal.azure.com) ou dans Visual Studio, ouvrez votre application logique dans le Concepteur d’application logique.
 
@@ -134,7 +134,7 @@ Pour vérifier si l’action **Composer** produit les résultats attendus, envoy
 
 Pour créer une table de valeurs séparées par des virgules (CSV) avec les propriétés et valeurs d’objets JSON (JavaScript Objet Notation) dans un tableau, utilisez l’action **Créer une table CSV**. Vous pouvez ensuite utiliser la table résultante dans les actions qui suivent l’action **Créer une table CSV**.
 
-Si vous préférez travailler dans l’éditeur en mode Code, vous pouvez copier les exemples des définitions d’actions **Créer une table CSV** et **Initialiser la variable** de cet article dans la définition de workflow sous-jacente de votre propre application logique : [Exemples de code pour des opérations de données - Créer une table CSV](../logic-apps/logic-apps-data-operations-code-samples.md#create-csv-table-action-example)
+Si vous préférez travailler dans l’éditeur en mode Code, vous pouvez copier les exemples de définitions d’action **Créer une table CSV** et **Initialiser la variable** de cet article dans la définition de flux de travail sous-jacente de votre propre application logique : [Exemples de codes d’opération sur les données - Créer une table CSV](../logic-apps/logic-apps-data-operations-code-samples.md#create-csv-table-action-example)
 
 1. Dans le [portail Azure](https://portal.azure.com) ou dans Visual Studio, ouvrez votre application logique dans le Concepteur d’application logique.
 
@@ -285,7 +285,7 @@ Pour vérifier si l’action **Créer une table CSV** produit les résultats att
 
 Pour créer une table HTML avec les propriétés et valeurs d’objets JSON dans un tableau, utilisez l’action **Créer une table HTML**. Vous pouvez ensuite utiliser la table résultante dans les actions qui suivent l’action **Créer une table HTML**.
 
-Si vous préférez travailler dans l’éditeur en mode Code, vous pouvez copier les exemples des définitions d’actions **Créer une table HTML** et **Initialiser la variable** de cet article dans la définition de workflow sous-jacente de votre propre application logique : [Exemples de code pour des opérations de données - Créer une table HTML](../logic-apps/logic-apps-data-operations-code-samples.md#create-html-table-action-example) 
+Si vous préférez travailler dans l’éditeur en mode Code, vous pouvez copier les exemples de définitions d’action **Créer une table HTML** et **Initialiser la variable** de cet article dans la définition de flux de travail sous-jacente de votre propre application logique : [Exemples de codes d’opération sur les données - Créer une table HTML](../logic-apps/logic-apps-data-operations-code-samples.md#create-html-table-action-example) 
 
 1. Dans le [portail Azure](https://portal.azure.com) ou dans Visual Studio, ouvrez votre application logique dans le Concepteur d’application logique.
 
@@ -447,7 +447,7 @@ Pour créer un tableau plus petit qui contient les éléments correspondant à d
 > Si vous appelez un point de terminaison HTTP et recevez une réponse JSON, utilisez l’action **Analyser JSON** pour traiter la réponse JSON. 
 > Sinon, l’action **Filtrer le tableau** ne peut lire que le corps de la réponse et non la structure de la charge utile JSON.
 
-Si vous préférez travailler dans l’éditeur en mode Code, vous pouvez copier les exemples des définitions d’actions **Filtrer le tableau** et **Initialiser la variable** de cet article dans la définition de workflow sous-jacente de votre propre application logique : [Exemples de code pour des opérations de données - Filtrer le tableau](../logic-apps/logic-apps-data-operations-code-samples.md#filter-array-action-example)
+Si vous préférez travailler dans l’éditeur en mode Code, vous pouvez copier les exemples de définitions d’action **Filtrer le tableau** et **Initialiser la variable** de cet article dans la définition de flux de travail sous-jacente de votre propre application logique : [Exemples de codes d’opération sur les données - Filtrer le tableau](../logic-apps/logic-apps-data-operations-code-samples.md#filter-array-action-example)
 
 1. Dans le [portail Azure](https://portal.azure.com) ou dans Visual Studio, ouvrez votre application logique dans le Concepteur d’application logique.
 
@@ -512,7 +512,7 @@ Pour vérifier si l’action **Filtrer le tableau** produit les résultats atten
 
 Pour créer une chaîne contenant tous les éléments d’un tableau et séparer ces éléments à l’aide d’un caractère délimiteur spécifique, utilisez l’action **Joindre**. Vous pouvez ensuite utiliser la chaîne dans les actions qui suivent l’action **Joindre**.
 
-Si vous préférez travailler dans l’éditeur en mode Code, vous pouvez copier les exemples des définitions d’actions **Joindre** et **Initialiser la variable** de cet article dans la définition de workflow sous-jacente de votre propre application logique : [Exemples de code pour des opérations de données - Joindre](../logic-apps/logic-apps-data-operations-code-samples.md#join-action-example)
+Si vous préférez travailler dans l’éditeur en mode Code, vous pouvez copier les exemples de définitions d’action **Joindre** et **Initialiser la variable** de cet article dans la définition de flux de travail sous-jacente de votre propre application logique : [Exemples de codes d’opération sur les données - Joindre](../logic-apps/logic-apps-data-operations-code-samples.md#join-action-example)
 
 1. Dans le [portail Azure](https://portal.azure.com) ou dans Visual Studio, ouvrez votre application logique dans le Concepteur d’application logique.
 
@@ -528,7 +528,7 @@ Si vous préférez travailler dans l’éditeur en mode Code, vous pouvez copier
 
    * Pour ajouter une action entre des étapes, positionnez la souris sur la flèche de connexion de façon à ce que le signe plus ( **+** ) s’affiche. Sélectionnez le signe plus, puis sélectionnez **Ajouter une action**.
 
-1. Dans la zone de recherche, entrez `join` en guise de filtre. Dans la liste des actions, sélectionnez cette action : **Join**
+1. Dans la zone de recherche, entrez `join` en guise de filtre. Dans la liste des actions, sélectionnez cette action : **Joindre**
 
    ![Sélectionner l’action « Joindre »](./media/logic-apps-perform-data-operations/select-join-operation-action.png)
 
@@ -572,7 +572,7 @@ Pour vérifier si l’action **Joindre** produit les résultats attendus, envoye
 
 Pour référencer ou utiliser les propriétés dans le contenu JSON, vous pouvez créer des champs ou des jetons conviviaux pour ces propriétés à l’aide de l’action **Analyser JSON**. De cette façon, vous pouvez sélectionner ces propriétés dans la liste de contenu dynamique lorsque vous spécifiez des entrées pour votre application logique. Pour cette action, vous pouvez fournir un schéma JSON ou générer un schéma JSON à partir de votre exemple de contenu JSON ou de charge utile.
 
-Si vous préférez travailler dans l’éditeur en mode Code, vous pouvez copier les exemples des définitions d’actions **Analyser JSON** et **Initialiser la variable** de cet article dans la définition de workflow sous-jacente de votre propre application logique : [Exemples de code pour des opérations de données - Analyser JSON](../logic-apps/logic-apps-data-operations-code-samples.md#parse-json-action-example)
+Si vous préférez travailler dans l’éditeur en mode Code, vous pouvez copier les exemples de définitions d’action **Analyser JSON** et **Initialiser la variable** de cet article dans la définition de flux de travail sous-jacente de votre propre application logique : [Exemples de codes d’opération sur les données - Analyser JSON](../logic-apps/logic-apps-data-operations-code-samples.md#parse-json-action-example)
 
 1. Dans le [portail Azure](https://portal.azure.com) ou dans Visual Studio, ouvrez votre application logique dans le Concepteur d’application logique.
 
@@ -647,7 +647,7 @@ Pour créer un tableau contenant les objets JSON générés à partir des valeur
 > [!NOTE]
 > Pour que les actions utilisent la sortie du tableau générée par l’action **Sélectionner**, ces actions doivent accepter des tableaux en tant qu’entrée, ou vous devrez éventuellement convertir le tableau de sortie dans un autre format compatible. 
 
-Si vous préférez travailler dans l’éditeur en mode Code, vous pouvez copier les exemples des définitions d’actions **Sélectionner** et **Initialiser la variable** de cet article dans la définition de workflow sous-jacente de votre propre application logique : [Exemples de code pour des opérations de données - Sélectionner](../logic-apps/logic-apps-data-operations-code-samples.md#select-action-example) 
+Si vous préférez travailler dans l’éditeur en mode Code, vous pouvez copier les exemples de définitions d’action **Sélectionner** et **Initialiser la variable** de cet article dans la définition de flux de travail sous-jacente de votre propre application logique : [Exemples de codes d’opération sur les données - Sélectionner](../logic-apps/logic-apps-data-operations-code-samples.md#select-action-example) 
 
 1. Dans le [portail Azure](https://portal.azure.com) ou dans Visual Studio, ouvrez votre application logique dans le Concepteur d’application logique.
 

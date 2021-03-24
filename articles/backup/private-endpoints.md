@@ -3,12 +3,12 @@ title: Points de terminaison privés
 description: Apprenez à créer des points de terminaison privés pour le service Sauvegarde Azure et découvrez les scénarios où l’utilisation des points de terminaison privés contribue à maintenir la sécurité de vos ressources.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: 9363aaf45a7c092d8a773a07803c8c1bce1eedd7
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 7423157abbc0833394af055f5e31f724caa10b46
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101728210"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103224705"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Points de terminaison privés pour le service Sauvegarde Azure
 
@@ -24,7 +24,7 @@ Cet article vous aidera à comprendre le processus de création de points de ter
 - Une connexion de point de terminaison privée pour la sauvegarde utilise un total de 11 adresses IP privées dans votre sous-réseau, y compris celles utilisées par Sauvegarde Azure pour le stockage. Ce nombre peut être plus élevé (jusqu’à 25) pour certaines régions Azure. Nous vous suggérons donc d’avoir suffisamment d’adresses IP privées disponibles lorsque vous tentez de créer des points de terminaison privés pour la sauvegarde.
 - Les coffres Recovery Services sont compatibles avec les services Sauvegarde Azure et Azure Site Recovery. Cependant, cet article traite uniquement de l’utilisation des points de terminaison privés pour le service Sauvegarde Azure.
 - Azure Active Directory ne prend pas en charge les points de terminaison privés pour le moment. Par conséquent, les adresses IP et les noms de domaine complets requis pour le bon fonctionnement du service Azure Active Directory dans une région doivent bénéficier d’une autorisation d’accès sortant sur le réseau sécurisé lors de la sauvegarde de bases de données dans des machines virtuelles Azure et de la sauvegarde à l’aide de l’agent MARS. Vous pouvez aussi utiliser des balises de groupe de sécurité réseau (NSG) et des balises du service Pare-feu Azure pour autoriser l’accès à Azure AD, le cas échéant.
-- Les réseaux virtuels avec des stratégies réseau ne sont pas compatibles avec les points de terminaison privés. Vous devez donc désactiver les stratégies réseau avant de continuer.
+- Les réseaux virtuels avec des stratégies réseau ne sont pas compatibles avec les points de terminaison privés. Vous devez donc [désactiver les stratégies réseau](https://docs.microsoft.com/azure/private-link/disable-private-endpoint-network-policy) avant de continuer.
 - Vous devrez réinscrire le fournisseur de ressources Recovery Services auprès de l’abonnement si vous l’avez enregistré avant le 1er mai 2020. Pour réinscrire le fournisseur, accédez à votre abonnement dans le portail Azure, accédez à **Fournisseur de ressources** dans la barre de navigation de gauche, sélectionnez **Microsoft.RecoveryServices**, puis sélectionnez **Réinscrire**.
 - Les [restaurations inter-régions](backup-create-rs-vault.md#set-cross-region-restore) pour les sauvegardes de bases de données SQL et SAP HANA ne sont pas prises en charge si les points de terminaison privés sont activés dans le coffre.
 - Lorsque vous déplacez un coffre Recovery Services utilisant déjà des points de terminaison privés vers un nouveau locataire, vous devez le mettre à jour pour recréer et reconfigurer son identité managée et créer des points de terminaison privés si nécessaire (qui doivent se trouver dans le nouveau locataire). Si cela n’est pas fait, les opérations de sauvegarde et de restauration échoueront. En outre, toutes les autorisations de contrôle d’accès en fonction du rôle (RBAC) configurées dans l’abonnement devront être reconfigurées.
@@ -297,6 +297,10 @@ Lorsque vous utilisez l’agent MARS pour sauvegarder vos ressources locales, as
 
 Cependant, si vous supprimez des points de terminaison privés pour le coffre après l’inscription d’un agent MARS, vous devez réinscrire le conteneur auprès du coffre. Vous n’avez pas besoin d’arrêter leur protection.
 
+## <a name="deleting-private-endpoints"></a>Suppression de points de terminaison privés
+
+Consultez [cette section](https://docs.microsoft.com/rest/api/virtualnetwork/privateendpoints/delete) pour savoir comment supprimer des points de terminaison privés.
+
 ## <a name="additional-topics"></a>Rubriques supplémentaires
 
 ### <a name="create-a-recovery-services-vault-using-the-azure-resource-manager-client"></a>Utiliser le client Azure Resource Manager pour créer un coffre Recovery Services
@@ -554,4 +558,4 @@ R. Après avoir suivi toutes les procédures de cet article, vous avez besoin de
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- En savoir plus sur toutes les [fonctionnalités de sécurité de la Sauvegarde Azure](security-overview.md)
+- En savoir plus sur toutes les [fonctionnalités de sécurité de Sauvegarde Azure](security-overview.md).

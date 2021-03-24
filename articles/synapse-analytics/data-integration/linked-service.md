@@ -10,10 +10,10 @@ ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
 ms.openlocfilehash: af6afa2b0285fe741241183ed99712a132953a30
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98220114"
 ---
 # <a name="secure-a-linked-service-with-private-links"></a>Sécuriser un service lié à l’aide de Liaisons privées (Private Links)
@@ -23,7 +23,7 @@ Dans cet article, vous allez découvrir comment sécuriser un service lié dans 
 ## <a name="prerequisites"></a>Prérequis
 
 * **Abonnement Azure** : Si vous n’avez pas d’abonnement Azure, créez un [compte Azure gratuit](https://azure.microsoft.com/free/) avant de commencer.
-* **Compte Stockage Azure** : Vous utilisez Azure Data Lake Gen 2 comme magasin de données *source*. Si vous ne possédez pas de compte de stockage, consultez l’article [Créer un compte Stockage Azure](../../storage/common/storage-account-create.md) pour découvrir comment en créer un. Assurez-vous que le compte de stockage dispose du filtre IP Synapse Studio pour y accéder et que vous n’autorisez que les **réseaux sélectionnés** à accéder au compte de stockage. Le paramètre sous le panneau **Pare-feux et réseaux virtuels** doit ressembler à l’image ci-dessous.
+* **Compte Stockage Azure** : Vous utilisez Azure Data Lake Gen 2 en tant que magasin de données *source*. Si vous ne possédez pas de compte de stockage, consultez l’article [Créer un compte Stockage Azure](../../storage/common/storage-account-create.md) pour découvrir comment en créer un. Assurez-vous que le compte de stockage dispose du filtre IP Synapse Studio pour y accéder et que vous n’autorisez que les **réseaux sélectionnés** à accéder au compte de stockage. Le paramètre sous le panneau **Pare-feux et réseaux virtuels** doit ressembler à l’image ci-dessous.
 
 ![Compte de stockage sécurisé](./media/secure-storage-account.png)
 
@@ -36,7 +36,7 @@ Dans Azure Synapse Analytics, un service lié vous permet de définir vos inform
 1. Pour ajouter un service lié, sélectionnez **Nouveau**.
 1. Sélectionnez la vignette Azure Data Lake Storage Gen2 dans la liste, puis sélectionnez **Continuer**.
 1. Veillez à activer **Création interactive**. L’activation peut prendre environ 1 minute. 
-1. Entrez vos informations d’authentification. Les types d’authentification actuellement pris en charge sont : clé de compte, principal de service et identité managée. Sélectionnez Tester la connexion pour vérifier que vos informations d’identification sont correctes.
+1. Entrez vos informations d’authentification. Les types d’authentification actuellement pris en charge sont les suivants : clé de compte, principal de service et identité managée. Sélectionnez Tester la connexion pour vérifier que vos informations d’identification sont correctes.
 1. Sélectionnez **Tester la connexion** : ce test doit normalement échouer, car le compte de stockage n’autorise pas l’accès sans la création et l’approbation d’un point de terminaison privé. Dans le message d’erreur, vous devez voir un lien pour créer un **point de terminaison privé** que vous pouvez suivre pour passer à la partie suivante. Si vous suivez ce lien, ignorez la partie suivante.
 1. Lorsque vous avez terminé, sélectionnez **Créer**.
 

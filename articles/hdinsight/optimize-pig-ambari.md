@@ -4,12 +4,12 @@ description: Utilisez l’interface utilisateur web d’Apache Ambari pour confi
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 05/04/2020
-ms.openlocfilehash: 690cfc66d0f08e63ac6ef1d21b6722fed59eca14
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 43159360342063af1682a984db037ae286721411
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98939021"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104871161"
 ---
 # <a name="optimize-apache-pig-with-apache-ambari-in-azure-hdinsight"></a>Optimiser Apache Pig avec Apache Ambari dans Azure HDInsight
 
@@ -23,7 +23,7 @@ Vous pouvez modifier les propriétés d’Apache Pig dans l’interface utilisat
 
 1. Sélectionnez **Enregistrer** en haut à droite de la fenêtre pour enregistrer la nouvelle valeur. Certaines propriétés peuvent nécessiter un redémarrage du service.
 
-    ![Propriétés avancées d’Apache Pig](./media/optimize-pig-ambari/advanced-pig-properties.png)
+    :::image type="content" source="./media/optimize-pig-ambari/advanced-pig-properties.png" alt-text="Propriétés avancées d’Apache Pig" border="true":::
 
 > [!NOTE]  
 > Les paramètres de niveau session ont priorité sur les valeurs des propriétés dans le fichier `pig.properties`.

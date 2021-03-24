@@ -4,10 +4,10 @@ description: Superviser les rubriques et les abonnements aux événements
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: d230be4f74abd61ad7b7f0fdb3facb32ee63da73
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86171531"
 ---
 # <a name="monitor-topics-and-event-subscriptions"></a>Superviser les rubriques et les abonnements aux événements
@@ -41,7 +41,7 @@ Les métriques seront disponibles au niveau `5888/metrics` du module pour http e
 
 Les rubriques et les abonnements aux événements émettent des métriques pour vous donner des insights en termes de remise des événements et de performances des modules.
 
-### <a name="topic-metrics"></a>Métriques de rubrique
+### <a name="topic-metrics"></a>Métriques de la rubrique
 
 | Métrique | Description |
 | ------ | ----------- |
@@ -53,7 +53,7 @@ Les rubriques et les abonnements aux événements émettent des métriques pour 
 | SuccessRequestLatencyMs | Latence de la réponse de requête publication en millisecondes
 
 
-### <a name="event-subscription-metrics"></a>Métriques des abonnements aux événements
+### <a name="event-subscription-metrics"></a>Métriques d’abonnement à un événement
 
 | Métrique | Description |
 | ------ | ----------- |

@@ -15,10 +15,10 @@ ms.reviewer: saeeda, sureshja, hirsin
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 36b39f3706db615e40ebfadebf36be4d8b29c33e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "80154727"
 ---
 # <a name="what-is-authentication"></a>Qu’est-ce que l’authentification ?
@@ -133,7 +133,7 @@ Une brève description de chaque type de revendication émise par Azure AD est 
 | Émetteur | Identifie le service d’émission de jeton de sécurité qui a émis le jeton, ainsi que le client Azure AD. |
 | Nom | Fournit le nom de l’utilisateur tel qu’il est défini dans Azure AD. |
 | Nom | Fournit une valeur contrôlable de visu qui identifie le sujet du jeton. |
-| ID de l'objet | Contient un identificateur unique non modifiable du sujet dans Azure AD. |
+| ID objet | Contient un identificateur unique non modifiable du sujet dans Azure AD. |
 | Rôles | Contient les noms conviviaux des rôles d’application Azure AD qui ont été affectés à l’utilisateur. |
 | Étendue | Indique les autorisations accordées à l’application cliente. |
 | Objet | Indique le principal sur lequel portent les assertions d’informations du jeton. |

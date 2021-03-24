@@ -4,10 +4,10 @@ description: Apprenez à configurer un cluster Service Fabric sécurisé dans Az
 ms.topic: conceptual
 ms.date: 09/06/2018
 ms.openlocfilehash: c679a804db09b1034f31e9d8da1f7d2ad206f684
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90563724"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Création d’un cluster Service Fabric dans Azure à partir du portail Azure
@@ -112,7 +112,7 @@ Configurez vos nœuds de cluster. Les types de nœuds définissent les tailles d
 7. **Activez un proxy inverse**.  Le [proxy inverse Service Fabric](service-fabric-reverseproxy.md) permet aux microservices exécutés dans un cluster Service Fabric de découvrir d’autres services dotés de points de terminaison http et de communiquer avec ces services.
 8. De retour dans le panneau **Configuration du Cluster**, sous **+Afficher les paramètres facultatifs**, configurer le cluster **diagnostics**. Par défaut, les diagnostics sont activés sur votre cluster afin de faciliter la résolution des problèmes. Si vous souhaitez désactiver les diagnostics, définissez **l’État** sur **Désactivé**. Nous vous recommandons de **ne pas** désactiver les diagnostics. Si vous avez déjà créé le projet Application Insights, donnez sa clé, afin que les traces d’application soient acheminées vers lui.
 9. **Incluez le service DNS**.  Le [service DNS](service-fabric-dnsservice.md) est un service facultatif qui vous permet de trouver d’autres services en utilisant le protocole DNS.
-10. Sélectionnez le **mode de mise à niveau Fabric** que vous souhaitez associer à votre cluster. Sélectionnez **Automatique**si vous souhaitez que le système récupère automatiquement la dernière version disponible et essaye de mettre à niveau votre cluster vers cette version. Définissez le mode sur **Manuel**si vous souhaitez choisir une version prise en charge. Pour en savoir plus sur le mode de mise à niveau de Service Fabric, consultez le document [Mettre à niveau un cluster Service Fabric][service-fabric-cluster-upgrade].
+10. Sélectionnez le **mode de mise à niveau Fabric** que vous souhaitez associer à votre cluster. Sélectionnez **Automatique** si vous souhaitez que le système récupère automatiquement la dernière version disponible et essaye de mettre à niveau votre cluster vers cette version. Définissez le mode sur **Manuel** si vous souhaitez choisir une version prise en charge. Pour en savoir plus sur le mode de mise à niveau de Service Fabric, consultez le document [Mettre à niveau un cluster Service Fabric][service-fabric-cluster-upgrade].
 
 > [!NOTE]
 > Nous prenons uniquement en charge les clusters qui exécutent des versions prises en charge de Service Fabric. Si vous sélectionnez le mode **Manuel** , vous êtes responsable de la mise à niveau de votre cluster vers une version prise en charge.

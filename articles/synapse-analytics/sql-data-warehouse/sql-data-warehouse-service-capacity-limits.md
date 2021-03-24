@@ -12,10 +12,10 @@ ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: azure-synapse
 ms.openlocfilehash: d778844fee8cad9359532ffa23e177bf7b13c4b8
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98117688"
 ---
 # <a name="capacity-limits-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Limites de capacité du pool SQL dédié dans Azure Synapse Analytics
@@ -79,7 +79,7 @@ Valeurs maximales autorisées pour les différents composants d’un pool SQL d�
 | SELECT |Octets par colonnes GROUP BY. |8060<br/><br/>Les colonnes incluses dans la clause GROUP BY peuvent comporter un maximum de 8 060 octets. |
 | SELECT |Octets par colonnes ORDER BY |8060 octets<br/><br/>Les colonnes incluses dans la clause ORDER BY peuvent comporter un maximum de 8060 octets. |
 | Identificateurs par instruction |Nombre d’identificateurs référencés |65 535<br/><br/> Le nombre d’identificateurs pouvant être contenus dans une seule expression d’une requête est limité. Le dépassement de ce nombre génère l’erreur SQL Server 8632. Pour plus d’informations, consultez la rubrique [Internal error: An expression services limit has been reached (Erreur interne : une limite des services d’expression est dépassée)](https://support.microsoft.com/help/913050/error-message-when-you-run-a-query-in-sql-server-2005-internal-error-a). |
-| Littéraux de chaîne | Nombre de littéraux de chaîne dans une instruction | 20 000 <br/><br/>Le nombre de constantes de chaîne pouvant être contenus dans une seule expression d’une requête est limité. Le dépassement de ce nombre génère l’erreur SQL Server 8632.|
+| Littéraux de chaîne | Nombre de littéraux de chaîne dans une instruction | 20 000 <br/><br/>Le nombre de constantes de chaîne pouvant être contenus dans une seule expression d’une requête est limité. Le dépassement de ce nombre génère l’erreur SQL Server 8632.|
 ||||
 
 ## <a name="metadata"></a>Métadonnées

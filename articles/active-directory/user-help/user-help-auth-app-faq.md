@@ -12,12 +12,12 @@ ms.topic: end-user-help
 ms.date: 01/28/2021
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 84dde96276414e98cbde05d6e046dce03227f60d
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 8ddc02075d2cdeba4a4fa83a2475ec20c3f18d6e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100547857"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103418077"
 ---
 # <a name="frequently-asked-questions-faq-about-the-microsoft-authenticator-app"></a>Forum aux questions (FAQ) sur l’application Microsoft Authenticator
 
@@ -260,7 +260,7 @@ L’application Microsoft Authenticator a remplacé l’application Azure Authen
 
 **Q** : Mes employés ou étudiants pourront-ils utiliser le remplissage automatique des mots de passe dans l’application Authenticator ?
 
-**R** : Oui, le remplissage automatique fonctionne désormais pour la plupart des utilisateurs d’entreprise, même lorsqu’un compte professionnel ou scolaire est ajouté à l’application Authenticator. Vous pouvez remplir un formulaire pour configurer le remplissage automatique (autoriser ou refuser) pour votre organisation et [l’envoyer à l’équipe d’Authenticator](https://aka.ms/ConfigureAutofillInAuthenticator).
+**R** : Oui, le Remplissage auto des [comptes Microsoft personnels](https://go.microsoft.com/fwlink/?linkid=2144423) fonctionne désormais pour la plupart des utilisateurs de l’entreprise, même lorsqu’un compte professionnel ou scolaire est ajouté à l’application Authenticator. Vous pouvez remplir un formulaire pour autoriser ou refuser le Remplissage auto dans votre organisation et [l’envoyer à l’équipe d’Authenticator](https://aka.ms/ConfigureAutofillInAuthenticator). Le Remplissage auto n’est actuellement pas disponible pour les comptes professionnels ou scolaires.
 
 **Q** : Le mot de passe du compte professionnel ou scolaire de mes utilisateurs sera-t-il automatiquement synchronisé ?
 

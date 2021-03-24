@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 10/28/2020
 ms.custom: ''
 ms.openlocfilehash: a71ff438feaef555a85c33d818c287c64621d40d
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92913838"
 ---
 # <a name="tutorial-deploy-a-multi-container-group-using-docker-compose"></a>Tutoriel : Déployer plusieurs conteneurs à l’aide de Docker Compose 
@@ -35,9 +35,9 @@ Dans cet article, vous découvrirez comment :
 
 ## <a name="prerequisites"></a>Prérequis
 
-* **Azure CLI**  : Azure CLI doit être installé sur votre ordinateur local. La version 2.10.1 ou ultérieure est recommandée. Exécutez `az --version` pour trouver la version. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI](/cli/azure/install-azure-cli).
+* **Azure CLI** : Azure CLI doit être installé sur votre ordinateur local. La version 2.10.1 ou ultérieure est recommandée. Exécutez `az --version` pour trouver la version. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI](/cli/azure/install-azure-cli).
 
-* **Station de travail Docker**  : Docker version 2.3.0.5 ou ultérieure doit être installé, disponible pour [Windows](https://desktop.docker.com/win/edge/Docker%20Desktop%20Installer.exe) ou [macOS](https://desktop.docker.com/mac/edge/Docker.dmg). Vous pouvez également installer [Docker ACI Integration CLI pour Linux](https://docs.docker.com/engine/context/aci-integration/#install-the-docker-aci-integration-cli-on-linux).
+* **Station de travail Docker** : Docker version 2.3.0.5 ou ultérieure doit être installé, disponible pour [Windows](https://desktop.docker.com/win/edge/Docker%20Desktop%20Installer.exe) ou [macOS](https://desktop.docker.com/mac/edge/Docker.dmg). Vous pouvez également installer [Docker ACI Integration CLI pour Linux](https://docs.docker.com/engine/context/aci-integration/#install-the-docker-aci-integration-cli-on-linux).
 
 [!INCLUDE [container-instances-create-registry](../../includes/container-instances-create-registry.md)]
 
@@ -86,7 +86,7 @@ services:
 
 Dans la configuration `azure-vote-front`, apportez les modifications suivantes :
 
-1. Mettez à jour la propriété `image` dans le service `azure-vote-front`. Préfixez le nom de l’image avec le nom du serveur de connexion de votre registre de conteneurs Azure, \<acrName\>.azurecr.io. Par exemple, si votre registre est nommé *myregistry* , le nom du serveur de connexion est *myregistry.azurecr.io* (tout en minuscules) et la propriété de l’image est alors `myregistry.azurecr.io/azure-vote-front`.
+1. Mettez à jour la propriété `image` dans le service `azure-vote-front`. Préfixez le nom de l’image avec le nom du serveur de connexion de votre registre de conteneurs Azure, \<acrName\>.azurecr.io. Par exemple, si votre registre est nommé *myregistry*, le nom du serveur de connexion est *myregistry.azurecr.io* (tout en minuscules) et la propriété de l’image est alors `myregistry.azurecr.io/azure-vote-front`.
 1. Modifiez le mappage de `ports` en `80:80`. Enregistrez le fichier.
 
 Le fichier mis à jour doit ressembler au suivant :
@@ -216,7 +216,7 @@ azurevotingappredis_azure-vote-front   myregistry.azurecr.io/azure-vote-front   
 
 Pour afficher l’application en cours d’exécution dans le cloud, entrez l’adresse IP affichée dans un navigateur web local. Dans cet exemple, entrez `52.179.23.131`. L’exemple d’application est chargée, comme indiqué dans l’exemple suivant :
 
-:::image type="content" source="media/tutorial-docker-compose/azure-vote-aci.png" alt-text="Image de l’application Voting":::
+:::image type="content" source="media/tutorial-docker-compose/azure-vote-aci.png" alt-text="Image de l’application Voting dans ACI":::
 
 Pour afficher les journaux du conteneur frontal, exécutez la commande [docker logs](https://docs.docker.com/engine/reference/commandline/logs). Exemple :
 

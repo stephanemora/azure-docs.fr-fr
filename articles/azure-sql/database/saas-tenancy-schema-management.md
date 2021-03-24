@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/19/2018
 ms.openlocfilehash: e4328be0aade0658dedb034dbbb6980b810f771a
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92793192"
 ---
 # <a name="manage-schema-in-a-saas-application-using-the-database-per-tenant-pattern-with-azure-sql-database"></a>Gérer le schéma dans une application SaaS à l’aide du modèle de base de données par locataire avec Azure SQL Database
@@ -62,7 +62,7 @@ Le code source de l’application et les scripts de gestion sont disponibles dan
 
 Ce didacticiel nécessite l’utilisation de PowerShell pour créer un agent de travail et la base de données d’agent de travail correspondante. La base de données d’agent de travail conserve les définitions des travaux, l’état du travail et l’historique. Une fois l’agent de travail et sa base de données créés, vous pouvez immédiatement créer et surveiller des travaux.
 
-1. **Dans PowerShell ISE** , ouvrez …\\Learning Modules\\Schema Management\\*Demo-SchemaManagement.ps1* .
+1. **Dans PowerShell ISE**, ouvrez …\\Learning Modules\\Schema Management\\*Demo-SchemaManagement.ps1*.
 1. Appuyez sur **F5** pour exécuter le script.
 
 Le script *Demo-SchemaManagement.ps1* appelle le script *Deploy-SchemaManagement.ps1* pour créer une base de données nommée *osagent* sur le serveur de catalogue. Il crée ensuite l’agent de travail, à l’aide de la base de données en tant que paramètre.
@@ -74,7 +74,7 @@ Dans l’application Wingtip Tickets, chaque base de données de locataire inclu
 Tout d’abord, examinez les types de lieux inclus dans chaque base de données client. Connectez-vous à l’une des bases de données client dans SQL Server Management Studio (SSMS) et vérifiez la table VenueTypes.  Vous pouvez également interroger cette table dans l’éditeur de requêtes du portail Azure, auquel vous avez accès par la page de la base de données. 
 
 1. Ouvrez SSMS et connectez-vous au serveur client : *tenants1-dpt-&lt;utilisateur&gt;.database.windows.net*
-1. Pour confirmer que *Motorcycle Racing* et *Swimming Club* **ne sont pas** déjà inclus, accédez à la base de données _contosoconcerthall_ sur le serveur *tenants1-dpt-&lt;utilisateur&gt;* et interrogez la table *VenueTypes* .
+1. Pour confirmer que *Motorcycle Racing* et *Swimming Club* **ne sont pas** déjà inclus, accédez à la base de données _contosoconcerthall_ sur le serveur *tenants1-dpt-&lt;utilisateur&gt;* et interrogez la table *VenueTypes*.
 
 Maintenant, nous allons créer un travail pour mettre à jour la table *VenueTypes* dans toutes les bases de données de locataire pour ajouter les nouveaux types de lieux.
 
@@ -83,7 +83,7 @@ Pour créer un travail, vous utilisez un ensemble de procédures stockées syst�
 1. Dans SSMS, connectez-vous au serveur de catalogue : *catalog-dpt-&lt;user&gt;.database.windows.net* 
 1. Dans SSMS, ouvrez le fichier ...\\Learning Modules\\Schema Management\\DeployReferenceData.sql
 1. Modifiez l’instruction : SET @wtpUser = &lt;utilisateur&gt; et remplacer la valeur de l’utilisateur utilisée lors du déploiement de l’application Wingtip Tickets SaaS Database Per Tenant
-1. Assurez-vous que vous êtes connecté à la base de données _jobagent_ , puis appuyez sur **F5** pour exécuter le script
+1. Assurez-vous que vous êtes connecté à la base de données _jobagent_, puis appuyez sur **F5** pour exécuter le script
 
 Observez les éléments suivants dans le script *DeployReferenceData.sql* :
 * **sp\_add\_target\_group** crée le nom de groupe cible DemoServerGroup.
@@ -92,7 +92,7 @@ Observez les éléments suivants dans le script *DeployReferenceData.sql* :
 * **sp\_add\_jobstep** crée l’étape du travail contenant le texte de la commande T-SQL pour mettre à jour la table de référence, VenueTypes.
 * Les autres vues dans le script indiquent l’existence des objets et contrôlent l’exécution du travail. Utilisez ces requêtes pour passer en revue la valeur d’état dans la colonne **cycle de vie** afin de déterminer le moment où le travail a été terminé sur toutes les bases de données cibles.
 
-Une fois le script terminé, vous pouvez vérifier que les données de référence ont été mises à jour.  Dans SSMS, accédez à la base de données *contosoconcerthall* sur le serveur *tenants1-dpt-&lt;user&gt;* et interrogez la table *VenueTypes* .  Vérifiez que *Motorcycle Racing* et *Swimming Club* **sont** désormais présents.
+Une fois le script terminé, vous pouvez vérifier que les données de référence ont été mises à jour.  Dans SSMS, accédez à la base de données *contosoconcerthall* sur le serveur *tenants1-dpt-&lt;user&gt;* et interrogez la table *VenueTypes*.  Vérifiez que *Motorcycle Racing* et *Swimming Club* **sont** désormais présents.
 
 
 ## <a name="create-a-job-to-manage-the-reference-table-index"></a>Créer une tâche pour gérer l’index de la table de référence
@@ -104,7 +104,7 @@ Créez un travail en utilisant les mêmes procédures stockées « système »
 1. Ouvrez SSMS et connectez-vous au serveur _catalog-dpt-&lt;user&gt;.database.windows.net_
 1. Ouvrez le fichier _…\\Learning Modules\\Schema Management\\OnlineReindex.sql_
 1. Si vous n’êtes pas déjà connecté, cliquez avec le bouton droit, sélectionnez Connexion et connectez-vous au serveur _catalog-dpt-&lt;user&gt;.database.windows.net_
-1. Assurez-vous que vous êtes connecté à la base de données _jobagent_ , puis appuyez sur **F5** pour exécuter le script
+1. Assurez-vous que vous êtes connecté à la base de données _jobagent_, puis appuyez sur **F5** pour exécuter le script
 
 Observez les éléments suivants dans le script _OnlineReindex.sql_ :
 * sp **sp\_add\_job** crée un travail appelé « Online Reindex PK\_\_VenueTyp\_\_265E44FD7FD4C885 »

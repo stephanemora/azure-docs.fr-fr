@@ -4,10 +4,10 @@ description: Azure Service Fabric accepte le format Docker Compose pour vous 
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: f84dd0ecb7a4002182c8455bfd86354d794a6f7c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84691286"
 ---
 # <a name="docker-compose-deployment-support-in-azure-service-fabric-preview"></a>Prise en charge du déploiement Docker Compose dans Azure Service Fabric (préversion)
@@ -127,8 +127,8 @@ Configurez le cluster pour qu’il applique des limites de ressources, comme dé
 ### <a name="ports-section"></a>Section Ports
 
 Spécifiez le protocole HTTP ou HTTPS dans la section Ports qui sera utilisée par l’écouteur du service Service Fabric. Ceci garantit que le protocole du point de terminaison est publié correctement avec le service de nommage pour autoriser le proxy inverse à transférer les requêtes :
-* Pour router vers des services Compose de Service Fabric non sécurisés, spécifiez **/http**. Par exemple, **"80:80/http"** .
-* Pour router vers des services Compose de Service Fabric sécurisés, spécifiez **/https**. Par exemple, **"443:443/https"** .
+* Pour router vers des services Compose de Service Fabric non sécurisés, spécifiez **/http**. Par exemple, **"80:80/http"**.
+* Pour router vers des services Compose de Service Fabric sécurisés, spécifiez **/https**. Par exemple, **"443:443/https"**.
 
 > [!NOTE]
 > La syntaxe de la section Ports /http et /https est spécifique à Service Fabric pour inscrire l’URL correcte de l’écouteur Service Fabric.  Si la syntaxe du fichier Docker Compose est validée par programmation, elle peut provoquer une erreur de validation.

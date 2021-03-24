@@ -8,10 +8,10 @@ ms.custom: mvc
 ms.date: 09/08/2020
 ms.author: apimpm
 ms.openlocfilehash: 66d0874536b358b720b43780d6ecce879ac866ee
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90708204"
 ---
 # <a name="quickstart-create-a-new-azure-api-management-service-instance-by-using-the-azure-portal"></a>Démarrage rapide : Créer une instance du service Gestion des API Azure avec le portail Azure
@@ -41,7 +41,7 @@ Connectez-vous au [portail Azure](https://portal.azure.com).
    
 1. Dans la page **Service Gestion des API**, entrez les paramètres.
 
-   :::image type="content" source="media/get-started-create-service-instance/get-started-create-service-instance-create-new.png" alt-text="Créer une ressource":::
+   :::image type="content" source="media/get-started-create-service-instance/get-started-create-service-instance-create-new.png" alt-text="Nouvelle instance":::
    
    | Paramètre                 | Description   |                                                                     
    |-------------------------|-----------------------------------------------|
@@ -72,11 +72,11 @@ Quand vous n’en avez plus besoin, vous pouvez supprimer le groupe de ressource
 
 1. Depuis le portail Azure, recherchez et sélectionnez **Groupes de ressources**. Vous pouvez également sélectionner **Groupes de ressources** depuis la page **d’accueil**. 
 
-   :::image type="content" source="media/get-started-create-service-instance/00-DeleteResource-01.png" alt-text="Créer une ressource":::
+   :::image type="content" source="media/get-started-create-service-instance/00-DeleteResource-01.png" alt-text="Navigation dans les groupes de ressources":::
 
 1. Sur la page **Groupes de ressources**, sélectionnez votre groupe de ressources.
 
-   :::image type="content" source="media/get-started-create-service-instance/00-DeleteResource-02.png" alt-text="Créer une ressource":::
+   :::image type="content" source="media/get-started-create-service-instance/00-DeleteResource-02.png" alt-text="Sélection d’un groupe de ressources":::
 
 1. Sur la page Groupe de ressources, sélectionnez **Supprimer un groupe de ressources**. 
    

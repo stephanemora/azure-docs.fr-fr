@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/20/2020
-ms.openlocfilehash: 5bc9acea219e5d111700840149a26c127b47514d
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: d3c5077450dd4ec59f5ea7bc8f37879f9aa775bf
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98943065"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104868934"
 ---
 # <a name="process-and-analyze-json-documents-by-using-apache-hive-in-azure-hdinsight"></a>Traiter et analyser des documents JSON avec Apache Hive dans Azure HDInsight
 
@@ -93,7 +93,7 @@ L’instruction **SELECT** retourne une seule ligne.
 
 Voici la sortie de l’instruction **SELECT** :
 
-![Aplatissage HDInsight du document JSON](./media/using-json-in-hive/hdinsight-flatten-json.png)
+:::image type="content" source="./media/using-json-in-hive/hdinsight-flatten-json.png" alt-text="Aplatissage HDInsight du document JSON" border="true":::
 
 ## <a name="analyze-json-documents-in-hive"></a>Analyser les documents JSON dans Hive
 
@@ -119,7 +119,7 @@ FROM StudentsOneLine;
 
 Voici la sortie quand vous exécutez cette requête dans la fenêtre de la console :
 
-![Apache Hive obtient l’objet JSON UDF](./media/using-json-in-hive/hdinsight-get-json-object.png)
+:::image type="content" source="./media/using-json-in-hive/hdinsight-get-json-object.png" alt-text="Apache Hive obtient l’objet JSON UDF" border="true":::
 
 La fonction UDF get_json_object présente des limitations :
 
@@ -141,7 +141,7 @@ LATERAL VIEW JSON_TUPLE(jt.json_body, 'StudentId', 'Grade') q1
 
 Sortie de ce script dans la console Hive :
 
-![Apache Hive json query results](./media/using-json-in-hive/hdinsight-json-tuple.png)
+:::image type="content" source="./media/using-json-in-hive/hdinsight-json-tuple.png" alt-text="Apache Hive json query results" border="true":::
 
 La fonction UDF `json_tuple` utilise la syntaxe [lateral view](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LateralView) dans Hive, ce qui permet à json\_tuple de créer une table virtuelle en appliquant la fonction UDT à chaque ligne de la table d’origine. Les documents JSON complexes deviennent trop lourds en raison de l’utilisation répétée de **LATERAL VIEW**. De plus, **JSON_TUPLE** ne gère pas les documents JSON imbriqués.
 

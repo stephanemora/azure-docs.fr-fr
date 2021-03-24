@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 08/06/2020
 ms.openlocfilehash: 15c7ed4ca9d04e4bb314eea8b92bef749d2369b1
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92537658"
 ---
 # <a name="azure-cache-for-redis-management-faqs"></a>FAQ sur la gestion d’Azure Cache pour Redis
@@ -147,7 +147,7 @@ Configuration de ce paramètre :
 * Il est également possible de spécifier le paramètre minimal de threads à l’aide du [paramètre de configuration *minIoThreads* ou *minWorkerThreads*](/previous-versions/dotnet/netframework-4.0/7w2sway1(v=vs.100)) sous l’élément de configuration `<processModel>` dans `Machine.config`, généralement situé dans `%SystemRoot%\Microsoft.NET\Framework\[versionNumber]\CONFIG\`. **Définir le nombre minimal de threads de cette manière n’est généralement pas recommandé, car il s’agit d’un paramètre de l’échelle du système.**
 
   > [!NOTE]
-  > La valeur spécifiée dans cet élément de configuration est un paramètre applicable *par cœur* . Par exemple, si vous utilisez un ordinateur à 4 cœurs et que vous souhaitez définir votre paramètre *minIoThreads* sur 200 au moment de l’exécution, vous utilisez `<processModel minIoThreads="50"/>`.
+  > La valeur spécifiée dans cet élément de configuration est un paramètre applicable *par cœur*. Par exemple, si vous utilisez un ordinateur à 4 cœurs et que vous souhaitez définir votre paramètre *minIoThreads* sur 200 au moment de l’exécution, vous utilisez `<processModel minIoThreads="50"/>`.
   >
 
 ### <a name="enable-server-gc-to-get-more-throughput-on-the-client-when-using-stackexchangeredis"></a>Activation de Garbage Collection sur le serveur pour obtenir un meilleur début sur le client lors de l'utilisation de StackExchange.Redis

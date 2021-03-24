@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 08/11/2020
-ms.openlocfilehash: d17d067b88add3006bc5c7fb10caa6b80a80a827
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 99a61d3e445bf6887db0c97e365e6e4489eb79e1
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98931759"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104872011"
 ---
 # <a name="nsg-service-tags-for-azure-hdinsight"></a>Étiquettes de service Azure HDInsight des groupes de sécurité réseau
 
@@ -40,7 +40,7 @@ Pour commencer à utiliser des étiquettes de service avec votre cluster HDInsig
 
 1. Dans la liste déroulante **Étiquette du service source**, sélectionnez **HDInsight**.
 
-    ![Ajouter une étiquette de service à partir du portail Azure](./media/hdinsight-service-tags/azure-portal-add-service-tag.png)
+    :::image type="content" source="./media/hdinsight-service-tags/azure-portal-add-service-tag.png" alt-text="Ajouter une étiquette de service à partir du portail Azure":::
 
 Cette étiquette contient les adresses IP des services de contrôle d'intégrité et de gestion de toutes les régions où HDInsight est disponible. L'étiquette garantit que votre cluster peut communiquer avec les services de contrôle d'intégrité et de gestion nécessaires, quel que soit l'emplacement où il est créé.
 

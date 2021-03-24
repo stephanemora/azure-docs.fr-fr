@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: e531349e8f404380d9f0601caa3b66557c297062
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90930785"
 ---
 # <a name="delete-azure-arc-enabled-sql-managed-instance"></a>Supprimer un service SQL Managed Instance activé par Azure Arc
@@ -100,8 +100,8 @@ persistentvolumeclaim "logs-demo-mi-0" deleted
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En savoir plus sur les [Fonctionnalités et capacités de SQL Managed Instance activé par Azure Arc](managed-instance-features.md)
+Découvrir plus d’informations sur les [fonctionnalités et les capacités de SQL Managed Instance avec Azure Arc](managed-instance-features.md)
 
 [Commencer en créant un contrôleur de données](create-data-controller.md)
 
-Vous avez déjà créé un contrôleur de données ? [Créer un service SQL Managed Instance activé par Azure Arc](create-sql-managed-instance.md)
+Vous avez déjà créé un contrôleur de données ? [Créer une instance SQL Managed Instance avec Azure Arc](create-sql-managed-instance.md)

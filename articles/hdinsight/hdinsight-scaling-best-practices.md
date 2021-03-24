@@ -6,12 +6,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/29/2020
-ms.openlocfilehash: 3524b5d2274c52aa94fa1c3420fb0d3245d9b730
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 6e6c692e8fc13d1703df44c99e9969ba4db5f119
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98932065"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104872096"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Mettre à l’échelle des clusters Azure HDInsight
 
@@ -36,7 +36,7 @@ Microsoft fournit les utilitaires suivants pour la mise à l’échelle des clus
 |[Azure Classic CLI](hdinsight-administer-use-command-line.md)|`azure hdinsight cluster resize CLUSTERNAME NEWSIZE` |
 |[Azure portal](https://portal.azure.com)|Ouvrez le volet de votre cluster HDInsight, sélectionnez **Taille de cluster** dans le menu de gauche, puis, dans le volet Taille de cluster, entrez le nombre de nœuds Worker, puis sélectionnez Enregistrer.|  
 
-![Portail Azure - Option de mise à l’échelle de cluster](./media/hdinsight-scaling-best-practices/azure-portal-settings-nodes.png)
+:::image type="content" source="./media/hdinsight-scaling-best-practices/azure-portal-settings-nodes.png" alt-text="Portail Azure - Option de mise à l’échelle de cluster":::
 
 Grâce à ces méthodes, vous pouvez monter ou descendre en puissance votre cluster HDInsight en quelques minutes.
 
@@ -82,7 +82,7 @@ L’impact de la modification du nombre de nœuds de données varie en fonction 
 
     1. Sélectionnez la topologie que vous souhaitez rééquilibrer, puis le bouton **Rééquilibrer** . Entrez le délai avant l’opération de rééquilibrage.
 
-        ![Rééquilibrage de mise à l’échelle HDInsight Storm](./media/hdinsight-scaling-best-practices/hdinsight-portal-scale-cluster-storm-rebalance.png)
+        :::image type="content" source="./media/hdinsight-scaling-best-practices/hdinsight-portal-scale-cluster-storm-rebalance.png" alt-text="Rééquilibrage de mise à l’échelle HDInsight Storm":::
 
   * l’outil d’interface de ligne de commande (CLI)
 
@@ -130,13 +130,13 @@ Pour afficher la liste des travaux en attente ou en cours d’exécution, vous p
 3. Dans l’interface utilisateur d’Ambari, sélectionnez **YARN** dans la liste des services du menu de gauche.  
 4. Dans la page YARN, sélectionnez **Quick Links** (Liens rapides), placez le curseur sur le nœud principal actif, puis sélectionnez **Resource Manager UI** (Interface utilisateur Resource Manager).
 
-    ![Apache Ambari - Liens rapides, interface utilisateur Resource Manager](./media/hdinsight-scaling-best-practices/resource-manager-ui1.png)
+    :::image type="content" source="./media/hdinsight-scaling-best-practices/resource-manager-ui1.png" alt-text="Apache Ambari - Liens rapides, interface utilisateur Resource Manager":::
 
 Vous pouvez accéder directement à l’interface utilisateur Resource Manager avec `https://<HDInsightClusterName>.azurehdinsight.net/yarnui/hn/cluster`.
 
 Une liste de travaux avec leur état actuel apparaît. La capture d’écran indique un travail en cours d’exécution :
 
-![Applications de l’interface utilisateur Resource Manager](./media/hdinsight-scaling-best-practices/resourcemanager-ui-applications.png)
+:::image type="content" source="./media/hdinsight-scaling-best-practices/resourcemanager-ui-applications.png" alt-text="Applications de l’interface utilisateur Resource Manager":::
 
 Pour arrêter manuellement cette application en cours d’exécution, exécutez la commande suivante à partir de l’interpréteur de commandes SSH :
 

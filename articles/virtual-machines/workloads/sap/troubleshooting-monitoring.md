@@ -14,10 +14,10 @@ ms.date: 09/10/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 246b9398824597ec337ee9e9ea3dc24267311f60
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101669598"
 ---
 # <a name="how-to-monitor-sap-hana-large-instances-on-azure"></a>Comment surveiller SAP HANA (grandes instances) sur Azure
@@ -26,7 +26,7 @@ SAP HANA sur Azure (grandes instances) est semblable aux autres déploiements Ia
 
 - UC
 - Mémoire
-- Bande passante réseau
+- Bande passante du réseau
 - Espace disque
 
 Avec les machines virtuelles Azure, vous devez déterminer si les classes de ressources ci-dessus sont suffisantes, ou si elles s’épuisent. Voici plus de détails sur chacune des classes :
