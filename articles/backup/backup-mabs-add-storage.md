@@ -4,10 +4,10 @@ description: Découvrez les nouvelles fonctionnalités du Serveur de sauvegarde 
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.openlocfilehash: b077296e58e1193e454a686a392d802e905500a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91292895"
 ---
 # <a name="add-storage-to-azure-backup-server"></a>Ajouter du stockage à un serveur de sauvegarde Azure
@@ -64,7 +64,7 @@ L’utilisation du Serveur de sauvegarde V2 ou versions ultérieures avec des vo
 
 > [!NOTE]
 >
-> - Ajoutez un seul disque au pool pour que le nombre de colonnes reste égal à 1. Vous pourrez ajouter des disques ultérieurement en fonction de vos besoins.
+> - Ajoutez un seul disque au pool pour que le nombre de colonnes reste égal à 1. Vous pouvez ajouter des disques si nécessaire par la suite.
 > - Si vous ajoutez plusieurs disques au pool de stockage en une fois, le nombre de disques est stocké en tant que nombre de colonnes. Lorsque vous ajoutez des disques, leur nombre doit être un multiple du nombre de colonnes.
 
 Pour ajouter un volume au Serveur de sauvegarde, dans le volet **Gestion**, réanalysez le stockage, puis sélectionnez **Ajouter**. La liste de tous les volumes disponibles pour ajout au stockage du Serveur de sauvegarde s’affiche. Une fois les volumes disponibles ajoutés à la liste des volumes sélectionnés, vous pouvez leur donner un nom convivial pour faciliter leur gestion. Pour formater ces volumes au format ReFS de façon à ce que le Serveur de sauvegarde puisse tirer parti des avantages du stockage de sauvegarde moderne, sélectionnez **OK**.

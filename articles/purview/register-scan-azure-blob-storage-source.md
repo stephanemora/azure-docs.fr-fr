@@ -8,10 +8,10 @@ ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/25/2020
 ms.openlocfilehash: b27b46c68d018d2ddf79d284b20cc05b51640891
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98880639"
 ---
 # <a name="register-and-scan-azure-blob-storage"></a>Inscrire et analyser Stockage Blob Azure
@@ -56,7 +56,7 @@ Lorsque la méthode d’authentification sélectionnée est **Clé de compte**, 
 1. Copiez votre *clé* et enregistrez-la quelque part pour les étapes suivantes
 1. Accédez à votre coffre de clés.
 1. Sélectionnez **Paramètres > Secrets**.
-1. Sélectionnez **+ Générer/importer** et entrez le **nom** et la **valeur** comme pour la *clé* de votre compte de stockage.
+1. Sélectionnez **+ Générer/importer**, puis entrez le **Nom** et la **Valeur** comme *clé* de votre compte de stockage.
 1. Sélectionnez **Créer** pour terminer.
 1. Si votre coffre de clés n’est pas encore connecté à Purview, vous devrez [créer une connexion de coffre de clés](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account).
 1. Enfin, [créez des informations d’identification](manage-credentials.md#create-a-new-credential) à l’aide de la clé pour configurer votre analyse.
@@ -121,10 +121,10 @@ Dans l’écran **Inscrire des sources (Stockage Blob Azure)** , procédez comme
 1. Entrez le **nom** avec lequel la source de données sera listée dans le catalogue. 
 1. Choisissez votre abonnement pour filtrer les comptes de stockage
 1. Sélectionner un compte de stockage
-1. Sélectionnez une collection ou créez-en une (facultatif).
+1. Sélectionnez une collection ou créez-en une (facultatif)
 1. Utilisez **Terminer** pour inscrire la source de données.
 
-:::image type="content" source="media/register-scan-azure-blob-storage-source/register-sources.png" alt-text="Options d’inscription des sources" border="true":::
+:::image type="content" source="media/register-scan-azure-blob-storage-source/register-sources.png" alt-text="options pour inscrire des sources" border="true":::
 
 [!INCLUDE [create and manage scans](includes/manage-scans.md)]
 

@@ -8,10 +8,10 @@ ms.date: 10/18/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: dea88bf93000422ce1d832be4a0f60474ff27938
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94629782"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-with-azure-storage-explorer"></a>Démarrage rapide : créer et gérer les partages de fichiers Azure avec l’Explorateur Stockage Azure
@@ -21,7 +21,7 @@ L’Explorateur Stockage Azure est un outil client populaire qui est disponible 
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 Pour ce guide de démarrage rapide, l’Explorateur Stockage doit être installé. Pour le télécharger et l’installer, accédez à [Explorateur Stockage Azure](https://azure.microsoft.com/features/storage-explorer/).
 
 ## <a name="create-a-storage-account"></a>Créez un compte de stockage.
@@ -75,7 +75,7 @@ Vous pouvez charger un fichier depuis votre ordinateur local vers le nouveau ré
 
 Lorsque vous avez terminé, le fichier apparaît dans la liste du volet *myDirectory*.
 
-### <a name="download-a-file"></a>Téléchargement d’un fichier
+### <a name="download-a-file"></a>Télécharger un fichier
 Pour télécharger une copie d’un fichier à partir de votre partage de fichiers, cliquez avec le bouton droit sur le fichier, puis sélectionnez **Télécharger**. Choisissez où placer le fichier sur votre ordinateur local, puis sélectionnez **Enregistrer**.
 
 La progression du téléchargement s’affiche dans le volet **Activités** en bas de la fenêtre.

@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: yushwang
 ms.openlocfilehash: 484dad65310efaa60e8744b2f122b5e44ae13565
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98880150"
 ---
 # <a name="overview-of-partner-vpn-device-configurations"></a>Vue d’ensemble des configurations d’appareils VPN partenaires
@@ -19,7 +19,7 @@ Cet article fournit une vue d’ensemble de la configuration des appareils VPN l
 
 
 
-## <a name="device-requirements"></a>Configuration requise du périphérique
+## <a name="device-requirements"></a>Exigences relatives aux appareils
 Les passerelles VPN Azure utilisent des suites de protocoles IPsec/IKE standard pour les tunnels VPN de site à site (S2S). Pour obtenir la liste des paramètres et algorithmes de chiffrement IPsec/IKE pour les passerelles VPN Azure, consultez [À propos des appareils VPN](vpn-gateway-about-vpn-devices.md). Vous pouvez aussi spécifier les algorithmes et les forces de clé exacts d’une connexion spécifique, comme décrit dans [À propos des exigences de chiffrement](vpn-gateway-about-compliance-crypto.md).
 
 ## <a name="single-vpn-tunnel"></a><a name ="singletunnel"></a>Tunnel VPN unique
@@ -119,7 +119,7 @@ Si vos appareils VPN ne prennent pas en charge les sélecteurs de trafic univers
 
 
 L’exemple de script crée une stratégie IPsec/IKE avec les paramètres et algorithmes suivants :
-* IKEv2: AES256, SHA384, DHGroup24
+* IKEv2 : AES256, SHA384, DHGroup24
 * IPsec : AES256, SHA1, PFS24, SA Lifetime 7 200 secondes et 20 480 000 Ko(20 Go)
 
 Le script applique la stratégie IPsec/IKE et active l’option **UsePolicyBasedTrafficSelectors** sur la connexion.

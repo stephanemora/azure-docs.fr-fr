@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 426220f38e6ddfaaf8b24bf4f7d34473d881ae56
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86245600"
 ---
 # <a name="sfctl-service"></a>sfctl service
@@ -22,7 +22,7 @@ Permet de créer, de supprimer et de gérer le service, les types de service et 
 | app-name | Permet d’obtenir le nom de l’application Service Fabric d’un service. |
 | code-package-list | Permet d’obtenir la liste des packages de code déployés sur un nœud Service Fabric. |
 | create | Permet de créer le service Service Fabric spécifié. |
-| delete | Supprime un service Service Fabric existant. |
+| supprimer | Supprime un service Service Fabric existant. |
 | deployed-type | Permet d’obtenir les informations relatives à un type de service spécifié de l’application déployée sur un nœud dans un cluster Service Fabric. |
 | deployed-type-list | Permet d’obtenir la liste contenant les informations sur les types de services à partir des applications déployées sur un nœud d’un cluster Service Fabric. |
 | description | Permet d’obtenir la description d’un service Service Fabric existant. |

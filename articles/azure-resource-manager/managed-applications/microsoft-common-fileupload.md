@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: tomfitz
 ms.openlocfilehash: c4eb3972be85ac7e291380f64127c20424b0d0f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87004276"
 ---
 # <a name="microsoftcommonfileupload-ui-element"></a>Élément d’interface utilisateur Microsoft.Common.FileUpload
@@ -86,7 +86,7 @@ Lorsque vous testez un élément CreateUiDefinition, certains navigateurs (comme
 - Un fichier chargé est protégé. L’URL de sortie inclut un [jeton SAS](../../storage/common/storage-sas-overview.md?toc=/azure/storage/blobs/toc.json) pour accéder au fichier durant le déploiement.
 - La valeur de `options.openMode` détermine la façon dont le fichier est lu. Si le fichier doit être du texte brut, spécifiez **text** ; sinon, spécifiez **binary**. La valeur par défaut est **text**.
 - Si `options.uploadMode` est défini sur **file** et `options.openMode` sur **binary**, la sortie est codée en base64.
-- `options.encoding` spécifie l’encodage à utiliser lors de la lecture du fichier. La valeur par défaut est **UTF-8**et est utilisée uniquement lorsque `options.openMode` est défini sur **text**.
+- `options.encoding` spécifie l’encodage à utiliser lors de la lecture du fichier. La valeur par défaut est **UTF-8** et est utilisée uniquement lorsque `options.openMode` est défini sur **text**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

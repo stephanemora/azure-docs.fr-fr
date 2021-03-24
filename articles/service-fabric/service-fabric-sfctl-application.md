@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 880770345eb7d65850db322bd97d64c60b6681ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86260863"
 ---
 # <a name="sfctl-application"></a>sfctl application
@@ -20,7 +20,7 @@ Permet de créer, de supprimer et de gérer les applications et les types d’ap
 |Commande|Description|
 | --- | --- |
 | create | Permet de créer une application Service Fabric à l’aide de la description spécifiée. |
-| delete | Supprime une application Service Fabric existante. |
+| supprimer | Supprime une application Service Fabric existante. |
 | deployed | Permet d’obtenir les informations relatives à une application déployée sur un nœud Service Fabric. |
 | deployed-health | Permet d’obtenir les informations relatives à l’intégrité d’une application déployée sur un nœud Service Fabric. |
 | deployed-list | Permet d’obtenir la liste des applications déployées sur un nœud Service Fabric. |

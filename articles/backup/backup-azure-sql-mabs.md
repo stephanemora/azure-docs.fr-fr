@@ -4,10 +4,10 @@ description: Cet article présente les étapes de configuration de la sauvegarde
 ms.topic: conceptual
 ms.date: 03/24/2017
 ms.openlocfilehash: 29813741e88ad5f2bc5109be87939abf7cc11502
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91316917"
 ---
 # <a name="back-up-sql-server-to-azure-by-using-azure-backup-server"></a>Sauvegarder des bases de données SQL Server sur Azure à l'aide du serveur de sauvegarde Azure
@@ -22,7 +22,7 @@ Pour sauvegarder une base de données SQL Server et la récupérer à partir d'A
 
 ## <a name="prerequisites-and-limitations"></a>Conditions préalables et limitations
 
-* Si vous disposez d’une base de données avec des fichiers sur un partage de fichiers distant, la protection échouera avec l’ID d’erreur 104. MABS ne prend pas en charge la protection des données SQL Server sur un partage de fichiers distant.
+* Si vous disposez d’une base de données avec des fichiers sur un partage de fichiers distant, la protection échouera avec l’ID d’erreur 104. MABS ne prend pas en charge la protection des données SQL Server sur un partage de fichiers distant.
 * MABS ne peut pas protéger les bases de données stockées sur des partages SMB distants.
 * Assurez-vous que les [réplicas de groupe de disponibilité sont configurés en lecture seule](/sql/database-engine/availability-groups/windows/configure-read-only-access-on-an-availability-replica-sql-server).
 * Vous devez explicitement ajouter le compte système **NTAuthority\System** au groupe Sysadmin sur SQL Server.

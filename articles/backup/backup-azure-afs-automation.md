@@ -4,10 +4,10 @@ description: Dans cet article, découvrez comment sauvegarder un partage de fich
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.openlocfilehash: 948931764769bc967b88e7942b7e8384b0f93dff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87076997"
 ---
 # <a name="back-up-an-azure-file-share-by-using-powershell"></a>Sauvegarder un partage de fichiers Azure en utilisant PowerShell

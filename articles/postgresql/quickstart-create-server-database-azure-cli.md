@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 06/25/2020
 ms.custom: mvc, devx-track-azurecli
 ms.openlocfilehash: d174e410aaef876dfe97af62750322641de95fd3
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94659452"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-by-using-the-azure-cli"></a>Démarrage rapide : Créer un serveur Azure Database pour PostgreSQL à l’aide de l’interface Azure CLI
@@ -21,7 +21,7 @@ Ce guide de démarrage rapide montre comment utiliser les commandes [Azure CLI](
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-- Cet article nécessite la version 2.0 ou ultérieure d’Azure CLI. Si vous utilisez Azure Cloud Shell, la version la plus récente est déjà installée.
+- Cet article demande la version 2.0 ou ultérieure d’Azure CLI. Si vous utilisez Azure Cloud Shell, la version la plus récente est déjà installée.
 
     > [!TIP]
     >  Songez à utiliser la commande Azure CLI simplifiée [az postgres up](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up), disponible actuellement en préversion. Essayez le guide de [démarrage rapide](./quickstart-create-server-up-azure-cli.md).

@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendle
 ms.custom: ''
 ms.openlocfilehash: fe9e86f3c1d155a1f0b29f500de3954e360b4aa7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86261388"
 ---
 # <a name="show-real-time-traffic"></a>Afficher le trafic en temps réel
@@ -32,7 +32,7 @@ Les paramètres suivants sont disponibles dans la section **Couche de trafic**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez-en plus sur le visuel Power BI Azure Maps :
+Découvrez-en plus sur le visuel Power BI Azure Maps :
 
 > [!div class="nextstepaction"]
 > [Présentation des calques dans le visuel Power BI Azure Maps](power-bi-visual-understanding-layers.md)

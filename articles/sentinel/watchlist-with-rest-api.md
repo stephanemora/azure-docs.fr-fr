@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 01/11/2021
 ms.author: yelevin
 ms.openlocfilehash: ea571f9b033ba82709a13c6d32649f3228ee04b1
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98798008"
 ---
 # <a name="manage-watchlists-in-azure-sentinel-using-rest-api"></a>Gérer les listes de surveillance dans Azure Sentinel à l’aide de l’API REST
@@ -51,7 +51,7 @@ Cette commande récupère toutes les listes de surveillance associées à un esp
 ### <a name="request-uri"></a>URI de requête
 (L’URI correspond à une seule ligne, coupée pour en faciliter la lecture.)
 
-| Méthode | URI de requête |
+| Méthode | URI de demande |
 |-|-|
 | GET | `https://management.azure.com/subscriptions/{{subscriptionId}}/`<br>`resourceGroups/{{resourceGroupName}}/`<br>`providers/Microsoft.OperationalInsights/`<br>`workspaces/{{workspaceName}}/`<br>`providers/Microsoft.SecurityInsights/`<br>`watchlists?api-version={{api-version}}` |
 |
@@ -71,7 +71,7 @@ Cette commande récupère une liste de surveillance spécifique associée à un 
 ### <a name="request-uri"></a>URI de requête
 (L’URI correspond à une seule ligne, coupée pour en faciliter la lecture.)
 
-| Méthode | URI de requête |
+| Méthode | URI de demande |
 |-|-|
 | GET | `https://management.azure.com/subscriptions/{{subscriptionId}}/`<br>`resourceGroups/{{resourceGroupName}}/`<br>`providers/Microsoft.OperationalInsights/`<br>`workspaces/{{workspaceName}}/`<br>`providers/Microsoft.SecurityInsights/`<br>`watchlists/{{watchlistAlias}}?api-version={{api-version}}` |
 |
@@ -130,7 +130,7 @@ Cette commande supprime une liste de surveillance et ses éléments.
 ### <a name="request-uri"></a>URI de requête
 (L’URI correspond à une seule ligne, coupée pour en faciliter la lecture.)
 
-| Méthode | URI de requête |
+| Méthode | URI de demande |
 |-|-|
 | DELETE | `https://management.azure.com/subscriptions/{{subscriptionId}}/`<br>`resourceGroups/{{resourceGroupName}}/`<br>`providers/Microsoft.OperationalInsights/`<br>`workspaces/{{workspaceName}}/`<br>`providers/Microsoft.SecurityInsights/`<br>`watchlists/{{watchlistAlias}}?api-version={{api-version}}` |
 |
@@ -190,7 +190,7 @@ Cette commande supprime un élément de liste de surveillance existant.
 ### <a name="request-uri"></a>URI de requête
 (L’URI correspond à une seule ligne, coupée pour en faciliter la lecture.)
 
-| Méthode | URI de requête |
+| Méthode | URI de demande |
 |-|-|
 | DELETE | `https://management.azure.com/subscriptions/{{subscriptionId}}/`<br>`resourceGroups/{{resourceGroupName}}/`<br>`providers/Microsoft.OperationalInsights/`<br>`workspaces/{{workspaceName}}/`<br>`providers/Microsoft.SecurityInsights/`<br>`watchlists/{{watchlistAlias}}/`<br>`watchlistitems/{{watchlistItemId}}?api-version={{api-version}}` |
 |

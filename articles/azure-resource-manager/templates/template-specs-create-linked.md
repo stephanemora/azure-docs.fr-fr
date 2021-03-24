@@ -3,12 +3,12 @@ title: Créer une spec de modèle avec des modèles liés
 description: Découvrez comment créer une spec de modèle avec des modèles liés.
 ms.topic: conceptual
 ms.date: 01/05/2021
-ms.openlocfilehash: e5725ece165f5716480afbcb4ef9098274c09993
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: 31764b9adb1d0fc28a170fa2e6b5073812533083
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97900635"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889839"
 ---
 # <a name="tutorial-create-a-template-spec-with-linked-templates-preview"></a>Tutoriel : Créer une spec de modèle avec des modèles liés (préversion)
 
@@ -19,7 +19,7 @@ Découvrez comment créer une [spec de modèle](template-specs.md) avec un modè
 Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 > [!NOTE]
-> La fonctionnalité Specs de modèle est actuellement en préversion. Pour l’utiliser avec Azure PowerShell, vous devez installer la [version 5.0.0 ou ultérieure](/powershell/azure/install-az-ps). Pour l’utiliser avec l’interface de ligne de commande Azure CLI, utilisez la [version 2.14.2 ou ultérieure](/cli/azure/install-azure-cli).
+> La fonctionnalité Specs de modèle est actuellement en préversion. Pour l’utiliser avec Azure PowerShell, vous devez installer la [version 5.0.0 ou ultérieure](/powershell/azure/install-az-ps). Pour l’utiliser avec l’interface de ligne de commande Azure CLI, utilisez la [version 2.14.2 ou ultérieure](/cli/azure/install-azure-cli).
 
 ## <a name="create-linked-templates"></a>Créer des modèles liés
 
@@ -83,7 +83,7 @@ La propriété `relativePath` est toujours relative au fichier de modèle dans l
         },
         {
           "type": "Microsoft.Resources/deployments",
-          "apiVersion": "2020-06-01",
+          "apiVersion": "2020-10-01",
           "name": "createStorage",
           "properties": {
             "mode": "Incremental",

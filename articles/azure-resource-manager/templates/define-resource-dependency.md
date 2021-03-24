@@ -4,10 +4,10 @@ description: Décrit la procédure permettant de définir une ressource Azure co
 ms.topic: conceptual
 ms.date: 12/21/2020
 ms.openlocfilehash: f6b63b066da06a17c3a2e51ab0f3ab9bf521a144
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97934745"
 ---
 # <a name="define-the-order-for-deploying-resources-in-arm-templates"></a>Définir l’ordre de déploiement des ressources dans les modèles ARM

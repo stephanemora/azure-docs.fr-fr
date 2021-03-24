@@ -4,10 +4,10 @@ description: Surveillez les exceptions d’application à l’aide de la détect
 ms.topic: conceptual
 ms.date: 12/08/2017
 ms.openlocfilehash: 00b7a28a51f91c969b41d2ab85b611f6dde51396
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86499424"
 ---
 # <a name="abnormal-rise-in-exception-volume-preview"></a>Élévation anormale du volume des exceptions (préversion)

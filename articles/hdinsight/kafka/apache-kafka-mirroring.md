@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/29/2019
-ms.openlocfilehash: c2fce6d4ee95a56cc087d50184fcd69ac113620f
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 633f01d813fe4e6c56d88052cbc7440c43f350dc
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98940847"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104870498"
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>MirrorMaker permet de répliquer des rubriques Apache Kafka avec Kafka sur HDInsight
 
@@ -34,7 +34,7 @@ Le programme de mise en miroir le plus utile en cas de récupération d'urgence 
 
 Le diagramme suivant illustre le processus de mise en miroir et le flux de communication entre les clusters :
 
-![Diagramme du processus de mise en miroir](./media/apache-kafka-mirroring/kafka-mirroring-vnets2.png)
+:::image type="content" source="./media/apache-kafka-mirroring/kafka-mirroring-vnets2.png" alt-text="Diagramme du processus de mise en miroir" border="false":::
 
 Le cluster principal et le cluster secondaire peuvent comporter un nombre différent de nœuds et de partitions, et les décalages dans les sujets ne sont pas forcément les mêmes. La mise en miroir conserve la valeur clé utilisée pour le partitionnement afin de préserver l’ordre d’enregistrement en fonction de la clé.
 
@@ -84,14 +84,14 @@ Cette architecture comporte deux clusters dans différents groupes de ressources
     1. Sélectionnez **Ajouter**.
     1. Dans l'écran **Ajouter le peering**, entrez les détails comme indiqué dans la capture d’écran ci-dessous.
 
-        ![HDInsight Kafka - Ajout de l’appairage de réseau virtuel](./media/apache-kafka-mirroring/hdi-add-vnet-peering.png)
+        :::image type="content" source="./media/apache-kafka-mirroring/hdi-add-vnet-peering.png" alt-text="HDInsight Kafka - Ajout de l’appairage de réseau virtuel" border="true":::
 
 ### <a name="configure-ip-advertising"></a>Configurer la publication d’adresses IP
 
 Configurez la publication d’adresses IP pour permettre à un client de se connecter à l’aide des adresses IP du répartiteur plutôt que des noms de domaine.
 
 1. Accédez au tableau de bord Ambari pour le cluster principal : `https://PRIMARYCLUSTERNAME.azurehdinsight.net`.
-1. Sélectionnez **Services** > **Kafka**. Sélectionnez l’onglet **Configurations**.
+1. Sélectionnez **Services** > **Kafka**. Sélectionnez l'onglet **Configurations** .
 1. Ajoutez les lignes de configuration suivantes en bas de la section **kafka-env template**. Sélectionnez **Enregistrer**.
 
     ```
@@ -107,7 +107,7 @@ Configurez la publication d’adresses IP pour permettre à un client de se con
 1. Sélectionnez **OK** dans **Enregistrer les modifications de configuration**.
 1. Sélectionnez **Redémarrer** > **Redémarrer tous les éléments affectés** dans la notification **Redémarrage requis**. Sélectionnez **Confirmer le redémarrage**.
 
-    ![Apache Ambari - Redémarrer tous les éléments affectés](./media/apache-kafka-mirroring/ambari-restart-notification.png)
+    :::image type="content" source="./media/apache-kafka-mirroring/ambari-restart-notification.png" alt-text="Apache Ambari - Redémarrer tous les éléments affectés" border="true":::
 
 ### <a name="configure-kafka-to-listen-on-all-network-interfaces"></a>Configurez Kafka de manière à écouter sur toutes les interfaces réseau.
     
@@ -120,7 +120,7 @@ Configurez la publication d’adresses IP pour permettre à un client de se con
 1. Sélectionnez **Hôtes** dans le tableau de bord Ambari.
 1. Notez les adresses IP Broker et Zookeeper. Les nœuds Broker portent les deux premières lettres du nom d'hôte, **wn**, et les nœuds Zookeeper les deux premières lettres du nom d'hôte **zk**.
 
-    ![Apache Ambari - Afficher les adresses IP du nœud](./media/apache-kafka-mirroring/view-node-ip-addresses2.png)
+    :::image type="content" source="./media/apache-kafka-mirroring/view-node-ip-addresses2.png" alt-text="Apache Ambari - Afficher les adresses IP du nœud" border="true":::
 
 1. Répétez les trois étapes précédentes pour le deuxième cluster **kafka-secondary-cluster** : configurer la publication d’adresses IP, définissez listeners et notez les adresses IP Broker et Zookeeper.
 
@@ -256,7 +256,7 @@ Configurez la publication d’adresses IP pour permettre à un client de se con
         1. Définissez la valeur `auto.create.topics.enable` sur true, puis sélectionnez __Save__ (Enregistrer). Ajoutez une note, puis sélectionnez à nouveau __Save__ (Enregistrer).
         1. Sélectionnez le service __Kafka__, choisissez __Restart__ (Redémarrer), puis __Restart all affected__ (Redémarrer tous les éléments affectés). Lorsque vous y êtes invité, sélectionnez __Confirm Restart All__ (Confirmer le redémarrage).
 
-        ![Kafka - Activer la création automatique des rubriques](./media/apache-kafka-mirroring/kafka-enable-auto-create-topics.png)
+        :::image type="content" source="./media/apache-kafka-mirroring/kafka-enable-auto-create-topics.png" alt-text="Kafka - Activer la création automatique des rubriques" border="true":::
 
 ## <a name="start-mirrormaker"></a>Lancement de MirrorMaker
 

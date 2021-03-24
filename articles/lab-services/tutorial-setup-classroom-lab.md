@@ -4,10 +4,10 @@ description: Dans ce tutoriel, vous allez utiliser Azure Lab Services pour confi
 ms.topic: tutorial
 ms.date: 12/03/2020
 ms.openlocfilehash: 8093a1fd270cdba8bdccaf48737bf6737bdd394d
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98787416"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Tutoriel : Configurer un laboratoire de salle de classe 
@@ -127,7 +127,7 @@ Quand vous ajoutez des utilisateurs, par défaut, l’option **Restreindre l’a
 
 Vous pouvez synchroniser une liste d’utilisateurs du labo avec un groupe Azure AD (Azure Active Directory) existant, ce qui vous évite d’avoir à ajouter ou supprimer manuellement les utilisateurs. 
 
-Vous pouvez créer un groupe Azure AD au sein de la structure Azure Active Directory de votre organisation pour gérer l’accès aux ressources organisationnelles et aux applications cloud. Pour plus d’informations, consultez [Groupes Azure AD](../active-directory/fundamentals/active-directory-manage-groups.md). Si votre organisation utilise des services Microsoft Office 365 ou Azure, elle a déjà des administrateurs qui gèrent votre Azure Active Directory. 
+Vous pouvez créer un groupe Azure AD au sein de la structure Azure Active Directory de votre organisation pour gérer l’accès aux ressources organisationnelles et aux applications cloud. Pour plus d’informations, consultez [Groupes Azure AD](../active-directory/fundamentals/active-directory-manage-groups.md). Si votre organisation utilise des services Microsoft Office 365 ou Azure, elle a déjà des administrateurs qui gèrent votre Azure Active Directory. 
 
 > [!IMPORTANT]
 > Assurez-vous que la liste des utilisateurs est vide. Si un labo a déjà des utilisateurs que vous aviez ajoutés manuellement ou en important un fichier CSV, l’option de synchronisation du labo avec un groupe existant n’est pas proposée. 
@@ -141,10 +141,10 @@ Vous pouvez créer un groupe Azure AD au sein de la structure Azure Active Direc
     
     Si vous ne voyez pas de groupe Azure AD dans la liste, cela peut être dû aux raisons suivantes :
 
-    -   Vous êtes un utilisateur invité pour Azure Active Directory (généralement si vous êtes extérieur à l’organisation propriétaire d’Azure AD) et vous n’êtes pas en mesure de rechercher des groupes à l’intérieur d’Azure AD. Dans ce cas, vous ne pouvez pas ajouter un groupe Azure AD au labo. 
-    -   Les groupes Azure AD créés par le biais de Teams ne figurent pas dans cette liste. Vous pouvez ajouter l’application Azure Lab Services dans Teams si vous souhaitez créer et gérer des labos directement à partir de Teams. Pour plus d’informations sur la [gestion de la liste des utilisateurs d’un labo dans Teams](how-to-manage-user-lists-within-teams.md). 
+    -   Vous êtes un utilisateur invité pour Azure Active Directory (généralement si vous êtes extérieur à l’organisation propriétaire de l’annuaire Azure AD) et vous n’êtes pas en mesure de rechercher des groupes à l’intérieur de l’annuaire Azure AD. Dans ce cas, vous ne pouvez pas ajouter de groupe Azure AD au labo. 
+    -   Les groupes Azure AD créés par le biais de Teams ne figurent pas dans cette liste. Vous pouvez ajouter l’application Azure Lab Services dans Teams si vous souhaitez créer et gérer des labos directement à partir de Teams. Apprenez-en davantage sur la [gestion de la liste des utilisateurs d’un labo dans Teams](how-to-manage-user-lists-within-teams.md). 
 1. Une fois que vous avez choisi le groupe Azure AD à utiliser pour synchroniser votre labo, cliquez sur **Ajouter**.
-1. Quand un labo est synchronisé, il tire (pull) tous les utilisateurs présents dans le groupe Azure AD en tant qu’utilisateurs du labo, et la liste des utilisateurs est mise à jour. Seules les personnes de ce groupe Azure AD auront accès à votre labo. La liste des utilisateurs est actualisée toutes les 24 heures en fonction de la dernière appartenance du groupe Azure AD. Vous pouvez également cliquer sur le bouton Synchroniser dans l’onglet Utilisateurs pour effectuer une synchronisation manuelle avec les dernières modifications apportées au groupe Azure AD.
+1. Quand un labo est synchronisé, il extrait (pull) tous les utilisateurs présents dans le groupe Azure AD en tant qu’utilisateurs du labo, et la liste des utilisateurs est mise à jour. Seules les membres de ce groupe Azure AD auront accès à votre labo. La liste des utilisateurs est actualisée toutes les 24 heures en fonction de la dernière appartenance du groupe Azure AD. Vous pouvez également cliquer sur le bouton Synchroniser sous l’onglet Utilisateurs pour effectuer une synchronisation manuelle avec les dernières modifications apportées au groupe Azure AD.
 1. Invitez les utilisateurs à votre labo en cliquant sur le bouton **Tous les inviter**. Tous les utilisateurs recevront un e-mail contenant le lien d’inscription au labo. 
 
 ### <a name="add-users-manually-from-emails-or-csv-file"></a>Ajouter des utilisateurs manuellement à l’aide des e-mails ou d’un fichier CSV

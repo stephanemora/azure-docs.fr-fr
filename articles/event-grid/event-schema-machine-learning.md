@@ -4,10 +4,10 @@ description: Décrit les propriétés qui sont fournies pour les événements Es
 ms.topic: conceptual
 ms.date: 02/11/2021
 ms.openlocfilehash: e47c2137840e21eab73906d42b1e1536422f872d
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100363387"
 ---
 # <a name="azure-machine-learning-as-an-event-grid-source"></a>Azure Machine Learning en tant que source Event Grid

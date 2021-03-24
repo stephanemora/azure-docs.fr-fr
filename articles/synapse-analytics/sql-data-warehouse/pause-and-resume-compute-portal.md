@@ -2,21 +2,21 @@
 title: 'Démarrage rapide : Suspendre et reprendre le calcul dans le pool SQL dédié avec le portail Azure'
 description: Utilisez le portail Azure pour interrompre le calcul du pool SQL dédié et ainsi réaliser des économies. Reprenez le calcul dès que vous pourrez à nouveau utiliser l’entrepôt de données.
 services: synapse-analytics
-author: kevinvngo
+author: gaursa
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: sql-dw
 ms.date: 11/23/2020
-ms.author: kevin
+ms.author: gaursa
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 567d5ae8b9d480003486362a7aa0ef69f9740d52
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: f9cc5083c4b515454b9d5cbc40ed3b48cba80211
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98120289"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104602160"
 ---
 # <a name="quickstart-pause-and-resume-compute-in-dedicated-sql-pool-via-the-azure-portal"></a>Démarrage rapide : Suspendre et reprendre le calcul dans le pool SQL dédié avec le portail Azure
 

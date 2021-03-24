@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 343a37c983b1d64a4b1986913d9d6fd648a113fe
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98785547"
 ---
 # <a name="deploy-and-remove-applications-using-fabricclient"></a>Déployer et supprimer des applications avec FabricClient
@@ -122,20 +122,20 @@ ImageStoreConnectionString se trouve dans le manifeste de cluster :
 Pour plus d’informations sur le magasin d’images et sur ImageStoreConnectionString, consultez la page [Comprendre la chaîne de connexion du magasin d’images](service-fabric-image-store-connection-string.md).
 
 ### <a name="deploy-large-application-package"></a>Déployer un package d’application volumineux
-Problème : l’API [CopyApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage) expire pour un package d’application volumineux (de l’ordre du Go).
-Essayez de procéder comme suit :
+Problème : l’API [CopyApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage) expire pour un package d’application volumineux (de l’ordre du Go).
+Essayez :
 - Spécifiez un délai d’expiration supérieur pour la méthode [CopyApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage) avec le paramètre `timeout`. Par défaut, le délai d’expiration est de 30 minutes.
 - Vérifiez la connexion réseau entre votre ordinateur source et le cluster. Si la connexion est lente, envisagez d’utiliser un ordinateur offrant une meilleure connexion réseau.
 Si l’ordinateur client se trouve dans une autre région que le cluster, envisagez d’utiliser un ordinateur client se trouvant dans la région du cluster ou dans une région plus proche de celle-ci.
 - Vérifiez si vous êtes confronté à des limitations externes. Par exemple, lorsque le magasin d’images est configuré pour utiliser le stockage Azure, le chargement peut être limité.
 
-Problème : le chargement du package s’est terminé avec succès, mais l’API [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) expire. Essayez de procéder comme suit :
+Problème : le chargement du package s’est terminé avec succès, mais l’API [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) expire. Essayez de procéder comme suit :
 - [Compressez le package](service-fabric-package-apps.md#compress-a-package) avant de le copier dans le magasin d’images.
 La compression réduit la taille et le nombre de fichiers, ce qui a pour effet de réduire la quantité de trafic et la charge de travail pour Service Fabric. L’opération de chargement peut demander plus de temps (surtout si vous incluez le temps de compression), mais l’inscription et la désinscription du type d’application sont plus rapides.
 - Spécifiez un délai d’expiration supérieur pour l’API [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) avec le paramètre `timeout`.
 
 ### <a name="deploy-application-package-with-many-files"></a>Déployer un package d’application contenant de nombreux fichiers
-Problème : [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) expire pour un package d’application contenant un grand nombre de fichiers (de l’ordre de plusieurs milliers).
+Problème : [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) expire pour un package d’application contenant un grand nombre de fichiers (de l’ordre de plusieurs milliers).
 Essayez de procéder comme suit :
 - [Compressez le package](service-fabric-package-apps.md#compress-a-package) avant de le copier dans le magasin d’images. La compression réduit le nombre de fichiers.
 - Spécifiez un délai d’expiration supérieur pour [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) avec le paramètre `timeout`.

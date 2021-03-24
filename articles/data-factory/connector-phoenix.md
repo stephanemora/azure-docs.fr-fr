@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
 ms.openlocfilehash: b0919e1da93f0cf0a5d27e541493b724d2fa5f0a
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100374318"
 ---
 # <a name="copy-data-from-phoenix-using-azure-data-factory"></a>Copier des données de Phoenix à l’aide d’Azure Data Factory 
@@ -52,8 +52,8 @@ Les propriétés prises en charge pour le service lié Phoenix sont les suivante
 | authenticationType | Mécanisme d’authentification utilisé pour se connecter au serveur Phoenix. <br/>Les valeurs autorisées sont les suivantes : **Anonymous**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Oui |
 | username | Nom d’utilisateur utilisé pour se connecter au serveur Phoenix.  | Non |
 | mot de passe | Mot de passe correspondant au nom d’utilisateur. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Non |
-| enableSsl | Indique si les connexions au serveur sont chiffrées suivant le protocole TLS. La valeur par défaut est false.  | Non |
-| trustedCertPath | Chemin complet du fichier .pem contenant les certificats d’autorité de certification approuvés qui permettent de vérifier le serveur en cas de connexion TLS. Cette propriété n’est disponible que si le protocole TLS est utilisé sur un IR auto-hébergé. Valeur par défaut : le fichier cacerts.pem installé avec le runtime d’intégration.  | Non |
+| enableSsl | Indique si les connexions au serveur sont chiffrées à l’aide du protocole TLS. La valeur par défaut est false.  | Non |
+| trustedCertPath | Chemin complet du fichier .pem contenant les certificats d’autorité de certification approuvés permettant de vérifier le serveur en cas de connexion TLS. Cette propriété n’est disponible que si le protocole TLS est utilisé sur un runtime d’intégration auto-hébergé. Valeur par défaut : le fichier cacerts.pem installé avec le runtime d’intégration.  | Non |
 | useSystemTrustStore | Indique s’il faut utiliser un certificat d’autorité de certification provenant du magasin de confiance du système ou d’un fichier PEM spécifié. La valeur par défaut est false.  | Non |
 | allowHostNameCNMismatch | Indique si le nom du certificat TLS/SSL émis par l’autorité de certification doit correspondre au nom d’hôte du serveur en cas de connexion TLS. La valeur par défaut est false.  | Non |
 | allowSelfSignedServerCert | Indique si les certificats auto-signés provenant du serveur sont autorisés ou non. La valeur par défaut est false.  | Non |

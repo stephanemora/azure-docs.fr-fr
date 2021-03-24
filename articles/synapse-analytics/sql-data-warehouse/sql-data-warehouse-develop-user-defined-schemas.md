@@ -12,10 +12,10 @@ ms.author: emtehran
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: 3204c77dd076d9aac6eb5a60b489280caefcbf4b
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96460450"
 ---
 # <a name="user-defined-schemas-for-dedicated-sql-pools-in-azure-synapse-analytics"></a>Schémas définis par l’utilisateur pour les pools SQL dédiés dans Azure Synapse Analytics

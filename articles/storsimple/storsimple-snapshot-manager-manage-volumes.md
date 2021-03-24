@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 04/18/2016
 ms.author: alkohli
 ms.openlocfilehash: 309fa85d0a4d877522a89dd8f1e6e71fb2074744
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96022936"
 ---
 # <a name="use-storsimple-snapshot-manager-to-view-and-manage-volumes"></a>Utiliser le Gestionnaire d’instantanés StorSimple pour afficher et gérer les volumes
@@ -40,7 +40,7 @@ Ce didacticiel vous explique comment monter, initialiser et formater les volumes
 * Configurer un volume dynamique mis en miroir et le sauvegarder
 
 > [!NOTE]
-> L’ensemble des actions du nœud **Volume** sont disponibles dans le volet **Actions**.
+> Toutes les actions du nœud **Volume** sont également dans le volet **Actions**.
 > 
 > 
 
@@ -53,7 +53,7 @@ Appliquez la procédure suivante pour monter, initialiser et formater des volume
 3. Pour démarrer le composant Gestion des disques, utilisez l’une des options suivantes :
    
    * Dans la zone **Exécuter** , saisissez Diskmgmt.msc.
-   * Lancez le Gestionnaire de serveur, développez le nœud **Stockage**, puis sélectionnez **Gestion des disques**.
+   * Lancez le Gestionnaire de serveurs, développez le nœud **Stockage**, puis sélectionnez **Gestion des disques**.
    * Lancez **Outils d’administration**, développez le nœud **Gestion de l’ordinateur**, puis sélectionnez **Gestion des disques**. 
      
      > [!NOTE]
@@ -62,13 +62,13 @@ Appliquez la procédure suivante pour monter, initialiser et formater des volume
      > 
 4. Prenez le(s) volume(s) en ligne :
    
-   1. Dans Gestion des disques, cliquez avec le bouton droit sur un volume marqué **Hors connexion**.
-   2. Cliquez sur **Réactiver le disque**. Après la réactivation, le disque doit être marqué **En ligne** .
+   1. Dans Gestion des disques, cliquez avec le bouton droit sur chaque volume indiquant **Hors connexion**.
+   2. Cliquez sur **Réactiver le disque**. La mention **En ligne** doit être indiquée après réactivation du disque.
 5. Initialisez le(s) volume(s) :
    
    1. Cliquez avec le bouton droit sur les volumes découverts.
    2. Dans le menu, sélectionnez **Initialiser le disque**.
-   3. Dans la boîte de dialogue **Initialiser le disque**, sélectionnez les disques que vous souhaitez initialiser, puis cliquez sur **OK**.
+   3. Dans la boîte de dialogue **Initialiser le disque**, sélectionnez les disques que vous voulez initialiser, puis cliquez sur **OK**.
 6. Formatez les volumes simples :
    
    1. Cliquez avec le bouton droit sur un volume que vous souhaitez mettre en forme.
@@ -93,9 +93,9 @@ Appliquez la procédure suivante pour afficher des informations sur les volumes 
    
    | Colonne de résultats | Description |
    |:--- |:--- |
-   |  Nom |La colonne **Nom** contient la lettre de lecteur attribuée à chaque volume découvert. |
+   |  Nom |La colonne **Nom** indique la lettre de lecteur attribuée à chaque volume détecté. |
    |  Appareil |La colonne **Appareil** comporte l’adresse IP de l’appareil connecté à l’ordinateur hôte. |
-   |  Nom de volume d’appareil |La colonne **Nom de volume d’appareil** comporte le nom du volume d’appareil auquel appartient le volume sélectionné. Il s’agit du nom de volume défini dans le portail Azure pour ce volume spécifique. |
+   |  Nom de volume d’appareil |La colonne **Nom de volume de périphérique** indique le nom du volume de périphérique auquel appartient le volume sélectionné. Il s’agit du nom de volume défini dans le portail Azure pour ce volume spécifique. |
    |  Chemins d’accès |La colonne **Chemins d’accès** affiche le chemin d’accès au volume. Il s’agit de la lettre de lecteur ou du point de montage à partir de laquelle/duquel le volume est accessible sur l’ordinateur hôte. |
 
 ## <a name="delete-a-volume"></a>Suppression d’un volume
@@ -107,11 +107,11 @@ Appliquez la procédure suivante pour supprimer un volume du Gestionnaire d’in
 #### <a name="to-delete-a-volume"></a>Pour supprimer un volume
 1. Cliquez sur l’icône de bureau pour démarrer le Gestionnaire d’instantanés StorSimple.
 2. Dans le volet **Étendue**, cliquez sur le nœud **Volumes**. 
-3. Dans le volet **Résultats** , cliquez avec le bouton droit sur le volume que vous souhaitez supprimer.
+3. Dans le volet **Résultats**, cliquez avec le bouton droit sur le volume à supprimer.
 4. Dans le menu, cliquez sur **Supprimer**. 
    
     ![Suppression d’un volume](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Delete_volume.png) 
-5. La boîte de dialogue **Supprimer le volume** s’affiche. Saisissez **Confirmer** dans la zone de texte, puis cliquez sur **OK**.
+5. La boîte de dialogue **Supprimer le volume** s'affiche. Tapez **Confirmer** dans la zone de texte, puis cliquez sur **OK**.
 6. Par défaut, le Gestionnaire d’instantanés StorSimple sauvegarde un volume avant de le supprimer. Cette précaution peut vous protéger contre toute perte de données occasionnée par une suppression non intentionnelle. Le Gestionnaire d’instantanés StorSimple affiche un message de progression **Instantané automatique** pendant la sauvegarde du volume. 
    
     ![Message automatique d’instantané](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Automatic_snap.png) 
@@ -121,7 +121,7 @@ Appliquer la procédure suivante pour relancer l’analyse des volumes connecté
 
 #### <a name="to-rescan-the-volumes"></a>Pour relancer l’analyse des volumes
 1. Cliquez sur l’icône de bureau pour démarrer le Gestionnaire d’instantanés StorSimple.
-2. Dans le volet **Étendue**, cliquez avec le bouton droit sur **Volumes**, puis cliquez sur **Relancer l’analyse des volumes**.
+2. Dans le volet **Étendue**, cliquez avec le bouton droit sur **Volumes**, puis sélectionnez **Rescanner les volumes**.
    
     ![Relancer l’analyse des volumes](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Rescan_volumes.png)
    
@@ -140,49 +140,49 @@ Avant de commencer :
 1. Créez un volume de base sur l’appareil StorSimple.
 2. Montez, initialisez et formatez le volume, tel que décrit dans la section [Monter les volumes](#mount-volumes). 
 3. Cliquez sur l’icône du Gestionnaire d’instantanés StorSimple de votre bureau. La fenêtre du Gestionnaire d’instantanés StorSimple apparaît. 
-4. Dans le volet **Étendue** cliquez avec le bouton droit sur le nœud **Volumes**, puis sélectionnez **Relancer l’analyse des volumes**. À l’issue de l’analyse, une liste de volumes doit apparaître dans le volet **Résultats** . 
+4. Dans le volet **Étendue**, cliquez avec le bouton droit sur le nœud **Volumes** puis sélectionnez **Rescanner les volumes**. Une fois l'analyse terminée, une liste de volumes doit s'afficher dans le volet **Résultats**. 
 5. Dans le volet **Résultats**, cliquez avec le bouton droit sur le volume, puis sélectionnez **Créer un groupe de volumes**. 
    
     ![Créer un groupe de volumes](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Create_volume_group.png) 
-6. Dans la boîte de dialogues **Créer un groupe de volumes**, entrez un nom pour le groupe de volumes, attribuez-lui des volumes, puis cliquez sur **OK**.
+6. Dans la boîte de dialogue **Créer un groupe de volumes**, entrez un nom pour le groupe de volumes, attribuez des volumes à ce groupe, puis cliquez sur **OK**.
 7. Dans le volet **Étendue**, développez le nœud **Groupes de volumes**. Le nouveau groupe de volumes doit apparaître sous le nœud **Groupes de volumes** . 
 8. Cliquez avec le bouton droit sur le nom du groupe de volumes.
    
-   * Pour démarrer une tâche de sauvegarde interactive (à la demande), cliquez sur **Démarrer la sauvegarde**. 
-   * Pour planifier une sauvegarde automatique, cliquez sur **Créer une stratégie de sauvegarde**. Sur la page **Général** , sélectionnez un groupe de volumes dans la liste. Sur la page **Planifier** , entrez les détails de la planification. Quand vous avez terminé, cliquez sur **OK**. 
-9. Pour vérifier que la tâche de sauvegarde a bien démarré, développez le nœud **Tâches** du volet **Étendue**, puis cliquez sur le nœud **En cours d’exécution**. La liste des tâches en cours apparaît dans le volet **Résultats** . 
+   * Pour lancer une tâche de sauvegarde interactive (à la demande), cliquez sur **Créer une sauvegarde**. 
+   * Pour planifier une sauvegarde automatique, cliquez sur **Créer une stratégie de sauvegarde**. Dans la page **Général**, sélectionnez un groupe de volumes dans la liste. Sur la page **Planifier**, entrez les détails de planification. Quand vous avez terminé, cliquez sur **OK**. 
+9. Pour vérifier que le travail de sauvegarde à commencé, développez le nœud **Travaux** dans le volet **Étendue**, puis cliquez sur le nœud **En cours d'exécution**. La liste des travaux en cours d'exécution s'affiche dans le volet **Résultats**. 
 
 ## <a name="configure-and-back-up-a-dynamic-mirrored-volume"></a>Configurer et sauvegarder un volume dynamique mis en miroir
 Procédez comme suit pour configurer la sauvegarde d’un volume dynamique mis en miroir :
 
-* Étape 1 : Utiliser la gestion des disques pour créer un volume dynamique en miroir. 
-* Étape 2 : Utiliser le Gestionnaire d’instantanés StorSimple pour configurer la sauvegarde.
+* Étape 1 : utiliser la gestion des disques pour créer un volume dynamique en miroir 
+* Étape 2 : utiliser le Gestionnaire d’instantanés StorSimple pour configurer la sauvegarde
 
 ### <a name="prerequisites"></a>Prérequis
 Avant de commencer :
 
 * Assurez-vous que l’appareil StorSimple et l’ordinateur hôte sont correctement configurés. Pour plus d’informations, accédez à la page [Déployer votre appareil local StorSimple](storsimple-8000-deployment-walkthrough-u2.md).
 * Installez et configurez le Gestionnaire d’instantanés StorSimple. Pour plus d’informations, accédez à la section [Déployer le Gestionnaire d’instantanés StorSimple](storsimple-snapshot-manager-deployment.md).
-* Configurez deux volumes sur l’appareil StorSimple. (Dans les exemples, les volumes disponibles sont **Disque 1** et **Disque 2**.) 
+* Configurez deux volumes sur l’appareil StorSimple. (dans les exemples, les volumes disponibles sont **Disk 1** et **Disk 2**). 
 
-### <a name="step-1-use-disk-management-to-create-a-dynamic-mirrored-volume"></a>Étape 1 : Utiliser la gestion des disques pour créer un volume dynamique en miroir
+### <a name="step-1-use-disk-management-to-create-a-dynamic-mirrored-volume"></a>Étape 1 : Utilisez la gestion des disques pour créer un volume dynamique en miroir
 Gestion des disques est un utilitaire système dédié à la gestion des disques durs et des volumes et partitions qu’ils contiennent. Pour plus d’informations sur le composant Gestion des disques, accédez à la section [Gestion des disques](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770943(v=ws.11)) du site web Microsoft TechNet.
 
 #### <a name="to-create-a-dynamic-mirrored-volume"></a>Pour créer un volume dynamique en miroir
 1. Pour démarrer le composant Gestion des disques, utilisez l’une des options suivantes : 
    
-   * Ouvrez la zone **Exécuter**, entrez **Diskmgmt.msc**, puis appuyez sur Entrée.
-   * Lancez le Gestionnaire de serveur, développez le nœud **Stockage**, puis sélectionnez **Gestion des disques**. 
+   * Ouvrez la zone **Exécuter**, tapez **Diskmgmt.msc**, puis appuyez sur Entrée.
+   * Lancez le Gestionnaire de serveurs, développez le nœud **Stockage**, puis sélectionnez **Gestion des disques**. 
    * Lancez **Outils d’administration**, développez le nœud **Gestion de l’ordinateur**, puis sélectionnez **Gestion des disques**. 
-2. Assurez-vous de disposer de deux volumes disponibles sur l’appareil StorSimple. (Dans l’exemple, les volumes disponibles sont **Disque 1** et **Disque 2**.) 
-3. Dans la fenêtre Gestion des disques, dans la colonne de droite du volet inférieur, cliquez avec le bouton droit sur **Disque 1**, puis sélectionnez **Nouveau volume en miroir**. 
+2. Assurez-vous de disposer de deux volumes disponibles sur l’appareil StorSimple. (dans l'exemple, les volumes disponibles sont **Disk 1** et **Disk 2**). 
+3. Dans la fenêtre Gestion des disques, dans la colonne de droite du volet inférieur, cliquez avec le bouton droit sur **Disk 1**, puis sélectionnez **Nouveau volume en miroir**. 
    
     ![Nouveau volume en miroir](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_New_mirrored_volume.png) 
-4. Sur la page de l’Assistant **Nouveau volume en miroir**, cliquez sur **Suivant**.
-5. Sur la page **Sélectionner les disques**, choisissez **Disque 2** dans le volet **Sélectionné**, cliquez sur **Ajouter**, puis cliquez sur **Suivant**. 
+4. Sur la page **Nouveau volume en miroir**, cliquez sur **Suivant**.
+5. Sur la page **Sélectionner les disques**, sélectionnez **Disk 2** dans le volet **Sélectionné**, cliquez sur **Ajouter**, puis sur **Suivant**. 
 6. Sur la page **Attribuer une lettre ou un chemin d’accès au lecteur**, acceptez les valeurs par défaut, puis cliquez sur **Suivant**. 
-7. Sur la page **Formater le volume**, dans la zone **Taille d’unité d’allocation**, sélectionnez **64 Ko**. Sélectionnez la zone **Effectuer un formatage rapide**, puis cliquez sur **Suivant**. 
-8. Sur la page **Exécution du nouveau volume en miroir**, passez en revue vos paramètres, puis cliquez sur **Terminer**. 
+7. Dans la page **Formater le volume**, dans la zone **Taille d'unité d'allocation**, sélectionnez **64 Ko**. Activez la case à cocher **Effectuer un formatage rapide**, puis cliquez sur **Suivant**. 
+8. Vérifiez vos paramètres sur la page **Fin de l’Assistant Création de volume en miroir**, puis cliquez sur **Terminer**. 
 9. Un message s’affiche pour signaler que le disque de base sera converti en disque dynamique. Cliquez sur **Oui**.
    
     ![Message de conversion de disque dynamique](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Disk_management_msg.png) 
@@ -190,20 +190,20 @@ Gestion des disques est un utilitaire système dédié à la gestion des disques
     
     ![Disques dynamiques mis en miroir du composant Gestion des disques](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Verify_dynamic_disks_2.png) 
 
-### <a name="step-2-use-storsimple-snapshot-manager-to-configure-backup"></a>Étape 2 : Utiliser le Gestionnaire d’instantanés StorSimple pour configurer la sauvegarde
+### <a name="step-2-use-storsimple-snapshot-manager-to-configure-backup"></a>Étape 2 : Utilisez le Gestionnaire d’instantanés StorSimple pour configurer la sauvegarde
 Appliquez la procédure suivante pour configurer un volume dynamique mis en miroir, puis commencer immédiatement une sauvegarde ou créer une stratégie dédiée aux sauvegardes planifiées.
 
 #### <a name="to-configure-backup-of-a-dynamic-mirrored-volume"></a>Pour configurer la sauvegarde d’un volume dynamique mis en miroir
 1. Cliquez sur l’icône du Gestionnaire d’instantanés StorSimple de votre bureau. La fenêtre du Gestionnaire d’instantanés StorSimple apparaît. 
-2. Dans le volet **Étendue** cliquez avec le bouton droit sur le nœud **Volumes**, puis sélectionnez **Relancer l’analyse des volumes**. À l’issue de l’analyse, une liste de volumes doit apparaître dans le volet **Résultats** . Le volume dynamique mis en miroir est répertorié en tant que volume unique. 
-3. Dans le volet **Résultats**, cliquez avec le bouton droit sur le volume dynamique en miroir, puis cliquez sur **Créer un groupe de volumes**. 
-4. Dans la boîte de dialogue **Créer un groupe de volumes**, saisissez un nom pour le groupe de volumes, attribuez le volume dynamique en miroir à ce groupe, puis cliquez sur **OK**. 
+2. Dans le volet **Étendue**, cliquez avec le bouton droit sur **Volumes**, puis sélectionnez **Rescanner les volumes**. Une fois l'analyse terminée, une liste de volumes doit s'afficher dans le volet **Résultats**. Le volume dynamique mis en miroir est répertorié en tant que volume unique. 
+3. Dans le volet **Résultats**, cliquez avec le bouton droit sur le volume en miroir dynamique, puis cliquez sur **Créer un groupe de volumes**. 
+4. Dans la boîte de dialogue **Créer un groupe de volumes**, entrez un nom pour le groupe de volumes, attribuez le volume en miroir dynamique à ce groupe, puis cliquez sur **OK**. 
 5. Dans le volet **Étendue**, développez le nœud **Groupes de volumes**. Le nouveau groupe de volumes doit apparaître sous le nœud **Groupes de volumes**. 
 6. Cliquez avec le bouton droit sur le nom du groupe de volumes. 
    
-   * Pour démarrer une tâche de sauvegarde interactive (à la demande), cliquez sur **Démarrer la sauvegarde**. 
-   * Pour planifier une sauvegarde automatique, cliquez sur **Créer une stratégie de sauvegarde**. Sur la page **Général** , sélectionnez le groupe de volumes dans la liste. Sur la page **Planifier** , entrez les détails de la planification. Quand vous avez terminé, cliquez sur **OK**. 
-7. Vous pouvez surveiller la tâche de sauvegarde en cours d’exécution. Dans le volet **Étendue**, développez le nœud **Tâches**, puis cliquez sur **En cours d’exécution** ; les détails de la tâche apparaissent dans le volet **Résultats**. À l’issue de la tâche de sauvegarde, les détails sont transférés vers la liste des tâches **Dernières 24 heures** . 
+   * Pour lancer une tâche de sauvegarde interactive (à la demande), cliquez sur **Créer une sauvegarde**. 
+   * Pour planifier une sauvegarde automatique, cliquez sur **Créer une stratégie de sauvegarde**. Sur la page **Général**, sélectionnez le groupe de volumes dans la liste. Sur la page **Planifier**, entrez les détails de planification. Quand vous avez terminé, cliquez sur **OK**. 
+7. Vous pouvez surveiller la tâche de sauvegarde en cours d’exécution. Dans le volet **Étendue**, développez le nœud **Tâches**, puis cliquez sur **En cours d'exécution**. Les détails de la tâche s'affichent dans le volet **Résultats**. À l’issue de la tâche de sauvegarde, les détails sont transférés vers la liste des tâches **Dernières 24 heures** . 
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Découvrez comment [utiliser le Gestionnaire d’instantanés StorSimple pour gérer votre solution StorSimple](storsimple-snapshot-manager-admin.md).
