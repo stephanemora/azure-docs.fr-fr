@@ -11,18 +11,18 @@ ms.workload: ''
 ms.topic: tutorial
 ms.date: 08/24/2020
 ms.author: inhenkel
-ms.openlocfilehash: c481daf73f916ede2e7063c75448ba4d09e553cc
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 8e3b9636dfb900fa0e22bfea8bcd2d0c7edf0241
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100571857"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104596703"
 ---
 # <a name="tutorial-store-azure-media-services-events-in-azure-log-analytics"></a>Tutoriel : Stocker les événements Azure Media Services dans Azure Log Analytics
 
 ## <a name="azure-media-services-events"></a>Événements Azure Media Services
 
-Azure Media Services V3 émet des événements sur [Azure Event Grid](media-services-event-schemas.md). Vous pouvez vous abonner à des événements de nombreuses façons et les stocker dans des magasins de données. Dans ce didacticiel, vous allez vous abonner aux événements Media Services à l’aide d’un [Flux d’application logique](https://azure.microsoft.com/services/logic-apps/). L’application logique est déclenchée pour chaque événement et stocke le corps de l’événement dans Azure Log Analytics. Une fois que les événements se trouvent dans Azure Log Analytics, vous pouvez utiliser d’autres services Azure pour créer un tableau de bord, suivre et générer des alertes sur ces événements. Toutefois, nous ne couvrirons pas cela dans ce didacticiel.
+Azure Media Services V3 émet des événements sur [Azure Event Grid](monitoring/media-services-event-schemas.md). Vous pouvez vous abonner à des événements de nombreuses façons et les stocker dans des magasins de données. Dans ce didacticiel, vous allez vous abonner aux événements Media Services à l’aide d’un [Flux d’application logique](https://azure.microsoft.com/services/logic-apps/). L’application logique est déclenchée pour chaque événement et stocke le corps de l’événement dans Azure Log Analytics. Une fois que les événements se trouvent dans Azure Log Analytics, vous pouvez utiliser d’autres services Azure pour créer un tableau de bord, suivre et générer des alertes sur ces événements. Toutefois, nous ne couvrirons pas cela dans ce didacticiel.
 
 > [!NOTE]
 > Il pourrait être utile d’être déjà familiarisé avec l’utilisation de FFmpeg comme encodeur local.  Si ce n’est pas le cas, ne vous inquiétez pas. La ligne de commande et les instructions pour diffuser une vidéo sont incluses ci-dessous.

@@ -8,10 +8,10 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: kinect, azure, capteur, Kit de développement logiciel (sdk), caméra de profondeur, temps de vol, principes, performances, invalidation
 ms.openlocfilehash: 22f04b983ed7c6a2ab19a5c1c709621655ee31c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85276487"
 ---
 # <a name="azure-kinect-dk-depth-camera"></a>Caméra de profondeur d’Azure Kinect DK
@@ -56,7 +56,7 @@ Une erreur systématique est définie comme la différence entre la profondeur m
 
 ![Erreur systématique de profondeur](./media/concepts/depth-camera-systematic-error.png)
 
-Où *d<sub>t</sub>* indique la profondeur de mesure au moment *t*, *N* le nombre d’images utilisées dans la procédure de calcul de moyenne, et *d<sub>gt</sub>* la profondeur correspondant à la réalité du terrain.
+Où *d <sub>t</sub>* indique la profondeur de mesure au moment *t*, *N* le nombre d’images utilisées dans la procédure de calcul de moyenne, et *d <sub>gt</sub>* la profondeur correspondant à la réalité du terrain.
 
 La spécification d’erreur systématique de la caméra de profondeur exclut l’interférence multichemin (MPI). Une interférence multichemin se produit quand un pixel de capteur intègre la lumière reflétée par plusieurs objets. Elle est en partie atténuée dans notre caméra de profondeur à l’aide de fréquences de modulation supérieures, ainsi que de l’invalidation de profondeur que nous présenterons plus tard.
 
@@ -66,7 +66,7 @@ Supposons que nous prenons 100 images du même objet sans déplacer la caméra.
 
 ![Erreur aléatoire de profondeur](./media/concepts/depth-camera-random-error.png)
 
-Où *N* indique le nombre de mesures de profondeur, *d<sub>t</sub>* la mesure de profondeur au moment *t*, et *d* la valeur moyenne calculée sur toutes les mesures de profondeur *d<sub>t</sub>* .
+Où *N* indique le nombre de mesures de profondeur, *d <sub>t</sub>* la mesure de profondeur au moment *t*, et *d* la valeur moyenne calculée sur toutes les mesures de profondeur *d <sub>t</sub>* .
 
 ## <a name="invalidation"></a>Invalidation
 
