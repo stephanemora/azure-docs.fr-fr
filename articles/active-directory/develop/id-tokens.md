@@ -14,12 +14,12 @@ ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
-ms.openlocfilehash: 6a1f4a02ebf42c0f181b595aae0a5fa0bcc9b41d
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 21e0b800e06b7a5ad0351ff53d26a5e2cd2ba71c
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98755913"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175386"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Jetons d’ID de la plateforme d’identités Microsoft
 
@@ -55,7 +55,7 @@ Afficher cet exemple de jeton v2.0 dans [jwt.ms](https://jwt.ms/#id_token=eyJ0eX
 |-----|--------|-------------|
 |`typ` | Chaîne : toujours « JWT » | Indique que le jeton est un jeton JWT.|
 |`alg` | String | Indique l’algorithme utilisé pour signer le jeton. Exemple : "RS256" |
-|`kid` | String | Empreinte de la clé publique utilisée pour signer ce jeton. Émise dans les jetons `id_tokens` v1.0 et v2.0. |
+|`kid` | String | Empreinte pour la clé publique utilisée pour vérifier ce jeton. Émise dans les jetons `id_tokens` v1.0 et v2.0. |
 |`x5t` | String | Identique (en utilisation et en valeur) à `kid`. Il s'agit toutefois d'une ancienne revendication émise uniquement dans les jetons `id_tokens` v1.0 à des fins de compatibilité. |
 
 ### <a name="payload-claims"></a>Revendications de la charge utile

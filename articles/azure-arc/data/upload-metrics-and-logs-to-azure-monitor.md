@@ -10,12 +10,12 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 zone_pivot_groups: client-operating-system-macos-and-linux-windows-powershell
-ms.openlocfilehash: 66b10efb6ca93bc6b4dd67d700daaf1f9049de68
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: a522a650413be056ff64d26e90b6c15cf88d9a7d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183428"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101643488"
 ---
 # <a name="upload-usage-data-metrics-and-logs-to-azure-monitor"></a>Charger les données d’utilisation, les métriques et les journaux sur Azure Monitor
 
@@ -29,7 +29,7 @@ Vous pouvez régulièrement exporter les informations d’utilisation à des fin
 Avant de pouvoir charger des données d’utilisation, des métriques ou des journaux, vous devez :
 
 * Installer des outils 
-* [Inscrire le fournisseur de ressources `Microsoft.AzureData`](#register-the-resource-provider) 
+* [Inscrire le fournisseur de ressources `Microsoft.AzureArcData`](#register-the-resource-provider) 
 * [Créer le principal du service](#create-service-principal)
 
 ## <a name="install-tools"></a>Installer des outils
@@ -42,18 +42,18 @@ Voir [Installer des outils](./install-client-tools.md).
 
 ## <a name="register-the-resource-provider"></a>Inscrire le fournisseur de ressources
 
-Avant de charger des métriques ou des données utilisateur dans Azure, vous devez vous assurer que le fournisseur de ressources `Microsoft.AzureData` est inscrit dans votre abonnement Azure.
+Avant de charger des métriques ou des données utilisateur dans Azure, vous devez vous assurer que le fournisseur de ressources `Microsoft.AzureArcData` est inscrit dans votre abonnement Azure.
 
 Pour vérifier le fournisseur de ressources, exécutez la commande suivante :
 
 ```azurecli
-az provider show -n Microsoft.AzureData -o table
+az provider show -n Microsoft.AzureArcData -o table
 ```
 
 Si le fournisseur de ressources n’est pas encore inscrit dans votre abonnement, vous pouvez l’inscrire. Pour l’inscrire, exécutez la commande suivante.  L’exécution de cette commande peut prendre une ou deux minutes.
 
 ```azurecli
-az provider register -n Microsoft.AzureData --wait
+az provider register -n Microsoft.AzureArcData --wait
 ```
 
 ## <a name="create-service-principal"></a>Créer un principal du service
@@ -65,11 +65,11 @@ Suivez ces commandes pour créer le principal du service de chargement de vos m�
 > [!NOTE]
 > La création d’un principal de service nécessite [certaines autorisations dans Azure](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
-Pour créer un principal de service, mettez à jour l’exemple de commande suivant. Remplacez `<ServicePrincipalName>` par le nom de votre principal de service et exécutez la commande :
+Pour créer un principal de service, mettez à jour l’exemple de commande suivant. Remplacez `<ServicePrincipalName>`, `SubscriptionId` et `resourcegroup` par vos valeurs et exécutez la commande :
 
 ```azurecli
-az ad sp create-for-rbac --name <ServicePrincipalName>
-``` 
+az ad sp create-for-rbac --name <ServicePrincipalName> --role Contributor --scopes /subscriptions/{SubscriptionId}/resourceGroups/{resourcegroup}
+```
 
 Si vous avez créé le principal de service précédemment et que vous devez simplement récupérer les informations d’identification actuelles, exécutez la commande suivante pour réinitialiser les informations d’identification.
 
@@ -79,8 +79,8 @@ az ad sp credential reset --name <ServicePrincipalName>
 
 Par exemple, pour créer un principal de service nommé `azure-arc-metrics`, exécutez la commande suivante
 
-```
-az ad sp create-for-rbac --name azure-arc-metrics
+```azurecli
+az ad sp create-for-rbac --name azure-arc-metrics --role Contributor --scopes /subscriptions/a345c178a-845a-6a5g-56a9-ff1b456123z2/resourceGroups/myresourcegroup
 ```
 
 Exemple de sortie :
@@ -137,16 +137,15 @@ Exécutez cette commande pour affecter le principal de service au rôle `Monitor
 > Vous devez utiliser des guillemets doubles pour les noms de rôle lors de l’exécution à partir d’un environnement Windows.
 
 ```azurecli
-az role assignment create --assignee <appId> --role "Monitoring Metrics Publisher" --scope subscriptions/<Subscription ID>
-az role assignment create --assignee <appId> --role "Contributor" --scope subscriptions/<Subscription ID>
+az role assignment create --assignee <appId> --role "Monitoring Metrics Publisher" --scope subscriptions/{SubscriptionID}/resourceGroups/{resourcegroup}
+
 ```
 ::: zone-end
 
 ::: zone pivot="client-operating-system-macos-and-linux"
 
 ```azurecli
-az role assignment create --assignee <appId> --role 'Monitoring Metrics Publisher' --scope subscriptions/<Subscription ID>
-az role assignment create --assignee <appId> --role 'Contributor' --scope subscriptions/<Subscription ID>
+az role assignment create --assignee <appId> --role 'Monitoring Metrics Publisher' --scope subscriptions/{SubscriptionID}/resourceGroups/{resourcegroup}
 ```
 
 ::: zone-end
@@ -154,8 +153,7 @@ az role assignment create --assignee <appId> --role 'Contributor' --scope subscr
 ::: zone pivot="client-operating-system-powershell"
 
 ```powershell
-az role assignment create --assignee <appId> --role 'Monitoring Metrics Publisher' --scope subscriptions/<Subscription ID>
-az role assignment create --assignee <appId> --role 'Contributor' --scope subscriptions/<Subscription ID>
+az role assignment create --assignee <appId> --role 'Monitoring Metrics Publisher' --scope subscriptions/{SubscriptionID}/resourceGroups/{resourcegroup}
 ```
 
 ::: zone-end
@@ -193,7 +191,7 @@ Les opérations de création, lecture, mise à jour et suppression (CRUD) sur le
 
 Pendant la préversion, ce processus se produit la nuit. La recommandation générale est de charger les données d’utilisation une seule fois par jour. Lorsque les informations d’utilisation sont exportées et chargées plusieurs fois au cours de la même période de 24 heures, seul l’inventaire des ressources est mis à jour dans le Portail Azure mais pas dans l’utilisation des ressources.
 
-Pour le chargement des mesures, Azure Monitor accepte uniquement les 30 dernières minutes de données ([En savoir plus](../../azure-monitor/platform/metrics-store-custom-rest-api.md#troubleshooting)). La recommandation pour le chargement des métriques est de charger les métriques immédiatement après la création du fichier d’exportation afin de pouvoir afficher l’ensemble du jeu de données dans le Portail Azure. Par exemple, supposons que vous avez exporté les métriques à 14 h et que vous avez exécuté la commande de chargement à 14 h 50. Étant donné qu’Azure Monitor n’accepte que les données des 30 dernières minutes, vous ne verrez aucune donnée dans le portail. 
+Pour le chargement des mesures, Azure Monitor accepte uniquement les 30 dernières minutes de données ([En savoir plus](../../azure-monitor/essentials/metrics-store-custom-rest-api.md#troubleshooting)). La recommandation pour le chargement des métriques est de charger les métriques immédiatement après la création du fichier d’exportation afin de pouvoir afficher l’ensemble du jeu de données dans le Portail Azure. Par exemple, supposons que vous avez exporté les métriques à 14 h et que vous avez exécuté la commande de chargement à 14 h 50. Étant donné qu’Azure Monitor n’accepte que les données des 30 dernières minutes, vous ne verrez aucune donnée dans le portail. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -7,19 +7,21 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 06/12/2018
-ms.openlocfilehash: cb19b7e8c5271e1106e69c98d5bd17a1bcb822bf
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 119ecb3ec9c208340f09f513bf10b3ad24312cb5
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100385283"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102201224"
 ---
 # <a name="system-variables-supported-by-azure-data-factory"></a>Variables système prises en charge par Azure Data Factory
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Cet article décrit les variables système prises en charge par Azure Data Factory. Vous pouvez utiliser ces variables dans des expressions lors de la définition des entités Data Factory.
 
 ## <a name="pipeline-scope"></a>Étendue du pipeline
+
 Ces variables système peuvent être référencées n’importe où dans le code JSON de pipeline.
 
 | Nom de la variable | Description |
@@ -36,6 +38,7 @@ Ces variables système peuvent être référencées n’importe où dans le code
 >Les variables système de date/heure liées aux déclencheurs (dans la portée du pipeline ou dans celle du déclencheur) retournent des dates UTC au format ISO 8601, par exemple `2017-06-01T22:20:00.4061448Z`.
 
 ## <a name="schedule-trigger-scope"></a>Étendue de déclencheur de planification
+
 Il est possible de faire référence à ces variables système n’importe où dans les déclencheurs JSON de type [ScheduleTrigger](concepts-pipeline-execution-triggers.md#schedule-trigger).
 
 | Nom de la variable | Description |
@@ -44,6 +47,7 @@ Il est possible de faire référence à ces variables système n’importe où d
 | @trigger().startTime |Heure à laquelle le déclencheur s’est **réellement** déclenché pour appeler l’exécution du pipeline. Elle peut différer légèrement de l’heure planifiée du déclencheur. |
 
 ## <a name="tumbling-window-trigger-scope"></a>Étendue de déclencheur de fenêtre bascule
+
 Il est possible de faire référence à ces variables système n’importe où dans les déclencheurs JSON de type [TumblingWindowTrigger](concepts-pipeline-execution-triggers.md#tumbling-window-trigger).
 
 | Nom de la variable | Description |
@@ -53,7 +57,8 @@ Il est possible de faire référence à ces variables système n’importe où d
 | @trigger().scheduledTime |Heure à laquelle le déclencheur a été planifié pour appeler l’exécution du pipeline. |
 | @trigger().startTime |Heure à laquelle le déclencheur s’est **réellement** déclenché pour appeler l’exécution du pipeline. Elle peut différer légèrement de l’heure planifiée du déclencheur. |
 
-## <a name="event-based-trigger-scope"></a>Étendue de déclencheur basé sur les événements
+## <a name="storage-event-trigger-scope"></a>Étendue du déclencheur d’événements de stockage
+
 Il est possible de faire référence à ces variables système n’importe où dans les déclencheurs JSON de type [BlobEventsTrigger](concepts-pipeline-execution-triggers.md#event-based-trigger).
 
 | Nom de la variable | Description |
@@ -63,4 +68,6 @@ Il est possible de faire référence à ces variables système n’importe où d
 | @trigger().startTime |Heure à laquelle le déclencheur s’est déclenché pour appeler l’exécution du pipeline. |
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations sur l’utilisation de ces variables dans les expressions, consultez [Langage et fonctions des expressions](control-flow-expression-language-functions.md).
+
+* Pour plus d’informations sur l’utilisation de ces variables dans les expressions, consultez [Langage et fonctions des expressions](control-flow-expression-language-functions.md).
+* Pour utiliser les variables système de l’étendue du déclencheur dans le pipeline, consultez [Référencer les métadonnées de déclencheur dans le pipeline](how-to-use-trigger-parameterization.md)

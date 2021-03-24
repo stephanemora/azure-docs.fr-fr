@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: zhchia
 ms.openlocfilehash: cdd4fb96a42d154ccd8b508950283978ddf58ef4
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94354901"
 ---
 # <a name="tutorial-configuring-velpic-for-automatic-user-provisioning"></a>Tutoriel : Configuration de Velpic pour l’approvisionnement automatique d’utilisateurs
@@ -66,19 +66,19 @@ Cette section vous guide à travers la connexion de votre instance d’Azure AD
 
     ![Configuration de Velpic](./media/velpic-provisioning-tutorial/Velpic1.png)
 
-5. Sous la section **Admin Credentials (Informations d’identification de l’administrateur)** , entrez l’ **URL de locataire et le jeton secret** de Velpic. Vous pouvez trouver ces valeurs sous votre compte Velpic : **Manage (Gérer)**  > **Intégration** > **Plugin (Complément)**  > **SCIM**
+5. Sous la section **Admin Credentials (Informations d’identification de l’administrateur)** , entrez l’**URL de locataire et le jeton secret** de Velpic. Vous pouvez trouver ces valeurs sous votre compte Velpic : **Manage (Gérer)**  > **Intégration** > **Plugin (Complément)**  > **SCIM**
 
     ![Valeurs d’autorisation](./media/velpic-provisioning-tutorial/Velpic2.png)
 
 6. Dans le portail Microsoft Azure, cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à votre application Velpic. Si la connexion échoue, vérifiez que votre compte Velpic dispose des autorisations d’administrateur et réessayez l’étape 5.
 
-7. Entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement dans le champ **E-mail de notification** , puis cochez la case se trouvant en dessous.
+7. Entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement dans le champ **E-mail de notification**, puis cochez la case se trouvant en dessous.
 
 8. Cliquez sur **Enregistrer**.
 
 9. Dans la section Mappages, sélectionnez **Synchroniser les utilisateurs Azure Active Directory sur Velpic**.
 
-10. Dans la section **Mappages des attributs** , passez en revue les attributs utilisateur qui seront synchronisés d’Azure AD vers Velpic. Notez que les attributs sélectionnés en tant que propriétés de **Correspondance** seront utilisés pour faire correspondre les comptes utilisateur dans Velpic pour les opérations de mise à jour. Cliquez sur le bouton Enregistrer pour valider les modifications.
+10. Dans la section **Mappages des attributs**, passez en revue les attributs utilisateur qui seront synchronisés d’Azure AD vers Velpic. Notez que les attributs sélectionnés en tant que propriétés de **Correspondance** seront utilisés pour faire correspondre les comptes utilisateur dans Velpic pour les opérations de mise à jour. Cliquez sur le bouton Enregistrer pour valider les modifications.
 
 11. Pour activer le service d’approvisionnement Azure AD pour Velpic, définissez le paramètre **État d’approvisionnement** sur **Activé** dans la section **Paramètres**
 

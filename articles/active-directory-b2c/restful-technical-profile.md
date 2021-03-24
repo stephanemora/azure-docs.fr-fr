@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 891991fa938ad3dcfacae6d02e40efd6d6e9689e
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.openlocfilehash: eb6d82019cccd1da327461cb0a0635aea4f3647f
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97386848"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102174969"
 ---
 # <a name="define-a-restful-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique RESTful dans une stratégie personnalisée Azure Active Directory B2C
 
@@ -225,6 +225,9 @@ Si le type d’authentification est défini sur `ApiKeyHeader`, l’élément **
 | --------- | -------- | ----------- |
 | Nom de l’en-tête HTTP, tel que `x-functions-key` ou `x-api-key`. | Oui | Clé utilisée pour l’authentification. |
 
+> [!NOTE]
+> À ce stade, Azure AD B2C prend en charge un seul en-tête HTTP pour l’authentification. Si votre appel RESTful requiert plusieurs en-têtes, tels qu’un ID client et une clé secrète client, vous devrez effectuer un proxy de la requête.
+
 ```xml
 <TechnicalProfile Id="REST-API-SignUp">
   <DisplayName>Validate user's input data and return loyaltyNumber claim</DisplayName>
@@ -290,4 +293,3 @@ Consultez les articles suivants pour obtenir des exemples d’utilisation d’un
 - [Procédure pas à pas : Intégrer les échanges de revendications de l’API REST dans votre parcours utilisateur Azure AD B2C comme validation d’une entrée de l’utilisateur](custom-policy-rest-api-claims-validation.md)
 - [Procédure pas à pas : Ajouter des échanges de revendications de l’API REST aux stratégies personnalisées dans Azure Active Directory B2C](custom-policy-rest-api-claims-validation.md)
 - [Sécuriser vos services d’API REST](secure-rest-api.md)
-

@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: c8ae129cbad56e3bb63e055f9d843cac1da22fb1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91710462"
 ---
 # <a name="azure-database-for-postgresql---single-server"></a>Azure Database pour PostgreSQL - Serveur unique
@@ -41,7 +41,7 @@ Les éléments suivants permettent de garantir un accès sécurisé à votre bas
 | **Authentification et autorisation** | Le serveur de base de données Azure pour PostgreSQL prend en charge l’authentification PostgreSQL native. Vous pouvez vous connecter et vous authentifier auprès du serveur avec les informations de connexion d’administrateur du serveur. |
 | **Protocole** | Le service prend en charge un protocole par messages utilisé par PostgreSQL. |
 | **TCP/IP** | Le protocole est pris en charge via TCP/IP et des sockets du domaine Unix. |
-| **Pare-feu** | Pour renforcer la protection de vos données, une règle de pare-feu empêche tout accès à votre serveur et à ses bases de données tant que vous ne précisez pas quels ordinateurs sont autorisés. Consultez  [Règles de pare-feu d’un serveur Azure Database pour PostgreSQL](concepts-firewall-rules.md). |
+| **Pare-feu** | Pour renforcer la protection de vos données, une règle de pare-feu empêche tout accès à votre serveur et à ses bases de données tant que vous ne précisez pas quels ordinateurs sont autorisés. Consultez la page [Règles de pare-feu d’un serveur de base de données Azure pour PostgreSQL](concepts-firewall-rules.md). |
 
 ## <a name="managing-your-server"></a>Gestion de votre serveur
 Vous pouvez gérer des serveurs Azure Database pour PostgreSQL à l’aide du [Portail Azure](https://portal.azure.com) ou [d’Azure CLI](/cli/azure/postgres).
@@ -63,7 +63,7 @@ Azure Database pour PostgreSQL étant un service géré pour Postgres, ses param
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-- Vous trouverez une vue d’ensemble du service à la page  [Vue d’ensemble d'Azure Database pour PostgreSQL](overview.md).
-- Pour obtenir des informations sur des quotas de ressources spécifiques et les limitations associées à votre **niveau de service**, consultez  [Niveaux de service](concepts-pricing-tiers.md).
-- Pour plus d’informations sur la connexion au service, consultez la page  [Bibliothèques de connexions d'Azure Database pour PostgreSQL](concepts-connection-libraries.md).
+- Vous trouverez une vue d’ensemble du service à la page [Vue d’ensemble de la base de données Azure pour PostgreSQL](overview.md).
+- Pour plus d’informations sur les quotas de ressources et les limitations associés à votre **niveau de service**, consultez la page [Niveaux de service](concepts-pricing-tiers.md).
+- Pour plus d’informations sur la connexion au service, consultez la page [Bibliothèques de connexions de la base de données Azure pour PostgreSQL](concepts-connection-libraries.md).
 - Affichez et modifiez les paramètres de serveur par le biais du [portail Azure](howto-configure-server-parameters-using-portal.md) ou [d’Azure CLI](howto-configure-server-parameters-using-cli.md).

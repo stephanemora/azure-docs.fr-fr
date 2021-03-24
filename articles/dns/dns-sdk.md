@@ -16,10 +16,10 @@ ms.date: 09/19/2016
 ms.author: rohink
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 8e116096afbd01af4914be49d5675881724d5069
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96015058"
 ---
 # <a name="create-dns-zones-and-record-sets-using-the-net-sdk"></a>Créer des zones et des jeux d’enregistrements DNS à l’aide du Kit de développement logiciel (SDK) .NET
@@ -47,7 +47,7 @@ Pour utiliser le Kit de développement logiciel .NET d’Azure DNS, vous devez i
 2. Accédez à **Outils** **>** **Gestionnaire de package NuGet** **>** **Gérer les packages NuGet pour la solution...** .
 3. Cliquez sur **Parcourir**, cochez la case **Inclure la version préliminaire** et tapez **Microsoft.Azure.Management.Dns** dans la zone de recherche.
 4. Sélectionnez le package et cliquez sur **Installer** pour l’ajouter à votre projet Visual Studio.
-5. Répétez le processus ci-dessus pour installer les packages suivants : **Microsoft.Rest.ClientRuntime.Azure.Authentication** et **Microsoft.Azure.Management.ResourceManager**.
+5. Répétez la procédure ci-dessus pour installer les packages suivants : **Microsoft.Rest.ClientRuntime.Azure.Authentication** et **Microsoft.Azure.Management.ResourceManager**.
 
 ## <a name="add-namespace-declarations"></a>Ajout de déclarations d'espaces de noms
 

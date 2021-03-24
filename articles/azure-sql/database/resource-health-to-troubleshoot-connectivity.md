@@ -11,12 +11,12 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: wiassaf, sstein
 ms.date: 02/26/2019
-ms.openlocfilehash: a51840daa2c8b19c323ad761ff6e6d1dcef15f75
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 1a74a2f44ac9b03e39e9fea48a3428b82111a48c
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96497960"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103472004"
 ---
 # <a name="use-resource-health-to-troubleshoot-connectivity-for-azure-sql-database-and-azure-sql-managed-instance"></a>Utiliser Resource Health pour détecter un problème de connectivité avec Azure SQL Database et Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -61,7 +61,7 @@ Vous pouvez accéder à jusqu’à 14 jours d’historique d’intégrité dans
 
 ### <a name="downtime-reasons"></a>Raisons des temps d’arrêt
 
-En cas de temps d’arrêt de votre base de données, une analyse est effectuée pour en déterminer la cause. Lorsqu’elle est disponible, la raison du temps d’arrêt est signalée dans la section Historique de l’intégrité de Resource Health. Les raisons des temps d’arrêt sont généralement publiées 30 minutes après un événement.
+En cas de temps d’arrêt de votre base de données, une analyse est effectuée pour en déterminer la cause. Lorsqu’elle est disponible, la raison du temps d’arrêt est signalée dans la section Historique de l’intégrité de Resource Health. Les raisons des temps d’arrêt sont généralement publiées 45 minutes après un événement.
 
 #### <a name="planned-maintenance"></a>Maintenance planifiée
 

@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 488065b0a1865484e96ea574b3031f2bf61869dd
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: bcdc8c448a348bf067995bf92615ceab1ac19fb4
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102120587"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102198436"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -109,7 +109,7 @@ L’exemple suivant montre une partie de confiance avec un [point de terminaison
 
 ## <a name="defaultuserjourney"></a>DefaultUserJourney
 
-L’élément `DefaultUserJourney` spécifie une référence à l’identificateur du parcours utilisateur qui est généralement défini dans la stratégie De base ou Extensions. Les exemples suivants montrent le parcours utilisateur d’inscription ou de connexion spécifié dans l’élément **RelyingParty** :
+L’élément `DefaultUserJourney` spécifie une référence à l’identificateur du parcours utilisateur qui est défini dans la stratégie De base ou Extensions. Les exemples suivants montrent le parcours utilisateur d’inscription ou de connexion spécifié dans l’élément **RelyingParty** :
 
 Stratégie *B2C_1A_signup_signin* :
 
@@ -219,6 +219,21 @@ L’élément **Protocol** contient l’attribut suivant :
 | --------- | -------- | ----------- |
 | Nom | Oui | Nom d’un protocole valide pris en charge par Azure AD B2C et utilisé dans le cadre du profil technique. Valeurs possibles : `OpenIdConnect` ou `SAML2`. La valeur `OpenIdConnect` représente la norme de protocole OpenID Connect 1.0 conformément à la spécification OpenID Foundation. `SAML2` représente la norme de protocole SAML 2.0 conformément à la spécification OASIS. |
 
+### <a name="metadata"></a>Métadonnées
+
+Quand le protocole est `SAML`, un élément metadata contient les éléments suivants. Pour plus d’informations, consultez [Options d’inscription d’une application SAML dans Azure AD B2C](saml-service-provider-options.md).
+
+| Attribut | Obligatoire | Description |
+| --------- | -------- | ----------- |
+| IdpInitiatedProfileEnabled | Non | Indique si le flux initié par IDP est pris en charge. Valeurs possibles : `true` ou `false` (par défaut). | 
+| XmlSignatureAlgorithm | Non | Méthode utilisée par Azure AD B2C pour signer la réponse SAML. Valeurs possibles : `Sha256`, `Sha384`, `Sha512` ou `Sha1`. Veillez à configurer l’algorithme de signature des deux côtés avec la même valeur. Utilisez uniquement l’algorithme pris en charge par votre certificat. Pour configurer l’assertion SAML, consultez les [métadonnées du profil technique de l’émetteur SAML](saml-issuer-technical-profile.md#metadata). |
+| DataEncryptionMethod | Non | Indique la méthode utilisée par Azure AD B2C pour chiffrer les données, à l’aide de l’algorithme Advanced Encryption Standard (AES). Les métadonnées contrôlent la valeur de l’élément `<EncryptedData>` dans la réponse SAML. Valeurs possibles : `Aes256` (par défaut), `Aes192`, `Sha512`, ou ` Aes128`. |
+| KeyEncryptionMethod| Non | Indique la méthode utilisée par Azure AD B2C pour chiffrer la copie de la clé qui a été utilisée pour chiffrer les données. Les métadonnées contrôlent la valeur de l’élément `<EncryptedKey>` dans la réponse SAML. Valeurs possibles : ` Rsa15` (par défaut), algorithme PKCS (Public Key Cryptography standard) RSA version 1.5 ; ` RsaOaep`, algorithme de chiffrement OAEP (Optimal Asymmetric Encryption Padding) RSA. |
+| UseDetachedKeys | Non |  Valeurs possibles : `true` ou `false` (par défaut). Lorsque la valeur est définie sur `true`, Azure AD B2C modifie le format des assertions chiffrées. L’utilisation de clés détachées ajoute l’assertion chiffrée comme enfant d’EncrytedAssertion, par opposition à EncryptedData. |
+| WantsSignedResponses| Non | Indique si Azure AD B2C signe la section `Response` de la réponse SAML. Valeurs possibles : `true` (par défaut) ou `false`.  |
+| RemoveMillisecondsFromDateTime| Non | Indique si les millisecondes seront supprimées des valeurs de DateHeure dans la réponse SAML (notamment IssueInstant, NotBefore, NotOnOrAfter et AuthnInstant). Valeurs possibles : `false` (par défaut) ou `true`.  |
+
+
 ### <a name="outputclaims"></a>OutputClaims
 
 L’élément **OutputClaims** contient l’élément suivant :
@@ -238,8 +253,9 @@ L’élément **OutputClaim** contient les attributs suivants :
 ### <a name="subjectnaminginfo"></a>SubjectNamingInfo
 
 Avec l’élément **SubjectNameingInfo**, vous contrôlez la valeur du sujet du jeton :
+
 - **Jeton JWT** : la revendication `sub`. Il s’agit d’un principal sur lequel portent les assertions d’informations du jeton, comme l’utilisateur d’une application. Cette valeur est immuable et ne peut pas être réattribuée ou réutilisée. Vous pouvez l’utiliser pour effectuer des vérifications d’autorisation en toute sécurité, par exemple quand le jeton est utilisé pour accéder à une ressource. Par défaut, la revendication de l’objet est remplie avec l’ID d’objet de l’utilisateur dans le répertoire. Pour plus d’informations, consultez [Configuration du jeton, de la session et de l’authentification unique](session-behavior.md).
-- **Jeton SAML** : élément `<Subject><NameID>` qui identifie l’élément de sujet. Le format NameId peut être modifié.
+- **Jeton SAML** : élément `<Subject><NameID>` qui identifie l’élément de sujet. Le format NameId peut être modifié.
 
 L’élément **SubjectNamingInfo** contient l’attribut suivant :
 

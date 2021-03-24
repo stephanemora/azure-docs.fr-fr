@@ -5,10 +5,10 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/21/2019
 ms.openlocfilehash: c26baec66248ca00ef212acf3d773c2566b3aea9
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98946360"
 ---
 # <a name="apache-spark-job-run-slowly-when-the-azure-storage-container-contains-many-files-in-azure-hdinsight"></a>Un travail Apache Spark s’exécute lentement quand le conteneur de stockage Azure contient de nombreux fichiers dans Azure HDInsight
@@ -19,7 +19,7 @@ Cet article décrit la procédure à suivre pour résoudre les problèmes rencon
 
 Pendant l’exécution d’un cluster HDInsight, le travail Apache Spark qui écrit dans le conteneur de stockage Azure ralentit en présence de nombreux fichiers/sous-dossiers. Par exemple, le travail dure 20 secondes lors de l’écriture dans un nouveau conteneur, mais environ 2 minutes lors de l’écriture dans un conteneur comprenant 200 000 fichiers.
 
-## <a name="cause"></a>Cause :
+## <a name="cause"></a>Cause
 
 Il s’agit d’un problème connu avec Spark. La lenteur est due aux opérations `ListBlob` et `GetBlobProperties` pendant l’exécution du travail Spark.
 

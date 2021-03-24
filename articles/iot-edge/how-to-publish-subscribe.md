@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 monikerRange: '>=iotedge-2020-11'
 ms.openlocfilehash: 730680b0cb6e8a728ed3072419674346de649368
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103200687"
 ---
 # <a name="publish-and-subscribe-with-azure-iot-edge"></a>Publier et s’abonner avec Azure IoT Edge
@@ -334,7 +334,7 @@ Notez que le port 1883 (MQTT), sans TLS, est utilisé dans ce premier exemple. U
 
 Le client MQTT **sub_client** est maintenant démarré et attend les messages entrants sur `test_topic`.
 
-#### <a name="publish"></a>Publier
+#### <a name="publish"></a>Publish
 
 Connectez votre client MQTT **pub_client** au répartiteur MQTT et publiez un message sur le même `test_topic` que ci-dessus en exécutant la commande suivante sur votre appareil IoT Edge à partir d’un autre terminal :
 

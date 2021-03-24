@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.custom: mvc, devx-track-azurecli
 ms.openlocfilehash: 999682c9bf4a4d70d886f0e85cede99f215aa046
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97694710"
 ---
 # <a name="restore-a-vm-with-azure-cli"></a>Restaurer une machine virtuelle avec Azure CLI
@@ -72,7 +72,7 @@ Si la machine virtuelle sauvegardée contient des disques managés et si l’obj
         --sku Standard_LRS
     ```
 
-2. Restaurez le disque à partir de votre point de récupération avec [az backup restore restore-disks](/cli/azure/backup/restore#az-backup-restore-restore-disks). Remplacez *mystorageaccount* par le nom du compte de stockage que vous avez créé à l’aide de la commande précédente. Remplacez *myRecoveryPointName* par le nom du point de récupération que vous avez obtenu dans la sortie de la commande [az backup recoverypoint list](/cli/azure/backup/recoverypoint#az-backup-recoverypoint-list) précédente. ***Spécifiez également un groupe de ressources cible dans lequel restaurer les disques managés** _.
+2. Restaurez le disque à partir de votre point de récupération avec [az backup restore restore-disks](/cli/azure/backup/restore#az-backup-restore-restore-disks). Remplacez *mystorageaccount* par le nom du compte de stockage que vous avez créé à l’aide de la commande précédente. Remplacez *myRecoveryPointName* par le nom du point de récupération que vous avez obtenu dans la sortie de la commande [az backup recoverypoint list](/cli/azure/backup/recoverypoint#az-backup-recoverypoint-list) précédente. ***Spécifiez également un groupe de ressources cible dans lequel restaurer les disques managés***.
 
     ```azurecli-interactive
     az backup restore restore-disks \
@@ -86,7 +86,7 @@ Si la machine virtuelle sauvegardée contient des disques managés et si l’obj
     ```
 
     > [!WARNING]
-    > Si _ *target-resource-group** n’est pas spécifié, les disques managés sont restaurés en tant que disques non managés dans le compte de stockage donné. Cela aura des conséquences importantes sur la durée de restauration, car le temps nécessaire à la restauration des disques dépend entièrement du compte de stockage donné. Vous bénéficiez de la restauration instantanée seulement si le paramètre target-resource-group est donné. Si l’objectif est de restaurer des disques managés en disques non managés, ne fournissez pas le paramètre **target-resource-group** mais plutôt le paramètre **restore-as-unmanaged-disk**, comme indiqué ci-dessous. Ce paramètre est disponible à partir de az 3.4.0.
+    > Si **target-resource-group** n’est pas spécifié, les disques managés sont restaurés en tant que disques non managés dans le compte de stockage donné. Cela aura des conséquences importantes sur la durée de restauration, car le temps nécessaire à la restauration des disques dépend entièrement du compte de stockage donné. Vous bénéficiez de la restauration instantanée seulement si le paramètre target-resource-group est donné. Si l’objectif est de restaurer des disques managés en disques non managés, ne fournissez pas le paramètre **target-resource-group** mais plutôt le paramètre **restore-as-unmanaged-disk**, comme indiqué ci-dessous. Ce paramètre est disponible à partir de az 3.4.0.
 
     ```azurecli-interactive
     az backup restore restore-disks \

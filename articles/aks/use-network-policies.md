@@ -5,12 +5,12 @@ description: Découvrez comment sécuriser le trafic qui transite par des pods �
 services: container-service
 ms.topic: article
 ms.date: 05/06/2019
-ms.openlocfilehash: 598747c0d64db2ae62f740dca4c3e4141f2562f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4b72c5551d6ed33deb4df40a60215aed8071141d
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87050486"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102178896"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Sécuriser le trafic entre les pods avec des stratégies réseau dans Azure Kubernetes Service (AKS)
 
@@ -20,7 +20,7 @@ Cet article vous explique comment installer le moteur de stratégie réseau et c
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-L’interface de ligne de commande Azure (Azure CLI) version 2.0.61 ou une version ultérieure doit avoir été installée et configurée. Exécutez  `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez  [Installation d’Azure CLI][install-azure-cli].
+L’interface de ligne de commande Azure (Azure CLI) version 2.0.61 ou une version ultérieure doit avoir été installée et configurée. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI][install-azure-cli].
 
 > [!TIP]
 > Si vous utilisiez la fonctionnalité de stratégie réseau disponible dans la préversion, nous vous recommandons de [créer un autre cluster](#create-an-aks-cluster-and-enable-network-policy).
@@ -52,8 +52,8 @@ Ces deux implémentations appliquent les stratégies spécifiées à l’aide du
 
 | Fonctionnalité                               | Azure                      | Calico                      |
 |------------------------------------------|----------------------------|-----------------------------|
-| Plateformes prises en charge                      | Linux                      | Linux                       |
-| Options de mise en réseau prises en charge             | Azure CNI                  | Azure CNI et kubenet       |
+| Plateformes prises en charge                      | Linux                      | Linux, Windows Server 2019 (préversion)  |
+| Options de mise en réseau prises en charge             | Azure CNI                  | Azure CNI (Windows Server 2019 et Linux) et kubenet (Linux)  |
 | Conformité à la spécification Kubernetes | Prise en charge de tous les types de stratégies |  Prise en charge de tous les types de stratégies |
 | Fonctionnalités supplémentaires                      | None                       | Modèle de stratégie étendu composé d’une stratégie réseau globale, d’un ensemble réseau global et d’un point de terminaison d’hôte. Pour plus d’informations sur l’utilisation de la CLI `calicoctl` pour gérer ces fonctionnalités étendues, consultez les [informations de référence utilisateur concernant calicoctl][calicoctl]. |
 | Support                                  | Pris en charge par l’équipe d’ingénierie et de support Azure | Support de la communauté Calico Pour plus d’informations sur les offres de support payantes supplémentaires, consultez l’article présentant les [options de support de Project Calico][calico-support]. |
@@ -67,7 +67,7 @@ Pour voir les stratégies réseau en action, nous allons créer, puis développe
 * Autoriser le trafic en fonction des étiquettes de pod.
 * Autoriser le trafic en fonction de l’espace de noms.
 
-Commençons par créer un cluster AKS qui prend en charge les stratégies réseau. 
+Commençons par créer un cluster AKS qui prend en charge les stratégies réseau.
 
 > [!IMPORTANT]
 >
@@ -120,25 +120,101 @@ az role assignment create --assignee $SP_ID --scope $VNET_ID --role Contributor
 
 # Get the virtual network subnet resource ID
 SUBNET_ID=$(az network vnet subnet show --resource-group $RESOURCE_GROUP_NAME --vnet-name myVnet --name myAKSSubnet --query id -o tsv)
+```
 
-# Create the AKS cluster and specify the virtual network and service principal information
-# Enable network policy by using the `--network-policy` parameter
+### <a name="create-an-aks-cluster-for-azure-network-policies"></a>Créer un cluster AKS pour les stratégies de réseau Azure
+
+Créez le cluster AKS et indiquez le réseau virtuel, les informations du principal de service et *Azure* pour le plug-in réseau et la stratégie réseau.
+
+```azurecli
 az aks create \
     --resource-group $RESOURCE_GROUP_NAME \
     --name $CLUSTER_NAME \
     --node-count 1 \
     --generate-ssh-keys \
-    --network-plugin azure \
     --service-cidr 10.0.0.0/16 \
     --dns-service-ip 10.0.0.10 \
     --docker-bridge-address 172.17.0.1/16 \
     --vnet-subnet-id $SUBNET_ID \
     --service-principal $SP_ID \
     --client-secret $SP_PASSWORD \
+    --network-plugin azure \
     --network-policy azure
 ```
 
 La création du cluster ne prend que quelques minutes. Quand le cluster est prêt, configurez `kubectl` pour vous connecter à votre cluster Kubernetes au moyen de la commande [az aks get-credentials][az-aks-get-credentials]. Cette commande télécharge les informations d’identification et configure l’interface CLI Kubernetes pour les utiliser :
+
+```azurecli-interactive
+az aks get-credentials --resource-group $RESOURCE_GROUP_NAME --name $CLUSTER_NAME
+```
+
+### <a name="create-an-aks-cluster-for-calico-network-policies"></a>Créer un cluster AKS pour les stratégies de réseau Calico
+
+Créez le cluster AKS et indiquez le réseau virtuel, les informations du principal de service, *Azure* pour le plug-in réseau et *Calico* pour la stratégie réseau. L’utilisation de *Calico* comme stratégie réseau permet la mise en réseau de Calico sur les pools de nœuds Linux et Windows.
+
+Si vous prévoyez d’ajouter des pools de nœuds Windows à votre cluster, incluez les paramètres `windows-admin-username` et `windows-admin-password` qui répondent aux [exigences de mot de passe de Windows Server][windows-server-password]. Pour utiliser Calico avec des pools de nœuds Windows, vous devez également inscrire `Microsoft.ContainerService/EnableAKSWindowsCalico`.
+
+Inscrivez l’indicateur de fonctionnalité `EnableAKSWindowsCalico` à l’aide de la commande [az feature register][az-feature-register], comme indiqué dans l’exemple suivant :
+
+```azurecli-interactive
+az feature register --namespace "Microsoft.ContainerService" --name "EnableAKSWindowsCalico"
+```
+
+ Vous pouvez vérifier l’état de l’enregistrement à l’aide de la commande [az feature list][az-feature-list] :
+
+```azurecli-interactive
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableAKSWindowsCalico')].{Name:name,State:properties.state}"
+```
+
+Lorsque vous êtes prêt, actualisez l’inscription du fournisseur de ressources *Microsoft.ContainerService* à l’aide de la commande [az provider register][az-provider-register] :
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerService
+```
+
+> [!IMPORTANT]
+> À ce stade, l’utilisation de stratégies réseau Calico avec des nœuds Windows est disponible sur les nouveaux clusters utilisant Kubernetes version 1.20 ou ultérieure avec Calico 3.17.2 et requiert l’utilisation de la mise en réseau Azure CNI. Les nœuds Windows sur les clusters AKS avec Calico ont également l’option [Retour direct du serveur (DSR)][dsr] activée par défaut.
+>
+> Pour les clusters avec uniquement des pools de nœuds Linux exécutant Kubernetes 1.20 avec des versions antérieures de Calico, la version de Calico sera automatiquement mise à niveau vers 3.17.2.
+
+Les stratégies de mise en réseau Calico avec des nœuds Windows sont actuellement en préversion.
+
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+
+```azurecli
+PASSWORD_WIN="P@ssw0rd1234"
+
+az aks create \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --name $CLUSTER_NAME \
+    --node-count 1 \
+    --generate-ssh-keys \
+    --service-cidr 10.0.0.0/16 \
+    --dns-service-ip 10.0.0.10 \
+    --docker-bridge-address 172.17.0.1/16 \
+    --vnet-subnet-id $SUBNET_ID \
+    --service-principal $SP_ID \
+    --client-secret $SP_PASSWORD \
+    --windows-admin-password $PASSWORD_WIN \
+    --windows-admin-username azureuser \
+    --vm-set-type VirtualMachineScaleSets \
+    --kubernetes-version 1.20.2 \
+    --network-plugin azure \
+    --network-policy calico
+```
+
+La création du cluster ne prend que quelques minutes. Par défaut, votre cluster est créé avec un pool de nœuds Linux uniquement. Si vous souhaitez utiliser des pools de nœuds Windows, vous pouvez en ajouter un. Par exemple :
+
+```azurecli
+az aks nodepool add \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --cluster-name $CLUSTER_NAME \
+    --os-type Windows \
+    --name npwin \
+    --node-count 1
+```
+
+Quand le cluster est prêt, configurez `kubectl` pour vous connecter à votre cluster Kubernetes au moyen de la commande [az aks get-credentials][az-aks-get-credentials]. Cette commande télécharge les informations d’identification et configure l’interface CLI Kubernetes pour les utiliser :
 
 ```azurecli-interactive
 az aks get-credentials --resource-group $RESOURCE_GROUP_NAME --name $CLUSTER_NAME
@@ -482,8 +558,12 @@ Pour plus d’informations sur les stratégies, consultez l’article [Kubernete
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli
 [use-advanced-networking]: configure-azure-cni.md
-[az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
+[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [concepts-network]: concepts-network.md
 [az-feature-register]: /cli/azure/feature#az-feature-register
 [az-feature-list]: /cli/azure/feature#az-feature-list
 [az-provider-register]: /cli/azure/provider#az-provider-register
+[windows-server-password]: /windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#reference
+[az-extension-add]: /cli/azure/extension#az-extension-add
+[az-extension-update]: /cli/azure/extension#az-extension-update
+[dsr]: ../load-balancer/load-balancer-multivip-overview.md#rule-type-2-backend-port-reuse-by-using-floating-ip

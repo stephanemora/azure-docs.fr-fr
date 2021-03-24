@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à AppBlade | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à AppBlade | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et AppBlade.
 services: active-directory
 author: jeevansd
@@ -12,13 +12,13 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.openlocfilehash: 49fa266319423b4c1a0bc56ad2a32b49c18f168e
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97672625"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-appblade"></a>Tutoriel : Intégration d’Azure Active Directory à AppBlade
+# <a name="tutorial-azure-active-directory-integration-with-appblade"></a>Didacticiel : Intégration d’Azure Active Directory à AppBlade
 
 Dans ce didacticiel, vous allez apprendre à intégrer AppBlade à Azure Active Directory (Azure AD).
 L’intégration de AppBlade dans Azure AD vous offre les avantages suivants :

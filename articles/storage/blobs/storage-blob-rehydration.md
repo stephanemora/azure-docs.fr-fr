@@ -4,17 +4,17 @@ description: Réalimentez vos blobs à partir du stockage d’archive pour pouvo
 services: storage
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 01/08/2021
+ms.date: 03/11/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: hux
-ms.openlocfilehash: 5a89e5a9eca653a2d15e5b09605b78bc18d76b8f
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.openlocfilehash: 2f0ddca9cbd7d85909b1d86e68b92fa1d847476d
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98165669"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103225079"
 ---
 # <a name="rehydrate-blob-data-from-the-archive-tier"></a>Réalimenter les données d’objets blob à partir du niveau Archive
 
@@ -29,6 +29,10 @@ Lorsqu’un objet blob se trouve dans le niveau d’accès Archive, il est consi
 
 [!INCLUDE [storage-blob-rehydration](../../../includes/storage-blob-rehydrate-include.md)]
 
+### <a name="lifecycle-management"></a>Gestion du cycle de vie
+
+La réactivation d'un objet blob ne change pas son paramètre `Last-Modified`. L'utilisation de la fonctionnalité de [gestion du cycle de vie](storage-lifecycle-management-concepts.md) peut donner lieu à un scénario dans lequel un objet blob est réactivé, suite à quoi une stratégie de gestion du cycle de vie déplace l'objet blob vers l'archive car le paramètre `Last-Modified` dépasse le seuil défini pour la stratégie. Pour éviter ce scénario, utilisez la méthode *[Copier un objet blob archivé vers un niveau en ligne](#copy-an-archived-blob-to-an-online-tier)* . La méthode de copie crée une nouvelle instance de l'objet blob avec un paramètre `Last-Modified` mis à jour et ne déclenche pas la stratégie de gestion du cycle de vie.
+
 ## <a name="monitor-rehydration-progress"></a>Surveiller la progression de la réactivation
 
 Lors de la réactivation, utilisez l’opération d’obtention des propriétés d’objet blob afin de vérifier l’attribut **État d’archive** et confirmer la fin du changement de niveau. L’état affiche « réalimentation-vers-chaud » ou « réalimentation-vers-froid » selon le niveau choisi. Une fois le processus terminé, la propriété d’état archive est supprimée, et la propriété **Niveau d’accès** de l’objet blob indique le niveau chaud ou froid.
@@ -42,7 +46,7 @@ La copie d’un blob à partir d’une archive peut prendre plusieurs heures, se
 > [!IMPORTANT]
 > Ne supprimez pas l’objet BLOB source tant que la copie n’est pas terminée avec succès sur la destination. Si l’objet BLOB source est supprimé, l’objet BLOB de destination peut ne pas terminer la copie et sera vide. Vous pouvez vérifier *x-ms-Copy-Status* pour déterminer l’état de l’opération de copie.
 
-Les blobs d’archive peuvent uniquement être copiés vers des niveaux de destination en ligne au sein du même compte de stockage. La copie d’un blob d’archive vers un autre blob d’archive n’est pas prise en charge. Le tableau suivant indique les fonctionnalités de CopyBlob.
+Les blobs d’archive peuvent uniquement être copiés vers des niveaux de destination en ligne au sein du même compte de stockage. La copie d’un blob d’archive vers un autre blob d’archive n’est pas prise en charge. Le tableau suivant présente les fonctionnalités d'une opération **Copier un objet blob**.
 
 |                                           | **Source de niveau chaud**   | **Source de niveau froid** | **Source de niveau d’archive**    |
 | ----------------------------------------- | --------------------- | -------------------- | ------------------- |

@@ -9,10 +9,10 @@ ms.date: 10/08/2020
 ms.author: duau
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: ac7fc5af21f11699331d41a074e88ae757170664
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91975992"
 ---
 # <a name="tutorial-configure-route-filters-for-microsoft-peering-azure-cli"></a>Tutoriel : Configurer des filtres de routage pour le peering Microsoft : Azure CLI
@@ -56,7 +56,7 @@ Pour associer des filtres de routage à des services Microsoft 365, vous devez 
 Pour vous connecter aux services via une homologation Microsoft, vous devez suivre les étapes de configuration suivantes :
 
 * Vous devez disposer d’un circuit ExpressRoute actif où le peering Microsoft est provisionné. Vous pouvez utiliser les instructions suivantes pour accomplir ces tâches :
-  * [Créez un circuit ExpressRoute](howto-circuit-cli.md) et faites-le activer par votre fournisseur de connectivité avant de poursuivre. Le circuit ExpressRoute doit être approvisionné et activé.
+  * [Créez un circuit ExpressRoute](howto-circuit-cli.md) et demandez à votre fournisseur de connectivité de l’activer avant de poursuivre. Le circuit ExpressRoute doit être approvisionné et activé.
   * [Créez le peering Microsoft](howto-routing-cli.md) si vous gérez la session BGP directement. Sinon, demandez à votre fournisseur de connectivité de configurer le peering Microsoft pour votre circuit.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 

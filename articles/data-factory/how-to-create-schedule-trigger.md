@@ -8,14 +8,15 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/30/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 3673dd9eba717d2bdb569b4248936bbb59a8eae7
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: f10dac4e70a1edb05f2f2c02c48b9ae16c4f6823
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100387578"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102177808"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Créer un déclencheur qui exécute un pipeline selon une planification
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Cet article fournit des informations sur le déclencheur de planification et les étapes pour créer, démarrer et surveiller un déclencheur de planification. Pour les autres types de déclencheurs, consultez [Exécution du pipeline et déclencheurs](concepts-pipeline-execution-triggers.md).
@@ -25,6 +26,7 @@ Lorsque vous créez un déclencheur de planification, vous spécifiez une planif
 Les sections suivantes indiquent les étapes pour créer un déclencheur de planification de différentes façons. 
 
 ## <a name="data-factory-ui"></a>IU de la fabrique de données
+
 Vous pouvez créer un **déclencheur de planification** afin de planifier l’exécution périodique d’un pipeline (toutes les heures, tous les jours, etc.). 
 
 > [!NOTE]
@@ -89,7 +91,7 @@ Cette section montre comment utiliser Azure PowerShell pour créer, démarrer et
     > [!IMPORTANT]
     > Avant d’enregistrer le fichier JSON, affectez l’heure UTC actuelle comme valeur de l’élément **startTime**. Définissez la valeur de l’élément **endTime** sur une (1) heure après l’heure UTC actuelle.
 
-    ```json   
+    ```json
     {
         "properties": {
             "name": "MyTrigger",
@@ -167,9 +169,8 @@ Cette section montre comment utiliser Azure PowerShell pour créer, démarrer et
 
     Pour surveiller les exécutions du déclencheur et du pipeline dans le portail Azure, consultez [Surveiller des exécutions de pipelines](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
 
-
-
 ## <a name="net-sdk"></a>Kit de développement logiciel (SDK) .NET
+
 Cette section montre comment utiliser le Kit de développement logiciel (SDK) .NET pour créer, démarrer et surveiller un déclencheur. Pour voir cet exemple en fonctionnement, commencez par suivre le [Guide de démarrage rapide : Créer une fabrique de données à l’aide du SDK .NET](quickstart-create-data-factory-dot-net.md). Ensuite, ajoutez le code suivant à la méthode main : il crée et lance un déclencheur de planification qui s’exécute toutes les 15 minutes. Le déclencheur est associé à un pipeline nommé **Adfv2QuickStartPipeline**, créé dans le cadre du guide de démarrage rapide.
 
 Pour créer et lancer un déclencheur de planification qui s’exécute toutes les 15 minutes, ajoutez le code suivant à la méthode main :
@@ -258,8 +259,8 @@ Pour surveiller une exécution du déclencheur, ajoutez le code suivant avant la
 
 Pour surveiller les exécutions du déclencheur et du pipeline dans le portail Azure, consultez [Surveiller des exécutions de pipelines](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
 
-
 ## <a name="python-sdk"></a>Kit de développement logiciel (SDK) Python
+
 Cette section montre comment utiliser le Kit de développement logiciel (SDK) Python pour créer, démarrer et surveiller un déclencheur. Pour voir cet exemple en fonctionnement, commencez par suivre le [Guide de démarrage rapide : Créer une fabrique de données à l’aide du SDK Python](quickstart-create-data-factory-python.md). Ensuite, ajoutez le bloc de code suivant après le bloc de code « surveiller l’exécution du déclencheur » dans le script Python. Ce code crée un déclencheur de planification qui s’exécute toutes les 15 minutes entre l’heure de début et l’heure de fin spécifiées. Définissez la variable **start_time** sur l’heure UTC actuelle et la variable **end_time** sur une (1) heure après l’heure UTC actuelle.
 
 ```python
@@ -280,9 +281,11 @@ Cette section montre comment utiliser le Kit de développement logiciel (SDK) Py
 Pour surveiller les exécutions du déclencheur et du pipeline dans le portail Azure, consultez [Surveiller des exécutions de pipelines](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
 
 ## <a name="azure-resource-manager-template"></a>Modèle Azure Resource Manager
+
 Vous pouvez utiliser un modèle Azure Resource Manager pour créer un déclencheur. Pour obtenir des instructions pas à pas, consultez [Créer une fabrique de données Azure à l’aide d’un modèle Resource Manager](quickstart-create-data-factory-resource-manager-template.md).  
 
 ## <a name="pass-the-trigger-start-time-to-a-pipeline"></a>Transmettre l’heure de début du déclencheur à un pipeline
+
 Azure Data Factory version 1 prend en charge la lecture ou l’écriture des données partitionnées à l’aide des variables système : **SliceStart**, **SliceEnd**, **WindowStart** et **WindowEnd**. Dans la version actuelle d’Azure Data Factory, vous pouvez obtenir ce comportement à l’aide d’un paramètre de pipeline. L’heure de début et l’heure planifiée du déclencheur sont définies comme étant la valeur du paramètre de pipeline. Dans l’exemple suivant, l’heure planifiée du déclencheur est transmise comme valeur au paramètre **scheduledRunTime** de pipeline :
 
 ```json
@@ -292,6 +295,7 @@ Azure Data Factory version 1 prend en charge la lecture ou l’écriture des do
 ```
 
 ## <a name="json-schema"></a>Schéma JSON
+
 La définition JSON suivante vous montre comment créer un déclencheur de planification avec une planification et une périodicité :
 
 ```json
@@ -343,6 +347,7 @@ La définition JSON suivante vous montre comment créer un déclencheur de plani
 
 
 ### <a name="schema-overview"></a>Vue d’ensemble du schéma
+
 Le tableau suivant présente une vue d’ensemble globale des principaux éléments du schéma liés à la périodicité et à la planification d’un déclencheur :
 
 | Propriété JSON | Description |
@@ -405,6 +410,7 @@ La première heure d’exécution est la même si la valeur **startTime** est `2
 Enfin, lorsque les heures ou les minutes ne sont pas définies dans la planification d’un déclencheur, les heures ou minutes de la première exécution sont utilisées par défaut.
 
 ### <a name="schedule-property"></a>propriété de planification
+
 D’une part, l’utilisation d’une planification peut limiter le nombre d’exécutions du déclencheur. Par exemple, si un déclencheur avec une fréquence mensuelle est planifié pour s’exécuter uniquement le 31, le déclencheur ne s’exécute que durant les mois qui comptent un 31e jour.
 
 Une planification peut, quant à elle, également augmenter le nombre d’exécutions du déclencheur. Par exemple, un déclencheur avec une fréquence mensuelle planifiée pour s’exécuter le 1 et le 2 de chaque mois, s’exécute le 1 et le 2 de chaque mois, plutôt qu’une fois par mois.
@@ -412,7 +418,6 @@ Une planification peut, quant à elle, également augmenter le nombre d’exécu
 Si plusieurs éléments **schedule** sont spécifiés, l’ordre d’évaluation va du plus grand au plus petit paramètre de planification. L’évaluation commence par le numéro de semaine, puis le jour du mois, jour de la semaine, heure et enfin, la minute.
 
 Le tableau suivant décrit les éléments **schedule** en détail :
-
 
 | Élément JSON | Description | Valeurs valides |
 |:--- |:--- |:--- |
@@ -422,8 +427,8 @@ Le tableau suivant décrit les éléments **schedule** en détail :
 | **monthlyOccurrences** | Jours d’exécution du déclencheur dans le mois. La valeur ne peut être spécifiée qu’avec une fréquence mensuelle uniquement. | <ul><li>Tableau d’objets **monthlyOccurrence** : `{ "day": day,  "occurrence": occurrence }`.</li><li>L’attribut **day** est le jour de la semaine durant lequel le déclencheur s’exécute. Par exemple, une propriété **monthlyOccurrences** avec une valeur **day** de `{Sunday}` signifie tous les dimanches du mois. L’attribut **day** est requis.</li><li>L’attribut **occurrence** est l’occurrence du **jour** spécifié au cours du mois. Par exemple, une propriété **monthlyOccurrences** avec les valeurs **day** et **occurrence** de `{Sunday, -1}` signifie le dernier dimanche du mois. L’attribut **occurrence** est facultatif.</li></ul> |
 | **monthDays** | Jours d’exécution du déclencheur dans le mois. La valeur ne peut être spécifiée qu’avec une fréquence mensuelle uniquement. | <ul><li>Toute valeur <= -1 et >= -31</li><li>Toute valeur >= 1 et <= 31</li><li>Tableau de valeurs</li></ul> |
 
-
 ## <a name="examples-of-trigger-recurrence-schedules"></a>Exemples de planifications de périodicité de déclencheur
+
 Vous trouverez dans cette section plusieurs exemples de planifications de périodicité qui se penchent tout particulièrement sur l’objet **schedule** et ses éléments.
 
 Les exemples supposent que la valeur **interval** est 1 et que la valeur **frequency** est correcte selon la définition de planification. Par exemple, vous ne pouvez pas avoir une valeur **frequency** définie sur « jour » et une modification « monthDays » dans l’objet **schedule**. Ces restrictions sont mentionnées dans le tableau de la section précédente.
@@ -457,6 +462,7 @@ Les exemples supposent que la valeur **interval** est 1 et que la valeur **frequ
 | `{"minutes":[0,15,30,45], "monthlyOccurrences":[{"day":"friday", "occurrence":-1}]}` | Exécution toutes les 15 minutes le dernier vendredi du mois. |
 | `{"minutes":[15,45], "hours":[5,17], "monthlyOccurrences":[{"day":"wednesday", "occurrence":3}]}` | Exécution à 5h15, 5h45, 17h15 et 17h45 le troisième mercredi de chaque mois. |
 
-
 ## <a name="next-steps"></a>Étapes suivantes
-Vous trouverez des informations détaillées sur les déclencheurs sur la page [Exécution de pipelines et déclencheurs](concepts-pipeline-execution-triggers.md#trigger-execution).
+
+- Vous trouverez des informations détaillées sur les déclencheurs sur la page [Exécution de pipelines et déclencheurs](concepts-pipeline-execution-triggers.md#trigger-execution).
+- Découvrez comment référencer les métadonnées d’un déclencheur dans le pipeline avec la section [Référencer les métadonnées de déclencheur dnas l’exécution de pipeline](how-to-use-trigger-parameterization.md)

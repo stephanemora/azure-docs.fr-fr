@@ -49,7 +49,7 @@ Pour plus d’informations sur le contrat SLA, consultez [Tarifs et contrat SLA]
 
 ## <a name="comparing-streaming-types"></a>Comparaison des types de streaming
 
-Fonctionnalité|standard|Premium
+Fonctionnalité|Standard|Premium
 ---|---|---
 Débit |Jusqu’à 600 Mbits/s, et le débit fourni peut être beaucoup plus élevé avec un CDN.|200 Mbits/s par unité de streaming (SU). Le débit fourni peut être beaucoup plus élevé avec un CDN.
 CDN|Azure CDN, CDN tiers ou sans CDN.|Azure CDN, CDN tiers ou sans CDN.

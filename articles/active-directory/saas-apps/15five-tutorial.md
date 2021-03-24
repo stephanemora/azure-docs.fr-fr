@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.openlocfilehash: 79c6a5959d000217dcb69370b0e0ac4ccc18ccdd
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97673900"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-15five"></a>Didacticiel : Intégration d’Azure Active Directory à 15Five
@@ -30,7 +30,7 @@ L’intégration de 15Five dans Azure AD vous offre les avantages suivants :
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour configurer l’intégration d’Azure AD avec 15Five, vous avez besoin des éléments suivants :
 
@@ -183,9 +183,9 @@ Pour se connecter à 15Five, les utilisateurs d’Azure AD doivent être approvi
 
 ### <a name="to-configure-user-provisioning-perform-the-following-steps"></a>Pour configurer l'approvisionnement des utilisateurs, procédez comme suit :
 
-1. Connectez-vous à votre site d’entreprise **15Five** en tant qu’administrateur.
+1. Connectez-vous au site d'entreprise **15Five** en tant qu'administrateur.
 
-2. Accédez à **Manage Company**.
+2. Accédez à **Gérer la société**.
 
     ![Gérer la société](./media/15five-tutorial/ic784675.png "Manage Company")
 
@@ -197,7 +197,7 @@ Pour se connecter à 15Five, les utilisateurs d’Azure AD doivent être approvi
 
     ![Ajouter une nouvelle personne](./media/15five-tutorial/ic784677.png "Add New Person")
 
-    a. Tapez le **prénom**, le **nom**, la **fonction** et **l’adresse de messagerie** du compte Azure Active Directory valide que vous souhaitez approvisionner dans les zones de texte correspondantes.
+    a. Entrez le **Prénom**, le **Nom**, le **Titre**, l'**Adresse de messagerie** d'un compte Azure Active Directory valide que vous voulez configurer.
 
     b. Cliquez sur **Done**.
 

@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 10/11/2017
 ms.author: allensu
 ms.openlocfilehash: cff355aeb74efc9dec2780840ae57fea4c5764cc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84888704"
 ---
 # <a name="custom-reports-from-verizon"></a>Rapports personnalisés de Verizon
@@ -81,7 +81,7 @@ Vous pouvez exporter les données au format Excel en cliquant sur le symbole Exc
 | Correspondances                      | Indique le nombre total de demandes adressées à l’Edge CNAME. |
 | Absences                    | Indique le nombre total des demandes ou des données transférées (Mo) pour l’Edge CNAME qui produit un absence du cache (par exemple, TCP_CLIENT_REFRESH_MISS, TCP_EXPIRED_MISS, or TCP_MISS). Une absence dans le cache se produit lorsque le contenu demandé n’a pas mis en cache sur le serveur Edge qui a satisfait la demande. | 
 | Aucun cache                  | Indique le nombre total des demandes ou des données transférées (Mo) pour l’Edge CNAME qui produit un code d’état CONFIG_NOCACHE.  |
-| Autres                     | Indique le nombre total des demandes ou des données transférées (Mo) pour l’Edge CNAME indiqué, qui produit un code d’état HTTP ne s’inscrivant pas dans la plage 2xx - 5xx. |
+| Autre                     | Indique le nombre total des demandes ou des données transférées (Mo) pour l’Edge CNAME indiqué, qui produit un code d’état HTTP ne s’inscrivant pas dans la plage 2xx - 5xx. |
 | Plateforme                  | Indique la plateforme qui gère le trafic de l’Edge CNAME. |
 | Non affecté               | Indique le nombre total des demandes ou des données transférées (Mo) pour l’Edge CNAME pour lequel les informations de code d’état du cache ou de code d’état HTTP n’ont pas été consignées.  |
 | Non mis en cache               | Indique le nombre total des demandes ou des données transférées (Mo) pour l’Edge CNAME, qui entraîne un code d’état de cache UNCACHEABLE.  |

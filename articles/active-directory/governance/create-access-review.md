@@ -2,7 +2,7 @@
 title: Créer une révision d’accès des groupes et applications - Azure AD
 description: Découvrez comment créer une révision d’accès pour les membres de groupes ou pour l’accès aux applications dans les révisions d’accès Azure Active Directory.
 services: active-directory
-author: barclayn
+author: ajburnle
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 12/07/2020
-ms.author: barclayn
+ms.date: 3/3/2021
+ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b12eb95a7840bdbb902701fc644eee30ffe9900f
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 7143c3f9786d41c32ae954ab219197a9cfaa1050
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96778535"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102176873"
 ---
 # <a name="create-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Créer une révision d’accès des groupes et applications dans les révisions d’accès Azure AD
 
@@ -80,7 +80,7 @@ Pour plus d’informations, consultez [Exigences des licences](access-reviews-ov
     - **Propriétaire(s) de groupe**. (Disponible uniquement lors de la révision d’une équipe ou d’un groupe).
     - **Utilisateur(s) ou groupe(s) sélectionné(s)** .
     - **Les utilisateurs révisent leur propre accès**.
-    - **(Préversion) Managers des utilisateurs.**
+    - **Managers des utilisateurs.**
     Si vous choisissez **Managers des utilisateurs** ou **Propriétaires de groupes**, vous avez également la possibilité de spécifier un réviseur de secours. Les réviseurs de secours sont invités à effectuer une révision lorsque l’utilisateur n’a pas de manager spécifié dans le répertoire ou que le groupe n’a pas de propriétaire.
 
     ![Nouvelle révision d’accès](./media/create-access-review/new-access-review.png)

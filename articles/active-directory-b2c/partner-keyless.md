@@ -12,10 +12,10 @@ ms.date: 1/17/2021
 ms.author: gasinh
 ms.subservice: B2C
 ms.openlocfilehash: b817cfc347ee79ff7c9cbb4124e3f2b7e4d2b7ee
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101644253"
 ---
 # <a name="tutorial-configure-keyless-with-azure-active-directory-b2c"></a>Tutoriel : Configurer Keyless avec Azure Active Directory B2C
@@ -83,7 +83,7 @@ Pour configurer un fournisseur d'identité, procédez comme suit :
 1. Sélectionnez **Type de fournisseur d’identité** > **OpenID Connect (préversion)** .
 2. Remplissez le formulaire pour configurer le fournisseur d’identité :
 
-   |Propriété | Value |
+   |Propriété | Valeur |
    |:-----| :-----------|
    | Nom   | Keyless |
    | URL de métadonnées | Insérez l’URI de l’application hébergée d’authentification de Keyless, suivi du chemin d’accès spécifique, tel que https://keyless.auth/.well-known/openid-configuration. |

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/30/2019
 ms.author: Zhchia
 ms.openlocfilehash: 8b4bfa7e9bf457d79c6c4a0b5255bce4fe36dff4
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94358675"
 ---
 # <a name="tutorial-configure-foodee-for-automatic-user-provisioning"></a>Tutoriel : Configurer Foodee pour le provisionnement automatique d’utilisateurs
@@ -83,7 +83,7 @@ Pour ajouter Foodee à partir de la galerie d’applications Azure AD, procéde
 
     ![Bouton Nouvelle application](common/add-new-app.png)
 
-1. Dans la zone de recherche, entrez **Foodee** , sélectionnez **Foodee** dans le volet de résultats, puis **Ajouter** pour ajouter l’application.
+1. Dans la zone de recherche, entrez **Foodee**, sélectionnez **Foodee** dans le volet de résultats, puis **Ajouter** pour ajouter l’application.
 
     ![Foodee dans la liste de résultats](common/search-new-app.png)
 
@@ -100,7 +100,7 @@ Configurez le provisionnement automatique d’utilisateurs pour Foodee dans Azur
 
     ![Volet Applications d’entreprise](common/enterprise-applications.png)
 
-1. Dans la liste des **applications** , sélectionnez **Foodee**.
+1. Dans la liste des **applications**, sélectionnez **Foodee**.
 
     ![Lien Foodee dans la liste des applications](common/all-applications.png)
 
@@ -108,13 +108,13 @@ Configurez le provisionnement automatique d’utilisateurs pour Foodee dans Azur
 
     ![Capture d’écran des options Gérer avec l’option Provisionnement en évidence.](common/provisioning.png)
 
-1. Dans la liste déroulante **Mode d’approvisionnement** , sélectionnez **Automatique**.
+1. Dans la liste déroulante **Mode d’approvisionnement**, sélectionnez **Automatique**.
 
     ![Capture d’écran de la liste déroulante Mode de provisionnement avec l’option Automatique en évidence.](common/provisioning-automatic.png)
 
-1. Sous **Informations d’identification de l’administrateur** , procédez comme suit :
+1. Sous **Informations d’identification de l’administrateur**, procédez comme suit :
 
-   a. Dans la zone **URL de locataire** , entrez la valeur **https:\//concierge.food.ee/scim/v2** que vous avez récupérée précédemment.
+   a. Dans la zone **URL de locataire**, entrez la valeur **https:\//concierge.food.ee/scim/v2** que vous avez récupérée précédemment.
 
    b. Dans la zone **Secret Token (Jeton secret)** , entrez la valeur **API Token (Jeton d’API)** que vous avez récupérée précédemment.
    
@@ -122,37 +122,37 @@ Configurez le provisionnement automatique d’utilisateurs pour Foodee dans Azur
 
     ![Lien Tester la connexion](common/provisioning-testconnection-tenanturltoken.png)
 
-1. Dans la zone **E-mail de notification** , entrez l'adresse e-mail de la personne ou du groupe qui doit recevoir les notifications d'erreur d'approvisionnement, puis cochez la case **Envoyer une notification par e-mail en cas de défaillance**.
+1. Dans la zone **E-mail de notification**, entrez l'adresse e-mail de la personne ou du groupe qui doit recevoir les notifications d'erreur d'approvisionnement, puis cochez la case **Envoyer une notification par e-mail en cas de défaillance**.
 
     ![Zone de texte E-mail de notification](common/provisioning-notification-email.png)
 
 1. Sélectionnez **Enregistrer**.
 
-1. Sous **Mappages** , sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec Foodee**.
+1. Sous **Mappages**, sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec Foodee**.
 
     :::image type="content" source="media/Foodee-provisioning-tutorial/usermapping.png" alt-text="Capture d’écran de la section Mappages. Sous Nom, Synchroniser les utilisateurs Azure Active Directory avec Foodee est mis en évidence." border="false":::
 
-1. Sous **Mappages des attributs** , passez en revue les attributs utilisateur synchronisés entre Azure AD et Foodee. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les *comptes d’utilisateurs* dans Foodee pour les opérations de mise à jour. 
+1. Sous **Mappages des attributs**, passez en revue les attributs utilisateur synchronisés entre Azure AD et Foodee. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les *comptes d’utilisateurs* dans Foodee pour les opérations de mise à jour. 
 
     :::image type="content" source="media/Foodee-provisioning-tutorial/userattribute.png" alt-text="Capture d’écran de la page Mappages d’attributs. Un tableau liste les attributs Azure Active Directory et Foodee et la priorité de correspondance." border="false":::
 
 1. Pour valider vos modifications, sélectionnez **Enregistrer**.
-1. Sous **Mappages** , sélectionnez **Synchroniser les groupes Azure Active Directory avec Foodee**.
+1. Sous **Mappages**, sélectionnez **Synchroniser les groupes Azure Active Directory avec Foodee**.
 
     :::image type="content" source="media/Foodee-provisioning-tutorial/groupmapping.png" alt-text="Capture d’écran de la section Mappages. Sous Nom, Synchroniser les groupes Azure Active Directory avec Foodee est mis en évidence." border="false":::
 
-1. Sous **Mappages des attributs** , passez en revue les attributs utilisateur synchronisés entre Azure AD et Foodee. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les *comptes de groupes* dans Foodee pour les opérations de mise à jour.
+1. Sous **Mappages des attributs**, passez en revue les attributs utilisateur synchronisés entre Azure AD et Foodee. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les *comptes de groupes* dans Foodee pour les opérations de mise à jour.
 
     :::image type="content" source="media/Foodee-provisioning-tutorial/groupattribute.png" alt-text="Capture d’écran de la page Mappages d’attributs. Un tableau liste les attributs Azure Active Directory, les attributs Foodee et la priorité de correspondance." border="false":::
 
 1. Pour valider vos modifications, sélectionnez **Enregistrer**.
 1. Configurez les filtres d’étendue. Pour cette opération, reportez-vous aux instructions fournies dans le [tutoriel sur les filtres d’étendue](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-1. Pour activer le service d’approvisionnement d’Azure AD pour Foodee, dans la section **Paramètres** , définissez le paramètre **État d’approvisionnement** sur **Activé**.
+1. Pour activer le service d’approvisionnement d’Azure AD pour Foodee, dans la section **Paramètres**, définissez le paramètre **État d’approvisionnement** sur **Activé**.
 
     ![Commutateur d’état d’approvisionnement](common/provisioning-toggle-on.png)
 
-1. Sous **Paramètres** , dans la liste déroulante **Étendue** , définissez les utilisateurs ou groupes que vous souhaitez provisionner dans Foodee.
+1. Sous **Paramètres**, dans la liste déroulante **Étendue**, définissez les utilisateurs ou groupes que vous souhaitez provisionner dans Foodee.
 
     ![Liste déroulante Étendue de l’approvisionnement](common/provisioning-scope.png)
 
