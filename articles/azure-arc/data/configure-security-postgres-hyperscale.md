@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: d6e27fddceb69efbb2c1697c09ee9b61d7f38ee4
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101687972"
 ---
 # <a name="configure-security-for-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Configurer la sécurité pour votre groupe de serveurs PostgreSQL Hyperscale activé par Azure Arc

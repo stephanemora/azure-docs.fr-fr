@@ -9,10 +9,10 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 11/10/2020
 ms.openlocfilehash: 041b930a0c2fa82727216b4ca0c8367387d0d801
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100367251"
 ---
 # <a name="quickstart-create-an-azure-cosmos-account-database-container-and-items-from-the-azure-portal"></a>Démarrage rapide : Créer un compte, une base de données, un conteneur et des éléments Azure Cosmos à partir du portail Azure
@@ -48,7 +48,7 @@ Accédez au [portail Azure](https://portal.azure.com/) pour créer un compte Azu
 1. Sélectionnez **Ajouter**.
 1. Dans la page **Créer un compte Azure Cosmos DB**, entrez les paramètres de base du nouveau compte Azure Cosmos. 
 
-    |Paramètre|Valeur|Description |
+    |Paramètre|Value|Description |
     |---|---|---|
     |Abonnement|Nom d’abonnement|Sélectionnez l’abonnement Azure à utiliser pour ce compte Azure Cosmos. |
     |Groupe de ressources|Nom de groupe ressources|Sélectionnez un groupe de ressources ou sélectionnez **Créer**, puis entrez un nom unique pour le nouveau groupe de ressources. |

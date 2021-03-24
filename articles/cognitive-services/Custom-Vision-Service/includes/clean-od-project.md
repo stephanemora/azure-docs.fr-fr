@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 03/21/2019
 ms.author: pafarley
 ms.openlocfilehash: 179e283b1640b49487c38f900de7651226794c65
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97582605"
 ---
 Si vous voulez implémenter votre projet de détection d’objets (ou essayer un projet de [classification d’images](../quickstarts/image-classification.md)), supprimez le projet de détection de fourchettes/ciseaux de cet exemple. Avec un abonnement gratuit, vous pouvez avoir deux projets Custom Vision.

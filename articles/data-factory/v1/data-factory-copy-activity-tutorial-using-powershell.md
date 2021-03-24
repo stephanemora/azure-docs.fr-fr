@@ -8,10 +8,10 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 54c296ed8013b9962de9487cfec3e2568c03e738
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100377038"
 ---
 # <a name="tutorial-create-a-data-factory-pipeline-that-moves-data-by-using-azure-powershell"></a>Tutoriel : créer un pipeline Data Factory qui déplace les données à l’aide d’Azure PowerShell
@@ -335,7 +335,7 @@ Dans cette partie de l’étape, vous créez un jeu de données de sortie nommé
 
     | Propriété | Description |
     |:--- |:--- |
-    | type | La propriété du type est définie sur **AzureSqlTable** car les données sont copiées dans une table dans Azure SQL Database. |
+    | type | La propriété du type est définie sur **AzureSqlTable** parce que les données sont copiées dans une table dans Azure SQL Database. |
     | linkedServiceName | Fait référence au service **AzureSqlLinkedService** que vous avez créé précédemment. |
     | tableName | Spécifie la **table** dans laquelle les données sont copiées. | 
     | frequency/interval | La fréquence est définie sur **Heure** et l’intervalle sur **1**, ce qui signifie que les tranches de sortie sont produites **toutes les heures** entre les heures de début et de fin du pipeline, pas avant ni après.  |

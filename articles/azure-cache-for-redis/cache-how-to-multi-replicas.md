@@ -7,10 +7,10 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/11/2020
 ms.openlocfilehash: 87b5ec5eb13f2bc53bdf993547ce3da1c74404bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91566786"
 ---
 # <a name="add-replicas-to-azure-cache-for-redis-preview"></a>Ajouter des réplicas à Azure Cache pour Redis (Préversion)
@@ -23,7 +23,7 @@ Les niveaux Standard et Premium d’Azure Cache pour Redis offrent une redondanc
 > 
 
 ## <a name="prerequisites"></a>Prérequis
-* Abonnement Azure -  [créez-en un gratuitement](https://azure.microsoft.com/free/)
+* Abonnement Azure : [créez-en un gratuitement](https://azure.microsoft.com/free/)
 
 > [!NOTE]
 > Cette fonctionnalité est actuellement disponible en préversion - [contactez-nous](mailto:azurecache@microsoft.com) si vous êtes intéressé.
@@ -50,7 +50,7 @@ Pour créer un cache, procédez comme suit :
    
 1. Dans la page **Avancé**, choisissez **Nombre de réplicas**.
    
-    :::image type="content" source="media/cache-how-to-multi-replicas/create-multi-replicas.png" alt-text="Sélectionnez Azure Cache pour Redis.":::
+    :::image type="content" source="media/cache-how-to-multi-replicas/create-multi-replicas.png" alt-text="Nombre de réplicas.":::
 
 1. Conservez les paramètres par défaut pour les autres options. 
 

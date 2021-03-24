@@ -1,18 +1,14 @@
 ---
 title: Utiliser des notifications d’appareils
 description: Les notifications fournissent des informations sur l’activité réseau qui peut nécessiter votre attention, ainsi que des suggestions pour la gestion de cette activité.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/12/2020
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: 2083da329c41afbe95ff570194a1c3ad5c2661be
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: c0c2fc5a4c01a8a31512cd43c340bf3fadc259b1
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100523564"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104781328"
 ---
 # <a name="work-with-device-notifications"></a>Utiliser des notifications d’appareils
 
@@ -24,11 +20,7 @@ Les notifications fournissent des informations sur l’activité réseau qui peu
 
 La réponse aux notifications améliore les informations fournies dans le mappage des appareils, l’inventaire des appareils, ainsi que les rapports et les requêtes d’exploration de données. Il fournit également des insights sur les modifications réseau légitimes et les problèmes de configuration de réseau potentiels.
 
-Pour accéder aux notifications :
-
-- Sélectionnez **Paramètres système** puis **Amélioration des données**.
-
-## <a name="notifications-vs-alerts"></a>Notifications contre alertes
+**Notifications contre alertes**
 
 En plus de recevoir des notifications sur l’activité réseau, vous pouvez recevoir des *alertes*. Les notifications fournissent des informations sur les modifications du réseau ou les propriétés des appareils non résolues qui ne présentent pas de menace. Les alertes fournissent des informations sur les écarts réseau et les modifications susceptibles de représenter une menace pour le réseau.
 
@@ -86,18 +78,6 @@ Pour afficher les notifications et gérer les notifications :
 
 Les événements configurés **Nouvelles adresses IP** et **Aucun sous-réseau** ne peuvent pas être gérés simultanément. Ils nécessitent une confirmation manuelle.
 
-## <a name="improve-device-os-classification-data-enhancement"></a>Améliorer la classification du système d’exploitation des appareils : amélioration des données 
-
-Le capteur détecte de façon continue les nouveaux appareils OT. Il détecte également les modifications apportées aux appareils précédemment découverts, y compris les types de systèmes d’exploitation.
-
-Dans certains cas, des conflits peuvent être détectés dans les systèmes d’exploitation découverts. Cela peut se produire si vous disposez d’une version du système d’exploitation qui fait référence à des systèmes de bureau ou de serveur. Si c’est le cas, vous recevrez une notification avec des classifications de systèmes d’exploitation facultatifs.
-
-:::image type="content" source="media/how-to-enrich-asset-information/enhance-data-screen.png" alt-text="Améliorez les données.":::
-
-Examinez les suggestions afin d’enrichir la classification du système d’exploitation. Ces informations s’affichent dans l’inventaire des appareils, les rapports d’exploration de données et d’autres affichages. Elles peuvent également améliorer la précision des alertes, des menaces et de l’analyse des risques.
-
-Lorsque vous acceptez une recommandation, les informations sur le type de système d’exploitation sont mises à jour dans le capteur.
-
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="see-also"></a>Voir aussi
 
 [Afficher les alertes](how-to-view-alerts.md)

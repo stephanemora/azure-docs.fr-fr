@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: scottwhi
 ms.openlocfilehash: cbbde354c1bc68a2b1017c3ccba61b846fa62916
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94380757"
 ---
 # <a name="get-insights-about-a-video"></a>Obtenir des informations sur une vidéo
 
 > [!WARNING]
-> Les API Recherche Bing passent de Cognitive Services aux services de recherche Bing. À compter du **30 octobre 2020** , toutes les nouvelles instances de Recherche Bing doivent être provisionnées en suivant le processus documenté [ici](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
-> Les API Recherche Bing provisionnées à l’aide de Cognitive Services seront prises en charge les trois prochaines années ou jusqu’à la fin de votre Accord Entreprise, selon la première éventualité.
+> Les API Recherche Bing passent de Cognitive Services aux services de recherche Bing. À compter du **30 octobre 2020**, toutes les nouvelles instances de Recherche Bing doivent être provisionnées en suivant le processus documenté [ici](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> Les API Recherche Bing provisionnées à l’aide de Cognitive Services seront prises en charge les trois prochaines années ou jusqu’à la fin de votre Contrat Entreprise, selon la première éventualité.
 > Pour obtenir des instructions de migration, consultez [Services de recherche Bing](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Chaque vidéo retournée par l’API Recherche de vidéos Bing inclut un ID de vidéo que vous pouvez utiliser pour obtenir plus d’informations sur la vidéo, comme les vidéos associées. Pour obtenir des informations sur une vidéo, récupérez son jeton [videoId](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#video-videoid) dans la réponse d’API. 

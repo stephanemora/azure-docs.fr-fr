@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
 ms.openlocfilehash: d400e6bcda0a2114d798a3289f01f52b677a6f94
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97656493"
 ---
 # <a name="architecture-for-vmwarephysical-server-replication-to-a-secondary-on-premises-site"></a>Architecture pour la réplication de machines virtuelles VMware ou de serveurs physiques vers un site local secondaire
@@ -33,7 +33,7 @@ Cet article décrit l’architecture et les processus utilisés quand vous confi
 
 ## <a name="set-up-outbound-network-connectivity"></a>Configurer la connectivité réseau sortante
 
-Pour que Site Recovery fonctionne comme prévu, vous devez modifier la connectivité réseau sortante pour permettre la réplication de votre environnement.
+Pour que Site Recovery fonctionne comme prévu, vous devez modifier la connectivité réseau sortante pour permettre au réseau d’effectuer la réplication.
 
 > [!NOTE]
 > Site Recovery ne prend pas en charge l’utilisation d’un proxy d’authentification pour contrôler la connectivité réseau.

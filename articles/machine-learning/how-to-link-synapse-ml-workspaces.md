@@ -11,12 +11,12 @@ author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 03/08/2021
 ms.custom: how-to, devx-track-python, data4ml, synapse-azureml
-ms.openlocfilehash: d1c4defc53c4af0fb481a57c0a455e987fdd480a
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 9d2b416955234cae7a30ac65dff7d64dedad3b1d
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102519994"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889108"
 ---
 # <a name="link-azure-synapse-analytics-and-azure-machine-learning-workspaces-preview"></a>Lier des espaces de travail Azure Synapse Analytics et Azure Machine Learning (préversion)
 
@@ -102,12 +102,14 @@ Liez votre espace de travail de Machine Learning et votre espace de travail Syna
 1. Connectez-vous à [Azure Machine Learning Studio](https://ml.azure.com/).
 1. Sélectionnez **Services liés** dans la section **Gérer** du volet gauche.
 1. Sélectionnez **Ajouter une intégration**.
-1. Renseignez les champs du formulaire **Lier l’espace de travail**. 
-    Champ| Description    
-    ---|---
-    Nom| Fournissez un nom pour votre service lié. Ce nom sera utilisé pour référencer ce service lié particulier.
-    Nom d’abonnement | Sélectionnez le nom de votre abonnement associé à votre espace de travail de Machine Learning. 
-    Espace de travail Synapse | Sélectionnez l’espace de travail Synapse vers lequel vous souhaitez établir un lien.
+1. Renseignez les champs du formulaire **Lier l’espace de travail**.
+
+    |Champ| Description    
+    |---|---
+    |Nom| Fournissez un nom pour votre service lié. Ce nom sera utilisé pour référencer ce service lié particulier.
+    |Nom d’abonnement | Sélectionnez le nom de votre abonnement associé à votre espace de travail de Machine Learning. 
+    |Espace de travail Synapse | Sélectionnez l’espace de travail Synapse vers lequel vous souhaitez établir un lien.
+    
 1. Sélectionnez **Suivant** pour ouvrir le formulaire **Sélectionner des pools Spark (facultatif)** . Dans ce formulaire, vous sélectionnez le pool Synapse Spark à attacher à votre espace de travail.
 
 1. Sélectionnez **Suivant** pour ouvrir le formulaire **Vérifier** et vérifier vos sélections.

@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2019
-ms.openlocfilehash: c5a0b2d21f7d42b8ce96f72d58e5d0a8ab0c572c
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: ee984de22052076618728fbacfc31b73c18c073a
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98943932"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864684"
 ---
 # <a name="submit-jobs-from-r-tools-for-visual-studio"></a>Soumettre des travaux à partir d’outils R pour Visual Studio
 
@@ -22,7 +22,7 @@ RTVS améliore votre flux de travail R en offrant des outils tels que la [fenêt
 
 1. Installez les [Outils R pour Visual Studio](/visualstudio/rtvs/installing-r-tools-for-visual-studio).
 
-    ![Installation de RTVS dans Visual Studio 2017](./media/r-server-submit-jobs-r-tools-vs/install-r-tools-for-vs.png)
+    :::image type="content" source="./media/r-server-submit-jobs-r-tools-vs/install-r-tools-for-vs.png" alt-text="Installation de RTVS dans Visual Studio 2017" border="true":::
 
 2. Sélectionnez la charge de travail *Applications de science et analyse des données*, puis sélectionnez les options **Prise en charge du langage R**, **Prise en charge du runtime pour les outils de développement R** et **Microsoft R Client**.
 
@@ -38,7 +38,7 @@ RTVS améliore votre flux de travail R en offrant des outils tels que la [fenêt
 
    2. Accédez à l’élément de menu **Outils R**, puis sélectionnez **Paramètres de science des données**.
 
-       ![Visual Studio - Paramètres de science des données](./media/r-server-submit-jobs-r-tools-vs/data-science-settings.png)
+       :::image type="content" source="./media/r-server-submit-jobs-r-tools-vs/data-science-settings.png" alt-text="Visual Studio - Paramètres de science des données" border="true":::
 
       > [!NOTE]  
       > À l’aide de l’approche décrite à l’étape 1, vous pouvez également enregistrer et restaurer votre disposition de scientifique des données personnalisée, plutôt que de répéter la commande **Paramètres de science des données**.
@@ -53,11 +53,11 @@ RTVS améliore votre flux de travail R en offrant des outils tels que la [fenêt
 6. En commençant par le haut du fichier, appuyez sur Ctrl + Entrée pour envoyer chaque ligne, une à la fois, vers la fenêtre interactive R. Certaines lignes peuvent prendre un certain temps, car elles installent des packages.
     * Vous pouvez aussi sélectionner toutes les lignes dans le fichier R (Ctrl + A), puis les exécuter toutes (Ctrl + Entrée), ou sélectionner l’icône d’exécution en mode interactif dans la barre d’outils.
 
-        ![Visual Studio - Exécution interactive](./media/r-server-submit-jobs-r-tools-vs/execute-interactive1.png)
+        :::image type="content" source="./media/r-server-submit-jobs-r-tools-vs/execute-interactive1.png" alt-text="Visual Studio - Exécution interactive" border="true":::
 
 7. Après avoir exécuté toutes les lignes dans le script, vous devez obtenir une sortie semblable à celle-ci :
 
-    ![Visual Studio - Outils R de l’espace de travail](./media/r-server-submit-jobs-r-tools-vs/visual-studio-workspace.png)
+    :::image type="content" source="./media/r-server-submit-jobs-r-tools-vs/visual-studio-workspace.png" alt-text="Visual Studio - Outils R de l’espace de travail" border="true":::
 
 ## <a name="submit-jobs-to-an-hdinsight-ml-services-cluster"></a>Envoyer des travaux à un cluster HDInsight ML Services
 
@@ -93,7 +93,7 @@ En utilisant une instance Microsoft ML Server/Microsoft R Client à partir d’
     rxSetComputeContext(mySparkCluster)
     ```
 
-   ![Apache Spark - Définition du contexte](./media/r-server-submit-jobs-r-tools-vs/apache-spark-context.png)
+   :::image type="content" source="./media/r-server-submit-jobs-r-tools-vs/apache-spark-context.png" alt-text="Apache Spark - Définition du contexte" border="true":::
 
 1. Dans la fenêtre interactive R, exécutez les commandes suivantes :
 
@@ -105,22 +105,23 @@ En utilisant une instance Microsoft ML Server/Microsoft R Client à partir d’
 
     Le résultat doit ressembler à ce qui suit :
 
-    ![Exécution réussie de la commande rx](./media/r-server-submit-jobs-r-tools-vs/successful-rx-commands.png) a
+    :::image type="content" source="./media/r-server-submit-jobs-r-tools-vs/successful-rx-commands.png" alt-text="Exécution réussie de la commande rx" border="true":::
+a
 1. Vérifiez que le `rxHadoopCopy` a bien copié le fichier `people.json` du dossier d’exemple de données vers le nouveau dossier `/user/RevoShare/newUser` :
 
     1. Dans le volet de votre cluster HDInsight ML Services dans Azure, sélectionnez **Comptes de stockage** dans le menu de gauche.
 
-        ![Comptes de stockage Azure HDInsight](./media/r-server-submit-jobs-r-tools-vs/hdinsight-storage-accounts.png)
+        :::image type="content" source="./media/r-server-submit-jobs-r-tools-vs/hdinsight-storage-accounts.png" alt-text="Comptes de stockage Azure HDInsight" border="true":::
 
     2. Sélectionnez le compte de stockage par défaut pour votre cluster et prenez note du nom du conteneur/répertoire.
 
     3. Sélectionnez **Conteneurs** dans le menu de gauche du volet de votre compte de stockage.
 
-        ![Conteneurs du stockage Azure HDInsight](./media/r-server-submit-jobs-r-tools-vs/hdi-storage-containers.png)
+        :::image type="content" source="./media/r-server-submit-jobs-r-tools-vs/hdi-storage-containers.png" alt-text="Conteneurs du stockage Azure HDInsight" border="true":::
 
     4. Sélectionnez le nom du conteneur de votre cluster, accédez au dossier **user** (vous devrez peut-être cliquer sur *Charger plus* en bas de la liste), puis sélectionnez *RevoShare*, puis **newUser**. Le fichier `people.json` doit être affiché dans le dossier `newUser`.
 
-        ![Dossier où a été copié le fichier dans HDInsight](./media/r-server-submit-jobs-r-tools-vs/hdinsight-copied-file.png)
+        :::image type="content" source="./media/r-server-submit-jobs-r-tools-vs/hdinsight-copied-file.png" alt-text="Dossier où a été copié le fichier dans HDInsight" border="true":::
 
 1. Une fois que vous avez terminé d’utiliser le contexte Apache Spark actuel, vous devez l’arrêter. Vous ne pouvez pas exécuter plusieurs contextes à la fois.
 

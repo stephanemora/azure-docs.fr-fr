@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/21/2019
 ms.openlocfilehash: d547844671e6485e71be7dd8c355de08f3dec5e6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91710564"
 ---
 # <a name="performance-recommendations-in-azure-database-for-postgresql---single-server"></a>Recommandations sur les performances dans Azure Database pour PostgreSQL - Serveur unique
@@ -33,7 +33,7 @@ Sélectionnez **Analyser** et choisissez une base de données, l’analyse comme
 
 La fenêtre **Recommandations** affiche une liste de recommandations si des recommandations ont été trouvées.
 
-:::image type="content" source="./media/concepts-performance-recommendations/performance-recommendations-result.png" alt-text="Page d’accueil des suggestions sur les performances":::
+:::image type="content" source="./media/concepts-performance-recommendations/performance-recommendations-result.png" alt-text="Nouvelle page Suggestions sur les performances":::
 
 Les recommandations ne sont pas appliquées automatiquement. Pour appliquer la recommandation, copiez le texte de la requête et exécutez-le à partir du client de votre choix. N’oubliez pas de tester et de surveiller pour évaluer la recommandation. 
 

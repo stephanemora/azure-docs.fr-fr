@@ -12,12 +12,12 @@ author: emlisa
 ms.author: emlisa
 ms.reviewer: sstein, emlisa
 ms.date: 10/28/2020
-ms.openlocfilehash: 9e292aeb116bd33ce935c951b39015c54dd1a8bc
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: 1c210eab0332d01fc6514edc790d729172ed2174
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102486690"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889057"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Haute disponibilité des services Azure SQL Database et SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -126,7 +126,7 @@ Un basculement peut être initié à l’aide de PowerShell, de l’API REST ou 
 |Type de déploiement|PowerShell|API REST| Azure CLI|
 |:---|:---|:---|:---|
 |Base de données|[Invoke-AzSqlDatabaseFailover](/powershell/module/az.sql/invoke-azsqldatabasefailover)|[Basculement de base de données](/rest/api/sql/databases/failover)|[az rest](/cli/azure/reference-index#az-rest) peut permettre d’invoquer un appel d’API REST à partir d’Azure CLI|
-|Pool élastique|[Invoke-AzSqlElasticPoolFailover](/powershell/module/az.sql/invoke-azsqlelasticpoolfailover)|[Basculement de pool élastique](/rest/api/sql/elasticpools(failover)/failover/)|[az rest](/cli/azure/reference-index#az-rest) peut permettre d’invoquer un appel d’API REST à partir d’Azure CLI|
+|Pool élastique|[Invoke-AzSqlElasticPoolFailover](/powershell/module/az.sql/invoke-azsqlelasticpoolfailover)|[Basculement de pool élastique](/rest/api/sql/elasticpools/failover)|[az rest](/cli/azure/reference-index#az-rest) peut permettre d’invoquer un appel d’API REST à partir d’Azure CLI|
 |Instance gérée|[Invoke-AzSqlInstanceFailover](/powershell/module/az.sql/Invoke-AzSqlInstanceFailover/)|[Instances gérées - Basculement](/rest/api/sql/managed%20instances%20-%20failover/failover)|[Basculement az sql mi](/cli/azure/sql/mi/#az-sql-mi-failover)|
 
 > [!IMPORTANT]

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/29/2020
 ms.author: yelevin
 ms.openlocfilehash: 011ddb883c028a954a8b0683c220bf6341eddb66
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91578142"
 ---
 # <a name="manage-multiple-tenants-in-azure-sentinel-as-an-mssp"></a>Gérer plusieurs locataires dans Azure Sentinel en tant que MSSP
@@ -43,7 +43,7 @@ Si vous êtes un fournisseur de services de sécurité gérée (MSSP, managed se
 
 1. Sous **Répertoire + abonnement**, sélectionnez les répertoires délégués (répertoire = locataire) et les abonnements où se trouvent les espaces de travail Azure Sentinel de votre client.
 
-    :::image type="content" source="media/multiple-tenants-service-providers/directory-subscription.png" alt-text="Vérification des fournisseurs de ressources":::
+    :::image type="content" source="media/multiple-tenants-service-providers/directory-subscription.png" alt-text="Choisir les locataires et les abonnements":::
 
 1. Ouvrez Azure Sentinel. Vous voyez tous les espaces de travail des abonnements sélectionnés. Vous pourrez les utiliser en toute transparence comme n’importe quel espace de travail de votre propre locataire.
 

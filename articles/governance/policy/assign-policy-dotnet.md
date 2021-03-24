@@ -5,10 +5,10 @@ ms.date: 09/30/2020
 ms.topic: quickstart
 ms.custom: devx-track-csharp
 ms.openlocfilehash: c4c8f8e9df544b6fc00b5b7701435f5a606f9764
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91604550"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-with-net-core"></a>Démarrage rapide : Créer une attribution de stratégie pour identifier des ressources non conformes avec .NET Core
@@ -101,7 +101,7 @@ Pour permettre à .NET Core de gérer Azure Resource Graph, créez une applicati
 
 ## <a name="create-a-policy-assignment"></a>Créer une affectation de stratégie
 
-Dans ce guide de démarrage rapide, vous allez créer une attribution de stratégie et attribuer la définition **Auditer les machines virtuelles qui n'utilisent aucun disque managé** (`06a78e20-9358-41c9-923c-fb736d382a4d`). Cette stratégie identifie les ressources qui ne sont pas conformes aux conditions définies dans sa définition.
+Dans ce démarrage rapide, vous allez créer une attribution de stratégie et attribuer la définition de stratégie **Auditer les machines virtuelles n’utilisant aucun disque managé.** (`06a78e20-9358-41c9-923c-fb736d382a4d`). Cette stratégie identifie les ressources qui ne sont pas conformes aux conditions définies dans sa définition.
 
 1. Remplacez les répertoires par le `{run-folder}` que vous avez défini à l’aide de la commande `dotnet publish` précédente.
 
@@ -127,11 +127,11 @@ Les commandes précédentes utilisent les informations suivantes :
 - `{clientSecret}` - Remplacer le secret client de votre principal de service
 - Remplacer `{subscriptionId}` par votre ID d’abonnement
 - **name** : nom unique de l’objet d’attribution de stratégie. L’exemple ci-dessus utilise _audit-vm-manageddisks_.
-- **displayName** : nom d’affichage pour l’attribution de stratégie. Dans ce cas, nous allons utiliser l’affectation _Audit VMs without managed disks_ (Auditer les machines virtuelles sans disques managés).
-- **policyDefID** : chemin de la définition de stratégie, sur lequel vous vous basez pour créer l’attribution. Dans ce cas, il s’agit de l’ID de la définition de stratégie _Auditer les machines virtuelles qui n’utilisent pas de disques managés_.
+- **displayName** – Nom complet pour l’attribution de stratégie. Dans ce cas, nous allons utiliser l’affectation _Audit VMs without managed disks_ (Auditer les machines virtuelles sans disques managés).
+- **policyDefID** – Chemin de la définition de stratégie, sur lequel vous vous basez pour créer l’attribution. Dans ce cas, il s’agit de l’ID de la définition de stratégie _Auditer les machines virtuelles qui n’utilisent pas de disques managés_.
 - **description** : explication plus détaillée de ce que fait la stratégie ou de la raison pour laquelle elle est attribuée à cette étendue.
-- **scope** : une étendue détermine les ressources ou le groupe de ressources sur lesquels l'attribution de stratégie est appliquée. Cette étendue peut aller d'un groupe d'administration à une ressource individuelle. Veillez à remplacer `{scope}` par l'un des modèles suivants :
-  - Groupe d'administration : `/providers/Microsoft.Management/managementGroups/{managementGroup}`
+- **scope** : une étendue détermine les ressources ou le groupe de ressources sur lesquels l'attribution de stratégie est appliquée. Cette étendue peut aller d'un groupe d'administration à une ressource individuelle. Veillez à remplacer `{scope}` par l’un des modèles suivants :
+  - Groupe d’administration : `/providers/Microsoft.Management/managementGroups/{managementGroup}`
   - Abonnement : `/subscriptions/{subscriptionId}`
   - Groupe de ressources : `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}`
   - Ressource : `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]`

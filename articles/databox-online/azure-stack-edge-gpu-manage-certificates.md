@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/08/2021
 ms.author: alkohli
 ms.openlocfilehash: 534870e6bd67b7aa5273289f3154a794a2b9bd22
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102519008"
 ---
 # <a name="use-certificates-with-azure-stack-edge-pro-gpu-device"></a>Utiliser des certificats avec des appareils Azure Stack Edge Pro avec GPU
@@ -98,7 +98,7 @@ Lorsque vous apportez votre propre certificat signé, vous avez également besoi
 - Les propriétés des certificats de point de terminaison sont similaires à celles d’un certificat SSL standard. 
 - Utilisez le tableau suivant lors de la création d’un certificat de point de terminaison :
 
-    |Type |Nom de l’objet (SN)  |Autre nom de l’objet (SAN)  |Exemple de nom d’objet |
+    |Type |Nom de l’objet (SN)  |Autre nom de l’objet (SAN)  |Exemple de nom de sujet |
     |---------|---------|---------|---------|
     |Azure Resource Manager|`management.<Device name>.<Dns Domain>`|`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`|`management.mydevice1.microsoftdatabox.com` |
     |Stockage d'objets blob|`*.blob.<Device name>.<Dns Domain>`|`*.blob.< Device name>.<Dns Domain>`|`*.blob.mydevice1.microsoftdatabox.com` |

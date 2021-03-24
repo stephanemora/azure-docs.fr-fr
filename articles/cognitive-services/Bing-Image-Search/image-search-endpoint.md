@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
 ms.openlocfilehash: 67fec77136f5d593279be2846e63c51b60e16bb4
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94593516"
 ---
 # <a name="endpoints-for-the-bing-image-search-api"></a>Points de terminaison pour l’API Recherche d’images Bing
 
 > [!WARNING]
 > Les API Recherche Bing passent de Cognitive Services aux services de recherche Bing. À compter du **30 octobre 2020**, toutes les nouvelles instances de Recherche Bing doivent être provisionnées en suivant le processus documenté [ici](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
-> Les API Recherche Bing provisionnées à l’aide de Cognitive Services seront prises en charge les trois prochaines années ou jusqu’à la fin de votre Accord Entreprise, selon la première éventualité.
+> Les API Recherche Bing provisionnées à l’aide de Cognitive Services seront prises en charge les trois prochaines années ou jusqu’à la fin de votre Contrat Entreprise, selon la première éventualité.
 > Pour obtenir des instructions de migration, consultez [Services de recherche Bing](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 L’**API Recherche d’images** inclut trois points de terminaison.  Le point de terminaison 1 renvoie des images du Web grâce à une requête. Le point de terminaison 2 renvoie les informations [ImageInsights](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imageinsightsresponse).  Le point de terminaison 3 renvoie des images populaires.

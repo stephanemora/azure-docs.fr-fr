@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 03/02/2021
 ms.topic: how-to
 ms.openlocfilehash: 9c928040aa2ff5a6ebfb7102c03450d3d7297b59
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101686476"
 ---
 # <a name="create-an-azure-arc-data-controller-in-the-azure-portal"></a>Créer un contrôleur de données Azure Arc dans le portail Azure
@@ -57,7 +57,7 @@ Pour créer un contrôleur de données Azure Arc à l’aide du portail Azure et
 
 ## <a name="monitoring-the-creation-status"></a>Surveillance de l’état de la création
 
-La création du contrôleur prend plusieurs minutes. Vous pouvez surveiller la progression dans une autre fenêtre du terminal à l’aide des commandes suivantes :
+La création du contrôleur prend plusieurs minutes. Vous pouvez superviser la progression dans une autre fenêtre de terminal avec les commandes suivantes :
 
 > [!NOTE]
 >  Les exemples de commandes ci-dessous supposent que vous avez créé un contrôleur de données et un espace de noms Kubernetes avec le nom « arc ».  Si vous avez utilisé un autre nom pour le contrôleur de données/espace de noms, vous pouvez remplacer « arc » par ce nom.
@@ -70,7 +70,7 @@ kubectl get datacontroller/arc --namespace arc
 kubectl get pods --namespace arc
 ```
 
-Vous pouvez également vérifier l’état de la création de n’importe quel pod en exécutant une commande comme celle qui figure ci-dessous.  C’est particulièrement pratique pour résoudre les éventuels problèmes.
+Vous pouvez également vérifier l’état de la création de n’importe quel pod en exécutant une commande comme celle qui figure ci-dessous.  C’est particulièrement utile pour résoudre les problèmes.
 
 ```console
 kubectl describe po/<pod name> --namespace arc

@@ -4,10 +4,10 @@ description: Présentation des autorisations Advisor et de la façon dont elles 
 ms.topic: article
 ms.date: 04/03/2019
 ms.openlocfilehash: 402a21c47c4cba8f747d5d4601f9c95034c99262
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91712933"
 ---
 # <a name="permissions-in-azure-advisor"></a>Autorisations dans Azure Advisor

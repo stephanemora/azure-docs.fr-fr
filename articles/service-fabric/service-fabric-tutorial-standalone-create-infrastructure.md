@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 05/11/2018
 ms.custom: mvc
 ms.openlocfilehash: c7a18b0dcdc04bdf66ac4b36ce7376ee018eb238
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91842901"
 ---
 # <a name="tutorial-create-aws-infrastructure-to-host-a-service-fabric-cluster"></a>Didacticiel : Créer l’infrastructure AWS pour héberger un cluster Service Fabric
@@ -25,7 +25,7 @@ Dans ce premier volet, vous apprenez à :
 > * Se connecter à l’une des instances
 > * Préparer l’instance pour Service Fabric
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce didacticiel, vous avez besoin d’un compte AWS.  Si vous n’en avez pas, accédez à la [console AWS](https://aws.amazon.com/) pour en créer un.
 

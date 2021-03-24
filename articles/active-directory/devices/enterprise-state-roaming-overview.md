@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c22baf0a08718883f0c0c9844cc395f607b5b20d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "77194277"
 ---
 # <a name="what-is-enterprise-state-roaming"></a>Qu’est-ce qu’Enterprise State Roaming ?
@@ -30,7 +30,7 @@ Enterprise State Roaming est disponible dans plusieurs régions Azure. Pour cons
 
 | Article | Description |
 | --- | --- |
-| [Activer Enterprise State Roaming dans Azure Active Directory](enterprise-state-roaming-enable.md) |Enterprise State Roaming est disponible pour toute organisation ayant souscrit un abonnement premium à Azure Active Directory (Azure AD). Pour plus d’informations sur l’obtention d’un abonnement Azure AD, consultez la page du [produit Azure AD](https://azure.microsoft.com/services/active-directory). |
+| [Activer Enterprise State Roaming dans Azure Active Directory](enterprise-state-roaming-enable.md) |Enterprise State Roaming est disponible pour toute organisation ayant souscrit un abonnement premium à Azure Active Directory (Azure AD). Pour plus d’informations sur l’obtention d’un abonnement Azure AD, consultez la page du [produit Azure AD](https://azure.microsoft.com/services/active-directory). |
 | [FAQ sur l’itinérance des paramètres et des données](enterprise-state-roaming-faqs.md) |Cet article répond à certaines questions que les administrateurs informatiques peuvent se poser sur les paramètres et la synchronisation des données d’application. |
 | [Paramètres de stratégie de groupe et de MDM pour la synchronisation des paramètres](enterprise-state-roaming-group-policy-settings.md) |Windows 10 fournit les paramètres de stratégie de groupe et de gestion d’appareil mobile (MDM) pour limiter la synchronisation des paramètres. |
 | [Référence des paramètres d’itinérance Windows 10](enterprise-state-roaming-windows-settings-reference.md) |Liste des paramètres pour l’itinérance et/ou la sauvegarde dans Windows 10. |

@@ -9,10 +9,10 @@ ms.topic: sample
 ms.custom: mvc, devx-track-azurecli
 ms.date: 02/28/2018
 ms.openlocfilehash: 9af4a3d4a484ef22e147640add455741c533e9b7
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94660472"
 ---
 # <a name="restore-an-azure-database-for-postgresql-server-using-azure-cli"></a>Restaurer un serveur Azure Database pour PostgreSQL avec Azure CLI
@@ -20,7 +20,7 @@ Cet exemple de script Azure CLI permet de restaurer un seul serveur Azure Databa
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-- Cet article nécessite la version 2.0 ou ultérieure d’Azure CLI. Si vous utilisez Azure Cloud Shell, la version la plus récente est déjà installée.
+- Cet article demande la version 2.0 ou ultérieure d’Azure CLI. Si vous utilisez Azure Cloud Shell, la version la plus récente est déjà installée.
 
 ## <a name="sample-script"></a>Exemple de script
 Dans cet exemple de script, modifiez les lignes en surbrillance pour mettre à jour le nom d’utilisateur et le mot de passe d’administrateur et utiliser les vôtres. Remplacez l’ID d’abonnement utilisé dans les commandes `az monitor` par votre propre ID d’abonnement.

@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: aahi
 ms.openlocfilehash: b63c2e53f34ac86f8ddf5ad300c2465ee2d9f032
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94365633"
 ---
 # <a name="using-ranking-to-display-entity-search-results"></a>Utilisation du classement pour afficher les résultats de la recherche d’entités  
 
 > [!WARNING]
-> Les API Recherche Bing passent de Cognitive Services aux services de recherche Bing. À compter du **30 octobre 2020** , toutes les nouvelles instances de Recherche Bing doivent être provisionnées en suivant le processus documenté [ici](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
-> Les API Recherche Bing provisionnées à l’aide de Cognitive Services seront prises en charge les trois prochaines années ou jusqu’à la fin de votre Accord Entreprise, selon la première éventualité.
+> Les API Recherche Bing passent de Cognitive Services aux services de recherche Bing. À compter du **30 octobre 2020**, toutes les nouvelles instances de Recherche Bing doivent être provisionnées en suivant le processus documenté [ici](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> Les API Recherche Bing provisionnées à l’aide de Cognitive Services seront prises en charge les trois prochaines années ou jusqu’à la fin de votre Contrat Entreprise, selon la première éventualité.
 > Pour obtenir des instructions de migration, consultez [Services de recherche Bing](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Chaque réponse de recherche d’entité inclut une réponse [RankingResponse](/rest/api/cognitiveservices/bing-web-api-v7-reference#rankingresponse) qui spécifie comment vous devez afficher les résultats de recherche renvoyés par l’API Recherche d’entités Bing. La réponse de classement regroupe les résultats par pôle, principal et encadré. Le résultat en pôle est le plus important ou connu et doit être affiché en premier. Si vous n’affichez pas les résultats restants dans un format principal ou en encadré, vous devez fournir au contenu principal une visibilité supérieure à celui en encadré. 

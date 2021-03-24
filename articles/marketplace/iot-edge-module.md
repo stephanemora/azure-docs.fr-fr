@@ -8,10 +8,10 @@ author: keferna
 ms.author: keferna
 ms.date: 08/18/2020
 ms.openlocfilehash: 90267f2b75b7b9c1e77a45d7e3faa4b0bf6dd63a
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91708541"
 ---
 # <a name="iot-edge-modules"></a>Modules IoT Edge

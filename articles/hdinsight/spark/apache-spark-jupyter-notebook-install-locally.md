@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020, devx-track-python
 ms.date: 04/23/2020
-ms.openlocfilehash: d5915316ee9d393b2481eeca6a5da7923b271d9f
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 6dc91dc07d11f195092343e657911a884d8bf475
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98930409"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865993"
 ---
 # <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>Installer le notebook Jupyter sur votre ordinateur et le connecter à Apache Spark sur HDInsight
 
@@ -142,7 +142,7 @@ Dans cette section, vous configurez Spark magic, que vous avez installé précé
 
     a. Créer un nouveau bloc-notes. En haut à droite, sélectionnez **New**. Vous devez voir le noyau par défaut **Python 2** ou **Python 3** et les noyaux que vous avez installés. Les valeurs réelles peuvent varier en fonction de vos choix d’installation.  Sélectionnez **PySpark**.
 
-    ![Noyaux disponibles dans le notebook Jupyter](./media/apache-spark-jupyter-notebook-install-locally/jupyter-kernels-notebook.png "Noyaux dans le notebook Jupyter")
+    :::image type="content" source="./media/apache-spark-jupyter-notebook-install-locally/jupyter-kernels-notebook.png " alt-text="Noyaux disponibles dans le notebook Jupyter" border="true":::
 
     > [!IMPORTANT]  
     > Après avoir sélectionné **New**, passez en revue le code dans votre interpréteur de commandes pour rechercher les erreurs éventuelles.  Si vous voyez l’erreur `TypeError: __init__() got an unexpected keyword argument 'io_loop'`, cela est probablement dû à un problème connu avec certaines versions de Tornado.  Dans ce cas, arrêtez le noyau, puis passez à une version antérieure de Tornado en utilisant la commande suivante : `pip install tornado==4.5.3`.

@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: a16ec623d7475a80e546df43495db1a357a5fa66
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: ef2bc5e00779200e5447c8829a437824657a2227
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98930385"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865976"
 ---
 # <a name="kernels-for-jupyter-notebook-on-apache-spark-clusters-in-azure-hdinsight"></a>Noyaux pour Jupyter Notebook sur les clusters Apache Spark dans Azure HDInsight
 
@@ -32,7 +32,7 @@ Un cluster Apache Spark dans HDInsight. Pour obtenir des instructions, consulte
 
 2. Dans la zone **Tableaux de bord du cluster** de la page **Vue d’ensemble**, sélectionnez **Jupyter Notebook**. Si vous y êtes invité, entrez les informations d’identification d’administrateur pour le cluster.
 
-    ![Jupyter Notebook sur Apache Spark](./media/apache-spark-jupyter-notebook-kernels/hdinsight-spark-open-jupyter-interactive-spark-sql-query.png "Jupyter Notebook sur Spark")
+    :::image type="content" source="./media/apache-spark-jupyter-notebook-kernels/hdinsight-spark-open-jupyter-interactive-spark-sql-query.png " alt-text="Jupyter Notebook sur Apache Spark" border="true":::
   
    > [!NOTE]  
    > Vous pouvez également atteindre Jupyter Notebook sur le cluster Spark en ouvrant l’URL suivante dans votre navigateur. Remplacez **CLUSTERNAME** par le nom de votre cluster.
@@ -41,7 +41,7 @@ Un cluster Apache Spark dans HDInsight. Pour obtenir des instructions, consulte
 
 3. Sélectionnez **Nouveau**, puis **Pyspark**, **PySpark3** ou **Spark** pour créer un notebook. Utilisez le noyau Spark pour les applications Scala, le noyau PySpark pour les applications Python2 et le noyau PySpark3 pour les applications Python3.
 
-    ![Noyaux pour Jupyter Notebook sur Spark](./media/apache-spark-jupyter-notebook-kernels/kernel-jupyter-notebook-on-spark.png "Noyaux pour le Jupyter Notebook sur Spark")
+    :::image type="content" source="./media/apache-spark-jupyter-notebook-kernels/kernel-jupyter-notebook-on-spark.png " alt-text="Noyaux pour Jupyter Notebook sur Spark" border="true":::
 
 4. Un bloc-notes s’ouvre avec le noyau que vous avez sélectionné.
 
@@ -71,7 +71,7 @@ Voici quelques avantages liés à l’utilisation des nouveaux noyaux avec Jupyt
    | --- | --- | --- |
    | help |`%%help` |Génère une table de toutes les commandes magiques disponibles, accompagnées d’un exemple et d’une description |
    | info |`%%info` |Génère des informations de session pour le point de terminaison Livy actuel |
-   | CONFIGURER |`%%configure -f`<br>`{"executorMemory": "1000M"`<br>`"executorCores": 4`} |Configure les paramètres de création d’une session. L’indicateur de forçage (`-f`) est obligatoire si une session a déjà été créée, afin de garantir que la session est supprimée et recréée. Consultez la section [POST /sessions Request Body de Livy](https://github.com/cloudera/livy#request-body) pour obtenir la liste des paramètres valides. Les paramètres doivent être passés en tant que chaîne JSON et être spécifiés sur la ligne suivant la commande magique, comme indiqué dans l’exemple de colonne. |
+   | CONFIGURER |`%%configure -f`<br>`{"executorMemory": "1000M"`,<br>`"executorCores": 4`} |Configure les paramètres de création d’une session. L’indicateur de forçage (`-f`) est obligatoire si une session a déjà été créée, afin de garantir que la session est supprimée et recréée. Consultez la section [POST /sessions Request Body de Livy](https://github.com/cloudera/livy#request-body) pour obtenir la liste des paramètres valides. Les paramètres doivent être passés en tant que chaîne JSON et être spécifiés sur la ligne suivant la commande magique, comme indiqué dans l’exemple de colonne. |
    | sql |`%%sql -o <variable name>`<br> `SHOW TABLES` |Exécute une requête Hive sur sqlContext. Si le paramètre `-o` est passé, le résultat de la requête est conservé dans le contexte Python %%local en tant que trame de données [Pandas](https://pandas.pydata.org/) . |
    | local |`%%local`<br>`a=1` |Tout le code dans les lignes suivantes est exécuté localement. Le code doit être un code Python2 valide, peu importe quel noyau vous utilisez. Donc, même si vous avez sélectionné les noyaux **PySpark3** ou **Spark** en créant le notebook, si vous utilisez la commande magique `%%local` dans une cellule, cette cellule doit uniquement comporter un code Python2 valide. |
    | logs |`%%logs` |Génère les journaux d’activité de la session Livy en cours. |

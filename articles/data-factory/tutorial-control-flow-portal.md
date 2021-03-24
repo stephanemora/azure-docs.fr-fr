@@ -3,17 +3,17 @@ title: Activités de création de branches et de chaînage dans un pipeline à l
 description: Découvrez comment contrôler le flux de contrôle des données dans le pipeline Azure Data Factory à l’aide du Portail Azure.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/11/2018
-ms.openlocfilehash: 9d8d9af4892001ff1f8f60a92f28aedad14c17cf
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 034b0400190cadd750e7420ab37800783afa050c
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100378602"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104783419"
 ---
 # <a name="branching-and-chaining-activities-in-an-azure-data-factory-pipeline-using-the-azure-portal"></a>Création de branches et de chaînage pour les activités dans un pipeline Azure Data Factory à l’aide du portail Azure
 

@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
 ms.openlocfilehash: 786a9e26003a7afb98307e0bd7fae94c42a2f00d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84690300"
 ---
 # <a name="how-to-configure-notifications-and-email-templates-in-azure-api-management"></a>Configuration des notifications et des modèles de messages électroniques dans Gestion des API Azure
 
 Gestion des API Azure permet de configurer les notifications pour des événements spécifiques et de configurer les modèles de courrier électronique utilisés pour communiquer avec les administrateurs et les développeurs de l’instance Gestion des API. Cet article montre comment configurer des notifications pour les événements disponibles. Il offre également un aperçu de la configuration des modèles d’e-mail utilisés pour ces événements.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Si vous ne disposez pas d’une instance de service Gestion des API, effectuez le démarrage rapide suivant : [Créer une instance Gestion des API Azure](get-started-create-service-instance.md).
 
@@ -77,7 +77,7 @@ Ces modèles peuvent être modifiés comme vous le souhaitez.
 
 Pour afficher et configurer les modèles d’e-mail pour votre instance Gestion des API, cliquez sur **Modèles de notification**.
 
-![Email templates][api-management-email-templates]
+![Modèles d’e-mail][api-management-email-templates]
 
 Pour chaque modèle de message, l'objet est au format texte et le corps au format HTML. Chaque élément peut être personnalisé.
 

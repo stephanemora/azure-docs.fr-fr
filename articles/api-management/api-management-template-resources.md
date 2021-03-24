@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: c3b6123c63bf530463379a175745ef86baf2c5a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84689985"
 ---
 # <a name="azure-api-management-template-resources"></a>Ressources du modèle Gestion des API Azure
@@ -113,13 +113,13 @@ Les options de localisation suivantes sont prises en charge :
   
 ###  <a name="apisstrings"></a><a name="ApisStrings"></a> ApisStrings  
   
-|Name|Texte|  
+|Nom|Texte|  
 |----------|----------|  
 |PageTitleApis|API|  
   
 ###  <a name="appdetailsstrings"></a><a name="AppDetailsStrings"></a> AppDetailsStrings  
   
-|Name|Texte|  
+|Nom|Texte|  
 |----------|----------|  
 |WebApplicationsDetailsTitle|Aperçu de l’application.|  
 |WebApplicationsRequirementsHeader|Spécifications|  
@@ -128,29 +128,29 @@ Les options de localisation suivantes sont prises en charge :
   
 ###  <a name="applicationliststrings"></a><a name="ApplicationListStrings"></a> ApplicationListStrings  
   
-|Name|Texte|  
+|Nom|Texte|  
 |----------|----------|  
 |WebDevelopersAppDeleteConfirmation|Voulez-vous vraiment supprimer l’application ?|  
 |WebDevelopersAppNotPublished|Non publié.|  
 |WebDevelopersAppNotSubmitted|Non soumis.|  
 |WebDevelopersAppTableCategoryHeader|Category|  
-|WebDevelopersAppTableNameHeader|Name|  
+|WebDevelopersAppTableNameHeader|Nom|  
 |WebDevelopersAppTableStateHeader|State|  
 |WebDevelopersEditLink|Modifier|  
 |WebDevelopersRegisterAppLink|Inscription de l’application|  
 |WebDevelopersRemoveLink|Supprimer|  
-|WebDevelopersSubmitLink|Submit|  
+|WebDevelopersSubmitLink|Envoyer|  
 |WebDevelopersYourApplicationsHeader|Vos applications|  
   
 ###  <a name="appstrings"></a><a name="AppStrings"></a> AppStrings  
   
-|Name|Texte|  
+|Nom|Texte|  
 |----------|----------|  
 |WebApplicationsHeader|Applications|  
   
 ###  <a name="commonresources"></a><a name="CommonResources"></a> CommonResources  
   
-|Name|Texte|  
+|Nom|Texte|  
 |----------|----------|  
 |NoItemsToDisplay|Aucun résultat trouvé.|  
 |GeneralExceptionMessage|Il y a un problème. Il peut s’agir d’un dysfonctionnement temporaire ou d’un bogue. Réessayez.|  
@@ -161,7 +161,7 @@ Les options de localisation suivantes sont prises en charge :
   
 ###  <a name="commonstrings"></a><a name="CommonStrings"></a> CommonStrings  
   
-|Name|Texte|  
+|Nom|Texte|  
 |----------|----------|  
 |ButtonLabelCancel|Annuler|  
 |ButtonLabelSave|Enregistrer|  
@@ -179,13 +179,13 @@ Les options de localisation suivantes sont prises en charge :
 |PasswordTooManyRepetitions|Trop de répétitions.|  
 |PasswordSequenceFound|Votre mot de passe contient des séquences.|  
 |PagerLabelPageSize|Taille de la page|  
-|CurtainLabelLoading|Chargement en cours...|  
+|CurtainLabelLoading|Chargement...|  
 |TablePlaceholderNothingToDisplay|Aucune donnée pour la période et l’étendue sélectionnées.|  
-|ButtonLabelClose|fermez|  
+|ButtonLabelClose|Fermer|  
   
 ###  <a name="documentation"></a><a name="Documentation"></a> Documentation  
   
-|Name|Texte|  
+|Nom|Texte|  
 |----------|----------|  
 |WebDocumentationInvalidHeaderErrorMessage|En-tête non valide « {0} »|  
 |WebDocumentationInvalidRequestErrorMessage|URL de demande non valide.|  
@@ -303,7 +303,7 @@ Les options de localisation suivantes sont prises en charge :
 |OAuth2InvalidState|Réponse non valide du serveur d’autorisation.|  
 |OAuth2GrantType_AuthorizationCode|Code d’autorisation.|  
 |OAuth2GrantType_Implicit|Implicite|  
-|OAuth2GrantType_ClientCredentials|Informations d'identification du client|  
+|OAuth2GrantType_ClientCredentials|Informations d’identification du client|  
 |OAuth2GrantType_ResourceOwnerPassword|Mot de passe de propriétaire de la ressource.|  
 |WebDocumentation302Code|302 Trouvé.|  
 |WebDocumentation400Code|400 (Demande incorrecte).|  
@@ -322,9 +322,9 @@ Les options de localisation suivantes sont prises en charge :
 |TooltipTextDoubleClickToSelectAll|Double-cliquez pour tout sélectionner.|  
 |TooltipTextHideRevealSecret|Afficher/masquer|  
 |ButtonLinkOpenConsole|Essayer|  
-|SectionHeadingRequestBody|Corps de la demande|  
+|SectionHeadingRequestBody|Corps de demande|  
 |SectionHeadingRequestParameters|Paramètres de la demande|  
-|SectionHeadingRequestUrl|URL de la demande|  
+|SectionHeadingRequestUrl|URL de demande|  
 |SectionHeadingResponse|response|  
 |SectionHeadingRequestHeaders|En-têtes de requête|  
 |FormLabelSubtextOptional|facultatif|  
@@ -333,7 +333,7 @@ Les options de localisation suivantes sont prises en charge :
   
 ###  <a name="errorpagestrings"></a><a name="ErrorPageStrings"></a> ErrorPageStrings  
   
-|Name|Texte|  
+|Nom|Texte|  
 |----------|----------|  
 |LinkLabelBack|Retour|  
 |LinkLabelHomePage|page d'accueil|  
@@ -351,7 +351,7 @@ Les options de localisation suivantes sont prises en charge :
   
 ###  <a name="issuesstrings"></a><a name="IssuesStrings"></a> IssuesStrings  
   
-|Name|Texte|  
+|Nom|Texte|  
 |----------|----------|  
 |WebIssuesIndexTitle|Problèmes|  
 |WebIssuesNoActiveSubscriptions|Vous ne disposez d’aucun abonnement actif. Vous devez vous abonner à un produit pour signaler un problème.|  
@@ -362,7 +362,7 @@ Les options de localisation suivantes sont prises en charge :
   
 ###  <a name="notfoundstrings"></a><a name="NotFoundStrings"></a> NotFoundStrings  
   
-|Name|Texte|  
+|Nom|Texte|  
 |----------|----------|  
 |LinkLabelHomePage|page d'accueil|  
 |LinkLabelSendUsEmail|Envoyez-nous un e-mail.|  
@@ -377,11 +377,11 @@ Les options de localisation suivantes sont prises en charge :
   
 ###  <a name="productdetailsstrings"></a><a name="ProductDetailsStrings"></a> ProductDetailsStrings  
   
-|Name|Texte|  
+|Nom|Texte|  
 |----------|----------|  
 |WebProductsAgreement|En m’abonnant au produit {0}, j’accepte les `<a data-toggle='modal' href='#legal-terms'\>Terms of Use</a\>`.|  
-|WebProductsLegalTermsLink|Conditions d’utilisation|  
-|WebProductsSubscribeButton|S'abonner|  
+|WebProductsLegalTermsLink|Conditions d'utilisation|  
+|WebProductsSubscribeButton|S’abonner|  
 |WebProductsUsageLimitsHeader|Limites d’utilisation|  
 |WebProductsYouAreNotSubscribed|Vous êtes abonné à ce produit.|  
 |WebProductsYouRequestedSubscription|Vous avez demandé l’abonnement à ce produit.|  
@@ -399,13 +399,13 @@ Les options de localisation suivantes sont prises en charge :
   
 ###  <a name="productsstrings"></a><a name="ProductsStrings"></a> ProductsStrings  
   
-|Name|Texte|  
+|Nom|Texte|  
 |----------|----------|  
-|PageTitleProducts|Products|  
+|PageTitleProducts|Produits|  
   
 ###  <a name="providerinfostrings"></a><a name="ProviderInfoStrings"></a> ProviderInfoStrings  
   
-|Name|Texte|  
+|Nom|Texte|  
 |----------|----------|  
 |TextboxExternalIdentitiesDisabled|La connexion est désactivée par les administrateurs pour l’instant.|  
 |TextboxExternalIdentitiesSigninInvitation|Vous pouvez également vous connecter avec|  
@@ -413,7 +413,7 @@ Les options de localisation suivantes sont prises en charge :
   
 ###  <a name="signinresources"></a><a name="SigninResources"></a> SigninResources  
   
-|Name|Texte|  
+|Nom|Texte|  
 |----------|----------|  
 |PrincipalNotFound|Principal introuvable ou signature non valide.|  
 |ErrorSsoAuthenticationFailed|Échec de l’authentification SSO.|  
@@ -423,7 +423,7 @@ Les options de localisation suivantes sont prises en charge :
 |ValidationErrorSpecificEmailInvalid|E-mail « {0} » non valide|  
 |ValidationErrorPasswordInvalid|Le mot de passe n’est pas valide. Corrigez les erreurs, puis réessayez.|  
 |PropertyTooShort|{0} est trop court|  
-|WebAuthenticationAddresserEmailInvalidErrorMessage|Adresse de messagerie non valide.|  
+|WebAuthenticationAddresserEmailInvalidErrorMessage|Adresse e-mail non valide.|  
 |ValidationMessageNewPasswordConfirmationRequired|Confirmez le nouveau mot de passe.|  
 |ValidationErrorPasswordConfirmationRequired|Le mot de passe de confirmation est vide.|  
 |WebAuthenticationEmailChangeNotice|Un e-mail de confirmation du changement a été envoyé à {0}. Suivez les instructions qu’il contient pour confirmer votre nouvelle adresse de messagerie. Si le message n’est pas arrivé dans votre boîte de réception d’ici quelques minutes, vérifiez votre dossier Courrier indésirable.|  
@@ -432,8 +432,8 @@ Les options de localisation suivantes sont prises en charge :
 |WebAuthenticationEmailHasBeenRevertedNotice|Votre adresse de messagerie existe déjà. La demande a été annulée.|  
 |ValidationErrorEmailAlreadyExists|L’adresse de messagerie existe déjà.|  
 |ValidationErrorEmailInvalid|Adresse de messagerie non valide.|  
-|TextboxLabelEmail|Email|  
-|ValidationErrorEmailRequired|L’adresse de messagerie est obligatoire.|  
+|TextboxLabelEmail|E-mail|  
+|ValidationErrorEmailRequired|L’adresse e-mail est obligatoire.|  
 |WebAuthenticationErrorNoticeHeader|Error|  
 |WebAuthenticationFieldLengthErrorMessage|{0} doit avoir une longueur maximale de {1}|  
 |TextboxLabelEmailFirstName|Prénom|  
@@ -459,7 +459,7 @@ Les options de localisation suivantes sont prises en charge :
 |WebAuthenticationPasswordConfirmLabel|Confirmer le mot de passe|  
 |ValidationErrorPasswordInvalidDetailed|Le mot de passe est trop faible.|  
 |WebAuthenticationPasswordLabel|Mot de passe|  
-|ValidationErrorPasswordRequired|Le mot de passe est requis.|  
+|ValidationErrorPasswordRequired|Le mot de passe est obligatoire.|  
 |WebAuthenticationPasswordResetSendNotice|Un e-mail de confirmation du changement de mot de passe a été envoyé à {0}. Suivez les instructions décrites dans l’e-mail pour poursuivre la procédure de modification du mot de passe.|  
 |WebAuthenticationPasswordResetSendNoticeHeader|Votre demande de réinitialisation de mot de passe a bien été traitée.|  
 |WebAuthenticationPasswordResetSendNoticeTitle|Réinitialisation de mot de passe demandée.|  
@@ -477,7 +477,7 @@ Les options de localisation suivantes sont prises en charge :
 |ButtonLabelChangePassword|Modifier le mot de passe|  
 |ButtonLabelChangeAccountInfo|Modifier les informations du compte|  
 |ButtonLabelCloseAccount|Fermer le compte|  
-|WebAuthenticationInvalidCaptchaErrorMessage|Le texte entré ne correspond pas au texte de l’image. Réessayez.|  
+|WebAuthenticationInvalidCaptchaErrorMessage|Le texte entré ne correspond pas au texte de l’image. Recommencez.|  
 |ValidationErrorCredentialsInvalid|L’adresse de messagerie ou le mot de passe n’est pas valide. Corrigez les erreurs, puis réessayez.|  
 |WebAuthenticationRequestIsNotValid|La demande n’est pas valide.|  
 |WebAuthenticationUserIsNotConfirm|Veuillez confirmer votre inscription avant de tenter de vous connecter.|  
@@ -504,12 +504,12 @@ Les options de localisation suivantes sont prises en charge :
 |WebAuthenticationNoAadTenantConfigured|Aucun client Azure Active Directory n’est configuré pour le service.|  
 |CheckboxLabelUserRegistrationTermsConsentRequired|J’accepte les `<a data-toggle="modal" href="#" data-target="#terms"\>Terms of Use</a\>`.|  
 |TextblockUserRegistrationTermsProvided|Veuillez consulter les `<a data-toggle="modal" href="#" data-target="#terms"\>Terms of Use.</a\>`.|  
-|DialogHeadingTermsOfUse|Conditions d’utilisation|  
+|DialogHeadingTermsOfUse|Conditions d'utilisation|  
 |ValidationMessageConsentNotAccepted|Vous devez accepter les conditions d’utilisation pour pouvoir continuer.|  
   
 ###  <a name="signinstrings"></a><a name="SigninStrings"></a> SigninStrings  
   
-|Name|Texte|  
+|Nom|Texte|  
 |----------|----------|  
 |WebAuthenticationForgotPassword|Vous avez oublié votre mot de passe ?|  
 |WebAuthenticationIfAdministrator|Si vous êtes un administrateur, vous devez vous connecter `<a href="{0}"\>here</a\>`.|  
@@ -521,7 +521,7 @@ Les options de localisation suivantes sont prises en charge :
   
 ###  <a name="signupstrings"></a><a name="SignupStrings"></a> SignupStrings  
   
-|Name|Texte|  
+|Nom|Texte|  
 |----------|----------|  
 |PageTitleSignup|Inscription|  
 |WebAuthenticationAlreadyAMember|Déjà membre ?|  
@@ -531,7 +531,7 @@ Les options de localisation suivantes sont prises en charge :
   
 ###  <a name="subscriptionliststrings"></a><a name="SubscriptionListStrings"></a> SubscriptionListStrings  
   
-|Name|Texte|  
+|Nom|Texte|  
 |----------|----------|  
 |SubscriptionCancelConfirmation|Voulez-vous vraiment annuler cet abonnement ?|  
 |SubscriptionRenewConfirmation|Voulez-vous vraiment renouveler cet abonnement ?|  
@@ -543,7 +543,7 @@ Les options de localisation suivantes sont prises en charge :
 |ButtonLabelRenewSubscription|Renouveler|  
 |WebDevelopersSubscriptionRequested|Demandé sur {0}|  
 |WebDevelopersSubscriptionRequestedState|Demandé|  
-|WebDevelopersSubscriptionTableNameHeader|Name|  
+|WebDevelopersSubscriptionTableNameHeader|Nom|  
 |WebDevelopersSubscriptionTableStateHeader|State|  
 |WebDevelopersUsageStatisticsLink|Rapports d’analyse|  
 |WebDevelopersYourSubscriptions|Vos abonnements|  
@@ -554,7 +554,7 @@ Les options de localisation suivantes sont prises en charge :
   
 ###  <a name="subscriptionstrings"></a><a name="SubscriptionStrings"></a> SubscriptionStrings  
   
-|Name|Texte|  
+|Nom|Texte|  
 |----------|----------|  
 |SectionHeadingCloseAccount|Vous souhaitez fermer votre compte ?|  
 |PageTitleDeveloperProfile|Profil|  
@@ -565,19 +565,19 @@ Les options de localisation suivantes sont prises en charge :
   
 ###  <a name="updateprofilestrings"></a><a name="UpdateProfileStrings"></a> UpdateProfileStrings  
   
-|Name|Texte|  
+|Nom|Texte|  
 |----------|----------|  
 |ButtonLabelUpdateProfile|Mettre à jour le profil|  
 |PageTitleUpdateProfile|Mettre à jour les informations du compte|  
   
 ###  <a name="userprofile"></a><a name="UserProfile"></a> UserProfile  
   
-|Name|Texte|  
+|Nom|Texte|  
 |----------|----------|  
 |ButtonLabelChangeAccountInfo|Modifier les informations du compte|  
 |ButtonLabelChangePassword|Modifier le mot de passe|  
 |ButtonLabelCloseAccount|Fermer le compte|  
-|TextboxLabelEmail|Email|  
+|TextboxLabelEmail|E-mail|  
 |TextboxLabelEmailFirstName|Prénom|  
 |TextboxLabelEmailLastName|Nom|  
 |TextboxLabelNotificationsSenderEmail|Adresse de messagerie de l’expéditeur des notifications|  

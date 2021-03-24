@@ -11,13 +11,13 @@ ms.topic: include
 ms.date: 04/29/2020
 ms.author: aahi
 ms.openlocfilehash: 96b41c27b282bdc05dafa8c69398a11e8dbf3b1b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91779395"
 ---
-Pour exécuter le conteneur*Analyse des sentiments v3*, exécutez la commande `docker run` suivante. Remplacez les espaces réservés suivants par vos valeurs :
+Pour exécuter le conteneur *Analyse des sentiments v3*, exécutez la commande `docker run` suivante. Remplacez les espaces réservés suivants par vos valeurs :
 
 | Espace réservé | Valeur | Format ou exemple |
 |-------------|-------|---|

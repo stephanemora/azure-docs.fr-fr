@@ -1,18 +1,14 @@
 ---
 title: Gérer des capteurs individuels
 description: Découvrez comment gérer des capteurs individuels, y compris comment gérer les fichiers d’activation, exécuter des sauvegardes et mettre à jour un capteur autonome.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 02/02/2021
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: c8bb44d323574f6815aa570b271ed4c0df1fc6be
-ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
+ms.openlocfilehash: df1d1dd6ca2085fb3ab12c104723c63e32249403
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100526916"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104781957"
 ---
 # <a name="manage-individual-sensors"></a>Gérer des capteurs individuels
 

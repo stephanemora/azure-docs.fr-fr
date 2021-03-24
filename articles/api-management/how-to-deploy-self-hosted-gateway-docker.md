@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/26/2020
 ms.author: apimpm
 ms.openlocfilehash: b9e990988770e8aca015ae8b1159bb4f5e50df57
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "82204826"
 ---
 # <a name="deploy-an-azure-api-management-self-hosted-gateway-to-docker"></a>Déployer une passerelle auto-hébergée de gestion des API Azure sur Docker
@@ -26,7 +26,7 @@ Cet article explique comment déployer la passerelle auto-hébergée de la Gesti
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Suivez ce guide de démarrage rapide : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md)
+- Suivez le guide de démarrage rapide suivant : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md).
 - Créez un environnement Docker. [Docker pour le bureau](https://www.docker.com/products/docker-desktop) est une bonne option en matière de développement et d’évaluation. Pour plus d’informations sur toutes les éditions de Docker, leurs fonctionnalités et une documentation complète sur Docker, voir la [Documentation Docker](https://docs.docker.com).
 - [Approvisionnez une ressource de passerelle dans votre instance Gestion des API](api-management-howto-provision-self-hosted-gateway.md)
 

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 10/07/2020
 ms.author: cherylmc
 ms.openlocfilehash: 0b9b8ba555cddd56c49c750709e69ec180291c95
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91827287"
 ---
 # <a name="about-point-to-site-vpn-routing"></a>À propos du routage VPN point à site
@@ -56,7 +56,7 @@ Dans cet exemple, la connexion de passerelle VPN point à site est pour VNet1. V
 
 Les clients utilisant Windows peuvent accéder directement aux réseaux virtuels appairés, mais le client VPN doit être retéléchargé si des changements sont apportés au peering du réseau virtuel ou à la topologie du réseau. Les clients non-Windows peuvent accéder directement aux réseaux virtuels appairés. L’accès n’est pas transitif et est limité aux réseaux virtuels directement appairés uniquement.
 
-:::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/multiple.jpg" alt-text="Routage d’un réseau virtuel isolé" lightbox="./media/vpn-gateway-about-point-to-site-routing/multiple.jpg":::
+:::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/multiple.jpg" alt-text="Plusieurs réseaux virtuels appairés" lightbox="./media/vpn-gateway-about-point-to-site-routing/multiple.jpg":::
 
 ### <a name="address-space"></a>Espace d’adressage :
 
@@ -86,7 +86,7 @@ Dans cet exemple, la connexion de passerelle VPN point à site est pour VNet1. V
 
 Les clients utilisant Windows ou un autre système d’exploitation pris en charge peuvent accéder à VNet1 uniquement. Pour accéder à d’autres réseaux virtuels, BGP doit être utilisé.
 
-:::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/multiple-s2s.jpg" alt-text="Routage d’un réseau virtuel isolé" lightbox="./media/vpn-gateway-about-point-to-site-routing/multiple-s2s.jpg":::
+:::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/multiple-s2s.jpg" alt-text="Plusieurs réseaux virtuels et S2S" lightbox="./media/vpn-gateway-about-point-to-site-routing/multiple-s2s.jpg":::
 
 ### <a name="address-space"></a>Espace d’adressage
 
@@ -114,7 +114,7 @@ Dans cet exemple, la connexion de passerelle VPN point à site est pour VNet1. V
 
 Les clients utilisant Windows ou un autre système d’exploitation pris en charge peuvent accéder à tous les réseaux virtuels qui sont connectés avec une connexion VPN site à site, mais les routes vers les réseaux virtuels connectés doivent être ajoutées manuellement dans les clients Windows.
 
-:::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/multiple-bgp.jpg" alt-text="Routage d’un réseau virtuel isolé" lightbox="./media/vpn-gateway-about-point-to-site-routing/multiple-bgp.jpg":::
+:::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/multiple-bgp.jpg" alt-text="Plusieurs réseaux virtuels et S2S (BGP)" lightbox="./media/vpn-gateway-about-point-to-site-routing/multiple-bgp.jpg":::
 
 ### <a name="address-space"></a>Espace d’adressage
 
@@ -142,7 +142,7 @@ Dans cet exemple, la connexion de passerelle VPN point à site est pour VNet1. V
 
 Les clients Windows et non-Windows peuvent uniquement accéder à VNet1.
 
-:::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/branch-office.jpg" alt-text="Routage d’un réseau virtuel isolé" lightbox="./media/vpn-gateway-about-point-to-site-routing/branch-office.jpg":::
+:::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/branch-office.jpg" alt-text="Routage avec un réseau virtuel et une filiale" lightbox="./media/vpn-gateway-about-point-to-site-routing/branch-office.jpg":::
 
 ### <a name="address-space"></a>Espace d’adressage
 
@@ -168,7 +168,7 @@ Dans cet exemple, la connexion de passerelle VPN point à site est pour VNet1. V
 
 Les clients Windows peuvent accéder au réseau virtuel et à la filiale (Site1), mais les routes vers Site1 doivent être ajoutées manuellement dans le client. Les clients non-Windows peuvent accéder au réseau virtuel, ainsi qu’à la filiale locale.
 
-:::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/branch-bgp.jpg" alt-text="Routage d’un réseau virtuel isolé" lightbox="./media/vpn-gateway-about-point-to-site-routing/branch-bgp.jpg":::
+:::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/branch-bgp.jpg" alt-text="Routage avec un réseau virtuel et une filiale - BGP" lightbox="./media/vpn-gateway-about-point-to-site-routing/branch-bgp.jpg":::
 
 ### <a name="address-space"></a>Espace d’adressage
 
@@ -195,7 +195,7 @@ Dans cet exemple, la connexion de passerelle VPN point à site est pour VNet1. V
 
 Tous les clients peuvent accéder à VNet1 uniquement.
 
-:::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/multi-branch.jpg" alt-text="Routage d’un réseau virtuel isolé" lightbox="./media/vpn-gateway-about-point-to-site-routing/multi-branch.jpg":::
+:::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/multi-branch.jpg" alt-text="Diagramme illustrant un S2S à plusieurs réseaux virtuels et une filiale" lightbox="./media/vpn-gateway-about-point-to-site-routing/multi-branch.jpg":::
 
 ### <a name="address-space"></a>Espace d’adressage
 
@@ -225,7 +225,7 @@ Dans cet exemple, la connexion de passerelle VPN point à site est pour VNet1. V
 
 Les clients utilisant Windows peuvent accéder aux réseaux virtuels et aux sites qui sont connectés avec une connexion VPN site à site, mais les routes vers VNet2, VNet3 et Site1 doivent être ajoutées manuellement dans le client. Les clients non-Windows peuvent accéder aux réseaux virtuels et aux sites qui sont connectés avec une connexion VPN site à site sans aucune intervention manuelle. L’accès est transitif et les clients peuvent accéder aux ressources de tous les réseaux virtuels et sites (locaux) connectés.
 
-:::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/multi-branch-bgp.jpg" alt-text="Routage d’un réseau virtuel isolé" lightbox="./media/vpn-gateway-about-point-to-site-routing/multi-branch-bgp.jpg":::
+:::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/multi-branch-bgp.jpg" alt-text="S2S à plusieurs réseaux virtuels et filiale" lightbox="./media/vpn-gateway-about-point-to-site-routing/multi-branch-bgp.jpg":::
 
 ### <a name="address-space"></a>Espace d’adressage
 

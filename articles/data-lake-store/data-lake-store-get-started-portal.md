@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 06/27/2018
 ms.author: twooley
 ms.openlocfilehash: 428ed96c3223e644b0c78712723231a5fabbdc77
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91578578"
 ---
 # <a name="get-started-with-azure-data-lake-storage-gen1-using-the-azure-portal"></a>Bien démarrer avec Azure Data Lake Storage Gen1 à l’aide du Portail Azure

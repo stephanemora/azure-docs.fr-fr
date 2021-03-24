@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/10/2021
 ms.author: jeedes
-ms.openlocfilehash: 7d229bfbe281c24f2875ddb327b1d07c23828653
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.openlocfilehash: 65713a27f16a2af7cab5c389c3e9793d0d44ff8c
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103202403"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104956245"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sapient"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Sapient
 
@@ -130,11 +130,9 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Accédez directement à l’URL de connexion à Sapient pour lancer le flux de connexion.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Un clic sur la vignette Sapient dans Mes applications vous redirige vers l’URL de connexion à Sapient. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Vous pouvez utiliser Mes applications de Microsoft. Un clic sur la vignette Sapient dans Mes applications vous redirige vers l’URL de connexion à Sapient. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Après avoir configuré Sapient, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Après avoir configuré Sapient, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

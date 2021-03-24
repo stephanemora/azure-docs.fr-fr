@@ -9,10 +9,10 @@ ms.custom: mvc, devx-track-azurecli
 ms.topic: sample
 ms.date: 08/07/2019
 ms.openlocfilehash: 6bbf5f3a0a7d32425f80687de10444ee0819b9df
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94660455"
 ---
 # <a name="monitor-and-scale-a-single-postgresql-server-using-azure-cli"></a>Surveiller et mettre à l’échelle d’un seul serveur PostgreSQL à l’aide de la CLI Azure
@@ -23,7 +23,7 @@ Cet exemple de script CLI met à l’échelle le calcul et le stockage d’un se
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-- Cet article nécessite la version 2.0 ou ultérieure d’Azure CLI. Si vous utilisez Azure Cloud Shell, la version la plus récente est déjà installée.
+- Cet article demande la version 2.0 ou ultérieure d’Azure CLI. Si vous utilisez Azure Cloud Shell, la version la plus récente est déjà installée.
 
 ## <a name="sample-script"></a>Exemple de script
 Mettez à jour le script avec votre ID d’abonnement.
@@ -46,5 +46,5 @@ Ce script utilise les commandes décrites dans le tableau suivant :
 
 ## <a name="next-steps"></a>Étapes suivantes
 - En savoir plus sur [le calcul et le stockage Azure Database pour PostgreSQL](../concepts-pricing-tiers.md)
-- Essayer des scripts supplémentaires : [Exemples Azure CLI pour Base de données Azure pour PostgreSQL](../sample-scripts-azure-cli.md)
+- Essayez d’autres scripts : [Exemples Azure CLI pour base de données pour PostgreSQL](../sample-scripts-azure-cli.md)
 - En savoir plus sur [Azure CLI](/cli/azure)

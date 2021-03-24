@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 07/20/2020
-ms.openlocfilehash: 7a4654b8f389ad18010bb4ad211103f2816a18ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb3c74a2176ee7fcac53afb5185e8c62e66f4dfb
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91542000"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104798797"
 ---
 # <a name="entities-per-culture-in-your-luis-model"></a>Entités par culture dans votre modèle LUIS
 
@@ -40,7 +40,7 @@ Sauf indication contraire, les entités prédéfinies sont disponibles dans tous
 |Coréen|[ko-KR](#korean-entity-support)||
 |Portugais|[pt-BR (Brésil)](#portuguese-brazil-entity-support)||
 |Espagnol|[es-ES (Espagne)](#spanish-spain-entity-support), [es-MX (Mexique)](#spanish-mexico-entity-support)||
-|Turc|[turc](#turkish-entity-support)|Aucune prise en charge des entités prédéfinies en turc|
+|Turc|[turc](#turkish-entity-support)||
 
 ## <a name="prediction-endpoint-runtime"></a>Runtime du point de terminaison de prédiction
 
@@ -268,6 +268,8 @@ Les entités suivantes sont prises en charge :
 [Temperature](luis-reference-prebuilt-temperature.md) :<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    V2, V3   |
 [URL](luis-reference-prebuilt-url.md)   |    V2, V3   |
 
+KeyPhrase n’est pas disponible dans toutes les sous-cultures du portugais (Brésil) – ```pt-BR```.
+
 ## <a name="spanish-spain-entity-support"></a>Prise en charge de l'entité Espagnol (Espagne)
 
 Les entités suivantes sont prises en charge :
@@ -314,34 +316,25 @@ Les entités suivantes sont prises en charge :
 
 Voir les notes sur [entités prédéfinies désapprouvée](luis-reference-prebuilt-deprecated.md)
 
-KeyPhrase n’est pas disponible dans toutes les sous-cultures du portugais (Brésil) – ```pt-BR```.
-
 ## <a name="turkish-entity-support"></a>Prise en charge de l’entité Turc
 
-**Aucune entité prédéfinie n’est prise en charge en turc.**
-
-<!--
-
-| Prebuilt entity | tr-tr |
+| Entité prédéfinie | tr-tr |
 | --------------- | :---: |
-[Age](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    -   |
-[Currency (money)](luis-reference-prebuilt-currency.md):<br>dollar<br>fractional unit (ex: penny)  |    -   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    -   |
-[Dimension](luis-reference-prebuilt-dimension.md):<br>volume<br>area<br>weight<br>information (ex: bit/byte)<br>length (ex: meter)<br>speed (ex: mile per hour)  |    -   |
-[Email](luis-reference-prebuilt-email.md)   |    -   |
-[GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
+[Age](luis-reference-prebuilt-age.md) :<br>year<br>month<br>week<br>day   |    -   |
+[Devise (monnaie)](luis-reference-prebuilt-currency.md):<br>dollar<br>Unité fractionnelle (par exemple, centime)  |    -   |
+[Datetimev2](luis-reference-prebuilt-datetimev2.md) :<br>Date<br>daterange<br>time<br>plage horaire   |    -   |
+[Dimension](luis-reference-prebuilt-dimension.md) :<br>volume<br>superficie<br>poids<br>informations (p. ex. : bit/octet)<br>longueur (p. ex. : mètre)<br>vitesse (p. ex : km par heure)  |    -   |
+[E-mail](luis-reference-prebuilt-email.md)   |    -   |
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    -   |
-[Number](luis-reference-prebuilt-number.md)   |    -   |
+[Nombre](luis-reference-prebuilt-number.md)   |    -   |
 [Ordinal](luis-reference-prebuilt-ordinal.md)   |    -   |
 [Percentage](luis-reference-prebuilt-percentage.md)   |    -   |
-[PersonName](luis-reference-prebuilt-person.md)   |    -   |
 [Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    -   |
-[Temperature](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    -   |
+[Temperature](luis-reference-prebuilt-temperature.md) :<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    -   |
 [URL](luis-reference-prebuilt-url.md)   |    -   |
 
+<!---
 See notes on [Deprecated prebuilt entities](luis-reference-prebuilt-deprecated.md)
-
-
 KeyPhrase is not available.
 -->
 

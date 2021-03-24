@@ -12,10 +12,10 @@ ms.topic: end-user-help
 ms.date: 09/10/2020
 ms.author: curtand
 ms.openlocfilehash: c47d573dab3e72a956f6f0b9d09a1dafadf0225c
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91827766"
 ---
 # <a name="reset-your-work-or-school-password-using-security-info"></a>Réinitialiser votre mot de passe professionnel ou scolaire avec des informations de sécurité

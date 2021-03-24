@@ -3,16 +3,16 @@ title: Créer des pipelines de données prédictifs avec Azure Data Factory
 description: Explique comment créer des pipelines prédictifs à l'aide d'Azure Data Factory et d'Azure Machine Learning Studio (classique)
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: a7042a67081475311341ad6d56e35b2a71b8b12c
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 2773ab2a7caa1eb4d198495a3ebe4ef0c14a5a32
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100379333"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104785510"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-studio-classic-and-azure-data-factory"></a>Créer des pipelines prédictifs à l'aide d'Azure Machine Learning Studio (classique) et d'Azure Data Factory
 

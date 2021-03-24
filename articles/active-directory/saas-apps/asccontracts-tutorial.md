@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à ASC Contracts | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à ASC Contracts | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et ASC Contracts.
 services: active-directory
 author: jeevansd
@@ -12,13 +12,13 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.openlocfilehash: d1f45244d09ce55b61b04d88ce2eb4a16289b1ab
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97672982"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-asc-contracts"></a>Tutoriel : Intégration d’Azure Active Directory à ASC Contracts
+# <a name="tutorial-azure-active-directory-integration-with-asc-contracts"></a>Tutoriel : Intégration d’Azure Active Directory à ASC Contracts
 
 Dans ce tutoriel, vous allez apprendre à intégrer Azure Active Directory (Azure AD) à ASC Contracts.
 L’intégration de ASC Contracts à Azure AD vous offre les avantages suivants :
@@ -179,7 +179,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 ### <a name="create-asc-contracts-test-user"></a>Créer un utilisateur de test ASC Contracts
 
-Collaborez avec l’équipe de support ASC Networks Inc. (ASC) au **613.599.6178** pour lui demander d’ajouter les utilisateurs dans la plateforme ASC Contracts.
+Contactez l’équipe de support ASC Networks Inc. (ASC) au **613.599.6178** pour lui demander d’ajouter les utilisateurs dans la plateforme ASC Contracts.
 
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique
 

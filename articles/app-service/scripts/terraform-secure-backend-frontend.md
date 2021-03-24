@@ -9,10 +9,10 @@ ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.openlocfilehash: c1de8ebbd9ad381628cfeb19413baa295b42b3db
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91739831"
 ---
 # <a name="create-two-web-apps-connected-securely-with-private-endpoint-and-vnet-integration"></a>Créer deux applications web connectées en toute sécurité avec un point de terminaison privé et une intégration au réseau virtuel
