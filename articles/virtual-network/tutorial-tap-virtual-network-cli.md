@@ -17,10 +17,10 @@ ms.date: 03/18/2018
 ms.author: kaanan
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 8e3a56e4a6eb1fb6eb633021178ef78f8ac7287d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96014786"
 ---
 # <a name="work-with-a-virtual-network-tap-using-the-azure-cli"></a>Utiliser un TAP de réseau virtuel à l’aide d’Azure CLI
@@ -77,7 +77,7 @@ Lisez les [prérequis](virtual-network-tap-overview.md#prerequisites) avant de c
 
 5. Si la destination du TAP de réseau virtuel est un équilibreur de charge interne Azure :
   
-   - Récupérez la configuration IP frontend de l’équilibreur de charge interne Azure dans une variable, utilisée dans une étape ultérieure. L’ID est le point de terminaison qui va agréger le trafic TAP. L’exemple suivant récupère l’ID de la configuration IP frontend *frontendipconfig1* pour un équilibreur de charge nommé *myInternalLoadBalancer*, dans un groupe de ressources nommé  *myResourceGroup* :
+   - Récupérez la configuration IP frontend de l’équilibreur de charge interne Azure dans une variable, utilisée dans une étape ultérieure. L’ID est le point de terminaison qui va agréger le trafic TAP. L’exemple suivant récupère l’ID de la configuration IP frontend *frontendipconfig1* pour un équilibreur de charge nommé *myInternalLoadBalancer*, dans un groupe de ressources nommé *myResourceGroup* :
 
       ```azurecli-interactive
       FrontendIpConfigId=$(az network lb frontend-ip show \

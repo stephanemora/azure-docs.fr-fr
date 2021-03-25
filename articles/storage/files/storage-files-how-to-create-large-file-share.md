@@ -9,10 +9,10 @@ ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.openlocfilehash: c22b3f3164cbb7c1a7ed150d093f77777c7b1023
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102501292"
 ---
 # <a name="enable-and-create-large-file-shares"></a>Activer et créer des partages de fichiers volumineux
@@ -52,7 +52,7 @@ L’activation de partages de fichiers volumineux sur un compte est un processus
    |Champ  |Valeur  |
    |---------|---------|
    |Modèle de déploiement     |Gestionnaire de ressources         |
-   |Performances     |Standard         |
+   |Performances     |standard         |
    |Type de compte     |StorageV2 (usage général v2)         |
    |Niveau d’accès     |À chaud         |
 

@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 10/19/2020
 ms.author: duau
 ms.openlocfilehash: abcfce43b90c7371d5b38aa5b7a6d478e9d6a0dd
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92207824"
 ---
 # <a name="tutorial-configure-the-weighted-traffic-routing-method-in-traffic-manager"></a>Tutoriel : Configurer la méthode de routage du trafic par pondération dans Traffic Manager
@@ -43,11 +43,11 @@ Dans ce tutoriel, vous allez apprendre à :
 
     :::image type="content" source="./media/traffic-manager-weighted-routing-method/search-traffic-manager-weighted-profile.png" alt-text="Recherche du profil Traffic Manager":::
 
-1. Sélectionnez **Configuration** , puis sélectionnez ou saisissez les paramètres suivants :
+1. Sélectionnez **Configuration**, puis sélectionnez ou saisissez les paramètres suivants :
 
     | Paramètre         | Value                                              |
     | ---             | ---                                                |
-    | Méthode de routage            | Sélectionnez **Pondéré** . |    
+    | Méthode de routage            | Sélectionnez **Pondéré**. |    
     | Durée de vie du DNS (TTL) | Cette valeur contrôle la fréquence à laquelle le serveur de noms de mise en cache locale du client interroge le système Traffic Manager au sujet des entrées DNS mises à jour. Toute modification dans Traffic Manager, telle que le changement de la méthode de routage du trafic ou de la disponibilité des points de terminaison ajoutés, sera actualisée au terme de cette période dans le système global des serveurs DNS. |
     | Protocol    | Sélectionnez un protocole pour la supervision des points de terminaison. *Options : HTTP, HTTPS et TCP* |
     | Port | Spécifiez le numéro de port. |
@@ -60,23 +60,23 @@ Dans ce tutoriel, vous allez apprendre à :
 
 1. Sélectionnez **Enregistrer** pour terminer la configuration.
 
-    :::image type="content" source="./media/traffic-manager-weighted-routing-method/traffic-manager-weighted-configuration.png" alt-text="Recherche du profil Traffic Manager"::: 
+    :::image type="content" source="./media/traffic-manager-weighted-routing-method/traffic-manager-weighted-configuration.png" alt-text="Configuration pondérée de Traffic Manager"::: 
 
-1. Sélectionnez **Point de terminaison** , puis configurez le poids de chaque point de terminaison. Le poids peut être compris entre 1 et 1 000. Plus le poids est élevé, plus la priorité l’est également.  
+1. Sélectionnez **Point de terminaison**, puis configurez le poids de chaque point de terminaison. Le poids peut être compris entre 1 et 1 000. Plus le poids est élevé, plus la priorité l’est également.  
 
-    :::image type="content" source="./media/traffic-manager-weighted-routing-method/traffic-manager-configure-endpoints-weighted.png" alt-text="Recherche du profil Traffic Manager"::: 
+    :::image type="content" source="./media/traffic-manager-weighted-routing-method/traffic-manager-configure-endpoints-weighted.png" alt-text="Configuration des points de terminaison Traffic Manager pondérés"::: 
 
 ## <a name="use-the-traffic-manager-profile"></a>Utiliser le profil Traffic Manager
 
 Le **profil Traffic Manager** affiche le nom DNS de votre profil Traffic Manager nouvellement créé. Tous les clients peuvent utiliser ce nom (par exemple, en y accédant à l’aide d’un navigateur web) en vue d’être routés vers le bon point de terminaison, selon le type de routage. Dans ce cas, toutes les requêtes sont routées vers chaque point de terminaison de manière alternée.
 
-:::image type="content" source="./media/traffic-manager-weighted-routing-method/traffic-manager-weighted-overview.png" alt-text="Recherche du profil Traffic Manager"::: 
+:::image type="content" source="./media/traffic-manager-weighted-routing-method/traffic-manager-weighted-overview.png" alt-text="Vue d’ensemble de la pondération Traffic Manager"::: 
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Si vous n’avez plus besoin du profil Traffic Manager, recherchez le profil, puis sélectionnez **Supprimer le profil** .
+Si vous n’avez plus besoin du profil Traffic Manager, recherchez le profil, puis sélectionnez **Supprimer le profil**.
 
-:::image type="content" source="./media/traffic-manager-weighted-routing-method/delete-traffic-manager-weighted-profile.png" alt-text="Recherche du profil Traffic Manager":::
+:::image type="content" source="./media/traffic-manager-weighted-routing-method/delete-traffic-manager-weighted-profile.png" alt-text="Suppression du profil Traffic Manager pondéré":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

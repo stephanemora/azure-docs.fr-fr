@@ -6,18 +6,18 @@ ms.author: gwallace
 ms.date: 10/26/2018
 ms.topic: conceptual
 ms.openlocfilehash: 3f0e115e596925878bf9fdd43b7074cefdba47b2
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99626856"
 ---
 # <a name="scaling-service-fabric-mesh-applications"></a>Mise à l’échelle des applications Service Fabric Mesh
 
 > [!IMPORTANT]
-> La préversion d’Azure Service Fabric Mesh a été mise hors service. Les nouveaux déploiements ne seront plus autorisés via l’API Service Fabric Mesh. La prise en charge des déploiements existants se poursuivra jusqu’au 28 avril 2021.
+> La préversion d’Azure Service Fabric Mesh a été mise hors service. Les nouveaux déploiements par le biais de l’API Service Fabric Mesh ne seront plus autorisés. La prise en charge des déploiements existants se poursuivra jusqu’au 28 avril 2021.
 > 
-> Pour plus détails, consultez [Mise hors service de la préversion d’Azure Service Fabric Mesh](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
+> Pour plus d’informations, consultez [Mise hors service de la préversion d’Azure Service Fabric Mesh](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
 
 Le déploiement d’applications vers Service Fabric Mesh permet notamment d’augmenter ou de diminuer la taille de vos services en toute simplicité. Vous pouvez ainsi gérer des charges variables sur vos services ou améliorer la disponibilité. Vous pouvez manuellement mettre à l’échelle vos services ou configurer des stratégies de mise à l’échelle automatique.
 

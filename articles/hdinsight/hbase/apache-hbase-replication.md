@@ -6,10 +6,10 @@ ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 12/06/2019
 ms.openlocfilehash: cfcb3a5a601afadb9f3fcd71c24e18a9d7f27b9e
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98946409"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Configurer la réplication de cluster Apache HBase dans les réseaux virtuels Azure
@@ -35,7 +35,7 @@ Cas d’utilisation de la réplication HBase pour deux réseaux virtuels :
 
 Vous pouvez répliquer des clusters à l’aide de scripts [d’action de script](../hdinsight-hadoop-customize-cluster-linux.md) disponibles dans [GitHub](https://github.com/Azure/hbase-utils/tree/master/replication).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 Avant de commencer cet article, vous devez disposer d’un abonnement Azure. Consultez [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 ## <a name="set-up-the-environments"></a>Configurer les environnements
@@ -65,7 +65,7 @@ Voici quelques-unes des valeurs codées en dur dans le modèle :
 
 | Propriété | Valeur |
 |----------|-------|
-| Location | USA Ouest |
+| Emplacement | USA Ouest |
 | Nom du réseau virtuel | &lt;ClusterNamePrevix>-vnet1 |
 | Préfixe de l’espace d’adressage | 10.1.0.0/16 |
 | Nom du sous-réseau | subnet 1 |
@@ -82,7 +82,7 @@ Voici quelques-unes des valeurs codées en dur dans le modèle :
 
 | Propriété | Valeur |
 |----------|-------|
-| Location | USA Est |
+| Emplacement | USA Est |
 | Nom du réseau virtuel | &lt;ClusterNamePrevix>-vnet2 |
 | Préfixe de l’espace d’adressage | 10.2.0.0/16 |
 | Nom du sous-réseau | subnet 1 |
@@ -102,7 +102,7 @@ Dans la dernière section, le modèle crée une machine virtuelle Ubuntu dans ch
 Pour installer Bind, vous devez rechercher l’adresse IP publique des deux machines virtuelles DNS.
 
 1. Ouvrez le [portail Azure](https://portal.azure.com).
-2. Ouvrez la machine virtuelle DNS en sélectionnant **Groupes de ressources > [nom du groupe de ressources] > [vnet1DNS]** .  Le nom du groupe de ressources est celui que vous créez dans la dernière procédure. Les noms des machines virtuelles DNS par défaut sont *vnet1DNS* et *vnet2NDS*.
+2. Ouvrez la machine virtuelle DNS en sélectionnant **Groupes de ressources > [nom du groupe de ressources] > [vnet1DNS]**.  Le nom du groupe de ressources est celui que vous créez dans la dernière procédure. Les noms des machines virtuelles DNS par défaut sont *vnet1DNS* et *vnet2NDS*.
 3. Sélectionnez **Propriétés** pour ouvrir la page des propriétés du réseau virtuel.
 4. Notez l’**adresse IP publique** et vérifiez l’**adresse IP privée**.  L’adresse IP privée doit être **10.1.0.4** pour vnet1DNS et **10.2.0.4** pour vnet2DNS.  
 5. Remplacez les serveurs DNS des deux réseaux virtuels par les serveurs DNS par défaut (fournis par Azure) pour autoriser l’accès entrant et sortant afin de télécharger les packages visant à installer Bind dans les étapes suivantes.
@@ -291,7 +291,7 @@ Les étapes suivantes décrivent comment appeler le script d’action de script 
 5. Sélectionnez ou saisissez les informations suivantes :
 
    1. **Nom** : saisissez **Activer la réplication**.
-   2. **URL du script Bash** : entrez **https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh** .
+   2. **URL du script Bash** : entrez **https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh**.
    3. **Principal** : assurez-vous que cette option est sélectionnée. Supprimez les autres types de nœuds.
    4. **Paramètres** : les paramètres d’exemple suivants activent la réplication pour toutes les tables existantes, puis copient toutes les données du cluster source vers le cluster de destination :
 
@@ -306,7 +306,7 @@ Les étapes suivantes décrivent comment appeler le script d’action de script 
 
 Arguments requis :
 
-|Name|Description|
+|Nom|Description|
 |----|-----------|
 |-s, --src-cluster | Spécifie le nom DNS du cluster HBase source. Par exemple : -s hbsrccluster, --src-cluster=hbsrccluster |
 |-d, --dst-cluster | Spécifie le nom DNS du cluster HBase de destination (réplica). Par exemple : -s dsthbcluster, --src-cluster=dsthbcluster |
@@ -315,7 +315,7 @@ Arguments requis :
 
 Arguments facultatifs :
 
-|Name|Description|
+|Nom|Description|
 |----|-----------|
 |-su, --src-ambari-user | Spécifie le nom d’utilisateur administrateur pour Ambari sur le cluster HBase source. La valeur par défaut est **admin**. |
 |-du, --dst-ambari-user | Spécifie le nom d’utilisateur administrateur pour Ambari sur le cluster HBase de destination. La valeur par défaut est **admin**. |

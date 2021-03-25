@@ -10,10 +10,10 @@ ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/14/2020
 ms.openlocfilehash: bc809cf02b827b7498890cb7d929c44bd360ab53
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99094707"
 ---
 # <a name="tutorial-assign-directory-readers-role-to-an-azure-ad-group-and-manage-role-assignments"></a>Tutoriel : Attribuer le rôle Lecteurs d’annuaires à un groupe Azure AD et gérer les attributions de rôles
@@ -89,7 +89,7 @@ Pour SQL Database et Azure Synapse, l’identité du serveur peut être créée 
 
 Pour SQL Managed Instance, vous devez affecter le rôle **Lecteurs d’annuaires** à l’identité de l’instance managée avant de pouvoir [configurer un administrateur Azure AD pour l’instance managée](authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance).
 
-L’attribution du rôle **Lecteurs d’annuaires** à l’identité du serveur n’est pas nécessaire pour SQL Database ou Azure Synapse lors de la configuration d’un administrateur Azure AD pour le serveur logique. Cependant, pour permettre la création d’un objet Azure AD dans SQL Database ou Azure Synapse pour le compte d’une application Azure AD, le rôle **Lecteurs d’annuaires** est requis. Si le rôle n’est pas affecté à l’identité du serveur logique SQL, la création d’utilisateurs Azure AD dans Azure SQL échoue. Pour plus d’informations, consultez [Principal de service Azure Active Directory avec Azure SQL](authentication-aad-service-principal.md).
+L’attribution du rôle **Lecteurs de répertoire** à l’identité du serveur n’est pas nécessaire pour SQL Database ou Azure Synapse lors de la configuration d’un administrateur Azure AD pour le serveur logique. Cependant, pour permettre la création d’un objet Azure AD dans SQL Database ou Azure Synapse pour le compte d’une application Azure AD, le rôle **Lecteurs d’annuaires** est requis. Si le rôle n’est pas affecté à l’identité du serveur logique SQL, la création d’utilisateurs Azure AD dans Azure SQL échoue. Pour plus d’informations, consultez [Principal de service Azure Active Directory avec Azure SQL](authentication-aad-service-principal.md).
 
 ## <a name="directory-readers-role-assignment-using-powershell"></a>Attribution du rôle Lecteurs d’annuaires à l’aide de PowerShell
 

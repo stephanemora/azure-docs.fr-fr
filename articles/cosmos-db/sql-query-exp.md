@@ -9,10 +9,10 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: adf80d36edbe8f9a5535e8fa04501918a62ea7ca
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93335618"
 ---
 # <a name="exp-azure-cosmos-db"></a>EXP (Azure Cosmos DB)
@@ -37,9 +37,9 @@ EXP (<numeric_expr>)
   
 ## <a name="remarks"></a>Notes
   
-  La constante **e** (2,718281…), est la base des logarithmes népériens.  
+  La constante **e** (2,718281...) est la base des logarithmes naturels.  
   
-  L’exposant d’un nombre correspond à la constante **e** élevée à la puissance de ce nombre. Par exemple, EXP(1.0) = e^1.0 = 2.71828182845905 et EXP(10) = e^10 = 22026.4657948067.  
+  L'exposant d'un nombre correspond à la constante **e** élevée à la puissance du nombre. Par exemple, EXP(1.0) = e^1.0 = 2.71828182845905 et EXP(10) = e^10 = 22026.4657948067.  
   
   La valeur exponentielle du logarithme naturel d’un nombre est le nombre lui-même : EXP (LOG (n)) = n. Et le logarithme naturel de la valeur exponentielle d’un nombre est le nombre lui-même : LOG (EXP (n)) = n.  
   

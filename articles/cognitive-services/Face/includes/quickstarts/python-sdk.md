@@ -10,10 +10,10 @@ ms.topic: include
 ms.date: 11/10/2020
 ms.author: pafarley
 ms.openlocfilehash: 7fc1822c219c6c881e3d788f6b0e56675cecc466
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102444163"
 ---
 Commencez à utiliser la reconnaissance faciale avec la bibliothèque de client Visage pour Python. Suivez les étapes suivantes pour installer le package et essayer l’exemple de code pour les tâches de base. Le service Visage vous donne accès à des algorithmes avancés pour la détection et la reconnaissance des visages dans des images.

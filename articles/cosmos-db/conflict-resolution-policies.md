@@ -9,10 +9,10 @@ ms.date: 04/20/2020
 ms.author: mjbrown
 ms.reviewer: sngun
 ms.openlocfilehash: ba55d88de3a5a4087db30613b22a7d2441de9be1
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93334376"
 ---
 # <a name="conflict-types-and-resolution-policies-when-using-multiple-write-regions"></a>Types de conflits et stratégies de résolution lors de l’utilisation de plusieurs régions d’écriture
@@ -41,7 +41,7 @@ Azure Cosmos DB offre un mécanisme souple, piloté par les stratégies, pour r�
 
   Pour plus d’informations, consultez les [exemples qui utilisent des stratégies de résolution de conflit LWW](how-to-manage-conflicts.md).
 
-* **Personnalisé**  : cette stratégie de résolution est destinée à la sémantique définie au niveau de l’application pour le rapprochement des conflits. Lorsque vous définissez cette stratégie sur votre conteneur Azure Cosmos, vous devez également inscrire une *procédure stockée de fusion*. Cette procédure est automatiquement appelée lorsque des conflits sont détectés sous une transaction de base de données côté serveur. Le système fournit exactement une garantie pour l’exécution d’une procédure de fusion dans le cadre du protocole d’engagement.  
+* **Personnalisé** : cette stratégie de résolution est destinée à la sémantique définie au niveau de l’application pour le rapprochement des conflits. Lorsque vous définissez cette stratégie sur votre conteneur Azure Cosmos, vous devez également inscrire une *procédure stockée de fusion*. Cette procédure est automatiquement appelée lorsque des conflits sont détectés sous une transaction de base de données côté serveur. Le système fournit exactement une garantie pour l’exécution d’une procédure de fusion dans le cadre du protocole d’engagement.  
 
   Si vous configurez votre conteneur avec l’option de résolution personnalisée mais ne pouvez pas inscrire une procédure de fusion sur le conteneur, ou si la procédure de fusion lève une exception lors de l’exécution, les conflits sont écrits dans le *flux de conflits*. Les conflits de l’application doivent ensuite être résolus manuellement dans le flux de conflits. Pour plus d’informations, consultez les [exemples illustrant la façon d’utiliser la stratégie de résolution personnalisée, et comment utiliser le flux de conflits](how-to-manage-conflicts.md).
 

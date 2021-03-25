@@ -7,16 +7,16 @@ ms.date: 01/11/2019
 ms.author: gwallace
 ms.custom: mvc, devcenter, devx-track-azurecli
 ms.openlocfilehash: 589e881eb48daf7da9cd2a934b14acfcc76dc5f9
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99625414"
 ---
 # <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>Tutoriel : Déployer une application sur Service Fabric Mesh à l’aide d’un modèle.
 
 > [!IMPORTANT]
-> La préversion d’Azure Service Fabric Mesh a été mise hors service. Les nouveaux déploiements ne seront plus autorisés par le biais de l’API Service Fabric Mesh. La prise en charge des déploiements existants se poursuivra jusqu’au 28 avril 2021.
+> La préversion d’Azure Service Fabric Mesh a été mise hors service. Les nouveaux déploiements par le biais de l’API Service Fabric Mesh ne seront plus autorisés. La prise en charge des déploiements existants se poursuivra jusqu’au 28 avril 2021.
 > 
 > Pour plus détails, consultez [Mise hors service de la préversion d’Azure Service Fabric Mesh](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
 

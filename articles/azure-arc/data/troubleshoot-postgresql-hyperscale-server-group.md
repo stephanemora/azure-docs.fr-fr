@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: caaab07200a8631935a2b5d5368a0c16ea9a60c5
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92320213"
 ---
 # <a name="troubleshooting-postgresql-hyperscale-server-groups"></a>Résolution des problèmes des groupes de serveurs PostgreSQL Hyperscale
@@ -97,7 +97,7 @@ Implémentez les étapes décrites dans [033-manage-Postgres-with-AzureDataStudi
 
 :::image type="content" source="media/postgres-hyperscale/ads-controller-postgres-troubleshooting-notebook.jpg" alt-text="Azure Data Studio – Ouvrir le bloc-notes de résolution des problèmes PostgreSQL":::
 
-La fenêtre **TSG100 – Bloc-notes de l’outil de résolution des problèmes de PostgreSQL Hyperscale activé avec par Azure Arc** s’ouvre : :::image type="content" source="media/postgres-hyperscale/ads-controller-postgres-troubleshooting-notebook2.jpg" alt-text="Azure Data Studio – Ouvrir le bloc-notes de résolution des problèmes PostgreSQL":::
+La fenêtre **TSG100 – Bloc-notes de l’outil de résolution des problèmes de PostgreSQL Hyperscale activé avec par Azure Arc** s’ouvre : :::image type="content" source="media/postgres-hyperscale/ads-controller-postgres-troubleshooting-notebook2.jpg" alt-text="Azure Data Studio – Utiliser le bloc-notes de résolution des problèmes de PostgreSQL":::
 
 #### <a name="run-the-scripts"></a>Exécuter les scripts
 Sélectionnez le bouton « Exécuter tout » en haut pour exécuter tout le bloc-notes en une seule fois, ou parcourez et exécutez chaque cellule de code une par une.

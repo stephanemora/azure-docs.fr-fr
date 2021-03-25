@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 7/16/2020
 ms.author: surmb
 ms.openlocfilehash: ec58c6f97efdbcb91071bcea98bbbc614833246d
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92215771"
 ---
 # <a name="rewrite-url-with-azure-application-gateway---azure-portal-preview"></a>Réécriture d’URL avec Azure Application Gateway – Portail Azure (préversion)
@@ -33,81 +33,81 @@ Connectez-vous au [portail Azure](https://portal.azure.com/) avec votre compte A
 
 ## <a name="configure-url-rewrite"></a>Configurer la réécriture d’URL
 
-Dans l’exemple ci-dessous, chaque fois que l’URL de la demande contient */article* , son chemin et sa chaîne de requête sont réécrits.
+Dans l’exemple ci-dessous, chaque fois que l’URL de la demande contient */article*, son chemin et sa chaîne de requête sont réécrits.
 
 `contoso.com/article/123/fabrikam` -> `contoso.com/article.aspx?id=123&title=fabrikam`
 
-1. Sélectionnez **Toutes les ressources** , puis sélectionnez votre passerelle d’application.
+1. Sélectionnez **Toutes les ressources**, puis sélectionnez votre passerelle d’application.
 
-2. Dans le volet gauche, sélectionnez **Réécrit** .
+2. Dans le volet gauche, sélectionnez **Réécrit**.
 
-3. Sélectionnez **Jeu de réécriture**  :
+3. Sélectionnez **Jeu de réécriture** :
 
     :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-1.png" alt-text="Ajout d’un jeu de réécriture":::
 
 4. Fournissez un nom pour le jeu de réécriture et associer-le à une règle d’acheminement :
 
-    a. Entrez le nom du jeu de réécriture défini dans la zone **Nom** .
+    a. Entrez le nom du jeu de réécriture défini dans la zone **Nom**.
     
-    b. Sélectionnez une ou plusieurs des règles présentées dans la liste **Règles d’acheminement associées** . La règle d’acheminement permet d’associer la configuration de réécriture à l’écouteur source. Seules les règles d’acheminement qui n’ont pas été associés à d’autres jeux de réécriture peuvent être sélectionnées. Les autres sont grisées.
+    b. Sélectionnez une ou plusieurs des règles présentées dans la liste **Règles d’acheminement associées**. La règle d’acheminement permet d’associer la configuration de réécriture à l’écouteur source. Seules les règles d’acheminement qui n’ont pas été associés à d’autres jeux de réécriture peuvent être sélectionnées. Les autres sont grisées.
     
-    c. Sélectionnez **Suivant** .
+    c. Sélectionnez **Suivant**.
     
-    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-2.png" alt-text="Ajout d’un jeu de réécriture":::
+    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-2.png" alt-text="Association à une règle":::
 
 5. Créer une règle de réécriture :
 
-    a. Sélectionnez **Ajouter une règle de réécriture** .
+    a. Sélectionnez **Ajouter une règle de réécriture**.
     
-    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-3.png" alt-text="Ajout d’un jeu de réécriture":::
+    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-3.png" alt-text="Capture d’écran présentant la fonction Ajouter une règle de réécriture.":::
     
-    b. Entrez un nom pour la règle de réécriture dans la zone **Nom de règle de réécriture** . Entrez un numéro dans la zone **Séquence de règle** .
+    b. Entrez un nom pour la règle de réécriture dans la zone **Nom de règle de réécriture**. Entrez un numéro dans la zone **Séquence de règle**.
 
-6. Dans cet exemple, nous allons réécrire le chemin d’URL et la chaîne de requête d’URL uniquement lorsque le chemin contient */article* . Ajoutez une condition permettant d’évaluer si c’est le cas.
+6. Dans cet exemple, nous allons réécrire le chemin d’URL et la chaîne de requête d’URL uniquement lorsque le chemin contient */article*. Ajoutez une condition permettant d’évaluer si c’est le cas.
 
-    a. Sélectionnez **Ajouter une condition** , puis sélectionnez la zone contenant les instructions **Si** pour la développer.
+    a. Sélectionnez **Ajouter une condition**, puis sélectionnez la zone contenant les instructions **Si** pour la développer.
     
-    b. Dans cet exemple, nous souhaitons vérifier le modèle */article* dans le chemin d’URL. Sélectionnez **Variable serveur** dans la liste **Type de variable à vérifier** .
+    b. Dans cet exemple, nous souhaitons vérifier le modèle */article* dans le chemin d’URL. Sélectionnez **Variable serveur** dans la liste **Type de variable à vérifier**.
     
-    c. Dans la liste **Variable serveur** , sélectionnez uri_path.
+    c. Dans la liste **Variable serveur**, sélectionnez uri_path.
     
-    d. Sous **Respect de la casse** , sélectionnez **Non** .
+    d. Sous **Respect de la casse**, sélectionnez **Non**.
     
-    e. Dans la liste **Opérateur** , sélectionnez **Égal (=)** .
+    e. Dans la liste **Opérateur**, sélectionnez **Égal (=)** .
     
     f. Entrez un modèle d’expression régulière. Dans cet exemple, nous allons utiliser le modèle `.*article/(.*)/(.*)`.
     
       () permet de capturer la sous-chaîne pour plus tard, quand il faudra composer l’expression permettant de réécrire le chemin d’URL. Vous pourrez trouver plus d’informations [ici](rewrite-http-headers-url.md#capturing).
 
-    g. Sélectionnez **OK** .
+    g. Sélectionnez **OK**.
 
-    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-4.png" alt-text="Ajout d’un jeu de réécriture":::
+    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-4.png" alt-text="Condition":::
 
  
 
 7. Ajoutez une action pour réécrire l’URL et son chemin :
 
-   a. Dans la liste **Réécrire le type** , sélectionnez **URL** .
+   a. Dans la liste **Réécrire le type**, sélectionnez **URL**.
 
-   b. Dans la liste **type d’Action** , sélectionnez **Définir** .
+   b. Dans la liste **type d’Action**, sélectionnez **Définir**.
 
-   c. Sous **Composants** , sélectionnez **Chemin d’URL et chaîne de requête d’URL** .
+   c. Sous **Composants**, sélectionnez **Chemin d’URL et chaîne de requête d’URL**.
 
-   d. Dans **Valeur du chemin d’URL** , entrez la nouvelle valeur du chemin. Dans cet exemple, nous utiliserons **/article.aspx** . 
+   d. Dans **Valeur du chemin d’URL**, entrez la nouvelle valeur du chemin. Dans cet exemple, nous utiliserons **/article.aspx**. 
 
-   e. Dans **Valeur de la chaîne de requête URL** , entrez la nouvelle valeur de la chaîne de requête d’URL. Dans cet exemple, nous utiliserons **id={var_uri_path_1}&title={var_uri_path_2}** .
+   e. Dans **Valeur de la chaîne de requête URL**, entrez la nouvelle valeur de la chaîne de requête d’URL. Dans cet exemple, nous utiliserons **id={var_uri_path_1}&title={var_uri_path_2}** .
     
     `{var_uri_path_1}` et `{var_uri_path_1}` permettent d’extraire les sous-chaînes capturées lors de l’évaluation de la condition dans cette expression `.*article/(.*)/(.*)`.
     
-   f. Sélectionnez **OK** .
+   f. Sélectionnez **OK**.
 
-    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-5.png" alt-text="Ajout d’un jeu de réécriture":::
+    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-5.png" alt-text="Action":::
 
 8. Cliquez sur **Créer** pour créer le jeu de réécriture.
 
 9. Vérifiez que le nouveau jeu de réécriture apparaît dans la liste des jeux de réécriture :
 
-    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-6.png" alt-text="Ajout d’un jeu de réécriture":::
+    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-6.png" alt-text="Ajout d’une règle de réécriture":::
 
 ## <a name="verify-url-rewrite-through-access-logs"></a>Vérification de la réécriture d’URL au moyen des journaux d’accès
 

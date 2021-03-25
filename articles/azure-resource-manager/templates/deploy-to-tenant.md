@@ -4,10 +4,10 @@ description: Décrit comment déployer des ressources au niveau du locataire dan
 ms.topic: conceptual
 ms.date: 01/13/2021
 ms.openlocfilehash: fd5a9ae60c578a3be7f70d82baae0a15e406b9db
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99491484"
 ---
 # <a name="tenant-deployments-with-arm-templates"></a>Déploiements de locataires avec des modèles Resource Manager
@@ -125,9 +125,9 @@ Pour plus d’informations sur les commandes et options de déploiement de modè
 * [Déployer des ressources avec des modèles ARM et le Portail Azure](deploy-portal.md)
 * [Déployer des ressources à l’aide de modèles ARM et l’interface CLI Azure](deploy-cli.md)
 * [Déployer des ressources à l’aide de modèles Resource Manager et d’Azure PowerShell](deploy-powershell.md)
-* [Déployer des ressources avec des modèles ARM et l’API REST Azure Resource Manager](deploy-rest.md)
+* [Déployer des ressources avec des modèles Resource Manager et l’API REST Azure Resource Manager](deploy-rest.md)
 * [Utiliser un bouton de déploiement pour déployer des modèles à partir du référentiel GitHub](deploy-to-azure-button.md)
-* [Déployer des modèles ARM à partir de Cloud Shell](deploy-cloud-shell.md)
+* [Déployer des modèles Resource Manager à partir de Cloud Shell](deploy-cloud-shell.md)
 
 ## <a name="deployment-location-and-name"></a>Emplacement et nom du déploiement
 

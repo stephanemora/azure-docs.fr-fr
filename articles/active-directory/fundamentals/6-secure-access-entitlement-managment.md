@@ -14,10 +14,10 @@ ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f06a54f59405d9833194b2e7d4488bc93d2437ae
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98725176"
 ---
 # <a name="manage-external-access-with-entitlement-management"></a>Gérer l’accès externe avec Gestion des droits d’utilisation 
@@ -167,7 +167,7 @@ Consultez les articles suivants sur la sécurisation de l’accès externe aux r
 
 7. [Sécuriser l’accès avec des stratégies d’Accès conditionnel](7-secure-access-conditional-access.md)
 
-8. [Sécuriser l’accès avec des Étiquettes de confidentialité](8-secure-access-sensitivity-labels.md)
+8. [Sécuriser l’accès avec des étiquettes de confidentialité](8-secure-access-sensitivity-labels.md)
 
 9. [Sécuriser l’accès à Microsoft Teams, OneDrive et SharePoint](9-secure-access-teams-sharepoint.md)
 

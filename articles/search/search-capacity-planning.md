@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/15/2021
 ms.openlocfilehash: d848c1ed1ab9d4cb24dec9423d93ec62ab45633b
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99537219"
 ---
 # <a name="estimate-and-manage-capacity-of-an-azure-cognitive-search-service"></a>Estimer et gérer la capacité d’un service Recherche cognitive Azure
@@ -184,7 +184,7 @@ Tous les services de recherche Standard et À stockage optimisé peuvent suppose
 | **4 réplicas** |4 unités de recherche |8 unités de recherche |12 unités de recherche |16 unités de recherche |24 unités de recherche |N/A |
 | **5 réplicas** |5 unités de recherche |10 unités de recherche |15 unités de recherche |20 unités de recherche |30 unités de recherche |N/A |
 | **6 réplicas** |6 unités de recherche |12 unités de recherche |18 unités de recherche |24 unités de recherche |36 unités de recherche |N/A |
-| **12 réplicas** |12 unités de recherche |24 unités de recherche |36 unités de recherche |N/A |N/A |N/A |
+| **12 réplicas** |12 unités de recherche |24 unités de recherche |36 unités de recherche |N/A |NON APPLICABLE |N/A |
 
 Les unités de recherche, leur tarification et leur capacité sont détaillées sur le site web Azure. Pour plus d'informations, consultez la rubrique [Tarification](https://azure.microsoft.com/pricing/details/search/).
 

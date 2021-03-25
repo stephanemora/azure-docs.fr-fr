@@ -5,19 +5,19 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/12/2021
-ms.openlocfilehash: 1dc8e3a78e681947a70ad96638d1d6e09f0bbc88
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 8b3b1d39766d556b820f21c1775210611b995d92
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102050662"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103199900"
 ---
 # <a name="log-analytics-agent-overview"></a>Présentation de l’agent Log Analytics
 
 L’agent Azure Log Analytics collecte la télémétrie de machines virtuelles Windows et Linux dans n’importe quel cloud, sur des ordinateurs locaux et sur des ordinateurs surveillés par [System Center Operations Manager](/system-center/scom/), puis envoie les données collectées à votre espace de travail Log Analytics dans Azure Monitor. L’agent Log Analytics prend également en charge des analyses et d’autres services dans Azure Monitor comme [VM Insights](../vm/vminsights-enable-overview.md), [Azure Security Center](../../security-center/index.yml) et [Azure Automation](../../automation/automation-intro.md). Cet article propose une présentation détaillée des exigences en matière d’agent, de système et de réseau, ainsi que des méthodes de déploiement.
 
 > [!NOTE]
-> Vous pouvez également voir l’agent Log Analytics appelé Microsoft Monitoring Agent (MMA) ou agent Linux OMS.
+> Vous pouvez également voir l’agent Log Analytics appelé Microsoft Monitoring Agent (MMA).
 
 ## <a name="comparison-to-azure-diagnostics-extension"></a>Comparaison avec l’extension Diagnostics Azure
 L’[extension Diagnostics Azure](./diagnostics-extension-overview.md) dans Azure Monitor peut également être utilisée pour collecter des données de supervision à partir du système d’exploitation invité des machines virtuelles Azure. Vous pouvez choisir d’utiliser l’un ou l’autre, ou les deux en fonction de vos besoins. Pour une comparaison détaillée des agents Azure Monitor, consultez [Vue d’ensemble des agents Azure Monitor](../agents/agents-overview.md). 

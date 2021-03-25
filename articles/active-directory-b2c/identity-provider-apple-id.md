@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/09/2021
+ms.date: 03/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: cc385c3a7ceb0245e3a4acbedb037b1b28bde7b3
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 24377cf02b30a550043ee63267229039d680cd1c
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102518107"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103489132"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-an-apple-id--using-azure-active-directory-b2c-preview"></a>Configurer l’inscription et la connexion avec un ID Apple à l’aide d’Azure Active Directory B2C (préversion)
 
@@ -57,8 +57,8 @@ Pour permettre la connexion des utilisateurs avec un ID Apple dans Azure Active 
 1. Dans **Identificateurs**, sélectionnez l’identificateur que vous avez créé.
 1. Sélectionnez **Se connecter avec Apple**, puis sélectionnez **Configurer**.
     1. Sélectionnez **l’ID de l’application principale** pour laquelle vous souhaitez configurer la connexion avec Apple.
-    1. Dans **Domaines et sous-domaines**, entrez `your-tenant-name.b2clogin.com`. Remplacez your-tenant-name par le nom de votre locataire.
-    1. Dans **URL de retour**, entrez `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Remplacez your-tenant-name par le nom de votre locataire.
+    1. Dans **Domaines et sous-domaines**, entrez `your-tenant-name.b2clogin.com`. Remplacez your-tenant-name par le nom de votre locataire. Si vous utilisez un [domaine personnalisé](custom-domain.md), entrez `https://your-domain-name`.
+    1. Dans **URL de retour**, entrez `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Si vous utilisez un [domaine personnalisé](custom-domain.md), entrez `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Remplacez `your-tenant-name` par le nom de votre locataire et `your-domain-name` par le nom de votre domaine personnalisé.
     1. Sélectionnez **Suivant**, puis sélectionnez **Terminé**.
     1. Quand la fenêtre contextuelle est fermée, sélectionnez **Continuer**, puis sélectionnez **Enregistrer**.
 
@@ -223,7 +223,7 @@ Vous pouvez définir un ID Apple en tant que fournisseur de revendications en l�
     ```
 
 4. Définissez **client_id** sur l’identificateur de service. Par exemple : `com.consoto.azure-ad-b2c-service`.
-5. Enregistrez le fichier .
+5. Enregistrez le fichier.
 
 [!INCLUDE [active-directory-b2c-add-identity-provider-to-user-journey](../../includes/active-directory-b2c-add-identity-provider-to-user-journey.md)]
 

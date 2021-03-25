@@ -4,10 +4,10 @@ description: Cet article fournit une vue d’ensemble des composants et de l’a
 ms.topic: conceptual
 ms.date: 02/11/2020
 ms.openlocfilehash: 966636e269043d81912b552711635f34b412f22f
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97654725"
 ---
 # <a name="physical-server-to-azure-disaster-recovery-architecture"></a>Serveur physique pour l’architecture de récupération d’urgence sur Azure
@@ -40,7 +40,7 @@ Pour que Site Recovery fonctionne comme prévu, vous devez modifier la connectiv
 
 Si vous utilisez un proxy de pare-feu basé sur des URL pour contrôler la connectivité sortante, autorisez l’accès à ces URL :
 
-| **Nom**                  | **Commerciale**                               | **Secteur public**                                 | **Description** |
+| **Nom**                  | **Commercial**                               | **Secteur public**                                 | **Description** |
 | ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
 | Stockage                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net` | Permet d’écrire les données dans le compte de stockage de cache dans la région source à partir de la machine virtuelle. |
 | Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Fournit l’autorisation et l’authentification aux URL du service Site Recovery. |

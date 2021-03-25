@@ -9,12 +9,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 02/11/2021
-ms.openlocfilehash: 15cc935457f76fb1d2fe4e8d699db831ebacc357
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 68267cdedd2f0b64549791866e8750cf42928ab4
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102181752"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103201244"
 ---
 # <a name="azure-active-directory-service-principal-with-azure-sql"></a>Principal de service Azure Active Directory avec Azure SQL
 
@@ -52,7 +52,7 @@ La prise en charge de cette fonctionnalité est utile dans les processus d’aut
 
 Pour permettre la création d’un objet Azure AD dans SQL Database et Azure Synapse pour le compte d’une application Azure AD, les paramètres suivants sont requis :
 
-1. Attribuez l’identité du serveur. L’identité du serveur affectée représente l’identité système managée. L’identité du serveur pour Azure SQL ne prend pas en charge l’identité gérée par l’utilisateur.
+1. Attribuez l’identité du serveur. L’identité du serveur attribuée représente l’identité MSI (Managed Service Identity). L’identité du serveur pour Azure SQL ne prend pas en charge l’identité gérée par l’utilisateur.
     - Pour un nouveau serveur logique Azure SQL, exécutez la commande PowerShell suivante :
     
     ```powershell

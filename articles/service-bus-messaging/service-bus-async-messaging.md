@@ -4,10 +4,10 @@ description: Découvrez comment Azure Service Bus prend en charge l’asynchroni
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: e37c18b95bca7ef1e6e8f0d74976bb73b214624a
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102500629"
 ---
 # <a name="asynchronous-messaging-patterns-and-high-availability"></a>Modèles de messagerie asynchrone et haute disponibilité

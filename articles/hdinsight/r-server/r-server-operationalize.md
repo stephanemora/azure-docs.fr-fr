@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 06/27/2018
-ms.openlocfilehash: c90642e58c026c78ce854e7fe74dd36963d48b67
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 7d597c4dbb81562050e9523c61d47d0020fc9059
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98944004"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104869464"
 ---
 # <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>Rendre opérationnel un cluster ML Services sur Azure HDInsight
 
@@ -53,31 +53,31 @@ Après avoir utilisé un cluster ML Services dans HDInsight pour effectuer votr
 
 1. Les options disponibles s’affichent. Choisissez la première option, comme illustré dans la capture d’écran suivante, pour **configurer ML Server pour l’opérationnalisation**.
 
-    ![Sélection dans l’utilitaire d’administration R Server](./media/r-server-operationalize/admin-util-one-box-1.png)
+    :::image type="content" source="./media/r-server-operationalize/admin-util-one-box-1.png" alt-text="Sélection dans l’utilitaire d’administration R Server" border="true":::
 
 1. Vous devez maintenant choisir la configuration souhaitée pour rendre opérationnel ML Server. Sélectionnez la première option en entrant **A**.
 
-    ![Rendre opérationnel ML Server dans l’utilitaire d’administration R Server](./media/r-server-operationalize/admin-util-one-box-2.png)
+    :::image type="content" source="./media/r-server-operationalize/admin-util-one-box-2.png" alt-text="Rendre opérationnel ML Server dans l’utilitaire d’administration R Server" border="true":::
 
 1. Quand vous y êtes invité, saisissez et saisissez à nouveau le mot de passe d’un utilisateur administrateur local.
 
 1. Vous devriez voir des sorties suggérant que l’opération a réussi. Vous êtes également invité à sélectionner une autre option dans le menu. Entrez E pour revenir au menu principal.
 
-    ![Opération réussie dans l’utilitaire d’administration R Server](./media/r-server-operationalize/admin-util-one-box-3.png)
+    :::image type="content" source="./media/r-server-operationalize/admin-util-one-box-3.png" alt-text="Opération réussie dans l’utilitaire d’administration R Server" border="true":::
 
 1. Vous pouvez éventuellement effectuer des vérifications de diagnostic en exécutant un test de diagnostic, comme suit :
 
     a. Dans le menu principal, sélectionnez **6** pour exécuter les tests de diagnostic.
 
-    ![Diagnostics dans l’utilitaire d’administration R Server](./media/r-server-operationalize/hdinsight-diagnostic1.png)
+    :::image type="content" source="./media/r-server-operationalize/hdinsight-diagnostic1.png" alt-text="Diagnostics dans l’utilitaire d’administration R Server" border="true":::
 
     b. Dans le menu Diagnostic Tests (Tests de diagnostic), sélectionnez **A**. Quand vous y êtes invité, entrez le mot de passe que vous avez fourni pour l’utilisateur administrateur local.
 
-    ![Test dans l’utilitaire d’administration R Server](./media/r-server-operationalize/hdinsight-diagnostic2.png)
+    :::image type="content" source="./media/r-server-operationalize/hdinsight-diagnostic2.png" alt-text="Test dans l’utilitaire d’administration R Server" border="true":::
 
     c. Vérifiez que la sortie indique que l’intégrité globale est satisfaisante, comme illustré ci-dessous.
 
-    ![Niveau d’intégrité satisfaisant dans l’utilitaire d’administration R Server](./media/r-server-operationalize/hdinsight-diagnostic3.png)
+    :::image type="content" source="./media/r-server-operationalize/hdinsight-diagnostic3.png" alt-text="Niveau d’intégrité satisfaisant dans l’utilitaire d’administration R Server" border="true":::
 
     d. Dans les options de menu présentées, entrez **E** pour revenir au menu principal, puis **8** pour quitter l’utilitaire d’administration.
 
@@ -142,9 +142,9 @@ remoteLogin(
 
 Pour mettre à l’échelle les nœuds de calcul, vous devez d’abord désactiver les nœuds Worker, puis configurer les nœuds de calcul sur les nœuds de travail désactivés.
 
-### <a name="step-1-decommission-the-worker-nodes"></a>Étape 1 : Désactiver les nœuds Worker
+### <a name="step-1-decommission-the-worker-nodes"></a>Étape 1 : Désactiver les nœuds Worker
 
-Le cluster ML Services n’est pas géré via [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html). Si les nœuds Worker ne sont pas désactivés, le gestionnaire de ressources YARN ne fonctionne pas comme prévu, car il n’a pas connaissance des ressources prises en charge par le serveur. Afin d’éviter ce problème, nous vous recommandons de désactiver les nœuds Worker avant d’effectuer un scale-out des nœuds de calcul.
+Le cluster ML Services n’est pas géré via [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html). Si les nœuds Worker ne sont pas désactivés, le gestionnaire de ressources YARN ne fonctionne pas comme prévu, car il n’a pas connaissance des ressources prises en charge par le serveur. Afin d’éviter ce problème, nous vous recommandons de désactiver les nœuds Worker avant d’augmenter la taille des nœuds de calcul.
 
 Pour désactiver les nœuds Worker, procédez comme suit :
 
@@ -154,7 +154,7 @@ Pour désactiver les nœuds Worker, procédez comme suit :
 
 1. Cliquez sur **Actions** > **Hôtes sélectionnés** > **Hôtes** > **Activer le mode de maintenance**. Par exemple, dans l’image suivante, nous avons sélectionné wn3 et wn4 pour la désactivation.  
 
-   ![Apache Ambari - Activer le mode Maintenance](./media/r-server-operationalize/get-started-operationalization.png)  
+   :::image type="content" source="./media/r-server-operationalize/get-started-operationalization.png" alt-text="Apache Ambari - Activer le mode Maintenance" border="true":::  
 
 * Sélectionnez **Actions** > **Hôtes sélectionnés** > **DataNodes** > cliquez sur **Désactiver**.
 * Sélectionnez **Actions** > **Hôtes sélectionnés** > **NodeManagers** > cliquez sur **Désactiver**.
@@ -164,7 +164,7 @@ Pour désactiver les nœuds Worker, procédez comme suit :
 * Désélectionnez les nœuds Worker et sélectionnez les nœuds principaux.
 * Sélectionnez **Actions** > **Hôtes sélectionnés** > **Hôtes** > **Redémarrer tous les composants**.
 
-### <a name="step-2-configure-compute-nodes-on-each-decommissioned-worker-nodes"></a>Étape 2 : Configurer les nœuds de calcul sur chaque nœud Worker désactivé
+### <a name="step-2-configure-compute-nodes-on-each-decommissioned-worker-nodes"></a>Étape 2 : Configurer les nœuds de calcul sur chaque nœud Worker désactivé
 
 1. Utilisez SSH dans chaque nœud Worker désactivé.
 

@@ -6,18 +6,18 @@ ms.author: gwallace
 ms.date: 11/28/2018
 ms.topic: conceptual
 ms.openlocfilehash: 1fda83ec00bed0f0c67d45e1e1af61baa5de5e78
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99626754"
 ---
 # <a name="service-fabric-mesh-terminology"></a>Terminologie de Service Fabric mesh
 
 > [!IMPORTANT]
-> La préversion d’Azure Service Fabric Mesh a été mise hors service. Les nouveaux déploiements ne seront plus autorisés via l’API Service Fabric Mesh. La prise en charge des déploiements existants se poursuivra jusqu’au 28 avril 2021.
+> La préversion d’Azure Service Fabric Mesh a été mise hors service. Les nouveaux déploiements par le biais de l’API Service Fabric Mesh ne seront plus autorisés. La prise en charge des déploiements existants se poursuivra jusqu’au 28 avril 2021.
 > 
-> Pour plus détails, consultez [Mise hors service de la préversion d’Azure Service Fabric Mesh](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
+> Pour plus d’informations, consultez [Mise hors service de la préversion d’Azure Service Fabric Mesh](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
 
 Azure Service Fabric mesh est un service entièrement géré qui permet aux développeurs de déployer des applications de microservices sans gestion de machines virtuelles, de stockage ou de mise en réseau. Cet article décrit en détail la terminologie utilisée dans Azure Service Fabric Mesh pour vous aider à mieux comprendre les termes utilisés dans la documentation.
 

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f80990854fd0c584d8e6582fdf35108e67d9202b
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99625125"
 ---
 # <a name="azure-ad-password-protection-on-premises-frequently-asked-questions"></a>Questions fréquentes (FAQ) sur la protection par mot de passe Azure AD en local

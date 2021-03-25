@@ -9,10 +9,10 @@ ms.date: 11/18/2020
 ms.author: spelluru
 ms.custom: seo-python-october2019, devx-track-python
 ms.openlocfilehash: 0553062032a58ec9eb9cf3c474ee7c8f19fc544d
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98631553"
 ---
 # <a name="send-messages-to-and-receive-messages-from-azure-service-bus-queues-python"></a>Envoyer et recevoir des messages à partir de files d’attente Azure Service Bus (Python)

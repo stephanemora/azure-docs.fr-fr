@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: allensu
 ms.openlocfilehash: 5387fdc224cd77ee5273767df5033a51dc27608c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96008359"
 ---
 # <a name="dynamic-site-acceleration-via-azure-cdn"></a>Accélération de site dynamique via Azure CDN
@@ -183,4 +183,4 @@ Pour accéder au moteur de règles :
 
 Vous pouvez également utiliser deux points de terminaison CDN : un point de terminaison optimisé avec DSA pour fournir des ressources dynamiques et un autre point de terminaison optimisé avec un type d’optimisation statique, tel qu’une livraison web générale, pour fournir les ressources pouvant être mises en cache. Modifiez les URL de vos pages web afin qu’elles pointent directement sur le point de terminaison CDN vers la ressource que vous envisagez d’utiliser. 
 
-Par exemple : `mydynamic.azureedge.net/index.html` est une page dynamique et est chargée à partir du point de terminaison avec accélération de site dynamique.    La page html fait référence à plusieurs ressources statiques telles que des images ou des bibliothèques JavaScript qui sont chargées à partir du point de terminaison CDN statique, telles que `mystatic.azureedge.net/banner.jpg` et `mystatic.azureedge.net/scripts.js`.
+Par exemple : `mydynamic.azureedge.net/index.html` est une page dynamique et est chargée à partir du point de terminaison avec accélération de site dynamique.  La page html fait référence à plusieurs ressources statiques telles que des images ou des bibliothèques JavaScript qui sont chargées à partir du point de terminaison CDN statique, telles que `mystatic.azureedge.net/banner.jpg` et `mystatic.azureedge.net/scripts.js`.

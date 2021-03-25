@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: allensu
 ms.custom: references_regions
-ms.openlocfilehash: b0e51d11797bc5767f19b25a92a2d29a66ea1bb2
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 8e14b22895c4734f1efd8688a5b20c946422a080
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102176720"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103225623"
 ---
 # <a name="cross-region-load-balancer-preview"></a>Équilibreur de charge inter-région (préversion)
 
@@ -94,7 +94,7 @@ Le pool principal de l'équilibreur de charge inter-région contient un ou plusi
 
 Ajoutez vos déploiements d'équilibreurs de charge existants à un équilibreur de charge inter-région pour bénéficier d'un déploiement inter-région hautement disponible.
 
-La **région d'accueil** est celle où l'équilibreur de charge inter-région est déployé. Cette région ne détermine en rien la façon dont le trafic sera acheminé. Si une région d’hébergement tombe en panne, le flux de trafic n’est pas affecté.
+La **région d’accueil** est celle où est déployé l’équilibreur de charge inter-région ou l’adresse IP publique du niveau global. Cette région ne détermine en rien la façon dont le trafic sera acheminé. Si une région d’hébergement tombe en panne, le flux de trafic n’est pas affecté.
 
 ### <a name="home-regions"></a>Régions d'accueil
 * USA Est 2
@@ -106,9 +106,9 @@ La **région d'accueil** est celle où l'équilibreur de charge inter-région es
 * Asie Est
 
 > [!NOTE]
-> Vous ne pouvez déployer votre équilibreur de charge inter-région que dans l'une des 8 régions ci-dessus.
+> Vous ne pouvez déployer votre équilibreur de charge inter-région que dans l'une des 7 régions ci-dessus.
 
-Une **région participante** est une région où l'adresse IP publique globale de l'équilibreur de charge est disponible. 
+Une **région participante** est celle où l'adresse IP publique globale de l'équilibreur de charge est disponible. 
 
 Le trafic initié par l'utilisateur sera acheminé vers la région participante la plus proche via le réseau Microsoft principal. 
 
