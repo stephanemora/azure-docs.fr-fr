@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 10/21/2019
 ms.author: mayg
 ms.openlocfilehash: f230445ecdb046c2b631e89567df71e1d09c3234
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95999227"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>Analyser le rapport du planificateur de déploiement Azure Site Recovery
@@ -25,21 +25,21 @@ La feuille de calcul du résumé local fournit une vue d’ensemble de l’envir
 
 **Start Date** et **End Date** : dates de début et de fin du profilage des données prises en compte pour la génération de rapport. Par défaut, la date de début est la date à laquelle le profilage démarre, et la date de fin est la date à laquelle le profilage s’arrête. Il peut s’agir des valeurs StartDate et EndDate si le rapport est généré avec ces paramètres.
 
-**Total number of profiling days** : le nombre total de jours de profilage compris entre les dates de début et de fin pendant lesquelles le rapport est généré.
+**Nombre total de jours de profilage** : nombre total de jours de profilage compris entre les dates de début et de fin pendant lesquelles le rapport est généré.
 
 **Number of compatible virtual machines** : nombre total de machines virtuelles compatibles pour lesquelles la bande passante réseau requise, ainsi que le nombre requis de comptes de stockage et de cœurs Azure sont calculés.
 
 **Total number of disks across all compatible virtual machines** : le nombre total de disques sur toutes les machines virtuelles compatibles.
 
-**Average number of disks per compatible virtual machine** : le nombre moyen de disques calculé sur toutes les machines virtuelles compatibles.
+**Nombre moyen de disques par machine virtuelle compatible** : nombre moyen de disques calculé sur toutes les machines virtuelles compatibles.
 
-**Average disk size (GB)**  : la taille de disque moyenne calculée sur toutes les machines virtuelles compatibles.
+**Taille de disque moyenne (Go)**  : taille de disque moyenne calculée sur toutes les machines virtuelles compatibles.
 
 **Desired RPO (minutes)** : objectif de point de récupération par défaut ou valeur transmise pour le paramètre DesiredRPO au moment de la génération de rapport afin d’estimer la bande passante requise.
 
 **Desired bandwidth (Mbps)** : valeur que vous avez transmise pour le paramètre Bandwidth au moment de la génération de rapport afin d’estimer l’objectif de point de récupération (RPO) réalisable.
 
-**Observed typical data churn per day (GB)**  : l’activité moyenne des données observée tous les jours de profilage.
+**Activité type des donnée observée par jour (Go)**  : activité moyenne des données observée tous les jours de profilage.
 
 ## <a name="recommendations"></a>Recommandations 
 La feuille Recommandations d’Hyper-V pour le rapport Azure présente les détails suivants selon le RPO souhaité que vous avez sélectionné :
@@ -49,22 +49,22 @@ La feuille Recommandations d’Hyper-V pour le rapport Azure présente les déta
 ### <a name="profile-data"></a>Données de profil
 ![Données de profil](media/hyper-v-deployment-planner-analyze-report/profile-data-h2a.png)
 
-**Profiled data period**: la période pendant laquelle le profilage a été exécuté. Par défaut, l’outil inclut dans le calcul toutes les données profilées. Si vous avez utilisé les options StartDate et EndDate dans la génération de rapport, il génère le rapport correspondant à la période concernée. 
+**Période de données profilées** : période pendant laquelle le profilage a été exécuté. Par défaut, l’outil inclut dans le calcul toutes les données profilées. Si vous avez utilisé les options StartDate et EndDate dans la génération de rapport, il génère le rapport correspondant à la période concernée. 
 
 **Number of Hyper-V servers profiled** : nombre de serveurs Hyper-V pour lesquels un rapport de machines virtuelles est généré. Sélectionnez le nombre pour afficher le nom des serveurs Hyper-V. La feuille Exigences de stockage en local s’ouvre : elle présente tous les serveurs ainsi que leurs besoins en stockage. 
 
-**Desired RPO** :l’objectif de point de récupération (RPO) de votre déploiement. Par défaut, la bande passante réseau requise est calculée pour les valeurs RPO de 15, 30 et 60 minutes. En fonction de la sélection, les valeurs concernées sont mises à jour sur la feuille. Si vous avez utilisé le paramètre DesiredRPOinMin lors de la génération de rapport, cette valeur est affichée dans le résultat Desired RPO.
+**Objectif de point de récupération désiré** : objectif de point de récupération de votre déploiement. Par défaut, la bande passante réseau requise est calculée pour les valeurs RPO de 15, 30 et 60 minutes. En fonction de la sélection, les valeurs concernées sont mises à jour sur la feuille. Si vous avez utilisé le paramètre DesiredRPOinMin lors de la génération de rapport, cette valeur est affichée dans le résultat Desired RPO.
 
 ### <a name="profiling-overview"></a>Vue d’ensemble du profilage
 ![Vue d’ensemble du profilage](media/hyper-v-deployment-planner-analyze-report/profiling-overview-h2a.png)
 
-**Total Profiled Virtual Machines** : le nombre total de machines virtuelles dont les données profilées sont disponibles. Si le fichier VMListFile contient des noms de machines virtuelles qui n’ont pas été profilées, ces dernières ne sont pas prises en compte dans la génération de rapport et sont exclues du nombre total de machines virtuelles profilées.
+**Nombre total de machines virtuelles profilées** : nombre total de machines virtuelles dont les données profilées sont disponibles. Si le fichier VMListFile contient des noms de machines virtuelles qui n’ont pas été profilées, ces dernières ne sont pas prises en compte dans la génération de rapport et sont exclues du nombre total de machines virtuelles profilées.
 
 **Compatible Virtual Machines** : le nombre de machines virtuelles pouvant être protégées dans Azure à l’aide d’Azure Site Recovery. Il s’agit du nombre total de machines virtuelles compatibles pour lesquelles la bande passante réseau requise, le nombre de comptes de stockage et le nombre de cœurs Azure sont calculés. Les détails de chaque machine virtuelle compatible sont disponibles dans la section « Machines virtuelles compatibles ».
 
-**Incompatible Virtual Machines** : le nombre de machines virtuelles qui sont incompatibles pour la protection assurée avec Site Recovery. Les raisons de l’incompatibilité sont indiquées dans la section Machines virtuelles incompatibles. Si VMListFile contient des noms de machines virtuelles qui n’ont pas été profilées, ces machines virtuelles sont exclues du nombre de machines virtuelles incompatibles. Ces machines virtuelles sont répertoriées comme « Data not found » à la fin de la section Machines virtuelles incompatibles.
+**Machines virtuelles incompatibles** : nombre de machines virtuelles profilées qui sont incompatibles pour la protection avec Site Recovery. Les raisons de l’incompatibilité sont indiquées dans la section Machines virtuelles incompatibles. Si VMListFile contient des noms de machines virtuelles qui n’ont pas été profilées, ces machines virtuelles sont exclues du nombre de machines virtuelles incompatibles. Ces machines virtuelles sont répertoriées comme « Data not found » à la fin de la section Machines virtuelles incompatibles.
 
-**Desired RPO** : votre objectif de point de récupération souhaité, en minutes. Le rapport est généré pour les trois valeurs RPO : 15 (valeur par défaut), 30 et 60 minutes. La recommandation de la bande passante dans le rapport est modifiée en fonction de votre sélection dans la liste déroulante **Desired RPO** dans l’angle supérieur droit de la feuille. Si vous avez généré le rapport à l’aide du paramètre -DesiredRPO avec une valeur personnalisée, cette valeur personnalisée s’affiche par défaut dans la liste déroulante **Desired RPO**.
+**Objectif de point de récupération désiré** : votre objectif de point de récupération (RPO) souhaité, en minutes. Le rapport est généré pour les trois valeurs RPO : 15 (valeur par défaut), 30 et 60 minutes. La recommandation de la bande passante dans le rapport est modifiée en fonction de votre sélection dans la liste déroulante **Desired RPO** dans l’angle supérieur droit de la feuille. Si vous avez généré le rapport à l’aide du paramètre -DesiredRPO avec une valeur personnalisée, cette valeur personnalisée s’affiche par défaut dans la liste déroulante **Desired RPO**.
 
 ### <a name="required-network-bandwidth-mbps"></a>Bande passante réseau requise (Mbits/s)
 ![Bande passante réseau requise](media/hyper-v-deployment-planner-analyze-report/required-network-bandwidth-h2a.png)

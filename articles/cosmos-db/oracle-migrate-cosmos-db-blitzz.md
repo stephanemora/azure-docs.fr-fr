@@ -9,10 +9,10 @@ ms.date: 08/21/2019
 ms.author: sngun
 ms.reviewer: sngun
 ms.openlocfilehash: 15bcd0c54fc5f6614f4d1925759704309048acae
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93336438"
 ---
 # <a name="migrate-data-from-oracle-to-azure-cosmos-db-cassandra-api-account-using-blitzz"></a>Migrer des données depuis un Oracle vers un compte d’API Cassandra Azure Cosmos DB à l’aide de Blitzz
@@ -119,7 +119,7 @@ Cette section décrit les étapes requises pour configurer Blitzz et migre entre
    use-ssl: false
    ```
 
-1. Migrez ensuite les données à l'aide de Blitzz. Vous pouvez exécuter le replicant Blizz en mode **complet** ou **instantané**  :
+1. Migrez ensuite les données à l'aide de Blitzz. Vous pouvez exécuter le replicant Blizz en mode **complet** ou **instantané** :
 
    * **Mode complet** - Dans ce mode, le replicant continue à s’exécuter après la migration et identifie tout changement sur le système Oracle source. S’il détecte des changements, ceux-ci sont répliqués sur le compte cible Azure Cosmos en temps réel.
 

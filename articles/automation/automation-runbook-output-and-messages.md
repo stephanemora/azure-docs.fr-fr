@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 11/03/2020
 ms.topic: conceptual
 ms.openlocfilehash: beed3ec50d0c7990168ee75976c732796cdbe246
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93324426"
 ---
 # <a name="configure-runbook-output-and-message-streams"></a>Configurer les flux de sortie et de messages d’un runbook
@@ -117,9 +117,9 @@ Le Runbook inclut le type de sortie `Microsoft.Azure.Commands.Profile.Models.PSA
 
 Ce Runbook est simple, mais l’un des éléments de configuration nécessite une attention particulière. La dernière activité exécute l’applet de commande `Write-Output` pour écrire des données de profil dans une variable à l’aide d’une expression PowerShell pour le paramètre `Inputobject`. Ce paramètre est obligatoire pour `Write-Output`.
 
-Le deuxième Runbook de cet exemple, nommé **Test-ChildOutputType** , définit simplement deux activités.<br> ![Exemple de type de sortie enfant Runbook](media/automation-runbook-output-and-messages/runbook-display-authentication-results-example.png)
+Le deuxième Runbook de cet exemple, nommé **Test-ChildOutputType**, définit simplement deux activités.<br> ![Exemple de type de sortie enfant Runbook](media/automation-runbook-output-and-messages/runbook-display-authentication-results-example.png)
 
-La première activité appelle le Runbook **AuthenticateTo-Azure**. La deuxième activité exécute l’applet de commande `Write-Verbose` avec l’option **Source de données** définie sur **Sortie d'activité**. De plus, l’option **Chemin de champ** est définie sur **Context.Subscription.SubscriptionName** , la sortie du contexte du Runbook **AuthenticateTo-Azure**.<br> ![Source de données du paramètre d’applet de commande Write-Verbose](media/automation-runbook-output-and-messages/runbook-write-verbose-parameters-config.png)
+La première activité appelle le Runbook **AuthenticateTo-Azure**. La deuxième activité exécute l’applet de commande `Write-Verbose` avec l’option **Source de données** définie sur **Sortie d'activité**. De plus, l’option **Chemin de champ** est définie sur **Context.Subscription.SubscriptionName**, la sortie du contexte du Runbook **AuthenticateTo-Azure**.<br> ![Source de données du paramètre d’applet de commande Write-Verbose](media/automation-runbook-output-and-messages/runbook-write-verbose-parameters-config.png)
 
 Le résultat obtenu est le nom de l’abonnement.<br> ![Résultats du Runbook Test-ChildOutputType](media/automation-runbook-output-and-messages/runbook-test-childoutputtype-results.png)
 
@@ -277,9 +277,9 @@ Cependant, à moins que vous n’ayez besoin de ces informations pour suivre la 
 1. Dans le portail Azure, ouvrez votre compte Automation.
 2. Sélectionnez **Runbooks** sous **Automatisation de processus** pour ouvrir la liste des runbooks.
 3. Dans la page Runbooks, sélectionnez un Runbook graphique dans votre liste de Runbooks.
-4. Sous **paramètres** , cliquez sur **journalisation et le suivi**.
-5. Sur la page Journalisation et suivi, sous **Journaliser les enregistrements détaillés** , cliquez sur **On** (Activé) pour activer la journalisation détaillée.
-6. Sous **Suivi au niveau de l’activité** , définissez le niveau de suivi sur **De base** ou **Détaillé** , selon le niveau de suivi dont vous avez besoin.<br>
+4. Sous **paramètres**, cliquez sur **journalisation et le suivi**.
+5. Sur la page Journalisation et suivi, sous **Journaliser les enregistrements détaillés**, cliquez sur **On** (Activé) pour activer la journalisation détaillée.
+6. Sous **Suivi au niveau de l’activité**, définissez le niveau de suivi sur **De base** ou **Détaillé**, selon le niveau de suivi dont vous avez besoin.<br>
 
    ![Page Journalisation et suivi de la création graphique](media/automation-runbook-output-and-messages/logging-and-tracing-settings-blade.png)
 

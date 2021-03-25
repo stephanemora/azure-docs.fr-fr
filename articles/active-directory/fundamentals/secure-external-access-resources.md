@@ -14,10 +14,10 @@ ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bc8ec364380fc5cb9f6e33a29cd8dac96ea1fb69
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98219825"
 ---
 # <a name="securing-external-collaboration-in-azure-active-directory-and-microsoft-365"></a>Sécurisation de la collaboration externe dans Azure Active Directory et Microsoft 365
@@ -55,7 +55,7 @@ Consultez les articles suivants sur la sécurisation de l’accès externe aux r
 
 6. [Sécuriser l’accès avec la gestion des droits d’utilisation](6-secure-access-entitlement-managment.md)
 
-7. [Sécuriser l’accès avec des stratégies d’accès conditionnel](7-secure-access-conditional-access.md)
+7. [Sécuriser l’accès avec des stratégies d’Accès conditionnel](7-secure-access-conditional-access.md)
 
 8. [Sécuriser l’accès avec des étiquettes de confidentialité](8-secure-access-sensitivity-labels.md)
 

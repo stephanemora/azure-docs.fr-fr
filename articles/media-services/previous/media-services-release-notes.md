@@ -3,7 +3,7 @@ title: Notes de publication Azure Media Services | Microsoft Docs
 description: Cet article traite des notes de publication de Microsoft Azure Media Services v2.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: media
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/01/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e1700489b4f3ee37d95b87b1bf026d47c9f1de4d
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: 019f0bc98de45fa1fe6f9b8c72ef74beb50ea2c2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98694880"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103017356"
 ---
 # <a name="azure-media-services-release-notes"></a>Notes de publication d'Azure Media Services
 
@@ -48,6 +48,26 @@ Nous souhaitons connaître vos impressions afin de pouvoir nous consacrer à la 
 
 ## <a name="rest-api-version-history"></a><a name="rest_version_history"></a>Historique des versions de l’API REST
 Pour obtenir des informations sur l’historique des versions de l’API REST, consultez la [Référence de l’API REST d’Azure Media Services].
+
+## <a name="february-2021"></a>Février 2021
+
+### <a name="azure-media-services-v2-api-and-sdks-deprecation-announcement"></a>Annonce de la dépréciation des kits SDK et de l’API Azure Media Services v2
+
+#### <a name="update-your-azure-media-services-rest-api-and-sdks-to-v3-by-29-february-2024"></a>Mise à jour requise des kits SDK et de l’API REST Azure Media Services vers v3 d’ici le 29 février 2024
+
+Étant donné que la version 3 des kits SDK clients pour .NET et Java, et de l’API REST Azure Media Services offre plus de fonctionnalités que la version 2, nous allons abandonner la version 2 de l’API REST Azure Media Services et des kits SDK clients pour .NET et Java. Nous vous encourageons à anticiper cette transition pour bénéficier des meilleures fonctionnalités de la version 3 de l’API REST Azure Media Services et des kits SDK clients pour .NET et Java.
+La version 3 offre les avantages suivants :
+ 
+- Prise en charge des événements en direct 24 h/24, 7 j/7
+- API REST ARM, SDK clients pour .NET core, Node.js, Python, Java, Go et Ruby.
+- Clés managées par le client, intégration du stockage approuvé, prise en charge des liaisons privées et [bien plus encore](https://review.docs.microsoft.com/en-us/azure/media-services/latest/migrate-v-2-v-3-migration-benefits)
+
+#### <a name="action-required"></a>Action obligatoire :
+
+Pour limiter les perturbations au niveau de vos charges de travail, consultez le [guide de migration](https://go.microsoft.com/fwlink/?linkid=2149150&clcid=0x409) pour faire passer votre code de la version 2 de l’API et des SDK à la version 3 avant le 29 février 2024.
+**Après le 29 février 2024**, Azure Media Services n’acceptera plus le trafic sur l’API REST version 2, l’API de gestion de compte ARM version 2015-10-01 ou à partir des SDK clients .NET version 2. Cela inclut tous les SDK clients open source tiers pouvant appeler l’API version 2.  
+
+Consultez [l’annonce officielle sur les mises à jour Azure](https://azure.microsoft.com/updates/update-your-azure-media-services-rest-api-and-sdks-to-v3-by-29-february-2024/).
 
 ## <a name="september-2020"></a>Septembre 2020
 

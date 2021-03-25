@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: tisande
 ms.openlocfilehash: bb9a0351b6f1de47f3687995c65060a23bdb2874
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93336110"
 ---
 # <a name="querying-geospatial-data-with-azure-cosmos-db"></a>Interrogation de données géospatiales avec Azure Cosmos DB
@@ -183,5 +183,5 @@ De même, voici une requête permettant de rechercher tous les documents dont la
 Maintenant que vous avez découvert comment démarrer avec la prise en charge géospatiale dans Azure Cosmos DB, vous pouvez :
 
 * En savoir plus sur les [requêtes Azure Cosmos DB](sql-query-getting-started.md)
-* En savoir plus sur l’[utilisation de données de localisation géospatiales et GeoJSON](sql-query-geospatial-intro.md) dans Azure Cosmos DB
+* En savoir plus sur les [données de localisation géospatiales et GeoJSON dans Azure Cosmos DB](sql-query-geospatial-intro.md)
 * En savoir plus sur la façon d’[Indexer des données spatiales avec Azure Cosmos DB](sql-query-geospatial-index.md)

@@ -10,10 +10,10 @@ ms.date: 10/13/2020
 ms.author: anfeldma
 ms.custom: devx-track-java, contperf-fy21q2
 ms.openlocfilehash: 8aad9df4720c833a74659b5cd36b7f5aafdf9b60
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97631837"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-java-sdk-v4"></a>Conseils sur les performances pour le SDK Java v4 Azure Cosmos DB
@@ -150,15 +150,15 @@ Par défaut, les demandes Cosmos DB en mode direct sont effectuées sur TCP lors
 
 Dans le SDK Java v4 Azure Cosmos DB, le mode direct est le meilleur choix pour améliorer les performances des bases de données avec la plupart des charges de travail. 
 
-* ***Vue d’ensemble du mode direct** _
+* ***Vue d’ensemble du mode direct***
 
 :::image type="content" source="./media/performance-tips-async-java/rntbdtransportclient.png" alt-text="Illustration de l’architecture du mode direct" border="false":::
 
-L’architecture côté client utilisée en mode direct permet une utilisation prévisible du réseau et un accès multiplexé aux réplicas Azure Cosmos DB. Le diagramme ci-dessus montre comment le mode direct route les demandes des clients vers les réplicas dans le back-end Cosmos DB. L’architecture du mode direct alloue jusqu’à 10 _ *canaux** côté client par réplica de base de données. Un canal est une connexion TCP précédée d’une mémoire tampon des requêtes, qui correspond à une profondeur de 30 requêtes. Les canaux appartenant à un réplica sont alloués dynamiquement en fonction des besoins du **point de terminaison de service** du réplica. Quand l’utilisateur émet une requête en mode direct, **TransportClient** route la requête vers le point de terminaison de service approprié en fonction de la clé de partition. La **file d’attente des requêtes** met en mémoire tampon les requêtes avant le point de terminaison de service.
+L’architecture côté client utilisée en mode direct permet une utilisation prévisible du réseau et un accès multiplexé aux réplicas Azure Cosmos DB. Le diagramme ci-dessus montre comment le mode direct route les demandes des clients vers les réplicas dans le back-end Cosmos DB. L’architecture du mode direct alloue jusqu’à 10 **canaux** du côté client par réplica de base de base de données. Un canal est une connexion TCP précédée d’une mémoire tampon des requêtes, qui correspond à une profondeur de 30 requêtes. Les canaux appartenant à un réplica sont alloués dynamiquement en fonction des besoins du **point de terminaison de service** du réplica. Quand l’utilisateur émet une requête en mode direct, **TransportClient** route la requête vers le point de terminaison de service approprié en fonction de la clé de partition. La **file d’attente des requêtes** met en mémoire tampon les requêtes avant le point de terminaison de service.
 
-* ***Options de configuration du mode direct** _
+* ***Options de configuration du mode direct***
 
-Si vous souhaitez opter pour un comportement de mode direct non défini par défaut, créez une instance _DirectConnectionConfig* et personnalisez ses propriétés, puis transmettez l’instance des propriétés personnalisées à la méthode *directMode()* dans le générateur de clients Azure Cosmos DB.
+Si vous souhaitez opter pour un comportement de mode direct non défini par défaut, créez une instance *DirectConnectionConfig* et personnalisez ses propriétés, puis transmettez l’instance des propriétés personnalisées à la méthode *directMode()* dans le générateur de clients Azure Cosmos DB.
 
 Ces paramètres de configuration contrôlent le comportement de l’architecture du mode direct sous-jacent dont il est question précédemment.
 
@@ -176,19 +176,19 @@ Pour commencer, utilisez les paramètres de configuration recommandés ci-dessou
 
 Le SDK Java v4 Azure Cosmos DB prend en charge les requêtes parallèles, ce qui vous permet d’interroger une collection partitionnée en parallèle. Pour plus d’informations, consultez les [exemples de code](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples) concernant l’utilisation du SDK Java v4 Azure Cosmos DB. Les requêtes parallèles sont conçues pour améliorer la latence des requêtes et le débit sur leur équivalent série.
 
-* ***Optimisation de setMaxDegreeOfParallelism\:** _
+* ***Optimisation de setMaxDegreeOfParallelism\:***
     
 Les requêtes parallèles interrogent plusieurs partitions en parallèle. Les données d’une collection partitionnée individuelle sont toutefois extraites en série dans le cadre de la requête. Utilisez donc le paramètre setMaxDegreeOfParallelism pour définir le nombre de partitions qui augmente les chances de résultats de la requête, sous réserve que toutes les autres conditions système restent inchangées. Si vous ne connaissez pas le nombre de partitions, vous pouvez utiliser le paramètre setMaxDegreeOfParallelism pour définir un nombre élevé, et le système sélectionne le minimum (nombre de partitions, entrée fournie par l’utilisateur) comme degré maximal de parallélisme.
 
 Il est important de noter que les requêtes parallèles produisent de meilleurs résultats si les données sont réparties de manière homogène entre toutes les partitions. Si la collection est partitionnée de telle façon que toutes les données retournées par une requête, ou une grande partie d’entre elles, sont concentrées sur quelques partitions (une partition dans le pire des cas), les performances de la requête sont altérées par ces partitions.
 
-_ ***Optimisation de setMaxBufferedItemCount\:** _
+* ***Optimisation de setMaxBufferedItemCount\:***
     
 Une requête parallèle est conçue pour pré-extraire les résultats pendant que le lot de résultats actuel est en cours de traitement par le client. La pré-extraction permet d’améliorer la latence globale d’une requête. setMaxBufferedItemCount limite le nombre de résultats pré-extraits. Définir le paramètre setMaxBufferedItemCount sur le nombre de résultats retournés attendu (ou un nombre plus élevé) permet à la requête d’optimiser la pré-extraction.
 
 La pré-extraction fonctionne de la même façon, quel que soit le paramètre MaxDegreeOfParallelism, et il existe une seule mémoire tampon pour les données de toutes les partitions.
 
-_ **Effectuer une montée en charge de votre charge de travail cliente**
+* **Effectuer un scale-out de votre charge de travail cliente**
 
 Si vous effectuez des tests à des niveaux de débit élevé, l’application cliente peut devenir un goulot d’étranglement en raison du plafonnement sur l’utilisation du processeur ou du réseau. Si vous atteignez ce point, vous pouvez continuer à augmenter le compte Azure Cosmos DB en augmentant la taille des instances de vos applications clientes sur plusieurs serveurs.
 
@@ -233,11 +233,11 @@ Pour plus d’informations sur le SDK Java v4 Azure Cosmos DB, consultez le [ré
 
 Pour diverses raisons, vous souhaiterez ou devrez peut-être ajouter la journalisation dans un thread qui génère un débit de demande élevé. Si votre objectif est de saturer complètement le débit provisionné d’un conteneur avec les requêtes générées par ce thread, les optimisations de la journalisation peuvent améliorer considérablement les performances.
 
-* ***Configurer un enregistreur asynchrone** _
+* ***Configurer un enregistreur asynchrone***
 
 La latence d’un enregistreur d’événements synchrone prend nécessairement en compte le calcul de latence globale de votre thread générateur de demandes. Un enregistreur d’événements asynchrone, tel que [log4j2](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Flogging.apache.org%2Flog4j%2Flog4j-2.3%2Fmanual%2Fasync.html&data=02%7C01%7CCosmosDBPerformanceInternal%40service.microsoft.com%7C36fd15dea8384bfe9b6b08d7c0cf2113%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637189868158267433&sdata=%2B9xfJ%2BWE%2F0CyKRPu9AmXkUrT3d3uNA9GdmwvalV3EOg%3D&reserved=0), est recommandé pour découpler la surcharge de journalisation de vos threads d’application hautes performances.
 
-_***Désactiver la journalisation de netty** _
+* ***Désactiver la journalisation de netty***
 
 La journalisation de la bibliothèque netty produit beaucoup d’informations et doit être désactivée (la suppression de la connexion dans la configuration peut être insuffisante) afin d’éviter des coûts de processeur supplémentaires. Si vous n’êtes pas en mode débogage, désactivez la journalisation de netty en même temps. Par conséquent, si vous utilisez log4j pour supprimer les coûts supplémentaires de l’UC induits par ``org.apache.log4j.Category.callAppenders()`` de netty, ajoutez la ligne suivante à votre codebase :
 
@@ -245,7 +245,7 @@ La journalisation de la bibliothèque netty produit beaucoup d’informations et
 org.apache.log4j.Logger.getLogger("io.netty").setLevel(org.apache.log4j.Level.OFF);
 ```
 
- _ **Limite des ressources des fichiers ouverts du système d’exploitation**
+ * **Limite des ressources des fichiers ouverts du système d’exploitation**
  
 Certains systèmes Linux (par exemple Red Hat) ont une limite maximale du nombre de fichiers ouverts et donc du nombre total de connexions. Exécutez la commande suivante pour afficher les limites actuelles :
 

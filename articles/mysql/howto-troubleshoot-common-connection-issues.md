@@ -8,10 +8,10 @@ ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 3/18/2020
 ms.openlocfilehash: da500087aeb4ad5e2bf516c3d0ce3cceaf8396af
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96000281"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-mysql"></a>Résoudre les problèmes de connexion à la base de données Azure Database pour MySQL

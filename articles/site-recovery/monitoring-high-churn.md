@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 09/09/2020
 ms.author: sharrai
 ms.openlocfilehash: aeb89a9d18e4550fa1d6162920d60507fd50c208
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92359864"
 ---
 # <a name="monitoring-churn-patterns-on-virtual-machines"></a>Surveillance de modèles d’évolution sur des machines virtuelles
@@ -29,13 +29,13 @@ Vous pouvez également utiliser certains outils spécifiques du système d’exp
 
 Si vous disposez d’un ordinateur, qu’il soit local ou non, qui exécute un système d’exploitation Windows, quelques outils supplémentaires sont disponibles.
 
-Outre la vérification de l’utilisation du disque sur le gestionnaire des tâches, vous pouvez toujours vous référer au **Moniteur de ressources** et à l’ **Analyseur de performances** . Ces outils sont déjà présents sur les ordinateurs Windows.
+Outre la vérification de l’utilisation du disque sur le gestionnaire des tâches, vous pouvez toujours vous référer au **Moniteur de ressources** et à l’**Analyseur de performances**. Ces outils sont déjà présents sur les ordinateurs Windows.
 
 ### <a name="resource-monitor"></a>Moniteur de ressources
 
 Le **Moniteur de ressources** affiche des informations sur l’utilisation des ressources matérielles et logicielles en temps réel. Pour exécuter le Moniteur de ressources sur un ordinateur Windows, procédez comme suit :
 
-1. Appuyez sur Win+R, puis tapez _resmon_ .
+1. Appuyez sur Win+R, puis tapez _resmon_.
 1. Une fois la fenêtre de resmon, autrement dit du Moniteur de ressources, ouverte, basculez vers l’onglet Disque. Il affiche la vue suivante :
 
     ![Onglet Disque du Moniteur de ressources](./media/monitoring-high-churn/resmon-disk-tab.png)
@@ -46,9 +46,9 @@ Une fois que vous avez identifié les applications à l’origine de cette évol
 
 ### <a name="performance-monitor"></a>Analyseur de performances
 
-L’ **Analyseur de performances** surveille diverses activités sur un ordinateur, telles que l’utilisation du processeur ou de la mémoire. Pour exécuter l’Analyseur de performances sur un ordinateur Windows, procédez comme suit :
+L’**Analyseur de performances** surveille diverses activités sur un ordinateur, telles que l’utilisation du processeur ou de la mémoire. Pour exécuter l’Analyseur de performances sur un ordinateur Windows, procédez comme suit :
 
-1. Appuyez sur Win+R, puis tapez _Perfmon_ .
+1. Appuyez sur Win+R, puis tapez _Perfmon_.
 1. Une fois la fenêtre de Perfmon, autrement dit, de l’Analyseur de performances, ouverte, elle présente l’affichage suivant :
 
     ![Analyseur de performances Étape1](./media/monitoring-high-churn/perfmon-step1.png)
@@ -70,7 +70,7 @@ Si vous disposez d’un ordinateur, qu’il soit local ou non, qui exécute un s
 
 ### <a name="iotop"></a>Iotop
 
-L’un des outils les plus utilisés est _iotop_ . Il s’agit d’un utilitaire permettant d’afficher l’activité du disque en temps réel. Il est capable de répertorier les processus à l’origine des E/S, ainsi que la bande passante du disque qu’ils utilisent.
+L’un des outils les plus utilisés est _iotop_. Il s’agit d’un utilitaire permettant d’afficher l’activité du disque en temps réel. Il est capable de répertorier les processus à l’origine des E/S, ainsi que la bande passante du disque qu’ils utilisent.
 
 Ouvrez l’invite de commandes et exécutez la commande suivante : `iotop`.
 

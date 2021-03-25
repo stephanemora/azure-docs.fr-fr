@@ -9,12 +9,12 @@ ms.date: 02/19/2021
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: 22f4db04f37985e49065f80da6e4578ed71c5db1
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: b00956a6fb5a79b09602ca1752cc547595f32db6
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102428437"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103224592"
 ---
 # <a name="network-file-system-nfs-30-protocol-support-in-azure-blob-storage-preview"></a>Prise en charge du protocole NFS (Network File System) 3.0 dans le stockage Blob Azure (préversion)
 
@@ -112,7 +112,7 @@ Les fonctionnalités de stockage Azure suivantes ne sont pas prises en charge lo
   
 ## <a name="nfs-30-features-not-yet-supported"></a>Fonctionnalités NFS 3.0 pas encore prises en charge
 
-Les fonctionnalités NFS 3.0 suivantes ne sont pas encore prises en charge avec Azure Data Lake Storage Gen2.
+Les fonctionnalités NFS 3.0 suivantes ne sont pas encore prises en charge.
 
 - NFS 3.0 sur UDP. Seul NFS 3.0 sur TCP est pris en charge.
 
@@ -127,6 +127,12 @@ Les fonctionnalités NFS 3.0 suivantes ne sont pas encore prises en charge avec 
 - Lien physique
 
 - Exportation d’un conteneur en lecture seule
+
+## <a name="nfs-30-clients-not-yet-supported"></a>Les clients NFS 3.0 pas encore pris en charge
+
+Les clients NFS 3.0 suivants ne sont pas encore pris en charge.
+
+- Client Windows pour NFS
 
 ## <a name="pricing"></a>Tarifs
 

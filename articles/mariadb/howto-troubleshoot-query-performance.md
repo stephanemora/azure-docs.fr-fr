@@ -3,14 +3,14 @@ title: Résoudre les problèmes de performances des requêtes - Azure Database f
 description: Découvrez comment utiliser l’instruction EXPLAIN pour résoudre les problèmes de performances des requêtes dans Azure Database for MariaDB.
 author: savjani
 ms.author: pariks
-ms.service: jroth
+ms.service: mariadb
 ms.topic: troubleshooting
 ms.date: 3/18/2020
-ms.openlocfilehash: 8c996520a77a107017aecad30c221da9ec69137c
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 2b7491723ffcff73e4b243fe54ef18608167d636
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98664713"
 ---
 # <a name="how-to-use-explain-to-profile-query-performance-in-azure-database-for-mariadb"></a>Guide pratique pour utiliser l’instruction EXPLAIN visant à profiler les performances des requêtes dans Azure Database for MariaDB

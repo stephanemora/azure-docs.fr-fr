@@ -10,10 +10,10 @@ ms.date: 12/15/2020
 ms.author: prmitiki
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 3b463293899dc2586404d68145943caff3105e89
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97590186"
 ---
 # <a name="associate-peer-asn-to-azure-subscription-using-powershell"></a>Associer un NSA d’homologue à un abonnement Azure à l’aide de PowerShell
@@ -31,7 +31,7 @@ Si vous préférez, vous pouvez suivre ce guide à l’aide du [portail](howto-s
 [!INCLUDE [Account](./includes/account-powershell.md)]
 
 ### <a name="register-for-peering-resource-provider"></a>S’inscrire auprès du fournisseur de ressources de Peering
-Inscrivez-vous auprès du fournisseur de ressources de Peering dans votre abonnement à l’aide de la commande ci-dessous. Si vous n’exécutez pas cette commande, les ressources Azure nécessaires pour configurer le Peering ne sont pas accessibles.
+Inscrivez-vous auprès du fournisseur de ressources de Peering dans votre abonnement à l’aide de la commande ci-dessous. Si vous n’effectuez pas ces étapes, les ressources Azure nécessaires pour configurer le Peering ne sont pas accessibles.
 
 ```powershell
 Register-AzResourceProvider -ProviderNamespace Microsoft.Peering
@@ -87,7 +87,7 @@ Type            : Microsoft.Peering/peerAsns
 ```
 
 > [!IMPORTANT]
-> Attendez que l’état de validation passe à « Approved » avant de soumettre une demande de Peering. Cette approbation peut prendre jusqu’à 12 heures.
+> Attendez que l’état de validation passe à « Approuvé » avant de soumettre une demande de Peering. Cette approbation peut prendre jusqu’à 12 heures.
 
 ## <a name="modify-peerasn"></a>Modifier un PeerAsn
 Vous pouvez modifier les informations de contact NOC à tout moment.
@@ -103,11 +103,11 @@ La suppression d’un PeerASN n’est pas prise en charge actuellement. Si vous 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Créer ou modifier un Peering direct](howto-direct-powershell.md)
-* [Convertir un Peering direct hérité en ressource Azure](howto-legacy-direct-powershell.md)
+* [Créer ou modifier un peering direct](howto-direct-powershell.md)
+* [Convertir un peering direct existant en ressource Azure](howto-legacy-direct-powershell.md)
 * [Créer ou modifier un Peering Exchange](howto-exchange-powershell.md)
-* [Convertir un Peering Exchange hérité en ressource Azure](howto-legacy-exchange-powershell.md)
+* [Convertir un peering Exchange existant en ressource Azure](howto-legacy-exchange-powershell.md)
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-Pour plus d’informations, consultez [FAQ sur le peering Internet](faqs.md).
+Pour plus d’informations, consultez [FAQ sur le Peering Internet](faqs.md).

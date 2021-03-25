@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 08/26/2020
 ms.author: victorh
 ms.openlocfilehash: 1ba683e3d616f52854f1055dab9b9fe2d389116a
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92331734"
 ---
 # <a name="use-azure-firewall-policy-to-define-a-rule-hierarchy"></a>Utiliser la stratégie de pare-feu Azure pour définir une hiérarchie de règles
@@ -48,7 +48,7 @@ Créez des stratégies pour chacune des équipes d'applications :
 - Une stratégie de pare-feu Base de données. La stratégie de pare-feu Base de données hérite de la stratégie de pare-feu de base.
 - Une stratégie de pare-feu Ingénierie. La stratégie de pare-feu Ingénierie hérite également de la stratégie de pare-feu de base.
 
-:::image type="content" source="media/rule-hierarchy/policy-hierarchy.png" alt-text="Équipes et exigences" border="false":::
+:::image type="content" source="media/rule-hierarchy/policy-hierarchy.png" alt-text="Hiérarchie des stratégies" border="false":::
 
 ### <a name="create-custom-roles-to-access-the-rule-collection-groups"></a>Créer des rôles personnalisés pour accéder aux regroupements de règles 
 
@@ -91,13 +91,13 @@ Procédez comme suit pour définir des rôles personnalisés :
    `*/read", "Microsoft.Network/*/read", "Microsoft.Network/firewallPolicies/ruleCollectionGroups/write` 
 
    l'opération à la propriété  **Actions** . Veillez à inclure une virgule après l’opération de lecture. Cette action permet à l'utilisateur de créer et de mettre à jour des regroupements de règles.
-6. Dans  **AssignableScopes** , ajoutez votre ID d'abonnement au format suivant : 
+6. Dans  **AssignableScopes**, ajoutez votre ID d'abonnement au format suivant : 
 
    `/subscriptions/xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxxx`
 
    Vous devez ajouter des ID d’abonnements explicites, sinon vous ne serez pas autorisé à importer le rôle dans votre abonnement.
 7. Supprimez la ligne de propriété  **Id**  et remplacez la propriété  **IsCustom**  par true.
-8. Remplacez les propriétés  **Nom**  et  **Description**  par *Auteur du regroupement de règles AZFM* et *Les utilisateurs de ce rôle peuvent modifier les regroupements de règles de la stratégie de pare-feu* .
+8. Remplacez les propriétés  **Nom**  et  **Description**  par *Auteur du regroupement de règles AZFM* et *Les utilisateurs de ce rôle peuvent modifier les regroupements de règles de la stratégie de pare-feu*.
 
 Votre fichier JSON doit être semblable à l'exemple suivant :
 
@@ -132,11 +132,11 @@ Pour dresser la liste de tous les rôles personnalisés, vous pouvez utiliser la
 
    `Get-AzRoleDefinition | ? {$_.IsCustom -eq $true} | FT Name, IsCustom`
 
-Vous pouvez également voir les rôles personnalisés sur le portail Azure. Accédez à votre abonnement et sélectionnez **Contrôle d'accès (IAM)** , **Rôles** .
+Vous pouvez également voir les rôles personnalisés sur le portail Azure. Accédez à votre abonnement et sélectionnez **Contrôle d'accès (IAM)** , **Rôles**.
 
-:::image type="content" source="media/rule-hierarchy/sales-app-policy.png" alt-text="Équipes et exigences":::
+:::image type="content" source="media/rule-hierarchy/sales-app-policy.png" alt-text="SalesAppPolicy":::
 
-:::image type="content" source="media/rule-hierarchy/sales-app-policy-read.png" alt-text="Équipes et exigences":::
+:::image type="content" source="media/rule-hierarchy/sales-app-policy-read.png" alt-text="Autorisation de lecture SalesAppPolicy":::
 
 Pour plus d’informations, consultez [Didacticiel : Créer un rôle personnalisé Azure à l’aide d’Azure PowerShell](../role-based-access-control/tutorial-custom-role-powershell.md).
 
@@ -145,8 +145,8 @@ Pour plus d’informations, consultez [Didacticiel : Créer un rôle personnalis
 Sur le portail, vous pouvez attribuer le rôle Auteurs du regroupement de règles AZFM à des utilisateurs et leur fournir un accès aux stratégies de pare-feu.
 
 1. Sur le portail, sélectionnez la stratégie de pare-feu de l'équipe d'applications (par exemple, SalesAppPolicy).
-2. Sélectionnez **Contrôle d’accès** .
-3. Sélectionnez **Ajouter une attribution de rôle** .
+2. Sélectionnez **Contrôle d’accès**.
+3. Sélectionnez **Ajouter une attribution de rôle**.
 4. Attribuez le rôle à des utilisateurs/groupes d'utilisateurs (par exemple, l'équipe Ventes).
 
 Répétez cette procédure pour les autres stratégies de pare-feu.

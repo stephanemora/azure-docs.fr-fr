@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8fb517f8c50ad2c32f23542e60069a0e0a496a2d
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98660662"
 ---
 # <a name="how-to-manage-inactive-user-accounts-in-azure-ad"></a>Procédure : Gérer les comptes d’utilisateur inactifs dans Azure AD

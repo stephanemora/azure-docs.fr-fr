@@ -9,12 +9,12 @@ ms.subservice: extensions
 ms.date: 02/12/2021
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 8805b3c4947311a3054066b3378d881d673c2b14
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: d1290b1dcc1e97d63dd41d5be8ca19b81e32f838
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102521745"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103225028"
 ---
 # <a name="preview-orchestration-modes-for-virtual-machine-scale-sets-in-azure"></a>Préversion : modes d’orchestration pour les groupes de machines virtuelles identiques dans Azure 
 
@@ -128,12 +128,22 @@ Le tableau suivant compare le mode d’orchestration Flexible, le mode d’orche
 |         Alertes Azure  |            Non  |            Oui  |            Oui  |
 |         Insights de machine virtuelle  |            Non  |            Oui  |            Oui  |
 |         Sauvegarde Azure  |            Oui  |            Oui  |            Oui  |
-|         Azure Site Recovery  |            Non  |            Non  |            Oui  |
+|         Azure Site Recovery  |     Non  |            Non  |            Oui  |
 |         Ajout d’une machine virtuelle existante à un groupe/suppression du groupe  |            Non  |            Non  |            Non  | 
 
 
 ## <a name="register-for-flexible-orchestration-mode"></a>S’inscrire au mode d’orchestration Flexible
 Avant de pouvoir déployer des groupes de machines virtuelles identiques en mode d’orchestration Flexible, vous devez inscrire la fonctionnalité d’évaluation pour votre abonnement. L’inscription peut prendre plusieurs minutes. Vous pouvez utiliser les commandes Azure PowerShell ou Azure CLI suivantes pour l’inscription.
+
+### <a name="azure-portal"></a>Portail Azure
+Accédez à la page de détails de l’abonnement pour lequel vous souhaitez créer un groupe identique en mode d’orchestration flexible, puis sélectionnez Fonctionnalités d’évaluation dans le menu. Sélectionnez les deux fonctionnalités d’orchestrateur à activer : _VMOrchestratorSingleFD_ et _VMOrchestratorMultiFD_, puis appuyez sur le bouton Registre. L’inscription de la fonctionnalité peut prendre jusqu’à 15 minutes.
+
+![Inscription de fonctionnalité.](https://user-images.githubusercontent.com/157768/110361543-04d95880-7ff5-11eb-91a7-2e98f4112ae0.png)
+
+Une fois que la fonctionnalité a été enregistrée pour votre abonnement, effectuez le processus d’inscription en propageant la modification dans le fournisseur de ressources de calcul. Accédez à l’onglet Fournisseurs de ressources pour votre abonnement, sélectionnez Microsoft.compute, puis cliquez sur Réinscrire.
+
+![Réinscrire](https://user-images.githubusercontent.com/157768/110362176-cd1ee080-7ff5-11eb-8cc8-36aa967e267a.png)
+
 
 ### <a name="azure-powershell"></a>Azure PowerShell 
 Utilisez l’applet de commande [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) pour activer la préversion pour votre abonnement. 

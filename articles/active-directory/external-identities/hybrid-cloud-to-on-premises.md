@@ -12,10 +12,10 @@ manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cd91d1d2c9f5a4a413f9ea64cfdef649823d0f09
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93131018"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Accorder aux utilisateurs B2B dans Azure AD l’accès à vos applications locales
@@ -31,7 +31,7 @@ Effectuez les actions suivantes :
 - Intégrez l’application à l’aide de SAML, comme le décrit la page [Configuration de l’authentification unique SAML](../manage-apps/configure-saml-single-sign-on.md). Notez soigneusement la valeur de **l’URL de connexion** utilisée.
 -  Utilisez le Proxy d’application Azure AD pour publier l’application locale, avec **Azure Active Directory** configuré comme source d’authentification. Pour des instructions, consultez [Publication d’applications à l’aide du proxy d’application Azure AD](../manage-apps/application-proxy-add-on-premises-application.md). 
 
-   Lorsque vous configurez **l’URL interne** , utilisez l’URL de connexion indiquée dans le modèle d’application ne figurant pas dans la galerie. De cette façon, les utilisateurs peuvent accéder à l’application depuis l’extérieur de l’organisation. Le Proxy d’application exécute l’authentification unique SAML pour l’application locale.
+   Lorsque vous configurez **l’URL interne**, utilisez l’URL de connexion indiquée dans le modèle d’application ne figurant pas dans la galerie. De cette façon, les utilisateurs peuvent accéder à l’application depuis l’extérieur de l’organisation. Le Proxy d’application exécute l’authentification unique SAML pour l’application locale.
  
    ![Affiche l’URL interne et l’authentification des paramètres de l’application locale](media/hybrid-cloud-to-on-premises/OnPremAppSettings.PNG)
 

@@ -15,10 +15,10 @@ ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0a03f3c57d3fbc7efe20055343eab3db33aa8194
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99259082"
 ---
 # <a name="application-proxy-and-qlik-sense"></a>Proxy d’application et Qlik Sens 
@@ -42,8 +42,8 @@ Suivez ces étapes pour publier votre application. Pour obtenir plus de détails
 3. Sélectionnez **Ajouter** en haut du panneau. 
 4. Sélectionnez **On-premises application (Application locale)** . 
 5. Saisissez les informations concernant votre nouvelle application dans les champs requis. Suivez les conseils ci-dessous pour les paramètres : 
-   - **URL interne** : Cette application doit avoir une URL interne qui est l’URL QlikSense proprement dite. Par exemple, **https&#58;//demo.qlikemm.com:4244** 
-   - **Méthode de pré-authentification** : Azure Active Directory (recommandée mais pas obligatoire) 
+   - **URL interne** : cette application doit avoir une URL interne qui est l’URL QlikSense proprement dite. Par exemple, **https&#58;//demo.qlikemm.com:4244** 
+   - **Méthode de pré-authentification** : Azure Active Directory (recommandé mais pas obligatoire) 
 1. Sélectionnez **Ajouter** en bas du panneau. Votre application est ajoutée et le menu de démarrage rapide s’ouvre. 
 2. Dans le menu de démarrage rapide, sélectionnez **Assign a user for testing (Attribuer un utilisateur à des fins de test)** , et ajoutez au moins un utilisateur à l’application. Vérifiez que ce compte de test a accès à l’application locale. 
 3. Sélectionnez **Affecter** pour enregistrer l’affectation de l’utilisateur de test. 
@@ -52,8 +52,8 @@ Suivez ces étapes pour publier votre application. Pour obtenir plus de détails
 ### <a name="application-2"></a>2ème application : 
 Suivez les mêmes étapes que pour la 1ère application, avec les exceptions suivantes : 
 
-**Étape 5** : L’URL interne doit maintenant être l’URL QlikSense avec le port d’authentification utilisé par l’application. La valeur par défaut est **4244** pour HTTPS et **4248** pour HTTP pour les versions QlikSense antérieures à avril 2018. La valeur par défaut pour les versions QlikSense après avril 2018 est **443** pour HTTPS et **80** pour HTTP.  Par exemple, **https&#58;//demo.qlik.com:4244**</br></br>
-**Étape 10 :** Ne configurez pas l’authentification unique et laissez **l’authentification unique désactivée**
+**Étape 5** : l’URL interne doit maintenant être l’URL QlikSense avec le port d’authentification utilisé par l’application. La valeur par défaut est **4244** pour HTTPS et **4248** pour HTTP pour les versions QlikSense antérieures à avril 2018. La valeur par défaut pour les versions QlikSense après avril 2018 est **443** pour HTTPS et **80** pour HTTP.  Par exemple, **https&#58;//demo.qlik.com:4244**</br></br>
+**Étape 10 :** ne configurez pas l’authentification unique et laissez **l’authentification unique désactivée**
  
  
 ## <a name="testing"></a>Test 

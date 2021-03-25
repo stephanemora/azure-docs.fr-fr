@@ -5,10 +5,10 @@ ms.date: 03/05/2020
 ms.topic: how-to
 ms.reviewer: brendal
 ms.openlocfilehash: 696f1f2f96034f7a044f6a39182774c02804518f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96004838"
 ---
 # <a name="using-the-azure-blockchain-workbench-preview-rest-api"></a>Utilisation de l’API REST d’Azure Blockchain Workbench Preview
@@ -23,7 +23,7 @@ Les API Blockchain Workbench sont accessibles via un point de terminaison pour v
 1. Dans le volet de navigation de gauche, sélectionnez **Groupes de ressources**.
 1. Choisissez le nom du groupe de ressources de votre Blockchain Workbench déployé.
 1. Sélectionnez l’en-tête de colonne **TYPE** pour trier la liste par ordre alphabétique et par type.
-1. Deux ressources présentent le type **App Service**. Sélectionnez la ressource de type **App Service** *avec* le suffixe « -api ».
+1. Deux ressources présentent le type **App Service**. Sélectionnez la ressource de type **App Service** *sans* le suffixe « -api ».
 1. Dans la section **Vue d’ensemble** App Service, copiez la valeur **URL** qui représente l’URL du point de terminaison de l’API sur votre Blockchain Workbench déployé.
 
     ![URL du point de terminaison de l'API App Service](media/use-api/app-service-api.png)
@@ -74,7 +74,7 @@ Utilisez l’[API POST de code de contrat d’applications](/rest/api/azure-bloc
 
 Remplacez les valeurs suivantes :
 
-| Paramètre | Valeur |
+| Paramètre | Value |
 |-----------|-------|
 | {applicationId} | Valeur renvoyée de l’API POST Applications. |
 | {ledgerId} | Index du registre. La valeur est généralement 1. Vous pouvez également vérifier la valeur dans la [table Ledger](data-sql-management-studio.md). |
@@ -104,7 +104,7 @@ Utilisez l’[API POST des attributions de rôles d’applications](/rest/api/az
 
 Remplacez les valeurs suivantes :
 
-| Paramètre | Valeur |
+| Paramètre | Value |
 |-----------|-------|
 | {applicationId} | Valeur renvoyée de l’API POST Applications. |
 | {userId} | Valeur de l’ID utilisateur dans la [table User](data-sql-management-studio.md). |
@@ -134,8 +134,8 @@ HTTP/1.1 200
 
 Utilisez l’[API GET Applications](/rest/api/azure-blockchain-workbench/applications/applicationsget) pour récupérer toutes les applications Blockchain Workbench pour l’utilisateur. Dans cet exemple, l’utilisateur connecté a accès à deux applications :
 
-- [Asset transfer](https://github.com/Azure-Samples/blockchain/blob/master/blockchain-workbench/application-and-smart-contract-samples/asset-transfer/readme.md) (Transfert d’actifs)
-- [Refrigerated transportation](https://github.com/Azure-Samples/blockchain/blob/master/blockchain-workbench/application-and-smart-contract-samples/refrigerated-transportation/readme.md) (Transport frigorifique)
+- [Transfert d’actifs](https://github.com/Azure-Samples/blockchain/blob/master/blockchain-workbench/application-and-smart-contract-samples/asset-transfer/readme.md)
+- [Transport frigorifique](https://github.com/Azure-Samples/blockchain/blob/master/blockchain-workbench/application-and-smart-contract-samples/refrigerated-transportation/readme.md)
 
 ### <a name="applications-get-request"></a>Requête GET des applications
 
@@ -223,7 +223,7 @@ Utilisez l’[API POST Contracts V2](/rest/api/azure-blockchain-workbench/contra
 
 Remplacez les valeurs suivantes :
 
-| Paramètre | Valeur |
+| Paramètre | Value |
 |-----------|-------|
 | {workflowId} | La valeur de l’ID de workflow est le ConstructorID du contrat dans la [table Workflow](data-sql-management-studio.md). |
 | {contractCodeId} | Valeur d’ID du code de contrat de la [table ContractCode](data-sql-management-studio.md). Mettez en corrélation l’ID de l’application et l’ID du registre pour l’instance de contrat que vous souhaitez créer. |
@@ -231,7 +231,7 @@ Remplacez les valeurs suivantes :
 
 Pour le corps de la demande, définissez des valeurs à l’aide des informations suivantes :
 
-| Paramètre | Valeur |
+| Paramètre | Value |
 |-----------|-------|
 | workflowFunctionID | ID de la [table WorkflowFunction](data-sql-management-studio.md). |
 | workflowActionParameters | Paires nom/valeur des paramètres transmis au constructeur. Pour chaque paramètre, utilisez la valeur workflowFunctionParameterID de la table [WorkflowFunctionParameter](data-sql-management-studio.md). |
@@ -382,7 +382,7 @@ Authorization: Bearer {access token}
 
 La réponse recense toutes les actions qu’un utilisateur peut entreprendre étant donné l’état actuel de l’instance de contrat intelligent spécifiée.
 
-* Modifier : permet à l’utilisateur de modifier la description et le prix d’une ressource.
+* Modifier : permet à l’utilisateur de modifier la description et le prix d’une ressource.
 * Terminer : permet à l’utilisateur de mettre fin au contrat de la ressource.
 
 Les utilisateurs obtiennent toutes les actions applicables si l’utilisateur possède un rôle d’application associé ou est associé à un rôle d’instance de contrat intelligent pour l’état actuel de l’instance de contrat intelligent spécifiée.

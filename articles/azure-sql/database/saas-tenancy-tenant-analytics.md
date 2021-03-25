@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
 ms.openlocfilehash: 98896b5b728a729a29f989b3b9a76f29131af8d7
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93305968"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---single-tenant-app"></a>Analytique entre locataires à l’aide des données extraites – Application monolocataire
@@ -79,7 +79,7 @@ Pour suivre ce didacticiel, vérifiez que les conditions préalables ci-dessous 
 
 Dans ce didacticiel, l’analyse est effectuée sur les données de vente de tickets. Dans l’étape actuelle, vous générez des données de ticket pour tous les clients.  Ultérieurement, ces données sont extraites pour l’analyse. *Assurez-vous d’avoir configuré le traitement des clients comme décrit précédemment, afin d’avoir une quantité significative de données*. Une quantité suffisante de données peut exposer différents modèles d’achat de tickets.
 
-1. Dans PowerShell ISE, ouvrez *…\Learning Modules\Operational Analytics\Tenant Analytics\Demo-TenantAnalytics.ps1* , et configurez la valeur suivante :
+1. Dans PowerShell ISE, ouvrez *…\Learning Modules\Operational Analytics\Tenant Analytics\Demo-TenantAnalytics.ps1*, et configurez la valeur suivante :
     - **$DemoScenario** = **1** Acheter des tickets pour des événements dans tous les lieux
 2. Appuyez sur **F5** pour exécuter le script et créez un historique d’achat de tickets pour chaque événement à chaque emplacement.  Le script s’exécute pendant plusieurs minutes pour générer des dizaines de milliers de tickets.
 
@@ -91,7 +91,7 @@ Dans les étapes suivantes, vous déployez le magasin d’analytique, qui est ap
 2. Définissez la variable $DemoScenario dans le script pour correspondre à votre choix de magasin d’analytique :
     - Pour utiliser SQL Database sans columnstore, définissez **$DemoScenario** = **2**
     - Pour utiliser SQL Database avec columnstore, définissez **$DemoScenario** = **3**  
-3. Appuyez sur **F5** pour exécuter le script de démonstration (qui appelle le script *Deploy-TenantAnalytics\<XX>.ps1* ), qui crée la base de données d’analyse du locataire. 
+3. Appuyez sur **F5** pour exécuter le script de démonstration (qui appelle le script *Deploy-TenantAnalytics\<XX>.ps1*), qui crée la base de données d’analyse du locataire. 
 
 Maintenant que vous avez déployé l’application et l’avez remplie de données client intéressantes, utilisez [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) pour connecter les serveurs **tenants1-dpt-&lt;Utilisateur&gt;** et **catalogue-dpt-&lt;Utilisateur&gt;** à l’aide de l’identifiant = *developer* et du mot de passe = *P\@ssword1*. Consultez le [didacticiel d’introduction](./saas-dbpertenant-wingtip-app-overview.md) pour plus d’informations.
 
@@ -107,7 +107,7 @@ Dans l’Explorateur d’objets, procédez comme suit :
 Consultez les éléments suivants de la base de données dans l’Explorateur d’objets SSMS en développant le nœud du magasin d’analytique :
 
 - Les tables **TicketsRawData** et **EventsRawData** contiennent les données brutes extraites des bases de données client.
-- Les tables du schéma en étoile sont **fact_Tickets** , **dim_Customers** , **dim_Venues** , **dim_Events** et **dim_Dates** .
+- Les tables du schéma en étoile sont **fact_Tickets**, **dim_Customers**, **dim_Venues**, **dim_Events** et **dim_Dates** .
 - La procédure stockée est utilisée pour remplir les tables du schéma en étoile à partir des tables de données brutes.
 
 ![Capture d’écran des éléments de base de données affichés dans l’Explorateur d’objets SSMS.](./media/saas-tenancy-tenant-analytics/tenantAnalytics.png)
@@ -118,7 +118,7 @@ Consultez les éléments suivants de la base de données dans l’Explorateur d�
 
 Avant de continuer, assurez-vous d'avoir déployé le compte de travail et la base de données jobaccount. Dans les étapes suivantes, les travaux élastiques servent à extraire des données à partir de chaque base de données client et à stocker les données dans le magasin d’analytique. Puis la deuxième tâche traite les données et les stocke dans des tables dans le schéma en étoile. Ces deux tâches s’exécutent par rapport à deux différents groupes cibles, à savoir **TenantGroup** et **AnalyticsGroup**. La tâche d’extraction s’exécute sur TenantGroup, qui contient toutes les bases de données client. Le travail de traitement s’exécute sur AnalyticsGroup, qui contient le magasin d’analytique. Créez les groupes de cibles en procédant comme suit :
 
-1. Dans SSMS, connectez-vous à la base de données **jobaccount** , dans catalog-dpt -&lt;Utilisateur&gt;.
+1. Dans SSMS, connectez-vous à la base de données **jobaccount**, dans catalog-dpt -&lt;Utilisateur&gt;.
 2. Dans SSMS, ouvrez *…\Learning Modules\Operational Analytics\Tenant Analytics\ TargetGroups.sql* 
 3. Modifiez la variable @User en haut du script, en remplaçant `<User>` par la valeur utilisateur utilisée lors du déploiement de l’application Wingtip SaaS.
 4. Appuyez sur **F5** pour exécuter le script qui crée les deux groupes cibles.
@@ -132,7 +132,7 @@ Des modifications de données significatives peuvent avoir lieu plus fréquemmen
 
 Chaque travail extrait ses données et l’envoie dans le magasin d’analytique. Là-bas, un travail distinct traite les données extraites dans le schéma en étoile analytique.
 
-1. Dans SSMS, connectez-vous à la base de données **jobaccount** , dans le serveur catalog-dpt -&lt;Utilisateur&gt;.
+1. Dans SSMS, connectez-vous à la base de données **jobaccount**, dans le serveur catalog-dpt -&lt;Utilisateur&gt;.
 2. Dans SSMS, ouvrez *...\Learning Modules\Operational Analytics\Tenant Analytics\ExtractTickets.sql*.
 3. Modifiez @User en haut du script, et remplacez `<User>` par le nom d’utilisateur utilisé lors du déploiement de l’application Wingtip SaaS 
 4. Appuyez sur F5 pour exécuter le script qui crée et exécute la tâche qui extrait les données des tickets et des clients à partir de chaque base de données client. La tâche enregistre les données dans le magasin d’analytique.
@@ -152,7 +152,7 @@ L’étape suivante consiste à fragmenter les données brutes extraites dans un
 
 Dans cette section du didacticiel, vous définissez et exécutez une tâche qui fusionne les données brutes extraites avec les données dans les tables du schéma en étoile. Une fois la fusion terminée, les données brutes sont supprimées, laissant les tables prêtes à être remplies par la tâche d’extraction de données client suivante.
 
-1. Dans SSMS, connectez-vous à la base de données **jobaccount** , dans catalog-dpt -&lt;Utilisateur&gt;.
+1. Dans SSMS, connectez-vous à la base de données **jobaccount**, dans catalog-dpt -&lt;Utilisateur&gt;.
 2. Dans SSMS, ouvrez *…\Learning Modules\Operational Analytics\Tenant Analytics\ShredRawExtractedData.sql*.
 3. Appuyez sur **F5** pour exécuter le script pour définir un travail qui appelle la procédure stockée sp_ShredRawExtractedData dans le magasin d’analytique.
 4. Laissez suffisamment de temps pour que le travail s’exécute correctement.
@@ -169,17 +169,17 @@ Les données de la table de schéma en étoile fournissent toutes les données d
 Utilisez les étapes suivantes pour vous connecter à Power BI et importer les vues que vous avez créées précédemment :
 
 1. Lancez Power BI Desktop.
-2. Dans le ruban Accueil, sélectionnez **Obtenir des données** , puis **Plus...** .
-3. Dans la fenêtre **Obtenir des données** , sélectionnez Azure SQL Database.
-4. Dans la fenêtre de connexion à la base de données, entrez le nom de votre serveur (catalog-dpt-&lt;Utilisateur&gt;.database.windows.net). Sélectionnez **Importer** pour **Mode de connectivité de données** , puis cliquez sur OK. 
+2. Dans le ruban Accueil, sélectionnez **Obtenir des données**, puis **Plus...** .
+3. Dans la fenêtre **Obtenir des données**, sélectionnez Azure SQL Database.
+4. Dans la fenêtre de connexion à la base de données, entrez le nom de votre serveur (catalog-dpt-&lt;Utilisateur&gt;.database.windows.net). Sélectionnez **Importer** pour **Mode de connectivité de données**, puis cliquez sur OK. 
 
     ![signinpowerbi](./media/saas-tenancy-tenant-analytics/powerBISignIn.PNG)
 
 5. Sélectionnez **Base de données** dans le volet de gauche, puis saisissez le nom d’utilisateur = *developer* et le mot de passe = *P\@ssword1*. Cliquez sur **Connecter**.  
 
-    ![La capture d’écran présente la boîte de dialogue de la base de données SQL Server dans laquelle vous pouvez entrer un nom d’utilisateur et un mot de passe.](./media/saas-tenancy-tenant-analytics/databaseSignIn.PNG)
+    ![La capture d’écran présente la boîte de dialogue de la base de données SQL Server, dans laquelle vous pouvez entrer un nom d’utilisateur et un mot de passe.](./media/saas-tenancy-tenant-analytics/databaseSignIn.PNG)
 
-6. Dans le volet **Navigateur** , sous la base de données analytique, sélectionnez les tables du schéma en étoile : fact_Tickets, dim_Events, dim_Venues, dim_Customers et dim_Dates. Sélectionnez ensuite **Charger**. 
+6. Dans le volet **Navigateur**, sous la base de données analytique, sélectionnez les tables du schéma en étoile : fact_Tickets, dim_Events, dim_Venues, dim_Customers et dim_Dates. Sélectionnez ensuite **Charger**. 
 
 Félicitations ! Vous avez correctement chargé les données dans Power BI. Maintenant, vous pouvez commencer l’exploration des visualisations intéressantes pour aider à obtenir des informations sur vos clients. Vous verrez ensuite comment les analyses peuvent vous permettre de fournir des recommandations basées sur les données à l’équipe de professionnels de Wingtip Tickets. Les recommandations peuvent aider à optimiser l’expérience client et le modèle d’affaires.
 

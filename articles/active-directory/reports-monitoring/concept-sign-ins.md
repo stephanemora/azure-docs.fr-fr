@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d61962667953b20f4b542874e902411bb579b9c3
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93122841"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Rapports d’activité de connexion dans le portail Azure Active Directory
@@ -29,12 +29,12 @@ ms.locfileid: "93122841"
 L’architecture de création de rapports dans Azure Active Directory (Azure AD) comprend les composants suivants :
 
 - **Activité** 
-    - **Connexions**  – Il s’agit d’informations sur l’utilisation des applications managées et les activités de connexion des utilisateurs.
+    - **Connexions** – Il s’agit d’informations sur l’utilisation des applications managées et les activités de connexion des utilisateurs.
     - **Journaux d’audit** - [Journaux d’audit](concept-audit-logs.md) : fournit des informations sur les activités du système liées aux utilisateurs et à la gestion des groupes, les applications gérées et les activités de répertoire.
     - **Les journaux de provisionnement** - [journaux de provisionnement](./concept-provisioning-logs.md) permettent aux clients de superviser l’activité effectuée par le service de provisionnement, telle que la création d’un groupe dans ServiceNow ou l’importation d’un utilisateur à partir de Workday. 
 - **Sécurité** 
     - **Connexions risquées** : une [connexion risquée](../identity-protection/overview-identity-protection.md) correspond à un indicateur de tentative de connexion d’un utilisateur autre que le propriétaire légitime d’un compte d’utilisateur.
-    - **Utilisateurs avec indicateur de risque**  : un [utilisateur à risque](../identity-protection/overview-identity-protection.md) correspond à un indicateur de compte d’utilisateur susceptible d’être compromis.
+    - **Utilisateurs avec indicateur de risque** : un [utilisateur à risque](../identity-protection/overview-identity-protection.md) correspond à un indicateur de compte d’utilisateur susceptible d’être compromis.
 
 Cet article présente une vue d’ensemble du rapport de connexions.
 
@@ -62,14 +62,14 @@ Dans le menu du [portail Azure](https://portal.azure.com), sélectionnez **Azure
 
 ![Sélectionner Azure Active Directory](./media/concept-sign-ins/select-azure-active-directory.png "Azure Active Directory")
 
-Sous **Surveillance** , sélectionnez **Connexions** pour ouvrir le [Rapport de connexions](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns).
+Sous **Surveillance**, sélectionnez **Connexions** pour ouvrir le [Rapport de connexions](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns).
 
 ![Capture d’écran montrant des connexions sélectionnées dans le menu Supervision.](./media/concept-sign-ins/monitoring-sign-ins-in-azure-active-directory.png "Activité de connexion")
 
 Il peut s’écouler jusqu’à deux heures avant que certains enregistrements de connexion s’affichent dans le portail.
 
 > [!IMPORTANT]
-> Le rapport des connexions montre seulement les connexions **interactives** , c’est-à-dire les connexions où un utilisateur se connecte manuellement avec son nom d’utilisateur et son mot de passe. Les connexions non interactives, comme l’authentification de service à service, n’apparaissent pas dans le rapport des connexions. 
+> Le rapport des connexions montre seulement les connexions **interactives**, c’est-à-dire les connexions où un utilisateur se connecte manuellement avec son nom d’utilisateur et son mot de passe. Les connexions non interactives, comme l’authentification de service à service, n’apparaissent pas dans le rapport des connexions. 
 
 Un journal de connexion inclut un mode Liste par défaut, qui indique :
 
@@ -106,13 +106,13 @@ Commencez par réduire les données signalées jusqu’au niveau qui vous convie
 
 ![Capture d’écran montrant l’option Ajouter des filtres.](./media/concept-sign-ins/04.png "Activité de connexion")
 
-**ID de requête**  : ID de la requête qui vous intéresse.
+**ID de requête** : ID de la requête qui vous intéresse.
 
-**Utilisateur**  : nom ou nom d’utilisateur principal (UPN) de l’utilisateur qui vous intéresse.
+**Utilisateur** : nom ou nom d’utilisateur principal (UPN) de l’utilisateur qui vous intéresse.
 
-**Application**  : nom de l’application cible.
+**Application** : nom de l’application cible.
  
-**État**  : état de connexion qui vous intéresse :
+**État** : état de connexion qui vous intéresse :
 
 - Succès
 
@@ -121,9 +121,9 @@ Commencez par réduire les données signalées jusqu’au niveau qui vous convie
 - Interrompu
 
 
-**Adresse IP**  : adresse IP de l’appareil utilisé pour se connecter à votre locataire.
+**Adresse IP** : adresse IP de l’appareil utilisé pour se connecter à votre locataire.
 
-**Emplacement**  : emplacement à partir duquel la connexion a été établie :
+**Emplacement** : emplacement à partir duquel la connexion a été établie :
 
 - City
 
@@ -132,13 +132,13 @@ Commencez par réduire les données signalées jusqu’au niveau qui vous convie
 - Pays/région
 
 
-**Ressource**  : nom du service utilisé pour la connexion.
+**Ressource** : nom du service utilisé pour la connexion.
 
 
-**ID de ressource**  : ID du service utilisé pour la connexion.
+**ID de ressource** : ID du service utilisé pour la connexion.
 
 
-**Application cliente**  : type de l’application cliente utilisée pour se connecter à votre locataire :
+**Application cliente** : type de l’application cliente utilisée pour se connecter à votre locataire :
 
 ![Filtre d’application cliente](./media/concept-sign-ins/client-app-filter.png)
 
@@ -164,24 +164,24 @@ Commencez par réduire les données signalées jusqu’au niveau qui vous convie
 
 
 
-**Système d’exploitation**  : le système d’exploitation s’exécutant sur l’appareil a utilisé l’authentification auprès de votre locataire. 
+**Système d’exploitation** : le système d’exploitation s’exécutant sur l’appareil a utilisé l’authentification auprès de votre locataire. 
 
 
-**Explorateur d’appareils**  : si la connexion a été établie à partir d’un navigateur, ce champ vous permet de filtrer par nom de navigateur.
+**Explorateur d’appareils** : si la connexion a été établie à partir d’un navigateur, ce champ vous permet de filtrer par nom de navigateur.
 
 
-**ID de corrélation**  : ID de corrélation de l’activité.
+**ID de corrélation** : ID de corrélation de l’activité.
 
 
 
 
-**Accès conditionnel**  : état des règles d’accès conditionnel appliquées
+**Accès conditionnel** : état des règles d’accès conditionnel appliquées
 
-- **Non applicable**  : aucune stratégie n’est appliquée à l’utilisateur et à l’application lors de la connexion.
+- **Non applicable** : aucune stratégie n’est appliquée à l’utilisateur et à l’application lors de la connexion.
 
-- **Réussite**  : une ou plusieurs stratégies d’accès conditionnel sont appliquées à l’utilisateur et à l’application (mais pas nécessairement les autres conditions) lors de la connexion. 
+- **Réussite** : une ou plusieurs stratégies d’accès conditionnel sont appliquées à l’utilisateur et à l’application (mais pas nécessairement les autres conditions) lors de la connexion. 
 
-- **Échec**  : la connexion a satisfait à la condition d’utilisateur et d’application d’au moins une stratégie d’accès conditionnel et les contrôles d’octroi ne sont pas satisfaisants ou ne sont pas configurés pour bloquer l’accès.
+- **Échec** : la connexion a satisfait à la condition d’utilisateur et d’application d’au moins une stratégie d’accès conditionnel et les contrôles d’octroi ne sont pas satisfaisants ou ne sont pas configurés pour bloquer l’accès.
 
 
 
@@ -242,7 +242,7 @@ En cliquant sur un élément, vous obtenez plus d’informations sur l’opérat
 > [!NOTE]
 > Les adresses IP sont émises de manière à ce qu’il n’existe aucune connexion définitive entre une adresse IP et l’endroit où se trouve physiquement l’ordinateur avec cette adresse. Le mappage des adresses IP est compliqué par le fait que les fournisseurs mobiles et les VPN qui émettent des adresses IP à partir de pools centraux sont souvent très éloignés de l’endroit où l’appareil client est réellement utilisé. Pour le moment, la conversion de l’adresse IP en un emplacement physique constitue la meilleure solution pour les suivis, les données de registre, les recherches inversées et d’autres informations dans les rapports Azure AD.
 
-Sur la page **Utilisateurs** , vous obtenez une vue d’ensemble complète de toutes les connexions des utilisateurs en cliquant sur **Connexions** dans la section **Activité**.
+Sur la page **Utilisateurs**, vous obtenez une vue d’ensemble complète de toutes les connexions des utilisateurs en cliquant sur **Connexions** dans la section **Activité**.
 
 ![Capture d’écran montrant la section Activité dans laquelle vous pouvez sélectionner des connexions.](./media/concept-sign-ins/08.png "Activité de connexion")
 

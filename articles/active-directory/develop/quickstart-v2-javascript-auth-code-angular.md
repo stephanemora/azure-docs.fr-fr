@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 01/14/2021
 ms.author: jamesmantu
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: fb7479f7e3b9ac631c164bbddf65ed8be3bab438
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: 1d5fc097be188c820f9be15594f4bb382754b849
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102122644"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103224926"
 ---
 # <a name="quickstart-sign-in-and-get-an-access-token-in-an-angular-spa-using-the-auth-code-flow"></a>Démarrage rapide : Connecter et obtenir un jeton d’accès dans une application monopage (SPA) Angular à l’aide du flux du code d’authentification
 
@@ -117,12 +117,18 @@ Ce guide de démarrage rapide utilise MSAL Angular v2 avec le flux du code d’a
 > Modifiez les valeurs de la section `auth` de la façon suivante :
 >
 > - `Enter_the_Application_Id_Here` est **l’ID d’application (client)** de l’application que vous avez inscrite.
+>
+>    Pour connaître les valeurs de l’**ID d’application (client)** , consultez la page **Vue d’ensemble** de l’inscription d’application dans le portail Azure.
 > - `Enter_the_Cloud_Instance_Id_Here` est l’instance du cloud Azure. Pour le cloud Azure principal ou mondial, entrez `https://login.microsoftonline.com/`. Pour les clouds **nationaux** (par exemple, Chine), consultez [Clouds nationaux](authentication-national-cloud.md).
 > - `Enter_the_Tenant_info_here` est défini de la façon suivante :
 >   - Si votre application prend en charge les *comptes dans cet annuaire organisationnel*, remplacez cette valeur par l’**ID de locataire** ou le **Nom du locataire**. Par exemple : `contoso.microsoft.com`.
+>
+>    Pour connaître les valeurs de l’**Annuaire (locataire)** , consultez la page **Vue d’ensemble** de l’inscription d’application dans le portail Azure.
 >   - Si votre application prend en charge les *comptes dans un annuaire organisationnel*, remplacez cette valeur par `organizations`.
 >   - Si votre application prend en charge les *comptes dans un annuaire organisationnel et comptes personnels Microsoft*, remplacez cette valeur par `common`. **Dans le cadre de ce guide de démarrage rapide**, utilisez `common`.
 >   - Pour limiter la prise en charge aux *comptes Microsoft personnels uniquement*, remplacez cette valeur par `consumers`.
+>
+>    Pour connaître les valeurs des **Types de compte pris en charge**, consultez la page **Vue d’ensemble** de l’inscription d’application dans le portail Azure.
 > - `Enter_the_Redirect_Uri_Here` a la valeur `http://localhost:4200/`.
 >
 > La valeur `authority` dans votre fichier *app.module.ts* doit être similaire à ce qui suit si vous utilisez le cloud Azure principal (global) :
@@ -131,8 +137,6 @@ Ce guide de démarrage rapide utilise MSAL Angular v2 avec le flux du code d’a
 > authority: "https://login.microsoftonline.com/common",
 > ```
 >
-> > [!TIP]
-> > Pour trouver les valeurs de l’**ID d’application (client)** , de l’**ID de l’annuaire (locataire)** et des **Types de comptes pris en charge**, accédez à la page **Vue d’ensemble** de l’inscription de l’application sur le portail Azure.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Étape 3 : Votre application est configurée et prête à être exécutée

@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/26/2020
 ms.openlocfilehash: 125431e6630ccfdd9e0e5d6b2a4ec5fa9b9e58fd
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101736183"
 ---
 # <a name="choose-the-right-mysql-server-option-in-azure"></a>Choisir l’option MySQL Server appropriée dans Azure
@@ -45,7 +45,7 @@ Le tableau suivant liste les principales différences entre ces options :
 |:-------------------|:-------------------------------------------|:---------------------------------------------|:---------------------------------------|
 | Prise en charge de la version de MySQL | 5.6, 5.7 et 8.0| 5.7 et 8.0 | Toutes les versions|
 | Mise à l’échelle du calcul | Pris en charge (la mise à l’échelle de et vers le niveau De base n’est pas prise en charge)| Prise en charge | Prise en charge|
-| Taille de stockage | 5 Gio à 16Tio| De 5 Gio à 16 Tio | De 32 Gio à 32 767 Gio|
+| Taille de stockage | De 5 Gio à 16 Tio| De 5 Gio à 16 Tio | De 32 Gio à 32 767 Gio|
 | Mise à l’échelle du stockage en ligne | Prise en charge| Prise en charge| Non pris en charge|
 | Mise à l’échelle du stockage automatique | Prise en charge| Non prise en charge en préversion| Non pris en charge|
 | Mise à l’échelle des IOPs supplémentaires | Non pris en charge| Prise en charge| Non pris en charge|

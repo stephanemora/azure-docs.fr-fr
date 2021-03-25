@@ -3,14 +3,14 @@ title: Advanced Threat Protection - Azure Database for MariaDB
 description: Azure ATP détecte les activités de base de données anormales qui indiquent la présence potentielle de menaces de sécurité pour la base de données.
 author: savjani
 ms.author: pariks
-ms.service: jroth
+ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 98eacad1b8a10be175846401eaa733c888f765e1
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 018ba33271f8a3a81c3b7109607334b076d8609c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98661617"
 ---
 # <a name="azure-database-for-mariadb-advanced-threat-protection"></a>Advanced Threat Protection pour Azure Database for MariaDB

@@ -4,10 +4,10 @@ description: Découvrez comment rendre compte de l’utilisation d’Azure DevTe
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 1e4d1f0abb5596c7fd9d22740bf052827c2ca666
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102452643"
 ---
 # <a name="report-azure-devtest-labs-usage-across-multiple-labs-and-subscriptions"></a>Rendre compte de l’utilisation d’Azure DevTest Labs dans plusieurs labos et abonnements

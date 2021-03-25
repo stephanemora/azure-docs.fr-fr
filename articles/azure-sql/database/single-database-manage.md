@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
 ms.openlocfilehash: e50cce74f7291a6673e5d43f3485a1c63c81d827
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93319277"
 ---
 # <a name="create-and-manage-servers-and-single-databases-in-azure-sql-database"></a>Créer et gérer des serveurs et des bases de données uniques dans Azure SQL Database
@@ -45,7 +45,7 @@ Pour créer une base de données Azure SQL unique à l’aide du [portail Azure]
 
 Pour gérer un serveur existant, accédez au serveur en utilisant plusieurs méthodes : à partir de la page d’une base de données spécifique, de la page **serveurs SQL** ou de la page **Toutes les ressources**.
 
-Pour gérer une base de données existante, accédez à la page **Bases de données SQL** , puis sélectionnez la base de données que vous souhaitez gérer. La capture d’écran suivante montre comment commencer à définir un pare-feu au niveau du serveur pour une base de données, à partir de la page **Vue d’ensemble** d’une base de données.
+Pour gérer une base de données existante, accédez à la page **Bases de données SQL**, puis sélectionnez la base de données que vous souhaitez gérer. La capture d’écran suivante montre comment commencer à définir un pare-feu au niveau du serveur pour une base de données, à partir de la page **Vue d’ensemble** d’une base de données.
 
    ![règle de pare-feu de serveur](./media/single-database-manage/server-firewall-rule.png)
 

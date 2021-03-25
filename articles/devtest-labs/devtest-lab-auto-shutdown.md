@@ -4,10 +4,10 @@ description: Découvrez comment définir la stratégie d’arrêt automatique d�
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: cd7974580ea30c9d0591c88380a4e626711bad1e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93318968"
 ---
 # <a name="configure-autoshutdown-for-lab-and-compute-virtual-machines-in-azure-devtest-labs"></a>Configurer l’arrêt automatique pour les machines virtuelles lab et de calcul dans Azure DevTest Labs
@@ -42,7 +42,7 @@ Pour afficher ou modifier les stratégies d’un laboratoire, procédez comme su
 3. Sélectionnez **Activer** ou **Désactiver** pour activer ou désactiver cette stratégie.
      ![Détails de l’arrêt automatique](./media/devtest-lab-set-lab-policy/auto-shutdown.png)
 4. Si vous activez cette stratégie, spécifiez l’heure (et le fuseau horaire) de l’arrêt pour toutes les machines virtuelles du laboratoire actif.
-5. Spécifiez **Oui** ou **Non** pour l’option d’envoi de notification 30 minutes avant l’heure d’arrêt automatique spécifiée. Si vous choisissez **Oui** , saisissez un point de terminaison de l’URL de Webhook ou une adresse e-mail spécifiant où vous désirez publier ou envoyer la notification. L’utilisateur reçoit une notification et peut retarder l’arrêt. Pour en savoir plus, consultez la section [Notifications](#notifications).
+5. Spécifiez **Oui** ou **Non** pour l’option d’envoi de notification 30 minutes avant l’heure d’arrêt automatique spécifiée. Si vous choisissez **Oui**, saisissez un point de terminaison de l’URL de Webhook ou une adresse e-mail spécifiant où vous désirez publier ou envoyer la notification. L’utilisateur reçoit une notification et peut retarder l’arrêt. Pour en savoir plus, consultez la section [Notifications](#notifications).
 6. Sélectionnez **Enregistrer**.
 
     Par défaut, une fois activée, cette stratégie s’applique à toutes les machines virtuelles dans le laboratoire en cours. Pour supprimer ce paramètre sur une machine virtuelle spécifique, ouvrez le volet de gestion de la machine virtuelle et modifiez son paramètre **Arrêt automatique**.
@@ -70,10 +70,10 @@ Si vous définissez cette stratégie pour votre laboratoire, les utilisateurs du
 
 ## <a name="configure-autoshutdown-for-compute-vms"></a>Configurer l’arrêt automatique pour des machines virtuelles de calcul
 
-1. Sur la page **Machine virtuelle** , sélectionnez **Arrêt automatique** dans le menu de gauche de la section **Opérations**.
-2. Dans la page **Arrêt automatique** , Sélectionnez **Activer** ou **Désactiver** pour activer ou désactiver cette stratégie.
-3. Si vous activez cette stratégie, spécifiez l’ **heure** (et le **fuseau horaire** ) à laquelle la machine virtuelle doit être arrêtée.
-4. Choisissez **Oui** ou **Non** pour l’option d’envoi de notification 30 minutes avant l’heure d’arrêt automatique spécifiée. Si vous choisissez **Oui** , saisissez un point de terminaison de l’URL de Webhook ou une adresse e-mail spécifiant où vous désirez publier ou envoyer la notification. L’utilisateur reçoit une notification et peut retarder l’arrêt. Pour en savoir plus, consultez la section [Notifications](#notifications).
+1. Sur la page **Machine virtuelle**, sélectionnez **Arrêt automatique** dans le menu de gauche de la section **Opérations**.
+2. Dans la page **Arrêt automatique**, Sélectionnez **Activer** ou **Désactiver** pour activer ou désactiver cette stratégie.
+3. Si vous activez cette stratégie, spécifiez l’**heure** (et le **fuseau horaire**) à laquelle la machine virtuelle doit être arrêtée.
+4. Choisissez **Oui** ou **Non** pour l’option d’envoi de notification 30 minutes avant l’heure d’arrêt automatique spécifiée. Si vous choisissez **Oui**, saisissez un point de terminaison de l’URL de Webhook ou une adresse e-mail spécifiant où vous désirez publier ou envoyer la notification. L’utilisateur reçoit une notification et peut retarder l’arrêt. Pour en savoir plus, consultez la section [Notifications](#notifications).
 5. Sélectionnez **Enregistrer**.
 
     ![Configurer l’arrêt automatique pour une machine virtuelle de calcul](./media/devtest-lab-auto-shutdown/comnpute-auto-shutdown.png)
@@ -88,7 +88,7 @@ Lorsque vous mettez à jour le paramètre d’arrêt automatique, vous pouvez co
 4. Vérifiez que l'opération **Ajouter ou modifier des planifications** figure dans le journal d'activité. Si elle n'y figure pas, attendez un peu et actualisez le journal d'activité.
 
     ![Entrée du journal d’activité](./media/devtest-lab-auto-shutdown/activity-log-entry.png)
-5. Sélectionnez l'opération **Ajouter ou modifier des planifications** pour consulter les informations suivantes sur la page **Résumé**  :
+5. Sélectionnez l'opération **Ajouter ou modifier des planifications** pour consulter les informations suivantes sur la page **Résumé** :
 
     - Nom de l'opération (Ajouter ou modifier des planifications)
     - Date et heure auxquelles le paramètre d'arrêt automatique a été mis à jour.
@@ -128,23 +128,23 @@ Pour commencer, créez une application logique dans votre abonnement Azure en pr
 1. Sélectionnez **+ Créer une ressource** dans le menu de gauche, puis sélectionnez **Intégration** et **Application logique**.
 
     ![Menu Nouvelle application logique](./media/devtest-lab-auto-shutdown/new-logic-app.png)
-2. Dans la page **Application logique - Créer** , procédez comme suit :
+2. Dans la page **Application logique - Créer**, procédez comme suit :
     1. Entrez le **nom** de l’application logique.
     2. Sélectionnez votre **abonnement** Azure.
     3. Créez un **groupe de ressources** ou sélectionnez-en un.
-    4. Sélectionnez l’ **emplacement** de l’application logique.
+    4. Sélectionnez l’**emplacement** de l’application logique.
 
         ![Nouvelle application logique - paramètres](./media/devtest-lab-auto-shutdown/new-logic-app-page.png)
-3. Dans **Notifications** , sélectionnez **Accéder à la ressource** sur la notification.
+3. Dans **Notifications**, sélectionnez **Accéder à la ressource** sur la notification.
 
     ![Accéder à la ressource](./media/devtest-lab-auto-shutdown/go-to-resource.png)
 4. Sélectionnez **Concepteur d’application logique** dans la catégorie **Outils de déploiement**.
 
     ![Sélectionner la requête/réponse HTTP](./media/devtest-lab-auto-shutdown/select-http-request-response-option.png)
-5. Dans la page **Demande-réponse HTTP** , sélectionnez **Utiliser ce modèle**.
+5. Dans la page **Demande-réponse HTTP**, sélectionnez **Utiliser ce modèle**.
 
     ![Sélectionner l’option Utiliser ce modèle](./media/devtest-lab-auto-shutdown/select-use-this-template.png)
-6. Copiez le code JSON suivant dans la section **Schéma JSON du corps de la demande**  :
+6. Copiez le code JSON suivant dans la section **Schéma JSON du corps de la demande** :
 
     ```json
     {
@@ -221,7 +221,7 @@ Pour commencer, créez une application logique dans votre abonnement Azure en pr
     6. Sélectionnez **BODY** (CORPS), puis définissez le contenu du corps de la notification. Par exemple : « L’arrêt de vmName est prévu dans 15 minutes. Pour ignorer cet arrêt, cliquez sur : URL. Arrêt différé d’une heure : delayUrl60. Arrêt différé de deux heures : delayUrl120. »
 
         ![Schéma JSON du corps de la demande](./media/devtest-lab-auto-shutdown/email-options.png)
-8. Sélectionnez **Enregistrer** dans la barre d’outils. Vous pouvez alors copiez l’ **URL HTTP POST**. Sélectionnez le bouton Copier pour copier l’URL dans le Presse-papiers.
+8. Sélectionnez **Enregistrer** dans la barre d’outils. Vous pouvez alors copiez l’**URL HTTP POST**. Sélectionnez le bouton Copier pour copier l’URL dans le Presse-papiers.
 
     ![URL du webhook](./media/devtest-lab-auto-shutdown/webhook-url.png)
 
