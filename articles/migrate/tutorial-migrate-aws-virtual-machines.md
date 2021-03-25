@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 08/19/2020
 ms.custom: MVC
 ms.openlocfilehash: 430ece58bd3dc1651ac391ba0e29515085ee507b
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98878187"
 ---
 # <a name="discover-assess-and-migrate-amazon-web-services-aws-vms-to-azure"></a>Découvrir, évaluer et migrer des machines virtuelles Amazon Web Services (AWS) vers Azure
@@ -253,7 +253,7 @@ Un agent du service Mobility doit être installé sur les machines virtuelles AW
 11. Dans **Type de chiffrement de disque**, sélectionnez :
     - Chiffrement au repos avec une clé gérée par la plateforme
     - Chiffrement au repos avec une clé gérée par le client
-    - Chiffrement double avec les clés gérées par la plateforme et les clés gérées par le client
+    - Chiffrement double avec des clés gérées par la plateforme et des clés gérées par le client
 
    > [!NOTE]
    > Pour répliquer des machines virtuelles avec une clé gérée par le client, vous devez [créer un jeu de chiffrement de disque](../virtual-machines/disks-enable-customer-managed-keys-portal.md#set-up-your-disk-encryption-set) sous le groupe de ressources cible. Un objet de jeu de chiffrement de disque mappe les disques managés à un coffre de clés contenant les clés gérées par le client à utiliser pour le chiffrement côté serveur.

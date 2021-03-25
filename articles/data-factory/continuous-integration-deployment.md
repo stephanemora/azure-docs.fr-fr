@@ -4,15 +4,15 @@ description: Découvrez comment utiliser l’intégration et la livraison contin
 ms.service: data-factory
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.topic: conceptual
-ms.date: 02/18/2021
-ms.openlocfilehash: 2fd8911ca11ee6dfcf795347e1fe7f2c36a2b636
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/11/2021
+ms.openlocfilehash: aa2c5801e61fb73219934c5d38e894520c41ab26
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101716520"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104784031"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Intégration et livraison continues dans Azure Data Factory
 
@@ -333,6 +333,10 @@ Voici une explication de la façon dont le modèle précédent est construit, d�
 #### <a name="datasets"></a>Groupes de données
 
 * La personnalisation spécifique au type est disponible pour les jeux de données, mais vous pouvez fournir une configuration sans avoir explicitement de configuration au niveau \*. Dans l’exemple précédent, toutes les propriétés du jeu de données sous `typeProperties` sont paramétrables.
+
+> [!NOTE]
+> Les **alertes et matrices Azure** si elles sont configurées pour un pipeline ne sont actuellement pas prises en charge en tant que paramètres pour les déploiements ARM. Pour réappliquer les alertes et les matrices dans un nouvel environnement, suivez [Surveillance, alertes et matrices Data Factory.](https://docs.microsoft.com/azure/data-factory/monitor-using-azure-monitor#data-factory-metrics)
+> 
 
 ### <a name="default-parameterization-template"></a>Modèle de paramétrage par défaut
 
@@ -679,6 +683,8 @@ Si vous utilisez une intégration Git avec votre fabrique de données, et dispos
 
 -   Vous ne pouvez actuellement pas héberger de projets sur Bitbucket.
 
+-   Vous ne pouvez pas exporter et importer actuellement des alertes et des matrices en tant que paramètres. 
+
 ## <a name="sample-pre--and-post-deployment-script"></a><a name="script"></a> Exemple de script de pré-déploiement et de post-déploiement
 
 L’exemple de script suivant peut être utilisé pour arrêter les déclencheurs avant le déploiement, et les redémarrer après. Le script inclut également le code pour supprimer les ressources qui ont été retirées. Enregistrez le script dans un dépôt git Azure DevOps et référencez-le par le biais d’une tâche Azure PowerShell à l’aide de la version 4.*.
@@ -867,7 +873,7 @@ if ($predeployment -eq $true) {
     #Stop all triggers
     Write-Host "Stopping deployed triggers`n"
     $triggersToStop | ForEach-Object {
-        if ($_.TriggerType -eq "BlobEventsTrigger") {
+        if ($_.TriggerType -eq "BlobEventsTrigger" -or $_.TriggerType -eq "CustomEventsTrigger") {
             Write-Host "Unsubscribing" $_.Name "from events"
             $status = Remove-AzDataFactoryV2TriggerSubscription -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_.Name
             while ($status.Status -ne "Disabled"){
@@ -917,7 +923,7 @@ else {
         Write-Host "Deleting trigger "  $_.Name
         $trig = Get-AzDataFactoryV2Trigger -name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName
         if ($trig.RuntimeState -eq "Started") {
-            if ($_.TriggerType -eq "BlobEventsTrigger") {
+            if ($_.TriggerType -eq "BlobEventsTrigger" -or $_.TriggerType -eq "CustomEventsTrigger") {
                 Write-Host "Unsubscribing trigger" $_.Name "from events"
                 $status = Remove-AzDataFactoryV2TriggerSubscription -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_.Name
                 while ($status.Status -ne "Disabled"){
@@ -976,7 +982,7 @@ else {
     #Start active triggers - after cleanup efforts
     Write-Host "Starting active triggers"
     $triggersToStart | ForEach-Object { 
-        if ($_.TriggerType -eq "BlobEventsTrigger") {
+        if ($_.TriggerType -eq "BlobEventsTrigger" -or $_.TriggerType -eq "CustomEventsTrigger") {
             Write-Host "Subscribing" $_.Name "to events"
             $status = Add-AzDataFactoryV2TriggerSubscription -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_.Name
             while ($status.Status -ne "Enabled"){

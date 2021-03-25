@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
 ms.openlocfilehash: f51a195f9ad43c7facb7dc413a4da83fc6b202b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91531392"
 ---
 # <a name="tutorial-demonstrate-fail-over-and-scaling-of-container-services-with-service-fabric"></a>Didacticiel : Présenter le basculement et la mise à l’échelle de services de conteneur avec Service Fabric
@@ -19,7 +19,7 @@ Ce tutoriel est le troisième de la série. Dans ce didacticiel, vous découvrez
 > * En savoir plus sur le basculement de conteneur dans un cluster Service Fabric
 > * Mettre à l’échelle les conteneurs web frontaux dans une application
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 À partir de la [Partie 2](service-fabric-tutorial-package-containers.md), l’application s’exécute dans un cluster Service Fabric actif.
 

@@ -8,10 +8,10 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 6d254a535b1db53478772b481bd029a8c4db6f3c
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100361344"
 ---
 # <a name="move-data-from-amazon-simple-storage-service-by-using-azure-data-factory"></a>Déplacement de données à partir d’Amazon Simple Storage Service à l’aide d’Azure Data Factory
@@ -37,7 +37,7 @@ Pour obtenir la liste complète des autorisations Amazon S3, consultez l’arti
 ## <a name="getting-started"></a>Prise en main
 Vous pouvez créer un pipeline avec une activité de copie qui déplace les données d’une source Amazon S3 à l’aide de différents outils ou API.
 
-Le moyen le plus simple de créer un pipeline consiste à utiliser **l’Assistant Copie**. Pour obtenir une procédure pas à pas rapide, consultez [Tutoriel : Créer un pipeline à l’aide de l’Assistant de copie](data-factory-copy-data-wizard-tutorial.md).
+Le moyen le plus simple de créer un pipeline consiste à utiliser **l’Assistant Copie**. Pour obtenir une description rapide, consultez [Didacticiel : créer un pipeline à l’aide de l’Assistant Copie](data-factory-copy-data-wizard-tutorial.md).
 
 Vous pouvez également utiliser les outils suivants pour créer un pipeline : **Visual Studio**, **Azure PowerShell**, **modèle Azure Resource Manager**, **.NET API** et **API REST**. Pour obtenir des instructions détaillées sur la création d’un pipeline avec une activité de copie, consultez le [Didacticiel de l’activité de copie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
@@ -47,7 +47,7 @@ Que vous utilisiez des outils ou des API, la création d’un pipeline qui dépl
 2. Création de **jeux de données** pour représenter les données d’entrée et de sortie de l’opération de copie.
 3. Création d’un **pipeline** avec une activité de copie qui utilise un jeu de données en tant qu’entrée et un jeu de données en tant que sortie.
 
-Lorsque vous utilisez l’Assistant, les définitions JSON de ces entités Data Factory (services liés, jeux de données et pipeline) sont automatiquement créées pour vous. Lorsque vous utilisez les outils ou API (à l’exception de l’API .NET), vous devez définir ces entités Data Factory à l’aide du format JSON. Pour un exemple avec des définitions JSON pour les entités Data Factory servant à copier des données à partir d’un magasin de données Amazon S3, consultez la section [Exemple JSON : Copier des données depuis Amazon S3 vers Stockage Blob Azure](#json-example-copy-data-from-amazon-s3-to-azure-blob-storage) de cet article.
+Lorsque vous utilisez l’Assistant, les définitions JSON de ces entités Data Factory (services liés, jeux de données et pipeline) sont automatiquement créées pour vous. Lorsque vous utilisez les outils ou API (à l’exception de l’API .NET), vous devez définir ces entités Data Factory à l’aide du format JSON. Pour consulter un exemple contenant des définitions JSON pour les entités Data Factory utilisées pour copier des données d’un magasin de données Amazon S3, consultez la section [Exemple JSON : copier des données depuis un système Amazon S3 vers Blob Azure](#json-example-copy-data-from-amazon-s3-to-azure-blob-storage) de cet article.
 
 > [!NOTE]
 > Pour plus d’informations sur les formats de fichier et de compression pris en charge pour une activité de copie, consultez [Formats de fichier et de compression pris en charge dans Azure Data Factory](data-factory-supported-file-and-compression-formats.md).
@@ -93,7 +93,7 @@ Les sections comme la structure, la disponibilité et la stratégie sont similai
 | prefix |Préfixe de la clé d’objet S3. Les objets dont les clés commencent par ce préfixe sont sélectionnés. S’applique uniquement lorsque la clé est vide. |String |Non |
 | version |La version de l’objet S3 si le contrôle de version S3 est activé. |String |Non |
 | format | Les types de formats suivants sont pris en charge : **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** et **ParquetFormat**. Définissez la propriété **type** située sous Format sur l’une de ces valeurs. Pour en savoir plus, voir les sections [Format Text](data-factory-supported-file-and-compression-formats.md#text-format), [Format JSON](data-factory-supported-file-and-compression-formats.md#json-format), [Format Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [Format Orc](data-factory-supported-file-and-compression-formats.md#orc-format) et [Format Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Si vous souhaitez copier des fichiers en l’état entre des magasins de fichiers (copie binaire), ignorez la section Format dans les deux définitions de jeu de données d’entrée et de sortie. | |Non |
-| compression | Spécifiez le type et le niveau de compression pour les données. Les types pris en charge sont les suivants : **GZip**, **Deflate**, **BZip2** et **ZipDeflate**. Les niveaux pris en charge sont : **Optimal** et **Fastest**. Pour plus d’informations, consultez [Formats de fichiers et de compression pris en charge dans Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). | |Non |
+| compression | Spécifiez le type et le niveau de compression pour les données. Les types pris en charge sont : **GZip**, **Deflate**, **BZip2** et **ZipDeflate**. Les niveaux pris en charge sont : **Optimal** et **Fastest**. Pour plus d’informations, consultez [Formats de fichiers et de compression pris en charge dans Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). | |Non |
 
 
 > [!NOTE]
@@ -171,7 +171,7 @@ Pour obtenir la liste complète des sections et propriétés disponibles pour la
 | --- | --- | --- | --- |
 | recursive |Spécifie s’il faut répertorier de manière récursive les objets S3 sous le répertoire. |true/false |Non |
 
-## <a name="json-example-copy-data-from-amazon-s3-to-azure-blob-storage"></a>Exemple JSON : Copier des données depuis Amazon S3 vers Stockage Blob Azure
+## <a name="json-example-copy-data-from-amazon-s3-to-azure-blob-storage"></a>Exemple JSON : copier des données depuis un système Amazon S3 vers le stockage Blob Azure
 Cet exemple indique comment copier des données à partir d’Amazon S3 vers un stockage Blob Azure. Toutefois, les données peuvent être copiées directement vers [l’un des récepteurs pris en charge](data-factory-data-movement-activities.md#supported-data-stores-and-formats), via l’activité de copie de Data Factory.
 
 Cet exemple fournit des définitions JSON pour les entités Data Factory suivantes. Vous pouvez utiliser ces définitions pour créer un pipeline afin de copier des données depuis Amazon S3 vers un Stockage Blob Azure à l’aide de [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou de [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md).   

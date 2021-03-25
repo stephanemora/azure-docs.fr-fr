@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: yushwang
 ms.openlocfilehash: d2593c656e17310c5afb4a897b94cc8c12a618f0
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98879492"
 ---
 # <a name="download-vpn-device-configuration-scripts-for-s2s-vpn-connections"></a>Télécharger des scripts de configuration de périphérique VPN pour les connexions VPN S2S
@@ -49,7 +49,7 @@ Vous pouvez effectuer les étapes 1 à 3 sur le [portail](./tutorial-site-to-sit
 
 Créez une passerelle VPN Azure, une passerelle de réseau local et une ressource de connexion entre les deux. La page suivante va vous guider tout au long des étapes :
 
-* [Créer une connexion de site à site dans le portail Azure](./tutorial-site-to-site-portal.md)
+* [Création d’une connexion de site à site dans le portail Azure](./tutorial-site-to-site-portal.md)
 
 Une fois que la ressource de connexion est créée, suivez les instructions ci-dessous pour télécharger les scripts de configuration de périphérique VPN :
 

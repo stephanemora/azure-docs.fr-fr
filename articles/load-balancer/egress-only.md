@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 08/07/2020
 ms.author: allensu
 ms.openlocfilehash: ee264a22de5ce094e8a4c1335ace77cbbba49270
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94694991"
 ---
 # <a name="outbound-only-load-balancer-configuration"></a>Configuration de l’équilibreur de charge en sortie uniquement
@@ -254,7 +254,7 @@ Créez le pool d’adresses principal **myPublicBackendPool** :
 
 2. Sur la page **Vue d’ensemble**, sélectionnez **Se connecter**, puis **Bastion**.
 
-4. Entrez le nom d’utilisateur et le mot de passe saisis lors de la création de la machine virtuelle.
+4. Entrez le nom d’utilisateur et le mot de passe saisis pendant la création de la machine virtuelle.
 
 5. Sélectionnez **Connecter**.
 
@@ -289,7 +289,7 @@ Créez le pool d’adresses principal **myPublicBackendPool** :
 
 2. Sur la page **Vue d’ensemble**, sélectionnez **Se connecter**, puis **Bastion**.
 
-4. Entrez le nom d’utilisateur et le mot de passe saisis lors de la création de la machine virtuelle.
+4. Entrez le nom d’utilisateur et le mot de passe saisis pendant la création de la machine virtuelle.
 
 5. Sélectionnez **Connecter**.
 

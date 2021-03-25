@@ -10,10 +10,10 @@ ms.topic: include
 ms.date: 09/10/2020
 ms.author: mbullwin
 ms.openlocfilehash: 4c55c25621df1925b6ed6c374d8af88551eb1e46
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96231427"
 ---
 Metrics Advisor est un service conçu pour la détection, le diagnostic et l’analyse des anomalies dans les séries chronologiques. En tant que service basé sur l’intelligence artificielle, il utilise vos données pour entraîner le modèle utilisé. Ce service accepte des tables de données agrégées avec les colonnes suivantes :

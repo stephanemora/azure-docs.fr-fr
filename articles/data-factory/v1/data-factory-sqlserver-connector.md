@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 robots: noindex
 ms.openlocfilehash: fbd1e1d652db3bbd91344ea828278d057baeb060
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100368810"
 ---
 # <a name="move-data-to-and-from-sql-server-using-azure-data-factory"></a>Déplacer des données vers et à partir de SQL Server à l’aide d’Azure Data Factory
@@ -216,7 +216,7 @@ Dans un premier temps, configurez la passerelle de gestion des données. Les ins
 ```
 **Jeu de données d’entrée de SQL Server**
 
-L'exemple part du principe que vous avez créé une table « MyTable » dans SQL Server et qu'elle contient une colonne appelée « timestampcolumn » pour les données de séries chronologiques. Vous pouvez interroger plusieurs tables au sein d’une même base de données en utilisant un jeu de données unique, mais une seule table doit être utilisée pour la propriété typeProperty tableName du jeu de données.
+L’exemple part du principe que vous avez créé une table « MyTable » dans SQL Server et qu’elle contient une colonne appelée « timestampcolumn » pour les données de séries chronologiques. Vous pouvez interroger plusieurs tables au sein d’une même base de données en utilisant un jeu de données unique, mais une seule table doit être utilisée pour la propriété typeProperty tableName du jeu de données.
 
 La définition de external sur true informe le service Data Factory que le jeu de données est externe à la Data Factory et non produite par une activité dans la Data Factory.
 
@@ -631,7 +631,7 @@ Notez que la table cible possède une colonne d’identité.
 }
 ```
 
-Notez que vos tables source et cible ont des schémas différents (la cible possède une colonne supplémentaire avec identité). Dans ce scénario, vous devez spécifier la propriété **structure** dans la définition du jeu de données cible, qui n'inclut pas la colonne d'identité.
+Notez que vos tables source et cible ont des schémas différents (la cible possède une colonne supplémentaire avec identité). Dans ce scénario, vous devez spécifier la propriété **structure** dans la définition du jeu de données cible, qui n’inclut pas la colonne d’identité.
 
 ## <a name="invoke-stored-procedure-from-sql-sink"></a>Appel d’une procédure stockée pour un récepteur SQL
 L’article [Appeler une procédure stockée pour un récepteur SQL dans l’activité de copie](data-factory-invoke-stored-procedure-from-copy-activity.md) illustre l’appel d’une procédure stockée à partir d’un récepteur SQL dans l’activité de copie d’un pipeline.

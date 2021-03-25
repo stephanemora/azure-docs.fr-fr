@@ -6,15 +6,15 @@ ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
 ms.openlocfilehash: f8135e11fb7b7ddb588ab3a8ed01227712072fd2
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94647917"
 ---
 # <a name="enable-nested-virtualization-on-a-template-virtual-machine-in-azure-lab-services-manually"></a>Activer la virtualisation imbriquée sur un modèle de machine virtuelle dans Azure Lab Services manuellement
 
-Une virtualisation imbriquée vous permet de créer un environnement avec plusieurs machines virtuelles à l’intérieur d’une machine virtuelle de labo. La publication du modèle fournit à chaque utilisateur du labo une machine virtuelle configurée avec plusieurs machines virtuelles en son sein.  Pour plus d’informations sur la virtualisation imbriquée et Azure Lab Services, consultez [Activer la virtualisation imbriquée sur un modèle de machine virtuelle dans Azure Lab Services](how-to-enable-nested-virtualization-template-vm.md).
+La virtualisation imbriquée vous permet de créer un environnement avec plusieurs machines virtuelles au sein de la machine virtuelle d’un modèle de labo. La publication du modèle fournit à chaque utilisateur du labo une machine virtuelle configurée avec plusieurs machines virtuelles en son sein.  Pour plus d’informations sur la virtualisation imbriquée et Azure Lab Services, consultez [Activer la virtualisation imbriquée sur un modèle de machine virtuelle dans Azure Lab Services](how-to-enable-nested-virtualization-template-vm.md).
 
 Cet article explique comment configurer la virtualisation imbriquée sur une machine modèle dans Azure Lab Services en utilisant directement des rôles et outils Windows.  Quelques actions sont nécessaires pour permettre à une classe d’utiliser la virtualisation imbriquée.  Les étapes ci-dessous décrivent comment configurer manuellement un modèle de machine Lab Services avec Hyper-V.  Elles conviennent pour Windows Server 2016 ou Windows Server 2019.  
 
@@ -26,12 +26,12 @@ Cet article explique comment configurer la virtualisation imbriquée sur une mac
 Les étapes suivantes décrivent les actions nécessaires pour activer Hyper-V sur Windows Server à l’aide d’un Gestionnaire de serveur.  Une fois l’installation réussie, un Gestionnaire Hyper-V est disponible pour ajouter, modifier et supprimer des machines virtuelles clientes.
 
 1. Dans la page Tableau de bord du **Gestionnaire de serveur**, cliquez sur **Ajouter des rôles et fonctionnalités**.
-2. Sur la page **Avant de commencer**, cliquez sur **Suivant**.
+2. Dans la page **Avant de commencer** , cliquez sur **Suivant**.
 3. Dans la page **sélectionner le type d’installation**, conservez la sélection par défaut de l’installation basée sur un rôle ou une fonctionnalité, puis cliquez sur **Suivant**.
 4. Dans la page **Sélectionner le serveur de destination**, choisissez Sélectionner un serveur du pool de serveurs.   Le serveur actif est déjà sélectionné.  Cliquez sur Suivant.
-5. Dans la page **Sélectionner des rôles de serveurs**, choisissez **Hyper-V**.  
+5. Dans la page **Sélectionner des rôles de serveurs**, sélectionnez **Hyper-V**.  
 6. La fenêtre contextuelle de l’**Assistant Ajout de rôles et de fonctionnalités** s’affiche.  Sélectionnez **Inclure les outils de gestion (si applicable)** .  Cliquez sur le bouton **Ajouter des fonctionnalités**.
-7. Sur la page **Sélectionner des rôles de serveurs**, cliquez sur **Suivant**.
+7. Dans la page **Sélectionner des rôles de serveurs**, cliquez sur **Suivant**.
 8. Dans la page **Sélectionner les fonctionnalités**, cliquez sur **Suivant**.
 9. Dans la page **Hyper-V**, cliquez sur **Suivant**.
 10. Dans la page **Créer des commutateurs virtuels**, acceptez les valeurs par défaut, puis cliquez sur **Suivant**.
@@ -48,8 +48,8 @@ Les étapes suivantes décrivent les actions nécessaires pour activer Hyper-V s
 Toutes les machines virtuelles clients Hyper-V créées ont besoin d’une adresse IP dans le réseau NAT.  Nous allons créer le réseau NAT plus tard.  Une façon d’attribuer des adresses IP consiste à configurer l’hôte, en l’occurrence, le modèle de machine virtuelle lab, en tant que serveur DHCP.  Vous trouverez ci-dessous les étapes requises pour activer le rôle DHCP.
 
 1. Dans la page **Tableau de bord** du **Gestionnaire de serveur**, cliquez sur **Ajouter des rôles et fonctionnalités**.
-2. Sur la page **Avant de commencer**, cliquez sur **Suivant**.
-3. Dans la page **Sélectionner le type d’installation**, sélectionnez **Installation basée sur un rôle ou une fonctionnalité**, puis cliquez sur **Suivant**.
+2. Dans la page **Avant de commencer** , cliquez sur **Suivant**.
+3. Dans la page **Sélectionner le type d’installation**, cliquez sur **Installation basée sur un rôle ou une fonctionnalité**, puis sur **Suivant**.
 4. Dans la page **Sélectionner le serveur de destination**, choisissez le serveur actif dans le pool de serveurs, puis cliquez sur **Suivant**.
 5. Dans la page **Sélectionner des rôles de serveurs**, choisissez **Serveur DHCP**.  
 6. La fenêtre contextuelle de l’**Assistant Ajout de rôles et de fonctionnalités** s’affiche.  Sélectionnez **Inclure les outils de gestion (si applicable)** .  Cliquez sur **Ajouter des fonctionnalités**.
@@ -57,28 +57,28 @@ Toutes les machines virtuelles clients Hyper-V créées ont besoin d’une adres
     >[!NOTE]
     >Il se peut qu’une erreur de validation s’affiche, indiquant qu’aucune adresse IP statique n’a été trouvée.  Vous pouvez ignorer cet avertissement pour notre scénario.
 
-7. Sur la page **Sélectionner des rôles de serveurs**, cliquez sur **Suivant**.
-8. Dans la page **Sélectionner des fonctionnalités**, cliquez sur **Suivant**.
+7. Dans la page **Sélectionner des rôles de serveurs**, cliquez sur **Suivant**.
+8. Dans la page **Sélectionner les composants**, cliquez sur **Suivant**.
 9. Dans la page **Serveur DHCP**, cliquez sur **Suivant**.
-10. Sur la page **Confirmer les sélections pour l’installation**, cliquez sur **Installer**.
+10. Dans la page **Confirmer les sélections d’installation**, cliquez sur **Installer**.
 11. Attendez que la page **Progression de l’installation** indique que le rôle DHCP est complet.
 12. Cliquez sur Fermer.
 
 ## <a name="enable-routing-and-remote-access-role"></a>Activer le rôle Routage et accès à distance
 
 1. Dans la page **Tableau de bord** du **Gestionnaire de serveur**, cliquez sur **Ajouter des rôles et fonctionnalités**.
-2. Sur la page **Avant de commencer**, cliquez sur **Suivant**.
-3. Dans la page **Sélectionner le type d’installation**, sélectionnez **Installation basée sur un rôle ou une fonctionnalité**, puis cliquez sur **Suivant**.
+2. Dans la page **Avant de commencer** , cliquez sur **Suivant**.
+3. Dans la page **Sélectionner le type d’installation**, cliquez sur **Installation basée sur un rôle ou une fonctionnalité**, puis sur **Suivant**.
 4. Dans la page **Sélectionner le serveur de destination**, choisissez le serveur actif dans le pool de serveurs, puis cliquez sur **Suivant**.
 5. Dans la page **Sélectionner des rôles de serveurs**, choisissez **Accès à distance**. Cliquez sur **OK**.
-6. Dans la page **Sélectionner des fonctionnalités**, cliquez sur **Suivant**.
+6. Dans la page **Sélectionner les composants**, cliquez sur **Suivant**.
 7. Dans la page **Accès à distance**, cliquez sur **Suivant**.
 8. Dans la page **Services de rôle**, sélectionnez **Routage**.
 9. La fenêtre contextuelle de l’**Assistant Ajout de rôles et de fonctionnalités** s’affiche.  Sélectionnez **Inclure les outils de gestion (si applicable)** .  Cliquez sur **Ajouter des fonctionnalités**.
 10. Cliquez sur **Suivant**.
-11. Sur la page **Rôle Web Server (IIS)** , cliquez sur **Suivant**.
-12. Dans la page **Sélectionner les services de rôle**, cliquez sur **Suivant**.
-13. Sur la page **Confirmer les sélections pour l’installation**, cliquez sur **Installer**.
+11. Dans la page **Rôle de serveur web (IIS)**, cliquez sur **Suivant**.
+12. Dans la page **Sélectionner des services de rôle**, cliquez sur **Suivant**.
+13. Dans la page **Confirmer les sélections d’installation**, cliquez sur **Installer**.
 14. Attendez que la page **Progression de l’installation** indique que le rôle Accès à distance est complet.  
 15. Cliquez sur **Fermer**.
 

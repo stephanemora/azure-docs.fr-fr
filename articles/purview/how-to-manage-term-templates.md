@@ -8,10 +8,10 @@ ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/04/2020
 ms.openlocfilehash: b1b811d0817d5e23adc208da14719d64d53830dd
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96550558"
 ---
 # <a name="how-to-manage-term-templates-for-business-glossary"></a>Guide pratique pour gérer les modèles de termes dans un glossaire métier
@@ -54,4 +54,4 @@ Grâce aux modèles de termes, vous pouvez créer des attributs personnalisés, 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Suivez le [Didacticiel : Création et importation de termes de glossaire](tutorial-import-create-glossary-terms.md) pour en savoir plus.
+Suivez le [Didacticiel : Créer et importer des termes de glossaire](tutorial-import-create-glossary-terms.md) pour en savoir plus.

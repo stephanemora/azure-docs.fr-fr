@@ -1,18 +1,14 @@
 ---
 title: Contrôler quel trafic est surveillé
 description: Les capteurs effectuent automatiquement la détection profonde de paquets pour le trafic informatique et le trafic OT et déterminent des informations sur les périphériques réseau, telles que les attributs d’appareil et le comportement réseau. Plusieurs outils sont disponibles pour contrôler le type de trafic détecté par chaque capteur.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/07/2020
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: a7af817074400bedd8f07adaefc35309566dc931
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: b80ef4a4a1fca7383da80fda6fdf42831913f2bd
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100522391"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104784439"
 ---
 # <a name="control-what-traffic-is-monitored"></a>Contrôler quel trafic est surveillé
 
@@ -295,7 +291,7 @@ Pour afficher les résultats de l’analyse :
 
 1. Une fois l’analyse terminée, dans le volet **Actions**, sélectionnez **Afficher les résultats de l’analyse**. Le fichier CSV contenant les résultats de l’analyse est téléchargé sur votre ordinateur.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="see-also"></a>Voir aussi
 
 [Examiner les détections de capteur dans un inventaire des appareils](how-to-investigate-sensor-detections-in-a-device-inventory.md)
 [Examiner les détections de capteur dans la carte des appareils](how-to-work-with-the-sensor-device-map.md)

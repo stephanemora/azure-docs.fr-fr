@@ -1,18 +1,14 @@
 ---
 title: Créer des rapports de vecteur d’attaque
 description: Les rapports de vecteur d’attaque fournissent une représentation graphique d’une chaîne de vulnérabilité d’appareils exploitables.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/17/2020
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: e9960fc2120add845be8feda9bafdef95a9b5f94
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 6c178f379561ca4a572a7ae8f556ae6753d6e2be
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100522323"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104784371"
 ---
 # <a name="attack-vector-reporting"></a>Création de rapports de vecteurs d’attaque
 
@@ -69,7 +65,7 @@ Pour créer une simulation de vecteur d’attaque :
 
    :::image type="content" source="media/how-to-generate-reports/sample-attack-vectors.png" alt-text="Vecteurs d’attaque.":::
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="see-also"></a>Voir aussi
 
 [Création de rapports de vecteurs d’attaque](how-to-create-attack-vector-reports.md)
 

@@ -4,10 +4,10 @@ description: Utilisez les journaux d’activité pour passer en revue les action
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.openlocfilehash: 14015e9b2792515e6818af551b8bd9f54c686bee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91371590"
 ---
 # <a name="view-activity-logs-to-monitor-actions-on-resources"></a>Afficher les journaux d’activité pour surveiller les actions sur les ressources

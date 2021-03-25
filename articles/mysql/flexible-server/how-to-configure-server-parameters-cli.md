@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 11/10/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 58e7c024d6494aee745884997e42b527c51ab237
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94489537"
 ---
 # <a name="configure-server-parameters-in-azure-database-for-mysql-flexible-server-using-the-azure-cli"></a>Configurer les paramètres de serveur dans Azure Database pour MySQL – Serveur flexible à l’aide d’Azure CLI
@@ -70,7 +70,7 @@ Mettez à jour le paramètre de serveur **init\_connect** du serveur **mydemoser
 az mysql flexible-server parameter set --name init_connect --resource-group myresourcegroup --server-name mydemoserver --value "SET character_set_client=utf8;SET character_set_database=utf8mb4;SET character_set_connection=latin1;SET character_set_results=latin1;"
 ```
 >[!Note]
-> `init_connect` peut être utilisé pour modifier des paramètres qui ne nécessitent pas de privilèges de super utilisateur (SUPER) au niveau de la session. Pour vérifier si vous pouvez définir le paramètre avec `init_connect`, exécutez la commande `set session parameter_name=YOUR_DESIRED_VALUE;` et, si vous obtenez une erreur **Accès refusé. Vous devez avoir des privilèges SUPER** , cela indique que vous n’êtes pas autorisé à définir le paramètre avec « init_connect ».
+> `init_connect` peut être utilisé pour modifier des paramètres qui ne nécessitent pas de privilèges de super utilisateur (SUPER) au niveau de la session. Pour vérifier si vous pouvez définir le paramètre avec `init_connect`, exécutez la commande `set session parameter_name=YOUR_DESIRED_VALUE;` et, si vous obtenez une erreur **Accès refusé. Vous devez avoir des privilèges SUPER**, cela indique que vous n’êtes pas autorisé à définir le paramètre avec « init_connect ».
 
 ## <a name="working-with-the-time-zone-parameter"></a>Utilisation avec le paramètre de fuseau horaire
 

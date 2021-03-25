@@ -5,10 +5,10 @@ ms.topic: quickstart
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: ea3ad7e90a947269833a03a4cacf3d4fe76a6620
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91334274"
 ---
 # <a name="quickstart-send-events-to-or-receive-events-from-azure-event-hubs-using-net-framework"></a>Démarrage rapide : Envoyer vers ou recevoir des événements d’Azure Event Hubs avec .NET Framework
@@ -34,7 +34,7 @@ Dans Visual Studio, créez un projet d'application de bureau Visual C# à l'aide
 ### <a name="add-the-event-hubs-nuget-package"></a>Ajout du package NuGet Event Hubs
 
 1. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet **Expéditeur**, puis cliquez sur **Gérer les packages NuGet pour la solution...** . 
-2. Cliquez sur l’onglet **Parcourir**, puis recherchez `WindowsAzure.ServiceBus`. Cliquez sur **Installer**et acceptez les conditions d’utilisation. 
+2. Cliquez sur l’onglet **Parcourir**, puis recherchez `WindowsAzure.ServiceBus`. Cliquez sur **Installer** et acceptez les conditions d’utilisation. 
    
     ![Installer le package NuGet Service Bus](./media/event-hubs-dotnet-framework-getstarted-send/create-sender-csharp2.png)
    
@@ -105,7 +105,7 @@ Dans Visual Studio, créez un projet d'application de bureau Visual C# à l'aide
 ### <a name="add-the-event-hubs-nuget-package"></a>Ajout du package NuGet Event Hubs
 
 1. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet **Récepteur**, puis cliquez sur **Gérer les packages NuGet pour la solution...** .
-2. Cliquez sur l’onglet **Parcourir**, puis recherchez `Microsoft Azure Service Bus Event Hub - EventProcessorHost`. Cliquez sur **Installer**et acceptez les conditions d’utilisation.
+2. Cliquez sur l’onglet **Parcourir**, puis recherchez `Microsoft Azure Service Bus Event Hub - EventProcessorHost`. Cliquez sur **Installer** et acceptez les conditions d’utilisation.
    
     ![Recherchez le package Event Processor Host NuGet](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-eph-csharp1.png)
    

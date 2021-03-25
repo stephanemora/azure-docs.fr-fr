@@ -4,15 +4,15 @@ description: Décrit les trois services de messagerie Azure - Azure Event Grid, 
 ms.topic: overview
 ms.date: 07/07/2020
 ms.openlocfilehash: 7a3a0cd7f63a67206053ae55f33bd71aee2c19c6
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87460403"
 ---
 # <a name="choose-between-azure-messaging-services---event-grid-event-hubs-and-service-bus"></a>Choisissez entre les trois services de messagerie Azure - Event Grid, Event Hubs et Service Bus
 
-Azure propose trois services qui facilitent la remise des messages d’événement dans une solution. Ces services sont :
+Azure propose trois services qui facilitent la remise des messages d’événement dans une solution. Ces services sont :
 
 * [Event Grid](./index.yml)
 * [Hubs d'événements](../event-hubs/index.yml)
@@ -52,7 +52,7 @@ Event Grid est pleinement intégré aux services Azure et peut être intégré �
 
 Event Grid prend en charge les lettres mortes pour les événements qui ne sont pas remis à un point de terminaison.
 
-Il présente les caractéristiques suivantes :
+Ses caractéristiques sont les suivantes :
 
 * Dynamiquement scalable
 * Économique
@@ -63,7 +63,7 @@ Il présente les caractéristiques suivantes :
 
 Azure Event Hubs est un pipeline de Big Data. Il facilite la capture, la rétention et la relecture des données de télémétrie et des données de flux d’événements. Les données peuvent provenir de nombreuses sources simultanées. Event Hubs permet de mettre les données de télémétrie et d’événements à la disposition d’un grand nombre de services d’analytique et d’infrastructures de traitement de flux. Les données sont disponibles sous forme de flux de données ou de lots d’événements regroupés. Ce service fournit une solution unique pour la récupération rapide de données à traiter en temps réel et pour la relecture répétée de données brutes stockées. Il peut capturer les données de diffusion en continu dans un fichier à des fins de traitement et d’analyse.
 
-Il présente les caractéristiques suivantes :
+Ses caractéristiques sont les suivantes :
 
 * Latence faible
 * Capable de recevoir et de traiter des millions d’événements par seconde
@@ -75,7 +75,7 @@ Service Bus est destiné aux applications d’entreprise traditionnelles. Ces ap
 
 Service Bus est un système de messagerie réparti. Il stocke les messages dans un « broker » (par exemple, une file d’attente) jusqu’à ce que le récepteur soit prêt à les recevoir.
 
-Il présente les caractéristiques suivantes :
+Ses caractéristiques sont les suivantes :
 
 * Remise de messages asynchrone fiable (messagerie d’entreprise en tant que service) qui nécessite une interrogation
 * Fonctionnalités de messagerie avancées telles que FIFO, traitement par lot/sessions, transactions, lettres mortes, contrôle temporel, routage, filtrage et détection des doublons
@@ -94,7 +94,7 @@ Dans d’autres cas, vous les liez pour former un pipeline d’événements et d
 Voir les articles suivants : 
 - [Options de messagerie asynchrone dans Azure](/azure/architecture/guide/technology-choices/messaging)
 - [Événements, points de données et messages - Sélection du service de messagerie Azure adapté à vos données](https://azure.microsoft.com/blog/events-data-points-and-messages-choosing-the-right-azure-messaging-service-for-your-data/).
-- [Files d’attente de stockage et files d’attente Service Bus : comparaison et différences](../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md)
+- [Files d’attente Azure et files d’attente Service Bus : comparaison et différences](../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 - Pour bien démarrer avec Event Grid, consultez [Créer et acheminer des événements personnalisés avec Azure Event Grid](custom-event-quickstart.md).
 - Pour bien démarrer avec Event Hubs, consultez [Créer un espace de noms Event Hubs et un hub d’événements à l’aide du portail Azure](../event-hubs/event-hubs-create.md).
 - Pour bien démarrer avec Service Bus, consultez [Créer un espace de noms Service Bus à l’aide du Portail Azure](../service-bus-messaging/service-bus-create-namespace-portal.md).

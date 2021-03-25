@@ -4,10 +4,10 @@ description: Découvrez comment activer une image sous licence dans Azure DevTes
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: e2b6e495be2257548782143517f5a970b424860c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91276354"
 ---
 # <a name="enable-a-licensed-image-in-your-lab-in-azure-devtest-labs"></a>Activer une image sous licence dans votre laboratoire Azure DevTest Labs

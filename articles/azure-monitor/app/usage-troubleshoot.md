@@ -7,14 +7,14 @@ ms.author: daviste
 ms.date: 07/11/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 02d1bd9d204d88ba90218b1254c66ac0da80be85
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87323500"
 ---
 # <a name="troubleshoot-user-behavior-analytics-tools-in-application-insights"></a>Résoudre les problèmes des outils d’analytique du comportement des utilisateurs dans Application Insights
-Vous avez des questions concernant les [outils d’analytique du comportement des utilisateurs dans Application Insights](usage-overview.md) : [Utilisateurs, sessions, événements](usage-segmentation.md), [Entonnoirs](usage-funnels.md), [Flux d’utilisateurs](usage-flows.md), [Conservation](usage-retention.md) ou Cohortes ? Voici quelques réponses.
+Vous avez des questions concernant les [outils d’analytique du comportement des utilisateurs dans Application Insights](usage-overview.md) : [Utilisateurs, Sessions, Événements](usage-segmentation.md), [Entonnoirs](usage-funnels.md), [Flux d’utilisateurs](usage-flows.md), [Conservation](usage-retention.md) ou Cohortes ? Voici quelques réponses.
 
 ## <a name="counting-users"></a>Comptage d'utilisateurs
 **Les outils d’analytique du comportement des utilisateurs indiquent que mon application a un utilisateur/une session, mais je sais que mon application a un grand nombre d’utilisateurs/de sessions. Comment puis-je corriger ces erreurs de comptage ?**

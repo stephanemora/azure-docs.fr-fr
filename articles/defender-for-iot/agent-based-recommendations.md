@@ -1,25 +1,14 @@
 ---
 title: Recommandations basées sur des agents
-titleSuffix: Azure Defender for IoT
 description: Découvrez le concept des recommandations de sécurité et comment elles sont utilisées pour les appareils Defender pour IoT.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: shhazam-ms
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 02/16/2021
-ms.author: shhazam
-ms.openlocfilehash: c7407db1460c2d0a83f2262a3348c81b4de300a7
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: a29957f459edad8b768daea7bc4567d77c80b165
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100640986"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104784983"
 ---
 # <a name="security-recommendations-for-iot-devices"></a>Recommandations de sécurité pour les appareils IoT
 
@@ -34,11 +23,11 @@ Les recommandations portant sur les appareils offrent des insights et des sugges
 
 | severity | Name | source de données | Description |
 |--|--|--|--|
-| Moyenne | Ports ouverts sur l’appareil | Module de sécurité classique | Un point de terminaison d’écoute a été trouvé sur l’appareil. |
-| Moyenne | Stratégie de pare-feu permissive détectée dans l’une des chaînes | Module de sécurité classique | Une stratégie de pare-feu autorisée a été trouvée (ENTRÉE/SORTIE). Une stratégie de pare-feu doit par défaut refuser tout le trafic et définir des règles pour autoriser la communication nécessaire à l’appareil. |
-| Moyenne | Règle de pare-feu permissive détectée dans la chaîne d’entrée | Module de sécurité classique | Une règle contenant un modèle permissif pour un large éventail d’adresses IP ou de ports a été trouvée dans le pare-feu. |
-| Moyenne | Règle de pare-feu permissive détectée dans la chaîne de sortie | Module de sécurité classique | Une règle contenant un modèle permissif pour un large éventail d’adresses IP ou de ports a été trouvée dans le pare-feu. |
-| Moyenne | Échec de l’opération de validation du système par rapport à la référence | Module de sécurité classique | L’appareil n’est pas conforme aux [benchmarks CIS Linux](https://www.cisecurity.org/cis-benchmarks/). |
+| Moyenne | Ports ouverts sur l’appareil | Micro-agent Defender-IoT classique| Un point de terminaison d’écoute a été trouvé sur l’appareil. |
+| Moyenne | Stratégie de pare-feu permissive détectée dans l’une des chaînes | Micro-agent Defender-IoT classique| Une stratégie de pare-feu autorisée a été trouvée (ENTRÉE/SORTIE). Une stratégie de pare-feu doit par défaut refuser tout le trafic et définir des règles pour autoriser la communication nécessaire à l’appareil. |
+| Moyenne | Règle de pare-feu permissive détectée dans la chaîne d’entrée | Micro-agent Defender-IoT classique| Une règle contenant un modèle permissif pour un large éventail d’adresses IP ou de ports a été trouvée dans le pare-feu. |
+| Moyenne | Règle de pare-feu permissive détectée dans la chaîne de sortie | Micro-agent Defender-IoT classique| Une règle contenant un modèle permissif pour un large éventail d’adresses IP ou de ports a été trouvée dans le pare-feu. |
+| Moyenne | Échec de l’opération de validation du système par rapport à la référence | Micro-agent Defender-IoT classique| L’appareil n’est pas conforme aux [benchmarks CIS Linux](https://www.cisecurity.org/cis-benchmarks/). |
 
 ### <a name="agent-based-operational-recommendations"></a>Recommandations opérationnelles basées sur un agent
 
@@ -46,9 +35,9 @@ Les recommandations opérationnelles offrent des insights et des suggestions d�
 
 | severity | Name | source de données | Description |
 |--|--|--|--|
-| Faible | L’agent envoie des messages inutilisés | Module de sécurité classique | La taille d’au moins 10 % des messages de sécurité était inférieure à 4 Ko au cours des dernières 24 heures. |
-| Faible | Configuration du jumeau de sécurité non optimale | Module de sécurité classique | La configuration du jumeau de sécurité n’est pas optimale. |
-| Faible | Conflit de configuration du jumeau de sécurité | Module de sécurité classique | Des conflits ont été identifiés dans la configuration du jumeau de sécurité. |  |
+| Faible | L’agent envoie des messages inutilisés | Micro-agent Defender-IoT classique | La taille d’au moins 10 % des messages de sécurité était inférieure à 4 Ko au cours des dernières 24 heures. |
+| Faible | Configuration du jumeau de sécurité non optimale | Micro-agent Defender-IoT classique | La configuration du jumeau de sécurité n’est pas optimale. |
+| Faible | Conflit de configuration du jumeau de sécurité | Micro-agent Defender-IoT classique | Des conflits ont été identifiés dans la configuration du jumeau de sécurité. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

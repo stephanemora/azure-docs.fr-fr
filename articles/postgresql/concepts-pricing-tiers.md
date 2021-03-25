@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/14/2020
 ms.openlocfilehash: 74d2654c54d1ab2ac5d47aa24449c41c20a90b74
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98791136"
 ---
 # <a name="pricing-tiers-in-azure-database-for-postgresql---single-server"></a>Créer des utilisateurs dans Azure Database pour PostgreSQL - Serveur unique
@@ -21,7 +21,7 @@ Vous pouvez créer un serveur Azure Database pour PostgreSQL dans un des trois d
 |:---|:----------|:--------------------|:---------------------|
 | Génération de calcul | Gen 4, Gen 5 | Gen 4, Gen 5 | Gen 5 |
 | vCores | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
-| Mémoire par vCore | 2 Go | 5 Go | 10 Go |
+| Mémoire par vCore | 2 Go | 5 Go | 10 Go |
 | Taille de stockage | 5 Go à 1 To | 5 Go à 16 To | 5 Go à 16 To |
 | Période de rétention de sauvegarde de bases de données | 7 à 35 jours | 7 à 35 jours | 7 à 35 jours |
 

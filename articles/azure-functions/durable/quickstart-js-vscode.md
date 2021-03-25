@@ -7,10 +7,10 @@ ms.date: 05/07/2020
 ms.reviewer: azfuncdf, antchu
 ms.custom: devx-track-js
 ms.openlocfilehash: f8ffa90ba0f1ac32d4691165fabf3d8eb9fb7605
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91335447"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>Créer votre première fonction durable dans JavaScript

@@ -9,10 +9,10 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: overview
 ms.date: 08/01/2019
 ms.openlocfilehash: adf15904d4490647074d6e2b46ac7e9e871dd388
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86536400"
 ---
 # <a name="b2b-enterprise-integration-solutions-with-azure-logic-apps-and-enterprise-integration-pack"></a>Solutions d’intégration d’entreprise B2B avec Azure Logic Apps et Enterprise Integration Pack
@@ -55,7 +55,7 @@ Voici les étapes élémentaires pour commencer à générer des applications lo
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Créer des partenaires commerciaux](logic-apps-enterprise-integration-partners.md)
-* [Créer des contrats](../logic-apps/logic-apps-enterprise-integration-agreements.md)
+* [Créer des accords](../logic-apps/logic-apps-enterprise-integration-agreements.md)
 * [Ajouter des schémas](logic-apps-enterprise-integration-schemas.md)
 * [Ajouter des mappages](../logic-apps/logic-apps-enterprise-integration-maps.md)
-* [Migrer depuis BizTalk Services](../logic-apps/logic-apps-move-from-mabs.md)
+* [Migrer depuis des Services BizTalk](../logic-apps/logic-apps-move-from-mabs.md)

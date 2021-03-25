@@ -5,10 +5,10 @@ ms.date: 06/30/2020
 ms.topic: conceptual
 ms.reviewer: ravastra
 ms.openlocfilehash: 6a3113a2d28e704b188d701da13493ecd8263cab
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94335024"
 ---
 # <a name="whats-new-in-azure-blockchain-service"></a>Nouveautés Azure Blockchain Service
@@ -68,8 +68,8 @@ Les deux phases permettent d’optimiser les scénarios dans lesquels un membre 
 
 Dans Quorum v2.6.0, appeler la fonction *eth.estimateGas* sans fournir le paramètre de *valeur* supplémentaire entraîne une exception de type *Gestionnaire de méthode en panne*. L’équipe de Quorum a été notifiée et un correctif est attendu à la fin du mois de juillet 2020. Vous pouvez utiliser les solutions de contournement suivantes en attendant qu’un correctif soit disponible :
 
-- Évitez d’utiliser *eth.estimateGas* , car cela peut affecter les performances. Pour plus d’informations sur les problèmes de performances liés à eth.estimateGas, consultez [L’appel de la fonction eth.estimateGas diminue les performances](#calling-ethestimategas-function-reduces-performance). Incluez une valeur de gaz pour chaque transaction. La plupart des bibliothèques appellent la fonction eth.estimateGas si aucune valeur de gaz n’est fournie, ce qui entraîne un indicent sur Quorum 2.6.0.
-- Si vous devez appeler *eth.estimateGas* , l’équipe de Quorum suggère de définir le paramètre supplémentaire *valeur* sur *0* comme solution de contournement.
+- Évitez d’utiliser *eth.estimateGas*, car cela peut affecter les performances. Pour plus d’informations sur les problèmes de performances liés à eth.estimateGas, consultez [L’appel de la fonction eth.estimateGas diminue les performances](#calling-ethestimategas-function-reduces-performance). Incluez une valeur de gaz pour chaque transaction. La plupart des bibliothèques appellent la fonction eth.estimateGas si aucune valeur de gaz n’est fournie, ce qui entraîne un indicent sur Quorum 2.6.0.
+- Si vous devez appeler *eth.estimateGas*, l’équipe de Quorum suggère de définir le paramètre supplémentaire *valeur* sur *0* comme solution de contournement.
 
 ### <a name="mining-stops-if-fewer-than-four-validator-nodes"></a>L’exploration s’arrête s’il y a moins de quatre nœuds validateurs
 

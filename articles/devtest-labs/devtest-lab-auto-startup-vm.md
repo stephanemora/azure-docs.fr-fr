@@ -4,10 +4,10 @@ description: Découvrez comment configurer les paramètres de démarrage automat
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 83e7b0836273a59eaaf66471bd0cb42d63ccf1c3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91328477"
 ---
 # <a name="auto-startup-lab-virtual-machines"></a>Démarrer automatiquement des machines virtuelles de laboratoire  

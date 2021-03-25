@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 95fe70c774b933113c94125d227976e32a9e353f
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98919627"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Conditions d’utilisation d’Azure Active Directory
@@ -282,7 +282,7 @@ La procédure suivante explique comment ajouter une langue aux conditions d’ut
     ![Conditions d’utilisation sélectionnées, montrant l’onglet Langues dans le volet Détails](./media/terms-of-use/select-language.png)
 
 1. Cliquez sur **Ajouter une langue**.
-1. Cliquez sur **Enregistrer**
+1. Cliquez sur **Enregistrer**.
 
 1. Cliquez sur **Ajouter** pour ajouter la langue.
 

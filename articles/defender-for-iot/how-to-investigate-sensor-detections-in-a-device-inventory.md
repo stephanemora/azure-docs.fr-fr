@@ -1,18 +1,14 @@
 ---
 title: Obtenir des informations sur les appareils découverts par un capteur spécifique
 description: L’inventaire des appareils affiche un large éventail d’attributs d’appareil détectés par un capteur.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/06/2020
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: 9dc6849c1b2ad5daa6142e894e36f351663ff9bd
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 4daec83f44a545d7837a7e73e847f56b1f5770e7
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100523989"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104782093"
 ---
 # <a name="investigate-sensor-detections-in-a-device-inventory"></a>Examiner les détections de capteur dans un inventaire d’appareils
 
@@ -223,7 +219,7 @@ Pour exporter un fichier CSV :
 
 - Dans le menu supérieur droit de l’inventaire des appareils, sélectionnez :::image type="icon" source="media/how-to-work-with-asset-inventory-information/csv-excel-export-icon.png" border="false":::. Le rapport CSV est généré et téléchargé.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="see-also"></a>Voir aussi
 
 [Examiner toutes les détections de capteur de l’entreprise d’un inventaire d’appareils](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md)
 

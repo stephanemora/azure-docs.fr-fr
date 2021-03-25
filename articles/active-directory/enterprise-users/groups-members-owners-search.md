@@ -15,10 +15,10 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d78a2a4e0f14d99a7a1ecada915857f59422bb58
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96547370"
 ---
 # <a name="search-groups-and-members-preview-in-azure-active-directory"></a>Rechercher des groupes et des membres (préversion) dans Azure Active Directory
@@ -83,7 +83,7 @@ Nous avons amélioré la page **Vue d’ensemble** de groupe pour fournir des co
 Ces articles fournissent des informations supplémentaires sur l’utilisation des groupes dans Azure AD.
 
 - [Afficher vos groupes et vos membres](../fundamentals/active-directory-groups-view-azure-portal.md)
-- [Ajouter une appartenance à un groupe](../fundamentals/active-directory-groups-membership-azure-portal.md)
+- [Gérer l’appartenance au groupe](../fundamentals/active-directory-groups-membership-azure-portal.md)
 - [Gérer les règles dynamiques pour les utilisateurs dans un groupe](groups-create-rule.md)
 - [Modifier vos paramètres de groupe](../fundamentals/active-directory-groups-settings-azure-portal.md)
 - [Gérer l’accès aux ressources à l’aide des groupes](../fundamentals/active-directory-manage-groups.md)

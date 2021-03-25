@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/01/2021
 ms.custom: references_regions
-ms.openlocfilehash: bbd3e5774c6effa45888f6e59874d29f3b55b45f
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 60371888dbc4f0cbc33f1ad1b2a685dbb071c01a
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100545579"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101670717"
 ---
 # <a name="scale-for-performance-on-azure-cognitive-search"></a>Mettre à l’échelle pour les performances de la Recherche cognitive Azure
 
@@ -91,7 +91,7 @@ Pour plus d’informations, consultez le [Contrat de niveau de service de la Rec
 
 ### <a name="availability-zones"></a>Zones de disponibilité
 
-Les [zones de disponibilité](https://docs.microsoft.com/azure/availability-zones/az-overview) divisent les centres de données d’une région en groupes situés dans des emplacements physiques distincts afin de fournir une haute disponibilité au sein d’une même région. Pour la Recherche cognitive, les réplicas correspondent aux unités de l’attribution de zone. Le service de recherche s’exécute dans une région, et ses réplicas dans différentes zones.
+Les [zones de disponibilité](../availability-zones/az-overview.md) divisent les centres de données d’une région en groupes situés dans des emplacements physiques distincts afin de fournir une haute disponibilité au sein d’une même région. Pour la Recherche cognitive, les réplicas correspondent aux unités de l’attribution de zone. Le service de recherche s’exécute dans une région, et ses réplicas dans différentes zones.
 
 Vous pouvez utiliser des zones de disponibilité avec le service Recherche cognitive Azure en ajoutant au moins deux réplicas à votre service de recherche. Chaque réplica sera placé dans une zone de disponibilité distincte au sein de la région. Si vous avez plus de réplicas qu’il n’y a de zones de disponibilité, les réplicas sont répartis entre les zones de disponibilité aussi uniformément que possible.
 
@@ -100,6 +100,7 @@ Le service Recherche cognitive Azure prend actuellement en charge les zones de d
 + Australie Est (créée le 30 janvier 2021 ou ultérieurement)
 + Canada Centre (créée le 30 janvier 2021 ou ultérieurement)
 + USA Centre (créée le 4 décembre 2020 ou ultérieurement)
++ USA Est (créée le 27 janvier 2021 ou ultérieurement)
 + USA Est 2 (créée le 30 janvier 2021 ou ultérieurement)
 + France Centre (créée le 23 octobre 2020 ou ultérieurement)
 + Japon Est (créée le 30 janvier 2021 ou ultérieurement)

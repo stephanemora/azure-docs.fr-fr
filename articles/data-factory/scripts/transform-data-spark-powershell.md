@@ -3,17 +3,17 @@ title: Transformer des données dans le cloud à l’aide de PowerShell
 description: Ce script PowerShell transforme les données dans le cloud en exécutant le programme Spark sur un cluster Azure HDInsight Spark.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/12/2017
-ms.openlocfilehash: 2e1178f91344038fc86f1411fca1beafbe901d05
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 9bdb6521cd9361e5588233ebbb50a59788df88b4
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100389822"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104783249"
 ---
 # <a name="powershell-script---transform-data-in-cloud-using-azure-data-factory"></a>Script PowerShell - Transformer des données dans le cloud à l’aide d’Azure Data Factory
 
@@ -23,7 +23,7 @@ Cet exemple de script PowerShell crée un pipeline qui transforme les données d
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 * **Compte Stockage Azure**. Créez un script Python et un fichier d’entrée, puis téléchargez-les sur le stockage Azure. La sortie du programme Spark est stockée dans ce compte de stockage. Le cluster Spark sur demande utilise le même compte de stockage comme stockage principal.  
 
 ### <a name="upload-python-script-to-your-blob-storage-account"></a>Télécharger un script Python dans votre compte de stockage d’objets Blob
