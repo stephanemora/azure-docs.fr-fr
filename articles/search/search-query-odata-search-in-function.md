@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 9ad6f89392846564631b70f0acfb5658a050be80
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88922818"
 ---
 # <a name="odata-searchin-function-in-azure-cognitive-search"></a>Fonction `search.in` OData dans Recherche cognitive Azure
@@ -122,5 +122,5 @@ Recherchez tous les hôtels sans les balises « motel » ou « cabin » :
 
 - [Filtres dans la Recherche cognitive Azure](search-filters.md)
 - [Vue d’ensemble du langage d’expression OData pour Recherche cognitive Azure](query-odata-filter-orderby-syntax.md)
-- [Informations de référence sur la syntaxe d’expression OData pour Recherche cognitive Azure](search-query-odata-syntax-reference.md)
+- [Informations de référence sur la syntaxe d’expression OData pour la Recherche cognitive Azure](search-query-odata-syntax-reference.md)
 - [Rechercher des documents &#40;API REST de la recherche cognitive Azure&#41;](/rest/api/searchservice/Search-Documents)

@@ -7,10 +7,10 @@ ms.reviewer: deli, logicappspm
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.openlocfilehash: 02d9852f6615c3926a02294e0e7eca50f2fbe9a5
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92310037"
 ---
 # <a name="block-connections-created-by-connectors-in-azure-logic-apps"></a>Blocage des connexions créées par les connecteurs dans Azure Logic Apps
@@ -150,7 +150,7 @@ Pour bloquer complètement la création d’une connexion dans une application l
     }
     ```
 
-   | Propriété | Valeur | Description |
+   | Propriété | Value | Description |
    |----------|-------|-------------|
    | `mode` | `All` | Mode déterminant les types de ressources évalués par la stratégie <p><p>Ce scénario affecte à `mode` la valeur `All`, qui applique la stratégie aux groupes de ressources Azure, aux abonnements et à tous les types de ressources. <p><p>Pour plus d’informations, consultez [Structure de définition de stratégie – Mode](../governance/policy/concepts/definition-structure.md#mode). |
    | `if` | `{condition-to-evaluate}` | Condition déterminant quand appliquer la règle de stratégie <p><p>Dans ce scénario, `{condition-to-evaluate}` détermine si la valeur `api.id` de `Microsoft.Web/connections/api.id` correspond à `*managedApis/{connector-name}`, qui spécifie une valeur générique (*). <p><p>Pour plus d’informations, consultez [Structure de définition de stratégie – Règle de stratégie](../governance/policy/concepts/definition-structure.md#policy-rule). |

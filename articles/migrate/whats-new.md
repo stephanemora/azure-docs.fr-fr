@@ -7,12 +7,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.date: 04/19/2020
 ms.custom: mvc
-ms.openlocfilehash: f50737bdefc9065c9b16633ba3360bda1d028cd6
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 41476c5f8165729caa6780f8e74eb6c3ae30a59c
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102043046"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102614630"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Nouveautés d’Azure Migrate
 
@@ -21,6 +21,8 @@ ms.locfileid: "102043046"
 ## <a name="update-march-2021"></a>Mise à jour (mars 2021)
 - Prise en charge de la fourniture d’informations d’identification de plusieurs serveurs sur l’appliance Azure Migrate pour découvrir les applications installées (inventaire des logiciels), l’analyse des dépendances sans agent et la détection des instances et bases de données SQL Server dans votre environnement VMware. [En savoir plus](tutorial-discover-vmware.md#provide-server-credentials)
 - La découverte et l’évaluation d’instances et de bases de données SQL Server s’exécutant dans votre environnement VMware sont actuellement en préversion. [En savoir plus](concepts-azure-sql-assessment-calculation.md)<br/>Pour tester cette fonctionnalité, utilisez [ce lien](https://aka.ms/AzureMigrate/SQL) pour créer un projet dans la région **Australie Est**. Reportez-vous aux tutoriels sur la [découverte](tutorial-discover-vmware.md) et l’[évaluation](tutorial-assess-sql.md) pour démarrer.
+- La migration VMware sans agent prend désormais en charge la réplication simultanée de 500 machines virtuelles par vCenter.
+- Azure Migrate installe désormais automatiquement l’agent de machine virtuelle Azure sur les machines virtuelles VMware, tout en les migrant vers Azure à l’aide de la méthode sans agent de la migration VMware.
 
 ## <a name="update-january-2021"></a>Mise à jour (janvier 2021)
 -  Azure Migrate : L’outil Migration de serveur permet désormais de migrer des machines virtuelles VMware, des serveurs physiques et des machines virtuelles d’autres clouds vers des machines virtuelles Azure avec des disques chiffrés à l’aide du chiffrement côté serveur et avec des clés gérées par le client (CMK).

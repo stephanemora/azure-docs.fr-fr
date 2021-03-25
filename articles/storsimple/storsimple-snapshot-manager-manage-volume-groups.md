@@ -15,15 +15,15 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
 ms.openlocfilehash: df2d74701e21c3773d96564f1b06d80ddb9fce9d
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98209217"
 ---
 # <a name="use-storsimple-snapshot-manager-to-create-and-manage-volume-groups"></a>Utiliser le Gestionnaire d’instantanés StorSimple pour créer et gérer des groupes de volumes
 ## <a name="overview"></a>Vue d’ensemble
-Vous pouvez utiliser le nœud **Groupes de volumes** du volet **Étendue** pour attribuer des volumes aux groupes de volumes, afficher des informations relatives à un groupe de volumes, planifier des sauvegardes et modifier des groupes de volumes.
+Vous pouvez utiliser le nœud **Groupes de volumes** sur le volet **Étendue** pour affecter des volumes à des groupes de volumes, afficher des informations sur un groupe de volumes et modifier des groupes de volumes.
 
 Les groupes de volumes sont des pools de volumes associés utilisés pour vérifier que les sauvegardes sont cohérentes au niveau applicatif. Pour plus d’informations, consultez les sections [Volumes et groupes de volumes](storsimple-what-is-snapshot-manager.md#volumes-and-volume-groups) et [Intégration avec le service VSS de Windows](storsimple-what-is-snapshot-manager.md#integration-with-windows-volume-shadow-copy-service).
 
@@ -33,7 +33,7 @@ Les groupes de volumes sont des pools de volumes associés utilisés pour vérif
 
 ![Nœud de groupes de volumes](./media/storsimple-snapshot-manager-manage-volume-groups/HCS_SSM_Volume_groups.png)
 
-**Figure 1 : Nœud Groupes de volumes du Gestionnaire d’instantanés StorSimple** 
+**Figure 1 : Nœud Groupes de volumes du Gestionnaire d’instantanés StorSimple** 
 
 Ce didacticiel vous explique comment utiliser le Gestionnaire d’instantanés StorSimple pour :
 
@@ -50,10 +50,10 @@ Si vous cliquez sur le nœud **Groupes de volumes**, le volet **Résultats** ind
 
 | Colonne de résultats | Description |
 |:--- |:--- |
-| Nom |La colonne **Nom** comporte le nom du groupe de volumes. |
-| Application |La colonne **Applications** indique le nombre d’enregistreurs VSS actuellement installés et exécutés sur l’hôte Windows. |
-| Volumes sélectionnés |La colonne **Volumes sélectionnés** indique le nombre de volumes du groupe de volumes. Une valeur nulle (0) indique qu’aucune application n’est associée aux volumes du groupe de volumes. |
-| Volumes importés |La colonne **Volumes importés** représente le nombre de volumes importés. Lorsqu’elle est définie sur **Vrai**, cette colonne indique qu’un groupe de volumes a été importé du portail Azure, et n’a pas été créé dans le Gestionnaire d’instantanés StorSimple. |
+| Nom |La colonne **Nom** contient le nom du groupe de volumes. |
+| Application |La colonne **Applications** montre le nombre d'enregistreurs VSS actuellement installés sur l'hôte Windows. |
+| Sélectionnée |La colonne **Sélectionné** montre le nombre de volumes contenus dans le groupe de volumes. Une valeur nulle (0) indique qu’aucune application n’est associée aux volumes du groupe de volumes. |
+| Volumes importés |La colonne **Importé** montre le nombre de volumes importés. Lorsqu’elle est définie sur **Vrai**, cette colonne indique qu’un groupe de volumes a été importé du portail Azure, et n’a pas été créé dans le Gestionnaire d’instantanés StorSimple. |
 
 > [!NOTE]
 > Les groupes de volumes du Gestionnaire d’instantanés StorSimple s’affichent également sur l’onglet **Stratégies de sauvegarde** du portail Azure.
@@ -65,16 +65,16 @@ Exécutez la procédure suivante pour créer un groupe de volumes.
 
 #### <a name="to-create-a-volume-group"></a>Pour créer un groupe de volumes
 1. Cliquez sur l’icône de bureau pour démarrer le Gestionnaire d’instantanés StorSimple.
-2. Dans le volet **Étendue**, cliquez avec le bouton droit sur **Groupes de volumes**, puis cliquez sur **Créer un groupe de volumes**.
+2. Dans le volet **Étendue**, cliquez avec le bouton droit sur **Groupes de volumes**, puis sélectionnez **Créer un groupe de volumes**.
    
     ![Créer un groupe de volumes](./media/storsimple-snapshot-manager-manage-volume-groups/HCS_SSM_Create_volume_group.png)
    
-    La boîte de dialogue **Créer un groupe de volumes** apparaît.
+    La boîte de dialogue **Créer un groupe de volumes** s'affiche.
    
     ![Boîte de dialogue Créer un groupe de volumes](./media/storsimple-snapshot-manager-manage-volume-groups/HCS_SSM_CreateVolumeGroup_dialog.png)
 3. Entrez les informations suivantes :
    
-   1. Dans la zone **Nom** , saisissez un nom unique pour le nouveau groupe de volumes.
+   1. Dans la zone **Nom**, saisissez un nom unique pour le nouveau groupe de volumes.
    2. Dans la zone **Applications** , sélectionnez les applications associées aux volumes que vous ajouterez au groupe de volumes.
       
        La zone **Applications** répertorie uniquement les applications qui utilisent des volumes StorSimple et pour lesquelles des enregistreurs VSS sont activés. Un enregistreur VSS est activé uniquement si l’ensemble des volumes auxquels il a accès sont des volumes StorSimple. Si la zone Applications est vide, aucune application utilisant des volumes Azure StorSimple et présentant des enregistreurs VSS pris en charge n’est installée. (Actuellement, Azure StorSimple prend en charge Microsoft Exchange et SQL Server.) Pour plus d’informations sur les enregistreurs VSS, consultez la page [Intégration avec le service VSS de Windows](storsimple-what-is-snapshot-manager.md#integration-with-windows-volume-shadow-copy-service).
@@ -92,21 +92,21 @@ Exécutez la procédure suivante pour sauvegarder un groupe de volumes.
 
 #### <a name="to-back-up-a-volume-group"></a>Pour sauvegarder un groupe de volumes
 1. Cliquez sur l’icône de bureau pour démarrer le Gestionnaire d’instantanés StorSimple.
-2. Dans le volet **Étendue**, développez le nœud **Groupes de volumes**, cliquez avec le bouton droit sur un nom de groupe de volumes, puis cliquez sur **Démarrer la sauvegarde**.
+2. Dans le volet **Étendue**, développez le nœud **Groupes de volumes**, cliquez avec le bouton droit sur le nom d'un groupe de volumes, puis cliquez sur **Créer une sauvegarde**.
    
     ![Sauvegarde immédiate d’un groupe de volumes](./media/storsimple-snapshot-manager-manage-volume-groups/HCS_SSM_Take_backup.png)
-3. Dans la boîte de dialogue **Démarrer la sauvegarde**, sélectionnez **Instantané local** ou **Instantané cloud**, puis cliquez sur **Créer**.
+3. Dans la boîte de dialogue **Créer une sauvegarde**, sélectionnez **Instantané local** ou **Instantanés sur le cloud**, puis cliquez sur **Créer**.
    
     ![Boîte de dialogue Démarrer la sauvegarde](./media/storsimple-snapshot-manager-manage-volume-groups/HCS_SSM_TakeBackup_dialog.png)
-4. Pour vérifier que la sauvegarde est en cours, développez le nœud **Tâches**, puis cliquez sur **En cours d’exécution**. La sauvegarde doit être répertoriée.
-5. Pour afficher l’instantané terminé, développez le nœud **Catalogue de sauvegarde**, développez le nom du groupe de volumes, puis cliquez sur **Instantané local** ou **Instantané cloud**. Si elle aboutit, la sauvegarde est répertoriée.
+4. Pour confirmer que la sauvegarde est en cours, développez le nœud **Tâches**, puis cliquez sur **En cours d'exécution**. La sauvegarde doit être répertoriée.
+5. Pour afficher l'instantané terminé, développez le nœud **Catalogue de sauvegarde**, développez le nom du groupe de volumes, puis cliquez sur **Instantané local** ou **Instantané sur le cloud**. Si elle aboutit, la sauvegarde est répertoriée.
 
 ## <a name="edit-a-volume-group"></a>Modifier un groupe de volumes
 Exécutez la procédure suivante pour modifier un groupe de volumes.
 
 #### <a name="to-edit-a-volume-group"></a>Pour modifier un groupe de volumes
 1. Cliquez sur l’icône de bureau pour démarrer le Gestionnaire d’instantanés StorSimple.
-2. Dans le volet **Étendue**, développez le nœud **Groupes de volumes**, cliquez avec le bouton droit sur un nom de groupe de volumes, puis cliquez sur **Modifier**.
+2. Dans le volet **Étendue**, développez le nœud **Groupes de volumes**, cliquez avec le bouton droit sur le nom d'un groupe de volumes, puis cliquez sur **Modifier**.
 3. La boîte de dialogue **Créer un groupe de volumes** s'affiche. Vous pouvez modifier les entrées **Nom**, **Applications** et **Volumes**.
 4. Cliquez sur **OK** pour enregistrer vos modifications.
 
@@ -120,8 +120,8 @@ Exécutez la procédure suivante pour supprimer un groupe de volumes.
 
 #### <a name="to-delete-a-volume-group"></a>Pour supprimer un groupe de volumes
 1. Cliquez sur l’icône de bureau pour démarrer le Gestionnaire d’instantanés StorSimple.
-2. Dans le volet **Étendue**, développez le nœud **Groupes de volumes**, cliquez avec le bouton droit sur un nom de groupe de volumes, puis cliquez sur **Supprimer**.
-3. La boîte de dialogue **Supprimer le groupe de volumes** apparaît. Saisissez **Confirmer** dans la zone de texte, puis cliquez sur **OK**.
+2. Dans le volet **Étendue**, développez le nœud **Groupes de volumes**, cliquez avec le bouton droit sur le nom d'un groupe de volumes, puis cliquez sur **Supprimer**.
+3. La boîte de dialogue **Supprimer le groupe de volumes** s'affiche. Tapez **Confirmer** dans la zone de texte, puis cliquez sur **OK**.
    
     Le groupe de volumes supprimé disparaît de la liste du volet **Résultats** et toutes les sauvegardes associées à ce groupe de volumes sont supprimées du catalogue des sauvegardes.
 

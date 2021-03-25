@@ -8,10 +8,10 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 598e43d07c213cfeb25f0ecbc7bd02b6ec54b7ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88962585"
 ---
 # <a name="configuring-an-app-service-environment-v1"></a>Configuration d’un environnement App Service Environment v1
@@ -125,7 +125,7 @@ Dans un ASE, tous les plans App Service sont des plans App Service dédiés. Cel
 ### <a name="settings"></a>Paramètres
 Le panneau de l’ASE contient une section **Paramètres**. Cette dernière comprend plusieurs fonctionnalités importantes :
 
-**Paramètres** > **Propriétés** : le panneau **Paramètres** s’ouvre automatiquement quand vous affichez le panneau de votre environnement App Service (ASE). Les **Propriétés**se trouvent dans la partie supérieure. Ici, plusieurs éléments sont redondants avec ce que vous voyez dans le bloc **Essentiels**, mais deux propriétés sont très utiles : **Adresse IP virtuelle** et **Adresses IP sortantes**.
+**Paramètres** > **Propriétés** : le panneau **Paramètres** s’ouvre automatiquement quand vous affichez le panneau de votre environnement App Service (ASE). Les **Propriétés** se trouvent dans la partie supérieure. Ici, plusieurs éléments sont redondants avec ce que vous voyez dans le bloc **Essentiels**, mais deux propriétés sont très utiles : **Adresse IP virtuelle** et **Adresses IP sortantes**.
 
 ![Panneau Paramètres et Propriétés][4]
 

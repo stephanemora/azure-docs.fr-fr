@@ -8,10 +8,10 @@ ms.date: 06/30/2020
 ms.service: azure-education
 ms.subservice: education-hub
 ms.openlocfilehash: 7904efb92aa8362605f1f68ee0b39f4241339031
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92332465"
 ---
 # <a name="create-an-assignment-and-allocate-credit"></a>Créer une attribution et allouer du crédit
@@ -26,7 +26,7 @@ Une fois que vous avez configuré un cours et créé une classe dans le Hub Educ
 
 ### <a name="accounts"></a>Comptes
 
-Le Hub Education Azure accepte toute adresse e-mail dans _____ @ ___.___ HH:MM:SS. Il ne vérifie *pas* actuellement l’existence d’un compte valide dans votre organisation ou si le compte Microsoft est actif ou valide. Vérifiez attentivement chaque adresse e-mail avant de continuer.
+Le Hub Education Azure accepte toute adresse e-mail dans _____ @___.___ HH:MM:SS. Il ne vérifie *pas* actuellement l’existence d’un compte valide dans votre organisation ou si le compte Microsoft est actif ou valide. Vérifiez attentivement chaque adresse e-mail avant de continuer.
 
 > [!IMPORTANT]
 > Les comptes professionnels et scolaires sont soumis à leurs propres politiques, notamment si une adresse e-mail d’un domaine autre que l’organisation est autorisée (par exemple, l’ajout de student2@outlook.com au domaine @school.edu). Veillez à vérifier ces politiques avant d’ajouter des utilisateurs.
@@ -39,9 +39,9 @@ Quand un compte professionnel ou scolaire (par exemple, student1@school.edu) est
 
 1. Choisissez le montant à créditer sur l’abonnement de l’étudiant. Si tous les étudiants ne reçoivent pas le même montant, vous pouvez sélectionner **Modifier** et appliquer un montant personnalisé à chaque étudiant ou groupe de projets.
 
-1. Sélectionnez **Créer un devoir** .
+1. Sélectionnez **Créer un devoir**.
 1. (Facultatif) Vous pouvez également supprimer des étudiants en cliquant **Supprimer** en regard de leur nom.
-1. Lorsque vous avez terminé, sélectionnez le bouton **Fermer** . Les autorisations supplémentaires s’affichent sur la page de gestion des crédits de parrainage.
+1. Lorsque vous avez terminé, sélectionnez le bouton **Fermer**. Les autorisations supplémentaires s’affichent sur la page de gestion des crédits de parrainage.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

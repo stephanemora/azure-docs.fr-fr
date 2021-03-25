@@ -6,10 +6,10 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 06/23/2017
 ms.openlocfilehash: 5920f2b5823e568d56d13107200eb0025a654db0
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92219919"
 ---
 # <a name="get-started-with-u-sql-in-azure-data-lake-analytics"></a>Bien démarrer avec U-SQL dans Azure Data Lake Analytics
@@ -22,7 +22,7 @@ U-SQL est un langage qui combine le langage SQL déclaratif avec le langage C# i
 * Pour plus d’informations sur la **syntaxe du langage U-SQL**, consultez la [Référence du langage U-SQL](/u-sql/).
 * Pour comprendre la [philosophie de conception d’U-SQL](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/), consultez l’article de blog Visual Studio **Présentation d’U-SQL – Un langage qui facilite le traitement du Big Data**.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Avant de parcourir les exemples U-SQL de ce document, lisez et suivez le [Didacticiel : Développer des scripts U-SQL avec Data Lake Tools pour Visual Studio](data-lake-analytics-data-lake-tools-get-started.md). Ce didacticiel explique les mécanismes de l’utilisation d’U-SQL avec Azure Data Lake Tools pour Visual Studio.
 
@@ -57,7 +57,7 @@ Notez le point d'interrogation en regard du type de données dans le champ `Dura
 * Le mot-clé **EXTRACT** lit les données d’un fichier et définit le schéma à la lecture. `Extractors.Tsv` est un extracteur U-SQL intégré pour les fichiers de valeurs séparées par des tabulations. Vous pouvez développer des extracteurs personnalisés.
 * **OUTPUT** écrit les données dans un fichier à partir d’un ensemble de lignes. `Outputters.Csv()` est un générateur de sortie U-SQL intégré pour créer un fichier de valeurs séparées par des virgules. Vous pouvez développer des générateurs de sortie personnalisés.
 
-### <a name="file-paths"></a>Chemins d’accès
+### <a name="file-paths"></a>Chemins d’accès des fichiers
 
 Les instructions EXTRACT et OUTPUT utilisent des chemins d’accès. Les chemins d’accès peuvent être absolus ou relatifs :
 
@@ -226,4 +226,4 @@ Pour les scénarios d’agrégation avancés, consultez la documentation de réf
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Vue d'ensemble de Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
-* [Développer des scripts U-SQL à l’aide de Data Lake Tools pour Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
+* [Développer des scripts U-SQL à l’aide des outils Data Lake pour Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)

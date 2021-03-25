@@ -8,10 +8,10 @@ ms.date: 10/28/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 91ffcac98b2b919a8fc131d235e699aad4fa215d
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93078898"
 ---
 # <a name="manage-analysis-services"></a>Gérer Analysis Services
@@ -36,11 +36,11 @@ Pour obtenir toutes les dernières fonctionnalités et bénéficier d’une exp�
 ### <a name="to-connect-with-ssms"></a>Pour se connecter avec SSMS
  Quand vous utilisez SSMS, avant de vous connecter à votre serveur pour la première fois, vérifiez que votre nom d’utilisateur figure dans le groupe Administrateurs Analysis Services. Pour plus d’informations, consultez [Administrateurs de serveur et utilisateurs de base de données](#server-administrators-and-database-users) plus loin dans cet article.
 
-1. Avant de vous connecter, vous devez obtenir le nom du serveur. Dans **Portail Azure** > Serveur > **Présentation** > **Nom du serveur** , copiez le nom du serveur.
+1. Avant de vous connecter, vous devez obtenir le nom du serveur. Dans **Portail Azure** > Serveur > **Présentation** > **Nom du serveur**, copiez le nom du serveur.
    
     ![Obtenir le nom du serveur dans Azure](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
-2. Dans SSMS > **Explorateur d’objets** , cliquez sur **Se connecter** > **Analysis Services**.
-3. Dans la boîte de dialogue **Se connecter au serveur** , copiez le nom du serveur puis, dans **Authentification** , choisissez l’un des types d’authentification suivants :   
+2. Dans SSMS > **Explorateur d’objets**, cliquez sur **Se connecter** > **Analysis Services**.
+3. Dans la boîte de dialogue **Se connecter au serveur**, copiez le nom du serveur puis, dans **Authentification**, choisissez l’un des types d’authentification suivants :   
     > [!NOTE]
     > Pour le type d’authentification, **Active Directory - Authentification universelle avec prise en charge de MFA** est recommandé.
 

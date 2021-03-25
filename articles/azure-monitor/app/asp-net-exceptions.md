@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 07/11/2019
 ms.openlocfilehash: 36e916eabfca8e997fc3d46ff10f6201203457cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88936501"
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Diagnostiquez les exceptions dans vos applications web avec Application Insights
@@ -485,7 +485,7 @@ Add the attribute to the service implementations:
 ## <a name="exception-performance-counters"></a>Compteurs de performance des exceptions
 Si vous avez [installé l’agent Application Insights](./monitor-performance-live-website-now.md) sur votre serveur, vous pouvez obtenir un graphique du taux d’exceptions, mesuré par .NET. Celui-ci comprend les exceptions .NET gérées et non gérées.
 
-Ouvrez un onglet d’explorateur de mesures, ajoutez un nouveau graphique, puis sélectionnez **Taux d’exception**sous Compteurs de performances.
+Ouvrez un onglet d’explorateur de mesures, ajoutez un nouveau graphique, puis sélectionnez **Taux d’exception** sous Compteurs de performances.
 
 .NET Framework calcule le taux en comptant le nombre d’exceptions sur un intervalle et en divisant ce nombre par la longueur de l’intervalle.
 

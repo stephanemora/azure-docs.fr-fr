@@ -4,10 +4,10 @@ description: Découvrez comment utiliser l’API REST pour restaurer des partage
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.openlocfilehash: 60c73caa5db684e38b94b4d5786f2fd24aa65d08
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88761795"
 ---
 # <a name="restore-azure-file-shares-using-rest-api"></a>Restaurer des partages de fichiers Azure à l’aide de l’API REST
@@ -194,7 +194,7 @@ Spécifiez les paramètres suivants pour la récupération dans un autre emplace
 
 #### <a name="request-body-example-for-restore-to-alternate-location"></a>Exemple de corps de demande pour restaurer à un autre emplacement
 
-Le corps de demande suivant restaure le partage de fichiers *azurefiles* dans le compte de stockage*afsaccount* sur le partage de fichiers *azurefiles1* dans le compte de stockage *afaccount1*.
+Le corps de demande suivant restaure le partage de fichiers *azurefiles* dans le compte de stockage *afsaccount* sur le partage de fichiers *azurefiles1* dans le compte de stockage *afaccount1*.
 
 ```json
 {

@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 3cf27319fa84ff5d693e74e90664b7a86f4d934a
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92897209"
 ---
 # <a name="azure-maps-geocoding-coverage"></a>Couverture de géocodage Azure Maps
@@ -23,10 +23,10 @@ Toutefois, le [service Search](/rest/api/maps/search) d’Azure Maps n’a pas l
 
 La possibilité de géocoder dans un pays/une région dépend de la couverture de données de route et de la précision du service de géocodage. Les catégorisations suivantes permettent de spécifier le niveau de prise en charge du géocodage dans chaque pays/région.
 
-* **Points d’adresse**  : les données d’adresses peuvent être résolues en coordonnées de latitude/longitude à l’intérieur de la parcelle de l’adresse (limite de propriété). Les points d’adresse sont souvent qualifiés de « Rooftop », ce qui correspond au niveau de précision le plus élevé disponible pour les adresses.
-* **Numéros de résidence**  : Les adresses sont interpolées en coordonnées latitude/longitude dans la rue.
-* **Niveau de rue**  : Les adresses sont résolues en coordonnées latitude/longitude de la rue qui contient l’adresse. Le numéro de résidence ne peut pas être traité.
-* **Niveau de ville**  : Les noms de ville sont pris en charge.
+* **Points d’adresse** : les données d’adresses peuvent être résolues en coordonnées de latitude/longitude à l’intérieur de la parcelle de l’adresse (limite de propriété). Les points d’adresse sont souvent qualifiés de « Rooftop », ce qui correspond au niveau de précision le plus élevé disponible pour les adresses.
+* **Numéros de résidence** : Les adresses sont interpolées en coordonnées latitude/longitude dans la rue.
+* **Niveau de rue** : Les adresses sont résolues en coordonnées latitude/longitude de la rue qui contient l’adresse. Le numéro de résidence ne peut pas être traité.
+* **Niveau de ville** : Les noms de ville sont pris en charge.
 
 ## <a name="americas"></a>Amérique
 

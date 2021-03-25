@@ -9,10 +9,10 @@ ms.author: govindk
 ms.reviewer: sngun
 ms.custom: references_regions
 ms.openlocfilehash: d1dc108ecec93dddeb768eb61af425ba67f23002
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100393137"
 ---
 # <a name="continuous-backup-with-point-in-time-restore-preview-feature-in-azure-cosmos-db"></a>Sauvegarde continue avec la fonctionnalité de limite de restauration dans le temps (préversion) dans Azure Cosmos DB
@@ -136,6 +136,6 @@ La fonctionnalité de limite de restauration dans le temps est actuellement disp
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Configurez et gérez la sauvegarde continue à l’aide du [portail Azure](continuous-backup-restore-portal.md), de [PowerShell](continuous-backup-restore-powershell.md), de l’interface [CLI](continuous-backup-restore-command-line.md) ou d’[Azure Resource Manager](continuous-backup-restore-template.md).
-* [Gérer les autorisations](continuous-backup-restore-permissions.md) requises pour restaurer les données en mode de sauvegarde continue.
+* Configurez et gérez la sauvegarde continue en utilisant [Portail Azure](continuous-backup-restore-portal.md), [PowerShell](continuous-backup-restore-powershell.md), [CLI](continuous-backup-restore-command-line.md) ou [Azure Resource Manager](continuous-backup-restore-template.md).
+* [Gérez les autorisations](continuous-backup-restore-permissions.md) requises pour restaurer les données en mode de sauvegarde continue.
 * [Modèle de ressource de mode de sauvegarde continue](continuous-backup-restore-resource-model.md)

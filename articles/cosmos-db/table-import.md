@@ -9,10 +9,10 @@ ms.date: 12/07/2017
 ms.author: sngun
 ms.custom: seodec18
 ms.openlocfilehash: e876ca028532bb3721146e90a91d68c4c12bf79f
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93096075"
 ---
 # <a name="migrate-your-data-to-azure-cosmos-db-table-api-account"></a>Migrer vos données vers un compte d’API Table Azure Cosmos DB
@@ -67,11 +67,11 @@ Utilisez les options de source suivantes lorsque vous définissez le Stockage Ta
 * **/s.Filter :** facultatif. Chaîne de filtrage à appliquer
 * **/s.Projection :** facultatif. Liste des colonnes à sélectionner
 
-Pour récupérer la chaîne de connexion source lors de l’importation à partir du Stockage Table Azure, ouvrez le portail Azure, puis cliquez sur **Comptes de stockage** > **Compte** > **Clés d’accès** , puis utilisez le bouton Copier pour copier la **chaîne de connexion**.
+Pour récupérer la chaîne de connexion source lors de l’importation à partir du Stockage Table Azure, ouvrez le portail Azure, puis cliquez sur **Comptes de stockage** > **Compte** > **Clés d’accès**, puis utilisez le bouton Copier pour copier la **chaîne de connexion**.
 
 :::image type="content" source="./media/table-import/storage-table-access-key.png" alt-text="Capture d’écran affichant les options Comptes de stockage > Compte > Clés d’accès avec la mise en évidence du bouton Copier.":::
 
-Pour récupérer la chaîne de connexion source lors de l’importation à partir du compte d’API Table Azure Cosmos DB (préversion), ouvrez le portail Azure, puis cliquez sur **Azure Cosmos DB** > **Chaîne de connexion** > **Clés d’accès** , puis utilisez le bouton Copier pour copier la **chaîne de connexion**.
+Pour récupérer la chaîne de connexion source lors de l’importation à partir du compte d’API Table Azure Cosmos DB (préversion), ouvrez le portail Azure, puis cliquez sur **Azure Cosmos DB** > **Chaîne de connexion** > **Clés d’accès**, puis utilisez le bouton Copier pour copier la **chaîne de connexion**.
 
 :::image type="content" source="./media/table-import/cosmos-connection-string.png" alt-text="Capture d’écran des options sources HBase":::
 

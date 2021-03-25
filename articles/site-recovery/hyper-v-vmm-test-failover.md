@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: sideeksh
 ms.openlocfilehash: 569af28f5773d843f49dd9c8143b45e308ae142e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87420411"
 ---
 # <a name="run-a-dr-drill-for-hyper-v-vms-to-a-secondary-site"></a>Exécuter un test de récupération d’urgence de machines virtuelles Hyper-V sur un site secondaire
@@ -32,9 +32,9 @@ Vous exécutez un test de basculement depuis le site principal vers le site seco
 - Vous devez sélectionner un point de récupération pour le test de basculement : 
     - **Dernier point traité** : cette option bascule une machine virtuelle vers le dernier point de récupération traité par Site Recovery. Cette option fournit un objectif de délai de récupération (RTO) faible, car aucun temps n’est consacré à traiter les données non traitées.
     - **Dernier point de cohérence des applications** : cette option bascule une machine virtuelle vers le dernier point de récupération de cohérence des applications traité par Site Recovery. 
-    - **Dernier point dans le temps** : cette option permet de traiter d’abord toutes les données qui ont été envoyées au service Site Recovery afin de créer un point de récupération pour chaque machine virtuelle avant de basculer les machines virtuelles vers celui-ci. Elle fournit l’objectif de point de récupération (RPO) le plus faible, car la machine virtuelle créée après le basculement comporte toutes les données répliquées vers Site Recovery au moment où le basculement a été déclenché.
+    - **Les dernières** : cette option permet de traiter d’abord toutes les données qui ont été envoyées au service Site Recovery afin de créer un point de récupération pour chaque machine virtuelle avant de basculer vers celui-ci. Elle fournit l’objectif de point de récupération (RPO) le plus faible, car la machine virtuelle créée après le basculement comporte toutes les données répliquées vers Site Recovery au moment où le basculement a été déclenché.
     - **Dernier point multimachine virtuelle traité** : disponible pour les plans de récupération qui comportent une ou plusieurs machines virtuelles dont la cohérence multimachine virtuelle est activée. Les machines virtuelles pour lesquelles ce paramètre est activé basculent vers le dernier point de récupération de cohérence multimachine virtuelle commun. Les autres machines virtuelles basculent vers le dernier point de récupération traité.
-    - **Dernière cohérence des applications multimachines virtuelles** : cette option est disponible pour les plans de récupération qui comportent une ou plusieurs machines virtuelles pour laquelle ou lesquelles la cohérence multimachine virtuelle est activée. Les machines virtuelles qui font partie d’un groupe de réplication basculent vers le dernier point de récupération de cohérence des applications multimachine virtuelle commun. Les autres machines virtuelles basculent vers leur dernier point de récupération de cohérence des applications.
+    - **Dernière cohérence des applications multimachines virtuelles** : cette option est disponible pour les plans de récupération qui comportent une ou plusieurs machines virtuelles dont la cohérence multimachine virtuelle est activée. Les machines virtuelles qui font partie d’un groupe de réplication basculent vers le dernier point de récupération de cohérence des applications multimachine virtuelle commun. Les autres machines virtuelles basculent vers leur dernier point de récupération de cohérence des applications.
     - **Personnalisé** : utilisez cette option pour basculer une machine virtuelle spécifique vers un point de récupération particulier.
 
 

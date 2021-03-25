@@ -7,10 +7,10 @@ ms.topic: troubleshooting
 ms.date: 11/08/2019
 ms.custom: seodec18
 ms.openlocfilehash: c81084c77b355a5d60c72564c58a98e08da14312
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98946307"
 ---
 # <a name="troubleshoot-apache-storm-by-using-azure-hdinsight"></a>Résolution de problèmes Apache Storm à l’aide d’Azure HDInsight
@@ -138,7 +138,7 @@ Pour plus d’informations sur l’utilisation de fichiers .jar de spout EventHu
 
 ### <a name="c-based-topology-mono-on-hdinsight-34-linux-storm-clusters"></a>Topologie basée sur C# (Mono sur les clusters Storm HDInsight 3.4+ Linux)
 
-[Traitement des événements Azure Event Hubs avec Apache Storm sur HDInsight (C#)](./apache-storm-develop-csharp-event-hub-topology.md)
+[Traiter des événements Azure Event Hubs avec Apache Storm sur HDInsight (C#)](./apache-storm-develop-csharp-event-hub-topology.md)
 
 ### <a name="latest-apache-storm-event-hub-spout-binaries-for-hdinsight-35-linux-storm-clusters"></a>Fichiers binaires de spout EventHub Apache Storm les plus récents pour les clusters Storm HDInsight 3.5+ Linux
 

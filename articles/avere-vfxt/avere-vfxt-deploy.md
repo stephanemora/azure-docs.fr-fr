@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: rohogue
 ms.openlocfilehash: 110fc658ffc3b72de91bbf1c9562f3efeecaf55b
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92342414"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>Déployer le cluster vFXT
@@ -97,7 +97,7 @@ La deuxième page du modèle de déploiement vous permet de définir la taille d
 
   Configuration recommandée : Utilisez 4 To par nœud pour les nœuds Standard_E32s_v3.
 
-* **Réseau virtuel** : définissez un nouveau réseau virtuel pour héberger le cluster, ou sélectionnez un réseau virtuel existant qui remplit les conditions préalables décrites dans [Planifier votre système Avere vFXT ](avere-vfxt-deploy-plan.md#subscription-resource-group-and-network-infrastructure).
+* **Réseau virtuel** : définissez un nouveau réseau virtuel pour héberger le cluster, ou sélectionnez un réseau virtuel existant qui remplit les conditions préalables décrites dans [Planifier votre système Avere vFXT](avere-vfxt-deploy-plan.md#subscription-resource-group-and-network-infrastructure).
 
   > [!NOTE]
   > Si vous créez un réseau virtuel, le contrôleur de cluster dispose d'une adresse IP publique pour vous permettre d'accéder au nouveau réseau privé. Si vous choisissez un réseau virtuel existant, le contrôleur de cluster est configuré sans adresse IP publique.

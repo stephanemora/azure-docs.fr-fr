@@ -11,10 +11,10 @@ ms.author: jopapa
 ms.custom: seodec18, devx-track-js
 ms.reviewer: sngun
 ms.openlocfilehash: c8e2c707566b08219b495e76be7f6f6130d876ab
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93081312"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---add-crud-functions-to-the-app"></a>Créer une application Angular avec l’API d’Azure Cosmos DB pour MongoDB - Ajouter des fonctions CRUD à l’application
@@ -68,7 +68,7 @@ Avant de commencer cette partie du didacticiel, assurez-vous d’avoir effectué
    }
    ```
 
-3. Dans le fichier **hero.service.js** , mettez à jour le `module.exports` pour inclure la nouvelle fonction `postHero`. 
+3. Dans le fichier **hero.service.js**, mettez à jour le `module.exports` pour inclure la nouvelle fonction `postHero`. 
 
     ```javascript
     module.exports = {
@@ -77,7 +77,7 @@ Avant de commencer cette partie du didacticiel, assurez-vous d’avoir effectué
     };
     ```
 
-4. Dans le fichier **routes.js** , ajoutez un routeur pour la fonction `post` après le routeur `get`. Ce routeur publie un héros à la fois. En structurant ainsi le fichier du routeur, tous les points de terminaison API disponibles s’affichent clairement et le fichier **hero.service.js** fait tout le travail.
+4. Dans le fichier **routes.js**, ajoutez un routeur pour la fonction `post` après le routeur `get`. Ce routeur publie un héros à la fois. En structurant ainsi le fichier du routeur, tous les points de terminaison API disponibles s’affichent clairement et le fichier **hero.service.js** fait tout le travail.
 
     ```javascript
     router.post('/hero', (req, res) => {
@@ -99,7 +99,7 @@ Avant de commencer cette partie du didacticiel, assurez-vous d’avoir effectué
 
 ## <a name="add-the-put-and-delete-functions"></a>Ajoutez les fonctions Placer et Supprimer
 
-1. Dans le fichier **routes.js** , ajoutez les routeurs `put` et `delete` après le routeur de la fonction Publier.
+1. Dans le fichier **routes.js**, ajoutez les routeurs `put` et `delete` après le routeur de la fonction Publier.
 
     ```javascript
     router.put('/hero/:uid', (req, res) => {
@@ -159,7 +159,7 @@ Avant de commencer cette partie du didacticiel, assurez-vous d’avoir effectué
    }
    ```
 
-3. Dans le fichier **hero.service.js** , exportez les nouveaux modules :
+3. Dans le fichier **hero.service.js**, exportez les nouveaux modules :
 
    ```javascript
     module.exports = {

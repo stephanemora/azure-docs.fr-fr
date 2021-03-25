@@ -4,10 +4,10 @@ description: Décrit comment Azure Event Grid prend en charge la géorécupérat
 ms.topic: conceptual
 ms.date: 11/19/2020
 ms.openlocfilehash: 10beaf0ae25f3ed9b7bcda5961a89494b18b84d9
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94980846"
 ---
 # <a name="server-side-geo-disaster-recovery-in-azure-event-grid"></a>Géorécupération d’urgence côté serveur dans Azure Event Grid

@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 04/05/2017
 ms.author: alkohli
 ms.openlocfilehash: 392e930dcb69392b6f9425abba0efa516d5c82b8
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94967055"
 ---
 # <a name="storsimple-virtual-array-update-04-release-notes"></a>Notes de publication de StorSimple Virtual Array Update 0.4
@@ -57,7 +57,7 @@ Le tableau suivant récapitule les problèmes corrigés dans cette version.
 | --- | --- | --- |
 | 1 |Performances de sauvegarde|Dans les versions antérieures, les sauvegardes impliquant de nombreux fichiers prenaient un certain temps (en fonction des jours). Dans cette version, les sauvegardes complètes et incrémentielles voient une réduction significative de leur temps d’exécution. |
 | 2 |Package de prise en charge|Le disque, le processeur, la mémoire, le réseau et les statistiques de cloud sont maintenant journalisés dans les journaux d’activité de support, ce qui rend les packages de support très efficace pour résoudre les problèmes liés aux appareils.|
-| 3 |Backup |Dans les versions antérieures, de longues sauvegardes pouvaient causer un problème d'espace sur l'appareil, ce qui entraînait des échecs de sauvegarde. Ce bogue est résolu dans cette version pour vous permettre de mettre jusqu'à 5 sauvegardes en file d’attente à la fois.|
+| 3 |Sauvegarde |Dans les versions antérieures, de longues sauvegardes pouvaient causer un problème d'espace sur l'appareil, ce qui entraînait des échecs de sauvegarde. Ce bogue est résolu dans cette version pour vous permettre de mettre jusqu'à 5 sauvegardes en file d’attente à la fois.|
 | 4 |iSCSI | Dans les versions antérieures, la réservation locale pour les volumes hiérarchisés ou localement épinglés était de 10 % de la taille du volume approvisionné. Dans cette version, la réservation locale pour tous les volumes iSCSI (localement épinglés ou hiérarchisés) est limitée à 10 % avec un maximum de 200 Go (pour les volumes hiérarchisés d'une taille supérieure à 2 To), libérant ainsi plus d’espace sur le disque local. Nous recommandons de limiter les volumes localement épinglés dans cette version à 200 Go.|
 
 
@@ -72,7 +72,7 @@ Le tableau suivant récapitule les problèmes connus pour StorSimple Virtual Arr
 | **3.** |Stratégie de groupe |Lorsqu’un appareil est joint à un domaine, le fait d’appliquer une stratégie de groupe peut avoir un impact négatif sur son fonctionnement. |Assurez-vous que votre tableau virtuel est dans sa propre unité organisationnelle (UO) pour Active Directory et qu'aucun objet de stratégie de groupe (GPO) ne lui est appliqué. |
 | **4.** |Interface utilisateur web locale |Si les fonctionnalités de sécurité améliorées sont activées dans Internet Explorer (IE ESC), certaines pages de l’interface utilisateur web locale, comme Dépannage ou Maintenance, peuvent ne pas fonctionner correctement. Les boutons sur ces pages peuvent également ne pas fonctionner. |Désactivez les fonctionnalités de sécurité améliorées d'Internet Explorer. |
 | **5.** |Interface utilisateur web locale |Sur une machine virtuelle Hyper-V, les interfaces réseau de l'interface utilisateur web sont affichées sous forme d'interfaces 10 Gbits/s. |Ce comportement est le reflet de Hyper-V. Hyper-V affiche toujours 10 Gbits/s pour les cartes de réseau virtuel. |
-| **6.** |Partages ou volumes à plusieurs niveaux |Le verrouillage de la plage d'octets pour les applications qui fonctionnent avec les volumes à plusieurs niveaux StorSimple n'est pas pris en charge. Si le verrouillage de la plage d’octets est activé, la hiérarchisation StorSimple ne fonctionne pas. |Mesures recommandées : <br></br>Désactivez le verrouillage de plage d'octets dans la logique de votre application.<br></br>Choisissez de placer les données de cette application dans des volumes épinglés localement par opposition à des volumes à plusieurs niveaux.<br></br>*Inconvénient*: quand le verrouillage de la plage d’octets est activé avec l’utilisation de volumes localement épinglés, le volume localement épinglé peut être en ligne avant même que la restauration ne soit terminée. Dans ce cas, si une restauration est en cours, vous devez attendre que l'opération se termine. |
+| **6.** |Partages ou volumes à plusieurs niveaux |Le verrouillage de la plage d'octets pour les applications qui fonctionnent avec les volumes à plusieurs niveaux StorSimple n'est pas pris en charge. Si le verrouillage de la plage d’octets est activé, la hiérarchisation StorSimple ne fonctionne pas. |Mesures recommandées :  <br></br>Désactivez le verrouillage de plage d'octets dans la logique de votre application.<br></br>Choisissez de placer les données de cette application dans des volumes épinglés localement par opposition à des volumes à plusieurs niveaux.<br></br>*Inconvénient*: quand le verrouillage de la plage d’octets est activé avec l’utilisation de volumes localement épinglés, le volume localement épinglé peut être en ligne avant même que la restauration ne soit terminée. Dans ce cas, si une restauration est en cours, vous devez attendre que l'opération se termine. |
 | **7.** |Partages à plusieurs niveaux |L'utilisation de fichiers volumineux peut entraîner montée en charge de niveau lente. |Lorsque vous utilisez des fichiers volumineux, vérifiez que la taille du plus grand fichier est inférieure à 3 % de la taille du partage. |
 | **8.** |Capacité utilisée pour les partages |Vous pouvez constater la consommation du partage en l’absence de données sur le partage. Ceci est dû au fait que la capacité utilisée pour les partages inclut des métadonnées. | |
 | **9.** |Récupération d'urgence |La récupération d'urgence d'un serveur de fichiers ne peut s'effectuer que dans le même domaine que celui de l'appareil source. La récupération d'urgence vers un appareil cible dans un autre domaine n'est pas prise en charge dans cette version. |Ceci est implémenté dans une version ultérieure. |
@@ -87,7 +87,7 @@ Le tableau suivant récapitule les problèmes connus pour StorSimple Virtual Arr
 ## <a name="next-step"></a>Étape suivante
 [Installation d’Update 0.4](storsimple-virtual-array-install-update-04.md) sur StorSimple Virtual Array.
 
-## <a name="references"></a>References
+## <a name="references"></a>Références
 Vous recherchez une note de version antérieure ? Accédez à : 
 
 * [Notes de publication de StorSimple Virtual Array Update 0.3](storsimple-ova-update-03-release-notes.md)

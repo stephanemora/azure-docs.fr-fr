@@ -9,10 +9,10 @@ ms.date: 10/10/2016
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: 09fee610ccc15874481ecfd4693e4b89379caa7a
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92330034"
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>ExpressRoute pour les fournisseurs de solutions Cloud (CSP)
@@ -31,7 +31,7 @@ Microsoft Azure fournit un nombre croissant de services que vous pouvez proposer
 Microsoft fournit des API aux fournisseurs de solutions Cloud pour gérer les abonnements client Azure en permettant l’intégration de la programmation à vos propres systèmes de management des services. Les fonctionnalités de gestion prises en charge sont indiquées [ici](/previous-versions/windows/mt844538(v=win.10)).
 
 ## <a name="microsoft-azure-resource-management"></a>Gestion des ressources Microsoft Azure
-Le contrat signé avec votre client détermine le mode de gestion de l’abonnement. Le fournisseur de solutions Cloud peut gérer directement la création et la maintenance des ressources ou bien le client peut garder le contrôle de l’abonnement Microsoft Azure et créer les ressources Azure requises. Si vos clients gèrent la création des ressources dans leur abonnement Microsoft Azure, ils doivent utiliser l’un des deux modèles disponibles : le modèle «  *Connect-Through*  » ou le modèle «  *Direct-To*  ». Ces modèles sont décrits en détail dans les sections suivantes.  
+Le contrat signé avec votre client détermine le mode de gestion de l’abonnement. Le fournisseur de solutions Cloud peut gérer directement la création et la maintenance des ressources ou bien le client peut garder le contrôle de l’abonnement Microsoft Azure et créer les ressources Azure requises. Si vos clients gèrent la création des ressources dans leur abonnement Microsoft Azure, ils doivent utiliser l’un des deux modèles disponibles : le modèle « *Connect-Through* » ou le modèle « *Direct-To* ». Ces modèles sont décrits en détail dans les sections suivantes.  
 
 ### <a name="connect-through-model"></a>Modèle « Connect-through »
 ![Diagramme montrant le modèle « Connect-through ».](./media/expressroute-for-cloud-solution-providers/connect-through.png)  

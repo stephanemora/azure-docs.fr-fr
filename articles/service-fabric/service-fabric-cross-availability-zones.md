@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: 50ab66a1f98d06d79a46d61f683d56822b619721
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: ef1a49301cf150f92d30c163dee262a22f1515d9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100007038"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714950"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-across-availability-zones"></a>Déployer un cluster Azure Service Fabric sur des zones de disponibilité
 Les zones de disponibilité dans Azure constituent une offre à haute disponibilité qui protège vos applications et données contre les pannes des centres de données. Une zone de disponibilité est un emplacement physique unique équipé d’une alimentation, d’un refroidissement et d’une mise en réseau indépendants dans une région Azure.
@@ -345,7 +345,7 @@ Pour activer des zones sur un groupe de machines virtuelles identiques, vous dev
 
 * La première valeur est la propriété **zones** qui spécifie les zones de disponibilité présentes dans le groupe de machines virtuelles identiques.
 * La deuxième valeur est la propriété « singlePlacementGroup », qui doit être définie sur true (vrai). **Le groupe identique s’étend sur 3 zones de disponibilité et peut effectuer un scale-up jusqu’à 300 machines virtuelles, même avec « singlePlacementGroup = true ».**
-* La troisième valeur est « zoneBalance ». Elle garantit un strict équilibrage des zones si sa valeur est true. Nous vous recommandons de définir cette valeur sur true pour éviter la distribution déséquilibrée des machines virtuelles entre les zones. Découvrez [zoneBalancing](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md#zone-balancing).
+* La troisième valeur est « zoneBalance », qui garantit un strict équilibrage des zones. Cette valeur doit être définie sur « true » pour éviter une distribution déséquilibrée des machines virtuelles entre les zones. Un cluster affichant une distribution déséquilibrée des machines virtuelles entre les zones est moins susceptible de résister au scénario à une seule zone. Découvrez [zoneBalancing](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md#zone-balancing).
 * Les remplacements FaultDomain et UpgradeDomain ne doivent pas être configurés.
 
 ```json
@@ -409,7 +409,7 @@ Le nodeType Service Fabric doit être activé pour prendre en charge plusieurs z
 > * Les ressources d’adresse IP publique et d’équilibreur de charge doivent utiliser la référence (SKU) Standard, comme décrit précédemment dans l’article.
 > * la propriété « multipleAvailabilityZones » sur le nodeType ne peut être définie qu’au moment de la création du nodeType, et ne peut pas être modifiée ultérieurement. Par conséquent, des nodeTypes existants ne peuvent pas être configurés avec cette propriété.
 > * Quand « sfZonalUpgradeMode » est omis ou défini sur « Hierachical », les déploiements de cluster et d’application sont plus lents, car il y a plus de domaines de mise à niveau dans le cluster. Il est important d’ajuster correctement les délais d’expiration de stratégie de mise à niveau à incorporer pendant la durée de mise à niveau pour 15 domaines de mise à niveau.
-> * Il est recommandé de définir le niveau de fiabilité du cluster sur Platinum pour garantir que le cluster résiste au scénario à une seule zone.
+> * Définissez **reliabilityLevel = Platinum** dans le cluster pour garantir que le cluster résiste au scénario à une seule zone.
 
 >[!NOTE]
 > En guise de meilleure pratique, nous recommandons de définir sfZonalUpgradeMode sur Hierarchical ou de l’omettre. Le déploiement suivra la distribution zonale des machines virtuelles ayant un impact sur un plus petit nombre de réplicas et/ou d’instances, rendant celles-ci plus sûres.

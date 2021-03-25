@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e4c020a9be7683bf045dbcc747dad3cb45058dd7
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93077674"
 ---
 # <a name="how-to-require-mfa-for-access-from-untrusted-networks-with-conditional-access"></a>Procédure : Exiger une authentification multifacteur (MFA) pour l’accès à partir de réseaux non approuvés disposant d’un accès conditionnel   
@@ -42,7 +42,7 @@ L’accès conditionnel Azure AD permet de répondre à cette exigence avec une 
 
 ## <a name="implementation"></a>Implémentation
 
-Le défi de ce scénario consiste à traduire l’ *accès à partir d’un emplacement réseau non approuvé* en une condition d’accès conditionnel. Dans une stratégie d’accès conditionnel, vous pouvez configurer la [condition d’emplacements](location-condition.md) de façon à gérer les scénarios liés aux emplacements réseau. Cette condition permet de sélectionner des emplacements nommés, qui sont des regroupements logiques de plages d’adresses IP, de pays et de régions.  
+Le défi de ce scénario consiste à traduire l’*accès à partir d’un emplacement réseau non approuvé* en une condition d’accès conditionnel. Dans une stratégie d’accès conditionnel, vous pouvez configurer la [condition d’emplacements](location-condition.md) de façon à gérer les scénarios liés aux emplacements réseau. Cette condition permet de sélectionner des emplacements nommés, qui sont des regroupements logiques de plages d’adresses IP, de pays et de régions.  
 
 En règle générale, une organisation possède au moins une plage d’adresses, par exemple, 199.30.16.0-199.30.16.15.
 Pour configurer un emplacement nommé :

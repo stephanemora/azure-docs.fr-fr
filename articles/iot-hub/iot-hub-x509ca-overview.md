@@ -13,10 +13,10 @@ ms.custom:
 - 'Role: IoT Device'
 - 'Role: System Architecture'
 ms.openlocfilehash: 455f1f3e1c8181646fbe165d0f1aea6a2fb2fb13
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92150709"
 ---
 # <a name="device-authentication-using-x509-ca-certificates"></a>Authentification des appareils à l’aide de certificats d’autorité de certification X.509

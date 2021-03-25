@@ -9,10 +9,10 @@ ms.date: 04/19/2018
 ms.author: kgremban
 ms.custom: mqtt
 ms.openlocfilehash: 15c0df33b8f09ec71f2be913d72f0785dc766375
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93027531"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-ios"></a>Envoi de messages cloud à appareil avec IoT Hub (iOS)
@@ -27,20 +27,20 @@ Ce didacticiel vous explique les procédures suivantes :
 
 * Recevez des messages cloud-à-appareil sur un appareil.
 
-* À partir du back-end de votre solution, demandez l’accusé de réception ( *commentaires* ) pour les messages envoyés à un appareil depuis IoT Hub.
+* À partir du back-end de votre solution, demandez l’accusé de réception (*commentaires*) pour les messages envoyés à un appareil depuis IoT Hub.
 
 Vous trouverez des informations supplémentaires sur les messages cloud-à-appareil dans la [section sur les messages du Guide du développeur IoT Hub](iot-hub-devguide-messaging.md).
 
 À la fin de cet article, vous exécutez deux projets iOS Swift :
 
-* **sample-device** , la même application créée dans [Send telemetry from a device to an IoT hub (Envoyer des données de télémétrie d’un appareil à un IoT Hub)](quickstart-send-telemetry-ios.md), qui se connecte à votre IoT Hub et reçoit des messages cloud-à-appareil.
+* **sample-device**, la même application créée dans [Send telemetry from a device to an IoT hub (Envoyer des données de télémétrie d’un appareil à un IoT Hub)](quickstart-send-telemetry-ios.md), qui se connecte à votre IoT Hub et reçoit des messages cloud-à-appareil.
 
-* **sample-service** , qui envoie un message cloud-à-appareil à l’application d’appareil simulé par le biais d’IoT Hub, puis reçoit son accusé de réception.
+* **sample-service**, qui envoie un message cloud-à-appareil à l’application d’appareil simulé par le biais d’IoT Hub, puis reçoit son accusé de réception.
 
 > [!NOTE]
 > IoT Hub offre la prise en charge de Kits de développement logiciel (SDK) pour plusieurs plateformes d’appareils et plusieurs langages (notamment C, Java, Python et Javascript) par le biais des Kits Azure IoT device SDK. Pour obtenir des instructions détaillées sur la façon de connecter votre appareil au code de ce didacticiel, et à Azure IoT Hub de manière générale, consultez le [Centre de développement Azure IoT](https://www.azure.com/develop/iot).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Un compte Azure actif. (Si vous ne possédez pas de compte, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/) en quelques minutes seulement.)
 
@@ -92,7 +92,7 @@ Outre l’installation des pods nécessaires à votre projet, la commande d’in
    open "MQTT Client Sample.xcworkspace"
    ```
 
-2. Développez le projet **MQTT Client Sample** , puis le dossier du même nom.  
+2. Développez le projet **MQTT Client Sample**, puis le dossier du même nom.  
 
 3. Ouvrez **ViewController.swift** pour le modifier dans XCode. 
 
@@ -140,7 +140,7 @@ Outre l’installation des pods nécessaires à votre projet, la commande d’in
    open AzureIoTServiceSample.xcworkspace
    ```
 
-2. Développez le projet **AzureIoTServiceSample** , puis le dossier du même nom.  
+2. Développez le projet **AzureIoTServiceSample**, puis le dossier du même nom.  
 
 3. Ouvrez **ViewController.swift** pour le modifier dans XCode. 
 

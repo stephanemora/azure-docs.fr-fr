@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 ms.custom: devx-track-csharp, devx-track-azurecli
 ms.openlocfilehash: 14a405dbab0460f841a5e9104dbfeff101568f44
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98919172"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>Comment utiliser des stratégies d’allocation personnalisées
@@ -467,7 +467,7 @@ Dans cette section, vous allez mettre à jour un exemple d’approvisionnement n
 
 Cet exemple de code simule une séquence de démarrage d’un appareil qui envoie la demande de provisionnement à votre instance du service Device Provisioning. La séquence de démarrage entraîne la reconnaissance de l’appareil Toaster et son assignation au hub IoT défini par la stratégie d’allocation personnalisée.
 
-1. Dans le portail Azure, sélectionnez l’onglet **Vue d’ensemble** de votre service Device Provisioning et notez les valeurs de **_Étendue de l’ID_** .
+1. Dans le portail Azure, sélectionnez l’onglet **Vue d’ensemble** de votre service Device Provisioning et notez les valeurs de **_Étendue de l’ID_**.
 
     ![Extraction des informations de point de terminaison du service Device Provisioning à partir du panneau du Portail](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
 
@@ -588,7 +588,7 @@ Pour supprimer le groupe de ressources par nom :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com), puis sélectionnez **Groupes de ressources**.
 
-2. Dans la zone de texte **Filtrer par nom...** , tapez le nom du groupe de ressources contenant vos ressources (ici, **contoso-us-resource-group**). 
+2. Dans la zone de texte **Filtrer par nom...**, tapez le nom du groupe de ressources contenant vos ressources (ici, **contoso-us-resource-group**). 
 
 3. À droite de votre groupe de ressources dans la liste des résultats, sélectionnez **...** , puis **Supprimer le groupe de ressources**.
 

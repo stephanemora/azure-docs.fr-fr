@@ -8,10 +8,10 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: f3686a22291e8595deabe3e207ce66744c3cdd82
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100376902"
 ---
 # <a name="copy-or-move-data-easily-with-azure-data-factory-copy-wizard"></a>Copier ou déplacer facilement des données avec l’Assistant de copie Azure Data Factory
@@ -33,7 +33,7 @@ Cet Assistant vous permet de déplacer facilement et en quelques minutes des don
 > 
 > 
 
-Dès le début, l’Assistant est conçu pour traiter des données volumineuses (Big Data). Avec l’Assistant Data Factory Copy, vous disposez d’un outil simple et performant pour créer des pipelines Data Factory capables de déplacer des centaines de dossiers, fichiers ou tables. L’Assistant prend en charge les trois fonctionnalités suivantes : aperçu des données automatique, capture et mappage de schéma, et filtrage des données. 
+Dès le début, l’Assistant est conçu pour traiter des données volumineuses (Big Data). Avec l’Assistant Data Factory Copy, vous disposez d’un outil simple et performant pour créer des pipelines Data Factory capables de déplacer des centaines de dossiers, fichiers ou tables. L’Assistant prend en charge les trois fonctionnalités suivantes : aperçu des données automatique, capture de schéma, et mappage et filtrage des données. 
 
 ## <a name="automatic-data-preview"></a>Aperçu des données automatique
 L’Assistant Data Factory Copy vous permet de consulter une partie des données à partir de la source de données sélectionnée pour que vous puissiez vérifier qu’il s’agit bien des données que vous voulez copier. En outre, si les données sources sont contenues dans un fichier texte, l’Assistant analyse ce fichier pour découvrir automatiquement les délimiteurs de colonnes et de lignes ainsi que le schéma. 
@@ -71,7 +71,7 @@ Cliquez sur le bouton **Parcourir** à côté de **Fichier ou dossier**, accéde
 
 ![Utilisation de variables système](./media/data-factory-copy-wizard/blob-standard-variables-in-folder-path.png)   
 
-Comme la capture d’écran suivante le montre, vous pouvez également configurer une variable **custom** pour utiliser l’une des [chaînes de format prises en charge](/dotnet/standard/base-types/custom-date-and-time-format-strings). Pour sélectionner un dossier avec cette structure, utilisez d’abord le bouton **Parcourir** . Remplacez alors une valeur avec **{custom}** , puis appuyez sur Tab pour afficher la zone de texte dans laquelle vous pouvez taper la chaîne de format.     
+Comme la capture d’écran suivante le montre, vous pouvez également configurer une variable **custom** pour utiliser l’une des [chaînes de format prises en charge](/dotnet/standard/base-types/custom-date-and-time-format-strings). Pour sélectionner un dossier avec cette structure, utilisez d’abord le bouton **Parcourir** . Remplacez alors une valeur avec **{custom}**, puis appuyez sur Tab pour afficher la zone de texte dans laquelle vous pouvez taper la chaîne de format.     
 
 ![Utilisation de la variable custom](./media/data-factory-copy-wizard/blob-custom-variables-in-folder-path.png)
 

@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 1/28/2021
 ms.openlocfilehash: 9b5a2c5d004e63c602a30f7808586e97a0e436e8
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101720934"
 ---
 # <a name="compute-and-storage-options-in-azure-database-for-mysql---flexible-server-preview"></a>Options de calcul et de stockage dans Azure Database pour MySQL - Serveur flexible (Préversion)
@@ -25,7 +25,7 @@ Vous pouvez créer un serveur flaxible Azure Database pour MySQL dans un des tro
 | Série de la machine virtuelle| Série B | Série Ddsv4 | Série Edsv4|
 | vCores | 1, 2 | 2, 4, 8, 16, 32, 48, 64 | 2, 4, 8, 16, 32, 48, 64 |
 | Mémoire par vCore | Variable | 4 Gio | 8 Gio * |
-| Taille de stockage | 5 Gio à 16Tio | 5 Gio à 16Tio | 5 Gio à 16Tio |
+| Taille de stockage | De 5 Gio à 16 Tio | De 5 Gio à 16 Tio | 5 Gio à 16Tio |
 | Période de rétention de sauvegarde de bases de données | 1 à 35 jours | 1 à 35 jours | 1 à 35 jours |
 
 \* À l’exception de la référence E64ds_v4 (mémoire optimisée) qui dispose de 504 Go de mémoire

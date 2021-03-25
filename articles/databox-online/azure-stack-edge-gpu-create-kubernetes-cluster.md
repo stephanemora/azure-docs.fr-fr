@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/22/2021
+ms.date: 03/08/2021
 ms.author: alkohli
-ms.openlocfilehash: 5289f9b558a200bf3dbefdf584eab59d1792439b
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: ddbf3c99845f4c38f511260f4dec274903a9d586
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102437738"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102631952"
 ---
 # <a name="connect-to-and-manage-a-kubernetes-cluster-via-kubectl-on-your-azure-stack-edge-pro-gpu-device"></a>Se connecter à un cluster Kubernetes et le gérer par le biais de kubectl sur votre appareil Azure Stack Edge Pro avec GPU
 
@@ -105,7 +105,7 @@ Cette approche vous amène à créer un espace de noms et un utilisateur. Vous a
 
 4. Le fichier config doit résider dans le dossier `.kube` de votre profil utilisateur sur l’ordinateur local. Copiez le fichier dans ce dossier dans votre profil utilisateur.
 
-    ![Emplacement du fichier config sur le client](media/azure-stack-edge-j-series-create-kubernetes-cluster/location-config-file.png)
+    ![Emplacement du fichier config sur le client](media/azure-stack-edge-gpu-create-kubernetes-cluster/location-config-file.png)
 
 5. Associez l’espace de noms à l’utilisateur que vous avez créé. Tapez :
 
@@ -169,9 +169,9 @@ Vous pouvez maintenant déployer vos applications dans l’espace de noms, puis 
 
 Pour supprimer le cluster Kubernetes, vous devez supprimer la configuration d’IoT Edge.
 
-Pour obtenir des instructions détaillées, accédez à [Supprimer la configuration d’IoT Edge](azure-stack-edge-j-series-manage-compute.md#remove-iot-edge-service).
+Pour obtenir des instructions détaillées, accédez à [Gérer la configuration d’IoT Edge](azure-stack-edge-gpu-manage-compute.md#manage-iot-edge-configuration).
    
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Déployez une application sans état sur votre Azure Stack Edge Pro](azure-stack-edge-j-series-deploy-stateless-application-kubernetes.md).
+- [Déployez une application sans état sur votre Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-stateless-application-kubernetes.md).

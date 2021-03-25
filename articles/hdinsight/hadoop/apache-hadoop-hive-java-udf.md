@@ -6,17 +6,17 @@ ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017, devx-track-java
 ms.date: 11/20/2019
 ms.openlocfilehash: bf9c2ea544c6b510a0507b6b020f0eae0b101dc7
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98946571"
 ---
 # <a name="use-a-java-udf-with-apache-hive-in-hdinsight"></a>Utiliser une fonction UDF Java avec Apache Hive dans HDInsight
 
 Découvrez comment créer une fonction définie par l’utilisateur basée sur Java qui fonctionne avec Apache Hive. L’UDF Java dans cet exemple convertit un tableau de chaînes de texte en caractères tous minuscules.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Un cluster Hadoop sur HDInsight. Consultez [Bien démarrer avec HDInsight sur Linux](./apache-hadoop-linux-tutorial-get-started.md).
 * [Kit de développeur Java (JDK) version 8](/azure/developer/java/fundamentals/java-jdk-long-term-support)

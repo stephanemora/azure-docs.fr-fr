@@ -14,10 +14,10 @@ ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.openlocfilehash: 8c757f3e067aeac5d8145ca47b2eac145daba574
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88272448"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-device-authorization-grant-flow"></a>Plateforme d’identités Microsoft et flux d’octroi d’autorisation d’appareil OAuth 2.0
@@ -28,11 +28,11 @@ Cet article explique comment programmer directement par rapport au protocole dan
 
 ## <a name="protocol-diagram"></a>Schéma de protocole
 
-Le flux de code d’appareil complet est similaire à l’illustration suivante. Nous décrirons en détail chacune des étapes plus loin dans cet article.
+Le diagramme suivant illustre l’intégralité du flux de code d’appareil. Nous décrirons en détail chacune des étapes plus loin dans cet article.
 
 ![Flux de code d’appareil](./media/v2-oauth2-device-code/v2-oauth-device-flow.svg)
 
-## <a name="device-authorization-request"></a>Requête d’autorisation d’appareil
+## <a name="device-authorization-request"></a>Requête d’autorisation de l’appareil
 
 Le client doit d’abord rechercher sur le serveur d’authentification un appareil et un code utilisateur, utilisés pour lancer l’authentification. Le client collecte cette requête à partir du point de terminaison `/devicecode`. Dans cette requête, le client doit également inclure les autorisations dont il a besoin d’obtenir auprès de l’utilisateur. À partir du moment où cette requête est envoyée, l’utilisateur ne dispose que de 15 minutes pour se connecter (la valeur habituelle de `expires_in`). N’effectuez cette requête que lorsque l’utilisateur a indiqué qu’il est prêt à se connecter.
 
@@ -59,7 +59,7 @@ scope=user.read%20openid%20profile
 
 ### <a name="device-authorization-response"></a>Réponse d’autorisation d’appareil
 
-Une réponse réussie est un objet JSON contenant les informations requises pour autoriser l’utilisateur à se connecter.
+Une réponse positive est un objet JSON contenant les informations requises pour permettre à l’utilisateur de se connecter.
 
 | Paramètre | Format | Description |
 | ---              | --- | --- |

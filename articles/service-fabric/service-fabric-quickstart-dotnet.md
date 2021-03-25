@@ -5,10 +5,10 @@ ms.topic: quickstart
 ms.date: 06/26/2019
 ms.custom: mvc, devcenter, vs-azure
 ms.openlocfilehash: 15e2180e44acaa5ebefb403b2da3755396a45ba4
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96575888"
 ---
 # <a name="quickstart-deploy-a-net-reliable-services-application-to-service-fabric"></a>Démarrage rapide : Déployer une application de services fiables .NET sur Service Fabric
@@ -28,7 +28,7 @@ Cette application vous permet d’apprendre à :
 * Mettre à l’échelle avec une montée en puissance parallèle sur plusieurs nœuds
 * Effectuer une mise à niveau propagée d’application
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce guide de démarrage rapide :
 
@@ -50,7 +50,7 @@ Après avoir installé le runtime, les SDK, Visual Studio Tools et Docker, et un
 > Bien qu’il ne soit pas nécessaire pour ce guide de démarrage rapide de créer le cluster en exécutant Docker, cette instruction est fournie au titre de bonne pratique.
 > Vérifiez que Docker est en cours d’exécution en ouvrant une fenêtre de terminal et en exécutant `docker ps` pour voir si une erreur se produit. Si la réponse n’indique aucune erreur, Docker est en cours d’exécution et vous êtes prêt à générer un cluster.
 >
-> [Configurer Windows 10 ou Windows Server pour des conteneurs](/virtualization/windowscontainers/quick-start/set-up-environment?tabs=Windows-10-Client)
+> [Configurer Windows 10 ou Windows Server pour les conteneurs](/virtualization/windowscontainers/quick-start/set-up-environment?tabs=Windows-10-Client)
 
 1. Ouvrez une nouvelle fenêtre PowerShell avec élévation de privilèges en tant qu’administrateur.
 2. Exécutez la commande PowerShell suivante pour créer un cluster de développement :
@@ -76,7 +76,7 @@ Dans une fenêtre Commande, exécutez la commande suivante pour cloner le réfé
 git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 ```
 
-## <a name="run-the-application-locally"></a>Exécuter l’application localement
+## <a name="run-the-application-locally"></a>Exécuter localement l’application
 
 Dans le Menu Démarrer, cliquez avec le bouton droit sur l’icône Visual Studio, puis choisissez **Exécuter en tant qu’administrateur**. Pour attacher le débogueur à vos services, vous devez exécuter Visual Studio en tant qu’administrateur.
 
@@ -127,9 +127,9 @@ Pour examiner ce qui se produit dans le code, procédez comme suit :
 
      ![Ajouter un service de vote frontal](./media/service-fabric-quickstart-dotnet/addvote-frontend.png)
 
-   * Tout d’abord, créez l’URL du ReverseProxy pour notre service backend **(1)** .
+   * Tout d’abord, créez l’URL du ReverseProxy pour notre service backend **(1)**.
    * Ensuite, envoyez la requête HTTP PUT au ReverseProxy **(2)** .
-   * Pour finir, retournez la réponse du service backend au client **(3)** .
+   * Pour finir, retournez la réponse du service backend au client **(3)**.
 
 4. Appuyez sur **F5** pour continuer.
    - Si le navigateur vous y invite, accordez des autorisations de lecture et d’exécution au groupe ServiceFabricAllowedUsers pour le mode débogage.
@@ -137,9 +137,9 @@ Pour examiner ce qui se produit dans le code, procédez comme suit :
 
      ![Ajouter un service de vote principal](./media/service-fabric-quickstart-dotnet/addvote-backend.png)
 
-   - Dans la première ligne de la méthode **(1)** , le `StateManager` obtient ou ajoute un dictionnaire fiable nommé `counts`.
+   - Dans la première ligne de la méthode **(1)**, le `StateManager` obtient ou ajoute un dictionnaire fiable nommé `counts`.
    - Toutes les interactions avec des valeurs d’un dictionnaire fiable requièrent une transaction. Cette instruction using **(2)** crée cette transaction.
-   - Dans la transaction, mettez à jour la valeur de la clé appropriée pour l’option de vote et validez l’opération **(3)** . Lorsque la méthode commit retourne des données, celles-ci sont mises à jour dans le dictionnaire et répliquées sur d’autres nœuds du cluster. Les données sont à présent stockées en sécurité dans le cluster, et le service principal peut basculer vers d’autres nœuds, tout en gardant les données disponibles.
+   - Dans la transaction, mettez à jour la valeur de la clé appropriée pour l’option de vote et validez l’opération **(3)**. Lorsque la méthode commit retourne des données, celles-ci sont mises à jour dans le dictionnaire et répliquées sur d’autres nœuds du cluster. Les données sont à présent stockées en sécurité dans le cluster, et le service principal peut basculer vers d’autres nœuds, tout en gardant les données disponibles.
 5. Appuyez sur **F5** pour continuer.
 
 Pour arrêter la session de débogage, appuyez sur **Maj+F5**.

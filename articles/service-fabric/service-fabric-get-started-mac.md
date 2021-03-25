@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 10/16/2020
 ms.custom: devx-track-js
 ms.openlocfilehash: d08046c8f29901dd9650a1edc886efa2ff226e00
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93086775"
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Configurer votre environnement de développement sur Mac OS X
@@ -41,7 +41,7 @@ Pour configurer un conteneur Docker local et y exécuter un cluster Service Fabr
         "fixed-cidr-v6": "fd00::/64"
     }
     ```
-    Vous pouvez mettre à jour ces paramètres directement dans le fichier daemon.json dans votre chemin d’installation de Docker. Vous pouvez modifier directement les paramètres de configuration du démon dans Docker. Sélectionnez l’ **icône de Docker** , puis sélectionnez **Préférences** > **Démon** > **Avancé**.
+    Vous pouvez mettre à jour ces paramètres directement dans le fichier daemon.json dans votre chemin d’installation de Docker. Vous pouvez modifier directement les paramètres de configuration du démon dans Docker. Sélectionnez l’**icône de Docker**, puis sélectionnez **Préférences** > **Démon** > **Avancé**.
     
     >[!NOTE]
     >
@@ -49,7 +49,7 @@ Pour configurer un conteneur Docker local et y exécuter un cluster Service Fabr
     >
 
     >[!TIP]
-    >Nous recommandons d’augmenter la quantité de ressources allouées à Docker lorsque vous testez des applications volumineuses. Pour cela, sélectionnez **l’icône de Docker** , puis choisissez **Avancé** pour ajuster le nombre de cœurs et la mémoire.
+    >Nous recommandons d’augmenter la quantité de ressources allouées à Docker lorsque vous testez des applications volumineuses. Pour cela, sélectionnez **l’icône de Docker**, puis choisissez **Avancé** pour ajuster le nombre de cœurs et la mémoire.
 
 2. Démarrez le cluster.<br/>
     <b>Ubuntu 18.04 LTS :</b>

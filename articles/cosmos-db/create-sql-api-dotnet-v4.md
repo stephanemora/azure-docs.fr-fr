@@ -10,10 +10,10 @@ ms.topic: quickstart
 ms.date: 09/22/2020
 ms.custom: devx-track-dotnet
 ms.openlocfilehash: 224a1b67ff0282c216763229593fcfed81d7567b
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93090101"
 ---
 # <a name="quickstart-build-a-console-app-using-the-net-v4-sdk-to-manage-azure-cosmos-db-sql-api-account-resources"></a>Démarrage rapide : Générer une application console à l’aide du Kit de développement logiciel (SDK) .NET V4 pour gérer les ressources du compte de l’API SQL Azure Cosmos DB.
@@ -56,7 +56,7 @@ Si vous disposez de votre propre abonnement Azure ou si vous avez créé un abon
 
 Vous pouvez utiliser Azure Cloud Shell pour créer le compte Azure Cosmos. Azure Cloud Shell est un interpréteur de commandes interactif, authentifié et accessible par navigateur qui permet de gérer les ressources Azure. Il vous donne la possibilité de choisir l'expérience d'interpréteur de commandes la plus adaptée à votre façon de travailler, qu'il s'agisse de Bash ou de PowerShell. Pour ce guide de démarrage rapide, choisissez le mode **Bash**. Azure Cloud Shell nécessite également un compte de stockage. Vous pouvez en créer un quand vous y êtes invité.
 
-Sélectionnez le bouton **Essayer** en regard du code suivant, choisissez le mode **Bash** , sélectionnez **Créer un compte de stockage** , puis connectez-vous à Cloud Shell. Ensuite, copiez et collez le code suivant dans Azure Cloud Shell, puis exécutez-le. Le nom du compte Azure Cosmos doit être globalement unique. Veillez à mettre à jour la valeur `mysqlapicosmosdb` avant d’exécuter la commande.
+Sélectionnez le bouton **Essayer** en regard du code suivant, choisissez le mode **Bash**, sélectionnez **Créer un compte de stockage**, puis connectez-vous à Cloud Shell. Ensuite, copiez et collez le code suivant dans Azure Cloud Shell, puis exécutez-le. Le nom du compte Azure Cosmos doit être globalement unique. Veillez à mettre à jour la valeur `mysqlapicosmosdb` avant d’exécuter la commande.
 
 ```azurecli-interactive
 
@@ -129,7 +129,7 @@ L’exemple d’application doit s’authentifier auprès de votre compte Azure 
 
 1. Accédez à votre compte Azure Cosmos.
 
-1. Ouvrez le volet **Clés** et copiez l’ **URI** et la **CLÉ PRIMAIRE** de votre compte. Vous allez ajouter les valeur d’URI et de clés à une variable d’environnement à l’étape suivante.
+1. Ouvrez le volet **Clés** et copiez l’**URI** et la **CLÉ PRIMAIRE** de votre compte. Vous allez ajouter les valeur d’URI et de clés à une variable d’environnement à l’étape suivante.
 
 ## <a name="object-model"></a><a id="object-model"></a>Modèle objet
 

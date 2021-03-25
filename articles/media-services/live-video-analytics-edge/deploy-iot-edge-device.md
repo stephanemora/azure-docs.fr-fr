@@ -4,10 +4,10 @@ description: Cet article répertorie les étapes permettant de déployer Live Vi
 ms.topic: how-to
 ms.date: 09/09/2020
 ms.openlocfilehash: 01b98c7a1f4073adcd8dea7cbfbfc57abc3787c1
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101718928"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>Déployer Live Video Analytics sur un appareil IoT Edge

@@ -4,10 +4,10 @@ description: Découvrez comment chiffrez les données de votre application dans 
 ms.topic: article
 ms.date: 03/06/2020
 ms.openlocfilehash: 5524b749b1e15342dd0133920d7190e33ced18ad
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92146051"
 ---
 # <a name="encryption-at-rest-using-customer-managed-keys"></a>Chiffrement au repos à l’aide de clés gérées par le client
