@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à InsideView | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory avec InsideView | Microsoft Docs'
 description: Dans ce tutoriel, vous allez découvrir comment configurer l’authentification unique entre Azure Active Directory et InsideView.
 services: active-directory
 author: jeevansd
@@ -12,13 +12,13 @@ ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: jeedes
 ms.openlocfilehash: b8f12b6d55cb11c0cfeda5331072127ea4a696bc
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92460102"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-insideview"></a>Tutoriel : Intégration d’Azure Active Directory à InsideView
+# <a name="tutorial-azure-active-directory-integration-with-insideview"></a>Didacticiel : Intégration d’Azure Active Directory à InsideView
 
 Dans ce tutoriel, vous allez apprendre à intégrer InsideView à Azure Active Directory (Azure AD).
 Cette intégration offre les avantages suivants :
@@ -48,11 +48,11 @@ Dans ce tutoriel, vous allez configurer et tester l’authentification unique Az
 
 Pour configurer l’intégration d’InsideView à Azure AD, vous devez ajouter InsideView, disponible dans la galerie, à votre liste d’applications SaaS gérées.
 
-1. Dans le [portail Azure](https://portal.azure.com), dans le volet de gauche, sélectionnez **Azure Active Directory**  :
+1. Dans le [portail Azure](https://portal.azure.com), dans le volet de gauche, sélectionnez **Azure Active Directory** :
 
     ![Sélectionnez Azure Active Directory](common/select-azuread.png)
 
-2. Accédez à **Applications d’entreprise** > **Toutes les applications**  :
+2. Accédez à **Applications d’entreprise** > **Toutes les applications** :
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -60,7 +60,7 @@ Pour configurer l’intégration d’InsideView à Azure AD, vous devez ajouter 
 
     ![Sélectionner la nouvelle application](common/add-new-app.png)
 
-4. Dans la zone de recherche, entrez **InsideView** . Dans les résultats de la recherche, sélectionnez **InsideView** , puis **Ajouter** .
+4. Dans la zone de recherche, entrez **InsideView**. Dans les résultats de la recherche, sélectionnez **InsideView**, puis **Ajouter**.
 
     ![Résultats de la recherche](common/search-new-app.png)
 
@@ -84,48 +84,48 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 Pour configurer l’authentification unique Azure AD avec InsideView, effectuez les étapes suivantes :
 
-1. Dans le [portail Azure](https://portal.azure.com/), dans la page d’intégration de l’application InsideView, sélectionnez **Authentification unique**  :
+1. Dans le [portail Azure](https://portal.azure.com/), dans la page d’intégration de l’application InsideView, sélectionnez **Authentification unique** :
 
     ![Sélectionner l’authentification unique](common/select-sso.png)
 
-2. Dans la boîte de dialogue **Sélectionner une méthode d’authentification unique** , sélectionnez le mode **SAML/WS-Fed** pour activer l’authentification unique :
+2. Dans la boîte de dialogue **Sélectionner une méthode d’authentification unique**, sélectionnez le mode **SAML/WS-Fed** pour activer l’authentification unique :
 
     ![Sélectionner une méthode d’authentification unique](common/select-saml-option.png)
 
-3. Dans la page **Configurer l’authentification unique avec SAML** , sélectionnez l’icône **Modifier** pour ouvrir la boîte de dialogue **Configuration SAML de base**  :
+3. Dans la page **Configurer l’authentification unique avec SAML**, sélectionnez l’icône **Modifier** pour ouvrir la boîte de dialogue **Configuration SAML de base** :
 
     ![Icône Modifier](common/edit-urls.png)
 
-4. Dans la boîte de dialogue **Configuration SAML de base** , effectuez les étapes suivantes.
+4. Dans la boîte de dialogue **Configuration SAML de base**, effectuez les étapes suivantes.
 
     ![Boîte de dialogue Configuration SAML de base](common/idp-reply.png)
 
-    Dans la zone **URL de réponse** , entrez une URL au format suivant :
+    Dans la zone **URL de réponse**, entrez une URL au format suivant :
 
     `https://my.insideview.com/iv/<STS Name>/login.iv`
 
     > [!NOTE]
     > Cette valeur est un espace réservé. Vous devez utiliser l’URL de réponse réelle. Contactez l’[équipe de support technique d’InsideView](mailto:support@insideview.com) pour obtenir la valeur. Vous pouvez aussi vous référer aux modèles figurant dans la boîte de dialogue **Configuration SAML de base** dans le portail Azure.
 
-5. Dans la page **Configurer l’authentification unique avec SAML** , dans la section **Certificat de signature SAML** , sélectionnez le lien **Télécharger** en regard du **Certificat (brut)** correspondant à vos besoins, puis enregistrez le certificat sur votre ordinateur :
+5. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, sélectionnez le lien **Télécharger** en regard du **Certificat (brut)** correspondant à vos besoins, puis enregistrez le certificat sur votre ordinateur :
 
     ![Lien de téléchargement du certificat](common/certificateraw.png)
 
-6. Dans la section **Configurer InsideView** , copiez la ou les URL appropriées, en fonction de vos besoins :
+6. Dans la section **Configurer InsideView**, copiez la ou les URL appropriées, en fonction de vos besoins :
 
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
 
-    1. **URL de connexion** .
+    1. **URL de connexion**.
 
-    1. **Identificateur Azure AD** .
+    1. **Identificateur Azure AD**.
 
-    1. **URL de déconnexion** .
+    1. **URL de déconnexion**.
 
 ### <a name="configure-insideview-single-sign-on"></a>Configurer l’authentification unique InsideView
 
 1. Dans une nouvelle fenêtre de navigateur web, connectez-vous à votre site d’entreprise InsideView en tant qu’administrateur.
 
-1. En haut de la fenêtre, sélectionnez **Admin** , **SingleSignOn Settings** (Paramètres d’authentification unique), puis **Add SAML** (Ajouter SAML).
+1. En haut de la fenêtre, sélectionnez **Admin**, **SingleSignOn Settings** (Paramètres d’authentification unique), puis **Add SAML** (Ajouter SAML).
    
    ![Paramètres d’authentification unique SAML](./media/insideview-tutorial/ic794135.png "Paramètres d’authentification unique SAML")
 
@@ -133,27 +133,27 @@ Pour configurer l’authentification unique Azure AD avec InsideView, effectuez 
 
     ![Section Add a New SAML](./media/insideview-tutorial/ic794136.png "Section Add a New SAML")
 
-    1. Dans la zone de texte **STS Name** , attribuez un nom à votre configuration.
+    1. Dans la zone de texte **STS Name**, attribuez un nom à votre configuration.
 
     1. Dans la zone **SamlP/WS-Fed Unsolicited EndPoint** (Point de terminaison non sollicité SamlP/WS-Fed), collez la valeur **URL de connexion** que vous avez copiée à partir du portail Azure.
 
-    1. Ouvrez le certificat brut que vous avez téléchargé à partir du portail Azure. Copiez le contenu du certificat dans le Presse-papiers, puis collez le contenu dans la zone **STS Certificate** .
+    1. Ouvrez le certificat brut que vous avez téléchargé à partir du portail Azure. Copiez le contenu du certificat dans le Presse-papiers, puis collez le contenu dans la zone **STS Certificate**.
 
-    1. Dans la zone **Crm User Id Mapping** (Mappage d’ID utilisateur Crm), entrez **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`** .
+    1. Dans la zone **Crm User Id Mapping** (Mappage d’ID utilisateur Crm), entrez **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`**.
 
-    1. Dans la zone **Crm Email Mapping** (Mappage d’e-mail Crm), entrez **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`** .
+    1. Dans la zone **Crm Email Mapping** (Mappage d’e-mail Crm), entrez **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`**.
 
-    1. Dans la zone **Crm First Name Mapping** (Mappage du prénom Crm), entrez **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`** .
+    1. Dans la zone **Crm First Name Mapping** (Mappage du prénom Crm), entrez **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`**.
 
-    1. Dans la zone **Crm lastName Mapping** (Mappage du nom Crm), entrez **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`** .  
+    1. Dans la zone **Crm lastName Mapping** (Mappage du nom Crm), entrez **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`**.  
 
-    1. Sélectionnez **Enregistrer** .
+    1. Sélectionnez **Enregistrer**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
 Dans cette section, vous allez créer un utilisateur de test appelé Britta Simon dans le portail Azure.
 
-1. Dans le volet de gauche du portail Azure, sélectionnez **Azure Active Directory** , **Utilisateurs** , puis **Tous les utilisateurs**  :
+1. Dans le volet de gauche du portail Azure, sélectionnez **Azure Active Directory**, **Utilisateurs**, puis **Tous les utilisateurs** :
 
     ![Sélectionner Tous les utilisateurs](common/users.png)
 
@@ -161,15 +161,15 @@ Dans cette section, vous allez créer un utilisateur de test appelé Britta Simo
 
     ![Sélectionner Nouvel utilisateur](common/new-user.png)
 
-3. Dans la boîte de dialogue **Utilisateur** , procédez comme suit.
+3. Dans la boîte de dialogue **Utilisateur**, procédez comme suit.
 
     ![Boîte de dialogue Utilisateur](common/user-properties.png)
 
-    1. Dans la zone **Nom** , entrez **BrittaSimon** .
+    1. Dans la zone **Nom**, entrez **BrittaSimon**.
   
-    1. Dans la zone **Nom d’utilisateur** , entrez **BrittaSimon@\<yourcompanydomain>.\<extension>** . (Par exemple, BrittaSimon@contoso.com.)
+    1. Dans la zone **Nom d’utilisateur**, entrez **BrittaSimon@\<yourcompanydomain>.\<extension>** . (Par exemple, BrittaSimon@contoso.com.)
 
-    1. Sélectionnez **Afficher le mot de passe** , puis notez la valeur affichée dans la zone **Mot de passe** .
+    1. Sélectionnez **Afficher le mot de passe**, puis notez la valeur affichée dans la zone **Mot de passe**.
 
     1. Sélectionnez **Create** (Créer).
 
@@ -177,27 +177,27 @@ Dans cette section, vous allez créer un utilisateur de test appelé Britta Simo
 
 Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à InsideView.
 
-1. Dans le portail Azure, sélectionnez **Applications d’entreprise** , **Toutes les applications** , puis **InsideView** .
+1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, **Toutes les applications**, puis **InsideView**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
-2. Dans la liste des applications, sélectionnez **InsideView** .
+2. Dans la liste des applications, sélectionnez **InsideView**.
 
     ![Liste des applications](common/all-applications.png)
 
-3. Dans le volet gauche, sélectionnez **Utilisateurs et groupes**  :
+3. Dans le volet gauche, sélectionnez **Utilisateurs et groupes** :
 
     ![Sélectionner Utilisateurs et groupes](common/users-groups-blade.png)
 
-4. Sélectionnez **Ajouter un utilisateur** , puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution** .
+4. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
 
     ![Sélectionnez Ajouter un utilisateur](common/add-assign-user.png)
 
-5. Dans la boîte de dialogue **Utilisateurs et groupes** , sélectionnez **Britta Simon** dans la liste des utilisateurs, puis cliquez sur le bouton **Sélectionner** en bas de la fenêtre.
+5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs, puis cliquez sur le bouton **Sélectionner** en bas de la fenêtre.
 
-6. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle** , sélectionnez le rôle approprié pour l’utilisateur dans la liste. Cliquez sur le bouton **Sélectionner** en bas de la fenêtre.
+6. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste. Cliquez sur le bouton **Sélectionner** en bas de la fenêtre.
 
-7. Dans la boîte de dialogue **Ajouter une attribution** , sélectionnez **Affecter** .
+7. Dans la boîte de dialogue **Ajouter une attribution**, sélectionnez **Affecter**.
 
 ### <a name="create-an-insideview-test-user"></a>Créer un utilisateur de test InsideView
 

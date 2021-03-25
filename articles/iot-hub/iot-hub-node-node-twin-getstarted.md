@@ -10,10 +10,10 @@ ms.date: 08/26/2019
 ms.author: elioda
 ms.custom: mqtt, devx-track-js
 ms.openlocfilehash: 65ced3812072bd2650fc36bbb7a7b0f3f75e0def
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91336783"
 ---
 # <a name="get-started-with-device-twins-nodejs"></a>Prise en main des représentations d’appareils (Node.js)
@@ -133,7 +133,7 @@ Dans cette section, vous créez une application console Node.js qui ajoute des m
         };
    ```
 
-    Le code précédent exécute deux requêtes : la première sélectionne uniquement les représentations des appareils situés dans l’usine **Redmond43**et la seconde affine la requête pour sélectionner uniquement les appareils qui sont également connectés via un réseau cellulaire.
+    Le code précédent exécute deux requêtes : la première sélectionne uniquement les représentations des appareils situés dans l’usine **Redmond43** et la seconde affine la requête pour sélectionner uniquement les appareils qui sont également connectés via un réseau cellulaire.
 
     Quand le code crée l’objet **query**, il spécifie le nombre maximal de documents retournés dans le deuxième paramètre. L’objet **query** contient une propriété booléenne **hasMoreResults** permettant d’appeler les méthodes **nextAsTwin** plusieurs fois afin de récupérer tous les résultats. Une méthode appelée **next** est disponible pour les résultats qui ne sont pas des jumeaux d’appareil, par exemple les résultats de requêtes d’agrégation.
 
@@ -167,7 +167,7 @@ Dans cette section, vous allez créer une application console Node.js qui se con
 
 3. À l’aide d’un éditeur de texte, créez un fichier **ReportConnectivity.js** dans le dossier **reportconnectivity**.
 
-4. Ajoutez le code suivant au fichier **ReportConnectivity.js**. Remplacez `{device connection string}` par la chaîne de connexion de l’appareil que vous avez copiée quand vous avez créé l’identité d’appareil **myDeviceId** dans[Inscrire un nouvel appareil dans le hub IoT](#register-a-new-device-in-the-iot-hub).
+4. Ajoutez le code suivant au fichier **ReportConnectivity.js**. Remplacez `{device connection string}` par la chaîne de connexion de l’appareil que vous avez copiée quand vous avez créé l’identité d’appareil **myDeviceId** dans [Inscrire un nouvel appareil dans le hub IoT](#register-a-new-device-in-the-iot-hub).
 
     ```javascript
         'use strict';

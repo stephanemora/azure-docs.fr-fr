@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 59dc94e37dfa1ef8b0b079bf5d78d0504e0cb8c7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91313618"
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Azure AD Connect Sync : présentation de l’approvisionnement déclaratif
@@ -87,12 +87,12 @@ La jointure en sortie a un comportement spécial lorsqu’elle tente d’approvi
 Le module Join est évalué une seule fois lorsqu’une nouvelle règle de synchronisation arrive dans l’étendue. Lorsqu’un objet est joint, il n’est pas séparé, même si le critère de jointure n’est plus rempli. Si vous souhaitez séparer un objet, la règle de synchronisation qui joint les objets doit être hors de portée.
 
 ### <a name="metaverse-delete"></a>Suppression du métaverse
-Un objet de métaverse demeure tant qu’une règle de synchronisation reste dans la portée, avec le**type de lien** défini sur **Provision** ou **StickyJoin**. Le type StickyJoin est utilisé lorsqu’un connecteur n’est pas autorisé à approvisionner un nouvel objet dans le métaverse, mais lorsqu’il est joint, il doit être supprimé de la source avant la suppression de l’objet du métaverse.
+Un objet de métaverse demeure tant qu’une règle de synchronisation reste dans la portée, avec le **type de lien** défini sur **Provision** ou **StickyJoin**. Le type StickyJoin est utilisé lorsqu’un connecteur n’est pas autorisé à approvisionner un nouvel objet dans le métaverse, mais lorsqu’il est joint, il doit être supprimé de la source avant la suppression de l’objet du métaverse.
 
 Lorsqu’un objet de métaverse est supprimé, tous les objets associés à une règle de synchronisation de trafic sortant marquée **Provision** sont marqués pour suppression.
 
 ## <a name="transformations"></a>Transformations
-Les transformations sont utilisées pour définir le flux d’attributs de la source vers la cible. Les flux peuvent être des **types**suivants : Direct, Constant ou Expression. Un flux direct envoie la valeur de l’attribut telle quelle, sans transformation supplémentaire. Un flux constant définit la valeur spécifiée. Une expression utilise le langage d’expression d’approvisionnement déclaratif pour exprimer la manière dont la transformation doit avoir lieu. Vous trouverez des informations sur le langage d’expression dans la rubrique [Comprendre le langage d’expression d’approvisionnement déclaratif](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md) .
+Les transformations sont utilisées pour définir le flux d’attributs de la source vers la cible. Les flux peuvent être des **types** suivants : Direct, Constant ou Expression. Un flux direct envoie la valeur de l’attribut telle quelle, sans transformation supplémentaire. Un flux constant définit la valeur spécifiée. Une expression utilise le langage d’expression d’approvisionnement déclaratif pour exprimer la manière dont la transformation doit avoir lieu. Vous trouverez des informations sur le langage d’expression dans la rubrique [Comprendre le langage d’expression d’approvisionnement déclaratif](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md) .
 
 ![Approvisionnement ou jointure](./media/concept-azure-ad-connect-sync-declarative-provisioning/transformations1.png)  
 
@@ -159,7 +159,7 @@ Pour ce scénario, vous devez modifier la portée des règles de synchronisation
 
 **Rubriques de présentation**
 
-* [Azure AD Connect Sync - Présentation et personnalisation des options de synchronisation](how-to-connect-sync-whatis.md)
+* [Synchronisation Azure AD Connect : Comprendre et personnaliser la synchronisation](how-to-connect-sync-whatis.md)
 * [Intégration des identités locales dans Azure Active Directory](whatis-hybrid-identity.md)
 
 **Rubriques de référence**

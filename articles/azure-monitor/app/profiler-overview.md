@@ -7,10 +7,10 @@ ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 0d3074d58560df5cb5bd6bdc2c0437a4be828918
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86499390"
 ---
 # <a name="profile-production-applications-in-azure-with-application-insights"></a>Profiler des applications de production dans Azure avec Application Insights
@@ -69,7 +69,7 @@ Si **clr!ThePreStub** prend beaucoup de temps pour traiter une demande, la deman
 
 ### <a name="loading-code-cold"></a><a id="ngencold"></a>Code de chargement ([COLD])
 
-Si le nom de la méthode contient **[COLD]** , par exemple, **mscorlib.ni![COLD]System.Reflection.CustomAttribute.IsDefined**, le runtime du .NET Framework exécute pour la première fois du code qui n’utilise pas d’[optimisation guidée par profil](/cpp/build/profile-guided-optimizations). Pour chaque méthode, il doit s’afficher au maximum une fois pendant le processus.
+Si le nom de la méthode contient **[COLD]**, par exemple, **mscorlib.ni![COLD]System.Reflection.CustomAttribute.IsDefined**, le runtime du .NET Framework exécute pour la première fois du code qui n’utilise pas d’[optimisation guidée par profil](/cpp/build/profile-guided-optimizations). Pour chaque méthode, il doit s’afficher au maximum une fois pendant le processus.
 
 Si le chargement du code prend beaucoup de temps pour une demande, la demande est la première à exécuter la partie non optimisée de la méthode. Vous pouvez envisager d’utiliser un processus de mise en route qui exécute cette partie du code avant que vos utilisateurs y accèdent.
 

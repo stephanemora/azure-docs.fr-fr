@@ -4,10 +4,10 @@ description: Découvrez comment ajouter un dépôt GitHub ou un Git Azure DevOps
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 225aae5e0a017b711f29a47829b06f8bb7a6a8ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85483140"
 ---
 # <a name="add-a-git-repository-to-store-custom-artifacts-and-resource-manager-templates"></a>Ajouter un dépôt Git pour stocker des artefacts personnalisés et des modèles Resource Manager
@@ -56,7 +56,7 @@ Pour ajouter un dépôt à votre laboratoire, obtenez d’abord des informations
    3. Dans la liste **Comptes**, sélectionnez **Tous les comptes accessibles**.
    4. Sélectionnez l’option **Lecture seule**.
    5. Sélectionnez **Créer le jeton**.
-9. Le nouveau jeton apparaît dans la liste **Jetons d’accès personnels**. Sélectionnez **Copier le jeton**puis enregistrez la valeur du jeton pour utilisation ultérieure.
+9. Le nouveau jeton apparaît dans la liste **Jetons d’accès personnels**. Sélectionnez **Copier le jeton** puis enregistrez la valeur du jeton pour utilisation ultérieure.
 10. Passez à la section [Connecter votre laboratoire au référentiel](#connect-your-lab-to-the-repository).
 
 ## <a name="connect-your-lab-to-the-repository"></a>Connecter votre laboratoire au référentiel

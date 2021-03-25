@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/24/2020
 ms.author: juliako
 ms.openlocfilehash: 0961aa3e573e511a6941bc59ddc335f64799abb4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87047335"
 ---
 # <a name="compare-azure-media-services-v3-presets-and-video-indexer"></a>Comparer les préréglages d’Azure Media Services v3 et de Video Indexer 
@@ -32,7 +32,7 @@ Actuellement, il y a un chevauchement entre les fonctionnalités offertes par le
 |Fonctionnalité|API Video Indexer |Préréglages de l’analyseur vidéo et de l’analyseur audio<br/>dans les API Media Services v3|
 |---|---|---|
 |Insights médias|[Amélioré](video-indexer-output-json-v2.md) |[Fondamentaux](../latest/analyzing-video-audio-files-concept.md)|
-|Expériences|Consultez la liste complète des fonctionnalités prises en charge : <br/> [Vue d'ensemble](video-indexer-overview.md)|Retourne uniquement des insights vidéo|
+|Expériences|Consultez la liste complète des fonctionnalités prises en charge : <br/> [Vue d’ensemble](video-indexer-overview.md)|Retourne uniquement des insights vidéo|
 |Facturation|[Tarifs de Media Services](https://azure.microsoft.com/pricing/details/media-services/#analytics)|[Tarifs de Media Services](https://azure.microsoft.com/pricing/details/media-services/#analytics)|
 |Conformité|Pour obtenir des informations actualisées relatives à la conformité, consultez le fichier [Azure Compliance Offerings.pdf](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942/file/178110/23/Microsoft%20Azure%20Compliance%20Offerings.pdf) et recherchez « Video Indexer » pour voir s’il est conforme à un certificat d’intérêt.|Pour obtenir des informations actualisées relatives à la conformité, consultez le fichier [Azure Compliance Offerings.pdf](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942/file/178110/23/Microsoft%20Azure%20Compliance%20Offerings.pdf) et recherchez « Media Services » pour voir s’il est conforme à un certificat d’intérêt.|
 |Version d’évaluation gratuite|USA Est|Non disponible|

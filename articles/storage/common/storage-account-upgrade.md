@@ -10,10 +10,10 @@ ms.date: 03/09/2021
 ms.author: tamram
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 85520032e9bc63b6296e40dd1c1055e36762dcc8
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102555004"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Mettre à niveau vers un compte de stockage v2 à usage général
@@ -26,9 +26,9 @@ La mise à niveau vers un compte de stockage v2 à usage général à partir d�
 > La mise à niveau d’un compte de stockage v1 universel ou d’objets blob vers un compte v2 universel est définitive et ne peut pas être annulée.
 
 > [!NOTE]
-> Bien que Microsoft recommande les comptes v2 universels pour la plupart des scénarios, Microsoft continuera à prendre en charge les comptes v1 universels pour les clients nouveaux et existants. Vous pouvez créer des comptes de stockage v1 universels dans de nouvelles régions chaque fois que le Stockage Azure est disponible dans ces régions. Actuellement, Microsoft ne prévoit pas de déprécier la prise en charge des comptes v1 universels, et fournira un préavis d’au moins un an avant de déprécier toute fonctionnalité du Stockage Azure. Microsoft continuera à fournir des mises à jour de sécurité pour les comptes v1 universels, mais aucun nouveau développement de fonctionnalité n’est attendu pour ce type de compte.
+> Bien que Microsoft recommande les comptes v2 universels pour la plupart des scénarios, Microsoft continuera à prendre en charge les comptes v1 universels pour les clients nouveaux et existants. Vous pouvez créer des comptes de stockage v1 universels dans de nouvelles régions chaque fois que Stockage Azure est disponible dans ces régions. Microsoft ne prévoie pas actuellement de déprécier la prise en charge des comptes v1 universels, et fournira un préavis d’au moins un an avant de déprécier toute fonctionnalité Stockage Azure. Microsoft continuera à fournir des mises à jour de sécurité pour les comptes v1 universels, mais aucun nouveau développement de fonctionnalité n’est attendu pour ce type de compte.
 >
-> Depuis le 1er octobre 2020, les tarifs des comptes v1 universels dans les nouvelles régions Stockage Azure sont équivalents à ceux des comptes v2 universels dans ces régions. Les tarifs dans les régions Stockage Azure existantes n’ont pas changé. Pour plus d’informations sur les tarifs des comptes v1 universels dans une région spécifique, consultez la page sur la tarification du Stockage Azure. Choisissez votre région puis, en regard de **Offres et tarifs**, sélectionnez **Autre**.
+> À compter du 1er octobre 2020, les tarifs des comptes v1 universels dans les nouvelles régions Stockage Azure sont équivalents à ceux des comptes v2 universels dans ces régions. Les tarifs dans les régions Stockage Azure existantes n’ont pas changé. Pour plus d’informations sur les tarifs des comptes v1 universels dans une région spécifique, consultez la page sur la tarification de Stockage Azure. Choisissez votre région puis, en regard de **Offres et tarifs**, sélectionnez **Autre**.
 
 ## <a name="upgrade-an-account"></a>Mettre à niveau un compte
 

@@ -5,13 +5,13 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.custom: mvc, devx-track-java
 ms.openlocfilehash: 801702d43bae6d925fa4f7fbc37cf44bf585fa6d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91531988"
 ---
-# <a name="tutorial-debug-a-java-application-deployed-on-a-local-service-fabric-cluster"></a>Tutoriel : Déboguer une application Java déployée sur un cluster Service Fabric local
+# <a name="tutorial-debug-a-java-application-deployed-on-a-local-service-fabric-cluster"></a>Didacticiel : Déboguer une application Java déployée sur un cluster Service Fabric local
 
 Ce tutoriel est le deuxième d’une série. Vous découvrez comment attacher un débogueur distant à l’aide d’Eclipse pour l’application Service Fabric. En outre, vous apprenez à rediriger les journaux des applications en cours d’exécution vers un emplacement pratique pour le développeur.
 
@@ -54,7 +54,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart
 
 3. Dans la fenêtre d’importation des projets, choisissez l’option **Select root directory** (Sélectionner le répertoire racine), puis sélectionnez le répertoire **Voting**. Si vous avez suivi la série de didacticiels, le répertoire **Voting** se trouve dans le répertoire **Eclipse-workspace**.
 
-4. Mettez à jour entryPoint.sh du service que vous souhaitez déboguer, afin qu’il démarre le processus Java avec les paramètres de débogage à distance. Pour ce didacticiel, le serveur frontal sans état est utilisé : *Voting/VotingApplication/VotingWebPkg/Code/entryPoint.sh*. Le port 8001 est défini pour le débogage dans cet exemple.
+4. Mettez à jour entryPoint.sh du service que vous souhaitez déboguer, afin qu’il démarre le processus Java avec les paramètres de débogage à distance. Pour ce didacticiel, le serveur frontal sans état est utilisé : *Voting/VotingApplication/VotingWebPkg/Code/entryPoint.sh*. Le port 8001 est défini pour le débogage dans cet exemple.
 
     ```bash
     java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=n -Djava.library.path=$LD_LIBRARY_PATH -jar VotingWeb.jar

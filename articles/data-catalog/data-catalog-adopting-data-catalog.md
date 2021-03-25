@@ -6,14 +6,16 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 63d1213a2dded41df3f462722b354b03fe9f6e33
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ebfaa59f1800da084d611f6e050a59da63a7f195
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "72801880"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104674748"
 ---
 # <a name="approach-and-process-for-adopting-azure-data-catalog"></a>Approche et processus d’adoption d’Azure Data Catalog
+
+[!INCLUDE [Azure Purview redirect](../../includes/data-catalog-use-purview.md)]
 
 Cet article va vous aider dans la prise en main de l’adoption **d’Azure Data Catalog** dans votre organisation. Pour mener à bien l’adoption d’**Azure Data Catalog**, vous pouvez vous concentrer sur trois éléments clés : définition de votre vision du projet, identification des principaux cas d’utilisation métier au sein de votre organisation et choix d’un projet pilote.
 
@@ -151,7 +153,7 @@ Rencontrez régulièrement l’équipe pour passer en revue quelques-unes des an
 
 Et, pour finir, il convient de tester le projet pour vérifier que les utilisateurs peuvent découvrir et comprendre les sources de données qu’ils doivent utiliser. Les utilisateurs du pilote doivent régulièrement tester le catalogue pour s’assurer que les sources de données qu’ils utilisent pour leurs tâches quotidiennes sont pertinentes. Lorsqu’une source de données requise est manquante ou si elle n’est pas correctement annotée, elle doit servir de rappel pour inscrire des sources de données supplémentaires ou pour fournir des annotations supplémentaires. Cette pratique n’ajoute pas seulement de la valeur au pilote : elle génère également des habitudes efficaces, qui sont reportées aux autres équipes à l’issue de l’application du pilote.
 
-### <a name="provide-training"></a>Dispenser une formation
+### <a name="provide-training"></a>Fournir des formations
 
 La formation doit être suffisante pour faire commencer les utilisateurs, et elle doit être adaptée aux objectifs et niveau d’expérience spécifiques des membres de l’équipe pilote. Pour commencer la formation, vous pouvez suivre les étapes décrites dans l’article [Prise en main d’Azure Data Catalog](data-catalog-get-started.md) . En outre, vous pouvez télécharger la [Présentation de la formation au projet pilote Azure Data Catalog](https://github.com/Azure-Samples/data-catalog-dotnet-get-started/blob/master/Azure%20Data%20Catalog%20Training.pptx?raw=true). Cette présentation PowerPoint doit vous aider à présenter Data Catalog aux membres de votre équipe pilote.
 
@@ -165,4 +167,4 @@ Cet article concernait la prise en main **d’Azure Data Catalog** dans votre or
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Créer un catalogue Azure Data Catalog](data-catalog-get-started.md)
+[Créer un catalogue de données Azure](data-catalog-get-started.md)

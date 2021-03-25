@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/09/2020
 ms.author: surmb
 ms.openlocfilehash: f214b0b0751f44ea1357f569fd814a7621af61ab
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93397618"
 ---
 # <a name="application-gateway-infrastructure-configuration"></a>Configuration de l’infrastructure Application Gateway
@@ -56,14 +56,14 @@ Pour ce scénario, utilisez des groupes de sécurité réseau sur le sous-résea
 
 1. Autorisez le trafic entrant à partir d’une adresse IP source ou d’une plage d’adresses IP avec la destination comme plage d’adresses de sous-réseau Application Gateway et le port de destination comme votre port d’accès entrant, par exemple, le port 80 pour l’accès HTTP.
 2. Autorisez les demandes entrantes à partir de la source comme balise de service **GatewayManager** et la destination **Any** et les ports de destination 65503-65534 pour la référence SKU Application Gateway v1, et les ports 65200-65535 pour la référence SKU v2 pour les [communications de l’état d’intégrité du back-end](./application-gateway-diagnostics.md). Cette plage de ports est nécessaire pour la communication avec l’infrastructure Azure. Ces ports sont protégés (verrouillés) par des certificats Azure. Sans les certificats appropriés en place, les entités externes ne peuvent pas lancer des modifications sur ces points de terminaison.
-3. Autorisez les sondes Azure Load Balancer entrantes (balise *AzureLoadBalancer* ) et le trafic de réseau virtuel entrant (balise *VirtualNetwork* ) sur le [Groupe de sécurité réseau](../virtual-network/network-security-groups-overview.md).
+3. Autorisez les sondes Azure Load Balancer entrantes (balise *AzureLoadBalancer*) et le trafic de réseau virtuel entrant (balise *VirtualNetwork*) sur le [Groupe de sécurité réseau](../virtual-network/network-security-groups-overview.md).
 4. Bloquez tout autre trafic entrant avec une règle Tout refuser.
 5. Autoriser le trafic sortant vers internet pour toutes les destinations.
 
 ## <a name="supported-user-defined-routes"></a>Itinéraires définis par l’utilisateur pris en charge 
 
 > [!IMPORTANT]
-> L’utilisation de routes définies par l’utilisateur sur le sous-réseau Application Gateway est susceptible d’entraîner l’indication de l’état d’intégrité **Inconnu** dans l’ [affichage de l’intégrité du back-end](./application-gateway-diagnostics.md#back-end-health). Elle peut également entraîner l’échec de la génération des journaux et métriques Application Gateway. Nous vous recommandons de ne pas utiliser de routes définies par l’utilisateur sur le sous-réseau Application Gateway afin de pouvoir voir l’état d’intégrité, les journaux et les métriques du back-end.
+> L’utilisation de routes définies par l’utilisateur sur le sous-réseau Application Gateway est susceptible d’entraîner l’indication de l’état d’intégrité **Inconnu** dans l’[affichage de l’intégrité du back-end](./application-gateway-diagnostics.md#back-end-health). Elle peut également entraîner l’échec de la génération des journaux et métriques Application Gateway. Nous vous recommandons de ne pas utiliser de routes définies par l’utilisateur sur le sous-réseau Application Gateway afin de pouvoir voir l’état d’intégrité, les journaux et les métriques du back-end.
 
 - **v1**
 
@@ -78,7 +78,7 @@ Pour ce scénario, utilisez des groupes de sécurité réseau sur le sous-résea
    > Une configuration incorrecte de la table de routage peut entraîner un routage asymétrique dans Application Gateway v2. Assurez-vous que tout le trafic de gestion/plan de contrôle est envoyé directement à Internet et non par le biais d’une appliance virtuelle. La journalisation et les métriques peuvent également être affectées.
 
 
-  **Scenario 1**  : UDR pour désactiver la propagation d’itinéraires du protocole de passerelle frontière (BGP) vers le sous-réseau d’Application Gateway
+  **Scenario 1** : UDR pour désactiver la propagation d’itinéraires du protocole de passerelle frontière (BGP) vers le sous-réseau d’Application Gateway
 
    Parfois, l’itinéraire de la passerelle par défaut (0.0.0.0/0) est publié via les passerelles VPN ou ExpressRoute associées au réseau virtuel Application Gateway. Cela interrompt le trafic du plan de gestion, qui nécessite un chemin d’accès direct à Internet. Dans de tels scénarios, un itinéraire défini par l’utilisateur (UDR) peut être utilisé pour désactiver la propagation d’itinéraires BGP. 
 
@@ -90,7 +90,7 @@ Pour ce scénario, utilisez des groupes de sécurité réseau sur le sous-résea
 
    L’activation de l’UDR pour ce scénario ne doit pas perturber les configurations existantes.
 
-  **Scénario 2**  : UDR pour diriger 0.0.0.0/0 vers Internet
+  **Scénario 2** : UDR pour diriger 0.0.0.0/0 vers Internet
 
    Vous pouvez créer un UDR pour envoyer le trafic de 0.0.0.0/0 directement vers Internet. 
 
@@ -109,7 +109,7 @@ Pour ce scénario, utilisez des groupes de sécurité réseau sur le sous-résea
     
   **Scénarios non pris en charge par la v2**
 
-  **Scenario 1**  : UDR pour les appliances virtuelles
+  **Scenario 1** : UDR pour les appliances virtuelles
 
   Aucun scénario dans lequel 0.0.0.0/0 doit être redirigé via une appliance virtuelle, un réseau virtuel hub/spoke ou localement (tunneling forcé) n’est pas pris en charge pour V2.
 

@@ -10,10 +10,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.openlocfilehash: 2a1744feedc3e0ffae6cf2cd45cd090a6c2f06d5
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93422091"
 ---
 # <a name="set-up-an-indexer-connection-to-a-cosmos-db-database-using-a-managed-identity"></a>Configurer une connexion d’indexeur à une base de données Cosmos DB à l’aide d’une identité managée
@@ -33,7 +33,7 @@ Quand une identité managée affectée par le système est activée, Azure crée
 
 ![Turn on system assigned managed identity](./media/search-managed-identities/turn-on-system-assigned-identity.png "Activer l’identité managée affectée par le système")
 
-Après avoir sélectionné **Enregistrer** , vous verrez un ID d’objet qui a été attribué à votre service de recherche.
+Après avoir sélectionné **Enregistrer**, vous verrez un ID d’objet qui a été attribué à votre service de recherche.
 
 ![ID d’objet](./media/search-managed-identities/system-assigned-identity-object-id.png "ID de l'objet")
  
@@ -43,7 +43,7 @@ Au cours de cette étape, vous allez accorder à votre service Recherche cogniti
 
 1. Dans le portail Azure, accédez au compte Cosmos DB qui contient les données que vous souhaitez indexer.
 2. Sélectionnez **Contrôle d’accès (IAM)**
-3. Sélectionnez **Ajouter** , puis **Ajouter une attribution de rôle**.
+3. Sélectionnez **Ajouter**, puis **Ajouter une attribution de rôle**.
 
     ![Ajouter une attribution de rôle](./media/search-managed-identities/add-role-assignment-cosmos-db.png "Ajouter une attribution de rôle")
 
@@ -84,8 +84,8 @@ Le corps de la requête contient la définition de la source de données, qui do
 |---------|-------------|
 | **name** | Obligatoire. Choisissez un nom pour représenter votre objet source de données. |
 |**type**| Obligatoire. Doit être `cosmosdb`. |
-|**credentials** | Obligatoire. <br/><br/>Lors de la connexion à l’aide d’une identité managée, le format des **informations d’identification** doit être : *Database=[nom-base-de-données];ResourceId=[chaîne-id-ressource];(ApiKind=[type-api];)*<br/> <br/>Format de ResourceId : *ResourceId=/subscriptions/ **votre ID d’abonnement** /resourceGroups/ **le nom de votre groupe de ressources** /providers/Microsoft.DocumentDB/databaseAccounts/ **le nom de votre compte cosmos db** /;*<br/><br/>Pour les collections SQL, la chaîne de connexion ne requiert pas d’ApiKind.<br/><br/>Pour les collections MongoDB, ajoutez **ApiKind=MongoDb** à la chaîne de connexion. <br/><br/>Pour les graphes Gremlin et les tables Cassandra, inscrivez-vous à la [préversion de l’indexeur contrôlé](https://aka.ms/azure-cognitive-search/indexer-preview) pour accéder à la préversion et aux informations sur la façon de mettre en forme les informations d’identification.<br/>|
-| **container** | Contient les éléments suivants : <br/>**nom**  : Obligatoire. Spécifiez l’ID de la collection de bases de données à indexer.<br/>**query** : facultatif. Vous pouvez spécifier une requête pour obtenir un schéma plat à partir d’un document JSON arbitraire de manière à ce qu’Azure Search puisse procéder à l’indexation.<br/>Pour l’API MongoDB, l’API Gremlin et l’API Cassandra, les requêtes ne sont pas prises en charge. |
+|**credentials** | Obligatoire. <br/><br/>Lors de la connexion à l’aide d’une identité managée, le format des **informations d’identification** doit être : *Database=[nom-base-de-données];ResourceId=[chaîne-id-ressource];(ApiKind=[type-api];)*<br/> <br/>Format de ResourceId : *ResourceId=/subscriptions/**votre ID d’abonnement**/resourceGroups/**le nom de votre groupe de ressources**/providers/Microsoft.DocumentDB/databaseAccounts/**le nom de votre compte cosmos db**/;*<br/><br/>Pour les collections SQL, la chaîne de connexion ne requiert pas d’ApiKind.<br/><br/>Pour les collections MongoDB, ajoutez **ApiKind=MongoDb** à la chaîne de connexion. <br/><br/>Pour les graphes Gremlin et les tables Cassandra, inscrivez-vous à la [préversion de l’indexeur contrôlé](https://aka.ms/azure-cognitive-search/indexer-preview) pour accéder à la préversion et aux informations sur la façon de mettre en forme les informations d’identification.<br/>|
+| **container** | Contient les éléments suivants : <br/>**nom** : Obligatoire. Spécifiez l’ID de la collection de bases de données à indexer.<br/>**query** : facultatif. Vous pouvez spécifier une requête pour obtenir un schéma plat à partir d’un document JSON arbitraire de manière à ce qu’Azure Search puisse procéder à l’indexation.<br/>Pour l’API MongoDB, l’API Gremlin et l’API Cassandra, les requêtes ne sont pas prises en charge. |
 | **dataChangeDetectionPolicy** | Recommandé |
 |**dataDeletionDetectionPolicy** | Facultatif |
 

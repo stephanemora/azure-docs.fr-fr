@@ -11,10 +11,10 @@ ms.reviewer: vanto
 ms.date: 06/17/2020
 ms.custom: azure-synapse
 ms.openlocfilehash: 908c9f1d05c83eaa58f77b79a32d956898c35076
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93348251"
 ---
 # <a name="write-audit-to-a-storage-account-behind-vnet-and-firewall"></a>Écrire un audit sur un compte de stockage situé derrière un réseau virtuel et un pare-feu
@@ -123,7 +123,7 @@ Pour configurer l’audit SQL afin d’écrire dans un compte de stockage situ�
    > [!NOTE]
    > Seuls les membres dotés du privilège Propriétaire peuvent effectuer cette étape. Pour découvrir différents rôles intégrés Azure, consultez [Rôles intégrés Azure](../../role-based-access-control/built-in-roles.md).
 
-3. Configurez la [stratégie d’audit des blobs du serveur](/rest/api/sql/server%20auditing%20settings/createorupdate), sans spécifier de *storageAccountAccessKey*  :
+3. Configurez la [stratégie d’audit des blobs du serveur](/rest/api/sql/server%20auditing%20settings/createorupdate), sans spécifier de *storageAccountAccessKey* :
 
    Exemple de requête
 

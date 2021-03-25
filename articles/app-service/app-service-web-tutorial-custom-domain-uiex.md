@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 08/25/2020
 ms.custom: mvc, seodec18
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: ca1308c969227336bfb4970f7c5c77b9f2e0cc22
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 32ad6fa122083b40a948345e360bf5b9b0f09e96
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102216528"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104954851"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Tutoriel : Mapper un nom DNS personnalisé existant à Azure App Service
 
@@ -121,7 +121,7 @@ Pour ajouter un domaine personnalisé à votre application, vous devez vérifier
 
     <details>
         <summary>Puis-je gérer les enregistrements DNS de mon fournisseur de domaine avec Azure ?</summary>
-        Si vous le souhaitez, vous pouvez utiliser Azure DNS pour gérer les enregistrements DNS de votre domaine et configurer un nom DNS personnalisé pour Azure App Service. Pour plus d’informations, consultez <a href="https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns">Tutoriel : Héberger votre domaine dans Azure DNS></a>.
+        Si vous le souhaitez, vous pouvez utiliser Azure DNS pour gérer les enregistrements DNS de votre domaine et configurer un nom DNS personnalisé pour Azure App Service. Pour plus d’informations, consultez <a href="/azure/dns/dns-delegate-domain-azure-dns">Tutoriel : Héberger votre domaine dans Azure DNS></a>.
     </details>
 
 1. Trouvez la page de gestion des enregistrements DNS. 
@@ -146,7 +146,7 @@ Pour ajouter un domaine personnalisé à votre application, vous devez vérifier
             <ul>
             <li>Pour mapper le domaine racine (par exemple, <code>contoso.com</code>), utilisez un enregistrement A. N’utilisez pas l’enregistrement CNAME pour l’enregistrement racine (pour plus d’informations, consultez l’<a href="https://en.wikipedia.org/wiki/CNAME_record">entrée Wikipédia</a>).</li>
             <li>Pour mapper un sous-domaine (par exemple, <code>www.contoso.com</code>), utilisez un enregistrement CNAME.</li>
-            <li>Vous pouvez mapper un sous-domaine à l’adresse IP de l’application directement avec un enregistrement A, mais il est possible que <a href="https://docs.microsoft.com/azure/app-service/overview-inbound-outbound-ips#when-inbound-ip-changes">l’adresse IP change</a>. L’enregistrement CNAME est quant à lui mappé au nom d’hôte de l’application, ce qui offre moins de risque de changement.</li>
+            <li>Vous pouvez mapper un sous-domaine à l’adresse IP de l’application directement avec un enregistrement A, mais il est possible que <a href="/azure/app-service/overview-inbound-outbound-ips#when-inbound-ip-changes">l’adresse IP change</a>. L’enregistrement CNAME est quant à lui mappé au nom d’hôte de l’application, ce qui offre moins de risque de changement.</li>
             <li>Pour mapper un <a href="https://en.wikipedia.org/wiki/Wildcard_DNS_record">domaine générique</a> (par exemple, <code>*.contoso.com</code>), utilisez un enregistrement CNAME.</li>
             </ul>
         </div>
@@ -247,7 +247,7 @@ Pour un nom générique comme `*` dans `*.contoso.com`, créez deux enregistreme
 
     <details>
         <summary>Qu’est-ce que l’avertissement <strong>Non sécurisé</strong> ?</summary>
-        Si un avertissement s’affiche concernant votre domaine personnalisé, cela signifie qu’il n’est pas encore lié à un certificat TLS/SSL. Toute requête HTTPS envoyée par un navigateur à votre domaine personnalisé générera une erreur ou un avertissement, selon le navigateur utilisé. Pour ajouter une liaison TLS/SSL, consultez <a href="https://docs.microsoft.com/azure/app-service/configure-ssl-bindings">Sécuriser un nom DNS personnalisé avec une liaison TLS/SSL dans Azure App Service</a>.
+        Si un avertissement s’affiche concernant votre domaine personnalisé, cela signifie qu’il n’est pas encore lié à un certificat TLS/SSL. Toute requête HTTPS envoyée par un navigateur à votre domaine personnalisé générera une erreur ou un avertissement, selon le navigateur utilisé. Pour ajouter une liaison TLS/SSL, consultez <a href="/azure/app-service/configure-ssl-bindings">Sécuriser un nom DNS personnalisé avec une liaison TLS/SSL dans Azure App Service</a>.
     </details>
 
     Si vous avez raté une étape ou si vous avez fait une faute de frappe, une erreur de vérification s’affichera au bas de la page.
@@ -274,7 +274,7 @@ Pour un nom générique comme `*` dans `*.contoso.com`, créez deux enregistreme
 
     <details>
         <summary>Qu’est-ce que l’avertissement <strong>Non sécurisé</strong> ?</summary>
-        Si un avertissement s’affiche concernant votre domaine personnalisé, cela signifie qu’il n’est pas encore lié à un certificat TLS/SSL. Toute requête HTTPS envoyée par un navigateur à votre domaine personnalisé générera une erreur ou un avertissement, selon le navigateur utilisé. Pour ajouter une liaison TLS/SSL, consultez <a href="https://docs.microsoft.com/azure/app-service/configure-ssl-bindings">Sécuriser un nom DNS personnalisé avec une liaison TLS/SSL dans Azure App Service</a>.
+        Si un avertissement s’affiche concernant votre domaine personnalisé, cela signifie qu’il n’est pas encore lié à un certificat TLS/SSL. Toute requête HTTPS envoyée par un navigateur à votre domaine personnalisé générera une erreur ou un avertissement, selon le navigateur utilisé. Pour ajouter une liaison TLS/SSL, consultez <a href="/azure/app-service/configure-ssl-bindings">Sécuriser un nom DNS personnalisé avec une liaison TLS/SSL dans Azure App Service</a>.
     </details>
     
     Si vous avez raté une étape ou si vous avez fait une faute de frappe, une erreur de vérification s’affichera au bas de la page.
@@ -297,7 +297,7 @@ Pour un nom générique comme `*` dans `*.contoso.com`, créez deux enregistreme
 
     <details>
         <summary>Qu’est-ce que l’avertissement <strong>Non sécurisé</strong> ?</summary>
-        Si un avertissement s’affiche concernant votre domaine personnalisé, cela signifie qu’il n’est pas encore lié à un certificat TLS/SSL. Toute requête HTTPS envoyée par un navigateur à votre domaine personnalisé générera une erreur ou un avertissement, selon le navigateur utilisé. Pour ajouter une liaison TLS/SSL, consultez <a href="https://docs.microsoft.com/azure/app-service/configure-ssl-bindings">Sécuriser un nom DNS personnalisé avec une liaison TLS/SSL dans Azure App Service</a>.
+        Si un avertissement s’affiche concernant votre domaine personnalisé, cela signifie qu’il n’est pas encore lié à un certificat TLS/SSL. Toute requête HTTPS envoyée par un navigateur à votre domaine personnalisé générera une erreur ou un avertissement, selon le navigateur utilisé. Pour ajouter une liaison TLS/SSL, consultez <a href="/azure/app-service/configure-ssl-bindings">Sécuriser un nom DNS personnalisé avec une liaison TLS/SSL dans Azure App Service</a>.
     </details>
 
 -----

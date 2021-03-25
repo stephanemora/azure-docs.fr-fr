@@ -15,12 +15,12 @@ ms.date: 02/12/2021
 ms.author: kenwith
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a21b6f5e7d2976bda0efd37577b7cca90469aea
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6ed101282a69120162d6e3b526693c0a83df45b6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101686442"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104607107"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Configurer le comportement de la connexion Azure Active Directory pour une application à l’aide d’une stratégie de découverte du domaine d’accueil
 
@@ -91,7 +91,7 @@ Certaines applications n’offrent pas la possibilité de configurer la demande 
 
 ### <a name="home-realm-discovery-policy-to-prevent-auto-acceleration"></a>Stratégie de découverte du domaine d’accueil pour empêcher l’accélération automatique
 
-Certaines applications Microsoft et SaaS incluent automatiquement des indications de domaine (par exemple, `https://outlook.com/contoso.com` génère une demande de connexion avec l’ajout de `&domain_hint=contoso.com`), ce qui peut perturber le déploiement d’informations d’identification gérées telles que FIDO.  Vous pouvez utiliser la [stratégie de découverte du domaine d’accueil](https://docs.microsoft.com/graph/api/resources/homeRealmDiscoveryPolicy) pour ignorer les indications de domaine de certaines applications ou pour certains domaines, pendant le déploiement des informations d’identification gérées.  
+Certaines applications Microsoft et SaaS incluent automatiquement des indications de domaine (par exemple, `https://outlook.com/contoso.com` génère une demande de connexion avec l’ajout de `&domain_hint=contoso.com`), ce qui peut perturber le déploiement d’informations d’identification gérées telles que FIDO.  Vous pouvez utiliser la [stratégie de découverte du domaine d’accueil](/graph/api/resources/homeRealmDiscoveryPolicy) pour ignorer les indications de domaine de certaines applications ou pour certains domaines, pendant le déploiement des informations d’identification gérées.  
 
 ## <a name="enable-direct-ropc-authentication-of-federated-users-for-legacy-applications"></a>Activer l’authentification ROPC directe des utilisateurs fédérés pour les applications héritées
 
@@ -129,7 +129,7 @@ Voici un exemple de définition de la stratégie de découverte du domaine d’a
    }
 ```
 
-Le type de stratégie est « [HomeRealmDiscoveryPolicy](https://docs.microsoft.com/graph/api/resources/homeRealmDiscoveryPolicy) ».
+Le type de stratégie est « [HomeRealmDiscoveryPolicy](/graph/api/resources/homeRealmDiscoveryPolicy) ».
 
 **AccelerateToFederatedDomain** est facultatif. Si **AccelerateToFederatedDomain** a la valeur false, la stratégie n’a aucun effet sur l’accélération automatique. Si **AccelerateToFederatedDomain** a la valeur true et qu’il existe un seul domaine vérifié et fédéré dans le client, les utilisateurs seront directement dirigés vers le fournisseur d'identité fédéré pour la connexion. S’il a la valeur true et qu’il existe plusieurs domaines vérifiés dans le client, **PreferredDomain** doit être spécifié.
 

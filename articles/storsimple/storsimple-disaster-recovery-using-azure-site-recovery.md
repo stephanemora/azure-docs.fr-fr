@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/13/2017
 ms.author: alkohli
-ms.openlocfilehash: e2d89718d953f05b3e5500db412ac8ac03bfa00b
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: c6152d4b9ee28554efcb5b08b7a2d161a0723852
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96301944"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104670902"
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>Solution de récupération d’urgence automatisée à l’aide d’Azure Site Recovery pour les partages de fichiers hébergés sur StorSimple
 
@@ -44,7 +44,7 @@ Pour implémenter une solution de récupération d’urgence en un clic qui util
    - Périphérique de stockage StorSimple local enregistré auprès d’Azure StorSimple Manager
    - StorSimple Cloud Appliance créé dans Azure StorSimple Manager. L’appliance peut être conservée dans un état d’arrêt.
    - Partages de fichiers hébergés sur les volumes configurés sur le périphérique de stockage StorSimple
-   - [Coffre Azure Site Recovery Services](/azure/site-recovery/hyper-v-vmm-azure-tutorial) créé dans un abonnement Microsoft Azure.
+   - [Coffre Azure Site Recovery Services](../site-recovery/hyper-v-vmm-azure-tutorial.md) créé dans un abonnement Microsoft Azure.
 
 En outre, si Azure est votre site de récupération d’urgence, exécutez l’ [outil d’évaluation de la disponibilité des machines virtuelles Azure](https://azure.microsoft.com/downloads/vm-readiness-assessment/) sur des machines virtuelles afin de vérifier qu’elles sont compatibles avec les machines virtuelles Azure et Azure Site Recovery Services.
 
@@ -112,7 +112,7 @@ Cette étape suppose de préparer l’environnement de serveur de fichiers local
    1. Utilisez le rôle Services de fichiers et de stockage pour créer des partages de fichiers sur ces volumes.
 
 #### <a name="to-create-and-prepare-an-azure-site-recovery-vault"></a>Pour créer et préparer un coffre Azure Site Recovery
-Reportez-vous à la [documentation d’Azure Site Recovery](/azure/site-recovery/) pour vous familiariser avec Azure Site Recovery avant de protéger la machine virtuelle du serveur de fichiers.
+Reportez-vous à la [documentation d’Azure Site Recovery](../site-recovery/index.yml) pour vous familiariser avec Azure Site Recovery avant de protéger la machine virtuelle du serveur de fichiers.
 
 #### <a name="to-enable-protection"></a>Pour activer la protection
 1. Déconnectez la ou les cibles iSCSI des machines virtuelles en local que vous souhaitez protéger dans Azure Site Recovery :
@@ -124,7 +124,7 @@ Reportez-vous à la [documentation d’Azure Site Recovery](/azure/site-recovery
    > [!NOTE]
    > Les partages de fichiers seront alors temporairement indisponibles.
    
-1. [Activez la protection des machines virtuelles](/azure/site-recovery/hyper-v-azure-tutorial) du serveur de fichiers à partir du portail Azure Site Recovery.
+1. [Activez la protection des machines virtuelles](../site-recovery/hyper-v-azure-tutorial.md) du serveur de fichiers à partir du portail Azure Site Recovery.
 1. Vous pouvez reconnecter la cible dès le lancement de la synchronisation initiale. Accédez à l’initiateur iSCSI, sélectionnez l’appareil StorSimple, puis cliquez sur **Connecter**.
 1. Lorsque la synchronisation est terminée et que la machine virtuelle passe à l’état **Protégé**, sélectionnez la machine virtuelle, puis cliquez sur l’onglet **Configurer** et mettez à jour le réseau de la machine virtuelle en conséquence (il s’agit du réseau auquel sont rattachées les machines virtuelles ayant fait l’objet du basculement). Si le réseau ne s’affiche pas, cela signifie que la synchronisation est en cours.
 

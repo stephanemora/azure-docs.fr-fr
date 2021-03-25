@@ -14,10 +14,10 @@ ms.date: 01/31/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 16608facab27fc18924cf3a5c6da7e35db048f76
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101675613"
 ---
 # <a name="onboarding-requirements"></a>Conditions d’intégration
@@ -34,7 +34,7 @@ Cette liste indique la configuration requise pour l’exécution de SAP HANA sur
 
 - ExpressRoute entre le système local et Azure : pour connecter votre centre de données local à Azure, assurez-vous de commander au moins une connexion de 1 Gbit/s à votre ISP. La connectivité entre les unités de grande instance HANA et Azure utilise également la technologie ExpressRoute. Cette connexion ExpressRoute entre les unités de grande instance HANA et Azure est incluse dans le prix des unités de grande instance HANA ; ce prix comprend également tous les frais d'entrée et de sortie de données de ce circuit ExpressRoute spécifique. En tant que client, aucuns frais supplémentaires ne vous sont donc facturés au-delà de votre lien ExpressRoute entre votre système local et Azure.
 
-**Système d'exploitation**
+**Système d’exploitation**
 
 - Licences pour SUSE Linux Enterprise Server 12 pour les applications SAP.
 

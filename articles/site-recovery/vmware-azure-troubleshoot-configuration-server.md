@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/13/2019
 ms.author: ramamill
 ms.openlocfilehash: b5fd014732fd4cdfaa52f971b5e4d2c74db580d2
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92371951"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>Résoudre les problèmes de serveur de configuration
@@ -22,34 +22,34 @@ Cet article vous aide à résoudre des problèmes qui se produisent lors du dép
 
 La machine source s’inscrit auprès du serveur de configuration lorsque vous installez l’agent de mobilité. Vous pouvez déboguer toute défaillance au cours de cette étape en suivant les instructions suivantes :
 
-1. Ouvrez le fichier C:\ProgramData\ASR\home\svsystems\var\configurator_register_host_static_info.log. (Le dossier ProgramData peut être masqué. Si vous ne le voyez pas, dans l’Explorateur de fichiers, sous l’onglet **Affichage** , dans la section **Afficher/Masquer** , activez la case à cocher **Éléments masqués** .) Des défaillances peuvent être causées par plusieurs problèmes.
+1. Ouvrez le fichier C:\ProgramData\ASR\home\svsystems\var\configurator_register_host_static_info.log. (Le dossier ProgramData peut être masqué. Si vous ne le voyez pas, dans l’Explorateur de fichiers, sous l’onglet **Affichage**, dans la section **Afficher/Masquer**, activez la case à cocher **Éléments masqués**.) Des défaillances peuvent être causées par plusieurs problèmes.
 
-2. Recherchez la chaîne **Aucune adresse IP valide trouvée** . Si la chaîne est trouvée :
+2. Recherchez la chaîne **Aucune adresse IP valide trouvée**. Si la chaîne est trouvée :
    1. Vérifiez que l’ID hôte demandé est identique à celui de la machine source.
    2. Vérifiez que la machine source dispose d’au moins une adresse IP affectée à la carte réseau physique. Pour que l’inscription de l’agent auprès du serveur de configuration réussisse, la machine source doit avoir au moins une adresse IP v4 valide affectée à la carte physique.
    3. Exécutez l’une des commandes suivantes sur la machine source pour obtenir toutes les adresses IP de celle-ci :
       - Pour Windows : `> ipconfig /all`
       - Pour Linux : `# ifconfig -a`
 
-3. Si la chaîne **Aucune adresse IP valide trouvée** n’est pas trouvée, recherchez la chaîne **Reason=>NULL** . Cette erreur se produit si la machine source utilise un hôte vide pour s’inscrire auprès du serveur de configuration. Si la chaîne est trouvée :
+3. Si la chaîne **Aucune adresse IP valide trouvée** n’est pas trouvée, recherchez la chaîne **Reason=>NULL**. Cette erreur se produit si la machine source utilise un hôte vide pour s’inscrire auprès du serveur de configuration. Si la chaîne est trouvée :
     - Après avoir résolu les problèmes, suivez les instructions de la section [Inscrire la machine source auprès du serveur de configuration](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server) pour réessayer d’effectuer l’inscription manuellement.
 
-4. Si la chaîne **Reason= >NULL** n’est pas trouvée, sur la machine source, ouvrez le fichier C:\ProgramData\ASRSetupLogs\UploadedLogs\ASRUnifiedAgentInstaller.log. (Le dossier ProgramData peut être masqué. Si vous ne le voyez pas, dans l’Explorateur de fichiers, sous l’onglet **Affichage** , dans la section **Afficher/Masquer** , activez la case à cocher **Éléments masqués** .) Des défaillances peuvent être causées par plusieurs problèmes. 
+4. Si la chaîne **Reason= >NULL** n’est pas trouvée, sur la machine source, ouvrez le fichier C:\ProgramData\ASRSetupLogs\UploadedLogs\ASRUnifiedAgentInstaller.log. (Le dossier ProgramData peut être masqué. Si vous ne le voyez pas, dans l’Explorateur de fichiers, sous l’onglet **Affichage**, dans la section **Afficher/Masquer**, activez la case à cocher **Éléments masqués**.) Des défaillances peuvent être causées par plusieurs problèmes. 
 
-5. Recherchez la chaîne **post request: (7) - Couldn't connect to server** . Si la chaîne est trouvée :
+5. Recherchez la chaîne **post request: (7) - Couldn't connect to server**. Si la chaîne est trouvée :
     1. Résolvez les problèmes de réseau entre la machine source et le serveur de configuration. Vérifiez que le serveur de configuration est accessible à partir de la machine source à l’aide d’outils réseau tels que ping et Détermination d’itinéraire, ou d’un navigateur web. Assurez-vous que la machine source peut atteindre le serveur de configuration via le port 443.
     2. Vérifiez si des règles de pare-feu sur la machine source bloquent la connexion entre celle-ci et le serveur de configuration. Collaborez avec vos administrateurs réseau pour débloquer d’éventuels problèmes de connexion.
     3. Vérifiez que les dossiers répertoriés dans [Site Recovery folder exclusions from antivirus programs](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program) (Dossiers de Site Recovery exclus des programmes antivirus) sont exclus du logiciel antivirus.
     4. Une fois les problèmes de réseau résolus, recommencez l’inscription en suivant les instructions de la section [Inscrire la machine source auprès du serveur de configuration](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server).
 
-6. Si la chaîne **post request: (7) - Couldn't connect to server** est introuvable, dans le même fichier journal, recherchez la chaîne **request: (60) - Peer certificate cannot be authenticated with given CA certificates** . Cette erreur peut se produire si le certificat du serveur de configuration a expiré ou si la machine source ne prend pas en charge TLS 1.0 ou des protocoles ultérieurs. Elle peut également se produire si un pare-feu bloque les communications TLS entre la machine source et le serveur de configuration. Si la chaîne est trouvée : 
+6. Si la chaîne **post request: (7) - Couldn't connect to server** est introuvable, dans le même fichier journal, recherchez la chaîne **request: (60) - Peer certificate cannot be authenticated with given CA certificates**. Cette erreur peut se produire si le certificat du serveur de configuration a expiré ou si la machine source ne prend pas en charge TLS 1.0 ou des protocoles ultérieurs. Elle peut également se produire si un pare-feu bloque les communications TLS entre la machine source et le serveur de configuration. Si la chaîne est trouvée : 
     1. Pour résoudre le problème, connectez-vous à l’adresse IP du serveur de configuration via un navigateur web sur la machine source. Utilisez l’URI https :\/\/<adresse IP du serveur configuration\>: 443/. Assurez-vous que la machine source peut atteindre le serveur de configuration via le port 443.
     2. Vérifier si des règles de pare-feu sur la machine source doivent être ajoutées ou supprimées pour que celle-ci puisse communiquer avec le serveur de configuration. Compte tenu de la diversité des logiciels de pare-feu susceptibles d’être utilisés, nous ne pouvons pas répertorier toutes les configurations de pare-feu requises. Collaborez avec vos administrateurs réseau pour débloquer d’éventuels problèmes de connexion.
     3. Vérifiez que les dossiers répertoriés dans [Site Recovery folder exclusions from antivirus programs](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program) (Dossiers de Site Recovery exclus des programmes antivirus) sont exclus du logiciel antivirus.  
     4. Après avoir résolu les problèmes, réessayez d’effectuer l’inscription en suivant les instructions de la section [Inscrire la machine source auprès du serveur de configuration](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server).
 
-7. Sous Linux, si la valeur de la plateforme dans <INSTALLATION_DIR\>/etc/drscout.conf est endommagée, l’inscription échoue. Pour identifier ce problème, ouvrez le fichier /var/log/ua_install.log. Recherchez la chaîne **Abandon de la configuration car la valeur de VM_PLATFORM est null ou n’est pas VmWare/Azure** . La plateforme définie doit être **VmWare** ou **Azure** . Si le fichier drscout.conf est endommagé, il est recommandé de [désinstaller l’agent de mobilité](vmware-physical-manage-mobility-service.md#uninstall-mobility-service), puis de le réinstaller. Si la désinstallation échoue, effectuez les étapes suivantes : a. Ouvrez le fichier Installation_Directory/uninstall.sh et commentez l’appel de la fonction **StopServices** .
-    b. Ouvrez le fichier de Installation_Directory/Vx/bin/uninstall.sh et commentez l’appel de la fonction **stop_services** .
+7. Sous Linux, si la valeur de la plateforme dans <INSTALLATION_DIR\>/etc/drscout.conf est endommagée, l’inscription échoue. Pour identifier ce problème, ouvrez le fichier /var/log/ua_install.log. Recherchez la chaîne **Abandon de la configuration car la valeur de VM_PLATFORM est null ou n’est pas VmWare/Azure**. La plateforme définie doit être **VmWare** ou **Azure**. Si le fichier drscout.conf est endommagé, il est recommandé de [désinstaller l’agent de mobilité](vmware-physical-manage-mobility-service.md#uninstall-mobility-service), puis de le réinstaller. Si la désinstallation échoue, effectuez les étapes suivantes : a. Ouvrez le fichier Installation_Directory/uninstall.sh et commentez l’appel de la fonction **StopServices**.
+    b. Ouvrez le fichier de Installation_Directory/Vx/bin/uninstall.sh et commentez l’appel de la fonction **stop_services**.
     c. Ouvrez le fichier Installation_Directory/Fx/uninstall et commentez toute la section qui tente d’arrêter le service Fx.
     d. [Désinstallez](vmware-physical-manage-mobility-service.md#uninstall-mobility-service) l’agent de mobilité. Après la désinstallation, redémarrez le système, puis tentez de réinstaller l’agent de mobilité.
 

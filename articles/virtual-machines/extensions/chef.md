@@ -9,10 +9,10 @@ author: amjads1
 ms.collection: linux
 ms.date: 09/21/2018
 ms.openlocfilehash: e316bf9763dd7c2cbbab21992086eac52d108912
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102554783"
 ---
 # <a name="chef-vm-extension-for-linux-and-windows"></a>Extension de machine virtuelle Chef pour Linux et Windows
@@ -71,7 +71,7 @@ Le JSON suivant illustre le schéma de l’extension de machine virtuelle Chef. 
 
 ### <a name="settings"></a>Paramètres
 
-| Nom | Valeur/Exemple | Type de données | Nécessaire ?
+| Nom | Valeur/Exemple | Type de données | Requis ?
 | ---- | ---- | ---- | ----
 | settings/bootstrap_options/chef_server_url | `https://api.chef.io/organizations/myorg` | string (url) | O |
 | settings/bootstrap_options/validation_client_name | `myorg-validator` | string | O |
@@ -79,7 +79,7 @@ Le JSON suivant illustre le schéma de l’extension de machine virtuelle Chef. 
 
 ### <a name="protected-settings"></a>Paramètres protégés
 
-| Nom | Exemple | Type de données | Nécessaire ?
+| Nom | Exemple | Type de données | Requis ?
 | ---- | ---- | ---- | ---- |
 | protectedSettings/validation_key | `-----BEGIN RSA PRIVATE KEY-----\nKEYDATA\n-----END RSA PRIVATE KEY-----` | string | O |
 

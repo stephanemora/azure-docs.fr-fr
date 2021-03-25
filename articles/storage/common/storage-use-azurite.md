@@ -9,10 +9,10 @@ ms.subservice: common
 ms.topic: how-to
 ms.custom: devx-track-csharp
 ms.openlocfilehash: b5051a5e29f9e34c43963a9a264ee47e2ad7b04a
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92490779"
 ---
 # <a name="use-the-azurite-emulator-for-local-azure-storage-development"></a>Utiliser l’émulateur azurite pour le développement de stockage Azure local
@@ -30,7 +30,7 @@ Il existe plusieurs manières différentes d’installer et d’exécuter Azurit
 
 ## <a name="install-and-run-the-azurite-visual-studio-code-extension"></a>Installer et exécuter l’extension Visual Studio Code Azurite
 
-Dans Visual Studio Code, sélectionnez le volet **EXTENSIONS** , puis recherchez *Azurite* dans **EXTENSIONS : PLACE DE MARCHÉ** .
+Dans Visual Studio Code, sélectionnez le volet **EXTENSIONS**, puis recherchez *Azurite* dans **EXTENSIONS : PLACE DE MARCHÉ**.
 
 ![Place de marché des extensions Visual Studio Code](media/storage-use-azurite/azurite-vs-code-extension.png)
 
@@ -48,7 +48,7 @@ L’extension prend en charge les commandes Visual Studio Code suivantes : Dans
    - **Azurite : Démarrer le service Blob** - Démarrer le service Blob
    - **Azurite : Démarrer le service de file d’attente** - Démarrer le service de file d’attente
 
-Pour configurer Azurite dans Visual Studio Code, sélectionnez le volet Extensions. Sélectionnez l'icône **Gérer** (engrenage) pour **Azurite** . Sélectionnez **Extension Settings** (Paramètres d’extension)
+Pour configurer Azurite dans Visual Studio Code, sélectionnez le volet Extensions. Sélectionnez l'icône **Gérer** (engrenage) pour **Azurite**. Sélectionnez **Extension Settings** (Paramètres d’extension)
 
 ![Configuration des paramètres de l’extension Azurite](media/storage-use-azurite/azurite-configure-extension-settings.png)
 
@@ -56,17 +56,17 @@ Les paramètres suivants sont pris en charge :
 
    - **Azurite : Blob Host** (Hôte Blob) - Point de terminaison d’écoute du service Blob. Le paramètre par défaut est 127.0.0.1.
    - **Azurite : Blob Port** (Port Blob) - Port d’écoute du service Blob. Le port par défaut est 10000.
-   - **Azurite : Cert**  : chemin d’accès vers un fichier PEM ou PFX approuvé localement pour activer le mode HTTPS.
-   - **Azurite : Debug** (Débogage) - Sortie du journal de débogage sur le canal Azurite. La valeur par défaut est **false** .
-   - **Azurite : Key**  : chemin d’accès vers un fichier de clé PEM approuvé localement, requis lorsque **Azurite: Cert** pointe vers un fichier PEM.
+   - **Azurite : Cert** : chemin d’accès vers un fichier PEM ou PFX approuvé localement pour activer le mode HTTPS.
+   - **Azurite : Debug** (Débogage) - Sortie du journal de débogage sur le canal Azurite. La valeur par défaut est **false**.
+   - **Azurite : Key** : chemin d’accès vers un fichier de clé PEM approuvé localement, requis lorsque **Azurite: Cert** pointe vers un fichier PEM.
    - **Azurite : Location** (Emplacement) - Chemin de l’emplacement de l’espace de travail. Par défaut, il s’agit du dossier de travail de Visual Studio Code.
-   - **Azurite : Loose**  : active le mode libre, qui ignore les en-têtes et les paramètres non pris en charge.
-   - **Azurite : OAuth**  : niveau OAuth facultatif.
-   - **Azurite : Pwd**  : mot de passe pour un fichier PFX. Obligatoire lorsque **Azurite: Cert** pointe vers un fichier PFX.
+   - **Azurite : Loose** : active le mode libre, qui ignore les en-têtes et les paramètres non pris en charge.
+   - **Azurite : OAuth** : niveau OAuth facultatif.
+   - **Azurite : Pwd** : mot de passe pour un fichier PFX. Obligatoire lorsque **Azurite: Cert** pointe vers un fichier PFX.
    - **Azurite : Hôte de file d'attente** - Point de terminaison d’écoute du service de file d'attente. Le paramètre par défaut est 127.0.0.1.
-   - **Azurite : Port de la file d’attente**  - Le port d’écoute du service de file d’attente. Le port par défaut est 10001.
-   - **Azurite : Silent** (Sans assistance) - Ce mode entraîne la désactivation du journal des accès. La valeur par défaut est **false** .
-   - **Azurite : Ignorer la vérification de la version de l’API** : ignorer la vérification de la version de l’API de requête. La valeur par défaut est **false** .
+   - **Azurite : Port de la file d’attente** - Le port d’écoute du service de file d’attente. Le port par défaut est 10001.
+   - **Azurite : Silent** (Sans assistance) - Ce mode entraîne la désactivation du journal des accès. La valeur par défaut est **false**.
+   - **Azurite : Ignorer la vérification de la version de l’API** : ignorer la vérification de la version de l’API de requête. La valeur par défaut est **false**.
 
 ## <a name="install-and-run-azurite-by-using-npm"></a>Installer et exécuter Azurite à l’aide de NPM
 
@@ -86,7 +86,7 @@ Utilisez [DockerHub](https://hub.docker.com/) pour effectuer le tirage (pull) de
 docker pull mcr.microsoft.com/azure-storage/azurite
 ```
 
-**Exécuter l’image Docker Azurite**  :
+**Exécuter l’image Docker Azurite** :
 
 La commande suivante exécute l’image Docker Azurite. Le paramètre `-p 10000:10000` redirige les requêtes du port 10000 de la machine hôte vers l’instance de Docker.
 
@@ -95,7 +95,7 @@ docker run -p 10000:10000 -p 10001:10001 \
     mcr.microsoft.com/azure-storage/azurite
 ```
 
-**Spécifier l’emplacement de l’espace de travail**  :
+**Spécifier l’emplacement de l’espace de travail** :
 
 Dans l’exemple suivant, le paramètre `-v c:/azurite:/data` spécifie *c:/azurite* en tant qu’emplacement des données persistantes d’Azurite. Le répertoire *c:/azurite* doit être créé avant l’exécution de la commande Docker.
 
@@ -136,13 +136,13 @@ Après avoir installé et généré Azurite, consultez [Exécuter Azurite à par
 > [!NOTE]
 > Vous ne pouvez pas exécuter Azurite à partir de la ligne de commande si vous avez installé uniquement l’extension Visual Studio Code. Utilisez plutôt la palette de commandes de Visual Studio Code. Pour plus d’informations, consultez [Installer et exécuter l’extension Visual Studio Code Azurite](#install-and-run-the-azurite-visual-studio-code-extension).
 
-Pour commencer immédiatement à l’aide de la ligne de commande, créez un répertoire appelé *c:\azurite* , puis lancez Azurite en émettant la commande suivante :
+Pour commencer immédiatement à l’aide de la ligne de commande, créez un répertoire appelé *c:\azurite*, puis lancez Azurite en émettant la commande suivante :
 
 ```console
 azurite --silent --location c:\azurite --debug c:\azurite\debug.log
 ```
 
-Cette commande indique à Azurite de stocker toutes les données dans un répertoire particulier, *c:\azurite* . Si l’option `--location` est omise, le répertoire de travail actif est utilisé.
+Cette commande indique à Azurite de stocker toutes les données dans un répertoire particulier, *c:\azurite*. Si l’option `--location` est omise, le répertoire de travail actif est utilisé.
 
 ## <a name="command-line-options"></a>Options de ligne de commande
 
@@ -150,7 +150,7 @@ Cette section détaille les commutateurs de ligne de commande disponibles quand 
 
 ### <a name="help"></a>Aide
 
-**Facultatif**  : permet d’obtenir de l’aide sur la ligne de commande en utilisant le commutateur `-h` ou `--help`.
+**Facultatif** : permet d’obtenir de l’aide sur la ligne de commande en utilisant le commutateur `-h` ou `--help`.
 
 ```console
 azurite -h
@@ -273,7 +273,7 @@ azurite --loose
 ```
 ### <a name="version"></a>Version
 
-**Facultatif**  : permet d’afficher le numéro de la version d’Azurite installée en utilisant le commutateur `-v` ou `--version`.
+**Facultatif** : permet d’afficher le numéro de la version d’Azurite installée en utilisant le commutateur `-v` ou `--version`.
 
 ```console
 azurite -v
@@ -282,7 +282,7 @@ azurite --version
 
 ### <a name="certificate-configuration-https"></a>Configuration de certificat (HTTPS)
 
-**Facultatif**  : par défaut, Azurite utilise le protocole HTTP. Activez le mode HTTPS en fournissant un chemin d’accès à un fichier de certificat Privacy Enhanced Mail (. PEM) ou [Personal Information Exchange (.pfx)](/windows-hardware/drivers/install/personal-information-exchange---pfx--files) au commutateur `--cert`.
+**Facultatif** : par défaut, Azurite utilise le protocole HTTP. Activez le mode HTTPS en fournissant un chemin d’accès à un fichier de certificat Privacy Enhanced Mail (. PEM) ou [Personal Information Exchange (.pfx)](/windows-hardware/drivers/install/personal-information-exchange---pfx--files) au commutateur `--cert`.
 
 Lorsque `--cert` est fourni pour un fichier PEM, vous devez fournir un commutateur `--key` correspondant.
 
@@ -300,7 +300,7 @@ Pour plus d’informations sur la création de fichiers PEM et PFX, consultez la
 
 ### <a name="oauth-configuration"></a>Configuration OAuth
 
-**Facultatif**  : activez l’authentification OAuth pour Azurite à l’aide du commutateur `--oauth`.
+**Facultatif** : activez l’authentification OAuth pour Azurite à l’aide du commutateur `--oauth`.
 
 ```console
 azurite --oauth basic --cert path/server.pem --key path/key.pem
@@ -364,7 +364,7 @@ Par défaut, Azurite actualise les noms de compte et les clés personnalisés à
 
 ### <a name="connection-strings"></a>Chaînes de connexion
 
-La méthode la plus simple pour vous connecter à Azurite à partir de votre application consiste à configurer une chaîne de connexion dans le fichier config de votre application, qui référence le raccourci *UseDevelopmentStorage=true* . Voici un exemple de chaîne de connexion dans un fichier *app.config*  :
+La méthode la plus simple pour vous connecter à Azurite à partir de votre application consiste à configurer une chaîne de connexion dans le fichier config de votre application, qui référence le raccourci *UseDevelopmentStorage=true*. Voici un exemple de chaîne de connexion dans un fichier *app.config* :
 
 ```xml
 <appSettings>
@@ -471,12 +471,12 @@ Vous pouvez utiliser Explorateur Stockage pour afficher les données stockées d
 Dans Explorateur Stockage, connectez-vous à Azurite en procédant comme suit :
 
  1. Sélectionnez l’icône **Manage Accounts** (Gérer les comptes)
- 1. Sélectionnez **Ajouter un compte** .
+ 1. Sélectionnez **Ajouter un compte**.
  1. Sélectionnez **Attacher à un émulateur local**
- 1. Sélectionnez **Suivant** .
+ 1. Sélectionnez **Suivant**.
  1. Entrez le nom de votre choix dans le champ **Display name** (Nom complet)
  1. Sélectionnez **Suivant** de nouveau
- 1. Sélectionnez **Se connecter** .
+ 1. Sélectionnez **Se connecter**.
 
 #### <a name="connect-to-azurite-using-https"></a>Se connecter à Azurite en utilisant le HTTPS
 
@@ -498,12 +498,12 @@ Pour ajouter Azurite HTTPS à Explorateur Stockage, procédez comme suit :
 1. Sélectionnez **Activer/désactiver l'Explorateur**
 1. Sélectionnez **Local & Attached** (Local et joint)
 1. Cliquez avec le bouton droit sur **Storage Accounts** (Comptes de stockage), puis sélectionnez **Connect to Azure Storage** (Se connecter à Stockage Azure).
-1. Sélectionnez **Utiliser une chaîne de connexion** .
-1. Sélectionnez **Suivant** .
-1. Entrez une valeur dans le champ **Nom complet** .
+1. Sélectionnez **Utiliser une chaîne de connexion**.
+1. Sélectionnez **Suivant**.
+1. Entrez une valeur dans le champ **Nom complet**.
 1. Entrez la chaîne de connexion [HTTPS](#https-connection-strings) récupérée dans la section précédente de ce document
-1. Sélectionnez **Suivant** .
-1. Sélectionnez **Se connecter** .
+1. Sélectionnez **Suivant**.
+1. Sélectionnez **Se connecter**.
 
 ## <a name="workspace-structure"></a>Structure de l’espace de travail
 
