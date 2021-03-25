@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, devx-track-python, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: b638cb2b33f24220e7ceb852402862c707cc7bc6
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93315996"
 ---
 # <a name="the-team-data-science-process-in-action-using-azure-synapse-analytics"></a>Processus TDSP (Team Data Science Process) en action : utilisation d'Azure Synapse Analytics
@@ -83,7 +83,7 @@ Pour configurer votre environnement de science des données Azure, procédez com
 
 **Créez votre propre compte de stockage d’objets blob Azure**
 
-* Quand vous approvisionnez votre propre espace de stockage d’objets blob Azure, choisissez un emplacement géographique pour celui-ci dans le **USA Centre Sud** , ou aussi près que possible de cette région, où sont stockées les données NYC Taxi. Les données sont copiées à l’aide d’AzCopy du conteneur de stockage d’objets blob publics vers un conteneur de votre propre compte de stockage. La rapidité d’exécution de cette tâche (étape 4) est proportionnelle à la proximité de votre espace de stockage d’objets blob Azure avec la région USA Centre Sud.
+* Quand vous approvisionnez votre propre espace de stockage d’objets blob Azure, choisissez un emplacement géographique pour celui-ci dans le **USA Centre Sud**, ou aussi près que possible de cette région, où sont stockées les données NYC Taxi. Les données sont copiées à l’aide d’AzCopy du conteneur de stockage d’objets blob publics vers un conteneur de votre propre compte de stockage. La rapidité d’exécution de cette tâche (étape 4) est proportionnelle à la proximité de votre espace de stockage d’objets blob Azure avec la région USA Centre Sud.
 * Pour créer votre propre compte Stockage Azure, suivez la procédure décrite dans [À propos des comptes Stockage Azure](../../storage/common/storage-account-create.md). Notez les informations d’identification suivantes du compte de stockage, car vous en aurez besoin ultérieurement dans cette procédure.
 
   * **Nom du compte de stockage**
@@ -139,7 +139,7 @@ Une fois le script exécuté, *-DestDir* devient votre répertoire de travail. V
 
 ![Modification du répertoire de travail actuel][19]
 
-Dans *-DestDir* , exécutez le script PowerShell suivant en mode administrateur :
+Dans *-DestDir*, exécutez le script PowerShell suivant en mode administrateur :
 
 ```azurepowershell
 ./SQLDW_Data_Import.ps1
@@ -154,7 +154,7 @@ Lorsque le script PowerShell s’exécute pour la première fois, vous devez ent
 
 Ce fichier de **script PowerShell** exécute les tâches suivantes :
 
-* **Télécharge et installe AzCopy** , si AzCopy n’est pas déjà installé.
+* **Télécharge et installe AzCopy**, si AzCopy n’est pas déjà installé.
 
   ```azurepowershell
   $AzCopy_path = SearchAzCopy
@@ -363,13 +363,13 @@ L’emplacement géographique de vos comptes de stockage a une incidence sur les
 Vous devez décider ce que vous souhaitez faire si vous avez des fichiers source et de destination en double.
 
 > [!NOTE]
-> Si les fichiers .csv à copier de l’espace de stockage public d’objets blob vers votre compte de stockage privé d’objets blob existent déjà dans ce dernier, AzCopy vous demande si vous souhaitez les remplacer. Si vous ne le souhaitez pas, entrez **n** à l’invite. Si vous souhaitez les remplacer **tous** , entrez **a** à l’invite. Vous pouvez également entrer **y** pour remplacer les fichiers .csv un par un.
+> Si les fichiers .csv à copier de l’espace de stockage public d’objets blob vers votre compte de stockage privé d’objets blob existent déjà dans ce dernier, AzCopy vous demande si vous souhaitez les remplacer. Si vous ne le souhaitez pas, entrez **n** à l’invite. Si vous souhaitez les remplacer **tous**, entrez **a** à l’invite. Vous pouvez également entrer **y** pour remplacer les fichiers .csv un par un.
 >
 >
 
 ![Sortie AzCopy][21]
 
-Vous pouvez utiliser vos propres données. Si vos données sont stockées sur votre ordinateur sur site dans votre application réelle, vous pouvez toujours utiliser AzCopy pour charger les données locales vers l’espace de stockage privé d’objets blob Azure. Vous devez uniquement modifier l’emplacement **Source** , `$Source = "http://getgoing.blob.core.windows.net/public/nyctaxidataset"`, dans la commande AzCopy du fichier de script PowerShell et le remplacer par le répertoire local qui contient vos données.
+Vous pouvez utiliser vos propres données. Si vos données sont stockées sur votre ordinateur sur site dans votre application réelle, vous pouvez toujours utiliser AzCopy pour charger les données locales vers l’espace de stockage privé d’objets blob Azure. Vous devez uniquement modifier l’emplacement **Source**, `$Source = "http://getgoing.blob.core.windows.net/public/nyctaxidataset"`, dans la commande AzCopy du fichier de script PowerShell et le remplacer par le répertoire local qui contient vos données.
 
 > [!TIP]
 > Si vos données figurent déjà dans votre espace de stockage privé d’objets blob Azure de votre application réelle, vous pouvez ignorer l’étape AzCopy dans le script PowerShell et charger directement les données vers Azure Synapse Analytics. Pour effectuer cette opération, vous devez modifier le script afin de l’adapter au format de vos données.
@@ -385,7 +385,7 @@ Ce script Powershell relie également les informations d’Azure Synapse Analyti
 ## <a name="data-exploration-and-feature-engineering-in-azure-synapse-analytics"></a><a name="dbexplore"></a>Exploration des données et conception de fonctionnalités dans Azure Synapse Analytics
 Dans cette section, nous effectuons une exploration des données et une génération de caractéristiques en exécutant des requêtes SQL directement dans Azure Synapse Analytics à l’aide de **Visual Studio Data Tools**. Toutes les requêtes SQL utilisées dans cette section se trouvent dans l’exemple de script nommé *SQLDW_Explorations.sql*. Ce fichier a déjà été téléchargé dans votre répertoire local par le script PowerShell. Vous pouvez également le récupérer à partir de [GitHub](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/SQLDW/SQLDW_Explorations.sql), mais les informations d’Azure Synapse Analytics ne sont pas reliées à ce fichier situé dans GitHub.
 
-Connectez-vous à Azure Synapse Analytics en utilisant Visual Studio avec le nom et le mot de passe de connexion d'Azure Synapse Analytics et ouvrez l’ **Explorateur d’objets SQL Server** pour vérifier que la base de données et les tables ont été importées. Récupérez le fichier *SQLDW_Explorations.sql*.
+Connectez-vous à Azure Synapse Analytics en utilisant Visual Studio avec le nom et le mot de passe de connexion d'Azure Synapse Analytics et ouvrez l’**Explorateur d’objets SQL Server** pour vérifier que la base de données et les tables ont été importées. Récupérez le fichier *SQLDW_Explorations.sql*.
 
 > [!NOTE]
 > Pour ouvrir un éditeur de requête Parallel Data Warehouse (PDW), utilisez la commande **Nouvelle requête** pendant que votre PDW est sélectionné dans **l’Explorateur d’objets SQL**. L’éditeur de requête SQL standard n’est pas pris en charge par PDW.
@@ -609,7 +609,7 @@ AND pickup_longitude != '0' AND dropoff_longitude != '0'
 | 3 |40.761456 |-73.999886 |40.766544 |-73.988228 |0,7037227967 |
 
 ### <a name="prepare-data-for-model-building"></a>Préparer les données pour la création de modèles
-La requête ci-après joint les tables **nyctaxi\_trip** et **nyctaxi\_fare** , génère une étiquette de classification binaire **tipped** et une étiquette de classification multiclasse **tip\_class** , puis extrait un échantillon des données de l’intégralité du jeu de données joint. L’échantillonnage est effectué en récupérant un sous-ensemble des courses basé sur l’heure d’embarquement.  Vous pouvez ensuite copier cette requête et la coller directement dans le module [Importer les données][import-data] d’[Azure Machine Learning Studio (classique)](https://studio.azureml.net) pour permettre l’ingestion directe des données de l’instance SQL Database dans Azure. La requête exclut les enregistrements qui présentent des coordonnées (0, 0) incorrectes.
+La requête ci-après joint les tables **nyctaxi\_trip** et **nyctaxi\_fare**, génère une étiquette de classification binaire **tipped** et une étiquette de classification multiclasse **tip\_class**, puis extrait un échantillon des données de l’intégralité du jeu de données joint. L’échantillonnage est effectué en récupérant un sous-ensemble des courses basé sur l’heure d’embarquement.  Vous pouvez ensuite copier cette requête et la coller directement dans le module [Importer les données][import-data] d’[Azure Machine Learning Studio (classique)](https://studio.azureml.net) pour permettre l’ingestion directe des données de l’instance SQL Database dans Azure. La requête exclut les enregistrements qui présentent des coordonnées (0, 0) incorrectes.
 
 ```sql
 SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount,     f.total_amount, f.tip_amount,
@@ -965,10 +965,10 @@ Dans cet exercice, nous avons déjà exploré et généré les données dans Azu
 1. Importez les données dans Azure Machine Learning Studio (classique) avec le module [Importer les données][import-data], disponible dans la section **Entrée et sortie des données**. Pour plus d’informations, consultez la page de référence du module [Importer les données][import-data].
 
     ![Importer les données Azure ML][17]
-2. Dans le panneau **Propriétés** , sélectionnez **Base de données Azure SQL** dans le champ **Source de données**.
+2. Dans le panneau **Propriétés**, sélectionnez **Base de données Azure SQL** dans le champ **Source de données**.
 3. Dans le champ **Nom du serveur de base de données** , entrez le nom DNS de la base de données. Format : `tcp:<your_virtual_machine_DNS_name>,1433`
 4. Dans le champ **Nom de la base de données** , entrez le nom de la base de données.
-5. Entrez le *nom d’utilisateur SQL* dans le champ **Nom de compte d’utilisateur du serveur** , et le *mot de passe* dans le champ **Mot de passe de compte d’utilisateur du serveur**.
+5. Entrez le *nom d’utilisateur SQL* dans le champ **Nom de compte d’utilisateur du serveur**, et le *mot de passe* dans le champ **Mot de passe de compte d’utilisateur du serveur**.
 7. Dans la zone de texte **Requête de base de données** , collez la requête qui extrait les champs de base de données nécessaires (y compris les champs calculés tels que les étiquettes) et qui sous-échantillonne les données pour obtenir la taille d’échantillon souhaitée.
 
 Un exemple d’expérience de classification binaire lisant directement les données de la base de données Azure Synapse Analytics est illustré dans la figure ci-dessous (pensez à remplacer les noms des tables nyctaxi_trip et nyctaxi_fare par le nom du schéma et les noms des tables que vous avez utilisés dans votre procédure). Vous pouvez créer des expériences similaires pour les problèmes de classification multiclasse et de régression.
@@ -976,7 +976,7 @@ Un exemple d’expérience de classification binaire lisant directement les donn
 ![Formation Azure Machine Learning][10]
 
 > [!IMPORTANT]
-> Dans les exemples de requêtes d’extraction et d’échantillonnage de données de modélisation qui sont fournis aux sections précédentes, **toutes les étiquettes des trois exercices de modélisation sont incluses dans la requête**. Dans chacun des exercices de modélisation, une étape (obligatoire) importante consiste à **exclure** les étiquettes superflues pour les deux autres problèmes, ainsi que toute autre **fuite cible**. Par exemple, si vous avez recours à la classification binaire, utilisez l’étiquette **tipped** et excluez les champs **tip\_class** , **tip\_amount** et **total\_amount**. Les derniers champs sont des fuites cibles, car ils impliquent le pourboire versé.
+> Dans les exemples de requêtes d’extraction et d’échantillonnage de données de modélisation qui sont fournis aux sections précédentes, **toutes les étiquettes des trois exercices de modélisation sont incluses dans la requête**. Dans chacun des exercices de modélisation, une étape (obligatoire) importante consiste à **exclure** les étiquettes superflues pour les deux autres problèmes, ainsi que toute autre **fuite cible**. Par exemple, si vous avez recours à la classification binaire, utilisez l’étiquette **tipped** et excluez les champs **tip\_class**, **tip\_amount** et **total\_amount**. Les derniers champs sont des fuites cibles, car ils impliquent le pourboire versé.
 >
 > Pour exclure les colonnes superflues ou les fuites cibles, vous pouvez utiliser le module [Sélectionner des colonnes dans le jeu de données][select-columns] ou [Modifier les métadonnées][edit-metadata]. Pour plus d’informations, consultez les pages de référence [Sélectionner des colonnes dans le jeu de données][select-columns] et [Modifier les métadonnées][edit-metadata].
 >
@@ -990,7 +990,7 @@ Pour déployer un nouveau service web, vous devez :
 1. créer une expérience de notation ;
 2. déployer le service web.
 
-Pour créer une expérience de notation à partir d’une expérience de formation **terminée** , cliquez sur **CRÉER UNE EXPÉRIENCE DE NOTATION** dans la barre d’action inférieure.
+Pour créer une expérience de notation à partir d’une expérience de formation **terminée**, cliquez sur **CRÉER UNE EXPÉRIENCE DE NOTATION** dans la barre d’action inférieure.
 
 ![Notation Azure][18]
 

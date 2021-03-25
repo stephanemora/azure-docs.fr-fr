@@ -6,10 +6,10 @@ ms.subservice: dsc
 ms.topic: conceptual
 ms.date: 08/08/2018
 ms.openlocfilehash: f16db3f55ebd0f09e4d7b75750fa319daf03977e
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99053565"
 ---
 # <a name="configure-machines-to-a-desired-state"></a>Configurer les machines à l’état souhaité
@@ -162,7 +162,7 @@ Pour annuler l’inscription d’un nœud à partir du service Azure Automation 
 
 - Pour commencer, consultez [Bien démarrer avec Azure Automation State Configuration](automation-dsc-getting-started.md).
 - Pour savoir comment activer des nœuds, voir [Activer State Configuration](automation-dsc-onboarding.md).
-- Pour découvrir comment compiler des configurations DSC pour pouvoir les affecter à des nœuds cibles, voir [Compiler des configurations DSC dans Azure Automation State Configuration](automation-dsc-compile.md).
-- Pour obtenir un exemple d’utilisation d’Azure Automation State Configuration dans un pipeline de déploiement continu, voir [Configurer un déploiement continu avec Chocolatey](automation-dsc-cd-chocolatey.md).
+- Pour découvrir comment compiler des configurations DSC pour pouvoir les affecter à des nœuds cibles, consultez [Compiler des configurations DSC dans Azure Automation State Configuration](automation-dsc-compile.md).
+- Pour voir un exemple d’utilisation d’Azure Automation State Configuration dans un pipeline de déploiement continu, consultez [Configurer un déploiement continu avec Chocolatey](automation-dsc-cd-chocolatey.md).
 - Pour obtenir des informations sur les prix, consultez [Tarification d’Azure Automation State Configuration](https://azure.microsoft.com/pricing/details/automation/).
 - Pour obtenir des informations de référence sur les applets de commande PowerShell, consultez [Az.Automation](/powershell/module/az.automation).

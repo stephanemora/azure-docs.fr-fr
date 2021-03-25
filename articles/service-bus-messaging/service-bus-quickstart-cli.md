@@ -6,10 +6,10 @@ ms.topic: quickstart
 ms.date: 08/12/2020
 ms.author: spelluru
 ms.openlocfilehash: 14892b114f3bb8a0bb6c07f7cdd01a174b931cf9
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95810630"
 ---
 # <a name="use-the-azure-cli-to-create-a-service-bus-namespace-and-a-queue"></a>Utiliser Azure CLI pour créer un espace de noms Service Bus ainsi qu’une file d'attente
@@ -20,7 +20,7 @@ Ce guide de démarrage rapide vous montre comment créer un espace de noms Servi
 ## <a name="prerequisites"></a>Prérequis
 Si vous n'avez pas d'abonnement Azure, vous pouvez créer un [compte gratuit][free account] avant de commencer.
 
-Dans ce guide de démarrage rapide, vous allez utiliser Azure Cloud Shell, que vous pouvez lancer après vous être connecté au portail Azure. Pour en savoir plus sur Azure Cloud Shell, consultez [Vue d’ensemble d’Azure Cloud Shell](../cloud-shell/overview.md). Vous pouvez également [installer](/cli/azure/install-azure-cli) et utiliser Azure PowerShell sur votre machine. 
+Dans ce guide de démarrage rapide, vous allez utiliser Azure Cloud Shell, que vous pouvez lancer après vous être connecté au portail Azure. Pour plus d’informations sur Azure Cloud Shell, consultez [Vue d’ensemble d’Azure Cloud Shell](../cloud-shell/overview.md). Vous pouvez également [installer](/cli/azure/install-azure-cli) et utiliser Azure PowerShell sur votre machine. 
 
 ## <a name="provision-resources"></a>Provisionner les ressources
 1. Connectez-vous au [portail Azure](https://portal.azure.com).

@@ -7,10 +7,10 @@ ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
 ms.openlocfilehash: cfa117d1ed017170c279b7c4e0a146ae4edac108
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96932470"
 ---
 # <a name="key-value-revisions"></a>Révisions clé-valeur
@@ -115,7 +115,7 @@ GET /revisions?key={key}&label={label}&api-version={api-version}
 
 |Filtre de clé|Résultat|
 |--|--|
-|`key` est omis ou `key=*`|Correspond à **n’importe quelle** clé|
+|`key` est omis ou `key=*`|Correspond à **toute** clé|
 |`key=abc`|Correspond à une clé nommée **abc**|
 |`key=abc*`|Correspond aux noms de clé qui commencent par **abc**|
 |`key=*abc`|Correspond aux noms de clé qui se terminent par **abc**|
@@ -181,13 +181,13 @@ Content-Type: application/problem+json; charset=utf-8
 
 ## <a name="request-specific-fields"></a>Champs spécifiques à la requête
 
-Utilisez le paramètre de chaîne de requête facultatif `$select` et donnez la liste séparée par des virgules des champs demandés. Si le paramètre `$select` est omis, la réponse contient l’ensemble par défaut.
+Utilisez le paramètre de chaîne de requête facultatif `$select` et fournissez une liste séparée par des virgules des champs demandés. Si le paramètre `$select` est omis, la réponse contient l’ensemble par défaut.
 
 ```http
 GET /revisions?$select=value,label,last_modified&api-version={api-version} HTTP/1.1
 ```
 
-## <a name="time-based-access"></a>Accès basé sur l’heure
+## <a name="time-based-access"></a>Accès basé sur le temps
 
 Obtenez une représentation du résultat tel qu’il était à un moment passé. Pour plus d’informations, consultez [Framework HTTP pour l’accès basé sur l’heure aux états des ressources – Mémento](https://tools.ietf.org/html/rfc7089#section-2.1), section 2.1.1.
 

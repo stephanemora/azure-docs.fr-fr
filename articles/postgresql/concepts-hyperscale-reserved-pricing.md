@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 06/15/2020
 ms.openlocfilehash: 35d5d196eccb222bf17e0a129fe4e4041b1f6053
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/20/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98600721"
 ---
 # <a name="prepay-for-azure-database-for-postgresql---hyperscale-citus-compute-resources-with-reserved-capacity"></a>Prépayer les ressources de calcul Azure Database pour PostgreSQL - Hyperscale (Citus) avec une capacité de réserve

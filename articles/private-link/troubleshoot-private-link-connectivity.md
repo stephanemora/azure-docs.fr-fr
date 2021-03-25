@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: rdhillon
 ms.openlocfilehash: 45a7a146dd929408b50a0045fe2598726ee05505
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95544307"
 ---
 # <a name="troubleshoot-azure-private-link-connectivity-problems"></a>Résoudre les problèmes de connectivité d’Azure Private Link
@@ -107,7 +107,7 @@ Si vous rencontrez des problèmes de connectivité liés à votre installation P
 
        ![Vérifier les métriques du service Private Link](./media/private-link-tsg/pls-metrics.png)
 
-1. Si votre problème n’est toujours pas résolu et qu’un problème de connectivité persiste, contactez l’[équipe de support Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+1. Si votre problème n’est toujours pas résolu et que les difficultés de connectivité persistent, contactez l’équipe [Support Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

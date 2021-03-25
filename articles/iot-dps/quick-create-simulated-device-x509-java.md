@@ -10,10 +10,10 @@ services: iot-dps
 ms.devlang: java
 ms.custom: mvc, devx-track-java
 ms.openlocfilehash: 2ed458ee0267a65bb7551940fc522509dc310311
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94966613"
 ---
 # <a name="quickstart-create-and-provision-a-simulated-x509-device-using-java-device-sdk-for-iot-hub-device-provisioning-service"></a>Démarrage rapide : Créer et approvisionner un appareil X.509 simulé auprès du service IoT Hub Device Provisioning à l’aide du Java Device SDK
@@ -24,7 +24,7 @@ Dans ce guide de démarrage rapide, vous allez créer un appareil X.509 simulé 
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Connaissance des concepts liés à l’[approvisionnement](about-iot-dps.md#provisioning-process).
+- Connaissance des concepts liés au [provisionnement](about-iot-dps.md#provisioning-process).
 - Exécution des étapes décrites dans [Configurer le service IoT Hub Device Provisioning avec le portail Azure](./quick-setup-auto-provision.md).
 - Compte Azure avec un abonnement actif. [Créez-en un gratuitement](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - [Java SE Development Kit 8](/azure/developer/java/fundamentals/java-jdk-long-term-support).

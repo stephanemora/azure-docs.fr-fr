@@ -7,10 +7,10 @@ ms.reviewer: camerost, logicappspm
 ms.topic: conceptual
 ms.date: 10/27/2020
 ms.openlocfilehash: f5b04c563dc81497f591788dc4890d379c0f898f
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93102660"
 ---
 # <a name="handle-stored-procedure-timeouts-in-the-sql-connector-for-azure-logic-apps"></a>Gérer les délais d’expiration des procédures stockées dans le connecteur SQL pour Azure Logic Apps
@@ -40,7 +40,7 @@ END
 Au lieu d’appeler directement la procédure stockée, vous pouvez l’exécuter de manière asynchrone en arrière-plan à l’aide d’un *agent de travail*. Vous pouvez stocker les entrées et sorties dans une table d’états avec laquelle vous pouvez interagir via votre application logique. Si vous n’avez pas besoin des entrées et sorties, ou si vous écrivez déjà les résultats dans une table de la procédure stockée, vous pouvez simplifier cette approche.
 
 > [!IMPORTANT]
-> Assurez-vous que votre procédure stockée et tous les travaux sont *idempotents* , ce qui signifie qu’ils peuvent s’exécuter plusieurs fois sans affecter les résultats. Si le traitement asynchrone échoue ou expire, l’agent de travail peut réessayer d’effectuer l’étape, et donc votre procédure stockée, à plusieurs reprises. Pour éviter la duplication des sorties, avant de créer des objets, consultez ces [meilleures pratiques et approches](../azure-sql/database/elastic-jobs-overview.md#idempotent-scripts).
+> Assurez-vous que votre procédure stockée et tous les travaux sont *idempotents*, ce qui signifie qu’ils peuvent s’exécuter plusieurs fois sans affecter les résultats. Si le traitement asynchrone échoue ou expire, l’agent de travail peut réessayer d’effectuer l’étape, et donc votre procédure stockée, à plusieurs reprises. Pour éviter la duplication des sorties, avant de créer des objets, consultez ces [meilleures pratiques et approches](../azure-sql/database/elastic-jobs-overview.md#idempotent-scripts).
 
 La section suivante décrit comment utiliser l’Agent de travail élastique Azure pour Azure SQL Database. Pour SQL Server et Azure SQL Managed Instance, vous pouvez utiliser le service SQL Server Agent. Certains détails de gestion diffèrent, mais les étapes fondamentales restent les mêmes que la configuration d’un agent de travail pour Azure SQL Database.
 
@@ -154,7 +154,7 @@ Voici les étapes à ajouter :
 
 ### <a name="start-the-job-and-pass-the-parameters"></a>Démarrer le travail et passer les paramètres
 
-Pour démarrer le travail, utilisez une requête native pass-through avec l’ [action **Exécuter une requête SQL**](/connectors/sql/#execute-a-sql-query-(v2)), et envoyez immédiatement les paramètres du travail à la table d’états. Pour fournir une entrée à l’attribut `jobid` de la table cible, Logic Apps ajoute une boucle **For Each** qui itère dans la sortie de la table résultant de l’action précédente. Pour chaque ID d’exécution de travail, exécutez une action **Insérer une ligne** qui utilise la sortie de données dynamiques, `ResultSets JobExecutionId`, pour ajouter les paramètres du travail à décompresser et à passer à la procédure stockée cible.
+Pour démarrer le travail, utilisez une requête native pass-through avec l’[action **Exécuter une requête SQL**](/connectors/sql/#execute-a-sql-query-(v2)), et envoyez immédiatement les paramètres du travail à la table d’états. Pour fournir une entrée à l’attribut `jobid` de la table cible, Logic Apps ajoute une boucle **For Each** qui itère dans la sortie de la table résultant de l’action précédente. Pour chaque ID d’exécution de travail, exécutez une action **Insérer une ligne** qui utilise la sortie de données dynamiques, `ResultSets JobExecutionId`, pour ajouter les paramètres du travail à décompresser et à passer à la procédure stockée cible.
 
 ![Capture d’écran montrant les actions à utiliser pour démarrer le travail et passer des paramètres à la procédure stockée.](media/handle-long-running-stored-procedures-sql-connector/start-job-actions.png)
 

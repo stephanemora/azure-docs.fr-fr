@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.date: 11/15/2019
 ms.custom: H1Hack27Feb2017,hdinsightactive, devx-track-python
 ms.openlocfilehash: 593b809813f949cd1d0bcc17e1d1b7255ea19130
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98944269"
 ---
 # <a name="use-python-user-defined-functions-udf-with-apache-hive-and-apache-pig-in-hdinsight"></a>Utiliser des fonctions définies par l’utilisateur (UDF) Python avec Apache Hive et Apache Pig dans HDInsight
@@ -22,13 +22,13 @@ Python 2.7 est installé par défaut sur HDInsight 3.0 et versions ultérieure
 
 HDInsight inclut également Jython, une implémentation de Python écrite en Java. Jython s’exécute directement sur la Machine virtuelle Java et n’utilise pas le streaming. Jython est l’interpréteur Python recommandé lorsque vous utilisez Python avec Pig.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * **Un cluster Hadoop sur HDInsight**. Consultez [Bien démarrer avec HDInsight sur Linux](apache-hadoop-linux-tutorial-get-started.md).
 * **Un client SSH**. Pour plus d’informations, consultez [Se connecter à HDInsight (Apache Hadoop) à l’aide de SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 * Le [schéma d’URI](../hdinsight-hadoop-linux-information.md#URI-and-scheme) de votre principal espace de stockage de clusters. Il s’agirait de `wasb://` pour Stockage Azure, de `abfs://` pour Azure Data Lake Storage Gen2 ou de adl:// pour Azure Data Lake Storage Gen1. Si le transfert sécurisé est activé pour le stockage Azure, l’URI sera wasbs://.  Voir aussi [transfert sécurisé](../../storage/common/storage-require-secure-transfer.md).
 * **Changement possible de la configuration du stockage.**  Consultez [Configuration du stockage](#storage-configuration) si vous utilisez le type de compte de stockage `BlobStorage`.
-* facultatif.  Si vous prévoyez d’utiliser PowerShell, le [module AZ](/powershell/azure/new-azureps-module-az) doit être installé.
+* Optionnel.  Si vous prévoyez d’utiliser PowerShell, le [module AZ](/powershell/azure/new-azureps-module-az) doit être installé.
 
 > [!NOTE]  
 > Le compte de stockage utilisé dans cet article était Stockage Azure avec le [transfert sécurisé](../../storage/common/storage-require-secure-transfer.md) activé : `wasbs` est donc utilisé tout au long de cet article.

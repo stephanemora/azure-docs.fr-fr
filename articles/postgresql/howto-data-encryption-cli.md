@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 757782e8842fbcaca9c8d95ec8086dd5791a817b
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93240611"
 ---
 # <a name="data-encryption-for-azure-database-for-postgresql-single-server-by-using-the-azure-cli"></a>Chiffrement des données pour le serveur unique Azure Database pour PostgreSQL avec l’interface de ligne de commande Azure
@@ -49,7 +49,7 @@ Découvrez comment utiliser l’interface de ligne de commande Azure pour config
 * La clé doit avoir les attributs suivants à utiliser en tant que clé gérée par le client :
   * Aucune date d’expiration
   * Non activée
-  * Effectuer les opérations **get** , **wrap** et **unwrap**
+  * Effectuer les opérations **get**, **wrap** et **unwrap**
 
 ## <a name="set-the-right-permissions-for-key-operations"></a>Définir les permissions appropriées pour les opérations sur les clés
 
@@ -67,7 +67,7 @@ Découvrez comment utiliser l’interface de ligne de commande Azure pour config
     az postgres server update --resource-group <resource_group> --name <server_name> --assign-identity
     ```
 
-2. Définissez les **Autorisations de clé** ( **Get** , **Wrap** , **Unwrap** ) pour le **Principal** , qui représente le nom du serveur unique PostgreSQL.
+2. Définissez les **Autorisations de clé** (**Get**, **Wrap**, **Unwrap**) pour le **Principal**, qui représente le nom du serveur unique PostgreSQL.
 
     ```azurecli-interactive
     az keyvault set-policy --name -g <resource_group> --key-permissions get unwrapKey wrapKey --object-id <principal id of the server>
@@ -111,7 +111,7 @@ az postgres server key list --name  '<server_name>'  -g '<resource_group_name>'
 az keyvault set-policy --name <keyvault> -g <resoure_group> --key-permissions get unwrapKey wrapKey --object-id <principl id of the server returned by the step 1>
 ```
 
-* Revalider le serveur de restauration/réplica avec la clé de chiffrement
+* Revalidez le serveur restauré/réplica avec la clé de chiffrement.
 
 ```azurecli-interactive
 az postgres server key create –name  <server name> -g <resource_group> --kid <key url>

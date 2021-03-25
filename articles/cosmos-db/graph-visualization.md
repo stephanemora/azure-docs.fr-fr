@@ -8,10 +8,10 @@ ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 07/02/2019
 ms.openlocfilehash: 569c87a7753fdb0d7b880d6856d7819ff8000ccb
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93129607"
 ---
 # <a name="visualize-graph-data-stored-in-azure-cosmos-db-gremlin-api-with-data-visualization-solutions"></a>Visualiser des données de graphe stockées dans l’API Gremlin d’Azure Cosmos DB avec des solutions de visualisations de données

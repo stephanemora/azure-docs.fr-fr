@@ -6,10 +6,10 @@ services: container-service
 ms.topic: article
 ms.date: 08/17/2020
 ms.openlocfilehash: 9b51ee2767a9595f5732f558cfa25f5064944e49
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93131188"
 ---
 # <a name="create-an-ingress-controller-in-azure-kubernetes-service-aks"></a>Créer un contrôleur d’entrée dans Azure Kubernetes Service (AKS)
@@ -72,7 +72,7 @@ Aucune règle d’entrée n’a encore été créée. Par conséquent, la page 4
 
 ## <a name="run-demo-applications"></a>Exécuter des applications de démonstration
 
-Pour voir le contrôleur d’entrée en action, exécutons deux applications de démonstration dans votre cluster AKS. Pour cet exemple, vous utilisez `kubectl apply` pour déployer deux instances d’une simple application *Hello world*.
+Pour voir le contrôleur d’entrée à l’œuvre, exécutons deux applications de démonstration dans votre cluster AKS. Pour cet exemple, vous utilisez `kubectl apply` pour déployer deux instances d’une simple application *Hello world*.
 
 Créez un fichier *aks-helloworld-one.yaml* et copiez-le dans l’exemple de YAML suivant :
 
@@ -245,7 +245,7 @@ kubectl delete namespace ingress-basic
 
 ### <a name="delete-resources-individually"></a>Supprimer les ressources individuellement
 
-Sinon, une approche plus précise consiste à supprimer les ressources individuelles créées. Listez les versions de Helm avec la commande `helm list`. Recherchez les graphiques nommés *nginx-ingress* et *aks-helloworld* , comme illustré dans l’exemple de sortie suivant :
+Sinon, une approche plus précise consiste à supprimer les ressources individuelles créées. Listez les versions de Helm avec la commande `helm list`. Recherchez les graphiques nommés *nginx-ingress* et *aks-helloworld*, comme illustré dans l’exemple de sortie suivant :
 
 ```
 $ helm list --namespace ingress-basic

@@ -4,10 +4,10 @@ description: Cet article fournit des informations sur l’authentification d’u
 ms.topic: conceptual
 ms.date: 10/21/2020
 ms.openlocfilehash: 25ec5f11ca7b5e801e18155f1a3da6474c8e66e2
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92913311"
 ---
 # <a name="authenticate-an-application-with-azure-active-directory-to-access-event-hubs-resources"></a>Authentifier une application avec Azure Active Directory pour accéder aux ressources Azure Event Hubs
@@ -60,7 +60,7 @@ L’application a besoin d’une clé secrète client pour prouver son identité
 
 1. Accédez à votre inscription d’application dans le Portail Microsoft Azure.
 1. Sélectionnez le paramètre **Certificats et clés secrètes**.
-1. Sous **Secrets client** , sélectionnez **Nouveau secret client** pour créer un secret.
+1. Sous **Secrets client**, sélectionnez **Nouveau secret client** pour créer un secret.
 1. Fournissez une description pour le secret, puis choisissez un intervalle d’expiration.
 1. Copiez immédiatement la valeur de la nouvelle clé secrète dans un emplacement sécurisé. La valeur de remplissage s’affiche pour vous une seule fois.
 
@@ -71,16 +71,16 @@ L’application a besoin d’une clé secrète client pour prouver son identité
 Après avoir inscrit l'application, vous devez attribuer un rôle Azure AD Event Hubs au principal de service de l'application, comme décrit dans la section [Rôles intégrés pour Azure Event Hubs](#built-in-roles-for-azure-event-hubs). 
 
 1. Dans le [portail Azure](https://portal.azure.com/), accédez à votre espace de noms Event Hubs.
-2. Dans la page **Vue d’ensemble** , sélectionnez le hub d’événements auquel vous souhaitez attribuer un rôle.
+2. Dans la page **Vue d’ensemble**, sélectionnez le hub d’événements auquel vous souhaitez attribuer un rôle.
 
     ![Sélectionnez votre hub d'événements](./media/authenticate-application/select-event-hub.png)
 1. Sélectionnez **Contrôle d’accès (IAM)** pour afficher les paramètres de contrôle d’accès du hub d'événements. 
 1. Sélectionnez l’onglet **Attributions de rôles** pour afficher la liste des attributions de rôles. Sélectionnez le bouton **Ajouter** dans la barre d’outils, puis sélectionnez **Ajouter une attribution de rôle**. 
 
     ![Ajouter un bouton à la barre d’outils](./media/authenticate-application/role-assignments-add-button.png)
-1. Sur la page **Ajouter une attribution de rôle** , procédez comme suit :
+1. Sur la page **Ajouter une attribution de rôle**, procédez comme suit :
     1. Sélectionnez le **rôle Event Hubs** que vous souhaitez attribuer. 
-    1. Recherchez le **principal de sécurité** (utilisateur, groupe, principal de service) auquel vous souhaitez attribuer le rôle. Sélectionnez l' **application inscrite** dans la liste. 
+    1. Recherchez le **principal de sécurité** (utilisateur, groupe, principal de service) auquel vous souhaitez attribuer le rôle. Sélectionnez l'**application inscrite** dans la liste. 
     1. Sélectionnez **Enregistrer** pour enregistrer l’attribution de rôle. 
 
         ![Attribuer un rôle à un utilisateur](./media/authenticate-application/assign-role-to-user.png)
@@ -99,7 +99,7 @@ Pour obtenir la liste de scénarios pour lesquels l’acquisition de jetons est 
 ## <a name="samples"></a>Exemples
 - [Exemples Microsoft.Azure.EventHubs](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac). 
     
-    Ces exemples utilisent l'ancienne bibliothèque **Microsoft.Azure.EventHubs** , mais vous pouvez facilement mettre celle-ci à jour à l'aide de la dernière bibliothèque **Azure.Messaging.EventHubs**. Pour migrer l'exemple de l'ancienne bibliothèque vers la nouvelle, consultez le [Guide de migration de Microsoft.Azure.EventHubs vers Azure.Messaging.EventHubs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md).
+    Ces exemples utilisent l'ancienne bibliothèque **Microsoft.Azure.EventHubs**, mais vous pouvez facilement mettre celle-ci à jour à l'aide de la dernière bibliothèque **Azure.Messaging.EventHubs**. Pour migrer l'exemple de l'ancienne bibliothèque vers la nouvelle, consultez le [Guide de migration de Microsoft.Azure.EventHubs vers Azure.Messaging.EventHubs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md).
 - [Exemples Azure.Messaging.EventHubs](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Azure.Messaging.EventHubs/ManagedIdentityWebApp)
 
     Cet exemple a été mis à jour pour utiliser la dernière bibliothèque **Azure.Messaging.EventHubs**.

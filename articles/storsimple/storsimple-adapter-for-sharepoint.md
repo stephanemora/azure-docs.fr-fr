@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/06/2017
 ms.author: alkohli
 ms.openlocfilehash: 639efab3a9eaef400b3fbe3d0b134d02f458b865
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94966290"
 ---
 # <a name="install-and-configure-the-storsimple-adapter-for-sharepoint"></a>Installation et configuration de StorSimple Adapter for SharePoint
@@ -138,7 +138,7 @@ Assurez-vous que votre batterie de serveurs SharePoint est correctement configur
   1. Fermez toutes les instances d'Internet Explorer.
   2. Démarrez le Gestionnaire de serveur.
   3. Dans le volet gauche, cliquez sur **Serveur local**.
-  4. Dans le volet droit, en regard de **Configuration de sécurité renforcée d'Internet Explorer**, cliquez sur **Activé**.
+  4. Dans le volet droite, en regard de **Configuration de sécurité renforcée d'Internet Explorer**, cliquez sur **Activé**.
   5. Sous **Administrateurs**, cliquez sur **Désactivé**.
   6. Cliquez sur **OK**.
 
@@ -221,14 +221,14 @@ Avant de désinstaller le logiciel StorSimple Adapter pour SharePoint, vous deve
 
 #### <a name="to-move-the-blobs-back-to-the-content-databases"></a>Pour déplacer les objets BLOB vers les bases de données de contenu
 1. Téléchargez tous les objets externalisés.
-2. Ouvrez la page **Administration centrale de SharePoint** et accédez à **Paramètres du système**.
-3. Sous **Azure StorSimple**, cliquez sur **Configuration de l'adaptateur StorSimple**.
-4. Sur la page **Configuration de l'adaptateur StorSimple**, cliquez sur le bouton **Désactiver** sous chaque base de données de contenu que vous souhaitez supprimer du stockage d'objets BLOB externe. 
+2. Ouvrez la page **Administration centrale de SharePoint**, puis accédez à **Paramètres système**.
+3. Sous **Azure StorSimple**, cliquez sur **Configurer l'adaptateur StorSimple**.
+4. Dans la page **Configurer l'adaptateur StorSimple**, cliquez sur le bouton **Désactiver** situé sous chaque base de données de contenu à supprimer du stockage d'objets BLOB externe. 
 5. Supprimez les objets de SharePoint et téléchargez-les à nouveau.
 
 Vous pouvez aussi utiliser l’applet de commande Microsoft `RBS Migrate()` PowerShell fournie avec SharePoint. Pour plus d'informations, consultez [Migration du contenu vers ou à partir de RBS](/previous-versions/office/sharepoint-foundation-2010/ff628255(v=office.14)).
 
-Après avoir redéplacé les objets BLOB vers la base de données de contenu, passez à l'étape suivante : [Désinstaller l’adaptateur](#uninstall-the-adapter).
+Après avoir déplacé les objets BLOB vers la base de données de contenu, passez à l'étape suivante : [Désinstallation de l'adaptateur](#uninstall-the-adapter).
 
 ### <a name="uninstall-the-adapter"></a>Désinstallation de l'adaptateur
 Après avoir déplacé les objets BLOB vers les bases de données de contenu SQL Server, utilisez l'une des options suivantes pour désinstaller StorSimple Adapter pour SharePoint.
@@ -237,21 +237,21 @@ Après avoir déplacé les objets BLOB vers les bases de données de contenu SQL
 1. Utilisez un compte avec des privilèges d'administrateur pour ouvrir une session sur le serveur web frontal.
 2. Double-cliquez sur le programme d'installation de StorSimple Adapter pour SharePoint. L'Assistant d'installation démarre.
    
-    ![Assistant d'installation](./media/storsimple-adapter-for-sharepoint/sasp2.png)
+    ![Assistant Installation](./media/storsimple-adapter-for-sharepoint/sasp2.png)
 3. Cliquez sur **Suivant**. La page suivante apparaît.
    
     ![Page de suppression de l'Assistant d'installation](./media/storsimple-adapter-for-sharepoint/sasp3.png)
-4. Cliquez sur **Supprimer** pour sélectionner le processus de suppression. La page suivante apparaît.
+4. Cliquez sur **Supprimer** pour démarrer le processus de suppression. La page suivante apparaît.
    
     ![Page de confirmation de l'Assistant d'installation](./media/storsimple-adapter-for-sharepoint/sasp4.png)
 5. Cliquez sur **Supprimer** pour confirmer la suppression. La page de progression suivante s'affiche.
    
     ![Page de progression de l'Assistant d'installation](./media/storsimple-adapter-for-sharepoint/sasp5.png)
-6. Lorsque la suppression est terminée, la page de fin s'affiche. Cliquez sur **Terminer** pour fermer l’Assistant Installation.
+6. Lorsque la suppression est terminée, la page de fin s'affiche. Cliquez sur **Terminer** pour fermer l'Assistant Installation.
 
 #### <a name="to-use-the-control-panel-to-uninstall-the-adapter"></a>Pour utiliser le Panneau de configuration pour désinstaller l'adaptateur
 1. Ouvrez le Panneau de configuration, puis cliquez sur **Programmes et fonctionnalités**.
-2. Sélectionnez **StorSimple Adapter pour SharePoint**, puis cliquez sur **Désinstaller**.
+2. Sélectionnez **Adaptateur StorSimple pour SharePoint**, puis cliquez sur **Désinstaller**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 [En savoir plus sur StorSimple](storsimple-overview.md).

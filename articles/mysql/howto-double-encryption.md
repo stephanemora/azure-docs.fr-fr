@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 06/30/2020
 ms.openlocfilehash: 3f9c22a690859b459b6bb748c3b1001c4aa7660d
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93241750"
 ---
 # <a name="infrastructure-double-encryption-for-azure-database-for-mysql"></a>Chiffrement double d’infrastructure - Azure Database pour MySQL
@@ -52,7 +52,7 @@ Cet exemple crée un groupe de ressources nommé `myresourcegroup` à l’emplac
 ```azurecli-interactive
 az group create --name myresourcegroup --location westus
 ```
-L’exemple suivant crée un serveur MySQL 5.7 dans la région USA Ouest, nommé `mydemoserver`, dans votre groupe de ressources `myresourcegroup` avec l’identifiant d’administrateur du serveur `myadmin`. Il s’agit d’un serveur à **usage général** , de **4e génération** avec **2 vCores**. Cela activera également le double chiffrement d’infrastructure pour le serveur créé. Remplacez `<server_admin_password>` par votre propre valeur.
+L’exemple suivant crée un serveur MySQL 5.7 dans la région USA Ouest, nommé `mydemoserver`, dans votre groupe de ressources `myresourcegroup` avec l’identifiant d’administrateur du serveur `myadmin`. Il s’agit d’un serveur à **usage général**, de **4e génération** avec **2 vCores**. Cela activera également le double chiffrement d’infrastructure pour le serveur créé. Remplacez `<server_admin_password>` par votre propre valeur.
 
 ```azurecli-interactive
 az mysql server create --resource-group myresourcegroup --name mydemoserver  --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen5_2 --version 5.7 --infrastructure-encryption <Enabled/Disabled>

@@ -9,10 +9,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/04/2020
 ms.openlocfilehash: 674f267d3d99dd22c1ae06b6d32587761d5983ce
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93124915"
 ---
 # <a name="azure-ad-and-transactable-saas-offers-in-the-commercial-marketplace"></a>Azure AD et offres SaaS pouvant faire l’objet d’une transaction dans la Place de marché commerciale
@@ -25,9 +25,9 @@ Les instructions de cet article vous aideront à certifier votre offre SaaS dans
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Lorsque vous [créez votre offre SaaS](./create-new-saas-offer.md) dans l’Espace partenaires, vous pouvez choisir parmi un ensemble d’options de référencement spécifiques qui seront affichées dans le référencement de l’offre. Votre choix détermine la manière dont votre offre est traitée dans la Place de marché commerciale. Les offres vendues par le biais de Microsoft sont appelées offres avec transaction. Nous facturons le client en votre nom pour toutes les offres avec transaction. Si vous choisissez de vendre par le biais de Microsoft et que vous avez des transactions hôtes en votre nom (l’option **Oui** ), alors vous avez choisi de créer une offre avec transaction et cet article vous concerne. Nous vous recommandons de le lire dans son intégralité.
+Lorsque vous [créez votre offre SaaS](./create-new-saas-offer.md) dans l’Espace partenaires, vous pouvez choisir parmi un ensemble d’options de référencement spécifiques qui seront affichées dans le référencement de l’offre. Votre choix détermine la manière dont votre offre est traitée dans la Place de marché commerciale. Les offres vendues par le biais de Microsoft sont appelées offres avec transaction. Nous facturons le client en votre nom pour toutes les offres avec transaction. Si vous choisissez de vendre par le biais de Microsoft et que vous avez des transactions hôtes en votre nom (l’option **Oui**), alors vous avez choisi de créer une offre avec transaction et cet article vous concerne. Nous vous recommandons de le lire dans son intégralité.
 
-Si vous choisissez de répertorier uniquement votre offre par le biais de la place de marché commerciale et de traiter les transactions indépendamment (option **Non** ), les clients potentiels pourront accéder à votre offre de trois façons : Obtenir maintenant (gratuit), Essai gratuit et Me contacter. Si vous sélectionnez **Obtenir maintenant (gratuit)** ou **Essai gratuit** , cet article ne vous concerne pas. Consultez plutôt l’article [Créer la page d’accueil de votre offre SaaS gratuite ou d’évaluation dans la Place de marché commerciale](./azure-ad-free-or-trial-landing-page.md) pour plus d’informations. Si vous sélectionnez **Me contacter** , il n’y a aucune responsabilité directe pour l’éditeur. Continuez à créer votre offre dans l’Espace partenaires.
+Si vous choisissez de répertorier uniquement votre offre par le biais de la place de marché commerciale et de traiter les transactions indépendamment (option **Non**), les clients potentiels pourront accéder à votre offre de trois façons : Obtenir maintenant (gratuit), Essai gratuit et Me contacter. Si vous sélectionnez **Obtenir maintenant (gratuit)** ou **Essai gratuit**, cet article ne vous concerne pas. Consultez plutôt l’article [Créer la page d’accueil de votre offre SaaS gratuite ou d’évaluation dans la Place de marché commerciale](./azure-ad-free-or-trial-landing-page.md) pour plus d’informations. Si vous sélectionnez **Me contacter**, il n’y a aucune responsabilité directe pour l’éditeur. Continuez à créer votre offre dans l’Espace partenaires.
 
 ## <a name="how-azure-ad-works-with-the-commercial-marketplace-for-saas-offers"></a>Fonctionnement d’Azure AD dans la Place de marché commerciale pour les offres SaaS
 
@@ -35,7 +35,7 @@ Azure AD permet d’acheter, de traiter et de gérer facilement des solutions d
 
 Comme le montre la figure 1, lorsqu’un acheteur sélectionne votre offre, il lance une chaîne de workflows incluant l’achat, l’abonnement et la gestion des utilisateurs. Dans cette chaîne, vous devez, en tant qu’éditeur, respecter certaines exigences, et Microsoft vous fournit une assistance à des étapes clés.
 
-**_Figure 1 : Utilisation d’Azure AD pour des offres SaaS dans la Place de marché commerciale_* _
+***Figure 1 : Utilisation d’Azure AD pour des offres SaaS dans la Place de marché commerciale***
 
 :::image type="content" source="./media/azure-ad-saas/azure-ad-saas-flow.png" alt-text="Illustre la gestion des achats, la gestion des abonnements et les étapes facultatives du processus de gestion des utilisateurs.":::
 
@@ -52,7 +52,7 @@ Ce tableau fournit des détails sur les étapes du processus de gestion des acha
 | Étape du processus | Action de l’éditeur | Recommandé ou requis pour les éditeurs |
 | ------------ | ------------- | ------------- |
 | 1. L’acheteur se connecte à la place de marché commerciale avec son identité Azure ID et sélectionne une offre SaaS. | Aucune action n’est requise de la part de l’éditeur. | Non applicable |
-| 2. Après l’achat, l’acheteur sélectionne _ *Configurer un compte* * dans la Place de marché Azure ou **Configurer maintenant** dans AppSource, qui dirige l’acheteur vers la page d’accueil de l’éditeur pour cette offre. L’acheteur doit pouvoir se connecter à l’application SaaS de l’éditeur avec Azure AD SSO et uniquement donner un consentement minimal qui ne nécessite pas d’approbation de l’administrateur Azure AD. | Concevez une [page d’accueil](azure-ad-transactable-saas-landing-page.md) pour l’offre permettant d’accueillir un utilisateur avec son identité Azure AD ou compte Microsoft (MSA) et qui facilite tout approvisionnement ou configuration supplémentaire nécessaire. | Obligatoire |
+| 2. Après l’achat, l’acheteur sélectionne **Configurer un compte** dans la Place de marché Azure ou **Configurer maintenant** dans AppSource, qui dirige l’acheteur vers la page d’accueil de l’éditeur pour cette offre. L’acheteur doit pouvoir se connecter à l’application SaaS de l’éditeur avec Azure AD SSO et uniquement donner un consentement minimal qui ne nécessite pas d’approbation de l’administrateur Azure AD. | Concevez une [page d’accueil](azure-ad-transactable-saas-landing-page.md) pour l’offre permettant d’accueillir un utilisateur avec son identité Azure AD ou compte Microsoft (MSA) et qui facilite tout approvisionnement ou configuration supplémentaire nécessaire. | Obligatoire |
 | 3. L’éditeur demande les détails de l’achat à l’API de traitement SaaS. | À l’aide d’un [jeton d’accès](./partner-center-portal/pc-saas-registration.md) généré à partir de l’ID d’application de la page d’accueil, [appelez le point de terminaison de résolution](./partner-center-portal/pc-saas-fulfillment-api-v2.md#resolve-a-purchased-subscription) pour obtenir des détails sur l’achat. | Obligatoire |
 | 4. Via Azure AD et l’API Microsoft Graph, l’éditeur recueille les détails de l’entreprise et de l’utilisateur requis pour approvisionner l’acheteur dans l’application SaaS de l’éditeur.  | Décomposez le jeton d’utilisateur Azure AD pour rechercher le nom et l’adresse e-mail, ou [appelez l’API Microsoft Graph](/graph/use-the-api) et utilisez des autorisations déléguées pour [récupérer des informations](/graph/api/user-get) sur l’utilisateur connecté. | Obligatoire |
 ||||

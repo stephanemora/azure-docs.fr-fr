@@ -13,10 +13,10 @@ ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.openlocfilehash: 1af7f2918af7071320244dd35882a8de9717654f
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92913243"
 ---
 # <a name="switching-organizations-in-a-portal"></a>Basculer des organisations dans un portail
@@ -30,11 +30,11 @@ Le sélecteur d’organisation est disponible dans les portails suivants :
 - [**Mon accès**](https://myaccess.microsoft.com)
 - [**Mon personnel**](https://mystaff.microsoft.com)
 
-Le changement d’organisation n’est pas disponible pour **Mes connexions** , **Informations de sécurité** ou **Mes groupes**.
+Le changement d’organisation n’est pas disponible pour **Mes connexions**, **Informations de sécurité** ou **Mes groupes**.
 
 ## <a name="switch-organizations"></a>Changer d’organisations
 
-Voici comment basculer vers une autre organisation. Cet exemple utilise le portail **Mon compte** , mais l’icône du sélecteur et le positionnement sont également similaires sur d’autres portails.
+Voici comment basculer vers une autre organisation. Cet exemple utilise le portail **Mon compte**, mais l’icône du sélecteur et le positionnement sont également similaires sur d’autres portails.
 
 1. Connectez-vous à votre compte professionnel ou scolaire, puis ouvrez la page [Mon compte](https://myaccount.microsoft.com).
 1. Sélectionnez le sélecteur d’organisation :::image type="content" source="media/cross-tenant-switcher/switcher-icon.png" alt-text="L’icône du sélecteur d’organisation"::: en haut de la page, en regard de votre photo de compte.
@@ -53,4 +53,4 @@ Après avoir basculé les organisations, toutes les pages de portail reflètent 
 >Le mot de passe que vous utilisez pour vous connecter à votre organisation d’origine est celui utilisé pour vous connecter à d’autres organisations. N’oubliez pas que :
 >
 >- Si vous êtes connecté à une organisation qui n’est pas votre organisation d’origine et que vous sélectionnez **Mot de passe** sur la page d’aperçu **Mon compte** ou à d’autres emplacements, vous êtes immédiatement rebasculé vers votre organisation d’origine.
->- Sur le portail **Mon personnel** , si vous basculez vers une autre organisation, vous avez uniquement accès à Mon personnel si vous êtes autorisé à utiliser Mon personnel dans cette organisation.
+>- Sur le portail **Mon personnel**, si vous basculez vers une autre organisation, vous avez uniquement accès à Mon personnel si vous êtes autorisé à utiliser Mon personnel dans cette organisation.

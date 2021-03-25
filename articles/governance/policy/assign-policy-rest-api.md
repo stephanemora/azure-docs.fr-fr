@@ -4,10 +4,10 @@ description: Dans ce démarrage rapide, vous allez utiliser une API REST pour cr
 ms.date: 01/29/2021
 ms.topic: quickstart
 ms.openlocfilehash: 438d8004cd50e6e2ef7586c51adc63257f37978b
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99219975"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-with-rest-api"></a>Démarrage rapide : Créer une attribution de stratégie pour identifier des ressources non conformes avec une API REST

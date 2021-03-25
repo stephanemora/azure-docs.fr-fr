@@ -8,10 +8,10 @@ ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 7663848bd06244de7efb169a576e11a5c78204c1
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100392899"
 ---
 # <a name="move-data-from-a-web-table-source-using-azure-data-factory"></a>Déplacer des données depuis une source de table web à l’aide d’Azure Data Factory
@@ -58,7 +58,7 @@ Que vous utilisiez des outils ou des API, la création d’un pipeline qui dépl
 2. Création de **jeux de données** pour représenter les données d’entrée et de sortie de l’opération de copie. 
 3. Création d’un **pipeline** avec une activité de copie qui utilise un jeu de données en tant qu’entrée et un jeu de données en tant que sortie. 
 
-Lorsque vous utilisez l’Assistant, les définitions JSON de ces entités Data Factory (services liés, jeux de données et pipeline) sont automatiquement créées pour vous. Lorsque vous utilisez des outils/API (à l’exception de l’API .NET), vous devez définir ces entités Data Factory au format JSON.  Pour un exemple contenant des définitions JSON pour les entités Data Factory servant à copier des données à partir d’une table web, consultez la section [Exemple JSON : copier des données d’une table web vers Stockage Blob Azure](#json-example-copy-data-from-web-table-to-azure-blob) de cet article. 
+Lorsque vous utilisez l’Assistant, les définitions JSON de ces entités Data Factory (services liés, jeux de données et pipeline) sont automatiquement créées pour vous. Lorsque vous utilisez des outils/API (à l’exception de l’API .NET), vous devez définir ces entités Data Factory au format JSON.  Pour consulter un exemple contenant des définitions JSON des entités Data Factory utilisées pour copier des données d’une table web, consultez la section [Exemple JSON : copier des données d’une table web vers Blob Azure](#json-example-copy-data-from-web-table-to-azure-blob) de cet article. 
 
 Les sections suivantes fournissent des informations sur les propriétés JSON utilisées pour définir les entités Data Factory spécifiques d’une table web :
 
@@ -128,7 +128,7 @@ En revanche, les propriétés disponibles dans la section typeProperties de l’
 Actuellement, lorsque la source de l’activité de copie est de type **WebSource**, aucune propriété supplémentaire n’est prise en charge.
 
 
-## <a name="json-example-copy-data-from-web-table-to-azure-blob"></a>Exemple JSON : copier des données d’une table web vers Stockage Blob Azure
+## <a name="json-example-copy-data-from-web-table-to-azure-blob"></a>Exemple JSON : copier des données d’une table web vers Blob Azure
 L’exemple suivant montre :
 
 1. Un service lié de type [Web](#linked-service-properties).

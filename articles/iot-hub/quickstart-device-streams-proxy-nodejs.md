@@ -10,10 +10,10 @@ ms.custom: references_regions
 ms.date: 03/14/2019
 ms.author: robinsh
 ms.openlocfilehash: ef45a6277adeff09a34fe22b7abeb21d3e603167
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98624352"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-nodejs-proxy-application-preview"></a>Démarrage rapide : Activer SSH et RDP sur un flux d’appareil IoT Hub à l’aide d’une application de proxy Node.js (préversion)
@@ -62,7 +62,7 @@ az extension add --name azure-iot
 
 ## <a name="create-an-iot-hub"></a>Créer un hub IoT
 
-Si vous avez terminé le précédent [Démarrage rapide : Envoyer des données de télémétrie d’un appareil à un hub IoT](quickstart-send-telemetry-node.md), vous pouvez ignorer cette étape.
+Si vous avez terminé le [Démarrage rapide : envoyer des données de télémétrie à partir d’un appareil à un IoT Hub](quickstart-send-telemetry-node.md) précédent, vous pouvez ignorer cette étape.
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 

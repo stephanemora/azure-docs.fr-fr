@@ -8,10 +8,10 @@ ms.date: 02/01/2021
 ms.author: govindk
 ms.reviewer: sngun
 ms.openlocfilehash: 1cf94964f420f7a7d4fc0f6ba0b77813b3e75787
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100393222"
 ---
 # <a name="frequently-asked-questions-on-the-azure-cosmos-db-point-in-time-restore-feature-preview"></a>Foire aux questions relative à la fonctionnalité Azure Cosmos DB de restauration à un instant dans le passé (préversion)
@@ -84,4 +84,4 @@ ID ou `instanceId` est une propriété d’une instance de compte qui est utilis
 * Qu’est-ce que le mode de [sauvegarde continue](continuous-backup-restore-introduction.md) ?
 * Configurez et gérez la sauvegarde continue en utilisant [Portail Azure](continuous-backup-restore-portal.md), [PowerShell](continuous-backup-restore-powershell.md), [CLI](continuous-backup-restore-command-line.md) ou [Azure Resource Manager](continuous-backup-restore-template.md).
 * [Gérez les autorisations](continuous-backup-restore-permissions.md) requises pour restaurer les données en mode de sauvegarde continue.
-* [Modèle de ressource du mode de sauvegarde continue](continuous-backup-restore-resource-model.md).
+* [Modèle de ressource de mode de sauvegarde continue](continuous-backup-restore-resource-model.md)

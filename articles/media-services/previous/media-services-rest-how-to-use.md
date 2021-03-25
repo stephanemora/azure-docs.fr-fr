@@ -16,10 +16,10 @@ ms.date: 3/10/2021
 ms.author: inhenkel
 ms.reviewer: johndeu
 ms.openlocfilehash: 9f147e333e4d1b95a14dd3121d7ab304b6166248
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103010046"
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Vue d’ensemble de l’API REST Media Services Operations
@@ -76,7 +76,7 @@ Pour chaque appel dans Media Services, il existe un ensemble d’en-têtes requi
 
 Voici un ensemble d’en-têtes facultatifs :
 
-| En-tête | Type | Valeur |
+| En-tête | Type | Value |
 | --- | --- | --- |
 | Date |Date RFC 1123 |Horodatage de la demande |
 | Accepter |Type de contenu |Type de contenu demandé pour la réponse, comme :<p> -application/json;odata=verbose<p> - application/atom+xml<p> Les réponses peuvent avoir un type de contenu différent, par exemple une extraction d’objets blob, dans laquelle une réponse correcte contient le flux d’objets blob en tant que charge utile. |
@@ -90,7 +90,7 @@ Voici un ensemble d’en-têtes facultatifs :
 ## <a name="standard-http-response-headers-supported-by-media-services"></a>En-têtes de réponse HTTP standard pris en charge par Media Services
 Voici un ensemble d’en-têtes pouvant être renvoyés, en fonction de la ressource demandée et de l’action à entreprendre.
 
-| En-tête | Type | Valeur |
+| En-tête | Type | Value |
 | --- | --- | --- |
 | request-id |String |Un identificateur unique pour l’opération actuelle, généré par le service. |
 | client-request-id |String |Un identificateur spécifié par l’appelant dans la requête d’origine, le cas échéant. |
@@ -106,7 +106,7 @@ Voici une liste complète des verbes HTTP pouvant être utilisés lors de requê
 | GET |Retourne la valeur actuelle d’un objet. |
 | POST |Crée un objet, selon les données fournies, ou envoie une commande. |
 | PUT |Remplace un objet ou crée un objet nommé (le cas échéant). |
-| DELETE |Supprime un objet. |
+| Suppression |Supprime un objet. |
 | MERGE |Met à jour un objet existant avec des modifications de propriété nommées. |
 | HEAD |Retourne les métadonnées d’un objet d’une réponse GET. |
 

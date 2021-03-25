@@ -6,23 +6,23 @@ ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 05/14/2018
 ms.openlocfilehash: 73d291fd76d9adbe2a095406b56bd879d497d3b5
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98942656"
 ---
 # <a name="publish-an-hdinsight-application-in-the-azure-marketplace"></a>Publier une application HDInsight sur la Place de marché Microsoft Azure
 Vous pouvez installer une application Azure HDInsight sur un cluster HDInsight basé sur Linux. Cet article explique comment publier une application HDInsight sur la Place de marché Microsoft Azure. Pour obtenir des informations générales sur la publication sur la Place de marché Microsoft Azure, consultez [Publier une offre sur la Place de marché Microsoft Azure](../marketplace/overview.md).
 
-Les applications HDInsight utilisent le modèle *BYOL (apportez votre propre licence)* . Dans un scénario BYOL, un fournisseur d’applications est responsable de concéder la licence des applications aux utilisateurs. Les utilisateurs paient uniquement pour les ressources Azure qu’ils créent, telles que le cluster HDInsight, ainsi que les nœuds et machines virtuelles du cluster. À l’heure actuelle, la facturation de l’application n’est pas effectuée dans Azure.
+Les applications HDInsight utilisent le modèle *BYOL (apportez votre propre licence)*. Dans un scénario BYOL, un fournisseur d’applications est responsable de concéder la licence des applications aux utilisateurs. Les utilisateurs paient uniquement pour les ressources Azure qu’ils créent, telles que le cluster HDInsight, ainsi que les nœuds et machines virtuelles du cluster. À l’heure actuelle, la facturation de l’application n’est pas effectuée dans Azure.
 
 Pour plus d’informations, consultez les articles suivants relatifs à l’application HDInsight :
 
 * [Installer des applications HDInsight](hdinsight-apps-install-applications.md) : découvrez comment installer une application HDInsight sur vos clusters.
 * [Installer des applications HDInsight personnalisées](hdinsight-apps-install-custom-applications.md) : découvrez comment installer et tester des applications HDInsight personnalisées.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 Pour envoyer votre application personnalisée à la Place de marché, vous devez d’abord [créer et tester votre application personnalisée](hdinsight-apps-install-custom-applications.md).
 
 Vous devez également enregistrer votre compte de développeur. Pour plus d’informations, consultez [Publier une offre sur la Place de marché Microsoft Azure](../marketplace/overview.md) et [Créer un compte de développeur Microsoft](../marketplace/overview.md).
@@ -70,7 +70,7 @@ Le script d’installation doit avoir les caractéristiques suivantes :
 * Les appels passés à des services ou ressources externes font l’objet de nouvelles tentatives afin que l’installation ne soit pas affectée par des problèmes réseau temporaires.
 * Si votre script démarre des services sur les nœuds, les services sont analysés et configurés pour démarrer automatiquement en cas de redémarrage d’un nœud.
 
-## <a name="package-the-application"></a>Empaquetage de l’application
+## <a name="package-the-application"></a>Empaqueter l’application
 Créez un fichier zip contenant tous les fichiers requis pour l’installation de votre application HDInsight. Vous utilisez le fichier .zip pour publier l’application. Ce fichier .zip contient les fichiers suivants :
 
 * createUiDefinition.json
@@ -80,7 +80,7 @@ Créez un fichier zip contenant tous les fichiers requis pour l’installation d
 > [!NOTE]  
 > Vous pouvez héberger les fichiers d’application (y compris des fichiers d’application web) sur n’importe quel point de terminaison accessible au public.
 
-## <a name="publish-the-application"></a>Publication de l'application
+## <a name="publish-the-application"></a>Publier l’application
 Pour publier une application HDInsight :
 
 1. Connectez-vous à la [Publication Azure](https://publish.windowsazure.com/).

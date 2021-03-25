@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 02/09/2021
 ms.author: alkohli
 ms.openlocfilehash: 400c5f0b2281679c3ec913e94643ffec6082d9e6
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100552585"
 ---
 #### <a name="to-create-a-volume"></a>Pour créer un volume
@@ -42,8 +42,8 @@ ms.locfileid: "100552585"
 
       1. Dans le panneau **Hôtes connectés**, choisissez un ACR existant ou ajoutez-en un en procédant comme suit :
 
-         1. Saisissez un **Nom** pour votre ACR.
-         2. Sous **Nom de l’initiateur iSCSI**, indiquez le nom qualifié iSCSI  de votre hôte Windows. Si vous ne possédez pas le nom qualifié, accédez à [Obtenir le nom qualifié d’un hôte Windows Server](#get-the-iqn-of-a-windows-server-host).
+         1. Donnez un **Nom** à votre enregistrement de contrôle d'accès.
+         2. Sous **Nom d'initiateur iSCSI**, indiquez le nom complet iSCSI (IQN) de votre hôte Windows. Si vous ne possédez pas le nom qualifié, accédez à [Obtenir le nom qualifié d’un hôte Windows Server](#get-the-iqn-of-a-windows-server-host).
 
       1. Cliquez sur **Créer**. Un volume est créé avec les paramètres spécifiés.
 

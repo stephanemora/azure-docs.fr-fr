@@ -10,10 +10,10 @@ ms.date: 05/28/2020
 ms.author: sngun
 ms.custom: devx-track-js
 ms.openlocfilehash: a9f5a307bfefedf74f884e39b482bd90454fc5c8
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93096867"
 ---
 # <a name="quickstart-build-a-table-api-app-with-nodejs-and-azure-cosmos-db"></a>Démarrage rapide : Créer une application d’API Table avec Node.js et Azure Cosmos DB
@@ -144,7 +144,7 @@ Maintenant, retournez dans le portail Azure afin d’obtenir les informations de
 
 2. Copiez la CHAÎNE DE CONNEXION PRINCIPALE à l’aide du bouton Copier à droite.
 
-3. Ouvrez le fichier *app.config* , puis collez la valeur dans connectionString à la ligne trois. 
+3. Ouvrez le fichier *app.config*, puis collez la valeur dans connectionString à la ligne trois. 
 
     > [!IMPORTANT]
     > Si votre point de terminaison utilise documents.azure.com, cela signifie que vous disposez d’un compte de version préliminaire et que vous devez créer un [nouveau compte d’API Table](#create-a-database-account) à utiliser avec le Kit de développement logiciel (SDK) d’API Table généralement disponible.
