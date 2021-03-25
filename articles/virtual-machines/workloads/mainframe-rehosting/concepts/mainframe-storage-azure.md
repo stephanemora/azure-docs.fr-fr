@@ -5,13 +5,14 @@ author: njray
 ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
-ms.service: storage
-ms.openlocfilehash: 8f57210ff6b65ee3a893fb344a48629466e90004
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.service: virtual-machines
+ms.subservice: mainframe-rehosting
+ms.openlocfilehash: 27f625e7fced5ff710a6fa0e8b2045a8c5434258
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97095353"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104954358"
 ---
 # <a name="move-mainframe-storage-to-azure"></a>Déplacement du stockage du mainframe vers Azure
 

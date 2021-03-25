@@ -12,10 +12,10 @@ ms.topic: end-user-help
 ms.date: 02/13/2019
 ms.author: curtand
 ms.openlocfilehash: 7500b6b146a627dcdebacd9d2e2c7c61bc43c105
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "83744448"
 ---
 # <a name="set-up-a-phone-number-as-your-verification-method"></a>Configurer un numéro de téléphone comme méthode de vérification
@@ -29,7 +29,7 @@ Si vous êtes invité à les configurer immédiatement après vous être connect
 > [!Note]
 > Les informations de sécurité ne prennent pas en charge les numéros de poste. Même si vous ajoutez le bon format, +33 4 25 55 51 23-12345, les numéros de poste sont supprimés avant l’appel.
 >
-> Si vous ne voyez pas d'option téléphonique, cela peut indiquer que votre organisation ne vous autorise pas à utiliser cette option à des fins de vérification. Dans ce cas, vous devez choisir une autre méthode ou contacter le support technique de votre organisation pour obtenir de l'aide.
+> Si vous ne voyez pas d'option téléphonique, cela peut indiquer que votre organisation ne vous autorise pas à utiliser cette option à des fins de vérification. Dans ce cas, vous devez choisir une autre méthode ou contacter le support technique de votre organisation pour obtenir de l’aide.
 
 ## <a name="security-verification-versus-password-reset-authentication"></a>Vérification de la sécurité ou authentification avec réinitialisation du mot de passe
 

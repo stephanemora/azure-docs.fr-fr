@@ -16,10 +16,10 @@ ms.date: 11/03/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6584754edf3ff7ae31c3b9ace72baf16459dbc44
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93359989"
 ---
 # <a name="assign-a-managed-identity-access-to-a-resource-by-using-the-azure-portal"></a>Attribuer à une identité managée un accès à une ressource à l’aide du portail Azure
@@ -41,7 +41,7 @@ Après avoir activé l’identité managée sur une ressource Azure, comme une [
 
 2. Accédez à la ressource souhaitée sur laquelle vous voulez modifier le contrôle d’accès. Dans cet exemple, nous offrons à une machine virtuelle Azure l’accès à un compte de stockage auquel nous accédons.
 
-3. Sélectionnez la page **Contrôle d’accès (IAM)** de la ressource, puis cliquez sur **+ Ajouter une attribution de rôle**. Spécifiez ensuite le **rôle** , la **destination de l’accès** et l’ **abonnement** correspondant. La ressource doit être située sous la zone de critères de recherche. Sélectionnez la ressource puis sélectionnez **Enregistrer**. 
+3. Sélectionnez la page **Contrôle d’accès (IAM)** de la ressource, puis cliquez sur **+ Ajouter une attribution de rôle**. Spécifiez ensuite le **rôle**, la **destination de l’accès** et l’**abonnement** correspondant. La ressource doit être située sous la zone de critères de recherche. Sélectionnez la ressource puis sélectionnez **Enregistrer**. 
 
    ![Capture d’écran du contrôle d’accès (IAM)](./media/msi-howto-assign-access-portal/assign-access-control-iam-blade-before.png)  
      

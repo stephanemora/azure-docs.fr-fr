@@ -14,10 +14,10 @@ ms.date: 11/15/2017
 ms.author: apimpm
 ms.custom: mvc
 ms.openlocfilehash: 85fa79cdfc7036be5b0ab20e49986a1d075152c5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86254654"
 ---
 # <a name="about-api-management"></a>En savoir plus sur la Gestion des API
@@ -41,26 +41,26 @@ Le système est constitué des composants suivants :
 * La **passerelle d’API** est le point de terminaison qui :
   
   * accepte les appels d’API et les dirige vers vos serveurs principaux ;
-  * vérifie les clés d’API, les jetons JWT, les certificats et les autres informations d’identification ;
-  * applique des quotas d’utilisation et des limites de débit ;
-  * transforme votre API à la volée sans modification de code ;
-  * met en cache les réponses du serveur principal lorsqu’il est configuré ;
-  * enregistre les métadonnées relatives aux appels à des fins d’analyse.
+  * Vérifie les clés API, les jetons JWT, les certificats et autres informations d’identification.
+  * Applique les quotas d’utilisation et les limites de taux.
+  * Transforme votre API à la volée sans modification du code.
+  * Met en cache les réponses back-end lorsque celles-ci sont configurées.
+  * Enregistre les métadonnées des appels à des fins analytiques.
 * Le **portail Azure** est l’interface d’administration où vous configurez votre programme d’API. Utilisez-le pour :
   
-  * définir ou importer le schéma d’API ;
-  * intégrer des API aux produits sous forme de packages ;
+  * Définir ou importer le schéma d’API.
+  * Empaqueter les API dans les produits.
   * définir des stratégies, telles que des quotas ou des transformations sur les API ;
-  * obtenir des informations issues de l’analyse ;
-  * gérer les utilisateurs.
+  * Obtenir des insights issues de l’analytique.
+  * Gérer les utilisateurs.
 * Le **portail des développeurs** est le principal lieu sur le web où les développeurs peuvent :
   
-  * lire la documentation de l’API ;
-  * essayer une API via la console interactive ;
-  * créer un compte et s’abonner pour obtenir les clés d’une API ;
-  * accéder aux analyses relatives à leur propre utilisation.
+  * Lire la documentation sur les API.
+  * Essayer une API via la console interactive.
+  * Créer un compte et s’abonner pour récupérer des clés API.
+  * Accéder à l’analytique relative à leur propre utilisation.
 
-Pour plus d’informations, consultez le livre blanc au format PDF [Cloud-based API Management: Harnessing the Power of APIs](https://j.mp/ms-apim-whitepaper). Ce livre blanc d’introduction à la gestion des API, publié par CITO Research, présente les opérations suivantes : 
+Pour plus d'informations, consultez le livre blanc [Gestion des API basées sur le cloud : maîtrise de la puissance des API](https://j.mp/ms-apim-whitepaper), disponible en version PDF. Ce livre blanc d’introduction à la gestion des API, publié par CITO Research, présente les opérations suivantes : 
  
  * Configuration requise des API et défis communs
  * Découplage des API et présentation des façades
@@ -74,7 +74,7 @@ Pour plus d’informations, consultez le livre blanc au format PDF [Cloud-based 
 ## <a name="apis-and-operations"></a><a name="apis"> </a>API et opérations
 Les API sont la base d'une instance du service Gestion des API. Chaque API représente un ensemble d'opérations disponibles pour les développeurs. Chaque API contient une référence au service principal qui implémente l'API, et ses opérations effectuent un mappage vers les opérations implémentées par le service principal. Les opérations dans Gestion des API sont hautement configurables. Elles contrôlent le mappage d'URL, les paramètres de requête et de chemin d'accès, le contenu de la demande et de la réponse, et la mise en cache de la réponse de l'opération. La limite de débit, les quotas et les stratégies de restriction de l'adresse IP peuvent également être implémentés au niveau de l'API ou du fonctionnement individuel.
 
-Pour plus d'informations, consultez les pages [Création d'API][How to create APIs] et [Ajout d'opérations à une API][How to add operations to an API].
+Pour plus d’informations, consultez les pages [Création d’API][How to create APIs] et [Ajout d’opérations à une API][How to add operations to an API].
 
 ## <a name="products"></a><a name="products"> </a> Produits
 Les produits sont la façon dont les API sont présentées en surface aux développeurs. Les produits dans Gestion des API possèdent une ou plusieurs API et sont configurés avec un titre, une description et des conditions d'utilisation. Les produits peuvent être **ouverts** ou **protégés**. Les produits protégés doivent faire l’objet d’un abonnement avant de pouvoir être utilisés, alors que les produits ouverts peuvent être utilisés sans abonnement. Lorsqu'un produit est prêt à l'emploi pour les développeurs, il peut être publié. Une fois le produit publié, les développeurs peuvent l’afficher et s’y abonner (dans le cas des produits protégés). L'approbation d'abonnement est configurée au niveau du produit et peut nécessiter l'approbation de l'administrateur ou être automatiquement approuvée.
@@ -84,8 +84,8 @@ Les groupes permettent de gérer la visibilité des produits pour les développe
 ## <a name="groups"></a><a name="groups"> </a> Groupes
 Les groupes permettent de gérer la visibilité des produits pour les développeurs. Le service Gestion des API possède les groupes système suivants, qui ne sont pas modifiables :
 
-* **Administrateurs** : les administrateurs d’abonnements Azure sont membres de ce groupe. Les administrateurs gèrent les instances du service Gestion des API, créant les API, opérations et produits qui sont utilisés par les développeurs.
-* **Développeurs** : les utilisateurs authentifiés du portail des développeurs appartiennent à ce groupe. Les développeurs sont les clients qui génèrent des applications grâce à vos API. Les développeurs bénéficient d'un accès au portail des développeurs et génèrent des applications qui appellent les opérations d'une API.
+* **Administrateurs** : les administrateurs des abonnements Azure sont membres de ce groupe. Les administrateurs gèrent les instances du service Gestion des API, créant les API, opérations et produits qui sont utilisés par les développeurs.
+* **Développeurs** : les utilisateurs authentifiés du portail des développeurs appartiennent à ce groupe. Les développeurs sont les clients qui génèrent des applications grâce à vos API. Les développeurs bénéficient d'un accès au portail des développeurs et génèrent des applications qui appellent les opérations d'une API.
 * **Invités** : les utilisateurs non authentifiés du portail des développeurs, comme les prospects, qui consultent le portail des développeurs d’une instance d’API Management appartiennent à ce groupe. Ils peuvent recevoir certains accès en lecture seule, comme la possibilité d'afficher les API, mais pas de les appeler.
 
 Outre ces groupes système, les administrateurs peuvent créer des groupes personnalisés ou [utiliser des groupes externes dans des locataires Azure Active Directory qui leur sont associés](api-management-howto-aad.md). Des groupes externes et personnalisés peuvent être utilisés avec des groupes système offrant une certaine visibilité aux développeurs et un accès aux produits d’API. Vous pourriez, par exemple, créer un groupe personnalisé pour les développeurs affiliés à une organisation partenaire spécifique et leur permettre d’accéder aux API à partir d’un produit contenant uniquement des API pertinentes. Un utilisateur peut être membre de plusieurs groupes.

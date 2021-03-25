@@ -12,32 +12,28 @@ ms.date: 11/04/2019
 ms.author: kenwith
 ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66a6317b0cb59d656cdb2e402c5ade1b78ed60aa
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 646c2216c3d71aa441d33dde0ab3e2ef7bb4fd89
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258318"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101643556"
 ---
 # <a name="grant-tenant-wide-admin-consent-to-an-application"></a>Accorder le consentement administrateur au niveau locataire à une application
 
-Découvrez comment simplifier l’expérience utilisateur en accordant un consentement administrateur au niveau locataire à une application. Cet article présente les différentes façons d’y parvenir. Les méthodes s’appliquent à tous les utilisateurs finaux de votre client Azure Active Directory (Azure AD).
+  Découvrez comment accorder le consentement administrateur au niveau locataire à une application. Cet article présente les différentes façons d’y parvenir.
 
 Pour plus d’informations sur le consentement des applications, consultez [Infrastructure de consentement d’Azure Active Directory](../develop/consent-framework.md).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
-L’octroi du consentement administrateur au niveau locataire vous oblige à vous connecter en tant qu’[administrateur général](../roles/permissions-reference.md#global-administrator), [administrateur d’application](../roles/permissions-reference.md#application-administrator) ou [administrateur d’application cloud](../roles/permissions-reference.md#cloud-application-administrator).
-
-> [!IMPORTANT]
-> Lorsqu’une application a reçu le consentement administrateur au niveau locataire, tous les utilisateurs peuvent se connecter à l’application, sauf si elle a été configurée pour exiger l’attribution de l’utilisateur. Pour restreindre à des utilisateurs spécifiques l’accès à une application, demandez l’affectation d’utilisateurs, puis affectez des utilisateurs ou des groupes à l’application. Pour plus d'informations, voir [Méthodes d'affectation d'utilisateurs et de groupes](./assign-user-or-group-access-portal.md).
->
-> Le rôle Administrateur général est requis afin de donner le consentement administrateur pour les permissions d’application à l’API Microsoft Graph.
+Pour accorder le consentement administrateur au niveau locataire, vous devez vous connecter comme utilisateur autorisé à donner un consentement au nom de l’organisation. Ainsi, vous devez disposer notamment des rôles [Administrateur général](../roles/permissions-reference.md#global-administrator), [Administrateur de rôle privilégié](../roles/permissions-reference.md#privileged-role-administrator) et, pour certaines applications, [Administrateur d’application](../roles/permissions-reference.md#application-administrator) et [Administrateur d’application cloud](../roles/permissions-reference.md#cloud-application-administrator). Un utilisateur peut également être autorisé à accorder le consentement au niveau locataire si un [rôle d’annuaire personnalisé](../roles/custom-create.md) comprenant l’[autorisation d’accorder des autorisations à des applications](../roles/custom-consent-permissions.md) lui est attribué.
 
 > [!WARNING]
 > Le fait d’accorder le consentement administrateur au niveau locataire à une application permettra à l’application et à l’éditeur de l'application d’accéder aux données de votre organisation. Examinez attentivement les autorisations demandées par l’application avant d’accorder le consentement.
->
-> Le rôle Administrateur général est requis afin de donner le consentement administrateur pour les permissions d’application à l’API Microsoft Graph.
+
+> [!IMPORTANT]
+> Lorsqu’une application a reçu le consentement administrateur au niveau locataire, tous les utilisateurs peuvent se connecter à l’application, sauf si elle a été configurée pour exiger l’attribution de l’utilisateur. Pour restreindre à des utilisateurs spécifiques l’accès à une application, demandez l’affectation d’utilisateurs, puis affectez des utilisateurs ou des groupes à l’application. Pour plus d'informations, voir [Méthodes d'affectation d'utilisateurs et de groupes](./assign-user-or-group-access-portal.md).
 
 ## <a name="grant-admin-consent-from-the-azure-portal"></a>Accorder le consentement administrateur à partir du Portail Azure
 
@@ -101,4 +97,4 @@ Comme toujours, examinez attentivement les autorisations demandées par une appl
 
 [Autorisations et consentement dans la plateforme d’identités Microsoft](../develop/v2-permissions-and-consent.md)
 
-[Azure AD sur Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-active-directory.html)
+[Azure AD sur Microsoft Q&A](/answers/topics/azure-active-directory.html)

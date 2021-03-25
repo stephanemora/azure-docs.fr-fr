@@ -4,12 +4,12 @@ description: Découvrez comment instrumenter une application .NET Azure Batch av
 ms.topic: how-to
 ms.custom: devx-track-csharp
 ms.date: 04/05/2018
-ms.openlocfilehash: d06e2b61725f05d025acd8a2995ea041f138ae4f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9decb99c3de798df43dedc2441208066d18e3a13
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88933560"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104605781"
 ---
 # <a name="monitor-and-debug-an-azure-batch-net-application-with-application-insights"></a>Surveiller et déboguer une application .NET Azure Batch avec Application Insights
 
@@ -32,7 +32,7 @@ Un exemple de solution C# avec du code pour accompagner cet article est disponib
   
    * Utilisez le portail Azure pour créer une *ressource* Application Insights. Sélectionnez le **Type d’application** *Général*.
 
-   * Copiez la [clé d’instrumentation](../azure-monitor/app/create-new-resource.md #copy-the-instrumentation-key) à partir du portail. Vous en aurez besoin plus loin dans cet article.
+   * Copiez la [clé d’instrumentation](../azure-monitor/app/create-new-resource.md#copy-the-instrumentation-key) à partir du portail. Vous en aurez besoin plus loin dans cet article.
   
   > [!NOTE]
   > Les données stockées dans Application Insights peuvent faire l’objet d’une [facturation](https://azure.microsoft.com/pricing/details/application-insights/). Cela inclut les données de diagnostic et de surveillance traitées dans cet article.

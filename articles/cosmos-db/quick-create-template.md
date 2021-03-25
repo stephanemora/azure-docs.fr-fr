@@ -10,10 +10,10 @@ ms.topic: quickstart
 ms.date: 06/01/2020
 ms.custom: subject-armqs
 ms.openlocfilehash: b97702bb84eb38d185fe97ffcc596e374f28fbe2
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93339663"
 ---
 # <a name="quickstart-create-an-azure-cosmos-db-and-a-container-by-using-an-arm-template"></a>Démarrage rapide : Créer une base de données et un conteneur Azure Cosmos DB à l’aide d’un modèle Resource Manager
@@ -64,19 +64,19 @@ Vous trouverez d’autres exemples de modèles Azure Cosmos DB dans la [galerie 
     Sauf si elles sont spécifiées, utilisez les valeurs par défaut pour créer les ressources Azure Cosmos.
 
     * **Abonnement** : sélectionnez un abonnement Azure.
-    * **Groupe de ressources**  : sélectionnez **Créer** , entrez un nom unique pour le groupe de ressources, puis cliquez sur **OK**.
+    * **Groupe de ressources** : sélectionnez **Créer**, entrez un nom unique pour le groupe de ressources, puis cliquez sur **OK**.
     * **Emplacement** : sélectionnez un emplacement.  Par exemple, **USA Centre**.
-    * **Nom du compte**  : entrez un nom pour le compte Azure Cosmos. Il doit être globalement unique.
+    * **Nom du compte** : entrez un nom pour le compte Azure Cosmos. Il doit être globalement unique.
     * **Emplacement** : entrez un emplacement où vous voulez créer votre compte Azure Cosmos. Le compte Azure Cosmos peut être au même emplacement que le groupe de ressources.
-    * **Région principale**  : Région du réplica principal pour le compte Azure Cosmos.
-    * **Région secondaire**  : Région du réplica secondaire pour le compte Azure Cosmos.
+    * **Région principale** : Région du réplica principal pour le compte Azure Cosmos.
+    * **Région secondaire** : Région du réplica secondaire pour le compte Azure Cosmos.
     * **Niveau de cohérence par défaut** : niveau de cohérence par défaut du compte Azure Cosmos.
     * **Préfixe d’obsolescence maximale** : nombre maximal de demandes périmées. Requis pour BoundedStaleness.
     * **Intervalle maximal en secondes** : temps de retard maximal. Requis pour BoundedStaleness.
-    * **Nom de la base de données**  : Nom de la base de données Azure Cosmos.
-    * **Nom du conteneur**  : Nom du conteneur Azure Cosmos.
+    * **Nom de la base de données** : Nom de la base de données Azure Cosmos.
+    * **Nom du conteneur** : Nom du conteneur Azure Cosmos.
     * **Débit** :  Débit pour le conteneur, la valeur minimale du débit est de 400 RU/s.
-    * **J’accepte les termes et conditions mentionnés ci-dessus**  : cochez la case.
+    * **J’accepte les termes et conditions mentionnés ci-dessus** : cochez la case.
 
 3. Sélectionnez **Achat**. Une fois que le compte Azure Cosmos a été déployé, vous recevez une notification :
 

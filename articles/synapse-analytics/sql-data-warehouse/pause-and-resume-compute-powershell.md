@@ -2,21 +2,21 @@
 title: 'Démarrage rapide : Suspendre et reprendre le calcul dans un pool SQL dédié (anciennement SQL DW) avec Azure PowerShell'
 description: Vous pouvez utiliser Azure PowerShell pour suspendre et reprendre le pool SQL dédié (anciennement SQL DW). ressources de calcul.
 services: synapse-analytics
-author: kevinvngo
+author: gaursa
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: sql-dw
 ms.date: 03/20/2019
-ms.author: kevin
+ms.author: gaursa
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse, devx-track-azurepowershell
-ms.openlocfilehash: 0851bbf990e78e32a1b4330719ad82bd6a7d3703
-ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
+ms.openlocfilehash: 74c30a843ef5edd54c7cd19f3fd49acfe782f488
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103600908"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104602177"
 ---
 # <a name="quickstart-pause-and-resume-compute-in-dedicated-sql-pool-formerly-sql-dw-with-azure-powershell"></a>Démarrage rapide : Suspendre et reprendre le calcul dans un pool SQL dédié (anciennement SQL DW) avec Azure PowerShell
 

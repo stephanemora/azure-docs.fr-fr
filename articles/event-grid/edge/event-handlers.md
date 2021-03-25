@@ -4,10 +4,10 @@ description: Gestionnaires d’événements et destinations dans Event Grid sur 
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: 18e2b944f60ebdf8a1b0c60ba446a13df13134c5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86171582"
 ---
 # <a name="event-handlers-and-destinations-in-event-grid-on-edge"></a>Gestionnaires d’événements et destinations dans Event Grid sur Edge

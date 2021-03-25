@@ -15,17 +15,17 @@ ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
 ms.openlocfilehash: 849087cbbe91be799c51929353b9f020859c85b8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "77588142"
 ---
 # <a name="connect-one-identity-safeguard"></a>Connecter One Identity Safeguard
 Le connecteur de données One Identity Safeguard améliore le connecteur CEF (Common Event format) standard grâce à une protection pour les tableaux de bord spécifiques des sessions privilégiées. Utilisez ce connecteur pour commencer à utiliser facilement les événements générés par votre appareil pour la visualisation, les alertes, les investigations, etc.
 
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - Lire et écrire des autorisations dans l’espace de travail Azure Sentinel.
 

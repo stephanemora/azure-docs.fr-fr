@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: harshacs
 ms.openlocfilehash: 367aba09f84da1e227c08721077aa1b2132a62bf
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92367971"
 ---
 # <a name="network-security-groups-with-azure-site-recovery"></a>Groupes de sécurité réseau avec Azure Site Recovery
@@ -27,9 +27,9 @@ Cet article décrit comment utiliser des groupes de sécurité réseau avec Azur
 Un sous-réseau individuel peut avoir zéro ou un groupe NSG associé. Une interface réseau individuelle peut avoir zéro ou un groupe NSG associé. Vous pouvez donc en fait obtenir une double restriction du trafic pour une machine virtuelle en associant d’abord un groupe NSG à un sous-réseau, puis un autre groupe NSG à l’interface réseau de la machine virtuelle. L’application des règles NSG dépend dans ce cas du sens du trafic et de la priorité des règles de sécurité appliquées.
 
 Prenons un exemple simple avec une machine virtuelle comme suit :
--    La machine virtuelle est placée au sein du **sous-réseau Contoso** .
--    Le **sous-réseau Contoso** est associé au **groupe NSG du sous-réseau** .
--    L’interface réseau de la machine virtuelle est en plus associée au **groupe NSG de la machine virtuelle** .
+-    La machine virtuelle est placée au sein du **sous-réseau Contoso**.
+-    Le **sous-réseau Contoso** est associé au **groupe NSG du sous-réseau**.
+-    L’interface réseau de la machine virtuelle est en plus associée au **groupe NSG de la machine virtuelle**.
 
 ![Groupe NSG avec Site Recovery](./media/concepts-network-security-group-with-site-recovery/site-recovery-with-network-security-group.png)
 
@@ -50,7 +50,7 @@ Une fois que vous avez créé les machines virtuelles après le basculement vers
 Par exemple, si la configuration de machines virtuelles post-basculement est similaire à l’[exemple de scénario](concepts-network-security-group-with-site-recovery.md#using-network-security-groups) détaillé ci-dessus :
 -    Vous pouvez créer un **réseau virtuel Contoso** et un **sous-réseau Contoso** lors de la planification d’une reprise après sinistre sur la région Azure cible.
 -    You pouvez aussi créer et configurer un **groupe NSG de sous-réseau** et un **groupe NSG de machine virtuelle** lors de la même planification de reprise après sinistre.
--    Le **groupe NSG de sous-réseau** peut alors être immédiatement associé au **sous-réseau Contoso** , puisque le groupe NSG et le sous-réseau sont déjà disponibles.
+-    Le **groupe NSG de sous-réseau** peut alors être immédiatement associé au **sous-réseau Contoso**, puisque le groupe NSG et le sous-réseau sont déjà disponibles.
 -    Le **groupe NSG de machine virtuelle** peut être associé aux machines virtuelles pendant le basculement à l’aide de plans de récupération.
 
 Une fois que les groupes NSG sont créés et configurés, nous vous recommandons d’exécuter un [test de basculement](site-recovery-test-failover-to-azure.md) pour vérifier les associations de groupe NSG scriptées et la connectivité des machines virtuelles post-basculement.
@@ -64,8 +64,8 @@ Pour la réplication des machines virtuelles Azure, vérifiez que les règles NS
 Site Recovery ne crée ni ne réplique de groupe NSG pendant l’opération de basculement. Nous vous recommandons de créer les groupes NSG nécessaires dans la région Azure cible avant de lancer le basculement. Vous pouvez ensuite associer les groupes NSG aux machines virtuelles basculées automatiquement pendant le basculement en utilisant des scripts d’automatisation avec les [plans de récupération](site-recovery-create-recovery-plans.md) performants de Site Recovery.
 
 Si nous prenons en compte l’[exemple de scénario](concepts-network-security-group-with-site-recovery.md#using-network-security-groups) décrit précédemment :
--    Site Recovery peut créer des réplicas du **réseau virtuel Contoso** et du **sous-réseau Contoso**  dans la région Azure cible quand la réplication est activée pour la machine virtuelle.
--    Vous pouvez créer les réplicas souhaités du **groupe NSG de sous-réseau** et du **groupe NSG de machine virtuelle** (nommés, par exemple, **Groupe NSG de sous-réseau cible** et **Groupe NSG de machine virtuelle cible** , respectivement) dans la région Azure cible, en autorisant toutes les règles supplémentaires nécessaires dans la région cible.
+-    Site Recovery peut créer des réplicas du **réseau virtuel Contoso** et du **sous-réseau Contoso** dans la région Azure cible quand la réplication est activée pour la machine virtuelle.
+-    Vous pouvez créer les réplicas souhaités du **groupe NSG de sous-réseau** et du **groupe NSG de machine virtuelle** (nommés, par exemple, **Groupe NSG de sous-réseau cible** et **Groupe NSG de machine virtuelle cible**, respectivement) dans la région Azure cible, en autorisant toutes les règles supplémentaires nécessaires dans la région cible.
 -    Le **groupe NSG de sous-réseau cible** peut alors être immédiatement associé au sous-réseau de la région cible, puisque le groupe NSG et le sous-réseau sont déjà disponibles.
 -    Le **groupe NSG de machine virtuelle cible** peut être associé aux machines virtuelles pendant le basculement à l’aide de plans de récupération.
 

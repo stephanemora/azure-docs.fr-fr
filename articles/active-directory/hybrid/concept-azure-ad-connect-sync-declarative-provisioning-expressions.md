@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 02490839a9e35695ae2e8b3f750e139ad7413aa4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89280211"
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning-expressions"></a>Azure AD Connect Sync : présentation des expressions d’approvisionnement déclaratif
@@ -62,10 +62,10 @@ Le connecteur Active Directory fournissait les paramètres suivants pour les rè
 | Forest.FQDN |Format FQDN du nom de forêt en cours d’importation, par exemple, fabrikam.com |
 | Forest.LDAP |Format LDAP du nom de forêt en cours d’importation, par exemple, DC=fabrikam,DC=com |
 
-Le système fournit le paramètre suivant, qui est utilisé pour obtenir l'identificateur du connecteur en cours d'exécution :  
+Le système fournit le paramètre suivant, qui est utilisé pour obtenir l'identificateur du connecteur en cours d'exécution :   
 `Connector.ID`
 
-Voici un exemple qui remplira le domaine d’attribut du métaverse avec le nom netbios du domaine où se trouve l’utilisateur :  
+Voici un exemple qui remplira le domaine d’attribut du métaverse avec le nom netbios du domaine où se trouve l’utilisateur :   
 `domain` <- `%Domain.Netbios%`
 
 ### <a name="operators"></a>Opérateurs
@@ -74,7 +74,7 @@ Vous pouvez utiliser les opérateurs suivants :
 * **Opérateurs de comparaison** : &lt;, &lt;=, &lt;&gt;, =, &gt;, &gt;=
 * **Mathématiques** : +, -, \*, -
 * **Chaîne** : &amp; (concaténation)
-* **Logiques** : &amp;&amp; (et), || (ou)
+* **Logiques** : &&amp;amp; (et), || (ou)
 * **Ordre d’évaluation**: ( )
 
 Les opérateurs sont évalués de la gauche vers la droite et ont la même priorité d'évaluation. Par exemple, le \* (signe multiplicateur) n’est pas évalué avant - (soustraction). 2\*(5+3) n’est pas la même chose que 2\*5+3. Les parenthèses ( ) sont utilisées pour modifier l’ordre d’évaluation lorsqu’un ordre d’évaluation de la gauche vers la droite n’est pas approprié.
@@ -94,7 +94,7 @@ Par exemple :
 
 **Rubriques de présentation**
 
-* [Azure AD Connect Sync - Présentation et personnalisation des options de synchronisation](how-to-connect-sync-whatis.md)
+* [Synchronisation Azure AD Connect : Comprendre et personnaliser la synchronisation](how-to-connect-sync-whatis.md)
 * [Intégration des identités locales dans Azure Active Directory](whatis-hybrid-identity.md)
 
 **Rubriques de référence**

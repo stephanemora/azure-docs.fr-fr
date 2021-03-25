@@ -12,10 +12,10 @@ manager: celestedg
 ms.workload: identity
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 983a803245467145a0b1161a4495e8045759e7ab
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92442063"
 ---
 # <a name="billing-model-for-azure-ad-external-identities"></a>Modèle de facturation pour les identités externes Azure AD
@@ -47,24 +47,24 @@ Pour obtenir une facturation et un accès corrects aux fonctionnalités, Un loca
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/) à l’aide d’un compte Azure auquel a été attribué au moins le rôle [Contributeur](../../role-based-access-control/built-in-roles.md) au sein de l’abonnement ou d’un groupe de ressources.
 
-2. Sélectionnez le répertoire que vous souhaitez lier : Dans la barre d’outils du portail Azure, sélectionnez l’icône **Annuaire et abonnement** , puis sélectionnez le répertoire.
+2. Sélectionnez le répertoire que vous souhaitez lier : Dans la barre d’outils du portail Azure, sélectionnez l’icône **Annuaire et abonnement**, puis sélectionnez le répertoire.
 
     ![Sélectionner l’icône Annuaire et abonnement](media/external-identities-pricing/portal-mau-pick-directory.png)
 
-3. Sous **Services Azure** , sélectionnez **Azure Active Directory** .
+3. Sous **Services Azure**, sélectionnez **Azure Active Directory**.
 
-4. Dans le menu de gauche, sélectionnez **Identités externes** .
+4. Dans le menu de gauche, sélectionnez **Identités externes**.
 
-5. Sous **Abonnements** , sélectionnez **Abonnements liés** .
+5. Sous **Abonnements**, sélectionnez **Abonnements liés**.
 
-6. Dans la liste des locataires, activez la case à cocher en regard du locataire, puis sélectionnez **Lier l’abonnement** .
+6. Dans la liste des locataires, activez la case à cocher en regard du locataire, puis sélectionnez **Lier l’abonnement**.
 
     ![Sélectionner le locataire et lier un abonnement](media/external-identities-pricing/linked-subscriptions.png)
 
-7. Dans le volet Lier un abonnement, sélectionnez un **Abonnement** , puis un **Groupe de ressources** . Ensuite, sélectionnez **Appliquer** .
+7. Dans le volet Lier un abonnement, sélectionnez un **Abonnement**, puis un **Groupe de ressources**. Ensuite, sélectionnez **Appliquer**.
 
    > [!NOTE]
-   > Si aucun abonnement n’est répertorié, vous pouvez [associer un abonnement à votre locataire](../fundamentals/active-directory-how-subscriptions-associated-directory.md). Vous pouvez également ajouter un nouvel abonnement en sélectionnant le lien **Si vous n’avez pas encore d’abonnement, vous pouvez en créer un ici** .
+   > Si aucun abonnement n’est répertorié, vous pouvez [associer un abonnement à votre locataire](../fundamentals/active-directory-how-subscriptions-associated-directory.md). Vous pouvez également ajouter un nouvel abonnement en sélectionnant le lien **Si vous n’avez pas encore d’abonnement, vous pouvez en créer un ici**.
 
     ![Sélectionner un abonnement et un groupe de ressources](media/external-identities-pricing/link-subscription-resource.png)
 

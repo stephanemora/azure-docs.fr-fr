@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/03/2020
 ms.openlocfilehash: 40bd0eda16f9f96dd356eef900369ab25854e9f9
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93392246"
 ---
 # <a name="sql-database-dacpac-and-bacpac-packages-in-sql-edge"></a>Packages SQL Database DACPAC et BACPAC dans SQL Edge
@@ -47,19 +47,19 @@ Pour déployer (ou importer) un package SQL Database DAC `(*.dacpac)` ou un fich
 
     2. Dans le volet gauche, sélectionnez **IoT Edge**.
 
-    3. Dans la page **IoT Edge** , recherchez et sélectionnez l’IoT Edge dans lequel le module SQL Edge est déployé.
+    3. Dans la page **IoT Edge**, recherchez et sélectionnez l’IoT Edge dans lequel le module SQL Edge est déployé.
 
-    4. Dans la page **Appareil IoT Edge** , sélectionnez **Définir des modules**.
+    4. Dans la page **Appareil IoT Edge**, sélectionnez **Définir des modules**.
 
-    5. Sur la page **Définir des modules** , cliquez sur le module Azure SQL Edge.
+    5. Sur la page **Définir des modules**, cliquez sur le module Azure SQL Edge.
 
-    6. Dans le volet **Mettre à jour le module IoT Edge** , sélectionnez **Variables d’environnement**. Ajoutez la variable d’environnement `MSSQL_PACKAGE` et spécifiez l’URL SAP générée à l’étape 3 ci-dessus en tant que valeur pour la variable d’environnement. 
+    6. Dans le volet **Mettre à jour le module IoT Edge**, sélectionnez **Variables d’environnement**. Ajoutez la variable d’environnement `MSSQL_PACKAGE` et spécifiez l’URL SAP générée à l’étape 3 ci-dessus en tant que valeur pour la variable d’environnement. 
 
     7. Sélectionnez **Update**.
 
-    8. Sur la page **Définir des modules** , sélectionnez **Vérifier + créer**.
+    8. Sur la page **Définir des modules**, sélectionnez **Vérifier + créer**.
 
-    9. Sur la page **Définir des modules** , sélectionnez **Créer**.
+    9. Sur la page **Définir des modules**, sélectionnez **Créer**.
 
 5. Après la mise à jour du module, les fichiers de package sont téléchargés, décompressés et déployés pour l’instance SQL Edge.
 

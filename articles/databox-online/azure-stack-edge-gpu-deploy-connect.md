@@ -10,10 +10,10 @@ ms.date: 08/29/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure.
 ms.openlocfilehash: f069f711ccf5672041ea6f3b15a52fa2b3ba2022
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90900038"
 ---
 # <a name="tutorial-connect-to-azure-stack-edge-pro-with-gpu"></a>Tutoriel : Se connecter à Azure Stack Edge Pro avec GPU
@@ -32,14 +32,14 @@ Ce tutoriel vous fournira des informations sur :
 
 ## <a name="prerequisites"></a>Prérequis
 
-Avant de configurer et d’activer votre appareil Azure Stack Edge Pro avec GPU, vérifiez que :
+Avant de configurer et d'activer votre appareil Azure Stack Edge Pro avec GPU, vérifiez que :
 
 * Vous avez installé l’appareil physique, comme indiqué dans [Installer Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-install.md).
 
 
 ## <a name="connect-to-the-local-web-ui-setup"></a>Se connecter à la configuration de l’interface utilisateur web locale
 
-1. Configurez l’adaptateur Ethernet sur votre ordinateur pour vous connecter à l’appareil Azure Stack Edge Pro avec l’adresse IP statique 192.168.100.5 et le sous-réseau 255.255.255.0.
+1. Configurez l'adaptateur Ethernet sur votre ordinateur pour vous connecter à l'appareil Azure Stack Edge Pro avec l'adresse IP statique 192.168.100.5 et le sous-réseau 255.255.255.0.
 
 2. Connectez l’ordinateur au PORT 1 de votre appareil. Si vous connectez l’ordinateur directement à l’appareil (sans commutateur), utilisez un câble croisé ou une carte Ethernet USB. Utilisez l’illustration ci-dessous pour identifier le PORT 1 sur votre appareil.
 
@@ -60,7 +60,7 @@ Avant de configurer et d’activer votre appareil Azure Stack Edge Pro avec GPU,
 
 5. Connectez-vous à l’interface utilisateur web de votre appareil physique. Le mot de passe par défaut est *Password1*. 
    
-    ![Page de connexion de l’appareil Azure Stack Edge Pro](./media/azure-stack-edge-deploy-connect-setup-activate/image3.png)
+    ![Page de connexion de l'appareil Azure Stack Edge Pro](./media/azure-stack-edge-deploy-connect-setup-activate/image3.png)
 
 6. À l’invite, modifiez le mot de passe d’administrateur de l’appareil.  
     Le nouveau mot de passe doit contenir entre 8 et 16 caractères. Il doit contenir trois des types de caractères suivants : majuscule, minuscule, chiffre et caractère spécial.

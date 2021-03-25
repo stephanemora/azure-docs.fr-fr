@@ -10,10 +10,10 @@ ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
 ms.openlocfilehash: e5e2ce17be6d8a1fa82d8a92b9b788f0bd2a37b8
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92424749"
 ---
 # <a name="scenario-isolating-vnets"></a>Scénario : Isolation des réseaux virtuels
@@ -42,7 +42,7 @@ Des réseaux virtuels seront associés à cette table de routage **RT_VNET**. É
   * Table de routage associée : **Par défaut**
   * Propagation aux tables de routage : **RT_VNET** et **Par défaut**
 
-Notez que, dans la mesure où seules les branches se propagent à la table de routage **RT_VNET** , il s’agit des seuls préfixes que les réseaux virtuels apprendront, et non de ceux d’autres réseaux virtuels.
+Notez que, dans la mesure où seules les branches se propagent à la table de routage **RT_VNET**, il s’agit des seuls préfixes que les réseaux virtuels apprendront, et non de ceux d’autres réseaux virtuels.
 
 Pour plus d’informations sur le routage de hub virtuel, consultez [À propos du routage de hub virtuel](about-virtual-hub-routing.md).
 
@@ -51,10 +51,10 @@ Pour plus d’informations sur le routage de hub virtuel, consultez [À propos d
 Pour configurer ce scénario, prenez en compte les étapes suivantes :
 
 1. Créez une table de routage personnalisée dans chaque Hub. Dans l’exemple, la table de routage est **RT_VNet**. Pour créer une table de routage, consultez le [Guide pratique pour configurer le routage de hub virtuel](how-to-virtual-hub-routing.md). Pour plus d’informations sur les tables de routage, consultez [À propos du routage de hub virtuel](about-virtual-hub-routing.md).
-2. Lorsque vous créez la table de routage **RT_VNet** , configurez les paramètres suivants :
+2. Lorsque vous créez la table de routage **RT_VNet**, configurez les paramètres suivants :
 
-   * **Association**  : Sélectionnez les réseaux virtuels que vous souhaitez isoler.
-   * **Propagation**  : Sélectionnez l’option pour les branches, ce qui implique que les connexions de branche (VPN/ER/P2S) propageront les itinéraires vers cette table de routage.
+   * **Association** : Sélectionnez les réseaux virtuels que vous souhaitez isoler.
+   * **Propagation** : Sélectionnez l’option pour les branches, ce qui implique que les connexions de branche (VPN/ER/P2S) propageront les itinéraires vers cette table de routage.
 
 :::image type="content" source="./media/routing-scenarios/isolated/isolated-vnets.png" alt-text="Réseaux virtuels isolés":::
 

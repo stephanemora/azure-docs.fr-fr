@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7d6689b4b67b8462e983ae9b111e0fbc60c422b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89657120"
 ---
 # <a name="next-steps-and-how-to-manage-azure-ad-connect"></a>Étapes suivantes et gestion d’Azure AD Connect
@@ -35,7 +35,7 @@ Maintenant que vos utilisateurs ont été synchronisés avec le cloud, vous deve
 ### <a name="to-assign-an-azure-ad-premium-or-enterprise-mobility-suite-license"></a>Pour l’attribution d’une licence Azure AD Premium ou Enterprise Mobility Suite
 
 1. Connectez-vous au portail Azure en tant qu’administrateur.
-2. Sélectionnez **Active Directory**à gauche.
+2. Sélectionnez **Active Directory** à gauche.
 3. Sur la page **Active Directory**, double-cliquez sur le répertoire qui contient les utilisateurs que vous souhaitez configurer.
 4. En haut de la page du répertoire, sélectionnez **Licences**.
 5. Sur la page **Licences**, sélectionnez **Active Directory Premium** ou **Enterprise Mobility Suite**, puis cliquez sur **Attribuer**.
@@ -46,7 +46,7 @@ Utilisez le portail Azure pour vérifier l’état d’une synchronisation.
 
 ### <a name="to-verify-the-scheduled-synchronization-task"></a>Pour la vérification de la tâche de synchronisation planifiée
 1. Connectez-vous au portail Azure en tant qu’administrateur.
-2. Sélectionnez **Active Directory**à gauche.
+2. Sélectionnez **Active Directory** à gauche.
 3. Sélectionnez **Azure AD Connect** à gauche
 4. En haut de la page, notez la dernière synchronisation.
 

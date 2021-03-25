@@ -12,10 +12,10 @@ ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
 ms.openlocfilehash: 66bce573be5a31641bdff809b8e9a79b617a703a
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92370999"
 ---
 # <a name="azure-active-directory-identity-and-access-management-operations-reference-guide"></a>Guide de référence des opérations de gestion des identités et des accès Azure Active Directory
@@ -105,9 +105,9 @@ Si votre version d’Azure AD Connect a plus de six mois de retard, vous devez 
 
 #### <a name="source-anchor"></a>Ancre source
 
-L’utilisation de **ms-DS-consistencyguid** en tant qu’ [ancre source](../hybrid/plan-connect-design-concepts.md) facilite la migration des objets entre les forêts et les domaines, ce qui est courant dans la consolidation/le nettoyage, les fusions, les acquisitions et les scissions de domaines AD.
+L’utilisation de **ms-DS-consistencyguid** en tant qu’[ancre source](../hybrid/plan-connect-design-concepts.md) facilite la migration des objets entre les forêts et les domaines, ce qui est courant dans la consolidation/le nettoyage, les fusions, les acquisitions et les scissions de domaines AD.
 
-Si vous utilisez actuellement **ObjectGuid** en tant qu’ancre source, nous vous recommandons d’utiliser **ms-DS-ConsistencyGuid** .
+Si vous utilisez actuellement **ObjectGuid** en tant qu’ancre source, nous vous recommandons d’utiliser **ms-DS-ConsistencyGuid**.
 
 #### <a name="custom-rules"></a>Règles personnalisées
 
@@ -167,10 +167,10 @@ Si vous utilisez un outil tel que [Microsoft Identity Manager](/microsoft-identi
 
 ### <a name="assignment-of-apps-with-all-users-group"></a>Affectation d’applications avec le groupe « Tous les utilisateurs »
 
-Les propriétaires de ressources peuvent penser que le groupe **Tous les utilisateurs** contient uniquement les **Employés d’entreprise** , alors qu’il peut contenir en fait les **Employés d’entreprise** et les **Invités** . Vous devez donc être particulièrement vigilant quand vous utilisez le groupe **Tous les utilisateurs** pour l’affectation d’applications et l’octroi d’un accès aux ressources telles que du contenu ou des applications SharePoint.
+Les propriétaires de ressources peuvent penser que le groupe **Tous les utilisateurs** contient uniquement les **Employés d’entreprise**, alors qu’il peut contenir en fait les **Employés d’entreprise** et les **Invités**. Vous devez donc être particulièrement vigilant quand vous utilisez le groupe **Tous les utilisateurs** pour l’affectation d’applications et l’octroi d’un accès aux ressources telles que du contenu ou des applications SharePoint.
 
 > [!IMPORTANT]
-> Si le groupe **Tous les utilisateurs** est activé et utilisé pour les stratégies d’accès conditionnel, l’affectation d’applications ou de ressources, veillez à [sécuriser le groupe](../external-identities/use-dynamic-groups.md) si vous ne souhaitez pas qu’il inclue des utilisateurs invités. De plus, vous devez corriger vos affectations de licences en les créant et en les affectant aux groupes qui contiennent uniquement des **Employés d’entreprise** . En revanche, si vous constatez que le groupe **Tous les utilisateurs** est activé, mais qu’il n’est pas utilisé pour octroyer l’accès aux ressources, vérifiez que les recommandations de votre organisation précisent bien de se servir de ce groupe (qui inclut les **Employés de l’entreprise** et les **Invités** ) de manière intentionnelle.
+> Si le groupe **Tous les utilisateurs** est activé et utilisé pour les stratégies d’accès conditionnel, l’affectation d’applications ou de ressources, veillez à [sécuriser le groupe](../external-identities/use-dynamic-groups.md) si vous ne souhaitez pas qu’il inclue des utilisateurs invités. De plus, vous devez corriger vos affectations de licences en les créant et en les affectant aux groupes qui contiennent uniquement des **Employés d’entreprise**. En revanche, si vous constatez que le groupe **Tous les utilisateurs** est activé, mais qu’il n’est pas utilisé pour octroyer l’accès aux ressources, vérifiez que les recommandations de votre organisation précisent bien de se servir de ce groupe (qui inclut les **Employés de l’entreprise** et les **Invités**) de manière intentionnelle.
 
 ### <a name="automated-user-provisioning-to-apps"></a>Provisionnement automatisé des utilisateurs pour les applications
 

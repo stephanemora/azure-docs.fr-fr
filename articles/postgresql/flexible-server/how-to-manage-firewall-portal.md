@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.openlocfilehash: 8c107b88f964d8e657d6833fc3a2e8425d9053ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90929791"
 ---
 # <a name="create-and-manage-firewall-rules-for-azure-database-for-postgresql---flexible-server-using-the-azure-portal"></a>Créer et gérer des règles de pare-feu pour Azure Database pour PostgreSQL - Serveur flexible à l’aide du portail Azure
@@ -31,12 +31,12 @@ Cet article est axé sur la création d’un serveur PostgreSQL avec **accès pu
 2. Sélectionnez **Bases de données** > **Azure Database pour PostgreSQL**. Vous pouvez également entrer **PostgreSQL** dans la zone de recherche pour trouver le service.
 3. Sélectionnez **Serveur flexible** comme option de déploiement.
 4. Remplissez le formulaire **Informations de base**.
-5. Accédez à l’onglet **Réseau** pour configurer la façon dont vous souhaitez vous connecter à votre serveur.
+5. Accédez à l’onglet **Mise en réseau** pour configurer la façon dont vous souhaitez vous connecter à votre serveur.
 6. Dans **Méthode de connectivité**, sélectionnez *Accès public (adresses IP autorisées)* . Pour créer les **Règles de pare-feu**, spécifiez le nom de la règle de pare-feu ainsi qu’une adresse IP unique, ou une plage d’adresses. Si vous souhaitez limiter la règle à une seule adresse IP, tapez la même adresse dans les champs d’adresse IP de début et d’adresse IP de fin. L'ouverture du pare-feu permet aux administrateurs, utilisateurs et applications d'accéder à toute base de données du serveur PostgreSQL pour laquelle ils disposent d'informations d'identification valides.
    > [!Note]
    > Azure Database pour PostgreSQL - Serveur flexible crée un pare-feu au niveau du serveur. Il empêche les applications et les outils externes de se connecter au serveur et à toute base de données sur le serveur, sauf si vous créez une règle de pare-feu pour ouvrir le pare-feu à des adresses IP spécifiques.
 7. Sélectionnez **Vérifier + créer** pour passer en revue la configuration de votre serveur flexible.
-8.  Sélectionnez **Créer** pour approvisionner le serveur. Le provisionnement peut prendre quelques minutes.
+8.  Sélectionnez **Créer** pour approvisionner le serveur. L’approvisionnement peut prendre quelques minutes.
 
 ## <a name="create-a-firewall-rule-after-server-is-created"></a>Créer une règle de pare-feu une fois le serveur créé
 

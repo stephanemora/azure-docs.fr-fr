@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.openlocfilehash: e69bcb3d9e4dca4c45bf9a6fe8ed4d54e7f4a8cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90930132"
 ---
 # <a name="point-in-time-restore-of-a-flexible-server"></a>Restauration à un instant dans le passé d’un serveur flexible
@@ -28,9 +28,9 @@ Pour utiliser ce guide pratique, il vous faut :
 
 ## <a name="restoring-to-the-earliest-restore-point"></a>Restauration au point de restauration le plus ancien
 
-Suivez ces étapes pour restaurer votre serveur flexible à l’aide de la plus ancienne sauvegarde existante.
+Effectuez ces étapes pour restaurer votre serveur flexible à l’aide de la plus ancienne sauvegarde existante.
 
-1.  Dans le  [portail Azure](https://portal.azure.com/), choisissez le serveur flexible sur lequel vous voulez restaurer la sauvegarde.
+1.  Dans le [portail Azure](https://portal.azure.com/), choisissez le serveur flexible à partir duquel vous voulez restaurer la sauvegarde.
 
 2.  Cliquez sur **Vue d’ensemble** dans le volet gauche, puis cliquez sur **Redémarrer**
    
@@ -40,7 +40,7 @@ Suivez ces étapes pour restaurer votre serveur flexible à l’aide de la plus 
 
 4.  Sélectionnez **Point de restauration le plus ancien**, puis fournissez un nouveau nom de serveur dans le champ **Restaurer sur un nouveau serveur**. L’horodateur le plus ancien auquel vous pouvez restaurer s’affiche. 
    
-   :::image type="content" source="./media/how-to-restore-server-portal/restore-earliest.png" alt-text="Présentation de la restauration":::
+   :::image type="content" source="./media/how-to-restore-server-portal/restore-earliest.png" alt-text="Heure de restauration la plus ancienne":::
 
 5.  Cliquez sur **OK**.
 
@@ -50,7 +50,7 @@ Suivez ces étapes pour restaurer votre serveur flexible à l’aide de la plus 
 
 Effectuez ces étapes pour restaurer votre serveur flexible à l’aide de la plus ancienne sauvegarde existante.
 
-1.  Dans le  [portail Azure](https://portal.azure.com/), choisissez le serveur flexible sur lequel vous voulez restaurer la sauvegarde.
+1.  Dans le [portail Azure](https://portal.azure.com/), choisissez le serveur flexible à partir duquel vous voulez restaurer la sauvegarde.
 
 2.  Dans la page de vue d’ensemble, cliquez sur **Restaurer**.
  :::image type="content" source="./media/how-to-restore-server-portal/restore-overview.png" alt-text="Présentation de la restauration":::
@@ -61,7 +61,7 @@ Effectuez ces étapes pour restaurer votre serveur flexible à l’aide de la pl
 
 5.  Sélectionnez la date et l’heure, puis entrez un nouveau nom de serveur dans le champ **Restaurer sur un nouveau serveur**. 
    
-:::image type="content" source="./media/how-to-restore-server-portal/restore-custom.png" alt-text="Présentation de la restauration":::
+:::image type="content" source="./media/how-to-restore-server-portal/restore-custom.png" alt-text="Heure de restauration personnalisée":::
  
 6.  Cliquez sur **OK**.
 
@@ -70,5 +70,5 @@ Effectuez ces étapes pour restaurer votre serveur flexible à l’aide de la pl
 ## <a name="next-steps"></a>Étapes suivantes
 
 -   Découvrir la [continuité de l’activité](./concepts-business-continuity.md)
--   Découvrir la  [haute disponibilité redondante interzone](./concepts-high-availability.md)
+-   Découvrir la [haute disponibilité avec redondance interzone](./concepts-high-availability.md)
 -   Découvrir [la sauvegarde et la récupération](./concepts-backup-restore.md)

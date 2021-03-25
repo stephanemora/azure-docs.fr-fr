@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
 ms.openlocfilehash: 1e470da5cd317d49f0d0734caa11eed6630d3f32
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85480913"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---resources"></a>Gouvernance de l’infrastructure Azure DevTest Labs – Ressources
@@ -67,7 +67,7 @@ Vous pouvez également utiliser un labo pour un projet spécifique au sein d’A
 Comment empêcher la suppression des ressources au sein d’un laboratoire ?
 
 ### <a name="answer"></a>Réponse
-Nous vous recommandons de définir des autorisations appropriées au niveau du laboratoire afin que seuls les utilisateurs autorisés puissent supprimer des ressources ou modifier les stratégies de laboratoire. Les développeurs doivent être placés dans le groupe **DevTest Labs Users** (Utilisateurs DevTest Labs). Le développeur en chef ou le responsable de l’infrastructure doit correspondre au titre de **DevTest Labs Owner** (Propriétaire DevTest Labs). Nous vous conseillons de ne pas avoir plus de deux propriétaires de laboratoire. Cette stratégie s’étend au référentiel de code pour éviter toute corruption. Les utilisateurs du laboratoire sont autorisés à se servir des ressources, mais ne peuvent pas mettre à jour des stratégies de laboratoire. Consultez l’article suivant qui répertorie les rôles et les droits dont chaque groupe intégré dispose au sein d’un laboratoire : [Ajouter des propriétaires et des utilisateurs dans Azure DevTest Labs](devtest-lab-add-devtest-user.md).
+Nous vous recommandons de définir des autorisations appropriées au niveau du laboratoire afin que seuls les utilisateurs autorisés puissent supprimer des ressources ou modifier les stratégies de laboratoire. Les développeurs doivent être placés dans le groupe **DevTest Labs Users** (Utilisateurs DevTest Labs). Le développeur en chef ou le responsable de l’infrastructure doit correspondre au titre de **DevTest Labs Owner** (Propriétaire DevTest Labs). Nous vous conseillons de ne pas avoir plus de deux propriétaires de laboratoire. Cette stratégie s’étend au référentiel de code pour éviter toute corruption. Les utilisateurs du laboratoire sont autorisés à se servir des ressources, mais ne peuvent pas mettre à jour des stratégies de laboratoire. Consultez l’article suivant, qui répertorie les rôles et les droits dont chaque groupe intégré dispose au sein d’un laboratoire : [Ajouter des propriétaires et des utilisateurs dans Azure DevTest Labs](devtest-lab-add-devtest-user.md).
 
 ## <a name="move-lab-to-another-resource-group"></a>Déplacer le laboratoire vers un autre groupe de ressources 
 

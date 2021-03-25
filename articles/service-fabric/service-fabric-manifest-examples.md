@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: pepogors
 ms.openlocfilehash: 6f44d2ddaac11545a3a3dc52fd20e02263c6ad67
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "75451637"
 ---
 # <a name="service-fabric-application-and-service-manifest-examples"></a>Exemples de manifestes de services et d’applications Service Fabric
@@ -31,7 +31,7 @@ Le document suivant est un index des fonctionnalités présentées et des manife
 |[Déclarer un package de données](service-fabric-application-and-service-manifests.md)|[Manifeste de service VotingData](service-fabric-manifest-example-reliable-services-app.md#votingdata-service-manifest)|
 |[Écraser des variables d’environnement](service-fabric-get-started-containers.md#configure-and-set-environment-variables)|[Manifeste de l’application de conteneur](service-fabric-manifest-example-container-app.md#application-manifest)|
 |[Configuration du mappage des ports de conteneur à l’hôte](service-fabric-get-started-containers.md#configure-container-port-to-host-port-mapping-and-container-to-container-discovery)| [Manifeste de l’application de conteneur](service-fabric-manifest-example-container-app.md#application-manifest)|
-|[Configurer l’authentification au registre de conteneurs](service-fabric-get-started-containers.md#configure-container-repository-authentication)|[Manifeste de l’application de conteneur](service-fabric-manifest-example-container-app.md#application-manifest)|
+|[Configurer l’authentification au registre de conteneurs Azure](service-fabric-get-started-containers.md#configure-container-repository-authentication)|[Manifeste de l’application de conteneur](service-fabric-manifest-example-container-app.md#application-manifest)|
 |[Définir le mode d’isolation](service-fabric-get-started-containers.md#configure-isolation-mode)|[Manifeste de l’application de conteneur](service-fabric-manifest-example-container-app.md#application-manifest)|
 |[Spécifier les images conteneur spécifiques au build du système d’exploitation](service-fabric-get-started-containers.md#specify-os-build-specific-container-images)|[Manifeste de l’application de conteneur](service-fabric-manifest-example-container-app.md#application-manifest)|
 |[Définir des variables d’environnement](service-fabric-get-started-containers.md#configure-and-set-environment-variables)|[Manifeste de service de conteneur FrontEndService](service-fabric-manifest-example-container-app.md#frontendservice-service-manifest), [Manifeste de service de conteneur BackEndService](service-fabric-manifest-example-container-app.md#backendservice-service-manifest)|

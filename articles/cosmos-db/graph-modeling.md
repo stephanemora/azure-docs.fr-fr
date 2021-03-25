@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 12/02/2019
 ms.author: chrande
 ms.openlocfilehash: d99e2e2ffd63b050e7373c98084fed3fb14727bf
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93357043"
 ---
 # <a name="graph-data-modeling-for-azure-cosmos-db-gremlin-api"></a>Modélisation des données de graphe pour l’API Gremlin d’Azure Cosmos DB
@@ -36,7 +36,7 @@ Une solution de base de données de graphe peut être appliquée de façon optim
 * Il existe des **relations plusieurs-à-plusieurs** entre les entités.
 * Il existe des **exigences d’écriture et de lecture sur les entités et les relations**. 
 
-Si les critères ci-dessus sont remplis, il est probable qu’une approche de base de données de graphe fournira des avantages pour la **complexité des requêtes** , la **scalabilité du modèle de données** et les **performances des requêtes**.
+Si les critères ci-dessus sont remplis, il est probable qu’une approche de base de données de graphe fournira des avantages pour la **complexité des requêtes**, la **scalabilité du modèle de données** et les **performances des requêtes**.
 
 L’étape suivante consiste à déterminer si le graphe va être utilisé à des fins analytiques ou transactionnelles. Si le graphe est destiné à être utilisé pour des calculs intensifs et des charges de travail importantes de traitement des données, il peut être utile d’explorer le [connecteur Spark Cosmos DB](./spark-connector.md) et l’utilisation de la [bibliothèque GraphX](https://spark.apache.org/graphx/). 
 
@@ -72,11 +72,11 @@ La première étape pour un modèle de données de graphe consiste à mapper cha
 
 Un piège courant est de mapper les propriétés d’une même entité en tant que sommet distinct. Prenons l’exemple ci-dessous, où la même entité est représentée de deux manières différentes :
 
-* **Propriétés basées sur les sommets**  : Dans cette approche, l’entité utilise trois sommets distincts et deux arêtes pour décrire ses propriétés. Bien que cette approche puisse réduire la redondance, elle accroît la complexité du modèle. Un accroissement de la complexité du modèle peut entraîner une augmentation des temps de latence, de la complexité des requêtes et du temps de calcul. Ce modèle peut également présenter des problèmes liés au partitionnement.
+* **Propriétés basées sur les sommets** : Dans cette approche, l’entité utilise trois sommets distincts et deux arêtes pour décrire ses propriétés. Bien que cette approche puisse réduire la redondance, elle accroît la complexité du modèle. Un accroissement de la complexité du modèle peut entraîner une augmentation des temps de latence, de la complexité des requêtes et du temps de calcul. Ce modèle peut également présenter des problèmes liés au partitionnement.
 
 :::image type="content" source="./media/graph-modeling/graph-modeling-1.png" alt-text="Modèle d’entité avec des sommets pour les propriétés." border="false":::
 
-* **Sommet avec des propriétés incorporées**  : Cette approche tire parti de la liste de paires clé-valeur pour représenter toutes les propriétés de l’entité à l’intérieur d’un sommet. Cette approche aboutit à une complexité réduite du modèle, ce qui permet des requêtes plus simples et des traversées moins consommatrices de ressources.
+* **Sommet avec des propriétés incorporées** : Cette approche tire parti de la liste de paires clé-valeur pour représenter toutes les propriétés de l’entité à l’intérieur d’un sommet. Cette approche aboutit à une complexité réduite du modèle, ce qui permet des requêtes plus simples et des traversées moins consommatrices de ressources.
 
 :::image type="content" source="./media/graph-modeling/graph-modeling-2.png" alt-text="Diagramme montrant le sommet Luis du diagramme précédent avec ID, étiquette et propriétés." border="false":::
 

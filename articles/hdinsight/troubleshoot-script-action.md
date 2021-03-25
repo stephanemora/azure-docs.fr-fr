@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: 7158e9f82ee01b320d448baeab51fcfd122be00d
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 73b958964db2d0b308dd6dfc34024d61ce5ad8af
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98944687"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104871433"
 ---
 # <a name="troubleshoot-script-actions-in-azure-hdinsight"></a>Résoudre les problèmes liés aux actions de script dans Azure HDInsight
 
@@ -26,11 +26,11 @@ Vous pouvez utiliser l’interface utilisateur web d’Apache Ambari pour affich
 
 1. Dans la barre située en haut de la page, sélectionnez l’entrée **ops**. Une liste affiche les opérations en cours et précédentes effectuées sur le cluster via Ambari.
 
-    ![Barre de l’interface utilisateur web d’Ambari avec ops sélectionné](./media/troubleshoot-script-action/hdi-apache-ambari-nav.png)
+    :::image type="content" source="./media/troubleshoot-script-action/hdi-apache-ambari-nav.png" alt-text="Barre de l’interface utilisateur web d’Ambari avec ops sélectionné" border="true":::
 
 1. Recherchez les entrées comportant **run\_customscriptaction** dans la colonne **Operations**. Ces entrées sont créées lors de l’exécution des actions de script.
 
-    ![Apache Ambari - Action de script, opérations](./media/troubleshoot-script-action/ambari-script-action.png)
+    :::image type="content" source="./media/troubleshoot-script-action/ambari-script-action.png" alt-text="Apache Ambari - Action de script, opérations" border="true":::
 
     Pour voir les sorties **STDOUT** et **STDERR**, sélectionnez l’entrée **run\customscriptaction** et suivez les différents liens. Une sortie est générée à chaque exécution du script. Elle contient des informations potentiellement utiles.
 
@@ -40,7 +40,7 @@ Si la création du cluster échoue en raison d’une erreur de script, les journ
 
 * Les journaux d’activité de stockage sont disponibles dans `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\CLUSTER_NAME\DATE`.
 
-    ![Journaux d’actions de script](./media/troubleshoot-script-action/script-action-logs-in-storage.png)
+    :::image type="content" source="./media/troubleshoot-script-action/script-action-logs-in-storage.png" alt-text="Journaux d’actions de script" border="true":::
 
     Sous ce répertoire, les journaux d’activité sont organisés séparément pour le **nœud principal**, le **nœud worker** et le **nœud zookeeper**. Regardez les exemples suivants :
 

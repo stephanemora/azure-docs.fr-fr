@@ -13,10 +13,10 @@ ms.author: celested
 ms.reviewer: asteen, jlu, hirsin
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bed6bc43dfc15abf2bdf9f38a5de2240d348d6fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89320254"
 ---
 # <a name="configure-the-stay-signed-in-prompt-for-azure-ad-accounts"></a>Configurer « Restez connecté ? » invite pour les comptes Azure AD
@@ -40,20 +40,20 @@ Le diagramme suivant montre le déroulement de la connexion de l’utilisateur p
    * Si vous choisissez **Non**, l’option **Rester connecté ?** est masquée lorsque l’utilisateur se connecte avec succès et que l’utilisateur doit se connecter chaque fois que le navigateur est fermé puis rouvert.
    * Si vous choisissez **Oui**, l’option **Rester connecté ?** est présentée à l’utilisateur.
 
-    :::image type="content" source="./media/keep-me-signed-in/kmsi-company-branding-advanced-settings-kmsi-1.png" alt-text="Diagramme montrant le flux de connexion de l’utilisateur pour un locataire géré ou fédéré":::
+    :::image type="content" source="./media/keep-me-signed-in/kmsi-company-branding-advanced-settings-kmsi-1.png" alt-text="La capture d’écran montre le paramètre afficher l’option pour rester connecté":::
 
 ## <a name="troubleshoot-sign-in-issues"></a>Résoudre les problèmes de connexion
 
 Si un utilisateur n’agit pas sur l’invite **Rester connecté ?** , comme indiqué dans le diagramme suivant, mais abandonne la tentative de connexion, vous verrez une entrée de journal de connexion qui indique l’interruption.
 
-:::image type="content" source="./media/keep-me-signed-in/kmsi-stay-signed-in-prompt.png" alt-text="Diagramme montrant le flux de connexion de l’utilisateur pour un locataire géré ou fédéré":::
+:::image type="content" source="./media/keep-me-signed-in/kmsi-stay-signed-in-prompt.png" alt-text="Afficher l’invite Rester connecté ?":::
 
 Les détails relatifs à l’erreur de connexion sont les suivants et mis en surbrillance dans l’exemple.
 
 * **Code d’erreur de connexion** : 50140
 * **Raison de la défaillance** : Cette erreur s’est produite suite à l’interruption de la fonction « Maintenir la connexion » lors de la connexion de l’utilisateur.
 
-:::image type="content" source="./media/keep-me-signed-in/kmsi-sign-ins-log-entry.png" alt-text="Diagramme montrant le flux de connexion de l’utilisateur pour un locataire géré ou fédéré":::
+:::image type="content" source="./media/keep-me-signed-in/kmsi-sign-ins-log-entry.png" alt-text="Exemple d’entrée de journal de connexion avec l’interruption maintenir la connexion":::
 
 Vous pouvez empêcher les utilisateurs de voir l’interruption en définissant le paramètre **afficher sur rester connecté** sur **Non** dans les paramètres de personnalisation avancés. Cela désactive l’invite KMSI pour tous les utilisateurs de votre répertoire Azure AD.
 

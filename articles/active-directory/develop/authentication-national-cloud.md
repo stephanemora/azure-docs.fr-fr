@@ -13,12 +13,12 @@ ms.date: 08/28/2019
 ms.author: negoe
 ms.reviewer: marsma, negoe,celested
 ms.custom: aaddev,references_regions
-ms.openlocfilehash: da1ea6462d22242d23629bcec192d7760314dfed
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 719d89fafe57e7f5132698404bcc0a41a9f9db37
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96444806"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104780070"
 ---
 # <a name="national-clouds"></a>Clouds nationaux
 
@@ -55,7 +55,7 @@ Le tableau suivant répertorie les URL de base des points de terminaison Azure A
 |----------------|-------------------------|
 | Azure AD pour le gouvernement des États-Unis | `https://login.microsoftonline.us` |
 | Azure AD Allemagne| `https://login.microsoftonline.de` |
-| Azure AD Chine géré par 21Vianet | `https://login.chinacloudapi.cn` |
+| Azure AD Chine géré par 21Vianet | `https://login.partner.microsoftonline.cn/common` |
 | Azure AD (service mondial)| `https://login.microsoftonline.com` |
 
 Vous pouvez former des requêtes pour les points de terminaison de jeton ou d’autorisation Azure AD à l’aide de l’URL de base spécifique de la région appropriée. Par exemple, pour Azure Allemagne :

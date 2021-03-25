@@ -4,10 +4,10 @@ description: Découvrez comment utiliser des services PaaS (Platform-as-a-Servic
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: eec37527386098174906dc2737d7b763241da3f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85478737"
 ---
 # <a name="use-platform-as-a-service-paas-services-in-azure-devtest-labs"></a>Utiliser des services PaaS (Platform-as-a-Service) dans Azure DevTest Labs
@@ -37,7 +37,7 @@ Le propriétaire du lab peut personnaliser des environnements lab pour faire év
 Certaines informations de lab personnalisé se trouvent en dehors du groupe de ressources et sont spécifiques aux environnements auxquels le modèle peut accéder. En voici quelques-unes : 
 
 - Identification du réseau du lab
-- Location
+- Emplacement
 - Compte de stockage dans lequel sont stockés des modèles Resource Manager. 
  
 #### <a name="lab-virtual-network"></a>Réseau virtuel du lab

@@ -4,16 +4,16 @@ description: Découvrez comment sauvegarder des Disques managés Azure sur le Po
 ms.topic: conceptual
 ms.date: 01/07/2021
 ms.openlocfilehash: ca86550c4dec4b51c60d9ecdef124e38783a3764
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98738150"
 ---
 # <a name="back-up-azure-managed-disks-in-preview"></a>Sauvegarde de Disques managés Azure (préversion)
 
 >[!IMPORTANT]
->La sauvegarde de disque Azure, en préversion sans contrat de niveau de service, n’est pas recommandée pour les charges de travail de production. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Pour connaître la disponibilité par région, consultez la [matrice de prise en charge](disk-backup-support-matrix.md).
+>La sauvegarde de disque Azure, en préversion sans contrat de niveau de service, n’est pas recommandée pour les charges de travail de production. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Pour la disponibilité des régions, consultez la [matrice de prise en charge](disk-backup-support-matrix.md).
 >
 >[Remplissez ce formulaire](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR1vE8L51DIpDmziRt_893LVUNFlEWFJBN09PTDhEMjVHS05UWFkxUlUzUS4u) pour vous inscrire à la préversion.
 
@@ -115,7 +115,7 @@ Voici les prérequis de la configuration de la sauvegarde de disques managés :
 
    - Vous pouvez utiliser ce groupe de ressources pour stocker des instantanés sur plusieurs disques en cours ou en attente de sauvegarde.  
 
-   - Il n’est pas possible de créer un instantané incrémentiel pour un disque en particulier en dehors de l’abonnement de ce disque. Choisissez par conséquent le groupe de ressources dans le même abonnement que celui du disque à sauvegarder. Pour plus d’informations, consultez [Instantanés incrémentiels](../virtual-machines/disks-incremental-snapshots.md#restrictions) pour les disques managés.
+   - Il n’est pas possible de créer un instantané incrémentiel pour un disque en particulier en dehors de l’abonnement de ce disque. Par conséquent, choisissez le groupe de ressources dans le même abonnement que celui du disque à sauvegarder. Pour plus d’informations, consultez [Instantanés incrémentiels](../virtual-machines/disks-incremental-snapshots.md#restrictions) pour les disques managés.
 
    Pour attribuer un rôle, procédez comme suit :
 

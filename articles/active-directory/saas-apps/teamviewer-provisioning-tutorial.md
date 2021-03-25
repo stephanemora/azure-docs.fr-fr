@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/27/2020
 ms.author: Zhchia
 ms.openlocfilehash: 0362f0d69581c252170b4f37f8564caa7acd3d29
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96182238"
 ---
 # <a name="tutorial-configure-teamviewer-for-automatic-user-provisioning"></a>Tutoriel : Configurer TeamViewer pour l'approvisionnement automatique d'utilisateurs
@@ -99,7 +99,7 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 5. Dans la section **Informations d’identification de l’administrateur**, entrez `ttps://webapi.teamviewer.com/scim/v2` dans le champ **URL du locataire** et entrez le jeton de script créé plus tôt dans le **Jeton secret**. Cliquez sur **Tester la connexion** pour vérifier qu'Azure AD peut se connecter à TeamViewer. Si la connexion échoue, vérifiez que votre compte TeamViewer dispose des autorisations d'administrateur, puis réessayez.
 
-    ![Capture d’écran de la boîte de dialogue Informations d’identification de l’administrateur permettant d’entrer l’URL du locataire et le jeton secret](./media/teamViewer-provisioning-tutorial/provisioning.png)
+    ![Capture d’écran de la boîte de dialogue Informations d’identification de l’administrateur permettant d’entrer l’URL du locataire et le jeton secret.](./media/teamViewer-provisioning-tutorial/provisioning.png)
 
 6. Dans le champ **E-mail de notification**, entrez l’adresse e-mail de la personne ou du groupe qui doit recevoir les notifications d’erreur de provisionnement et sélectionnez la case à cocher **Envoyer une notification par e-mail en cas de défaillance**.
 

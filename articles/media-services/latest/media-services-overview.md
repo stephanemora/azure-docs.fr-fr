@@ -78,7 +78,7 @@ Les guides pratiques contiennent des exemples de code qui montrent comment effec
 * [Créer un compte - CLI](./create-account-howto.md)
 * [Accéder aux API - CLI](./access-api-howto.md)
 * [Encoder avec HTTPS en tant qu’entrée de travail - .NET](job-input-from-http-how-to.md)  
-* [Superviser les événements - Portail](monitor-events-portal-how-to.md)
+* [Superviser les événements - Portail](monitoring/monitor-events-portal-how-to.md)
 * [Chiffrer dynamiquement avec multi-DRM - .NET](protect-with-drm.md) 
 * [Comment encoder avec une transformation personnalisée - CLI](custom-preset-cli-howto.md)
 

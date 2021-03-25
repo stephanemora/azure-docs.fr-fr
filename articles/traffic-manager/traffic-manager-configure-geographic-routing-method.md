@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 10/15/2020
 ms.author: duau
 ms.openlocfilehash: 29b3cdde328a994e5806df810db15b529a6da9af
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96188664"
 ---
 # <a name="tutorial-configure-the-geographic-traffic-routing-method-using-traffic-manager"></a>Tutoriel : Configurer la méthode de routage du trafic géographique à l’aide de Traffic Manager
@@ -43,7 +43,7 @@ Dans ce tutoriel, vous allez apprendre à :
 
 1. Dans la page *Créer un profil Traffic Manager*,configurez les paramètres suivants :
 
-    | Paramètre         | Valeur                                              |
+    | Paramètre         | Value                                              |
     | ---             | ---                                                |
     | Name            | Entrez un nom pour votre profil. Ce nom doit être unique dans la zone trafficmanager.net. Pour accéder à votre profil Traffic Manager, vous utilisez le nom DNS `<profilename>.trafficmanager.net`. |    
     | Méthode de routage  | Sélectionnez **Géographique**. |

@@ -9,10 +9,10 @@ ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 7c0f1673c620ceadeb5ccca2a15cc9b7ce8d7685
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93341601"
 ---
 # <a name="replicate-azure-cosmos-db"></a>REPLICATE (Azure Cosmos DB)
@@ -40,7 +40,7 @@ REPLICATE(<str_expr>, <num_expr>)
   
 ## <a name="remarks"></a>Notes
 
-  La longueur maximale du résultat est 10 000 caractères : (length( *str_expr* )  *  *num_expr* ) <= 10 000. Cette fonction système n’utilisera pas l’index.
+  La longueur maximale du résultat est 10 000 caractères : (length(*str_expr*)  *  *num_expr*) <= 10 000. Cette fonction système n’utilisera pas l’index.
 
 ## <a name="examples"></a>Exemples
   

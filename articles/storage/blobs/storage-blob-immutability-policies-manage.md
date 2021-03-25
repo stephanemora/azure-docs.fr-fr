@@ -9,10 +9,10 @@ ms.date: 11/26/2019
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: a09dbd7d778a4f7ea2a9aac9ca07b9e6d06bc1ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84463601"
 ---
 # <a name="set-and-manage-immutability-policies-for-blob-storage"></a>Définir et gérer des stratégies d’immuabilité pour le stockage Blob
@@ -41,7 +41,7 @@ Cet article explique comment définir et gérer des stratégies d’immuabilité
 
     L’état initial de la stratégie est déverrouillé, ce qui vous permet de tester la fonctionnalité et d’apporter des modifications à la stratégie avant de la verrouiller. Le verrouillage de la stratégie est essentiel pour la conformité à la réglementation SEC 17a-4 notamment.
 
-5. Verrouillez la stratégie. Cliquez avec le bouton droit sur les points de suspension ( **…** ) ; le menu suivant s’affiche avec des actions supplémentaires :
+5. Verrouillez la stratégie. Cliquez avec le bouton droit sur les points de suspension (**…**) ; le menu suivant s’affiche avec des actions supplémentaires :
 
     ![« Verrouiller la stratégie » dans le menu](media/storage-blob-immutability-policies-manage/portal-image-4-lock-policy.png)
 

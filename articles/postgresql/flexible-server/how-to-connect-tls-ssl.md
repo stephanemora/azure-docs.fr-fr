@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.openlocfilehash: 0ba04ff14e62cd411515a765dc95ef7a3e72b709
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90930143"
 ---
 # <a name="encrypted-connectivity-using-transport-layer-security-in-azure-database-for-postgresql---flexible-server"></a>Connectivité chiffrée à l’aide du protocole TLS dans Azure Database pour PostgreSQL - Serveur flexible
@@ -27,9 +27,9 @@ Dans certains cas, les applications nécessitent un fichier de certificat local 
 
 
 ### <a name="connect-using-psql"></a>Connexion via psql
-Si vous avez créé votre serveur flexible avec l’option *Accès privé (intégration au réseau virtuel)* , vous avez besoin de vous connecter à votre serveur à partir d’une ressource qui se trouve au sein du même réseau virtuel que votre serveur. Vous pouvez créer une machine virtuelle et l’ajouter au réseau virtuel créé avec votre serveur flexible.
+Si vous avez créé votre serveur flexible avec l’option *Accès privé (intégration au réseau virtuel)* , vous devez vous connecter à votre serveur à partir d’une ressource qui se trouve au sein du même réseau virtuel que votre serveur. Vous pouvez créer une machine virtuelle et l’ajouter au réseau virtuel créé avec votre serveur flexible.
 
-Si vous avez créé votre serveur flexible avec l’option *Accès public (adresses IP autorisées)* , vous pouvez ajouter votre adresse IP locale à la liste des règles de pare-feu sur votre serveur.
+Si vous avez créé votre serveur flexible avec l’option *Accès public (adresses IP autorisées)* , vous pouvez ajouter votre adresse IP locale à la liste des règles de pare-feu sur votre serveur.
 
 L’exemple suivant montre comment vous connecter à votre serveur à l’aide de l’interface de ligne de commande psql. Utilisez le paramètre de chaîne de connexion `sslmode=verify-full` pour appliquer la vérification du certificat TLS/SSL. Passez le chemin d’accès du fichier de certificat local au paramètre `sslrootcert`.
 

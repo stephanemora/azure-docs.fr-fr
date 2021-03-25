@@ -4,10 +4,10 @@ description: Cet article explique comment un administrateur de compte lab peut a
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 3b6c2d83414b1abc763755fbf15402b122c2186b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85444197"
 ---
 # <a name="allow-lab-creator-to-pick-location-for-the-lab-in-azure-lab-services"></a>Autoriser un créateur de labo à choisir la localisation du labo dans Azure Lab Services
@@ -63,7 +63,7 @@ Jusqu’à présent, les tarifs étaient basés sur la taille de machine virtuel
 ## <a name="next-steps"></a>Étapes suivantes
 Voir les articles suivants :
 
-- [Connecter le réseau de votre labo avec un réseau virtuel pair](how-to-connect-peer-virtual-network.md)
+- [Connecter un réseau lab avec un réseau virtuel pair](how-to-connect-peer-virtual-network.md)
 - [Attacher une galerie d’images partagées à un lab](how-to-attach-detach-shared-image-gallery.md)
 - [Ajouter un utilisateur comme propriétaire de labo](how-to-add-user-lab-owner.md)
 - [Afficher les paramètres de pare-feu pour un labo](how-to-configure-firewall-settings.md)

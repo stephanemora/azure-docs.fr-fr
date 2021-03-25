@@ -10,10 +10,10 @@ ms.date: 06/05/2019
 ms.author: chrande
 ms.custom: devx-track-js
 ms.openlocfilehash: 0b88456bd245f79c38d7829dca76de702f768c06
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93360137"
 ---
 # <a name="quickstart-build-a-nodejs-application-by-using-azure-cosmos-db-gremlin-api-account"></a>Démarrage rapide : Créer une application Node.js à l’aide du compte de l’API Gremlin Azure Cosmos DB
@@ -96,7 +96,7 @@ Cette application console utilise le pilote open source [Gremlin Node.js](https:
 
     ```
 
-  Les configurations se trouvent toutes dans *config.js* , que nous allons modifier dans la [section suivante](#update-your-connection-string).
+  Les configurations se trouvent toutes dans *config.js*, que nous allons modifier dans la [section suivante](#update-your-connection-string).
 
 * Plusieurs fonctions sont définies pour exécuter différentes opérations Gremlin. Voici l’une d’entre elles :
 
@@ -152,13 +152,13 @@ Cette application console utilise le pilote open source [Gremlin Node.js](https:
 
 1. Ouvrez le fichier *config.js*. 
 
-2. Dans *config.js* , renseignez la clé `config.endpoint` avec la valeur de **Point de terminaison Gremlin** de la page **Vue d’ensemble** de votre compte Cosmos DB sur le portail Azure. 
+2. Dans *config.js*, renseignez la clé `config.endpoint` avec la valeur de **Point de terminaison Gremlin** de la page **Vue d’ensemble** de votre compte Cosmos DB sur le portail Azure. 
 
     `config.endpoint = "https://<your_Gremlin_account_name>.gremlin.cosmosdb.azure.com:443/";`
 
     :::image type="content" source="./media/create-graph-nodejs/gremlin-uri.png" alt-text="Afficher et copier une clé d’accès dans la page Vue d’ensemble du portail Azure":::
 
-3. Dans *config.js* , renseignez config.primaryKey avec la valeur de **Clé primaire** de la page **Clés** de votre compte Cosmos DB sur le portail Azure. 
+3. Dans *config.js*, renseignez config.primaryKey avec la valeur de **Clé primaire** de la page **Clés** de votre compte Cosmos DB sur le portail Azure. 
 
     `config.primaryKey = "PRIMARYKEY";`
 

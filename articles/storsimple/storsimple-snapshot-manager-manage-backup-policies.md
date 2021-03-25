@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
 ms.openlocfilehash: 745aeb9844f1abad075d34b34735563200ea618b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90054940"
 ---
 # <a name="use-storsimple-snapshot-manager-to-create-and-manage-backup-policies"></a>Utiliser le Gestionnaire d’instantanés StorSimple pour créer et gérer des stratégies de sauvegarde
@@ -40,54 +40,54 @@ Pour créer une stratégie de sauvegarde, procédez comme suit.
 
     ![Créer une stratégie de sauvegarde](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Create_BU_policy.png)
 
-    La boîte de dialogue **Créer une stratégie** s’affiche.
+    La boîte de dialogue **Créer une stratégie** s'affiche.
 
     ![Créer une stratégie - onglet Général](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Create_policy_general.png)
-3. Dans l’onglet **Général** , renseignez les informations suivantes :
+3. Sous l'onglet **Général**, complétez les informations suivantes :
 
-   1. Dans la zone de texte **Nom** , tapez un nom pour la stratégie.
-   2. Dans la zone de texte **Groupe de volumes** , tapez le nom du groupe de volumes associé à la stratégie.
-   3. Sélectionnez **Instantané local** ou **Instantané cloud**.
-   4. Sélectionnez le nombre d’instantanés à conserver. Si vous sélectionnez **Tous**, 64 instantanés seront conservés (il s’agit du maximum).
-4. Cliquez sur l'onglet **Planification** .
+   1. Dans la zone de texte **Nom**, entrez un nom pour la stratégie.
+   2. Dans la zone de texte **Groupe de volumes**, entrez le nom du groupe de volumes associé à la stratégie.
+   3. Sélectionnez **Instantané local** ou **Instantané sur le cloud**.
+   4. Sélectionnez le nombre d’instantanés à conserver. Si vous sélectionnez **Tous**, vous pourrez conserver 64 instantanés (maximum).
+4. Cliquez sur l'onglet **Planifier**.
 
     ![Créer une stratégie - onglet Planification](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Create_policy_schedule.png)
-5. Sous l’onglet **Planification** , renseignez les informations suivantes :
+5. Sous l'onglet **Planifier**, complétez les informations suivantes :
 
-   1. Cochez la case **Activer** pour planifier la prochaine sauvegarde.
-   2. Sous **Paramètres**, sélectionnez **Une fois**, **Quotidienne**, **Hebdomadaire** ou **Mensuelle**.
-   3. Dans la zone de texte **Début** , cliquez sur l’icône de calendrier et sélectionnez une date de début.
-   4. Sous **Paramètres avancés**, vous pouvez définir des planifications répétées facultatives et une date de fin.
+   1. Activez la case à cocher **Activer** pour planifier la sauvegarde suivante.
+   2. Sous **Paramètres**, sélectionnez **Une fois**, **Quotidien**, **Hebdomadaire** ou **Mensuel**.
+   3. Dans la zone de texte **Début**, cliquez sur l'icône de calendrier, puis sélectionnez une date de début.
+   4. Sous **Paramètres avancés**, vous pouvez définir des planifications répétées facultatives, ainsi qu'une date de fin.
    5. Cliquez sur **OK**.
 
-Une fois la stratégie de sauvegarde créée, les informations suivantes apparaissent dans le volet **Résultats** :
+Après avoir créé une stratégie de sauvegarde, vous pourrez consulter les informations suivantes dans le volet **Résultats** :
 
-* **Nom** : nom de la stratégie de sauvegarde.
-* **Type** : instantané local ou instantané cloud.
-* **Groupe de volumes** : groupe de volumes associé à la stratégie.
-* **Rétention** : nombre d’instantanés conservés ; le maximum est 64.
-* **Créé** : date à laquelle cette stratégie a été créée.
-* **Activé** : indique si la stratégie est actuellement en vigueur : La valeur **True** indique qu’elle est en vigueur ; la valeur **False** indique qu’elle ne l’est pas.
+* **Nom** : nom de la stratégie de sauvegarde.
+* **Type** : instantané local ou de cloud.
+* **Groupe de volumes** : groupe de volume associé à la stratégie.
+* **Rétention** : nombre d'instantanés conservés (64 au maximum).
+* **Création le** : date à laquelle cette stratégie a été créée.
+* **Activée** : indique si la stratégie est en vigueur. La valeur **True** indique qu’elle est en vigueur, la valeur **False** qu’elle ne l’est pas.
 
 ## <a name="edit-a-backup-policy"></a>Modifier une stratégie de sauvegarde
 Pour modifier une stratégie de sauvegarde existante, procédez comme suit.
 
 #### <a name="to-edit-a-backup-policy"></a>Pour modifier une stratégie de sauvegarde
 1. Cliquez sur l’icône de bureau pour démarrer le Gestionnaire d’instantanés StorSimple.
-2. Dans le volet **Étendue**, cliquez sur le nœud **Stratégies de sauvegarde**. Toutes les stratégies de sauvegarde apparaissent dans le volet **Résultats** .
-3. Cliquez avec le bouton droit sur la stratégie à modifier, puis cliquez sur **Modifier**.
+2. Dans le volet **Étendue**, cliquez sur le nœud **Stratégies de sauvegarde**. Toutes les stratégies de sauvegarde s'affichent dans le volet **Résultats**.
+3. Cliquez avec le bouton droit sur la stratégie que vous voulez modifier, puis cliquez sur **Modifier**.
 
     ![Modifier une stratégie de sauvegarde](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Edit_BU_policy.png)
-4. Quand la fenêtre **Créer une stratégie** s’affiche, entrez vos modifications, puis cliquez sur **OK**.
+4. Lorsque la fenêtre **Créer une stratégie** s'affiche, entrez vos modifications, puis cliquez sur **OK**.
 
 ## <a name="delete-a-backup-policy"></a>Supprimer une stratégie de sauvegarde
 Pour supprimer une stratégie de sauvegarde, procédez comme suit.
 
 #### <a name="to-delete-a-backup-policy"></a>Pour supprimer une stratégie de sauvegarde
 1. Cliquez sur l’icône de bureau pour démarrer le Gestionnaire d’instantanés StorSimple.
-2. Dans le volet **Étendue**, cliquez sur le nœud **Stratégies de sauvegarde**. Toutes les stratégies de sauvegarde apparaissent dans le volet **Résultats** .
-3. Cliquez avec le bouton droit sur la stratégie de sauvegarde à supprimer, puis cliquez sur **Supprimer**.
-4. Quand le message de confirmation s’affiche, cliquez sur **Oui**.
+2. Dans le volet **Étendue**, cliquez sur le nœud **Stratégies de sauvegarde**. Toutes les stratégies de sauvegarde s'affichent dans le volet **Résultats**.
+3. Cliquez avec le bouton droit sur la stratégie de sauvegarde que vous voulez supprimer, puis cliquez sur **Supprimer**.
+4. Lorsque le message de confirmation s'affiche, cliquez sur **Oui**.
 
     ![Confirmation de la suppression de la stratégie de sauvegarde](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Delete_BU_policy.png)
 

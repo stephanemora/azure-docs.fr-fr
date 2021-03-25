@@ -4,10 +4,10 @@ description: Découvrez comment Azure DevTest Labs utilise les adresses IP parta
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 36a5da1b2b6252d0adb480a622c461b33425e675
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85484092"
 ---
 # <a name="understand-shared-ip-addresses-in-azure-devtest-labs"></a>Comprendre les adresses IP partagées dans Azure DevTest Labs

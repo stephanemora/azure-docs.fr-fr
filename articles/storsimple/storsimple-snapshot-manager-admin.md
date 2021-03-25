@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/05/2016
 ms.author: alkohli
 ms.openlocfilehash: 16d782c6a25d8d2d8e1323b7cb683f41d8c99649
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90054974"
 ---
 # <a name="use-storsimple-snapshot-manager-to-administer-your-storsimple-solution"></a>Utiliser le Gestionnaire d’instantanés StorSimple pour gérer votre solution StorSimple
@@ -51,8 +51,8 @@ Vous pouvez utiliser le Gestionnaire d’instantanés StorSimple pour surveiller
 | En savoir plus sur le Gestionnaire d’instantanés StorSimple |[Qu’est-ce que le Gestionnaire d’instantanés StorSimple ?](storsimple-what-is-snapshot-manager.md) |
 | Installer le Gestionnaire d’instantanés StorSimple<br>Réinstallation du Gestionnaire d’instantanés StorSimple<br>Supprimer le Gestionnaire d’instantanés StorSimple |[Déployer le Gestionnaire d’instantanés StorSimple](storsimple-snapshot-manager-deployment.md) |
 | Utiliser les menus et les fonctionnalités du Gestionnaire d’instantanés StorSimple :<ul><li>Barre de menus</li><li>Barre d’outils</li><li>Volet Étendue</li><li>Results pane</li><li>Volet Actions</li><li>Navigation et raccourcis clavier</li></ul> |[Interface utilisateur du Gestionnaire d’instantanés StorSimple](storsimple-use-snapshot-manager.md) |
-| Utiliser les fonctionnalités de console MMC courantes incluses dans le Gestionnaire d’instantanés StorSimple :<ul><li>Affichage</li><li>Nouvelle fenêtre à partir d’ici</li><li>Actualiser</li><li>Exporter la liste</li><li>Aide</li></ul> |[Utiliser les actions de menu de la console MMC dans le Gestionnaire d’instantanés StorSimple](storsimple-snapshot-manager-mmc-menu.md) |
-| Ajout ou remplacement d’un appareil<br>Connexion d'un appareil<br>Vérification des groupes de volumes importés<br>Actualisation des appareils connectés<br>Authentification d’un appareil<br>Afficher les détails sur l’appareil<br>Suppression de la configuration d’un appareil<br>Modification du mot de passe d’un appareil<br>Remplacement d’un appareil défaillant<br> |[Utiliser le Gestionnaire d’instantanés StorSimple pour connecter et gérer des appareils StorSimple](storsimple-snapshot-manager-manage-devices.md) |
+| Utiliser les fonctionnalités de console MMC courantes incluses dans le Gestionnaire d’instantanés StorSimple :<ul><li>Affichage</li><li>Nouvelle fenêtre à partir d’ici</li><li>Actualiser</li><li>Exporter la liste</li><li>Help</li></ul> |[Utiliser les actions de menu de la console MMC dans le Gestionnaire d’instantanés StorSimple](storsimple-snapshot-manager-mmc-menu.md) |
+| Ajout ou remplacement d’un appareil<br>Connexion d'un appareil<br>Vérification des groupes de volumes importés<br>Actualisation des appareils connectés<br>Authentification d’un appareil<br>Afficher les détails sur l’appareil<br>Suppression de la configuration d’un appareil<br>Modification du mot de passe d’un appareil<br>Remplacement d’un appareil défaillant<br> |[Utiliser le Gestionnaire d’instantanés StorSimple pour connecter et gérer des appareils StorSimple](storsimple-snapshot-manager-manage-devices.md) |
 | Monter les volumes<br>Afficher des informations sur les volumes<br>Suppression d’un volume<br>Relancer l’analyse des volumes<br>Configurer et sauvegarder un volume de base<br>Configurer et sauvegarder un volume dynamique en miroir |[Utiliser le Gestionnaire d’instantanés StorSimple pour afficher et gérer les volumes](storsimple-snapshot-manager-manage-volumes.md) |
 | Afficher les groupes de volumes<br>Créer un groupe de volumes<br>Sauvegarder un groupe de volumes<br>Modifier un groupe de volumes<br>Supprimer un groupe de volumes |[Utiliser le Gestionnaire d’instantanés StorSimple pour créer et gérer des groupes de volumes](storsimple-snapshot-manager-manage-volume-groups.md) |
 | Créer une stratégie de sauvegarde <br>Modifier une stratégie de sauvegarde<br>Supprimer une stratégie de sauvegarde |[Utiliser le Gestionnaire d’instantanés StorSimple pour créer et gérer des stratégies de sauvegarde](storsimple-snapshot-manager-manage-backup-policies.md) |

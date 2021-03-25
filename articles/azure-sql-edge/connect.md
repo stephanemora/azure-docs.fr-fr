@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 07/25/2020
 ms.openlocfilehash: b56b65261950e9cf534a3755d214229ef7d5bb1e
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93395204"
 ---
 # <a name="connect-and-query-azure-sql-edge"></a>Se connecter à Azure SQL Edge et l’interroger
@@ -37,7 +37,7 @@ Vous pouvez vous connecter à une instance Azure SQL Edge à partir de l’un de
 Pour vous connecter à un moteur de base de données Azure SQL Edge à partir d'un ordinateur du réseau, vous devez disposer des éléments suivants :
 
 - **Adresse IP ou nom de réseau de la machine hôte** : Il s’agit de la machine hôte sur laquelle le conteneur Azure SQL Edge est en cours d’exécution.
-- **Mappage du port hôte du conteneur Azure SQL Edge**  : Il s’agit du mappage pour le port du conteneur Docker sur un port de l’hôte. Dans le conteneur, Azure SQL Edge est toujours mappé au port 1433. Vous pouvez modifier cette valeur si vous le souhaitez. Pour modifier le numéro de port, mettez à jour les **Options de création de conteneur** pour le module Azure SQL Edge dans Azure IoT Edge. Dans l’exemple suivant, le port 1433 sur le conteneur est mappé au port 1600 sur l’hôte.
+- **Mappage du port hôte du conteneur Azure SQL Edge** : Il s’agit du mappage pour le port du conteneur Docker sur un port de l’hôte. Dans le conteneur, Azure SQL Edge est toujours mappé au port 1433. Vous pouvez modifier cette valeur si vous le souhaitez. Pour modifier le numéro de port, mettez à jour les **Options de création de conteneur** pour le module Azure SQL Edge dans Azure IoT Edge. Dans l’exemple suivant, le port 1433 sur le conteneur est mappé au port 1600 sur l’hôte.
 
     ```JSON
     {
