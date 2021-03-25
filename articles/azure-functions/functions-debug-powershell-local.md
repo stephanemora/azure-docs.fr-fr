@@ -7,10 +7,10 @@ ms.date: 04/22/2019
 ms.author: tyleonha
 ms.reviewer: glenga
 ms.openlocfilehash: a668024db126c82f96756555aba513b77f7d7366
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93422958"
 ---
 # <a name="debug-powershell-azure-functions-locally"></a>Déboguer localement des fonctions PowerShell Azure
@@ -111,7 +111,7 @@ PowerShell Core s’installe côte à côte avec Windows PowerShell. Définissez
 
 1. Choisissez **PowerShell : Afficher le menu de session**.
 
-1. Si votre **session active** n’est pas **PowerShell Core 6** , choisissez **Basculer vers : PowerShell Core 6**.
+1. Si votre **session active** n’est pas **PowerShell Core 6**, choisissez **Basculer vers : PowerShell Core 6**.
 
 Lorsqu’un fichier PowerShell est ouvert, vous voyez la version affichée en vert en bas à droite de la fenêtre. La sélection de ce texte affiche également le menu de la session. Pour plus d’informations, consultez [Choisir la version de PowerShell à utiliser avec l’extension](/powershell/scripting/components/vscode/using-vscode#choosing-a-version-of-powershell-to-use-with-the-extension).
 
@@ -119,7 +119,7 @@ Lorsqu’un fichier PowerShell est ouvert, vous voyez la version affichée en ve
 
 Vérifiez que `Wait-Debugger` est défini dans la fonction où vous souhaitez attacher le débogueur.  Avec `Wait-Debugger` ajouté, vous pouvez déboguer votre application de fonction à l’aide de Visual Studio Code.
 
-Choisissez le volet **Déboguer** , puis **Attacher à la fonction PowerShell**.
+Choisissez le volet **Déboguer**, puis **Attacher à la fonction PowerShell**.
 
 ![débogueur](https://user-images.githubusercontent.com/2644648/56166073-8a7b3780-5f89-11e9-85ce-36ed38e221a2.png)
 

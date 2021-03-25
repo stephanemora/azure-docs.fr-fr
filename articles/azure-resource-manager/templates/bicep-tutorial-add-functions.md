@@ -2,16 +2,16 @@
 title: 'Tutoriel : Ajouter des fonctions aux fichiers Bicep Azure Resource Manager'
 description: Ajoutez des fonctions à vos fichiers Bicep pour construire des valeurs.
 author: mumian
-ms.date: 03/02/2021
+ms.date: 03/10/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: references_regions
-ms.openlocfilehash: 9c66ab132d3343115b1a9bd852d3eb3d83ae4ca7
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: b909beb0cce9ad04ba00068ee25247520dcff47d
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101742865"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102633153"
 ---
 # <a name="tutorial-add-functions-to-azure-resource-manager-bicep-file"></a>Tutoriel : Ajouter des fonctions au fichier Bicep Azure Resource Manager
 
@@ -37,7 +37,7 @@ L’emplacement du compte de stockage est codé en dur sur **USA Est**. Toutefoi
 
 Les fonctions ajoutent de la flexibilité à votre fichier Bicep en obtenant de manière dynamique des valeurs pendant le déploiement. Dans ce tutoriel, vous utilisez une fonction pour obtenir l’emplacement du groupe de ressources que vous utilisez pour le déploiement.
 
-L’exemple suivant met en évidence les modifications à apporter pour ajouter un paramètre appelé `location`. La valeur par défaut du paramètre appelle la fonction [resourceGroup](template-functions-resource.md#resourcegroup). Cette fonction retourne un objet avec des informations sur le groupe de ressources utilisé pour le déploiement. L’une des propriétés de l’objet est une propriété d’emplacement. Lorsque vous utilisez la valeur par défaut, l’emplacement du compte de stockage est le même que celui du groupe de ressources. Les ressources à l’intérieur d’un groupe de ressources n’ont pas à partager le même emplacement. Vous pouvez également fournir un autre emplacement lorsque cela est nécessaire.
+L’exemple suivant montre les modifications apportées pour ajouter un paramètre nommé `location`. La valeur par défaut du paramètre appelle la fonction [resourceGroup](template-functions-resource.md#resourcegroup). Cette fonction retourne un objet avec des informations sur le groupe de ressources utilisé pour le déploiement. L’une des propriétés de l’objet est une propriété d’emplacement. Lorsque vous utilisez la valeur par défaut, l’emplacement du compte de stockage est le même que celui du groupe de ressources. Les ressources à l’intérieur d’un groupe de ressources n’ont pas à partager le même emplacement. Vous pouvez également fournir un autre emplacement lorsque cela est nécessaire.
 
 Copiez l’intégralité du fichier et remplacez votre fichier Bicep par son contenu.
 

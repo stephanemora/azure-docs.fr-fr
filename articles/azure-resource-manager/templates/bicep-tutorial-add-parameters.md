@@ -2,15 +2,15 @@
 title: 'Tutoriel : Ajouter des paramètres à un fichier Bicep Azure Resource Manager'
 description: Ajoutez des paramètres à votre fichier Bicep pour le rendre réutilisable.
 author: mumian
-ms.date: 03/01/2021
+ms.date: 03/10/2021
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 603aa8f8bdb8136f4418d8f9a77bb40ec39243c0
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 00df2ffc6272011127c5a1eb0c1e302011f8de5f
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101742856"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102632779"
 ---
 # <a name="tutorial-add-parameters-to-azure-resource-manager-bicep-file"></a>Tutoriel : Ajouter des paramètres à un fichier Bicep Azure Resource Manager
 
@@ -34,7 +34,7 @@ Vous avez peut-être remarqué qu’il y a un problème avec ce fichier Bicep. 
 
 ## <a name="make-bicep-file-reusable"></a>Rendre le fichier Bicep réutilisable
 
-Vous pouvez rendre votre fichier Bicep réutilisable en ajoutant un paramètre que vous définissez pour transmettre un nom de compte de stockage. Le code Bicep mis en évidence dans l’exemple suivant montre ce qui a changé dans votre fichier. Le paramètre `storageName` est identifié en tant que chaîne. La longueur maximale est définie sur 24 caractères pour empêcher les noms trop longs.
+Vous pouvez rendre votre fichier Bicep réutilisable en ajoutant un paramètre que vous définissez pour transmettre un nom de compte de stockage. Le fichier Bicep suivant montre ce qui a changé dans votre fichier. Le paramètre `storageName` est identifié en tant que chaîne. La longueur maximale est définie sur 24 caractères pour empêcher les noms trop longs.
 
 Copiez l’intégralité du fichier et remplacez-le par le contenu suivant.
 

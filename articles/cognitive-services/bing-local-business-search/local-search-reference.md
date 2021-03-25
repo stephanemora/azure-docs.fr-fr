@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: rosh
 ms.openlocfilehash: 9791d99598fe3d043c42a37e2f4993edd6c5b3ba
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96487131"
 ---
 # <a name="bing-local-business-search-api-v7-reference"></a>Informations de référence sur l’API Recherche d’entreprises locales Bing v7
 
 > [!WARNING]
 > Les API Recherche Bing passent de Cognitive Services aux services de recherche Bing. À compter du **30 octobre 2020**, toutes les nouvelles instances de Recherche Bing doivent être provisionnées en suivant le processus documenté [ici](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
-> Les API Recherche Bing provisionnées à l’aide de Cognitive Services seront prises en charge les trois prochaines années ou jusqu’à la fin de votre Accord Entreprise, selon la première éventualité.
+> Les API Recherche Bing provisionnées à l’aide de Cognitive Services seront prises en charge les trois prochaines années ou jusqu’à la fin de votre Contrat Entreprise, selon la première éventualité.
 > Pour obtenir des instructions de migration, consultez [Services de recherche Bing](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 L’API Recherche d’entreprises locales envoie une requête de recherche à Bing pour obtenir des résultats sur les restaurants, les hôtels et d’autres entreprises locales. Pour trouver des lieux, la requête peut spécifier le nom de l’entreprise locale ou une catégorie (par exemple, les restaurants autour de moi). Les résultats d’entités incluent des personnes, des lieux ou d’autres éléments. Dans ce contexte, un lieu correspond à une entité de type entreprise, un État, un pays/région, etc.  

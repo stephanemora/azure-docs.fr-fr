@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.openlocfilehash: d0e79e42c7c004638336ada23de663bbe74b7e48
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92532643"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---flexible-server"></a>Sauvegarder et restaurer dans Azure Database pour PostgreSQL - Serveur flexible
@@ -71,9 +71,9 @@ La restauration à un point dans le temps est utile dans plusieurs scénarios. P
 
 Vous pouvez choisir entre le point de restauration le plus ancien et un point de restauration personnalisé.
 
--   **Point de restauration le plus ancien**  : en fonction de votre période de conservation, il s’agira de l’heure la plus ancienne à laquelle vous pouvez restaurer. L’heure de sauvegarde la plus ancienne sera automatiquement sélectionnée et affichée dans le portail. C’est utile si vous souhaitez procéder à une investigation ou à des tests à partir de cet instant dans le passé.
+-   **Point de restauration le plus ancien** : en fonction de votre période de conservation, il s’agira de l’heure la plus ancienne à laquelle vous pouvez restaurer. L’heure de sauvegarde la plus ancienne sera automatiquement sélectionnée et affichée dans le portail. C’est utile si vous souhaitez procéder à une investigation ou à des tests à partir de cet instant dans le passé.
 
--   **Point de restauration personnalisé**  : cette option vous permet de choisir n’importe quel instant dans le passé au cours de la période de conservation définie pour ce serveur flexible. Par défaut, l’heure UTC la plus récente est sélectionnée automatiquement. C’est utile si vous souhaitez restaurer jusqu’à la dernière transaction validée à des fins de test. Vous pouvez éventuellement choisir d’autres jours et heures. 
+-   **Point de restauration personnalisé** : cette option vous permet de choisir n’importe quel instant dans le passé au cours de la période de conservation définie pour ce serveur flexible. Par défaut, l’heure UTC la plus récente est sélectionnée automatiquement. C’est utile si vous souhaitez restaurer jusqu’à la dernière transaction validée à des fins de test. Vous pouvez éventuellement choisir d’autres jours et heures. 
 
 La durée de récupération estimée dépend de plusieurs facteurs, notamment la taille des bases de données, le volume des journaux des transactions à traiter, la bande passante réseau et le nombre total de bases de données à récupérer dans la même région au même moment. La durée de récupération globale est généralement comprise entre quelques minutes et quelques heures.
 

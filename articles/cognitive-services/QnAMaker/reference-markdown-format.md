@@ -6,10 +6,10 @@ ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 03/19/2020
 ms.openlocfilehash: f49e05578f55a38845acbd4010f928fb17c51606
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96352267"
 ---
 # <a name="markdown-format-supported-in-qna-maker-answer-text"></a>Format Markdown pris en charge dans le texte de réponse QnA Maker
@@ -37,8 +37,8 @@ Nouvelle ligne entre 2 phrases.|`\n\n`|`How can I create a bot with \n\n QnA Mak
 |URL du lien|`[text](https://www.my.com)`|`How do I create a bot with [QnA Maker](https://www.qnamaker.ai)?`|![format pour l’URL (lien hypertexte)](./media/qnamaker-concepts-datasources/format-url.png)|
 |*URL pour l’image publique|`![text](https://www.my.com/image.png)`|`How can I create a bot with ![QnAMaker](https://review.docs.microsoft.com/azure/cognitive-services/qnamaker/media/qnamaker-how-to-key-management/qnamaker-resource-list.png)`|![format de l’URL de l’image publique ](./media/qnamaker-concepts-datasources/format-image-url.png)|
 |Barré|`~~text~~`|`some ~~questoins~~ questions need to be asked`|![format barré](./media/qnamaker-concepts-datasources/format-strikethrough.png)|
-|Gras et italique|`***text**_`|`How can I create a _*_QnA Maker_*_ bot?`|![format pour le gras et l’italique](./media/qnamaker-concepts-datasources/format-bold-italics.png)|
-|URL en gras pour le lien|`[_*text**](https://www.my.com)`|`How do I create a bot with [**QnA Maker**](https://www.qnamaker.ai)?`|![format de l’URL en gras](./media/qnamaker-concepts-datasources/format-bold-url.png)|
+|Gras et italique|`***text**_`|`How can I create a _*_QnA Maker_** bot?`|![format pour le gras et l’italique](./media/qnamaker-concepts-datasources/format-bold-italics.png)|
+|URL en gras pour le lien|`[**text**](https://www.my.com)`|`How do I create a bot with [**QnA Maker**](https://www.qnamaker.ai)?`|![format de l’URL en gras](./media/qnamaker-concepts-datasources/format-bold-url.png)|
 |URL en italiques pour le lien|`[*text*](https://www.my.com)`|`How do I create a bot with [*QnA Maker*](https://www.qnamaker.ai)?`|![format de l’URL en italique](./media/qnamaker-concepts-datasources/format-url-italics.png)|
 |Ajouter un caractère d’échappement devant les symboles Markdown|`\*text\*`|`How do I create a bot with \*QnA Maker\*?`|![Format d’un caractère d’échappement devant les symboles Markdown](./media/qnamaker-concepts-datasources/format-escape-markdown-symbols.png)|
 |Liste triée|`\n 1. item1 \n 1. item2`|`This is an ordered list: \n 1. List item 1 \n 1. List item 2`<br>L’exemple précédent utilise la numérotation automatique intégrée au Markdown.<br>`This is an ordered list: \n 1. List item 1 \n 2. List item 2`<br>L’exemple précédent utilise la numérotation explicite.|![format de la liste triée](./media/qnamaker-concepts-datasources/format-ordered-list.png)|

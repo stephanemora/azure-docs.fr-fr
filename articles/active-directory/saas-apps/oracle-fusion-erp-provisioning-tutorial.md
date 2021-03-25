@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: Zhchia
 ms.openlocfilehash: da6e1a8ba31f8f4991bde4803191598a015a68b3
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94358437"
 ---
 # <a name="tutorial-configure-oracle-fusion-erp-for-automatic-user-provisioning"></a>Tutoriel : Configurer Oracle Fusion ERP pour le provisionnement automatique d’utilisateurs
@@ -54,7 +54,7 @@ Avant de configurer Oracle Fusion ERP pour le provisionnement automatique d’ut
 
 1. Connectez-vous à la [console d’administration Oracle Fusion ERP](https://cloud.oracle.com/sign-in).
 
-2. Cliquez sur le navigateur dans l’angle supérieur gauche. Sous **Tools** , sélectionnez **Security Console**.
+2. Cliquez sur le navigateur dans l’angle supérieur gauche. Sous **Tools**, sélectionnez **Security Console**.
 
     :::image type="content" source="media/oracle-fusion-erp-provisioning-tutorial/login.png" alt-text="Capture d’écran de la page du navigateur dans la console d’administration Oracle Fusion ERP. Tools et Security Console sont mis en évidence." border="false":::
 
@@ -74,7 +74,7 @@ Pour configurer Oracle Fusion ERP pour le provisionnement automatique d’utilis
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
-2. Accédez à **Applications d’entreprise** , puis sélectionnez **Toutes les applications**.
+2. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -82,7 +82,7 @@ Pour configurer Oracle Fusion ERP pour le provisionnement automatique d’utilis
 
     ![Bouton Nouvelle application](common/add-new-app.png)
 
-4. Dans la zone de recherche, entrez **Oracle Fusion ERP** , puis sélectionnez **Oracle Fusion ERP** dans le volet de résultats.
+4. Dans la zone de recherche, entrez **Oracle Fusion ERP**, puis sélectionnez **Oracle Fusion ERP** dans le volet de résultats.
 
     ![Oracle Fusion ERP dans la liste des résultats](common/search-new-app.png)
 
@@ -98,7 +98,7 @@ Cette section vous guide tout au long des étapes de configuration du service de
 
 ### <a name="to-configure-automatic-user-provisioning-for-fuze-in-azure-ad"></a>Pour configurer le provisionnement automatique d’utilisateurs pour Fuze dans Azure AD :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise** , puis **Toutes les applications**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -114,29 +114,29 @@ Cette section vous guide tout au long des étapes de configuration du service de
 
     ![Capture d’écran de la liste déroulante Mode de provisionnement avec l’option Automatique en évidence.](common/provisioning-automatic.png)
 
-5. Dans la section **Informations d’identification de l’administrateur** , entrez `https://ejlv.fa.em2.oraclecloud.com/hcmRestApi/scim/` dans **URL de locataire**. Entrez le nom d’utilisateur administrateur et le mot de passe récupérés antérieurement dans les champs **Nom d’utilisateur de l’administrateur** et **Mot de passe**. Cliquez sur **Tester la connexion** pour vérifier la connexion entre Azure AD et Oracle Fusion ERP. 
+5. Dans la section **Informations d’identification de l’administrateur**, entrez `https://ejlv.fa.em2.oraclecloud.com/hcmRestApi/scim/` dans **URL de locataire**. Entrez le nom d’utilisateur administrateur et le mot de passe récupérés antérieurement dans les champs **Nom d’utilisateur de l’administrateur** et **Mot de passe**. Cliquez sur **Tester la connexion** pour vérifier la connexion entre Azure AD et Oracle Fusion ERP. 
 
     :::image type="content" source="media/oracle-fusion-erp-provisioning-tutorial/admin.png" alt-text="Capture d’écran de la section Informations d’identification de l’administrateur. Un bouton Tester la connexion et les champs pour URL de locataire, Nom d’utilisateur de l’administrateur et Mot de passe d’administrateur sont visibles." border="false":::
 
-6. Dans le champ **E-mail de notification** , entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement, puis cochez la case **Envoyer une notification par e-mail en cas de défaillance**.
+6. Dans le champ **E-mail de notification**, entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement, puis cochez la case **Envoyer une notification par e-mail en cas de défaillance**.
 
     ![E-mail de notification](common/provisioning-notification-email.png)
 
 7. Cliquez sur **Enregistrer**.
 
-8. Dans la section **Mappages** , sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec Oracle Fusion ERP**.
+8. Dans la section **Mappages**, sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec Oracle Fusion ERP**.
 
     :::image type="content" source="media/oracle-fusion-erp-provisioning-tutorial/user-mapping.png" alt-text="Capture d’écran de la section Mappages. Sous Nom, Synchroniser les utilisateurs Azure Active Directory avec Oracle Fusion ERP est visible." border="false":::
 
-9. Dans la section **Mappages d’attributs** , passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et Oracle Fusion ERP. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les comptes d’utilisateur dans Oracle Fusion ERP pour les opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
+9. Dans la section **Mappages d’attributs**, passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et Oracle Fusion ERP. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les comptes d’utilisateur dans Oracle Fusion ERP pour les opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
     :::image type="content" source="media/oracle-fusion-erp-provisioning-tutorial/user-attribute.png" alt-text="Capture d’écran de la page Mappages d’attributs. Un tableau liste les attributs Azure Active Directory et Oracle Fusion ERP et la priorité de correspondance." border="false":::
 
-10. Dans la section **Mappages** , sélectionnez **Synchroniser les groupes Azure Active Directory avec Oracle Fusion ERP**.
+10. Dans la section **Mappages**, sélectionnez **Synchroniser les groupes Azure Active Directory avec Oracle Fusion ERP**.
 
     ![Mappages de groupes ERP Oracle Fusion](media/oracle-fusion-erp-provisioning-tutorial/groupmappings.png)
 
-11. Dans la section **Mappages d’attributs** , passez en revue les attributs de groupe qui sont synchronisés entre Azure AD et Oracle Fusion ERP. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les groupes dans Oracle Fusion ERP pour les opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
+11. Dans la section **Mappages d’attributs**, passez en revue les attributs de groupe qui sont synchronisés entre Azure AD et Oracle Fusion ERP. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les groupes dans Oracle Fusion ERP pour les opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
     ![Attributs de groupes Oracle Fusion ERP](media/oracle-fusion-erp-provisioning-tutorial/groupattributes.png)
 

@@ -3,16 +3,16 @@ title: Activité IfCondition dans Azure Data Factory | Microsoft Docs
 description: L’activité IfCondition vous permet de contrôler le flux de traitement en fonction d’une condition.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: c0dbda298cf808dd3caa7a767e0ec5e847c92108
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: cd745f90598666e1fc5c849de335c81a2380d99f
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100385521"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104786224"
 ---
 # <a name="if-condition-activity-in-azure-data-factory"></a>Activité IfCondition dans Azure Data Factory | Microsoft Docs
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]

@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/05/2020
+ms.date: 03/04/2021
 ms.author: kenwith
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 8f5a4d3695722aae14b73bf6bba5f2e38593e08d
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 0334f52b87071c8f363a0dfcc793170316747096
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99255795"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102198504"
 ---
 # <a name="reference-for-writing-expressions-for-attribute-mappings-in-azure-ad"></a>Informations de référence sur l’écriture d’expressions pour les mappages d’attributs dans Azure AD
 
@@ -38,7 +38,7 @@ La syntaxe des expressions pour les mappages d’attributs rappelle celle des fo
 
 ## <a name="list-of-functions"></a>Liste des fonctions
 
-[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [BitAnd](#bitand) &nbsp;&nbsp;&nbsp;&nbsp; [CBool](#cbool) &nbsp;&nbsp;&nbsp;&nbsp; [Coalesce](#coalesce) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToBase64](#converttobase64) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToUTF8Hex](#converttoutf8hex) &nbsp;&nbsp;&nbsp;&nbsp; [Count](#count) &nbsp;&nbsp;&nbsp;&nbsp; [CStr](#cstr) &nbsp;&nbsp;&nbsp;&nbsp; [DateFromNum](#datefromnum) &nbsp;[FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Guid](#guid) &nbsp;&nbsp;&nbsp;&nbsp; [IIF](#iif) &nbsp;&nbsp;&nbsp;&nbsp;[InStr](#instr) &nbsp;&nbsp;&nbsp;&nbsp; [IsNull](#isnull) &nbsp;&nbsp;&nbsp;&nbsp; [IsNullOrEmpty](#isnullorempty) &nbsp;&nbsp;&nbsp;&nbsp; [IsPresent](#ispresent) &nbsp;&nbsp;&nbsp;&nbsp; [IsString](#isstring) &nbsp;&nbsp;&nbsp;&nbsp; [Item](#item) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Left](#left) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [RemoveDuplicates](#removeduplicates) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [Split](#split)&nbsp;&nbsp;&nbsp;&nbsp;[StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)&nbsp;&nbsp;&nbsp;&nbsp; [ToLower](#tolower)&nbsp;&nbsp;&nbsp;&nbsp; [ToUpper](#toupper)&nbsp;&nbsp;&nbsp;&nbsp; [Word](#word)
+[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [BitAnd](#bitand) &nbsp;&nbsp;&nbsp;&nbsp; [CBool](#cbool) &nbsp;&nbsp;&nbsp;&nbsp; [Coalesce](#coalesce) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToBase64](#converttobase64) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToUTF8Hex](#converttoutf8hex) &nbsp;&nbsp;&nbsp;&nbsp; [Count](#count) &nbsp;&nbsp;&nbsp;&nbsp; [CStr](#cstr) &nbsp;&nbsp;&nbsp;&nbsp; [DateFromNum](#datefromnum) &nbsp;[FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Guid](#guid) &nbsp;&nbsp;&nbsp;&nbsp; [IIF](#iif) &nbsp;&nbsp;&nbsp;&nbsp;[InStr](#instr) &nbsp;&nbsp;&nbsp;&nbsp; [IsNull](#isnull) &nbsp;&nbsp;&nbsp;&nbsp; [IsNullOrEmpty](#isnullorempty) &nbsp;&nbsp;&nbsp;&nbsp; [IsPresent](#ispresent) &nbsp;&nbsp;&nbsp;&nbsp; [IsString](#isstring) &nbsp;&nbsp;&nbsp;&nbsp; [Item](#item) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Left](#left) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [NumFromDate](#numfromdate) &nbsp;&nbsp;&nbsp;&nbsp; [RemoveDuplicates](#removeduplicates) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [Split](#split)&nbsp;&nbsp;&nbsp;&nbsp;[StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)&nbsp;&nbsp;&nbsp;&nbsp; [ToLower](#tolower)&nbsp;&nbsp;&nbsp;&nbsp; [ToUpper](#toupper)&nbsp;&nbsp;&nbsp;&nbsp; [Word](#word)
 
 ---
 ### <a name="append"></a>Ajouter
@@ -53,6 +53,19 @@ La syntaxe des expressions pour les mappages d’attributs rappelle celle des fo
 | --- | --- | --- | --- |
 | **source** |Obligatoire |String |Généralement le nom de l’attribut de l’objet source. |
 | **suffix** |Obligatoire |String |Chaîne que vous souhaitez ajouter à la fin de la valeur source. |
+
+
+### <a name="append-constant-suffix-to-user-name"></a>Ajouter un suffixe de constante à un nom d’utilisateur
+Exemple : si vous utilisez un bac à sable Salesforce, vous devrez peut-être ajouter un suffixe supplémentaire à tous les noms d’utilisateurs avant de les synchroniser.
+
+**Expression :**  
+`Append([userPrincipalName], ".test")`
+
+**Exemple d’entrée/sortie :** 
+
+* **ENTRÉE** : (userPrincipalName) : "John.Doe@contoso.com"
+* **SORTIE**:  "John.Doe@contoso.com.test"
+
 
 ---
 ### <a name="bitand"></a>BitAnd
@@ -107,6 +120,19 @@ Retourne True si les attributs ont la même valeur.
 | --- | --- | --- | --- |
 | **source1  … sourceN** | Obligatoire | String |Requis, nombre de fois variable. Généralement le nom de l’attribut de l’objet source. |
 | **defaultValue** | Facultatif | String | Valeur par défaut à utiliser lorsque toutes les valeurs sources sont NULL. Peut être une chaîne vide ("").
+
+### <a name="flow-mail-value-if-not-null-otherwise-flow-userprincipalname"></a>Valeur de courrier dynamique si non NULL ; dans le cas contraire, transmission de userPrincipalName
+Exemple : vous souhaitez transmettre l’attribut de messagerie, s’il est présent. Si ce n’est pas le cas, vous souhaitez transmettre la valeur de userPrincipalName à la place.
+
+**Expression :**  
+`Coalesce([mail],[userPrincipalName])`
+
+**Exemple d’entrée/sortie :** 
+
+* **ENTRÉE** (mail) : NULL
+* **ENTRÉE** (userPrincipalName) : « John.Doe@contoso.com »
+* **SORTIE**:  "John.Doe@contoso.com"
+
 
 ---
 ### <a name="converttobase64"></a>ConvertToBase64
@@ -175,7 +201,7 @@ Renvoie « cn=Joe,dc=contoso,dc=com »
 ### <a name="datefromnum"></a>DateFromNum
 **Fonction :** DateFromNum(value)
 
-**Description :**  La fonction DateFromNum convertit une valeur au format de date AD en un type DateTime.
+**Description :** la fonction DateFromNum convertit une valeur au format de date AD en un type DateTime.
 
 **Paramètres :** 
 
@@ -192,7 +218,7 @@ Retourne une valeur DateTime représentant le 1er janvier 2012 à 23:00.
 
 ---
 ### <a name="formatdatetime"></a>FormatDateTime
-**Fonction :**  FormatDateTime(source, inputFormat, outputFormat)
+**Fonction :** FormatDateTime(source, dateTimeStyles, inputFormat, outputFormat)
 
 **Description :**  prend une chaîne de date dans un format et la convertit dans un autre format.
 
@@ -201,8 +227,24 @@ Retourne une valeur DateTime représentant le 1er janvier 2012 à 23:00.
 | Nom | Requis / Répétition | Type | Notes |
 | --- | --- | --- | --- |
 | **source** |Obligatoire |String |Généralement le nom de l’attribut de l’objet source. |
+| **dateTimeStyles** | Facultatif | String | Utilisez ceci pour indiquer les options de mise en forme qui personnalisent l’analyse de chaîne pour certaines méthodes d’analyse de la date et de l’heure. Pour les valeurs prises en charge, consultez le [document DateTimeStyles](/dotnet/api/system.globalization.datetimestyles). Si vous laissez le champs vide, la valeur par défaut utilisée est DateTimeStyles.RoundtripKind; DateTimeStyles.AllowLeadingWhite, DateTimeStyles.AllowTrailingWhite  |
 | **inputFormat** |Obligatoire |String |Format attendu de la valeur source. Pour les formats pris en charge, consultez [/dotnet/standard/base-types/custom-date-and-time-format-strings](/dotnet/standard/base-types/custom-date-and-time-format-strings). |
 | **outputFormat** |Obligatoire |String |Format de la date de sortie. |
+
+
+
+### <a name="output-date-as-a-string-in-a-certain-format"></a>Sortir une date sous la forme d’une chaîne dans un certain format
+Exemple : vous souhaitez envoyer des dates à une application SaaS comme ServiceNow dans un format spécifique. Vous pouvez envisager d’utiliser l’expression suivante. 
+
+**Expression :** 
+
+`FormatDateTime([extensionAttribute1], , "yyyyMMddHHmmss.fZ", "yyyy-MM-dd")`
+
+**Exemple d’entrée/sortie :**
+
+* **ENTRÉE** (extensionAttribute1) : "20150123105347.1Z"
+* **SORTIE** :  "2015-01-23"
+
 
 ---
 ### <a name="guid"></a>Guid
@@ -391,6 +433,18 @@ Renvoie « Joh ».
 | --- | --- | --- | --- |
 | **source** |Obligatoire |String | Généralement un attribut de nom ou de prénom. |
 
+
+### <a name="remove-diacritics-from-a-string"></a>Supprimer les signes diacritiques d’une chaîne
+Exemple : vous devez remplacer les caractères accentués par leurs équivalents non accentués.
+
+**Expression :** NormalizeDiacritics([givenName])
+
+**Exemple d’entrée/sortie :** 
+
+* **ENTRÉE** (givenName) : "Zoë"
+* **SORTIE** :  "Zoe"
+
+
 ---
 ### <a name="not"></a>Not
 **Fonction :**  Not(source)
@@ -417,10 +471,10 @@ Renvoie « Joh ».
 
 **Exemple :**
 * Exemple Workday En supposant que vous souhaitiez mapper l’attribut *ContractEndDate* de Workday, qui est au format *2020-12-31-08:00*, au champ *accountExpires* dans AD, voici comment vous pouvez utiliser cette fonction et modifier le décalage de fuseau horaire pour qu’il corresponde à vos paramètres régionaux. 
-  `NumFromDate(Join("", FormatDateTime([ContractEndDate], "yyyy-MM-ddzzz", "yyyy-MM-dd"), "T23:59:59-08:00"))`
+  `NumFromDate(Join("", FormatDateTime([ContractEndDate], ,"yyyy-MM-ddzzz", "yyyy-MM-dd"), "T23:59:59-08:00"))`
 
 * Exemple SuccessFactors En supposant que vous souhaitiez mapper l’attribut *endDate* de SuccessFactors, qui est au format *M/j/aaaa hh:mm:ss tt*, au champ *accountExpires* dans AD, voici comment vous pouvez utiliser cette fonction et modifier le décalage de fuseau horaire pour qu’il corresponde à vos paramètres régionaux.
-  `NumFromDate(Join("",FormatDateTime([endDate],"M/d/yyyy hh:mm:ss tt","yyyy-MM-dd"),"T23:59:59-08:00"))`
+  `NumFromDate(Join("",FormatDateTime([endDate], ,"M/d/yyyy hh:mm:ss tt","yyyy-MM-dd"),"T23:59:59-08:00"))`
 
 
 ---
@@ -473,6 +527,19 @@ Renvoie « Joh ».
 | **replacementAttributeName** |Facultatif |String |Nom de l’attribut à utiliser pour la valeur de remplacement. |
 | **template** |Facultatif |String |Lorsque la valeur **template** est fournie, nous recherchons la valeur **oldValue** dans le modèle et la remplaçons par la valeur **source**. |
 
+### <a name="replace-characters-using-a-regular-expression"></a>Remplacer des caractères à l’aide d’une expression régulière
+Exemple : vous devez rechercher des caractères correspondant à une valeur d’expression régulière et les supprimer.
+
+**Expression :** 
+
+Replace([mailNickname], , "[a-zA-Z_]*", , "", , )
+
+**Exemple d’entrée/sortie :**
+
+* **ENTRÉE** (mailNickname: "john_doe72"
+* **SORTIE** : "72"
+
+
 ---
 ### <a name="selectuniquevalue"></a>SelectUniqueValue
 **Fonction :** SelectUniqueValue(uniqueValueRule1, uniqueValueRule2, uniqueValueRule3, …)
@@ -481,7 +548,7 @@ Renvoie « Joh ».
 
 
  - Il s’agit d’une fonction de niveau supérieur, vous ne pouvez donc pas l’imbriquer.
- - Cette fonction ne peut pas s’appliquer à des attributs qui ont une priorité de correspondance.   
+ - Cette fonction ne peut pas s’appliquer à des attributs qui ont une priorité de correspondance.     
  - Cette fonction est uniquement destinée à être utilisée pour les créations d’entrées. Lorsque vous l’utilisez avec un attribut, définissez la propriété **Appliquer le mappage** sur **Uniquement durant la création d’objet**.
  - Cette fonction est actuellement prise en charge uniquement pour l’option « Approvisionnement d’utilisateurs de Workday vers Active Directory » et « Approvisionnement d’utilisateurs de SuccessFactors vers Active Directory ». Elle ne peut pas être utilisée avec d’autres applications de provisionnement. 
 
@@ -491,6 +558,28 @@ Renvoie « Joh ».
 | Nom | Requis / Répétition | Type | Notes |
 | --- | --- | --- | --- |
 | **uniqueValueRule1  … uniqueValueRuleN** |Au moins 2 requis, aucune limite supérieure |String | Liste des règles de génération de valeur unique à évaluer. |
+
+### <a name="generate-unique-value-for-userprincipalname-upn-attribute"></a>Générer une valeur unique pour l’attribut userPrincipalName (UPN)
+Exemple : en fonction du prénom, du deuxième prénom et du nom de famille de l’utilisateur, vous devez générer une valeur pour l’attribut UPN et vérifier son caractère unique dans le répertoire AD cible avant d’attribuer la valeur à l’attribut UPN.
+
+**Expression :** 
+
+```ad-attr-mapping-expr
+    SelectUniqueValue( 
+        Join("@", NormalizeDiacritics(StripSpaces(Join(".",  [PreferredFirstName], [PreferredLastName]))), "contoso.com"), 
+        Join("@", NormalizeDiacritics(StripSpaces(Join(".",  Mid([PreferredFirstName], 1, 1), [PreferredLastName]))), "contoso.com"),
+        Join("@", NormalizeDiacritics(StripSpaces(Join(".",  Mid([PreferredFirstName], 1, 2), [PreferredLastName]))), "contoso.com")
+    )
+```
+
+**Exemple d’entrée/sortie :**
+
+* **ENTRÉE** (PreferredFirstName) : "John"
+* **ENTRÉE** (PreferredLastName) : "Smith"
+* **SORTIE** : « John.Smith@contoso.com » si la valeur UPN de John.Smith@contoso.com n’existe pas déjà dans le répertoire
+* **SORTIE** : « J.Smith@contoso.com » si la valeur UPN de John.Smith@contoso.com existe déjà dans le répertoire
+* **SORTIE** : « Jo.Smith@contoso.com » si les deux valeurs UPN précédentes existent déjà dans le répertoire
+
 
 
 ---
@@ -517,6 +606,17 @@ Renvoie « Joh ».
 | --- | --- | --- | --- |
 | **source** |Obligatoire |String |**source** à mettre à jour. |
 | **délimiteur** |Obligatoire |String |Spécifie le caractère qui sera utilisé pour fractionner la chaîne (exemple : « , ») |
+
+### <a name="split-a-string-into-a-multi-valued-array"></a>Fractionner une chaîne en un tableau à valeurs multiples
+Exemple : vous devez prendre une liste de chaînes délimitées par des virgules, et la fractionner en un tableau pouvant être raccordé à un attribut à valeurs multiples comme l’attribut PermissionSets de Salesforce. Dans cet exemple, une liste des jeux d’autorisations a été remplie dans extensionAttribute5 dans Azure AD.
+
+**Expression :** Split([extensionAttribute5], ",")
+
+**Exemple d’entrée/sortie :** 
+
+* **INPUT** (extensionAttribute5): "PermissionSetOne, PermissionSetTwo"
+* **SORTIE** :  ["PermissionSetOne", "PermissionSetTwo"]
+
 
 ---
 ### <a name="stripspaces"></a>StripSpaces
@@ -545,6 +645,18 @@ Renvoie « Joh ».
 | **key** |Obligatoire |String |**Key** avec laquelle comparer la valeur **source**. |
 | **value** |Obligatoire |String |Valeur de remplacement pour la **source** correspondant à la clé. |
 
+### <a name="replace-a-value-based-on-predefined-set-of-options"></a>Remplacer une valeur en fonction d’un ensemble d’options prédéfini
+Exemple : vous devez définir le fuseau horaire de l’utilisateur en fonction du code d’état stocké dans Azure AD.  Si le code d’état ne correspond à aucune des options prédéfinies, utilisez la valeur par défaut « Australia/Sydney ».
+
+**Expression :**  
+`Switch([state], "Australia/Sydney", "NSW", "Australia/Sydney","QLD", "Australia/Brisbane", "SA", "Australia/Adelaide")`
+
+**Exemple d’entrée/sortie :**
+
+* **ENTRÉE** (état) : "QLD"
+* **SORTIE** : "Australia/Brisbane"
+
+
 ---
 ### <a name="tolower"></a>ToLower
 **Fonction :** ToLower(source, culture)
@@ -557,6 +669,18 @@ Renvoie « Joh ».
 | --- | --- | --- | --- |
 | **source** |Obligatoire |String |Généralement le nom de l’attribut de l’objet source |
 | **culture** |Facultatif |String |Le format du nom de culture basé sur RFC 4646 est *languagecode2-country/regioncode2*, où *languagecode2* correspond au code de langue à deux lettres et *country/regioncode2* au code de sous-culture à deux lettres, par exemple, ja-JP pour le japonais (Japon) et en-US pour l’anglais (États-Unis). Si un code de langue à deux lettres n'est pas disponible, un code à trois lettres dérivé de la norme ISO 639-2 est utilisé.|
+
+### <a name="convert-generated-userprincipalname-upn-value-to-lower-case"></a>Convertir la valeur userPrincipalName (UPN) générée en minuscules
+Exemple : vous souhaitez générer la valeur UPN en concaténant les champs source PreferredFirstName et PreferredLastName et en convertissant tous les caractères en minuscules. 
+
+`ToLower(Join("@", NormalizeDiacritics(StripSpaces(Join(".",  [PreferredFirstName], [PreferredLastName]))), "contoso.com"))`
+
+**Exemple d’entrée/sortie :**
+
+* **ENTRÉE** (PreferredFirstName) : "John"
+* **ENTRÉE** (PreferredLastName) : "Smith"
+* **SORTIE** : "john.smith@contoso.com"
+
 
 ---
 ### <a name="toupper"></a>ToUpper
@@ -601,6 +725,8 @@ Retourne « has »
 ---
 
 ## <a name="examples"></a>Exemples
+Cette section fournit d’autres exemples d’utilisation des fonctions d’expression. 
+
 ### <a name="strip-known-domain-name"></a>Supprimer un nom de domaine connu
 Vous devez supprimer un nom de domaine connu de l’adresse de messagerie d’un utilisateur pour obtenir un nom d’utilisateur.  Par exemple, si le domaine est « contoso.com », vous pouvez utiliser l’expression suivante :
 
@@ -612,16 +738,6 @@ Vous devez supprimer un nom de domaine connu de l’adresse de messagerie d’un
 * **ENTRÉE** (e-mail) : "john.doe@contoso.com"
 * **SORTIE** : « john.doe »
 
-### <a name="append-constant-suffix-to-user-name"></a>Ajouter un suffixe de constante à un nom d’utilisateur
-Si vous utilisez un Sandbox Salesforce, vous devrez peut-être ajouter un suffixe supplémentaire à tous les noms d’utilisateurs avant de les synchroniser.
-
-**Expression :**  
-`Append([userPrincipalName], ".test")`
-
-**Exemple d’entrée/sortie :** 
-
-* **ENTRÉE** : (userPrincipalName) : "John.Doe@contoso.com"
-* **SORTIE**:  "John.Doe@contoso.com.test"
 
 ### <a name="generate-user-alias-by-concatenating-parts-of-first-and-last-name"></a>Générer des alias d’utilisateurs en concaténant des parties du prénom et du nom
 Vous devez générer un alias d’utilisateur en prenant les trois premières lettres du prénom de l’utilisateur et les cinq premières lettres de son nom de famille.
@@ -635,105 +751,6 @@ Vous devez générer un alias d’utilisateur en prenant les trois premières le
 * **ENTRÉE** (surname) : "Doe"
 * **SORTIE** :  "JohDoe"
 
-### <a name="remove-diacritics-from-a-string"></a>Supprimer les signes diacritiques d’une chaîne
-Vous devez remplacer les caractères accentués par leurs équivalents non accentués.
-
-**Expression :** NormalizeDiacritics([givenName])
-
-**Exemple d’entrée/sortie :** 
-
-* **ENTRÉE** (givenName) : "Zoë"
-* **SORTIE** :  "Zoe"
-
-### <a name="split-a-string-into-a-multi-valued-array"></a>Fractionner une chaîne en un tableau à valeurs multiples
-Vous devez prendre une liste de chaînes délimitées par des virgules, et la fractionner en un tableau pouvant être raccordé à un attribut à valeurs multiples comme l’attribut PermissionSets de Salesforce. Dans cet exemple, une liste des jeux d’autorisations a été remplie dans extensionAttribute5 dans Azure AD.
-
-**Expression :** Split([extensionAttribute5], ",")
-
-**Exemple d’entrée/sortie :** 
-
-* **INPUT** (extensionAttribute5): "PermissionSetOne, PermissionSetTwo"
-* **SORTIE** :  ["PermissionSetOne", "PermissionSetTwo"]
-
-### <a name="output-date-as-a-string-in-a-certain-format"></a>Sortir une date sous la forme d’une chaîne dans un certain format
-Vous souhaitez envoyer des dates à une application SaaS dans un format donné.  Par exemple, vous souhaitez mettre en forme des dates pour ServiceNow.
-
-**Expression :** 
-
-`FormatDateTime([extensionAttribute1], "yyyyMMddHHmmss.fZ", "yyyy-MM-dd")`
-
-**Exemple d’entrée/sortie :**
-
-* **ENTRÉE** (extensionAttribute1) : "20150123105347.1Z"
-* **SORTIE** :  "2015-01-23"
-
-### <a name="replace-a-value-based-on-predefined-set-of-options"></a>Remplacer une valeur en fonction d’un ensemble d’options prédéfini
-
-Vous devez définir le fuseau horaire de l’utilisateur en fonction du code d’état stocké dans Azure AD.  Si le code d’état ne correspond à aucune des options prédéfinies, utilisez la valeur par défaut « Australia/Sydney ».
-
-**Expression :**  
-`Switch([state], "Australia/Sydney", "NSW", "Australia/Sydney","QLD", "Australia/Brisbane", "SA", "Australia/Adelaide")`
-
-**Exemple d’entrée/sortie :**
-
-* **ENTRÉE** (état) : "QLD"
-* **SORTIE** : "Australia/Brisbane"
-
-### <a name="replace-characters-using-a-regular-expression"></a>Remplacer des caractères à l’aide d’une expression régulière
-Vous devez rechercher des caractères correspondant à une valeur d’expression régulière et les supprimer.
-
-**Expression :** 
-
-Replace([mailNickname], , "[a-zA-Z_]*", , "", , )
-
-**Exemple d’entrée/sortie :**
-
-* **ENTRÉE** (mailNickname: "john_doe72"
-* **SORTIE** : "72"
-
-### <a name="convert-generated-userprincipalname-upn-value-to-lower-case"></a>Convertir la valeur userPrincipalName (UPN) générée en minuscules
-Dans l’exemple ci-dessous, la valeur UPN est générée en concaténant les champs sources PreferredFirstName et PreferredLastName, et la fonction ToLower agit sur la chaîne générée pour convertir tous les caractères en minuscules. 
-
-`ToLower(Join("@", NormalizeDiacritics(StripSpaces(Join(".",  [PreferredFirstName], [PreferredLastName]))), "contoso.com"))`
-
-**Exemple d’entrée/sortie :**
-
-* **ENTRÉE** (PreferredFirstName) : "John"
-* **ENTRÉE** (PreferredLastName) : "Smith"
-* **SORTIE** : "john.smith@contoso.com"
-
-### <a name="generate-unique-value-for-userprincipalname-upn-attribute"></a>Générer une valeur unique pour l’attribut userPrincipalName (UPN)
-En fonction du prénom, du deuxième prénom et du nom de famille de l’utilisateur, vous devez générer une valeur pour l’attribut UPN et vérifier son caractère unique dans le répertoire AD cible avant d’attribuer la valeur à l’attribut UPN.
-
-**Expression :** 
-
-```ad-attr-mapping-expr
-    SelectUniqueValue( 
-        Join("@", NormalizeDiacritics(StripSpaces(Join(".",  [PreferredFirstName], [PreferredLastName]))), "contoso.com"), 
-        Join("@", NormalizeDiacritics(StripSpaces(Join(".",  Mid([PreferredFirstName], 1, 1), [PreferredLastName]))), "contoso.com"),
-        Join("@", NormalizeDiacritics(StripSpaces(Join(".",  Mid([PreferredFirstName], 1, 2), [PreferredLastName]))), "contoso.com")
-    )
-```
-
-**Exemple d’entrée/sortie :**
-
-* **ENTRÉE** (PreferredFirstName) : "John"
-* **ENTRÉE** (PreferredLastName) : "Smith"
-* **SORTIE** : « John.Smith@contoso.com » si la valeur UPN de John.Smith@contoso.com n’existe pas déjà dans le répertoire
-* **SORTIE** : « J.Smith@contoso.com » si la valeur UPN de John.Smith@contoso.com existe déjà dans le répertoire
-* **SORTIE** : « Jo.Smith@contoso.com » si les deux valeurs UPN précédentes existent déjà dans le répertoire
-
-### <a name="flow-mail-value-if-not-null-otherwise-flow-userprincipalname"></a>Valeur de courrier dynamique si non NULL ; dans le cas contraire, transmission de userPrincipalName
-Vous souhaitez transmettre l’attribut de messagerie, s’il est présent. Si ce n’est pas le cas, vous souhaitez transmettre la valeur de userPrincipalName à la place.
-
-**Expression :**  
-`Coalesce([mail],[userPrincipalName])`
-
-**Exemple d’entrée/sortie :** 
-
-* **ENTRÉE** (mail) : NULL
-* **ENTRÉE** (userPrincipalName) : « John.Doe@contoso.com »
-* **SORTIE**:  "John.Doe@contoso.com"
 
 ## <a name="related-articles"></a>Articles connexes
 * [Automatiser l’approvisionnement/le déprovisionnement des utilisateurs pour les applications SaaS](../app-provisioning/user-provisioning.md)

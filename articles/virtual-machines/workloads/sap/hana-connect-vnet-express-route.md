@@ -6,20 +6,19 @@ documentationcenter: ''
 author: msjuergent
 manager: bburns
 editor: ''
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/25/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c5a8a8157721f34abf7761a85febc7bcea3abb88
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 218862b2df959fc0a39baa3c2934fc05f252af32
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967837"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101672978"
 ---
 # <a name="connect-a-virtual-network-to-hana-large-instances"></a>Connecter un réseau virtuel à de grandes instances HANA
 
@@ -145,12 +144,12 @@ Pour que l’un des scénarios ou les deux soient appliqués à votre déploieme
 Les données nécessaires et les mots-clés que vous devez utiliser pour que Microsoft puisse router et exécuter votre demande ressemblent à ceci :
 
 - Service : Grande instance SAP HANA
-- Type de problème : Configuration et installation
+- Type de problème : Configuration et installation
 - Sous-type de problème : Mon problème n’est pas répertorié ci-dessus
 - Objet « Modifier mon réseau – ajouter Global Reach »
-- Détails : Ajouter Global Reach à une grande instance HANA pour un locataire de grande instance HANA ou Ajouter Global Reach au système local pour un locataire de grande instance HANA.
-- Détails supplémentaires sur le cas de Grande instance HANA pour un locataire de Grande instance HANA : Vous devez définir les **deux régions Azure** où se trouvent les deux locataires à connecter **ET** envoyer la **plage d’adresses IP /29**
-- Détails supplémentaires sur le cas de système local pour un locataire de grande instance HANA : Vous devez définir la **Région Azure** sur laquelle est déployé le locataire de Grande instance HANA auquel vous souhaitez vous connecter. De plus, vous devez fournir les paramètres **Auth GUID** (GUID Auth) et **Circuit Peer ID** (ID homologue de circuit) que vous avez reçus lors de l’établissement de votre circuit ExpressRoute entre le système local et Azure. Vous devez également nommer votre **ASN**. La dernier élément à fournir est une **plage d’adresses IP /29** pour le service Global Reach d’ExpressRoute.
+- Détails : « Ajouter Global Reach à une grande instance HANA pour un locataire de grande instance HANA » ou « Ajouter Global Reach au système local pour un locataire de grande instance HANA ».
+- Détails supplémentaires concernant le cas de la grande instance HANA pour un locataire de grande instance HANA : vous devez définir les **deux régions Azure** où se trouvent les deux locataires à connecter **ET** vous devez envoyer la **plage d’adresses IP/29**.
+- Détails supplémentaires concernant le cas du locataire de grande instance, de local à HANA : vous devez définir la **région Azure** dans laquelle le locataire de grande instance HANA est déployé et auquel vous souhaitez vous connecter directement. De plus, vous devez fournir les paramètres **Auth GUID** (GUID Auth) et **Circuit Peer ID** (ID homologue de circuit) que vous avez reçus lors de l’établissement de votre circuit ExpressRoute entre le système local et Azure. Vous devez également nommer votre **ASN**. La dernier élément à fournir est une **plage d’adresses IP /29** pour le service Global Reach d’ExpressRoute.
 
 > [!NOTE]
 > Si vous souhaitez que les deux cas soient gérés, vous devez fournir deux plages d’adresses IP /29 différentes qui ne chevauchent pas d’autre plage d’adresses IP utilisée jusqu’à présent. 

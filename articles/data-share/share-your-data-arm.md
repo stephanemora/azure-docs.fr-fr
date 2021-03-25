@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 08/19/2020
 ms.openlocfilehash: 5abe92120c8b822ac86ced90658869a0858d4ff4
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92487685"
 ---
 # <a name="quickstart-share-data-using-azure-data-share-and-arm-template"></a>Démarrage rapide : Partager des données à l’aide d’Azure Data Share et d’un modèle ARM
@@ -69,25 +69,25 @@ Cela est dû au fait que le déploiement tente de créer le jeu de données avan
     [![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-data-share-share-storage-account%2Fazuredeploy.json)
 1. Sélectionnez ou entrez les valeurs suivantes :
 
-    * **Abonnement**  : sélectionnez un abonnement Azure utilisé pour créer le partage de données et les autres ressources.
-    * **Groupe de ressources**  : sélectionnez **Créer** pour créer un groupe de ressources ou sélectionnez un groupe de ressources existant.
+    * **Abonnement** : sélectionnez un abonnement Azure utilisé pour créer le partage de données et les autres ressources.
+    * **Groupe de ressources** : sélectionnez **Créer** pour créer un groupe de ressources ou sélectionnez un groupe de ressources existant.
     * **Emplacement** : sélectionnez un emplacement pour le groupe de ressources.
-    * **Nom du projet**  : entrez un nom de projet.  Le nom du projet est utilisé pour générer des noms de ressource.  Consultez les définitions de variables dans le modèle précédent.
-    * **Emplacement**  : sélectionnez un emplacement pour les ressources.  Vous pouvez utiliser le même emplacement pour le groupe de ressources.
-    * **E-mail d'invitation**  : entrez l'adresse e-mail de connexion Azure du destinataire du partage de données.  L'alias de messagerie ne fonctionne pas.
+    * **Nom du projet** : entrez un nom de projet.  Le nom du projet est utilisé pour générer des noms de ressource.  Consultez les définitions de variables dans le modèle précédent.
+    * **Emplacement** : sélectionnez un emplacement pour les ressources.  Vous pouvez utiliser le même emplacement pour le groupe de ressources.
+    * **E-mail d'invitation** : entrez l'adresse e-mail de connexion Azure du destinataire du partage de données.  L'alias de messagerie ne fonctionne pas.
 
     Utilisez la valeur par défaut pour les autres paramètres.
-1. Sélectionnez **J'accepte les conditions générales mentionnées ci-dessus** , puis **Acheter**.
+1. Sélectionnez **J'accepte les conditions générales mentionnées ci-dessus**, puis **Acheter**.
 
 ## <a name="review-deployed-resources"></a>Vérifier les ressources déployées
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Ouvrez le compte Data Share que vous avez créé.
 1. Dans le menu de gauche, sélectionnez **Envoyer des partages**.  Le compte de stockage doit être répertorié.
-1. Sélectionnez le compte de stockage.  Sous **Détails** , vous verrez le paramètre de synchronisation tel que vous l'avez configuré dans le modèle.
+1. Sélectionnez le compte de stockage.  Sous **Détails**, vous verrez le paramètre de synchronisation tel que vous l'avez configuré dans le modèle.
 
     ![Paramètres de synchronisation du compte de stockage Azure Data Share](./media/share-your-data-arm/azure-data-share-storage-account-synchronization-settings.png)
-1. Sélectionnez **Invitations** en haut. Vous verrez l'adresse e-mail que vous avez spécifiée lorsque vous avez déployé le modèle. L' **État** doit être **En attente**.
+1. Sélectionnez **Invitations** en haut. Vous verrez l'adresse e-mail que vous avez spécifiée lorsque vous avez déployé le modèle. L'**État** doit être **En attente**.
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

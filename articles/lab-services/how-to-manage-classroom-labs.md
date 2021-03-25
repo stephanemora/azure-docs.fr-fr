@@ -4,10 +4,10 @@ description: Découvrez comment créer et configurer un labo de classe, afficher
 ms.topic: how-to
 ms.date: 06/26/2020
 ms.openlocfilehash: db7a2f58f99252a7e5076dd86c37b65bbe8ea37a
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96434207"
 ---
 # <a name="manage-labs-in-azure-lab-services"></a>Gestion des labos dans Azure Lab Services 

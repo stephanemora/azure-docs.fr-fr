@@ -5,12 +5,12 @@ author: stevelas
 ms.topic: article
 ms.date: 07/21/2020
 ms.author: stevelas
-ms.openlocfilehash: e5f0fe76b599874afe8d64c293f3d914da5dd243
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 4e82be0e81e5e8c0182e061a0fba0f880bd45cc6
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97705164"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102632388"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Géoréplication dans Azure Container Registry
 
@@ -22,6 +22,7 @@ Un registre géorépliqué offre les avantages suivants :
 * Amélioration des performances et de la fiabilité des déploiements régionaux avec un accès au registre en réseau
 * Réduction des coûts de transfert de données en extrayant des couches d’images d’un registre local répliqué dans la même région ou dans une région proche de celle où se trouve votre conteneur
 * Gestion unique d’un registre dans plusieurs régions
+* Résilience du registre en cas de panne régionale
 
 > [!NOTE]
 > Si vous devez conserver les copies des images de conteneur dans plusieurs registres de conteneurs Azure, Azure Container Registry prend également en charge l'[importation d'images](container-registry-import-images.md). Par exemple, dans un flux de travail DevOps, vous pouvez importer une image entre un registre de développement et un registre de production, sans devoir utiliser les commandes Docker.
@@ -59,6 +60,7 @@ La fonctionnalité de géoréplication d’Azure Container Registry permet de b�
 * Gérer une configuration unique pour le déploiement des images, car toutes les régions utilisent la même URL d’image : `contoso.azurecr.io/public/products/web:1.2`
 * Envoyer (push) vers un registre unique, tandis qu’ACR gère la géoréplication. ACR réplique uniquement les couches uniques, ce qui réduit le transfert de données entre les régions. 
 * Configurez des [webhooks](container-registry-webhook.md) régionaux pour vous avertir des événements dans des réplicas spécifiques.
+* Fournissez un registre hautement disponible qui résiste aux pannes régionales.
 
 Azure Container Registry prend également en charge les [zones de disponibilité](zone-redundancy.md) pour créer un registre de conteneurs Azure résilient et à haute disponibilité dans une région Azure. La combinaison de zones de disponibilité pour la redondance au sein d’une région et de la géoréplication dans plusieurs régions améliore la fiabilité et les performances d’un registre.
 

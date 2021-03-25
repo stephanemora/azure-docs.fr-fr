@@ -4,10 +4,10 @@ description: Découvrir comment intégrer Azure Event Hubs au service Azure Priv
 ms.date: 08/22/2020
 ms.topic: article
 ms.openlocfilehash: 996779e103dae2d2d950f447d2ac72667fc9e754
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94427749"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-via-private-endpoints"></a>Autoriser l’accès aux espaces de noms Azure Event Hubs via des points de terminaison privés 
@@ -43,7 +43,7 @@ Si vous avez déjà un espace de noms Event Hubs, vous pouvez créer une connexi
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com). 
 2. Dans la barre de recherche, tapez **event hubs**.
-3. Dans la liste, sélectionnez l’ **espace de noms** auquel vous voulez ajouter un point de terminaison privé.
+3. Dans la liste, sélectionnez l’**espace de noms** auquel vous voulez ajouter un point de terminaison privé.
 4. Sous **Paramètres** sur le menu de gauche, sélectionnez **Mise en réseau**.
 
     > [!NOTE]
@@ -57,38 +57,38 @@ Si vous avez déjà un espace de noms Event Hubs, vous pouvez créer une connexi
 1. Sélectionnez le bouton **+ Point de terminaison privé** en haut de la page.
 
     :::image type="content" source="./media/private-link-service/private-link-service-3.png" alt-text="Page Mise en réseau - Onglet Connexions des points de terminaison privés - Lien Ajouter un point de terminaison privé":::
-7. Dans la page **Informations de base** , suivez ces étapes : 
-    1. Sélectionnez l’ **abonnement Azure** où créer le point de terminaison privé. 
+7. Dans la page **Informations de base**, suivez ces étapes : 
+    1. Sélectionnez l’**abonnement Azure** où créer le point de terminaison privé. 
     2. Sélectionnez le **groupe de ressources** pour la ressource de point de terminaison privé.
     3. Entrez un **nom** pour le point de terminaison privé. 
     5. Sélectionnez une **région** pour le point de terminaison privé. La région de votre point de terminaison privé doit être la même que celle de votre réseau virtuel, mais elle peut être différente de celle de la ressource de lien privé à laquelle vous vous connectez. 
     6. Sélectionnez **Suivant : Bouton Ressource >** en bas de la page.
 
         ![Créer un point de terminaison privé - page Informations de base](./media/private-link-service/create-private-endpoint-basics-page.png)
-8. Dans la page **Ressource** , suivez ces étapes :
-    1. Pour la méthode de connexion, si vous sélectionnez **Se connecter à une ressource Azure dans mon répertoire** , suivez ces étapes : 
-        1. Sélectionnez l’ **abonnement Azure** où se trouve votre **espace de noms Event Hubs**. 
-        2. Pour **Type de ressource** , sélectionnez **Microsoft.EventHub/namespaces**.
-        3. Pour **Ressource** , sélectionnez un espace de noms Event Hubs dans la liste déroulante. 
+8. Dans la page **Ressource**, suivez ces étapes :
+    1. Pour la méthode de connexion, si vous sélectionnez **Se connecter à une ressource Azure dans mon répertoire**, suivez ces étapes : 
+        1. Sélectionnez l’**abonnement Azure** où se trouve votre **espace de noms Event Hubs**. 
+        2. Pour **Type de ressource**, sélectionnez **Microsoft.EventHub/namespaces**.
+        3. Pour **Ressource**, sélectionnez un espace de noms Event Hubs dans la liste déroulante. 
         4. Confirmez que la **Sous-ressource cible** est définie sur **espace de noms**.
         5. Sélectionnez **Suivant : Bouton Configuration >** en bas de la page. 
         
             ![Créer un point de terminaison privé - page Ressource](./media/private-link-service/create-private-endpoint-resource-page.png)    
-    2. Si vous sélectionnez **Se connecter à une ressource Azure par alias ou ID de ressource** , suivez ces étapes :
-        1. Entrez l’ **ID de ressource** ou l’ **alias**. Il peut s’agir de l’ID de ressource ou de l’alias que quelqu’un a partagé avec vous. Le moyen le plus simple d’obtenir l’ID de ressource est d’accéder à l’espace de noms Event Hubs dans le portail Azure et de copier la partie de l’URI à partir de `/subscriptions/`. L’image suivante montre un exemple. 
-        2. Pour **Sous-ressource cible** , entrez **espace de noms**. Il s’agit du type de la sous-ressource à laquelle votre point de terminaison privé peut accéder.
+    2. Si vous sélectionnez **Se connecter à une ressource Azure par alias ou ID de ressource**, suivez ces étapes :
+        1. Entrez l’**ID de ressource** ou l’**alias**. Il peut s’agir de l’ID de ressource ou de l’alias que quelqu’un a partagé avec vous. Le moyen le plus simple d’obtenir l’ID de ressource est d’accéder à l’espace de noms Event Hubs dans le portail Azure et de copier la partie de l’URI à partir de `/subscriptions/`. L’image suivante montre un exemple. 
+        2. Pour **Sous-ressource cible**, entrez **espace de noms**. Il s’agit du type de la sous-ressource à laquelle votre point de terminaison privé peut accéder.
         3. (facultatif) Entrez un **message de demande**. Le propriétaire de la ressource voit ce message quand il gère la connexion de point de terminaison privé.
         4. Ensuite, sélectionnez **Suivant : Bouton Configuration >** en bas de la page.
 
             ![Créer un point de terminaison privé - Se connecter à l’aide d’un ID de ressource](./media/private-link-service/connect-resource-id.png)
-9. Dans la page **Configuration** , vous sélectionnez le sous-réseau dans un réseau virtuel sur lequel vous voulez déployer le point de terminaison privé. 
+9. Dans la page **Configuration**, vous sélectionnez le sous-réseau dans un réseau virtuel sur lequel vous voulez déployer le point de terminaison privé. 
     1. Sélectionnez un **réseau virtuel**. Seuls les réseaux virtuels dans l’abonnement et l’emplacement sélectionnés sont présents dans la liste déroulante. 
     2. Sélectionnez un **sous-réseau** dans le réseau virtuel que vous avez sélectionné. 
     3. Sélectionnez **Suivant : Bouton Étiquettes >** en bas de la page. 
 
         ![Créer un point de terminaison privé - page Configuration](./media/private-link-service/create-private-endpoint-configuration-page.png)
-10. Dans la page **Étiquettes** , créez les étiquettes (noms et valeurs) à associer à la ressource de point de terminaison privé. Ensuite, sélectionnez le bouton **Vérifier + créer** en bas de la page. 
-11. Dans la page **Vérifier + créer** , examinez tous les paramètres et sélectionnez **Créer** pour créer le point de terminaison privé.
+10. Dans la page **Étiquettes**, créez les étiquettes (noms et valeurs) à associer à la ressource de point de terminaison privé. Ensuite, sélectionnez le bouton **Vérifier + créer** en bas de la page. 
+11. Dans la page **Vérifier + créer**, examinez tous les paramètres et sélectionnez **Créer** pour créer le point de terminaison privé.
     
     ![Créer un point de terminaison privé - page Vérifier et créer](./media/private-link-service/create-private-endpoint-review-create-page.png)
 12. Vérifiez que vous voyez la connexion de point de terminaison privé que vous avez créée dans la liste des points de terminaison. Dans cet exemple, le point de terminaison privé est approuvé automatiquement, car vous êtes connecté à une ressource Azure dans votre répertoire et avez les autorisations nécessaires. 
@@ -97,7 +97,7 @@ Si vous avez déjà un espace de noms Event Hubs, vous pouvez créer une connexi
 
 [!INCLUDE [event-hubs-trusted-services](../../includes/event-hubs-trusted-services.md)]
 
-Pour autoriser les services approuvés à accéder à votre espace de noms, basculez vers l’onglet **Pare-feu et réseaux virtuels** dans la page **Réseau** , puis sélectionnez **Oui** pour **Autoriser les services Microsoft approuvés pour contourner ce pare-feu ?** . 
+Pour autoriser les services approuvés à accéder à votre espace de noms, basculez vers l’onglet **Pare-feu et réseaux virtuels** dans la page **Réseau**, puis sélectionnez **Oui** pour **Autoriser les services Microsoft approuvés pour contourner ce pare-feu ?** . 
 
 ## <a name="add-a-private-endpoint-using-powershell"></a>Ajouter un point de terminaison privé avec PowerShell
 L’exemple suivant montre comment utiliser Azure PowerShell pour créer une connexion de point de terminaison privé. Il ne crée pas de cluster dédié pour vous. Suivez les étapes décrites dans [cet article](event-hubs-dedicated-cluster-create-portal.md) pour créer un cluster Event Hubs dédié. 
@@ -204,7 +204,7 @@ Il existe quatre états de provisionnement :
 
 1. Connectez-vous au portail Azure.
 2. Dans la barre de recherche, tapez **event hubs**.
-3. Sélectionnez l’ **espace de noms** que vous voulez gérer.
+3. Sélectionnez l’**espace de noms** que vous voulez gérer.
 4. Sélectionnez l’onglet **Réseau**.
 5. Accédez à la section appropriée ci-dessous en fonction de l’opération souhaitée : approuver, rejeter ou supprimer.
 
@@ -214,7 +214,7 @@ Il existe quatre états de provisionnement :
 3. Sélectionnez le bouton **Approuver**.
 
     ![Approuver le point de terminaison privé](./media/private-link-service/approve-private-endpoint.png)
-4. Dans la page **Approuver la connexion** , ajoutez un commentaire (facultatif) et sélectionnez **Oui**. Si vous sélectionnez **Non** , il ne se passe rien. 
+4. Dans la page **Approuver la connexion**, ajoutez un commentaire (facultatif) et sélectionnez **Oui**. Si vous sélectionnez **Non**, il ne se passe rien. 
 5. Vous devez voir que l’état de la connexion de point de terminaison privé dans la liste est remplacé par **Approuvé**. 
 
 ### <a name="reject-a-private-endpoint-connection"></a>Rejeter une connexion de point de terminaison privé
@@ -222,13 +222,13 @@ Il existe quatre états de provisionnement :
 1. Si vous voulez rejeter une connexion de point de terminaison privé, qu’il s’agisse d’une demande en attente ou d’une connexion existante, sélectionnez la connexion et cliquez sur le bouton **Rejeter**.
 
     ![Rejeter un point de terminaison privé](./media/private-link-service/private-endpoint-reject-button.png)
-2. Dans la page **Rejeter la connexion** , entrez un commentaire (facultatif) et sélectionnez **Oui**. Si vous sélectionnez **Non** , il ne se passe rien. 
+2. Dans la page **Rejeter la connexion**, entrez un commentaire (facultatif) et sélectionnez **Oui**. Si vous sélectionnez **Non**, il ne se passe rien. 
 3. Vous devez voir que l’état de la connexion de point de terminaison privé dans la liste est remplacé par **Rejeté**. 
 
 ### <a name="remove-a-private-endpoint-connection"></a>Supprimer une connexion de point de terminaison privé
 
 1. Pour supprimer une connexion de point de terminaison privé, sélectionnez-la dans la liste et sélectionnez **Supprimer** dans la barre d’outils.
-2. Dans la page **Supprimer la connexion** , sélectionnez **Oui** pour confirmer la suppression du point de terminaison privé. Si vous sélectionnez **Non** , il ne se passe rien.
+2. Dans la page **Supprimer la connexion**, sélectionnez **Oui** pour confirmer la suppression du point de terminaison privé. Si vous sélectionnez **Non**, il ne se passe rien.
 3. Vous devez voir que l’état a été remplacé par **Déconnecté**. Vous voyez ensuite que le point de terminaison n’est plus dans la liste.
 
 ## <a name="validate-that-the-private-link-connection-works"></a>Vérifier le fonctionnement de la connexion à liaison privée
@@ -237,12 +237,12 @@ Vous devez vérifier que les ressources contenues dans le réseau virtuel du poi
 
 Commencez par créer une machine virtuelle en suivant les étapes décrites dans [Créer une machine virtuelle Windows sur le portail Azure](../virtual-machines/windows/quick-create-portal.md).
 
-Sous l’onglet **Réseau**  : 
+Sous l’onglet **Réseau** : 
 
 1. Spécifiez un **réseau virtuel** et un **sous-réseau**. Vous devez sélectionner le réseau virtuel sur lequel vous avez déployé le point de terminaison privé.
-2. Spécifiez une ressource d’ **adresse IP publique**.
-3. Pour **Groupe de sécurité réseau de la carte réseau** , sélectionnez **Aucun**.
-4. Pour **Équilibrage de charge** , sélectionnez **Non**.
+2. Spécifiez une ressource d’**adresse IP publique**.
+3. Pour **Groupe de sécurité réseau de la carte réseau**, sélectionnez **Aucun**.
+4. Pour **Équilibrage de charge**, sélectionnez **Non**.
 
 Connectez-vous à la machine virtuelle, ouvrez la ligne de commande et exécutez la commande suivante :
 
@@ -261,11 +261,11 @@ Aliases:  <event-hubs-namespace-name>.servicebus.windows.net
 
 ## <a name="limitations-and-design-considerations"></a>Limitations et remarques sur la conception
 
-**Prix**  : Pour plus d’informations sur les prix, consultez [Prix d’Azure Private Link](https://azure.microsoft.com/pricing/details/private-link/).
+**Prix** : Pour plus d’informations sur les prix, consultez [Prix d’Azure Private Link](https://azure.microsoft.com/pricing/details/private-link/).
 
-**Limitations**  :  Cette fonctionnalité est disponible dans toutes les régions publiques Azure.
+**Limitations** :  Cette fonctionnalité est disponible dans toutes les régions publiques Azure.
 
-**Nombre maximal de points de terminaison privés par espace de noms Event Hubs**  : 120.
+**Nombre maximal de points de terminaison privés par espace de noms Event Hubs** : 120.
 
 Pour plus d’informations, consultez [Service Azure Private Link : Limitations](../private-link/private-link-service-overview.md#limitations)
 

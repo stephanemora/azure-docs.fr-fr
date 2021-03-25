@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: dineshm
-ms.openlocfilehash: 31b2d562d4d0c53b23e8e3f454057b4e26e41ba9
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: f07c249e3b7cb54283959df410d51ca18998f2cf
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98875244"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102181514"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Réaction aux événements de Stockage Blob
 
@@ -98,7 +98,7 @@ Les applications qui gèrent des événements de stockage d’objets Blob doiven
 > * De même, vérifiez que vous êtes prêt à traiter son eventType, et ne supposez pas que tous les événements reçus seront aux types que vous attendez.
 > * Les messages pouvant arriver après un certain temps, utilisez les champs etag pour comprendre si vos informations sur les objets sont toujours à jour. Pour savoir comment utiliser le champ etag, consultez [Gestion de l’accès concurrentiel dans le Stockage Blob](./concurrency-manage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#managing-concurrency-in-blob-storage).
 > * Les messages pouvant arriver dans le désordre, utilisez les champs de séquence pour comprendre l’ordre des événements sur un objet particulier. Le champ de séquence est une valeur de chaîne qui représente l’ordre logique des événements pour n’importe quel nom d’objet blob. Vous pouvez utiliser la comparaison de chaînes standard pour comprendre l’ordre relatif de deux événements sur le même nom d’objet blob.
-> * Les événements de stockage garantissent au moins une livraison aux abonnés, assurant ainsi la sortie de tous les messages. Toutefois, en raison de nouvelles tentatives ou de la disponibilité des abonnements, des messages dupliqués peuvent parfois se produire. Pour en savoir plus sur la livraison de messages et les nouvelles tentatives, consultez [Livraison et nouvelle tentative de livraison de messages avec Event Grid](../../event-grid/delivery-and-retry.md).
+> * Les événements de stockage garantissent au moins une livraison aux abonnés, assurant ainsi la sortie de tous les messages. Toutefois, en raison de nouvelles tentatives entre les nœuds ou les sr de back end ou de la disponibilité des abonnements, des messages dupliqués peuvent parfois se produire. Pour en savoir plus sur la livraison de messages et les nouvelles tentatives, consultez [Livraison et nouvelle tentative de livraison de messages avec Event Grid](../../event-grid/delivery-and-retry.md).
 > * Utilisez le champ blobType pour comprendre le type d’opération autorisé sur l’objet Blob, et les types de bibliothèque client que vous devez utiliser pour accéder à l’objet Blob. Les valeurs valides sont `BlockBlob` ou `PageBlob`. 
 > * Utilisez le champ URL avec les constructeurs `CloudBlockBlob` et `CloudAppendBlob` pour accéder à l’objet Blob.
 > * Ignorez les champs que vous ne comprenez pas. Cette pratique vous aidera à prendre en charge les nouvelles fonctionnalités qui peuvent être ajoutées à l’avenir.

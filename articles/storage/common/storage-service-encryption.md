@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: da1acc6316d7af87ffe35b9560919c324373591a
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: b2471ccd2a412c7cbae9d4e59412ac055697e3d7
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96484598"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102180358"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>Chiffrement du Stockage Azure pour les données au repos
 
-Stockage Azure chiffre automatiquement vos données lors de leur conservation dans le cloud. Le chiffrement de Stockage Azure protège vos données et vous aide à répondre aux engagements de votre entreprise en matière de sécurité et de conformité.
+Le service Stockage Azure utilise le chiffrement côté serveur (SSE) pour chiffrer automatiquement vos données lorsqu’elles sont rendues persistantes dans le Cloud. Le chiffrement de Stockage Azure protège vos données et vous aide à répondre aux engagements de votre entreprise en matière de sécurité et de conformité.
 
 ## <a name="about-azure-storage-encryption"></a>À propos du chiffrement de Stockage Azure
 
@@ -32,7 +32,7 @@ Chaque objet blob de blocs, objet blob d’ajout ou objet blob de pages qui a é
 
 Pour plus d’informations sur les modules cryptographiques de chiffrement de Stockage Azure, consultez [API de chiffrement : nouvelle génération](/windows/desktop/seccng/cng-portal).
 
-Pour plus d’informations sur le chiffrement et la gestion des clés pour les disques managés Azure, consultez [Chiffrement côté serveur de disques managés Azure](../../virtual-machines/disk-encryption.md) pour les machines virtuelles Windows ou [Chiffrement côté serveur de disques managés Azure](../../virtual-machines/disk-encryption.md) pour les machines virtuelles Linux.
+Pour plus d’informations sur le chiffrement et la gestion des clés pour les disques managés Azure, consultez [Chiffrement côté serveur de disques managés Azure](../../virtual-machines/disk-encryption.md).
 
 ## <a name="about-encryption-key-management"></a>À propos de la gestion des clés de chiffrement
 

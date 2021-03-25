@@ -3,12 +3,12 @@ title: Configurer vRealize Operations pour Azure VMware Solution (AVS)
 description: Découvrez comment configurer vRealize Operations pour le cloud privé de votre solution VMware Azure.
 ms.topic: how-to
 ms.date: 01/26/2021
-ms.openlocfilehash: 3d2617f893c34fde6a154f9f93b5bda520c5a91a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 8015bb61a7401b4c97807e0256e06d4967c39026
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101738427"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802486"
 ---
 # <a name="set-up-vrealize-operations-for-azure-vmware-solution"></a>Configurer vRealize Operations pour Azure VMware Solution (AVS)
 
@@ -61,7 +61,7 @@ Après le déploiement de l’instance, vous pouvez configurer les opérations v
 
 ## <a name="known-limitations"></a>Limitations connues
 
-- L’utilisateur **cloudadmin\@vsphere.local** d’Azure VMware Solution a des [privilèges limités](concepts-role-based-access-control.md).  Les machines virtuelles sur Azure VMware Solution ne prennent pas en charge la collecte de mémoire dans l’invité à l’aide d’outils VMware.  Les utilisations actives et consommées de la mémoire continuent de fonctionner dans ce cas.
+- L’utilisateur **cloudadmin\@vsphere.local** d’Azure VMware Solution a des [privilèges limités](concepts-identity.md).  Les machines virtuelles sur Azure VMware Solution ne prennent pas en charge la collecte de mémoire dans l’invité à l’aide d’outils VMware.  Les utilisations actives et consommées de la mémoire continuent de fonctionner dans ce cas.
 - L’optimisation de la charge de travail pour l’intention métier basée sur l’hôte ne fonctionne pas, car Azure VMware Solution gère les configurations de cluster, y compris les paramètres DRS.
 - L’optimisation de la charge de travail pour le placement inter cluster au sein du SDDC avec l’intention métier basée sur le cluster est entièrement prise en charge avec vRealize Operations Manager 8.0 et versions supérieures. Toutefois, l’optimisation de la charge de travail n’a pas connaissance des pools de ressources et place les machines virtuelles au niveau du cluster. Un utilisateur peut corriger cela manuellement dans l’interface Azure VMware Solution vCenter Server.
 - Vous ne pouvez pas vous connecter à vRealize Operations Manager à l’aide de vos informations d’identification Azure VMware Solution vCenter Server. 

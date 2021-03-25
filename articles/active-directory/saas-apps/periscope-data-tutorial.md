@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
 ms.openlocfilehash: deac4dcde51049d744706b7479f5b5f3bbb4d9c0
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92520854"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-periscope-data"></a>Tutoriel : Intégration d’Azure Active Directory à Periscope Data
@@ -49,11 +49,11 @@ Pour configurer l’intégration de Periscope Data à Azure AD, vous devez ajou
 
 **Pour ajouter Periscope Data à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory** .
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
-2. Accédez à **Applications d’entreprise** , puis sélectionnez l’option **Toutes les applications** .
+2. Accédez à **Applications d’entreprise**, puis sélectionnez l’option **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -61,13 +61,13 @@ Pour configurer l’intégration de Periscope Data à Azure AD, vous devez ajou
 
     ![Bouton Nouvelle application](common/add-new-app.png)
 
-4. Dans la zone de recherche, tapez **Periscope Data** , sélectionnez **Periscope Data** dans le panneau de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+4. Dans la zone de recherche, tapez **Periscope Data**, sélectionnez **Periscope Data** dans le panneau de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
      ![PeriscopeData dans la liste des résultats](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
 
-Dans cette section, vous allez configurer et tester l’authentification unique Azure AD auprès de Periscope Data, à l’aide d’un utilisateur de test nommé **Britta Simon** .
+Dans cette section, vous allez configurer et tester l’authentification unique Azure AD auprès de Periscope Data, à l’aide d’un utilisateur de test nommé **Britta Simon**.
 Pour que l’authentification unique fonctionne, une relation entre un utilisateur Azure AD et l’utilisateur Periscope Data associé doit être établie.
 
 Pour configurer et tester l’authentification unique Azure AD auprès de Periscope Data, vous devez suivre les indications des sections suivantes :
@@ -85,23 +85,23 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
 
 Pour configurer l’authentification unique Azure AD auprès de Periscope Data, effectuez les étapes suivantes :
 
-1. Dans la page d’intégration de l’application **Periscope Data** sur le [portail Azure](https://portal.azure.com/), sélectionnez **Authentification unique** .
+1. Dans la page d’intégration de l’application **Periscope Data** sur le [portail Azure](https://portal.azure.com/), sélectionnez **Authentification unique**.
 
     ![Lien Configurer l’authentification unique](common/select-sso.png)
 
-2. Dans la boîte de dialogue **Sélectionner une méthode d’authentification unique** , sélectionnez le mode **SAML/WS-Fed** afin d’activer l’authentification unique.
+2. Dans la boîte de dialogue **Sélectionner une méthode d’authentification unique**, sélectionnez le mode **SAML/WS-Fed** afin d’activer l’authentification unique.
 
     ![Mode de sélection de l’authentification unique](common/select-saml-option.png)
 
-3. Dans la page **Configurer l’authentification unique avec SAML** , cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue **Configuration SAML de base** .
+3. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue **Configuration SAML de base**.
 
     ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-4. Dans la section **Configuration SAML de base** , effectuez les étapes suivantes :
+4. Dans la section **Configuration SAML de base**, effectuez les étapes suivantes :
 
     ![Informations d’authentification unique relatives au domaine et aux URL Periscope Data](common/sp-identifier.png)
 
-    a. Dans la zone de texte **URL de connexion** , tapez une de ces URL :
+    a. Dans la zone de texte **URL de connexion**, tapez une de ces URL :
     
     ```https
     https://app.periscopedata.com/
@@ -111,9 +111,9 @@ Pour configurer l’authentification unique Azure AD auprès de Periscope Data,
     b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `https://app.periscopedata.com/<SITENAME>/sso`
 
     > [!NOTE]
-    > La valeur d’URL de connexion n’est pas réelle. Mettez à jour les valeurs avec l’URL de connexion réelle. Contactez l’ [équipe du support technique de Periscope Data](mailto:support@periscopedata.com) pour obtenir cette valeur, ainsi que celle de l’identificateur que vous allez récupérer à la section **Configurer l’authentification unique de Periscope Data** , expliquée plus loin dans le tutoriel. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+    > La valeur d’URL de connexion n’est pas réelle. Mettez à jour les valeurs avec l’URL de connexion réelle. Contactez l’[équipe du support technique de Periscope Data](mailto:support@periscopedata.com) pour obtenir cette valeur, ainsi que celle de l’identificateur que vous allez récupérer à la section **Configurer l’authentification unique de Periscope Data**, expliquée plus loin dans le tutoriel. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-5. Dans la page **Configurer l’authentification unique avec SAML** , dans la section **Certificat de signature SAML** , cliquez sur le bouton Copier pour copier l’ **URL des métadonnées de fédération d’application** , puis enregistrez-la sur votre ordinateur.
+5. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur le bouton Copier pour copier l’**URL des métadonnées de fédération d’application**, puis enregistrez-la sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/copy-metadataurl.png)
 
@@ -125,9 +125,9 @@ Pour configurer l’authentification unique Azure AD auprès de Periscope Data,
 
     ![Capture d’écran montrant la boîte de dialogue « Security » avec les paramètres sélectionnés.](./media/periscope-data-tutorial/configure01.png)
 
-    a. Copiez l’ **URL des métadonnées de fédération de l’application** que vous avez récupérée à l’étape 5 **Certificat de signature SAML** et ouvrez-la dans un navigateur. Un document XML s’ouvre.
+    a. Copiez l’**URL des métadonnées de fédération de l’application** que vous avez récupérée à l’étape 5 **Certificat de signature SAML** et ouvrez-la dans un navigateur. Un document XML s’ouvre.
 
-    b. Dans la zone de texte **Single Sign-On** (Authentification unique), sélectionnez **Azure Active Directory** .
+    b. Dans la zone de texte **Single Sign-On** (Authentification unique), sélectionnez **Azure Active Directory**.
 
     c. Recherchez la balise **SingleSignOnService** et collez la valeur de **Location** (Emplacement) dans la zone de texte **SSO URL** (URL SSO).
 
@@ -137,7 +137,7 @@ Pour configurer l’authentification unique Azure AD auprès de Periscope Data,
 
     f. Recherchez la première balise du fichier XML, copiez la valeur de **entityID** et collez-la dans la zone de texte **Issuer** (Émetteur).
 
-    g. Recherchez la balise **IDPSSODescriptor** avec le protocole SAML. Dans cette section, recherchez la balise **KeyDescriptor** avec **use=signing** . Copiez la valeur de **X509Certificate** (CertificatX509) et collez-la dans la zone de texte **Certificate** (Certificat).
+    g. Recherchez la balise **IDPSSODescriptor** avec le protocole SAML. Dans cette section, recherchez la balise **KeyDescriptor** avec **use=signing**. Copiez la valeur de **X509Certificate** (CertificatX509) et collez-la dans la zone de texte **Certificate** (Certificat).
 
     h. Les sites dotés de plusieurs espaces peuvent choisir l’espace par défaut dans la liste déroulante **Default Space** (Espace par défaut). Cet espace est celui auquel les nouveaux utilisateurs sont ajoutés lorsqu’ils se connectent à Periscope Data pour la première fois et où ils sont provisionnés par le biais de l’authentification unique Active Directory.
 
@@ -149,7 +149,7 @@ Pour configurer l’authentification unique Azure AD auprès de Periscope Data,
 
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
 
-1. Dans le volet gauche du portail Azure, sélectionnez **Azure Active Directory** , sélectionnez **Utilisateurs** , puis sélectionnez **Tous les utilisateurs** .
+1. Dans le volet gauche du portail Azure, sélectionnez **Azure Active Directory**, sélectionnez **Utilisateurs**, puis sélectionnez **Tous les utilisateurs**.
 
     ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](common/users.png)
 
@@ -161,40 +161,40 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     ![Boîte de dialogue Utilisateur](common/user-properties.png)
 
-    a. Dans le champ **Nom** , entrez **BrittaSimon** .
+    a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur** , tapez **brittasimon\@domainedevotreentreprise.extension** .  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple : BrittaSimon@contoso.com
 
-    c. Cochez la case **Afficher le mot de passe** , puis notez la valeur affichée dans le champ Mot de passe.
+    c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
-    d. Cliquez sur **Créer** .
+    d. Cliquez sur **Créer**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
 Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en accordant l’accès à Periscope Data.
 
-1. Dans le portail Azure, sélectionnez **Applications d’entreprise** , **Toutes les applications** , puis **Periscope Data** .
+1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, **Toutes les applications**, puis **Periscope Data**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
-2. Dans la liste des applications, sélectionnez **Periscope Data** .
+2. Dans la liste des applications, sélectionnez **Periscope Data**.
 
     ![Lien Periscope Data dans la liste des applications](common/all-applications.png)
 
-3. Dans le menu de gauche, sélectionnez **Utilisateurs et groupes** .
+3. Dans le menu de gauche, sélectionnez **Utilisateurs et groupes**.
 
     ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
 
-4. Cliquez sur le bouton **Ajouter un utilisateur** , puis sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution** .
+4. Cliquez sur le bouton **Ajouter un utilisateur**, puis sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
 
     ![Volet Ajouter une attribution](common/add-assign-user.png)
 
-5. Dans la boîte de dialogue **Utilisateurs et groupes** , sélectionnez **Britta Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
 
-6. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle** , sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+6. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
 
-7. Dans la boîte de dialogue **Ajouter une attribution** , cliquez sur le bouton **Attribuer** .
+7. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
 ### <a name="create-periscope-data-test-user"></a>Créer l’utilisateur de test Periscope Data
 
@@ -212,11 +212,11 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Periscope Data, vous
 
       ![Informations de configuration de Periscope Data](./media/periscope-data-tutorial/configure04.png)
 
-    a. Dans la zone de texte **Prénom** , entrez le prénom de l’utilisateur, par exemple **Britta** .
+    a. Dans la zone de texte **Prénom**, entrez le prénom de l’utilisateur, par exemple **Britta**.
 
-    b. Dans la zone de texte **Nom** , entrez le nom de l’utilisateur, par exemple **Simon** .
+    b. Dans la zone de texte **Nom**, entrez le nom de l’utilisateur, par exemple **Simon**.
 
-    c. Dans la zone de texte **E-mail** , entrez l’adresse e-mail de l’utilisateur, par exemple **brittasimon\@contoso.com** .
+    c. Dans la zone de texte **E-mail**, entrez l’adresse e-mail de l’utilisateur, par exemple **brittasimon\@contoso.com**.
 
     d. Cliquez sur **ADD** (Ajouter).
 

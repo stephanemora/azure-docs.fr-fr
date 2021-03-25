@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 01/26/2018
 ms.author: jeedes
 ms.openlocfilehash: 7e3f8e5e975468b468712ae8907cdca0e80a5f9f
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94352606"
 ---
 # <a name="tutorial-configure-salesforce-sandbox-for-automatic-user-provisioning"></a>Tutoriel : Configurer Salesforce Sandbox pour l'approvisionnement automatique d'utilisateurs
@@ -65,11 +65,11 @@ Cette section décrit comment activer l’approvisionnement des utilisateurs des
 
     ![Capture d’écran montrant la page d’approvisionnement de Salesforce Sandbox, avec le Mode d’approvisionnement défini sur Automatique et d’autres valeurs que vous pouvez définir.](./media/salesforce-sandbox-provisioning-tutorial/provisioning.png)
 
-1. Dans la section **Informations d’identification de l’administrateur** , fournissez les paramètres de configuration suivants :
+1. Dans la section **Informations d’identification de l’administrateur**, fournissez les paramètres de configuration suivants :
    
-    a. Dans la zone de texte **Nom d’utilisateur administrateur Salesforce Sandbox** , entrez le nom d’un compte Salesforce Sandbox auquel le profil **Administrateur système** est assigné dans Salesforce.com.
+    a. Dans la zone de texte **Nom d’utilisateur administrateur Salesforce Sandbox**, entrez le nom d’un compte Salesforce Sandbox auquel le profil **Administrateur système** est assigné dans Salesforce.com.
    
-    b. Dans la zone de texte **Mot de passe d’administrateur** , entrez le mot de passe de ce compte.
+    b. Dans la zone de texte **Mot de passe d’administrateur**, entrez le mot de passe de ce compte.
 
 1. Pour obtenir le jeton de sécurité Salesforce Sandbox, ouvrez un nouvel onglet et connectez-vous au même compte Administrateur Salesforce Sandbox. Dans le coin supérieur droit de la page, cliquez sur votre nom, puis cliquez sur **Paramètres**.
 
@@ -79,7 +79,7 @@ Cette section décrit comment activer l’approvisionnement des utilisateurs des
   
     ![Capture d’écran montrant Réinitialiser mon jeton de sécurité sélectionné à partir de Mes informations personnelles.](./media/salesforce-sandbox-provisioning-tutorial/sf-personal-reset.png "Activer l'approvisionnement de l'utilisateur automatique.")
 
-1. Sur la page **Réinitialiser le jeton de sécurité** , cliquez sur le bouton **Réinitialiser le jeton de sécurité**.
+1. Sur la page **Réinitialiser le jeton de sécurité**, cliquez sur le bouton **Réinitialiser le jeton de sécurité**.
 
     ![Capture d’écran montrant la page Jeton de sécurité REST, avec du texte explicatif et l’option de réinitialisation du jeton de sécurité](./media/salesforce-sandbox-provisioning-tutorial/sf-reset-token.png "Activer l'approvisionnement de l'utilisateur automatique.")
 
@@ -89,15 +89,15 @@ Cette section décrit comment activer l’approvisionnement des utilisateurs des
 
 1. Dans le portail Azure, cliquez sur **Tester la connexion** pour vous assurer qu’Azure AD peut se connecter à votre application Salesforce Sandbox.
 
-1. Dans le champ **E-mail de notification** , entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement, puis cochez la case.
+1. Dans le champ **E-mail de notification**, entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement, puis cochez la case.
 
 1. Cliquez sur **Enregistrer.**  
     
 1.  Dans la section Mappages, sélectionnez **Synchroniser des utilisateurs Azure Active Directory avec Salesforce Sandbox**.
 
-1. Dans la section **Mappages d’attributs** , passez en revue les attributs utilisateur qui sont synchronisés à partir d’Azure AD vers Salesforce Sandbox. Les attributs sélectionnés en tant que propriétés de **Correspondance** servent à faire correspondre les comptes utilisateur dans Salesforce Sandbox, en vue d’opérations de mise à jour. Cliquez sur le bouton Enregistrer pour valider les modifications.
+1. Dans la section **Mappages d’attributs**, passez en revue les attributs utilisateur qui sont synchronisés à partir d’Azure AD vers Salesforce Sandbox. Les attributs sélectionnés en tant que propriétés de **Correspondance** servent à faire correspondre les comptes utilisateur dans Salesforce Sandbox, en vue d’opérations de mise à jour. Cliquez sur le bouton Enregistrer pour valider les modifications.
 
-1. Pour activer le service d’approvisionnement Azure AD pour Salesforce Sandbox, accédez à la section Paramètres et définissez l’ **État de l’approvisionnement** sur **Activé**
+1. Pour activer le service d’approvisionnement Azure AD pour Salesforce Sandbox, accédez à la section Paramètres et définissez l’**État de l’approvisionnement** sur **Activé**
 
 1. Cliquez sur **Enregistrer.**
 

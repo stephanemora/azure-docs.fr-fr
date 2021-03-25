@@ -1,19 +1,14 @@
 ---
 title: À propos de l’intégration de Splunk
-titleSuffix: Azure Defender for IoT
 description: Pour répondre à un manque de visibilité sur la sécurité et la résilience des réseaux OT, Defender pour IoT a développé Defender pour IoT, IIoT, et l’application de surveillance des menaces ICS pour Splunk, une intégration native entre Defender pour IoT et Splunk qui permet une approche unifiée de sécurité informatique et OT.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 1/4/2021
 ms.topic: article
-ms.service: azure
-ms.openlocfilehash: 91d877d644b4b5ca7231f5f81f9163a0fd3cbe25
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: 28bdc6deaac09d795c45460bb211126a105b80c8
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98556661"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104785918"
 ---
 # <a name="defender-for-iot-and-ics-threat-monitoring-application-for-splunk"></a>Defender pour IoT et application de surveillance des menaces ICS pour Splunk
 
@@ -158,7 +153,7 @@ Pour créer une règle de transfert :
     | **Select Severity** (Sélectionner une gravité) | Incident de niveau de sécurité minimal à transférer. Par exemple, si Minor (Mineur) est sélectionné, les alertes mineures et toute alerte de niveau de gravité supérieur à ce niveau seront transférées. |
     | **Protocoles** | Par défaut, tous les protocoles sont sélectionnés. Pour sélectionner un protocole spécifique, sélectionnez **Specific** (Spécifique), puis sélectionnez le protocole pour lequel cette règle est appliquée. |
     | **Engines** (Moteurs) | Par défaut, tous les moteurs de sécurité sont impliqués. Pour sélectionner un moteur de sécurité spécifique auquel cette règle est appliquée, sélectionnez **Specific** (Spécifique), puis sélectionnez le moteur. |
-    | **System Notifications** (Notifications système) | État en ligne/hors connexion du capteur de transfert. Cette option est disponible uniquement si vous êtes connecté à Central Manager. |                                            |
+    | **System Notifications** (Notifications système) | État en ligne/hors connexion du capteur de transfert. Cette option est disponible uniquement si vous êtes connecté à Central Manager. |
 
 1. Afin d’indiquer à Defender pour IoT d’envoyer les informations sur des éléments à Splunk, sélectionnez **Action**, puis **Send to Splunk Server** (Envoyer au serveur Splunk).
 

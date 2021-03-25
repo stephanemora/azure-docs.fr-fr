@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 12/09/2019
-ms.openlocfilehash: 9363a2dacd91d3868e69e47381eea528e358935c
-ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
+ms.openlocfilehash: 724b94a44ae289063bbb1c6ebf53b38c0a617b88
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/01/2021
-ms.locfileid: "97845452"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104799325"
 ---
 # <a name="language-and-region-support-for-luis"></a>Prise en charge de la région et de la langue pour LUIS
 
@@ -44,7 +44,7 @@ LUIS comprend les énoncés dans les langues suivantes :
 | Coréen |`ko-KR` |✔|-|-|Expression clé uniquement|
 | Marathi | `mr-IN`|-|-|-|-|
 | Portugais (Brésil) |`pt-BR` |✔| ✔ |✔ |pas toutes les sous-cultures|
-| Espagnol (Mexique)|`es-MX` |-|-|✔|✔|
+| Espagnol (Mexique)|`es-MX` |-|✔|✔|✔|
 | Espagnol (Espagne) |`es-ES` |✔| ✔ |✔|✔|
 | Tamoul | `ta-IN`|-|-|-|-|
 | Télougou | `te-IN`|-|-|-|-|
