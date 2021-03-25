@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: e902f313edf22d75f6b183575c3dc8d0dd94bc1f
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96904752"
 ---
 # <a name="azure-maps-mobility-services-preview-coverage"></a>Couverture du service Mobility d’Azure Maps (préversion)
@@ -154,7 +154,7 @@ Le tableau suivant fournit des informations sur la couverture du service Mobilit
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez comment demander des données de transit à l’aide du service Mobility (préversion) :
+Découvrez comment demander des données de transport public à l’aide du service Mobility (préversion) :
 
 > [!div class="nextstepaction"]
 > [Comment demander des données de transit](how-to-request-transit-data.md)

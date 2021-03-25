@@ -4,10 +4,10 @@ description: Décrit le concept d’étendue dans Azure Resource Manager et comm
 ms.date: 09/22/2020
 ms.topic: conceptual
 ms.openlocfilehash: 83eda330a35b007abfa37046a202b14728726849
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90984428"
 ---
 # <a name="understand-scope-in-azure-policy"></a>Comprendre l’étendue dans Azure Policy

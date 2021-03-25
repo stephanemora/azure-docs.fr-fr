@@ -8,10 +8,10 @@ author: trkeya
 ms.author: trkeya
 ms.date: 10/01/2020
 ms.openlocfilehash: 1d5f2248d94796d5e3ee76301642a95abddebfe4
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94489333"
 ---
 # <a name="customer-leads-from-your-commercial-marketplace-offer"></a>Prospects de votre offre de marketplace commercial
@@ -26,7 +26,7 @@ Les prospects sont des clients intéressés par vos offres sur [Microsoft AppSou
 
 Voici les endroits où les prospects sont générés :
 
-- Un client consent à partager ses informations après avoir sélectionné **Me contacter** sur la Place de marché commerciale. Il s’agit d’un prospect d’ *intérêt initial*. Nous partageons avec vous des informations sur ce client qui a manifesté de l’intérêt pour votre produit. Il constitue la partie supérieure de l’entonnoir d’acquisition.
+- Un client consent à partager ses informations après avoir sélectionné **Me contacter** sur la Place de marché commerciale. Il s’agit d’un prospect d’*intérêt initial*. Nous partageons avec vous des informations sur ce client qui a manifesté de l’intérêt pour votre produit. Il constitue la partie supérieure de l’entonnoir d’acquisition.
 
     ![Me contacter dans Dynamics 365](./media/commercial-marketplace-get-customer-leads/dynamics-365-contact-me.png)
 
@@ -52,7 +52,7 @@ Chaque prospect que vous recevez pendant le processus d’acquisition de clients
 
 **Sources** La valeur de ce champ est renseignée en fonction de la place de marché qui a généré le prospect. Les valeurs possibles sont `"AzureMarketplace"`, `"AzurePortal"` et `"AppSource (SPZA)"`.
 
-**Actions**  : La valeur de ce champ est renseignée en fonction de l’action effectuée par le client sur la Place de marché, qui a généré le prospect.
+**Actions** : La valeur de ce champ est renseignée en fonction de l’action effectuée par le client sur la Place de marché, qui a généré le prospect.
 
 Les valeurs possibles sont les suivantes :
 
@@ -62,7 +62,7 @@ Les valeurs possibles sont les suivantes :
 - **« Create »**  : cette action apparaît uniquement sur le portail Azure et est générée lorsqu’un client achète votre offre sur son compte.
 - **« StartTestDrive »**  : cette action est proposée uniquement pour l’option **Version d’évaluation** et elle est générée quand un client démarre sa version d’évaluation.
 
-**Offres**  : Vous pouvez avoir plusieurs offres sur la Place de marché commerciale. La valeur de ce champ est renseignée en fonction de l’offre qui a généré le prospect. L’ID de serveur de publication et l’ID d’offre sont tous deux envoyés dans ce champ et sont des valeurs que vous avez fournies lors de la publication de l’offre sur la Place de marché.
+**Offres** : Vous pouvez avoir plusieurs offres sur la Place de marché commerciale. La valeur de ce champ est renseignée en fonction de l’offre qui a généré le prospect. L’ID de serveur de publication et l’ID d’offre sont tous deux envoyés dans ce champ et sont des valeurs que vous avez fournies lors de la publication de l’offre sur la Place de marché.
 
 Les exemples suivants présentent des valeurs au format `publisherid.offerid` attendu : 
 
@@ -89,10 +89,10 @@ Les informations du client sont envoyées dans plusieurs champs. L’exemple sui
 
 Voici quelques recommandations pour faire avancer les prospects dans le cycle de vente :
 
-- **Processus**  : Définissez un processus de vente clair, avec des jalons, des analyses et des responsabilités claires dans l’équipe.
-- **Qualification**  : Définissez les conditions préalables qui indiquent si un prospect était pleinement qualifié. Assurez-vous que les représentants commerciaux ou marketing qualifient les prospects avec soins avant de les incorporer dans le processus de vente.
-- **Suivi**  : N’oubliez pas d’effectuer un suivi dans les 24 heures. Le prospect sera intégré au système CRM de votre choix juste après que le client aura déployé la version d’évaluation ; envoyez-lui un e-mail à chaud. Demandez à programmer un appel téléphonique afin de mieux comprendre si votre produit est une bonne solution pour résoudre le problème. Une transaction implique en général de nombreux appels de suivi.
-- **Soins**  : Soignez vos prospects pour bénéficier d’une plus grande marge de profits. Restez en contact avec eux sans les harceler. Nous vous recommandons d’envoyer au moins quelques e-mails aux prospects avant de clore le dossier ; ne renoncez pas après la première tentative. N’oubliez pas que ces clients ont passé du temps à tester votre produit dans le cadre d’un essai gratuit : ce sont d’excellents prospects.
+- **Processus** : Définissez un processus de vente clair, avec des jalons, des analyses et des responsabilités claires dans l’équipe.
+- **Qualification** : Définissez les conditions préalables qui indiquent si un prospect était pleinement qualifié. Assurez-vous que les représentants commerciaux ou marketing qualifient les prospects avec soins avant de les incorporer dans le processus de vente.
+- **Suivi** : N’oubliez pas d’effectuer un suivi dans les 24 heures. Le prospect sera intégré au système CRM de votre choix juste après que le client aura déployé la version d’évaluation ; envoyez-lui un e-mail à chaud. Demandez à programmer un appel téléphonique afin de mieux comprendre si votre produit est une bonne solution pour résoudre le problème. Une transaction implique en général de nombreux appels de suivi.
+- **Soins** : Soignez vos prospects pour bénéficier d’une plus grande marge de profits. Restez en contact avec eux sans les harceler. Nous vous recommandons d’envoyer au moins quelques e-mails aux prospects avant de clore le dossier ; ne renoncez pas après la première tentative. N’oubliez pas que ces clients ont passé du temps à tester votre produit dans le cadre d’un essai gratuit : ce sont d’excellents prospects.
 
 Une fois les paramètres techniques configurés, incorporez ces prospects à votre stratégie commerciale et marketing, ainsi qu’à vos processus opérationnels actuels. Nous cherchons à mieux comprendre votre processus de vente global. C’est pourquoi nous tenons à travailler en étroite collaboration avec vous pour vous apporter des prospects de qualité et des données en quantité suffisante pour garantir votre réussite. Nous apprécions vos commentaires sur la façon dont nous pouvons optimiser et améliorer les prospects que nous vous envoyons, accompagnés de toutes les données nécessaires pour assurer la réussite de ces clients. Faites-nous savoir si vous souhaitez nous [communiquer vos commentaires](mailto:AzureMarketOnboard@microsoft.com) et suggestions pour permettre à votre équipe commerciale de mieux exploiter les prospects de la Place de marché commerciale.
 

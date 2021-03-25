@@ -9,10 +9,10 @@ ms.custom: subject-armqs
 ms.author: danlep
 ms.date: 10/06/2020
 ms.openlocfilehash: 97b556e0329644b973def8333ddb5e70e370b0bc
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91827007"
 ---
 # <a name="quickstart-create-a-geo-replicated-container-registry-by-using-an-arm-template"></a>Démarrage rapide : Créer un registre de conteneurs géorépliqué à l’aide d’un modèle Resource Manager
@@ -65,7 +65,7 @@ Vous trouverez d’autres exemples de modèles Azure Container Registry dans la 
 
 1. Une fois le registre créé avec succès, vous recevez une notification :
 
-     :::image type="content" source="media/container-registry-get-started-geo-replication-template/deployment-notification.png" alt-text="Propriétés du modèle":::
+     :::image type="content" source="media/container-registry-get-started-geo-replication-template/deployment-notification.png" alt-text="Notification du portail":::
 
  Le portail Azure est utilisé pour déployer le modèle. Outre le portail Azure, vous pouvez utiliser Azure PowerShell, l’interface Azure CLI et l’API REST. Pour découvrir d’autres méthodes de déploiement, consultez [Déployer des modèles](../azure-resource-manager/templates/deploy-cli.md).
 
@@ -77,11 +77,11 @@ Utilisez le portail Azure ou un outil tel que l’interface de ligne de commande
 
 1. Sur la page **Vue d’ensemble**, notez le **serveur de connexion** du registre. Utilisez cet URI quand vous utilisez Docker pour étiqueter et envoyer (push) des images à votre registre. Pour plus d’informations,consultez [Transmettre votre première image à l’aide de l’interface de ligne de commande (CLI) Docker](container-registry-get-started-docker-cli.md).
 
-    :::image type="content" source="media/container-registry-get-started-geo-replication-template/registry-overview.png" alt-text="Propriétés du modèle":::
+    :::image type="content" source="media/container-registry-get-started-geo-replication-template/registry-overview.png" alt-text="Vue d’ensemble du registre":::
 
 1. Sur la page **Réplications**, vérifiez les emplacements du réplica de base et du réplica ajouté par le biais du modèle. Si vous le souhaitez, ajoutez des réplicas sur cette page.
 
-    :::image type="content" source="media/container-registry-get-started-geo-replication-template/registry-replications.png" alt-text="Propriétés du modèle":::
+    :::image type="content" source="media/container-registry-get-started-geo-replication-template/registry-replications.png" alt-text="Réplications du registre":::
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
@@ -99,4 +99,4 @@ Dans le cadre de ce guide de démarrage rapide, vous avez créé un registre Azu
 Pour obtenir un tutoriel pas à pas vous guidant tout au long du processus de création d’un modèle, consultez :
 
 > [!div class="nextstepaction"]
-> Créer et déployer votre premier modèle Resource Manager[
+> [Tutoriel : Créer et déployer votre premier modèle Resource Manager](../azure-resource-manager/templates/template-tutorial-create-first-template.md)

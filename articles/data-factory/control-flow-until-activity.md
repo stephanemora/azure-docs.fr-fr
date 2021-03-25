@@ -3,16 +3,16 @@ title: Activité Until dans Azure Data Factory
 description: L’activité Until exécute un ensemble d’activités dans une boucle jusqu’à ce que la condition associée à l’activité retourne la valeur true ou expire.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 6431321d788e7311e076d302173ffffb96e07876
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 2ac5474f1b20e409da01c531ef13060e72fd548c
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100385368"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104786122"
 ---
 # <a name="until-activity-in-azure-data-factory"></a>Activité Until dans Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -244,7 +244,7 @@ Le pipeline définit **folderPath** sur la valeur de paramètre **outputPath1** 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Ces commandes supposent que vous avez enregistré les fichiers JSON dans le dossier C:\ADF. 
+Ces commandes supposent que vous avez enregistré les fichiers JSON dans le dossier : C:\ADF. 
 
 ```powershell
 Connect-AzAccount

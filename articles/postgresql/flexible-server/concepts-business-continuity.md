@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.openlocfilehash: 341d3c6f0a2d84c2b7b725959db9f7e5dd80d3ff
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92542962"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql---flexible-server"></a>Vue d’ensemble de la continuité d’activité dans Azure Database pour PostgreSQL – Serveur flexible
@@ -50,7 +50,7 @@ Voici quelques scénarios de maintenance planifiée. Ces événements occasionne
 | <b>Déploiement de nouveaux logiciels (initiés par Azure) | Le déploiement de nouvelles fonctionnalités ou les corrections de bogues se produisent automatiquement dans le cadre de la maintenance planifiée du service, et vous pouvez planifier le moment auquel ces activités se produisent. Pour plus d’informations, consultez votre [portail](https://aka.ms/servicehealthpm). | 
 | <b>Mises à niveau de version mineure (initiées par Azure) | Le service Azure Database pour PostgreSQL opère automatiquement la mise à niveau des serveurs de base de données vers la version mineure déterminée par Azure. Cela se produit dans le cadre de la maintenance planifiée du service. Le serveur de base de données est redémarré automatiquement avec la nouvelle version mineure. Pour plus d’informations, consultez la [documentation](../concepts-monitoring.md#planned-maintenance-notification). Vous pouvez également consulter votre [portail](https://aka.ms/servicehealthpm).| 
 
- Lorsque le serveur flexible est configuré avec une **haute disponibilité redondante interzone** , ils commence par effectuer les opérations de mise à l’échelle et de maintenance sur le serveur de secours. Pour plus d’informations, consultez [Concepts – Haute disponibilité](./concepts-high-availability.md).
+ Lorsque le serveur flexible est configuré avec une **haute disponibilité redondante interzone**, ils commence par effectuer les opérations de mise à l’échelle et de maintenance sur le serveur de secours. Pour plus d’informations, consultez [Concepts – Haute disponibilité](./concepts-high-availability.md).
 
 ##  <a name="unplanned-downtime-mitigation"></a>Réduction des temps d’arrêt non planifiés
 

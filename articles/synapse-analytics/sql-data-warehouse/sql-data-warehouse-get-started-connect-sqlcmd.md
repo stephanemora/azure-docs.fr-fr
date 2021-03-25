@@ -1,6 +1,6 @@
 ---
 title: Se connecter avec sqlcmd
-description: Utilisez l’utilitaire de ligne de commande sqlcmd pour établir une connexion avec un pool SQL Synapse et l’interroger.
+description: Utilisez l’utilitaire en ligne de commande sqlcmd pour vous connecter et interroger un pool SQL dédié dans Azure Synapse Analytics.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,14 +11,14 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 3d1d8d3ce3afece5a979aadc27cd82dc7ddaf0d5
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: f8b4d54585bc70c3ee5f24846e216f75e985cf84
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98676224"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101675726"
 ---
-# <a name="connect-to-sql-pool-in-azure-synapse-analytics-with-sqlcmd"></a>Se connecter à un pool SQL dans Azure Synapse Analytics avec sqlcmd
+# <a name="connect-to-a-dedicated-sql-pool-in-azure-synapse-analytics-with-sqlcmd"></a>Se connecter à un pool SQL dédié dans Azure Synapse Analytics à l’aide de sqlcmd
 
 > [!div class="op_single_selector"]
 >
@@ -28,15 +28,15 @@ ms.locfileid: "98676224"
 > * [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
 > * [SSMS](sql-data-warehouse-query-ssms.md)
 
-Utilisez l’utilitaire de ligne de commande [sqlcmd][sqlcmd] pour établir une connexion avec un pool SQL et l’interroger.  
+Utilisez l’utilitaire en ligne de commande [sqlcmd][sqlcmd] pour vous connecter et interroger un pool SQL dédié.  
 
 ## <a name="1-connect"></a>1. Se connecter
 
-Pour commencer à utiliser [sqlcmd][sqlcmd], ouvrez l’invite de commandes et entrez **sqlcmd** suivi de la chaîne de connexion pour votre pool SQL. La chaîne de connexion requiert les paramètres suivants :
+Pour commencer à utiliser [sqlcmd][sqlcmd], ouvrez l’invite de commandes et entrez **sqlcmd** suivi de la chaîne de connexion de votre pool SQL dédié. La chaîne de connexion requiert les paramètres suivants :
 
 * **Serveur (-S) :** Serveur, sous la forme `<`Nom_serveur`>`.database.windows.net
-* **Base de données (-d) :** nom du pool SQL.
-* **Activer les identificateurs entre guillemets (-I) :** Les identificateurs entre guillemets doivent être activés pour permettre la connexion à une instance de pool SQL.
+* **Base de données (-d) :** nom du pool SQL dédié.
+* **Activer les identificateurs entre guillemets (-I) :** les identificateurs entre guillemets doivent être activés pour permettre la connexion à une instance du pool SQL dédié.
 
 Pour utiliser l’authentification SQL Server, vous devez ajouter les paramètres de nom d’utilisateur/mot de passe :
 

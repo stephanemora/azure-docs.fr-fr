@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.openlocfilehash: f666cc2f9d11b1e05d11ba266897e6fca3cd287e
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92057618"
 ---
 # <a name="debug-sessions-in-azure-cognitive-search"></a>Sessions de débogage dans Recherche cognitive Azure
@@ -51,7 +51,7 @@ L’affichage du **graphe des compétences** fournit une représentation visuell
 
 Sélectionner une compétence dans le graphique mettra en surbrillance les compétences qui y sont connectées, les nœuds qui créent ses entrées et ceux qui acceptent ses sorties. Le type, les erreurs ou avertissements ainsi que le nombre d’exécutions de chaque nœud de compétence apparaissent. Le **graphique des compétence** vous permet de sélectionner les compétences à déboguer ou améliorer. Lorsque vous sélectionnez une compétence, les informations la concernant sont affichées dans le volet d’information de la compétence à droite du graphique.
 
-> :::image type="content" source="media/cognitive-search-debug/skills-graph.png" alt-text="Création d’une session de débogage":::
+> :::image type="content" source="media/cognitive-search-debug/skills-graph.png" alt-text="Graphique des compétences":::
 
 ## <a name="skill-details"></a>Détails de la compétence
 
@@ -73,7 +73,7 @@ Lors de la création d’une compétence personnalisée ou du débogage d’une 
 
 Le volet **Structure de données enrichie** montre les enrichissements du document via l’ensemble de compétences, en détaillant le contexte et la compétence d’origine pour chaque enrichissement. **L’évaluateur d’expression** peut également servir à afficher le contenu de chaque enrichissement.
 
-> :::image type="content" source="media/cognitive-search-debug/enriched-data-structure-display.png" alt-text="Création d’une session de débogage":::
+> :::image type="content" source="media/cognitive-search-debug/enriched-data-structure-display.png" alt-text="Structure de données enrichie":::
 
 ## <a name="expression-evaluator"></a>Évaluateur d’expression
 

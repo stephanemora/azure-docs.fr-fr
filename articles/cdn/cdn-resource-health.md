@@ -15,10 +15,10 @@ ms.workload: integration
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 81c92b6ef5bdf89391364bc238f55200eb3679f6
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92778170"
 ---
 # <a name="monitor-the-health-of-azure-cdn-resources"></a>Surveiller l’intégrité des ressources CDN Azure
@@ -38,12 +38,12 @@ Azure CDN Resource Health est un sous-ensemble [d’Azure Resource Health](../se
 
     ![Bouton Paramètres](./media/cdn-resource-health/cdn-profile-settings.png)
 
-3. Sous *Support + dépannage* , cliquez sur **Intégrité des ressources** .
+3. Sous *Support + dépannage*, cliquez sur **Intégrité des ressources**.
 
     ![Intégrité des ressources CDN](./media/cdn-resource-health/cdn-resource-health3.png)
 
 >[!TIP] 
->Vous pouvez également rechercher les ressources CDN répertoriées dans la vignette *Intégrité des ressources* du panneau *Aide + support* .  Pour accéder rapidement à *Aide + support* , cliquez sur le point d’interrogation **?** entouré d’un cercle dans l’angle supérieur droit du portail.
+>Vous pouvez également rechercher les ressources CDN répertoriées dans la vignette *Intégrité des ressources* du panneau *Aide + support*.  Pour accéder rapidement à *Aide + support*, cliquez sur le point d’interrogation **?** entouré d’un cercle dans l’angle supérieur droit du portail.
 >
 > ![Aide + Support](./media/cdn-resource-health/cdn-help-support.png)
 

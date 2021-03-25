@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.custom: mvc
 ms.openlocfilehash: 1ac418d855696138341115412dc7e2601d4cf3a1
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91961406"
 ---
 # <a name="manage-an-azure-database-for-postgresql---flexible-server-using-the-azure-portal"></a>Gérer un serveur flexible Azure Database pour PostgreSQL à l’aide du portail Azure
@@ -52,7 +52,7 @@ Vous pouvez modifier le mot de passe du rôle d’administrateur à l’aide du 
 2. Entrez un nouveau mot de passe et confirmez-le. La zone de texte vous indique les exigences en matière de complexité du mot de passe.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/howto-manage-server-portal/reset-password.png" alt-text="mise à l’échelle du stockage du serveur flexible":::
+> :::image type="content" source="./media/howto-manage-server-portal/reset-password.png" alt-text="réinitialiser le mot de passe du serveur flexible":::
 
 3. Sélectionnez **Enregistrer** pour enregistrer le nouveau mot de passe.
 
@@ -63,7 +63,7 @@ Vous pouvez supprimer votre serveur si vous n’en avez plus besoin.
 1. Dans le Portail Azure, sélectionnez votre serveur. Dans la fenêtre **Vue d’ensemble**, sélectionnez **Supprimer**.
 2. Tapez le nom du serveur dans la zone d’entrée pour confirmer que vous voulez supprimer le serveur.
 
-   :::image type="content" source="./media/howto-manage-server-portal/delete-server.png" alt-text="mise à l’échelle du stockage du serveur flexible":::
+   :::image type="content" source="./media/howto-manage-server-portal/delete-server.png" alt-text="supprimer le serveur flexible":::
 
    > [!IMPORTANT]
    > La suppression d’un serveur est irréversible.

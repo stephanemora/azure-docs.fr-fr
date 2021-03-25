@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
 ms.openlocfilehash: aa9215fa001fb117000eb6a68867ddd46fac9b92
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92780323"
 ---
 # <a name="general-guidance-for-working-with-wingtip-tickets-sample-saas-apps"></a>Conseils généraux pour utiliser des exemples d'applications Wingtip Tickets SaaS
@@ -25,20 +25,20 @@ Cet article contient des conseils généraux sur l'exécution d'exemples d'appli
 
 ## <a name="download-and-unblock-the-wingtip-tickets-saas-scripts"></a>Télécharger et débloquer les scripts Wingtip Tickets SaaS
 
-Le contenu exécutable (scripts, DLL) peut être bloqué par Windows lorsque des fichiers zip sont téléchargés à partir d’une source externe puis extraits. Lorsque vous extrayez les scripts d’un fichier zip, **suivez les étapes ci-dessous pour débloquer le fichier .zip avant l’extraction** . Cela garantit que les scripts sont autorisés à s’exécuter.
+Le contenu exécutable (scripts, DLL) peut être bloqué par Windows lorsque des fichiers zip sont téléchargés à partir d’une source externe puis extraits. Lorsque vous extrayez les scripts d’un fichier zip, **suivez les étapes ci-dessous pour débloquer le fichier .zip avant l’extraction**. Cela garantit que les scripts sont autorisés à s’exécuter.
 
 1. Accédez au référentiel GitHub Wingtip Tickets SaaS pour connaître le modèle de client de base de données à explorer :
     - [WingtipTicketsSaaS-StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp)
     - [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant)
     - [WingtipTicketsSaaS-MultiTenantDb](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDb)
-2. Cliquez sur **Cloner ou télécharger** .
+2. Cliquez sur **Cloner ou télécharger**.
 3. Cliquez sur **Télécharger ZIP** et enregistrez le fichier.
-4. Cliquez avec le bouton droit sur le fichier zip et sélectionnez **Propriétés** . Le nom du fichier zip représentera le nom du référentiel. (ex. _WingtipTicketsSaaS-DbPerTenant-master.zip_ )
-5. Sous l’onglet **Général** , sélectionnez **Débloquer** .
-6. Cliquez sur **OK** .
+4. Cliquez avec le bouton droit sur le fichier zip et sélectionnez **Propriétés**. Le nom du fichier zip représentera le nom du référentiel. (ex. _WingtipTicketsSaaS-DbPerTenant-master.zip_)
+5. Sous l’onglet **Général**, sélectionnez **Débloquer**.
+6. Cliquez sur **OK**.
 7. Procédez à l’extraction des fichiers.
 
-Les scripts se trouvent dans le dossier *..\\Learning Modules* .
+Les scripts se trouvent dans le dossier *..\\Learning Modules*.
 
 
 ## <a name="working-with-the-wingtip-tickets-powershell-scripts"></a>Utilisation des scripts PowerShell de Wingtip Tickets
@@ -49,7 +49,7 @@ Pour tirer le meilleur parti de l’exemple, vous devez approfondir les scripts 
 
 Modifiez le fichier **UserConfig.psm1** avec le groupe de ressources et la valeur utilisateur que vous avez définis durant le déploiement :
 
-1. Ouvrez le *PowerShell ISE* puis chargez...\\Learning Modules\\*UserConfig.psm1* .
+1. Ouvrez le *PowerShell ISE* puis chargez...\\Learning Modules\\*UserConfig.psm1*.
 2. Mettez à jour *ResourceGroupName* et *Name* avec les valeurs spécifiques à votre déploiement (lignes 10 et 11 uniquement).
 3. Enregistrez les modifications !
 
@@ -57,7 +57,7 @@ La définition de ces valeurs ici vous évite simplement d’avoir à mettre à 
 
 ### <a name="execute-the-scripts-by-pressing-f5"></a>Exécuter les scripts en appuyant sur F5
 
-Plusieurs scripts utilisent *$PSScriptRoot* pour parcourir les dossiers, et *$PSScriptRoot* est évalué uniquement lors de l’exécution de scripts en appuyant sur **F5** .    La mise en surbrillance et l’exécution d’une sélection ( **F8** ) pouvant entraîner des erreurs, appuyez sur **F5** lors de l’exécution des scripts.
+Plusieurs scripts utilisent *$PSScriptRoot* pour parcourir les dossiers, et *$PSScriptRoot* est évalué uniquement lors de l’exécution de scripts en appuyant sur **F5**.    La mise en surbrillance et l’exécution d’une sélection (**F8**) pouvant entraîner des erreurs, appuyez sur **F5** lors de l’exécution des scripts.
 
 ### <a name="step-through-the-scripts-to-examine-the-implementation"></a>Parcourir les scripts pour examiner l’implémentation
 
@@ -67,10 +67,10 @@ Conseils pour l’exploration et le parcours des scripts PowerShell :
 
 - Ouvrez les scripts **Demo-** dans le PowerShell ISE.
 - Exécutez ou continuez à exécuter le script à l’aide de la touche **F5** (l’utilisation de la touche **F8** n’est pas conseillée, car *$PSScriptRoot* n’est pas évalué lors de l’exécution des sélections d’un script).
-- Placez des points d’arrêt en cliquant ou en sélectionnant une ligne et en appuyant sur **F9** .
-- Survolez l’appel d’une fonction ou d’un script à l’aide de la touche **F10** .
-- Parcourez l’appel d’une fonction ou d’un script à l’aide de la touche **F11** .
-- Sortez de l’appel actuel d’une fonction ou d’un script en appuyant sur **MAJ + F11** .
+- Placez des points d’arrêt en cliquant ou en sélectionnant une ligne et en appuyant sur **F9**.
+- Survolez l’appel d’une fonction ou d’un script à l’aide de la touche **F10**.
+- Parcourez l’appel d’une fonction ou d’un script à l’aide de la touche **F11**.
+- Sortez de l’appel actuel d’une fonction ou d’un script en appuyant sur **MAJ + F11**.
 
 
 ## <a name="explore-database-schema-and-execute-sql-queries-using-ssms"></a>Explorez le schéma de base de données et exécutez des requêtes SQL à l’aide de SSMS
@@ -87,16 +87,16 @@ Pour garantir une connexion de démonstration réussie, tous serveurs ont une [r
 
 
 1. Ouvrez *SSMS* et connectez-vous aux clients. Le nom du serveur dépend du modèle de client de base de données que vous avez sélectionné (voir ci-dessous pour plus les détails) :
-    - **Application autonome :** serveurs avec des clients individuels (ex. *contosoconcerthall-&lt;Utilisateur&gt;.database.windows.net* )
+    - **Application autonome :** serveurs avec des clients individuels (ex. *contosoconcerthall-&lt;Utilisateur&gt;.database.windows.net*)
     - **Base de données par locataire :** *tenants1-dpt-&lt;Utilisateur&gt;.database.windows.net*
     - **Base de données multilocataire :** *tenants1-mt-&lt;Utilisateur&gt;.database.windows.net*
 2. Cliquez sur **Connexion** > **Moteur de base de données...**  :
 
    ![catalog server](./media/saas-tenancy-wingtip-app-guidance-tips/connect.png)
 
-3. Les informations d’identification de démonstration sont : Connexion = *developer* , Mot de passe = *P\@ssword1*
+3. Les informations d’identification de démonstration sont : Connexion = *developer*, Mot de passe = *P\@ssword1*
 
-    L'image ci-dessous montre l'ouverture d'une session pour le modèle *Base de données par client* .
+    L'image ci-dessous montre l'ouverture d'une session pour le modèle *Base de données par client*.
     ![connection](./media/saas-tenancy-wingtip-app-guidance-tips/tenants1-connect.png)
 
 
@@ -109,7 +109,7 @@ Pour garantir une connexion de démonstration réussie, tous serveurs ont une [r
 
 Une fois la connexion établie, vous devez voir tous les serveurs. Votre liste des bases de données peut être différente, selon les clients que vous avez approvisionnés.
 
-L'image ci-dessous montre l'ouverture d'une session pour le modèle *Base de données par client* .
+L'image ci-dessous montre l'ouverture d'une session pour le modèle *Base de données par client*.
 
 ![object explorer](./media/saas-tenancy-wingtip-app-guidance-tips/object-explorer.png)
 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/31/2017
 ms.author: alkohli
 ms.openlocfilehash: 15c35fb314af27b1ced129a12f752d0a2794e0f8
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91949902"
 ---
 # <a name="use-the-storsimple-manager-service-to-manage-access-control-records"></a>Utiliser le service StorSimple Manager pour gérer les enregistrements de contrôle d’accès
@@ -91,7 +91,7 @@ Effectuez les opérations suivantes pour modifier un enregistrement de contrôle
 
     ![Modifier des enregistrements de contrôle d’accès 2](./media/storsimple-8000-manage-acrs/editacr2.png)
 
-4. Cliquez sur **Enregistrer**. Cliquez sur **Oui**lorsque vous êtes invité à confirmer l’opération. 
+4. Cliquez sur **Enregistrer**. Cliquez sur **Oui** lorsque vous êtes invité à confirmer l’opération. 
 
     ![Modifier des enregistrements de contrôle d’accès 3](./media/storsimple-8000-manage-acrs/editacr3.png)
 

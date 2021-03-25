@@ -4,10 +4,10 @@ description: Vous pouvez utiliser Azure Data Box pour amorcer des données de sa
 ms.topic: conceptual
 ms.date: 08/12/2020
 ms.openlocfilehash: 1cfd9131099ad6a8ccd3d43e93f3d97641514f03
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96752547"
 ---
 # <a name="offline-seeding-using-azure-data-box-for-dpm-and-mabs-preview"></a>Amorçage hors connexion à l’aide d’Azure Data Box pour DPM et MABS (préversion)
@@ -30,8 +30,8 @@ La sauvegarde hors connexion basée sur Azure Data Box offre deux avantages dist
 
 Les plateformes suivantes sont prises en charge :
 
-- Windows Server 2019 64 bits (Standard, Datacenter, Essentials)
-- Windows Server 2016 64 bits (Standard, Datacenter, Essentials)
+- Windows Server 2019 64 bits (Standard, Datacenter, Essentials)
+- Windows Server 2016 64 bits (Standard, Datacenter, Essentials)
 
 ## <a name="backup-data-size-and-supported-data-box-skus"></a>Taille des données de sauvegarde et SKU Data Box prises en charge
 
@@ -39,10 +39,10 @@ Les SKU Data Box suivants sont pris en charge :
 
 | Taille des données de sauvegarde (après compression par MARS)\* par serveur | SKU Azure Data Box pris en charge |
 | --- | --- |
-| \<= 7,2 To | [Azure Data Box Disk](../databox/data-box-disk-overview.md) |
-| > 7,2 To et <= 80 To\*\* | [Azure Data Box (100 To)](../databox/data-box-overview.md) |
+| \<= 7,2 To | [Azure Data Box Disk](../databox/data-box-disk-overview.md) |
+| > 7,2 To et <= 80 To\*\* | [Azure Data Box (100 To)](../databox/data-box-overview.md) |
 
-\*Les taux de compression habituels varient entre 10 et 20 % <br>
+\*Les taux de compression typiques varient de 10 à 20 % <br>
 \*\*Contactez [SystemCenterFeedback@microsoft.com](mailto:SystemCenterFeedback@microsoft.com) si vous prévoyez plus de 80 To de données de sauvegarde initiales pour une seule source de données.
 
 > [!IMPORTANT]
@@ -112,19 +112,19 @@ Spécifiez une autre source : *WIM:D:\Sources\Install.wim:4*
 
 1. Sur votre serveur DPM/MABS, suivez les étapes pour [créer un groupe de protection](/system-center/dpm/create-dpm-protection-groups). Si vous ajoutez une protection en ligne au groupe de protection existant, cliquez avec le bouton droit sur le groupe de protection existant, puis sélectionnez **Ajouter une de protection en ligne** et commencez à partir de **l’étape 8**.
 2. Dans la page **Sélectionner les membres du groupe**, spécifiez les ordinateurs et sources que vous souhaitez sauvegarder.
-3. Dans la page **Sélectionner la méthode de protection des données**, spécifiez la façon dont vous souhaitez gérer les sauvegardes à court terme et à long terme. Veillez à sélectionner **Je voudrais une protection en ligne.**
+3. Dans la page **Sélectionner la méthode de protection des données**, indiquez comment vous souhaitez gérer la sauvegarde à court terme et à long terme. Veillez à sélectionner **Je voudrais une protection en ligne**.
 
-   ![Création d'un nouveau groupe de protection](./media/offline-backup-azure-data-box-dpm-mabs/create-new-protection-group.png)
+   ![Créer un groupe de protection](./media/offline-backup-azure-data-box-dpm-mabs/create-new-protection-group.png)
 
-4. Dans la page **Sélectionner les objectifs à court terme**, spécifiez la manière dont vous voulez sauvegarder dans le stockage à court terme sur disque.
-5. Dans la page **Vérifier l’allocation de disque**, vérifiez l’espace disque de pool de stockage alloué pour le groupe de protection.
-6. Dans la page **Choisir la méthode de création de réplica**, sélectionnez **Automatiquement sur le réseau.**
+4. Dans la page **Sélectionner les objectifs à court terme**, indiquez comment vous voulez sauvegarder dans le stockage à court terme sur le disque.
+5. Dans la page **Vérifier l’allocation de disque**, consultez l’espace disque du pool de stockage alloué au groupe de protection.
+6. Dans la page **Choisir la méthode de création de réplica**, sélectionnez **Automatiquement sur le réseau**.
 7. Dans la page **Sélectionner les options de vérification de cohérence**, indiquez comment vous voulez automatiser les vérifications de cohérence.
 8. Dans la page **Indiquer les données de protection en ligne**, sélectionnez le membre pour lequel vous souhaitez activer la protection en ligne.
 
     ![Spécifier les données de protection en ligne](./media/offline-backup-azure-data-box-dpm-mabs/specify-online-protection-data.png)
 
-9. Dans la page **Spécifier la planification de sauvegarde en ligne**, indiquez la fréquence à laquelle doivent avoir lieu les sauvegardes incrémentielles dans Azure.
+9. Dans la page **Spécifier une planification de sauvegarde en ligne**, spécifiez la fréquence des sauvegardes incrémentielles sur Azure.
 10. Dans la page **Spécifier une stratégie de rétention en ligne**, vous pouvez préciser la façon dont les points de récupération créés à partir des sauvegardes quotidiennes, hebdomadaires, mensuelles et annuelles sont conservés dans Azure.
 11. Dans l’écran **Choisir la réplication en ligne** de l’assistant, choisissez l’option **Transférer à l’aide de disques appartenant à Microsoft**, puis sélectionnez **Suivant**.
 
@@ -169,7 +169,7 @@ Spécifiez une autre source : *WIM:D:\Sources\Install.wim:4*
 
     ![Détecter le Data Box](./media/offline-backup-azure-data-box-dpm-mabs/detect-databox.png)
 
-    L’écran suivant confirme que le groupe de protection a été créé avec succès.
+    L’écran suivant confirme que le groupe de protection a bien été créé.
 
     ![Groupe de protection créé](./media/offline-backup-azure-data-box-dpm-mabs/protection-group-created.png)
 
@@ -191,9 +191,9 @@ Spécifiez une autre source : *WIM:D:\Sources\Install.wim:4*
 
 ## <a name="post-backup-steps"></a>Étapes à l’issue de la sauvegarde
 
-Procédez comme suit une fois que la sauvegarde des données sur Azure Data Box Disk est réussie.
+Effectuez ces étapes une fois que la sauvegarde des données sur l’Azure Data Box Disk a réussi.
 
-- Suivez les étapes décrites dans cet article pour [expédier le disque Azure Data Box à Azure](../databox/data-box-disk-deploy-picked-up.md). Si vous avez utilisé un appareil Azure Data Box de 100 To, effectuez ces étapes pour [expédier le disque Azure Data Box à Azure](../databox/data-box-deploy-picked-up.md).
+- Effectuez les étapes décrites dans [cet article](../databox/data-box-disk-deploy-picked-up.md) pour expédier le disque Azure Data Box à Azure. Si vous avez utilisé un appareil Azure Data Box de 100 To, effectuez [ces étapes](../databox/data-box-deploy-picked-up.md) pour expédier l’Azure Data Box à Azure.
 - [Supervisez le travail Data Box](../databox/data-box-disk-deploy-upload-verify.md) dans le portail Azure. Une fois le travail Azure Data Box *effectué*, le serveur DPM/MABS déplace automatiquement les données du compte de stockage vers le coffre Recovery Services au moment de la sauvegarde planifiée suivante. Le travail de sauvegarde est alors marqué comme *Travail effectué* si un point de récupération a correctement été créé.
 
   > [!NOTE]
@@ -213,7 +213,7 @@ Au moment de la configuration de la sauvegarde hors connexion, en raison d’un 
 
 ### <a name="verify-if-the-issue-is-caused-by-this-specific-root-cause"></a>Vérifier si le problème est provoqué par cette cause racine spécifique
 
-Pour vérifier que cette défaillance est due au [problème](#issue) ci-dessus, effectuez l’une des étapes suivantes :
+Pour vous assurer que l’échec est dû au [problème](#issue) ci-dessus, effectuez l’une des opérations suivantes :
 
 #### <a name="step-1"></a>Étape 1
 
@@ -223,7 +223,7 @@ Vérifiez si vous voyez le message d’erreur suivant dans la console DPM/MABS a
 
 #### <a name="step-2"></a>Étape 2
 
-1. Ouvrez le dossier **temp** dans le chemin d’installation (le chemin du dossier temporaire par défaut est *C:\Program Files\Microsoft Azure Recovery Services Agent\Temp*. Recherchez le fichier *CBUICurr* et ouvrez-le.
+1. Ouvrez le dossier **Temp** dans le chemin d’installation (le chemin par défaut du dossier temporaire est *C:\Program Files\Microsoft Azure Recovery Services Agent\Temp*). Recherchez le fichier *CBUICurr* et ouvrez-le.
 2. Dans le fichier *CBUICurr*, faites défiler jusqu’à la dernière ligne et vérifiez si l’échec est dû à l’erreur « Impossible de créer des informations d’identification d’application Azure AD dans le compte du client. Exception : La mise à jour des informations d’identification existantes avec le KeyId \<some guid> n’est pas autorisée ».
 
 ### <a name="workaround"></a>Solution de contournement
@@ -244,18 +244,18 @@ Pour résoudre ce problème, effectuez les étapes suivantes et réessayez de co
 
 1. Ouvrez l’onglet **Gérer l’application de certificat d’ordinateur** > **Personnel** et recherchez le certificat portant le nom `CB_AzureADCertforOfflineSeeding_<ResourceId>`.
 2. Sélectionnez le certificat ci-dessus, cliquez avec le bouton droit sur **Toutes les tâches** et **exportez**-le sans clé privée, au format .cer.
-3. Accédez à l’application de sauvegarde hors connexion Azure mentionnée au **point 2**. Dans **Paramètres** > **Clés** > **Charger une clé publique**, chargez le certificat exporté à l’étape précédente.
+3. Accédez à l’application de sauvegarde hors connexion Azure mentionnée au **point 2**. Dans **Paramètres** > **Clés** > **Télécharger la clé publique**, chargez le certificat exporté à l’étape précédente.
 
    ![Charger des clés publiques](./media/offline-backup-azure-data-box-dpm-mabs/upload-public-keys.png)
 
 4. Sur le serveur, ouvrez le Registre en tapant **regedit** dans la fenêtre **Exécuter**.
-5. Accédez au Registre *Computer\HKEY\_LOCAL\_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider*. Cliquez avec le bouton droit sur **CloudBackupProvider** et ajoutez une nouvelle valeur de chaîne portant le nom `AzureADAppCertThumbprint_<Azure User Id>`.
+5. Accédez au Registre *Computer\HKEY\_LOCAL\_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider*. Cliquez avec le bouton droit sur **CloudBackupProvider** et ajoutez une nouvelle valeur de chaîne nommée `AzureADAppCertThumbprint_<Azure User Id>`.
 
     >[!NOTE]
     > Pour récupérer l’identifiant utilisateur Azure, effectuez l’une des actions suivantes :
     >
     >- À partir du PowerShell connecté à Azure, exécutez la commande `Get-AzureRmADUser -UserPrincipalName "Account Holder's email as defined in the portal"`.
-    > - Accédez au chemin du Registre `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\DbgSettings\OnlineBackup` portant le nom *CurrentUserId*.
+    > - Accédez au chemin du Registre `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\DbgSettings\OnlineBackup` avec le nom *CurrentUserId*.
 
 6. Cliquez avec le bouton droit sur la chaîne ajoutée à l’étape ci-dessus, puis sélectionnez **Modifier**. Dans la valeur, fournissez l’empreinte du certificat que vous avez exporté au **point 2**, puis sélectionnez **OK**.
 7. Pour obtenir la valeur de l’empreinte, double-cliquez sur le certificat, sélectionnez **Détails** et faites défiler le contenu jusqu’à ce que le champ de l’empreinte apparaisse. Sélectionnez **Empreinte** et copiez la valeur.
@@ -264,4 +264,4 @@ Pour résoudre ce problème, effectuez les étapes suivantes et réessayez de co
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Amorçage hors connexion à l’aide de votre propre disque (à l’aide du service Azure Import/Export)](backup-azure-backup-server-import-export.md)
+- [Amorçage hors connexion à l’aide de son propre disque (à l’aide du service Azure Import/Export)](backup-azure-backup-server-import-export.md)

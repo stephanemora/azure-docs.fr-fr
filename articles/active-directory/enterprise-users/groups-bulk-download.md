@@ -14,10 +14,10 @@ ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 98c61679fed04c0a696b60bb7ee53009a8a530e0
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96547676"
 ---
 # <a name="bulk-download-a-list-of-groups-in-azure-active-directory"></a>Télécharger une liste de groupes par lot dans Azure Active Directory
@@ -34,9 +34,9 @@ ms.locfileid: "96547676"
 
 ## <a name="check-download-status"></a>Vérifier l’état du téléchargement
 
-Pour connaître l'état de toutes vos demandes d'opération en bloc en attente, consultez la page **Résultats de l'opération en bloc**.
+Vous pouvez voir l’état de toutes vos demandes d’opération en bloc en attente dans la page **Résultats de l’opération en bloc**.
 
-[![Check status in the Bulk Operations Results page.](./media/groups-bulk-download/bulk-center.png)](./media/groups-bulk-download/bulk-center.png#lightbox)
+[![Vérifier l'état sur la page Résultats des opérations en bloc.](./media/groups-bulk-download/bulk-center.png)](./media/groups-bulk-download/bulk-center.png#lightbox)
 
 ## <a name="bulk-download-service-limits"></a>Limites du service de téléchargement en bloc
 

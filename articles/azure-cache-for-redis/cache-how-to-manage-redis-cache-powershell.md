@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: yegu
 ms.openlocfilehash: 88e433dbfa87d8ea483789b1fd838c62a6a481c0
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92536757"
 ---
 # <a name="manage-azure-cache-for-redis-with-azure-powershell"></a>Gérer le Cache Azure pour Redis avec Azure PowerShell
@@ -364,10 +364,10 @@ La commande suivante met à jour le paramètre maxmemory-policy du Cache Azure p
 > La mise à l’échelle d’un cache à l’aide de PowerShell est soumise aux mêmes limites et recommandations que la mise à l’échelle d’un cache à l’aide du portail Azure. Vous pouvez choisir un niveau tarifaire différent avec les restrictions suivantes.
 > 
 > * Vous ne pouvez pas passer d’un niveau de tarification supérieur à un niveau de tarification inférieur.
-> * Vous ne pouvez pas passer d’un cache **Premium** à un cache **Standard** ou **De base** .
-> * Vous ne pouvez pas passer d’un cache **Standard** à un cache **De base** .
-> * Vous pouvez passer d’un cache **De base** à un cache **Standard** , mais vous ne pouvez pas modifier la taille en même temps. Si vous avez besoin d'une taille différente, vous pouvez effectuer ultérieurement une opération de mise à l'échelle vers la taille voulue.
-> * Vous ne pouvez pas passer directement d’un cache **De base** à un cache **Premium** . Vous devez passer du niveau **De base** au niveau **Standard** en une opération de mise à l’échelle, puis du niveau **Standard** au niveau **Premium** en une deuxième opération.
+> * Vous ne pouvez pas passer d’un cache **Premium** à un cache **Standard** ou **De base**.
+> * Vous ne pouvez pas passer d’un cache **Standard** à un cache **De base**.
+> * Vous pouvez passer d’un cache **De base** à un cache **Standard**, mais vous ne pouvez pas modifier la taille en même temps. Si vous avez besoin d'une taille différente, vous pouvez effectuer ultérieurement une opération de mise à l'échelle vers la taille voulue.
+> * Vous ne pouvez pas passer directement d’un cache **De base** à un cache **Premium**. Vous devez passer du niveau **De base** au niveau **Standard** en une opération de mise à l’échelle, puis du niveau **Standard** au niveau **Premium** en une deuxième opération.
 > * Vous ne pouvez pas mettre à l’échelle depuis une taille supérieure vers la taille **C0 (250 Mo)** .
 > 
 > Pour plus d’informations, voir [Mise à l’échelle du Cache Azure pour Redis](cache-how-to-scale.md).

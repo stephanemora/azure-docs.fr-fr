@@ -8,10 +8,10 @@ ms.custom: mvc
 ms.topic: overview
 ms.date: 8/20/2020
 ms.openlocfilehash: b0f8c5806ba22708db6dc537d391c1f1b1a183ec
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92543812"
 ---
 # <a name="azure-database-for-mysql-single-server"></a>Azure Database pour MySQL - Serveur unique
@@ -24,7 +24,7 @@ Cet article contient une vue d'ensemble et une présentation des concepts de bas
 
 ## <a name="overview"></a>Vue d’ensemble
 
-Serveur unique est un service de base de données complètement managé avec des exigences minimales pour les personnalisations de la base de données. La plateforme Serveur unique est conçue pour prendre en charge la plupart des fonctions de gestion de base de données, comme les correctifs, les sauvegardes, la haute disponibilité et la sécurité, avec un minimum de configuration et de contrôle de la part de l'utilisateur. L'architecture est optimisée pour fournir une disponibilité de 99,99 % sur une seule zone de disponibilité. Elle prend en charge la version de la communauté de MySQL 5.6, 5.7 et 8.0. Le service est aujourd'hui généralement disponible dans un grand nombre de [régions Azure](https://azure.microsoft.com/global-infrastructure/services/). 
+Serveur unique est un service de base de données complètement managé avec des exigences minimales pour les personnalisations de la base de données. La plateforme de serveur unique est conçue pour prendre en charge la plupart des fonctions de gestion de base de données, comme les correctifs, les sauvegardes, la haute disponibilité et la sécurité, avec un minimum de configuration et de contrôle de la part de l'utilisateur. L'architecture est optimisée pour fournir une disponibilité de 99,99 % sur une seule zone de disponibilité. Elle prend en charge la version de la communauté de MySQL 5.6, 5.7 et 8.0. Le service est aujourd'hui généralement disponible dans un grand nombre de [régions Azure](https://azure.microsoft.com/global-infrastructure/services/). 
 
 Les serveurs uniques sont particulièrement adaptés aux applications natives Cloud conçues pour gérer les correctifs automatisés sans qu'il soit nécessaire d'exercer un contrôle précis sur le calendrier des correctifs et les paramètres de configuration MySQL personnalisés. 
 
@@ -79,9 +79,9 @@ Le service à serveur unique est équipé de fonctionnalités intégrées d'anal
 
 Le service exécute la version de la communauté de MySQL. Cela permet une compatibilité totale des applications et requiert un coût de refactorisation minimal pour migrer une application existante développée sur le moteur MySQL vers un service à serveur unique. La migration vers le serveur unique peut être effectuée à l'aide de l'une des options suivantes :
 
-- **Image mémoire et restauration**  : pour les migrations hors connexion, au cours desquelles les utilisateurs peuvent se permettre des temps d'arrêt, l'image mémoire et la restauration à l'aide d'outils communautaires tels que mysqldump/mydumper peuvent constituer la méthode de migration la plus rapide. Pour plus d'informations, consultez [Migrer à l'aide de l'image mémoire et de la restauration](concepts-migrate-dump-restore.md). 
-- **Azure Database Migration Service**  : pour les migrations transparentes et simplifiées vers un serveur unique avec temps d'arrêt minimal, [Azure Database Migration Service](../dms/tutorial-mysql-azure-mysql-online.md) peut être utilisé. 
-- **Réplication des données entrantes**  : pour les migrations avec temps d'arrêt minimal, la réplication des données entrantes, qui repose sur la réplication binlog, peut également être utilisée. Pour les migrations avec temps d'arrêt minimal, la réplication des données entrantes est préférée par les experts qui, en pratique, cherchent à mieux contrôler la migration. Pour plus d'informations, consultez [Réplication des données entrantes](concepts-data-in-replication.md).
+- **Image mémoire et restauration** : pour les migrations hors connexion, au cours desquelles les utilisateurs peuvent se permettre des temps d'arrêt, l'image mémoire et la restauration à l'aide d'outils communautaires tels que mysqldump/mydumper peuvent constituer la méthode de migration la plus rapide. Pour plus d'informations, consultez [Migrer à l'aide de l'image mémoire et de la restauration](concepts-migrate-dump-restore.md). 
+- **Azure Database Migration Service** : pour les migrations transparentes et simplifiées vers un serveur unique avec temps d'arrêt minimal, [Azure Database Migration Service](../dms/tutorial-mysql-azure-mysql-online.md) peut être utilisé. 
+- **Réplication des données entrantes** : pour les migrations avec temps d'arrêt minimal, la réplication des données entrantes, qui repose sur la réplication binlog, peut également être utilisée. Pour les migrations avec temps d'arrêt minimal, la réplication des données entrantes est préférée par les experts qui, en pratique, cherchent à mieux contrôler la migration. Pour plus d'informations, consultez [Réplication des données entrantes](concepts-data-in-replication.md).
 
 ## <a name="contacts"></a>Contacts
 Pour toute question ou suggestion au sujet de l’utilisation d’Azure Database pour MySQL, envoyez un e-mail à l’équipe Azure Database pour MySQL ([@Ask Azure DB pour MySQL](mailto:AskAzureDBforMySQL@service.microsoft.com)). Cette adresse e-mail n’est pas un alias de support technique.
