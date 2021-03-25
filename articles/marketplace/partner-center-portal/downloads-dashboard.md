@@ -8,10 +8,10 @@ ms.date: 08/21/2020
 author: shganesh-dev
 ms.author: shganesh
 ms.openlocfilehash: d36043d74da1aa75b32867d4efeebc9729f4a119
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96457771"
 ---
 # <a name="downloads-dashboard-in-commercial-marketplace-analytics"></a>Tableau de bord Téléchargements dans l’analytique de la Place de marché commerciale

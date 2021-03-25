@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 9/21/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 84fdd3045d5a1d44ff611134d88fc9793ee203de
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92545070"
 ---
 # <a name="create-and-manage-azure-database-for-mysql---flexible-server-firewall-rules-using-the-azure-cli"></a>Créer et gérer des règles de pare-feu Azure Database pour MySQL – Serveur flexible à l’aide d’Azure CLI
@@ -29,21 +29,21 @@ Cet article se concentre sur la création d’un serveur MySQL avec **accès pub
 
 ## <a name="launch-azure-cloud-shell"></a>Lancement d’Azure Cloud Shell
 
-[Azure Cloud Shell](../../cloud-shell/overview.md) est un interpréteur de commandes interactif et gratuit que vous pouvez utiliser pour exécuter les étapes décrites dans cet article. Il contient des outils Azure courants préinstallés et configurés pour être utilisés avec votre compte.
+[Azure Cloud Shell](../../cloud-shell/overview.md) est un interpréteur de commandes interactif et gratuit que vous pouvez utiliser pour exécuter les étapes de cet article. Il contient des outils Azure courants préinstallés et configurés pour être utilisés avec votre compte.
 
 Pour ouvrir Cloud Shell, sélectionnez simplement **Essayer** en haut à droite d’un bloc de code. Vous pouvez également ouvrir Cloud Shell dans un onglet distinct du navigateur en accédant à [https://shell.azure.com/bash](https://shell.azure.com/bash). Sélectionnez **Copier** pour copier les blocs de code, collez-les dans Cloud Shell et sélectionnez **Entrée** pour les exécuter.
 
-Si vous préférez installer et utiliser l’interface de ligne de commande localement, ce guide de démarrage rapide nécessite au minimum la version 2.0 d’Azure CLI. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI](/cli/azure/install-azure-cli).
+Si vous préférez installer et utiliser l’interface de ligne de commande en local, ce guide de démarrage rapide nécessite au minimum la version 2.0 d’Azure CLI. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI](/cli/azure/install-azure-cli).
 
 ## <a name="prerequisites"></a>Prérequis
 
-Vous devrez vous connecter à votre compte avec la commande [az login](/cli/azure/reference-index#az-login). Notez la propriété **ID** , qui fait référence à l’ **ID d’abonnement** de votre compte Azure.
+Vous devrez vous connecter à votre compte avec la commande [az login](/cli/azure/reference-index#az-login). Notez la propriété **ID**, qui fait référence à l’**ID d’abonnement** de votre compte Azure.
 
 ```azurecli-interactive
 az login
 ```
 
-Sélectionnez l’abonnement spécifique sous votre compte à l’aide de la commande [az account set](/cli/azure/account#az-account-set). Notez la valeur **ID** issue de la commande **az login**  ; vous devez vous en servir comme valeur de l’argument **subscription** dans la commande. Si vous avez plusieurs abonnements, sélectionnez l’abonnement approprié dans lequel la ressource doit être facturée. Pour accéder à l’ensemble de votre abonnement, utilisez [az account list](/cli/azure/account#az-account-list).
+Sélectionnez l’abonnement spécifique sous votre compte à l’aide de la commande [az account set](/cli/azure/account#az-account-set). Notez la valeur **ID** issue de la commande **az login** ; vous devez vous en servir comme valeur de l’argument **subscription** dans la commande. Si vous avez plusieurs abonnements, sélectionnez l’abonnement approprié dans lequel la ressource doit être facturée. Pour accéder à l’ensemble de votre abonnement, utilisez [az account list](/cli/azure/account#az-account-list).
 
 ```azurecli
 az account set --subscription <subscription id>
@@ -89,11 +89,11 @@ Pour obtenir la liste complète des paramètres CLI configurables, consultez la
 La commande **az mysql server firewall-rule** est utilisée à partir d’Azure CLI pour créer, supprimer, répertorier, afficher et mettre à jour des règles de pare-feu.
 
 Commandes :
-- **create**  : créer une règle de pare-feu de serveur flexible.
-- **list**  : lister les règles de pare-feu de serveur flexible.
-- **update**  : mettre à jour une règle de pare-feu de serveur flexible.
-- **show**  : afficher les détails d’une règle de pare-feu de serveur flexible.
-- **delete**  : supprimer une règle de pare-feu de serveur flexible.
+- **create** : créer une règle de pare-feu de serveur flexible.
+- **list** : lister les règles de pare-feu de serveur flexible.
+- **update** : mettre à jour une règle de pare-feu de serveur flexible.
+- **show** : afficher les détails d’une règle de pare-feu de serveur flexible.
+- **delete** : supprimer une règle de pare-feu de serveur flexible.
 
 Pour obtenir la liste complète des paramètres CLI configurables, consultez la [documentation de référence](/cli/azure/mysql/flexible-server) d’Azure CLI. Par exemple, dans les commandes ci-dessous, vous pouvez spécifier le groupe de ressources.
 
@@ -121,7 +121,7 @@ az mysql flexible-server firewall-rule create --name mydemoserver --start-ip-add
 En cas de réussite, la sortie de chaque commande de création affiche les détails de la règle de pare-feu que vous avez créée au format JSON (par défaut). En cas d’échec, la sortie affiche un texte de message d’erreur.
 
 ### <a name="list-firewall-rules"></a>Répertorier les règles de pare-feu 
-Utilisez la commande `az mysql flexible-server firewall-rule list` pour lister les règles de pare-feu de serveur existantes sur le serveur. Notez que l’attribut de nom de serveur est spécifié dans le commutateur **---name** .
+Utilisez la commande `az mysql flexible-server firewall-rule list` pour lister les règles de pare-feu de serveur existantes sur le serveur. Notez que l’attribut de nom de serveur est spécifié dans le commutateur **---name**.
 ```azurecli-interactive
 az mysql flexible-server firewall-rule list --name mydemoserver
 ```

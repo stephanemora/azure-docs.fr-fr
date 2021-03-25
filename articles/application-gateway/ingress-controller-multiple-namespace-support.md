@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
 ms.openlocfilehash: c13c4410852d97f0bf4548578f40a5cc560804d7
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94874591"
 ---
 # <a name="enable-multiple-namespace-support-in-an-aks-cluster-with-application-gateway-ingress-controller"></a>Activer la prise en charge de plusieurs espaces de noms dans un cluster AKS avec un contrôleur d’entrée Application Gateway
@@ -40,7 +40,7 @@ Une fois déployé avec la possibilité d’observer plusieurs espaces de noms, 
 ## <a name="conflicting-configurations"></a>Configurations conflictuelles
 Des [ressources d’entrée](https://kubernetes.io/docs/concepts/services-networking/ingress/#the-ingress-resource) à plusieurs espaces de noms peuvent demander à AGIC de créer des configurations conflictuelles pour une seule Application Gateway. (Deux entrées revendiquant le même domaine, par exemple.)
 
-En haut de la hiérarchie : des **écouteurs**  (adresse IP, port et hôte) et des **règles d’acheminement** (écouteur de liaison, pool principal et paramètres HTTP) peuvent être créés et partagés par plusieurs espaces de noms/entrées.
+En haut de la hiérarchie : des **écouteurs** (adresse IP, port et hôte) et des **règles d’acheminement** (écouteur de liaison, pool principal et paramètres HTTP) peuvent être créés et partagés par plusieurs espaces de noms/entrées.
 
 En bas de la hiérarchie : des chemins d’accès, des pools principaux, des paramètres HTTP et des certificats TLS peuvent être créés par un seul espace de noms et les doublons sont supprimés.
 

@@ -10,10 +10,10 @@ ms.date: 10/18/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Azure Stack Edge Pro R in datacenter so I can use it to transfer data to Azure.
 ms.openlocfilehash: b67da2607d206424f69f53645eda148495ea58ec
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96464000"
 ---
 # <a name="tutorial-install-azure-stack-edge-pro-r"></a>Tutoriel : Installer Azure Stack Edge Pro R
@@ -139,7 +139,7 @@ Dans ce tutoriel, vous avez approfondi vos connaissances sur Azure Stack Edge Pr
 
 > [!div class="checklist"]
 > * Déballer l’appareil
-> * Brancher l’appareil
+> * Câblage de l’appareil
 
 Passez au tutoriel suivant pour savoir comment vous connecter à votre appareil.
 

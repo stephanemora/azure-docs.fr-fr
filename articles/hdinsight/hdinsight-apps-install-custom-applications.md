@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/29/2019
-ms.openlocfilehash: 9591551b7d5657803e770bd71b47acb141b40fb6
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 19dd5bf94b524ff3eb6eb601c77b503a0040bd75
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98942692"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104867642"
 ---
 # <a name="install-custom-apache-hadoop-applications-on-azure-hdinsight"></a>Installer des applications Apache Hadoop personnalisées sur Azure HDInsight
 
@@ -106,13 +106,13 @@ En cas d’échec de l’installation d’une application, des messages d’erre
 
     Ouvrez le cluster à partir du portail, puis sélectionnez Applications dans Paramètres :
 
-    ![Erreur d’installation des applications hdinsight](./media/hdinsight-apps-install-custom-applications/hdinsight-apps-error.png)
+    :::image type="content" source="./media/hdinsight-apps-install-custom-applications/hdinsight-apps-error.png" alt-text="Erreur d’installation des applications hdinsight":::
 
 * Action de script HDInsight : si le message d’erreur des applications HDInsight indique un échec d’action de script, le volet Actions de script affichera davantage de détails sur l’échec de script.
 
     Sélectionnez Action de script dans Paramètres. L’historique des actions de script affiche les messages d’erreur
 
-    ![Erreur de l’action de script des applications hdinsight](./media/hdinsight-apps-install-custom-applications/hdinsight-apps-script-action-error.png)
+    :::image type="content" source="./media/hdinsight-apps-install-custom-applications/hdinsight-apps-script-action-error.png" alt-text="Erreur de l’action de script des applications hdinsight":::
 
 * Interface utilisateur web d’Apache Ambari : si le script d’installation était à l’origine de l’échec, utilisez l’interface utilisateur web d’Ambari pour consulter les journaux d’activité complets des scripts d’installation.
 

@@ -1,18 +1,14 @@
 ---
 title: Mettre à jour les données de renseignement sur les menaces
 description: Le paquet de données pour le renseignement sur les menaces est fourni avec chaque nouvelle version de Defender pour IoT, ou entre deux versions si nécessaire.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/14/2020
-ms.service: azure
 ms.topic: how-to
-ms.openlocfilehash: a210771d99d28a0e9c15d7952d491a5e5f94e704
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 386d59d33c4f9695b8fc5243dab345321cff4a5f
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100521405"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104784048"
 ---
 # <a name="threat-intelligence-research-and-packages"></a>Recherche et packages de renseignement sur les menaces
 
@@ -73,6 +69,6 @@ Pour mettre à jour un package sur plusieurs capteurs simultanément :
 
 7. Chargez le package.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="see-also"></a>Voir aussi
 
 [Mettre à jour les versions](how-to-manage-sensors-from-the-on-premises-management-console.md#update-versions)

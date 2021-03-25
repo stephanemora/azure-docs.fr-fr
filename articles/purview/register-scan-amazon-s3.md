@@ -6,14 +6,14 @@ ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 03/07/2021
+ms.date: 03/21/2021
 ms.custom: references_regions
-ms.openlocfilehash: ddd5c5de85da5ae8cec9d24d33dfd2bf035b5b34
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: f77bd69f8266d9461481cd0a12a7b70107622de5
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102438726"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104773451"
 ---
 # <a name="azure-purview-connector-for-amazon-s3"></a>Connecteur Azure Purview pour Amazon S3
 
@@ -49,29 +49,30 @@ Le tableau suivant mappe les régions où sont stockées vos données à la rég
 | Région de stockage | Région d’analyse |
 | ------------------------------- | ------------------------------------- |
 | USA Est (Ohio)                  | USA Est (Ohio)                        |
-| USA Est (Virginie Nord)           | USA Est (Ohio)                        |
+| USA Est (Virginie Nord)           | USA Est (Ohio) ou USA Est (Virginie Nord)                       |
 | USA Ouest (Californie Nord)         | USA Est (Ohio)                        |
 | USA Ouest (Oregon)                | USA Est (Ohio)                        |
 | Afrique (Le Cap)              | Europe (Francfort)                    |
-| Asie-Pacifique (Hong Kong)        | Europe (Francfort)                    |
-| Asie-Pacifique (Mumbai)           | Europe (Francfort)                    |
-| Asie-Pacifique (Osaka-local)      | Europe (Francfort)                    |
-| Asie-Pacifique (Séoul)            | Europe (Francfort)                    |
-| Asie-Pacifique (Singapour)        | Europe (Francfort)                    |
-| Asie-Pacifique (Sydney)           | Europe (Francfort)                    |
-| Asie-Pacifique (Tokyo)            | Europe (Francfort)                    |
+| Asie-Pacifique (Hong Kong, R.A.S.)        | Europe (Francfort) ou Asie-Pacifique (Sydney)                   |
+| Asie-Pacifique (Mumbai)           | Europe (Francfort) ou Asie-Pacifique (Sydney)                   |
+| Asie-Pacifique (Osaka-local)      | Europe (Francfort) ou Asie-Pacifique (Sydney)                   |
+| Asie-Pacifique (Séoul)            | Europe (Francfort) ou Asie-Pacifique (Sydney)                   |
+| Asie-Pacifique (Singapour)        | Europe (Francfort) ou Asie-Pacifique (Sydney)                   |
+| Asie-Pacifique (Sydney)           | Europe (Francfort) ou Asie-Pacifique (Sydney)                  |
+| Asie-Pacifique (Tokyo)            | Europe (Francfort) ou Asie-Pacifique (Sydney)                 |
 | Canada (Centre)                | USA Est (Ohio)                        |
 | Chine (Beijing)                 | Non pris en charge                    |
 | Chine (Ningxia)                 | Non pris en charge                   |
 | Europe (Francfort)              | Europe (Francfort)                    |
-| Europe (Irlande)                | Europe (Francfort)                    |
-| Europe (Londres)                 | Europe (Francfort)                    |
+| Europe (Irlande)                | Europe (Francfort) ou Europe (Irlande)                   |
+| Europe (Londres)                 | Europe (Francfort) ou Europe (Irlande)                   |
 | Europe (Milan)                  | Europe (Francfort)                    |
 | Europe (Paris)                  | Europe (Francfort)                    |
 | Europe (Stockholm)              | Europe (Francfort)                    |
 | Moyen-Orient (Bahreïn)           | Europe (Francfort)                    |
 | Amérique du Sud (São Paulo)       | USA Est (Ohio)                        |
 | | |
+
 ## <a name="prerequisites"></a>Prérequis
 
 Vérifiez que vous avez exécuté les prérequis suivants avant d’ajouter vos compartiments Amazon S3 comme sources de données Purview et d’analyser vos données S3.

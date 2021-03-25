@@ -6,14 +6,14 @@ titleSuffix: Azure VPN Gateway
 author: chadmath
 ms.service: vpn-gateway
 ms.topic: troubleshooting
-ms.date: 02/10/2021
+ms.date: 03/22/2021
 ms.author: genli
-ms.openlocfilehash: 582077c46f5fc7176b457cf0d392af48fbe7d40b
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 38846bbe717912092ccfe2b236b717770b79302f
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100369337"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104867251"
 ---
 # <a name="troubleshooting-azure-site-to-site-vpn-disconnects-intermittently"></a>Résolution des problèmes : déconnexion intermittente du VPN de site à site Azure
 
@@ -56,9 +56,7 @@ La passerelle de réseau virtuel basée sur une stratégie est limitée à 200 
 
 ### <a name="step-6-check-on-premises-vpn-device-external-interface-address"></a>Étape 6 : Vérifier l’adresse d’interface externe de l’appareil VPN local
 
-- Si l’adresse IP accessible sur Internet de l’appareil VPN est incluse dans la définition de la **passerelle de réseau local** dans Azure, il se peut que vous subissiez des déconnexions occasionnelles.
-- L’interface externe de l’appareil doit être directement liée à Internet. Il ne doit y avoir aucune traduction d’adresses réseau (NAT) ni aucun pare-feu entre Internet et l’appareil.
--  Si vous configurez le clustering de pare-feu dans le but d’obtenir une adresse IP virtuelle, vous devez détruire le cluster et exposer l’appliance VPN directement à une interface publique qui peut s’interfacer avec la passerelle.
+Si l’adresse IP accessible sur Internet de l’appareil VPN est incluse dans la définition de la **passerelle de réseau local** dans Azure, il se peut que vous subissiez des déconnexions occasionnelles.
 
 ### <a name="step-7-check-whether-the-on-premises-vpn-device-has-perfect-forward-secrecy-enabled"></a>Étape 7 : Vérifier l’activation de la fonctionnalité PFS (Perfect Forward Secrecy) sur l’appareil VPN local
 

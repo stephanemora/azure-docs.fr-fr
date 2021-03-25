@@ -4,10 +4,10 @@ description: Créez un pool d’images personnalisées à partir d’une image m
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.openlocfilehash: 0a357a1d8a22341297f3bee73fb0867fb03f374f
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94916574"
 ---
 # <a name="use-a-managed-image-to-create-a-custom-image-pool"></a>Création d’un pool d’images personnalisées à l’aide d’une image managée
@@ -49,7 +49,7 @@ Si vous créez une machine virtuelle pour l'image, utilisez une image propriéta
 - N’installez pas d’extensions Azure, comme l’extension de script personnalisé, sur la machine virtuelle. Si l’image contient une extension préinstallée, Azure peut rencontrer des problèmes lors du déploiement du pool Batch.
 - Lorsque vous utilisez des disques de données attachés, vous devez monter et formater les disques à partir d'une machine virtuelle pour les utiliser.
 - Vérifiez que l’image du système d’exploitation de base que vous fournissez utilise le lecteur temporaire par défaut. L’agent de nœud Batch s’attend actuellement à ce que le lecteur temporaire par défaut soit utilisé.
-- Assurez-vous que le disque du système d’exploitation n’est pas chiffré.
+- Assurez-vous que le disque du système d'exploitation n'est pas chiffré.
 - Une fois que la machine virtuelle s’exécute, connectez-la via le protocole RDP (pour Windows) ou SSH (pour Linux). Le cas échéant, installez les logiciels nécessaires ou copiez les données souhaitées.  
 
 ### <a name="create-a-vm-snapshot"></a>Créer un instantané de la machine virtuelle

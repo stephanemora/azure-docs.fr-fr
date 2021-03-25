@@ -4,10 +4,10 @@ description: Cet article énumère les opérations basées sur une requête-rép
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: b845f4086ee1ac4fe868571c1754caf6d29b9021
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88064412"
 ---
 # <a name="amqp-10-in-microsoft-azure-service-bus-request-response-based-operations"></a>AMQP 1.0 dans Microsoft Azure Service Bus : opérations basées sur les requêtes-réponses
@@ -109,7 +109,7 @@ Les entités Service Bus doivent être traitées comme suit :
 |-----------------|-------------|-------------|  
 |queue|`<queue_name>`|`“myQueue”`<br /><br /> `“site1/myQueue”`|  
 |topic|`<topic_name>`|`“myTopic”`<br /><br /> `“site2/page1/myQueue”`|  
-|subscription|`<topic_name>/Subscriptions/<subscription_name>`|`“myTopic/Subscriptions/MySub”`|  
+|abonnement|`<topic_name>/Subscriptions/<subscription_name>`|`“myTopic/Subscriptions/MySub”`|  
   
 ## <a name="message-operations"></a>Opérations de message  
   
@@ -488,7 +488,7 @@ Le mappage **correlation-filter** doit inclure au moins l’une des entrées sui
 |session-id|string|Non||  
 |reply-to-session-id|string|Non||  
 |content-type|string|Non||  
-|properties|map|Non|Mappage sur [BrokeredMessage.Properties](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) de Service Bus.|  
+|properties|carte|Non|Mappage sur [BrokeredMessage.Properties](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) de Service Bus.|  
   
 Le mappage **sql-rule-action** doit inclure les entrées suivantes :  
   
@@ -675,7 +675,7 @@ Le corps du message de requête doit contenir une section **amqp-value** compren
 |lock-tokens|tableau d’uuid|Oui|Jetons de verrouillage de message pour mettre à jour le statut de disposition.|  
 |deadletter-reason|string|Non|Peut être défini si le statut de disposition est défini sur **interrompu**.|  
 |deadletter-description|string|Non|Peut être défini si le statut de disposition est défini sur **interrompu**.|  
-|properties-to-modify|map|Non|Liste des propriétés de message réparti Service Bus à modifier.|  
+|properties-to-modify|carte|Non|Liste des propriétés de message réparti Service Bus à modifier.|  
   
 #### <a name="response"></a>response  
 

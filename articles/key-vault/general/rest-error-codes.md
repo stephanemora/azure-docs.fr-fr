@@ -11,10 +11,10 @@ ms.subservice: general
 ms.topic: reference
 ms.date: 12/16/2019
 ms.openlocfilehash: 30b7e34f2a791cfd8dec1a6d8e81d706fa07939f
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91631220"
 ---
 # <a name="azure-key-vault-rest-api-error-codes"></a>Codes d’erreur d’API REST Azure Key Vault

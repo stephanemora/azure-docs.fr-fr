@@ -12,10 +12,10 @@ ms.date: 08/20/2020
 ms.author: gasinh
 ms.subservice: B2C
 ms.openlocfilehash: d1b2c7513562e951e1098cf327780387ddf6a495
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94953540"
 ---
 # <a name="tutorial-for-configuring-whoiam-with-azure-active-directory-b2c"></a>Tutoriel de configuration de WhoIAM avec Azure Active Directory B2C
@@ -26,7 +26,7 @@ Le système BRIMS est un ensemble d’applications et de services qui est déplo
 
 ## <a name="prerequisites"></a>Prérequis
 
-Avant de commencer, vérifiez que vous avez :
+Avant de commencer, vérifiez que vous disposez des éléments suivants :
 
 - Un abonnement Azure AD Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
 

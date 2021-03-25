@@ -8,10 +8,10 @@ ms.date: 12/10/2019
 ms.author: mingshen
 author: mingshen-ms
 ms.openlocfilehash: 9863ed24da9e427f885a4794bda7e103b0c1cc8e
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96455453"
 ---
 # <a name="partner-center-submission-api-to-onboard-azure-apps-in-partner-center"></a>API de soumission de l’Espace partenaires pour l’intégration d’applications Azure dans l’Espace partenaires

@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-azurecli
 ms.date: 11/18/2019
-ms.openlocfilehash: e14784459a3c7733af274197507b76341d68477e
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: d78b629e90903c58b98de86f425f0c1225d90997
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98946910"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104867047"
 ---
 # <a name="use-apache-spark-structured-streaming-with-apache-kafka-and-azure-cosmos-db"></a>Utiliser Apache Spark Structured Streaming avec Apache Kafka et Azure Cosmos DB
 
@@ -31,7 +31,7 @@ Spark Structured Streaming est un moteur de traitement de flux basé sur Spark S
 
 Apache Kafka sur HDInsight ne donne pas accès aux répartiteurs Kafka sur l’Internet public. Tout ce qui communique avec Kafka doit se trouver sur le même réseau virtuel Azure que les nœuds du cluster Kafka. Pour cet exemple, les clusters Kafka et Spark sont situés dans un réseau virtuel Azure. Le diagramme suivant illustre le flux de communication entre les clusters :
 
-![Diagramme des clusters Spark et Kafka dans un réseau virtuel Azure](./media/apache-kafka-spark-structured-streaming-cosmosdb/apache-spark-kafka-vnet.png)
+:::image type="content" source="./media/apache-kafka-spark-structured-streaming-cosmosdb/apache-spark-kafka-vnet.png" alt-text="Diagramme des clusters Spark et Kafka dans un réseau virtuel Azure" border="false":::
 
 > [!NOTE]  
 > Le service Kafka est limité à la communication au sein du réseau virtuel. L’accès aux autres services sur le cluster, tels que SSH et Ambari, se fait via Internet. Pour plus d’informations sur les ports publics disponibles avec HDInsight, consultez [Ports et URI utilisés par HDInsight](hdinsight-hadoop-port-settings-for-services.md).
@@ -61,7 +61,7 @@ Même si vous pouvez créer un réseau virtuel Azure, et des clusters Kafka et S
 
 1. Utilisez les informations suivantes pour remplir les entrées dans la section **Déploiement personnalisé** :
 
-    |Propriété |Valeur |
+    |Propriété |Value |
     |---|---|
     |Abonnement|Sélectionnez votre abonnement Azure.|
     |Resource group|créez un groupe ou sélectionnez un groupe existant. Ce groupe contient le cluster HDInsight.|
@@ -73,7 +73,7 @@ Même si vous pouvez créer un réseau virtuel Azure, et des clusters Kafka et S
     |Nom d’utilisateur SSH|utilisateur SSH à créer pour les clusters Spark et Kafka.|
     |Mot de passe SSH|mot de passe de l’utilisateur SSH pour les clusters Spark et Kafka.|
 
-    ![Valeurs pour le déploiement HDInsight personnalisé](./media/apache-kafka-spark-structured-streaming-cosmosdb/hdi-custom-parameters.png)
+    :::image type="content" source="./media/apache-kafka-spark-structured-streaming-cosmosdb/hdi-custom-parameters.png" alt-text="Valeurs pour le déploiement HDInsight personnalisé":::
 
 1. Passez en revue les **termes et conditions**, puis cochez la case **J’accepte les termes et conditions mentionnés ci-dessus**.
 

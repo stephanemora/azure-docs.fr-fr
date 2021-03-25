@@ -8,10 +8,10 @@ author: trkeya
 ms.author: trkeya
 ms.date: 05/01/2020
 ms.openlocfilehash: bd2f3d40b1aea1c0133f95e069ebfd527d30bd59
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94491101"
 ---
 # <a name="use-azure-blob-storage-to-manage-commercial-marketplace-leads"></a>Utiliser Stockage Blob Azure pour gérer les prospects de la Place de marché commerciale
@@ -43,7 +43,7 @@ ms.locfileid: "94491101"
 
     ![Accéder à votre compte de stockage Azure](./media/commercial-marketplace-lead-management-instructions-azure-blob/azure-storage-access.png)
 
-5. Dans le volet de votre compte de stockage, sélectionnez **Clés d’accès** , puis copiez la valeur *Chaîne de connexion* pour la clé. Enregistrez cette valeur, car il s’agit de la valeur de *Chaîne de connexion de compte de stockage* que vous devez fournir dans le portail de publication afin de recevoir des prospects pour votre offre de la Place de marché.
+5. Dans le volet de votre compte de stockage, sélectionnez **Clés d’accès**, puis copiez la valeur *Chaîne de connexion* pour la clé. Enregistrez cette valeur, car il s’agit de la valeur de *Chaîne de connexion de compte de stockage* que vous devez fournir dans le portail de publication afin de recevoir des prospects pour votre offre de la Place de marché.
 
      Voici un exemple de chaîne de connexion :
 
@@ -74,7 +74,7 @@ ms.locfileid: "94491101"
 Lorsque vous êtes prêt à configurer les informations de gestion des prospects pour votre offre sur le portail de publication, procédez comme suit :
 
 1. Accédez à la page **Configuration de l'offre** de votre offre.
-2. Dans la section **Prospects** , sélectionnez **Se connecter**.
+2. Dans la section **Prospects**, sélectionnez **Se connecter**.
 
     :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-azure-blob/customer-leads.png" alt-text="Prospects":::
 

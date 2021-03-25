@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/19/2017
 ms.author: alkohli
 ms.openlocfilehash: 090797549cc61aa27945114e5ef8b666226b66e2
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94956991"
 ---
 # <a name="manage-your-storsimple-device-controllers"></a>Gestion de vos contrôleurs d’appareil StorSimple
@@ -71,7 +71,7 @@ Pour gérer vos contrôleurs d’appareil à partir du portail Azure, procédez 
 Pour arrêter ou redémarrer un contrôleur sur votre appareil StorSimple à partir de Windows PowerShell pour StorSimple, procédez comme suit.
 
 1. Accédez à l’appareil via la console série ou une session telnet à partir d’un ordinateur distant. Pour vous connecter au Contrôleur 0 ou au Contrôleur 1, suivez la procédure décrite dans [Utilisation de PuTTY pour se connecter à la console série de l’appareil](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
-2. Dans le menu de la console série, sélectionnez l’option 1, **Ouvrir une session avec un accès total**.
+2. **Dans le menu de la console série, sélectionnez l**'option 1 Se connecter avec un accès complet.
 3. Dans le message de bannière, prenez note du contrôleur auquel vous êtes connecté (contrôleur 0 ou contrôleur 1) et vérifiez s’il est actif ou bien passif (en veille).
    
    * Pour arrêter un contrôleur unique, à l’invite de commandes, tapez :
@@ -112,7 +112,7 @@ Pour rétablir les paramètres d’usine de votre appareil Microsoft Azure Sto
 
 ### <a name="to-reset-the-device-to-default-settings-in-windows-powershell-for-storsimple"></a>Pour rétablir les paramètres d’usine de l’appareil dans Windows PowerShell pour StorSimple
 1. Accédez à l’appareil via sa console série. Vérifiez le message de bannière pour vous assurer que vous êtes connecté au contrôleur **actif**.
-2. Dans le menu de la console série, sélectionnez l’option 1, **Ouvrir une session avec un accès total**.
+2. **Dans le menu de la console série, sélectionnez l**'option 1 Se connecter avec un accès complet.
 3. À l’invite, tapez la commande suivante pour réinitialiser l’ensemble du cluster et ainsi supprimer toutes les données, toutes les métadonnées et tous les paramètres du contrôleur :
    
     `Reset-HcsFactoryDefault`
@@ -124,37 +124,37 @@ Pour rétablir les paramètres d’usine de votre appareil Microsoft Azure Sto
 ## <a name="questions-and-answers-about-managing-device-controllers"></a>Questions et réponses sur la gestion des contrôleurs d’appareil
 Dans cette section, vous trouverez des réponses à certaines questions fréquemment posées, relatives à la gestion des contrôleurs d’appareil StorSimple.
 
-**Q.** Que se passe-t-il si les deux contrôleurs de mon appareil sont activés et en bon état de fonctionnement, et que je redémarre ou arrête le contrôleur actif ?
+**Q.**  Que se passe-t-il si les deux contrôleurs de mon appareil sont activés et en bon état de fonctionnement, et que je redémarre ou arrête le contrôleur actif ?
 
 **A.** Si les deux contrôleurs de votre appareil sont activés et en bon état de fonctionnement, vous êtes invité à confirmer l’opération. Vous pouvez choisir de :
 
 * **Redémarrer le contrôleur actif** : un message vous avertit que le redémarrage d’un contrôleur actif entraîne un basculement de l’appareil vers le contrôleur passif. Le contrôleur redémarre.
 * **Arrêter un contrôleur actif** : un message vous avertit que l’arrêt d’un contrôleur actif entraîne une coupure du service. Vous devez également appuyer sur le bouton d’alimentation de l’appareil pour activer le contrôleur.
 
-**Q.** Que se passe-t-il si le contrôleur passif de mon appareil est indisponible ou désactivé, et que je redémarre ou arrête le contrôleur actif ?
+**Q.**  Que se passe-t-il si le contrôleur passif de mon appareil est indisponible ou désactivé, et que je redémarre ou arrête le contrôleur actif ?
 
-**A.** Si le contrôleur passif de votre appareil est indisponible ou désactivé, et que vous choisissez de :
+**A.**  Si le contrôleur passif de votre appareil est indisponible ou désactivé, et que vous choisissez de :
 
 * **Redémarrer le contrôleur actif** : un message vous avertit que la poursuite de l’opération entraînera une interruption temporaire du service, et vous êtes invité à confirmer l’opération.
 * **Arrêter un contrôleur actif** : un message vous avertit que la poursuite de l’opération entraînera une coupure du service. Vous devez également appuyer sur le bouton d’alimentation de l’un ou des deux contrôleurs pour activer l’appareil. Vous êtes invité à confirmer l’opération.
 
-**Q.** À quel moment le redémarrage ou l’arrêt du contrôleur échoue-t-il ?
+**Q.**  À quel moment le redémarrage ou l’arrêt du contrôleur échoue-t-il ?
 
-**A.** Le redémarrage ou l’arrêt d’un contrôleur peut échouer si :
+**A.**  Le redémarrage ou l’arrêt d’un contrôleur peut échouer si :
 
 * Une mise à jour de l’appareil est en cours.
 * Le redémarrage d’un contrôleur est déjà en cours.
 * L’arrêt d’un contrôleur est déjà en cours.
 
-**Q.** Comment pouvez-vous déterminer si un contrôleur a été redémarré ou arrêté ?
+**Q.**  Comment pouvez-vous déterminer si un contrôleur a été redémarré ou arrêté ?
 
 **A.** Vous pouvez vérifier l’état du contrôleur dans le panneau Contrôleur. L’état du contrôleur indique si un contrôleur est en cours de redémarrage ou d’arrêt. De plus, le panneau **Alertes** contient une alerte d’information vous indiquant si le contrôleur est redémarré ou arrêté. Les opérations de redémarrage et d’arrêt du contrôleur sont également enregistrées dans les journaux d’activité. Pour plus d’informations sur les journaux d’activité, consultez [Afficher les journaux d’activité](storsimple-8000-service-dashboard.md#view-the-activity-logs).
 
 **Q.** Le basculement du contrôleur a-t-il un impact sur les E/S ?
 
-**A.** Les connexions TCP entre les initiateurs et le contrôleur actif sont réinitialisées à la suite du basculement du contrôleur, mais elles seront rétablies lorsque le contrôleur passif effectuera l’opération. Une interruption temporaire (moins de 30 secondes) peut survenir dans l’activité d’E/S entre les initiateurs et l’appareil au cours de cette opération.
+**A.**  Les connexions TCP entre les initiateurs et le contrôleur actif sont réinitialisées à la suite du basculement du contrôleur, mais elles seront rétablies lorsque le contrôleur passif effectuera l’opération. Une interruption temporaire (moins de 30 secondes) peut survenir dans l’activité d’E/S entre les initiateurs et l’appareil au cours de cette opération.
 
-**Q.** Comment puis-je remettre mon contrôleur en service une fois qu’il a été arrêté et supprimé ?
+**Q.**  Comment puis-je remettre mon contrôleur en service une fois qu’il a été arrêté et supprimé ?
 
 **A.** Pour remettre en service un contrôleur, vous devez l’insérer dans le châssis, comme décrit dans [Remplacement d’un module de contrôleur sur votre appareil StorSimple](storsimple-8000-controller-replacement.md).
 

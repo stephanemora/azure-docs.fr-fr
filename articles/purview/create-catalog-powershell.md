@@ -8,10 +8,10 @@ ms.subservice: purview-data-catalog
 ms.topic: quickstart
 ms.date: 11/23/2020
 ms.openlocfilehash: 0698295688a4587a704e8cdba0a4796e8d1e6fcd
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98879997"
 ---
 # <a name="quickstart-create-an-azure-purview-account-using-azure-powershellazure-cli"></a>Démarrage rapide : Créer un compte Azure Purview en utilisant Azure PowerShell ou Azure CLI
@@ -37,7 +37,7 @@ Connectez-vous au [portail Azure](https://portal.azure.com) avec votre compte Az
 
 ## <a name="configure-your-subscription"></a>Configurer votre abonnement
 
-Si nécessaire, suivez ces étapes pour configurer votre abonnement en vue d’autoriser l’exécution d’Azure Purview dans votre abonnement :
+Si nécessaire, suivez ces étapes qui permettent de configurer votre abonnement en vue d’autoriser l’exécution d’Azure Purview dans votre abonnement :
 
    1. Dans le portail Azure, recherchez et sélectionnez **Abonnements**.
 

@@ -9,14 +9,14 @@ ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 9810a34021aa039354aad24f84aff373229c0190
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87021475"
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-vmware"></a>Déploiement de StorSimple Virtual Array - Configuration dans VMware
-![Diagramme montrant les étapes nécessaires au déploiement d’un tableau virtuel. La deuxième partie de la deuxième étape est intitulée « Approvisionner sur VMware » et est mise en surbrillance.](./media/storsimple-virtual-array-deploy2-provision-vmware/vmware4.png)
+![Diagramme montrant les étapes nécessaires au déploiement d’un tableau virtuel.  La deuxième partie de la deuxième étape est intitulée « Approvisionner sur VMware » et est mise en surbrillance.](./media/storsimple-virtual-array-deploy2-provision-vmware/vmware4.png)
 
 ## <a name="overview"></a>Vue d’ensemble
 

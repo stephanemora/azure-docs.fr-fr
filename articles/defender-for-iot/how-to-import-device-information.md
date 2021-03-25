@@ -1,18 +1,14 @@
 ---
 title: Importer les informations des appareils
 description: Les capteurs Defender pour IoT surveillent et analysent le trafic en miroir. Dans ces cas, vous pouvez importer des données pour enrichir les informations sur les appareils déjà détectés.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/06/2020
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: 53c342005d2c33e2ee18057fe0e667ebdec5166c
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: eb82a3e5d360913acfead06adc03194d80f7fccb
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100522238"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104785628"
 ---
 # <a name="import-device-information-to-a-sensor"></a>Importer des informations d’appareil sur un capteur
 
@@ -188,7 +184,7 @@ Pour importer l’état de l’autorisation :
 
 Lorsque les informations sont importées, vous recevez des alertes d’appareils non autorisés pour tous les appareils qui ne figurent pas dans cette liste.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="see-also"></a>Voir aussi
 
 [Contrôler quel trafic est surveillé](how-to-control-what-traffic-is-monitored.md)
 

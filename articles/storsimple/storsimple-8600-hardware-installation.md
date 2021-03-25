@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 8d118e71b29b54b034788c37916091ad8f8b996f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91871811"
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8600-device"></a>Déballer, monter en rack et câbler votre appareil StorSimple 8600
@@ -164,7 +164,7 @@ L’étape suivante consiste à brancher l’alimentation, le réseau et l’acc
 ## <a name="cable-your-storsimple-8600-device"></a>Branchement des câbles de votre appareil StorSimple 8600
 Les procédures suivantes expliquent comment brancher les câbles d’alimentation, de réseau et d’accès en série sur votre appareil StorSimple 8600.
 
-### <a name="prerequisites"></a>Conditions préalables requises
+### <a name="prerequisites"></a>Prérequis
 Avant de commencer à raccorder votre appareil, vous devez disposer des éléments suivants :
 
 * Votre boîtier principal et votre boîtier EBOD, totalement déballés

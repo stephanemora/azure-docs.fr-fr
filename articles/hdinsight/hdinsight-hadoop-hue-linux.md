@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 03/31/2020
-ms.openlocfilehash: 8d4663aac6af4abb8d9855d2f972965e997d9c92
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 97a8dd2476642e693b589b4046f612c5569b9c0b
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98945678"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865126"
 ---
 # <a name="install-and-use-hue-on-hdinsight-hadoop-clusters"></a>Installation et utilisation de Hue sur des clusters HDInsight Hadoop
 
@@ -80,17 +80,17 @@ Vous ne pouvez avoir qu’un seul compte d’utilisateur Hue sur des clusters st
    > [!NOTE]  
    > Lorsque vous vous connectez pour la première fois, vous êtes invité à créer un compte pour vous connecter au portail Hue. Les informations d’identification que vous spécifiez ici seront limitées au portail et ne sont pas liées à l’administrateur ou aux informations d’identification de l’utilisateur SSH spécifié lors de la configuration du cluster.
 
-    ![Portail Hue sur HDInsight - Fenêtre de connexion](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-login.png "Spécifier les informations d’identification pour le portail Hue")
+    :::image type="content" source="./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-login.png" alt-text="Portail Hue sur HDInsight - Fenêtre de connexion":::
 
 ### <a name="run-a-hive-query"></a>Exécution d'une tâche Hive
 
 1. À partir du portail Hue, sélectionnez **Éditeurs de requête**, puis sélectionnez **Hive** pour ouvrir l’éditeur Hive.
 
-    ![Portail Hue sur HDInsight - Utiliser l’éditeur Hive](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-use-hive.png "Utiliser Hive")
+    :::image type="content" source="./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-use-hive.png" alt-text="Portail Hue sur HDInsight - Utiliser l’éditeur Hive":::
 
 2. Sous l’onglet **Aide**, sous **Base de données**, vous devez voir **hivesampletable**. Il s’agit d’une table d’échantillon qui est livrée avec tous les clusters Hadoop sur HDInsight. Saisissez un exemple de requête dans le volet de droite et vérifiez la sortie sur l’onglet **Résultats** dans le volet inférieur ci-dessous, comme illustré dans la capture d’écran.
 
-    ![Portail Hue sur HDInsight - Requête Hive](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-hive-query.png "Exécuter une requête Hive")
+    :::image type="content" source="./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-hive-query.png" alt-text="Portail Hue sur HDInsight - Requête Hive":::
 
     Vous pouvez également utiliser l’onglet **Graphique** pour afficher une représentation visuelle du résultat.
 
@@ -99,7 +99,7 @@ Vous ne pouvez avoir qu’un seul compte d’utilisateur Hue sur des clusters st
 1. Dans le portail Hue,sélectionnez **Explorateur de fichiers** dans l’angle supérieur droit de la barre de menus.
 2. Par défaut, l’explorateur de fichiers s’ouvre sur le répertoire **/user/myuser** . Sélectionnez la barre oblique située juste avant le répertoire de l’utilisateur dans le chemin pour accéder à la racine du conteneur de stockage Azure associé au cluster.
 
-    ![Portail Hue sur HDInsight - Explorateur de fichiers](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-file-browser.png "Utiliser l’Explorateur de fichiers")
+    :::image type="content" source="./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-file-browser.png" alt-text="Portail Hue sur HDInsight - Explorateur de fichiers":::
 
 3. Cliquez avec le bouton droit sur un fichier ou un dossier pour afficher les opérations disponibles. Utilisez le bouton **Télécharger** situé dans le coin droit pour télécharger des fichiers dans le répertoire actif. Utilisez le bouton **Nouveau** pour créer des fichiers ou répertoires.
 
@@ -118,7 +118,7 @@ Vous ne pouvez avoir qu’un seul compte d’utilisateur Hue sur des clusters st
 
 1. Avec les clusters Linux, vous pouvez avoir un scénario dans lequel vos services fonctionnent sur le nœud principal primaire alors que le Gestionnaire de ressources s’exécute sur le nœud principal secondaire. Un tel scénario peut entraîner des erreurs (illustrées ci-dessous) lors de l’utilisation de Hue pour afficher les détails des travaux EN COURS sur le cluster. Toutefois, vous pouvez afficher les détails du travail lorsque la tâche est terminée.
 
-   ![Portail Hue - Exemple de message d’erreur](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-error.png "Erreur de portail Hue")
+   :::image type="content" source="./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-error.png" alt-text="Portail Hue - Exemple de message d’erreur":::
 
    Il s’agit d’un problème connu. Pour résoudre ce problème, modifiez Ambari afin que le Gestionnaire de ressources actif s’exécute également sur le nœud principal primaire.
 

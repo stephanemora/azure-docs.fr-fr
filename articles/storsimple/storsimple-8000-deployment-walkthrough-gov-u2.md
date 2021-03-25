@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/22/2017
 ms.author: alkohli
 ms.openlocfilehash: d736c09fc1c9490f79dfc526895970e01b8b45cc
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94963179"
 ---
 # <a name="deploy-your-on-premises-storsimple-device-in-the-government-portal"></a>Déployer votre appareil StorSimple local dans le portail Government
@@ -49,8 +49,8 @@ Suivez ces étapes requises pour configurer votre appareil StorSimple et le conn
 | [Conditions préalables au déploiement](#deployment-prerequisites) |Celles-ci valident que l'environnement est prêt pour le déploiement. |
 |  | |
 | **DÉPLOIEMENT ÉTAPE PAR ÉTAPE** |Ces étapes sont nécessaires pour déployer votre appareil StorSimple en production. |
-| [Étape 1 : Création d’un nouveau service](#step-1-create-a-new-service) |Configurez le stockage et la gestion de cloud pour votre appareil StorSimple. *Ignorez cette étape si vous avez un service existant pour d'autres appareils StorSimple*. |
-| [Étape 2 : Obtention de la clé d’inscription](#step-2-get-the-service-registration-key) |Utilisez cette clé pour inscrire et connecter votre appareil StorSimple auprès du service de gestion. |
+| [Étape 1 : Créer un service](#step-1-create-a-new-service) |Configurez le stockage et la gestion de cloud pour votre appareil StorSimple. *Ignorez cette étape si vous avez un service existant pour d'autres appareils StorSimple*. |
+| [Étape 2 : Obtenir la clé d’inscription du service](#step-2-get-the-service-registration-key) |Utilisez cette clé pour inscrire et connecter votre appareil StorSimple auprès du service de gestion. |
 | [Étape 3 : Configuration et inscription de l’appareil via Windows PowerShell pour StorSimple](#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple) |Connectez l'appareil à votre réseau et enregistrez-le avec Azure pour terminer l'installation à l'aide du service de gestion. |
 | [Étape 4 : Fin de l'installation minimale de l'appareil](#step-4-complete-minimum-device-setup) </br>Facultatif : mise à jour de votre appareil StorSimple. |Utilisez le service de gestion pour terminer la configuration de l'appareil et lui permettre d'assurer le stockage. |
 | [Étape 5 : Création d’un conteneur de volumes](#step-5-create-a-volume-container) |Créez un conteneur pour mettre en service les volumes. Un conteneur de volumes dispose de paramètres de compte de stockage, de bande passante et de chiffrement pour tous les volumes qu’il contient. |
@@ -98,7 +98,7 @@ Avant de commencer, assurez-vous que :
 ## <a name="step-by-step-deployment"></a>DÉPLOIEMENT ÉTAPE PAR ÉTAPE
 Utilisez la procédure détaillée ci-dessous pour déployer votre appareil StorSimple dans le centre de données.
 
-## <a name="step-1-create-a-new-service"></a>Étape 1 : Création d’un nouveau service
+## <a name="step-1-create-a-new-service"></a>Étape 1 : Créer un service
 Un service StorSimple Device Manager peut gérer plusieurs appareils StorSimple. Pour créer une instance du service StorSimple Device Manager, procédez comme suit.
 
 [!INCLUDE [storsimple-8000-create-new-service-gov](../../includes/storsimple-8000-create-new-service-gov.md)]
@@ -107,10 +107,10 @@ Un service StorSimple Device Manager peut gérer plusieurs appareils StorSimple.
 > Si vous n’avez pas activé la création automatique d’un compte de stockage avec votre service, vous devez créer au moins un compte de stockage après avoir créé un service. Ce compte de stockage est utilisé lorsque vous créez un conteneur de volumes.
 > 
 > * Si vous n’avez pas créé de compte de stockage automatiquement, accédez à la page [Configuration d’un compte de stockage pour le service](#configure-a-new-storage-account-for-the-service) pour obtenir des instructions détaillées.
-> * Si vous avez activé la création automatique d’un compte de stockage, passez à l’ [étape 2 : Obtention de la clé d’inscription](#step-2-get-the-service-registration-key).
+> * Si vous avez activé la création automatique d'un compte de stockage, passez à l'[Étape 2 : Obtenir la clé d’inscription du service](#step-2-get-the-service-registration-key).
 
 
-## <a name="step-2-get-the-service-registration-key"></a>étape 2 : Obtention de la clé d’inscription
+## <a name="step-2-get-the-service-registration-key"></a>Étape 2 : Obtenir la clé d’inscription du service
 Une fois le service StorSimple Device Manager opérationnel, vous devez obtenir la clé d’inscription. Cette clé est utilisée pour inscrire et connecter votre appareil StorSimple auprès du service.
 
 Procédez comme suit dans le portail Government.
@@ -161,7 +161,7 @@ Si vous décidez de ne pas configurer MPIO, procédez comme suit pour monter, in
 [!INCLUDE [storsimple-mount-initialize-format-volume](../../includes/storsimple-mount-initialize-format-volume.md)]
 
 ## <a name="step-8-take-a-backup"></a>Étape 8 : Sauvegarde
-Les sauvegardes fournissent une protection jusqu’à une date et une heure des volumes et optimisent la récupération tout en réduisant les délais de restauration. Vous pouvez effectuer deux types de sauvegarde sur votre appareil StorSimple : les instantanés locaux et les instantanés cloud. Chacun de ces types de sauvegarde peut être **Planifié** ou **Manuel**.
+Les sauvegardes fournissent une protection jusqu’à une date et une heure des volumes et optimisent la récupération tout en réduisant les délais de restauration. Vous pouvez effectuer deux types de sauvegarde sur votre appareil StorSimple : les instantanés locaux et les instantanés cloud. Vous pouvez **planifier** ou **exécuter manuellement** chaque type de sauvegarde.
 
 Pour créer une sauvegarde planifiée, procédez comme suit dans le portail Government.
 

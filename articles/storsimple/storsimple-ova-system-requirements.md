@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 5970e82619667a47ba160c84df2cdeb145b0dab8
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94966171"
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>Configuration système requise pour StorSimple Virtual Array
@@ -49,9 +49,9 @@ La configuration logicielle requise inclut les informations sur les navigateurs 
 | --- | --- |
 | Nombre minimal de processeurs virtuels (cœurs) |4 |
 | Quantité minimale de mémoire (RAM) |8 Go <br> Pour un serveur de fichiers, 8 Go pour moins de 2 millions de fichiers et 16 Go pour 2 à 4 millions de fichiers|
-| Espace disque<sup>1</sup> |Disque de système d'exploitation - 80 Go <br></br>Disque de données - 500 Go à 8 To |
+| Espace disque<sup>1</sup> |Disque de système d'exploitation - 80 Go  <br></br>Disque de données - 500 Go à 8 To |
 | Nombre minimal d'interfaces réseau |1 |
-| Bande passante Internet<sup>2</sup> |Bande passante minimale requise : 5 Mbits/s <br> Bande passante recommandée : 100 Mbits/s <br> La vitesse de transfert des données varie selon la bande passante Internet. Par exemple, le transfert de 100 Go de données prend deux jours avec une bande passante de 5 Mbits/s. Cela peut entraîner des échecs de sauvegarde, car les sauvegardes quotidiennes ne peuvent pas dans ce cas s’effectuer en un seul jour. Avec une bande passante de 100 Mbits/s, le transfert de 100 Go de données s’effectue en deux heures et demie.   |
+| Bande passante Internet<sup>2</sup> |Bande passante minimale requise : 5 Mbits/s <br> Bande passante recommandée : 100 Mbits/s <br> La vitesse de transfert des données varie selon la bande passante Internet. Par exemple, le transfert de 100 Go de données prend deux jours avec une bande passante de 5 Mbits/s. Cela peut entraîner des échecs de sauvegarde, car les sauvegardes quotidiennes ne peuvent pas dans ce cas s’effectuer en un seul jour. Avec une bande passante de 100 Mbits/s, le transfert de 100 Go de données s’effectue en deux heures et demie.   |
 
 <sup>1</sup> - Allocation dynamique
 
@@ -69,7 +69,7 @@ La configuration logicielle requise suivante concerne les initiateurs iSCSI qui 
 
 | **Systèmes d’exploitation pris en charge** | **Version requise** | **Conditions/remarques supplémentaires** |
 | --- | --- | --- |
-| Windows Server |2008 R2 SP1, 2012, 2012 R2 |StorSimple peut créer des volumes alloués dynamiquement et de façon complète. Il ne permet pas de créer des volumes entièrement ou partiellement alloués. Les volumes iSCSI StorSimple sont pris en charge uniquement pour : <ul><li>Volumes simples sur des disques de base Windows.</li><li>Windows NTFS pour formater un volume.</li> |
+| Windows Server |2008 R2 SP1, 2012, 2012 R2 |StorSimple peut créer des volumes alloués dynamiquement et de façon complète. Il ne permet pas de créer des volumes entièrement ou partiellement alloués. Les volumes iSCSI StorSimple sont pris en charge uniquement pour :  <ul><li>Volumes simples sur des disques de base Windows.</li><li>Windows NTFS pour formater un volume.</li> |
 
 La configuration logicielle requise suivante concerne les clients SMB qui accèdent à votre StorSimple Virtual Array (configuré comme un serveur de fichiers).
 

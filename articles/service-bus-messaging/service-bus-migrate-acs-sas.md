@@ -4,10 +4,10 @@ description: Découvrez plus en détail la migration depuis le service Access Co
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: e8cd12ac97020417f9958beded1fd198dd485fff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88064619"
 ---
 # <a name="service-bus---migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Service Bus – Migrer depuis le service Access Control Service d’Azure Active Directory vers le service de signature d’accès partagé
@@ -30,7 +30,7 @@ Les scénarios de migration se répartissent en trois grandes catégories :
 
 1.  **Valeurs par défaut non modifiées**. Certains clients utilisent un objet [SharedSecretTokenProvider](/dotnet/api/microsoft.servicebus.sharedsecrettokenprovider), en passant l’identité du service du **propriétaire** automatiquement généré et sa clé secrète pour l’espace de noms d’Access Control Service associé à l’espace de noms de Service Bus sans ajouter de nouvelles règles.
 
-2.  **Identités de service personnalisé avec des règles simples**. Certains clients ajoutent de nouvelles identités de service et accordent à chaque nouvelle identité de service les autorisations **Envoyer**, **Écouter**et **Gérer** pour une entité spécifique.
+2.  **Identités de service personnalisé avec des règles simples**. Certains clients ajoutent de nouvelles identités de service et accordent à chaque nouvelle identité de service les autorisations **Envoyer**, **Écouter** et **Gérer** pour une entité spécifique.
 
 3.  **Identités de service personnalisé avec des règles complexes**. Très peu de clients possèdent des ensembles de règles complexes dans lesquels les jetons émis en externe sont mappés sur des droits sur Relay, ou dans lesquels une identité de service unique se voit attribuer des droits différenciés sur plusieurs chemins d’accès d’espace de noms via plusieurs règles.
 
@@ -55,4 +55,4 @@ Les règles de signature d’accès partagé ne sont pas destinées à être des
 Pour en savoir plus sur l’authentification de Service Bus, consultez les sujets suivants :
 
 * [Authentification et de autorisation Service Bus](service-bus-authentication-and-authorization.md)
-* [Authentification Service Bus avec les signatures d’accès partagé](service-bus-sas.md)
+* [Authentification de Service Bus avec les signatures d’accès partagé](service-bus-sas.md)

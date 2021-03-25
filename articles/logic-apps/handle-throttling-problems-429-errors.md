@@ -7,10 +7,10 @@ ms.reviewer: deli, logicappspm
 ms.topic: conceptual
 ms.date: 04/13/2020
 ms.openlocfilehash: ea153b1927a337be29c2eb69e2417cc250abf5e8
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94366048"
 ---
 # <a name="handle-throttling-problems-429---too-many-requests-errors-in-azure-logic-apps"></a>Gérer les problèmes de limitation (429 – erreurs « Trop de requêtes ») dans Azure Logic Apps
@@ -35,11 +35,11 @@ Pour rechercher les événements de limitation à ce niveau, consultez le volet 
 
 1. Dans le [portail Azure](https://portal.azure.com), ouvrez votre application logique dans le Concepteur d’applications logiques.
 
-1. Dans le menu de l’application logique, sous **Surveillance** , sélectionnez **Métriques**.
+1. Dans le menu de l’application logique, sous **Surveillance**, sélectionnez **Métriques**.
 
-1. Sous **Titre du graphique** , sélectionnez **Ajouter une métrique** de manière à ajouter une métrique à la métrique existante.
+1. Sous **Titre du graphique**, sélectionnez **Ajouter une métrique** de manière à ajouter une métrique à la métrique existante.
 
-1. Dans la première barre de métrique, dans la liste **MÉTRIQUE** , sélectionnez **Événements limités d’action**. Dans la deuxième barre de métrique, dans la liste **MÉTRIQUE** , sélectionnez **Événements limités de déclenchement**.
+1. Dans la première barre de métrique, dans la liste **MÉTRIQUE**, sélectionnez **Événements limités d’action**. Dans la deuxième barre de métrique, dans la liste **MÉTRIQUE**, sélectionnez **Événements limités de déclenchement**.
 
 Pour gérer la limitation à ce niveau, les options suivantes s’offrent à vous :
 

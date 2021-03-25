@@ -7,12 +7,12 @@ services: firewall
 ms.topic: conceptual
 ms.date: 03/09/2021
 ms.author: victorh
-ms.openlocfilehash: 621bf6138e4336c63ca137a6a8c54f77a4a99d61
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 47ebc752dedd72bbdedc02908911f1686584acda
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102520283"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102615497"
 ---
 # <a name="azure-firewall-premium-preview-certificates"></a>Certificats du Pare-feu Azure Premium - Préversion 
 
@@ -111,7 +111,8 @@ Les scripts génèrent les fichiers suivants :
 
 > [!IMPORTANT]
 > rootCA.key doit être stockée à un emplacement hors connexion sécurisé. Les scripts génèrent un certificat avec une validité de 1024 jours.
-
+> Les scripts requièrent l’installation de fichiers binaires OpenSSL sur votre ordinateur local. Pour plus d'informations, consultez https://www.openssl.org/
+> 
 Une fois les certificats créés, déployez-les aux emplacements suivants :
 - rootCA.crt : déployer sur les ordinateurs de point de terminaison (certificat public uniquement).
 - interCA.pfx : importer en tant que certificat dans un coffre de clés et affecter à la stratégie de pare-feu.

@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/07/2020
-ms.openlocfilehash: 6f291e5aa440a3e6e45a1dcdb872e18c8d4557ce
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: f69917b574c0be8fdacf05934b05544a4f491a9c
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98945897"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864191"
 ---
 # <a name="apache-hadoop-architecture-in-hdinsight"></a>Architecture Apache Hadoop dans HDInsight
 
@@ -42,7 +42,7 @@ Les NodeManagers exécutent les tâches qui forment l’application, puis inform
 
 Tous les types de clusters HDInsight déploient YARN. ResourceManager est déployé pour la haute disponibilité avec des instances principale et secondaire, qui s’exécutent respectivement sur le premier et le deuxième nœud de tête au sein du cluster. Seule une instance de ResourceManager est active à la fois. Les instances de NodeManager s’exécutent sur les nœuds de travail disponibles dans le cluster.
 
-![Apache YARN sur Azure HDInsight](./media/hdinsight-hadoop-architecture/apache-yarn-on-hdinsight.png)
+:::image type="content" source="./media/hdinsight-hadoop-architecture/apache-yarn-on-hdinsight.png" alt-text="Apache YARN sur Azure HDInsight" border="false":::
 
 ## <a name="soft-delete"></a>Suppression réversible
 

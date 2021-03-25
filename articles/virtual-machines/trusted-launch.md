@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/26/2021
 ms.reviewer: cynthn
 ms.custom: template-concept; references_regions
-ms.openlocfilehash: 449eb1d65e0104e6c5c74a78901cf29c5aeb3e57
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: 5e500eca601d21f106dbe31236e9b5c2aa76b0d2
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102609088"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104801925"
 ---
 # <a name="trusted-launch-for-azure-virtual-machines-preview"></a>Lancement fiable pour les machines virtuelles Azure (préversion)
 
@@ -55,6 +55,7 @@ Azure propose le lancement fiable pour améliorer de manière fluide la sécurit
 - Windows Server 2016
 - Windows 10 Professionnel
 - Windows 10 Entreprise
+- Windows 10 Entreprise multisession
 
 **Régions** : 
 - États-Unis - partie centrale méridionale
@@ -73,7 +74,7 @@ Azure propose le lancement fiable pour améliorer de manière fluide la sécurit
 
 ## <a name="secure-boot"></a>Démarrage sécurisé
 
-À la racine du lancement fiable, on trouve le démarrage sécurisé pour votre machine virtuelle. Ce mode, qui est implémenté dans le microprogramme de la plateforme, protège contre l’installation de rootkits et kits de démarrage basés sur des programmes malveillants. Le démarrage sécurisé garantit que seuls les systèmes d’exploitation et pilotes signés peuvent démarrer. Il établit une « racine de confiance » pour la pile logicielle de votre machine virtuelle. Quand le démarrage sécurisé est activé, tous les composants de démarrage du système d’exploitation (chargeur de démarrage, noyau, pilotes de noyau) doivent être signés par des éditeurs approuvés. Le démarrage sécurisé est pris en charge par Windows et certaines distributions Linux. Si le démarrage sécurisé ne parvient pas à authentifier que l’image a été signée par un éditeur approuvé, la machine virtuelle n’est pas autorisée à démarrer. Pour plus d'informations, voir [Démarrage sécurisé](https://docs.microsoft.com/windows-hardware/design/device-experiences/oem-secure-boot).
+À la racine du lancement fiable, on trouve le démarrage sécurisé pour votre machine virtuelle. Ce mode, qui est implémenté dans le microprogramme de la plateforme, protège contre l’installation de rootkits et kits de démarrage basés sur des programmes malveillants. Le démarrage sécurisé garantit que seuls les systèmes d’exploitation et pilotes signés peuvent démarrer. Il établit une « racine de confiance » pour la pile logicielle de votre machine virtuelle. Quand le démarrage sécurisé est activé, tous les composants de démarrage du système d’exploitation (chargeur de démarrage, noyau, pilotes de noyau) doivent être signés par des éditeurs approuvés. Le démarrage sécurisé est pris en charge par Windows et certaines distributions Linux. Si le démarrage sécurisé ne parvient pas à authentifier que l’image a été signée par un éditeur approuvé, la machine virtuelle n’est pas autorisée à démarrer. Pour plus d'informations, voir [Démarrage sécurisé](/windows-hardware/design/device-experiences/oem-secure-boot).
 
 ## <a name="vtpm"></a>vTPM
 
@@ -87,7 +88,7 @@ La [sécurité basée sur la virtualisation](/windows-hardware/design/device-exp
 
 La fonctionnalité HVCI constitue une atténuation puissante des risques système et protège les processus en mode noyau de Windows contre l’injection et l’exécution de code malveillant ou non vérifié. Elle vérifie les fichiers binaires et les pilotes en mode noyau avant leur exécution, ce qui empêche le chargement des fichiers non signés dans la mémoire. Cela garantit que du code exécutable de ce type ne puisse pas être modifié après avoir été autorisé à charger. Pour plus d’informations sur les fonctionnalités VBS et HVCI, consultez [Virtualization Based Security (VBS) et Hypervisor Enforced Code Integrity (HVCI)](https://techcommunity.microsoft.com/t5/windows-insider-program/virtualization-based-security-vbs-and-hypervisor-enforced-code/m-p/240571).
 
-Avec le lancement fiable et la sécurité basée sur la virtualisation (VBS), vous pouvez activer Windows Defender Credential Guard. Cette fonctionnalité isole et protège les secrets afin que seuls les logiciels système privilégiés puissent y accéder. Cela permet d’empêcher l’accès non autorisé aux secrets et le vol des informations d’identification, comme les attaques de type Pass-the-Hash (PtH). Pour plus d’informations, consultez [Credential Guard](https://docs.microsoft.com/windows/security/identity-protection/credential-guard/credential-guard).
+Avec le lancement fiable et la sécurité basée sur la virtualisation (VBS), vous pouvez activer Windows Defender Credential Guard. Cette fonctionnalité isole et protège les secrets afin que seuls les logiciels système privilégiés puissent y accéder. Cela permet d’empêcher l’accès non autorisé aux secrets et le vol des informations d’identification, comme les attaques de type Pass-the-Hash (PtH). Pour plus d’informations, consultez [Credential Guard](/windows/security/identity-protection/credential-guard/credential-guard).
 
 
 ## <a name="security-center-integration"></a>Intégration Security Center
@@ -134,7 +135,7 @@ Dans une chaîne de démarrage sécurisée, chaque étape du processus de démar
 
 ### <a name="what-happens-when-an-integrity-fault-is-detected"></a>Que se passe-t-il quand une erreur d’intégrité est détectée ?
 
-La présence de menaces avancées est surveillée dans le lancement fiable pour les machines virtuelles Azure. Si de telles menaces sont détectées, une alerte est déclenchée. Les alertes sont disponibles uniquement dans le [Niveau Standard](/azure/security-center/security-center-pricing) d’Azure Security Center.
+La présence de menaces avancées est surveillée dans le lancement fiable pour les machines virtuelles Azure. Si de telles menaces sont détectées, une alerte est déclenchée. Les alertes sont disponibles uniquement dans le [Niveau Standard](../security-center/security-center-pricing.md) d’Azure Security Center.
 Azure Security Center effectue régulièrement une attestation. Si l’attestation échoue, une alerte de gravité moyenne est déclenchée. L’attestation de lancement fiable peut échouer pour les raisons suivantes : 
 - Les informations attestées, qui comprennent un journal TCB (Trusted Computing Base), diffèrent d’une ligne de base approuvée (comme quand le démarrage sécurisé est activé). Cela peut indiquer que des modules non approuvés ont été chargés et que le système d’exploitation peut être compromis.
 - Il n’a pas été possible de vérifier que la déclaration d’attestation provient du module vTPM de la machine virtuelle attestée. Cela peut indiquer qu’un logiciel malveillant est présent et qu’il intercepte le trafic vers le module TPM. 

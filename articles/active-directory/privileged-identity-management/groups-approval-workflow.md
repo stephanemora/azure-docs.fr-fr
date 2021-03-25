@@ -16,10 +16,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0a3b6dad33ce678478a201dc8b7b612f4b8507c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91536985"
 ---
 # <a name="approve-activation-requests-for-privileged-access-group-members-and-owners-preview"></a>Approuver des demandes d’activation de membres et propriétaires de groupe d’accès privilégié (préversion)
@@ -48,7 +48,7 @@ En tant qu’approbateur délégué, vous recevez une notification par e-mail qu
 
     ![Capture d’écran montrant la page « Approuver les demandes » avec les boutons « Approuver » et « Confirmer » en surbrillance.](./media/groups-approval-workflow/groups-confirm-approval.png)
 
-1. Dans la zone**Justification**, entrez la justification professionnelle.
+1. Dans la zone **Justification**, entrez la justification professionnelle.
 
 1. Sélectionnez **Confirmer**. Votre approbation génère une notification Azure.
 
@@ -58,7 +58,7 @@ En tant qu’approbateur délégué, vous recevez une notification par e-mail qu
 
     ![Approuver les demandes : volet Approuver ou refuser avec des détails et la zone Justification](./media/groups-approval-workflow/groups-confirm-denial.png)
 
-1. Dans la zone**Justification**, entrez la justification professionnelle.
+1. Dans la zone **Justification**, entrez la justification professionnelle.
 
 1. Sélectionnez **Confirmer**. Votre refus génère une notification Azure.
 
