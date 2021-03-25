@@ -5,15 +5,15 @@ author: memildin
 manager: rkarlin
 services: security-center
 ms.author: memildin
-ms.date: 09/10/2020
+ms.date: 02/17/2021
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: 12cc2de6cd1a8e9ddf40b358c94b720b8b2cf594
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 646495597565bbb033ac3adaa15f3754f33e8fd6
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98920441"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100634161"
 ---
 # <a name="suppress-alerts-from-azure-defender"></a>Supprimer les alertes d’Azure Defender
 
@@ -60,9 +60,7 @@ Pour créer une règle directement sur le Portail Azure :
 
 1. Sur la page des alertes de sécurité de Security Center :
 
-    - Recherchez l’alerte que vous ne voulez plus voir, puis sélectionnez **Créer une règle de suppression** dans le menu points de suspension (…) correspondant :
-
-        [![Option **Créer une règle de suppression**](media/alerts-suppression-rules/auto-dismiss-future-option.png)](media/alerts-suppression-rules/auto-dismiss-future-option.png#lightbox)
+    - Sélectionnez l’alerte que vous ne souhaitez plus voir, puis dans le volet d’informations, sélectionnez **Entreprendre une action**.
 
     - Vous pouvez également sélectionner le lien **Règles de suppression** en haut de la page, puis sélectionner **Créer une règle de suppression** sur la page des règles de suppression :
 
@@ -85,7 +83,7 @@ Pour créer une règle directement sur le Portail Azure :
 1. Enregistrez la règle. 
 
 
-## <a name="edit-a-suppression-rules"></a>Modifier les règles de suppression
+## <a name="edit-a-suppression-rule"></a>Modifier une règle de suppression
 
 Pour modifier une règle que vous avez créée, accédez à la page des règles de suppression.
 
@@ -106,20 +104,6 @@ Pour supprimer une ou plusieurs des règles que vous avez créées, accédez à 
 1. Pour supprimer une seule règle, ouvrez le menu points de suspension (…) de la règle, puis sélectionnez **Supprimer**.
 1. Pour supprimer plusieurs règles, cochez les cases correspondantes, puis sélectionnez **Supprimer**.
     ![Suppression d’une ou plusieurs règles de suppression](media/alerts-suppression-rules/delete-multiple-alerts.png)
-
-## <a name="view-suppressed-alerts"></a>Afficher les alertes supprimées
-
-Les alertes correspondant aux règles de suppression activées sont toujours générées, mais leur état est défini sur **ignoré**. Vous pouvez voir l’état sur le Portail Azure ou en accédant à vos alertes de sécurité Security Center suivant la méthode de votre choix. 
-
-> [!TIP]
-> [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) ne crée pas d’incidents pour les alertes supprimées. Dans le cas des autres SIEM, vous pouvez filtrer les alertes supprimées selon l’état des alertes (« ignoré »).
-
-Utilisez le filtre de Security Center pour afficher les alertes ignorées par vos règles.
-
-* Sur la page des alertes de sécurité de Security Center, ouvrez les options de filtre et sélectionnez **Ignoré**.  
-
-   [![Affichage des alertes ignorées](media/alerts-suppression-rules/view-dismissed-alerts.png)](media/alerts-suppression-rules/view-dismissed-alerts.png#lightbox)
-
 
 ## <a name="create-and-manage-suppression-rules-with-the-api"></a>Créer et gérer des règles de suppression avec une API
 

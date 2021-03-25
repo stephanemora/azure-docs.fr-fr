@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 02/11/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 19ce054ce29b744f900676ecf4e55af3487d9891
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: c775d81b88c891d6d8ea0a4597b4fa4fee29c86a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100373468"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737543"
 ---
 # <a name="set-up-msix-app-attach-with-the-azure-portal"></a>Configurer l’attachement d’application MSIX avec le portail Azure
 
@@ -36,6 +36,7 @@ Voici ce dont vous avez besoin pour configurer l’attachement d’application M
 - Une application empaquetée au format MSIX et développée en image MSIX qui est chargée dans un partage de fichiers.
 - Un partage de fichiers dans votre déploiement Windows Virtual Desktop où le package MSIX sera stocké.
 - Le partage de fichiers dans lequel vous avez chargé l’image MSIX doit également être accessible à toutes les machines virtuelles du pool d’hôtes. Les utilisateurs auront besoin d’autorisations en lecture seule pour accéder à l’image.
+- Si le certificat n’est pas approuvé publiquement, suivez les instructions dans [Installer des certificats](app-attach.md#install-certificates).
 
 ## <a name="turn-off-automatic-updates-for-msix-app-attach-applications"></a>Désactiver les mises à jour automatiques pour les applications d’attachement d’application MSIX
 

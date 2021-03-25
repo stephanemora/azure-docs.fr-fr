@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: bf0570cd62a2c329407cfb6dd087020f53cdc991
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94954067"
 ---
 # <a name="use-the-storsimple-diagnostics-tool-to-troubleshoot-8000-series-device-issues"></a>Utiliser l’outil de diagnostic StorSimple pour résoudre les problèmes des appareils de la gamme 8000
@@ -416,7 +416,7 @@ Le tableau ci-dessous décrit les différents paramètres Windows PowerShell dan
 
 | Paramètre PowerShell    | Description  |
 |-------------------------|------------------|
-| ID de l’instance             | Un identificateur unique ou un GUID est associé à chaque contrôleur.|
+| Instance ID             | Un identificateur unique ou un GUID est associé à chaque contrôleur.|
 | Nom                    | Nom convivial configuré pour l’appareil via le portail Azure lors du déploiement de l’appareil. Le nom convivial par défaut est le numéro de série de l’appareil. |
 | Modèle                   | Modèle de votre appareil de la gamme StorSimple 8000. Il peut s’agir du modèle 8100 ou 8600.|
 | SerialNumber            | Le numéro de série de l’appareil est attribué en usine et comprend 15 caractères. Par exemple, 8600-SHX0991003G44HT indique :<br> 8600 : modèle de l’appareil.<br>SHX : site de fabrication.<br> 0991003 : produit spécifique. <br> G44HT : les 5 derniers chiffres sont incrémentés pour créer des numéros de série uniques. Il ne s’agit pas nécessairement d’une suite.|
@@ -430,7 +430,7 @@ Le tableau ci-dessous décrit les différents paramètres Windows PowerShell dan
 | HcsSoftwareVersion      | Version du logiciel HCS exécutée sur votre appareil. Par exemple, la version du logiciel HCS correspondant à StorSimple 8000 Series Update 4.0 est 6.3.9600.17820. |
 | ApiVersion              | Version du logiciel de l’API Windows PowerShell de l’appareil HCS.|
 | VhdVersion              | Version du logiciel de l’image d’usine fournie avec l’appareil. Si vous avez rétabli les paramètres d’usine de votre appareil, ce dernier exécute cette version du logiciel.|
-| OSVersion:               | Version du logiciel du système d’exploitation Windows Server exécuté sur l’appareil. L’appareil StorSimple est basé sur Windows Server 2012 R2, qui correspond à la version 6.3.9600.|
+| OSVersion               | Version du logiciel du système d’exploitation Windows Server exécuté sur l’appareil. L’appareil StorSimple est basé sur Windows Server 2012 R2, qui correspond à la version 6.3.9600.|
 | CisAgentVersion         | Version de l’agent Cis exécuté sur votre appareil StorSimple. Cet agent permet de communiquer avec le service StorSimple Manager exécuté dans Azure.|
 | MdsAgentVersion         | Version correspondant à l’agent Mds exécuté sur votre appareil StorSimple. Cet agent transfère des données au service de surveillance et de diagnostics (Monitoring and Diagnostics Service, ou MDS).|
 | Lsisas2Version          | Version correspondant aux pilotes LSI exécutés sur votre appareil StorSimple.|

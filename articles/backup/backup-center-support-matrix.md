@@ -4,10 +4,10 @@ description: Cet article résume les scénarios pris en charge par le Centre de 
 ms.topic: conceptual
 ms.date: 09/07/2020
 ms.openlocfilehash: d6e5d34e201edda4fd1e9fda85f210fb88211e28
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102504505"
 ---
 # <a name="support-matrix-for-backup-center"></a>Matrice de prise en charge du Centre de sauvegarde

@@ -1,5 +1,5 @@
 ---
-title: Fichier Include
+title: Fichier include
 titleSuffix: Azure
 description: Fichier include
 services: internet-peering
@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: d125471d4a6c68aff12921a8524a91ef75b6c51a
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102532743"
 ---
 Pour exécuter les cmdlets, vous pouvez utiliser Azure Cloud Shell, un interpréteur de commandes interactif gratuit. Il contient des outils Azure courants préinstallés et configurés pour être utilisés avec votre compte. Sélectionnez **Copier** pour copier le code, puis collez-le dans Cloud Shell. Appuyez ensuite sur la touche **Entrée** pour l’exécuter. Cloud Shell peut être lancé de plusieurs façons :

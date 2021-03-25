@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 02/04/2021
 ms.author: makromer
 ms.openlocfilehash: 45f5334ebee3365c17bfa52c8d47ed75b82bdfa1
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100387697"
 ---
 # <a name="common-data-model-format-in-azure-data-factory"></a>Format Common Data Model dans Azure Data Factory
@@ -39,7 +39,7 @@ Le tableau ci-dessous répertorie les propriétés prises en charge par une sour
 | Emplacement racine : chemin d’accès au dossier | Emplacement du dossier racine du dossier CDM | Oui | String | folderPath |
 | Fichier manifeste : Chemin d’accès de l'entité | Chemin d’accès du dossier de l’entité dans le dossier racine | non | String | entityPath |
 | Fichier manifeste : Nom du manifeste | Nom du fichier manifeste. La valeur par défaut est « Default »  | Non | String | manifestName |
-| Filtrer par date de dernière modification | Choisir pour filtrer les fichiers en fonction de leur date de dernière modification | non | Timestamp | modifiedAfter <br> modifiedBefore | 
+| Filtrer par date de dernière modification | Pour filtrer les fichiers en fonction de leur date de dernière modification | non | Timestamp | modifiedAfter <br> modifiedBefore | 
 | Service lié au schéma | Le service lié dans lequel se trouve le corpus | oui, en cas d’utilisation du manifeste | `'adlsgen2'` ou `'github'` | corpusStore | 
 | Conteneur de référence d’entité | Le corpus du conteneur est dans | oui, si vous utilisez le manifeste et le corpus dans ADLS Gen2 | String | adlsgen2_fileSystem |
 | Référentiel de référence d’entité | Nom du référentiel GitHub | oui, si vous utilisez le manifeste et le corpus dans GitHub | String | github_repository |

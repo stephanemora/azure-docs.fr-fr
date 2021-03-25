@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee6ac21d67f32fbc61db19b348fc29cdf3ee9fd7
-ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.openlocfilehash: 7f540ab40a14af09aa8667860286021f572eb6f1
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/13/2021
-ms.locfileid: "103418179"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104587897"
 ---
 # <a name="governing-azure-ad-service-accounts"></a>Gestion des comptes de service Azure
 
@@ -53,7 +53,7 @@ Nous vous recommandons les pratiques suivantes pour les privilèges de compte de
 
 * N’assignez pas de rôles intégrés aux comptes de service. Au lieu de cela, utilisez le [modèle d’octroi d’autorisation OAuth2 pour Microsoft Graph](/graph/api/resources/oauth2permissiongrant).
 
-* Si un rôle privilégié doit être attribué au principal du service, envisagez d’attribuer un [rôle personnalisé](https://docs.microsoft.com/azure/active-directory/roles/custom-create) avec des privilèges requis spécifiques en fonction de la durée.
+* Si un rôle privilégié doit être attribué au principal du service, envisagez d’attribuer un [rôle personnalisé](../roles/custom-create.md) avec des privilèges requis spécifiques en fonction de la durée.
 
 * N’incluez pas de comptes de service en tant que membres de groupes dotés d’autorisations élevées. 
 
@@ -63,10 +63,10 @@ Nous vous recommandons les pratiques suivantes pour les privilèges de compte de
    Ou utilisez  
 ‎   `Get-AzureADServicePrincipal | % { Get-AzureADServiceAppRoleAssignment -ObjectId $_ }`
 
-* [Utilisez des étendues OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent) pour limiter la fonctionnalité à laquelle un compte de service peut accéder sur une ressource.
+* [Utilisez des étendues OAuth 2.0](../develop/v2-permissions-and-consent.md) pour limiter la fonctionnalité à laquelle un compte de service peut accéder sur une ressource.
 * Les principaux de service et les identités managées peuvent utiliser des étendues OAuth 2.0 dans un contexte délégué qui emprunte l’identité d’un utilisateur connecté, ou en tant que compte de service dans le contexte de l’application. Dans le contexte de l’application, aucun n’est connecté.
 
-* Vérifiez les étendues que les comptes de service demandent pour les ressources afin de vous assurer qu’elles sont appropriées. Par exemple, si un compte demande l’étendue Files.ReadWrite.All, évaluez s’il n’a en réalité pas uniquement besoin de l’étendue File.Read.All. Pour plus d’informations sur les autorisations, consultez [Référence d’autorisation Microsoft Graph](https://docs.microsoft.com/graph/permissions-reference).
+* Vérifiez les étendues que les comptes de service demandent pour les ressources afin de vous assurer qu’elles sont appropriées. Par exemple, si un compte demande l’étendue Files.ReadWrite.All, évaluez s’il n’a en réalité pas uniquement besoin de l’étendue File.Read.All. Pour plus d’informations sur les autorisations, consultez [Référence d’autorisation Microsoft Graph](/graph/permissions-reference).
 
 * Assurez-vous que vous faites confiance au développeur de l’application ou de l’API disposant de l’accès demandé à vos ressources.
 
@@ -78,9 +78,9 @@ Nous vous recommandons les pratiques suivantes pour les privilèges de compte de
 
 Une fois que vous avez une compréhension claire de l’objectif, de l’étendue et des autorisations nécessaires, créez votre compte de service. 
 
-[Créer et utiliser des identités managées](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet)
+[Créer et utiliser des identités managées](../../app-service/overview-managed-identity.md?tabs=dotnet)
 
-[Créer et utiliser des principaux de service](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)
+[Créer et utiliser des principaux de service](../develop/howto-create-service-principal-portal.md)
 
 Si possible, utilisez une identité managée. Si vous ne pouvez pas utiliser une identité managée, utilisez un principal de service. Si vous ne pouvez pas utiliser un principal du service, utilisez uniquement un compte d’utilisateur Azure AD.
 
@@ -100,7 +100,7 @@ Surveillez de manière proactive vos comptes de service pour vous assurer que le
 
 * utilisation des journaux de connexion Azure AD dans le portail Azure AD ;
 
-* exportation des journaux de connexion Azure AD vers le service [Stockage Azure](https://docs.microsoft.com/azure/storage/), [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/) ou [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/logs/data-platform-logs).
+* exportation des journaux de connexion Azure AD vers le service [Stockage Azure](../../storage/index.yml), [Azure Event Hubs](../../event-hubs/index.yml) ou [Azure Monitor](../../azure-monitor/logs/data-platform-logs.md).
 
 
 ![Capture d’écran montrant l’écran de connexion du principal de service.](./media/securing-service-accounts/service-accounts-govern-azure-1.png)
@@ -172,7 +172,7 @@ L’exemple PowerShell gratuit de Microsoft collecte les autorisations OAuth2 et
 
 **Les processus de déprovisionnement doivent inclure les tâches suivantes.**
 
-1. Une fois l’application ou le script associés déprovisionnés, [surveillez les connexions](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins#sign-ins-report) et l’accès du compte de service aux ressources.
+1. Une fois l’application ou le script associés déprovisionnés, [surveillez les connexions](../reports-monitoring/concept-sign-ins.md#sign-ins-report) et l’accès du compte de service aux ressources.
 
    * Si le compte est toujours actif, déterminez la façon dont il est utilisé avant de passer au étapes suivantes.
  
@@ -196,4 +196,3 @@ Pour plus d’informations sur la sécurisation des comptes de service Azure, co
 
  
 
- 

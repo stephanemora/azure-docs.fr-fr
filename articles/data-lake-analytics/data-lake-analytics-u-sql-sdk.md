@@ -7,10 +7,10 @@ ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 03/01/2017
 ms.openlocfilehash: 8fb60e62a63bfc4562f19d483dc84c99c37676b0
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92215533"
 ---
 # <a name="run-and-test-u-sql-with-azure-data-lake-u-sql-sdk"></a>Exécuter et tester U-SQL à l’aide du Kit de développement logiciel (SDK) Azure Data Lake U-SQL
@@ -219,8 +219,8 @@ Voici les arguments facultatifs **d’execute** :
 
 |Argument|Valeur par défaut|Description|
 |--------|-------------|-----------|
-|-DataRoot | « |Racine de données pour l’exécution des métadonnées. La valeur par défaut correspond à la variable d’environnement **LOCALRUN_DATAROOT**.|
-|-MessageOut | « |Videz les messages de la console dans un fichier.|
+|-DataRoot | '' |Racine de données pour l’exécution des métadonnées. La valeur par défaut correspond à la variable d’environnement **LOCALRUN_DATAROOT**.|
+|-MessageOut | '' |Videz les messages de la console dans un fichier.|
 |-Parallel | « 1 » |Indicateur de lancement des étapes d’exécution locale générées avec le niveau de parallélisme spécifié.|
 |-Verbose | « False » |Indicateur affichant les sorties détaillées du runtime.|
 

@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 06/08/2018
 ms.custom: devx-track-python
 ms.openlocfilehash: fda09047d138e404eeca87ed3eba9bb72ff62d56
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92220225"
 ---
 # <a name="manage-azure-data-lake-analytics-using-python"></a>Gérer Azure Data Lake Analytics à l’aide de Python
@@ -21,8 +21,8 @@ Cet article explique comment gérer des comptes, des sources de données, des ut
 ## <a name="supported-python-versions"></a>Versions de Python prises en charge
 
 * Utilisez la version 64 bits de Python.
-* Vous pouvez utiliser la distribution Python standard, disponible dans les **[téléchargements Python.org](https://www.python.org/downloads/)** . 
-* De nombreux développeurs trouvent pratique d’utiliser la **[distribution Anaconda Python](https://www.anaconda.com/download/)** .  
+* Vous pouvez utiliser la distribution Python standard, disponible dans les **[téléchargements Python.org](https://www.python.org/downloads/)**. 
+* De nombreux développeurs trouvent pratique d’utiliser la **[distribution Anaconda Python](https://www.anaconda.com/download/)**.  
 * Cet article a été écrit à l’aide de Python version 3.6 à partir de la distribution Python standard
 
 ## <a name="install-azure-python-sdk"></a>Installer le Kit de développement logiciel (SDK) Python
@@ -94,11 +94,11 @@ import time
 
 Exécutez ce script pour vérifier que les modules peuvent être importés.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Authentification
 
 ### <a name="interactive-user-authentication-with-a-pop-up"></a>Authentification utilisateur interactif avec une fenêtre contextuelle
 
-Cette méthode n’est pas prise en charge.
+Cette méthode n'est pas prise en charge.
 
 ### <a name="interactive-user-authentication-with-a-device-code"></a>Authentification utilisateur interactif avec un code d’appareil
 
@@ -118,7 +118,7 @@ credentials = ServicePrincipalCredentials(
 
 ### <a name="noninteractive-authentication-with-api-and-a-certificate"></a>Authentification non interactive avec API et un certificat
 
-Cette méthode n’est pas prise en charge.
+Cette méthode n'est pas prise en charge.
 
 ## <a name="common-script-variables"></a>Variables de script courantes
 

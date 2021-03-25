@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/17/2019
-ms.openlocfilehash: 3af48c93633709c9b5814caa99c222e24e402a4a
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: cb5230ae42703d19726fb8ea0d6c88aa70e589a8
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98945222"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864140"
 ---
 # <a name="apache-phoenix-in-azure-hdinsight"></a>Apache Phoenix dans Azure HDInsight
 
@@ -96,7 +96,7 @@ ALTER TABLE my_other_table SET TRANSACTIONAL=true;
 
 Un *« hotspotting du serveur de la région »* peut se produire lors de l’écriture d’enregistrements avec des clés séquentielles sur HBase. Bien que vous puissiez disposer de plusieurs serveurs de région dans votre cluster, vos écritures s’exécutent toutes dans un seul d’entre eux. Cette concentration génère la problématique du « hotspotting » au cours de laquelle un seul serveur gère la charge de travail des écritures, qui n’est donc pas distribuée entre toutes les instances disponibles. Dans la mesure où chaque région présente une taille maximale prédéfinie, une région atteignant sa taille limite est divisée en plusieurs régions de taille plus réduite. Le cas échéant, l’une de ces nouvelles régions stocke l’ensemble des nouveaux enregistrements, en devenant de fait le nouveau point d’accès.
 
-Pour pallier ce problème et atteindre de meilleures performances, divisez au préalable les tables de manière à ce que l’ensemble des serveurs de région soient utilisés de la même manière. Phoenix fournit des *tables « salted »* , qui ajoutent de manière transparente l’octet de « salting » à la clé de ligne d’une table particulière. La table est pré-fractionnée sur les limites de l’octet de « salting », ceci pour garantir une distribution égale de la charge entre les serveurs de région durant la phase initiale de la table. Cette approche distribue la charge de travail d’écriture entre tous les serveurs de région disponibles, améliorant de fait les performances d’écriture et de lecture. Pour « saler » une table, spécifiez la propriété de table `SALT_BUCKETS` une fois que la table est créée :
+Pour pallier ce problème et atteindre de meilleures performances, divisez au préalable les tables de manière à ce que l’ensemble des serveurs de région soient utilisés de la même manière. Phoenix fournit des *tables « salted »*, qui ajoutent de manière transparente l’octet de « salting » à la clé de ligne d’une table particulière. La table est pré-fractionnée sur les limites de l’octet de « salting », ceci pour garantir une distribution égale de la charge entre les serveurs de région durant la phase initiale de la table. Cette approche distribue la charge de travail d’écriture entre tous les serveurs de région disponibles, améliorant de fait les performances d’écriture et de lecture. Pour « saler » une table, spécifiez la propriété de table `SALT_BUCKETS` une fois que la table est créée :
 
 ```sql
 CREATE TABLE Saltedweblogs (
@@ -125,11 +125,11 @@ Un cluster HDInsight HBase comprend l’[interface utilisateur Ambari](hdinsight
 
 2. Sélectionnez **HBase** dans la liste des services du menu de gauche, puis sélectionnez l’onglet **Configurations**.
 
-    ![Apache Ambari - Configurations HBase](./media/hdinsight-phoenix-in-hdinsight/ambari-hbase-config1.png)
+    :::image type="content" source="./media/hdinsight-phoenix-in-hdinsight/ambari-hbase-config1.png" alt-text="Apache Ambari - Configurations HBase":::
 
 3. Recherchez la section de configuration **Phoenix SQL** pour activer ou désactiver Phoenix, puis définissez la temporisation des requêtes.
 
-    ![Section de configuration Ambari Phoenix SQL](./media/hdinsight-phoenix-in-hdinsight/apache-ambari-phoenix.png)
+    :::image type="content" source="./media/hdinsight-phoenix-in-hdinsight/apache-ambari-phoenix.png" alt-text="Section de configuration Ambari Phoenix SQL":::
 
 ## <a name="see-also"></a>Voir aussi
 

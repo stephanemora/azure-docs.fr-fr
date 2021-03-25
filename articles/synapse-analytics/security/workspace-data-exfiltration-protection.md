@@ -1,19 +1,19 @@
 ---
 title: Protection contre l’exfiltration de données pour les espaces de travail Azure Synapse Analytics
 description: Cet article explique la protection contre l’exfiltration de données dans Azure Synapse Analytics
-author: NanditaV
+author: nanditavalsan
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: security
 ms.date: 12/01/2020
 ms.author: NanditaV
 ms.reviewer: jrasnick
-ms.openlocfilehash: 71210cdcc2b3758a59a1b41816e6468556e94808
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: e4067d5acf55f94cd46e629792312af1547c5901
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96518258"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103489371"
 ---
 # <a name="data-exfiltration-protection-for-azure-synapse-analytics-workspaces"></a>Protection contre l’exfiltration de données pour les espaces de travail Azure Synapse Analytics
 Cet article explique la protection contre l’exfiltration de données dans Azure Synapse Analytics
@@ -25,7 +25,7 @@ Les espaces de travail Azure Synapse Analytics prennent en charge l’activation
 >Vous ne pouvez pas modifier la configuration de l’espace de travail pour le réseau virtuel managé et la protection contre l’exfiltration de données après la création de l’espace de travail.
 
 ## <a name="managing-synapse-workspace-data-egress-to-approved-targets"></a>Gestion de la sortie des données de l’espace de travail Synapse vers les cibles approuvées
-Une fois l’espace de travail créé avec l’exfiltration de données activée, les propriétaires de la ressource d’espace de travail peuvent gérer la liste des locataires Azure AD approuvés pour l’espace de travail. Les utilisateurs disposant des [autorisations appropriées](./synapse-workspace-access-control-overview.md) sur l’espace de travail peuvent utiliser Synapse Studio pour créer des demandes de connexion de point de terminaison privé managé aux ressources dans les locataires Azure AD approuvés de l’espace de travail. La création d’un point de terminaison privé managé sera bloquée si l’utilisateur tente de créer une connexion de point de terminaison privé à une ressource dans un locataire non approuvé.
+Une fois l’espace de travail créé avec la protection contre l’exfiltration de données activée, les propriétaires de la ressource d’espace de travail peuvent gérer la liste des locataires Azure AD approuvés de l’espace de travail. Les utilisateurs disposant des [autorisations appropriées](./synapse-workspace-access-control-overview.md) sur l’espace de travail peuvent utiliser Synapse Studio pour créer des demandes de connexion de point de terminaison privé managé aux ressources dans les locataires Azure AD approuvés de l’espace de travail. La création d’un point de terminaison privé managé sera bloquée si l’utilisateur tente de créer une connexion de point de terminaison privé à une ressource dans un locataire non approuvé.
 
 ## <a name="sample-workspace-with-data-exfiltration-protection-enabled"></a>Exemple d’espace de travail avec la protection contre l’exfiltration de données activée
 Utilisons un exemple pour illustrer la protection contre l’exfiltration de données pour les espaces de travail Synapse. Contoso dispose de ressources Azure dans le locataire A et le locataire B et il est nécessaire que ces ressources se connectent en toute sécurité. Un espace de travail Synapse a été créé dans le locataire A avec le locataire B ajouté en tant que locataire Azure AD approuvé. Le diagramme montre les connexions de point de terminaison privé aux comptes Stockage Azure dans le locataire A et le locataire B qui ont été approuvées par les propriétaires du compte de stockage. Le diagramme montre également la création bloquée d’un point de terminaison privé. La création de ce point de terminaison privé a été bloquée, car il ciblait un compte Stockage Azure dans le locataire Fabrikam Azure AD, qui n’est pas un locataire Azure AD approuvé pour l’espace de travail de Contoso. 

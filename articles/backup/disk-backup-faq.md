@@ -4,16 +4,16 @@ description: Réponses aux questions les plus fréquentes concernant Sauvegarde 
 ms.topic: conceptual
 ms.date: 01/07/2021
 ms.openlocfilehash: 3ef18a7d178075194e24889477768583f05f0cdd
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98734560"
 ---
 # <a name="frequently-asked-questions-about-azure-disk-backup-in-preview"></a>Foire aux questions sur Sauvegarde des disques Azure (préversion)
 
 >[!IMPORTANT]
->Sauvegarde des disques Azure est disponible en préversion sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Pour connaître la disponibilité des régions, consultez la [matrice de prise en charge](disk-backup-support-matrix.md).
+>Sauvegarde des disques Azure est disponible en préversion sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Pour la disponibilité des régions, consultez la [matrice de prise en charge](disk-backup-support-matrix.md).
 >
 >[Remplissez ce formulaire](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR1vE8L51DIpDmziRt_893LVUNFlEWFJBN09PTDhEMjVHS05UWFkxUlUzUS4u) pour vous inscrire à la préversion.
 
@@ -41,7 +41,7 @@ Vous ne pouvez pas créer d’instantané incrémentiel pour un disque particuli
 
 ### <a name="why-do-i-need-to-provide-role-assignments-to-be-able-to-configure-backups-perform-scheduled-and-on-demand-backups-and-restore-operations"></a>Pourquoi dois-je fournir des attributions de rôles pour pouvoir configurer des sauvegardes, effectuer des sauvegardes planifiées et à la demande et effectuer des opérations de restauration ?
 
-Sauvegarde des disques Azure utilise l’approche de moindre privilège pour découvrir, protéger et restaurer les disques managés dans vos abonnements. Pour ce faire, Sauvegarde Azure utilise l’identité managée du [coffre de sauvegarde](backup-vault-overview.md) pour accéder à d’autres ressources Azure. Une identité managée affectée par le système est limitée à une par ressource et est liée au cycle de vie de cette ressource. Vous pouvez accorder des autorisations à l’identité managée à l’aide du contrôle d’accès en fonction du rôle Azure (Azure RBAC). L’identité managée est un principal de service d’un type spécial qui ne peut être utilisé qu’avec des ressources Azure. Découvrez-en plus sur les [identités managées](../active-directory/managed-identities-azure-resources/overview.md). Par défaut, le coffre de sauvegarde n’a pas l’autorisation d’accéder au disque à sauvegarder, de créer des instantanés récurrents, de supprimer des instantanés après la période de rétention ni de restaurer un disque à partir d’une sauvegarde. En accordant explicitement des attributions de rôles à l’identité managée du coffre de sauvegarde, vous contrôlez la gestion des autorisations sur les ressources des abonnements.
+Sauvegarde des disques Azure utilise l’approche de moindre privilège pour découvrir, protéger et restaurer les disques managés dans vos abonnements. Pour ce faire, Sauvegarde Azure utilise l’identité managée du [coffre de sauvegarde](backup-vault-overview.md) pour accéder à d’autres ressources Azure. Une identité managée affectée par le système est limitée à une par ressource et est liée au cycle de vie de cette ressource. Pour accorder des autorisations à l’identité managée, vous pouvez utiliser le contrôle d’accès en fonction du rôle (RBAC) Azure. L’identité managée est un principal de service d’un type spécial qui ne peut être utilisé qu’avec des ressources Azure. Découvrez-en plus sur les [identités managées](../active-directory/managed-identities-azure-resources/overview.md). Par défaut, le coffre de sauvegarde n’a pas l’autorisation d’accéder au disque à sauvegarder, de créer des instantanés récurrents, de supprimer des instantanés après la période de rétention ni de restaurer un disque à partir d’une sauvegarde. En accordant explicitement des attributions de rôles à l’identité managée du coffre de sauvegarde, vous contrôlez la gestion des autorisations sur les ressources des abonnements.
 
 ### <a name="why-does-backup-policy-limit-the-retention-duration"></a>Pourquoi la stratégie de sauvegarde limite-t-elle la durée de rétention ?
 

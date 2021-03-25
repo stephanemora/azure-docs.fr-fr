@@ -6,12 +6,12 @@ ms.assetid: daf81798-7acc-419a-bc32-b5a41c6db56b
 ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
-ms.openlocfilehash: efc785c96c76cca5deeadbd30fa962becb18d25b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c2b8302e64f7dcc657fd20ed5d918ed6816d750d
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95997299"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102608907"
 ---
 # <a name="azure-event-hubs-trigger-for-azure-functions"></a>Déclencheur Azure Event Hubs pour Azure Functions
 
@@ -20,6 +20,10 @@ Cet article explique comment utiliser un déclencheur [Azure Event Hubs](../even
 Pour plus d’informations sur les détails d’installation et de configuration, consultez la [vue d’ensemble](functions-bindings-event-hubs.md).
 
 [!INCLUDE [functions-bindings-event-hubs-trigger](../../includes/functions-bindings-event-hubs-trigger.md)]
+
+## <a name="hostjson-settings"></a>Paramètres host.json
+
+Le fichier [host.json](functions-host-json.md#eventhub) contient les paramètres qui contrôlent le comportement du déclencheur Event Hub. Consultez la section [Paramètres host.json](functions-bindings-event-hubs.md#hostjson-settings) pour plus d’informations concernant les paramètres disponibles.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

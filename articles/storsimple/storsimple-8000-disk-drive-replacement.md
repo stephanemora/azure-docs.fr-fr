@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 8/25/2017
 ms.author: alkohli
 ms.openlocfilehash: a5a7a31c174271f963bb005f10b8376a59133d36
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96014871"
 ---
 # <a name="replace-a-disk-drive-on-your-storsimple-8000-series-device"></a>Remplacer un lecteur de disque sur votre appareil de la gamme StorSimple 8000
@@ -28,7 +28,7 @@ Ce didacticiel explique comment vous pouvez retirer et remplacer un lecteur de d
 
 * Désengager le verrou anti-effraction
 * Retirer le lecteur de disque
-* Installez le lecteur de disque de remplacement
+*     Installez le lecteur de disque de remplacement
 
 > [!IMPORTANT]
 > Avant de retirer et de remplacer un lecteur de disque, passez en revue les informations de sécurité dans [Remplacement de composants matériels StorSimple](storsimple-8000-hardware-component-replacement.md).
@@ -53,7 +53,7 @@ Cette procédure explique comment les verrous anti-effraction sur votre appareil
 2. Faites tourner la clé dans le sens inverse des aiguilles d’une montre jusqu’à ce que l’indicateur rouge ne soit plus visible dans l’ouverture au-dessus de la clé.
 3. Retirez la clé.
    
-    ![: Lecteur de disque déverrouillé](./media/storsimple-disk-drive-replacement/IC741057.png)
+    ![ : Lecteur de disque déverrouillé](./media/storsimple-disk-drive-replacement/IC741057.png)
    
     **Figure 2** : Lecteur de disque déverrouillé
 4. Le lecteur de disque peut maintenant être retiré.
@@ -87,7 +87,7 @@ Les lecteurs peuvent être retirés et remplacés pendant que le système foncti
    
     **Figure 4** : Retrait du lecteur de disque hors du châssis
 
-## <a name="install-the-replacement-disk-drive"></a>Installez le lecteur de disque de remplacement
+## <a name="install-the-replacement-disk-drive"></a>    Installez le lecteur de disque de remplacement
 Quand un lecteur est défectueux dans votre appareil StorSimple et que vous l’avez retiré, suivez cette procédure pour le remplacer par un nouveau lecteur.
 
 #### <a name="to-insert-a-drive"></a>Pour insérer un lecteur

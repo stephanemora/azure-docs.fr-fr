@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 10/22/2018
 ms.author: duau
 ms.openlocfilehash: 5f2aa3d05d349880b5eb2d35a2c58af0741b9855
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98185578"
 ---
 # <a name="nested-traffic-manager-profiles"></a>Profils Traffic Manager imbriqués
@@ -105,7 +105,7 @@ Les paramètres d’analyse dans un profil Traffic Manager s’appliquent à tou
 
 * [Comment le modèle de facturation s’applique-t-il aux profils imbriqués ?](./traffic-manager-faqs.md#how-does-the-billing-model-apply-for-nested-profiles)
 
-* [Y a-t-il un impact sur les performances pour les profils imbriqués ?](./traffic-manager-faqs.md#is-there-a-performance-impact-for-nested-profiles)
+* [Y a-t-il un impact sur les performances en cas de profils imbriqués ?](./traffic-manager-faqs.md#is-there-a-performance-impact-for-nested-profiles)
 
 * [Comment Traffic Manager calcule-t-il l’intégrité d’un point de terminaison imbriqué dans un profil parent ?](./traffic-manager-faqs.md#how-does-traffic-manager-compute-the-health-of-a-nested-endpoint-in-a-parent-profile)
 

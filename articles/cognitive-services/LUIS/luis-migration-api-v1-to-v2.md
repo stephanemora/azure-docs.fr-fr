@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 04/02/2019
 ms.openlocfilehash: 867ae2cc7567077786bb0840cd11c47b786be423
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95018750"
 ---
 # <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>Guide de migration d’API v1 vers v2 pour les applications LUIS
@@ -26,7 +26,7 @@ LUIS fournit de nouvelles [régions](./luis-reference-regions.md) pour les API L
 L’itinéraire de création d’API passe de l’utilisation de l’itinéraire **prog** à l’utilisation de l’itinéraire **api**.
 
 
-| version | itinéraire |
+| version | route |
 |--|--|
 |1|/luis/v1.0/**prog**/apps|
 |2|/luis/**api**/v2.0/apps|
@@ -105,17 +105,17 @@ Réponse de réussite du point de terminaison v2 :
 ## <a name="key-management-no-longer-in-api"></a>La gestion de clés n’est plus dans l’API
 Les API de la clé du point de terminaison de l’abonnement sont déconseillées et retournent 410 GONE.
 
-| version | itinéraire |
+| version | route |
 |--|--|
 |1|/luis/v1.0/prog/subscriptions|
 |1|/luis/v1.0/prog/subscriptions/{subscriptionKey}|
 
-Les [clés de point de terminaison](luis-how-to-azure-subscription.md) Azure sont générées sur le Portail Azure. Vous affectez la clé à une application LUIS à la page **[Publier](luis-how-to-azure-subscription.md)** . Vous n’avez pas besoin de connaître la valeur de clé réelle. LUIS utilise le nom de l’abonnement pour effectuer l’affectation.
+Les [clés de point de terminaison](luis-how-to-azure-subscription.md) Azure sont générées sur le Portail Azure. Vous affectez la clé à une application LUIS à la page **[Publier](luis-how-to-azure-subscription.md)**. Vous n’avez pas besoin de connaître la valeur de clé réelle. LUIS utilise le nom de l’abonnement pour effectuer l’affectation.
 
 ## <a name="new-versioning-route"></a>Nouvel itinéraire de contrôle de version
 Le modèle v2 est maintenant contenu dans une [version](luis-how-to-manage-versions.md). Un nom de version a 10 caractères dans l’itinéraire. La version par défaut est « 0.1 ».
 
-| version | itinéraire |
+| version | route |
 |--|--|
 |1|/luis/v1.0/**prog**/apps/{appId}/entities|
 |2|/luis/**api**/v2.0/apps/{appId}/**versions**/{versionId}/entities|
@@ -134,7 +134,7 @@ Plusieurs API qui retournent des métadonnées de LUIS ont été renommées.
 ## <a name="sample-renamed-to-suggest"></a>« Exemple » est renommé « Suggérer »
 LUIS suggère des énoncés à partir d’[énoncés de point de terminaison](luis-how-to-review-endpoint-utterances.md) qui peuvent améliorer le modèle. Dans la version précédente, cela s’appelait **exemple**. Dans la nouvelle version, le nom est modifié, passant d’exemple à **suggérer**. Cela s’appelle **[Réviser les énoncés de point de terminaison](luis-how-to-review-endpoint-utterances.md)** sur le site web LUIS.
 
-| version | itinéraire |
+| version | route |
 |--|--|
 |1|/luis/v1.0/**prog**/apps/{appId}/entities/{entityId}/**sample**|
 |1|/luis/v1.0/**prog**/apps/{appId}/intents/{intentId}/**sample**|

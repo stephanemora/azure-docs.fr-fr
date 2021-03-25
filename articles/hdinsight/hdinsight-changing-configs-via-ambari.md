@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 05/04/2020
-ms.openlocfilehash: 14268e58296554cedc9488e48b41719421797a57
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 2146ccb0c4d7f263c3e1a69db9b172649fcd25ea
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98933277"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104863494"
 ---
 # <a name="optimize-clusters-with-apache-ambari-in-azure-hdinsight"></a>Optimiser les clusters à l’aide d’Apache Ambari dans Azure HDInsight
 
@@ -20,7 +20,7 @@ Pour une présentation de l’interface utilisateur web d’Ambari, voir [Gérer
 
 Connectez-vous à Ambari à l’adresse `https://CLUSTERNAME.azurehdidnsight.net` avec les informations d’identification du cluster. L’écran initial affiche un tableau de bord de présentation.
 
-![Apache Ambari - Tableau de bord utilisateur affiché](./media/hdinsight-changing-configs-via-ambari/apache-ambari-dashboard.png)
+:::image type="content" source="./media/hdinsight-changing-configs-via-ambari/apache-ambari-dashboard.png" alt-text="Apache Ambari - Tableau de bord utilisateur affiché":::
 
 L’interface utilisateur Web d’Ambari permet de gérer les hôtes, les services, les alertes, les configurations et les vues. Ambari ne peut être utilisé pour créer un cluster HDInsight, ni mettre à niveau des services. De même, il ne peut gérer les piles et versions, mettre hors service ou réactiver des hôtes, ou ajouter des services au cluster.
 
@@ -28,7 +28,7 @@ L’interface utilisateur Web d’Ambari permet de gérer les hôtes, les servic
 
 Les paramètres de configuration permettent de paramétrer un service particulier. Pour modifier les paramètres de configuration d’un service, sélectionnez le service dans la barre latérale **Services** (à gauche). Accédez ensuite à l’onglet **Configurations** dans la page de détails du service.
 
-![Apache Ambari - Barre latérale des services](./media/hdinsight-changing-configs-via-ambari/ambari-services-sidebar.png)
+:::image type="content" source="./media/hdinsight-changing-configs-via-ambari/ambari-services-sidebar.png" alt-text="Apache Ambari - Barre latérale des services":::
 
 ## <a name="modify-namenode-java-heap-size"></a>Modifier la taille du tas Java NameNode
 
@@ -38,23 +38,23 @@ Pour modifier la taille du tas Java NameNode :
 
 1. Sélectionnez **HDFS (HDFS)** dans la barre latérale Services (Services) et accédez à l’onglet **Configs (Configurations)** .
 
-    ![Apache Ambari - Configuration HDFS](./media/hdinsight-changing-configs-via-ambari/ambari-apache-hdfs-config.png)
+    :::image type="content" source="./media/hdinsight-changing-configs-via-ambari/ambari-apache-hdfs-config.png" alt-text="Apache Ambari - Configuration HDFS":::
 
 1. Recherchez le paramètre **NameNode Java heap size (Taille du tas Java NameNode)** . Vous pouvez également utiliser la zone de texte **Filter (Filtrer)** pour saisir et trouver un paramètre. Sélectionnez l’icône de **crayon** en regard du nom de paramètre.
 
-    ![Apache Ambari - Taille du tas Java NameNode](./media/hdinsight-changing-configs-via-ambari/ambari-java-heap-size.png)
+    :::image type="content" source="./media/hdinsight-changing-configs-via-ambari/ambari-java-heap-size.png" alt-text="Apache Ambari - Taille du tas Java NameNode":::
 
 1. Tapez la nouvelle valeur dans la zone de texte, puis appuyez sur **Entrée** pour enregistrer la modification.
 
-    ![Ambari - Modifier la taille du tas Java NameNode - 1](./media/hdinsight-changing-configs-via-ambari/java-heap-size-edit1.png)
+    :::image type="content" source="./media/hdinsight-changing-configs-via-ambari/java-heap-size-edit1.png" alt-text="Ambari - Modifier la taille du tas Java NameNode - 1":::
 
 1. La taille du tas Java NameNode passe de 2 Go à 1 Go.
 
-    ![Taille du tas Java NameNode modifiée - 2](./media/hdinsight-changing-configs-via-ambari/java-heap-size-edited.png)
+    :::image type="content" source="./media/hdinsight-changing-configs-via-ambari/java-heap-size-edited.png" alt-text="Taille du tas Java NameNode modifiée - 2":::
 
 1. Enregistrez vos modifications en cliquant sur le bouton **Save (Enregistrer)** vert en haut de l’écran de configuration.
 
-    ![Apache Ambari - Enregistrement de la configuration](./media/hdinsight-changing-configs-via-ambari/ambari-save-changes1.png)
+    :::image type="content" source="./media/hdinsight-changing-configs-via-ambari/ambari-save-changes1.png" alt-text="Apache Ambari - Enregistrement de la configuration":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

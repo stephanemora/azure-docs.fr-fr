@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 266dc5d62f6224495075546528ad71d806d415ac
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: a23c492d4a81703c0dc6612928a56b5b31d52cae
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96903443"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726311"
 ---
 # <a name="implement-dynamic-styling-for-creator-preview-indoor-maps"></a>Implémenter des styles dynamiques pour les cartes d’intérieur Creator (préversion)
 
@@ -54,11 +54,11 @@ map.events.add("click", function(e){
 
     var features = map.layers.getRenderedShapes(e.position, "indoor");
 
-    var result = features.reduce(function (ids, feature) {
-        if (feature.layer.id == "indoor_unit_office") {
+    features.forEach(function (feature) {
+        if (feature.layer.id == 'indoor_unit_office') {
             console.log(feature);
         }
-    }, []);
+    });
 });
 ```
 
@@ -78,7 +78,7 @@ Dans la section suivante, nous allons définir l’*état* d’occupation du bur
     https://atlas.microsoft.com/featureState/state?api-version=1.0&statesetID={statesetId}&featureID=UNIT26&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-3. Dans les **En-têtes** de la requête **POST**, définissez `Content-Type` sur `application/json`. Dans le **CORPS** de la requête **POST**, écrivez le code JSON suivant avec les mises à jour de caractéristique. La mise à jour n’est enregistrée que si l’horodatage de publication est postérieur à l’horodatage utilisé dans les requêtes de mise à jour d’état de caractéristique précédentes pour le même `ID` de caractéristique. Transmettez le `keyName` « occupé » pour mettre à jour sa valeur.
+3. Dans les **En-têtes** de la requête **POST**, définissez `Content-Type` sur `application/json`. Dans le **CORPS** de la requête **POST**, écrivez le code JSON brut suivant avec les mises à jour de caractéristique. La mise à jour n’est enregistrée que si l’horodatage de publication est postérieur à l’horodatage utilisé dans les requêtes de mise à jour d’état de caractéristique précédentes pour le même `ID` de caractéristique. Transmettez le `keyName` « occupé » pour mettre à jour sa valeur.
 
     ```json
     {
@@ -108,9 +108,11 @@ Dans la section suivante, nous allons définir l’*état* d’occupation du bur
 
 ### <a name="visualize-dynamic-styles-on-a-map"></a>Visualiser des styles dynamiques sur une carte
 
-L’application web que vous avez précédemment ouverte dans un navigateur doit maintenant refléter l’état mis à jour des caractéristiques de carte. `UNIT27`(151) doit apparaître en vert et `UNIT26`(157) doit en rouge.
+L’application web que vous avez précédemment ouverte dans un navigateur doit maintenant refléter l’état mis à jour des caractéristiques de carte. `UNIT27`(142) doit apparaître en vert et `UNIT26`(143) doit en rouge.
 
 ![Salle libre en vert et salle occupée en rouge](./media/indoor-map-dynamic-styling/room-state.png)
+
+[Voir la démonstration en direct](https://azuremapscodesamples.azurewebsites.net/?sample=Creator%20indoor%20maps)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

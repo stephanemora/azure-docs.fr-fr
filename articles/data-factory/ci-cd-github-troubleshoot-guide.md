@@ -7,12 +7,12 @@ ms.reviewer: susabat
 ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 12/03/2020
-ms.openlocfilehash: 5c33ef9559d9ce67eea62ee7f78425d18010c1cb
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: d96c467807af868c07be12f52d913f881b82f732
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101727955"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175870"
 ---
 # <a name="troubleshoot-ci-cd-azure-devops-and-github-issues-in-adf"></a>Résoudre les problèmes liés à CI-CD, Azure DevOps et GitHub dans ADF 
 
@@ -91,7 +91,7 @@ Cela est dû à un runtime d’intégration portant le même nom dans la fabriqu
 
 #### <a name="issue"></a>Problème
 
-Lorsque vous tentez de publier des modifications apportées à une fabrique de données, vous recevez le message d’erreur suivant :
+Lorsque vous tentez de publier des modifications apportées à une fabrique de données, vous recevez le message d’erreur suivant :
 
 `
 "error": {
@@ -168,7 +168,7 @@ Le processus CI/CD a été amélioré. La fonctionnalité **Publication automati
 
 #### <a name="issue"></a>Problème
 
-Vous ne pouvez pas effectuer de déploiement, car vous avez atteint la limite Azure Resource Manager de 4 Mo pour la taille du modèle. Vous avez besoin d’une solution pour que le déploiement puisse avoir lieu une fois la limite franchie. 
+Vous ne pouvez pas effectuer de déploiement, car vous avez atteint la limite Azure Resource Manager de 4 Mo pour la taille du modèle. Vous avez besoin d’une solution pour que le déploiement puisse avoir lieu une fois la limite franchie. 
 
 #### <a name="cause"></a>Cause
 
@@ -190,7 +190,7 @@ Vous n’avez pas configuré Oauth pour l’ADF. Votre URL est mal configurée.
 
 ##### <a name="resolution"></a>Résolution
 
-D’abord, vous accordez l’accès Oauth à l’ADF. Ensuite, vous devez utiliser l’URL correcte pour vous connecter à GIT Enterprise. La configuration doit être définie sur la ou les organisations clientes, car le service ADF commencera par essayer https://hostname/api/v3/search/repositories?q=user%3<customer credential>..., et échouera. Ensuite, il tentera https://hostname/api/v3/orgs/<vaorg>/<repo>, et réussira. 
+D’abord, vous accordez l’accès Oauth à l’ADF. Ensuite, vous devez utiliser l’URL correcte pour vous connecter à GIT Enterprise. La configuration doit être définie sur la ou les organisations clientes. Par exemple, ADF essaiera d’abord *https://hostname/api/v3/search/repositories?q=user%3<customer credential>...* et échouera. Ensuite, il tentera *https://hostname/api/v3/orgs/<org>/<repo>...* , et réussira. 
  
 ### <a name="recover-from-a-deleted-data-factory"></a>Récupérer à partir d’une fabrique de données supprimée
 
@@ -203,7 +203,8 @@ Il est possible de récupérer la fabrique de données uniquement si le client a
 
 À défaut de contrôle de code source, la récupération d’une fabrique de données supprimée à partir du serveur principal n’est pas possible car, après que le service a reçu la commande delete, l’instance a été supprimée et aucune sauvegarde n’a été stockée.
 
-#### <a name="resoloution"></a>Résolution
+#### <a name="resolution"></a>Résolution
+
 Pour récupérer la fabrique de données supprimée qui a le contrôle de code source, consultez les étapes ci-dessous :
 
  * Créer une Azure Data Factory

@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 02/17/2021
 ms.author: aahi
-ms.openlocfilehash: 278c8a48d2d0644f63a3e265ea81d3f62c68bae2
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ee3a56fed87f493d79796c0d91e5324c94e87eca
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101725303"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104599355"
 ---
 # <a name="model-versioning-in-the-text-analytics-api"></a>Contrôle de version de modèle dans l’API Analyse de texte
 
@@ -33,7 +33,7 @@ Utilisez le tableau ci-dessous pour rechercher les versions de modèle prises en
 | `/entities/linking`             | `2019-10-01`, `2020-02-01`                             | `2020-02-01`   |
 | `/entities/recognition/general` | `2019-10-01`, `2020-02-01`, `2020-04-01`,`2021-01-15`  | `2021-01-15`   |
 | `/entities/recognition/pii`     | `2019-10-01`, `2020-02-01`, `2020-04-01`,`2020-07-01`, `2021-01-15`  | `2021-01-15`   |
-| `/entities/health`              | `2020-09-03`                           | `2020-09-03`   |
+| `/entities/health`              | `2021-03-01`                           | `2021-03-01`   |
 | `/keyphrases`                   | `2019-10-01`, `2020-07-01`                             | `2020-07-01`   |
 
 
@@ -45,7 +45,8 @@ Le conteneur [Analyse de texte pour l’intégrité](../how-tos/text-analytics-f
 
 | Point de terminaison                        | Étiquette de l’image conteneur                     | Version du modèle |
 |---------------------------------|-----------------------------------------|---------------|
-| `/entities/health`              | `1.1.013530001-amd64-preview` ou la plus récente          | `2020-09-03`  |
+| `/entities/health`              | `3.0.015370001-onprem-amd64` ou la plus récente          | `2021-03-01`  |
+| `/entities/health`              | `1.1.013530001-amd64-preview`           | `2020-09-03`  |
 | `/entities/health`              | `1.1.013150001-amd64-preview`           | `2020-07-24`  |
 | `/domains/health`               | `1.1.012640001-amd64-preview`           | `2020-05-08`  |
 | `/domains/health`               | `1.1.012420001-amd64-preview`           | `2020-05-08`  |
