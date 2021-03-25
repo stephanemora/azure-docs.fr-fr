@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 04/28/2020
 ms.openlocfilehash: 1f47b3d5679b70461eaba64b5815770162cb6fda
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93241070"
 ---
 # <a name="validating-data-encryption-for-azure-database-for-mysql"></a>Validation du chiffrement des données pour Azure Database pour MySQL
@@ -27,13 +27,13 @@ Cet article vous permet de vérifier que le chiffrement des données à l’aide
     * Sélectionnez la clé utilisée pour le chiffrement du serveur.
     * Définissez l’état de la clé **Activé** sur **Non**.
   
-       Après un certain temps ( **environ 15 minutes** ), l’ **État** du serveur Azure Database pour MySQL doit être **Inaccessible**. Toutes les opérations d’E/S effectuées sur le serveur échouent, ce qui confirme que le serveur est effectivement chiffré avec la clé du client et que la clé n’est pas valide.
+       Après un certain temps (**environ 15 minutes**), l’**État** du serveur Azure Database pour MySQL doit être **Inaccessible**. Toutes les opérations d’E/S effectuées sur le serveur échouent, ce qui confirme que le serveur est effectivement chiffré avec la clé du client et que la clé n’est pas valide.
     
-       Pour que le serveur soit **Disponible** , vous pouvez revalider la clé. 
+       Pour que le serveur soit **Disponible**, vous pouvez revalider la clé. 
     
     * Définissez l’état de la clé dans le coffre de clés sur **Oui**.
     * Dans la section **Chiffrement des données** du serveur, sélectionnez **Revalider la clé**.
-    * Une fois la clé revalidée, l’ **État** du serveur passe à **Disponible**.
+    * Une fois la clé revalidée, l’**État** du serveur passe à **Disponible**.
 
 2. Sur le portail Azure, si vous pouvez vous assurer que la clé de chiffrement est définie, les données sont chiffrées à l’aide de la clé du client utilisée dans le portail Azure.
 

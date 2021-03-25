@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 07/12/2017
 ms.author: jeedes
 ms.openlocfilehash: 5a104dcd6ccf500c115359a1b72c67b85359a802
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96002185"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jobscience"></a>Tutoriel : Intégration d’Azure Active Directory à Jobscience
@@ -61,7 +61,7 @@ Pour configurer l’intégration de Jobscience à Azure AD, vous devez ajouter J
 
 1. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
 
-    ![Capture d’écran montrant le portail Azure avec Application d'entreprise sélectionné sous Gérer, avec Toutes les applications sélectionné.][2]
+    ![Capture d’écran montrant le portail Azure avec l’option Applications d’entreprise sélectionnée sous Gérer, avec Toutes les applications sélectionné.][2]
     
 1. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 

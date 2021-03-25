@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
 ms.openlocfilehash: 2d69427f9f11a47cedeccb4b1da38b770952f029
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93240764"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql-flexible-server-preview"></a>Sauvegarder et restaurer dans un serveur flexible Azure Database pour MySQL (préversion)
@@ -68,8 +68,8 @@ La restauration à un point dans le temps est utile dans plusieurs scénarios. V
 
 Vous pouvez choisir entre le dernier point de restauration et un point de restauration personnalisé via le [portail Azure](how-to-restore-server-portal.md).
 
--   **Dernier point de restauration**  : le dernier point de restauration vous permet de restaurer le serveur à la dernière sauvegarde effectuée sur le serveur source. L’horodateur de la restauration s’affiche également sur le portail. Cette option est utile pour restaurer rapidement le serveur à l’état le plus à jour.
--   **Point de restauration personnalisé**  : cette option vous permet de choisir n’importe quel point dans le temps au cours de la période de rétention définie pour ce serveur flexible. Cette option est utile pour restaurer le serveur à un point précis dans le temps afin récupérer une erreur de l’utilisateur.
+-   **Dernier point de restauration** : le dernier point de restauration vous permet de restaurer le serveur à la dernière sauvegarde effectuée sur le serveur source. L’horodateur de la restauration s’affiche également sur le portail. Cette option est utile pour restaurer rapidement le serveur à l’état le plus à jour.
+-   **Point de restauration personnalisé** : cette option vous permet de choisir n’importe quel point dans le temps au cours de la période de rétention définie pour ce serveur flexible. Cette option est utile pour restaurer le serveur à un point précis dans le temps afin récupérer une erreur de l’utilisateur.
 
 La durée estimée de la récupération dépend de plusieurs facteurs, notamment les tailles des bases de données, la taille de sauvegarde du journal des transactions, la taille de calcul de la référence (SKU) et l’heure de la restauration. La récupération du journal des transactions est la partie la plus longue du processus de restauration. Si l’heure de restauration choisir est plus proche de la planification de sauvegarde complète ou différentielle de l’instantané, les restaurations sont plus rapides, car l’application du journal des transactions est minimale. Pour estimer le temps de récupération précis de votre serveur, nous vous recommandons vivement de le tester dans votre environnement, car il contient trop de variables spécifiques de l’environnement.
 
@@ -81,7 +81,7 @@ La durée estimée de la récupération dépend de plusieurs facteurs, notamment
 
 ## <a name="perform-post-restore-tasks"></a>Effectuer des tâches de post-restauration
 
-Après une restauration à l’aide de l’un des mécanismes de récupération **Dernier point de restauration** ou **Point de restauration personnalisé** , vous devez effectuer les tâches suivantes afin que vos utilisateurs et applications soient de nouveau opérationnels :
+Après une restauration à l’aide de l’un des mécanismes de récupération **Dernier point de restauration** ou **Point de restauration personnalisé**, vous devez effectuer les tâches suivantes afin que vos utilisateurs et applications soient de nouveau opérationnels :
 
 -   Si le nouveau serveur est destiné à remplacer le serveur d’origine, redirigez les clients et les applications clientes vers le nouveau serveur.
 -   Vérifiez que les règles de pare-feu et de réseau virtuel appropriées au niveau serveur sont en place pour permettre aux utilisateurs de se connecter.

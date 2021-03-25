@@ -8,16 +8,16 @@ author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
 ms.openlocfilehash: cb44d977407a7e854603e6bbacf3591752b109c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87271941"
 ---
 # <a name="retrieve-operations"></a>Récupérer des opérations
 
 > [!NOTE]
-> Les API du Portail Cloud Partner sont intégrées à l’Espace partenaires et continueront d’y fonctionner. La transition introduit de légères modifications. Passez en revue les changements indiqués dans [Informations de référence sur les API du Portail Cloud Partner](./cloud-partner-portal-api-overview.md) pour veiller à ce que votre code continue de fonctionner après la transition vers l’Espace partenaires. Les API du Portail Cloud Partner ne doivent être utilisées que pour les produits intégrés avant la transition vers l’Espace partenaires. Les nouveaux produits doivent employer les API de soumission à l’Espace partenaires.
+> Les API du Portail Cloud Partner sont intégrées à l’Espace partenaires et continueront d’y fonctionner. La transition introduit de légères modifications. Passez en revue les changements répertoriés dans les [informations de référence relatives aux API de Portail Cloud Partner](./cloud-partner-portal-api-overview.md) pour vous assurer que votre code continue de fonctionner après la transition vers Espace partenaires. Les API du Portail Cloud Partner ne doivent être utilisées que pour les produits intégrés avant la transition vers l’Espace partenaires. Les nouveaux produits doivent employer les API de soumission à l’Espace partenaires.
 
 Récupère toutes les opérations sur l’offre ou pour obtenir une opération particulière pour la valeur operationId spécifiée. Le client peut utiliser des paramètres de requête pour filtrer les opérations en cours d’exécution.
 

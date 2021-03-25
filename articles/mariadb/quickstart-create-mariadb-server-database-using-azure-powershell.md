@@ -3,16 +3,16 @@ title: 'Démarrage rapide : Créer un serveur - Azure PowerShell - Azure Databa
 description: Ce guide de démarrage rapide explique comment utiliser PowerShell pour créer un serveur Azure Database for MariaDB dans un groupe de ressources Azure.
 author: savjani
 ms.author: pariks
-ms.service: jroth
+ms.service: mariadb
 ms.devlang: azurepowershell
 ms.topic: quickstart
 ms.date: 05/26/2020
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 91472d3f3cb39d34f560715f511f666079b1d1c0
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 05082ffa891b72b472ed5433282198c61080f073
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98664662"
 ---
 # <a name="quickstart-create-an-azure-database-for-mariadb-server-using-powershell"></a>Démarrage rapide : Créer un serveur Azure Database for MariaDB à l’aide de PowerShell
@@ -27,7 +27,7 @@ Si vous choisissez d’utiliser PowerShell localement, cet article vous demande 
 
 > [!IMPORTANT]
 > Tant que le module PowerShell Az.MariaDb est en préversion, vous devez l’installer séparément du module Az PowerShell à l’aide de la commande suivante : `Install-Module -Name Az.MariaDb -AllowPrerelease`.
-> Une fois le module PowerShell Az.MariaDb en disponibilité générale, il devient partie intégrante des versions futures du module Az PowerShell et disponible en mode natif dans Azure Cloud Shell.
+> Une fois le module PowerShell Az.MariaDb généralement disponible, il devient partie intégrante des versions futures du module Az PowerShell et disponible en mode natif dans Azure Cloud Shell.
 
 Si vous utilisez le service Azure Database for MariaDB pour la première fois, vous devez inscrire le fournisseur de ressources **Microsoft.DBforMariaDB**.
 

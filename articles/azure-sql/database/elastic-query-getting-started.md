@@ -12,10 +12,10 @@ ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 10/10/2019
 ms.openlocfilehash: 586dad7439cc57ed2c863ee5f6692e12f7a78c50
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92781224"
 ---
 # <a name="report-across-scaled-out-cloud-databases-preview"></a>Créer des rapports sur des bases de données cloud avec montée en charge (version préliminaire)
@@ -37,7 +37,7 @@ Ici vous allez créer un gestionnaire des cartes de partitions avec plusieurs pa
 1. Générez et exécutez l’exemple d’application **Prise en main des outils de base de données élastique** en suivant les étapes décrites dans la section de l’article [Télécharger et exécuter l’exemple d’application](elastic-scale-get-started.md#download-and-run-the-sample-app-1). Une fois toutes les étapes terminées, l’invite de commandes suivante s’affiche :
 
     ![invite de commandes][1]
-2. Dans la fenêtre de commande, entrez « 1 » et appuyez sur **Entrée** . Cela crée le gestionnaire des cartes de partitions et ajoute deux partitions sur le serveur. Tapez « 3 », puis appuyez sur **Entrée** . Répétez l’action quatre fois. Cela permet d’insérer des lignes d’exemples de données dans vos partitions.
+2. Dans la fenêtre de commande, entrez « 1 » et appuyez sur **Entrée**. Cela crée le gestionnaire des cartes de partitions et ajoute deux partitions sur le serveur. Tapez « 3 », puis appuyez sur **Entrée**. Répétez l’action quatre fois. Cela permet d’insérer des lignes d’exemples de données dans vos partitions.
 3. Le [portail Azure](https://portal.azure.com) doit alors montrer trois nouvelles bases de données dans votre serveur :
 
    ![Confirmation Visual Studio][2]
@@ -72,7 +72,7 @@ Celles-ci sont utilisées pour se connecter au gestionnaire des cartes de partit
     SECRET = '<password>';
     ```
 
-    Le nom d’utilisateur et le mot de passe doivent être les mêmes que les informations de connexion utilisées à l’étape 3 de la section [Télécharger et exécuter l’exemple d’application](elastic-scale-get-started.md#download-and-run-the-sample-app) dans l’article **Prise en main des outils de base de données élastique** .
+    Le nom d’utilisateur et le mot de passe doivent être les mêmes que les informations de connexion utilisées à l’étape 3 de la section [Télécharger et exécuter l’exemple d’application](elastic-scale-get-started.md#download-and-run-the-sample-app) dans l’article **Prise en main des outils de base de données élastique**.
 
 ### <a name="external-data-sources"></a>Sources de données externes
 Pour créer une source de données externe, exécutez la commande suivante sur la base de données ElasticDBQuery :
@@ -121,13 +121,13 @@ Vous remarquerez que la requête regroupe les résultats de toutes les partition
 
 1. Lancez Excel 2013.
 2. Accédez au ruban **Données** .
-3. Cliquez sur **À partir d’autres sources** et sur **À partir de SQL Server** .
+3. Cliquez sur **À partir d’autres sources** et sur **À partir de SQL Server**.
 
    ![Importation au format Excel à partir d’autres sources][5]
-4. Dans l’ **Assistant de connexion de données** saisissez le nom du serveur et les informations de connexion. Cliquez ensuite sur **Suivant** .
-5. Dans la boîte de dialogue **Sélectionner la base de données qui contient les données que vous souhaitez** , sélectionnez la base de données **ElasticDBQuery** .
-6. Sélectionnez la table **Clients** dans la liste et cliquez sur **Suivant** . Puis, cliquez sur **Terminer** .
-7. Dans le formulaire **Importer des données** , sous **Sélectionner le mode d’affichage des données dans votre classeur** , sélectionnez **Table** et cliquez sur **OK** .
+4. Dans l’ **Assistant de connexion de données** saisissez le nom du serveur et les informations de connexion. Cliquez ensuite sur **Suivant**.
+5. Dans la boîte de dialogue **Sélectionner la base de données qui contient les données que vous souhaitez**, sélectionnez la base de données **ElasticDBQuery**.
+6. Sélectionnez la table **Clients** dans la liste et cliquez sur **Suivant**. Puis, cliquez sur **Terminer**.
+7. Dans le formulaire **Importer des données**, sous **Sélectionner le mode d’affichage des données dans votre classeur**, sélectionnez **Table** et cliquez sur **OK**.
 
 Toutes les lignes de la table **Clients** , stockées dans des partitions différentes, remplissent la feuille Excel.
 

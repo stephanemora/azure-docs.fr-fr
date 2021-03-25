@@ -8,10 +8,10 @@ ms.date: 06/10/2020
 author: mingshen-ms
 ms.author: mingshen
 ms.openlocfilehash: 39a0830806d2d9c7358d175cae703e9c81c45b02
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93130015"
 ---
 # <a name="register-a-saas-application"></a>Inscrire une application SaaS
@@ -28,13 +28,13 @@ Toute application qui souhaite utiliser les fonctionnalités d’Azure AD doit d
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 2. Si votre compte vous propose plusieurs accès, cliquez sur votre compte en haut à droite et définissez votre session de portail pour le locataire Azure AD souhaité.
-3. Dans le volet de navigation gauche, cliquez sur le service **Azure Active Directory** , cliquez sur **Inscriptions des applications** , puis cliquez sur **Nouvelle inscription d’application**.
+3. Dans le volet de navigation gauche, cliquez sur le service **Azure Active Directory**, cliquez sur **Inscriptions des applications**, puis cliquez sur **Nouvelle inscription d’application**.
 
     ![Inscriptions des applications SaaS](./media/saas-offer-app-registration-v1.png)
 
 4. Sur la page, saisissez les informations d\'inscription de votre application :
-    -   **Name**  : saisissez un nom d’application explicite
-    -   **Type d’application**  :  
+    -   **Name** : saisissez un nom d’application explicite
+    -   **Type d’application** :  
         
         Sélectionnez **Application web/API** pour les [applications clientes](../../active-directory/develop/developer-glossary.md#client-application) et les [ressources/applications API](../../active-directory/develop/developer-glossary.md#resource-server) installées sur un serveur sécurisé. Ce paramètre est utilisé pour les [clients web](../../active-directory/develop/developer-glossary.md#web-client) confidentiels OAuth et les [clients basés sur un agent utilisateur](../../active-directory/develop/developer-glossary.md#user-agent-based-client) publics.
         La même application peut également exposer un client et une ressource/API.
@@ -43,7 +43,7 @@ Toute application qui souhaite utiliser les fonctionnalités d’Azure AD doit d
 
 5. Lorsque vous avez terminé, cliquez sur **Inscrire**.  Azure AD affecte un *ID d’application* unique à votre nouvelle application. Nous vous recommandons d’inscrire une seule application qui accède à l’API, et en tant que locataire unique.
 
-6. Pour créer la clé secrète client, accédez à la page **Certificats et secrets** , puis cliquez sur **+ Nouveau secret client**.  Veillez à copier la valeur du secret pour pouvoir l’utiliser dans votre code.
+6. Pour créer la clé secrète client, accédez à la page **Certificats et secrets**, puis cliquez sur **+ Nouveau secret client**.  Veillez à copier la valeur du secret pour pouvoir l’utiliser dans votre code.
 
 **L’ID d’application Azure AD** est associé à votre ID d’éditeur. Veillez donc à utiliser le même *ID d’application* dans toutes vos offres.
 

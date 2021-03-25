@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 2/7/2019
 ms.author: rohink
 ms.openlocfilehash: add7674771fd19f6029a94c46624006f0cf30f1a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96011538"
 ---
 # <a name="delegate-an-azure-dns-subdomain"></a>Déléguer un sous-domaine Azure DNS
@@ -20,7 +20,7 @@ Vous pouvez utiliser le portail Azure pour déléguer un sous-domaine DNS. Par e
 
 Si vous préférez, vous pouvez déléguer un sous-domaine à l’aide d’[Azure PowerShell](delegate-subdomain-ps.md).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour déléguer un sous-domaine Azure DNS, vous devez tout d’abord déléguer votre domaine public à Azure DNS. Pour obtenir des instructions sur la façon de configurer vos serveurs de noms pour la délégation, consultez [Déléguer un domaine à Azure DNS](./dns-delegate-domain-azure-dns.md). Une fois votre domaine délégué à votre zone Azure DNS, vous pouvez déléguer votre sous-domaine.
 
@@ -54,7 +54,7 @@ Créez un enregistrement **A** à des fins de test. Par exemple, créez un enreg
 Ensuite, créez un enregistrement de serveur de noms (NS) pour la zone **engineering**.
 
 1. Accédez à la zone du domaine parent.
-2. Sélectionnez **+ Jeu d’enregistrements**.
+2. Sélectionnez **+ Jeu d’enregistrements**.
 3. Dans le volet **Ajouter un jeu d’enregistrements**, tapez **engineering** dans la zone de texte **Nom**.
 4. Pour **Type**, sélectionnez **NS**.
 5. Sous **Serveur de noms**, entrez les quatre serveurs de noms que vous avez notés précédemment à partir de la zone **engineering**.

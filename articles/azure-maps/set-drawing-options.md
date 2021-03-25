@@ -10,15 +10,15 @@ services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
 ms.openlocfilehash: 95a04d763fa5982181cc1c797bce969d9857ae4b
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92890630"
 ---
 # <a name="use-the-drawing-tools-module"></a>Utiliser le module Outils de dessin
 
-Le SDK web Azure Maps fournit un *module Outils de dessin* . Ce module facilite le dessin et la modification des formes sur la carte à l’aide d’un périphérique d’entrée tel qu’un écran tactile ou une souris. La classe de base de ce module est le [gestionnaire de dessins](/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager#setoptions-drawingmanageroptions-). Le gestionnaire de dessins fournit toutes les fonctionnalités nécessaires pour dessiner et modifier des formes sur la carte. Il peut être utilisé directement et est intégré à une interface utilisateur de barre d’outils personnalisée. Vous pouvez également utiliser la classe de [barre d’outils de dessin](/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar) intégrée. 
+Le SDK web Azure Maps fournit un *module Outils de dessin*. Ce module facilite le dessin et la modification des formes sur la carte à l’aide d’un périphérique d’entrée tel qu’un écran tactile ou une souris. La classe de base de ce module est le [gestionnaire de dessins](/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager#setoptions-drawingmanageroptions-). Le gestionnaire de dessins fournit toutes les fonctionnalités nécessaires pour dessiner et modifier des formes sur la carte. Il peut être utilisé directement et est intégré à une interface utilisateur de barre d’outils personnalisée. Vous pouvez également utiliser la classe de [barre d’outils de dessin](/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar) intégrée. 
 
 ## <a name="loading-the-drawing-tools-module-in-a-webpage"></a>Chargement du module Outils de dessin dans une page web
 
@@ -48,7 +48,7 @@ Une fois le module Outils de dessin chargé dans votre application, vous pouvez 
 
 ### <a name="set-the-drawing-mode"></a>Définir le mode dessin
 
-Le code suivant crée une instance du gestionnaire de dessins et définit l’option de mode **dessin** . 
+Le code suivant crée une instance du gestionnaire de dessins et définit l’option de mode **dessin**. 
 
 ```javascript
 //Create an instance of the drawing manager and set drawing mode.
@@ -68,11 +68,11 @@ Consultez le stylet <a href='https://codepen.io/azuremaps/pen/YzKVKRa/'>Draw a p
 
 ### <a name="set-the-interaction-type"></a>Définir le type d’interaction
 
-Pour tracer des formes, le gestionnaire de dessins prend en charge trois modes d’interaction avec la carte.
+Pour tracer des formes, le gestionnaire de dessins prend en charge trois modes d'interaction avec la carte.
 
 * `click` - Les coordonnées sont ajoutées au moyen d’un clic (souris ou interaction tactile).
 * `freehand ` - Les coordonnées sont ajoutées au moyen d’un glisser-déplacer sur la carte (souris ou interaction tactile). 
-* `hybrid` - Les coordonnées sont ajoutées au moyen d’un clic ou d’un glisser-déplacer (souris ou interaction tactile).
+* `hybrid` - Les coordonnées sont ajoutées au moyen d'un clic ou d'un glisser-déplacer (souris ou interaction tactile).
 
 Le code suivant active le mode dessin de polygone et définit sur `freehand` le type d’interaction de dessin auquel le gestionnaire de dessins doit adhérer. 
 
@@ -111,7 +111,7 @@ Découvrez comment utiliser les fonctionnalités supplémentaires du module Outi
 > [Ajouter une barre d’outils de dessin](map-add-drawing-toolbar.md)
 
 > [!div class="nextstepaction"]
-> [Récupérer les données de la forme](map-get-shape-data.md)
+> [Obtenir des données de forme](map-get-shape-data.md)
 
 > [!div class="nextstepaction"]
 > [Réagir aux événements de dessin](drawing-tools-events.md)

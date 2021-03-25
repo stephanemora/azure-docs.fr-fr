@@ -6,17 +6,17 @@ ms.topic: conceptual
 ms.date: 12/02/2020
 ms.author: azfuncdf
 ms.openlocfilehash: 62b3c9bb1c6fd53d9f11227a9d7e774d56859d04
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102434761"
 ---
 # <a name="monitor-scenario-in-durable-functions---github-issue-monitoring-sample"></a>Scénario de surveillance dans l’extension Fonctions durables - Exemple de surveillance d’un problème GitHub
 
 Le modèle de surveillance fait référence à un processus récurrent flexible dans un flux de travail, par exemple l’interrogation jusqu’à ce que certaines conditions soient respectées. Cet article décrit un exemple qui utilise l’extension Fonctions durables pour implémenter la surveillance.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * [Suivez l’article sur le démarrage rapide](quickstart-python-vscode.md)
 * [Clonez ou téléchargez les exemples de projets à partir de GitHub](https://github.com/Azure/azure-functions-durable-python/tree/main/samples/)

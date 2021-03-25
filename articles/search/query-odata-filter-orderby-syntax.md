@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: d04311fce81d147a0830918aee1d4a2a9c0808d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88923396"
 ---
 # <a name="odata-language-overview-for-filter-orderby-and-select-in-azure-cognitive-search"></a>Vue d’ensemble du langage OData pour `$filter`, `$orderby` et `$select` dans la Recherche cognitive Azure
@@ -236,7 +236,7 @@ Les paramètres **$orderby** et **$select** correspondent à des listes d'expres
 Les paramètres **$filter**, **$orderby** et **$select** sont abordés plus en détail dans les articles suivants :
 
 - [Syntaxe OData $filter dans la Recherche cognitive Azure](search-query-odata-filter.md)
-- [Syntaxe OData $orderby dans la Recherche cognitive Azure](search-query-odata-orderby.md)
+- [Syntaxe OData $orderby dans Recherche cognitive Azure](search-query-odata-orderby.md)
 - [Syntaxe OData $select dans la Recherche cognitive Azure](search-query-odata-select.md)
 
 ## <a name="see-also"></a>Voir aussi  

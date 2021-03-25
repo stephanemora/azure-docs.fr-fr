@@ -9,12 +9,13 @@ ms.subservice: synapse-link
 ms.date: 08/10/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 13891f9614e658be39adbb69fed1503a0c66d5e4
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: cosmos-db
+ms.openlocfilehash: 755782b117ef5a5619ddde3e1573fe1805117e77
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93309212"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104868560"
 ---
 # <a name="copy-data-from-azure-cosmos-db-into-a-dedicated-sql-pool-using-apache-spark"></a>Copier des données depuis Azure Cosmos DB vers un pool SQL dédié avec Apache Spark
 
@@ -50,7 +51,7 @@ Dans cet exemple, nous utilisons un conteneur HTAP appelé **RetailSales**. Il f
 * weekStarting: long (nullable = true)
 * _etag: string (nullable = true)
 
-Nous allons regrouper les ventes ( *quantity* , *revenue* (prix x quantité) par *productCode* et *weekStarting* à des fins de création de rapports. Nous terminerons par l’exportation de ces données dans une table de pools SQL dédiés appelée **dbo.productsales**.
+Nous allons regrouper les ventes (*quantity*, *revenue* (prix x quantité) par *productCode* et *weekStarting* à des fins de création de rapports. Nous terminerons par l’exportation de ces données dans une table de pools SQL dédiés appelée **dbo.productsales**.
 
 ## <a name="configure-a-spark-notebook"></a>Configurer un notebook Spark
 Créez un notebook Spark avec Scala, Spark (Scala) étant le langage principal. Nous utilisons le paramètre par défaut du notebook pour la session.

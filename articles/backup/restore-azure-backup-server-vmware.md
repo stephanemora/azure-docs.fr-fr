@@ -4,10 +4,10 @@ description: Utilisez le serveur de sauvegarde Azure (MABS) pour restaurer des m
 ms.topic: conceptual
 ms.date: 08/18/2019
 ms.openlocfilehash: b3f61aa828db39aeb11b1ce46a850d9a5b868653
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88263518"
 ---
 # <a name="restore-vmware-virtual-machines"></a>Restaurer les machines virtuelles VMware
@@ -16,7 +16,7 @@ Cet article explique comment utiliser le serveur de sauvegarde Microsoft Azure (
 
 * **Récupération à l’emplacement d’origine (OLR)**  : utilisez la récupération à l’emplacement d’origine pour restaurer une machine virtuelle protégée à son emplacement d’origine. Vous ne pouvez restaurer une machine virtuelle à son emplacement d’origine que si aucun disque n’a été ajouté ou supprimé depuis la sauvegarde. Si des disques ont été ajoutés ou supprimés, vous devez utiliser un autre emplacement de récupération.
 
-* **Récupération à un autre emplacement (ALR)**  : lorsque la machine virtuelle d’origine est manquante ou que vous ne souhaitez pas déranger la machine virtuelle d’origine, récupérez la machine virtuelle à un autre emplacement. Pour récupérer une machine virtuelle à un autre emplacement, vous devez indiquer l’emplacement d’un hôte ESXi, le pool de ressources, le dossier ainsi que le magasin de données de stockage et le chemin. Pour mieux différencier la machine virtuelle restaurée de la machine virtuelle d’origine, MABS ajoute « -Récupérée » au nom de la machine virtuelle.
+* **Récupération sur un autre emplacement (ALR)** : si la machine virtuelle d’origine est manquante ou si vous ne voulez pas perturber la machine virtuelle d’origine, effectuez la récupération de la machine virtuelle sur un autre emplacement. Pour récupérer une machine virtuelle à un autre emplacement, vous devez indiquer l’emplacement d’un hôte ESXi, le pool de ressources, le dossier ainsi que le magasin de données de stockage et le chemin. Pour mieux différencier la machine virtuelle restaurée de la machine virtuelle d’origine, MABS ajoute « -Récupérée » au nom de la machine virtuelle.
 
 * **Récupération de l’emplacement des fichiers individuels (ILR)**  : si la machine virtuelle protégée est une machine virtuelle Windows Server, des fichiers/dossiers individuels à l’intérieur de la machine virtuelle peuvent être récupérés à l’aide de la fonctionnalité ILR de MABS. Pour récupérer des fichiers individuels, reportez-vous à la procédure décrite plus loin dans cet article.
 
@@ -36,7 +36,7 @@ Cet article explique comment utiliser le serveur de sauvegarde Microsoft Azure (
 
 5. Sélectionnez **Suivant** pour passer à l’écran **Spécifier les options de récupération**.
 
-6. Dans l’écran **Spécifier les options de récupération**, si vous souhaitez activer la limitation de bande passante réseau, sélectionnez **Modifier**. Pour laisser la limitation du réseau désactivée, sélectionnez **Suivant**. Aucune autre option de cet écran de l’Assistant n’est disponible pour les machines virtuelles VMware. Si vous choisissez de modifier la limitation de bande passante réseau, dans la boîte de dialogue Limitation, sélectionnez **Activer la limitation de l’utilisation de la bande passante réseau** pour l’activer. Une fois la limitation activée, configurez les **Paramètres** et la **Planification des tâches**.
+6. Dans l’écran **Spécifier les options de récupération**, si vous souhaitez activer la limitation de bande passante réseau, sélectionnez **Modifier**. Pour laisser la limitation du réseau désactivée, sélectionnez **Suivant**. Aucune autre option dans cet écran de l’Assistant n’est disponible pour les machines virtuelles VMware. Si vous choisissez de modifier la limitation de bande passante réseau, dans la boîte de dialogue Limiter la bande passante, sélectionnez **Activer la limitation de l’utilisation de la bande passante réseau**. Une fois la limitation activée, configurez les **Paramètres** et la **Planification des tâches**.
 
 7. Dans l’écran **Sélectionner le type de récupération**, choisissez si vous souhaitez récupérer vers l’instance d’origine ou vers un nouvel emplacement. Sélectionnez ensuite **Suivant**.
 
@@ -63,7 +63,7 @@ Vous pouvez restaurer des fichiers individuels à partir d’un point de récup�
 
 3. Dans le volet **Points de récupération pour :** , utilisez le calendrier pour sélectionner la date contenant les points de récupération souhaités. Selon la façon dont la stratégie de sauvegarde a été configurée, les dates peuvent avoir plusieurs points de récupération. Une fois que vous avez sélectionné le jour de la prise du point de récupération, vérifiez que vous avez choisi la bonne **Heure de récupération**. Si la date sélectionnée comporte plusieurs points de récupération, choisissez votre point de récupération en le sélectionnant dans le menu déroulant Heure de récupération. Une fois que vous avez choisi le point de récupération, la liste des éléments récupérables s’affiche dans le volet **Chemin**.
 
-4. Pour rechercher les fichiers que vous souhaitez récupérer, dans le volet **Chemin d’accès**, double-cliquez sur l’élément dans la colonne **Élément récupérable** pour l’ouvrir. Sélectionnez le fichier, les fichiers ou les dossiers que vous souhaitez récupérer. Pour choisir plusieurs éléments, maintenez la touche **Ctrl** enfoncée tout en sélectionnant chaque élément. Utilisez le volet **Chemin d’accès** pour lancer une recherche dans la liste des fichiers ou dossiers qui apparaissent dans la colonne **Élément récupérable**. **Rechercher dans la liste ci-dessous** n’effectue pas de recherche dans les sous-dossiers. Pour effectuer une recherche dans des sous-dossiers, double-cliquez sur le dossier. Utilisez le bouton **Haut** pour vous déplacer d’un dossier enfant vers le dossier parent. Vous pouvez sélectionner plusieurs éléments (fichiers et dossiers), mais ils doivent se trouver dans le même dossier parent. Vous ne pouvez pas récupérer d’éléments de dossiers différents lors de la même tâche de récupération.
+4. Pour rechercher les fichiers que vous souhaitez récupérer, dans le volet **Chemin d’accès**, double-cliquez sur l’élément dans la colonne **Élément récupérable** pour l’ouvrir. Sélectionnez le fichier, les fichiers ou les dossiers que vous souhaitez récupérer. Pour choisir plusieurs éléments, maintenez la touche **Ctrl** enfoncée tout en sélectionnant chaque élément. Utilisez le volet **Chemin d’accès** pour lancer une recherche dans la liste des fichiers ou dossiers qui apparaissent dans la colonne **Élément récupérable**. **Rechercher dans la liste ci-dessous** n’effectue pas de recherche dans les sous-dossiers. Pour effectuer une recherche dans des sous-dossiers, double-cliquez sur le dossier. Utilisez le bouton **Haut** pour passer d'un dossier d’un dossier au dossier parent. Vous pouvez sélectionner plusieurs éléments (fichiers et dossiers), mais ils doivent se trouver dans le même dossier parent. Vous ne pouvez pas récupérer d’éléments de dossiers différents lors de la même tâche de récupération.
 
     ![Vérifier la sélection à restaurer](./media/restore-azure-backup-server-vmware/vmware-rp-disk-ilr-2.png)
 

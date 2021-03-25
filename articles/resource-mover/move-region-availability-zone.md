@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: raynew
 ms.openlocfilehash: 88006fb354af2673496c6476090d7f73c8a005e6
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95542998"
 ---
 # <a name="move-azure-vms-to-an-availability-zone-in-another-region"></a>Déplacer des machines virtuelles Azure vers une zone de disponibilité dans une autre région
@@ -35,7 +35,7 @@ Si vous souhaitez déplacer des machines virtuelles vers une autre zone de dispo
 - L’accès *Propriétaire* à l’abonnement dans lequel se trouvent les ressources que vous souhaitez déplacer.
     - La première fois que vous ajoutez une ressource pour un mappage source et destination spécifique dans un abonnement Azure, Resource Mover crée une [identité managée affectée par le système](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) (anciennement Managed Service Identify, MSI) qui est approuvée par l’abonnement.
     - Afin de créer l’identité et lui affecter le rôle demandé (Contributeur ou Administrateur de l’accès utilisateur dans l’abonnement source), le compte que vous utilisez pour ajouter des ressources a besoin des autorisations *Propriétaire* sur l’abonnement. [Explorez en détail](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) les rôles Azure.
-- L’abonnement a besoin d’un quota suffisant pour créer les ressources dans la région cible. Si ce n’est pas le cas, demandez des limites supplémentaires. [Plus d’informations](../azure-resource-manager/management/azure-subscription-service-limits.md)
+- L’abonnement a besoin d’un quota suffisant pour créer les ressources sources dans la région cible. Si ce n’est pas le cas, demandez des limites supplémentaires. [Plus d’informations](../azure-resource-manager/management/azure-subscription-service-limits.md)
 - Vérifiez le tarif et les frais associés à la région cible vers laquelle vous déplacez des machines virtuelles. Utilisez la [calculatrice de prix](https://azure.microsoft.com/pricing/calculator/) pour vous aider.
     
 
@@ -50,7 +50,7 @@ Si vous souhaitez déplacer des machines virtuelles vers une autre zone de dispo
 2. Vérifiez que les machines virtuelles que vous souhaitez déplacer sont activées.
 3. Assurez-vous que les machines virtuelles disposent des certificats racine approuvés les plus récents et d’une liste de révocation de certificats (CRL) mise à jour. 
     - Sur les machines virtuelles Azure exécutant Windows, installez les dernières mises à jour de Windows.
-    - Sur les machines virtuelles exécutant Linux, suivez les instructions du distributeur Linux pour vérifier que la machine dispose des derniers certificats et listes de révocation de certificats. 
+    - Sur les machines virtuelles exécutant Linux, suivez les instructions du distributeur Linux pour vérifier que la machine dispose des certificats et de la liste de révocation de certificats les plus récents. 
 4. Autorisez une connexion sortante à partir des machines virtuelles :
     - Si vous utilisez un proxy de pare-feu basé sur des URL pour contrôler la connexion sortante, autorisez l’accès à ces [URL](support-matrix-move-region-azure-vm.md#url-access) :
     - Si vous utilisez des règles de groupe de sécurité réseau (NSG) pour contrôler la connexion sortante, créez ces [règles d’étiquette de service](support-matrix-move-region-azure-vm.md#nsg-rules).
@@ -183,7 +183,7 @@ Maintenant que le groupe de ressources source est déplacé, vous pouvez prépar
 2. Sélectionnez **Préparer**. 
 
 > [!NOTE]
-> - Durant le processus de préparation, l’agent de mobilité Azure Site Recovery est installé sur les machines virtuelles, en vue de leur réplication.
+> - Durant le processus de préparation, l’agent de mobilité Azure Site Recovery est installé sur les machines virtuelles, en vue de la réplication de celles-ci.
 > - Les données des machines virtuelles sont répliquées régulièrement dans la région cible. Cette opération n’a pas d’incidence sur la machine virtuelle source.
 > - Le déplacement de ressources génère des modèles ARM pour les autres ressources sources.
 > - Après leur préparation, les ressources présentent l’état *Lancement du déplacement en attente*.

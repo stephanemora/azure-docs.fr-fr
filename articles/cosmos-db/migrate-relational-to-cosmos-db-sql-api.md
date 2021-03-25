@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 12/12/2019
 ms.author: thvankra
 ms.openlocfilehash: 53a3317f38cc22ffa3745f5f0e58cc01a54b825c
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93096748"
 ---
 # <a name="migrate-one-to-few-relational-data-into-azure-cosmos-db-sql-api-account"></a>Migrer des données relationnelles de type un-à-plusieurs vers un compte API SQL Azure Cosmos DB
@@ -55,11 +55,11 @@ Dans l’idéal, vous souhaitez utiliser une activité unique de copie Azure Dat
 
 Nous pouvons contourner cette limitation actuelle de l’une des manières suivantes :
 
-* **Utilisez Azure Data Factory avec deux activités de copie**  : 
+* **Utilisez Azure Data Factory avec deux activités de copie** : 
   1. Obtenez des données au format JSON à partir de SQL et copiez-les vers un fichier texte dans un emplacement de stockage d’objets blob intermédiaire ; et 
   2. Chargez des données à partir du fichier texte JSON dans un conteneur d’Azure Cosmos DB.
 
-* **Utilisez Azure Databricks pour lire à partir de SQL et écrire dans Azure Cosmos DB**  : nous présenterons deux options ici.
+* **Utilisez Azure Databricks pour lire à partir de SQL et écrire dans Azure Cosmos DB** : nous présenterons deux options ici.
 
 
 Examinons ces approches plus en détail :

@@ -1,18 +1,14 @@
 ---
 title: Utiliser la carte des appareils de capteur
 description: La carte des appareils fournit une représentation graphique des périphériques réseau détectés. Utilisez la carte pour analyser et gérer les informations sur les appareils et les sections réseau, et pour générer des rapports.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 1/7/2021
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: 5b7059129c45149c64bc7fc145c68d9e09a7c046
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: f7579cbca618baef404236556993c9831dd84bdf
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100523836"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104784592"
 ---
 # <a name="investigate-sensor-detections-in-the-device-map"></a>Examiner les détections de capteur dans la carte des appareils
 
@@ -709,6 +705,6 @@ Pour exporter :
 
 1. Sélectionnez une option d’exportation.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="see-also"></a>Voir aussi
 
 [Examiner les détections de capteur dans un inventaire des appareils](how-to-investigate-sensor-detections-in-a-device-inventory.md)

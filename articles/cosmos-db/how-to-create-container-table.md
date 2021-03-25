@@ -9,10 +9,10 @@ ms.date: 10/16/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli, devx-track-csharp
 ms.openlocfilehash: fde3145e7bd7f4e53ae7a0c44f02e066c28ec785
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93101576"
 ---
 # <a name="create-a-container-in-azure-cosmos-db-table-api"></a>Créer un conteneur dans l’API Table Azure Cosmos DB
@@ -31,7 +31,7 @@ Cet article explique les différentes façons de créer un conteneur dans l’AP
 
 1. [Créez un compte Azure Cosmos](create-table-dotnet.md#create-a-database-account) ou sélectionnez un compte existant.
 
-1. Ouvrez le volet **Explorateur de données** , puis sélectionnez **Nouvelle table**. Fournissez ensuite les détails suivants :
+1. Ouvrez le volet **Explorateur de données**, puis sélectionnez **Nouvelle table**. Fournissez ensuite les détails suivants :
 
    * Entrez un ID de table.
    * Entrez un débit à provisionner (par exemple, 1 000 unités de requête).

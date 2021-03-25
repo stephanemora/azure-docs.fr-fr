@@ -4,10 +4,10 @@ description: Découvrez comment utiliser des modèles Azure Resource Manager ave
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 645f1d0717514d2c7e7b16844513327127e4e1a8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87272638"
 ---
 # <a name="create-or-modify-labs-automatically-using-azure-resource-manager-templates-and-powershell"></a>Créer ou modifier des laboratoires automatiquement à l’aide de modèles Azure Resource Manager et PowerShell
@@ -31,8 +31,8 @@ Après avoir personnalisé vos modèle et scripts, suivez les étapes nécessair
 ## <a name="common-tasks-you-can-perform-in-devtest-labs-using-powershell"></a>Tâches courantes que vous pouvez effectuer dans DevTest Labs à l’aide de PowerShell
 Il existe de nombreuses autres tâches courantes que vous pouvez automatiser à l’aide de PowerShell. Les sections suivantes de la documentation décrivent les étapes requises pour effectuer ces tâches.
 
-* [Créer une image personnalisée à partir d’un fichier de disque dur virtuel à l’aide de PowerShell](devtest-lab-create-custom-image-from-vhd-using-powershell.md)
-* [Charger le fichier de disque dur virtuel sur le compte de stockage du laboratoire à l’aide de PowerShell](devtest-lab-upload-vhd-using-powershell.md)
+* [Créer une image personnalisée à partir d’un fichier de disque dur virtuel avec PowerShell](devtest-lab-create-custom-image-from-vhd-using-powershell.md)
+* [Télécharger le fichier de disque dur virtuel dans le compte de stockage du laboratoire avec PowerShell](devtest-lab-upload-vhd-using-powershell.md)
 * [Ajouter un utilisateur externe à un laboratoire à l’aide de PowerShell](devtest-lab-add-devtest-user.md#add-an-external-user-to-a-lab-using-powershell)
 * [Créer un rôle personnalisé de laboratoire à l’aide de PowerShell](devtest-lab-grant-user-permissions-to-specific-lab-policies.md#creating-a-lab-custom-role-using-powershell)
 

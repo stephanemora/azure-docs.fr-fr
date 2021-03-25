@@ -8,10 +8,10 @@ ms.topic: overview
 ms.date: 01/08/2021
 ms.author: sngun
 ms.openlocfilehash: 1cf3bf30b37a09b5dfe94bf1e754a7f8e9dcd82c
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98045663"
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Présentation d’Azure Cosmos DB : API de table
@@ -44,7 +44,7 @@ Si vous utilisez actuellement le stockage de table Azure, vous bénéficiez des 
 | Indexation | Index primaire uniquement sur PartitionKey et RowKey. Pas d’index secondaire. | Indexation automatique et complète de toutes les propriétés par défaut, sans gestion d’index. |
 | Requête | L’exécution des requêtes utilise un index de clé primaire, et effectue une recherche dans le cas contraire. | Les requêtes peuvent tirer parti de l’indexation automatique de propriétés pour des temps de requête rapides. |
 | Cohérence | Forte au sein de la région primaire. Éventuelle au sein de la région secondaire. | [Cinq niveaux de cohérence bien définis](consistency-levels.md) pour compenser la disponibilité, la latence, le débit ou la cohérence en fonction des besoins de votre application. |
-| Tarifs | Basés sur la consommation. | Disponibles à la fois en mode [Basé sur la consommation](serverless.md) et en mode [Capacité provisionnée](set-throughput.md). |
+| Tarifs | Basés sur la consommation. | Disponibles à la fois en mode [basé sur la consommation](serverless.md) et en mode [capacité provisionnée](set-throughput.md). |
 | Contrats SLA | Disponibilité de 99,9% à 99,99%, en fonction de la stratégie de réplication. | Disponibilité de 99,999% en lecture, de 99,99% en écriture sur un compte dans une seule région, et de 99,999% en écriture sur les comptes dans plusieurs régions. [Contrats SLA complets](https://azure.microsoft.com/support/legal/sla/cosmos-db/) couvrant la disponibilité, la latence, le débit et la cohérence. |
 
 ## <a name="get-started"></a>Bien démarrer

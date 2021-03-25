@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/25/2020
 ms.author: cynthn
 ms.openlocfilehash: abc9a2ae130d987c90ce87ffaecbf2bb44b06010
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88929434"
 ---
 # <a name="generate-and-store-ssh-keys-in-the-azure-portal"></a>Générer et stocker des clés SSH dans le portail Azure
@@ -48,7 +48,7 @@ Pour plus d’informations sur la création et l’utilisation de clés SSH avec
 
 1. Dans la fenêtre contextuelle qui s’affiche, sélectionnez **Télécharger la clé privée et créer une ressource**. Cela a pour effet de télécharger la clé SSH en tant que fichier .pem.
 
-   :::image type="content" source="./media/ssh-keys/download-key.png" alt-text="Créer un nouveau groupe de ressources et générer une paire de clés SSH":::
+   :::image type="content" source="./media/ssh-keys/download-key.png" alt-text="Télécharger la clé privée en tant que fichier. pem":::
 
 1. Une fois le fichier. pem téléchargé, vous pouvez le déplacer quelque part sur votre ordinateur où il est facile de pointer dessus à partir de votre client SSH.
 
@@ -74,7 +74,7 @@ Vous pouvez également charger une clé SSH publique à stocker dans Azure. Pour
 
 1. Dans la page **Clé SSH**, sélectionnez **Créer**.
 
-   :::image type="content" source="./media/ssh-keys/upload.png" alt-text="Créer un nouveau groupe de ressources et générer une paire de clés SSH":::
+   :::image type="content" source="./media/ssh-keys/upload.png" alt-text="Charger une clé publique SSH à stocker dans Azure":::
 
 1. Dans **Groupe de ressources** sélectionnez **Créer nouveau** afin de créer un nouveau groupe de ressources pour stocker vos clés. Tapez un nom pour votre groupe de ressources, puis sélectionnez **OK**.
 
@@ -98,7 +98,7 @@ Les clés SSH créées dans le portail sont stockées en tant que ressources, ce
 1. Dans les filtres, sélectionnez **Type**, désélectionnez l’option **Tout sélectionner** pour effacer la liste.
 1. Tapez **SSH** dans le filtre et sélectionnez **Clé SSH**.
 
-   :::image type="content" source="./media/ssh-keys/filter.png" alt-text="Créer un nouveau groupe de ressources et générer une paire de clés SSH":::
+   :::image type="content" source="./media/ssh-keys/filter.png" alt-text="Capture d’écran montrant comment filtrer la liste pour voir toutes vos clés SSH.":::
 
 ## <a name="get-the-public-key"></a>Obtenir la clé publique
 

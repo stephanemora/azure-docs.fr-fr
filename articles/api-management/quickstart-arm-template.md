@@ -9,10 +9,10 @@ ms.custom: subject-armqs
 ms.author: danlep
 ms.date: 10/09/2020
 ms.openlocfilehash: 1610c51b613712c06410247e2eb673a50a9988b3
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92792240"
 ---
 # <a name="quickstart-create-a-new-azure-api-management-service-instance-using-an-arm-template"></a>Démarrage rapide : Créer une instance de service Azure API Management avec un modèle ARM
@@ -21,7 +21,7 @@ Ce guide de démarrage rapide explique comment utiliser un modèle Azure Resourc
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Si votre environnement remplit les prérequis et que vous êtes déjà familiarisé avec l’utilisation des modèles ARM, sélectionnez le bouton **Déployer sur Azure** . Le modèle s’ouvre dans le portail Azure.
+Si votre environnement remplit les prérequis et que vous êtes déjà familiarisé avec l’utilisation des modèles ARM, sélectionnez le bouton **Déployer sur Azure**. Le modèle s’ouvre dans le portail Azure.
 
 [![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azure-api-management-create%2Fazuredeploy.json)
 
@@ -51,24 +51,24 @@ Vous trouverez d’autres exemples de modèles Azure API Management dans [Modèl
 
 1. Sélectionnez ou entrez les valeurs suivantes.
     - **Abonnement** : sélectionnez un abonnement Azure.
-    - **Groupe de ressources**  : sélectionnez **Créer** , entrez un nom unique pour le groupe de ressources, puis sélectionnez **OK** .
-    - **Région**  : sélectionnez un emplacement pour le groupe de ressources. Exemple : **USA Centre** .
-    - **Adresse e-mail de l’éditeur**  : entrez l’adresse e-mail où seront reçues les notifications.
-    - **Nom de l’éditeur**  : entrez le nom que vous voulez attribuer à l’éditeur d’API.
-    - **Référence SKU**  : acceptez la valeur par défaut **Développeur** .
-    - **Nombre de références SKU**  : acceptez la valeur par défaut.
-    - **Emplacement**  : acceptez l’emplacement généré pour le service API Management.
+    - **Groupe de ressources** : sélectionnez **Créer**, entrez un nom unique pour le groupe de ressources, puis sélectionnez **OK**.
+    - **Région** : sélectionnez un emplacement pour le groupe de ressources. Exemple : **USA Centre**.
+    - **Adresse e-mail de l’éditeur** : entrez l’adresse e-mail où seront reçues les notifications.
+    - **Nom de l’éditeur** : entrez le nom que vous voulez attribuer à l’éditeur d’API.
+    - **Référence SKU** : acceptez la valeur par défaut **Développeur**.
+    - **Nombre de références SKU** : acceptez la valeur par défaut.
+    - **Emplacement** : acceptez l’emplacement généré pour le service API Management.
 
     :::image type="content" source="media/quickstart-arm-template/create-instance-template.png" alt-text="Propriétés du modèle API Management":::
 
-1. Sélectionnez **Vérifier + créer** , puis passez en revue les conditions générales. Si vous les acceptez, sélectionnez **Créer** .
+1. Sélectionnez **Vérifier + créer**, puis passez en revue les conditions générales. Si vous les acceptez, sélectionnez **Créer**.
 
     > [!TIP]
     >  La création et l’activation d’un service API Management au niveau Développeur peuvent prendre entre 30 et 40 minutes.
 
 1. Une fois l’instance créée avec succès, vous recevez une notification :
 
-    :::image type="content" source="media/quickstart-arm-template/deployment-notification.png" alt-text="Propriétés du modèle API Management":::
+    :::image type="content" source="media/quickstart-arm-template/deployment-notification.png" alt-text="Notification de déploiement":::
 
  Le portail Azure est utilisé pour déployer le modèle. Outre le portail Azure, vous pouvez également utiliser Azure PowerShell, l’interface Azure CLI et l’API REST. Pour découvrir d’autres méthodes de déploiement, consultez [Déployer des modèles](../azure-resource-manager/templates/deploy-cli.md).
 
@@ -76,10 +76,10 @@ Vous trouverez d’autres exemples de modèles Azure API Management dans [Modèl
 
 Utilisez le portail Azure pour vérifier les ressources déployées ou servez-vous d’outils comme Azure CLI ou Azure PowerShell pour lister les ressources déployées.
 
-1. Sur le [portail Azure](https://portal.azure.com), recherchez et sélectionnez **Services Gestion des API** , puis sélectionnez l’instance de service que vous avez créée.
-1. Passez en revue les propriétés de votre service dans la page **Vue d’ensemble** .
+1. Sur le [portail Azure](https://portal.azure.com), recherchez et sélectionnez **Services Gestion des API**, puis sélectionnez l’instance de service que vous avez créée.
+1. Passez en revue les propriétés de votre service dans la page **Vue d’ensemble**.
 
-:::image type="content" source="media/quickstart-arm-template/service-instance-created.png" alt-text="Propriétés du modèle API Management":::
+:::image type="content" source="media/quickstart-arm-template/service-instance-created.png" alt-text="Page Vue d’ensemble du service":::
 
 Une fois votre instance Gestion des API en ligne, vous êtes prêt à l’utiliser. Commencez par le tutoriel [Importer et publier votre première API](import-and-publish.md).
 
@@ -87,12 +87,12 @@ Une fois votre instance Gestion des API en ligne, vous êtes prêt à l’utilis
 
 Si vous prévoyez d’utiliser d’autres tutoriels, vous pouvez conserver cette instance API Management. Quand vous n’en avez plus besoin, supprimez le groupe de ressources, ce qui supprime également les ressources qu’il contient.
 
-1. Dans le [portail Azure](https://portal.azure.com), recherchez et sélectionnez **Groupes de ressources** . Vous pouvez également sélectionner **Groupes de ressources** depuis la page **d’accueil** .
-1. Sur la page **Groupes de ressources** , sélectionnez votre groupe de ressources.
-1. Sur la page Groupe de ressources, sélectionnez **Supprimer un groupe de ressources** .
+1. Dans le [portail Azure](https://portal.azure.com), recherchez et sélectionnez **Groupes de ressources**. Vous pouvez également sélectionner **Groupes de ressources** depuis la page **d’accueil**.
+1. Sur la page **Groupes de ressources**, sélectionnez votre groupe de ressources.
+1. Sur la page Groupe de ressources, sélectionnez **Supprimer un groupe de ressources**.
 
     Supprimer le groupe de ressources
-1. Saisissez le nom de votre groupe de ressources, puis sélectionnez **Supprimer** .
+1. Saisissez le nom de votre groupe de ressources, puis sélectionnez **Supprimer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

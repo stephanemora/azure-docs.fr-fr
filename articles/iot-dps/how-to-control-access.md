@@ -10,10 +10,10 @@ ms.date: 04/09/2019
 ms.author: wesmc
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: 024dbf6518748a4048873de4eb54a53f9d9a6362
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94954322"
 ---
 # <a name="control-access-to-azure-iot-hub-device-provisioning-service"></a>Contrôler l’accès au service de provisionnement d’appareils Azure IoT Hub
@@ -40,12 +40,12 @@ Vous pouvez accorder des [autorisations](#device-provisioning-service-permission
 > [!NOTE]
 > Pour plus d’informations, consultez la page [Autorisations](#device-provisioning-service-permissions).
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Authentification
 
 Le service de provisionnement d’appareils Azure IoT Hub accorde l’accès aux points de terminaison en vérifiant la validité d’un jeton par rapport aux stratégies d’accès partagé. Les informations d’identification de sécurité telles que les clés symétriques ne sont jamais envoyées sur le réseau.
 
 > [!NOTE]
-> Le fournisseur de ressources du service Device Provisioning est sécurisé par le biais de votre abonnement Azure, comme le sont tous les fournisseurs dans [Azure Resource Manager][lnk-azure-resource-manager].
+> Le fournisseur de ressources du service de provisionnement d’appareils est sécurisé via votre abonnement Azure, comme le sont tous les fournisseurs, dans [Azure Resource Manager][lnk-azure-resource-manager].
 
 Pour plus d’informations sur la façon de construire et d’utiliser les jetons de sécurité, consultez la section suivante.
 
@@ -58,11 +58,11 @@ SharedAccessSignature sr =
 ```
 
 > [!NOTE]
-> Les [kits SDK du service Azure IoT Device Provisioning][lnk-sdks] génèrent automatiquement des jetons durant la connexion au service.
+> Les [SDK du service de provisionnement d’appareils Azure IoT][lnk-sdks] génèrent automatiquement des jetons durant la connexion au service.
 
 ## <a name="security-tokens"></a>Jetons de sécurité
 
-Le service de provisionnement d’appareils utilise des jetons de sécurité pour authentifier les services et éviter l’envoi de clés. En outre, la validité et la portée des jetons sont limitées dans le temps. Les [kits SDK du service Azure IoT Device Provisioning][lnk-sdks] génèrent automatiquement des jetons sans nécessiter de configuration particulière. Certains scénarios nécessitent toutefois que vous génériez et utilisiez directement des jetons de sécurité. Ces scénarios incluent l’utilisation directe du protocole HTTP.
+Le service de provisionnement d’appareils utilise des jetons de sécurité pour authentifier les services et éviter l’envoi de clés. En outre, la validité et la portée des jetons sont limitées dans le temps. Les [SDK du service de provisionnement d’appareils Azure IoT][lnk-sdks] génèrent automatiquement des jetons sans nécessiter de configuration particulière. Certains scénarios nécessitent toutefois que vous génériez et utilisiez directement des jetons de sécurité. Ces scénarios incluent l’utilisation directe du protocole HTTP.
 
 ### <a name="security-token-structure"></a>Structure du jeton de sécurité
 
@@ -78,12 +78,12 @@ Voici les valeurs attendues :
 
 | Valeur | Description |
 | --- | --- |
-| {signature} |Une chaîne de signature HMAC-SHA256 sous la forme : `{URL-encoded-resourceURI} + "\n" + expiry`. **Important**: la clé est décodée à partir de base64 et utilisée comme clé pour effectuer le calcul HMAC-SHA256.|
+| {signature} |Une chaîne de signature HMAC-SHA256 sous la forme : `{URL-encoded-resourceURI} + "\n" + expiry`. **Important !** la clé est décodée à partir de base64 et utilisée comme clé pour effectuer le calcul HMAC-SHA256.|
 | {expiry} |Chaînes UTF8 pour le nombre de secondes depuis l’époque 00:00:00 UTC 1er janvier 1970. |
 | {URL-encoded-resourceURI} | Encodage de l’URL en minuscules à partir de l’URI de ressource en minuscules. Préfixe URI (par segment) des points de terminaison accessibles avec ce jeton, en commençant par le nom d’hôte du service de provisionnement d’appareils IoT (sans protocole). Par exemple : `mydps.azure-devices-provisioning.net`. |
 | {policyName} |Le nom de la stratégie d’accès partagé à laquelle ce jeton fait référence. |
 
-**Remarque sur le préfixe**: le préfixe URI est calculé par segment et non par caractère. Par exemple `/a/b` est un préfixe de `/a/b/c`, mais pas de `/a/bc`.
+**Remarque sur le préfixe** : le préfixe URI est calculé par segment et non par caractère. Par exemple `/a/b` est un préfixe de `/a/b/c`, mais pas de `/a/bc`.
 
 L’extrait de code Node.js suivant illustre une fonction appelée **generateSasToken** qui calcule le jeton à partir des entrées `resourceUri, signingKey, policyName, expiresInMins`. Les sections suivantes décrivent en détail comment initialiser les différentes entrées pour les différents cas d’utilisation des jetons.
 

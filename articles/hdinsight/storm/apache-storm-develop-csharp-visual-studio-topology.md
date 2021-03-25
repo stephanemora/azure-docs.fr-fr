@@ -6,12 +6,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 12/31/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a81f2b21545a5362168482f3f0a65fbbbf381c10
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 5360057ec2dfbd2b40c6f086f5e910103c544b62
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98929151"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865449"
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>Développer des topologies C# pour Apache Storm à l’aide de Data Lake Tools pour Visual Studio
 
@@ -128,7 +128,7 @@ Pour créer un projet de topologie C# dans Visual Studio :
 
 1. Dans la fenêtre **Configurer votre nouveau projet**, entrez le **nom de projet** *WordCount*, accédez au répertoire **Emplacement** ou créez-le pour le projet, puis sélectionnez **Créer**.
 
-    ![Application Storm, boîte de dialogue Configurer votre nouveau projet, Visual Studio](./media/apache-storm-develop-csharp-visual-studio-topology/apache-storm-new-project.png)
+    :::image type="content" source="./media/apache-storm-develop-csharp-visual-studio-topology/apache-storm-new-project.png" alt-text="Application Storm, boîte de dialogue Configurer votre nouveau projet, Visual Studio" border="true":::
 
 Une fois le projet créé, vous devez avoir les fichiers suivants :
 
@@ -333,7 +333,7 @@ Ensuite, ajoutez le code pour le spout, qui est utilisé pour lire les données 
 
 Les spouts et les bolts sont organisés dans un graphique, qui définit la circulation des données entre les composants. Dans cette topologie, le graphique est le suivant :
 
-![Diagramme de disposition des composants spout et bolt, topologie Storm](./media/apache-storm-develop-csharp-visual-studio-topology/word-count-topology1.png)
+:::image type="content" source="./media/apache-storm-develop-csharp-visual-studio-topology/word-count-topology1.png" alt-text="Diagramme de disposition des composants spout et bolt, topologie Storm" border="false":::
 
 Des phrases sont émises par le spout, puis distribuées à des instances du bolt Splitter. Le bolt de fractionnement fractionne les phrases en mots, qui sont distribués au bolt de décompte.
 
@@ -413,7 +413,7 @@ Vous êtes maintenant prêt à envoyer la topologie à votre cluster HDInsight.
 
     Une fois la topologie envoyée avec succès, la fenêtre **Vue des topologies Storm** du cluster doit apparaître. Choisissez la topologie **WordCount** dans la liste pour afficher des informations sur la topologie en cours d’exécution.
 
-    ![Fenêtre Vue des topologies Storm, cluster HDInsight, Visual Studio](./media/apache-storm-develop-csharp-visual-studio-topology/storm-topology-view.png)
+    :::image type="content" source="./media/apache-storm-develop-csharp-visual-studio-topology/storm-topology-view.png" alt-text="Fenêtre Vue des topologies Storm, cluster HDInsight, Visual Studio" border="true":::
 
     > [!NOTE]  
     > Vous pouvez également afficher les **Topologies Storm** dans l’**Explorateur de serveurs**. Développez **Azure** > **HDInsight**, cliquez avec le bouton droit sur un cluster Storm sur HDInsight, puis choisissez **Afficher les topologies Storm**.
@@ -567,7 +567,7 @@ Il est facile de déployer une topologie sur un cluster, mais il est parfois né
 
 1. Dans **l’Explorateur de solutions**, cliquez avec le bouton droit sur le projet et sélectionnez **Propriétés**. Dans les propriétés du projet, définissez alors le **type de sortie** sur **Application Console**.
 
-   ![Application Storm HDInsight, propriétés du projet, Type de sortie](./media/apache-storm-develop-csharp-visual-studio-topology/hdi-output-type-window.png)
+   :::image type="content" source="./media/apache-storm-develop-csharp-visual-studio-topology/hdi-output-type-window.png" alt-text="Application Storm HDInsight, propriétés du projet, Type de sortie" border="true":::
 
    > [!NOTE]
    > N’oubliez pas de modifier le **Type de sortie** sur **Bibliothèque de classes** avant de déployer la topologie sur un cluster.
