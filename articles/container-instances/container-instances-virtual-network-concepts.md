@@ -3,18 +3,21 @@ title: Scénarios d’utilisation d’un réseau virtuel
 description: Scénarios, ressources et limitations relatifs au déploiement de groupes de conteneurs sur un réseau virtuel Azure.
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: 65d7fa46ebbb9b072b50731bff68b9b88809075d
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: 20c2b4fe2f19402d6647f398a9696b7e16550d8e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98033827"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104606886"
 ---
 # <a name="virtual-network-scenarios-and-resources"></a>Ressources et scénarios relatifs aux réseaux virtuels
 
 Un [réseau virtuel Azure](../virtual-network/virtual-networks-overview.md) fournit un accès réseau privé et sécurisé à vos ressources Azure et locales. En déployant des groupes de conteneurs dans un réseau virtuel Azure, vos conteneurs peuvent communiquer en toute sécurité avec d’autres ressources dans le réseau virtuel. 
 
 Cet article fournit des informations générales sur les scénarios, limitations et ressources relatifs aux réseaux virtuels. Pour obtenir des exemples de déploiement à l’aide d’Azure CLI, consultez [Déployer des instance de conteneur dans un réseau virtuel Azure](container-instances-vnet.md).
+
+> [!IMPORTANT]
+> Le déploiement d’un groupe de conteneurs sur un réseau virtuel est généralement disponible pour les conteneurs Linux, dans la plupart des régions où Azure Container Instances est disponible. Pour plus d’informations, consultez [Régions et disponibilité des ressources](container-instances-region-availability.md). 
 
 ## <a name="scenarios"></a>Scénarios
 
@@ -45,12 +48,6 @@ Les groupes de conteneurs déployés dans un réseau virtuel Azure autorisent le
 * Si vous connectez votre groupe de conteneurs à un compte Stockage Azure, vous devez ajouter un [point de terminaison de service](../virtual-network/virtual-network-service-endpoints-overview.md) à cette ressource.
 
 [!INCLUDE [container-instances-restart-ip](../../includes/container-instances-restart-ip.md)]
-
-## <a name="where-to-deploy"></a>Où déployer ?
-
-Les régions et les ressources maximales suivantes sont disponibles pour le déploiement d’un groupe de conteneurs sur un réseau virtuel Azure.
-
-[!INCLUDE [container-instances-vnet-limits](../../includes/container-instances-vnet-limits.md)]
 
 ## <a name="required-network-resources"></a>Ressources réseau requises
 

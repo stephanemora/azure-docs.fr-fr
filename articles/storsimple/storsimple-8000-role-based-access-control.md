@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/11/2017
 ms.author: alkohli
 ms.openlocfilehash: 49c38e23ddbbfe983ff82ad25363c744292d4d69
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92518974"
 ---
 # <a name="azure-role-based-access-control-for-storsimple"></a>Contrôle d’accès en fonction du rôle Azure pour StorSimple
@@ -35,14 +35,14 @@ Azure RBAC peut être affecté en fonction des rôles. Les rôles garantissent 
 
 * **Rôles intégrés** : les rôles intégrés sont propriétaire, contributeur, lecteur ou administrateur des accès utilisateurs. Pour plus d’informations, consultez [Rôles intégrés pour le contrôle d’accès en fonction du rôle Azure](../role-based-access-control/built-in-roles.md).
 
-* **Rôles personnalisés**  : si les rôles intégrés ne répondent pas à vos besoins, vous pouvez créer des rôles Azure personnalisés pour StorSimple. Pour créer un rôle Azure personnalisé, commencez avec un rôle intégré, modifiez-le, puis réimportez-le dans l’environnement. Le téléchargement et le chargement du rôle sont gérés avec PowerShell ou Azure CLI. Pour plus d’informations, consultez [Créer des rôles personnalisés pour le contrôle d’accès en fonction du rôle](../role-based-access-control/custom-roles.md).
+* **Rôles personnalisés** : si les rôles intégrés ne répondent pas à vos besoins, vous pouvez créer des rôles Azure personnalisés pour StorSimple. Pour créer un rôle Azure personnalisé, commencez avec un rôle intégré, modifiez-le, puis réimportez-le dans l’environnement. Le téléchargement et le chargement du rôle sont gérés avec PowerShell ou Azure CLI. Pour plus d’informations, consultez [Créer des rôles personnalisés pour le contrôle d’accès en fonction du rôle](../role-based-access-control/custom-roles.md).
 
-Pour voir les différents rôles disponibles pour un utilisateur d’un appareil StorSimple dans le portail Azure, accédez à votre service StorSimple Device Manager, puis à **Contrôle d’accès (IAM) > Rôles** .
+Pour voir les différents rôles disponibles pour un utilisateur d’un appareil StorSimple dans le portail Azure, accédez à votre service StorSimple Device Manager, puis à **Contrôle d’accès (IAM) > Rôles**.
 
 
 ## <a name="create-a-custom-role-for-storsimple-infrastructure-administrator"></a>Créer un rôle personnalisé pour l’administrateur d’infrastructure StorSimple
 
-Dans l’exemple suivant, nous commençons avec le rôle intégré **Lecteur** , qui permet aux utilisateurs de voir toutes les étendues de ressources, mais pas de les modifier ou d’en créer de nouvelles. Nous étendons ensuite ce rôle pour créer un rôle d’administrateur d’infrastructure StorSimple personnalisé. Ce rôle est attribué aux utilisateurs qui peuvent gérer l’infrastructure pour les appareils StorSimple.
+Dans l’exemple suivant, nous commençons avec le rôle intégré **Lecteur**, qui permet aux utilisateurs de voir toutes les étendues de ressources, mais pas de les modifier ou d’en créer de nouvelles. Nous étendons ensuite ce rôle pour créer un rôle d’administrateur d’infrastructure StorSimple personnalisé. Ce rôle est attribué aux utilisateurs qui peuvent gérer l’infrastructure pour les appareils StorSimple.
 
 1. Exécutez Windows PowerShell en tant qu’administrateur.
 
@@ -58,9 +58,9 @@ Dans l’exemple suivant, nous commençons avec le rôle intégré **Lecteur** ,
     Get-AzRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\ssrbaccustom.json
     ```
 
-4. Ouvrez le fichier JSON dans Visual Studio. Vous voyez qu’un rôle Azure classique comprend trois sections principales : **Actions** , **NotActions** et **AssignableScopes** .
+4. Ouvrez le fichier JSON dans Visual Studio. Vous voyez qu’un rôle Azure classique comprend trois sections principales : **Actions**, **NotActions** et **AssignableScopes**.
 
-    Dans la section **Action** , toutes les opérations autorisées pour ce rôle sont répertoriées. Chaque action est affectée à partir d’un fournisseur de ressources. Pour un administrateur d’infrastructure StorSimple, utilisez le fournisseur de ressources `Microsoft.StorSimple`.
+    Dans la section **Action**, toutes les opérations autorisées pour ce rôle sont répertoriées. Chaque action est affectée à partir d’un fournisseur de ressources. Pour un administrateur d’infrastructure StorSimple, utilisez le fournisseur de ressources `Microsoft.StorSimple`.
 
     Utilisez PowerShell pour voir tous les fournisseurs de ressources disponibles et inscrits dans votre abonnement.
 
@@ -68,9 +68,9 @@ Dans l’exemple suivant, nous commençons avec le rôle intégré **Lecteur** ,
 
     Vous pouvez aussi utiliser des applets de commande PowerShell pour gérer les fournisseurs de ressources.
 
-    Dans la section **NotActions** , toutes les actions restreintes pour un rôle Azure particulier sont répertoriées. Dans cet exemple, aucune action n’est restreinte.
+    Dans la section **NotActions**, toutes les actions restreintes pour un rôle Azure particulier sont répertoriées. Dans cet exemple, aucune action n’est restreinte.
     
-    Dans la section **AssignableScopes** , les ID d’abonnement sont répertoriés. Vérifiez que le rôle Azure contient l’ID d’abonnement explicite où il est utilisé. Si l’ID de l’abonnement approprié n’est pas spécifié, vous n’êtes pas autorisé à importer le rôle dans votre abonnement.
+    Dans la section **AssignableScopes**, les ID d’abonnement sont répertoriés. Vérifiez que le rôle Azure contient l’ID d’abonnement explicite où il est utilisé. Si l’ID de l’abonnement approprié n’est pas spécifié, vous n’êtes pas autorisé à importer le rôle dans votre abonnement.
 
     Prenez en compte ces considérations quand vous modifiez le fichier.
 
@@ -107,7 +107,7 @@ Dans l’exemple suivant, nous commençons avec le rôle intégré **Lecteur** ,
     `New-AzRoleDefinition -InputFile "C:\ssrbaccustom.json"`
 
 
-Ce rôle doit maintenant apparaître dans la liste des rôles dans le panneau **Contrôle d’accès** .
+Ce rôle doit maintenant apparaître dans la liste des rôles dans le panneau **Contrôle d’accès**.
 
 ![Afficher les rôles Azure](./media/storsimple-8000-role-based-access-control/rbac-role-types.png)
 
@@ -169,7 +169,7 @@ Vous accordez l’accès à partir de la ressource, du groupe de ressources ou d
 
     ![Ajouter l’accès au rôle Azure](./media/storsimple-8000-role-based-access-control/rbac-add-role.png)
 
-2. Sélectionnez le rôle que vous souhaitez attribuer : dans ce cas, il s’agit de **Administrateur d’infrastructure StorSimple** .
+2. Sélectionnez le rôle que vous souhaitez attribuer : dans ce cas, il s’agit de **Administrateur d’infrastructure StorSimple**.
 
 3. Sélectionnez l’utilisateur, le groupe ou l’application de votre répertoire auquel vous voulez accorder l’accès. Dans le répertoire, vous pouvez rechercher des noms d’affichage, des adresses de messagerie et des identificateurs d’objet.
 
@@ -183,9 +183,9 @@ Une notification **Ajout d’utilisateur** suit la progression. Une fois que l�
 
 Une fois ce rôle créé, vous pouvez afficher les autorisations associées à ce rôle dans le portail Azure.
 
-1. Pour afficher les autorisations associées à ce rôle, accédez à **Contrôle d’accès (IAM) > Rôles > Administrateur d’infrastructure StorSimple** . La liste des utilisateurs de ce rôle s’affiche.
+1. Pour afficher les autorisations associées à ce rôle, accédez à **Contrôle d’accès (IAM) > Rôles > Administrateur d’infrastructure StorSimple**. La liste des utilisateurs de ce rôle s’affiche.
 
-2. Sélectionnez un utilisateur Administrateur d’infrastructure StorSimple et cliquez sur **Autorisations** .
+2. Sélectionnez un utilisateur Administrateur d’infrastructure StorSimple et cliquez sur **Autorisations**.
 
     ![Afficher les autorisations pour le rôle Administrateur d’infrastructure StorSimple](./media/storsimple-8000-role-based-access-control/rbac-roles-view-permissions.png)
 

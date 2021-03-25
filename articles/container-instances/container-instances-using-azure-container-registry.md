@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 07/02/2020
 ms.custom: mvc, devx-track-azurecli
 ms.openlocfilehash: cca1001f0f84f4e4fc87df233f872fc1efdb3267
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92736730"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Déployer sur Azure Container Instances à partir d’Azure Container Registry
@@ -18,7 +18,7 @@ ms.locfileid: "92736730"
 
 ## <a name="prerequisites"></a>Prérequis
 
-**Azure Container Registry**  : Vous avez besoin d’un registre de conteneurs Azure et au moins d’une image conteneur dans le registre pour effectuer les étapes décrites dans cet article. Si vous avez besoin d’un registre, consultez [Créer un registre de conteneurs à l’aide de Azure CLI](../container-registry/container-registry-get-started-azure-cli.md).
+**Azure Container Registry** : Vous avez besoin d’un registre de conteneurs Azure et au moins d’une image conteneur dans le registre pour effectuer les étapes décrites dans cet article. Si vous avez besoin d’un registre, consultez [Créer un registre de conteneurs à l’aide de Azure CLI](../container-registry/container-registry-get-started-azure-cli.md).
 
 **Azure CLI** : Les exemples de ligne de commande dans cet article utilisent [Azure CLI](/cli/azure/) et sont mis en forme pour le shell Bash. Vous pouvez [installer Azure CLI](/cli/azure/install-azure-cli) localement, ou bien utilisez [Azure Cloud Shell][cloud-shell-bash].
 
@@ -70,7 +70,7 @@ az keyvault secret set \
                 --output tsv)
 ```
 
-L’argument `--role` dans la commande précédente configure le principal de service avec le rôle *acrpull* , ce qui lui accorde uniquement un accès d’extraction au registre. Pour accorder les accès push et pull (envoi et tirage), affectez à l’argument `--role` la valeur *acrpush* .
+L’argument `--role` dans la commande précédente configure le principal de service avec le rôle *acrpull*, ce qui lui accorde uniquement un accès d’extraction au registre. Pour accorder les accès push et pull (envoi et tirage), affectez à l’argument `--role` la valeur *acrpush*.
 
 Ensuite, stockez le *appId* du principal de service dans le coffre, qui est le **nom d’utilisateur** que vous passez à Azure Container Registry pour l’authentification.
 
@@ -147,9 +147,9 @@ Si vous gérez des images de conteneur dans un registre Azure Container Registry
 
 1. Dans le portail Azure, accédez à votre registre de conteneurs.
 
-1. Pour confirmer que le compte administrateur est activé, sélectionnez **Touches d’accès** , et, sous **Utilisateur administrateur** , sélectionnez **Activer** .
+1. Pour confirmer que le compte administrateur est activé, sélectionnez **Touches d’accès**, et, sous **Utilisateur administrateur**, sélectionnez **Activer**.
 
-1. Sélectionnez **Référentiels** , puis le référentiel dont proviendra le déploiement, cliquez avec le bouton droit sur la balise de l’image conteneur que vous souhaitez déployer et sélectionnez **Exécuter l’instance** .
+1. Sélectionnez **Référentiels**, puis le référentiel dont proviendra le déploiement, cliquez avec le bouton droit sur la balise de l’image conteneur que vous souhaitez déployer et sélectionnez **Exécuter l’instance**.
 
     ![« Exécuter l’instance » dans Azure Container Registry sur le Portail Azure][acr-runinstance-contextmenu]
 

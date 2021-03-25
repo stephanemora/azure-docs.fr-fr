@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: digital-twins
 services: digital-twins
 ms.openlocfilehash: 9942056e59a46c61b4e9da32aab191d4b72db968
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92461757"
 ---
 # <a name="azure-digital-twins-customer-data-request-features"></a>Fonctionnalités de demande de données client Azure Digital Twins
@@ -31,7 +31,7 @@ Pour afficher, exporter et supprimer les données personnelles qui peuvent être
 
 Azure Digital Twins considère les *données personnelles* comme des données associées à ses administrateurs et à ses utilisateurs. 
 
-Azure Digital Twins stocke l’ *ID d’objet* [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) d’utilisateurs ayant accès à l’environnement. Azure Digital Twins dans le portail Azure affiche les adresses e-mail des utilisateurs, mais ces adresses e-mail ne sont pas stockées dans Azure Digital Twins. Elles sont recherchées dynamiquement dans Azure Active Directory à l’aide de l’ID d’objet Azure Active Directory.
+Azure Digital Twins stocke l’*ID d’objet* [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) d’utilisateurs ayant accès à l’environnement. Azure Digital Twins dans le portail Azure affiche les adresses e-mail des utilisateurs, mais ces adresses e-mail ne sont pas stockées dans Azure Digital Twins. Elles sont recherchées dynamiquement dans Azure Active Directory à l’aide de l’ID d’objet Azure Active Directory.
 
 ## <a name="deleting-customer-data"></a>Suppression des données client
 

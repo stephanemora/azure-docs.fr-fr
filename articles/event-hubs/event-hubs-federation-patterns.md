@@ -4,10 +4,10 @@ description: Cet article fournit des instructions détaillées concernant l’im
 ms.topic: article
 ms.date: 12/12/2020
 ms.openlocfilehash: 438964c228f060dede93abf582c9504b698db8b0
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97934609"
 ---
 # <a name="event-replication-tasks-patterns"></a>Modèles de tâches de réplication des événements
@@ -124,7 +124,7 @@ Pour réaliser l’un ou l’autre scénario et utiliser le processeur d’évé
 
 Si vous avez toujours accès au magasin de points de contrôle du Event Hub que vous quittez, les [métadonnées propagées](#service-assigned-metadata) abordées ci-dessus vous aideront à ignorer les événements qui ont déjà été traités et à reprendre précisément là où vous vous êtes arrêté.
 
-## <a name="merge"></a>Fusionner (Merge)
+## <a name="merge"></a>Fusionner
 
 Le modèle de fusion a une ou plusieurs tâches de réplication pointant vers une cible, éventuellement en même temps que les producteurs normaux envoient des événements à la même cible.
 

@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 09/17/2019
 ms.author: allensu
 ms.openlocfilehash: f83ff3d1d03354daef3466c1f48eaa505e378634
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94693747"
 ---
 # <a name="move-an-external-load-balancer-to-another-region-by-using-the-azure-portal"></a>Déplacer un équilibreur de charge externe vers une autre région à l’aide du portail Azure
@@ -20,7 +20,7 @@ Il existe différents scénarios dans lesquels vous pouvez avoir à déplacer un
 Vous ne pouvez pas à proprement parler déplacer un équilibreur de charge externe Azure d’une région vers une autre. Toutefois, vous pouvez utiliser un modèle Azure Resource Manager pour exporter la configuration existante et l’adresse IP publique d’un équilibreur de charge externe. Vous pouvez ensuite déplacer la ressource dans une autre région en exportant l’équilibreur de charge et l’adresse IP publique vers un modèle, en modifiant les paramètres pour qu’ils correspondent à la région de destination, puis en déployant les modèles dans la nouvelle région. Pour plus d’informations sur Resource Manager et les modèles, consultez [Exporter des groupes de ressources vers des modèles](../azure-resource-manager/management/manage-resource-groups-powershell.md#export-resource-groups-to-templates).
 
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - Vérifiez que l’équilibreur de charge externe se trouve dans la région Azure à partir de laquelle vous souhaitez effectuer le déplacement.
 
@@ -405,7 +405,7 @@ Les procédures suivantes montrent comment préparer l’équilibreur de charge 
 
 Si vous souhaitez ignorer l’adresse IP publique cible et l’équilibreur de charge externe, supprimez le groupe de ressources qui les contient. Pour ce faire, sélectionnez le groupe de ressources à partir de votre tableau de bord dans le portail, puis sélectionnez **Supprimer** en haut de la page de vue d’ensemble.
 
-## <a name="clean-up"></a>Nettoyer
+## <a name="clean-up"></a>Nettoyage
 
 Pour valider les modifications et terminer le déplacement de l’adresse IP publique et de l’équilibreur de charge externe, supprimez l’adresse IP publique source et le groupe de ressources ou l’équilibreur de charge externe source. Pour ce faire, sélectionnez le groupe de ressources à partir de votre tableau de bord dans le portail, puis sélectionnez **Supprimer** en haut de chaque page.
 

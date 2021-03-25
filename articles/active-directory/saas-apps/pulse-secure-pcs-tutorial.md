@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 09/11/2020
 ms.author: jeedes
 ms.openlocfilehash: d38ff5c8f33bda5b12f6267e7a8cdf477db6c7d7
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92511441"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-pulse-secure-pcs"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à Pulse Secure PCS
@@ -45,9 +45,9 @@ Pour configurer l’intégration de Pulse Secure PCS à Azure AD, vous devez 
 
 1. Connectez-vous au portail Azure avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
 1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory**.
-1. Accédez à **Applications d’entreprise** , puis sélectionnez **Toutes les applications**.
+1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
 1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
-1. Dans la section **Ajouter à partir de la galerie** , tapez **Pulse Secure PCS** dans la zone de recherche.
+1. Dans la section **Ajouter à partir de la galerie**, tapez **Pulse Secure PCS** dans la zone de recherche.
 1. Sélectionnez **Pulse Secure PCS** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
 
@@ -68,29 +68,29 @@ Pour configurer et tester l’authentification unique Azure AD avec Pulse Secu
 
 Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
-1. Dans le portail Azure, accédez à la page d’intégration de l’application **Pulse Secure PCS** , recherchez la section **Gérer** , puis sélectionnez **Authentification unique**.
-1. Dans la page **Sélectionner une méthode d’authentification unique** , sélectionnez **SAML**.
-1. Dans la page **Configurer l’authentification unique avec SAML** , cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
+1. Dans le portail Azure, accédez à la page d’intégration de l’application **Pulse Secure PCS**, recherchez la section **Gérer**, puis sélectionnez **Authentification unique**.
+1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-1. Dans la section **Configuration SAML de base** , entrez les valeurs pour les champs suivants :
+1. Dans la section **Configuration SAML de base**, entrez les valeurs pour les champs suivants :
 
-    a. Dans la zone de texte **URL de connexion** , saisissez une URL au format suivant : `https://<FQDN of PCS>/dana-na/auth/saml-consumer.cgi`
+    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<FQDN of PCS>/dana-na/auth/saml-consumer.cgi`
 
     b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `https://<FQDN of PCS>/dana-na/auth/saml-endpoint.cgi?p=sp1`
 
-    c. Dans la zone de texte **URL de réponse** , tapez une URL au format suivant : `https://[FQDN of PCS]/dana-na/auth/saml-consumer.cgi`
+    c. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://[FQDN of PCS]/dana-na/auth/saml-consumer.cgi`
 
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion, l’URL de réponse et l’identificateur réels. Pour obtenir ces valeurs, contactez l’[équipe du support technique Pulse Secure PCS](mailto:support@pulsesecure.net). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-1. Dans la page **Configurer l’authentification unique avec SAML** , dans la section **Certificat de signature SAML** , recherchez **Certificat (en base64)** , puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
+1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **Certificat (en base64)** , puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/certificatebase64.png)
 
-1. Dans la section **Configurer Pulse Secure PC** , copiez la ou les URL appropriées en fonction de vos besoins.
+1. Dans la section **Configurer Pulse Secure PC**, copiez la ou les URL appropriées en fonction de vos besoins.
 
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
 
@@ -98,25 +98,25 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 Dans cette section, vous allez créer un utilisateur de test appelé B. Simon dans le portail Azure.
 
-1. Dans le volet gauche du Portail Azure, sélectionnez **Azure Active Directory** , **Utilisateurs** , puis **Tous les utilisateurs**.
+1. Dans le volet gauche du Portail Azure, sélectionnez **Azure Active Directory**, **Utilisateurs**, puis **Tous les utilisateurs**.
 1. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
-1. Dans les propriétés **Utilisateur** , effectuez les étapes suivantes :
-   1. Dans le champ **Nom** , entrez `B.Simon`.  
-   1. Dans le champ **Nom de l’utilisateur** , entrez username@companydomain.extension. Par exemple : `B.Simon@contoso.com`.
-   1. Cochez la case **Afficher le mot de passe** , puis notez la valeur affichée dans le champ **Mot de passe**.
+1. Dans les propriétés **Utilisateur**, effectuez les étapes suivantes :
+   1. Dans le champ **Nom**, entrez `B.Simon`.  
+   1. Dans le champ **Nom de l’utilisateur**, entrez username@companydomain.extension. Par exemple : `B.Simon@contoso.com`.
+   1. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
    1. Cliquez sur **Créer**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
 Dans cette section, vous allez autoriser B.Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Pulse Secure PC.
 
-1. Dans le portail Azure, sélectionnez **Applications d’entreprise** , puis **Toutes les applications**.
+1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 1. Dans la liste des applications, sélectionnez **Pulse Secure PC**.
 1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
-1. Sélectionnez **Ajouter un utilisateur** , puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
-1. Dans la boîte de dialogue **Utilisateurs et groupes** , sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
+1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
+1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
 1. Si vous attendez qu’un rôle soit attribué aux utilisateurs, vous pouvez le sélectionner dans la liste déroulante **Sélectionner un rôle** . Si aucun rôle n’a été configuré pour cette application, vous voyez le rôle « Accès par défaut » sélectionné.
-1. Dans la boîte de dialogue **Ajouter une attribution** , cliquez sur le bouton **Attribuer**.
+1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
 ## <a name="configure-pulse-secure-pcs-sso"></a>Configurer l’authentification unique Pulse Secure PC
 
@@ -140,7 +140,7 @@ Effectuez les étapes ci-après dans la page suivante :
 1. Indiquez le nom valide dans la zone de texte **Name** (Nom)
 1. Chargez le fichier XML de métadonnées téléchargé à partir du portail Azure dans le **Fichier de métadonnées Azure AD**.
 1. Sélectionnez **Accept Unsigned Metadata** (Accepter les métadonnées non signées)
-1. Sélectionnez Roles (Rôles) comme fournisseur d’identité ( **Identity Provider** )
+1. Sélectionnez Roles (Rôles) comme fournisseur d’identité (**Identity Provider**)
 1. Cliquez sur **Save changes** (Enregistrer les changements)
 
 #### <a name="steps-to-create-a-saml-auth-server"></a>Étapes à suivre pour créer un serveur d’authentification SAML :
@@ -156,7 +156,7 @@ Effectuez les étapes ci-après dans la page suivante :
 
     a. Indiquez le nom du serveur dans la zone de texte **Server Name** (Nom du serveur).
 
-    b. Sélectionnez **SAML version 2.0** et **Configuration Mode** (Mode de configuration) comme métadonnées ( **Metadata** ).
+    b. Sélectionnez **SAML version 2.0** et **Configuration Mode** (Mode de configuration) comme métadonnées (**Metadata**).
 
     c. Copiez la valeur **Connect Secure Entity Id** (ID d’entité Connect Secure), puis collez-la dans la zone **Identifier URL** (URL d’identificateur) de la boîte de dialogue **Basic SAML Configuration** (Configuration SAML de base) du portail Azure.
 
@@ -166,9 +166,9 @@ Effectuez les étapes ci-après dans la page suivante :
 
     f. **Single Logout** (Déconnexion unique) est un paramètre facultatif. Si cette option est sélectionnée, il demande une nouvelle authentification après la déconnexion. Si cette option n’est pas sélectionnée et que vous n’avez pas fermé le navigateur, vous pouvez vous reconnecter sans authentification.
 
-    g. Sélectionnez **Password** (Mot de passe) comme valeur **Requested Authn Context Class** (Classe de contexte d’authentification demandée) et **exact** (exacte) comme méthode de comparaison ( **Comparison Method** ).
+    g. Sélectionnez **Password** (Mot de passe) comme valeur **Requested Authn Context Class** (Classe de contexte d’authentification demandée) et **exact** (exacte) comme méthode de comparaison (**Comparison Method**).
 
-    h. Définissez la validité des métadonnées ( **Metadata Validity** ) en nombre de jours.
+    h. Définissez la validité des métadonnées (**Metadata Validity**) en nombre de jours.
     
     i. Cliquez sur **Enregistrer les modifications**.
 

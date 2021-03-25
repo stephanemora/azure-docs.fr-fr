@@ -8,10 +8,10 @@ ms.subservice: education-hub
 ms.topic: overview
 ms.date: 06/30/2020
 ms.openlocfilehash: cb283380487310165c646c8615d10a545d1a923b
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92675705"
 ---
 # <a name="frequently-asked-questions-about-the-education-hub"></a>Questions fréquentes à propos du Hub Education
@@ -149,7 +149,7 @@ Les crédits de cours Azure couvrent uniquement l’utilisation à partir du mom
 
 ### <a name="how-do-i-know-if-my-subscription-is-on-the-azure-course-credit-offer"></a>Comment savoir si mon abonnement est associé à l’offre de crédit de cours Azure ?
 
-Si vous examinez un abonnement spécifique dans le panneau Abonnements de votre portail Azure, une des propriétés indiquées est **Nom de l’offre** . Ce nom indique **Azure Sponsorship** s’il est connecté à vos crédits de cours. Si **Azure Sponsorship** ne s’affiche pas, contactez le support qui se chargera de la conversion.
+Si vous examinez un abonnement spécifique dans le panneau Abonnements de votre portail Azure, une des propriétés indiquées est **Nom de l’offre**. Ce nom indique **Azure Sponsorship** s’il est connecté à vos crédits de cours. Si **Azure Sponsorship** ne s’affiche pas, contactez le support qui se chargera de la conversion.
 
 ## <a name="azure-dev-tools-for-teaching"></a>Azure Dev Tools for Teaching
 
@@ -252,10 +252,10 @@ Si vous ne parvenez toujours pas à vous connecter, contactez l’administrateur
 
 ### <a name="how-do-i-find-my-subscriber-id"></a>Comment puis-je trouver mon ID d’abonné ?
 
-- **Lorsque vous vous inscrivez pour la première fois dans le programme**  : Votre numéro d’identification d’abonné figure dans l’e-mail de bienvenue que vous recevez pour l’abonnement.
-- **Si vous avez renouvelé votre abonnement**  : Votre ID d’abonné figure dans l’e-mail de renouvellement que l’administrateur d’abonnement a reçu.
+- **Lorsque vous vous inscrivez pour la première fois dans le programme** : Votre numéro d’identification d’abonné figure dans l’e-mail de bienvenue que vous recevez pour l’abonnement.
+- **Si vous avez renouvelé votre abonnement** : Votre ID d’abonné figure dans l’e-mail de renouvellement que l’administrateur d’abonnement a reçu.
 
-Votre ID d’abonné figure également dans le portail Visual Studio Subscription. Une fois que vous êtes connecté, regardez sous **Mon abonnement** dans la page **Mon compte** .
+Votre ID d’abonné figure également dans le portail Visual Studio Subscription. Une fois que vous êtes connecté, regardez sous **Mon abonnement** dans la page **Mon compte**.
 
 Si vous avez besoin d’aide pour trouver votre ID d’abonné, [contactez-nous](https://azureforeducation.microsoft.com/institutions/Contact).
 
@@ -282,7 +282,7 @@ Si vous ne recevez pas ces e-mails de rappel et que vous craignez que votre abon
 
 Vous pouvez également accéder à la page [Azure Dev Tools for Teaching – Renouveler](https://portal.azureforeducation.microsoft.com/) et terminer le processus de renouvellement.
 
-Pour vérifier la date d’expiration de votre abonnement, accédez au [portail de gestion Azure Dev Tools for Teaching](https://azureforeducation.microsoft.com/account/Subscriptions) et regardez sous **Abonnements** .
+Pour vérifier la date d’expiration de votre abonnement, accédez au [portail de gestion Azure Dev Tools for Teaching](https://azureforeducation.microsoft.com/account/Subscriptions) et regardez sous **Abonnements**.
 
 ### <a name="what-if-i-need-more-help"></a>Que faire si j’ai besoin d’une aide supplémentaire ?
 

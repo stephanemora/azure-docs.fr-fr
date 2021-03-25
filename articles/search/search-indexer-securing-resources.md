@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/14/2020
 ms.openlocfilehash: bcb6e91bba367363385214806077146b1a24fe7b
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92503485"
 ---
 # <a name="indexer-access-to-content-protected-by-azure-network-security-features-azure-cognitive-search"></a>Accès de l’indexeur au contenu protégé par les fonctionnalités de sécurité réseau Azure (Recherche cognitive Azure)
@@ -85,7 +85,7 @@ Cette fonctionnalité est réservée aux services de recherche facturables, avec
 
 ### <a name="step-1-create-a-private-endpoint-to-the-secure-resource"></a>Étape 1 : Créer un point de terminaison privé vers la ressource sécurisée
 
-Les clients doivent appeler l’opération de gestion de la recherche, l’ [API CreateOrUpdate](/rest/api/searchmanagement/sharedprivatelinkresources/createorupdate) sur une **ressource de liaison privée partagée** , afin de créer une connexion de point de terminaison privé à leur ressource sécurisée (par exemple, un compte de stockage). Le trafic qui transite via cette connexion de point de terminaison privé (sortant) provient uniquement du réseau virtuel situé dans l’environnement d’exécution de l’indexeur « privé » spécifique du service de recherche.
+Les clients doivent appeler l’opération de gestion de la recherche, l’[API CreateOrUpdate](/rest/api/searchmanagement/sharedprivatelinkresources/createorupdate) sur une **ressource de liaison privée partagée**, afin de créer une connexion de point de terminaison privé à leur ressource sécurisée (par exemple, un compte de stockage). Le trafic qui transite via cette connexion de point de terminaison privé (sortant) provient uniquement du réseau virtuel situé dans l’environnement d’exécution de l’indexeur « privé » spécifique du service de recherche.
 
 Recherche cognitive Azure vérifie que les appelants de cette API disposent des autorisations Azure RBAC pour approuver les demandes de connexion de point de terminaison privé à la ressource sécurisée. Par exemple, si vous demandez une connexion de point de terminaison privé à un compte de stockage avec des autorisations en lecture seule, cet appel sera rejeté.
 
@@ -123,7 +123,7 @@ Lorsque vous disposez d’un point de terminaison privé approuvé pour une ress
 
 À des fins de performances et de stabilité optimales du service de recherche, des restrictions sont imposées (par niveau de service de recherche) comme suit :
 
-- Types d’indexeurs pouvant être définis comme *privés* .
+- Types d’indexeurs pouvant être définis comme *privés*.
 - Nombre de ressources de lien privé partagé pouvant être créées.
 - Nombre de types de ressources distincts pour lesquels des ressources de lien privé partagé peuvent être créées.
 

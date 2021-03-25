@@ -7,10 +7,10 @@ ms.date: 10/29/2018
 ms.author: mcoskun
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 2674d1285544e4bc9b6fcb3d0b2e6f4b607786a2
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98791609"
 ---
 # <a name="backup-and-restore-reliable-services-and-reliable-actors"></a>Sauvegarder et restaurer Reliable Services et Reliable Actors
@@ -260,4 +260,4 @@ L’API continuera d’être appelée jusqu’à ce que l’API se termine corre
   - [Notifications Reliable Services](service-fabric-reliable-services-notifications.md)
   - [Configuration de Reliable Services](service-fabric-reliable-services-configuration.md)
   - [Référence du développeur pour les Collections fiables](/dotnet/api/microsoft.servicefabric.data.collections#microsoft_servicefabric_data_collections)
-  - [Periodic backup and restore in Azure Service Fabric (Preview)](service-fabric-backuprestoreservice-quickstart-azurecluster.md) (Sauvegarde et restauration périodiques dans Azure Service Fabric (préversion))
+  - [Sauvegarde et restauration périodiques dans Azure Service Fabric](service-fabric-backuprestoreservice-quickstart-azurecluster.md)

@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: image-builder
 ms.custom: references_regions
 ms.reviewer: cynthn
-ms.openlocfilehash: 0e72c35af1f1990527b0154d2ba47a45d3f8b8c9
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 20bb6925f859d497046eb42bbafb5264826b77b7
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102425620"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104604064"
 ---
 # <a name="preview-azure-image-builder-overview"></a>Aperçu : Vue d’ensemble du Générateur d’images Azure
 
@@ -70,7 +70,7 @@ Azure VM Image Builder est un service Azure complètement managé qui est access
 
 Les configurations de modèle peuvent être passées en utilisant PowerShell, Az CLI, des modèles ARM et la tâche DevOps d’Azure VM Image Builder. Quand vous la soumettrez au service, nous créerons une ressource de modèle d’image. Une fois la ressource de modèle d’image créée, vous voyez un groupe de ressources d’indexation créé dans votre abonnement, au format : IT_\<DestinationResourceGroup> _\<TemplateName>_ \(GUID). Le groupe de ressources d’indexation contient des fichiers et des scripts référencés dans la personnalisation des fichiers, de l’interpréteur de commandes et de PowerShell dans la propriété ScriptURI.
 
-Pour exécuter la build, vous appelez `Run` sur la ressource de modèle d’image. Le service déploie alors des ressources supplémentaires pour la build, comme une machine virtuelle, un réseau, un disque, une carte réseau, etc. Si vous générez une image sans utiliser un réseau virtuel existant, Image Builder déploie également une IP publique et un groupe de sécurité réseau. Le service se connecte à la machine virtuelle de la build à l’aide de SSH de WinRM. Si vous sélectionnez un réseau virtuel existant, le service est déployé avec Azure Private Link et aucune adresse IP publique n’est nécessaire. Pour plus d’informations sur le réseau Image Builder, consultez ces [détails](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-networking).
+Pour exécuter la build, vous appelez `Run` sur la ressource de modèle d’image. Le service déploie alors des ressources supplémentaires pour la build, comme une machine virtuelle, un réseau, un disque, une carte réseau, etc. Si vous générez une image sans utiliser un réseau virtuel existant, Image Builder déploie également une IP publique et un groupe de sécurité réseau. Le service se connecte à la machine virtuelle de la build à l’aide de SSH de WinRM. Si vous sélectionnez un réseau virtuel existant, le service est déployé avec Azure Private Link et aucune adresse IP publique n’est nécessaire. Pour plus d’informations sur le réseau Image Builder, consultez ces [détails](./linux/image-builder-networking.md).
 
 Une fois la build terminée, toutes les ressources sont supprimées, à l’exception du groupe de ressources d’indexation et du compte de stockage. Pour les supprimer, vous devez supprimer la ressource de modèle d’image. Vous pouvez également les conserver en vue de réexécuter la build.
 
@@ -84,7 +84,7 @@ Lorsque vous vous inscrivez à AIB, cela permet au service AIB de créer, de gé
 
 Pour permettre à Azure VM Image Builder de distribuer des images aux images gérées ou à une galerie d’images partagées, vous devez créer une identité attribuée par l’utilisateur Azure qui dispose des autorisations nécessaires pour lire et écrire des images. Si vous accédez au Stockage Azure, des autorisations sont nécessaires pour lire des conteneurs privés et publics.
 
-Les autorisations sont expliquées plus en détail pour [PowerShell](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-permissions-powershell)et [AZ CLI](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-permissions-cli).
+Les autorisations sont expliquées plus en détail pour [PowerShell](./linux/image-builder-permissions-powershell.md)et [AZ CLI](./linux/image-builder-permissions-cli.md).
 
 ## <a name="costs"></a>Coûts
 Nous vous facturons des coûts de calcul, de mise en réseau et de stockage lors de la création, de la génération et du stockage d’images avec le Générateur d’images Azure. Ces coûts sont similaires à ceux associés à la création manuelle d’images personnalisées. Pour les ressources, vous êtes facturé conformément aux tarifs Azure qui vous sont appliqués. 
@@ -101,4 +101,3 @@ Le générateur Image Builder prend en charge uniquement en mode natif la créat
 ## <a name="next-steps"></a>Étapes suivantes 
  
 Pour essayer le Générateur d’images Azure, voir les articles sur la génération d’images [Linux](./linux/image-builder.md) ou [Windows](./windows/image-builder.md).
-

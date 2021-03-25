@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: damendo
 ms.openlocfilehash: 3bd85d6faf05fcf659e9335ee9de3d64198dfa08
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98011167"
 ---
 # <a name="packet-inspection-with-azure-network-watcher"></a>Inspection de paquets avec Azure Network Watcher
@@ -49,7 +49,7 @@ Lancez WireShark.
 
 Chargez le fichier **.cap** à partir de votre capture de paquets. Ce fichier se trouve dans l’objet blob dans lequel il a été enregistré localement sur la machine virtuelle, selon sa configuration.
 
-### <a name="step-3"></a>Étape 3 :
+### <a name="step-3"></a>Étape 3
 
 Pour afficher la durée initiale des boucles dans les conversations TCP, nous examinerons ici uniquement les deux premiers paquets impliqués dans l’établissement de la liaison TCP. Nous allons utiliser les deux premiers paquets de la connexion en trois temps, à savoir les paquets [SYN] et [SYN, ACK]. Ils sont nommés pour les indicateurs définis dans l’en-tête TCP. Le dernier paquet de la connexion, le paquet [ACK], ne sera pas utilisé dans ce scénario. Le paquet [SYN] est envoyé par le client. Une fois le paquet reçu, le serveur envoie le paquet [ACK] en guise d’accusé de réception du paquet SYN du client. Profitant du fait que la réponse du serveur nécessite très peu de traitement, nous calculons la durée des boucles en soustrayant l’heure à laquelle le paquet [SYN, ACK] a été reçu par le client et l’heure à laquelle le paquet [SYN] a été envoyé par le client.
 
@@ -105,7 +105,7 @@ Bien que ce trafic puisse être insignifiant, il s’agit d’un port qui a ét�
 
 ![figure 5][5]
 
-### <a name="step-3"></a>Étape 3 :
+### <a name="step-3"></a>Étape 3
 
 Maintenant que nous avons identifié un port utilisé de manière inhabituelle, nous pouvons filtrer notre capture sur celui-ci.
 

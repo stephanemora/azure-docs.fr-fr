@@ -9,10 +9,10 @@ ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
 ms.openlocfilehash: 1a7e8e71e26af241d16095a5fa1e6a02a7e3d4c2
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96500765"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Quels sont les types de disque disponibles dans Azure ?
@@ -29,7 +29,7 @@ Le tableau suivant compare quatre types de disque managé : les disques Ultra, l
 |Scénario   |Charges de travail gourmandes en E/S, telles que le système [SAP HANA](workloads/sap/hana-vm-operations-storage.md), les bases de données de niveau supérieur (par exemple, SQL et Oracle), et autres charges de travail très lourdes en transactions.   |Charges de travail de production et sensibles aux performances   |Serveurs web, applications d’entreprise peu utilisées et Dev/Test   |Sauvegarde, non critique, accès peu fréquent   |
 |Taille maximale du disque   |65 536 gibioctets (Gio)    |32 767 Gio    |32 767 Gio   |32 767 Gio   |
 |Débit max.   |2 000 Mo/s    |900 Mo/s   |750 Mo/s   |500 Mo/s   |
-|Nb max. d’E/S par seconde   |160 000    |20 000   |6 000 / 750   |2 000   |
+|Nb max. d’E/S par seconde   |160 000    |20 000   |6 000 / 750   |2 000   |
 
 ## <a name="ultra-disk"></a>Disque Ultra
 

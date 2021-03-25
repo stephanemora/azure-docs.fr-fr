@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
 ms.openlocfilehash: a2e99440a7c8f33eee9d3c9fe2276ac3868ff4b6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91331758"
 ---
 # <a name="scheduled-maintenance-in-azure-database-for-mysql--flexible-server"></a>Maintenance planifiée dans Azure Database pour MySQL – Serveur flexible
@@ -22,7 +22,7 @@ Azure Database pour MySQL - Serveur flexible effectue une maintenance périodiqu
 
 ## <a name="select-a-maintenance-window"></a>Sélectionner une fenêtre de maintenance
 
-Vous pouvez planifier la maintenance pour un jour spécifique de la semaine et une fenêtre de temps durant cette journée. Vous pouvez aussi laisser le système choisir un jour et une heure pour vous automatiquement. Dans les deux cas, le système vous alerte cinq jours avant d’exécuter une opération de maintenance. Le système indique également quand la maintenance est démarrée et quand elle est terminée.
+Vous pouvez planifier la maintenance pour un jour spécifique de la semaine et d’une fenêtre de temps dans ce jour. Vous pouvez aussi laisser le système choisir un jour et une heure pour vous automatiquement. Dans les deux cas, le système vous alerte cinq jours avant d’exécuter une opération de maintenance. Le système indique également quand la maintenance est démarrée et quand elle est terminée.
 
 Les notifications relatives à la maintenance planifiée à venir peuvent être :
 
@@ -32,7 +32,7 @@ Les notifications relatives à la maintenance planifiée à venir peuvent être�
 * Envoyées en tant que notification à une application Azure.
 * Remises sous forme de message vocal.
 
-Quand vous spécifiez des préférences de planification de la maintenance, vous pouvez choisir un jour de la semaine et une fenêtre de temps. Si vous n’en spécifiez pas, le système choisit des heures entre 23h00 et 7h00 dans le fuseau horaire de la région de votre serveur. Vous pouvez définir différentes planifications pour chaque serveur flexible dans votre abonnement Azure.
+Quand vous spécifiez des préférences de planification de la maintenance, vous pouvez choisir un jour de la semaine et une fenêtre de temps. Si vous n’en spécifiez pas, le système choisit des heures entre 23 h 00 et 7 h dans le fuseau horaire de la région de votre serveur. Vous pouvez définir différentes planifications pour chaque serveur flexible dans votre abonnement Azure.
 
 > [!IMPORTANT]
 > Normalement, il faut compter au moins 30 jours entre les événements de maintenance planifiés réussis pour un serveur.

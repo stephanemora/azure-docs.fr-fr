@@ -14,10 +14,10 @@ ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bd4d42e1cafa58aaf6a47188c9e86c24ac175047
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92514387"
 ---
 # <a name="restore-or-remove-a-recently-deleted-user-using-azure-active-directory"></a>Restaurer ou supprimer un utilisateur supprimé à l’aide d’Azure Active Directory
@@ -45,7 +45,7 @@ Vous pouvez afficher tous les utilisateurs qui ont été supprimés il y a moins
 ### <a name="to-view-your-restorable-users"></a>Pour afficher les utilisateurs pouvant être restaurés
 1. Connectez-vous au [portail Azure](https://portal.azure.com/) à l'aide d'un compte d'administrateur général de l'organisation.
 
-2. Sélectionnez **Azure Active Directory** , **Utilisateurs** , puis **Utilisateurs supprimés** .
+2. Sélectionnez **Azure Active Directory**, **Utilisateurs**, puis **Utilisateurs supprimés**.
 
     Passez en revue la liste des utilisateurs pouvant être restaurés.
 
@@ -59,9 +59,9 @@ Lorsqu'un compte d'utilisateur est supprimé de l'organisation, l'état de celui
 > Une fois qu'un utilisateur est restauré, les licences qui lui avaient été attribuées avant la suppression sont également restaurées même si aucun siège n'est disponible pour ces licences. Si vous utilisez alors plus de licences que ce que vous n'en avez achetées, votre organisation peut temporairement se retrouver en situation de non-conformité en termes d'utilisation des licences.
 
 ### <a name="to-restore-a-user"></a>Pour restaurer un utilisateur
-1. Sur la page **Utilisateurs - Utilisateurs supprimés** , recherchez et sélectionnez l’un des utilisateurs disponibles. Par exemple, _Mary Parker_ .
+1. Sur la page **Utilisateurs - Utilisateurs supprimés**, recherchez et sélectionnez l’un des utilisateurs disponibles. Par exemple, _Mary Parker_.
 
-2. Sélectionnez **Restaurer utilisateur** .
+2. Sélectionnez **Restaurer utilisateur**.
 
     ![Page Utilisateurs - Utilisateurs supprimés, avec l’option Restaurer utilisateur mise en surbrillance](media/active-directory-users-restore/users-deleted-users-restore-user.png)
 
@@ -73,9 +73,9 @@ Vous pouvez supprimer définitivement un utilisateur de votre organisation sans 
 
 ### <a name="to-permanently-delete-a-user"></a>Pour supprimer définitivement un utilisateur
 
-1. Sur la page **Utilisateurs - Utilisateurs supprimés** , recherchez et sélectionnez l’un des utilisateurs disponibles. Par exemple, _Rae Huff_ .
+1. Sur la page **Utilisateurs - Utilisateurs supprimés**, recherchez et sélectionnez l’un des utilisateurs disponibles. Par exemple, _Rae Huff_.
 
-2. Sélectionnez **Supprimer définitivement** .
+2. Sélectionnez **Supprimer définitivement**.
 
     ![Page Utilisateurs - Utilisateurs supprimés, avec l’option Supprimer l’utilisateur mise en surbrillance](media/active-directory-users-restore/users-deleted-users-permanent-delete-user.png)
 

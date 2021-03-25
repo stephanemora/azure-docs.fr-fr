@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/20/2020
 tags: connectors
 ms.openlocfilehash: 91873a2d6a498712773bfe721653e64c3364666f
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92674822"
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>Prise en main du connecteur de base de données Oracle
@@ -52,24 +52,24 @@ Cet article décrit comment utiliser le connecteur de base de données Oracle da
 ## <a name="add-the-connector"></a>Ajouter le connecteur
 
 > [!IMPORTANT]
-> Ce connecteur ne possède aucun déclencheur. Il possède uniquement des actions. Par conséquent, lorsque vous créez votre application logique, ajoutez un autre déclencheur pour démarrer votre application logique, comme **Planification - Périodicité** ou **Requête/réponse - Réponse** . 
+> Ce connecteur ne possède aucun déclencheur. Il possède uniquement des actions. Par conséquent, lorsque vous créez votre application logique, ajoutez un autre déclencheur pour démarrer votre application logique, comme **Planification - Périodicité** ou **Requête/réponse - Réponse**. 
 
 1. Dans le [portail Azure](https://portal.azure.com), créez une application logique vide.
 
-2. Au lancement de votre application logique, sélectionnez le déclencheur **Requête/réponse - Requête**  : 
+2. Au lancement de votre application logique, sélectionnez le déclencheur **Requête/réponse - Requête** : 
 
     ![Une boîte de dialogue comporte une zone permettant d’effectuer une recherche dans tous les déclencheurs. Il y a également un seul déclencheur, « Requête / Réponse-Requête », avec un bouton de sélection.](./media/connectors-create-api-oracledatabase/request-trigger.png)
 
-3. Sélectionnez **Enregistrer** . Au moment de l’enregistrement, une URL de requête est générée automatiquement. 
+3. Sélectionnez **Enregistrer**. Au moment de l’enregistrement, une URL de requête est générée automatiquement. 
 
-4. Sélectionnez **Nouvelle étape** , puis sélectionnez **Ajouter une action** . Entrez `oracle` pour afficher les actions disponibles : 
+4. Sélectionnez **Nouvelle étape**, puis sélectionnez **Ajouter une action**. Entrez `oracle` pour afficher les actions disponibles : 
 
     ![Une zone de recherche contient « Oracle ». La recherche produit un accès intitulé « Oracle Database ». Il y a une page avec onglets, un onglet indiquant « DÉCLENCHEURS (0) » et un autre indiquant « ACTIONS (6) ». Six actions sont répertoriées. La première consiste à « obtenir l’aperçu de la ligne ».](./media/connectors-create-api-oracledatabase/oracledb-actions.png)
 
     > [!TIP]
     > C’est également le moyen le plus rapide de voir les déclencheurs et les actions disponibles pour n’importe quel connecteur. Entrez une partie du nom du connecteur, comme `oracle`. Le concepteur répertorie tous les déclencheurs et toutes les actions. 
 
-5. Sélectionnez l’une des actions, comme **Base de données Oracle - Obtenir une ligne** . Sélectionnez l’option **Se connecter via la passerelle de données locale** . Entrez le nom du serveur Oracle, la méthode d’authentification, le nom d’utilisateur et le mot de passe, puis sélectionnez la passerelle :
+5. Sélectionnez l’une des actions, comme **Base de données Oracle - Obtenir une ligne**. Sélectionnez l’option **Se connecter via la passerelle de données locale**. Entrez le nom du serveur Oracle, la méthode d’authentification, le nom d’utilisateur et le mot de passe, puis sélectionnez la passerelle :
 
     ![La boîte de dialogue est intitulée « Oracle Database - Obtenir une ligne ». Une case intitulée « Se connecter via une passerelle de données locale » est cochée. Vous trouverez ci-dessous les cinq autres zones de texte.](./media/connectors-create-api-oracledatabase/create-oracle-connection.png)
 
@@ -83,12 +83,12 @@ Cet article décrit comment utiliser le connecteur de base de données Oracle da
 
     ![Il existe deux boîtes de dialogue. La boîte de dialogue « Envoyer un e-mail » contient des cases permettant de spécifier le corps, l’objet et l’adresse du destinataire de l’e-mail. La boîte de dialogue « Ajouter du contenu dynamique » permet de rechercher du contenu dynamique à partir des applications et des services du flux.](./media/connectors-create-api-oracledatabase/oracle-send-email.png)
 
-8. **Enregistrez** votre application logique, puis sélectionnez **Exécuter** . Fermez le concepteur et consultez l’état de l’historique des exécutions. En cas d’échec, sélectionnez la ligne du message ayant échoué. Le concepteur s’ouvre et affiche l’étape qui a échoué ainsi que les informations d’erreur. En cas de réussite, vous devez recevoir un courrier électronique contenant les informations que vous avez ajoutées.
+8. **Enregistrez** votre application logique, puis sélectionnez **Exécuter**. Fermez le concepteur et consultez l’état de l’historique des exécutions. En cas d’échec, sélectionnez la ligne du message ayant échoué. Le concepteur s’ouvre et affiche l’étape qui a échoué ainsi que les informations d’erreur. En cas de réussite, vous devez recevoir un courrier électronique contenant les informations que vous avez ajoutées.
 
 
 ### <a name="workflow-ideas"></a>Idées de workflow
 
-* Vous souhaitez surveiller le hashtag #oracle et inclure les tweets dans une base de données afin de pouvoir les consulter et les utiliser dans d’autres applications. Dans une application logique, ajoutez le déclencheur `Twitter - When a new tweet is posted`, puis entrez le hashtag **#oracle** . Ajoutez ensuite l’action `Oracle Database - Insert row`, puis sélectionnez votre table :
+* Vous souhaitez surveiller le hashtag #oracle et inclure les tweets dans une base de données afin de pouvoir les consulter et les utiliser dans d’autres applications. Dans une application logique, ajoutez le déclencheur `Twitter - When a new tweet is posted`, puis entrez le hashtag **#oracle**. Ajoutez ensuite l’action `Oracle Database - Insert row`, puis sélectionnez votre table :
 
     ![La boîte de dialogue « Lorsqu’un nouveau tweet est publié » affiche « mot-dièse Oracle » comme texte de recherche et vous permet de spécifier la fréquence de vérification. Cette boîte de dialogue ouvre la boîte de dialogue « Oracle Database » qui vous permet de sélectionner l’action.](./media/connectors-create-api-oracledatabase/twitter-oracledb.png)
 
@@ -98,23 +98,23 @@ Cet article décrit comment utiliser le connecteur de base de données Oracle da
 
 ## <a name="common-errors"></a>Erreurs courantes
 
-#### <a name="error-cannot-reach-the-gateway"></a>**Erreur**  : La passerelle est injoignable.
+#### <a name="error-cannot-reach-the-gateway"></a>**Erreur** : La passerelle est injoignable.
 
-**Cause**  : La passerelle de données locale n’est pas en mesure de se connecter au cloud. 
+**Cause** : La passerelle de données locale n’est pas en mesure de se connecter au cloud. 
 
-**Atténuation**  : Assurez-vous que votre passerelle s’exécute sur l’ordinateur local où vous l’avez installée, et qu’elle peut se connecter à Internet.    Nous vous recommandons ne pas installer la passerelle sur un ordinateur susceptible d’être mis hors tension ou en veille.  Vous pouvez également redémarrer le service de passerelle de données locale (PBIEgwService).
+**Atténuation** : Assurez-vous que votre passerelle s’exécute sur l’ordinateur local où vous l’avez installée, et qu’elle peut se connecter à Internet.    Nous vous recommandons ne pas installer la passerelle sur un ordinateur susceptible d’être mis hors tension ou en veille.  Vous pouvez également redémarrer le service de passerelle de données locale (PBIEgwService).
 
-#### <a name="error-the-provider-being-used-is-deprecated-systemdataoracleclient-requires-oracle-client-software-version-817-or-greater-see-httpsgomicrosoftcomfwlinkplinkid272376-to-install-the-official-provider"></a>**Erreur**  : Le fournisseur utilisé est déconseillé : System.Data.OracleClient requiert le logiciel client Oracle version 8.1.7 ou supérieure. Consultez [https://go.microsoft.com/fwlink/p/?LinkID=272376](/power-bi/connect-data/desktop-connect-oracle-database) pour installer le fournisseur officiel.
+#### <a name="error-the-provider-being-used-is-deprecated-systemdataoracleclient-requires-oracle-client-software-version-817-or-greater-see-httpsgomicrosoftcomfwlinkplinkid272376-to-install-the-official-provider"></a>**Erreur** : Le fournisseur utilisé est déconseillé : System.Data.OracleClient requiert le logiciel client Oracle version 8.1.7 ou supérieure. Consultez [https://go.microsoft.com/fwlink/p/?LinkID=272376](/power-bi/connect-data/desktop-connect-oracle-database) pour installer le fournisseur officiel.
 
-**Cause**  : Le kit de développement du client Oracle n’est pas installé sur l’ordinateur qui exécute la passerelle de données locale.  
+**Cause** : Le kit de développement du client Oracle n’est pas installé sur l’ordinateur qui exécute la passerelle de données locale.  
 
-**Résolution**  : Téléchargez et installez le kit de développement logiciel du client Oracle sur le même ordinateur que la passerelle de données locale.
+**Résolution** : Téléchargez et installez le kit de développement logiciel du client Oracle sur le même ordinateur que la passerelle de données locale.
 
-#### <a name="error-table-tablename-does-not-define-any-key-columns"></a>**Erreur**  : La table « [Tablename] » ne définit aucune colonne clé.
+#### <a name="error-table-tablename-does-not-define-any-key-columns"></a>**Erreur** : La table « [Tablename] » ne définit aucune colonne clé.
 
-**Cause**  : La table n’a pas de clé primaire.  
+**Cause** : La table n’a pas de clé primaire.  
 
-**Résolution**  : Le connecteur Oracle Database requiert une table avec une colonne clé primaire.
+**Résolution** : Le connecteur Oracle Database requiert une table avec une colonne clé primaire.
  
 ## <a name="connector-specific-details"></a>Détails spécifiques du connecteur
 

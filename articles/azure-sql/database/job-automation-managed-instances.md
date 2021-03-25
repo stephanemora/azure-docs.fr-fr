@@ -12,12 +12,12 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: ''
 ms.date: 02/01/2021
-ms.openlocfilehash: 6ba1ba9d8c809a805fe8691baf96350b70ec6a51
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 3be01c304a40317e0d21baf6789ef1376cd89b80
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101691890"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104608068"
 ---
 # <a name="automate-management-tasks-using-sql-agent-jobs-in-azure-sql-managed-instance"></a>Automatiser des tâches de gestion à l’aide de travaux SQL Agent dans Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -81,7 +81,7 @@ Les étapes de travail SQL Agent sont des séquences d’actions que SQL Agent d
 SQL Agent vous permet de créer différents types d’étapes de travail, comme une étape de travail Transact-SQL qui exécute un lot Transact-SQL sur la base de données, ou des étapes de commande du système d’exploitation/PowerShell qui peuvent exécuter un script personnalisé du système d’exploitation, des [étapes de travail SSIS](../../data-factory/how-to-invoke-ssis-package-managed-instance-agent.md) qui vous permettent de charger des données avec le runtime SSIS, ou des étapes de [réplication](../managed-instance/replication-transactional-overview.md) qui peuvent publier les modifications de votre base de données auprès d’autres bases de données.
 
 > [!Note]
-> Pour plus d’informations sur l’utilisation du runtime d’intégration Azure SSIS avec SSISDB hébergé par Azure SQL Managed Instance, consultez [Utiliser Azure SQL Managed Instance avec SQL Server Integration Services (SSIS) dans Azure Data Factory](/../azure/data-factory/how-to-use-sql-managed-instance-with-ir.md).
+> Pour plus d’informations sur l’utilisation du runtime d’intégration Azure SSIS avec SSISDB hébergé par Azure SQL Managed Instance, consultez [Utiliser Azure SQL Managed Instance avec SQL Server Integration Services (SSIS) dans Azure Data Factory](../../data-factory/how-to-use-sql-managed-instance-with-ir.md).
 
 La [réplication transactionnelle](../managed-instance/replication-transactional-overview.md) peut répliquer les modifications de vos tables dans d’autres bases de données dans Azure SQL Managed Instance, Azure SQL Database ou SQL Server. Pour plus d’informations, consultez [Configurer la réplication dans Azure SQL Managed Instance](../../azure-sql/managed-instance/replication-between-two-instances-configure-tutorial.md). 
 

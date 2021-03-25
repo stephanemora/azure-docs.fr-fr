@@ -12,10 +12,10 @@ ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 612ba18ba71a22ad6c346b26008e688195c1d1e4
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92746569"
 ---
 # <a name="create-a-storage-account-with-infrastructure-encryption-enabled-for-double-encryption-of-data"></a>Créer un compte de stockage avec le chiffrement d’infrastructure activé à des fins de double chiffrement des données
@@ -94,9 +94,9 @@ Le chiffrement d’infrastructure ne peut pas être activé ou désactivé une f
 
 Pour utiliser PowerShell afin de créer un compte de stockage avec le chiffrement d’infrastructure activé, procédez comme suit :
 
-1. Dans le portail Azure, accédez à la page **Comptes de stockage** .
+1. Dans le portail Azure, accédez à la page **Comptes de stockage**.
 1. Choisissez le bouton **ajouter un** pour ajouter un compte de stockage v2 à usage général.
-1. Sous l’onglet **avancé** , localisez le chiffrement d’ **Infrastructure** , puis sélectionnez **Activé** .
+1. Sous l’onglet **avancé**, localisez le chiffrement d’**Infrastructure**, puis sélectionnez **Activé**.
 1. Sélectionnez **Vérifier + créer** pour achever la création du compte de stockage.
 
     :::image type="content" source="media/infrastructure-encryption-enable/create-account-infrastructure-encryption-portal.png" alt-text="Capture d’écran montrant comment activer le chiffrement de l’infrastructure lors de la création d’un compte":::
@@ -179,9 +179,9 @@ L’exemple JSON suivant crée un compte de stockage à usage général v2 confi
 Pour vérifier que le chiffrement d’infrastructure est activé pour un compte de stockage avec le portail Azure, procédez comme suit :
 
 1. Accédez à votre compte de stockage dans le portail Azure.
-1. Sous **Paramètres** , choisissez **Chiffrement** .
+1. Sous **Paramètres**, choisissez **Chiffrement**.
 
-    :::image type="content" source="media/infrastructure-encryption-enable/verify-infrastructure-encryption-portal.png" alt-text="Capture d’écran montrant comment activer le chiffrement de l’infrastructure lors de la création d’un compte":::
+    :::image type="content" source="media/infrastructure-encryption-enable/verify-infrastructure-encryption-portal.png" alt-text="Capture d’écran montrant comment vérifier que le chiffrement d’infrastructure est activé pour un compte":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -216,4 +216,4 @@ N/A
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Chiffrement du stockage Azure pour les données au repos](storage-service-encryption.md)
-- [Clés gérées par le client pour le chiffrement du service Stockage Azure](customer-managed-keys-overview.md)
+- [Clés gérées par le client pour le chiffrement du Stockage Azure](customer-managed-keys-overview.md)

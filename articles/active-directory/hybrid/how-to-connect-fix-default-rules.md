@@ -14,10 +14,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a0fc1bc3158e04c9b1f677af7ef2375ac3ed2ce7
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91320045"
 ---
 # <a name="fix-modified-default-rules-in-azure-ad-connect"></a>Résoudre les règles par défaut modifiées dans Azure AD Connect
@@ -162,7 +162,7 @@ Vous pouvez valider la règle de synchronisation qui vient d’être ajoutée à
 
 ![Azure AD Connect, avec le service de synchronisation mis en surbrillance](media/how-to-connect-fix-default-rules/default10.png)
 
-Sélectionnez **Recherche de métaverse**. Sélectionnez l’objet d’étendue comme **personne**, sélectionnez **Ajouter une clause**et indiquez vos critères de recherche. Ensuite, sélectionnez **Recherche**, double-cliquez sur l’objet dans les résultats de recherche. Assurez-vous que vos données dans Azure AD Connect sont à jour pour cet objet, en exécutant l’importation et la synchronisation sur la forêt avant d’exécuter cette étape.
+Sélectionnez **Recherche de métaverse**. Sélectionnez l’objet d’étendue comme **personne**, sélectionnez **Ajouter une clause** et indiquez vos critères de recherche. Ensuite, sélectionnez **Recherche**, double-cliquez sur l’objet dans les résultats de recherche. Assurez-vous que vos données dans Azure AD Connect sont à jour pour cet objet, en exécutant l’importation et la synchronisation sur la forêt avant d’exécuter cette étape.
 
 ![Synchronization Service Manager](media/how-to-connect-fix-default-rules/default11.png)
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: subject-armqs
 ms.date: 08/18/2020
 ms.openlocfilehash: 8bd9a45ec7c43d9338dec184afd784d2b163c410
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92735967"
 ---
 # <a name="quickstart-create-an-azure-cache-for-redis-using-an-arm-template"></a>Démarrage rapide : Créer un répartiteur Azure Cache pour Redis à l’aide d’un modèle ARM
@@ -27,7 +27,7 @@ Si votre environnement remplit les prérequis et que vous êtes déjà familiari
 ## <a name="prerequisites"></a>Prérequis
 
 * **Abonnement Azure** : Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
-* **Compte de stockage**  : pour en créer un, consultez [Créer un compte de stockage Azure](../storage/common/storage-account-create.md?tabs=azure-portal). Le compte de stockage est utilisé pour les données de diagnostic.
+* **Compte de stockage** : pour en créer un, consultez [Créer un compte de stockage Azure](../storage/common/storage-account-create.md?tabs=azure-portal). Le compte de stockage est utilisé pour les données de diagnostic.
 
 ## <a name="review-the-template"></a>Vérifier le modèle
 
@@ -55,14 +55,14 @@ Pour connaître les derniers modèles, consultez [Modèles de démarrage rapide 
     [![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-redis-cache%2Fazuredeploy.json)
 1. Sélectionnez ou entrez les valeurs suivantes :
 
-    * **Abonnement**  : sélectionnez un abonnement Azure utilisé pour créer le partage de données et les autres ressources.
-    * **Groupe de ressources**  : sélectionnez **Créer** pour créer un groupe de ressources ou sélectionnez un groupe de ressources existant.
+    * **Abonnement** : sélectionnez un abonnement Azure utilisé pour créer le partage de données et les autres ressources.
+    * **Groupe de ressources** : sélectionnez **Créer** pour créer un groupe de ressources ou sélectionnez un groupe de ressources existant.
     * **Emplacement** : sélectionnez un emplacement pour le groupe de ressources. Le compte de stockage et le cache Redis doivent se trouver dans la même région. Par défaut, le cache Redis utilise le même emplacement que le groupe de ressources. Spécifiez donc le même emplacement que le compte de stockage.
-    * **Nom du cache Redis**  : entrez un nom pour le cache Redis.
-    * **Compte de stockage de diagnostics existant**  : entrez l’ID de ressource d’un compte de stockage. La syntaxe est `/subscriptions/&lt;SUBSCRIPTION ID>/resourceGroups/&lt;RESOURCE GROUP NAME>/providers/Microsoft.Storage/storageAccounts/&lt;STORAGE ACCOUNT NAME>`.
+    * **Nom du cache Redis** : entrez un nom pour le cache Redis.
+    * **Compte de stockage de diagnostics existant** : entrez l’ID de ressource d’un compte de stockage. La syntaxe est `/subscriptions/&lt;SUBSCRIPTION ID>/resourceGroups/&lt;RESOURCE GROUP NAME>/providers/Microsoft.Storage/storageAccounts/&lt;STORAGE ACCOUNT NAME>`.
 
     Utilisez la valeur par défaut pour les autres paramètres.
-1. Sélectionnez **J'accepte les conditions générales mentionnées ci-dessus** , puis **Acheter**.
+1. Sélectionnez **J'accepte les conditions générales mentionnées ci-dessus**, puis **Acheter**.
 
 ## <a name="review-deployed-resources"></a>Vérifier les ressources déployées
 

@@ -7,10 +7,10 @@ ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 10/25/2020
 ms.openlocfilehash: 4df9543e5e747de640562b7e5be224e257e0cfd1
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92676109"
 ---
 # <a name="manage-your-integration-service-environment-ise-in-azure-logic-apps"></a>Gérez votre environnement de service d’intégration dans Azure Logic Apps
@@ -41,7 +41,7 @@ Cet article explique comment effectuer des tâches de gestion pour votre [enviro
 
 ## <a name="check-network-health"></a>Vérifier l’intégrité du réseau
 
-Dans le menu de votre environnement ISE, sous **Paramètres** , sélectionnez **Intégrité du réseau**. Ce volet présente l’état d’intégrité de vos sous-réseaux et les dépendances sortantes par rapport à d’autres services.
+Dans le menu de votre environnement ISE, sous **Paramètres**, sélectionnez **Intégrité du réseau**. Ce volet présente l’état d’intégrité de vos sous-réseaux et les dépendances sortantes par rapport à d’autres services.
 
 ![Vérifier l’intégrité du réseau](./media/ise-manage-integration-service-environment/ise-check-network-health.png)
 
@@ -59,7 +59,7 @@ Dans le menu de votre environnement ISE, sous **Paramètres** , sélectionnez **
 
 Vous pouvez voir et gérer les applications logiques qui se trouvent dans votre environnement ISE.
 
-1. Dans le menu de votre environnement ISE, sous **Paramètres** , sélectionnez **Applications logiques**.
+1. Dans le menu de votre environnement ISE, sous **Paramètres**, sélectionnez **Applications logiques**.
 
    ![Voir les applications logiques](./media/ise-manage-integration-service-environment/ise-find-logic-apps.png)
 
@@ -75,7 +75,7 @@ Vous pouvez voir et gérer les applications logiques qui se trouvent dans votre 
 
 Vous pouvez afficher et gérer les connexions qui ont été créées par les applications logiques qui s’exécutent dans votre environnement ISE.
 
-1. Dans le menu de votre environnement ISE, sous **Paramètres** , sélectionnez **Connexions d’API**.
+1. Dans le menu de votre environnement ISE, sous **Paramètres**, sélectionnez **Connexions d’API**.
 
    ![Voir les connexions d’API](./media/ise-manage-integration-service-environment/ise-find-api-connections.png)
 
@@ -87,7 +87,7 @@ Vous pouvez afficher et gérer les connexions qui ont été créées par les app
 
 Vous pouvez voir et gérer les connecteurs d’API qui sont déployés dans votre environnement ISE.
 
-1. Dans le menu de votre environnement ISE, sous **Paramètres** , sélectionnez **Connecteurs managés**.
+1. Dans le menu de votre environnement ISE, sous **Paramètres**, sélectionnez **Connecteurs managés**.
 
    ![Voir les connecteurs managés](./media/ise-manage-integration-service-environment/ise-view-managed-connectors.png)
 
@@ -99,7 +99,7 @@ Vous pouvez voir et gérer les connecteurs d’API qui sont déployés dans votr
 
 Vous pouvez voir et gérer les connecteurs personnalisés que vous avez déployés dans votre environnement ISE.
 
-1. Dans le menu de votre environnement ISE, sous **Paramètres** , sélectionnez **Connecteurs personnalisés**.
+1. Dans le menu de votre environnement ISE, sous **Paramètres**, sélectionnez **Connecteurs personnalisés**.
 
    ![Trouver des connecteurs personnalisés](./media/ise-manage-integration-service-environment/ise-find-custom-connectors.png)
 
@@ -109,7 +109,7 @@ Vous pouvez voir et gérer les connecteurs personnalisés que vous avez déploy�
 
 ## <a name="manage-integration-accounts"></a>Gérer les comptes d’intégration
 
-1. Dans le menu de votre environnement ISE, sous **Paramètres** , sélectionnez **Comptes d’intégration**.
+1. Dans le menu de votre environnement ISE, sous **Paramètres**, sélectionnez **Comptes d’intégration**.
 
    ![Cherchez des comptes d’intégration](./media/ise-manage-integration-service-environment/ise-find-integration-accounts.png)
 
@@ -127,7 +127,7 @@ L’unité de base d’ISE Premium dispose d’une capacité fixe ; si vous ave
 
    ![Afficher l’utilisation pour l’ISE](./media/ise-manage-integration-service-environment/integration-service-environment-usage.png)
 
-1. Sous **Paramètres** , sélectionnez **Scale-out**. Dans le volet **configurer** , opérez une sélection parmi les options suivantes :
+1. Sous **Paramètres**, sélectionnez **Scale-out**. Dans le volet **configurer**, opérez une sélection parmi les options suivantes :
 
    * [**Mise à l’échelle manuelle**](#manual-scale) : Mettez à l’échelle en fonction du nombre d’unités de traitement que vous voulez utiliser.
    * [**Mise à l’échelle automatique personnalisée**](#custom-autoscale) : Mettez à l’échelle en fonction des métriques de performances en opérant une sélection parmi différents critères et en spécifiant des conditions de seuil pour remplir ceux-ci.
@@ -138,7 +138,7 @@ L’unité de base d’ISE Premium dispose d’une capacité fixe ; si vous ave
 
 ### <a name="manual-scale"></a>Mise à l’échelle manuelle
 
-1. Après avoir sélectionné **Mise à l’échelle manuelle** , pour **Capacité supplémentaire** , sélectionnez le nombre d’unités d’échelle que vous souhaitez utiliser.
+1. Après avoir sélectionné **Mise à l’échelle manuelle**, pour **Capacité supplémentaire**, sélectionnez le nombre d’unités d’échelle que vous souhaitez utiliser.
 
    ![Sélectionner le type de mise à l’échelle souhaité](./media/ise-manage-integration-service-environment/select-manual-scale-out-units.png)
 
@@ -148,24 +148,24 @@ L’unité de base d’ISE Premium dispose d’une capacité fixe ; si vous ave
 
 ### <a name="custom-autoscale"></a>Mise à l’échelle automatique personnalisée
 
-1. Après avoir sélectionné **Mise à l’échelle automatique personnalisée** , pour **Nom du paramètre de mise à l’échelle automatique** , entrez un nom pour votre paramètre et, le cas échéant, sélectionnez le groupe de ressources Azure auquel le paramètre appartient.
+1. Après avoir sélectionné **Mise à l’échelle automatique personnalisée**, pour **Nom du paramètre de mise à l’échelle automatique**, entrez un nom pour votre paramètre et, le cas échéant, sélectionnez le groupe de ressources Azure auquel le paramètre appartient.
 
    ![Fournir un nom pour le paramètre de mise à l’échelle automatique et sélectionner un groupe de ressources](./media/ise-manage-integration-service-environment/select-custom-autoscale.png)
 
-1. Pour la condition **Par défaut** , sélectionnez soit **Mettre à l’échelle selon une métrique** soit **Mettre à l’échelle d’un nombre d’instances spécifique**.
+1. Pour la condition **Par défaut**, sélectionnez soit **Mettre à l’échelle selon une métrique** soit **Mettre à l’échelle d’un nombre d’instances spécifique**.
 
    * Si vous choisissez la mise à l’échelle basée sur les instances, entrez un nombre d’unités de traitement, soit une valeur comprise entre 0 et 10.
 
    * Si vous choisissez la méthode basée sur les mesures, procédez comme suit :
 
-     1. Dans la section **Règles** , sélectionnez **+Ajouter une règle**.
+     1. Dans la section **Règles**, sélectionnez **+Ajouter une règle**.
 
-     1. Dans le volet **Règle de mise à l’échelle** , configurez vos critères et l’action à effectuer lorsque la règle se déclenche.
+     1. Dans le volet **Règle de mise à l’échelle**, configurez vos critères et l’action à effectuer lorsque la règle se déclenche.
 
-     1. Pour **Limites d’instance** , spécifiez les valeurs suivantes :
+     1. Pour **Limites d’instance**, spécifiez les valeurs suivantes :
 
-        * **Minimale**  : Nombre minimal d’unités de traitement à utiliser
-        * **Maximum**  : Nombre maximal d’unités de traitement à utiliser
+        * **Minimale** : Nombre minimal d’unités de traitement à utiliser
+        * **Maximum** : Nombre maximal d’unités de traitement à utiliser
         * **Par défaut** : Si des problèmes surviennent lors de la lecture des métriques de ressources et que la capacité actuelle est inférieure à la capacité par défaut, la mise à l’échelle automatique augmente le nombre par défaut d’unités de traitement. En revanche, si la capacité actuelle dépasse la capacité par défaut, la mise à l’échelle automatique n’effectue pas de scale-in.
 
 1. Pour ajouter une autre condition, sélectionnez **Ajouter une condition de mise à l’échelle**.

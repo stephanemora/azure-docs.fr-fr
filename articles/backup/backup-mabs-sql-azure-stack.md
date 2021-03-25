@@ -4,10 +4,10 @@ description: Dans cet article, apprenez comment configurer serveur de Sauvegarde
 ms.topic: conceptual
 ms.date: 06/08/2018
 ms.openlocfilehash: 80de7913b010fca69c3703e423109f2ede653590
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91332812"
 ---
 # <a name="back-up-sql-server-on-azure-stack"></a>Sauvegarder SQL Server sur Azure Stack
@@ -26,25 +26,25 @@ La gestion de sauvegarde et de récupération de base de données SQL Server dan
 * MABS ne peut pas protéger les bases de données stockées sur des partages SMB distants.
 * Assurez-vous que les [réplicas de groupe de disponibilité sont configurés en lecture seule](/sql/database-engine/availability-groups/windows/configure-read-only-access-on-an-availability-replica-sql-server).
 * Vous devez explicitement ajouter le compte système **NTAuthority\System** au groupe Sysadmin sur SQL Server.
-* Lorsque vous effectuez la récupération d’une base de données partiellement autonome à un autre emplacement, vous devez vous assurer que la fonctionnalité [Bases de données autonomes](/sql/relational-databases/databases/migrate-to-a-partially-contained-database#enable) est activée sur l’instance SQL cible.
-* Lorsque vous effectuez la récupération d’une base de données de flux de fichiers à un autre emplacement, vous devez vous assurer que la fonctionnalité [Bases de données de flux de fichiers](/sql/relational-databases/blob/enable-and-configure-filestream) est activée sur l’instance SQL cible.
+* Lorsque vous effectuez une récupération sur l'autre emplacement pour une base de données partiellement autonome, vous devez vous assurer que la fonctionnalité relative aux [bases de données autonomes](/sql/relational-databases/databases/migrate-to-a-partially-contained-database#enable) est activée sur l'instance SQL cible.
+* Lorsque vous effectuez une récupération sur l'autre emplacement pour une base de données de flux de fichiers, vous devez vous assurer que la fonctionnalité relative à la [base de données de flux de fichiers](/sql/relational-databases/blob/enable-and-configure-filestream) est activée sur l'instance SQL cible.
 * Protection pour SQL Server AlwaysOn :
-  * MABS détecte les groupes de disponibilité lors de l’exécution d’une demande au moment de la création d’un groupe de protection.
+  * MABS détecte les groupes de disponibilité lors de l'exécution d'une demande au moment de la création d'un groupe de protection.
   * MABS détecte un basculement et poursuit la protection de la base de données.
-  * MABS prend en charge les configurations de cluster multisites d’une instance de SQL Server.
+  * MABS prend en charge les configurations de cluster multisites d'une instance de SQL Server.
 * Lorsque vous protégez des bases de données qui utilisent la fonctionnalité AlwaysOn, MABS présente les limitations suivantes :
   * MABS honorera la stratégie de sauvegarde des groupes de disponibilité définie dans SQL Server en fonction des préférences de sauvegarde, comme suit :
-    * Préférer le réplica secondaire : les sauvegardes doivent être effectuées sur un réplica secondaire, sauf lorsque le réplica principal est le seul réplica en ligne. Si plusieurs réplicas secondaires sont disponibles, le nœud ayant la priorité de sauvegarde la plus élevée sera sélectionné pour la sauvegarde. Si seul le réplica principal est disponible, la sauvegarde doit s’effectuer sur le réplica principal.
-    * Secondaire uniquement : la sauvegarde ne doit pas être effectuée sur le réplica principal. Si le réplica principal est le seul réplica en ligne, la sauvegarde ne doit pas s’effectuer.
-    * Principal : les sauvegardes doivent toujours s’effectuer sur le réplica principal.
-    * Sur n’importe quel réplica : les sauvegardes peuvent s’effectuer sur n’importe quel réplica de disponibilité dans le groupe de disponibilité. Le nœud à sauvegarder dépendra des priorités de sauvegarde pour chacun des nœuds.
+    * Préférer le réplica secondaire : les sauvegardes doivent être effectuées sur un réplica secondaire, sauf lorsque le réplica principal est le seul réplica en ligne. Si plusieurs réplicas secondaires sont disponibles, le nœud ayant la plus haute priorité de sauvegarde sera sélectionné pour la sauvegarde. Si seul le réplica principal est disponible, la sauvegarde doit être effectuée sur le réplica principal.
+    * Secondaire uniquement : la sauvegarde ne doit pas être effectuée sur le réplica principal. Si le réplica principal est le seul réplica en ligne, la sauvegarde ne doit pas s'effectuer.
+    * Principal : les sauvegardes doivent toujours s'effectuer sur le réplica principal.
+    * Sur n'importe quel réplica : les sauvegardes peuvent s'effectuer sur n'importe quel réplica de disponibilité dans le groupe de disponibilité. Le nœud à sauvegarder dépendra des priorités de sauvegarde pour chacun des nœuds.
   * Notez les points suivants :
-    * Les sauvegardes peuvent s’effectuer à partir de n’importe quel réplica lisible, c’est-à-dire un réplica principal, secondaire synchrone ou secondaire asynchrone.
-    * Si un réplica est exclus de la sauvegarde, par exemple si **Exclure des réplicas** est activé ou marqué comme étant non lisible, alors ce réplica ne sera pas sélectionné pour la sauvegarde, quelle que soit l’option.
-    * Si plusieurs réplicas sont disponibles et lisibles, alors le nœud ayant la priorité de sauvegarde la plus élevée sera sélectionné pour la sauvegarde.
-    * Si la sauvegarde échoue sur le nœud sélectionné, alors l’opération de sauvegarde échoue.
-    * La récupération à l’emplacement d’origine n’est pas prise en charge.
-* Problèmes de sauvegarde avec SQL Server 2014 ou versions ultérieures :
+    * Les sauvegardes peuvent s'effectuer à partir de n'importe quel réplica lisible, c'est-à-dire principal, secondaire synchrone, secondaire asynchrone.
+    * Si un réplica est exclus de la sauvegarde, par exemple si **Exclure des réplicas** est activé ou marqué comme étant non lisible, alors ce réplica ne sera pas sélectionné pour la sauvegarde quelle que soit l'option.
+    * Si plusieurs réplicas sont disponibles et lisibles, alors le nœud ayant la plus haute priorité de sauvegarde sera sélectionné pour la sauvegarde.
+    * Si la sauvegarde échoue sur le nœud sélectionné, alors l'opération de sauvegarde échoue.
+    * La récupération à l'emplacement d'origine n'est pas prise en charge.
+* Problèmes de sauvegarde de SQL Server 2014 ou versions ultérieures :
   * SQL Server 2014 a ajouté une nouvelle fonctionnalité pour créer une [base de données pour une instance SQL Server locale dans le stockage d’objets BLOB Windows Azure](/sql/relational-databases/databases/sql-server-data-files-in-microsoft-azure). MABS ne peut pas être utilisé pour protéger cette configuration.
   * Il existe certains problèmes connus avec la préférence de sauvegarde « Préférer secondaire » pour l’option SQL AlwaysOn. MABS effectue toujours une sauvegarde de la base de données secondaire. Si aucune base de données secondaire n’est trouvée, la sauvegarde échoue.
 

@@ -4,10 +4,10 @@ description: Découvrez comment créer une image personnalisée dans Azure DevTe
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: ad45ed6eb7f97e14ec0ca0bb89efb2967c90fc16
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87277025"
 ---
 # <a name="create-a-custom-image-from-a-vm"></a>Créer une image personnalisée à partir d’une machine virtuelle
@@ -33,13 +33,13 @@ Vous pouvez créer une image personnalisée à partir d’une machine virtuelle 
     :::image type="content" source="./media/devtest-lab-create-template/create-custom-image.png" alt-text="Élément de menu Créer une image personnalisée":::
 1. Dans le volet **Image personnalisée**, entrez un nom et une description pour votre image personnalisée. Ces informations s’affichent dans la liste de bases lorsque vous créez une machine virtuelle. L’image personnalisée comprend le disque du système d’exploitation et tous les disques de données attachés à la machine virtuelle.
 
-    :::image type="content" source="./media/devtest-lab-create-template/create-custom-image-blade.png" alt-text="Élément de menu Créer une image personnalisée":::
+    :::image type="content" source="./media/devtest-lab-create-template/create-custom-image-blade.png" alt-text="Volet Créer une image personnalisée":::
 1. Choisissez si sysprep a été exécuté sur la machine virtuelle. Si le sysprep n’a pas été exécuté sur la machine virtuelle, spécifiez si vous voulez que le sysprep soit exécuté sur la machine virtuelle lors de la création de l’image personnalisée.
 1. Cliquez sur **OK** lorsque vous avez terminé de créer l’image personnalisée.
 
     Après quelques minutes, l’image personnalisée est créée et stockée dans le compte de stockage du laboratoire. Lorsqu’un utilisateur du laboratoire souhaite créer une nouvelle machine virtuelle, l’image est disponible dans la liste des images de base.
 
-    :::image type="content" source="./media/devtest-lab-create-template/custom-image-available-as-base.png" alt-text="Élément de menu Créer une image personnalisée":::
+    :::image type="content" source="./media/devtest-lab-create-template/custom-image-available-as-base.png" alt-text="Image personnalisée disponible dans la liste des images de base":::
 
 ## <a name="related-blog-posts"></a>Billets de blog connexes
 

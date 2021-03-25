@@ -5,17 +5,17 @@ ms.topic: conceptual
 ms.date: 2/23/2018
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 168e6d6dc7ab5bfeccc4e1dabc7bd50efcbe8f34
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98789700"
 ---
 # <a name="package-an-application"></a>Empaqueter une application
 
 Cet article explique comment empaqueter une application Service Fabric et la préparer pour le déploiement.
 
-## <a name="package-layout"></a>Disposition du package
+## <a name="package-layout"></a>Disposition de package
 
 Le manifeste d’application, un ou plusieurs manifestes de service et les autres fichiers de package nécessaires doivent être organisés selon une disposition spécifique en vue du déploiement dans un cluster Service Fabric. Les exemples de manifestes dans cet article doivent être organisés selon la structure de répertoires suivante :
 

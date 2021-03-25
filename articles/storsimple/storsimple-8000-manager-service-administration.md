@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/12/2017
+ms.date: 03/17/2021
 ms.author: alkohli
-ms.openlocfilehash: 69a36f38cc76693f596b45d4df6e232bc01584d5
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 0e25d41fbf6a9683f178cbfd1b07fde1b6796509
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967973"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104656819"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-administer-your-storsimple-device"></a>Utiliser le service StorSimple Device Manager pour gérer votre appareil StorSimple
 
@@ -47,6 +47,8 @@ Le service StorSimple Device Manager s’exécute dans Microsoft Azure et se con
 Le tableau suivant récapitule toutes les tâches de gestion courantes et les flux de travail complexes pouvant être effectués dans l’interface utilisateur du service StorSimple Device Manager. Ces tâches sont ordonnées en fonction des panneaux de l’interface utilisateur d’où elles sont lancées.
 
 Pour plus d'informations sur chaque flux de travail, cliquez sur la procédure appropriée dans le tableau.
+
+[!INCLUDE [StorSimple software warning](../../includes/storsimple-update-software-warning.md)]
 
 #### <a name="storsimple-device-manager-workflows"></a>Flux de travail de StorSimple Device Manager
 
@@ -76,9 +78,9 @@ Pour plus d'informations sur chaque flux de travail, cliquez sur la procédure a
 | Configuration de CHAP pour votre appareil StorSimple |[Configuration de CHAP pour votre appareil StorSimple](./storsimple-8000-configure-chap.md) |
 | Ajout d’une stratégie de sauvegarde</br>Ajouter ou modifier une planification</br>Supprimer une stratégie de sauvegarde</br>Exécuter une sauvegarde manuelle</br>Créer une stratégie de sauvegarde personnalisée comportant plusieurs volumes et planifications |[Gestion des stratégies de sauvegarde](storsimple-8000-manage-backup-policies-u2.md) |
 | Arrêt des contrôleurs d’appareil</br>Redémarrage des contrôleurs de l’appareil</br>Arrêt des contrôleurs de l'appareil</br>Réinitialisation de votre appareil aux valeurs par défaut</br>(Les données ci-dessus s’appliquent aux appareils en local uniquement) |[Gestion du contrôleur d’appareil StorSimple](storsimple-8000-manage-device-controller.md) |
-| En savoir plus sur les composants matériels de StorSimple</br>Surveillance de l'état du matériel</br>(Les données ci-dessus s’appliquent aux appareils en local uniquement) |[Surveillance des composants matériels](storsimple-8000-monitor-hardware-status.md) |
+| En savoir plus sur les composants matériels de StorSimple</br>Surveillance de l'état du matériel</br>(Les données ci-dessus s’appliquent aux appareils en local uniquement) |[Superviser les composants matériels](storsimple-8000-monitor-hardware-status.md) |
 | Création d’un package de prise en charge |[Création et gestion d’un package de prise en charge](storsimple-8000-contact-microsoft-support.md#start-a-support-session-in-windows-powershell-for-storsimple) |
-| Installer les mises à jour logicielles |[Mise à jour de votre appareil](storsimple-update-device.md) |
+| Installer les mises à jour logicielles |[Mettre à jour votre appareil](storsimple-update-device.md) |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

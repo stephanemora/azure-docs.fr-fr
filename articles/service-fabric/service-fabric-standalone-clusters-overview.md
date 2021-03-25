@@ -4,10 +4,10 @@ description: Les clusters Service Fabric peuvent être exécutés sous Windows S
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.openlocfilehash: a3162a3d02510ce8efab6c5bcac0f1fdd2b2539b
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94683996"
 ---
 # <a name="overview-of-service-fabric-standalone-clusters"></a>Vue d’ensemble des clusters Service Fabric autonomes
@@ -23,7 +23,7 @@ Le processus de création d’un cluster Service Fabric en local est similaire a
 Un cluster Service Fabric est une ressource que vous possédez.  Il vous incombe la responsabilité de sécuriser vos clusters pour empêcher les utilisateurs non autorisés de s’y connecter. La sécurisation des clusters est particulièrement importante lorsque vous exécutez des charges de travail de production sur le cluster.
 
 > [!NOTE]
-> L’authentification Windows est basée sur Kerberos. NTLM n’est pas pris en charge en tant que type d’authentification.
+> L’authentification Windows est basée sur Kerberos. NTLM n’est pas pris en charge comme type d’authentification.
 >
 > Dans la mesure du possible, utilisez l’authentification par certificat X.509 pour les clusters Service Fabric.
 

@@ -4,10 +4,10 @@ description: Cet article fournit un mappage de l’API REST Azure Service Manage
 ms.topic: article
 ms.date: 09/25/2020
 ms.openlocfilehash: b82772b364bbc44a898197e7fafd11b33e2e6320
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92518787"
 ---
 # <a name="deprecation-of-azure-service-manager-support-for-azure-service-bus-relay-and-event-hubs"></a>Dépréciation de la prise en charge d’Azure Service Manager pour Azure Service Bus, Relay et Event Hubs

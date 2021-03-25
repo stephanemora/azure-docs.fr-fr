@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/29/2019
 ms.openlocfilehash: d49047e9b3a65da90f4a5ac9e4b3cb1e32bd59a7
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92489980"
 ---
 # <a name="auto-grow-storage-using-the-azure-portal-in-azure-database-for-postgresql---single-server"></a>Augmenter automatiquement le stockage à l’aide du portail Azure dans Azure Database pour PostgreSQL - Serveur unique
@@ -28,9 +28,9 @@ Suivez ces étapes pour définir l’augmentation automatique du stockage de ser
 
 1. Dans le [portail Azure](https://portal.azure.com/), sélectionnez votre serveur Azure Database pour PostgreSQL existant.
 
-2. Dans la page de serveur PostgreSQL, sous **Paramètres** , cliquez sur **Niveau tarifaire** pour ouvrir la page de niveau tarifaire.
+2. Dans la page de serveur PostgreSQL, sous **Paramètres**, cliquez sur **Niveau tarifaire** pour ouvrir la page de niveau tarifaire.
 
-3. Dans la section **Augmentation automatique** , sélectionnez **Oui** pour activer l’augmentation automatique du stockage.
+3. Dans la section **Augmentation automatique**, sélectionnez **Oui** pour activer l’augmentation automatique du stockage.
 
     :::image type="content" source="./media/howto-auto-grow-storage-portal/3-auto-grow.png" alt-text="Azure Database pour PostgreSQL - Settings_Pricing_tier - Augmentation automatique":::
 
@@ -38,7 +38,7 @@ Suivez ces étapes pour définir l’augmentation automatique du stockage de ser
 
 5. Une notification confirme que l’augmentation automatique a été correctement activée.
 
-    :::image type="content" source="./media/howto-auto-grow-storage-portal/5-auto-grow-successful.png" alt-text="Azure Database pour PostgreSQL - Settings_Pricing_tier - Augmentation automatique":::
+    :::image type="content" source="./media/howto-auto-grow-storage-portal/5-auto-grow-successful.png" alt-text="Azure Database pour PostgreSQL - Réussite de l’augmentation automatique":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

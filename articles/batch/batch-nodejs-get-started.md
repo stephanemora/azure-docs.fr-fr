@@ -3,12 +3,12 @@ title: Utiliser la bibliothèque de client Azure Batch pour Node.js
 description: Découvrez les concepts de base d’Azure Batch et créez une solution simple à l’aide de Node.js.
 ms.topic: how-to
 ms.date: 10/08/2020
-ms.openlocfilehash: 36a127a20014e87554f0d3e3927b05679b6f72f1
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: a2d86582c94804a20a3a9e952bc64d60414e25a5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737284"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104656020"
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>Bien démarrer avec le Kit de développement logiciel (SDK) Batch pour Node.js
 
@@ -32,9 +32,9 @@ Le diagramme suivant illustre la façon dont nous pouvons mettre à l’échelle
 
 Le client Node.js déploie un traitement par lots avec une tâche de préparation (expliquée en détail plus loin) ainsi qu’un ensemble de tâches en fonction du nombre de conteneurs du compte de stockage. Vous pouvez télécharger les scripts à partir du référentiel GitHub.
 
-- [Client Node.js](https://github.com/Azure/azure-batch-samples/blob/master/Node.js/GettingStarted/nodejs_batch_client_sample.js)
-- [Scripts Shell de la tâche de préparation](https://github.com/Azure/azure-batch-samples/blob/master/Node.js/GettingStarted/startup_prereq.sh)
-- [Processeur de fichiers csv Python au format JSON](https://github.com/Azure/azure-batch-samples/blob/master/Node.js/GettingStarted/processcsv.py)
+- [Client Node.js](https://github.com/Azure-Samples/azure-batch-samples/blob/master/JavaScript/Node.js/sample.js)
+- [Scripts Shell de la tâche de préparation](https://github.com/Azure-Samples/azure-batch-samples/blob/master/JavaScript/Node.js/startup_prereq.sh)
+- [Processeur de fichiers csv Python au format JSON](https://github.com/Azure-Samples/azure-batch-samples/blob/master/JavaScript/Node.js/processcsv.py)
 
 > [!TIP]
 > Le client Node.js dans le lien spécifié ne contient pas de code spécifique pour être déployé comme application de fonction Azure. Vous pouvez vous reporter aux liens suivants pour connaître les instructions à suivre pour en créer une.
