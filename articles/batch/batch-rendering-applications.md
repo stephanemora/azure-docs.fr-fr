@@ -1,14 +1,14 @@
 ---
 title: Applications de rendu
 description: Vous pouvez utiliser n’importe quelle application de rendu avec Azure Batch. Toutefois, les images de machine virtuelle de la Place de marché Azure sont disponibles avec des applications courantes préinstallées.
-ms.date: 02/12/2021
+ms.date: 03/12/2021
 ms.topic: how-to
-ms.openlocfilehash: e296ab09498b6bb7ee21e3d88c9c416c66368d69
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: c98e2e0a81051dad47c201de9eda9f89cc311cf2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100362231"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103496641"
 ---
 # <a name="pre-installed-applications-on-batch-rendering-vm-images"></a>Applications de rendu d’images de machine virtuelle préinstallées Batch Rendering
 
@@ -18,9 +18,12 @@ Le cas échéant, une licence de paiement à l’utilisation est disponible pour
 
 Certaines applications prennent en charge uniquement Windows, mais la plupart sont prises en charge sur Windows et Linux.
 
+> [!IMPORTANT]
+> Les images de rendu des machines virtuelles et les licences de paiement à l’utilisation ont été [déconseillées et seront supprimées le 29 février 2024](https://azure.microsoft.com/updates/azure-batch-rendering-vm-images-licensing-will-be-retired-on-29-february-2024/). Pour utiliser Batch pour le rendu, vous devez utiliser [une image de machine virtuelle personnalisée et une licence d’application standard.](batch-rendering-functionality.md#batch-pools-using-custom-vm-images-and-standard-application-licensing)
+
 ## <a name="applications-on-latest-centos-7-rendering-image"></a>Applications sur l’image de rendu CentOS 7 la plus récente
 
-La liste suivante s’applique à l’image de rendu CentOS, version 1.1.7.
+La liste suivante s’applique à l’image de rendu CentOS, version 1.2.0.
 
 * Autodesk Maya I/O 2020 Update 4.6
 * Autodesk Arnold pour Maya 2020 (Arnold version 6.2.0.0) MtoA-4.2.0-2020

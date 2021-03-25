@@ -5,10 +5,10 @@ ms.topic: article
 ms.custom: devx-track-csharp
 ms.date: 06/23/2020
 ms.openlocfilehash: 724fb1a62b82036b4a0fa8b9f4f3608293f608a9
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98625129"
 ---
 # <a name="azure-relay-hybrid-connections-net-standard-api-overview"></a>Présentation des API .NET standard pour les connexions hybrides Azure Relay
@@ -130,7 +130,7 @@ await textWriter.WriteLineAsync("hello");
 Pour en savoir plus sur Azure Relay, consultez les liens suivants :
 
 * [Informations de référence sur Microsoft.Azure.Relay](/dotnet/api/microsoft.azure.relay)
-* [Qu’est-ce qu’Azure Relay ?](relay-what-is-it.md)
+* [Présentation d’Azure Relay](relay-what-is-it.md)
 * [API Relay disponibles](relay-api-overview.md)
 
 [RelayConnectionStringBuilder]: /dotnet/api/microsoft.azure.relay.relayconnectionstringbuilder

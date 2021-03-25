@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/12/2018
 ms.openlocfilehash: e891c5797c9ce93e6cab7a07d2f68de1a9157249
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92674765"
 ---
 # <a name="connect-to-sql-database-using-c-and-c"></a>Se connecter à SQL Database à l’aide de C et C++
@@ -123,7 +123,7 @@ La dernière chose à faire avant de procéder à la compilation consiste à ajo
 
 ![Ajout d’ODBC en tant que bibliothèque d’entrée](./media/develop-cplusplus-simple/lib.png)
 
-Pour lancer votre application, affichez la Console Linux à partir du menu **Déboguer**  :
+Pour lancer votre application, affichez la Console Linux à partir du menu **Déboguer** :
 
 ![Console Linux](./media/develop-cplusplus-simple/linuxconsole.png)
 

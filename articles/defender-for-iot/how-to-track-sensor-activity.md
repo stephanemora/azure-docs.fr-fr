@@ -1,18 +1,14 @@
 ---
 title: Suivre l’activité d’un capteur
 description: La chronologie des événements présente une chronologie des activités détectées sur votre réseau, notamment les alertes et les actions de gestion des alertes, les événements réseau et les opérations des utilisateurs, telles que la connexion et la suppression d’un utilisateur.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/10/2020
 ms.topic: article
-ms.service: azure
-ms.openlocfilehash: b8a7679521096cf3d98e8f55748eb0398fdc4ab8
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 195908001fbd247ed2e0fa007bc8dcd5ebf28e60
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100523598"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104781617"
 ---
 # <a name="track-sensor-activity"></a>Suivre l’activité d’un capteur
 
@@ -89,6 +85,6 @@ Pour filtrer la chronologie :
     
       Le fichier PCAP contient des informations techniques qui peuvent aider les ingénieurs réseau à déterminer les paramètres exacts de l’événement. Vous pouvez analyser le fichier PCAP avec un analyseur de protocole réseau tel que Wireshark, une application open source.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="see-also"></a>Voir aussi
 
 [Afficher les alertes](how-to-view-alerts.md)

@@ -6,12 +6,12 @@ services: azure-monitor
 ms.topic: reference
 ms.date: 07/03/2019
 ms.author: vitalyg
-ms.openlocfilehash: bd28fa9f20775be659de6cef99f9ceda29fe52cc
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: bae7980137c1da5e1755450863af4f9029d6ed62
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102049132"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104583460"
 ---
 # <a name="application-insights-log-based-metrics"></a>Métriques reposant sur un journal d’Application Insights
 
@@ -95,6 +95,8 @@ Les métriques du navigateur sont collectées par le Kit de développement logic
 
 ### <a name="browser-page-load-time-browsertimingstotalduration"></a>Temps de chargement de la page de navigateur (browserTimings/totalDuration)
 
+Temps s’écoulant entre la demande de l’utilisateur et le chargement du DOM, des feuilles de style, des scripts et des images.
+
 |Unité de mesure|Agrégations prises en charge|Dimensions pré-agrégées|
 |---|---|---|
 |Millisecondes|Moyenne, Min, Max|Aucun|
@@ -110,6 +112,8 @@ browserTimings
 ```
 
 ### <a name="client-processing-time-browsertimingprocessingduration"></a>Temps de traitement du client (browserTiming/processingDuration)
+
+Temps écoulé entre la réception du dernier octet d’un document et le chargement du modèle DOM. Les demandes asynchrones peuvent encore être en cours de traitement.
 
 |Unité de mesure|Agrégations prises en charge|Dimensions pré-agrégées|
 |---|---|---|
@@ -127,6 +131,8 @@ browserTimings
 
 ### <a name="page-load-network-connect-time-browsertimingsnetworkduration"></a>Temps de connexion au réseau pour le chargement de page (browserTimings/networkDuration)
 
+Temps écoulé entre la requête de l’utilisateur et la connexion réseau. Inclut la connexion de recherche DNS et de transport.
+
 |Unité de mesure|Agrégations prises en charge|Dimensions pré-agrégées|
 |---|---|---|
 |Millisecondes|Moyenne, Min, Max|Aucun|
@@ -143,6 +149,8 @@ browserTimings
 
 ### <a name="receiving-response-time-browsertimingsreceiveduration"></a>Temps de réception de réponse (browserTimings/receiveDuration)
 
+Temps écoulé entre le premier et le dernier octet, ou jusqu’à la déconnexion.
+
 |Unité de mesure|Agrégations prises en charge|Dimensions pré-agrégées|
 |---|---|---|
 |Millisecondes|Moyenne, Min, Max|Aucun|
@@ -158,6 +166,8 @@ browserTimings
 ```
 
 ### <a name="send-request-time-browsertimingssendduration"></a>Temps d’envoi de la requête (browserTimings/sendDuration)
+
+Temps écoulé entre la connexion réseau et la réception du premier octet.
 
 |Unité de mesure|Agrégations prises en charge|Dimensions pré-agrégées|
 |---|---|---|

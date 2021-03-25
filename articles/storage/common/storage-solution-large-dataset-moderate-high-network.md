@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: alkohli
 ms.openlocfilehash: cf0e423648db174433f0717f2e5971ac49697b42
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98704621"
 ---
 # <a name="data-transfer-for-large-datasets-with-moderate-to-high-network-bandwidth"></a>Transférer des jeux de données volumineux avec une bande passante réseau modérée à élevée
@@ -69,7 +69,7 @@ Si vous utilisez le transfert de données hors connexion, reportez-vous au table
 |    **Facteur de forme**                  |    5 disques SSD par commande             |    1 x appareil de 50 lb de taille bureau par commande    |    1 x gros appareil d’environ 500 lb par commande    |    Jusqu’à 10 disques HDD/SSD par commande        |
 |    **Temps d’installation initial**               |    Faible <br>(15 minutes)            |    Faible à modéré <br> (< 30 minutes)               |    Modéré<br>(1 à 2 heures)               |    Modéré à difficile<br>(variable) |
 |    **Envoyer des données vers Azure**           |    Oui                          |    Oui                                           |    Oui                                   |    Oui                                 |
-|    **Exporter des données à partir d’Azure**           |    Non                           |    Non                                            |    Non                                    |    Oui                                 |
+|    **Exporter des données à partir d’Azure**           |    Non                           |    Non                                             |    Non                                     |    Oui                                 |
 |    **Chiffrement**                   |    AES 128 bits                  |    AES 256 bits                                   |    AES 256 bits                           |    AES 128 bits                         |
 |    **Matériel**                     |     Fourni par Microsoft          |    Fourni par Microsoft                            |    Fourni par Microsoft                    |    Fourni par le client                   |
 |    **Interface réseau**            |    USB 3.1/SATA                 |    RJ45, SFP+                                   |    RJ45, QSFP+                           |    SATA II/SATA III                    |
@@ -89,7 +89,7 @@ Si vous utilisez le transfert de données en ligne, reportez-vous au tableau de 
 |    **Facteur de forme**            |    Outils de ligne de commande                        |    Interface de programmation                    |    Microsoft fournit un appareil virtuel <br>ou physique     |    Service sur le portail Azure                                            |
 |    **Installation ponctuelle initiale** |    Facile               |    Modéré                       |    Facile (< 30 minutes) à modérée (1 à 2 heures)            |    Exigeante                                                          |
 |    **Prétraitement des données**          |    Non                                        |    Non                                        |    Oui (avec computing en périphérie)                               |    Oui                                                                |
-|    **Transfert à partir d'autres clouds**   |    Non                                        |    Non                                        |    Non                                                    |    Oui                                                                |
+|    **Transfert à partir d'autres clouds**   |    Non                                        |    Non                                         |    Non                                                     |    Oui                                                                |
 |    **Type d’utilisateur**                    |    Professionnel de l'informatique ou développeur                                       |    Dev                                       |    Professionnel de l'informatique                                                |    Professionnel de l'informatique                                                             |
 |    **Tarification**                      |    Gratuit, des frais de sortie de données s'appliquent         |    Gratuit, des frais de sortie de données s'appliquent         |    [Tarification](https://azure.microsoft.com/pricing/details/storage/databox/edge/)                                               |    [Tarification](https://azure.microsoft.com/pricing/details/data-factory/)                                                            |
 

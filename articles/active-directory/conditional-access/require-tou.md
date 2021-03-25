@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8ab484e8caaffaf57f19f1fcd1e65f4b8e723f86
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93077895"
 ---
 # <a name="quickstart-require-terms-of-use-to-be-accepted-before-accessing-cloud-apps"></a>Démarrage rapide : Exiger l’acceptation des conditions d’utilisation avant d’accorder l’accès à des applications cloud
@@ -35,8 +35,8 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Pour suivre le scénario décrit dans ce démarrage rapide, vous avez besoin de ce qui suit :
 
-- **Accès à l’édition Azure AD Premium**  : l’accès conditionnel Azure AD est une fonctionnalité d’Azure AD Premium.
-- **Un compte d’essai nommé Isabella Simonsen**  : si vous ignorez comment créer un compte d’essai, voir [Ajouter des utilisateurs basés sur le cloud](../fundamentals/add-users-azure-active-directory.md#add-a-new-user).
+- **Accès à l’édition Azure AD Premium** : l’accès conditionnel Azure AD est une fonctionnalité d’Azure AD Premium.
+- **Un compte d’essai nommé Isabella Simonsen** : si vous ignorez comment créer un compte d’essai, voir [Ajouter des utilisateurs basés sur le cloud](../fundamentals/add-users-azure-active-directory.md#add-a-new-user).
 
 ## <a name="test-your-sign-in"></a>Tester la connexion
 
@@ -54,17 +54,17 @@ Cette section explique comment configurer des conditions d’utilisation. Lorsqu
 **Pour créer vos conditions d’utilisation :**
 
 1. Dans Microsoft Word, créez un nouveau document.
-1. Saisissez **My terms of use** , puis enregistrez le document sur votre ordinateur sous le nom **mytou.pdf**.
+1. Saisissez **My terms of use**, puis enregistrez le document sur votre ordinateur sous le nom **mytou.pdf**.
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur général, administrateur de sécurité ou administrateur de l’accès conditionnel.
 1. Dans la barre de navigation gauche du portail Azure, cliquez sur **Azure Active Directory**.
 
    ![Azure Active Directory](./media/require-tou/02.png)
 
-1. Sur la page **Azure Active Directory** , dans la section **Sécurité** , cliquez sur **Accès conditionnel**.
+1. Sur la page **Azure Active Directory**, dans la section **Sécurité**, cliquez sur **Accès conditionnel**.
 
    ![Accès conditionnel](./media/require-tou/03.png)
 
-1. Dans la section **Gérer** , cliquez sur **Conditions d’utilisation**.
+1. Dans la section **Gérer**, cliquez sur **Conditions d’utilisation**.
 
    :::image type="content" source="./media/require-tou/04.png" alt-text="Capture d’écran de la section Gérer de la page Azure Active Directory. L’élément Conditions d’utilisation est mis en surbrillance." border="false":::
 
@@ -76,12 +76,12 @@ Cette section explique comment configurer des conditions d’utilisation. Lorsqu
 
    :::image type="content" source="./media/require-tou/112.png" alt-text="Capture d’écran de la page Nouvelles conditions d’utilisation mettant en évidence le nom, le nom complet, le document, la langue, l’accès conditionnel et la bascule d’extension des conditions d’utilisation." border="false":::
 
-   1. Dans la zone de texte **Nom** , saisissez **My TOU**.
+   1. Dans la zone de texte **Nom**, saisissez **My TOU**.
    1. Dans la zone de texte **Nom d’affichage** saisissez **My TOU**.
    1. Chargez vos conditions d’utilisation sous forme de fichier PDF.
-   1. Dans la zone **langue** , sélectionnez **anglais**.
+   1. Dans la zone **langue**, sélectionnez **anglais**.
    1. Activez l’option permettant de **demander aux utilisateurs de développer les conditions d’utilisation** **.**
-   1. Pour l’option **Appliquer avec des modèles de stratégie d’accès conditionnel** , sélectionnez **Stratégie personnalisée**.
+   1. Pour l’option **Appliquer avec des modèles de stratégie d’accès conditionnel**, sélectionnez **Stratégie personnalisée**.
    1. Cliquez sur **Créer**.
 
 ## <a name="create-your-conditional-access-policy"></a>Créer votre stratégie d’accès conditionnel
@@ -103,11 +103,11 @@ Dans votre stratégie, définissez :
 
 **Pour configurer votre stratégie d’accès conditionnel, effectuez les étapes suivantes :**
 
-1. Sur la page **Nouveau** , dans la zone de texte **Nom** , saisissez **Require TOU for Isabella**.
+1. Sur la page **Nouveau**, dans la zone de texte **Nom**, saisissez **Require TOU for Isabella**.
 
    ![Nom](./media/require-tou/71.png)
 
-1. Dans la section **Affectation** , cliquez sur **Utilisateurs et groupes**.
+1. Dans la section **Affectation**, cliquez sur **Utilisateurs et groupes**.
 
    :::image type="content" source="./media/require-tou/06.png" alt-text="Capture d’écran de la section Affectations d’un volet du portail Azure qui définit une stratégie. L’élément Utilisateurs et groupes est visible, avec la valeur Aucun sélectionnée." border="false":::
 
@@ -115,10 +115,10 @@ Dans votre stratégie, définissez :
 
    :::image type="content" source="./media/require-tou/24.png" alt-text="Capture d’écran de l’onglet Inclure de la page Utilisateurs et groupes. L’option Sélectionner des utilisateurs et des groupes est sélectionnée, de même que l’option Utilisateurs et groupes. Sélectionner est mis en surbrillance." border="false":::
 
-   1. Cliquez sur **Sélectionner des utilisateurs et des groupes** , puis choisissez **des utilisateurs et des groupes**.
+   1. Cliquez sur **Sélectionner des utilisateurs et des groupes**, puis choisissez **des utilisateurs et des groupes**.
    1. Cliquez sur **Sélectionner**.
-   1. Dans la page **Sélectionner** , sélectionnez **Isabella Simonsen** , puis cliquez sur **Sélectionner**.
-   1. Dans la page **Utilisateurs et groupes** , cliquez sur **Terminé**.
+   1. Dans la page **Sélectionner**, sélectionnez **Isabella Simonsen**, puis cliquez sur **Sélectionner**.
+   1. Dans la page **Utilisateurs et groupes**, cliquez sur **Terminé**.
 1. Cliquez sur **Applications cloud**.
 
    :::image type="content" source="./media/require-tou/08.png" alt-text="Capture d’écran de la section Affectations d’un volet du portail Azure qui définit une stratégie. L’élément Applications cloud est visible, avec la valeur Aucun sélectionnée." border="false":::
@@ -129,9 +129,9 @@ Dans votre stratégie, définissez :
 
    1. Cliquez sur **Sélectionner les applications**.
    1. Cliquez sur **Sélectionner**.
-   1. Dans la page **Sélectionner** , choisissez **Gestion Microsoft Azure** , puis cliquez sur **Sélectionner**.
-   1. Dans la page **Applications cloud** , cliquez sur **Terminé**.
-1. Dans la section **Contrôles d’accès** , cliquez sur **Accorder**.
+   1. Dans la page **Sélectionner**, choisissez **Gestion Microsoft Azure**, puis cliquez sur **Sélectionner**.
+   1. Dans la page **Applications cloud**, cliquez sur **Terminé**.
+1. Dans la section **Contrôles d’accès**, cliquez sur **Accorder**.
 
    ![Contrôles d’accès](./media/require-tou/10.png)
 
@@ -142,7 +142,7 @@ Dans votre stratégie, définissez :
    1. Sélectionner **Accorder l’accès**.
    1. Sélectionnez **My TOU**.
    1. Cliquez sur **Sélectionner**.
-1. Dans la section **Activer la stratégie** , cliquez sur **Activée**.
+1. Dans la section **Activer la stratégie**, cliquez sur **Activée**.
 
    ![Activer la stratégie](./media/require-tou/18.png)
 
@@ -152,7 +152,7 @@ Dans votre stratégie, définissez :
 
 À présent que vous avez configuré votre stratégie d’accès conditionnel, vous souhaitez probablement savoir s’il fonctionne comme prévu. Dans un premier temps, utilisez l’outil de stratégie d’accès conditionnel What If pour simuler une connexion de votre utilisateur de test. La simulation évalue l’impact cette connexion sur vos stratégies et génère un rapport de simulation.  
 
-Pour initialiser l’outil d’évaluation de stratégie **What If** , définissez ce qui suit :
+Pour initialiser l’outil d’évaluation de stratégie **What If**, définissez ce qui suit :
 
 - **Isabella Simonsen** en tant qu’utilisateur.
 - **Gestion Microsoft Azure** en tant qu’application cloud.
@@ -170,7 +170,7 @@ Un clic sur **What If** a pour effet de créer un rapport de simulation indiquan
 
    ![What If](./media/require-tou/14.png)
 
-1. Cliquez sur **Utilisateurs** , sélectionnez **Isabella Simonsen** , puis cliquez sur **Sélectionner**.
+1. Cliquez sur **Utilisateurs**, sélectionnez **Isabella Simonsen**, puis cliquez sur **Sélectionner**.
 
    ![Utilisateur](./media/require-tou/15.png)
 
@@ -179,9 +179,9 @@ Un clic sur **What If** a pour effet de créer un rapport de simulation indiquan
    :::image type="content" source="./media/require-tou/16.png" alt-text="Capture d’écran de la section Applications cloud. Le texte indique qu’une application est sélectionnée." border="false":::
 
    1. Cliquez sur **Applications cloud**.
-   1. Dans la page **Applications cloud** , cliquez sur **Sélectionner les applications**.
+   1. Dans la page **Applications cloud**, cliquez sur **Sélectionner les applications**.
    1. Cliquez sur **Sélectionner**.
-   1. Dans la page **Sélectionner** , choisissez **Gestion Microsoft Azure** , puis cliquez sur **Sélectionner**.
+   1. Dans la page **Sélectionner**, choisissez **Gestion Microsoft Azure**, puis cliquez sur **Sélectionner**.
    1. Dans la page Applications cloud, cliquez sur **Terminé**.
 1. Cliquez sur **What If**.
 

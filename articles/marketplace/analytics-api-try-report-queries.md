@@ -8,10 +8,10 @@ author: sayantanroy83
 ms.author: sroy
 ms.date: 3/08/2021
 ms.openlocfilehash: 0db212be06182128bbd8a3bf694a2f893ce82eae
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102583452"
 ---
 # <a name="try-report-queries-api"></a>API Essayer des requêtes de rapport
@@ -32,7 +32,7 @@ Cette API exécute une instruction de requête de rapport. L’API retourne uniq
 
 | **En-tête** | **Type** | **Description** |
 | --- | --- | --- |
-| Autorisation | string | Obligatoire. Jeton d’accès Azure Active Directory (Azure AD) au format `Bearer <token>` |
+| Autorisation | string | Obligatoire. Le jeton d’accès Azure Active Directory (Azure AD) au format `Bearer <token>` |
 | Content-Type | string | `Application/JSON` |
 |||
 

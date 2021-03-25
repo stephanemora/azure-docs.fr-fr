@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 06/11/2018
 ms.author: allensu
 ms.openlocfilehash: 1521d08ef9d431bbe8b3fd3a578297d440ed56b3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96018577"
 ---
 # <a name="control-azure-cdn-caching-behavior-with-query-strings---standard-tier"></a>Contrôler le comportement de mise en cache du CDN Azure avec des chaînes de requête - niveau standard
@@ -35,7 +35,7 @@ Avec Azure Content Delivery Network (CDN), vous pouvez contrôler la manière do
 
 Trois modes de chaîne de requête sont disponibles :
 
-- **Ignorer les chaînes de requête** : mode par défaut. Dans ce mode, le nœud POP (point de présence) du CDN transmet les chaînes de requête, du demandeur au serveur d’origine de la première requête et met en cache la ressource. Toutes les requêtes ultérieures pour la ressource, qui sont traitées à partir du nœud POP, ignorent les chaînes de requête jusqu’à l’arrivée à expiration de la ressource mise en cache.
+- **Ignorer les chaînes de requête** : Mode par défaut. Dans ce mode, le nœud POP (point de présence) du CDN transmet les chaînes de requête, du demandeur au serveur d’origine de la première requête et met en cache la ressource. Toutes les requêtes ultérieures pour la ressource, qui sont traitées à partir du nœud POP, ignorent les chaînes de requête jusqu’à l’arrivée à expiration de la ressource mise en cache.
 
 - **Contourner la mise en cache des chaînes de requête** : dans ce mode, les requêtes avec des chaînes de requête ne sont pas mises en cache au niveau du nœud POP du CDN. Le nœud POP récupère la ressource directement à partir du serveur d’origine et le transmet au demandeur avec chaque requête.
 

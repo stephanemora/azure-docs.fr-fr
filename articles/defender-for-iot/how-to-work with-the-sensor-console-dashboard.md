@@ -1,18 +1,14 @@
 ---
 title: Utiliser le tableau de bord de la console de capteur
 description: Le tableau de bord vous permet d’afficher rapidement l’état de sécurité de votre réseau. Il fournit une vue d’ensemble des menaces pour l’ensemble de votre système sur une chronologie, ainsi que des informations sur les appareils associés.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 11/03/2020
 ms.topic: article
-ms.service: azure
-ms.openlocfilehash: eb37434213dd756ba5d7137b93a1cd37da5bb9ae
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: e9bc650e9c306d12ef63994852816c96e1bdf40a
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100523632"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104781532"
 ---
 # <a name="the-dashboard"></a>Le tableau de bord
 
@@ -100,6 +96,6 @@ Sélectionnez la flèche vers le bas **V** en bas d’une zone d’alerte pour a
 
 :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/unauthorized-internet-connectivity-detection-v3.png" alt-text="Connectivité Internet non autorisée détectée":::
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="see-also"></a>Voir aussi
 
 [Utiliser des alertes sur votre capteur](how-to-work-with-alerts-on-your-sensor.md)

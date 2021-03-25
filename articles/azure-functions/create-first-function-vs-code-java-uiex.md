@@ -5,10 +5,10 @@ ms.topic: quickstart
 ms.date: 11/03/2020
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 6c84bf4ebc73857fa0280ffbcbf46b68c2da630f
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102031716"
 ---
 # <a name="quickstart-create-a-java-function-in-azure-using-visual-studio-code"></a>Démarrage rapide : Créer une fonction Java dans Azure avec Visual Studio Code
@@ -17,7 +17,7 @@ ms.locfileid: "102031716"
 
 Utilisez Visual Studio Code pour créer une fonction Java qui répond aux requêtes HTTP. Testez le code localement, puis déployez-le dans l’environnement serverless d’Azure Functions.
 
-Le suivi de ce guide de démarrage rapide génère une dépense de quelques cents USD tout au plus dans votre <abbr title="Profil qui gère les informations de facturation pour l’utilisation d’Azure.">compte Azure</abbr>.
+Le suivi de ce guide de démarrage rapide génère une dépense de quelques cents USD tout au plus dans votre <abbr title="Profil qui gère les informations de facturation pour l’utilisation d’Azure.">Compte Azure</abbr>.
 
 Si Visual Studio Code n’est pas votre outil de développement préféré, consultez nos tutoriels similaires destinés aux développeurs Java utilisant [Maven](create-first-function-cli-java.md), [Gradle](./functions-create-first-java-gradle.md) et [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/quickstart-functions).
 
@@ -25,7 +25,7 @@ Si Visual Studio Code n’est pas votre outil de développement préféré, cons
 
 Avant de commencer, veillez à disposer des éléments suivants :
 
-+ Un compte Azure avec un <abbr title="Structure organisationnelle de base dans laquelle vous gérez les ressources dans Azure, généralement associée à une personne ou à un service au sein d’une organisation.">abonnement</abbr>actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
++ Un compte Azure avec un <abbr title="Structure organisationnelle de base dans laquelle vous gérez les ressources dans Azure, généralement associée à une personne ou à un service au sein d’une organisation.">abonnement</abbr>. [Créez un compte gratuitement](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
 + [Java Developer Kit (JDK)](/azure/developer/java/fundamentals/java-jdk-long-term-support) version 8 ou 11.
 
@@ -119,7 +119,7 @@ Pour publier votre application, connectez-vous à Azure. Si vous êtes déjà co
 
     ![Se connecter à Azure dans VS Code](../../includes/media/functions-sign-in-vs-code/functions-sign-into-azure.png)
 
-1. Quand vous y êtes invité dans le navigateur, **choisissez votre compte Azure** et **connectez-vous** avec vos informations d’identification de compte Azure.
+1. Quand vous y êtes invité dans le navigateur, **choisissez votre compte Azure** et **connectez-vous** à l’aide de vos informations d’identification de compte Azure.
 
 1. Une fois connecté, fermez la nouvelle fenêtre de navigateur et revenez à Visual Studio Code.
 
@@ -146,7 +146,7 @@ Le premier déploiement de votre code inclut la création d’une ressource de f
 
     - **Sélectionnez un emplacement pour les nouvelles ressources** :  Pour de meilleures performances, choisissez une [région](https://azure.microsoft.com/regions/) proche de vous.
 
-1. Une notification s’affiche après que votre application de fonction a été créée et que le package de déploiement a été appliqué. Sélectionnez **Afficher la sortie** pour voir les résultats de la création et du déploiement.
+1. Une notification s’affiche après que votre application de fonction a été créée et que le package de déploiement a été appliqué. Sélectionnez **Afficher la sortie** pour afficher les résultats de la création et du déploiement.
 
     ![Créer une notification de fin](../../includes/media/functions-publish-project-vscode/function-create-notifications.png)
 
@@ -157,14 +157,14 @@ Le premier déploiement de votre code inclut la création d’une ressource de f
 
 Cette section a créé les ressources Azure et déployé votre code local dans l’application de fonction. Si cela a échoué :
 
-* Passez en revue la sortie et recherchez des informations d’erreur. L’icône en forme de cloche en bas à droite est un autre moyen d’afficher la sortie. 
+* Passez en revue la sortie et recherchez des informations d’erreur. L’icône en forme de cloche dans le coin inférieur droit est une autre façon d’afficher la sortie. 
 * Avez-vous publié dans une application de fonction existante ? Cette action remplace le contenu de cette application dans Azure.
 </details>
 
 <br/>
 
 <details>
-<summary><strong>Quelles ressources ont été créées ?</strong></summary>
+<summary><strong>Quelles ressources ont-elles été créées ?</strong></summary>
 
 Quand vous avez terminé, les ressources Azure suivantes sont créées dans votre abonnement et leurs noms reposent sur le nom de votre application de fonction :
 

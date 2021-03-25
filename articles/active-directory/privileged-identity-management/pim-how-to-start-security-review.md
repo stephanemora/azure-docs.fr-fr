@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 10/22/2019
+ms.date: 3/16/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d9fdc44681c8773d7b6f724174a74e76e57939e
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 310122177d4bd1603f5f498aa2a51620eeda4a20
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369758"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104592742"
 ---
 # <a name="create-an-access-review-of-azure-ad-roles-in-privileged-identity-management"></a>Créer une révision d’accès des rôles Azure AD dans Privileged Identity Management
 
@@ -35,19 +35,87 @@ Cet article explique comment créer une ou plusieurs révisions d’accès pour 
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/) à l’aide d’un nom d’utilisateur qui est membre du rôle Administrateur de rôle privilégié.
 
-1. Ouvrez **Azure AD Privileged Identity Management** .
+1. Ouvrez **Azure AD Privileged Identity Management**.
 
-1. Sélectionnez des **rôles Azure AD** .
+1. Sélectionnez des **rôles Azure AD**.
 
-1. Sous Gérer, sélectionnez **Révisions d’accès** , puis sélectionnez **Nouveau** .
+1. Sous Gérer, sélectionnez **Révisions d’accès**, puis sélectionnez **Nouveau**.
 
     ![Rôles d’Azure AD : liste des révisions d’accès indiquant l’état de toutes les révisions](./media/pim-how-to-start-security-review/access-reviews.png)
 
-[!INCLUDE [Privileged Identity Management access reviews](../../../includes/active-directory-privileged-identity-management-access-reviews.md)]
+Cliquez sur **Nouveau** pour créer une révision d’accès.
+
+1. Nommez la révision d’accès. Si vous le souhaitez, vous pouvez fournir une description de cette révision. Les réviseurs ont accès au nom et à la description de la révision.
+
+    ![Créer une révision d’accès - Nom et description de la révision](./media/pim-how-to-start-security-review/name-description.png)
+
+1. Définissez la **Date de début**. Par défaut, une révision d’accès se produit une seule fois, démarre le jour même de sa création et s’arrête un mois plus tard. Vous pouvez modifier les dates de début et de fin pour que la révision d’accès démarre ultérieurement et dure le nombre de jours souhaité.
+
+    ![Date de début, fréquence, durée, fin, nombre de tentatives et date de fin](./media/pim-how-to-start-security-review/start-end-dates.png)
+
+1. Pour que la révision d’accès soit périodique, modifiez le paramètre **Fréquence** en remplaçant la valeur **Une fois** par **Hebdomadaire**, **Mensuel**, **Trimestriel**, **Annuel** ou **Semestriel**. Utilisez la zone de texte ou le curseur **Durée** pour définir le nombre de jours pendant lequel chaque révision de la série périodique pourra être modifiée par les réviseurs. Par exemple, la durée maximale d’une révision mensuelle est de 27 jours, ce qui permet d’éviter le chevauchement des révisions.
+
+1. Utilisez le paramètre **Fin** pour spécifier comment mettre fin à la série de révisions d’accès récurrentes. Les séries accès récurrentes peuvent se terminer de trois façons : elles peuvent s’exécuter de façon continue pour démarrer des révisions indéfiniment, s’exécuter jusqu’à une date spécifique ou s’exécuter jusqu’à ce qu’un nombre défini d’occurrences se soient produites. Un autre administrateur d’utilisateur, ou un autre administrateur d’entreprise ou vous-même pouvez arrêter la série après sa création en modifiant la date définie dans la zone **Paramètres**, afin qu’elle s’arrête à cette date.
+
+1. Dans la section **Utilisateurs**, sélectionnez un ou plusieurs rôles dont vous souhaitez vérifier l’appartenance.
+
+    ![Étendue des utilisateurs pour la révision d’une appartenance à un rôle](./media/pim-how-to-start-security-review/users.png)
+
+    > [!NOTE]
+    > - Les rôles sélectionnés ici incluent des [rôles permanents et éligibles](../privileged-identity-management/pim-how-to-add-role-to-user.md).
+    > - La sélection de plusieurs rôles crée plusieurs révisions d’accès. Par exemple, en sélectionnant cinq rôles, vous créez cinq révisions d’accès distinctes.
+    > - Pour les rôles associés à des groupes, l’accès à chaque groupe lié au rôle en cours de révision est examiné dans le cadre de la révision d’accès.
+    Si vous créez une révision d’accès des **rôles Azure AD**, l’exemple suivant présente une liste Révision d’appartenance.
+
+    ![Volet Révision d’appartenance répertoriant les rôles Azure AD que vous pouvez sélectionner](./media/pim-how-to-start-security-review/review-membership.png)
+
+    Si vous créez une révision d’accès des **rôles de ressource Azure**, l’image suivant présente une liste Révision d’appartenance.
+
+    ![Volet Révision d’appartenance répertoriant les rôles de ressource Azure que vous pouvez sélectionner](./media/pim-how-to-start-security-review/review-membership-azure-resource-roles.png)
+
+1. Dans la section **Réviseurs**, sélectionnez une ou plusieurs personnes pour vérifier tous les utilisateurs. Sinon, vous pouvez choisir de faire en sorte que les membres vérifient leur propre accès.
+
+    ![Liste pour les réviseurs des utilisateurs ou membres sélectionnés (auto)](./media/pim-how-to-start-security-review/reviewers.png)
+
+    - **Utilisateurs sélectionnés** : utilisez cette option lorsque vous ne savez pas qui a besoin de l’accès. Avec cette option, vous pouvez affecter la révision à un propriétaire de ressource ou un responsable de groupe.
+    - **Membres (auto)** : utilisez cette option pour demander aux utilisateurs de réviser leurs propres attributions de rôles. Les groupes affectés au rôle ne feront pas partie de la révision lorsque cette option est sélectionnée.
+    - **Manager** : utilisez cette option pour que le manager de l’utilisateur révise son attribution de rôle. En sélectionnant Manager, vous aurez également la possibilité d’indiquer un réviseur de secours. Les réviseurs de secours sont invités à réviser un utilisateur lorsque celui-ci n’a aucun manager spécifié dans le répertoire. Les groupes affectés au rôle seront examinés par le réviseur de secours, le cas échéant. 
+
+### <a name="upon-completion-settings"></a>Paramètres de saisie semi-automatique
+
+1. Pour spécifier ce qui se passe après la fin d’une révision, développez la section **Paramètres de saisie semi-automatique**.
+
+    ![Paramètres de saisie semi-automatique pour appliquer automatiquement et « Le réviseur ne doit pas répondre »](./media/pim-how-to-start-security-review/upon-completion-settings.png)
+
+1. Si vous voulez supprimer automatiquement l’accès pour les utilisateurs qui ont été refusés, définissez **Appliquer automatiquement les résultats à ressource** sur **Activer**. Si vous voulez appliquer manuellement les résultats quand la révision est terminée, cliquez sur **Désactiver**.
+
+1. Utilisez la liste **Le réviseur ne doit pas répondre** pour spécifier ce qui se passe pour les utilisateurs qui ne sont pas vérifiés par le réviseur au cours de la révision. Ce paramètre n’affecte pas les utilisateurs qui ont été vérifiés manuellement par les réviseurs. Si la décision finale du réviseur est Refuser, l’accès de l’utilisateur est supprimé.
+
+    - **Aucune modification** : laisser l’accès de l’utilisateur inchangé
+    - **Supprimer l’accès** : supprimer l’accès de l’utilisateur
+    - **Approuver l’accès** : approuver l’accès de l’utilisateur
+    - **Accepter les recommandations** : accepter la recommandation du système sur le refus ou l’approbation de la prolongation de l’accès de l’utilisateur
+
+### <a name="advanced-settings"></a>Paramètres avancés
+
+1. Pour spécifier d’autres paramètres, développez la section **Paramètres avancés**.
+
+    ![Paramètres avancés pour afficher des recommandations, exiger la raison lors de l’approbation, notifications par courrier électronique et rappels](./media/pim-how-to-start-security-review/advanced-settings.png)
+
+1. Définissez **Afficher les recommandations** sur **Activer** pour montrer aux réviseurs les recommandations du système basées sur les informations des accès de l’utilisateur.
+
+1. Définissez **Exiger la raison lors de l’approbation** sur **Activer** afin d’exiger que le réviseur indique un motif pour l’approbation.
+
+1. Définissez **Notifications par e-mail** sur **Activer** pour qu’Azure AD envoie des notifications par e-mail aux réviseurs quand une révision d’accès commence et aux administrateurs quand une révision se termine.
+
+1. Définissez **Rappels** sur **Activer** pour qu’Azure AD envoie des rappels concernant les révisions d’accès en cours aux réviseurs qui n’ont pas terminé leur révision.
+1. Le contenu de l’e-mail envoyé aux réviseurs est généré automatiquement en fonction des détails de la révision, comme le nom de la révision, le nom de la ressource, la date d’échéance, etc. Si vous souhaitez communiquer des informations supplémentaires telles que des instructions ou des coordonnées, vous pouvez les ajouter dans l’**e-mail Contenu supplémentaire pour le réviseur** qui sera inclus dans les e-mails d’invitation et de rappel envoyés aux réviseurs désignés. Ces informations seront affichées dans la section en surbrillance ci-dessous.
+
+    ![Contenu de l’e-mail envoyé aux réviseurs avec mise en évidence des points importants](./media/pim-how-to-start-security-review/email-info.png)
 
 ## <a name="start-the-access-review"></a>Démarrer la révision d’accès
 
-Une fois que vous avez spécifié les paramètres pour une révision d’accès, sélectionnez **Démarrer** . La révision d’accès s’affiche dans votre liste, avec un indicateur de son état.
+Une fois que vous avez spécifié les paramètres pour une révision d’accès, sélectionnez **Démarrer**. La révision d’accès s’affiche dans votre liste, avec un indicateur de son état.
 
 ![Liste des révisions d’accès indiquant l’état des révisions démarrées](./media/pim-how-to-start-security-review/access-reviews-list.png)
 
@@ -63,7 +131,7 @@ S’il s’agit d’une révision unique, une fois la période de révision d’
 
 Pour gérer une série de révisions d’accès, accédez à la révision d’accès et vous y voyez les occurrences à venir dans les révisions planifiées, pour lesquelles vous pouvez modifier la date de fin, ou ajouter/supprimer des réviseurs en conséquence.
 
-En fonction de vos sélections dans **Paramètres de saisie semi-automatique** , l’application automatique est exécutée après la date de fin de la révision ou lorsque vous arrêtez manuellement la révision. La révision passe alors de l’état **Terminé** à divers états intermédiaires, comme **Application en cours** , pour arriver enfin à l’état **Appliqué** . Les utilisateurs dont l’accès est refusé doivent perdre leurs rôles au bout de quelques minutes.
+En fonction de vos sélections dans **Paramètres de saisie semi-automatique**, l’application automatique est exécutée après la date de fin de la révision ou lorsque vous arrêtez manuellement la révision. La révision passe alors de l’état **Terminé** à divers états intermédiaires, comme **Application en cours**, pour arriver enfin à l’état **Appliqué**. Les utilisateurs dont l’accès est refusé doivent perdre leurs rôles au bout de quelques minutes.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -7,17 +7,17 @@ ms.service: cache
 ms.topic: troubleshooting
 ms.date: 10/18/2019
 ms.openlocfilehash: 122c96c95aea794fbba9cab8a9a5b867f9f34b48
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88008965"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-client-side-issues"></a>Résoudre les problèmes côté client liés à Azure Cache pour Redis
 
 Cette section traite de la résolution des problèmes qui se produisent à la suite d’une condition sur le client Redis utilisé par votre application.
 
-- [Saturation de la mémoire sur le client Redis](#memory-pressure-on-redis-client)
+- [Sollicitation de la mémoire sur le client Redis](#memory-pressure-on-redis-client)
 - [Augmentation de trafic](#traffic-burst)
 - [Utilisation importante du processeur du client](#high-client-cpu-usage)
 - [Limitation de la bande passante côté client](#client-side-bandwidth-limitation)

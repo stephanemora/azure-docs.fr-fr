@@ -12,12 +12,12 @@ ms.date: 09/08/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 6958302a429fd88d4e26087b860b7f473bf4a1f9
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 226e94510709b37a7e6b1aae90a7e0ec5b4222b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100103989"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103199574"
 ---
 # <a name="use-microsoft-authenticator-or-intune-company-portal-on-xamarin-applications"></a>Utiliser Microsoft Authenticator ou le Portail d’entreprise Intune sur des applications Xamarin
 
@@ -326,6 +326,8 @@ La barre oblique (`/`) devant la signature dans la valeur `android:path` est **r
                     android:path="/hgbUYHVBYUTvuvT&Y6tr554365466="/>
 ```
 
+Pour plus d’informations sur la configuration de votre application pour la prise en charge du navigateur système et d’Android 11, consultez [Mettre à jour le manifeste Android pour la prise en charge du navigateur système](msal-net-xamarin-android-considerations.md#update-the-android-manifest-for-system-webview-support).
+
 Comme alternative, vous pouvez configurer MSAL pour revenir au navigateur incorporé, qui ne repose pas sur un URI de redirection :
 
 ```csharp
@@ -344,22 +346,22 @@ Voici quelques conseils pour éviter les problèmes quand vous implémentez l’
 
     Exemple : Si vous commencez par installer Microsoft Authenticator, puis installez le portail d’entreprise Intune, l’authentification répartie se produit *uniquement* sur Microsoft Authenticator.
 - **Logs** (Journaux) – Si vous rencontrez un problème avec l’authentification répartie, l’affichage des journaux du répartiteur peut vous aider à diagnostiquer la cause.
-  - Affichez les journaux de Microsoft Authenticator :
+  - Obtenez les journaux de Microsoft Authenticator :
 
     1. Sélectionnez le bouton de menu en haut à droite de l’application.
-    1. Sélectionnez **Aide** > **Envoyer des journaux** > **Afficher les journaux**.
-    1. Sélectionnez **Copier tout** pour copier les journaux du répartiteur dans le presse-papiers de l’appareil.
+    1. Sélectionnez **Envoyer des commentaires** > **Des difficultés ?** .
+    1. Sous **Quelle tâche essayez-vous d’effectuer ?** , sélectionnez une option, puis ajoutez une description.
+    1. Pour envoyer les journaux, sélectionnez la flèche dans le coin supérieur droit de l’application.
 
-    La meilleure façon de déboguer ces journaux consiste à les envoyer par courrier électronique à vous-même et à les afficher sur votre ordinateur de développement. Il peut s’avérer plus facile d’analyser les journaux sur votre ordinateur plutôt que sur l’appareil lui-même. Vous pouvez également utiliser un éditeur de test sur Android pour enregistrer les journaux dans un fichier texte, puis utiliser un câble USB pour copier le fichier sur un ordinateur.
+    Une fois que vous avez envoyé les journaux, une boîte de dialogue affiche l’ID de l’incident. Enregistrez l’ID de l’incident et mentionnez-le lorsque vous demandez de l’aide.
 
-  - Affichez les journaux du portail d’entreprise Intune :
+  - Obtenez les journaux du portail d’entreprise Intune :
 
     1. Sélectionnez le bouton de menu en haut à gauche de l’application.
-    1. Sélectionnez **Paramètres** > **Données de diagnostic**.
-    1. Sélectionnez **Copier les journaux** pour copier les journaux du répartiteur vers la carte SD de l’appareil.
-    1. Connectez l’appareil à un ordinateur à l’aide d’un câble USB pour afficher les journaux sur votre ordinateur de développement.
+    1. Sélectionnez **Aide** > **Support technique par e-mail**.
+    1. Pour envoyer les journaux, sélectionnez **Charger les journaux uniquement**.
 
-    Une fois que vous avez les journaux, vous pouvez les rechercher pour vos tentatives d’authentification via l’ID de corrélation. L’ID de corrélation est attaché à chaque demande d’authentification. Pour rechercher les erreurs retournées par le point de terminaison d’authentification de la plateforme d’identité Microsoft, recherchez `AADSTS`.
+    Une fois que vous avez envoyé les journaux, une boîte de dialogue affiche l’ID de l’incident. Enregistrez l’ID de l’incident et mentionnez-le lorsque vous demandez de l’aide.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

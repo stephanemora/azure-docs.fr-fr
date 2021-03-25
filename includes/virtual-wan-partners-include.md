@@ -9,10 +9,10 @@ ms.date: 03/03/2021
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 7374c2727048e323ce0483dd42c574134e7315bd
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102040536"
 ---
 Pour plus d’informations sur les services proposés par les partenaires, vous pouvez consulter les liens de cette section. Si le partenaire d’appareil de votre branche n’est pas répertorié dans la section ci-dessous, demandez-lui de nous contacter. Celui-ci peut nous contacter par courrier électronique à azurevirtualwan@microsoft.com.

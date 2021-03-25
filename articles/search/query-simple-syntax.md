@@ -9,17 +9,17 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/14/2020
 ms.openlocfilehash: f679d6fbab57bcbcccc09b722f6b2f670df49eb2
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97516590"
 ---
 # <a name="simple-query-syntax-in-azure-cognitive-search"></a>Syntaxe de requête simple dans la recherche cognitive Azure
 
 La recherche cognitive Azure implémente deux langages de requête basés sur Lucene : L’[analyseur de requêtes simples](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) et l’[analyseur de requêtes Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). L’analyseur simple est plus flexible, et tente d’interpréter une requête même si elle n’est pas parfaitement composée. Pour cette raison, il s’agit de l’analyseur par défaut pour les requêtes dans Recherche cognitive Azure.
 
-La syntaxe simple est utilisée pour les expressions de requête transmises dans le paramètre **`search`** d’une demande de [recherche dans des documents (API REST)](/rest/api/searchservice/search-documents), à ne pas confondre avec la [syntaxe OData](query-odata-filter-orderby-syntax.md) utilisée pour les expressions [ **`$filter`**](search-filters.md) et [ **`$orderby`** ](search-query-odata-orderby.md) des expressions dans la même demande. Les paramètres OData ont une syntaxe et des règles différentes pour la construction de requêtes, l’échappement de chaînes, et ainsi de suite.
+La syntaxe simple est utilisée pour les expressions de requête transmises dans le paramètre **`search`** d’une demande de [recherche dans des documents (API REST)](/rest/api/searchservice/search-documents), à ne pas confondre avec la [syntaxe OData](query-odata-filter-orderby-syntax.md) utilisée pour les expressions [ **`$filter`**](search-filters.md) et [ **`$orderby`**](search-query-odata-orderby.md) des expressions dans la même demande. Les paramètres OData ont une syntaxe et des règles différentes pour la construction de requêtes, l’échappement de chaînes, et ainsi de suite.
 
 Bien que l’analyseur simple soit basé sur la classe de l’[analyseur de requête simple Apache Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html), l’implémentation dans Recherche cognitive exclut la recherche approximative. Si vous avez besoin de la [recherche approximative](search-query-fuzzy.md), utilisez plutôt la [syntaxe de requête Lucene complète](query-lucene-syntax.md).
 
@@ -105,11 +105,11 @@ Les caractères dangereux sont ``" ` < > # % { } | \ ^ ~ [ ]``. Les caractères 
 
 Dans certains cas, vous rechercherez un caractère spécial, tel que l’émoji « ❤ » ou le signe « € ». Le cas échéant, assurez-vous que l’analyseur que vous utilisez n’ignore pas ces caractères. L’analyseur standard ignore de nombreux caractères spéciaux, en les excluant de votre index.
 
-Les analyseurs qui marquent les caractères spéciaux incluent l’analyseur d’« espace blanc », qui prend en compte toutes les séquences de caractères séparées par des espaces blancs comme des jetons, donc la chaîne « ❤ » est considérée comme un jeton. En outre, un analyseur de langage comme l’analyseur Microsoft English (« en.microsoft ») considère la chaîne « € » comme un jeton. Vous pouvez [tester un analyseur](/rest/api/searchservice/test-analyzer) pour voir quels jetons il génère pour une requête donnée.
+Les analyseur qui segmentent du texte en unités lexicales incluent l’analyseur « whitespace », qui prend en compte toutes les séquences de caractères séparées par des espaces blancs comme des jetons (donc, la chaîne « ❤ » est considérée comme un jeton). En outre, un analyseur de langage comme l’analyseur Microsoft English (« en.microsoft ») considère la chaîne « € » comme un jeton. Vous pouvez [tester un analyseur](/rest/api/searchservice/test-analyzer) pour voir quels jetons il génère pour une requête donnée.
 
 Lorsque vous utilisez des caractères Unicode, assurez-vous que les symboles sont correctement placés dans une séquence d’échappement dans l’URL de la requête (par exemple, pour « ❤ » utilisez la séquence d’échappement `%E2%9D%A4+`). Postman effectue cette traduction automatiquement.  
 
-## <a name="precedence-grouping"></a>Calcul prioritaire
+## <a name="precedence-grouping"></a>Précédence (regroupement)
 
 Vous pouvez utiliser des parenthèses pour créer des sous-requêtes, en incluant des opérateurs au sein de l’instruction entre parenthèses. Par exemple, `motel+(wifi|luxury)` recherche les documents contenant le terme « motel », et « wifi » ou « luxury » (ou les deux).
 

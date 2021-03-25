@@ -13,16 +13,16 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f92625131a35dc91c860923ec6523c189830f65
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: bab8e8c6dfb944e496c636d53217e63175be9fbc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102552148"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104587846"
 ---
 # <a name="securing-service-principals"></a>Sécurisation des principaux de service
 
-Un [principal de service](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals) Azure Active Directory (Azure AD) est la représentation locale d’un objet d’application dans un seul locataire ou répertoire.  Il fonctionne en tant qu’identité d’instance de l’application. Les principaux de service définissent qui peut accéder à l’application, ainsi que les ressources auxquelles l’application peut accéder. Un principal de service est créé dans chaque locataire dans lequel l’application est utilisée, et fait référence à l’objet application global unique. Le locataire sécurise la connexion du principal du service et l’accès aux ressources.  
+Un [principal de service](../develop/app-objects-and-service-principals.md) Azure Active Directory (Azure AD) est la représentation locale d’un objet d’application dans un seul locataire ou répertoire.  Il fonctionne en tant qu’identité d’instance de l’application. Les principaux de service définissent qui peut accéder à l’application, ainsi que les ressources auxquelles l’application peut accéder. Un principal de service est créé dans chaque locataire dans lequel l’application est utilisée, et fait référence à l’objet application global unique. Le locataire sécurise la connexion du principal du service et l’accès aux ressources.  
 
 ### <a name="tenant-service-principal-relationships"></a>Relations du principal du service et du locataire
 Une application à locataire unique dispose d’un seul principal de service dans son locataire de base. Une application web ou une API multi-locataire requiert un principal de service dans chaque locataire. Un principal de service est créé lorsqu’un utilisateur de ce locataire a consenti à l’utilisation de l’application ou de l’API. Ce consentement crée une relation un-à-plusieurs entre l’application multi-locataire et ses principaux de service associés.
@@ -39,7 +39,7 @@ Une instance d’application donnée dispose de deux propriétés distinctes : 
 
 La propriété ApplicationID représente l’application globale et est la même pour toutes les instances d’application au sein des locataires. La propriété ObjectID est une valeur unique pour un objet d’application et représente le principal du service. Comme pour les utilisateurs, groupes et autres ressources, ObjectID permet d’identifier de manière unique une instance d’application dans Azure AD.
 
-Pour plus d’informations sur ce sujet, consultez [Relation entre l’application et le principal du service](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals).
+Pour plus d’informations sur ce sujet, consultez [Relation entre l’application et le principal du service](../develop/app-objects-and-service-principals.md).
 
 Vous pouvez également créer une application et son objet principal de service (ObjectID) dans un locataire à l’aide d’Azure PowerShell, de l’interface Azure CLI, de Microsoft Graph, du portail Azure et d’autres outils. 
 
@@ -63,7 +63,7 @@ Les certificats sont plus sécurisés : si possible, utilisez des certificats c
 
 * mots de passe 
 
-Pour plus d’informations sur Azure Key Vault et son utilisation afin de gérer les certificats et secrets, consultez [À propos d’Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/overview) et [Attribuer une stratégie d’accès Key Vault à l’aide du portail Azure](https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal). 
+Pour plus d’informations sur Azure Key Vault et son utilisation afin de gérer les certificats et secrets, consultez [À propos d’Azure Key Vault](../../key-vault/general/overview.md) et [Attribuer une stratégie d’accès Key Vault à l’aide du portail Azure](../../key-vault/general/assign-access-policy-portal.md). 
 
  ### <a name="challenges-and-mitigations"></a>Défis et atténuations
 Le tableau suivant présente les mesures d’atténuation destinées aux défis susceptibles de se présenter lors de l’utilisation de principaux de service.
@@ -89,7 +89,7 @@ Utilisation de PowerShell
 `Get-AzureADServicePrincipal -All:$true` 
 
 
-Pour plus d’informations, consultez [Get-AzureADServicePrincipal](https://docs.microsoft.com/powershell/module/azuread/get-azureadserviceprincipal).
+Pour plus d’informations, consultez [Get-AzureADServicePrincipal](/powershell/module/azuread/get-azureadserviceprincipal).
 
 ## <a name="assess-service-principal-security"></a>Évaluer la sécurité des principaux du service
 
@@ -105,7 +105,7 @@ Impossible de gérer la connexion des principaux de service avec l’accès cond
 | Le rôle RBAC Azure par défaut est Contributeur. |Évaluez les besoins et appliquez le rôle avec le moins d’autorisations possible pour répondre à ce besoin.|
 
 ## <a name="move-from-a-user-account-to-a-service-principal"></a>Passer d’un compte d’utilisateur à un principal de service  
-Si vous utilisez un compte d’utilisateur Azure en tant que principal du service, voyez s’il vous est possible d’utiliser une [identité managée](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet) ou un principal de service. Si vous ne pouvez pas utiliser d’identité managée, approvisionnez un principal de service doté de suffisamment d’autorisations et d’étendue pour exécuter les tâches requises. Vous pouvez créer un principal de service en [inscrivant une application](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) ou à l’aide de [PowerShell](https://docs.microsoft.com/azure/active-directory/develop/howto-authenticate-service-principal-powershell).
+Si vous utilisez un compte d’utilisateur Azure en tant que principal du service, voyez s’il vous est possible d’utiliser une [identité managée](../../app-service/overview-managed-identity.md?tabs=dotnet) ou un principal de service. Si vous ne pouvez pas utiliser d’identité managée, approvisionnez un principal de service doté de suffisamment d’autorisations et d’étendue pour exécuter les tâches requises. Vous pouvez créer un principal de service en [inscrivant une application](../develop/howto-create-service-principal-portal.md) ou à l’aide de [PowerShell](../develop/howto-authenticate-service-principal-powershell.md).
 
 Lorsque vous utilisez Microsoft Graph, consultez la documentation de l’API spécifique, [comme dans cet exemple](/powershell/azure/create-azure-service-principal-azureps), et assurez-vous que le type d’autorisation pour l’application est pris en charge.
 
@@ -115,7 +115,7 @@ Lorsque vous utilisez Microsoft Graph, consultez la documentation de l’API sp�
 
 [Créer un principal du service](../develop/howto-create-service-principal-portal.md)
 
- [Surveiller les connexions de principal de service](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins#sign-ins-report)
+ [Surveiller les connexions de principal de service](../reports-monitoring/concept-sign-ins.md#sign-ins-report)
 
 **Pour en savoir plus sur la sécurisation des comptes de service :**
 

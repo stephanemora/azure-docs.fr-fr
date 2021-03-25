@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/17/2019
-ms.openlocfilehash: d56c9b33d53be0e30769aef8934a2dbf43d06867
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: d1ddf69acda442212500200eb6dc326dcbcb3c1b
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98944837"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104867795"
 ---
 # <a name="bulk-load-data-into-apache-phoenix-using-psql"></a>Charger des données en bloc dans Apache Phoenix à l’aide de psql
 
@@ -26,7 +26,7 @@ Le chargement en bloc avec MapReduce est utilisé pour des volumes plus importan
 
 Avant de commencer à charger des données, vérifiez que Phoenix est activé et que les paramètres de délai d’expiration de requête sont tel que prévu.  Accédez au tableau de bord [Apache Ambari](https://ambari.apache.org/) de votre cluster HDInsight, sélectionnez HBase, puis sélectionnez l’onglet Configuration.  Faites défiler vers le bas pour vérifier si Apache Phoenix est défini sur `enabled` comme illustré :
 
-![Paramètres de cluster HDInsight Apache Phoenix](./media/apache-hbase-phoenix-psql/apache-ambari-phoenix.png)
+:::image type="content" source="./media/apache-hbase-phoenix-psql/apache-ambari-phoenix.png" alt-text="Paramètres de cluster HDInsight Apache Phoenix" border="true":::
 
 ### <a name="use-psql-to-bulk-load-tables"></a>Utiliser `psql` pour charger des tables en bloc
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: robinsh
 ms.openlocfilehash: 4dbda13ffe04e0a4214b24ccaca2b8103a39b9f2
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92536060"
 ---
 # <a name="configure-iot-hub-file-uploads-using-azure-cli"></a>Configurer les chargements de fichiers IoT Hub à l’aide d’Azure CLI
@@ -89,15 +89,15 @@ Vous pouvez désormais configurer votre hub IoT pour activer la [fonctionnalité
 
 La configuration requiert les valeurs suivantes :
 
-* **Conteneur de stockage**  : Un conteneur d’objets blob dans un compte de stockage Azure de votre abonnement Azure actuel à associer à votre IoT Hub. Vous avez extrait les informations de compte de stockage nécessaires dans la section précédente. IoT Hub génère automatiquement des URI SAS avec des autorisations d’écriture pour ce conteneur d’objets blob pour les appareils à utiliser lorsqu’ils chargent des fichiers.
+* **Conteneur de stockage** : conteneur d’objets blob dans un compte de stockage Azure de votre abonnement Azure actuel à associer à votre hub IoT. Vous avez extrait les informations de compte de stockage nécessaires dans la section précédente. IoT Hub génère automatiquement des URI SAS avec des autorisations d’écriture pour ce conteneur d’objets blob pour les appareils à utiliser lorsqu’ils chargent des fichiers.
 
-* **Recevoir des notifications pour les fichiers chargés**  : activez ou désactivez les notifications de chargement de fichiers.
+* **Recevoir des notifications pour les fichiers chargés** : activez ou désactivez les notifications de chargement de fichiers.
 
-* **SAS TTL** : ce paramètre est la durée de vie des URI de signature d’accès partagé renvoyés à l’appareil par IoT Hub. Défini sur 1 heure par défaut.
+* **Durée de vie de SAS** : ce paramètre est la durée de vie des URI de signature d’accès partagé retournés à l’appareil par IoT Hub. Défini sur 1 heure par défaut.
 
-* **Durée de vie par défaut des paramètres de notification de fichiers** : la durée de vie d’une notification de chargement avant son expiration. Défini sur 1 jour par défaut.
+* **Durée de vie par défaut des paramètres de notification de fichiers** : durée de vie d’une notification de chargement de fichier avant son expiration. Défini sur 1 jour par défaut.
 
-* **Nombre maximal de remises de notifications de fichier** : le nombre de tentatives de remise d’une notification de chargement de fichier par l’IoT Hub. Défini sur 10 par défaut.
+* **Nombre maximal de remises de notifications de fichier** : nombre de tentatives de remise d’une notification de chargement de fichier par le hub IoT. Défini sur 10 par défaut.
 
 Utilisez les commandes Azure CLI suivantes pour configurer les paramètres de chargement sur votre IoT Hub :
 
@@ -138,7 +138,7 @@ Pour plus d’informations sur les fonctionnalités de chargement des fichiers d
 Suivez ces liens pour en savoir plus sur la gestion de Azure IoT Hub :
 
 * [Gestion en bloc des appareils IoT](iot-hub-bulk-identity-mgmt.md)
-* [Surveiller votre hub IoT](monitor-iot-hub.md)
+* [Surveiller IoT Hub](monitor-iot-hub.md)
 
 Pour explorer davantage les capacités de IoT Hub, consultez :
 

@@ -4,10 +4,10 @@ description: Les groupes intelligents sont des regroupements d’alertes qui vou
 ms.topic: conceptual
 ms.date: 05/15/2018
 ms.openlocfilehash: 8a164fe6e5fd5be58da969d9266329755705ea82
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102037963"
 ---
 # <a name="smart-groups"></a>Groupes intelligents
@@ -26,7 +26,7 @@ L’état du groupe intelligent est un concept similaire à l’état de l’ale
 
 Les états de groupe intelligent suivants sont pris en charge.
 
-| State | Description |
+| État | Description |
 |:---|:---|
 | Nouveau | Le problème vient d’être détecté et n’a pas encore été examiné. |
 | Reconnu | Un administrateur a révisé le groupe intelligent et a commencé à y travailler. |

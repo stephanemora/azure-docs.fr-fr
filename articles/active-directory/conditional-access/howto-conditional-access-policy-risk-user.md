@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d5423a61c8febee72f32935f3dee4e9f9e868630
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89049075"
 ---
 # <a name="conditional-access-user-risk-based-conditional-access"></a>Accès conditionnel : Accès conditionnel basé sur les risques d’utilisateur
@@ -40,7 +40,7 @@ Il existe deux emplacements où cette stratégie peut être affectée. Les organ
 1. Confirmez vos paramètres et définissez **Activer la stratégie** sur **Activé**.
 1. Sélectionnez **Créer** pour créer votre stratégie.
 
-## <a name="enable-through-identity-protection"></a>Activer via Identity Protection
+## <a name="enable-through-identity-protection"></a>Activer avec Identity Protection
 
 1. Connectez-vous au **portail Azure**.
 1. Sélectionnez **Tous les services**, puis accédez à **Azure AD Identity Protection**.

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 03/09/2021
 ms.author: marsma
 ms.reviewer: jmprieur, saeeda
-ms.openlocfilehash: 8b0d6ffc00a140073c2dfb5789fbf9760e1767c9
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.openlocfilehash: 22f6e1c8049acd5dbe548bc49955881e05f0ef0e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/14/2021
-ms.locfileid: "103462760"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579040"
 ---
 # <a name="support-and-help-options-for-developers"></a>Options d’aide et de support pour les développeurs
 
@@ -44,17 +44,17 @@ Recevez des réponses à vos questions sur le développement d’applications d�
 
 [Microsoft Q&A](/answers/products/) est la source recommandée d’Azure pour le support de la communauté.
 
-Si vous ne trouvez pas de solution à votre problème en effectuant une recherche dans Microsoft Q&A, envoyez une nouvelle question. Utilisez l’une des étiquettes suivantes quand vous posez votre [question de haute qualité](https://docs.microsoft.com/answers/articles/24951/how-to-write-a-quality-question.html) :
+Si vous ne trouvez pas de solution à votre problème en effectuant une recherche dans Microsoft Q&A, envoyez une nouvelle question. Utilisez l’une des étiquettes suivantes quand vous posez votre [question de haute qualité](/answers/articles/24951/how-to-write-a-quality-question.html) :
 
 | Composant/zone| Balises  |
 |------------|---------------------------|
-| Bibliothèque d’authentification Active Directory (ADAL)                              | [[adal]](https://docs.microsoft.com/answers/topics/azure-ad-adal-deprecation.html)                |
-| Bibliothèque d’authentification Microsoft (MSAL)                                     | [[msal]](https://docs.microsoft.com/answers/topics/azure-ad-msal.html)                            |
-| Ouvrir l’intergiciel Open Web Interface pour .NET (OWIN)                               | [[azure-active-directory]](https://docs.microsoft.com/answers/topics/azure-active-directory.html) |
-| [Azure AD B2B / External Identities](../external-identities/what-is-b2b.md) | [[azure-ad-b2b]](https://docs.microsoft.com/answers/topics/azure-ad-b2b.html)                     |
-| [Azure AD B2C](https://azure.microsoft.com/services/active-directory-b2c/)  | [[azure-ad-b2c]](https://docs.microsoft.com/answers/topics/azure-ad-b2c.html)                     |
-| [API Microsoft Graph](https://developer.microsoft.com/graph/)               | [[azure-ad-graph]](https://docs.microsoft.com/answers/topics/azure-ad-graph.html)                 |
-| Toutes les autres zones d’authentification et d’autorisation                            | [[azure-active-directory]](https://docs.microsoft.com/answers/topics/azure-active-directory.html) |
+| Bibliothèque d’authentification Active Directory (ADAL)                              | [[adal]](/answers/topics/azure-ad-adal-deprecation.html)                |
+| Bibliothèque d’authentification Microsoft (MSAL)                                     | [[msal]](/answers/topics/azure-ad-msal.html)                            |
+| Ouvrir l’intergiciel Open Web Interface pour .NET (OWIN)                               | [[azure-active-directory]](/answers/topics/azure-active-directory.html) |
+| [Azure AD B2B / External Identities](../external-identities/what-is-b2b.md) | [[azure-ad-b2b]](/answers/topics/azure-ad-b2b.html)                     |
+| [Azure AD B2C](https://azure.microsoft.com/services/active-directory-b2c/)  | [[azure-ad-b2c]](/answers/topics/azure-ad-b2c.html)                     |
+| [API Microsoft Graph](https://developer.microsoft.com/graph/)               | [[azure-ad-graph]](/answers/topics/azure-ad-graph.html)                 |
+| Toutes les autres zones d’authentification et d’autorisation                            | [[azure-active-directory]](/answers/topics/azure-active-directory.html) |
 
 ## <a name="create-a-github-issue"></a>Créer un problème GitHub
 
@@ -98,10 +98,8 @@ Pour demander de nouvelles fonctionnalités, publiez-les sur Azure Feedback. Par
 
 - [Mises à jour Azure](https://azure.microsoft.com/updates/?category=identity) : découvrez les mises à jour de produits, la feuille de route et les annonces importantes.
 
-- [Nouveautés dans la documentation](https://docs.microsoft.com/azure/active-directory/develop/whats-new-docs) : découvrez les nouveautés de la documentation sur la Plateforme d’identités Microsoft.
+- [Nouveautés dans la documentation](./whats-new-docs.md) : découvrez les nouveautés de la documentation sur la Plateforme d’identités Microsoft.
 
 - [Blog Azure Active Directory Identity](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/bg-p/Identity) : consultez les actualités et obtenez des informations sur Azure AD.
 
 - [Tech Community](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/bg-p/Identity/) : partagez vos expériences, participez et apprenez auprès des experts.
-
-

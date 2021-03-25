@@ -8,10 +8,10 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.openlocfilehash: 6ac4d0e0744bfc82a686671234e013b2dd717146
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92927751"
 ---
 # <a name="integrate-azure-key-vault-with-azure-policy"></a>Intégrer Azure Key Vault à Azure Policy
@@ -29,9 +29,9 @@ Exemples de scénarios d’utilisation :
 
 ## <a name="types-of-policy-effects-and-guidance"></a>Types d’effets des stratégies et conseils
 
-**Audit**  : Lorsque l’effet d’une stratégie est défini sur audit, celle-ci n’entraînera aucun changement cassant sur votre environnement. Elle vous informera simplement du fait que des composants tels que des certificats ne sont pas conformes aux définitions de la stratégie au sein d’une étendue spécifiée, en les marquant comme non conformes dans le tableau de bord de conformité aux stratégies. L’audit est le paramètre par défaut si aucun effet de stratégie n’est sélectionné.
+**Audit** : Lorsque l’effet d’une stratégie est défini sur audit, celle-ci n’entraînera aucun changement cassant sur votre environnement. Elle vous informera simplement du fait que des composants tels que des certificats ne sont pas conformes aux définitions de la stratégie au sein d’une étendue spécifiée, en les marquant comme non conformes dans le tableau de bord de conformité aux stratégies. L’audit est le paramètre par défaut si aucun effet de stratégie n’est sélectionné.
 
-**Refuser**  : Lorsque l’effet d’une stratégie est défini sur refuser, celle-ci bloque la création de nouveaux composants tels que des certificats et bloque les nouvelles versions de composants existants qui ne sont pas conformes à la définition de stratégie. Les ressources non conformes existantes au sein d’un coffre de clés ne sont pas affectées. Les capacités « audit » continuent de fonctionner.
+**Refuser** : Lorsque l’effet d’une stratégie est défini sur refuser, celle-ci bloque la création de nouveaux composants tels que des certificats et bloque les nouvelles versions de composants existants qui ne sont pas conformes à la définition de stratégie. Les ressources non conformes existantes au sein d’un coffre de clés ne sont pas affectées. Les capacités « audit » continuent de fonctionner.
 
 ## <a name="available-built-in-policy-definitions"></a>Définitions de stratégie « prédéfinies » disponibles
 
@@ -91,9 +91,9 @@ Votre service peut subir une panne si un certificat qui n’est pas surveillé c
 
 Si vous souhaitez vous assurer que vos clés n’ont pas été actives pendant plus qu’un nombre spécifié de jours, vous pouvez utiliser cette stratégie pour auditer la durée pendant laquelle votre clé a été active.
 
-**Si votre clé a une date d’activation définie** , cette stratégie calcule le nombre de jours écoulés depuis la **date d’activation** de la clé jusqu’à la date actuelle. Si le nombre de jours dépasse le seuil que vous définissez, la clé est marquée comme non conforme à la stratégie.
+**Si votre clé a une date d’activation définie**, cette stratégie calcule le nombre de jours écoulés depuis la **date d’activation** de la clé jusqu’à la date actuelle. Si le nombre de jours dépasse le seuil que vous définissez, la clé est marquée comme non conforme à la stratégie.
 
-**Si votre clé n’a pas de date d’activation définie** , cette stratégie calcule le nombre de jours écoulés depuis la **date de création** de la clé jusqu’à la date actuelle. Si le nombre de jours dépasse le seuil que vous définissez, la clé est marquée comme non conforme à la stratégie.
+**Si votre clé n’a pas de date d’activation définie**, cette stratégie calcule le nombre de jours écoulés depuis la **date de création** de la clé jusqu’à la date actuelle. Si le nombre de jours dépasse le seuil que vous définissez, la clé est marquée comme non conforme à la stratégie.
 
 ### <a name="keys-should-be-the-specified-cryptographic-type-rsa-or-ec-preview"></a>Les clés doivent être du type de chiffrement spécifié, RSA ou EC (préversion)
 
@@ -139,9 +139,9 @@ Gérez les exigences en matière de conformité de votre organisation en spécif
 
 Si vous souhaitez vous assurer que vos secrets n’ont pas été actifs pendant plus qu’un nombre spécifié de jours, vous pouvez utiliser cette stratégie pour auditer la durée pendant laquelle votre secret a été actif.
 
-**Si votre secret a une date d’activation définie** , cette stratégie calcule le nombre de jours écoulés depuis la **date d’activation** du secret jusqu’à la date actuelle. Si le nombre de jours dépasse le seuil que vous définissez, le secret est marqué comme non conforme à la stratégie.
+**Si votre secret a une date d’activation définie**, cette stratégie calcule le nombre de jours écoulés depuis la **date d’activation** du secret jusqu’à la date actuelle. Si le nombre de jours dépasse le seuil que vous définissez, le secret est marqué comme non conforme à la stratégie.
 
-**Si votre secret n’a pas de date d’activation définie** , cette stratégie calcule le nombre de jours écoulés depuis la **date de création** du secret jusqu’à la date actuelle. Si le nombre de jours dépasse le seuil que vous définissez, le secret est marqué comme non conforme à la stratégie.
+**Si votre secret n’a pas de date d’activation définie**, cette stratégie calcule le nombre de jours écoulés depuis la **date de création** du secret jusqu’à la date actuelle. Si le nombre de jours dépasse le seuil que vous définissez, le secret est marqué comme non conforme à la stratégie.
 
 ### <a name="secrets-should-have-content-type-set-preview"></a>Les secrets doivent avoir un type de contenu défini (préversion)
 
@@ -165,7 +165,7 @@ Gérez les exigences en matière de conformité de votre organisation en spécif
 
 Vous gérez un coffre de clés utilisé par plusieurs équipes qui contient 100 certificats et vous voulez être sûr qu’aucun des certificats du coffre de clés n’est valide plus de 2 ans.
 
-1. Vous attribuez la stratégie **La période de validité maximale des certificats doit être spécifiée** , spécifiez que la durée de validité maximale d’un certificat est 24 mois, puis définissez l’effet de la stratégie sur « audit ». 
+1. Vous attribuez la stratégie **La période de validité maximale des certificats doit être spécifiée**, spécifiez que la durée de validité maximale d’un certificat est 24 mois, puis définissez l’effet de la stratégie sur « audit ». 
 1. En consultant le [rapport de conformité sur le portail Azure](#view-compliance-results), vous constatez que 20 certificats sont non conformes et valides plus de 2 ans, et que les autres certificats sont conformes. 
 1. Vous contactez les propriétaires de ces certificats et les informez de la nouvelle exigence de sécurité spécifiant que les certificats ne doivent pas être valides plus de 2 ans. Certaines équipes répondent et 15 des certificats sont renouvelés avec une durée de validité maximale de 2 ans ou moins. Les autres équipes ne répondent pas et il reste 5 certificats non conformes dans votre coffre de clés.
 1. Vous remplacez l’effet de la stratégie attribuée par « refuser ». Les 5 certificats non conformes ne sont pas révoqués et continuent à fonctionner. Toutefois, ils ne peuvent pas être renouvelés avec une durée de validité supérieure à 2 ans. 
